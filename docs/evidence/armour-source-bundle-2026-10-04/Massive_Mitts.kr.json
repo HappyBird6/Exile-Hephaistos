@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/kr/Massive_Mitts",
+  "retrievedAt": "2026-10-04T15:38:12.709Z",
+  "sha256": "e5383d6303a014e02901a6718e4a47ee65c1a3a77f2d2dd47b75a14a4da7777c",
+  "name": "거대한 미트",
+  "card": "거대한 미트\n        \n    \n    \n        \n            장갑방어도: 187요구 사항:  레벨 80, 101 힘\n        \n\n\n\n        \n            Massive Mitts",
+  "requirements": "요구 사항:  레벨 80, 101 힘",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "거대한 미트",
+    "Class": "장갑",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame",
+    "Tags": "str_armour, karui_basetype, gloves, armour",
+    "Icon": "Art/2DItems/Armours/Gloves/Basetypes/GlovesStr06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, gloves",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Gloves",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "row": {
+    "Name": "of Dazing",
+    "Level": "18",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "StunDurationIncreasePercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(14<span class=\"ndash\">—</span>16)</span>% increased <a data-keyword=\"Stun\" href=\"Stun\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2ee96f67bd8f6686e4f503e78cef409a2735ea3415a4fac84f4aea10b5189aba\">Stun</a> Duration",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "ranged",
+      "weapon",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d518e4b5a4f03c8b46f076740e4d301a53bc3f0433d6ab47ef628dd9453f201d"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FStunDuration2",
+  "textLocale": "kr",
+  "detailText": "기절 지속시간 (14—16)% 증가",
+  "retrievedAt": "2026-10-05T08:11:06.428Z",
+  "sha256": "8caf52229dd8a27ebe6466cef682258cd9b75d8cc5d265c7a8e9f466305672a1",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Stun\" href=\"Stun\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/8b99193246e0c320e366e692b91e711c0aa449eb2c4b5e66a9260677cec5f8d7\">기절</a> 지속시간 <span class='mod-value'>(14<span class=\"ndash\">—</span>16)</span>% 증가</span></h5>   <span data-tabname=\"- 혼미\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>- 혼미\n<tr><th>Family<td>StunDurationIncreasePercent\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접미어 (2)\n<tr><th>Req. level<td>18 (Effective: 14)\n<tr><th>Gold Price<td>292\n<tr><th>Stats<td><li>local base stun duration +% <span class=\"badge bg-primary\">14 <span class=\"ndash\">—</span> 16</span> <span class=\"badge bg-secondary\">지역</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ranged: 0</span> <span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "- 혼미",
+    "Family": "StunDurationIncreasePercent",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접미어 (2)",
+    "Req. level": "18 (Effective: 14)",
+    "Gold Price": "292",
+    "Stats": "local base stun duration +% 14 — 16 지역",
+    "Spawn Tags": "ranged: 0 weapon: 1 default: 0"
+  },
+  "code": "StunDuration2",
+  "stats": [
+    {
+      "id": "local_base_stun_duration_+%",
+      "min": 14,
+      "max": 16,
+      "locality": "지역"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ranged",
+      "weight": 0
+    },
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

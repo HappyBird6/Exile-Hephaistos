@@ -1,0 +1,69 @@
+{
+  "row": {
+    "Name": "Apprentice's",
+    "Level": "1",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponCasterDamagePrefix"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(25<span class=\"ndash\">—</span>34)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Damage",
+    "fossil_no": [
+      "caster_damage",
+      "damage",
+      "caster"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "focus",
+      "wand",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b604421575da4f25ae08f6d2ba441f33a0cd46dd0aec05b0f595d4b0153ae3f3"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnWeapon1",
+  "textLocale": "us",
+  "detailText": "(25—34)% increased Spell Damage",
+  "retrievedAt": "2026-10-05T04:35:35.519Z",
+  "sha256": "bb5e015be7fae60ecfbac724461d63f59fc0f81fc39def409acca1255b298829",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(25<span class=\"ndash\">—</span>34)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Damage</span></h5>   <span data-tabname=\"Apprentice's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Apprentice's\n<tr><th>Family<td>WeaponCasterDamagePrefix\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>1\n<tr><th>Gold Price<td>152\n<tr><th>Stats<td><li>spell damage +% <span class=\"badge bg-primary\">25 <span class=\"ndash\">—</span> 34</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Caster</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Apprentice's",
+    "Family": "WeaponCasterDamagePrefix",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "1",
+    "Gold Price": "152",
+    "Stats": "spell damage +% 25 — 34 Global",
+    "Spawn Tags": "focus: 1 wand: 1 default: 0",
+    "Craft Tags": "caster_damage Damage Caster"
+  },
+  "code": "SpellDamageOnWeapon1",
+  "stats": [
+    {
+      "id": "spell_damage_+%",
+      "min": 25,
+      "max": 34,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/us/Reflecting_Staff",
+  "retrievedAt": "2026-10-05T10:01:09.918Z",
+  "sha256": "dc8f57e708fc88f0596f385af06392cf136919990a8a833906709a04538eae9c",
+  "variants": [
+    {
+      "name": "Reflecting Staff",
+      "card": "Reflecting Staff\n        \n    \n    \n        \n            StavesRequires:  Level 70, 114 Int Grants Skill: Mirror of Refraction",
+      "requirements": "Requires:  Level 70, 114 Int",
+      "properties": [
+        "Staves"
+      ],
+      "fields": {
+        "DropLevel": "70",
+        "BaseType": "Reflecting Staff",
+        "Class": "Staves",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff02",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

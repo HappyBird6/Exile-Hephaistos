@@ -1,0 +1,59 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "25",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [],
+    "fossil_no": [
+      "runic_ward"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/525a2ea3a697b76fc583ccba0617f289b8173389fbccc61999a0a55205031e32\" href=\"Protective_Alloy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ImpureVerisium.webp\" alt=\"ImpureVerisium\" height=\"16\" />Protective Alloy</a>",
+    "Code": "AlloyMaximumRunicWardWeapon1",
+    "ModFamilyList": [
+      "BaseRunicWard"
+    ],
+    "str": "<span class='mod-value'>+(51<span class=\"ndash\">—</span>74)</span> to maximum <a data-keyword=\"Ward\" href=\"Runic_Ward\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1547e196969812ca08cdcd4c7cbb6befaf15e8caa83eb77c59704c6452b4eb82\">Runic Ward</a>",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 20,
+    "IsPerfect": "0",
+    "IsAlloy": true,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyMaximumRunicWardWeapon1",
+  "textLocale": "us",
+  "detailText": "+(51—74) to maximum Runic Ward",
+  "retrievedAt": "2026-10-05T10:10:00.097Z",
+  "sha256": "5bb9bc66b4dffb8ed55b7dcfa1bce849e36e75cec454d9733c84f4fe5cdc0b38",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(51<span class=\"ndash\">—</span>74)</span> to maximum <a data-keyword=\"Ward\" href=\"Runic_Ward\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1547e196969812ca08cdcd4c7cbb6befaf15e8caa83eb77c59704c6452b4eb82\">Runic Ward</a></span></h5>   <span data-tabname=\"of the Stars\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Stars\n<tr><th>Family<td>BaseRunicWard\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>25 (Effective: 20)\n<tr><th>Gold Price<td>329\n<tr><th>Stats<td><li>base maximum ward <span class=\"badge bg-primary\">51 <span class=\"ndash\">—</span> 74</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>runic_ward</i></span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Stars",
+    "Family": "BaseRunicWard",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "25 (Effective: 20)",
+    "Gold Price": "329",
+    "Stats": "base maximum ward 51 — 74 Global",
+    "Spawn Tags": "default: 0",
+    "Craft Tags": "runic_ward"
+  },
+  "code": "AlloyMaximumRunicWardWeapon1",
+  "stats": [
+    {
+      "id": "base_maximum_ward",
+      "min": 51,
+      "max": 74,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

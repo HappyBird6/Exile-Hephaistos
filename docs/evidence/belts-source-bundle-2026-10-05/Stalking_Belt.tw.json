@@ -1,0 +1,30 @@
+{
+  "url": "https://poe2db.tw/tw/Stalking_Belt",
+  "retrievedAt": "2026-10-05T01:24:41.619Z",
+  "sha256": "1b3c19460f41a1baccc7fe94595b8a192f054311fc6c04675e4740dbee736ca6",
+  "variants": [
+    {
+      "name": "獵跡腰帶",
+      "card": "獵跡腰帶\n        \n    \n    \n        \n            腰帶需求:  等級 50有(1—3)個護符欄位有1個護符欄位此物品會被視為長靴，自插槽中的物品獲得加成\n        \n\n        \n        \n            是我們的腳步在擾動。\n        \n\n\n        \n            Stalking Belt",
+      "requirements": "需求:  等級 50",
+      "fields": {
+        "DropLevel": "50",
+        "BaseType": "獵跡腰帶",
+        "Class": "腰帶",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBeltB1",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/StalkingBelt",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

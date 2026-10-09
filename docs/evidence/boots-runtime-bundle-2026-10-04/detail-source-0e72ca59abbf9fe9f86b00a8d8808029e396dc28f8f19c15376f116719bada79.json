@@ -1,0 +1,57 @@
+{
+  "code": null,
+  "sourceId": "0e72ca59abbf9fe9f86b00a8d8808029e396dc28f8f19c15376f116719bada79",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/0e72ca59abbf9fe9f86b00a8d8808029e396dc28f8f19c15376f116719bada79",
+  "retrievedAt": "2026-10-04T18:56:24.367Z",
+  "sha256": "0e72ca59abbf9fe9f86b00a8d8808029e396dc28f8f19c15376f116719bada79",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(21<span class=\"ndash\">—</span>26)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7c65e1f3a35da0dbec7a97f88c1f0880d4ef3de7a00825138eb3fb970c68a76c\">Armour</a><br><span class='mod-value'>+(25<span class=\"ndash\">—</span>40)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1f51fba619abf4b953c56b78a8c5a3ff902c3b78897e06e579f7811c2d20f9e1\">Stun Threshold</a></span></h5>   <span data-tabname=\"Armadillo's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Armadillo's\n<tr><th>Family<td>DefencesPercentAndStunThreshold\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>38 (Effective: 30)\n<tr><th>Gold Price<td>477\n<tr><th>Stats<td><li>stun threshold + <span class=\"badge bg-primary\">25 <span class=\"ndash\">—</span> 40</span> <span class=\"badge bg-secondary\">Global</span></li><li>local physical damage reduction rating +% <span class=\"badge bg-primary\">21 <span class=\"ndash\">—</span> 26</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 0</span> <span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>str_armour: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Armadillo's",
+      "Family": "DefencesPercentAndStunThreshold",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "38 (Effective: 30)",
+      "Gold Price": "477",
+      "Stats": "stun threshold + 25 — 40 Globallocal physical damage reduction rating +% 21 — 26 Local",
+      "Spawn Tags": "body_armour: 0 helmet: 0 gloves: 0 str_armour: 1 default: 0"
+    },
+    "stats": [
+      {
+        "id": "stun_threshold_+",
+        "min": 25,
+        "max": 40,
+        "locality": "Global"
+      },
+      {
+        "id": "local_physical_damage_reduction_rating_+%",
+        "min": 21,
+        "max": 26,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "body_armour",
+        "weight": 0
+      },
+      {
+        "tag": "helmet",
+        "weight": 0
+      },
+      {
+        "tag": "gloves",
+        "weight": 0
+      },
+      {
+        "tag": "str_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(21—26)% increased Armour\n+(25—40) to Stun Threshold"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "row": {
+    "Name": "Vigorous",
+    "Level": "70",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(175<span class=\"ndash\">—</span>189)</span> to maximum Life",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "shield",
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/95c5ea4b98d5f9a34c75ec90dcfd27032c22acefe540f134742ce9a90d817409"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife11",
+  "textLocale": "us",
+  "detailText": "+(175—189) to maximum Life",
+  "retrievedAt": "2026-10-05T04:19:09.505Z",
+  "sha256": "95c5ea4b98d5f9a34c75ec90dcfd27032c22acefe540f134742ce9a90d817409",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(175<span class=\"ndash\">—</span>189)</span> to maximum Life</span></h5>   <span data-tabname=\"Vigorous\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Vigorous\n<tr><th>Family<td>IncreasedLife\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>70 (Effective: 56)\n<tr><th>Gold Price<td>3109\n<tr><th>Stats<td><li>base maximum life <span class=\"badge bg-primary\">175 <span class=\"ndash\">—</span> 189</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>body_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>15</span>% less damage taken while on [LowLife|Low Life]</table>  </div></div>",
+  "fields": {
+    "Name": "Vigorous",
+    "Family": "IncreasedLife",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "70 (Effective: 56)",
+    "Gold Price": "3109",
+    "Stats": "base maximum life 175 — 189 Global",
+    "Spawn Tags": "shield: 1 body_armour: 1 default: 0",
+    "Craft Tags": "resource Life"
+  },
+  "code": "IncreasedLife11",
+  "stats": [
+    {
+      "id": "base_maximum_life",
+      "min": 175,
+      "max": 189,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "shield",
+      "weight": 1
+    },
+    {
+      "tag": "body_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

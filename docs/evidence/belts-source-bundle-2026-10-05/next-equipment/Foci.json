@@ -1,0 +1,249 @@
+{
+  "page": "Foci",
+  "url": "https://poe2db.tw/us/Foci",
+  "retrievedAt": "2026-10-05T01:38:21.291Z",
+  "sha256": "eae495119e38f92ec387f47f55cddf5f86064c5518d80dbdcbed24100dad1b50",
+  "cards": [
+    {
+      "slug": "Twig_Focus",
+      "card": "Twig FocusEnergy Shield: 12"
+    },
+    {
+      "slug": "Woven_Focus",
+      "card": "Woven FocusEnergy Shield: 15Requires:  Level 6, 11 Int"
+    },
+    {
+      "slug": "Antler_Focus",
+      "card": "Antler FocusEnergy Shield: 18Requires:  Level 10, 17 Int"
+    },
+    {
+      "slug": "Engraved_Focus",
+      "card": "Engraved FocusEnergy Shield: 22Requires:  Level 16, 25 Int"
+    },
+    {
+      "slug": "Tonal_Focus",
+      "card": "Tonal FocusEnergy Shield: 26Requires:  Level 22, 33 Int"
+    },
+    {
+      "slug": "Crystal_Focus",
+      "card": "Crystal FocusEnergy Shield: 29Requires:  Level 26, 38 Int"
+    },
+    {
+      "slug": "Voodoo_Focus",
+      "card": "Voodoo FocusEnergy Shield: 34Requires:  Level 33, 48 Int"
+    },
+    {
+      "slug": "Plumed_Focus",
+      "card": "Plumed FocusEnergy Shield: 36Requires:  Level 36, 52 Int"
+    },
+    {
+      "slug": "Runed_Focus",
+      "card": "Runed FocusEnergy Shield: 42Requires:  Level 45, 64 Int"
+    },
+    {
+      "slug": "Whorl_Focus",
+      "card": "Whorl FocusEnergy Shield: 47Requires:  Level 51, 73 Int"
+    },
+    {
+      "slug": "Elegant_Focus",
+      "card": "Elegant FocusEnergy Shield: 47Requires:  Level 52, 74 Int"
+    },
+    {
+      "slug": "Attuned_Focus",
+      "card": "Attuned FocusEnergy Shield: 51Requires:  Level 57, 81 Int"
+    },
+    {
+      "slug": "Magus_Focus",
+      "card": "Magus FocusEnergy Shield: 56Requires:  Level 65, 91 Int"
+    },
+    {
+      "slug": "Wreath_Focus",
+      "card": "Wreath FocusEnergy Shield: 42Requires:  Level 45, 64 Int"
+    },
+    {
+      "slug": "Staghorn_Focus",
+      "card": "Staghorn FocusEnergy Shield: 45Requires:  Level 48, 69 Int"
+    },
+    {
+      "slug": "Jingling_Focus",
+      "card": "Jingling FocusEnergy Shield: 47Requires:  Level 51, 73 Int"
+    },
+    {
+      "slug": "Arrayed_Focus",
+      "card": "Arrayed FocusEnergy Shield: 49Requires:  Level 54, 77 Int"
+    },
+    {
+      "slug": "Cultist_Focus",
+      "card": "Cultist FocusEnergy Shield: 52Requires:  Level 59, 83 Int"
+    },
+    {
+      "slug": "Hallowed_Focus",
+      "card": "Hallowed FocusEnergy Shield: 57Requires:  Level 61, 86 Int"
+    },
+    {
+      "slug": "Druidic_Focus",
+      "card": "Druidic FocusEnergy Shield: 62Requires:  Level 65, 91 Int"
+    },
+    {
+      "slug": "Leyline_Focus",
+      "card": "Leyline FocusEnergy Shield: 71Requires:  Level 70, 99 Int"
+    },
+    {
+      "slug": "Sacred_Focus",
+      "card": "Sacred FocusEnergy Shield: 81Requires:  Level 75, 107 Int"
+    },
+    {
+      "slug": "Tasalian_Focus",
+      "card": "Tasalian FocusEnergy Shield: 91Requires:  Level 80, 115 Int"
+    },
+    {
+      "slug": "Runeforged_Twig_Focus",
+      "card": "Runeforged Twig FocusEnergy Shield: 12Runic Ward: 12"
+    },
+    {
+      "slug": "Runeforged_Woven_Focus",
+      "card": "Runeforged Woven FocusEnergy Shield: 15Runic Ward: 15Requires:  Level 6, 11 Int"
+    },
+    {
+      "slug": "Runeforged_Antler_Focus",
+      "card": "Runeforged Antler FocusEnergy Shield: 18Runic Ward: 17Requires:  Level 10, 17 Int"
+    },
+    {
+      "slug": "Runeforged_Engraved_Focus",
+      "card": "Runeforged Engraved FocusEnergy Shield: 22Runic Ward: 22Requires:  Level 16, 25 Int"
+    },
+    {
+      "slug": "Runeforged_Tonal_Focus",
+      "card": "Runeforged Tonal FocusEnergy Shield: 26Runic Ward: 24Requires:  Level 22, 33 Int"
+    },
+    {
+      "slug": "Runeforged_Crystal_Focus",
+      "card": "Runeforged Crystal FocusEnergy Shield: 29Runic Ward: 25Requires:  Level 26, 38 Int"
+    },
+    {
+      "slug": "Runeforged_Voodoo_Focus",
+      "card": "Runeforged Voodoo FocusEnergy Shield: 34Runic Ward: 28Requires:  Level 33, 48 Int"
+    },
+    {
+      "slug": "Runeforged_Plumed_Focus",
+      "card": "Runeforged Plumed FocusEnergy Shield: 36Runic Ward: 30Requires:  Level 36, 52 Int"
+    },
+    {
+      "slug": "Runeforged_Runed_Focus",
+      "card": "Runeforged Runed FocusEnergy Shield: 42Runic Ward: 32Requires:  Level 45, 64 Int"
+    },
+    {
+      "slug": "Runeforged_Whorl_Focus",
+      "card": "Runeforged Whorl FocusEnergy Shield: 47Runic Ward: 34Requires:  Level 51, 73 Int"
+    },
+    {
+      "slug": "Runeforged_Elegant_Focus",
+      "card": "Runeforged Elegant FocusRunic Ward: 146Requires:  Level 52, 74 Int"
+    },
+    {
+      "slug": "Runeforged_Attuned_Focus",
+      "card": "Runeforged Attuned FocusRunic Ward: 157Requires:  Level 57, 81 Int"
+    },
+    {
+      "slug": "Runeforged_Magus_Focus",
+      "card": "Runeforged Magus FocusRunic Ward: 176Requires:  Level 65, 91 Int"
+    },
+    {
+      "slug": "Runeforged_Arrayed_Focus",
+      "card": "Runeforged Arrayed FocusEnergy Shield: 43Runic Ward: 45Requires:  Level 54, 77 Int"
+    },
+    {
+      "slug": "Runeforged_Cultist_Focus",
+      "card": "Runeforged Cultist FocusEnergy Shield: 50Runic Ward: 32Requires:  Level 59, 83 Int"
+    },
+    {
+      "slug": "Runeforged_Hallowed_Focus",
+      "card": "Runeforged Hallowed FocusEnergy Shield: 43Runic Ward: 58Requires:  Level 61, 86 Int"
+    },
+    {
+      "slug": "Runeforged_Druidic_Focus",
+      "card": "Runeforged Druidic FocusEnergy Shield: 55Runic Ward: 62Requires:  Level 65, 91 Int"
+    },
+    {
+      "slug": "Runeforged_Leyline_Focus",
+      "card": "Runeforged Leyline FocusEnergy Shield: 47Runic Ward: 114Requires:  Level 70, 99 Int"
+    },
+    {
+      "slug": "Runeforged_Sacred_Focus",
+      "card": "Runeforged Sacred FocusEnergy Shield: 68Runic Ward: 53Requires:  Level 75, 107 Int"
+    },
+    {
+      "slug": "Runeforged_Tasalian_Focus",
+      "card": "Runeforged Tasalian FocusEnergy Shield: 36Runic Ward: 181Requires:  Level 80, 115 Int"
+    },
+    {
+      "slug": "Runemastered_Twig_Focus",
+      "card": "Runemastered Twig FocusEnergy Shield: 38Runic Ward: 23Requires:  Level 38, 54 Int"
+    },
+    {
+      "slug": "Runemastered_Woven_Focus",
+      "card": "Runemastered Woven FocusEnergy Shield: 23Runic Ward: 45Requires:  Level 38, 54 Int"
+    },
+    {
+      "slug": "Runemastered_Antler_Focus",
+      "card": "Runemastered Antler FocusEnergy Shield: 23Runic Ward: 34Requires:  Level 38, 54 Int"
+    },
+    {
+      "slug": "Runemastered_Engraved_Focus",
+      "card": "Runemastered Engraved FocusEnergy Shield: 38Runic Ward: 45Requires:  Level 38, 54 Int"
+    },
+    {
+      "slug": "Runemastered_Tonal_Focus",
+      "card": "Runemastered Tonal FocusEnergy Shield: 19Runic Ward: 57Requires:  Level 38, 54 Int"
+    },
+    {
+      "slug": "Runemastered_Crystal_Focus",
+      "card": "Runemastered Crystal FocusEnergy Shield: 23Runic Ward: 47Requires:  Level 40, 58 Int"
+    },
+    {
+      "slug": "Runemastered_Voodoo_Focus",
+      "card": "Runemastered Voodoo FocusEnergy Shield: 40Runic Ward: 31Requires:  Level 55, 78 Int"
+    },
+    {
+      "slug": "Runemastered_Plumed_Focus",
+      "card": "Runemastered Plumed FocusEnergy Shield: 23Runic Ward: 106Requires:  Level 75, 91 Int"
+    },
+    {
+      "slug": "Atmohuas_Soul_Core_of_Retreat",
+      "card": "Atmohua's Soul Core of RetreatStack Size: 1 / 10Limited to: 1Requires:  Level 50Body Armours: 40% increased Energy Shield from Equipped FocusFoci: 30% increased Energy Shield from Equipped Body Armour"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Tasalian_Focus",
+      "card": "Tasalian FocusEnergy Shield: 91Requires:  Level 80, 115 Int",
+      "requiredLevel": 80
+    },
+    {
+      "slug": "Sacred_Focus",
+      "card": "Sacred FocusEnergy Shield: 81Requires:  Level 75, 107 Int",
+      "requiredLevel": 75
+    },
+    {
+      "slug": "Leyline_Focus",
+      "card": "Leyline FocusEnergy Shield: 71Requires:  Level 70, 99 Int",
+      "requiredLevel": 70
+    },
+    {
+      "slug": "Magus_Focus",
+      "card": "Magus FocusEnergy Shield: 56Requires:  Level 65, 91 Int",
+      "requiredLevel": 65
+    },
+    {
+      "slug": "Druidic_Focus",
+      "card": "Druidic FocusEnergy Shield: 62Requires:  Level 65, 91 Int",
+      "requiredLevel": 65
+    },
+    {
+      "slug": "Hallowed_Focus",
+      "card": "Hallowed FocusEnergy Shield: 57Requires:  Level 61, 86 Int",
+      "requiredLevel": 61
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/sp/Flying_Spear",
+  "retrievedAt": "2026-10-05T08:06:01.617Z",
+  "sha256": "7ce4cbd79e53605714c730c3360c737f9fb80d0d87138b126d72229a24348c9f",
+  "variants": [
+    {
+      "name": "Lanza voladora",
+      "card": "Lanza voladora\n        \n    \n    \n        \n            LanzasDaño físico: 46-77Probabilidad de impacto crítico: 5%Ataques por segundo: 1.6Alcance de arma: 1.5Requiere:  Nivel 78, 50 Fue, 127 Des Otorga la habilidad: Lanzamiento de lanzaVelocidad de proyectiles aumentada un (25—35)% con esta arma\n        \n\n\n\n        \n            Flying Spear",
+      "requirements": "Requiere:  Nivel 78, 50 Fue, 127 Des",
+      "properties": [
+        "Lanzas",
+        "Daño físico: 46-77",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Alcance de arma: 1.5"
+      ],
+      "fields": {
+        "DropLevel": "78",
+        "BaseType": "Lanza voladora",
+        "Class": "Lanzas",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame",
+        "Tags": "spear, one_hand_weapon, onehand, weapon",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/OneHandSpears/1HSpear05",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, onehand, spear, one_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      }
+    }
+  ]
+}

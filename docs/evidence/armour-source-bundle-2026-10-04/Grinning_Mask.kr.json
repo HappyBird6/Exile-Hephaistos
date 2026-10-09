@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/kr/Grinning_Mask",
+  "retrievedAt": "2026-10-04T15:38:10.967Z",
+  "sha256": "2eb6d7991acb1eb25c8f006ec0c2538a42c3e2d730225e994f06d2f35a5db226",
+  "name": "웃는 가면",
+  "card": "웃는 가면\n        \n    \n    \n        \n            투구회피: 187에너지 보호막: 57요구 사항:  레벨 80, 63 민첩, 63 지능\n        \n\n\n\n        \n            Grinning Mask",
+  "requirements": "요구 사항:  레벨 80, 63 민첩, 63 지능",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "웃는 가면",
+    "Class": "투구",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
+    "Tags": "dex_int_armour, karui_basetype, helmet, armour",
+    "Icon": "Art/2DItems/Armours/Helmets/Basetypes/HelmetDexInt06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, helmet",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Helm",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

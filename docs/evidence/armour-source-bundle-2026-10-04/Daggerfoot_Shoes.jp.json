@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/jp/Daggerfoot_Shoes",
+  "retrievedAt": "2026-10-04T15:38:40.904Z",
+  "sha256": "b6be2acb365ff3ae181198a470c450ba71a6fb9f1f65872bfd86e6a06d4ae4ce",
+  "name": "ダガーフットシューズ",
+  "card": "ダガーフットシューズ\n        \n    \n    \n        \n            靴回避力: 140エナジーシールド: 43装備条件： レベル 80, 59 器用さ, 59 知性\n        \n\n\n\n        \n            Daggerfoot Shoes",
+  "requirements": "装備条件： レベル 80, 59 器用さ, 59 知性",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "ダガーフットシューズ",
+    "Class": "靴",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
+    "Tags": "dex_int_armour, karui_basetype, boots, armour",
+    "Icon": "Art/2DItems/Armours/Boots/Basetypes/BootsDexInt04",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, boots",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Boots",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

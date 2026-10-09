@@ -1,3 +1,8 @@
+import { baseSlugs, baseClass, sourcePropertyUnscaled } from './baseRegistry'
+import type { WorkbenchBaseKey } from './baseRegistry'
+import { topBase, topBaseKey, reviewedArmourKeys } from './topBases'
+import { ServiceMessage } from './ServiceMessage'
+import { serviceText } from './serviceMessages'
 import {
   useI18n,
   matchesGameName,
@@ -35,7 +40,6 @@ import { loadInitial } from './craftingApi'
 import {
   applyCurrency,
   concreteInitial,
-  rolledText,
   workbenchCurrencyActions,
   workbenchOmens,
   legacyOmenIds,
@@ -70,25 +74,6 @@ function tooltipEvents(id: string) {
 }
 
 const workspaceTabs = ['workbench', 'support', 'explorer'] as const
-const baseSlugs = {
-  'time-lost-ruby': 'Time-Lost Ruby',
-  'time-lost-emerald': 'Time-Lost Emerald',
-  'time-lost-sapphire': 'Time-Lost Sapphire',
-  'time-lost-diamond': 'Time-Lost Diamond',
-  ruby: 'Ruby',
-  emerald: 'Emerald',
-  diamond: 'Diamond',
-  sapphire: 'Sapphire',
-  solar: 'Solar_Amulet',
-  stocky: 'Stocky_Mitts',
-  bow: 'Crude_Bow',
-  wand: 'Attuned_Wand',
-  body: 'Rusted_Cuirass',
-  sceptre: 'Rattling_Sceptre',
-  belt: 'Rawhide_Belt',
-  ring: 'Iron_Ring',
-  helmet: 'Rusted_Greathelm',
-} as const
 
 type Selection = { id: string; name: string; image: string }
 
@@ -97,7 +82,7 @@ function filmId() {
 }
 
 export function CraftingPage() {
-  const { t, name } = useI18n()
+  const { t, name, locale } = useI18n()
   const client = useQueryClient()
   const draft = useItemDraft()
   const [filmState, setFilmState] = useState(() => {
@@ -125,60 +110,66 @@ export function CraftingPage() {
   const catalogBase =
     draft.source === 'text'
       ? 'solar'
-      : Object.values(workbenchJewelBases).some(
-            (id) => id === storedFrame?.state.baseItemId,
-          )
-        ? (Object.keys(workbenchJewelBases).find(
-            (b) =>
-              workbenchJewelBases[b as keyof typeof workbenchJewelBases] ===
-              storedFrame?.state.baseItemId,
-          ) as keyof typeof workbenchJewelBases)
-        : storedFrame?.state.baseItemId ===
-            'Metadata/Items/Armours/Gloves/FourGlovesStr1'
-          ? 'stocky'
+      : (topBaseKey(storedFrame?.state.baseItemId) ??
+        (Object.values(workbenchJewelBases).some(
+          (id) => id === storedFrame?.state.baseItemId,
+        )
+          ? (Object.keys(workbenchJewelBases).find(
+              (b) =>
+                workbenchJewelBases[b as keyof typeof workbenchJewelBases] ===
+                storedFrame?.state.baseItemId,
+            ) as keyof typeof workbenchJewelBases)
           : storedFrame?.state.baseItemId ===
-              'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1'
-            ? 'bow'
+              'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+            ? 'stocky'
             : storedFrame?.state.baseItemId ===
-                'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
-              ? 'wand'
+                'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1'
+              ? 'bow'
               : storedFrame?.state.baseItemId ===
-                  'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
-                ? 'body'
+                  'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
+                ? 'wand'
                 : storedFrame?.state.baseItemId ===
-                    'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
-                  ? 'sceptre'
+                    'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
+                  ? 'body'
                   : storedFrame?.state.baseItemId ===
-                      'Metadata/Items/Belts/FourBelt1'
-                    ? 'belt'
+                      'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
+                    ? 'sceptre'
                     : storedFrame?.state.baseItemId ===
-                        'Metadata/Items/Rings/FourRing1'
-                      ? 'ring'
+                        'Metadata/Items/Belts/FourBelt1'
+                      ? 'belt'
                       : storedFrame?.state.baseItemId ===
-                          'Metadata/Items/Armours/Helmets/FourHelmetStr1'
-                        ? 'helmet'
-                        : storedFrame
-                          ? 'solar'
-                          : draft.base
-  const baseName = Object.hasOwn(workbenchJewelBases, catalogBase)
-    ? baseSlugs[catalogBase]
-    : catalogBase === 'stocky'
-      ? 'Stocky Mitts'
-      : catalogBase === 'bow'
-        ? 'Crude Bow'
-        : catalogBase === 'wand'
-          ? 'Attuned Wand'
-          : catalogBase === 'body'
-            ? 'Rusted Cuirass'
-            : catalogBase === 'sceptre'
-              ? 'Rattling Sceptre'
-              : catalogBase === 'belt'
-                ? 'Rawhide Belt'
-                : catalogBase === 'ring'
-                  ? 'Iron Ring'
-                  : catalogBase === 'helmet'
-                    ? 'Rusted Greathelm'
-                    : 'Solar Amulet'
+                          'Metadata/Items/Rings/FourRing1'
+                        ? 'ring'
+                        : storedFrame?.state.baseItemId ===
+                            'Metadata/Items/Armours/Helmets/FourHelmetStr1'
+                          ? 'helmet'
+                          : storedFrame
+                            ? 'solar'
+                            : draft.base))
+  const baseName =
+    topBase(catalogBase)?.name ??
+    (Object.hasOwn(workbenchJewelBases, catalogBase)
+      ? baseSlugs[catalogBase]
+      : catalogBase === 'stocky'
+        ? 'Stocky Mitts'
+        : catalogBase === 'bow' || topBase(catalogBase)?.family === 'bows'
+          ? 'Crude Bow'
+          : catalogBase === 'wand' || topBase(catalogBase)?.family === 'wands'
+            ? 'Attuned Wand'
+            : catalogBase === 'body' ||
+                catalogBase === 'soldier' ||
+                topBase(catalogBase)?.family === 'body'
+              ? 'Rusted Cuirass'
+              : catalogBase === 'sceptre' ||
+                  topBase(catalogBase)?.family === 'sceptres'
+                ? 'Rattling Sceptre'
+                : catalogBase === 'belt'
+                  ? 'Rawhide Belt'
+                  : catalogBase === 'ring'
+                    ? 'Iron Ring'
+                    : catalogBase === 'helmet' || catalogBase === 'imperial'
+                      ? 'Rusted Greathelm'
+                      : 'Solar Amulet')
   const catalogLevel =
     Number.isInteger(storedLevel) && storedLevel! >= 1 && storedLevel! <= 100
       ? storedLevel!
@@ -281,24 +272,7 @@ export function CraftingPage() {
       : undefined
   async function startBase(
     level: number,
-    base:
-      | 'solar'
-      | 'stocky'
-      | 'bow'
-      | 'wand'
-      | 'body'
-      | 'sceptre'
-      | 'belt'
-      | 'helmet'
-      | 'ring'
-      | 'time-lost-ruby'
-      | 'time-lost-emerald'
-      | 'time-lost-sapphire'
-      | 'time-lost-diamond'
-      | 'ruby'
-      | 'emerald'
-      | 'diamond'
-      | 'sapphire' = 'solar',
+    base: WorkbenchBaseKey = 'solar',
     catalystQuality: CatalystQuality | null = null,
     sapphireRarity: 'NORMAL' | 'MAGIC' | 'RARE' = 'MAGIC',
     castSpeed: number | null = null,
@@ -364,33 +338,36 @@ export function CraftingPage() {
     const revision = useItemDraft.getState().baseRevision
     placementPending.current = true
     const state = selectedFilm.frames.at(-1)!.state
-    const base = isWorkbenchJewel(state.baseItemId)
-      ? (Object.keys(workbenchJewelBases).find(
-          (b) =>
-            workbenchJewelBases[b as keyof typeof workbenchJewelBases] ===
-            state.baseItemId,
-        ) as keyof typeof workbenchJewelBases)
-      : state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
-        ? 'stocky'
-        : state.baseItemId === 'Metadata/Items/Rings/FourRing1'
-          ? 'ring'
-          : state.baseItemId === 'Metadata/Items/Armours/Helmets/FourHelmetStr1'
-            ? 'helmet'
-            : state.baseItemId === 'Metadata/Items/Belts/FourBelt1'
-              ? 'belt'
-              : state.baseItemId ===
-                  'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
-                ? 'sceptre'
+    const base =
+      topBaseKey(state.baseItemId) ??
+      (isWorkbenchJewel(state.baseItemId)
+        ? (Object.keys(workbenchJewelBases).find(
+            (b) =>
+              workbenchJewelBases[b as keyof typeof workbenchJewelBases] ===
+              state.baseItemId,
+          ) as keyof typeof workbenchJewelBases)
+        : state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+          ? 'stocky'
+          : state.baseItemId === 'Metadata/Items/Rings/FourRing1'
+            ? 'ring'
+            : state.baseItemId ===
+                'Metadata/Items/Armours/Helmets/FourHelmetStr1'
+              ? 'helmet'
+              : state.baseItemId === 'Metadata/Items/Belts/FourBelt1'
+                ? 'belt'
                 : state.baseItemId ===
-                    'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
-                  ? 'body'
+                    'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
+                  ? 'sceptre'
                   : state.baseItemId ===
-                      'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
-                    ? 'wand'
+                      'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
+                    ? 'body'
                     : state.baseItemId ===
-                        'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1'
-                      ? 'bow'
-                      : 'solar'
+                        'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
+                      ? 'wand'
+                      : state.baseItemId ===
+                          'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1'
+                        ? 'bow'
+                        : 'solar')
     try {
       const data = await client.fetchQuery({
         queryKey: ['crafting', 'initial', base, state.itemLevel],
@@ -451,25 +428,7 @@ export function CraftingPage() {
   >('MAGIC')
   const [sapphireAffix, setSapphireAffix] = useState(false)
   const [sapphireRoll, setSapphireRoll] = useState('2')
-  const [baseChoice, setBaseChoice] = useState<
-    | 'solar'
-    | 'stocky'
-    | 'bow'
-    | 'wand'
-    | 'body'
-    | 'sceptre'
-    | 'belt'
-    | 'helmet'
-    | 'ring'
-    | 'time-lost-ruby'
-    | 'time-lost-emerald'
-    | 'time-lost-sapphire'
-    | 'time-lost-diamond'
-    | 'ruby'
-    | 'emerald'
-    | 'diamond'
-    | 'sapphire'
-  >('solar')
+  const [baseChoice, setBaseChoice] = useState<WorkbenchBaseKey>('solar')
   const [previewRequest, setPreviewRequest] = useState<{
     count: number
     action: Action | null
@@ -644,7 +603,9 @@ export function CraftingPage() {
           setPointer(null)
         }
       } else
-        setAnnouncement(t('craft.blocked', { reason: result.reason ?? '' }))
+        setAnnouncement(
+          translate('craft.blocked', { reason: result.reason ?? '' }, 'en'),
+        )
     } catch (error) {
       if (!controller.signal.aborted)
         setAnnouncement(
@@ -827,32 +788,63 @@ export function CraftingPage() {
             rarity: concrete.rarity,
             name: item?.displayName ?? baseName,
             base: baseName,
-            itemClass: Object.hasOwn(workbenchJewelBases, catalogBase)
-              ? 'Jewels'
-              : catalogBase === 'stocky'
-                ? 'Gloves'
-                : catalogBase === 'bow'
-                  ? 'Bows'
-                  : catalogBase === 'wand'
-                    ? 'Wands'
-                    : catalogBase === 'body'
-                      ? 'Body Armours'
-                      : catalogBase === 'sceptre'
-                        ? 'Sceptres'
-                        : catalogBase === 'belt'
-                          ? 'Belts'
-                          : catalogBase === 'ring'
-                            ? 'Rings'
-                            : catalogBase === 'helmet'
-                              ? 'Helmets'
-                              : 'Amulet',
+            itemClass: baseClass(catalogBase),
             itemLevel: concrete.itemLevel,
             properties: [
-              ...(catalogBase === 'helmet'
+              ...(topBase(catalogBase)?.sourceProperties?.[locale] ?? [])
+                .filter(
+                  (text) =>
+                    !topBase(catalogBase)?.skillLines?.[locale].includes(text),
+                )
+                .map((text, i) => ({
+                  id: 'source-property-' + i,
+                  text: sourcePropertyUnscaled(catalogBase)
+                    ? t('base.weapon_property', { property: text })
+                    : text,
+                })),
+              ...(['gloves', 'helmets', 'body', 'boots'].includes(
+                topBase(catalogBase)?.family ?? '',
+              ) && catalogBase !== 'soldier'
+                ? [
+                    ...(topBase(catalogBase)!.armour > 0
+                      ? [
+                          {
+                            id: 'base-armour',
+                            text: t('base.armour', {
+                              value: topBase(catalogBase)!.armour,
+                            }),
+                          },
+                        ]
+                      : []),
+                    ...((topBase(catalogBase)!.evasion ?? 0) > 0
+                      ? [
+                          {
+                            id: 'base-evasion',
+                            text: t('base.evasion', {
+                              value: topBase(catalogBase)!.evasion!,
+                            }),
+                          },
+                        ]
+                      : []),
+                    ...((topBase(catalogBase)!.energyShield ?? 0) > 0
+                      ? [
+                          {
+                            id: 'base-energy-shield',
+                            text: t('base.energy_shield', {
+                              value: topBase(catalogBase)!.energyShield!,
+                            }),
+                          },
+                        ]
+                      : []),
+                  ]
+                : []),
+              ...(catalogBase === 'helmet' || catalogBase === 'imperial'
                 ? [
                     {
                       id: 'base-armour',
-                      text: 'Base Armour: 29 (not computed)',
+                      text: t('base.armour', {
+                        value: topBase(catalogBase)?.armour ?? 29,
+                      }),
                     },
                   ]
                 : []),
@@ -860,11 +852,11 @@ export function CraftingPage() {
                 ? [
                     {
                       id: 'belt-implicit',
-                      text: 'Flask life recovery: unknown (20–30% base range)',
+                      text: t('base.flask'),
                     },
                     {
                       id: 'belt-charm',
-                      text: 'Charm slots: unknown (not modeled)',
+                      text: t('base.charms'),
                     },
                   ]
                 : []),
@@ -872,19 +864,21 @@ export function CraftingPage() {
                 ? [
                     {
                       id: 'base-spirit',
-                      text: 'Base Spirit: 100 (not computed)',
+                      text: t('base.spirit'),
                     },
                     {
                       id: 'innate-skill',
-                      text: 'Grants Skill: Skeletal Warrior (not simulated)',
+                      text: t('base.skeletal_warrior'),
                     },
                   ]
                 : []),
-              ...(catalogBase === 'body'
+              ...(catalogBase === 'body' || catalogBase === 'soldier'
                 ? [
                     {
                       id: 'base-armour',
-                      text: 'Base Armour: 45 (not computed)',
+                      text: t('base.armour', {
+                        value: topBase(catalogBase)?.armour ?? 45,
+                      }),
                     },
                   ]
                 : []),
@@ -892,7 +886,7 @@ export function CraftingPage() {
                 ? [
                     {
                       id: 'innate-skill',
-                      text: 'Grants Skill: Mana Drain (not simulated)',
+                      text: t('base.mana_drain'),
                     },
                   ]
                 : []),
@@ -901,14 +895,29 @@ export function CraftingPage() {
                 : [
                     {
                       id: 'maximum-quality',
-                      text: `Maximum Quality: ${qualityMaximum}%`,
+                      text: t('quality.maximum', { value: qualityMaximum }),
                     },
                   ]),
               ...(concrete.catalystQuality
                 ? [
                     {
                       id: 'catalyst-quality',
-                      text: `Quality (${catalystTypes[concrete.catalystQuality.type].name}): +${concrete.catalystQuality.amount}%`,
+                      text: t('quality.current', {
+                        type:
+                          locale === 'en'
+                            ? catalystTypes[concrete.catalystQuality.type].name
+                            : name(
+                                (Object.hasOwn(basicJewelBases, catalogBase)
+                                  ? 'Refined_'
+                                  : '') +
+                                  catalystItemIds[
+                                    concrete.catalystQuality.type
+                                  ],
+                                catalystTypes[concrete.catalystQuality.type]
+                                  .name,
+                              ),
+                        value: concrete.catalystQuality.amount,
+                      }),
                     },
                   ]
                 : []),
@@ -918,13 +927,22 @@ export function CraftingPage() {
                       id: 'augment-sockets',
                       text:
                         concrete.augmentSockets == null
-                          ? 'Augment Sockets: unknown'
-                          : `Augment Sockets: ${concrete.augmentSockets} / 1`,
+                          ? t('base.sockets_unknown')
+                          : t('base.sockets', {
+                              value: concrete.augmentSockets,
+                            }),
                     },
                   ]
                 : []),
             ],
-            requirements: [],
+            requirements: topBase(catalogBase)
+              ? [
+                  {
+                    id: 'base-requirements',
+                    text: topBase(catalogBase)!.requirements[locale],
+                  },
+                ]
+              : [],
             flags: [],
             modifiers: [...concrete.implicits, ...concrete.explicits]
               .map((m, i) => {
@@ -935,11 +953,7 @@ export function CraftingPage() {
                   concrete.catalystQuality,
                   concrete,
                 )
-                const displayText =
-                  projection.status === 'SCALED_INTEGER' &&
-                  d.id === 'iron-ring:implicit:added-physical-damage-to-attacks'
-                    ? `Adds ${projection.values.attack_minimum_added_physical_damage} to ${projection.values.attack_maximum_added_physical_damage} Physical Damage to Attacks`
-                    : localizedModifierText(d, projection.values)
+                const displayText = localizedModifierText(d, projection.values)
                 return {
                   id: m.modifierId,
                   removalCandidate:
@@ -950,7 +964,7 @@ export function CraftingPage() {
                   detail:
                     concrete.catalystQuality ||
                     projection.status === 'JEWEL_EFFECT_AND_QUALITY_PROVISIONAL'
-                      ? `Original roll: ${rolledText(d, m.values)}\nQuality display: ${projection.status}. Secondary source model; game engine precision is not guaranteed.`
+                      ? `${t('quality.original_roll', { roll: localizedModifierText(d, m.values) })}\n${t('quality.display_model', { status: projection.status })}`
                       : undefined,
                   kind:
                     i < concrete.implicits.length
@@ -964,6 +978,19 @@ export function CraftingPage() {
                       : `${d.affixType === 'PREFIX' ? 'P' : 'S'}${Object.hasOwn(workbenchJewelBases, catalogBase) ? '' : d.tier}`,
                 }
               })
+              .concat(
+                (topBase(catalogBase)?.skillLines?.[locale] ?? []).map(
+                  (text, i) => ({
+                    id: 'source-skill-' + i,
+                    removalCandidate: false,
+                    text,
+                    fractured: false,
+                    detail: undefined,
+                    kind: 'implicit' as const,
+                    affixLabel: undefined,
+                  }),
+                ),
+              )
               .sort((a, b) => {
                 const rank = (line: typeof a) =>
                   !altHeld && line.fractured
@@ -1008,9 +1035,6 @@ export function CraftingPage() {
             EXILE <b>HEPHAISTOS</b>
             <small>{t('ui.path_of_exile_2_crafting_workbench')}</small>
           </span>
-        </a>
-        <a className="admin-link" href="/admin">
-          {t('ui.admin')}
         </a>
         <LocaleSelector />
       </header>
@@ -1062,6 +1086,9 @@ export function CraftingPage() {
             </button>
           ))}
         </div>
+        <a className="workspace-admin" href="/admin">
+          {t('ui.admin')}
+        </a>
       </nav>
       <div className="craft-title">
         <div>
@@ -1089,7 +1116,7 @@ export function CraftingPage() {
         hidden={view !== 'workbench'}
         onContextMenu={(event) => event.preventDefault()}
       >
-        <div className="stash-panel">
+        <div className="stash-panel" style={{ marginBottom: stashSpace }}>
           <div className="panel-heading stash-heading">
             <div
               role="tablist"
@@ -1138,38 +1165,9 @@ export function CraftingPage() {
               {t('ui.show_tooltips')}
             </label>
           </div>
-          <div className="workbench-session-entry">
-            <button
-              type="button"
-              disabled={applying !== null}
-              onClick={(event) => {
-                inputOpener.current = event.currentTarget
-                imported.invalidate()
-                setInputMode('base')
-                setBaseChoice(catalogBase)
-                setInputOpen(true)
-              }}
-            >
-              {t('ui.select_base')}
-            </button>
-            <button
-              type="button"
-              disabled={applying !== null}
-              onClick={() => {
-                imported.invalidate()
-                void startBase(catalogLevel, catalogBase)
-              }}
-            >
-              {t('ui.new_craft')}
-            </button>
-          </div>
           <div className="stash-board">
             <div className="stash-viewport">
-              <div
-                className="stash-canvas"
-                style={{ marginBottom: stashSpace }}
-                aria-label={t('ui.currency_stash')}
-              >
+              <div className="stash-canvas" aria-label={t('ui.currency_stash')}>
                 <div
                   id="material-list"
                   role="tabpanel"
@@ -1421,7 +1419,12 @@ export function CraftingPage() {
                   ))}
                 </div>
               </div>
-              <div className="workbench-feedback-panel">
+              <div
+                className="workbench-feedback-panel"
+                tabIndex={0}
+                role="region"
+                aria-label={t('ui.crafting_notes')}
+              >
                 {draft.activeOmens.includes('Omen_of_Whittling') && (
                   <p className="workbench-feedback">
                     {removalCandidates.length > 0
@@ -1562,7 +1565,8 @@ export function CraftingPage() {
                 {mapping.data?.issues.map((issue, index) => (
                   <p key={index}>
                     {' '}
-                    {t('ui.line')} {issue.lineNumber || 'item'}: {issue.message}
+                    {t('ui.line')} {issue.lineNumber || 'item'}:{' '}
+                    <ServiceMessage text={issue.message} />
                   </p>
                 ))}
                 {initial.isPending && <p>{t('ui.loading_crafting_catalog')}</p>}
@@ -1580,7 +1584,9 @@ export function CraftingPage() {
                 )}
                 {applying && <p>{t('ui.updating_item')}</p>}
                 {announcement && (
-                  <p className="workbench-feedback">{uiText(announcement)}</p>
+                  <p className="workbench-feedback">
+                    {serviceText(announcement)}
+                  </p>
                 )}
                 {evidenceInvalid && (
                   <p role="alert">{t('notice.saved_evidence')}</p>
@@ -1629,9 +1635,14 @@ export function CraftingPage() {
                 {catalogBase === 'belt' && (
                   <p className="workbench-feedback">{t('notice.belt_scope')}</p>
                 )}
-                {catalogBase === 'sceptre' && (
+                {(catalogBase === 'sceptre' ||
+                  topBase(catalogBase)?.family === 'sceptres') && (
                   <p className="workbench-feedback">
-                    {t('notice.sceptre_scope')}
+                    {t(
+                      catalogBase === 'sceptre' || catalogBase === 'hallowed'
+                        ? 'notice.sceptre_scope'
+                        : 'notice.sceptre_skill_scope',
+                    )}
                   </p>
                 )}
                 {catalogBase === 'body' && (
@@ -1640,7 +1651,8 @@ export function CraftingPage() {
                 {catalogBase === 'wand' && (
                   <p className="workbench-feedback">{t('notice.wand_scope')}</p>
                 )}
-                {catalogBase === 'bow' && (
+                {(catalogBase === 'bow' ||
+                  topBase(catalogBase)?.family === 'bows') && (
                   <p className="workbench-feedback">{t('notice.bow_scope')}</p>
                 )}
                 {catalogBase === 'stocky' && (
@@ -1651,6 +1663,31 @@ export function CraftingPage() {
               </div>
             </div>
             <div className="bench-lower">
+              <div className="workbench-session-entry">
+                <button
+                  type="button"
+                  disabled={applying !== null}
+                  onClick={(event) => {
+                    inputOpener.current = event.currentTarget
+                    imported.invalidate()
+                    setInputMode('base')
+                    setBaseChoice(catalogBase)
+                    setInputOpen(true)
+                  }}
+                >
+                  {t('ui.select_base')}
+                </button>
+                <button
+                  type="button"
+                  disabled={applying !== null}
+                  onClick={() => {
+                    imported.invalidate()
+                    void startBase(catalogLevel, catalogBase)
+                  }}
+                >
+                  {t('ui.new_craft')}
+                </button>
+              </div>
               <div className="bench-item-card">
                 <div className="workbench-film-controls">
                   <button
@@ -1728,24 +1765,7 @@ export function CraftingPage() {
                       rarity: 'NORMAL',
                       name: baseName,
                       base: baseName,
-                      itemClass:
-                        catalogBase === 'stocky'
-                          ? 'Gloves'
-                          : catalogBase === 'bow'
-                            ? 'Bows'
-                            : catalogBase === 'wand'
-                              ? 'Wands'
-                              : catalogBase === 'body'
-                                ? 'Body Armours'
-                                : catalogBase === 'sceptre'
-                                  ? 'Sceptres'
-                                  : catalogBase === 'belt'
-                                    ? 'Belts'
-                                    : catalogBase === 'ring'
-                                      ? 'Rings'
-                                      : catalogBase === 'helmet'
-                                        ? 'Helmets'
-                                        : 'Amulet',
+                      itemClass: baseClass(catalogBase),
                       itemLevel: draft.baseItemLevel,
                       properties: [],
                       requirements: [],
@@ -1824,26 +1844,7 @@ export function CraftingPage() {
                     id="base-select"
                     value={baseChoice}
                     onChange={(e) =>
-                      setBaseChoice(
-                        e.target.value as
-                          | 'solar'
-                          | 'stocky'
-                          | 'bow'
-                          | 'wand'
-                          | 'body'
-                          | 'sceptre'
-                          | 'belt'
-                          | 'helmet'
-                          | 'ring'
-                          | 'time-lost-ruby'
-                          | 'time-lost-emerald'
-                          | 'time-lost-sapphire'
-                          | 'time-lost-diamond'
-                          | 'ruby'
-                          | 'emerald'
-                          | 'diamond'
-                          | 'sapphire',
-                      )
+                      setBaseChoice(e.target.value as WorkbenchBaseKey)
                     }
                   >
                     <option value="time-lost-ruby">
@@ -1880,8 +1881,23 @@ export function CraftingPage() {
                     <option value="wand">
                       {name('Attuned_Wand', 'Attuned Wand')}
                     </option>
+                    {reviewedArmourKeys.map((key) => (
+                      <option key={key} value={key}>
+                        {name(topBase(key)!.slug, topBase(key)!.name)}
+                        {key.startsWith('shrine-')
+                          ? ` (${topBase(key)!.sourceProperties?.[locale][1]})`
+                          : ''}
+                      </option>
+                    ))}
+                    <option value="soldier">
+                      {name('Soldier_Cuirass', 'Soldier Cuirass')}
+                    </option>
+                    <option value="imperial">
+                      {name('Imperial_Greathelm', 'Imperial Greathelm')}
+                    </option>
                     <option value="body">
-                      {name('Rusted_Cuirass', 'Rusted Cuirass')}
+                      {name('Rusted_Cuirass', 'Rusted Cuirass')} ·{' '}
+                      {t('base.legacy')}
                     </option>
                     <option value="sceptre">
                       {name('Rattling_Sceptre', 'Rattling Sceptre')}
@@ -1890,7 +1906,8 @@ export function CraftingPage() {
                       {name('Rawhide_Belt', 'Rawhide Belt')}
                     </option>
                     <option value="helmet">
-                      {name('Rusted_Greathelm', 'Rusted Greathelm')}
+                      {name('Rusted_Greathelm', 'Rusted Greathelm')} ·{' '}
+                      {t('base.legacy')}
                     </option>
                     <option value="ring">
                       {name('Iron_Ring', 'Iron Ring')}

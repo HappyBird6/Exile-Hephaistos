@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "baseHead": "c030c6862eeed2b9ea82f2663044eab8feb7d006",
+  "baseCount": 54,
+  "added": [
+    "Kinetic Ring",
+    "Vitalic Ring",
+    "Mnemonic Ring",
+    "Pearl Ring",
+    "Amethyst Ring",
+    "Prismatic Ring",
+    "Ruby Ring",
+    "Two-Stone Ring (Fire/Cold)"
+  ],
+  "backendTests": 437,
+  "frontendTests": 1802,
+  "apiChecks": 1815,
+  "browserChecks": 1231,
+  "importerChecks": 21,
+  "sourceEqualityFiles": 498,
+  "screenshots": 289,
+  "visualReviewContactSheets": 35,
+  "jarSha256": "b5066e3eb784c4656581fd30720b29289601169bcb0ad2d0593dbce9c3ea484a",
+  "commands": {
+    "backend": "spotlessApply check generateJooq bootJar (isolated Java21 Docker)",
+    "frontend": "npm ci; npm run lint; npm run typecheck; npm run format:check; npm run test -- --run; npm run build (isolated Node24 Docker)",
+    "compose": "docker compose -f compose.yaml config --quiet"
+  },
+  "logs": [
+    "backend-check-2.log",
+    "frontend-check-3.log",
+    "api-check-2.log",
+    "material-paths-1.log",
+    "browser-attempt-2/browser-results.json"
+  ],
+  "limits": [
+    "Published PoE2DB weights and existing provisional numeric policies are not independently verified game probabilities.",
+    "Ring sidegrades remain explicitly unimplemented; Support/Explorer remain Solar-only; deferred50 unchanged."
+  ],
+  "selfReview": "Exact source IDs, complete source pools, six-locale provenance, new Ring class projections, all ordinary Catalyst tags/caps/single scaling, invalid cross-class cases, old/new films and checked source equality reviewed. No blocking defect found."
+}

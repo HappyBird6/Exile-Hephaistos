@@ -1,0 +1,30 @@
+import fs from 'node:fs'
+const root='E:/WORK/Exile-Hephaistos/codex/bows-qa-20261004'
+let s=fs.readFileSync('E:/WORK/Exile-Hephaistos/codex/boots-qa-20261004/qa-browser.cjs','utf8')
+const keys="['warmonger', 'guardian', 'gemini', 'fanatic', 'obliterator']"
+s=s.replaceAll("['tasalian', 'drakeskin', 'sekhema', 'blacksteel-boots', 'faithful', 'daggerfoot']",keys).replaceAll('19681','19781').replaceAll('41 base selector choices','46 base selector choices').replaceAll('count() === 41','count() === 46').replaceAll("await place('tasalian')","await place('warmonger')")
+s=s.replace("d.familyIds.includes('BaseLocalDefences')","d.familyIds.includes('PhysicalDamage')")
+s=s.replace("    const speed = Object.values(source.modifiers).find(d => d.familyIds.includes('MovementVelocity') && d.requiredItemLevel === 82)","    const speed = Object.values(source.modifiers).find(d => d.familyIds.includes('Dexterity') && d.requiredItemLevel === 1)")
+s=s.replace("check(k + ' no invented implicit lines', await page.locator('.bench-item-card .item-card__line--implicit').count() === 0)","check(k + ' exact sourced implicit count', await page.locator('.bench-item-card .item-card__line--implicit').count() === (bases[k].implicitModifierId ? 1 : 0))")
+s=s.replace("check(`${k}:${l} sourced armour`, (bases[k].armour === 0 || text.includes(String(bases[k].armour))) && (bases[k].energyShield === 0 || text.includes(String(bases[k].energyShield))) && (bases[k].evasion === 0 || text.includes(String(bases[k].evasion))))","check(`${k}:${l} all three exact source weapon properties`, bases[k].sourceProperties[l].length === 3 && bases[k].sourceProperties[l].every(property => text.includes(property)))")
+s=s.replaceAll("d.familyIds.includes('FireResistance')","d.familyIds.includes('Dexterity')").replaceAll("d.familyIds.includes('IncreasedLife')","d.familyIds.includes('PhysicalDamage')")
+s=s.replace("['Lesser_Essence_of_Enhancement', 'Lesser_Essence_of_the_Infinite']","['Lesser_Essence_of_Abrasion', 'Lesser_Essence_of_Flames']")
+s=s.replaceAll("use('Essence_of_Hysteria')","use('Perfect_Essence_of_Flames')").replaceAll('source-valid Boots Hysteria','source-valid Bow Perfect Flames').replaceAll('exact class Hysteria target','exact class Perfect Flames target')
+s=s.replace("    await seed(rare, 'hysteria-' + k)\n    const hysteria = await use('Perfect_Essence_of_Flames')\n    check(k + ' browser accepts exact class Perfect Flames target', hysteria.applied)", `    for (const id of ['Perfect_Essence_of_Abrasion', 'Perfect_Essence_of_Ice', 'Perfect_Essence_of_Electricity', 'Perfect_Essence_of_Battle', 'Perfect_Essence_of_Haste']) {
+      await seed(rare, 'perfect-' + k + '-' + id)
+      const perfect = await use(id)
+      check(k + ' browser accepts exact Bow class target ' + id, perfect.applied)
+    }`)
+s=s.replace("'ancestral', 'cryptic'])","'ancestral', 'cryptic', 'bow', 'tasalian', 'drakeskin', 'sekhema', 'blacksteel-boots', 'faithful', 'daggerfoot'])")
+s=s.replace("  check('zero browser errors', errors.length === 0)",`  await seed(concrete(initials.guardian), 'guardian-blessed')
+  await page.locator('#tab-Omen').click()
+  await page.getByRole('button', { name: terms.en.Omen_of_the_Blessed.name, exact: true }).click()
+  await page.locator('.favorite-slot').first().click()
+  await page.locator('.favorite-slot').first().click({ button: 'right' })
+  const divine = await use('Divine_Orb')
+  check('Guardian Blessed Divine accepted by frontend with variable implicit', divine.applied && divine.consumedOmens.includes('Omen_of_the_Blessed'))
+  check('zero browser errors', errors.length === 0)`)
+const target = process.argv[2] ?? 'qa-browser.cjs'
+if (fs.existsSync(`${root}/${target}`)) throw new Error('Preserve previous browser probe: '+target)
+fs.writeFileSync(`${root}/${target}`,s)
+console.log('Prepared Bow browser contract with all previous assertions adapted to weapon sources')

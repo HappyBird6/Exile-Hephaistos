@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/jp/Flying_Spear",
+  "retrievedAt": "2026-10-05T08:05:52.736Z",
+  "sha256": "e6293457e9c53cfb882ab94bb0a60d8e3ceec8660cc738e835122a9ec265ff60",
+  "variants": [
+    {
+      "name": "フレイングスピア",
+      "card": "フレイングスピア\n        \n    \n    \n        \n            スピア物理ダメージ: 46-77クリティカルヒット率: 5%秒間アタック回数: 1.6武器攻撃距離: 1.5装備条件： レベル 78, 50 筋力, 127 器用さ スキルを付与: スピアスローこの武器による投射物スピードが(25—35)%増加する\n        \n\n\n\n        \n            Flying Spear",
+      "requirements": "装備条件： レベル 78, 50 筋力, 127 器用さ",
+      "properties": [
+        "スピア",
+        "物理ダメージ: 46-77",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "武器攻撃距離: 1.5"
+      ],
+      "fields": {
+        "DropLevel": "78",
+        "BaseType": "フレイングスピア",
+        "Class": "スピア",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame",
+        "Tags": "spear, one_hand_weapon, onehand, weapon",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/OneHandSpears/1HSpear05",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, onehand, spear, one_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      }
+    }
+  ]
+}

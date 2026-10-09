@@ -1,0 +1,78 @@
+{
+  "row": {
+    "Name": "of Thunder",
+    "Level": "81",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreaseSocketedGemLevel"
+    ],
+    "DropChance": "100",
+    "str": "<span class='mod-value'>+7</span> to Level of all <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1d5815b2f2bd5f23d99d435288c3b41e79adf38037cf8d2a266bc276f527201d\">Lightning</a> <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Skills",
+    "fossil_no": [
+      "elemental",
+      "lightning",
+      "caster",
+      "gem"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_chaos_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "no_lightning_spell_mods",
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftinggem\" data-tag=\"gem\">Gem</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/91cf4161af2a592c1a50667ca9e2a51b5eefbb46a723ed3fb446d31c58b729a3"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FGlobalLightningSpellGemsLevelTwoHandWeapon5",
+  "textLocale": "sp",
+  "detailText": "+7 al nivel de todas las habilidades de hechizos de rayo",
+  "retrievedAt": "2026-10-05T10:07:14.233Z",
+  "sha256": "54649fc9c248e976f462f0211b967c125be6671cf64b0341ab885c5052f4bd18",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+7</span> al nivel de todas las habilidades de <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FSpell\">hechizos</a> de <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FLightning\">rayo</a></span></h5>   <span data-tabname=\"de trueno\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>de trueno\n<tr><th>Family<td>IncreaseSocketedGemLevel\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Sufijo (2)\n<tr><th>Req. level<td>81 (Effective: 64)\n<tr><th>Gold Price<td>6549\n<tr><th>Stats<td><li>lightning spell skill gem level + <span class=\"badge bg-primary\">7 <span class=\"ndash\">—</span> 7</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_lightning_spell_mods: 0</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Rayo</span> <span class='badge bg-primary'>Lanzador de hechizos</span> <span class='badge bg-primary'>Gema</span> </table>  </div></div>",
+  "fields": {
+    "Name": "de trueno",
+    "Family": "IncreaseSocketedGemLevel",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Sufijo (2)",
+    "Req. level": "81 (Effective: 64)",
+    "Gold Price": "6549",
+    "Stats": "lightning spell skill gem level + 7 — 7 Global",
+    "Spawn Tags": "no_lightning_spell_mods: 0 staff: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_cold_spell_mods no_chaos_spell_mods no_physical_spell_mods",
+    "Craft Tags": "Elemental Rayo Lanzador de hechizos Gema"
+  },
+  "code": "GlobalLightningSpellGemsLevelTwoHandWeapon5",
+  "stats": [
+    {
+      "id": "lightning_spell_skill_gem_level_+",
+      "min": 7,
+      "max": 7,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_lightning_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

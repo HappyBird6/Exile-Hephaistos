@@ -1,0 +1,30 @@
+{
+  "url": "https://poe2db.tw/tw/Forking_Belt",
+  "retrievedAt": "2026-10-05T01:24:40.702Z",
+  "sha256": "47c171c309605dbe6cbef76d68c197a4ba825219f03d308a61152e7a8838396b",
+  "variants": [
+    {
+      "name": "歧路腰帶",
+      "card": "歧路腰帶\n        \n    \n    \n        \n            腰帶需求:  等級 32有(1—3)個護符欄位有1個護符欄位攻擊附加1至(20—30)閃電傷害\n        \n\n        \n        \n            是我們的心靈在分裂。\n        \n\n\n        \n            Forking Belt",
+      "requirements": "需求:  等級 32",
+      "fields": {
+        "DropLevel": "32",
+        "BaseType": "歧路腰帶",
+        "Class": "腰帶",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBeltB4",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/ForkingBelt",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/jp/Wrath_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:12.141Z",
+  "sha256": "c9fe4601471879c1aa1b8c985960dba3080f037f0390987e9cf0e082df0917c0",
+  "variants": [
+    {
+      "name": "憤怒のセプター",
+      "card": "憤怒のセプター\n        \n    \n    \n        \n            セプタースピリット: 100装備条件： レベル 49, 87 知性 スキルを付与: フルミネーション\n        \n\n\n\n        \n            Wrath Sceptre",
+      "requirements": "装備条件： レベル 49, 87 知性",
+      "fields": {
+        "DropLevel": "49",
+        "BaseType": "憤怒のセプター",
+        "Class": "セプター",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
+        "Tags": "lightning_implicit_skill, sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre10",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "フルミネーション",
+      "skillUrl": "https://poe2db.tw/jp/Fulmination"
+    }
+  ]
+}

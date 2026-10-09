@@ -1,0 +1,62 @@
+{
+  "row": {
+    "Name": "Gentian",
+    "Level": "54",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedMana"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(179<span class=\"ndash\">—</span>208)</span> to maximum Mana",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cba391d897cb30c6ada5712cba0261c2c466ed7c8f68d449506a4e95420795e5"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FIncreasedManaTwoHandWeapon8_",
+  "textLocale": "jp",
+  "detailText": "最大マナ +(179—208)",
+  "retrievedAt": "2026-10-05T10:03:51.661Z",
+  "sha256": "4d92214a70140e850a19db2abf443a7386f4226be548676111445c1b5e5e7e90",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>最大マナ <span class='mod-value'>+(179<span class=\"ndash\">—</span>208)</span></span></h5>   <span data-tabname=\"リンドウの\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>リンドウの\n<tr><th>Family<td>IncreasedMana\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>プレフィックス (1)\n<tr><th>Req. level<td>54 (Effective: 43)\n<tr><th>Gold Price<td>1370\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">179 <span class=\"ndash\">—</span> 208</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>マナ</span> </table>  </div></div>",
+  "fields": {
+    "Name": "リンドウの",
+    "Family": "IncreasedMana",
+    "Domains": "アイテム (1)",
+    "GenerationType": "プレフィックス (1)",
+    "Req. level": "54 (Effective: 43)",
+    "Gold Price": "1370",
+    "Stats": "base maximum mana 179 — 208 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "resource マナ"
+  },
+  "code": "IncreasedManaTwoHandWeapon8_",
+  "stats": [
+    {
+      "id": "base_maximum_mana",
+      "min": 179,
+      "max": 208,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

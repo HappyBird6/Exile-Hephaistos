@@ -1,0 +1,30 @@
+{
+  "url": "https://poe2db.tw/jp/Mail_Belt",
+  "retrievedAt": "2026-10-05T01:23:52.375Z",
+  "sha256": "eb0669682186c3190476efe3445508bb801191621e3751549dcf769645fa112f",
+  "variants": [
+    {
+      "name": "メイルベルト",
+      "card": "メイルベルト\n        \n    \n    \n        \n            ベルト装備条件： レベル 40(1—3)個のチャームスロットを持つ消費フラスコチャージが(10—15)%減少する\n        \n\n\n\n        \n            Mail Belt",
+      "requirements": "装備条件： レベル 40",
+      "fields": {
+        "DropLevel": "40",
+        "BaseType": "メイルベルト",
+        "Class": "ベルト",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt7",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt07",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

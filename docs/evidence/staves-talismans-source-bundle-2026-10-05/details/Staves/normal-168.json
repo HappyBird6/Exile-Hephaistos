@@ -1,0 +1,66 @@
+{
+  "row": {
+    "Name": "Ardent",
+    "Level": "16",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "FireDamage"
+    ],
+    "DropChance": "500",
+    "str": "<a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(31<span class=\"ndash\">—</span>36)</span>% of Damage as Extra <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b5d8acaae74359659060318919bfa3de84e8587e6fa6487df3f2423250d85c87\">Fire</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "fire"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/aa8e0cf6def804aa7ef72fdea13484d8800ae6371369440e9ffd4f0f3e7a0ac2"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FSpellDamageGainedAsFireTwoHand2",
+  "textLocale": "sp",
+  "detailText": "Ganas el (31—36)% del daño como daño de fuego extra",
+  "retrievedAt": "2026-10-05T10:09:02.914Z",
+  "sha256": "eb8dd652b31ca4bb42b767ba98c5bc3491de3bb76cf34397d412a3862bd83d0d",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FGain\">Ganas</a> el <span class='mod-value'>(31<span class=\"ndash\">—</span>36)</span>% del daño como daño de fuego extra</span></h5>   <span data-tabname=\"<if:MS>{apasionado}<elif:FS>{apasionada}<elif:MP>{apasionados}<elif:FP>{apasionadas}\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td><if:MS>{apasionado}<elif:FS>{apasionada}<elif:MP>{apasionados}<elif:FP>{apasionadas}\n<tr><th>Family<td>FireDamage\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Gold Price<td>211\n<tr><th>Stats<td><li>non skill base all damage % to gain as fire <span class=\"badge bg-primary\">31 <span class=\"ndash\">—</span> 36</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Daño</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fuego</span> </table>  </div></div>",
+  "fields": {
+    "Name": "{apasionado}{apasionada}{apasionados}{apasionadas}",
+    "Family": "FireDamage",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "16 (Effective: 12)",
+    "Gold Price": "211",
+    "Stats": "non skill base all damage % to gain as fire 31 — 36 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "elemental_damage Daño Elemental Fuego"
+  },
+  "code": "SpellDamageGainedAsFireTwoHand2",
+  "stats": [
+    {
+      "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+      "min": 31,
+      "max": 36,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

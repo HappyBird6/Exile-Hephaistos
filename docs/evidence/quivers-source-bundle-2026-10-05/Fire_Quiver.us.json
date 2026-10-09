@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/us/Fire_Quiver",
+  "retrievedAt": "2026-10-05T05:29:14.324Z",
+  "sha256": "d5ad43b19c0c545e0fd1eadaa654534c8c81efd8bf4a63592ec5bd17c88029e1",
+  "variants": [
+    {
+      "name": "Fire Quiver",
+      "card": "Fire Quiver\n        \n    \n    \n        \n            QuiversRequires:  Level 8Adds 3 to 5 Fire damage to Attacks\n        \n\n\n        \n        \n            Can only be equipped if you are wielding a Bow.",
+      "requirements": "Requires:  Level 8",
+      "fields": {
+        "DropLevel": "8",
+        "BaseType": "Fire Quiver",
+        "Class": "Quivers",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver2",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverFire",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

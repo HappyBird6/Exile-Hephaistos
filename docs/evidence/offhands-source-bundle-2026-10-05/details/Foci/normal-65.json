@@ -1,0 +1,62 @@
+{
+  "row": {
+    "Name": "Unassailable",
+    "Level": "65",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(92<span class=\"ndash\">—</span>100)</span>% increased <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a>",
+    "fossil_no": [
+      "defences",
+      "energy_shield"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingenergy_shield\" data-tag=\"energy_shield\">Energy Shield</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/809275e841a92cbc3411bbd04c7b5b780c9ac2b664f804be84eeba04d9b783c2"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FLocalIncreasedEnergyShieldPercent7_",
+  "textLocale": "sp",
+  "detailText": "Escudo de energía aumentado un (92—100)%",
+  "retrievedAt": "2026-10-05T04:35:12.037Z",
+  "sha256": "5d25df7f50b83d6777c66b52f6338282a0d2336842f5b4bdb3578d95a3ce6068",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FEnergyShield\">Escudo de energía</a> aumentado un <span class='mod-value'>(92<span class=\"ndash\">—</span>100)</span>%</span></h5>   <span data-tabname=\"<if:MS>{irrefutable}<elif:MP>{irrefutables}\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td><if:MS>{irrefutable}<elif:MP>{irrefutables}\n<tr><th>Family<td>DefencesPercent\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>65 (Effective: 52)\n<tr><th>Gold Price<td>5884\n<tr><th>Stats<td><li>local energy shield +% <span class=\"badge bg-primary\">92 <span class=\"ndash\">—</span> 100</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Escudo de energía</span> \n<tr><td>Puños de roca<td><span class='mod-value'>(19<span class=\"ndash\">—</span>20)</span>% más de <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FEvasion\">evasión</a> y <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FEnergyShield\">escudo de energía</a> globales</table>  </div></div>",
+  "fields": {
+    "Name": "{irrefutable}{irrefutables}",
+    "Family": "DefencesPercent",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "65 (Effective: 52)",
+    "Gold Price": "5884",
+    "Stats": "local energy shield +% 92 — 100 Local",
+    "Spawn Tags": "int_armour: 1 default: 0",
+    "Craft Tags": "defences Escudo de energía"
+  },
+  "code": "LocalIncreasedEnergyShieldPercent7_",
+  "stats": [
+    {
+      "id": "local_energy_shield_+%",
+      "min": 92,
+      "max": 100,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

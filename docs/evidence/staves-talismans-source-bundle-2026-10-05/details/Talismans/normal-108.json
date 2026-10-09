@@ -1,0 +1,63 @@
+{
+  "row": {
+    "Name": "of Skill",
+    "Level": "1",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreasedAttackSpeed"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>7)</span>% increased <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Speed",
+    "fossil_no": [
+      "attack",
+      "speed"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+      "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a91799a44c324f97410ef90ad40cd880f8cb45fbc4ab0e2d4a55e01aff8ff70a"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedAttackSpeed1",
+  "textLocale": "us",
+  "detailText": "(5—7)% increased Attack Speed",
+  "retrievedAt": "2026-10-05T10:11:33.948Z",
+  "sha256": "ed171d7bb6c9016ca90db7763e50449a5c56dead0b87f77a6aef3c6e51da8898",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(5<span class=\"ndash\">—</span>7)</span>% increased <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Speed</span></h5>   <span data-tabname=\"of Skill\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Skill\n<tr><th>Family<td>IncreasedAttackSpeed\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>1\n<tr><th>Gold Price<td>81\n<tr><th>Stats<td><li>local attack speed +% <span class=\"badge bg-primary\">5 <span class=\"ndash\">—</span> 7</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attack</span> <span class='badge bg-primary'>Speed</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Skill",
+    "Family": "IncreasedAttackSpeed",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "1",
+    "Gold Price": "81",
+    "Stats": "local attack speed +% 5 — 7 Local",
+    "Spawn Tags": "weapon: 1 default: 0",
+    "Craft Tags": "Attack Speed"
+  },
+  "code": "LocalIncreasedAttackSpeed1",
+  "stats": [
+    {
+      "id": "local_attack_speed_+%",
+      "min": 5,
+      "max": 7,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

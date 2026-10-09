@@ -1,0 +1,140 @@
+{
+  "page": "Boots_dex",
+  "url": "https://poe2db.tw/us/Boots_dex",
+  "retrievedAt": "2026-10-04T14:45:09.092Z",
+  "sha256": "5919a663814a2801ee45d1b99b06349c68c0a59cb49809d1625db53a2ef19281",
+  "cards": [
+    {
+      "slug": "Rawhide_Boots",
+      "card": "Rawhide BootsEvasion Rating: 15"
+    },
+    {
+      "slug": "Laced_Boots",
+      "card": "Laced BootsEvasion Rating: 47Requires:  Level 11, 17 Dex"
+    },
+    {
+      "slug": "Embossed_Boots",
+      "card": "Embossed BootsEvasion Rating: 63Requires:  Level 16, 23 Dex"
+    },
+    {
+      "slug": "Steeltoe_Boots",
+      "card": "Steeltoe BootsEvasion Rating: 102Requires:  Level 28, 39 Dex"
+    },
+    {
+      "slug": "Lizardscale_Boots",
+      "card": "Lizardscale BootsEvasion Rating: 118Requires:  Level 33, 45 Dex"
+    },
+    {
+      "slug": "Flared_Boots",
+      "card": "Flared BootsEvasion Rating: 157Requires:  Level 45, 60 Dex"
+    },
+    {
+      "slug": "Leatherplate_Boots",
+      "card": "Leatherplate BootsEvasion Rating: 180Requires:  Level 52, 69 Dex"
+    },
+    {
+      "slug": "Embroidered_Boots",
+      "card": "Embroidered BootsEvasion Rating: 222Requires:  Level 65, 86 Dex"
+    },
+    {
+      "slug": "Bound_Boots",
+      "card": "Bound BootsEvasion Rating: 157Requires:  Level 45, 60 Dex"
+    },
+    {
+      "slug": "Sleek_Boots",
+      "card": "Sleek BootsEvasion Rating: 177Requires:  Level 51, 68 Dex"
+    },
+    {
+      "slug": "Studded_Boots",
+      "card": "Studded BootsEvasion Rating: 186Requires:  Level 54, 72 Dex"
+    },
+    {
+      "slug": "Serpentscale_Boots",
+      "card": "Serpentscale BootsEvasion Rating: 203Requires:  Level 59, 78 Dex"
+    },
+    {
+      "slug": "Cinched_Boots",
+      "card": "Cinched BootsEvasion Rating: 222Requires:  Level 65, 86 Dex"
+    },
+    {
+      "slug": "Cavalry_Boots",
+      "card": "Cavalry BootsEvasion Rating: 233Requires:  Level 70, 93 Dex"
+    },
+    {
+      "slug": "Dragonscale_Boots",
+      "card": "Dragonscale BootsEvasion Rating: 244Requires:  Level 75, 101 Dex"
+    },
+    {
+      "slug": "Drakeskin_Boots",
+      "card": "Drakeskin BootsEvasion Rating: 255Requires:  Level 80, 108 Dex"
+    },
+    {
+      "slug": "Runeforged_Rawhide_Boots",
+      "card": "Runeforged Rawhide BootsEvasion Rating: 15Runic Ward: 14"
+    },
+    {
+      "slug": "Runeforged_Laced_Boots",
+      "card": "Runeforged Laced BootsEvasion Rating: 47Runic Ward: 21Requires:  Level 11, 17 Dex"
+    },
+    {
+      "slug": "Runeforged_Embossed_Boots",
+      "card": "Runeforged Embossed BootsEvasion Rating: 63Runic Ward: 26Requires:  Level 16, 23 Dex"
+    },
+    {
+      "slug": "Runeforged_Steeltoe_Boots",
+      "card": "Runeforged Steeltoe BootsEvasion Rating: 102Runic Ward: 32Requires:  Level 28, 39 Dex"
+    },
+    {
+      "slug": "Runeforged_Lizardscale_Boots",
+      "card": "Runeforged Lizardscale BootsEvasion Rating: 118Runic Ward: 36Requires:  Level 33, 45 Dex"
+    },
+    {
+      "slug": "Runeforged_Flared_Boots",
+      "card": "Runeforged Flared BootsEvasion Rating: 157Runic Ward: 39Requires:  Level 45, 60 Dex"
+    },
+    {
+      "slug": "Runeforged_Studded_Boots",
+      "card": "Runeforged Studded BootsEvasion Rating: 179Runic Ward: 36Requires:  Level 54, 72 Dex"
+    },
+    {
+      "slug": "Runeforged_Serpentscale_Boots",
+      "card": "Runeforged Serpentscale BootsEvasion Rating: 170Runic Ward: 68Requires:  Level 59, 78 Dex"
+    },
+    {
+      "slug": "Runeforged_Cinched_Boots",
+      "card": "Runeforged Cinched BootsEvasion Rating: 209Runic Ward: 42Requires:  Level 65, 86 Dex"
+    },
+    {
+      "slug": "Runeforged_Cavalry_Boots",
+      "card": "Runeforged Cavalry BootsEvasion Rating: 146Runic Ward: 116Requires:  Level 70, 93 Dex"
+    },
+    {
+      "slug": "Runeforged_Dragonscale_Boots",
+      "card": "Runeforged Dragonscale BootsEvasion Rating: 222Runic Ward: 53Requires:  Level 75, 101 Dex"
+    },
+    {
+      "slug": "Runeforged_Drakeskin_Boots",
+      "card": "Runeforged Drakeskin BootsEvasion Rating: 124Runic Ward: 169Requires:  Level 80, 108 Dex"
+    },
+    {
+      "slug": "Runemastered_Laced_Boots",
+      "card": "Runemastered Laced BootsEvasion Rating: 54Runic Ward: 81Requires:  Level 38, 51 Dex5% increased Movement Speed"
+    },
+    {
+      "slug": "Runemastered_Embossed_Boots",
+      "card": "Runemastered Embossed BootsEvasion Rating: 94Runic Ward: 41Requires:  Level 38, 51 Dex5% increased Movement Speed"
+    },
+    {
+      "slug": "Runemastered_Steeltoe_Boots",
+      "card": "Runemastered Steeltoe BootsEvasion Rating: 113Runic Ward: 28Requires:  Level 40, 54 Dex"
+    },
+    {
+      "slug": "Runemastered_Lizardscale_Boots",
+      "card": "Runemastered Lizardscale BootsEvasion Rating: 99Runic Ward: 42Requires:  Level 40, 54 Dex"
+    },
+    {
+      "slug": "Runemastered_Cinched_Boots",
+      "card": "Runemastered Cinched BootsEvasion Rating: 178Runic Ward: 74Requires:  Level 65, 86 Dex"
+    }
+  ]
+}

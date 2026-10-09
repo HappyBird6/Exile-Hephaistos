@@ -1,0 +1,97 @@
+{
+  "row": {
+    "Name": "Illusion's",
+    "Level": "75",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(101<span class=\"ndash\">—</span>110)</span>% increased <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating",
+    "fossil_no": [
+      "defences",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "int_armour",
+      "str_dex_armour",
+      "str_int_armour",
+      "str_armour",
+      "dex_int_armour",
+      "str_dex_int_armour",
+      "body_armour",
+      "shield",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fca14351618ecfd5463e4eb281792698c7851450b26e83cf4c08fcbb1df41536"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEvasionRatingPercent8",
+  "textLocale": "us",
+  "detailText": "(101—110)% increased Evasion Rating",
+  "retrievedAt": "2026-10-05T04:33:19.704Z",
+  "sha256": "655b8fe54713ccb34240895d17e55ac4b853520107bf5ac1542467c01dfa8879",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(101<span class=\"ndash\">—</span>110)</span>% increased <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating</span></h5>   <span data-tabname=\"Illusion's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Illusion's\n<tr><th>Family<td>DefencesPercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>75 (Effective: 60)\n<tr><th>Gold Price<td>6300\n<tr><th>Stats<td><li>local evasion rating +% <span class=\"badge bg-primary\">101 <span class=\"ndash\">—</span> 110</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>int_armour: 0</span> <span class='badge bg-primary'>str_dex_armour: 0</span> <span class='badge bg-primary'>str_int_armour: 0</span> <span class='badge bg-primary'>str_armour: 0</span> <span class='badge bg-primary'>dex_int_armour: 0</span> <span class='badge bg-primary'>str_dex_int_armour: 0</span> <span class='badge bg-primary'>body_armour: 1</span> <span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Evasion</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Illusion's",
+    "Family": "DefencesPercent",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "75 (Effective: 60)",
+    "Gold Price": "6300",
+    "Stats": "local evasion rating +% 101 — 110 Local",
+    "Spawn Tags": "int_armour: 0 str_dex_armour: 0 str_int_armour: 0 str_armour: 0 dex_int_armour: 0 str_dex_int_armour: 0 body_armour: 1 shield: 1 default: 0",
+    "Craft Tags": "defences Evasion"
+  },
+  "code": "LocalIncreasedEvasionRatingPercent8",
+  "stats": [
+    {
+      "id": "local_evasion_rating_+%",
+      "min": 101,
+      "max": 110,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "int_armour",
+      "weight": 0
+    },
+    {
+      "tag": "str_dex_armour",
+      "weight": 0
+    },
+    {
+      "tag": "str_int_armour",
+      "weight": 0
+    },
+    {
+      "tag": "str_armour",
+      "weight": 0
+    },
+    {
+      "tag": "dex_int_armour",
+      "weight": 0
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 0
+    },
+    {
+      "tag": "body_armour",
+      "weight": 1
+    },
+    {
+      "tag": "shield",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

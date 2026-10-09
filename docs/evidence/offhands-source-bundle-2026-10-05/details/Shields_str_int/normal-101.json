@@ -1,0 +1,81 @@
+{
+  "row": {
+    "Name": "Barbed",
+    "Level": "19",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "Thorns"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(11<span class=\"ndash\">—</span>16)</span> to <span class='mod-value'>(17<span class=\"ndash\">—</span>23)</span> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> <a data-keyword=\"Thorns\" href=\"Thorns\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/fe360430a7b03d09ffbbf46cb6ffd0130fb019950baf5f446686a0ac50c66b6c\">Thorns</a> damage",
+    "fossil_no": [
+      "physical_damage",
+      "damage",
+      "physical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/eb03c9a796e780453bc0fcda3988537f7186ce82da5c9cb1e8b62d4bddc49d7a"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage3",
+  "textLocale": "us",
+  "detailText": "(11—16) to (17—23) Physical Thorns damage",
+  "retrievedAt": "2026-10-05T04:20:13.152Z",
+  "sha256": "b4842a2eb2e281bd0e4396d29f9e25921cdc6d7e623c1eff73e89adcf0550c41",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(11<span class=\"ndash\">—</span>16)</span> to <span class='mod-value'>(17<span class=\"ndash\">—</span>23)</span> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> <a data-keyword=\"Thorns\" href=\"Thorns\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/fe360430a7b03d09ffbbf46cb6ffd0130fb019950baf5f446686a0ac50c66b6c\">Thorns</a> damage</span></h5>   <span data-tabname=\"Barbed\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Barbed\n<tr><th>Family<td>Thorns\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>19 (Effective: 15)\n<tr><th>Gold Price<td>225\n<tr><th>Stats<td><li>thorns maximum base physical damage <span class=\"badge bg-primary\">17 <span class=\"ndash\">—</span> 23</span> <span class=\"badge bg-secondary\">Global</span></li><li>thorns minimum base physical damage <span class=\"badge bg-primary\">11 <span class=\"ndash\">—</span> 16</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 1</span> <span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>physical_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Physical</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Barbed",
+    "Family": "Thorns",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "19 (Effective: 15)",
+    "Gold Price": "225",
+    "Stats": "thorns maximum base physical damage 17 — 23 Globalthorns minimum base physical damage 11 — 16 Global",
+    "Spawn Tags": "body_armour: 1 shield: 1 belt: 1 default: 0",
+    "Craft Tags": "physical_damage Damage Physical"
+  },
+  "code": "AttackerTakesDamage3",
+  "stats": [
+    {
+      "id": "thorns_maximum_base_physical_damage",
+      "min": 17,
+      "max": 23,
+      "locality": "Global"
+    },
+    {
+      "id": "thorns_minimum_base_physical_damage",
+      "min": 11,
+      "max": 16,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "body_armour",
+      "weight": 1
+    },
+    {
+      "tag": "shield",
+      "weight": 1
+    },
+    {
+      "tag": "belt",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

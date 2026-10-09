@@ -1,0 +1,73 @@
+{
+  "capturedAt": "2026-10-05T07:12:25.168Z",
+  "services": [
+    {
+      "name": "exile-workbench-qa-20261002-frontend-1",
+      "id": "c8e74d399af207f171b43577a6106ebd341942ca00658a246dc8dfa55a9c83b4",
+      "startedAt": "2026-10-04T13:18:17.193444193Z",
+      "running": true,
+      "mounts": [
+        {
+          "Destination": "/usr/share/nginx/html",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "E:/WORK/Exile-Hephaistos/codex/runtime-ui-18a2a3d/frontend-dist",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "name": "exile-workbench-qa-20261002-app-1",
+      "id": "c4bbebf6e190002f7536eaa9b60aac1df4d684a7287d7d75470a491fc2c4a408",
+      "startedAt": "2026-10-04T12:43:17.378679745Z",
+      "running": true,
+      "mounts": [
+        {
+          "Destination": "/app/app.jar",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "E:/WORK/Exile-Hephaistos/codex/runtime-master-7d27d6c/poe2craft.jar",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "name": "exile-workbench-qa-20261002-postgres-1",
+      "id": "747188687b03c214715c9ab66d6286fd890bba81d6247c618e5afd39d32c0eba",
+      "startedAt": "2026-10-02T11:57:41.487690943Z",
+      "running": true,
+      "mounts": [
+        {
+          "Destination": "/var/lib/postgresql/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "exile-workbench-qa-20261002_qa-data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/exile-workbench-qa-20261002_qa-data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "name": "exile-workbench-qa-20261002-redis-1",
+      "id": "9f0962732bc25e1b9e06acbac0fe47fd43e33a835e304962081e7c09a9222a1f",
+      "startedAt": "2026-10-02T11:57:41.223275862Z",
+      "running": true,
+      "mounts": [
+        {
+          "Destination": "/data",
+          "Driver": "local",
+          "Mode": "",
+          "Name": "c94be3f05cb3ee8e77f6cf019955f6aa03de1ba9206e57acba8ec2254249b31b",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/c94be3f05cb3ee8e77f6cf019955f6aa03de1ba9206e57acba8ec2254249b31b/_data",
+          "Type": "volume"
+        }
+      ]
+    }
+  ]
+}

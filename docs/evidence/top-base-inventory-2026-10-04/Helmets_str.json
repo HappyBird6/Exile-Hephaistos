@@ -1,0 +1,172 @@
+{
+  "page": "Helmets_str",
+  "url": "https://poe2db.tw/us/Helmets_str",
+  "retrievedAt": "2026-10-04T14:44:49.125Z",
+  "sha256": "21ee17328820a97cc5bfbb47ab8e7bc1919795b2702d17524499f8e7b0cced28",
+  "cards": [
+    {
+      "slug": "Rusted_Greathelm",
+      "card": "Rusted GreathelmArmour: 29"
+    },
+    {
+      "slug": "Soldier_Greathelm",
+      "card": "Soldier GreathelmArmour: 80Requires:  Level 12, 19 Str"
+    },
+    {
+      "slug": "Wrapped_Greathelm",
+      "card": "Wrapped GreathelmArmour: 99Requires:  Level 16, 25 Str"
+    },
+    {
+      "slug": "Spired_Greathelm",
+      "card": "Spired GreathelmArmour: 149Requires:  Level 27, 40 Str"
+    },
+    {
+      "slug": "Elite_Greathelm",
+      "card": "Elite GreathelmArmour: 177Requires:  Level 33, 48 Str"
+    },
+    {
+      "slug": "Warrior_Greathelm",
+      "card": "Warrior GreathelmArmour: 191Requires:  Level 36, 52 Str"
+    },
+    {
+      "slug": "Commander_Greathelm",
+      "card": "Commander GreathelmArmour: 233Requires:  Level 45, 64 Str"
+    },
+    {
+      "slug": "Fierce_Greathelm",
+      "card": "Fierce GreathelmArmour: 260Requires:  Level 51, 73 Str"
+    },
+    {
+      "slug": "Sentinel_Greathelm",
+      "card": "Sentinel GreathelmArmour: 265Requires:  Level 52, 74 Str"
+    },
+    {
+      "slug": "Goliath_Greathelm",
+      "card": "Goliath GreathelmArmour: 288Requires:  Level 57, 81 Str"
+    },
+    {
+      "slug": "Guardian_Greathelm",
+      "card": "Guardian GreathelmArmour: 325Requires:  Level 65, 91 Str"
+    },
+    {
+      "slug": "Corroded_Greathelm",
+      "card": "Corroded GreathelmArmour: 233Requires:  Level 45, 64 Str"
+    },
+    {
+      "slug": "Mercenary_Greathelm",
+      "card": "Mercenary GreathelmArmour: 246Requires:  Level 48, 69 Str"
+    },
+    {
+      "slug": "Homeguard_Greathelm",
+      "card": "Homeguard GreathelmArmour: 260Requires:  Level 51, 73 Str"
+    },
+    {
+      "slug": "Elegant_Greathelm",
+      "card": "Elegant GreathelmArmour: 274Requires:  Level 54, 77 Str"
+    },
+    {
+      "slug": "Noble_Greathelm",
+      "card": "Noble GreathelmArmour: 297Requires:  Level 59, 83 Str"
+    },
+    {
+      "slug": "Warmonger_Greathelm",
+      "card": "Warmonger GreathelmArmour: 325Requires:  Level 65, 91 Str"
+    },
+    {
+      "slug": "Masked_Greathelm",
+      "card": "Masked GreathelmArmour: 341Requires:  Level 70, 99 Str"
+    },
+    {
+      "slug": "Paragon_Greathelm",
+      "card": "Paragon GreathelmArmour: 357Requires:  Level 75, 107 Str"
+    },
+    {
+      "slug": "Imperial_Greathelm",
+      "card": "Imperial GreathelmArmour: 374Requires:  Level 80, 115 Str"
+    },
+    {
+      "slug": "Runeforged_Rusted_Greathelm",
+      "card": "Runeforged Rusted GreathelmArmour: 29Runic Ward: 19"
+    },
+    {
+      "slug": "Runeforged_Soldier_Greathelm",
+      "card": "Runeforged Soldier GreathelmArmour: 80Runic Ward: 29Requires:  Level 12, 19 Str"
+    },
+    {
+      "slug": "Runeforged_Wrapped_Greathelm",
+      "card": "Runeforged Wrapped GreathelmArmour: 99Runic Ward: 35Requires:  Level 16, 25 Str"
+    },
+    {
+      "slug": "Runeforged_Spired_Greathelm",
+      "card": "Runeforged Spired GreathelmArmour: 149Runic Ward: 49Requires:  Level 27, 40 Str"
+    },
+    {
+      "slug": "Runeforged_Elite_Greathelm",
+      "card": "Runeforged Elite GreathelmArmour: 177Runic Ward: 49Requires:  Level 33, 48 Str"
+    },
+    {
+      "slug": "Runeforged_Warrior_Greathelm",
+      "card": "Runeforged Warrior GreathelmArmour: 191Runic Ward: 50Requires:  Level 36, 52 Str"
+    },
+    {
+      "slug": "Runeforged_Commander_Greathelm",
+      "card": "Runeforged Commander GreathelmArmour: 233Runic Ward: 56Requires:  Level 45, 64 Str"
+    },
+    {
+      "slug": "Runeforged_Fierce_Greathelm",
+      "card": "Runeforged Fierce GreathelmArmour: 260Runic Ward: 57Requires:  Level 51, 73 Str"
+    },
+    {
+      "slug": "Runeforged_Elegant_Greathelm",
+      "card": "Runeforged Elegant GreathelmArmour: 252Runic Ward: 60Requires:  Level 54, 77 Str"
+    },
+    {
+      "slug": "Runeforged_Noble_Greathelm",
+      "card": "Runeforged Noble GreathelmArmour: 238Runic Ward: 104Requires:  Level 59, 83 Str"
+    },
+    {
+      "slug": "Runeforged_Warmonger_Greathelm",
+      "card": "Runeforged Warmonger GreathelmArmour: 305Runic Ward: 56Requires:  Level 65, 91 Str"
+    },
+    {
+      "slug": "Runeforged_Masked_Greathelm",
+      "card": "Runeforged Masked GreathelmArmour: 279Runic Ward: 85Requires:  Level 70, 99 Str"
+    },
+    {
+      "slug": "Runeforged_Paragon_Greathelm",
+      "card": "Runeforged Paragon GreathelmArmour: 351Runic Ward: 42Requires:  Level 75, 107 Str"
+    },
+    {
+      "slug": "Runeforged_Imperial_Greathelm",
+      "card": "Runeforged Imperial GreathelmArmour: 169Runic Ward: 240Requires:  Level 80, 115 Str"
+    },
+    {
+      "slug": "Runemastered_Rusted_Greathelm",
+      "card": "Runemastered Rusted GreathelmArmour: 360Runic Ward: 36Requires:  Level 38, 54 Str"
+    },
+    {
+      "slug": "Runemastered_Soldier_Greathelm",
+      "card": "Runemastered Soldier GreathelmArmour: 140Runic Ward: 54Requires:  Level 38, 54 Str"
+    },
+    {
+      "slug": "Runemastered_Wrapped_Greathelm",
+      "card": "Runemastered Wrapped GreathelmArmour: 170Runic Ward: 27Requires:  Level 38, 54 Str"
+    },
+    {
+      "slug": "Runemastered_Spired_Greathelm",
+      "card": "Runemastered Spired GreathelmArmour: 115Runic Ward: 85Requires:  Level 40, 58 Str"
+    },
+    {
+      "slug": "Runemastered_Elite_Greathelm",
+      "card": "Runemastered Elite GreathelmArmour: 209Runic Ward: 61Requires:  Level 55, 78 Str"
+    },
+    {
+      "slug": "Runemastered_Warrior_Greathelm",
+      "card": "Runemastered Warrior GreathelmArmour: 111Runic Ward: 147Requires:  Level 55, 78 Str"
+    },
+    {
+      "slug": "Runemastered_Fierce_Greathelm",
+      "card": "Runemastered Fierce GreathelmArmour: 334Runic Ward: 24Requires:  Level 55, 78 Str"
+    }
+  ]
+}

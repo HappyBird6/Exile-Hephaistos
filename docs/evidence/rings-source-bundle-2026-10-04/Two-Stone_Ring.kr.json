@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/kr/Two-Stone_Ring",
+  "retrievedAt": "2026-10-04T20:55:03.958Z",
+  "sha256": "8821604f8a59272543269cc907450c37186d3be0fa3d03b4775c1aa4946d1508",
+  "name": "쌍보석 반지",
+  "card": "쌍보석 반지\n        \n    \n    \n        \n            반지요구 사항:  레벨 35화염 및 냉기 저항 +(12—16)%\n        \n\n\n\n        \n            Two-Stone Ring",
+  "requirements": "요구 사항:  레벨 35",
+  "fields": {
+    "DropLevel": "35",
+    "BaseType": "쌍보석 반지",
+    "Class": "반지",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRing13a",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/Basetypes/IronRing",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

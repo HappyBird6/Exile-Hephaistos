@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/jp/Warlock_Leggings",
+  "retrievedAt": "2026-10-04T15:38:37.237Z",
+  "sha256": "c6b7a21145e02c729c5ca84717f56e64325ffebfe3611d7dba928f33711b61f0",
+  "name": "ウォーロックレギンス",
+  "card": "ウォーロックレギンス\n        \n    \n    \n        \n            靴アーマー: 134エナジーシールド: 37装備条件： レベル 75, 56 筋力, 56 知性\n        \n\n\n\n        \n            Warlock Leggings",
+  "requirements": "装備条件： レベル 75, 56 筋力, 56 知性",
+  "fields": {
+    "DropLevel": "75",
+    "BaseType": "ウォーロックレギンス",
+    "Class": "靴",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Boots/FourBootsStrInt3Endgame",
+    "Tags": "str_int_armour, boots, armour",
+    "Icon": "Art/2DItems/Armours/Boots/Basetypes/BootsIntStr03",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, boots",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Boots",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

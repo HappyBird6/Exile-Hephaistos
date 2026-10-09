@@ -1,0 +1,98 @@
+{
+  "row": {
+    "Name": "Healthy",
+    "Level": "6",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(20<span class=\"ndash\">—</span>29)</span> to maximum Life",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "helmet",
+      "gloves",
+      "boots",
+      "belt",
+      "amulet",
+      "ring",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/dfaf9bfeec1dfc60c75138318b493bca64f32146906904ce2a7bcdd3f41128d2"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/dfaf9bfeec1dfc60c75138318b493bca64f32146906904ce2a7bcdd3f41128d2",
+  "textLocale": "us",
+  "detailText": "+(20—29) to maximum Life",
+  "retrievedAt": "2026-10-05T04:19:04.526Z",
+  "sha256": "dfaf9bfeec1dfc60c75138318b493bca64f32146906904ce2a7bcdd3f41128d2",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(20<span class=\"ndash\">—</span>29)</span> to maximum Life</span></h5>   <span data-tabname=\"Healthy\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Healthy\n<tr><th>Family<td>IncreasedLife\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>6 (Effective: 4)\n<tr><th>Gold Price<td>142\n<tr><th>Stats<td><li>base maximum life <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 29</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 1</span> <span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>6</span>% less damage taken while on [LowLife|Low Life]</table>  </div></div>",
+  "fields": {
+    "Name": "Healthy",
+    "Family": "IncreasedLife",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "6 (Effective: 4)",
+    "Gold Price": "142",
+    "Stats": "base maximum life 20 — 29 Global",
+    "Spawn Tags": "body_armour: 1 shield: 1 helmet: 1 gloves: 1 boots: 1 belt: 1 amulet: 1 ring: 1 default: 0",
+    "Craft Tags": "resource Life"
+  },
+  "code": "IncreasedLife2",
+  "stats": [
+    {
+      "id": "base_maximum_life",
+      "min": 20,
+      "max": 29,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "body_armour",
+      "weight": 1
+    },
+    {
+      "tag": "shield",
+      "weight": 1
+    },
+    {
+      "tag": "helmet",
+      "weight": 1
+    },
+    {
+      "tag": "gloves",
+      "weight": 1
+    },
+    {
+      "tag": "boots",
+      "weight": 1
+    },
+    {
+      "tag": "belt",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

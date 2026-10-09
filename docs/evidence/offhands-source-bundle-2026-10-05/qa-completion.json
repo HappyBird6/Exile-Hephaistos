@@ -1,0 +1,89 @@
+{
+  "completedAt": "2026-10-05T05:18:33.310Z",
+  "qaRoot": "E:/WORK/Exile-Hephaistos/codex/offhands-qa-20261005",
+  "baseCount": 102,
+  "backend": {
+    "unit": 465,
+    "integration": 6,
+    "failures": 0,
+    "skipped": 0,
+    "command": "spotlessApply check generateJooq bootJar",
+    "finalLog": "backend-check-2.log"
+  },
+  "frontend": {
+    "tests": 1870,
+    "files": 64,
+    "finalLog": "frontend-check-4.log",
+    "checks": [
+      "npm ci",
+      "lint",
+      "typecheck",
+      "format:check",
+      "test -- --run",
+      "build"
+    ]
+  },
+  "apiChecks": 594,
+  "browserChecks": 703,
+  "legacyFilledFilmChecks": 25,
+  "sourceInputFiles": 659,
+  "visualReview": "All 28 contact sheets and selected original crops; no material clipping or horizontal page overflow",
+  "logs": [
+    {
+      "path": "backend-check-1.log",
+      "sha256": "40aa7c9a987dbb033bc3bb46d453cf224bd2d3228309f27ff9d7ebf9e147edcd"
+    },
+    {
+      "path": "backend-check-2.log",
+      "sha256": "74a11f789c8a076b82fe4602b478b0989bb5ea053af8fa1ebb0558038c7bab9d"
+    },
+    {
+      "path": "frontend-check-1.log",
+      "sha256": "15fa13eec2c5216512b457b4e519ce98934b6696937e2f771fa32c41a54c6b99"
+    },
+    {
+      "path": "frontend-check-2.log",
+      "sha256": "311dcddf81ed0ea0229a82a30d368a655bbb7aa559b7e444bdbd069e1a1ab89f"
+    },
+    {
+      "path": "frontend-check-3.log",
+      "sha256": "9ae5a642088d429f19d4bf6bee4fdf49b5849370813e921c04157dd544eeef06"
+    },
+    {
+      "path": "frontend-check-4.log",
+      "sha256": "ef4935d686c0e1e3161415ccbb856a4415b4374db72de7fd993a9eb9a4ca31c4"
+    }
+  ],
+  "shutdown": [
+    {
+      "name": "exile-offhands-20261005-app-1",
+      "running": false,
+      "exitCode": 143,
+      "finishedAt": "2026-10-05T05:16:59.651347261Z",
+      "oomKilled": false
+    },
+    {
+      "name": "exile-offhands-20261005-frontend-1",
+      "running": false,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T05:16:59.210107849Z",
+      "oomKilled": false
+    },
+    {
+      "name": "exile-offhands-20261005-postgres-1",
+      "running": false,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T05:16:59.947121579Z",
+      "oomKilled": false
+    },
+    {
+      "name": "exile-offhands-20261005-redis-1",
+      "running": false,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T05:16:59.969866857Z",
+      "oomKilled": false
+    }
+  ],
+  "livePreservation": "Exact service IDs/start times/mounts match before and after; 18080/18081 unchanged",
+  "remainingBlockers": []
+}

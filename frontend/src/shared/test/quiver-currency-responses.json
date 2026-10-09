@@ -1,0 +1,1405 @@
+[
+  {
+    "key": "visceral-quiver",
+    "before": {
+      "snapshotId": "poe2db-visceral-quiver-20261005-0018282ecafe-414028865199",
+      "baseItemId": "Metadata/Items/Quivers/FourQuiver11",
+      "itemLevel": 82,
+      "rarity": "NORMAL",
+      "implicits": [
+        {
+          "modifierId": "visceral-quiver:implicit:base",
+          "values": {
+            "attack_critical_strike_chance_+%": 30
+          },
+          "fractured": false
+        }
+      ],
+      "conditions": [],
+      "explicits": [],
+      "augmentSockets": null,
+      "catalystQuality": null
+    },
+    "result": {
+      "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+      "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
+      "snapshotId": "poe2db-visceral-quiver-20261005-0018282ecafe-414028865199",
+      "state": {
+        "snapshotId": "poe2db-visceral-quiver-20261005-0018282ecafe-414028865199",
+        "baseItemId": "Metadata/Items/Quivers/FourQuiver11",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [
+          {
+            "modifierId": "visceral-quiver:implicit:base",
+            "values": {
+              "attack_critical_strike_chance_+%": 30
+            },
+            "fractured": false
+          }
+        ],
+        "explicits": [
+          {
+            "modifierId": "attuned-wand:suffix:of-conquest",
+            "values": {
+              "base_life_gained_on_enemy_death": 25
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "action": "TRANSMUTATION",
+      "applied": true,
+      "reason": "",
+      "events": [
+        {
+          "kind": "ADD",
+          "modifierId": "attuned-wand:suffix:of-conquest",
+          "values": {
+            "base_life_gained_on_enemy_death": 25
+          },
+          "selectionProbability": 0.011819958393746454
+        }
+      ],
+      "assumptions": [
+        {
+          "id": "assumed-source-integer-roll-v1",
+          "candidateUnit": "base_life_gained_on_enemy_death",
+          "n": 10,
+          "candidates": [],
+          "min": 19,
+          "max": 28,
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath4",
+          "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+          "ratioTick": null
+        }
+      ],
+      "consumedOmens": [],
+      "remainingOmens": [],
+      "qualityLimit": null
+    },
+    "definitions": {
+      "visceral-quiver:implicit:base": {
+        "id": "visceral-quiver:implicit:base",
+        "name": "Visceral Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": ["CriticalStrikeChanceIncrease"],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "(20—30)% increased Critical Hit Chance for Attacks",
+        "stats": [
+          {
+            "id": "attack_critical_strike_chance_+%",
+            "min": 20,
+            "max": 30
+          }
+        ],
+        "tags": ["critical", "attack"],
+        "sourceUrl": "https://poe2db.tw/us/Visceral_Quiver"
+      },
+      "attuned-wand:suffix:of-conquest": {
+        "id": "attuned-wand:suffix:of-conquest",
+        "name": "of Conquest",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LifeGainedFromEnemyDeath"],
+        "requiredItemLevel": 33,
+        "weight": 750,
+        "tier": 3,
+        "text": "Gain (19—28) Life per enemy killed",
+        "stats": [
+          {
+            "id": "base_life_gained_on_enemy_death",
+            "min": 19,
+            "max": 28
+          }
+        ],
+        "tags": ["life"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath4"
+      }
+    }
+  },
+  {
+    "key": "volant-quiver",
+    "before": {
+      "snapshotId": "poe2db-volant-quiver-20261005-1d805b58f11e-c626e4df69f9",
+      "baseItemId": "Metadata/Items/Quivers/FourQuiver10",
+      "itemLevel": 82,
+      "rarity": "NORMAL",
+      "implicits": [
+        {
+          "modifierId": "volant-quiver:implicit:base",
+          "values": {
+            "base_arrow_speed_+%": 30
+          },
+          "fractured": false
+        }
+      ],
+      "conditions": [],
+      "explicits": [],
+      "augmentSockets": null,
+      "catalystQuality": null
+    },
+    "result": {
+      "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+      "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
+      "snapshotId": "poe2db-volant-quiver-20261005-1d805b58f11e-c626e4df69f9",
+      "state": {
+        "snapshotId": "poe2db-volant-quiver-20261005-1d805b58f11e-c626e4df69f9",
+        "baseItemId": "Metadata/Items/Quivers/FourQuiver10",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [
+          {
+            "modifierId": "volant-quiver:implicit:base",
+            "values": {
+              "base_arrow_speed_+%": 30
+            },
+            "fractured": false
+          }
+        ],
+        "explicits": [
+          {
+            "modifierId": "quiver:suffix:of-piercing:ArrowPierceChance1",
+            "values": {
+              "base_chance_to_pierce_%": 14
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "action": "TRANSMUTATION",
+      "applied": true,
+      "reason": "",
+      "events": [
+        {
+          "kind": "ADD",
+          "modifierId": "quiver:suffix:of-piercing:ArrowPierceChance1",
+          "values": {
+            "base_chance_to_pierce_%": 14
+          },
+          "selectionProbability": 0.007879972262497635
+        }
+      ],
+      "assumptions": [
+        {
+          "id": "assumed-source-integer-roll-v1",
+          "candidateUnit": "base_chance_to_pierce_%",
+          "n": 3,
+          "candidates": [],
+          "min": 12,
+          "max": 14,
+          "sourceUrl": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FArrowPierceChance1",
+          "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+          "ratioTick": null
+        }
+      ],
+      "consumedOmens": [],
+      "remainingOmens": [],
+      "qualityLimit": null
+    },
+    "definitions": {
+      "volant-quiver:implicit:base": {
+        "id": "volant-quiver:implicit:base",
+        "name": "Volant Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": ["ArrowSpeed"],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "(20—30)% increased Arrow Speed",
+        "stats": [
+          {
+            "id": "base_arrow_speed_+%",
+            "min": 20,
+            "max": 30
+          }
+        ],
+        "tags": ["attack", "speed"],
+        "sourceUrl": "https://poe2db.tw/us/Volant_Quiver"
+      },
+      "quiver:suffix:of-piercing:ArrowPierceChance1": {
+        "id": "quiver:suffix:of-piercing:ArrowPierceChance1",
+        "name": "of Piercing",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["ChanceToPierce"],
+        "requiredItemLevel": 11,
+        "weight": 500,
+        "tier": 5,
+        "text": "(12—14)% chance to Pierce an Enemy",
+        "stats": [
+          {
+            "id": "base_chance_to_pierce_%",
+            "min": 12,
+            "max": 14
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FArrowPierceChance1"
+      }
+    }
+  },
+  {
+    "key": "penetrating-quiver",
+    "before": {
+      "snapshotId": "poe2db-penetrating-quiver-20261005-7a722e6674d0-455e403cb092",
+      "baseItemId": "Metadata/Items/Quivers/FourQuiver9",
+      "itemLevel": 82,
+      "rarity": "NORMAL",
+      "implicits": [
+        {
+          "modifierId": "penetrating-quiver:implicit:base",
+          "values": {
+            "base_chance_to_pierce_%": 100
+          },
+          "fractured": false
+        }
+      ],
+      "conditions": [],
+      "explicits": [],
+      "augmentSockets": null,
+      "catalystQuality": null
+    },
+    "result": {
+      "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+      "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
+      "snapshotId": "poe2db-penetrating-quiver-20261005-7a722e6674d0-455e403cb092",
+      "state": {
+        "snapshotId": "poe2db-penetrating-quiver-20261005-7a722e6674d0-455e403cb092",
+        "baseItemId": "Metadata/Items/Quivers/FourQuiver9",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [
+          {
+            "modifierId": "penetrating-quiver:implicit:base",
+            "values": {
+              "base_chance_to_pierce_%": 100
+            },
+            "fractured": false
+          }
+        ],
+        "explicits": [
+          {
+            "modifierId": "stocky-mitts:suffix:of-the-phantom",
+            "values": {
+              "additional_dexterity": 32
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "action": "TRANSMUTATION",
+      "applied": true,
+      "reason": "",
+      "events": [
+        {
+          "kind": "ADD",
+          "modifierId": "stocky-mitts:suffix:of-the-phantom",
+          "values": {
+            "additional_dexterity": 32
+          },
+          "selectionProbability": 0.01575994452499527
+        }
+      ],
+      "assumptions": [
+        {
+          "id": "assumed-source-integer-roll-v1",
+          "candidateUnit": "additional_dexterity",
+          "n": 3,
+          "candidates": [],
+          "min": 31,
+          "max": 33,
+          "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/bb1545c456b949d12034f73f4f8798ee0a1890e1f1faca0133b322261c0da130",
+          "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+          "ratioTick": null
+        }
+      ],
+      "consumedOmens": [],
+      "remainingOmens": [],
+      "qualityLimit": null
+    },
+    "definitions": {
+      "penetrating-quiver:implicit:base": {
+        "id": "penetrating-quiver:implicit:base",
+        "name": "Penetrating Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": ["ChanceToPierce"],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "100% chance to Pierce an Enemy",
+        "stats": [
+          {
+            "id": "base_chance_to_pierce_%",
+            "min": 100,
+            "max": 100
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/Penetrating_Quiver"
+      },
+      "stocky-mitts:suffix:of-the-phantom": {
+        "id": "stocky-mitts:suffix:of-the-phantom",
+        "name": "of the Phantom",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["Dexterity"],
+        "requiredItemLevel": 74,
+        "weight": 1000,
+        "tier": 1,
+        "text": "+(31—33) to Dexterity",
+        "stats": [
+          {
+            "id": "additional_dexterity",
+            "min": 31,
+            "max": 33
+          }
+        ],
+        "tags": ["attribute"],
+        "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/bb1545c456b949d12034f73f4f8798ee0a1890e1f1faca0133b322261c0da130"
+      }
+    }
+  },
+  {
+    "key": "primed-quiver",
+    "before": {
+      "snapshotId": "poe2db-primed-quiver-20261005-81f0ceb5d0bf-6fafbf0f536d",
+      "baseItemId": "Metadata/Items/Quivers/FourQuiver8",
+      "itemLevel": 82,
+      "rarity": "NORMAL",
+      "implicits": [
+        {
+          "modifierId": "primed-quiver:implicit:base",
+          "values": {
+            "attack_speed_+%": 10
+          },
+          "fractured": false
+        }
+      ],
+      "conditions": [],
+      "explicits": [],
+      "augmentSockets": null,
+      "catalystQuality": null
+    },
+    "result": {
+      "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+      "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
+      "snapshotId": "poe2db-primed-quiver-20261005-81f0ceb5d0bf-6fafbf0f536d",
+      "state": {
+        "snapshotId": "poe2db-primed-quiver-20261005-81f0ceb5d0bf-6fafbf0f536d",
+        "baseItemId": "Metadata/Items/Quivers/FourQuiver8",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [
+          {
+            "modifierId": "primed-quiver:implicit:base",
+            "values": {
+              "attack_speed_+%": 10
+            },
+            "fractured": false
+          }
+        ],
+        "explicits": [
+          {
+            "modifierId": "quiver:prefix:incisive:DamageWithBows4",
+            "values": {
+              "damage_+%_with_bow_skills": 41
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "action": "TRANSMUTATION",
+      "applied": true,
+      "reason": "",
+      "events": [
+        {
+          "kind": "ADD",
+          "modifierId": "quiver:prefix:incisive:DamageWithBows4",
+          "values": {
+            "damage_+%_with_bow_skills": 41
+          },
+          "selectionProbability": 0.007879972262497635
+        }
+      ],
+      "assumptions": [
+        {
+          "id": "assumed-source-integer-roll-v1",
+          "candidateUnit": "damage_+%_with_bow_skills",
+          "n": 6,
+          "candidates": [],
+          "min": 37,
+          "max": 42,
+          "sourceUrl": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FDamageWithBows4",
+          "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+          "ratioTick": null
+        }
+      ],
+      "consumedOmens": [],
+      "remainingOmens": [],
+      "qualityLimit": null
+    },
+    "definitions": {
+      "primed-quiver:implicit:base": {
+        "id": "primed-quiver:implicit:base",
+        "name": "Primed Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": ["IncreasedAttackSpeed"],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "(7—10)% increased Attack Speed",
+        "stats": [
+          {
+            "id": "attack_speed_+%",
+            "min": 7,
+            "max": 10
+          }
+        ],
+        "tags": ["attack", "speed"],
+        "sourceUrl": "https://poe2db.tw/us/Primed_Quiver"
+      },
+      "quiver:prefix:incisive:DamageWithBows4": {
+        "id": "quiver:prefix:incisive:DamageWithBows4",
+        "name": "Incisive",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["DamageWithWeaponTypeSkill"],
+        "requiredItemLevel": 46,
+        "weight": 500,
+        "tier": 3,
+        "text": "(37—42)% increased Damage with Bow Skills",
+        "stats": [
+          {
+            "id": "damage_+%_with_bow_skills",
+            "min": 37,
+            "max": 42
+          }
+        ],
+        "tags": ["damage"],
+        "sourceUrl": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FDamageWithBows4"
+      }
+    }
+  },
+  {
+    "key": "serrated-quiver",
+    "before": {
+      "snapshotId": "poe2db-serrated-quiver-20261005-6900f60bbf7b-3fb2de9c6166",
+      "baseItemId": "Metadata/Items/Quivers/FourQuiver7",
+      "itemLevel": 82,
+      "rarity": "NORMAL",
+      "implicits": [
+        {
+          "modifierId": "serrated-quiver:implicit:base",
+          "values": {
+            "bleed_on_hit_with_attacks_%": 30
+          },
+          "fractured": false
+        }
+      ],
+      "conditions": [],
+      "explicits": [],
+      "augmentSockets": null,
+      "catalystQuality": null
+    },
+    "result": {
+      "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+      "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
+      "snapshotId": "poe2db-serrated-quiver-20261005-6900f60bbf7b-3fb2de9c6166",
+      "state": {
+        "snapshotId": "poe2db-serrated-quiver-20261005-6900f60bbf7b-3fb2de9c6166",
+        "baseItemId": "Metadata/Items/Quivers/FourQuiver7",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [
+          {
+            "modifierId": "serrated-quiver:implicit:base",
+            "values": {
+              "bleed_on_hit_with_attacks_%": 30
+            },
+            "fractured": false
+          }
+        ],
+        "explicits": [
+          {
+            "modifierId": "quiver:suffix:of-anger:AttackCriticalStrikeMultiplier2",
+            "values": {
+              "attack_critical_strike_multiplier_+": 19
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "action": "TRANSMUTATION",
+      "applied": true,
+      "reason": "",
+      "events": [
+        {
+          "kind": "ADD",
+          "modifierId": "quiver:suffix:of-anger:AttackCriticalStrikeMultiplier2",
+          "values": {
+            "attack_critical_strike_multiplier_+": 19
+          },
+          "selectionProbability": 0.01575994452499527
+        }
+      ],
+      "assumptions": [
+        {
+          "id": "assumed-source-integer-roll-v1",
+          "candidateUnit": "attack_critical_strike_multiplier_+",
+          "n": 5,
+          "candidates": [],
+          "min": 15,
+          "max": 19,
+          "sourceUrl": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAttackCriticalStrikeMultiplier2",
+          "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+          "ratioTick": null
+        }
+      ],
+      "consumedOmens": [],
+      "remainingOmens": [],
+      "qualityLimit": null
+    },
+    "definitions": {
+      "serrated-quiver:implicit:base": {
+        "id": "serrated-quiver:implicit:base",
+        "name": "Serrated Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": ["ChanceToBleed"],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "Attacks have (20—30)% chance to cause Bleeding",
+        "stats": [
+          {
+            "id": "bleed_on_hit_with_attacks_%",
+            "min": 20,
+            "max": 30
+          }
+        ],
+        "tags": ["attack", "ailment", "physical"],
+        "sourceUrl": "https://poe2db.tw/us/Serrated_Quiver"
+      },
+      "quiver:suffix:of-anger:AttackCriticalStrikeMultiplier2": {
+        "id": "quiver:suffix:of-anger:AttackCriticalStrikeMultiplier2",
+        "name": "of Anger",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["CriticalStrikeMultiplier"],
+        "requiredItemLevel": 21,
+        "weight": 1000,
+        "tier": 5,
+        "text": "(15—19)% increased Critical Damage Bonus for Attack Damage",
+        "stats": [
+          {
+            "id": "attack_critical_strike_multiplier_+",
+            "min": 15,
+            "max": 19
+          }
+        ],
+        "tags": ["critical", "attack", "damage"],
+        "sourceUrl": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAttackCriticalStrikeMultiplier2"
+      }
+    }
+  },
+  {
+    "key": "toxic-quiver",
+    "before": {
+      "snapshotId": "poe2db-toxic-quiver-20261005-cf5eb3881332-65dd83cfbe26",
+      "baseItemId": "Metadata/Items/Quivers/FourQuiver6",
+      "itemLevel": 82,
+      "rarity": "NORMAL",
+      "implicits": [
+        {
+          "modifierId": "toxic-quiver:implicit:base",
+          "values": {
+            "chance_to_poison_on_hit_with_attacks_%": 30
+          },
+          "fractured": false
+        }
+      ],
+      "conditions": [],
+      "explicits": [],
+      "augmentSockets": null,
+      "catalystQuality": null
+    },
+    "result": {
+      "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+      "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
+      "snapshotId": "poe2db-toxic-quiver-20261005-cf5eb3881332-65dd83cfbe26",
+      "state": {
+        "snapshotId": "poe2db-toxic-quiver-20261005-cf5eb3881332-65dd83cfbe26",
+        "baseItemId": "Metadata/Items/Quivers/FourQuiver6",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [
+          {
+            "modifierId": "toxic-quiver:implicit:base",
+            "values": {
+              "chance_to_poison_on_hit_with_attacks_%": 30
+            },
+            "fractured": false
+          }
+        ],
+        "explicits": [
+          {
+            "modifierId": "stocky-mitts:prefix:flaming",
+            "values": {
+              "attack_maximum_added_fire_damage": 20,
+              "attack_minimum_added_fire_damage": 13
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "action": "TRANSMUTATION",
+      "applied": true,
+      "reason": "",
+      "events": [
+        {
+          "kind": "ADD",
+          "modifierId": "stocky-mitts:prefix:flaming",
+          "values": {
+            "attack_maximum_added_fire_damage": 20,
+            "attack_minimum_added_fire_damage": 13
+          },
+          "selectionProbability": 0.007879972262497635
+        }
+      ],
+      "assumptions": [
+        {
+          "id": "user-coupled-ratio-half-up-v1",
+          "candidateUnit": "assumed shared ratio ticks (not distinct item outcomes)",
+          "n": 10001,
+          "candidates": ["stocky-mitts:prefix:flaming"],
+          "min": 0,
+          "max": 10000,
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage5",
+          "reason": "Unverified user conjecture approved 2026-10-02; ISSUES.md WB-001. One shared ratio tick/10000 for all stats; 10001 equally sampled model ticks, not a game-verified permitted outcome set or uniform rounded outcomes. Interpolate each source min/max; integer HALF_UP rounding, ties away from zero. Different ticks may produce the same tuple; modifier selection weights are separate.",
+          "ratioTick": 9289
+        }
+      ],
+      "consumedOmens": [],
+      "remainingOmens": [],
+      "qualityLimit": null
+    },
+    "definitions": {
+      "toxic-quiver:implicit:base": {
+        "id": "toxic-quiver:implicit:base",
+        "name": "Toxic Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": ["ChanceToPoisonWithAttacks"],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "(20—30)% chance to Poison on Hit with Attacks",
+        "stats": [
+          {
+            "id": "chance_to_poison_on_hit_with_attacks_%",
+            "min": 20,
+            "max": 30
+          }
+        ],
+        "tags": ["attack", "chaos", "ailment"],
+        "sourceUrl": "https://poe2db.tw/us/Toxic_Quiver"
+      },
+      "stocky-mitts:prefix:flaming": {
+        "id": "stocky-mitts:prefix:flaming",
+        "name": "Flaming",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["FireDamage"],
+        "requiredItemLevel": 46,
+        "weight": 500,
+        "tier": 5,
+        "text": "Adds (12—13) to (18—20) Fire damage to Attacks",
+        "stats": [
+          {
+            "id": "attack_maximum_added_fire_damage",
+            "min": 18,
+            "max": 20
+          },
+          {
+            "id": "attack_minimum_added_fire_damage",
+            "min": 12,
+            "max": 13
+          }
+        ],
+        "tags": ["elemental", "fire", "attack", "damage"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage5"
+      }
+    }
+  },
+  {
+    "key": "blunt-quiver",
+    "before": {
+      "snapshotId": "poe2db-blunt-quiver-20261005-418e9093ca54-30fcfe77cdd0",
+      "baseItemId": "Metadata/Items/Quivers/FourQuiver5",
+      "itemLevel": 82,
+      "rarity": "NORMAL",
+      "implicits": [
+        {
+          "modifierId": "blunt-quiver:implicit:base",
+          "values": {
+            "hit_damage_stun_multiplier_+%": 40
+          },
+          "fractured": false
+        }
+      ],
+      "conditions": [],
+      "explicits": [],
+      "augmentSockets": null,
+      "catalystQuality": null
+    },
+    "result": {
+      "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+      "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
+      "snapshotId": "poe2db-blunt-quiver-20261005-418e9093ca54-30fcfe77cdd0",
+      "state": {
+        "snapshotId": "poe2db-blunt-quiver-20261005-418e9093ca54-30fcfe77cdd0",
+        "baseItemId": "Metadata/Items/Quivers/FourQuiver5",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [
+          {
+            "modifierId": "blunt-quiver:implicit:base",
+            "values": {
+              "hit_damage_stun_multiplier_+%": 40
+            },
+            "fractured": false
+          }
+        ],
+        "explicits": [
+          {
+            "modifierId": "quiver:prefix:brisk:ProjectileSpeed2",
+            "values": {
+              "base_projectile_speed_+%": 21
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "action": "TRANSMUTATION",
+      "applied": true,
+      "reason": "",
+      "events": [
+        {
+          "kind": "ADD",
+          "modifierId": "quiver:prefix:brisk:ProjectileSpeed2",
+          "values": {
+            "base_projectile_speed_+%": 21
+          },
+          "selectionProbability": 0.01575994452499527
+        }
+      ],
+      "assumptions": [
+        {
+          "id": "assumed-source-integer-roll-v1",
+          "candidateUnit": "base_projectile_speed_+%",
+          "n": 8,
+          "candidates": [],
+          "min": 18,
+          "max": 25,
+          "sourceUrl": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FProjectileSpeed2",
+          "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+          "ratioTick": null
+        }
+      ],
+      "consumedOmens": [],
+      "remainingOmens": [],
+      "qualityLimit": null
+    },
+    "definitions": {
+      "blunt-quiver:implicit:base": {
+        "id": "blunt-quiver:implicit:base",
+        "name": "Blunt Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": ["StunDamageIncrease"],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "(25—40)% increased Stun Buildup",
+        "stats": [
+          {
+            "id": "hit_damage_stun_multiplier_+%",
+            "min": 25,
+            "max": 40
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/Blunt_Quiver"
+      },
+      "quiver:prefix:brisk:ProjectileSpeed2": {
+        "id": "quiver:prefix:brisk:ProjectileSpeed2",
+        "name": "Brisk",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["ProjectileSpeed"],
+        "requiredItemLevel": 27,
+        "weight": 1000,
+        "tier": 4,
+        "text": "(18—25)% increased Projectile Speed",
+        "stats": [
+          {
+            "id": "base_projectile_speed_+%",
+            "min": 18,
+            "max": 25
+          }
+        ],
+        "tags": ["speed"],
+        "sourceUrl": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FProjectileSpeed2"
+      }
+    }
+  },
+  {
+    "key": "two-point-quiver",
+    "before": {
+      "snapshotId": "poe2db-two-point-quiver-20261005-38973ef2c97a-d7d4513d0d8d",
+      "baseItemId": "Metadata/Items/Quivers/FourQuiver4",
+      "itemLevel": 82,
+      "rarity": "NORMAL",
+      "implicits": [
+        {
+          "modifierId": "two-point-quiver:implicit:base",
+          "values": {
+            "accuracy_rating_+%": 30
+          },
+          "fractured": false
+        }
+      ],
+      "conditions": [],
+      "explicits": [],
+      "augmentSockets": null,
+      "catalystQuality": null
+    },
+    "result": {
+      "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+      "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
+      "snapshotId": "poe2db-two-point-quiver-20261005-38973ef2c97a-d7d4513d0d8d",
+      "state": {
+        "snapshotId": "poe2db-two-point-quiver-20261005-38973ef2c97a-d7d4513d0d8d",
+        "baseItemId": "Metadata/Items/Quivers/FourQuiver4",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [
+          {
+            "modifierId": "two-point-quiver:implicit:base",
+            "values": {
+              "accuracy_rating_+%": 30
+            },
+            "fractured": false
+          }
+        ],
+        "explicits": [
+          {
+            "modifierId": "stocky-mitts:prefix:consistent",
+            "values": {
+              "accuracy_rating": 137
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "action": "TRANSMUTATION",
+      "applied": true,
+      "reason": "",
+      "events": [
+        {
+          "kind": "ADD",
+          "modifierId": "stocky-mitts:prefix:consistent",
+          "values": {
+            "accuracy_rating": 137
+          },
+          "selectionProbability": 0.012607955619996218
+        }
+      ],
+      "assumptions": [
+        {
+          "id": "assumed-source-integer-roll-v1",
+          "candidateUnit": "accuracy_rating",
+          "n": 44,
+          "candidates": [],
+          "min": 124,
+          "max": 167,
+          "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5b87729da1a1380abc600df6b6785295bf380ace91526e2f38729a5ddfcefdf1",
+          "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+          "ratioTick": null
+        }
+      ],
+      "consumedOmens": [],
+      "remainingOmens": [],
+      "qualityLimit": null
+    },
+    "definitions": {
+      "two-point-quiver:implicit:base": {
+        "id": "two-point-quiver:implicit:base",
+        "name": "Two-Point Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": ["IncreasedAccuracyPercent"],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "(20—30)% increased Accuracy Rating",
+        "stats": [
+          {
+            "id": "accuracy_rating_+%",
+            "min": 20,
+            "max": 30
+          }
+        ],
+        "tags": ["attack"],
+        "sourceUrl": "https://poe2db.tw/us/Two-Point_Quiver"
+      },
+      "stocky-mitts:prefix:consistent": {
+        "id": "stocky-mitts:prefix:consistent",
+        "name": "Consistent",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["IncreasedAccuracy"],
+        "requiredItemLevel": 36,
+        "weight": 800,
+        "tier": 5,
+        "text": "+(124—167) to Accuracy Rating",
+        "stats": [
+          {
+            "id": "accuracy_rating",
+            "min": 124,
+            "max": 167
+          }
+        ],
+        "tags": ["attack"],
+        "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5b87729da1a1380abc600df6b6785295bf380ace91526e2f38729a5ddfcefdf1"
+      }
+    }
+  },
+  {
+    "key": "sacral-quiver",
+    "before": {
+      "snapshotId": "poe2db-sacral-quiver-20261005-274a0abc5238-f9a95658cfb2",
+      "baseItemId": "Metadata/Items/Quivers/FourQuiver3",
+      "itemLevel": 82,
+      "rarity": "NORMAL",
+      "implicits": [
+        {
+          "modifierId": "sacral-quiver:implicit:base",
+          "values": {
+            "base_life_gain_per_target": 3
+          },
+          "fractured": false
+        }
+      ],
+      "conditions": [],
+      "explicits": [],
+      "augmentSockets": null,
+      "catalystQuality": null
+    },
+    "result": {
+      "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+      "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
+      "snapshotId": "poe2db-sacral-quiver-20261005-274a0abc5238-f9a95658cfb2",
+      "state": {
+        "snapshotId": "poe2db-sacral-quiver-20261005-274a0abc5238-f9a95658cfb2",
+        "baseItemId": "Metadata/Items/Quivers/FourQuiver3",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [
+          {
+            "modifierId": "sacral-quiver:implicit:base",
+            "values": {
+              "base_life_gain_per_target": 3
+            },
+            "fractured": false
+          }
+        ],
+        "explicits": [
+          {
+            "modifierId": "stocky-mitts:prefix:polished",
+            "values": {
+              "attack_maximum_added_physical_damage": 6,
+              "attack_minimum_added_physical_damage": 2
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "action": "TRANSMUTATION",
+      "applied": true,
+      "reason": "",
+      "events": [
+        {
+          "kind": "ADD",
+          "modifierId": "stocky-mitts:prefix:polished",
+          "values": {
+            "attack_maximum_added_physical_damage": 6,
+            "attack_minimum_added_physical_damage": 2
+          },
+          "selectionProbability": 0.01575994452499527
+        }
+      ],
+      "assumptions": [
+        {
+          "id": "user-coupled-ratio-half-up-v1",
+          "candidateUnit": "assumed shared ratio ticks (not distinct item outcomes)",
+          "n": 10001,
+          "candidates": ["stocky-mitts:prefix:polished"],
+          "min": 0,
+          "max": 10000,
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage3",
+          "reason": "Unverified user conjecture approved 2026-10-02; ISSUES.md WB-001. One shared ratio tick/10000 for all stats; 10001 equally sampled model ticks, not a game-verified permitted outcome set or uniform rounded outcomes. Interpolate each source min/max; integer HALF_UP rounding, ties away from zero. Different ticks may produce the same tuple; modifier selection weights are separate.",
+          "ratioTick": 1872
+        }
+      ],
+      "consumedOmens": [],
+      "remainingOmens": [],
+      "qualityLimit": null
+    },
+    "definitions": {
+      "sacral-quiver:implicit:base": {
+        "id": "sacral-quiver:implicit:base",
+        "name": "Sacral Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": ["LifeGainPerTarget"],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "Gain (2—3) Life per Enemy Hit with Attacks",
+        "stats": [
+          {
+            "id": "base_life_gain_per_target",
+            "min": 2,
+            "max": 3
+          }
+        ],
+        "tags": ["attack", "life"],
+        "sourceUrl": "https://poe2db.tw/us/Sacral_Quiver"
+      },
+      "stocky-mitts:prefix:polished": {
+        "id": "stocky-mitts:prefix:polished",
+        "name": "Polished",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": ["PhysicalDamage"],
+        "requiredItemLevel": 16,
+        "weight": 1000,
+        "tier": 7,
+        "text": "Adds (2—4) to (5—8) Physical Damage to Attacks",
+        "stats": [
+          {
+            "id": "attack_maximum_added_physical_damage",
+            "min": 5,
+            "max": 8
+          },
+          {
+            "id": "attack_minimum_added_physical_damage",
+            "min": 2,
+            "max": 4
+          }
+        ],
+        "tags": ["attack", "damage", "physical"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage3"
+      }
+    }
+  },
+  {
+    "key": "fire-quiver",
+    "before": {
+      "snapshotId": "poe2db-fire-quiver-20261005-d5ad43b19c0c-d20fa24dd2a8",
+      "baseItemId": "Metadata/Items/Quivers/FourQuiver2",
+      "itemLevel": 82,
+      "rarity": "NORMAL",
+      "implicits": [
+        {
+          "modifierId": "fire-quiver:implicit:base",
+          "values": {
+            "attack_maximum_added_fire_damage": 5,
+            "attack_minimum_added_fire_damage": 3
+          },
+          "fractured": false
+        }
+      ],
+      "conditions": [],
+      "explicits": [],
+      "augmentSockets": null,
+      "catalystQuality": null
+    },
+    "result": {
+      "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+      "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
+      "snapshotId": "poe2db-fire-quiver-20261005-d5ad43b19c0c-d20fa24dd2a8",
+      "state": {
+        "snapshotId": "poe2db-fire-quiver-20261005-d5ad43b19c0c-d20fa24dd2a8",
+        "baseItemId": "Metadata/Items/Quivers/FourQuiver2",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [
+          {
+            "modifierId": "fire-quiver:implicit:base",
+            "values": {
+              "attack_maximum_added_fire_damage": 5,
+              "attack_minimum_added_fire_damage": 3
+            },
+            "fractured": false
+          }
+        ],
+        "explicits": [
+          {
+            "modifierId": "stocky-mitts:suffix:of-the-fox",
+            "values": {
+              "additional_dexterity": 16
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "action": "TRANSMUTATION",
+      "applied": true,
+      "reason": "",
+      "events": [
+        {
+          "kind": "ADD",
+          "modifierId": "stocky-mitts:suffix:of-the-fox",
+          "values": {
+            "additional_dexterity": 16
+          },
+          "selectionProbability": 0.01575994452499527
+        }
+      ],
+      "assumptions": [
+        {
+          "id": "assumed-source-integer-roll-v1",
+          "candidateUnit": "additional_dexterity",
+          "n": 4,
+          "candidates": [],
+          "min": 13,
+          "max": 16,
+          "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/eb670b8b3781e94f0b888f2b7db12a60b25a10321285ea7d1cd5c12415cc3215",
+          "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+          "ratioTick": null
+        }
+      ],
+      "consumedOmens": [],
+      "remainingOmens": [],
+      "qualityLimit": null
+    },
+    "definitions": {
+      "fire-quiver:implicit:base": {
+        "id": "fire-quiver:implicit:base",
+        "name": "Fire Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": ["FireDamage"],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "Adds 3 to 5 Fire damage to Attacks",
+        "stats": [
+          {
+            "id": "attack_maximum_added_fire_damage",
+            "min": 5,
+            "max": 5
+          },
+          {
+            "id": "attack_minimum_added_fire_damage",
+            "min": 3,
+            "max": 3
+          }
+        ],
+        "tags": ["elemental", "fire", "attack", "damage"],
+        "sourceUrl": "https://poe2db.tw/us/Fire_Quiver"
+      },
+      "stocky-mitts:suffix:of-the-fox": {
+        "id": "stocky-mitts:suffix:of-the-fox",
+        "name": "of the Fox",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["Dexterity"],
+        "requiredItemLevel": 22,
+        "weight": 1000,
+        "tier": 6,
+        "text": "+(13—16) to Dexterity",
+        "stats": [
+          {
+            "id": "additional_dexterity",
+            "min": 13,
+            "max": 16
+          }
+        ],
+        "tags": ["attribute"],
+        "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/eb670b8b3781e94f0b888f2b7db12a60b25a10321285ea7d1cd5c12415cc3215"
+      }
+    }
+  },
+  {
+    "key": "broadhead-quiver",
+    "before": {
+      "snapshotId": "poe2db-broadhead-quiver-20261005-be58842d27b7-180b1384d127",
+      "baseItemId": "Metadata/Items/Quivers/FourQuiver1",
+      "itemLevel": 82,
+      "rarity": "NORMAL",
+      "implicits": [
+        {
+          "modifierId": "broadhead-quiver:implicit:base",
+          "values": {
+            "attack_maximum_added_physical_damage": 3,
+            "attack_minimum_added_physical_damage": 1
+          },
+          "fractured": false
+        }
+      ],
+      "conditions": [],
+      "explicits": [],
+      "augmentSockets": null,
+      "catalystQuality": null
+    },
+    "result": {
+      "ruleVersion": "quiver-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+      "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
+      "snapshotId": "poe2db-broadhead-quiver-20261005-be58842d27b7-180b1384d127",
+      "state": {
+        "snapshotId": "poe2db-broadhead-quiver-20261005-be58842d27b7-180b1384d127",
+        "baseItemId": "Metadata/Items/Quivers/FourQuiver1",
+        "itemLevel": 82,
+        "rarity": "MAGIC",
+        "implicits": [
+          {
+            "modifierId": "broadhead-quiver:implicit:base",
+            "values": {
+              "attack_maximum_added_physical_damage": 3,
+              "attack_minimum_added_physical_damage": 1
+            },
+            "fractured": false
+          }
+        ],
+        "explicits": [
+          {
+            "modifierId": "attuned-wand:suffix:of-valour",
+            "values": {
+              "base_life_gained_on_enemy_death": 49
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "action": "TRANSMUTATION",
+      "applied": true,
+      "reason": "",
+      "events": [
+        {
+          "kind": "ADD",
+          "modifierId": "attuned-wand:suffix:of-valour",
+          "values": {
+            "base_life_gained_on_enemy_death": 49
+          },
+          "selectionProbability": 0.011819958393746454
+        }
+      ],
+      "assumptions": [
+        {
+          "id": "assumed-source-integer-roll-v1",
+          "candidateUnit": "base_life_gained_on_enemy_death",
+          "n": 13,
+          "candidates": [],
+          "min": 41,
+          "max": 53,
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath6",
+          "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+          "ratioTick": null
+        }
+      ],
+      "consumedOmens": [],
+      "remainingOmens": [],
+      "qualityLimit": null
+    },
+    "definitions": {
+      "broadhead-quiver:implicit:base": {
+        "id": "broadhead-quiver:implicit:base",
+        "name": "Broadhead Quiver",
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": ["PhysicalDamage"],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "text": "Adds 1 to 3 Physical Damage to Attacks",
+        "stats": [
+          {
+            "id": "attack_maximum_added_physical_damage",
+            "min": 3,
+            "max": 3
+          },
+          {
+            "id": "attack_minimum_added_physical_damage",
+            "min": 1,
+            "max": 1
+          }
+        ],
+        "tags": ["attack", "damage", "physical"],
+        "sourceUrl": "https://poe2db.tw/us/Broadhead_Quiver"
+      },
+      "attuned-wand:suffix:of-valour": {
+        "id": "attuned-wand:suffix:of-valour",
+        "name": "of Valour",
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": ["LifeGainedFromEnemyDeath"],
+        "requiredItemLevel": 55,
+        "weight": 750,
+        "tier": 1,
+        "text": "Gain (41—53) Life per enemy killed",
+        "stats": [
+          {
+            "id": "base_life_gained_on_enemy_death",
+            "min": 41,
+            "max": 53
+          }
+        ],
+        "tags": ["life"],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath6"
+      }
+    }
+  }
+]

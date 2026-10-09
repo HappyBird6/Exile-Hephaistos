@@ -1,0 +1,39 @@
+{
+  "code": "LocalIncreasedEvasionRatingPercent5",
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEvasionRatingPercent5",
+  "retrievedAt": "2026-10-04T17:55:37.501Z",
+  "sha256": "5fe887867f13825ad5a0907aa799c457ee832333c4e29f0414ab853965d3bd01",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(68<span class=\"ndash\">—</span>79)</span>% increased <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating</span></h5>   <span data-tabname=\"Phantasm's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Phantasm's\n<tr><th>Family<td>DefencesPercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>54 (Effective: 43)\n<tr><th>Gold Price<td>2524\n<tr><th>Stats<td><li>local evasion rating +% <span class=\"badge bg-primary\">68 <span class=\"ndash\">—</span> 79</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>dex_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Evasion</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(15<span class=\"ndash\">—</span>16)</span>% more Global [Evasion] Rating and [EnergyShield|Energy Shield]</table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Phantasm's",
+      "Family": "DefencesPercent",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "54 (Effective: 43)",
+      "Gold Price": "2524",
+      "Stats": "local evasion rating +% 68 — 79 Local",
+      "Spawn Tags": "dex_armour: 1 default: 0",
+      "Craft Tags": "defences Evasion"
+    },
+    "stats": [
+      {
+        "id": "local_evasion_rating_+%",
+        "min": 68,
+        "max": 79,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "dex_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(68—79)% increased Evasion Rating"
+  }
+}

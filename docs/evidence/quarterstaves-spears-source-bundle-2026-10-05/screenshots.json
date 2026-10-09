@@ -1,0 +1,901 @@
+{
+  "directory": "E:/WORK/Exile-Hephaistos/codex/quarterstaves-spears-qa-20261005/browser-attempt-1",
+  "files": [
+    {
+      "file": "aegis-quarterstaff-en-1440.png",
+      "sha256": "58df93388f3e4f79cea8a63c5265decc1e4e77f7bf87d7d378049dc734f2da47"
+    },
+    {
+      "file": "aegis-quarterstaff-en-390.png",
+      "sha256": "fb994d20133ae4947095339b5626af5ba87c0aee1fc7802fe4aba50628b4ec30"
+    },
+    {
+      "file": "aegis-quarterstaff-es-1440.png",
+      "sha256": "7f4027b99ecc1b14c47f8f98bbd025cfa3c305e347e0204c76cf18d5f6eaaa55"
+    },
+    {
+      "file": "aegis-quarterstaff-es-390.png",
+      "sha256": "1bd749f1463a8f71bc13b7dee76f2b83f56ec0a590c5be1e3c1362565e96fbde"
+    },
+    {
+      "file": "aegis-quarterstaff-ja-1440.png",
+      "sha256": "32179b45acb84c6ab4439fbc963e3cf2c52a55a6ad650cc90566567d38b70901"
+    },
+    {
+      "file": "aegis-quarterstaff-ja-390.png",
+      "sha256": "75011aea587ff395c8e5a31898336f8cd2031316fe0281473bc421319a8246b4"
+    },
+    {
+      "file": "aegis-quarterstaff-ko-1440.png",
+      "sha256": "cb95d697600a698bd15c668115ecf78754353e9fae9b924dc71e730fe90829dc"
+    },
+    {
+      "file": "aegis-quarterstaff-ko-390.png",
+      "sha256": "a6ca04318341de18cfa2e9c9bbe3353b96ca0eb1eb354fb6253085e1a10f0aa8"
+    },
+    {
+      "file": "aegis-quarterstaff-orange-en.png",
+      "sha256": "3ad655e99d05ac46f58644b305beccb2171c1b60f4e111db6051ade27b167b3a"
+    },
+    {
+      "file": "aegis-quarterstaff-orange-es.png",
+      "sha256": "9725a13a7e5b59b31e7b4f659251c11e153963ec01c7ba9fc0c44588f96ea9d7"
+    },
+    {
+      "file": "aegis-quarterstaff-orange-ja.png",
+      "sha256": "68f07c3309c745bb89b469e47e5377e1b7ce1ee133199025a6d8546d49024600"
+    },
+    {
+      "file": "aegis-quarterstaff-orange-ko.png",
+      "sha256": "63acf7fcc20e658aef087d744de66bf211452a24d08f9cbaae276eb554f5cdcb"
+    },
+    {
+      "file": "aegis-quarterstaff-orange-zh-CN.png",
+      "sha256": "0978db757463fda201d7d7e200326d51735e0733234a8801b098b79f6566cf64"
+    },
+    {
+      "file": "aegis-quarterstaff-orange-zh-TW.png",
+      "sha256": "be159bfa78cf54de01368256a544eeb9c80e2b191ed16f1155eab11e3c10f042"
+    },
+    {
+      "file": "aegis-quarterstaff-zh-CN-1440.png",
+      "sha256": "76f5dffecc76ad9e235aa520710da08d2361568e0815467c290d06793b9bab9d"
+    },
+    {
+      "file": "aegis-quarterstaff-zh-CN-390.png",
+      "sha256": "4669422f9b4a18bf78260d4ca278cd87165c5a3f267a4dd444c76097ddc6dfcd"
+    },
+    {
+      "file": "aegis-quarterstaff-zh-TW-1440.png",
+      "sha256": "971d2d5c4c6408904d85f44b9b2a6e2b68e71b61e53b3b3349010d11d2b02be2"
+    },
+    {
+      "file": "aegis-quarterstaff-zh-TW-390.png",
+      "sha256": "0eb5a510a7d7372d7632b76dd572c57c0d6cffd61eb48973da53a0b8bc37df97"
+    },
+    {
+      "file": "akoyan-spear-en-1440.png",
+      "sha256": "b2386dd8f34cc779907b616a6b4e7479643f6a569ca2c09fe6b3044b2fb55a9a"
+    },
+    {
+      "file": "akoyan-spear-en-390.png",
+      "sha256": "1ea032b51d4968580018eef427801560f70951c9a7df0292a8c4c9dbec4aa0f4"
+    },
+    {
+      "file": "akoyan-spear-es-1440.png",
+      "sha256": "f61e06b77353f5b3f109ee7197020ffe1cfc0ee72a3dd0b023e5a890938e4133"
+    },
+    {
+      "file": "akoyan-spear-es-390.png",
+      "sha256": "87f106d5503a07a2c523c58e9e6216a29d7145d83316b188c5f6f46cd0939061"
+    },
+    {
+      "file": "akoyan-spear-ja-1440.png",
+      "sha256": "ba6b14d5bef03b54e998fa26b943e4b46c82d50275c163d58d7b6b58f539c9ff"
+    },
+    {
+      "file": "akoyan-spear-ja-390.png",
+      "sha256": "c0167e325b3700447553c5902aff7006744ad2e6580f15fc746e540e403733d5"
+    },
+    {
+      "file": "akoyan-spear-ko-1440.png",
+      "sha256": "cb4e74f80d9542ca8d956caa0389289d8bb8583f28c311731f604878cc947877"
+    },
+    {
+      "file": "akoyan-spear-ko-390.png",
+      "sha256": "56cbdfda282e4c350c0846102f96c54b478ce197a8baaa604fe0a915ff76b8cd"
+    },
+    {
+      "file": "akoyan-spear-zh-CN-1440.png",
+      "sha256": "fe9c0b77c5a5fb79be024ce1bd919b90e5826c52772dfc22d9975a206c49cefa"
+    },
+    {
+      "file": "akoyan-spear-zh-CN-390.png",
+      "sha256": "3e4c2f72117f7df6ed33e58bc54e6bd6246a24bddb9e90b5cfc3696375a9aa2a"
+    },
+    {
+      "file": "akoyan-spear-zh-TW-1440.png",
+      "sha256": "a6dd47bd8fdb6ae9b820c5f4199046d3e20c3d32fc5b661215c0dad1de31148c"
+    },
+    {
+      "file": "akoyan-spear-zh-TW-390.png",
+      "sha256": "89a119e76ec316c910b1f80c77e90b4d894642365174a8bdaa3be1094b3e2f4b"
+    },
+    {
+      "file": "bolting-quarterstaff-en-1440.png",
+      "sha256": "38532f09def87cd12a6bf3abf2e46f7b2f9d9aef44fb7a3813596a85108f04df"
+    },
+    {
+      "file": "bolting-quarterstaff-en-390.png",
+      "sha256": "1e7be1b1ad11f5a62f2a03ab02e1a71f5f8bca7517b99650eaf74a70a9bbedfd"
+    },
+    {
+      "file": "bolting-quarterstaff-es-1440.png",
+      "sha256": "358478256dbceca8641d965fb73cc28108edf48027df58c6c56ccafdafda6834"
+    },
+    {
+      "file": "bolting-quarterstaff-es-390.png",
+      "sha256": "240faf7c08d3e5fb4c38ac2b19df48cfdbd4a0688de4d3a86077b67ab5cb45f6"
+    },
+    {
+      "file": "bolting-quarterstaff-ja-1440.png",
+      "sha256": "429632fc78b80c0bbf4cfce0a8fcd5f64f1b5159c824547b3e2eb18416ec7ae5"
+    },
+    {
+      "file": "bolting-quarterstaff-ja-390.png",
+      "sha256": "049db8d1651c9051eceac5090dfb612ded6bc06e6cf609a519d27c2f7eea6ea2"
+    },
+    {
+      "file": "bolting-quarterstaff-ko-1440.png",
+      "sha256": "9e9a717f03399c9c2aa10940bf8b746086d3971e7052da3599057b8c6d2c88fa"
+    },
+    {
+      "file": "bolting-quarterstaff-ko-390.png",
+      "sha256": "62a1010a85a0059e34c41934ef2aff49ef8a77a334e380314945ca7aa30cdeb5"
+    },
+    {
+      "file": "bolting-quarterstaff-zh-CN-1440.png",
+      "sha256": "8826ad6d65ccacf7033c2bf7471a660872b25839e67b1ac00a1f88d2e67c6870"
+    },
+    {
+      "file": "bolting-quarterstaff-zh-CN-390.png",
+      "sha256": "e27912fda74468e0e186eeeecbe01565a9582ae4dbc99e04ab3975a74ee55dc2"
+    },
+    {
+      "file": "bolting-quarterstaff-zh-TW-1440.png",
+      "sha256": "c3b398179473f81acfba2d726f2bc55261789d710ed7458680b0b0ec2cd1bb35"
+    },
+    {
+      "file": "bolting-quarterstaff-zh-TW-390.png",
+      "sha256": "e02ca31a10268587666add7d20df4a39da6c478953de04eefd67d17304185b0a"
+    },
+    {
+      "file": "contact-cards-0.png",
+      "sha256": "d22f2c03d9e14b23333f716de9b20f7a66e46c376c04469dc8d31ce787f66a68"
+    },
+    {
+      "file": "contact-cards-12.png",
+      "sha256": "0443a5d1eb2e5bcb6f01b5220bdfa5c97bdbd7ff7f0fad9d61c9e670f489e3ba"
+    },
+    {
+      "file": "contact-cards-18.png",
+      "sha256": "74906b6d21c4bac394a81f2f29b23b7aa249c2c41f8db42a163ad9c82bf04d1e"
+    },
+    {
+      "file": "contact-cards-24.png",
+      "sha256": "fce2bb048e67905623f88881253e3061d1633c1a621f008ac63b2a096d0eacd6"
+    },
+    {
+      "file": "contact-cards-30.png",
+      "sha256": "91327a8f8909947bffe6ba4cd3449c71415f580e9ab7ad2172d79b441ef21c07"
+    },
+    {
+      "file": "contact-cards-36.png",
+      "sha256": "8bd11bef52b37c0f1589d6910f0312ad0831c6b15a9fc60d36c617c4ce1c645e"
+    },
+    {
+      "file": "contact-cards-42.png",
+      "sha256": "d6e2320ac893c9cfb089564b92c750f98536ad225747fca7fe33e65c2f3400f3"
+    },
+    {
+      "file": "contact-cards-48.png",
+      "sha256": "84c51529e7bf34bc998d197b82e46bba0d22ae79f1635a90e826f5809225e1ba"
+    },
+    {
+      "file": "contact-cards-54.png",
+      "sha256": "b889617ffad4514336b6335f613af24bad66e214ee9ab879f5f902782921dc9e"
+    },
+    {
+      "file": "contact-cards-6.png",
+      "sha256": "b1296f00b99f06051470d53538259d9e1b77dd185d65b98f381e5605647c5501"
+    },
+    {
+      "file": "contact-cards-60.png",
+      "sha256": "6b6aeaf25930b92c3b17ddda63ca66b6dd8788a00b7584145f430decc773bf1c"
+    },
+    {
+      "file": "contact-cards-66.png",
+      "sha256": "914109c183f520afd39e17c916cef4a864bc4fc8dc524f9e275daae153820d83"
+    },
+    {
+      "file": "contact-cards-72.png",
+      "sha256": "cde8d128ae4e35268c4635a1cac5233fb6e84fbf3e6d54dd405821a04d202f56"
+    },
+    {
+      "file": "contact-cards-78.png",
+      "sha256": "526659a118d149c28a174c336aa69fb64d062b729dfcb108604849ab8b3ee239"
+    },
+    {
+      "file": "contact-cards-84.png",
+      "sha256": "614053cce3fda4bcd9da4cbf9170488b38f7099648623da8082bfd4a5ed766df"
+    },
+    {
+      "file": "contact-full-0.png",
+      "sha256": "d2132a56533f4b8bc6d8f22ad6c60715a283d1beaf43bce2433453f95c7a973f"
+    },
+    {
+      "file": "contact-full-12.png",
+      "sha256": "913d2bf9b39c935eeb5dee3850aba495408e53188c5ad3a8f952061f3728b2d7"
+    },
+    {
+      "file": "contact-full-18.png",
+      "sha256": "34700d4103ccf476bd49b5f02f0cff1f77954d1bbb575d762633ae040af1febe"
+    },
+    {
+      "file": "contact-full-24.png",
+      "sha256": "fc9180c91b8d53b5e699a0a2afb45ca939f84f947389d86168aac12ddc8555e6"
+    },
+    {
+      "file": "contact-full-30.png",
+      "sha256": "16d25db3f739ec724b7e4ad3f13bb8ee1f4efda95d6e2e601879b92ded683e74"
+    },
+    {
+      "file": "contact-full-36.png",
+      "sha256": "35f3028aafb2e65a69fa4e1964992f5e3af4a00a84d8b0861f05bd8981e42205"
+    },
+    {
+      "file": "contact-full-42.png",
+      "sha256": "f6b6666582efe4632eb734d0661378de83df3a15e49219c70b04b51419cd5f01"
+    },
+    {
+      "file": "contact-full-48.png",
+      "sha256": "ff83191ada5c59aa674eb9e33e09c7825d94235bdef048d335df3cf29f24533a"
+    },
+    {
+      "file": "contact-full-54.png",
+      "sha256": "5c10fd51f73499ecca12b70bce837db3eac243d421b0870c274935923dcf1c51"
+    },
+    {
+      "file": "contact-full-6.png",
+      "sha256": "62b29ee9ea4b988950087250f19446396239293e54dd436c8e82533e457dfadd"
+    },
+    {
+      "file": "contact-full-60.png",
+      "sha256": "123554fb53b3aefd50631f48dfb469cc80f089db5e02e9ce433c1fffeda79c0c"
+    },
+    {
+      "file": "contact-full-66.png",
+      "sha256": "a4144284b85129e497b15b563467f18d13c27ee221e76ada52e788ef7f57a5ee"
+    },
+    {
+      "file": "contact-full-72.png",
+      "sha256": "f94cfe14ab88d2be5df46cec17d0f87f314ee1ad5fd0b5d9d9c3b6b094109173"
+    },
+    {
+      "file": "contact-full-78.png",
+      "sha256": "9a4ca23f53b9d0bbd87d85adddbaf8912e19faddadffc4f69fe75aae1cddb12c"
+    },
+    {
+      "file": "contact-full-84.png",
+      "sha256": "d191234d9227706ad8b2679da6daeda531a341f4e831a37154f9447c2eed6d63"
+    },
+    {
+      "file": "contact-full-90.png",
+      "sha256": "cd83111d7acc5696523f2409528aa885b615cde50fc924d3a9cc0ae54a5886cf"
+    },
+    {
+      "file": "contact-full-96.png",
+      "sha256": "c53a2a8ce97453c4da6a04b38476359c75e3d47fcc6ac4f15d85e968f4cee289"
+    },
+    {
+      "file": "dreaming-quarterstaff-en-1440.png",
+      "sha256": "a1d4c6cdc1b6184c7564baef5f1dbb19193c4d4f5cf6d2e518a9ee40325cb4b8"
+    },
+    {
+      "file": "dreaming-quarterstaff-en-390.png",
+      "sha256": "3a45cd954063cd726c965f26b5f9a93a32515d835d4fd57f9d5b3658dd0ff9cd"
+    },
+    {
+      "file": "dreaming-quarterstaff-es-1440.png",
+      "sha256": "14898dc88655595ab3ab5f6cdbe980044ac1430ab5750355735d46661ff0766c"
+    },
+    {
+      "file": "dreaming-quarterstaff-es-390.png",
+      "sha256": "ce744778b49a9306ec77e898e56e7172759065612bd9a7c84ab0afddf3e39d56"
+    },
+    {
+      "file": "dreaming-quarterstaff-ja-1440.png",
+      "sha256": "066ab1a59426cc9045df4a7ac1179d0de897d490f73f9320c981e4a43c225251"
+    },
+    {
+      "file": "dreaming-quarterstaff-ja-390.png",
+      "sha256": "46a8c34e72558b7fe198b8365d8d7fbd79d4c9e907a8f0975c3213f3c35bb65b"
+    },
+    {
+      "file": "dreaming-quarterstaff-ko-1440.png",
+      "sha256": "1e1888a51ea4449dadb2e175a715b5ba1844b29e830dc5aec4c11a372f5e3320"
+    },
+    {
+      "file": "dreaming-quarterstaff-ko-390.png",
+      "sha256": "fc385bba0d4d1cb28ae4bf56a718490b89f301a3f3b0c2ddb2f55d563b7c508a"
+    },
+    {
+      "file": "dreaming-quarterstaff-zh-CN-1440.png",
+      "sha256": "95ce71da04735082d27061debb86c5073507c4a6d07aaa76dd01b30a52d18a5f"
+    },
+    {
+      "file": "dreaming-quarterstaff-zh-CN-390.png",
+      "sha256": "31aa57960042fe4439eb674f8b6e9760ac65f5849550fd65aa4b81daeea063d7"
+    },
+    {
+      "file": "dreaming-quarterstaff-zh-TW-1440.png",
+      "sha256": "6c2b9509288ce7f814a90945a8115c101dd2466d997f6d5277e0c5233dcab391"
+    },
+    {
+      "file": "dreaming-quarterstaff-zh-TW-390.png",
+      "sha256": "37fd8755b37987abfeb3cd590d6d404b276d8e5582770c558cb0d6d5e7bdb7cf"
+    },
+    {
+      "file": "flying-spear-en-1440.png",
+      "sha256": "2b8f7db7dbd13866c91162eddd76f8c367e8b800755cc4648bb36dcdaeaf0ca9"
+    },
+    {
+      "file": "flying-spear-en-390.png",
+      "sha256": "3e45fd9da2b1e52851abc1fe2f316d583f25e749a83b0fcab1f51b7a00b9ec3f"
+    },
+    {
+      "file": "flying-spear-es-1440.png",
+      "sha256": "44c009337c1a14d70cb59679cd9102526ba86bc14e6b74db22aee079b1495d49"
+    },
+    {
+      "file": "flying-spear-es-390.png",
+      "sha256": "b82f1131e2ef9d8b82233afb77780c9d576164f7af6c8bb8b56d7cbf47c5f25b"
+    },
+    {
+      "file": "flying-spear-ja-1440.png",
+      "sha256": "0570a93e4fbd8d9e65b85ae8715eab3aa7834f136109e07d75484cd3b1381d19"
+    },
+    {
+      "file": "flying-spear-ja-390.png",
+      "sha256": "a485655e857d74cf3f52710f2fffa8d2882848e16e2fa752d1967d5f593a388b"
+    },
+    {
+      "file": "flying-spear-ko-1440.png",
+      "sha256": "4723fa4221c6db15020edb4c1fb1a780f1566b9ca379e245a2f6428ecc48ee15"
+    },
+    {
+      "file": "flying-spear-ko-390.png",
+      "sha256": "6e65d9bd2c7c4c4e44e1c797eded62fa4c23a2020cbb89cc20dfa0b748af0889"
+    },
+    {
+      "file": "flying-spear-zh-CN-1440.png",
+      "sha256": "878291940685b281b041214c2a53ef3d752a14cd990ff5a3c846740626da81b7"
+    },
+    {
+      "file": "flying-spear-zh-CN-390.png",
+      "sha256": "d2261613521bee69cfdcfddbfddf77d5eaa1fecbf55a90f5c92c8dc88d4f1d5e"
+    },
+    {
+      "file": "flying-spear-zh-TW-1440.png",
+      "sha256": "82a816090eba85a360fc84f424cc06f2d8436769c203b36b62a16ea0c7acbefd"
+    },
+    {
+      "file": "flying-spear-zh-TW-390.png",
+      "sha256": "e2d071d7eb3e4ba0d128ce92289146e4f9da7251f08192100f325d32dfd23f1c"
+    },
+    {
+      "file": "grand-spear-en-1440.png",
+      "sha256": "609b00297a32617c9eacd4b232581f56daacdfd08fc5d455d330bc0611d3faee"
+    },
+    {
+      "file": "grand-spear-en-390.png",
+      "sha256": "58ab10837cd6db0356efd63536fd1be6f69f0d35f870e75ae3e9b3d5b49548ef"
+    },
+    {
+      "file": "grand-spear-es-1440.png",
+      "sha256": "1db1f7ee9419ce14c8673d73714c0ff44351badfb907b3630184c9363aceea3f"
+    },
+    {
+      "file": "grand-spear-es-390.png",
+      "sha256": "adacb15b88216aee46deacbd4b19caeaa96e912cfd30eebfc55869fdb7ff12ab"
+    },
+    {
+      "file": "grand-spear-ja-1440.png",
+      "sha256": "46c8c954163138a0f93901d047ff84efc099cfd32490733adbdf070967aa3d95"
+    },
+    {
+      "file": "grand-spear-ja-390.png",
+      "sha256": "a50fddf0997c8dc2a609adc9cf175411a891e28f93b00dd594aff62a49d2c9b3"
+    },
+    {
+      "file": "grand-spear-ko-1440.png",
+      "sha256": "deeaeae0ab66e71682e39edb59b2f6cc1ac061724be79d79da6d4b2c006b6019"
+    },
+    {
+      "file": "grand-spear-ko-390.png",
+      "sha256": "711a6fa5e7dde36d3b3da92dec4449fe686fd89b3935b699bc2a8af19566a9a5"
+    },
+    {
+      "file": "grand-spear-zh-CN-1440.png",
+      "sha256": "26a9f0f842619d7fc5456c8dd16bd2cc1010666a8d4341e567bd5e2fb9191f8b"
+    },
+    {
+      "file": "grand-spear-zh-CN-390.png",
+      "sha256": "e043011e157760335ade027cdb1463f2ca3ac26212dba83579c72fc9b6c94db1"
+    },
+    {
+      "file": "grand-spear-zh-TW-1440.png",
+      "sha256": "1c4f6085505ab08c1249da83fee4253bcbb28a406c5478bbfab09b136f5bedf0"
+    },
+    {
+      "file": "grand-spear-zh-TW-390.png",
+      "sha256": "1681bb4eeff8e8c9edaeaf1a2f430abb34ae7c13c00402067c2614a909b3ac42"
+    },
+    {
+      "file": "legacy-hallowed-en.png",
+      "sha256": "0676192ff02d5f52f2b276b470823768c1d58cfa6663667995d2dd74ed801458"
+    },
+    {
+      "file": "legacy-hallowed-es.png",
+      "sha256": "4ac4030b0123a548df3320f24070cd1b341da6870e013f53e90c189a65f4e169"
+    },
+    {
+      "file": "legacy-hallowed-ja.png",
+      "sha256": "8baf7a05b7e691686916c9b17d6ebe164511131f6f5c8fe2f21740eed8007bc0"
+    },
+    {
+      "file": "legacy-hallowed-ko.png",
+      "sha256": "47a2f3020f57cb0eb72344a0ab2606efcb23b5959f8e2c89c2ceb0e958861ee9"
+    },
+    {
+      "file": "legacy-hallowed-zh-CN.png",
+      "sha256": "86753e6c45da0cd113cec9fa3276c5a23c3d1e5d91f79c793fb3faa894bf1ad6"
+    },
+    {
+      "file": "legacy-hallowed-zh-TW.png",
+      "sha256": "d51bb981c8b58e9d13e335a1c524d283766d9b6575a62639e57db693db2041f4"
+    },
+    {
+      "file": "legacy-sceptre-en.png",
+      "sha256": "a2e26bbdf1c0131f64aab47a98aaf8be04475e44984bb2aeeff1d5f87ec81f67"
+    },
+    {
+      "file": "legacy-sceptre-es.png",
+      "sha256": "d04db04d69998555634c045cffb2fa1a62afba9a80841d1f5fb8a3ec349d65b8"
+    },
+    {
+      "file": "legacy-sceptre-ja.png",
+      "sha256": "a0091926c4f237b5189db8505c2d400c825f6192d9afc8af6e30311d44a1268f"
+    },
+    {
+      "file": "legacy-sceptre-ko.png",
+      "sha256": "96ff86b3a6b31611ed5316135ab8e30c248f87e2527e5e588648f7f27246bfb9"
+    },
+    {
+      "file": "legacy-sceptre-zh-CN.png",
+      "sha256": "998a366576d1e2d0a3f1077f1adec3c315188314f0b2c3e5be09771c1aabd9c8"
+    },
+    {
+      "file": "legacy-sceptre-zh-TW.png",
+      "sha256": "47493a7a70e1b74a23ddd8b5995e54e890ec54ddc1ab6819aa251555b38dff16"
+    },
+    {
+      "file": "legacy-wand-en.png",
+      "sha256": "179882629550479e602f55335179daf8dc9518013672c686109eefba71ac6b3c"
+    },
+    {
+      "file": "legacy-wand-es.png",
+      "sha256": "8016efe5d702a1fa863ae6e562fb244cf969db55cfb0e8bd64c1cacee1527300"
+    },
+    {
+      "file": "legacy-wand-ja.png",
+      "sha256": "0533b619576f6db192e52497921a5268343025c7069ca733bdec13d38d0fbf96"
+    },
+    {
+      "file": "legacy-wand-ko.png",
+      "sha256": "9c9c68be7f93a75dc37787259324b418e9b25ed475bdf5c300d273d1a67f3c3d"
+    },
+    {
+      "file": "legacy-wand-zh-CN.png",
+      "sha256": "f52bcff9e95862c1ec37659eb1da3b5db756da49386c0704d957c3732c153064"
+    },
+    {
+      "file": "legacy-wand-zh-TW.png",
+      "sha256": "3fa86f1717101502f1824364fb38659d1d36ed0b2eff29be088d2d4fc5c872a4"
+    },
+    {
+      "file": "solar-overflow-en.png",
+      "sha256": "7bc322794e952e0af9257c6d20cf6c4bc3155d10666d209b8bcb13498004d671"
+    },
+    {
+      "file": "solar-overflow-es.png",
+      "sha256": "6b11ec7e14b92e027bdb23369eb4fe842db97fd41f5c6f3f109472b14cbc5c38"
+    },
+    {
+      "file": "solar-overflow-ja.png",
+      "sha256": "2ace48612c3f33e7892a0bddcdef3f55c720acb6403135b4002a27d07393e1ff"
+    },
+    {
+      "file": "solar-overflow-ko.png",
+      "sha256": "866c125fb5a9f1acdd1985b17e0d51ad21900024c2a2bc90af0c58f760be83dc"
+    },
+    {
+      "file": "solar-overflow-zh-CN.png",
+      "sha256": "0037ebb40f92d58f322139f1c66ff6d8bcb2e8a53392ae19f9849a8f17ce0bae"
+    },
+    {
+      "file": "solar-overflow-zh-TW.png",
+      "sha256": "c948d36dc6d82dc4c274ae7238dd3227e2ec086c2dba2fb285ba6e75d1cb7054"
+    },
+    {
+      "file": "cards/aegis-quarterstaff-en-1440.png",
+      "sha256": "25fe3991476c677a4ca7a5456fb1d9dd1a1fce7587eb706aecde6aae53bdf820"
+    },
+    {
+      "file": "cards/aegis-quarterstaff-en-390.png",
+      "sha256": "dd56edbcc82ca5087bbb469a819c051f8239cb5154d3d6f3cce7048ec107d46a"
+    },
+    {
+      "file": "cards/aegis-quarterstaff-es-1440.png",
+      "sha256": "9d9997f072bd222d10901898878f12e6febb60588b11d03d67cc26df6dcc9b39"
+    },
+    {
+      "file": "cards/aegis-quarterstaff-es-390.png",
+      "sha256": "9ef9b571a6b92a41a474da9583598360cab72667ff2a79fcf3b89d0870349c9b"
+    },
+    {
+      "file": "cards/aegis-quarterstaff-ja-1440.png",
+      "sha256": "13a87a95ef347db659474d587486dcc2da3fee8fbf69390d742467a04d4404a1"
+    },
+    {
+      "file": "cards/aegis-quarterstaff-ja-390.png",
+      "sha256": "29d5e2bc9956a896c0c1093f254711647d3a446f85b86207322a532473eab174"
+    },
+    {
+      "file": "cards/aegis-quarterstaff-ko-1440.png",
+      "sha256": "014c9cf4294ec1283dbf85811118c3e0d636661ad01fb7197144701bbce8dacc"
+    },
+    {
+      "file": "cards/aegis-quarterstaff-ko-390.png",
+      "sha256": "09afdf044bf40b7c98aa1211a151ddd2a2a6efc096efc78c5a793c347129267b"
+    },
+    {
+      "file": "cards/aegis-quarterstaff-zh-CN-1440.png",
+      "sha256": "704e220d1631afb8075fecaad9f71a2e8b7ce9e443b7a89b0a7ec3d4515fe55e"
+    },
+    {
+      "file": "cards/aegis-quarterstaff-zh-CN-390.png",
+      "sha256": "0e44d573c0a4f996e4d589be39072840e22bcd1bdae74854e7cc2db5b6389934"
+    },
+    {
+      "file": "cards/aegis-quarterstaff-zh-TW-1440.png",
+      "sha256": "36c628b32a22a01ea81c55bb672d8f559b3fa0ad2aa762e49b260ee214f14509"
+    },
+    {
+      "file": "cards/aegis-quarterstaff-zh-TW-390.png",
+      "sha256": "7539352ccae9c480429bb031e3bd4c6ee2a5a06b88cb31899eecb60184d3d3b6"
+    },
+    {
+      "file": "cards/akoyan-spear-en-1440.png",
+      "sha256": "f8cdba11b8a775ade31affffe63241cd5248aa4005b2562cd5854528edc4e81e"
+    },
+    {
+      "file": "cards/akoyan-spear-en-390.png",
+      "sha256": "4b13a8ffa940fc5a0dad2cd93b27e44764e3f3a8c4c9ade1d0f8021d9c7c45bb"
+    },
+    {
+      "file": "cards/akoyan-spear-es-1440.png",
+      "sha256": "e0cc3f0549c6c9f6eaef0f3ca5a01c3945b6e6299da836f857b1ba00ed0bc2d1"
+    },
+    {
+      "file": "cards/akoyan-spear-es-390.png",
+      "sha256": "e3fc955e691e12adbbbe0fb84cf9f3206d3f96e6b1e89c826a65723da7aca2e2"
+    },
+    {
+      "file": "cards/akoyan-spear-ja-1440.png",
+      "sha256": "9bf3bf391bb33aeb2fb318385151f1c069a133a34e55c11dce56820b5b375a3e"
+    },
+    {
+      "file": "cards/akoyan-spear-ja-390.png",
+      "sha256": "7af9d9afa9fc95db48114a3b613d446b7f3a3cdaea471bd47c7a3acc1c10da51"
+    },
+    {
+      "file": "cards/akoyan-spear-ko-1440.png",
+      "sha256": "d45145e02bd3fbb41f952951a0e97e7c1e3fb54a622b242b5d0e5c228dbb3d95"
+    },
+    {
+      "file": "cards/akoyan-spear-ko-390.png",
+      "sha256": "ace6cb603dc99e58f25f7f8a3a975b4545ffa18c8d992bc659b25aff7253e26f"
+    },
+    {
+      "file": "cards/akoyan-spear-zh-CN-1440.png",
+      "sha256": "c4304699226c2c294d8a3d769c925c39f25aae07f2c02cc8b9200563d9893fde"
+    },
+    {
+      "file": "cards/akoyan-spear-zh-CN-390.png",
+      "sha256": "031e5a482c8cfc73db6c5070c7dff3a5ad4f61e87aa9f4f0147f11f6054d0a98"
+    },
+    {
+      "file": "cards/akoyan-spear-zh-TW-1440.png",
+      "sha256": "24dd072a63bd4c9619d6120b4722735fc4319427d9b4eab75e1e1cbda964327d"
+    },
+    {
+      "file": "cards/akoyan-spear-zh-TW-390.png",
+      "sha256": "22ef53cc6b9f5d1fe967499ff50d9e2523f280aff6e37b48a3860c6ab52a0ffb"
+    },
+    {
+      "file": "cards/bolting-quarterstaff-en-1440.png",
+      "sha256": "2a12e590122b3d302b9f07582ed8f045607ac07136ee1e5681c456344f3346d0"
+    },
+    {
+      "file": "cards/bolting-quarterstaff-en-390.png",
+      "sha256": "729b84cfc251e08133142cf054bf9e395fbf309590b836b9a2bc09766d25e511"
+    },
+    {
+      "file": "cards/bolting-quarterstaff-es-1440.png",
+      "sha256": "b6af1c5c411975a97034372d6a1a0c78637a4ead87bf9ba76beb7d2b2f6f17d0"
+    },
+    {
+      "file": "cards/bolting-quarterstaff-es-390.png",
+      "sha256": "2874382b55b98435977573f40d8fdd86decea82ecdc601ad24b799727a4788ef"
+    },
+    {
+      "file": "cards/bolting-quarterstaff-ja-1440.png",
+      "sha256": "7368260441b8d976efa92429cd18a335fd62e79d2b5a451c557baf135572e43b"
+    },
+    {
+      "file": "cards/bolting-quarterstaff-ja-390.png",
+      "sha256": "46bf6f9b446f5c3d0de7d882b32369fd4107cf0844fd7fc7372156b5e2cde886"
+    },
+    {
+      "file": "cards/bolting-quarterstaff-ko-1440.png",
+      "sha256": "6be527cb7f844e9f925949cb1eb8a573f2fe42ad2f878e1b55e2a03749b3e0ca"
+    },
+    {
+      "file": "cards/bolting-quarterstaff-ko-390.png",
+      "sha256": "7d33e82b5eb564f80d52582d22c677ccdc10f347629ed6d15231e6b35e4988e7"
+    },
+    {
+      "file": "cards/bolting-quarterstaff-zh-CN-1440.png",
+      "sha256": "69ad2338cb059572dd5e99197060a7148d488d4e1a4c9a0512674795ea2d4d4f"
+    },
+    {
+      "file": "cards/bolting-quarterstaff-zh-CN-390.png",
+      "sha256": "39e92a2d5124e39958b4dff04cafd252d7cab01cca071bdd2ce5daaf40e8f72c"
+    },
+    {
+      "file": "cards/bolting-quarterstaff-zh-TW-1440.png",
+      "sha256": "483d5fdb4429b3c5b04c783a09ff7a2bd106de5d58ae1d06cec1c02abb405557"
+    },
+    {
+      "file": "cards/bolting-quarterstaff-zh-TW-390.png",
+      "sha256": "b5878f616400737999ad035c80654674b12ca98178c6b47bdebd701731ed1dae"
+    },
+    {
+      "file": "cards/dreaming-quarterstaff-en-1440.png",
+      "sha256": "c5a8584e973f9d5bb5567ab268a04719e86e64e64d25b31be8717ca71fd075ef"
+    },
+    {
+      "file": "cards/dreaming-quarterstaff-en-390.png",
+      "sha256": "5af2e73b76c74729c4b8e0f367b69bcf82faa1acea2913365a5b6c228baa1e7b"
+    },
+    {
+      "file": "cards/dreaming-quarterstaff-es-1440.png",
+      "sha256": "3df1ce370083811f4453cf138e8f23054877d35500e4834a146da1bfe13056b0"
+    },
+    {
+      "file": "cards/dreaming-quarterstaff-es-390.png",
+      "sha256": "509c4558ea3f8bb7492097c1369134cf8057bc63d34df555baaa11733d173448"
+    },
+    {
+      "file": "cards/dreaming-quarterstaff-ja-1440.png",
+      "sha256": "42a7627571be877c264a5adab96fbee9a79bd31756bde76a52876e0cf3ce80fa"
+    },
+    {
+      "file": "cards/dreaming-quarterstaff-ja-390.png",
+      "sha256": "f5546642c59328f0abbd3a568ae56fcebf4179c0d2245e93769cc87f436d3c42"
+    },
+    {
+      "file": "cards/dreaming-quarterstaff-ko-1440.png",
+      "sha256": "2b0f5019a03f2881628d528c897d241a9022d54a587ec8694d5c06b8a9c195b5"
+    },
+    {
+      "file": "cards/dreaming-quarterstaff-ko-390.png",
+      "sha256": "2962a0132ac4955c7645675d51bd04576d97e9d8dadef73d1c504b2f27069a5e"
+    },
+    {
+      "file": "cards/dreaming-quarterstaff-zh-CN-1440.png",
+      "sha256": "7ed9c15682aa2527dddd00f3316809a06feb8b56a0fbd910cd63617911ae827f"
+    },
+    {
+      "file": "cards/dreaming-quarterstaff-zh-CN-390.png",
+      "sha256": "d45f5d98ac02ffb413519d863b977971c024dbeb2086d2a21097eedde4c10dce"
+    },
+    {
+      "file": "cards/dreaming-quarterstaff-zh-TW-1440.png",
+      "sha256": "5332a18207576618da19c7b813b97b2eb6d94c32eefcef8df9ad3ed0db1402b3"
+    },
+    {
+      "file": "cards/dreaming-quarterstaff-zh-TW-390.png",
+      "sha256": "35478a5bb4cef6dd9c29bf9691a69717cc8bda8113c9c2684a0ec4092c73ed72"
+    },
+    {
+      "file": "cards/flying-spear-en-1440.png",
+      "sha256": "b1e5502c8bb1e37277780c6bb3fcf6ae3b5f481988712b1bfa5be8ea06246bdc"
+    },
+    {
+      "file": "cards/flying-spear-en-390.png",
+      "sha256": "546484d90cbb88e333c38d37a1fedb9d56e98b1bd607b1647c05c0d7f0c5ded0"
+    },
+    {
+      "file": "cards/flying-spear-es-1440.png",
+      "sha256": "b46355ea11f80afbe165fef442ccd921f0b0777862e556f3de0e067b3771aca5"
+    },
+    {
+      "file": "cards/flying-spear-es-390.png",
+      "sha256": "6c14535fbd8bd9fc2382b44d46ed9dc7801e003f96faf1f573882fe51af62ec3"
+    },
+    {
+      "file": "cards/flying-spear-ja-1440.png",
+      "sha256": "63a4c223323845448b8dc1412426b74dc06b73ef7912394b797ee1bf8677b769"
+    },
+    {
+      "file": "cards/flying-spear-ja-390.png",
+      "sha256": "8af4f950d33f19f108f320e66dc9c53524f47760010ff1f1a65b1f3a5e3bfd92"
+    },
+    {
+      "file": "cards/flying-spear-ko-1440.png",
+      "sha256": "803f7bf5bced52e906acf464a09c07776a5831d37bdb867075ff7cfd8587c8d5"
+    },
+    {
+      "file": "cards/flying-spear-ko-390.png",
+      "sha256": "1718b4c329ead71a51004069ba487401b80bbe50243257975d86a8650167a6c9"
+    },
+    {
+      "file": "cards/flying-spear-zh-CN-1440.png",
+      "sha256": "03b346073b624eef28f24b885d0c7d1d7a21476470301edafb10bbe657868012"
+    },
+    {
+      "file": "cards/flying-spear-zh-CN-390.png",
+      "sha256": "21fe901a9c9e97500a3ccda5819cca9070d5ebc47a4dd0e101b51ca95f0b2c18"
+    },
+    {
+      "file": "cards/flying-spear-zh-TW-1440.png",
+      "sha256": "0aea684da2880e4fd567c5fad7b753954460814730366b5d35e1a28f1d2da715"
+    },
+    {
+      "file": "cards/flying-spear-zh-TW-390.png",
+      "sha256": "afbb72fd414b53a15eace62efeb894a003c0466f98cfd2f057ce544dbac97d32"
+    },
+    {
+      "file": "cards/grand-spear-en-1440.png",
+      "sha256": "42eccbb942c60c7c0b85153e694bb158d20e28fd06701eaa5b6d2d3965ab495a"
+    },
+    {
+      "file": "cards/grand-spear-en-390.png",
+      "sha256": "34c2ed3c8ef965534ea992c9d96791b3b2cba50847e49a067853f76254b754f7"
+    },
+    {
+      "file": "cards/grand-spear-es-1440.png",
+      "sha256": "f9e6b8ccee357de81457aa66276664bac3409e904b401174a0569df6fa3674d0"
+    },
+    {
+      "file": "cards/grand-spear-es-390.png",
+      "sha256": "cd2f510510a719453b4cebb29f0cb74f7e345dea00009b144f9ef2d3d34f7bb6"
+    },
+    {
+      "file": "cards/grand-spear-ja-1440.png",
+      "sha256": "dda03fe216382e78898c8ba130dd215254cd4c682b4ffa22b190cbde47f9cd66"
+    },
+    {
+      "file": "cards/grand-spear-ja-390.png",
+      "sha256": "9db58a429bce7df1a7d4aab91479df7a99e3c5bbf7021baa2c0c2a7ee169b552"
+    },
+    {
+      "file": "cards/grand-spear-ko-1440.png",
+      "sha256": "83888a6d59a20b89722e133d41c9869c874bd7c8e1b55e57237010ef5c990084"
+    },
+    {
+      "file": "cards/grand-spear-ko-390.png",
+      "sha256": "c82e333aca3fc0afb53890c97e0507948102954bc592cb59ab2dfebdc4bcf29e"
+    },
+    {
+      "file": "cards/grand-spear-zh-CN-1440.png",
+      "sha256": "6bfc0067c5eafcdabc5d6d86e83e102e270cf0c8d7503a22fcd08cf701966d08"
+    },
+    {
+      "file": "cards/grand-spear-zh-CN-390.png",
+      "sha256": "85474dadd334f849ca9ce7b448948045d86773d903ef7af671a7c821dfae13fb"
+    },
+    {
+      "file": "cards/grand-spear-zh-TW-1440.png",
+      "sha256": "a9fe7c5a876cc22c8c53efdb10f06c6755ae8324a3ea41d16537e6b631221355"
+    },
+    {
+      "file": "cards/grand-spear-zh-TW-390.png",
+      "sha256": "a9fc7ee2ddbd1f22618618ea3bbf4ac325449f5caa1119b843adda3df1d4c038"
+    },
+    {
+      "file": "cards/legacy-hallowed-en.png",
+      "sha256": "56d22ab103d68ed1e743f9f487b5448e2a77cd966e1fcb1da667a8e50ac48697"
+    },
+    {
+      "file": "cards/legacy-hallowed-es.png",
+      "sha256": "f78bfd08ff1027bcd6d8bc465723a239ee50ef2c58f103ec5117a6871aeb9921"
+    },
+    {
+      "file": "cards/legacy-hallowed-ja.png",
+      "sha256": "d6f9efd46dcd74b6aaa2186e81660bb5a1cd786befc7f403a1765acbf7b0ca63"
+    },
+    {
+      "file": "cards/legacy-hallowed-ko.png",
+      "sha256": "9c3cdc57b91826e314f29ffd05e29259f6f8af0f8c6b21196ea61af3ad6e410a"
+    },
+    {
+      "file": "cards/legacy-hallowed-zh-CN.png",
+      "sha256": "f3b91931d6feaf1dad4d611275749f57bbb7724b8f6faeb173de5f66c9062390"
+    },
+    {
+      "file": "cards/legacy-hallowed-zh-TW.png",
+      "sha256": "ede0518723a3821ef891fb48f84286a04abcbf68e854ca849c1ebdabe02de13f"
+    },
+    {
+      "file": "cards/legacy-sceptre-en.png",
+      "sha256": "f6f34129e47686f93ce45847d2c00a337eae59f92140f37cdcadf997220d2c0f"
+    },
+    {
+      "file": "cards/legacy-sceptre-es.png",
+      "sha256": "eb76de623dfd7fdb85479ac542088d822c9aa9ac9841e472a35f71958ad45b5d"
+    },
+    {
+      "file": "cards/legacy-sceptre-ja.png",
+      "sha256": "141aa5c295d7113533d935eb8788fb496e8841bd9dde995634ccabf0a705daa9"
+    },
+    {
+      "file": "cards/legacy-sceptre-ko.png",
+      "sha256": "63c3f951fdd4c98b45841a66bb3f2383e627fb34105624508b324f39056aaf16"
+    },
+    {
+      "file": "cards/legacy-sceptre-zh-CN.png",
+      "sha256": "bcb0111429fcb6ff47d49c4241044fe61650742ba27c59016d837ed29fab4e29"
+    },
+    {
+      "file": "cards/legacy-sceptre-zh-TW.png",
+      "sha256": "6aa4507744ac96a4f106d0a4d84a65bcc80659e38780461c544e0a15e6b3ea85"
+    },
+    {
+      "file": "cards/legacy-wand-en.png",
+      "sha256": "75fa8718e260ab61ec9fa3ec1116a260ad44c4cd4ef7ee5149b78b2ab96f5af6"
+    },
+    {
+      "file": "cards/legacy-wand-es.png",
+      "sha256": "30522a2801103d323d8c5e371423262848f39fd31f29f24cf3809b08800222d8"
+    },
+    {
+      "file": "cards/legacy-wand-ja.png",
+      "sha256": "f4b1e81cdd9a52d59aefd835dbfa7c7f24126bef74feb7f7302fa3e9c65ef832"
+    },
+    {
+      "file": "cards/legacy-wand-ko.png",
+      "sha256": "71a5f85b6c6fa965df0d81453c873415508a977c3a978b89dd930615b415cbd6"
+    },
+    {
+      "file": "cards/legacy-wand-zh-CN.png",
+      "sha256": "2b2a1642a5d45da963c369a8f80dfd3a2fab3ab49da733bc4b2694cf0f56d248"
+    },
+    {
+      "file": "cards/legacy-wand-zh-TW.png",
+      "sha256": "128f61678e41362405f889b7f20e6774aae2c31a5bc371438a572df2cd5ffae2"
+    }
+  ]
+}

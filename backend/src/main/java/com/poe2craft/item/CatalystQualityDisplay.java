@@ -65,6 +65,8 @@ public final class CatalystQualityDisplay {
                         "attack_maximum_added_physical_damage"));
     boolean reviewed =
         ironImplicit
+            || ReviewedRings.reviewedImplicit(d)
+            || ReviewedAmulets.reviewedImplicit(d)
             || (d.id().startsWith("sapphire:") && d.stats().size() == 1)
             || ((d.weight() > 0 || d.id().equals(SapphireJewel.CAST_SPEED_ID))
                 && d.stats().size() == 1

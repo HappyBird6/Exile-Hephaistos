@@ -1,0 +1,64 @@
+{
+  "row": {
+    "Name": "Runic",
+    "Level": "80",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponCasterDamagePrefix"
+    ],
+    "DropChance": "50",
+    "str": "<span class='mod-value'>(209<span class=\"ndash\">—</span>238)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Damage",
+    "fossil_no": [
+      "caster_damage",
+      "damage",
+      "caster"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c7475447e6f0f425697303d312a41fca82249d621bf8423b38ee5501790204b3"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellDamageOnTwoHandWeapon8",
+  "textLocale": "us",
+  "detailText": "(209—238)% increased Spell Damage",
+  "retrievedAt": "2026-10-05T10:04:16.899Z",
+  "sha256": "a306f02e7b2d5af694640907504d8367bf7a48371a4f0e1d576480ac31cffa4f",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(209<span class=\"ndash\">—</span>238)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Damage</span></h5>   <span data-tabname=\"Runic\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Runic\n<tr><th>Family<td>WeaponCasterDamagePrefix\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>80 (Effective: 64)\n<tr><th>Gold Price<td>5767\n<tr><th>Stats<td><li>spell damage +% <span class=\"badge bg-primary\">209 <span class=\"ndash\">—</span> 238</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Caster</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Runic",
+    "Family": "WeaponCasterDamagePrefix",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "80 (Effective: 64)",
+    "Gold Price": "5767",
+    "Stats": "spell damage +% 209 — 238 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "caster_damage Damage Caster"
+  },
+  "code": "SpellDamageOnTwoHandWeapon8",
+  "stats": [
+    {
+      "id": "spell_damage_+%",
+      "min": 209,
+      "max": 238,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/tw/Mnemonic_Ring",
+  "retrievedAt": "2026-10-04T20:54:54.881Z",
+  "sha256": "a57a48b2880e450291404e6bdca1f9627c91b2a05518327922b61e1e3f7f95d3",
+  "name": "憶念之戒",
+  "card": "憶念之戒\n        \n    \n    \n        \n            戒指需求:  等級 40增加(4—6)%最大魔力\n        \n\n        \n        \n            鑄其心智，為其我所用。\n        \n\n\n        \n            Mnemonic Ring",
+  "requirements": "需求:  等級 40",
+  "fields": {
+    "DropLevel": "40",
+    "BaseType": "憶念之戒",
+    "Class": "戒指",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRingB3",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/BreachlordRing_Esh",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

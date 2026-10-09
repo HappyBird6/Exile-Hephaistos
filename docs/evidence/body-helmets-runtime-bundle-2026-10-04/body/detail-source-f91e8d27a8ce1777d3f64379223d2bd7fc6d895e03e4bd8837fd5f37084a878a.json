@@ -1,0 +1,68 @@
+{
+  "code": null,
+  "sourceId": "f91e8d27a8ce1777d3f64379223d2bd7fc6d895e03e4bd8837fd5f37084a878a",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/f91e8d27a8ce1777d3f64379223d2bd7fc6d895e03e4bd8837fd5f37084a878a",
+  "retrievedAt": "2026-10-04T17:54:53.279Z",
+  "sha256": "f91e8d27a8ce1777d3f64379223d2bd7fc6d895e03e4bd8837fd5f37084a878a",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(33<span class=\"ndash\">—</span>41)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/eb07d7bed5df994c783915a2b4446076746834995f74021f2cb2decc2466d8f7\">Armour</a><br><span class='mod-value'>+(11<span class=\"ndash\">—</span>12)</span> to maximum <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9a5ff1400bc71ec138a670ac8572505962d009bf3c5e15a9e1069755cbaeda17\">Energy Shield</a><br><span class='mod-value'>(33<span class=\"ndash\">—</span>38)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/eb07d7bed5df994c783915a2b4446076746834995f74021f2cb2decc2466d8f7\">Armour</a> and <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9a5ff1400bc71ec138a670ac8572505962d009bf3c5e15a9e1069755cbaeda17\">Energy Shield</a></span></h5>   <span data-tabname=\"Paladin's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Paladin's\n<tr><th>Family<td>BaseLocalDefencesAndDefencePercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>1438\n<tr><th>Stats<td><li>local energy shield <span class=\"badge bg-primary\">11 <span class=\"ndash\">—</span> 12</span> <span class=\"badge bg-secondary\">Local</span></li><li>local armour and energy shield +% <span class=\"badge bg-primary\">33 <span class=\"ndash\">—</span> 38</span> <span class=\"badge bg-secondary\">Local</span></li><li>local base physical damage reduction rating <span class=\"badge bg-primary\">33 <span class=\"ndash\">—</span> 41</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>shield: 0</span> <span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Armour</span> <span class='badge bg-primary'>Energy Shield</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Paladin's",
+      "Family": "BaseLocalDefencesAndDefencePercent",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "60 (Effective: 48)",
+      "Gold Price": "1438",
+      "Stats": "local energy shield 11 — 12 Locallocal armour and energy shield +% 33 — 38 Locallocal base physical damage reduction rating 33 — 41 Local",
+      "Spawn Tags": "helmet: 0 gloves: 0 boots: 0 shield: 0 str_int_armour: 1 default: 0",
+      "Craft Tags": "defences Armour Energy Shield"
+    },
+    "stats": [
+      {
+        "id": "local_energy_shield",
+        "min": 11,
+        "max": 12,
+        "locality": "Local"
+      },
+      {
+        "id": "local_armour_and_energy_shield_+%",
+        "min": 33,
+        "max": 38,
+        "locality": "Local"
+      },
+      {
+        "id": "local_base_physical_damage_reduction_rating",
+        "min": 33,
+        "max": 41,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "helmet",
+        "weight": 0
+      },
+      {
+        "tag": "gloves",
+        "weight": 0
+      },
+      {
+        "tag": "boots",
+        "weight": 0
+      },
+      {
+        "tag": "shield",
+        "weight": 0
+      },
+      {
+        "tag": "str_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "+(33—41) to Armour\n+(11—12) to maximum Energy Shield\n(33—38)% increased Armour and Energy Shield"
+  }
+}

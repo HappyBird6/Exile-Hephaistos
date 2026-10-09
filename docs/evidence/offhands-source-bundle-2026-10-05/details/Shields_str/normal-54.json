@@ -1,0 +1,67 @@
+{
+  "row": {
+    "Name": "Carapaced",
+    "Level": "46",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(128<span class=\"ndash\">—</span>159)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a>",
+    "fossil_no": [
+      "defences",
+      "armour"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/909e112676189b8c69153d3f84df2877bffc5b699e474fc19acce34f29f9944b"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRating6",
+  "textLocale": "us",
+  "detailText": "+(128—159) to Armour",
+  "retrievedAt": "2026-10-05T04:19:17.949Z",
+  "sha256": "f31d8a86531625380937d671fcd53a5a0add83d78f674c28b367bcf0f0c12d5f",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(128<span class=\"ndash\">—</span>159)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a></span></h5>   <span data-tabname=\"Carapaced\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Carapaced\n<tr><th>Family<td>BaseLocalDefences\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>46 (Effective: 36)\n<tr><th>Gold Price<td>560\n<tr><th>Stats<td><li>local base physical damage reduction rating <span class=\"badge bg-primary\">128 <span class=\"ndash\">—</span> 159</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Armour</span> \n<tr><td>Fists of Stone<td>Has <span class='mod-value'>+3</span> to [Evasion] Rating per player level<br>Has <span class='mod-value'>+1</span> to maximum [EnergyShield|Energy Shield] per player level</table>  </div></div>",
+  "fields": {
+    "Name": "Carapaced",
+    "Family": "BaseLocalDefences",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "46 (Effective: 36)",
+    "Gold Price": "560",
+    "Stats": "local base physical damage reduction rating 128 — 159 Local",
+    "Spawn Tags": "str_armour: 1 str_dex_int_armour: 1 default: 0",
+    "Craft Tags": "defences Armour"
+  },
+  "code": "LocalIncreasedPhysicalDamageReductionRating6",
+  "stats": [
+    {
+      "id": "local_base_physical_damage_reduction_rating",
+      "min": 128,
+      "max": 159,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "str_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "row": {
+    "Name": "Rapid",
+    "Level": "55",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "ProjectileSpeed"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(34<span class=\"ndash\">—</span>41)</span>% increased <a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6124c367861336198eb93986587a408c328b03ee40940391c8b1200cb730f966\">Projectile</a> Speed",
+    "fossil_no": [
+      "speed"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "quiver",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e3b6fdc7e24e5be08e15a8b1a097a3e3afd950698f61dbe351b86bf5b8b15ca6"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FProjectileSpeed4",
+  "textLocale": "jp",
+  "detailText": "投射物スピードが(34—41)%増加する",
+  "retrievedAt": "2026-10-05T05:33:29.256Z",
+  "sha256": "3584e6103f6e5eee9989e118cce298876de52aa8731d0365ced121c7f469e722",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/8b48a8259cc9d440d8575d09815e2ebbc740e59d63f4593bc3d909b51a71e6ff\">投射物</a>スピードが<span class='mod-value'>(34<span class=\"ndash\">—</span>41)</span>%増加する</span></h5>   <span data-tabname=\"急速な\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>急速な\n<tr><th>Family<td>ProjectileSpeed\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>プレフィックス (1)\n<tr><th>Req. level<td>55 (Effective: 44)\n<tr><th>Gold Price<td>1199\n<tr><th>Stats<td><li>base projectile speed +% <span class=\"badge bg-primary\">34 <span class=\"ndash\">—</span> 41</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>スピード</span> </table>  </div></div>",
+  "fields": {
+    "Name": "急速な",
+    "Family": "ProjectileSpeed",
+    "Domains": "アイテム (1)",
+    "GenerationType": "プレフィックス (1)",
+    "Req. level": "55 (Effective: 44)",
+    "Gold Price": "1199",
+    "Stats": "base projectile speed +% 34 — 41 Global",
+    "Spawn Tags": "quiver: 1 default: 0",
+    "Craft Tags": "スピード"
+  },
+  "code": "ProjectileSpeed4",
+  "stats": [
+    {
+      "id": "base_projectile_speed_+%",
+      "min": 34,
+      "max": 41,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "row": {
+    "Name": "Mirage's",
+    "Level": "65",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(92<span class=\"ndash\">—</span>100)</span>% increased <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating",
+    "fossil_no": [
+      "defences",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6072a4ef8f6ca741eff73393868dd4529abf25fca8625472939f5effb92b71bd"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEvasionRatingPercent7",
+  "textLocale": "us",
+  "detailText": "(92—100)% increased Evasion Rating",
+  "retrievedAt": "2026-10-05T04:33:17.355Z",
+  "sha256": "5ddd1e7db1a0e5d9ad538c56ffa34df99fc6db03bb88d0f86cb38b592cd05b09",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(92<span class=\"ndash\">—</span>100)</span>% increased <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating</span></h5>   <span data-tabname=\"Mirage's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Mirage's\n<tr><th>Family<td>DefencesPercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>65 (Effective: 52)\n<tr><th>Gold Price<td>5884\n<tr><th>Stats<td><li>local evasion rating +% <span class=\"badge bg-primary\">92 <span class=\"ndash\">—</span> 100</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>dex_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Evasion</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(19<span class=\"ndash\">—</span>20)</span>% more Global [Evasion] Rating and [EnergyShield|Energy Shield]</table>  </div></div>",
+  "fields": {
+    "Name": "Mirage's",
+    "Family": "DefencesPercent",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "65 (Effective: 52)",
+    "Gold Price": "5884",
+    "Stats": "local evasion rating +% 92 — 100 Local",
+    "Spawn Tags": "dex_armour: 1 default: 0",
+    "Craft Tags": "defences Evasion"
+  },
+  "code": "LocalIncreasedEvasionRatingPercent7",
+  "stats": [
+    {
+      "id": "local_evasion_rating_+%",
+      "min": 92,
+      "max": 100,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

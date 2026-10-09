@@ -1,0 +1,90 @@
+{
+  "row": {
+    "Name": "Resilient",
+    "Level": "60",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(103<span class=\"ndash\">—</span>127)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(95<span class=\"ndash\">—</span>119)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "boots",
+      "gloves",
+      "helmet",
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/51da31963cf2a37777bfe30cb41bbe98671b64aad549b468a950d7560a714c93"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FLocalBaseArmourAndEvasionRating6_",
+  "textLocale": "kr",
+  "detailText": "방어도 +(103—127)\n회피 +(95—119)",
+  "retrievedAt": "2026-10-05T04:29:45.049Z",
+  "sha256": "2228fd1b096e165847b71b77ebabf0e4a84fae92fb475522d32e08a223745b3d",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/f1ab1c4f26afe32f35ba8c570de40a04dfb871a4472c4decf7c24ea41ad028a6\">방어도</a> <span class='mod-value'>+(103<span class=\"ndash\">—</span>127)</span><br><a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/85b48b6cf92de45d083fd0742b7175764936328e18e23728fc75b967f813e55f\">회피</a> <span class='mod-value'>+(95<span class=\"ndash\">—</span>119)</span></span></h5>   <span data-tabname=\"탄력적인\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>탄력적인\n<tr><th>Family<td>BaseLocalDefences\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접두어 (1)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>1425\n<tr><th>Stats<td><li>local base evasion rating <span class=\"badge bg-primary\">95 <span class=\"ndash\">—</span> 119</span> <span class=\"badge bg-secondary\">지역</span></li><li>local base physical damage reduction rating <span class=\"badge bg-primary\">103 <span class=\"ndash\">—</span> 127</span> <span class=\"badge bg-secondary\">지역</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>방어도</span> <span class='badge bg-primary'>회피</span> </table>  </div></div>",
+  "fields": {
+    "Name": "탄력적인",
+    "Family": "BaseLocalDefences",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접두어 (1)",
+    "Req. level": "60 (Effective: 48)",
+    "Gold Price": "1425",
+    "Stats": "local base evasion rating 95 — 119 지역local base physical damage reduction rating 103 — 127 지역",
+    "Spawn Tags": "boots: 0 gloves: 0 helmet: 0 str_dex_armour: 1 str_dex_int_armour: 1 default: 0",
+    "Craft Tags": "defences 방어도 회피"
+  },
+  "code": "LocalBaseArmourAndEvasionRating6_",
+  "stats": [
+    {
+      "id": "local_base_evasion_rating",
+      "min": 95,
+      "max": 119,
+      "locality": "지역"
+    },
+    {
+      "id": "local_base_physical_damage_reduction_rating",
+      "min": 103,
+      "max": 127,
+      "locality": "지역"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "boots",
+      "weight": 0
+    },
+    {
+      "tag": "gloves",
+      "weight": 0
+    },
+    {
+      "tag": "helmet",
+      "weight": 0
+    },
+    {
+      "tag": "str_dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

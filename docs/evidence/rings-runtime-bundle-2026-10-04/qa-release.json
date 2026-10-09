@@ -1,0 +1,33 @@
+{
+  "project": "exile-rings-20261004",
+  "active": false,
+  "releasedAt": "2026-10-04T21:46:48.813Z",
+  "command": "docker compose -f rings-qa-20261004/compose.yaml down",
+  "exitCode": 0,
+  "volumeDeletion": false,
+  "remainingLiveContainers": [
+    {
+      "id": "c8e74d399af2",
+      "port": 18081,
+      "state": "running",
+      "revision": "18a2a3d"
+    },
+    {
+      "id": "c4bbebf6e190",
+      "port": 18080,
+      "state": "running",
+      "revision": "7d27d6c"
+    },
+    {
+      "id": "9f0962732bc2",
+      "state": "running"
+    },
+    {
+      "id": "747188687b03",
+      "state": "running",
+      "health": "healthy"
+    }
+  ],
+  "userBrowserTouched": false,
+  "remotePushMergeDeploy": false
+}

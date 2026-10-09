@@ -1,0 +1,30 @@
+{
+  "url": "https://poe2db.tw/tw/Heavy_Belt",
+  "retrievedAt": "2026-10-05T01:24:36.129Z",
+  "sha256": "0a2407a244be5c258080e1a98af227b59e08a368f53744bbdf2af56d0394160f",
+  "variants": [
+    {
+      "name": "重革腰帶",
+      "card": "重革腰帶\n        \n    \n    \n        \n            腰帶需求:  等級 50有(1—3)個護符欄位增加(20—30)%暈眩門檻\n        \n\n\n\n        \n            Heavy Belt",
+      "requirements": "需求:  等級 50",
+      "fields": {
+        "DropLevel": "50",
+        "BaseType": "重革腰帶",
+        "Class": "腰帶",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

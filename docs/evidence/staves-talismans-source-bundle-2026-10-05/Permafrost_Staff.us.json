@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/us/Permafrost_Staff",
+  "retrievedAt": "2026-10-05T10:01:09.502Z",
+  "sha256": "a1d2328c68d483147be25d6aa70ad7b4d4ce8064bd7ba044f7743f157973454d",
+  "variants": [
+    {
+      "name": "Permafrost Staff",
+      "card": "Permafrost Staff\n        \n    \n    \n        \n            StavesRequires:  Level 75, 114 Int Grants Skill: Heart of Ice",
+      "requirements": "Requires:  Level 75, 114 Int",
+      "properties": [
+        "Staves"
+      ],
+      "fields": {
+        "DropLevel": "75",
+        "BaseType": "Permafrost Staff",
+        "Class": "Staves",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff02",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

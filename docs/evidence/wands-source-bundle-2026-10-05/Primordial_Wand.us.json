@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/us/Primordial_Wand",
+  "retrievedAt": "2026-10-05T00:06:35.655Z",
+  "sha256": "c1160e129684983a4b363162fbcdc50f83cd376ee6d834c3de5293005e4bf636",
+  "name": "Primordial Wand",
+  "card": "Primordial Wand\n        \n    \n    \n        \n            WandsRequires:  Level 56, 99 Int Grants Skill: Wither",
+  "requirements": "Requires:  Level 56, 99 Int",
+  "fields": {
+    "DropLevel": "56",
+    "BaseType": "Primordial Wand",
+    "Class": "Wands",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12",
+    "Tags": "no_fire_spell_mods, no_cold_spell_mods, no_lightning_spell_mods, no_physical_spell_mods, chaos_implicit_skill, wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand12",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

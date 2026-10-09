@@ -1,0 +1,35 @@
+{
+  "exceptions": [
+    {
+      "id": "amulet:prefix:essence-maximum-quality",
+      "locale": "es",
+      "source": "{v0}% a la calidad máxima",
+      "template": "{v0}% a la calidad máxima",
+      "provenance": "POE2DB_ALTERNATE_ITEM_EFFECT_SOURCE",
+      "sourceUrl": "https://poe2db.tw/sp/Essence_of_the_Breach",
+      "itemKey": "BreachEssence",
+      "reason": "Exact Code hover returns unrelated semantics; verified corresponding material locale description supplies the correct effect"
+    },
+    {
+      "id": "iron-ring:prefix:essence-increased-maximum-mana",
+      "locale": "es",
+      "source": "Maná máximo aumentado un {v0}%",
+      "template": "Maná máximo aumentado un {v0}%",
+      "provenance": "POE2DB_ALTERNATE_ITEM_EFFECT_SOURCE",
+      "sourceUrl": "https://poe2db.tw/sp/Perfect_Essence_of_the_Mind",
+      "itemKey": "ManaEssencePerfect",
+      "reason": "Exact Code hover returns unrelated semantics; verified corresponding material locale description supplies the correct effect"
+    },
+    {
+      "id": "crude-bow:suffix:essence-onslaught-on-kill",
+      "locale": "es",
+      "source": "{v0}% de probabilidad de ganar Embestida al matar con impactos de esta arma",
+      "template": "{v0}% de probabilidad de ganar Fervor con los impactos mortales de esta arma",
+      "provenance": "POE2DB_ALTERNATE_ITEM_EFFECT_SOURCE",
+      "sourceUrl": "https://poe2db.tw/sp/Perfect_Essence_of_Haste",
+      "itemKey": "SpeedEssencePerfect",
+      "reason": "Exact Code hover returns unrelated semantics; verified corresponding material locale description supplies the correct effect"
+    }
+  ],
+  "review": "All 37 English/Korean/Spanish effect strings reviewed semantically; numeric placeholders reviewed in every locale"
+}

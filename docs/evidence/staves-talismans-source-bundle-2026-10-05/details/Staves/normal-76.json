@@ -1,0 +1,75 @@
+{
+  "row": {
+    "Name": "Agonising",
+    "Level": "60",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponDamageTypePrefix"
+    ],
+    "DropChance": "200",
+    "str": "<span class='mod-value'>(149<span class=\"ndash\">—</span>188)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage",
+    "fossil_no": [
+      "physical_damage",
+      "damage",
+      "physical"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods"
+    ],
+    "spawn_no": [
+      "no_physical_spell_mods",
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0e1d8b3b72db95c7e6cd4ea3bbb4e731c2ba6b759dde0fb18f5593f8e5242846"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FPhysicalDamagePrefixOnTwoHandWeapon6",
+  "textLocale": "kr",
+  "detailText": "주문 물리 피해 (149—188)% 증가",
+  "retrievedAt": "2026-10-05T10:06:06.059Z",
+  "sha256": "9fdab18c4f4e25b8ecf71ffce61cf0752cc79b6fe8fe20d232bdbe2268f5df89",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/e5e960e0b83ed63105c506ab0b7f01a31b0779629d9b94ad2b3c57bc14a126dd\">주문</a> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/d25f7df2ee8b7becfbff177402e14a4121b97bba3bb7215099c04f58588080bf\">물리</a> 피해 <span class='mod-value'>(149<span class=\"ndash\">—</span>188)</span>% 증가</span></h5>   <span data-tabname=\"고통스러운\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>고통스러운\n<tr><th>Family<td>WeaponDamageTypePrefix\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접두어 (1)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>2224\n<tr><th>Stats<td><li>spell physical damage +% <span class=\"badge bg-primary\">149 <span class=\"ndash\">—</span> 188</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_physical_spell_mods: 0</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>physical_damage</i></span> <span class='badge bg-primary'>피해</span> <span class='badge bg-primary'>물리</span> </table>  </div></div>",
+  "fields": {
+    "Name": "고통스러운",
+    "Family": "WeaponDamageTypePrefix",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접두어 (1)",
+    "Req. level": "60 (Effective: 48)",
+    "Gold Price": "2224",
+    "Stats": "spell physical damage +% 149 — 188 Global",
+    "Spawn Tags": "no_physical_spell_mods: 0 staff: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_cold_spell_mods no_lightning_spell_mods no_chaos_spell_mods",
+    "Craft Tags": "physical_damage 피해 물리"
+  },
+  "code": "PhysicalDamagePrefixOnTwoHandWeapon6",
+  "stats": [
+    {
+      "id": "spell_physical_damage_+%",
+      "min": 149,
+      "max": 188,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_physical_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

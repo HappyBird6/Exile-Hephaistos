@@ -1,0 +1,85 @@
+{
+  "row": {
+    "Name": "of the Hyperboreal",
+    "Level": "60",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "FreezeDamageIncrease"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(61<span class=\"ndash\">—</span>70)</span>% increased <a data-keyword=\"Freeze\" href=\"Freeze\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/011683cb90b62a1cbc72829d6e7b38990ef9bb565d22951ceaa5330e787374b5\">Freeze</a> Buildup",
+    "fossil_no": [
+      "elemental",
+      "cold",
+      "ailment"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods"
+    ],
+    "spawn_no": [
+      "no_cold_spell_mods",
+      "wand",
+      "staff",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/29e30bbc0b706ae3aea22d8cfac2c33cd6d035f7975d724dc02186fdf33edd97"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFreezeDamageIncrease4",
+  "textLocale": "us",
+  "detailText": "(61—70)% increased Freeze Buildup",
+  "retrievedAt": "2026-10-05T10:08:47.823Z",
+  "sha256": "e105dd97e6bec0aaab9e357ce321d4ddf1cd866f54018aff3e4c04bb3fb3b9e6",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(61<span class=\"ndash\">—</span>70)</span>% increased <a data-keyword=\"Freeze\" href=\"Freeze\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/011683cb90b62a1cbc72829d6e7b38990ef9bb565d22951ceaa5330e787374b5\">Freeze</a> Buildup</span></h5>   <span data-tabname=\"of the Hyperboreal\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Hyperboreal\n<tr><th>Family<td>FreezeDamageIncrease\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>1376\n<tr><th>Stats<td><li>hit damage freeze multiplier +% <span class=\"badge bg-primary\">61 <span class=\"ndash\">—</span> 70</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_cold_spell_mods: 0</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Ailment</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Hyperboreal",
+    "Family": "FreezeDamageIncrease",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "60 (Effective: 48)",
+    "Gold Price": "1376",
+    "Stats": "hit damage freeze multiplier +% 61 — 70 Global",
+    "Spawn Tags": "no_cold_spell_mods: 0 wand: 1 staff: 1 trap: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_lightning_spell_mods no_chaos_spell_mods",
+    "Craft Tags": "Elemental Cold Ailment"
+  },
+  "code": "FreezeDamageIncrease4",
+  "stats": [
+    {
+      "id": "hit_damage_freeze_multiplier_+%",
+      "min": 61,
+      "max": 70,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_cold_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

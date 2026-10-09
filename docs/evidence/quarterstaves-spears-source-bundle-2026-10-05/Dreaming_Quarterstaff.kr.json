@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/kr/Dreaming_Quarterstaff",
+  "retrievedAt": "2026-10-05T08:05:49.254Z",
+  "sha256": "a2aa6fb15d9f80801bfd584e4174f4fd1c16f95f5980b11c377834aaf0f4c03e",
+  "variants": [
+    {
+      "name": "몽환의 육척봉",
+      "card": "몽환의 육척봉\n        \n    \n    \n        \n            육척봉물리 피해: 99-133치명타 명중 확률: 0%초당 공격 횟수: 1.5무기 범위: 1.4요구 사항:  레벨 78, 127 민첩, 50 지능\n        \n\n\n\n        \n            Dreaming Quarterstaff",
+      "requirements": "요구 사항:  레벨 78, 127 민첩, 50 지능",
+      "properties": [
+        "육척봉",
+        "물리 피해: 99-133",
+        "치명타 명중 확률: 0%",
+        "초당 공격 횟수: 1.5",
+        "무기 범위: 1.4"
+      ],
+      "fields": {
+        "DropLevel": "78",
+        "BaseType": "몽환의 육척봉",
+        "Class": "육척봉",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame",
+        "Tags": "karui_basetype, warstaff, two_hand_weapon, twohand, weapon",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/WarStaves/Warstaff10",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, twohand, warstaff, two_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ]
+}

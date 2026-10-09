@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/sp/Apostle_Leggings",
+  "retrievedAt": "2026-10-04T15:38:36.363Z",
+  "sha256": "9c20239ef47666f4e559a20389872f7b0ecd7f847aaea2ba04fba8c82d94f532",
+  "name": "Botines de apóstol",
+  "card": "Botines de apóstol\n        \n    \n    \n        \n            BotasArmadura: 134Escudo de energía: 37Requiere:  Nivel 70, 51 Fue, 51 Int\n        \n\n\n\n        \n            Apostle Leggings",
+  "requirements": "Requiere:  Nivel 70, 51 Fue, 51 Int",
+  "fields": {
+    "DropLevel": "70",
+    "BaseType": "Botines de apóstol",
+    "Class": "Botas",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Boots/FourBootsStrInt2Endgame",
+    "Tags": "str_int_armour, boots, armour",
+    "Icon": "Art/2DItems/Armours/Boots/Basetypes/BootsIntStr02",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, boots",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Boots",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

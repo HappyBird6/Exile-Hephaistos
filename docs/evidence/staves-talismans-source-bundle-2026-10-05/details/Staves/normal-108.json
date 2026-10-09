@@ -1,0 +1,62 @@
+{
+  "row": {
+    "Name": "of Excitement",
+    "Level": "1",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ManaRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(15<span class=\"ndash\">—</span>29)</span>% increased Mana Regeneration Rate",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3831c927860c54f70fc8408583c7a31700b7f739ea9107ce454e4477c5f60312"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FManaRegenerationTwoHand1",
+  "textLocale": "jp",
+  "detailText": "マナ自動回復レートが(15—29)%増加する",
+  "retrievedAt": "2026-10-05T10:07:36.507Z",
+  "sha256": "dff890470baeb2a0e390cad971054108922e920b276bf56808950a6f7c48fccb",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>マナ自動回復レートが<span class='mod-value'>(15<span class=\"ndash\">—</span>29)</span>%増加する</span></h5>   <span data-tabname=\"興奮の\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>興奮の\n<tr><th>Family<td>ManaRegeneration\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>サフィックス (2)\n<tr><th>Req. level<td>1\n<tr><th>Gold Price<td>59\n<tr><th>Stats<td><li>mana regeneration rate +% <span class=\"badge bg-primary\">15 <span class=\"ndash\">—</span> 29</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>マナ</span> </table>  </div></div>",
+  "fields": {
+    "Name": "興奮の",
+    "Family": "ManaRegeneration",
+    "Domains": "アイテム (1)",
+    "GenerationType": "サフィックス (2)",
+    "Req. level": "1",
+    "Gold Price": "59",
+    "Stats": "mana regeneration rate +% 15 — 29 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "resource マナ"
+  },
+  "code": "ManaRegenerationTwoHand1",
+  "stats": [
+    {
+      "id": "mana_regeneration_rate_+%",
+      "min": 15,
+      "max": 29,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

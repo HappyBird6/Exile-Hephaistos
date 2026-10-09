@@ -21,7 +21,8 @@ function definition(id: keyof typeof catalog.definitions): Definition {
       binding.template as keyof typeof catalog.templates.en
     ].name,
     text: binding.englishText,
-    stats: binding.stats,
+    // API JSON property order does not affect stat identity; array order does.
+    stats: binding.stats.map(({ id, min, max }) => ({ id, min, max })),
     tier: 1,
     affixType: 'PREFIX',
     familyIds: ['test-family'],
@@ -30,15 +31,90 @@ function definition(id: keyof typeof catalog.definitions): Definition {
 
 describe('verified modifier display templates', () => {
   it('covers every ordinary catalog definition in all six locales', () => {
-    const ids = Object.keys(catalog.definitions)
+    const allIds = Object.keys(catalog.definitions)
+    const added = (id: string) => /^(staves|maji-talisman):/.test(id)
+    const ids = allIds.filter((id) => !added(id))
+    // 131 source-new Staff ordinary definitions, two special targets, and Maji implicit.
+    expect(allIds.filter(added)).toHaveLength(134)
+    expect(
+      Object.keys(catalog.definitions)
+        .filter((id) =>
+          /^(stellar|amber|bloodstone|lunar|azure|crimson|pearlescent):implicit:/.test(
+            id,
+          ),
+        )
+        .sort(),
+    ).toEqual([
+      'amber:implicit:strength',
+      'azure:implicit:manaregeneration',
+      'bloodstone:implicit:increasedlife',
+      'crimson:implicit:liferegeneration',
+      'lunar:implicit:increasedenergyshield',
+      'pearlescent:implicit:allresistances',
+      'stellar:implicit:allattributes',
+    ])
+    expect(ids.filter((id) => /^(quiver|.+-quiver):/.test(id))).toHaveLength(41)
     const jewelIds = ids.filter((id) => id.startsWith('sapphire:'))
+    const crossbowIds = ids.filter((id) => /^(crossbow|.+-crossbow):/.test(id))
+    // Source-backed additions: 62 ordinary, 5 special and 4 implicit bindings.
+    expect(crossbowIds).toHaveLength(71)
+    expect(ids.filter((id) => id.startsWith('offhand:'))).toHaveLength(31)
+    expect(
+      ids.filter(
+        (id) =>
+          !/^(ruby|emerald|sapphire|diamond|crossbow|.+-crossbow|offhand|quiver|.+-quiver|one-hand-maces|two-hand-maces|fortified-hammer|strife-pick|akoyan-club|ruination-maul|fanatic-greathammer|tawhoan-greatclub|quarterstaves|spears|aegis-quarterstaff|bolting-quarterstaff|dreaming-quarterstaff|grand-spear|flying-spear|akoyan-spear):/.test(
+            id,
+          ) && !id.startsWith('time-lost-'),
+      ),
+    ).toHaveLength(1812)
+    expect(
+      ids.filter(
+        (id) =>
+          !/^(ruby|emerald|sapphire|diamond|offhand|quiver|.+-quiver|one-hand-maces|two-hand-maces|fortified-hammer|strife-pick|akoyan-club|ruination-maul|fanatic-greathammer|tawhoan-greatclub|quarterstaves|spears|aegis-quarterstaff|bolting-quarterstaff|dreaming-quarterstaff|grand-spear|flying-spear|akoyan-spear):/.test(
+            id,
+          ) && !id.startsWith('time-lost-'),
+      ),
+      // Preserve all 1,812 historical equipment bindings and add 71 Crossbow bindings.
+    ).toHaveLength(1883)
     expect(
       ids.filter(
         (id) =>
           !/^(ruby|emerald|sapphire|diamond):/.test(id) &&
           !id.startsWith('time-lost-'),
       ),
-    ).toHaveLength(1485)
+    ).toHaveLength(1989)
+    expect(
+      ids
+        .filter(
+          (id) =>
+            /^(kinetic|vitalic|mnemonic|pearl|amethyst|prismatic|ruby-ring|two-stone-fire-cold):implicit:/.test(
+              id,
+            ) || id === 'ring:suffix:essence-hysteria-mana-regeneration',
+        )
+        .sort(),
+    ).toEqual([
+      'amethyst:implicit:chaosresistance',
+      'kinetic:implicit:physicaldamage',
+      'mnemonic:implicit:maximummanaincreasepercent',
+      'pearl:implicit:increasedcastspeed',
+      'prismatic:implicit:allresistances',
+      'ring:suffix:essence-hysteria-mana-regeneration',
+      'ruby-ring:implicit:fireresistance',
+      'two-stone-fire-cold:implicit:fireandcoldresistance',
+      'vitalic:implicit:increasedlife',
+    ])
+    expect(
+      ids
+        .filter((id) =>
+          /^(guardian|gemini|fanatic|obliterator)-bow:implicit:/.test(id),
+        )
+        .sort(),
+    ).toEqual([
+      'fanatic-bow:implicit:weaponimplicitdamagetype',
+      'gemini-bow:implicit:additionalarrows',
+      'guardian-bow:implicit:chain',
+      'obliterator-bow:implicit:projectilerange',
+    ])
     expect(
       ids.filter((id) => /^(ruby|emerald|sapphire|diamond):/.test(id)),
     ).toHaveLength(392)
@@ -101,17 +177,18 @@ describe('verified modifier display templates', () => {
     }
   })
 
-  it('keeps raw multi-stat IDs and source values while localizing only the verified affix name', () => {
+  it('renders source-correlated compound values in display order without exposing stat IDs', () => {
     const d = definition('stocky-mitts:prefix:oyster-s')
     const values = Object.fromEntries(
       d.stats!.map((stat) => [stat.id, stat.min]),
     )
-    const english = rolledText(d, values)
+    const before = JSON.stringify({ d, values })
     const translated = localizedModifierText(d, values, 'ko')
-    expect(english.startsWith(`${d.name}:`)).toBe(true)
-    expect(translated.endsWith(english.slice(d.name.length))).toBe(true)
-    for (const stat of d.stats!)
-      expect(translated).toContain(stat.id.replaceAll('_', ' '))
+    expect(translated).toContain('방어도 6% 증가')
+    expect(translated).toContain('생명력 최대치 +7')
+    expect(translated).not.toContain('source units')
+    for (const stat of d.stats!) expect(translated).not.toContain(stat.id)
+    expect(JSON.stringify({ d, values })).toBe(before)
     expect(localizedModifierText(d, undefined, 'ko')).toContain('(6—13)')
     expect(localizedModifierText(d, undefined, 'ko')).toContain('(7—10)')
   })

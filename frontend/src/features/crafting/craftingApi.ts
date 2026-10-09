@@ -1,3 +1,5 @@
+import type { WorkbenchBaseKey } from './baseRegistry'
+import { topBase } from './topBases'
 export const actions = [
   'TRANSMUTATION',
   'AUGMENTATION',
@@ -163,27 +165,24 @@ async function request(
 function invalid(): never {
   throw new Error('Could not verify the crafting response. Please retry.')
 }
+function reviewedImplicitMatches(base: string, state: Bucket): boolean {
+  const reviewed = topBase(base)
+  const implicit = state.implicits[0]
+  return reviewed?.implicitModifierId
+    ? state.implicits.length === 1 &&
+        implicit?.modifierId === reviewed.implicitModifierId &&
+        implicit.fractured !== true &&
+        Object.keys(implicit.values).length ===
+          reviewed.implicitStats!.length &&
+        reviewed.implicitStats!.every(
+          (stat) => implicit.values[stat.id] === stat.max,
+        )
+    : state.implicits.length === 0
+}
 export async function loadInitial(
   level: number,
   signal: AbortSignal,
-  base:
-    | 'solar'
-    | 'stocky'
-    | 'bow'
-    | 'wand'
-    | 'body'
-    | 'sceptre'
-    | 'belt'
-    | 'helmet'
-    | 'ring'
-    | 'time-lost-ruby'
-    | 'time-lost-emerald'
-    | 'time-lost-sapphire'
-    | 'time-lost-diamond'
-    | 'ruby'
-    | 'emerald'
-    | 'diamond'
-    | 'sapphire' = 'solar',
+  base: WorkbenchBaseKey = 'solar',
 ): Promise<Initial> {
   const v = await request(
     base === 'solar'
@@ -196,44 +195,46 @@ export async function loadInitial(
     !bucket(v.state) ||
     (base !== 'solar'
       ? v.state.baseItemId !==
-          ([
-            'ruby',
-            'emerald',
-            'diamond',
-            'time-lost-ruby',
-            'time-lost-emerald',
-            'time-lost-sapphire',
-            'time-lost-diamond',
-          ].includes(base)
-            ? (
-                {
-                  'time-lost-ruby': 'Metadata/Items/Jewels/JewelRadiusStr',
-                  'time-lost-emerald': 'Metadata/Items/Jewels/JewelRadiusDex',
-                  'time-lost-sapphire': 'Metadata/Items/Jewels/JewelRadiusInt',
-                  'time-lost-diamond':
-                    'Metadata/Items/Jewels/JewelRadiusDiamond',
-                  ruby: 'Metadata/Items/Jewels/JewelStr',
-                  emerald: 'Metadata/Items/Jewels/JewelDex',
-                  diamond: 'Metadata/Items/Jewels/JewelDiamond',
-                } as Record<string, string>
-              )[base]
-            : base === 'sapphire'
-              ? 'Metadata/Items/Jewels/JewelInt'
-              : base === 'stocky'
-                ? 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
-                : base === 'ring'
-                  ? 'Metadata/Items/Rings/FourRing1'
-                  : base === 'helmet'
-                    ? 'Metadata/Items/Armours/Helmets/FourHelmetStr1'
-                    : base === 'belt'
-                      ? 'Metadata/Items/Belts/FourBelt1'
-                      : base === 'sceptre'
-                        ? 'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
-                        : base === 'body'
-                          ? 'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
-                          : base === 'wand'
-                            ? 'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
-                            : 'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1') ||
+          (topBase(base)?.id ??
+            ([
+              'ruby',
+              'emerald',
+              'diamond',
+              'time-lost-ruby',
+              'time-lost-emerald',
+              'time-lost-sapphire',
+              'time-lost-diamond',
+            ].includes(base)
+              ? (
+                  {
+                    'time-lost-ruby': 'Metadata/Items/Jewels/JewelRadiusStr',
+                    'time-lost-emerald': 'Metadata/Items/Jewels/JewelRadiusDex',
+                    'time-lost-sapphire':
+                      'Metadata/Items/Jewels/JewelRadiusInt',
+                    'time-lost-diamond':
+                      'Metadata/Items/Jewels/JewelRadiusDiamond',
+                    ruby: 'Metadata/Items/Jewels/JewelStr',
+                    emerald: 'Metadata/Items/Jewels/JewelDex',
+                    diamond: 'Metadata/Items/Jewels/JewelDiamond',
+                  } as Record<string, string>
+                )[base]
+              : base === 'sapphire'
+                ? 'Metadata/Items/Jewels/JewelInt'
+                : base === 'stocky'
+                  ? 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+                  : base === 'ring'
+                    ? 'Metadata/Items/Rings/FourRing1'
+                    : base === 'helmet'
+                      ? 'Metadata/Items/Armours/Helmets/FourHelmetStr1'
+                      : base === 'belt'
+                        ? 'Metadata/Items/Belts/FourBelt1'
+                        : base === 'sceptre'
+                          ? 'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
+                          : base === 'body'
+                            ? 'Metadata/Items/Armours/BodyArmours/FourBodyStr1'
+                            : base === 'wand'
+                              ? 'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
+                              : 'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1')) ||
         (base === 'ring'
           ? v.state.implicits.length !== 1 ||
             v.state.implicits[0]?.modifierId !==
@@ -252,7 +253,7 @@ export async function loadInitial(
               v.state.implicits[0]?.values.local_jewel_effect_base_radius !==
                 1000 ||
               v.state.implicits[0]?.fractured === true
-            : v.state.implicits.length !== 0)
+            : !reviewedImplicitMatches(base, v.state))
       : v.state.implicits.length !== 1) ||
     v.state.itemLevel !== level ||
     !object(v.metadata) ||

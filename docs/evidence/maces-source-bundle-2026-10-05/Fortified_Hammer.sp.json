@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/sp/Fortified_Hammer",
+  "retrievedAt": "2026-10-05T07:02:48.931Z",
+  "sha256": "3c814e33c90c9b358d2bcfb71e21f1ebc5e1752999eb8b70208d8fb323e3ebf0",
+  "variants": [
+    {
+      "name": "Martillo fortificado",
+      "card": "Martillo fortificado\n        \n    \n    \n        \n            Mazas a una manoDaño físico: 60-73Probabilidad de impacto crítico: 5%Ataques por segundo: 1.4Alcance de arma: 1.3Requiere:  Nivel 79, 163 Fue40% de probabilidad de desorientar al impactar\n        \n\n\n\n        \n            Fortified Hammer",
+      "requirements": "Requiere:  Nivel 79, 163 Fue",
+      "properties": [
+        "Mazas a una mano",
+        "Daño físico: 60-73",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.3"
+      ],
+      "fields": {
+        "DropLevel": "79",
+        "BaseType": "Martillo fortificado",
+        "Class": "Mazas a una mano",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace8Endgame",
+        "Tags": "mace, one_hand_weapon, onehand, weapon",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/OneHandMaces/Basetypes/1HMace08",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, onehand, mace, one_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      }
+    }
+  ]
+}

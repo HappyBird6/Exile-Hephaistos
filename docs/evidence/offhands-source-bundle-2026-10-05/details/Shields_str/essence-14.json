@@ -1,0 +1,66 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "46",
+    "DropChance": 0,
+    "ModGenerationTypeID": "1",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingenergy_shield\" data-tag=\"energy_shield\">Energy Shield</span>"
+    ],
+    "fossil_no": [
+      "defences",
+      "energy_shield"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/ca0adc00133c9cf474f25aa889b6ccc806a7ad0b97a12df70016318dcfe76cd0\" href=\"Essence_of_Enhancement\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/DefencesEssence.webp\" alt=\"DefencesEssence\" height=\"16\" />Essence of Enhancement</a>",
+    "Code": "LocalIncreasedEnergyShieldPercent4",
+    "ModFamilyList": [
+      "DefencesPercent"
+    ],
+    "str": "<span class='mod-value'>(56<span class=\"ndash\">—</span>67)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a>, <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> and <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a>",
+    "adds_no": [],
+    "spawn_no": [
+      "int_armour",
+      "default"
+    ],
+    "reqlvl": 36,
+    "IsPerfect": "0",
+    "IsAlloy": false,
+    "Removes": false
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEnergyShieldPercent4",
+  "textLocale": "us",
+  "detailText": "(56—67)% increased Energy Shield",
+  "retrievedAt": "2026-10-05T04:28:03.768Z",
+  "sha256": "d78545a8e66f98fb323b91bcf9c4991dcb0ef830dbc10f6ea838949b851e29fe",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(56<span class=\"ndash\">—</span>67)</span>% increased <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a></span></h5>   <span data-tabname=\"Fearless\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Fearless\n<tr><th>Family<td>DefencesPercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>46 (Effective: 36)\n<tr><th>Gold Price<td>1341\n<tr><th>Stats<td><li>local energy shield +% <span class=\"badge bg-primary\">56 <span class=\"ndash\">—</span> 67</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Energy Shield</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(13<span class=\"ndash\">—</span>14)</span>% more Global [Evasion] Rating and [EnergyShield|Energy Shield]</table>  </div></div>",
+  "fields": {
+    "Name": "Fearless",
+    "Family": "DefencesPercent",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "46 (Effective: 36)",
+    "Gold Price": "1341",
+    "Stats": "local energy shield +% 56 — 67 Local",
+    "Spawn Tags": "int_armour: 1 default: 0",
+    "Craft Tags": "defences Energy Shield"
+  },
+  "code": "LocalIncreasedEnergyShieldPercent4",
+  "stats": [
+    {
+      "id": "local_energy_shield_+%",
+      "min": 56,
+      "max": 67,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

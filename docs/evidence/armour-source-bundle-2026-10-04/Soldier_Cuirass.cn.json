@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/cn/Soldier_Cuirass",
+  "retrievedAt": "2026-10-04T15:37:52.386Z",
+  "sha256": "f4ab48f2620946ffcccd5bfbec8038a6d29bd8553d1a9021d9e91ea97d7a01d6",
+  "name": "士兵胸甲",
+  "card": "士兵胸甲\n        \n    \n    \n        \n            护甲护甲: 570基础移动速度: -0.05需求：  等级 65, 121 力量\n        \n\n\n\n        \n            Soldier Cuirass",
+  "requirements": "需求：  等级 65, 121 力量",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "士兵胸甲",
+    "Class": "护甲",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame",
+    "Tags": "str_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStr03",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

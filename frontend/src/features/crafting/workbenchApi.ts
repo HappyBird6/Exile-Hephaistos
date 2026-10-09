@@ -1,8 +1,10 @@
+import { topBase, topBaseKey } from './topBases'
+import { basePolicy } from './baseRegistry'
+import reviewedEssenceTargets from './topBaseEssences.json'
 import { supportsConcreteStateShape } from './workbenchStateShape'
 import displayBindings from '../../shared/i18n/modifierTemplates.json'
 import liquidTargets from './basicJewelLiquidTargets.json'
 import {
-  isBasicJewel,
   workbenchJewelBases,
   isWorkbenchJewel,
   reviewedBasicJewel,
@@ -10,11 +12,7 @@ import {
 } from './basicJewel'
 import { qualityCapChangeMatches } from './qualityCapChangePolicy'
 import { whittlingCandidates } from './omenRemovalCandidates'
-import {
-  catalystBase,
-  catalystTypes,
-  verifiedCatalystQuality,
-} from './catalystQuality'
+import { catalystTypes, verifiedCatalystQuality } from './catalystQuality'
 import type { CatalystQuality } from './catalystQuality'
 import { maximumQuality, qualityLimitMatches } from './qualityLimit'
 import type { QualityLimit } from './qualityLimit'
@@ -984,9 +982,23 @@ export async function applyCurrency(
             ? (stockyFixedEssenceModifiers[action] ??
               fixedEssenceModifiers[action])
             : fixedEssenceModifiers[action]
-  const essenceCandidates = fixedTarget
-    ? [fixedTarget]
-    : (choiceEssenceModifiers[action] ?? [])
+  const reviewedKey = topBaseKey(state.baseItemId)
+  const reviewedTargets = reviewedKey
+    ? (
+        reviewedEssenceTargets as Record<
+          string,
+          {
+            fixed: Record<string, string[]>
+            replacements: Record<string, string[]>
+          }
+        >
+      )[reviewedKey]
+    : undefined
+  const essenceCandidates = reviewedTargets
+    ? (reviewedTargets.fixed[action] ?? [])
+    : fixedTarget
+      ? [fixedTarget]
+      : (choiceEssenceModifiers[action] ?? [])
   const stockyReplacementTargets: Partial<
     Record<WorkbenchAction, readonly string[]>
   > = {
@@ -1016,10 +1028,20 @@ export async function applyCurrency(
           baseName
         ]?.[action] ?? [])
       : []
-    : ((state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
-        ? (stockyReplacementTargets[action] ??
-          replacementEssenceModifiers[action])
-        : replacementEssenceModifiers[action]) ?? [])
+    : reviewedTargets
+      ? (reviewedTargets.replacements[action] ??
+        ([
+          'PERFECT_ESSENCE_GROUNDING',
+          'PERFECT_ESSENCE_OPULENCE',
+          'ESSENCE_ABYSS',
+        ].includes(action)
+          ? stockyReplacementTargets[action]
+          : []) ??
+        [])
+      : ((state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+          ? (stockyReplacementTargets[action] ??
+            replacementEssenceModifiers[action])
+          : replacementEssenceModifiers[action]) ?? [])
   const sameModifiers = (
     a: ConcreteItem['explicits'],
     b: ConcreteItem['explicits'],
@@ -1061,14 +1083,17 @@ export async function applyCurrency(
         Boolean(next.implicits[0].fractured))) ||
     (v.qualityLimit !== undefined &&
       (v.qualityLimit === null
-        ? ![
-            'Metadata/Items/Jewels/JewelRadiusStr',
-            'Metadata/Items/Jewels/JewelRadiusDex',
-            'Metadata/Items/Jewels/JewelRadiusInt',
-            'Metadata/Items/Jewels/JewelRadiusDiamond',
-            'Metadata/Items/Belts/FourBelt1',
-            'Metadata/Items/Rings/FourRing1',
-          ].includes(next.baseItemId) ||
+        ? (!['belts', 'quivers'].includes(
+            topBase(reviewedKey ?? '')?.family ?? '',
+          ) &&
+            ![
+              'Metadata/Items/Jewels/JewelRadiusStr',
+              'Metadata/Items/Jewels/JewelRadiusDex',
+              'Metadata/Items/Jewels/JewelRadiusInt',
+              'Metadata/Items/Jewels/JewelRadiusDiamond',
+              'Metadata/Items/Belts/FourBelt1',
+              'Metadata/Items/Rings/FourRing1',
+            ].includes(next.baseItemId)) ||
           maximumQuality(next, definitions) !== null
         : !qualityLimitMatches(v.qualityLimit, next, definitions))) ||
     (v.applied &&
@@ -1079,19 +1104,27 @@ export async function applyCurrency(
         'PERFECT_ESSENCE_COMMAND',
       ].includes(action) &&
       state.baseItemId !==
-        'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1') ||
+        'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1' &&
+      topBase(reviewedKey ?? '')?.family !== 'sceptres') ||
     (v.applied &&
       action === 'PERFECT_ESSENCE_INSULATION' &&
+      topBase(reviewedKey ?? '')?.family !== 'belts' &&
       state.baseItemId !== 'Metadata/Items/Belts/FourBelt1') ||
     (v.applied &&
       action === 'DIVINE' &&
       state.baseItemId === 'Metadata/Items/Belts/FourBelt1') ||
     (v.applied &&
       action === 'PERFECT_ESSENCE_MIND' &&
-      state.baseItemId !== 'Metadata/Items/Rings/FourRing1') ||
+      state.baseItemId !== 'Metadata/Items/Rings/FourRing1' &&
+      !['rings', 'amulets'].includes(
+        topBase(reviewedKey ?? '')?.family ?? '',
+      )) ||
     (v.applied &&
       action === 'PERFECT_ESSENCE_THAWING' &&
-      state.baseItemId !== 'Metadata/Items/Armours/Helmets/FourHelmetStr1') ||
+      state.baseItemId !== 'Metadata/Items/Armours/Helmets/FourHelmetStr1' &&
+      !['helmet', 'helmets'].includes(
+        topBase(reviewedKey ?? '')?.family ?? '',
+      )) ||
     (v.applied && action === 'PRISMATIC_ALLOY' && state.itemLevel < 45) ||
     (v.applied &&
       [
@@ -1099,7 +1132,8 @@ export async function applyCurrency(
         'PERFECT_ESSENCE_RUIN',
         'PERFECT_ESSENCE_SEEKING',
       ].includes(action) &&
-      state.baseItemId !== 'Metadata/Items/Armours/BodyArmours/FourBodyStr1') ||
+      state.baseItemId !== 'Metadata/Items/Armours/BodyArmours/FourBodyStr1' &&
+      topBase(reviewedKey ?? '')?.family !== 'body') ||
     (v.applied &&
       ['EXPANSIVE_ALLOY', 'ADAPTIVE_ALLOY', 'SOVEREIGN_ALLOY'].includes(
         action,
@@ -1144,7 +1178,10 @@ export async function applyCurrency(
       ].includes(action) &&
       state.baseItemId !== 'Metadata/Items/Armours/Gloves/FourGlovesStr1' &&
       state.baseItemId !==
-        'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1') ||
+        'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1' &&
+      !['bows', 'crossbows'].includes(
+        topBase(reviewedKey ?? '')?.family ?? '',
+      )) ||
     v.action !== action ||
     typeof v.applied !== 'boolean' ||
     typeof v.reason !== 'string' ||
@@ -1236,8 +1273,9 @@ export async function applyCurrency(
       v.assumptions.length !== 0 ||
       v.consumedOmens.length !== 0 ||
       (v.applied
-        ? action.startsWith('REFINED_') !== isBasicJewel(state.baseItemId) ||
-          !catalystBase(state.baseItemId) ||
+        ? (action.startsWith('REFINED_')
+            ? basePolicy(state.baseItemId)?.refinedCatalyst
+            : basePolicy(state.baseItemId)?.ordinaryCatalyst) !== true ||
           next.catalystQuality?.type !== catalystType ||
           next.catalystQuality?.amount !==
             Math.max(
@@ -1259,7 +1297,7 @@ export async function applyCurrency(
   if (
     (action === 'ARTIFICER' &&
       v.applied &&
-      (state.baseItemId !== 'Metadata/Items/Armours/Gloves/FourGlovesStr1' ||
+      (basePolicy(state.baseItemId)?.socketExecutionMaximum !== 1 ||
         oldSockets !== 0 ||
         newSockets !== 1 ||
         next.rarity !== state.rarity ||

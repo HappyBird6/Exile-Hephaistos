@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/us/Wolfskin_Mantle",
+  "retrievedAt": "2026-10-04T15:37:58.522Z",
+  "sha256": "aaff93b4b7f430b5f492d8c493fead43cd9dda5d73bf84dd1d0491b8c5b133fb",
+  "name": "Wolfskin Mantle",
+  "card": "Wolfskin Mantle\n        \n    \n    \n        \n            Body ArmoursArmour: 313Energy Shield: 87Base Movement Speed: -0.04Requires:  Level 65, 67 Str, 67 Int",
+  "requirements": "Requires:  Level 65, 67 Str, 67 Int",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "Wolfskin Mantle",
+    "Class": "Body Armours",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Endgame",
+    "Tags": "str_int_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr02",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/jp/Strife_Pick",
+  "retrievedAt": "2026-10-05T07:00:47.628Z",
+  "sha256": "645f287b3c94f5bf7a313ee7ec56a2542c114a772fadab2940cd5075bdf0ebe3",
+  "variants": [
+    {
+      "name": "ストライフピック",
+      "card": "ストライフピック\n        \n    \n    \n        \n            片手メイス物理ダメージ: 49-66クリティカルヒット率: 7%秒間アタック回数: 1.45武器攻撃距離: 1.3装備条件： レベル 78, 163 筋力クリティカルダメージボーナス +(5—10)%\n        \n\n\n\n        \n            Strife Pick",
+      "requirements": "装備条件： レベル 78, 163 筋力",
+      "properties": [
+        "片手メイス",
+        "物理ダメージ: 49-66",
+        "クリティカルヒット率: 7%",
+        "秒間アタック回数: 1.45",
+        "武器攻撃距離: 1.3"
+      ],
+      "fields": {
+        "DropLevel": "78",
+        "BaseType": "ストライフピック",
+        "Class": "片手メイス",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace5Endgame",
+        "Tags": "mace, one_hand_weapon, onehand, weapon",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/OneHandMaces/Basetypes/1HMace05",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, onehand, mace, one_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      }
+    }
+  ]
+}

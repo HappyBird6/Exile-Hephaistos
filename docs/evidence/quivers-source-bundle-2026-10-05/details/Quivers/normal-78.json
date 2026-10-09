@@ -1,0 +1,65 @@
+{
+  "row": {
+    "Name": "of Rage",
+    "Level": "31",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "CriticalStrikeMultiplier"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(20<span class=\"ndash\">—</span>24)</span>% increased <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Damage Bonus</a> for <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Damage",
+    "fossil_no": [
+      "damage",
+      "attack",
+      "critical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "quiver",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/592b9c3dac2bbf6e39bd7189b88d5aef22942588f1f7612d10d02e04f81932f4"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FAttackCriticalStrikeMultiplier3",
+  "textLocale": "jp",
+  "detailText": "アタックダメージのクリティカルダメージボーナスが(20—24)%増加する",
+  "retrievedAt": "2026-10-05T05:32:41.758Z",
+  "sha256": "baba796c7d3a35291a6e01f9821d16080ab72aa5dfee0d378d553a5a1f759089",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/39ab8a4c1bfd40ba4d1209b65ca6bc7b0547262f6b29e1793a889bc838578ae1\">アタック</a>ダメージの<a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/d2a0024ed5ebf1edd239a8aad3f4df1a5e4e50cee4ff56b9e75cdaaa635738fc\">クリティカルダメージボーナス</a>が<span class='mod-value'>(20<span class=\"ndash\">—</span>24)</span>%増加する</span></h5>   <span data-tabname=\"激怒の\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>激怒の\n<tr><th>Family<td>CriticalStrikeMultiplier\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>サフィックス (2)\n<tr><th>Req. level<td>31 (Effective: 24)\n<tr><th>Gold Price<td>622\n<tr><th>Stats<td><li>attack critical strike multiplier + <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 24</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>ダメージ</span> <span class='badge bg-primary'>アタック</span> <span class='badge bg-primary'>クリティカル</span> </table>  </div></div>",
+  "fields": {
+    "Name": "激怒の",
+    "Family": "CriticalStrikeMultiplier",
+    "Domains": "アイテム (1)",
+    "GenerationType": "サフィックス (2)",
+    "Req. level": "31 (Effective: 24)",
+    "Gold Price": "622",
+    "Stats": "attack critical strike multiplier + 20 — 24 Global",
+    "Spawn Tags": "quiver: 1 default: 0",
+    "Craft Tags": "ダメージ アタック クリティカル"
+  },
+  "code": "AttackCriticalStrikeMultiplier3",
+  "stats": [
+    {
+      "id": "attack_critical_strike_multiplier_+",
+      "min": 20,
+      "max": 24,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

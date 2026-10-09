@@ -1,0 +1,69 @@
+{
+  "row": {
+    "Name": "of Ferocity",
+    "Level": "59",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "CriticalStrikeMultiplier"
+    ],
+    "DropChance": "250",
+    "str": "<span class='mod-value'>(30<span class=\"ndash\">—</span>34)</span>% increased <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Spell Damage Bonus</a>",
+    "fossil_no": [
+      "caster_critical",
+      "caster",
+      "critical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "focus",
+      "wand",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/86697741c5fdb9ba591541303d52b72ddd6196c88e74d44b7cd3bba737b416e6"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeMultiplier5",
+  "textLocale": "us",
+  "detailText": "(30—34)% increased Critical Spell Damage Bonus",
+  "retrievedAt": "2026-10-05T04:37:03.631Z",
+  "sha256": "b5ab15fb61ae88da34d2d9d674af3b646bbf8b5a46d767d29c8df222d3a620ec",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(30<span class=\"ndash\">—</span>34)</span>% increased <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Spell Damage Bonus</a></span></h5>   <span data-tabname=\"of Ferocity\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Ferocity\n<tr><th>Family<td>CriticalStrikeMultiplier\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>59 (Effective: 47)\n<tr><th>Gold Price<td>1932\n<tr><th>Stats<td><li>base spell critical strike multiplier + <span class=\"badge bg-primary\">30 <span class=\"ndash\">—</span> 34</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_critical</i></span> <span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Critical</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Ferocity",
+    "Family": "CriticalStrikeMultiplier",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "59 (Effective: 47)",
+    "Gold Price": "1932",
+    "Stats": "base spell critical strike multiplier + 30 — 34 Global",
+    "Spawn Tags": "focus: 1 wand: 1 default: 0",
+    "Craft Tags": "caster_critical Caster Critical"
+  },
+  "code": "SpellCriticalStrikeMultiplier5",
+  "stats": [
+    {
+      "id": "base_spell_critical_strike_multiplier_+",
+      "min": 30,
+      "max": 34,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

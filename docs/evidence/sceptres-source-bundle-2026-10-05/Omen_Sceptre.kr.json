@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/kr/Omen_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:07.261Z",
+  "sha256": "344f239d06230fa6e489ad42a0873e92ecfa4b1e34b65a1fbcdcf3edd6a5e664",
+  "variants": [
+    {
+      "name": "징조 셉터",
+      "card": "징조 셉터\n        \n    \n    \n        \n            셉터정신력: 100요구 사항:  레벨 16, 12 힘, 25 지능 스킬 부여: 적의\n        \n\n\n\n        \n            Omen Sceptre",
+      "requirements": "요구 사항:  레벨 16, 12 힘, 25 지능",
+      "fields": {
+        "DropLevel": "16",
+        "BaseType": "징조 셉터",
+        "Class": "셉터",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre04",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "적의",
+      "skillUrl": "https://poe2db.tw/kr/Malice"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "stage": "npm ci",
+  "result": "EBADENGINE",
+  "cause": "Selected node:22-bookworm; package requires Node >=24.18.1 <25 and npm >=11.16.0 <12",
+  "resolution": "Use existing node:24-bookworm image; no package or check relaxation"
+}

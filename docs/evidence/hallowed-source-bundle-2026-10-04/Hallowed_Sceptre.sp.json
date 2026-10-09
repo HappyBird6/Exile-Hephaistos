@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/sp/Hallowed_Sceptre",
+  "retrievedAt": "2026-10-04T23:03:41.728Z",
+  "sha256": "cd5c321989d66d49cf138ad8ed6ea420d64cfe4b318f0a2543b0aa2c9e75f001",
+  "name": "Cetro sagrado",
+  "card": "Cetro sagrado\n        \n    \n    \n        \n            CetrosEspíritu: 100Requiere:  Nivel 65, 36 Fue, 89 Int Otorga la habilidad: Guerrero esqueleto\n        \n\n\n\n        \n            Hallowed Sceptre",
+  "requirements": "Requiere:  Nivel 65, 36 Fue, 89 Int",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "Cetro sagrado",
+    "Class": "Cetros",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
+    "Tags": "sceptre, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre01",
+    "Base.base_level": "1",
+    "Base.tag": "default, sceptre, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

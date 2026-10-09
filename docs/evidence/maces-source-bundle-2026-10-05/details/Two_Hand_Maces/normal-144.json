@@ -1,0 +1,76 @@
+{
+  "row": {
+    "Name": "Catalysing",
+    "Level": "4",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedWeaponElementalDamagePercent"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(34<span class=\"ndash\">—</span>47)</span>% increased <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/76ff55a46c9d3d007722fb5ccb09592dc48359db448d433f7e0c8dfc6e94dcbd\">Elemental</a> Damage with <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attacks</a>",
+    "fossil_no": [
+      "elemental_damage",
+      "has_attack_mod",
+      "damage",
+      "elemental",
+      "fire",
+      "cold",
+      "lightning"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "bow",
+      "two_hand_weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/254a743af91fb2327975bac410c45b54abb0ebd1721ee1b7052d3b24d573d7ab"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FWeaponElementalDamageOnTwohandWeapon1",
+  "textLocale": "sp",
+  "detailText": "Daño elemental aumentado un (34—47)% con habilidades de ataque",
+  "retrievedAt": "2026-10-05T07:12:38.549Z",
+  "sha256": "8e75d8d68d3ce5353223c6d34efdf7c3ed12e76fbd0f5a51faafe4cdab641a04",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Daño <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/b84c295485b5424b228d5caaf2a1e86a67edbc246c1fd81742bae3811960c3ed\">elemental</a> aumentado un <span class='mod-value'>(34<span class=\"ndash\">—</span>47)</span>% con habilidades de <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/efca405e2354dc7d39cc3c5b4845b1e3443aeccfd77dadb1b7284731063e4bb1\">ataque</a></span></h5>   <span data-tabname=\"<if:MS>{catalizador}<elif:FS>{catalizadora}<elif:MP>{catalizadores}<elif:FP>{catalizadoras}\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td><if:MS>{catalizador}<elif:FS>{catalizadora}<elif:MP>{catalizadores}<elif:FP>{catalizadoras}\n<tr><th>Family<td>IncreasedWeaponElementalDamagePercent\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>4 (Effective: 3)\n<tr><th>Gold Price<td>95\n<tr><th>Stats<td><li>elemental damage with attack skills +% <span class=\"badge bg-primary\">34 <span class=\"ndash\">—</span> 47</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>bow: 0</span> <span class='badge bg-primary'>two_hand_weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'><i>has_attack_mod</i></span> <span class='badge bg-primary'>Daño</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fuego</span> <span class='badge bg-primary'>Hielo</span> <span class='badge bg-primary'>Rayo</span> </table>  </div></div>",
+  "fields": {
+    "Name": "{catalizador}{catalizadora}{catalizadores}{catalizadoras}",
+    "Family": "IncreasedWeaponElementalDamagePercent",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "4 (Effective: 3)",
+    "Gold Price": "95",
+    "Stats": "elemental damage with attack skills +% 34 — 47 Global",
+    "Spawn Tags": "bow: 0 two_hand_weapon: 1 default: 0",
+    "Craft Tags": "elemental_damage has_attack_mod Daño Elemental Fuego Hielo Rayo"
+  },
+  "code": "WeaponElementalDamageOnTwohandWeapon1",
+  "stats": [
+    {
+      "id": "elemental_damage_with_attack_skills_+%",
+      "min": 34,
+      "max": 47,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "bow",
+      "weight": 0
+    },
+    {
+      "tag": "two_hand_weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "65",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "fossil_no": [
+      "attack"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/40e98e7b2170e0d0573381a7b1582ea54a634c90c2a2b57857909fc391c77537\" href=\"The_Runefathers_Alloy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/Alloy3.webp\" alt=\"Alloy3\" height=\"16\" />The Runefather's Alloy</a>",
+    "Code": "AlloyBellLimit1",
+    "ModFamilyList": [
+      "BellHitLimit"
+    ],
+    "str": "Tempest Bells are destroyed after an additional <span class='mod-value'>(4<span class=\"ndash\">—</span>5)</span> <a data-keyword=\"Hit\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/396ec0ccc46f63acd9059876455d4a9f7d5108864acf9fc0f4c56be5a6f9cd57\">Hits</a>",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 52,
+    "IsPerfect": "0",
+    "IsAlloy": true,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyBellLimit1",
+  "textLocale": "us",
+  "detailText": "Tempest Bells are destroyed after an additional (4—5) Hits",
+  "retrievedAt": "2026-10-05T08:12:31.323Z",
+  "sha256": "e738ac0b484bed1bc57115ff61205418dbd3b2fe8e1c57441a2b90cc516da886",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Tempest Bells are destroyed after an additional <span class='mod-value'>(4<span class=\"ndash\">—</span>5)</span> <a data-keyword=\"Hit\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/396ec0ccc46f63acd9059876455d4a9f7d5108864acf9fc0f4c56be5a6f9cd57\">Hits</a></span></h5>   <span data-tabname=\"of the Stars\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Stars\n<tr><th>Family<td>BellHitLimit\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>65 (Effective: 52)\n<tr><th>Gold Price<td>1422\n<tr><th>Stats<td><li>bell hit limit <span class=\"badge bg-primary\">4 <span class=\"ndash\">—</span> 5</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Stars",
+    "Family": "BellHitLimit",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "65 (Effective: 52)",
+    "Gold Price": "1422",
+    "Stats": "bell hit limit 4 — 5 Global",
+    "Spawn Tags": "default: 0",
+    "Craft Tags": "Attack"
+  },
+  "code": "AlloyBellLimit1",
+  "stats": [
+    {
+      "id": "bell_hit_limit",
+      "min": 4,
+      "max": 5,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

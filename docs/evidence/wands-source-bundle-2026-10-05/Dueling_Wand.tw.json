@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/tw/Dueling_Wand",
+  "retrievedAt": "2026-10-05T00:06:48.744Z",
+  "sha256": "0d9578ea2beda99414cebc95b9fc17c6a69fa5928a7580c8635c71e24c9e2f11",
+  "name": "單挑法杖",
+  "card": "單挑法杖\n        \n    \n    \n        \n            法杖需求:  等級 65, 114 智慧 賦予技能: 拋法者\n        \n\n\n\n        \n            Dueling Wand",
+  "requirements": "需求:  等級 65, 114 智慧",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "單挑法杖",
+    "Class": "法杖",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
+    "Tags": "wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand13",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

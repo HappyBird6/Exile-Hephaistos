@@ -1,0 +1,61 @@
+{
+  "row": {
+    "Name": "of the Protector",
+    "Level": "66",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedPhysicalDamageTaken"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>7</span>% additional <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage Reduction",
+    "fossil_no": [
+      "physical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_shield",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2adf29abf5e9300907aea32aedb8448febf92e40d81a2f21b3ffb7c1f942467d"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FAdditionalPhysicalDamageReduction4",
+  "textLocale": "kr",
+  "detailText": "받는 물리 피해 7% 추가 감소",
+  "retrievedAt": "2026-10-05T04:20:30.755Z",
+  "sha256": "ba4f942913782976445e744856b974b81061f678b4d372abd63bab053caed7c0",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>받는 <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/d25f7df2ee8b7becfbff177402e14a4121b97bba3bb7215099c04f58588080bf\">물리</a> 피해 <span class='mod-value'>7</span>% 추가 감소</span></h5>   <span data-tabname=\"- 보호자\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>- 보호자\n<tr><th>Family<td>ReducedPhysicalDamageTaken\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접미어 (2)\n<tr><th>Req. level<td>66 (Effective: 52)\n<tr><th>Gold Price<td>1936\n<tr><th>Stats<td><li>base additional physical damage reduction % <span class=\"badge bg-primary\">7 <span class=\"ndash\">—</span> 7</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_shield: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>물리</span> </table>  </div></div>",
+  "fields": {
+    "Name": "- 보호자",
+    "Family": "ReducedPhysicalDamageTaken",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접미어 (2)",
+    "Req. level": "66 (Effective: 52)",
+    "Gold Price": "1936",
+    "Stats": "base additional physical damage reduction % 7 — 7 Global",
+    "Spawn Tags": "str_shield: 1 default: 0",
+    "Craft Tags": "물리"
+  },
+  "code": "AdditionalPhysicalDamageReduction4",
+  "stats": [
+    {
+      "id": "base_additional_physical_damage_reduction_%",
+      "min": 7,
+      "max": 7,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "str_shield",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

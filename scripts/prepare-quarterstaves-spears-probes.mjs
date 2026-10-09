@@ -1,0 +1,16 @@
+import fs from 'node:fs'
+const q='E:/WORK/Exile-Hephaistos/codex/quarterstaves-spears-qa-20261005',previous='E:/WORK/Exile-Hephaistos/codex/maces-qa-20261005'
+const write=(p,s)=>fs.writeFileSync(`${q}/${p}`,s,{flag:'wx'})
+fs.copyFileSync(`${previous}/api-attempt-1/api-initials.json`,`${q}/baseline119-api-initials.json`,fs.constants.COPYFILE_EXCL)
+const replace=s=>s.replaceAll("['one-hand-maces','two-hand-maces']","['quarterstaves','spears']").replaceAll('maces-workbench-v1','quarterstaves-spears-workbench-v1').replaceAll('maces-source-bundle','quarterstaves-spears-source-bundle').replaceAll("base.family==='one-hand-maces'?'/OneHandMaces/':'/TwoHandMaces/'","base.family==='quarterstaves'?'/Staves/':'/OneHandSpears/'").replaceAll("base.family==='one-hand-maces'?'One_Hand_Maces':'Two_Hand_Maces'","base.family==='quarterstaves'?'Quarterstaves':'Spears'").replaceAll('const expected = 150',"const expected = base.family==='quarterstaves'?158:162").replaceAll('Mace class','Quarterstaff/Spear class').replaceAll('Mace rule','Quarterstaff/Spear rule').replaceAll('baseline-api-initials.json','baseline119-api-initials.json')
+let api=replace(fs.readFileSync(`${previous}/qa-api-1.mjs`,'utf8'))
+api=api.replace("  await post('/api/v1/crafting/workbench/apply',{state:{...root,implicits:[]},action:'TRANSMUTATION',activeOmens:[]},422)\n  check(key+' missing canonical implicit rejected',true)","  if(base.implicitModifierId) {\n await post('/api/v1/crafting/workbench/apply',{state:{...root,implicits:[]},action:'TRANSMUTATION',activeOmens:[]},422)\n check(key+' missing canonical implicit rejected',true)\n } else check(key+' source no implicit accepted',(await apply({...root,implicits:[]},'TRANSMUTATION')).applied)")
+write('qa-api-1.mjs',api)
+let browser=replace(fs.readFileSync(`${previous}/qa-browser-2.cjs`,'utf8')).replaceAll('119 base selector choices','125 base selector choices').replaceAll('=== 119','=== 125').replaceAll("b.family==='one-hand-maces'?'One Hand Maces':'Two Hand Maces'","b.family==='quarterstaves'?'Quarterstaves':'Spears'").replaceAll('strife-pick','aegis-quarterstaff')
+browser=browser.replace('const variable=implicit.stats.some(s=>s.min !== s.max)','const variable=implicit?.stats.some(s=>s.min !== s.max)??false')
+browser=browser.replace('      const binding=bindings.definitions[b.implicitModifierId]','      if(b.implicitModifierId) {\n const binding=bindings.definitions[b.implicitModifierId]')
+browser=browser.replace('        const stat=binding.valueStats[+n]', '        const stat=binding.valueStats[+n]')
+browser=browser.replace("      const saved = await raw()","      } else check(base+' no source implicit display',(await page.locator('.bench-item-card .item-card__line--implicit').count())===0)\n for(const line of b.skillLines?.[l]??[])check(base+' '+l+' source granted skill display',card.includes(line))\n const saved = await raw()")
+write('qa-browser-1.cjs',browser)
+write('qa-old-filled-1.cjs',replace(fs.readFileSync(`${previous}/qa-old-filled-1.cjs`,'utf8')).replaceAll('119 base selector choices','125 base selector choices').replaceAll('=== 119','=== 125'))
+fs.copyFileSync(`${previous}/contact-sheets.cjs`,`${q}/contact-sheets.cjs`,fs.constants.COPYFILE_EXCL)

@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/tw/Wrath_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:24.705Z",
+  "sha256": "945c68adf1d6155d34c0907ee510b60bd67e08582874c5bb473c5380dec25591",
+  "variants": [
+    {
+      "name": "暴怒權杖",
+      "card": "暴怒權杖\n        \n    \n    \n        \n            權杖精魂: 100需求:  等級 49, 87 智慧 賦予技能: 劇烈爆發\n        \n\n\n\n        \n            Wrath Sceptre",
+      "requirements": "需求:  等級 49, 87 智慧",
+      "fields": {
+        "DropLevel": "49",
+        "BaseType": "暴怒權杖",
+        "Class": "權杖",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
+        "Tags": "lightning_implicit_skill, sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre10",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "劇烈爆發",
+      "skillUrl": "https://poe2db.tw/tw/Fulmination"
+    }
+  ]
+}

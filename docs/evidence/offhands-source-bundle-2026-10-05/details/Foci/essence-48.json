@@ -1,0 +1,73 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "60",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+    ],
+    "fossil_no": [
+      "caster_speed",
+      "caster",
+      "speed"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/fc9127f4b3d41aa34c0f7e5d0c115e5f4fdc620327426aad5ef0f4ab0665536c\" href=\"Greater_Essence_of_Alacrity\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterSpeedCasterEssence.webp\" alt=\"GreaterSpeedCasterEssence\" height=\"16\" />Greater Essence of Alacrity</a>",
+    "Code": "IncreasedCastSpeed5",
+    "ModFamilyList": [
+      "IncreasedCastSpeed"
+    ],
+    "str": "<span class='mod-value'>(25<span class=\"ndash\">—</span>28)</span>% increased Cast Speed",
+    "adds_no": [],
+    "spawn_no": [
+      "focus",
+      "wand",
+      "default"
+    ],
+    "reqlvl": 48,
+    "IsPerfect": "0",
+    "IsAlloy": false,
+    "Removes": false
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed5",
+  "textLocale": "us",
+  "detailText": "(25—28)% increased Cast Speed",
+  "retrievedAt": "2026-10-05T04:37:13.857Z",
+  "sha256": "752aa538810c0b28a70ee1cfe99702d5dad34dfa67605e55006839440c40fc03",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(25<span class=\"ndash\">—</span>28)</span>% increased Cast Speed</span></h5>   <span data-tabname=\"of Legerdemain\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Legerdemain\n<tr><th>Family<td>IncreasedCastSpeed\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>1652\n<tr><th>Stats<td><li>base cast speed +% <span class=\"badge bg-primary\">25 <span class=\"ndash\">—</span> 28</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_speed</i></span> <span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Speed</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Legerdemain",
+    "Family": "IncreasedCastSpeed",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "60 (Effective: 48)",
+    "Gold Price": "1652",
+    "Stats": "base cast speed +% 25 — 28 Global",
+    "Spawn Tags": "focus: 1 wand: 1 default: 0",
+    "Craft Tags": "caster_speed Caster Speed"
+  },
+  "code": "IncreasedCastSpeed5",
+  "stats": [
+    {
+      "id": "base_cast_speed_+%",
+      "min": 25,
+      "max": 28,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

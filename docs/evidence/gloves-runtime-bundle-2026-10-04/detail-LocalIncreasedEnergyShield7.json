@@ -1,0 +1,43 @@
+{
+  "code": "LocalIncreasedEnergyShield7",
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEnergyShield7",
+  "retrievedAt": "2026-10-04T16:00:15.571Z",
+  "sha256": "d1e117d2297857582a54273f45cbc3370f2e0938228eee259ff7387e8120f430",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(48<span class=\"ndash\">—</span>60)</span> to maximum <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a></span></h5>   <span data-tabname=\"Blazing\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Blazing\n<tr><th>Family<td>BaseLocalDefences\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>54 (Effective: 43)\n<tr><th>Gold Price<td>781\n<tr><th>Stats<td><li>local energy shield <span class=\"badge bg-primary\">48 <span class=\"ndash\">—</span> 60</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>int_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Energy Shield</span> \n<tr><td>Fists of Stone<td>Has <span class='mod-value'>+4</span> to [Evasion] Rating per player level<br>Has <span class='mod-value'>+1</span> to maximum [EnergyShield|Energy Shield] per player level</table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Blazing",
+      "Family": "BaseLocalDefences",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "54 (Effective: 43)",
+      "Gold Price": "781",
+      "Stats": "local energy shield 48 — 60 Local",
+      "Spawn Tags": "int_armour: 1 str_dex_int_armour: 1 default: 0",
+      "Craft Tags": "defences Energy Shield"
+    },
+    "stats": [
+      {
+        "id": "local_energy_shield",
+        "min": 48,
+        "max": 60,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "str_dex_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "+(48—60) to maximum Energy Shield"
+  }
+}

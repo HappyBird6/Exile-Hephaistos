@@ -1,0 +1,78 @@
+{
+  "row": {
+    "Name": "of Rime",
+    "Level": "55",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreaseSocketedGemLevel"
+    ],
+    "DropChance": "250",
+    "str": "<span class='mod-value'>+(5<span class=\"ndash\">—</span>6)</span> to Level of all <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Skills",
+    "fossil_no": [
+      "elemental",
+      "cold",
+      "caster",
+      "gem"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "no_cold_spell_mods",
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftinggem\" data-tag=\"gem\">Gem</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/03e7a38930dba3a4b61840905afad0f0a5f69628bed2fb76caf3067d066f0a5a"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FGlobalColdSpellGemsLevelTwoHandWeapon4",
+  "textLocale": "sp",
+  "detailText": "+(5—6) al nivel de todas las habilidades de hechizos de hielo",
+  "retrievedAt": "2026-10-05T10:06:57.412Z",
+  "sha256": "39ff1c44924478e143cb3221336cbee2b373306df90daadecd82939895cac638",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(5<span class=\"ndash\">—</span>6)</span> al nivel de todas las habilidades de <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FSpell\">hechizos</a> de <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FCold\">hielo</a></span></h5>   <span data-tabname=\"de helada\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>de helada\n<tr><th>Family<td>IncreaseSocketedGemLevel\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Sufijo (2)\n<tr><th>Req. level<td>55 (Effective: 44)\n<tr><th>Gold Price<td>2404\n<tr><th>Stats<td><li>cold spell skill gem level + <span class=\"badge bg-primary\">5 <span class=\"ndash\">—</span> 6</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_cold_spell_mods: 0</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Hielo</span> <span class='badge bg-primary'>Lanzador de hechizos</span> <span class='badge bg-primary'>Gema</span> </table>  </div></div>",
+  "fields": {
+    "Name": "de helada",
+    "Family": "IncreaseSocketedGemLevel",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Sufijo (2)",
+    "Req. level": "55 (Effective: 44)",
+    "Gold Price": "2404",
+    "Stats": "cold spell skill gem level + 5 — 6 Global",
+    "Spawn Tags": "no_cold_spell_mods: 0 staff: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_lightning_spell_mods no_chaos_spell_mods no_physical_spell_mods",
+    "Craft Tags": "Elemental Hielo Lanzador de hechizos Gema"
+  },
+  "code": "GlobalColdSpellGemsLevelTwoHandWeapon4",
+  "stats": [
+    {
+      "id": "cold_spell_skill_gem_level_+",
+      "min": 5,
+      "max": 6,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_cold_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

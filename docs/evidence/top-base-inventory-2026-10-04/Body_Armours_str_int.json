@@ -1,0 +1,232 @@
+{
+  "page": "Body_Armours_str_int",
+  "url": "https://poe2db.tw/us/Body_Armours_str_int",
+  "retrievedAt": "2026-10-04T14:44:47.099Z",
+  "sha256": "982949b93773b710a5d95de33ca4b3de05cc1d8f4ea6bd2f35844cec7b5de55c",
+  "cards": [
+    {
+      "slug": "Pilgrim_Vestments",
+      "card": "Pilgrim VestmentsArmour: 25Energy Shield: 16Base Movement Speed: -0.04"
+    },
+    {
+      "slug": "Pelt_Mantle",
+      "card": "Pelt MantleArmour: 59Energy Shield: 24Base Movement Speed: -0.04Requires:  Level 10, 12 Str, 12 Int"
+    },
+    {
+      "slug": "Mail_Vestments",
+      "card": "Mail VestmentsArmour: 83Energy Shield: 30Base Movement Speed: -0.04Requires:  Level 16, 17 Str, 17 Int"
+    },
+    {
+      "slug": "Shaman_Mantle",
+      "card": "Shaman MantleArmour: 129Energy Shield: 41Base Movement Speed: -0.04Requires:  Level 28, 26 Str, 26 Int"
+    },
+    {
+      "slug": "Ironclad_Vestments",
+      "card": "Ironclad VestmentsArmour: 149Energy Shield: 46Base Movement Speed: -0.04Requires:  Level 33, 31 Str, 31 Int"
+    },
+    {
+      "slug": "Sacrificial_Mantle",
+      "card": "Sacrificial MantleArmour: 160Energy Shield: 48Base Movement Speed: -0.04Requires:  Level 36, 33 Str, 33 Int"
+    },
+    {
+      "slug": "Cleric_Vestments",
+      "card": "Cleric VestmentsArmour: 195Energy Shield: 57Base Movement Speed: -0.04Requires:  Level 45, 41 Str, 41 Int"
+    },
+    {
+      "slug": "Tideseer_Mantle",
+      "card": "Tideseer MantleArmour: 218Energy Shield: 63Base Movement Speed: -0.04Requires:  Level 51, 45 Str, 45 Int"
+    },
+    {
+      "slug": "Gilded_Vestments",
+      "card": "Gilded VestmentsArmour: 222Energy Shield: 63Base Movement Speed: -0.04Requires:  Level 52, 46 Str, 46 Int"
+    },
+    {
+      "slug": "Venerated_Mantle",
+      "card": "Venerated MantleArmour: 230Energy Shield: 65Base Movement Speed: -0.04Requires:  Level 54, 48 Str, 48 Int"
+    },
+    {
+      "slug": "Revered_Vestments",
+      "card": "Revered VestmentsArmour: 273Energy Shield: 76Base Movement Speed: -0.04Requires:  Level 65, 67 Str, 67 Int+1% to all Maximum Elemental Resistances"
+    },
+    {
+      "slug": "Corvus_Mantle",
+      "card": "Corvus MantleArmour: 273Energy Shield: 76Base Movement Speed: -0.04Requires:  Level 68, 67 Str, 67 Int+(20—30) to Spirit"
+    },
+    {
+      "slug": "Zenith_Vestments",
+      "card": "Zenith VestmentsArmour: 273Energy Shield: 76Base Movement Speed: -0.04Requires:  Level 73, 67 Str, 67 Int"
+    },
+    {
+      "slug": "Ornate_Ringmail",
+      "card": "Ornate RingmailArmour: 749Energy Shield: 220Base Movement Speed: -0.04Requires:  Level 43, 45 Str, 45 Int"
+    },
+    {
+      "slug": "Ancient_Mail",
+      "card": "Ancient MailArmour: 273Energy Shield: 76Base Movement Speed: -0.04Requires:  Level 70, 67 Str, 67 Int"
+    },
+    {
+      "slug": "Runeforged_Grasping_Mail",
+      "card": "Runeforged Grasping MailArmour: 232Energy Shield: 64Base Movement Speed: -0.04Runic Ward: 107Requires:  Level 65, 61 Str, 61 IntCan roll Ring ModifiersCatalysts can be applied to this item"
+    },
+    {
+      "slug": "Templar_Vestments",
+      "card": "Templar VestmentsArmour: 195Energy Shield: 57Base Movement Speed: -0.04Requires:  Level 45, 41 Str, 41 Int"
+    },
+    {
+      "slug": "Bearskin_Mantle",
+      "card": "Bearskin MantleArmour: 207Energy Shield: 60Base Movement Speed: -0.04Requires:  Level 48, 43 Str, 43 Int"
+    },
+    {
+      "slug": "Chain_Vestments",
+      "card": "Chain VestmentsArmour: 218Energy Shield: 63Base Movement Speed: -0.04Requires:  Level 51, 45 Str, 45 Int"
+    },
+    {
+      "slug": "Occultist_Mantle",
+      "card": "Occultist MantleArmour: 230Energy Shield: 65Base Movement Speed: -0.04Requires:  Level 54, 48 Str, 48 Int"
+    },
+    {
+      "slug": "Plated_Vestments",
+      "card": "Plated VestmentsArmour: 249Energy Shield: 70Base Movement Speed: -0.04Requires:  Level 59, 52 Str, 52 Int"
+    },
+    {
+      "slug": "Heartcarver_Mantle",
+      "card": "Heartcarver MantleArmour: 261Energy Shield: 73Base Movement Speed: -0.04Requires:  Level 62, 54 Str, 54 Int"
+    },
+    {
+      "slug": "Wolfskin_Mantle",
+      "card": "Wolfskin MantleArmour: 313Energy Shield: 87Base Movement Speed: -0.04Requires:  Level 65, 67 Str, 67 Int"
+    },
+    {
+      "slug": "Conjurer_Mantle",
+      "card": "Conjurer MantleArmour: 273Energy Shield: 76Base Movement Speed: -0.04Requires:  Level 70, 67 Str, 67 Int+(20—30) to Spirit"
+    },
+    {
+      "slug": "Death_Mantle",
+      "card": "Death MantleArmour: 273Energy Shield: 76Base Movement Speed: -0.04Requires:  Level 75, 67 Str, 67 Int+1% to all Maximum Elemental Resistances"
+    },
+    {
+      "slug": "Seastorm_Mantle",
+      "card": "Seastorm MantleArmour: 273Energy Shield: 76Base Movement Speed: -0.04Requires:  Level 80, 67 Str, 67 Int(8—14)% of Damage taken Recouped as Life"
+    },
+    {
+      "slug": "Runeforged_Pilgrim_Vestments",
+      "card": "Runeforged Pilgrim VestmentsArmour: 25Energy Shield: 16Base Movement Speed: -0.04Runic Ward: 29"
+    },
+    {
+      "slug": "Runeforged_Pelt_Mantle",
+      "card": "Runeforged Pelt MantleArmour: 59Energy Shield: 24Base Movement Speed: -0.04Runic Ward: 41Requires:  Level 10, 12 Str, 12 Int"
+    },
+    {
+      "slug": "Runeforged_Mail_Vestments",
+      "card": "Runeforged Mail VestmentsArmour: 83Energy Shield: 30Base Movement Speed: -0.04Runic Ward: 53Requires:  Level 16, 17 Str, 17 Int"
+    },
+    {
+      "slug": "Runeforged_Shaman_Mantle",
+      "card": "Runeforged Shaman MantleArmour: 129Energy Shield: 41Base Movement Speed: -0.04Runic Ward: 77Requires:  Level 28, 26 Str, 26 Int"
+    },
+    {
+      "slug": "Runeforged_Ironclad_Vestments",
+      "card": "Runeforged Ironclad VestmentsArmour: 149Energy Shield: 46Base Movement Speed: -0.04Runic Ward: 74Requires:  Level 33, 31 Str, 31 Int"
+    },
+    {
+      "slug": "Runeforged_Sacrificial_Mantle",
+      "card": "Runeforged Sacrificial MantleArmour: 160Energy Shield: 48Base Movement Speed: -0.04Runic Ward: 77Requires:  Level 36, 33 Str, 33 Int"
+    },
+    {
+      "slug": "Runeforged_Cleric_Vestments",
+      "card": "Runeforged Cleric VestmentsArmour: 195Energy Shield: 57Base Movement Speed: -0.04Runic Ward: 85Requires:  Level 45, 41 Str, 41 Int"
+    },
+    {
+      "slug": "Runeforged_Tideseer_Mantle",
+      "card": "Runeforged Tideseer MantleArmour: 218Energy Shield: 63Base Movement Speed: -0.04Runic Ward: 87Requires:  Level 51, 45 Str, 45 Int"
+    },
+    {
+      "slug": "Runeforged_Sacrificial_Regalia",
+      "card": "Runeforged Sacrificial RegaliaArmour: 273Energy Shield: 76Base Movement Speed: -0.03Runic Ward: 129Requires:  Level 65, 80 Str, 80 Int+1 to Level of all Corrupted Skill Gems(2—4)% increased Chaos Damage for each Corrupted Item Equipped"
+    },
+    {
+      "slug": "Runeforged_Occultist_Mantle",
+      "card": "Runeforged Occultist MantleArmour: 193Energy Shield: 55Base Movement Speed: -0.04Runic Ward: 128Requires:  Level 54, 48 Str, 48 Int"
+    },
+    {
+      "slug": "Runeforged_Plated_Vestments",
+      "card": "Runeforged Plated VestmentsArmour: 199Energy Shield: 56Base Movement Speed: -0.04Runic Ward: 158Requires:  Level 59, 52 Str, 52 Int"
+    },
+    {
+      "slug": "Runeforged_Heartcarver_Mantle",
+      "card": "Runeforged Heartcarver MantleArmour: 230Energy Shield: 64Base Movement Speed: -0.04Runic Ward: 103Requires:  Level 62, 54 Str, 54 Int"
+    },
+    {
+      "slug": "Runeforged_Wolfskin_Mantle",
+      "card": "Runeforged Wolfskin MantleArmour: 114Energy Shield: 32Base Movement Speed: -0.04Runic Ward: 417Requires:  Level 65, 67 Str, 67 Int"
+    },
+    {
+      "slug": "Runeforged_Conjurer_Mantle",
+      "card": "Runeforged Conjurer MantleArmour: 245Energy Shield: 68Base Movement Speed: -0.04Runic Ward: 107Requires:  Level 70, 67 Str, 67 Int+(20—30) to Spirit"
+    },
+    {
+      "slug": "Runeforged_Death_Mantle",
+      "card": "Runeforged Death MantleArmour: 191Energy Shield: 53Base Movement Speed: -0.04Runic Ward: 215Requires:  Level 75, 67 Str, 67 Int+1% to all Maximum Elemental Resistances"
+    },
+    {
+      "slug": "Runeforged_Seastorm_Mantle",
+      "card": "Runeforged Seastorm MantleArmour: 112Energy Shield: 31Base Movement Speed: -0.04Runic Ward: 344Requires:  Level 80, 67 Str, 67 Int(8—14)% of Damage taken Recouped as Life"
+    },
+    {
+      "slug": "Runemastered_Pilgrim_Vestments",
+      "card": "Runemastered Pilgrim VestmentsArmour: 202Energy Shield: 60Base Movement Speed: -0.04Runic Ward: 55Requires:  Level 38, 35 Str, 35 Int"
+    },
+    {
+      "slug": "Runemastered_Mail_Vestments",
+      "card": "Runemastered Mail VestmentsArmour: 118Energy Shield: 35Base Movement Speed: -0.04Runic Ward: 83Requires:  Level 38, 35 Str, 35 Int"
+    },
+    {
+      "slug": "Runemastered_Shaman_Mantle",
+      "card": "Runemastered Shaman MantleArmour: 141Energy Shield: 42Base Movement Speed: -0.04Runic Ward: 44Requires:  Level 38, 35 Str, 35 Int"
+    },
+    {
+      "slug": "Runemastered_Ironclad_Vestments",
+      "card": "Runemastered Ironclad VestmentsArmour: 210Energy Shield: 60Base Movement Speed: -0.04Runic Ward: 37Requires:  Level 55, 49 Str, 49 Int"
+    },
+    {
+      "slug": "Runemastered_Sacrificial_Mantle",
+      "card": "Runemastered Sacrificial MantleArmour: 210Energy Shield: 60Base Movement Speed: -0.04Runic Ward: 37Requires:  Level 55, 49 Str, 49 Int"
+    },
+    {
+      "slug": "Runemastered_Cleric_Vestments",
+      "card": "Runemastered Cleric VestmentsArmour: 187Energy Shield: 53Base Movement Speed: -0.04Runic Ward: 75Requires:  Level 55, 49 Str, 49 Int"
+    },
+    {
+      "slug": "Runemastered_Tideseer_Mantle",
+      "card": "Runemastered Tideseer MantleArmour: 55Energy Shield: 15Base Movement Speed: -0.04Runic Ward: 129Requires:  Level 65, 57 Str, 57 Int"
+    },
+    {
+      "slug": "Runemastered_Gilded_Vestments",
+      "card": "Runemastered Gilded VestmentsArmour: 218Energy Shield: 61Base Movement Speed: -0.04Runic Ward: 86Requires:  Level 65, 57 Str, 57 Int"
+    },
+    {
+      "slug": "Runemastered_Revered_Vestments",
+      "card": "Runemastered Revered VestmentsArmour: 232Energy Shield: 64Base Movement Speed: -0.04Runic Ward: 86Requires:  Level 70, 67 Str, 67 Int+1% to all Maximum Elemental Resistances(30—50)% increased effect of Arcane Surge on you"
+    },
+    {
+      "slug": "Runemastered_Revered_Vestments",
+      "card": "Runemastered Revered VestmentsArmour: 199Energy Shield: 88Base Movement Speed: -0.04Runic Ward: 86Requires:  Level 70, 57 Str, 85 Int+1% to all Maximum Elemental Resistances(10—15)% increased Energy Shield Recharge Rate"
+    },
+    {
+      "slug": "Runemastered_Revered_Vestments",
+      "card": "Runemastered Revered VestmentsArmour: 164Energy Shield: 45Base Movement Speed: -0.04Runic Ward: 301Requires:  Level 70, 67 Str, 67 Int+1% to all Maximum Elemental Resistances"
+    },
+    {
+      "slug": "Runemastered_Corvus_Mantle",
+      "card": "Runemastered Corvus MantleArmour: 218Energy Shield: 61Base Movement Speed: -0.04Runic Ward: 86Requires:  Level 70, 67 Str, 67 Int+(20—30) to Spirit"
+    },
+    {
+      "slug": "Runemastered_Ornate_Ringmail",
+      "card": "Runemastered Ornate RingmailArmour: 725Energy Shield: 206Base Movement Speed: -0.04Runic Ward: 130Requires:  Level 55, 57 Str, 57 Int"
+    },
+    {
+      "slug": "Runemastered_Ancient_Mail",
+      "card": "Runemastered Ancient MailArmour: 218Energy Shield: 61Base Movement Speed: -0.04Runic Ward: 86Requires:  Level 70, 67 Str, 67 Int"
+    }
+  ]
+}

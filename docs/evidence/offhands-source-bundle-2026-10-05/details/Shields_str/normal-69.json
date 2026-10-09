@@ -1,0 +1,77 @@
+{
+  "row": {
+    "Name": "Armadillo's",
+    "Level": "38",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercentAndStunThreshold"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(21<span class=\"ndash\">—</span>26)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(25<span class=\"ndash\">—</span>40)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "helmet",
+      "gloves",
+      "str_armour",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0e72ca59abbf9fe9f86b00a8d8808029e396dc28f8f19c15376f116719bada79"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FLocalArmourAndStunThreshold3",
+  "textLocale": "kr",
+  "detailText": "방어도 (21—26)% 증가\n기절 한계치 +(25—40)",
+  "retrievedAt": "2026-10-05T04:19:41.607Z",
+  "sha256": "0d9b1294323c8b2476867dee3ccf65fbed161479104034e126f225bc20ac7c84",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/f1ab1c4f26afe32f35ba8c570de40a04dfb871a4472c4decf7c24ea41ad028a6\">방어도</a> <span class='mod-value'>(21<span class=\"ndash\">—</span>26)</span>% 증가<br><a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/2addc49d0ec8196cb1ddf65384438b1a9aeda51cda4b2af0750ba3899baa0e95\">기절 한계치</a> <span class='mod-value'>+(25<span class=\"ndash\">—</span>40)</span></span></h5>   <span data-tabname=\"아르마딜로의\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>아르마딜로의\n<tr><th>Family<td>DefencesPercentAndStunThreshold\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접두어 (1)\n<tr><th>Req. level<td>38 (Effective: 30)\n<tr><th>Gold Price<td>477\n<tr><th>Stats<td><li>stun threshold + <span class=\"badge bg-primary\">25 <span class=\"ndash\">—</span> 40</span> <span class=\"badge bg-secondary\">Global</span></li><li>local physical damage reduction rating +% <span class=\"badge bg-primary\">21 <span class=\"ndash\">—</span> 26</span> <span class=\"badge bg-secondary\">지역</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 0</span> <span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>str_armour: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "아르마딜로의",
+    "Family": "DefencesPercentAndStunThreshold",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접두어 (1)",
+    "Req. level": "38 (Effective: 30)",
+    "Gold Price": "477",
+    "Stats": "stun threshold + 25 — 40 Globallocal physical damage reduction rating +% 21 — 26 지역",
+    "Spawn Tags": "body_armour: 0 helmet: 0 gloves: 0 str_armour: 1 default: 0"
+  },
+  "code": "LocalArmourAndStunThreshold3",
+  "stats": [
+    {
+      "id": "stun_threshold_+",
+      "min": 25,
+      "max": 40,
+      "locality": "Global"
+    },
+    {
+      "id": "local_physical_damage_reduction_rating_+%",
+      "min": 21,
+      "max": 26,
+      "locality": "지역"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "body_armour",
+      "weight": 0
+    },
+    {
+      "tag": "helmet",
+      "weight": 0
+    },
+    {
+      "tag": "gloves",
+      "weight": 0
+    },
+    {
+      "tag": "str_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

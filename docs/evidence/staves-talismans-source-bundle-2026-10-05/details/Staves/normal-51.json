@@ -1,0 +1,77 @@
+{
+  "row": {
+    "Name": "Hailing",
+    "Level": "46",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponDamageTypePrefix"
+    ],
+    "DropChance": "300",
+    "str": "<span class='mod-value'>(129<span class=\"ndash\">—</span>148)</span>% increased <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "cold"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "no_cold_spell_mods",
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/91d4b55884b59c69d105704ebde9b4735c025e3446ad4742d70482b5bb0631b9"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FColdDamagePrefixOnTwoHandWeapon5_",
+  "textLocale": "kr",
+  "detailText": "냉기 피해 (129—148)% 증가",
+  "retrievedAt": "2026-10-05T10:05:08.832Z",
+  "sha256": "a9b6a638b57b8db88760fd728135061883e5aa532d2e0726ab18eda88d6d2ada",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/dcfdc43c44a9780863159db034853e1843fad3edc114ce79e5fc90b6f2ddb0a3\">냉기</a> 피해 <span class='mod-value'>(129<span class=\"ndash\">—</span>148)</span>% 증가</span></h5>   <span data-tabname=\"우박의\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>우박의\n<tr><th>Family<td>WeaponDamageTypePrefix\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접두어 (1)\n<tr><th>Req. level<td>46 (Effective: 36)\n<tr><th>Gold Price<td>1341\n<tr><th>Stats<td><li>cold damage +% <span class=\"badge bg-primary\">129 <span class=\"ndash\">—</span> 148</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_cold_spell_mods: 0</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>피해</span> <span class='badge bg-primary'>원소</span> <span class='badge bg-primary'>냉기</span> </table>  </div></div>",
+  "fields": {
+    "Name": "우박의",
+    "Family": "WeaponDamageTypePrefix",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접두어 (1)",
+    "Req. level": "46 (Effective: 36)",
+    "Gold Price": "1341",
+    "Stats": "cold damage +% 129 — 148 Global",
+    "Spawn Tags": "no_cold_spell_mods: 0 staff: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_lightning_spell_mods no_chaos_spell_mods no_physical_spell_mods",
+    "Craft Tags": "elemental_damage 피해 원소 냉기"
+  },
+  "code": "ColdDamagePrefixOnTwoHandWeapon5_",
+  "stats": [
+    {
+      "id": "cold_damage_+%",
+      "min": 129,
+      "max": 148,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_cold_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

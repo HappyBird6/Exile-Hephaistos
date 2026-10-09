@@ -1,0 +1,77 @@
+{
+  "row": {
+    "Name": "Dragonfly's",
+    "Level": "63",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercentAndStunThreshold"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(33<span class=\"ndash\">—</span>38)</span>% increased <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating<br><span class='mod-value'>+(64<span class=\"ndash\">—</span>94)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "helmet",
+      "gloves",
+      "dex_armour",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8a158ee99e1ed2ef0fccd46c4f0da4ca8339432da4daac44275a36a19b1fa532"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FLocalEvasionAndStunThreshold5",
+  "textLocale": "kr",
+  "detailText": "회피 (33—38)% 증가\n기절 한계치 +(64—94)",
+  "retrievedAt": "2026-10-05T04:33:29.106Z",
+  "sha256": "f0de430cb3659be82c8e18a862e9aa09ed84e757859a1b47c823dafd0ab5cbe9",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/85b48b6cf92de45d083fd0742b7175764936328e18e23728fc75b967f813e55f\">회피</a> <span class='mod-value'>(33<span class=\"ndash\">—</span>38)</span>% 증가<br><a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/2addc49d0ec8196cb1ddf65384438b1a9aeda51cda4b2af0750ba3899baa0e95\">기절 한계치</a> <span class='mod-value'>+(64<span class=\"ndash\">—</span>94)</span></span></h5>   <span data-tabname=\"잠자리의\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>잠자리의\n<tr><th>Family<td>DefencesPercentAndStunThreshold\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접두어 (1)\n<tr><th>Req. level<td>63 (Effective: 50)\n<tr><th>Gold Price<td>1438\n<tr><th>Stats<td><li>stun threshold + <span class=\"badge bg-primary\">64 <span class=\"ndash\">—</span> 94</span> <span class=\"badge bg-secondary\">Global</span></li><li>local evasion rating +% <span class=\"badge bg-primary\">33 <span class=\"ndash\">—</span> 38</span> <span class=\"badge bg-secondary\">지역</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 0</span> <span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>dex_armour: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "잠자리의",
+    "Family": "DefencesPercentAndStunThreshold",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접두어 (1)",
+    "Req. level": "63 (Effective: 50)",
+    "Gold Price": "1438",
+    "Stats": "stun threshold + 64 — 94 Globallocal evasion rating +% 33 — 38 지역",
+    "Spawn Tags": "body_armour: 0 helmet: 0 gloves: 0 dex_armour: 1 default: 0"
+  },
+  "code": "LocalEvasionAndStunThreshold5",
+  "stats": [
+    {
+      "id": "stun_threshold_+",
+      "min": 64,
+      "max": 94,
+      "locality": "Global"
+    },
+    {
+      "id": "local_evasion_rating_+%",
+      "min": 33,
+      "max": 38,
+      "locality": "지역"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "body_armour",
+      "weight": 0
+    },
+    {
+      "tag": "helmet",
+      "weight": 0
+    },
+    {
+      "tag": "gloves",
+      "weight": 0
+    },
+    {
+      "tag": "dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "count": 17,
+  "checks": [
+    "sapphire real sourced legacy fixture",
+    "sapphire legacy rolls/fracture/snapshot preserved",
+    "sapphire en unsupported fractured Jewel rejected visibly",
+    "sapphire ko unsupported fractured Jewel rejected visibly",
+    "sapphire zh-CN unsupported fractured Jewel rejected visibly",
+    "sapphire zh-TW unsupported fractured Jewel rejected visibly",
+    "sapphire ja unsupported fractured Jewel rejected visibly",
+    "sapphire es unsupported fractured Jewel rejected visibly",
+    "time-lost-sapphire real sourced legacy fixture",
+    "time-lost-sapphire legacy rolls/fracture/snapshot preserved",
+    "time-lost-sapphire en unsupported fractured Jewel rejected visibly",
+    "time-lost-sapphire ko unsupported fractured Jewel rejected visibly",
+    "time-lost-sapphire zh-CN unsupported fractured Jewel rejected visibly",
+    "time-lost-sapphire zh-TW unsupported fractured Jewel rejected visibly",
+    "time-lost-sapphire ja unsupported fractured Jewel rejected visibly",
+    "time-lost-sapphire es unsupported fractured Jewel rejected visibly",
+    "no browser errors"
+  ],
+  "errors": []
+}

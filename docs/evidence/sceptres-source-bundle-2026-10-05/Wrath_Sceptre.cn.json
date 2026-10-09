@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/cn/Wrath_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:16.776Z",
+  "sha256": "2e128cce35bf7d0d2dad10379719ccc3a4a0a1a1a42b11af0b13b1ad9cc71f02",
+  "variants": [
+    {
+      "name": "愤怒权杖",
+      "card": "愤怒权杖\n        \n    \n    \n        \n            权杖精魂: 100需求：  等级 49, 87 智慧 获得技能: 轰鸣烈焰\n        \n\n\n\n        \n            Wrath Sceptre",
+      "requirements": "需求：  等级 49, 87 智慧",
+      "fields": {
+        "DropLevel": "49",
+        "BaseType": "愤怒权杖",
+        "Class": "权杖",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
+        "Tags": "lightning_implicit_skill, sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre10",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "轰鸣烈焰",
+      "skillUrl": "https://poe2db.tw/cn/Fulmination"
+    }
+  ]
+}

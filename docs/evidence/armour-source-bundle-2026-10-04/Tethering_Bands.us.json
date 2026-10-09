@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/us/Tethering_Bands",
+  "retrievedAt": "2026-10-04T15:38:19.351Z",
+  "sha256": "c0f784595ac6ed452aa3b049b2a3457a986267f8ec166a5eed6a9132d6148e14",
+  "name": "Tethering Bands",
+  "card": "Tethering Bands\n        \n    \n    \n        \n            GlovesArmour: 98Energy Shield: 27Requires:  Level 65, 55 Str, 55 Int",
+  "requirements": "Requires:  Level 65, 55 Str, 55 Int",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "Tethering Bands",
+    "Class": "Gloves",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Gloves/FourGlovesStrIntUnique1",
+    "Tags": "str_int_armour, karui_basetype, gloves, armour",
+    "Icon": "Art/2DItems/Armours/Gloves/Basetypes/GlovesIntStr04",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, gloves",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Gloves",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

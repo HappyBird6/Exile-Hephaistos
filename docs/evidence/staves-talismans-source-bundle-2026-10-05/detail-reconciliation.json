@@ -1,0 +1,75 @@
+{
+  "passed": true,
+  "entries": [
+    {
+      "file": "normal-103.json",
+      "previousCode": "GlobalPhysicalSpellGemsLevelWeapon1",
+      "sourceCode": "GlobalPhysicalSpellGemsLevelTwoHandWeapon1",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalPhysicalSpellGemsLevelTwoHandWeapon1",
+      "sha256": "5f00375ceee293e983a60e3e297011dc064be0000cb8092912d96b3c959bcfcc"
+    },
+    {
+      "file": "normal-104.json",
+      "previousCode": "GlobalPhysicalSpellGemsLevelWeapon2",
+      "sourceCode": "GlobalPhysicalSpellGemsLevelTwoHandWeapon2",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalPhysicalSpellGemsLevelTwoHandWeapon2",
+      "sha256": "e7af2026403c080e006ff72121e1c658d05f205c43f992fadbd17ab9e9d6f337"
+    },
+    {
+      "file": "normal-83.json",
+      "previousCode": "GlobalFireSpellGemsLevelWeapon1",
+      "sourceCode": "GlobalFireSpellGemsLevelTwoHandWeapon1",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalFireSpellGemsLevelTwoHandWeapon1",
+      "sha256": "2a45486c8da5928b7ec3518c627bb741b6792879ba28fe8f867e534f35a23298"
+    },
+    {
+      "file": "normal-84.json",
+      "previousCode": "GlobalFireSpellGemsLevelWeapon2",
+      "sourceCode": "GlobalFireSpellGemsLevelTwoHandWeapon2",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalFireSpellGemsLevelTwoHandWeapon2",
+      "sha256": "1d6b4a7af0d67fc5cdf75f0b76edc3bc1d6b9890ba2cb80897e859f216aa9e31"
+    },
+    {
+      "file": "normal-88.json",
+      "previousCode": "GlobalColdSpellGemsLevelWeapon1",
+      "sourceCode": "GlobalColdSpellGemsLevelTwoHandWeapon1",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalColdSpellGemsLevelTwoHandWeapon1",
+      "sha256": "0e5263f6c760a27d33ba6b9199c4f03957a347c99c5b3c7a46424417fc81aed2"
+    },
+    {
+      "file": "normal-89.json",
+      "previousCode": "GlobalColdSpellGemsLevelWeapon2",
+      "sourceCode": "GlobalColdSpellGemsLevelTwoHandWeapon2",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalColdSpellGemsLevelTwoHandWeapon2",
+      "sha256": "9398effef8f3155982b7f4e95632d330249f9058269b0f9c4bd00f090c1abec6"
+    },
+    {
+      "file": "normal-93.json",
+      "previousCode": "GlobalLightningSpellGemsLevelWeapon1",
+      "sourceCode": "GlobalLightningSpellGemsLevelTwoHandWeapon1",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalLightningSpellGemsLevelTwoHandWeapon1",
+      "sha256": "aff2637d0b13a540f104a44d04db25e4f5456e3e38df0682e8d23bc72ed5baab"
+    },
+    {
+      "file": "normal-94.json",
+      "previousCode": "GlobalLightningSpellGemsLevelWeapon2",
+      "sourceCode": "GlobalLightningSpellGemsLevelTwoHandWeapon2",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalLightningSpellGemsLevelTwoHandWeapon2",
+      "sha256": "93cd0c96bb45c44379fdb68cb476c76e99efbdacee0df20602a0bb0db54ee35f"
+    },
+    {
+      "file": "normal-98.json",
+      "previousCode": "GlobalChaosSpellGemsLevelWeapon1",
+      "sourceCode": "GlobalChaosSpellGemsLevelTwoHandWeapon1",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalChaosSpellGemsLevelTwoHandWeapon1",
+      "sha256": "5770dc16ded4759fff723fd03ae22f8b6323f7b54ef2fd86bf84173971115782"
+    },
+    {
+      "file": "normal-99.json",
+      "previousCode": "GlobalChaosSpellGemsLevelWeapon2",
+      "sourceCode": "GlobalChaosSpellGemsLevelTwoHandWeapon2",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FGlobalChaosSpellGemsLevelTwoHandWeapon2",
+      "sha256": "666651eb41111c021d3c9810edc76a1a89f9fdd5ee6dad3f7d926851e683340b"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "key": "warmonger",
+    "ordinary": 140,
+    "special": 8,
+    "implicit": "",
+    "fixedActions": 21,
+    "replacementActions": 7
+  },
+  {
+    "key": "guardian",
+    "ordinary": 140,
+    "special": 8,
+    "implicit": "guardian-bow:implicit:chain",
+    "fixedActions": 21,
+    "replacementActions": 7
+  },
+  {
+    "key": "gemini",
+    "ordinary": 140,
+    "special": 8,
+    "implicit": "gemini-bow:implicit:additionalarrows",
+    "fixedActions": 21,
+    "replacementActions": 7
+  },
+  {
+    "key": "fanatic",
+    "ordinary": 140,
+    "special": 8,
+    "implicit": "fanatic-bow:implicit:weaponimplicitdamagetype",
+    "fixedActions": 21,
+    "replacementActions": 7
+  },
+  {
+    "key": "obliterator",
+    "ordinary": 140,
+    "special": 8,
+    "implicit": "obliterator-bow:implicit:projectilerange",
+    "fixedActions": 21,
+    "replacementActions": 7
+  }
+]

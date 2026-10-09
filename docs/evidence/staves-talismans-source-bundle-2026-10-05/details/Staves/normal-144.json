@@ -1,0 +1,64 @@
+{
+  "row": {
+    "Name": "of Anger",
+    "Level": "21",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "CriticalStrikeMultiplier"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(23<span class=\"ndash\">—</span>29)</span>% increased <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Spell Damage Bonus</a>",
+    "fossil_no": [
+      "caster_critical",
+      "caster",
+      "critical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/995ba6d829e71d67bebcf2d80d4ce56093f9b960054d4d041b1bfcf75e7d39ee"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FSpellCriticalStrikeMultiplierTwoHand2",
+  "textLocale": "sp",
+  "detailText": "Bonificación de daño crítico de los hechizos aumentada un (23—29)%",
+  "retrievedAt": "2026-10-05T10:08:24.763Z",
+  "sha256": "3e4d55d5f65758a292c7ca8fa7f33d0a0379f95542e573ddca7ded6eb3df3ec4",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FCriticalDamageBonus\">Bonificación de daño crítico de los hechizos</a> aumentada un <span class='mod-value'>(23<span class=\"ndash\">—</span>29)</span>%</span></h5>   <span data-tabname=\"de enojo\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>de enojo\n<tr><th>Family<td>CriticalStrikeMultiplier\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Sufijo (2)\n<tr><th>Req. level<td>21 (Effective: 16)\n<tr><th>Gold Price<td>394\n<tr><th>Stats<td><li>base spell critical strike multiplier + <span class=\"badge bg-primary\">23 <span class=\"ndash\">—</span> 29</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_critical</i></span> <span class='badge bg-primary'>Lanzador de hechizos</span> <span class='badge bg-primary'>Crítico</span> </table>  </div></div>",
+  "fields": {
+    "Name": "de enojo",
+    "Family": "CriticalStrikeMultiplier",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Sufijo (2)",
+    "Req. level": "21 (Effective: 16)",
+    "Gold Price": "394",
+    "Stats": "base spell critical strike multiplier + 23 — 29 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "caster_critical Lanzador de hechizos Crítico"
+  },
+  "code": "SpellCriticalStrikeMultiplierTwoHand2",
+  "stats": [
+    {
+      "id": "base_spell_critical_strike_multiplier_+",
+      "min": 23,
+      "max": 29,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

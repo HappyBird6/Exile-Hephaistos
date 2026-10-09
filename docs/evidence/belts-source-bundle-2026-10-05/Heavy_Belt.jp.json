@@ -1,0 +1,30 @@
+{
+  "url": "https://poe2db.tw/jp/Heavy_Belt",
+  "retrievedAt": "2026-10-05T01:23:54.327Z",
+  "sha256": "a0a7ca1731ea11b36d763a58d03492d4a5e353ac9240a626f484b39e2c75e10a",
+  "variants": [
+    {
+      "name": "ヘビーベルト",
+      "card": "ヘビーベルト\n        \n    \n    \n        \n            ベルト装備条件： レベル 50(1—3)個のチャームスロットを持つスタン閾値が(20—30)%増加する\n        \n\n\n\n        \n            Heavy Belt",
+      "requirements": "装備条件： レベル 50",
+      "fields": {
+        "DropLevel": "50",
+        "BaseType": "ヘビーベルト",
+        "Class": "ベルト",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

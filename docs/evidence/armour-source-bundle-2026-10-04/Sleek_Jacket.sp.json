@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/sp/Sleek_Jacket",
+  "retrievedAt": "2026-10-04T15:43:59.395Z",
+  "sha256": "29af8a483f03d8fbbf4398a456904d1e55a196a25fc97e68e5baf64603e53c63",
+  "name": "Chaqueta lisa",
+  "card": "Chaqueta lisa\n        \n    \n    \n        \n            Armaduras corporalesEvasión: 285Escudo de energía: 87Base Movement Speed: -0.03Requiere:  Nivel 65, 67 Des, 67 Int\n        \n\n\n\n        \n            Sleek Jacket",
+  "requirements": "Requiere:  Nivel 65, 67 Des, 67 Int",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "Chaqueta lisa",
+    "Class": "Armaduras corporales",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame",
+    "Tags": "dex_int_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDexInt02",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

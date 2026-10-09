@@ -1,0 +1,26 @@
+{
+  "row": {
+    "Name": "Viscountess'",
+    "Level": "33",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseSpirit"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(38<span class=\"ndash\">—</span>42)</span> to <a data-keyword=\"Spirit\" href=\"Spirit\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/0ba37aeec43462498eae858db9ba1aa919fe6a53037cbccf734926e8ff09492c\">Spirit</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "amulet",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/368d2f77af712c32aa27c88542f656d0553c7ffe8f20203e125da28c3dee7c00"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/368d2f77af712c32aa27c88542f656d0553c7ffe8f20203e125da28c3dee7c00",
+  "retrievedAt": "2026-10-04T22:03:05.210Z",
+  "sha256": "368d2f77af712c32aa27c88542f656d0553c7ffe8f20203e125da28c3dee7c00",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(38<span class=\"ndash\">—</span>42)</span> to <a data-keyword=\"Spirit\" href=\"Spirit\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/0b4d4340cd1b41b5853bbb98b29b5700361b0d6208c06abb356c76a71bc53106\">Spirit</a></span></h5>   <span data-tabname=\"Viscountess'\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Viscountess'\n<tr><th>Family<td>BaseSpirit\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>33 (Effective: 26)\n<tr><th>Gold Price<td>552\n<tr><th>Stats<td><li>base spirit from equipment <span class=\"badge bg-primary\">38 <span class=\"ndash\">—</span> 42</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>"
+}

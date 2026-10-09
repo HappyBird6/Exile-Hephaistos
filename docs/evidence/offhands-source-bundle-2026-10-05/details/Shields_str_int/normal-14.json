@@ -1,0 +1,131 @@
+{
+  "row": {
+    "Name": "of the Savant",
+    "Level": "66",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Intelligence"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(28<span class=\"ndash\">—</span>30)</span> to <a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/35ecc1ff28e8ee7386e67bec70cdc12f96a62d638a35d71ab8156e96f0f5e08a\">Intelligence</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "helmet",
+      "int_armour",
+      "str_int_armour",
+      "dex_int_armour",
+      "str_dex_int_armour",
+      "dagger",
+      "warstaff",
+      "flail",
+      "wand",
+      "staff",
+      "sceptre",
+      "trap",
+      "talisman",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e39612197defaafe89a6ca14a7eed41e92a6387628eaf09f58981e770157a182"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e39612197defaafe89a6ca14a7eed41e92a6387628eaf09f58981e770157a182",
+  "textLocale": "us",
+  "detailText": "+(28—30) to Intelligence",
+  "retrievedAt": "2026-10-05T04:30:58.597Z",
+  "sha256": "e39612197defaafe89a6ca14a7eed41e92a6387628eaf09f58981e770157a182",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(28<span class=\"ndash\">—</span>30)</span> to <a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/946ed3530ec4b912eb6a8ec8122eba0b19ae78a7492595884c7661194b61e404\">Intelligence</a></span></h5>   <span data-tabname=\"of the Savant\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Savant\n<tr><th>Family<td>Intelligence\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>66 (Effective: 52)\n<tr><th>Gold Price<td>1590\n<tr><th>Stats<td><li>additional intelligence <span class=\"badge bg-primary\">28 <span class=\"ndash\">—</span> 30</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>int_armour: 1</span> <span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>dex_int_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>dagger: 1</span> <span class='badge bg-primary'>warstaff: 1</span> <span class='badge bg-primary'>flail: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>talisman: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attribute</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(29<span class=\"ndash\">—</span>32)</span>% increased [CooldownRecovery|Cooldown Recovery Rate]</table>  </div></div>",
+  "fields": {
+    "Name": "of the Savant",
+    "Family": "Intelligence",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "66 (Effective: 52)",
+    "Gold Price": "1590",
+    "Stats": "additional intelligence 28 — 30 Global",
+    "Spawn Tags": "ring: 1 amulet: 1 helmet: 1 int_armour: 1 str_int_armour: 1 dex_int_armour: 1 str_dex_int_armour: 1 dagger: 1 warstaff: 1 flail: 1 wand: 1 staff: 1 sceptre: 1 trap: 1 talisman: 1 default: 0",
+    "Craft Tags": "Attribute"
+  },
+  "code": "Intelligence7",
+  "stats": [
+    {
+      "id": "additional_intelligence",
+      "min": 28,
+      "max": 30,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "helmet",
+      "weight": 1
+    },
+    {
+      "tag": "int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "dagger",
+      "weight": 1
+    },
+    {
+      "tag": "warstaff",
+      "weight": 1
+    },
+    {
+      "tag": "flail",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "sceptre",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "talisman",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

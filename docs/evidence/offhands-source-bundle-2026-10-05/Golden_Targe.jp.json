@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/jp/Golden_Targe",
+  "retrievedAt": "2026-10-05T04:18:10.785Z",
+  "sha256": "4477f63472b29effa82e4051c1088fd9faf5feb6cf43cd582774f9ad0b21c578",
+  "variants": [
+    {
+      "name": "黄金のタージ",
+      "card": "黄金のタージ\n        \n    \n    \n        \n            盾ブロック率: 25%アーマー: 145回避力: 132Base Movement Speed: -0.015装備条件： レベル 80, 63 筋力, 63 器用さ スキルを付与: レイズシールド\n        \n\n\n\n        \n            Golden Targe",
+      "requirements": "装備条件： レベル 80, 63 筋力, 63 器用さ",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "黄金のタージ",
+        "Class": "盾",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame",
+        "Tags": "str_dex_armour, str_dex_shield, karui_basetype, shield, armour",
+        "Icon": "Art/2DItems/Offhand/Shields/Shield10",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, shield",
+        "Base.x_size": "2",
+        "Base.y_size": "2",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100",
+        "Shield.block_percentage": "0"
+      }
+    }
+  ]
+}

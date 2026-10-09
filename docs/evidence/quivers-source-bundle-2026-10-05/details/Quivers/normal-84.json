@@ -1,0 +1,56 @@
+{
+  "row": {
+    "Name": "of Puncturing",
+    "Level": "44",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ChanceToPierce"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(18<span class=\"ndash\">—</span>20)</span>% chance to <a data-keyword=\"Pierce\" href=\"Pierce\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/df1fab2e19fb29ec778e9e3795813959ae3afabdb616d464579fcd681937a8dc\">Pierce</a> an Enemy",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "quiver",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ea99d8da8c551f0aa0be5929c342492266a9eb1b518d3ba4f56db24ede84fd5b"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FArrowPierceChance3",
+  "textLocale": "kr",
+  "detailText": "(18—20)%의 확률로 적 관통",
+  "retrievedAt": "2026-10-05T05:33:03.137Z",
+  "sha256": "49b659537d9b1169c4f5f8f7129eb0372bca7facb676cbd77b653fdc879f9833",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(18<span class=\"ndash\">—</span>20)</span>%의 확률로 적 <a data-keyword=\"Pierce\" href=\"Pierce\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/4356cbfbdfd6eb3a8d0005833d63284a47ea1d0211edc43e9411626c8249bf94\">관통</a></span></h5>   <span data-tabname=\"- 구멍\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>- 구멍\n<tr><th>Family<td>ChanceToPierce\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접미어 (2)\n<tr><th>Req. level<td>44 (Effective: 35)\n<tr><th>Gold Price<td>1184\n<tr><th>Stats<td><li>base chance to pierce % <span class=\"badge bg-primary\">18 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "- 구멍",
+    "Family": "ChanceToPierce",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접미어 (2)",
+    "Req. level": "44 (Effective: 35)",
+    "Gold Price": "1184",
+    "Stats": "base chance to pierce % 18 — 20 Global",
+    "Spawn Tags": "quiver: 1 default: 0"
+  },
+  "code": "ArrowPierceChance3",
+  "stats": [
+    {
+      "id": "base_chance_to_pierce_%",
+      "min": 18,
+      "max": 20,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

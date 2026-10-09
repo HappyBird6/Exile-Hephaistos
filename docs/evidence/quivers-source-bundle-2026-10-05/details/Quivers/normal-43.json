@@ -1,0 +1,84 @@
+{
+  "row": {
+    "Name": "Electrocuting",
+    "Level": "75",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "LightningDamage"
+    ],
+    "DropChance": "200",
+    "str": "Adds <span class='mod-value'>(1<span class=\"ndash\">—</span>4)</span> to <span class='mod-value'>(60<span class=\"ndash\">—</span>71)</span> <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1d5815b2f2bd5f23d99d435288c3b41e79adf38037cf8d2a266bc276f527201d\">Lightning</a> damage to <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attacks</a>",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "lightning",
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "gloves",
+      "quiver",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d5e23d3989c17c6afb1d7cf2db45d73fd4183e913a2504f21bf861cbbe16ce81"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage9",
+  "textLocale": "us",
+  "detailText": "Adds (1—4) to (60—71) Lightning damage to Attacks",
+  "retrievedAt": "2026-10-05T05:31:21.754Z",
+  "sha256": "c9a567d34e71d94f25c0a705334d943481dbe7987dd9b0bca37f12ebe5b4e32c",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Adds <span class='mod-value'>(1<span class=\"ndash\">—</span>4)</span> to <span class='mod-value'>(60<span class=\"ndash\">—</span>71)</span> <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1d5815b2f2bd5f23d99d435288c3b41e79adf38037cf8d2a266bc276f527201d\">Lightning</a> damage to <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attacks</a></span></h5>   <span data-tabname=\"Electrocuting\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Electrocuting\n<tr><th>Family<td>LightningDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>75 (Effective: 60)\n<tr><th>Gold Price<td>3072\n<tr><th>Stats<td><li>attack maximum added lightning damage <span class=\"badge bg-primary\">60 <span class=\"ndash\">—</span> 71</span> <span class=\"badge bg-secondary\">Global</span></li><li>attack minimum added lightning damage <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 4</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Lightning</span> <span class='badge bg-primary'>Attack</span> \n<tr><td>Fists of Stone<td>[Attack|Attacks] [Gain] <span class='mod-value'>(21<span class=\"ndash\">—</span>23)</span>% of Damage as Extra [Lightning|Lightning] Damage</table>  </div></div>",
+  "fields": {
+    "Name": "Electrocuting",
+    "Family": "LightningDamage",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "75 (Effective: 60)",
+    "Gold Price": "3072",
+    "Stats": "attack maximum added lightning damage 60 — 71 Globalattack minimum added lightning damage 1 — 4 Global",
+    "Spawn Tags": "ring: 1 gloves: 1 quiver: 1 default: 0",
+    "Craft Tags": "elemental_damage Damage Elemental Lightning Attack"
+  },
+  "code": "AddedLightningDamage9",
+  "stats": [
+    {
+      "id": "attack_maximum_added_lightning_damage",
+      "min": 60,
+      "max": 71,
+      "locality": "Global"
+    },
+    {
+      "id": "attack_minimum_added_lightning_damage",
+      "min": 1,
+      "max": 4,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "gloves",
+      "weight": 1
+    },
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

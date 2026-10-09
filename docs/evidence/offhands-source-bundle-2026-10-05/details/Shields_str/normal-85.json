@@ -1,0 +1,71 @@
+{
+  "row": {
+    "Name": "of Adamantite Skin",
+    "Level": "54",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "StunThreshold"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>+(164<span class=\"ndash\">—</span>206)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "boots",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d001feba833293fb352847f91294fee33f2703dac19013a11ebd4eaf6b6dfd22"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold8",
+  "textLocale": "us",
+  "detailText": "+(164—206) to Stun Threshold",
+  "retrievedAt": "2026-10-05T04:20:07.701Z",
+  "sha256": "1db1c3917296752c48e7abba949f4a2e426c51597707c76bcd65d494bf45a0e0",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(164<span class=\"ndash\">—</span>206)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a></span></h5>   <span data-tabname=\"of Adamantite Skin\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Adamantite Skin\n<tr><th>Family<td>StunThreshold\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>54 (Effective: 43)\n<tr><th>Gold Price<td>1158\n<tr><th>Stats<td><li>stun threshold + <span class=\"badge bg-primary\">164 <span class=\"ndash\">—</span> 206</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Adamantite Skin",
+    "Family": "StunThreshold",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "54 (Effective: 43)",
+    "Gold Price": "1158",
+    "Stats": "stun threshold + 164 — 206 Global",
+    "Spawn Tags": "body_armour: 1 boots: 1 shield: 1 belt: 1 default: 0"
+  },
+  "code": "StunThreshold8",
+  "stats": [
+    {
+      "id": "stun_threshold_+",
+      "min": 164,
+      "max": 206,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "body_armour",
+      "weight": 1
+    },
+    {
+      "tag": "boots",
+      "weight": 1
+    },
+    {
+      "tag": "shield",
+      "weight": 1
+    },
+    {
+      "tag": "belt",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

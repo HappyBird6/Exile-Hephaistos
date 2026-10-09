@@ -1,0 +1,45 @@
+{
+  "head": "ba9df63a0fddc6c15967103ebb4e2636b7488cd7",
+  "oldWorkbenchBases": 97,
+  "newWorkbenchBases": 102,
+  "oldManifestBases": 80,
+  "newManifestBases": 85,
+  "oldValuesPreserved": [
+    "backend/src/main/resources/catalog/top-bases.json",
+    "backend/src/main/resources/catalog/top-base-essences.json",
+    "frontend/src/shared/i18n/gameTerms.json",
+    "frontend/src/shared/i18n/modifierTemplates.json",
+    "backend/src/main/resources/crafting/registry-v2.json"
+  ],
+  "registryEntries": 220,
+  "deferredEntries": 50,
+  "sourcePools": [
+    {
+      "key": "tawhoan-tower-shield",
+      "page": "Shields_str",
+      "ordinary": 123
+    },
+    {
+      "key": "golden-targe",
+      "page": "Shields_str_dex",
+      "ordinary": 134
+    },
+    {
+      "key": "blacksteel-crest-shield",
+      "page": "Shields_str_int",
+      "ordinary": 132
+    },
+    {
+      "key": "desert-buckler",
+      "page": "Bucklers",
+      "ordinary": 118
+    },
+    {
+      "key": "tasalian-focus",
+      "page": "Foci",
+      "ordinary": 140
+    }
+  ],
+  "sourceWeightPolicy": "Published selection weights retained without claiming game weights",
+  "builtInSkillPolicy": "Source display without synthetic item stats or combat simulation"
+}

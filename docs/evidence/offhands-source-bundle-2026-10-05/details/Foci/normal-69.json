@@ -1,0 +1,91 @@
+{
+  "row": {
+    "Name": "Celestial",
+    "Level": "46",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefencesAndMana"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(27<span class=\"ndash\">—</span>32)</span>% increased <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a><br><span class='mod-value'>+(21<span class=\"ndash\">—</span>26)</span> to maximum Mana",
+    "fossil_no": [
+      "defences",
+      "resource",
+      "mana",
+      "energy_shield"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "gloves",
+      "boots",
+      "int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>",
+      "<span class=\"badge bg-primary craftingenergy_shield\" data-tag=\"energy_shield\">Energy Shield</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fc01b638fb36e05fc243c704488c2fad193f7d16d097835e1b01258a77de76b1"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FLocalIncreasedEnergyShieldAndMana4",
+  "textLocale": "sp",
+  "detailText": "Escudo de energía aumentado un (27—32)%\n+(21—26) al maná máximo",
+  "retrievedAt": "2026-10-05T04:35:25.838Z",
+  "sha256": "4bf3684bbc9a3bc37c2c67b4f827bb07ff1e43cd510fb2321cdd676006fad3ee",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FEnergyShield\">Escudo de energía</a> aumentado un <span class='mod-value'>(27<span class=\"ndash\">—</span>32)</span>%<br><span class='mod-value'>+(21<span class=\"ndash\">—</span>26)</span> al maná máximo</span></h5>   <span data-tabname=\"<if:MS>{celestial}<elif:MP>{celestiales}\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td><if:MS>{celestial}<elif:MP>{celestiales}\n<tr><th>Family<td>BaseLocalDefencesAndMana\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>46 (Effective: 36)\n<tr><th>Gold Price<td>863\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">21 <span class=\"ndash\">—</span> 26</span> <span class=\"badge bg-secondary\">Global</span></li><li>local energy shield +% <span class=\"badge bg-primary\">27 <span class=\"ndash\">—</span> 32</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 0</span> <span class='badge bg-primary'>shield: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> <span class='badge bg-primary'>Escudo de energía</span> </table>  </div></div>",
+  "fields": {
+    "Name": "{celestial}{celestiales}",
+    "Family": "BaseLocalDefencesAndMana",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "46 (Effective: 36)",
+    "Gold Price": "863",
+    "Stats": "base maximum mana 21 — 26 Globallocal energy shield +% 27 — 32 Local",
+    "Spawn Tags": "body_armour: 0 shield: 0 gloves: 0 boots: 0 int_armour: 1 default: 0",
+    "Craft Tags": "defences resource Mana Escudo de energía"
+  },
+  "code": "LocalIncreasedEnergyShieldAndMana4",
+  "stats": [
+    {
+      "id": "base_maximum_mana",
+      "min": 21,
+      "max": 26,
+      "locality": "Global"
+    },
+    {
+      "id": "local_energy_shield_+%",
+      "min": 27,
+      "max": 32,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "body_armour",
+      "weight": 0
+    },
+    {
+      "tag": "shield",
+      "weight": 0
+    },
+    {
+      "tag": "gloves",
+      "weight": 0
+    },
+    {
+      "tag": "boots",
+      "weight": 0
+    },
+    {
+      "tag": "int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

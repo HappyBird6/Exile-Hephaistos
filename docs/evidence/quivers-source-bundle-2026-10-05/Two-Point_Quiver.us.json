@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/us/Two-Point_Quiver",
+  "retrievedAt": "2026-10-05T05:29:13.743Z",
+  "sha256": "38973ef2c97a4657c3a16c3738387f280c3cdff3205a9d94ba4126e7039aedb3",
+  "variants": [
+    {
+      "name": "Two-Point Quiver",
+      "card": "Two-Point Quiver\n        \n    \n    \n        \n            QuiversRequires:  Level 24(20—30)% increased Accuracy Rating\n        \n\n\n        \n        \n            Can only be equipped if you are wielding a Bow.",
+      "requirements": "Requires:  Level 24",
+      "fields": {
+        "DropLevel": "24",
+        "BaseType": "Two-Point Quiver",
+        "Class": "Quivers",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver4",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverTwoPoint",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

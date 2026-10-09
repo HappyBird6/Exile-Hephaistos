@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/sp/Ruby_Ring",
+  "retrievedAt": "2026-10-04T20:55:03.125Z",
+  "sha256": "4d242688eafe9fbfd7b5d7e732c2e7d9e2481cbcfeda1f91a408b18d19db2bc9",
+  "name": "Anillo de rubí",
+  "card": "Anillo de rubí\n        \n    \n    \n        \n            AnillosRequiere:  Nivel 8+(20—30)% a la resistencia al fuego\n        \n\n\n\n        \n            Ruby Ring",
+  "requirements": "Requiere:  Nivel 8",
+  "fields": {
+    "DropLevel": "8",
+    "BaseType": "Anillo de rubí",
+    "Class": "Anillos",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRing3",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/Basetypes/RubyRing",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

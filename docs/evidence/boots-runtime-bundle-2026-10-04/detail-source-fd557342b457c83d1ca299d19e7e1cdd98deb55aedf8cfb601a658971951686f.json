@@ -1,0 +1,57 @@
+{
+  "code": null,
+  "sourceId": "fd557342b457c83d1ca299d19e7e1cdd98deb55aedf8cfb601a658971951686f",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/fd557342b457c83d1ca299d19e7e1cdd98deb55aedf8cfb601a658971951686f",
+  "retrievedAt": "2026-10-04T18:56:23.563Z",
+  "sha256": "fd557342b457c83d1ca299d19e7e1cdd98deb55aedf8cfb601a658971951686f",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(14<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/eb07d7bed5df994c783915a2b4446076746834995f74021f2cb2decc2466d8f7\">Armour</a><br><span class='mod-value'>+(14<span class=\"ndash\">—</span>24)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7adffdaab6131759d53ff406391045a5e23c9dff3c24ce66c52b1f352ecbab36\">Stun Threshold</a></span></h5>   <span data-tabname=\"Crab's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Crab's\n<tr><th>Family<td>DefencesPercentAndStunThreshold\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>19 (Effective: 15)\n<tr><th>Gold Price<td>295\n<tr><th>Stats<td><li>stun threshold + <span class=\"badge bg-primary\">14 <span class=\"ndash\">—</span> 24</span> <span class=\"badge bg-secondary\">Global</span></li><li>local physical damage reduction rating +% <span class=\"badge bg-primary\">14 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 0</span> <span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>str_armour: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Crab's",
+      "Family": "DefencesPercentAndStunThreshold",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "19 (Effective: 15)",
+      "Gold Price": "295",
+      "Stats": "stun threshold + 14 — 24 Globallocal physical damage reduction rating +% 14 — 20 Local",
+      "Spawn Tags": "body_armour: 0 helmet: 0 gloves: 0 str_armour: 1 default: 0"
+    },
+    "stats": [
+      {
+        "id": "stun_threshold_+",
+        "min": 14,
+        "max": 24,
+        "locality": "Global"
+      },
+      {
+        "id": "local_physical_damage_reduction_rating_+%",
+        "min": 14,
+        "max": 20,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "body_armour",
+        "weight": 0
+      },
+      {
+        "tag": "helmet",
+        "weight": 0
+      },
+      {
+        "tag": "gloves",
+        "weight": 0
+      },
+      {
+        "tag": "str_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(14—20)% increased Armour\n+(14—24) to Stun Threshold"
+  }
+}

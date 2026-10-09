@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "baseHead": "5287663f383d5199b43ff963fc51c55d70859270",
+  "oldBases": 125,
+  "newBases": 9,
+  "totalBases": 134,
+  "oldCatalogFilesByteIdentical": 427,
+  "deferred": 50,
+  "existingRegistryActionsUnchanged": true,
+  "sha256": "938c507dd3d18593fcdbd89fbed5465f69dfbd996a411babf54e6580c91ee986"
+}

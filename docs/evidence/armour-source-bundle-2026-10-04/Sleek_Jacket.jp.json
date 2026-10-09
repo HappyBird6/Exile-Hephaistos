@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/jp/Sleek_Jacket",
+  "retrievedAt": "2026-10-04T15:43:57.568Z",
+  "sha256": "185b7a7ab0ebb28ff9222ec62d9e6eca9bf5b1338a9af68e98da30d067031240",
+  "name": "艶のあるジャケット",
+  "card": "艶のあるジャケット\n        \n    \n    \n        \n            鎧回避力: 285エナジーシールド: 87Base Movement Speed: -0.03装備条件： レベル 65, 67 器用さ, 67 知性\n        \n\n\n\n        \n            Sleek Jacket",
+  "requirements": "装備条件： レベル 65, 67 器用さ, 67 知性",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "艶のあるジャケット",
+    "Class": "鎧",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame",
+    "Tags": "dex_int_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDexInt02",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

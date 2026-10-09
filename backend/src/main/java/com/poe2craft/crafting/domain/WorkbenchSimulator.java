@@ -81,17 +81,20 @@ public final class WorkbenchSimulator {
         (action, ids) -> {
           if (action.essenceModifierIds().isEmpty()
               || !action.replacementModifiers().isEmpty()
-              || ids.size() != 1)
+              || ids.isEmpty()
+              || new HashSet<>(ids).size() != ids.size()
+              || (ids.size() > 1 && action.essenceModifierIds().size() == 1))
             throw new IllegalArgumentException(
                 "Only source-proven fixed basic essence overrides are supported");
-          var id = ids.getFirst();
-          var definition =
-              catalog
-                  .find(id)
-                  .orElseThrow(() -> new IllegalArgumentException("Unknown essence target"));
-          if (definition.layer() != ModifierDefinition.Layer.EXPLICIT || definition.weight() <= 0)
-            throw new IllegalArgumentException(
-                "Basic essence target requires a verified ordinary explicit");
+          for (var id : ids) {
+            var definition =
+                catalog
+                    .find(id)
+                    .orElseThrow(() -> new IllegalArgumentException("Unknown essence target"));
+            if (definition.layer() != ModifierDefinition.Layer.EXPLICIT || definition.weight() <= 0)
+              throw new IllegalArgumentException(
+                  "Basic essence target requires a verified ordinary explicit");
+          }
           reviewed.put(action, List.copyOf(ids));
         });
     this.essenceTargetOverrides = Map.copyOf(reviewed);
@@ -131,40 +134,47 @@ public final class WorkbenchSimulator {
   }
 
   private String baseRuleVersion() {
+    if (BaseRegistry.supports(catalog.base().id()))
+      return BaseRegistry.policy(catalog.base().id()).ruleVersion();
     if (BasicJewel.supportedCrafting(catalog.base().id()))
       return BasicJewel.timeLost(catalog.base().id())
           ? "time-lost-ancient-v1"
           : "basic-jewel-potent-v3";
     if (catalog.base().id().equals(RingEssenceTargets.BASE_ID))
       return "ring-workbench-perfect-essence-v1";
-    if (catalog.base().id().equals(HelmetEssenceTargets.BASE_ID))
+    if (HelmetEssenceTargets.supports(catalog.base().id()))
       return "helmet-workbench-perfect-essence-v1";
     if (catalog.base().id().equals(BeltEssenceTargets.BASE_ID))
       return "belt-workbench-perfect-essence-v1";
-    if (catalog.base().id().equals(SceptreEssenceTargets.BASE_ID))
-      return "sceptre-workbench-essence-v1";
-    if (catalog.base().id().equals(BodyEssenceTargets.BASE_ID))
+    if ((catalog.base().id().equals(SceptreEssenceTargets.BASE_ID)
+        || ReviewedSceptres.supports(catalog.base().id()))) return "sceptre-workbench-essence-v1";
+    if (BodyEssenceTargets.supports(catalog.base().id()))
       return "body-workbench-perfect-essence-v1";
-    if (catalog.base().id().equals(WandEssenceTargets.BASE_ID)) return "wand-workbench-essence-v1";
+    if ((catalog.base().id().equals(WandEssenceTargets.BASE_ID)
+        || ReviewedWands.supports(catalog.base().id()))) return "wand-workbench-essence-v1";
     if (catalog.base().id().equals(BowEssenceTargets.BASE_ID))
       return "bow-workbench-perfect-essence-v2";
     return coupledModifierIds.isEmpty() ? RULE_VERSION : "stocky-workbench-artificer-v26";
   }
 
   public String ledgerVersion() {
+    if (BaseRegistry.supports(catalog.base().id()))
+      return BaseRegistry.policy(catalog.base().id()).ledgerVersion();
     if (BasicJewel.supportedCrafting(catalog.base().id()))
       return "sapphire-uniform-candidates-and-rolls-v1";
     if (catalog.base().id().equals(RingEssenceTargets.BASE_ID))
       return "ring-unverified-numeric-assumptions-v1";
-    if (catalog.base().id().equals(HelmetEssenceTargets.BASE_ID))
+    if (HelmetEssenceTargets.supports(catalog.base().id()))
       return "helmet-unverified-numeric-assumptions-v1";
     if (catalog.base().id().equals(BeltEssenceTargets.BASE_ID))
       return "belt-unverified-numeric-assumptions-v1";
-    if (catalog.base().id().equals(SceptreEssenceTargets.BASE_ID))
+    if ((catalog.base().id().equals(SceptreEssenceTargets.BASE_ID)
+        || ReviewedSceptres.supports(catalog.base().id())))
       return "sceptre-unverified-numeric-assumptions-v1";
-    if (catalog.base().id().equals(BodyEssenceTargets.BASE_ID))
+    if (BodyEssenceTargets.supports(catalog.base().id()))
       return "body-unverified-numeric-assumptions-v1";
-    if (catalog.base().id().equals(WandEssenceTargets.BASE_ID))
+    if ((catalog.base().id().equals(WandEssenceTargets.BASE_ID)
+        || ReviewedWands.supports(catalog.base().id())))
       return "wand-unverified-numeric-assumptions-v1";
     if (catalog.base().id().equals(BowEssenceTargets.BASE_ID))
       return "bow-unverified-numeric-assumptions-v1";
@@ -186,11 +196,12 @@ public final class WorkbenchSimulator {
         .filter(
             a ->
                 a != WorkbenchCurrency.DIVINE
-                    || !state.baseItemId().equals(BeltEssenceTargets.BASE_ID))
+                    || BaseRegistry.policy(state.baseItemId()) == null
+                    || BaseRegistry.policy(state.baseItemId()).divine())
         .filter(
             a ->
                 (a != WorkbenchCurrency.ARTIFICER
-                        || state.baseItemId().equals(AugmentSocketRules.STOCKY_BASE_ID))
+                        || BaseRegistry.socketExecutionMaximum(state.baseItemId()) != null)
                     && java.util.stream.Stream.concat(
                             essenceTargets(a).stream(), replacementTargets(a).stream())
                         .allMatch(id -> catalog.find(id).isPresent()))
@@ -229,14 +240,13 @@ public final class WorkbenchSimulator {
       ItemState state, WorkbenchCurrency action, List<WorkbenchOmen> omens) {
     if (action.catalystType() != null) {
       if (action.refinedCatalyst()) {
-        if (!BasicJewel.supported(state.baseItemId()))
+        if (!BaseRegistry.refinedCatalyst(state.baseItemId()))
           return blocked(
               action,
               "Refined catalysts require a supported Basic Jewel with jewel_catalyst source tag.");
         return new Availability(action, true, "");
       }
-      if (!state.baseItemId().equals(SolarAmulet.BASE_ID)
-          && !state.baseItemId().equals(RingEssenceTargets.BASE_ID))
+      if (!BaseRegistry.ordinaryCatalyst(state.baseItemId()))
         return blocked(action, "Ordinary catalysts require a supported Ring or Amulet.");
       return new Availability(action, true, "");
     }
@@ -266,7 +276,9 @@ public final class WorkbenchSimulator {
       return blocked(
           action,
           "Removing the maximum-quality modifier while quality exceeds the remaining cap needs game verification.");
-    if (action == WorkbenchCurrency.DIVINE && state.baseItemId().equals(BeltEssenceTargets.BASE_ID))
+    if (action == WorkbenchCurrency.DIVINE
+        && BaseRegistry.policy(state.baseItemId()) != null
+        && !BaseRegistry.policy(state.baseItemId()).divine())
       return blocked(
           action,
           "Belt variable implicits and Charm-slot rolls are not modeled; Divine is unsupported.");
@@ -920,17 +932,57 @@ public final class WorkbenchSimulator {
 
   private void recordSapphireSelection(
       List<ModifierDefinition> candidates, List<Assumption> assumptions) {
-    if (BasicJewel.supportedCrafting(catalog.base().id()))
+    if (ReviewedBoots.supports(catalog.base().id()))
       assumptions.add(
           new Assumption(
-              "sapphire-uniform-candidates-v1",
-              "eligible per-base Jewel ordinary modifier",
+              "boots-uniform-candidates-v1",
+              "eligible per-base Boots ordinary modifier",
+              candidates.size(),
+              candidates.stream().map(ModifierDefinition::id).sorted().toList(),
+              null,
+              null,
+              catalog.metadata().sourceUrl(),
+              "USER-APPROVED SIMULATOR MODEL: equal 1/N after family, side and level restrictions. Actual game spawn weights and numeric roll probabilities remain unverified."));
+    if (ReviewedBodies.supports(catalog.base().id()))
+      assumptions.add(
+          new Assumption(
+              "body-uniform-candidates-v1",
+              "eligible per-base Body ordinary modifier",
+              candidates.size(),
+              candidates.stream().map(ModifierDefinition::id).sorted().toList(),
+              null,
+              null,
+              catalog.metadata().sourceUrl(),
+              "USER-APPROVED SIMULATOR MODEL: equal 1/N after family, side and level restrictions. Actual game spawn weights and numeric roll probabilities remain unverified."));
+    if (ReviewedHelmets.supports(catalog.base().id()))
+      assumptions.add(
+          new Assumption(
+              "helmets-uniform-candidates-v1",
+              "eligible per-base Helmet ordinary modifier",
+              candidates.size(),
+              candidates.stream().map(ModifierDefinition::id).sorted().toList(),
+              null,
+              null,
+              catalog.metadata().sourceUrl(),
+              "USER-APPROVED SIMULATOR MODEL: equal 1/N among eligible Helmet modifiers after family, side and level restrictions. Actual game spawn weights are unavailable; published DropChance is not a verified game weight."));
+    if (BasicJewel.supportedCrafting(catalog.base().id())
+        || ReviewedGloves.supports(catalog.base().id()))
+      assumptions.add(
+          new Assumption(
+              ReviewedGloves.supports(catalog.base().id())
+                  ? "gloves-uniform-candidates-v1"
+                  : "sapphire-uniform-candidates-v1",
+              ReviewedGloves.supports(catalog.base().id())
+                  ? "eligible per-base Gloves ordinary modifier"
+                  : "eligible per-base Jewel ordinary modifier",
               candidates.size(),
               candidates.stream().map(ModifierDefinition::id).toList(),
               null,
               null,
               catalog.metadata().sourceUrl(),
-              "USER-APPROVED SIMULATOR MODEL: equal 1/N among the eligible normal-section candidates after family, side and level restrictions. Actual game spawn weights are unavailable; DropChance=1 is not a verified weight."));
+              ReviewedGloves.supports(catalog.base().id())
+                  ? "USER-APPROVED SIMULATOR MODEL: equal 1/N among eligible Gloves modifiers after family, side and level restrictions. Actual game spawn weights are unavailable; published DropChance is not a verified game weight."
+                  : "USER-APPROVED SIMULATOR MODEL: equal 1/N among the eligible normal-section candidates after family, side and level restrictions. Actual game spawn weights are unavailable; DropChance=1 is not a verified weight."));
   }
 
   private ModifierInstance roll(

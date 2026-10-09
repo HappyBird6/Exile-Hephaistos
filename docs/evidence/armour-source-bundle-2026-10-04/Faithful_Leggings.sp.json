@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/sp/Faithful_Leggings",
+  "retrievedAt": "2026-10-04T15:38:34.637Z",
+  "sha256": "ce77ab04b6f12e6613d0dbd6f16ba7a13813c2e9036ce8d406f0826f7469da47",
+  "name": "Botines fieles",
+  "card": "Botines fieles\n        \n    \n    \n        \n            BotasArmadura: 134Escudo de energía: 37Requiere:  Nivel 65, 47 Fue, 47 Int\n        \n\n\n\n        \n            Faithful Leggings",
+  "requirements": "Requiere:  Nivel 65, 47 Fue, 47 Int",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "Botines fieles",
+    "Class": "Botas",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame",
+    "Tags": "str_int_armour, boots, armour",
+    "Icon": "Art/2DItems/Armours/Boots/Basetypes/BootsIntStr01",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, boots",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Boots",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/jp/Gladiatorial_Helm",
+  "retrievedAt": "2026-10-04T15:38:07.773Z",
+  "sha256": "a275176d639e75980c9b535faf9815173d8f8af4f13ba56556a49dd215516e24",
+  "name": "剣闘士の兜",
+  "card": "剣闘士の兜\n        \n    \n    \n        \n            兜アーマー: 206回避力: 187装備条件： レベル 80, 63 筋力, 63 器用さ\n        \n\n\n\n        \n            Gladiatorial Helm",
+  "requirements": "装備条件： レベル 80, 63 筋力, 63 器用さ",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "剣闘士の兜",
+    "Class": "兜",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame",
+    "Tags": "str_dex_armour, karui_basetype, helmet, armour",
+    "Icon": "Art/2DItems/Armours/Helmets/Basetypes/HelmetStrDex06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, helmet",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Helm",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

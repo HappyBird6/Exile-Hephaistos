@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/cn/Apostle_Leggings",
+  "retrievedAt": "2026-10-04T15:38:35.792Z",
+  "sha256": "69cfbbde79947a157b3da7321811f1beec9459d8c4c9b75cd8f747e95a39e74a",
+  "name": "使徒护腿",
+  "card": "使徒护腿\n        \n    \n    \n        \n            鞋子护甲: 134能量护盾: 37需求：  等级 70, 51 力量, 51 智慧\n        \n\n\n\n        \n            Apostle Leggings",
+  "requirements": "需求：  等级 70, 51 力量, 51 智慧",
+  "fields": {
+    "DropLevel": "70",
+    "BaseType": "使徒护腿",
+    "Class": "鞋子",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Boots/FourBootsStrInt2Endgame",
+    "Tags": "str_int_armour, boots, armour",
+    "Icon": "Art/2DItems/Armours/Boots/Basetypes/BootsIntStr02",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, boots",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Boots",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

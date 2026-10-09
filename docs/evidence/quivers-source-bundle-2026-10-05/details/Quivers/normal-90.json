@@ -1,0 +1,61 @@
+{
+  "row": {
+    "Name": "Brisk",
+    "Level": "27",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "ProjectileSpeed"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(18<span class=\"ndash\">—</span>25)</span>% increased <a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6124c367861336198eb93986587a408c328b03ee40940391c8b1200cb730f966\">Projectile</a> Speed",
+    "fossil_no": [
+      "speed"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "quiver",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/28246472a6c450bfd2f65aa3bec5b4ca15773564f2d1c555971e466315b437a4"
+  },
+  "url": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FProjectileSpeed2",
+  "textLocale": "tw",
+  "detailText": "增加(18—25)%投射物速度",
+  "retrievedAt": "2026-10-05T05:33:25.353Z",
+  "sha256": "9efbffd4a10c7e3a7eb99fbd760318f8896d264facbbb212637edc495de85be4",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>增加<span class='mod-value'>(18<span class=\"ndash\">—</span>25)</span>%<a data-keyword=\"Projectile\" href=\"Projectile\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/2bb776e41396e3f501a4dbd7bfb5a28870a596ce2e6ada2898689a77c7bded37\">投射物</a>速度</span></h5>   <span data-tabname=\"輕快的\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>輕快的\n<tr><th>Family<td>ProjectileSpeed\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>前綴 (1)\n<tr><th>Req. level<td>27 (Effective: 21)\n<tr><th>Gold Price<td>376\n<tr><th>Stats<td><li>base projectile speed +% <span class=\"badge bg-primary\">18 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>速度</span> </table>  </div></div>",
+  "fields": {
+    "Name": "輕快的",
+    "Family": "ProjectileSpeed",
+    "Domains": "物品 (1)",
+    "GenerationType": "前綴 (1)",
+    "Req. level": "27 (Effective: 21)",
+    "Gold Price": "376",
+    "Stats": "base projectile speed +% 18 — 25 Global",
+    "Spawn Tags": "quiver: 1 default: 0",
+    "Craft Tags": "速度"
+  },
+  "code": "ProjectileSpeed2",
+  "stats": [
+    {
+      "id": "base_projectile_speed_+%",
+      "min": 18,
+      "max": 25,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

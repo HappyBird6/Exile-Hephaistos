@@ -1,0 +1,8 @@
+{
+  "stage": "test",
+  "passed": 1869,
+  "failed": 1,
+  "total": 1870,
+  "reason": "Legacy equipment count assertion included new31; canonical historical1883 preserved and new total1914 separately asserted",
+  "resolution": "Add offhand prefix exclusion only to historical count; keep full six-locale content traversal and add exact total assertion"
+}

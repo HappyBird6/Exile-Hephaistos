@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/us/Vile_Robe",
+  "retrievedAt": "2026-10-04T15:37:55.040Z",
+  "sha256": "cf592bffbd38999ddb013f0ae6355c1e206a3ca36aa8752003000c393750cb99",
+  "name": "Vile Robe",
+  "card": "Vile Robe\n        \n    \n    \n        \n            Body ArmoursEnergy Shield: 171Base Movement Speed: -0.03Requires:  Level 65, 121 Int",
+  "requirements": "Requires:  Level 65, 121 Int",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "Vile Robe",
+    "Class": "Body Armours",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame",
+    "Tags": "int_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyInt03",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/cn/Fortified_Hammer",
+  "retrievedAt": "2026-10-05T07:01:12.006Z",
+  "sha256": "eb26763f41e97d151985891dbe176e534a23d18ee53bc56e31e8a125e71fd494",
+  "variants": [
+    {
+      "name": "强固之锤",
+      "card": "强固之锤\n        \n    \n    \n        \n            单手锤物理伤害: 60-73暴击率: 5%每秒攻击次数: 1.4武器范围: 1.3需求：  等级 79, 163 力量击中时有 40% 的几率使目标恍惚\n        \n\n\n\n        \n            Fortified Hammer",
+      "requirements": "需求：  等级 79, 163 力量",
+      "properties": [
+        "单手锤",
+        "物理伤害: 60-73",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.3"
+      ],
+      "fields": {
+        "DropLevel": "79",
+        "BaseType": "强固之锤",
+        "Class": "单手锤",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace8Endgame",
+        "Tags": "mace, one_hand_weapon, onehand, weapon",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/OneHandMaces/Basetypes/1HMace08",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, onehand, mace, one_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      }
+    }
+  ]
+}

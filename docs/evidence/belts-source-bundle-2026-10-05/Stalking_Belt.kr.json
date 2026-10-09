@@ -1,0 +1,30 @@
+{
+  "url": "https://poe2db.tw/kr/Stalking_Belt",
+  "retrievedAt": "2026-10-05T01:23:40.071Z",
+  "sha256": "ed778937641453f9fc671f80c0031f676cc4af331017c9d2869f60f889cde367",
+  "variants": [
+    {
+      "name": "뒤를 쫓는 허리띠",
+      "card": "뒤를 쫓는 허리띠\n        \n    \n    \n        \n            허리띠요구 사항:  레벨 50호신부 슬롯 (1—3)개 보유호신부 슬롯 1개 보유이 아이템은 장화인 것처럼 장착된 아이템의 보너스를 받음\n        \n\n        \n        \n            휘젓는 것은 우리의 발걸음이다.\n        \n\n\n        \n            Stalking Belt",
+      "requirements": "요구 사항:  레벨 50",
+      "fields": {
+        "DropLevel": "50",
+        "BaseType": "뒤를 쫓는 허리띠",
+        "Class": "허리띠",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBeltB1",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/StalkingBelt",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

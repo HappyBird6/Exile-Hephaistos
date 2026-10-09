@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/us/Akoyan_Spear",
+  "retrievedAt": "2026-10-05T08:05:46.962Z",
+  "sha256": "f51097cf3dcdf074a419738a5f9a9e5ef3e9fc4cc91ecfebbd3002d4329e12f0",
+  "variants": [
+    {
+      "name": "Akoyan Spear",
+      "card": "Akoyan Spear\n        \n    \n    \n        \n            SpearsPhysical Damage: 39-72Critical Hit Chance: 7%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 78, 50 Str, 127 Dex, 90 Int Grants Skill: Spear Throw",
+      "requirements": "Requires:  Level 78, 50 Str, 127 Dex, 90 Int",
+      "properties": [
+        "Spears",
+        "Physical Damage: 39-72",
+        "Critical Hit Chance: 7%",
+        "Attacks per Second: 1.6",
+        "Weapon Range: 1.5"
+      ],
+      "fields": {
+        "DropLevel": "78",
+        "BaseType": "Akoyan Spear",
+        "Class": "Spears",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
+        "Tags": "karui_basetype, spear, one_hand_weapon, onehand, weapon",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/OneHandSpears/1HSpear10",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, onehand, spear, one_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      }
+    }
+  ]
+}

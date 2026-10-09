@@ -1,0 +1,15 @@
+import fs from 'node:fs'
+import assert from 'node:assert/strict'
+const q='E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005',previous='E:/WORK/Exile-Hephaistos/codex/base-registry-qa-20261005'
+const write=(name,s)=>fs.writeFileSync(`${q}/${name}`,s,{flag:'wx'})
+let api=fs.readFileSync(`${previous}/qa-api-1.mjs`,'utf8').replaceAll('baseline119-api-initials.json','baseline125-api-initials.json').replaceAll("['quarterstaves','spears']","['staves','talismans']").replaceAll('quarterstaves-spears','staves-talismans').replaceAll('Quarterstaff/Spear','Staff/Talisman').replace("base.family==='quarterstaves'?'/Staves/':'/OneHandSpears/'","base.family==='staves'?'/Staves/':'/Talismans/'").replace("base.family==='quarterstaves'?158:162","base.family==='staves'?185:158").replace("base.family==='quarterstaves'?'Quarterstaves':'Spears'","base.family==='staves'?'Staves':'Talismans'")
+api=api.replace('explicits: [instance(prefix),instance(suffix)]','explicits: [instance(prefix),instance(suffix)].sort((a,b)=>a.modifierId.localeCompare(b.modifierId))')
+write('qa-api-1.mjs',api)
+let browser=fs.readFileSync(`${previous}/qa-browser-1.cjs`,'utf8').replaceAll('baseline119-api-initials.json','baseline125-api-initials.json').replaceAll("['quarterstaves','spears']","['staves','talismans']").replaceAll('125 base selector choices','134 base selector choices').replaceAll('=== 125','=== 134').replaceAll('Quarterstaff/Spear','Staff/Talisman').replace("b.family==='quarterstaves'?'Quarterstaves':'Spears'","b.family==='staves'?'Staves':'Talismans'").replaceAll('aegis-quarterstaff','maji-talisman')
+browser=browser.replace("use('Greater_Essence_of_the_Infinite')","use(b.family==='staves'?'Greater_Essence_of_Sorcery':'Greater_Essence_of_the_Infinite')")
+browser=browser.replace("        const label=require('/source/frontend/src/shared/i18n/messages.json')[l]['base.weapon_property'].replace('{property}',line)\n        check(base+' '+l+' uncomputed source property disclosure',card.includes(label))", "        if(b.family==='talismans') { const label=require('/source/frontend/src/shared/i18n/messages.json')[l]['base.weapon_property'].replace('{property}',line); check(base+' '+l+' uncomputed source property disclosure',card.includes(label)) }")
+browser=browser.replace("} else check(base+' no source implicit display',(await page.locator('.bench-item-card .item-card__line--implicit').count())===0)","} else check(base+' exact source skill-only implicit count',(await page.locator('.bench-item-card .item-card__line--implicit').count())===(b.skillLines?.[l]?.length??0))")
+write('qa-browser-1.cjs',browser)
+for(const name of ['qa-crossclass-filled-2.cjs','qa-negative-jewel-2.cjs','contact-sheets.cjs'])write(name,fs.readFileSync(`${previous}/${name}`,'utf8').replaceAll('125 base selector choices','134 base selector choices').replaceAll('=== 125','=== 134'))
+fs.copyFileSync('scripts/qa-base-registry-api.mjs',`${q}/qa-registry-api.mjs`,fs.constants.COPYFILE_EXCL)
+console.log('New nine positive/negative probes and immutable old125 parity probes prepared')

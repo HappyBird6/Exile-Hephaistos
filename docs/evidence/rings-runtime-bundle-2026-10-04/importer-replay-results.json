@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "count": 21,
+  "ordinary": 1624,
+  "addedDisplayIds": [
+    "amethyst:implicit:chaosresistance",
+    "kinetic:implicit:physicaldamage",
+    "mnemonic:implicit:maximummanaincreasepercent",
+    "pearl:implicit:increasedcastspeed",
+    "prismatic:implicit:allresistances",
+    "ring:suffix:essence-hysteria-mana-regeneration",
+    "ruby-ring:implicit:fireresistance",
+    "two-stone-fire-cold:implicit:fireandcoldresistance",
+    "vitalic:implicit:increasedlife"
+  ],
+  "checks": [
+    "backend/src/main/resources/catalog/top-bases.json",
+    "backend/src/main/resources/catalog/top-base-essences.json",
+    "backend/src/main/resources/crafting/registry-v2.json",
+    "frontend/src/shared/i18n/gameTerms.json",
+    "frontend/src/shared/i18n/modifierTemplates.json",
+    "en all203 affix templates exactly match fresh source",
+    "ko all203 affix templates exactly match fresh source",
+    "ja all203 affix templates exactly match fresh source",
+    "zh-CN all203 affix templates exactly match fresh source",
+    "zh-TW all203 affix templates exactly match fresh source",
+    "es all203 affix templates exactly match fresh source",
+    "Exact eight implicit IDs and one Hysteria display binding",
+    "kinetic complete pool and six source-correlated locale templates",
+    "vitalic complete pool and six source-correlated locale templates",
+    "mnemonic complete pool and six source-correlated locale templates",
+    "pearl complete pool and six source-correlated locale templates",
+    "amethyst complete pool and six source-correlated locale templates",
+    "prismatic complete pool and six source-correlated locale templates",
+    "ruby-ring complete pool and six source-correlated locale templates",
+    "two-stone-fire-cold complete pool and six source-correlated locale templates",
+    "All fifty deferred entries exactly unchanged"
+  ]
+}

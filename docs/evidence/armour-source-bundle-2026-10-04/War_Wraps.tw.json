@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/tw/War_Wraps",
+  "retrievedAt": "2026-10-04T15:38:23.954Z",
+  "sha256": "9663c046a8f2569f775faed5294c035b420effc4ad252a05923550ee1437b257",
+  "name": "戰爭裹手",
+  "card": "戰爭裹手\n        \n    \n    \n        \n            手套閃避值: 94能量護盾: 29需求:  等級 65, 44 敏捷, 44 智慧\n        \n\n\n\n        \n            War Wraps",
+  "requirements": "需求:  等級 65, 44 敏捷, 44 智慧",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "戰爭裹手",
+    "Class": "手套",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame",
+    "Tags": "dex_int_armour, gloves, armour",
+    "Icon": "Art/2DItems/Armours/Gloves/Basetypes/GlovesDexInt01",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, gloves",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Gloves",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

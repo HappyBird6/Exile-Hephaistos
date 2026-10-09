@@ -1,0 +1,62 @@
+{
+  "row": {
+    "Name": "of Stunning",
+    "Level": "30",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "StunDurationIncreasePercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(17<span class=\"ndash\">—</span>19)</span>% increased <a data-keyword=\"Stun\" href=\"Stun\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2ee96f67bd8f6686e4f503e78cef409a2735ea3415a4fac84f4aea10b5189aba\">Stun</a> Duration",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "ranged",
+      "weapon",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/eb9d33fbaffaf20ca3b559e439af11a52633209b7ba082a8ef5ab40c793be121"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FStunDuration3",
+  "textLocale": "jp",
+  "detailText": "スタン持続時間が(17—19)%増加する",
+  "retrievedAt": "2026-10-05T07:07:05.856Z",
+  "sha256": "5d2c31a323946b2d13486af9da44b886c87e1ef389b977099b8335a2a8d282bf",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Stun\" href=\"Stun\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/4b56c8d004654ba65919f96d02589dc8faa6478716790d2843060cedc2b2ef9c\">スタン</a>持続時間が<span class='mod-value'>(17<span class=\"ndash\">—</span>19)</span>%増加する</span></h5>   <span data-tabname=\"気絶の\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>気絶の\n<tr><th>Family<td>StunDurationIncreasePercent\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>サフィックス (2)\n<tr><th>Req. level<td>30 (Effective: 24)\n<tr><th>Gold Price<td>492\n<tr><th>Stats<td><li>local base stun duration +% <span class=\"badge bg-primary\">17 <span class=\"ndash\">—</span> 19</span> <span class=\"badge bg-secondary\">ローカル</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ranged: 0</span> <span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "気絶の",
+    "Family": "StunDurationIncreasePercent",
+    "Domains": "アイテム (1)",
+    "GenerationType": "サフィックス (2)",
+    "Req. level": "30 (Effective: 24)",
+    "Gold Price": "492",
+    "Stats": "local base stun duration +% 17 — 19 ローカル",
+    "Spawn Tags": "ranged: 0 weapon: 1 default: 0"
+  },
+  "code": "StunDuration3",
+  "stats": [
+    {
+      "id": "local_base_stun_duration_+%",
+      "min": 17,
+      "max": 19,
+      "locality": "ローカル"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ranged",
+      "weight": 0
+    },
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

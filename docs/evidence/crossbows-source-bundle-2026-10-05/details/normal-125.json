@@ -1,0 +1,62 @@
+{
+  "row": {
+    "Name": "of Disaster",
+    "Level": "30",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "CriticalStrikeChanceIncrease"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(2.11<span class=\"ndash\">—</span>2.7)</span>% to <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit</a> Chance",
+    "fossil_no": [
+      "attack",
+      "critical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3cf6e8f9233375717d7967b49a1d62248747b4a6c552d8c4b9209ec38e4222ac"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalCriticalStrikeChance3",
+  "textLocale": "us",
+  "retrievedAt": "2026-10-05T02:44:40.466Z",
+  "sha256": "3cf6e8f9233375717d7967b49a1d62248747b4a6c552d8c4b9209ec38e4222ac",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(2.11<span class=\"ndash\">—</span>2.7)</span>% to <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit</a> Chance</span></h5>   <span data-tabname=\"of Disaster\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Disaster\n<tr><th>Family<td>CriticalStrikeChanceIncrease\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>30 (Effective: 24)\n<tr><th>Gold Price<td>804\n<tr><th>Stats<td><li>local critical strike chance <span class=\"badge bg-primary\">211 <span class=\"ndash\">—</span> 270</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attack</span> <span class='badge bg-primary'>Critical</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Disaster",
+    "Family": "CriticalStrikeChanceIncrease",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "30 (Effective: 24)",
+    "Gold Price": "804",
+    "Stats": "local critical strike chance 211 — 270 Local",
+    "Spawn Tags": "weapon: 1 default: 0",
+    "Craft Tags": "Attack Critical"
+  },
+  "code": "LocalCriticalStrikeChance3",
+  "stats": [
+    {
+      "id": "local_critical_strike_chance",
+      "min": 211,
+      "max": 270,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

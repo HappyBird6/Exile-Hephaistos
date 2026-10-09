@@ -16,6 +16,12 @@ class CatalystRegistryTest {
     var catalogs = new LinkedHashMap<String, ItemCatalog>();
     catalogs.put("solar", ItemCatalogLoader.loadDefault());
     catalogs.put("ring", ItemCatalogLoader.loadRing());
+    ReviewedRings.BASES
+        .keySet()
+        .forEach(key -> catalogs.put(key, ItemCatalogLoader.loadTopBase(key)));
+    ReviewedAmulets.BASES
+        .keySet()
+        .forEach(key -> catalogs.put(key, ItemCatalogLoader.loadTopBase(key)));
     for (var base :
         List.of(
             "ruby",
@@ -39,7 +45,24 @@ class CatalystRegistryTest {
       var expected =
           action.refinedCatalyst()
               ? Set.of("ruby", "emerald", "sapphire", "diamond")
-              : Set.of("solar", "ring");
+              : Set.of(
+                  "solar",
+                  "ring",
+                  "kinetic",
+                  "vitalic",
+                  "mnemonic",
+                  "pearl",
+                  "amethyst",
+                  "prismatic",
+                  "ruby-ring",
+                  "two-stone-fire-cold",
+                  "stellar",
+                  "amber",
+                  "bloodstone",
+                  "lunar",
+                  "azure",
+                  "crimson",
+                  "pearlescent");
       var declared = new HashSet<String>();
       entry.path("supportedBases").forEach(b -> declared.add(b.asText()));
       assertThat(declared).isEqualTo(expected);

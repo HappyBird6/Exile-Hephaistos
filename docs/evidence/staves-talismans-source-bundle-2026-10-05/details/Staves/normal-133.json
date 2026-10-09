@@ -1,0 +1,64 @@
+{
+  "row": {
+    "Name": "of Sortilege",
+    "Level": "45",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreasedCastSpeed"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(32<span class=\"ndash\">—</span>37)</span>% increased Cast Speed",
+    "fossil_no": [
+      "caster_speed",
+      "caster",
+      "speed"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c85348184c5b3f5c8aa06103e5c1b0c96c391740d23a5013d2a56561a2502c8d"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeedTwoHand4",
+  "textLocale": "us",
+  "detailText": "(32—37)% increased Cast Speed",
+  "retrievedAt": "2026-10-05T10:08:07.149Z",
+  "sha256": "c85348184c5b3f5c8aa06103e5c1b0c96c391740d23a5013d2a56561a2502c8d",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(32<span class=\"ndash\">—</span>37)</span>% increased Cast Speed</span></h5>   <span data-tabname=\"of Sortilege\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Sortilege\n<tr><th>Family<td>IncreasedCastSpeed\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>45 (Effective: 36)\n<tr><th>Gold Price<td>908\n<tr><th>Stats<td><li>base cast speed +% <span class=\"badge bg-primary\">32 <span class=\"ndash\">—</span> 37</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_speed</i></span> <span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Speed</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Sortilege",
+    "Family": "IncreasedCastSpeed",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "45 (Effective: 36)",
+    "Gold Price": "908",
+    "Stats": "base cast speed +% 32 — 37 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "caster_speed Caster Speed"
+  },
+  "code": "IncreasedCastSpeedTwoHand4",
+  "stats": [
+    {
+      "id": "base_cast_speed_+%",
+      "min": 32,
+      "max": 37,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

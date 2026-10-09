@@ -1,0 +1,4498 @@
+[
+  {
+    "Name": "of the Brute",
+    "Level": "1",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Strength"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(5<span class=\"ndash\">—</span>8)</span> to <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/adc68348c13b27b1b831c2ce4caf358d08d796def82d1d95491b336d8a926849\">Strength</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "belt",
+      "str_armour",
+      "str_dex_armour",
+      "str_int_armour",
+      "str_dex_int_armour",
+      "mace",
+      "axe",
+      "sword",
+      "spear",
+      "flail",
+      "crossbow",
+      "sceptre",
+      "talisman",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2a38e02ac02a7b0b8265dbdf82b610cfea0968814c301bc7734139be37e50894"
+  },
+  {
+    "Name": "of the Wrestler",
+    "Level": "11",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Strength"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(9<span class=\"ndash\">—</span>12)</span> to <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/adc68348c13b27b1b831c2ce4caf358d08d796def82d1d95491b336d8a926849\">Strength</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "belt",
+      "str_armour",
+      "str_dex_armour",
+      "str_int_armour",
+      "str_dex_int_armour",
+      "mace",
+      "axe",
+      "sword",
+      "spear",
+      "flail",
+      "crossbow",
+      "sceptre",
+      "talisman",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/be2f3299c420ccabfba4a333a543edff2a09f6882f666961a9c062d00661f281"
+  },
+  {
+    "Name": "of the Bear",
+    "Level": "22",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Strength"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(13<span class=\"ndash\">—</span>16)</span> to <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/adc68348c13b27b1b831c2ce4caf358d08d796def82d1d95491b336d8a926849\">Strength</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "belt",
+      "str_armour",
+      "str_dex_armour",
+      "str_int_armour",
+      "str_dex_int_armour",
+      "mace",
+      "axe",
+      "sword",
+      "spear",
+      "flail",
+      "crossbow",
+      "sceptre",
+      "talisman",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/29ba214a7b45c488d1e36ce8f94d78f5ae45256a3359a9dece67d87ea29d898f"
+  },
+  {
+    "Name": "of the Lion",
+    "Level": "33",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Strength"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(17<span class=\"ndash\">—</span>20)</span> to <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/adc68348c13b27b1b831c2ce4caf358d08d796def82d1d95491b336d8a926849\">Strength</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "belt",
+      "str_armour",
+      "str_dex_armour",
+      "str_int_armour",
+      "str_dex_int_armour",
+      "mace",
+      "axe",
+      "sword",
+      "spear",
+      "flail",
+      "crossbow",
+      "sceptre",
+      "talisman",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d13d19c26498700b382477a8bff18850e26baca39e55edc4902b9bbbeb2f5aea"
+  },
+  {
+    "Name": "of the Gorilla",
+    "Level": "44",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Strength"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(21<span class=\"ndash\">—</span>24)</span> to <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/adc68348c13b27b1b831c2ce4caf358d08d796def82d1d95491b336d8a926849\">Strength</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "belt",
+      "str_armour",
+      "str_dex_armour",
+      "str_int_armour",
+      "str_dex_int_armour",
+      "mace",
+      "axe",
+      "sword",
+      "spear",
+      "flail",
+      "crossbow",
+      "sceptre",
+      "talisman",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/37112c833cb449b44ed5e1e20c0748f591c3032f88c5080006ecb8f59bd8dd94"
+  },
+  {
+    "Name": "of the Goliath",
+    "Level": "55",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Strength"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(25<span class=\"ndash\">—</span>27)</span> to <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/adc68348c13b27b1b831c2ce4caf358d08d796def82d1d95491b336d8a926849\">Strength</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "belt",
+      "str_armour",
+      "str_dex_armour",
+      "str_int_armour",
+      "str_dex_int_armour",
+      "mace",
+      "axe",
+      "sword",
+      "spear",
+      "flail",
+      "crossbow",
+      "sceptre",
+      "talisman",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/42d05e7d90156194b26f46e0fb95401ee54a913cdd1e7c8f855827ffbb0d9850"
+  },
+  {
+    "Name": "of the Leviathan",
+    "Level": "66",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Strength"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(28<span class=\"ndash\">—</span>30)</span> to <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/adc68348c13b27b1b831c2ce4caf358d08d796def82d1d95491b336d8a926849\">Strength</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "belt",
+      "str_armour",
+      "str_dex_armour",
+      "str_int_armour",
+      "str_dex_int_armour",
+      "mace",
+      "axe",
+      "sword",
+      "spear",
+      "flail",
+      "crossbow",
+      "sceptre",
+      "talisman",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6f5c6e2e126b90b0a7c792c7ec6900fb783659c06813047d04a37b8c69f52cce"
+  },
+  {
+    "Name": "of the Titan",
+    "Level": "74",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Strength"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(31<span class=\"ndash\">—</span>33)</span> to <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/adc68348c13b27b1b831c2ce4caf358d08d796def82d1d95491b336d8a926849\">Strength</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "belt",
+      "str_armour",
+      "str_dex_armour",
+      "str_int_armour",
+      "str_dex_int_armour",
+      "mace",
+      "axe",
+      "sword",
+      "spear",
+      "flail",
+      "crossbow",
+      "sceptre",
+      "talisman",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e2f643e0005f0483f9e0763603212b017b1b6c203692cf74cb44e018d510d372"
+  },
+  {
+    "Name": "of the Mongoose",
+    "Level": "1",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Dexterity"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(5<span class=\"ndash\">—</span>8)</span> to <a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/df68c1bb7e0de9655bd5d2bdce54f7bc115c80605beb6755f7f3d1642f2045fd\">Dexterity</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "gloves",
+      "quiver",
+      "dex_armour",
+      "dex_int_armour",
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "sword",
+      "spear",
+      "claw",
+      "warstaff",
+      "dagger",
+      "bow",
+      "crossbow",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1a9eaad1fb009e4f6d6e858e8835b03c59e946e3b2fc6a9ef3ccd66e2f2b1bc8"
+  },
+  {
+    "Name": "of the Lynx",
+    "Level": "11",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Dexterity"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(9<span class=\"ndash\">—</span>12)</span> to <a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/df68c1bb7e0de9655bd5d2bdce54f7bc115c80605beb6755f7f3d1642f2045fd\">Dexterity</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "gloves",
+      "quiver",
+      "dex_armour",
+      "dex_int_armour",
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "sword",
+      "spear",
+      "claw",
+      "warstaff",
+      "dagger",
+      "bow",
+      "crossbow",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f85043355e5f274fb0c19687f2f4a62e0cb84e0883e94f4b5ac8f2fa8797f54f"
+  },
+  {
+    "Name": "of the Fox",
+    "Level": "22",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Dexterity"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(13<span class=\"ndash\">—</span>16)</span> to <a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/df68c1bb7e0de9655bd5d2bdce54f7bc115c80605beb6755f7f3d1642f2045fd\">Dexterity</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "gloves",
+      "quiver",
+      "dex_armour",
+      "dex_int_armour",
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "sword",
+      "spear",
+      "claw",
+      "warstaff",
+      "dagger",
+      "bow",
+      "crossbow",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/eb670b8b3781e94f0b888f2b7db12a60b25a10321285ea7d1cd5c12415cc3215"
+  },
+  {
+    "Name": "of the Falcon",
+    "Level": "33",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Dexterity"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(17<span class=\"ndash\">—</span>20)</span> to <a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/df68c1bb7e0de9655bd5d2bdce54f7bc115c80605beb6755f7f3d1642f2045fd\">Dexterity</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "gloves",
+      "quiver",
+      "dex_armour",
+      "dex_int_armour",
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "sword",
+      "spear",
+      "claw",
+      "warstaff",
+      "dagger",
+      "bow",
+      "crossbow",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ec8013eace876a96e613ad537dd2c8d45cdec6f77dbc0b3808ac61de3cbefb32"
+  },
+  {
+    "Name": "of the Panther",
+    "Level": "44",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Dexterity"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(21<span class=\"ndash\">—</span>24)</span> to <a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/df68c1bb7e0de9655bd5d2bdce54f7bc115c80605beb6755f7f3d1642f2045fd\">Dexterity</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "gloves",
+      "quiver",
+      "dex_armour",
+      "dex_int_armour",
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "sword",
+      "spear",
+      "claw",
+      "warstaff",
+      "dagger",
+      "bow",
+      "crossbow",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0dd10bcd590ddebcfcf886e80eb3ec5a6b4a0ec4404948e2d556c7eb69564689"
+  },
+  {
+    "Name": "of the Leopard",
+    "Level": "55",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Dexterity"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(25<span class=\"ndash\">—</span>27)</span> to <a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/df68c1bb7e0de9655bd5d2bdce54f7bc115c80605beb6755f7f3d1642f2045fd\">Dexterity</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "gloves",
+      "quiver",
+      "dex_armour",
+      "dex_int_armour",
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "sword",
+      "spear",
+      "claw",
+      "warstaff",
+      "dagger",
+      "bow",
+      "crossbow",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c01d9eddbbcbf1c2171a2487d83c3d9c2d68950787dc7bc5175ccc9ce8b3ea45"
+  },
+  {
+    "Name": "of the Jaguar",
+    "Level": "66",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Dexterity"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(28<span class=\"ndash\">—</span>30)</span> to <a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/df68c1bb7e0de9655bd5d2bdce54f7bc115c80605beb6755f7f3d1642f2045fd\">Dexterity</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "gloves",
+      "quiver",
+      "dex_armour",
+      "dex_int_armour",
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "sword",
+      "spear",
+      "claw",
+      "warstaff",
+      "dagger",
+      "bow",
+      "crossbow",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6f2a74850296b774128bf69d2f635db85b80d8022af76cbab1a8411a4f0efeab"
+  },
+  {
+    "Name": "of the Phantom",
+    "Level": "74",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Dexterity"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(31<span class=\"ndash\">—</span>33)</span> to <a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/df68c1bb7e0de9655bd5d2bdce54f7bc115c80605beb6755f7f3d1642f2045fd\">Dexterity</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "gloves",
+      "quiver",
+      "dex_armour",
+      "dex_int_armour",
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "sword",
+      "spear",
+      "claw",
+      "warstaff",
+      "dagger",
+      "bow",
+      "crossbow",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/bb1545c456b949d12034f73f4f8798ee0a1890e1f1faca0133b322261c0da130"
+  },
+  {
+    "Name": "of the Whelpling",
+    "Level": "1",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "FireResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(6<span class=\"ndash\">—</span>10)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "fire_resistance",
+      "elemental",
+      "fire",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/64fa1c3e757e642a5cac9b01f54d56cdbd5fcc1fe21d2267c2da9ffb281f5dea"
+  },
+  {
+    "Name": "of the Salamander",
+    "Level": "12",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "FireResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(11<span class=\"ndash\">—</span>15)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "fire_resistance",
+      "elemental",
+      "fire",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/533bfdc2d201d628fed036ebf2b0a1e9c5228f3f7ba2598a763c83d3fea892a1"
+  },
+  {
+    "Name": "of the Drake",
+    "Level": "24",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "FireResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(16<span class=\"ndash\">—</span>20)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "fire_resistance",
+      "elemental",
+      "fire",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6fcf6ee1af61dfd3d7b5e0cd3f245eafbfcca243c5f455e06d86442b6f43d79c"
+  },
+  {
+    "Name": "of the Kiln",
+    "Level": "36",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "FireResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "fire_resistance",
+      "elemental",
+      "fire",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/03e5b5f00c9a49607c0cb7c5e37e96d2272adf4fc2dfc395fe927ff4317cc0a8"
+  },
+  {
+    "Name": "of the Furnace",
+    "Level": "48",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "FireResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(26<span class=\"ndash\">—</span>30)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "fire_resistance",
+      "elemental",
+      "fire",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/933c9208ddd40fc7c626cd376b7055fa9ad400d0201230ff933e57ecbe0344ac"
+  },
+  {
+    "Name": "of the Volcano",
+    "Level": "60",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "FireResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(31<span class=\"ndash\">—</span>35)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "fire_resistance",
+      "elemental",
+      "fire",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5d75d013cd619918dfc6668e410aebdbf2edddbf0ec8681e7870f011263281d2"
+  },
+  {
+    "Name": "of Magma",
+    "Level": "71",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "FireResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(36<span class=\"ndash\">—</span>40)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "fire_resistance",
+      "elemental",
+      "fire",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d0d158a1cd7c39f83c259cfadbdbb7740cdd24cc8775ae938dd6357460d44b67"
+  },
+  {
+    "Name": "of Tzteosh",
+    "Level": "82",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "FireResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(41<span class=\"ndash\">—</span>45)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "fire_resistance",
+      "elemental",
+      "fire",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/06d9118a1f47eeb3eb93eb3ebee31ad80947d5f98a06afa49b6c355e0e59a916"
+  },
+  {
+    "Name": "of the Seal",
+    "Level": "1",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ColdResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(6<span class=\"ndash\">—</span>10)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a>",
+    "fossil_no": [
+      "cold_resistance",
+      "elemental_resistance",
+      "elemental",
+      "cold",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b0faf2de7818ba1fd088aa86341e0f84d7b4d16d4ed0433b44f039c2acfe90f3"
+  },
+  {
+    "Name": "of the Penguin",
+    "Level": "14",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ColdResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(11<span class=\"ndash\">—</span>15)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a>",
+    "fossil_no": [
+      "cold_resistance",
+      "elemental_resistance",
+      "elemental",
+      "cold",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4418a8f0a3227b6d5b1f2ba4f97046eedc807935155fb7a562f7d07aab32ef9e"
+  },
+  {
+    "Name": "of the Narwhal",
+    "Level": "26",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ColdResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(16<span class=\"ndash\">—</span>20)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a>",
+    "fossil_no": [
+      "cold_resistance",
+      "elemental_resistance",
+      "elemental",
+      "cold",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/785bc7e76d96d4b375494935dda916afedb5f8b900884ba8abec85106a7ff6d3"
+  },
+  {
+    "Name": "of the Yeti",
+    "Level": "38",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ColdResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a>",
+    "fossil_no": [
+      "cold_resistance",
+      "elemental_resistance",
+      "elemental",
+      "cold",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f5587c04163dc2361565d314feebe3819ec6ae593add79ad36902964883270c0"
+  },
+  {
+    "Name": "of the Walrus",
+    "Level": "50",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ColdResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(26<span class=\"ndash\">—</span>30)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a>",
+    "fossil_no": [
+      "cold_resistance",
+      "elemental_resistance",
+      "elemental",
+      "cold",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cbcec57171969514078d0eab7bb06fbf3eb95c27efa02b381e3987e12ee6727a"
+  },
+  {
+    "Name": "of the Polar Bear",
+    "Level": "60",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ColdResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(31<span class=\"ndash\">—</span>35)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a>",
+    "fossil_no": [
+      "cold_resistance",
+      "elemental_resistance",
+      "elemental",
+      "cold",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4ead34b3b4a3a69abad4a88df44774b079021a43d52e533cb84674e85f72fb93"
+  },
+  {
+    "Name": "of the Ice",
+    "Level": "71",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ColdResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(36<span class=\"ndash\">—</span>40)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a>",
+    "fossil_no": [
+      "cold_resistance",
+      "elemental_resistance",
+      "elemental",
+      "cold",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ce020e91d9401d1f64136f8d9d41c64c772bdb37368ece47b368668a55ce0e0c"
+  },
+  {
+    "Name": "of Haast",
+    "Level": "82",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ColdResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(41<span class=\"ndash\">—</span>45)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a>",
+    "fossil_no": [
+      "cold_resistance",
+      "elemental_resistance",
+      "elemental",
+      "cold",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4aed6bb4829cb762403036729efe27d3ce0c7f850a1e2fe41907ac4683011d8e"
+  },
+  {
+    "Name": "of the Cloud",
+    "Level": "1",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LightningResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(6<span class=\"ndash\">—</span>10)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "lightning_resistance",
+      "elemental",
+      "lightning",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/00f11750c6ce94d5a2dd5a79c077429125f9e99f7a223026f39b1f22d984037c"
+  },
+  {
+    "Name": "of the Squall",
+    "Level": "13",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LightningResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(11<span class=\"ndash\">—</span>15)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "lightning_resistance",
+      "elemental",
+      "lightning",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e94770e924952957544158cb8d135abc2637b3e343bda198f1791d72af514493"
+  },
+  {
+    "Name": "of the Storm",
+    "Level": "25",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LightningResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(16<span class=\"ndash\">—</span>20)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "lightning_resistance",
+      "elemental",
+      "lightning",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/66f026e043c7848c2db72601a0ae309f9841b8fdcd8f838cb7fc8635f05e90ce"
+  },
+  {
+    "Name": "of the Thunderhead",
+    "Level": "37",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LightningResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "lightning_resistance",
+      "elemental",
+      "lightning",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/43956c46e2939b2b5146daf4f1878a48088a5098dbb527caa731258d2cf8fa97"
+  },
+  {
+    "Name": "of the Tempest",
+    "Level": "49",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LightningResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(26<span class=\"ndash\">—</span>30)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "lightning_resistance",
+      "elemental",
+      "lightning",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/775248100a5a83e7af2769c8dd0163af61b5a44e73d70e5ac1f08fc7a726ecd0"
+  },
+  {
+    "Name": "of the Maelstrom",
+    "Level": "60",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LightningResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(31<span class=\"ndash\">—</span>35)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "lightning_resistance",
+      "elemental",
+      "lightning",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/35a9a740c4fc222bd0fd7e4efe0d56c93ea42ddf60cad93a805d35e7b96e2312"
+  },
+  {
+    "Name": "of the Lightning",
+    "Level": "71",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LightningResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(36<span class=\"ndash\">—</span>40)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "lightning_resistance",
+      "elemental",
+      "lightning",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5e913f76eea6cf78488633838baf076135ddaf34e92e9586c9ef2ff24970cb5e"
+  },
+  {
+    "Name": "of Ephij",
+    "Level": "82",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LightningResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(41<span class=\"ndash\">—</span>45)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "lightning_resistance",
+      "elemental",
+      "lightning",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ef0507c8677d36e238d874f750eb59e8afe0221d4e961b377a02a6da080090c1"
+  },
+  {
+    "Name": "of the Lost",
+    "Level": "16",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ChaosResistance"
+    ],
+    "DropChance": "250",
+    "str": "<span class='mod-value'>+(4<span class=\"ndash\">—</span>7)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Chaos Resistance</a>",
+    "fossil_no": [
+      "chaos_resistance",
+      "chaos",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/806559f788ece5107fd457dc884cd57a9d6c7316f189c29ed33e186a1a615540"
+  },
+  {
+    "Name": "of Banishment",
+    "Level": "30",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ChaosResistance"
+    ],
+    "DropChance": "250",
+    "str": "<span class='mod-value'>+(8<span class=\"ndash\">—</span>11)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Chaos Resistance</a>",
+    "fossil_no": [
+      "chaos_resistance",
+      "chaos",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/029a70baae414597b1e49bad3fcd3339908fb3dce889c0f08c7cc47a3ce1d387"
+  },
+  {
+    "Name": "of Eviction",
+    "Level": "44",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ChaosResistance"
+    ],
+    "DropChance": "250",
+    "str": "<span class='mod-value'>+(12<span class=\"ndash\">—</span>15)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Chaos Resistance</a>",
+    "fossil_no": [
+      "chaos_resistance",
+      "chaos",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/76a1eedd7035e2ac8b8258931cc132cd1c68644b2086438f4e9e7db8e0e61415"
+  },
+  {
+    "Name": "of Expulsion",
+    "Level": "56",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ChaosResistance"
+    ],
+    "DropChance": "250",
+    "str": "<span class='mod-value'>+(16<span class=\"ndash\">—</span>19)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Chaos Resistance</a>",
+    "fossil_no": [
+      "chaos_resistance",
+      "chaos",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c77bae9fddfed1121200621047161c73aba40be67c34e4cda19e915e5ab2c068"
+  },
+  {
+    "Name": "of Exile",
+    "Level": "68",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ChaosResistance"
+    ],
+    "DropChance": "250",
+    "str": "<span class='mod-value'>+(20<span class=\"ndash\">—</span>23)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Chaos Resistance</a>",
+    "fossil_no": [
+      "chaos_resistance",
+      "chaos",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/af5ccc11617109cc9923a429fd177ef8d6054bf2290f72b0a4c86ba4efb2b2e3"
+  },
+  {
+    "Name": "of Bameth",
+    "Level": "81",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ChaosResistance"
+    ],
+    "DropChance": "250",
+    "str": "<span class='mod-value'>+(24<span class=\"ndash\">—</span>27)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Chaos Resistance</a>",
+    "fossil_no": [
+      "chaos_resistance",
+      "chaos",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0d72e641fa39c3df5883680aa5e639fdc2843ea86b05d43e8598511618e58c0e"
+  },
+  {
+    "Name": "Hale",
+    "Level": "1",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(10<span class=\"ndash\">—</span>19)</span> to maximum Life",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "helmet",
+      "gloves",
+      "boots",
+      "belt",
+      "amulet",
+      "ring",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d3184b467d4d101696a1ec171906fc3b45f1ef6a017d5c057f20d73c1120b3ff"
+  },
+  {
+    "Name": "Healthy",
+    "Level": "6",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(20<span class=\"ndash\">—</span>29)</span> to maximum Life",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "helmet",
+      "gloves",
+      "boots",
+      "belt",
+      "amulet",
+      "ring",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/dfaf9bfeec1dfc60c75138318b493bca64f32146906904ce2a7bcdd3f41128d2"
+  },
+  {
+    "Name": "Sanguine",
+    "Level": "16",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(30<span class=\"ndash\">—</span>39)</span> to maximum Life",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "helmet",
+      "gloves",
+      "boots",
+      "belt",
+      "amulet",
+      "ring",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/436dd8d7a7bcc1bdfa78e9fba034f9ed8566831456e5894083e10e331e6c8c1a"
+  },
+  {
+    "Name": "Stalwart",
+    "Level": "24",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(40<span class=\"ndash\">—</span>59)</span> to maximum Life",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "helmet",
+      "gloves",
+      "boots",
+      "belt",
+      "amulet",
+      "ring",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/600d0c23a44fb6ab9e0aee0a076bd0f928baeb1ef27614a37eb4fab301021d1a"
+  },
+  {
+    "Name": "Stout",
+    "Level": "33",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(60<span class=\"ndash\">—</span>69)</span> to maximum Life",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "helmet",
+      "gloves",
+      "boots",
+      "belt",
+      "amulet",
+      "ring",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d752a62fa20288c77271d8cbeab0b651e666c4930e165cf836d05db9fcd9394a"
+  },
+  {
+    "Name": "Robust",
+    "Level": "38",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(70<span class=\"ndash\">—</span>84)</span> to maximum Life",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "helmet",
+      "gloves",
+      "boots",
+      "belt",
+      "amulet",
+      "ring",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/72a00abccf75cc0c4f91fe969e6fd13df8cc361c59cdc53f6f3b6e9121549c9b"
+  },
+  {
+    "Name": "Rotund",
+    "Level": "46",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(85<span class=\"ndash\">—</span>99)</span> to maximum Life",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "helmet",
+      "gloves",
+      "boots",
+      "belt",
+      "amulet",
+      "ring",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/23bda55be13599a91446f74c6d8cee65ada6ee7fb9189c68412270cf7a727ab8"
+  },
+  {
+    "Name": "Virile",
+    "Level": "54",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(100<span class=\"ndash\">—</span>119)</span> to maximum Life",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "helmet",
+      "gloves",
+      "boots",
+      "belt",
+      "amulet",
+      "ring",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3f57c4674caee503d336b56076492bd1a225e6e868b8fa1348e17e3e01e4204e"
+  },
+  {
+    "Name": "Athlete's",
+    "Level": "60",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(120<span class=\"ndash\">—</span>149)</span> to maximum Life",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "helmet",
+      "gloves",
+      "boots",
+      "belt",
+      "amulet",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/dd7a7f3839381bb31ea44197b01e1739aae2884cafc205d98bc3107b8243f170"
+  },
+  {
+    "Name": "Fecund",
+    "Level": "65",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(150<span class=\"ndash\">—</span>174)</span> to maximum Life",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "helmet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e308a429180565f71c593cac93b5e9da24266beb12b3f6673d538abbd8ff5bee"
+  },
+  {
+    "Name": "Vigorous",
+    "Level": "70",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(175<span class=\"ndash\">—</span>189)</span> to maximum Life",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "shield",
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/95c5ea4b98d5f9a34c75ec90dcfd27032c22acefe540f134742ce9a90d817409"
+  },
+  {
+    "Name": "Rapturous",
+    "Level": "75",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(190<span class=\"ndash\">—</span>199)</span> to maximum Life",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d87c184b618188d4edfe4358f7df8ecfae275c7bf2c09a1cc6cb91b0f0b54e47"
+  },
+  {
+    "Name": "Prime",
+    "Level": "80",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(200<span class=\"ndash\">—</span>214)</span> to maximum Life",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1907a9174e859a85a7a8759e190b12b761dde130770524d9b814f2ae1c2a8744"
+  },
+  {
+    "Name": "Supple",
+    "Level": "1",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(9<span class=\"ndash\">—</span>16)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(6<span class=\"ndash\">—</span>10)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c454dc3675124f69841102dd3412839f6b329ce2ae0a8fc898960f934263528d"
+  },
+  {
+    "Name": "Pliant",
+    "Level": "16",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(17<span class=\"ndash\">—</span>46)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(11<span class=\"ndash\">—</span>41)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e791a643c810585a3a9a24765555387d83394ce3d555702a35357e0795d77a37"
+  },
+  {
+    "Name": "Flexible",
+    "Level": "33",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(47<span class=\"ndash\">—</span>71)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(42<span class=\"ndash\">—</span>64)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f3b09b6b3677c3fe8ce196cef98da9e0db81c04c40e9b4cebb69d5cc32b57b73"
+  },
+  {
+    "Name": "Durable",
+    "Level": "46",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(72<span class=\"ndash\">—</span>85)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(65<span class=\"ndash\">—</span>78)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/30c63a4e0642ce3e37b0fce8f58f018c6582ec46e92428f0489ddf276fce129f"
+  },
+  {
+    "Name": "Sturdy",
+    "Level": "54",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(86<span class=\"ndash\">—</span>102)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(79<span class=\"ndash\">—</span>94)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "boots",
+      "gloves",
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1f2136e4ee698ce804b481a9e239c699678f1a6b8c8942d38dce1b63e9efb22e"
+  },
+  {
+    "Name": "Resilient",
+    "Level": "60",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(103<span class=\"ndash\">—</span>127)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(95<span class=\"ndash\">—</span>119)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "boots",
+      "gloves",
+      "helmet",
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/51da31963cf2a37777bfe30cb41bbe98671b64aad549b468a950d7560a714c93"
+  },
+  {
+    "Name": "Adaptable",
+    "Level": "65",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(128<span class=\"ndash\">—</span>149)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(120<span class=\"ndash\">—</span>141)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "boots",
+      "gloves",
+      "helmet",
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/48967947630024afb6eed5bb4ad0870304bf644b889f5cdc43c6d0b85d17132d"
+  },
+  {
+    "Name": "Versatile",
+    "Level": "75",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(150<span class=\"ndash\">—</span>170)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(142<span class=\"ndash\">—</span>161)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "shield",
+      "boots",
+      "gloves",
+      "helmet",
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/524bc27673ac8d20fe7af85d41d26b6991f6053d3f86f7063232e8030e413d14"
+  },
+  {
+    "Name": "Scrapper's",
+    "Level": "2",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(15<span class=\"ndash\">—</span>26)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a800448774c6a31bbfbc1af577021e113240ad6a9ad85633c07b6a70506345ea"
+  },
+  {
+    "Name": "Brawler's",
+    "Level": "16",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(27<span class=\"ndash\">—</span>42)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3692f08b5c6ef7d44805ed8f447cb7cdfc0dfa92fd009a130373801568ea5306"
+  },
+  {
+    "Name": "Fencer's",
+    "Level": "33",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(43<span class=\"ndash\">—</span>55)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e51b01324107737e4eda97fd95eb180edb1abb0cbc277fc334b9fd939635adaf"
+  },
+  {
+    "Name": "Gladiator's",
+    "Level": "46",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(56<span class=\"ndash\">—</span>67)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/48831d4b85859c5fb7f51510656f67d825b5998a18a394f3eb96fb86d46fdd8c"
+  },
+  {
+    "Name": "Duelist's",
+    "Level": "54",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(68<span class=\"ndash\">—</span>79)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/735e52afaef9cd22a264bf1932d836085c4ee1efe606462585981ab0f0acb912"
+  },
+  {
+    "Name": "Hero's",
+    "Level": "60",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(80<span class=\"ndash\">—</span>91)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/eb96acb03e472ec7f978a002146647d13cb3a266081ffdbe5eab01645a192c6b"
+  },
+  {
+    "Name": "Legend's",
+    "Level": "65",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(92<span class=\"ndash\">—</span>100)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/156019c51c0d5e9333fc5b40e6fc31d75bcdf792cfbd3371466383cca5911c0a"
+  },
+  {
+    "Name": "Victor's",
+    "Level": "75",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(101<span class=\"ndash\">—</span>110)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "int_armour",
+      "str_int_armour",
+      "dex_armour",
+      "str_armour",
+      "dex_int_armour",
+      "str_dex_int_armour",
+      "body_armour",
+      "shield",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3be16550130e0e4cb4abff54a529a1a2e5b916260dc2943697b6710e59d906a5"
+  },
+  {
+    "Name": "Bully's",
+    "Level": "8",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefencesAndLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(6<span class=\"ndash\">—</span>13)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a><br><span class='mod-value'>+(7<span class=\"ndash\">—</span>10)</span> to maximum Life",
+    "fossil_no": [
+      "defences",
+      "resource",
+      "life",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "boots",
+      "shield",
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>",
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7112aef0e76fd77de7852ec007d42cec4f632319b643a50f4959fc501332364f"
+  },
+  {
+    "Name": "Thug's",
+    "Level": "16",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefencesAndLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(14<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a><br><span class='mod-value'>+(11<span class=\"ndash\">—</span>19)</span> to maximum Life",
+    "fossil_no": [
+      "defences",
+      "resource",
+      "life",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "boots",
+      "shield",
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>",
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5201fa15aebfc33f64e6ae1c690ecec02d468836bcabbff59a136555ff8c5d47"
+  },
+  {
+    "Name": "Brute's",
+    "Level": "33",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefencesAndLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(21<span class=\"ndash\">—</span>26)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a><br><span class='mod-value'>+(20<span class=\"ndash\">—</span>25)</span> to maximum Life",
+    "fossil_no": [
+      "defences",
+      "resource",
+      "life",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "boots",
+      "shield",
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>",
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4abced7d94ceaa01ee8c3913cefba494ddbc480f8045c9c5971a9f4fc07954a4"
+  },
+  {
+    "Name": "Assailant's",
+    "Level": "46",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefencesAndLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(27<span class=\"ndash\">—</span>32)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a><br><span class='mod-value'>+(26<span class=\"ndash\">—</span>32)</span> to maximum Life",
+    "fossil_no": [
+      "defences",
+      "resource",
+      "life",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "boots",
+      "shield",
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>",
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8e0e755cc709ad6ece98ffdb16657ac634d3e2c277fb2453a98ba0013e63fcdb"
+  },
+  {
+    "Name": "Aggressor's",
+    "Level": "60",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefencesAndLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(33<span class=\"ndash\">—</span>38)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a><br><span class='mod-value'>+(33<span class=\"ndash\">—</span>41)</span> to maximum Life",
+    "fossil_no": [
+      "defences",
+      "resource",
+      "life",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "boots",
+      "shield",
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>",
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7dd0178eff8d1d33a32ee0e19a563833705354db92ae7c0608782b128f1568c1"
+  },
+  {
+    "Name": "Predator's",
+    "Level": "78",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefencesAndLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(39<span class=\"ndash\">—</span>42)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a><br><span class='mod-value'>+(42<span class=\"ndash\">—</span>49)</span> to maximum Life",
+    "fossil_no": [
+      "defences",
+      "resource",
+      "life",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "boots",
+      "shield",
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>",
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/532dff37560ca8dd8c649f08cd4d53b40d2c4886b552c6e4b3754b03cc5d6113"
+  },
+  {
+    "Name": "Swordsman's",
+    "Level": "8",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefencesAndDefencePercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(3<span class=\"ndash\">—</span>5)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(2<span class=\"ndash\">—</span>3)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating<br><span class='mod-value'>(6<span class=\"ndash\">—</span>13)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "helmet",
+      "gloves",
+      "boots",
+      "shield",
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b931592d4a25d137cea91d169df2e232f8d3a2c348a9333510208605ccf993e5"
+  },
+  {
+    "Name": "Fighter's",
+    "Level": "16",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefencesAndDefencePercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(6<span class=\"ndash\">—</span>16)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(4<span class=\"ndash\">—</span>14)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating<br><span class='mod-value'>(14<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "helmet",
+      "gloves",
+      "boots",
+      "shield",
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/28cbac61542a5608a77203d851bfaa220ccb5370dadcd4841e556bf70e43d147"
+  },
+  {
+    "Name": "Veteran's",
+    "Level": "33",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefencesAndDefencePercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(17<span class=\"ndash\">—</span>23)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(15<span class=\"ndash\">—</span>21)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating<br><span class='mod-value'>(21<span class=\"ndash\">—</span>26)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "helmet",
+      "gloves",
+      "boots",
+      "shield",
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8fcabacad6226bb45d76c201d944483a36cccac55b7963594f098f28249efd79"
+  },
+  {
+    "Name": "Warrior's",
+    "Level": "46",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefencesAndDefencePercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(24<span class=\"ndash\">—</span>32)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(22<span class=\"ndash\">—</span>29)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating<br><span class='mod-value'>(27<span class=\"ndash\">—</span>32)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "helmet",
+      "gloves",
+      "boots",
+      "shield",
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b1641bb5156421256917c14bd5306d184dd25187b918358f8119fb9e8cf1d806"
+  },
+  {
+    "Name": "Knight's",
+    "Level": "60",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefencesAndDefencePercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(33<span class=\"ndash\">—</span>41)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(30<span class=\"ndash\">—</span>39)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating<br><span class='mod-value'>(33<span class=\"ndash\">—</span>38)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "helmet",
+      "gloves",
+      "boots",
+      "shield",
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/90e99c69ff5a44d02bd16fffc2048e67f6655758ea4c01a9826abd19145f3a1d"
+  },
+  {
+    "Name": "Centurion's",
+    "Level": "78",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefencesAndDefencePercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(42<span class=\"ndash\">—</span>52)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(40<span class=\"ndash\">—</span>50)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> Rating<br><span class='mod-value'>(39<span class=\"ndash\">—</span>42)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "helmet",
+      "gloves",
+      "boots",
+      "shield",
+      "str_dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/86a34ea9e08a845d8c579179d41d5c820a460e7428e659cfb24f6d2b3abdb4f5"
+  },
+  {
+    "Name": "of the Worthy",
+    "Level": "24",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LocalAttributeRequirements"
+    ],
+    "DropChance": "900",
+    "str": "<span class='mod-value'>15</span>% reduced <a data-keyword=\"Attributes\" href=\"Attributes\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a6f6a0f82c449e0ba1131901454bb89e680e14457cbae3c6c0b24b126a93f8dc\">Attribute</a> Requirements",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "wand",
+      "staff",
+      "sceptre",
+      "body_armour",
+      "helmet",
+      "shield",
+      "focus",
+      "gloves",
+      "boots",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/705b8a284a1afed0b27d38762a2fa54b6122b1f2835142c6f2ddb0e9b4e7219b"
+  },
+  {
+    "Name": "of the Apt",
+    "Level": "32",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LocalAttributeRequirements"
+    ],
+    "DropChance": "900",
+    "str": "<span class='mod-value'>20</span>% reduced <a data-keyword=\"Attributes\" href=\"Attributes\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a6f6a0f82c449e0ba1131901454bb89e680e14457cbae3c6c0b24b126a93f8dc\">Attribute</a> Requirements",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "wand",
+      "staff",
+      "sceptre",
+      "body_armour",
+      "helmet",
+      "shield",
+      "focus",
+      "gloves",
+      "boots",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6208209bef2232c0e9ab28644cc322fd003ee1b6c0696f3043f513840b9e31a1"
+  },
+  {
+    "Name": "of the Talented",
+    "Level": "40",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LocalAttributeRequirements"
+    ],
+    "DropChance": "900",
+    "str": "<span class='mod-value'>25</span>% reduced <a data-keyword=\"Attributes\" href=\"Attributes\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a6f6a0f82c449e0ba1131901454bb89e680e14457cbae3c6c0b24b126a93f8dc\">Attribute</a> Requirements",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "wand",
+      "staff",
+      "sceptre",
+      "body_armour",
+      "helmet",
+      "shield",
+      "focus",
+      "gloves",
+      "boots",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ac549e515d05b9169a8a0d96737f40a0e5e9cf535f7b237d69317d7a5403c74a"
+  },
+  {
+    "Name": "of the Skilled",
+    "Level": "52",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LocalAttributeRequirements"
+    ],
+    "DropChance": "900",
+    "str": "<span class='mod-value'>30</span>% reduced <a data-keyword=\"Attributes\" href=\"Attributes\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a6f6a0f82c449e0ba1131901454bb89e680e14457cbae3c6c0b24b126a93f8dc\">Attribute</a> Requirements",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "wand",
+      "staff",
+      "sceptre",
+      "body_armour",
+      "helmet",
+      "shield",
+      "focus",
+      "gloves",
+      "boots",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a3847cf6d70d11786eabfe1d31bd3684103650e5ae1a00771ea2982822651034"
+  },
+  {
+    "Name": "of the Proficient",
+    "Level": "60",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LocalAttributeRequirements"
+    ],
+    "DropChance": "900",
+    "str": "<span class='mod-value'>35</span>% reduced <a data-keyword=\"Attributes\" href=\"Attributes\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a6f6a0f82c449e0ba1131901454bb89e680e14457cbae3c6c0b24b126a93f8dc\">Attribute</a> Requirements",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "wand",
+      "staff",
+      "sceptre",
+      "body_armour",
+      "helmet",
+      "shield",
+      "focus",
+      "gloves",
+      "boots",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8fc6c347654cf545d85c056c54ab5f722be688aea141999319624b88e0cefe3f"
+  },
+  {
+    "Name": "of Thick Skin",
+    "Level": "1",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "StunThreshold"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>+(6<span class=\"ndash\">—</span>11)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "boots",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6fceb782de0e8bf4c0696a9b07a8e1e882c051816fdefea242f9944dcccb8065"
+  },
+  {
+    "Name": "of Reinforced Skin",
+    "Level": "8",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "StunThreshold"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>+(12<span class=\"ndash\">—</span>29)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "boots",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/14795f69646948858f0db472ba6d124cef97dc54dd02afc9a053d7c862093e68"
+  },
+  {
+    "Name": "of Stone Skin",
+    "Level": "15",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "StunThreshold"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>+(30<span class=\"ndash\">—</span>49)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "boots",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f86194ef4d41c2e2b253c68b16b448c0bca9830339c5ab167f17ed4d8b09007a"
+  },
+  {
+    "Name": "of Iron Skin",
+    "Level": "22",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "StunThreshold"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>+(50<span class=\"ndash\">—</span>72)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "boots",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c3f2cc0ba808edeb3f7ebd1d196d18a8482c10cc829a5c18d4a1c679b780e054"
+  },
+  {
+    "Name": "of Steel Skin",
+    "Level": "29",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "StunThreshold"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>+(73<span class=\"ndash\">—</span>97)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "boots",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f12f16d8d55c6612f31636ce92f92d1822143bcea064dd4e1ba92bca31aeffdd"
+  },
+  {
+    "Name": "of Granite Skin",
+    "Level": "36",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "StunThreshold"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>+(98<span class=\"ndash\">—</span>124)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "boots",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0a04c5abca5065a7317317dd97e56f7dc0c04b8b72657a46bccef29f3108e343"
+  },
+  {
+    "Name": "of Platinum Skin",
+    "Level": "45",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "StunThreshold"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>+(125<span class=\"ndash\">—</span>163)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "boots",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7f346d32d9a59f9cfea3287215a3333db84cf219213542a1516a459791b55f33"
+  },
+  {
+    "Name": "of Adamantite Skin",
+    "Level": "54",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "StunThreshold"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>+(164<span class=\"ndash\">—</span>206)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "boots",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d001feba833293fb352847f91294fee33f2703dac19013a11ebd4eaf6b6dfd22"
+  },
+  {
+    "Name": "of Corundum Skin",
+    "Level": "63",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "StunThreshold"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>+(207<span class=\"ndash\">—</span>253)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "boots",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0afbcc5ef4c1662cfe6f37d1b5e81a4ee1672b611c764b9f25d9e6c947fe25b7"
+  },
+  {
+    "Name": "of Obsidian Skin",
+    "Level": "72",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "StunThreshold"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>+(254<span class=\"ndash\">—</span>304)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "boots",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a1a965ce97090a036ef205c8931b23f4f0fcf0b782ec2e3b71c29eccc7608211"
+  },
+  {
+    "Name": "Thorny",
+    "Level": "1",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "Thorns"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(1<span class=\"ndash\">—</span>2)</span> to <span class='mod-value'>(3<span class=\"ndash\">—</span>4)</span> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> <a data-keyword=\"Thorns\" href=\"Thorns\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/fe360430a7b03d09ffbbf46cb6ffd0130fb019950baf5f446686a0ac50c66b6c\">Thorns</a> damage",
+    "fossil_no": [
+      "physical_damage",
+      "damage",
+      "physical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fc8191080f50efb9a253b7017cc7e82f41d67206a9fcc398d63ce9ba1d824eda"
+  },
+  {
+    "Name": "Spiny",
+    "Level": "10",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "Thorns"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>7)</span> to <span class='mod-value'>(7<span class=\"ndash\">—</span>10)</span> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> <a data-keyword=\"Thorns\" href=\"Thorns\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/fe360430a7b03d09ffbbf46cb6ffd0130fb019950baf5f446686a0ac50c66b6c\">Thorns</a> damage",
+    "fossil_no": [
+      "physical_damage",
+      "damage",
+      "physical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6fd23d641a1cbeb5d249422ab80344ed1bf78c7db658f6c0ef7b50290676d6da"
+  },
+  {
+    "Name": "Barbed",
+    "Level": "19",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "Thorns"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(11<span class=\"ndash\">—</span>16)</span> to <span class='mod-value'>(17<span class=\"ndash\">—</span>23)</span> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> <a data-keyword=\"Thorns\" href=\"Thorns\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/fe360430a7b03d09ffbbf46cb6ffd0130fb019950baf5f446686a0ac50c66b6c\">Thorns</a> damage",
+    "fossil_no": [
+      "physical_damage",
+      "damage",
+      "physical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/eb03c9a796e780453bc0fcda3988537f7186ce82da5c9cb1e8b62d4bddc49d7a"
+  },
+  {
+    "Name": "Pointed",
+    "Level": "38",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "Thorns"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(24<span class=\"ndash\">—</span>35)</span> to <span class='mod-value'>(36<span class=\"ndash\">—</span>53)</span> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> <a data-keyword=\"Thorns\" href=\"Thorns\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/fe360430a7b03d09ffbbf46cb6ffd0130fb019950baf5f446686a0ac50c66b6c\">Thorns</a> damage",
+    "fossil_no": [
+      "physical_damage",
+      "damage",
+      "physical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/574833a19560b582350d430c57b9e9fbf7f8b17ff6668fe93f096578c710b5b1"
+  },
+  {
+    "Name": "Spiked",
+    "Level": "48",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "Thorns"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(40<span class=\"ndash\">—</span>60)</span> to <span class='mod-value'>(61<span class=\"ndash\">—</span>92)</span> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> <a data-keyword=\"Thorns\" href=\"Thorns\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/fe360430a7b03d09ffbbf46cb6ffd0130fb019950baf5f446686a0ac50c66b6c\">Thorns</a> damage",
+    "fossil_no": [
+      "physical_damage",
+      "damage",
+      "physical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e86f19a6da1f3e938b08fc15f987752a00a7f2a43df9e7ff86d7a36b20dce9d6"
+  },
+  {
+    "Name": "Edged",
+    "Level": "63",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "Thorns"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(64<span class=\"ndash\">—</span>97)</span> to <span class='mod-value'>(98<span class=\"ndash\">—</span>145)</span> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> <a data-keyword=\"Thorns\" href=\"Thorns\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/fe360430a7b03d09ffbbf46cb6ffd0130fb019950baf5f446686a0ac50c66b6c\">Thorns</a> damage",
+    "fossil_no": [
+      "physical_damage",
+      "damage",
+      "physical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/875f25d89ce225246af621f5230d4dabef6adc2f06b138f2d67260e48b9ce2e4"
+  },
+  {
+    "Name": "Jagged",
+    "Level": "74",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "Thorns"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(101<span class=\"ndash\">—</span>151)</span> to <span class='mod-value'>(152<span class=\"ndash\">—</span>220)</span> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> <a data-keyword=\"Thorns\" href=\"Thorns\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/fe360430a7b03d09ffbbf46cb6ffd0130fb019950baf5f446686a0ac50c66b6c\">Thorns</a> damage",
+    "fossil_no": [
+      "physical_damage",
+      "damage",
+      "physical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/73fdc147b908572e23b27ada33259888a7c6064ea3b070a9165d60fb1b5dff7c"
+  },
+  {
+    "Name": "of the Newt",
+    "Level": "1",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LifeRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(1<span class=\"ndash\">—</span>2)</span> Life Regeneration per second",
+    "fossil_no": [
+      "flat_life_regen",
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "helmet",
+      "boots",
+      "belt",
+      "amulet",
+      "ring",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/85ec89626ed4c595905c79401a171ef7372582fb5a6ee7fc8b771caa0507c729"
+  },
+  {
+    "Name": "of the Lizard",
+    "Level": "5",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LifeRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(2.1<span class=\"ndash\">—</span>3)</span> Life Regeneration per second",
+    "fossil_no": [
+      "flat_life_regen",
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "helmet",
+      "boots",
+      "belt",
+      "amulet",
+      "ring",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3bb9c1cb5b68f309fee6f16b3cb02250b348c88fc71c95081308e8ecedaa811e"
+  },
+  {
+    "Name": "of the Flatworm",
+    "Level": "11",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LifeRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(3.1<span class=\"ndash\">—</span>4)</span> Life Regeneration per second",
+    "fossil_no": [
+      "flat_life_regen",
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "helmet",
+      "boots",
+      "belt",
+      "amulet",
+      "ring",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/18162c016d3f678285f683cf99354a1eeb3a4809c43bce09b3d9802ea5df7eb2"
+  },
+  {
+    "Name": "of the Starfish",
+    "Level": "17",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LifeRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(4.1<span class=\"ndash\">—</span>6)</span> Life Regeneration per second",
+    "fossil_no": [
+      "flat_life_regen",
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "helmet",
+      "boots",
+      "belt",
+      "amulet",
+      "ring",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a6995bfff430eedc5da1e4b1e31ba0850963b6dbaf2f174d1fdf5bd740ad0167"
+  },
+  {
+    "Name": "of the Hydra",
+    "Level": "26",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LifeRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(6.1<span class=\"ndash\">—</span>9)</span> Life Regeneration per second",
+    "fossil_no": [
+      "flat_life_regen",
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "helmet",
+      "boots",
+      "belt",
+      "amulet",
+      "ring",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3a166a6a77ed3a3bda4f35653008f890b433c8a273e13cf166e9a0c07d938d1f"
+  },
+  {
+    "Name": "of the Troll",
+    "Level": "35",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LifeRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(9.1<span class=\"ndash\">—</span>13)</span> Life Regeneration per second",
+    "fossil_no": [
+      "flat_life_regen",
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "helmet",
+      "boots",
+      "belt",
+      "amulet",
+      "ring",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9ae132d16563d31595affaec4c0d208d4e417dd767fff4cef8a158004943e858"
+  },
+  {
+    "Name": "of Convalescence",
+    "Level": "47",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LifeRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(13.1<span class=\"ndash\">—</span>18)</span> Life Regeneration per second",
+    "fossil_no": [
+      "flat_life_regen",
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "helmet",
+      "boots",
+      "belt",
+      "amulet",
+      "ring",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ac83f08dfe4308d856621084a4ca51519416a8a519ec52b28f0e6eb40be5bffd"
+  },
+  {
+    "Name": "of Recuperation",
+    "Level": "58",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LifeRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(18.1<span class=\"ndash\">—</span>23)</span> Life Regeneration per second",
+    "fossil_no": [
+      "flat_life_regen",
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "helmet",
+      "boots",
+      "belt",
+      "amulet",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fb3df008bb8a0d1daa13f6acde5bd6580fbe2c48a4d28e2aed3ef2a5ae1e1028"
+  },
+  {
+    "Name": "of Resurgence",
+    "Level": "68",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LifeRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(23.1<span class=\"ndash\">—</span>29)</span> Life Regeneration per second",
+    "fossil_no": [
+      "flat_life_regen",
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "belt",
+      "amulet",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e15bc71f06b8df9cebbc62504d383e1578ede3222f8155f033bfc217bdacf1a1"
+  },
+  {
+    "Name": "of Immortality",
+    "Level": "75",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LifeRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(29.1<span class=\"ndash\">—</span>33)</span> Life Regeneration per second",
+    "fossil_no": [
+      "flat_life_regen",
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "amulet",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9c042871282a0c5a897eed0aab1598dab4af71f8a7293e1bac869b34100980b9"
+  },
+  {
+    "Name": "of the Phoenix",
+    "Level": "81",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LifeRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(33.1<span class=\"ndash\">—</span>36)</span> Life Regeneration per second",
+    "fossil_no": [
+      "flat_life_regen",
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d968aee4d143a08892c84e72e6c641cbc15a93dc5e727c7af0dc968414913952"
+  },
+  {
+    "Name": "Lady's",
+    "Level": "16",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseSpirit"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(30<span class=\"ndash\">—</span>33)</span> to <a data-keyword=\"Spirit\" href=\"Spirit\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/0ba37aeec43462498eae858db9ba1aa919fe6a53037cbccf734926e8ff09492c\">Spirit</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "amulet",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8469bf153c57c7a22d19b6306ef3ee0f092e527608c648bb3efd8529b177b63e"
+  },
+  {
+    "Name": "Baronness'",
+    "Level": "25",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseSpirit"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(34<span class=\"ndash\">—</span>37)</span> to <a data-keyword=\"Spirit\" href=\"Spirit\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/0ba37aeec43462498eae858db9ba1aa919fe6a53037cbccf734926e8ff09492c\">Spirit</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "amulet",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0f42ae33a63f709a2eb7801c2b7833922014771f475e906002a953c3fcf8a9fe"
+  },
+  {
+    "Name": "Viscountess'",
+    "Level": "33",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseSpirit"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(38<span class=\"ndash\">—</span>42)</span> to <a data-keyword=\"Spirit\" href=\"Spirit\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/0ba37aeec43462498eae858db9ba1aa919fe6a53037cbccf734926e8ff09492c\">Spirit</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "amulet",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/368d2f77af712c32aa27c88542f656d0553c7ffe8f20203e125da28c3dee7c00"
+  },
+  {
+    "Name": "Marchioness'",
+    "Level": "46",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseSpirit"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(43<span class=\"ndash\">—</span>46)</span> to <a data-keyword=\"Spirit\" href=\"Spirit\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/0ba37aeec43462498eae858db9ba1aa919fe6a53037cbccf734926e8ff09492c\">Spirit</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "amulet",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fbf339127cbcda8f60bcb59ce4a15ad29fb749942a598ce106f1cc3e7771665f"
+  },
+  {
+    "Name": "Countess'",
+    "Level": "54",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseSpirit"
+    ],
+    "DropChance": "400",
+    "str": "<span class='mod-value'>+(47<span class=\"ndash\">—</span>50)</span> to <a data-keyword=\"Spirit\" href=\"Spirit\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/0ba37aeec43462498eae858db9ba1aa919fe6a53037cbccf734926e8ff09492c\">Spirit</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "amulet",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/64e4cc621d25ba6ef48118250d66a02ca546135da56714bdda00c4f81c286988"
+  },
+  {
+    "Name": "Duchess'",
+    "Level": "60",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseSpirit"
+    ],
+    "DropChance": "300",
+    "str": "<span class='mod-value'>+(51<span class=\"ndash\">—</span>53)</span> to <a data-keyword=\"Spirit\" href=\"Spirit\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/0ba37aeec43462498eae858db9ba1aa919fe6a53037cbccf734926e8ff09492c\">Spirit</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/62a6b4cad29f736ec36a2c7e5a20f17481a02d3bc608dc28263196bc3c542bef"
+  },
+  {
+    "Name": "Princess'",
+    "Level": "65",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseSpirit"
+    ],
+    "DropChance": "200",
+    "str": "<span class='mod-value'>+(54<span class=\"ndash\">—</span>56)</span> to <a data-keyword=\"Spirit\" href=\"Spirit\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/0ba37aeec43462498eae858db9ba1aa919fe6a53037cbccf734926e8ff09492c\">Spirit</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b09d40d62bcd6a5edfd80e1d05fb12958a7860c232244b68696c4de0029532b4"
+  },
+  {
+    "Name": "Queen's",
+    "Level": "78",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseSpirit"
+    ],
+    "DropChance": "100",
+    "str": "<span class='mod-value'>+(57<span class=\"ndash\">—</span>61)</span> to <a data-keyword=\"Spirit\" href=\"Spirit\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/0ba37aeec43462498eae858db9ba1aa919fe6a53037cbccf734926e8ff09492c\">Spirit</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8db51b65409f6e95a0416bde4918a12c71022542635288d8f66104529ff81d3e"
+  },
+  {
+    "Name": "of Sealing",
+    "Level": "21",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedAilmentDuration"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(36<span class=\"ndash\">—</span>40)</span>% reduced Duration of <a data-keyword=\"Bleeding\" href=\"Bleeding\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e94826e6574ae16e5d3db931f0afb1a6cad1de56d7d777cd86284939093c32e1\">Bleeding</a> on You",
+    "fossil_no": [
+      "bleed",
+      "physical",
+      "ailment"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/915dde3431d8d06783d86900ba726df44b9883c5186a975faf640b6853d5b0b4"
+  },
+  {
+    "Name": "of Alleviation",
+    "Level": "37",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedAilmentDuration"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(41<span class=\"ndash\">—</span>45)</span>% reduced Duration of <a data-keyword=\"Bleeding\" href=\"Bleeding\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e94826e6574ae16e5d3db931f0afb1a6cad1de56d7d777cd86284939093c32e1\">Bleeding</a> on You",
+    "fossil_no": [
+      "bleed",
+      "physical",
+      "ailment"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8c0afcfef4352685b01771ba31856851ff8cccfa9dc8b693041f4a7243968002"
+  },
+  {
+    "Name": "of Allaying",
+    "Level": "50",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedAilmentDuration"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(46<span class=\"ndash\">—</span>50)</span>% reduced Duration of <a data-keyword=\"Bleeding\" href=\"Bleeding\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e94826e6574ae16e5d3db931f0afb1a6cad1de56d7d777cd86284939093c32e1\">Bleeding</a> on You",
+    "fossil_no": [
+      "bleed",
+      "physical",
+      "ailment"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/12a375d0559f02364eee8770c8ed3d1d254b1732357ee0244206d27c7a26b9c9"
+  },
+  {
+    "Name": "of Assuaging",
+    "Level": "64",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedAilmentDuration"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(51<span class=\"ndash\">—</span>55)</span>% reduced Duration of <a data-keyword=\"Bleeding\" href=\"Bleeding\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e94826e6574ae16e5d3db931f0afb1a6cad1de56d7d777cd86284939093c32e1\">Bleeding</a> on You",
+    "fossil_no": [
+      "bleed",
+      "physical",
+      "ailment"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a9f4d030e3889615814093931879e0bf1a78032adc663f23756acefa6c178882"
+  },
+  {
+    "Name": "of Staunching",
+    "Level": "76",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedAilmentDuration"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(56<span class=\"ndash\">—</span>60)</span>% reduced Duration of <a data-keyword=\"Bleeding\" href=\"Bleeding\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e94826e6574ae16e5d3db931f0afb1a6cad1de56d7d777cd86284939093c32e1\">Bleeding</a> on You",
+    "fossil_no": [
+      "bleed",
+      "physical",
+      "ailment"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/71aec8e4252ca9d49a6150171fde9f9854649db5dc7488588305773eb4847b79"
+  },
+  {
+    "Name": "of the Antitoxin",
+    "Level": "21",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedAilmentDuration"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(36<span class=\"ndash\">—</span>40)</span>% reduced <a data-keyword=\"Poison\" href=\"Poison\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/bf3f870bd92245bc97e75b280ccc83f2aea8c369258ab495cdc7ddf38f88ea0e\">Poison</a> Duration on you",
+    "fossil_no": [
+      "poison",
+      "chaos",
+      "ailment"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8b397973152ac1a86ebcd0a41e7ab511cda71cd69bcbb8dd8320be227d2f9a06"
+  },
+  {
+    "Name": "of the Remedy",
+    "Level": "37",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedAilmentDuration"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(41<span class=\"ndash\">—</span>45)</span>% reduced <a data-keyword=\"Poison\" href=\"Poison\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/bf3f870bd92245bc97e75b280ccc83f2aea8c369258ab495cdc7ddf38f88ea0e\">Poison</a> Duration on you",
+    "fossil_no": [
+      "poison",
+      "chaos",
+      "ailment"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2a4a8d69a419b4c6ab8277800c2988511517a4c5addb75ede970f2d87bce87c7"
+  },
+  {
+    "Name": "of the Cure",
+    "Level": "50",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedAilmentDuration"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(46<span class=\"ndash\">—</span>50)</span>% reduced <a data-keyword=\"Poison\" href=\"Poison\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/bf3f870bd92245bc97e75b280ccc83f2aea8c369258ab495cdc7ddf38f88ea0e\">Poison</a> Duration on you",
+    "fossil_no": [
+      "poison",
+      "chaos",
+      "ailment"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/af946170990f5ac58c8afffe4d303db0f31e3c5699cb96a04cf216571b5f9ba8"
+  },
+  {
+    "Name": "of the Panacea",
+    "Level": "64",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedAilmentDuration"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(51<span class=\"ndash\">—</span>55)</span>% reduced <a data-keyword=\"Poison\" href=\"Poison\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/bf3f870bd92245bc97e75b280ccc83f2aea8c369258ab495cdc7ddf38f88ea0e\">Poison</a> Duration on you",
+    "fossil_no": [
+      "poison",
+      "chaos",
+      "ailment"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6a1c0002d6720d4c1be5dea2a498403f1b094a9304a2a6e3be7df8f64af7adee"
+  },
+  {
+    "Name": "of the Antidote",
+    "Level": "76",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedAilmentDuration"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(56<span class=\"ndash\">—</span>60)</span>% reduced <a data-keyword=\"Poison\" href=\"Poison\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/bf3f870bd92245bc97e75b280ccc83f2aea8c369258ab495cdc7ddf38f88ea0e\">Poison</a> Duration on you",
+    "fossil_no": [
+      "poison",
+      "chaos",
+      "ailment"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f9335c0cfc37ad094375025588d129aa1f83b77bb49921b1e501b936095a0ada"
+  },
+  {
+    "Name": "of Damping",
+    "Level": "21",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedAilmentDuration"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(36<span class=\"ndash\">—</span>40)</span>% reduced <a data-keyword=\"Ignite\" href=\"Ignite\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3c9defd13111e72aa1053f711ddb623e66f2d9ebb88504493a12e406351be025\">Ignite</a> Duration on you",
+    "fossil_no": [
+      "elemental",
+      "fire",
+      "ailment"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ee5c90f336884400726adfb87d795c8ea052e8897f065157f27b34b89d65c35a"
+  },
+  {
+    "Name": "of Quashing",
+    "Level": "37",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedAilmentDuration"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(41<span class=\"ndash\">—</span>45)</span>% reduced <a data-keyword=\"Ignite\" href=\"Ignite\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3c9defd13111e72aa1053f711ddb623e66f2d9ebb88504493a12e406351be025\">Ignite</a> Duration on you",
+    "fossil_no": [
+      "elemental",
+      "fire",
+      "ailment"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a4fd887d401a99185a7e2e86c35c04d7c0401a05e3cb0c4761f7932fe152214b"
+  },
+  {
+    "Name": "of Quelling",
+    "Level": "50",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedAilmentDuration"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(46<span class=\"ndash\">—</span>50)</span>% reduced <a data-keyword=\"Ignite\" href=\"Ignite\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3c9defd13111e72aa1053f711ddb623e66f2d9ebb88504493a12e406351be025\">Ignite</a> Duration on you",
+    "fossil_no": [
+      "elemental",
+      "fire",
+      "ailment"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0641f8a9f42fe0b61a34f33119eefb4349383716e4689920232607591a595305"
+  },
+  {
+    "Name": "of Quenching",
+    "Level": "64",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedAilmentDuration"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(51<span class=\"ndash\">—</span>55)</span>% reduced <a data-keyword=\"Ignite\" href=\"Ignite\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3c9defd13111e72aa1053f711ddb623e66f2d9ebb88504493a12e406351be025\">Ignite</a> Duration on you",
+    "fossil_no": [
+      "elemental",
+      "fire",
+      "ailment"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/90e06393f78906ee62cec632e01523359b95fc2f3f6281f70e74fc71e5870f16"
+  },
+  {
+    "Name": "of Dousing",
+    "Level": "76",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ReducedAilmentDuration"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(56<span class=\"ndash\">—</span>60)</span>% reduced <a data-keyword=\"Ignite\" href=\"Ignite\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3c9defd13111e72aa1053f711ddb623e66f2d9ebb88504493a12e406351be025\">Ignite</a> Duration on you",
+    "fossil_no": [
+      "elemental",
+      "fire",
+      "ailment"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingailment\" data-tag=\"ailment\">Ailment</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/95ada519f21de6babf6a633eb5d0fcd92b4b6840d354cbbce91d051a0713a68c"
+  },
+  {
+    "Name": "of Covering",
+    "Level": "1",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ArmourAppliesToElementalDamage"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(14<span class=\"ndash\">—</span>19)</span>% of <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> also applies to <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/76ff55a46c9d3d007722fb5ccb09592dc48359db448d433f7e0c8dfc6e94dcbd\">Elemental Damage</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "elemental"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_int_armour",
+      "str_int_armour",
+      "str_dex_armour",
+      "str_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2fd841757d590be27dc31fec5a519685564688374539b7a5d2c120fdcdc7d8c4"
+  },
+  {
+    "Name": "of Sheathing",
+    "Level": "16",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ArmourAppliesToElementalDamage"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(20<span class=\"ndash\">—</span>25)</span>% of <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> also applies to <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/76ff55a46c9d3d007722fb5ccb09592dc48359db448d433f7e0c8dfc6e94dcbd\">Elemental Damage</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "elemental"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_int_armour",
+      "str_int_armour",
+      "str_dex_armour",
+      "str_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4b6f06e0cbabc64790551f5ee0c078648c8a00568d697f52fa2c62bb85100373"
+  },
+  {
+    "Name": "of Lining",
+    "Level": "36",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ArmourAppliesToElementalDamage"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(26<span class=\"ndash\">—</span>31)</span>% of <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> also applies to <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/76ff55a46c9d3d007722fb5ccb09592dc48359db448d433f7e0c8dfc6e94dcbd\">Elemental Damage</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "elemental"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_int_armour",
+      "str_int_armour",
+      "str_dex_armour",
+      "str_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/522c67ab46dd87001e8036a1dfc9bce0a32a50bb17d8da1b8157cbf708277fa9"
+  },
+  {
+    "Name": "of Padding",
+    "Level": "48",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ArmourAppliesToElementalDamage"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(32<span class=\"ndash\">—</span>37)</span>% of <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> also applies to <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/76ff55a46c9d3d007722fb5ccb09592dc48359db448d433f7e0c8dfc6e94dcbd\">Elemental Damage</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "elemental"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_int_armour",
+      "str_int_armour",
+      "str_dex_armour",
+      "str_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/91024063d1922a386bebe9298fa8d69c6a3890b3f652383b35a2ecb158e26705"
+  },
+  {
+    "Name": "of Furring",
+    "Level": "66",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ArmourAppliesToElementalDamage"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(38<span class=\"ndash\">—</span>43)</span>% of <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> also applies to <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/76ff55a46c9d3d007722fb5ccb09592dc48359db448d433f7e0c8dfc6e94dcbd\">Elemental Damage</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "elemental"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_int_armour",
+      "str_int_armour",
+      "str_dex_armour",
+      "str_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3833cf22b330c420db169c8b1c6d9303e4078bcfa3c71e68a7a28fa4a3161fd7"
+  },
+  {
+    "Name": "of Thermokryptance",
+    "Level": "81",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ArmourAppliesToElementalDamage"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(44<span class=\"ndash\">—</span>50)</span>% of <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> also applies to <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/76ff55a46c9d3d007722fb5ccb09592dc48359db448d433f7e0c8dfc6e94dcbd\">Elemental Damage</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "elemental"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "helmet",
+      "gloves",
+      "boots",
+      "str_dex_int_armour",
+      "str_int_armour",
+      "str_dex_armour",
+      "str_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a07bfde6f11a232d7fdcc67e7cfe1dbf9cfdb04db748f7a6e4a01fb35152f255"
+  },
+  {
+    "Name": "of Deflecting",
+    "Level": "1",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "EvasionAppliesToDeflection"
+    ],
+    "DropChance": "500",
+    "str": "Gain <a data-keyword=\"Deflect\" href=\"Deflect\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/faa64b5c56e45e9a1c420b62d523b071a96efd778d924ea28364714d6073172e\">Deflection Rating</a> equal to <span class='mod-value'>(8<span class=\"ndash\">—</span>11)</span>% of <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion Rating</a>",
+    "fossil_no": [
+      "defences",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_int_armour",
+      "dex_int_armour",
+      "str_dex_armour",
+      "dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/75330ab4ab9e8f4b04b07953f26867838247c23adbdf197f09f28b4094dd4de3"
+  },
+  {
+    "Name": "of Bending",
+    "Level": "16",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "EvasionAppliesToDeflection"
+    ],
+    "DropChance": "500",
+    "str": "Gain <a data-keyword=\"Deflect\" href=\"Deflect\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/faa64b5c56e45e9a1c420b62d523b071a96efd778d924ea28364714d6073172e\">Deflection Rating</a> equal to <span class='mod-value'>(12<span class=\"ndash\">—</span>14)</span>% of <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion Rating</a>",
+    "fossil_no": [
+      "defences",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_int_armour",
+      "dex_int_armour",
+      "str_dex_armour",
+      "dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/40291c23a5471623db8e34664ca1467e5673dd6b154d96cd69c318f11cf18778"
+  },
+  {
+    "Name": "of Curvation",
+    "Level": "36",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "EvasionAppliesToDeflection"
+    ],
+    "DropChance": "500",
+    "str": "Gain <a data-keyword=\"Deflect\" href=\"Deflect\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/faa64b5c56e45e9a1c420b62d523b071a96efd778d924ea28364714d6073172e\">Deflection Rating</a> equal to <span class='mod-value'>(15<span class=\"ndash\">—</span>17)</span>% of <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion Rating</a>",
+    "fossil_no": [
+      "defences",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_int_armour",
+      "dex_int_armour",
+      "str_dex_armour",
+      "dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2d876537639fa49581dc16588611e5886c9a2f9e5afc4c1a9f11018aee11dab6"
+  },
+  {
+    "Name": "of Diversion",
+    "Level": "48",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "EvasionAppliesToDeflection"
+    ],
+    "DropChance": "500",
+    "str": "Gain <a data-keyword=\"Deflect\" href=\"Deflect\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/faa64b5c56e45e9a1c420b62d523b071a96efd778d924ea28364714d6073172e\">Deflection Rating</a> equal to <span class='mod-value'>(18<span class=\"ndash\">—</span>20)</span>% of <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion Rating</a>",
+    "fossil_no": [
+      "defences",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_int_armour",
+      "dex_int_armour",
+      "str_dex_armour",
+      "dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/bdf406c6339f6e3f095c753906e321f76cc691bba0211653480d489ab0160b54"
+  },
+  {
+    "Name": "of Flexure",
+    "Level": "66",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "EvasionAppliesToDeflection"
+    ],
+    "DropChance": "500",
+    "str": "Gain <a data-keyword=\"Deflect\" href=\"Deflect\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/faa64b5c56e45e9a1c420b62d523b071a96efd778d924ea28364714d6073172e\">Deflection Rating</a> equal to <span class='mod-value'>(21<span class=\"ndash\">—</span>23)</span>% of <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion Rating</a>",
+    "fossil_no": [
+      "defences",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_int_armour",
+      "dex_int_armour",
+      "str_dex_armour",
+      "dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/80f0c25ca0f5198f24c432edcc6fcc2f7ca7cf274a4d54b462c9f765a8dcbd83"
+  },
+  {
+    "Name": "of Warping",
+    "Level": "81",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "EvasionAppliesToDeflection"
+    ],
+    "DropChance": "500",
+    "str": "Gain <a data-keyword=\"Deflect\" href=\"Deflect\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/faa64b5c56e45e9a1c420b62d523b071a96efd778d924ea28364714d6073172e\">Deflection Rating</a> equal to <span class='mod-value'>(24<span class=\"ndash\">—</span>26)</span>% of <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion Rating</a>",
+    "fossil_no": [
+      "defences",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "helmet",
+      "gloves",
+      "boots",
+      "str_dex_int_armour",
+      "dex_int_armour",
+      "str_dex_armour",
+      "dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2b9c6b44216bb6de101d2ec7aa2d0885db46d320893b46821c84ca4bdcc8a759"
+  }
+]

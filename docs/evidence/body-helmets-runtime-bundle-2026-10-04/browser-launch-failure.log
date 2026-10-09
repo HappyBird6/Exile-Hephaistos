@@ -1,0 +1,1 @@
+Browser final launch first attempt failed: QA-root bind mount hid image /qa/node_modules/playwright. Removed only the redundant bind mount, retried same script and assertions. Tool session 43589 exited 1 before browser startup; no screenshots or result were written.

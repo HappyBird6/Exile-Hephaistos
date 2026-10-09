@@ -1,0 +1,77 @@
+{
+  "row": {
+    "Name": "Burnished",
+    "Level": "8",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "PhysicalDamage"
+    ],
+    "DropChance": "1000",
+    "str": "Adds <span class='mod-value'>(4<span class=\"ndash\">—</span>6)</span> to <span class='mod-value'>(7<span class=\"ndash\">—</span>11)</span> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage",
+    "fossil_no": [
+      "physical_damage",
+      "damage",
+      "physical",
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "bow",
+      "one_hand_weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7f3fd288537f3bf8dee7fe44a1b58e0774150e610bcac440d5edc5bf5c265c55"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalAddedPhysicalDamage2",
+  "textLocale": "us",
+  "detailText": "Adds (4—6) to (7—11) Physical Damage",
+  "retrievedAt": "2026-10-05T08:12:50.534Z",
+  "sha256": "7f3fd288537f3bf8dee7fe44a1b58e0774150e610bcac440d5edc5bf5c265c55",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Adds <span class='mod-value'>(4<span class=\"ndash\">—</span>6)</span> to <span class='mod-value'>(7<span class=\"ndash\">—</span>11)</span> <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage</span></h5>   <span data-tabname=\"Burnished\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Burnished\n<tr><th>Family<td>PhysicalDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>8 (Effective: 6)\n<tr><th>Gold Price<td>145\n<tr><th>Stats<td><li>local maximum added physical damage <span class=\"badge bg-primary\">7 <span class=\"ndash\">—</span> 11</span> <span class=\"badge bg-secondary\">Local</span></li><li>local minimum added physical damage <span class=\"badge bg-primary\">4 <span class=\"ndash\">—</span> 6</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>bow: 1</span> <span class='badge bg-primary'>one_hand_weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>physical_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Physical</span> <span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Burnished",
+    "Family": "PhysicalDamage",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "8 (Effective: 6)",
+    "Gold Price": "145",
+    "Stats": "local maximum added physical damage 7 — 11 Locallocal minimum added physical damage 4 — 6 Local",
+    "Spawn Tags": "bow: 1 one_hand_weapon: 1 default: 0",
+    "Craft Tags": "physical_damage Damage Physical Attack"
+  },
+  "code": "LocalAddedPhysicalDamage2",
+  "stats": [
+    {
+      "id": "local_maximum_added_physical_damage",
+      "min": 7,
+      "max": 11,
+      "locality": "Local"
+    },
+    {
+      "id": "local_minimum_added_physical_damage",
+      "min": 4,
+      "max": 6,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "bow",
+      "weight": 1
+    },
+    {
+      "tag": "one_hand_weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "page": "Helmets_str_dex",
+  "url": "https://poe2db.tw/us/Helmets_str_dex",
+  "retrievedAt": "2026-10-04T14:44:54.605Z",
+  "sha256": "d0965ddd827fd1cadd2a5dffc67e42af074b828182b2c48d49151ede9b9178ed",
+  "cards": [
+    {
+      "slug": "Brimmed_Helm",
+      "card": "Brimmed HelmArmour: 26Evasion Rating: 20Requires:  Level 5, 7 Str, 7 Dex"
+    },
+    {
+      "slug": "Guarded_Helm",
+      "card": "Guarded HelmArmour: 42Evasion Rating: 34Requires:  Level 11, 11 Str, 11 Dex"
+    },
+    {
+      "slug": "Visored_Helm",
+      "card": "Visored HelmArmour: 54Evasion Rating: 46Requires:  Level 16, 15 Str, 15 Dex"
+    },
+    {
+      "slug": "Cowled_Helm",
+      "card": "Cowled HelmArmour: 80Evasion Rating: 70Requires:  Level 26, 22 Str, 22 Dex"
+    },
+    {
+      "slug": "Shielded_Helm",
+      "card": "Shielded HelmArmour: 97Evasion Rating: 87Requires:  Level 33, 27 Str, 27 Dex"
+    },
+    {
+      "slug": "Closed_Helm",
+      "card": "Closed HelmArmour: 128Evasion Rating: 115Requires:  Level 45, 36 Str, 36 Dex"
+    },
+    {
+      "slug": "Decorated_Helm",
+      "card": "Decorated HelmArmour: 146Evasion Rating: 132Requires:  Level 52, 41 Str, 41 Dex"
+    },
+    {
+      "slug": "Gallant_Helm",
+      "card": "Gallant HelmArmour: 179Evasion Rating: 163Requires:  Level 65, 50 Str, 50 Dex"
+    },
+    {
+      "slug": "Ancient_Visor",
+      "card": "Ancient VisorArmour: 179Evasion Rating: 163Requires:  Level 65, 59 Str, 59 Dex"
+    },
+    {
+      "slug": "Domed_Helm",
+      "card": "Domed HelmArmour: 128Evasion Rating: 115Requires:  Level 45, 36 Str, 36 Dex"
+    },
+    {
+      "slug": "Engraved_Helm",
+      "card": "Engraved HelmArmour: 136Evasion Rating: 122Requires:  Level 48, 38 Str, 38 Dex"
+    },
+    {
+      "slug": "Soldier_Helm",
+      "card": "Soldier HelmArmour: 143Evasion Rating: 129Requires:  Level 51, 40 Str, 40 Dex"
+    },
+    {
+      "slug": "Cabalist_Helm",
+      "card": "Cabalist HelmArmour: 151Evasion Rating: 137Requires:  Level 54, 42 Str, 42 Dex"
+    },
+    {
+      "slug": "Cassis_Helm",
+      "card": "Cassis HelmArmour: 163Evasion Rating: 149Requires:  Level 59, 46 Str, 46 Dex"
+    },
+    {
+      "slug": "Warded_Helm",
+      "card": "Warded HelmArmour: 179Evasion Rating: 163Requires:  Level 65, 50 Str, 50 Dex"
+    },
+    {
+      "slug": "Cryptic_Helm",
+      "card": "Cryptic HelmArmour: 188Evasion Rating: 171Requires:  Level 70, 54 Str, 54 Dex"
+    },
+    {
+      "slug": "Champion_Helm",
+      "card": "Champion HelmArmour: 197Evasion Rating: 179Requires:  Level 75, 59 Str, 59 Dex"
+    },
+    {
+      "slug": "Gladiatorial_Helm",
+      "card": "Gladiatorial HelmArmour: 206Evasion Rating: 187Requires:  Level 80, 63 Str, 63 Dex"
+    },
+    {
+      "slug": "Runeforged_Brimmed_Helm",
+      "card": "Runeforged Brimmed HelmArmour: 26Evasion Rating: 20Runic Ward: 26Requires:  Level 5, 7 Str, 7 Dex"
+    },
+    {
+      "slug": "Runeforged_Guarded_Helm",
+      "card": "Runeforged Guarded HelmArmour: 42Evasion Rating: 34Runic Ward: 32Requires:  Level 11, 11 Str, 11 Dex"
+    },
+    {
+      "slug": "Runeforged_Visored_Helm",
+      "card": "Runeforged Visored HelmArmour: 54Evasion Rating: 46Runic Ward: 35Requires:  Level 16, 15 Str, 15 Dex"
+    },
+    {
+      "slug": "Runeforged_Cowled_Helm",
+      "card": "Runeforged Cowled HelmArmour: 80Evasion Rating: 70Runic Ward: 41Requires:  Level 26, 22 Str, 22 Dex"
+    },
+    {
+      "slug": "Runeforged_Shielded_Helm",
+      "card": "Runeforged Shielded HelmArmour: 97Evasion Rating: 87Runic Ward: 44Requires:  Level 33, 27 Str, 27 Dex"
+    },
+    {
+      "slug": "Runeforged_Closed_Helm",
+      "card": "Runeforged Closed HelmArmour: 128Evasion Rating: 115Runic Ward: 52Requires:  Level 45, 36 Str, 36 Dex"
+    },
+    {
+      "slug": "Runeforged_Cabalist_Helm",
+      "card": "Runeforged Cabalist HelmArmour: 121Evasion Rating: 109Runic Ward: 96Requires:  Level 54, 42 Str, 42 Dex"
+    },
+    {
+      "slug": "Runeforged_Gladiatorial_Helm",
+      "card": "Runeforged Gladiatorial HelmArmour: 150Evasion Rating: 137Runic Ward: 65Requires:  Level 59, 46 Str, 46 Dex"
+    },
+    {
+      "slug": "Runeforged_Warded_Helm",
+      "card": "Runeforged Warded HelmArmour: 172Evasion Rating: 156Runic Ward: 48Requires:  Level 65, 50 Str, 50 Dex"
+    },
+    {
+      "slug": "Runeforged_Cryptic_Helm",
+      "card": "Runeforged Cryptic HelmArmour: 154Evasion Rating: 140Runic Ward: 85Requires:  Level 70, 54 Str, 54 Dex"
+    },
+    {
+      "slug": "Runeforged_Champion_Helm",
+      "card": "Runeforged Champion HelmArmour: 186Evasion Rating: 169Runic Ward: 56Requires:  Level 75, 59 Str, 59 Dex"
+    },
+    {
+      "slug": "Runeforged_Gladiatorial_Helm",
+      "card": "Runeforged Gladiatorial HelmArmour: 86Evasion Rating: 78Runic Ward: 254Requires:  Level 80, 63 Str, 63 Dex"
+    },
+    {
+      "slug": "Runemastered_Brimmed_Helm",
+      "card": "Runemastered Brimmed HelmArmour: 44Evasion Rating: 39Runic Ward: 109Requires:  Level 38, 31 Str, 31 Dex"
+    },
+    {
+      "slug": "Runemastered_Guarded_Helm",
+      "card": "Runemastered Guarded HelmArmour: 275Evasion Rating: 247Runic Ward: 36Requires:  Level 38, 31 Str, 31 Dex"
+    },
+    {
+      "slug": "Runemastered_Visored_Helm",
+      "card": "Runemastered Visored HelmArmour: 77Evasion Rating: 69Runic Ward: 54Requires:  Level 38, 31 Str, 31 Dex"
+    },
+    {
+      "slug": "Runemastered_Cowled_Helm",
+      "card": "Runemastered Cowled HelmArmour: 104Evasion Rating: 93Runic Ward: 19Requires:  Level 40, 32 Str, 32 Dex"
+    },
+    {
+      "slug": "Runemastered_Shielded_Helm",
+      "card": "Runemastered Shielded HelmArmour: 107Evasion Rating: 97Runic Ward: 122Requires:  Level 55, 43 Str, 43 Dex"
+    },
+    {
+      "slug": "Runemastered_Decorated_Helm",
+      "card": "Runemastered Decorated HelmArmour: 161Evasion Rating: 146Runic Ward: 70Requires:  Level 65, 50 Str, 50 Dex"
+    },
+    {
+      "slug": "Runemastered_Ancient_Visor",
+      "card": "Runemastered Ancient VisorArmour: 168Evasion Rating: 153Runic Ward: 59Requires:  Level 65, 59 Str, 59 Dex"
+    }
+  ]
+}

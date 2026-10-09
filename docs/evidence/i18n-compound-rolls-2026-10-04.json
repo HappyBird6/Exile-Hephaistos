@@ -1,0 +1,4110 @@
+{
+  "method": "Reviewed English stat semantics/order, canonical stat identity and exact numeric bounds; no inferred conversion",
+  "count": 228,
+  "mappings": [
+    {
+      "id": "stocky-mitts:prefix:oyster-s",
+      "sourceCode": "LocalIncreasedArmourAndLife1",
+      "values": [
+        "(6—13)",
+        "+(7—10)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:lobster-s",
+      "sourceCode": "LocalIncreasedArmourAndLife2",
+      "values": [
+        "(14—20)",
+        "+(11—19)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:urchin-s",
+      "sourceCode": "LocalIncreasedArmourAndLife3",
+      "values": [
+        "(21—26)",
+        "+(20—25)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:nautilus",
+      "sourceCode": "LocalIncreasedArmourAndLife4",
+      "values": [
+        "(27—32)",
+        "+(26—32)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:octopus",
+      "sourceCode": "LocalIncreasedArmourAndLife5",
+      "values": [
+        "(33—38)",
+        "+(33—41)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:crocodile-s",
+      "sourceCode": "LocalIncreasedArmourAndLife6",
+      "values": [
+        "(39—42)",
+        "+(42—49)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:glinting",
+      "sourceCode": "AddedPhysicalDamage1",
+      "values": [
+        "(1—2)",
+        "3"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:burnished",
+      "sourceCode": "AddedPhysicalDamage2",
+      "values": [
+        "(2—3)",
+        "(4—6)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:polished",
+      "sourceCode": "AddedPhysicalDamage3",
+      "values": [
+        "(2—4)",
+        "(5—8)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:honed",
+      "sourceCode": "AddedPhysicalDamage4",
+      "values": [
+        "(4—6)",
+        "(8—11)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:gleaming",
+      "sourceCode": "AddedPhysicalDamage5",
+      "values": [
+        "(5—7)",
+        "(9—13)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:annealed",
+      "sourceCode": "AddedPhysicalDamage6",
+      "values": [
+        "(6—10)",
+        "(12—17)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:razor-sharp",
+      "sourceCode": "AddedPhysicalDamage7",
+      "values": [
+        "(7—11)",
+        "(14—20)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:tempered",
+      "sourceCode": "AddedPhysicalDamage8",
+      "values": [
+        "(10—15)",
+        "(18—26)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:flaring",
+      "sourceCode": "AddedPhysicalDamage9",
+      "values": [
+        "(12—19)",
+        "(22—32)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:heated",
+      "sourceCode": "AddedFireDamage1",
+      "values": [
+        "(1—2)",
+        "3"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:smouldering",
+      "sourceCode": "AddedFireDamage2",
+      "values": [
+        "(3—5)",
+        "(6—9)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:smoking",
+      "sourceCode": "AddedFireDamage3",
+      "values": [
+        "(6—8)",
+        "(10—13)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:burning",
+      "sourceCode": "AddedFireDamage4",
+      "values": [
+        "(9—11)",
+        "(14—17)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:flaming",
+      "sourceCode": "AddedFireDamage5",
+      "values": [
+        "(12—13)",
+        "(18—20)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:scorching",
+      "sourceCode": "AddedFireDamage6",
+      "values": [
+        "(11—16)",
+        "(21—26)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:incinerating",
+      "sourceCode": "AddedFireDamage7",
+      "values": [
+        "(13—19)",
+        "(27—32)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:blasting",
+      "sourceCode": "AddedFireDamage8",
+      "values": [
+        "(20—24)",
+        "(33—36)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:cremating",
+      "sourceCode": "AddedFireDamage9",
+      "values": [
+        "(25—29)",
+        "(37—45)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:frosted",
+      "sourceCode": "AddedColdDamage1",
+      "values": [
+        "1",
+        "(2—3)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:chilled",
+      "sourceCode": "AddedColdDamage2",
+      "values": [
+        "(3—4)",
+        "(5—8)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:icy",
+      "sourceCode": "AddedColdDamage3",
+      "values": [
+        "(5—6)",
+        "(9—11)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:frigid",
+      "sourceCode": "AddedColdDamage4",
+      "values": [
+        "(7—8)",
+        "(12—14)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:freezing",
+      "sourceCode": "AddedColdDamage5",
+      "values": [
+        "(9—10)",
+        "(15—17)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:frozen",
+      "sourceCode": "AddedColdDamage6",
+      "values": [
+        "(11—13)",
+        "(18—21)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:glaciated",
+      "sourceCode": "AddedColdDamage7",
+      "values": [
+        "(14—15)",
+        "(22—24)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:polar",
+      "sourceCode": "AddedColdDamage8",
+      "values": [
+        "(16—20)",
+        "(25—31)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:entombing",
+      "sourceCode": "AddedColdDamage9",
+      "values": [
+        "(21—24)",
+        "(32—37)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:humming",
+      "sourceCode": "AddedLightningDamage1",
+      "values": [
+        "1",
+        "(4—6)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:buzzing",
+      "sourceCode": "AddedLightningDamage2",
+      "values": [
+        "1",
+        "(10—15)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:snapping",
+      "sourceCode": "AddedLightningDamage3",
+      "values": [
+        "1",
+        "(16—22)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:crackling",
+      "sourceCode": "AddedLightningDamage4",
+      "values": [
+        "1",
+        "(23—27)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:sparking",
+      "sourceCode": "AddedLightningDamage5",
+      "values": [
+        "1",
+        "(28—32)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:arcing",
+      "sourceCode": "AddedLightningDamage6",
+      "values": [
+        "(1—2)",
+        "(33—40)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:shocking",
+      "sourceCode": "AddedLightningDamage7",
+      "values": [
+        "(1—2)",
+        "(41—47)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:discharging",
+      "sourceCode": "AddedLightningDamage8",
+      "values": [
+        "(1—3)",
+        "(48—59)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "stocky-mitts:prefix:electrocuting",
+      "sourceCode": "AddedLightningDamage9",
+      "values": [
+        "(1—4)",
+        "(60—71)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:glinting",
+      "sourceCode": "LocalAddedPhysicalDamage1",
+      "values": [
+        "(1—2)",
+        "(4—5)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:burnished",
+      "sourceCode": "LocalAddedPhysicalDamage2",
+      "values": [
+        "(4—6)",
+        "(7—11)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:polished",
+      "sourceCode": "LocalAddedPhysicalDamage3",
+      "values": [
+        "(6—9)",
+        "(11—16)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:honed",
+      "sourceCode": "LocalAddedPhysicalDamage4",
+      "values": [
+        "(8—12)",
+        "(14—21)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:gleaming",
+      "sourceCode": "LocalAddedPhysicalDamage5",
+      "values": [
+        "(10—15)",
+        "(18—26)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:annealed",
+      "sourceCode": "LocalAddedPhysicalDamage6",
+      "values": [
+        "(13—20)",
+        "(23—35)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:razor-sharp",
+      "sourceCode": "LocalAddedPhysicalDamage7",
+      "values": [
+        "(16—24)",
+        "(28—42)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:tempered",
+      "sourceCode": "LocalAddedPhysicalDamage8",
+      "values": [
+        "(21—31)",
+        "(36—53)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:flaring",
+      "sourceCode": "LocalAddedPhysicalDamage9",
+      "values": [
+        "(26—39)",
+        "(44—66)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:heated",
+      "sourceCode": "LocalAddedFireDamage1",
+      "values": [
+        "(1—2)",
+        "(3—5)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:smouldering",
+      "sourceCode": "LocalAddedFireDamage2",
+      "values": [
+        "(4—6)",
+        "(7—10)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:smoking",
+      "sourceCode": "LocalAddedFireDamage3",
+      "values": [
+        "(7—11)",
+        "(13—19)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:burning",
+      "sourceCode": "LocalAddedFireDamage4",
+      "values": [
+        "(13—19)",
+        "(21—29)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:flaming",
+      "sourceCode": "LocalAddedFireDamage5",
+      "values": [
+        "(20—24)",
+        "(32—37)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:scorching",
+      "sourceCode": "LocalAddedFireDamage6",
+      "values": [
+        "(25—33)",
+        "(38—54)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:incinerating",
+      "sourceCode": "LocalAddedFireDamage7",
+      "values": [
+        "(35—44)",
+        "(56—71)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:blasting",
+      "sourceCode": "LocalAddedFireDamage8",
+      "values": [
+        "(47—59)",
+        "(74—97)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:cremating",
+      "sourceCode": "LocalAddedFireDamage9",
+      "values": [
+        "(62—85)",
+        "(101—129)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:carbonising",
+      "sourceCode": "LocalAddedFireDamage10_",
+      "values": [
+        "(88—101)",
+        "(133—154)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:frosted",
+      "sourceCode": "LocalAddedColdDamage1",
+      "values": [
+        "(1—2)",
+        "(3—4)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:chilled",
+      "sourceCode": "LocalAddedColdDamage2",
+      "values": [
+        "(3—5)",
+        "(6—9)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:icy",
+      "sourceCode": "LocalAddedColdDamage3",
+      "values": [
+        "(6—9)",
+        "(10—16)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:frigid",
+      "sourceCode": "LocalAddedColdDamage4",
+      "values": [
+        "(11—15)",
+        "(17—24)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:freezing",
+      "sourceCode": "LocalAddedColdDamage5",
+      "values": [
+        "(17—20)",
+        "(26—32)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:frozen",
+      "sourceCode": "LocalAddedColdDamage6",
+      "values": [
+        "(22—29)",
+        "(34—44)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:glaciated",
+      "sourceCode": "LocalAddedColdDamage7",
+      "values": [
+        "(31—38)",
+        "(47—59)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:polar",
+      "sourceCode": "LocalAddedColdDamage8",
+      "values": [
+        "(40—53)",
+        "(62—80)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:entombing",
+      "sourceCode": "LocalAddedColdDamage9",
+      "values": [
+        "(55—69)",
+        "(83—106)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:crystalising",
+      "sourceCode": "LocalAddedColdDamage10__",
+      "values": [
+        "(72—81)",
+        "(110—123)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:humming",
+      "sourceCode": "LocalAddedLightningDamage1",
+      "values": [
+        "1",
+        "(4—6)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:buzzing",
+      "sourceCode": "LocalAddedLightningDamage2",
+      "values": [
+        "1",
+        "(13—19)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:snapping",
+      "sourceCode": "LocalAddedLightningDamage3",
+      "values": [
+        "(1—2)",
+        "(20—30)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:crackling",
+      "sourceCode": "LocalAddedLightningDamage4",
+      "values": [
+        "(1—2)",
+        "(36—52)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:sparking",
+      "sourceCode": "LocalAddedLightningDamage5",
+      "values": [
+        "(1—3)",
+        "(55—60)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:arcing",
+      "sourceCode": "LocalAddedLightningDamage6",
+      "values": [
+        "(1—4)",
+        "(63—82)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:shocking",
+      "sourceCode": "LocalAddedLightningDamage7",
+      "values": [
+        "(1—6)",
+        "(85—107)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:discharging",
+      "sourceCode": "LocalAddedLightningDamage8",
+      "values": [
+        "(1—8)",
+        "(111—152)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:electrocuting",
+      "sourceCode": "LocalAddedLightningDamage9",
+      "values": [
+        "(1—10)",
+        "(157—196)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:vapourising",
+      "sourceCode": "LocalAddedLightningDamage10",
+      "values": [
+        "(1—12)",
+        "(202—234)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:squire-s",
+      "sourceCode": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating1",
+      "values": [
+        "(15—19)",
+        "+(16—20)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:journeyman-s",
+      "sourceCode": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating2",
+      "values": [
+        "(20—24)",
+        "+(21—46)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:reaver-s",
+      "sourceCode": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating3",
+      "values": [
+        "(25—34)",
+        "+(47—72)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:mercenary-s",
+      "sourceCode": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating4",
+      "values": [
+        "(35—44)",
+        "+(73—97)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:champion-s",
+      "sourceCode": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating5",
+      "values": [
+        "(45—54)",
+        "+(98—123)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:conqueror-s",
+      "sourceCode": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating6",
+      "values": [
+        "(55—64)",
+        "+(124—149)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:emperor-s",
+      "sourceCode": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating7",
+      "values": [
+        "(65—74)",
+        "+(150—174)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:prefix:dictator-s",
+      "sourceCode": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating8",
+      "values": [
+        "(75—79)",
+        "+(175—200)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:suffix:of-shining",
+      "sourceCode": "LocalLightRadiusAndAccuracy1",
+      "values": [
+        "+(10—20)",
+        "5"
+      ],
+      "valueStats": [
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        },
+        {
+          "id": "light_radius_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:suffix:of-light",
+      "sourceCode": "LocalLightRadiusAndAccuracy2",
+      "values": [
+        "+(21—40)",
+        "10"
+      ],
+      "valueStats": [
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        },
+        {
+          "id": "light_radius_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "crude-bow:suffix:of-radiance",
+      "sourceCode": "LocalLightRadiusAndAccuracy3",
+      "values": [
+        "+(41—60)",
+        "15"
+      ],
+      "valueStats": [
+        {
+          "id": "local_accuracy_rating",
+          "divisor": 1
+        },
+        {
+          "id": "light_radius_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "attuned-wand:prefix:caster-s",
+      "sourceCode": "SpellDamageAndManaOnWeapon1",
+      "values": [
+        "(15—19)",
+        "+(17—20)"
+      ],
+      "valueStats": [
+        {
+          "id": "spell_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "attuned-wand:prefix:conjuror-s",
+      "sourceCode": "SpellDamageAndManaOnWeapon2",
+      "values": [
+        "(20—24)",
+        "+(21—24)"
+      ],
+      "valueStats": [
+        {
+          "id": "spell_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "attuned-wand:prefix:wizard-s",
+      "sourceCode": "SpellDamageAndManaOnWeapon3",
+      "values": [
+        "(25—29)",
+        "+(25—28)"
+      ],
+      "valueStats": [
+        {
+          "id": "spell_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "attuned-wand:prefix:warlock-s",
+      "sourceCode": "SpellDamageAndManaOnWeapon4",
+      "values": [
+        "(30—34)",
+        "+(29—33)"
+      ],
+      "valueStats": [
+        {
+          "id": "spell_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "attuned-wand:prefix:mage-s",
+      "sourceCode": "SpellDamageAndManaOnWeapon5",
+      "values": [
+        "(35—39)",
+        "+(34—37)"
+      ],
+      "valueStats": [
+        {
+          "id": "spell_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "attuned-wand:prefix:archmage-s",
+      "sourceCode": "SpellDamageAndManaOnWeapon6",
+      "values": [
+        "(40—44)",
+        "+(38—41)"
+      ],
+      "valueStats": [
+        {
+          "id": "spell_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "attuned-wand:prefix:lich-s",
+      "sourceCode": "SpellDamageAndManaOnWeapon7",
+      "values": [
+        "(45—49)",
+        "+(42—45)"
+      ],
+      "valueStats": [
+        {
+          "id": "spell_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "attuned-wand:suffix:of-warmth",
+      "sourceCode": "LightRadiusAndManaRegeneration1",
+      "values": [
+        "(8—12)",
+        "5"
+      ],
+      "valueStats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "divisor": 1
+        },
+        {
+          "id": "light_radius_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "attuned-wand:suffix:of-kindling",
+      "sourceCode": "LightRadiusAndManaRegeneration2",
+      "values": [
+        "(13—17)",
+        "10"
+      ],
+      "valueStats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "divisor": 1
+        },
+        {
+          "id": "light_radius_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "attuned-wand:suffix:of-the-hearth",
+      "sourceCode": "LightRadiusAndManaRegeneration3",
+      "values": [
+        "(18—22)",
+        "15"
+      ],
+      "valueStats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "divisor": 1
+        },
+        {
+          "id": "light_radius_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:oyster-s",
+      "sourceCode": "LocalIncreasedArmourAndLife1",
+      "values": [
+        "(6—13)",
+        "+(7—10)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:lobster-s",
+      "sourceCode": "LocalIncreasedArmourAndLife2",
+      "values": [
+        "(14—20)",
+        "+(11—19)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:urchin-s",
+      "sourceCode": "LocalIncreasedArmourAndLife3",
+      "values": [
+        "(21—26)",
+        "+(20—25)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:nautilus",
+      "sourceCode": "LocalIncreasedArmourAndLife4",
+      "values": [
+        "(27—32)",
+        "+(26—32)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:octopus",
+      "sourceCode": "LocalIncreasedArmourAndLife5",
+      "values": [
+        "(33—38)",
+        "+(33—41)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:crocodile-s",
+      "sourceCode": "LocalIncreasedArmourAndLife6",
+      "values": [
+        "(39—42)",
+        "+(42—49)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:abalone-s",
+      "sourceCode": "LocalIncreasedArmourAndBase1",
+      "values": [
+        "+(5—9)",
+        "(6—13)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "divisor": 1
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:snail-s",
+      "sourceCode": "LocalIncreasedArmourAndBase2",
+      "values": [
+        "+(10—29)",
+        "(14—20)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "divisor": 1
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:tortoise-s",
+      "sourceCode": "LocalIncreasedArmourAndBase3",
+      "values": [
+        "+(30—41)",
+        "(21—26)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "divisor": 1
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:pangolin-s",
+      "sourceCode": "LocalIncreasedArmourAndBase4",
+      "values": [
+        "+(42—57)",
+        "(27—32)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "divisor": 1
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:shelled",
+      "sourceCode": "LocalIncreasedArmourAndBase5",
+      "values": [
+        "+(58—75)",
+        "(33—38)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "divisor": 1
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:hardened",
+      "sourceCode": "LocalIncreasedArmourAndBase6",
+      "values": [
+        "+(76—95)",
+        "(39—42)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "divisor": 1
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:thorny",
+      "sourceCode": "AttackerTakesDamage1",
+      "values": [
+        "(1—2)",
+        "(3—4)"
+      ],
+      "valueStats": [
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:spiny",
+      "sourceCode": "AttackerTakesDamage2",
+      "values": [
+        "(5—7)",
+        "(7—10)"
+      ],
+      "valueStats": [
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:barbed",
+      "sourceCode": "AttackerTakesDamage3",
+      "values": [
+        "(11—16)",
+        "(17—23)"
+      ],
+      "valueStats": [
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:pointed",
+      "sourceCode": "AttackerTakesDamage4",
+      "values": [
+        "(24—35)",
+        "(36—53)"
+      ],
+      "valueStats": [
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:spiked",
+      "sourceCode": "AttackerTakesDamage5",
+      "values": [
+        "(40—60)",
+        "(61—92)"
+      ],
+      "valueStats": [
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:edged",
+      "sourceCode": "AttackerTakesDamage6",
+      "values": [
+        "(64—97)",
+        "(98—145)"
+      ],
+      "valueStats": [
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-cuirass:prefix:jagged",
+      "sourceCode": "AttackerTakesDamage7",
+      "values": [
+        "(101—151)",
+        "(152—220)"
+      ],
+      "valueStats": [
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:glinting",
+      "sourceCode": "NearbyAlliesAddedPhysicalDamage1",
+      "values": [
+        "(1—2)",
+        "(3—4)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:burnished",
+      "sourceCode": "NearbyAlliesAddedPhysicalDamage2",
+      "values": [
+        "(2—3)",
+        "(4—6)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:polished",
+      "sourceCode": "NearbyAlliesAddedPhysicalDamage3",
+      "values": [
+        "(2—4)",
+        "(5—8)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:honed",
+      "sourceCode": "NearbyAlliesAddedPhysicalDamage4",
+      "values": [
+        "(4—6)",
+        "(8—11)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:gleaming",
+      "sourceCode": "NearbyAlliesAddedPhysicalDamage5",
+      "values": [
+        "(5—7)",
+        "(9—13)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:annealed",
+      "sourceCode": "NearbyAlliesAddedPhysicalDamage6",
+      "values": [
+        "(6—10)",
+        "(12—17)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:razor-sharp",
+      "sourceCode": "NearbyAlliesAddedPhysicalDamage7",
+      "values": [
+        "(7—11)",
+        "(14—20)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:tempered",
+      "sourceCode": "NearbyAlliesAddedPhysicalDamage8",
+      "values": [
+        "(10—15)",
+        "(18—26)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:flaring",
+      "sourceCode": "NearbyAlliesAddedPhysicalDamage9",
+      "values": [
+        "(12—19)",
+        "(22—32)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:heated",
+      "sourceCode": "NearbyAlliesAddedFireDamage1",
+      "values": [
+        "(1—2)",
+        "(3—4)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:smouldering",
+      "sourceCode": "NearbyAlliesAddedFireDamage2",
+      "values": [
+        "(3—5)",
+        "(6—9)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:smoking",
+      "sourceCode": "NearbyAlliesAddedFireDamage3",
+      "values": [
+        "(6—8)",
+        "(10—13)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:burning",
+      "sourceCode": "NearbyAlliesAddedFireDamage4",
+      "values": [
+        "(9—11)",
+        "(14—17)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:flaming",
+      "sourceCode": "NearbyAlliesAddedFireDamage5",
+      "values": [
+        "(12—13)",
+        "(18—20)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:scorching",
+      "sourceCode": "NearbyAlliesAddedFireDamage6",
+      "values": [
+        "(14—16)",
+        "(21—26)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:incinerating",
+      "sourceCode": "NearbyAlliesAddedFireDamage7",
+      "values": [
+        "(17—19)",
+        "(27—30)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:blasting",
+      "sourceCode": "NearbyAlliesAddedFireDamage8",
+      "values": [
+        "(20—24)",
+        "(31—38)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:cremating",
+      "sourceCode": "NearbyAlliesAddedFireDamage9",
+      "values": [
+        "(25—29)",
+        "(39—45)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:frosted",
+      "sourceCode": "NearbyAlliesAddedColdDamage1",
+      "values": [
+        "(1—2)",
+        "(3—4)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:chilled",
+      "sourceCode": "NearbyAlliesAddedColdDamage2",
+      "values": [
+        "(3—4)",
+        "(5—8)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:icy",
+      "sourceCode": "NearbyAlliesAddedColdDamage3",
+      "values": [
+        "(5—6)",
+        "(9—11)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:frigid",
+      "sourceCode": "NearbyAlliesAddedColdDamage4",
+      "values": [
+        "(7—8)",
+        "(12—14)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:freezing",
+      "sourceCode": "NearbyAlliesAddedColdDamage5",
+      "values": [
+        "(9—10)",
+        "(15—17)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:frozen",
+      "sourceCode": "NearbyAlliesAddedColdDamage6",
+      "values": [
+        "(11—13)",
+        "(18—21)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:glaciated",
+      "sourceCode": "NearbyAlliesAddedColdDamage7",
+      "values": [
+        "(14—15)",
+        "(22—24)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:polar",
+      "sourceCode": "NearbyAlliesAddedColdDamage8",
+      "values": [
+        "(16—20)",
+        "(25—31)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:entombing",
+      "sourceCode": "NearbyAlliesAddedColdDamage9",
+      "values": [
+        "(21—24)",
+        "(32—37)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:humming",
+      "sourceCode": "NearbyAlliesAddedLightningDamage1",
+      "values": [
+        "1",
+        "(5—7)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:buzzing",
+      "sourceCode": "NearbyAlliesAddedLightningDamage2",
+      "values": [
+        "1",
+        "(10—15)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:snapping",
+      "sourceCode": "NearbyAlliesAddedLightningDamage3",
+      "values": [
+        "1",
+        "(16—22)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:crackling",
+      "sourceCode": "NearbyAlliesAddedLightningDamage4",
+      "values": [
+        "1",
+        "(23—27)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:sparking",
+      "sourceCode": "NearbyAlliesAddedLightningDamage5",
+      "values": [
+        "1",
+        "(28—32)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:arcing",
+      "sourceCode": "NearbyAlliesAddedLightningDamage6",
+      "values": [
+        "(1—2)",
+        "(33—40)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:shocking",
+      "sourceCode": "NearbyAlliesAddedLightningDamage7",
+      "values": [
+        "(1—2)",
+        "(41—47)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:discharging",
+      "sourceCode": "NearbyAlliesAddedLightningDamage8",
+      "values": [
+        "(1—3)",
+        "(48—59)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:electrocuting",
+      "sourceCode": "NearbyAlliesAddedLightningDamage9",
+      "values": [
+        "(1—4)",
+        "(60—71)"
+      ],
+      "valueStats": [
+        {
+          "id": "allies_in_presence_attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "allies_in_presence_attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:suffix:of-warmth",
+      "sourceCode": "LightRadiusAndManaRegeneration1",
+      "values": [
+        "(8—12)",
+        "5"
+      ],
+      "valueStats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "divisor": 1
+        },
+        {
+          "id": "light_radius_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:suffix:of-kindling",
+      "sourceCode": "LightRadiusAndManaRegeneration2",
+      "values": [
+        "(13—17)",
+        "10"
+      ],
+      "valueStats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "divisor": 1
+        },
+        {
+          "id": "light_radius_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:suffix:of-the-hearth",
+      "sourceCode": "LightRadiusAndManaRegeneration3",
+      "values": [
+        "(18—22)",
+        "15"
+      ],
+      "valueStats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "divisor": 1
+        },
+        {
+          "id": "light_radius_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:advisor-s",
+      "sourceCode": "LocalIncreasedSpiritAndMana1",
+      "values": [
+        "(10—14)",
+        "+(17—20)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_spirit_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:counselor-s",
+      "sourceCode": "LocalIncreasedSpiritAndMana2",
+      "values": [
+        "(15—18)",
+        "+(21—24)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_spirit_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:emissary-s",
+      "sourceCode": "LocalIncreasedSpiritAndMana3",
+      "values": [
+        "(19—22)",
+        "+(25—28)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_spirit_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:minister-s",
+      "sourceCode": "LocalIncreasedSpiritAndMana4",
+      "values": [
+        "(23—26)",
+        "+(29—33)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_spirit_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:envoy-s",
+      "sourceCode": "LocalIncreasedSpiritAndMana5",
+      "values": [
+        "(27—30)",
+        "+(34—37)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_spirit_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:diplomat-s",
+      "sourceCode": "LocalIncreasedSpiritAndMana6",
+      "values": [
+        "(31—34)",
+        "+(38—41)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_spirit_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rattling-sceptre:prefix:chancellor-s",
+      "sourceCode": "LocalIncreasedSpiritAndMana7",
+      "values": [
+        "(35—38)",
+        "+(42—45)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_spirit_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rawhide-belt:prefix:thorny",
+      "sourceCode": "AttackerTakesDamage1",
+      "values": [
+        "(1—2)",
+        "(3—4)"
+      ],
+      "valueStats": [
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rawhide-belt:prefix:spiny",
+      "sourceCode": "AttackerTakesDamage2",
+      "values": [
+        "(5—7)",
+        "(7—10)"
+      ],
+      "valueStats": [
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rawhide-belt:prefix:barbed",
+      "sourceCode": "AttackerTakesDamage3",
+      "values": [
+        "(11—16)",
+        "(17—23)"
+      ],
+      "valueStats": [
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rawhide-belt:prefix:pointed",
+      "sourceCode": "AttackerTakesDamage4",
+      "values": [
+        "(24—35)",
+        "(36—53)"
+      ],
+      "valueStats": [
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rawhide-belt:prefix:spiked",
+      "sourceCode": "AttackerTakesDamage5",
+      "values": [
+        "(40—60)",
+        "(61—92)"
+      ],
+      "valueStats": [
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rawhide-belt:prefix:edged",
+      "sourceCode": "AttackerTakesDamage6",
+      "values": [
+        "(64—97)",
+        "(98—145)"
+      ],
+      "valueStats": [
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rawhide-belt:prefix:jagged",
+      "sourceCode": "AttackerTakesDamage7",
+      "values": [
+        "(101—151)",
+        "(152—220)"
+      ],
+      "valueStats": [
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:glinting",
+      "sourceCode": "AddedPhysicalDamage1",
+      "values": [
+        "(1—2)",
+        "3"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:burnished",
+      "sourceCode": "AddedPhysicalDamage2",
+      "values": [
+        "(2—3)",
+        "(4—6)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:polished",
+      "sourceCode": "AddedPhysicalDamage3",
+      "values": [
+        "(2—4)",
+        "(5—8)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:honed",
+      "sourceCode": "AddedPhysicalDamage4",
+      "values": [
+        "(4—6)",
+        "(8—11)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:gleaming",
+      "sourceCode": "AddedPhysicalDamage5",
+      "values": [
+        "(5—7)",
+        "(9—13)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:annealed",
+      "sourceCode": "AddedPhysicalDamage6",
+      "values": [
+        "(6—10)",
+        "(12—17)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:razor-sharp",
+      "sourceCode": "AddedPhysicalDamage7",
+      "values": [
+        "(7—11)",
+        "(14—20)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:tempered",
+      "sourceCode": "AddedPhysicalDamage8",
+      "values": [
+        "(10—15)",
+        "(18—26)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:flaring",
+      "sourceCode": "AddedPhysicalDamage9",
+      "values": [
+        "(12—19)",
+        "(22—32)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:heated",
+      "sourceCode": "AddedFireDamage1",
+      "values": [
+        "(1—2)",
+        "3"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:smouldering",
+      "sourceCode": "AddedFireDamage2",
+      "values": [
+        "(3—5)",
+        "(6—9)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:smoking",
+      "sourceCode": "AddedFireDamage3",
+      "values": [
+        "(6—8)",
+        "(10—13)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:burning",
+      "sourceCode": "AddedFireDamage4",
+      "values": [
+        "(9—11)",
+        "(14—17)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:flaming",
+      "sourceCode": "AddedFireDamage5",
+      "values": [
+        "(12—13)",
+        "(18—20)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:scorching",
+      "sourceCode": "AddedFireDamage6",
+      "values": [
+        "(11—16)",
+        "(21—26)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:incinerating",
+      "sourceCode": "AddedFireDamage7",
+      "values": [
+        "(13—19)",
+        "(27—32)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:blasting",
+      "sourceCode": "AddedFireDamage8",
+      "values": [
+        "(20—24)",
+        "(33—36)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:cremating",
+      "sourceCode": "AddedFireDamage9",
+      "values": [
+        "(25—29)",
+        "(37—45)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:frosted",
+      "sourceCode": "AddedColdDamage1",
+      "values": [
+        "1",
+        "(2—3)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:chilled",
+      "sourceCode": "AddedColdDamage2",
+      "values": [
+        "(3—4)",
+        "(5—8)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:icy",
+      "sourceCode": "AddedColdDamage3",
+      "values": [
+        "(5—6)",
+        "(9—11)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:frigid",
+      "sourceCode": "AddedColdDamage4",
+      "values": [
+        "(7—8)",
+        "(12—14)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:freezing",
+      "sourceCode": "AddedColdDamage5",
+      "values": [
+        "(9—10)",
+        "(15—17)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:frozen",
+      "sourceCode": "AddedColdDamage6",
+      "values": [
+        "(11—13)",
+        "(18—21)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:glaciated",
+      "sourceCode": "AddedColdDamage7",
+      "values": [
+        "(14—15)",
+        "(22—24)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:polar",
+      "sourceCode": "AddedColdDamage8",
+      "values": [
+        "(16—20)",
+        "(25—31)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:entombing",
+      "sourceCode": "AddedColdDamage9",
+      "values": [
+        "(21—24)",
+        "(32—37)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:humming",
+      "sourceCode": "AddedLightningDamage1",
+      "values": [
+        "1",
+        "(4—6)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:buzzing",
+      "sourceCode": "AddedLightningDamage2",
+      "values": [
+        "1",
+        "(10—15)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:snapping",
+      "sourceCode": "AddedLightningDamage3",
+      "values": [
+        "1",
+        "(16—22)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:crackling",
+      "sourceCode": "AddedLightningDamage4",
+      "values": [
+        "1",
+        "(23—27)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:sparking",
+      "sourceCode": "AddedLightningDamage5",
+      "values": [
+        "1",
+        "(28—32)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:arcing",
+      "sourceCode": "AddedLightningDamage6",
+      "values": [
+        "(1—2)",
+        "(33—40)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:shocking",
+      "sourceCode": "AddedLightningDamage7",
+      "values": [
+        "(1—2)",
+        "(41—47)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:discharging",
+      "sourceCode": "AddedLightningDamage8",
+      "values": [
+        "(1—3)",
+        "(48—59)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:prefix:electrocuting",
+      "sourceCode": "AddedLightningDamage9",
+      "values": [
+        "(1—4)",
+        "(60—71)"
+      ],
+      "valueStats": [
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "divisor": 1
+        },
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:suffix:of-warmth",
+      "sourceCode": "LightRadiusAndManaRegeneration1",
+      "values": [
+        "(8—12)",
+        "5"
+      ],
+      "valueStats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "divisor": 1
+        },
+        {
+          "id": "light_radius_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:suffix:of-kindling",
+      "sourceCode": "LightRadiusAndManaRegeneration2",
+      "values": [
+        "(13—17)",
+        "10"
+      ],
+      "valueStats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "divisor": 1
+        },
+        {
+          "id": "light_radius_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "iron-ring:suffix:of-the-hearth",
+      "sourceCode": "LightRadiusAndManaRegeneration3",
+      "values": [
+        "(18—22)",
+        "15"
+      ],
+      "valueStats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "divisor": 1
+        },
+        {
+          "id": "light_radius_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-greathelm:prefix:oyster-s",
+      "sourceCode": "LocalIncreasedArmourAndLife1",
+      "values": [
+        "(6—13)",
+        "+(7—10)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-greathelm:prefix:lobster-s",
+      "sourceCode": "LocalIncreasedArmourAndLife2",
+      "values": [
+        "(14—20)",
+        "+(11—19)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-greathelm:prefix:urchin-s",
+      "sourceCode": "LocalIncreasedArmourAndLife3",
+      "values": [
+        "(21—26)",
+        "+(20—25)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-greathelm:prefix:nautilus",
+      "sourceCode": "LocalIncreasedArmourAndLife4",
+      "values": [
+        "(27—32)",
+        "+(26—32)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-greathelm:prefix:octopus",
+      "sourceCode": "LocalIncreasedArmourAndLife5",
+      "values": [
+        "(33—38)",
+        "+(33—41)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-greathelm:prefix:crocodile-s",
+      "sourceCode": "LocalIncreasedArmourAndLife6",
+      "values": [
+        "(39—42)",
+        "+(42—49)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-greathelm:prefix:imposing",
+      "sourceCode": "LocalIncreasedArmourAndMana1",
+      "values": [
+        "(6—13)",
+        "+(6—8)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-greathelm:prefix:venerable",
+      "sourceCode": "LocalIncreasedArmourAndMana2",
+      "values": [
+        "(14—20)",
+        "+(9—16)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-greathelm:prefix:regal",
+      "sourceCode": "LocalIncreasedArmourAndMana3",
+      "values": [
+        "(21—26)",
+        "+(17—20)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-greathelm:prefix:colossal",
+      "sourceCode": "LocalIncreasedArmourAndMana4",
+      "values": [
+        "(27—32)",
+        "+(21—26)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-greathelm:prefix:chieftain-s",
+      "sourceCode": "LocalIncreasedArmourAndMana5",
+      "values": [
+        "(33—38)",
+        "+(27—32)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-greathelm:prefix:ancestral",
+      "sourceCode": "LocalIncreasedArmourAndMana6",
+      "values": [
+        "(39—42)",
+        "+(33—39)"
+      ],
+      "valueStats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-greathelm:suffix:of-shining",
+      "sourceCode": "LightRadiusAndAccuracy1",
+      "values": [
+        "+(10—20)",
+        "5"
+      ],
+      "valueStats": [
+        {
+          "id": "accuracy_rating",
+          "divisor": 1
+        },
+        {
+          "id": "light_radius_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-greathelm:suffix:of-light",
+      "sourceCode": "LightRadiusAndAccuracy2",
+      "values": [
+        "+(21—40)",
+        "10"
+      ],
+      "valueStats": [
+        {
+          "id": "accuracy_rating",
+          "divisor": 1
+        },
+        {
+          "id": "light_radius_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    {
+      "id": "rusted-greathelm:suffix:of-radiance",
+      "sourceCode": "LightRadiusAndAccuracy3",
+      "values": [
+        "+(41—60)",
+        "15"
+      ],
+      "valueStats": [
+        {
+          "id": "accuracy_rating",
+          "divisor": 1
+        },
+        {
+          "id": "light_radius_+%",
+          "divisor": 1
+        }
+      ]
+    }
+  ]
+}

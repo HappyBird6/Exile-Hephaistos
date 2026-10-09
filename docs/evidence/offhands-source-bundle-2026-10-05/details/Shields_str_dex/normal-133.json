@@ -1,0 +1,92 @@
+{
+  "row": {
+    "Name": "of Warping",
+    "Level": "81",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "EvasionAppliesToDeflection"
+    ],
+    "DropChance": "500",
+    "str": "Gain <a data-keyword=\"Deflect\" href=\"Deflect\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/faa64b5c56e45e9a1c420b62d523b071a96efd778d924ea28364714d6073172e\">Deflection Rating</a> equal to <span class='mod-value'>(24<span class=\"ndash\">—</span>26)</span>% of <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion Rating</a>",
+    "fossil_no": [
+      "defences",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "helmet",
+      "gloves",
+      "boots",
+      "str_dex_int_armour",
+      "dex_int_armour",
+      "str_dex_armour",
+      "dex_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2b9c6b44216bb6de101d2ec7aa2d0885db46d320893b46821c84ca4bdcc8a759"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEvasionGrantsDeflection6",
+  "textLocale": "sp",
+  "detailText": "Ganas desvío equivalente al (24—26)% de la evasión",
+  "retrievedAt": "2026-10-05T04:30:51.287Z",
+  "sha256": "e931af2527faf511b4be312c30324def681c823864fff74165644f871ca4a571",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Ganas <a data-keyword=\"Deflect\" href=\"Deflect\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/ea65ea37dfbd21f5965b1d6d59ac7e51787ac8e970de1fa2930e1f0c7d49c5d8\">desvío</a> equivalente al <span class='mod-value'>(24<span class=\"ndash\">—</span>26)</span>% de la <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/74fe92f4b00d63126ef5ee7bb0d977caaeafbbd4b26fd3fbbe62998c53326c83\">evasión</a></span></h5>   <span data-tabname=\"de torcimiento\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>de torcimiento\n<tr><th>Family<td>EvasionAppliesToDeflection\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Sufijo (2)\n<tr><th>Req. level<td>81 (Effective: 64)\n<tr><th>Gold Price<td>3288\n<tr><th>Stats<td><li>base deflection rating % of evasion rating <span class=\"badge bg-primary\">24 <span class=\"ndash\">—</span> 26</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>dex_int_armour: 1</span> <span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>dex_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Evasion</span> </table>  </div></div>",
+  "fields": {
+    "Name": "de torcimiento",
+    "Family": "EvasionAppliesToDeflection",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Sufijo (2)",
+    "Req. level": "81 (Effective: 64)",
+    "Gold Price": "3288",
+    "Stats": "base deflection rating % of evasion rating 24 — 26 Global",
+    "Spawn Tags": "helmet: 0 gloves: 0 boots: 0 str_dex_int_armour: 1 dex_int_armour: 1 str_dex_armour: 1 dex_armour: 1 default: 0",
+    "Craft Tags": "defences Evasion"
+  },
+  "code": "EvasionGrantsDeflection6",
+  "stats": [
+    {
+      "id": "base_deflection_rating_%_of_evasion_rating",
+      "min": 24,
+      "max": 26,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "helmet",
+      "weight": 0
+    },
+    {
+      "tag": "gloves",
+      "weight": 0
+    },
+    {
+      "tag": "boots",
+      "weight": 0
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

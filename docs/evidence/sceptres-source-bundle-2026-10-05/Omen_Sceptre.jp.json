@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/jp/Omen_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:10.701Z",
+  "sha256": "cae8f7776e3fda015b8ca5d72eb78a315eab3e15116ac531148c4e37e945aa48",
+  "variants": [
+    {
+      "name": "お告げのセプター",
+      "card": "お告げのセプター\n        \n    \n    \n        \n            セプタースピリット: 100装備条件： レベル 16, 12 筋力, 25 知性 スキルを付与: マリス\n        \n\n\n\n        \n            Omen Sceptre",
+      "requirements": "装備条件： レベル 16, 12 筋力, 25 知性",
+      "fields": {
+        "DropLevel": "16",
+        "BaseType": "お告げのセプター",
+        "Class": "セプター",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre04",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "マリス",
+      "skillUrl": "https://poe2db.tw/jp/Malice"
+    }
+  ]
+}

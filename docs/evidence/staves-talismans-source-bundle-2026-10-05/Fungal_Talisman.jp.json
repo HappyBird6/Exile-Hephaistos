@@ -1,0 +1,46 @@
+{
+  "url": "https://poe2db.tw/jp/Fungal_Talisman",
+  "retrievedAt": "2026-10-05T10:01:35.641Z",
+  "sha256": "0b2704bf15e3caea156569e4ab5dafacc257d7fbc4154a7b7f4dfb44b747f301",
+  "variants": [
+    {
+      "name": "キノコのタリスマン",
+      "card": "キノコのタリスマン\n        \n    \n    \n        \n            タリスマン物理ダメージ: 59-98クリティカルヒット率: 8%秒間アタック回数: 1.4武器攻撃距離: 1.2装備条件： レベル 78, 96 筋力, 70 知性\n        \n\n\n\n        \n            Fungal Talisman",
+      "requirements": "装備条件： レベル 78, 96 筋力, 70 知性",
+      "properties": [
+        "タリスマン",
+        "物理ダメージ: 59-98",
+        "クリティカルヒット率: 8%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.2"
+      ],
+      "fields": {
+        "DropLevel": "78",
+        "BaseType": "キノコのタリスマン",
+        "Class": "タリスマン",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanHaveAspects",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame",
+        "Sound": "Audio/Sound Effects/ItemSounds/4.0/Equipment/Weapons/Talismans/Wood/Talisman_Wood_Drop.ogg",
+        "Tags": "maraketh_basetype, talisman, two_hand_weapon, twohand, weapon",
+        "Icon": "Art/2DItems/Offhand/Talismans/FrenziedTalisman",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, twohand, talisman, two_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ]
+}

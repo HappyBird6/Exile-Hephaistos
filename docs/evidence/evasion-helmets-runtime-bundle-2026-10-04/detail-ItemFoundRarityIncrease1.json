@@ -1,0 +1,55 @@
+{
+  "code": "ItemFoundRarityIncrease1",
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FItemFoundRarityIncrease1",
+  "retrievedAt": "2026-10-04T17:12:50.326Z",
+  "sha256": "1df72d2bf2c114638bf17dd4893844e59bf2f090feadca87cb15d0568fb15a36",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(6<span class=\"ndash\">—</span>10)</span>% increased <a data-keyword=\"ItemRarity\" href=\"Item_Rarity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5030879006be0619dfbb00cc160ac03b96eb72747e7a1503e290980b8d55e969\">Rarity of Items</a> found</span></h5>   <span data-tabname=\"of Plunder\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Plunder\n<tr><th>Family<td>ItemFoundRarityIncrease\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>3 (Effective: 2)\n<tr><th>Gold Price<td>255\n<tr><th>Stats<td><li>base item found rarity +% <span class=\"badge bg-primary\">6 <span class=\"ndash\">—</span> 10</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>drop</i></span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(15<span class=\"ndash\">—</span>20)</span>% increased Quantity of Gold Dropped by Slain Enemies</table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "of Plunder",
+      "Family": "ItemFoundRarityIncrease",
+      "Domains": "Item (1)",
+      "GenerationType": "Suffix (2)",
+      "Req. level": "3 (Effective: 2)",
+      "Gold Price": "255",
+      "Stats": "base item found rarity +% 6 — 10 Global",
+      "Spawn Tags": "ring: 1 amulet: 1 gloves: 1 boots: 1 helmet: 1 default: 0",
+      "Craft Tags": "drop"
+    },
+    "stats": [
+      {
+        "id": "base_item_found_rarity_+%",
+        "min": 6,
+        "max": 10,
+        "locality": "Global"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "ring",
+        "weight": 1
+      },
+      {
+        "tag": "amulet",
+        "weight": 1
+      },
+      {
+        "tag": "gloves",
+        "weight": 1
+      },
+      {
+        "tag": "boots",
+        "weight": 1
+      },
+      {
+        "tag": "helmet",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(6—10)% increased Rarity of Items found"
+  }
+}

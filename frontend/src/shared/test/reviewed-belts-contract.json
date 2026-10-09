@@ -1,0 +1,1676 @@
+{
+  "captures": [
+    {
+      "key": "linen-belt",
+      "before": {
+        "snapshotId": "poe2db-linen-belt-20261004-1f5834b2d035-d1ddf3dceeca",
+        "baseItemId": "Metadata/Items/Belts/FourBelt2",
+        "itemLevel": 82,
+        "rarity": "NORMAL",
+        "implicits": [
+          {
+            "modifierId": "linen-belt:implicit:base",
+            "values": {
+              "flask_mana_to_recover_+%": 30
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "explicits": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "result": {
+        "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+        "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-linen-belt-20261004-1f5834b2d035-d1ddf3dceeca",
+        "state": {
+          "snapshotId": "poe2db-linen-belt-20261004-1f5834b2d035-d1ddf3dceeca",
+          "baseItemId": "Metadata/Items/Belts/FourBelt2",
+          "itemLevel": 82,
+          "rarity": "MAGIC",
+          "implicits": [
+            {
+              "modifierId": "linen-belt:implicit:base",
+              "values": {
+                "flask_mana_to_recover_+%": 30
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "rawhide-belt:prefix:stout",
+              "values": {
+                "base_maximum_life": 64
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "action": "TRANSMUTATION",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "rawhide-belt:prefix:stout",
+            "values": {
+              "base_maximum_life": 64
+            },
+            "selectionProbability": 0.00831255195344971
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "base_maximum_life",
+            "n": 10,
+            "candidates": [],
+            "min": 60,
+            "max": 69,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife5",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": [],
+        "qualityLimit": null
+      },
+      "definitions": {
+        "linen-belt:implicit:base": {
+          "id": "linen-belt:implicit:base",
+          "name": "Linen Belt implicit",
+          "layer": "IMPLICIT",
+          "affixType": "NONE",
+          "familyIds": ["BeltFlaskRecovery"],
+          "requiredItemLevel": 1,
+          "weight": 0,
+          "tier": 0,
+          "text": "(20—30)% increased Mana Recovery from Flasks",
+          "stats": [
+            {
+              "id": "flask_mana_to_recover_+%",
+              "min": 20,
+              "max": 30
+            }
+          ],
+          "tags": ["mana", "resource", "flask"],
+          "sourceUrl": "https://poe2db.tw/us/Linen_Belt"
+        },
+        "rawhide-belt:prefix:stout": {
+          "id": "rawhide-belt:prefix:stout",
+          "name": "Stout",
+          "layer": "EXPLICIT",
+          "affixType": "PREFIX",
+          "familyIds": ["IncreasedLife"],
+          "requiredItemLevel": 33,
+          "weight": 1000,
+          "tier": 6,
+          "text": "+(60—69) to maximum Life",
+          "stats": [
+            {
+              "id": "base_maximum_life",
+              "min": 60,
+              "max": 69
+            }
+          ],
+          "tags": ["life", "resource"],
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife5"
+        }
+      }
+    },
+    {
+      "key": "wide-belt",
+      "before": {
+        "snapshotId": "poe2db-wide-belt-20261004-94f1859e2ffe-8211b3db8199",
+        "baseItemId": "Metadata/Items/Belts/FourBelt3",
+        "itemLevel": 82,
+        "rarity": "NORMAL",
+        "implicits": [
+          {
+            "modifierId": "wide-belt:implicit:base",
+            "values": {
+              "flask_charges_gained_+%": 30
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "explicits": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "result": {
+        "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+        "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-wide-belt-20261004-94f1859e2ffe-8211b3db8199",
+        "state": {
+          "snapshotId": "poe2db-wide-belt-20261004-94f1859e2ffe-8211b3db8199",
+          "baseItemId": "Metadata/Items/Belts/FourBelt3",
+          "itemLevel": 82,
+          "rarity": "MAGIC",
+          "implicits": [
+            {
+              "modifierId": "wide-belt:implicit:base",
+              "values": {
+                "flask_charges_gained_+%": 30
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "rawhide-belt:suffix:of-magma",
+              "values": {
+                "base_fire_damage_resistance_%": 38
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "action": "TRANSMUTATION",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "rawhide-belt:suffix:of-magma",
+            "values": {
+              "base_fire_damage_resistance_%": 38
+            },
+            "selectionProbability": 0.00831255195344971
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "base_fire_damage_resistance_%",
+            "n": 5,
+            "candidates": [],
+            "min": 36,
+            "max": 40,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist7",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": [],
+        "qualityLimit": null
+      },
+      "definitions": {
+        "wide-belt:implicit:base": {
+          "id": "wide-belt:implicit:base",
+          "name": "Wide Belt implicit",
+          "layer": "IMPLICIT",
+          "affixType": "NONE",
+          "familyIds": ["BeltFlaskChargesGained"],
+          "requiredItemLevel": 1,
+          "weight": 0,
+          "tier": 0,
+          "text": "(20—30)% increased Flask Charges gained",
+          "stats": [
+            {
+              "id": "flask_charges_gained_+%",
+              "min": 20,
+              "max": 30
+            }
+          ],
+          "tags": ["flask"],
+          "sourceUrl": "https://poe2db.tw/us/Wide_Belt"
+        },
+        "rawhide-belt:suffix:of-magma": {
+          "id": "rawhide-belt:suffix:of-magma",
+          "name": "of Magma",
+          "layer": "EXPLICIT",
+          "affixType": "SUFFIX",
+          "familyIds": ["FireResistance"],
+          "requiredItemLevel": 71,
+          "weight": 1000,
+          "tier": 2,
+          "text": "+(36—40)% to Fire Resistance",
+          "stats": [
+            {
+              "id": "base_fire_damage_resistance_%",
+              "min": 36,
+              "max": 40
+            }
+          ],
+          "tags": [
+            "elemental_resistance",
+            "resistance",
+            "elemental",
+            "fire",
+            "fire_resistance"
+          ],
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist7"
+        }
+      }
+    },
+    {
+      "key": "long-belt",
+      "before": {
+        "snapshotId": "poe2db-long-belt-20261004-2762a91fcae5-0a1f9cd713f3",
+        "baseItemId": "Metadata/Items/Belts/FourBelt4",
+        "itemLevel": 82,
+        "rarity": "NORMAL",
+        "implicits": [
+          {
+            "modifierId": "long-belt:implicit:base",
+            "values": {
+              "charm_duration_+%": 20
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "explicits": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "result": {
+        "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+        "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-long-belt-20261004-2762a91fcae5-0a1f9cd713f3",
+        "state": {
+          "snapshotId": "poe2db-long-belt-20261004-2762a91fcae5-0a1f9cd713f3",
+          "baseItemId": "Metadata/Items/Belts/FourBelt4",
+          "itemLevel": 82,
+          "rarity": "MAGIC",
+          "implicits": [
+            {
+              "modifierId": "long-belt:implicit:base",
+              "values": {
+                "charm_duration_+%": 20
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "rawhide-belt:prefix:virile",
+              "values": {
+                "base_maximum_life": 114
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "action": "TRANSMUTATION",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "rawhide-belt:prefix:virile",
+            "values": {
+              "base_maximum_life": 114
+            },
+            "selectionProbability": 0.00831255195344971
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "base_maximum_life",
+            "n": 20,
+            "candidates": [],
+            "min": 100,
+            "max": 119,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife8",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": [],
+        "qualityLimit": null
+      },
+      "definitions": {
+        "long-belt:implicit:base": {
+          "id": "long-belt:implicit:base",
+          "name": "Long Belt implicit",
+          "layer": "IMPLICIT",
+          "affixType": "NONE",
+          "familyIds": ["BeltCharmDuration"],
+          "requiredItemLevel": 1,
+          "weight": 0,
+          "tier": 0,
+          "text": "(15—20)% increased Charm Effect Duration",
+          "stats": [
+            {
+              "id": "charm_duration_+%",
+              "min": 15,
+              "max": 20
+            }
+          ],
+          "tags": ["charm"],
+          "sourceUrl": "https://poe2db.tw/us/Long_Belt"
+        },
+        "rawhide-belt:prefix:virile": {
+          "id": "rawhide-belt:prefix:virile",
+          "name": "Virile",
+          "layer": "EXPLICIT",
+          "affixType": "PREFIX",
+          "familyIds": ["IncreasedLife"],
+          "requiredItemLevel": 54,
+          "weight": 1000,
+          "tier": 3,
+          "text": "+(100—119) to maximum Life",
+          "stats": [
+            {
+              "id": "base_maximum_life",
+              "min": 100,
+              "max": 119
+            }
+          ],
+          "tags": ["life", "resource"],
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife8"
+        }
+      }
+    },
+    {
+      "key": "plate-belt",
+      "before": {
+        "snapshotId": "poe2db-plate-belt-20261004-f354c4dfed2b-b1b06dd85d2a",
+        "baseItemId": "Metadata/Items/Belts/FourBelt5",
+        "itemLevel": 82,
+        "rarity": "NORMAL",
+        "implicits": [
+          {
+            "modifierId": "plate-belt:implicit:base",
+            "values": {
+              "base_physical_damage_reduction_rating": 180
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "explicits": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "result": {
+        "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+        "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-plate-belt-20261004-f354c4dfed2b-b1b06dd85d2a",
+        "state": {
+          "snapshotId": "poe2db-plate-belt-20261004-f354c4dfed2b-b1b06dd85d2a",
+          "baseItemId": "Metadata/Items/Belts/FourBelt5",
+          "itemLevel": 82,
+          "rarity": "MAGIC",
+          "implicits": [
+            {
+              "modifierId": "plate-belt:implicit:base",
+              "values": {
+                "base_physical_damage_reduction_rating": 180
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "rawhide-belt:suffix:of-overflowing",
+              "values": {
+                "flask_charges_gained_+%": 38
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "action": "TRANSMUTATION",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "rawhide-belt:suffix:of-overflowing",
+            "values": {
+              "flask_charges_gained_+%": 38
+            },
+            "selectionProbability": 0.006650041562759767
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "flask_charges_gained_+%",
+            "n": 6,
+            "candidates": [],
+            "min": 35,
+            "max": 40,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedFlaskChargesGained6",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": [],
+        "qualityLimit": null
+      },
+      "definitions": {
+        "plate-belt:implicit:base": {
+          "id": "plate-belt:implicit:base",
+          "name": "Plate Belt implicit",
+          "layer": "IMPLICIT",
+          "affixType": "NONE",
+          "familyIds": ["IncreasedPhysicalDamageReductionRating"],
+          "requiredItemLevel": 1,
+          "weight": 0,
+          "tier": 0,
+          "text": "+(140—180) to Armour",
+          "stats": [
+            {
+              "id": "base_physical_damage_reduction_rating",
+              "min": 140,
+              "max": 180
+            }
+          ],
+          "tags": ["armour", "defences"],
+          "sourceUrl": "https://poe2db.tw/us/Plate_Belt"
+        },
+        "rawhide-belt:suffix:of-overflowing": {
+          "id": "rawhide-belt:suffix:of-overflowing",
+          "name": "of Overflowing",
+          "layer": "EXPLICIT",
+          "affixType": "SUFFIX",
+          "familyIds": ["BeltFlaskChargesGained"],
+          "requiredItemLevel": 81,
+          "weight": 800,
+          "tier": 1,
+          "text": "(35—40)% increased Flask Charges gained",
+          "stats": [
+            {
+              "id": "flask_charges_gained_+%",
+              "min": 35,
+              "max": 40
+            }
+          ],
+          "tags": ["flask"],
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedFlaskChargesGained6"
+        }
+      }
+    },
+    {
+      "key": "ornate-belt",
+      "before": {
+        "snapshotId": "poe2db-ornate-belt-20261004-a41aea8ff3ac-039babe08c84",
+        "baseItemId": "Metadata/Items/Belts/FourBelt6",
+        "itemLevel": 82,
+        "rarity": "NORMAL",
+        "implicits": [
+          {
+            "modifierId": "ornate-belt:implicit:base",
+            "values": {
+              "charm_charges_used_+%": -10
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "explicits": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "result": {
+        "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+        "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-ornate-belt-20261004-a41aea8ff3ac-039babe08c84",
+        "state": {
+          "snapshotId": "poe2db-ornate-belt-20261004-a41aea8ff3ac-039babe08c84",
+          "baseItemId": "Metadata/Items/Belts/FourBelt6",
+          "itemLevel": 82,
+          "rarity": "MAGIC",
+          "implicits": [
+            {
+              "modifierId": "ornate-belt:implicit:base",
+              "values": {
+                "charm_charges_used_+%": -10
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "rawhide-belt:suffix:of-the-lion",
+              "values": {
+                "additional_strength": 18
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "action": "TRANSMUTATION",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "rawhide-belt:suffix:of-the-lion",
+            "values": {
+              "additional_strength": 18
+            },
+            "selectionProbability": 0.00831255195344971
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "additional_strength",
+            "n": 4,
+            "candidates": [],
+            "min": 17,
+            "max": 20,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength4",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": [],
+        "qualityLimit": null
+      },
+      "definitions": {
+        "ornate-belt:implicit:base": {
+          "id": "ornate-belt:implicit:base",
+          "name": "Ornate Belt implicit",
+          "layer": "IMPLICIT",
+          "affixType": "NONE",
+          "familyIds": ["BeltCharmChargesUsed"],
+          "requiredItemLevel": 1,
+          "weight": 0,
+          "tier": 0,
+          "text": "(10—15)% reduced Charm Charges used",
+          "stats": [
+            {
+              "id": "charm_charges_used_+%",
+              "min": -15,
+              "max": -10
+            }
+          ],
+          "tags": ["charm"],
+          "sourceUrl": "https://poe2db.tw/us/Ornate_Belt"
+        },
+        "rawhide-belt:suffix:of-the-lion": {
+          "id": "rawhide-belt:suffix:of-the-lion",
+          "name": "of the Lion",
+          "layer": "EXPLICIT",
+          "affixType": "SUFFIX",
+          "familyIds": ["Strength"],
+          "requiredItemLevel": 33,
+          "weight": 1000,
+          "tier": 6,
+          "text": "+(17—20) to Strength",
+          "stats": [
+            {
+              "id": "additional_strength",
+              "min": 17,
+              "max": 20
+            }
+          ],
+          "tags": ["attribute"],
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength4"
+        }
+      }
+    },
+    {
+      "key": "mail-belt",
+      "before": {
+        "snapshotId": "poe2db-mail-belt-20261004-1eb507ea2130-c8b8c7b7ce95",
+        "baseItemId": "Metadata/Items/Belts/FourBelt7",
+        "itemLevel": 82,
+        "rarity": "NORMAL",
+        "implicits": [
+          {
+            "modifierId": "mail-belt:implicit:base",
+            "values": {
+              "flask_charges_used_+%": -10
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "explicits": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "result": {
+        "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+        "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-mail-belt-20261004-1eb507ea2130-c8b8c7b7ce95",
+        "state": {
+          "snapshotId": "poe2db-mail-belt-20261004-1eb507ea2130-c8b8c7b7ce95",
+          "baseItemId": "Metadata/Items/Belts/FourBelt7",
+          "itemLevel": 82,
+          "rarity": "MAGIC",
+          "implicits": [
+            {
+              "modifierId": "mail-belt:implicit:base",
+              "values": {
+                "flask_charges_used_+%": -10
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "rawhide-belt:prefix:ribbed",
+              "values": {
+                "base_physical_damage_reduction_rating": 65
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "action": "TRANSMUTATION",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "rawhide-belt:prefix:ribbed",
+            "values": {
+              "base_physical_damage_reduction_rating": 65
+            },
+            "selectionProbability": 0.00831255195344971
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "base_physical_damage_reduction_rating",
+            "n": 17,
+            "candidates": [],
+            "min": 52,
+            "max": 68,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedPhysicalDamageReductionRating3",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": [],
+        "qualityLimit": null
+      },
+      "definitions": {
+        "mail-belt:implicit:base": {
+          "id": "mail-belt:implicit:base",
+          "name": "Mail Belt implicit",
+          "layer": "IMPLICIT",
+          "affixType": "NONE",
+          "familyIds": ["BeltFlaskChargesUsed"],
+          "requiredItemLevel": 1,
+          "weight": 0,
+          "tier": 0,
+          "text": "(10—15)% reduced Flask Charges used",
+          "stats": [
+            {
+              "id": "flask_charges_used_+%",
+              "min": -15,
+              "max": -10
+            }
+          ],
+          "tags": ["flask"],
+          "sourceUrl": "https://poe2db.tw/us/Mail_Belt"
+        },
+        "rawhide-belt:prefix:ribbed": {
+          "id": "rawhide-belt:prefix:ribbed",
+          "name": "Ribbed",
+          "layer": "EXPLICIT",
+          "affixType": "PREFIX",
+          "familyIds": ["IncreasedPhysicalDamageReductionRating"],
+          "requiredItemLevel": 16,
+          "weight": 1000,
+          "tier": 8,
+          "text": "+(52—68) to Armour",
+          "stats": [
+            {
+              "id": "base_physical_damage_reduction_rating",
+              "min": 52,
+              "max": 68
+            }
+          ],
+          "tags": ["armour", "defences"],
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedPhysicalDamageReductionRating3"
+        }
+      }
+    },
+    {
+      "key": "double-belt",
+      "before": {
+        "snapshotId": "poe2db-double-belt-20261004-e380035c9b3b-846e7be35a13",
+        "baseItemId": "Metadata/Items/Belts/FourBelt8",
+        "itemLevel": 82,
+        "rarity": "NORMAL",
+        "implicits": [
+          {
+            "modifierId": "double-belt:implicit:base",
+            "values": {
+              "charm_charges_gained_+%": 30
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "explicits": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "result": {
+        "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+        "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-double-belt-20261004-e380035c9b3b-846e7be35a13",
+        "state": {
+          "snapshotId": "poe2db-double-belt-20261004-e380035c9b3b-846e7be35a13",
+          "baseItemId": "Metadata/Items/Belts/FourBelt8",
+          "itemLevel": 82,
+          "rarity": "MAGIC",
+          "implicits": [
+            {
+              "modifierId": "double-belt:implicit:base",
+              "values": {
+                "charm_charges_gained_+%": 30
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "rawhide-belt:suffix:of-the-bear",
+              "values": {
+                "additional_strength": 14
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "action": "TRANSMUTATION",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "rawhide-belt:suffix:of-the-bear",
+            "values": {
+              "additional_strength": 14
+            },
+            "selectionProbability": 0.00831255195344971
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "additional_strength",
+            "n": 4,
+            "candidates": [],
+            "min": 13,
+            "max": 16,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength3",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": [],
+        "qualityLimit": null
+      },
+      "definitions": {
+        "double-belt:implicit:base": {
+          "id": "double-belt:implicit:base",
+          "name": "Double Belt implicit",
+          "layer": "IMPLICIT",
+          "affixType": "NONE",
+          "familyIds": ["BeltCharmChargesGained"],
+          "requiredItemLevel": 1,
+          "weight": 0,
+          "tier": 0,
+          "text": "(20—30)% increased Charm Charges gained",
+          "stats": [
+            {
+              "id": "charm_charges_gained_+%",
+              "min": 20,
+              "max": 30
+            }
+          ],
+          "tags": ["charm"],
+          "sourceUrl": "https://poe2db.tw/us/Double_Belt"
+        },
+        "rawhide-belt:suffix:of-the-bear": {
+          "id": "rawhide-belt:suffix:of-the-bear",
+          "name": "of the Bear",
+          "layer": "EXPLICIT",
+          "affixType": "SUFFIX",
+          "familyIds": ["Strength"],
+          "requiredItemLevel": 22,
+          "weight": 1000,
+          "tier": 7,
+          "text": "+(13—16) to Strength",
+          "stats": [
+            {
+              "id": "additional_strength",
+              "min": 13,
+              "max": 16
+            }
+          ],
+          "tags": ["attribute"],
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength3"
+        }
+      }
+    },
+    {
+      "key": "heavy-belt",
+      "before": {
+        "snapshotId": "poe2db-heavy-belt-20261004-fca241a04a7e-6b45ec4ed2cc",
+        "baseItemId": "Metadata/Items/Belts/FourBelt9",
+        "itemLevel": 82,
+        "rarity": "NORMAL",
+        "implicits": [
+          {
+            "modifierId": "heavy-belt:implicit:base",
+            "values": {
+              "stun_threshold_+%": 30
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "explicits": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "result": {
+        "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+        "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-heavy-belt-20261004-fca241a04a7e-6b45ec4ed2cc",
+        "state": {
+          "snapshotId": "poe2db-heavy-belt-20261004-fca241a04a7e-6b45ec4ed2cc",
+          "baseItemId": "Metadata/Items/Belts/FourBelt9",
+          "itemLevel": 82,
+          "rarity": "MAGIC",
+          "implicits": [
+            {
+              "modifierId": "heavy-belt:implicit:base",
+              "values": {
+                "stun_threshold_+%": 30
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "rawhide-belt:suffix:of-recuperation",
+              "values": {
+                "base_life_regeneration_rate_per_minute": 1245
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "action": "TRANSMUTATION",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "rawhide-belt:suffix:of-recuperation",
+            "values": {
+              "base_life_regeneration_rate_per_minute": 1245
+            },
+            "selectionProbability": 0.00831255195344971
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "base_life_regeneration_rate_per_minute",
+            "n": 295,
+            "candidates": [],
+            "min": 1086,
+            "max": 1380,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration8_",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": [],
+        "qualityLimit": null
+      },
+      "definitions": {
+        "heavy-belt:implicit:base": {
+          "id": "heavy-belt:implicit:base",
+          "name": "Heavy Belt implicit",
+          "layer": "IMPLICIT",
+          "affixType": "NONE",
+          "familyIds": ["IncreasedStunThreshold"],
+          "requiredItemLevel": 1,
+          "weight": 0,
+          "tier": 0,
+          "text": "(20—30)% increased Stun Threshold",
+          "stats": [
+            {
+              "id": "stun_threshold_+%",
+              "min": 20,
+              "max": 30
+            }
+          ],
+          "tags": [],
+          "sourceUrl": "https://poe2db.tw/us/Heavy_Belt"
+        },
+        "rawhide-belt:suffix:of-recuperation": {
+          "id": "rawhide-belt:suffix:of-recuperation",
+          "name": "of Recuperation",
+          "layer": "EXPLICIT",
+          "affixType": "SUFFIX",
+          "familyIds": ["LifeRegeneration"],
+          "requiredItemLevel": 58,
+          "weight": 1000,
+          "tier": 2,
+          "text": "(18.1—23) Life Regeneration per second",
+          "stats": [
+            {
+              "id": "base_life_regeneration_rate_per_minute",
+              "min": 1086,
+              "max": 1380
+            }
+          ],
+          "tags": ["resource", "flat_life_regen", "life"],
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration8_"
+        }
+      }
+    },
+    {
+      "key": "utility-belt",
+      "before": {
+        "snapshotId": "poe2db-utility-belt-20261004-b4efcaedb3e1-4c2ba0b018b9",
+        "baseItemId": "Metadata/Items/Belts/FourBelt10",
+        "itemLevel": 82,
+        "rarity": "NORMAL",
+        "implicits": [
+          {
+            "modifierId": "utility-belt:implicit:base",
+            "values": {
+              "flask_recovery_amount_%_to_recover_instantly": 20
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "explicits": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "result": {
+        "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+        "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-utility-belt-20261004-b4efcaedb3e1-4c2ba0b018b9",
+        "state": {
+          "snapshotId": "poe2db-utility-belt-20261004-b4efcaedb3e1-4c2ba0b018b9",
+          "baseItemId": "Metadata/Items/Belts/FourBelt10",
+          "itemLevel": 82,
+          "rarity": "MAGIC",
+          "implicits": [
+            {
+              "modifierId": "utility-belt:implicit:base",
+              "values": {
+                "flask_recovery_amount_%_to_recover_instantly": 20
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "rawhide-belt:suffix:of-the-whelpling",
+              "values": {
+                "base_fire_damage_resistance_%": 9
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "action": "TRANSMUTATION",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "rawhide-belt:suffix:of-the-whelpling",
+            "values": {
+              "base_fire_damage_resistance_%": 9
+            },
+            "selectionProbability": 0.00831255195344971
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "base_fire_damage_resistance_%",
+            "n": 5,
+            "candidates": [],
+            "min": 6,
+            "max": 10,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist1",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": [],
+        "qualityLimit": null
+      },
+      "definitions": {
+        "utility-belt:implicit:base": {
+          "id": "utility-belt:implicit:base",
+          "name": "Utility Belt implicit",
+          "layer": "IMPLICIT",
+          "affixType": "NONE",
+          "familyIds": ["InstantFlaskRecovery"],
+          "requiredItemLevel": 1,
+          "weight": 0,
+          "tier": 0,
+          "text": "20% of Flask Recovery applied Instantly",
+          "stats": [
+            {
+              "id": "flask_recovery_amount_%_to_recover_instantly",
+              "min": 20,
+              "max": 20
+            }
+          ],
+          "tags": [],
+          "sourceUrl": "https://poe2db.tw/us/Utility_Belt"
+        },
+        "rawhide-belt:suffix:of-the-whelpling": {
+          "id": "rawhide-belt:suffix:of-the-whelpling",
+          "name": "of the Whelpling",
+          "layer": "EXPLICIT",
+          "affixType": "SUFFIX",
+          "familyIds": ["FireResistance"],
+          "requiredItemLevel": 1,
+          "weight": 1000,
+          "tier": 8,
+          "text": "+(6—10)% to Fire Resistance",
+          "stats": [
+            {
+              "id": "base_fire_damage_resistance_%",
+              "min": 6,
+              "max": 10
+            }
+          ],
+          "tags": [
+            "elemental_resistance",
+            "resistance",
+            "elemental",
+            "fire",
+            "fire_resistance"
+          ],
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist1"
+        }
+      }
+    },
+    {
+      "key": "fine-belt",
+      "before": {
+        "snapshotId": "poe2db-fine-belt-20261004-39e208bb3831-bcc33ed41370",
+        "baseItemId": "Metadata/Items/Belts/FourBelt11",
+        "itemLevel": 82,
+        "rarity": "NORMAL",
+        "implicits": [
+          {
+            "modifierId": "fine-belt:implicit:base",
+            "values": {
+              "generate_x_charges_for_any_flask_per_minute": 10
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "explicits": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "result": {
+        "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+        "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-fine-belt-20261004-39e208bb3831-bcc33ed41370",
+        "state": {
+          "snapshotId": "poe2db-fine-belt-20261004-39e208bb3831-bcc33ed41370",
+          "baseItemId": "Metadata/Items/Belts/FourBelt11",
+          "itemLevel": 82,
+          "rarity": "MAGIC",
+          "implicits": [
+            {
+              "modifierId": "fine-belt:implicit:base",
+              "values": {
+                "generate_x_charges_for_any_flask_per_minute": 10
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "rawhide-belt:prefix:innovative",
+              "values": {
+                "charm_duration_+%": 22
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "action": "TRANSMUTATION",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "rawhide-belt:prefix:innovative",
+            "values": {
+              "charm_duration_+%": 22
+            },
+            "selectionProbability": 0.006650041562759767
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "charm_duration_+%",
+            "n": 6,
+            "candidates": [],
+            "min": 22,
+            "max": 27,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedCharmDuration4",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": [],
+        "qualityLimit": null
+      },
+      "definitions": {
+        "fine-belt:implicit:base": {
+          "id": "fine-belt:implicit:base",
+          "name": "Fine Belt implicit",
+          "layer": "IMPLICIT",
+          "affixType": "NONE",
+          "familyIds": ["FlaskChargeGeneration"],
+          "requiredItemLevel": 1,
+          "weight": 0,
+          "tier": 0,
+          "text": "Flasks gain 0.17 charges per Second",
+          "stats": [
+            {
+              "id": "generate_x_charges_for_any_flask_per_minute",
+              "min": 10,
+              "max": 10
+            }
+          ],
+          "tags": [],
+          "sourceUrl": "https://poe2db.tw/us/Fine_Belt"
+        },
+        "rawhide-belt:prefix:innovative": {
+          "id": "rawhide-belt:prefix:innovative",
+          "name": "Innovative",
+          "layer": "EXPLICIT",
+          "affixType": "PREFIX",
+          "familyIds": ["BeltCharmDuration"],
+          "requiredItemLevel": 60,
+          "weight": 800,
+          "tier": 2,
+          "text": "(22—27)% increased Charm Effect Duration",
+          "stats": [
+            {
+              "id": "charm_duration_+%",
+              "min": 22,
+              "max": 27
+            }
+          ],
+          "tags": ["charm"],
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedCharmDuration4"
+        }
+      }
+    },
+    {
+      "key": "invoking-belt",
+      "before": {
+        "snapshotId": "poe2db-invoking-belt-20261004-68fab7e8ec84-1fda8a247ae4",
+        "baseItemId": "Metadata/Items/Belts/FourBeltB2",
+        "itemLevel": 82,
+        "rarity": "NORMAL",
+        "implicits": [
+          {
+            "modifierId": "invoking-belt:implicit:base",
+            "values": {
+              "base_cast_speed_+%": 12,
+              "local_charm_slots": 1
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "explicits": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "result": {
+        "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+        "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-invoking-belt-20261004-68fab7e8ec84-1fda8a247ae4",
+        "state": {
+          "snapshotId": "poe2db-invoking-belt-20261004-68fab7e8ec84-1fda8a247ae4",
+          "baseItemId": "Metadata/Items/Belts/FourBeltB2",
+          "itemLevel": 82,
+          "rarity": "MAGIC",
+          "implicits": [
+            {
+              "modifierId": "invoking-belt:implicit:base",
+              "values": {
+                "base_cast_speed_+%": 12,
+                "local_charm_slots": 1
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "rawhide-belt:suffix:of-the-bear",
+              "values": {
+                "additional_strength": 13
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "action": "TRANSMUTATION",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "rawhide-belt:suffix:of-the-bear",
+            "values": {
+              "additional_strength": 13
+            },
+            "selectionProbability": 0.00831255195344971
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "additional_strength",
+            "n": 4,
+            "candidates": [],
+            "min": 13,
+            "max": 16,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength3",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": [],
+        "qualityLimit": null
+      },
+      "definitions": {
+        "invoking-belt:implicit:base": {
+          "id": "invoking-belt:implicit:base",
+          "name": "Invoking Belt implicit",
+          "layer": "IMPLICIT",
+          "affixType": "NONE",
+          "familyIds": ["AdditionalCharm", "IncreasedCastSpeed"],
+          "requiredItemLevel": 1,
+          "weight": 0,
+          "tier": 0,
+          "text": "(8—12)% increased Cast Speed\nHas 1 Charm Slots",
+          "stats": [
+            {
+              "id": "base_cast_speed_+%",
+              "min": 8,
+              "max": 12
+            },
+            {
+              "id": "local_charm_slots",
+              "min": 1,
+              "max": 1
+            }
+          ],
+          "tags": ["charm", "speed", "caster", "caster_speed"],
+          "sourceUrl": "https://poe2db.tw/us/Invoking_Belt"
+        },
+        "rawhide-belt:suffix:of-the-bear": {
+          "id": "rawhide-belt:suffix:of-the-bear",
+          "name": "of the Bear",
+          "layer": "EXPLICIT",
+          "affixType": "SUFFIX",
+          "familyIds": ["Strength"],
+          "requiredItemLevel": 22,
+          "weight": 1000,
+          "tier": 7,
+          "text": "+(13—16) to Strength",
+          "stats": [
+            {
+              "id": "additional_strength",
+              "min": 13,
+              "max": 16
+            }
+          ],
+          "tags": ["attribute"],
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength3"
+        }
+      }
+    },
+    {
+      "key": "sinew-belt",
+      "before": {
+        "snapshotId": "poe2db-sinew-belt-20261004-619c4da87b89-081a1ccfeae6",
+        "baseItemId": "Metadata/Items/Belts/FourBeltB3",
+        "itemLevel": 82,
+        "rarity": "NORMAL",
+        "implicits": [
+          {
+            "modifierId": "sinew-belt:implicit:base",
+            "values": {
+              "additional_strength": 20,
+              "local_charm_slots": 1
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "explicits": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "result": {
+        "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+        "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-sinew-belt-20261004-619c4da87b89-081a1ccfeae6",
+        "state": {
+          "snapshotId": "poe2db-sinew-belt-20261004-619c4da87b89-081a1ccfeae6",
+          "baseItemId": "Metadata/Items/Belts/FourBeltB3",
+          "itemLevel": 82,
+          "rarity": "MAGIC",
+          "implicits": [
+            {
+              "modifierId": "sinew-belt:implicit:base",
+              "values": {
+                "additional_strength": 20,
+                "local_charm_slots": 1
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "rawhide-belt:suffix:of-plenty",
+              "values": {
+                "charm_charges_gained_+%": 10
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "action": "TRANSMUTATION",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "rawhide-belt:suffix:of-plenty",
+            "values": {
+              "charm_charges_gained_+%": 10
+            },
+            "selectionProbability": 0.006650041562759767
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "charm_charges_gained_+%",
+            "n": 6,
+            "candidates": [],
+            "min": 5,
+            "max": 10,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedCharmChargesGained1",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": [],
+        "qualityLimit": null
+      },
+      "definitions": {
+        "sinew-belt:implicit:base": {
+          "id": "sinew-belt:implicit:base",
+          "name": "Sinew Belt implicit",
+          "layer": "IMPLICIT",
+          "affixType": "NONE",
+          "familyIds": ["Strength", "AdditionalCharm"],
+          "requiredItemLevel": 1,
+          "weight": 0,
+          "tier": 0,
+          "text": "+(15—20) to Strength\nHas 1 Charm Slots",
+          "stats": [
+            {
+              "id": "additional_strength",
+              "min": 15,
+              "max": 20
+            },
+            {
+              "id": "local_charm_slots",
+              "min": 1,
+              "max": 1
+            }
+          ],
+          "tags": ["attribute", "charm"],
+          "sourceUrl": "https://poe2db.tw/us/Sinew_Belt"
+        },
+        "rawhide-belt:suffix:of-plenty": {
+          "id": "rawhide-belt:suffix:of-plenty",
+          "name": "of Plenty",
+          "layer": "EXPLICIT",
+          "affixType": "SUFFIX",
+          "familyIds": ["BeltCharmChargesGained"],
+          "requiredItemLevel": 2,
+          "weight": 800,
+          "tier": 6,
+          "text": "(5—10)% increased Charm Charges gained",
+          "stats": [
+            {
+              "id": "charm_charges_gained_+%",
+              "min": 5,
+              "max": 10
+            }
+          ],
+          "tags": ["charm"],
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedCharmChargesGained1"
+        }
+      }
+    },
+    {
+      "key": "forking-belt",
+      "before": {
+        "snapshotId": "poe2db-forking-belt-20261004-a0a3872537bf-9c7714f1654f",
+        "baseItemId": "Metadata/Items/Belts/FourBeltB4",
+        "itemLevel": 82,
+        "rarity": "NORMAL",
+        "implicits": [
+          {
+            "modifierId": "forking-belt:implicit:base",
+            "values": {
+              "attack_maximum_added_lightning_damage": 30,
+              "attack_minimum_added_lightning_damage": 1,
+              "local_charm_slots": 1
+            },
+            "fractured": false
+          }
+        ],
+        "conditions": [],
+        "explicits": [],
+        "augmentSockets": null,
+        "catalystQuality": null
+      },
+      "result": {
+        "ruleVersion": "distinct-belts-workbench-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2",
+        "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
+        "snapshotId": "poe2db-forking-belt-20261004-a0a3872537bf-9c7714f1654f",
+        "state": {
+          "snapshotId": "poe2db-forking-belt-20261004-a0a3872537bf-9c7714f1654f",
+          "baseItemId": "Metadata/Items/Belts/FourBeltB4",
+          "itemLevel": 82,
+          "rarity": "MAGIC",
+          "implicits": [
+            {
+              "modifierId": "forking-belt:implicit:base",
+              "values": {
+                "attack_maximum_added_lightning_damage": 30,
+                "attack_minimum_added_lightning_damage": 1,
+                "local_charm_slots": 1
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "rawhide-belt:suffix:of-thick-skin",
+              "values": {
+                "stun_threshold_+": 8
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "action": "TRANSMUTATION",
+        "applied": true,
+        "reason": "",
+        "events": [
+          {
+            "kind": "ADD",
+            "modifierId": "rawhide-belt:suffix:of-thick-skin",
+            "values": {
+              "stun_threshold_+": 8
+            },
+            "selectionProbability": 0.006650041562759767
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "assumed-source-integer-roll-v1",
+            "candidateUnit": "stun_threshold_+",
+            "n": 6,
+            "candidates": [],
+            "min": 6,
+            "max": 11,
+            "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold1",
+            "reason": "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.",
+            "ratioTick": null
+          }
+        ],
+        "consumedOmens": [],
+        "remainingOmens": [],
+        "qualityLimit": null
+      },
+      "definitions": {
+        "forking-belt:implicit:base": {
+          "id": "forking-belt:implicit:base",
+          "name": "Forking Belt implicit",
+          "layer": "IMPLICIT",
+          "affixType": "NONE",
+          "familyIds": ["LightningDamage", "AdditionalCharm"],
+          "requiredItemLevel": 1,
+          "weight": 0,
+          "tier": 0,
+          "text": "Adds 1 to (20—30) Lightning damage to Attacks\nHas 1 Charm Slots",
+          "stats": [
+            {
+              "id": "attack_maximum_added_lightning_damage",
+              "min": 20,
+              "max": 30
+            },
+            {
+              "id": "attack_minimum_added_lightning_damage",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "id": "local_charm_slots",
+              "min": 1,
+              "max": 1
+            }
+          ],
+          "tags": [
+            "charm",
+            "elemental",
+            "damage",
+            "attack",
+            "lightning",
+            "elemental_damage"
+          ],
+          "sourceUrl": "https://poe2db.tw/us/Forking_Belt"
+        },
+        "rawhide-belt:suffix:of-thick-skin": {
+          "id": "rawhide-belt:suffix:of-thick-skin",
+          "name": "of Thick Skin",
+          "layer": "EXPLICIT",
+          "affixType": "SUFFIX",
+          "familyIds": ["StunThreshold"],
+          "requiredItemLevel": 1,
+          "weight": 800,
+          "tier": 10,
+          "text": "+(6—11) to Stun Threshold",
+          "stats": [
+            {
+              "id": "stun_threshold_+",
+              "min": 6,
+              "max": 11
+            }
+          ],
+          "tags": [],
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold1"
+        }
+      }
+    }
+  ]
+}

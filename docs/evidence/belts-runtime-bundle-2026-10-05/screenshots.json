@@ -1,0 +1,1517 @@
+{
+  "visuallyReviewedContactSheets": 54,
+  "files": [
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/double-belt-en-1440.png",
+      "sha256": "e4fbbcfca479ce36d1ccc3db68cfac8000a84eb2a7b2f01a486936fe4f4e7b77"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/double-belt-en-390.png",
+      "sha256": "fc9f9fe6e0c639d865e6c41b57e7ca06da5f26d6e81f18174b88685a1f0ebaf6"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/double-belt-es-1440.png",
+      "sha256": "14448ea3a1199b74d4b058e83743adf5cf4343342068430d817778c597589994"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/double-belt-es-390.png",
+      "sha256": "26432e020ab43122551d8fe33d7ff62740203a1de65b5100ad4690d93d39381b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/double-belt-ja-1440.png",
+      "sha256": "4b3dea14497942d6fc1aaff313cf961334c66e7d932c90b7a452ea8290436884"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/double-belt-ja-390.png",
+      "sha256": "fd58415f00d155cd33b2b533b52c4c179537d985cf699dfe67eda6874997e8d4"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/double-belt-ko-1440.png",
+      "sha256": "c8a9605daa16f12b77018ff9f329f8c453e34ec5c5a2992be02b9f19088c3f48"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/double-belt-ko-390.png",
+      "sha256": "983ceba23959b2c024f1aa389e282c9ffb06fbe659b01f1bed6f24af1e2bc25c"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/double-belt-zh-CN-1440.png",
+      "sha256": "2f4998211a23b446463f468401f2d83823fca7432f2833d7d1e6396a4ccb17ce"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/double-belt-zh-CN-390.png",
+      "sha256": "fcf3b18fd3c4f0d76a914e47c332a3d13162550e87c180ddb6abccd62638453f"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/double-belt-zh-TW-1440.png",
+      "sha256": "b10be32ffb2cbc44b1111b7a4ce4ad4a1fc75f8a1099da997c4d848768b1f02d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/double-belt-zh-TW-390.png",
+      "sha256": "5689a9eda64eec0b807c0ed8bced43b6f055c58cbf1f982ded3d28d842df972c"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/fine-belt-en-1440.png",
+      "sha256": "b871383b310e57ab0d0d448dbfb18cc8a23fd79a6e474b42d203a27a632e3c3e"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/fine-belt-en-390.png",
+      "sha256": "aef7346709bcde9497568e24580fba9d70dd2c7160f64be3d9eb41cdacd786c7"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/fine-belt-es-1440.png",
+      "sha256": "e164ae853220ce6bf92e86d6e29d00f5597ff7297204987b44d1b698ea62536f"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/fine-belt-es-390.png",
+      "sha256": "5b8c7589af5921964c28d1f58d68a9335d10aebe27c4f920ea4175db4f8399c0"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/fine-belt-ja-1440.png",
+      "sha256": "5292f952ad8d528984546533371eba42ea31cf151e02d76682b80e45145c3b6d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/fine-belt-ja-390.png",
+      "sha256": "02cf731072926cbff1a806be5fd1798389107df5b00dd5c308f94b0980cad11a"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/fine-belt-ko-1440.png",
+      "sha256": "5fbe51f8138f7a6c6f73ed85d82ff2691cb8e1dfb94625305dc1119bdcce259f"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/fine-belt-ko-390.png",
+      "sha256": "b42c67f206af75a54fdd6ee79c51fa729e4f9f963860e346978f94c1b8641739"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/fine-belt-zh-CN-1440.png",
+      "sha256": "db87cbc2366e3ec260558275feb73a423bd62ecdcde71c64b6c3ca4414474ccd"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/fine-belt-zh-CN-390.png",
+      "sha256": "df143c78deaec9280183f2ccbad4852cddb9fa3e57bcdf5290bf2bea6b5f81eb"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/fine-belt-zh-TW-1440.png",
+      "sha256": "1684c8ff8a6e595636d8cb2d6ae8d8d7632bc6a1fb77bc6bab6d7122f1b8dcd3"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/fine-belt-zh-TW-390.png",
+      "sha256": "39918d736e6e939f9c3c40c55e8e67d0879419b55ffaa3ddfabee07bf8633633"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/forking-belt-en-1440.png",
+      "sha256": "b4f8b70a84d1533e782c3c179528f83648dd0f9c5d4ae72b8f9348e5a25dabeb"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/forking-belt-en-390.png",
+      "sha256": "6236eeacfbe9a8e6ce3f8d601bfdea22bbc969259bce05254663a445f91fa162"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/forking-belt-es-1440.png",
+      "sha256": "4e4e467260b530c8428ac2a71417fccac2fccea68f90f335de2ec8397a04fa52"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/forking-belt-es-390.png",
+      "sha256": "d8934b4fa85fe0b41beea6b2f71fd1b59fc205410139cbbf7e62e02478384b05"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/forking-belt-ja-1440.png",
+      "sha256": "b925abd0290e3973241c06fed9192c1be9899fc47fe94dfce9615b6153e7df04"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/forking-belt-ja-390.png",
+      "sha256": "2bda36d6b7228ef2c5283633a62f5035710ebdc32b3c01feccbbc748bb95941b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/forking-belt-ko-1440.png",
+      "sha256": "7879ea4063f7df240c3ebc80b73be941f59ef0e7b2e9d030948c587da3eb3d99"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/forking-belt-ko-390.png",
+      "sha256": "9a297ea9ff200694bb180faf0785adfeeb8eb6718706a8d66005ba094014a190"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/forking-belt-zh-CN-1440.png",
+      "sha256": "6082b874fd31e8cfb6950d5df14e008ad091850c71b70bd74c2d5b4e21e7f575"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/forking-belt-zh-CN-390.png",
+      "sha256": "1a4c525b1717470be67df44a4326d3cfa2b1d6bd9430d24d813c88bd37452ab8"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/forking-belt-zh-TW-1440.png",
+      "sha256": "7c0567530190e74eea46a8a0932f410eed410d175701bbefaf339ee7cfa0b939"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/forking-belt-zh-TW-390.png",
+      "sha256": "d045d990d9342de524a98057c8fc332f75353e9c6fff5b192bfb8a62a83d91cf"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/heavy-belt-en-1440.png",
+      "sha256": "3189555796d8b7da4f56d988f1b67f8e2280d8699aa185dfdfa450f2f2d3a672"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/heavy-belt-en-390.png",
+      "sha256": "5eee87b2f47ad9bbc3162602a9632ffb3b045854cfe88c37ecf7ddbfa00c1793"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/heavy-belt-es-1440.png",
+      "sha256": "836d794381d9ca90d15f7f9d8e10262fa4f4a9087c750ec0a058958835b5181e"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/heavy-belt-es-390.png",
+      "sha256": "116652eee9dbbe210f894a062ce70d6f867ef058b465b06db807d684f48c1a39"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/heavy-belt-ja-1440.png",
+      "sha256": "65e1cfd55295141720268b19cfe2d8ce25ff9385fec0e17b9e89ebfdd7da67f9"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/heavy-belt-ja-390.png",
+      "sha256": "883b07c03d968324c0e7d6ef844d39efb1a3c1d22f5fd397dd4189d588932dae"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/heavy-belt-ko-1440.png",
+      "sha256": "48e4342fb2248833f9463b3fede460bcabb2a9644303e28128a74170f41acf87"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/heavy-belt-ko-390.png",
+      "sha256": "bcac900fe7b8440ace2849e9132cc998d26e61fc1de2f40b5fd0ff2df0d77713"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/heavy-belt-zh-CN-1440.png",
+      "sha256": "042ada4287b810233db608814e47fef74d06fc2733fbfdb2c36e5e02a889a766"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/heavy-belt-zh-CN-390.png",
+      "sha256": "f9ff0b193d2f69bc600e6f14228f9f207f8bb11f0c0312032105c9f8ff788783"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/heavy-belt-zh-TW-1440.png",
+      "sha256": "dcff65d1a6f44d026f533d94b5a47036747acb62e0f7ed66deade47c2f4db222"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/heavy-belt-zh-TW-390.png",
+      "sha256": "cc88836bfa5c41275c5f9bba7e588fc413408fdac0b433e63c896e0df7fd06cb"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/invoking-belt-en-1440.png",
+      "sha256": "74b601d1cb9796572ea961e7334347cd04f431006234d6b13ff9259a44f0ebec"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/invoking-belt-en-390.png",
+      "sha256": "fe0cc05a4663f5cc528de4189c6b83b015ca656709c9a26931006e7905a4997e"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/invoking-belt-es-1440.png",
+      "sha256": "362780f729a757b1c1f5ab38808bf7f11da40721e39bf7ff827fc93498b824cb"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/invoking-belt-es-390.png",
+      "sha256": "1983177f497107d115619fda87b219079578a186a6853936ab7e47c4bb1c9552"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/invoking-belt-ja-1440.png",
+      "sha256": "9bd5abb785d358a1f717686ae83fb9b543496a03b91b663988220371a4b00456"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/invoking-belt-ja-390.png",
+      "sha256": "adf816d9c0a185d803c87fa7f0fb74c45acc30cf82ce28b339d549fbcb01d929"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/invoking-belt-ko-1440.png",
+      "sha256": "8a5904150eb9270d5f2d87299c47036a4a3815ede1fd63681308ee5145ad83ff"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/invoking-belt-ko-390.png",
+      "sha256": "e1f78c8f220c0175fe371e159b0fca45d3b1e4feb6cb4d227087d58e4f9aed2a"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/invoking-belt-zh-CN-1440.png",
+      "sha256": "86e8e2ed42ce7a96665c01e9f01a0b1de5f1b8ceb5ed9dc38c6d976da28e433e"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/invoking-belt-zh-CN-390.png",
+      "sha256": "3589bf14f15d664629922e0014303151800acb6824cf31467cdb74bdb3e047cd"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/invoking-belt-zh-TW-1440.png",
+      "sha256": "6e2e6518ce00a264506d520ec76a011172f9990265621de9e31dbb11b4f552a5"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/invoking-belt-zh-TW-390.png",
+      "sha256": "42040aba7d2dfdcd6eeaed64a827bcd2e46ec77a147e3ce19e8711a576ce7f36"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/linen-belt-en-1440.png",
+      "sha256": "0b631a3c16eec63eb689383be22eb19d52933422fccde5d0655431e128ce3cc7"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/linen-belt-en-390.png",
+      "sha256": "9a1ac87b786ce21689736063ab299bcf6f8408068cb3e928947ef6bfb47d8263"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/linen-belt-es-1440.png",
+      "sha256": "8cf659f3f3a122e69cc02fecd4e7cf6cd5334e25aee18310bf89f696457d80f8"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/linen-belt-es-390.png",
+      "sha256": "5c1f782ee3bad2968e6d22ab92abf5950dc45299bb9ae4f3482de16c95e1e49e"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/linen-belt-ja-1440.png",
+      "sha256": "eab9f55058d34a7fa9bde2f91aaf2c8695c67a59059bfb56fd77733a7d03f086"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/linen-belt-ja-390.png",
+      "sha256": "310aef83ad47196538f8d80e2c248652076a70361eb697d37727bf1f5edd56dd"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/linen-belt-ko-1440.png",
+      "sha256": "e48fd52a67183f239102f1b53e9a45779bf2816694a35f73c3b6c26adc0c44bc"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/linen-belt-ko-390.png",
+      "sha256": "9927694e06ceb70651504079985a3c12929d05b552dffcd1b624c7303737f13d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/linen-belt-zh-CN-1440.png",
+      "sha256": "bc2d3ef6551eed4f3f169a1bc20a47c0cfa60db5a0c48aa0769cc8f2a21138a5"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/linen-belt-zh-CN-390.png",
+      "sha256": "65c8ec80a22d4baf2e3f770f194c2da16d8f38f9428d6c4f767d73490649348b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/linen-belt-zh-TW-1440.png",
+      "sha256": "903e5c3c4c78b7dc511b649d2f7a3c77af656ad5614eb398c0d89c8b0bc834cf"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/linen-belt-zh-TW-390.png",
+      "sha256": "29d2a973a8ec9c694d01c0318cf7e6562938d48a2a02ba15bc49039f4f83e6a8"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/long-belt-en-1440.png",
+      "sha256": "e5ab46f93d97f7eab20a81c1696b501a62d825936fa202be097ad8ba23b66f24"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/long-belt-en-390.png",
+      "sha256": "a142efc00e301d405c523c7792ee4ef311ab1e3a1a818d5a4c04fabe02d769e9"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/long-belt-es-1440.png",
+      "sha256": "bdb7753a9a96084354f03f06dc8f765150a47f5662ad50dd15f45ef1986fcff0"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/long-belt-es-390.png",
+      "sha256": "661ac33fb3c8e61ce70c6d7c904611d7d6c29579dea1ad2ce1b6732220c44cf2"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/long-belt-ja-1440.png",
+      "sha256": "cdee532a921d72076cc341726d377e588d5163c77b7d86b4d0da92f0e4e4e5a9"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/long-belt-ja-390.png",
+      "sha256": "498ed415e95e56702a51bf354a8f7bd5002c2e7b052906507be791c4de59369b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/long-belt-ko-1440.png",
+      "sha256": "816ee21dcfae16f18f5f8803168ca4121518e47fc59f904f8a6051fb2f5ba5b8"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/long-belt-ko-390.png",
+      "sha256": "0a234586a83969500c86181dcaf3e5258624dd119c29a0f268b2bb6106a84d4e"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/long-belt-zh-CN-1440.png",
+      "sha256": "06d4f7ad45f3e3d9666fc1da9e9f7a245752ac5968ef65f8a0e85f3b5c292557"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/long-belt-zh-CN-390.png",
+      "sha256": "9c63d1c5ae5088f3e05a122b4c12622730dad3b7cd95f4a17e10a06ac4a8f2fe"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/long-belt-zh-TW-1440.png",
+      "sha256": "e54478b10483153126c3d2a163337b82b53f2c1c4629bfe82dcc4ef058eddf57"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/long-belt-zh-TW-390.png",
+      "sha256": "d3de5f5998e64fa608bfdfc5789e4b78dfd151f282af5b7f4eec090824c4ea1a"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/mail-belt-en-1440.png",
+      "sha256": "1a98b776d75a7c7658434c97a67b37ffa3bfb6e4930270e09ec878f3d0f36736"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/mail-belt-en-390.png",
+      "sha256": "f41ab562e949d2d6ee4f018924611c86e0bd0a4b1bd75b5f6fa25be9476761a2"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/mail-belt-es-1440.png",
+      "sha256": "887389e192b46facb38f692d33acd905173311272d0882aa67cea5b11943a6ec"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/mail-belt-es-390.png",
+      "sha256": "4f3cb588afef8e98ef6abdc3521c640a21b0a306e80cabfa78a831e2994d58d7"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/mail-belt-ja-1440.png",
+      "sha256": "e34e2db0ee2db05676436279a63edaedb3129512fdb3b3bfbba19458fb0755a0"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/mail-belt-ja-390.png",
+      "sha256": "c46aa552e362bd240f71c715ea5d30c2b260793f4465c028d310d19c8f35dac7"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/mail-belt-ko-1440.png",
+      "sha256": "443d5cde7b17932793eeb47b6a76753ab408e21a23cbc6f16ccce204b1ea47a9"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/mail-belt-ko-390.png",
+      "sha256": "9fe15945d4417121eebb1ae074045512a1333b49a36d3297dd29ac9b9d3aaf4f"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/mail-belt-zh-CN-1440.png",
+      "sha256": "b1375967b326e0b9565a903c2393efd196db32527ff11262d120234eb58429fa"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/mail-belt-zh-CN-390.png",
+      "sha256": "a3da938573f70dc6ed91c0fa178eeb1e44c22c6205286334cecf82aca7eff7f5"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/mail-belt-zh-TW-1440.png",
+      "sha256": "aa13c64f318492c83843047da8207db6ea7dfa891e7b9df9fa6e4a3d6234688f"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/mail-belt-zh-TW-390.png",
+      "sha256": "6a239518fa6e31f3404444a24ac35062ae2565576b5ea20051a4a432d6aec6b3"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/ornate-belt-en-1440.png",
+      "sha256": "2c34bd7784d32ee3543de90d318a4459d6c86e1776debb9f6e4b9df134d947d2"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/ornate-belt-en-390.png",
+      "sha256": "62d755c749a714507e5487da7b6f2cd38bf1806208b936a153fea5411916ba02"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/ornate-belt-es-1440.png",
+      "sha256": "64314bd10dca17acee522b3340b3b638d8488658ad3a44ca43e8f67b59b65ac4"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/ornate-belt-es-390.png",
+      "sha256": "64dda16569ca28a1e28d0221c7868092048a8d3b390853dc7f05daf0fb4f4007"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/ornate-belt-ja-1440.png",
+      "sha256": "ca9c5eaac5ab99ffbfd3335a4ad2f7e3c8f444d32e263bcc4a6dff930c1b38cc"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/ornate-belt-ja-390.png",
+      "sha256": "affa33cce7ee1ef9ba5af18b30fbde7ea27691cc85f417b918974b18b61f849b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/ornate-belt-ko-1440.png",
+      "sha256": "40a541beb8a6521bbd10c409d960f2b07865fb7059cf2394cf76339818c7198b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/ornate-belt-ko-390.png",
+      "sha256": "5ff96a836b7341a696cbdc9a5c954701fe9e952d09dc49524f3868660c49ba54"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/ornate-belt-zh-CN-1440.png",
+      "sha256": "8abc699e91536b2dbadfd44cec551e41cd54d00b276bb329b5fcfcf20f56750e"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/ornate-belt-zh-CN-390.png",
+      "sha256": "968f7cbeb59bcdca380ddfaf0cd9ec2562e02c02aa20a5f0b234169ae0decdf1"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/ornate-belt-zh-TW-1440.png",
+      "sha256": "c8ba5585cebb74c902600eec8838ecd37439e84a2cccf95014f2b9811fa42a6b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/ornate-belt-zh-TW-390.png",
+      "sha256": "979f06a1e5ea2f732cda46e5259f7c3016ba501d21998d2570b8aab1ab531bba"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/plate-belt-en-1440.png",
+      "sha256": "358bc93ce95a1c96ef9e65485ac5ab92ad257b7da579be4ab9f9839ed7b86413"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/plate-belt-en-390.png",
+      "sha256": "8f1eb6e93e9f769c53dd12dc18d1c87f2f3959a630ca0025e120d08bb83cc6f5"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/plate-belt-es-1440.png",
+      "sha256": "987b04a0c64f3891dd550961d10494da56f0f9a4d3d2bce8ebb27e49e3dbde0e"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/plate-belt-es-390.png",
+      "sha256": "63efbd6f2e382db610f43610aecbc1816cabb99bf5814928841b985600c8da1c"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/plate-belt-ja-1440.png",
+      "sha256": "b8531aed2725debc92ff67e5eb8b12b4a93085fde2bc77e66923b78cf42f0bcb"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/plate-belt-ja-390.png",
+      "sha256": "8b59307ee851114c4ebb2daed2f6ae4b856310b8207fbfc8b546117b71ee7e9e"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/plate-belt-ko-1440.png",
+      "sha256": "6bf6295c2e670484f78fdad4bb8a1351304ec40e6e8ec6d06a9361090aec100b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/plate-belt-ko-390.png",
+      "sha256": "f4a6be8743e9c24e561b9afef05ab63f2b25d24c7a2465911472305ffa40137f"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/plate-belt-zh-CN-1440.png",
+      "sha256": "fb1e5ccc4c3f4d9ad5e66bb8629d4900fad5c54bb939e3e52ea7b8a690f5aa71"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/plate-belt-zh-CN-390.png",
+      "sha256": "ef59a42dd2ab390026d24df4ece7e11e22d9752cedb5f879fe6d7e4ca3e10b7b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/plate-belt-zh-TW-1440.png",
+      "sha256": "682e0b24625e96a4d86789ba161ee969d4e2c123b41775dca6d8147f3f6f2c25"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/plate-belt-zh-TW-390.png",
+      "sha256": "73d65dc8de700fe93fa0560ab16b685ef54ac281db3e809f1aa5f3d273f470c0"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/sinew-belt-en-1440.png",
+      "sha256": "0d6d55eb299485f1a16572be38f0dd592c748b60f664aaaf115b5bb20e517677"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/sinew-belt-en-390.png",
+      "sha256": "2d5997f7b923238c8d894f318e6e8556928c03281b16be7128a5d5ac21e01b29"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/sinew-belt-es-1440.png",
+      "sha256": "adfcfb45673778dc47cec4201e36fa275e047411b99f5f9473c057b3741c6a54"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/sinew-belt-es-390.png",
+      "sha256": "c6ee77a6a4ed679b35b8a5326e6ff5bb8967894ea9cdd4c8b568928a5e831e31"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/sinew-belt-ja-1440.png",
+      "sha256": "390a2854f4718d69325a1c556452691a5171af17693a5980adc287d473b01140"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/sinew-belt-ja-390.png",
+      "sha256": "0f79924d3d736b38b83db24526da63e691e7ddd91e284a7a6bae96416a2dbf92"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/sinew-belt-ko-1440.png",
+      "sha256": "0ed1a597faf41dfee42c30985648c1db113872231b94a20408c2cffb3f25fa6a"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/sinew-belt-ko-390.png",
+      "sha256": "816bfe33bdc6592a2600fff6a0f3643137fe1d134b1d6c895ba48731149c3cbe"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/sinew-belt-zh-CN-1440.png",
+      "sha256": "8dc825c855b890ab7c3fdbf781aa41a96d30241d14fd0482ee47ef9cad584668"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/sinew-belt-zh-CN-390.png",
+      "sha256": "9deb366a6ecdb73a0c83d3dbea264aa1dc1048685ac577a7179f58de43be527f"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/sinew-belt-zh-TW-1440.png",
+      "sha256": "a45c664faf7698d896c81af359bee8a46e0d370c8d4168fe209692ed1784bd7d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/sinew-belt-zh-TW-390.png",
+      "sha256": "9327c173e727a3c172b718383876dc56cabeb0c1ed1bc18e4f5173699f464b2d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/utility-belt-en-1440.png",
+      "sha256": "6fb4de72a48efb9da2cc30d0167e440468ecc4e88422d4455ed7fb79fe70dce4"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/utility-belt-en-390.png",
+      "sha256": "1b8565ef1c3e3190944b01a4a97468c042877c4ee48c4dc02918ec0e26db8b41"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/utility-belt-es-1440.png",
+      "sha256": "25a50c0c3540f19f92d42ccf53b478be9ff2188ef1262f3ac55fcdc597caafee"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/utility-belt-es-390.png",
+      "sha256": "fa5fb60124d17b247c6be4f084728f0fdf1a8fa22c145a563a9fe1aa61b0a3b5"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/utility-belt-ja-1440.png",
+      "sha256": "dde62042be83d75136b8b9e02c7fc9bb11ab9b9aef2e9bccef24f8c598547303"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/utility-belt-ja-390.png",
+      "sha256": "4b4cc13c4900b242d755d2a357572b9d947d2d7dca688c03ba61feb51c9a945a"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/utility-belt-ko-1440.png",
+      "sha256": "08eae54221fee7b15b81990792d4d81c80f8c3d668e64df4bb6ddffd704eec0d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/utility-belt-ko-390.png",
+      "sha256": "525c22c57bf2dbb6d57af22f78dd20fb1258e5749595d940ea6ba1a2bac956a7"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/utility-belt-zh-CN-1440.png",
+      "sha256": "5ee986a14532f5b8d8e951f05758b50d1ec402caff3ada034e4a4c5b21da1012"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/utility-belt-zh-CN-390.png",
+      "sha256": "3d6f1d9f99395b63011ba85ed9fc79c2cd84f6657934a5ea459414e089fb82a1"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/utility-belt-zh-TW-1440.png",
+      "sha256": "834034f7252313f0cecaa56d79ce29efcdff8947f7bd8d2ade1e5ed1485563b3"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/utility-belt-zh-TW-390.png",
+      "sha256": "a81f60d8ec3928b7fcbdfc5db193e1c99268a49022a1db89a40ec109ef07e3b5"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/wide-belt-en-1440.png",
+      "sha256": "ad178d3cce6102521c5caa2c405e5a00954c9730a25a4aa36eba4b119d9cb9e9"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/wide-belt-en-390.png",
+      "sha256": "387654329c3315afb59391e51ca1ebead587642bef64758e21ddc6edc073fff0"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/wide-belt-es-1440.png",
+      "sha256": "81e7c4abdcb95a386112cf4ed7c4dd04bcda90129a727186858cb1a1e90f0048"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/wide-belt-es-390.png",
+      "sha256": "f0fd1d45d86ee19e8d87dc528583bbe28a4ba16941536e85d04e759868f9433d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/wide-belt-ja-1440.png",
+      "sha256": "e89e193ee700fa8bc955f52017b237f267132b26f11ec7aeee25723753d97e09"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/wide-belt-ja-390.png",
+      "sha256": "c555a30617b335c6059c734406a9e305eda9c6fdafd1ff614d412ce5a8dfb05c"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/wide-belt-ko-1440.png",
+      "sha256": "cd48d9d80a8d85b8530fd55cd0ff2054adf2a7a06e79e9780807767c74a5c320"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/wide-belt-ko-390.png",
+      "sha256": "f27078c5da600c4be4db26978e0516227bb00b5b50009d2824bfab4e0cb46b4d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/wide-belt-zh-CN-1440.png",
+      "sha256": "172712f12db50c9078c29be649387176a88f8a627aae8963d4a9b391c33096b2"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/wide-belt-zh-CN-390.png",
+      "sha256": "dcc716a4a744de574c1b8b1002f5e9eb64a8b1b1acd4a8437c6a6cc5f2fd4017"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/wide-belt-zh-TW-1440.png",
+      "sha256": "934a21dec69768fba186faaadb2ff1489b4448ec4f053987b880cbc7356b376d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/cards/wide-belt-zh-TW-390.png",
+      "sha256": "68c8eadff481e69c2de60cdde5ab97aa7615f50e0560980f303dcbb12e6a0873"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-0.png",
+      "sha256": "0a5c0d6a7aac57804be617014c2a22db3ea17a84a4cb9f90f4ef2279fc1bec77"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-102.png",
+      "sha256": "1892f58353d8f76de6e89ab6293e595e3db8317a143a113f2465b1d7520090fb"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-108.png",
+      "sha256": "347514d6ffc9df18de39dc701f862d23cb140764809451e08d6c7b89dd9b7b90"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-114.png",
+      "sha256": "81bf8c67bf1f9afe98e8de766beb6d33d5345cb1d69a6356fc728c402866ed70"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-12.png",
+      "sha256": "303cdcc1d7562651730de125e4cb202bc8adb3c04bb39c6341647f154837f76e"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-120.png",
+      "sha256": "9bd7816da972fd46e62833838673a7fc6b4d17b5aacce6e75e557a1771542cbd"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-126.png",
+      "sha256": "2c599c5451aceaca2de811d0326e8fb9171c680e77aff66f1acbf972af1365be"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-132.png",
+      "sha256": "3ae1b1f218dfb3cf58ac3ad404d84b1021fabbc6115093c88a607c5be44a7770"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-138.png",
+      "sha256": "6a592e4927c8af628506bdac7d2cff654b2bf5228a70a10dc60d6d88e4127910"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-144.png",
+      "sha256": "143f0e2339e15d17cae4c9fd3689d617be0756c93f7f1fa38d76c06f6daaa568"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-150.png",
+      "sha256": "26654773315bacc519e6e1257642e2ecfc31a3692c366d3aade93f03bff8444a"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-18.png",
+      "sha256": "08213033fd56aeb946034deaf13bf44a166017db352a42051dac3407ef606896"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-24.png",
+      "sha256": "441d88a299f550faf9811600e72dc92a89355617f826bc4bd0ea88df5d8d107d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-30.png",
+      "sha256": "61b99e09a46f177658ad1268181f844f53a0e94f7d871a2d661f3532e5a7f64a"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-36.png",
+      "sha256": "e6c51cde167d72f55ca258df0362b36de64876d0fee5d7e16df87b30c7c57f54"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-42.png",
+      "sha256": "bf7064a032fff5997aeda0becc3ba543d2a12f9ed8516693d45842660f4e2e05"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-48.png",
+      "sha256": "144d864aedc690058cd9a8f90abbcbeab9ce585a6f6eaf6989633557280f2380"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-54.png",
+      "sha256": "d87665dbf151331264b625e3fde1ea4235a329882c1d381cd40dcc02bcb964bf"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-6.png",
+      "sha256": "fa18e60b88d35b875b1e903e67c700910067c79f56574122d06067614b396486"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-60.png",
+      "sha256": "d3bd52acdb83b272be730e1e407b6dfe41fdcbdc8f8a19699443b9ffd85deb68"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-66.png",
+      "sha256": "d291c3b4621dbacac808070ab1d16dcdcd202fece86b27ddd022abe5382f4cf6"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-72.png",
+      "sha256": "af4c499c40235303ef9dded191e48f4b7b7852f7a49fc9d1082e35ef101cea17"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-78.png",
+      "sha256": "65868ad840093dd5b65f3b19cbba9e238c700eef4b92c4e180c316dd287ad113"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-84.png",
+      "sha256": "375a32302cad1d55e625e8011919d7cb6bc997cfba1c147dac050b64e1d785f0"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-90.png",
+      "sha256": "703f12393c4ac586ac9f3cacdac0fb7f95dca89ec5c4e3d17e6d2b3aaca635c3"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-cards-96.png",
+      "sha256": "247b7c66ab916bff860256b7c09bdbc66909db858dba8b5d748e8c57dfc056a8"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-0.png",
+      "sha256": "a546e95f77670052a636d90896ecc5f7ca04eeccea6a5a360cab31d7b0d5779b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-102.png",
+      "sha256": "187d996187b7f9fbce1e1f3bba9605e4ba248fb66c12a36c24ba6059189e5873"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-108.png",
+      "sha256": "346fff6555ac1c337ccfc3c80cfdf37da9d85b74439b0545f43b395e8c3465ea"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-114.png",
+      "sha256": "f08a8eca1cfeb4fe0ec947c084328952d2901564bde6d49602dee4a375f91788"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-12.png",
+      "sha256": "a8b62e5f2f1b6593dbb3485f8c3c9efcdbdc4615b1d24b1decf293ea012a5bef"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-120.png",
+      "sha256": "486d191cec566d0416a058a505ebe10b26bd62cf7c9209fc06380759514ec88f"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-126.png",
+      "sha256": "8f153e3bf89bc4209c41bc59009bb84e064bf3ee0bdcae2f360302c450d5bb6b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-132.png",
+      "sha256": "c4c7958e362b408062332039a494d4a7f64a86a1fdc389da6407ac84086b4977"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-138.png",
+      "sha256": "c53a2a8ce97453c4da6a04b38476359c75e3d47fcc6ac4f15d85e968f4cee289"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-144.png",
+      "sha256": "1736a49de5a526dcddcdd378100fd5009a6277ad2e66010657bd1d81ab6a517f"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-150.png",
+      "sha256": "af110d9998c9a7a64070a264dd5b9b02a394247b4d99db7cb949e39133e8105c"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-156.png",
+      "sha256": "f0d42151541bb633b08fc94aaab00dad4c88f30755363833f07840f9a6bbdeab"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-162.png",
+      "sha256": "60b3bb2d22f2d948e9bcd9f114ffe2687f8b2a3f9644c4bbd6c75ec7a5dd4f46"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-18.png",
+      "sha256": "1daf8222b36de51f3e82200befa7efca4c16e51fda14576219dffc231c2b04d9"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-24.png",
+      "sha256": "8196ed4dd905d87b38302ae13ba029f7f8da8a62c3389055f79ee5e4619b4e22"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-30.png",
+      "sha256": "490e8b318a433d2a9dde9d427c5afcd5e8e5c256e60b5b369e9a244b93985656"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-36.png",
+      "sha256": "55c1c4f2624696d21d527df03814d5931bdcc73cd5f2d98f89f43f52510da95b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-42.png",
+      "sha256": "06455d58c2a259806bed8c5d31ffe3a11cd16f5fc62dbcb509b5de7fec87d99c"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-48.png",
+      "sha256": "2dabc917bd7cbb24a051660bfe394980c2896bcf7624ffdcd486ac316498d6d2"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-54.png",
+      "sha256": "cf0cf0a0108dc065cd581c33bbca7056114e512299891f953fdac9c8f2b9dba5"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-6.png",
+      "sha256": "fd31a59a48656e4a7ce4730317af345713a3d913577ce25398615a4a43a2f079"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-60.png",
+      "sha256": "3267cda2ca275e898ede14ad3d8abf26921423b1fb91c3afb25e9c355d644082"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-66.png",
+      "sha256": "ef25c6c272c79cdb7c86e264ba255076fa4d97e6be25c61abfde5f6ead72c057"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-72.png",
+      "sha256": "3b79f12818290370ebf3184ffd4caf4e91d209492d2ce9f6b35b9f73b168a797"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-78.png",
+      "sha256": "f8411c675f5a4a9a26a8773da1be257a8cec64d6a20dfdc32caceade79b40db2"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-84.png",
+      "sha256": "9877e66ffcfd9ad1f03e4cab571923832e9a76fe55b39997d5c663c99ecf142b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-90.png",
+      "sha256": "e3fc7f266bbb5d8298e055491c1e7e8e73d00cbf12b3f4386d97e908bd0c630d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/contact-full-96.png",
+      "sha256": "96387b929385657c8d0eaa564c6a559d7fe386f266e2e97799da114097c400f3"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/double-belt-en-1440.png",
+      "sha256": "150e66697d837fb161f504e9fee1b179f46b6999819336b7b7fd737d258095e3"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/double-belt-en-390.png",
+      "sha256": "f63be687cd75473e81d77577f2336ab6c0d314a89002ac3e3221fe8a664641ce"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/double-belt-es-1440.png",
+      "sha256": "2daf16d9c8da930336e34e2371ccd7162e20f273d9b64254f81d8c0e7c960076"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/double-belt-es-390.png",
+      "sha256": "eca86f3aa257d16e604df8173dae5497897f85970c2c1aa526e58bb8743ea283"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/double-belt-ja-1440.png",
+      "sha256": "917ae0af9fcd8d02c9c0985281adc6af546191241d50d64bd054aba9fed57b9a"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/double-belt-ja-390.png",
+      "sha256": "30e26ef6953d478d09a6300ae249f3b63977793e23bf3c9405ba166338189653"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/double-belt-ko-1440.png",
+      "sha256": "6ec3632b1f1dd4c69835d43fb076a908b5481b918277e2648fff91c2527c895d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/double-belt-ko-390.png",
+      "sha256": "a47acad79fe06d36d5098fecc98a54ce48904ced8323759ebf5fd4fcb01a7b51"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/double-belt-zh-CN-1440.png",
+      "sha256": "83021a4898cf5a78636568494fd2cc8a23589075617b8c99d325073dcd2c12c2"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/double-belt-zh-CN-390.png",
+      "sha256": "48f88c6e07a2ffe698c61af3bd6c10460829f0160d09db26ff029212bae41698"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/double-belt-zh-TW-1440.png",
+      "sha256": "20b7560521f169973232ae6cc5eabbfe8fc7c688ff1059a4d2d529d352d705d5"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/double-belt-zh-TW-390.png",
+      "sha256": "455eeb8d037ce8861155a5c2610e70d5cce0f1d9936145500be39dba050f020b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/fine-belt-en-1440.png",
+      "sha256": "e6e386c34eadd293a765208727681954420dede830ba31b159e77212d8d599ca"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/fine-belt-en-390.png",
+      "sha256": "fb2c41ab9f9cb5ef985d018301eb348de2f1e2d5d8bc9d406acf250d918b0bec"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/fine-belt-es-1440.png",
+      "sha256": "a360a3df984fc7f88f1ccedb600a770c476f19505a961d76f92e80fadea5f63b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/fine-belt-es-390.png",
+      "sha256": "23da3325b60869ebddf1e5caf71827d543d50f63ad4f7602bcda3868a5530323"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/fine-belt-ja-1440.png",
+      "sha256": "33bcc29230afc90ce8bfd8ce0108c30f725b9e0e6509c51430eb40685bfd3722"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/fine-belt-ja-390.png",
+      "sha256": "6f418202715210ebb70ae677199afaf3ec078de4ef80cddaab51a4ecdae3586a"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/fine-belt-ko-1440.png",
+      "sha256": "2b51ce12f6e92ba011fae8dd4f1aefc8818b3b8b9b871d7a24775a1deff189c4"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/fine-belt-ko-390.png",
+      "sha256": "5a605dee3a0f892a51186feef156e23b3cde28562c597086d8e5d23da0e5dd22"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/fine-belt-zh-CN-1440.png",
+      "sha256": "5473fac08b47c95a7ac5c44aa15f6cc8e7bc8d5ee097d32ab0865e872677189e"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/fine-belt-zh-CN-390.png",
+      "sha256": "badbf1b36c6191e0ec82f8b00f36610845366c1c1ae991dd9dc926f7072ee052"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/fine-belt-zh-TW-1440.png",
+      "sha256": "61ee1fb092ad436df4afabbf9540a2e6bbe73b163b53000e70569553237d845c"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/fine-belt-zh-TW-390.png",
+      "sha256": "708de5a11af3c98276aef6eb1e8eaccf76bba4d545a4fb2f1472b25b6de6f7bb"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/forking-belt-en-1440.png",
+      "sha256": "1588e9113cd68a67ab90e3b38378be4b5af599caa6c7f33a8b2d6f242db5e12a"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/forking-belt-en-390.png",
+      "sha256": "1ebeb8e6bce0131257ae8ab449c8c03e9ced1507c2950125c954eb6f56d89b78"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/forking-belt-es-1440.png",
+      "sha256": "4c47ebbbf34652621db6d1a8773b9ff574b4881341ce5ec60067dc50448f7a0b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/forking-belt-es-390.png",
+      "sha256": "011c6bbc4ca732277819bd3917b1fad9c0d05f6dfdc0dfb41cbe514247164a69"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/forking-belt-ja-1440.png",
+      "sha256": "35b93153ccb3334610976d163949075bdce0c8e970dd10930dde72bf9a600f7d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/forking-belt-ja-390.png",
+      "sha256": "86276cf88981e4117c5ae12ba424b46c50eb384535173acca145e57b925fb8d9"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/forking-belt-ko-1440.png",
+      "sha256": "f7bdd22effb695b4d0c4e0c87f122b9a3a25739e63ab7ab03cbae3a429ab118d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/forking-belt-ko-390.png",
+      "sha256": "67ee91dca1ff097538f8dee56c31d3d24944e00181628b039d908924c1c1d07b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/forking-belt-orange-en.png",
+      "sha256": "bc857fe7c2ebfe38ee72345c3967be68d7e8bb61a35efc48718813e5f6efbe4e"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/forking-belt-orange-es.png",
+      "sha256": "89d57a7a4418c97a5f633318fa1ebf853104d19f4d09e27c8b277d4142d3bea3"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/forking-belt-orange-ja.png",
+      "sha256": "34038979be31e821f64d529389f36849e55b0348c7a442dad882a57d6d0fdb4b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/forking-belt-orange-ko.png",
+      "sha256": "77b2f54a67d7c0012f6a8babbecc237932fb8540b6fca97f16000a1225b83c15"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/forking-belt-orange-zh-CN.png",
+      "sha256": "13b6893fe181c85ac42834386b63a13b1f12253ccfbf0fb772ffadd184ae6a51"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/forking-belt-orange-zh-TW.png",
+      "sha256": "71077e1d47d2ef604dcc81973fd6f2861eab6896451510f163ce1f42229218bd"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/forking-belt-zh-CN-1440.png",
+      "sha256": "3ff661f282bbfc40253fd5a34a429526c225f93530b1dd39447804c76f5e3609"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/forking-belt-zh-CN-390.png",
+      "sha256": "ea3d810afd65d6b2ed5b89de859ea469d4f8ed1e178e745fa3bd2301da649a59"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/forking-belt-zh-TW-1440.png",
+      "sha256": "dd35e15524760337be65fec4e289570057bb65e0f2b6f941f98be1085e3daa48"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/forking-belt-zh-TW-390.png",
+      "sha256": "1a7aca5154f3a5d31e6462610bbfd9ca2ff4958f5a9c97fb050ba3184192d004"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/heavy-belt-en-1440.png",
+      "sha256": "dfa0e878b04b6eadc0c3d5951ab275d4d20d397cb7f4cf0865a616c1b9375165"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/heavy-belt-en-390.png",
+      "sha256": "69c6970f423a0944811099b9ceb59e05432a9658628308f5983f33eb4d326672"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/heavy-belt-es-1440.png",
+      "sha256": "06903fad4a19b5903f8bd55455b557fdf39bdba4773d169981cb046242706933"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/heavy-belt-es-390.png",
+      "sha256": "3c2d1fa55b8b993e885868c38d6a4176db43d8bbfa8abf61f530ddba85c7e509"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/heavy-belt-ja-1440.png",
+      "sha256": "bf75798b7078acda8f2dd9abcb651142d3da50670a9e54cc5fe41a67971cd829"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/heavy-belt-ja-390.png",
+      "sha256": "9a396e078cbf068537aee2554eda7198ec0b207407aa30d72b32c5e699cdb51a"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/heavy-belt-ko-1440.png",
+      "sha256": "3b36f989c12752adea0a5c7fd3012bbb801d94021fdf639240e450f5da44e0d4"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/heavy-belt-ko-390.png",
+      "sha256": "8fb7ae68d07d2fc10f9de384d048b89c1b60ee65290078e279365ab65e5eb4e0"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/heavy-belt-zh-CN-1440.png",
+      "sha256": "c3af05c628068a9c44228bdc23c86935e698e5d7b1a2f9b49bafad9951a5f049"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/heavy-belt-zh-CN-390.png",
+      "sha256": "177f9639f1bedf4789a037bf5354b47f98a135543340e8e7e1e75f817d714531"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/heavy-belt-zh-TW-1440.png",
+      "sha256": "ab8e698bbf722d307657bfb870f92751645e709274075b0710be034f980e6e53"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/heavy-belt-zh-TW-390.png",
+      "sha256": "84d80e273edc12f810041a264228dcd9420ffa0d482f0fa149e7b369974d8157"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/invoking-belt-en-1440.png",
+      "sha256": "42da5e64d744177df88681b4591b63520efbfc0192cd220f2695a782c92e0034"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/invoking-belt-en-390.png",
+      "sha256": "c1fb8f9c3434ea066fdff33fa6eacb07ce952304c1f9001a03b67ec9e511b28f"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/invoking-belt-es-1440.png",
+      "sha256": "79abf1c36d8ea1cb95d931ffdbfc2a67a7188f04dfb3f7f7ec6796619cd881be"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/invoking-belt-es-390.png",
+      "sha256": "448032079c00402641dbc96ae6870c94f686a959dc124a065343842eab551b04"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/invoking-belt-ja-1440.png",
+      "sha256": "b4e34457d275b951971cd43d83880bede57fe2849b9f91b32b60a39639fe902f"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/invoking-belt-ja-390.png",
+      "sha256": "b7936ab7c301d8e5cb622da409f753a4ae7a1fb8aabdb007d9b278de1f30cb37"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/invoking-belt-ko-1440.png",
+      "sha256": "778a643e3e6965ae848039e50acb170248503ea24fc47ae3779c1ed97a88963b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/invoking-belt-ko-390.png",
+      "sha256": "332c92591e234c99636a8737e0397520541c8d74b4e81a034099e8f94330ef91"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/invoking-belt-zh-CN-1440.png",
+      "sha256": "ec2e5309cb9ca3de5ff152f487cd07fa436e85bab6cf3d181eb4f41c68513ce1"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/invoking-belt-zh-CN-390.png",
+      "sha256": "de171bf7a4a1bc2f109d8366cca59c77fd02f878df131a09fef407b60cc0bda0"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/invoking-belt-zh-TW-1440.png",
+      "sha256": "ee7376bb7c6b2e6168808ba8c2f0b273f2bbe2dfb4048fd316a7f2378790f942"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/invoking-belt-zh-TW-390.png",
+      "sha256": "601d4b6d539ce5cedf29523efbe7c080c2d07c5a03e27c5a4cde2a79f9d22c96"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/linen-belt-en-1440.png",
+      "sha256": "76d24d7a1dab69e52329e6854102cb53090e12a48e4b9bc2f5ad5542e1852425"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/linen-belt-en-390.png",
+      "sha256": "9039519a9c7190f85e90208ac6ff036d732b9482dac8b7950f683324440a0594"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/linen-belt-es-1440.png",
+      "sha256": "cc2a1ff1d88d20f97325c5d18297540294ec193c1f58084f635ca48fb19cd334"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/linen-belt-es-390.png",
+      "sha256": "f83f97813e79393720991ab045952a6859fa6e22ae488a87316c33473252d7c2"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/linen-belt-ja-1440.png",
+      "sha256": "74f2462a5a6894ce5c5ef5d071a9cb0d29a9b68f58ec34f8c69333ea091dfdd0"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/linen-belt-ja-390.png",
+      "sha256": "cb04d0cb455febac216487d25dfc8ec3c710236c88e6c985a4e701b6791b355c"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/linen-belt-ko-1440.png",
+      "sha256": "a0c1b2047b71015feb34eea714f467b0aca4ba3e5dee82fc96b7d96cd3d868a4"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/linen-belt-ko-390.png",
+      "sha256": "0d4e301d4d8d1fcee381e6b722160cdcc3bd58b23e35d6b6a8198bdf655e5df3"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/linen-belt-zh-CN-1440.png",
+      "sha256": "c50827317e485fae139dfacddbcd49c90fa7a6861093ac28797234f26b684a2e"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/linen-belt-zh-CN-390.png",
+      "sha256": "8c4eb0c7020c951b1d56b5000cca2c45aa0073e233275ebb1b76d35f757e298d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/linen-belt-zh-TW-1440.png",
+      "sha256": "d1f40a1659ad8e9266f74168a7858dbe742c2d00fb81aa517d5bd4642867b9c7"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/linen-belt-zh-TW-390.png",
+      "sha256": "9b5abc700472727e9c97296555d0434fcd9a33a04585da1001fa2aa5f0189f8d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/long-belt-en-1440.png",
+      "sha256": "e7a49722aef380ad98649bfec9278528c959ac94d6955095ead904ee90fa87a3"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/long-belt-en-390.png",
+      "sha256": "b796155b6dbe50a0274350a87d7c5dc21844a76e93f8b7ad1e329480224eb345"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/long-belt-es-1440.png",
+      "sha256": "6364dfde88a4fbaa80d9926beddff656f73014ba3ea0c167568810a7152b3d71"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/long-belt-es-390.png",
+      "sha256": "ebbe8cecff5527db96800defb998cc5a8bf6ec9eee64b4e7adb5717b67548004"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/long-belt-ja-1440.png",
+      "sha256": "fd31b42ea69d4f4c34eea22eaf423500a4a2a3cfebd322b8cab76e7f4d8b2c2d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/long-belt-ja-390.png",
+      "sha256": "ed589a44b10b2a480bafc8054c5c5a98ca02f2ee66771731c1b18cd4fef2ef60"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/long-belt-ko-1440.png",
+      "sha256": "b8deeab10d83bf7f62e37f7225ac8418d656479cda3595dffe8f151fe95c73cd"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/long-belt-ko-390.png",
+      "sha256": "fd8748f7cf721b421180183e03e79ed878d15395745616c71bd3ac59acfa7c25"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/long-belt-zh-CN-1440.png",
+      "sha256": "6f21a93860a6757fdaccfbe7dd80f42e30717865f69a5773aec43d19faef4500"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/long-belt-zh-CN-390.png",
+      "sha256": "cbee4eccd0c320bd70114a0ddc14341eaa74c527b70c1de3abffd3f5cbf15e00"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/long-belt-zh-TW-1440.png",
+      "sha256": "e3ccb49e750c5ca968c80afb3c46f4ea26635671529b3bf56d61654a82c6e897"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/long-belt-zh-TW-390.png",
+      "sha256": "d4828ff59fd768c4fb07e9c9dd5a66da8d36cc8a76f03a607b2da62dbebddf18"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/mail-belt-en-1440.png",
+      "sha256": "29399389355edd017f646998ae605686c06fa345122179d07616efd452ecefb8"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/mail-belt-en-390.png",
+      "sha256": "416f76cb1a39dafba248c88db9b68c3eb2053961b66a281dee3947d8c4010bb2"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/mail-belt-es-1440.png",
+      "sha256": "294d5553edd8c6129da72b25bbe992d203e8a0d23fe5e1181ff2696bbd4df8c9"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/mail-belt-es-390.png",
+      "sha256": "071834f24d2754d44dac14106e2c42ba62d83d80be7667792ff4eb557e7842fe"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/mail-belt-ja-1440.png",
+      "sha256": "705b4b384b7b11b8c95425e4e5f9b256c2424cc70218d5217700e5f050ef00a0"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/mail-belt-ja-390.png",
+      "sha256": "4fda2b8839402d673e246fb35f23a88ce4a34f0e7fc3977b941ddd78ac33c626"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/mail-belt-ko-1440.png",
+      "sha256": "00a1aca5c9b11f4485ede4826b11c6285de2841c79362eca96df89a6e52a0c69"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/mail-belt-ko-390.png",
+      "sha256": "add78cef072327f1ee73de7ce831dd33338c53aa05b17cb91553ee093e0f4b82"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/mail-belt-zh-CN-1440.png",
+      "sha256": "eb88b87400c57ba02f42cdf545234dc4d476af0f79b4cff65200a5518a2b4b82"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/mail-belt-zh-CN-390.png",
+      "sha256": "29ac3e20e901ceb1e53bd2da3e197be47a61ea6d9c746e6319ae51e334789c82"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/mail-belt-zh-TW-1440.png",
+      "sha256": "0ef2b697e0d4613f0c30f8b09c29e1d2de4cc4af699fa68ebe1a6f0ebb601615"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/mail-belt-zh-TW-390.png",
+      "sha256": "5f639633ef35f1f6c740c9c130adc7f544c3b6383efb9d016caa5e685b3a1f24"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/ornate-belt-en-1440.png",
+      "sha256": "4fc3006cb1c2e6baca4ac1664cd40367be08c48121ffcf10e119aa49cf84843e"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/ornate-belt-en-390.png",
+      "sha256": "f521f0103c59f7704c4cdb24340acd08a654c9b555102eca49bb807602b26a30"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/ornate-belt-es-1440.png",
+      "sha256": "4510cc07588c296c8e6d5ce36c3dc4355341117ba1531f43e7cb53b0aab75ce2"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/ornate-belt-es-390.png",
+      "sha256": "d7ad53b6314111f197ce9777c158f2a744c9a5fadd7c52d41469c5174c1a050a"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/ornate-belt-ja-1440.png",
+      "sha256": "c21bd828b258907c31bdc78247907b97ae1c12cc453d800fc249683e3f60d112"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/ornate-belt-ja-390.png",
+      "sha256": "53d3d1ec108685ba069de8eb2d7b17fda0249839de53e1d4e85dc407d2c3ee14"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/ornate-belt-ko-1440.png",
+      "sha256": "7bd6874cd2f63165ed54ab5669256410ec5b2535aac288c587c340453cd00cc9"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/ornate-belt-ko-390.png",
+      "sha256": "4d2a74ed8b7a9ce3c12b04ec149fb0ce55fc5f66688ff9ef9b03c604b104428b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/ornate-belt-zh-CN-1440.png",
+      "sha256": "8b8ad96d1fbe955e2911c3368c49da6bcd6a5e3a25ef4d55ab1288d5b853d670"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/ornate-belt-zh-CN-390.png",
+      "sha256": "79f3deab325e0bab88b2086344f4c2400aa0ee553f579bd59b75f84e56562d45"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/ornate-belt-zh-TW-1440.png",
+      "sha256": "03ce04eb452599c4f09077bbeb18ad0edcebc1d28a9d8cd6e355e0a7e5420c24"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/ornate-belt-zh-TW-390.png",
+      "sha256": "0250edf4d76190aa75ba68d256fa12e8620f754685a3e0b4dcb64aa44ba219a6"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/plate-belt-en-1440.png",
+      "sha256": "c0053c320f520ede9e1c2a68c5192fa415ecd267772e7b174e49deca69d4a4f3"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/plate-belt-en-390.png",
+      "sha256": "ff88d4ae63db09ff087c068fe5dd486287067388661d3d44e0d163280f5218e1"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/plate-belt-es-1440.png",
+      "sha256": "a59a5524bb9c42defe792cce3d3b4c30d6faf2b4c4ca1363186ba188424df010"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/plate-belt-es-390.png",
+      "sha256": "c065ee06a916e103d0de29ddafbc4d423fcf798f020840321e739e23a8496b44"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/plate-belt-ja-1440.png",
+      "sha256": "e84b6594d4d4bd08469ef91a77451cb51453167d79a0f2c8c5501def7c337754"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/plate-belt-ja-390.png",
+      "sha256": "83e085b433c8b1b576d4542d4f833e5ed52eab66e73c4866aea871041248c8b6"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/plate-belt-ko-1440.png",
+      "sha256": "8effd5b9803da39f899107be633ff7d0e86472deb8714397df930bd65d75a804"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/plate-belt-ko-390.png",
+      "sha256": "17184df1308bb48e16d9ba7b5d21fd6e98eda74e4c1e8ac05fee8c066c0d427a"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/plate-belt-zh-CN-1440.png",
+      "sha256": "1ccbb358b3cdd8a3d6d83353032199bf67a3ce88f4bb92c0a07804a6d79b9cf5"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/plate-belt-zh-CN-390.png",
+      "sha256": "cbf2fdfe175c169db8462130c52aaba9bfb6b0d6d962b4c8d19212a8b7cd0349"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/plate-belt-zh-TW-1440.png",
+      "sha256": "4d03400824cd78d406926f2d3e1a08339c07f246a09f144855632134b06174e0"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/plate-belt-zh-TW-390.png",
+      "sha256": "42c3daae20f018ad0fc922e1e4297b7d423d9be8d76af85310740fc1ba0f5c0a"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/sinew-belt-en-1440.png",
+      "sha256": "9d343091c76bc1aba5501133fa4bf3a1e5a06c5c3c8ef0705140376828cb817c"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/sinew-belt-en-390.png",
+      "sha256": "ec51cd391c2d8b5201eb3ed9eba9fa8a02ae4f7ec28238e8425df9831b7cd32f"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/sinew-belt-es-1440.png",
+      "sha256": "6e20f40dcdb5c57c7261c35b81d9678b17083a5f871638f1f40ba68476ff5ead"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/sinew-belt-es-390.png",
+      "sha256": "88b73d5c36ce039ba40ab75c4367d3f14397d788315ba488a22d4460dc9665d8"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/sinew-belt-ja-1440.png",
+      "sha256": "d044e56bd01778031f277df4fac4ebb6891f7a564c85f9ad2cd7c7f47b848b66"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/sinew-belt-ja-390.png",
+      "sha256": "9d6f624d547b2ba10918269309389dc752a2a9cdd0c254ee0c4380b16d76c395"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/sinew-belt-ko-1440.png",
+      "sha256": "7273b06cff33bcf1e3fe3ff5f49ac2964a10ad62fb39c76aa39b7290ef1292fa"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/sinew-belt-ko-390.png",
+      "sha256": "9b55cbda5c7f8dbbf59cf875ac599d226e50010ef77679a79a761012524c7e23"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/sinew-belt-zh-CN-1440.png",
+      "sha256": "ef7c2879a9871eb464fde732bb4af9023f3385599c789ff6b439c172bb81bd80"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/sinew-belt-zh-CN-390.png",
+      "sha256": "bb9debf642bae0cd14569529d9ed73278cb26239c73ec02f906152fe77d302c8"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/sinew-belt-zh-TW-1440.png",
+      "sha256": "757736c87218e2feb77dd10a62de0115a7eaef3377983450a952c2baf037ebfc"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/sinew-belt-zh-TW-390.png",
+      "sha256": "4a16c677b6e469861b7326f40ba412ffababe4c5c71cac92adfad27c86603bcb"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/solar-overflow-en.png",
+      "sha256": "7bc322794e952e0af9257c6d20cf6c4bc3155d10666d209b8bcb13498004d671"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/solar-overflow-es.png",
+      "sha256": "6b11ec7e14b92e027bdb23369eb4fe842db97fd41f5c6f3f109472b14cbc5c38"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/solar-overflow-ja.png",
+      "sha256": "2ace48612c3f33e7892a0bddcdef3f55c720acb6403135b4002a27d07393e1ff"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/solar-overflow-ko.png",
+      "sha256": "866c125fb5a9f1acdd1985b17e0d51ad21900024c2a2bc90af0c58f760be83dc"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/solar-overflow-zh-CN.png",
+      "sha256": "0037ebb40f92d58f322139f1c66ff6d8bcb2e8a53392ae19f9849a8f17ce0bae"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/solar-overflow-zh-TW.png",
+      "sha256": "c948d36dc6d82dc4c274ae7238dd3227e2ec086c2dba2fb285ba6e75d1cb7054"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/utility-belt-en-1440.png",
+      "sha256": "523a5586faaced5908beb6bf9de23dfddfd0702193ef56f067c3fd99d9e0b0c7"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/utility-belt-en-390.png",
+      "sha256": "519da6451db1158746370c2c49ebe5c04e29df98b2328a2007c188d70b89dfe0"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/utility-belt-es-1440.png",
+      "sha256": "acfdedad7497a90a385892abdb67487d79a58e66d6e48c5b7fc534a0a5a0d91e"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/utility-belt-es-390.png",
+      "sha256": "c5694f06d46ef3a5038459df7ec4b02ea5cdcc614cff8116597cd517349e0df6"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/utility-belt-ja-1440.png",
+      "sha256": "b8a77ef10b7f98f8b127c6f1ce8b0fe007302b12ef47bebaa5c4343334c8597a"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/utility-belt-ja-390.png",
+      "sha256": "a65e12b1412a7e77c965fd851df22be3aa4a90dd755b456dd442a7de55ae6090"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/utility-belt-ko-1440.png",
+      "sha256": "797ba34a8568468e3286b2a26109ac4dfc8951841213a6e99cbb95a7b5729cf6"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/utility-belt-ko-390.png",
+      "sha256": "aa5ef4624b515557d6f4ad7dd5409b007c11bebd5617f1823e64439b602c5718"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/utility-belt-zh-CN-1440.png",
+      "sha256": "cd05425e5e34f175c227e43622a7d3c003c4ef6dacd8b8777f4b84ccf10e45c3"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/utility-belt-zh-CN-390.png",
+      "sha256": "5d65bbe774eb15eed1c6dec3a98d4e7e3cd77f0374b7c5a62755cdc08e37ea3d"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/utility-belt-zh-TW-1440.png",
+      "sha256": "69d7cba51b6b751ffd8faccc4d7348451c71f5030cbb45d4db9aa4ca08e39bf6"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/utility-belt-zh-TW-390.png",
+      "sha256": "05d334f4fcff51c35ce32f03154983b18dd0c038fc4775b73e9335e3b90ab801"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/wide-belt-en-1440.png",
+      "sha256": "4fb42078b7ce25879d9e53a8f77b517b8909528c57b3542092b0de4f8c76a86c"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/wide-belt-en-390.png",
+      "sha256": "1d745ea35e86ec212bac3d304baccc2de2bd15adc90ea682e247718ba5ec9970"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/wide-belt-es-1440.png",
+      "sha256": "633b84acf4d7707318be298ab1bbff3f3ba306af299237d87d320dc89f365a82"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/wide-belt-es-390.png",
+      "sha256": "a97f840e28266a20ec9a954b3ec92010a593ac2c0d4d46d99cc37e9c2e6c5884"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/wide-belt-ja-1440.png",
+      "sha256": "401dbd1c2d8a221d4e220a206d9f37f7a26895b08a7e82bbf20dd1faf74a528f"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/wide-belt-ja-390.png",
+      "sha256": "d1d019bcbecb10a3ba126a6d10c3a97f4da99b2bd278d694b37c3c1a2affaaf2"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/wide-belt-ko-1440.png",
+      "sha256": "7823c25c77170b297a63fd7c383e90074ca649a192a5fd159d0a30befc9d2a5e"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/wide-belt-ko-390.png",
+      "sha256": "cbb392df84705bb6d55cf50b7609916e06ca397f74dd812630c549c10c359afa"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/wide-belt-zh-CN-1440.png",
+      "sha256": "211b963eba0bb5e5761e013b70838c433853866fb83ba7be82f7344f5c9328a1"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/wide-belt-zh-CN-390.png",
+      "sha256": "466d11bbb9753b88d9c7d16241918d11e8269efa342d18de502f67a9acc7def7"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/wide-belt-zh-TW-1440.png",
+      "sha256": "c77ea4eda46433b3ae3155fa6095c0fc404faca02d39452a89dc864240086a3b"
+    },
+    {
+      "file": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/browser-attempt-2/wide-belt-zh-TW-390.png",
+      "sha256": "fe3590b16239e3e6a044e1d768ed1391581dd24f791e5f2f6c85572a0b4d401f"
+    }
+  ]
+}

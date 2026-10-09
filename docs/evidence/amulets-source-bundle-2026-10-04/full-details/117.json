@@ -1,0 +1,30 @@
+{
+  "row": {
+    "Name": "Wraith's",
+    "Level": "46",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "EvasionRatingPercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(27<span class=\"ndash\">—</span>32)</span>% increased <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion Rating</a>",
+    "fossil_no": [
+      "defences",
+      "evasion"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "amulet",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingevasion\" data-tag=\"evasion\">Evasion</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cb2c06704d9642f69c8f9db9d0fed52d328a5e86869975a3fa88c0302f78afbb"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cb2c06704d9642f69c8f9db9d0fed52d328a5e86869975a3fa88c0302f78afbb",
+  "retrievedAt": "2026-10-04T22:02:24.022Z",
+  "sha256": "cb2c06704d9642f69c8f9db9d0fed52d328a5e86869975a3fa88c0302f78afbb",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(27<span class=\"ndash\">—</span>32)</span>% increased <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5b6ec6eb65a018369b5ec769fa88051ee7f93c3ef1dd5a6a834c75baaa97d247\">Evasion Rating</a></span></h5>   <span data-tabname=\"Wraith's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Wraith's\n<tr><th>Family<td>EvasionRatingPercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>46 (Effective: 36)\n<tr><th>Gold Price<td>916\n<tr><th>Stats<td><li>evasion rating +% <span class=\"badge bg-primary\">27 <span class=\"ndash\">—</span> 32</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Evasion</span> </table>  </div></div>"
+}

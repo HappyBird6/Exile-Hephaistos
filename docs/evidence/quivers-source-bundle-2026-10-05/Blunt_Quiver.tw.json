@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/tw/Blunt_Quiver",
+  "retrievedAt": "2026-10-05T05:29:28.460Z",
+  "sha256": "e4aeadcd66acce3b5e6ae82eb3953397c95f1d466e38456cff2f840beaab4f14",
+  "variants": [
+    {
+      "name": "鈍箭袋",
+      "card": "鈍箭袋\n        \n    \n    \n        \n            箭袋需求:  等級 33增加(25—40)%暈眩累積\n        \n\n\n        \n        \n            持弓時才可裝備。\n        \n\n        \n            Blunt Quiver",
+      "requirements": "需求:  等級 33",
+      "fields": {
+        "DropLevel": "33",
+        "BaseType": "鈍箭袋",
+        "Class": "箭袋",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver5",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverBlunt",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

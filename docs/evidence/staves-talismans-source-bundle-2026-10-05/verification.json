@@ -1,0 +1,398 @@
+[
+  {
+    "page": "Staves",
+    "classId": 14,
+    "ordinary": 185,
+    "reused": 54,
+    "fixed": {
+      "LESSER_ESSENCE_SORCERY": [
+        "staves:prefix:adept-s:SpellDamageOnTwoHandWeapon2"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "attuned-wand:suffix:of-the-student"
+      ],
+      "ESSENCE_SORCERY": [
+        "staves:prefix:professor-s:SpellDamageOnTwoHandWeapon4"
+      ],
+      "ESSENCE_INFINITE": [
+        "attuned-wand:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_SORCERY": [
+        "staves:prefix:incanter-s:SpellDamageOnTwoHandWeapon6"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "attuned-wand:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_SEEKING": [
+        "staves:suffix:of-havoc:SpellCriticalStrikeChanceTwoHand2"
+      ],
+      "ESSENCE_SEEKING": [
+        "staves:suffix:of-disaster:SpellCriticalStrikeChanceTwoHand3"
+      ],
+      "GREATER_ESSENCE_SEEKING": [
+        "staves:suffix:of-calamity:SpellCriticalStrikeChanceTwoHand4"
+      ],
+      "LESSER_ESSENCE_ALACRITY": [
+        "staves:suffix:of-nimbleness:IncreasedCastSpeedTwoHand2"
+      ],
+      "ESSENCE_ALACRITY": [
+        "staves:suffix:of-expertise:IncreasedCastSpeedTwoHand3"
+      ],
+      "GREATER_ESSENCE_ALACRITY": [
+        "staves:suffix:of-legerdemain:IncreasedCastSpeedTwoHand5"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_SORCERY": [
+        "staves:suffix:essence:EssenceSpellSkillLevel2H1"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "PERFECT_ESSENCE_ALACRITY": [
+        "staves:suffix:essence:EssenceManaCostReduction2H"
+      ]
+    },
+    "excluded": [
+      {
+        "kind": "essence",
+        "code": "Strength2",
+        "action": "LESSER_ESSENCE_INFINITE",
+        "reason": "Ordered spawn denies current class"
+      },
+      {
+        "kind": "essence",
+        "code": "Dexterity2",
+        "action": "LESSER_ESSENCE_INFINITE",
+        "reason": "Ordered spawn denies current class"
+      },
+      {
+        "kind": "essence",
+        "code": "Strength4",
+        "action": "ESSENCE_INFINITE",
+        "reason": "Ordered spawn denies current class"
+      },
+      {
+        "kind": "essence",
+        "code": "Dexterity4",
+        "action": "ESSENCE_INFINITE",
+        "reason": "Ordered spawn denies current class"
+      },
+      {
+        "kind": "essence",
+        "code": "Strength6",
+        "action": "GREATER_ESSENCE_INFINITE",
+        "reason": "Ordered spawn denies current class"
+      },
+      {
+        "kind": "essence",
+        "code": "Dexterity6",
+        "action": "GREATER_ESSENCE_INFINITE",
+        "reason": "Ordered spawn denies current class"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyDamageAsExtraFireTwoHandWhileMissingRunicWard1",
+        "action": "ADAPTIVE_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyMaximumRunicWardWeapon1",
+        "action": "PROTECTIVE_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyExposureEffect1",
+        "action": "PRISMATIC_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyMaximumElementalInfusions1",
+        "action": "MYSTIC_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyEffectOfSocketedAugments1",
+        "action": "SOVEREIGN_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloySpellLevelManaHybrid1",
+        "action": "CELESTIAL_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyCastSpeedDamageAsExtraColdHybrid1",
+        "action": "TRANSCENDENT_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyNaturesArchon1",
+        "action": "THE_RUNEBINDERS_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      }
+    ],
+    "bases": [
+      {
+        "key": "permafrost-staff",
+        "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+        "implicit": [],
+        "ordinary": 185,
+        "special": 4
+      },
+      {
+        "key": "reflecting-staff",
+        "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+        "implicit": [],
+        "ordinary": 185,
+        "special": 4
+      },
+      {
+        "key": "dark-staff",
+        "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
+        "implicit": [],
+        "ordinary": 185,
+        "special": 4
+      },
+      {
+        "key": "ravenous-staff",
+        "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+        "implicit": [],
+        "ordinary": 185,
+        "special": 4
+      },
+      {
+        "key": "perching-staff",
+        "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
+        "implicit": [],
+        "ordinary": 185,
+        "special": 4
+      },
+      {
+        "key": "sanctified-staff",
+        "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+        "implicit": [],
+        "ordinary": 185,
+        "special": 4
+      }
+    ],
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "combatSimulation": false
+  },
+  {
+    "page": "Talismans",
+    "classId": 110,
+    "ordinary": 158,
+    "reused": 158,
+    "fixed": {
+      "LESSER_ESSENCE_ABRASION": [
+        "crossbow:prefix:burnished:LocalAddedPhysicalDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_FLAMES": [
+        "crossbow:prefix:smouldering:LocalAddedFireDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_ICE": [
+        "crossbow:prefix:chilled:LocalAddedColdDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:buzzing:LocalAddedLightningDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_BATTLE": [
+        "crude-bow:prefix:focused"
+      ],
+      "LESSER_ESSENCE_HASTE": [
+        "crude-bow:suffix:of-mastery"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-wrestler",
+        "attuned-wand:suffix:of-the-student"
+      ],
+      "ESSENCE_ABRASION": [
+        "crossbow:prefix:gleaming:LocalAddedPhysicalDamageTwoHand5"
+      ],
+      "ESSENCE_FLAMES": [
+        "crossbow:prefix:flaming:LocalAddedFireDamageTwoHand5"
+      ],
+      "ESSENCE_ICE": [
+        "crossbow:prefix:freezing:LocalAddedColdDamageTwoHand5"
+      ],
+      "ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:sparking:LocalAddedLightningDamageTwoHand5"
+      ],
+      "ESSENCE_BATTLE": [
+        "crude-bow:prefix:consistent"
+      ],
+      "ESSENCE_HASTE": [
+        "crude-bow:suffix:of-acclaim"
+      ],
+      "ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-lion",
+        "attuned-wand:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_ABRASION": [
+        "crossbow:prefix:razor-sharp:LocalAddedPhysicalDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_FLAMES": [
+        "crossbow:prefix:incinerating:LocalAddedFireDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_ICE": [
+        "crossbow:prefix:glaciated:LocalAddedColdDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:shocking:LocalAddedLightningDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_BATTLE": [
+        "crude-bow:prefix:hunter-s"
+      ],
+      "GREATER_ESSENCE_HASTE": [
+        "one-hand-maces:suffix:of-infamy:LocalIncreasedAttackSpeed7"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-goliath",
+        "attuned-wand:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_SEEKING": [
+        "crude-bow:suffix:of-havoc"
+      ],
+      "ESSENCE_SEEKING": [
+        "crude-bow:suffix:of-disaster"
+      ],
+      "GREATER_ESSENCE_SEEKING": [
+        "crude-bow:suffix:of-calamity"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_ABRASION": [
+        "crossbow:prefix:essence:EssenceDamageasExtraPhysical2H"
+      ],
+      "PERFECT_ESSENCE_FLAMES": [
+        "crossbow:prefix:essence:EssenceDamageasExtraFire2H"
+      ],
+      "PERFECT_ESSENCE_ICE": [
+        "crossbow:prefix:essence:EssenceDamageasExtraCold2H"
+      ],
+      "PERFECT_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:essence:EssenceDamageasExtraLightning2H"
+      ],
+      "PERFECT_ESSENCE_BATTLE": [
+        "crossbow:suffix:essence:EssenceAttackSkillLevel2H1"
+      ],
+      "PERFECT_ESSENCE_HASTE": [
+        "crude-bow:suffix:essence-onslaught-on-kill"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    },
+    "excluded": [
+      {
+        "kind": "essence",
+        "code": "Dexterity2",
+        "action": "LESSER_ESSENCE_INFINITE",
+        "reason": "Ordered spawn denies current class"
+      },
+      {
+        "kind": "essence",
+        "code": "Dexterity4",
+        "action": "ESSENCE_INFINITE",
+        "reason": "Ordered spawn denies current class"
+      },
+      {
+        "kind": "essence",
+        "code": "IncreasedAccuracy7",
+        "action": "GREATER_ESSENCE_BATTLE",
+        "reason": "Ordered spawn denies current class"
+      },
+      {
+        "kind": "essence",
+        "code": "Dexterity6",
+        "action": "GREATER_ESSENCE_INFINITE",
+        "reason": "Ordered spawn denies current class"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyMaximumRunicWardWeapon1",
+        "action": "PROTECTIVE_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyAilmentMagnitude1",
+        "action": "PRISMATIC_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyEffectOfSocketedAugments1",
+        "action": "SOVEREIGN_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyAccuracyAttackSpeedHybrid1",
+        "action": "CELESTIAL_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyAttributeIncreasedLocalPhysicalDamageHybrid1",
+        "action": "TRANSCENDENT_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyLightningDamageIgnites1",
+        "action": "THE_RUNEFATHERS_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      }
+    ],
+    "bases": [
+      {
+        "key": "maji-talisman",
+        "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame",
+        "implicit": [
+          {
+            "text": "+(7—10) to Maximum Rage",
+            "family": "WeaponImplicit",
+            "unscalable": false,
+            "stats": [
+              {
+                "id": "maximum_rage",
+                "min": 7,
+                "max": 10,
+                "locality": "Global"
+              }
+            ]
+          }
+        ],
+        "ordinary": 158,
+        "special": 8
+      },
+      {
+        "key": "fungal-talisman",
+        "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame",
+        "implicit": [],
+        "ordinary": 158,
+        "special": 8
+      },
+      {
+        "key": "jade-talisman",
+        "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman10Endgame",
+        "implicit": [],
+        "ordinary": 158,
+        "special": 8
+      }
+    ],
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "combatSimulation": false
+  }
+]

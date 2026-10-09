@@ -1,0 +1,165 @@
+{
+  "page": "Talismans",
+  "url": "https://poe2db.tw/us/Talismans",
+  "retrievedAt": "2026-10-05T01:38:19.832Z",
+  "sha256": "2916147bb2ad8cd22d8b2f8c96d559cacfe3ed40a071fb45c94c641880519281",
+  "cards": [
+    {
+      "slug": "Changeling_Talisman",
+      "card": "Changeling TalismanPhysical Damage: 9-15Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2"
+    },
+    {
+      "slug": "Nettle_Talisman",
+      "card": "Nettle TalismanPhysical Damage: 12-20Critical Hit Chance: 11%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 5, 9 Str, 8 Int"
+    },
+    {
+      "slug": "Cinderbark_Talisman",
+      "card": "Cinderbark TalismanPhysical Damage: 12.6-25.2Fire Damage: 5.4-10.8Critical Hit Chance: 8%Attacks per Second: 1.2Weapon Range: 1.2Requires:  Level 10, 15 Str, 11 Int(50—80)% increased Flammability Magnitude\nlocal weapon implicit hidden % base damage is fire [30]"
+    },
+    {
+      "slug": "Familial_Talisman",
+      "card": "Familial TalismanPhysical Damage: 20-34Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 16, 21 Str, 16 IntMinions deal (30—50)% increased Damage"
+    },
+    {
+      "slug": "Frenzied_Talisman",
+      "card": "Frenzied TalismanPhysical Damage: 23-38Critical Hit Chance: 8%Attacks per Second: 1.4Weapon Range: 1.2Requires:  Level 22, 28 Str, 20 Int"
+    },
+    {
+      "slug": "Primal_Talisman",
+      "card": "Primal TalismanPhysical Damage: 31-46Critical Hit Chance: 9%Attacks per Second: 1.3Weapon Range: 1.2Requires:  Level 28, 34 Str, 25 Int+(14—18)% to Block chance"
+    },
+    {
+      "slug": "Rabid_Talisman",
+      "card": "Rabid TalismanPhysical Damage: 31-58Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 34, 40 Str, 29 Int+(7—10) to Maximum Rage"
+    },
+    {
+      "slug": "Vicious_Talisman",
+      "card": "Vicious TalismanPhysical Damage: 43-71Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 40, 47 Str, 34 Int"
+    },
+    {
+      "slug": "Voltfang_Talisman",
+      "card": "Voltfang TalismanPhysical Damage: 16.1-91Lightning Damage: 6.9-39Critical Hit Chance: 8%Attacks per Second: 1.3Weapon Range: 1.2Requires:  Level 46, 53 Str, 38 Int(20—30)% increased Magnitude of Shock you inflict\nlocal weapon implicit hidden % base damage is lightning [30]"
+    },
+    {
+      "slug": "Lumbering_Talisman",
+      "card": "Lumbering TalismanPhysical Damage: 71-107Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.2Requires:  Level 52, 60 Str, 43 Int"
+    },
+    {
+      "slug": "Roaring_Talisman",
+      "card": "Roaring TalismanPhysical Damage: 57-96Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 58, 66 Str, 47 Int+(7—10) to Maximum Rage"
+    },
+    {
+      "slug": "Wingbeat_Talisman",
+      "card": "Wingbeat TalismanPhysical Damage: 45-83Critical Hit Chance: 7%Attacks per Second: 1.45Weapon Range: 1.2Requires:  Level 65, 74 Str, 52 Int"
+    },
+    {
+      "slug": "Condemned_Talisman",
+      "card": "Condemned TalismanPhysical Damage: 68-113Critical Hit Chance: 9%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 65, 74 Str, 52 Int(10—20)% increased Effect of your Mark Skills"
+    },
+    {
+      "slug": "Howling_Talisman",
+      "card": "Howling TalismanPhysical Damage: 52-78Critical Hit Chance: 9%Attacks per Second: 1.3Weapon Range: 1.2Requires:  Level 55, 63 Str, 45 Int+(14—18)% to Block chance"
+    },
+    {
+      "slug": "Fury_Talisman",
+      "card": "Fury TalismanPhysical Damage: 49-91Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 59, 67 Str, 48 Int+(7—10) to Maximum Rage"
+    },
+    {
+      "slug": "Cruel_Talisman",
+      "card": "Cruel TalismanPhysical Damage: 62-103Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 63, 72 Str, 51 Int"
+    },
+    {
+      "slug": "Runeforged_Changeling_Talisman",
+      "card": "Runeforged Changeling TalismanPhysical Damage: 91-151Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 38, 45 Str, 32 Int"
+    },
+    {
+      "slug": "Runeforged_Nettle_Talisman",
+      "card": "Runeforged Nettle TalismanPhysical Damage: 51-86Critical Hit Chance: 11%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 38, 45 Str, 32 Int"
+    },
+    {
+      "slug": "Runemastered_Nettle_Talisman",
+      "card": "Runemastered Nettle TalismanPhysical Damage: 68-114Critical Hit Chance: 11%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 55, 63 Str, 45 Int"
+    },
+    {
+      "slug": "Runeforged_Familial_Talisman",
+      "card": "Runeforged Familial TalismanPhysical Damage: 54-91Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 38, 45 Str, 32 IntMinions deal (30—50)% increased Damage"
+    },
+    {
+      "slug": "Runemastered_Familial_Talisman",
+      "card": "Runemastered Familial TalismanPhysical Damage: 73-122Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 55, 63 Str, 45 IntMinions deal (51—100)% increased Damage"
+    },
+    {
+      "slug": "Runeforged_Vicious_Talisman",
+      "card": "Runeforged Vicious TalismanPhysical Damage: 123-205Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 65, 74 Str, 52 Int"
+    },
+    {
+      "slug": "Spiny_Talisman",
+      "card": "Spiny TalismanPhysical Damage: 60-99Critical Hit Chance: 11%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 67, 86 Str, 65 Int"
+    },
+    {
+      "slug": "Ashbark_Talisman",
+      "card": "Ashbark TalismanPhysical Damage: 50.4-105Fire Damage: 21.6-45Critical Hit Chance: 8%Attacks per Second: 1.2Weapon Range: 1.2Requires:  Level 72, 94 Str, 67 Int(50—80)% increased Flammability Magnitude\nlocal weapon implicit hidden % base damage is fire [30]"
+    },
+    {
+      "slug": "Fang_Talisman",
+      "card": "Fang TalismanPhysical Damage: 70-116Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 77, 89 Str, 68 IntMinions deal (30—50)% increased Damage"
+    },
+    {
+      "slug": "Fungal_Talisman",
+      "card": "Fungal TalismanPhysical Damage: 59-98Critical Hit Chance: 8%Attacks per Second: 1.4Weapon Range: 1.2Requires:  Level 78, 96 Str, 70 Int"
+    },
+    {
+      "slug": "Alpha_Talisman",
+      "card": "Alpha TalismanPhysical Damage: 63-94Critical Hit Chance: 9%Attacks per Second: 1.3Weapon Range: 1.2Requires:  Level 75, 98 Str, 72 Int+(14—18)% to Block chance"
+    },
+    {
+      "slug": "Maji_Talisman",
+      "card": "Maji TalismanPhysical Damage: 61-114Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 79, 100 Str, 67 Int+(7—10) to Maximum Rage"
+    },
+    {
+      "slug": "Wildwood_Talisman",
+      "card": "Wildwood TalismanPhysical Damage: 67-112Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 70, 98 Str, 72 Int"
+    },
+    {
+      "slug": "Thunder_Talisman",
+      "card": "Thunder TalismanPhysical Damage: 23.1-130.9Lightning Damage: 9.9-56.1Critical Hit Chance: 8%Attacks per Second: 1.3Weapon Range: 1.2Requires:  Level 77, 102 Str, 72 Int(20—30)% increased Magnitude of Shock you inflict\nlocal weapon implicit hidden % base damage is lightning [30]"
+    },
+    {
+      "slug": "Jade_Talisman",
+      "card": "Jade TalismanPhysical Damage: 101-151Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.2Requires:  Level 78, 109 Str, 65 Int"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Maji_Talisman",
+      "card": "Maji TalismanPhysical Damage: 61-114Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 79, 100 Str, 67 Int+(7—10) to Maximum Rage",
+      "requiredLevel": 79
+    },
+    {
+      "slug": "Fungal_Talisman",
+      "card": "Fungal TalismanPhysical Damage: 59-98Critical Hit Chance: 8%Attacks per Second: 1.4Weapon Range: 1.2Requires:  Level 78, 96 Str, 70 Int",
+      "requiredLevel": 78
+    },
+    {
+      "slug": "Jade_Talisman",
+      "card": "Jade TalismanPhysical Damage: 101-151Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.2Requires:  Level 78, 109 Str, 65 Int",
+      "requiredLevel": 78
+    },
+    {
+      "slug": "Fang_Talisman",
+      "card": "Fang TalismanPhysical Damage: 70-116Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 77, 89 Str, 68 IntMinions deal (30—50)% increased Damage",
+      "requiredLevel": 77
+    },
+    {
+      "slug": "Thunder_Talisman",
+      "card": "Thunder TalismanPhysical Damage: 23.1-130.9Lightning Damage: 9.9-56.1Critical Hit Chance: 8%Attacks per Second: 1.3Weapon Range: 1.2Requires:  Level 77, 102 Str, 72 Int(20—30)% increased Magnitude of Shock you inflict\nlocal weapon implicit hidden % base damage is lightning [30]",
+      "requiredLevel": 77
+    },
+    {
+      "slug": "Alpha_Talisman",
+      "card": "Alpha TalismanPhysical Damage: 63-94Critical Hit Chance: 9%Attacks per Second: 1.3Weapon Range: 1.2Requires:  Level 75, 98 Str, 72 Int+(14—18)% to Block chance",
+      "requiredLevel": 75
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

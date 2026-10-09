@@ -1,0 +1,30 @@
+{
+  "row": {
+    "Name": "Perceptive",
+    "Level": "60",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "MaximumManaIncreasePercent"
+    ],
+    "DropChance": "300",
+    "str": "<span class='mod-value'>(5<span class=\"ndash\">—</span>6)</span>% increased maximum Mana",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "amulet",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/93d351acd78d5dd6d8b87ecc24caf13ea445adff69fb7d15ecc65cda2779eb96"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/93d351acd78d5dd6d8b87ecc24caf13ea445adff69fb7d15ecc65cda2779eb96",
+  "retrievedAt": "2026-10-04T22:02:10.364Z",
+  "sha256": "93d351acd78d5dd6d8b87ecc24caf13ea445adff69fb7d15ecc65cda2779eb96",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(5<span class=\"ndash\">—</span>6)</span>% increased maximum Mana</span></h5>   <span data-tabname=\"Perceptive\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Perceptive\n<tr><th>Family<td>MaximumManaIncreasePercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>3217\n<tr><th>Stats<td><li>maximum mana +% <span class=\"badge bg-primary\">5 <span class=\"ndash\">—</span> 6</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> </table>  </div></div>"
+}

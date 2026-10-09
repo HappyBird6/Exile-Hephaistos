@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/cn/Grand_Spear",
+  "retrievedAt": "2026-10-05T08:05:55.389Z",
+  "sha256": "7299e9e249d24479424bd5d59342f4dc875beeb3222054c8a6ad1cd552ead266",
+  "variants": [
+    {
+      "name": "宏伟战矛",
+      "card": "宏伟战矛\n        \n    \n    \n        \n            战矛物理伤害: 56-84暴击率: 5%每秒攻击次数: 1.4武器范围: 1.5需求：  等级 79, 68 力量, 109 敏捷 获得技能: 战矛飞掷此武器的近战打击范围提高 25%\n        \n\n\n\n        \n            Grand Spear",
+      "requirements": "需求：  等级 79, 68 力量, 109 敏捷",
+      "properties": [
+        "战矛",
+        "物理伤害: 56-84",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.5"
+      ],
+      "fields": {
+        "DropLevel": "79",
+        "BaseType": "宏伟战矛",
+        "Class": "战矛",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame",
+        "Tags": "spear, one_hand_weapon, onehand, weapon",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/OneHandSpears/1HSpear08",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, onehand, spear, one_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      }
+    }
+  ]
+}

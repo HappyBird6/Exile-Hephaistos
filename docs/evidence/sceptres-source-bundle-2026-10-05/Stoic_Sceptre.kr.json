@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/kr/Stoic_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:06.886Z",
+  "sha256": "dd3244383ef0d07ebc8116cc5327cf19628f2a0157fc00202057c83b5b11cf36",
+  "variants": [
+    {
+      "name": "엄숙한 셉터",
+      "card": "엄숙한 셉터\n        \n    \n    \n        \n            셉터정신력: 100요구 사항:  레벨 6, 12 지능 스킬 부여: 단련\n        \n\n\n\n        \n            Stoic Sceptre",
+      "requirements": "요구 사항:  레벨 6, 12 지능",
+      "fields": {
+        "DropLevel": "6",
+        "BaseType": "엄숙한 셉터",
+        "Class": "셉터",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre02",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "단련",
+      "skillUrl": "https://poe2db.tw/kr/Discipline"
+    }
+  ]
+}

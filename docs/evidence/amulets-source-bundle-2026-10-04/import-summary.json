@@ -1,0 +1,88 @@
+[
+  {
+    "key": "stellar",
+    "id": "Metadata/Items/Amulets/FourAmulet8",
+    "ordinary": 209,
+    "special": 8,
+    "implicit": "stellar:implicit:allattributes",
+    "locales": 6,
+    "fixedActions": 24,
+    "replacementActions": 5,
+    "tagNormalization": {},
+    "numericDivisor": 1
+  },
+  {
+    "key": "amber",
+    "id": "Metadata/Items/Amulets/FourAmulet3",
+    "ordinary": 209,
+    "special": 8,
+    "implicit": "amber:implicit:strength",
+    "locales": 6,
+    "fixedActions": 24,
+    "replacementActions": 5,
+    "tagNormalization": {},
+    "numericDivisor": 1
+  },
+  {
+    "key": "bloodstone",
+    "id": "Metadata/Items/Amulets/FourAmulet7",
+    "ordinary": 209,
+    "special": 8,
+    "implicit": "bloodstone:implicit:increasedlife",
+    "locales": 6,
+    "fixedActions": 24,
+    "replacementActions": 5,
+    "tagNormalization": {},
+    "numericDivisor": 1
+  },
+  {
+    "key": "lunar",
+    "id": "Metadata/Items/Amulets/FourAmulet6",
+    "ordinary": 209,
+    "special": 8,
+    "implicit": "lunar:implicit:increasedenergyshield",
+    "locales": 6,
+    "fixedActions": 24,
+    "replacementActions": 5,
+    "tagNormalization": {
+      "energy shield": "energyshield"
+    },
+    "numericDivisor": 1
+  },
+  {
+    "key": "azure",
+    "id": "Metadata/Items/Amulets/FourAmulet2",
+    "ordinary": 209,
+    "special": 8,
+    "implicit": "azure:implicit:manaregeneration",
+    "locales": 6,
+    "fixedActions": 24,
+    "replacementActions": 5,
+    "tagNormalization": {},
+    "numericDivisor": 1
+  },
+  {
+    "key": "crimson",
+    "id": "Metadata/Items/Amulets/FourAmulet1",
+    "ordinary": 209,
+    "special": 8,
+    "implicit": "crimson:implicit:liferegeneration",
+    "locales": 6,
+    "fixedActions": 24,
+    "replacementActions": 5,
+    "tagNormalization": {},
+    "numericDivisor": 60
+  },
+  {
+    "key": "pearlescent",
+    "id": "Metadata/Items/Amulets/FourAmulet11",
+    "ordinary": 209,
+    "special": 8,
+    "implicit": "pearlescent:implicit:allresistances",
+    "locales": 6,
+    "fixedActions": 24,
+    "replacementActions": 5,
+    "tagNormalization": {},
+    "numericDivisor": 1
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/us/Sekhema_Sandals",
+  "retrievedAt": "2026-10-04T15:38:29.734Z",
+  "sha256": "a0301aa77b114eeb27501b0ff2d5b830a25c5365bc12177a972e485dc8f06930",
+  "name": "Sekhema Sandals",
+  "card": "Sekhema Sandals\n        \n    \n    \n        \n            BootsEnergy Shield: 83Requires:  Level 80, 108 Int",
+  "requirements": "Requires:  Level 80, 108 Int",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "Sekhema Sandals",
+    "Class": "Boots",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Boots/FourBootsInt6Endgame",
+    "Tags": "int_armour, karui_basetype, boots, armour",
+    "Icon": "Art/2DItems/Armours/Boots/Basetypes/BootsInt06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, boots",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Boots",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

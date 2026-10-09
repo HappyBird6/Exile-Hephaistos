@@ -1,0 +1,23 @@
+{
+  "url": "https://poe2db.tw/us/Ornate_Ringmail",
+  "status": 200,
+  "retrievedAt": "2026-10-04T15:42:25.590Z",
+  "sha256": "957404793bb12c030d7c037621dd2877601ea655a72807e3193a664eaa61ba58",
+  "fields": {
+    "DropLevel": "43",
+    "BaseType": "Ornate Ringmail",
+    "Class": "Body Armours",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrIntUnique1",
+    "Tags": "str_int_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Uniques/Loreweave",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

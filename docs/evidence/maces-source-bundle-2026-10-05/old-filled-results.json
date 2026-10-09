@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "count": 25,
+  "checks": [
+    "wand real compound legacy fixture",
+    "wand legacy rolls/fracture/snapshot preserved",
+    "wand en legacy film and screenshot",
+    "wand ko legacy film and screenshot",
+    "wand zh-CN legacy film and screenshot",
+    "wand zh-TW legacy film and screenshot",
+    "wand ja legacy film and screenshot",
+    "wand es legacy film and screenshot",
+    "sceptre real compound legacy fixture",
+    "sceptre legacy rolls/fracture/snapshot preserved",
+    "sceptre en legacy film and screenshot",
+    "sceptre ko legacy film and screenshot",
+    "sceptre zh-CN legacy film and screenshot",
+    "sceptre zh-TW legacy film and screenshot",
+    "sceptre ja legacy film and screenshot",
+    "sceptre es legacy film and screenshot",
+    "hallowed real compound legacy fixture",
+    "hallowed legacy rolls/fracture/snapshot preserved",
+    "hallowed en legacy film and screenshot",
+    "hallowed ko legacy film and screenshot",
+    "hallowed zh-CN legacy film and screenshot",
+    "hallowed zh-TW legacy film and screenshot",
+    "hallowed ja legacy film and screenshot",
+    "hallowed es legacy film and screenshot",
+    "no browser errors"
+  ],
+  "errors": []
+}

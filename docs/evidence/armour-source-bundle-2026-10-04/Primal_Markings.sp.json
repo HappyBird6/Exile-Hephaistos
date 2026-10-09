@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/sp/Primal_Markings",
+  "retrievedAt": "2026-10-04T15:38:01.684Z",
+  "sha256": "4bd06fde75ed2b71c54a88c136d26cdab7bdb4013ecd35d7554600261f216dc8",
+  "name": "Marcas primitivas",
+  "card": "Marcas primitivas\n        \n    \n    \n        \n            Armaduras corporalesEvasión: 268Escudo de energía: 82Base Movement Speed: -0.03Requiere:  Nivel 70, 67 Des, 67 Int\n        \n\n\n\n        \n            Primal Markings",
+  "requirements": "Requiere:  Nivel 70, 67 Des, 67 Int",
+  "fields": {
+    "DropLevel": "70",
+    "BaseType": "Marcas primitivas",
+    "Class": "Armaduras corporales",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDexIntUnique1",
+    "Tags": "dex_int_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDexInt08",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

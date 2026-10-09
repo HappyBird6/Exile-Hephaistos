@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/sp/Amethyst_Ring",
+  "retrievedAt": "2026-10-04T20:54:59.128Z",
+  "sha256": "00ae70c4d2b2353040d9f2856c1a85f0fde1fe2bda8eec07c4c2874dce069e8b",
+  "name": "Anillo de amatista",
+  "card": "Anillo de amatista\n        \n    \n    \n        \n            AnillosRequiere:  Nivel 20+(7—13)% a la resistencia al caos\n        \n\n\n\n        \n            Amethyst Ring",
+  "requirements": "Requiere:  Nivel 20",
+  "fields": {
+    "DropLevel": "20",
+    "BaseType": "Anillo de amatista",
+    "Class": "Anillos",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRing6",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/Basetypes/AmethystRing",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

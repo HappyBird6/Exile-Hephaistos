@@ -1,0 +1,19 @@
+{
+  "url": "https://poe2db.tw/us/Fanatic_Bow",
+  "retrievedAt": "2026-10-04T20:09:27.417Z",
+  "sha256": "fc4c3593b13f2c34377cc9468db14f9a8fff04a22bd1b4100e0bc5da4cc2a7eb",
+  "stats": [
+    {
+      "id": "local_weapon_implicit_hidden_added_maximum_chaos_damage",
+      "min": 64,
+      "max": 64,
+      "locality": "Local"
+    },
+    {
+      "id": "local_weapon_implicit_hidden_added_minimum_chaos_damage",
+      "min": 28,
+      "max": 28,
+      "locality": "Local"
+    }
+  ]
+}

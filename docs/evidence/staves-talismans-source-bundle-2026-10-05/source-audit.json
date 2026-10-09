@@ -1,0 +1,268 @@
+{
+  "passed": true,
+  "classes": [
+    {
+      "page": "Staves",
+      "classId": 14,
+      "ordinary": 185,
+      "essence": 18,
+      "perfectEssence": 12
+    },
+    {
+      "page": "Talismans",
+      "classId": 110,
+      "ordinary": 158,
+      "essence": 31,
+      "perfectEssence": 14
+    }
+  ],
+  "bases": [
+    {
+      "key": "permafrost-staff",
+      "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+      "classId": 14,
+      "ordinary": 185,
+      "special": 4,
+      "implicit": [],
+      "skills": {
+        "en": [
+          "Grants Skill: Heart of Ice"
+        ],
+        "ko": [
+          "스킬 부여: 얼음의 심장"
+        ],
+        "ja": [
+          "スキルを付与: ハートオブアイス"
+        ],
+        "zh-CN": [
+          "获得技能: 冰雪之心"
+        ],
+        "zh-TW": [
+          "賦予技能: 冰雪之心"
+        ],
+        "es": [
+          "Otorga la habilidad: Corazón de hielo"
+        ]
+      },
+      "sourceTags": [
+        "staff",
+        "twohand"
+      ]
+    },
+    {
+      "key": "reflecting-staff",
+      "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+      "classId": 14,
+      "ordinary": 185,
+      "special": 4,
+      "implicit": [],
+      "skills": {
+        "en": [
+          "Grants Skill: Mirror of Refraction"
+        ],
+        "ko": [
+          "스킬 부여: 굴절의 거울"
+        ],
+        "ja": [
+          "スキルを付与: 屈折の鏡"
+        ],
+        "zh-CN": [
+          "获得技能: 折射之镜"
+        ],
+        "zh-TW": [
+          "賦予技能: 鏡面折射"
+        ],
+        "es": [
+          "Otorga la habilidad: Espejo de refracción"
+        ]
+      },
+      "sourceTags": [
+        "staff",
+        "twohand"
+      ]
+    },
+    {
+      "key": "dark-staff",
+      "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
+      "classId": 14,
+      "ordinary": 185,
+      "special": 4,
+      "implicit": [],
+      "skills": {
+        "en": [
+          "Grants Skill: Dark Pact"
+        ],
+        "ko": [
+          "스킬 부여: 어둠의 서약"
+        ],
+        "ja": [
+          "スキルを付与: ダークパクト"
+        ],
+        "zh-CN": [
+          "获得技能: 暗夜契约"
+        ],
+        "zh-TW": [
+          "賦予技能: 暗夜血契"
+        ],
+        "es": [
+          "Otorga la habilidad: Pacto oscuro"
+        ]
+      },
+      "sourceTags": [
+        "staff",
+        "twohand"
+      ]
+    },
+    {
+      "key": "ravenous-staff",
+      "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+      "classId": 14,
+      "ordinary": 185,
+      "special": 4,
+      "implicit": [],
+      "skills": {
+        "en": [
+          "Grants Skill: Feast of Flesh"
+        ],
+        "ko": [
+          "스킬 부여: 육체의 연회"
+        ],
+        "ja": [
+          "スキルを付与: フィーストオブフレッシュ"
+        ],
+        "zh-CN": [
+          "获得技能: 血肉盛宴"
+        ],
+        "zh-TW": [
+          "賦予技能: 血肉盛宴"
+        ],
+        "es": [
+          "Otorga la habilidad: Festín de carne"
+        ]
+      },
+      "sourceTags": [
+        "staff",
+        "twohand"
+      ]
+    },
+    {
+      "key": "perching-staff",
+      "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
+      "classId": 14,
+      "ordinary": 185,
+      "special": 4,
+      "implicit": [],
+      "skills": {
+        "en": [
+          "Grants Skill: Spiraling Conspiracy"
+        ],
+        "ko": [
+          "스킬 부여: 고조되는 음모"
+        ],
+        "ja": [
+          "スキルを付与: スパイラリングコンスピラシー"
+        ],
+        "zh-CN": [
+          "获得技能: 鸦群密谋"
+        ],
+        "zh-TW": [
+          "賦予技能: 邪鴉旋纏"
+        ],
+        "es": [
+          "Otorga la habilidad: Cuervos amenazantes"
+        ]
+      },
+      "sourceTags": [
+        "staff",
+        "twohand"
+      ]
+    },
+    {
+      "key": "sanctified-staff",
+      "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+      "classId": 14,
+      "ordinary": 185,
+      "special": 4,
+      "implicit": [],
+      "skills": {
+        "en": [
+          "Grants Skill: Consecrate"
+        ],
+        "ko": [
+          "스킬 부여: 신성화"
+        ],
+        "ja": [
+          "スキルを付与: コンセクレート"
+        ],
+        "zh-CN": [
+          "获得技能: 奉献"
+        ],
+        "zh-TW": [
+          "賦予技能: 奉獻"
+        ],
+        "es": [
+          "Otorga la habilidad: Consagrar"
+        ]
+      },
+      "sourceTags": [
+        "staff",
+        "twohand"
+      ]
+    },
+    {
+      "key": "maji-talisman",
+      "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame",
+      "classId": 110,
+      "ordinary": 158,
+      "special": 8,
+      "implicit": [
+        {
+          "id": "maximum_rage",
+          "min": 7,
+          "max": 10
+        }
+      ],
+      "skills": null,
+      "sourceTags": [
+        "vaal_basetype",
+        "talisman",
+        "two_hand_weapon",
+        "twohand",
+        "weapon"
+      ]
+    },
+    {
+      "key": "fungal-talisman",
+      "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame",
+      "classId": 110,
+      "ordinary": 158,
+      "special": 8,
+      "implicit": [],
+      "skills": null,
+      "sourceTags": [
+        "maraketh_basetype",
+        "talisman",
+        "two_hand_weapon",
+        "twohand",
+        "weapon"
+      ]
+    },
+    {
+      "key": "jade-talisman",
+      "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman10Endgame",
+      "classId": 110,
+      "ordinary": 158,
+      "special": 8,
+      "implicit": [],
+      "skills": null,
+      "sourceTags": [
+        "karui_basetype",
+        "talisman",
+        "two_hand_weapon",
+        "twohand",
+        "weapon"
+      ]
+    }
+  ],
+  "scope": "Complete eligible ordinary pool, source ranges/families/tags/weights and six-locale display; numeric model remains unverified"
+}

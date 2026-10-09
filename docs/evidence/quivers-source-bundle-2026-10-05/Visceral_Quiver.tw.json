@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/tw/Visceral_Quiver",
+  "retrievedAt": "2026-10-05T05:29:26.703Z",
+  "sha256": "0d15963aad3a3171563661f191c35b5409531cf1f5ce75a6ffb5c9c86b09ca8c",
+  "variants": [
+    {
+      "name": "內臟箭袋",
+      "card": "內臟箭袋\n        \n    \n    \n        \n            箭袋需求:  等級 65增加(20—30)%攻擊暴擊率\n        \n\n\n        \n        \n            持弓時才可裝備。\n        \n\n        \n            Visceral Quiver",
+      "requirements": "需求:  等級 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "內臟箭袋",
+        "Class": "箭袋",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver11",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverVisceral",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

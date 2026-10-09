@@ -1,0 +1,70 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :spotlessInternalRegisterDependencies UP-TO-DATE
+> Task :spotlessJava
+> Task :spotlessJavaApply
+> Task :spotlessApply
+
+> Task :compileJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processResources
+> Task :classes
+> Task :resolveMainClassName
+> Task :bootJar
+
+> Task :compileTestJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processTestResources
+> Task :testClasses
+> Task :test
+
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+
+> Task :compileIntegrationTestJava UP-TO-DATE
+> Task :processIntegrationTestResources UP-TO-DATE
+> Task :integrationTestClasses UP-TO-DATE
+> Task :integrationTest
+
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+{"@timestamp":"2026-10-05T09:25:02.097950066Z","log":{"level":"INFO","logger":"org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"},"process":{"pid":408,"thread":{"name":"SpringApplicationShutdownHook"}},"service":{"name":"poe2craft","node":{}},"message":"Closing JPA EntityManagerFactory for persistence unit 'default'","ecs":{"version":"8.11"}}
+{"@timestamp":"2026-10-05T09:25:02.117765864Z","log":{"level":"INFO","logger":"com.zaxxer.hikari.HikariDataSource"},"process":{"pid":408,"thread":{"name":"SpringApplicationShutdownHook"}},"service":{"name":"poe2craft","node":{}},"message":"HikariPool-1 - Shutdown initiated...","ecs":{"version":"8.11"}}
+{"@timestamp":"2026-10-05T09:25:02.121728164Z","log":{"level":"INFO","logger":"com.zaxxer.hikari.HikariDataSource"},"process":{"pid":408,"thread":{"name":"SpringApplicationShutdownHook"}},"service":{"name":"poe2craft","node":{}},"message":"HikariPool-1 - Shutdown completed.","ecs":{"version":"8.11"}}
+
+> Task :spotlessJavaCheck UP-TO-DATE
+> Task :spotlessCheck UP-TO-DATE
+> Task :check
+> Task :compileCodegenJava UP-TO-DATE
+> Task :processCodegenResources NO-SOURCE
+> Task :codegenClasses UP-TO-DATE
+
+> Task :generateJooq
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+Oct 05, 2026 9:25:13 AM org.flywaydb.core.FlywayExecutor execute
+INFO: Database: jdbc:postgresql://host.docker.internal:51735/test?loggerLevel=OFF (PostgreSQL 17.6)
+Oct 05, 2026 9:25:13 AM org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory allAppliedMigrations
+INFO: Schema history table "public"."flyway_schema_history" does not exist yet
+Oct 05, 2026 9:25:13 AM org.flywaydb.core.internal.command.DbValidate validate
+INFO: Successfully validated 3 migrations (execution time 00:00.124s)
+Oct 05, 2026 9:25:13 AM org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory create
+INFO: Creating Schema History table "public"."flyway_schema_history" ...
+Oct 05, 2026 9:25:13 AM org.flywaydb.core.internal.command.DbMigrate migrateGroup
+INFO: Current version of schema "public": << Empty Schema >>
+Oct 05, 2026 9:25:13 AM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "public" to version "202609210001 - bootstrap module schemas"
+Oct 05, 2026 9:25:13 AM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "public" to version "202609220001 - season admin crawl"
+Oct 05, 2026 9:25:13 AM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "public" to version "202610010001 - support addition pool"
+Oct 05, 2026 9:25:13 AM org.flywaydb.core.internal.command.DbMigrate logSummary
+INFO: Successfully applied 3 migrations to schema "public", now at version v202610010001 (execution time 00:00.080s)
+
+[Incubating] Problems report is available at: file:///qa/backend-check/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 7m 31s
+16 actionable tasks: 11 executed, 5 up-to-date

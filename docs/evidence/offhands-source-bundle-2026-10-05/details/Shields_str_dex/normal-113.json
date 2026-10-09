@@ -1,0 +1,68 @@
+{
+  "row": {
+    "Name": "of the Mammoth",
+    "Level": "81",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "MaximumColdResist"
+    ],
+    "DropChance": "250",
+    "str": "<span class='mod-value'>+3</span>% to <a data-keyword=\"MaximumResistances\" href=\"Maximum_Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/10cfc4a861abfa43e56fa517c085678b0a54d64ffccc7e940f7616a55e2e17da\">Maximum Cold Resistance</a>",
+    "fossil_no": [
+      "cold_resistance",
+      "elemental_resistance",
+      "elemental",
+      "cold",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "shield",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c996a318c7499ad44b601d48353023b9927f2f438edaca136127828f728af2c0"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FMaximumColdResist3",
+  "textLocale": "sp",
+  "detailText": "+3% a la resistencia al hielo máxima",
+  "retrievedAt": "2026-10-05T04:20:50.193Z",
+  "sha256": "dc7ca495639da4671bfb3314e316365370d9ba06660611c41146693c42cd0b5b",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+3</span>% a la <a data-keyword=\"MaximumResistances\" href=\"Maximum_Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/b68aeb355b7db93d938ebe171c26cb74e8389b70b446cabe6b896c70bb571a3d\">resistencia al hielo máxima</a></span></h5>   <span data-tabname=\"del mamut\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>del mamut\n<tr><th>Family<td>MaximumColdResist\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Sufijo (2)\n<tr><th>Req. level<td>81 (Effective: 64)\n<tr><th>Gold Price<td>4161\n<tr><th>Stats<td><li>base maximum cold damage resistance % <span class=\"badge bg-primary\">3 <span class=\"ndash\">—</span> 3</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>cold_resistance</i></span> <span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Hielo</span> <span class='badge bg-primary'>Resistencia</span> </table>  </div></div>",
+  "fields": {
+    "Name": "del mamut",
+    "Family": "MaximumColdResist",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Sufijo (2)",
+    "Req. level": "81 (Effective: 64)",
+    "Gold Price": "4161",
+    "Stats": "base maximum cold damage resistance % 3 — 3 Global",
+    "Spawn Tags": "shield: 1 default: 0",
+    "Craft Tags": "cold_resistance elemental_resistance Elemental Hielo Resistencia"
+  },
+  "code": "MaximumColdResist3",
+  "stats": [
+    {
+      "id": "base_maximum_cold_damage_resistance_%",
+      "min": 3,
+      "max": 3,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "shield",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

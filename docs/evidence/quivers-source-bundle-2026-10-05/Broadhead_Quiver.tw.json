@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/tw/Broadhead_Quiver",
+  "retrievedAt": "2026-10-05T05:29:29.623Z",
+  "sha256": "c99774d7c941e1a823f46befcb752047296ef3c62783a8af50acd602e33c05f0",
+  "variants": [
+    {
+      "name": "寬頭箭袋",
+      "card": "寬頭箭袋\n        \n    \n    \n        \n            箭袋攻擊附加1至3物理傷害\n        \n\n\n        \n        \n            持弓時才可裝備。\n        \n\n        \n            Broadhead Quiver",
+      "requirements": "",
+      "fields": {
+        "DropLevel": "1",
+        "BaseType": "寬頭箭袋",
+        "Class": "箭袋",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver1",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverBroadhead",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

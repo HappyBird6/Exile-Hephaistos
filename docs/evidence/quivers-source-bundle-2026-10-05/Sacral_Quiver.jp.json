@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/jp/Sacral_Quiver",
+  "retrievedAt": "2026-10-05T05:29:21.701Z",
+  "sha256": "386cfe93e889e413f148daef6dc23e4c838ee424bb3b0a09bcf34f57ada6d37d",
+  "variants": [
+    {
+      "name": "神聖な矢筒",
+      "card": "神聖な矢筒\n        \n    \n    \n        \n            矢筒装備条件： レベル 16アタックでヒットを与えた敵1体ごとに(2—3)のライフを獲得する\n        \n\n\n        \n        \n            弓装備時のみ装備可能\n        \n\n        \n            Sacral Quiver",
+      "requirements": "装備条件： レベル 16",
+      "fields": {
+        "DropLevel": "16",
+        "BaseType": "神聖な矢筒",
+        "Class": "矢筒",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver3",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverSacral",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

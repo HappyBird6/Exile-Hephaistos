@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/jp/Imperial_Greathelm",
+  "retrievedAt": "2026-10-04T14:49:41.131Z",
+  "sha256": "d5e6a07e569a15194833d94a078ed0222eec9f756f6731bc36843187fa63ff55",
+  "name": "帝国のグレートヘルム",
+  "card": "帝国のグレートヘルム\n        \n    \n    \n        \n            兜アーマー: 374装備条件： レベル 80, 115 筋力\n        \n\n\n\n        \n            Imperial Greathelm",
+  "requirements": "装備条件： レベル 80, 115 筋力",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "帝国のグレートヘルム",
+    "Class": "兜",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
+    "Tags": "str_armour, karui_basetype, helmet, armour",
+    "Icon": "Art/2DItems/Armours/Helmets/Basetypes/HelmetStr07",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, helmet",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Helm",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

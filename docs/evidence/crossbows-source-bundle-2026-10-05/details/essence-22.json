@@ -1,0 +1,65 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "58",
+    "DropChance": 0,
+    "ModGenerationTypeID": "1",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "fossil_no": [
+      "attack"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/0bc1c1466504b5a60f287196af50be517d38ec81522bd291380a0a70b45aa5cc\" href=\"Greater_Essence_of_Battle\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterAttackEssence.webp\" alt=\"GreaterAttackEssence\" height=\"16\" />Greater Essence of Battle</a>",
+    "Code": "LocalIncreasedAccuracy7",
+    "ModFamilyList": [
+      "IncreasedAccuracy"
+    ],
+    "str": "<span class='mod-value'>+(237<span class=\"ndash\">—</span>346)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c\">Accuracy</a> Rating",
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "default"
+    ],
+    "reqlvl": 46,
+    "IsPerfect": "0",
+    "IsAlloy": false,
+    "Removes": false
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedAccuracy7",
+  "textLocale": "us",
+  "detailText": "+(237—346) to Accuracy Rating",
+  "retrievedAt": "2026-10-05T02:46:26.084Z",
+  "sha256": "4c14b953c958397b79f097da6150f92d60153024e07a7a5ce98805335febcd07",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(237<span class=\"ndash\">—</span>346)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c\">Accuracy</a> Rating</span></h5>   <span data-tabname=\"Hunter's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Hunter's\n<tr><th>Family<td>IncreasedAccuracy\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>58 (Effective: 46)\n<tr><th>Gold Price<td>1150\n<tr><th>Stats<td><li>local accuracy rating <span class=\"badge bg-primary\">237 <span class=\"ndash\">—</span> 346</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Hunter's",
+    "Family": "IncreasedAccuracy",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "58 (Effective: 46)",
+    "Gold Price": "1150",
+    "Stats": "local accuracy rating 237 — 346 Local",
+    "Spawn Tags": "weapon: 1 default: 0",
+    "Craft Tags": "Attack"
+  },
+  "code": "LocalIncreasedAccuracy7",
+  "stats": [
+    {
+      "id": "local_accuracy_rating",
+      "min": 237,
+      "max": 346,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

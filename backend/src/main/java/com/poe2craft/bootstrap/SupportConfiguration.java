@@ -11,6 +11,15 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @Configuration
 public class SupportConfiguration {
   @Bean
+  com.poe2craft.crafting.application.goalfilter.GoalFilterService goalFilterService(
+      WorkbenchService workbenchService) {
+    return new com.poe2craft.crafting.application.goalfilter.GoalFilterService(
+        new com.poe2craft.crafting.domain.goalfilter.GoalCatalogIndex(
+            com.poe2craft.crafting.infrastructure.goalfilter.BundledGoalCatalogs.load(
+                workbenchService)));
+  }
+
+  @Bean
   AdditionPoolStore additionPoolStore(JdbcTemplate jdbc, ObjectMapper json) {
     return new JdbcAdditionPoolStore(jdbc, json);
   }

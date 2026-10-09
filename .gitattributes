@@ -3,3 +3,16 @@
 *.jar binary
 # This reviewed raw proof is checksum-bound to its exact captured bytes.
 backend/src/main/resources/catalog/stocky-mitts/horror-essence.raw.json -text whitespace=cr-at-eol
+# Preserve checksum-bound Crossbow source responses, including their mixed newlines.
+docs/evidence/crossbows-source-bundle-2026-10-05/*.html -text whitespace=cr-at-eol
+# Preserve checksum-bound offhand source responses, including their mixed newlines.
+docs/evidence/offhands-source-bundle-2026-10-05/*.html -text whitespace=cr-at-eol
+# Preserve checksum-bound Quiver source responses, including their mixed newlines.
+docs/evidence/quivers-source-bundle-2026-10-05/*.html -text whitespace=cr-at-eol
+# Preserve checksum-bound Mace responses including mixed newlines.
+docs/evidence/maces-source-bundle-2026-10-05/*.html -text whitespace=cr-at-eol
+# Preserve checksum-bound Quarterstaff/Spear responses including mixed newlines.
+docs/evidence/quarterstaves-spears-source-bundle-2026-10-05/*.html -text whitespace=cr-at-eol
+# Raw checksum-bound responses retain upstream whitespace verbatim.
+docs/evidence/staves-talismans-source-bundle-2026-10-05/*.html -text -whitespace
+docs/evidence/staves-talismans-source-bundle-2026-10-05/**/*.html -text -whitespace

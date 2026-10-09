@@ -1,0 +1,30 @@
+{
+  "row": {
+    "Name": "Confident",
+    "Level": "75",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "MaximumLifeIncreasePercent"
+    ],
+    "DropChance": "300",
+    "str": "<span class='mod-value'>(7<span class=\"ndash\">—</span>8)</span>% increased maximum Life",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "amulet",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b00cd8ab0be5b92dc9488486b1f2cde5cc157216786145939e0ee4fccd222b29"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b00cd8ab0be5b92dc9488486b1f2cde5cc157216786145939e0ee4fccd222b29",
+  "retrievedAt": "2026-10-04T22:02:00.368Z",
+  "sha256": "b00cd8ab0be5b92dc9488486b1f2cde5cc157216786145939e0ee4fccd222b29",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(7<span class=\"ndash\">—</span>8)</span>% increased maximum Life</span></h5>   <span data-tabname=\"Confident\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Confident\n<tr><th>Family<td>MaximumLifeIncreasePercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>75 (Effective: 60)\n<tr><th>Gold Price<td>6851\n<tr><th>Stats<td><li>maximum life +% <span class=\"badge bg-primary\">7 <span class=\"ndash\">—</span> 8</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> </table>  </div></div>"
+}

@@ -1,0 +1,105 @@
+{
+  "page": "One_Hand_Swords",
+  "url": "https://poe2db.tw/us/One_Hand_Swords",
+  "retrievedAt": "2026-10-05T01:38:23.305Z",
+  "sha256": "4f6fcf9771c3eb1357ffbbe29bf9283cbfc70775c5b3932887c208478c7d4929",
+  "cards": [
+    {
+      "slug": "Golden_Blade",
+      "card": "Golden BladePhysical Damage: 3-28Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.3+(16—24) to all Attributes"
+    },
+    {
+      "slug": "Energy_Blade",
+      "card": "Energy BladeCritical Hit Chance: 7%Attacks per Second: 1.7Weapon Range: 1.3Adds  to  Lightning Damage"
+    },
+    {
+      "slug": "Shortsword",
+      "card": "ShortswordPhysical Damage: 6-9Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3"
+    },
+    {
+      "slug": "Broadsword",
+      "card": "BroadswordPhysical Damage: 8-13Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.3Requires:  Level 6, 9 Str, 9 Dex"
+    },
+    {
+      "slug": "Vampiric_Blade",
+      "card": "Vampiric BladePhysical Damage: 11-20Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 11, 14 Str, 14 Dex"
+    },
+    {
+      "slug": "Scimitar",
+      "card": "ScimitarPhysical Damage: 14-23Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3Requires:  Level 16, 19 Str, 19 Dex"
+    },
+    {
+      "slug": "Charred_Shortsword",
+      "card": "Charred ShortswordPhysical Damage: 19-34Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.3Requires:  Level 21, 23 Str, 23 Dex"
+    },
+    {
+      "slug": "Sickle_Sword",
+      "card": "Sickle SwordPhysical Damage: 18-38Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 28, 29 Str, 29 Dex"
+    },
+    {
+      "slug": "Falchion",
+      "card": "FalchionPhysical Damage: 27-37Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 33, 34 Str, 34 Dex"
+    },
+    {
+      "slug": "Treasured_Blade",
+      "card": "Treasured BladePhysical Damage: 27-45Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3Requires:  Level 40, 40 Str, 40 Dex"
+    },
+    {
+      "slug": "Cutlass",
+      "card": "CutlassPhysical Damage: 33-49Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 45, 45 Str, 45 Dex"
+    },
+    {
+      "slug": "Runic_Shortsword",
+      "card": "Runic ShortswordPhysical Damage: 26-55Critical Hit Chance: 5%Attacks per Second: 1.65Weapon Range: 1.3Requires:  Level 50, 49 Str, 49 Dex"
+    },
+    {
+      "slug": "Messer",
+      "card": "MesserPhysical Damage: 30-56Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.3Requires:  Level 52, 51 Str, 51 Dex"
+    },
+    {
+      "slug": "Commander_Sword",
+      "card": "Commander SwordPhysical Damage: 36-60Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 54, 53 Str, 53 Dex"
+    },
+    {
+      "slug": "Dark_Blade",
+      "card": "Dark BladePhysical Damage: 43-65Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3Requires:  Level 65, 63 Str, 63 Dex"
+    },
+    {
+      "slug": "Golden_Blade",
+      "card": "Golden BladePhysical Damage: 6-9Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Dark_Blade",
+      "card": "Dark BladePhysical Damage: 43-65Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3Requires:  Level 65, 63 Str, 63 Dex",
+      "requiredLevel": 65
+    },
+    {
+      "slug": "Commander_Sword",
+      "card": "Commander SwordPhysical Damage: 36-60Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 54, 53 Str, 53 Dex",
+      "requiredLevel": 54
+    },
+    {
+      "slug": "Messer",
+      "card": "MesserPhysical Damage: 30-56Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.3Requires:  Level 52, 51 Str, 51 Dex",
+      "requiredLevel": 52
+    },
+    {
+      "slug": "Runic_Shortsword",
+      "card": "Runic ShortswordPhysical Damage: 26-55Critical Hit Chance: 5%Attacks per Second: 1.65Weapon Range: 1.3Requires:  Level 50, 49 Str, 49 Dex",
+      "requiredLevel": 50
+    },
+    {
+      "slug": "Cutlass",
+      "card": "CutlassPhysical Damage: 33-49Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 45, 45 Str, 45 Dex",
+      "requiredLevel": 45
+    },
+    {
+      "slug": "Treasured_Blade",
+      "card": "Treasured BladePhysical Damage: 27-45Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3Requires:  Level 40, 40 Str, 40 Dex",
+      "requiredLevel": 40
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

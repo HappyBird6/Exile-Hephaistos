@@ -1,0 +1,152 @@
+{
+  "page": "Helmets_dex_int",
+  "url": "https://poe2db.tw/us/Helmets_dex_int",
+  "retrievedAt": "2026-10-04T14:44:56.406Z",
+  "sha256": "ab4a75092838436e9ebafb3fa5166a9b4d7b44a0591ac95752a8ffafcde6ab56",
+  "cards": [
+    {
+      "slug": "Hewn_Mask",
+      "card": "Hewn MaskEvasion Rating: 20Energy Shield: 13Requires:  Level 5, 7 Dex, 7 Int"
+    },
+    {
+      "slug": "Face_Mask",
+      "card": "Face MaskEvasion Rating: 32Energy Shield: 16Requires:  Level 10, 10 Dex, 10 Int"
+    },
+    {
+      "slug": "Hooded_Mask",
+      "card": "Hooded MaskEvasion Rating: 46Energy Shield: 19Requires:  Level 16, 15 Dex, 15 Int"
+    },
+    {
+      "slug": "Veiled_Mask",
+      "card": "Veiled MaskEvasion Rating: 75Energy Shield: 27Requires:  Level 28, 23 Dex, 23 Int"
+    },
+    {
+      "slug": "Tribal_Mask",
+      "card": "Tribal MaskEvasion Rating: 87Energy Shield: 30Requires:  Level 33, 27 Dex, 27 Int"
+    },
+    {
+      "slug": "Solid_Mask",
+      "card": "Solid MaskEvasion Rating: 115Energy Shield: 37Requires:  Level 45, 36 Dex, 36 Int"
+    },
+    {
+      "slug": "Shaded_Mask",
+      "card": "Shaded MaskEvasion Rating: 132Energy Shield: 42Requires:  Level 52, 41 Dex, 41 Int"
+    },
+    {
+      "slug": "Death_Mask",
+      "card": "Death MaskEvasion Rating: 163Energy Shield: 50Requires:  Level 65, 50 Dex, 50 Int"
+    },
+    {
+      "slug": "Oak_Mask",
+      "card": "Oak MaskEvasion Rating: 115Energy Shield: 37Requires:  Level 45, 36 Dex, 36 Int"
+    },
+    {
+      "slug": "Bandit_Mask",
+      "card": "Bandit MaskEvasion Rating: 122Energy Shield: 39Requires:  Level 48, 38 Dex, 38 Int"
+    },
+    {
+      "slug": "Skulking_Mask",
+      "card": "Skulking MaskEvasion Rating: 129Energy Shield: 41Requires:  Level 51, 40 Dex, 40 Int"
+    },
+    {
+      "slug": "Pariah_Mask",
+      "card": "Pariah MaskEvasion Rating: 137Energy Shield: 43Requires:  Level 54, 42 Dex, 42 Int"
+    },
+    {
+      "slug": "Avian_Mask",
+      "card": "Avian MaskEvasion Rating: 149Energy Shield: 46Requires:  Level 59, 46 Dex, 46 Int"
+    },
+    {
+      "slug": "Brigand_Mask",
+      "card": "Brigand MaskEvasion Rating: 163Energy Shield: 50Requires:  Level 65, 50 Dex, 50 Int"
+    },
+    {
+      "slug": "Faridun_Mask",
+      "card": "Faridun MaskEvasion Rating: 171Energy Shield: 52Requires:  Level 70, 54 Dex, 54 Int"
+    },
+    {
+      "slug": "Soaring_Mask",
+      "card": "Soaring MaskEvasion Rating: 179Energy Shield: 55Requires:  Level 75, 59 Dex, 59 Int"
+    },
+    {
+      "slug": "Grinning_Mask",
+      "card": "Grinning MaskEvasion Rating: 187Energy Shield: 57Requires:  Level 80, 63 Dex, 63 Int"
+    },
+    {
+      "slug": "Runeforged_Hewn_Mask",
+      "card": "Runeforged Hewn MaskEvasion Rating: 20Energy Shield: 13Runic Ward: 26Requires:  Level 5, 7 Dex, 7 Int"
+    },
+    {
+      "slug": "Runeforged_Face_Mask",
+      "card": "Runeforged Face MaskEvasion Rating: 32Energy Shield: 16Runic Ward: 30Requires:  Level 10, 10 Dex, 10 Int"
+    },
+    {
+      "slug": "Runeforged_Hooded_Mask",
+      "card": "Runeforged Hooded MaskEvasion Rating: 46Energy Shield: 19Runic Ward: 35Requires:  Level 16, 15 Dex, 15 Int"
+    },
+    {
+      "slug": "Runeforged_Veiled_Mask",
+      "card": "Runeforged Veiled MaskEvasion Rating: 75Energy Shield: 27Runic Ward: 43Requires:  Level 28, 23 Dex, 23 Int"
+    },
+    {
+      "slug": "Runeforged_Tribal_Mask",
+      "card": "Runeforged Tribal MaskEvasion Rating: 87Energy Shield: 30Runic Ward: 44Requires:  Level 33, 27 Dex, 27 Int"
+    },
+    {
+      "slug": "Runeforged_Solid_Mask",
+      "card": "Runeforged Solid MaskEvasion Rating: 115Energy Shield: 37Runic Ward: 52Requires:  Level 45, 36 Dex, 36 Int"
+    },
+    {
+      "slug": "Runeforged_Pariah_Mask",
+      "card": "Runeforged Pariah MaskEvasion Rating: 126Energy Shield: 39Runic Ward: 60Requires:  Level 54, 42 Dex, 42 Int"
+    },
+    {
+      "slug": "Runeforged_Avian_Mask",
+      "card": "Runeforged Avian MaskEvasion Rating: 125Energy Shield: 39Runic Ward: 91Requires:  Level 59, 46 Dex, 46 Int"
+    },
+    {
+      "slug": "Runeforged_Brigand_Mask",
+      "card": "Runeforged Brigand MaskEvasion Rating: 160Energy Shield: 49Runic Ward: 42Requires:  Level 65, 50 Dex, 50 Int"
+    },
+    {
+      "slug": "Runeforged_Faridun_Mask",
+      "card": "Runeforged Faridun MaskEvasion Rating: 133Energy Shield: 41Runic Ward: 99Requires:  Level 70, 54 Dex, 54 Int"
+    },
+    {
+      "slug": "Runeforged_Soaring_Mask",
+      "card": "Runeforged Soaring MaskEvasion Rating: 169Energy Shield: 52Runic Ward: 56Requires:  Level 75, 59 Dex, 59 Int"
+    },
+    {
+      "slug": "Runeforged_Grinning_Mask",
+      "card": "Runeforged Grinning MaskEvasion Rating: 78Energy Shield: 24Runic Ward: 254Requires:  Level 80, 63 Dex, 63 Int"
+    },
+    {
+      "slug": "Runemastered_Hewn_Mask",
+      "card": "Runemastered Hewn MaskEvasion Rating: 30Energy Shield: 10Runic Ward: 54Requires:  Level 38, 31 Dex, 31 Int"
+    },
+    {
+      "slug": "Runemastered_Face_Mask",
+      "card": "Runemastered Face MaskEvasion Rating: 118Energy Shield: 40Runic Ward: 18Requires:  Level 38, 31 Dex, 31 Int"
+    },
+    {
+      "slug": "Runemastered_Hooded_Mask",
+      "card": "Runemastered Hooded MaskEvasion Rating: 69Energy Shield: 23Runic Ward: 54Requires:  Level 38, 31 Dex, 31 Int"
+    },
+    {
+      "slug": "Runemastered_Veiled_Mask",
+      "card": "Runemastered Veiled MaskEvasion Rating: 78Energy Shield: 26Runic Ward: 57Requires:  Level 40, 32 Dex, 32 Int"
+    },
+    {
+      "slug": "Runemastered_Tribal_Mask",
+      "card": "Runemastered Tribal MaskEvasion Rating: 105Energy Shield: 33Runic Ward: 47Requires:  Level 52, 41 Dex, 41 Int"
+    },
+    {
+      "slug": "Runemastered_Solid_Mask",
+      "card": "Runemastered Solid MaskEvasion Rating: 125Energy Shield: 39Runic Ward: 37Requires:  Level 55, 43 Dex, 43 Int"
+    },
+    {
+      "slug": "Runemastered_Death_Mask",
+      "card": "Runemastered Death MaskEvasion Rating: 130Energy Shield: 40Runic Ward: 70Requires:  Level 65, 50 Dex, 50 Int"
+    }
+  ]
+}

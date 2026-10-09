@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/us/Slipstrike_Vest",
+  "retrievedAt": "2026-10-04T15:37:53.279Z",
+  "sha256": "a7f8d2790d12c4cd8b256cfa6a1cf2554aaf02a7c1eb587946b73f8a6a7b1911",
+  "name": "Slipstrike Vest",
+  "card": "Slipstrike Vest\n        \n    \n    \n        \n            Body ArmoursEvasion Rating: 519Base Movement Speed: -0.03Requires:  Level 70, 121 Dex",
+  "requirements": "Requires:  Level 70, 121 Dex",
+  "fields": {
+    "DropLevel": "70",
+    "BaseType": "Slipstrike Vest",
+    "Class": "Body Armours",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame",
+    "Tags": "dex_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/jp/Lunar_Amulet",
+  "retrievedAt": "2026-10-04T21:52:35.335Z",
+  "sha256": "ec173df0f88be8c0e09587f5b045ddf6fed178f45509f5116364343aa29a2ad1",
+  "name": "月のアミュレット",
+  "card": "月のアミュレット\n        \n    \n    \n        \n            アミュレット装備条件： レベル 14最大エナジーシールド +(20—30)\n        \n\n\n\n        \n            Lunar Amulet",
+  "requirements": "装備条件： レベル 14",
+  "fields": {
+    "DropLevel": "14",
+    "BaseType": "月のアミュレット",
+    "Class": "アミュレット",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Amulets/FourAmulet6",
+    "Tags": "amulet",
+    "Icon": "Art/2DItems/Amulets/Basetypes/LunarAmulet",
+    "Base.base_level": "1",
+    "Base.tag": "default, amulet",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Amulet",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

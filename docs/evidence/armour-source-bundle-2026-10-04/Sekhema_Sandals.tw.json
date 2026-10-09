@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/tw/Sekhema_Sandals",
+  "retrievedAt": "2026-10-04T15:38:30.882Z",
+  "sha256": "16b29d7e848f31c672ac7badf249fea428eae6da8ea905ef107a40e9ec847096",
+  "name": "絲克瑪便鞋",
+  "card": "絲克瑪便鞋\n        \n    \n    \n        \n            鞋子能量護盾: 83需求:  等級 80, 108 智慧\n        \n\n\n\n        \n            Sekhema Sandals",
+  "requirements": "需求:  等級 80, 108 智慧",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "絲克瑪便鞋",
+    "Class": "鞋子",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Boots/FourBootsInt6Endgame",
+    "Tags": "int_armour, karui_basetype, boots, armour",
+    "Icon": "Art/2DItems/Armours/Boots/Basetypes/BootsInt06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, boots",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Boots",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

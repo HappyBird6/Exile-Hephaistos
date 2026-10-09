@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/us/Amethyst_Ring",
+  "retrievedAt": "2026-10-04T20:54:57.688Z",
+  "sha256": "b090a09ccf81abe4a6dfac67e9b25ddef8c4460bc478b4ee26f333f613055fff",
+  "name": "Amethyst Ring",
+  "card": "Amethyst Ring\n        \n    \n    \n        \n            RingsRequires:  Level 20+(7—13)% to Chaos Resistance",
+  "requirements": "Requires:  Level 20",
+  "fields": {
+    "DropLevel": "20",
+    "BaseType": "Amethyst Ring",
+    "Class": "Rings",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRing6",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/Basetypes/AmethystRing",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

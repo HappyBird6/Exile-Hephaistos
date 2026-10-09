@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/kr/Slipstrike_Vest",
+  "retrievedAt": "2026-10-04T15:37:53.584Z",
+  "sha256": "56c261f4dee02d9ab9139aaea38b65ffb0512ca48c7c385294f2829268b0564c",
+  "name": "미끄러진 타격 조끼",
+  "card": "미끄러진 타격 조끼\n        \n    \n    \n        \n            갑옷회피: 519Base Movement Speed: -0.03요구 사항:  레벨 70, 121 민첩\n        \n\n\n\n        \n            Slipstrike Vest",
+  "requirements": "요구 사항:  레벨 70, 121 민첩",
+  "fields": {
+    "DropLevel": "70",
+    "BaseType": "미끄러진 타격 조끼",
+    "Class": "갑옷",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame",
+    "Tags": "dex_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

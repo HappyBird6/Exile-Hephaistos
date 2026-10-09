@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/jp/Hallowed_Sceptre",
+  "retrievedAt": "2026-10-04T23:03:39.845Z",
+  "sha256": "1c5ea3341922dafb4c7bb13681dd5ca08391ff803902726c131a860cbe5f3c73",
+  "name": "神聖なセプター",
+  "card": "神聖なセプター\n        \n    \n    \n        \n            セプタースピリット: 100装備条件： レベル 65, 114 知性 スキルを付与: スケルトンウォーリアー\n        \n\n\n\n        \n            Hallowed Sceptre",
+  "requirements": "装備条件： レベル 65, 114 知性",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "神聖なセプター",
+    "Class": "セプター",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
+    "Tags": "sceptre, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre01",
+    "Base.base_level": "1",
+    "Base.tag": "default, sceptre, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

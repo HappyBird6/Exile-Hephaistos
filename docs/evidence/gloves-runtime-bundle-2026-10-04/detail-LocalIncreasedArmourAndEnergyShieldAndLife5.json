@@ -1,0 +1,53 @@
+{
+  "code": "LocalIncreasedArmourAndEnergyShieldAndLife5",
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndEnergyShieldAndLife5",
+  "retrievedAt": "2026-10-04T16:01:04.744Z",
+  "sha256": "82a8564857fba8ea48829cf058d89f44b2c6901d3045ac5068f5b9551eb6fdd4",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(33<span class=\"ndash\">—</span>38)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> and <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a><br><span class='mod-value'>+(33<span class=\"ndash\">—</span>41)</span> to maximum Life</span></h5>   <span data-tabname=\"Visionary's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Visionary's\n<tr><th>Family<td>BaseLocalDefencesAndLife\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>1474\n<tr><th>Stats<td><li>base maximum life <span class=\"badge bg-primary\">33 <span class=\"ndash\">—</span> 41</span> <span class=\"badge bg-secondary\">Global</span></li><li>local armour and energy shield +% <span class=\"badge bg-primary\">33 <span class=\"ndash\">—</span> 38</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>shield: 0</span> <span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> <span class='badge bg-primary'>Armour</span> <span class='badge bg-primary'>Energy Shield</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>7</span>% of Damage Taken [Recoup|Recouped] as Life, Mana and [EnergyShield|Energy Shield]</table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Visionary's",
+      "Family": "BaseLocalDefencesAndLife",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "60 (Effective: 48)",
+      "Gold Price": "1474",
+      "Stats": "base maximum life 33 — 41 Globallocal armour and energy shield +% 33 — 38 Local",
+      "Spawn Tags": "boots: 0 shield: 0 str_int_armour: 1 default: 0",
+      "Craft Tags": "defences resource Life Armour Energy Shield"
+    },
+    "stats": [
+      {
+        "id": "base_maximum_life",
+        "min": 33,
+        "max": 41,
+        "locality": "Global"
+      },
+      {
+        "id": "local_armour_and_energy_shield_+%",
+        "min": 33,
+        "max": 38,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "boots",
+        "weight": 0
+      },
+      {
+        "tag": "shield",
+        "weight": 0
+      },
+      {
+        "tag": "str_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(33—38)% increased Armour and Energy Shield\n+(33—41) to maximum Life"
+  }
+}

@@ -109,14 +109,15 @@ describe('locale infrastructure', () => {
     const saved = '{"version":1,"canonicalGameIds":["Orb_of_Transmutation"]}'
     window.localStorage.setItem('i18n-test-film', saved)
     render(<LocaleSelector />)
+    fireEvent.click(screen.getByRole('button', { name: /언어/ }))
     expect(
       screen
-        .getAllByRole('option')
-        .map((option) => option.getAttribute('value')),
+        .getAllByRole('menuitemradio')
+        .map((option) => option.getAttribute('lang')),
     ).toEqual([...locales])
-    fireEvent.change(screen.getByRole('combobox'), {
-      target: { value: 'zh-CN' },
-    })
+    fireEvent.click(
+      screen.getByRole('menuitemradio', { name: '简体中文 (CN)' }),
+    )
     expect(document.documentElement.lang).toBe('zh-CN')
     expect(window.localStorage.getItem(localeStorageKey)).toBe('zh-CN')
     expect(window.localStorage.getItem('i18n-test-film')).toBe(saved)
@@ -138,9 +139,8 @@ describe('locale infrastructure', () => {
       fireEvent.click(screen.getByRole('tab', { name: new RegExp(tab) }))
       expect(screen.getByText(disclaimer)).toBeVisible()
     }
-    fireEvent.change(screen.getByLabelText('Language'), {
-      target: { value: 'ko' },
-    })
+    fireEvent.click(screen.getByRole('button', { name: /Language/ }))
+    fireEvent.click(screen.getByRole('menuitemradio', { name: '한국어' }))
     expect(
       screen.getByText(messages.ko['probability.disclaimer']),
     ).toBeVisible()

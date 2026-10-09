@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/sp/Slipstrike_Vest",
+  "retrievedAt": "2026-10-04T15:37:54.747Z",
+  "sha256": "a80592da4875b675d84113f75237ce5d7dcd884640eb6e5bd415d4a59b3020d4",
+  "name": "Jubón de impacto rápido",
+  "card": "Jubón de impacto rápido\n        \n    \n    \n        \n            Armaduras corporalesEvasión: 519Base Movement Speed: -0.03Requiere:  Nivel 70, 121 Des\n        \n\n\n\n        \n            Slipstrike Vest",
+  "requirements": "Requiere:  Nivel 70, 121 Des",
+  "fields": {
+    "DropLevel": "70",
+    "BaseType": "Jubón de impacto rápido",
+    "Class": "Armaduras corporales",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame",
+    "Tags": "dex_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

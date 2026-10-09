@@ -1,0 +1,187 @@
+import fs from 'node:fs'
+import assert from 'node:assert/strict'
+import crypto from 'node:crypto'
+import { cleanSource as clean } from './armour-source.mjs'
+const root = 'docs/evidence/quivers-source-bundle-2026-10-05'
+const read = p => JSON.parse(fs.readFileSync(p, 'utf8'))
+const normalDetail = i => read(`${root}/details/Quivers/normal-${i}${i===57?'.corrected':''}.json`)
+const save = (p,text) => { if(fs.existsSync(p))assert.equal(fs.readFileSync(p,'utf8'),text,`${p}: preserve prior generated evidence`);else fs.writeFileSync(p,text,{flag:'wx'}) }
+const write = (p,v) => p.includes('/catalog/') && p.endsWith('/catalog.json') ? save(p,JSON.stringify(v,null,2)+'\n') : fs.writeFileSync(p, JSON.stringify(v,null,2)+'\n')
+const hash = s => crypto.createHash('sha256').update(s).digest('hex')
+const locales = { en:'us', ko:'kr', ja:'jp', 'zh-CN':'cn', 'zh-TW':'tw', es:'sp' }
+const data = read(`${root}/Quivers.us.json`).data
+const bases = read('backend/src/main/resources/catalog/top-bases.json')
+const overrides = read('backend/src/main/resources/catalog/top-base-essences.json')
+const registry = read('backend/src/main/resources/crafting/registry-v2.json')
+const terms = read('frontend/src/shared/i18n/gameTerms.json')
+const display = read('frontend/src/shared/i18n/modifierTemplates.json')
+const existing = []
+for (const dir of fs.readdirSync('backend/src/main/resources/catalog')) {
+  const p = `backend/src/main/resources/catalog/${dir}`
+  if (!fs.statSync(p).isDirectory()) continue
+  for (const f of fs.readdirSync(p).filter(f=>f==='catalog.json'||f.endsWith('.catalog.json'))) existing.push(...(read(`${p}/${f}`).modifiers??[]))
+}
+const stats = d => d.stats.map(({locality,...s})=>s)
+const slugify = s => s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')
+const equal = (a,b) => JSON.stringify(a)===JSON.stringify(b)
+const numberPattern = /[+]?(?:\(-?\d+(?:\.\d+)?[—–]-?\d+(?:\.\d+)?\)|-?\d+(?:\.\d+)?)/g
+const sourceTexts = (kind,i) => Object.fromEntries(Object.entries(locales).map(([l,r])=>[l,clean(read(`${root}/Quivers.${r}.json`).data[kind][i].str)]))
+function bind(d,texts,code) {
+  if (display.definitions[d.id]) {
+    assert.equal(display.definitions[d.id].englishText,d.text)
+    assert.deepEqual(display.definitions[d.id].stats,d.stats)
+    for (const l of Object.keys(locales)) {
+      const b=display.definitions[d.id]
+      assert.equal(display.templates[l][b.template].template.replace(/\{v(\d+)\}/g,(_,n)=>b.values[+n]).replaceAll('\n',''),texts[l].replaceAll('\n',''))
+    }
+    return
+  }
+  const template = `quivers.${d.id}`
+  if (code === 'AdditionalAmmo1' || (d.layer==='IMPLICIT' && d.stats.every(s=>s.min===s.max))) {
+    if(code==='AdditionalAmmo1')assert.deepEqual(d.stats,[{id:'base_number_of_quiver_bolts',min:1,max:1}])
+    display.definitions[d.id]={stats:d.stats,englishText:d.text,values:[],template,sourceCode:code}
+    for(const [l,text]of Object.entries(texts))display.templates[l][template]={name:d.name,template:text}
+    return
+  }
+  const values = [...d.text.matchAll(numberPattern)].map(m=>m[0])
+  const available = [...d.stats]
+  const valueStats = values.map(value=>{
+    const n=value.match(/-?\d+(?:\.\d+)?/g).map(Number)
+    const range=n.length===1?[n[0],n[0]]:n
+    const candidates=available.flatMap(s=>[1,-1,100,-100,60,-60].filter(divisor=>equal([s.min/divisor,s.max/divisor].sort((a,b)=>a-b),range)).map(divisor=>({id:s.id,divisor})))
+    assert.equal(candidates.length,1,`${d.id}: source span must have one unambiguous stat binding: ${value}`)
+    const chosen=candidates[0]
+    available.splice(available.findIndex(s=>s.id===chosen.id),1)
+    return chosen
+  })
+  assert(available.every(s=>s.min===s.max),`${d.id}: undisplayed variable stat needs a reviewed binding`)
+  display.definitions[d.id]={stats:d.stats,englishText:d.text,values,template,sourceCode:code??null,valueStats}
+  for (const [l,text] of Object.entries(texts)) {
+    if (/^AdditionalArrowChanceQuiver\d+$/.test(code??'') && l==='ja') {
+      assert(text.startsWith('矢を追加で1個放つ'),'Reviewed Japanese literal one arrow')
+      assert.equal(values.length,1)
+      assert(text.includes(values[0]))
+      display.templates[l][template]={name:d.name,template:text.replace(values[0],'{v0}')}
+      continue
+    }
+    if(d.id==='sacral-quiver:implicit:base' && l==='ja') {
+      assert(text.includes('ヒットを与えた敵1体ごとに'),'Reviewed literal one enemy')
+      assert.deepEqual(d.stats,[{id:'base_life_gain_per_target',min:2,max:3}])
+      assert.equal(values.length,1)
+      assert(text.includes(values[0]))
+      display.templates[l][template]={name:d.name,template:text.replace(values[0],'{v0}')}
+      continue
+    }
+    const localValues=[...text.matchAll(numberPattern)].map(m=>m[0])
+    assert.deepEqual(localValues,values,`${d.id}/${l}: exact numeric spans`)
+    let i=0
+    const translated=text.replace(numberPattern,()=>`{v${i++}}`)
+    display.templates[l][template]={name:d.name,template:translated}
+    assert.equal(translated.replace(/\{v(\d+)\}/g,(_,n)=>values[+n]),text)
+  }
+}
+const tags=['quiver','default']
+const eligible=d=>{const first=d.spawn.find(s=>tags.includes(s.tag));assert(first,`${d.url}: ordered spawn missing`);return first.weight>0}
+const ordinary=[]
+for(let i=0;i<data.normal.length;i++) {
+  const detail=normalDetail(i),row=data.normal[i]
+  assert(eligible(detail),`${i}: complete ordinary pool eligibility`)
+  const affixType=+row.ModGenerationTypeID===1?'PREFIX':'SUFFIX'
+  const s=stats(detail),text=clean(row.str)
+  const reusable=existing.find(d=>d.layer==='EXPLICIT'&&d.affixType===affixType&&d.requiredItemLevel===+row.Level&&equal(d.familyIds,row.ModFamilyList)&&equal(d.stats,s)&&d.text===text)
+  const tiers=[...new Set(data.normal.filter(r=>r.ModGenerationTypeID===row.ModGenerationTypeID&&r.ModFamilyList.join(',')===row.ModFamilyList.join(',')).map(r=>+r.Level))].sort((a,b)=>b-a)
+  const d={id:reusable?.id??`quiver:${affixType.toLowerCase()}:${slugify(row.Name)}:${detail.code??hash(JSON.stringify(s)).slice(0,12)}`,name:clean(row.Name),layer:'EXPLICIT',affixType,familyIds:row.ModFamilyList,requiredItemLevel:+row.Level,weight:+row.DropChance,tier:tiers.indexOf(+row.Level)+1,text,stats:s,tags:row.mod_no.map(m=>m.match(/data-tag="([^"]+)"/)[1]),sourceUrl:detail.url}
+  assert(Number.isInteger(d.weight)&&d.weight>0,'Published selection weight required')
+  bind(d,sourceTexts('normal',i),detail.code)
+  ordinary.push(d)
+}
+const fixed={},replacements={},special=[],excluded=[]
+for(const kind of ['essence','perfect_essence'])for(let i=0;i<data[kind].length;i++) {
+  const row=data[kind][i],detail=read(`${root}/details/Quivers/${kind}-${i}.json`)
+  const action=row.Name.match(/href="([^"]+)"/)[1].replaceAll('_the_','_').replaceAll('_of_','_').toUpperCase()
+  const entry=registry.entries.find(e=>(e.action??e.workbenchAction)===action&&e.category==='ESSENCE'&&e.serviceScope!=='DEFERRED')
+  if (!entry||row.IsAlloy||(kind==='essence'&&!eligible(detail))) { excluded.push({kind,code:row.Code,action,reason:!entry?'Existing excluded/deferred action':row.IsAlloy?'Excluded Alloy':'Ordered spawn denies Quiver'});continue }
+  let d=ordinary.find(d=>equal(d.stats,stats(detail))&&d.requiredItemLevel===+row.Level&&equal(d.familyIds,row.ModFamilyList))
+  if(kind==='essence') {
+    assert(d,`${action}: exact ordinary target required`)
+    ;(fixed[action]??=[]).push(d.id)
+  } else {
+    if(action==='ESSENCE_HYSTERIA') {
+      assert(d && eligible(detail),'Hysteria requires its exact ordinary Quiver target')
+      assert.equal(d.text,clean(row.str))
+      ;(replacements[action]??=[]).push(d.id)
+      continue
+    }
+    assert(detail.spawn.every(s=>s.weight===0),'Special target must not enter ordinary generation')
+    const text=row.Code.startsWith('EssenceAbyss')?detail.detailText:clean(row.str),s=stats(detail),affixType=+row.ModGenerationTypeID===1?'PREFIX':'SUFFIX'
+    const reusable=existing.find(d=>d.layer==='EXPLICIT'&&d.affixType===affixType&&equal(d.stats,s)&&equal(d.familyIds,row.ModFamilyList)&&d.text===text&&d.requiredItemLevel===+row.Level&&d.weight===0)
+    d={id:reusable?.id??`quiver:${affixType.toLowerCase()}:essence:${row.Code}`,name:clean(row.Name),layer:'EXPLICIT',affixType,familyIds:row.ModFamilyList,requiredItemLevel:+row.Level,weight:0,tier:1,text,stats:s,tags:row.mod_no.map(m=>m.match(/data-tag="([^"]+)"/)[1]),sourceUrl:detail.url}
+    if(row.Code.startsWith('EssenceAbyss')) {
+      assert(reusable,'Exact previously reviewed full Abyss target required')
+      assert.deepEqual(display.definitions[d.id].stats,d.stats)
+      assert.equal(display.definitions[d.id].englishText,text)
+    } else bind(d,sourceTexts(kind,i),row.Code)
+    if(!special.some(s=>s.id===d.id))special.push(d)
+    ;(replacements[action]??=[]).push(d.id)
+  }
+}
+const parseImplicit = html => [...html.matchAll(/<h5 class="card-header">((?:(?!<\/h5>)[^])*?)<\/h5>\s*<table[^]*?<\/table>/g)].filter(m=>m[0].includes('<tr><th>Family')).map(m=>({text:clean(m[1]),family:clean(m[0].match(/<tr><th>Family<td>([^]*?)(?=<tr>|<\/table>)/)[1]),stats:[...m[0].matchAll(/<li>([^<]*?) <span class="badge bg-primary">([^]*?)<\/span> <span class="badge bg-secondary">([^]*?)<\/span><\/li>/g)].map(m=>{const n=clean(m[2]).match(/-?\d+/g).map(Number);return{id:clean(m[1]).replaceAll(' ','_'),min:n[0],max:n[1],locality:clean(m[3])}})}))
+const report={ordinary:ordinary.length,reused:ordinary.filter(d=>!d.id.startsWith('quiver:')).length,fixed,replacements,excluded,bases:[],weightPolicy:'POE2DB_AS_PUBLISHED',combatSimulation:false}
+for(const name of ['Visceral','Volant','Penetrating','Primed','Serrated','Toxic','Blunt','Two-Point','Sacral','Fire','Broadhead']) {
+  const key=`${name.toLowerCase()}-quiver`,slug=`${name}_Quiver`,source=read(`${root}/${slug}.us.json`),b=source.variants[0]
+  assert(!bases[key]);assert.equal(source.variants.length,1);assert.equal(b.fields.Class,'Quivers');assert(b.fields.Type.startsWith('Metadata/Items/Quivers/FourQuiver'));assert(!b.fields['Quality.max_quality'])
+  assert.equal(b.fields['Mods.inventory_type'],'Offhand');assert.equal(b.fields['Sockets.socket_info'],'0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5')
+  const proof=parseImplicit(fs.readFileSync(`${root}/${slug}.us.html`,'utf8'))
+  assert.equal(proof.length,1)
+  const implicitId=proof.length?`${key}:implicit:base`:''
+  let implicit
+  if(proof.length) {
+    const block=[...fs.readFileSync(`${root}/${slug}.us.html`,'utf8').matchAll(/<h5 class="card-header">[^]*?<\/h5>\s*<table[^]*?<\/table>/g)].find(m=>m[0].includes('<tr><th>Family'))[0]
+    const craft=block.match(/<tr><th>Craft Tags<td>([^]*?)(?=<tr>|<\/table>)/)?.[1]??''
+    const implicitTags=[...craft.matchAll(/<span[^>]*>([^<]+)<\/span>/g)].map(m=>clean(m[1]).toLowerCase())
+    implicit={id:implicitId,name:b.name,layer:'IMPLICIT',affixType:'NONE',familyIds:proof.map(p=>p.family),requiredItemLevel:1,weight:0,tier:0,text:proof.map(p=>p.text).join('\n'),stats:proof.flatMap(p=>p.stats.map(({locality,...s})=>s)),tags:implicitTags,sourceUrl:source.url}
+    const texts=Object.fromEntries(Object.entries(locales).map(([l,r])=>[l,parseImplicit(fs.readFileSync(`${root}/${slug}.${r}.html`,'utf8')).map(p=>p.text).join('\n')]))
+    // Source has no displayed numeric token for the fixed extra bolt, but its stat remains canonical.
+    if(name==='Gemini') {
+      const template=`quivers.${key}.implicit`
+      display.definitions[implicitId]={stats:implicit.stats,englishText:implicit.text,values:[],template,sourceCode:null}
+      for(const [l,text]of Object.entries(texts))display.templates[l][template]={name:b.name,template:text}
+    } else bind(implicit,texts,null)
+  }
+  const requirements={},sourceProperties={}
+  for(const [l,r]of Object.entries(locales)) {
+    const s=read(`${root}/${slug}.${r}.json`),local=s.variants[0]
+    assert.equal(local.fields.Type,b.fields.Type)
+    requirements[l]=local.requirements
+    const popup=fs.readFileSync(`${root}/${slug}.${r}.html`,'utf8').match(/<div class="newItemPopup NormalPopup[^]*?(?=<div class="itemboximage")/)[0]
+    const properties=[...popup.matchAll(/<div class="property">([^]*?)<\/div>/g)].map(m=>clean(m[1]))
+    assert.equal(properties.length,1,`${slug}/${l}: class property only`)
+    const description=clean(popup.match(/<div class="default fst-italic">([^]*?)<\/div>/)[1])
+    sourceProperties[l]=[description]
+    terms[l][slug]={name:local.name,lines:[description],itemKey:b.fields.Type,sourceUrl:s.url}
+  }
+  const modifiers=[...ordinary,...special,...(implicit?[implicit]:[])]
+  const destination=`backend/src/main/resources/catalog/${key}`
+  fs.mkdirSync(destination,{recursive:true})
+  const rawText=JSON.stringify(data.normal,null,2)+'\n',detailText=JSON.stringify({ordinary:data.normal.map((_,i)=>normalDetail(i)),implicit:proof,special},null,2)+'\n'
+  save(`${destination}/base.raw.json`,rawText);save(`${destination}/details.raw.json`,detailText)
+  const affixes=t=>modifiers.filter(d=>d.affixType===t)
+  write(`${destination}/catalog.json`,{metadata:{snapshotId:`poe2db-${key}-20261005-${hash(rawText+detailText).slice(0,16)}`,retrievedAt:source.retrievedAt,sourceUrl:'https://poe2db.tw/us/Quivers',weightPolicy:'POE2DB_AS_PUBLISHED',rawSha256:hash(rawText),detailsSha256:hash(detailText),prefixCount:affixes('PREFIX').length,suffixCount:affixes('SUFFIX').length,prefixWeight:affixes('PREFIX').reduce((n,d)=>n+d.weight,0),suffixWeight:affixes('SUFFIX').reduce((n,d)=>n+d.weight,0)},base:{id:b.fields.Type,name:b.name,sourceUrl:source.url,implicitModifierId:implicitId,magicPrefixes:1,magicSuffixes:1,rarePrefixes:3,rareSuffixes:3},modifiers})
+  bases[key]={key,slug,pool:key,family:'quivers',id:b.fields.Type,name:b.name,sourceUrl:source.url,sourceSha256:source.sha256,sourceTags:b.fields.Tags.split(', '),armour:0,strength:0,dexterity:0,requiredLevel:+(b.requirements.match(/Level (\d+)/ )?.[1]??0),maximumQuality:null,requirements,sourceProperties,implicitModifierId:implicitId,implicitStats:implicit?.stats??[],implicitLocalities:proof.flatMap(p=>p.stats),classId:+data.baseitem.name,ordinarySocketMaximum:0}
+  overrides[key]={fixed,replacements}
+  registry.workbenchBases[key]={...registry.workbenchBases.bow,ruleVersion:'quiver-workbench-v1',ledgerVersion:'quiver-unverified-numeric-assumptions-v1',baseItemId:b.fields.Type,source:source.url,sourceSha256:source.sha256,projection:'EXPLICIT_AFFIX_WITH_SOURCE_QUIVER_IMPLICIT',implicit:implicitId||'NONE_IN_REVIEWED_BASE',sourceProperties:sourceProperties.en,requiredCharacterLevel:bases[key].requiredLevel,requiredStrength:bases[key].strength,requiredDexterity:bases[key].dexterity,augmentSockets:null,ordinarySocketMaximum:0}
+  for(const e of registry.entries) {
+    if(e.serviceScope==='DEFERRED')continue
+    const a=e.action??e.workbenchAction
+    if(e.category==='ESSENCE'?!fixed[a]&&!replacements[a]:!e.supportedBases?.includes('bow'))continue
+    if(['ALLOY','CATALYST'].includes(e.category)||a==='ARTIFICER'||e.id==='Omen_of_the_Blessed')continue
+    if(!e.supportedBases.includes(key))e.supportedBases.push(key)
+  }
+  if(proof.some(p=>p.stats.some(s=>s.min!==s.max)))registry.entries.find(e=>e.id==='Omen_of_the_Blessed').supportedBases.push(key)
+  delete registry.workbenchBases[key].weaponProperties
+  report.bases.push({key,id:b.fields.Type,implicit:proof,ordinary:ordinary.length,special:special.length})
+}
+for(const p of ['backend/src/main/resources/catalog/top-bases.json','frontend/src/features/crafting/topBases.json'])write(p,bases)
+for(const p of ['backend/src/main/resources/catalog/top-base-essences.json','frontend/src/features/crafting/topBaseEssences.json'])write(p,overrides)
+write('backend/src/main/resources/crafting/registry-v2.json',registry);write('frontend/src/shared/i18n/gameTerms.json',terms);write('frontend/src/shared/i18n/modifierTemplates.json',display);write(`${root}/verification.json`,report)
+console.log(report)

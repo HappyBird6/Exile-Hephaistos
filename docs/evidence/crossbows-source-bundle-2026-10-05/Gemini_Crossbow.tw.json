@@ -1,0 +1,38 @@
+{
+  "url": "https://poe2db.tw/tw/Gemini_Crossbow",
+  "retrievedAt": "2026-10-05T02:34:31.224Z",
+  "sha256": "dd1cadd865c8e8e8d23e2f3075f6a83d96adf8f47247942534c1c0ace8b41a1e",
+  "variants": [
+    {
+      "name": "雙子十字弓",
+      "card": "雙子十字弓\n        \n    \n    \n        \n            十字弓物理傷害: 28-112暴擊率: 5%每秒攻擊次數: 1.6重新裝填時間: 1.1需求:  等級 78, 89 力量, 89 敏捷裝填額外1發弩箭\n        \n\n\n\n        \n            Gemini Crossbow",
+      "requirements": "需求:  等級 78, 89 力量, 89 敏捷",
+      "fields": {
+        "DropLevel": "78",
+        "BaseType": "雙子十字弓",
+        "Class": "十字弓",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow5Endgame",
+        "Tags": "crossbow, ranged, two_hand_weapon, twohand, weapon",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Crossbows/2HCrossbow05",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, twohand, crossbow, ranged, two_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ]
+}

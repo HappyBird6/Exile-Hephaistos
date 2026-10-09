@@ -1,0 +1,63 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "72",
+    "DropChance": 0,
+    "ModGenerationTypeID": "1",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>"
+    ],
+    "fossil_no": [
+      "physical_damage",
+      "damage",
+      "physical"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/e8ae970d5be32efbe9e53c254e96feca4273c5e16852e33fc9fe14db9b154225\" href=\"Perfect_Essence_of_Abrasion\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/PhysicalEssencePerfect.webp\" alt=\"PhysicalEssencePerfect\" height=\"16\" />Perfect Essence of Abrasion</a>",
+    "Code": "EssenceDamageasExtraPhysical2H",
+    "ModFamilyList": [
+      "MartialWeaponGainedDamage"
+    ],
+    "str": "<a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(25<span class=\"ndash\">—</span>33)</span>% of Damage as Extra <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 57,
+    "IsPerfect": "1",
+    "IsAlloy": false,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraPhysical2H",
+  "textLocale": "us",
+  "detailText": "Gain (25—33)% of Damage as Extra Physical Damage",
+  "retrievedAt": "2026-10-05T10:12:54.487Z",
+  "sha256": "b588a829e74164ea3c5e4b5bfa7f92792d20040e50487f31060018338e390682",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(25<span class=\"ndash\">—</span>33)</span>% of Damage as Extra <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage</span></h5>   <span data-tabname=\"Essences\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Essences\n<tr><th>Family<td>MartialWeaponGainedDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>non skill base all damage % to gain as physical <span class=\"badge bg-primary\">25 <span class=\"ndash\">—</span> 33</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>physical_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Physical</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Essences",
+    "Family": "MartialWeaponGainedDamage",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "72 (Effective: 57)",
+    "Gold Price": "3266",
+    "Stats": "non skill base all damage % to gain as physical 25 — 33 Global",
+    "Spawn Tags": "default: 0",
+    "Craft Tags": "physical_damage Damage Physical"
+  },
+  "code": "EssenceDamageasExtraPhysical2H",
+  "stats": [
+    {
+      "id": "non_skill_base_all_damage_%_to_gain_as_physical",
+      "min": 25,
+      "max": 33,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

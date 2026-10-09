@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/jp/Toxic_Quiver",
+  "retrievedAt": "2026-10-05T05:29:20.843Z",
+  "sha256": "cefe5c2f6d34b05b836fd849795d0b7deff89d3bfb1d984396680117a990cf32",
+  "variants": [
+    {
+      "name": "毒の矢筒",
+      "card": "毒の矢筒\n        \n    \n    \n        \n            矢筒装備条件： レベル 39アタックによるヒット時に(20—30)%の確率で毒を付与する\n        \n\n\n        \n        \n            弓装備時のみ装備可能\n        \n\n        \n            Toxic Quiver",
+      "requirements": "装備条件： レベル 39",
+      "fields": {
+        "DropLevel": "39",
+        "BaseType": "毒の矢筒",
+        "Class": "矢筒",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver6",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverToxic",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

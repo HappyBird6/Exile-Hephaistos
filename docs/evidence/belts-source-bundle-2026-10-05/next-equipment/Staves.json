@@ -1,0 +1,109 @@
+{
+  "page": "Staves",
+  "url": "https://poe2db.tw/us/Staves",
+  "retrievedAt": "2026-10-05T01:38:19.367Z",
+  "sha256": "b1134af03b6830d803b8063c048ecbc7398de3fcd509a160faaeca7bbe13e77b",
+  "cards": [
+    {
+      "slug": "Ashen_Staff",
+      "card": "Ashen Staff Grants Skill: Firebolt"
+    },
+    {
+      "slug": "Gelid_Staff",
+      "card": "Gelid StaffRequires:  Level 2 Grants Skill: Freezing Shards"
+    },
+    {
+      "slug": "Voltaic_Staff",
+      "card": "Voltaic StaffRequires:  Level 2 Grants Skill: Lightning Bolt"
+    },
+    {
+      "slug": "Spriggan_Staff",
+      "card": "Spriggan StaffRequires:  Level 11, 23 Int Grants Skill: Firebolt"
+    },
+    {
+      "slug": "Pyrophyte_Staff",
+      "card": "Pyrophyte StaffRequires:  Level 16, 31 Int Grants Skill: Solar Orb"
+    },
+    {
+      "slug": "Chiming_Staff",
+      "card": "Chiming StaffRequires:  Level 25, 46 Int Grants Skill: Sigil of Power"
+    },
+    {
+      "slug": "Rending_Staff",
+      "card": "Rending StaffRequires:  Level 33, 60 Int Grants Skill: Soulrend"
+    },
+    {
+      "slug": "Reaping_Staff",
+      "card": "Reaping StaffRequires:  Level 38, 68 Int Grants Skill: Reap"
+    },
+    {
+      "slug": "Icicle_Staff",
+      "card": "Icicle StaffRequires:  Level 45, 80 Int Grants Skill: Firebolt"
+    },
+    {
+      "slug": "Roaring_Staff",
+      "card": "Roaring StaffRequires:  Level 49, 87 Int Grants Skill: Unleash"
+    },
+    {
+      "slug": "Paralysing_Staff",
+      "card": "Paralysing StaffRequires:  Level 52, 92 Int Grants Skill: Enervating Nova"
+    },
+    {
+      "slug": "Sanctified_Staff",
+      "card": "Sanctified StaffRequires:  Level 56, 99 Int Grants Skill: Consecrate"
+    },
+    {
+      "slug": "Dark_Staff",
+      "card": "Dark StaffRequires:  Level 65, 114 Int Grants Skill: Dark Pact"
+    },
+    {
+      "slug": "Ravenous_Staff",
+      "card": "Ravenous StaffRequires:  Level 65, 114 Int Grants Skill: Feast of Flesh"
+    },
+    {
+      "slug": "Permafrost_Staff",
+      "card": "Permafrost StaffRequires:  Level 75, 114 Int Grants Skill: Heart of Ice"
+    },
+    {
+      "slug": "Reflecting_Staff",
+      "card": "Reflecting StaffRequires:  Level 70, 114 Int Grants Skill: Mirror of Refraction"
+    },
+    {
+      "slug": "Perching_Staff",
+      "card": "Perching StaffRequires:  Level 65, 114 Int Grants Skill: Spiraling Conspiracy"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Permafrost_Staff",
+      "card": "Permafrost StaffRequires:  Level 75, 114 Int Grants Skill: Heart of Ice",
+      "requiredLevel": 75
+    },
+    {
+      "slug": "Reflecting_Staff",
+      "card": "Reflecting StaffRequires:  Level 70, 114 Int Grants Skill: Mirror of Refraction",
+      "requiredLevel": 70
+    },
+    {
+      "slug": "Dark_Staff",
+      "card": "Dark StaffRequires:  Level 65, 114 Int Grants Skill: Dark Pact",
+      "requiredLevel": 65
+    },
+    {
+      "slug": "Ravenous_Staff",
+      "card": "Ravenous StaffRequires:  Level 65, 114 Int Grants Skill: Feast of Flesh",
+      "requiredLevel": 65
+    },
+    {
+      "slug": "Perching_Staff",
+      "card": "Perching StaffRequires:  Level 65, 114 Int Grants Skill: Spiraling Conspiracy",
+      "requiredLevel": 65
+    },
+    {
+      "slug": "Sanctified_Staff",
+      "card": "Sanctified StaffRequires:  Level 56, 99 Int Grants Skill: Consecrate",
+      "requiredLevel": 56
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

@@ -1,0 +1,1372 @@
+{
+  "passed": true,
+  "count": 336,
+  "checks": [
+    "warmonger/Orb_of_Transmutation: actual positive",
+    "warmonger/Orb_of_Transmutation: identity and canonical stats",
+    "warmonger/Orb_of_Augmentation: actual positive",
+    "warmonger/Orb_of_Augmentation: identity and canonical stats",
+    "warmonger/Orb_of_Annulment: actual positive",
+    "warmonger/Orb_of_Annulment: identity and canonical stats",
+    "warmonger/Orb_of_Alchemy: actual positive",
+    "warmonger/Orb_of_Alchemy: identity and canonical stats",
+    "warmonger/Regal_Orb: actual positive",
+    "warmonger/Regal_Orb: identity and canonical stats",
+    "warmonger/Exalted_Orb: actual positive",
+    "warmonger/Exalted_Orb: identity and canonical stats",
+    "warmonger/Chaos_Orb: actual positive",
+    "warmonger/Chaos_Orb: identity and canonical stats",
+    "warmonger/Fracturing_Orb: actual positive",
+    "warmonger/Fracturing_Orb: identity and canonical stats",
+    "warmonger/Divine_Orb: actual positive",
+    "warmonger/Divine_Orb: identity and canonical stats",
+    "warmonger/Greater_Orb_of_Transmutation: actual positive",
+    "warmonger/Greater_Orb_of_Transmutation: identity and canonical stats",
+    "warmonger/Perfect_Orb_of_Transmutation: actual positive",
+    "warmonger/Perfect_Orb_of_Transmutation: identity and canonical stats",
+    "warmonger/Greater_Orb_of_Augmentation: actual positive",
+    "warmonger/Greater_Orb_of_Augmentation: identity and canonical stats",
+    "warmonger/Perfect_Orb_of_Augmentation: actual positive",
+    "warmonger/Perfect_Orb_of_Augmentation: identity and canonical stats",
+    "warmonger/Greater_Regal_Orb: actual positive",
+    "warmonger/Greater_Regal_Orb: identity and canonical stats",
+    "warmonger/Perfect_Regal_Orb: actual positive",
+    "warmonger/Perfect_Regal_Orb: identity and canonical stats",
+    "warmonger/Greater_Exalted_Orb: actual positive",
+    "warmonger/Greater_Exalted_Orb: identity and canonical stats",
+    "warmonger/Perfect_Exalted_Orb: actual positive",
+    "warmonger/Perfect_Exalted_Orb: identity and canonical stats",
+    "warmonger/Greater_Chaos_Orb: actual positive",
+    "warmonger/Greater_Chaos_Orb: identity and canonical stats",
+    "warmonger/Perfect_Chaos_Orb: actual positive",
+    "warmonger/Perfect_Chaos_Orb: identity and canonical stats",
+    "warmonger/Omen_of_Dextral_Crystallisation: positive trigger and consumption",
+    "warmonger/Omen_of_Dextral_Crystallisation: exact side",
+    "warmonger/Omen_of_Sinistral_Crystallisation: positive trigger and consumption",
+    "warmonger/Omen_of_Sinistral_Crystallisation: exact side",
+    "warmonger/Omen_of_Whittling: positive trigger and consumption",
+    "warmonger/Omen_of_Sinistral_Erasure: positive trigger and consumption",
+    "warmonger/Omen_of_Sinistral_Erasure: exact side",
+    "warmonger/Omen_of_Dextral_Erasure: positive trigger and consumption",
+    "warmonger/Omen_of_Dextral_Erasure: exact side",
+    "warmonger/Omen_of_Sinistral_Alchemy: positive trigger and consumption",
+    "warmonger/Omen_of_Sinistral_Alchemy: maximum three on guaranteed side",
+    "warmonger/Omen_of_Dextral_Alchemy: positive trigger and consumption",
+    "warmonger/Omen_of_Dextral_Alchemy: maximum three on guaranteed side",
+    "warmonger/Omen_of_Sinistral_Coronation: positive trigger and consumption",
+    "warmonger/Omen_of_Sinistral_Coronation: exact side",
+    "warmonger/Omen_of_Dextral_Coronation: positive trigger and consumption",
+    "warmonger/Omen_of_Dextral_Coronation: exact side",
+    "warmonger/Omen_of_Greater_Exaltation: positive trigger and consumption",
+    "warmonger double addition",
+    "warmonger/Omen_of_Sinistral_Exaltation: positive trigger and consumption",
+    "warmonger/Omen_of_Sinistral_Exaltation: exact side",
+    "warmonger/Omen_of_Dextral_Exaltation: positive trigger and consumption",
+    "warmonger/Omen_of_Dextral_Exaltation: exact side",
+    "warmonger/Omen_of_Greater_Annulment: positive trigger and consumption",
+    "warmonger double removal",
+    "warmonger/Omen_of_Sinistral_Annulment: positive trigger and consumption",
+    "warmonger/Omen_of_Sinistral_Annulment: exact side",
+    "warmonger/Omen_of_Dextral_Annulment: positive trigger and consumption",
+    "warmonger/Omen_of_Dextral_Annulment: exact side",
+    "guardian/Orb_of_Transmutation: actual positive",
+    "guardian/Orb_of_Transmutation: identity and canonical stats",
+    "guardian/Orb_of_Augmentation: actual positive",
+    "guardian/Orb_of_Augmentation: identity and canonical stats",
+    "guardian/Orb_of_Annulment: actual positive",
+    "guardian/Orb_of_Annulment: identity and canonical stats",
+    "guardian/Orb_of_Alchemy: actual positive",
+    "guardian/Orb_of_Alchemy: identity and canonical stats",
+    "guardian/Regal_Orb: actual positive",
+    "guardian/Regal_Orb: identity and canonical stats",
+    "guardian/Exalted_Orb: actual positive",
+    "guardian/Exalted_Orb: identity and canonical stats",
+    "guardian/Chaos_Orb: actual positive",
+    "guardian/Chaos_Orb: identity and canonical stats",
+    "guardian/Fracturing_Orb: actual positive",
+    "guardian/Fracturing_Orb: identity and canonical stats",
+    "guardian/Divine_Orb: actual positive",
+    "guardian/Divine_Orb: identity and canonical stats",
+    "guardian/Greater_Orb_of_Transmutation: actual positive",
+    "guardian/Greater_Orb_of_Transmutation: identity and canonical stats",
+    "guardian/Perfect_Orb_of_Transmutation: actual positive",
+    "guardian/Perfect_Orb_of_Transmutation: identity and canonical stats",
+    "guardian/Greater_Orb_of_Augmentation: actual positive",
+    "guardian/Greater_Orb_of_Augmentation: identity and canonical stats",
+    "guardian/Perfect_Orb_of_Augmentation: actual positive",
+    "guardian/Perfect_Orb_of_Augmentation: identity and canonical stats",
+    "guardian/Greater_Regal_Orb: actual positive",
+    "guardian/Greater_Regal_Orb: identity and canonical stats",
+    "guardian/Perfect_Regal_Orb: actual positive",
+    "guardian/Perfect_Regal_Orb: identity and canonical stats",
+    "guardian/Greater_Exalted_Orb: actual positive",
+    "guardian/Greater_Exalted_Orb: identity and canonical stats",
+    "guardian/Perfect_Exalted_Orb: actual positive",
+    "guardian/Perfect_Exalted_Orb: identity and canonical stats",
+    "guardian/Greater_Chaos_Orb: actual positive",
+    "guardian/Greater_Chaos_Orb: identity and canonical stats",
+    "guardian/Perfect_Chaos_Orb: actual positive",
+    "guardian/Perfect_Chaos_Orb: identity and canonical stats",
+    "guardian/Omen_of_Dextral_Crystallisation: positive trigger and consumption",
+    "guardian/Omen_of_Dextral_Crystallisation: exact side",
+    "guardian/Omen_of_Sinistral_Crystallisation: positive trigger and consumption",
+    "guardian/Omen_of_Sinistral_Crystallisation: exact side",
+    "guardian/Omen_of_Whittling: positive trigger and consumption",
+    "guardian/Omen_of_Sinistral_Erasure: positive trigger and consumption",
+    "guardian/Omen_of_Sinistral_Erasure: exact side",
+    "guardian/Omen_of_Dextral_Erasure: positive trigger and consumption",
+    "guardian/Omen_of_Dextral_Erasure: exact side",
+    "guardian/Omen_of_Sinistral_Alchemy: positive trigger and consumption",
+    "guardian/Omen_of_Sinistral_Alchemy: maximum three on guaranteed side",
+    "guardian/Omen_of_Dextral_Alchemy: positive trigger and consumption",
+    "guardian/Omen_of_Dextral_Alchemy: maximum three on guaranteed side",
+    "guardian/Omen_of_Sinistral_Coronation: positive trigger and consumption",
+    "guardian/Omen_of_Sinistral_Coronation: exact side",
+    "guardian/Omen_of_Dextral_Coronation: positive trigger and consumption",
+    "guardian/Omen_of_Dextral_Coronation: exact side",
+    "guardian/Omen_of_Greater_Exaltation: positive trigger and consumption",
+    "guardian double addition",
+    "guardian/Omen_of_Sinistral_Exaltation: positive trigger and consumption",
+    "guardian/Omen_of_Sinistral_Exaltation: exact side",
+    "guardian/Omen_of_Dextral_Exaltation: positive trigger and consumption",
+    "guardian/Omen_of_Dextral_Exaltation: exact side",
+    "guardian/Omen_of_Greater_Annulment: positive trigger and consumption",
+    "guardian double removal",
+    "guardian/Omen_of_Sinistral_Annulment: positive trigger and consumption",
+    "guardian/Omen_of_Sinistral_Annulment: exact side",
+    "guardian/Omen_of_Dextral_Annulment: positive trigger and consumption",
+    "guardian/Omen_of_Dextral_Annulment: exact side",
+    "guardian/Omen_of_the_Blessed: positive trigger and consumption",
+    "gemini/Orb_of_Transmutation: actual positive",
+    "gemini/Orb_of_Transmutation: identity and canonical stats",
+    "gemini/Orb_of_Augmentation: actual positive",
+    "gemini/Orb_of_Augmentation: identity and canonical stats",
+    "gemini/Orb_of_Annulment: actual positive",
+    "gemini/Orb_of_Annulment: identity and canonical stats",
+    "gemini/Orb_of_Alchemy: actual positive",
+    "gemini/Orb_of_Alchemy: identity and canonical stats",
+    "gemini/Regal_Orb: actual positive",
+    "gemini/Regal_Orb: identity and canonical stats",
+    "gemini/Exalted_Orb: actual positive",
+    "gemini/Exalted_Orb: identity and canonical stats",
+    "gemini/Chaos_Orb: actual positive",
+    "gemini/Chaos_Orb: identity and canonical stats",
+    "gemini/Fracturing_Orb: actual positive",
+    "gemini/Fracturing_Orb: identity and canonical stats",
+    "gemini/Divine_Orb: actual positive",
+    "gemini/Divine_Orb: identity and canonical stats",
+    "gemini/Greater_Orb_of_Transmutation: actual positive",
+    "gemini/Greater_Orb_of_Transmutation: identity and canonical stats",
+    "gemini/Perfect_Orb_of_Transmutation: actual positive",
+    "gemini/Perfect_Orb_of_Transmutation: identity and canonical stats",
+    "gemini/Greater_Orb_of_Augmentation: actual positive",
+    "gemini/Greater_Orb_of_Augmentation: identity and canonical stats",
+    "gemini/Perfect_Orb_of_Augmentation: actual positive",
+    "gemini/Perfect_Orb_of_Augmentation: identity and canonical stats",
+    "gemini/Greater_Regal_Orb: actual positive",
+    "gemini/Greater_Regal_Orb: identity and canonical stats",
+    "gemini/Perfect_Regal_Orb: actual positive",
+    "gemini/Perfect_Regal_Orb: identity and canonical stats",
+    "gemini/Greater_Exalted_Orb: actual positive",
+    "gemini/Greater_Exalted_Orb: identity and canonical stats",
+    "gemini/Perfect_Exalted_Orb: actual positive",
+    "gemini/Perfect_Exalted_Orb: identity and canonical stats",
+    "gemini/Greater_Chaos_Orb: actual positive",
+    "gemini/Greater_Chaos_Orb: identity and canonical stats",
+    "gemini/Perfect_Chaos_Orb: actual positive",
+    "gemini/Perfect_Chaos_Orb: identity and canonical stats",
+    "gemini/Omen_of_Dextral_Crystallisation: positive trigger and consumption",
+    "gemini/Omen_of_Dextral_Crystallisation: exact side",
+    "gemini/Omen_of_Sinistral_Crystallisation: positive trigger and consumption",
+    "gemini/Omen_of_Sinistral_Crystallisation: exact side",
+    "gemini/Omen_of_Whittling: positive trigger and consumption",
+    "gemini/Omen_of_Sinistral_Erasure: positive trigger and consumption",
+    "gemini/Omen_of_Sinistral_Erasure: exact side",
+    "gemini/Omen_of_Dextral_Erasure: positive trigger and consumption",
+    "gemini/Omen_of_Dextral_Erasure: exact side",
+    "gemini/Omen_of_Sinistral_Alchemy: positive trigger and consumption",
+    "gemini/Omen_of_Sinistral_Alchemy: maximum three on guaranteed side",
+    "gemini/Omen_of_Dextral_Alchemy: positive trigger and consumption",
+    "gemini/Omen_of_Dextral_Alchemy: maximum three on guaranteed side",
+    "gemini/Omen_of_Sinistral_Coronation: positive trigger and consumption",
+    "gemini/Omen_of_Sinistral_Coronation: exact side",
+    "gemini/Omen_of_Dextral_Coronation: positive trigger and consumption",
+    "gemini/Omen_of_Dextral_Coronation: exact side",
+    "gemini/Omen_of_Greater_Exaltation: positive trigger and consumption",
+    "gemini double addition",
+    "gemini/Omen_of_Sinistral_Exaltation: positive trigger and consumption",
+    "gemini/Omen_of_Sinistral_Exaltation: exact side",
+    "gemini/Omen_of_Dextral_Exaltation: positive trigger and consumption",
+    "gemini/Omen_of_Dextral_Exaltation: exact side",
+    "gemini/Omen_of_Greater_Annulment: positive trigger and consumption",
+    "gemini double removal",
+    "gemini/Omen_of_Sinistral_Annulment: positive trigger and consumption",
+    "gemini/Omen_of_Sinistral_Annulment: exact side",
+    "gemini/Omen_of_Dextral_Annulment: positive trigger and consumption",
+    "gemini/Omen_of_Dextral_Annulment: exact side",
+    "fanatic/Orb_of_Transmutation: actual positive",
+    "fanatic/Orb_of_Transmutation: identity and canonical stats",
+    "fanatic/Orb_of_Augmentation: actual positive",
+    "fanatic/Orb_of_Augmentation: identity and canonical stats",
+    "fanatic/Orb_of_Annulment: actual positive",
+    "fanatic/Orb_of_Annulment: identity and canonical stats",
+    "fanatic/Orb_of_Alchemy: actual positive",
+    "fanatic/Orb_of_Alchemy: identity and canonical stats",
+    "fanatic/Regal_Orb: actual positive",
+    "fanatic/Regal_Orb: identity and canonical stats",
+    "fanatic/Exalted_Orb: actual positive",
+    "fanatic/Exalted_Orb: identity and canonical stats",
+    "fanatic/Chaos_Orb: actual positive",
+    "fanatic/Chaos_Orb: identity and canonical stats",
+    "fanatic/Fracturing_Orb: actual positive",
+    "fanatic/Fracturing_Orb: identity and canonical stats",
+    "fanatic/Divine_Orb: actual positive",
+    "fanatic/Divine_Orb: identity and canonical stats",
+    "fanatic/Greater_Orb_of_Transmutation: actual positive",
+    "fanatic/Greater_Orb_of_Transmutation: identity and canonical stats",
+    "fanatic/Perfect_Orb_of_Transmutation: actual positive",
+    "fanatic/Perfect_Orb_of_Transmutation: identity and canonical stats",
+    "fanatic/Greater_Orb_of_Augmentation: actual positive",
+    "fanatic/Greater_Orb_of_Augmentation: identity and canonical stats",
+    "fanatic/Perfect_Orb_of_Augmentation: actual positive",
+    "fanatic/Perfect_Orb_of_Augmentation: identity and canonical stats",
+    "fanatic/Greater_Regal_Orb: actual positive",
+    "fanatic/Greater_Regal_Orb: identity and canonical stats",
+    "fanatic/Perfect_Regal_Orb: actual positive",
+    "fanatic/Perfect_Regal_Orb: identity and canonical stats",
+    "fanatic/Greater_Exalted_Orb: actual positive",
+    "fanatic/Greater_Exalted_Orb: identity and canonical stats",
+    "fanatic/Perfect_Exalted_Orb: actual positive",
+    "fanatic/Perfect_Exalted_Orb: identity and canonical stats",
+    "fanatic/Greater_Chaos_Orb: actual positive",
+    "fanatic/Greater_Chaos_Orb: identity and canonical stats",
+    "fanatic/Perfect_Chaos_Orb: actual positive",
+    "fanatic/Perfect_Chaos_Orb: identity and canonical stats",
+    "fanatic/Omen_of_Dextral_Crystallisation: positive trigger and consumption",
+    "fanatic/Omen_of_Dextral_Crystallisation: exact side",
+    "fanatic/Omen_of_Sinistral_Crystallisation: positive trigger and consumption",
+    "fanatic/Omen_of_Sinistral_Crystallisation: exact side",
+    "fanatic/Omen_of_Whittling: positive trigger and consumption",
+    "fanatic/Omen_of_Sinistral_Erasure: positive trigger and consumption",
+    "fanatic/Omen_of_Sinistral_Erasure: exact side",
+    "fanatic/Omen_of_Dextral_Erasure: positive trigger and consumption",
+    "fanatic/Omen_of_Dextral_Erasure: exact side",
+    "fanatic/Omen_of_Sinistral_Alchemy: positive trigger and consumption",
+    "fanatic/Omen_of_Sinistral_Alchemy: maximum three on guaranteed side",
+    "fanatic/Omen_of_Dextral_Alchemy: positive trigger and consumption",
+    "fanatic/Omen_of_Dextral_Alchemy: maximum three on guaranteed side",
+    "fanatic/Omen_of_Sinistral_Coronation: positive trigger and consumption",
+    "fanatic/Omen_of_Sinistral_Coronation: exact side",
+    "fanatic/Omen_of_Dextral_Coronation: positive trigger and consumption",
+    "fanatic/Omen_of_Dextral_Coronation: exact side",
+    "fanatic/Omen_of_Greater_Exaltation: positive trigger and consumption",
+    "fanatic double addition",
+    "fanatic/Omen_of_Sinistral_Exaltation: positive trigger and consumption",
+    "fanatic/Omen_of_Sinistral_Exaltation: exact side",
+    "fanatic/Omen_of_Dextral_Exaltation: positive trigger and consumption",
+    "fanatic/Omen_of_Dextral_Exaltation: exact side",
+    "fanatic/Omen_of_Greater_Annulment: positive trigger and consumption",
+    "fanatic double removal",
+    "fanatic/Omen_of_Sinistral_Annulment: positive trigger and consumption",
+    "fanatic/Omen_of_Sinistral_Annulment: exact side",
+    "fanatic/Omen_of_Dextral_Annulment: positive trigger and consumption",
+    "fanatic/Omen_of_Dextral_Annulment: exact side",
+    "obliterator/Orb_of_Transmutation: actual positive",
+    "obliterator/Orb_of_Transmutation: identity and canonical stats",
+    "obliterator/Orb_of_Augmentation: actual positive",
+    "obliterator/Orb_of_Augmentation: identity and canonical stats",
+    "obliterator/Orb_of_Annulment: actual positive",
+    "obliterator/Orb_of_Annulment: identity and canonical stats",
+    "obliterator/Orb_of_Alchemy: actual positive",
+    "obliterator/Orb_of_Alchemy: identity and canonical stats",
+    "obliterator/Regal_Orb: actual positive",
+    "obliterator/Regal_Orb: identity and canonical stats",
+    "obliterator/Exalted_Orb: actual positive",
+    "obliterator/Exalted_Orb: identity and canonical stats",
+    "obliterator/Chaos_Orb: actual positive",
+    "obliterator/Chaos_Orb: identity and canonical stats",
+    "obliterator/Fracturing_Orb: actual positive",
+    "obliterator/Fracturing_Orb: identity and canonical stats",
+    "obliterator/Divine_Orb: actual positive",
+    "obliterator/Divine_Orb: identity and canonical stats",
+    "obliterator/Greater_Orb_of_Transmutation: actual positive",
+    "obliterator/Greater_Orb_of_Transmutation: identity and canonical stats",
+    "obliterator/Perfect_Orb_of_Transmutation: actual positive",
+    "obliterator/Perfect_Orb_of_Transmutation: identity and canonical stats",
+    "obliterator/Greater_Orb_of_Augmentation: actual positive",
+    "obliterator/Greater_Orb_of_Augmentation: identity and canonical stats",
+    "obliterator/Perfect_Orb_of_Augmentation: actual positive",
+    "obliterator/Perfect_Orb_of_Augmentation: identity and canonical stats",
+    "obliterator/Greater_Regal_Orb: actual positive",
+    "obliterator/Greater_Regal_Orb: identity and canonical stats",
+    "obliterator/Perfect_Regal_Orb: actual positive",
+    "obliterator/Perfect_Regal_Orb: identity and canonical stats",
+    "obliterator/Greater_Exalted_Orb: actual positive",
+    "obliterator/Greater_Exalted_Orb: identity and canonical stats",
+    "obliterator/Perfect_Exalted_Orb: actual positive",
+    "obliterator/Perfect_Exalted_Orb: identity and canonical stats",
+    "obliterator/Greater_Chaos_Orb: actual positive",
+    "obliterator/Greater_Chaos_Orb: identity and canonical stats",
+    "obliterator/Perfect_Chaos_Orb: actual positive",
+    "obliterator/Perfect_Chaos_Orb: identity and canonical stats",
+    "obliterator/Omen_of_Dextral_Crystallisation: positive trigger and consumption",
+    "obliterator/Omen_of_Dextral_Crystallisation: exact side",
+    "obliterator/Omen_of_Sinistral_Crystallisation: positive trigger and consumption",
+    "obliterator/Omen_of_Sinistral_Crystallisation: exact side",
+    "obliterator/Omen_of_Whittling: positive trigger and consumption",
+    "obliterator/Omen_of_Sinistral_Erasure: positive trigger and consumption",
+    "obliterator/Omen_of_Sinistral_Erasure: exact side",
+    "obliterator/Omen_of_Dextral_Erasure: positive trigger and consumption",
+    "obliterator/Omen_of_Dextral_Erasure: exact side",
+    "obliterator/Omen_of_Sinistral_Alchemy: positive trigger and consumption",
+    "obliterator/Omen_of_Sinistral_Alchemy: maximum three on guaranteed side",
+    "obliterator/Omen_of_Dextral_Alchemy: positive trigger and consumption",
+    "obliterator/Omen_of_Dextral_Alchemy: maximum three on guaranteed side",
+    "obliterator/Omen_of_Sinistral_Coronation: positive trigger and consumption",
+    "obliterator/Omen_of_Sinistral_Coronation: exact side",
+    "obliterator/Omen_of_Dextral_Coronation: positive trigger and consumption",
+    "obliterator/Omen_of_Dextral_Coronation: exact side",
+    "obliterator/Omen_of_Greater_Exaltation: positive trigger and consumption",
+    "obliterator double addition",
+    "obliterator/Omen_of_Sinistral_Exaltation: positive trigger and consumption",
+    "obliterator/Omen_of_Sinistral_Exaltation: exact side",
+    "obliterator/Omen_of_Dextral_Exaltation: positive trigger and consumption",
+    "obliterator/Omen_of_Dextral_Exaltation: exact side",
+    "obliterator/Omen_of_Greater_Annulment: positive trigger and consumption",
+    "obliterator double removal",
+    "obliterator/Omen_of_Sinistral_Annulment: positive trigger and consumption",
+    "obliterator/Omen_of_Sinistral_Annulment: exact side",
+    "obliterator/Omen_of_Dextral_Annulment: positive trigger and consumption",
+    "obliterator/Omen_of_Dextral_Annulment: exact side"
+  ],
+  "paths": [
+    {
+      "key": "warmonger",
+      "id": "Orb_of_Transmutation",
+      "action": "TRANSMUTATION",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Orb_of_Augmentation",
+      "action": "AUGMENTATION",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Orb_of_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Orb_of_Alchemy",
+      "action": "ALCHEMY",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Regal_Orb",
+      "action": "REGAL",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Exalted_Orb",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Chaos_Orb",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Fracturing_Orb",
+      "action": "FRACTURING",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Divine_Orb",
+      "action": "DIVINE",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Greater_Orb_of_Transmutation",
+      "action": "GREATER_TRANSMUTATION",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Perfect_Orb_of_Transmutation",
+      "action": "PERFECT_TRANSMUTATION",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Greater_Orb_of_Augmentation",
+      "action": "GREATER_AUGMENTATION",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Perfect_Orb_of_Augmentation",
+      "action": "PERFECT_AUGMENTATION",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Greater_Regal_Orb",
+      "action": "GREATER_REGAL",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Perfect_Regal_Orb",
+      "action": "PERFECT_REGAL",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Greater_Exalted_Orb",
+      "action": "GREATER_EXALTED",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Perfect_Exalted_Orb",
+      "action": "PERFECT_EXALTED",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Greater_Chaos_Orb",
+      "action": "GREATER_CHAOS",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Perfect_Chaos_Orb",
+      "action": "PERFECT_CHAOS",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Omen_of_Dextral_Crystallisation",
+      "action": "ESSENCE_ABYSS",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Omen_of_Sinistral_Crystallisation",
+      "action": "ESSENCE_ABYSS",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Omen_of_Whittling",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Omen_of_Sinistral_Erasure",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Omen_of_Dextral_Erasure",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Omen_of_Sinistral_Alchemy",
+      "action": "ALCHEMY",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Omen_of_Dextral_Alchemy",
+      "action": "ALCHEMY",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Omen_of_Sinistral_Coronation",
+      "action": "REGAL",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Omen_of_Dextral_Coronation",
+      "action": "REGAL",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Omen_of_Greater_Exaltation",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Omen_of_Sinistral_Exaltation",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Omen_of_Dextral_Exaltation",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Omen_of_Greater_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Omen_of_Sinistral_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "warmonger",
+      "id": "Omen_of_Dextral_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Orb_of_Transmutation",
+      "action": "TRANSMUTATION",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Orb_of_Augmentation",
+      "action": "AUGMENTATION",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Orb_of_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Orb_of_Alchemy",
+      "action": "ALCHEMY",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Regal_Orb",
+      "action": "REGAL",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Exalted_Orb",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Chaos_Orb",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Fracturing_Orb",
+      "action": "FRACTURING",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Divine_Orb",
+      "action": "DIVINE",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Greater_Orb_of_Transmutation",
+      "action": "GREATER_TRANSMUTATION",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Perfect_Orb_of_Transmutation",
+      "action": "PERFECT_TRANSMUTATION",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Greater_Orb_of_Augmentation",
+      "action": "GREATER_AUGMENTATION",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Perfect_Orb_of_Augmentation",
+      "action": "PERFECT_AUGMENTATION",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Greater_Regal_Orb",
+      "action": "GREATER_REGAL",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Perfect_Regal_Orb",
+      "action": "PERFECT_REGAL",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Greater_Exalted_Orb",
+      "action": "GREATER_EXALTED",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Perfect_Exalted_Orb",
+      "action": "PERFECT_EXALTED",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Greater_Chaos_Orb",
+      "action": "GREATER_CHAOS",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Perfect_Chaos_Orb",
+      "action": "PERFECT_CHAOS",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Omen_of_Dextral_Crystallisation",
+      "action": "ESSENCE_ABYSS",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Omen_of_Sinistral_Crystallisation",
+      "action": "ESSENCE_ABYSS",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Omen_of_Whittling",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Omen_of_Sinistral_Erasure",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Omen_of_Dextral_Erasure",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Omen_of_Sinistral_Alchemy",
+      "action": "ALCHEMY",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Omen_of_Dextral_Alchemy",
+      "action": "ALCHEMY",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Omen_of_Sinistral_Coronation",
+      "action": "REGAL",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Omen_of_Dextral_Coronation",
+      "action": "REGAL",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Omen_of_Greater_Exaltation",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Omen_of_Sinistral_Exaltation",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Omen_of_Dextral_Exaltation",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Omen_of_Greater_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Omen_of_Sinistral_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Omen_of_Dextral_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "guardian",
+      "id": "Omen_of_the_Blessed",
+      "action": "DIVINE",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Orb_of_Transmutation",
+      "action": "TRANSMUTATION",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Orb_of_Augmentation",
+      "action": "AUGMENTATION",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Orb_of_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Orb_of_Alchemy",
+      "action": "ALCHEMY",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Regal_Orb",
+      "action": "REGAL",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Exalted_Orb",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Chaos_Orb",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Fracturing_Orb",
+      "action": "FRACTURING",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Divine_Orb",
+      "action": "DIVINE",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Greater_Orb_of_Transmutation",
+      "action": "GREATER_TRANSMUTATION",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Perfect_Orb_of_Transmutation",
+      "action": "PERFECT_TRANSMUTATION",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Greater_Orb_of_Augmentation",
+      "action": "GREATER_AUGMENTATION",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Perfect_Orb_of_Augmentation",
+      "action": "PERFECT_AUGMENTATION",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Greater_Regal_Orb",
+      "action": "GREATER_REGAL",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Perfect_Regal_Orb",
+      "action": "PERFECT_REGAL",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Greater_Exalted_Orb",
+      "action": "GREATER_EXALTED",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Perfect_Exalted_Orb",
+      "action": "PERFECT_EXALTED",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Greater_Chaos_Orb",
+      "action": "GREATER_CHAOS",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Perfect_Chaos_Orb",
+      "action": "PERFECT_CHAOS",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Omen_of_Dextral_Crystallisation",
+      "action": "ESSENCE_ABYSS",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Omen_of_Sinistral_Crystallisation",
+      "action": "ESSENCE_ABYSS",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Omen_of_Whittling",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Omen_of_Sinistral_Erasure",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Omen_of_Dextral_Erasure",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Omen_of_Sinistral_Alchemy",
+      "action": "ALCHEMY",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Omen_of_Dextral_Alchemy",
+      "action": "ALCHEMY",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Omen_of_Sinistral_Coronation",
+      "action": "REGAL",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Omen_of_Dextral_Coronation",
+      "action": "REGAL",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Omen_of_Greater_Exaltation",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Omen_of_Sinistral_Exaltation",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Omen_of_Dextral_Exaltation",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Omen_of_Greater_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Omen_of_Sinistral_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "gemini",
+      "id": "Omen_of_Dextral_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Orb_of_Transmutation",
+      "action": "TRANSMUTATION",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Orb_of_Augmentation",
+      "action": "AUGMENTATION",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Orb_of_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Orb_of_Alchemy",
+      "action": "ALCHEMY",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Regal_Orb",
+      "action": "REGAL",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Exalted_Orb",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Chaos_Orb",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Fracturing_Orb",
+      "action": "FRACTURING",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Divine_Orb",
+      "action": "DIVINE",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Greater_Orb_of_Transmutation",
+      "action": "GREATER_TRANSMUTATION",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Perfect_Orb_of_Transmutation",
+      "action": "PERFECT_TRANSMUTATION",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Greater_Orb_of_Augmentation",
+      "action": "GREATER_AUGMENTATION",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Perfect_Orb_of_Augmentation",
+      "action": "PERFECT_AUGMENTATION",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Greater_Regal_Orb",
+      "action": "GREATER_REGAL",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Perfect_Regal_Orb",
+      "action": "PERFECT_REGAL",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Greater_Exalted_Orb",
+      "action": "GREATER_EXALTED",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Perfect_Exalted_Orb",
+      "action": "PERFECT_EXALTED",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Greater_Chaos_Orb",
+      "action": "GREATER_CHAOS",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Perfect_Chaos_Orb",
+      "action": "PERFECT_CHAOS",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Omen_of_Dextral_Crystallisation",
+      "action": "ESSENCE_ABYSS",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Omen_of_Sinistral_Crystallisation",
+      "action": "ESSENCE_ABYSS",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Omen_of_Whittling",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Omen_of_Sinistral_Erasure",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Omen_of_Dextral_Erasure",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Omen_of_Sinistral_Alchemy",
+      "action": "ALCHEMY",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Omen_of_Dextral_Alchemy",
+      "action": "ALCHEMY",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Omen_of_Sinistral_Coronation",
+      "action": "REGAL",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Omen_of_Dextral_Coronation",
+      "action": "REGAL",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Omen_of_Greater_Exaltation",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Omen_of_Sinistral_Exaltation",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Omen_of_Dextral_Exaltation",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Omen_of_Greater_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Omen_of_Sinistral_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "fanatic",
+      "id": "Omen_of_Dextral_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Orb_of_Transmutation",
+      "action": "TRANSMUTATION",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Orb_of_Augmentation",
+      "action": "AUGMENTATION",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Orb_of_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Orb_of_Alchemy",
+      "action": "ALCHEMY",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Regal_Orb",
+      "action": "REGAL",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Exalted_Orb",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Chaos_Orb",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Fracturing_Orb",
+      "action": "FRACTURING",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Divine_Orb",
+      "action": "DIVINE",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Greater_Orb_of_Transmutation",
+      "action": "GREATER_TRANSMUTATION",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Perfect_Orb_of_Transmutation",
+      "action": "PERFECT_TRANSMUTATION",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Greater_Orb_of_Augmentation",
+      "action": "GREATER_AUGMENTATION",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Perfect_Orb_of_Augmentation",
+      "action": "PERFECT_AUGMENTATION",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Greater_Regal_Orb",
+      "action": "GREATER_REGAL",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Perfect_Regal_Orb",
+      "action": "PERFECT_REGAL",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Greater_Exalted_Orb",
+      "action": "GREATER_EXALTED",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Perfect_Exalted_Orb",
+      "action": "PERFECT_EXALTED",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Greater_Chaos_Orb",
+      "action": "GREATER_CHAOS",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Perfect_Chaos_Orb",
+      "action": "PERFECT_CHAOS",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Omen_of_Dextral_Crystallisation",
+      "action": "ESSENCE_ABYSS",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Omen_of_Sinistral_Crystallisation",
+      "action": "ESSENCE_ABYSS",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Omen_of_Whittling",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Omen_of_Sinistral_Erasure",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Omen_of_Dextral_Erasure",
+      "action": "CHAOS",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Omen_of_Sinistral_Alchemy",
+      "action": "ALCHEMY",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Omen_of_Dextral_Alchemy",
+      "action": "ALCHEMY",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Omen_of_Sinistral_Coronation",
+      "action": "REGAL",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Omen_of_Dextral_Coronation",
+      "action": "REGAL",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Omen_of_Greater_Exaltation",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Omen_of_Sinistral_Exaltation",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Omen_of_Dextral_Exaltation",
+      "action": "EXALTED",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Omen_of_Greater_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Omen_of_Sinistral_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    },
+    {
+      "key": "obliterator",
+      "id": "Omen_of_Dextral_Annulment",
+      "action": "ANNULMENT",
+      "positive": true
+    }
+  ],
+  "currencyPaths": 95,
+  "omenPaths": 76
+}

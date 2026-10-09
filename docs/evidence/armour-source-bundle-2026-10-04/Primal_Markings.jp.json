@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/jp/Primal_Markings",
+  "retrievedAt": "2026-10-04T15:38:00.822Z",
+  "sha256": "fd8ec2e08aed5096849a06ecff07e1796a18f45f3dce2f7648f2f2abf31aa73f",
+  "name": "原始の刻印",
+  "card": "原始の刻印\n        \n    \n    \n        \n            鎧回避力: 268エナジーシールド: 82Base Movement Speed: -0.03装備条件： レベル 70, 67 器用さ, 67 知性\n        \n\n\n\n        \n            Primal Markings",
+  "requirements": "装備条件： レベル 70, 67 器用さ, 67 知性",
+  "fields": {
+    "DropLevel": "70",
+    "BaseType": "原始の刻印",
+    "Class": "鎧",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDexIntUnique1",
+    "Tags": "dex_int_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDexInt08",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

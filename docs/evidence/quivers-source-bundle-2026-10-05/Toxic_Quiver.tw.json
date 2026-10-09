@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/tw/Toxic_Quiver",
+  "retrievedAt": "2026-10-05T05:29:28.176Z",
+  "sha256": "3d5ba2e2519963d34cfccd350ce0dc9d518d4f1aaab8f93f13af0a49e82d6538",
+  "variants": [
+    {
+      "name": "劇毒箭袋",
+      "card": "劇毒箭袋\n        \n    \n    \n        \n            箭袋需求:  等級 39攻擊有(20—30)%機率在擊中時造成中毒\n        \n\n\n        \n        \n            持弓時才可裝備。\n        \n\n        \n            Toxic Quiver",
+      "requirements": "需求:  等級 39",
+      "fields": {
+        "DropLevel": "39",
+        "BaseType": "劇毒箭袋",
+        "Class": "箭袋",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver6",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverToxic",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

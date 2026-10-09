@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/kr/Offering_Wand",
+  "retrievedAt": "2026-10-05T00:06:38.141Z",
+  "sha256": "7dfb79ea96634c9bab497b5b1f77ce1fef0fac02ba63cbd2ac6b57d3cab81b4d",
+  "name": "공물 마법봉",
+  "card": "공물 마법봉\n        \n    \n    \n        \n            마법봉요구 사항:  레벨 38, 68 지능 스킬 부여: 방혈\n        \n\n\n\n        \n            Offering Wand",
+  "requirements": "요구 사항:  레벨 38, 68 지능",
+  "fields": {
+    "DropLevel": "38",
+    "BaseType": "공물 마법봉",
+    "Class": "마법봉",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8",
+    "Tags": "no_fire_spell_mods, no_cold_spell_mods, no_lightning_spell_mods, no_chaos_spell_mods, physical_implicit_skill, wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand08",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

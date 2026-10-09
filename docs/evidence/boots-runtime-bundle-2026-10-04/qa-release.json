@@ -1,0 +1,40 @@
+{
+  "active": false,
+  "owner": "workbench/top-bases-20261004",
+  "project": "exile-boots-20261004",
+  "ports": [
+    19680,
+    19681
+  ],
+  "baseHead": "e8034894cce832d0a7397d0265cc1b1d68ee2628",
+  "authorization": "Explicit sole writer and exclusive heavy QA",
+  "releasedAt": "2026-10-04T20:03:07.629Z",
+  "normalComposeDown": true,
+  "existingServices": [
+    {
+      "Names": "exile-workbench-qa-20261002-frontend-1",
+      "Ports": "127.0.0.1:18081->8080/tcp",
+      "Image": "exile-workbench-qa-20261002-frontend:latest",
+      "ID": "c8e74d399af2"
+    },
+    {
+      "Names": "exile-workbench-qa-20261002-app-1",
+      "Ports": "127.0.0.1:18080->8080/tcp",
+      "Image": "exile-hephaistos-app:latest",
+      "ID": "c4bbebf6e190"
+    },
+    {
+      "Names": "exile-workbench-qa-20261002-redis-1",
+      "Ports": "6379/tcp",
+      "Image": "redis:7.4.5-alpine",
+      "ID": "9f0962732bc2"
+    },
+    {
+      "Names": "exile-workbench-qa-20261002-postgres-1",
+      "Ports": "5432/tcp",
+      "Image": "postgres:17.6-alpine",
+      "ID": "747188687b03"
+    }
+  ],
+  "volumesRemoved": false
+}

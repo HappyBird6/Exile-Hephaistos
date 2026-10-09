@@ -1,0 +1,13 @@
+{
+  "url": "https://poe2db.tw/us/Obliterator_Bow",
+  "retrievedAt": "2026-10-04T20:09:27.691Z",
+  "sha256": "553461bfcd5be9d5027e8bdd7c044dbef2e4d17e1bdb3f902376ea4f9d1815d7",
+  "stats": [
+    {
+      "id": "projectile_attack_range_+%",
+      "min": -50,
+      "max": -50,
+      "locality": "Global"
+    }
+  ]
+}

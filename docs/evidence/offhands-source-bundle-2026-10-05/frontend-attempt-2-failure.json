@@ -1,0 +1,5 @@
+{
+  "stage": "typecheck",
+  "cause": "Strict indexed class lookup may return undefined; five new baseTexts entries missing",
+  "resolution": "Guarded offhand class lookup asserts the verified family; add exact five English draft entries; keep strict checks and unit assertions"
+}

@@ -1,0 +1,66 @@
+{
+  "row": {
+    "Name": "of Rage",
+    "Level": "30",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "CriticalStrikeMultiplier"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(14<span class=\"ndash\">—</span>16)</span>% to <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Damage Bonus</a>",
+    "fossil_no": [
+      "damage",
+      "attack",
+      "critical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/173bc0a07c14cf43d86bde49ef75eb0dfe26d62fe94eca7e9375ae3ef92cd14d"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalCriticalMultiplier3",
+  "textLocale": "us",
+  "detailText": "+(14—16)% to Critical Damage Bonus",
+  "retrievedAt": "2026-10-05T07:06:49.026Z",
+  "sha256": "755cdecbcd132f3ba50303bd024a15f0ea7997a57e0b0203d5e7f6707471b7b2",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(14<span class=\"ndash\">—</span>16)</span>% to <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Damage Bonus</a></span></h5>   <span data-tabname=\"of Rage\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Rage\n<tr><th>Family<td>CriticalStrikeMultiplier\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>30 (Effective: 24)\n<tr><th>Gold Price<td>829\n<tr><th>Stats<td><li>local critical strike multiplier + <span class=\"badge bg-primary\">14 <span class=\"ndash\">—</span> 16</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Attack</span> <span class='badge bg-primary'>Critical</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Rage",
+    "Family": "CriticalStrikeMultiplier",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "30 (Effective: 24)",
+    "Gold Price": "829",
+    "Stats": "local critical strike multiplier + 14 — 16 Local",
+    "Spawn Tags": "weapon: 1 default: 0",
+    "Craft Tags": "Damage Attack Critical"
+  },
+  "code": "LocalCriticalMultiplier3",
+  "stats": [
+    {
+      "id": "local_critical_strike_multiplier_+",
+      "min": 14,
+      "max": 16,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

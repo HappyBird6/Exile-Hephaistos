@@ -37,7 +37,12 @@ public final class ItemStateValidator {
             > 1)
       errors.add(new Violation(Code.UNSUPPORTED_STATE, "", "Only one Crafted modifier is allowed"));
     if (state.catalystQuality() != null) {
-      int cap = state.baseItemId().equals(SolarAmulet.BASE_ID) ? 40 : 20;
+      int cap =
+          state.baseItemId().equals(SolarAmulet.BASE_ID)
+                  || ReviewedRings.supports(state.baseItemId())
+                  || ReviewedAmulets.supports(state.baseItemId())
+              ? 40
+              : 20;
       if (!CatalystQuality.supportedBase(state.baseItemId())
           || state.catalystQuality().amount() > cap)
         errors.add(

@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "count": 9,
+  "files": [
+    "backend/src/main/resources/catalog/top-bases.json",
+    "frontend/src/features/crafting/topBases.json",
+    "backend/src/main/resources/catalog/top-base-essences.json",
+    "frontend/src/features/crafting/topBaseEssences.json",
+    "frontend/src/shared/i18n/gameTerms.json",
+    "backend/src/main/resources/crafting/registry-v2.json",
+    "backend/src/main/resources/catalog/hallowed-sceptre/catalog.json",
+    "backend/src/main/resources/catalog/hallowed-sceptre/base.raw.json",
+    "backend/src/main/resources/catalog/hallowed-sceptre/details.raw.json"
+  ],
+  "policy": "Replay in fresh isolated copy; semantic comparison allows existing formatter whitespace"
+}

@@ -1,0 +1,78 @@
+{
+  "row": {
+    "Name": "of Electricity",
+    "Level": "36",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreaseSocketedGemLevel"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+(3<span class=\"ndash\">—</span>4)</span> to Level of all <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1d5815b2f2bd5f23d99d435288c3b41e79adf38037cf8d2a266bc276f527201d\">Lightning</a> <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Skills",
+    "fossil_no": [
+      "elemental",
+      "lightning",
+      "caster",
+      "gem"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_chaos_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "no_lightning_spell_mods",
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftinggem\" data-tag=\"gem\">Gem</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f7051790cf8ecab0b16ec19fcf53440bb82ab30a9af8992b44e809bc92daa70a"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FGlobalLightningSpellGemsLevelTwoHandWeapon3",
+  "textLocale": "sp",
+  "detailText": "+(3—4) al nivel de todas las habilidades de hechizos de rayo",
+  "retrievedAt": "2026-10-05T10:07:07.455Z",
+  "sha256": "641c74d55ece1ee3bcc9a2c92c0b257e7abd609c1165bc5125b951a5d4e66262",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(3<span class=\"ndash\">—</span>4)</span> al nivel de todas las habilidades de <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/5a1dd738e9d28c8ec0ec4aadfade00d799e2e8a34799864d595f11844a0c69f3\">hechizos</a> de <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/63633b5e2b8e0137df61182b9551bd4b9af199e6c6e08b4e9b36a29eedb81221\">rayo</a></span></h5>   <span data-tabname=\"de electricidad\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>de electricidad\n<tr><th>Family<td>IncreaseSocketedGemLevel\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Sufijo (2)\n<tr><th>Req. level<td>36 (Effective: 28)\n<tr><th>Gold Price<td>1142\n<tr><th>Stats<td><li>lightning spell skill gem level + <span class=\"badge bg-primary\">3 <span class=\"ndash\">—</span> 4</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_lightning_spell_mods: 0</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Rayo</span> <span class='badge bg-primary'>Lanzador de hechizos</span> <span class='badge bg-primary'>Gema</span> </table>  </div></div>",
+  "fields": {
+    "Name": "de electricidad",
+    "Family": "IncreaseSocketedGemLevel",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Sufijo (2)",
+    "Req. level": "36 (Effective: 28)",
+    "Gold Price": "1142",
+    "Stats": "lightning spell skill gem level + 3 — 4 Global",
+    "Spawn Tags": "no_lightning_spell_mods: 0 staff: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_cold_spell_mods no_chaos_spell_mods no_physical_spell_mods",
+    "Craft Tags": "Elemental Rayo Lanzador de hechizos Gema"
+  },
+  "code": "GlobalLightningSpellGemsLevelTwoHandWeapon3",
+  "stats": [
+    {
+      "id": "lightning_spell_skill_gem_level_+",
+      "min": 3,
+      "max": 4,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_lightning_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

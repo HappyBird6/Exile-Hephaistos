@@ -1,0 +1,39 @@
+{
+  "code": "LocalIncreasedEvasionAndEnergyShield2",
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedEvasionAndEnergyShield2",
+  "retrievedAt": "2026-10-04T17:12:23.239Z",
+  "sha256": "7dd79cfcb3213b90bfed57ab541ca5987422a7d99dd1f27f191fda65e2b384cf",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(27<span class=\"ndash\">—</span>42)</span>% increased <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e17ec35c50d884c8a4479c3b57941e9fa4933e84d508db205182cf7ea2904df9\">Evasion</a> and <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a></span></h5>   <span data-tabname=\"Ethereal\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Ethereal\n<tr><th>Family<td>DefencesPercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Gold Price<td>430\n<tr><th>Stats<td><li>local evasion and energy shield +% <span class=\"badge bg-primary\">27 <span class=\"ndash\">—</span> 42</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Evasion</span> <span class='badge bg-primary'>Energy Shield</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(9<span class=\"ndash\">—</span>10)</span>% more Global [Evasion] Rating and [EnergyShield|Energy Shield]</table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Ethereal",
+      "Family": "DefencesPercent",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "16 (Effective: 12)",
+      "Gold Price": "430",
+      "Stats": "local evasion and energy shield +% 27 — 42 Local",
+      "Spawn Tags": "dex_int_armour: 1 default: 0",
+      "Craft Tags": "defences Evasion Energy Shield"
+    },
+    "stats": [
+      {
+        "id": "local_evasion_and_energy_shield_+%",
+        "min": 27,
+        "max": 42,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "dex_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(27—42)% increased Evasion and Energy Shield"
+  }
+}

@@ -1,3 +1,4 @@
+import { basePolicy } from './baseRegistry'
 import type { Definition } from './craftingApi'
 import type { ConcreteItem } from './workbenchApi'
 
@@ -5,8 +6,6 @@ export type QualityLimit = {
   ruleVersion: 'quality-limit-v1'
   maximumQuality: number
 }
-const solar = 'Metadata/Items/Amulets/FourAmulet9'
-const stocky = 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
 const breach = 'amulet:prefix:essence-maximum-quality'
 const stat = 'local_maximum_quality_+'
 
@@ -15,29 +14,13 @@ export function maximumQuality(
   state: ConcreteItem,
   definitions: Record<string, Definition>,
 ): number | null {
-  if (
-    ![
-      solar,
-      'Metadata/Items/Jewels/JewelInt',
-      'Metadata/Items/Jewels/JewelStr',
-      'Metadata/Items/Jewels/JewelDex',
-      'Metadata/Items/Jewels/JewelDiamond',
-      'Metadata/Items/Rings/FourRing1',
-      stocky,
-      'Metadata/Items/Armours/Helmets/FourHelmetStr1',
-      'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1',
-      'Metadata/Items/Armours/BodyArmours/FourBodyStr1',
-      'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3',
-      'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1',
-    ].includes(state.baseItemId)
-  )
-    return null
+  if (basePolicy(state.baseItemId)?.qualityLimit !== true) return null
   let maximum = 20
   for (const instance of state.explicits) {
     if (!Object.hasOwn(instance.values, stat)) continue
     const d = definitions[instance.modifierId]
     if (
-      state.baseItemId !== solar ||
+      basePolicy(state.baseItemId)?.maximumQualityBreach !== true ||
       instance.modifierId !== breach ||
       d?.affixType !== 'PREFIX' ||
       d.familyIds.length !== 1 ||

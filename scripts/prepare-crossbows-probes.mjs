@@ -1,0 +1,43 @@
+import fs from 'node:fs'
+const q='E:/WORK/Exile-Hephaistos/codex/crossbows-qa-20261005'
+const write=(p,t)=>fs.writeFileSync(`${q}/${p}`,t,{flag:'wx'})
+let api=fs.readFileSync('E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/qa-api-3.mjs','utf8')
+  .replaceAll('/qa/api-attempt-3','/qa/api-attempt-1').replace("b.family === 'belts'","b.family === 'crossbows'")
+  .replace("root.implicits.length === 1 && root.implicits[0].modifierId === base.implicitModifierId","base.implicitModifierId ? root.implicits.length === 1 && root.implicits[0].modifierId === base.implicitModifierId : root.implicits.length === 0")
+  .replace("  check(key + ' Breach fixed Charm stat preserved', !['invoking-belt','sinew-belt','forking-belt'].includes(key) || root.implicits[0].values.local_charm_slots === 1)","  check(key+' Crossbow class pool distinct',root.baseItemId.includes('/Crossbows/'))")
+  .replace('const expected = 135','const expected = 146')
+  .replace('for (const d of Object.values(i.modifiers).filter(d => d.weight > 0)) assert.deepEqual(d, initials.belt.modifiers[d.id])',"const source=JSON.parse(fs.readFileSync('/source/backend/src/main/resources/catalog/'+base.pool+'/catalog.json')); for(const d of Object.values(i.modifiers)) assert.deepEqual(stable(d),stable(source.modifiers.find(s=>s.id===d.id)))")
+  .replace("check(key + ' no unsupported quality cap',(await apply(root,'TRANSMUTATION')).qualityLimit == null)","check(key+' source quality maximum20',(await apply(root,'TRANSMUTATION')).qualityLimit.maximumQuality === 20)")
+  .replaceAll('PERFECT_ESSENCE_INSULATION','PERFECT_ESSENCE_ABRASION')
+  .replace("['ESSENCE_COMMAND','PERFECT_ESSENCE_BODY','ESSENCE_BREACH','ARTIFICER','CATALYST_FLESH','RUNIC_ALLOY']","['ESSENCE_COMMAND','PERFECT_ESSENCE_BODY','ESSENCE_BREACH','ESSENCE_HYSTERIA','PERFECT_ESSENCE_INFINITE','ARTIFICER','CATALYST_FLESH','RUNIC_ALLOY']")
+api=api.replace('  const expected = 146',"  check(key+' independent Crossbow rule version',i.ruleVersion.startsWith('crossbow-workbench-v1'))\n  const expected = 146")
+api=api.replace("  check(key + ' low ilvl independent of requirement'",`  for(const [name,value]of Object.entries(base.sourceProperties.en))check(key+' source property '+name,Boolean(value))
+  const implicitDef=base.implicitModifierId?i.modifiers[base.implicitModifierId]:null
+  const variable=implicitDef?.stats.some(s=>s.min!==s.max)??false
+  const blessed=await apply(root,'DIVINE',['Omen_of_the_Blessed'])
+  check(key+' Blessed exactly variable implicit',blessed.applied===variable)
+  if(!variable)assert.deepEqual(blessed.state,root)
+  else {check(key+' Blessed consumed',blessed.consumedOmens.includes('Omen_of_the_Blessed'));for(const s of implicitDef.stats)check(key+' implicit source bound '+s.id,blessed.state.implicits[0].values[s.id]>=s.min&&blessed.state.implicits[0].values[s.id]<=s.max)}
+  for(const invalid of [{...root,augmentSockets:1},{...root,catalystQuality:{type:'FLESH',amount:20}}]) {
+    await post('/api/v1/crafting/workbench/apply',{state:invalid,action:'TRANSMUTATION',activeOmens:[]},422)
+    check(key+' unsupported socket/typed-quality state rejected',true)
+  }
+  check(key + ' low ilvl independent of requirement'`)
+write('qa-api.mjs',api)
+const helper=fs.readFileSync('E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-helper.cjs','utf8').replaceAll('62 base selector choices','97 base selector choices').replace('=== 62','=== 97')
+let body=fs.readFileSync('scripts/qa-wands-browser-body.cjs','utf8').replaceAll('http://host.docker.internal:20181','http://frontend:8080').replace("b.family === 'wands'","b.family === 'crossbows'").replaceAll(' Wand class',' Crossbow class').replace("=== 'Wands'","=== 'Crossbows'").replaceAll('Greater_Essence_of_Sorcery','Greater_Essence_of_Abrasion').replaceAll('dueling','siege-crossbow').replaceAll('initials.siege-crossbow',"initials['siege-crossbow']")
+body=body.replace("await seed({...concrete(initials[base]),rarity:'MAGIC'},base+'-sorcery')","await seed({...concrete(initials[base]),rarity:'MAGIC'},base+'-abrasion')")
+body=body.replace("for (const line of b.sourceProperties[l]) check(base+' '+l+' granted skill',card.includes(line))","for (const line of b.sourceProperties[l]) check(base+' '+l+' original weapon property',card.includes(line))")
+body=body.replace("    const d = Object.values(initials[base].modifiers)","    await seed({...concrete(initials[base]),rarity:'RARE',explicits:[{modifierId:Object.values(initials[base].modifiers).find(d=>d.weight>0&&d.affixType==='PREFIX').id,values:Object.fromEntries(Object.values(initials[base].modifiers).find(d=>d.weight>0&&d.affixType==='PREFIX').stats.map(s=>[s.id,s.min]))}]},base+'-perfect')\n    check(base+' positive Perfect Essence',(await use('Perfect_Essence_of_Abrasion')).applied)\n    const d = Object.values(initials[base].modifiers)")
+body=body.replace("    const d = Object.values(initials[base].modifiers)",`    const rareSaved = await raw()
+    check(base+' wrongclass Perfect Body rejected',!(await use('Perfect_Essence_of_the_Body')).applied)
+    check(base+' wrongclass Perfect Body preserves film',await raw() === rareSaved)
+    await seed({...concrete(initials[base]),rarity:'MAGIC'},base+'-wrongclass-command')
+    const magicSaved = await raw()
+    check(base+' wrongclass Command rejected',!(await use('Essence_of_Command')).applied)
+    check(base+' wrongclass Command preserves film',await raw() === magicSaved)
+    const d = Object.values(initials[base].modifiers)`)
+write('qa-browser.cjs',helper+body)
+write('qa-old-filled.cjs',helper+fs.readFileSync('scripts/qa-wands-old-filled.cjs','utf8').replaceAll('http://host.docker.internal:20181','http://frontend:8080'))
+fs.copyFileSync('scripts/qa-hallowed-contact-sheets.cjs',`${q}/contact-sheets.cjs`)
+console.log('Prepared positive/negative class, low-ilvl, source implicit, six locale pixels and old91/new6 film probes')

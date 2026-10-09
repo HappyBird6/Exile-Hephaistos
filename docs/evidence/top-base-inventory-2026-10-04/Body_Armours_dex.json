@@ -1,0 +1,228 @@
+{
+  "page": "Body_Armours_dex",
+  "url": "https://poe2db.tw/us/Body_Armours_dex",
+  "retrievedAt": "2026-10-04T14:44:30.242Z",
+  "sha256": "b53704f606e4baa35999b64336c92df7beac6db9394812c663370239c2385e4e",
+  "cards": [
+    {
+      "slug": "Leather_Vest",
+      "card": "Leather VestEvasion Rating: 30Base Movement Speed: -0.03"
+    },
+    {
+      "slug": "Quilted_Vest",
+      "card": "Quilted VestEvasion Rating: 49Base Movement Speed: -0.03Requires:  Level 4, 10 Dex"
+    },
+    {
+      "slug": "Pathfinder_Coat",
+      "card": "Pathfinder CoatEvasion Rating: 96Base Movement Speed: -0.03Requires:  Level 11, 21 Dex"
+    },
+    {
+      "slug": "Shrouded_Vest",
+      "card": "Shrouded VestEvasion Rating: 128Base Movement Speed: -0.03Requires:  Level 16, 28 Dex"
+    },
+    {
+      "slug": "Rhoahide_Coat",
+      "card": "Rhoahide CoatEvasion Rating: 168Base Movement Speed: -0.03Requires:  Level 22, 37 Dex"
+    },
+    {
+      "slug": "Studded_Vest",
+      "card": "Studded VestEvasion Rating: 194Base Movement Speed: -0.03Requires:  Level 26, 43 Dex"
+    },
+    {
+      "slug": "Scouts_Vest",
+      "card": "Scout's VestEvasion Rating: 240Base Movement Speed: -0.03Requires:  Level 33, 54 Dex"
+    },
+    {
+      "slug": "Serpentscale_Coat",
+      "card": "Serpentscale CoatEvasion Rating: 260Base Movement Speed: -0.03Requires:  Level 36, 59 Dex"
+    },
+    {
+      "slug": "Corsair_Vest",
+      "card": "Corsair VestEvasion Rating: 320Base Movement Speed: -0.03Requires:  Level 45, 72 Dex"
+    },
+    {
+      "slug": "Smuggler_Coat",
+      "card": "Smuggler CoatEvasion Rating: 359Base Movement Speed: -0.03Requires:  Level 51, 82 Dex"
+    },
+    {
+      "slug": "Strider_Vest",
+      "card": "Strider VestEvasion Rating: 366Base Movement Speed: -0.03Requires:  Level 52, 83 Dex"
+    },
+    {
+      "slug": "Hardleather_Coat",
+      "card": "Hardleather CoatEvasion Rating: 392Base Movement Speed: -0.03Requires:  Level 56, 89 Dex"
+    },
+    {
+      "slug": "Exquisite_Vest",
+      "card": "Exquisite VestEvasion Rating: 451Base Movement Speed: -0.03Requires:  Level 65, 121 Dex"
+    },
+    {
+      "slug": "Mail_Coat",
+      "card": "Mail CoatEvasion Rating: 451Base Movement Speed: -0.03Requires:  Level 68, 121 Dex(20—30)% reduced Slowing Potency of Debuffs on You"
+    },
+    {
+      "slug": "Armoured_Vest",
+      "card": "Armoured VestEvasion Rating: 451Base Movement Speed: -0.03Requires:  Level 73, 121 Dex(30—40)% increased Elemental Ailment Threshold"
+    },
+    {
+      "slug": "Runemastered_Grasping_Mail",
+      "card": "Runemastered Grasping MailEvasion Rating: 384Base Movement Speed: -0.03Runic Ward: 150Requires:  Level 65, 112 DexCan roll Ring ModifiersCatalysts can be applied to this item"
+    },
+    {
+      "slug": "Patchwork_Vest",
+      "card": "Patchwork VestEvasion Rating: 320Base Movement Speed: -0.03Requires:  Level 45, 72 Dex"
+    },
+    {
+      "slug": "Hunting_Coat",
+      "card": "Hunting CoatEvasion Rating: 339Base Movement Speed: -0.03Requires:  Level 48, 77 Dex"
+    },
+    {
+      "slug": "Riding_Coat",
+      "card": "Riding CoatEvasion Rating: 359Base Movement Speed: -0.03Requires:  Level 51, 82 Dex"
+    },
+    {
+      "slug": "Layered_Vest",
+      "card": "Layered VestEvasion Rating: 379Base Movement Speed: -0.03Requires:  Level 54, 86 Dex"
+    },
+    {
+      "slug": "Runner_Vest",
+      "card": "Runner VestEvasion Rating: 412Base Movement Speed: -0.03Requires:  Level 59, 94 Dex"
+    },
+    {
+      "slug": "Lizardscale_Coat",
+      "card": "Lizardscale CoatEvasion Rating: 432Base Movement Speed: -0.03Requires:  Level 62, 98 Dex"
+    },
+    {
+      "slug": "Swiftstalker_Coat",
+      "card": "Swiftstalker CoatEvasion Rating: 451Base Movement Speed: -0.03Requires:  Level 65, 121 Dex(20—30)% reduced Slowing Potency of Debuffs on You"
+    },
+    {
+      "slug": "Slipstrike_Vest",
+      "card": "Slipstrike VestEvasion Rating: 519Base Movement Speed: -0.03Requires:  Level 70, 121 Dex"
+    },
+    {
+      "slug": "Wyrmscale_Coat",
+      "card": "Wyrmscale CoatEvasion Rating: 451Base Movement Speed: -0.03Requires:  Level 75, 121 Dex(30—40)% increased Elemental Ailment Threshold"
+    },
+    {
+      "slug": "Corsair_Coat",
+      "card": "Corsair CoatEvasion Rating: 451Base Movement Speed: -0.03Requires:  Level 80, 121 Dex5% increased Movement Speed"
+    },
+    {
+      "slug": "Runeforged_Leather_Vest",
+      "card": "Runeforged Leather VestEvasion Rating: 30Base Movement Speed: -0.03Runic Ward: 29"
+    },
+    {
+      "slug": "Runeforged_Quilted_Vest",
+      "card": "Runeforged Quilted VestEvasion Rating: 49Base Movement Speed: -0.03Runic Ward: 33Requires:  Level 4, 10 Dex"
+    },
+    {
+      "slug": "Runeforged_Pathfinder_Coat",
+      "card": "Runeforged Pathfinder CoatEvasion Rating: 96Base Movement Speed: -0.03Runic Ward: 43Requires:  Level 11, 21 Dex"
+    },
+    {
+      "slug": "Runeforged_Shrouded_Vest",
+      "card": "Runeforged Shrouded VestEvasion Rating: 128Base Movement Speed: -0.03Runic Ward: 53Requires:  Level 16, 28 Dex"
+    },
+    {
+      "slug": "Runeforged_Rhoahide_Coat",
+      "card": "Runeforged Rhoahide CoatEvasion Rating: 168Base Movement Speed: -0.03Runic Ward: 65Requires:  Level 22, 37 Dex"
+    },
+    {
+      "slug": "Runeforged_Studded_Vest",
+      "card": "Runeforged Studded VestEvasion Rating: 194Base Movement Speed: -0.03Runic Ward: 62Requires:  Level 26, 43 Dex"
+    },
+    {
+      "slug": "Runeforged_Scouts_Vest",
+      "card": "Runeforged Scout's VestEvasion Rating: 240Base Movement Speed: -0.03Runic Ward: 69Requires:  Level 33, 54 Dex"
+    },
+    {
+      "slug": "Runeforged_Serpentscale_Coat",
+      "card": "Runeforged Serpentscale CoatEvasion Rating: 260Base Movement Speed: -0.03Runic Ward: 69Requires:  Level 36, 59 Dex"
+    },
+    {
+      "slug": "Runeforged_Corsair_Vest",
+      "card": "Runeforged Corsair VestEvasion Rating: 320Base Movement Speed: -0.03Runic Ward: 76Requires:  Level 45, 72 Dex"
+    },
+    {
+      "slug": "Runeforged_Smuggler_Coat",
+      "card": "Runeforged Smuggler CoatEvasion Rating: 359Base Movement Speed: -0.03Runic Ward: 70Requires:  Level 51, 82 Dex"
+    },
+    {
+      "slug": "Runeforged_Layered_Vest",
+      "card": "Runeforged Layered VestEvasion Rating: 364Base Movement Speed: -0.03Runic Ward: 73Requires:  Level 54, 86 Dex"
+    },
+    {
+      "slug": "Runeforged_Runner_Vest",
+      "card": "Runeforged Runner VestEvasion Rating: 362Base Movement Speed: -0.03Runic Ward: 119Requires:  Level 59, 94 Dex"
+    },
+    {
+      "slug": "Runeforged_Lizardscale_Coat",
+      "card": "Runeforged Lizardscale CoatEvasion Rating: 345Base Movement Speed: -0.03Runic Ward: 144Requires:  Level 62, 98 Dex"
+    },
+    {
+      "slug": "Runeforged_Swiftstalker_Coat",
+      "card": "Runeforged Swiftstalker CoatEvasion Rating: 442Base Movement Speed: -0.03Runic Ward: 64Requires:  Level 65, 121 Dex(20—30)% reduced Slowing Potency of Debuffs on You"
+    },
+    {
+      "slug": "Runeforged_Slipstrike_Vest",
+      "card": "Runeforged Slipstrike VestEvasion Rating: 226Base Movement Speed: -0.03Runic Ward: 378Requires:  Level 70, 121 Dex"
+    },
+    {
+      "slug": "Runeforged_Wyrmscale_Coat",
+      "card": "Runeforged Wyrmscale CoatEvasion Rating: 298Base Movement Speed: -0.03Runic Ward: 236Requires:  Level 75, 121 Dex(30—40)% increased Elemental Ailment Threshold"
+    },
+    {
+      "slug": "Runeforged_Corsair_Coat",
+      "card": "Runeforged Corsair CoatEvasion Rating: 406Base Movement Speed: -0.03Runic Ward: 107Requires:  Level 80, 121 Dex5% increased Movement Speed"
+    },
+    {
+      "slug": "Runemastered_Leather_Vest",
+      "card": "Runemastered Leather VestEvasion Rating: 82Base Movement Speed: -0.03Runic Ward: 165Requires:  Level 38, 61 Dex"
+    },
+    {
+      "slug": "Runemastered_Quilted_Vest",
+      "card": "Runemastered Quilted VestEvasion Rating: 178Base Movement Speed: -0.03Runic Ward: 152Requires:  Level 38, 61 Dex"
+    },
+    {
+      "slug": "Runemastered_Pathfinder_Coat",
+      "card": "Runemastered Pathfinder CoatEvasion Rating: 219Base Movement Speed: -0.03Runic Ward: 55Requires:  Level 38, 61 Dex"
+    },
+    {
+      "slug": "Runemastered_Shrouded_Vest",
+      "card": "Runemastered Shrouded VestEvasion Rating: 164Base Movement Speed: -0.03Runic Ward: 138Requires:  Level 38, 61 Dex"
+    },
+    {
+      "slug": "Runemastered_Rhoahide_Coat",
+      "card": "Runemastered Rhoahide CoatEvasion Rating: 219Base Movement Speed: -0.03Runic Ward: 69Requires:  Level 38, 61 Dex"
+    },
+    {
+      "slug": "Runemastered_Studded_Vest",
+      "card": "Runemastered Studded VestEvasion Rating: 301Base Movement Speed: -0.03Runic Ward: 29Requires:  Level 40, 65 Dex"
+    },
+    {
+      "slug": "Runemastered_Scouts_Vest",
+      "card": "Runemastered Scout's VestEvasion Rating: 270Base Movement Speed: -0.03Runic Ward: 130Requires:  Level 55, 87 Dex"
+    },
+    {
+      "slug": "Runemastered_Serpentscale_Coat",
+      "card": "Runemastered Serpentscale CoatEvasion Rating: 385Base Movement Speed: -0.03Runic Ward: 19Requires:  Level 55, 87 Dex"
+    },
+    {
+      "slug": "Runemastered_Smuggler_Coat",
+      "card": "Runemastered Smuggler CoatEvasion Rating: 406Base Movement Speed: -0.03Runic Ward: 86Requires:  Level 65, 103 Dex"
+    },
+    {
+      "slug": "Runemastered_Strider_Vest",
+      "card": "Runemastered Strider VestEvasion Rating: 384Base Movement Speed: -0.03Runic Ward: 107Requires:  Level 70, 103 Dex"
+    },
+    {
+      "slug": "Runemastered_Exquisite_Vest",
+      "card": "Runemastered Exquisite VestEvasion Rating: 338Base Movement Speed: -0.03Runic Ward: 86Requires:  Level 70, 121 Dex"
+    },
+    {
+      "slug": "Runemastered_Armoured_Vest",
+      "card": "Runemastered Armoured VestEvasion Rating: 361Base Movement Speed: -0.03Runic Ward: 129Requires:  Level 80, 121 Dex(30—40)% increased Elemental Ailment Threshold"
+    }
+  ]
+}

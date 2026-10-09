@@ -1,0 +1,79 @@
+{
+  "row": {
+    "Name": "of Furring",
+    "Level": "66",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ArmourAppliesToElementalDamage"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(38<span class=\"ndash\">—</span>43)</span>% of <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> also applies to <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/76ff55a46c9d3d007722fb5ccb09592dc48359db448d433f7e0c8dfc6e94dcbd\">Elemental Damage</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "elemental"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_int_armour",
+      "str_int_armour",
+      "str_dex_armour",
+      "str_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3833cf22b330c420db169c8b1c6d9303e4078bcfa3c71e68a7a28fa4a3161fd7"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FArmourAppliesToElementalDamage5",
+  "textLocale": "us",
+  "detailText": "+(38—43)% of Armour also applies to Elemental Damage",
+  "retrievedAt": "2026-10-05T04:21:07.378Z",
+  "sha256": "49072ce7baf7cca6d36c2ad2544c457be6f3696b270009263a06ae5baf904410",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(38<span class=\"ndash\">—</span>43)</span>% of <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> also applies to <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/76ff55a46c9d3d007722fb5ccb09592dc48359db448d433f7e0c8dfc6e94dcbd\">Elemental Damage</a></span></h5>   <span data-tabname=\"of Furring\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Furring\n<tr><th>Family<td>ArmourAppliesToElementalDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>66 (Effective: 52)\n<tr><th>Gold Price<td>2479\n<tr><th>Stats<td><li>armour % applies to fire cold lightning damage <span class=\"badge bg-primary\">38 <span class=\"ndash\">—</span> 43</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>str_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Armour</span> <span class='badge bg-primary'>Elemental</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>+(22<span class=\"ndash\">—</span>24)</span>% to all [ElementalDamage|Elemental] [Resistances]</table>  </div></div>",
+  "fields": {
+    "Name": "of Furring",
+    "Family": "ArmourAppliesToElementalDamage",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "66 (Effective: 52)",
+    "Gold Price": "2479",
+    "Stats": "armour % applies to fire cold lightning damage 38 — 43 Global",
+    "Spawn Tags": "str_dex_int_armour: 1 str_int_armour: 1 str_dex_armour: 1 str_armour: 1 default: 0",
+    "Craft Tags": "defences Armour Elemental"
+  },
+  "code": "ArmourAppliesToElementalDamage5",
+  "stats": [
+    {
+      "id": "armour_%_applies_to_fire_cold_lightning_damage",
+      "min": 38,
+      "max": 43,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

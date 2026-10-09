@@ -1,0 +1,62 @@
+{
+  "row": {
+    "Name": "Aqua",
+    "Level": "38",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedMana"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(129<span class=\"ndash\">—</span>158)</span> to maximum Mana",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d5c54e1d130da6d8fc4be8e749191795937ea598c08f52d41376e7648e327001"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FIncreasedManaTwoHandWeapon6",
+  "textLocale": "jp",
+  "detailText": "最大マナ +(129—158)",
+  "retrievedAt": "2026-10-05T10:03:45.712Z",
+  "sha256": "0fb46ba20b79c67992bd6bdce4ddf2071c7bdb933b6ff5507791aaf1177236b4",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>最大マナ <span class='mod-value'>+(129<span class=\"ndash\">—</span>158)</span></span></h5>   <span data-tabname=\"アクア\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>アクア\n<tr><th>Family<td>IncreasedMana\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>プレフィックス (1)\n<tr><th>Req. level<td>38 (Effective: 30)\n<tr><th>Gold Price<td>713\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">129 <span class=\"ndash\">—</span> 158</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>マナ</span> </table>  </div></div>",
+  "fields": {
+    "Name": "アクア",
+    "Family": "IncreasedMana",
+    "Domains": "アイテム (1)",
+    "GenerationType": "プレフィックス (1)",
+    "Req. level": "38 (Effective: 30)",
+    "Gold Price": "713",
+    "Stats": "base maximum mana 129 — 158 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "resource マナ"
+  },
+  "code": "IncreasedManaTwoHandWeapon6",
+  "stats": [
+    {
+      "id": "base_maximum_mana",
+      "min": 129,
+      "max": 158,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

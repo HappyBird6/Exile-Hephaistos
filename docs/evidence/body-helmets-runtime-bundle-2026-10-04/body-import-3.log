@@ -1,0 +1,67 @@
+slipstrike {
+  key: 'slipstrike',
+  ordinary: 144,
+  special: 5,
+  newMapped: 11,
+  fixedEssences: [
+    'LESSER_ESSENCE_BODY',
+    'LESSER_ESSENCE_ENHANCEMENT',
+    'LESSER_ESSENCE_RUIN',
+    'LESSER_ESSENCE_INFINITE',
+    'ESSENCE_BODY',
+    'ESSENCE_ENHANCEMENT',
+    'ESSENCE_RUIN',
+    'ESSENCE_INFINITE',
+    'GREATER_ESSENCE_BODY',
+    'GREATER_ESSENCE_ENHANCEMENT',
+    'GREATER_ESSENCE_RUIN',
+    'GREATER_ESSENCE_INFINITE',
+    'LESSER_ESSENCE_INSULATION',
+    'ESSENCE_INSULATION',
+    'GREATER_ESSENCE_INSULATION',
+    'LESSER_ESSENCE_THAWING',
+    'ESSENCE_THAWING',
+    'GREATER_ESSENCE_THAWING',
+    'LESSER_ESSENCE_GROUNDING',
+    'ESSENCE_GROUNDING',
+    'GREATER_ESSENCE_GROUNDING'
+  ]
+}
+death-mail {
+  key: 'death-mail',
+  ordinary: 155,
+  special: 5,
+  newMapped: 10,
+  fixedEssences: [
+    'LESSER_ESSENCE_BODY',
+    'LESSER_ESSENCE_ENHANCEMENT',
+    'LESSER_ESSENCE_RUIN',
+    'LESSER_ESSENCE_INFINITE',
+    'ESSENCE_BODY',
+    'ESSENCE_ENHANCEMENT',
+    'ESSENCE_RUIN',
+    'ESSENCE_INFINITE',
+    'GREATER_ESSENCE_BODY',
+    'GREATER_ESSENCE_ENHANCEMENT',
+    'GREATER_ESSENCE_RUIN',
+    'GREATER_ESSENCE_INFINITE',
+    'LESSER_ESSENCE_INSULATION',
+    'ESSENCE_INSULATION',
+    'GREATER_ESSENCE_INSULATION',
+    'LESSER_ESSENCE_THAWING',
+    'ESSENCE_THAWING',
+    'GREATER_ESSENCE_THAWING',
+    'LESSER_ESSENCE_GROUNDING',
+    'ESSENCE_GROUNDING',
+    'GREATER_ESSENCE_GROUNDING'
+  ]
+}
+file:///source/scripts/import-body-helmets-bundle.mjs:235
+  assert.equal(manifest[base.key].armour, reviewed.topProperties.Armour)
+                                                                 ^
+
+TypeError: Cannot read properties of undefined (reading 'Armour')
+    at file:///source/scripts/import-body-helmets-bundle.mjs:235:66
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+Node.js v24.21.0

@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/tw/Perching_Staff",
+  "retrievedAt": "2026-10-05T10:01:59.476Z",
+  "sha256": "dc7d80325ac6a6885e2519ed499c7ee6dc3c5b1c7d0fc1627e93a0081addb0b2",
+  "variants": [
+    {
+      "name": "棲羽長杖",
+      "card": "棲羽長杖\n        \n    \n    \n        \n            長杖需求:  等級 65, 114 智慧 賦予技能: 邪鴉旋纏\n        \n\n\n\n        \n            Perching Staff",
+      "requirements": "需求:  等級 65, 114 智慧",
+      "properties": [
+        "長杖"
+      ],
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "棲羽長杖",
+        "Class": "長杖",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff07",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

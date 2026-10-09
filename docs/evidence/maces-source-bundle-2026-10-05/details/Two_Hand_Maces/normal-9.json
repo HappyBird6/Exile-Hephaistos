@@ -1,0 +1,102 @@
+{
+  "row": {
+    "Name": "of the Apt",
+    "Level": "32",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LocalAttributeRequirements"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>20</span>% reduced <a data-keyword=\"Attributes\" href=\"Attributes\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a6f6a0f82c449e0ba1131901454bb89e680e14457cbae3c6c0b24b126a93f8dc\">Attribute</a> Requirements",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "wand",
+      "staff",
+      "sceptre",
+      "body_armour",
+      "helmet",
+      "shield",
+      "focus",
+      "gloves",
+      "boots",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6208209bef2232c0e9ab28644cc322fd003ee1b6c0696f3043f513840b9e31a1"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements2",
+  "textLocale": "us",
+  "detailText": "20% reduced Attribute Requirements",
+  "retrievedAt": "2026-10-05T07:01:32.109Z",
+  "sha256": "d86c29dab6b130fc4ba5a4d1afe139061193f1c48b45c8d31063c1e61241ef90",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>20</span>% reduced <a data-keyword=\"Attributes\" href=\"Attributes\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a6f6a0f82c449e0ba1131901454bb89e680e14457cbae3c6c0b24b126a93f8dc\">Attribute</a> Requirements</span></h5>   <span data-tabname=\"of the Apt\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Apt\n<tr><th>Family<td>LocalAttributeRequirements\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>32 (Effective: 25)\n<tr><th>Gold Price<td>685\n<tr><th>Stats<td><li>local attribute requirements +% <span class=\"badge bg-primary\">-20 <span class=\"ndash\">—</span> -20</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>body_armour: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>+(11<span class=\"ndash\">—</span>15)</span> to all [Attributes|Attributes]</table>  </div></div>",
+  "fields": {
+    "Name": "of the Apt",
+    "Family": "LocalAttributeRequirements",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "32 (Effective: 25)",
+    "Gold Price": "685",
+    "Stats": "local attribute requirements +% -20 — -20 Local",
+    "Spawn Tags": "weapon: 1 wand: 1 staff: 1 sceptre: 1 body_armour: 1 helmet: 1 shield: 1 focus: 1 gloves: 1 boots: 1 default: 0"
+  },
+  "code": "ReducedLocalAttributeRequirements2",
+  "stats": [
+    {
+      "id": "local_attribute_requirements_+%",
+      "min": -20,
+      "max": -20,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "sceptre",
+      "weight": 1
+    },
+    {
+      "tag": "body_armour",
+      "weight": 1
+    },
+    {
+      "tag": "helmet",
+      "weight": 1
+    },
+    {
+      "tag": "shield",
+      "weight": 1
+    },
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "gloves",
+      "weight": 1
+    },
+    {
+      "tag": "boots",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

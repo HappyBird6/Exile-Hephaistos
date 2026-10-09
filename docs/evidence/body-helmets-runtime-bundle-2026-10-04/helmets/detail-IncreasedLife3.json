@@ -1,0 +1,67 @@
+{
+  "code": "IncreasedLife3",
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife3",
+  "retrievedAt": "2026-10-04T17:55:29.215Z",
+  "sha256": "436dd8d7a7bcc1bdfa78e9fba034f9ed8566831456e5894083e10e331e6c8c1a",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(30<span class=\"ndash\">—</span>39)</span> to maximum Life</span></h5>   <span data-tabname=\"Sanguine\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Sanguine\n<tr><th>Family<td>IncreasedLife\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Gold Price<td>212\n<tr><th>Stats<td><li>base maximum life <span class=\"badge bg-primary\">30 <span class=\"ndash\">—</span> 39</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 1</span> <span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>7</span>% less damage taken while on [LowLife|Low Life]</table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Sanguine",
+      "Family": "IncreasedLife",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "16 (Effective: 12)",
+      "Gold Price": "212",
+      "Stats": "base maximum life 30 — 39 Global",
+      "Spawn Tags": "body_armour: 1 shield: 1 helmet: 1 gloves: 1 boots: 1 belt: 1 amulet: 1 ring: 1 default: 0",
+      "Craft Tags": "resource Life"
+    },
+    "stats": [
+      {
+        "id": "base_maximum_life",
+        "min": 30,
+        "max": 39,
+        "locality": "Global"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "body_armour",
+        "weight": 1
+      },
+      {
+        "tag": "shield",
+        "weight": 1
+      },
+      {
+        "tag": "helmet",
+        "weight": 1
+      },
+      {
+        "tag": "gloves",
+        "weight": 1
+      },
+      {
+        "tag": "boots",
+        "weight": 1
+      },
+      {
+        "tag": "belt",
+        "weight": 1
+      },
+      {
+        "tag": "amulet",
+        "weight": 1
+      },
+      {
+        "tag": "ring",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "+(30—39) to maximum Life"
+  }
+}

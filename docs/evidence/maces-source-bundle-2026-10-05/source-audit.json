@@ -1,0 +1,223 @@
+{
+  "passed": true,
+  "checkedAt": "2026-10-05T07:20:47.012Z",
+  "classes": [
+    {
+      "page": "One_Hand_Maces",
+      "classId": 12,
+      "ordinary": 150,
+      "essence": 31,
+      "perfectEssence": 14
+    },
+    {
+      "page": "Two_Hand_Maces",
+      "classId": 17,
+      "ordinary": 150,
+      "essence": 31,
+      "perfectEssence": 14
+    }
+  ],
+  "bases": [
+    {
+      "key": "fortified-hammer",
+      "classId": 12,
+      "ordinary": 150,
+      "sourceTags": [
+        "mace",
+        "one_hand_weapon",
+        "onehand",
+        "weapon"
+      ],
+      "implicit": [
+        {
+          "id": "local_weapon_daze_chance_%",
+          "min": 40,
+          "max": 40
+        }
+      ],
+      "localities": [
+        {
+          "id": "local_weapon_daze_chance_%",
+          "min": 40,
+          "max": 40,
+          "locality": "Local"
+        }
+      ],
+      "properties": [
+        "One Hand Maces",
+        "Physical Damage: 60-73",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.3"
+      ]
+    },
+    {
+      "key": "strife-pick",
+      "classId": 12,
+      "ordinary": 150,
+      "sourceTags": [
+        "mace",
+        "one_hand_weapon",
+        "onehand",
+        "weapon"
+      ],
+      "implicit": [
+        {
+          "id": "local_critical_strike_multiplier_+",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "localities": [
+        {
+          "id": "local_critical_strike_multiplier_+",
+          "min": 5,
+          "max": 10,
+          "locality": "Local"
+        }
+      ],
+      "properties": [
+        "One Hand Maces",
+        "Physical Damage: 49-66",
+        "Critical Hit Chance: 7%",
+        "Attacks per Second: 1.45",
+        "Weapon Range: 1.3"
+      ]
+    },
+    {
+      "key": "akoyan-club",
+      "classId": 12,
+      "ordinary": 150,
+      "sourceTags": [
+        "karui_basetype",
+        "mace",
+        "one_hand_weapon",
+        "onehand",
+        "weapon"
+      ],
+      "implicit": [
+        {
+          "id": "local_always_hit",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "localities": [
+        {
+          "id": "local_always_hit",
+          "min": 1,
+          "max": 1,
+          "locality": "Local"
+        }
+      ],
+      "properties": [
+        "One Hand Maces",
+        "Physical Damage: 46-76",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.45",
+        "Weapon Range: 1.3"
+      ]
+    },
+    {
+      "key": "ruination-maul",
+      "classId": 17,
+      "ordinary": 150,
+      "sourceTags": [
+        "mace",
+        "two_hand_weapon",
+        "twohand",
+        "weapon"
+      ],
+      "implicit": [
+        {
+          "id": "local_explode_on_kill_with_crit_%_physical_damage_to_deal",
+          "min": 10,
+          "max": 10
+        }
+      ],
+      "localities": [
+        {
+          "id": "local_explode_on_kill_with_crit_%_physical_damage_to_deal",
+          "min": 10,
+          "max": 10,
+          "locality": "Local"
+        }
+      ],
+      "properties": [
+        "Two Hand Maces",
+        "Physical Damage: 104-127",
+        "Critical Hit Chance: 8%",
+        "Attacks per Second: 1.1",
+        "Weapon Range: 1.5"
+      ]
+    },
+    {
+      "key": "fanatic-greathammer",
+      "classId": 17,
+      "ordinary": 150,
+      "sourceTags": [
+        "mace",
+        "two_hand_weapon",
+        "twohand",
+        "weapon"
+      ],
+      "implicit": [
+        {
+          "id": "melee_splash",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "localities": [
+        {
+          "id": "melee_splash",
+          "min": 1,
+          "max": 1,
+          "locality": "Global"
+        }
+      ],
+      "properties": [
+        "Two Hand Maces",
+        "Physical Damage: 101-137",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.05",
+        "Weapon Range: 1.5"
+      ]
+    },
+    {
+      "key": "tawhoan-greatclub",
+      "classId": 17,
+      "ordinary": 150,
+      "sourceTags": [
+        "karui_basetype",
+        "mace",
+        "two_hand_weapon",
+        "twohand",
+        "weapon"
+      ],
+      "implicit": [
+        {
+          "id": "warcry_empowers_next_x_melee_attacks",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "localities": [
+        {
+          "id": "warcry_empowers_next_x_melee_attacks",
+          "min": 1,
+          "max": 1,
+          "locality": "Global"
+        }
+      ],
+      "properties": [
+        "Two Hand Maces",
+        "Physical Damage: 113-153",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.1",
+        "Weapon Range: 1.5"
+      ]
+    }
+  ],
+  "scope": "Complete ordinary and Essence source; Local/Global are display semantics without combat simulation"
+}

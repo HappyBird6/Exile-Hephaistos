@@ -1,0 +1,32 @@
+{
+  "row": {
+    "Name": "of Serenity",
+    "Level": "69",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "PercentDamageGoesToMana"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(19<span class=\"ndash\">—</span>21)</span>% of Damage taken <a data-keyword=\"Recoup\" href=\"Recoup\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3c83824668de5af953edb328359ea3c64e3076d5589052471bb7d5ce14727322\">Recouped</a> as Mana",
+    "fossil_no": [
+      "resource",
+      "life",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "amulet",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>",
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8db6a18569863e2cc3a955044a8d9a7b810bcfb204f308fd18ab73acec93c1bd"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8db6a18569863e2cc3a955044a8d9a7b810bcfb204f308fd18ab73acec93c1bd",
+  "retrievedAt": "2026-10-04T22:03:12.469Z",
+  "sha256": "8db6a18569863e2cc3a955044a8d9a7b810bcfb204f308fd18ab73acec93c1bd",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(19<span class=\"ndash\">—</span>21)</span>% of Damage taken <a data-keyword=\"Recoup\" href=\"Recoup\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/0859f3fd17686abb26d46e93e7bdb753f64575e8db6fdd5214b079055c6ebc10\">Recouped</a> as Mana</span></h5>   <span data-tabname=\"of Serenity\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Serenity\n<tr><th>Family<td>PercentDamageGoesToMana\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>69 (Effective: 55)\n<tr><th>Gold Price<td>2320\n<tr><th>Stats<td><li>damage taken goes to mana % <span class=\"badge bg-primary\">19 <span class=\"ndash\">—</span> 21</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> <span class='badge bg-primary'>Mana</span> </table>  </div></div>"
+}

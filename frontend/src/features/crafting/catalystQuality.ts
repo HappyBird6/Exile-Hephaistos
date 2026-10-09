@@ -1,3 +1,14 @@
+import { basePolicy } from './baseRegistry'
+import ringManifest from './topBases.json'
+const ringImplicitIds = Object.fromEntries(
+  Object.entries(ringManifest)
+    .filter(([, b]) => ['rings', 'amulets'].includes(b.family))
+    .map(([k, b]) => [
+      k,
+      'implicitModifierId' in b ? b.implicitModifierId : '',
+    ]),
+)
+import { topBase, topBaseKey } from './topBases'
 import { jewelEffect } from './basicJewel'
 import type { Definition } from './craftingApi'
 import type { ConcreteItem } from './workbenchApi'
@@ -28,14 +39,7 @@ export type CatalystQuality = {
 }
 export const catalystQualityVersion = 'catalyst-quality-display-round-v2'
 export const catalystBase = (base: string) =>
-  [
-    'Metadata/Items/Amulets/FourAmulet9',
-    'Metadata/Items/Rings/FourRing1',
-    'Metadata/Items/Jewels/JewelInt',
-    'Metadata/Items/Jewels/JewelStr',
-    'Metadata/Items/Jewels/JewelDex',
-    'Metadata/Items/Jewels/JewelDiamond',
-  ].includes(base)
+  basePolicy(base)?.catalystQuality === true
 
 export function qualityShape(
   value: unknown,
@@ -63,7 +67,12 @@ export function verifiedCatalystQuality(
     catalystBase(state.baseItemId) &&
     cap !== null &&
     state.catalystQuality.amount <=
-      (state.baseItemId === 'Metadata/Items/Amulets/FourAmulet9' ? 40 : cap)
+      (state.baseItemId === 'Metadata/Items/Amulets/FourAmulet9' ||
+      ['rings', 'amulets'].includes(
+        topBase(topBaseKey(state.baseItemId) ?? '')?.family ?? '',
+      )
+        ? 40
+        : cap)
   )
 }
 const integerStats = new Set([
@@ -136,6 +145,7 @@ export function catalystProjection(
     Object.hasOwn(values, 'attack_maximum_added_physical_damage')
   const reviewed =
     ironImplicit ||
+    (d.layer === 'IMPLICIT' && Object.values(ringImplicitIds).includes(d.id)) ||
     (d.id.startsWith('sapphire:') && d.stats?.length === 1) ||
     (d.id === 'sapphire:suffix:of-enchanting' &&
       d.stats?.length === 1 &&

@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/tw/Primordial_Wand",
+  "retrievedAt": "2026-10-05T00:06:48.459Z",
+  "sha256": "62636f40f8da5ada097dc853a24f3f63377f45fa8f846a9a983a7789e63826dc",
+  "name": "原始法杖",
+  "card": "原始法杖\n        \n    \n    \n        \n            法杖需求:  等級 56, 99 智慧 賦予技能: 死亡凋零\n        \n\n\n\n        \n            Primordial Wand",
+  "requirements": "需求:  等級 56, 99 智慧",
+  "fields": {
+    "DropLevel": "56",
+    "BaseType": "原始法杖",
+    "Class": "法杖",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12",
+    "Tags": "no_fire_spell_mods, no_cold_spell_mods, no_lightning_spell_mods, no_physical_spell_mods, chaos_implicit_skill, wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand12",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

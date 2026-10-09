@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/jp/Dueling_Wand",
+  "retrievedAt": "2026-10-05T00:06:42.203Z",
+  "sha256": "5fedf60b325395a33e647561fd318f368586ead7021f31938666a2b7522e8daf",
+  "name": "決闘のワンド",
+  "card": "決闘のワンド\n        \n    \n    \n        \n            ワンド装備条件： レベル 65, 114 知性 スキルを付与: スペルスリンガー\n        \n\n\n\n        \n            Dueling Wand",
+  "requirements": "装備条件： レベル 65, 114 知性",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "決闘のワンド",
+    "Class": "ワンド",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
+    "Tags": "wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand13",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

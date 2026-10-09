@@ -1,0 +1,1827 @@
+{
+  "directory": "E:/WORK/Exile-Hephaistos/codex/quivers-qa-20261005/browser-attempt-4",
+  "originalCount": 312,
+  "contactSheets": 52,
+  "captures": [
+    {
+      "name": "blunt-quiver-en-1440.png",
+      "bytes": 590755,
+      "sha256": "2d9f6a0c18ad70690dc37c6fd26c963a6b925840266d72c569a582133074a192"
+    },
+    {
+      "name": "blunt-quiver-en-390.png",
+      "bytes": 254221,
+      "sha256": "f36fbcdfeda3252e6f62827d8b118e691cfdc7b3c123d64196cdf33923edf875"
+    },
+    {
+      "name": "blunt-quiver-es-1440.png",
+      "bytes": 604568,
+      "sha256": "51d51c9046ecdac285b198e143bff9d921484cc67d5be55e7b7d1a571e5eeb3d"
+    },
+    {
+      "name": "blunt-quiver-es-390.png",
+      "bytes": 266582,
+      "sha256": "73ee29a1da8f182193a1b11bc76f2dddd2d2cfb1dcfb08fb604c23e5d4e82b5b"
+    },
+    {
+      "name": "blunt-quiver-ja-1440.png",
+      "bytes": 607240,
+      "sha256": "210cead1208eb8d19da5ae793ce4cffcc22b12544495451d3880486e2a0a53d7"
+    },
+    {
+      "name": "blunt-quiver-ja-390.png",
+      "bytes": 264927,
+      "sha256": "397ae1b0fd666e8661e6e0cb5ade2e61497efc13ac9235e8ad2b891847cf8ee4"
+    },
+    {
+      "name": "blunt-quiver-ko-1440.png",
+      "bytes": 579477,
+      "sha256": "a0562ce240857464d5300d49c1ea10d243ab2dfad9c31193ba46e521e4422c3d"
+    },
+    {
+      "name": "blunt-quiver-ko-390.png",
+      "bytes": 242824,
+      "sha256": "56fc826e179cc5e2710dd1d7feffff2c4411c39e78e0668fd0505d68163b1b03"
+    },
+    {
+      "name": "blunt-quiver-zh-CN-1440.png",
+      "bytes": 594386,
+      "sha256": "604adc0e295e36fd77c6f557d992c083dcfae6a678e15d6e506c5a2cec9b73cb"
+    },
+    {
+      "name": "blunt-quiver-zh-CN-390.png",
+      "bytes": 252004,
+      "sha256": "cab3f903f7e63e920fae9812b6290b15ee3e53549780ad89b483f9f8fb8f4a52"
+    },
+    {
+      "name": "blunt-quiver-zh-TW-1440.png",
+      "bytes": 597063,
+      "sha256": "97c279e0baf425d8f0d9cc80295413345562efdbc58861e85461649821d44f1b"
+    },
+    {
+      "name": "blunt-quiver-zh-TW-390.png",
+      "bytes": 253998,
+      "sha256": "a80b864b6a008425eeba11217b50c8d058e24df257314f126a9e7397c1a3b7cc"
+    },
+    {
+      "name": "broadhead-quiver-en-1440.png",
+      "bytes": 593665,
+      "sha256": "fce83090655e8cf1e79a0d64d80f9511519bf670d0fe65c85699dbee393f25b4"
+    },
+    {
+      "name": "broadhead-quiver-en-390.png",
+      "bytes": 255107,
+      "sha256": "7fa90bf73b594a712c4496e1108600d60c57cd67155f7bea4f64c14018da8e8a"
+    },
+    {
+      "name": "broadhead-quiver-es-1440.png",
+      "bytes": 603822,
+      "sha256": "685de2183ff86ed40c8fba2ed64a31ed5fc7c992df451da1bf436e9c625af037"
+    },
+    {
+      "name": "broadhead-quiver-es-390.png",
+      "bytes": 264689,
+      "sha256": "01410fb2ad8c09e6f4bb6dc6a3e4e292809cce01159d908f85b04453ad5c6a4b"
+    },
+    {
+      "name": "broadhead-quiver-ja-1440.png",
+      "bytes": 608143,
+      "sha256": "2f9a1957a95d00dff65b84866a09aeba89d28a2e27f72e1160084860db045283"
+    },
+    {
+      "name": "broadhead-quiver-ja-390.png",
+      "bytes": 264442,
+      "sha256": "01ab93555aaffe7646f9f80ea91732f5f6684b1cbbc98639fcf8d9336d662c65"
+    },
+    {
+      "name": "broadhead-quiver-ko-1440.png",
+      "bytes": 580274,
+      "sha256": "6c77efffc6af0442bdd23f4d6b898727ffaabc0fe3d2b5d22df7a1fe08fb62b7"
+    },
+    {
+      "name": "broadhead-quiver-ko-390.png",
+      "bytes": 241859,
+      "sha256": "e0390bb62168b95a9ce8471fc88e34febc67cea0a19a2ddb14f8dbffd27a38b9"
+    },
+    {
+      "name": "broadhead-quiver-zh-CN-1440.png",
+      "bytes": 594323,
+      "sha256": "271b5d3c64e344a83d7c935dedb34c77db8ebd6654dfbfca5b7db6cb36f58bad"
+    },
+    {
+      "name": "broadhead-quiver-zh-CN-390.png",
+      "bytes": 250882,
+      "sha256": "f4f6317db1c3da077d9951085241351afd2d01db38997756c5c67b79e0c5fc5f"
+    },
+    {
+      "name": "broadhead-quiver-zh-TW-1440.png",
+      "bytes": 598666,
+      "sha256": "18698eb01e5114e39f3bea758d13a213b9d6357dca126b2b0cb121fdd29a687b"
+    },
+    {
+      "name": "broadhead-quiver-zh-TW-390.png",
+      "bytes": 254102,
+      "sha256": "6e1dc554790a2c8d82b4235eef5061975399072bb08724b02e75ecb7d438e176"
+    },
+    {
+      "name": "cards/blunt-quiver-en-1440.png",
+      "bytes": 32164,
+      "sha256": "4eafffac8c729ba6342baab0c38cc8e2096e0e8f6b8948fdf4fa260f80d39bda"
+    },
+    {
+      "name": "cards/blunt-quiver-en-390.png",
+      "bytes": 33512,
+      "sha256": "403c2a459aa823fbf36eb970dcb0c62e1680d498f4862508970247b0d3b97dbf"
+    },
+    {
+      "name": "cards/blunt-quiver-es-1440.png",
+      "bytes": 35735,
+      "sha256": "70f2ae7be42352e46b8f405fa485e07d69d948fad0ff04ca1c481a501a89e520"
+    },
+    {
+      "name": "cards/blunt-quiver-es-390.png",
+      "bytes": 37034,
+      "sha256": "45d8a36e0d21e76c8ed7a1096af1bba4dc8bb5212505631d46544bef41b3bec4"
+    },
+    {
+      "name": "cards/blunt-quiver-ja-1440.png",
+      "bytes": 34308,
+      "sha256": "519dbd2694a8d38465071f8f65fbda0b42b615d4fe24ec21b883abd34c17a712"
+    },
+    {
+      "name": "cards/blunt-quiver-ja-390.png",
+      "bytes": 36115,
+      "sha256": "9f5fa7a590c46ec45b9a0c015208c6e4ea69a2313759ed0e31485ce2bbc136b3"
+    },
+    {
+      "name": "cards/blunt-quiver-ko-1440.png",
+      "bytes": 28412,
+      "sha256": "8867104e26844f057b575d098473e0124b546bec42f44f6bbe1e86e348506ab7"
+    },
+    {
+      "name": "cards/blunt-quiver-ko-390.png",
+      "bytes": 30144,
+      "sha256": "26fb5d292629f0ad1a95b1ef85321140b6bbeb516726a046130f288f3acedff7"
+    },
+    {
+      "name": "cards/blunt-quiver-zh-CN-1440.png",
+      "bytes": 31202,
+      "sha256": "27a961395a94cf5fdfe717aa7012381f4d3241d6071d40f98ae8299f5510bfd5"
+    },
+    {
+      "name": "cards/blunt-quiver-zh-CN-390.png",
+      "bytes": 33230,
+      "sha256": "f8ac12e5416775d4acf8843ae859d27984d838c56a43d55fabf8189d183c017e"
+    },
+    {
+      "name": "cards/blunt-quiver-zh-TW-1440.png",
+      "bytes": 31559,
+      "sha256": "113d9edf41c9ca9c39147667505963b2d079672ecc42eaa6f32177ec23a64e39"
+    },
+    {
+      "name": "cards/blunt-quiver-zh-TW-390.png",
+      "bytes": 33552,
+      "sha256": "4e6046a753841e4f84e4d838d22accb317ec76ee379d9141bdf9f9eb50ca1509"
+    },
+    {
+      "name": "cards/broadhead-quiver-en-1440.png",
+      "bytes": 32488,
+      "sha256": "7412266529d7ffb8ec199126cdbcf07f43477491cdee9a0468d0b192dd5bda8a"
+    },
+    {
+      "name": "cards/broadhead-quiver-en-390.png",
+      "bytes": 34160,
+      "sha256": "6e78a281689ec890a0f68932677c63724b7a77ca6ad76761c3c3da45ccc192a8"
+    },
+    {
+      "name": "cards/broadhead-quiver-es-1440.png",
+      "bytes": 33691,
+      "sha256": "b475cb4c0e91634b97b0e249ecf4ee380cf48cc83e7e824778371feccc076d0a"
+    },
+    {
+      "name": "cards/broadhead-quiver-es-390.png",
+      "bytes": 35367,
+      "sha256": "da8c1a186b0c704ae0f87d61f38d04d98dae7cd1fb150937a740c3f9422eecdc"
+    },
+    {
+      "name": "cards/broadhead-quiver-ja-1440.png",
+      "bytes": 33658,
+      "sha256": "ec445844a424323c4506b66863abd993a3e5fee71c361448415b74f60543cbeb"
+    },
+    {
+      "name": "cards/broadhead-quiver-ja-390.png",
+      "bytes": 35360,
+      "sha256": "1d53d9827b146191e6a8d9316791ecde1402cc7bb2feaed23e98bc4b417dc62f"
+    },
+    {
+      "name": "cards/broadhead-quiver-ko-1440.png",
+      "bytes": 27298,
+      "sha256": "61b8ee42a8b546a557efcf6871d32eb8731abb26527da4da8e9d88bfacea606c"
+    },
+    {
+      "name": "cards/broadhead-quiver-ko-390.png",
+      "bytes": 29219,
+      "sha256": "fae3d4f91a69fdee531c091ac6c9a5d27f4005eece9cc3821164ff1bfae64a51"
+    },
+    {
+      "name": "cards/broadhead-quiver-zh-CN-1440.png",
+      "bytes": 29853,
+      "sha256": "d97786383da9d89afe92465a622e5311536d6792f3d4928193714a36025e562a"
+    },
+    {
+      "name": "cards/broadhead-quiver-zh-CN-390.png",
+      "bytes": 32080,
+      "sha256": "df8a9bca36baa4bcbd2bcfe5e6dbab26995685ca6eb3ff19db2e05c702a8f2cc"
+    },
+    {
+      "name": "cards/broadhead-quiver-zh-TW-1440.png",
+      "bytes": 31142,
+      "sha256": "f655fb6b086e793b2180bf6538ce35e89c68a1dbb3f02d338be942da7542e016"
+    },
+    {
+      "name": "cards/broadhead-quiver-zh-TW-390.png",
+      "bytes": 33433,
+      "sha256": "61a1f021431eb457752014b740d069afd5e01b098664037a8352c40175967be5"
+    },
+    {
+      "name": "cards/fire-quiver-en-1440.png",
+      "bytes": 32365,
+      "sha256": "ca67fd4a1abafe4bd346decca91923a18130c8805d1c6fbaccfd5ef5fc9df313"
+    },
+    {
+      "name": "cards/fire-quiver-en-390.png",
+      "bytes": 33606,
+      "sha256": "5437f99c640ced6d88be905762b52b7adb378464af88cf65bcb28c83722ddaaf"
+    },
+    {
+      "name": "cards/fire-quiver-es-1440.png",
+      "bytes": 35446,
+      "sha256": "9342fcf07527f32a178aec776c9cf3a6646e227b6cdd01e02d7ffad468bfd426"
+    },
+    {
+      "name": "cards/fire-quiver-es-390.png",
+      "bytes": 37021,
+      "sha256": "1768dda6313a9c03eee2265dcebe42d3a3ca418f7fe54469c399226681e6fc3f"
+    },
+    {
+      "name": "cards/fire-quiver-ja-1440.png",
+      "bytes": 34360,
+      "sha256": "49548cde582e039e1205a9f61ab8b104e2abc1dbd0d706a1abef5452a8f12e02"
+    },
+    {
+      "name": "cards/fire-quiver-ja-390.png",
+      "bytes": 36169,
+      "sha256": "e99a359b626913dd210e392e09fd2dc00e57e5f79c205300ba5580c5fca3ec95"
+    },
+    {
+      "name": "cards/fire-quiver-ko-1440.png",
+      "bytes": 28204,
+      "sha256": "9ccd929b0b3b89a7ddcfa176cb02e2be9c7a6a6d96208ac640448bf157a3c0ca"
+    },
+    {
+      "name": "cards/fire-quiver-ko-390.png",
+      "bytes": 29940,
+      "sha256": "b35ce4e2cb491126836409b967c4745478f18482b9fd784cbf07ddef00f2f584"
+    },
+    {
+      "name": "cards/fire-quiver-zh-CN-1440.png",
+      "bytes": 31573,
+      "sha256": "7e84534a19459b1c700da0ad77411a40bf9cee0e6c15c84f00caf328d8f53860"
+    },
+    {
+      "name": "cards/fire-quiver-zh-CN-390.png",
+      "bytes": 33612,
+      "sha256": "c0c2ed32e14cb8fbac9d3b14554e8363b2d4a20b3afdb3ced63f59ddacbc9e11"
+    },
+    {
+      "name": "cards/fire-quiver-zh-TW-1440.png",
+      "bytes": 32277,
+      "sha256": "1c770a41da698f4ab37491071bae58138b07d1778fe21829a481e2fcd52afc3d"
+    },
+    {
+      "name": "cards/fire-quiver-zh-TW-390.png",
+      "bytes": 34337,
+      "sha256": "bdeed99ac901cec0ddd51b376db0b10478ddcdce68d6739524893e1ab6404bec"
+    },
+    {
+      "name": "cards/legacy-hallowed-en.png",
+      "bytes": 33491,
+      "sha256": "56d22ab103d68ed1e743f9f487b5448e2a77cd966e1fcb1da667a8e50ac48697"
+    },
+    {
+      "name": "cards/legacy-hallowed-es.png",
+      "bytes": 36057,
+      "sha256": "f78bfd08ff1027bcd6d8bc465723a239ee50ef2c58f103ec5117a6871aeb9921"
+    },
+    {
+      "name": "cards/legacy-hallowed-ja.png",
+      "bytes": 36115,
+      "sha256": "d6f9efd46dcd74b6aaa2186e81660bb5a1cd786befc7f403a1765acbf7b0ca63"
+    },
+    {
+      "name": "cards/legacy-hallowed-ko.png",
+      "bytes": 29261,
+      "sha256": "9c3cdc57b91826e314f29ffd05e29259f6f8af0f8c6b21196ea61af3ad6e410a"
+    },
+    {
+      "name": "cards/legacy-hallowed-zh-CN.png",
+      "bytes": 32893,
+      "sha256": "f3b91931d6feaf1dad4d611275749f57bbb7724b8f6faeb173de5f66c9062390"
+    },
+    {
+      "name": "cards/legacy-hallowed-zh-TW.png",
+      "bytes": 36766,
+      "sha256": "ede0518723a3821ef891fb48f84286a04abcbf68e854ca849c1ebdabe02de13f"
+    },
+    {
+      "name": "cards/legacy-sceptre-en.png",
+      "bytes": 33720,
+      "sha256": "f6f34129e47686f93ce45847d2c00a337eae59f92140f37cdcadf997220d2c0f"
+    },
+    {
+      "name": "cards/legacy-sceptre-es.png",
+      "bytes": 36714,
+      "sha256": "eb76de623dfd7fdb85479ac542088d822c9aa9ac9841e472a35f71958ad45b5d"
+    },
+    {
+      "name": "cards/legacy-sceptre-ja.png",
+      "bytes": 35545,
+      "sha256": "141aa5c295d7113533d935eb8788fb496e8841bd9dde995634ccabf0a705daa9"
+    },
+    {
+      "name": "cards/legacy-sceptre-ko.png",
+      "bytes": 29722,
+      "sha256": "63c3f951fdd4c98b45841a66bb3f2383e627fb34105624508b324f39056aaf16"
+    },
+    {
+      "name": "cards/legacy-sceptre-zh-CN.png",
+      "bytes": 32817,
+      "sha256": "bcb0111429fcb6ff47d49c4241044fe61650742ba27c59016d837ed29fab4e29"
+    },
+    {
+      "name": "cards/legacy-sceptre-zh-TW.png",
+      "bytes": 36843,
+      "sha256": "6aa4507744ac96a4f106d0a4d84a65bcc80659e38780461c544e0a15e6b3ea85"
+    },
+    {
+      "name": "cards/legacy-wand-en.png",
+      "bytes": 29954,
+      "sha256": "75fa8718e260ab61ec9fa3ec1116a260ad44c4cd4ef7ee5149b78b2ab96f5af6"
+    },
+    {
+      "name": "cards/legacy-wand-es.png",
+      "bytes": 32208,
+      "sha256": "30522a2801103d323d8c5e371423262848f39fd31f29f24cf3809b08800222d8"
+    },
+    {
+      "name": "cards/legacy-wand-ja.png",
+      "bytes": 30748,
+      "sha256": "f4b1e81cdd9a52d59aefd835dbfa7c7f24126bef74feb7f7302fa3e9c65ef832"
+    },
+    {
+      "name": "cards/legacy-wand-ko.png",
+      "bytes": 27357,
+      "sha256": "71a5f85b6c6fa965df0d81453c873415508a977c3a978b89dd930615b415cbd6"
+    },
+    {
+      "name": "cards/legacy-wand-zh-CN.png",
+      "bytes": 30208,
+      "sha256": "2b2a1642a5d45da963c369a8f80dfd3a2fab3ab49da733bc4b2694cf0f56d248"
+    },
+    {
+      "name": "cards/legacy-wand-zh-TW.png",
+      "bytes": 31254,
+      "sha256": "128f61678e41362405f889b7f20e6774aae2c31a5bc371438a572df2cd5ffae2"
+    },
+    {
+      "name": "cards/penetrating-quiver-en-1440.png",
+      "bytes": 32979,
+      "sha256": "ecadd476fde3db6445cf8109ee09564533e7d8b240088e3e4168ad3db53b7f9e"
+    },
+    {
+      "name": "cards/penetrating-quiver-en-390.png",
+      "bytes": 34311,
+      "sha256": "9fc6461621118607df0d6e9979efb4c06758b480add060e208c64060fd5c2c53"
+    },
+    {
+      "name": "cards/penetrating-quiver-es-1440.png",
+      "bytes": 35972,
+      "sha256": "194f56b7b744032755c97d8aea6d8a24b0ac536c2d124bbba9286fb35a0a5ef3"
+    },
+    {
+      "name": "cards/penetrating-quiver-es-390.png",
+      "bytes": 37595,
+      "sha256": "1b7edaf4af350a5e04bc698cf1aaaa3661efd6c4d4dabf5858ba730c3219d91b"
+    },
+    {
+      "name": "cards/penetrating-quiver-ja-1440.png",
+      "bytes": 34397,
+      "sha256": "8878e110b11462fa7f4ff03a0eb5d6fa1b43c962db8364160faa7d0ba5da97a1"
+    },
+    {
+      "name": "cards/penetrating-quiver-ja-390.png",
+      "bytes": 36246,
+      "sha256": "9bfa50bba7d9b0db6632d496f351d934b0ed04d9984bb458afed1ca20ab77fa7"
+    },
+    {
+      "name": "cards/penetrating-quiver-ko-1440.png",
+      "bytes": 28200,
+      "sha256": "871d727703753d14dd5346735b3edb65db6731a3d78a961f1431f4b739dc9245"
+    },
+    {
+      "name": "cards/penetrating-quiver-ko-390.png",
+      "bytes": 29973,
+      "sha256": "9776e5a7466bbf5acf723e223fbb0e3ac1690b9702cd45c9958bebb8cf6a0600"
+    },
+    {
+      "name": "cards/penetrating-quiver-zh-CN-1440.png",
+      "bytes": 31697,
+      "sha256": "96eea5b1883021c1d1edaa313f00f7365ca50e82cd543c2cf2a9585bbabfe297"
+    },
+    {
+      "name": "cards/penetrating-quiver-zh-CN-390.png",
+      "bytes": 33710,
+      "sha256": "d16a3ac4f3603408f096f0bd986c0703e3bde1929efd7b7bb7b416e23c9ba018"
+    },
+    {
+      "name": "cards/penetrating-quiver-zh-TW-1440.png",
+      "bytes": 32729,
+      "sha256": "44559bca927e41c2d7e72f5eac527651d76ea2bc42e7a07a4608edb3b5bde182"
+    },
+    {
+      "name": "cards/penetrating-quiver-zh-TW-390.png",
+      "bytes": 34711,
+      "sha256": "196af143559b13bcd70144eeec2e171afe79f883eb5b35b032d1e6f0bc1e7ed6"
+    },
+    {
+      "name": "cards/primed-quiver-en-1440.png",
+      "bytes": 32417,
+      "sha256": "5d24a6988b34f3dc58bf6e0ed78a6f49a38946221cbe7fa503b912705c71ba8b"
+    },
+    {
+      "name": "cards/primed-quiver-en-390.png",
+      "bytes": 33851,
+      "sha256": "692a4872a7c2c2927be00029146a128fcb90478a56dec2829f46f7d2eecb4fa2"
+    },
+    {
+      "name": "cards/primed-quiver-es-1440.png",
+      "bytes": 35292,
+      "sha256": "e106a71fd2d4ad5f757d157c1cfd8d4b690a80c9a6f14e5648b4fcfbc0e02b83"
+    },
+    {
+      "name": "cards/primed-quiver-es-390.png",
+      "bytes": 37103,
+      "sha256": "d7aa25e0fb9406a887716bde62ca3afdc75215d4df318c5f96134fee2fd66e4d"
+    },
+    {
+      "name": "cards/primed-quiver-ja-1440.png",
+      "bytes": 34177,
+      "sha256": "b6395cedc500c687bde840bd8d6e8f4bf5115ab752230050b5a4fb999cc3bad8"
+    },
+    {
+      "name": "cards/primed-quiver-ja-390.png",
+      "bytes": 35993,
+      "sha256": "0fd35bfd168cf0e115a2e95b60d4621f80501dadf05df9d922086887ab95bbcc"
+    },
+    {
+      "name": "cards/primed-quiver-ko-1440.png",
+      "bytes": 28209,
+      "sha256": "d21c0a2c3935419e24fd283e10923a4d0d4cfd620b4b8c3e7a8281b33962c037"
+    },
+    {
+      "name": "cards/primed-quiver-ko-390.png",
+      "bytes": 29953,
+      "sha256": "1d5b4b9d2e105fa0457e81eb226bc17a24a3bc846a2641747f68290b7ed6de78"
+    },
+    {
+      "name": "cards/primed-quiver-zh-CN-1440.png",
+      "bytes": 30483,
+      "sha256": "a8bf1b87770346e345061b591973991c790f10628b142d983159b97db0a27090"
+    },
+    {
+      "name": "cards/primed-quiver-zh-CN-390.png",
+      "bytes": 32473,
+      "sha256": "db878a0deceda37226cce21ca34d512c4d3e54d92dfadb62594a0b9bf31c53af"
+    },
+    {
+      "name": "cards/primed-quiver-zh-TW-1440.png",
+      "bytes": 31862,
+      "sha256": "7291f7948c6d97c79af0663a1783872d476ee6e45ca4d37fa5fe1005872d76f7"
+    },
+    {
+      "name": "cards/primed-quiver-zh-TW-390.png",
+      "bytes": 33930,
+      "sha256": "e7b6779b60f6df2332f689ef35307f4a5009c8b91ea40c1d67a44ed12147791f"
+    },
+    {
+      "name": "cards/sacral-quiver-en-1440.png",
+      "bytes": 32829,
+      "sha256": "61a24eba046755716aaab979c8cf7444386691954ba96dd0f2a34abb9f0259e0"
+    },
+    {
+      "name": "cards/sacral-quiver-en-390.png",
+      "bytes": 34219,
+      "sha256": "3d1dfc6a4a49c35bd48655790673142d86dc42a54c8d0180e2907ef152c7b763"
+    },
+    {
+      "name": "cards/sacral-quiver-es-1440.png",
+      "bytes": 35767,
+      "sha256": "d22ae63981ae29c97c58bfffc495871912c8aab1e97f92516bb5c92b80537385"
+    },
+    {
+      "name": "cards/sacral-quiver-es-390.png",
+      "bytes": 37340,
+      "sha256": "6210b981d98981957ec565cb51cbfe77e300f6c21702f48824738708f49d29a4"
+    },
+    {
+      "name": "cards/sacral-quiver-ja-1440.png",
+      "bytes": 36336,
+      "sha256": "b37aac63a49e541bbe0b3cbb525dc9be0eb863c0eee891115ad25e457ec85e4f"
+    },
+    {
+      "name": "cards/sacral-quiver-ja-390.png",
+      "bytes": 37829,
+      "sha256": "5f00b23dae69c344586946ae69a2067eb44158ed7b0ac62f06364048538f3656"
+    },
+    {
+      "name": "cards/sacral-quiver-ko-1440.png",
+      "bytes": 30443,
+      "sha256": "f7622d02f8feae610cbbdf427d38720eab4d5e94bab4419ac701c6bc9700b151"
+    },
+    {
+      "name": "cards/sacral-quiver-ko-390.png",
+      "bytes": 31967,
+      "sha256": "2a05ba1fbbc5b0a2aa4731057cd85496b054a01e07db058d09cb7f391f324f29"
+    },
+    {
+      "name": "cards/sacral-quiver-zh-CN-1440.png",
+      "bytes": 31762,
+      "sha256": "0c38127a9999a59d646a43c546ef3f4e13cbc191ef0943e094b5a5801c7ce96b"
+    },
+    {
+      "name": "cards/sacral-quiver-zh-CN-390.png",
+      "bytes": 33769,
+      "sha256": "d4a73836baeaeb00634dc8beca67cdd180b65fc05f30a131d3522899c6c136ea"
+    },
+    {
+      "name": "cards/sacral-quiver-zh-TW-1440.png",
+      "bytes": 32802,
+      "sha256": "b8c9a434195c629a7da270fd16878d456fbf9140efe978d3d24b35fe1dc822f3"
+    },
+    {
+      "name": "cards/sacral-quiver-zh-TW-390.png",
+      "bytes": 34829,
+      "sha256": "7743ac98c342b4acbc5d8ae7653308779928a00c85f2a7a0db68cc3968075a27"
+    },
+    {
+      "name": "cards/serrated-quiver-en-1440.png",
+      "bytes": 34121,
+      "sha256": "80d8cb8028ae4e8f0f4f88d8a5e530ada20a5390a87a8dbb44352a2af0a87a9e"
+    },
+    {
+      "name": "cards/serrated-quiver-en-390.png",
+      "bytes": 35289,
+      "sha256": "f78710fefc37cdad9807e9d230336f898f08b269103273eb3209f282c8f05983"
+    },
+    {
+      "name": "cards/serrated-quiver-es-1440.png",
+      "bytes": 36365,
+      "sha256": "0ce43ace07a3e0f79c864c514757c6b1badb1b50de2b84ab2144a11071b20f5d"
+    },
+    {
+      "name": "cards/serrated-quiver-es-390.png",
+      "bytes": 37919,
+      "sha256": "a556e0cad422bbe6aa1a98fef6fdd52c8ea011859823de4bcc66cd5676b4f19e"
+    },
+    {
+      "name": "cards/serrated-quiver-ja-1440.png",
+      "bytes": 34998,
+      "sha256": "ef6b89194eda59c9db83c6f7d078ae1b839c2eef7560d9c8f39a007f0477e232"
+    },
+    {
+      "name": "cards/serrated-quiver-ja-390.png",
+      "bytes": 36815,
+      "sha256": "f245ec45081484f2bcbaeb97462d7c46e44d2d92fcf1d9148943fb2d28875706"
+    },
+    {
+      "name": "cards/serrated-quiver-ko-1440.png",
+      "bytes": 28768,
+      "sha256": "dece067647e61ecfde54a27902736aa720989b0d5d322827ccec75eb26351ae6"
+    },
+    {
+      "name": "cards/serrated-quiver-ko-390.png",
+      "bytes": 30517,
+      "sha256": "330a216985dcd207df327ed095bd17c6de4044c415a09f90d025e9efa1f864e5"
+    },
+    {
+      "name": "cards/serrated-quiver-zh-CN-1440.png",
+      "bytes": 31672,
+      "sha256": "ce2ba33d05d268ab3c294d780f5e73b348f254170693a52f1ef1fefe9e01a6a4"
+    },
+    {
+      "name": "cards/serrated-quiver-zh-CN-390.png",
+      "bytes": 33705,
+      "sha256": "a5e5032c97b478d1b91a79859805921aa161b8677881ecc4d2898880fe8f9784"
+    },
+    {
+      "name": "cards/serrated-quiver-zh-TW-1440.png",
+      "bytes": 32685,
+      "sha256": "7b18454d00e7eb80e95206abadf508b0d7ea3068563f26e178c545fe8a16aa00"
+    },
+    {
+      "name": "cards/serrated-quiver-zh-TW-390.png",
+      "bytes": 34736,
+      "sha256": "e922e33573b5dc87039c790e20e1af980166e765f81e8dc819ceedfcf5e3935d"
+    },
+    {
+      "name": "cards/toxic-quiver-en-1440.png",
+      "bytes": 32882,
+      "sha256": "91a6d8deb2c8c54be2394da4cfbfdb06c20c72e75b103aba0192d50a77ec9a26"
+    },
+    {
+      "name": "cards/toxic-quiver-en-390.png",
+      "bytes": 34237,
+      "sha256": "91d5ef084720e1c4bb45392b5bbec4b6dad91d926b2dc4ad9cf2b0935dbe3a81"
+    },
+    {
+      "name": "cards/toxic-quiver-es-1440.png",
+      "bytes": 36398,
+      "sha256": "fd74866e37809460e8a666424aaefeea58eec35e6156a9bf6741158c50cd1676"
+    },
+    {
+      "name": "cards/toxic-quiver-es-390.png",
+      "bytes": 38055,
+      "sha256": "3e8ef4c14bccf35da4e0dafbdfc77e080375e10cb7cdb71b1a87185a1a5657fe"
+    },
+    {
+      "name": "cards/toxic-quiver-ja-1440.png",
+      "bytes": 35388,
+      "sha256": "58e5bc1d66673f0e9d6a1ad3eb1bdcc31998530f07db961b9607a42407b4f1d2"
+    },
+    {
+      "name": "cards/toxic-quiver-ja-390.png",
+      "bytes": 36792,
+      "sha256": "7fee9f5ed4031b4206e468664def1af3ac5e5ea7cee11d289bfbc23ac0af2d00"
+    },
+    {
+      "name": "cards/toxic-quiver-ko-1440.png",
+      "bytes": 29729,
+      "sha256": "908d247589fd2862f276b4f53c40b5c4fd2f8d4493e706951f979c967372b68c"
+    },
+    {
+      "name": "cards/toxic-quiver-ko-390.png",
+      "bytes": 31462,
+      "sha256": "3390079d679be9995ccdd15101771e7117ad308c7a970d8e7a307da536544b08"
+    },
+    {
+      "name": "cards/toxic-quiver-zh-CN-1440.png",
+      "bytes": 32175,
+      "sha256": "a00b3123b96044ed2ffcdf5543e5e771aadac169eed2bcdd0eb199e75e18e901"
+    },
+    {
+      "name": "cards/toxic-quiver-zh-CN-390.png",
+      "bytes": 34223,
+      "sha256": "42018f3740d8c6989c9c94c4833b74bf602e3ad2aeb49cdbf349a3d07a00f359"
+    },
+    {
+      "name": "cards/toxic-quiver-zh-TW-1440.png",
+      "bytes": 33233,
+      "sha256": "fae9c22e23d24cbaba2ca500616fe201e975a398e2d65cb54810a8ea7cc88fc5"
+    },
+    {
+      "name": "cards/toxic-quiver-zh-TW-390.png",
+      "bytes": 35287,
+      "sha256": "d3f3e95df04d128fba6f38ea766ea90ef86ffe99b66319db195fa340279f1787"
+    },
+    {
+      "name": "cards/two-point-quiver-en-1440.png",
+      "bytes": 33201,
+      "sha256": "19e2cdc210f44cd71af9423f2ac04a10dfb1171f1c1660b73eceb5fa47a5c4af"
+    },
+    {
+      "name": "cards/two-point-quiver-en-390.png",
+      "bytes": 34546,
+      "sha256": "bb5a628ffd4757e29fe6cb93fbf3122272cae57062e03cc443aa3388ff889894"
+    },
+    {
+      "name": "cards/two-point-quiver-es-1440.png",
+      "bytes": 34693,
+      "sha256": "94c54f3d22116b6a02e45209e4f0d8d1f4c94f1c70e0d5389e0ad34f93948af7"
+    },
+    {
+      "name": "cards/two-point-quiver-es-390.png",
+      "bytes": 36648,
+      "sha256": "f5a984055913efa7f546cb299fe26b6771af255086e08336c3be48be867747c9"
+    },
+    {
+      "name": "cards/two-point-quiver-ja-1440.png",
+      "bytes": 33923,
+      "sha256": "bc4eb082eaa2063210d110734164b1cb8446bdcd23a260e8f0460992adeb8069"
+    },
+    {
+      "name": "cards/two-point-quiver-ja-390.png",
+      "bytes": 35740,
+      "sha256": "a2f620cf6247a13618090f7702305e5b0f1ebdd68e232ceafc84cab1864ee0c5"
+    },
+    {
+      "name": "cards/two-point-quiver-ko-1440.png",
+      "bytes": 28581,
+      "sha256": "e66b259a68663de66ab6f39424d7915c3df34ffdb37b1f4a68c1e1db0dd25891"
+    },
+    {
+      "name": "cards/two-point-quiver-ko-390.png",
+      "bytes": 30363,
+      "sha256": "e9a80031f7c596fbe2f3922c985b96563285e18f1730a864e59ada8ea2aceee5"
+    },
+    {
+      "name": "cards/two-point-quiver-zh-CN-1440.png",
+      "bytes": 30690,
+      "sha256": "83ff3ea9c56ccde13358ebc104d09068cd3dd811101aec2d3807c067e817cac9"
+    },
+    {
+      "name": "cards/two-point-quiver-zh-CN-390.png",
+      "bytes": 32681,
+      "sha256": "ccd43657ba65b08701645c4d66616802e9cd29ed4f93d00c70216e098ac1baa9"
+    },
+    {
+      "name": "cards/two-point-quiver-zh-TW-1440.png",
+      "bytes": 31367,
+      "sha256": "077e037d8a526f99e84aa677e68a3dd33a2650d11d258cd5eeb6207680c0bf5c"
+    },
+    {
+      "name": "cards/two-point-quiver-zh-TW-390.png",
+      "bytes": 33393,
+      "sha256": "967070af5f120e61f97a4724deec9b63f0490a52a8600790e51f0ef5a9c4dc7d"
+    },
+    {
+      "name": "cards/visceral-quiver-en-1440.png",
+      "bytes": 33815,
+      "sha256": "9295cc9da7701f523137f5e736fe2212551b1d7560d216383e366c7eaf0fdfe3"
+    },
+    {
+      "name": "cards/visceral-quiver-en-390.png",
+      "bytes": 34935,
+      "sha256": "2cc56f781c2441078dd3c85617ff993529fd2a93f0709fa31b45d22d163194e0"
+    },
+    {
+      "name": "cards/visceral-quiver-es-1440.png",
+      "bytes": 37200,
+      "sha256": "0c00f49ee35b373a4e51a260abf5e5e6b60049c44ce6bef3254aa83808a99d75"
+    },
+    {
+      "name": "cards/visceral-quiver-es-390.png",
+      "bytes": 38508,
+      "sha256": "484b19df86bc38518414b90429536e4e31da5e8f85ab2ef91f270c45849fa092"
+    },
+    {
+      "name": "cards/visceral-quiver-ja-1440.png",
+      "bytes": 35099,
+      "sha256": "32d5f4759f9d3ad99e0690bcc8747579c273a2b992013f1c53999502acb8f866"
+    },
+    {
+      "name": "cards/visceral-quiver-ja-390.png",
+      "bytes": 36667,
+      "sha256": "999df6abdd343bffa3cd6a595aba2a51515dea7f0807f7082f579666cd103e29"
+    },
+    {
+      "name": "cards/visceral-quiver-ko-1440.png",
+      "bytes": 29523,
+      "sha256": "0e3b706846d3509ee8fe97a0b58cb01d0dad18889ae28a3da23a63adaf7f9325"
+    },
+    {
+      "name": "cards/visceral-quiver-ko-390.png",
+      "bytes": 31300,
+      "sha256": "99f20c926b8ffde58a71aa2804ac8611758bfad9dcf95a7d27ee91a7c99ec762"
+    },
+    {
+      "name": "cards/visceral-quiver-zh-CN-1440.png",
+      "bytes": 30971,
+      "sha256": "f0fecfe9d040a79c468ccc367a2e7c96af3560cc3cde22278a995af9a24057a5"
+    },
+    {
+      "name": "cards/visceral-quiver-zh-CN-390.png",
+      "bytes": 32997,
+      "sha256": "a6daa185d6c58ed4c43e98f5e6ee228d18b29e8c81ca6de69c911ac886b7a1b3"
+    },
+    {
+      "name": "cards/visceral-quiver-zh-TW-1440.png",
+      "bytes": 32094,
+      "sha256": "72af99f2b2989e434386bc84d7f63b02d483fcd9d3ec8b1d177bc9d320ab5246"
+    },
+    {
+      "name": "cards/visceral-quiver-zh-TW-390.png",
+      "bytes": 34112,
+      "sha256": "bac4dcc7245b8dbf99e2d77f963fec789be64f6947139d6aa654c3be406529b4"
+    },
+    {
+      "name": "cards/volant-quiver-en-1440.png",
+      "bytes": 32710,
+      "sha256": "c0b3975e3fe3a4f6f0274d3aba7b6880276fbc5a185d60b8c3e6d75bd74b30ff"
+    },
+    {
+      "name": "cards/volant-quiver-en-390.png",
+      "bytes": 34112,
+      "sha256": "1adf4211cbe5a1c0cde37a25a41109ba9a33f4527e16c7e8708ff01be5355856"
+    },
+    {
+      "name": "cards/volant-quiver-es-1440.png",
+      "bytes": 35760,
+      "sha256": "e8441b43e4b3b5fdd5fcc25e40300ef3111d1b68379ffb9f18a6a32ceaab8370"
+    },
+    {
+      "name": "cards/volant-quiver-es-390.png",
+      "bytes": 37288,
+      "sha256": "afa9017007ef29f2d4c546ee7f2fa63e4a1b3fd496a3541c9623297b2062af4c"
+    },
+    {
+      "name": "cards/volant-quiver-ja-1440.png",
+      "bytes": 33892,
+      "sha256": "56572c5e54e3d8d8d62a9e406850d2f6e99cfda01ac5dfe8b06a32e7b86346e3"
+    },
+    {
+      "name": "cards/volant-quiver-ja-390.png",
+      "bytes": 35740,
+      "sha256": "d73af2e76bc2136ced69d01e2f029fd2e007f6fe7c32c1e845149a044b8f4bcc"
+    },
+    {
+      "name": "cards/volant-quiver-ko-1440.png",
+      "bytes": 28311,
+      "sha256": "42c55ff1e5293ce001d20b2549fc88a350f63ea8fefad68569ecd8d308520861"
+    },
+    {
+      "name": "cards/volant-quiver-ko-390.png",
+      "bytes": 30075,
+      "sha256": "a114ed83532168ba509063366a1bcfc073c2b36fd5f93127a504444be15db4be"
+    },
+    {
+      "name": "cards/volant-quiver-zh-CN-1440.png",
+      "bytes": 30832,
+      "sha256": "892b8b88cf5e36c8dd01e93ed021dbcd1e3ecf3974509cd71905fbded8c1b78f"
+    },
+    {
+      "name": "cards/volant-quiver-zh-CN-390.png",
+      "bytes": 32836,
+      "sha256": "701a9bd9480539bf045e8508f3b192dcbf9e3b9bfe533671f8d845735dffe958"
+    },
+    {
+      "name": "cards/volant-quiver-zh-TW-1440.png",
+      "bytes": 31894,
+      "sha256": "3fd5940d67b186770af11699d6a824afd860380b212722b388ff27fa5e111a65"
+    },
+    {
+      "name": "cards/volant-quiver-zh-TW-390.png",
+      "bytes": 33930,
+      "sha256": "c39d653d0e56d0b3be489533cd706890748dfd9d1233844a22cd1efc7b5f967a"
+    },
+    {
+      "name": "contact-cards-0.png",
+      "bytes": 183111,
+      "sha256": "5446e6f8ce80f4c6b642b36a97c90a4a3c417af1d90c9b7c7a03981ccde67484"
+    },
+    {
+      "name": "contact-cards-102.png",
+      "bytes": 187581,
+      "sha256": "47ee017ea25a95fbdc546f71c389aff606af624142a355f8fe6cbc38d5bccb36"
+    },
+    {
+      "name": "contact-cards-108.png",
+      "bytes": 152189,
+      "sha256": "cb7ac5930462013603fbfdea12954055320c3315dee9e24a420214a20c2e6f72"
+    },
+    {
+      "name": "contact-cards-114.png",
+      "bytes": 184723,
+      "sha256": "285a64c5588825f7efc1076874747d67a01a52a28699dcdcdc61f73cd3e774f3"
+    },
+    {
+      "name": "contact-cards-12.png",
+      "bytes": 178715,
+      "sha256": "af201025f6a361ef8eb027f28ef44f9dd58a9a9a0ee31f807b444d3debb4b243"
+    },
+    {
+      "name": "contact-cards-120.png",
+      "bytes": 147773,
+      "sha256": "bdd804de0f962b724c281b990b07bd110c05864219a490ac138eb8a699343a1e"
+    },
+    {
+      "name": "contact-cards-126.png",
+      "bytes": 193873,
+      "sha256": "e1b9b885801ed5ad9b94f9a13f27094f5e3b4e92d01538977e0e18ea942b9988"
+    },
+    {
+      "name": "contact-cards-132.png",
+      "bytes": 150086,
+      "sha256": "ceb66ac46439bca584bfe8f4e63a1c83dc44ffbc5d55d5d9b24aab56e8b61ee9"
+    },
+    {
+      "name": "contact-cards-138.png",
+      "bytes": 182615,
+      "sha256": "8758435e2c576a27bb4ac9f81a877e499f943d9bf7400cf4337e5e76b5484a16"
+    },
+    {
+      "name": "contact-cards-144.png",
+      "bytes": 147489,
+      "sha256": "a8e9bc10288157ac824adfb5cdb425b3915308aa31e848539990bd34ca5a1676"
+    },
+    {
+      "name": "contact-cards-18.png",
+      "bytes": 143613,
+      "sha256": "b0d4933312544e1c7b56b5ccddf4cb2bf6cb56fcdcb723447cb6497368f089dd"
+    },
+    {
+      "name": "contact-cards-24.png",
+      "bytes": 183215,
+      "sha256": "ca541f0f99ca15a8195550a675eaa54a8568bbcf014e1da00e5cc70dda3ad6cd"
+    },
+    {
+      "name": "contact-cards-30.png",
+      "bytes": 148555,
+      "sha256": "80b4e5c1cefd3574c0bd4b77d839e4a02c53c008f1c194041b99ecffa83a36d4"
+    },
+    {
+      "name": "contact-cards-36.png",
+      "bytes": 163688,
+      "sha256": "cde8d128ae4e35268c4635a1cac5233fb6e84fbf3e6d54dd405821a04d202f56"
+    },
+    {
+      "name": "contact-cards-42.png",
+      "bytes": 164821,
+      "sha256": "526659a118d149c28a174c336aa69fb64d062b729dfcb108604849ab8b3ee239"
+    },
+    {
+      "name": "contact-cards-48.png",
+      "bytes": 142016,
+      "sha256": "614053cce3fda4bcd9da4cbf9170488b38f7099648623da8082bfd4a5ed766df"
+    },
+    {
+      "name": "contact-cards-54.png",
+      "bytes": 185467,
+      "sha256": "14ec4201894103f2070ca847d1db840c3d4a26559384bc59620594ec61e6d8a3"
+    },
+    {
+      "name": "contact-cards-6.png",
+      "bytes": 148214,
+      "sha256": "f326d62643b72f9b94c63403e11eeb054d22a049e643866a930f6acee6086e4a"
+    },
+    {
+      "name": "contact-cards-60.png",
+      "bytes": 149544,
+      "sha256": "ba239485dad44e176ba7d48ce0ca1df120d10b5110d1f76b5cd3676b07523083"
+    },
+    {
+      "name": "contact-cards-66.png",
+      "bytes": 183323,
+      "sha256": "e981e806eb34359763d4de49e0c27b9c15b694076fc3e39371a647374f39ff1a"
+    },
+    {
+      "name": "contact-cards-72.png",
+      "bytes": 146868,
+      "sha256": "4c10b33aacd7c0246f6eb35ab2340ed33c86565cd124e39fbf885626720437d9"
+    },
+    {
+      "name": "contact-cards-78.png",
+      "bytes": 186098,
+      "sha256": "334c9417876c00b726ae4b853b8f6e425f4dca07e5f62b40fd6b03021173f61c"
+    },
+    {
+      "name": "contact-cards-84.png",
+      "bytes": 152104,
+      "sha256": "f9d4a188fda5a89eff8973f8cde3402b3f0b4cc3ec2734cbc74f3a2e33e10354"
+    },
+    {
+      "name": "contact-cards-90.png",
+      "bytes": 188297,
+      "sha256": "8367fc8487a420448bbe95c5f535b4e85cdcb021fbbdde409d40fbe4702180f9"
+    },
+    {
+      "name": "contact-cards-96.png",
+      "bytes": 150218,
+      "sha256": "df64d11a26aeb21690e088700dc8286c530862f95aeb0616c13ac3c5de345e62"
+    },
+    {
+      "name": "contact-full-0.png",
+      "bytes": 1015582,
+      "sha256": "527087a5d701ba7ac70aac1a09631af7fc8c02c7b2703fa590ab18ea9d1ec15f"
+    },
+    {
+      "name": "contact-full-102.png",
+      "bytes": 248486,
+      "sha256": "c53a2a8ce97453c4da6a04b38476359c75e3d47fcc6ac4f15d85e968f4cee289"
+    },
+    {
+      "name": "contact-full-108.png",
+      "bytes": 1020555,
+      "sha256": "88505c7e38f394e389b00ece5c9b39ceb50763e99052e6859821005fdccf65e7"
+    },
+    {
+      "name": "contact-full-114.png",
+      "bytes": 753509,
+      "sha256": "f25741ea21b042bf060f87b4cf2fbc0974a04892d463eb34188b5ef5bbf4fd12"
+    },
+    {
+      "name": "contact-full-12.png",
+      "bytes": 1014311,
+      "sha256": "50815b8d31daf5384e0163f61b6f833ba726bd227648b62b0b6a69953a0da527"
+    },
+    {
+      "name": "contact-full-120.png",
+      "bytes": 1017743,
+      "sha256": "0c5bcba99484dd3e1c11a8c693a9867d1485f94f2b2916076b45c6629d1e9ffe"
+    },
+    {
+      "name": "contact-full-126.png",
+      "bytes": 749378,
+      "sha256": "fc648b5fb816af2fba22c2fdcb2a01c7cb99f2f33e8a7c76cf1668177bb2f629"
+    },
+    {
+      "name": "contact-full-132.png",
+      "bytes": 1022728,
+      "sha256": "8056fabebe75f0c83dfc7aea5f01affd75735f6c79724913b5d44bb9e1f8646f"
+    },
+    {
+      "name": "contact-full-138.png",
+      "bytes": 529763,
+      "sha256": "ba432859fad6f3df3896054230a3597169906f1b85acdd08ad4d8baae2495d21"
+    },
+    {
+      "name": "contact-full-144.png",
+      "bytes": 510952,
+      "sha256": "5afd2defd726d9697a44e6b4c92a4a1714291348b8ca26abbbce8f268f480e93"
+    },
+    {
+      "name": "contact-full-150.png",
+      "bytes": 1016693,
+      "sha256": "5492c941c0dcf3fb4879ed3211a4e8f8d77ae9b90d0ef5900e4464c9a197ea10"
+    },
+    {
+      "name": "contact-full-156.png",
+      "bytes": 748755,
+      "sha256": "f37b74dd93a84ab0509f0b59f136f5ce69fe8e5e502e0b955c61b38cc19e2fe8"
+    },
+    {
+      "name": "contact-full-18.png",
+      "bytes": 745962,
+      "sha256": "00d35deff99737c8c98c342294618a1f236230c5957e313e1c3c19cd71fc791c"
+    },
+    {
+      "name": "contact-full-24.png",
+      "bytes": 1016009,
+      "sha256": "37f3355fe6efcfafd5f16318a28c2a82390d75c716356e1143a78c7e74104d4f"
+    },
+    {
+      "name": "contact-full-30.png",
+      "bytes": 747918,
+      "sha256": "6c347314561bf4a35fab2a5681cef72b5056261e10ff97a4cb4d38b41bd1ddbd"
+    },
+    {
+      "name": "contact-full-36.png",
+      "bytes": 235832,
+      "sha256": "9a4ca23f53b9d0bbd87d85adddbaf8912e19faddadffc4f69fe75aae1cddb12c"
+    },
+    {
+      "name": "contact-full-42.png",
+      "bytes": 236602,
+      "sha256": "d191234d9227706ad8b2679da6daeda531a341f4e831a37154f9447c2eed6d63"
+    },
+    {
+      "name": "contact-full-48.png",
+      "bytes": 233919,
+      "sha256": "cd83111d7acc5696523f2409528aa885b615cde50fc924d3a9cc0ae54a5886cf"
+    },
+    {
+      "name": "contact-full-54.png",
+      "bytes": 1020743,
+      "sha256": "6cda4a3fc73cfd7fde2de56e2b347b0f460023e3d8f0512a125f271c52dbc217"
+    },
+    {
+      "name": "contact-full-6.png",
+      "bytes": 749438,
+      "sha256": "28313e0efaea55773dbdcf8457e7542d2df346603055921cc3f558bc74339186"
+    },
+    {
+      "name": "contact-full-60.png",
+      "bytes": 750159,
+      "sha256": "a97521aee89759208416339c396a22a37b25e250fc51d37573c94bfcd645e2ea"
+    },
+    {
+      "name": "contact-full-66.png",
+      "bytes": 1017000,
+      "sha256": "b8133e799b8bad5084b7088139fb00988c918c0ac4d0313ef1ddd2603e5b8a23"
+    },
+    {
+      "name": "contact-full-72.png",
+      "bytes": 748849,
+      "sha256": "5cb3aa03bf2859f02621205eb5d37d5b607b8b9cfa0d845305c73a699e795246"
+    },
+    {
+      "name": "contact-full-78.png",
+      "bytes": 1021068,
+      "sha256": "68617622d051272834c8bedbb6fbc1ccb532b9371e3ab1aa43333b76b4f6f61b"
+    },
+    {
+      "name": "contact-full-84.png",
+      "bytes": 753284,
+      "sha256": "3bef1c83259dc4e081c7ff83e75cd4d2cd539ca6f49d63e359057fe8eef0c990"
+    },
+    {
+      "name": "contact-full-90.png",
+      "bytes": 1022823,
+      "sha256": "495ae34c4bfd3f075b1e78da796b649a510ab64753ab0b65533805c419205ea1"
+    },
+    {
+      "name": "contact-full-96.png",
+      "bytes": 751397,
+      "sha256": "b6c6a0d444a733020f6232e88d861c6e056463e1632c00006f1ad1bf79f3c342"
+    },
+    {
+      "name": "fire-quiver-en-1440.png",
+      "bytes": 590581,
+      "sha256": "744bc95997e452018a94aacbdf3d457305463b973c979fac1bc0deb408aea795"
+    },
+    {
+      "name": "fire-quiver-en-390.png",
+      "bytes": 254128,
+      "sha256": "7f1a9c9d79cdf4de10108561dac7f658e49f16ff48f583feb3f12832b7c2cbad"
+    },
+    {
+      "name": "fire-quiver-es-1440.png",
+      "bytes": 604846,
+      "sha256": "174b7126e6dad6bda0892932a337999e80d2a8edb778c70f80fc96bd98272d6f"
+    },
+    {
+      "name": "fire-quiver-es-390.png",
+      "bytes": 266906,
+      "sha256": "7fffd9c018b5283ff4eb08c76d2b9f2ebee5d554066035375b8047a5170db5ee"
+    },
+    {
+      "name": "fire-quiver-ja-1440.png",
+      "bytes": 606563,
+      "sha256": "dad890cce45d4582556a2be65f7e7f73a1be4f2df1e07169f1d9cd6bbad5c337"
+    },
+    {
+      "name": "fire-quiver-ja-390.png",
+      "bytes": 264713,
+      "sha256": "a120d8752f45eb24250043f05984054b30ddeab041f22fa0db40f956f38c4942"
+    },
+    {
+      "name": "fire-quiver-ko-1440.png",
+      "bytes": 578494,
+      "sha256": "820463bcb5e567fc081c00f8acaf488f6e5ece49b66455c095cf4f19379a67b5"
+    },
+    {
+      "name": "fire-quiver-ko-390.png",
+      "bytes": 242054,
+      "sha256": "f37044d4d961a2294e304ff8dd06c36c138ab0dd509930411ec32f7c152ea0f3"
+    },
+    {
+      "name": "fire-quiver-zh-CN-1440.png",
+      "bytes": 595182,
+      "sha256": "f939414fd99f18e02054a796918ed42b7f8012ef9db2373dc473b7727cd414e7"
+    },
+    {
+      "name": "fire-quiver-zh-CN-390.png",
+      "bytes": 252336,
+      "sha256": "837dd8762a192a099c91ad9e052e191290f9254336f842983f19ab99cbdabe0d"
+    },
+    {
+      "name": "fire-quiver-zh-TW-1440.png",
+      "bytes": 598647,
+      "sha256": "2cebc029935c2cafb5c7a263dedee9d4853da17dad2eadb8b198448d8f943d35"
+    },
+    {
+      "name": "fire-quiver-zh-TW-390.png",
+      "bytes": 255087,
+      "sha256": "0130d6e9e640c0fbfc3bebfe102b8ef80949c1419f9b7a22a442156e086e13ff"
+    },
+    {
+      "name": "legacy-hallowed-en.png",
+      "bytes": 610874,
+      "sha256": "0676192ff02d5f52f2b276b470823768c1d58cfa6663667995d2dd74ed801458"
+    },
+    {
+      "name": "legacy-hallowed-es.png",
+      "bytes": 623234,
+      "sha256": "4ac4030b0123a548df3320f24070cd1b341da6870e013f53e90c189a65f4e169"
+    },
+    {
+      "name": "legacy-hallowed-ja.png",
+      "bytes": 625200,
+      "sha256": "8baf7a05b7e691686916c9b17d6ebe164511131f6f5c8fe2f21740eed8007bc0"
+    },
+    {
+      "name": "legacy-hallowed-ko.png",
+      "bytes": 592116,
+      "sha256": "47a2f3020f57cb0eb72344a0ab2606efcb23b5959f8e2c89c2ceb0e958861ee9"
+    },
+    {
+      "name": "legacy-hallowed-zh-CN.png",
+      "bytes": 611902,
+      "sha256": "86753e6c45da0cd113cec9fa3276c5a23c3d1e5d91f79c793fb3faa894bf1ad6"
+    },
+    {
+      "name": "legacy-hallowed-zh-TW.png",
+      "bytes": 617380,
+      "sha256": "d51bb981c8b58e9d13e335a1c524d283766d9b6575a62639e57db693db2041f4"
+    },
+    {
+      "name": "legacy-sceptre-en.png",
+      "bytes": 611722,
+      "sha256": "a2e26bbdf1c0131f64aab47a98aaf8be04475e44984bb2aeeff1d5f87ec81f67"
+    },
+    {
+      "name": "legacy-sceptre-es.png",
+      "bytes": 624216,
+      "sha256": "d04db04d69998555634c045cffb2fa1a62afba9a80841d1f5fb8a3ec349d65b8"
+    },
+    {
+      "name": "legacy-sceptre-ja.png",
+      "bytes": 623998,
+      "sha256": "a0091926c4f237b5189db8505c2d400c825f6192d9afc8af6e30311d44a1268f"
+    },
+    {
+      "name": "legacy-sceptre-ko.png",
+      "bytes": 595693,
+      "sha256": "96ff86b3a6b31611ed5316135ab8e30c248f87e2527e5e588648f7f27246bfb9"
+    },
+    {
+      "name": "legacy-sceptre-zh-CN.png",
+      "bytes": 613285,
+      "sha256": "998a366576d1e2d0a3f1077f1adec3c315188314f0b2c3e5be09771c1aabd9c8"
+    },
+    {
+      "name": "legacy-sceptre-zh-TW.png",
+      "bytes": 619563,
+      "sha256": "47493a7a70e1b74a23ddd8b5995e54e890ec54ddc1ab6819aa251555b38dff16"
+    },
+    {
+      "name": "legacy-wand-en.png",
+      "bytes": 611585,
+      "sha256": "179882629550479e602f55335179daf8dc9518013672c686109eefba71ac6b3c"
+    },
+    {
+      "name": "legacy-wand-es.png",
+      "bytes": 624200,
+      "sha256": "8016efe5d702a1fa863ae6e562fb244cf969db55cfb0e8bd64c1cacee1527300"
+    },
+    {
+      "name": "legacy-wand-ja.png",
+      "bytes": 625646,
+      "sha256": "0533b619576f6db192e52497921a5268343025c7069ca733bdec13d38d0fbf96"
+    },
+    {
+      "name": "legacy-wand-ko.png",
+      "bytes": 599364,
+      "sha256": "9c9c68be7f93a75dc37787259324b418e9b25ed475bdf5c300d273d1a67f3c3d"
+    },
+    {
+      "name": "legacy-wand-zh-CN.png",
+      "bytes": 615144,
+      "sha256": "f52bcff9e95862c1ec37659eb1da3b5db756da49386c0704d957c3732c153064"
+    },
+    {
+      "name": "legacy-wand-zh-TW.png",
+      "bytes": 619370,
+      "sha256": "3fa86f1717101502f1824364fb38659d1d36ed0b2eff29be088d2d4fc5c872a4"
+    },
+    {
+      "name": "penetrating-quiver-en-1440.png",
+      "bytes": 592557,
+      "sha256": "00d4efcf4e25061c7322323daea4fe375b17d6db7037df6d26234db243869acb"
+    },
+    {
+      "name": "penetrating-quiver-en-390.png",
+      "bytes": 255360,
+      "sha256": "84af804484175b5cf68b72631f2598d744dc986ae1c9ce91a8bac174cff0446b"
+    },
+    {
+      "name": "penetrating-quiver-es-1440.png",
+      "bytes": 606061,
+      "sha256": "cee6dad7e30649de3f4df3e9747aad2c95e60f1026b830db2fa0363267d6219a"
+    },
+    {
+      "name": "penetrating-quiver-es-390.png",
+      "bytes": 267614,
+      "sha256": "db61cbc5918315f8482a0a56d32f86e499df03d737d3655bfe41d2c0b9398d69"
+    },
+    {
+      "name": "penetrating-quiver-ja-1440.png",
+      "bytes": 607181,
+      "sha256": "2f2becce48fb4fe94595f6254cb569dd3a77ef48ff14d9db7b76ae1fef14b954"
+    },
+    {
+      "name": "penetrating-quiver-ja-390.png",
+      "bytes": 265058,
+      "sha256": "d72fd8c4d67f094b9951efdfe3f68e07e2d98b2a97e856718da184ac20738cbe"
+    },
+    {
+      "name": "penetrating-quiver-ko-1440.png",
+      "bytes": 578785,
+      "sha256": "6b34699f2dc6943884ab93e327657636db6bddb58557a0ff46fc62eb6611a75a"
+    },
+    {
+      "name": "penetrating-quiver-ko-390.png",
+      "bytes": 242229,
+      "sha256": "82ed360e6ab1433d66bcca2c6e73d8b22122ebb1695a460bd189b6dbd904d82d"
+    },
+    {
+      "name": "penetrating-quiver-zh-CN-1440.png",
+      "bytes": 595180,
+      "sha256": "f52ed6862629cf0be0166df9e95ec69000bd7900dc861a7e0ae24c4a85ca2391"
+    },
+    {
+      "name": "penetrating-quiver-zh-CN-390.png",
+      "bytes": 252400,
+      "sha256": "1460e5eaea50242e5d7f498f987418a96d8285b7f4cda67891cce06f0c6fdde2"
+    },
+    {
+      "name": "penetrating-quiver-zh-TW-1440.png",
+      "bytes": 599290,
+      "sha256": "c7a215645ac3e6170955dc05217322ff603c453d30684c73593760417584a063"
+    },
+    {
+      "name": "penetrating-quiver-zh-TW-390.png",
+      "bytes": 255485,
+      "sha256": "71d2b0b754f7a9fdf86b59f1752c6f0f8477f45b5aaa2162cfd023e29524f414"
+    },
+    {
+      "name": "primed-quiver-en-1440.png",
+      "bytes": 591445,
+      "sha256": "d688306c9ad13d76e25f8180ac8f5e4d518ba095d2637e6d025607c9e6c7fdc0"
+    },
+    {
+      "name": "primed-quiver-en-390.png",
+      "bytes": 254366,
+      "sha256": "26dfb6bfedb04a162bf7f6a91bd534944e486ddad2aed406f839732ee2f321f8"
+    },
+    {
+      "name": "primed-quiver-es-1440.png",
+      "bytes": 606038,
+      "sha256": "f903df70f4187070723490406cf34b8f0708680ac7dca08f577e5ab404b705ed"
+    },
+    {
+      "name": "primed-quiver-es-390.png",
+      "bytes": 267116,
+      "sha256": "c9681dd2b8eb37bca94dc3af472036980297487c484530c81dfb3564c72d9d3d"
+    },
+    {
+      "name": "primed-quiver-ja-1440.png",
+      "bytes": 607158,
+      "sha256": "6ae3632394db30d97c290c08edc0343b890fda28b95f75b295c93eed0e7c8f28"
+    },
+    {
+      "name": "primed-quiver-ja-390.png",
+      "bytes": 264787,
+      "sha256": "e0ca0ec6d5f9d5260163d64058068ac83f8de9a105efea2852ba763356fcbed1"
+    },
+    {
+      "name": "primed-quiver-ko-1440.png",
+      "bytes": 578984,
+      "sha256": "2b967995daccc130cdfb12ea73d817d0f85c1152160ef21d6d166a3241dfe6e0"
+    },
+    {
+      "name": "primed-quiver-ko-390.png",
+      "bytes": 242511,
+      "sha256": "03a25d388166fe6c940ededff6f5af5007453ab6e117915606dc696a0298b9bb"
+    },
+    {
+      "name": "primed-quiver-zh-CN-1440.png",
+      "bytes": 593439,
+      "sha256": "3317215d91c395d65bd4ea2c399f1291c3546f8815a4943f23721473e242a0c0"
+    },
+    {
+      "name": "primed-quiver-zh-CN-390.png",
+      "bytes": 251280,
+      "sha256": "2b08f1f825a1b25bafd300aff2a6b29c65f1c77792f23e4222d097fc5ff0ad6e"
+    },
+    {
+      "name": "primed-quiver-zh-TW-1440.png",
+      "bytes": 598089,
+      "sha256": "88d680371013a7ccb619bc76180441feefd7b49968dc7830725581c3b7026c4a"
+    },
+    {
+      "name": "primed-quiver-zh-TW-390.png",
+      "bytes": 254683,
+      "sha256": "1a41731b1158ede672d03834989eb588463587dcfacd4871720a2396401fd067"
+    },
+    {
+      "name": "sacral-quiver-en-1440.png",
+      "bytes": 591866,
+      "sha256": "0e6c693ee32bc9ffad82229fea3e83a3eced62dc0d56cf6889d255f7a46ea59d"
+    },
+    {
+      "name": "sacral-quiver-en-390.png",
+      "bytes": 254806,
+      "sha256": "eb1ecb7dc79a4a70963486270c3825ba355c1d252bcdcde73792f33b15f9d5fe"
+    },
+    {
+      "name": "sacral-quiver-es-1440.png",
+      "bytes": 605140,
+      "sha256": "8e9e87a140ea462aecdcf9c8b10ac6b11a9db47a714eadbed583bf6fc1e3cf89"
+    },
+    {
+      "name": "sacral-quiver-es-390.png",
+      "bytes": 266944,
+      "sha256": "6dcf52bcbb28d278836c702176e30947218a9284b45fd53215965836ca6f70f1"
+    },
+    {
+      "name": "sacral-quiver-ja-1440.png",
+      "bytes": 608039,
+      "sha256": "43d2ad12d5f1f0d6371c75cc105baedd2f5146d616ad2a12b5a03d848f3ddaa4"
+    },
+    {
+      "name": "sacral-quiver-ja-390.png",
+      "bytes": 266802,
+      "sha256": "bbcc03a33242a181f6f5008380030e8a80acf1495b62bdff696e3ffd74ed9a4c"
+    },
+    {
+      "name": "sacral-quiver-ko-1440.png",
+      "bytes": 579801,
+      "sha256": "4a43a3db8ef036319450cb6be6738c915409b71c6a5a5df7af2b33f71d3ba4f5"
+    },
+    {
+      "name": "sacral-quiver-ko-390.png",
+      "bytes": 244646,
+      "sha256": "19a07014d2c4235d689ae0517fcfeac4ba0ef805a161acf2ed8d5295d137870f"
+    },
+    {
+      "name": "sacral-quiver-zh-CN-1440.png",
+      "bytes": 595107,
+      "sha256": "8a435919fddf393aab4edce80b2039ed0e99b5affc1cf2d618e86380360ded6c"
+    },
+    {
+      "name": "sacral-quiver-zh-CN-390.png",
+      "bytes": 252467,
+      "sha256": "c75aff48800e698b4817dd6c33f21c68504a58b26a04bdf1c605df35946d878e"
+    },
+    {
+      "name": "sacral-quiver-zh-TW-1440.png",
+      "bytes": 599360,
+      "sha256": "9fe8ddd95afc9ada5ac5e9e75ee15e112a3f3058a8fb89e6da39ec0bbb42b622"
+    },
+    {
+      "name": "sacral-quiver-zh-TW-390.png",
+      "bytes": 255592,
+      "sha256": "945f2fb6cdc93eb75167725611107984239d10cab1e2a356acd34a48db7ec049"
+    },
+    {
+      "name": "serrated-quiver-en-1440.png",
+      "bytes": 592858,
+      "sha256": "68658bcbb2661ec43b12d254a4b54267285211d8cbed68c0ef5780eddaa0246f"
+    },
+    {
+      "name": "serrated-quiver-en-390.png",
+      "bytes": 256086,
+      "sha256": "584140fba06535ea1d4c2026a0381b9dcc00a190ce858ce91e522e64e84c1771"
+    },
+    {
+      "name": "serrated-quiver-es-1440.png",
+      "bytes": 606432,
+      "sha256": "6197c63eb50d0e1f29e56576708153fdced43fc3ab2adc5eef174632130e35c3"
+    },
+    {
+      "name": "serrated-quiver-es-390.png",
+      "bytes": 267688,
+      "sha256": "17e68b02155efe6f57dd602043068db9c4032a9f27ea56d2601087627bb92041"
+    },
+    {
+      "name": "serrated-quiver-ja-1440.png",
+      "bytes": 608103,
+      "sha256": "767983925fd3e5f2c172452919df0a11533be51a996e19eb41f2c81667d845e1"
+    },
+    {
+      "name": "serrated-quiver-ja-390.png",
+      "bytes": 265637,
+      "sha256": "48cfd4595d8f400982077fd9920c7e444cc8c7234a088b7a17b964e5f3b82d89"
+    },
+    {
+      "name": "serrated-quiver-ko-1440.png",
+      "bytes": 579327,
+      "sha256": "bab78f1e99da952fc166c1e4b77cd9f0171d8061841e46f573fa463b5ea91350"
+    },
+    {
+      "name": "serrated-quiver-ko-390.png",
+      "bytes": 242753,
+      "sha256": "52e9d5b5a5d6d20d4f56a16e72eed305c111b9bde8613152e6705ab317172822"
+    },
+    {
+      "name": "serrated-quiver-zh-CN-1440.png",
+      "bytes": 595210,
+      "sha256": "1b4bdb8e867687f3e1524f52ef22f7d601fb761e8e85287b41837508561934ca"
+    },
+    {
+      "name": "serrated-quiver-zh-CN-390.png",
+      "bytes": 252366,
+      "sha256": "c26b0904b11cee47f00214839d3f804fdc5b91e32a99c2c57a1674f450ede7eb"
+    },
+    {
+      "name": "serrated-quiver-zh-TW-1440.png",
+      "bytes": 599274,
+      "sha256": "ff59bede0fe397cd3c5f1f5b95f0424dd48151b3809ada5324d12309ebaa180b"
+    },
+    {
+      "name": "serrated-quiver-zh-TW-390.png",
+      "bytes": 255553,
+      "sha256": "fec301a848417b233bd4a6ca0890cb5f00cd2b62561581ae9fb67d51c5a41124"
+    },
+    {
+      "name": "solar-overflow-en.png",
+      "bytes": 629312,
+      "sha256": "7bc322794e952e0af9257c6d20cf6c4bc3155d10666d209b8bcb13498004d671"
+    },
+    {
+      "name": "solar-overflow-es.png",
+      "bytes": 642654,
+      "sha256": "6b11ec7e14b92e027bdb23369eb4fe842db97fd41f5c6f3f109472b14cbc5c38"
+    },
+    {
+      "name": "solar-overflow-ja.png",
+      "bytes": 651777,
+      "sha256": "2ace48612c3f33e7892a0bddcdef3f55c720acb6403135b4002a27d07393e1ff"
+    },
+    {
+      "name": "solar-overflow-ko.png",
+      "bytes": 620437,
+      "sha256": "866c125fb5a9f1acdd1985b17e0d51ad21900024c2a2bc90af0c58f760be83dc"
+    },
+    {
+      "name": "solar-overflow-zh-CN.png",
+      "bytes": 647279,
+      "sha256": "0037ebb40f92d58f322139f1c66ff6d8bcb2e8a53392ae19f9849a8f17ce0bae"
+    },
+    {
+      "name": "solar-overflow-zh-TW.png",
+      "bytes": 653571,
+      "sha256": "c948d36dc6d82dc4c274ae7238dd3227e2ec086c2dba2fb285ba6e75d1cb7054"
+    },
+    {
+      "name": "toxic-quiver-en-1440.png",
+      "bytes": 591757,
+      "sha256": "f91843a35d8f85946e14e63f08d61bda4472b10139fe146abe00d2d27fada47d"
+    },
+    {
+      "name": "toxic-quiver-en-390.png",
+      "bytes": 255060,
+      "sha256": "18d23c621e28336f69697b0397bdd30a48872ce0a957ee14a77592302e469cdc"
+    },
+    {
+      "name": "toxic-quiver-es-1440.png",
+      "bytes": 606406,
+      "sha256": "728f4ccd212cb168a327f62feda029b92ee9db8a240967835e16e02377b9b0b5"
+    },
+    {
+      "name": "toxic-quiver-es-390.png",
+      "bytes": 267873,
+      "sha256": "17f0905890ac653dac2c0e64786bb977e0db917bc1b5bfb2fb7caa94adb0bdf6"
+    },
+    {
+      "name": "toxic-quiver-ja-1440.png",
+      "bytes": 606309,
+      "sha256": "a6b4403db19c8f6cd52648479efcb2e9e79a8497182a66c3b4ae633423821942"
+    },
+    {
+      "name": "toxic-quiver-ja-390.png",
+      "bytes": 265557,
+      "sha256": "d938285969228ca4b042f6e9c8e29df924d96de87629e69489da503b4d90bdf7"
+    },
+    {
+      "name": "toxic-quiver-ko-1440.png",
+      "bytes": 581308,
+      "sha256": "c7526e3ad0e9853e1362471e5349803da77d243942ca39fbae6973e760bf6d10"
+    },
+    {
+      "name": "toxic-quiver-ko-390.png",
+      "bytes": 244182,
+      "sha256": "3987e0616d1385dae05e99d6427cdcbb52e849fee34b365bea69d4b6bc5c0ee6"
+    },
+    {
+      "name": "toxic-quiver-zh-CN-1440.png",
+      "bytes": 595970,
+      "sha256": "6bd2b400d9a0f83cb6b6ff4fab2024e1897c3577768d6947c91a605cd0744af0"
+    },
+    {
+      "name": "toxic-quiver-zh-CN-390.png",
+      "bytes": 253001,
+      "sha256": "486ad8be37098bf0ff96c126f08b3164f816153f907c8baa2e9072155f4a51ab"
+    },
+    {
+      "name": "toxic-quiver-zh-TW-1440.png",
+      "bytes": 599733,
+      "sha256": "ab4209278522d803eb26e54fc893e4019cc5abe3a8960f0c3bc1ecc701b61020"
+    },
+    {
+      "name": "toxic-quiver-zh-TW-390.png",
+      "bytes": 256026,
+      "sha256": "5569109f8311d89af98b8a1ff6c6946698bc0fcebe6d03645d28efcc62fca9f1"
+    },
+    {
+      "name": "two-point-quiver-en-1440.png",
+      "bytes": 592925,
+      "sha256": "acb88b76bf1466bbbc26a784a5d3cfe282558a59a8be931eccc22aa9f3ac85f0"
+    },
+    {
+      "name": "two-point-quiver-en-390.png",
+      "bytes": 255449,
+      "sha256": "c2337d991616d7fa46da025f2e59e5b53479fa70add03f668d4a6edc6d1e058c"
+    },
+    {
+      "name": "two-point-quiver-es-1440.png",
+      "bytes": 605155,
+      "sha256": "97465e24616fed23777f41d79b44d7c9ffa321f27bd5b05dc1e58b99e40ac262"
+    },
+    {
+      "name": "two-point-quiver-es-390.png",
+      "bytes": 266378,
+      "sha256": "9b4496047027a4abfcce05c47b35f3f1910286d5aa771f4b9242a31a92b63b61"
+    },
+    {
+      "name": "two-point-quiver-ja-1440.png",
+      "bytes": 606181,
+      "sha256": "ea82bbf10f1323e56f9622a95d2bfa31b4e4b7d967e6458a638ddcdbfb9b439e"
+    },
+    {
+      "name": "two-point-quiver-ja-390.png",
+      "bytes": 264340,
+      "sha256": "bac727a339d065a3f6866adcbb3fec23fc56fbb40b35fab5f3e1331bafe08be4"
+    },
+    {
+      "name": "two-point-quiver-ko-1440.png",
+      "bytes": 579582,
+      "sha256": "137a0bf838d1c08ac09fe595d5edcdef51efd8ccd8c2aa106a74f84bc2e6cd41"
+    },
+    {
+      "name": "two-point-quiver-ko-390.png",
+      "bytes": 242882,
+      "sha256": "9f77ec6520a8ff120ee56e7f01c6db064b9ccc3b7610ed0f90d11bf43f9138b2"
+    },
+    {
+      "name": "two-point-quiver-zh-CN-1440.png",
+      "bytes": 594326,
+      "sha256": "a7759547ebeb0e35b94e5475d06f1fd2af0c9e4f360068fc3c75c7413dc23125"
+    },
+    {
+      "name": "two-point-quiver-zh-CN-390.png",
+      "bytes": 251567,
+      "sha256": "ec090434f8153766675d9d7a39609de3c3123497988499302f9c6fd336f6be7a"
+    },
+    {
+      "name": "two-point-quiver-zh-TW-1440.png",
+      "bytes": 597613,
+      "sha256": "e5ec8a0e82e1a1eff657d118db52cbb85b7812f4a6375361fd0e7feef8429cf6"
+    },
+    {
+      "name": "two-point-quiver-zh-TW-390.png",
+      "bytes": 254156,
+      "sha256": "752e1e176c553c88603fbea634cc64a884a8532652b98eba5f4df966317daf0a"
+    },
+    {
+      "name": "visceral-quiver-en-1440.png",
+      "bytes": 592352,
+      "sha256": "e2a8e97cde9648837f3fb86541b5cd556293a92fbeb45e25df0c2351e0b2d6db"
+    },
+    {
+      "name": "visceral-quiver-en-390.png",
+      "bytes": 255635,
+      "sha256": "7f1cb713567da58e7845d8a9132dadbe826137626bcab94d03cad63116cd7d9b"
+    },
+    {
+      "name": "visceral-quiver-es-1440.png",
+      "bytes": 607249,
+      "sha256": "b8bb30575cd36375122f7fb1c44672352d5aa4634f32944a2c6eb689173615ef"
+    },
+    {
+      "name": "visceral-quiver-es-390.png",
+      "bytes": 268407,
+      "sha256": "f461201d62e691693c230cdf7ca941b8b8e0958e2228c6718dcf3498cc1c2f5d"
+    },
+    {
+      "name": "visceral-quiver-ja-1440.png",
+      "bytes": 606120,
+      "sha256": "dea5012f820b776b329e3b619bd80c6e2f8063ee576249fc6f7bab26ad1a9d4d"
+    },
+    {
+      "name": "visceral-quiver-ja-390.png",
+      "bytes": 265402,
+      "sha256": "b952ed439dce67e7d3f9ce06d79f57519437afd944893c4cf358c9c971067d23"
+    },
+    {
+      "name": "visceral-quiver-ko-1440.png",
+      "bytes": 581217,
+      "sha256": "3c40bfe0a15b184af267da08a4178f0409ccf408f19ecccbf007dd282b646765"
+    },
+    {
+      "name": "visceral-quiver-ko-390.png",
+      "bytes": 244218,
+      "sha256": "3983d0d2d953734a9f6298e573c7716f1cf00dc6c8d8a01afa64fc4b64953d81"
+    },
+    {
+      "name": "visceral-quiver-orange-en.png",
+      "bytes": 624164,
+      "sha256": "55aeb3c59e47f2f33d1af41baf50ffdcfb7e1148f03335467dbf5b1dafa30229"
+    },
+    {
+      "name": "visceral-quiver-orange-es.png",
+      "bytes": 625100,
+      "sha256": "a453e5b90fe422d964e9582bb4f806cb62ab6ab430822c1528814eb21598a501"
+    },
+    {
+      "name": "visceral-quiver-orange-ja.png",
+      "bytes": 636897,
+      "sha256": "5dd1baf9d7e5d30029997b9f1bd67fcb0955608626044ccf55789749a164a5a1"
+    },
+    {
+      "name": "visceral-quiver-orange-ko.png",
+      "bytes": 610282,
+      "sha256": "081bffb9e61b2afcaf3351d66c6e710968dc5b6b9172a4e09f83160e3faaafce"
+    },
+    {
+      "name": "visceral-quiver-orange-zh-CN.png",
+      "bytes": 625330,
+      "sha256": "c4adc5a5669516bb0e7ec41070f5061f8101139135a700c37344c0a47c702180"
+    },
+    {
+      "name": "visceral-quiver-orange-zh-TW.png",
+      "bytes": 627940,
+      "sha256": "1e2968d266e6a92a889732b0d17abf34d4cfcf760cb7f2bee8ac3dc6679b2827"
+    },
+    {
+      "name": "visceral-quiver-zh-CN-1440.png",
+      "bytes": 594366,
+      "sha256": "090302811ec11e21c5659166e1f51fd955da9e83051bb36eb83b3344c6c503be"
+    },
+    {
+      "name": "visceral-quiver-zh-CN-390.png",
+      "bytes": 251799,
+      "sha256": "6272c8e80acbd4a1a06474260ffaa1613bf9a26339c9f731d69e7793324b7590"
+    },
+    {
+      "name": "visceral-quiver-zh-TW-1440.png",
+      "bytes": 598356,
+      "sha256": "d3c9bd4e2d4f6d39411080225ff14ae58bbf9511391038cdec87187d6a7a466f"
+    },
+    {
+      "name": "visceral-quiver-zh-TW-390.png",
+      "bytes": 254883,
+      "sha256": "1c0b003a80018a892829e10cdff984d58cd3a8ba189ad05f6224f8d2792a50bf"
+    },
+    {
+      "name": "volant-quiver-en-1440.png",
+      "bytes": 591705,
+      "sha256": "c8889d382df97f3b0b2ae642de7252efd308522806bb864c0bffaf37b2ee2b7d"
+    },
+    {
+      "name": "volant-quiver-en-390.png",
+      "bytes": 254728,
+      "sha256": "5ea3a39105965f95593fa2885603efe5fda5c64f2fc5d58ff2e3824806b37d46"
+    },
+    {
+      "name": "volant-quiver-es-1440.png",
+      "bytes": 605053,
+      "sha256": "f18d8bbf0b168ec09573de6bfd633e6c04ad00a4edc92510a7c15ec697a3baae"
+    },
+    {
+      "name": "volant-quiver-es-390.png",
+      "bytes": 267206,
+      "sha256": "6d80900d28a5a174cfd9c1b7516543fb26eb0be33cb84cfff8e10eec653b5147"
+    },
+    {
+      "name": "volant-quiver-ja-1440.png",
+      "bytes": 606518,
+      "sha256": "6528e55a4bef8645529e51d8843315bc9e86bfa4004b3ae382d0e51c85a8ba8a"
+    },
+    {
+      "name": "volant-quiver-ja-390.png",
+      "bytes": 264493,
+      "sha256": "f4a347d9d7c2a10b7f702e158c48435e3d5f5a99c1b175891f27a0f97af3b316"
+    },
+    {
+      "name": "volant-quiver-ko-1440.png",
+      "bytes": 579216,
+      "sha256": "2fdc488e6c644e65962b6c15e8593e68cbb19fe13a003d477a74634fd8ef8156"
+    },
+    {
+      "name": "volant-quiver-ko-390.png",
+      "bytes": 242563,
+      "sha256": "50e82aa82c46edbcdca6ed7453fa0191de126811d28af5b869d47b8cb9078c96"
+    },
+    {
+      "name": "volant-quiver-zh-CN-1440.png",
+      "bytes": 594000,
+      "sha256": "8160ee2d128b3a3b7e568551f9018e4791bfb1a2b84e13518ccb060ac104c715"
+    },
+    {
+      "name": "volant-quiver-zh-CN-390.png",
+      "bytes": 251631,
+      "sha256": "f97db4d5365d4f76d563981e8d567925aee6d2ed8b5f185be8a2a15a1dab907d"
+    },
+    {
+      "name": "volant-quiver-zh-TW-1440.png",
+      "bytes": 598080,
+      "sha256": "6a1ac79cac586dc8bb6e05e192aa07a376741b949ff75bc3ca973b77d5da6cc9"
+    },
+    {
+      "name": "volant-quiver-zh-TW-390.png",
+      "bytes": 254627,
+      "sha256": "3db1227d2df5f3cb79e0d37cfdfc5e956e5b4c7cb6e953819af83d58fd1b15ba"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/cn/Grinning_Mask",
+  "retrievedAt": "2026-10-04T15:38:11.537Z",
+  "sha256": "6609502f07dd1c3b49de82f901e80c2ac684ba2c4c808832e91d10192a3ebe42",
+  "name": "狞笑面罩",
+  "card": "狞笑面罩\n        \n    \n    \n        \n            头盔闪避值: 187能量护盾: 57需求：  等级 80, 63 敏捷, 63 智慧\n        \n\n\n\n        \n            Grinning Mask",
+  "requirements": "需求：  等级 80, 63 敏捷, 63 智慧",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "狞笑面罩",
+    "Class": "头盔",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
+    "Tags": "dex_int_armour, karui_basetype, helmet, armour",
+    "Icon": "Art/2DItems/Armours/Helmets/Basetypes/HelmetDexInt06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, helmet",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Helm",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

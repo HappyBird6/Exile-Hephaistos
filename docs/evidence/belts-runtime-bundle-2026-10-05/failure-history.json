@@ -1,0 +1,59 @@
+{
+  "failures": [
+    {
+      "stage": "source collection",
+      "error": "Sandbox EACCES and prior output overwrite rejection",
+      "resolution": "Authorized reads and new-only isolated paths; prior outputs preserved; no denial bypass"
+    },
+    {
+      "stage": "Frontend attempt1",
+      "error": "Linen absent requirement incorrectly imported as Level1",
+      "resolution": "Exact six-locale source absence retained with requiredLevel0; scoped source identity exception checked, no skip"
+    },
+    {
+      "stage": "Frontend attempt2",
+      "error": "Forking duplicate literal1 corrupted a generated placeholder; single-stat binding count omitted nine additions",
+      "resolution": "One-pass source-backed numeric substitution, exact reconstruction assertion; retained canonical values and full tests"
+    },
+    {
+      "stage": "next-candidate review",
+      "error": "Flattened HTML joined Level55 and implicit100 into55100",
+      "resolution": "Original inventory preserved, reviewed candidates verify source HTML boundaries"
+    },
+    {
+      "stage": "GGG provenance snapshot",
+      "error": "HTTP403 from collector",
+      "resolution": "Golden Obi raw snapshot preserved; official patch page verified by public web reader; no retry overwrites"
+    },
+    {
+      "stage": "Frontend wrapper",
+      "error": "Trailing blank CR row after all required commands completed returned exit1",
+      "resolution": "Each required command success verified in preserved log, including1833 tests and production build"
+    },
+    {
+      "stage": "API attempt1",
+      "error": "Abyss requiredItemLevel1 generated invalid ilvl0 fixture but expected200",
+      "resolution": "Assert minimum1 crafting succeeds and ilvl0 returns422 Problem Details; other minimum boundaries remain atomic state-equal"
+    },
+    {
+      "stage": "API attempt2",
+      "error": "host.docker.internal ConnectTimeout",
+      "resolution": "QA app health UP verified; same assertions run on private Compose network into new attempt3;1248 checks passed"
+    },
+    {
+      "stage": "Implicit attempt1",
+      "error": "Historical bucket fixture omitted nullable concrete fields",
+      "resolution": "Apply established concrete null-field adapter to Rawhide fixture; retain exact state equality and blocked Divine;84 checks passed"
+    },
+    {
+      "stage": "Browser attempt1",
+      "error": "Frontend decoder rejected verified Belt null quality cap after successful HTTP200 craft",
+      "resolution": "Permit null only for reviewed Belt class; add13 actual-response accepts and13 forged-cap rejects; repeat full Frontend checks and build, then browser into new attempt2"
+    },
+    {
+      "stage": "Frontend attempt4 formatter",
+      "error": "Locked Prettier required second pass for a newly expanded method chain",
+      "resolution": "Second pass on exact new test file; npm ci/lint/typecheck already passed, continue full format/test/build into new log5; formatter settings unchanged"
+    }
+  ]
+}

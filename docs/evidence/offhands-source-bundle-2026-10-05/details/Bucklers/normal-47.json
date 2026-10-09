@@ -1,0 +1,78 @@
+{
+  "row": {
+    "Name": "Fecund",
+    "Level": "65",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedLife"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(150<span class=\"ndash\">—</span>174)</span> to maximum Life",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "helmet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e308a429180565f71c593cac93b5e9da24266beb12b3f6673d538abbd8ff5bee"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife10",
+  "textLocale": "us",
+  "detailText": "+(150—174) to maximum Life",
+  "retrievedAt": "2026-10-05T04:19:08.305Z",
+  "sha256": "e308a429180565f71c593cac93b5e9da24266beb12b3f6673d538abbd8ff5bee",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(150<span class=\"ndash\">—</span>174)</span> to maximum Life</span></h5>   <span data-tabname=\"Fecund\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Fecund\n<tr><th>Family<td>IncreasedLife\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>65 (Effective: 52)\n<tr><th>Gold Price<td>2203\n<tr><th>Stats<td><li>base maximum life <span class=\"badge bg-primary\">150 <span class=\"ndash\">—</span> 174</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 1</span> <span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>14</span>% less damage taken while on [LowLife|Low Life]</table>  </div></div>",
+  "fields": {
+    "Name": "Fecund",
+    "Family": "IncreasedLife",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "65 (Effective: 52)",
+    "Gold Price": "2203",
+    "Stats": "base maximum life 150 — 174 Global",
+    "Spawn Tags": "body_armour: 1 shield: 1 helmet: 1 belt: 1 default: 0",
+    "Craft Tags": "resource Life"
+  },
+  "code": "IncreasedLife10",
+  "stats": [
+    {
+      "id": "base_maximum_life",
+      "min": 150,
+      "max": 174,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "body_armour",
+      "weight": 1
+    },
+    {
+      "tag": "shield",
+      "weight": 1
+    },
+    {
+      "tag": "helmet",
+      "weight": 1
+    },
+    {
+      "tag": "belt",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

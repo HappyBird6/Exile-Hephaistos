@@ -1,0 +1,1504 @@
+{
+  "root": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4",
+  "total": 374,
+  "contactSheets": 48,
+  "visualReview": "All listed contact sheets reviewed; source-backed compound roll captured on Kinetic Ring because Amulet pool has no multi-stat definitions.",
+  "files": [
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-crossclass-rejection.png",
+      "sha256": "a13c9686c086c80a2e513d3e1ae0e0ff8b28b9a82d9c4d9a3a6269041060a572"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-en-1440.png",
+      "sha256": "036313b4206378c039b5c467313b992f90bbface4a6d8893dfd15cbec94a0c98"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-en-390.png",
+      "sha256": "d246c221a7304867cd37f845b82391b6b4778a8f17e1025807cff5104d956a38"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-en-catalyst-repeat.png",
+      "sha256": "7c933f1b365ad49ff3bb0a8653459dcf6b23a2b70ca51987d5fd73c89c3a733b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-en-quality-overflow.png",
+      "sha256": "f18540785363890c38c642666c3618e30e65d24aa7e8a675cce73bc8e98bdebc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-es-1440.png",
+      "sha256": "10a3c1ab32e8597d2b8fcbbb09a2a82b26f516975f1da21de147f19f3bb9e588"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-es-390.png",
+      "sha256": "0b6b6e1b287fd5b9ffea6fda3a1d38a3b6da5d9a97332b68492bb36eba17006b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-es-catalyst-repeat.png",
+      "sha256": "c716fab7a730e973df1aecaf76de41b0bbc341538602616aca67f7d49eb383f7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-es-quality-overflow.png",
+      "sha256": "5b6332aebd636347c92a0675845d990f5199b6176c1b6af3642d8324187420e6"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-ja-1440.png",
+      "sha256": "ffb24ed95a61d08b2ef75703b661b1728b9f7abf22b6d5cdd133b55c2c6c4dde"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-ja-390.png",
+      "sha256": "23259d515257c337c4beeb0fbd9bd76cbc5571cbe8e72a2386fda4f35717dbf1"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-ja-catalyst-repeat.png",
+      "sha256": "46cdce7dd770253aabbc2922c0ea827b5982c7c9701a43c323bfc918e15e15f8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-ja-quality-overflow.png",
+      "sha256": "1966abbc8baf6ada24bbdf49412cecfacba8639bdbeae2818d51797c6dc960df"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-ko-1440.png",
+      "sha256": "993683f37f02f04beb60f6d8e6d55d7e3f169c17d2ea34bc0e66c170999f358f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-ko-390.png",
+      "sha256": "1f5d86a217829c44ff2da220b5b7571dfa31b8d9144f64448a0f52c238fb4793"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-ko-catalyst-repeat.png",
+      "sha256": "40f0320cbe1a8bb5c1642f59dac9e9431933a9b84a71db30e6ba76753342b81c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-ko-quality-overflow.png",
+      "sha256": "083304aa6ea7f5a71bad14f45fea97ca08245d48a292ea750b98a7915ae106cc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-orange-preview.png",
+      "sha256": "c0bf5710262d3a8149f8fd2ffe2e4949ae3611c37b9eb69cf70fe275896168c0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-zh-CN-1440.png",
+      "sha256": "2edac1e8e2586ea537d812f583b641c16d054a66c1ef7c375ddfd5912cc332be"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-zh-CN-390.png",
+      "sha256": "e60bacaa074a15de8b8daea06c9cb0b09c10cb9fd53cdf3080b6770c994728ab"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-zh-CN-catalyst-repeat.png",
+      "sha256": "23e784a69db812b8526435b252c40c78b8beb3723663f86e82e761d03d601c7f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-zh-CN-quality-overflow.png",
+      "sha256": "a72885822e3542f57f5388418e19eb01b846886c4ab36b7f3587b3e6f2f5887e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-zh-TW-1440.png",
+      "sha256": "03260db7bc46017ae15781828eac26b8fd4decb4560ae3a29c7d63a65e7a6b76"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-zh-TW-390.png",
+      "sha256": "30d61b19e783e42d4005802f7191a1dc3a5d1d4d1033ae2572f2a0c3ae1ead0e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-zh-TW-catalyst-repeat.png",
+      "sha256": "2b97562a31c6637b0e1363903b24f1888f7960d2077923d77e4cb35a375bc06c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/amber-zh-TW-quality-overflow.png",
+      "sha256": "f9def1c0455e754187a8014112b5f4ab395b76d15eadc1217a2bd7cfbb49cb4d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-crossclass-rejection.png",
+      "sha256": "1a07e2cda2ddefd7188d1454fcd37737fadd8732de812aabc2c7737795f4a45a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-en-1440.png",
+      "sha256": "eb2925ded6b79497a09982f717eeebfcb56e82a4b4bf1beae680e5da1fd45219"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-en-390.png",
+      "sha256": "76528976ad3db30d4016a998adf50f45b0ad6c3e7b7e48043a942e851c3e24c9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-en-catalyst-repeat.png",
+      "sha256": "efe455e809dd9b0b13c7b836b3513c2e366bd56096880944a3dd7a2353545b1d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-en-quality-overflow.png",
+      "sha256": "9b89a59bea53f7e97145b285ec703281e44566aa535622aa6053e80ab61df157"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-es-1440.png",
+      "sha256": "a4ff7e19a93fb3ff80e53894745b5e8045e555ca37261794e162da72e395ea01"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-es-390.png",
+      "sha256": "21e2d690f5ba7722485517c71efa8db1dcfefea0900bfcfe8135c759c00c1f0f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-es-catalyst-repeat.png",
+      "sha256": "183d4c69d8f91d4834ebdb3dc86b16d21d66d83142b06edf3063e80667d48859"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-es-quality-overflow.png",
+      "sha256": "949dbcd0430dbd34037c85296e1b888de9ee212c1178919aa121f38c0f2cea83"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-ja-1440.png",
+      "sha256": "a8f1d6c8b8a70fcc1bbdcda29eccd18c7ae83ccc9fa80bbbaef8519906b6da4e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-ja-390.png",
+      "sha256": "37708fab6ce327b79c8edf1c5e8947a4aab731b1033d325bf2b91ed5339bd7ad"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-ja-catalyst-repeat.png",
+      "sha256": "83e96b3073d880979f1f3a204ef23b6fa32c22817296f8c35e74aff851b7a95a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-ja-quality-overflow.png",
+      "sha256": "7a0528eb92a843d8bf746992f064a4697d4c48b90205ddd1e07617e2fea8b82d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-ko-1440.png",
+      "sha256": "d7f1cf2599e4999801ef9f1ff437aca5bd70b4c5905ad99100d77e96a5620592"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-ko-390.png",
+      "sha256": "0b014fe84111eacd8414865ba42b2f5c16d7527cd144b55a1ba81169e8a663ea"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-ko-catalyst-repeat.png",
+      "sha256": "25b3205a75d2d4c24b521313e945ba6301a8d20f98b384e2570bab4c9c7da2f8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-ko-quality-overflow.png",
+      "sha256": "6a83570b86eb4f1affdfebb5df38006a760c8f399f10c9a0638c0d7fda7bd72d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-orange-preview.png",
+      "sha256": "db168d693bd94f30ac2d0cf909a8c699c1a023042ecb49e01861da07b3f85aad"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-zh-CN-1440.png",
+      "sha256": "a3a49d62b03e46a7c226ba0dc238d9af068446057f2869ac6aba23df65ae75f3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-zh-CN-390.png",
+      "sha256": "ddb14d0ec825a48f14269a9ab822a15bcf888c95667e7699b07b115ad1c17c12"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-zh-CN-catalyst-repeat.png",
+      "sha256": "185ab87a6784b7cfb55a6869d8ccbb0ee9b918ce1f74d0f82615d12f7ccf71a2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-zh-CN-quality-overflow.png",
+      "sha256": "170be975a1fefc9af68b48c155f892e75087dfc6681b1d88e6fc18bacb8b28d0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-zh-TW-1440.png",
+      "sha256": "3c677690dffeb4204c76f518acffb9995a9cf7aec973323fc07732d8596df7ea"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-zh-TW-390.png",
+      "sha256": "aeb77e086da51d6dc181c0cdacdc652fd1140d1dd56da06ebe0268c7d691c9e2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-zh-TW-catalyst-repeat.png",
+      "sha256": "8ef35de603ad4b7313c4b82fbfc259cf0eb7ae139a8041c7a11ea1c8d85b442f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/azure-zh-TW-quality-overflow.png",
+      "sha256": "9035f3ff52f08d64a4f67e0674dd5808edd8ef6bb66479e72cde90c9260c3ed5"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-crossclass-rejection.png",
+      "sha256": "5f3a5230b450fc4723556442df7d8c6379f9196e7be043bd74ffb49ca3350514"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-en-1440.png",
+      "sha256": "c26c4b7ea860e7a5ede1824abbb3e7977ac172a514578c8fc1775365219644cb"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-en-390.png",
+      "sha256": "8f3548fae7e0c2c0a7352d030f9609917d73de69233ad36025ca88ca1f2e45c8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-en-catalyst-repeat.png",
+      "sha256": "7b4a730d3e61b9edcf63c19e456a2646049076631db24154e84148f92bdc875a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-en-quality-overflow.png",
+      "sha256": "7d40de396347d7c8dbd30cffcf2ca1d90209d691fdd5568c3004222972f561f7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-es-1440.png",
+      "sha256": "2386f13397ab853d5c93d2a18c8c5038a317a67901af7958c320961cab57db97"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-es-390.png",
+      "sha256": "318f21c11a87a2a7ac4287a496746146ed03bfba5081647487c4c9e6d2d1cc46"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-es-catalyst-repeat.png",
+      "sha256": "12a0afa35b788fd806e9906b6fa853e515d71c05b0c6352b010eb3aa52aa746f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-es-quality-overflow.png",
+      "sha256": "ce91efebf238840ee57266885f733434166a79ae2867e9681cef16a49d269de0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-ja-1440.png",
+      "sha256": "a0194578e2febad01843afd5b08c4fed1f358c2e32c6b91d95bc1c96fe1bad82"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-ja-390.png",
+      "sha256": "ea66321be30b63138d30b40633e0b38b9c6ddbe48d810581ba46d9e02627e0b5"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-ja-catalyst-repeat.png",
+      "sha256": "fe95035e20b0e2efe2037fb7edb9025e092c335e2e70e2242343fbd2ba4d5795"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-ja-quality-overflow.png",
+      "sha256": "2baf770ab8c12715765119e10e94d2a3b91515bb596b50b213c39df23bd626b9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-ko-1440.png",
+      "sha256": "52d757cdcdd278bab5ede8112f801304a039552b151ae71673e9d6b56694e192"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-ko-390.png",
+      "sha256": "1dc9ee836ee639a021c62ccee3411b9a94349df6906f163277a913e1f8ab1e3e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-ko-catalyst-repeat.png",
+      "sha256": "76a1b78e52123c42d26ad2daacb6ea0ba2a6b7216cc9461c71fb81ca24b9f433"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-ko-quality-overflow.png",
+      "sha256": "7df1ef2f77b6e17e2792d6ca0f9a4a52ea14d1ceb1275b9c29b0cf54a5615a42"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-orange-preview.png",
+      "sha256": "aa0de248a8aeeadc7caad3fa55e1160a2771f5b5f0cf875b454a0f933c926fe0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-zh-CN-1440.png",
+      "sha256": "2324da0a0aaacc9ac124fadfa863dce397b52e4aeb85c9f5a42538f29f7365c4"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-zh-CN-390.png",
+      "sha256": "5ac698b0ecbd4317dce16cc595d9e2f861a45234e660713a997e441aec061bbc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-zh-CN-catalyst-repeat.png",
+      "sha256": "46f61dab493eac151b16f3ceeac41c0d1eb1b1a550397e5e7d35bfdb14a7a789"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-zh-CN-quality-overflow.png",
+      "sha256": "6e7703049057b6c9a9ee6c8aa4a1296f6b7458131f8d74e321f41acf9e167be3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-zh-TW-1440.png",
+      "sha256": "bdeb8a014df9231b0da879b640f9675c39cd56ecf361872ca3bda50a0db3c5d6"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-zh-TW-390.png",
+      "sha256": "82c29471c06c1330d9bf2414038685df0aa389c411ee740c9bd3e29bb870f228"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-zh-TW-catalyst-repeat.png",
+      "sha256": "8991de2564e222957a4daee6aa2bf5d9fe8104676aed2d0a5f4668e0004528ee"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/bloodstone-zh-TW-quality-overflow.png",
+      "sha256": "b153ff315b0c2c43e7d824ee585e255661772af24dd17f6e25203a411aeb09a9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/amber-en-1440.png",
+      "sha256": "7b6512c4e0b03fba1c5119ed7d44e5ca867aa4030047ff3c1d2ba05e8554d2b6"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/amber-en-390.png",
+      "sha256": "1d748a69c893c34569c97a1bfaa726e1f1bac4c805785217e32ca84802c4f9c4"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/amber-es-1440.png",
+      "sha256": "4624035b6f73524e7dc1909c0314cb064d06b3291477b034fde048701e54d664"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/amber-es-390.png",
+      "sha256": "e319a506dfc95c78a10b81f9693261a2d5e9772dfe1c6f2a045e546b945ebf83"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/amber-ja-1440.png",
+      "sha256": "8efd5772ff40a4662cf5664b754fe1790471353dce68a856431b33c68e9bdc07"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/amber-ja-390.png",
+      "sha256": "0486c7e2d44a6452e1e0075242dc25c11980f2dcc3911e78edb1b15e2bdb48c2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/amber-ko-1440.png",
+      "sha256": "4da61024a6f546f9ae054f880b0834b652a1e3f049053d3fe5e6704f35b175e5"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/amber-ko-390.png",
+      "sha256": "d8e85b60b84a7e4bd75b10362c95839747010e66f7d7989313b27d9551be8cd8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/amber-zh-CN-1440.png",
+      "sha256": "0651dd41045142e2300d84eabd86058e581a177df11661c210603137994b5b3c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/amber-zh-CN-390.png",
+      "sha256": "249bdbc94a2fda6bae5a9e8a19f19486b6828fecf68f5683c47743591fe6cf91"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/amber-zh-TW-1440.png",
+      "sha256": "e8aed52c4af3154477ff6a136e16fd709bb3869a628748a249ce7a13705f71de"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/amber-zh-TW-390.png",
+      "sha256": "1754cadd343043564e71d4042fa7e14d2e4ab889facdc8f155c0a736efe7394f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/azure-en-1440.png",
+      "sha256": "6c5928e2fc97bf4142c67c1f513014528923e928755d950c16c651e02cb06e87"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/azure-en-390.png",
+      "sha256": "9b0561738afcce370632c83cc8fb971bb061909c0ff99c75cadd33b3991d29f4"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/azure-es-1440.png",
+      "sha256": "3873e2a6ad8057e8990d933f372217de37c2e0f0e13e2093293431743d72222c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/azure-es-390.png",
+      "sha256": "769879a09ba7188c2a042ffe0de40429179b231383582b1896f05a96108a93b1"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/azure-ja-1440.png",
+      "sha256": "f7b1530013d27644038ae5c98bc6e7cd6db4b264d4c863d19757ecd132229182"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/azure-ja-390.png",
+      "sha256": "0bc340483b1dfa599ce9005d2f81aa6aa638aca0fe409ab65ecbd4e8afeaea84"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/azure-ko-1440.png",
+      "sha256": "1bb3199dbd4914d644023f6bdb3fdd126a6bcf192cc32fc2c0114b70934018cc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/azure-ko-390.png",
+      "sha256": "3bb410dedf112640da9cc50e7e291b67a155c0031fb4813972221f30fe294563"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/azure-zh-CN-1440.png",
+      "sha256": "bb59c7bc02693d73b37ca5d9e294eb30443db999a157e8e19a02ba20f2ed148f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/azure-zh-CN-390.png",
+      "sha256": "5d69d340b22d942fe7c7455787274205ccbb5531d6fb0da99c64830cf544d8af"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/azure-zh-TW-1440.png",
+      "sha256": "bb07fa7575cb1ab6d60460975ce22004b5edd49759d635c8301be6f8fc4c1271"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/azure-zh-TW-390.png",
+      "sha256": "a25982e4ba55075ebea92d2ebc8336b33efe3012486c4bdff60fbeb8e08a0b0f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/bloodstone-en-1440.png",
+      "sha256": "026327fee373e096755e64ea7c84bd2db3f3624d5bdcad0400f2387d7e1c38a2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/bloodstone-en-390.png",
+      "sha256": "fc88adde21d26f3dfb51689f84f33019cfd0d9c8975b921f36575941714713b9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/bloodstone-es-1440.png",
+      "sha256": "e199404299aab7afa2daba32c685ebcb0c0cdfd5c6d991c288141cd1eab05cc0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/bloodstone-es-390.png",
+      "sha256": "c13cc7012af3ec72ee93943a6c3f9b01c7ecfef94667e1c707d7c50fdbc483f4"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/bloodstone-ja-1440.png",
+      "sha256": "2c9165d5b1b746feed3cd7b5086a4861013308b821d3e8499dbe2a731d868bdf"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/bloodstone-ja-390.png",
+      "sha256": "6e20ea1c76356f5685fdb0443f7eeed136ae038e15b214845c5ba39acf30b056"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/bloodstone-ko-1440.png",
+      "sha256": "1f8a53d405a746e220a4b057f1ac34c936ebcc5daa85626f27906192158b213f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/bloodstone-ko-390.png",
+      "sha256": "4f90f97002767499168de04dcb2748abf9332e859f3657a3db2cde47e1facf29"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/bloodstone-zh-CN-1440.png",
+      "sha256": "7c5f87a83e94da1ee29eb6d7920309adbc322c9a76ebf8cc6cb1b72952aa099d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/bloodstone-zh-CN-390.png",
+      "sha256": "f91dd51aacd37f3394c4a592b948e89704619d555d8e1773fba2cf1908107793"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/bloodstone-zh-TW-1440.png",
+      "sha256": "26c9f3d2d58fefab0fcc707f6db506f49f85e6db8a5e178de09307b721387547"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/bloodstone-zh-TW-390.png",
+      "sha256": "30507cb31997d9a406d1e441188ba528b1f3eebcbf598f9aed33e1f632948ca9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/crimson-en-1440.png",
+      "sha256": "7a2a5f4986073a896ff137f3f9639e80fee23731019d1d0bd16dbc9e7cc9ae87"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/crimson-en-390.png",
+      "sha256": "0a9ee46a047beacbb3ecea44f3b14c90adf89581259589b2fad6e3929156ee9b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/crimson-es-1440.png",
+      "sha256": "19410f7b5be565b6aaa23891dd0cc929be5a1cf676f5fdfb95ae372b622a21f7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/crimson-es-390.png",
+      "sha256": "7791c7553bb026d0f6634609be9377c0f3391a10c097c139aaef6078af2a261a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/crimson-ja-1440.png",
+      "sha256": "06a8c7366093854dae24d251020f35d4b901638e1cbeb220685099dff5e21185"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/crimson-ja-390.png",
+      "sha256": "6d8da11ad9d6101927e182bc0e9d38b2ee378063cbe5c4841f3caa47c6631fa7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/crimson-ko-1440.png",
+      "sha256": "73963c05be557753563a5acb5c6fa3b57497f0a9bc2e8d7f8fbc9bb176e7e175"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/crimson-ko-390.png",
+      "sha256": "f8a51de2cd2cbe5af99e4d3aedb985ecc5fbabac24a341d5e3eb8d445755dd14"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/crimson-zh-CN-1440.png",
+      "sha256": "a5d72d217a11b334d4fc2fa18fdbd98c590d6319368cbad4394b6cbb5eac2cb6"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/crimson-zh-CN-390.png",
+      "sha256": "82473d82d7f420de9082677232d6e77991cc15fc95e9209d29d6156582dcf71d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/crimson-zh-TW-1440.png",
+      "sha256": "a4792fac2dd78eb809b9d331b3f0f6caea1fb41a8b369272b88dcda6dee02fff"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/crimson-zh-TW-390.png",
+      "sha256": "6037352fe0e48ff0b5c6bad597e12c3d0885aab9b3349ddac503706188aca138"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/lunar-en-1440.png",
+      "sha256": "4c03bd9c9f4de011e65de937e11cf0acc430ceb4a339e305df1495c7315f9c81"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/lunar-en-390.png",
+      "sha256": "7f10ff8273ccbeb24b1c0f51a946fbaf2dca976e4b6874106e9aabbfa7dab77c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/lunar-es-1440.png",
+      "sha256": "c97368cfc3482f9074ff10afdba5dd93722b24c1d508fb567ad31f8318b6292f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/lunar-es-390.png",
+      "sha256": "385af37ee5a91712890a8c41ebcafcd03c87564eb5df5556bdf904924147d8bf"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/lunar-ja-1440.png",
+      "sha256": "a491256059186c41ceb74f173872c04a1b6b8c65c172f028e17e6a986fc9e8c8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/lunar-ja-390.png",
+      "sha256": "2be13521dbbc1fc7b6ef46ae358cf5f2d04a355a564588c5251423e28abe8a2f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/lunar-ko-1440.png",
+      "sha256": "554def2126c774d1f8822ea102a8328d4f36c299c6e1e22f2d44ffd3b6f3a184"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/lunar-ko-390.png",
+      "sha256": "9d1b70c61237c10e1885cbfe2fad22a894857a722dfc5f5f84f31266a613c98d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/lunar-zh-CN-1440.png",
+      "sha256": "e8049512d5d987724982164d9b4f16bac0893a9969280a80cb3a49b3eb8b6f60"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/lunar-zh-CN-390.png",
+      "sha256": "12eed4edfe5499b5792599f51596bd5bdfdca72b44059cec2a1ececbc092f3eb"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/lunar-zh-TW-1440.png",
+      "sha256": "f0ee63e32e29d8fce9d18e36a1db3d129cd91578de3ef148244ba58ea89692e1"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/lunar-zh-TW-390.png",
+      "sha256": "4c21dc9eae74bf1ba5b40c192051c66882d999517544a0f21f6638a848ee1713"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/pearlescent-en-1440.png",
+      "sha256": "b2f1d32e837c645bcc5690c295f0aebecbb442271cad933af4fcb5b23fde3246"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/pearlescent-en-390.png",
+      "sha256": "3b46c25d94f6f80636bfdd6fd446e98f9a36b6cf1032c3a27d078e20100bc384"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/pearlescent-es-1440.png",
+      "sha256": "2e5b8b39809ce49fbbd2979121e2facde1c4f32c1dec14d02dd6457c80f026f3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/pearlescent-es-390.png",
+      "sha256": "798b9a1eee6c2658293a3a1f59b4bfa8742f2244b17a17a143c58ca52d9e6b6b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/pearlescent-ja-1440.png",
+      "sha256": "e6f3488d2777ec4855988f4d9b857235218f443485e7b3688c9e7d185c36a28e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/pearlescent-ja-390.png",
+      "sha256": "42d588effd9660955d8cefb44aeaab910916cc3badf1328c825752dfb7f14661"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/pearlescent-ko-1440.png",
+      "sha256": "74829d0db3bb129c25aa563d7be71dedbede6e44a5ed8d186b71a9a71d3c5e50"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/pearlescent-ko-390.png",
+      "sha256": "84ac94a92ef4da844214cbcd53bd007a60ca06fb1f1c8ba90eb19d3ebe2f369d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/pearlescent-zh-CN-1440.png",
+      "sha256": "e1835fd5cba366e2092a57f478642c46cb64816bfeee8631793530e4f84956ef"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/pearlescent-zh-CN-390.png",
+      "sha256": "61d14ba257a62808de5e374d85709fb4a4a2ec0d9398bcb23fad2e5e332e4396"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/pearlescent-zh-TW-1440.png",
+      "sha256": "dcb5994db8c5557f77e6071602549c16e57d978ecfb08c929eb2f225e77c4f35"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/pearlescent-zh-TW-390.png",
+      "sha256": "e1fbd7822e8d442b68d272003694e19a8aa30f2b25057a80d90fac5ae6fd2326"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/stellar-en-1440.png",
+      "sha256": "156e61f2a6e4410e1dd49749fc574f4052f5b894d562c8ee5cde0a3c23fca614"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/stellar-en-390.png",
+      "sha256": "f80fea63e71314e8ad942b7f968bdd520724a552e89bd653caa0ca63672fe083"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/stellar-es-1440.png",
+      "sha256": "07975e8399035d1aea779a303098c51b76d573e839a4b2eff9734fe4fb722fff"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/stellar-es-390.png",
+      "sha256": "555ba4bf9c6bba3d03219a355eaae5c34a8c6b01d8bf167602bcc8d4864ef4dd"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/stellar-ja-1440.png",
+      "sha256": "d6ecc1436b5dc35f1ab463fff22a9ef99c81626253954d08730ab0aa9b6d194c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/stellar-ja-390.png",
+      "sha256": "4b112516e007451bd3cb4adb914c39a43afd5ab93db072c54444dfda3900e305"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/stellar-ko-1440.png",
+      "sha256": "1c417d1dbc4c801225151f902aa0634e021edef37fe1a553eede20d37e485ccf"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/stellar-ko-390.png",
+      "sha256": "ef7b47a59cb2d5ba47ade56f546c2de8a58028d1af386206860fa65a19d9f91b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/stellar-zh-CN-1440.png",
+      "sha256": "00d36cca64f4328d26e1fa195951fd8bd664062a838a5b63b8513199ca2a2c7a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/stellar-zh-CN-390.png",
+      "sha256": "096775f44a8c9ecd9c4d1ba02c78459b7d52d2e60db17828b37eecdfc8b6a5f9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/stellar-zh-TW-1440.png",
+      "sha256": "7a7d335f0c7ed3fc309f5cefa43f1723d38c9ee52018ad7169d317621a18c7f7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/cards/stellar-zh-TW-390.png",
+      "sha256": "bb39b35c6eebf4fe0bfb8100937739c621c286f661cb3b6ef077ce9fceeb7afb"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/compound-en.png",
+      "sha256": "0880cdcea3ff1edc7b783ac38c1cb3f2a313b1fcf7e015c9b7fff6bd15685a45"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/compound-es.png",
+      "sha256": "f995ebe2176ccd033f81580f1ef5f80693d7453a279462b7d9e03dcbda224537"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/compound-ja.png",
+      "sha256": "e6e4ddbec8b05fc8c99ec9aa874bf8e46aa2001ba39e4ec4f3891cce60463cdf"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/compound-ko.png",
+      "sha256": "2cb0d5bbe59fff65ea10bc595a9b3034c21cd9c5838ef22a0f1b80fc8401217e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/compound-zh-CN.png",
+      "sha256": "3f49f217f30a89da96250f9128cfb6f64cc07561a416b1b83246bda86029cdd3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/compound-zh-TW.png",
+      "sha256": "eb4bfe25c48a53a257be8f087663dd1d4440d7344d7d75401a59ff58a3f27dde"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-card-amber-1440.png",
+      "sha256": "001f9c8cef64bd63dd4b905a3aa1433196a405aa08a155183e0a51acf9d691ba"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-card-amber-390.png",
+      "sha256": "ee3a002671b0c34a90017e108498cca6f41c4156b0dd2e8f33e35e8a9119db65"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-card-azure-1440.png",
+      "sha256": "0162a83d94b7bfb6dba0742552a1838d0029b8245eb5996ce05de49db0ec930e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-card-azure-390.png",
+      "sha256": "b8b5d2d671951e324909e191b0a2fcf053c17e9f4dd1130c6daa6d04d0a41f41"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-card-bloodstone-1440.png",
+      "sha256": "be6b04329f0366e1f6d65a8ca6b62deed7e917a044875f1441619784afe87cf5"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-card-bloodstone-390.png",
+      "sha256": "8b7b1cecec706580d687a23edfb26c0c281e51bd26f071aed1fd78e3cee272c7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-card-crimson-1440.png",
+      "sha256": "361280921056694f42b16eaa3f3063cee6b76c363d0073f3be70e81f9369175f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-card-crimson-390.png",
+      "sha256": "f9f6235e87939043fa6a86460fa173ad565b3c2f254a594ac85678159159204b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-card-lunar-1440.png",
+      "sha256": "897717a991df544fe549b8bde12f6e675f583887428f782fa4ad2c1f5036469f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-card-lunar-390.png",
+      "sha256": "f4bdb8f10ba46815b42c9dc0ffdd3710ba7a902a3e6919da612f41bd8e1e6af3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-card-pearlescent-1440.png",
+      "sha256": "1a406301a4e8d3268377fa7c6c0dff1fde1760cc0d8b23a3f169fb1ee49d741b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-card-pearlescent-390.png",
+      "sha256": "c00a75ac1938fd0121c3ed280b642cbc5b1feae2f3ee5e55fdeb1f3caac63c10"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-card-stellar-1440.png",
+      "sha256": "4b481ea923fa42c3c07c7bccafbe7a0b4db5d2fb897352a01262d382ba72af5a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-card-stellar-390.png",
+      "sha256": "27ab309f433246c2131368b8b9cad1b7af90f5f4cebd4bfc9f77d025397a3132"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-full-amber.png",
+      "sha256": "33b9e23cb998174e802b4987fdfcc9bc411ebbd2aece35f20b55fc08b8ca06c4"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-full-azure.png",
+      "sha256": "0d0d129b29dc1f6b4cfda4eb270d72e2d7e88d2537662551ba428ed4ea815a2c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-full-bloodstone.png",
+      "sha256": "3a180696804ba427c3503f4f83858b8be7e4bd253cba0f646c1853d60fd159a5"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-full-crimson.png",
+      "sha256": "3f247bbe0afacd99c8aa426083af18dc8708a5eff7ed9a145beb1ce454033d50"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-full-lunar.png",
+      "sha256": "28ed0a437befe26097b5c5902a8679a310ad958d0ea162b0aa1fb87af3758886"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-full-pearlescent.png",
+      "sha256": "8e2236a8bf5efe55762e4f619e64d8ac08b46b1b9a2deae0be004782935a9b48"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-full-stellar.png",
+      "sha256": "cb569f6983f5830e3be2b158d1763ef2672185a280b875cd40ac4f3bf503b4f4"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-0.png",
+      "sha256": "4456d929cff0a99098d55488298a65a222aba8fd5efa43253f6cde07f57e85e0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-102.png",
+      "sha256": "9eba21292e32983dbba7db7ca2da15e2ac0e682b9ba78564a5675f3dfbf5324b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-108.png",
+      "sha256": "0c3b30da92eedb1b93fff20fe3f2ecefbec8d3099c34b038594dcd19764e9967"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-114.png",
+      "sha256": "729ddf9de7a160395a32cb276f2baa759082ecb6f9ee0e2399cef28371a9aa89"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-12.png",
+      "sha256": "c65063c3ad8512833f1356444fa20a18399df5be8f11ca3d8c357621ad081818"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-120.png",
+      "sha256": "11714e9e5a9fc9b4f8b9785836dc35cc9ca807fd73c85675f642cc266c0ac59b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-126.png",
+      "sha256": "f221b28cf5d8bd2a7fca635fc227a4f78a349e3c481f56e0d6c458e19fbabf46"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-132.png",
+      "sha256": "d0194ea329bab5da62e722f9a2a769083cf19db9d07d2aaa54277fbb73e20d1b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-138.png",
+      "sha256": "5d861088d2ce3b46e7556894a56f36b4099514b26900a86368905d77e12d22a3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-144.png",
+      "sha256": "91e1102f41b971a1428f318da8872d15c1d10a074bba378ace7294656fcdf612"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-150.png",
+      "sha256": "e0928c695a06131e8103ad112fd96459bac6ddeb7f4e30c548cf713846a62431"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-156.png",
+      "sha256": "8366ed5ad122b8398b9480d056c6da0468019bb86a96f1f9587f38d0c6f54777"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-18.png",
+      "sha256": "e6f5122036a2a0ba3e2626cb153129ed1a0c1277dddfa3a8a3dc711ebb6828b9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-24.png",
+      "sha256": "b4ac0986ad9eaf0eeb73afbd1cc7c139de645815696f393f7c09a6557534a94f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-30.png",
+      "sha256": "df5f20d773d93c5f59b412788addd885ae1142c17aeb99620826db2e108e82fb"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-36.png",
+      "sha256": "df7c3a35b1f862e4c0a50322eed0aecd2b6005d41d54931184aba67bf3bfb4c9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-42.png",
+      "sha256": "a0bf60a6ca42b6e46a231f5d31c3d4d05e11059d8185e6bd4ffad3af34910179"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-48.png",
+      "sha256": "72364705d42f8322aac8cf945b96e46245dbcf25fbcb8102919e070b99357b84"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-54.png",
+      "sha256": "122a58bb06770c90c4ae77c36b65043332525f09157e1dd505495f4c47458173"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-6.png",
+      "sha256": "e582f05462ba9d95ce68cf3dc11e338875b99bbbaf0188832bea281872482bbd"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-60.png",
+      "sha256": "733eff4d2b97c96f0900483af8e2037ff9d6e29fdbad53d0a832c21bb27ae455"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-66.png",
+      "sha256": "8dc903787aad5ff57bb92d67f1ed28a05f13866880d9c939c71c65f3a43cc260"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-72.png",
+      "sha256": "aa1e1c58c8c298884f18a09cf5073766e2bab234942bf6fa6a2f9d0a3f3dfe76"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-78.png",
+      "sha256": "66ec60a881fe715dbdd3c291e8230e65ca21a1660fd9fb2d256d351d0a56a751"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-84.png",
+      "sha256": "cdf52a9926a4aef9c001563ad9f1fb41107f4b1def1b601b8245ece114db0329"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-90.png",
+      "sha256": "c6027d326e885f309b9df1fcad4a962297a69184d9b8e61f24a5a6b953d790a7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/contact-remaining-96.png",
+      "sha256": "28d30722af7858436f5fea517bac199f59b603cdf87cbb7cb6d5d2adae0cca5f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-crossclass-rejection.png",
+      "sha256": "f5f5205e446e077e500fd877775a2cb4a7474c1f1efb376450ad71023f3b580a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-en-1440.png",
+      "sha256": "e64f5d62f1e231d33db8224d2b7937b6b57bba2be1036e5bffed58c7dc732694"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-en-390.png",
+      "sha256": "3509422eadd0b272357726493052e3eef5d662618e8b36904d5454363f48d877"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-en-catalyst-repeat.png",
+      "sha256": "ac228f49a3264171480e46acd993cd51c14b054693790e72a877c6b9663d45ec"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-en-quality-overflow.png",
+      "sha256": "e1f98bac9f80613420e002ebf4175a933ccacd84a4f7c38fa6ce53e66357e308"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-es-1440.png",
+      "sha256": "f777b70b00c74888c1a988b25c85b3b7f979b37197ca786ce8d942f8d5490d47"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-es-390.png",
+      "sha256": "60cc833d498985522e0aed0f63e09e5e337bb96cd99ef2fecd3850626ca1f9cf"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-es-catalyst-repeat.png",
+      "sha256": "17a5896c54ee544d452c68e3badaafc99c052f957ed8bf7c38a9fa415c8747e2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-es-quality-overflow.png",
+      "sha256": "8264d351a3ae1abb782158147c99256769c9348f2c65557633014eeadde8ec33"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-ja-1440.png",
+      "sha256": "fa50bc5bb51923f3ed3d628d96fb515fd18d7608f09261b2082d2c579f0c6cd4"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-ja-390.png",
+      "sha256": "eb61b84ee6a03e694065938af14c58ecc9d8b0d4638eeeafe04010b1a355d33d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-ja-catalyst-repeat.png",
+      "sha256": "3959bab9d007d06f2fa61760fc880f1e004378d81b31c83547125687ba86a8f0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-ja-quality-overflow.png",
+      "sha256": "981e8a12c1d7644e58fbb16b4221a57461c7ad26d134b7fa86bd22efe1058f64"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-ko-1440.png",
+      "sha256": "914231b23b31ae6a330ef7bbb9ffbfd2499ebe005e59d65ecb9339dde9c5bba1"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-ko-390.png",
+      "sha256": "4a62b60f0004a960ae61e10a553ebf955e170f7a3322ddf79d79b6a3a80d8f00"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-ko-catalyst-repeat.png",
+      "sha256": "af14abed0b70b1b7ba83a58f50250dcdb6dceeb2ee38bf5049883287255d535e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-ko-quality-overflow.png",
+      "sha256": "a508d489552dd26d011361d49d8d25456e5b94c36d6ac252e569e7fc2dbb7d16"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-orange-preview.png",
+      "sha256": "14109f66cdcaa4ebe182bfd667c61f8fb08900c15c56bebd1fc76b928f28cfae"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-zh-CN-1440.png",
+      "sha256": "0c84f47f4e418a73b74076d4543c86a319396d722fa86dce9db48f8632163a4d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-zh-CN-390.png",
+      "sha256": "6a071e7ef568ae38cc636afa5e355a806c35fc9a48c038e557b44b06bd68715b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-zh-CN-catalyst-repeat.png",
+      "sha256": "9106d470c4c7572a77dda2ab17ac254d4f802e60a6de7433a7339b7df4a56715"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-zh-CN-quality-overflow.png",
+      "sha256": "73ce4046f953bebff55c989901337cc71a3bd9a08b1396620f8293b6447e8e91"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-zh-TW-1440.png",
+      "sha256": "73c93714823c506a9bb76e04aea2230aa6bc46aa0caa63566d47d47dfe46b345"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-zh-TW-390.png",
+      "sha256": "2bf9a2bfdd5037025a1abbd0956ce2946d1f1c5595485279b6cf2af560d7e4df"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-zh-TW-catalyst-repeat.png",
+      "sha256": "c06ef6aef9af98018dc1deb992d4f5e167c55e0ed5894d37d5900f31020f80cc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/crimson-zh-TW-quality-overflow.png",
+      "sha256": "9842998f9990ce4d968eb83237c37ea36ebe97635080ee38d23f641ea0fb1aa1"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-crossclass-rejection.png",
+      "sha256": "7be4aa200bbdbbe96db7719ca7ff7f6560097dda21c8410c5e3717e71648f723"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-en-1440.png",
+      "sha256": "8d2f56faa3e2f9f847336f1e0fd9a2d1d9d4dcd6bc092a1a195ccf370f909330"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-en-390.png",
+      "sha256": "9bd5a477064c5fb5d3877bb962acd8f82bfb655fc0794fa2f57ef30a04011694"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-en-catalyst-repeat.png",
+      "sha256": "d7c9d25e7fd7f05a66041072dde40f3c62f405466ce25cab65449ce583de7df7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-en-quality-overflow.png",
+      "sha256": "9865686eef7c7e2fdd7de555c6abb00c1bcf8b27f76df47f80c3857f1fbb4310"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-es-1440.png",
+      "sha256": "6a0b664bf8cc541a17cd337c2cc735dff3b228b29cadae4f00bb57ff8a472be5"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-es-390.png",
+      "sha256": "99f7b94dc08a1523f52863b30e1007c32400fc70a35a54f8a3d3c3f4aa91307d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-es-catalyst-repeat.png",
+      "sha256": "4f36d93b4262a5d17ec5e48109c442eca7ad97b08547cbc091c1916523078142"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-es-quality-overflow.png",
+      "sha256": "1331b617ccedb1e4018b2aa596cb8095bc7d8fa1793aa057adb961928d2b1d58"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-ja-1440.png",
+      "sha256": "db240ed9b7479a91db81d54691dca311329e67cb38e637f6064880e6193cd46a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-ja-390.png",
+      "sha256": "4487ba1a07d0332520e81d032be7e4f229e21facc1615819b6a02e4d80637cf7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-ja-catalyst-repeat.png",
+      "sha256": "d8fd8bdfb3ba13318da5e4d8e235048ee4d70e255f03c0ee79091ee0bf29d25f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-ja-quality-overflow.png",
+      "sha256": "548d0687899bcf30fcdb961b01a0bd587cc5d3767c5417f6a5db60dac68e5a68"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-ko-1440.png",
+      "sha256": "7431e40a16b28cffc794059db66c9d2b3fd7e2f5c174f18c3bb2a995625e4fbb"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-ko-390.png",
+      "sha256": "400cf08c111bf8756cd3144573e547242916c4c29c0a9dfe54b9f0a291834645"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-ko-catalyst-repeat.png",
+      "sha256": "791bf608c226823310be92cd9e076bda319935db7aeb37715dfa042deb21d6d2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-ko-quality-overflow.png",
+      "sha256": "3137613c27df3f29dc2e37ff97bb131589f37cb6c252d76cada4fdc23bbbf6e8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-orange-preview.png",
+      "sha256": "c1067b70932af70af41e4d94d993607477a827f8e337b6c5ca9053e408f65e8f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-zh-CN-1440.png",
+      "sha256": "70fffb0e3692c465be1c8f6142d96f8df9afcf17813e82fc21262941316dddd2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-zh-CN-390.png",
+      "sha256": "9e9f24aa56f265285048d4924bbdd848c5436f761f5887266bd607157df391c6"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-zh-CN-catalyst-repeat.png",
+      "sha256": "9d0b97259ef05beb3b4bdf610fcb83c10f79bbca082b3783c375c0789e8f61af"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-zh-CN-quality-overflow.png",
+      "sha256": "3bde100c5207a2a7798ab80b241b871f1f7f4bd52a25e144ac2da57ea5b20bd0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-zh-TW-1440.png",
+      "sha256": "0c949e8d06db48ee9371b6fc77a2d9f7f2c9814e5731ba826719a91e9e04b756"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-zh-TW-390.png",
+      "sha256": "9770bd9a521a38229916253c9e90b12347b50b42ddf964d8481e76787baaf14e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-zh-TW-catalyst-repeat.png",
+      "sha256": "f62bab9c8e23898e7917549143ed436c1a13cd689c8a047b1ce77d08d990cb5e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/lunar-zh-TW-quality-overflow.png",
+      "sha256": "51b1ad31805a22131621107285af5ae3172f4430d21d601855855224b87cbf99"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-adherent.png",
+      "sha256": "b66861412f882a07152ce7871d68a4bec4a267403d1b87b6f763369e990f102d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-amethyst.png",
+      "sha256": "df893dcb1a0fec8531b0b4638dc591cc054c6e28b2185a3769f9e25f27ef8ea4"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-ancestral.png",
+      "sha256": "6b8f7ff9be6edbb8b5b874f3edda079351a2b88f57d98d90acaea9ecbfa06bb7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-belt.png",
+      "sha256": "12d4f0b3a02b4c8bde2a34373eff4ef464944a7ee0bd3739387910cc61fe0bf3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-blacksteel-boots.png",
+      "sha256": "c76619fdb90389c457846364a2fd43e0bb95241168d5ec5b6feccf85a43f78cb"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-blacksteel-gloves.png",
+      "sha256": "fb1091196c8adfe3bfa80ac432017e6ad43598ab443f443b806a747e6c64e0d0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-body.png",
+      "sha256": "284e10ec0ff0f3e328d46152132e333e269d777334120b2a3f5203f88fcea7ab"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-bow.png",
+      "sha256": "6e13a125388e56bf74851a49293d083520a957bb05a66c52aa42afdef901710c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-cryptic.png",
+      "sha256": "de19a78fea8bd9f1bc471383e60a8bc6e292656808873387730eac7c2ecfd90f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-daggerfoot.png",
+      "sha256": "55ca340d0c3a87b783bc51a15c89c92b2689377ab9be59e1b466a1652cffb556"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-death-mail.png",
+      "sha256": "3fa7bf7b941baece3d94dd483096c1ca3d4eafa1aaa2646fb44339d26d87dda0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-diamond.png",
+      "sha256": "930cc532335aa04506cc6f67a46983d20b385d14d714aeedeaa9ebc7c70813b5"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-drakeskin.png",
+      "sha256": "0679d86f8912c8885b048c202accf03a96f4a6124bfee1535499e4335a3dd435"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-emerald.png",
+      "sha256": "482f99cc9b6b66bbaca1c7f0715649aa604ff84720371e8abb2dd14ce76b459a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-faithful.png",
+      "sha256": "9b74c570e1688acf5d850bd2e6d7400091f2ff9ab062795e3cf92e3d7d5876ab"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-fanatic.png",
+      "sha256": "24dd9ef9892478f88d14df020f71b0dcbb1fc12cfd32674b5f8f5b844cb16387"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-freebooter.png",
+      "sha256": "be35cbe74a7ab1b63d59f5c184bd88dcf15752691a8d4b8f4c904ca4c33e0851"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-gemini.png",
+      "sha256": "6863e08b1174f02e1dc2485e3f2db9fd6e86edc446e990cf05c8a544f74f9a8f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-gladiatorial.png",
+      "sha256": "e35ec42a8e446f653cf43f7cb4181ef816dfc1174ffb9641b5708fd980aaa7d9"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-grinning.png",
+      "sha256": "a02649f99512206f6456c9175d2fffc446c494264deaf26ab9aa077a1f1d6141"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-guardian.png",
+      "sha256": "ae1c757c217527f1c9029057e8c1721c128907b806e4ccea96f7c567feba5c26"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-helmet.png",
+      "sha256": "4eaf0fae9471537b767adeabd2509de86cd6fa99bd4c3e47a8cf09ca819f5c32"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-imperial.png",
+      "sha256": "b0bbee456af2dca157f8b1ecd2e11e80580226f50540c462e61571e36f5e4398"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-kinetic.png",
+      "sha256": "b77cbb592b5b08427f435c103bbbe130bc6d96ed9408f15a9f77bc6c34764873"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-massive.png",
+      "sha256": "3f24877384a3b8a41593a1c667ed42c9903c2b9e8e84db6406cfc305b30e548a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-mnemonic.png",
+      "sha256": "e776c0d460b63d6b8b98dc39d84ba9e67bce831dbb03d494943e794826b41811"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-obliterator.png",
+      "sha256": "002f041cd46bf09f648dfa5176270597fed08119aa87e98620f96ce8f2b02858"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-pearl.png",
+      "sha256": "44c539af330538924a30383a46f12d40dd0065c7c47415e5038c8a312b749db7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-polished.png",
+      "sha256": "3488d7168992d9ae1f9246f32f48cd4edafa3aae196906b5743332db8a37ceac"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-prismatic.png",
+      "sha256": "d75835bf434a349f2e5040eaa5a85140db4e40af93185a781d6931ddbd1895f1"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-ring.png",
+      "sha256": "23f487fc339c5c342fc22c2ed2fe67612db3d23584196de8327d0aaac494fe67"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-ruby-ring.png",
+      "sha256": "70b391a137de9793112c40a37e0d06d07d30e8756f7294366fe9f7d0acf73c70"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-ruby.png",
+      "sha256": "bc2f72b1a4e5cdb6ed39fcc2e0f11b102313549b3bc65278e95bb0eb15157ee5"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-sapphire.png",
+      "sha256": "b3d1326a0eb66a4b288139b676fc6ed47e0daa146406c48eb452257d47545fc8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-sceptre.png",
+      "sha256": "00d7cfbb6af9058ebfe27c1aa1a15bd92cefc3a4fe5c14efaf32728236952d24"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-sekhema.png",
+      "sha256": "e7a3ecb49ad9261047323f0362c62bf6c75a126099647058a514f423fed5ec0c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-sirenscale.png",
+      "sha256": "2881c8c7f6314bda938350f0189e65f1e2584b3189a782b9fc45f69d4338dafb"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-sleek.png",
+      "sha256": "d274e7a415377048d4628b607c38f821c01bddc8612ca11a354936e3d313f2a6"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-slipstrike.png",
+      "sha256": "7b7281ea46c24f208560f3c101f9aca05c2f6d5a226b9de03ea01b666f855228"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-solar.png",
+      "sha256": "9202009dfe584f959c56bd905f7cbd5ce22edfa283074e5fcd7b70afaecc6a8c"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-soldier.png",
+      "sha256": "452905e45df414f488d9cfd1406f18762124df209933b4d95cedab6e45de0565"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-stocky.png",
+      "sha256": "cff96bdf5b715b0139d04c9a86e5dddbffff26210351a7d073accf490636affa"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-tasalian.png",
+      "sha256": "7ddbbec2caaf1fd8ba124d13c5128892325ace3ab7a01519b66892a1a6a66051"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-time-lost-diamond.png",
+      "sha256": "f94ef00d872bab86fb470a2e5cd349c5567ca8b79c1edd596bcead9161389734"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-time-lost-emerald.png",
+      "sha256": "517b6b06b3f02c0c45faf47beea91b6458cb5091af1269a8ac01d1190cfaac52"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-time-lost-ruby.png",
+      "sha256": "36fbbf3a2a5eb75c11a6991f550e3145d3e8812c34e0cd44caa318e361ee0336"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-time-lost-sapphire.png",
+      "sha256": "cc1705c8484390dcc3943fc04ddf10aa7364c1b437240e6992993177de0d9e18"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-two-stone-fire-cold.png",
+      "sha256": "ed92c00976ddc3b976bc5a1b3b6d5b8f839becdb7f7a300eac725812a651ee62"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-vile.png",
+      "sha256": "6aae8ecd00f576d11380ceb92b07d32d0f5eedc4dfe129b53f817cd97fb97c9a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-vitalic.png",
+      "sha256": "54bf46bb7150a6684c34c4b9a0c36dd5bf58a5acbd8154a521e07d0f8e0cd3c7"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-wand.png",
+      "sha256": "cf11f36c039c55ca485bf32b812b17bbea7e5244fef70377eb2431148cbbe4c1"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-war-wraps.png",
+      "sha256": "0cde8645aae8be030b638fd2a86057e12e0ea5ad185d37ba46851b491eee4cbd"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-warmonger.png",
+      "sha256": "078a28334d561869ea0188559ca18f61fb941ee147b2590b483f6ca8d74a8f6e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/old-film-wolfskin.png",
+      "sha256": "197b37bdc0283c1734dd45e843da4f41acb66f9c5524ec926ac34e164e8d4b97"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-crossclass-rejection.png",
+      "sha256": "a4992d9c704a68e66f8d409338e4d5f097145685c1fecc0916d733554e3bcb3e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-en-1440.png",
+      "sha256": "61b60518196e8462834f6f9e4855466f5999d8a4ded341e15309d191c1529dc2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-en-390.png",
+      "sha256": "0c475639f4d65e3abba10bdf09b6d4a5fb8485fbf6807f5060981e134c4942f1"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-en-catalyst-repeat.png",
+      "sha256": "20314121347a342f9897103f4962109e73340ea0fe21d144e9bfc2a26e0a305a"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-en-quality-overflow.png",
+      "sha256": "2f85af16112fa039d17ae6c226c268d143718f98ec8dd2c9135b765c999992fa"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-es-1440.png",
+      "sha256": "af28e0f65b4ae7000b2268abe17502df2109049fd5967451d17216f809b441c2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-es-390.png",
+      "sha256": "91e4bf433e85a7f5420436f1344a6aec802cc63f08d64560597dbe77bb7914e5"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-es-catalyst-repeat.png",
+      "sha256": "15ee2d66b6a77281ada861b03b918385634f2356e019a356864ca327cda8a250"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-es-quality-overflow.png",
+      "sha256": "8099bfde929dc39d7d6b1aee254d1212379b2112e8d79b4fd5f69d0afad44622"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-ja-1440.png",
+      "sha256": "586470e74658b4088cb67c0ebcfdb5d55b823ed268059b4f9dccdbdb7767bcb8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-ja-390.png",
+      "sha256": "90becf76ce749b2d49ceecd673d3b78d459821c10aa3cc25210b19bda7a7bf8d"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-ja-catalyst-repeat.png",
+      "sha256": "4535308d7b196d363fa94d39b25b20ad2679302574f657525abc4a66a0c23dce"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-ja-quality-overflow.png",
+      "sha256": "86f7ebc6fed53b63ba66078729beb43f0d3fcaf2f03959ac182939102c510e10"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-ko-1440.png",
+      "sha256": "958b54061a8afb051a4ea467690816b2ad687eb8e6cb92d5494b98c59e508e40"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-ko-390.png",
+      "sha256": "9fa8c6e7c3afbd81f84424b9f81281355cf6d4ee6c7e6daaae728ec0e2734a27"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-ko-catalyst-repeat.png",
+      "sha256": "7d7cc09863ba0688183f10d96d265779ffe990a6f92aec3a91bd166005a8ff51"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-ko-quality-overflow.png",
+      "sha256": "650a1250b6576f048821782c9cf6d49ae4903ebf5ec2a031b4a4bd3ff738b205"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-orange-preview.png",
+      "sha256": "b8733030fd82002510d2f65ede26a55fae8aaa75e916d84b43fc05b395300e48"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-zh-CN-1440.png",
+      "sha256": "b6f4a64e1f98e53622af63ea895182702542d3a235388526950eda15629c5e51"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-zh-CN-390.png",
+      "sha256": "3539dac47be531c2a6ae4eae2b7574fca3761cfb3338024373ef78f4c0c24000"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-zh-CN-catalyst-repeat.png",
+      "sha256": "f220e37a63c0bc8c2d86232a3733257f196695fb6a1aaed5e0f889387901189e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-zh-CN-quality-overflow.png",
+      "sha256": "b8fe436997f7c6f29d885f0e90c32aed899f2464f251b4fd0c7f30b428c8448b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-zh-TW-1440.png",
+      "sha256": "c5e04cb3ab1c4a40cabe21067f6b99012b64a1200745205e6ff85f06c7f9e130"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-zh-TW-390.png",
+      "sha256": "c50b99f11d66218048124aeacfcb81a0a60873c6878be6e1ff2913252dc08160"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-zh-TW-catalyst-repeat.png",
+      "sha256": "178d3b2f5092cdcb08f14f34c1883859adb2271693802c4f3f62a3459a8aaac8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/pearlescent-zh-TW-quality-overflow.png",
+      "sha256": "928c56fc2b7bfe4f4f5c37243109fd5917e22f1d6b4e49b4b716e03971f8d481"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-crossclass-rejection.png",
+      "sha256": "079e6f2ba63e0c0db149fb354054aedfd1da48c47372e60bd0d43136d722ff99"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-en-1440.png",
+      "sha256": "746f30d23ae5cf1ae07a7c0aa85856bab4b362ea7a68cdf00258ecff6d9be63b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-en-390.png",
+      "sha256": "fc152d2cb0c370a53ba43ba4c81fe911b92015a7c46c6dcd57bfc8255df29b82"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-en-catalyst-repeat.png",
+      "sha256": "0860ce14bc9fb0b8a820cd46a1c6e7f666a1edb11b3b0b2f5604941f2721aa6e"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-en-quality-overflow.png",
+      "sha256": "a29dde15e38a98120e2cb8a409fe81c750626d5a4dfce864cec4082e29aca102"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-es-1440.png",
+      "sha256": "4b14ec30ea82062aa33446cdfe5b70e21060f4b8ca9113835e2ede5c83404ece"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-es-390.png",
+      "sha256": "2070169991c200d3c555aef21cd3ea67463bca949ddaccb912db28f45036d8a2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-es-catalyst-repeat.png",
+      "sha256": "dc8c636e2736e9627494b8de2cace6df002c1a66011bf56d026a8371f9248cf8"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-es-quality-overflow.png",
+      "sha256": "9ba749bf38aa75d0d7b0e174fdea7a4dd33884374efc4d69be8f7f17d9d58664"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-ja-1440.png",
+      "sha256": "f178710811227839762d8c895a9a1f4dd17ed484f9f16ab956b2fc99bae4f13b"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-ja-390.png",
+      "sha256": "f101d8149c01d218065a12fa704f269cb10d08b6067bcdd44e2a1f196c3053fc"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-ja-catalyst-repeat.png",
+      "sha256": "43a995b1b3eb8c3bba6584a24c9eb18f2f71a1183da260769692700d2d533702"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-ja-quality-overflow.png",
+      "sha256": "28c01a86d55bca80d5c9d23ee05c69ae8c20bfd2e8e87ade555c089002f8a982"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-ko-1440.png",
+      "sha256": "fb18585a49c96274be77173925c55be4a0aa4af12dd10658c87a26af2c5e14cb"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-ko-390.png",
+      "sha256": "4382bae0b1716608434b5c74e3fa36d331fddfef8f1bffbfcee637d818a130fd"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-ko-catalyst-repeat.png",
+      "sha256": "078d187c7ffcc7f0d77c2ca31e5e53530c7846bed9df18bba5b2fe31c3ddd9d2"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-ko-quality-overflow.png",
+      "sha256": "19b95c52a6e27226cfff471f984327f7b95884d3a2ef107b7978614a9e96da41"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-orange-preview.png",
+      "sha256": "3793423ef7969ff26b91ab4101b9b3ba1534d133851af973aabb0463f29411ac"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-zh-CN-1440.png",
+      "sha256": "faf8812c66ec35bd88af99772565b7991d517fcb3e27d097eafe3df672c3d4bb"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-zh-CN-390.png",
+      "sha256": "a742e8cfe0c970d704d33b9af1d1134432c9bad945f2ea84a438f8071631a2e3"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-zh-CN-catalyst-repeat.png",
+      "sha256": "7aab87f29da7b249e061d66eb4dfddf5e3d29bf90eb4ca2986a4023b3c3711a0"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-zh-CN-quality-overflow.png",
+      "sha256": "f311c9b20a136104a409099f6ace779199830f2b3bd7218ff0a5072ab1658ed5"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-zh-TW-1440.png",
+      "sha256": "7e446e345b65bc4627fe3125a41d2b100b9374e5f6bd5236db9bd4cca2052237"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-zh-TW-390.png",
+      "sha256": "f30beb61760219f8025c812d251f1372de8af54cf00601e37b503af5d84e7b7f"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-zh-TW-catalyst-repeat.png",
+      "sha256": "c9143be216c74d5d0035e342049fb5df6960ca9d2624d8e9691a256821a38c80"
+    },
+    {
+      "path": "E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004/browser-attempt-4/stellar-zh-TW-quality-overflow.png",
+      "sha256": "09d0f78b1e46baff1dd08847e6130ca62de6b34ba9e35bce9940f4d687041027"
+    }
+  ]
+}

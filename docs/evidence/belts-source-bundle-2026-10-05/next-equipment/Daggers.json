@@ -1,0 +1,97 @@
+{
+  "page": "Daggers",
+  "url": "https://poe2db.tw/us/Daggers",
+  "retrievedAt": "2026-10-05T01:38:22.742Z",
+  "sha256": "91fba87d36047457a7a9227abec41ae8fa26039d0c9cffabba2e6c74ed3795e8",
+  "cards": [
+    {
+      "slug": "Ethereal_Blade",
+      "card": "Ethereal BladePhysical Damage: 5-10Critical Hit Chance: 6%Attacks per Second: 1.5Weapon Range: 1"
+    },
+    {
+      "slug": "Glass_Shank",
+      "card": "Glass ShankPhysical Damage: 3-10Critical Hit Chance: 15%Attacks per Second: 1.55Weapon Range: 1"
+    },
+    {
+      "slug": "Crone_Knife",
+      "card": "Crone KnifePhysical Damage: 4-15Critical Hit Chance: 15%Attacks per Second: 1.55Weapon Range: 1Requires:  Level 6, 9 Dex, 9 IntLeeches 4% of Physical Damage as Mana"
+    },
+    {
+      "slug": "Simple_Dagger",
+      "card": "Simple DaggerPhysical Damage: 8-19Critical Hit Chance: 15%Attacks per Second: 1.55Weapon Range: 1Requires:  Level 12, 15 Dex, 15 Int"
+    },
+    {
+      "slug": "Skinning_Knife",
+      "card": "Skinning KnifePhysical Damage: 8-22Critical Hit Chance: 13.5%Attacks per Second: 1.65Weapon Range: 1Requires:  Level 16, 19 Dex, 19 Int"
+    },
+    {
+      "slug": "Moon_Dagger",
+      "card": "Moon DaggerCold Damage: 11-26Critical Hit Chance: 15%Attacks per Second: 1.55Weapon Range: 1Requires:  Level 20, 22 Dex, 22 Intlocal weapon implicit hidden % base damage is cold [100]"
+    },
+    {
+      "slug": "Engraved_Knife",
+      "card": "Engraved KnifePhysical Damage: 11-34Critical Hit Chance: 13.5%Attacks per Second: 1.55Weapon Range: 1Requires:  Level 27, 29 Dex, 29 Int"
+    },
+    {
+      "slug": "Obsidian_Dagger",
+      "card": "Obsidian DaggerPhysical Damage: 13-39Critical Hit Chance: 15%Attacks per Second: 1.55Weapon Range: 1Requires:  Level 33, 34 Dex, 34 Int"
+    },
+    {
+      "slug": "Bloodletting_Dagger",
+      "card": "Bloodletting DaggerPhysical Damage: 18-42Critical Hit Chance: 15%Attacks per Second: 1.5Weapon Range: 1Requires:  Level 39, 39 Dex, 39 Int25% of Spell Mana Cost Converted to Life Cost"
+    },
+    {
+      "slug": "Mail_Breaker",
+      "card": "Mail BreakerPhysical Damage: 19-44Critical Hit Chance: 15%Attacks per Second: 1.5Weapon Range: 1Requires:  Level 45, 45 Dex, 45 IntBreaks (400—500) Armour on Critical Hit"
+    },
+    {
+      "slug": "Kris_Knife",
+      "card": "Kris KnifePhysical Damage: 16-48Critical Hit Chance: 15%Attacks per Second: 1.65Weapon Range: 1Requires:  Level 49, 49 Dex, 49 Int"
+    },
+    {
+      "slug": "Parrying_Dagger",
+      "card": "Parrying DaggerPhysical Damage: 16-55Critical Hit Chance: 15%Attacks per Second: 1.55Weapon Range: 1Requires:  Level 52, 51 Dex, 51 Int"
+    },
+    {
+      "slug": "Arcane_Dirk",
+      "card": "Arcane DirkPhysical Damage: 22-52Critical Hit Chance: 15%Attacks per Second: 1.55Weapon Range: 1Requires:  Level 56, 55 Dex, 55 Int"
+    },
+    {
+      "slug": "Cinquedea",
+      "card": "CinquedeaPhysical Damage: 21-62Critical Hit Chance: 15%Attacks per Second: 1.55Weapon Range: 1Requires:  Level 65, 63 Dex, 63 Int"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Cinquedea",
+      "card": "CinquedeaPhysical Damage: 21-62Critical Hit Chance: 15%Attacks per Second: 1.55Weapon Range: 1Requires:  Level 65, 63 Dex, 63 Int",
+      "requiredLevel": 65
+    },
+    {
+      "slug": "Arcane_Dirk",
+      "card": "Arcane DirkPhysical Damage: 22-52Critical Hit Chance: 15%Attacks per Second: 1.55Weapon Range: 1Requires:  Level 56, 55 Dex, 55 Int",
+      "requiredLevel": 56
+    },
+    {
+      "slug": "Parrying_Dagger",
+      "card": "Parrying DaggerPhysical Damage: 16-55Critical Hit Chance: 15%Attacks per Second: 1.55Weapon Range: 1Requires:  Level 52, 51 Dex, 51 Int",
+      "requiredLevel": 52
+    },
+    {
+      "slug": "Kris_Knife",
+      "card": "Kris KnifePhysical Damage: 16-48Critical Hit Chance: 15%Attacks per Second: 1.65Weapon Range: 1Requires:  Level 49, 49 Dex, 49 Int",
+      "requiredLevel": 49
+    },
+    {
+      "slug": "Mail_Breaker",
+      "card": "Mail BreakerPhysical Damage: 19-44Critical Hit Chance: 15%Attacks per Second: 1.5Weapon Range: 1Requires:  Level 45, 45 Dex, 45 IntBreaks (400—500) Armour on Critical Hit",
+      "requiredLevel": 45
+    },
+    {
+      "slug": "Bloodletting_Dagger",
+      "card": "Bloodletting DaggerPhysical Damage: 18-42Critical Hit Chance: 15%Attacks per Second: 1.5Weapon Range: 1Requires:  Level 39, 39 Dex, 39 Int25% of Spell Mana Cost Converted to Life Cost",
+      "requiredLevel": 39
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

@@ -1,4 +1,4 @@
-import { useI18n, formatNumber } from '../../shared/i18n/i18n'
+import { useI18n, formatNumber, uiText } from '../../shared/i18n/i18n'
 import { isTradePrice } from './itemCardData'
 import type { ItemCardData, ItemCardLine } from './itemCardData'
 import './item-card.css'
@@ -92,7 +92,8 @@ export function ItemCard({
       </header>
       <div className="item-card__content">
         <div className="item-card__class">
-          {item.itemClass || t('ui.unknown')}
+          {(baseItemId ? uiText(item.itemClass ?? '') : item.itemClass) ||
+            t('ui.unknown')}
         </div>
         <Lines lines={item.properties} />
         <div className="item-card__section">

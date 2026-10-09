@@ -1,0 +1,65 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "72",
+    "DropChance": 0,
+    "ModGenerationTypeID": "1",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>"
+    ],
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "cold"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/553a9dd24b5d751b650d59e35d41de38cdc3000d5de2ec69258ffb08ed199a46\" href=\"Perfect_Essence_of_Ice\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/ColdEssencePerfect.webp\" alt=\"ColdEssencePerfect\" height=\"16\" />Perfect Essence of Ice</a>",
+    "Code": "EssenceDamageasExtraCold2H",
+    "ModFamilyList": [
+      "MartialWeaponGainedDamage"
+    ],
+    "str": "<a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(25<span class=\"ndash\">—</span>33)</span>% of Damage as Extra <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 57,
+    "IsPerfect": "1",
+    "IsAlloy": false,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraCold2H",
+  "textLocale": "us",
+  "detailText": "Gain (25—33)% of Damage as Extra Cold Damage",
+  "retrievedAt": "2026-10-05T10:12:55.076Z",
+  "sha256": "1469bc11ddf3bc20cac23ad9111782f2208f26fe40025392ad7a20b2864b99a7",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(25<span class=\"ndash\">—</span>33)</span>% of Damage as Extra <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage</span></h5>   <span data-tabname=\"Essences\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Essences\n<tr><th>Family<td>MartialWeaponGainedDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>non skill base all damage % to gain as cold <span class=\"badge bg-primary\">25 <span class=\"ndash\">—</span> 33</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Essences",
+    "Family": "MartialWeaponGainedDamage",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "72 (Effective: 57)",
+    "Gold Price": "3266",
+    "Stats": "non skill base all damage % to gain as cold 25 — 33 Global",
+    "Spawn Tags": "default: 0",
+    "Craft Tags": "elemental_damage Damage Elemental Cold"
+  },
+  "code": "EssenceDamageasExtraCold2H",
+  "stats": [
+    {
+      "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+      "min": 25,
+      "max": 33,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

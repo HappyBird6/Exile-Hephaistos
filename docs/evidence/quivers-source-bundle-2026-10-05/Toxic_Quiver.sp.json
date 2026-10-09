@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/sp/Toxic_Quiver",
+  "retrievedAt": "2026-10-05T05:29:31.827Z",
+  "sha256": "0930809ae3e129f6e65718e50edd49628bd94df4fa7f6a9cbb5c9aa0bf0c1457",
+  "variants": [
+    {
+      "name": "Carcaj de flechas tóxicas",
+      "card": "Carcaj de flechas tóxicas\n        \n    \n    \n        \n            CarcajesRequiere:  Nivel 39(20—30)% de probabilidad de envenenar al impactar con ataques\n        \n\n\n        \n        \n            Solo se puede equipar si portas un arco.\n        \n\n        \n            Toxic Quiver",
+      "requirements": "Requiere:  Nivel 39",
+      "fields": {
+        "DropLevel": "39",
+        "BaseType": "Carcaj de flechas tóxicas",
+        "Class": "Carcajes",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver6",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverToxic",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "row": {
+    "Name": "of the Cloud",
+    "Level": "1",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LightningResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(6<span class=\"ndash\">—</span>10)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "lightning_resistance",
+      "elemental",
+      "lightning",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/00f11750c6ce94d5a2dd5a79c077429125f9e99f7a223026f39b1f22d984037c"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/00f11750c6ce94d5a2dd5a79c077429125f9e99f7a223026f39b1f22d984037c",
+  "retrievedAt": "2026-10-04T22:01:39.636Z",
+  "sha256": "00f11750c6ce94d5a2dd5a79c077429125f9e99f7a223026f39b1f22d984037c",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(6<span class=\"ndash\">—</span>10)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/84ff16d8aeeb61c6cd1c5a881495ab9e03153c83989fb54629cfeeeb8e92266e\">Lightning Resistance</a></span></h5>   <span data-tabname=\"of the Cloud\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Cloud\n<tr><th>Family<td>LightningResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>1\n<tr><th>Gold Price<td>148\n<tr><th>Stats<td><li>base lightning damage resistance % <span class=\"badge bg-primary\">6 <span class=\"ndash\">—</span> 10</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>lightning_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Lightning</span> <span class='badge bg-primary'>Resistance</span> \n<tr><th>Horticrafting<td>Can change Element modifier\n<tr><td>Fists of Stone<td><span class='mod-value'>+1</span>% to [MaximumResistances|Maximum Lightning Resistance]<br><span class='mod-value'>+(11<span class=\"ndash\">—</span>15)</span>% to [Resistances|Lightning Resistance]</table>  </div></div>"
+}

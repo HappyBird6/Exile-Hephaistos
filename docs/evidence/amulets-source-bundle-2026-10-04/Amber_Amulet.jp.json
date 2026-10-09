@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/jp/Amber_Amulet",
+  "retrievedAt": "2026-10-04T21:52:31.269Z",
+  "sha256": "dadda660e30b630cf43e0578675d472c1c9ada4a313c341fb6cbee688df875ba",
+  "name": "琥珀のアミュレット",
+  "card": "琥珀のアミュレット\n        \n    \n    \n        \n            アミュレット装備条件： レベル 8筋力 +(10—15)\n        \n\n\n\n        \n            Amber Amulet",
+  "requirements": "装備条件： レベル 8",
+  "fields": {
+    "DropLevel": "8",
+    "BaseType": "琥珀のアミュレット",
+    "Class": "アミュレット",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Amulets/FourAmulet3",
+    "Tags": "amulet",
+    "Icon": "Art/2DItems/Amulets/Basetypes/AmberAmulet",
+    "Base.base_level": "1",
+    "Base.tag": "default, amulet",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Amulet",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5",
+    "真珠のアミュレット": "1x 翡翠のアミュレット \n1x 琥珀のアミュレット \n1x 瑠璃のアミュレット"
+  }
+}

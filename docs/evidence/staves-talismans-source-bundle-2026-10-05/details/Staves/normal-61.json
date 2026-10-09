@@ -1,0 +1,77 @@
+{
+  "row": {
+    "Name": "Ionising",
+    "Level": "70",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponDamageTypePrefix"
+    ],
+    "DropChance": "100",
+    "str": "<span class='mod-value'>(189<span class=\"ndash\">—</span>208)</span>% increased <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1d5815b2f2bd5f23d99d435288c3b41e79adf38037cf8d2a266bc276f527201d\">Lightning</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "lightning"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_chaos_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "no_lightning_spell_mods",
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/55601f69237b08292c61a6e7660077a29131c32cd734cd8000e79f7b8315f20d"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FLightningDamagePrefixOnTwoHandWeapon7",
+  "textLocale": "sp",
+  "detailText": "Daño de rayo aumentado un (189—208)%",
+  "retrievedAt": "2026-10-05T10:05:40.168Z",
+  "sha256": "2e87025fc407e980756b145ce1c78af653a241b85268cfc66c0bf131a6969167",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Daño de <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FLightning\">rayo</a> aumentado un <span class='mod-value'>(189<span class=\"ndash\">—</span>208)</span>%</span></h5>   <span data-tabname=\"<if:MS>{ionizante}<elif:MP>{ionizantes}\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td><if:MS>{ionizante}<elif:MP>{ionizantes}\n<tr><th>Family<td>WeaponDamageTypePrefix\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>70 (Effective: 56)\n<tr><th>Gold Price<td>2739\n<tr><th>Stats<td><li>lightning damage +% <span class=\"badge bg-primary\">189 <span class=\"ndash\">—</span> 208</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_lightning_spell_mods: 0</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Daño</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Rayo</span> </table>  </div></div>",
+  "fields": {
+    "Name": "{ionizante}{ionizantes}",
+    "Family": "WeaponDamageTypePrefix",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "70 (Effective: 56)",
+    "Gold Price": "2739",
+    "Stats": "lightning damage +% 189 — 208 Global",
+    "Spawn Tags": "no_lightning_spell_mods: 0 staff: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_cold_spell_mods no_chaos_spell_mods no_physical_spell_mods",
+    "Craft Tags": "elemental_damage Daño Elemental Rayo"
+  },
+  "code": "LightningDamagePrefixOnTwoHandWeapon7",
+  "stats": [
+    {
+      "id": "lightning_damage_+%",
+      "min": 189,
+      "max": 208,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_lightning_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

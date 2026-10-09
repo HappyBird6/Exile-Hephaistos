@@ -1,0 +1,37 @@
+{
+  "locales": [
+    "en",
+    "ko",
+    "ja",
+    "zh-CN",
+    "zh-TW",
+    "es"
+  ],
+  "namesAndImplicits": {
+    "baseSources": 48,
+    "exactTypeChecked": true,
+    "numericPlaceholdersChecked": true,
+    "fallbackExceptions": []
+  },
+  "ordinaryAffixes": {
+    "rowsPerLocale": 203,
+    "total": 1218,
+    "source": "Rings.<locale>.json",
+    "provenance": "Fresh full class pool rows exactly match preserved source-correlated templates; ranges/tags/families/weight identities retained",
+    "fallbackExceptions": []
+  },
+  "specialAffixes": {
+    "count": 5,
+    "source": "Exact Code/Level/Family from Rings source matched previously verified full details",
+    "exceptions": [
+      {
+        "ids": [
+          "stocky-mitts:prefix:essence-abyssal-mark",
+          "stocky-mitts:suffix:essence-abyssal-mark"
+        ],
+        "reason": "Published class table abbreviates Mark; preserve same-code previously verified full Bears the Mark detail and its six locale templates. No invented effect or English fallback."
+      }
+    ]
+  },
+  "probabilityStatus": "Published ordinary weights retained; unverified numeric roll and special outcome assumptions remain explicitly provisional"
+}

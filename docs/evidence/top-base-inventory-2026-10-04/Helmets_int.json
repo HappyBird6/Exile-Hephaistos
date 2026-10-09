@@ -1,0 +1,184 @@
+{
+  "page": "Helmets_int",
+  "url": "https://poe2db.tw/us/Helmets_int",
+  "retrievedAt": "2026-10-04T14:44:51.194Z",
+  "sha256": "d8dc92c911c44dfb48ba45e4da5d3de9bfbb04a6dd96d5bb341d40557d48f285",
+  "cards": [
+    {
+      "slug": "Twig_Circlet",
+      "card": "Twig CircletEnergy Shield: 19"
+    },
+    {
+      "slug": "Wicker_Tiara",
+      "card": "Wicker TiaraEnergy Shield: 29Requires:  Level 10, 17 Int"
+    },
+    {
+      "slug": "Beaded_Circlet",
+      "card": "Beaded CircletEnergy Shield: 35Requires:  Level 16, 25 Int"
+    },
+    {
+      "slug": "Chain_Tiara",
+      "card": "Chain TiaraEnergy Shield: 47Requires:  Level 26, 38 Int"
+    },
+    {
+      "slug": "Feathered_Tiara",
+      "card": "Feathered TiaraEnergy Shield: 54Requires:  Level 33, 48 Int"
+    },
+    {
+      "slug": "Gold_Circlet",
+      "card": "Gold CircletEnergy Shield: 62Requires:  Level 40, 58 Int"
+    },
+    {
+      "slug": "Vermeil_Circlet",
+      "card": "Vermeil CircletEnergy Shield: 68Requires:  Level 45, 64 Int"
+    },
+    {
+      "slug": "Jade_Tiara",
+      "card": "Jade TiaraEnergy Shield: 73Requires:  Level 50, 71 Int"
+    },
+    {
+      "slug": "Noble_Circlet",
+      "card": "Noble CircletEnergy Shield: 76Requires:  Level 52, 74 Int"
+    },
+    {
+      "slug": "Twilight_Tiara",
+      "card": "Twilight TiaraEnergy Shield: 82Requires:  Level 58, 82 Int"
+    },
+    {
+      "slug": "Magus_Tiara",
+      "card": "Magus TiaraEnergy Shield: 90Requires:  Level 65, 91 Int"
+    },
+    {
+      "slug": "Druidic_Circlet",
+      "card": "Druidic CircletEnergy Shield: 68Requires:  Level 45, 64 Int"
+    },
+    {
+      "slug": "Avian_Tiara",
+      "card": "Avian TiaraEnergy Shield: 71Requires:  Level 48, 69 Int"
+    },
+    {
+      "slug": "Desert_Circlet",
+      "card": "Desert CircletEnergy Shield: 75Requires:  Level 51, 73 Int"
+    },
+    {
+      "slug": "Sandsworn_Tiara",
+      "card": "Sandsworn TiaraEnergy Shield: 78Requires:  Level 54, 77 Int"
+    },
+    {
+      "slug": "Jungle_Tiara",
+      "card": "Jungle TiaraEnergy Shield: 84Requires:  Level 59, 83 Int"
+    },
+    {
+      "slug": "Skycrown_Tiara",
+      "card": "Skycrown TiaraEnergy Shield: 90Requires:  Level 65, 91 Int"
+    },
+    {
+      "slug": "Sorcerous_Tiara",
+      "card": "Sorcerous TiaraEnergy Shield: 97Requires:  Level 70, 99 Int"
+    },
+    {
+      "slug": "Kamasan_Tiara",
+      "card": "Kamasan TiaraEnergy Shield: 103Requires:  Level 75, 107 Int"
+    },
+    {
+      "slug": "Ancestral_Tiara",
+      "card": "Ancestral TiaraEnergy Shield: 109Requires:  Level 80, 115 Int"
+    },
+    {
+      "slug": "Runeforged_Twig_Circlet",
+      "card": "Runeforged Twig CircletEnergy Shield: 19Runic Ward: 19"
+    },
+    {
+      "slug": "Runeforged_Wicker_Tiara",
+      "card": "Runeforged Wicker TiaraEnergy Shield: 29Runic Ward: 27Requires:  Level 10, 17 Int"
+    },
+    {
+      "slug": "Runeforged_Beaded_Circlet",
+      "card": "Runeforged Beaded CircletEnergy Shield: 35Runic Ward: 35Requires:  Level 16, 25 Int"
+    },
+    {
+      "slug": "Runeforged_Chain_Tiara",
+      "card": "Runeforged Chain TiaraEnergy Shield: 47Runic Ward: 48Requires:  Level 26, 38 Int"
+    },
+    {
+      "slug": "Runeforged_Feathered_Tiara",
+      "card": "Runeforged Feathered TiaraEnergy Shield: 54Runic Ward: 49Requires:  Level 33, 48 Int"
+    },
+    {
+      "slug": "Runeforged_Gold_Circlet",
+      "card": "Runeforged Gold CircletEnergy Shield: 62Runic Ward: 55Requires:  Level 40, 58 Int"
+    },
+    {
+      "slug": "Runeforged_Vermeil_Circlet",
+      "card": "Runeforged Vermeil CircletEnergy Shield: 68Runic Ward: 56Requires:  Level 45, 64 Int"
+    },
+    {
+      "slug": "Runeforged_Jade_Tiara",
+      "card": "Runeforged Jade TiaraEnergy Shield: 73Runic Ward: 56Requires:  Level 50, 71 Int"
+    },
+    {
+      "slug": "Runeforged_Sandsworn_Tiara",
+      "card": "Runeforged Sandsworn TiaraEnergy Shield: 75Runic Ward: 48Requires:  Level 54, 77 Int"
+    },
+    {
+      "slug": "Runeforged_Jungle_Tiara",
+      "card": "Runeforged Jungle TiaraEnergy Shield: 67Runic Ward: 104Requires:  Level 59, 83 Int"
+    },
+    {
+      "slug": "Runeforged_Skycrown_Tiara",
+      "card": "Runeforged Skycrown TiaraEnergy Shield: 85Runic Ward: 56Requires:  Level 65, 91 Int"
+    },
+    {
+      "slug": "Runeforged_Sorcerous_Tiara",
+      "card": "Runeforged Sorcerous TiaraEnergy Shield: 70Runic Ward: 113Requires:  Level 70, 99 Int"
+    },
+    {
+      "slug": "Runeforged_Kamasan_Tiara",
+      "card": "Runeforged Kamasan TiaraEnergy Shield: 97Runic Ward: 42Requires:  Level 75, 107 Int"
+    },
+    {
+      "slug": "Runeforged_Ancestral_Tiara",
+      "card": "Runeforged Ancestral TiaraEnergy Shield: 47Runic Ward: 240Requires:  Level 80, 115 Int"
+    },
+    {
+      "slug": "Runemastered_Twig_Circlet",
+      "card": "Runemastered Twig CircletEnergy Shield: 48Runic Ward: 36Requires:  Level 38, 54 Int"
+    },
+    {
+      "slug": "Runemastered_Wicker_Tiara",
+      "card": "Runemastered Wicker TiaraEnergy Shield: 45Runic Ward: 45Requires:  Level 38, 54 Int"
+    },
+    {
+      "slug": "Runemastered_Beaded_Circlet",
+      "card": "Runemastered Beaded CircletEnergy Shield: 24Runic Ward: 72Requires:  Level 38, 54 Int"
+    },
+    {
+      "slug": "Runemastered_Chain_Tiara",
+      "card": "Runemastered Chain TiaraEnergy Shield: 62Requires:  Level 40, 58 Int"
+    },
+    {
+      "slug": "Runemastered_Feathered_Tiara",
+      "card": "Runemastered Feathered TiaraEnergy Shield: 32Runic Ward: 98Requires:  Level 55, 78 Int"
+    },
+    {
+      "slug": "Runemastered_Gold_Circlet",
+      "card": "Runemastered Gold CircletEnergy Shield: 16Runic Ward: 196Requires:  Level 55, 78 Int"
+    },
+    {
+      "slug": "Runemastered_Vermeil_Circlet",
+      "card": "Runemastered Vermeil CircletEnergy Shield: 67Runic Ward: 37Requires:  Level 55, 78 Int"
+    },
+    {
+      "slug": "Runemastered_Jade_Tiara",
+      "card": "Runemastered Jade TiaraEnergy Shield: 45Runic Ward: 141Requires:  Level 65, 91 Int"
+    },
+    {
+      "slug": "Runemastered_Twilight_Tiara",
+      "card": "Runemastered Twilight TiaraEnergy Shield: 72Runic Ward: 56Requires:  Level 65, 91 Int"
+    },
+    {
+      "slug": "Runemastered_Magus_Tiara",
+      "card": "Runemastered Magus TiaraEnergy Shield: 68Runic Ward: 70Requires:  Level 65, 91 Int"
+    }
+  ]
+}

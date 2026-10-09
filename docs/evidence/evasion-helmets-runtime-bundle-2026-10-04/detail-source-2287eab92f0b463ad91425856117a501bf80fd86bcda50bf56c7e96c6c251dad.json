@@ -1,0 +1,62 @@
+{
+  "code": null,
+  "sourceId": "2287eab92f0b463ad91425856117a501bf80fd86bcda50bf56c7e96c6c251dad",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/2287eab92f0b463ad91425856117a501bf80fd86bcda50bf56c7e96c6c251dad",
+  "retrievedAt": "2026-10-04T17:12:10.603Z",
+  "sha256": "2287eab92f0b463ad91425856117a501bf80fd86bcda50bf56c7e96c6c251dad",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(6<span class=\"ndash\">—</span>13)</span>% increased <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5b6ec6eb65a018369b5ec769fa88051ee7f93c3ef1dd5a6a834c75baaa97d247\">Evasion</a> Rating<br><span class='mod-value'>+(6<span class=\"ndash\">—</span>8)</span> to maximum Mana</span></h5>   <span data-tabname=\"Nomad's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Nomad's\n<tr><th>Family<td>BaseLocalDefencesAndMana\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>8 (Effective: 6)\n<tr><th>Gold Price<td>180\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">6 <span class=\"ndash\">—</span> 8</span> <span class=\"badge bg-secondary\">Global</span></li><li>local evasion rating +% <span class=\"badge bg-primary\">6 <span class=\"ndash\">—</span> 13</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 0</span> <span class='badge bg-primary'>shield: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>dex_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> <span class='badge bg-primary'>Evasion</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Nomad's",
+      "Family": "BaseLocalDefencesAndMana",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "8 (Effective: 6)",
+      "Gold Price": "180",
+      "Stats": "base maximum mana 6 — 8 Globallocal evasion rating +% 6 — 13 Local",
+      "Spawn Tags": "body_armour: 0 shield: 0 gloves: 0 boots: 0 dex_armour: 1 default: 0",
+      "Craft Tags": "defences resource Mana Evasion"
+    },
+    "stats": [
+      {
+        "id": "base_maximum_mana",
+        "min": 6,
+        "max": 8,
+        "locality": "Global"
+      },
+      {
+        "id": "local_evasion_rating_+%",
+        "min": 6,
+        "max": 13,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "body_armour",
+        "weight": 0
+      },
+      {
+        "tag": "shield",
+        "weight": 0
+      },
+      {
+        "tag": "gloves",
+        "weight": 0
+      },
+      {
+        "tag": "boots",
+        "weight": 0
+      },
+      {
+        "tag": "dex_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(6—13)% increased Evasion Rating\n+(6—8) to maximum Mana"
+  }
+}

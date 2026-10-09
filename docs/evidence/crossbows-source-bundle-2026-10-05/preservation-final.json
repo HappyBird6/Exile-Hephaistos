@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "baseline": "9fbb83da948d515756b6cea9ffb7a24155abba8e",
+  "oldManifestBases": 74,
+  "oldWorkbenchBases": 91,
+  "newWorkbenchBases": 97,
+  "completeOrdinary": 146,
+  "special": 8,
+  "registry": 220,
+  "deferred": 50,
+  "oldDefinitionsTermsTemplatesUnchanged": true,
+  "perBaseOrderedSpawnVerified": true,
+  "crossbowVersionsVerified": true
+}

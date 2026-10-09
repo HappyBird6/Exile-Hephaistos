@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/us/Faithful_Leggings",
+  "retrievedAt": "2026-10-04T15:38:33.194Z",
+  "sha256": "22effc7b863a74d261a248f3fc116ccdbd09b8048299d6cce826c87bf149faf8",
+  "name": "Faithful Leggings",
+  "card": "Faithful Leggings\n        \n    \n    \n        \n            BootsArmour: 134Energy Shield: 37Requires:  Level 65, 47 Str, 47 Int",
+  "requirements": "Requires:  Level 65, 47 Str, 47 Int",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "Faithful Leggings",
+    "Class": "Boots",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame",
+    "Tags": "str_int_armour, boots, armour",
+    "Icon": "Art/2DItems/Armours/Boots/Basetypes/BootsIntStr01",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, boots",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Boots",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

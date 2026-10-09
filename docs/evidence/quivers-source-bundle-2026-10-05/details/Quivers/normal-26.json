@@ -1,0 +1,84 @@
+{
+  "row": {
+    "Name": "Frosted",
+    "Level": "1",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "ColdDamage"
+    ],
+    "DropChance": "500",
+    "str": "Adds <span class='mod-value'>1</span> to <span class='mod-value'>(2<span class=\"ndash\">—</span>3)</span> <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> damage to <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attacks</a>",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "cold",
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "gloves",
+      "quiver",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e5ca7d0f83d12df1a21cbc0cac2de2ecb7e2b691d7ef714c181b662f408d8b5d"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage1",
+  "textLocale": "us",
+  "detailText": "Adds 1 to (2—3) Cold damage to Attacks",
+  "retrievedAt": "2026-10-05T05:31:00.627Z",
+  "sha256": "05381d6d17ef2a492c24a2c510c3ab577e16fabf571c9a5801bdb7d67e3845da",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Adds <span class='mod-value'>1</span> to <span class='mod-value'>(2<span class=\"ndash\">—</span>3)</span> <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> damage to <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attacks</a></span></h5>   <span data-tabname=\"Frosted\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Frosted\n<tr><th>Family<td>ColdDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>1\n<tr><th>Gold Price<td>106\n<tr><th>Stats<td><li>attack maximum added cold damage <span class=\"badge bg-primary\">2 <span class=\"ndash\">—</span> 3</span> <span class=\"badge bg-secondary\">Global</span></li><li>attack minimum added cold damage <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 1</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Attack</span> \n<tr><td>Fists of Stone<td>[Attack|Attacks] [Gain] <span class='mod-value'>10</span>% of Damage as Extra [Cold|Cold] Damage</table>  </div></div>",
+  "fields": {
+    "Name": "Frosted",
+    "Family": "ColdDamage",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "1",
+    "Gold Price": "106",
+    "Stats": "attack maximum added cold damage 2 — 3 Globalattack minimum added cold damage 1 — 1 Global",
+    "Spawn Tags": "ring: 1 gloves: 1 quiver: 1 default: 0",
+    "Craft Tags": "elemental_damage Damage Elemental Cold Attack"
+  },
+  "code": "AddedColdDamage1",
+  "stats": [
+    {
+      "id": "attack_maximum_added_cold_damage",
+      "min": 2,
+      "max": 3,
+      "locality": "Global"
+    },
+    {
+      "id": "attack_minimum_added_cold_damage",
+      "min": 1,
+      "max": 1,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "gloves",
+      "weight": 1
+    },
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

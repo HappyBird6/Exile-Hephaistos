@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/kr/Ravenous_Staff",
+  "retrievedAt": "2026-10-05T10:01:18.034Z",
+  "sha256": "b37571a2cd57db1ed7d4340736e4a3ef88243b6a069c6c8ecfdcfbd3a5e95725",
+  "variants": [
+    {
+      "name": "굶주린 지팡이",
+      "card": "굶주린 지팡이\n        \n    \n    \n        \n            지팡이요구 사항:  레벨 65, 114 지능 스킬 부여: 육체의 연회\n        \n\n\n\n        \n            Ravenous Staff",
+      "requirements": "요구 사항:  레벨 65, 114 지능",
+      "properties": [
+        "지팡이"
+      ],
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "굶주린 지팡이",
+        "Class": "지팡이",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff01",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

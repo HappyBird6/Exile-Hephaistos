@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/kr/Sekhema_Sandals",
+  "retrievedAt": "2026-10-04T15:38:30.018Z",
+  "sha256": "4c30f68d938ca37045b54ba217a67dce7c159402962da4e97a6d8d6ab935826e",
+  "name": "세케마 샌들",
+  "card": "세케마 샌들\n        \n    \n    \n        \n            장화에너지 보호막: 83요구 사항:  레벨 80, 108 지능\n        \n\n\n\n        \n            Sekhema Sandals",
+  "requirements": "요구 사항:  레벨 80, 108 지능",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "세케마 샌들",
+    "Class": "장화",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Boots/FourBootsInt6Endgame",
+    "Tags": "int_armour, karui_basetype, boots, armour",
+    "Icon": "Art/2DItems/Armours/Boots/Basetypes/BootsInt06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, boots",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Boots",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

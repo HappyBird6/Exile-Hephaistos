@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/jp/Galvanic_Wand",
+  "retrievedAt": "2026-10-05T00:06:40.757Z",
+  "sha256": "14086c7caebb39bcf63a5948c9af9384aa30ec06fc953451a374b8dc2a1391e6",
+  "name": "電撃のワンド",
+  "card": "電撃のワンド\n        \n    \n    \n        \n            ワンド装備条件： レベル 25, 46 知性 スキルを付与: ガルヴァニックフィールド\n        \n\n\n\n        \n            Galvanic Wand",
+  "requirements": "装備条件： レベル 25, 46 知性",
+  "fields": {
+    "DropLevel": "25",
+    "BaseType": "電撃のワンド",
+    "Class": "ワンド",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6",
+    "Tags": "no_fire_spell_mods, no_cold_spell_mods, no_chaos_spell_mods, no_physical_spell_mods, lightning_implicit_skill, wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand06",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

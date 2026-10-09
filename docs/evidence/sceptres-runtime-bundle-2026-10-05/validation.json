@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "totalBases": 78,
+  "addedBases": [
+    "stoic",
+    "omen",
+    "shrine-fire",
+    "shrine-ice",
+    "shrine-lightning",
+    "clasped",
+    "wrath"
+  ],
+  "backendUnitArchitecture": 441,
+  "backendIntegration": 6,
+  "frontendTests": 1820,
+  "apiChecks": 400,
+  "browserChecks": 740,
+  "oldFilledLegacyChecks": 7,
+  "browserErrors": [],
+  "matchingValidatedSourceFiles": 577,
+  "screenshots": 180,
+  "visuallyReviewedContactSheets": 30,
+  "jarSha256": "849b383486a1081572567dea8a99ad499d77fb84f95dffe1a6dfc25213f64261",
+  "qaRoot": "E:/WORK/Exile-Hephaistos/codex/sceptres-qa-20261005",
+  "qaProject": "exile-sceptres-20261005",
+  "qaPorts": [
+    20280,
+    20281
+  ],
+  "successfulLogs": [
+    "backend-check-1.log",
+    "frontend-check-2.log"
+  ],
+  "failureHistory": [
+    {
+      "stage": "source collection",
+      "error": "sandbox EACCES",
+      "resolution": "Approved source reads; empty/new-only output preserved"
+    },
+    {
+      "stage": "additional source weight review",
+      "error": "New assertion incorrectly equated detail Spawn Tags 1 with published class DropChance 250",
+      "resolution": "Separate strict applicability and published selection-weight checks; no catalog or existing expected-value change"
+    },
+    {
+      "stage": "API attempt1",
+      "error": "UND_ERR_SOCKET during app startup",
+      "preservedPath": "E:/WORK/Exile-Hephaistos/codex/sceptres-qa-20261005/api-attempt-1",
+      "resolution": "Same assertions plus high-tier positives passed against ready runtime in new api-attempt-2"
+    },
+    {
+      "stage": "pixels self-review",
+      "error": "New Sceptres inherited legacy Skeletal Warrior scope notice",
+      "preservedPath": "E:/WORK/Exile-Hephaistos/codex/sceptres-qa-20261005/browser-attempt-1",
+      "resolution": "Added generic source skill notice in all six locales; original legacy notices preserved; full Frontend checks and stronger browser assertions repeated into new outputs"
+    }
+  ],
+  "preservation": "Existing71 API initials/data/translations/registry220/deferred50, exact legacy and new films, Solar-only Support/Explorer, Shift/Alt, orange preview, Solar quality40 and HALF_UP",
+  "remainingScope": "Belt distinct implicits and Breach roster; Crossbow/melee/Shields/Foci/Quivers source/mechanics review"
+}

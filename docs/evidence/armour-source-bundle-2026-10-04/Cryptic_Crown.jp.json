@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/jp/Cryptic_Crown",
+  "retrievedAt": "2026-10-04T15:38:09.520Z",
+  "sha256": "53b591101cb23ae04a410c72656d426c84c61965526247492ef6f428241beb69",
+  "name": "謎の冠",
+  "card": "謎の冠\n        \n    \n    \n        \n            兜アーマー: 206エナジーシールド: 57装備条件： レベル 80, 63 筋力, 63 知性\n        \n\n\n\n        \n            Cryptic Crown",
+  "requirements": "装備条件： レベル 80, 63 筋力, 63 知性",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "謎の冠",
+    "Class": "兜",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame",
+    "Tags": "str_int_armour, karui_basetype, helmet, armour",
+    "Icon": "Art/2DItems/Armours/Helmets/Basetypes/HelmetIntStr06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, helmet",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Helm",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

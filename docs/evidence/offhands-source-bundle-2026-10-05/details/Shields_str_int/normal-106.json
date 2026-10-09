@@ -1,0 +1,60 @@
+{
+  "row": {
+    "Name": "Steadfast",
+    "Level": "1",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedShieldBlockPercentage"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(15<span class=\"ndash\">—</span>19)</span>% increased <a data-keyword=\"Block\" href=\"Block\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/013f893301a6a288685d2a8ca0f9b1e89ad6d4681b3bdc92506ebb25a166c195\">Block</a> chance",
+    "fossil_no": [
+      "block"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "shield",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/feb7e3703d403736300f1b6ff22add5907143b4d108e9a29880a37406b3fb0b6"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FLocalBlockChance1",
+  "textLocale": "jp",
+  "detailText": "ブロック率が(15—19)%増加する",
+  "retrievedAt": "2026-10-05T04:20:19.484Z",
+  "sha256": "d38a7a9e51be3727ea2d7f117f89f9206196078ef988e35430105457ce2d2ca0",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Block\" href=\"Block\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/4b4987916bfd0a97539c1f2e294df605697e17fa346c050cccf3638849c3ccf6\">ブロック</a>率が<span class='mod-value'>(15<span class=\"ndash\">—</span>19)</span>%増加する</span></h5>   <span data-tabname=\"不動の\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>不動の\n<tr><th>Family<td>IncreasedShieldBlockPercentage\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>プレフィックス (1)\n<tr><th>Req. level<td>1\n<tr><th>Gold Price<td>128\n<tr><th>Stats<td><li>local block chance +% <span class=\"badge bg-primary\">15 <span class=\"ndash\">—</span> 19</span> <span class=\"badge bg-secondary\">ローカル</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>block</i></span> </table>  </div></div>",
+  "fields": {
+    "Name": "不動の",
+    "Family": "IncreasedShieldBlockPercentage",
+    "Domains": "アイテム (1)",
+    "GenerationType": "プレフィックス (1)",
+    "Req. level": "1",
+    "Gold Price": "128",
+    "Stats": "local block chance +% 15 — 19 ローカル",
+    "Spawn Tags": "shield: 1 default: 0",
+    "Craft Tags": "block"
+  },
+  "code": "LocalBlockChance1",
+  "stats": [
+    {
+      "id": "local_block_chance_+%",
+      "min": 15,
+      "max": 19,
+      "locality": "ローカル"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "shield",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

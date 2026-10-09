@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "baseline": "9fbb83da948d515756b6cea9ffb7a24155abba8e",
+  "baseCount": 97,
+  "backend": {
+    "unit": 460,
+    "integration": 6,
+    "command": "check generateJooq bootJar",
+    "log": "backend-check-3.log",
+    "sha256": "29355643f5f437e211fb34838b3612e20c34b2cd137f7398054b5eb2b92ad411"
+  },
+  "frontend": {
+    "tests": 1865,
+    "files": 63,
+    "commands": [
+      "npm ci",
+      "lint",
+      "typecheck",
+      "format:check",
+      "test -- --run",
+      "build"
+    ],
+    "log": "frontend-check-2.log",
+    "sha256": "f8dda3460e11b76180a8b4bf19ff5e53e69308b6be86b8731e46c7cb34fae87c"
+  },
+  "api": 785,
+  "browser": 780,
+  "legacyFilled": 7,
+  "pixels": {
+    "bases": 6,
+    "locales": [
+      "en",
+      "ko",
+      "zh-CN",
+      "zh-TW",
+      "ja",
+      "es"
+    ],
+    "widths": [
+      1440,
+      390
+    ],
+    "cards": 72,
+    "fullPages": 72,
+    "orange": 6,
+    "solarOverflow": 6,
+    "cardContactSheetsReviewed": 12,
+    "fullContactSheetsReviewed": 14,
+    "issues": []
+  },
+  "isolatedQa": "E:/WORK/Exile-Hephaistos/codex/crossbows-qa-20261005",
+  "project": "exile-crossbows-20261005",
+  "ports": [
+    20480,
+    20481
+  ],
+  "servicesNormallyStopped": true,
+  "liveIdsStartedAtMountsPreserved": true,
+  "remainingBlockers": [],
+  "runtimeChangesAfterFinalAggregate": false
+}

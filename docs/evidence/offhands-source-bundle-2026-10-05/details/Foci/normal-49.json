@@ -1,0 +1,67 @@
+{
+  "row": {
+    "Name": "Shining",
+    "Level": "1",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(10<span class=\"ndash\">—</span>17)</span> to maximum <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a>",
+    "fossil_no": [
+      "defences",
+      "energy_shield"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "int_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingenergy_shield\" data-tag=\"energy_shield\">Energy Shield</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/efd7bf0ce360d73ab7227f7c484aa9edf713614740c6f787f5a43c7c3a8eacee"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FLocalIncreasedEnergyShield1",
+  "textLocale": "sp",
+  "detailText": "+(10—17) al escudo de energía máximo",
+  "retrievedAt": "2026-10-05T04:33:55.028Z",
+  "sha256": "35b78dd499ee18367e89f78cf9302dd3d7afc6cb11191d50109d13c8b1249c34",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(10<span class=\"ndash\">—</span>17)</span> al <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FEnergyShield\">escudo de energía</a> máximo</span></h5>   <span data-tabname=\"<if:MS>{brillante}<elif:MP>{brillantes}\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td><if:MS>{brillante}<elif:MP>{brillantes}\n<tr><th>Family<td>BaseLocalDefences\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>1\n<tr><th>Gold Price<td>99\n<tr><th>Stats<td><li>local energy shield <span class=\"badge bg-primary\">10 <span class=\"ndash\">—</span> 17</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>int_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Escudo de energía</span> \n<tr><td>Puños de roca<td>Tiene <span class='mod-value'>+1</span> a la <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FEvasion\">evasión</a> por cada nivel del jugador<br>Tiene <span class='mod-value'>+1</span> al <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FEnergyShield\">escudo de energía</a> máximo por cada nivel del jugador</table>  </div></div>",
+  "fields": {
+    "Name": "{brillante}{brillantes}",
+    "Family": "BaseLocalDefences",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "1",
+    "Gold Price": "99",
+    "Stats": "local energy shield 10 — 17 Local",
+    "Spawn Tags": "int_armour: 1 str_dex_int_armour: 1 default: 0",
+    "Craft Tags": "defences Escudo de energía"
+  },
+  "code": "LocalIncreasedEnergyShield1",
+  "stats": [
+    {
+      "id": "local_energy_shield",
+      "min": 10,
+      "max": 17,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

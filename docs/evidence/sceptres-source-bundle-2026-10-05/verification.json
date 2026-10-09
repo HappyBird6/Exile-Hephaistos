@@ -1,0 +1,122 @@
+{
+  "bases": [
+    {
+      "key": "stoic",
+      "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+      "skill": "Discipline",
+      "skillUrl": "https://poe2db.tw/us/Discipline",
+      "tags": [
+        "sceptre",
+        "onehand"
+      ],
+      "eligible": 150,
+      "excluded": 0,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    },
+    {
+      "key": "omen",
+      "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
+      "skill": "Malice",
+      "skillUrl": "https://poe2db.tw/us/Malice",
+      "tags": [
+        "sceptre",
+        "onehand"
+      ],
+      "eligible": 150,
+      "excluded": 0,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    },
+    {
+      "key": "shrine-fire",
+      "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a",
+      "skill": "Purity of Fire",
+      "skillUrl": "https://poe2db.tw/us/Purity_of_Fire",
+      "tags": [
+        "fire_implicit_skill",
+        "sceptre",
+        "onehand"
+      ],
+      "eligible": 150,
+      "excluded": 0,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    },
+    {
+      "key": "shrine-ice",
+      "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b",
+      "skill": "Purity of Ice",
+      "skillUrl": "https://poe2db.tw/us/Purity_of_Ice",
+      "tags": [
+        "cold_implicit_skill",
+        "sceptre",
+        "onehand"
+      ],
+      "eligible": 150,
+      "excluded": 0,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    },
+    {
+      "key": "shrine-lightning",
+      "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c",
+      "skill": "Purity of Lightning",
+      "skillUrl": "https://poe2db.tw/us/Purity_of_Lightning",
+      "tags": [
+        "lightning_implicit_skill",
+        "sceptre",
+        "onehand"
+      ],
+      "eligible": 150,
+      "excluded": 0,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    },
+    {
+      "key": "clasped",
+      "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8",
+      "skill": "Heart of Ice",
+      "skillUrl": "https://poe2db.tw/us/Heart_of_Ice",
+      "tags": [
+        "sceptre",
+        "onehand"
+      ],
+      "eligible": 150,
+      "excluded": 0,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    },
+    {
+      "key": "wrath",
+      "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
+      "skill": "Fulmination",
+      "skillUrl": "https://poe2db.tw/us/Fulmination",
+      "tags": [
+        "lightning_implicit_skill",
+        "sceptre",
+        "onehand"
+      ],
+      "eligible": 150,
+      "excluded": 0,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    }
+  ],
+  "localeDiscrepancies": [
+    {
+      "key": "stoic",
+      "locale": "es",
+      "published": "Requiere:  Nivel 6, 7 Fue, 12 Int",
+      "canonical": "Requires:  Level 6, 12 Int"
+    },
+    {
+      "key": "clasped",
+      "locale": "es",
+      "published": "Requiere:  Nivel 36, 22 Fue, 51 Int",
+      "canonical": "Requires:  Level 36, 65 Int"
+    },
+    {
+      "key": "wrath",
+      "locale": "es",
+      "published": "Requiere:  Nivel 49, 28 Fue, 68 Int",
+      "canonical": "Requires:  Level 49, 87 Int"
+    }
+  ],
+  "unknownEligible": [],
+  "excludedUnique": "FourSceptreUnique1 / Impurity",
+  "displayOnlySkills": true
+}

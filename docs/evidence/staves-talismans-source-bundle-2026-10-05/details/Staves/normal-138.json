@@ -1,0 +1,64 @@
+{
+  "row": {
+    "Name": "of Havoc",
+    "Level": "21",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "SpellCriticalStrikeChanceIncrease"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(50<span class=\"ndash\">—</span>59)</span>% increased <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit Chance</a> for <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spells</a>",
+    "fossil_no": [
+      "caster_critical",
+      "caster",
+      "critical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/bb44c056272bd596491f2f81fb0211356683349b304cff93ac612ec928a29ccd"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChanceTwoHand2",
+  "textLocale": "us",
+  "detailText": "(50—59)% increased Critical Hit Chance for Spells",
+  "retrievedAt": "2026-10-05T10:08:11.649Z",
+  "sha256": "bb44c056272bd596491f2f81fb0211356683349b304cff93ac612ec928a29ccd",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(50<span class=\"ndash\">—</span>59)</span>% increased <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit Chance</a> for <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spells</a></span></h5>   <span data-tabname=\"of Havoc\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Havoc\n<tr><th>Family<td>SpellCriticalStrikeChanceIncrease\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>21 (Effective: 16)\n<tr><th>Gold Price<td>381\n<tr><th>Stats<td><li>spell critical strike chance +% <span class=\"badge bg-primary\">50 <span class=\"ndash\">—</span> 59</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_critical</i></span> <span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Critical</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Havoc",
+    "Family": "SpellCriticalStrikeChanceIncrease",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "21 (Effective: 16)",
+    "Gold Price": "381",
+    "Stats": "spell critical strike chance +% 50 — 59 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "caster_critical Caster Critical"
+  },
+  "code": "SpellCriticalStrikeChanceTwoHand2",
+  "stats": [
+    {
+      "id": "spell_critical_strike_chance_+%",
+      "min": 50,
+      "max": 59,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

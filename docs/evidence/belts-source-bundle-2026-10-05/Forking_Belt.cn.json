@@ -1,0 +1,30 @@
+{
+  "url": "https://poe2db.tw/cn/Forking_Belt",
+  "retrievedAt": "2026-10-05T01:24:19.416Z",
+  "sha256": "8c37acbee3a15bf3b76b86699bbe7a725a53c2d919fadcacdf99ea523e291cf8",
+  "variants": [
+    {
+      "name": "分叉腰带",
+      "card": "分叉腰带\n        \n    \n    \n        \n            腰带需求：  等级 32具有 (1—3) 个咒符位具有 1 个咒符位攻击附加 1 - (20—30) 基础闪电伤害\n        \n\n        \n        \n            是我们的心智在分裂。\n        \n\n\n        \n            Forking Belt",
+      "requirements": "需求：  等级 32",
+      "fields": {
+        "DropLevel": "32",
+        "BaseType": "分叉腰带",
+        "Class": "腰带",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBeltB4",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/ForkingBelt",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

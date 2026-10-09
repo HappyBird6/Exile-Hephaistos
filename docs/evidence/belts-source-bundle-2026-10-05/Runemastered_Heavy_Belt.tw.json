@@ -1,0 +1,99 @@
+{
+  "url": "https://poe2db.tw/tw/Runemastered_Heavy_Belt",
+  "retrievedAt": "2026-10-05T01:24:43.230Z",
+  "sha256": "137a3b62c051a08f51ba1731adfc3dc21b4d8768f10e1eb1534c16de8c06c0b2",
+  "variants": [
+    {
+      "name": "符煉重革腰帶",
+      "card": "符煉重革腰帶\n        \n    \n    \n        \n            腰帶需求:  等級 65有(1—3)個護符欄位增加(20—30)%暈眩門檻來自藥劑的(15—25)%生命回復會套用至符文保護\n        \n\n\n\n        \n            Runemastered Heavy Belt",
+      "requirements": "需求:  等級 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "符煉重革腰帶",
+        "Class": "腰帶",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9VerisiumUnique1",
+        "Tags": "runeforged, belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    },
+    {
+      "name": "符煉重革腰帶",
+      "card": "符煉重革腰帶\n        \n    \n    \n        \n            腰帶需求:  等級 65有(1—3)個護符欄位增加(20—30)%暈眩門檻增加(20—40)%符文保護回復率\n        \n\n\n\n        \n            Runemastered Heavy Belt",
+      "requirements": "需求:  等級 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "符煉重革腰帶",
+        "Class": "腰帶",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9VerisiumUnique2",
+        "Tags": "runeforged, belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    },
+    {
+      "name": "符煉重革腰帶",
+      "card": "符煉重革腰帶\n        \n    \n    \n        \n            腰帶需求:  等級 65有(1—3)個護符欄位增加(20—30)%暈眩門檻符文保護恢復可以溢出最大符文保護\n        \n\n\n\n        \n            Runemastered Heavy Belt",
+      "requirements": "需求:  等級 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "符煉重革腰帶",
+        "Class": "腰帶",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9VerisiumUnique3",
+        "Tags": "runeforged, belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    },
+    {
+      "name": "符煉重革腰帶",
+      "card": "符煉重革腰帶\n        \n    \n    \n        \n            腰帶需求:  等級 65有(1—3)個護符欄位增加(20—30)%暈眩門檻藥劑每秒獲得(0.5—1)充能\n        \n\n\n\n        \n            Runemastered Heavy Belt",
+      "requirements": "需求:  等級 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "符煉重革腰帶",
+        "Class": "腰帶",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBelt9VerisiumUnique4",
+        "Tags": "runeforged, belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/Belt09",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

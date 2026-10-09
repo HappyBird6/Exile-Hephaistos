@@ -1,0 +1,44 @@
+{
+  "row": {
+    "Name": "of the Fox",
+    "Level": "22",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "Dexterity"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(13<span class=\"ndash\">—</span>16)</span> to <a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/df68c1bb7e0de9655bd5d2bdce54f7bc115c80605beb6755f7f3d1642f2045fd\">Dexterity</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "gloves",
+      "quiver",
+      "dex_armour",
+      "dex_int_armour",
+      "str_dex_armour",
+      "str_dex_int_armour",
+      "sword",
+      "spear",
+      "claw",
+      "warstaff",
+      "dagger",
+      "bow",
+      "crossbow",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/eb670b8b3781e94f0b888f2b7db12a60b25a10321285ea7d1cd5c12415cc3215"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/eb670b8b3781e94f0b888f2b7db12a60b25a10321285ea7d1cd5c12415cc3215",
+  "retrievedAt": "2026-10-04T22:01:14.183Z",
+  "sha256": "eb670b8b3781e94f0b888f2b7db12a60b25a10321285ea7d1cd5c12415cc3215",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(13<span class=\"ndash\">—</span>16)</span> to <a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e87dd2b44150865aae5b99b0c075b8ef49e3774e73fc4ea030601992a25b2da7\">Dexterity</a></span></h5>   <span data-tabname=\"of the Fox\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Fox\n<tr><th>Family<td>Dexterity\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>22 (Effective: 17)\n<tr><th>Gold Price<td>346\n<tr><th>Stats<td><li>additional dexterity <span class=\"badge bg-primary\">13 <span class=\"ndash\">—</span> 16</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>dex_armour: 1</span> <span class='badge bg-primary'>dex_int_armour: 1</span> <span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>sword: 1</span> <span class='badge bg-primary'>spear: 1</span> <span class='badge bg-primary'>claw: 1</span> <span class='badge bg-primary'>warstaff: 1</span> <span class='badge bg-primary'>dagger: 1</span> <span class='badge bg-primary'>bow: 1</span> <span class='badge bg-primary'>crossbow: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attribute</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>+(23<span class=\"ndash\">—</span>26)</span>% [SurpassChance|Surpassing] chance to fire an additional [Projectile]</table>  </div></div>"
+}

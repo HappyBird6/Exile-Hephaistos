@@ -1,0 +1,83 @@
+{
+  "pages": [
+    {
+      "url": "https://poe2db.tw/sp/Refined_Necrotic_Catalyst",
+      "sha256": "d12ba52ba2f82e3f773e8a6e8f1191bd8f9e19bd412e7c4680f3665475aec1e0",
+      "descriptionProvenance": "POE2DB_LOCALE_PAGE"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Necrotic_Catalyst",
+      "sha256": "95ff5956827c567b7ab13495e6bbc3a4f47769ab0489664ed72a8499bd906c88",
+      "descriptionProvenance": "POE2DB_LOCALE_PAGE"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Liquid_Verisium",
+      "sha256": "8d9f9184460968b4d47d301942da1c62fa6717f6b79b4c75a1e8439dc038f973",
+      "descriptionProvenance": "POE2DB_LOCALE_PAGE"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Yaomacs_Orb_of_Sacrifice",
+      "sha256": "613cdb52662be5182f56becb0b289bb31b8539c259f2f6b83d60bdbf6a57392a",
+      "descriptionProvenance": "POE2DB_LOCALE_PAGE"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Kopecs_Orb_of_Sacrifice",
+      "sha256": "5ce373a0fc470a1958357509d575f97d4cfcd11da4348ad539c882f52a6afa96",
+      "descriptionProvenance": "POE2DB_LOCALE_PAGE"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Kamasas_Orb_of_Sacrifice",
+      "sha256": "e60ff09e4f34d3ef0a38a242f1f2e62d045b85d9996d4a3d1e40729c6dcd47c2",
+      "descriptionProvenance": "POE2DB_LOCALE_PAGE"
+    },
+    {
+      "url": "https://poe2db.tw/sp/Yuguls_Orb_of_Sacrifice",
+      "sha256": "2313ea82b13faa42414fb1bc0a4a89d09312595ade8b1c9adce464885afa986c",
+      "descriptionProvenance": "POE2DB_LOCALE_PAGE"
+    }
+  ],
+  "ownTranslations": [
+    {
+      "id": "Refined_Necrotic_Catalyst",
+      "locale": "es",
+      "field": "name",
+      "text": "Catalizador necrótico refinado",
+      "reason": "Category omits the localized name and direct locale page title/name contains canonical slug; stable asset identity verified against English. Liquid Verisium description remains original English and is labeled as such."
+    },
+    {
+      "id": "Liquid_Verisium",
+      "locale": "es",
+      "field": "name",
+      "text": "Verisium líquido",
+      "reason": "Category omits the localized name and direct locale page title/name contains canonical slug; stable asset identity verified against English. Liquid Verisium description remains original English and is labeled as such."
+    },
+    {
+      "id": "Yaomacs_Orb_of_Sacrifice",
+      "locale": "es",
+      "field": "name",
+      "text": "Orbe de sacrificio de Yaomac",
+      "reason": "Category omits the localized name and direct locale page title/name contains canonical slug; stable asset identity verified against English. Liquid Verisium description remains original English and is labeled as such."
+    },
+    {
+      "id": "Kopecs_Orb_of_Sacrifice",
+      "locale": "es",
+      "field": "name",
+      "text": "Orbe de sacrificio de Kopec",
+      "reason": "Category omits the localized name and direct locale page title/name contains canonical slug; stable asset identity verified against English. Liquid Verisium description remains original English and is labeled as such."
+    },
+    {
+      "id": "Kamasas_Orb_of_Sacrifice",
+      "locale": "es",
+      "field": "name",
+      "text": "Orbe de sacrificio de Kamasa",
+      "reason": "Category omits the localized name and direct locale page title/name contains canonical slug; stable asset identity verified against English. Liquid Verisium description remains original English and is labeled as such."
+    },
+    {
+      "id": "Yuguls_Orb_of_Sacrifice",
+      "locale": "es",
+      "field": "name",
+      "text": "Orbe de sacrificio de Yugul",
+      "reason": "Category omits the localized name and direct locale page title/name contains canonical slug; stable asset identity verified against English. Liquid Verisium description remains original English and is labeled as such."
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "58",
+    "DropChance": 0,
+    "ModGenerationTypeID": "1",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "fossil_no": [
+      "attack"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/0bc1c1466504b5a60f287196af50be517d38ec81522bd291380a0a70b45aa5cc\" href=\"Greater_Essence_of_Battle\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterAttackEssence.webp\" alt=\"GreaterAttackEssence\" height=\"16\" />Greater Essence of Battle</a>",
+    "Code": "IncreasedAccuracy7",
+    "ModFamilyList": [
+      "IncreasedAccuracy"
+    ],
+    "str": "<span class='mod-value'>+(237<span class=\"ndash\">—</span>346)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c\">Accuracy</a> Rating",
+    "adds_no": [],
+    "spawn_no": [
+      "gloves",
+      "helmet",
+      "ring",
+      "amulet",
+      "quiver",
+      "default"
+    ],
+    "reqlvl": 46,
+    "IsPerfect": "0",
+    "IsAlloy": false,
+    "Removes": false
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedAccuracy7",
+  "textLocale": "us",
+  "detailText": "+(237—346) to Accuracy Rating",
+  "retrievedAt": "2026-10-05T07:09:34.722Z",
+  "sha256": "52b427c6f65bdf0f92e8a49c2baee20e4b1c23904bae4481cb9abb2b3c73cc65",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(237<span class=\"ndash\">—</span>346)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c\">Accuracy</a> Rating</span></h5>   <span data-tabname=\"Hunter's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Hunter's\n<tr><th>Family<td>IncreasedAccuracy\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>58 (Effective: 46)\n<tr><th>Gold Price<td>1276\n<tr><th>Stats<td><li>accuracy rating <span class=\"badge bg-primary\">237 <span class=\"ndash\">—</span> 346</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attack</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(30<span class=\"ndash\">—</span>32)</span>% chance to [Blind] Enemies on [Hit] with [Attack|Attacks]</table>  </div></div>",
+  "fields": {
+    "Name": "Hunter's",
+    "Family": "IncreasedAccuracy",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "58 (Effective: 46)",
+    "Gold Price": "1276",
+    "Stats": "accuracy rating 237 — 346 Global",
+    "Spawn Tags": "gloves: 1 helmet: 1 ring: 1 amulet: 1 quiver: 1 default: 0",
+    "Craft Tags": "Attack"
+  },
+  "code": "IncreasedAccuracy7",
+  "stats": [
+    {
+      "id": "accuracy_rating",
+      "min": 237,
+      "max": 346,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "gloves",
+      "weight": 1
+    },
+    {
+      "tag": "helmet",
+      "weight": 1
+    },
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

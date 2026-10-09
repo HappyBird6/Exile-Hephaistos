@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/kr/Vitalic_Ring",
+  "retrievedAt": "2026-10-04T20:54:52.100Z",
+  "sha256": "a3458a760e11796b630eb847d3ec63705c1e27edec019b8fcf95634351aa953f",
+  "name": "활력 반지",
+  "card": "활력 반지\n        \n    \n    \n        \n            반지요구 사항:  레벨 40최대 생명력 (4—6)% 증가\n        \n\n        \n        \n            견딜 수 있도록 육신을 양육하라.\n        \n\n\n        \n            Vitalic Ring",
+  "requirements": "요구 사항:  레벨 40",
+  "fields": {
+    "DropLevel": "40",
+    "BaseType": "활력 반지",
+    "Class": "반지",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Rings/FourRingB2",
+    "Tags": "ring",
+    "Icon": "Art/2DItems/Rings/BreachlordRing_Xoph",
+    "Base.base_level": "1",
+    "Base.tag": "default, ring",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Ring",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

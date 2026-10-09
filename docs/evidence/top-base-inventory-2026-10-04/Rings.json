@@ -1,0 +1,124 @@
+{
+  "page": "Rings",
+  "url": "https://poe2db.tw/us/Rings",
+  "retrievedAt": "2026-10-04T14:53:05.721Z",
+  "sha256": "eb8bcbc9d87841a43502f5ba95ca3afa016c0c8481e401b2901f2beac933f95f",
+  "cards": [
+    {
+      "slug": "Golden_Hoop",
+      "card": "Golden HoopRequires:  Level 12+(8—12) to all Attributes"
+    },
+    {
+      "slug": "Iron_Ring",
+      "card": "Iron RingAdds 1 to 4 Physical Damage to Attacks"
+    },
+    {
+      "slug": "Lazuli_Ring",
+      "card": "Lazuli Ring+(20—30) to maximum Mana"
+    },
+    {
+      "slug": "Ruby_Ring",
+      "card": "Ruby RingRequires:  Level 8+(20—30)% to Fire Resistance"
+    },
+    {
+      "slug": "Sapphire_Ring",
+      "card": "Sapphire RingRequires:  Level 12+(20—30)% to Cold Resistance"
+    },
+    {
+      "slug": "Topaz_Ring",
+      "card": "Topaz RingRequires:  Level 16+(20—30)% to Lightning Resistance"
+    },
+    {
+      "slug": "Amethyst_Ring",
+      "card": "Amethyst RingRequires:  Level 20+(7—13)% to Chaos Resistance"
+    },
+    {
+      "slug": "Emerald_Ring",
+      "card": "Emerald RingRequires:  Level 26+(120—160) to Accuracy Rating"
+    },
+    {
+      "slug": "Pearl_Ring",
+      "card": "Pearl RingRequires:  Level 32(7—10)% increased Cast Speed"
+    },
+    {
+      "slug": "Prismatic_Ring",
+      "card": "Prismatic RingRequires:  Level 35+(7—10)% to all Elemental Resistances"
+    },
+    {
+      "slug": "Gold_Ring",
+      "card": "Gold RingRequires:  Level 40(6—15)% increased Rarity of Items found"
+    },
+    {
+      "slug": "Unset_Ring",
+      "card": "Unset RingRequires:  Level 44Grants 1 additional Skill Slots"
+    },
+    {
+      "slug": "Abyssal_Signet",
+      "card": "Abyssal SignetRequires:  Level 40Inflict Abyssal Wasting on Hit"
+    },
+    {
+      "slug": "Two-Stone_Ring",
+      "card": "Two-Stone RingRequires:  Level 35+(12—16)% to Fire and Cold Resistances"
+    },
+    {
+      "slug": "Two-Stone_Ring",
+      "card": "Two-Stone RingRequires:  Level 35+(12—16)% to Fire and Lightning Resistances"
+    },
+    {
+      "slug": "Two-Stone_Ring",
+      "card": "Two-Stone RingRequires:  Level 35+(12—16)% to Cold and Lightning Resistances"
+    },
+    {
+      "slug": "Biostatic_Ring",
+      "card": "Biostatic RingRequires:  Level 52+1% to all maximum Resistances"
+    },
+    {
+      "slug": "Vitalic_Ring",
+      "card": "Vitalic RingRequires:  Level 40(4—6)% increased maximum Life"
+    },
+    {
+      "slug": "Mnemonic_Ring",
+      "card": "Mnemonic RingRequires:  Level 40(4—6)% increased maximum Mana"
+    },
+    {
+      "slug": "Kinetic_Ring",
+      "card": "Kinetic RingRequires:  Level 40Adds (6—9) to (11—15) Physical Damage to Attacks"
+    },
+    {
+      "slug": "Oneiric_Ring",
+      "card": "Oneiric RingRequires:  Level 47(11—23)% increased Chaos Damage"
+    },
+    {
+      "slug": "Grasping_Ring",
+      "card": "Grasping RingRequires:  Level 40This item gains bonuses from Socketed Items as though it was Gloves"
+    },
+    {
+      "slug": "Ring",
+      "card": "Ring"
+    },
+    {
+      "slug": "Dusk_Ring",
+      "card": "Dusk Ring+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed"
+    },
+    {
+      "slug": "Gloam_Ring",
+      "card": "Gloam Ring-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed"
+    },
+    {
+      "slug": "Penumbra_Ring",
+      "card": "Penumbra Ring+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed"
+    },
+    {
+      "slug": "Tenebrous_Ring",
+      "card": "Tenebrous Ring-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed"
+    },
+    {
+      "slug": "Breach_Ring",
+      "card": "Breach RingRequires:  Level 40+20% to Maximum Quality"
+    },
+    {
+      "slug": "Refined_Breach_Ring",
+      "card": "Refined Breach RingRequires:  Level 40+25% to Maximum Quality"
+    }
+  ]
+}

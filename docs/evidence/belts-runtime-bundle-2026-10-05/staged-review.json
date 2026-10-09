@@ -1,0 +1,8 @@
+{
+  "authoredCodeWhitespaceCheckPassed": true,
+  "fullDiffCheckStatus": 2,
+  "rawSourceWhitespaceWarnings": 2333,
+  "rawSourceBytesPreserved": true,
+  "reportPath": "E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005/staged-source-whitespace.log",
+  "gitOwnershipNote": "Escalated shell used another Windows account and Git refused ownership; normal owning sandbox account staged this authorized branch without global configuration changes"
+}

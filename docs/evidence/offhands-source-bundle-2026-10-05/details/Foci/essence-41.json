@@ -1,0 +1,88 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "38",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "fossil_no": [
+      "cold_resistance",
+      "elemental_resistance",
+      "elemental",
+      "cold",
+      "resistance"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/7e86ee106538402f20915fa394ef4476aee82e18ca59cb16f24563b52970f6a3\" href=\"Essence_of_Thawing\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/ColdResistanceEssence.webp\" alt=\"ColdResistanceEssence\" height=\"16\" />Essence of Thawing</a>",
+    "Code": "ColdResist4",
+    "ModFamilyList": [
+      "ColdResistance"
+    ],
+    "str": "<span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a>",
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "reqlvl": 30,
+    "IsPerfect": "0",
+    "IsAlloy": false,
+    "Removes": false
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist4",
+  "textLocale": "us",
+  "detailText": "+(21—25)% to Cold Resistance",
+  "retrievedAt": "2026-10-05T04:29:22.433Z",
+  "sha256": "f5587c04163dc2361565d314feebe3819ec6ae593add79ad36902964883270c0",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a></span></h5>   <span data-tabname=\"of the Yeti\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Yeti\n<tr><th>Family<td>ColdResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>38 (Effective: 30)\n<tr><th>Gold Price<td>665\n<tr><th>Stats<td><li>base cold damage resistance % <span class=\"badge bg-primary\">21 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>cold_resistance</i></span> <span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Resistance</span> \n<tr><th>Horticrafting<td>Can change Element modifier\n<tr><td>Fists of Stone<td><span class='mod-value'>+2</span>% to [MaximumResistances|Maximum Cold Resistance]<br><span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to [Resistances|Cold Resistance]</table>  </div></div>",
+  "fields": {
+    "Name": "of the Yeti",
+    "Family": "ColdResistance",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "38 (Effective: 30)",
+    "Gold Price": "665",
+    "Stats": "base cold damage resistance % 21 — 25 Global",
+    "Spawn Tags": "armour: 1 ring: 1 amulet: 1 belt: 1 default: 0",
+    "Craft Tags": "cold_resistance elemental_resistance Elemental Cold Resistance",
+    "Horticrafting": "Can change Element modifier"
+  },
+  "code": "ColdResist4",
+  "stats": [
+    {
+      "id": "base_cold_damage_resistance_%",
+      "min": 21,
+      "max": 25,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "armour",
+      "weight": 1
+    },
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "belt",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

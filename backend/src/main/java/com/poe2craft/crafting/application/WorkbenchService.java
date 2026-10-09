@@ -28,6 +28,8 @@ public final class WorkbenchService {
   private final WorkbenchSimulator bowSimulator;
   private final Map<String, ItemCatalog> basicJewels = new HashMap<>();
   private final Map<String, WorkbenchSimulator> basicJewelSimulators = new HashMap<>();
+  private final Map<String, ItemCatalog> topBases = new HashMap<>();
+  private final Map<String, WorkbenchSimulator> topBaseSimulators = new HashMap<>();
   private final ItemCatalog sapphire;
   private final WorkbenchSimulator sapphireSimulator;
 
@@ -197,6 +199,23 @@ public final class WorkbenchService {
         basicJewelSimulators.put(c.base().id(), new WorkbenchSimulator(c, new CraftingEngine(c)));
       }
     for (var c : timeLost) {
+      if (BodyEssenceTargets.supports(c.base().id())
+          || HelmetEssenceTargets.supports(c.base().id())) {
+        boolean isBody = BodyEssenceTargets.supports(c.base().id());
+        topBases.put(isBody ? "soldier" : "imperial", c);
+        topBaseSimulators.put(
+            c.base().id(),
+            new WorkbenchSimulator(
+                c,
+                new CraftingEngine(c),
+                c.modifiers().values().stream()
+                    .filter(d -> d.stats().size() > 1)
+                    .map(ModifierDefinition::id)
+                    .collect(java.util.stream.Collectors.toSet()),
+                Map.of(),
+                isBody ? BodyEssenceTargets.REPLACEMENTS : Map.of()));
+        continue;
+      }
       String name =
           "time-lost-"
               + c.base().name().substring("Time-Lost ".length()).toLowerCase(java.util.Locale.ROOT);
@@ -333,7 +352,23 @@ public final class WorkbenchService {
                                     1L,
                                     "attack_maximum_added_physical_damage",
                                     4L)))
-                        : List.of(),
+                        : (BaseRegistry.supports(catalog.base().id())
+                                    && BaseRegistry.policy(catalog.base().id())
+                                        .initializeImplicit())
+                                && catalog.base().hasImplicit()
+                            ? List.of(
+                                new ModifierInstance(
+                                    catalog.base().implicitModifierId(),
+                                    catalog
+                                        .find(catalog.base().implicitModifierId())
+                                        .orElseThrow()
+                                        .stats()
+                                        .stream()
+                                        .collect(
+                                            java.util.stream.Collectors.toMap(
+                                                ModifierDefinition.StatRange::id,
+                                                stat -> stat.max()))))
+                            : List.of(),
                 List.of(),
                 Set.of());
     var bucket = StateBucket.from(state);
@@ -352,6 +387,7 @@ public final class WorkbenchService {
   }
 
   private ItemCatalog catalog(String base) {
+    if (topBases.containsKey(base)) return topBases.get(base);
     if (basicJewels.containsKey(base)) return basicJewels.get(base);
     return switch (base) {
       case "sapphire" -> {
@@ -393,6 +429,8 @@ public final class WorkbenchService {
   }
 
   private WorkbenchSimulator simulator(ItemState state) {
+    if (state != null && topBaseSimulators.containsKey(state.baseItemId()))
+      return topBaseSimulators.get(state.baseItemId());
     if (state != null && basicJewelSimulators.containsKey(state.baseItemId()))
       return basicJewelSimulators.get(state.baseItemId());
     if (state != null
@@ -421,6 +459,38 @@ public final class WorkbenchService {
     throw new IllegalArgumentException("Unsupported Workbench base");
   }
 
+  /**
+   * Bootstrap registration uses source-reviewed catalog identities and per-class essence targets.
+   */
+  public void registerReviewedArmour(
+      String key,
+      ItemCatalog catalog,
+      Map<WorkbenchCurrency, List<String>> fixed,
+      Map<WorkbenchCurrency, List<String>> replacements) {
+    registerReviewedBase(key, catalog, fixed, replacements);
+  }
+
+  public void registerReviewedBase(
+      String key,
+      ItemCatalog catalog,
+      Map<WorkbenchCurrency, List<String>> fixed,
+      Map<WorkbenchCurrency, List<String>> replacements) {
+    if (!BaseRegistry.require(key).id().equals(catalog.base().id()) || topBases.containsKey(key))
+      throw new IllegalArgumentException("Unreviewed or duplicate base registration");
+    var simulator =
+        new WorkbenchSimulator(
+            catalog,
+            new CraftingEngine(catalog),
+            catalog.modifiers().values().stream()
+                .filter(d -> d.stats().size() > 1)
+                .map(ModifierDefinition::id)
+                .collect(java.util.stream.Collectors.toSet()),
+            fixed,
+            replacements);
+    topBases.put(key, catalog);
+    topBaseSimulators.put(catalog.base().id(), simulator);
+  }
+
   public WorkbenchSimulator.Result apply(
       ItemState state, WorkbenchCurrency action, Set<String> omens, RandomGenerator random) {
     return simulator(state).apply(state, action, omens, random);
@@ -431,6 +501,18 @@ public final class WorkbenchService {
   }
 
   public QualityDisplay qualityDisplay(ItemState state) {
+    if (topBaseSimulators.containsKey(state.baseItemId())) {
+      var selected =
+          topBases.values().stream()
+              .filter(c -> c.base().id().equals(state.baseItemId()))
+              .findFirst()
+              .orElseThrow();
+      return new QualityDisplay(
+          com.poe2craft.item.CatalystQualityDisplay.VERSION,
+          state,
+          QualityLimitRules.describe(state, selected),
+          com.poe2craft.item.CatalystQualityDisplay.describe(state, selected));
+    }
     var selected =
         java.util.stream.Stream.concat(
                 basicJewels.values().stream(),

@@ -1,0 +1,5530 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-bloodstone-amulet-20261004-dc4593826df1ecfe",
+    "retrievedAt": "2026-10-04T21:52:32.728Z",
+    "sourceUrl": "https://poe2db.tw/us/Amulets#ModifiersCalc",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "945483629d385e81018be9d807b5262da8ac180b4d8d02db2e44a1bbc6133816",
+    "detailsSha256": "d3b9c02395719b8b5bcf6958bb530428d578affa02436fc63158e9b2934775b9",
+    "prefixCount": 84,
+    "suffixCount": 133,
+    "prefixWeight": 72200,
+    "suffixWeight": 96656
+  },
+  "base": {
+    "id": "Metadata/Items/Amulets/FourAmulet7",
+    "name": "Bloodstone Amulet",
+    "sourceUrl": "https://poe2db.tw/us/Bloodstone_Amulet",
+    "implicitModifierId": "bloodstone:implicit:increasedlife",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifiers": [
+    {
+      "id": "bloodstone:implicit:increasedlife",
+      "name": "Bloodstone Amulet implicit",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "text": "+(30—40) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 30,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Bloodstone_Amulet"
+    },
+    {
+      "id": "amulet:prefix:adept-s",
+      "name": "Adept's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(8—12)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6443062ca0d6a21a37b0bbe2b2488e887943433cb18e0376104c11ca718225c7"
+    },
+    {
+      "id": "amulet:prefix:apprentice-s",
+      "name": "Apprentice's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(3—7)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6272c0dcbe7baeb92238481921e5630bd20373f16d4cd9f167230de9f5438401"
+    },
+    {
+      "id": "amulet:prefix:aqua",
+      "name": "Aqua",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(65—79) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 65,
+          "max": 79
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4f71a1256f36c81a59173079a8670c49d439f8be79df898aead1e63be9d960c9"
+    },
+    {
+      "id": "amulet:prefix:athlete-s",
+      "name": "Athlete's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(120—149) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 120,
+          "max": 149
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/dd7a7f3839381bb31ea44197b01e1739aae2884cafc205d98bc3107b8243f170"
+    },
+    {
+      "id": "amulet:prefix:azure",
+      "name": "Azure",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 11,
+      "text": "+(25—34) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 25,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2f01ed20aa9c98a994c86fa2c72c78f11e25e13ae6d84bb6b7d944af8b77a3a1"
+    },
+    {
+      "id": "amulet:prefix:baronness",
+      "name": "Baronness'",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 500,
+      "tier": 4,
+      "text": "+(34—37) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 34,
+          "max": 37
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0f42ae33a63f709a2eb7801c2b7833922014771f475e906002a953c3fcf8a9fe"
+    },
+    {
+      "id": "amulet:prefix:beryl",
+      "name": "Beryl",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 13,
+      "text": "+(10—14) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a3db9c2caeec255e1441412183054baf36982320f5854dcf57cdcd276fb8dcd7"
+    },
+    {
+      "id": "amulet:prefix:blazing",
+      "name": "Blazing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(52—61) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 52,
+          "max": 61
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cf9989b289e06d14d48f174b60abb2e9ce8de70535302463bc9b2e0fa1b6cb07"
+    },
+    {
+      "id": "amulet:prefix:blue",
+      "name": "Blue",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(150—164) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 150,
+          "max": 164
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7f1ddf96e748226952107f340da3bad077f4f565512bab386f87bdf11c48217d"
+    },
+    {
+      "id": "amulet:prefix:buttressed",
+      "name": "Buttressed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRatingPercent"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(27—32)% increased Armour",
+      "stats": [
+        {
+          "id": "physical_damage_reduction_rating_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0891a984d4f5c66996ae4b0b1c464ae52edffd30178b888c374e8117eaa0e708"
+    },
+    {
+      "id": "amulet:prefix:cerulean",
+      "name": "Cerulean",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 9,
+      "text": "+(55—64) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 55,
+          "max": 64
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/38874f8b1078f4ede5c2cd6a7bc2093830ef4d91ff6043364f910b0d46a65910"
+    },
+    {
+      "id": "amulet:prefix:chalybeous",
+      "name": "Chalybeous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(105—124) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 105,
+          "max": 124
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1cc613a3a17d18c7f76d5d42cd1adc9833d3b43ea612ef1d3ccf15f1b442ea1c"
+    },
+    {
+      "id": "amulet:prefix:cobalt",
+      "name": "Cobalt",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 6,
+      "weight": 1000,
+      "tier": 12,
+      "text": "+(15—24) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 15,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/061ed84e2171404c230204cacc86400c4780ecb37e5eb322d9f678e5b0cc22fc"
+    },
+    {
+      "id": "amulet:prefix:cognizant",
+      "name": "Cognizant",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumManaIncreasePercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 300,
+      "tier": 3,
+      "text": "(3—4)% increased maximum Mana",
+      "stats": [
+        {
+          "id": "maximum_mana_+%",
+          "min": 3,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/63656eb3164d88428e78d28cf8b11bbc6cb5f66f9826eba8c064a31e3252790e"
+    },
+    {
+      "id": "amulet:prefix:collector-s",
+      "name": "Collector's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ItemFoundRarityIncreasePrefix"
+      ],
+      "requiredItemLevel": 29,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(12—15)% increased Rarity of Items found",
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 12,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d57fa2159dd111dae7c740f3a299891cc5c776572d3a6817470a645e413e36dd"
+    },
+    {
+      "id": "amulet:prefix:confident",
+      "name": "Confident",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumLifeIncreasePercent"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 300,
+      "tier": 1,
+      "text": "(7—8)% increased maximum Life",
+      "stats": [
+        {
+          "id": "maximum_life_+%",
+          "min": 7,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b00cd8ab0be5b92dc9488486b1f2cde5cc157216786145939e0ee4fccd222b29"
+    },
+    {
+      "id": "amulet:prefix:consistent",
+      "name": "Consistent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 800,
+      "tier": 4,
+      "text": "+(124—167) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 124,
+          "max": 167
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5b87729da1a1380abc600df6b6785295bf380ace91526e2f38729a5ddfcefdf1"
+    },
+    {
+      "id": "amulet:prefix:countess",
+      "name": "Countess'",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 400,
+      "tier": 1,
+      "text": "+(47—50) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 47,
+          "max": 50
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/64e4cc621d25ba6ef48118250d66a02ca546135da56714bdda00c4f81c286988"
+    },
+    {
+      "id": "amulet:prefix:dauntless",
+      "name": "Dauntless",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EnergyShieldPercent"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(33—38)% increased maximum Energy Shield",
+      "stats": [
+        {
+          "id": "maximum_energy_shield_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/44a37299d702ff6cc45f470d3008784540d7d8e851dd45ea651bf424002c615c"
+    },
+    {
+      "id": "amulet:prefix:dazzling",
+      "name": "Dazzling",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(62—70) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 62,
+          "max": 70
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7c5d9cf64cd795e660675135ede06a3f896bcb8cc681b226206ddc205a94e4b4"
+    },
+    {
+      "id": "amulet:prefix:deliberate",
+      "name": "Deliberate",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 800,
+      "tier": 5,
+      "text": "+(85—123) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 85,
+          "max": 123
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/eca7b521bb134cbed453e80b63a48ff94831b06fbb8b55e8ff8dfd35974ae061"
+    },
+    {
+      "id": "amulet:prefix:fearless",
+      "name": "Fearless",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EnergyShieldPercent"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(27—32)% increased maximum Energy Shield",
+      "stats": [
+        {
+          "id": "maximum_energy_shield_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/af890dd3fa1e53c9643c1748e6d27aa78d871fd76336ecdccd8a71d436c72b25"
+    },
+    {
+      "id": "amulet:prefix:focused",
+      "name": "Focused",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 800,
+      "tier": 6,
+      "text": "+(61—84) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 61,
+          "max": 84
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/41ec683ecb6b8e2012706329d8a0bfa1a5565aa729bb664fa59038a45449d047"
+    },
+    {
+      "id": "amulet:prefix:gentian",
+      "name": "Gentian",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(90—104) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 90,
+          "max": 104
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3e1db637d4b90e22df8e5347149c0a6a303c6dc103365085d741b54098bf5b34"
+    },
+    {
+      "id": "amulet:prefix:ghost-s",
+      "name": "Ghost's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EvasionRatingPercent"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(15—20)% increased Evasion Rating",
+      "stats": [
+        {
+          "id": "evasion_rating_+%",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/42207577ab09dc65b4a1324c4be8f2297fabc01729bb944d80ae6ae58c633a22"
+    },
+    {
+      "id": "amulet:prefix:girded",
+      "name": "Girded",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRatingPercent"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(39—44)% increased Armour",
+      "stats": [
+        {
+          "id": "physical_damage_reduction_rating_+%",
+          "min": 39,
+          "max": 44
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/01319cf571eff26b49e13be987182c4ae5803232897b3ae846535dc698488858"
+    },
+    {
+      "id": "amulet:prefix:glimmering",
+      "name": "Glimmering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 9,
+      "text": "+(15—20) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9c965da2fb932f61ffe971f70eb679b5dc3196bfb4517aeb85ae527f1d461ba6"
+    },
+    {
+      "id": "amulet:prefix:glittering",
+      "name": "Glittering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(21—24) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7c0ec623964461ee1480a153c3841ccb374d00ece071557f14a9efa376d02e70"
+    },
+    {
+      "id": "amulet:prefix:glowing",
+      "name": "Glowing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(25—33) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 25,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5a8cea156da677ad8fc45c33d285b904d18a81bf40735e079bed087bd4c00c6e"
+    },
+    {
+      "id": "amulet:prefix:hale",
+      "name": "Hale",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 9,
+      "text": "+(10—19) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 10,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d3184b467d4d101696a1ec171906fc3b45f1ef6a017d5c057f20d73c1120b3ff"
+    },
+    {
+      "id": "amulet:prefix:healthy",
+      "name": "Healthy",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 6,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(20—29) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 20,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/dfaf9bfeec1dfc60c75138318b493bca64f32146906904ce2a7bcdd3f41128d2"
+    },
+    {
+      "id": "amulet:prefix:hoarder-s",
+      "name": "Hoarder's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ItemFoundRarityIncreasePrefix"
+      ],
+      "requiredItemLevel": 47,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(16—19)% increased Rarity of Items found",
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 16,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e9027baea82d16d3dc9dfb88fa6e04204d0a413672ed36128e513c8ba29bea6c"
+    },
+    {
+      "id": "amulet:prefix:hopeful",
+      "name": "Hopeful",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumLifeIncreasePercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 300,
+      "tier": 3,
+      "text": "(3—4)% increased maximum Life",
+      "stats": [
+        {
+          "id": "maximum_life_+%",
+          "min": 3,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cefa6b666fcf314e27c86471437fd0a0fa5ab25173aa499b88c0a152606a63ad"
+    },
+    {
+      "id": "amulet:prefix:hunter-s",
+      "name": "Hunter's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 58,
+      "weight": 800,
+      "tier": 2,
+      "text": "+(237—346) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 237,
+          "max": 346
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/52b427c6f65bdf0f92e8a49c2baee20e4b1c23904bae4481cb9abb2b3c73cc65"
+    },
+    {
+      "id": "amulet:prefix:impregnable",
+      "name": "Impregnable",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRatingPercent"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(45—50)% increased Armour",
+      "stats": [
+        {
+          "id": "physical_damage_reduction_rating_+%",
+          "min": 45,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9c6c2c1e630943996bc84a5ec5074be173f6a8e6343dc2200bbd86eeffdee6a3"
+    },
+    {
+      "id": "amulet:prefix:incandescent",
+      "name": "Incandescent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 80,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(80—89) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 80,
+          "max": 89
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ac785d7f998c6c7dd0ab21e6ecfa83ddf05e0908364da9be2e0668801717fe89"
+    },
+    {
+      "id": "amulet:prefix:incanter-s",
+      "name": "Incanter's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(27—30)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 27,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9bc9ce9672e49e7b5cd6a45d35ed464b8324e2a8f704770373fe48f7cea395a8"
+    },
+    {
+      "id": "amulet:prefix:indomitable",
+      "name": "Indomitable",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EnergyShieldPercent"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(39—44)% increased maximum Energy Shield",
+      "stats": [
+        {
+          "id": "maximum_energy_shield_+%",
+          "min": 39,
+          "max": 44
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/90156a7b23a7b14a210b461b3276bd9162a81c94b0d96f89856b3fc27c49c76e"
+    },
+    {
+      "id": "amulet:prefix:lady-s",
+      "name": "Lady's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 5,
+      "text": "+(30—33) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 30,
+          "max": 33
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8469bf153c57c7a22d19b6306ef3ee0f092e527608c648bb3efd8529b177b63e"
+    },
+    {
+      "id": "amulet:prefix:layered",
+      "name": "Layered",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRatingPercent"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(15—20)% increased Armour",
+      "stats": [
+        {
+          "id": "physical_damage_reduction_rating_+%",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7569189de7f0c4130a6aed9f1eddeb86b203b61da417e33bfff66a836807db0c"
+    },
+    {
+      "id": "amulet:prefix:lobstered",
+      "name": "Lobstered",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRatingPercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(21—26)% increased Armour",
+      "stats": [
+        {
+          "id": "physical_damage_reduction_rating_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0b8183ae2ec5be66f6b1b7dac038b61ffd9f3fc80b9254118b3d1b6ff7d2de5f"
+    },
+    {
+      "id": "amulet:prefix:magpie-s",
+      "name": "Magpie's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ItemFoundRarityIncreasePrefix"
+      ],
+      "requiredItemLevel": 10,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(8—11)% increased Rarity of Items found",
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 8,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/98ea89958a9baa8e33816d4eaf376c43b8525da95d7e45ee9736f5e7c4ca26ef"
+    },
+    {
+      "id": "amulet:prefix:marchioness",
+      "name": "Marchioness'",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 2,
+      "text": "+(43—46) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 43,
+          "max": 46
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fbf339127cbcda8f60bcb59ce4a15ad29fb749942a598ce106f1cc3e7771665f"
+    },
+    {
+      "id": "amulet:prefix:mazarine",
+      "name": "Mazarine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(125—149) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 125,
+          "max": 149
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/097351a08ba5aeb4960150dc92c02a8e5e70ef6b1423a411f1418e8d2e316d2d"
+    },
+    {
+      "id": "amulet:prefix:mirage-s",
+      "name": "Mirage's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EvasionRatingPercent"
+      ],
+      "requiredItemLevel": 77,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(45—50)% increased Evasion Rating",
+      "stats": [
+        {
+          "id": "evasion_rating_+%",
+          "min": 45,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d79d41b63830889459cc6f933a57ba2be035d3946902aa3e506b90a6e7295706"
+    },
+    {
+      "id": "amulet:prefix:mnemonic",
+      "name": "Mnemonic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumManaIncreasePercent"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 300,
+      "tier": 1,
+      "text": "(7—8)% increased maximum Mana",
+      "stats": [
+        {
+          "id": "maximum_mana_+%",
+          "min": 7,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4ecc923cf4760c774557e135b38b7b6a429b41f6f865d58447221d50dde6ed76"
+    },
+    {
+      "id": "amulet:prefix:nightmare-s",
+      "name": "Nightmare's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EvasionRatingPercent"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(39—44)% increased Evasion Rating",
+      "stats": [
+        {
+          "id": "evasion_rating_+%",
+          "min": 39,
+          "max": 44
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/43b80e4db138f4e3b26489a5738aa8a2529f850ef24fcf7d15baa41e1f410043"
+    },
+    {
+      "id": "amulet:prefix:occultist-s",
+      "name": "Occultist's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamage"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(23—26)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 23,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c29f958e88662d679799a873aaead4919cf0a85ab48f747bd488c2a618317d03"
+    },
+    {
+      "id": "amulet:prefix:opalescent",
+      "name": "Opalescent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(80—89) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 80,
+          "max": 89
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2cc78709264e5d3acc2e5a4c3c1486b6713091b0c5ada7aaa4b30ba6d7ea2399"
+    },
+    {
+      "id": "amulet:prefix:optimistic",
+      "name": "Optimistic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumLifeIncreasePercent"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 300,
+      "tier": 2,
+      "text": "(5—6)% increased maximum Life",
+      "stats": [
+        {
+          "id": "maximum_life_+%",
+          "min": 5,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a6bd8380812afde30b97fb390f4281f1c6ce7babe03b96a6e5d9c129b61a3605"
+    },
+    {
+      "id": "amulet:prefix:perceptive",
+      "name": "Perceptive",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumManaIncreasePercent"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 300,
+      "tier": 2,
+      "text": "(5—6)% increased maximum Mana",
+      "stats": [
+        {
+          "id": "maximum_mana_+%",
+          "min": 5,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/93d351acd78d5dd6d8b87ecc24caf13ea445adff69fb7d15ecc65cda2779eb96"
+    },
+    {
+      "id": "amulet:prefix:phantasm-s",
+      "name": "Phantasm's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EvasionRatingPercent"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(33—38)% increased Evasion Rating",
+      "stats": [
+        {
+          "id": "evasion_rating_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a56e836e3b3036dca9c41faa38a98167179a80a25a24d7eafb1f10bed59f7fd1"
+    },
+    {
+      "id": "amulet:prefix:precise",
+      "name": "Precise",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 800,
+      "tier": 8,
+      "text": "+(11—32) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 11,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f3abcab60ec8a82575dfb303c75407d21ae0d5a4460a33c3c79f9135c012e9e7"
+    },
+    {
+      "id": "amulet:prefix:professor-s",
+      "name": "Professor's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(18—22)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 18,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c88f8372e444b0eb87e0353bcaa61e641a295111745f13710926b82007b97272"
+    },
+    {
+      "id": "amulet:prefix:protective",
+      "name": "Protective",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EnergyShieldPercent"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 1000,
+      "tier": 7,
+      "text": "(10—14)% increased maximum Energy Shield",
+      "stats": [
+        {
+          "id": "maximum_energy_shield_+%",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5b40327cae872a127ca453519acc9472dcf68f022b2b254107223244454a2085"
+    },
+    {
+      "id": "amulet:prefix:pulsing",
+      "name": "Pulsing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(42—51) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 42,
+          "max": 51
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/43796121ee4a2571036b7cf72376cde7679163e21fe7d198c1c0109550bb0b8e"
+    },
+    {
+      "id": "amulet:prefix:radiating",
+      "name": "Radiating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(34—41) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 34,
+          "max": 41
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ef26d3c6f11b211c90ffd3dd7507ff2005a001996deede0b905159c050fbca25"
+    },
+    {
+      "id": "amulet:prefix:ranger-s",
+      "name": "Ranger's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 67,
+      "weight": 400,
+      "tier": 1,
+      "text": "+(347—450) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 347,
+          "max": 450
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7fbc497d6e4af1fc9e47d4b85929da46e0740dbb58f4b5086cbebfeef5f66257"
+    },
+    {
+      "id": "amulet:prefix:reinforced",
+      "name": "Reinforced",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRatingPercent"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 1000,
+      "tier": 7,
+      "text": "(10—14)% increased Armour",
+      "stats": [
+        {
+          "id": "physical_damage_reduction_rating_+%",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8f66b8027c4d4ff7c11be8d3f7fd063bab55a6434ef9aff24d325793273db66e"
+    },
+    {
+      "id": "amulet:prefix:reliable",
+      "name": "Reliable",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 800,
+      "tier": 7,
+      "text": "+(33—60) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 33,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/abcdb0bd40835de14d7d72ff877d52fe08a5ed7221603912318521b1820f09a7"
+    },
+    {
+      "id": "amulet:prefix:resolute",
+      "name": "Resolute",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EnergyShieldPercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(21—26)% increased maximum Energy Shield",
+      "stats": [
+        {
+          "id": "maximum_energy_shield_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/67a8822a628a6629fc4139bb920cc65ef5a63bba656091a415d1fab06a5073bd"
+    },
+    {
+      "id": "amulet:prefix:robust",
+      "name": "Robust",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(70—84) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 70,
+          "max": 84
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/72a00abccf75cc0c4f91fe969e6fd13df8cc361c59cdc53f6f3b6e9121549c9b"
+    },
+    {
+      "id": "amulet:prefix:rotund",
+      "name": "Rotund",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(85—99) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 85,
+          "max": 99
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/23bda55be13599a91446f74c6d8cee65ada6ee7fb9189c68412270cf7a727ab8"
+    },
+    {
+      "id": "amulet:prefix:sanguine",
+      "name": "Sanguine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(30—39) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 30,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/436dd8d7a7bcc1bdfa78e9fba034f9ed8566831456e5894083e10e331e6c8c1a"
+    },
+    {
+      "id": "amulet:prefix:scholar-s",
+      "name": "Scholar's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(13—17)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 13,
+          "max": 17
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/37a60ad0633de0b95930d64aada668dcf3c3b6581b88de11d30273f6182b64d6"
+    },
+    {
+      "id": "amulet:prefix:scintillating",
+      "name": "Scintillating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(71—79) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 71,
+          "max": 79
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/790b1d65319b2903407290417f3f8c618962e0f2a4dd22310d5cb632879c902d"
+    },
+    {
+      "id": "amulet:prefix:shade-s",
+      "name": "Shade's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EvasionRatingPercent"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 1000,
+      "tier": 7,
+      "text": "(10—14)% increased Evasion Rating",
+      "stats": [
+        {
+          "id": "evasion_rating_+%",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8003227f977c5cf41cc133d2f6bc94c09e533a3b34c3ff7fdff1acc12d7a4e32"
+    },
+    {
+      "id": "amulet:prefix:shining",
+      "name": "Shining",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 10,
+      "text": "+(8—14) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 8,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a279a718243e586f1152c3ebd3936186b739845121bb893fd84eae55f738181e"
+    },
+    {
+      "id": "amulet:prefix:spectre-s",
+      "name": "Spectre's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EvasionRatingPercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(21—26)% increased Evasion Rating",
+      "stats": [
+        {
+          "id": "evasion_rating_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8a4e778cd1baa23b5f222198fd1e375fe4f6fb11c1098a32f61d72c42ecbd03a"
+    },
+    {
+      "id": "amulet:prefix:stalwart",
+      "name": "Stalwart",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(40—59) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 40,
+          "max": 59
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/600d0c23a44fb6ab9e0aee0a076bd0f928baeb1ef27614a37eb4fab301021d1a"
+    },
+    {
+      "id": "amulet:prefix:steady",
+      "name": "Steady",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 800,
+      "tier": 3,
+      "text": "+(168—236) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 168,
+          "max": 236
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7f420ee5c51ea59f421ccc9534d4985eab64380b034c5a9facaf0a4b689f2c65"
+    },
+    {
+      "id": "amulet:prefix:stout",
+      "name": "Stout",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(60—69) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 60,
+          "max": 69
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d752a62fa20288c77271d8cbeab0b651e666c4930e165cf836d05db9fcd9394a"
+    },
+    {
+      "id": "amulet:prefix:strong-willed",
+      "name": "Strong-Willed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EnergyShieldPercent"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(15—20)% increased maximum Energy Shield",
+      "stats": [
+        {
+          "id": "maximum_energy_shield_+%",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9d88aeb687e1f32665700d13ddb1f3d46875b90692a26e6da008974e33fb3ed2"
+    },
+    {
+      "id": "amulet:prefix:teal",
+      "name": "Teal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 10,
+      "text": "+(35—54) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 35,
+          "max": 54
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/97fd0ec88bb77fa6bca24dcfcc1b9aaf4750fa88e810f4587b2060b29e51948f"
+    },
+    {
+      "id": "amulet:prefix:thickened",
+      "name": "Thickened",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRatingPercent"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(33—38)% increased Armour",
+      "stats": [
+        {
+          "id": "physical_damage_reduction_rating_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5eee3e9467680a605d6058f45f93089d91605ddbf4999ff559a0befa867f86e8"
+    },
+    {
+      "id": "amulet:prefix:ultramarine",
+      "name": "Ultramarine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(180—189) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 180,
+          "max": 189
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7dfe6e064c132ed81f3c62b8070ebc6f57755887ad202fd1e7c1ea11e00c4fb5"
+    },
+    {
+      "id": "amulet:prefix:unassailable",
+      "name": "Unassailable",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EnergyShieldPercent"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(45—50)% increased maximum Energy Shield",
+      "stats": [
+        {
+          "id": "maximum_energy_shield_+%",
+          "min": 45,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/84a02f8ec2bb0882888e369a6bf1abe17580f2b4fef108f4e0c434a930790f3a"
+    },
+    {
+      "id": "amulet:prefix:virile",
+      "name": "Virile",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(100—119) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 100,
+          "max": 119
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3f57c4674caee503d336b56076492bd1a225e6e868b8fa1348e17e3e01e4204e"
+    },
+    {
+      "id": "amulet:prefix:viscountess",
+      "name": "Viscountess'",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 3,
+      "text": "+(38—42) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 38,
+          "max": 42
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/368d2f77af712c32aa27c88542f656d0553c7ffe8f20203e125da28c3dee7c00"
+    },
+    {
+      "id": "amulet:prefix:wraith-s",
+      "name": "Wraith's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EvasionRatingPercent"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(27—32)% increased Evasion Rating",
+      "stats": [
+        {
+          "id": "evasion_rating_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cb2c06704d9642f69c8f9db9d0fed52d328a5e86869975a3fa88c0302f78afbb"
+    },
+    {
+      "id": "amulet:prefix:zaffre",
+      "name": "Zaffre",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(165—179) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 165,
+          "max": 179
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/15be79d2c24818b96683e707d3fb6adf8cab754a80c382adab44f4dee99bc7d9"
+    },
+    {
+      "id": "amulet:suffix:of-anger",
+      "name": "of Anger",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(15—19)% increased Critical Damage Bonus",
+      "stats": [
+        {
+          "id": "base_critical_strike_multiplier_+",
+          "min": 15,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0d9e7c364863d0160202b4afe7cf8152bd46a8dc7129a0607a0b3e17c3e48891"
+    },
+    {
+      "id": "amulet:suffix:of-archaeology",
+      "name": "of Archaeology",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ItemFoundRarityIncrease"
+      ],
+      "requiredItemLevel": 40,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(15—18)% increased Rarity of Items found",
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 15,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0f55550190c13d88f82351e36746b59f96ecd8da31cdf2d08fd216d0e9631b90"
+    },
+    {
+      "id": "amulet:suffix:of-bameth",
+      "name": "of Bameth",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 250,
+      "tier": 1,
+      "text": "+(24—27)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 24,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0d72e641fa39c3df5883680aa5e639fdc2843ea86b05d43e8598511618e58c0e"
+    },
+    {
+      "id": "amulet:suffix:of-bandaging",
+      "name": "of Bandaging",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DamageTakenGainedAsLife"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 500,
+      "tier": 4,
+      "text": "(13—15)% of Damage taken Recouped as Life",
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 13,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/963da2c7ef688fd14f96a971e34d1891ccad5c009fa3f5ff98141293561b5257"
+    },
+    {
+      "id": "amulet:suffix:of-banishment",
+      "name": "of Banishment",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 250,
+      "tier": 5,
+      "text": "+(8—11)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 8,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/029a70baae414597b1e49bad3fcd3339908fb3dce889c0f08c7cc47a3ce1d387"
+    },
+    {
+      "id": "amulet:suffix:of-battle",
+      "name": "of Battle",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 100,
+      "tier": 1,
+      "text": "+3 to Level of all Melee Skills",
+      "stats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/019e752d70d426758c9a6472feaecc2623b76cb0b55e10b320fc8bacc197af85"
+    },
+    {
+      "id": "amulet:suffix:of-bliss",
+      "name": "of Bliss",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 42,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(40—49)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 40,
+          "max": 49
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c164c4fb31e36b7a5e7313949737aa1e785d78d564619389a5974a0b35e60eb4"
+    },
+    {
+      "id": "amulet:suffix:of-calamity",
+      "name": "of Calamity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 500,
+      "tier": 3,
+      "text": "(25—29)% increased Critical Hit Chance",
+      "stats": [
+        {
+          "id": "critical_strike_chance_+%",
+          "min": 25,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/df0c1b7d19254f726c5b03379a3065337683f2422274deb4ccf439ee3e8d06c3"
+    },
+    {
+      "id": "amulet:suffix:of-combat",
+      "name": "of Combat",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 500,
+      "tier": 4,
+      "text": "+1 to Level of all Melee Skills",
+      "stats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e7b8b8b2df9bd8d657c723824f1a74781e8ffd14a32e5987f8a59d25b4f9dd5a"
+    },
+    {
+      "id": "amulet:suffix:of-convalescence",
+      "name": "of Convalescence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 47,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(13.1—18) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 786,
+          "max": 1080
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ac83f08dfe4308d856621084a4ca51519416a8a519ec52b28f0e6eb40be5bffd"
+    },
+    {
+      "id": "amulet:suffix:of-destruction",
+      "name": "of Destruction",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 125,
+      "tier": 1,
+      "text": "(35—39)% increased Critical Damage Bonus",
+      "stats": [
+        {
+          "id": "base_critical_strike_multiplier_+",
+          "min": 35,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3dec0498fd4cce7f8533a50132b62d1b493ebb537a6f675d2407aa66d7ad7e00"
+    },
+    {
+      "id": "amulet:suffix:of-disaster",
+      "name": "of Disaster",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(20—24)% increased Critical Hit Chance",
+      "stats": [
+        {
+          "id": "critical_strike_chance_+%",
+          "min": 20,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1e084dc9b6471c16059010124a1fb678fdf6393ef73ed4662d48eb56c697cfc2"
+    },
+    {
+      "id": "amulet:suffix:of-dueling",
+      "name": "of Dueling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 41,
+      "weight": 250,
+      "tier": 2,
+      "text": "+2 to Level of all Melee Skills",
+      "stats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8747e4f2bb42714bb458f1edcef10805d3f18ce2d24ef5623de82bea567bc4e5"
+    },
+    {
+      "id": "amulet:suffix:of-elation",
+      "name": "of Elation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 29,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(30—39)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 30,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b886a6a7a0ac9a57c8c2f6d5ba9c83f3ef69a81f3a77d3bcace934b687871023"
+    },
+    {
+      "id": "amulet:suffix:of-ephij",
+      "name": "of Ephij",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(41—45)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ef0507c8677d36e238d874f750eb59e8afe0221d4e961b377a02a6da080090c1"
+    },
+    {
+      "id": "amulet:suffix:of-euphoria",
+      "name": "of Euphoria",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(50—59)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 50,
+          "max": 59
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7a9b49f9504d58da98f4ae13c2fae7a558bc1571d7176808de3016a7bb62967f"
+    },
+    {
+      "id": "amulet:suffix:of-eviction",
+      "name": "of Eviction",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 250,
+      "tier": 4,
+      "text": "+(12—15)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 12,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/76a1eedd7035e2ac8b8258931cc132cd1c68644b2086438f4e9e7db8e0e61415"
+    },
+    {
+      "id": "amulet:suffix:of-excitement",
+      "name": "of Excitement",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(10—19)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 10,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/af764e6afa083623e24c25a30500861a2d616d6b7df15ccb38acc4e83093a111"
+    },
+    {
+      "id": "amulet:suffix:of-exile",
+      "name": "of Exile",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 250,
+      "tier": 2,
+      "text": "+(20—23)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 20,
+          "max": 23
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/af5ccc11617109cc9923a429fd177ef8d6054bf2290f72b0a4c86ba4efb2b2e3"
+    },
+    {
+      "id": "amulet:suffix:of-expertise",
+      "name": "of Expertise",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 35,
+      "weight": 1,
+      "tier": 4,
+      "text": "(16—18)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 16,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f9cc8f99556243f02c9baa675a2194675f3e3424efa8f0c0a9136202b0911f42"
+    },
+    {
+      "id": "amulet:suffix:of-expulsion",
+      "name": "of Expulsion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 56,
+      "weight": 250,
+      "tier": 3,
+      "text": "+(16—19)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 16,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c77bae9fddfed1121200621047161c73aba40be67c34e4cda19e915e5ab2c068"
+    },
+    {
+      "id": "amulet:suffix:of-ferocity",
+      "name": "of Ferocity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 59,
+      "weight": 250,
+      "tier": 2,
+      "text": "(30—34)% increased Critical Damage Bonus",
+      "stats": [
+        {
+          "id": "base_critical_strike_multiplier_+",
+          "min": 30,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7394e1a33ef5e1e9a622eb241319ff824dbf48f803cee9521bbd6bc0d0bdad15"
+    },
+    {
+      "id": "amulet:suffix:of-fleshbinding",
+      "name": "of Fleshbinding",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DamageTakenGainedAsLife"
+      ],
+      "requiredItemLevel": 79,
+      "weight": 500,
+      "tier": 1,
+      "text": "(22—24)% of Damage taken Recouped as Life",
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 22,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/68d687d7a782ae777a4db5292eeaad3d89ef7ea72cab7521ae2d20a67a86cf5d"
+    },
+    {
+      "id": "amulet:suffix:of-fury",
+      "name": "of Fury",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 500,
+      "tier": 3,
+      "text": "(25—29)% increased Critical Damage Bonus",
+      "stats": [
+        {
+          "id": "base_critical_strike_multiplier_+",
+          "min": 25,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/60c3288f8110a53a1b097c75abf8f51651814038acd0073682a2d6fa78e76c26"
+    },
+    {
+      "id": "amulet:suffix:of-haast",
+      "name": "of Haast",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(41—45)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4aed6bb4829cb762403036729efe27d3ce0c7f850a1e2fe41907ac4683011d8e"
+    },
+    {
+      "id": "amulet:suffix:of-havoc",
+      "name": "of Havoc",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 20,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(15—19)% increased Critical Hit Chance",
+      "stats": [
+        {
+          "id": "critical_strike_chance_+%",
+          "min": 15,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d26ad89486165023e4b6ce71b3a4b3355fd39f3d884102ae5a7b46ed8aa02e0e"
+    },
+    {
+      "id": "amulet:suffix:of-immortality",
+      "name": "of Immortality",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(29.1—33) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1746,
+          "max": 1980
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9c042871282a0c5a897eed0aab1598dab4af71f8a7293e1bac869b34100980b9"
+    },
+    {
+      "id": "amulet:suffix:of-ire",
+      "name": "of Ire",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(10—14)% increased Critical Damage Bonus",
+      "stats": [
+        {
+          "id": "base_critical_strike_multiplier_+",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b4204948fbc53e8566e386263f003b199e5e7b4be71d8854c535b8786a0ab57b"
+    },
+    {
+      "id": "amulet:suffix:of-joy",
+      "name": "of Joy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(20—29)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 20,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3ff33ffa19325e001bef1f6b051a9c1a922272dc9f25f8f136174311aec6c123"
+    },
+    {
+      "id": "amulet:suffix:of-legerdemain",
+      "name": "of Legerdemain",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1,
+      "tier": 2,
+      "text": "(22—24)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 22,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/56cbcdff75a80460516122be1cb70f4e19a750f486a7d40e5b8cc3c042b322be"
+    },
+    {
+      "id": "amulet:suffix:of-magma",
+      "name": "of Magma",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(36—40)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d0d158a1cd7c39f83c259cfadbdbb7740cdd24cc8775ae938dd6357460d44b67"
+    },
+    {
+      "id": "amulet:suffix:of-menace",
+      "name": "of Menace",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(10—14)% increased Critical Hit Chance",
+      "stats": [
+        {
+          "id": "critical_strike_chance_+%",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8168e5614441199063c7615d0db94968da083338c3289f54d5d05d99dcc79d86"
+    },
+    {
+      "id": "amulet:suffix:of-mending",
+      "name": "of Mending",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DamageTakenGainedAsLife"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 500,
+      "tier": 5,
+      "text": "(10—12)% of Damage taken Recouped as Life",
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 10,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fe3b361b23e68b6577ed329fa56005eb7b52304f62e2d4d33cad2b9dd6735a10"
+    },
+    {
+      "id": "amulet:suffix:of-nimbleness",
+      "name": "of Nimbleness",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 1,
+      "tier": 5,
+      "text": "(13—15)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 13,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/02d5526dc9d3ef201b2f7a321a6b6d617a95946041628e7c1fe91469367e716c"
+    },
+    {
+      "id": "amulet:suffix:of-nirvana",
+      "name": "of Nirvana",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 79,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(60—69)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 60,
+          "max": 69
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/669d4114c355d908317bf9e439c4e1cc2364405cf06f1a7e65c3b4c3eaf59393"
+    },
+    {
+      "id": "amulet:suffix:of-plunder",
+      "name": "of Plunder",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ItemFoundRarityIncrease"
+      ],
+      "requiredItemLevel": 3,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(6—10)% increased Rarity of Items found",
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1df72d2bf2c114638bf17dd4893844e59bf2f090feadca87cb15d0568fb15a36"
+    },
+    {
+      "id": "amulet:suffix:of-prestidigitation",
+      "name": "of Prestidigitation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1,
+      "tier": 1,
+      "text": "(25—28)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 25,
+          "max": 28
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/903c16db59a4f6510052ef8ed5dc3c648a855c9634a0174bf452cd9becff7bc6"
+    },
+    {
+      "id": "amulet:suffix:of-rage",
+      "name": "of Rage",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 31,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(20—24)% increased Critical Damage Bonus",
+      "stats": [
+        {
+          "id": "base_critical_strike_multiplier_+",
+          "min": 20,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/08aff6ce8cf222e56afe73998c6ebe37d41b11657de3a5d34904ced97fdf72cc"
+    },
+    {
+      "id": "amulet:suffix:of-raiding",
+      "name": "of Raiding",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ItemFoundRarityIncrease"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(11—14)% increased Rarity of Items found",
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 11,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6bfcf1f60f0d20bfa636677824b1fc2bb4f20cf29ac8824cde7bd58893f2d294"
+    },
+    {
+      "id": "amulet:suffix:of-recuperation",
+      "name": "of Recuperation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 58,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(18.1—23) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1086,
+          "max": 1380
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fb3df008bb8a0d1daa13f6acde5bd6580fbe2c48a4d28e2aed3ef2a5ae1e1028"
+    },
+    {
+      "id": "amulet:suffix:of-reprieve",
+      "name": "of Reprieve",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentDamageGoesToMana"
+      ],
+      "requiredItemLevel": 31,
+      "weight": 500,
+      "tier": 5,
+      "text": "(10—12)% of Damage taken Recouped as Mana",
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_mana_%",
+          "min": 10,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f9aa5eb0cc1a565fad85707ef6673278ee57da000b079b006bce74dd38a5637e"
+    },
+    {
+      "id": "amulet:suffix:of-resurgence",
+      "name": "of Resurgence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(23.1—29) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1386,
+          "max": 1740
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e15bc71f06b8df9cebbc62504d383e1578ede3222f8155f033bfc217bdacf1a1"
+    },
+    {
+      "id": "amulet:suffix:of-ruin",
+      "name": "of Ruin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 58,
+      "weight": 250,
+      "tier": 2,
+      "text": "(30—34)% increased Critical Hit Chance",
+      "stats": [
+        {
+          "id": "critical_strike_chance_+%",
+          "min": 30,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fd626a6015d53b4ccca51fd4dc44c3a15ad1cf643f6e6f1a8e443658e1b23f79"
+    },
+    {
+      "id": "amulet:suffix:of-serenity",
+      "name": "of Serenity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentDamageGoesToMana"
+      ],
+      "requiredItemLevel": 69,
+      "weight": 500,
+      "tier": 2,
+      "text": "(19—21)% of Damage taken Recouped as Mana",
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_mana_%",
+          "min": 19,
+          "max": 21
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8db6a18569863e2cc3a955044a8d9a7b810bcfb204f308fd18ab73acec93c1bd"
+    },
+    {
+      "id": "amulet:suffix:of-solace",
+      "name": "of Solace",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentDamageGoesToMana"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 500,
+      "tier": 4,
+      "text": "(13—15)% of Damage taken Recouped as Mana",
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_mana_%",
+          "min": 13,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0ffc03d0fb27e50e6f92b28db1b7e64c1e7751b556a35c1ea7799d9bc560ab68"
+    },
+    {
+      "id": "amulet:suffix:of-sortilege",
+      "name": "of Sortilege",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 51,
+      "weight": 1,
+      "tier": 3,
+      "text": "(19—21)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 19,
+          "max": 21
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a8caa30e06b7ef98060fd9da655d6f1bb0fc2168904f2d4ffbede7b2b7549fb7"
+    },
+    {
+      "id": "amulet:suffix:of-stitching",
+      "name": "of Stitching",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DamageTakenGainedAsLife"
+      ],
+      "requiredItemLevel": 56,
+      "weight": 500,
+      "tier": 3,
+      "text": "(16—18)% of Damage taken Recouped as Life",
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 16,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c74ba4cf9fffa9c303d25d6be65af33c64f01b47212e4a7e67eeaa7492848ebc"
+    },
+    {
+      "id": "amulet:suffix:of-suturing",
+      "name": "of Suturing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DamageTakenGainedAsLife"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 500,
+      "tier": 2,
+      "text": "(19—21)% of Damage taken Recouped as Life",
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 19,
+          "max": 21
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/40860a76d011f0918266e5a06a56eff6efdf13fbfada3bb62337fdb37c1d7056"
+    },
+    {
+      "id": "amulet:suffix:of-talent",
+      "name": "of Talent",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 6,
+      "text": "(9—12)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/701779b3951899b9d6d8d0636a59d2c5a9ab24cca1d4cd13a3a03917f50ebd36"
+    },
+    {
+      "id": "amulet:suffix:of-the-archer",
+      "name": "of the Archer",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 500,
+      "tier": 4,
+      "text": "+1 to Level of all Projectile Skills",
+      "stats": [
+        {
+          "id": "projectile_skill_gem_level_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0ba3ba83cc850b2f4fbc9d3f0fe8cd896805e371c5083142b24f1c0a4ae58ea4"
+    },
+    {
+      "id": "amulet:suffix:of-the-augur",
+      "name": "of the Augur",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(17—20) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a686cefe9bc9ab858922c37e91eb273248e03f90523b3852ab5f00ec49a50c99"
+    },
+    {
+      "id": "amulet:suffix:of-the-bear",
+      "name": "of the Bear",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(13—16) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/29ba214a7b45c488d1e36ce8f94d78f5ae45256a3359a9dece67d87ea29d898f"
+    },
+    {
+      "id": "amulet:suffix:of-the-brute",
+      "name": "of the Brute",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(5—8) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2a38e02ac02a7b0b8265dbdf82b610cfea0968814c301bc7734139be37e50894"
+    },
+    {
+      "id": "amulet:suffix:of-the-cloud",
+      "name": "of the Cloud",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(6—10)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/00f11750c6ce94d5a2dd5a79c077429125f9e99f7a223026f39b1f22d984037c"
+    },
+    {
+      "id": "amulet:suffix:of-the-clouds",
+      "name": "of the Clouds",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 800,
+      "tier": 9,
+      "text": "+(2—4) to all Attributes",
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/94b69bac1480e7751256659a21e758c1584f153b6186187a7eb3a08aa124aec6"
+    },
+    {
+      "id": "amulet:suffix:of-the-comet",
+      "name": "of the Comet",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 800,
+      "tier": 6,
+      "text": "+(11—13) to all Attributes",
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 11,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ed81699b5f7d81c665340c5b9c2f514f482f8deb2e6fd8e84cba95383db3e3d6"
+    },
+    {
+      "id": "amulet:suffix:of-the-crystal",
+      "name": "of the Crystal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllResistances"
+      ],
+      "requiredItemLevel": 12,
+      "weight": 800,
+      "tier": 6,
+      "text": "+(3—5)% to all Elemental Resistances",
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/43e48f7d35a7ae34722227d8304e1cd97671c64068463ea9e83ed4128f6b92ca"
+    },
+    {
+      "id": "amulet:suffix:of-the-despot",
+      "name": "of the Despot",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 41,
+      "weight": 250,
+      "tier": 2,
+      "text": "+2 to Level of all Minion Skills",
+      "stats": [
+        {
+          "id": "minion_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "minion",
+        "gem"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ba05ac0723a7eff07377eb48ba3d9e7798c4d2db10a74ecf15ec8c85541561dc"
+    },
+    {
+      "id": "amulet:suffix:of-the-drake",
+      "name": "of the Drake",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(16—20)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6fcf6ee1af61dfd3d7b5e0cd3f245eafbfcca243c5f455e06d86442b6f43d79c"
+    },
+    {
+      "id": "amulet:suffix:of-the-enchanter",
+      "name": "of the Enchanter",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 41,
+      "weight": 250,
+      "tier": 2,
+      "text": "+2 to Level of all Spell Skills",
+      "stats": [
+        {
+          "id": "spell_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a1d47a64018c7763e458c8452db8e15d3408f937ed88701d4d65cbf41f756be7"
+    },
+    {
+      "id": "amulet:suffix:of-the-falcon",
+      "name": "of the Falcon",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(17—20) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ec8013eace876a96e613ad537dd2c8d45cdec6f77dbc0b3808ac61de3cbefb32"
+    },
+    {
+      "id": "amulet:suffix:of-the-flatworm",
+      "name": "of the Flatworm",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 8,
+      "text": "(3.1—4) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 186,
+          "max": 240
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/18162c016d3f678285f683cf99354a1eeb3a4809c43bce09b3d9802ea5df7eb2"
+    },
+    {
+      "id": "amulet:suffix:of-the-fletcher",
+      "name": "of the Fletcher",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 41,
+      "weight": 250,
+      "tier": 2,
+      "text": "+2 to Level of all Projectile Skills",
+      "stats": [
+        {
+          "id": "projectile_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/778aa32015fcf5ba0fe1ae360709984cbf9ec7807cca4665529dee45d893ce02"
+    },
+    {
+      "id": "amulet:suffix:of-the-fox",
+      "name": "of the Fox",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(13—16) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/eb670b8b3781e94f0b888f2b7db12a60b25a10321285ea7d1cd5c12415cc3215"
+    },
+    {
+      "id": "amulet:suffix:of-the-furnace",
+      "name": "of the Furnace",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(26—30)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/933c9208ddd40fc7c626cd376b7055fa9ad400d0201230ff933e57ecbe0344ac"
+    },
+    {
+      "id": "amulet:suffix:of-the-galaxy",
+      "name": "of the Galaxy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 800,
+      "tier": 4,
+      "text": "+(17—18) to all Attributes",
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 17,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6323ce8df6c099729c7f08830e5058368b7b8cb22d1b7f3aeba51bc2bb0658f6"
+    },
+    {
+      "id": "amulet:suffix:of-the-goliath",
+      "name": "of the Goliath",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(25—27) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/42d05e7d90156194b26f46e0fb95401ee54a913cdd1e7c8f855827ffbb0d9850"
+    },
+    {
+      "id": "amulet:suffix:of-the-gorilla",
+      "name": "of the Gorilla",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(21—24) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/37112c833cb449b44ed5e1e20c0748f591c3032f88c5080006ecb8f59bd8dd94"
+    },
+    {
+      "id": "amulet:suffix:of-the-heavens",
+      "name": "of the Heavens",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 800,
+      "tier": 5,
+      "text": "+(14—16) to all Attributes",
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 14,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/dcbae02361b83922bf3438fa0e5cf01fce5d72e533c73d675c54b1f4f85a0343"
+    },
+    {
+      "id": "amulet:suffix:of-the-hydra",
+      "name": "of the Hydra",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(6.1—9) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 366,
+          "max": 540
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3a166a6a77ed3a3bda4f35653008f890b433c8a273e13cf166e9a0c07d938d1f"
+    },
+    {
+      "id": "amulet:suffix:of-the-ice",
+      "name": "of the Ice",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(36—40)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ce020e91d9401d1f64136f8d9d41c64c772bdb37368ece47b368668a55ce0e0c"
+    },
+    {
+      "id": "amulet:suffix:of-the-infinite",
+      "name": "of the Infinite",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 800,
+      "tier": 1,
+      "text": "+(23—24) to all Attributes",
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 23,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/63f700c37930a1e89806090d38a2b9223b47e4ec2a478d2b0041de11676229d3"
+    },
+    {
+      "id": "amulet:suffix:of-the-jaguar",
+      "name": "of the Jaguar",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(28—30) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6f2a74850296b774128bf69d2f635db85b80d8022af76cbab1a8411a4f0efeab"
+    },
+    {
+      "id": "amulet:suffix:of-the-kaleidoscope",
+      "name": "of the Kaleidoscope",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllResistances"
+      ],
+      "requiredItemLevel": 40,
+      "weight": 800,
+      "tier": 4,
+      "text": "+(9—11)% to all Elemental Resistances",
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 9,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/519366303959833cfdfe9cb131b1083384d7d12587f56f86174d4bb5befbcdc8"
+    },
+    {
+      "id": "amulet:suffix:of-the-kiln",
+      "name": "of the Kiln",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(21—25)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/03e5b5f00c9a49607c0cb7c5e37e96d2272adf4fc2dfc395fe927ff4317cc0a8"
+    },
+    {
+      "id": "amulet:suffix:of-the-leopard",
+      "name": "of the Leopard",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(25—27) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c01d9eddbbcbf1c2171a2487d83c3d9c2d68950787dc7bc5175ccc9ce8b3ea45"
+    },
+    {
+      "id": "amulet:suffix:of-the-leviathan",
+      "name": "of the Leviathan",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(28—30) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6f5c6e2e126b90b0a7c792c7ec6900fb783659c06813047d04a37b8c69f52cce"
+    },
+    {
+      "id": "amulet:suffix:of-the-lightning",
+      "name": "of the Lightning",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(36—40)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5e913f76eea6cf78488633838baf076135ddaf34e92e9586c9ef2ff24970cb5e"
+    },
+    {
+      "id": "amulet:suffix:of-the-lion",
+      "name": "of the Lion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(17—20) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d13d19c26498700b382477a8bff18850e26baca39e55edc4902b9bbbeb2f5aea"
+    },
+    {
+      "id": "amulet:suffix:of-the-lizard",
+      "name": "of the Lizard",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 1000,
+      "tier": 9,
+      "text": "(2.1—3) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 126,
+          "max": 180
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3bb9c1cb5b68f309fee6f16b3cb02250b348c88fc71c95081308e8ecedaa811e"
+    },
+    {
+      "id": "amulet:suffix:of-the-lost",
+      "name": "of the Lost",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 250,
+      "tier": 6,
+      "text": "+(4—7)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 4,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/806559f788ece5107fd457dc884cd57a9d6c7316f189c29ed33e186a1a615540"
+    },
+    {
+      "id": "amulet:suffix:of-the-lynx",
+      "name": "of the Lynx",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(9—12) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f85043355e5f274fb0c19687f2f4a62e0cb84e0883e94f4b5ac8f2fa8797f54f"
+    },
+    {
+      "id": "amulet:suffix:of-the-maelstrom",
+      "name": "of the Maelstrom",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(31—35)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/35a9a740c4fc222bd0fd7e4efe0d56c93ea42ddf60cad93a805d35e7b96e2312"
+    },
+    {
+      "id": "amulet:suffix:of-the-mage",
+      "name": "of the Mage",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 10,
+      "weight": 500,
+      "tier": 3,
+      "text": "+1 to Level of all Spell Skills",
+      "stats": [
+        {
+          "id": "spell_skill_gem_level_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9190bb54816d2b850f9ebe046b202f44e9fa700715b0d5cb7ce1f0c3bc3c58d9"
+    },
+    {
+      "id": "amulet:suffix:of-the-meteor",
+      "name": "of the Meteor",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 800,
+      "tier": 7,
+      "text": "+(8—10) to all Attributes",
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 8,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a192cb21643132c85a30756e8421a5c4d7d1f9a3b20caf139b2e574b31637220"
+    },
+    {
+      "id": "amulet:suffix:of-the-mongoose",
+      "name": "of the Mongoose",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(5—8) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1a9eaad1fb009e4f6d6e858e8835b03c59e946e3b2fc6a9ef3ccd66e2f2b1bc8"
+    },
+    {
+      "id": "amulet:suffix:of-the-multiverse",
+      "name": "of the Multiverse",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 800,
+      "tier": 2,
+      "text": "+(21—22) to all Attributes",
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 21,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fd16e409cb9106d09b7ff16df90e1123a181afb8e816ac625d95fb09eb9d14d2"
+    },
+    {
+      "id": "amulet:suffix:of-the-narwhal",
+      "name": "of the Narwhal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(16—20)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/785bc7e76d96d4b375494935dda916afedb5f8b900884ba8abec85106a7ff6d3"
+    },
+    {
+      "id": "amulet:suffix:of-the-newt",
+      "name": "of the Newt",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 10,
+      "text": "(1—2) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 60,
+          "max": 120
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/85ec89626ed4c595905c79401a171ef7372582fb5a6ee7fc8b771caa0507c729"
+    },
+    {
+      "id": "amulet:suffix:of-the-overseer",
+      "name": "of the Overseer",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 100,
+      "tier": 1,
+      "text": "+3 to Level of all Minion Skills",
+      "stats": [
+        {
+          "id": "minion_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "minion",
+        "gem"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cb31fa6b8a698a5e9078674cc7d18886664bb2aebb5ae58fe96f8ef84ed0383e"
+    },
+    {
+      "id": "amulet:suffix:of-the-panther",
+      "name": "of the Panther",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(21—24) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0dd10bcd590ddebcfcf886e80eb3ec5a6b4a0ec4404948e2d556c7eb69564689"
+    },
+    {
+      "id": "amulet:suffix:of-the-penguin",
+      "name": "of the Penguin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 14,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(11—15)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4418a8f0a3227b6d5b1f2ba4f97046eedc807935155fb7a562f7d07aab32ef9e"
+    },
+    {
+      "id": "amulet:suffix:of-the-phantom",
+      "name": "of the Phantom",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(31—33) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/bb1545c456b949d12034f73f4f8798ee0a1890e1f1faca0133b322261c0da130"
+    },
+    {
+      "id": "amulet:suffix:of-the-philosopher",
+      "name": "of the Philosopher",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(21—24) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/46a2eda784bbb84ed301379d12f94bf31804b2877d0b1095d7dde68f360dc001"
+    },
+    {
+      "id": "amulet:suffix:of-the-polar-bear",
+      "name": "of the Polar Bear",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(31—35)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4ead34b3b4a3a69abad4a88df44774b079021a43d52e533cb84674e85f72fb93"
+    },
+    {
+      "id": "amulet:suffix:of-the-prism",
+      "name": "of the Prism",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllResistances"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 800,
+      "tier": 5,
+      "text": "+(6—8)% to all Elemental Resistances",
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 6,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e3e399bfa09d1ce99e36cf9d975a984c7bbcf4f4a2753dd7ed0dc3a0af61c22d"
+    },
+    {
+      "id": "amulet:suffix:of-the-prodigy",
+      "name": "of the Prodigy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(13—16) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/de2422fe33393262d518450e9e2a59c50fc47ba4ca01ef6bf002b3ae112eb365"
+    },
+    {
+      "id": "amulet:suffix:of-the-pupil",
+      "name": "of the Pupil",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(5—8) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d6aab603f89fd48501982bdeab012471df4ea3edddc730848a7b21534107fcc5"
+    },
+    {
+      "id": "amulet:suffix:of-the-rainbow",
+      "name": "of the Rainbow",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllResistances"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 800,
+      "tier": 2,
+      "text": "+(15—16)% to all Elemental Resistances",
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 15,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8ca997fe7b72721b64e6c03221188d42b228af5f7984c562382eb6e4f05206f2"
+    },
+    {
+      "id": "amulet:suffix:of-the-sage",
+      "name": "of the Sage",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(25—27) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/141b731f7479f67d4755a6984339ccd45f3d301d12b86b3ff76687d055793d44"
+    },
+    {
+      "id": "amulet:suffix:of-the-salamander",
+      "name": "of the Salamander",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 12,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(11—15)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/533bfdc2d201d628fed036ebf2b0a1e9c5228f3f7ba2598a763c83d3fea892a1"
+    },
+    {
+      "id": "amulet:suffix:of-the-savant",
+      "name": "of the Savant",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(28—30) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e39612197defaafe89a6ca14a7eed41e92a6387628eaf09f58981e770157a182"
+    },
+    {
+      "id": "amulet:suffix:of-the-seal",
+      "name": "of the Seal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(6—10)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b0faf2de7818ba1fd088aa86341e0f84d7b4d16d4ed0433b44f039c2acfe90f3"
+    },
+    {
+      "id": "amulet:suffix:of-the-sharpshooter",
+      "name": "of the Sharpshooter",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 100,
+      "tier": 1,
+      "text": "+3 to Level of all Projectile Skills",
+      "stats": [
+        {
+          "id": "projectile_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/23a040a696e888d24e81f1a19e9bdaa557a1c9ed362849a06c5995884b70315b"
+    },
+    {
+      "id": "amulet:suffix:of-the-sky",
+      "name": "of the Sky",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 800,
+      "tier": 8,
+      "text": "+(5—7) to all Attributes",
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 5,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/eda3c17346da5f7f555c56223ab112fc23f34422ff238d445af5add237a38743"
+    },
+    {
+      "id": "amulet:suffix:of-the-sorcerer",
+      "name": "of the Sorcerer",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 100,
+      "tier": 1,
+      "text": "+3 to Level of all Spell Skills",
+      "stats": [
+        {
+          "id": "spell_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cedc62210de4679fba78b99f44e65b2c93cec8f0121a7133f8e028738f0db395"
+    },
+    {
+      "id": "amulet:suffix:of-the-span",
+      "name": "of the Span",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllResistances"
+      ],
+      "requiredItemLevel": 80,
+      "weight": 800,
+      "tier": 1,
+      "text": "+(17—18)% to all Elemental Resistances",
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 17,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7e37badd75ed47df80b9c098e678d2728941072bd7243176ae9e4ab23923b879"
+    },
+    {
+      "id": "amulet:suffix:of-the-squall",
+      "name": "of the Squall",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 13,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(11—15)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e94770e924952957544158cb8d135abc2637b3e343bda198f1791d72af514493"
+    },
+    {
+      "id": "amulet:suffix:of-the-starfish",
+      "name": "of the Starfish",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 17,
+      "weight": 1000,
+      "tier": 7,
+      "text": "(4.1—6) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 246,
+          "max": 360
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a6995bfff430eedc5da1e4b1e31ba0850963b6dbaf2f174d1fdf5bd740ad0167"
+    },
+    {
+      "id": "amulet:suffix:of-the-storm",
+      "name": "of the Storm",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(16—20)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/66f026e043c7848c2db72601a0ae309f9841b8fdcd8f838cb7fc8635f05e90ce"
+    },
+    {
+      "id": "amulet:suffix:of-the-student",
+      "name": "of the Student",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(9—12) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6155489233bf2e5f19f7aa47bca52569d0bf751b413d419f90999cdbc8fa9075"
+    },
+    {
+      "id": "amulet:suffix:of-the-taskmaster",
+      "name": "of the Taskmaster",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 500,
+      "tier": 4,
+      "text": "+1 to Level of all Minion Skills",
+      "stats": [
+        {
+          "id": "minion_skill_gem_level_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "minion",
+        "gem"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2a6db74d3ee0241b06688c02e02bac4a11aa89736c76af38735e8f4ae350a415"
+    },
+    {
+      "id": "amulet:suffix:of-the-tempest",
+      "name": "of the Tempest",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 49,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(26—30)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/775248100a5a83e7af2769c8dd0163af61b5a44e73d70e5ac1f08fc7a726ecd0"
+    },
+    {
+      "id": "amulet:suffix:of-the-thunderhead",
+      "name": "of the Thunderhead",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(21—25)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/43956c46e2939b2b5146daf4f1878a48088a5098dbb527caa731258d2cf8fa97"
+    },
+    {
+      "id": "amulet:suffix:of-the-titan",
+      "name": "of the Titan",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(31—33) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e2f643e0005f0483f9e0763603212b017b1b6c203692cf74cb44e018d510d372"
+    },
+    {
+      "id": "amulet:suffix:of-the-troll",
+      "name": "of the Troll",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 35,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(9.1—13) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 546,
+          "max": 780
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9ae132d16563d31595affaec4c0d208d4e417dd767fff4cef8a158004943e858"
+    },
+    {
+      "id": "amulet:suffix:of-the-universe",
+      "name": "of the Universe",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 800,
+      "tier": 3,
+      "text": "+(19—20) to all Attributes",
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 19,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/73ff517bcec4e8d78ce5b6fdd1027dfee329d7068ef3b80a21ad1864c80eb88a"
+    },
+    {
+      "id": "amulet:suffix:of-the-virtuoso",
+      "name": "of the Virtuoso",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(31—33) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/83b93bc3bb01e6b8423b06900acc062cee0650c4c036056a76b5f0ebf13be5e5"
+    },
+    {
+      "id": "amulet:suffix:of-the-volcano",
+      "name": "of the Volcano",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(31—35)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5d75d013cd619918dfc6668e410aebdbf2edddbf0ec8681e7870f011263281d2"
+    },
+    {
+      "id": "amulet:suffix:of-the-walrus",
+      "name": "of the Walrus",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(26—30)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cbcec57171969514078d0eab7bb06fbf3eb95c27efa02b381e3987e12ee6727a"
+    },
+    {
+      "id": "amulet:suffix:of-the-whelpling",
+      "name": "of the Whelpling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(6—10)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/64fa1c3e757e642a5cac9b01f54d56cdbd5fcc1fe21d2267c2da9ffb281f5dea"
+    },
+    {
+      "id": "amulet:suffix:of-the-wrestler",
+      "name": "of the Wrestler",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(9—12) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/be2f3299c420ccabfba4a333a543edff2a09f6882f666961a9c062d00661f281"
+    },
+    {
+      "id": "amulet:suffix:of-the-yeti",
+      "name": "of the Yeti",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(21—25)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f5587c04163dc2361565d314feebe3819ec6ae593add79ad36902964883270c0"
+    },
+    {
+      "id": "amulet:suffix:of-tranquility",
+      "name": "of Tranquility",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentDamageGoesToMana"
+      ],
+      "requiredItemLevel": 57,
+      "weight": 500,
+      "tier": 3,
+      "text": "(16—18)% of Damage taken Recouped as Mana",
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_mana_%",
+          "min": 16,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4732da77ce7147541cd79a4b536c8889d1b5407a84a6d26d340a4ef8b8919cd2"
+    },
+    {
+      "id": "amulet:suffix:of-tzteosh",
+      "name": "of Tzteosh",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(41—45)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/06d9118a1f47eeb3eb93eb3ebee31ad80947d5f98a06afa49b6c355e0e59a916"
+    },
+    {
+      "id": "amulet:suffix:of-unmaking",
+      "name": "of Unmaking",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 125,
+      "tier": 1,
+      "text": "(35—38)% increased Critical Hit Chance",
+      "stats": [
+        {
+          "id": "critical_strike_chance_+%",
+          "min": 35,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fa1655825ad9f816b7c81a6e1d57abdffc8519803e08718a5856351af61f1641"
+    },
+    {
+      "id": "amulet:suffix:of-variegation",
+      "name": "of Variegation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllResistances"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 800,
+      "tier": 3,
+      "text": "+(12—14)% to all Elemental Resistances",
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 12,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4d6a2293c69dae797b96283c03cf950cb7aa47a82aa76ca0713291b9195f6107"
+    },
+    {
+      "id": "amulet:suffix:of-zen",
+      "name": "of Zen",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentDamageGoesToMana"
+      ],
+      "requiredItemLevel": 80,
+      "weight": 500,
+      "tier": 1,
+      "text": "(22—24)% of Damage taken Recouped as Mana",
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_mana_%",
+          "min": 22,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/18ccc0541964084e365cb20ce15ebd44cb6b1a12f3b50af2f029ffc13437a954"
+    },
+    {
+      "id": "amulet:suffix:essence-percent-strength",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentageStrength"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(7—10)% increased Strength",
+      "stats": [
+        {
+          "id": "strength_+%",
+          "min": 7,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePercentStrength1"
+    },
+    {
+      "id": "amulet:suffix:essence-percent-dexterity",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentageDexterity"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(7—10)% increased Dexterity",
+      "stats": [
+        {
+          "id": "dexterity_+%",
+          "min": 7,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePercentDexterity1"
+    },
+    {
+      "id": "amulet:suffix:essence-percent-intelligence",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentageIntelligence"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(7—10)% increased Intelligence",
+      "stats": [
+        {
+          "id": "intelligence_+%",
+          "min": 7,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePercentIntelligence1"
+    },
+    {
+      "id": "amulet:prefix:essence-global-defences",
+      "name": "Essences",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "AllDefences"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(20—30)% increased Global Armour, Evasion and Energy Shield",
+      "stats": [
+        {
+          "id": "global_armour_evasion_energy_shield_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "defences"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceGlobalDefences1"
+    },
+    {
+      "id": "amulet:prefix:essence-maximum-quality",
+      "name": "Breachlord's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LocalMaximumQuality"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "+20% to Maximum Quality",
+      "stats": [
+        {
+          "id": "local_maximum_quality_+",
+          "min": 20,
+          "max": 20
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceBreach"
+    },
+    {
+      "id": "amulet:prefix:essence-abyssal-mark",
+      "name": "Abyssal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EssenceAbyss"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Bears the Mark of the Abyssal Lord",
+      "stats": [
+        {
+          "id": "essence_abyss_guaranteed_pick",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix"
+    },
+    {
+      "id": "amulet:suffix:essence-abyssal-mark",
+      "name": "of the Abyss",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EssenceAbyss"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Bears the Mark of the Abyssal Lord",
+      "stats": [
+        {
+          "id": "essence_abyss_guaranteed_pick",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix"
+    },
+    {
+      "id": "amulet:suffix:essence-hysteria-life-recoup",
+      "name": "of Suturing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DamageTakenGainedAsLife"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 0,
+      "tier": 1,
+      "text": "(19—21)% of Damage taken Recouped as Life",
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 19,
+          "max": 21
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/40860a76d011f0918266e5a06a56eff6efdf13fbfada3bb62337fdb37c1d7056"
+    }
+  ]
+}

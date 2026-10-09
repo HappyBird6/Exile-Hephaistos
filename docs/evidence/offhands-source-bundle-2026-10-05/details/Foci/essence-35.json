@@ -1,0 +1,73 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "28",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "fossil_no": [
+      "caster_critical",
+      "caster",
+      "critical"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/1ec7c44de949f30a9818a6b29499c3b0504de6f64c3355b7e01c719fa72667f6\" href=\"Essence_of_Seeking\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/CriticalEssence.webp\" alt=\"CriticalEssence\" height=\"16\" />Essence of Seeking</a>",
+    "Code": "SpellCriticalStrikeChance3",
+    "ModFamilyList": [
+      "SpellCriticalStrikeChanceIncrease"
+    ],
+    "str": "<span class='mod-value'>(40<span class=\"ndash\">—</span>46)</span>% increased <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit Chance</a> for <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spells</a>",
+    "adds_no": [],
+    "spawn_no": [
+      "focus",
+      "wand",
+      "default"
+    ],
+    "reqlvl": 22,
+    "IsPerfect": "0",
+    "IsAlloy": false,
+    "Removes": false
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSpellCriticalStrikeChance3",
+  "textLocale": "us",
+  "detailText": "(40—46)% increased Critical Hit Chance for Spells",
+  "retrievedAt": "2026-10-05T04:37:12.142Z",
+  "sha256": "ec9d2f467790fafc8a1565801bae282647def6e67a73a44d0f11bf339d795ee4",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(40<span class=\"ndash\">—</span>46)</span>% increased <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit Chance</a> for <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spells</a></span></h5>   <span data-tabname=\"of Disaster\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Disaster\n<tr><th>Family<td>SpellCriticalStrikeChanceIncrease\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>28 (Effective: 22)\n<tr><th>Gold Price<td>528\n<tr><th>Stats<td><li>spell critical strike chance +% <span class=\"badge bg-primary\">40 <span class=\"ndash\">—</span> 46</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_critical</i></span> <span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Critical</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Disaster",
+    "Family": "SpellCriticalStrikeChanceIncrease",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "28 (Effective: 22)",
+    "Gold Price": "528",
+    "Stats": "spell critical strike chance +% 40 — 46 Global",
+    "Spawn Tags": "focus: 1 wand: 1 default: 0",
+    "Craft Tags": "caster_critical Caster Critical"
+  },
+  "code": "SpellCriticalStrikeChance3",
+  "stats": [
+    {
+      "id": "spell_critical_strike_chance_+%",
+      "min": 40,
+      "max": 46,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

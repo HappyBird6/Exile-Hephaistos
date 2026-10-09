@@ -1,0 +1,50 @@
+{
+  "code": null,
+  "sourceId": "c67df818ddde0a67b7fce754f16b8a59cb9e90326dd34a5fffe6f8338cf21560",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/c67df818ddde0a67b7fce754f16b8a59cb9e90326dd34a5fffe6f8338cf21560",
+  "retrievedAt": "2026-10-04T17:09:14.439Z",
+  "sha256": "c67df818ddde0a67b7fce754f16b8a59cb9e90326dd34a5fffe6f8338cf21560",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(65<span class=\"ndash\">—</span>78)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5b6ec6eb65a018369b5ec769fa88051ee7f93c3ef1dd5a6a834c75baaa97d247\">Evasion</a> Rating<br><span class='mod-value'>+(22<span class=\"ndash\">—</span>25)</span> to maximum <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9a5ff1400bc71ec138a670ac8572505962d009bf3c5e15a9e1069755cbaeda17\">Energy Shield</a></span></h5>   <span data-tabname=\"Cherub's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Cherub's\n<tr><th>Family<td>BaseLocalDefences\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>46 (Effective: 36)\n<tr><th>Gold Price<td>635\n<tr><th>Stats<td><li>local energy shield <span class=\"badge bg-primary\">22 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Local</span></li><li>local base evasion rating <span class=\"badge bg-primary\">65 <span class=\"ndash\">—</span> 78</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>dex_int_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Evasion</span> <span class='badge bg-primary'>Energy Shield</span> \n<tr><td>Fists of Stone<td>Has <span class='mod-value'>+4</span> to [Evasion] Rating per player level<br>Has <span class='mod-value'>+1</span> to maximum [EnergyShield|Energy Shield] per player level</table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Cherub's",
+      "Family": "BaseLocalDefences",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "46 (Effective: 36)",
+      "Gold Price": "635",
+      "Stats": "local energy shield 22 — 25 Locallocal base evasion rating 65 — 78 Local",
+      "Spawn Tags": "dex_int_armour: 1 str_dex_int_armour: 1 default: 0",
+      "Craft Tags": "defences Evasion Energy Shield"
+    },
+    "stats": [
+      {
+        "id": "local_energy_shield",
+        "min": 22,
+        "max": 25,
+        "locality": "Local"
+      },
+      {
+        "id": "local_base_evasion_rating",
+        "min": 65,
+        "max": 78,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "dex_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "str_dex_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "+(65—78) to Evasion Rating\n+(22—25) to maximum Energy Shield"
+  }
+}

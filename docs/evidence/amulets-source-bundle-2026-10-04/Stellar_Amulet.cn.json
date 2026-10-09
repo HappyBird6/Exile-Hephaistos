@@ -1,0 +1,26 @@
+{
+  "url": "https://poe2db.tw/cn/Stellar_Amulet",
+  "retrievedAt": "2026-10-04T21:52:29.539Z",
+  "sha256": "726d3d78a629cb913fb6d61cd17af512a885290518215aeb2623011ae8f7c627",
+  "name": "星辉项链",
+  "card": "星辉项链\n        \n    \n    \n        \n            项链需求：  等级 25+(5—7) 全属性\n        \n\n\n\n        \n            Stellar Amulet",
+  "requirements": "需求：  等级 25",
+  "fields": {
+    "DropLevel": "25",
+    "BaseType": "星辉项链",
+    "Class": "项链",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Amulets/FourAmulet8",
+    "Tags": "amulet",
+    "Icon": "Art/2DItems/Amulets/Basetypes/StellarAmulet",
+    "Base.base_level": "1",
+    "Base.tag": "default, amulet",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Amulet",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

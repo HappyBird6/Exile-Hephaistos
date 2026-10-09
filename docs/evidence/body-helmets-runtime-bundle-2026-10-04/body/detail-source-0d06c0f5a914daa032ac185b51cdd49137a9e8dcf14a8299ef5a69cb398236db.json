@@ -1,0 +1,62 @@
+{
+  "code": null,
+  "sourceId": "0d06c0f5a914daa032ac185b51cdd49137a9e8dcf14a8299ef5a69cb398236db",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/0d06c0f5a914daa032ac185b51cdd49137a9e8dcf14a8299ef5a69cb398236db",
+  "retrievedAt": "2026-10-04T17:53:27.467Z",
+  "sha256": "0d06c0f5a914daa032ac185b51cdd49137a9e8dcf14a8299ef5a69cb398236db",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(71<span class=\"ndash\">—</span>90)</span> to <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5b6ec6eb65a018369b5ec769fa88051ee7f93c3ef1dd5a6a834c75baaa97d247\">Evasion</a> Rating<br><span class='mod-value'>(39<span class=\"ndash\">—</span>42)</span>% increased <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5b6ec6eb65a018369b5ec769fa88051ee7f93c3ef1dd5a6a834c75baaa97d247\">Evasion</a> Rating</span></h5>   <span data-tabname=\"Antelope's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Antelope's\n<tr><th>Family<td>BaseLocalDefencesAndDefencePercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>78 (Effective: 62)\n<tr><th>Gold Price<td>2583\n<tr><th>Stats<td><li>local evasion rating +% <span class=\"badge bg-primary\">39 <span class=\"ndash\">—</span> 42</span> <span class=\"badge bg-secondary\">Local</span></li><li>local base evasion rating <span class=\"badge bg-primary\">71 <span class=\"ndash\">—</span> 90</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>shield: 0</span> <span class='badge bg-primary'>dex_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Evasion</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Antelope's",
+      "Family": "BaseLocalDefencesAndDefencePercent",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "78 (Effective: 62)",
+      "Gold Price": "2583",
+      "Stats": "local evasion rating +% 39 — 42 Locallocal base evasion rating 71 — 90 Local",
+      "Spawn Tags": "helmet: 0 gloves: 0 boots: 0 shield: 0 dex_armour: 1 default: 0",
+      "Craft Tags": "defences Evasion"
+    },
+    "stats": [
+      {
+        "id": "local_evasion_rating_+%",
+        "min": 39,
+        "max": 42,
+        "locality": "Local"
+      },
+      {
+        "id": "local_base_evasion_rating",
+        "min": 71,
+        "max": 90,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "helmet",
+        "weight": 0
+      },
+      {
+        "tag": "gloves",
+        "weight": 0
+      },
+      {
+        "tag": "boots",
+        "weight": 0
+      },
+      {
+        "tag": "shield",
+        "weight": 0
+      },
+      {
+        "tag": "dex_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "+(71—90) to Evasion Rating\n(39—42)% increased Evasion Rating"
+  }
+}

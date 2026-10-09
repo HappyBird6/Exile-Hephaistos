@@ -661,9 +661,7 @@
   position: relative;
 }
 .stash-board {
-  background:
-    linear-gradient(#11150f55, #080c08aa),
-    url('/assets/currency/stash-background.webp') center/cover;
+  background: #191d1b;
 }
 .stash-canvas {
   aspect-ratio: 935 / 550;
@@ -824,6 +822,9 @@
 .stash-viewport {
   min-width: 0;
   overflow-x: auto;
+  background:
+    linear-gradient(#11150f55, #080c08aa),
+    url('/assets/currency/stash-background.webp') center/cover;
 }
 @media (max-width: 600px) {
   .stash-viewport .stash-canvas {
@@ -1073,20 +1074,36 @@ dialog.item-input-panel::backdrop {
   margin: 0 auto;
 }
 .workspace-nav {
+  display: flex;
+  align-items: end;
+  gap: 8px;
   border-bottom: 1px solid #494737;
   padding-top: 12px;
 }
 .workspace-nav [role='tablist'] {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
 .workspace-nav button,
+.workspace-nav a,
 .explorer-toolbar button {
   background: #20251f;
   color: #b6b7a9;
   border: 1px solid #494737;
   padding: 14px 20px;
   border-radius: 8px 8px 0 0;
+}
+.workspace-nav a {
+  text-decoration: none;
+}
+.workspace-admin {
+  margin-left: auto;
+}
+.workspace-nav a[aria-current='page'] {
+  color: #efdcad;
+  background: #34382a;
+  border-bottom: 2px solid #d7bc82;
 }
 .workspace-nav button span {
   margin-right: 12px;
@@ -1098,13 +1115,10 @@ dialog.item-input-panel::backdrop {
   border-bottom: 2px solid #d7bc82;
 }
 .workspace-nav button:focus-visible,
+.workspace-nav a:focus-visible,
 .explorer-toolbar button:focus-visible {
   outline: 2px solid #d7bc82;
   outline-offset: 3px;
-}
-.admin-link {
-  color: #b6b7a9;
-  text-decoration: none;
 }
 .workbench-layout {
   max-width: none;
@@ -1139,6 +1153,13 @@ dialog.item-input-panel::backdrop {
   .workspace-nav button {
     padding: 12px 10px;
     font-size: 12px;
+  }
+  .workspace-nav a {
+    padding: 12px 10px;
+    font-size: 12px;
+  }
+  .workspace-nav {
+    flex-wrap: wrap;
   }
   .workspace-nav button span {
     margin-right: 6px;
@@ -1210,12 +1231,12 @@ dialog.item-input-panel::backdrop {
 .workbench-session-entry {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px 16px;
-  background: #171c16;
+  gap: 8px;
+  padding: 0 0 16px;
 }
 .workbench-session-entry button {
-  padding: 9px 16px;
+  flex: 1;
+  padding: 8px 10px;
   border: 1px solid #b39860;
   border-radius: 4px;
   background: #303629;
@@ -1227,13 +1248,30 @@ dialog.item-input-panel::backdrop {
 }
 .workbench-feedback-panel {
   padding: 0 16px 12px;
+  height: 84px;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
   text-align: center;
   color: #b9beb1;
   font-size: 12px;
   line-height: 1.5;
 }
+.bench-lower {
+  align-self: stretch;
+  background: linear-gradient(145deg, #252a23, #151b19 70%);
+  border-left: 1px solid #494737;
+}
+@media (max-width: 1000px) {
+  .bench-lower {
+    border-left: 0;
+    border-top: 1px solid #494737;
+  }
+}
 .workbench-feedback-panel p {
   margin: 8px 0 0;
+}
+.workbench-feedback-panel:focus-visible {
+  outline-offset: -3px;
 }
 .item-card .sr-only {
   position: absolute;

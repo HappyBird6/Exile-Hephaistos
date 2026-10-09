@@ -1,0 +1,67 @@
+{
+  "row": {
+    "Name": "of the Mage",
+    "Level": "10",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreaseSocketedGemLevel"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>+1</span> to Level of all <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Skills",
+    "fossil_no": [
+      "caster",
+      "gem"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "focus",
+      "amulet",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftinggem\" data-tag=\"gem\">Gem</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9190bb54816d2b850f9ebe046b202f44e9fa700715b0d5cb7ce1f0c3bc3c58d9"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9190bb54816d2b850f9ebe046b202f44e9fa700715b0d5cb7ce1f0c3bc3c58d9",
+  "textLocale": "us",
+  "detailText": "+1 to Level of all Spell Skills",
+  "retrievedAt": "2026-10-05T04:36:36.422Z",
+  "sha256": "9190bb54816d2b850f9ebe046b202f44e9fa700715b0d5cb7ce1f0c3bc3c58d9",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+1</span> to Level of all <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/144c253d95d2ae655b2902cbeb1b34baeb3246dae53a856062b06e0cc61afcd0\">Spell</a> Skills</span></h5>   <span data-tabname=\"of the Mage\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Mage\n<tr><th>Family<td>IncreaseSocketedGemLevel\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>10 (Effective: 8)\n<tr><th>Gold Price<td>307\n<tr><th>Stats<td><li>spell skill gem level + <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 1</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Gem</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Mage",
+    "Family": "IncreaseSocketedGemLevel",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "10 (Effective: 8)",
+    "Gold Price": "307",
+    "Stats": "spell skill gem level + 1 — 1 Global",
+    "Spawn Tags": "focus: 1 amulet: 1 default: 0",
+    "Craft Tags": "Caster Gem"
+  },
+  "stats": [
+    {
+      "id": "spell_skill_gem_level_+",
+      "min": 1,
+      "max": 1,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

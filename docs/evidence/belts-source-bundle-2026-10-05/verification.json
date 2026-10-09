@@ -1,0 +1,405 @@
+{
+  "bases": [
+    {
+      "key": "linen-belt",
+      "id": "Metadata/Items/Belts/FourBelt2",
+      "ordinary": 135,
+      "special": 4,
+      "implicit": [
+        {
+          "text": "(20—30)% increased Mana Recovery from Flasks",
+          "family": "BeltFlaskRecovery",
+          "tags": [
+            "flask",
+            "resource",
+            "mana"
+          ],
+          "stats": [
+            {
+              "id": "flask_mana_to_recover_+%",
+              "min": 20,
+              "max": 30,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "fixedActions": 21,
+      "replacementActions": 3,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    },
+    {
+      "key": "wide-belt",
+      "id": "Metadata/Items/Belts/FourBelt3",
+      "ordinary": 135,
+      "special": 4,
+      "implicit": [
+        {
+          "text": "(20—30)% increased Flask Charges gained",
+          "family": "BeltFlaskChargesGained",
+          "tags": [
+            "flask"
+          ],
+          "stats": [
+            {
+              "id": "flask_charges_gained_+%",
+              "min": 20,
+              "max": 30,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "fixedActions": 21,
+      "replacementActions": 3,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    },
+    {
+      "key": "long-belt",
+      "id": "Metadata/Items/Belts/FourBelt4",
+      "ordinary": 135,
+      "special": 4,
+      "implicit": [
+        {
+          "text": "(15—20)% increased Charm Effect Duration",
+          "family": "BeltCharmDuration",
+          "tags": [
+            "charm"
+          ],
+          "stats": [
+            {
+              "id": "charm_duration_+%",
+              "min": 15,
+              "max": 20,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "fixedActions": 21,
+      "replacementActions": 3,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    },
+    {
+      "key": "plate-belt",
+      "id": "Metadata/Items/Belts/FourBelt5",
+      "ordinary": 135,
+      "special": 4,
+      "implicit": [
+        {
+          "text": "+(140—180) to Armour",
+          "family": "IncreasedPhysicalDamageReductionRating",
+          "tags": [
+            "defences",
+            "armour"
+          ],
+          "stats": [
+            {
+              "id": "base_physical_damage_reduction_rating",
+              "min": 140,
+              "max": 180,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "fixedActions": 21,
+      "replacementActions": 3,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    },
+    {
+      "key": "ornate-belt",
+      "id": "Metadata/Items/Belts/FourBelt6",
+      "ordinary": 135,
+      "special": 4,
+      "implicit": [
+        {
+          "text": "(10—15)% reduced Charm Charges used",
+          "family": "BeltCharmChargesUsed",
+          "tags": [
+            "charm"
+          ],
+          "stats": [
+            {
+              "id": "charm_charges_used_+%",
+              "min": -15,
+              "max": -10,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "fixedActions": 21,
+      "replacementActions": 3,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    },
+    {
+      "key": "mail-belt",
+      "id": "Metadata/Items/Belts/FourBelt7",
+      "ordinary": 135,
+      "special": 4,
+      "implicit": [
+        {
+          "text": "(10—15)% reduced Flask Charges used",
+          "family": "BeltFlaskChargesUsed",
+          "tags": [
+            "flask"
+          ],
+          "stats": [
+            {
+              "id": "flask_charges_used_+%",
+              "min": -15,
+              "max": -10,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "fixedActions": 21,
+      "replacementActions": 3,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    },
+    {
+      "key": "double-belt",
+      "id": "Metadata/Items/Belts/FourBelt8",
+      "ordinary": 135,
+      "special": 4,
+      "implicit": [
+        {
+          "text": "(20—30)% increased Charm Charges gained",
+          "family": "BeltCharmChargesGained",
+          "tags": [
+            "charm"
+          ],
+          "stats": [
+            {
+              "id": "charm_charges_gained_+%",
+              "min": 20,
+              "max": 30,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "fixedActions": 21,
+      "replacementActions": 3,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    },
+    {
+      "key": "heavy-belt",
+      "id": "Metadata/Items/Belts/FourBelt9",
+      "ordinary": 135,
+      "special": 4,
+      "implicit": [
+        {
+          "text": "(20—30)% increased Stun Threshold",
+          "family": "IncreasedStunThreshold",
+          "tags": [],
+          "stats": [
+            {
+              "id": "stun_threshold_+%",
+              "min": 20,
+              "max": 30,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "fixedActions": 21,
+      "replacementActions": 3,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    },
+    {
+      "key": "utility-belt",
+      "id": "Metadata/Items/Belts/FourBelt10",
+      "ordinary": 135,
+      "special": 4,
+      "implicit": [
+        {
+          "text": "20% of Flask Recovery applied Instantly",
+          "family": "InstantFlaskRecovery",
+          "tags": [],
+          "stats": [
+            {
+              "id": "flask_recovery_amount_%_to_recover_instantly",
+              "min": 20,
+              "max": 20,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "fixedActions": 21,
+      "replacementActions": 3,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    },
+    {
+      "key": "fine-belt",
+      "id": "Metadata/Items/Belts/FourBelt11",
+      "ordinary": 135,
+      "special": 4,
+      "implicit": [
+        {
+          "text": "Flasks gain 0.17 charges per Second",
+          "family": "FlaskChargeGeneration",
+          "tags": [],
+          "stats": [
+            {
+              "id": "generate_x_charges_for_any_flask_per_minute",
+              "min": 10,
+              "max": 10,
+              "locality": "Global"
+            }
+          ]
+        }
+      ],
+      "fixedActions": 21,
+      "replacementActions": 3,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    },
+    {
+      "key": "invoking-belt",
+      "id": "Metadata/Items/Belts/FourBeltB2",
+      "ordinary": 135,
+      "special": 4,
+      "implicit": [
+        {
+          "text": "(8—12)% increased Cast Speed",
+          "family": "IncreasedCastSpeed",
+          "tags": [
+            "caster_speed",
+            "caster",
+            "speed"
+          ],
+          "stats": [
+            {
+              "id": "base_cast_speed_+%",
+              "min": 8,
+              "max": 12,
+              "locality": "Global"
+            }
+          ]
+        },
+        {
+          "text": "Has 1 Charm Slots",
+          "family": "AdditionalCharm",
+          "tags": [
+            "charm"
+          ],
+          "stats": [
+            {
+              "id": "local_charm_slots",
+              "min": 1,
+              "max": 1,
+              "locality": "Local"
+            }
+          ]
+        }
+      ],
+      "fixedActions": 21,
+      "replacementActions": 3,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    },
+    {
+      "key": "sinew-belt",
+      "id": "Metadata/Items/Belts/FourBeltB3",
+      "ordinary": 135,
+      "special": 4,
+      "implicit": [
+        {
+          "text": "+(15—20) to Strength",
+          "family": "Strength",
+          "tags": [
+            "attribute"
+          ],
+          "stats": [
+            {
+              "id": "additional_strength",
+              "min": 15,
+              "max": 20,
+              "locality": "Global"
+            }
+          ]
+        },
+        {
+          "text": "Has 1 Charm Slots",
+          "family": "AdditionalCharm",
+          "tags": [
+            "charm"
+          ],
+          "stats": [
+            {
+              "id": "local_charm_slots",
+              "min": 1,
+              "max": 1,
+              "locality": "Local"
+            }
+          ]
+        }
+      ],
+      "fixedActions": 21,
+      "replacementActions": 3,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    },
+    {
+      "key": "forking-belt",
+      "id": "Metadata/Items/Belts/FourBeltB4",
+      "ordinary": 135,
+      "special": 4,
+      "implicit": [
+        {
+          "text": "Adds 1 to (20—30) Lightning damage to Attacks",
+          "family": "LightningDamage",
+          "tags": [
+            "elemental_damage",
+            "damage",
+            "elemental",
+            "lightning",
+            "attack"
+          ],
+          "stats": [
+            {
+              "id": "attack_maximum_added_lightning_damage",
+              "min": 20,
+              "max": 30,
+              "locality": "Global"
+            },
+            {
+              "id": "attack_minimum_added_lightning_damage",
+              "min": 1,
+              "max": 1,
+              "locality": "Global"
+            }
+          ]
+        },
+        {
+          "text": "Has 1 Charm Slots",
+          "family": "AdditionalCharm",
+          "tags": [
+            "charm"
+          ],
+          "stats": [
+            {
+              "id": "local_charm_slots",
+              "min": 1,
+              "max": 1,
+              "locality": "Local"
+            }
+          ]
+        }
+      ],
+      "fixedActions": 21,
+      "replacementActions": 3,
+      "weightPolicy": "POE2DB_AS_PUBLISHED"
+    }
+  ],
+  "excluded": [
+    "Golden Obi: Demigod provenance",
+    "Stalking: unsupported socket bonus transfer",
+    "Runemastered Heavy: Unique provenance and deferred Alloy mechanics"
+  ],
+  "catalystSupported": false,
+  "qualityMaximum": null,
+  "charmSlotProperty": "Source range 1–3 preserved as display property; no rolled slot state or slot probabilities inferred",
+  "localeDiscrepancies": []
+}

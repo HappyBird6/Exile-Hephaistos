@@ -1,0 +1,75 @@
+{
+  "row": {
+    "Name": "Darkened",
+    "Level": "33",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponDamageTypePrefix"
+    ],
+    "DropChance": "400",
+    "str": "<span class='mod-value'>(109<span class=\"ndash\">—</span>128)</span>% increased <a data-keyword=\"Chaos\" href=\"Chaos_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/d5e91fde5dc8d1d0b9cfdb8a42b1eda58c5d5c3b17836c8aa5ea96385c550943\">Chaos</a> Damage",
+    "fossil_no": [
+      "chaos_damage",
+      "damage",
+      "chaos"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "no_chaos_spell_mods",
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e03e073617147d42fda42245577f7846fc2edf211f3641bf75c37f22b93b202f"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FChaosDamagePrefixOnTwoHandWeapon4",
+  "textLocale": "kr",
+  "detailText": "카오스 피해 (109—128)% 증가",
+  "retrievedAt": "2026-10-05T10:05:50.942Z",
+  "sha256": "8bc7282d43148d489ce5f6d1344c7549a6037999e34b4b61f2bda557f5058974",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Chaos\" href=\"Chaos_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/d260e5b8648f9aa0e336ba85ac09d3aedff4f7550231add87a843b1192fa3386\">카오스</a> 피해 <span class='mod-value'>(109<span class=\"ndash\">—</span>128)</span>% 증가</span></h5>   <span data-tabname=\"음침한\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>음침한\n<tr><th>Family<td>WeaponDamageTypePrefix\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접두어 (1)\n<tr><th>Req. level<td>33 (Effective: 26)\n<tr><th>Gold Price<td>875\n<tr><th>Stats<td><li>chaos damage +% <span class=\"badge bg-primary\">109 <span class=\"ndash\">—</span> 128</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_chaos_spell_mods: 0</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_cold_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>chaos_damage</i></span> <span class='badge bg-primary'>피해</span> <span class='badge bg-primary'>카오스</span> </table>  </div></div>",
+  "fields": {
+    "Name": "음침한",
+    "Family": "WeaponDamageTypePrefix",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접두어 (1)",
+    "Req. level": "33 (Effective: 26)",
+    "Gold Price": "875",
+    "Stats": "chaos damage +% 109 — 128 Global",
+    "Spawn Tags": "no_chaos_spell_mods: 0 staff: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_cold_spell_mods no_lightning_spell_mods no_physical_spell_mods",
+    "Craft Tags": "chaos_damage 피해 카오스"
+  },
+  "code": "ChaosDamagePrefixOnTwoHandWeapon4",
+  "stats": [
+    {
+      "id": "chaos_damage_+%",
+      "min": 109,
+      "max": 128,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_chaos_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "row": {
+    "Name": "Mazarine",
+    "Level": "65",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedMana"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(125<span class=\"ndash\">—</span>149)</span> to maximum Mana",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "helmet",
+      "focus",
+      "sceptre",
+      "wand",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/097351a08ba5aeb4960150dc92c02a8e5e70ef6b1423a411f1418e8d2e316d2d"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/097351a08ba5aeb4960150dc92c02a8e5e70ef6b1423a411f1418e8d2e316d2d",
+  "textLocale": "us",
+  "detailText": "+(125—149) to maximum Mana",
+  "retrievedAt": "2026-10-05T04:33:44.706Z",
+  "sha256": "097351a08ba5aeb4960150dc92c02a8e5e70ef6b1423a411f1418e8d2e316d2d",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(125<span class=\"ndash\">—</span>149)</span> to maximum Mana</span></h5>   <span data-tabname=\"Mazarine\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Mazarine\n<tr><th>Family<td>IncreasedMana\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>65 (Effective: 52)\n<tr><th>Gold Price<td>2583\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">125 <span class=\"ndash\">—</span> 149</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Mazarine",
+    "Family": "IncreasedMana",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "65 (Effective: 52)",
+    "Gold Price": "2583",
+    "Stats": "base maximum mana 125 — 149 Global",
+    "Spawn Tags": "ring: 1 amulet: 1 helmet: 1 focus: 1 sceptre: 1 wand: 1 trap: 1 default: 0",
+    "Craft Tags": "resource Mana"
+  },
+  "code": "IncreasedMana10",
+  "stats": [
+    {
+      "id": "base_maximum_mana",
+      "min": 125,
+      "max": 149,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "helmet",
+      "weight": 1
+    },
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "sceptre",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

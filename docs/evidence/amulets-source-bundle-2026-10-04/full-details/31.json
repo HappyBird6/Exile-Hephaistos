@@ -1,0 +1,29 @@
+{
+  "row": {
+    "Name": "of the Multiverse",
+    "Level": "75",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "AllAttributes"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>+(21<span class=\"ndash\">—</span>22)</span> to all <a data-keyword=\"Attributes\" href=\"Attributes\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a6f6a0f82c449e0ba1131901454bb89e680e14457cbae3c6c0b24b126a93f8dc\">Attributes</a>",
+    "fossil_no": [
+      "attribute"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "amulet",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fd16e409cb9106d09b7ff16df90e1123a181afb8e816ac625d95fb09eb9d14d2"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fd16e409cb9106d09b7ff16df90e1123a181afb8e816ac625d95fb09eb9d14d2",
+  "retrievedAt": "2026-10-04T22:01:28.365Z",
+  "sha256": "fd16e409cb9106d09b7ff16df90e1123a181afb8e816ac625d95fb09eb9d14d2",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(21<span class=\"ndash\">—</span>22)</span> to all <a data-keyword=\"Attributes\" href=\"Attributes\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/70e56c747691e9ab76391fbe4cccc92a41bed557efd7b61a4ebbeef5ca0fa6ce\">Attributes</a></span></h5>   <span data-tabname=\"of the Multiverse\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Multiverse\n<tr><th>Family<td>AllAttributes\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>75 (Effective: 60)\n<tr><th>Gold Price<td>2962\n<tr><th>Stats<td><li>additional all attributes <span class=\"badge bg-primary\">21 <span class=\"ndash\">—</span> 22</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attribute</span> </table>  </div></div>"
+}

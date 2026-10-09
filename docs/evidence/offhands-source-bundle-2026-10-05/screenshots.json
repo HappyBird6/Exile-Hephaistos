@@ -1,0 +1,794 @@
+{
+  "qaRoot": "E:/WORK/Exile-Hephaistos/codex/offhands-qa-20261005",
+  "reviewed": true,
+  "reviewedContactSheets": 28,
+  "newBaseCardShots": 60,
+  "legacyCardShots": 18,
+  "fullPageShots": 90,
+  "screenshots": [
+    {
+      "path": "browser-attempt-1/blacksteel-crest-shield-en-1440.png",
+      "sha256": "b4886f931a541a7bacf9c4dfae8580ae19a4d15f85f75a7a192e75da8574599c"
+    },
+    {
+      "path": "browser-attempt-1/blacksteel-crest-shield-en-390.png",
+      "sha256": "2d3c62b73ca0a6b5a524f952ea85891f8d2d71ee4fc6473eeed5341fce2a0b35"
+    },
+    {
+      "path": "browser-attempt-1/blacksteel-crest-shield-es-1440.png",
+      "sha256": "93c063e9341a54d7ed0f02a0b8d966dcb3cac5aa17f08616ea8bf083c656c3bb"
+    },
+    {
+      "path": "browser-attempt-1/blacksteel-crest-shield-es-390.png",
+      "sha256": "d7c7d0f594b19c242688802260e50d7990528ec056e0d9526016a6612a930ac1"
+    },
+    {
+      "path": "browser-attempt-1/blacksteel-crest-shield-ja-1440.png",
+      "sha256": "d9cdcd05135799b6f13a8394c6ef8a59f57c2ac942c5f60f9b68414a69baab39"
+    },
+    {
+      "path": "browser-attempt-1/blacksteel-crest-shield-ja-390.png",
+      "sha256": "e5d439a920e5797f1cbce7ba2da44b35ee8ba2a3fdbf580a0f561413147750ee"
+    },
+    {
+      "path": "browser-attempt-1/blacksteel-crest-shield-ko-1440.png",
+      "sha256": "a93415ff946b7414952399afcfd01c0dabc20698b9cec74830fbd33023618e7f"
+    },
+    {
+      "path": "browser-attempt-1/blacksteel-crest-shield-ko-390.png",
+      "sha256": "fd7afb9cd21178ed2b02d326c6672089cd0fb832b7d5552af521ab89adb07595"
+    },
+    {
+      "path": "browser-attempt-1/blacksteel-crest-shield-zh-CN-1440.png",
+      "sha256": "4431f6b4886d8c9774f6d8c3eac4bf963eb8d669510765c7870891767492d640"
+    },
+    {
+      "path": "browser-attempt-1/blacksteel-crest-shield-zh-CN-390.png",
+      "sha256": "89e66d87a66047858eac826dc0a56a9b076e197981dd951d02cf84ff04d3174f"
+    },
+    {
+      "path": "browser-attempt-1/blacksteel-crest-shield-zh-TW-1440.png",
+      "sha256": "530aa9aa5fe2d5a8951199aba666a723362bf71fe52d2427bc0116384e0dd84c"
+    },
+    {
+      "path": "browser-attempt-1/blacksteel-crest-shield-zh-TW-390.png",
+      "sha256": "d6f69ddb494e56e75293fa8555521723067a7e5ca957e6c736e4ba3b8b8cb072"
+    },
+    {
+      "path": "browser-attempt-1/contact-cards-0.png",
+      "sha256": "a4ef30b074ded65f6fd609de677d8327aa92c37cfa51bfb5a827243bed9ddfe7"
+    },
+    {
+      "path": "browser-attempt-1/contact-cards-12.png",
+      "sha256": "f171e890bd8e69c8ed943a336aefcf507c57003c72ab578fe0f9de5d685857a7"
+    },
+    {
+      "path": "browser-attempt-1/contact-cards-18.png",
+      "sha256": "d8e7c7a497e12adf151152d4a2975a0106723bc9cb890ade1143a4ab4f4bb35e"
+    },
+    {
+      "path": "browser-attempt-1/contact-cards-24.png",
+      "sha256": "d84a5c73e1fffec2ee5e0dfb0ccd919351b648a166aafb918d606991e4c8b8f2"
+    },
+    {
+      "path": "browser-attempt-1/contact-cards-30.png",
+      "sha256": "7d61291b04c661c6768716f3d96b07ac6ea8874b028b72cb304a9af4f9941fde"
+    },
+    {
+      "path": "browser-attempt-1/contact-cards-36.png",
+      "sha256": "cde8d128ae4e35268c4635a1cac5233fb6e84fbf3e6d54dd405821a04d202f56"
+    },
+    {
+      "path": "browser-attempt-1/contact-cards-42.png",
+      "sha256": "526659a118d149c28a174c336aa69fb64d062b729dfcb108604849ab8b3ee239"
+    },
+    {
+      "path": "browser-attempt-1/contact-cards-48.png",
+      "sha256": "614053cce3fda4bcd9da4cbf9170488b38f7099648623da8082bfd4a5ed766df"
+    },
+    {
+      "path": "browser-attempt-1/contact-cards-54.png",
+      "sha256": "d7438d474d2046f1ccff8871f07cf6593bc8e8ddee2e5d44c85c112816bcbf4d"
+    },
+    {
+      "path": "browser-attempt-1/contact-cards-6.png",
+      "sha256": "ca7dbd96267916a5d8b6652f7adc2ef417c3265a9002e8fb916b2a158ebf76a2"
+    },
+    {
+      "path": "browser-attempt-1/contact-cards-60.png",
+      "sha256": "0ed676546d37bbf0e22820afcbecb87aa064061817d4694f3ec37fcd674926ae"
+    },
+    {
+      "path": "browser-attempt-1/contact-cards-66.png",
+      "sha256": "328b2fb5561acbea837593a757ad57f68399db69c09a943034f9989face39648"
+    },
+    {
+      "path": "browser-attempt-1/contact-cards-72.png",
+      "sha256": "f97fd9cc76905458cc14b739471432f32221f5cb7cab77b7a65435970aa7697a"
+    },
+    {
+      "path": "browser-attempt-1/contact-full-0.png",
+      "sha256": "641d680ee036b8f50a19c688de816fc2432989a5e54067c4b987d26e578d09a2"
+    },
+    {
+      "path": "browser-attempt-1/contact-full-12.png",
+      "sha256": "0d904fcdd9803959223096cb7d66d09e3e56ba69cb6b28e2f51d42777c312790"
+    },
+    {
+      "path": "browser-attempt-1/contact-full-18.png",
+      "sha256": "73b0f17f3216ac0b36b0f5f2f0b21d7781f85daa2a3ba667773d1a1fd10bfeed"
+    },
+    {
+      "path": "browser-attempt-1/contact-full-24.png",
+      "sha256": "9d7f464a5468fb3bdfe55ca50abb2051eeac1170b16817c8cd100065dbcf2e15"
+    },
+    {
+      "path": "browser-attempt-1/contact-full-30.png",
+      "sha256": "f2d9f982e6b25eed089c6b2a78cba233f3a68bf61d81136878b0fb2e184c3103"
+    },
+    {
+      "path": "browser-attempt-1/contact-full-36.png",
+      "sha256": "9a4ca23f53b9d0bbd87d85adddbaf8912e19faddadffc4f69fe75aae1cddb12c"
+    },
+    {
+      "path": "browser-attempt-1/contact-full-42.png",
+      "sha256": "d191234d9227706ad8b2679da6daeda531a341f4e831a37154f9447c2eed6d63"
+    },
+    {
+      "path": "browser-attempt-1/contact-full-48.png",
+      "sha256": "cd83111d7acc5696523f2409528aa885b615cde50fc924d3a9cc0ae54a5886cf"
+    },
+    {
+      "path": "browser-attempt-1/contact-full-54.png",
+      "sha256": "c53a2a8ce97453c4da6a04b38476359c75e3d47fcc6ac4f15d85e968f4cee289"
+    },
+    {
+      "path": "browser-attempt-1/contact-full-6.png",
+      "sha256": "d21a1448f972520d2f3e2634099c62fd11208bd7a922bbafbbfaa371ffe3014e"
+    },
+    {
+      "path": "browser-attempt-1/contact-full-60.png",
+      "sha256": "e608fc816b5afeb0b541c12a16766dc93eb25b351ba87e9c8ce2089f1ec7f55e"
+    },
+    {
+      "path": "browser-attempt-1/contact-full-66.png",
+      "sha256": "062266a4f6a22c9bb5f831a3c43413074524a2a5b153464655becff4f19a55e5"
+    },
+    {
+      "path": "browser-attempt-1/contact-full-72.png",
+      "sha256": "1e890eff1212f0abc796596d4901b2a0259c99ee012aac2b8c58c2bc738ff8b7"
+    },
+    {
+      "path": "browser-attempt-1/contact-full-78.png",
+      "sha256": "9d00451b1e5f11041eccb91a11fa1c74dc4452a5286fe3ab662f1589a9da1ec3"
+    },
+    {
+      "path": "browser-attempt-1/contact-full-84.png",
+      "sha256": "1337532c9aa9faa08c3dc9b041271fad00c85e704c1f2ea5b5bc6dfe5fa3b4e2"
+    },
+    {
+      "path": "browser-attempt-1/desert-buckler-en-1440.png",
+      "sha256": "9f7524197e3d959f458fa49aebce187627581e7da1aeab00f58792509a2abb3c"
+    },
+    {
+      "path": "browser-attempt-1/desert-buckler-en-390.png",
+      "sha256": "a3aaedee54cd8449716d1f64c94d47701f6026a92703bab12896ae2166dafa1b"
+    },
+    {
+      "path": "browser-attempt-1/desert-buckler-es-1440.png",
+      "sha256": "e17407c277b73733e2639a7d5a48c12aa736f05bf9b766450b4c7485a8068f5a"
+    },
+    {
+      "path": "browser-attempt-1/desert-buckler-es-390.png",
+      "sha256": "64ccd5e73dac037f2afc703b38d8d877395b060a7ed57a540cbfb2e926aebf2d"
+    },
+    {
+      "path": "browser-attempt-1/desert-buckler-ja-1440.png",
+      "sha256": "55c0593d9d458dccb3bc05a2cac93ca9e2908b0db7dc098e880d6ab37f79c59b"
+    },
+    {
+      "path": "browser-attempt-1/desert-buckler-ja-390.png",
+      "sha256": "a34052b468d97677bf6db1c82cd8ea764c203d4298cec625a1fc85f5acebc052"
+    },
+    {
+      "path": "browser-attempt-1/desert-buckler-ko-1440.png",
+      "sha256": "b68d6520870b5ae757ac32c07b00efc977954dedd1313a51d0ab671f45b1408c"
+    },
+    {
+      "path": "browser-attempt-1/desert-buckler-ko-390.png",
+      "sha256": "a54b369c1efba9af3e27db83ff9d6768e5aafc1f8b6ccf6a3aa0fc2c361aced0"
+    },
+    {
+      "path": "browser-attempt-1/desert-buckler-zh-CN-1440.png",
+      "sha256": "9b36e2780461333a90c6006d263b9aec226ac2865bf6891ccc04e648b99e9d94"
+    },
+    {
+      "path": "browser-attempt-1/desert-buckler-zh-CN-390.png",
+      "sha256": "8d3796830b7eb451ad20e40bd32f0fabe4136d101d0d542c212d80eecdbbe0c3"
+    },
+    {
+      "path": "browser-attempt-1/desert-buckler-zh-TW-1440.png",
+      "sha256": "a84bd1b5b7b8e9bbc6a54c78cb8e16023baeca006ce99b450ec8feb972ee0577"
+    },
+    {
+      "path": "browser-attempt-1/desert-buckler-zh-TW-390.png",
+      "sha256": "c3795327736aac1041285743283faec1ae60ed2c0ef8b1ce728ec3848ba0c46f"
+    },
+    {
+      "path": "browser-attempt-1/golden-targe-en-1440.png",
+      "sha256": "6a9c1f6127be39167d9addbfbdca411d03dc31b74c1b89eb6f6bc52a744353fb"
+    },
+    {
+      "path": "browser-attempt-1/golden-targe-en-390.png",
+      "sha256": "8b5b7267bf3359a8ff4726d8b729cbc29e3f964d86b641739726c6bdcfc9f03e"
+    },
+    {
+      "path": "browser-attempt-1/golden-targe-es-1440.png",
+      "sha256": "9827b46a8a54a05aedba18c948f437121cd8a110969a3793b4298ae0b17f6458"
+    },
+    {
+      "path": "browser-attempt-1/golden-targe-es-390.png",
+      "sha256": "d2b7d9281eeecefb7f4e58cf1aca26a538cbcc27e64915361ef2f3fbbfb386eb"
+    },
+    {
+      "path": "browser-attempt-1/golden-targe-ja-1440.png",
+      "sha256": "0904dbb772c136ac92d05a400fe2b11cf13f5a065ad378f1cdc27cbecdfa5dc1"
+    },
+    {
+      "path": "browser-attempt-1/golden-targe-ja-390.png",
+      "sha256": "23cbc3f7c1ca3d05d0441f4e2656a6bb0f7abba23b1e4cfbffb337ce0116d9f1"
+    },
+    {
+      "path": "browser-attempt-1/golden-targe-ko-1440.png",
+      "sha256": "85ec7720ea066aa1f85b134508805d10451c4fc8a5ea7ec4492e99f59ce47c23"
+    },
+    {
+      "path": "browser-attempt-1/golden-targe-ko-390.png",
+      "sha256": "7848c6813eaa66e2f92e0546b0225f3756bd1d104c8fde335061f4044b647364"
+    },
+    {
+      "path": "browser-attempt-1/golden-targe-zh-CN-1440.png",
+      "sha256": "aae743a12996c1d72a56087030b3d0e13c2ab9801ebe2ae97d767470f62f7cca"
+    },
+    {
+      "path": "browser-attempt-1/golden-targe-zh-CN-390.png",
+      "sha256": "1d3f743bf712c2487c3d991cfd2f28c54d5e505194d5674780ae0d120c4e02b5"
+    },
+    {
+      "path": "browser-attempt-1/golden-targe-zh-TW-1440.png",
+      "sha256": "b80775e29c8a38637a866f793fb3f8cfe76f24b648e159e93bc10a855a6c9733"
+    },
+    {
+      "path": "browser-attempt-1/golden-targe-zh-TW-390.png",
+      "sha256": "989e1472b6d015723f614336a9a01b134f3fefbea0fa8cfa1e41fd723a69c4ba"
+    },
+    {
+      "path": "browser-attempt-1/legacy-hallowed-en.png",
+      "sha256": "0676192ff02d5f52f2b276b470823768c1d58cfa6663667995d2dd74ed801458"
+    },
+    {
+      "path": "browser-attempt-1/legacy-hallowed-es.png",
+      "sha256": "4ac4030b0123a548df3320f24070cd1b341da6870e013f53e90c189a65f4e169"
+    },
+    {
+      "path": "browser-attempt-1/legacy-hallowed-ja.png",
+      "sha256": "8baf7a05b7e691686916c9b17d6ebe164511131f6f5c8fe2f21740eed8007bc0"
+    },
+    {
+      "path": "browser-attempt-1/legacy-hallowed-ko.png",
+      "sha256": "47a2f3020f57cb0eb72344a0ab2606efcb23b5959f8e2c89c2ceb0e958861ee9"
+    },
+    {
+      "path": "browser-attempt-1/legacy-hallowed-zh-CN.png",
+      "sha256": "86753e6c45da0cd113cec9fa3276c5a23c3d1e5d91f79c793fb3faa894bf1ad6"
+    },
+    {
+      "path": "browser-attempt-1/legacy-hallowed-zh-TW.png",
+      "sha256": "d51bb981c8b58e9d13e335a1c524d283766d9b6575a62639e57db693db2041f4"
+    },
+    {
+      "path": "browser-attempt-1/legacy-sceptre-en.png",
+      "sha256": "a2e26bbdf1c0131f64aab47a98aaf8be04475e44984bb2aeeff1d5f87ec81f67"
+    },
+    {
+      "path": "browser-attempt-1/legacy-sceptre-es.png",
+      "sha256": "d04db04d69998555634c045cffb2fa1a62afba9a80841d1f5fb8a3ec349d65b8"
+    },
+    {
+      "path": "browser-attempt-1/legacy-sceptre-ja.png",
+      "sha256": "a0091926c4f237b5189db8505c2d400c825f6192d9afc8af6e30311d44a1268f"
+    },
+    {
+      "path": "browser-attempt-1/legacy-sceptre-ko.png",
+      "sha256": "96ff86b3a6b31611ed5316135ab8e30c248f87e2527e5e588648f7f27246bfb9"
+    },
+    {
+      "path": "browser-attempt-1/legacy-sceptre-zh-CN.png",
+      "sha256": "998a366576d1e2d0a3f1077f1adec3c315188314f0b2c3e5be09771c1aabd9c8"
+    },
+    {
+      "path": "browser-attempt-1/legacy-sceptre-zh-TW.png",
+      "sha256": "47493a7a70e1b74a23ddd8b5995e54e890ec54ddc1ab6819aa251555b38dff16"
+    },
+    {
+      "path": "browser-attempt-1/legacy-wand-en.png",
+      "sha256": "179882629550479e602f55335179daf8dc9518013672c686109eefba71ac6b3c"
+    },
+    {
+      "path": "browser-attempt-1/legacy-wand-es.png",
+      "sha256": "8016efe5d702a1fa863ae6e562fb244cf969db55cfb0e8bd64c1cacee1527300"
+    },
+    {
+      "path": "browser-attempt-1/legacy-wand-ja.png",
+      "sha256": "0533b619576f6db192e52497921a5268343025c7069ca733bdec13d38d0fbf96"
+    },
+    {
+      "path": "browser-attempt-1/legacy-wand-ko.png",
+      "sha256": "9c9c68be7f93a75dc37787259324b418e9b25ed475bdf5c300d273d1a67f3c3d"
+    },
+    {
+      "path": "browser-attempt-1/legacy-wand-zh-CN.png",
+      "sha256": "f52bcff9e95862c1ec37659eb1da3b5db756da49386c0704d957c3732c153064"
+    },
+    {
+      "path": "browser-attempt-1/legacy-wand-zh-TW.png",
+      "sha256": "3fa86f1717101502f1824364fb38659d1d36ed0b2eff29be088d2d4fc5c872a4"
+    },
+    {
+      "path": "browser-attempt-1/solar-overflow-en.png",
+      "sha256": "7bc322794e952e0af9257c6d20cf6c4bc3155d10666d209b8bcb13498004d671"
+    },
+    {
+      "path": "browser-attempt-1/solar-overflow-es.png",
+      "sha256": "6b11ec7e14b92e027bdb23369eb4fe842db97fd41f5c6f3f109472b14cbc5c38"
+    },
+    {
+      "path": "browser-attempt-1/solar-overflow-ja.png",
+      "sha256": "2ace48612c3f33e7892a0bddcdef3f55c720acb6403135b4002a27d07393e1ff"
+    },
+    {
+      "path": "browser-attempt-1/solar-overflow-ko.png",
+      "sha256": "866c125fb5a9f1acdd1985b17e0d51ad21900024c2a2bc90af0c58f760be83dc"
+    },
+    {
+      "path": "browser-attempt-1/solar-overflow-zh-CN.png",
+      "sha256": "0037ebb40f92d58f322139f1c66ff6d8bcb2e8a53392ae19f9849a8f17ce0bae"
+    },
+    {
+      "path": "browser-attempt-1/solar-overflow-zh-TW.png",
+      "sha256": "c948d36dc6d82dc4c274ae7238dd3227e2ec086c2dba2fb285ba6e75d1cb7054"
+    },
+    {
+      "path": "browser-attempt-1/tasalian-focus-en-1440.png",
+      "sha256": "4fcb9bae50d656d2c1c6ecdb3146e5149e53588727b644650219872788f64a35"
+    },
+    {
+      "path": "browser-attempt-1/tasalian-focus-en-390.png",
+      "sha256": "7885bdbe6c1ec2fe00dab16a81933f3da087cd939d0f44606f77ac0e259dc2da"
+    },
+    {
+      "path": "browser-attempt-1/tasalian-focus-es-1440.png",
+      "sha256": "047068f625f9799770a54c6457056fd30ab8c1b081c7810fec0eec6d63ea8dc1"
+    },
+    {
+      "path": "browser-attempt-1/tasalian-focus-es-390.png",
+      "sha256": "4444b0232c9abf9a82286d0f8c1740220d2eb11948e09186153381c7859d0fd8"
+    },
+    {
+      "path": "browser-attempt-1/tasalian-focus-ja-1440.png",
+      "sha256": "19ef34716dcbc1ac447b3f5a18e3be54f578ca0128c5d01d7abb5717d5d288d9"
+    },
+    {
+      "path": "browser-attempt-1/tasalian-focus-ja-390.png",
+      "sha256": "62af8b4b58b37139769d959a434361a300372e7b463f5794a09b51cb77dcf28b"
+    },
+    {
+      "path": "browser-attempt-1/tasalian-focus-ko-1440.png",
+      "sha256": "4f860a06cba763ac9f5b8de79791f790c22dc385727b9ca132665b73b354249c"
+    },
+    {
+      "path": "browser-attempt-1/tasalian-focus-ko-390.png",
+      "sha256": "6d301b82a92d37a27738f7967ac70be5eeb42bbba1498d93eb0e05497e03feb6"
+    },
+    {
+      "path": "browser-attempt-1/tasalian-focus-zh-CN-1440.png",
+      "sha256": "58e3a1b33ef429341a30a197e4636596785f8491d0d622bdecb513b1502f4d4e"
+    },
+    {
+      "path": "browser-attempt-1/tasalian-focus-zh-CN-390.png",
+      "sha256": "d825b350d5840c4e142c1146827c99b092f6d19899768c5e73500a5ae961e210"
+    },
+    {
+      "path": "browser-attempt-1/tasalian-focus-zh-TW-1440.png",
+      "sha256": "25a2316614045046850efe5602f046c35a2e751ba76fe525214685badb74a726"
+    },
+    {
+      "path": "browser-attempt-1/tasalian-focus-zh-TW-390.png",
+      "sha256": "9af2b66f6a59549ff11c8c5f5a7ad3764094bc265d4df331200e13f2d6a47c16"
+    },
+    {
+      "path": "browser-attempt-1/tawhoan-tower-shield-en-1440.png",
+      "sha256": "3c5139b33575c52f398f899447abf8a5c4d0a75fbae0c50a51307cd7ce01a688"
+    },
+    {
+      "path": "browser-attempt-1/tawhoan-tower-shield-en-390.png",
+      "sha256": "8b8d2694b179b6968b577b90138e4dcd1079fa5c24f6521ae6706f5e97aa1d0a"
+    },
+    {
+      "path": "browser-attempt-1/tawhoan-tower-shield-es-1440.png",
+      "sha256": "2b594ccc5c82cda4bde6678bfdae7abc869795d7d502aacc96327eb16b680c8c"
+    },
+    {
+      "path": "browser-attempt-1/tawhoan-tower-shield-es-390.png",
+      "sha256": "d2a0f5dde53e2a5183440b32dd092f2e59eaf447b9fd9754db38cecdef8100eb"
+    },
+    {
+      "path": "browser-attempt-1/tawhoan-tower-shield-ja-1440.png",
+      "sha256": "cef6ba84a215f8a0332bfa76638242b20c5fea603aba283e4fd9b79515f219d3"
+    },
+    {
+      "path": "browser-attempt-1/tawhoan-tower-shield-ja-390.png",
+      "sha256": "ee7786ee42b482b3f7b1dd2ced1c766b742a8270023e2034190838c06107d2e9"
+    },
+    {
+      "path": "browser-attempt-1/tawhoan-tower-shield-ko-1440.png",
+      "sha256": "49bd135a331d61a92e303a45cc6dcb543898f95015472cf99210df42e75ab1eb"
+    },
+    {
+      "path": "browser-attempt-1/tawhoan-tower-shield-ko-390.png",
+      "sha256": "9665e498ab47ace166b2322fe26656b23dd2acaa0aec0eb029278542d161c79c"
+    },
+    {
+      "path": "browser-attempt-1/tawhoan-tower-shield-orange-en.png",
+      "sha256": "9ee5c9f2b924dc0a6674f201f0f73277c9ffd5353a1ade78438a9b56eae957cc"
+    },
+    {
+      "path": "browser-attempt-1/tawhoan-tower-shield-orange-es.png",
+      "sha256": "b642be97466ef5a3441428bd13c7750900c80b05c416ac86b51518d9d37d611c"
+    },
+    {
+      "path": "browser-attempt-1/tawhoan-tower-shield-orange-ja.png",
+      "sha256": "83e1a40636a88f41a955bc9fb94469168a90975578e3557a23697f5cf4e3ac79"
+    },
+    {
+      "path": "browser-attempt-1/tawhoan-tower-shield-orange-ko.png",
+      "sha256": "b1168e36b3715e3806cc7481ee3a7cd1467507cb3081ee429f5e6b57c272fd05"
+    },
+    {
+      "path": "browser-attempt-1/tawhoan-tower-shield-orange-zh-CN.png",
+      "sha256": "9ecf00f61f2224a681b68e2ddcc1e8a57f370d1dbea030b3fc2c861b4b7811d6"
+    },
+    {
+      "path": "browser-attempt-1/tawhoan-tower-shield-orange-zh-TW.png",
+      "sha256": "76c00454f989cd0ab3fc42f6204698a04a3508f91a6d1f1dfae947eac5d2c456"
+    },
+    {
+      "path": "browser-attempt-1/tawhoan-tower-shield-zh-CN-1440.png",
+      "sha256": "c8472856e878d32e32558ecb3acbfa69c60a8eb003a4a319156b49d10c427240"
+    },
+    {
+      "path": "browser-attempt-1/tawhoan-tower-shield-zh-CN-390.png",
+      "sha256": "8a7fbe4edeefcb091d9c6be932a133eeff8f05125210b0df87653b1c9a0e87ab"
+    },
+    {
+      "path": "browser-attempt-1/tawhoan-tower-shield-zh-TW-1440.png",
+      "sha256": "00e369565e033ab8e20d1d49524325722f2931dbae8ff0fb01c0babfb3adfbb4"
+    },
+    {
+      "path": "browser-attempt-1/tawhoan-tower-shield-zh-TW-390.png",
+      "sha256": "7a103ebe45d56e2e4ea839cc4a3b1ba7c14b958b6fdcfc6bc74a942ad823b6d2"
+    },
+    {
+      "path": "browser-attempt-1/cards/blacksteel-crest-shield-en-1440.png",
+      "sha256": "5e13de312d3a7a9f0936878d0d66caeae7d951103c3bae48776865d4d520e794"
+    },
+    {
+      "path": "browser-attempt-1/cards/blacksteel-crest-shield-en-390.png",
+      "sha256": "6ef97557dd7e782158a3e539e211d77a7c3d4b99e55aa3d8c2dd92998222ad94"
+    },
+    {
+      "path": "browser-attempt-1/cards/blacksteel-crest-shield-es-1440.png",
+      "sha256": "464352e234c6ce55c53a82eca7de336809b139ddaa3da73fba8c22ad17334032"
+    },
+    {
+      "path": "browser-attempt-1/cards/blacksteel-crest-shield-es-390.png",
+      "sha256": "07c19c49aa8a7b4b3057a92258355cc2f7e014bdd0868541aa017497ab9c58a3"
+    },
+    {
+      "path": "browser-attempt-1/cards/blacksteel-crest-shield-ja-1440.png",
+      "sha256": "3f7b1eda160e22259c7718b757fba00cd495770176c48e875986a5ab3b2374ae"
+    },
+    {
+      "path": "browser-attempt-1/cards/blacksteel-crest-shield-ja-390.png",
+      "sha256": "2fdb9704820f811f12f7669ebb1b8a9e157ad2b55c62322d73e9c50b6e06769d"
+    },
+    {
+      "path": "browser-attempt-1/cards/blacksteel-crest-shield-ko-1440.png",
+      "sha256": "fbe829b504e7c1a92bb9230f741cd2b554242ab18a13c9076d12ee96cba09394"
+    },
+    {
+      "path": "browser-attempt-1/cards/blacksteel-crest-shield-ko-390.png",
+      "sha256": "d0f84b225e3681e8f65a6c53002d71b1ef13aac122c07480f783ee37342b5dcf"
+    },
+    {
+      "path": "browser-attempt-1/cards/blacksteel-crest-shield-zh-CN-1440.png",
+      "sha256": "2555432cbbcb46b88203edcfbcdc472c2fd7750667c278935fdbdfd37f9a1ef5"
+    },
+    {
+      "path": "browser-attempt-1/cards/blacksteel-crest-shield-zh-CN-390.png",
+      "sha256": "ca2d50396b64f02e8ec1cf7dc99a9c6b77bec12f024ce02a90a377eb5dd4cc9e"
+    },
+    {
+      "path": "browser-attempt-1/cards/blacksteel-crest-shield-zh-TW-1440.png",
+      "sha256": "fe1c50c969fac4cb340ba59fb5051ac444b29601f25f907372efc308130cf1bf"
+    },
+    {
+      "path": "browser-attempt-1/cards/blacksteel-crest-shield-zh-TW-390.png",
+      "sha256": "45ccccdabb06b48c70decf6d544033b224253574697bbf8b66f87fbff4e56f13"
+    },
+    {
+      "path": "browser-attempt-1/cards/desert-buckler-en-1440.png",
+      "sha256": "4126fd1d2167fe8fdff6c00040589345266afecdb032866b5d57cd9ce3caf476"
+    },
+    {
+      "path": "browser-attempt-1/cards/desert-buckler-en-390.png",
+      "sha256": "9596d140a667decea0a988f112fe8781aa3bb73b8262b72c35634170e8a93fc1"
+    },
+    {
+      "path": "browser-attempt-1/cards/desert-buckler-es-1440.png",
+      "sha256": "0142954692a2115d65a503eda936c0db779d385737cfaefd44c1522256b5c08d"
+    },
+    {
+      "path": "browser-attempt-1/cards/desert-buckler-es-390.png",
+      "sha256": "f8c7ddbd3004442d8f1661ff09ae4a0912e5fef2df3f51d94006eeae671535cb"
+    },
+    {
+      "path": "browser-attempt-1/cards/desert-buckler-ja-1440.png",
+      "sha256": "8403b37cd4270a0ce79d0ed5c1c740fd23f25d4f0351c5caa2339c3ddd67b2a7"
+    },
+    {
+      "path": "browser-attempt-1/cards/desert-buckler-ja-390.png",
+      "sha256": "1edb7aca381ac28ab4c19400261290f26c62d13ae29a4fbea8d1585e882281d1"
+    },
+    {
+      "path": "browser-attempt-1/cards/desert-buckler-ko-1440.png",
+      "sha256": "618b2d0403c3489ea5e40936790ca933c05d996f2c9e87da61fc2d4ad1175182"
+    },
+    {
+      "path": "browser-attempt-1/cards/desert-buckler-ko-390.png",
+      "sha256": "ebfcf094a7f4eeb598dcee13aa60751a908cfd0a10e1443b67c4bf794e0df2f9"
+    },
+    {
+      "path": "browser-attempt-1/cards/desert-buckler-zh-CN-1440.png",
+      "sha256": "24b019e237a33acec40223ea43724e4161ba5d1408f8955c9100ef4bab538e9c"
+    },
+    {
+      "path": "browser-attempt-1/cards/desert-buckler-zh-CN-390.png",
+      "sha256": "25347e760e3cdf86b2df08e63831a6cf0b288073cf84ccff95181045dc1d3cd5"
+    },
+    {
+      "path": "browser-attempt-1/cards/desert-buckler-zh-TW-1440.png",
+      "sha256": "7f989c0d5d3cb400494d91d2c2404074524531c5504e888d0c39678a8245cec7"
+    },
+    {
+      "path": "browser-attempt-1/cards/desert-buckler-zh-TW-390.png",
+      "sha256": "94a0d886607aa24f1e713d5a26958ee76e8b00a8f26e6dba662f3ea8873bb2bc"
+    },
+    {
+      "path": "browser-attempt-1/cards/golden-targe-en-1440.png",
+      "sha256": "32ef0f6ffd669752298d64fd1ef7f75ab803e7e29821798f4bc054f4438fe21c"
+    },
+    {
+      "path": "browser-attempt-1/cards/golden-targe-en-390.png",
+      "sha256": "2502b4180193226b6522943c31bbd2953744d0d4465a4832c8df21ab4589029b"
+    },
+    {
+      "path": "browser-attempt-1/cards/golden-targe-es-1440.png",
+      "sha256": "d275226ffa002e21db0a9dad925061d12ffd7804c84d530a4a6bd44807176883"
+    },
+    {
+      "path": "browser-attempt-1/cards/golden-targe-es-390.png",
+      "sha256": "9475e19ff154053a667ecd413fcb2e554ec26875c3478251be2955624a9ec1c4"
+    },
+    {
+      "path": "browser-attempt-1/cards/golden-targe-ja-1440.png",
+      "sha256": "4f4eb60b7af99209e1c925633ec510e31d47b57c9c2829e1844052b06bb3536a"
+    },
+    {
+      "path": "browser-attempt-1/cards/golden-targe-ja-390.png",
+      "sha256": "0768501df71526b8624118f9cbdcfb6492b9918945d68a8e49a0b714ac3359d1"
+    },
+    {
+      "path": "browser-attempt-1/cards/golden-targe-ko-1440.png",
+      "sha256": "b3f2a95358575d8b71a66cec0b7fdeaaece93f4688ec31efb68da17e5f3d733d"
+    },
+    {
+      "path": "browser-attempt-1/cards/golden-targe-ko-390.png",
+      "sha256": "e6e7b443811f4f59e46fe9f9b280c77e529bd93a981aa9c0ab68696f8a699179"
+    },
+    {
+      "path": "browser-attempt-1/cards/golden-targe-zh-CN-1440.png",
+      "sha256": "8cfca6095261f45ae0558a675704cd11706043bdd5baa7dc4c52f6c83ac3d883"
+    },
+    {
+      "path": "browser-attempt-1/cards/golden-targe-zh-CN-390.png",
+      "sha256": "780999201e5aecc8df9241c4e237951561ff67658353e38f3c8544dcaaf2e058"
+    },
+    {
+      "path": "browser-attempt-1/cards/golden-targe-zh-TW-1440.png",
+      "sha256": "42a12baa6662228c5264e91ca32535265b52c0f58b0fde5b3ea8a12416cc6ed9"
+    },
+    {
+      "path": "browser-attempt-1/cards/golden-targe-zh-TW-390.png",
+      "sha256": "1a515443971c950ebb8fe1167d33018c0a9163162573e543977198a30b70f5b5"
+    },
+    {
+      "path": "browser-attempt-1/cards/legacy-hallowed-en.png",
+      "sha256": "56d22ab103d68ed1e743f9f487b5448e2a77cd966e1fcb1da667a8e50ac48697"
+    },
+    {
+      "path": "browser-attempt-1/cards/legacy-hallowed-es.png",
+      "sha256": "f78bfd08ff1027bcd6d8bc465723a239ee50ef2c58f103ec5117a6871aeb9921"
+    },
+    {
+      "path": "browser-attempt-1/cards/legacy-hallowed-ja.png",
+      "sha256": "d6f9efd46dcd74b6aaa2186e81660bb5a1cd786befc7f403a1765acbf7b0ca63"
+    },
+    {
+      "path": "browser-attempt-1/cards/legacy-hallowed-ko.png",
+      "sha256": "9c3cdc57b91826e314f29ffd05e29259f6f8af0f8c6b21196ea61af3ad6e410a"
+    },
+    {
+      "path": "browser-attempt-1/cards/legacy-hallowed-zh-CN.png",
+      "sha256": "f3b91931d6feaf1dad4d611275749f57bbb7724b8f6faeb173de5f66c9062390"
+    },
+    {
+      "path": "browser-attempt-1/cards/legacy-hallowed-zh-TW.png",
+      "sha256": "ede0518723a3821ef891fb48f84286a04abcbf68e854ca849c1ebdabe02de13f"
+    },
+    {
+      "path": "browser-attempt-1/cards/legacy-sceptre-en.png",
+      "sha256": "f6f34129e47686f93ce45847d2c00a337eae59f92140f37cdcadf997220d2c0f"
+    },
+    {
+      "path": "browser-attempt-1/cards/legacy-sceptre-es.png",
+      "sha256": "eb76de623dfd7fdb85479ac542088d822c9aa9ac9841e472a35f71958ad45b5d"
+    },
+    {
+      "path": "browser-attempt-1/cards/legacy-sceptre-ja.png",
+      "sha256": "141aa5c295d7113533d935eb8788fb496e8841bd9dde995634ccabf0a705daa9"
+    },
+    {
+      "path": "browser-attempt-1/cards/legacy-sceptre-ko.png",
+      "sha256": "63c3f951fdd4c98b45841a66bb3f2383e627fb34105624508b324f39056aaf16"
+    },
+    {
+      "path": "browser-attempt-1/cards/legacy-sceptre-zh-CN.png",
+      "sha256": "bcb0111429fcb6ff47d49c4241044fe61650742ba27c59016d837ed29fab4e29"
+    },
+    {
+      "path": "browser-attempt-1/cards/legacy-sceptre-zh-TW.png",
+      "sha256": "6aa4507744ac96a4f106d0a4d84a65bcc80659e38780461c544e0a15e6b3ea85"
+    },
+    {
+      "path": "browser-attempt-1/cards/legacy-wand-en.png",
+      "sha256": "75fa8718e260ab61ec9fa3ec1116a260ad44c4cd4ef7ee5149b78b2ab96f5af6"
+    },
+    {
+      "path": "browser-attempt-1/cards/legacy-wand-es.png",
+      "sha256": "30522a2801103d323d8c5e371423262848f39fd31f29f24cf3809b08800222d8"
+    },
+    {
+      "path": "browser-attempt-1/cards/legacy-wand-ja.png",
+      "sha256": "f4b1e81cdd9a52d59aefd835dbfa7c7f24126bef74feb7f7302fa3e9c65ef832"
+    },
+    {
+      "path": "browser-attempt-1/cards/legacy-wand-ko.png",
+      "sha256": "71a5f85b6c6fa965df0d81453c873415508a977c3a978b89dd930615b415cbd6"
+    },
+    {
+      "path": "browser-attempt-1/cards/legacy-wand-zh-CN.png",
+      "sha256": "2b2a1642a5d45da963c369a8f80dfd3a2fab3ab49da733bc4b2694cf0f56d248"
+    },
+    {
+      "path": "browser-attempt-1/cards/legacy-wand-zh-TW.png",
+      "sha256": "128f61678e41362405f889b7f20e6774aae2c31a5bc371438a572df2cd5ffae2"
+    },
+    {
+      "path": "browser-attempt-1/cards/tasalian-focus-en-1440.png",
+      "sha256": "e8b6d3b5ba9dd2d3a166d54e7a7b4b4ff959eca0f42dc4442fff68c09f5e21e5"
+    },
+    {
+      "path": "browser-attempt-1/cards/tasalian-focus-en-390.png",
+      "sha256": "d58527a06e0946da5518dccc80ef9f2dd8d92705e85040a80353aad660e9bed0"
+    },
+    {
+      "path": "browser-attempt-1/cards/tasalian-focus-es-1440.png",
+      "sha256": "4b82b7ac69123ab05d0e8f284bf79a2f30a942c815dddaeea356675db42e53df"
+    },
+    {
+      "path": "browser-attempt-1/cards/tasalian-focus-es-390.png",
+      "sha256": "4c671068853c6f003f91bfbcb5732a16b642b980bc025afa0ae4c0c959d36dbe"
+    },
+    {
+      "path": "browser-attempt-1/cards/tasalian-focus-ja-1440.png",
+      "sha256": "08090553c3e54ad3b17ed9997e747c4cf83ee524cfe1a8c4e2e803d83d45462e"
+    },
+    {
+      "path": "browser-attempt-1/cards/tasalian-focus-ja-390.png",
+      "sha256": "70f84d77198d03d3af556d402366024f57724f360c2abe1b3f70945b68336c24"
+    },
+    {
+      "path": "browser-attempt-1/cards/tasalian-focus-ko-1440.png",
+      "sha256": "195eaa8fcb4921b4a064483d8eceae0890cfff890d27de070f244f619f47d5fc"
+    },
+    {
+      "path": "browser-attempt-1/cards/tasalian-focus-ko-390.png",
+      "sha256": "759b1c35d079fc379a97c334e06c0f1f87057d49f444a1fbad3a32e2b30ba081"
+    },
+    {
+      "path": "browser-attempt-1/cards/tasalian-focus-zh-CN-1440.png",
+      "sha256": "a764d25e60c38653219d573bccef37ab5c292d645374b6d8d005a8d2afca8b9d"
+    },
+    {
+      "path": "browser-attempt-1/cards/tasalian-focus-zh-CN-390.png",
+      "sha256": "ae07fa69dbd489339a00fbf20ac2c9f20f5a4ee0ebef67bc42aab1a04eac7d18"
+    },
+    {
+      "path": "browser-attempt-1/cards/tasalian-focus-zh-TW-1440.png",
+      "sha256": "fabd527033820217e79ac00f4edd822ebc81b2c32590c06bdd08b0a3bacb104a"
+    },
+    {
+      "path": "browser-attempt-1/cards/tasalian-focus-zh-TW-390.png",
+      "sha256": "b9e872c33f4bde7c06f48070548dbb6c93bffb37f1147d644d97c0a0642e0cb5"
+    },
+    {
+      "path": "browser-attempt-1/cards/tawhoan-tower-shield-en-1440.png",
+      "sha256": "52ee10a0dd02a125f12abdf1866364a25ca744ebd858a53cd929e94d7db37df1"
+    },
+    {
+      "path": "browser-attempt-1/cards/tawhoan-tower-shield-en-390.png",
+      "sha256": "efab073a1fd4d3be4a79546e8f317a401d90707e5418425f217941879547bc54"
+    },
+    {
+      "path": "browser-attempt-1/cards/tawhoan-tower-shield-es-1440.png",
+      "sha256": "6dd6ee5655f4e7b73b05c6d92bfb79613f05b1eeed6fb30ef626ae11e384f3b2"
+    },
+    {
+      "path": "browser-attempt-1/cards/tawhoan-tower-shield-es-390.png",
+      "sha256": "76a5901e5dd79650c9d7467267e40942b01214cf9fe18bbf8386f0fb0fed61ba"
+    },
+    {
+      "path": "browser-attempt-1/cards/tawhoan-tower-shield-ja-1440.png",
+      "sha256": "4ae6158e2798c5585d971c5c7411b647027c05e2c86e8df1bbc847ff3d020293"
+    },
+    {
+      "path": "browser-attempt-1/cards/tawhoan-tower-shield-ja-390.png",
+      "sha256": "97c23ff2b973f73e848c90cd3d78d02d772c5bccb16aace7a2f31c5e8d0f000f"
+    },
+    {
+      "path": "browser-attempt-1/cards/tawhoan-tower-shield-ko-1440.png",
+      "sha256": "048416fd40e13789700643fecbdf1fa471971d0d0988bb09c9e999c8a32a8229"
+    },
+    {
+      "path": "browser-attempt-1/cards/tawhoan-tower-shield-ko-390.png",
+      "sha256": "f1c68c03f5149833b740952b47332a87d60d1041eec725cb9736ab198ebd30dc"
+    },
+    {
+      "path": "browser-attempt-1/cards/tawhoan-tower-shield-zh-CN-1440.png",
+      "sha256": "e18515d17a7e771364020fddd21a987ea6a698d0f5deb21c1956cf1682f66828"
+    },
+    {
+      "path": "browser-attempt-1/cards/tawhoan-tower-shield-zh-CN-390.png",
+      "sha256": "1f887eb939a8556b85e4ab79b4ac7dd2cd9ebd71105d5b654633f51032bd0ff1"
+    },
+    {
+      "path": "browser-attempt-1/cards/tawhoan-tower-shield-zh-TW-1440.png",
+      "sha256": "4d32d7df42c278e1f6d53e49af92e66e9ad8e9033d2efafdf9b092769f0054d6"
+    },
+    {
+      "path": "browser-attempt-1/cards/tawhoan-tower-shield-zh-TW-390.png",
+      "sha256": "17f3bf95a98ff32ca827454555bc08cad6a825e35d448ee39689218bcc9d6189"
+    }
+  ]
+}

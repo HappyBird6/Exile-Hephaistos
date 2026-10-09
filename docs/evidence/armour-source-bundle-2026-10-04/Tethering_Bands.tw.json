@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/tw/Tethering_Bands",
+  "retrievedAt": "2026-10-04T15:38:20.502Z",
+  "sha256": "642ca496e309d72d9ac35f00a9d206f076a45dc8a85ee2054ce4fc810c2566f2",
+  "name": "解脫纏帶",
+  "card": "解脫纏帶\n        \n    \n    \n        \n            手套護甲值: 98能量護盾: 27需求:  等級 65, 55 力量, 55 智慧\n        \n\n\n\n        \n            Tethering Bands",
+  "requirements": "需求:  等級 65, 55 力量, 55 智慧",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "解脫纏帶",
+    "Class": "手套",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Gloves/FourGlovesStrIntUnique1",
+    "Tags": "str_int_armour, karui_basetype, gloves, armour",
+    "Icon": "Art/2DItems/Armours/Gloves/Basetypes/GlovesIntStr04",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, gloves",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Gloves",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "65",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [],
+    "fossil_no": [],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/4ccd1a9e1bb10a42cea2a43cf81efdc1dfa38cfc5f08ff07d3ad4e49333687a6\" href=\"Transcendent_Alloy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/Alloy5.webp\" alt=\"Alloy5\" height=\"16\" />Transcendent Alloy</a>",
+    "Code": "AlloyCastSpeedDamageAsExtraColdHybrid1",
+    "ModFamilyList": [
+      "IncreasedCastSpeed"
+    ],
+    "str": "<span class='mod-value'>(39<span class=\"ndash\">—</span>47)</span>% increased Cast Speed<br><a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(11<span class=\"ndash\">—</span>16)</span>% of <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/76ff55a46c9d3d007722fb5ccb09592dc48359db448d433f7e0c8dfc6e94dcbd\">Elemental Damage</a> as Extra <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 52,
+    "IsPerfect": "0",
+    "IsAlloy": true,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyCastSpeedDamageAsExtraColdHybrid1",
+  "textLocale": "us",
+  "detailText": "(39—47)% increased Cast Speed\nGain (11—16)% of Elemental Damage as Extra Cold Damage",
+  "retrievedAt": "2026-10-05T10:10:01.580Z",
+  "sha256": "6197caa36c290ba7cdfcb665c2d6c6ba0cefee88c4b3381573139ef5b6487ca3",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(39<span class=\"ndash\">—</span>47)</span>% increased Cast Speed<br><a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(11<span class=\"ndash\">—</span>16)</span>% of <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/76ff55a46c9d3d007722fb5ccb09592dc48359db448d433f7e0c8dfc6e94dcbd\">Elemental Damage</a> as Extra <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage</span></h5>   <span data-tabname=\"of the Stars\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Stars\n<tr><th>Family<td>IncreasedCastSpeed\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>65 (Effective: 52)\n<tr><th>Gold Price<td>1422\n<tr><th>Stats<td><li>base cast speed +% <span class=\"badge bg-primary\">39 <span class=\"ndash\">—</span> 47</span> <span class=\"badge bg-secondary\">Global</span></li><li>non skill base elemental damage % to gain as cold <span class=\"badge bg-primary\">11 <span class=\"ndash\">—</span> 16</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Stars",
+    "Family": "IncreasedCastSpeed",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "65 (Effective: 52)",
+    "Gold Price": "1422",
+    "Stats": "base cast speed +% 39 — 47 Globalnon skill base elemental damage % to gain as cold 11 — 16 Global",
+    "Spawn Tags": "default: 0"
+  },
+  "code": "AlloyCastSpeedDamageAsExtraColdHybrid1",
+  "stats": [
+    {
+      "id": "base_cast_speed_+%",
+      "min": 39,
+      "max": 47,
+      "locality": "Global"
+    },
+    {
+      "id": "non_skill_base_elemental_damage_%_to_gain_as_cold",
+      "min": 11,
+      "max": 16,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

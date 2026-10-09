@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/tw/Clasped_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:23.332Z",
+  "sha256": "167de9e4be8d5c2dbd8cb08a496630330352fe8a4fc6956ff01475404dd2e920",
+  "variants": [
+    {
+      "name": "握扣權杖",
+      "card": "握扣權杖\n        \n    \n    \n        \n            權杖精魂: 100需求:  等級 36, 65 智慧 賦予技能: 冰雪之心\n        \n\n\n\n        \n            Clasped Sceptre",
+      "requirements": "需求:  等級 36, 65 智慧",
+      "fields": {
+        "DropLevel": "36",
+        "BaseType": "握扣權杖",
+        "Class": "權杖",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre08",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "冰雪之心",
+      "skillUrl": "https://poe2db.tw/tw/Heart_of_Ice"
+    }
+  ]
+}

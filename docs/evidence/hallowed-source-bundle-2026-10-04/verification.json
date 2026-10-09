@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "ordinary": 150,
+  "special": 1,
+  "localeTemplates": 900,
+  "builtInSkill": "Skeletal Warrior",
+  "spirit": 100,
+  "canonicalRequirements": {
+    "level": 65,
+    "intelligence": 114
+  },
+  "sourceRequirements": {
+    "en": "Requires:  Level 65, 114 Int",
+    "ko": "요구 사항:  레벨 65, 114 지능",
+    "ja": "装備条件： レベル 65, 114 知性",
+    "zh-CN": "需求：  等级 65, 114 智慧",
+    "zh-TW": "需求:  等級 65, 114 智慧",
+    "es": "Requiere:  Nivel 65, 36 Fue, 89 Int"
+  },
+  "SpanishRequirementDiscrepancy": {
+    "policy": "Preserve raw source; use current English numeric requirements with source Spanish labels",
+    "raw": "Requiere:  Nivel 65, 36 Fue, 89 Int",
+    "display": "Requiere:  Nivel 65, 114 Int"
+  },
+  "omittedSameSkill": [
+    "Lupine",
+    "Ochre",
+    "Devouring",
+    "Devotional",
+    "Aromatic",
+    "Pious"
+  ],
+  "retainedLegacy": "Rattling Sceptre",
+  "weightPolicy": "POE2DB_AS_PUBLISHED"
+}

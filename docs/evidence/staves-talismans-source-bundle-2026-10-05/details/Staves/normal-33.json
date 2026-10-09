@@ -1,0 +1,73 @@
+{
+  "row": {
+    "Name": "Conjuror's",
+    "Level": "11",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "SpellDamageAndMana"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(39<span class=\"ndash\">—</span>48)</span>% increased <a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/653cdbbed759d6b7f6072959be3976f8b8e54729ba46a7164d0b8cc00b77a59d\">Spell</a> Damage<br><span class='mod-value'>+(41<span class=\"ndash\">—</span>48)</span> to maximum Mana",
+    "fossil_no": [
+      "caster_damage",
+      "resource",
+      "mana",
+      "damage",
+      "caster"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>",
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4497b008209cc65127fdf813669431760c509f551957e65c4034748838b34e5c"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FSpellDamageAndManaOnTwoHandWeapon2",
+  "textLocale": "kr",
+  "detailText": "주문 피해 (39—48)% 증가\n마나 최대치 +(41—48)",
+  "retrievedAt": "2026-10-05T10:04:20.157Z",
+  "sha256": "e046cfc8a4ca537aba9d8f7604a968c73149f1bc6c3ef2f46c658e9ca63411cc",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Spell\" href=\"Spells\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/e5e960e0b83ed63105c506ab0b7f01a31b0779629d9b94ad2b3c57bc14a126dd\">주문</a> 피해 <span class='mod-value'>(39<span class=\"ndash\">—</span>48)</span>% 증가<br>마나 최대치 <span class='mod-value'>+(41<span class=\"ndash\">—</span>48)</span></span></h5>   <span data-tabname=\"요술사의\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>요술사의\n<tr><th>Family<td>SpellDamageAndMana\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접두어 (1)\n<tr><th>Req. level<td>11 (Effective: 8)\n<tr><th>Gold Price<td>154\n<tr><th>Stats<td><li>spell damage +% <span class=\"badge bg-primary\">39 <span class=\"ndash\">—</span> 48</span> <span class=\"badge bg-secondary\">Global</span></li><li>base maximum mana <span class=\"badge bg-primary\">41 <span class=\"ndash\">—</span> 48</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_damage</i></span> <span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>마나</span> <span class='badge bg-primary'>피해</span> <span class='badge bg-primary'>시전</span> </table>  </div></div>",
+  "fields": {
+    "Name": "요술사의",
+    "Family": "SpellDamageAndMana",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접두어 (1)",
+    "Req. level": "11 (Effective: 8)",
+    "Gold Price": "154",
+    "Stats": "spell damage +% 39 — 48 Globalbase maximum mana 41 — 48 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "caster_damage resource 마나 피해 시전"
+  },
+  "code": "SpellDamageAndManaOnTwoHandWeapon2",
+  "stats": [
+    {
+      "id": "spell_damage_+%",
+      "min": 39,
+      "max": 48,
+      "locality": "Global"
+    },
+    {
+      "id": "base_maximum_mana",
+      "min": 41,
+      "max": 48,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

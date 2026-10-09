@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/cn/Two-Point_Quiver",
+  "retrievedAt": "2026-10-05T05:29:25.082Z",
+  "sha256": "620d073e4e00d33ff21a22e4310eee1214201b6e60df9acf4e2e1f6edc14f34e",
+  "variants": [
+    {
+      "name": "双锋箭袋",
+      "card": "双锋箭袋\n        \n    \n    \n        \n            箭袋需求：  等级 24命中值提高 (20—30)%\n        \n\n\n        \n        \n            只能在使用弓时装备。\n        \n\n        \n            Two-Point Quiver",
+      "requirements": "需求：  等级 24",
+      "fields": {
+        "DropLevel": "24",
+        "BaseType": "双锋箭袋",
+        "Class": "箭袋",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver4",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverTwoPoint",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

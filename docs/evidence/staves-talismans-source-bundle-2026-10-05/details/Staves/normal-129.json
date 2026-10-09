@@ -1,0 +1,82 @@
+{
+  "row": {
+    "Name": "of Assimilation",
+    "Level": "78",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ManaGainedFromEnemyDeath"
+    ],
+    "DropChance": "750",
+    "str": "Gain <span class='mod-value'>(36<span class=\"ndash\">—</span>45)</span> Mana per enemy killed",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "wand",
+      "staff",
+      "gloves",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/83f998438f3c49858e57ed55a9da37ff32f1c4ab28c61d9310cd1e699054fc5d"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath8",
+  "textLocale": "us",
+  "detailText": "Gain (36—45) Mana per enemy killed",
+  "retrievedAt": "2026-10-05T10:08:00.325Z",
+  "sha256": "83f998438f3c49858e57ed55a9da37ff32f1c4ab28c61d9310cd1e699054fc5d",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Gain <span class='mod-value'>(36<span class=\"ndash\">—</span>45)</span> Mana per enemy killed</span></h5>   <span data-tabname=\"of Assimilation\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Assimilation\n<tr><th>Family<td>ManaGainedFromEnemyDeath\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>78 (Effective: 62)\n<tr><th>Gold Price<td>3094\n<tr><th>Stats<td><li>base mana gained on enemy death <span class=\"badge bg-primary\">36 <span class=\"ndash\">—</span> 45</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> \n<tr><td>Fists of Stone<td>Recover <span class='mod-value'>3</span>% of maximum Mana on Kill</table>  </div></div>",
+  "fields": {
+    "Name": "of Assimilation",
+    "Family": "ManaGainedFromEnemyDeath",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "78 (Effective: 62)",
+    "Gold Price": "3094",
+    "Stats": "base mana gained on enemy death 36 — 45 Global",
+    "Spawn Tags": "weapon: 1 wand: 1 staff: 1 gloves: 1 trap: 1 default: 0",
+    "Craft Tags": "resource Mana"
+  },
+  "code": "ManaGainedFromEnemyDeath8",
+  "stats": [
+    {
+      "id": "base_mana_gained_on_enemy_death",
+      "min": 36,
+      "max": 45,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "gloves",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

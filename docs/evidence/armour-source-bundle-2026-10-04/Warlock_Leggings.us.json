@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/us/Warlock_Leggings",
+  "retrievedAt": "2026-10-04T15:38:36.662Z",
+  "sha256": "104a9ac0a0f4f42509047385555a40d39a3a0adc1fe02fed10fbc2e15d435659",
+  "name": "Warlock Leggings",
+  "card": "Warlock Leggings\n        \n    \n    \n        \n            BootsArmour: 134Energy Shield: 37Requires:  Level 75, 56 Str, 56 Int",
+  "requirements": "Requires:  Level 75, 56 Str, 56 Int",
+  "fields": {
+    "DropLevel": "75",
+    "BaseType": "Warlock Leggings",
+    "Class": "Boots",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Boots/FourBootsStrInt3Endgame",
+    "Tags": "str_int_armour, boots, armour",
+    "Icon": "Art/2DItems/Armours/Boots/Basetypes/BootsIntStr03",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, boots",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Boots",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

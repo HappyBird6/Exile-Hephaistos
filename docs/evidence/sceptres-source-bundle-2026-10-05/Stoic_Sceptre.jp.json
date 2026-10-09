@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/jp/Stoic_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:10.326Z",
+  "sha256": "e5c5b4dc099154bbe312331608752a2c63246f214bb0ba991c4be2e41f74c956",
+  "variants": [
+    {
+      "name": "不動のセプター",
+      "card": "不動のセプター\n        \n    \n    \n        \n            セプタースピリット: 100装備条件： レベル 6, 12 知性 スキルを付与: ディシプリン\n        \n\n\n\n        \n            Stoic Sceptre",
+      "requirements": "装備条件： レベル 6, 12 知性",
+      "fields": {
+        "DropLevel": "6",
+        "BaseType": "不動のセプター",
+        "Class": "セプター",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre02",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "ディシプリン",
+      "skillUrl": "https://poe2db.tw/jp/Discipline"
+    }
+  ]
+}

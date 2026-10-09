@@ -1,0 +1,13 @@
+{
+  "url": "https://poe2db.tw/us/Guardian_Bow",
+  "retrievedAt": "2026-10-04T20:09:26.851Z",
+  "sha256": "c16bacfedb2a408267194ac5b7603d1b1348d91d644f98928f6014d5299a2af8",
+  "stats": [
+    {
+      "id": "local_additional_attack_chain_chance_%",
+      "min": 25,
+      "max": 35,
+      "locality": "Local"
+    }
+  ]
+}

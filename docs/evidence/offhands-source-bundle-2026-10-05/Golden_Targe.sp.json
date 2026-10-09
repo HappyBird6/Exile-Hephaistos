@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/sp/Golden_Targe",
+  "retrievedAt": "2026-10-05T04:18:20.877Z",
+  "sha256": "6abd183057e9dd506c0ed871b56382fb7d7008883a9f9cbd01a81e916a66619f",
+  "variants": [
+    {
+      "name": "Targe dorado",
+      "card": "Targe dorado\n        \n    \n    \n        \n            EscudosProbabilidad de bloqueo: 25%Armadura: 145Evasión: 132Base Movement Speed: -0.015Requiere:  Nivel 80, 63 Fue, 63 Des Otorga la habilidad: Levantar escudo\n        \n\n\n\n        \n            Golden Targe",
+      "requirements": "Requiere:  Nivel 80, 63 Fue, 63 Des",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "Targe dorado",
+        "Class": "Escudos",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame",
+        "Tags": "str_dex_armour, str_dex_shield, karui_basetype, shield, armour",
+        "Icon": "Art/2DItems/Offhand/Shields/Shield10",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, shield",
+        "Base.x_size": "2",
+        "Base.y_size": "2",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100",
+        "Shield.block_percentage": "0"
+      }
+    }
+  ]
+}

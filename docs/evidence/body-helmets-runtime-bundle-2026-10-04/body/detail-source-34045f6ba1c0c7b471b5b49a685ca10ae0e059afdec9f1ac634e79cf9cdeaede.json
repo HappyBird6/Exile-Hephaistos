@@ -1,0 +1,66 @@
+{
+  "code": null,
+  "sourceId": "34045f6ba1c0c7b471b5b49a685ca10ae0e059afdec9f1ac634e79cf9cdeaede",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/34045f6ba1c0c7b471b5b49a685ca10ae0e059afdec9f1ac634e79cf9cdeaede",
+  "retrievedAt": "2026-10-04T17:54:33.085Z",
+  "sha256": "34045f6ba1c0c7b471b5b49a685ca10ae0e059afdec9f1ac634e79cf9cdeaede",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(4<span class=\"ndash\">—</span>7)</span> to maximum <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9a5ff1400bc71ec138a670ac8572505962d009bf3c5e15a9e1069755cbaeda17\">Energy Shield</a><br><span class='mod-value'>(6<span class=\"ndash\">—</span>13)</span>% increased <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9a5ff1400bc71ec138a670ac8572505962d009bf3c5e15a9e1069755cbaeda17\">Energy Shield</a></span></h5>   <span data-tabname=\"Deacon's\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Deacon's\n<tr><th>Family<td>BaseLocalDefencesAndDefencePercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>8 (Effective: 6)\n<tr><th>Gold Price<td>165\n<tr><th>Stats<td><li>local energy shield <span class=\"badge bg-primary\">4 <span class=\"ndash\">—</span> 7</span> <span class=\"badge bg-secondary\">Local</span></li><li>local energy shield +% <span class=\"badge bg-primary\">6 <span class=\"ndash\">—</span> 13</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>shield: 0</span> <span class='badge bg-primary'>focus: 0</span> <span class='badge bg-primary'>int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Energy Shield</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "Deacon's",
+      "Family": "BaseLocalDefencesAndDefencePercent",
+      "Domains": "Item (1)",
+      "GenerationType": "Prefix (1)",
+      "Req. level": "8 (Effective: 6)",
+      "Gold Price": "165",
+      "Stats": "local energy shield 4 — 7 Locallocal energy shield +% 6 — 13 Local",
+      "Spawn Tags": "helmet: 0 gloves: 0 boots: 0 shield: 0 focus: 0 int_armour: 1 default: 0",
+      "Craft Tags": "defences Energy Shield"
+    },
+    "stats": [
+      {
+        "id": "local_energy_shield",
+        "min": 4,
+        "max": 7,
+        "locality": "Local"
+      },
+      {
+        "id": "local_energy_shield_+%",
+        "min": 6,
+        "max": 13,
+        "locality": "Local"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "helmet",
+        "weight": 0
+      },
+      {
+        "tag": "gloves",
+        "weight": 0
+      },
+      {
+        "tag": "boots",
+        "weight": 0
+      },
+      {
+        "tag": "shield",
+        "weight": 0
+      },
+      {
+        "tag": "focus",
+        "weight": 0
+      },
+      {
+        "tag": "int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "+(4—7) to maximum Energy Shield\n(6—13)% increased Energy Shield"
+  }
+}

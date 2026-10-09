@@ -1,0 +1,107 @@
+{
+  "row": {
+    "Name": "Chalybeous",
+    "Level": "60",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "IncreasedMana"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(105<span class=\"ndash\">—</span>124)</span> to maximum Mana",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "belt",
+      "helmet",
+      "gloves",
+      "boots",
+      "focus",
+      "sceptre",
+      "wand",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1cc613a3a17d18c7f76d5d42cd1adc9833d3b43ea612ef1d3ccf15f1b442ea1c"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1cc613a3a17d18c7f76d5d42cd1adc9833d3b43ea612ef1d3ccf15f1b442ea1c",
+  "textLocale": "us",
+  "detailText": "+(105—124) to maximum Mana",
+  "retrievedAt": "2026-10-05T04:33:44.079Z",
+  "sha256": "1cc613a3a17d18c7f76d5d42cd1adc9833d3b43ea612ef1d3ccf15f1b442ea1c",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(105<span class=\"ndash\">—</span>124)</span> to maximum Mana</span></h5>   <span data-tabname=\"Chalybeous\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Chalybeous\n<tr><th>Family<td>IncreasedMana\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>1792\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">105 <span class=\"ndash\">—</span> 124</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(26<span class=\"ndash\">—</span>27)</span>% more [Attack|Attack] damage while on [LowMana|Low Mana]</table>  </div></div>",
+  "fields": {
+    "Name": "Chalybeous",
+    "Family": "IncreasedMana",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "60 (Effective: 48)",
+    "Gold Price": "1792",
+    "Stats": "base maximum mana 105 — 124 Global",
+    "Spawn Tags": "ring: 1 amulet: 1 belt: 1 helmet: 1 gloves: 1 boots: 1 focus: 1 sceptre: 1 wand: 1 trap: 1 default: 0",
+    "Craft Tags": "resource Mana"
+  },
+  "code": "IncreasedMana9",
+  "stats": [
+    {
+      "id": "base_maximum_mana",
+      "min": 105,
+      "max": 124,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "belt",
+      "weight": 1
+    },
+    {
+      "tag": "helmet",
+      "weight": 1
+    },
+    {
+      "tag": "gloves",
+      "weight": 1
+    },
+    {
+      "tag": "boots",
+      "weight": 1
+    },
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "sceptre",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

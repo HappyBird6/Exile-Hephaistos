@@ -1,0 +1,35 @@
+{
+  "row": {
+    "Name": "of Eviction",
+    "Level": "44",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ChaosResistance"
+    ],
+    "DropChance": "250",
+    "str": "<span class='mod-value'>+(12<span class=\"ndash\">—</span>15)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Chaos Resistance</a>",
+    "fossil_no": [
+      "chaos_resistance",
+      "chaos",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/76a1eedd7035e2ac8b8258931cc132cd1c68644b2086438f4e9e7db8e0e61415"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/76a1eedd7035e2ac8b8258931cc132cd1c68644b2086438f4e9e7db8e0e61415",
+  "retrievedAt": "2026-10-04T22:01:50.733Z",
+  "sha256": "76a1eedd7035e2ac8b8258931cc132cd1c68644b2086438f4e9e7db8e0e61415",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(12<span class=\"ndash\">—</span>15)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/84ff16d8aeeb61c6cd1c5a881495ab9e03153c83989fb54629cfeeeb8e92266e\">Chaos Resistance</a></span></h5>   <span data-tabname=\"of Eviction\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Eviction\n<tr><th>Family<td>ChaosResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>44 (Effective: 35)\n<tr><th>Gold Price<td>1054\n<tr><th>Stats<td><li>base chaos damage resistance % <span class=\"badge bg-primary\">12 <span class=\"ndash\">—</span> 15</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>chaos_resistance</i></span> <span class='badge bg-primary'>Chaos</span> <span class='badge bg-primary'>Resistance</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>+1</span>% to [MaximumResistances|Maximum Chaos Resistance]<br><span class='mod-value'>+(14<span class=\"ndash\">—</span>17)</span>% to [Resistances|Chaos Resistance]</table>  </div></div>"
+}

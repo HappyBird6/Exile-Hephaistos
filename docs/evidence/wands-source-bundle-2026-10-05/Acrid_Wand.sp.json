@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/sp/Acrid_Wand",
+  "retrievedAt": "2026-10-05T00:06:50.924Z",
+  "sha256": "2d3fe2e8748ef049f032aa2984f370981b10f9047bdeacc771547ef502f03b5b",
+  "name": "Varita ácrida",
+  "card": "Varita ácrida\n        \n    \n    \n        \n            VaritasRequiere:  Nivel 33, 60 Int Otorga la habilidad: Descomposición\n        \n\n\n\n        \n            Acrid Wand",
+  "requirements": "Requiere:  Nivel 33, 60 Int",
+  "fields": {
+    "DropLevel": "33",
+    "BaseType": "Varita ácrida",
+    "Class": "Varitas",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7",
+    "Tags": "wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand07",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

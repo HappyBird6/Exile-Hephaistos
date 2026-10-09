@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/jp/Tasalian_Greaves",
+  "retrievedAt": "2026-10-04T15:38:26.844Z",
+  "sha256": "9b10228470e062dfba64c08933cdb7a87370ce116a429cb45b7192e15689db1c",
+  "name": "タサリオのグリーヴ",
+  "card": "タサリオのグリーヴ\n        \n    \n    \n        \n            靴アーマー: 280装備条件： レベル 80, 108 筋力\n        \n\n\n\n        \n            Tasalian Greaves",
+  "requirements": "装備条件： レベル 80, 108 筋力",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "タサリオのグリーヴ",
+    "Class": "靴",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Boots/FourBootsStr6Endgame",
+    "Tags": "str_armour, karui_basetype, boots, armour",
+    "Icon": "Art/2DItems/Armours/Boots/Basetypes/BootsStr06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, boots",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Boots",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

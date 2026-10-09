@@ -1,0 +1,68 @@
+{
+  "row": {
+    "Name": "of the Molten Core",
+    "Level": "75",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "MaximumFireResist"
+    ],
+    "DropChance": "250",
+    "str": "<span class='mod-value'>+2</span>% to <a data-keyword=\"MaximumResistances\" href=\"Maximum_Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/10cfc4a861abfa43e56fa517c085678b0a54d64ffccc7e940f7616a55e2e17da\">Maximum Fire Resistance</a>",
+    "fossil_no": [
+      "elemental_resistance",
+      "fire_resistance",
+      "elemental",
+      "fire",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "shield",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4f6010431857d8cc03c1732bfbcc3e98b33954e5be637eb82828a6fc07fb900d"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FMaximumFireResist2_",
+  "textLocale": "jp",
+  "detailText": "火耐性の最大値 +2%",
+  "retrievedAt": "2026-10-05T04:20:37.763Z",
+  "sha256": "e143236c68bcb1352a1c04f7a3c1b50a652c8c05b389b0e3ad803b48e19638ec",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"MaximumResistances\" href=\"Maximum_Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/c52c9835ba1993ed9ead92dd9c2d562462a5e0ee96080195a96174f636630829\">火耐性の最大値</a> <span class='mod-value'>+2</span>%</span></h5>   <span data-tabname=\"溶融核の\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>溶融核の\n<tr><th>Family<td>MaximumFireResist\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>サフィックス (2)\n<tr><th>Req. level<td>75 (Effective: 60)\n<tr><th>Gold Price<td>3338\n<tr><th>Stats<td><li>base maximum fire damage resistance % <span class=\"badge bg-primary\">2 <span class=\"ndash\">—</span> 2</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>fire_resistance</i></span> <span class='badge bg-primary'>元素</span> <span class='badge bg-primary'>火</span> <span class='badge bg-primary'>耐性</span> </table>  </div></div>",
+  "fields": {
+    "Name": "溶融核の",
+    "Family": "MaximumFireResist",
+    "Domains": "アイテム (1)",
+    "GenerationType": "サフィックス (2)",
+    "Req. level": "75 (Effective: 60)",
+    "Gold Price": "3338",
+    "Stats": "base maximum fire damage resistance % 2 — 2 Global",
+    "Spawn Tags": "shield: 1 default: 0",
+    "Craft Tags": "elemental_resistance fire_resistance 元素 火 耐性"
+  },
+  "code": "MaximumFireResist2_",
+  "stats": [
+    {
+      "id": "base_maximum_fire_damage_resistance_%",
+      "min": 2,
+      "max": 2,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "shield",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

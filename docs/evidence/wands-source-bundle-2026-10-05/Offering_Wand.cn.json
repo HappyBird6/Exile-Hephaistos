@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/cn/Offering_Wand",
+  "retrievedAt": "2026-10-05T00:06:44.532Z",
+  "sha256": "1cba39286eff09faa293fa59028657bdca83e01bb9c46a2e79de93003a336147",
+  "name": "供奉法杖",
+  "card": "供奉法杖\n        \n    \n    \n        \n            法杖需求：  等级 38, 68 智慧 获得技能: 赤炼魔光\n        \n\n\n\n        \n            Offering Wand",
+  "requirements": "需求：  等级 38, 68 智慧",
+  "fields": {
+    "DropLevel": "38",
+    "BaseType": "供奉法杖",
+    "Class": "法杖",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8",
+    "Tags": "no_fire_spell_mods, no_cold_spell_mods, no_lightning_spell_mods, no_chaos_spell_mods, physical_implicit_skill, wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand08",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

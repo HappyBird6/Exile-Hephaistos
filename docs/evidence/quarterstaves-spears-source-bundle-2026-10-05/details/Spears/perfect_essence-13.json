@@ -1,0 +1,60 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "65",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "fossil_no": [
+      "attack"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/40e98e7b2170e0d0573381a7b1582ea54a634c90c2a2b57857909fc391c77537\" href=\"The_Runefathers_Alloy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/Alloy3.webp\" alt=\"Alloy3\" height=\"16\" />The Runefather's Alloy</a>",
+    "Code": "AlloyMeleeStrikeRange1",
+    "ModFamilyList": [
+      "MeleeWeaponAndUnarmedRange"
+    ],
+    "str": "<span class='mod-value'>+(8<span class=\"ndash\">—</span>10)</span> to Weapon Range",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 52,
+    "IsPerfect": "0",
+    "IsAlloy": true,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyMeleeStrikeRange1",
+  "textLocale": "us",
+  "detailText": "+(8—10) to Weapon Range",
+  "retrievedAt": "2026-10-05T08:14:30.789Z",
+  "sha256": "f298b598dc4bdb202e914e514d6dc04f10df2b60ee40f264b33dca7fd6319efe",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(8<span class=\"ndash\">—</span>10)</span> to Weapon Range</span></h5>   <span data-tabname=\"of the Stars\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Stars\n<tr><th>Family<td>MeleeWeaponAndUnarmedRange\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>65 (Effective: 52)\n<tr><th>Gold Price<td>1422\n<tr><th>Stats<td><li>local weapon range + <span class=\"badge bg-primary\">8 <span class=\"ndash\">—</span> 10</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Stars",
+    "Family": "MeleeWeaponAndUnarmedRange",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "65 (Effective: 52)",
+    "Gold Price": "1422",
+    "Stats": "local weapon range + 8 — 10 Local",
+    "Spawn Tags": "default: 0",
+    "Craft Tags": "Attack"
+  },
+  "code": "AlloyMeleeStrikeRange1",
+  "stats": [
+    {
+      "id": "local_weapon_range_+",
+      "min": 8,
+      "max": 10,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

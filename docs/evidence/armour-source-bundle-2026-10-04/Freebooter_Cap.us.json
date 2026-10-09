@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/us/Freebooter_Cap",
+  "retrievedAt": "2026-10-04T15:38:03.718Z",
+  "sha256": "819ac0492069db7faeaac4c14e1f37f92889084bb8022a2e9aee53f7d85cc0d5",
+  "name": "Freebooter Cap",
+  "card": "Freebooter Cap\n        \n    \n    \n        \n            HelmetsEvasion Rating: 340Requires:  Level 80, 115 Dex",
+  "requirements": "Requires:  Level 80, 115 Dex",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "Freebooter Cap",
+    "Class": "Helmets",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame",
+    "Tags": "dex_armour, karui_basetype, helmet, armour",
+    "Icon": "Art/2DItems/Armours/Helmets/Basetypes/HelmetDex07",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, helmet",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Helm",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

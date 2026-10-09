@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "reviewedAt": "2026-10-05T08:45:14.760Z",
+  "method": "Direct view_image pixel review of all 32 contact sheets covering 192 originals; six Flying Spear mobile originals and English/Korean orange/Solar originals also inspected directly",
+  "locales": [
+    "en",
+    "ko",
+    "ja",
+    "zh-CN",
+    "zh-TW",
+    "es"
+  ],
+  "viewports": [
+    1440,
+    390
+  ],
+  "findings": [
+    "Names, requirements, implicit values and source-not-computed properties readable",
+    "Desktop/mobile cards wrap without clipped modifier text",
+    "Orange preview and Solar quality40/cap20/HALF_UP preserved",
+    "Existing filled Wand/Sceptre/Hallowed films display unchanged"
+  ],
+  "limitations": [
+    "Complete desktop screenshots are scaled on contact sheets; card details reviewed separately",
+    "Source weapon properties are displayed without combat simulation"
+  ]
+}

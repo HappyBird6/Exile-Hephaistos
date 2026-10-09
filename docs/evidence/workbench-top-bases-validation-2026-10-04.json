@@ -1,0 +1,300 @@
+{
+  "baseHead": "2aac292d7a393a4c1f9b97086edf62e068c2e3d8",
+  "branch": "workbench/top-bases-20261004",
+  "catalogCount": 19,
+  "catalogCounts": {
+    "Amulet": 1,
+    "Ring": 1,
+    "Belt": 1,
+    "Wand": 1,
+    "Sceptre": 1,
+    "Bow": 1,
+    "Gloves": 1,
+    "Body": 2,
+    "Helmet": 2,
+    "BasicJewel": 4,
+    "TimeLostJewel": 4
+  },
+  "newBases": [
+    "soldier",
+    "imperial"
+  ],
+  "backend": {
+    "passed": true,
+    "tests": 396,
+    "skipped": 0,
+    "failures": 0,
+    "fullCommand": "spotlessApply check generateJooq bootJar",
+    "correctionsUsed": 2
+  },
+  "frontend": {
+    "passed": true,
+    "files": 58,
+    "tests": 1749,
+    "commands": [
+      "npm ci",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run format:check",
+      "npm run test -- --run",
+      "npm run build"
+    ]
+  },
+  "browser": {
+    "passed": true,
+    "assertions": 125,
+    "screenshots": 24,
+    "visuallyReviewed": 24,
+    "locales": [
+      "en",
+      "ko",
+      "zh-CN",
+      "zh-TW",
+      "ja",
+      "es"
+    ],
+    "widths": [
+      1440,
+      390
+    ]
+  },
+  "api": {
+    "passed": true,
+    "assertions": 87,
+    "initials": 19,
+    "schemaDefaultEquivalence": true,
+    "exactSourceDefinitions": true,
+    "definitionCounts": {
+      "soldier": {
+        "ordinary": 144,
+        "special": 3,
+        "total": 147
+      },
+      "imperial": {
+        "ordinary": 137,
+        "special": 1,
+        "total": 138
+      }
+    },
+    "fullStateRollConsumptionAssertionsPreserved": true,
+    "results": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-recovery-5\\api-results.json"
+  },
+  "registry": {
+    "sourceComparison": true,
+    "runtimeComparison": true,
+    "entries": 220,
+    "newBaseSupport": {
+      "soldier": 38,
+      "imperial": 35
+    },
+    "oldEntriesPreserved": true
+  },
+  "qa": {
+    "project": "exile-top-bases-20261004",
+    "ports": [
+      19280,
+      19281
+    ],
+    "stopped": true,
+    "ownershipReleased": true,
+    "livePortsPreserved": [
+      18080,
+      18081
+    ],
+    "remoteActions": []
+  },
+  "mergeReady": true,
+  "evidence": [
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-conflict-diagnostic.json",
+      "sha256": "9c6c26c8399d2e716ecd7a893746a0714f6d23f03171095a513ed4b621f47f41"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-failure-1.json",
+      "sha256": "0d931ff8815d5a2dd4933fbd794ef209ad18565efb95f1451e8a6921aaca5f91"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\backend-check-1.log",
+      "sha256": "f83cc73dc4c9960ae38a0f8cbf468ab5bad3826b90e198d019f65c55cba35521"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\backend-check-2.log",
+      "sha256": "aacf256fbf9aabff6d793baaeb0102d677b4f97735e930415191d9a71a365e4b"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\backend-check-3.log",
+      "sha256": "e0de45671936c0a4030ce851bc0591efa08fe22d68fd602ea7d4f8c712036f23"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\backend-failure-1.xml",
+      "sha256": "32413d748e7a9f20a605b0bf12434dbc578fba79c797c635b46bffeed5338ef2"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\backend-failure-2.xml",
+      "sha256": "291e3b48e5ed2e34ef2f77ca7202675764c03e0669d0e9bf9192027d0cc6b1e0"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\browser-results.json",
+      "sha256": "03fb66cc2b627b08e66150be1730ba8d8150595aa3a42c6304121507f4a05af9"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\frontend-check-1.log",
+      "sha256": "0a6de3e57b3defac7003ff248b023f6c3439d987440ef8ceef0a5e4ccf1a0ac3"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\imperial-en-1440.png",
+      "sha256": "2dbd6a1d9adfdf4ee95f2a17826158ced0bd9760b65600759d58c0944a660f2f"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\imperial-en-390.png",
+      "sha256": "17043c03ad67c9b63a9ba82fedcb4ebcf2c65ae6ff8182e1cbf11fa60f4f1e82"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\imperial-es-1440.png",
+      "sha256": "0d058e4de739e1bdbd59fbe2585e3893487d36df77be714a2f72ca6a387d8391"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\imperial-es-390.png",
+      "sha256": "2341386fb37aeee2b89445ebd0d5735774ea114d82e40bfccf05cf29666eaa80"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\imperial-ja-1440.png",
+      "sha256": "404516fc89e522da446178573d17a18f0aa85b05aacd19f6f6908b6ffd62aa29"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\imperial-ja-390.png",
+      "sha256": "fe14bcacfdafec4126399f93340189d1a3f3418dfcd8019dfa3c7689011b9d68"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\imperial-ko-1440.png",
+      "sha256": "35e9234bce2ae464417ef6d9fbbe05a01b2675858c81024e18ac22a18450bebd"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\imperial-ko-390.png",
+      "sha256": "c878690f102b09a56a822a44328758dc23225a0fba54d02c525eb7d654fe6462"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\imperial-zh-CN-1440.png",
+      "sha256": "674130632bacaa2528b41f9208af746a8cd100c7408e843ad109c0102505ffd8"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\imperial-zh-CN-390.png",
+      "sha256": "aab4ac5fcc4cd6fd8c64a8b93a36e77dcaca64b4d490be539598d596691aeb60"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\imperial-zh-TW-1440.png",
+      "sha256": "0d2e125a0a6e994ac682e87c1dc0a8ca064ed7ee111fd1fa37cb85955f3d7a97"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\imperial-zh-TW-390.png",
+      "sha256": "b06901123a22b4a628a058d5099653e22f8caeb2e5511969fa3a3a91f22fe72e"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\registry-static-results.json",
+      "sha256": "740fce2b2ceb2f6dd596af80da18b7d20436132941ce7b98a4166eda2fd65a7a"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\soldier-en-1440.png",
+      "sha256": "5acb63419e9afd7942e87606b4303d9941cff18cbee85b5d4a4ca37ad09be9a2"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\soldier-en-390.png",
+      "sha256": "281b4c0530a83ee6ebf6f32736db3a4becf9dfdd0f3aefa51d3ab2b7361b56ea"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\soldier-es-1440.png",
+      "sha256": "040d4de89a9d13f015423cf393d2564f9b34695ae38133e78bb8f1616d782f55"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\soldier-es-390.png",
+      "sha256": "a5a231997c4a016c5c4d85e03e1c50c4ed4e1d40328fe33ce3ee9bf9052c5fd3"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\soldier-ja-1440.png",
+      "sha256": "019ea371c7eb7a4c4c409455120f4e5733977c7156c742ea5493095dbb464ce4"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\soldier-ja-390.png",
+      "sha256": "8253d9a6a638e43c0e697aaea44300bcf88993f42855618b24ba46ad990ce00b"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\soldier-ko-1440.png",
+      "sha256": "9218b648a5a6e3778cfb126bd2148906104a9ea26f08adc50b4e1399e25fbfdc"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\soldier-ko-390.png",
+      "sha256": "cc4e367bddd8edfee7af8ce5ed5e2865287f28824b6c30ce69cc4ace779ffec2"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\soldier-zh-CN-1440.png",
+      "sha256": "f8fb54e6f168f02a81de1012d849e96f462841449d08968932a22e48945cfd0f"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\soldier-zh-CN-390.png",
+      "sha256": "86cb8abf84a23aaf69dce782d9a5f76d1ab565c7bfe0d310f94c99d26e13b093"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\soldier-zh-TW-1440.png",
+      "sha256": "892bf2bd047435bb1af3775cd7bc918f53271d4691195c6d4bf1fe9ef5251b8a"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\soldier-zh-TW-390.png",
+      "sha256": "017b26d035c5569b8f694cb9df30989f7d92e9bda12b2e73adf1c4150c3426e4"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-recovery-1\\api-probe.log",
+      "sha256": "4b225fb56ddf8c8ab6ed67e268a5279e3fc2076f99f04719eb3400d7367b96f6"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-recovery-2\\api-probe.log",
+      "sha256": "35177c86a634f04615e6195eae1301db4b74fc3b7714807e038b6979ccefa666"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-recovery-3\\api-probe.log",
+      "sha256": "5b3f575a44b8a89ee2f8d9260e57fbc73e4f2586c4e4acf0d42d10695b641a8e"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-recovery-4\\api-probe.log",
+      "sha256": "8f20ba4044d330d48513898f8282e922ca400091bc13b1b580150c73d0477b22"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-recovery-5\\api-initials.json",
+      "sha256": "c832ff9faf5b23658dc70add791ad86c5555583912a915651d23c6f62fc322fe"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-recovery-5\\api-probe.log",
+      "sha256": "ebac0309b00b667adf7e54c9960f624610ed87204c75040b285fc8421cf0c119"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-recovery-5\\api-results.json",
+      "sha256": "bdb3d5b22b1814b4af4102722e73783de417e475d90bedbeb3956a53595ef35d"
+    },
+    {
+      "path": "E:\\WORK\\Exile-Hephaistos\\codex\\top-bases-qa-20261004\\api-recovery-5\\baseline-registry.json",
+      "sha256": "14946ea839b5abf95ceb270d26a201daf120bf63197ddf1b9eda570eda61a2cb"
+    }
+  ],
+  "apiHistory": [
+    {
+      "passed": false,
+      "initials": 19,
+      "stoppedAt": "soldier: PERFECT_ESSENCE_BODY atomic conflict",
+      "cause": "QA instances omit fractured:false while response serializes the default",
+      "diagnostic": "Both new bases refuse conflicting omens without changing modifier IDs/values",
+      "remaining": "Full API probe requires additional correction/revalidation authorization; no reset in a new chat"
+    }
+  ],
+  "recovery": {
+    "authorizedBy": "Parent delegated bounded recovery based on explicit user continuous-work instructions",
+    "productSourceChanged": false,
+    "originalCorrectionCountPreserved": 2,
+    "failuresPreserved": [
+      "api-recovery-1/api-probe.log",
+      "api-recovery-2/api-probe.log",
+      "api-recovery-3/api-probe.log",
+      "api-recovery-4/api-probe.log"
+    ],
+    "successfulRun": "api-recovery-5",
+    "scopedGitFallbackVerified": true
+  }
+}

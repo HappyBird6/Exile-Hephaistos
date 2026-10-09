@@ -1,0 +1,72 @@
+{
+  "page": "Sceptres",
+  "url": "https://poe2db.tw/us/Sceptres",
+  "retrievedAt": "2026-10-04T14:53:05.285Z",
+  "sha256": "52061252ab8ba278ecfaa50bbe630a5cdef9c6a46684bae8de244060167d869f",
+  "cards": [
+    {
+      "slug": "Rattling_Sceptre",
+      "card": "Rattling SceptreSpirit: 100 Grants Skill: Skeletal Warrior"
+    },
+    {
+      "slug": "Stoic_Sceptre",
+      "card": "Stoic SceptreSpirit: 100Requires:  Level 6, 12 Int Grants Skill: Discipline"
+    },
+    {
+      "slug": "Lupine_Sceptre",
+      "card": "Lupine SceptreSpirit: 100Requires:  Level 12, 24 Int Grants Skill: Skeletal Warrior"
+    },
+    {
+      "slug": "Omen_Sceptre",
+      "card": "Omen SceptreSpirit: 100Requires:  Level 16, 12 Str, 25 Int Grants Skill: Malice"
+    },
+    {
+      "slug": "Ochre_Sceptre",
+      "card": "Ochre SceptreSpirit: 100Requires:  Level 21, 40 Int Grants Skill: Skeletal Warrior"
+    },
+    {
+      "slug": "Shrine_Sceptre",
+      "card": "Shrine SceptreSpirit: 100Requires:  Level 26, 17 Str, 38 Int Grants Skill: Purity of Fire"
+    },
+    {
+      "slug": "Shrine_Sceptre",
+      "card": "Shrine SceptreSpirit: 100Requires:  Level 26, 17 Str, 38 Int Grants Skill: Purity of Ice"
+    },
+    {
+      "slug": "Shrine_Sceptre",
+      "card": "Shrine SceptreSpirit: 100Requires:  Level 26, 17 Str, 38 Int Grants Skill: Purity of Lightning"
+    },
+    {
+      "slug": "Devouring_Sceptre",
+      "card": "Devouring SceptreSpirit: 100Requires:  Level 33, 60 Int Grants Skill: Skeletal Warrior"
+    },
+    {
+      "slug": "Clasped_Sceptre",
+      "card": "Clasped SceptreSpirit: 100Requires:  Level 36, 65 Int Grants Skill: Heart of Ice"
+    },
+    {
+      "slug": "Devotional_Sceptre",
+      "card": "Devotional SceptreSpirit: 100Requires:  Level 45, 26 Str, 63 Int Grants Skill: Skeletal Warrior"
+    },
+    {
+      "slug": "Wrath_Sceptre",
+      "card": "Wrath SceptreSpirit: 100Requires:  Level 49, 87 Int Grants Skill: Fulmination"
+    },
+    {
+      "slug": "Aromatic_Sceptre",
+      "card": "Aromatic SceptreSpirit: 100Requires:  Level 52, 92 Int Grants Skill: Skeletal Warrior"
+    },
+    {
+      "slug": "Pious_Sceptre",
+      "card": "Pious SceptreSpirit: 100Requires:  Level 58, 102 Int Grants Skill: Skeletal Warrior"
+    },
+    {
+      "slug": "Hallowed_Sceptre",
+      "card": "Hallowed SceptreSpirit: 100Requires:  Level 65, 114 Int Grants Skill: Skeletal Warrior"
+    },
+    {
+      "slug": "Shrine_Sceptre",
+      "card": "Shrine SceptreSpirit: 100Requires:  Level 26, 17 Str, 38 Int Grants Skill: Impurity"
+    }
+  ]
+}

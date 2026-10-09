@@ -1,0 +1,197 @@
+{
+  "passed": true,
+  "files": [
+    {
+      "file": "Akoyan_Club.cn.html",
+      "sha256": "0ab1b457a650f0ea9bd7d3a087ca715d32f27a1724d2802a85e93b34a9b62489"
+    },
+    {
+      "file": "Akoyan_Club.jp.html",
+      "sha256": "c17dcb7509d9da2ed9f83530ce5c222e0de0c0b113882c362bb082e8fb3994d5"
+    },
+    {
+      "file": "Akoyan_Club.kr.html",
+      "sha256": "c857830ed9db230f92005bb7e555ab2125b0a26e685b1034d71b6ff7931f98c4"
+    },
+    {
+      "file": "Akoyan_Club.sp.html",
+      "sha256": "57ccc44f10b88881a9debea82fe61857dfcdf35927a8bd26daed9477eb7b3932"
+    },
+    {
+      "file": "Akoyan_Club.tw.html",
+      "sha256": "3c3f442d28988b22886bf9f6a84372695b5313ff7d296ff313c43d684c17a3d2"
+    },
+    {
+      "file": "Akoyan_Club.us.html",
+      "sha256": "c14246a0e6f2caf954b1b9b2e347f01f534515dc2dbf7f21e0fcfc31ae339cad"
+    },
+    {
+      "file": "Fanatic_Greathammer.cn.html",
+      "sha256": "75343df900ce1f3ed89feaea1f4e25a247725baebdc8cb7b57ed24a073666e08"
+    },
+    {
+      "file": "Fanatic_Greathammer.jp.html",
+      "sha256": "f35bfdf91317a5bb879e9ed13a3f927f1087afc8b3e0a590b9ff63b24777244b"
+    },
+    {
+      "file": "Fanatic_Greathammer.kr.html",
+      "sha256": "0af0180a85474e80dfab0989d6ac4d1638b65bac9055ba81c5c77bfb424087e5"
+    },
+    {
+      "file": "Fanatic_Greathammer.sp.html",
+      "sha256": "6327c77d1e9118f1f36d647ca08b0752a60692febe88b0f84320f43609adb27d"
+    },
+    {
+      "file": "Fanatic_Greathammer.tw.html",
+      "sha256": "1274419aa567286428ab004f0e8eb6c62bd76b40fd95a68186d31cc54ec281f4"
+    },
+    {
+      "file": "Fanatic_Greathammer.us.html",
+      "sha256": "268926f0e4b692ec535be95453f83fc2aef376bdf5937a30c6b4a8c02455d062"
+    },
+    {
+      "file": "Fortified_Hammer.cn.html",
+      "sha256": "eb26763f41e97d151985891dbe176e534a23d18ee53bc56e31e8a125e71fd494"
+    },
+    {
+      "file": "Fortified_Hammer.jp.html",
+      "sha256": "ecfa311f75f888d94bf417eeca98d30a1a40150ab3296669153e556b8c1da550"
+    },
+    {
+      "file": "Fortified_Hammer.kr.html",
+      "sha256": "e7804efcf921bf9295068b1765502b7cedf0b6b7acbeca0c3e0045811c514b2c"
+    },
+    {
+      "file": "Fortified_Hammer.sp.html",
+      "sha256": "3c814e33c90c9b358d2bcfb71e21f1ebc5e1752999eb8b70208d8fb323e3ebf0"
+    },
+    {
+      "file": "Fortified_Hammer.tw.html",
+      "sha256": "ae0d4ab23476073a558d9ad170b55c955ea033a4bc3fbaa1e8412e4ba625ed46"
+    },
+    {
+      "file": "Fortified_Hammer.us.html",
+      "sha256": "83bd5d4566393979c7ec4630ae257d3a24c048fdf95a28caad4b61dc60e3b5dc"
+    },
+    {
+      "file": "One_Hand_Maces.cn.html",
+      "sha256": "65719733929a9f6e51ce04255f427b33d02a473144b7688d591b8f5d7dcbb60e"
+    },
+    {
+      "file": "One_Hand_Maces.jp.html",
+      "sha256": "74c0dce08d5d5cebf01421dfe9d92b79c8f70dd565b9d0aaa39f3278c8e0cb3b"
+    },
+    {
+      "file": "One_Hand_Maces.kr.html",
+      "sha256": "b52ed26e1b0fb501be351e1d1d1e55d99b9ed132cf268b330a33a5c5c20c409d"
+    },
+    {
+      "file": "One_Hand_Maces.sp.html",
+      "sha256": "89ddd817bdb97f3a3f9d260ef07edd6fd17dce9fb417c3e4b16dab141e294b67"
+    },
+    {
+      "file": "One_Hand_Maces.tw.html",
+      "sha256": "9c55367e5bbee2f92363fb9e278f1a46782853b14c3981d329945cf774251d3f"
+    },
+    {
+      "file": "One_Hand_Maces.us.html",
+      "sha256": "1ce1479d70c2177dc37056dfdc3ded4e10827bb33856ac7b90df706ba8459652"
+    },
+    {
+      "file": "Ruination_Maul.cn.html",
+      "sha256": "e7c2062dc01c02607f0e17c86929d23e9929be288851eb216421647857ff4c56"
+    },
+    {
+      "file": "Ruination_Maul.jp.html",
+      "sha256": "035af9e647a40506af9243d349bcb264cc8591cdcb62e66618fae453c3b50cd6"
+    },
+    {
+      "file": "Ruination_Maul.kr.html",
+      "sha256": "75059673d6411d97446536a3102bebbe8d45512fa21348c498050be0682bff4d"
+    },
+    {
+      "file": "Ruination_Maul.sp.html",
+      "sha256": "89b3c0147f79c93b5deadbdc5088b73b55cb6cd0ca640727a3c64ec9e16c0358"
+    },
+    {
+      "file": "Ruination_Maul.tw.html",
+      "sha256": "86f828a2dae66024edb32c7c464001e40da5c50ac2e742fb1eb950b365e26385"
+    },
+    {
+      "file": "Ruination_Maul.us.html",
+      "sha256": "b740168d3ab988692002e7534b287ab5d59637258553c84fc28504284051b5fa"
+    },
+    {
+      "file": "Strife_Pick.cn.html",
+      "sha256": "e535ad21324a751426676ddb7a9125732846826add459b7cbe82ed7b57d7ec4e"
+    },
+    {
+      "file": "Strife_Pick.jp.html",
+      "sha256": "645f287b3c94f5bf7a313ee7ec56a2542c114a772fadab2940cd5075bdf0ebe3"
+    },
+    {
+      "file": "Strife_Pick.kr.html",
+      "sha256": "2ed8f6f22f18e83724fc24cb02a631a66ef535e69b7b1813d2ab03f20fefd15f"
+    },
+    {
+      "file": "Strife_Pick.sp.html",
+      "sha256": "6b2d058d39aeedd3d509c65aa5b4bf716256f4aa236b2da88c95ec5b60e8d20c"
+    },
+    {
+      "file": "Strife_Pick.tw.html",
+      "sha256": "4ef100841cf2f2ea66c878126c20fa7b9be83e9c90dcf88235e75c1fece52d4f"
+    },
+    {
+      "file": "Strife_Pick.us.html",
+      "sha256": "43179c76c8a34fa4b3a334ea6ca1eda11f999b701b79a2fca4b58af78ddf802a"
+    },
+    {
+      "file": "Tawhoan_Greatclub.cn.html",
+      "sha256": "0f062d8b1d03f77e234c17ed5d4c0d8c77180998de08f959b8a03a65624859be"
+    },
+    {
+      "file": "Tawhoan_Greatclub.jp.html",
+      "sha256": "9797a44d7c035ed9a38c7cebe72291968aee1f83bcddabab9deaecfc39d791f9"
+    },
+    {
+      "file": "Tawhoan_Greatclub.kr.html",
+      "sha256": "78415312da84b699e7988d67fc9ae0fb1eb70bef14751a6b1bb91c33fbb04cc5"
+    },
+    {
+      "file": "Tawhoan_Greatclub.sp.html",
+      "sha256": "ff25681552b1a3d3092622c771142be09292b89fd5d94fa84f1c8a4b6f7e70c8"
+    },
+    {
+      "file": "Tawhoan_Greatclub.tw.html",
+      "sha256": "a6649f1ec0efce6556a0a48c2e76d850810706f4a0c681fec449a4a33a594fdd"
+    },
+    {
+      "file": "Tawhoan_Greatclub.us.html",
+      "sha256": "495f746d78392b9cdf21f77a3d34b575a616e6b8a703dfebfec5a49a90d1e602"
+    },
+    {
+      "file": "Two_Hand_Maces.cn.html",
+      "sha256": "1a09e96ec9700fa76291f0dc5079442122321beaf12ac96a0913407892276313"
+    },
+    {
+      "file": "Two_Hand_Maces.jp.html",
+      "sha256": "2d09fe2efccaebc1f33e97fd4dea5bb6dcccd8885e3c192622af988ded971364"
+    },
+    {
+      "file": "Two_Hand_Maces.kr.html",
+      "sha256": "0557248755136f4737df37bbfbfa3de8587aa777599d6753f36272a8aa0a1433"
+    },
+    {
+      "file": "Two_Hand_Maces.sp.html",
+      "sha256": "856f2ea17b83d33df9acc36af0ccd025311bc137def4348bfe02875473ae6dc4"
+    },
+    {
+      "file": "Two_Hand_Maces.tw.html",
+      "sha256": "f8b328dbab24eb9b5e50478cb1a178637a85362e48b78541bca3b54bc54a3c6b"
+    },
+    {
+      "file": "Two_Hand_Maces.us.html",
+      "sha256": "e46665a4c9d1882b49cf1de94e98500b1e22b8279855d0281df890c54fb88678"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "page": "Boots_str",
+  "url": "https://poe2db.tw/us/Boots_str",
+  "retrievedAt": "2026-10-04T14:45:07.329Z",
+  "sha256": "e85f82c8680a89e8ba78e3764176fe0e791103d8a3a68e9a689d6d9bb71b823a",
+  "cards": [
+    {
+      "slug": "Rough_Greaves",
+      "card": "Rough GreavesArmour: 22"
+    },
+    {
+      "slug": "Iron_Greaves",
+      "card": "Iron GreavesArmour: 57Requires:  Level 11, 17 Str"
+    },
+    {
+      "slug": "Bronze_Greaves",
+      "card": "Bronze GreavesArmour: 74Requires:  Level 16, 23 Str"
+    },
+    {
+      "slug": "Trimmed_Greaves",
+      "card": "Trimmed GreavesArmour: 112Requires:  Level 27, 38 Str"
+    },
+    {
+      "slug": "Stone_Greaves",
+      "card": "Stone GreavesArmour: 133Requires:  Level 33, 45 Str"
+    },
+    {
+      "slug": "Reefsteel_Greaves",
+      "card": "Reefsteel GreavesArmour: 174Requires:  Level 45, 60 Str"
+    },
+    {
+      "slug": "Monument_Greaves",
+      "card": "Monument GreavesArmour: 199Requires:  Level 52, 69 Str"
+    },
+    {
+      "slug": "Totemic_Greaves",
+      "card": "Totemic GreavesArmour: 244Requires:  Level 65, 86 Str"
+    },
+    {
+      "slug": "Plated_Greaves",
+      "card": "Plated GreavesArmour: 174Requires:  Level 45, 60 Str"
+    },
+    {
+      "slug": "Lionheart_Greaves",
+      "card": "Lionheart GreavesArmour: 195Requires:  Level 51, 68 Str"
+    },
+    {
+      "slug": "Elegant_Greaves",
+      "card": "Elegant GreavesArmour: 206Requires:  Level 54, 72 Str"
+    },
+    {
+      "slug": "Carved_Greaves",
+      "card": "Carved GreavesArmour: 223Requires:  Level 59, 78 Str"
+    },
+    {
+      "slug": "Bulwark_Greaves",
+      "card": "Bulwark GreavesArmour: 244Requires:  Level 65, 86 Str"
+    },
+    {
+      "slug": "Ornate_Greaves",
+      "card": "Ornate GreavesArmour: 256Requires:  Level 70, 93 Str"
+    },
+    {
+      "slug": "Vaal_Greaves",
+      "card": "Vaal GreavesArmour: 268Requires:  Level 75, 101 Str"
+    },
+    {
+      "slug": "Tasalian_Greaves",
+      "card": "Tasalian GreavesArmour: 280Requires:  Level 80, 108 Str"
+    },
+    {
+      "slug": "Runeforged_Rough_Greaves",
+      "card": "Runeforged Rough GreavesArmour: 22Runic Ward: 14"
+    },
+    {
+      "slug": "Runeforged_Iron_Greaves",
+      "card": "Runeforged Iron GreavesArmour: 57Runic Ward: 21Requires:  Level 11, 17 Str"
+    },
+    {
+      "slug": "Runeforged_Bronze_Greaves",
+      "card": "Runeforged Bronze GreavesArmour: 74Runic Ward: 26Requires:  Level 16, 23 Str"
+    },
+    {
+      "slug": "Runeforged_Trimmed_Greaves",
+      "card": "Runeforged Trimmed GreavesArmour: 112Runic Ward: 31Requires:  Level 27, 38 Str"
+    },
+    {
+      "slug": "Runeforged_Stone_Greaves",
+      "card": "Runeforged Stone GreavesArmour: 133Runic Ward: 36Requires:  Level 33, 45 Str"
+    },
+    {
+      "slug": "Runeforged_Reefsteel_Greaves",
+      "card": "Runeforged Reefsteel GreavesArmour: 174Runic Ward: 39Requires:  Level 45, 60 Str"
+    },
+    {
+      "slug": "Runeforged_Elegant_Greaves",
+      "card": "Runeforged Elegant GreavesArmour: 189Runic Ward: 45Requires:  Level 54, 72 Str"
+    },
+    {
+      "slug": "Runeforged_Carved_Greaves",
+      "card": "Runeforged Carved GreavesArmour: 178Runic Ward: 78Requires:  Level 59, 78 Str"
+    },
+    {
+      "slug": "Runeforged_Bulwark_Greaves",
+      "card": "Runeforged Bulwark GreavesArmour: 229Runic Ward: 42Requires:  Level 65, 86 Str"
+    },
+    {
+      "slug": "Runeforged_Ornate_Greaves",
+      "card": "Runeforged Ornate GreavesArmour: 161Runic Ward: 116Requires:  Level 70, 93 Str"
+    },
+    {
+      "slug": "Runeforged_Vaal_Greaves",
+      "card": "Runeforged Vaal GreavesArmour: 253Runic Ward: 42Requires:  Level 75, 101 Str"
+    },
+    {
+      "slug": "Runeforged_Tasalian_Greaves",
+      "card": "Runeforged Tasalian GreavesArmour: 127Runic Ward: 180Requires:  Level 80, 108 Str"
+    },
+    {
+      "slug": "Runemastered_Rough_Greaves",
+      "card": "Runemastered Rough GreavesArmour: 150Runic Ward: 27Requires:  Level 38, 51 Str10% increased Movement Speed"
+    },
+    {
+      "slug": "Runemastered_Iron_Greaves",
+      "card": "Runemastered Iron GreavesArmour: 120Runic Ward: 27Requires:  Level 38, 51 Str5% increased Movement Speed"
+    },
+    {
+      "slug": "Runemastered_Bronze_Greaves",
+      "card": "Runemastered Bronze GreavesArmour: 135Runic Ward: 20Requires:  Level 38, 51 Str5% increased Movement Speed"
+    },
+    {
+      "slug": "Runemastered_Trimmed_Greaves",
+      "card": "Runemastered Trimmed GreavesArmour: 79Runic Ward: 71Requires:  Level 40, 54 Str5% increased Movement Speed"
+    },
+    {
+      "slug": "Runemastered_Stone_Greaves",
+      "card": "Runemastered Stone GreavesArmour: 157Runic Ward: 46Requires:  Level 55, 73 Str"
+    }
+  ]
+}

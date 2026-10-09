@@ -1,5 +1,6 @@
 import { useI18n, gameTerm } from '../../shared/i18n/i18n'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import descriptions from './materialTooltips.json'
 import { legacyHomogenisingIds, legacyFiveIds } from './workbenchApi'
 
@@ -90,13 +91,13 @@ export function MaterialTooltip() {
       element.style.left = `${Math.max(8, Math.min(anchor.left, window.innerWidth - rect.width - 8))}px`
       element.style.top = `${useBelow ? anchor.bottom + 8 : Math.max(8, anchor.top - height - 8)}px`
     }
-  }, [target])
+  }, [target, locale])
   const data = target && catalog[target.id]
   if (!data || !target) return null
   const translated = gameTerm(target.id, locale)
   const hasDescription = Boolean(translated.data?.lines.length)
   const lines = hasDescription ? translated.data!.lines : data.lines
-  return (
+  return createPortal(
     <aside
       ref={tooltip}
       className="material-tooltip"
@@ -105,11 +106,17 @@ export function MaterialTooltip() {
       style={{ left: target.x, top: target.y }}
     >
       <strong>{name(target.id, data.name)}</strong>
-      {locale !== 'en' && (!hasDescription || translated.fallback) && (
-        <small className="translation-fallback">
-          {t('translation.english')}
-        </small>
+      {translated.data?.nameProvenance && (
+        <small className="translation-fallback">{t('translation.own')}</small>
       )}
+      {locale !== 'en' &&
+        (!hasDescription ||
+          translated.fallback ||
+          translated.data?.linesLanguage === 'en') && (
+          <small className="translation-fallback">
+            {t('translation.english')}
+          </small>
+        )}
       {legacyFiveIds.includes(target.id) && <p>{t('notice.legacy_five')}</p>}
       {legacyFiveIds.includes(target.id) && (
         <a
@@ -126,7 +133,14 @@ export function MaterialTooltip() {
       {lines
         .filter((line) => !line.startsWith('Stack Size:'))
         .map((line, i) => (
-          <p key={i} lang={hasDescription ? translated.language : 'en'}>
+          <p
+            key={i}
+            lang={
+              hasDescription
+                ? (translated.data?.linesLanguage ?? translated.language)
+                : 'en'
+            }
+          >
             {line}
           </p>
         ))}
@@ -146,6 +160,7 @@ export function MaterialTooltip() {
           {t('ui.official_legacy_availability')}
         </a>
       )}
-    </aside>
+    </aside>,
+    document.body,
   )
 }

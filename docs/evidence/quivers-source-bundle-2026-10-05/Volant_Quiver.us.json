@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/us/Volant_Quiver",
+  "retrievedAt": "2026-10-05T05:29:11.983Z",
+  "sha256": "1d805b58f11e99cf84692a5de3ca46ee5da1b5977b9d7c724a8e983de740e2e2",
+  "variants": [
+    {
+      "name": "Volant Quiver",
+      "card": "Volant Quiver\n        \n    \n    \n        \n            QuiversRequires:  Level 61(20—30)% increased Arrow Speed\n        \n\n\n        \n        \n            Can only be equipped if you are wielding a Bow.",
+      "requirements": "Requires:  Level 61",
+      "fields": {
+        "DropLevel": "61",
+        "BaseType": "Volant Quiver",
+        "Class": "Quivers",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver10",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverVolant",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

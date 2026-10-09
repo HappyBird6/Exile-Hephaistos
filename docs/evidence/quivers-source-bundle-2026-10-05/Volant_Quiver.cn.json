@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/cn/Volant_Quiver",
+  "retrievedAt": "2026-10-05T05:29:23.338Z",
+  "sha256": "03fb50a8a274b8ae577905453dd17f303a6b65767e129b636b2df32182981de5",
+  "variants": [
+    {
+      "name": "飞矢箭袋",
+      "card": "飞矢箭袋\n        \n    \n    \n        \n            箭袋需求：  等级 61箭矢速度提高 (20—30)%\n        \n\n\n        \n        \n            只能在使用弓时装备。\n        \n\n        \n            Volant Quiver",
+      "requirements": "需求：  等级 61",
+      "fields": {
+        "DropLevel": "61",
+        "BaseType": "飞矢箭袋",
+        "Class": "箭袋",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver10",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverVolant",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

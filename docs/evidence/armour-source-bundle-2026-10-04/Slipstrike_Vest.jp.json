@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/jp/Slipstrike_Vest",
+  "retrievedAt": "2026-10-04T15:37:53.883Z",
+  "sha256": "1b28640666aa587648bd13e9fb74ae370751bdbd1888cf8abbc4ffb3589ec35d",
+  "name": "スリップストライクベスト",
+  "card": "スリップストライクベスト\n        \n    \n    \n        \n            鎧回避力: 519Base Movement Speed: -0.03装備条件： レベル 70, 121 器用さ\n        \n\n\n\n        \n            Slipstrike Vest",
+  "requirements": "装備条件： レベル 70, 121 器用さ",
+  "fields": {
+    "DropLevel": "70",
+    "BaseType": "スリップストライクベスト",
+    "Class": "鎧",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame",
+    "Tags": "dex_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex06",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

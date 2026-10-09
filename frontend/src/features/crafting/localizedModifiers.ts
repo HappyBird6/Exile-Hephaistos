@@ -9,6 +9,7 @@ type Binding = {
   englishText: string
   values: string[]
   template: string
+  valueStats?: { id: string; divisor: number }[]
 }
 type Template = { template: string; name: string }
 const bindings: Record<string, Binding> = catalog.definitions
@@ -19,7 +20,15 @@ function verifiedTemplate(definition: Definition, locale: Locale) {
   if (
     !binding ||
     binding.englishText !== definition.text ||
-    JSON.stringify(binding.stats) !== JSON.stringify(definition.stats ?? [])
+    binding.stats.length !== (definition.stats ?? []).length ||
+    !binding.stats.every((stat, index) => {
+      const actual = definition.stats?.[index]
+      return (
+        actual?.id === stat.id &&
+        actual.min === stat.min &&
+        actual.max === stat.max
+      )
+    })
   )
     return undefined
   const translation = templates[locale][binding.template]
@@ -27,18 +36,31 @@ function verifiedTemplate(definition: Definition, locale: Locale) {
 }
 
 // No localized string is fed to the API, catalog, grouping keys or saved films.
-// Multi-stat source-unit rendering stays conservative exactly as rolledText does.
+// Only source-correlated display spans are projected; canonical rolls remain unchanged.
 export function localizedModifierText(
   definition: Definition,
   values?: Record<string, number>,
   locale = getLocale(),
 ): string {
   const english = values ? rolledText(definition, values) : definition.text
-  if (locale === 'en') return english
   const verified = verifiedTemplate(definition, locale)
   if (!verified) return english
   const { binding, translation } = verified
   const numbers = [...binding.values]
+  if (values && binding.valueStats) {
+    if (!binding.valueStats.every((stat) => Number.isFinite(values[stat.id])))
+      return english
+    binding.valueStats.forEach((stat, i) => {
+      const value = values[stat.id]! / stat.divisor
+      numbers[i] =
+        (numbers[i]?.startsWith('+') && value >= 0 ? '+' : '') +
+        formatNumber(value, { maximumFractionDigits: 20 }, locale)
+    })
+    return translation.template.replace(
+      /\{v(\d+)\}/g,
+      (match, index: string) => numbers[Number(index)] ?? match,
+    )
+  }
   if (values && /^(ruby|emerald|sapphire|diamond):/.test(definition.id)) {
     numbers.forEach((n, i) => {
       const stat = definition.stats?.[i]

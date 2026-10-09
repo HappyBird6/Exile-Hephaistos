@@ -1,0 +1,69 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "65",
+    "DropChance": 0,
+    "ModGenerationTypeID": "1",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+      "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+    ],
+    "fossil_no": [
+      "attack",
+      "speed"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/2b54debe4df72be25a7148be37b91db9bfa28ffad7c8217cfb908ee7b1d76dde\" href=\"Celestial_Alloy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/Alloy4.webp\" alt=\"Alloy4\" height=\"16\" />Celestial Alloy</a>",
+    "Code": "AlloyAccuracyAttackSpeedHybrid1",
+    "ModFamilyList": [
+      "IncreasedAccuracy"
+    ],
+    "str": "<span class='mod-value'>+(327<span class=\"ndash\">—</span>427)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c\">Accuracy</a> Rating<br><span class='mod-value'>(5<span class=\"ndash\">—</span>8)</span>% increased <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Speed",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 52,
+    "IsPerfect": "0",
+    "IsAlloy": true,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAccuracyAttackSpeedHybrid1",
+  "textLocale": "us",
+  "detailText": "+(327—427) to Accuracy Rating\n(5—8)% increased Attack Speed",
+  "retrievedAt": "2026-10-05T07:09:54.898Z",
+  "sha256": "6436525f6133db829b49831d1a3a829f891aecfbcec82ef74836274320ea9bef",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(327<span class=\"ndash\">—</span>427)</span> to <a data-keyword=\"Accuracy\" href=\"Accuracy\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/4a439d13631e43c7f47aab345a7e6b64877fb0209f2c42901d14cd9d9f36da1c\">Accuracy</a> Rating<br><span class='mod-value'>(5<span class=\"ndash\">—</span>8)</span>% increased <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Speed</span></h5>   <span data-tabname=\"Verisium\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Verisium\n<tr><th>Family<td>IncreasedAccuracy\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>65 (Effective: 52)\n<tr><th>Gold Price<td>1422\n<tr><th>Stats<td><li>accuracy rating <span class=\"badge bg-primary\">327 <span class=\"ndash\">—</span> 427</span> <span class=\"badge bg-secondary\">Global</span></li><li>local attack speed +% <span class=\"badge bg-primary\">5 <span class=\"ndash\">—</span> 8</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attack</span> <span class='badge bg-primary'>Speed</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Verisium",
+    "Family": "IncreasedAccuracy",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "65 (Effective: 52)",
+    "Gold Price": "1422",
+    "Stats": "accuracy rating 327 — 427 Globallocal attack speed +% 5 — 8 Local",
+    "Spawn Tags": "default: 0",
+    "Craft Tags": "Attack Speed"
+  },
+  "code": "AlloyAccuracyAttackSpeedHybrid1",
+  "stats": [
+    {
+      "id": "accuracy_rating",
+      "min": 327,
+      "max": 427,
+      "locality": "Global"
+    },
+    {
+      "id": "local_attack_speed_+%",
+      "min": 5,
+      "max": 8,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

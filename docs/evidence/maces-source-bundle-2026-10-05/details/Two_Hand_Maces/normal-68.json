@@ -1,0 +1,66 @@
+{
+  "row": {
+    "Name": "of Dueling",
+    "Level": "18",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreaseSocketedGemLevel"
+    ],
+    "DropChance": "750",
+    "str": "<span class='mod-value'>+2</span> to Level of all <a data-keyword=\"Melee\" href=\"Melee\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8d986051b4849a5d84b195f5dd91effd8e56e9aeba53b07cd06b0f6c758cd81b\">Melee</a> Skills",
+    "fossil_no": [
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ranged",
+      "two_hand_weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8873c54a81a3caa3eab87f048b5ea8d53329ceb02af94002edc45d43917bc3b5"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FGlobalMeleeSkillGemLevelTwoHandWeapon2",
+  "textLocale": "sp",
+  "detailText": "+2 al nivel de todas las habilidades cuerpo a cuerpo",
+  "retrievedAt": "2026-10-05T07:12:26.046Z",
+  "sha256": "be3004df93d617f814958dde8885b17bbb114e182c7db75067996775815a5e18",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+2</span> al nivel de todas las habilidades <a data-keyword=\"Melee\" href=\"Melee\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/130a94226b61fb2e0d7d6bd5a12e3602c20f218474f65f06d2a17b6d75f28d90\">cuerpo a cuerpo</a></span></h5>   <span data-tabname=\"de duelo\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>de duelo\n<tr><th>Family<td>IncreaseSocketedGemLevel\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Sufijo (2)\n<tr><th>Req. level<td>18 (Effective: 14)\n<tr><th>Gold Price<td>551\n<tr><th>Stats<td><li>melee skill gem level + <span class=\"badge bg-primary\">2 <span class=\"ndash\">—</span> 2</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ranged: 0</span> <span class='badge bg-primary'>two_hand_weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Ataque</span> </table>  </div></div>",
+  "fields": {
+    "Name": "de duelo",
+    "Family": "IncreaseSocketedGemLevel",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Sufijo (2)",
+    "Req. level": "18 (Effective: 14)",
+    "Gold Price": "551",
+    "Stats": "melee skill gem level + 2 — 2 Global",
+    "Spawn Tags": "ranged: 0 two_hand_weapon: 1 default: 0",
+    "Craft Tags": "Ataque"
+  },
+  "code": "GlobalMeleeSkillGemLevelTwoHandWeapon2",
+  "stats": [
+    {
+      "id": "melee_skill_gem_level_+",
+      "min": 2,
+      "max": 2,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ranged",
+      "weight": 0
+    },
+    {
+      "tag": "two_hand_weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+Base registry mirrors match canonical resources
+✔ ordered spawn uses the first matched source tag, including explicit denial (1.562821ms)
+✔ maces six-locale binder reproduces the pre-refactor implementation for every ordinary row (16329.655532ms)
+✔ quarterstaves-spears six-locale binder reproduces the pre-refactor implementation for every ordinary row (17453.015628ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 33919.246467

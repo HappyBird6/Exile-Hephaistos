@@ -1,0 +1,213 @@
+{
+  "page": "Two_Hand_Maces",
+  "url": "https://poe2db.tw/us/Two_Hand_Maces",
+  "retrievedAt": "2026-10-05T01:38:17.747Z",
+  "sha256": "94f1653426d620a1e7fecd348a9aaa8ffc347207fcd06c349f57f7a4e5c70237",
+  "cards": [
+    {
+      "slug": "Felled_Greatclub",
+      "card": "Felled GreatclubPhysical Damage: 13-18Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.5"
+    },
+    {
+      "slug": "Oak_Greathammer",
+      "card": "Oak GreathammerPhysical Damage: 16-30Critical Hit Chance: 5%Attacks per Second: 1Weapon Range: 1.5Requires:  Level 4, 11 StrCauses (20—40)% increased Stun Buildup"
+    },
+    {
+      "slug": "Forge_Maul",
+      "card": "Forge MaulPhysical Damage: 26-35Critical Hit Chance: 5%Attacks per Second: 1.05Weapon Range: 1.5Requires:  Level 11, 23 StrCrushes Enemies on Hit"
+    },
+    {
+      "slug": "Studded_Greatclub",
+      "card": "Studded GreatclubPhysical Damage: 32-48Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 16, 31 Str"
+    },
+    {
+      "slug": "Cultist_Greathammer",
+      "card": "Cultist GreathammerPhysical Damage: 36-49Critical Hit Chance: 5%Attacks per Second: 1.05Weapon Range: 1.5Requires:  Level 22, 41 StrStrikes deal Splash Damage"
+    },
+    {
+      "slug": "Temple_Maul",
+      "card": "Temple MaulPhysical Damage: 35-72Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 28, 52 Str"
+    },
+    {
+      "slug": "Leaden_Greathammer",
+      "card": "Leaden GreathammerPhysical Damage: 58-78Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 33, 60 Str"
+    },
+    {
+      "slug": "Crumbling_Maul",
+      "card": "Crumbling MaulPhysical Damage: 62-75Critical Hit Chance: 8%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 38, 68 StrCauses Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage"
+    },
+    {
+      "slug": "Pointed_Maul",
+      "card": "Pointed MaulPhysical Damage: 68-102Critical Hit Chance: 6.5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 45, 80 Str"
+    },
+    {
+      "slug": "Totemic_Greatclub",
+      "card": "Totemic GreatclubPhysical Damage: 77-105Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 50, 89 StrWarcries Empower 1 additional Attacks"
+    },
+    {
+      "slug": "Greatmace",
+      "card": "GreatmacePhysical Damage: 74-124Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 52, 92 Str"
+    },
+    {
+      "slug": "Precise_Greathammer",
+      "card": "Precise GreathammerPhysical Damage: 87-118Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 54, 96 Str"
+    },
+    {
+      "slug": "Giant_Maul",
+      "card": "Giant MaulPhysical Damage: 96-144Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 65, 114 Str"
+    },
+    {
+      "slug": "Snakewood_Greathammer",
+      "card": "Snakewood GreathammerPhysical Damage: 62-115Critical Hit Chance: 5%Attacks per Second: 1.05Weapon Range: 1.5Requires:  Level 45, 80 StrCauses (20—40)% increased Stun Buildup"
+    },
+    {
+      "slug": "Blacksmith_Maul",
+      "card": "Blacksmith MaulPhysical Damage: 75-102Critical Hit Chance: 5%Attacks per Second: 1.05Weapon Range: 1.5Requires:  Level 48, 86 StrCrushes Enemies on Hit"
+    },
+    {
+      "slug": "Zealot_Greathammer",
+      "card": "Zealot GreathammerPhysical Damage: 70-95Critical Hit Chance: 5%Attacks per Second: 1.05Weapon Range: 1.5Requires:  Level 51, 91 StrStrikes deal Splash Damage"
+    },
+    {
+      "slug": "Solemn_Maul",
+      "card": "Solemn MaulPhysical Damage: 59-123Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 54, 96 Str"
+    },
+    {
+      "slug": "Heavy_Greathammer",
+      "card": "Heavy GreathammerPhysical Damage: 94-127Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 59, 104 Str"
+    },
+    {
+      "slug": "Disintegrating_Maul",
+      "card": "Disintegrating MaulPhysical Damage: 92-112Critical Hit Chance: 8%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 62, 109 StrCauses Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage"
+    },
+    {
+      "slug": "Runeforged_Felled_Greatclub",
+      "card": "Runeforged Felled GreatclubPhysical Damage: 146-197Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 38, 68 Str"
+    },
+    {
+      "slug": "Runemastered_Felled_Greatclub",
+      "card": "Runemastered Felled GreatclubPhysical Damage: 217-293Critical Hit Chance: 10%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 55, 97 Str"
+    },
+    {
+      "slug": "Runeforged_Oak_Greathammer",
+      "card": "Runeforged Oak GreathammerPhysical Damage: 73-135Critical Hit Chance: 5%Attacks per Second: 1Weapon Range: 1.5Requires:  Level 38, 68 StrCauses (20—40)% increased Stun Buildup"
+    },
+    {
+      "slug": "Runemastered_Oak_Greathammer",
+      "card": "Runemastered Oak GreathammerPhysical Damage: 111-207Critical Hit Chance: 5%Attacks per Second: 1Weapon Range: 1.5Requires:  Level 55, 97 StrCauses (20—40)% increased Stun Buildup"
+    },
+    {
+      "slug": "Runeforged_Forge_Maul",
+      "card": "Runeforged Forge MaulPhysical Damage: 147-199Critical Hit Chance: 10%Attacks per Second: 1.05Weapon Range: 1.5Requires:  Level 40, 72 StrCrushes Enemies on Hit"
+    },
+    {
+      "slug": "Runeforged_Studded_Greatclub",
+      "card": "Runeforged Studded GreatclubPhysical Damage: 23.5-62.25Lightning Damage: 70.5-186.75Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 38, 68 Strlocal weapon implicit hidden % base damage is lightning [75]"
+    },
+    {
+      "slug": "Runemastered_Studded_Greatclub",
+      "card": "Runemastered Studded GreatclubPhysical Damage: 15.5-140.25Lightning Damage: 46.5-420.75Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 55, 97 Strlocal weapon implicit hidden % base damage is lightning [75]"
+    },
+    {
+      "slug": "Runeforged_Cultist_Greathammer",
+      "card": "Runeforged Cultist GreathammerPhysical Damage: 144-194Critical Hit Chance: 5%Attacks per Second: 1.05Weapon Range: 1.5Requires:  Level 40, 72 StrStrikes deal Splash Damage(20—30)% increased Bleeding Duration"
+    },
+    {
+      "slug": "Runeforged_Temple_Maul",
+      "card": "Runeforged Temple MaulPhysical Damage: 64-134Critical Hit Chance: 5%Attacks per Second: 1.3Weapon Range: 1.5Requires:  Level 55, 76 Str, 40 Dex"
+    },
+    {
+      "slug": "Runeforged_Leaden_Greathammer",
+      "card": "Runeforged Leaden GreathammerPhysical Damage: 132-179Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 55, 60 Str, 50 Int"
+    },
+    {
+      "slug": "Runeforged_Crumbling_Maul",
+      "card": "Runeforged Crumbling MaulPhysical Damage: 105-128Critical Hit Chance: 8%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 55, 97 StrCauses Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage"
+    },
+    {
+      "slug": "Runeforged_Pointed_Maul",
+      "card": "Runeforged Pointed MaulPhysical Damage: 125-188Critical Hit Chance: 6.5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 65, 114 StrStrikes deal Splash Damage"
+    },
+    {
+      "slug": "Anvil_Maul",
+      "card": "Anvil MaulPhysical Damage: 101-136Critical Hit Chance: 5%Attacks per Second: 1.05Weapon Range: 1.5Requires:  Level 67, 134 StrCrushes Enemies on Hit"
+    },
+    {
+      "slug": "Sacred_Maul",
+      "card": "Sacred MaulPhysical Damage: 76-158Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 72, 149 Str"
+    },
+    {
+      "slug": "Ironwood_Greathammer",
+      "card": "Ironwood GreathammerPhysical Damage: 105-196Critical Hit Chance: 5%Attacks per Second: 1Weapon Range: 1.5Requires:  Level 77, 163 StrCauses (30—50)% increased Stun Buildup"
+    },
+    {
+      "slug": "Fanatic_Greathammer",
+      "card": "Fanatic GreathammerPhysical Damage: 101-137Critical Hit Chance: 5%Attacks per Second: 1.05Weapon Range: 1.5Requires:  Level 78, 163 StrStrikes deal Splash Damage"
+    },
+    {
+      "slug": "Ruination_Maul",
+      "card": "Ruination MaulPhysical Damage: 104-127Critical Hit Chance: 8%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 79, 163 StrCauses Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage"
+    },
+    {
+      "slug": "Massive_Greathammer",
+      "card": "Massive GreathammerPhysical Damage: 119-161Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 77, 163 Str"
+    },
+    {
+      "slug": "Tawhoan_Greatclub",
+      "card": "Tawhoan GreatclubPhysical Damage: 113-153Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 78, 163 StrWarcries Empower 1 additional Attacks"
+    },
+    {
+      "slug": "Aberrant_Sledge",
+      "card": "Aberrant SledgePhysical Damage: 74-154Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 70, 163 Str"
+    },
+    {
+      "slug": "Runemastered_Aberrant_Sledge",
+      "card": "Runemastered Aberrant SledgePhysical Damage: 151-315Critical Hit Chance: 5%Attacks per Second: 1Weapon Range: 1.5Requires:  Level 70, 163 Str"
+    },
+    {
+      "slug": "Runemastered_Aberrant_Sledge",
+      "card": "Runemastered Aberrant SledgePhysical Damage: 74-154Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 70, 163 StrSkills which create Fissures have a 50% chance to create an additional Fissure"
+    },
+    {
+      "slug": "Runemastered_Aberrant_Sledge",
+      "card": "Runemastered Aberrant SledgePhysical Damage: 74-154Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 70, 163 Str(200—300)% increased Freeze Buildup"
+    },
+    {
+      "slug": "Runemastered_Aberrant_Sledge",
+      "card": "Runemastered Aberrant SledgePhysical Damage: 29.6-61.6Cold Damage: 118.4-246.4Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 70, 163 Strlocal weapon implicit hidden % base damage is cold [80]"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Ruination_Maul",
+      "card": "Ruination MaulPhysical Damage: 104-127Critical Hit Chance: 8%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 79, 163 StrCauses Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage",
+      "requiredLevel": 79
+    },
+    {
+      "slug": "Fanatic_Greathammer",
+      "card": "Fanatic GreathammerPhysical Damage: 101-137Critical Hit Chance: 5%Attacks per Second: 1.05Weapon Range: 1.5Requires:  Level 78, 163 StrStrikes deal Splash Damage",
+      "requiredLevel": 78
+    },
+    {
+      "slug": "Tawhoan_Greatclub",
+      "card": "Tawhoan GreatclubPhysical Damage: 113-153Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 78, 163 StrWarcries Empower 1 additional Attacks",
+      "requiredLevel": 78
+    },
+    {
+      "slug": "Ironwood_Greathammer",
+      "card": "Ironwood GreathammerPhysical Damage: 105-196Critical Hit Chance: 5%Attacks per Second: 1Weapon Range: 1.5Requires:  Level 77, 163 StrCauses (30—50)% increased Stun Buildup",
+      "requiredLevel": 77
+    },
+    {
+      "slug": "Massive_Greathammer",
+      "card": "Massive GreathammerPhysical Damage: 119-161Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 77, 163 Str",
+      "requiredLevel": 77
+    },
+    {
+      "slug": "Sacred_Maul",
+      "card": "Sacred MaulPhysical Damage: 76-158Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 72, 149 Str",
+      "requiredLevel": 72
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

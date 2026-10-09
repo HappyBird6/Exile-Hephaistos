@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/kr/Flying_Spear",
+  "retrievedAt": "2026-10-05T08:05:49.837Z",
+  "sha256": "2d8a81c266f27f3213d1b82488b1a4fbbab71b70366660b28df042126d3329bd",
+  "variants": [
+    {
+      "name": "비행 창",
+      "card": "비행 창\n        \n    \n    \n        \n            창물리 피해: 46-77치명타 명중 확률: 5%초당 공격 횟수: 1.6무기 범위: 1.5요구 사항:  레벨 78, 50 힘, 127 민첩 스킬 부여: 창 투척이 무기의 투사체 속도 (25—35)% 증가\n        \n\n\n\n        \n            Flying Spear",
+      "requirements": "요구 사항:  레벨 78, 50 힘, 127 민첩",
+      "properties": [
+        "창",
+        "물리 피해: 46-77",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "무기 범위: 1.5"
+      ],
+      "fields": {
+        "DropLevel": "78",
+        "BaseType": "비행 창",
+        "Class": "창",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame",
+        "Tags": "spear, one_hand_weapon, onehand, weapon",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/OneHandSpears/1HSpear05",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, onehand, spear, one_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      }
+    }
+  ]
+}

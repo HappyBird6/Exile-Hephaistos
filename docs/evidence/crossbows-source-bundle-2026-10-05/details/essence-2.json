@@ -1,0 +1,107 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "8",
+    "DropChance": 0,
+    "ModGenerationTypeID": "1",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "cold",
+      "attack"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/a3f21853b98da6e0dd53e668e1372acd064756e59d6a293870c8f591cb55c62a\" href=\"Lesser_Essence_of_Ice\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/ColdEssenceLesser.webp\" alt=\"ColdEssenceLesser\" height=\"16\" />Lesser Essence of Ice</a>",
+    "Code": "LocalAddedColdDamageTwoHand2",
+    "ModFamilyList": [
+      "ColdDamage"
+    ],
+    "str": "Adds <span class='mod-value'>(5<span class=\"ndash\">—</span>8)</span> to <span class='mod-value'>(9<span class=\"ndash\">—</span>14)</span> <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage",
+    "adds_no": [],
+    "spawn_no": [
+      "one_hand_weapon",
+      "crossbow",
+      "sword",
+      "axe",
+      "mace",
+      "warstaff",
+      "talisman",
+      "default"
+    ],
+    "reqlvl": 6,
+    "IsPerfect": "0",
+    "IsAlloy": false,
+    "Removes": false
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalAddedColdDamageTwoHand2",
+  "textLocale": "us",
+  "retrievedAt": "2026-10-05T02:45:40.789Z",
+  "sha256": "961e34043096b934dd803ca9683adf402a0a96ce40673c61d3d15043919f13e2",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Adds <span class='mod-value'>(5<span class=\"ndash\">—</span>8)</span> to <span class='mod-value'>(9<span class=\"ndash\">—</span>14)</span> <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage</span></h5>   <span data-tabname=\"Chilled\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Chilled\n<tr><th>Family<td>ColdDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>8 (Effective: 6)\n<tr><th>Gold Price<td>141\n<tr><th>Stats<td><li>local maximum added cold damage <span class=\"badge bg-primary\">9 <span class=\"ndash\">—</span> 14</span> <span class=\"badge bg-secondary\">Local</span></li><li>local minimum added cold damage <span class=\"badge bg-primary\">5 <span class=\"ndash\">—</span> 8</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>one_hand_weapon: 0</span> <span class='badge bg-primary'>crossbow: 1</span> <span class='badge bg-primary'>sword: 1</span> <span class='badge bg-primary'>axe: 1</span> <span class='badge bg-primary'>mace: 1</span> <span class='badge bg-primary'>warstaff: 1</span> <span class='badge bg-primary'>talisman: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Chilled",
+    "Family": "ColdDamage",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "8 (Effective: 6)",
+    "Gold Price": "141",
+    "Stats": "local maximum added cold damage 9 — 14 Locallocal minimum added cold damage 5 — 8 Local",
+    "Spawn Tags": "one_hand_weapon: 0 crossbow: 1 sword: 1 axe: 1 mace: 1 warstaff: 1 talisman: 1 default: 0",
+    "Craft Tags": "elemental_damage Damage Elemental Cold Attack"
+  },
+  "code": "LocalAddedColdDamageTwoHand2",
+  "stats": [
+    {
+      "id": "local_maximum_added_cold_damage",
+      "min": 9,
+      "max": 14,
+      "locality": "Local"
+    },
+    {
+      "id": "local_minimum_added_cold_damage",
+      "min": 5,
+      "max": 8,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "one_hand_weapon",
+      "weight": 0
+    },
+    {
+      "tag": "crossbow",
+      "weight": 1
+    },
+    {
+      "tag": "sword",
+      "weight": 1
+    },
+    {
+      "tag": "axe",
+      "weight": 1
+    },
+    {
+      "tag": "mace",
+      "weight": 1
+    },
+    {
+      "tag": "warstaff",
+      "weight": 1
+    },
+    {
+      "tag": "talisman",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

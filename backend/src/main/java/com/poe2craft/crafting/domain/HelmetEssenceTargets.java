@@ -5,4 +5,10 @@ public final class HelmetEssenceTargets {
   public static final String BASE_ID = "Metadata/Items/Armours/Helmets/FourHelmetStr1";
 
   private HelmetEssenceTargets() {}
+
+  public static boolean supports(String id) {
+    return com.poe2craft.item.ReviewedHelmets.supports(id)
+        || id.equals(BASE_ID)
+        || id.equals("Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame");
+  }
 }

@@ -1,0 +1,3 @@
+import fs from 'node:fs'
+const entry='최신 base 확장: [Quiver distinct-implicit core11종](workbench-quivers-bundle-2026-10-05.md). Workbench **113 bases**. Quivers class20의 ordinary100·Abyss special2·source weights·canonical implicit·6locale를 연결한다. Bow alias가 아니며 quality/Catalyst/socket은 미지원이다. 기존102 IDs/films·deferred50·Solar-only Support/Explorer·overflow/HALF_UP와 Shift/Alt/orange preview를 보존한다. combat은 계산하지 않는다. availability 근거 경계와 후속 One Hand Maces3/Two Hand Maces3/Quarterstaves3/Spears3/Staves6/Talismans3 roster는 bundle에 기록한다. 아래 dated checkpoint는 과거 범위다.\n\n'
+for(const p of ['docs/item-state.md','docs/TECHNICAL_SPEC.md','docs/supported-mechanics.md','docs/workbench-simulator.md'])fs.writeFileSync(p,entry+fs.readFileSync(p,'utf8'))

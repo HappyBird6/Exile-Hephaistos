@@ -1,0 +1,7322 @@
+{
+  "soldier": {
+    "key": "soldier",
+    "family": "body",
+    "pool": "rusted-cuirass",
+    "slug": "Soldier_Cuirass",
+    "id": "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame",
+    "name": "Soldier Cuirass",
+    "sourceUrl": "https://poe2db.tw/us/Soldier_Cuirass",
+    "sourceSha256": "95430d41e742c2396aefd7080bae4d3d81e8ba7e0df2fb154467cf436b7c30bd",
+    "sourceTags": [
+      "str_armour",
+      "body_armour",
+      "armour"
+    ],
+    "armour": 570,
+    "requiredLevel": 65,
+    "strength": 121,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 65, 121 Str",
+      "ko": "요구 사항:  레벨 65, 121 힘",
+      "ja": "装備条件： レベル 65, 121 筋力",
+      "zh-CN": "需求：  等级 65, 121 力量",
+      "zh-TW": "需求:  等級 65, 121 力量",
+      "es": "Requiere:  Nivel 65, 121 Fue"
+    }
+  },
+  "imperial": {
+    "key": "imperial",
+    "family": "helmet",
+    "pool": "rusted-greathelm",
+    "slug": "Imperial_Greathelm",
+    "id": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
+    "name": "Imperial Greathelm",
+    "sourceUrl": "https://poe2db.tw/us/Imperial_Greathelm",
+    "sourceSha256": "ba2a8bab50eca40058823c3e5c00c96401bb0433ee87295718c2f7b88386be63",
+    "sourceTags": [
+      "str_armour",
+      "karui_basetype",
+      "helmet",
+      "armour"
+    ],
+    "armour": 374,
+    "requiredLevel": 80,
+    "strength": 115,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Str",
+      "ko": "요구 사항:  레벨 80, 115 힘",
+      "ja": "装備条件： レベル 80, 115 筋力",
+      "zh-CN": "需求：  等级 80, 115 力量",
+      "zh-TW": "需求:  等級 80, 115 力量",
+      "es": "Requiere:  Nivel 80, 115 Fue"
+    }
+  },
+  "massive": {
+    "key": "massive",
+    "slug": "Massive_Mitts",
+    "archetype": "str",
+    "pool": "massive-mitts",
+    "family": "gloves",
+    "id": "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame",
+    "name": "Massive Mitts",
+    "sourceUrl": "https://poe2db.tw/us/Massive_Mitts",
+    "sourceSha256": "c102af998daee85b5188fb4bfed16c9b5ea101d815f8e21f306e5433882615ab",
+    "sourceTags": [
+      "str_armour",
+      "karui_basetype",
+      "gloves",
+      "armour"
+    ],
+    "armour": 187,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 101,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 101 Str",
+      "ko": "요구 사항:  레벨 80, 101 힘",
+      "ja": "装備条件： レベル 80, 101 筋力",
+      "zh-CN": "需求：  等级 80, 101 力量",
+      "zh-TW": "需求:  等級 80, 101 力量",
+      "es": "Requiere:  Nivel 80, 101 Fue"
+    }
+  },
+  "sirenscale": {
+    "key": "sirenscale",
+    "slug": "Sirenscale_Gloves",
+    "archetype": "int",
+    "pool": "sirenscale-gloves",
+    "family": "gloves",
+    "id": "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame",
+    "name": "Sirenscale Gloves",
+    "sourceUrl": "https://poe2db.tw/us/Sirenscale_Gloves",
+    "sourceSha256": "4e8523b4d55098dee45af0c93e02d0d148d93cae6f186913be40df9778eacfd7",
+    "sourceTags": [
+      "int_armour",
+      "karui_basetype",
+      "gloves",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 54,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 101,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 101 Int",
+      "ko": "요구 사항:  레벨 80, 101 지능",
+      "ja": "装備条件： レベル 80, 101 知性",
+      "zh-CN": "需求：  等级 80, 101 智慧",
+      "zh-TW": "需求:  等級 80, 101 智慧",
+      "es": "Requiere:  Nivel 80, 101 Int"
+    }
+  },
+  "adherent": {
+    "key": "adherent",
+    "slug": "Adherent_Cuffs",
+    "archetype": "str_int",
+    "pool": "adherent-cuffs",
+    "family": "gloves",
+    "id": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
+    "name": "Adherent Cuffs",
+    "sourceUrl": "https://poe2db.tw/us/Adherent_Cuffs",
+    "sourceSha256": "457b9029485796021429f387bd261309a21a5561202903b70463b7e2dd0a3812",
+    "sourceTags": [
+      "str_int_armour",
+      "karui_basetype",
+      "gloves",
+      "armour"
+    ],
+    "armour": 98,
+    "energyShield": 27,
+    "requiredLevel": 80,
+    "strength": 55,
+    "intelligence": 55,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 55 Str, 55 Int",
+      "ko": "요구 사항:  레벨 80, 55 힘, 55 지능",
+      "ja": "装備条件： レベル 80, 55 筋力, 55 知性",
+      "zh-CN": "需求：  等级 80, 55 力量, 55 智慧",
+      "zh-TW": "需求:  等級 80, 55 力量, 55 智慧",
+      "es": "Requiere:  Nivel 80, 55 Fue, 55 Int"
+    }
+  },
+  "polished": {
+    "key": "polished",
+    "slug": "Polished_Bracers",
+    "archetype": "dex",
+    "pool": "polished-bracers",
+    "family": "gloves",
+    "id": "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame",
+    "name": "Polished Bracers",
+    "sourceUrl": "https://poe2db.tw/us/Polished_Bracers",
+    "sourceSha256": "ec8acaf4281317b4883f685b89bd37519376f3a78d2aceeb26a2b1cb21f25bb2",
+    "sourceTags": [
+      "dex_armour",
+      "karui_basetype",
+      "gloves",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 101 Dex",
+      "ko": "요구 사항:  레벨 80, 101 민첩",
+      "ja": "装備条件： レベル 80, 101 器用さ",
+      "zh-CN": "需求：  等级 80, 101 敏捷",
+      "zh-TW": "需求:  等級 80, 101 敏捷",
+      "es": "Requiere:  Nivel 80, 101 Des"
+    },
+    "evasion": 170,
+    "dexterity": 101
+  },
+  "blacksteel-gloves": {
+    "key": "blacksteel-gloves",
+    "slug": "Blacksteel_Gauntlets",
+    "archetype": "str_dex",
+    "pool": "blacksteel-gauntlets",
+    "family": "gloves",
+    "id": "Metadata/Items/Armours/Gloves/FourGlovesStrDex4Endgame",
+    "name": "Blacksteel Gauntlets",
+    "sourceUrl": "https://poe2db.tw/us/Blacksteel_Gauntlets",
+    "sourceSha256": "04c265cd0b58b10e4b495fb976bb069797a5d30ba1b6084522539b65b66e95d5",
+    "sourceTags": [
+      "str_dex_armour",
+      "karui_basetype",
+      "gloves",
+      "armour"
+    ],
+    "armour": 103,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 55,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 55 Str, 55 Dex",
+      "ko": "요구 사항:  레벨 80, 55 힘, 55 민첩",
+      "ja": "装備条件： レベル 80, 55 筋力, 55 器用さ",
+      "zh-CN": "需求：  等级 80, 55 力量, 55 敏捷",
+      "zh-TW": "需求:  等級 80, 55 力量, 55 敏捷",
+      "es": "Requiere:  Nivel 80, 55 Fue, 55 Des"
+    },
+    "evasion": 94,
+    "dexterity": 55
+  },
+  "war-wraps": {
+    "key": "war-wraps",
+    "slug": "War_Wraps",
+    "archetype": "dex_int",
+    "pool": "war-wraps",
+    "family": "gloves",
+    "id": "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame",
+    "name": "War Wraps",
+    "sourceUrl": "https://poe2db.tw/us/War_Wraps",
+    "sourceSha256": "2d2b191c4188e15a9d28e1030ca2065525226143a37f989d220352c5cd7d7cca",
+    "sourceTags": [
+      "dex_int_armour",
+      "gloves",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 29,
+    "requiredLevel": 65,
+    "strength": 0,
+    "intelligence": 44,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 65, 44 Dex, 44 Int",
+      "ko": "요구 사항:  레벨 65, 44 민첩, 44 지능",
+      "ja": "装備条件： レベル 65, 44 器用さ, 44 知性",
+      "zh-CN": "需求：  等级 65, 44 敏捷, 44 智慧",
+      "zh-TW": "需求:  等級 65, 44 敏捷, 44 智慧",
+      "es": "Requiere:  Nivel 65, 44 Des, 44 Int"
+    },
+    "evasion": 94,
+    "dexterity": 44
+  },
+  "freebooter": {
+    "key": "freebooter",
+    "slug": "Freebooter_Cap",
+    "archetype": "dex",
+    "pool": "freebooter-cap",
+    "family": "helmets",
+    "id": "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame",
+    "name": "Freebooter Cap",
+    "sourceUrl": "https://poe2db.tw/us/Freebooter_Cap",
+    "sourceSha256": "819ac0492069db7faeaac4c14e1f37f92889084bb8022a2e9aee53f7d85cc0d5",
+    "sourceTags": [
+      "dex_armour",
+      "karui_basetype",
+      "helmet",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Dex",
+      "ko": "요구 사항:  레벨 80, 115 민첩",
+      "ja": "装備条件： レベル 80, 115 器用さ",
+      "zh-CN": "需求：  等级 80, 115 敏捷",
+      "zh-TW": "需求:  等級 80, 115 敏捷",
+      "es": "Requiere:  Nivel 80, 115 Des"
+    },
+    "evasion": 340,
+    "dexterity": 115
+  },
+  "gladiatorial": {
+    "key": "gladiatorial",
+    "slug": "Gladiatorial_Helm",
+    "archetype": "str_dex",
+    "pool": "gladiatorial-helm",
+    "family": "helmets",
+    "id": "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame",
+    "name": "Gladiatorial Helm",
+    "sourceUrl": "https://poe2db.tw/us/Gladiatorial_Helm",
+    "sourceSha256": "3d0b24237f9b901afcb7c8084d49c2b687084dedde7079637fd2f4e3f0eee83c",
+    "sourceTags": [
+      "str_dex_armour",
+      "karui_basetype",
+      "helmet",
+      "armour"
+    ],
+    "armour": 206,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 63,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 63 Str, 63 Dex",
+      "ko": "요구 사항:  레벨 80, 63 힘, 63 민첩",
+      "ja": "装備条件： レベル 80, 63 筋力, 63 器用さ",
+      "zh-CN": "需求：  等级 80, 63 力量, 63 敏捷",
+      "zh-TW": "需求:  等級 80, 63 力量, 63 敏捷",
+      "es": "Requiere:  Nivel 80, 63 Fue, 63 Des"
+    },
+    "evasion": 187,
+    "dexterity": 63
+  },
+  "grinning": {
+    "key": "grinning",
+    "slug": "Grinning_Mask",
+    "archetype": "dex_int",
+    "pool": "grinning-mask",
+    "family": "helmets",
+    "id": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
+    "name": "Grinning Mask",
+    "sourceUrl": "https://poe2db.tw/us/Grinning_Mask",
+    "sourceSha256": "3078bd0e431c072261eef610372b74ba02fd0a6e8ba77ecad8b59409fa937d55",
+    "sourceTags": [
+      "dex_int_armour",
+      "karui_basetype",
+      "helmet",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 57,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 63,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 63 Dex, 63 Int",
+      "ko": "요구 사항:  레벨 80, 63 민첩, 63 지능",
+      "ja": "装備条件： レベル 80, 63 器用さ, 63 知性",
+      "zh-CN": "需求：  等级 80, 63 敏捷, 63 智慧",
+      "zh-TW": "需求:  等級 80, 63 敏捷, 63 智慧",
+      "es": "Requiere:  Nivel 80, 63 Des, 63 Int"
+    },
+    "evasion": 187,
+    "dexterity": 63
+  },
+  "slipstrike": {
+    "key": "slipstrike",
+    "slug": "Slipstrike_Vest",
+    "archetype": "dex",
+    "pool": "slipstrike-vest",
+    "family": "body",
+    "id": "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame",
+    "name": "Slipstrike Vest",
+    "sourceUrl": "https://poe2db.tw/us/Slipstrike_Vest",
+    "sourceSha256": "a7f8d2790d12c4cd8b256cfa6a1cf2554aaf02a7c1eb587946b73f8a6a7b1911",
+    "sourceTags": [
+      "dex_armour",
+      "body_armour",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 0,
+    "requiredLevel": 70,
+    "strength": 0,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 70, 121 Dex",
+      "ko": "요구 사항:  레벨 70, 121 민첩",
+      "ja": "装備条件： レベル 70, 121 器用さ",
+      "zh-CN": "需求：  等级 70, 121 敏捷",
+      "zh-TW": "需求:  等級 70, 121 敏捷",
+      "es": "Requiere:  Nivel 70, 121 Des"
+    },
+    "evasion": 519,
+    "dexterity": 121,
+    "baseMovementSpeed": -0.03,
+    "sourceProperties": {
+      "en": [
+        "Base Movement Speed: -0.03"
+      ],
+      "ko": [
+        "Base Movement Speed: -0.03"
+      ],
+      "ja": [
+        "Base Movement Speed: -0.03"
+      ],
+      "zh-CN": [
+        "基础移动速度: -0.03"
+      ],
+      "zh-TW": [
+        "基礎移動速度: -0.03"
+      ],
+      "es": [
+        "Base Movement Speed: -0.03"
+      ]
+    }
+  },
+  "death-mail": {
+    "key": "death-mail",
+    "slug": "Death_Mail",
+    "archetype": "str_dex",
+    "pool": "death-mail",
+    "family": "body",
+    "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex6Endgame",
+    "name": "Death Mail",
+    "sourceUrl": "https://poe2db.tw/us/Death_Mail",
+    "sourceSha256": "ec76db9848b527be3af1a54557987b0b330fcbe613c5aa83dd399e2441328108",
+    "sourceTags": [
+      "str_dex_armour",
+      "body_armour",
+      "armour"
+    ],
+    "armour": 313,
+    "energyShield": 0,
+    "requiredLevel": 75,
+    "strength": 67,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 75, 67 Str, 67 Dex",
+      "ko": "요구 사항:  레벨 75, 67 힘, 67 민첩",
+      "ja": "装備条件： レベル 75, 67 筋力, 67 器用さ",
+      "zh-CN": "需求：  等级 75, 67 力量, 67 敏捷",
+      "zh-TW": "需求:  等級 75, 67 力量, 67 敏捷",
+      "es": "Requiere:  Nivel 75, 67 Fue, 67 Des"
+    },
+    "evasion": 285,
+    "dexterity": 67,
+    "baseMovementSpeed": -0.04,
+    "sourceProperties": {
+      "en": [
+        "Base Movement Speed: -0.04"
+      ],
+      "ko": [
+        "Base Movement Speed: -0.04"
+      ],
+      "ja": [
+        "Base Movement Speed: -0.04"
+      ],
+      "zh-CN": [
+        "基础移动速度: -0.04"
+      ],
+      "zh-TW": [
+        "基礎移動速度: -0.04"
+      ],
+      "es": [
+        "Base Movement Speed: -0.04"
+      ]
+    }
+  },
+  "sleek": {
+    "key": "sleek",
+    "slug": "Sleek_Jacket",
+    "archetype": "dex_int",
+    "pool": "sleek-jacket",
+    "family": "body",
+    "id": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame",
+    "name": "Sleek Jacket",
+    "sourceUrl": "https://poe2db.tw/us/Sleek_Jacket",
+    "sourceSha256": "f0b55d4da33b0374d01cc95c63c1f65ccaecdf24c98ed208ed303d6c0df2b64c",
+    "sourceTags": [
+      "dex_int_armour",
+      "body_armour",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 87,
+    "requiredLevel": 65,
+    "strength": 0,
+    "intelligence": 67,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 65, 67 Dex, 67 Int",
+      "ko": "요구 사항:  레벨 65, 67 민첩, 67 지능",
+      "ja": "装備条件： レベル 65, 67 器用さ, 67 知性",
+      "zh-CN": "需求：  等级 65, 67 敏捷, 67 智慧",
+      "zh-TW": "需求:  等級 65, 67 敏捷, 67 智慧",
+      "es": "Requiere:  Nivel 65, 67 Des, 67 Int"
+    },
+    "evasion": 285,
+    "dexterity": 67,
+    "baseMovementSpeed": -0.03,
+    "sourceProperties": {
+      "en": [
+        "Base Movement Speed: -0.03"
+      ],
+      "ko": [
+        "Base Movement Speed: -0.03"
+      ],
+      "ja": [
+        "Base Movement Speed: -0.03"
+      ],
+      "zh-CN": [
+        "基础移动速度: -0.03"
+      ],
+      "zh-TW": [
+        "基礎移動速度: -0.03"
+      ],
+      "es": [
+        "Base Movement Speed: -0.03"
+      ]
+    }
+  },
+  "vile": {
+    "key": "vile",
+    "slug": "Vile_Robe",
+    "archetype": "int",
+    "pool": "vile-robe",
+    "family": "body",
+    "id": "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame",
+    "name": "Vile Robe",
+    "sourceUrl": "https://poe2db.tw/us/Vile_Robe",
+    "sourceSha256": "cf592bffbd38999ddb013f0ae6355c1e206a3ca36aa8752003000c393750cb99",
+    "sourceTags": [
+      "int_armour",
+      "body_armour",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 171,
+    "requiredLevel": 65,
+    "strength": 0,
+    "intelligence": 121,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 65, 121 Int",
+      "ko": "요구 사항:  레벨 65, 121 지능",
+      "ja": "装備条件： レベル 65, 121 知性",
+      "zh-CN": "需求：  等级 65, 121 智慧",
+      "zh-TW": "需求:  等級 65, 121 智慧",
+      "es": "Requiere:  Nivel 65, 121 Int"
+    },
+    "evasion": 0,
+    "dexterity": 0,
+    "baseMovementSpeed": -0.03,
+    "sourceProperties": {
+      "en": [
+        "Base Movement Speed: -0.03"
+      ],
+      "ko": [
+        "Base Movement Speed: -0.03"
+      ],
+      "ja": [
+        "Base Movement Speed: -0.03"
+      ],
+      "zh-CN": [
+        "基础移动速度: -0.03"
+      ],
+      "zh-TW": [
+        "基礎移動速度: -0.03"
+      ],
+      "es": [
+        "Base Movement Speed: -0.03"
+      ]
+    }
+  },
+  "wolfskin": {
+    "key": "wolfskin",
+    "slug": "Wolfskin_Mantle",
+    "archetype": "str_int",
+    "pool": "wolfskin-mantle",
+    "family": "body",
+    "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Endgame",
+    "name": "Wolfskin Mantle",
+    "sourceUrl": "https://poe2db.tw/us/Wolfskin_Mantle",
+    "sourceSha256": "aaff93b4b7f430b5f492d8c493fead43cd9dda5d73bf84dd1d0491b8c5b133fb",
+    "sourceTags": [
+      "str_int_armour",
+      "body_armour",
+      "armour"
+    ],
+    "armour": 313,
+    "energyShield": 87,
+    "requiredLevel": 65,
+    "strength": 67,
+    "intelligence": 67,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 65, 67 Str, 67 Int",
+      "ko": "요구 사항:  레벨 65, 67 힘, 67 지능",
+      "ja": "装備条件： レベル 65, 67 筋力, 67 知性",
+      "zh-CN": "需求：  等级 65, 67 力量, 67 智慧",
+      "zh-TW": "需求:  等級 65, 67 力量, 67 智慧",
+      "es": "Requiere:  Nivel 65, 67 Fue, 67 Int"
+    },
+    "evasion": 0,
+    "dexterity": 0,
+    "baseMovementSpeed": -0.04,
+    "sourceProperties": {
+      "en": [
+        "Base Movement Speed: -0.04"
+      ],
+      "ko": [
+        "Base Movement Speed: -0.04"
+      ],
+      "ja": [
+        "Base Movement Speed: -0.04"
+      ],
+      "zh-CN": [
+        "基础移动速度: -0.04"
+      ],
+      "zh-TW": [
+        "基礎移動速度: -0.04"
+      ],
+      "es": [
+        "Base Movement Speed: -0.04"
+      ]
+    }
+  },
+  "ancestral": {
+    "key": "ancestral",
+    "slug": "Ancestral_Tiara",
+    "archetype": "int",
+    "pool": "ancestral-tiara",
+    "family": "helmets",
+    "id": "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame",
+    "name": "Ancestral Tiara",
+    "sourceUrl": "https://poe2db.tw/us/Ancestral_Tiara",
+    "sourceSha256": "f825b78a8351ecd4749c00fe2906fcb3921be3910f70179db5431471df20a84e",
+    "sourceTags": [
+      "int_armour",
+      "karui_basetype",
+      "helmet",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 109,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 115,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Int",
+      "ko": "요구 사항:  레벨 80, 115 지능",
+      "ja": "装備条件： レベル 80, 115 知性",
+      "zh-CN": "需求：  等级 80, 115 智慧",
+      "zh-TW": "需求:  等級 80, 115 智慧",
+      "es": "Requiere:  Nivel 80, 115 Int"
+    },
+    "evasion": 0,
+    "dexterity": 0
+  },
+  "cryptic": {
+    "key": "cryptic",
+    "slug": "Cryptic_Crown",
+    "archetype": "str_int",
+    "pool": "cryptic-crown",
+    "family": "helmets",
+    "id": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame",
+    "name": "Cryptic Crown",
+    "sourceUrl": "https://poe2db.tw/us/Cryptic_Crown",
+    "sourceSha256": "bae9d05d2b2bbd98c4893ff53e9b4c3805e52baacbe63862d805a84d342aceb9",
+    "sourceTags": [
+      "str_int_armour",
+      "karui_basetype",
+      "helmet",
+      "armour"
+    ],
+    "armour": 206,
+    "energyShield": 57,
+    "requiredLevel": 80,
+    "strength": 63,
+    "intelligence": 63,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 63 Str, 63 Int",
+      "ko": "요구 사항:  레벨 80, 63 힘, 63 지능",
+      "ja": "装備条件： レベル 80, 63 筋力, 63 知性",
+      "zh-CN": "需求：  等级 80, 63 力量, 63 智慧",
+      "zh-TW": "需求:  等級 80, 63 力量, 63 智慧",
+      "es": "Requiere:  Nivel 80, 63 Fue, 63 Int"
+    },
+    "evasion": 0,
+    "dexterity": 0
+  },
+  "tasalian": {
+    "key": "tasalian",
+    "slug": "Tasalian_Greaves",
+    "archetype": "str",
+    "pool": "tasalian-greaves",
+    "family": "boots",
+    "id": "Metadata/Items/Armours/Boots/FourBootsStr6Endgame",
+    "name": "Tasalian Greaves",
+    "sourceUrl": "https://poe2db.tw/us/Tasalian_Greaves",
+    "sourceSha256": "8d50cf56f3db2bd52fea1e9462f6bff481646ebd6d7e5658c4a9e8ac08767685",
+    "sourceTags": [
+      "str_armour",
+      "karui_basetype",
+      "boots",
+      "armour"
+    ],
+    "armour": 280,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 108,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 108 Str",
+      "ko": "요구 사항:  레벨 80, 108 힘",
+      "ja": "装備条件： レベル 80, 108 筋力",
+      "zh-CN": "需求：  等级 80, 108 力量",
+      "zh-TW": "需求:  等級 80, 108 力量",
+      "es": "Requiere:  Nivel 80, 108 Fue"
+    },
+    "evasion": 0,
+    "dexterity": 0
+  },
+  "drakeskin": {
+    "key": "drakeskin",
+    "slug": "Drakeskin_Boots",
+    "archetype": "dex",
+    "pool": "drakeskin-boots",
+    "family": "boots",
+    "id": "Metadata/Items/Armours/Boots/FourBootsDex6Endgame",
+    "name": "Drakeskin Boots",
+    "sourceUrl": "https://poe2db.tw/us/Drakeskin_Boots",
+    "sourceSha256": "b4a1e781c8b61273ecbb9045799f3c6e4431c48f8bdbfb839e58cc6e4694cbac",
+    "sourceTags": [
+      "dex_armour",
+      "karui_basetype",
+      "boots",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 108 Dex",
+      "ko": "요구 사항:  레벨 80, 108 민첩",
+      "ja": "装備条件： レベル 80, 108 器用さ",
+      "zh-CN": "需求：  等级 80, 108 敏捷",
+      "zh-TW": "需求:  等級 80, 108 敏捷",
+      "es": "Requiere:  Nivel 80, 108 Des"
+    },
+    "evasion": 255,
+    "dexterity": 108
+  },
+  "sekhema": {
+    "key": "sekhema",
+    "slug": "Sekhema_Sandals",
+    "archetype": "int",
+    "pool": "sekhema-sandals",
+    "family": "boots",
+    "id": "Metadata/Items/Armours/Boots/FourBootsInt6Endgame",
+    "name": "Sekhema Sandals",
+    "sourceUrl": "https://poe2db.tw/us/Sekhema_Sandals",
+    "sourceSha256": "a0301aa77b114eeb27501b0ff2d5b830a25c5365bc12177a972e485dc8f06930",
+    "sourceTags": [
+      "int_armour",
+      "karui_basetype",
+      "boots",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 83,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 108,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 108 Int",
+      "ko": "요구 사항:  레벨 80, 108 지능",
+      "ja": "装備条件： レベル 80, 108 知性",
+      "zh-CN": "需求：  等级 80, 108 智慧",
+      "zh-TW": "需求:  等級 80, 108 智慧",
+      "es": "Requiere:  Nivel 80, 108 Int"
+    },
+    "evasion": 0,
+    "dexterity": 0
+  },
+  "blacksteel-boots": {
+    "key": "blacksteel-boots",
+    "slug": "Blacksteel_Sabatons",
+    "archetype": "str_dex",
+    "pool": "blacksteel-sabatons",
+    "family": "boots",
+    "id": "Metadata/Items/Armours/Boots/FourBootsStrDex4Endgame",
+    "name": "Blacksteel Sabatons",
+    "sourceUrl": "https://poe2db.tw/us/Blacksteel_Sabatons",
+    "sourceSha256": "7d04a02a1f36b2662459aaa2c038d83f420cd89b0ce8370217acb1925213367a",
+    "sourceTags": [
+      "str_dex_armour",
+      "karui_basetype",
+      "boots",
+      "armour"
+    ],
+    "armour": 154,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 59,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 59 Str, 59 Dex",
+      "ko": "요구 사항:  레벨 80, 59 힘, 59 민첩",
+      "ja": "装備条件： レベル 80, 59 筋力, 59 器用さ",
+      "zh-CN": "需求：  等级 80, 59 力量, 59 敏捷",
+      "zh-TW": "需求:  等級 80, 59 力量, 59 敏捷",
+      "es": "Requiere:  Nivel 80, 59 Fue, 59 Des"
+    },
+    "evasion": 140,
+    "dexterity": 59
+  },
+  "faithful": {
+    "key": "faithful",
+    "slug": "Faithful_Leggings",
+    "archetype": "str_int",
+    "pool": "faithful-leggings",
+    "family": "boots",
+    "id": "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame",
+    "name": "Faithful Leggings",
+    "sourceUrl": "https://poe2db.tw/us/Faithful_Leggings",
+    "sourceSha256": "22effc7b863a74d261a248f3fc116ccdbd09b8048299d6cce826c87bf149faf8",
+    "sourceTags": [
+      "str_int_armour",
+      "boots",
+      "armour"
+    ],
+    "armour": 134,
+    "energyShield": 37,
+    "requiredLevel": 65,
+    "strength": 47,
+    "intelligence": 47,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 65, 47 Str, 47 Int",
+      "ko": "요구 사항:  레벨 65, 47 힘, 47 지능",
+      "ja": "装備条件： レベル 65, 47 筋力, 47 知性",
+      "zh-CN": "需求：  等级 65, 47 力量, 47 智慧",
+      "zh-TW": "需求:  等級 65, 47 力量, 47 智慧",
+      "es": "Requiere:  Nivel 65, 47 Fue, 47 Int"
+    },
+    "evasion": 0,
+    "dexterity": 0
+  },
+  "daggerfoot": {
+    "key": "daggerfoot",
+    "slug": "Daggerfoot_Shoes",
+    "archetype": "dex_int",
+    "pool": "daggerfoot-shoes",
+    "family": "boots",
+    "id": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
+    "name": "Daggerfoot Shoes",
+    "sourceUrl": "https://poe2db.tw/us/Daggerfoot_Shoes",
+    "sourceSha256": "64a63eb38f3c10748dd7be47925da48adc0af518ddf9f264756c7714e1cd4a2a",
+    "sourceTags": [
+      "dex_int_armour",
+      "karui_basetype",
+      "boots",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 43,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 59,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 59 Dex, 59 Int",
+      "ko": "요구 사항:  레벨 80, 59 민첩, 59 지능",
+      "ja": "装備条件： レベル 80, 59 器用さ, 59 知性",
+      "zh-CN": "需求：  等级 80, 59 敏捷, 59 智慧",
+      "zh-TW": "需求:  等級 80, 59 敏捷, 59 智慧",
+      "es": "Requiere:  Nivel 80, 59 Des, 59 Int"
+    },
+    "evasion": 140,
+    "dexterity": 59
+  },
+  "warmonger": {
+    "key": "warmonger",
+    "slug": "Warmonger_Bow",
+    "pool": "warmonger-bow",
+    "family": "bows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow8Endgame",
+    "name": "Warmonger Bow",
+    "sourceUrl": "https://poe2db.tw/us/Warmonger_Bow",
+    "sourceSha256": "2a974a12bb87b07fae620d64da49343f89758a8cfbef85d8e22ec25472914711",
+    "sourceTags": [
+      "bow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 163,
+    "requiredLevel": 77,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 77, 163 Dex",
+      "ko": "요구 사항:  레벨 77, 163 민첩",
+      "ja": "装備条件： レベル 77, 163 器用さ",
+      "zh-CN": "需求：  等级 77, 163 敏捷",
+      "zh-TW": "需求:  等級 77, 163 敏捷",
+      "es": "Requiere:  Nivel 77, 163 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Physical Damage: 56-84",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.2"
+      ],
+      "ko": [
+        "물리 피해: 56-84",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.2"
+      ],
+      "ja": [
+        "物理ダメージ: 56-84",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.2"
+      ],
+      "zh-CN": [
+        "物理伤害: 56-84",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.2"
+      ],
+      "zh-TW": [
+        "物理傷害: 56-84",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.2"
+      ],
+      "es": [
+        "Daño físico: 56-84",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.2"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "physicalDamage": "56-84",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.2
+  },
+  "guardian": {
+    "key": "guardian",
+    "slug": "Guardian_Bow",
+    "pool": "guardian-bow",
+    "family": "bows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow3Endgame",
+    "name": "Guardian Bow",
+    "sourceUrl": "https://poe2db.tw/us/Guardian_Bow",
+    "sourceSha256": "831c3d80d2479116ca14b1c4076d5114f56b56d90356e3638bc14203d7969d33",
+    "sourceTags": [
+      "bow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 163,
+    "requiredLevel": 77,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 77, 163 Dex",
+      "ko": "요구 사항:  레벨 77, 163 민첩",
+      "ja": "装備条件： レベル 77, 163 器用さ",
+      "zh-CN": "需求：  等级 77, 163 敏捷",
+      "zh-TW": "需求:  等級 77, 163 敏捷",
+      "es": "Requiere:  Nivel 77, 163 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Physical Damage: 53-88",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.15"
+      ],
+      "ko": [
+        "물리 피해: 53-88",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.15"
+      ],
+      "ja": [
+        "物理ダメージ: 53-88",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.15"
+      ],
+      "zh-CN": [
+        "物理伤害: 53-88",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.15"
+      ],
+      "zh-TW": [
+        "物理傷害: 53-88",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.15"
+      ],
+      "es": [
+        "Daño físico: 53-88",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.15"
+      ]
+    },
+    "implicitModifierId": "guardian-bow:implicit:chain",
+    "implicitStats": [
+      {
+        "id": "local_additional_attack_chain_chance_%",
+        "min": 25,
+        "max": 35
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_additional_attack_chain_chance_%",
+        "min": 25,
+        "max": 35,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "53-88",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.15
+  },
+  "gemini": {
+    "key": "gemini",
+    "slug": "Gemini_Bow",
+    "pool": "gemini-bow",
+    "family": "bows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow6Endgame",
+    "name": "Gemini Bow",
+    "sourceUrl": "https://poe2db.tw/us/Gemini_Bow",
+    "sourceSha256": "8cd453bbdf4b0fe2407f0c84d66188cc02ea3a0fda8de3868da3c92024401e63",
+    "sourceTags": [
+      "bow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 163,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 163 Dex",
+      "ko": "요구 사항:  레벨 78, 163 민첩",
+      "ja": "装備条件： レベル 78, 163 器用さ",
+      "zh-CN": "需求：  等级 78, 163 敏捷",
+      "zh-TW": "需求:  等級 78, 163 敏捷",
+      "es": "Requiere:  Nivel 78, 163 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Physical Damage: 39-72",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.15"
+      ],
+      "ko": [
+        "물리 피해: 39-72",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.15"
+      ],
+      "ja": [
+        "物理ダメージ: 39-72",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.15"
+      ],
+      "zh-CN": [
+        "物理伤害: 39-72",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.15"
+      ],
+      "zh-TW": [
+        "物理傷害: 39-72",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.15"
+      ],
+      "es": [
+        "Daño físico: 39-72",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.15"
+      ]
+    },
+    "implicitModifierId": "gemini-bow:implicit:additionalarrows",
+    "implicitStats": [
+      {
+        "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+        "min": 50,
+        "max": 50
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+        "min": 50,
+        "max": 50,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "39-72",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.15
+  },
+  "fanatic": {
+    "key": "fanatic",
+    "slug": "Fanatic_Bow",
+    "pool": "fanatic-bow",
+    "family": "bows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow7Endgame",
+    "name": "Fanatic Bow",
+    "sourceUrl": "https://poe2db.tw/us/Fanatic_Bow",
+    "sourceSha256": "f4a9c77fc31f73f220cd27c4c9fa198130574b60057e601a8d779dc0b07681c8",
+    "sourceTags": [
+      "bow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 163,
+    "requiredLevel": 79,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 79, 163 Dex",
+      "ko": "요구 사항:  레벨 79, 163 민첩",
+      "ja": "装備条件： レベル 79, 163 器用さ",
+      "zh-CN": "需求：  等级 79, 163 敏捷",
+      "zh-TW": "需求:  等級 79, 163 敏捷",
+      "es": "Requiere:  Nivel 79, 163 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Physical Damage: 47-79",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.2"
+      ],
+      "ko": [
+        "물리 피해: 47-79",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.2"
+      ],
+      "ja": [
+        "物理ダメージ: 47-79",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.2"
+      ],
+      "zh-CN": [
+        "物理伤害: 47-79",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.2"
+      ],
+      "zh-TW": [
+        "物理傷害: 47-79",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.2"
+      ],
+      "es": [
+        "Daño físico: 47-79",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.2"
+      ]
+    },
+    "implicitModifierId": "fanatic-bow:implicit:weaponimplicitdamagetype",
+    "implicitStats": [
+      {
+        "id": "local_weapon_implicit_hidden_added_maximum_chaos_damage",
+        "min": 64,
+        "max": 64
+      },
+      {
+        "id": "local_weapon_implicit_hidden_added_minimum_chaos_damage",
+        "min": 28,
+        "max": 28
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_weapon_implicit_hidden_added_maximum_chaos_damage",
+        "min": 64,
+        "max": 64,
+        "locality": "Local"
+      },
+      {
+        "id": "local_weapon_implicit_hidden_added_minimum_chaos_damage",
+        "min": 28,
+        "max": 28,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "47-79",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.2
+  },
+  "obliterator": {
+    "key": "obliterator",
+    "slug": "Obliterator_Bow",
+    "pool": "obliterator-bow",
+    "family": "bows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame",
+    "name": "Obliterator Bow",
+    "sourceUrl": "https://poe2db.tw/us/Obliterator_Bow",
+    "sourceSha256": "90f6f625eb5558d2c4ff68e913fd69ccce48c7a5141878c5efa6cced954d2791",
+    "sourceTags": [
+      "karui_basetype",
+      "bow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 163,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 163 Dex",
+      "ko": "요구 사항:  레벨 78, 163 민첩",
+      "ja": "装備条件： レベル 78, 163 器用さ",
+      "zh-CN": "需求：  等级 78, 163 敏捷",
+      "zh-TW": "需求:  等級 78, 163 敏捷",
+      "es": "Requiere:  Nivel 78, 163 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Physical Damage: 62-115",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.1"
+      ],
+      "ko": [
+        "물리 피해: 62-115",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.1"
+      ],
+      "ja": [
+        "物理ダメージ: 62-115",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.1"
+      ],
+      "zh-CN": [
+        "物理伤害: 62-115",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.1"
+      ],
+      "zh-TW": [
+        "物理傷害: 62-115",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.1"
+      ],
+      "es": [
+        "Daño físico: 62-115",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.1"
+      ]
+    },
+    "implicitModifierId": "obliterator-bow:implicit:projectilerange",
+    "implicitStats": [
+      {
+        "id": "projectile_attack_range_+%",
+        "min": -50,
+        "max": -50
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "projectile_attack_range_+%",
+        "min": -50,
+        "max": -50,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "62-115",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.1
+  },
+  "kinetic": {
+    "key": "kinetic",
+    "slug": "Kinetic_Ring",
+    "pool": "kinetic-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRingB4",
+    "name": "Kinetic Ring",
+    "sourceUrl": "https://poe2db.tw/us/Kinetic_Ring",
+    "sourceSha256": "27c8c847f28bf2440563b9fe9aa42b467e0e4b988f610d0c7021c461c9e64aa1",
+    "sourceTags": [
+      "ring"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 40,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 40",
+      "ko": "요구 사항:  레벨 40",
+      "ja": "装備条件： レベル 40",
+      "zh-CN": "需求：  等级 40",
+      "zh-TW": "需求:  等級 40",
+      "es": "Requiere:  Nivel 40"
+    },
+    "implicitModifierId": "kinetic:implicit:physicaldamage",
+    "implicitStats": [
+      {
+        "id": "attack_maximum_added_physical_damage",
+        "min": 11,
+        "max": 15
+      },
+      {
+        "id": "attack_minimum_added_physical_damage",
+        "min": 6,
+        "max": 9
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "attack_maximum_added_physical_damage",
+        "min": 11,
+        "max": 15,
+        "locality": "Global"
+      },
+      {
+        "id": "attack_minimum_added_physical_damage",
+        "min": 6,
+        "max": 9,
+        "locality": "Global"
+      }
+    ]
+  },
+  "vitalic": {
+    "key": "vitalic",
+    "slug": "Vitalic_Ring",
+    "pool": "vitalic-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRingB2",
+    "name": "Vitalic Ring",
+    "sourceUrl": "https://poe2db.tw/us/Vitalic_Ring",
+    "sourceSha256": "30e4158207c3f3303c424e8de8b51246a504eb8fc50dcc0ea1d90045d8ec3324",
+    "sourceTags": [
+      "ring"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 40,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 40",
+      "ko": "요구 사항:  레벨 40",
+      "ja": "装備条件： レベル 40",
+      "zh-CN": "需求：  等级 40",
+      "zh-TW": "需求:  等級 40",
+      "es": "Requiere:  Nivel 40"
+    },
+    "implicitModifierId": "vitalic:implicit:increasedlife",
+    "implicitStats": [
+      {
+        "id": "maximum_life_+%",
+        "min": 4,
+        "max": 6
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "maximum_life_+%",
+        "min": 4,
+        "max": 6,
+        "locality": "Global"
+      }
+    ]
+  },
+  "mnemonic": {
+    "key": "mnemonic",
+    "slug": "Mnemonic_Ring",
+    "pool": "mnemonic-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRingB3",
+    "name": "Mnemonic Ring",
+    "sourceUrl": "https://poe2db.tw/us/Mnemonic_Ring",
+    "sourceSha256": "3aa1f8c90b326bb25fe0776e5753c76fb0718c7bcc04b18a44fe31b5b735f032",
+    "sourceTags": [
+      "ring"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 40,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 40",
+      "ko": "요구 사항:  레벨 40",
+      "ja": "装備条件： レベル 40",
+      "zh-CN": "需求：  等级 40",
+      "zh-TW": "需求:  等級 40",
+      "es": "Requiere:  Nivel 40"
+    },
+    "implicitModifierId": "mnemonic:implicit:maximummanaincreasepercent",
+    "implicitStats": [
+      {
+        "id": "maximum_mana_+%",
+        "min": 4,
+        "max": 6
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "maximum_mana_+%",
+        "min": 4,
+        "max": 6,
+        "locality": "Global"
+      }
+    ]
+  },
+  "pearl": {
+    "key": "pearl",
+    "slug": "Pearl_Ring",
+    "pool": "pearl-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRing8",
+    "name": "Pearl Ring",
+    "sourceUrl": "https://poe2db.tw/us/Pearl_Ring",
+    "sourceSha256": "00ac2f0e29e19688f4fa60ca38cbde991953c4f88d05fbf4008ea74f4a986d6e",
+    "sourceTags": [
+      "ring"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 32,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 32",
+      "ko": "요구 사항:  레벨 32",
+      "ja": "装備条件： レベル 32",
+      "zh-CN": "需求：  等级 32",
+      "zh-TW": "需求:  等級 32",
+      "es": "Requiere:  Nivel 32"
+    },
+    "implicitModifierId": "pearl:implicit:increasedcastspeed",
+    "implicitStats": [
+      {
+        "id": "base_cast_speed_+%",
+        "min": 7,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_cast_speed_+%",
+        "min": 7,
+        "max": 10,
+        "locality": "Global"
+      }
+    ]
+  },
+  "amethyst": {
+    "key": "amethyst",
+    "slug": "Amethyst_Ring",
+    "pool": "amethyst-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRing6",
+    "name": "Amethyst Ring",
+    "sourceUrl": "https://poe2db.tw/us/Amethyst_Ring",
+    "sourceSha256": "b090a09ccf81abe4a6dfac67e9b25ddef8c4460bc478b4ee26f333f613055fff",
+    "sourceTags": [
+      "ring"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 20,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 20",
+      "ko": "요구 사항:  레벨 20",
+      "ja": "装備条件： レベル 20",
+      "zh-CN": "需求：  等级 20",
+      "zh-TW": "需求:  等級 20",
+      "es": "Requiere:  Nivel 20"
+    },
+    "implicitModifierId": "amethyst:implicit:chaosresistance",
+    "implicitStats": [
+      {
+        "id": "base_chaos_damage_resistance_%",
+        "min": 7,
+        "max": 13
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_chaos_damage_resistance_%",
+        "min": 7,
+        "max": 13,
+        "locality": "Global"
+      }
+    ]
+  },
+  "prismatic": {
+    "key": "prismatic",
+    "slug": "Prismatic_Ring",
+    "pool": "prismatic-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRing9",
+    "name": "Prismatic Ring",
+    "sourceUrl": "https://poe2db.tw/us/Prismatic_Ring",
+    "sourceSha256": "87b5f6138af8cfacbe69ea8559be56479866646c5ceaaf72c96d7c370ef0d24e",
+    "sourceTags": [
+      "ring"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 35,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 35",
+      "ko": "요구 사항:  레벨 35",
+      "ja": "装備条件： レベル 35",
+      "zh-CN": "需求：  等级 35",
+      "zh-TW": "需求:  等級 35",
+      "es": "Requiere:  Nivel 35"
+    },
+    "implicitModifierId": "prismatic:implicit:allresistances",
+    "implicitStats": [
+      {
+        "id": "base_resist_all_elements_%",
+        "min": 7,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_resist_all_elements_%",
+        "min": 7,
+        "max": 10,
+        "locality": "Global"
+      }
+    ]
+  },
+  "ruby-ring": {
+    "key": "ruby-ring",
+    "slug": "Ruby_Ring",
+    "pool": "ruby-ring-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRing3",
+    "name": "Ruby Ring",
+    "sourceUrl": "https://poe2db.tw/us/Ruby_Ring",
+    "sourceSha256": "875791b723660e90856e634db8d3c5d1b623aa62e4b4bb2150af981ce1e3295f",
+    "sourceTags": [
+      "ring"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 8,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    },
+    "implicitModifierId": "ruby-ring:implicit:fireresistance",
+    "implicitStats": [
+      {
+        "id": "base_fire_damage_resistance_%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_fire_damage_resistance_%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ]
+  },
+  "two-stone-fire-cold": {
+    "key": "two-stone-fire-cold",
+    "slug": "Two-Stone_Ring",
+    "pool": "two-stone-fire-cold-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRing13a",
+    "name": "Two-Stone Ring",
+    "sourceUrl": "https://poe2db.tw/us/Two-Stone_Ring",
+    "sourceSha256": "e39002dcfed909bd6f94323c902b46f079f117f871405822b978e9fd394e7550",
+    "sourceTags": [
+      "ring"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 35,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 35",
+      "ko": "요구 사항:  레벨 35",
+      "ja": "装備条件： レベル 35",
+      "zh-CN": "需求：  等级 35",
+      "zh-TW": "需求:  等級 35",
+      "es": "Requiere:  Nivel 35"
+    },
+    "implicitModifierId": "two-stone-fire-cold:implicit:fireandcoldresistance",
+    "implicitStats": [
+      {
+        "id": "fire_and_cold_damage_resistance_%",
+        "min": 12,
+        "max": 16
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "fire_and_cold_damage_resistance_%",
+        "min": 12,
+        "max": 16,
+        "locality": "Global"
+      }
+    ]
+  },
+  "stellar": {
+    "key": "stellar",
+    "slug": "Stellar_Amulet",
+    "pool": "stellar-amulet",
+    "family": "amulets",
+    "id": "Metadata/Items/Amulets/FourAmulet8",
+    "name": "Stellar Amulet",
+    "sourceUrl": "https://poe2db.tw/us/Stellar_Amulet",
+    "sourceSha256": "830a070858d78718c61429fd0e2130c3865569592d6f8a9f6e04ae4b9968eacf",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 25,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 25",
+      "ko": "요구 사항:  레벨 25",
+      "ja": "装備条件： レベル 25",
+      "zh-CN": "需求：  等级 25",
+      "zh-TW": "需求:  等級 25",
+      "es": "Requiere:  Nivel 25"
+    },
+    "implicitModifierId": "stellar:implicit:allattributes",
+    "implicitStats": [
+      {
+        "id": "additional_all_attributes",
+        "min": 5,
+        "max": 7
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "additional_all_attributes",
+        "min": 5,
+        "max": 7,
+        "locality": "Global"
+      }
+    ]
+  },
+  "amber": {
+    "key": "amber",
+    "slug": "Amber_Amulet",
+    "pool": "amber-amulet",
+    "family": "amulets",
+    "id": "Metadata/Items/Amulets/FourAmulet3",
+    "name": "Amber Amulet",
+    "sourceUrl": "https://poe2db.tw/us/Amber_Amulet",
+    "sourceSha256": "0da8e73974bc45e7282e9280bfa56a9f3fc2f4dd66e5befbbc09cb77915d24f9",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 8,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    },
+    "implicitModifierId": "amber:implicit:strength",
+    "implicitStats": [
+      {
+        "id": "additional_strength",
+        "min": 10,
+        "max": 15
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "additional_strength",
+        "min": 10,
+        "max": 15,
+        "locality": "Global"
+      }
+    ]
+  },
+  "bloodstone": {
+    "key": "bloodstone",
+    "slug": "Bloodstone_Amulet",
+    "pool": "bloodstone-amulet",
+    "family": "amulets",
+    "id": "Metadata/Items/Amulets/FourAmulet7",
+    "name": "Bloodstone Amulet",
+    "sourceUrl": "https://poe2db.tw/us/Bloodstone_Amulet",
+    "sourceSha256": "92c27288fc1160bd78016acddd0ec79b52167056ebd96080a416fefc5f7913a1",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 18,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 18",
+      "ko": "요구 사항:  레벨 18",
+      "ja": "装備条件： レベル 18",
+      "zh-CN": "需求：  等级 18",
+      "zh-TW": "需求:  等級 18",
+      "es": "Requiere:  Nivel 18"
+    },
+    "implicitModifierId": "bloodstone:implicit:increasedlife",
+    "implicitStats": [
+      {
+        "id": "base_maximum_life",
+        "min": 30,
+        "max": 40
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_maximum_life",
+        "min": 30,
+        "max": 40,
+        "locality": "Global"
+      }
+    ]
+  },
+  "lunar": {
+    "key": "lunar",
+    "slug": "Lunar_Amulet",
+    "pool": "lunar-amulet",
+    "family": "amulets",
+    "id": "Metadata/Items/Amulets/FourAmulet6",
+    "name": "Lunar Amulet",
+    "sourceUrl": "https://poe2db.tw/us/Lunar_Amulet",
+    "sourceSha256": "c383d5bc88adc97d2c697d225da44cf190ea14b89c138086578de4c6ea9bbc4f",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 14,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 14",
+      "ko": "요구 사항:  레벨 14",
+      "ja": "装備条件： レベル 14",
+      "zh-CN": "需求：  等级 14",
+      "zh-TW": "需求:  等級 14",
+      "es": "Requiere:  Nivel 14"
+    },
+    "implicitModifierId": "lunar:implicit:increasedenergyshield",
+    "implicitStats": [
+      {
+        "id": "base_maximum_energy_shield",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_maximum_energy_shield",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ]
+  },
+  "azure": {
+    "key": "azure",
+    "slug": "Azure_Amulet",
+    "pool": "azure-amulet",
+    "family": "amulets",
+    "id": "Metadata/Items/Amulets/FourAmulet2",
+    "name": "Azure Amulet",
+    "sourceUrl": "https://poe2db.tw/us/Azure_Amulet",
+    "sourceSha256": "9a780eba692859c1930398140505dd17efd64c1d9e8a67de18e28dc66c6a1974",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitModifierId": "azure:implicit:manaregeneration",
+    "implicitStats": [
+      {
+        "id": "mana_regeneration_rate_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "mana_regeneration_rate_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ]
+  },
+  "crimson": {
+    "key": "crimson",
+    "slug": "Crimson_Amulet",
+    "pool": "crimson-amulet",
+    "family": "amulets",
+    "id": "Metadata/Items/Amulets/FourAmulet1",
+    "name": "Crimson Amulet",
+    "sourceUrl": "https://poe2db.tw/us/Crimson_Amulet",
+    "sourceSha256": "d9c1cd280d66744b67f9285ca75a2c5d56c3512de9386da58568ad77027b867f",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitModifierId": "crimson:implicit:liferegeneration",
+    "implicitStats": [
+      {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 120,
+        "max": 240
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 120,
+        "max": 240,
+        "locality": "Global"
+      }
+    ]
+  },
+  "pearlescent": {
+    "key": "pearlescent",
+    "slug": "Pearlescent_Amulet",
+    "pool": "pearlescent-amulet",
+    "family": "amulets",
+    "id": "Metadata/Items/Amulets/FourAmulet11",
+    "name": "Pearlescent Amulet",
+    "sourceUrl": "https://poe2db.tw/us/Pearlescent_Amulet",
+    "sourceSha256": "93e7aa1d15c444b234763b6292f32107ed01cad6161c744f5c28df20ccaf5145",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 8,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    },
+    "implicitModifierId": "pearlescent:implicit:allresistances",
+    "implicitStats": [
+      {
+        "id": "base_resist_all_elements_%",
+        "min": 7,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_resist_all_elements_%",
+        "min": 7,
+        "max": 10,
+        "locality": "Global"
+      }
+    ]
+  },
+  "hallowed": {
+    "key": "hallowed",
+    "slug": "Hallowed_Sceptre",
+    "pool": "hallowed-sceptre",
+    "family": "sceptres",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
+    "name": "Hallowed Sceptre",
+    "sourceUrl": "https://poe2db.tw/us/Hallowed_Sceptre",
+    "sourceSha256": "fb78f4d6e13abc13ac42f50f7ab1d170bc9978aaa84efbf46a8053673940b082",
+    "sourceTags": [
+      "sceptre",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 114,
+    "requiredLevel": 65,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 65, 114 Int",
+      "ko": "요구 사항:  레벨 65, 114 지능",
+      "ja": "装備条件： レベル 65, 114 知性",
+      "zh-CN": "需求：  等级 65, 114 智慧",
+      "zh-TW": "需求:  等級 65, 114 智慧",
+      "es": "Requiere:  Nivel 65, 114 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spirit: 100",
+        "Grants Skill: Skeletal Warrior"
+      ],
+      "ko": [
+        "정신력: 100",
+        "스킬 부여: 해골 전사"
+      ],
+      "ja": [
+        "スピリット: 100",
+        "スキルを付与: スケルトンウォーリアー"
+      ],
+      "zh-CN": [
+        "精魂: 100",
+        "获得技能: 魔侍武士"
+      ],
+      "zh-TW": [
+        "精魂: 100",
+        "賦予技能: 骷髏戰士"
+      ],
+      "es": [
+        "Espíritu: 100",
+        "Otorga la habilidad: Guerrero esqueleto"
+      ]
+    }
+  },
+  "bone": {
+    "key": "bone",
+    "slug": "Bone_Wand",
+    "pool": "bone-wand",
+    "family": "wands",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2",
+    "name": "Bone Wand",
+    "sourceUrl": "https://poe2db.tw/us/Bone_Wand",
+    "sourceSha256": "cfe72ccc35baa41e4530a2f8fbee24326457058968e0211af7d2cb96e144fb5a",
+    "sourceTags": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods",
+      "physical_implicit_skill",
+      "wand",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 0,
+    "requiredLevel": 2,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 2",
+      "ko": "요구 사항:  레벨 2",
+      "ja": "装備条件： レベル 2",
+      "zh-CN": "需求：  等级 2",
+      "zh-TW": "需求:  等級 2",
+      "es": "Requiere:  Nivel 2"
+    },
+    "sourceProperties": {
+      "en": [
+        "Grants Skill: Bone Blast"
+      ],
+      "ko": [
+        "스킬 부여: 뼈 폭발"
+      ],
+      "ja": [
+        "スキルを付与: ボーンブラスト"
+      ],
+      "zh-CN": [
+        "获得技能: 针刺爆发"
+      ],
+      "zh-TW": [
+        "賦予技能: 骨之爆破"
+      ],
+      "es": [
+        "Otorga la habilidad: Explosión de huesos"
+      ]
+    }
+  },
+  "siphoning": {
+    "key": "siphoning",
+    "slug": "Siphoning_Wand",
+    "pool": "siphoning-wand",
+    "family": "wands",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4",
+    "name": "Siphoning Wand",
+    "sourceUrl": "https://poe2db.tw/us/Siphoning_Wand",
+    "sourceSha256": "ae26469c192d54bf9cf75e46717918299c9b1ff947ec4353d88b22d4f60b9e58",
+    "sourceTags": [
+      "wand",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 23,
+    "requiredLevel": 11,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 11, 23 Int",
+      "ko": "요구 사항:  레벨 11, 23 지능",
+      "ja": "装備条件： レベル 11, 23 知性",
+      "zh-CN": "需求：  等级 11, 23 智慧",
+      "zh-TW": "需求:  等級 11, 23 智慧",
+      "es": "Requiere:  Nivel 11, 23 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Grants Skill: Power Siphon"
+      ],
+      "ko": [
+        "스킬 부여: 권능 착취"
+      ],
+      "ja": [
+        "スキルを付与: パワーサイフォン"
+      ],
+      "zh-CN": [
+        "获得技能: 力量抽取"
+      ],
+      "zh-TW": [
+        "賦予技能: 力量抽取"
+      ],
+      "es": [
+        "Otorga la habilidad: Robo de poder"
+      ]
+    }
+  },
+  "volatile": {
+    "key": "volatile",
+    "slug": "Volatile_Wand",
+    "pool": "volatile-wand",
+    "family": "wands",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5",
+    "name": "Volatile Wand",
+    "sourceUrl": "https://poe2db.tw/us/Volatile_Wand",
+    "sourceSha256": "0e219ffc48ae886175c32516d034e5b8200dc90eb3fd9dd15372e8e7fc6827e6",
+    "sourceTags": [
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods",
+      "no_physical_spell_mods",
+      "fire_implicit_skill",
+      "wand",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 31,
+    "requiredLevel": 16,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 16, 31 Int",
+      "ko": "요구 사항:  레벨 16, 31 지능",
+      "ja": "装備条件： レベル 16, 31 知性",
+      "zh-CN": "需求：  等级 16, 31 智慧",
+      "zh-TW": "需求:  等級 16, 31 智慧",
+      "es": "Requiere:  Nivel 16, 31 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Grants Skill: Volatile Dead"
+      ],
+      "ko": [
+        "스킬 부여: 시체 불덩이"
+      ],
+      "ja": [
+        "スキルを付与: ボラタイルデッド"
+      ],
+      "zh-CN": [
+        "获得技能: 灵体火球"
+      ],
+      "zh-TW": [
+        "賦予技能: 致命之息"
+      ],
+      "es": [
+        "Otorga la habilidad: Muertos volátiles"
+      ]
+    }
+  },
+  "galvanic": {
+    "key": "galvanic",
+    "slug": "Galvanic_Wand",
+    "pool": "galvanic-wand",
+    "family": "wands",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6",
+    "name": "Galvanic Wand",
+    "sourceUrl": "https://poe2db.tw/us/Galvanic_Wand",
+    "sourceSha256": "5383b4492ada7963ee0380cae367a505f258e8032f9d34876ae83e3fc98cad08",
+    "sourceTags": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_chaos_spell_mods",
+      "no_physical_spell_mods",
+      "lightning_implicit_skill",
+      "wand",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 46,
+    "requiredLevel": 25,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 25, 46 Int",
+      "ko": "요구 사항:  레벨 25, 46 지능",
+      "ja": "装備条件： レベル 25, 46 知性",
+      "zh-CN": "需求：  等级 25, 46 智慧",
+      "zh-TW": "需求:  等級 25, 46 智慧",
+      "es": "Requiere:  Nivel 25, 46 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Grants Skill: Galvanic Field"
+      ],
+      "ko": [
+        "스킬 부여: 충격장"
+      ],
+      "ja": [
+        "スキルを付与: ガルヴァニックフィールド"
+      ],
+      "zh-CN": [
+        "获得技能: 电流场"
+      ],
+      "zh-TW": [
+        "賦予技能: 電光領域"
+      ],
+      "es": [
+        "Otorga la habilidad: Campo galvánico"
+      ]
+    }
+  },
+  "acrid": {
+    "key": "acrid",
+    "slug": "Acrid_Wand",
+    "pool": "acrid-wand",
+    "family": "wands",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7",
+    "name": "Acrid Wand",
+    "sourceUrl": "https://poe2db.tw/us/Acrid_Wand",
+    "sourceSha256": "ca5b9779c6fd75fe1559f9ad04d8f208950db9f3c7749290de5bcf8c22120d0c",
+    "sourceTags": [
+      "wand",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 60,
+    "requiredLevel": 33,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 33, 60 Int",
+      "ko": "요구 사항:  레벨 33, 60 지능",
+      "ja": "装備条件： レベル 33, 60 知性",
+      "zh-CN": "需求：  等级 33, 60 智慧",
+      "zh-TW": "需求:  等級 33, 60 智慧",
+      "es": "Requiere:  Nivel 33, 60 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Grants Skill: Decompose"
+      ],
+      "ko": [
+        "스킬 부여: 부패"
+      ],
+      "ja": [
+        "スキルを付与: デコンポーズ"
+      ],
+      "zh-CN": [
+        "获得技能: 降解"
+      ],
+      "zh-TW": [
+        "賦予技能: 分解"
+      ],
+      "es": [
+        "Otorga la habilidad: Descomposición"
+      ]
+    }
+  },
+  "offering": {
+    "key": "offering",
+    "slug": "Offering_Wand",
+    "pool": "offering-wand",
+    "family": "wands",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8",
+    "name": "Offering Wand",
+    "sourceUrl": "https://poe2db.tw/us/Offering_Wand",
+    "sourceSha256": "872ce1dc13fb40d9b3838dbd7863c93b4302123ff7a2b15790ddb546139ce4b9",
+    "sourceTags": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods",
+      "physical_implicit_skill",
+      "wand",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 68,
+    "requiredLevel": 38,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 38, 68 Int",
+      "ko": "요구 사항:  레벨 38, 68 지능",
+      "ja": "装備条件： レベル 38, 68 知性",
+      "zh-CN": "需求：  等级 38, 68 智慧",
+      "zh-TW": "需求:  等級 38, 68 智慧",
+      "es": "Requiere:  Nivel 38, 68 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Grants Skill: Exsanguinate"
+      ],
+      "ko": [
+        "스킬 부여: 방혈"
+      ],
+      "ja": [
+        "スキルを付与: イグザングイネイト"
+      ],
+      "zh-CN": [
+        "获得技能: 赤炼魔光"
+      ],
+      "zh-TW": [
+        "賦予技能: 抽血"
+      ],
+      "es": [
+        "Otorga la habilidad: Desangrar"
+      ]
+    }
+  },
+  "critical": {
+    "key": "critical",
+    "slug": "Critical_Wand",
+    "pool": "critical-wand",
+    "family": "wands",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11",
+    "name": "Critical Wand",
+    "sourceUrl": "https://poe2db.tw/us/Critical_Wand",
+    "sourceSha256": "7b24268c6d085268c0c6a1c533baaece6a5cbb7f22b0fef4a8d2c3e66ddd9e9f",
+    "sourceTags": [
+      "wand",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 92,
+    "requiredLevel": 52,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 52, 92 Int",
+      "ko": "요구 사항:  레벨 52, 92 지능",
+      "ja": "装備条件： レベル 52, 92 知性",
+      "zh-CN": "需求：  等级 52, 92 智慧",
+      "zh-TW": "需求:  等級 52, 92 智慧",
+      "es": "Requiere:  Nivel 52, 92 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Grants Skill: Chaos Bolt"
+      ],
+      "ko": [
+        "스킬 부여: 카오스 화살"
+      ],
+      "ja": [
+        "スキルを付与: カオスボルト"
+      ],
+      "zh-CN": [
+        "获得技能: 混沌箭"
+      ],
+      "zh-TW": [
+        "賦予技能: 混沌弩箭"
+      ],
+      "es": [
+        "Otorga la habilidad: Descarga de caos"
+      ]
+    }
+  },
+  "primordial": {
+    "key": "primordial",
+    "slug": "Primordial_Wand",
+    "pool": "primordial-wand",
+    "family": "wands",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12",
+    "name": "Primordial Wand",
+    "sourceUrl": "https://poe2db.tw/us/Primordial_Wand",
+    "sourceSha256": "c1160e129684983a4b363162fbcdc50f83cd376ee6d834c3de5293005e4bf636",
+    "sourceTags": [
+      "no_fire_spell_mods",
+      "no_cold_spell_mods",
+      "no_lightning_spell_mods",
+      "no_physical_spell_mods",
+      "chaos_implicit_skill",
+      "wand",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 99,
+    "requiredLevel": 56,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 56, 99 Int",
+      "ko": "요구 사항:  레벨 56, 99 지능",
+      "ja": "装備条件： レベル 56, 99 知性",
+      "zh-CN": "需求：  等级 56, 99 智慧",
+      "zh-TW": "需求:  等級 56, 99 智慧",
+      "es": "Requiere:  Nivel 56, 99 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Grants Skill: Wither"
+      ],
+      "ko": [
+        "스킬 부여: 위축"
+      ],
+      "ja": [
+        "スキルを付与: ウィザー"
+      ],
+      "zh-CN": [
+        "获得技能: 死亡凋零"
+      ],
+      "zh-TW": [
+        "賦予技能: 死亡凋零"
+      ],
+      "es": [
+        "Otorga la habilidad: Marchitar"
+      ]
+    }
+  },
+  "dueling": {
+    "key": "dueling",
+    "slug": "Dueling_Wand",
+    "pool": "dueling-wand",
+    "family": "wands",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
+    "name": "Dueling Wand",
+    "sourceUrl": "https://poe2db.tw/us/Dueling_Wand",
+    "sourceSha256": "a514c92f4bdf3469568fdf7165b9b06e8b5a86e66479b81d70bebebc1684ba56",
+    "sourceTags": [
+      "wand",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 114,
+    "requiredLevel": 65,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 65, 114 Int",
+      "ko": "요구 사항:  레벨 65, 114 지능",
+      "ja": "装備条件： レベル 65, 114 知性",
+      "zh-CN": "需求：  等级 65, 114 智慧",
+      "zh-TW": "需求:  等級 65, 114 智慧",
+      "es": "Requiere:  Nivel 65, 114 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Grants Skill: Spellslinger"
+      ],
+      "ko": [
+        "스킬 부여: 주문투척"
+      ],
+      "ja": [
+        "スキルを付与: スペルスリンガー"
+      ],
+      "zh-CN": [
+        "获得技能: 法术节魔"
+      ],
+      "zh-TW": [
+        "賦予技能: 拋法者"
+      ],
+      "es": [
+        "Otorga la habilidad: Lanzahechizos"
+      ]
+    }
+  },
+  "stoic": {
+    "key": "stoic",
+    "slug": "Stoic_Sceptre",
+    "pool": "stoic-sceptre",
+    "family": "sceptres",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+    "name": "Stoic Sceptre",
+    "sourceUrl": "https://poe2db.tw/us/Stoic_Sceptre",
+    "sourceSha256": "783f535207b5d6f4e3950161f75c29bb695124c8c8190896232260ba23fb2003",
+    "sourceTags": [
+      "sceptre",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 12,
+    "requiredLevel": 6,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 6, 12 Int",
+      "ko": "요구 사항:  레벨 6, 12 지능",
+      "ja": "装備条件： レベル 6, 12 知性",
+      "zh-CN": "需求：  等级 6, 12 智慧",
+      "zh-TW": "需求:  等級 6, 12 智慧",
+      "es": "Requiere:  Nivel 6, 12 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spirit: 100",
+        "Grants Skill: Discipline"
+      ],
+      "ko": [
+        "정신력: 100",
+        "스킬 부여: 단련"
+      ],
+      "ja": [
+        "スピリット: 100",
+        "スキルを付与: ディシプリン"
+      ],
+      "zh-CN": [
+        "精魂: 100",
+        "获得技能: 纪律"
+      ],
+      "zh-TW": [
+        "精魂: 100",
+        "賦予技能: 紀律"
+      ],
+      "es": [
+        "Espíritu: 100",
+        "Otorga la habilidad: Disciplina"
+      ]
+    }
+  },
+  "omen": {
+    "key": "omen",
+    "slug": "Omen_Sceptre",
+    "pool": "omen-sceptre",
+    "family": "sceptres",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
+    "name": "Omen Sceptre",
+    "sourceUrl": "https://poe2db.tw/us/Omen_Sceptre",
+    "sourceSha256": "71f095ab3a79f75ba502a2df8cd1e69ad99fa6ee5f333f4a7afcc518ad0993c6",
+    "sourceTags": [
+      "sceptre",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 12,
+    "intelligence": 25,
+    "requiredLevel": 16,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 16, 12 Str, 25 Int",
+      "ko": "요구 사항:  레벨 16, 12 힘, 25 지능",
+      "ja": "装備条件： レベル 16, 12 筋力, 25 知性",
+      "zh-CN": "需求：  等级 16, 12 力量, 25 智慧",
+      "zh-TW": "需求:  等級 16, 12 力量, 25 智慧",
+      "es": "Requiere:  Nivel 16, 12 Fue, 25 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spirit: 100",
+        "Grants Skill: Malice"
+      ],
+      "ko": [
+        "정신력: 100",
+        "스킬 부여: 적의"
+      ],
+      "ja": [
+        "スピリット: 100",
+        "スキルを付与: マリス"
+      ],
+      "zh-CN": [
+        "精魂: 100",
+        "获得技能: 怨毒"
+      ],
+      "zh-TW": [
+        "精魂: 100",
+        "賦予技能: 絕滅恨惡"
+      ],
+      "es": [
+        "Espíritu: 100",
+        "Otorga la habilidad: Malicia"
+      ]
+    }
+  },
+  "shrine-fire": {
+    "key": "shrine-fire",
+    "slug": "Shrine_Sceptre_6a",
+    "pool": "shrine-fire-sceptre",
+    "family": "sceptres",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a",
+    "name": "Shrine Sceptre",
+    "sourceUrl": "https://poe2db.tw/us/Shrine_Sceptre",
+    "sourceSha256": "f6951ddcf71ee3440ce892beb3896cec48064c461acf14c4258ba96e5545c607",
+    "sourceTags": [
+      "fire_implicit_skill",
+      "sceptre",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 17,
+    "intelligence": 38,
+    "requiredLevel": 26,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 26, 17 Str, 38 Int",
+      "ko": "요구 사항:  레벨 26, 17 힘, 38 지능",
+      "ja": "装備条件： レベル 26, 17 筋力, 38 知性",
+      "zh-CN": "需求：  等级 26, 17 力量, 38 智慧",
+      "zh-TW": "需求:  等級 26, 17 力量, 38 智慧",
+      "es": "Requiere:  Nivel 26, 17 Fue, 38 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spirit: 100",
+        "Grants Skill: Purity of Fire"
+      ],
+      "ko": [
+        "정신력: 100",
+        "스킬 부여: 불의 순수함"
+      ],
+      "ja": [
+        "スピリット: 100",
+        "スキルを付与: ピュリティオブファイヤー"
+      ],
+      "zh-CN": [
+        "精魂: 100",
+        "获得技能: 火焰净化"
+      ],
+      "zh-TW": [
+        "精魂: 100",
+        "賦予技能: 火焰淨化"
+      ],
+      "es": [
+        "Espíritu: 100",
+        "Otorga la habilidad: Pureza de fuego"
+      ]
+    }
+  },
+  "shrine-ice": {
+    "key": "shrine-ice",
+    "slug": "Shrine_Sceptre_6b",
+    "pool": "shrine-ice-sceptre",
+    "family": "sceptres",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b",
+    "name": "Shrine Sceptre",
+    "sourceUrl": "https://poe2db.tw/us/Shrine_Sceptre",
+    "sourceSha256": "f6951ddcf71ee3440ce892beb3896cec48064c461acf14c4258ba96e5545c607",
+    "sourceTags": [
+      "cold_implicit_skill",
+      "sceptre",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 17,
+    "intelligence": 38,
+    "requiredLevel": 26,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 26, 17 Str, 38 Int",
+      "ko": "요구 사항:  레벨 26, 17 힘, 38 지능",
+      "ja": "装備条件： レベル 26, 17 筋力, 38 知性",
+      "zh-CN": "需求：  等级 26, 17 力量, 38 智慧",
+      "zh-TW": "需求:  等級 26, 17 力量, 38 智慧",
+      "es": "Requiere:  Nivel 26, 17 Fue, 38 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spirit: 100",
+        "Grants Skill: Purity of Ice"
+      ],
+      "ko": [
+        "정신력: 100",
+        "스킬 부여: 얼음의 순수함"
+      ],
+      "ja": [
+        "スピリット: 100",
+        "スキルを付与: ピュリティオブアイス"
+      ],
+      "zh-CN": [
+        "精魂: 100",
+        "获得技能: 冰霜净化"
+      ],
+      "zh-TW": [
+        "精魂: 100",
+        "賦予技能: 冰霜淨化"
+      ],
+      "es": [
+        "Espíritu: 100",
+        "Otorga la habilidad: Pureza de hielo"
+      ]
+    }
+  },
+  "shrine-lightning": {
+    "key": "shrine-lightning",
+    "slug": "Shrine_Sceptre_6c",
+    "pool": "shrine-lightning-sceptre",
+    "family": "sceptres",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c",
+    "name": "Shrine Sceptre",
+    "sourceUrl": "https://poe2db.tw/us/Shrine_Sceptre",
+    "sourceSha256": "f6951ddcf71ee3440ce892beb3896cec48064c461acf14c4258ba96e5545c607",
+    "sourceTags": [
+      "lightning_implicit_skill",
+      "sceptre",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 17,
+    "intelligence": 38,
+    "requiredLevel": 26,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 26, 17 Str, 38 Int",
+      "ko": "요구 사항:  레벨 26, 17 힘, 38 지능",
+      "ja": "装備条件： レベル 26, 17 筋力, 38 知性",
+      "zh-CN": "需求：  等级 26, 17 力量, 38 智慧",
+      "zh-TW": "需求:  等級 26, 17 力量, 38 智慧",
+      "es": "Requiere:  Nivel 26, 17 Fue, 38 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spirit: 100",
+        "Grants Skill: Purity of Lightning"
+      ],
+      "ko": [
+        "정신력: 100",
+        "스킬 부여: 번개의 순수함"
+      ],
+      "ja": [
+        "スピリット: 100",
+        "スキルを付与: ピュリティオブライトニング"
+      ],
+      "zh-CN": [
+        "精魂: 100",
+        "获得技能: 闪电净化"
+      ],
+      "zh-TW": [
+        "精魂: 100",
+        "賦予技能: 閃電淨化"
+      ],
+      "es": [
+        "Espíritu: 100",
+        "Otorga la habilidad: Pureza de rayo"
+      ]
+    }
+  },
+  "clasped": {
+    "key": "clasped",
+    "slug": "Clasped_Sceptre",
+    "pool": "clasped-sceptre",
+    "family": "sceptres",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8",
+    "name": "Clasped Sceptre",
+    "sourceUrl": "https://poe2db.tw/us/Clasped_Sceptre",
+    "sourceSha256": "092e5532910d5ab3fcf8483d9b70d3630b318f11a5c71089e415524a20ed57d6",
+    "sourceTags": [
+      "sceptre",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 65,
+    "requiredLevel": 36,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 36, 65 Int",
+      "ko": "요구 사항:  레벨 36, 65 지능",
+      "ja": "装備条件： レベル 36, 65 知性",
+      "zh-CN": "需求：  等级 36, 65 智慧",
+      "zh-TW": "需求:  等級 36, 65 智慧",
+      "es": "Requiere:  Nivel 36, 65 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spirit: 100",
+        "Grants Skill: Heart of Ice"
+      ],
+      "ko": [
+        "정신력: 100",
+        "스킬 부여: 얼음의 심장"
+      ],
+      "ja": [
+        "スピリット: 100",
+        "スキルを付与: ハートオブアイス"
+      ],
+      "zh-CN": [
+        "精魂: 100",
+        "获得技能: 冰雪之心"
+      ],
+      "zh-TW": [
+        "精魂: 100",
+        "賦予技能: 冰雪之心"
+      ],
+      "es": [
+        "Espíritu: 100",
+        "Otorga la habilidad: Corazón de hielo"
+      ]
+    }
+  },
+  "wrath": {
+    "key": "wrath",
+    "slug": "Wrath_Sceptre",
+    "pool": "wrath-sceptre",
+    "family": "sceptres",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
+    "name": "Wrath Sceptre",
+    "sourceUrl": "https://poe2db.tw/us/Wrath_Sceptre",
+    "sourceSha256": "f86d1e72a8882bc7e74c7d35ecf4537ac3b7ef6896e4e6e6cf1ef8a7f09533c8",
+    "sourceTags": [
+      "lightning_implicit_skill",
+      "sceptre",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 87,
+    "requiredLevel": 49,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 49, 87 Int",
+      "ko": "요구 사항:  레벨 49, 87 지능",
+      "ja": "装備条件： レベル 49, 87 知性",
+      "zh-CN": "需求：  等级 49, 87 智慧",
+      "zh-TW": "需求:  等級 49, 87 智慧",
+      "es": "Requiere:  Nivel 49, 87 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spirit: 100",
+        "Grants Skill: Fulmination"
+      ],
+      "ko": [
+        "정신력: 100",
+        "스킬 부여: 노호"
+      ],
+      "ja": [
+        "スピリット: 100",
+        "スキルを付与: フルミネーション"
+      ],
+      "zh-CN": [
+        "精魂: 100",
+        "获得技能: 轰鸣烈焰"
+      ],
+      "zh-TW": [
+        "精魂: 100",
+        "賦予技能: 劇烈爆發"
+      ],
+      "es": [
+        "Espíritu: 100",
+        "Otorga la habilidad: Fulminación"
+      ]
+    }
+  },
+  "linen-belt": {
+    "key": "linen-belt",
+    "slug": "Linen_Belt",
+    "pool": "linen-belt",
+    "family": "belts",
+    "id": "Metadata/Items/Belts/FourBelt2",
+    "name": "Linen Belt",
+    "sourceUrl": "https://poe2db.tw/us/Linen_Belt",
+    "sourceSha256": "1f5834b2d03510ab99fd5c936ca6ae8a1404fdbfa83345a18ca5652e652ba9ff",
+    "sourceTags": [
+      "belt"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 0,
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    },
+    "implicitModifierId": "linen-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "flask_mana_to_recover_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "flask_mana_to_recover_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ]
+  },
+  "wide-belt": {
+    "key": "wide-belt",
+    "slug": "Wide_Belt",
+    "pool": "wide-belt",
+    "family": "belts",
+    "id": "Metadata/Items/Belts/FourBelt3",
+    "name": "Wide Belt",
+    "sourceUrl": "https://poe2db.tw/us/Wide_Belt",
+    "sourceSha256": "94f1859e2ffee841a7a6a4838c911d14110278908aef806704d6570b814d22ad",
+    "sourceTags": [
+      "belt"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 14,
+    "maximumQuality": 0,
+    "requirements": {
+      "en": "Requires:  Level 14",
+      "ko": "요구 사항:  레벨 14",
+      "ja": "装備条件： レベル 14",
+      "zh-CN": "需求：  等级 14",
+      "zh-TW": "需求:  等級 14",
+      "es": "Requiere:  Nivel 14"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    },
+    "implicitModifierId": "wide-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "flask_charges_gained_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "flask_charges_gained_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ]
+  },
+  "long-belt": {
+    "key": "long-belt",
+    "slug": "Long_Belt",
+    "pool": "long-belt",
+    "family": "belts",
+    "id": "Metadata/Items/Belts/FourBelt4",
+    "name": "Long Belt",
+    "sourceUrl": "https://poe2db.tw/us/Long_Belt",
+    "sourceSha256": "2762a91fcae5ffcbbd2c72c885be22fc42d7b99f3a60dd42f01965862375ddbb",
+    "sourceTags": [
+      "belt"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 20,
+    "maximumQuality": 0,
+    "requirements": {
+      "en": "Requires:  Level 20",
+      "ko": "요구 사항:  레벨 20",
+      "ja": "装備条件： レベル 20",
+      "zh-CN": "需求：  等级 20",
+      "zh-TW": "需求:  等級 20",
+      "es": "Requiere:  Nivel 20"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    },
+    "implicitModifierId": "long-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "charm_duration_+%",
+        "min": 15,
+        "max": 20
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "charm_duration_+%",
+        "min": 15,
+        "max": 20,
+        "locality": "Global"
+      }
+    ]
+  },
+  "plate-belt": {
+    "key": "plate-belt",
+    "slug": "Plate_Belt",
+    "pool": "plate-belt",
+    "family": "belts",
+    "id": "Metadata/Items/Belts/FourBelt5",
+    "name": "Plate Belt",
+    "sourceUrl": "https://poe2db.tw/us/Plate_Belt",
+    "sourceSha256": "f354c4dfed2bbe70475f78f027c615c30ed2714dffd05b7e49ef3ba57e89f668",
+    "sourceTags": [
+      "belt"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 25,
+    "maximumQuality": 0,
+    "requirements": {
+      "en": "Requires:  Level 25",
+      "ko": "요구 사항:  레벨 25",
+      "ja": "装備条件： レベル 25",
+      "zh-CN": "需求：  等级 25",
+      "zh-TW": "需求:  等級 25",
+      "es": "Requiere:  Nivel 25"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    },
+    "implicitModifierId": "plate-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "base_physical_damage_reduction_rating",
+        "min": 140,
+        "max": 180
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_physical_damage_reduction_rating",
+        "min": 140,
+        "max": 180,
+        "locality": "Global"
+      }
+    ]
+  },
+  "ornate-belt": {
+    "key": "ornate-belt",
+    "slug": "Ornate_Belt",
+    "pool": "ornate-belt",
+    "family": "belts",
+    "id": "Metadata/Items/Belts/FourBelt6",
+    "name": "Ornate Belt",
+    "sourceUrl": "https://poe2db.tw/us/Ornate_Belt",
+    "sourceSha256": "a41aea8ff3ac7ec11476976c0bcd42090a0c606cfc9a1e783df94e212de76e79",
+    "sourceTags": [
+      "belt"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 31,
+    "maximumQuality": 0,
+    "requirements": {
+      "en": "Requires:  Level 31",
+      "ko": "요구 사항:  레벨 31",
+      "ja": "装備条件： レベル 31",
+      "zh-CN": "需求：  等级 31",
+      "zh-TW": "需求:  等級 31",
+      "es": "Requiere:  Nivel 31"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    },
+    "implicitModifierId": "ornate-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "charm_charges_used_+%",
+        "min": -15,
+        "max": -10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "charm_charges_used_+%",
+        "min": -15,
+        "max": -10,
+        "locality": "Global"
+      }
+    ]
+  },
+  "mail-belt": {
+    "key": "mail-belt",
+    "slug": "Mail_Belt",
+    "pool": "mail-belt",
+    "family": "belts",
+    "id": "Metadata/Items/Belts/FourBelt7",
+    "name": "Mail Belt",
+    "sourceUrl": "https://poe2db.tw/us/Mail_Belt",
+    "sourceSha256": "1eb507ea2130285d96c1567eedafd0ab96647e5f7852d037afb3cddb70af0ff1",
+    "sourceTags": [
+      "belt"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 40,
+    "maximumQuality": 0,
+    "requirements": {
+      "en": "Requires:  Level 40",
+      "ko": "요구 사항:  레벨 40",
+      "ja": "装備条件： レベル 40",
+      "zh-CN": "需求：  等级 40",
+      "zh-TW": "需求:  等級 40",
+      "es": "Requiere:  Nivel 40"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    },
+    "implicitModifierId": "mail-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "flask_charges_used_+%",
+        "min": -15,
+        "max": -10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "flask_charges_used_+%",
+        "min": -15,
+        "max": -10,
+        "locality": "Global"
+      }
+    ]
+  },
+  "double-belt": {
+    "key": "double-belt",
+    "slug": "Double_Belt",
+    "pool": "double-belt",
+    "family": "belts",
+    "id": "Metadata/Items/Belts/FourBelt8",
+    "name": "Double Belt",
+    "sourceUrl": "https://poe2db.tw/us/Double_Belt",
+    "sourceSha256": "e380035c9b3bf31e98fa48cb754de73883e272619c32312e6c852db264403136",
+    "sourceTags": [
+      "belt"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 44,
+    "maximumQuality": 0,
+    "requirements": {
+      "en": "Requires:  Level 44",
+      "ko": "요구 사항:  레벨 44",
+      "ja": "装備条件： レベル 44",
+      "zh-CN": "需求：  等级 44",
+      "zh-TW": "需求:  等級 44",
+      "es": "Requiere:  Nivel 44"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    },
+    "implicitModifierId": "double-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "charm_charges_gained_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "charm_charges_gained_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ]
+  },
+  "heavy-belt": {
+    "key": "heavy-belt",
+    "slug": "Heavy_Belt",
+    "pool": "heavy-belt",
+    "family": "belts",
+    "id": "Metadata/Items/Belts/FourBelt9",
+    "name": "Heavy Belt",
+    "sourceUrl": "https://poe2db.tw/us/Heavy_Belt",
+    "sourceSha256": "fca241a04a7e3f757fe4e5726364199daca03c88b4428f1a1b32643e4031a522",
+    "sourceTags": [
+      "belt"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 50,
+    "maximumQuality": 0,
+    "requirements": {
+      "en": "Requires:  Level 50",
+      "ko": "요구 사항:  레벨 50",
+      "ja": "装備条件： レベル 50",
+      "zh-CN": "需求：  等级 50",
+      "zh-TW": "需求:  等級 50",
+      "es": "Requiere:  Nivel 50"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    },
+    "implicitModifierId": "heavy-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "stun_threshold_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "stun_threshold_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ]
+  },
+  "utility-belt": {
+    "key": "utility-belt",
+    "slug": "Utility_Belt",
+    "pool": "utility-belt",
+    "family": "belts",
+    "id": "Metadata/Items/Belts/FourBelt10",
+    "name": "Utility Belt",
+    "sourceUrl": "https://poe2db.tw/us/Utility_Belt",
+    "sourceSha256": "b4efcaedb3e192219abf32b6e47db076ac6b3dc1ff21fea4c77f4a94d7e08eed",
+    "sourceTags": [
+      "belt"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 55,
+    "maximumQuality": 0,
+    "requirements": {
+      "en": "Requires:  Level 55",
+      "ko": "요구 사항:  레벨 55",
+      "ja": "装備条件： レベル 55",
+      "zh-CN": "需求：  等级 55",
+      "zh-TW": "需求:  等級 55",
+      "es": "Requiere:  Nivel 55"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    },
+    "implicitModifierId": "utility-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "flask_recovery_amount_%_to_recover_instantly",
+        "min": 20,
+        "max": 20
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "flask_recovery_amount_%_to_recover_instantly",
+        "min": 20,
+        "max": 20,
+        "locality": "Global"
+      }
+    ]
+  },
+  "fine-belt": {
+    "key": "fine-belt",
+    "slug": "Fine_Belt",
+    "pool": "fine-belt",
+    "family": "belts",
+    "id": "Metadata/Items/Belts/FourBelt11",
+    "name": "Fine Belt",
+    "sourceUrl": "https://poe2db.tw/us/Fine_Belt",
+    "sourceSha256": "39e208bb3831b0b7164d281eb86f4a4b96695f88ec2f1f008063c4d6b66296c5",
+    "sourceTags": [
+      "belt"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 62,
+    "maximumQuality": 0,
+    "requirements": {
+      "en": "Requires:  Level 62",
+      "ko": "요구 사항:  레벨 62",
+      "ja": "装備条件： レベル 62",
+      "zh-CN": "需求：  等级 62",
+      "zh-TW": "需求:  等級 62",
+      "es": "Requiere:  Nivel 62"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    },
+    "implicitModifierId": "fine-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "generate_x_charges_for_any_flask_per_minute",
+        "min": 10,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "generate_x_charges_for_any_flask_per_minute",
+        "min": 10,
+        "max": 10,
+        "locality": "Global"
+      }
+    ]
+  },
+  "invoking-belt": {
+    "key": "invoking-belt",
+    "slug": "Invoking_Belt",
+    "pool": "invoking-belt",
+    "family": "belts",
+    "id": "Metadata/Items/Belts/FourBeltB2",
+    "name": "Invoking Belt",
+    "sourceUrl": "https://poe2db.tw/us/Invoking_Belt",
+    "sourceSha256": "68fab7e8ec84c98f1e7ca2f1d1ac04c9aa9722e838302711e492f7ecc7b4c8a6",
+    "sourceTags": [
+      "belt"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 32,
+    "maximumQuality": 0,
+    "requirements": {
+      "en": "Requires:  Level 32",
+      "ko": "요구 사항:  레벨 32",
+      "ja": "装備条件： レベル 32",
+      "zh-CN": "需求：  等级 32",
+      "zh-TW": "需求:  等級 32",
+      "es": "Requiere:  Nivel 32"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    },
+    "implicitModifierId": "invoking-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "base_cast_speed_+%",
+        "min": 8,
+        "max": 12
+      },
+      {
+        "id": "local_charm_slots",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_cast_speed_+%",
+        "min": 8,
+        "max": 12,
+        "locality": "Global"
+      },
+      {
+        "id": "local_charm_slots",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      }
+    ]
+  },
+  "sinew-belt": {
+    "key": "sinew-belt",
+    "slug": "Sinew_Belt",
+    "pool": "sinew-belt",
+    "family": "belts",
+    "id": "Metadata/Items/Belts/FourBeltB3",
+    "name": "Sinew Belt",
+    "sourceUrl": "https://poe2db.tw/us/Sinew_Belt",
+    "sourceSha256": "619c4da87b8920c6ac53b66c319ff2f77effa0bc063faf6ddc8236fafc25b7a9",
+    "sourceTags": [
+      "belt"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 32,
+    "maximumQuality": 0,
+    "requirements": {
+      "en": "Requires:  Level 32",
+      "ko": "요구 사항:  레벨 32",
+      "ja": "装備条件： レベル 32",
+      "zh-CN": "需求：  等级 32",
+      "zh-TW": "需求:  等級 32",
+      "es": "Requiere:  Nivel 32"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    },
+    "implicitModifierId": "sinew-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "additional_strength",
+        "min": 15,
+        "max": 20
+      },
+      {
+        "id": "local_charm_slots",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "additional_strength",
+        "min": 15,
+        "max": 20,
+        "locality": "Global"
+      },
+      {
+        "id": "local_charm_slots",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      }
+    ]
+  },
+  "forking-belt": {
+    "key": "forking-belt",
+    "slug": "Forking_Belt",
+    "pool": "forking-belt",
+    "family": "belts",
+    "id": "Metadata/Items/Belts/FourBeltB4",
+    "name": "Forking Belt",
+    "sourceUrl": "https://poe2db.tw/us/Forking_Belt",
+    "sourceSha256": "a0a3872537bfdc3db46b044f410ffe5adc88b7e9dd92e6184b808fca755d2a2a",
+    "sourceTags": [
+      "belt"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 32,
+    "maximumQuality": 0,
+    "requirements": {
+      "en": "Requires:  Level 32",
+      "ko": "요구 사항:  레벨 32",
+      "ja": "装備条件： レベル 32",
+      "zh-CN": "需求：  等级 32",
+      "zh-TW": "需求:  等級 32",
+      "es": "Requiere:  Nivel 32"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    },
+    "implicitModifierId": "forking-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "attack_maximum_added_lightning_damage",
+        "min": 20,
+        "max": 30
+      },
+      {
+        "id": "attack_minimum_added_lightning_damage",
+        "min": 1,
+        "max": 1
+      },
+      {
+        "id": "local_charm_slots",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "attack_maximum_added_lightning_damage",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      },
+      {
+        "id": "attack_minimum_added_lightning_damage",
+        "min": 1,
+        "max": 1,
+        "locality": "Global"
+      },
+      {
+        "id": "local_charm_slots",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      }
+    ]
+  },
+  "siege-crossbow": {
+    "key": "siege-crossbow",
+    "slug": "Siege_Crossbow",
+    "pool": "siege-crossbow",
+    "family": "crossbows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow7Endgame",
+    "name": "Siege Crossbow",
+    "sourceUrl": "https://poe2db.tw/us/Siege_Crossbow",
+    "sourceSha256": "090ad9082d42a3547449f5f141c7f8f0655c5e616d860252c83cac6e27397dcc",
+    "sourceTags": [
+      "crossbow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 89,
+    "dexterity": 89,
+    "requiredLevel": 79,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 79, 89 Str, 89 Dex",
+      "ko": "요구 사항:  레벨 79, 89 힘, 89 민첩",
+      "ja": "装備条件： レベル 79, 89 筋力, 89 器用さ",
+      "zh-CN": "需求：  等级 79, 89 力量, 89 敏捷",
+      "zh-TW": "需求:  等級 79, 89 力量, 89 敏捷",
+      "es": "Requiere:  Nivel 79, 89 Fue, 89 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Crossbows",
+        "Physical Damage: 29-115",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.65",
+        "Reload Time: 0.75"
+      ],
+      "ko": [
+        "쇠뇌",
+        "물리 피해: 29-115",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.65",
+        "재장전 시간: 0.75"
+      ],
+      "ja": [
+        "クロスボウ",
+        "物理ダメージ: 29-115",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.65",
+        "再装填時間: 0.75"
+      ],
+      "zh-CN": [
+        "战弩",
+        "物理伤害: 29-115",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.65",
+        "装填时间: 0.75"
+      ],
+      "zh-TW": [
+        "十字弓",
+        "物理傷害: 29-115",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.65",
+        "重新裝填時間: 0.75"
+      ],
+      "es": [
+        "Ballestas",
+        "Daño físico: 29-115",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.65",
+        "Tiempo de recarga: 0.75"
+      ]
+    },
+    "implicitModifierId": "siege-crossbow:implicit:base",
+    "implicitStats": [
+      {
+        "id": "grenade_skill_number_of_additional_projectiles",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "grenade_skill_number_of_additional_projectiles",
+        "min": 1,
+        "max": 1,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "29-115",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.65,
+    "reloadTime": 0.75,
+    "ordinarySocketMaximum": 2
+  },
+  "gemini-crossbow": {
+    "key": "gemini-crossbow",
+    "slug": "Gemini_Crossbow",
+    "pool": "gemini-crossbow",
+    "family": "crossbows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow5Endgame",
+    "name": "Gemini Crossbow",
+    "sourceUrl": "https://poe2db.tw/us/Gemini_Crossbow",
+    "sourceSha256": "54c6da52c1cbdbf2ddc15ab490c89e8c4253de4c216e7f37c6f7f5ba6e833b4b",
+    "sourceTags": [
+      "crossbow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 89,
+    "dexterity": 89,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 89 Str, 89 Dex",
+      "ko": "요구 사항:  레벨 78, 89 힘, 89 민첩",
+      "ja": "装備条件： レベル 78, 89 筋力, 89 器用さ",
+      "zh-CN": "需求：  等级 78, 89 力量, 89 敏捷",
+      "zh-TW": "需求:  等級 78, 89 力量, 89 敏捷",
+      "es": "Requiere:  Nivel 78, 89 Fue, 89 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Crossbows",
+        "Physical Damage: 28-112",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Reload Time: 1.1"
+      ],
+      "ko": [
+        "쇠뇌",
+        "물리 피해: 28-112",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "재장전 시간: 1.1"
+      ],
+      "ja": [
+        "クロスボウ",
+        "物理ダメージ: 28-112",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "再装填時間: 1.1"
+      ],
+      "zh-CN": [
+        "战弩",
+        "物理伤害: 28-112",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "装填时间: 1.1"
+      ],
+      "zh-TW": [
+        "十字弓",
+        "物理傷害: 28-112",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "重新裝填時間: 1.1"
+      ],
+      "es": [
+        "Ballestas",
+        "Daño físico: 28-112",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Tiempo de recarga: 1.1"
+      ]
+    },
+    "implicitModifierId": "gemini-crossbow:implicit:base",
+    "implicitStats": [
+      {
+        "id": "base_number_of_crossbow_bolts",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_number_of_crossbow_bolts",
+        "min": 1,
+        "max": 1,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "28-112",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.6,
+    "reloadTime": 1.1,
+    "ordinarySocketMaximum": 2
+  },
+  "elegant-crossbow": {
+    "key": "elegant-crossbow",
+    "slug": "Elegant_Crossbow",
+    "pool": "elegant-crossbow",
+    "family": "crossbows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow10Endgame",
+    "name": "Elegant Crossbow",
+    "sourceUrl": "https://poe2db.tw/us/Elegant_Crossbow",
+    "sourceSha256": "1e5348b7a28fb5b30a0f6487a3b5985ef8f1e9b3fa10b5d764d5d41a6783f5e7",
+    "sourceTags": [
+      "karui_basetype",
+      "crossbow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 89,
+    "dexterity": 89,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 89 Str, 89 Dex",
+      "ko": "요구 사항:  레벨 78, 89 힘, 89 민첩",
+      "ja": "装備条件： レベル 78, 89 筋力, 89 器用さ",
+      "zh-CN": "需求：  等级 78, 89 力量, 89 敏捷",
+      "zh-TW": "需求:  等級 78, 89 力量, 89 敏捷",
+      "es": "Requiere:  Nivel 78, 89 Fue, 89 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Crossbows",
+        "Physical Damage: 31-123",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.65",
+        "Reload Time: 0.85"
+      ],
+      "ko": [
+        "쇠뇌",
+        "물리 피해: 31-123",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.65",
+        "재장전 시간: 0.85"
+      ],
+      "ja": [
+        "クロスボウ",
+        "物理ダメージ: 31-123",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.65",
+        "再装填時間: 0.85"
+      ],
+      "zh-CN": [
+        "战弩",
+        "物理伤害: 31-123",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.65",
+        "装填时间: 0.85"
+      ],
+      "zh-TW": [
+        "十字弓",
+        "物理傷害: 31-123",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.65",
+        "重新裝填時間: 0.85"
+      ],
+      "es": [
+        "Ballestas",
+        "Daño físico: 31-123",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.65",
+        "Tiempo de recarga: 0.85"
+      ]
+    },
+    "implicitModifierId": "elegant-crossbow:implicit:base",
+    "implicitStats": [
+      {
+        "id": "base_chance_to_pierce_%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_chance_to_pierce_%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "31-123",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.65,
+    "reloadTime": 0.85,
+    "ordinarySocketMaximum": 2
+  },
+  "flexed-crossbow": {
+    "key": "flexed-crossbow",
+    "slug": "Flexed_Crossbow",
+    "pool": "flexed-crossbow",
+    "family": "crossbows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow2Endgame",
+    "name": "Flexed Crossbow",
+    "sourceUrl": "https://poe2db.tw/us/Flexed_Crossbow",
+    "sourceSha256": "47121233a06eed211155436f73c814f999a3ec4bbcb8f8d00c6e4f9afa7d3251",
+    "sourceTags": [
+      "crossbow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 89,
+    "dexterity": 89,
+    "requiredLevel": 77,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 77, 89 Str, 89 Dex",
+      "ko": "요구 사항:  레벨 77, 89 힘, 89 민첩",
+      "ja": "装備条件： レベル 77, 89 筋力, 89 器用さ",
+      "zh-CN": "需求：  等级 77, 89 力量, 89 敏捷",
+      "zh-TW": "需求:  等級 77, 89 力量, 89 敏捷",
+      "es": "Requiere:  Nivel 77, 89 Fue, 89 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Crossbows",
+        "Physical Damage: 32-127",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Reload Time: 0.85"
+      ],
+      "ko": [
+        "쇠뇌",
+        "물리 피해: 32-127",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "재장전 시간: 0.85"
+      ],
+      "ja": [
+        "クロスボウ",
+        "物理ダメージ: 32-127",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "再装填時間: 0.85"
+      ],
+      "zh-CN": [
+        "战弩",
+        "物理伤害: 32-127",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "装填时间: 0.85"
+      ],
+      "zh-TW": [
+        "十字弓",
+        "物理傷害: 32-127",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "重新裝填時間: 0.85"
+      ],
+      "es": [
+        "Ballestas",
+        "Daño físico: 32-127",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Tiempo de recarga: 0.85"
+      ]
+    },
+    "implicitModifierId": "flexed-crossbow:implicit:base",
+    "implicitStats": [
+      {
+        "id": "projectile_speed_+%_with_crossbow_skills",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "projectile_speed_+%_with_crossbow_skills",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "32-127",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.6,
+    "reloadTime": 0.85,
+    "ordinarySocketMaximum": 2
+  },
+  "desolate-crossbow": {
+    "key": "desolate-crossbow",
+    "slug": "Desolate_Crossbow",
+    "pool": "desolate-crossbow",
+    "family": "crossbows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow8Endgame",
+    "name": "Desolate Crossbow",
+    "sourceUrl": "https://poe2db.tw/us/Desolate_Crossbow",
+    "sourceSha256": "48b7c0895494a5c57552c4bed46d05833c888db464dd15c2d4ca7da9385596fa",
+    "sourceTags": [
+      "crossbow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 89,
+    "dexterity": 89,
+    "requiredLevel": 77,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 77, 89 Str, 89 Dex",
+      "ko": "요구 사항:  레벨 77, 89 힘, 89 민첩",
+      "ja": "装備条件： レベル 77, 89 筋力, 89 器用さ",
+      "zh-CN": "需求：  等级 77, 89 力量, 89 敏捷",
+      "zh-TW": "需求:  等級 77, 89 力量, 89 敏捷",
+      "es": "Requiere:  Nivel 77, 89 Fue, 89 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Crossbows",
+        "Physical Damage: 33-132",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Reload Time: 0.8"
+      ],
+      "ko": [
+        "쇠뇌",
+        "물리 피해: 33-132",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "재장전 시간: 0.8"
+      ],
+      "ja": [
+        "クロスボウ",
+        "物理ダメージ: 33-132",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "再装填時間: 0.8"
+      ],
+      "zh-CN": [
+        "战弩",
+        "物理伤害: 33-132",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "装填时间: 0.8"
+      ],
+      "zh-TW": [
+        "十字弓",
+        "物理傷害: 33-132",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "重新裝填時間: 0.8"
+      ],
+      "es": [
+        "Ballestas",
+        "Daño físico: 33-132",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Tiempo de recarga: 0.8"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "physicalDamage": "33-132",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.6,
+    "reloadTime": 0.8,
+    "ordinarySocketMaximum": 2
+  },
+  "engraved-crossbow": {
+    "key": "engraved-crossbow",
+    "slug": "Engraved_Crossbow",
+    "pool": "engraved-crossbow",
+    "family": "crossbows",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame",
+    "name": "Engraved Crossbow",
+    "sourceUrl": "https://poe2db.tw/us/Engraved_Crossbow",
+    "sourceSha256": "93f4d1e8645be76e8050ed07cc720393c3218cf69df843731204ace0820a4017",
+    "sourceTags": [
+      "crossbow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 82,
+    "dexterity": 82,
+    "requiredLevel": 72,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 72, 82 Str, 82 Dex",
+      "ko": "요구 사항:  레벨 72, 82 힘, 82 민첩",
+      "ja": "装備条件： レベル 72, 82 筋力, 82 器用さ",
+      "zh-CN": "需求：  等级 72, 82 力量, 82 敏捷",
+      "zh-TW": "需求:  等級 72, 82 力量, 82 敏捷",
+      "es": "Requiere:  Nivel 72, 82 Fue, 82 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Crossbows",
+        "Physical Damage: 31-124",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Reload Time: 0.8"
+      ],
+      "ko": [
+        "쇠뇌",
+        "물리 피해: 31-124",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "재장전 시간: 0.8"
+      ],
+      "ja": [
+        "クロスボウ",
+        "物理ダメージ: 31-124",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "再装填時間: 0.8"
+      ],
+      "zh-CN": [
+        "战弩",
+        "物理伤害: 31-124",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "装填时间: 0.8"
+      ],
+      "zh-TW": [
+        "十字弓",
+        "物理傷害: 31-124",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "重新裝填時間: 0.8"
+      ],
+      "es": [
+        "Ballestas",
+        "Daño físico: 31-124",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Tiempo de recarga: 0.8"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "physicalDamage": "31-124",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.6,
+    "reloadTime": 0.8,
+    "ordinarySocketMaximum": 2
+  },
+  "tawhoan-tower-shield": {
+    "key": "tawhoan-tower-shield",
+    "slug": "Tawhoan_Tower_Shield",
+    "pool": "tawhoan-tower-shield",
+    "family": "shields",
+    "id": "Metadata/Items/Armours/Shields/FourShieldStr10Endgame",
+    "name": "Tawhoan Tower Shield",
+    "sourceUrl": "https://poe2db.tw/us/Tawhoan_Tower_Shield",
+    "sourceSha256": "47a6d569520839e58bf169ecedb60d0cfa77cabe3590a873a98c4d1060e0cfaf",
+    "sourceTags": [
+      "str_armour",
+      "str_shield",
+      "karui_basetype",
+      "shield",
+      "armour"
+    ],
+    "armour": 264,
+    "evasion": 0,
+    "energyShield": 0,
+    "baseMovementSpeed": -0.03,
+    "blockChance": 26,
+    "strength": 115,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Str",
+      "ko": "요구 사항:  레벨 80, 115 힘",
+      "ja": "装備条件： レベル 80, 115 筋力",
+      "zh-CN": "需求：  等级 80, 115 力量",
+      "zh-TW": "需求:  等級 80, 115 力量",
+      "es": "Requiere:  Nivel 80, 115 Fue"
+    },
+    "sourceProperties": {
+      "en": [
+        "Block chance: 26%",
+        "Armour: 264",
+        "Base Movement Speed: -0.03",
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "막기 확률: 26%",
+        "방어도: 264",
+        "Base Movement Speed: -0.03",
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "ブロック率: 26%",
+        "アーマー: 264",
+        "Base Movement Speed: -0.03",
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "格挡几率: 26%",
+        "护甲: 264",
+        "基础移动速度: -0.03",
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "格擋機率: 26%",
+        "護甲值: 264",
+        "基礎移動速度: -0.03",
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Probabilidad de bloqueo: 26%",
+        "Armadura: 264",
+        "Base Movement Speed: -0.03",
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 26,
+    "grantedSkill": "Raise_Shield"
+  },
+  "golden-targe": {
+    "key": "golden-targe",
+    "slug": "Golden_Targe",
+    "pool": "golden-targe",
+    "family": "shields",
+    "id": "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame",
+    "name": "Golden Targe",
+    "sourceUrl": "https://poe2db.tw/us/Golden_Targe",
+    "sourceSha256": "ad5a20d37dddf50733c6101684f37f1c7f16ec9687d3f2c9461eabfa39b15609",
+    "sourceTags": [
+      "str_dex_armour",
+      "str_dex_shield",
+      "karui_basetype",
+      "shield",
+      "armour"
+    ],
+    "armour": 145,
+    "evasion": 132,
+    "energyShield": 0,
+    "baseMovementSpeed": -0.015,
+    "blockChance": 25,
+    "strength": 63,
+    "dexterity": 63,
+    "intelligence": 0,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 63 Str, 63 Dex",
+      "ko": "요구 사항:  레벨 80, 63 힘, 63 민첩",
+      "ja": "装備条件： レベル 80, 63 筋力, 63 器用さ",
+      "zh-CN": "需求：  等级 80, 63 力量, 63 敏捷",
+      "zh-TW": "需求:  等級 80, 63 力量, 63 敏捷",
+      "es": "Requiere:  Nivel 80, 63 Fue, 63 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Block chance: 25%",
+        "Armour: 145",
+        "Evasion Rating: 132",
+        "Base Movement Speed: -0.015",
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "막기 확률: 25%",
+        "방어도: 145",
+        "회피: 132",
+        "Base Movement Speed: -0.015",
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "ブロック率: 25%",
+        "アーマー: 145",
+        "回避力: 132",
+        "Base Movement Speed: -0.015",
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "格挡几率: 25%",
+        "护甲: 145",
+        "闪避值: 132",
+        "基础移动速度: -0.015",
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "格擋機率: 25%",
+        "護甲值: 145",
+        "閃避值: 132",
+        "基礎移動速度: -0.015",
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Probabilidad de bloqueo: 25%",
+        "Armadura: 145",
+        "Evasión: 132",
+        "Base Movement Speed: -0.015",
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 26,
+    "grantedSkill": "Raise_Shield"
+  },
+  "blacksteel-crest-shield": {
+    "key": "blacksteel-crest-shield",
+    "slug": "Blacksteel_Crest_Shield",
+    "pool": "blacksteel-crest-shield",
+    "family": "shields",
+    "id": "Metadata/Items/Armours/Shields/FourShieldStrInt7Endgame",
+    "name": "Blacksteel Crest Shield",
+    "sourceUrl": "https://poe2db.tw/us/Blacksteel_Crest_Shield",
+    "sourceSha256": "8b49535e38ee89480ddfc988c0472ba79143010bb5a7f163044fcf1b34250d02",
+    "sourceTags": [
+      "str_int_armour",
+      "str_int_shield",
+      "karui_basetype",
+      "shield",
+      "armour"
+    ],
+    "armour": 145,
+    "evasion": 0,
+    "energyShield": 40,
+    "baseMovementSpeed": -0.015,
+    "blockChance": 25,
+    "strength": 63,
+    "dexterity": 0,
+    "intelligence": 63,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 63 Str, 63 Int",
+      "ko": "요구 사항:  레벨 80, 63 힘, 63 지능",
+      "ja": "装備条件： レベル 80, 63 筋力, 63 知性",
+      "zh-CN": "需求：  等级 80, 63 力量, 63 智慧",
+      "zh-TW": "需求:  等級 80, 63 力量, 63 智慧",
+      "es": "Requiere:  Nivel 80, 63 Fue, 63 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Block chance: 25%",
+        "Armour: 145",
+        "Energy Shield: 40",
+        "Base Movement Speed: -0.015",
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "막기 확률: 25%",
+        "방어도: 145",
+        "에너지 보호막: 40",
+        "Base Movement Speed: -0.015",
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "ブロック率: 25%",
+        "アーマー: 145",
+        "エナジーシールド: 40",
+        "Base Movement Speed: -0.015",
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "格挡几率: 25%",
+        "护甲: 145",
+        "能量护盾: 40",
+        "基础移动速度: -0.015",
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "格擋機率: 25%",
+        "護甲值: 145",
+        "能量護盾: 40",
+        "基礎移動速度: -0.015",
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Probabilidad de bloqueo: 25%",
+        "Armadura: 145",
+        "Escudo de energía: 40",
+        "Base Movement Speed: -0.015",
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 26,
+    "grantedSkill": "Raise_Shield"
+  },
+  "desert-buckler": {
+    "key": "desert-buckler",
+    "slug": "Desert_Buckler",
+    "pool": "desert-buckler",
+    "family": "bucklers",
+    "id": "Metadata/Items/Armours/Shields/FourShieldDex9Endgame",
+    "name": "Desert Buckler",
+    "sourceUrl": "https://poe2db.tw/us/Desert_Buckler",
+    "sourceSha256": "1d273f05eb8c38a3007b0146cee719d0911244e52b5c9fee6c510465832dc338",
+    "sourceTags": [
+      "dex_armour",
+      "dex_shield",
+      "karui_basetype",
+      "buckler",
+      "shield",
+      "armour"
+    ],
+    "armour": 0,
+    "evasion": 192,
+    "energyShield": 0,
+    "blockChance": 20,
+    "strength": 0,
+    "dexterity": 115,
+    "intelligence": 0,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Dex",
+      "ko": "요구 사항:  레벨 80, 115 민첩",
+      "ja": "装備条件： レベル 80, 115 器用さ",
+      "zh-CN": "需求：  等级 80, 115 敏捷",
+      "zh-TW": "需求:  等級 80, 115 敏捷",
+      "es": "Requiere:  Nivel 80, 115 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Block chance: 20%",
+        "Evasion Rating: 192",
+        "Grants Skill: Parry"
+      ],
+      "ko": [
+        "막기 확률: 20%",
+        "회피: 192",
+        "스킬 부여: 흘려보내기"
+      ],
+      "ja": [
+        "ブロック率: 20%",
+        "回避力: 192",
+        "スキルを付与: パリィ"
+      ],
+      "zh-CN": [
+        "格挡几率: 20%",
+        "闪避值: 192",
+        "获得技能: 招架"
+      ],
+      "zh-TW": [
+        "格擋機率: 20%",
+        "閃避值: 192",
+        "賦予技能: 招架"
+      ],
+      "es": [
+        "Probabilidad de bloqueo: 20%",
+        "Evasión: 192",
+        "Otorga la habilidad: Parada"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Parry"
+      ],
+      "ko": [
+        "스킬 부여: 흘려보내기"
+      ],
+      "ja": [
+        "スキルを付与: パリィ"
+      ],
+      "zh-CN": [
+        "获得技能: 招架"
+      ],
+      "zh-TW": [
+        "賦予技能: 招架"
+      ],
+      "es": [
+        "Otorga la habilidad: Parada"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 94,
+    "grantedSkill": "Parry"
+  },
+  "tasalian-focus": {
+    "key": "tasalian-focus",
+    "slug": "Tasalian_Focus",
+    "pool": "tasalian-focus",
+    "family": "foci",
+    "id": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
+    "name": "Tasalian Focus",
+    "sourceUrl": "https://poe2db.tw/us/Tasalian_Focus",
+    "sourceSha256": "c26d40aca986cd18dff19c1751b837810ada7f7881878d3a378290cb540fce06",
+    "sourceTags": [
+      "int_armour",
+      "karui_basetype",
+      "focus",
+      "armour"
+    ],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 91,
+    "blockChance": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 115,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Int",
+      "ko": "요구 사항:  레벨 80, 115 지능",
+      "ja": "装備条件： レベル 80, 115 知性",
+      "zh-CN": "需求：  等级 80, 115 智慧",
+      "zh-TW": "需求:  等級 80, 115 智慧",
+      "es": "Requiere:  Nivel 80, 115 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Energy Shield: 91"
+      ],
+      "ko": [
+        "에너지 보호막: 91"
+      ],
+      "ja": [
+        "エナジーシールド: 91"
+      ],
+      "zh-CN": [
+        "能量护盾: 91"
+      ],
+      "zh-TW": [
+        "能量護盾: 91"
+      ],
+      "es": [
+        "Escudo de energía: 91"
+      ]
+    },
+    "skillLines": {
+      "en": [],
+      "ko": [],
+      "ja": [],
+      "zh-CN": [],
+      "zh-TW": [],
+      "es": []
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 81,
+    "grantedSkill": null
+  },
+  "visceral-quiver": {
+    "key": "visceral-quiver",
+    "slug": "Visceral_Quiver",
+    "pool": "visceral-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver11",
+    "name": "Visceral Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Visceral_Quiver",
+    "sourceSha256": "0018282ecafe114ae4d842155d8441e955892874a9d9c45b524e43ebd06e8ffe",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 65,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 65",
+      "ko": "요구 사항:  레벨 65",
+      "ja": "装備条件： レベル 65",
+      "zh-CN": "需求：  等级 65",
+      "zh-TW": "需求:  等級 65",
+      "es": "Requiere:  Nivel 65"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "visceral-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "attack_critical_strike_chance_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "attack_critical_strike_chance_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "volant-quiver": {
+    "key": "volant-quiver",
+    "slug": "Volant_Quiver",
+    "pool": "volant-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver10",
+    "name": "Volant Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Volant_Quiver",
+    "sourceSha256": "1d805b58f11e99cf84692a5de3ca46ee5da1b5977b9d7c724a8e983de740e2e2",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 61,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 61",
+      "ko": "요구 사항:  레벨 61",
+      "ja": "装備条件： レベル 61",
+      "zh-CN": "需求：  等级 61",
+      "zh-TW": "需求:  等級 61",
+      "es": "Requiere:  Nivel 61"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "volant-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "base_arrow_speed_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_arrow_speed_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "penetrating-quiver": {
+    "key": "penetrating-quiver",
+    "slug": "Penetrating_Quiver",
+    "pool": "penetrating-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver9",
+    "name": "Penetrating Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Penetrating_Quiver",
+    "sourceSha256": "7a722e6674d0af24163757688b8bcff002bbf3d3ad502c2163da143dd0e0f89b",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 55,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 55",
+      "ko": "요구 사항:  레벨 55",
+      "ja": "装備条件： レベル 55",
+      "zh-CN": "需求：  等级 55",
+      "zh-TW": "需求:  等級 55",
+      "es": "Requiere:  Nivel 55"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "penetrating-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "base_chance_to_pierce_%",
+        "min": 100,
+        "max": 100
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_chance_to_pierce_%",
+        "min": 100,
+        "max": 100,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "primed-quiver": {
+    "key": "primed-quiver",
+    "slug": "Primed_Quiver",
+    "pool": "primed-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver8",
+    "name": "Primed Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Primed_Quiver",
+    "sourceSha256": "81f0ceb5d0bf015a9ad25b74cfb7b6ac2fd5c4e8e2547f29fa4f7b88e7fc9f56",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 51,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 51",
+      "ko": "요구 사항:  레벨 51",
+      "ja": "装備条件： レベル 51",
+      "zh-CN": "需求：  等级 51",
+      "zh-TW": "需求:  等級 51",
+      "es": "Requiere:  Nivel 51"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "primed-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "attack_speed_+%",
+        "min": 7,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "attack_speed_+%",
+        "min": 7,
+        "max": 10,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "serrated-quiver": {
+    "key": "serrated-quiver",
+    "slug": "Serrated_Quiver",
+    "pool": "serrated-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver7",
+    "name": "Serrated Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Serrated_Quiver",
+    "sourceSha256": "6900f60bbf7b46fb00ef7867ffa0408b2637263e95aa5f3d8987d91d514e01d3",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 44,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 44",
+      "ko": "요구 사항:  레벨 44",
+      "ja": "装備条件： レベル 44",
+      "zh-CN": "需求：  等级 44",
+      "zh-TW": "需求:  等級 44",
+      "es": "Requiere:  Nivel 44"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "serrated-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "bleed_on_hit_with_attacks_%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "bleed_on_hit_with_attacks_%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "toxic-quiver": {
+    "key": "toxic-quiver",
+    "slug": "Toxic_Quiver",
+    "pool": "toxic-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver6",
+    "name": "Toxic Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Toxic_Quiver",
+    "sourceSha256": "cf5eb38813326a813e5f374923abdb0097e94bf25ef9ca0a70d5e392b21c4684",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 39,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 39",
+      "ko": "요구 사항:  레벨 39",
+      "ja": "装備条件： レベル 39",
+      "zh-CN": "需求：  等级 39",
+      "zh-TW": "需求:  等級 39",
+      "es": "Requiere:  Nivel 39"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "toxic-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "chance_to_poison_on_hit_with_attacks_%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "chance_to_poison_on_hit_with_attacks_%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "blunt-quiver": {
+    "key": "blunt-quiver",
+    "slug": "Blunt_Quiver",
+    "pool": "blunt-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver5",
+    "name": "Blunt Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Blunt_Quiver",
+    "sourceSha256": "418e9093ca5464b00560ed9417a4597a5e60e23c6c1fa0315b0ce616055eb1fc",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 33,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 33",
+      "ko": "요구 사항:  레벨 33",
+      "ja": "装備条件： レベル 33",
+      "zh-CN": "需求：  等级 33",
+      "zh-TW": "需求:  等級 33",
+      "es": "Requiere:  Nivel 33"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "blunt-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "hit_damage_stun_multiplier_+%",
+        "min": 25,
+        "max": 40
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "hit_damage_stun_multiplier_+%",
+        "min": 25,
+        "max": 40,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "two-point-quiver": {
+    "key": "two-point-quiver",
+    "slug": "Two-Point_Quiver",
+    "pool": "two-point-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver4",
+    "name": "Two-Point Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Two-Point_Quiver",
+    "sourceSha256": "38973ef2c97a4657c3a16c3738387f280c3cdff3205a9d94ba4126e7039aedb3",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 24,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 24",
+      "ko": "요구 사항:  레벨 24",
+      "ja": "装備条件： レベル 24",
+      "zh-CN": "需求：  等级 24",
+      "zh-TW": "需求:  等級 24",
+      "es": "Requiere:  Nivel 24"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "two-point-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "accuracy_rating_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "accuracy_rating_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "sacral-quiver": {
+    "key": "sacral-quiver",
+    "slug": "Sacral_Quiver",
+    "pool": "sacral-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver3",
+    "name": "Sacral Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Sacral_Quiver",
+    "sourceSha256": "274a0abc52388809b4d6a89700545291990b7758f3d4fa0c0186c29090dc9220",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 16,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 16",
+      "ko": "요구 사항:  레벨 16",
+      "ja": "装備条件： レベル 16",
+      "zh-CN": "需求：  等级 16",
+      "zh-TW": "需求:  等級 16",
+      "es": "Requiere:  Nivel 16"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "sacral-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "base_life_gain_per_target",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_life_gain_per_target",
+        "min": 2,
+        "max": 3,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "fire-quiver": {
+    "key": "fire-quiver",
+    "slug": "Fire_Quiver",
+    "pool": "fire-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver2",
+    "name": "Fire Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Fire_Quiver",
+    "sourceSha256": "d5ad43b19c0c545e0fd1eadaa654534c8c81efd8bf4a63592ec5bd17c88029e1",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 8,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "fire-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "attack_maximum_added_fire_damage",
+        "min": 5,
+        "max": 5
+      },
+      {
+        "id": "attack_minimum_added_fire_damage",
+        "min": 3,
+        "max": 3
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "attack_maximum_added_fire_damage",
+        "min": 5,
+        "max": 5,
+        "locality": "Global"
+      },
+      {
+        "id": "attack_minimum_added_fire_damage",
+        "min": 3,
+        "max": 3,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "broadhead-quiver": {
+    "key": "broadhead-quiver",
+    "slug": "Broadhead_Quiver",
+    "pool": "broadhead-quiver",
+    "family": "quivers",
+    "id": "Metadata/Items/Quivers/FourQuiver1",
+    "name": "Broadhead Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Broadhead_Quiver",
+    "sourceSha256": "be58842d27b7f029539e01228f65a9a78a23ed4169de1c7100d344a86af523ee",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 0,
+    "maximumQuality": null,
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    },
+    "implicitModifierId": "broadhead-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "attack_maximum_added_physical_damage",
+        "min": 3,
+        "max": 3
+      },
+      {
+        "id": "attack_minimum_added_physical_damage",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "attack_maximum_added_physical_damage",
+        "min": 3,
+        "max": 3,
+        "locality": "Global"
+      },
+      {
+        "id": "attack_minimum_added_physical_damage",
+        "min": 1,
+        "max": 1,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0
+  },
+  "fortified-hammer": {
+    "key": "fortified-hammer",
+    "slug": "Fortified_Hammer",
+    "pool": "fortified-hammer",
+    "family": "one-hand-maces",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace8Endgame",
+    "name": "Fortified Hammer",
+    "sourceUrl": "https://poe2db.tw/us/Fortified_Hammer",
+    "sourceSha256": "83bd5d4566393979c7ec4630ae257d3a24c048fdf95a28caad4b61dc60e3b5dc",
+    "sourceTags": [
+      "mace",
+      "one_hand_weapon",
+      "onehand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 163,
+    "dexterity": 0,
+    "requiredLevel": 79,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 79, 163 Str",
+      "ko": "요구 사항:  레벨 79, 163 힘",
+      "ja": "装備条件： レベル 79, 163 筋力",
+      "zh-CN": "需求：  等级 79, 163 力量",
+      "zh-TW": "需求:  等級 79, 163 力量",
+      "es": "Requiere:  Nivel 79, 163 Fue"
+    },
+    "sourceProperties": {
+      "en": [
+        "One Hand Maces",
+        "Physical Damage: 60-73",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.3"
+      ],
+      "ko": [
+        "한손 철퇴",
+        "물리 피해: 60-73",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.4",
+        "무기 범위: 1.3"
+      ],
+      "ja": [
+        "片手メイス",
+        "物理ダメージ: 60-73",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.3"
+      ],
+      "zh-CN": [
+        "单手锤",
+        "物理伤害: 60-73",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.3"
+      ],
+      "zh-TW": [
+        "單手錘",
+        "物理傷害: 60-73",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.4",
+        "武器範圍: 1.3"
+      ],
+      "es": [
+        "Mazas a una mano",
+        "Daño físico: 60-73",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.3"
+      ]
+    },
+    "implicitModifierId": "fortified-hammer:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_weapon_daze_chance_%",
+        "min": 40,
+        "max": 40
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_weapon_daze_chance_%",
+        "min": 40,
+        "max": 40,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "60-73",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.4,
+    "weaponRange": 1.3,
+    "ordinarySocketMaximum": 1,
+    "classId": 12
+  },
+  "strife-pick": {
+    "key": "strife-pick",
+    "slug": "Strife_Pick",
+    "pool": "strife-pick",
+    "family": "one-hand-maces",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace5Endgame",
+    "name": "Strife Pick",
+    "sourceUrl": "https://poe2db.tw/us/Strife_Pick",
+    "sourceSha256": "43179c76c8a34fa4b3a334ea6ca1eda11f999b701b79a2fca4b58af78ddf802a",
+    "sourceTags": [
+      "mace",
+      "one_hand_weapon",
+      "onehand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 163,
+    "dexterity": 0,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 163 Str",
+      "ko": "요구 사항:  레벨 78, 163 힘",
+      "ja": "装備条件： レベル 78, 163 筋力",
+      "zh-CN": "需求：  等级 78, 163 力量",
+      "zh-TW": "需求:  等級 78, 163 力量",
+      "es": "Requiere:  Nivel 78, 163 Fue"
+    },
+    "sourceProperties": {
+      "en": [
+        "One Hand Maces",
+        "Physical Damage: 49-66",
+        "Critical Hit Chance: 7%",
+        "Attacks per Second: 1.45",
+        "Weapon Range: 1.3"
+      ],
+      "ko": [
+        "한손 철퇴",
+        "물리 피해: 49-66",
+        "치명타 명중 확률: 7%",
+        "초당 공격 횟수: 1.45",
+        "무기 범위: 1.3"
+      ],
+      "ja": [
+        "片手メイス",
+        "物理ダメージ: 49-66",
+        "クリティカルヒット率: 7%",
+        "秒間アタック回数: 1.45",
+        "武器攻撃距離: 1.3"
+      ],
+      "zh-CN": [
+        "单手锤",
+        "物理伤害: 49-66",
+        "暴击率: 7%",
+        "每秒攻击次数: 1.45",
+        "武器范围: 1.3"
+      ],
+      "zh-TW": [
+        "單手錘",
+        "物理傷害: 49-66",
+        "暴擊率: 7%",
+        "每秒攻擊次數: 1.45",
+        "武器範圍: 1.3"
+      ],
+      "es": [
+        "Mazas a una mano",
+        "Daño físico: 49-66",
+        "Probabilidad de impacto crítico: 7%",
+        "Ataques por segundo: 1.45",
+        "Alcance de arma: 1.3"
+      ]
+    },
+    "implicitModifierId": "strife-pick:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_critical_strike_multiplier_+",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_critical_strike_multiplier_+",
+        "min": 5,
+        "max": 10,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "49-66",
+    "criticalHitChance": 7,
+    "attacksPerSecond": 1.45,
+    "weaponRange": 1.3,
+    "ordinarySocketMaximum": 1,
+    "classId": 12
+  },
+  "akoyan-club": {
+    "key": "akoyan-club",
+    "slug": "Akoyan_Club",
+    "pool": "akoyan-club",
+    "family": "one-hand-maces",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace10Endgame",
+    "name": "Akoyan Club",
+    "sourceUrl": "https://poe2db.tw/us/Akoyan_Club",
+    "sourceSha256": "c14246a0e6f2caf954b1b9b2e347f01f534515dc2dbf7f21e0fcfc31ae339cad",
+    "sourceTags": [
+      "karui_basetype",
+      "mace",
+      "one_hand_weapon",
+      "onehand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 163,
+    "dexterity": 0,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 163 Str",
+      "ko": "요구 사항:  레벨 78, 163 힘",
+      "ja": "装備条件： レベル 78, 163 筋力",
+      "zh-CN": "需求：  等级 78, 163 力量",
+      "zh-TW": "需求:  等級 78, 163 力量",
+      "es": "Requiere:  Nivel 78, 163 Fue"
+    },
+    "sourceProperties": {
+      "en": [
+        "One Hand Maces",
+        "Physical Damage: 46-76",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.45",
+        "Weapon Range: 1.3"
+      ],
+      "ko": [
+        "한손 철퇴",
+        "물리 피해: 46-76",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.45",
+        "무기 범위: 1.3"
+      ],
+      "ja": [
+        "片手メイス",
+        "物理ダメージ: 46-76",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.45",
+        "武器攻撃距離: 1.3"
+      ],
+      "zh-CN": [
+        "单手锤",
+        "物理伤害: 46-76",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.45",
+        "武器范围: 1.3"
+      ],
+      "zh-TW": [
+        "單手錘",
+        "物理傷害: 46-76",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.45",
+        "武器範圍: 1.3"
+      ],
+      "es": [
+        "Mazas a una mano",
+        "Daño físico: 46-76",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.45",
+        "Alcance de arma: 1.3"
+      ]
+    },
+    "implicitModifierId": "akoyan-club:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_always_hit",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_always_hit",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "46-76",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.45,
+    "weaponRange": 1.3,
+    "ordinarySocketMaximum": 1,
+    "classId": 12
+  },
+  "ruination-maul": {
+    "key": "ruination-maul",
+    "slug": "Ruination_Maul",
+    "pool": "ruination-maul",
+    "family": "two-hand-maces",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace8Endgame",
+    "name": "Ruination Maul",
+    "sourceUrl": "https://poe2db.tw/us/Ruination_Maul",
+    "sourceSha256": "b740168d3ab988692002e7534b287ab5d59637258553c84fc28504284051b5fa",
+    "sourceTags": [
+      "mace",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 163,
+    "dexterity": 0,
+    "requiredLevel": 79,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 79, 163 Str",
+      "ko": "요구 사항:  레벨 79, 163 힘",
+      "ja": "装備条件： レベル 79, 163 筋力",
+      "zh-CN": "需求：  等级 79, 163 力量",
+      "zh-TW": "需求:  等級 79, 163 力量",
+      "es": "Requiere:  Nivel 79, 163 Fue"
+    },
+    "sourceProperties": {
+      "en": [
+        "Two Hand Maces",
+        "Physical Damage: 104-127",
+        "Critical Hit Chance: 8%",
+        "Attacks per Second: 1.1",
+        "Weapon Range: 1.5"
+      ],
+      "ko": [
+        "양손 철퇴",
+        "물리 피해: 104-127",
+        "치명타 명중 확률: 8%",
+        "초당 공격 횟수: 1.1",
+        "무기 범위: 1.5"
+      ],
+      "ja": [
+        "両手メイス",
+        "物理ダメージ: 104-127",
+        "クリティカルヒット率: 8%",
+        "秒間アタック回数: 1.1",
+        "武器攻撃距離: 1.5"
+      ],
+      "zh-CN": [
+        "双手锤",
+        "物理伤害: 104-127",
+        "暴击率: 8%",
+        "每秒攻击次数: 1.1",
+        "武器范围: 1.5"
+      ],
+      "zh-TW": [
+        "雙手錘",
+        "物理傷害: 104-127",
+        "暴擊率: 8%",
+        "每秒攻擊次數: 1.1",
+        "武器範圍: 1.5"
+      ],
+      "es": [
+        "Mazas a dos manos",
+        "Daño físico: 104-127",
+        "Probabilidad de impacto crítico: 8%",
+        "Ataques por segundo: 1.1",
+        "Alcance de arma: 1.5"
+      ]
+    },
+    "implicitModifierId": "ruination-maul:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_explode_on_kill_with_crit_%_physical_damage_to_deal",
+        "min": 10,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_explode_on_kill_with_crit_%_physical_damage_to_deal",
+        "min": 10,
+        "max": 10,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "104-127",
+    "criticalHitChance": 8,
+    "attacksPerSecond": 1.1,
+    "weaponRange": 1.5,
+    "ordinarySocketMaximum": 2,
+    "classId": 17
+  },
+  "fanatic-greathammer": {
+    "key": "fanatic-greathammer",
+    "slug": "Fanatic_Greathammer",
+    "pool": "fanatic-greathammer",
+    "family": "two-hand-maces",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace5Endgame",
+    "name": "Fanatic Greathammer",
+    "sourceUrl": "https://poe2db.tw/us/Fanatic_Greathammer",
+    "sourceSha256": "268926f0e4b692ec535be95453f83fc2aef376bdf5937a30c6b4a8c02455d062",
+    "sourceTags": [
+      "mace",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 163,
+    "dexterity": 0,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 163 Str",
+      "ko": "요구 사항:  레벨 78, 163 힘",
+      "ja": "装備条件： レベル 78, 163 筋力",
+      "zh-CN": "需求：  等级 78, 163 力量",
+      "zh-TW": "需求:  等級 78, 163 力量",
+      "es": "Requiere:  Nivel 78, 163 Fue"
+    },
+    "sourceProperties": {
+      "en": [
+        "Two Hand Maces",
+        "Physical Damage: 101-137",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.05",
+        "Weapon Range: 1.5"
+      ],
+      "ko": [
+        "양손 철퇴",
+        "물리 피해: 101-137",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.05",
+        "무기 범위: 1.5"
+      ],
+      "ja": [
+        "両手メイス",
+        "物理ダメージ: 101-137",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.05",
+        "武器攻撃距離: 1.5"
+      ],
+      "zh-CN": [
+        "双手锤",
+        "物理伤害: 101-137",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.05",
+        "武器范围: 1.5"
+      ],
+      "zh-TW": [
+        "雙手錘",
+        "物理傷害: 101-137",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.05",
+        "武器範圍: 1.5"
+      ],
+      "es": [
+        "Mazas a dos manos",
+        "Daño físico: 101-137",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.05",
+        "Alcance de arma: 1.5"
+      ]
+    },
+    "implicitModifierId": "fanatic-greathammer:implicit:base",
+    "implicitStats": [
+      {
+        "id": "melee_splash",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "melee_splash",
+        "min": 1,
+        "max": 1,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "101-137",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.05,
+    "weaponRange": 1.5,
+    "ordinarySocketMaximum": 2,
+    "classId": 17
+  },
+  "tawhoan-greatclub": {
+    "key": "tawhoan-greatclub",
+    "slug": "Tawhoan_Greatclub",
+    "pool": "tawhoan-greatclub",
+    "family": "two-hand-maces",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace10Endgame",
+    "name": "Tawhoan Greatclub",
+    "sourceUrl": "https://poe2db.tw/us/Tawhoan_Greatclub",
+    "sourceSha256": "495f746d78392b9cdf21f77a3d34b575a616e6b8a703dfebfec5a49a90d1e602",
+    "sourceTags": [
+      "karui_basetype",
+      "mace",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 163,
+    "dexterity": 0,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 163 Str",
+      "ko": "요구 사항:  레벨 78, 163 힘",
+      "ja": "装備条件： レベル 78, 163 筋力",
+      "zh-CN": "需求：  等级 78, 163 力量",
+      "zh-TW": "需求:  等級 78, 163 力量",
+      "es": "Requiere:  Nivel 78, 163 Fue"
+    },
+    "sourceProperties": {
+      "en": [
+        "Two Hand Maces",
+        "Physical Damage: 113-153",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.1",
+        "Weapon Range: 1.5"
+      ],
+      "ko": [
+        "양손 철퇴",
+        "물리 피해: 113-153",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.1",
+        "무기 범위: 1.5"
+      ],
+      "ja": [
+        "両手メイス",
+        "物理ダメージ: 113-153",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.1",
+        "武器攻撃距離: 1.5"
+      ],
+      "zh-CN": [
+        "双手锤",
+        "物理伤害: 113-153",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.1",
+        "武器范围: 1.5"
+      ],
+      "zh-TW": [
+        "雙手錘",
+        "物理傷害: 113-153",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.1",
+        "武器範圍: 1.5"
+      ],
+      "es": [
+        "Mazas a dos manos",
+        "Daño físico: 113-153",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.1",
+        "Alcance de arma: 1.5"
+      ]
+    },
+    "implicitModifierId": "tawhoan-greatclub:implicit:base",
+    "implicitStats": [
+      {
+        "id": "warcry_empowers_next_x_melee_attacks",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "warcry_empowers_next_x_melee_attacks",
+        "min": 1,
+        "max": 1,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "113-153",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.1,
+    "weaponRange": 1.5,
+    "ordinarySocketMaximum": 2,
+    "classId": 17
+  },
+  "aegis-quarterstaff": {
+    "key": "aegis-quarterstaff",
+    "slug": "Aegis_Quarterstaff",
+    "pool": "aegis-quarterstaff",
+    "family": "quarterstaves",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame",
+    "name": "Aegis Quarterstaff",
+    "sourceUrl": "https://poe2db.tw/us/Aegis_Quarterstaff",
+    "sourceSha256": "3885efd4b725c3cee263a3d71ee544d4a4442ecbae7598f9c3b1a2060e9a48c6",
+    "sourceTags": [
+      "warstaff",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 127,
+    "intelligence": 50,
+    "requiredLevel": 79,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 79, 127 Dex, 50 Int",
+      "ko": "요구 사항:  레벨 79, 127 민첩, 50 지능",
+      "ja": "装備条件： レベル 79, 127 器用さ, 50 知性",
+      "zh-CN": "需求：  等级 79, 127 敏捷, 50 智慧",
+      "zh-TW": "需求:  等級 79, 127 敏捷, 50 智慧",
+      "es": "Requiere:  Nivel 79, 127 Des, 50 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Quarterstaves",
+        "Physical Damage: 58-97",
+        "Critical Hit Chance: 10%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.4"
+      ],
+      "ko": [
+        "육척봉",
+        "물리 피해: 58-97",
+        "치명타 명중 확률: 10%",
+        "초당 공격 횟수: 1.4",
+        "무기 범위: 1.4"
+      ],
+      "ja": [
+        "クォータースタッフ",
+        "物理ダメージ: 58-97",
+        "クリティカルヒット率: 10%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.4"
+      ],
+      "zh-CN": [
+        "节杖",
+        "物理伤害: 58-97",
+        "暴击率: 10%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.4"
+      ],
+      "zh-TW": [
+        "細杖",
+        "物理傷害: 58-97",
+        "暴擊率: 10%",
+        "每秒攻擊次數: 1.4",
+        "武器範圍: 1.4"
+      ],
+      "es": [
+        "Bastones",
+        "Daño físico: 58-97",
+        "Probabilidad de impacto crítico: 10%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.4"
+      ]
+    },
+    "implicitModifierId": "aegis-quarterstaff:implicit:base",
+    "implicitStats": [
+      {
+        "id": "additional_block_%",
+        "min": 12,
+        "max": 18
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "additional_block_%",
+        "min": 12,
+        "max": 18,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "58-97",
+    "criticalHitChance": 10,
+    "attacksPerSecond": 1.4,
+    "weaponRange": 1.4,
+    "ordinarySocketMaximum": 2,
+    "classId": 58
+  },
+  "bolting-quarterstaff": {
+    "key": "bolting-quarterstaff",
+    "slug": "Bolting_Quarterstaff",
+    "pool": "bolting-quarterstaff",
+    "family": "quarterstaves",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff4Endgame",
+    "name": "Bolting Quarterstaff",
+    "sourceUrl": "https://poe2db.tw/us/Bolting_Quarterstaff",
+    "sourceSha256": "752e3041a0613ccb882a94b6ad31af67d94a60d6fca78e91ca1a5398d5e50837",
+    "sourceTags": [
+      "warstaff",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 127,
+    "intelligence": 50,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 127 Dex, 50 Int",
+      "ko": "요구 사항:  레벨 78, 127 민첩, 50 지능",
+      "ja": "装備条件： レベル 78, 127 器用さ, 50 知性",
+      "zh-CN": "需求：  等级 78, 127 敏捷, 50 智慧",
+      "zh-TW": "需求:  等級 78, 127 敏捷, 50 智慧",
+      "es": "Requiere:  Nivel 78, 127 Des, 50 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Quarterstaves",
+        "Physical Damage: 24-97",
+        "Critical Hit Chance: 10%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.4"
+      ],
+      "ko": [
+        "육척봉",
+        "물리 피해: 24-97",
+        "치명타 명중 확률: 10%",
+        "초당 공격 횟수: 1.4",
+        "무기 범위: 1.4"
+      ],
+      "ja": [
+        "クォータースタッフ",
+        "物理ダメージ: 24-97",
+        "クリティカルヒット率: 10%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.4"
+      ],
+      "zh-CN": [
+        "节杖",
+        "物理伤害: 24-97",
+        "暴击率: 10%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.4"
+      ],
+      "zh-TW": [
+        "細杖",
+        "物理傷害: 24-97",
+        "暴擊率: 10%",
+        "每秒攻擊次數: 1.4",
+        "武器範圍: 1.4"
+      ],
+      "es": [
+        "Bastones",
+        "Daño físico: 24-97",
+        "Probabilidad de impacto crítico: 10%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.4"
+      ]
+    },
+    "implicitModifierId": "bolting-quarterstaff:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_weapon_implicit_hidden_added_maximum_lightning_damage",
+        "min": 100,
+        "max": 100
+      },
+      {
+        "id": "local_weapon_implicit_hidden_added_minimum_lightning_damage",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_weapon_implicit_hidden_added_maximum_lightning_damage",
+        "min": 100,
+        "max": 100,
+        "locality": "Local"
+      },
+      {
+        "id": "local_weapon_implicit_hidden_added_minimum_lightning_damage",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "24-97",
+    "criticalHitChance": 10,
+    "attacksPerSecond": 1.4,
+    "weaponRange": 1.4,
+    "ordinarySocketMaximum": 2,
+    "classId": 58
+  },
+  "dreaming-quarterstaff": {
+    "key": "dreaming-quarterstaff",
+    "slug": "Dreaming_Quarterstaff",
+    "pool": "dreaming-quarterstaff",
+    "family": "quarterstaves",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame",
+    "name": "Dreaming Quarterstaff",
+    "sourceUrl": "https://poe2db.tw/us/Dreaming_Quarterstaff",
+    "sourceSha256": "a376725ec4e4b2170b81fa4dd6a7b548cbfcbe2489a9e0c23b3182b5c6bd2984",
+    "sourceTags": [
+      "karui_basetype",
+      "warstaff",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 127,
+    "intelligence": 50,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 127 Dex, 50 Int",
+      "ko": "요구 사항:  레벨 78, 127 민첩, 50 지능",
+      "ja": "装備条件： レベル 78, 127 器用さ, 50 知性",
+      "zh-CN": "需求：  等级 78, 127 敏捷, 50 智慧",
+      "zh-TW": "需求:  等級 78, 127 敏捷, 50 智慧",
+      "es": "Requiere:  Nivel 78, 127 Des, 50 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Quarterstaves",
+        "Physical Damage: 99-133",
+        "Critical Hit Chance: 0%",
+        "Attacks per Second: 1.5",
+        "Weapon Range: 1.4"
+      ],
+      "ko": [
+        "육척봉",
+        "물리 피해: 99-133",
+        "치명타 명중 확률: 0%",
+        "초당 공격 횟수: 1.5",
+        "무기 범위: 1.4"
+      ],
+      "ja": [
+        "クォータースタッフ",
+        "物理ダメージ: 99-133",
+        "クリティカルヒット率: 0%",
+        "秒間アタック回数: 1.5",
+        "武器攻撃距離: 1.4"
+      ],
+      "zh-CN": [
+        "节杖",
+        "物理伤害: 99-133",
+        "暴击率: 0%",
+        "每秒攻击次数: 1.5",
+        "武器范围: 1.4"
+      ],
+      "zh-TW": [
+        "細杖",
+        "物理傷害: 99-133",
+        "暴擊率: 0%",
+        "每秒攻擊次數: 1.5",
+        "武器範圍: 1.4"
+      ],
+      "es": [
+        "Bastones",
+        "Daño físico: 99-133",
+        "Probabilidad de impacto crítico: 0%",
+        "Ataques por segundo: 1.5",
+        "Alcance de arma: 1.4"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "physicalDamage": "99-133",
+    "criticalHitChance": 0,
+    "attacksPerSecond": 1.5,
+    "weaponRange": 1.4,
+    "ordinarySocketMaximum": 2,
+    "classId": 58
+  },
+  "grand-spear": {
+    "key": "grand-spear",
+    "slug": "Grand_Spear",
+    "pool": "grand-spear",
+    "family": "spears",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame",
+    "name": "Grand Spear",
+    "sourceUrl": "https://poe2db.tw/us/Grand_Spear",
+    "sourceSha256": "37c053bf3b1535bc0dcf9396c9a1c142486ed623bb3255329cffa0fd83c6151e",
+    "sourceTags": [
+      "spear",
+      "one_hand_weapon",
+      "onehand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 68,
+    "dexterity": 109,
+    "intelligence": 0,
+    "requiredLevel": 79,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 79, 68 Str, 109 Dex",
+      "ko": "요구 사항:  레벨 79, 68 힘, 109 민첩",
+      "ja": "装備条件： レベル 79, 68 筋力, 109 器用さ",
+      "zh-CN": "需求：  等级 79, 68 力量, 109 敏捷",
+      "zh-TW": "需求:  等級 79, 68 力量, 109 敏捷",
+      "es": "Requiere:  Nivel 79, 68 Fue, 109 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spears",
+        "Physical Damage: 56-84",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.5"
+      ],
+      "ko": [
+        "창",
+        "물리 피해: 56-84",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.4",
+        "무기 범위: 1.5"
+      ],
+      "ja": [
+        "スピア",
+        "物理ダメージ: 56-84",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.5"
+      ],
+      "zh-CN": [
+        "战矛",
+        "物理伤害: 56-84",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.5"
+      ],
+      "zh-TW": [
+        "長矛",
+        "物理傷害: 56-84",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.4",
+        "武器範圍: 1.5"
+      ],
+      "es": [
+        "Lanzas",
+        "Daño físico: 56-84",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.5"
+      ]
+    },
+    "implicitModifierId": "grand-spear:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1
+      },
+      {
+        "id": "local_+%_weapon_range",
+        "min": 25,
+        "max": 25
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      },
+      {
+        "id": "local_+%_weapon_range",
+        "min": 25,
+        "max": 25,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "56-84",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.4,
+    "weaponRange": 1.5,
+    "ordinarySocketMaximum": 1,
+    "classId": 79,
+    "skillLines": {
+      "en": [
+        "Grants Skill: Spear Throw"
+      ],
+      "ko": [
+        "스킬 부여: 창 투척"
+      ],
+      "ja": [
+        "スキルを付与: スピアスロー"
+      ],
+      "zh-CN": [
+        "获得技能: 战矛飞掷"
+      ],
+      "zh-TW": [
+        "賦予技能: 長矛投擲"
+      ],
+      "es": [
+        "Otorga la habilidad: Lanzamiento de lanza"
+      ]
+    }
+  },
+  "flying-spear": {
+    "key": "flying-spear",
+    "slug": "Flying_Spear",
+    "pool": "flying-spear",
+    "family": "spears",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame",
+    "name": "Flying Spear",
+    "sourceUrl": "https://poe2db.tw/us/Flying_Spear",
+    "sourceSha256": "ca6151f65ebcfc644d85f5df34eca05b62e0683ddb4c90d665f6d0f5fb7a5bba",
+    "sourceTags": [
+      "spear",
+      "one_hand_weapon",
+      "onehand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 50,
+    "dexterity": 127,
+    "intelligence": 0,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 50 Str, 127 Dex",
+      "ko": "요구 사항:  레벨 78, 50 힘, 127 민첩",
+      "ja": "装備条件： レベル 78, 50 筋力, 127 器用さ",
+      "zh-CN": "需求：  等级 78, 50 力量, 127 敏捷",
+      "zh-TW": "需求:  等級 78, 50 力量, 127 敏捷",
+      "es": "Requiere:  Nivel 78, 50 Fue, 127 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spears",
+        "Physical Damage: 46-77",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Weapon Range: 1.5"
+      ],
+      "ko": [
+        "창",
+        "물리 피해: 46-77",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "무기 범위: 1.5"
+      ],
+      "ja": [
+        "スピア",
+        "物理ダメージ: 46-77",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "武器攻撃距離: 1.5"
+      ],
+      "zh-CN": [
+        "战矛",
+        "物理伤害: 46-77",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "武器范围: 1.5"
+      ],
+      "zh-TW": [
+        "長矛",
+        "物理傷害: 46-77",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "武器範圍: 1.5"
+      ],
+      "es": [
+        "Lanzas",
+        "Daño físico: 46-77",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Alcance de arma: 1.5"
+      ]
+    },
+    "implicitModifierId": "flying-spear:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1
+      },
+      {
+        "id": "local_projectile_speed_+%",
+        "min": 25,
+        "max": 35
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      },
+      {
+        "id": "local_projectile_speed_+%",
+        "min": 25,
+        "max": 35,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "46-77",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.6,
+    "weaponRange": 1.5,
+    "ordinarySocketMaximum": 1,
+    "classId": 79,
+    "skillLines": {
+      "en": [
+        "Grants Skill: Spear Throw"
+      ],
+      "ko": [
+        "스킬 부여: 창 투척"
+      ],
+      "ja": [
+        "スキルを付与: スピアスロー"
+      ],
+      "zh-CN": [
+        "获得技能: 战矛飞掷"
+      ],
+      "zh-TW": [
+        "賦予技能: 長矛投擲"
+      ],
+      "es": [
+        "Otorga la habilidad: Lanzamiento de lanza"
+      ]
+    }
+  },
+  "akoyan-spear": {
+    "key": "akoyan-spear",
+    "slug": "Akoyan_Spear",
+    "pool": "akoyan-spear",
+    "family": "spears",
+    "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
+    "name": "Akoyan Spear",
+    "sourceUrl": "https://poe2db.tw/us/Akoyan_Spear",
+    "sourceSha256": "f51097cf3dcdf074a419738a5f9a9e5ef3e9fc4cc91ecfebbd3002d4329e12f0",
+    "sourceTags": [
+      "karui_basetype",
+      "spear",
+      "one_hand_weapon",
+      "onehand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 50,
+    "dexterity": 127,
+    "intelligence": 90,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 50 Str, 127 Dex, 90 Int",
+      "ko": "요구 사항:  레벨 78, 50 힘, 127 민첩, 90 지능",
+      "ja": "装備条件： レベル 78, 50 筋力, 127 器用さ, 90 知性",
+      "zh-CN": "需求：  等级 78, 50 力量, 127 敏捷, 90 智慧",
+      "zh-TW": "需求:  等級 78, 50 力量, 127 敏捷, 90 智慧",
+      "es": "Requiere:  Nivel 78, 50 Fue, 127 Des, 90 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spears",
+        "Physical Damage: 39-72",
+        "Critical Hit Chance: 7%",
+        "Attacks per Second: 1.6",
+        "Weapon Range: 1.5"
+      ],
+      "ko": [
+        "창",
+        "물리 피해: 39-72",
+        "치명타 명중 확률: 7%",
+        "초당 공격 횟수: 1.6",
+        "무기 범위: 1.5"
+      ],
+      "ja": [
+        "スピア",
+        "物理ダメージ: 39-72",
+        "クリティカルヒット率: 7%",
+        "秒間アタック回数: 1.6",
+        "武器攻撃距離: 1.5"
+      ],
+      "zh-CN": [
+        "战矛",
+        "物理伤害: 39-72",
+        "暴击率: 7%",
+        "每秒攻击次数: 1.6",
+        "武器范围: 1.5"
+      ],
+      "zh-TW": [
+        "長矛",
+        "物理傷害: 39-72",
+        "暴擊率: 7%",
+        "每秒攻擊次數: 1.6",
+        "武器範圍: 1.5"
+      ],
+      "es": [
+        "Lanzas",
+        "Daño físico: 39-72",
+        "Probabilidad de impacto crítico: 7%",
+        "Ataques por segundo: 1.6",
+        "Alcance de arma: 1.5"
+      ]
+    },
+    "implicitModifierId": "akoyan-spear:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "39-72",
+    "criticalHitChance": 7,
+    "attacksPerSecond": 1.6,
+    "weaponRange": 1.5,
+    "ordinarySocketMaximum": 1,
+    "classId": 79,
+    "skillLines": {
+      "en": [
+        "Grants Skill: Spear Throw"
+      ],
+      "ko": [
+        "스킬 부여: 창 투척"
+      ],
+      "ja": [
+        "スキルを付与: スピアスロー"
+      ],
+      "zh-CN": [
+        "获得技能: 战矛飞掷"
+      ],
+      "zh-TW": [
+        "賦予技能: 長矛投擲"
+      ],
+      "es": [
+        "Otorga la habilidad: Lanzamiento de lanza"
+      ]
+    }
+  },
+  "permafrost-staff": {
+    "key": "permafrost-staff",
+    "slug": "Permafrost_Staff",
+    "pool": "permafrost-staff",
+    "family": "staves",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+    "name": "Permafrost Staff",
+    "sourceUrl": "https://poe2db.tw/us/Permafrost_Staff",
+    "sourceSha256": "a1d2328c68d483147be25d6aa70ad7b4d4ce8064bd7ba044f7743f157973454d",
+    "sourceTags": [
+      "staff",
+      "twohand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 114,
+    "requiredLevel": 75,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 75, 114 Int",
+      "ko": "요구 사항:  레벨 75, 114 지능",
+      "ja": "装備条件： レベル 75, 114 知性",
+      "zh-CN": "需求：  等级 75, 114 智慧",
+      "zh-TW": "需求:  等級 75, 114 智慧",
+      "es": "Requiere:  Nivel 75, 131 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Staves",
+        "Grants Skill: Heart of Ice"
+      ],
+      "ko": [
+        "지팡이",
+        "스킬 부여: 얼음의 심장"
+      ],
+      "ja": [
+        "スタッフ",
+        "スキルを付与: ハートオブアイス"
+      ],
+      "zh-CN": [
+        "长杖",
+        "获得技能: 冰雪之心"
+      ],
+      "zh-TW": [
+        "長杖",
+        "賦予技能: 冰雪之心"
+      ],
+      "es": [
+        "Báculos",
+        "Otorga la habilidad: Corazón de hielo"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
+    "skillLines": {
+      "en": [
+        "Grants Skill: Heart of Ice"
+      ],
+      "ko": [
+        "스킬 부여: 얼음의 심장"
+      ],
+      "ja": [
+        "スキルを付与: ハートオブアイス"
+      ],
+      "zh-CN": [
+        "获得技能: 冰雪之心"
+      ],
+      "zh-TW": [
+        "賦予技能: 冰雪之心"
+      ],
+      "es": [
+        "Otorga la habilidad: Corazón de hielo"
+      ]
+    }
+  },
+  "reflecting-staff": {
+    "key": "reflecting-staff",
+    "slug": "Reflecting_Staff",
+    "pool": "reflecting-staff",
+    "family": "staves",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+    "name": "Reflecting Staff",
+    "sourceUrl": "https://poe2db.tw/us/Reflecting_Staff",
+    "sourceSha256": "dc8f57e708fc88f0596f385af06392cf136919990a8a833906709a04538eae9c",
+    "sourceTags": [
+      "staff",
+      "twohand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 114,
+    "requiredLevel": 70,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 70, 114 Int",
+      "ko": "요구 사항:  레벨 70, 114 지능",
+      "ja": "装備条件： レベル 70, 114 知性",
+      "zh-CN": "需求：  等级 70, 114 智慧",
+      "zh-TW": "需求:  等級 70, 114 智慧",
+      "es": "Requiere:  Nivel 70, 123 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Staves",
+        "Grants Skill: Mirror of Refraction"
+      ],
+      "ko": [
+        "지팡이",
+        "스킬 부여: 굴절의 거울"
+      ],
+      "ja": [
+        "スタッフ",
+        "スキルを付与: 屈折の鏡"
+      ],
+      "zh-CN": [
+        "长杖",
+        "获得技能: 折射之镜"
+      ],
+      "zh-TW": [
+        "長杖",
+        "賦予技能: 鏡面折射"
+      ],
+      "es": [
+        "Báculos",
+        "Otorga la habilidad: Espejo de refracción"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
+    "skillLines": {
+      "en": [
+        "Grants Skill: Mirror of Refraction"
+      ],
+      "ko": [
+        "스킬 부여: 굴절의 거울"
+      ],
+      "ja": [
+        "スキルを付与: 屈折の鏡"
+      ],
+      "zh-CN": [
+        "获得技能: 折射之镜"
+      ],
+      "zh-TW": [
+        "賦予技能: 鏡面折射"
+      ],
+      "es": [
+        "Otorga la habilidad: Espejo de refracción"
+      ]
+    }
+  },
+  "dark-staff": {
+    "key": "dark-staff",
+    "slug": "Dark_Staff",
+    "pool": "dark-staff",
+    "family": "staves",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
+    "name": "Dark Staff",
+    "sourceUrl": "https://poe2db.tw/us/Dark_Staff",
+    "sourceSha256": "5037d548d17f43947ca2cc54b0a23daeefec3a2d2c460614b2689c33bb222d61",
+    "sourceTags": [
+      "staff",
+      "twohand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 114,
+    "requiredLevel": 65,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 65, 114 Int",
+      "ko": "요구 사항:  레벨 65, 114 지능",
+      "ja": "装備条件： レベル 65, 114 知性",
+      "zh-CN": "需求：  等级 65, 114 智慧",
+      "zh-TW": "需求:  等級 65, 114 智慧",
+      "es": "Requiere:  Nivel 65, 114 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Staves",
+        "Grants Skill: Dark Pact"
+      ],
+      "ko": [
+        "지팡이",
+        "스킬 부여: 어둠의 서약"
+      ],
+      "ja": [
+        "スタッフ",
+        "スキルを付与: ダークパクト"
+      ],
+      "zh-CN": [
+        "长杖",
+        "获得技能: 暗夜契约"
+      ],
+      "zh-TW": [
+        "長杖",
+        "賦予技能: 暗夜血契"
+      ],
+      "es": [
+        "Báculos",
+        "Otorga la habilidad: Pacto oscuro"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
+    "skillLines": {
+      "en": [
+        "Grants Skill: Dark Pact"
+      ],
+      "ko": [
+        "스킬 부여: 어둠의 서약"
+      ],
+      "ja": [
+        "スキルを付与: ダークパクト"
+      ],
+      "zh-CN": [
+        "获得技能: 暗夜契约"
+      ],
+      "zh-TW": [
+        "賦予技能: 暗夜血契"
+      ],
+      "es": [
+        "Otorga la habilidad: Pacto oscuro"
+      ]
+    }
+  },
+  "ravenous-staff": {
+    "key": "ravenous-staff",
+    "slug": "Ravenous_Staff",
+    "pool": "ravenous-staff",
+    "family": "staves",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+    "name": "Ravenous Staff",
+    "sourceUrl": "https://poe2db.tw/us/Ravenous_Staff",
+    "sourceSha256": "22766176e361dfa42ecfaa350d135638d38222f5487618a386b0ffd56b63c317",
+    "sourceTags": [
+      "staff",
+      "twohand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 114,
+    "requiredLevel": 65,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 65, 114 Int",
+      "ko": "요구 사항:  레벨 65, 114 지능",
+      "ja": "装備条件： レベル 65, 114 知性",
+      "zh-CN": "需求：  等级 65, 114 智慧",
+      "zh-TW": "需求:  等級 65, 114 智慧",
+      "es": "Requiere:  Nivel 65, 114 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Staves",
+        "Grants Skill: Feast of Flesh"
+      ],
+      "ko": [
+        "지팡이",
+        "스킬 부여: 육체의 연회"
+      ],
+      "ja": [
+        "スタッフ",
+        "スキルを付与: フィーストオブフレッシュ"
+      ],
+      "zh-CN": [
+        "长杖",
+        "获得技能: 血肉盛宴"
+      ],
+      "zh-TW": [
+        "長杖",
+        "賦予技能: 血肉盛宴"
+      ],
+      "es": [
+        "Báculos",
+        "Otorga la habilidad: Festín de carne"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
+    "skillLines": {
+      "en": [
+        "Grants Skill: Feast of Flesh"
+      ],
+      "ko": [
+        "스킬 부여: 육체의 연회"
+      ],
+      "ja": [
+        "スキルを付与: フィーストオブフレッシュ"
+      ],
+      "zh-CN": [
+        "获得技能: 血肉盛宴"
+      ],
+      "zh-TW": [
+        "賦予技能: 血肉盛宴"
+      ],
+      "es": [
+        "Otorga la habilidad: Festín de carne"
+      ]
+    }
+  },
+  "perching-staff": {
+    "key": "perching-staff",
+    "slug": "Perching_Staff",
+    "pool": "perching-staff",
+    "family": "staves",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
+    "name": "Perching Staff",
+    "sourceUrl": "https://poe2db.tw/us/Perching_Staff",
+    "sourceSha256": "2039ad7d586371551b868d6a26c98e81363dfd4c10726a214596da429f522bea",
+    "sourceTags": [
+      "staff",
+      "twohand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 114,
+    "requiredLevel": 65,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 65, 114 Int",
+      "ko": "요구 사항:  레벨 65, 114 지능",
+      "ja": "装備条件： レベル 65, 114 知性",
+      "zh-CN": "需求：  等级 65, 114 智慧",
+      "zh-TW": "需求:  等級 65, 114 智慧",
+      "es": "Requiere:  Nivel 65, 114 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Staves",
+        "Grants Skill: Spiraling Conspiracy"
+      ],
+      "ko": [
+        "지팡이",
+        "스킬 부여: 고조되는 음모"
+      ],
+      "ja": [
+        "スタッフ",
+        "スキルを付与: スパイラリングコンスピラシー"
+      ],
+      "zh-CN": [
+        "长杖",
+        "获得技能: 鸦群密谋"
+      ],
+      "zh-TW": [
+        "長杖",
+        "賦予技能: 邪鴉旋纏"
+      ],
+      "es": [
+        "Báculos",
+        "Otorga la habilidad: Cuervos amenazantes"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
+    "skillLines": {
+      "en": [
+        "Grants Skill: Spiraling Conspiracy"
+      ],
+      "ko": [
+        "스킬 부여: 고조되는 음모"
+      ],
+      "ja": [
+        "スキルを付与: スパイラリングコンスピラシー"
+      ],
+      "zh-CN": [
+        "获得技能: 鸦群密谋"
+      ],
+      "zh-TW": [
+        "賦予技能: 邪鴉旋纏"
+      ],
+      "es": [
+        "Otorga la habilidad: Cuervos amenazantes"
+      ]
+    }
+  },
+  "sanctified-staff": {
+    "key": "sanctified-staff",
+    "slug": "Sanctified_Staff",
+    "pool": "sanctified-staff",
+    "family": "staves",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+    "name": "Sanctified Staff",
+    "sourceUrl": "https://poe2db.tw/us/Sanctified_Staff",
+    "sourceSha256": "245eb86ba5d308dd4b513691bbff8bbd1c7e93de6205d724fcdd9e4d059391f8",
+    "sourceTags": [
+      "staff",
+      "twohand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 99,
+    "requiredLevel": 56,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 56, 99 Int",
+      "ko": "요구 사항:  레벨 56, 99 지능",
+      "ja": "装備条件： レベル 56, 99 知性",
+      "zh-CN": "需求：  等级 56, 99 智慧",
+      "zh-TW": "需求:  等級 56, 99 智慧",
+      "es": "Requiere:  Nivel 56, 99 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Staves",
+        "Grants Skill: Consecrate"
+      ],
+      "ko": [
+        "지팡이",
+        "스킬 부여: 신성화"
+      ],
+      "ja": [
+        "スタッフ",
+        "スキルを付与: コンセクレート"
+      ],
+      "zh-CN": [
+        "长杖",
+        "获得技能: 奉献"
+      ],
+      "zh-TW": [
+        "長杖",
+        "賦予技能: 奉獻"
+      ],
+      "es": [
+        "Báculos",
+        "Otorga la habilidad: Consagrar"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
+    "skillLines": {
+      "en": [
+        "Grants Skill: Consecrate"
+      ],
+      "ko": [
+        "스킬 부여: 신성화"
+      ],
+      "ja": [
+        "スキルを付与: コンセクレート"
+      ],
+      "zh-CN": [
+        "获得技能: 奉献"
+      ],
+      "zh-TW": [
+        "賦予技能: 奉獻"
+      ],
+      "es": [
+        "Otorga la habilidad: Consagrar"
+      ]
+    }
+  },
+  "maji-talisman": {
+    "key": "maji-talisman",
+    "slug": "Maji_Talisman",
+    "pool": "maji-talisman",
+    "family": "talismans",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame",
+    "name": "Maji Talisman",
+    "sourceUrl": "https://poe2db.tw/us/Maji_Talisman",
+    "sourceSha256": "42990b0f29da53678e3da4fb0182f1231ae70de0fb12938e623c1a006864c3f5",
+    "sourceTags": [
+      "vaal_basetype",
+      "talisman",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 100,
+    "dexterity": 0,
+    "intelligence": 67,
+    "requiredLevel": 79,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 79, 100 Str, 67 Int",
+      "ko": "요구 사항:  레벨 79, 100 힘, 67 지능",
+      "ja": "装備条件： レベル 79, 100 筋力, 67 知性",
+      "zh-CN": "需求：  等级 79, 100 力量, 67 智慧",
+      "zh-TW": "需求:  等級 79, 100 力量, 67 智慧",
+      "es": "Requiere:  Nivel 79, 100 Fue, 67 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Talismans",
+        "Physical Damage: 61-114",
+        "Critical Hit Chance: 8%",
+        "Attacks per Second: 1.25",
+        "Weapon Range: 1.2"
+      ],
+      "ko": [
+        "부적",
+        "물리 피해: 61-114",
+        "치명타 명중 확률: 8%",
+        "초당 공격 횟수: 1.25",
+        "무기 범위: 1.2"
+      ],
+      "ja": [
+        "タリスマン",
+        "物理ダメージ: 61-114",
+        "クリティカルヒット率: 8%",
+        "秒間アタック回数: 1.25",
+        "武器攻撃距離: 1.2"
+      ],
+      "zh-CN": [
+        "魔符",
+        "物理伤害: 61-114",
+        "暴击率: 8%",
+        "每秒攻击次数: 1.25",
+        "武器范围: 1.2"
+      ],
+      "zh-TW": [
+        "魔符",
+        "物理傷害: 61-114",
+        "暴擊率: 8%",
+        "每秒攻擊次數: 1.25",
+        "武器範圍: 1.2"
+      ],
+      "es": [
+        "Talismanes",
+        "Daño físico: 61-114",
+        "Probabilidad de impacto crítico: 8%",
+        "Ataques por segundo: 1.25",
+        "Alcance de arma: 1.2"
+      ]
+    },
+    "implicitModifierId": "maji-talisman:implicit:base",
+    "implicitStats": [
+      {
+        "id": "maximum_rage",
+        "min": 7,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "maximum_rage",
+        "min": 7,
+        "max": 10,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "61-114",
+    "criticalHitChance": 8,
+    "attacksPerSecond": 1.25,
+    "weaponRange": 1.2,
+    "ordinarySocketMaximum": 2,
+    "classId": 110
+  },
+  "fungal-talisman": {
+    "key": "fungal-talisman",
+    "slug": "Fungal_Talisman",
+    "pool": "fungal-talisman",
+    "family": "talismans",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame",
+    "name": "Fungal Talisman",
+    "sourceUrl": "https://poe2db.tw/us/Fungal_Talisman",
+    "sourceSha256": "7d3df2faa4c8c333888b9c9d33d8dc8b77a3f7d7d90bb4dae2dd5c21f34a19b9",
+    "sourceTags": [
+      "maraketh_basetype",
+      "talisman",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 96,
+    "dexterity": 0,
+    "intelligence": 70,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 96 Str, 70 Int",
+      "ko": "요구 사항:  레벨 78, 96 힘, 70 지능",
+      "ja": "装備条件： レベル 78, 96 筋力, 70 知性",
+      "zh-CN": "需求：  等级 78, 96 力量, 70 智慧",
+      "zh-TW": "需求:  等級 78, 96 力量, 70 智慧",
+      "es": "Requiere:  Nivel 78, 96 Fue, 70 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Talismans",
+        "Physical Damage: 59-98",
+        "Critical Hit Chance: 8%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.2"
+      ],
+      "ko": [
+        "부적",
+        "물리 피해: 59-98",
+        "치명타 명중 확률: 8%",
+        "초당 공격 횟수: 1.4",
+        "무기 범위: 1.2"
+      ],
+      "ja": [
+        "タリスマン",
+        "物理ダメージ: 59-98",
+        "クリティカルヒット率: 8%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.2"
+      ],
+      "zh-CN": [
+        "魔符",
+        "物理伤害: 59-98",
+        "暴击率: 8%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.2"
+      ],
+      "zh-TW": [
+        "魔符",
+        "物理傷害: 59-98",
+        "暴擊率: 8%",
+        "每秒攻擊次數: 1.4",
+        "武器範圍: 1.2"
+      ],
+      "es": [
+        "Talismanes",
+        "Daño físico: 59-98",
+        "Probabilidad de impacto crítico: 8%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.2"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "physicalDamage": "59-98",
+    "criticalHitChance": 8,
+    "attacksPerSecond": 1.4,
+    "weaponRange": 1.2,
+    "ordinarySocketMaximum": 2,
+    "classId": 110
+  },
+  "jade-talisman": {
+    "key": "jade-talisman",
+    "slug": "Jade_Talisman",
+    "pool": "jade-talisman",
+    "family": "talismans",
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman10Endgame",
+    "name": "Jade Talisman",
+    "sourceUrl": "https://poe2db.tw/us/Jade_Talisman",
+    "sourceSha256": "d17fa029d6af04281cfaf8b38393012c114a32f57ccee8959a139a2ce7eb586b",
+    "sourceTags": [
+      "karui_basetype",
+      "talisman",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 109,
+    "dexterity": 0,
+    "intelligence": 65,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 78, 109 Str, 65 Int",
+      "ko": "요구 사항:  레벨 78, 109 힘, 65 지능",
+      "ja": "装備条件： レベル 78, 109 筋力, 65 知性",
+      "zh-CN": "需求：  等级 78, 109 力量, 65 智慧",
+      "zh-TW": "需求:  等級 78, 109 力量, 65 智慧",
+      "es": "Requiere:  Nivel 78, 109 Fue, 65 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Talismans",
+        "Physical Damage: 101-151",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.1",
+        "Weapon Range: 1.2"
+      ],
+      "ko": [
+        "부적",
+        "물리 피해: 101-151",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.1",
+        "무기 범위: 1.2"
+      ],
+      "ja": [
+        "タリスマン",
+        "物理ダメージ: 101-151",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.1",
+        "武器攻撃距離: 1.2"
+      ],
+      "zh-CN": [
+        "魔符",
+        "物理伤害: 101-151",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.1",
+        "武器范围: 1.2"
+      ],
+      "zh-TW": [
+        "魔符",
+        "物理傷害: 101-151",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.1",
+        "武器範圍: 1.2"
+      ],
+      "es": [
+        "Talismanes",
+        "Daño físico: 101-151",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.1",
+        "Alcance de arma: 1.2"
+      ]
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "physicalDamage": "101-151",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.1,
+    "weaponRange": 1.2,
+    "ordinarySocketMaximum": 2,
+    "classId": 110
+  }
+}

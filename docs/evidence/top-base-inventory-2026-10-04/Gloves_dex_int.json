@@ -1,0 +1,112 @@
+{
+  "page": "Gloves_dex_int",
+  "url": "https://poe2db.tw/us/Gloves_dex_int",
+  "retrievedAt": "2026-10-04T14:45:05.181Z",
+  "sha256": "f10d62d80e4a780140f1018e9f2ca2b93363c1961d3d882adc8a54f23cc027d0",
+  "cards": [
+    {
+      "slug": "Gauze_Wraps",
+      "card": "Gauze WrapsEvasion Rating: 9Energy Shield: 6Requires:  Level 4, 6 Dex, 6 Int"
+    },
+    {
+      "slug": "Linen_Wraps",
+      "card": "Linen WrapsEvasion Rating: 23Energy Shield: 10Requires:  Level 16, 13 Dex, 13 Int"
+    },
+    {
+      "slug": "Spiral_Wraps",
+      "card": "Spiral WrapsEvasion Rating: 43Energy Shield: 15Requires:  Level 33, 24 Dex, 24 Int"
+    },
+    {
+      "slug": "Buckled_Wraps",
+      "card": "Buckled WrapsEvasion Rating: 58Energy Shield: 19Requires:  Level 45, 32 Dex, 32 Int"
+    },
+    {
+      "slug": "Furtive_Wraps",
+      "card": "Furtive WrapsEvasion Rating: 66Energy Shield: 21Requires:  Level 52, 36 Dex, 36 Int"
+    },
+    {
+      "slug": "Utility_Wraps",
+      "card": "Utility WrapsEvasion Rating: 81Energy Shield: 25Requires:  Level 65, 44 Dex, 44 Int"
+    },
+    {
+      "slug": "Bandage_Wraps",
+      "card": "Bandage WrapsEvasion Rating: 58Energy Shield: 19Requires:  Level 45, 32 Dex, 32 Int"
+    },
+    {
+      "slug": "Cambric_Wraps",
+      "card": "Cambric WrapsEvasion Rating: 65Energy Shield: 21Requires:  Level 51, 35 Dex, 35 Int"
+    },
+    {
+      "slug": "Adorned_Wraps",
+      "card": "Adorned WrapsEvasion Rating: 74Energy Shield: 23Requires:  Level 59, 41 Dex, 41 Int"
+    },
+    {
+      "slug": "War_Wraps",
+      "card": "War WrapsEvasion Rating: 94Energy Shield: 29Requires:  Level 65, 44 Dex, 44 Int"
+    },
+    {
+      "slug": "Elegant_Wraps",
+      "card": "Elegant WrapsEvasion Rating: 85Energy Shield: 26Requires:  Level 70, 48 Dex, 48 Int"
+    },
+    {
+      "slug": "Vaal_Wraps",
+      "card": "Vaal WrapsEvasion Rating: 90Energy Shield: 27Requires:  Level 75, 52 Dex, 52 Int"
+    },
+    {
+      "slug": "Secured_Wraps",
+      "card": "Secured WrapsEvasion Rating: 94Energy Shield: 29Requires:  Level 80, 55 Dex, 55 Int"
+    },
+    {
+      "slug": "Runeforged_Gauze_Wraps",
+      "card": "Runeforged Gauze WrapsEvasion Rating: 9Energy Shield: 6Runic Ward: 11Requires:  Level 4, 6 Dex, 6 Int"
+    },
+    {
+      "slug": "Runeforged_Linen_Wraps",
+      "card": "Runeforged Linen WrapsEvasion Rating: 23Energy Shield: 10Runic Ward: 17Requires:  Level 16, 13 Dex, 13 Int"
+    },
+    {
+      "slug": "Runeforged_Spiral_Wraps",
+      "card": "Runeforged Spiral WrapsEvasion Rating: 43Energy Shield: 15Runic Ward: 24Requires:  Level 33, 24 Dex, 24 Int"
+    },
+    {
+      "slug": "Runeforged_Buckled_Wraps",
+      "card": "Runeforged Buckled WrapsEvasion Rating: 58Energy Shield: 19Runic Ward: 27Requires:  Level 45, 32 Dex, 32 Int"
+    },
+    {
+      "slug": "Runeforged_Adorned_Wraps",
+      "card": "Runeforged Adorned WrapsEvasion Rating: 65Energy Shield: 20Runic Ward: 39Requires:  Level 59, 41 Dex, 41 Int"
+    },
+    {
+      "slug": "Runeforged_War_Wraps",
+      "card": "Runeforged War WrapsEvasion Rating: 76Energy Shield: 23Runic Ward: 28Requires:  Level 65, 44 Dex, 44 Int"
+    },
+    {
+      "slug": "Runeforged_Elegant_Wraps",
+      "card": "Runeforged Elegant WrapsEvasion Rating: 60Energy Shield: 18Runic Ward: 63Requires:  Level 70, 48 Dex, 48 Int"
+    },
+    {
+      "slug": "Runeforged_Vaal_Wraps",
+      "card": "Runeforged Vaal WrapsEvasion Rating: 85Energy Shield: 26Runic Ward: 28Requires:  Level 75, 52 Dex, 52 Int"
+    },
+    {
+      "slug": "Runeforged_Secured_Wraps",
+      "card": "Runeforged Secured WrapsEvasion Rating: 34Energy Shield: 10Runic Ward: 138Requires:  Level 80, 55 Dex, 55 Int"
+    },
+    {
+      "slug": "Runemastered_Linen_Wraps",
+      "card": "Runemastered Linen WrapsEvasion Rating: 37Energy Shield: 12Runic Ward: 23Requires:  Level 38, 27 Dex, 27 Int"
+    },
+    {
+      "slug": "Runemastered_Spiral_Wraps",
+      "card": "Runemastered Spiral WrapsEvasion Rating: 38Energy Shield: 12Runic Ward: 67Requires:  Level 55, 38 Dex, 38 Int"
+    },
+    {
+      "slug": "Runemastered_Furtive_Wraps",
+      "card": "Runemastered Furtive WrapsEvasion Rating: 56Energy Shield: 17Runic Ward: 24Requires:  Level 55, 38 Dex, 38 Int"
+    },
+    {
+      "slug": "Runemastered_Utility_Wraps",
+      "card": "Runemastered Utility WrapsEvasion Rating: 49Energy Shield: 15Runic Ward: 56Requires:  Level 65, 44 Dex, 44 Int"
+    }
+  ]
+}

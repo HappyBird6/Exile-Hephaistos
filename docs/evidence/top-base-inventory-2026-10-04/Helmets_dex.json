@@ -1,0 +1,180 @@
+{
+  "page": "Helmets_dex",
+  "url": "https://poe2db.tw/us/Helmets_dex",
+  "retrievedAt": "2026-10-04T14:44:49.874Z",
+  "sha256": "93eef29bbf47ed5527da38ebe4ceee577ade1c6329667c4ba9321175a3c30aee",
+  "cards": [
+    {
+      "slug": "Shabby_Hood",
+      "card": "Shabby HoodEvasion Rating: 19"
+    },
+    {
+      "slug": "Felt_Cap",
+      "card": "Felt CapEvasion Rating: 58Requires:  Level 10, 17 Dex"
+    },
+    {
+      "slug": "Lace_Hood",
+      "card": "Lace HoodEvasion Rating: 84Requires:  Level 16, 25 Dex"
+    },
+    {
+      "slug": "Swathed_Cap",
+      "card": "Swathed CapEvasion Rating: 127Requires:  Level 26, 38 Dex"
+    },
+    {
+      "slug": "Hunter_Hood",
+      "card": "Hunter HoodEvasion Rating: 158Requires:  Level 33, 48 Dex"
+    },
+    {
+      "slug": "Viper_Cap",
+      "card": "Viper CapEvasion Rating: 179Requires:  Level 38, 54 Dex"
+    },
+    {
+      "slug": "Corsair_Cap",
+      "card": "Corsair CapEvasion Rating: 210Requires:  Level 45, 64 Dex"
+    },
+    {
+      "slug": "Leatherbound_Hood",
+      "card": "Leatherbound HoodEvasion Rating: 231Requires:  Level 50, 71 Dex"
+    },
+    {
+      "slug": "Velvet_Cap",
+      "card": "Velvet CapEvasion Rating: 240Requires:  Level 52, 74 Dex"
+    },
+    {
+      "slug": "Covert_Hood",
+      "card": "Covert HoodEvasion Rating: 257Requires:  Level 56, 79 Dex"
+    },
+    {
+      "slug": "Armoured_Cap",
+      "card": "Armoured CapEvasion Rating: 296Requires:  Level 65, 91 Dex"
+    },
+    {
+      "slug": "Rotted_Hood",
+      "card": "Rotted HoodEvasion Rating: 210Requires:  Level 45, 64 Dex"
+    },
+    {
+      "slug": "Wool_Cap",
+      "card": "Wool CapEvasion Rating: 222Requires:  Level 48, 69 Dex"
+    },
+    {
+      "slug": "Narrow_Hood",
+      "card": "Narrow HoodEvasion Rating: 235Requires:  Level 51, 73 Dex"
+    },
+    {
+      "slug": "Wrapped_Cap",
+      "card": "Wrapped CapEvasion Rating: 248Requires:  Level 54, 77 Dex"
+    },
+    {
+      "slug": "Deerstalker_Hood",
+      "card": "Deerstalker HoodEvasion Rating: 270Requires:  Level 59, 83 Dex"
+    },
+    {
+      "slug": "Woven_Cap",
+      "card": "Woven CapEvasion Rating: 296Requires:  Level 65, 91 Dex"
+    },
+    {
+      "slug": "Desert_Cap",
+      "card": "Desert CapEvasion Rating: 311Requires:  Level 70, 99 Dex"
+    },
+    {
+      "slug": "Trapper_Hood",
+      "card": "Trapper HoodEvasion Rating: 326Requires:  Level 75, 107 Dex"
+    },
+    {
+      "slug": "Freebooter_Cap",
+      "card": "Freebooter CapEvasion Rating: 340Requires:  Level 80, 115 Dex"
+    },
+    {
+      "slug": "Runeforged_Shabby_Hood",
+      "card": "Runeforged Shabby HoodEvasion Rating: 19Runic Ward: 19"
+    },
+    {
+      "slug": "Runeforged_Felt_Cap",
+      "card": "Runeforged Felt CapEvasion Rating: 58Runic Ward: 27Requires:  Level 10, 17 Dex"
+    },
+    {
+      "slug": "Runeforged_Lace_Hood",
+      "card": "Runeforged Lace HoodEvasion Rating: 84Runic Ward: 35Requires:  Level 16, 25 Dex"
+    },
+    {
+      "slug": "Runeforged_Swathed_Cap",
+      "card": "Runeforged Swathed CapEvasion Rating: 127Runic Ward: 48Requires:  Level 26, 38 Dex"
+    },
+    {
+      "slug": "Runeforged_Hunter_Hood",
+      "card": "Runeforged Hunter HoodEvasion Rating: 158Runic Ward: 49Requires:  Level 33, 48 Dex"
+    },
+    {
+      "slug": "Runeforged_Viper_Cap",
+      "card": "Runeforged Viper CapEvasion Rating: 179Runic Ward: 52Requires:  Level 38, 54 Dex"
+    },
+    {
+      "slug": "Runeforged_Corsair_Cap",
+      "card": "Runeforged Corsair CapEvasion Rating: 210Runic Ward: 56Requires:  Level 45, 64 Dex"
+    },
+    {
+      "slug": "Runeforged_Leatherbound_Hood",
+      "card": "Runeforged Leatherbound HoodEvasion Rating: 231Runic Ward: 56Requires:  Level 50, 71 Dex"
+    },
+    {
+      "slug": "Runeforged_Wrapped_Cap",
+      "card": "Runeforged Wrapped CapEvasion Rating: 219Runic Ward: 72Requires:  Level 54, 77 Dex"
+    },
+    {
+      "slug": "Runeforged_Deerstalker_Hood",
+      "card": "Runeforged Deerstalker HoodEvasion Rating: 227Runic Ward: 91Requires:  Level 59, 83 Dex"
+    },
+    {
+      "slug": "Runeforged_Woven_Cap",
+      "card": "Runeforged Woven CapEvasion Rating: 290Runic Ward: 42Requires:  Level 65, 91 Dex"
+    },
+    {
+      "slug": "Runeforged_Desert_Cap",
+      "card": "Runeforged Desert CapEvasion Rating: 243Runic Ward: 99Requires:  Level 70, 99 Dex"
+    },
+    {
+      "slug": "Runeforged_Trapper_Hood",
+      "card": "Runeforged Trapper HoodEvasion Rating: 320Runic Ward: 42Requires:  Level 75, 107 Dex"
+    },
+    {
+      "slug": "Runeforged_Freebooter_Cap",
+      "card": "Runeforged Freebooter CapEvasion Rating: 154Runic Ward: 240Requires:  Level 80, 115 Dex"
+    },
+    {
+      "slug": "Runeforged_Lace_Hood",
+      "card": "Runeforged Lace HoodEvasion Rating: 90Runic Ward: 72Requires:  Level 38, 54 Dex(30—50)% increased Ignite Magnitude"
+    },
+    {
+      "slug": "Runemastered_Felt_Cap",
+      "card": "Runemastered Felt CapEvasion Rating: 134Runic Ward: 54Requires:  Level 38, 54 Dex"
+    },
+    {
+      "slug": "Runemastered_Hunter_Hood",
+      "card": "Runemastered Hunter HoodEvasion Rating: 73Runic Ward: 75Requires:  Level 40, 58 Dex"
+    },
+    {
+      "slug": "Runemastered_Viper_Cap",
+      "card": "Runemastered Viper CapEvasion Rating: 139Runic Ward: 110Requires:  Level 55, 78 Dex"
+    },
+    {
+      "slug": "Runemastered_Corsair_Cap",
+      "card": "Runemastered Corsair CapEvasion Rating: 202Runic Ward: 37Requires:  Level 55, 78 Dex"
+    },
+    {
+      "slug": "Runemastered_Leatherbound_Hood",
+      "card": "Runemastered Leatherbound HoodEvasion Rating: 266Runic Ward: 28Requires:  Level 65, 91 Dex"
+    },
+    {
+      "slug": "Runemastered_Velvet_Cap",
+      "card": "Runemastered Velvet CapEvasion Rating: 222Runic Ward: 70Requires:  Level 65, 91 Dex"
+    },
+    {
+      "slug": "Runemastered_Covert_Hood",
+      "card": "Runemastered Covert HoodEvasion Rating: 129Runic Ward: 124Requires:  Level 56, 79 Dex"
+    },
+    {
+      "slug": "Runemastered_Armoured_Cap",
+      "card": "Runemastered Armoured CapEvasion Rating: 178Runic Ward: 113Requires:  Level 65, 91 Dex"
+    }
+  ]
+}

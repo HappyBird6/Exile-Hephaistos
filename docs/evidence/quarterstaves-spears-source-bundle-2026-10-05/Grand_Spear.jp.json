@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/jp/Grand_Spear",
+  "retrievedAt": "2026-10-05T08:05:52.446Z",
+  "sha256": "61d074e1a1bb567b98364a260d8f87eb70fbf359ea8194e3b741a97398c53514",
+  "variants": [
+    {
+      "name": "グランドスピア",
+      "card": "グランドスピア\n        \n    \n    \n        \n            スピア物理ダメージ: 56-84クリティカルヒット率: 5%秒間アタック回数: 1.4武器攻撃距離: 1.5装備条件： レベル 79, 68 筋力, 109 器用さ スキルを付与: スピアスローこの武器の近接ストライク距離が25%増加する\n        \n\n\n\n        \n            Grand Spear",
+      "requirements": "装備条件： レベル 79, 68 筋力, 109 器用さ",
+      "properties": [
+        "スピア",
+        "物理ダメージ: 56-84",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.5"
+      ],
+      "fields": {
+        "DropLevel": "79",
+        "BaseType": "グランドスピア",
+        "Class": "スピア",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame",
+        "Tags": "spear, one_hand_weapon, onehand, weapon",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/OneHandSpears/1HSpear08",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, onehand, spear, one_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      }
+    }
+  ]
+}

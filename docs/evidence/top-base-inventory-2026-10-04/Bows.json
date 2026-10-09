@@ -1,0 +1,148 @@
+{
+  "page": "Bows",
+  "url": "https://poe2db.tw/us/Bows",
+  "retrievedAt": "2026-10-04T14:53:04.526Z",
+  "sha256": "3628ad75aa5a9a1eb568f659069f2f5499101afa9a3f046e28f9e672cc8bc74f",
+  "cards": [
+    {
+      "slug": "Crude_Bow",
+      "card": "Crude BowPhysical Damage: 6-9Critical Hit Chance: 5%Attacks per Second: 1.2"
+    },
+    {
+      "slug": "Shortbow",
+      "card": "ShortbowPhysical Damage: 7-14Critical Hit Chance: 5%Attacks per Second: 1.25Requires:  Level 5, 12 Dex"
+    },
+    {
+      "slug": "Warden_Bow",
+      "card": "Warden BowPhysical Damage: 12-20Critical Hit Chance: 5%Attacks per Second: 1.15Requires:  Level 11, 23 Dex(25—35)% chance to Chain an additional time"
+    },
+    {
+      "slug": "Recurve_Bow",
+      "card": "Recurve BowPhysical Damage: 15-31Critical Hit Chance: 5%Attacks per Second: 1.1Requires:  Level 16, 31 Dex"
+    },
+    {
+      "slug": "Composite_Bow",
+      "card": "Composite BowPhysical Damage: 19-31Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 22, 41 Dex"
+    },
+    {
+      "slug": "Dualstring_Bow",
+      "card": "Dualstring BowPhysical Damage: 19-35Critical Hit Chance: 5%Attacks per Second: 1.15Requires:  Level 28, 52 Dex+50% Surpassing chance to fire an additional Arrow"
+    },
+    {
+      "slug": "Cultist_Bow",
+      "card": "Cultist BowPhysical Damage: 22-36Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 33, 60 Dexlocal weapon implicit hidden added maximum chaos damage [19]\nlocal weapon implicit hidden added minimum chaos damage [7]"
+    },
+    {
+      "slug": "Zealot_Bow",
+      "card": "Zealot BowPhysical Damage: 31-47Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 39, 70 Dex"
+    },
+    {
+      "slug": "Artillery_Bow",
+      "card": "Artillery BowPhysical Damage: 39-72Critical Hit Chance: 5%Attacks per Second: 1.1Requires:  Level 45, 80 Dex50% reduced Projectile Range"
+    },
+    {
+      "slug": "Tribal_Bow",
+      "card": "Tribal BowPhysical Damage: 38-57Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 50, 89 Dex"
+    },
+    {
+      "slug": "Greatbow",
+      "card": "GreatbowPhysical Damage: 40-82Critical Hit Chance: 6.5%Attacks per Second: 1.15Requires:  Level 52, 92 Str, 92 Dex"
+    },
+    {
+      "slug": "Double_Limb_Bow",
+      "card": "Double Limb BowPhysical Damage: 42-63Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 56, 99 Dex"
+    },
+    {
+      "slug": "Heavy_Bow",
+      "card": "Heavy BowPhysical Damage: 45-75Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 65, 114 Dex"
+    },
+    {
+      "slug": "Snakewood_Shortbow",
+      "card": "Snakewood ShortbowPhysical Damage: 29-54Critical Hit Chance: 5%Attacks per Second: 1.25Requires:  Level 45, 80 Dex"
+    },
+    {
+      "slug": "Protector_Bow",
+      "card": "Protector BowPhysical Damage: 35-53Critical Hit Chance: 5%Attacks per Second: 1.15Requires:  Level 48, 86 Dex(25—35)% chance to Chain an additional time"
+    },
+    {
+      "slug": "Rider_Bow",
+      "card": "Rider BowPhysical Damage: 36-61Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 51, 91 Dex"
+    },
+    {
+      "slug": "Twin_Bow",
+      "card": "Twin BowPhysical Damage: 32-60Critical Hit Chance: 5%Attacks per Second: 1.15Requires:  Level 54, 96 Dex+50% Surpassing chance to fire an additional Arrow"
+    },
+    {
+      "slug": "Adherent_Bow",
+      "card": "Adherent BowPhysical Damage: 35-59Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 59, 104 Dexlocal weapon implicit hidden added maximum chaos damage [32]\nlocal weapon implicit hidden added minimum chaos damage [14]"
+    },
+    {
+      "slug": "Militant_Bow",
+      "card": "Militant BowPhysical Damage: 46-69Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 62, 109 Dex"
+    },
+    {
+      "slug": "Runeforged_Crude_Bow",
+      "card": "Runeforged Crude BowChaos Damage: 42-62Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 55, 97 Dexlocal weapon implicit hidden % base damage is chaos [100]"
+    },
+    {
+      "slug": "Runeforged_Shortbow",
+      "card": "Runeforged ShortbowPhysical Damage: 30-56Critical Hit Chance: 5%Attacks per Second: 1.25Requires:  Level 38, 68 Dex"
+    },
+    {
+      "slug": "Runeforged_Shortbow",
+      "card": "Runeforged ShortbowPhysical Damage: 44-81Critical Hit Chance: 5%Attacks per Second: 1.4Requires:  Level 55, 97 DexProjectiles have 50% chance for an additional Projectile when Forking"
+    },
+    {
+      "slug": "Runeforged_Warden_Bow",
+      "card": "Runeforged Warden BowPhysical Damage: 38-63Critical Hit Chance: 5%Attacks per Second: 1.15Requires:  Level 40, 72 Dex(25—35)% chance to Chain an additional time"
+    },
+    {
+      "slug": "Runeforged_Recurve_Bow",
+      "card": "Runeforged Recurve BowPhysical Damage: 41-84Critical Hit Chance: 5%Attacks per Second: 1.1Requires:  Level 40, 72 Dex"
+    },
+    {
+      "slug": "Runeforged_Composite_Bow",
+      "card": "Runeforged Composite BowPhysical Damage: 53-88Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 55, 97 Dex"
+    },
+    {
+      "slug": "Runeforged_Dualstring_Bow",
+      "card": "Runeforged Dualstring BowPhysical Damage: 45-83Critical Hit Chance: 6.5%Attacks per Second: 1.15Requires:  Level 55, 97 Dex+50% Surpassing chance to fire an additional Arrow"
+    },
+    {
+      "slug": "Runeforged_Zealot_Bow",
+      "card": "Runeforged Zealot BowPhysical Damage: 44-67Critical Hit Chance: 10%Attacks per Second: 1.2Requires:  Level 55, 97 Dexlocal weapon implicit hidden added maximum chaos damage [19]\nlocal weapon implicit hidden added minimum chaos damage [7]"
+    },
+    {
+      "slug": "Ironwood_Shortbow",
+      "card": "Ironwood ShortbowPhysical Damage: 41-76Critical Hit Chance: 5%Attacks per Second: 1.25Requires:  Level 67, 134 Dex"
+    },
+    {
+      "slug": "Cavalry_Bow",
+      "card": "Cavalry BowPhysical Damage: 49-82Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 72, 149 Dex"
+    },
+    {
+      "slug": "Guardian_Bow",
+      "card": "Guardian BowPhysical Damage: 53-88Critical Hit Chance: 5%Attacks per Second: 1.15Requires:  Level 77, 163 Dex(25—35)% chance to Chain an additional time"
+    },
+    {
+      "slug": "Gemini_Bow",
+      "card": "Gemini BowPhysical Damage: 39-72Critical Hit Chance: 5%Attacks per Second: 1.15Requires:  Level 78, 163 Dex+50% Surpassing chance to fire an additional Arrow"
+    },
+    {
+      "slug": "Fanatic_Bow",
+      "card": "Fanatic BowPhysical Damage: 47-79Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 79, 163 Dexlocal weapon implicit hidden added maximum chaos damage [64]\nlocal weapon implicit hidden added minimum chaos damage [28]"
+    },
+    {
+      "slug": "Warmonger_Bow",
+      "card": "Warmonger BowPhysical Damage: 56-84Critical Hit Chance: 5%Attacks per Second: 1.2Requires:  Level 77, 163 Dex"
+    },
+    {
+      "slug": "Obliterator_Bow",
+      "card": "Obliterator BowPhysical Damage: 62-115Critical Hit Chance: 5%Attacks per Second: 1.1Requires:  Level 78, 163 Dex50% reduced Projectile Range"
+    },
+    {
+      "slug": "Heartwood_Shortbow",
+      "card": "Heartwood ShortbowPhysical Damage: 41-76Critical Hit Chance: 5%Attacks per Second: 1.25Requires:  Level 67, 134 Dex"
+    }
+  ]
+}

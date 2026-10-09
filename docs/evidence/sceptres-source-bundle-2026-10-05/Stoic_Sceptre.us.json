@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/us/Stoic_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:03.883Z",
+  "sha256": "783f535207b5d6f4e3950161f75c29bb695124c8c8190896232260ba23fb2003",
+  "variants": [
+    {
+      "name": "Stoic Sceptre",
+      "card": "Stoic Sceptre\n        \n    \n    \n        \n            SceptresSpirit: 100Requires:  Level 6, 12 Int Grants Skill: Discipline",
+      "requirements": "Requires:  Level 6, 12 Int",
+      "fields": {
+        "DropLevel": "6",
+        "BaseType": "Stoic Sceptre",
+        "Class": "Sceptres",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre02",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "Discipline",
+      "skillUrl": "https://poe2db.tw/us/Discipline"
+    }
+  ]
+}

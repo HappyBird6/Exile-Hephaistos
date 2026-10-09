@@ -328,7 +328,9 @@ describe('Item text import', () => {
     expect(screen.getByLabelText('Item text copied from the game')).toHaveValue(
       raw,
     )
-    expect(screen.getByRole('combobox', { name: 'Language' })).toHaveValue('en')
+    expect(
+      screen.getByRole('button', { name: 'Language: English' }),
+    ).toHaveAttribute('aria-expanded', 'false')
     expect(document.documentElement.lang).toBe('en')
   })
 })

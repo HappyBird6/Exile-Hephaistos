@@ -1,0 +1,645 @@
+{
+  "page": "Shields",
+  "url": "https://poe2db.tw/us/Shields",
+  "retrievedAt": "2026-10-05T01:38:20.269Z",
+  "sha256": "e8778f3effcde20ba493a032742e5d4ece629c7cec15968589634d08f2ae8873",
+  "cards": [
+    {
+      "slug": "Golden_Flame",
+      "card": "Golden FlameBlock chance: 25%Requires:  Level 15+(11—19)% to Chaos Resistance"
+    },
+    {
+      "slug": "Splintered_Tower_Shield",
+      "card": "Splintered Tower ShieldBlock chance: 26%Armour: 18Base Movement Speed: -0.03 Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Painted_Tower_Shield",
+      "card": "Painted Tower ShieldBlock chance: 26%Armour: 33Base Movement Speed: -0.03Requires:  Level 6, 11 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Braced_Tower_Shield",
+      "card": "Braced Tower ShieldBlock chance: 26%Armour: 50Base Movement Speed: -0.03Requires:  Level 12, 19 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Barricade_Tower_Shield",
+      "card": "Barricade Tower ShieldBlock chance: 26%Armour: 62Base Movement Speed: -0.03Requires:  Level 16, 25 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Effigial_Tower_Shield",
+      "card": "Effigial Tower ShieldBlock chance: 26%Armour: 76Base Movement Speed: -0.03Requires:  Level 21, 32 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Rampart_Tower_Shield",
+      "card": "Rampart Tower ShieldBlock chance: 26%Armour: 96Base Movement Speed: -0.03Requires:  Level 28, 42 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Heraldric_Tower_Shield",
+      "card": "Heraldric Tower ShieldBlock chance: 26%Armour: 111Base Movement Speed: -0.03Requires:  Level 33, 48 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Stone_Tower_Shield",
+      "card": "Stone Tower ShieldBlock chance: 26%Armour: 119Base Movement Speed: -0.03Requires:  Level 36, 52 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Crucible_Tower_Shield",
+      "card": "Crucible Tower ShieldBlock chance: 26%Armour: 145Base Movement Speed: -0.03Requires:  Level 45, 64 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Ancestor_Tower_Shield",
+      "card": "Ancestor Tower ShieldBlock chance: 26%Armour: 160Base Movement Speed: -0.03Requires:  Level 50, 71 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Phalanx_Tower_Shield",
+      "card": "Phalanx Tower ShieldBlock chance: 26%Armour: 166Base Movement Speed: -0.03Requires:  Level 52, 74 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Defiant_Tower_Shield",
+      "card": "Defiant Tower ShieldBlock chance: 26%Armour: 183Base Movement Speed: -0.03Requires:  Level 58, 82 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Blacksteel_Tower_Shield",
+      "card": "Blacksteel Tower ShieldBlock chance: 26%Armour: 203Base Movement Speed: -0.03Requires:  Level 65, 91 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Hardwood_Targe",
+      "card": "Hardwood TargeBlock chance: 25%Armour: 10Evasion Rating: 7Base Movement Speed: -0.015 Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Pelage_Targe",
+      "card": "Pelage TargeBlock chance: 25%Armour: 21Evasion Rating: 17Base Movement Speed: -0.015Requires:  Level 8, 9 Str, 9 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Studded_Targe",
+      "card": "Studded TargeBlock chance: 25%Armour: 34Evasion Rating: 29Base Movement Speed: -0.015Requires:  Level 16, 15 Str, 15 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Crescent_Targe",
+      "card": "Crescent TargeBlock chance: 25%Armour: 50Evasion Rating: 44Base Movement Speed: -0.015Requires:  Level 26, 22 Str, 22 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Chiseled_Targe",
+      "card": "Chiseled TargeBlock chance: 25%Armour: 61Evasion Rating: 54Base Movement Speed: -0.015Requires:  Level 33, 27 Str, 27 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Feathered_Targe",
+      "card": "Feathered TargeBlock chance: 25%Armour: 67Evasion Rating: 60Base Movement Speed: -0.015Requires:  Level 37, 30 Str, 30 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Stratified_Targe",
+      "card": "Stratified TargeBlock chance: 25%Armour: 82Evasion Rating: 74Base Movement Speed: -0.015Requires:  Level 46, 37 Str, 37 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Carved_Targe",
+      "card": "Carved TargeBlock chance: 25%Armour: 89Evasion Rating: 81Base Movement Speed: -0.015Requires:  Level 51, 40 Str, 40 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Mosaic_Targe",
+      "card": "Mosaic TargeBlock chance: 25%Armour: 91Evasion Rating: 82Base Movement Speed: -0.015Requires:  Level 52, 41 Str, 41 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Aureate_Targe",
+      "card": "Aureate TargeBlock chance: 25%Armour: 99Evasion Rating: 90Base Movement Speed: -0.015Requires:  Level 57, 45 Str, 45 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Grand_Targe",
+      "card": "Grand TargeBlock chance: 25%Armour: 112Evasion Rating: 102Base Movement Speed: -0.015Requires:  Level 65, 50 Str, 50 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Blazon_Crest_Shield",
+      "card": "Blazon Crest ShieldBlock chance: 25%Armour: 10Energy Shield: 6Base Movement Speed: -0.015 Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Sigil_Crest_Shield",
+      "card": "Sigil Crest ShieldBlock chance: 25%Armour: 20Energy Shield: 9Base Movement Speed: -0.015Requires:  Level 7, 8 Str, 8 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Emblem_Crest_Shield",
+      "card": "Emblem Crest ShieldBlock chance: 25%Armour: 34Energy Shield: 12Base Movement Speed: -0.015Requires:  Level 16, 15 Str, 15 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Jingling_Crest_Shield",
+      "card": "Jingling Crest ShieldBlock chance: 25%Armour: 53Energy Shield: 17Base Movement Speed: -0.015Requires:  Level 28, 23 Str, 23 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Sectarian_Crest_Shield",
+      "card": "Sectarian Crest ShieldBlock chance: 25%Armour: 61Energy Shield: 19Base Movement Speed: -0.015Requires:  Level 33, 27 Str, 27 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Omen_Crest_Shield",
+      "card": "Omen Crest ShieldBlock chance: 25%Armour: 66Energy Shield: 20Base Movement Speed: -0.015Requires:  Level 36, 30 Str, 30 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Wayward_Crest_Shield",
+      "card": "Wayward Crest ShieldBlock chance: 25%Armour: 80Energy Shield: 23Base Movement Speed: -0.015Requires:  Level 45, 36 Str, 36 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Seer_Crest_Shield",
+      "card": "Seer Crest ShieldBlock chance: 25%Armour: 88Energy Shield: 25Base Movement Speed: -0.015Requires:  Level 50, 39 Str, 39 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Stoic_Crest_Shield",
+      "card": "Stoic Crest ShieldBlock chance: 25%Armour: 91Energy Shield: 26Base Movement Speed: -0.015Requires:  Level 52, 41 Str, 41 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Empyreal_Crest_Shield",
+      "card": "Empyreal Crest ShieldBlock chance: 25%Armour: 99Energy Shield: 28Base Movement Speed: -0.015Requires:  Level 57, 45 Str, 45 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Deified_Crest_Shield",
+      "card": "Deified Crest ShieldBlock chance: 25%Armour: 112Energy Shield: 31Base Movement Speed: -0.015Requires:  Level 65, 50 Str, 50 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Golden_Shield",
+      "card": "Golden ShieldBlock chance: 25%Base Movement Speed: -0.03"
+    },
+    {
+      "slug": "Aged_Tower_Shield",
+      "card": "Aged Tower ShieldBlock chance: 26%Armour: 145Base Movement Speed: -0.03Requires:  Level 45, 64 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Metalworked_Tower_Shield",
+      "card": "Metalworked Tower ShieldBlock chance: 26%Armour: 154Base Movement Speed: -0.03Requires:  Level 48, 69 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Cultist_Tower_Shield",
+      "card": "Cultist Tower ShieldBlock chance: 26%Armour: 163Base Movement Speed: -0.03Requires:  Level 51, 73 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Bulwark_Tower_Shield",
+      "card": "Bulwark Tower ShieldBlock chance: 26%Armour: 171Base Movement Speed: -0.03Requires:  Level 54, 77 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Noble_Tower_Shield",
+      "card": "Noble Tower ShieldBlock chance: 26%Armour: 186Base Movement Speed: -0.03Requires:  Level 59, 83 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Goldworked_Tower_Shield",
+      "card": "Goldworked Tower ShieldBlock chance: 26%Armour: 192Base Movement Speed: -0.03Requires:  Level 61, 86 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Ironwood_Targe",
+      "card": "Ironwood TargeBlock chance: 25%Armour: 80Evasion Rating: 72Base Movement Speed: -0.015Requires:  Level 45, 36 Str, 36 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Fur-lined_Targe",
+      "card": "Fur-lined TargeBlock chance: 25%Armour: 85Evasion Rating: 76Base Movement Speed: -0.015Requires:  Level 48, 38 Str, 38 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Mercenary_Targe",
+      "card": "Mercenary TargeBlock chance: 25%Armour: 89Evasion Rating: 81Base Movement Speed: -0.015Requires:  Level 51, 40 Str, 40 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Polished_Targe",
+      "card": "Polished TargeBlock chance: 25%Armour: 94Evasion Rating: 85Base Movement Speed: -0.015Requires:  Level 54, 42 Str, 42 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Stone_Targe",
+      "card": "Stone TargeBlock chance: 25%Armour: 102Evasion Rating: 93Base Movement Speed: -0.015Requires:  Level 59, 46 Str, 46 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Avian_Targe",
+      "card": "Avian TargeBlock chance: 25%Armour: 107Evasion Rating: 97Base Movement Speed: -0.015Requires:  Level 62, 48 Str, 48 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Painted_Crest_Shield",
+      "card": "Painted Crest ShieldBlock chance: 25%Armour: 80Energy Shield: 23Base Movement Speed: -0.015Requires:  Level 45, 36 Str, 36 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Engraved_Crest_Shield",
+      "card": "Engraved Crest ShieldBlock chance: 25%Armour: 85Energy Shield: 24Base Movement Speed: -0.015Requires:  Level 48, 38 Str, 38 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Descry_Crest_Shield",
+      "card": "Descry Crest ShieldBlock chance: 25%Armour: 89Energy Shield: 26Base Movement Speed: -0.015Requires:  Level 51, 40 Str, 40 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Dekharan_Crest_Shield",
+      "card": "Dekharan Crest ShieldBlock chance: 25%Armour: 94Energy Shield: 27Base Movement Speed: -0.015Requires:  Level 54, 42 Str, 42 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Quartered_Crest_Shield",
+      "card": "Quartered Crest ShieldBlock chance: 25%Armour: 102Energy Shield: 29Base Movement Speed: -0.015Requires:  Level 59, 46 Str, 46 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Glowering_Crest_Shield",
+      "card": "Glowering Crest ShieldBlock chance: 25%Armour: 107Energy Shield: 30Base Movement Speed: -0.015Requires:  Level 62, 48 Str, 48 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Royal_Tower_Shield",
+      "card": "Royal Tower ShieldBlock chance: 26%Armour: 203Base Movement Speed: -0.03Requires:  Level 65, 91 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Fortress_Tower_Shield",
+      "card": "Fortress Tower ShieldBlock chance: 26%Armour: 223Base Movement Speed: -0.03Requires:  Level 70, 99 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Vaal_Tower_Shield",
+      "card": "Vaal Tower ShieldBlock chance: 26%Armour: 244Base Movement Speed: -0.03Requires:  Level 75, 107 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Tawhoan_Tower_Shield",
+      "card": "Tawhoan Tower ShieldBlock chance: 26%Armour: 264Base Movement Speed: -0.03Requires:  Level 80, 115 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Glacial_Fortress",
+      "card": "Glacial FortressBlock chance: 26%Armour: 223Base Movement Speed: -0.03Requires:  Level 70, 99 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Mammoth_Targe",
+      "card": "Mammoth TargeBlock chance: 25%Armour: 112Evasion Rating: 102Base Movement Speed: -0.015Requires:  Level 65, 50 Str, 50 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Baroque_Targe",
+      "card": "Baroque TargeBlock chance: 25%Armour: 123Evasion Rating: 112Base Movement Speed: -0.015Requires:  Level 70, 54 Str, 54 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Soaring_Targe",
+      "card": "Soaring TargeBlock chance: 25%Armour: 134Evasion Rating: 122Base Movement Speed: -0.015Requires:  Level 75, 59 Str, 59 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Golden_Targe",
+      "card": "Golden TargeBlock chance: 25%Armour: 145Evasion Rating: 132Base Movement Speed: -0.015Requires:  Level 80, 63 Str, 63 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Venerable_Defender",
+      "card": "Venerable DefenderBlock chance: 28%Armour: 107Evasion Rating: 97Base Movement Speed: -0.015Requires:  Level 62, 64 Str, 64 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Intricate_Crest_Shield",
+      "card": "Intricate Crest ShieldBlock chance: 25%Armour: 112Energy Shield: 31Base Movement Speed: -0.015Requires:  Level 65, 50 Str, 50 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Sekheman_Crest_Shield",
+      "card": "Sekheman Crest ShieldBlock chance: 25%Armour: 123Energy Shield: 34Base Movement Speed: -0.015Requires:  Level 70, 54 Str, 54 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Vaal_Crest_Shield",
+      "card": "Vaal Crest ShieldBlock chance: 25%Armour: 134Energy Shield: 37Base Movement Speed: -0.015Requires:  Level 75, 59 Str, 59 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Blacksteel_Crest_Shield",
+      "card": "Blacksteel Crest ShieldBlock chance: 25%Armour: 145Energy Shield: 40Base Movement Speed: -0.015Requires:  Level 80, 63 Str, 63 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Splintered_Tower_Shield",
+      "card": "Runeforged Splintered Tower ShieldBlock chance: 26%Armour: 18Base Movement Speed: -0.03Runic Ward: 12 Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Painted_Tower_Shield",
+      "card": "Runeforged Painted Tower ShieldBlock chance: 26%Armour: 33Base Movement Speed: -0.03Runic Ward: 15Requires:  Level 6, 11 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Braced_Tower_Shield",
+      "card": "Runeforged Braced Tower ShieldBlock chance: 26%Armour: 50Base Movement Speed: -0.03Runic Ward: 18Requires:  Level 12, 19 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Barricade_Tower_Shield",
+      "card": "Runeforged Barricade Tower ShieldBlock chance: 26%Armour: 62Base Movement Speed: -0.03Runic Ward: 22Requires:  Level 16, 25 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Effigial_Tower_Shield",
+      "card": "Runeforged Effigial Tower ShieldBlock chance: 26%Armour: 76Base Movement Speed: -0.03Runic Ward: 25Requires:  Level 21, 32 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Rampart_Tower_Shield",
+      "card": "Runeforged Rampart Tower ShieldBlock chance: 26%Armour: 96Base Movement Speed: -0.03Runic Ward: 27Requires:  Level 28, 42 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Heraldric_Tower_Shield",
+      "card": "Runeforged Heraldric Tower ShieldBlock chance: 26%Armour: 111Base Movement Speed: -0.03Runic Ward: 30Requires:  Level 33, 48 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Stone_Tower_Shield",
+      "card": "Runeforged Stone Tower ShieldBlock chance: 26%Armour: 119Base Movement Speed: -0.03Runic Ward: 33Requires:  Level 36, 52 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Crucible_Tower_Shield",
+      "card": "Runeforged Crucible Tower ShieldBlock chance: 26%Armour: 145Base Movement Speed: -0.03Runic Ward: 36Requires:  Level 45, 64 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Ancestor_Tower_Shield",
+      "card": "Runeforged Ancestor Tower ShieldBlock chance: 26%Base Movement Speed: -0.03Runic Ward: 148Requires:  Level 50, 71 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Phalanx_Tower_Shield",
+      "card": "Runeforged Phalanx Tower ShieldBlock chance: 26%Base Movement Speed: -0.03Runic Ward: 146Requires:  Level 52, 74 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Defiant_Tower_Shield",
+      "card": "Runeforged Defiant Tower ShieldBlock chance: 26%Base Movement Speed: -0.03Runic Ward: 160Requires:  Level 58, 82 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Blacksteel_Tower_Shield",
+      "card": "Runeforged Blacksteel Tower ShieldBlock chance: 26%Base Movement Speed: -0.03Runic Ward: 176Requires:  Level 65, 91 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Hardwood_Targe",
+      "card": "Runeforged Hardwood TargeBlock chance: 25%Armour: 10Evasion Rating: 7Base Movement Speed: -0.015Runic Ward: 12 Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Pelage_Targe",
+      "card": "Runeforged Pelage TargeBlock chance: 25%Armour: 21Evasion Rating: 17Base Movement Speed: -0.015Runic Ward: 17Requires:  Level 8, 9 Str, 9 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Studded_Targe",
+      "card": "Runeforged Studded TargeBlock chance: 25%Armour: 34Evasion Rating: 29Base Movement Speed: -0.015Runic Ward: 22Requires:  Level 16, 15 Str, 15 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Crescent_Targe",
+      "card": "Runeforged Crescent TargeBlock chance: 25%Armour: 50Evasion Rating: 44Base Movement Speed: -0.015Runic Ward: 30Requires:  Level 26, 22 Str, 22 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Chiseled_Targe",
+      "card": "Runeforged Chiseled TargeBlock chance: 25%Armour: 61Evasion Rating: 54Base Movement Speed: -0.015Runic Ward: 33Requires:  Level 33, 27 Str, 27 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Feathered_Targe",
+      "card": "Runeforged Feathered TargeBlock chance: 25%Armour: 67Evasion Rating: 60Base Movement Speed: -0.015Runic Ward: 34Requires:  Level 37, 30 Str, 30 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Stratified_Targe",
+      "card": "Runeforged Stratified TargeBlock chance: 25%Armour: 82Evasion Rating: 74Base Movement Speed: -0.015Runic Ward: 38Requires:  Level 46, 37 Str, 37 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Carved_Targe",
+      "card": "Runeforged Carved TargeBlock chance: 25%Armour: 89Evasion Rating: 81Base Movement Speed: -0.015Runic Ward: 40Requires:  Level 51, 40 Str, 40 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Mosaic_Targe",
+      "card": "Runeforged Mosaic TargeBlock chance: 25%Base Movement Speed: -0.015Runic Ward: 146Requires:  Level 52, 41 Str, 41 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Aureate_Targe",
+      "card": "Runeforged Aureate TargeBlock chance: 25%Base Movement Speed: -0.015Runic Ward: 157Requires:  Level 57, 45 Str, 45 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Grand_Targe",
+      "card": "Runeforged Grand TargeBlock chance: 25%Base Movement Speed: -0.015Runic Ward: 176Requires:  Level 65, 50 Str, 50 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Blazon_Crest_Shield",
+      "card": "Runeforged Blazon Crest ShieldBlock chance: 25%Armour: 10Energy Shield: 6Base Movement Speed: -0.015Runic Ward: 12 Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Sigil_Crest_Shield",
+      "card": "Runeforged Sigil Crest ShieldBlock chance: 25%Armour: 20Energy Shield: 9Base Movement Speed: -0.015Runic Ward: 16Requires:  Level 7, 8 Str, 8 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Emblem_Crest_Shield",
+      "card": "Runeforged Emblem Crest ShieldBlock chance: 25%Armour: 34Energy Shield: 12Base Movement Speed: -0.015Runic Ward: 22Requires:  Level 16, 15 Str, 15 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Jingling_Crest_Shield",
+      "card": "Runeforged Jingling Crest ShieldBlock chance: 25%Armour: 53Energy Shield: 17Base Movement Speed: -0.015Runic Ward: 31Requires:  Level 28, 23 Str, 23 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Sectarian_Crest_Shield",
+      "card": "Runeforged Sectarian Crest ShieldBlock chance: 25%Armour: 61Energy Shield: 19Base Movement Speed: -0.015Runic Ward: 33Requires:  Level 33, 27 Str, 27 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Omen_Crest_Shield",
+      "card": "Runeforged Omen Crest ShieldBlock chance: 25%Armour: 66Energy Shield: 20Base Movement Speed: -0.015Runic Ward: 34Requires:  Level 36, 30 Str, 30 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Wayward_Crest_Shield",
+      "card": "Runeforged Wayward Crest ShieldBlock chance: 25%Armour: 80Energy Shield: 23Base Movement Speed: -0.015Runic Ward: 38Requires:  Level 45, 36 Str, 36 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Seer_Crest_Shield",
+      "card": "Runeforged Seer Crest ShieldBlock chance: 25%Armour: 88Energy Shield: 25Base Movement Speed: -0.015Runic Ward: 40Requires:  Level 50, 39 Str, 39 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Stoic_Crest_Shield",
+      "card": "Runeforged Stoic Crest ShieldBlock chance: 25%Base Movement Speed: -0.015Runic Ward: 146Requires:  Level 52, 41 Str, 41 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Empyreal_Crest_Shield",
+      "card": "Runeforged Empyreal Crest ShieldBlock chance: 25%Base Movement Speed: -0.015Runic Ward: 157Requires:  Level 57, 45 Str, 45 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Deified_Crest_Shield",
+      "card": "Runeforged Deified Crest ShieldBlock chance: 25%Base Movement Speed: -0.015Runic Ward: 176Requires:  Level 65, 50 Str, 50 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Bulwark_Tower_Shield",
+      "card": "Runeforged Bulwark Tower ShieldBlock chance: 26%Armour: 144Base Movement Speed: -0.03Runic Ward: 53Requires:  Level 54, 77 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Noble_Tower_Shield",
+      "card": "Runeforged Noble Tower ShieldBlock chance: 26%Armour: 171Base Movement Speed: -0.03Runic Ward: 41Requires:  Level 59, 83 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Goldworked_Tower_Shield",
+      "card": "Runeforged Goldworked Tower ShieldBlock chance: 26%Armour: 153Base Movement Speed: -0.03Runic Ward: 58Requires:  Level 61, 86 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Polished_Targe",
+      "card": "Runeforged Polished TargeBlock chance: 25%Armour: 79Evasion Rating: 72Base Movement Speed: -0.015Runic Ward: 53Requires:  Level 54, 42 Str, 42 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Stone_Targe",
+      "card": "Runeforged Stone TargeBlock chance: 25%Armour: 94Evasion Rating: 85Base Movement Speed: -0.015Runic Ward: 41Requires:  Level 59, 46 Str, 46 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Avian_Targe",
+      "card": "Runeforged Avian TargeBlock chance: 25%Armour: 86Evasion Rating: 78Base Movement Speed: -0.015Runic Ward: 59Requires:  Level 62, 48 Str, 48 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Dekharan_Crest_Shield",
+      "card": "Runeforged Dekharan Crest ShieldBlock chance: 25%Armour: 79Energy Shield: 22Base Movement Speed: -0.015Runic Ward: 53Requires:  Level 54, 42 Str, 42 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Quartered_Crest_Shield",
+      "card": "Runeforged Quartered Crest ShieldBlock chance: 25%Armour: 94Energy Shield: 26Base Movement Speed: -0.015Runic Ward: 41Requires:  Level 59, 46 Str, 46 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Glowering_Crest_Shield",
+      "card": "Runeforged Glowering Crest ShieldBlock chance: 25%Armour: 86Energy Shield: 24Base Movement Speed: -0.015Runic Ward: 59Requires:  Level 62, 48 Str, 48 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Royal_Tower_Shield",
+      "card": "Runeforged Royal Tower ShieldBlock chance: 26%Armour: 193Base Movement Speed: -0.03Runic Ward: 44Requires:  Level 65, 91 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Fortress_Tower_Shield",
+      "card": "Runeforged Fortress Tower ShieldBlock chance: 26%Armour: 156Base Movement Speed: -0.03Runic Ward: 106Requires:  Level 70, 99 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Vaal_Tower_Shield",
+      "card": "Runeforged Vaal Tower ShieldBlock chance: 26%Armour: 221Base Movement Speed: -0.03Runic Ward: 35Requires:  Level 75, 107 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Tawhoan_Tower_Shield",
+      "card": "Runeforged Tawhoan Tower ShieldBlock chance: 26%Armour: 112Base Movement Speed: -0.03Runic Ward: 176Requires:  Level 80, 115 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Mammoth_Targe",
+      "card": "Runeforged Mammoth TargeBlock chance: 25%Armour: 106Evasion Rating: 97Base Movement Speed: -0.015Runic Ward: 44Requires:  Level 65, 50 Str, 50 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Baroque_Targe",
+      "card": "Runeforged Baroque TargeBlock chance: 25%Armour: 86Evasion Rating: 78Base Movement Speed: -0.015Runic Ward: 106Requires:  Level 70, 54 Str, 54 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Soaring_Targe",
+      "card": "Runeforged Soaring TargeBlock chance: 25%Armour: 113Evasion Rating: 103Base Movement Speed: -0.015Runic Ward: 53Requires:  Level 75, 59 Str, 59 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Golden_Targe",
+      "card": "Runeforged Golden TargeBlock chance: 25%Armour: 57Evasion Rating: 52Base Movement Speed: -0.015Runic Ward: 185Requires:  Level 80, 63 Str, 63 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Intricate_Crest_Shield",
+      "card": "Runeforged Intricate Crest ShieldBlock chance: 25%Armour: 106Energy Shield: 29Base Movement Speed: -0.015Runic Ward: 44Requires:  Level 65, 50 Str, 50 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Sekheman_Crest_Shield",
+      "card": "Runeforged Sekheman Crest ShieldBlock chance: 25%Armour: 86Energy Shield: 24Base Movement Speed: -0.015Runic Ward: 106Requires:  Level 70, 54 Str, 54 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Vaal_Crest_Shield",
+      "card": "Runeforged Vaal Crest ShieldBlock chance: 25%Armour: 126Energy Shield: 35Base Movement Speed: -0.015Runic Ward: 26Requires:  Level 75, 59 Str, 59 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runeforged_Blacksteel_Crest_Shield",
+      "card": "Runeforged Blacksteel Crest ShieldBlock chance: 25%Armour: 52Energy Shield: 15Base Movement Speed: -0.015Runic Ward: 194Requires:  Level 80, 63 Str, 63 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Splintered_Tower_Shield",
+      "card": "Runemastered Splintered Tower ShieldBlock chance: 26%Armour: 100Base Movement Speed: -0.03Runic Ward: 23Requires:  Level 38, 54 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Painted_Tower_Shield",
+      "card": "Runemastered Painted Tower ShieldBlock chance: 26%Armour: 63Base Movement Speed: -0.03Runic Ward: 57Requires:  Level 38, 54 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Braced_Tower_Shield",
+      "card": "Runemastered Braced Tower ShieldBlock chance: 26%Armour: 88Base Movement Speed: -0.03Runic Ward: 34Requires:  Level 38, 54 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Barricade_Tower_Shield",
+      "card": "Runemastered Barricade Tower ShieldBlock chance: 26%Armour: 94Base Movement Speed: -0.03Runic Ward: 28Requires:  Level 38, 54 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Effigial_Tower_Shield",
+      "card": "Runemastered Effigial Tower ShieldBlock chance: 26%Base Movement Speed: -0.03Runic Ward: 113Requires:  Level 38, 54 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Rampart_Tower_Shield",
+      "card": "Runemastered Rampart Tower ShieldBlock chance: 26%Armour: 98Base Movement Speed: -0.03Runic Ward: 29Requires:  Level 40, 58 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Heraldric_Tower_Shield",
+      "card": "Runemastered Heraldric Tower ShieldBlock chance: 26%Armour: 96Base Movement Speed: -0.03Runic Ward: 42Requires:  Level 50, 71 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Crucible_Tower_Shield",
+      "card": "Runemastered Crucible Tower ShieldBlock chance: 26%Base Movement Speed: -0.03Runic Ward: 250Requires:  Level 65, 91 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Crucible_Tower_Shield",
+      "card": "Runemastered Crucible Tower ShieldBlock chance: 26%Armour: 100Base Movement Speed: -0.03Runic Ward: 100Requires:  Level 65, 91 Str Grants Skill: Raise ShieldRecover (15—25) Runic Ward when you Block"
+    },
+    {
+      "slug": "Runemastered_Crucible_Tower_Shield",
+      "card": "Runemastered Crucible Tower ShieldBlock chance: 26%Evasion Rating: 148Base Movement Speed: -0.03Runic Ward: 35Requires:  Level 65, 91 Dex Grants Skill: Parry"
+    },
+    {
+      "slug": "Runemastered_Crucible_Tower_Shield",
+      "card": "Runemastered Crucible Tower ShieldBlock chance: 26%Armour: 162Base Movement Speed: -0.03Runic Ward: 35Requires:  Level 65, 91 Str Grants Skill: Raise Shield(15—25)% of Damage is taken from Mana before Life"
+    },
+    {
+      "slug": "Runemastered_Blacksteel_Tower_Shield",
+      "card": "Runemastered Blacksteel Tower ShieldBlock chance: 26%Armour: 102Base Movement Speed: -0.03Runic Ward: 88Requires:  Level 65, 91 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Vaal_Tower_Shield",
+      "card": "Runemastered Vaal Tower ShieldBlock chance: 26%Armour: 203Base Movement Speed: -0.03Runic Ward: 70Requires:  Level 75, 107 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Glacial_Fortress",
+      "card": "Runemastered Glacial FortressBlock chance: 26%Armour: 203Base Movement Speed: -0.03Runic Ward: 53Requires:  Level 70, 99 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Hardwood_Targe",
+      "card": "Runemastered Hardwood TargeBlock chance: 25%Armour: 55Evasion Rating: 49Base Movement Speed: -0.015Runic Ward: 23Requires:  Level 38, 31 Str, 31 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Crescent_Targe",
+      "card": "Runemastered Crescent TargeBlock chance: 25%Armour: 52Evasion Rating: 46Base Movement Speed: -0.015Runic Ward: 28Requires:  Level 38, 31 Str, 31 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Blazon_Crest_Shield",
+      "card": "Runemastered Blazon Crest ShieldBlock chance: 25%Armour: 43Energy Shield: 13Base Movement Speed: -0.015Runic Ward: 47Requires:  Level 40, 32 Str, 32 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Sigil_Crest_Shield",
+      "card": "Runemastered Sigil Crest ShieldBlock chance: 25%Armour: 65Energy Shield: 19Base Movement Speed: -0.015Runic Ward: 12Requires:  Level 40, 32 Str, 32 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Emblem_Crest_Shield",
+      "card": "Runemastered Emblem Crest ShieldBlock chance: 25%Armour: 48Energy Shield: 14Base Movement Speed: -0.015Runic Ward: 34Requires:  Level 38, 31 Str, 31 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Jingling_Crest_Shield",
+      "card": "Runemastered Jingling Crest ShieldBlock chance: 25%Armour: 41Energy Shield: 12Base Movement Speed: -0.015Runic Ward: 45Requires:  Level 38, 31 Str, 31 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Omen_Crest_Shield",
+      "card": "Runemastered Omen Crest ShieldBlock chance: 25%Armour: 42Energy Shield: 12Base Movement Speed: -0.015Runic Ward: 82Requires:  Level 48, 38 Str, 38 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Venerable_Defender",
+      "card": "Runemastered Venerable DefenderBlock chance: 26%Armour: 203Base Movement Speed: -0.03Runic Ward: 53Requires:  Level 65, 107 Str Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Venerable_Defender",
+      "card": "Runemastered Venerable DefenderBlock chance: 25%Energy Shield: 135Runic Ward: 53Requires:  Level 65, 107 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Venerable_Defender",
+      "card": "Runemastered Venerable DefenderBlock chance: 25%Armour: 112Evasion Rating: 102Base Movement Speed: -0.015Runic Ward: 53Requires:  Level 65, 67 Str, 67 Dex Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Runemastered_Intricate_Crest_Shield",
+      "card": "Runemastered Intricate Crest ShieldBlock chance: 25%Armour: 78Energy Shield: 22Base Movement Speed: -0.015Runic Ward: 62Requires:  Level 65, 50 Str, 50 Int Grants Skill: Raise Shield"
+    },
+    {
+      "slug": "Carved_Mischief",
+      "card": "Carved MischiefLimited to: 1 Ancient AugmentRequires:  Level 60Helmets: Gain Guard equal to 10% of maximum Life for 4 seconds on taking Savage HitGloves: +5% to maximum Block chance if you've Blocked with a raised Shield RecentlyBody Armours: 200% increased Stun Threshold if you've been Stunned RecentlyBonded:Helmets: Buffs on you expire 10% slowerGloves: 20% increased Block chanceBody Armours: 25% increased Stun Threshold"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Tawhoan_Tower_Shield",
+      "card": "Tawhoan Tower ShieldBlock chance: 26%Armour: 264Base Movement Speed: -0.03Requires:  Level 80, 115 Str Grants Skill: Raise Shield",
+      "requiredLevel": 80
+    },
+    {
+      "slug": "Golden_Targe",
+      "card": "Golden TargeBlock chance: 25%Armour: 145Evasion Rating: 132Base Movement Speed: -0.015Requires:  Level 80, 63 Str, 63 Dex Grants Skill: Raise Shield",
+      "requiredLevel": 80
+    },
+    {
+      "slug": "Blacksteel_Crest_Shield",
+      "card": "Blacksteel Crest ShieldBlock chance: 25%Armour: 145Energy Shield: 40Base Movement Speed: -0.015Requires:  Level 80, 63 Str, 63 Int Grants Skill: Raise Shield",
+      "requiredLevel": 80
+    },
+    {
+      "slug": "Vaal_Tower_Shield",
+      "card": "Vaal Tower ShieldBlock chance: 26%Armour: 244Base Movement Speed: -0.03Requires:  Level 75, 107 Str Grants Skill: Raise Shield",
+      "requiredLevel": 75
+    },
+    {
+      "slug": "Soaring_Targe",
+      "card": "Soaring TargeBlock chance: 25%Armour: 134Evasion Rating: 122Base Movement Speed: -0.015Requires:  Level 75, 59 Str, 59 Dex Grants Skill: Raise Shield",
+      "requiredLevel": 75
+    },
+    {
+      "slug": "Vaal_Crest_Shield",
+      "card": "Vaal Crest ShieldBlock chance: 25%Armour: 134Energy Shield: 37Base Movement Speed: -0.015Requires:  Level 75, 59 Str, 59 Int Grants Skill: Raise Shield",
+      "requiredLevel": 75
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

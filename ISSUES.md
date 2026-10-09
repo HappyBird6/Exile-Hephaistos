@@ -447,3 +447,32 @@ WB-045 cap 정정 최종 검증: Backend371+6, Frontend369/50files 및 필수 �
 사용자 승인 가역 정책: 게임 weight 부재는 명시적 후보1/N으로 계산한다. DropChance1을 검증된 game weight로 주장하지 않는다. Liquid는 제거 후 보장 Crafted를 추가할 수 있는 legal 분기에서 균등 선택하며, 게임 무효 분기의 소비/재시도는 미검증이다. 기존 Crafted가 있는 두 번째 Liquid는 무소모 거절한다. Normal Sapphire 시작과 display-unit integer/Catalyst precision은 명시적 simulator 모델이다. 기존 quality40/cap20 보존과 max(existing,currentCap) 정책은 유지한다.
 
 잔여: Ruby/Emerald/Diamond 및 Potent3·Ancient13, Contempt cap-loss overflow 유지/추가 슬롯·Ferocity opposite-side scaling·Melancholy tree 조건·Time-Lost radius와 Small/Notable 범위. Liquid27은 Basic13+Ancient13+unrelated Verisium1이며 raw outcome 수15/14와 currency 수13/13을 구분한다. Essence-on-Jewel·Fracturing/socket 특례·Vaal/Hinekora/Desecration은 계속 제외한다.
+
+### 2026-10-04 remaining display localization
+
+`18a2a3d` UI checkpoint 기반 별도 branch에서 active170/deferred50 이름, Liquid26 이름·설명, 베이스17 이름, modifier2314 bindings/templates1690을 6개 언어로 연결했다. 복합228 및 source-unit/negative103 표시 변환은 stat identity와 source endpoint를 검증했으며 canonical payload·quality·film·game mechanics·English import는 변경하지 않았다. 실제 API JSON 객체 키 순서 차이로 special locale fallback이 발생한 문제도 id/min/max의 엄격한 비교로 수정했다.
+
+Spanish 공식 이름이 없는6항목은 자체 번역 provenance를 표시하고 deferred Verisium 설명은 English source로 명시한다. 신규 active 번역 누락은 pretest coverage guard로 차단한다. 미래 베이스 확대는 최고 티어 대표 기준이며 현재17종을 변경하지 않는다. 출처·예외·검증 이력과 독립 QA 결과는 [remaining localization handoff](docs/i18n-remaining-2026-10-04.md)를 따른다. remote push/merge/live deploy는 수행하지 않는다.
+
+## WB-047 최상위 베이스의 첫 묶음 (2026-10-04)
+
+사용자의 `최상위 베이스들로만`, `베이스 확장 작업 ㄱㄱ`에 따라 기존 17개의 ID/snapshot/film을 보존하고 Soldier Cuirass와 Imperial Greathelm을 별도 Workbench 베이스로 추가한다. Soldier의 최고 기본 Armour와 높은 레벨 implicit sidegrade를 구분한다. source tags를 상세 정의의 ordered Spawn Tags에 대입했고 현재 Body144/Helmet137 ModsView 일반 행·published weights도 기존 풀과 정확히 일치했다. 저티어 base 속성을 복사하지 않는다. source 기본 Armour570/374와 캐릭터 요구 레벨65/80·STR121/115를 six locales로 표시한다. 새 베이스를 old base로 alias하지 않으며 이름/요구치·snapshot source digest·supportedBases를 검토된 manifest로 생성한다.
+
+가역 추천 결정: STR Body의 기본 방어도 대표는 Soldier이며 Warlord의 최대 요구 레벨을 단독 최상위 기준으로 삼지 않는다. 장신구와 innate skill 무기는 distinct implicit/skill 계열을 유지한다. 동급 방어도에 더 낮은 요구치가 있는 Gloves/Boots는 metadata 검토 전에 높은 레벨 이름을 우선하지 않는다. Runeforged/Runemastered·socket-transfer·capacity 변경·Runic Ward·아직 지원하지 않는 weapon/offhand class는 별도 검증 대상으로 남긴다. concrete 후보와 우선순위는 [범위·출처·검증 문서](docs/workbench-top-bases-2026-10-04.md)를 따른다.
+
+이 묶음은 기존 class 규칙의 실제 성공 경로를 검증하는 확장이며 등록만으로 모든 재료 지원을 주장하지 않는다. deferred50·excluded mechanics·Solar Support/Explorer·quality40 보존·rounding·Shift/Alt·film storage는 변경하지 않는다. remote push/merge/deploy는 수행하지 않는다. 다음 묶음은 Massive Mitts 및 나머지 defence archetype부터 진행하는 것을 권장한다.
+
+최종 검증 상태: Backend396/Frontend1749/Browser125/API87 통과, 6locale×2viewport×2base 화면24장 확인. 첫 commit의 `fractured:false` fixture 비교 중단은 부모가 명시적으로 승인한 bounded recovery로 해결했다. 생략/false의 실제 API 동등성과 모든 기존 상태·roll·소모 assertion을 유지했고 runtime registry 및 기존220 entry 보존도 통과했다. Imperial은 source 일반137+special1=138개이며 초기 기록의 special3을 바로잡았다. 실패 로그와 준비 오류·승인 근거는 위 문서에 보존한다. 제품 코드는 recovery에서 변경하지 않았다. 자체 QA service는 종료했고 원격 반영은 수행하지 않았다.
+
+## WB-048 Wand nine skill-family expansion (2026-10-05)
+
+Wand9 skill-family를 추가해 총71 bases를 제공한다. ordered Spawn Tags로 일반 pool을118/123/185개로 구분했고 기존 Attuned modifier ID·family·tier·range·weight를 보존했다. granted skill은 표시용 property이며 affix나 combat 계산으로 전환하지 않는다. Spanish Bone/Offering 요구치2건은 원문 증거를 유지하고 English canonical 값으로 표시한다. Infinite 특수 target은 source가 있으나 기존 Attuned 지원 범위를 유지했다. Twisted/Runic Fork/Runemastered의 실제 ordinary availability는 별도 확인 대상으로 남긴다. [Wand bundle](docs/workbench-wands-bundle-2026-10-05.md)에 출처·정책·정확한 다음 Sceptre7/Belt/class gap을 기록했다.
+
+Backend441+integration6, Frontend1820, API539, Browser719가 통과했고228 screenshot을38 contact sheets로 pixels 검사했다. 기존62 initial 응답·film·번역·registry220/deferred50·Solar-only Support/Explorer·quality40/rounding·Shift/Alt·local orange를 보존했다. 첫 Backend accessor 오류와 첫 Frontend Node22 engine 거부 로그는 유지했다. 조건을 완화하지 않고 수정/Node24로 전체 검증을 통과했다. remote push/merge/deploy는 수행하지 않는다.
+
+## Goal filter numeric addition model
+
+- Solar 단일 stat addition 수치 계산은 명시된 uniform-integer-roll-v1 모델 내 구현됨. 실제 게임 정수 roll 분포와 catalog weight의 서버 선택 확률 검증은 미확정이며 ledger/API/UI에서 분리 표시한다.
+- 품질, omens, multi-stat, 미검토 수치 unit/effect, 다른 base의 numeric addition은 구현 범위 밖. 기존 opt-in ratio tick 모델을 Solar에 적용하지 않는다.
+- Annul/Chaos 제거 및 망친 경로에서 복구 경로로 이동하는 정책은 후속 구현. 복구 이후 확률은 정상 addition 경로에 포함하지 않는다.
+- full numeric 상태 공간은 커서 요청 예산에 따라 PARTIAL이 일반적이다. lower/upper/unresolved와 미탐색 순서 수, 미확정 순위를 유지한다.

@@ -1,0 +1,38 @@
+{
+  "row": {
+    "Name": "of Haast",
+    "Level": "82",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ColdResistance"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(41<span class=\"ndash\">—</span>45)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a>",
+    "fossil_no": [
+      "cold_resistance",
+      "elemental_resistance",
+      "elemental",
+      "cold",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "armour",
+      "ring",
+      "amulet",
+      "belt",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4aed6bb4829cb762403036729efe27d3ce0c7f850a1e2fe41907ac4683011d8e"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4aed6bb4829cb762403036729efe27d3ce0c7f850a1e2fe41907ac4683011d8e",
+  "retrievedAt": "2026-10-04T22:01:39.355Z",
+  "sha256": "4aed6bb4829cb762403036729efe27d3ce0c7f850a1e2fe41907ac4683011d8e",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(41<span class=\"ndash\">—</span>45)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/84ff16d8aeeb61c6cd1c5a881495ab9e03153c83989fb54629cfeeeb8e92266e\">Cold Resistance</a></span></h5>   <span data-tabname=\"of Haast\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Haast\n<tr><th>Family<td>ColdResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>82 (Effective: 65)\n<tr><th>Gold Price<td>3006\n<tr><th>Stats<td><li>base cold damage resistance % <span class=\"badge bg-primary\">41 <span class=\"ndash\">—</span> 45</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>cold_resistance</i></span> <span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Resistance</span> \n<tr><th>Horticrafting<td>Can change Element modifier\n<tr><td>Fists of Stone<td><span class='mod-value'>+3</span>% to [MaximumResistances|Maximum Cold Resistance]<br><span class='mod-value'>+(36<span class=\"ndash\">—</span>40)</span>% to [Resistances|Cold Resistance]</table>  </div></div>"
+}

@@ -1,0 +1,731 @@
+[
+  {
+    "page": "Items",
+    "sourceUrl": "https://poe2db.tw/us/Items",
+    "sourceSha256": "92e8ef4f028bd06a3167f1c87f9050cee8c687ea31956579f20f84b419b52160",
+    "highestRequirementCandidates": [],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "Crossbows",
+    "sourceUrl": "https://poe2db.tw/us/Crossbows",
+    "sourceSha256": "2fb39526fd0c0b50d0970280746aa1dd816bae19fe03337d94bd82d25d021974",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Siege_Crossbow",
+        "card": "Siege CrossbowPhysical Damage: 29-115Critical Hit Chance: 5%Attacks per Second: 1.65Reload Time: 0.75Requires:  Level 79, 89 Str, 89 DexGrenade Skills Fire 1 additional Projectiles",
+        "requiredLevel": 79
+      },
+      {
+        "slug": "Gemini_Crossbow",
+        "card": "Gemini CrossbowPhysical Damage: 28-112Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 1.1Requires:  Level 78, 89 Str, 89 DexLoads an additional bolt",
+        "requiredLevel": 78
+      },
+      {
+        "slug": "Elegant_Crossbow",
+        "card": "Elegant CrossbowPhysical Damage: 31-123Critical Hit Chance: 5%Attacks per Second: 1.65Reload Time: 0.85Requires:  Level 78, 89 Str, 89 Dex(20—30)% chance to Pierce an Enemy",
+        "requiredLevel": 78
+      },
+      {
+        "slug": "Flexed_Crossbow",
+        "card": "Flexed CrossbowPhysical Damage: 32-127Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.85Requires:  Level 77, 89 Str, 89 Dex(20—30)% increased Bolt Speed",
+        "requiredLevel": 77
+      },
+      {
+        "slug": "Desolate_Crossbow",
+        "card": "Desolate CrossbowPhysical Damage: 33-132Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.8Requires:  Level 77, 89 Str, 89 Dex",
+        "requiredLevel": 77
+      },
+      {
+        "slug": "Engraved_Crossbow",
+        "card": "Engraved CrossbowPhysical Damage: 31-124Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.8Requires:  Level 72, 82 Str, 82 Dex",
+        "requiredLevel": 72
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "One_Hand_Maces",
+    "sourceUrl": "https://poe2db.tw/us/One_Hand_Maces",
+    "sourceSha256": "ceb6e58ee274aaba4123907d453ad8e33b697f85a47929038380c19ce5a09f33",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Fortified_Hammer",
+        "card": "Fortified HammerPhysical Damage: 60-73Critical Hit Chance: 5%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 79, 163 Str40% chance to Daze on Hit",
+        "requiredLevel": 79
+      },
+      {
+        "slug": "Strife_Pick",
+        "card": "Strife PickPhysical Damage: 49-66Critical Hit Chance: 7%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 78, 163 Str+(5—10)% to Critical Damage Bonus",
+        "requiredLevel": 78
+      },
+      {
+        "slug": "Akoyan_Club",
+        "card": "Akoyan ClubPhysical Damage: 46-76Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 78, 163 StrAlways Hits",
+        "requiredLevel": 78
+      },
+      {
+        "slug": "Molten_Hammer",
+        "card": "Molten HammerPhysical Damage: 35.5-59Fire Damage: 35.5-59Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 77, 163 Strlocal weapon implicit hidden % base damage is fire [50]",
+        "requiredLevel": 77
+      },
+      {
+        "slug": "Marauding_Mace",
+        "card": "Marauding MacePhysical Damage: 51-84Critical Hit Chance: 5%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 77, 163 Str",
+        "requiredLevel": 77
+      },
+      {
+        "slug": "Crown_Mace",
+        "card": "Crown MacePhysical Damage: 43-89Critical Hit Chance: 5%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 72, 149 Str",
+        "requiredLevel": 72
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "Two_Hand_Maces",
+    "sourceUrl": "https://poe2db.tw/us/Two_Hand_Maces",
+    "sourceSha256": "94f1653426d620a1e7fecd348a9aaa8ffc347207fcd06c349f57f7a4e5c70237",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Ruination_Maul",
+        "card": "Ruination MaulPhysical Damage: 104-127Critical Hit Chance: 8%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 79, 163 StrCauses Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage",
+        "requiredLevel": 79
+      },
+      {
+        "slug": "Fanatic_Greathammer",
+        "card": "Fanatic GreathammerPhysical Damage: 101-137Critical Hit Chance: 5%Attacks per Second: 1.05Weapon Range: 1.5Requires:  Level 78, 163 StrStrikes deal Splash Damage",
+        "requiredLevel": 78
+      },
+      {
+        "slug": "Tawhoan_Greatclub",
+        "card": "Tawhoan GreatclubPhysical Damage: 113-153Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 78, 163 StrWarcries Empower 1 additional Attacks",
+        "requiredLevel": 78
+      },
+      {
+        "slug": "Ironwood_Greathammer",
+        "card": "Ironwood GreathammerPhysical Damage: 105-196Critical Hit Chance: 5%Attacks per Second: 1Weapon Range: 1.5Requires:  Level 77, 163 StrCauses (30—50)% increased Stun Buildup",
+        "requiredLevel": 77
+      },
+      {
+        "slug": "Massive_Greathammer",
+        "card": "Massive GreathammerPhysical Damage: 119-161Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.5Requires:  Level 77, 163 Str",
+        "requiredLevel": 77
+      },
+      {
+        "slug": "Sacred_Maul",
+        "card": "Sacred MaulPhysical Damage: 76-158Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 72, 149 Str",
+        "requiredLevel": 72
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "Quarterstaves",
+    "sourceUrl": "https://poe2db.tw/us/Quarterstaves",
+    "sourceSha256": "3f51d863c7242a8abd858377e2b4144e09c8548428de4be4bb296db9c167b249",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Aegis_Quarterstaff",
+        "card": "Aegis QuarterstaffPhysical Damage: 58-97Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 79, 127 Dex, 50 Int+(12—18)% to Block chance",
+        "requiredLevel": 79
+      },
+      {
+        "slug": "Bolting_Quarterstaff",
+        "card": "Bolting QuarterstaffPhysical Damage: 24-97Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 78, 127 Dex, 50 Intlocal weapon implicit hidden added maximum lightning damage [100]\nlocal weapon implicit hidden added minimum lightning damage [1]",
+        "requiredLevel": 78
+      },
+      {
+        "slug": "Dreaming_Quarterstaff",
+        "card": "Dreaming QuarterstaffPhysical Damage: 99-133Critical Hit Chance: 0%Attacks per Second: 1.5Weapon Range: 1.4Requires:  Level 78, 127 Dex, 50 Int",
+        "requiredLevel": 78
+      },
+      {
+        "slug": "Striking_Quarterstaff",
+        "card": "Striking QuarterstaffPhysical Damage: 53-111Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 77, 127 Dex, 50 Int16% increased Melee Strike Range with this weapon",
+        "requiredLevel": 77
+      },
+      {
+        "slug": "Razor_Quarterstaff",
+        "card": "Razor QuarterstaffPhysical Damage: 65-108Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.4Requires:  Level 77, 127 Dex, 50 Int",
+        "requiredLevel": 77
+      },
+      {
+        "slug": "Skullcrusher_Quarterstaff",
+        "card": "Skullcrusher QuarterstaffPhysical Damage: 59-122Critical Hit Chance: 10%Attacks per Second: 1.3Weapon Range: 1.4Requires:  Level 75, 127 Dex, 50 Int(20—50)% chance to Daze on Hit",
+        "requiredLevel": 75
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "Spears",
+    "sourceUrl": "https://poe2db.tw/us/Spears",
+    "sourceSha256": "eee97f6a82ad74a75b2fd2fc270df8061ae51d9ef1a2fdabe5174d13c9bb1b2a",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Grand_Spear",
+        "card": "Grand SpearPhysical Damage: 56-84Critical Hit Chance: 5%Attacks per Second: 1.4Weapon Range: 1.5Requires:  Level 79, 68 Str, 109 Dex Grants Skill: Spear Throw25% increased Melee Strike Range with this weapon",
+        "requiredLevel": 79
+      },
+      {
+        "slug": "Flying_Spear",
+        "card": "Flying SpearPhysical Damage: 46-77Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 78, 50 Str, 127 Dex Grants Skill: Spear Throw(25—35)% increased Projectile Speed with this Weapon",
+        "requiredLevel": 78
+      },
+      {
+        "slug": "Akoyan_Spear",
+        "card": "Akoyan SpearPhysical Damage: 39-72Critical Hit Chance: 7%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 78, 50 Str, 127 Dex, 90 Int Grants Skill: Spear Throw",
+        "requiredLevel": 78
+      },
+      {
+        "slug": "Stalking_Spear",
+        "card": "Stalking SpearPhysical Damage: 47-79Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.5Requires:  Level 77, 50 Str, 127 Dex Grants Skill: Spear Throw(15—25)% chance to Maim on Hit",
+        "requiredLevel": 77
+      },
+      {
+        "slug": "Spiked_Spear",
+        "card": "Spiked SpearPhysical Damage: 41-76Critical Hit Chance: 6%Attacks per Second: 1.5Weapon Range: 1.5Requires:  Level 77, 50 Str, 127 Dex Grants Skill: Spear ThrowBleeding you inflict deals Damage (10—20)% faster",
+        "requiredLevel": 77
+      },
+      {
+        "slug": "Guardian_Spear",
+        "card": "Guardian SpearPhysical Damage: 38-79Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.5Requires:  Level 75, 50 Str, 127 Dex Grants Skill: Spear ThrowPrevent +(3—7)% of Damage from Deflected Hits",
+        "requiredLevel": 75
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "Staves",
+    "sourceUrl": "https://poe2db.tw/us/Staves",
+    "sourceSha256": "b1134af03b6830d803b8063c048ecbc7398de3fcd509a160faaeca7bbe13e77b",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Permafrost_Staff",
+        "card": "Permafrost StaffRequires:  Level 75, 114 Int Grants Skill: Heart of Ice",
+        "requiredLevel": 75
+      },
+      {
+        "slug": "Reflecting_Staff",
+        "card": "Reflecting StaffRequires:  Level 70, 114 Int Grants Skill: Mirror of Refraction",
+        "requiredLevel": 70
+      },
+      {
+        "slug": "Dark_Staff",
+        "card": "Dark StaffRequires:  Level 65, 114 Int Grants Skill: Dark Pact",
+        "requiredLevel": 65
+      },
+      {
+        "slug": "Ravenous_Staff",
+        "card": "Ravenous StaffRequires:  Level 65, 114 Int Grants Skill: Feast of Flesh",
+        "requiredLevel": 65
+      },
+      {
+        "slug": "Perching_Staff",
+        "card": "Perching StaffRequires:  Level 65, 114 Int Grants Skill: Spiraling Conspiracy",
+        "requiredLevel": 65
+      },
+      {
+        "slug": "Sanctified_Staff",
+        "card": "Sanctified StaffRequires:  Level 56, 99 Int Grants Skill: Consecrate",
+        "requiredLevel": 56
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "Talismans",
+    "sourceUrl": "https://poe2db.tw/us/Talismans",
+    "sourceSha256": "2916147bb2ad8cd22d8b2f8c96d559cacfe3ed40a071fb45c94c641880519281",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Maji_Talisman",
+        "card": "Maji TalismanPhysical Damage: 61-114Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 79, 100 Str, 67 Int+(7—10) to Maximum Rage",
+        "requiredLevel": 79
+      },
+      {
+        "slug": "Fungal_Talisman",
+        "card": "Fungal TalismanPhysical Damage: 59-98Critical Hit Chance: 8%Attacks per Second: 1.4Weapon Range: 1.2Requires:  Level 78, 96 Str, 70 Int",
+        "requiredLevel": 78
+      },
+      {
+        "slug": "Jade_Talisman",
+        "card": "Jade TalismanPhysical Damage: 101-151Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.2Requires:  Level 78, 109 Str, 65 Int",
+        "requiredLevel": 78
+      },
+      {
+        "slug": "Fang_Talisman",
+        "card": "Fang TalismanPhysical Damage: 70-116Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 77, 89 Str, 68 IntMinions deal (30—50)% increased Damage",
+        "requiredLevel": 77
+      },
+      {
+        "slug": "Thunder_Talisman",
+        "card": "Thunder TalismanPhysical Damage: 23.1-130.9Lightning Damage: 9.9-56.1Critical Hit Chance: 8%Attacks per Second: 1.3Weapon Range: 1.2Requires:  Level 77, 102 Str, 72 Int(20—30)% increased Magnitude of Shock you inflict\nlocal weapon implicit hidden % base damage is lightning [30]",
+        "requiredLevel": 77
+      },
+      {
+        "slug": "Alpha_Talisman",
+        "card": "Alpha TalismanPhysical Damage: 63-94Critical Hit Chance: 9%Attacks per Second: 1.3Weapon Range: 1.2Requires:  Level 75, 98 Str, 72 Int+(14—18)% to Block chance",
+        "requiredLevel": 75
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "Shields",
+    "sourceUrl": "https://poe2db.tw/us/Shields",
+    "sourceSha256": "e8778f3effcde20ba493a032742e5d4ece629c7cec15968589634d08f2ae8873",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Tawhoan_Tower_Shield",
+        "card": "Tawhoan Tower ShieldBlock chance: 26%Armour: 264Base Movement Speed: -0.03Requires:  Level 80, 115 Str Grants Skill: Raise Shield",
+        "requiredLevel": 80
+      },
+      {
+        "slug": "Golden_Targe",
+        "card": "Golden TargeBlock chance: 25%Armour: 145Evasion Rating: 132Base Movement Speed: -0.015Requires:  Level 80, 63 Str, 63 Dex Grants Skill: Raise Shield",
+        "requiredLevel": 80
+      },
+      {
+        "slug": "Blacksteel_Crest_Shield",
+        "card": "Blacksteel Crest ShieldBlock chance: 25%Armour: 145Energy Shield: 40Base Movement Speed: -0.015Requires:  Level 80, 63 Str, 63 Int Grants Skill: Raise Shield",
+        "requiredLevel": 80
+      },
+      {
+        "slug": "Vaal_Tower_Shield",
+        "card": "Vaal Tower ShieldBlock chance: 26%Armour: 244Base Movement Speed: -0.03Requires:  Level 75, 107 Str Grants Skill: Raise Shield",
+        "requiredLevel": 75
+      },
+      {
+        "slug": "Soaring_Targe",
+        "card": "Soaring TargeBlock chance: 25%Armour: 134Evasion Rating: 122Base Movement Speed: -0.015Requires:  Level 75, 59 Str, 59 Dex Grants Skill: Raise Shield",
+        "requiredLevel": 75
+      },
+      {
+        "slug": "Vaal_Crest_Shield",
+        "card": "Vaal Crest ShieldBlock chance: 25%Armour: 134Energy Shield: 37Base Movement Speed: -0.015Requires:  Level 75, 59 Str, 59 Int Grants Skill: Raise Shield",
+        "requiredLevel": 75
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "Bucklers",
+    "sourceUrl": "https://poe2db.tw/us/Bucklers",
+    "sourceSha256": "98cdb5aaf03900bba602e3bfa8a003af423d25467d9385dfad345a4e655ffed3",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Desert_Buckler",
+        "card": "Desert BucklerBlock chance: 20%Evasion Rating: 192Requires:  Level 80, 115 Dex Grants Skill: Parry",
+        "requiredLevel": 80
+      },
+      {
+        "slug": "Ancient_Buckler",
+        "card": "Ancient BucklerBlock chance: 20%Evasion Rating: 178Requires:  Level 75, 107 Dex Grants Skill: Parry",
+        "requiredLevel": 75
+      },
+      {
+        "slug": "Gutspike_Buckler",
+        "card": "Gutspike BucklerBlock chance: 20%Evasion Rating: 163Requires:  Level 70, 99 Dex Grants Skill: Parry",
+        "requiredLevel": 70
+      },
+      {
+        "slug": "Aegis_Buckler",
+        "card": "Aegis BucklerBlock chance: 20%Evasion Rating: 148Requires:  Level 65, 91 Dex Grants Skill: Parry",
+        "requiredLevel": 65
+      },
+      {
+        "slug": "Ornate_Buckler",
+        "card": "Ornate BucklerBlock chance: 20%Evasion Rating: 148Requires:  Level 65, 91 Dex Grants Skill: Parry",
+        "requiredLevel": 65
+      },
+      {
+        "slug": "Bladeguard_Buckler",
+        "card": "Bladeguard BucklerBlock chance: 20%Evasion Rating: 139Requires:  Level 61, 86 Dex Grants Skill: Parry",
+        "requiredLevel": 61
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "Foci",
+    "sourceUrl": "https://poe2db.tw/us/Foci",
+    "sourceSha256": "eae495119e38f92ec387f47f55cddf5f86064c5518d80dbdcbed24100dad1b50",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Tasalian_Focus",
+        "card": "Tasalian FocusEnergy Shield: 91Requires:  Level 80, 115 Int",
+        "requiredLevel": 80
+      },
+      {
+        "slug": "Sacred_Focus",
+        "card": "Sacred FocusEnergy Shield: 81Requires:  Level 75, 107 Int",
+        "requiredLevel": 75
+      },
+      {
+        "slug": "Leyline_Focus",
+        "card": "Leyline FocusEnergy Shield: 71Requires:  Level 70, 99 Int",
+        "requiredLevel": 70
+      },
+      {
+        "slug": "Magus_Focus",
+        "card": "Magus FocusEnergy Shield: 56Requires:  Level 65, 91 Int",
+        "requiredLevel": 65
+      },
+      {
+        "slug": "Druidic_Focus",
+        "card": "Druidic FocusEnergy Shield: 62Requires:  Level 65, 91 Int",
+        "requiredLevel": 65
+      },
+      {
+        "slug": "Hallowed_Focus",
+        "card": "Hallowed FocusEnergy Shield: 57Requires:  Level 61, 86 Int",
+        "requiredLevel": 61
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "Quivers",
+    "sourceUrl": "https://poe2db.tw/us/Quivers",
+    "sourceSha256": "4896be85daf329849502c98ecf7b66fb1dee43419d21390fbf3a1b89865f97ab",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Visceral_Quiver",
+        "card": "Visceral QuiverRequires:  Level 65(20—30)% increased Critical Hit Chance for Attacks",
+        "requiredLevel": 65
+      },
+      {
+        "slug": "Volant_Quiver",
+        "card": "Volant QuiverRequires:  Level 61(20—30)% increased Arrow Speed",
+        "requiredLevel": 61
+      },
+      {
+        "slug": "Penetrating_Quiver",
+        "card": "Penetrating QuiverRequires:  Level 55100% chance to Pierce an Enemy",
+        "requiredLevel": 55
+      },
+      {
+        "slug": "Primed_Quiver",
+        "card": "Primed QuiverRequires:  Level 51(7—10)% increased Attack Speed",
+        "requiredLevel": 51
+      },
+      {
+        "slug": "Serrated_Quiver",
+        "card": "Serrated QuiverRequires:  Level 44Attacks have (20—30)% chance to cause Bleeding",
+        "requiredLevel": 44
+      },
+      {
+        "slug": "Toxic_Quiver",
+        "card": "Toxic QuiverRequires:  Level 39(20—30)% chance to Poison on Hit with Attacks",
+        "requiredLevel": 39
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "Claws",
+    "sourceUrl": "https://poe2db.tw/us/Claws",
+    "sourceSha256": "47944e103379bbf7a7a339a39658843884546095f1d5db0f4f78182956e02736",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Talon_Claw",
+        "card": "Talon ClawPhysical Damage: 23-79Critical Hit Chance: 5%Attacks per Second: 1.65Weapon Range: 1.1Requires:  Level 65, 114 Dex",
+        "requiredLevel": 65
+      },
+      {
+        "slug": "Piercing_Claw",
+        "card": "Piercing ClawPhysical Damage: 23-68Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.1Requires:  Level 55, 97 Dex",
+        "requiredLevel": 55
+      },
+      {
+        "slug": "Armoured_Claw",
+        "card": "Armoured ClawPhysical Damage: 27-63Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.1Requires:  Level 52, 92 Dex",
+        "requiredLevel": 52
+      },
+      {
+        "slug": "Sharktooth_Claw",
+        "card": "Sharktooth ClawPhysical Damage: 25-52Critical Hit Chance: 5%Attacks per Second: 1.7Weapon Range: 1.1Requires:  Level 49, 87 Dex",
+        "requiredLevel": 49
+      },
+      {
+        "slug": "Razorglass_Claw",
+        "card": "Razorglass ClawPhysical Damage: 23-54Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.1Requires:  Level 45, 80 Dex",
+        "requiredLevel": 45
+      },
+      {
+        "slug": "Hooked_Claw",
+        "card": "Hooked ClawPhysical Damage: 16-49Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.1Requires:  Level 36, 65 Dex",
+        "requiredLevel": 36
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "Daggers",
+    "sourceUrl": "https://poe2db.tw/us/Daggers",
+    "sourceSha256": "91fba87d36047457a7a9227abec41ae8fa26039d0c9cffabba2e6c74ed3795e8",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Cinquedea",
+        "card": "CinquedeaPhysical Damage: 21-62Critical Hit Chance: 15%Attacks per Second: 1.55Weapon Range: 1Requires:  Level 65, 63 Dex, 63 Int",
+        "requiredLevel": 65
+      },
+      {
+        "slug": "Arcane_Dirk",
+        "card": "Arcane DirkPhysical Damage: 22-52Critical Hit Chance: 15%Attacks per Second: 1.55Weapon Range: 1Requires:  Level 56, 55 Dex, 55 Int",
+        "requiredLevel": 56
+      },
+      {
+        "slug": "Parrying_Dagger",
+        "card": "Parrying DaggerPhysical Damage: 16-55Critical Hit Chance: 15%Attacks per Second: 1.55Weapon Range: 1Requires:  Level 52, 51 Dex, 51 Int",
+        "requiredLevel": 52
+      },
+      {
+        "slug": "Kris_Knife",
+        "card": "Kris KnifePhysical Damage: 16-48Critical Hit Chance: 15%Attacks per Second: 1.65Weapon Range: 1Requires:  Level 49, 49 Dex, 49 Int",
+        "requiredLevel": 49
+      },
+      {
+        "slug": "Mail_Breaker",
+        "card": "Mail BreakerPhysical Damage: 19-44Critical Hit Chance: 15%Attacks per Second: 1.5Weapon Range: 1Requires:  Level 45, 45 Dex, 45 IntBreaks (400—500) Armour on Critical Hit",
+        "requiredLevel": 45
+      },
+      {
+        "slug": "Bloodletting_Dagger",
+        "card": "Bloodletting DaggerPhysical Damage: 18-42Critical Hit Chance: 15%Attacks per Second: 1.5Weapon Range: 1Requires:  Level 39, 39 Dex, 39 Int25% of Spell Mana Cost Converted to Life Cost",
+        "requiredLevel": 39
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "One_Hand_Swords",
+    "sourceUrl": "https://poe2db.tw/us/One_Hand_Swords",
+    "sourceSha256": "4f6fcf9771c3eb1357ffbbe29bf9283cbfc70775c5b3932887c208478c7d4929",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Dark_Blade",
+        "card": "Dark BladePhysical Damage: 43-65Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3Requires:  Level 65, 63 Str, 63 Dex",
+        "requiredLevel": 65
+      },
+      {
+        "slug": "Commander_Sword",
+        "card": "Commander SwordPhysical Damage: 36-60Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 54, 53 Str, 53 Dex",
+        "requiredLevel": 54
+      },
+      {
+        "slug": "Messer",
+        "card": "MesserPhysical Damage: 30-56Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.3Requires:  Level 52, 51 Str, 51 Dex",
+        "requiredLevel": 52
+      },
+      {
+        "slug": "Runic_Shortsword",
+        "card": "Runic ShortswordPhysical Damage: 26-55Critical Hit Chance: 5%Attacks per Second: 1.65Weapon Range: 1.3Requires:  Level 50, 49 Str, 49 Dex",
+        "requiredLevel": 50
+      },
+      {
+        "slug": "Cutlass",
+        "card": "CutlassPhysical Damage: 33-49Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 45, 45 Str, 45 Dex",
+        "requiredLevel": 45
+      },
+      {
+        "slug": "Treasured_Blade",
+        "card": "Treasured BladePhysical Damage: 27-45Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3Requires:  Level 40, 40 Str, 40 Dex",
+        "requiredLevel": 40
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "Two_Hand_Swords",
+    "sourceUrl": "https://poe2db.tw/us/Two_Hand_Swords",
+    "sourceSha256": "3d3b5523c6ef78b27bee57ec4ff7c42b4fa24d76ccf3b29a6fc828533fba22ca",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Ultra_Greatsword",
+        "card": "Ultra GreatswordPhysical Damage: 72-119Critical Hit Chance: 5%Attacks per Second: 1.3Weapon Range: 1.6Requires:  Level 65, 63 Str, 63 Dex",
+        "requiredLevel": 65
+      },
+      {
+        "slug": "Regalia_Longsword",
+        "card": "Regalia LongswordPhysical Damage: 61-92Critical Hit Chance: 5%Attacks per Second: 1.35Weapon Range: 1.6Requires:  Level 54, 53 Str, 53 Dex",
+        "requiredLevel": 54
+      },
+      {
+        "slug": "Flanged_Greatblade",
+        "card": "Flanged GreatbladePhysical Damage: 51-106Critical Hit Chance: 5%Attacks per Second: 1.3Weapon Range: 1.6Requires:  Level 52, 51 Str, 51 Dex",
+        "requiredLevel": 52
+      },
+      {
+        "slug": "Ancient_Greatblade",
+        "card": "Ancient GreatbladePhysical Damage: 55-103Critical Hit Chance: 5%Attacks per Second: 1.25Weapon Range: 1.6Requires:  Level 49, 49 Str, 49 Dex",
+        "requiredLevel": 49
+      },
+      {
+        "slug": "Keen_Greatsword",
+        "card": "Keen GreatswordPhysical Damage: 45-94Critical Hit Chance: 5%Attacks per Second: 1.3Weapon Range: 1.6Requires:  Level 45, 45 Str, 45 Dex",
+        "requiredLevel": 45
+      },
+      {
+        "slug": "Obsidian_Greatsword",
+        "card": "Obsidian GreatswordPhysical Damage: 49-73Critical Hit Chance: 5%Attacks per Second: 1.25Weapon Range: 1.6Requires:  Level 36, 37 Str, 37 Dex",
+        "requiredLevel": 36
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "One_Hand_Axes",
+    "sourceUrl": "https://poe2db.tw/us/One_Hand_Axes",
+    "sourceSha256": "560d0099f93abbddbdf546d95f44fb33fe35c7e1ff00bd18198a8f9a4d3596bb",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Dread_Hatchet",
+        "card": "Dread HatchetPhysical Damage: 34-79Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 65, 89 Str, 36 Dex",
+        "requiredLevel": 65
+      },
+      {
+        "slug": "Profane_Cleaver",
+        "card": "Profane CleaverPhysical Damage: 26-69Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 54, 75 Str, 30 Dex",
+        "requiredLevel": 54
+      },
+      {
+        "slug": "Battle_Axe",
+        "card": "Battle AxePhysical Damage: 28-65Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 52, 72 Str, 29 Dex",
+        "requiredLevel": 52
+      },
+      {
+        "slug": "Fury_Cleaver",
+        "card": "Fury CleaverPhysical Damage: 30-62Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3Requires:  Level 48, 67 Str, 27 Dex10% increased Damage taken",
+        "requiredLevel": 48
+      },
+      {
+        "slug": "Boarding_Hatchet",
+        "card": "Boarding HatchetPhysical Damage: 24-55Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.3Requires:  Level 45, 63 Str, 26 Dex",
+        "requiredLevel": 45
+      },
+      {
+        "slug": "Sacrificial_Axe",
+        "card": "Sacrificial AxePhysical Damage: 20-42Critical Hit Chance: 5%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 37, 52 Str, 22 DexGain (28—35) Mana per enemy killed",
+        "requiredLevel": 37
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "Two_Hand_Axes",
+    "sourceUrl": "https://poe2db.tw/us/Two_Hand_Axes",
+    "sourceSha256": "2cd611f968ded3264f9a20f2d3560977bc8b309ce7d07e01a1ee8c23b072da02",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Vile_Greataxe",
+        "card": "Vile GreataxePhysical Damage: 59-155Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 65, 89 Str, 36 Dex",
+        "requiredLevel": 65
+      },
+      {
+        "slug": "Monument_Greataxe",
+        "card": "Monument GreataxePhysical Damage: 48-143Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 57, 79 Str, 32 Dex",
+        "requiredLevel": 57
+      },
+      {
+        "slug": "Ceremonial_Halberd",
+        "card": "Ceremonial HalberdPhysical Damage: 53-123Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 52, 72 Str, 29 DexCannot use Projectile Attacks",
+        "requiredLevel": 52
+      },
+      {
+        "slug": "Ember_Greataxe",
+        "card": "Ember GreataxeFire Damage: 58-154Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 50, 70 Str, 28 Dexlocal weapon implicit hidden % base damage is fire [100]",
+        "requiredLevel": 50
+      },
+      {
+        "slug": "Reaver_Glaive",
+        "card": "Reaver GlaivePhysical Damage: 43-113Critical Hit Chance: 5%Attacks per Second: 1.2Weapon Range: 1.5Requires:  Level 45, 63 Str, 26 Dex",
+        "requiredLevel": 45
+      },
+      {
+        "slug": "Jagged_Greataxe",
+        "card": "Jagged GreataxePhysical Damage: 43-99Critical Hit Chance: 5%Attacks per Second: 1.15Weapon Range: 1.5Requires:  Level 40, 56 Str, 23 Dex(15—25)% chance to cause Bleeding on Hit",
+        "requiredLevel": 40
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "Flails",
+    "sourceUrl": "https://poe2db.tw/us/Flails",
+    "sourceSha256": "bf8fb72a35b0c7f855683cb6e64b0d12d396efceb840a31508bb4077a02740dc",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Abyssal_Flail",
+        "card": "Abyssal FlailPhysical Damage: 36-66Critical Hit Chance: 10%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 65, 89 Str, 36 Int",
+        "requiredLevel": 65
+      },
+      {
+        "slug": "Great_Flail",
+        "card": "Great FlailPhysical Damage: 35-58Critical Hit Chance: 10%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 58, 80 Str, 32 Int",
+        "requiredLevel": 58
+      },
+      {
+        "slug": "Tearing_Flail",
+        "card": "Tearing FlailPhysical Damage: 27-56Critical Hit Chance: 12.5%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 52, 72 Str, 29 Int",
+        "requiredLevel": 52
+      },
+      {
+        "slug": "Icicle_Flail",
+        "card": "Icicle FlailCold Damage: 24-55Critical Hit Chance: 10%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 47, 66 Str, 27 Intlocal weapon implicit hidden % base damage is cold [100]",
+        "requiredLevel": 47
+      },
+      {
+        "slug": "Guarded_Flail",
+        "card": "Guarded FlailPhysical Damage: 31-57Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 45, 63 Str, 26 Int",
+        "requiredLevel": 45
+      },
+      {
+        "slug": "Ring_Flail",
+        "card": "Ring FlailPhysical Damage: 23-44Critical Hit Chance: 10%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 38, 54 Str, 23 Int",
+        "requiredLevel": 38
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  },
+  {
+    "page": "Traps",
+    "sourceUrl": "https://poe2db.tw/us/Traps",
+    "sourceSha256": "c356decb05313afe0a0c24aa0ef7cb7487b20a621e39fa9ba6882b21abfbb53a",
+    "highestRequirementCandidates": [
+      {
+        "slug": "Refined_Trap",
+        "card": "Refined TrapThrow Time: 0.80 SecDetonation Type: ProximityRequires:  Level 65",
+        "requiredLevel": 65
+      },
+      {
+        "slug": "Intricate_Trap",
+        "card": "Intricate TrapThrow Time: 0.80 SecDetonation Type: ManualRequires:  Level 56",
+        "requiredLevel": 56
+      },
+      {
+        "slug": "Medallion_Trap",
+        "card": "Medallion TrapThrow Time: 0.80 SecDetonation Type: ProximityRequires:  Level 52",
+        "requiredLevel": 52
+      },
+      {
+        "slug": "Lead_Trap",
+        "card": "Lead TrapThrow Time: 0.80 SecDetonation Type: ProximityRequires:  Level 49",
+        "requiredLevel": 49
+      },
+      {
+        "slug": "Coiled_Trap",
+        "card": "Coiled TrapThrow Time: 0.80 SecDetonation Type: ManualRequires:  Level 45",
+        "requiredLevel": 45
+      },
+      {
+        "slug": "Spike_Trap",
+        "card": "Spike TrapThrow Time: 0.80 SecDetonation Type: ProximityRequires:  Level 38",
+        "requiredLevel": 38
+      }
+    ],
+    "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/sp/Akoyan_Spear",
+  "retrievedAt": "2026-10-05T08:06:01.910Z",
+  "sha256": "6efd0dd0b0de376a327dc0ba140e8f4cab6d3b75cd523c5ffe6f84da8aba11af",
+  "variants": [
+    {
+      "name": "Lanza akoyana",
+      "card": "Lanza akoyana\n        \n    \n    \n        \n            LanzasDaño físico: 39-72Probabilidad de impacto crítico: 7%Ataques por segundo: 1.6Alcance de arma: 1.5Requiere:  Nivel 78, 50 Fue, 127 Des, 90 Int Otorga la habilidad: Lanzamiento de lanza\n        \n\n\n\n        \n            Akoyan Spear",
+      "requirements": "Requiere:  Nivel 78, 50 Fue, 127 Des, 90 Int",
+      "properties": [
+        "Lanzas",
+        "Daño físico: 39-72",
+        "Probabilidad de impacto crítico: 7%",
+        "Ataques por segundo: 1.6",
+        "Alcance de arma: 1.5"
+      ],
+      "fields": {
+        "DropLevel": "78",
+        "BaseType": "Lanza akoyana",
+        "Class": "Lanzas",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
+        "Tags": "karui_basetype, spear, one_hand_weapon, onehand, weapon",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/OneHandSpears/1HSpear10",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, onehand, spear, one_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      }
+    }
+  ]
+}

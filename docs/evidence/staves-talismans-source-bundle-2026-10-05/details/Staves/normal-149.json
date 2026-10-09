@@ -1,0 +1,83 @@
+{
+  "row": {
+    "Name": "of Warmth",
+    "Level": "8",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LightRadiusAndManaRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(8<span class=\"ndash\">—</span>12)</span>% increased Mana Regeneration Rate<br><span class='mod-value'>5</span>% increased <a data-keyword=\"LightRadius\" href=\"Light_Radius\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/939c1356f21b92640ab0af9cd7d29f21397070ee49c108025919716ca4a740c0\">Light Radius</a>",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "wand",
+      "staff",
+      "sceptre",
+      "ring",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0966b575e084d2eed641e49e5692c0a756abebb9e2fc2fd80d7166b169d661db"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightRadiusAndManaRegeneration1",
+  "textLocale": "us",
+  "detailText": "(8—12)% increased Mana Regeneration Rate\n5% increased Light Radius",
+  "retrievedAt": "2026-10-05T10:08:34.727Z",
+  "sha256": "0966b575e084d2eed641e49e5692c0a756abebb9e2fc2fd80d7166b169d661db",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(8<span class=\"ndash\">—</span>12)</span>% increased Mana Regeneration Rate<br><span class='mod-value'>5</span>% increased <a data-keyword=\"LightRadius\" href=\"Light_Radius\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/939c1356f21b92640ab0af9cd7d29f21397070ee49c108025919716ca4a740c0\">Light Radius</a></span></h5>   <span data-tabname=\"of Warmth\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Warmth\n<tr><th>Family<td>LightRadiusAndManaRegeneration\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>8 (Effective: 6)\n<tr><th>Gold Price<td>100\n<tr><th>Stats<td><li>light radius +% <span class=\"badge bg-primary\">5 <span class=\"ndash\">—</span> 5</span> <span class=\"badge bg-secondary\">Global</span></li><li>mana regeneration rate +% <span class=\"badge bg-primary\">8 <span class=\"ndash\">—</span> 12</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Warmth",
+    "Family": "LightRadiusAndManaRegeneration",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "8 (Effective: 6)",
+    "Gold Price": "100",
+    "Stats": "light radius +% 5 — 5 Globalmana regeneration rate +% 8 — 12 Global",
+    "Spawn Tags": "wand: 1 staff: 1 sceptre: 1 ring: 1 default: 0",
+    "Craft Tags": "resource Mana"
+  },
+  "code": "LightRadiusAndManaRegeneration1",
+  "stats": [
+    {
+      "id": "light_radius_+%",
+      "min": 5,
+      "max": 5,
+      "locality": "Global"
+    },
+    {
+      "id": "mana_regeneration_rate_+%",
+      "min": 8,
+      "max": 12,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "sceptre",
+      "weight": 1
+    },
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "failureHistory": [
+    {
+      "phase": "initial public source fetch",
+      "result": "sandbox EACCES",
+      "resolution": "Authorized public read retried through normal escalation; no policy bypass"
+    },
+    {
+      "phase": "detail collector startup",
+      "result": "missing newly owned details directory",
+      "resolution": "Created dedicated directory before enumeration"
+    },
+    {
+      "phase": "ordinary import",
+      "result": "normal57 same-name Local weapon fallback failed ordered Quiver spawn",
+      "resolution": "Original normal57 proof preserved; separate corrected global IncreasedAttackSpeed1 proof verified"
+    },
+    {
+      "phase": "localized numeric binding",
+      "result": "Japanese additional arrow literal1 and Sacral per-enemy literal1 were included in numeric span inventory",
+      "resolution": "Explicit reviewed literal semantics preserved; variable range still binds exact canonical stat"
+    },
+    {
+      "phase": "Sacral binding assertion",
+      "result": "review assertion omitted canonical base_ prefix",
+      "resolution": "Assertion now uses source exact base_life_gain_per_target; canonical source was never changed"
+    },
+    {
+      "phase": "preservation checker",
+      "result": "adding undefined supportedBases to an absent field caused strict object inequality",
+      "resolution": "Absent fields remain absent; full old registry entry equality remains required"
+    },
+    {
+      "phase": "GGG availability endpoint",
+      "result": "HTTP403",
+      "resolution": "No retry with spoofing, credentials or permission bypass; failure and absence of independent trade proof disclosed"
+    },
+    {
+      "phase": "Spanish source row identity",
+      "result": "Perfect Essence rows grouped under essence, not perfect_essence",
+      "resolution": "Verified exact combined code/level/generation/family/weight multiset against English; preserved original locale grouping"
+    },
+    {
+      "phase": "Frontend pretest attempt1",
+      "result": "Generic nonblank requirement assertion rejected Broadhead source empty requirements",
+      "resolution": "Source-backed exact absence check, character requirement0 and generation itemLevel1 remain separate; full required checks rerun, failure log retained"
+    },
+    {
+      "phase": "Browser attempts1/2",
+      "result": "API applied Transmutation but UI response null-quality allowlist lacked Quivers",
+      "resolution": "Add exact source-backed class; actual11 API responses acceptance and invented quality cap rejection regression tests; full Frontend checks/build and browser rerun"
+    },
+    {
+      "phase": "Input hash checker",
+      "result": "Nested static asset directory rejected as file",
+      "resolution": "Recursively hash only files; source701 and jar hash equivalence passed"
+    },
+    {
+      "phase": "Browser attempt3",
+      "result": "Probe used nonexisting Greater_Essence_of_Infinite key after UI Transmutation/Blessed passed",
+      "resolution": "Use exact existing Greater_Essence_of_the_Infinite material ID; no app change or assertion removal; rerun in new evidence path"
+    },
+    {
+      "phase": "Git stage ownership",
+      "result": "Host and sandbox user ownership differ for the authorized worktree",
+      "resolution": "Exact-worktree command-level safe.directory used; no global Git config change, no policy bypass, no other repository mutation"
+    }
+  ],
+  "frontendAttempt2": {
+    "failedTests": 1,
+    "passedTests": 1880,
+    "reason": "Historical single numeric binding count included 38 added Quiver bindings",
+    "resolution": "Preserve historical234, assert new38 and total317; keep full min/middle/max six-locale rendering checks"
+  },
+  "ordinaryWeightPolicy": "PoE2DB published DropChance for all100 rows; never replace with1/N",
+  "numericModel": "Existing unverified source-unit numeric roll model; no inference about actual server roll distribution",
+  "specialWeightPolicy": "Only existing disclosed valid-candidate1/N policy where source has no selection weights",
+  "safety": "No remote push/merge/deploy; no existing QA output overwrite; no test expectation weakening"
+}

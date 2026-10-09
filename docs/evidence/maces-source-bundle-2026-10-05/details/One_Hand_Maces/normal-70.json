@@ -1,0 +1,70 @@
+{
+  "row": {
+    "Name": "of Battle",
+    "Level": "55",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreaseSocketedGemLevel"
+    ],
+    "DropChance": "250",
+    "str": "<span class='mod-value'>+3</span> to Level of all <a data-keyword=\"Melee\" href=\"Melee\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8d986051b4849a5d84b195f5dd91effd8e56e9aeba53b07cd06b0f6c758cd81b\">Melee</a> Skills",
+    "fossil_no": [
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ranged",
+      "spear",
+      "one_hand_weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3ec0a619fdeef3582cdbb56690595dd871ed21b886c5bde49132a9faac245928"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/tw/Poe_Data_Mods_hover/64df834c1ab5246f6d98c028848ea4e0809fd0f192e029f073bc56a476faec92",
+  "textLocale": "tw",
+  "detailText": "全部近戰技能的等級+3",
+  "retrievedAt": "2026-10-05T07:03:09.468Z",
+  "sha256": "64df834c1ab5246f6d98c028848ea4e0809fd0f192e029f073bc56a476faec92",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>全部<a data-keyword=\"Melee\" href=\"Melee\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/6b86847e074cdbc65d8f1a3f4b2144f1712ff15588569213edfba94390caa80c\">近戰</a>技能的等級<span class='mod-value'>+3</span></span></h5>   <span data-tabname=\"戰鬥之\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>戰鬥之\n<tr><th>Family<td>IncreaseSocketedGemLevel\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>後綴 (2)\n<tr><th>Req. level<td>55 (Effective: 44)\n<tr><th>Gold Price<td>2404\n<tr><th>Stats<td><li>melee skill gem level + <span class=\"badge bg-primary\">3 <span class=\"ndash\">—</span> 3</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ranged: 0</span> <span class='badge bg-primary'>spear: 1</span> <span class='badge bg-primary'>one_hand_weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>攻擊</span> </table>  </div></div>",
+  "fields": {
+    "Name": "戰鬥之",
+    "Family": "IncreaseSocketedGemLevel",
+    "Domains": "物品 (1)",
+    "GenerationType": "後綴 (2)",
+    "Req. level": "55 (Effective: 44)",
+    "Gold Price": "2404",
+    "Stats": "melee skill gem level + 3 — 3 Global",
+    "Spawn Tags": "ranged: 0 spear: 1 one_hand_weapon: 1 default: 0",
+    "Craft Tags": "攻擊"
+  },
+  "stats": [
+    {
+      "id": "melee_skill_gem_level_+",
+      "min": 3,
+      "max": 3,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ranged",
+      "weight": 0
+    },
+    {
+      "tag": "spear",
+      "weight": 1
+    },
+    {
+      "tag": "one_hand_weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

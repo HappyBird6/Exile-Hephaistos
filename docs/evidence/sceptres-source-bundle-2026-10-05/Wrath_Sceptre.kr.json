@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/kr/Wrath_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:09.293Z",
+  "sha256": "a79d60feb6915bdee7ee39d7d1d6b7bddee7cf58701c3597f234d0f444a43d8c",
+  "variants": [
+    {
+      "name": "진노 셉터",
+      "card": "진노 셉터\n        \n    \n    \n        \n            셉터정신력: 100요구 사항:  레벨 49, 87 지능 스킬 부여: 노호\n        \n\n\n\n        \n            Wrath Sceptre",
+      "requirements": "요구 사항:  레벨 49, 87 지능",
+      "fields": {
+        "DropLevel": "49",
+        "BaseType": "진노 셉터",
+        "Class": "셉터",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
+        "Tags": "lightning_implicit_skill, sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre10",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "노호",
+      "skillUrl": "https://poe2db.tw/kr/Fulmination"
+    }
+  ]
+}

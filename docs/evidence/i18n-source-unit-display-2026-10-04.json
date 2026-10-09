@@ -1,0 +1,1139 @@
+{
+  "count": 103,
+  "method": "Verified canonical stat IDs and both source display endpoints: per-minute /60; permyriad and local crit /100; explicit reduced percentage sign reversal. Formatting adds no rounding to canonical values or game precision claim.",
+  "mappings": [
+    {
+      "id": "amulet:suffix:of-convalescence",
+      "sourceCode": null,
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 786,
+        "max": 1080
+      },
+      "displaySpan": "(13.1—18)",
+      "divisor": 60
+    },
+    {
+      "id": "amulet:suffix:of-immortality",
+      "sourceCode": null,
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 1746,
+        "max": 1980
+      },
+      "displaySpan": "(29.1—33)",
+      "divisor": 60
+    },
+    {
+      "id": "amulet:suffix:of-recuperation",
+      "sourceCode": null,
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 1086,
+        "max": 1380
+      },
+      "displaySpan": "(18.1—23)",
+      "divisor": 60
+    },
+    {
+      "id": "amulet:suffix:of-resurgence",
+      "sourceCode": null,
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 1386,
+        "max": 1740
+      },
+      "displaySpan": "(23.1—29)",
+      "divisor": 60
+    },
+    {
+      "id": "amulet:suffix:of-the-flatworm",
+      "sourceCode": null,
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 186,
+        "max": 240
+      },
+      "displaySpan": "(3.1—4)",
+      "divisor": 60
+    },
+    {
+      "id": "amulet:suffix:of-the-hydra",
+      "sourceCode": null,
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 366,
+        "max": 540
+      },
+      "displaySpan": "(6.1—9)",
+      "divisor": 60
+    },
+    {
+      "id": "amulet:suffix:of-the-lizard",
+      "sourceCode": null,
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 126,
+        "max": 180
+      },
+      "displaySpan": "(2.1—3)",
+      "divisor": 60
+    },
+    {
+      "id": "amulet:suffix:of-the-newt",
+      "sourceCode": null,
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 60,
+        "max": 120
+      },
+      "displaySpan": "(1—2)",
+      "divisor": 60
+    },
+    {
+      "id": "amulet:suffix:of-the-starfish",
+      "sourceCode": null,
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 246,
+        "max": 360
+      },
+      "displaySpan": "(4.1—6)",
+      "divisor": 60
+    },
+    {
+      "id": "amulet:suffix:of-the-troll",
+      "sourceCode": null,
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 546,
+        "max": 780
+      },
+      "displaySpan": "(9.1—13)",
+      "divisor": 60
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-locust",
+      "sourceCode": "LifeLeech2",
+      "stat": {
+        "id": "base_life_leech_from_physical_attack_damage_permyriad",
+        "min": 600,
+        "max": 690
+      },
+      "displaySpan": "(6—6.9)",
+      "divisor": 100
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-remora",
+      "sourceCode": "LifeLeech3",
+      "stat": {
+        "id": "base_life_leech_from_physical_attack_damage_permyriad",
+        "min": 700,
+        "max": 790
+      },
+      "displaySpan": "(7—7.9)",
+      "divisor": 100
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-lamprey",
+      "sourceCode": "LifeLeech4",
+      "stat": {
+        "id": "base_life_leech_from_physical_attack_damage_permyriad",
+        "min": 800,
+        "max": 890
+      },
+      "displaySpan": "(8—8.9)",
+      "divisor": 100
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-vampire",
+      "sourceCode": "LifeLeech5",
+      "stat": {
+        "id": "base_life_leech_from_physical_attack_damage_permyriad",
+        "min": 900,
+        "max": 990
+      },
+      "displaySpan": "(9—9.9)",
+      "divisor": 100
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-parched",
+      "sourceCode": "ManaLeech2",
+      "stat": {
+        "id": "base_mana_leech_from_physical_attack_damage_permyriad",
+        "min": 500,
+        "max": 590
+      },
+      "displaySpan": "(5—5.9)",
+      "divisor": 100
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-arid",
+      "sourceCode": "ManaLeech3",
+      "stat": {
+        "id": "base_mana_leech_from_physical_attack_damage_permyriad",
+        "min": 600,
+        "max": 690
+      },
+      "displaySpan": "(6—6.9)",
+      "divisor": 100
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-drought",
+      "sourceCode": "ManaLeech4",
+      "stat": {
+        "id": "base_mana_leech_from_physical_attack_damage_permyriad",
+        "min": 700,
+        "max": 790
+      },
+      "displaySpan": "(7—7.9)",
+      "divisor": 100
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-desperate",
+      "sourceCode": "ManaLeech5",
+      "stat": {
+        "id": "base_mana_leech_from_physical_attack_damage_permyriad",
+        "min": 800,
+        "max": 890
+      },
+      "displaySpan": "(8—8.9)",
+      "divisor": 100
+    },
+    {
+      "id": "crude-bow:suffix:of-the-locust",
+      "sourceCode": "LifeLeechLocal2",
+      "stat": {
+        "id": "local_life_leech_from_physical_damage_permyriad",
+        "min": 600,
+        "max": 690
+      },
+      "displaySpan": "(6—6.9)",
+      "divisor": 100
+    },
+    {
+      "id": "crude-bow:suffix:of-the-remora",
+      "sourceCode": "LifeLeechLocal3",
+      "stat": {
+        "id": "local_life_leech_from_physical_damage_permyriad",
+        "min": 700,
+        "max": 790
+      },
+      "displaySpan": "(7—7.9)",
+      "divisor": 100
+    },
+    {
+      "id": "crude-bow:suffix:of-the-lamprey",
+      "sourceCode": "LifeLeechLocal4",
+      "stat": {
+        "id": "local_life_leech_from_physical_damage_permyriad",
+        "min": 800,
+        "max": 890
+      },
+      "displaySpan": "(8—8.9)",
+      "divisor": 100
+    },
+    {
+      "id": "crude-bow:suffix:of-the-vampire",
+      "sourceCode": "LifeLeechLocal5",
+      "stat": {
+        "id": "local_life_leech_from_physical_damage_permyriad",
+        "min": 900,
+        "max": 990
+      },
+      "displaySpan": "(9—9.9)",
+      "divisor": 100
+    },
+    {
+      "id": "crude-bow:suffix:of-the-parched",
+      "sourceCode": "ManaLeechLocal2",
+      "stat": {
+        "id": "local_mana_leech_from_physical_damage_permyriad",
+        "min": 500,
+        "max": 590
+      },
+      "displaySpan": "(5—5.9)",
+      "divisor": 100
+    },
+    {
+      "id": "crude-bow:suffix:of-the-arid",
+      "sourceCode": "ManaLeechLocal3",
+      "stat": {
+        "id": "local_mana_leech_from_physical_damage_permyriad",
+        "min": 600,
+        "max": 690
+      },
+      "displaySpan": "(6—6.9)",
+      "divisor": 100
+    },
+    {
+      "id": "crude-bow:suffix:of-the-drought",
+      "sourceCode": "ManaLeechLocal4",
+      "stat": {
+        "id": "local_mana_leech_from_physical_damage_permyriad",
+        "min": 700,
+        "max": 790
+      },
+      "displaySpan": "(7—7.9)",
+      "divisor": 100
+    },
+    {
+      "id": "crude-bow:suffix:of-the-desperate",
+      "sourceCode": "ManaLeechLocal5",
+      "stat": {
+        "id": "local_mana_leech_from_physical_damage_permyriad",
+        "min": 800,
+        "max": 890
+      },
+      "displaySpan": "(8—8.9)",
+      "divisor": 100
+    },
+    {
+      "id": "crude-bow:suffix:of-menace",
+      "sourceCode": "LocalCriticalStrikeChance1",
+      "stat": {
+        "id": "local_critical_strike_chance",
+        "min": 101,
+        "max": 150
+      },
+      "displaySpan": "+(1.01—1.5)",
+      "divisor": 100
+    },
+    {
+      "id": "crude-bow:suffix:of-havoc",
+      "sourceCode": "LocalCriticalStrikeChance2",
+      "stat": {
+        "id": "local_critical_strike_chance",
+        "min": 151,
+        "max": 210
+      },
+      "displaySpan": "+(1.51—2.1)",
+      "divisor": 100
+    },
+    {
+      "id": "crude-bow:suffix:of-disaster",
+      "sourceCode": "LocalCriticalStrikeChance3",
+      "stat": {
+        "id": "local_critical_strike_chance",
+        "min": 211,
+        "max": 270
+      },
+      "displaySpan": "+(2.11—2.7)",
+      "divisor": 100
+    },
+    {
+      "id": "crude-bow:suffix:of-calamity",
+      "sourceCode": "LocalCriticalStrikeChance4",
+      "stat": {
+        "id": "local_critical_strike_chance",
+        "min": 311,
+        "max": 380
+      },
+      "displaySpan": "+(3.11—3.8)",
+      "divisor": 100
+    },
+    {
+      "id": "crude-bow:suffix:of-ruin",
+      "sourceCode": "LocalCriticalStrikeChance5",
+      "stat": {
+        "id": "local_critical_strike_chance",
+        "min": 381,
+        "max": 440
+      },
+      "displaySpan": "+(3.81—4.4)",
+      "divisor": 100
+    },
+    {
+      "id": "crude-bow:suffix:of-unmaking",
+      "sourceCode": "LocalCriticalStrikeChance6",
+      "stat": {
+        "id": "local_critical_strike_chance",
+        "min": 441,
+        "max": 500
+      },
+      "displaySpan": "+(4.41—5)",
+      "divisor": 100
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-newt",
+      "sourceCode": "LifeRegeneration1",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 60,
+        "max": 120
+      },
+      "displaySpan": "(1—2)",
+      "divisor": 60
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-lizard",
+      "sourceCode": "LifeRegeneration2",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 126,
+        "max": 180
+      },
+      "displaySpan": "(2.1—3)",
+      "divisor": 60
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-flatworm",
+      "sourceCode": "LifeRegeneration3",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 186,
+        "max": 240
+      },
+      "displaySpan": "(3.1—4)",
+      "divisor": 60
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-starfish",
+      "sourceCode": "LifeRegeneration4",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 246,
+        "max": 360
+      },
+      "displaySpan": "(4.1—6)",
+      "divisor": 60
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-hydra",
+      "sourceCode": "LifeRegeneration5",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 366,
+        "max": 540
+      },
+      "displaySpan": "(6.1—9)",
+      "divisor": 60
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-troll",
+      "sourceCode": "LifeRegeneration6",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 546,
+        "max": 780
+      },
+      "displaySpan": "(9.1—13)",
+      "divisor": 60
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-convalescence",
+      "sourceCode": "LifeRegeneration7",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 786,
+        "max": 1080
+      },
+      "displaySpan": "(13.1—18)",
+      "divisor": 60
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-recuperation",
+      "sourceCode": "LifeRegeneration8_",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 1086,
+        "max": 1380
+      },
+      "displaySpan": "(18.1—23)",
+      "divisor": 60
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-resurgence",
+      "sourceCode": "LifeRegeneration9",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 1386,
+        "max": 1740
+      },
+      "displaySpan": "(23.1—29)",
+      "divisor": 60
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-immortality",
+      "sourceCode": "LifeRegeneration10__",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 1746,
+        "max": 1980
+      },
+      "displaySpan": "(29.1—33)",
+      "divisor": 60
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-phoenix",
+      "sourceCode": "LifeRegeneration11____",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 1986,
+        "max": 2160
+      },
+      "displaySpan": "(33.1—36)",
+      "divisor": 60
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-sealing",
+      "sourceCode": "ReducedBleedDuration1",
+      "stat": {
+        "id": "self_bleed_duration_+%",
+        "min": -40,
+        "max": -36
+      },
+      "displaySpan": "(36—40)",
+      "divisor": -1
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-alleviation",
+      "sourceCode": "ReducedBleedDuration2",
+      "stat": {
+        "id": "self_bleed_duration_+%",
+        "min": -45,
+        "max": -41
+      },
+      "displaySpan": "(41—45)",
+      "divisor": -1
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-allaying",
+      "sourceCode": "ReducedBleedDuration3",
+      "stat": {
+        "id": "self_bleed_duration_+%",
+        "min": -50,
+        "max": -46
+      },
+      "displaySpan": "(46—50)",
+      "divisor": -1
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-assuaging",
+      "sourceCode": "ReducedBleedDuration4",
+      "stat": {
+        "id": "self_bleed_duration_+%",
+        "min": -55,
+        "max": -51
+      },
+      "displaySpan": "(51—55)",
+      "divisor": -1
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-staunching",
+      "sourceCode": "ReducedBleedDuration5",
+      "stat": {
+        "id": "self_bleed_duration_+%",
+        "min": -60,
+        "max": -56
+      },
+      "displaySpan": "(56—60)",
+      "divisor": -1
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-antitoxin",
+      "sourceCode": "ReducedPoisonDuration1",
+      "stat": {
+        "id": "self_poison_duration_+%",
+        "min": -40,
+        "max": -36
+      },
+      "displaySpan": "(36—40)",
+      "divisor": -1
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-remedy",
+      "sourceCode": "ReducedPoisonDuration2",
+      "stat": {
+        "id": "self_poison_duration_+%",
+        "min": -45,
+        "max": -41
+      },
+      "displaySpan": "(41—45)",
+      "divisor": -1
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-cure",
+      "sourceCode": "ReducedPoisonDuration3",
+      "stat": {
+        "id": "self_poison_duration_+%",
+        "min": -50,
+        "max": -46
+      },
+      "displaySpan": "(46—50)",
+      "divisor": -1
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-panacea",
+      "sourceCode": "ReducedPoisonDuration4",
+      "stat": {
+        "id": "self_poison_duration_+%",
+        "min": -55,
+        "max": -51
+      },
+      "displaySpan": "(51—55)",
+      "divisor": -1
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-antidote",
+      "sourceCode": "ReducedPoisonDuration5",
+      "stat": {
+        "id": "self_poison_duration_+%",
+        "min": -60,
+        "max": -56
+      },
+      "displaySpan": "(56—60)",
+      "divisor": -1
+    },
+    {
+      "id": "rattling-sceptre:suffix:of-the-newt",
+      "sourceCode": "NearbyAlliesLifeRegeneration1",
+      "stat": {
+        "id": "allies_in_presence_life_regeneration_rate_per_minute",
+        "min": 60,
+        "max": 120
+      },
+      "displaySpan": "(1—2)",
+      "divisor": 60
+    },
+    {
+      "id": "rattling-sceptre:suffix:of-the-lizard",
+      "sourceCode": "NearbyAlliesLifeRegeneration2",
+      "stat": {
+        "id": "allies_in_presence_life_regeneration_rate_per_minute",
+        "min": 126,
+        "max": 180
+      },
+      "displaySpan": "(2.1—3)",
+      "divisor": 60
+    },
+    {
+      "id": "rattling-sceptre:suffix:of-the-flatworm",
+      "sourceCode": "NearbyAlliesLifeRegeneration3",
+      "stat": {
+        "id": "allies_in_presence_life_regeneration_rate_per_minute",
+        "min": 186,
+        "max": 240
+      },
+      "displaySpan": "(3.1—4)",
+      "divisor": 60
+    },
+    {
+      "id": "rattling-sceptre:suffix:of-the-starfish",
+      "sourceCode": "NearbyAlliesLifeRegeneration4",
+      "stat": {
+        "id": "allies_in_presence_life_regeneration_rate_per_minute",
+        "min": 246,
+        "max": 360
+      },
+      "displaySpan": "(4.1—6)",
+      "divisor": 60
+    },
+    {
+      "id": "rattling-sceptre:suffix:of-the-hydra",
+      "sourceCode": "NearbyAlliesLifeRegeneration5",
+      "stat": {
+        "id": "allies_in_presence_life_regeneration_rate_per_minute",
+        "min": 366,
+        "max": 540
+      },
+      "displaySpan": "(6.1—9)",
+      "divisor": 60
+    },
+    {
+      "id": "rattling-sceptre:suffix:of-the-troll",
+      "sourceCode": "NearbyAlliesLifeRegeneration6",
+      "stat": {
+        "id": "allies_in_presence_life_regeneration_rate_per_minute",
+        "min": 546,
+        "max": 780
+      },
+      "displaySpan": "(9.1—13)",
+      "divisor": 60
+    },
+    {
+      "id": "rattling-sceptre:suffix:of-convalescence",
+      "sourceCode": "NearbyAlliesLifeRegeneration7",
+      "stat": {
+        "id": "allies_in_presence_life_regeneration_rate_per_minute",
+        "min": 786,
+        "max": 1080
+      },
+      "displaySpan": "(13.1—18)",
+      "divisor": 60
+    },
+    {
+      "id": "rattling-sceptre:suffix:of-recuperation",
+      "sourceCode": "NearbyAlliesLifeRegeneration8",
+      "stat": {
+        "id": "allies_in_presence_life_regeneration_rate_per_minute",
+        "min": 1086,
+        "max": 1380
+      },
+      "displaySpan": "(18.1—23)",
+      "divisor": 60
+    },
+    {
+      "id": "rattling-sceptre:suffix:of-resurgence",
+      "sourceCode": "NearbyAlliesLifeRegeneration9",
+      "stat": {
+        "id": "allies_in_presence_life_regeneration_rate_per_minute",
+        "min": 1386,
+        "max": 1740
+      },
+      "displaySpan": "(23.1—29)",
+      "divisor": 60
+    },
+    {
+      "id": "rattling-sceptre:suffix:of-immortality",
+      "sourceCode": "NearbyAlliesLifeRegeneration10",
+      "stat": {
+        "id": "allies_in_presence_life_regeneration_rate_per_minute",
+        "min": 1746,
+        "max": 1980
+      },
+      "displaySpan": "(29.1—33)",
+      "divisor": 60
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-newt",
+      "sourceCode": "LifeRegeneration1",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 60,
+        "max": 120
+      },
+      "displaySpan": "(1—2)",
+      "divisor": 60
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-lizard",
+      "sourceCode": "LifeRegeneration2",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 126,
+        "max": 180
+      },
+      "displaySpan": "(2.1—3)",
+      "divisor": 60
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-flatworm",
+      "sourceCode": "LifeRegeneration3",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 186,
+        "max": 240
+      },
+      "displaySpan": "(3.1—4)",
+      "divisor": 60
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-starfish",
+      "sourceCode": "LifeRegeneration4",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 246,
+        "max": 360
+      },
+      "displaySpan": "(4.1—6)",
+      "divisor": 60
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-hydra",
+      "sourceCode": "LifeRegeneration5",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 366,
+        "max": 540
+      },
+      "displaySpan": "(6.1—9)",
+      "divisor": 60
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-troll",
+      "sourceCode": "LifeRegeneration6",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 546,
+        "max": 780
+      },
+      "displaySpan": "(9.1—13)",
+      "divisor": 60
+    },
+    {
+      "id": "rawhide-belt:suffix:of-convalescence",
+      "sourceCode": "LifeRegeneration7",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 786,
+        "max": 1080
+      },
+      "displaySpan": "(13.1—18)",
+      "divisor": 60
+    },
+    {
+      "id": "rawhide-belt:suffix:of-recuperation",
+      "sourceCode": "LifeRegeneration8_",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 1086,
+        "max": 1380
+      },
+      "displaySpan": "(18.1—23)",
+      "divisor": 60
+    },
+    {
+      "id": "rawhide-belt:suffix:of-resurgence",
+      "sourceCode": "LifeRegeneration9",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 1386,
+        "max": 1740
+      },
+      "displaySpan": "(23.1—29)",
+      "divisor": 60
+    },
+    {
+      "id": "rawhide-belt:suffix:of-sipping",
+      "sourceCode": "BeltReducedFlaskChargesUsed1",
+      "stat": {
+        "id": "flask_charges_used_+%",
+        "min": -10,
+        "max": -8
+      },
+      "displaySpan": "(8—10)",
+      "divisor": -1
+    },
+    {
+      "id": "rawhide-belt:suffix:of-imbibing",
+      "sourceCode": "BeltReducedFlaskChargesUsed2",
+      "stat": {
+        "id": "flask_charges_used_+%",
+        "min": -13,
+        "max": -11
+      },
+      "displaySpan": "(11—13)",
+      "divisor": -1
+    },
+    {
+      "id": "rawhide-belt:suffix:of-relishing",
+      "sourceCode": "BeltReducedFlaskChargesUsed3",
+      "stat": {
+        "id": "flask_charges_used_+%",
+        "min": -16,
+        "max": -14
+      },
+      "displaySpan": "(14—16)",
+      "divisor": -1
+    },
+    {
+      "id": "rawhide-belt:suffix:of-savouring",
+      "sourceCode": "BeltReducedFlaskChargesUsed4",
+      "stat": {
+        "id": "flask_charges_used_+%",
+        "min": -19,
+        "max": -17
+      },
+      "displaySpan": "(17—19)",
+      "divisor": -1
+    },
+    {
+      "id": "rawhide-belt:suffix:of-reveling",
+      "sourceCode": "BeltReducedFlaskChargesUsed5",
+      "stat": {
+        "id": "flask_charges_used_+%",
+        "min": -22,
+        "max": -20
+      },
+      "displaySpan": "(20—22)",
+      "divisor": -1
+    },
+    {
+      "id": "rawhide-belt:suffix:of-nourishing",
+      "sourceCode": "BeltReducedFlaskChargesUsed6",
+      "stat": {
+        "id": "flask_charges_used_+%",
+        "min": -25,
+        "max": -23
+      },
+      "displaySpan": "(23—25)",
+      "divisor": -1
+    },
+    {
+      "id": "rawhide-belt:suffix:of-austerity",
+      "sourceCode": "BeltReducedCharmChargesUsed1",
+      "stat": {
+        "id": "charm_charges_used_+%",
+        "min": -10,
+        "max": -8
+      },
+      "displaySpan": "(8—10)",
+      "divisor": -1
+    },
+    {
+      "id": "rawhide-belt:suffix:of-frugality",
+      "sourceCode": "BeltReducedCharmChargesUsed2",
+      "stat": {
+        "id": "charm_charges_used_+%",
+        "min": -13,
+        "max": -11
+      },
+      "displaySpan": "(11—13)",
+      "divisor": -1
+    },
+    {
+      "id": "rawhide-belt:suffix:of-temperance",
+      "sourceCode": "BeltReducedCharmChargesUsed3",
+      "stat": {
+        "id": "charm_charges_used_+%",
+        "min": -16,
+        "max": -14
+      },
+      "displaySpan": "(14—16)",
+      "divisor": -1
+    },
+    {
+      "id": "rawhide-belt:suffix:of-restraint",
+      "sourceCode": "BeltReducedCharmChargesUsed4",
+      "stat": {
+        "id": "charm_charges_used_+%",
+        "min": -19,
+        "max": -17
+      },
+      "displaySpan": "(17—19)",
+      "divisor": -1
+    },
+    {
+      "id": "rawhide-belt:suffix:of-economy",
+      "sourceCode": "BeltReducedCharmChargesUsed5",
+      "stat": {
+        "id": "charm_charges_used_+%",
+        "min": -22,
+        "max": -20
+      },
+      "displaySpan": "(20—22)",
+      "divisor": -1
+    },
+    {
+      "id": "rawhide-belt:suffix:of-scarcity",
+      "sourceCode": "BeltReducedCharmChargesUsed6",
+      "stat": {
+        "id": "charm_charges_used_+%",
+        "min": -25,
+        "max": -23
+      },
+      "displaySpan": "(23—25)",
+      "divisor": -1
+    },
+    {
+      "id": "iron-ring:suffix:of-the-newt",
+      "sourceCode": "LifeRegeneration1",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 60,
+        "max": 120
+      },
+      "displaySpan": "(1—2)",
+      "divisor": 60
+    },
+    {
+      "id": "iron-ring:suffix:of-the-lizard",
+      "sourceCode": "LifeRegeneration2",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 126,
+        "max": 180
+      },
+      "displaySpan": "(2.1—3)",
+      "divisor": 60
+    },
+    {
+      "id": "iron-ring:suffix:of-the-flatworm",
+      "sourceCode": "LifeRegeneration3",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 186,
+        "max": 240
+      },
+      "displaySpan": "(3.1—4)",
+      "divisor": 60
+    },
+    {
+      "id": "iron-ring:suffix:of-the-starfish",
+      "sourceCode": "LifeRegeneration4",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 246,
+        "max": 360
+      },
+      "displaySpan": "(4.1—6)",
+      "divisor": 60
+    },
+    {
+      "id": "iron-ring:suffix:of-the-hydra",
+      "sourceCode": "LifeRegeneration5",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 366,
+        "max": 540
+      },
+      "displaySpan": "(6.1—9)",
+      "divisor": 60
+    },
+    {
+      "id": "iron-ring:suffix:of-the-troll",
+      "sourceCode": "LifeRegeneration6",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 546,
+        "max": 780
+      },
+      "displaySpan": "(9.1—13)",
+      "divisor": 60
+    },
+    {
+      "id": "iron-ring:suffix:of-convalescence",
+      "sourceCode": "LifeRegeneration7",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 786,
+        "max": 1080
+      },
+      "displaySpan": "(13.1—18)",
+      "divisor": 60
+    },
+    {
+      "id": "iron-ring:suffix:of-the-locust",
+      "sourceCode": "LifeLeech2",
+      "stat": {
+        "id": "base_life_leech_from_physical_attack_damage_permyriad",
+        "min": 600,
+        "max": 690
+      },
+      "displaySpan": "(6—6.9)",
+      "divisor": 100
+    },
+    {
+      "id": "iron-ring:suffix:of-the-remora",
+      "sourceCode": "LifeLeech3",
+      "stat": {
+        "id": "base_life_leech_from_physical_attack_damage_permyriad",
+        "min": 700,
+        "max": 790
+      },
+      "displaySpan": "(7—7.9)",
+      "divisor": 100
+    },
+    {
+      "id": "iron-ring:suffix:of-the-parched",
+      "sourceCode": "ManaLeech2",
+      "stat": {
+        "id": "base_mana_leech_from_physical_attack_damage_permyriad",
+        "min": 500,
+        "max": 590
+      },
+      "displaySpan": "(5—5.9)",
+      "divisor": 100
+    },
+    {
+      "id": "iron-ring:suffix:of-the-arid",
+      "sourceCode": "ManaLeech3",
+      "stat": {
+        "id": "base_mana_leech_from_physical_attack_damage_permyriad",
+        "min": 600,
+        "max": 690
+      },
+      "displaySpan": "(6—6.9)",
+      "divisor": 100
+    },
+    {
+      "id": "rusted-greathelm:suffix:of-the-newt",
+      "sourceCode": "LifeRegeneration1",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 60,
+        "max": 120
+      },
+      "displaySpan": "(1—2)",
+      "divisor": 60
+    },
+    {
+      "id": "rusted-greathelm:suffix:of-the-lizard",
+      "sourceCode": "LifeRegeneration2",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 126,
+        "max": 180
+      },
+      "displaySpan": "(2.1—3)",
+      "divisor": 60
+    },
+    {
+      "id": "rusted-greathelm:suffix:of-the-flatworm",
+      "sourceCode": "LifeRegeneration3",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 186,
+        "max": 240
+      },
+      "displaySpan": "(3.1—4)",
+      "divisor": 60
+    },
+    {
+      "id": "rusted-greathelm:suffix:of-the-starfish",
+      "sourceCode": "LifeRegeneration4",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 246,
+        "max": 360
+      },
+      "displaySpan": "(4.1—6)",
+      "divisor": 60
+    },
+    {
+      "id": "rusted-greathelm:suffix:of-the-hydra",
+      "sourceCode": "LifeRegeneration5",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 366,
+        "max": 540
+      },
+      "displaySpan": "(6.1—9)",
+      "divisor": 60
+    },
+    {
+      "id": "rusted-greathelm:suffix:of-the-troll",
+      "sourceCode": "LifeRegeneration6",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 546,
+        "max": 780
+      },
+      "displaySpan": "(9.1—13)",
+      "divisor": 60
+    },
+    {
+      "id": "rusted-greathelm:suffix:of-convalescence",
+      "sourceCode": "LifeRegeneration7",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 786,
+        "max": 1080
+      },
+      "displaySpan": "(13.1—18)",
+      "divisor": 60
+    },
+    {
+      "id": "rusted-greathelm:suffix:of-recuperation",
+      "sourceCode": "LifeRegeneration8_",
+      "stat": {
+        "id": "base_life_regeneration_rate_per_minute",
+        "min": 1086,
+        "max": 1380
+      },
+      "displaySpan": "(18.1—23)",
+      "divisor": 60
+    }
+  ]
+}

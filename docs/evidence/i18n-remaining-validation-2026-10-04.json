@@ -1,0 +1,176 @@
+{
+  "baseHead": "18a2a3d4235e7ebf3e45c81f4fb6fe5f115c93b0",
+  "branch": "workbench/i18n-remaining-20261004",
+  "checks": {
+    "npmCi": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "format": "PASS",
+    "unit": {
+      "files": 57,
+      "tests": 1746,
+      "status": "PASS"
+    },
+    "build": "PASS",
+    "composeConfig": "PASS",
+    "coverage": "PASS",
+    "missingActiveTranslationNegativeFixture": "PASS",
+    "missingSpecialLocaleBindingNegativeFixture": "PASS",
+    "tooltipLayout": {
+      "status": "PASS",
+      "cases": 12,
+      "results": "../../codex/i18n-remaining-qa-20261004/tooltip-layout-results.json"
+    }
+  },
+  "browser": {
+    "passed": 909,
+    "pageErrors": [],
+    "screenshots": [
+      "card-compound-en-1440.png",
+      "card-compound-en-390.png",
+      "card-compound-es-1440.png",
+      "card-compound-es-390.png",
+      "card-compound-ja-1440.png",
+      "card-compound-ja-390.png",
+      "card-compound-ko-1440.png",
+      "card-compound-ko-390.png",
+      "card-compound-zh-CN-1440.png",
+      "card-compound-zh-CN-390.png",
+      "card-compound-zh-TW-1440.png",
+      "card-compound-zh-TW-390.png",
+      "compound-en-1440.png",
+      "compound-en-390.png",
+      "compound-es-1440.png",
+      "compound-es-390.png",
+      "compound-ja-1440.png",
+      "compound-ja-390.png",
+      "compound-ko-1440.png",
+      "compound-ko-390.png",
+      "compound-zh-CN-1440.png",
+      "compound-zh-CN-390.png",
+      "compound-zh-TW-1440.png",
+      "compound-zh-TW-390.png",
+      "radius-en-1440.png",
+      "radius-en-390.png",
+      "radius-es-1440.png",
+      "radius-es-390.png",
+      "radius-ja-1440.png",
+      "radius-ja-390.png",
+      "radius-ko-1440.png",
+      "radius-ko-390.png",
+      "radius-zh-CN-1440.png",
+      "radius-zh-CN-390.png",
+      "radius-zh-TW-1440.png",
+      "radius-zh-TW-390.png",
+      "tooltip-en.png",
+      "tooltip-es.png",
+      "tooltip-ja.png",
+      "tooltip-ko.png",
+      "tooltip-layout-en-1440.png",
+      "tooltip-layout-en-390.png",
+      "tooltip-layout-es-1440.png",
+      "tooltip-layout-es-390.png",
+      "tooltip-layout-ja-1440.png",
+      "tooltip-layout-ja-390.png",
+      "tooltip-layout-ko-1440.png",
+      "tooltip-layout-ko-390.png",
+      "tooltip-layout-results.json",
+      "tooltip-layout-zh-CN-1440.png",
+      "tooltip-layout-zh-CN-390.png",
+      "tooltip-layout-zh-TW-1440.png",
+      "tooltip-layout-zh-TW-390.png",
+      "tooltip-zh-CN.png",
+      "tooltip-zh-TW.png"
+    ]
+  },
+  "frontendSource": {
+    "files": 15,
+    "equalTestedCopy": true
+  },
+  "backend": {
+    "changedFiles": "",
+    "jarSha256": "cfd8ff6a59e262e1cc560a937821fd2a45ef5400afcadbdbaf0fede131e10d9d",
+    "equalsPriorUiJar": true,
+    "checksNotRerunReason": "Backend sources unchanged; identical validated UI checkpoint JAR reused read-only"
+  },
+  "history": {
+    "frontendLogs": [
+      "frontend-check-1.log",
+      "frontend-check-2.log",
+      "frontend-check-3.log",
+      "frontend-check-4.log",
+      "frontend-check-5.log",
+      "frontend-check-6.log",
+      "frontend-check-7.log"
+    ],
+    "browserFailures": [
+      "browser-failure-1.json",
+      "browser-failure-2.json",
+      "browser-failure-3.json",
+      "browser-failure-4.json",
+      "browser-failure-5.json",
+      "browser-failure-6.json",
+      "browser-failure-8.json"
+    ],
+    "explanations": [
+      "lint react-refresh exports split",
+      "Incorrect Korean test phrase replaced with actual verified source wording",
+      "Duplicate translate import removed",
+      "Check5 wrapper trailing CR returned1 after all individual checks passed; normalized wrapper Check6/7 exits0",
+      "Browser1 started before API ready; readiness confirmed before next run",
+      "Browser2 undefined tab message key replaced by stable tab ID",
+      "Browser3/4/5 whitespace and conditional harness expectations corrected",
+      "Browser6 exposed real JSON object key-order fallback; stat identity comparator repaired and all2314 bindings regression-tested",
+      "Browser8 supplemental Solar assertion compared published range against rolled15; harness single-stat projection corrected",
+      "Visual review found104 literal HTML whitespace-only lines; source display cleanup and collector/guard fixed; final Check7 and browser rerun"
+    ]
+  },
+  "limitations": [
+    "Six Spanish names have explicitly labeled own-translation provenance",
+    "Deferred Liquid Verisium Spanish description retained as English source",
+    "Unrecognized external/server text retained with source-language label",
+    "English-only game-text IMPORT preserved",
+    "Existing Ancient Spanish own translation provenance retained",
+    "Dictionary bundle remains large: JS3187.00kB gzip563.03kB; no unsolicited architecture change"
+  ],
+  "scope": {
+    "gameplayChanged": false,
+    "remotePush": false,
+    "merge": false,
+    "liveDeploy": false,
+    "livePortsPreserved": [
+      18080,
+      18081
+    ],
+    "qaPorts": [
+      19180,
+      19181
+    ],
+    "selfReview": "Requirement, source semantic correspondence, diff and canonical payload/film preservation reviewed locally; independent review not claimed",
+    "qaStoppedNormally": true,
+    "remainingRunningServices": [
+      "exile-workbench-qa-20261002-frontend-1:18081",
+      "exile-workbench-qa-20261002-app-1:18080",
+      "exile-workbench-qa-20261002-redis-1",
+      "exile-workbench-qa-20261002-postgres-1"
+    ],
+    "heavyQaReleased": true
+  },
+  "visualReview": {
+    "files": [
+      "compound-es-390.png",
+      "compound-zh-CN-1440.png",
+      "radius-ja-390.png",
+      "tooltip-layout-es-390.png",
+      "tooltip-layout-zh-TW-1440.png",
+      "card-compound-ko-390.png",
+      "card-compound-en-1440.png"
+    ],
+    "result": "Direct visual review passed; translations wrap, no document overflow, HTML whitespace artifacts removed; inherited mobile material canvas clipping retained"
+  },
+  "displayWhitespaceCleanup": 104,
+  "buildSize": {
+    "jsKB": 3187,
+    "gzipKB": 563.03
+  }
+}

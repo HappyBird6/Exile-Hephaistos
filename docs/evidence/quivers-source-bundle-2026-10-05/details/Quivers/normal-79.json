@@ -1,0 +1,65 @@
+{
+  "row": {
+    "Name": "of Fury",
+    "Level": "45",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "CriticalStrikeMultiplier"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(25<span class=\"ndash\">—</span>29)</span>% increased <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Damage Bonus</a> for <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Damage",
+    "fossil_no": [
+      "damage",
+      "attack",
+      "critical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "quiver",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/92580bef8644325f12985a4eb26e006071c15c61b8079413c80f00f343cd36ce"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAttackCriticalStrikeMultiplier4",
+  "textLocale": "sp",
+  "detailText": "Bonificación de daño crítico del daño de los ataques aumentada un (25—29)%",
+  "retrievedAt": "2026-10-05T05:32:48.345Z",
+  "sha256": "94db8bf48b3da9a83d16fcf1d18fcce5fdefa3482a38070693e2c8d9b3916b49",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FCriticalDamageBonus\">Bonificación de daño crítico</a> del daño de los <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FAttack\">ataques</a> aumentada un <span class='mod-value'>(25<span class=\"ndash\">—</span>29)</span>%</span></h5>   <span data-tabname=\"de furia\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>de furia\n<tr><th>Family<td>CriticalStrikeMultiplier\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Sufijo (2)\n<tr><th>Req. level<td>45 (Effective: 36)\n<tr><th>Gold Price<td>1117\n<tr><th>Stats<td><li>attack critical strike multiplier + <span class=\"badge bg-primary\">25 <span class=\"ndash\">—</span> 29</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Daño</span> <span class='badge bg-primary'>Ataque</span> <span class='badge bg-primary'>Crítico</span> </table>  </div></div>",
+  "fields": {
+    "Name": "de furia",
+    "Family": "CriticalStrikeMultiplier",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Sufijo (2)",
+    "Req. level": "45 (Effective: 36)",
+    "Gold Price": "1117",
+    "Stats": "attack critical strike multiplier + 25 — 29 Global",
+    "Spawn Tags": "quiver: 1 default: 0",
+    "Craft Tags": "Daño Ataque Crítico"
+  },
+  "code": "AttackCriticalStrikeMultiplier4",
+  "stats": [
+    {
+      "id": "attack_critical_strike_multiplier_+",
+      "min": 25,
+      "max": 29,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "page": "Amulets",
+  "url": "https://poe2db.tw/us/Amulets",
+  "retrievedAt": "2026-10-04T14:53:06.363Z",
+  "sha256": "3d4d07f1a10ae9c3d8bdf9d304605db6943a199af0639c742a0f182093cdb1d6",
+  "cards": [
+    {
+      "slug": "Crimson_Amulet",
+      "card": "Crimson Amulet(2—4) Life Regeneration per second"
+    },
+    {
+      "slug": "Azure_Amulet",
+      "card": "Azure Amulet(20—30)% increased Mana Regeneration Rate"
+    },
+    {
+      "slug": "Amber_Amulet",
+      "card": "Amber AmuletRequires:  Level 8+(10—15) to Strength"
+    },
+    {
+      "slug": "Jade_Amulet",
+      "card": "Jade AmuletRequires:  Level 8+(10—15) to Dexterity"
+    },
+    {
+      "slug": "Lapis_Amulet",
+      "card": "Lapis AmuletRequires:  Level 8+(10—15) to Intelligence"
+    },
+    {
+      "slug": "Lunar_Amulet",
+      "card": "Lunar AmuletRequires:  Level 14+(20—30) to maximum Energy Shield"
+    },
+    {
+      "slug": "Bloodstone_Amulet",
+      "card": "Bloodstone AmuletRequires:  Level 18+(30—40) to maximum Life"
+    },
+    {
+      "slug": "Stellar_Amulet",
+      "card": "Stellar AmuletRequires:  Level 25+(5—7) to all Attributes"
+    },
+    {
+      "slug": "Solar_Amulet",
+      "card": "Solar AmuletRequires:  Level 30+(10—15) to Spirit"
+    },
+    {
+      "slug": "Gold_Amulet",
+      "card": "Gold AmuletRequires:  Level 35(12—20)% increased Rarity of Items found"
+    },
+    {
+      "slug": "Pearlescent_Amulet",
+      "card": "Pearlescent AmuletRequires:  Level 8+(7—10)% to all Elemental Resistances"
+    },
+    {
+      "slug": "Veridical_Chain",
+      "card": "Veridical ChainRequires:  Level 52+(30—40) to maximum Runic Ward"
+    },
+    {
+      "slug": "Runemastered_Veridical_Chain",
+      "card": "Runemastered Veridical ChainRequires:  Level 65+(30—40) to maximum Runic Ward+(2—3)% to Maximum Cold Resistance"
+    },
+    {
+      "slug": "Runemastered_Veridical_Chain",
+      "card": "Runemastered Veridical ChainRequires:  Level 65+(30—40) to maximum Runic Ward+(1—2) to Level of all Cold Skills"
+    },
+    {
+      "slug": "Runemastered_Veridical_Chain",
+      "card": "Runemastered Veridical ChainRequires:  Level 65(15—20)% increased maximum Runic Ward"
+    },
+    {
+      "slug": "Lament_Amulet",
+      "card": "Lament AmuletRequires:  Level 42 Grants Skill: Level 11 Arctic Armour Grants Skill: Level 11 Herald of Ash Grants Skill: Level 11 Herald of Ice Grants Skill: Level 11 Herald of Thunder Grants Skill: Level 11 Plague Bearer Grants Skill: Level 11 Barrier Invocation Grants Skill: Level 11 Lingering Illusion Grants Skill: Level 11 Ghost Dance Grants Skill: Level 11 Mana Remnants Grants Skill: Level 11 Magma Barrier Grants Skill: Level 11 Raging Spirits Grants Skill: Level 11 Wind Dancer Grants Skill: Level 11 Cast on Minion Death Grants Skill: Level 11 Scavenged Plating Grants Skill: Level 11 War Banner Grants Skill: Level 11 Defiance Banner Grants Skill: Level 11 Dread Banner Grants Skill: Level 11 Time of Need Grants Skill: Level 11 Attrition Grants Skill: Level 11 Charge Regulation Grants Skill: Level 11 Shard Scavenger Grants Skill: Level 11 Overwhelming Presence Grants Skill: Level 11 Alchemist's Boon Grants Skill: Level 11 Reaper's Invocation Grants Skill: Level 11 Berserk Grants Skill: Level 11 Herald of Plague Grants Skill: Level 11 Herald of Blood Grants Skill: Level 11 Withering Presence Grants Skill: Level 11 Ravenous Swarm Grants Skill: Level 11 Combat Frenzy Grants Skill: Level 11 Trail of Caltrops Grants Skill: Level 11 Convalescence Grants Skill: Level 11 Iron Ward Grants Skill: Level 11 Siphon Elements Grants Skill: Level 11 Briarpatch Grants Skill: Level 11 Savage Fury Grants Skill: Level 11 Barkskin-1 Prefix Modifier allowed"
+    },
+    {
+      "slug": "Portent_Amulet",
+      "card": "Portent AmuletRequires:  Level 42 Grants Skill: Level 11 Wolf Pack Grants Skill: Level 11 Blink Grants Skill: Level 11 Elemental Invocation Grants Skill: Level 11 Elemental Conflux Grants Skill: Level 11 Sacrifice Grants Skill: Level 11 Mirage Archer Grants Skill: Level 11 Feral Invocation-1 Suffix Modifier allowed"
+    },
+    {
+      "slug": "Absent_Amulet",
+      "card": "Absent AmuletRequires:  Level 50 Grants Skill: Level 12 Cast on Elemental Ailment Grants Skill: Level 12 Cast on Critical Grants Skill: Level 12 Cast on Dodge Grants Skill: Level 12 Rhoa Mount Grants Skill: Level 12 Archmage Grants Skill: Level 12 Trinity Grants Skill: Level 12 Eternal Rage-1 Prefix Modifier allowed\n-1 Suffix Modifier allowed"
+    },
+    {
+      "slug": "Corona_Amulet",
+      "card": "Corona AmuletRequires:  Level 40This item gains bonuses from Socketed Items as though it was a Helmet"
+    },
+    {
+      "slug": "Dusk_Amulet",
+      "card": "Dusk Amulet+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed"
+    },
+    {
+      "slug": "Gloam_Amulet",
+      "card": "Gloam Amulet-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed"
+    },
+    {
+      "slug": "Penumbra_Amulet",
+      "card": "Penumbra Amulet+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed"
+    },
+    {
+      "slug": "Tenebrous_Amulet",
+      "card": "Tenebrous Amulet-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed"
+    },
+    {
+      "slug": "Twisted_Amulet",
+      "card": "Twisted Amulet-1 Prefix Modifier allowed"
+    },
+    {
+      "slug": "Distorted_Amulet",
+      "card": "Distorted Amulet-1 Suffix Modifier allowed"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "url": "https://poe2db.tw/us/Fungal_Talisman",
+  "retrievedAt": "2026-10-05T10:01:14.027Z",
+  "sha256": "7d3df2faa4c8c333888b9c9d33d8dc8b77a3f7d7d90bb4dae2dd5c21f34a19b9",
+  "variants": [
+    {
+      "name": "Fungal Talisman",
+      "card": "Fungal Talisman\n        \n    \n    \n        \n            TalismansPhysical Damage: 59-98Critical Hit Chance: 8%Attacks per Second: 1.4Weapon Range: 1.2Requires:  Level 78, 96 Str, 70 Int",
+      "requirements": "Requires:  Level 78, 96 Str, 70 Int",
+      "properties": [
+        "Talismans",
+        "Physical Damage: 59-98",
+        "Critical Hit Chance: 8%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.2"
+      ],
+      "fields": {
+        "DropLevel": "78",
+        "BaseType": "Fungal Talisman",
+        "Class": "Talismans",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanHaveAspects",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame",
+        "Sound": "Audio/Sound Effects/ItemSounds/4.0/Equipment/Weapons/Talismans/Wood/Talisman_Wood_Drop.ogg",
+        "Tags": "maraketh_basetype, talisman, two_hand_weapon, twohand, weapon",
+        "Icon": "Art/2DItems/Offhand/Talismans/FrenziedTalisman",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, twohand, talisman, two_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ]
+}

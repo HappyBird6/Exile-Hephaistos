@@ -1,0 +1,66 @@
+{
+  "row": {
+    "Name": "of Ferocity",
+    "Level": "59",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "CriticalStrikeMultiplier"
+    ],
+    "DropChance": "250",
+    "str": "<span class='mod-value'>+(20<span class=\"ndash\">—</span>22)</span>% to <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Damage Bonus</a>",
+    "fossil_no": [
+      "damage",
+      "attack",
+      "critical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/96a9eafb2a4e66651fbf8bb2e7927b6afa176cabae1a1ad0925dff32e99cc246"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalCriticalMultiplier5",
+  "textLocale": "us",
+  "detailText": "+(20—22)% to Critical Damage Bonus",
+  "retrievedAt": "2026-10-05T08:10:54.361Z",
+  "sha256": "785fa303caf3f0b162ae956230257013c4c3853ac8e1a942b096b490518a447a",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(20<span class=\"ndash\">—</span>22)</span>% to <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Damage Bonus</a></span></h5>   <span data-tabname=\"of Ferocity\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Ferocity\n<tr><th>Family<td>CriticalStrikeMultiplier\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>59 (Effective: 47)\n<tr><th>Gold Price<td>2971\n<tr><th>Stats<td><li>local critical strike multiplier + <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 22</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Attack</span> <span class='badge bg-primary'>Critical</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Ferocity",
+    "Family": "CriticalStrikeMultiplier",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "59 (Effective: 47)",
+    "Gold Price": "2971",
+    "Stats": "local critical strike multiplier + 20 — 22 Local",
+    "Spawn Tags": "weapon: 1 default: 0",
+    "Craft Tags": "Damage Attack Critical"
+  },
+  "code": "LocalCriticalMultiplier5",
+  "stats": [
+    {
+      "id": "local_critical_strike_multiplier_+",
+      "min": 20,
+      "max": 22,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

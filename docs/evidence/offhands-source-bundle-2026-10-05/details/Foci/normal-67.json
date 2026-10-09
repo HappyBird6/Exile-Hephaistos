@@ -1,0 +1,91 @@
+{
+  "row": {
+    "Name": "Serene",
+    "Level": "16",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefencesAndMana"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(14<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/844d85caec64a66d9a552bae60b3bf8357bbe1dc43f348b0e329a824c638d8b5\">Energy Shield</a><br><span class='mod-value'>+(9<span class=\"ndash\">—</span>16)</span> to maximum Mana",
+    "fossil_no": [
+      "defences",
+      "resource",
+      "mana",
+      "energy_shield"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "shield",
+      "gloves",
+      "boots",
+      "int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>",
+      "<span class=\"badge bg-primary craftingenergy_shield\" data-tag=\"energy_shield\">Energy Shield</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3ae5715e4b2b383a48ddff87ea7d575bd5a13d29a79ff5e7424ea4a0f017e284"
+  },
+  "url": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FLocalIncreasedEnergyShieldAndMana2",
+  "textLocale": "jp",
+  "detailText": "エナジーシールドが(14—20)%増加する\n最大マナ +(9—16)",
+  "retrievedAt": "2026-10-05T04:35:18.095Z",
+  "sha256": "3f1e843dc705b9f9840a38d59ebfdb3b0cfaff0009cbf10100a45ad8c00cd143",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"EnergyShield\" href=\"Energy_Shield\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/fe6f9099943e915810b271bdd3a28dedcc9b6380ccbc7008fa7399de6807a080\">エナジーシールド</a>が<span class='mod-value'>(14<span class=\"ndash\">—</span>20)</span>%増加する<br>最大マナ <span class='mod-value'>+(9<span class=\"ndash\">—</span>16)</span></span></h5>   <span data-tabname=\"穏やかな\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>穏やかな\n<tr><th>Family<td>BaseLocalDefencesAndMana\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>プレフィックス (1)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Gold Price<td>314\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">9 <span class=\"ndash\">—</span> 16</span> <span class=\"badge bg-secondary\">Global</span></li><li>local energy shield +% <span class=\"badge bg-primary\">14 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">ローカル</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 0</span> <span class='badge bg-primary'>shield: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>マナ</span> <span class='badge bg-primary'>エナジーシールド</span> </table>  </div></div>",
+  "fields": {
+    "Name": "穏やかな",
+    "Family": "BaseLocalDefencesAndMana",
+    "Domains": "アイテム (1)",
+    "GenerationType": "プレフィックス (1)",
+    "Req. level": "16 (Effective: 12)",
+    "Gold Price": "314",
+    "Stats": "base maximum mana 9 — 16 Globallocal energy shield +% 14 — 20 ローカル",
+    "Spawn Tags": "body_armour: 0 shield: 0 gloves: 0 boots: 0 int_armour: 1 default: 0",
+    "Craft Tags": "defences resource マナ エナジーシールド"
+  },
+  "code": "LocalIncreasedEnergyShieldAndMana2",
+  "stats": [
+    {
+      "id": "base_maximum_mana",
+      "min": 9,
+      "max": 16,
+      "locality": "Global"
+    },
+    {
+      "id": "local_energy_shield_+%",
+      "min": 14,
+      "max": 20,
+      "locality": "ローカル"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "body_armour",
+      "weight": 0
+    },
+    {
+      "tag": "shield",
+      "weight": 0
+    },
+    {
+      "tag": "gloves",
+      "weight": 0
+    },
+    {
+      "tag": "boots",
+      "weight": 0
+    },
+    {
+      "tag": "int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

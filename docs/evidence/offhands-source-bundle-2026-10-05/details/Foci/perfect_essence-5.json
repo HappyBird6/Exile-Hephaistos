@@ -1,0 +1,66 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "45",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>"
+    ],
+    "fossil_no": [
+      "elemental",
+      "fire",
+      "cold",
+      "lightning"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/20e6d08cea30ab5556fa9d2ee5d48de90dee8344ab941c7f519e65294aa12770\" href=\"Prismatic_Alloy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/SovereignVerisium.webp\" alt=\"SovereignVerisium\" height=\"16\" />Prismatic Alloy</a>",
+    "Code": "AlloyExposureEffect1",
+    "ModFamilyList": [
+      "ExposureEffect"
+    ],
+    "str": "<span class='mod-value'>(40<span class=\"ndash\">—</span>50)</span>% increased <a data-keyword=\"Exposure\" href=\"Exposure\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ad5f37ba83eead857dac743f772067d8cfcd1cd10a7d527823fc19986c2de3a8\">Exposure</a> Effect",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 36,
+    "IsPerfect": "0",
+    "IsAlloy": true,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyExposureEffect1",
+  "textLocale": "us",
+  "detailText": "(40—50)% increased Exposure Effect",
+  "retrievedAt": "2026-10-05T04:37:16.558Z",
+  "sha256": "8627ccee92e1ba38cf68b5afccc5c603862bda9aff30b3637916d0ce15cddb6f",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(40<span class=\"ndash\">—</span>50)</span>% increased <a data-keyword=\"Exposure\" href=\"Exposure\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ad5f37ba83eead857dac743f772067d8cfcd1cd10a7d527823fc19986c2de3a8\">Exposure</a> Effect</span></h5>   <span data-tabname=\"of the Stars\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Stars\n<tr><th>Family<td>ExposureEffect\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>45 (Effective: 36)\n<tr><th>Gold Price<td>446\n<tr><th>Stats<td><li>exposure effect +% <span class=\"badge bg-primary\">40 <span class=\"ndash\">—</span> 50</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fire</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Lightning</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of the Stars",
+    "Family": "ExposureEffect",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "45 (Effective: 36)",
+    "Gold Price": "446",
+    "Stats": "exposure effect +% 40 — 50 Global",
+    "Spawn Tags": "default: 0",
+    "Craft Tags": "Elemental Fire Cold Lightning"
+  },
+  "code": "AlloyExposureEffect1",
+  "stats": [
+    {
+      "id": "exposure_effect_+%",
+      "min": 40,
+      "max": 50,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

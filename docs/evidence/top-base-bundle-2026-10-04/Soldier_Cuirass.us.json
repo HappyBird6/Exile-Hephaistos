@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/us/Soldier_Cuirass",
+  "retrievedAt": "2026-10-04T14:49:37.097Z",
+  "sha256": "95430d41e742c2396aefd7080bae4d3d81e8ba7e0df2fb154467cf436b7c30bd",
+  "name": "Soldier Cuirass",
+  "card": "Soldier Cuirass\n        \n    \n    \n        \n            Body ArmoursArmour: 570Base Movement Speed: -0.05Requires:  Level 65, 121 Str",
+  "requirements": "Requires:  Level 65, 121 Str",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "Soldier Cuirass",
+    "Class": "Body Armours",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame",
+    "Tags": "str_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStr03",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

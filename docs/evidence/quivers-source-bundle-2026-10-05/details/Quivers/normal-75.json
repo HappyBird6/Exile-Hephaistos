@@ -1,0 +1,63 @@
+{
+  "row": {
+    "Name": "of Unmaking",
+    "Level": "72",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "CriticalStrikeChanceIncrease"
+    ],
+    "DropChance": "125",
+    "str": "<span class='mod-value'>(35<span class=\"ndash\">—</span>38)</span>% increased <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit Chance</a> for <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attacks</a>",
+    "fossil_no": [
+      "attack",
+      "critical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "quiver",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/26ad612236c850e58ce3de7a7ef67cf45cdad7ac7b0703d407985e44460cf77a"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAttackCriticalStrikeChance6",
+  "textLocale": "sp",
+  "detailText": "Probabilidad de impacto crítico de los ataques aumentada un (35—38)%",
+  "retrievedAt": "2026-10-05T05:32:26.685Z",
+  "sha256": "0f6075d1fff6ec280ed812bba86274e0bd286b7fb890724d186aeb6045f8bf94",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FCritical\">Probabilidad de impacto crítico</a> de los <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FAttack\">ataques</a> aumentada un <span class='mod-value'>(35<span class=\"ndash\">—</span>38)</span>%</span></h5>   <span data-tabname=\"de desintegración\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>de desintegración\n<tr><th>Family<td>CriticalStrikeChanceIncrease\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Sufijo (2)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3051\n<tr><th>Stats<td><li>attack critical strike chance +% <span class=\"badge bg-primary\">35 <span class=\"ndash\">—</span> 38</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Ataque</span> <span class='badge bg-primary'>Crítico</span> </table>  </div></div>",
+  "fields": {
+    "Name": "de desintegración",
+    "Family": "CriticalStrikeChanceIncrease",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Sufijo (2)",
+    "Req. level": "72 (Effective: 57)",
+    "Gold Price": "3051",
+    "Stats": "attack critical strike chance +% 35 — 38 Global",
+    "Spawn Tags": "quiver: 1 default: 0",
+    "Craft Tags": "Ataque Crítico"
+  },
+  "code": "AttackCriticalStrikeChance6",
+  "stats": [
+    {
+      "id": "attack_critical_strike_chance_+%",
+      "min": 35,
+      "max": 38,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

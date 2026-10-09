@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/sp/Reflecting_Staff",
+  "retrievedAt": "2026-10-05T10:02:07.340Z",
+  "sha256": "9aa877e4f37e34494614aafbea36695ff4308d75ecca029eb8b2e3c3516b85ac",
+  "variants": [
+    {
+      "name": "Báculo reflector",
+      "card": "Báculo reflector\n        \n    \n    \n        \n            BáculosRequiere:  Nivel 70, 123 Int Otorga la habilidad: Espejo de refracción\n        \n\n\n\n        \n            Reflecting Staff",
+      "requirements": "Requiere:  Nivel 70, 123 Int",
+      "properties": [
+        "Báculos"
+      ],
+      "fields": {
+        "DropLevel": "70",
+        "BaseType": "Báculo reflector",
+        "Class": "Báculos",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff02",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

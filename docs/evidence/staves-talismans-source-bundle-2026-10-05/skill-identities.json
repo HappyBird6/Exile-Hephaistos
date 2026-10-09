@@ -1,0 +1,209 @@
+{
+  "passed": true,
+  "identities": [
+    {
+      "baseId": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+      "baseKey": "permafrost-staff",
+      "baseRequiredCharacterLevel": 75,
+      "name": "Heart of Ice",
+      "sourceSkillId": "HeartOfIce",
+      "sourceItemType": "Metadata/Items/Gem/SkillGemHeartOfIce",
+      "activeSkillsCode": "heart_of_ice",
+      "skillTypes": "Buff, HasReservation, Aura, OngoingSkill, Persistent, AffectsPresence, Cold, Spell, AttackInPlace",
+      "sourceUrl": "https://poe2db.tw/us/Heart_of_Ice",
+      "sourceSha256": "559ddc5f999377e91000caa6b56cda570a9e10f75605dd14f043af316213a6a5",
+      "sourceLocaleLines": {
+        "en": [
+          "Grants Skill: Heart of Ice"
+        ],
+        "ko": [
+          "스킬 부여: 얼음의 심장"
+        ],
+        "ja": [
+          "スキルを付与: ハートオブアイス"
+        ],
+        "zh-CN": [
+          "获得技能: 冰雪之心"
+        ],
+        "zh-TW": [
+          "賦予技能: 冰雪之心"
+        ],
+        "es": [
+          "Otorga la habilidad: Corazón de hielo"
+        ]
+      },
+      "displayOnly": true,
+      "skillLevelModel": "No fixed granted level is stated in the base popup; level scaling and combat are not simulated"
+    },
+    {
+      "baseId": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+      "baseKey": "reflecting-staff",
+      "baseRequiredCharacterLevel": 70,
+      "name": "Mirror of Refraction",
+      "sourceSkillId": "MirrorOfRefraction",
+      "sourceItemType": "Metadata/Items/Gems/SkillGemMirrorOfRefraction",
+      "activeSkillsCode": "mirror_of_refraction",
+      "skillTypes": "Buff, OngoingSkill, HasReservation, Persistent, Duration, Limit, AffectedByCooldownRate",
+      "sourceUrl": "https://poe2db.tw/us/Mirror_of_Refraction",
+      "sourceSha256": "cf7654dbd509174f344e16baa8493a39235377f57906efafa0431f411666f855",
+      "sourceLocaleLines": {
+        "en": [
+          "Grants Skill: Mirror of Refraction"
+        ],
+        "ko": [
+          "스킬 부여: 굴절의 거울"
+        ],
+        "ja": [
+          "スキルを付与: 屈折の鏡"
+        ],
+        "zh-CN": [
+          "获得技能: 折射之镜"
+        ],
+        "zh-TW": [
+          "賦予技能: 鏡面折射"
+        ],
+        "es": [
+          "Otorga la habilidad: Espejo de refracción"
+        ]
+      },
+      "displayOnly": true,
+      "skillLevelModel": "No fixed granted level is stated in the base popup; level scaling and combat are not simulated"
+    },
+    {
+      "baseId": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
+      "baseKey": "dark-staff",
+      "baseRequiredCharacterLevel": 65,
+      "name": "Dark Pact",
+      "sourceSkillId": "DarkPact",
+      "sourceItemType": "Metadata/Items/Gems/SkillGemDarkPact",
+      "activeSkillsCode": "dark_pact",
+      "skillTypes": "Spell, Damage, Mineable, Totemable, Area, Trappable, Triggerable, Multicastable, Chaos, Minion, Unleashable, AreaSpell, Nova, UsableWhileMoving",
+      "sourceUrl": "https://poe2db.tw/us/Dark_Pact",
+      "sourceSha256": "ed5966fc44a3fc47b09c8d2050c2c9926f4fa360e04f67d2dda90e541401571d",
+      "sourceLocaleLines": {
+        "en": [
+          "Grants Skill: Dark Pact"
+        ],
+        "ko": [
+          "스킬 부여: 어둠의 서약"
+        ],
+        "ja": [
+          "スキルを付与: ダークパクト"
+        ],
+        "zh-CN": [
+          "获得技能: 暗夜契约"
+        ],
+        "zh-TW": [
+          "賦予技能: 暗夜血契"
+        ],
+        "es": [
+          "Otorga la habilidad: Pacto oscuro"
+        ]
+      },
+      "displayOnly": true,
+      "skillLevelModel": "No fixed granted level is stated in the base popup; level scaling and combat are not simulated"
+    },
+    {
+      "baseId": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+      "baseKey": "ravenous-staff",
+      "baseRequiredCharacterLevel": 65,
+      "name": "Feast of Flesh",
+      "sourceSkillId": "FeastOfFlesh",
+      "sourceItemType": "Metadata/Items/Gem/SkillGemFeastOfFlesh",
+      "activeSkillsCode": "feast_of_flesh",
+      "skillTypes": "Spell, Area, Triggerable, AreaSpell, Nova, Unleashable, Buff, TargetsDestructibleCorpses",
+      "sourceUrl": "https://poe2db.tw/us/Feast_of_Flesh",
+      "sourceSha256": "7fe8a84a7bae0e1b8367fbbc42211e510b6dfceb1682ee837d9b7b664f2b527a",
+      "sourceLocaleLines": {
+        "en": [
+          "Grants Skill: Feast of Flesh"
+        ],
+        "ko": [
+          "스킬 부여: 육체의 연회"
+        ],
+        "ja": [
+          "スキルを付与: フィーストオブフレッシュ"
+        ],
+        "zh-CN": [
+          "获得技能: 血肉盛宴"
+        ],
+        "zh-TW": [
+          "賦予技能: 血肉盛宴"
+        ],
+        "es": [
+          "Otorga la habilidad: Festín de carne"
+        ]
+      },
+      "displayOnly": true,
+      "skillLevelModel": "No fixed granted level is stated in the base popup; level scaling and combat are not simulated"
+    },
+    {
+      "baseId": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
+      "baseKey": "perching-staff",
+      "baseRequiredCharacterLevel": 65,
+      "name": "Spiraling Conspiracy",
+      "sourceSkillId": "SpiralingConspiracy",
+      "sourceItemType": "Metadata/Items/Gems/SkillGemSpiralingConspiracy",
+      "activeSkillsCode": "summon_spiraling_conspiracy",
+      "skillTypes": "Minion, CreatesMinion, HasReservation, Persistent, CommandableMinion, MinionsAreUndamagable, Physical, Chaos, Duration, Area",
+      "sourceUrl": "https://poe2db.tw/us/Spiraling_Conspiracy",
+      "sourceSha256": "fa78a6b324e4841fa36b6f29dc2c4248ae798162b4f62be07a04008d4a1b5a5e",
+      "sourceLocaleLines": {
+        "en": [
+          "Grants Skill: Spiraling Conspiracy"
+        ],
+        "ko": [
+          "스킬 부여: 고조되는 음모"
+        ],
+        "ja": [
+          "スキルを付与: スパイラリングコンスピラシー"
+        ],
+        "zh-CN": [
+          "获得技能: 鸦群密谋"
+        ],
+        "zh-TW": [
+          "賦予技能: 邪鴉旋纏"
+        ],
+        "es": [
+          "Otorga la habilidad: Cuervos amenazantes"
+        ]
+      },
+      "displayOnly": true,
+      "skillLevelModel": "No fixed granted level is stated in the base popup; level scaling and combat are not simulated"
+    },
+    {
+      "baseId": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+      "baseKey": "sanctified-staff",
+      "baseRequiredCharacterLevel": 56,
+      "name": "Consecrate",
+      "sourceSkillId": "StaffConsecrate",
+      "sourceItemType": "Metadata/items/Gems/SkillGemStaffConsecrate",
+      "activeSkillsCode": "consecrate",
+      "skillTypes": "Spell, Duration, Triggerable, Area, AreaSpell, Nova, Cascadable, UsableWhileMoving, CreatesGroundEffect",
+      "sourceUrl": "https://poe2db.tw/us/Consecrate",
+      "sourceSha256": "12a5e50aaea0d5f61854fe31ba008d4cb6f2f8d76d1f35161a5ae441e0295f50",
+      "sourceLocaleLines": {
+        "en": [
+          "Grants Skill: Consecrate"
+        ],
+        "ko": [
+          "스킬 부여: 신성화"
+        ],
+        "ja": [
+          "スキルを付与: コンセクレート"
+        ],
+        "zh-CN": [
+          "获得技能: 奉献"
+        ],
+        "zh-TW": [
+          "賦予技能: 奉獻"
+        ],
+        "es": [
+          "Otorga la habilidad: Consagrar"
+        ]
+      },
+      "displayOnly": true,
+      "skillLevelModel": "No fixed granted level is stated in the base popup; level scaling and combat are not simulated"
+    }
+  ]
+}

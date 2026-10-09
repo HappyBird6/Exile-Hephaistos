@@ -1,0 +1,66 @@
+{
+  "row": {
+    "Name": "Lethal",
+    "Level": "16",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "LightningDamage"
+    ],
+    "DropChance": "500",
+    "str": "<a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(31<span class=\"ndash\">—</span>36)</span>% of Damage as Extra <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1d5815b2f2bd5f23d99d435288c3b41e79adf38037cf8d2a266bc276f527201d\">Lightning</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "lightning"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4236cd346770002493f930fbf3e15a549ebcc273f94e68e8a13c666cc236a147"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FSpellDamageGainedAsLightningTwoHand2",
+  "textLocale": "kr",
+  "detailText": "피해의 (31—36)%를 추가 번개 피해로 획득",
+  "retrievedAt": "2026-10-05T10:09:40.846Z",
+  "sha256": "921d5a0193595ddae039f4918a57e5a8b670add1e651c42501072638c5c1259d",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>피해의 <span class='mod-value'>(31<span class=\"ndash\">—</span>36)</span>%를 추가 <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/b3b737d9ffb4c2645baac664fe708dda64ca5c3442dfe15c9b7a48208f56240a\">번개</a> 피해로 <a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/e50d2096bb499b66280bf02010ad4815c54ff8523cb54fca3a5776e17918243f\">획득</a></span></h5>   <span data-tabname=\"치명상의\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>치명상의\n<tr><th>Family<td>LightningDamage\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접두어 (1)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Gold Price<td>211\n<tr><th>Stats<td><li>non skill base all damage % to gain as lightning <span class=\"badge bg-primary\">31 <span class=\"ndash\">—</span> 36</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>피해</span> <span class='badge bg-primary'>원소</span> <span class='badge bg-primary'>번개</span> </table>  </div></div>",
+  "fields": {
+    "Name": "치명상의",
+    "Family": "LightningDamage",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접두어 (1)",
+    "Req. level": "16 (Effective: 12)",
+    "Gold Price": "211",
+    "Stats": "non skill base all damage % to gain as lightning 31 — 36 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "elemental_damage 피해 원소 번개"
+  },
+  "code": "SpellDamageGainedAsLightningTwoHand2",
+  "stats": [
+    {
+      "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+      "min": 31,
+      "max": 36,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

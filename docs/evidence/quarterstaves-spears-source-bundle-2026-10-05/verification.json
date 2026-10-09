@@ -1,0 +1,492 @@
+[
+  {
+    "page": "Quarterstaves",
+    "classId": 58,
+    "ordinary": 158,
+    "reused": 158,
+    "fixed": {
+      "LESSER_ESSENCE_ABRASION": [
+        "crossbow:prefix:burnished:LocalAddedPhysicalDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_FLAMES": [
+        "crossbow:prefix:smouldering:LocalAddedFireDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_ICE": [
+        "crossbow:prefix:chilled:LocalAddedColdDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:buzzing:LocalAddedLightningDamageTwoHand2"
+      ],
+      "LESSER_ESSENCE_BATTLE": [
+        "crude-bow:prefix:focused"
+      ],
+      "LESSER_ESSENCE_HASTE": [
+        "crude-bow:suffix:of-mastery"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-lynx",
+        "attuned-wand:suffix:of-the-student"
+      ],
+      "ESSENCE_ABRASION": [
+        "crossbow:prefix:gleaming:LocalAddedPhysicalDamageTwoHand5"
+      ],
+      "ESSENCE_FLAMES": [
+        "crossbow:prefix:flaming:LocalAddedFireDamageTwoHand5"
+      ],
+      "ESSENCE_ICE": [
+        "crossbow:prefix:freezing:LocalAddedColdDamageTwoHand5"
+      ],
+      "ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:sparking:LocalAddedLightningDamageTwoHand5"
+      ],
+      "ESSENCE_BATTLE": [
+        "crude-bow:prefix:consistent"
+      ],
+      "ESSENCE_HASTE": [
+        "crude-bow:suffix:of-acclaim"
+      ],
+      "ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-falcon",
+        "attuned-wand:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_ABRASION": [
+        "crossbow:prefix:razor-sharp:LocalAddedPhysicalDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_FLAMES": [
+        "crossbow:prefix:incinerating:LocalAddedFireDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_ICE": [
+        "crossbow:prefix:glaciated:LocalAddedColdDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:shocking:LocalAddedLightningDamageTwoHand7"
+      ],
+      "GREATER_ESSENCE_BATTLE": [
+        "crude-bow:prefix:hunter-s"
+      ],
+      "GREATER_ESSENCE_HASTE": [
+        "one-hand-maces:suffix:of-infamy:LocalIncreasedAttackSpeed7"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-leopard",
+        "attuned-wand:suffix:of-the-sage"
+      ],
+      "LESSER_ESSENCE_SEEKING": [
+        "crude-bow:suffix:of-havoc"
+      ],
+      "ESSENCE_SEEKING": [
+        "crude-bow:suffix:of-disaster"
+      ],
+      "GREATER_ESSENCE_SEEKING": [
+        "crude-bow:suffix:of-calamity"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_ABRASION": [
+        "crossbow:prefix:essence:EssenceDamageasExtraPhysical2H"
+      ],
+      "PERFECT_ESSENCE_FLAMES": [
+        "crossbow:prefix:essence:EssenceDamageasExtraFire2H"
+      ],
+      "PERFECT_ESSENCE_ICE": [
+        "crossbow:prefix:essence:EssenceDamageasExtraCold2H"
+      ],
+      "PERFECT_ESSENCE_ELECTRICITY": [
+        "crossbow:prefix:essence:EssenceDamageasExtraLightning2H"
+      ],
+      "PERFECT_ESSENCE_BATTLE": [
+        "crossbow:suffix:essence:EssenceAttackSkillLevel2H1"
+      ],
+      "PERFECT_ESSENCE_HASTE": [
+        "crude-bow:suffix:essence-onslaught-on-kill"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    },
+    "excluded": [
+      {
+        "kind": "essence",
+        "code": "Strength2",
+        "action": "LESSER_ESSENCE_INFINITE",
+        "reason": "Ordered spawn denies Mace"
+      },
+      {
+        "kind": "essence",
+        "code": "Strength4",
+        "action": "ESSENCE_INFINITE",
+        "reason": "Ordered spawn denies Mace"
+      },
+      {
+        "kind": "essence",
+        "code": "IncreasedAccuracy7",
+        "action": "GREATER_ESSENCE_BATTLE",
+        "reason": "Ordered spawn denies Mace"
+      },
+      {
+        "kind": "essence",
+        "code": "Strength6",
+        "action": "GREATER_ESSENCE_INFINITE",
+        "reason": "Ordered spawn denies Mace"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyMaximumRunicWardWeapon1",
+        "action": "PROTECTIVE_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyAilmentMagnitude1",
+        "action": "PRISMATIC_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyEffectOfSocketedAugments1",
+        "action": "SOVEREIGN_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyAccuracyAttackSpeedHybrid1",
+        "action": "CELESTIAL_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyAttributeIncreasedLocalPhysicalDamageHybrid1",
+        "action": "TRANSCENDENT_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyBellLimit1",
+        "action": "THE_RUNEFATHERS_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      }
+    ],
+    "bases": [
+      {
+        "key": "aegis-quarterstaff",
+        "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame",
+        "implicit": [
+          {
+            "text": "+(12—18)% to Block chance",
+            "family": "AdditionalBlock",
+            "unscalable": false,
+            "stats": [
+              {
+                "id": "additional_block_%",
+                "min": 12,
+                "max": 18,
+                "locality": "Global"
+              }
+            ]
+          }
+        ],
+        "ordinary": 158,
+        "special": 8
+      },
+      {
+        "key": "bolting-quarterstaff",
+        "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff4Endgame",
+        "implicit": [
+          {
+            "text": "local weapon implicit hidden added maximum lightning damage [100]\nlocal weapon implicit hidden added minimum lightning damage [1]",
+            "family": "WeaponImplicitDamageType",
+            "unscalable": false,
+            "stats": [
+              {
+                "id": "local_weapon_implicit_hidden_added_maximum_lightning_damage",
+                "min": 100,
+                "max": 100,
+                "locality": "Local"
+              },
+              {
+                "id": "local_weapon_implicit_hidden_added_minimum_lightning_damage",
+                "min": 1,
+                "max": 1,
+                "locality": "Local"
+              }
+            ]
+          }
+        ],
+        "ordinary": 158,
+        "special": 8
+      },
+      {
+        "key": "dreaming-quarterstaff",
+        "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame",
+        "implicit": [],
+        "ordinary": 158,
+        "special": 8
+      }
+    ],
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "combatSimulation": false
+  },
+  {
+    "page": "Spears",
+    "classId": 79,
+    "ordinary": 162,
+    "reused": 162,
+    "fixed": {
+      "LESSER_ESSENCE_ABRASION": [
+        "crude-bow:prefix:burnished"
+      ],
+      "LESSER_ESSENCE_FLAMES": [
+        "crude-bow:prefix:smouldering"
+      ],
+      "LESSER_ESSENCE_ICE": [
+        "crude-bow:prefix:chilled"
+      ],
+      "LESSER_ESSENCE_ELECTRICITY": [
+        "crude-bow:prefix:buzzing"
+      ],
+      "LESSER_ESSENCE_BATTLE": [
+        "crude-bow:prefix:focused"
+      ],
+      "LESSER_ESSENCE_HASTE": [
+        "crude-bow:suffix:of-mastery"
+      ],
+      "LESSER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-wrestler",
+        "stocky-mitts:suffix:of-the-lynx"
+      ],
+      "ESSENCE_ABRASION": [
+        "crude-bow:prefix:gleaming"
+      ],
+      "ESSENCE_FLAMES": [
+        "crude-bow:prefix:flaming"
+      ],
+      "ESSENCE_ICE": [
+        "crude-bow:prefix:freezing"
+      ],
+      "ESSENCE_ELECTRICITY": [
+        "crude-bow:prefix:sparking"
+      ],
+      "ESSENCE_BATTLE": [
+        "crude-bow:prefix:consistent"
+      ],
+      "ESSENCE_HASTE": [
+        "crude-bow:suffix:of-acclaim"
+      ],
+      "ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-lion",
+        "stocky-mitts:suffix:of-the-falcon"
+      ],
+      "GREATER_ESSENCE_ABRASION": [
+        "crude-bow:prefix:razor-sharp"
+      ],
+      "GREATER_ESSENCE_FLAMES": [
+        "crude-bow:prefix:incinerating"
+      ],
+      "GREATER_ESSENCE_ICE": [
+        "crude-bow:prefix:glaciated"
+      ],
+      "GREATER_ESSENCE_ELECTRICITY": [
+        "crude-bow:prefix:shocking"
+      ],
+      "GREATER_ESSENCE_BATTLE": [
+        "crude-bow:prefix:hunter-s"
+      ],
+      "GREATER_ESSENCE_HASTE": [
+        "one-hand-maces:suffix:of-infamy:LocalIncreasedAttackSpeed7"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "stocky-mitts:suffix:of-the-goliath",
+        "stocky-mitts:suffix:of-the-leopard"
+      ],
+      "LESSER_ESSENCE_SEEKING": [
+        "crude-bow:suffix:of-havoc"
+      ],
+      "ESSENCE_SEEKING": [
+        "crude-bow:suffix:of-disaster"
+      ],
+      "GREATER_ESSENCE_SEEKING": [
+        "crude-bow:suffix:of-calamity"
+      ]
+    },
+    "replacements": {
+      "PERFECT_ESSENCE_ABRASION": [
+        "crude-bow:prefix:essence-extra-physical-damage"
+      ],
+      "PERFECT_ESSENCE_FLAMES": [
+        "crude-bow:prefix:essence-extra-fire-damage"
+      ],
+      "PERFECT_ESSENCE_ICE": [
+        "crude-bow:prefix:essence-extra-cold-damage"
+      ],
+      "PERFECT_ESSENCE_ELECTRICITY": [
+        "crude-bow:prefix:essence-extra-lightning-damage"
+      ],
+      "PERFECT_ESSENCE_BATTLE": [
+        "crude-bow:suffix:essence-attack-skill-level"
+      ],
+      "PERFECT_ESSENCE_HASTE": [
+        "crude-bow:suffix:essence-onslaught-on-kill"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ]
+    },
+    "excluded": [
+      {
+        "kind": "essence",
+        "code": "Intelligence2",
+        "action": "LESSER_ESSENCE_INFINITE",
+        "reason": "Ordered spawn denies Mace"
+      },
+      {
+        "kind": "essence",
+        "code": "Intelligence4",
+        "action": "ESSENCE_INFINITE",
+        "reason": "Ordered spawn denies Mace"
+      },
+      {
+        "kind": "essence",
+        "code": "IncreasedAccuracy7",
+        "action": "GREATER_ESSENCE_BATTLE",
+        "reason": "Ordered spawn denies Mace"
+      },
+      {
+        "kind": "essence",
+        "code": "Intelligence6",
+        "action": "GREATER_ESSENCE_INFINITE",
+        "reason": "Ordered spawn denies Mace"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyMaximumRunicWardWeapon1",
+        "action": "PROTECTIVE_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyAilmentMagnitude1",
+        "action": "PRISMATIC_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyEffectOfSocketedAugments1",
+        "action": "SOVEREIGN_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyAccuracyAttackSpeedHybrid1",
+        "action": "CELESTIAL_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyAttributeIncreasedLocalPhysicalDamageHybrid1",
+        "action": "TRANSCENDENT_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      },
+      {
+        "kind": "perfect_essence",
+        "code": "AlloyMeleeStrikeRange1",
+        "action": "THE_RUNEFATHERS_ALLOY",
+        "reason": "Existing excluded/deferred action"
+      }
+    ],
+    "bases": [
+      {
+        "key": "grand-spear",
+        "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame",
+        "implicit": [
+          {
+            "text": "local display grants spear throw skill [1]",
+            "family": "DisplaySpearThrow",
+            "unscalable": false,
+            "stats": [
+              {
+                "id": "local_display_grants_spear_throw_skill",
+                "min": 1,
+                "max": 1,
+                "locality": "Local"
+              }
+            ]
+          },
+          {
+            "text": "25% increased Melee Strike Range with this weapon",
+            "family": "MeleeWeaponAndUnarmedRange",
+            "unscalable": false,
+            "stats": [
+              {
+                "id": "local_+%_weapon_range",
+                "min": 25,
+                "max": 25,
+                "locality": "Local"
+              }
+            ]
+          }
+        ],
+        "ordinary": 162,
+        "special": 8
+      },
+      {
+        "key": "flying-spear",
+        "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame",
+        "implicit": [
+          {
+            "text": "local display grants spear throw skill [1]",
+            "family": "DisplaySpearThrow",
+            "unscalable": false,
+            "stats": [
+              {
+                "id": "local_display_grants_spear_throw_skill",
+                "min": 1,
+                "max": 1,
+                "locality": "Local"
+              }
+            ]
+          },
+          {
+            "text": "(25—35)% increased Projectile Speed with this Weapon",
+            "family": "ProjectileSpeed",
+            "unscalable": false,
+            "stats": [
+              {
+                "id": "local_projectile_speed_+%",
+                "min": 25,
+                "max": 35,
+                "locality": "Local"
+              }
+            ]
+          }
+        ],
+        "ordinary": 162,
+        "special": 8
+      },
+      {
+        "key": "akoyan-spear",
+        "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
+        "implicit": [
+          {
+            "text": "local display grants spear throw skill [1]",
+            "family": "DisplaySpearThrow",
+            "unscalable": false,
+            "stats": [
+              {
+                "id": "local_display_grants_spear_throw_skill",
+                "min": 1,
+                "max": 1,
+                "locality": "Local"
+              }
+            ]
+          }
+        ],
+        "ordinary": 162,
+        "special": 8
+      }
+    ],
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "combatSimulation": false
+  }
+]

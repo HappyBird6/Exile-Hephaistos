@@ -13,21 +13,12 @@ public final class QualityLimitRules {
   public static Limit describe(ItemState state, ItemCatalog catalog) {
     if (state == null || !new ItemStateValidator(catalog).validate(state).isEmpty())
       throw new IllegalArgumentException("Unsupported state for quality limit");
-    if (!state.baseItemId().equals(SolarAmulet.BASE_ID)
-        && !state.baseItemId().equals("Metadata/Items/Armours/Gloves/FourGlovesStr1")
-        && !state.baseItemId().equals(BowEssenceTargets.BASE_ID)
-        && !state.baseItemId().equals(HelmetEssenceTargets.BASE_ID)
-        && !state.baseItemId().equals(BodyEssenceTargets.BASE_ID)
-        && !state.baseItemId().equals(WandEssenceTargets.BASE_ID)
-        && !state.baseItemId().equals(SceptreEssenceTargets.BASE_ID)
-        && !state.baseItemId().equals(RingEssenceTargets.BASE_ID)
-        && !BasicJewel.supported(state.baseItemId()))
-      return null; // Other catalogs do not inherit a reviewed cap.
+    if (!BaseRegistry.qualityLimit(state.baseItemId())) return null;
     int maximum = 20;
     for (var instance : state.explicits()) {
       if (!instance.values().containsKey(STAT_ID)) continue;
       var definition = catalog.find(instance.modifierId()).orElseThrow();
-      if (!state.baseItemId().equals(SolarAmulet.BASE_ID)
+      if (!BaseRegistry.maximumQualityBreach(state.baseItemId())
           || !instance.modifierId().equals(BREACH_ID)
           || !definition.familyIds().equals(java.util.Set.of("LocalMaximumQuality"))
           || definition.affixType() != ModifierDefinition.AffixType.PREFIX

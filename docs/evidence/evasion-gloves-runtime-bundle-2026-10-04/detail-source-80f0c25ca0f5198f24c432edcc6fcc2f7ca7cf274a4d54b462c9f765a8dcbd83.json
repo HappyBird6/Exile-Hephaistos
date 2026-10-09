@@ -1,0 +1,52 @@
+{
+  "code": null,
+  "sourceId": "80f0c25ca0f5198f24c432edcc6fcc2f7ca7cf274a4d54b462c9f765a8dcbd83",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/80f0c25ca0f5198f24c432edcc6fcc2f7ca7cf274a4d54b462c9f765a8dcbd83",
+  "retrievedAt": "2026-10-04T17:09:22.458Z",
+  "sha256": "80f0c25ca0f5198f24c432edcc6fcc2f7ca7cf274a4d54b462c9f765a8dcbd83",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Gain <a data-keyword=\"Deflect\" href=\"Deflect\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/e89bb750680ef93c9a0db92e60725519707570503e7f08e5b4a6d5c727d9451d\">Deflection Rating</a> equal to <span class='mod-value'>(21<span class=\"ndash\">—</span>23)</span>% of <a data-keyword=\"Evasion\" href=\"Evasion\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5b6ec6eb65a018369b5ec769fa88051ee7f93c3ef1dd5a6a834c75baaa97d247\">Evasion Rating</a></span></h5>   <span data-tabname=\"of Flexure\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Flexure\n<tr><th>Family<td>EvasionAppliesToDeflection\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>66 (Effective: 52)\n<tr><th>Gold Price<td>2479\n<tr><th>Stats<td><li>base deflection rating % of evasion rating <span class=\"badge bg-primary\">21 <span class=\"ndash\">—</span> 23</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>dex_int_armour: 1</span> <span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>dex_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Evasion</span> \n<tr><td>Fists of Stone<td>Prevent <span class='mod-value'>+7</span>% of Damage from [Deflect|Deflected] [HitDamage|Hits]</table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "of Flexure",
+      "Family": "EvasionAppliesToDeflection",
+      "Domains": "Item (1)",
+      "GenerationType": "Suffix (2)",
+      "Req. level": "66 (Effective: 52)",
+      "Gold Price": "2479",
+      "Stats": "base deflection rating % of evasion rating 21 — 23 Global",
+      "Spawn Tags": "str_dex_int_armour: 1 dex_int_armour: 1 str_dex_armour: 1 dex_armour: 1 default: 0",
+      "Craft Tags": "defences Evasion"
+    },
+    "stats": [
+      {
+        "id": "base_deflection_rating_%_of_evasion_rating",
+        "min": 21,
+        "max": 23,
+        "locality": "Global"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "str_dex_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "dex_int_armour",
+        "weight": 1
+      },
+      {
+        "tag": "str_dex_armour",
+        "weight": 1
+      },
+      {
+        "tag": "dex_armour",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "Gain Deflection Rating equal to (21—23)% of Evasion Rating"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "row": {
+    "Name": "Impaling",
+    "Level": "81",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DamageWithWeaponTypeSkill"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(51<span class=\"ndash\">—</span>59)</span>% increased Damage with Bow Skills",
+    "fossil_no": [
+      "damage"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "quiver",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2c3df312f24ae6b429ccea925e54e14c7ee395081c7bedfedc892912fdd0ffb3"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FDamageWithBows6",
+  "textLocale": "sp",
+  "detailText": "Daño aumentado un (51—59)% con habilidades de arco",
+  "retrievedAt": "2026-10-05T05:33:52.336Z",
+  "sha256": "cac537918200c98008d2303391189376f7907da6775105892e88b7c42940f7cd",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Daño aumentado un <span class='mod-value'>(51<span class=\"ndash\">—</span>59)</span>% con habilidades de arco</span></h5>   <span data-tabname=\"<if:MS>{Empalador}<elif:MP>{Empaladores}\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td><if:MS>{Empalador}<elif:MP>{Empaladores}\n<tr><th>Family<td>DamageWithWeaponTypeSkill\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>81 (Effective: 64)\n<tr><th>Gold Price<td>3264\n<tr><th>Stats<td><li>damage +% with bow skills <span class=\"badge bg-primary\">51 <span class=\"ndash\">—</span> 59</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Daño</span> </table>  </div></div>",
+  "fields": {
+    "Name": "{Empalador}{Empaladores}",
+    "Family": "DamageWithWeaponTypeSkill",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "81 (Effective: 64)",
+    "Gold Price": "3264",
+    "Stats": "damage +% with bow skills 51 — 59 Global",
+    "Spawn Tags": "quiver: 1 default: 0",
+    "Craft Tags": "Daño"
+  },
+  "code": "DamageWithBows6",
+  "stats": [
+    {
+      "id": "damage_+%_with_bow_skills",
+      "min": 51,
+      "max": 59,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

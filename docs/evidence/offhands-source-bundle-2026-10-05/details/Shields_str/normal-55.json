@@ -1,0 +1,67 @@
+{
+  "row": {
+    "Name": "Encased",
+    "Level": "54",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "BaseLocalDefences"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(160<span class=\"ndash\">—</span>190)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a>",
+    "fossil_no": [
+      "defences",
+      "armour"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_armour",
+      "str_dex_int_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/00393fa64f3de0d24d4ce777e64d8cd6c3658b391cd54504c9686876966edc95"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRating7__",
+  "textLocale": "us",
+  "detailText": "+(160—190) to Armour",
+  "retrievedAt": "2026-10-05T04:19:19.437Z",
+  "sha256": "937458284bdfd26790de0fe9aa218da25a3601d344ceb650e1d37552699fd36a",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(160<span class=\"ndash\">—</span>190)</span> to <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a></span></h5>   <span data-tabname=\"Encased\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Encased\n<tr><th>Family<td>BaseLocalDefences\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>54 (Effective: 43)\n<tr><th>Gold Price<td>781\n<tr><th>Stats<td><li>local base physical damage reduction rating <span class=\"badge bg-primary\">160 <span class=\"ndash\">—</span> 190</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Armour</span> \n<tr><td>Fists of Stone<td>Has <span class='mod-value'>+4</span> to [Evasion] Rating per player level<br>Has <span class='mod-value'>+1</span> to maximum [EnergyShield|Energy Shield] per player level</table>  </div></div>",
+  "fields": {
+    "Name": "Encased",
+    "Family": "BaseLocalDefences",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "54 (Effective: 43)",
+    "Gold Price": "781",
+    "Stats": "local base physical damage reduction rating 160 — 190 Local",
+    "Spawn Tags": "str_armour: 1 str_dex_int_armour: 1 default: 0",
+    "Craft Tags": "defences Armour"
+  },
+  "code": "LocalIncreasedPhysicalDamageReductionRating7__",
+  "stats": [
+    {
+      "id": "local_base_physical_damage_reduction_rating",
+      "min": 160,
+      "max": 190,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "str_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

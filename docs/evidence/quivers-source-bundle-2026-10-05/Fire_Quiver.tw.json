@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/tw/Fire_Quiver",
+  "retrievedAt": "2026-10-05T05:29:29.331Z",
+  "sha256": "60c2f65a323b8d70c817cca31876f32e919a7b292f2ee19cfe383632a808e907",
+  "variants": [
+    {
+      "name": "火焰箭袋",
+      "card": "火焰箭袋\n        \n    \n    \n        \n            箭袋需求:  等級 8攻擊附加3至5火焰傷害\n        \n\n\n        \n        \n            持弓時才可裝備。\n        \n\n        \n            Fire Quiver",
+      "requirements": "需求:  等級 8",
+      "fields": {
+        "DropLevel": "8",
+        "BaseType": "火焰箭袋",
+        "Class": "箭袋",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver2",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverFire",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

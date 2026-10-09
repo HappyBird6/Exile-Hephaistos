@@ -1,0 +1,185 @@
+{
+  "page": "Spears",
+  "url": "https://poe2db.tw/us/Spears",
+  "retrievedAt": "2026-10-05T01:38:18.907Z",
+  "sha256": "eee97f6a82ad74a75b2fd2fc270df8061ae51d9ef1a2fdabe5174d13c9bb1b2a",
+  "cards": [
+    {
+      "slug": "Hardwood_Spear",
+      "card": "Hardwood SpearPhysical Damage: 5-9Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.5 Grants Skill: Spear Throw"
+    },
+    {
+      "slug": "Ironhead_Spear",
+      "card": "Ironhead SpearPhysical Damage: 9-12Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 5, 10 Dex Grants Skill: Spear Throw"
+    },
+    {
+      "slug": "Hunting_Spear",
+      "card": "Hunting SpearPhysical Damage: 10-17Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.5Requires:  Level 10, 9 Str, 17 Dex Grants Skill: Spear Throw(15—25)% chance to Maim on Hit"
+    },
+    {
+      "slug": "Winged_Spear",
+      "card": "Winged SpearPhysical Damage: 12-22Critical Hit Chance: 5%Attacks per Second: 1.7Weapon Range: 1.5Requires:  Level 16, 12 Str, 25 Dex Grants Skill: Spear Throw"
+    },
+    {
+      "slug": "War_Spear",
+      "card": "War SpearPhysical Damage: 16-27Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 21, 14 Str, 31 Dex Grants Skill: Spear Throw(25—35)% increased Projectile Speed with this Weapon"
+    },
+    {
+      "slug": "Forked_Spear",
+      "card": "Forked SpearPhysical Damage: 13-38Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.5Requires:  Level 26, 17 Str, 38 Dex Grants Skill: Spear Throw"
+    },
+    {
+      "slug": "Barbed_Spear",
+      "card": "Barbed SpearPhysical Damage: 20-38Critical Hit Chance: 6%Attacks per Second: 1.5Weapon Range: 1.5Requires:  Level 33, 20 Str, 47 Dex Grants Skill: Spear ThrowBleeding you inflict deals Damage (10—20)% faster"
+    },
+    {
+      "slug": "Broad_Spear",
+      "card": "Broad SpearPhysical Damage: 32-48Critical Hit Chance: 5%Attacks per Second: 1.4Weapon Range: 1.5Requires:  Level 40, 26 Str, 55 Dex Grants Skill: Spear Throw25% increased Melee Strike Range with this weapon"
+    },
+    {
+      "slug": "Crossblade_Spear",
+      "card": "Crossblade SpearPhysical Damage: 25-52Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 45, 26 Str, 63 Dex Grants Skill: Spear ThrowPrevent +(3—7)% of Damage from Deflected Hits"
+    },
+    {
+      "slug": "Seaglass_Spear",
+      "card": "Seaglass SpearPhysical Damage: 29-53Critical Hit Chance: 7%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 51, 29 Str, 71 Dex, 50 Int Grants Skill: Spear Throw"
+    },
+    {
+      "slug": "Sword_Spear",
+      "card": "Sword SpearPhysical Damage: 30-56Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 52, 29 Str, 72 Dex Grants Skill: Spear Throw"
+    },
+    {
+      "slug": "Striking_Spear",
+      "card": "Striking SpearPhysical Damage: 11.5-45.5Lightning Damage: 11.5-45.5Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 55, 31 Str, 76 Dex Grants Skill: Spear Throwlocal weapon implicit hidden % base damage is lightning [50]"
+    },
+    {
+      "slug": "Helix_Spear",
+      "card": "Helix SpearPhysical Damage: 37-68Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 65, 36 Str, 89 Dex Grants Skill: Spear Throw"
+    },
+    {
+      "slug": "Steelhead_Spear",
+      "card": "Steelhead SpearPhysical Damage: 33-44Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 45, 26 Str, 63 Dex Grants Skill: Spear Throw"
+    },
+    {
+      "slug": "Coursing_Spear",
+      "card": "Coursing SpearPhysical Damage: 31-52Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.5Requires:  Level 48, 27 Str, 67 Dex Grants Skill: Spear Throw(15—25)% chance to Maim on Hit"
+    },
+    {
+      "slug": "Swift_Spear",
+      "card": "Swift SpearPhysical Damage: 32-53Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 51, 29 Str, 71 Dex Grants Skill: Spear Throw(25—35)% increased Projectile Speed with this Weapon"
+    },
+    {
+      "slug": "Branched_Spear",
+      "card": "Branched SpearPhysical Damage: 23-69Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.5Requires:  Level 54, 30 Str, 75 Dex Grants Skill: Spear Throw"
+    },
+    {
+      "slug": "Jagged_Spear",
+      "card": "Jagged SpearPhysical Damage: 33-61Critical Hit Chance: 6%Attacks per Second: 1.5Weapon Range: 1.5Requires:  Level 59, 33 Str, 81 Dex Grants Skill: Spear ThrowBleeding you inflict deals Damage (10—20)% faster"
+    },
+    {
+      "slug": "Massive_Spear",
+      "card": "Massive SpearPhysical Damage: 46-69Critical Hit Chance: 5%Attacks per Second: 1.4Weapon Range: 1.5Requires:  Level 62, 40 Str, 80 Dex Grants Skill: Spear Throw25% increased Melee Strike Range with this weapon"
+    },
+    {
+      "slug": "Runeforged_Hardwood_Spear",
+      "card": "Runeforged Hardwood SpearPhysical Damage: 24-45Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 40, 23 Str, 56 Dex Grants Skill: Spear Throw"
+    },
+    {
+      "slug": "Runeforged_Ironhead_Spear",
+      "card": "Runeforged Ironhead SpearPhysical Damage: 40-54Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 38, 23 Str, 54 Dex Grants Skill: Spear Throw"
+    },
+    {
+      "slug": "Runemastered_Ironhead_Spear",
+      "card": "Runemastered Ironhead SpearPhysical Damage: 94-127Critical Hit Chance: 5%Attacks per Second: 1.25Weapon Range: 1.5Requires:  Level 55, 31 Str, 76 Dex Grants Skill: Spear Throw"
+    },
+    {
+      "slug": "Runeforged_Hunting_Spear",
+      "card": "Runeforged Hunting SpearPhysical Damage: 65-108Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.5Requires:  Level 38, 23 Str, 54 Dex Grants Skill: Spear Throw(15—25)% chance to Maim on Hit"
+    },
+    {
+      "slug": "Runeforged_Winged_Spear",
+      "card": "Runeforged Winged SpearLightning Damage: 0-125Critical Hit Chance: 5%Attacks per Second: 1.7Weapon Range: 1.5Requires:  Level 40, 23 Str, 56 Dex Grants Skill: Spear Throwlocal weapon implicit hidden % base damage is lightning [100]"
+    },
+    {
+      "slug": "Runeforged_War_Spear",
+      "card": "Runeforged War SpearPhysical Damage: 59-98Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 40, 23 Str, 56 Dex Grants Skill: Spear Throw(25—35)% increased Projectile Speed with this Weapon"
+    },
+    {
+      "slug": "Runeforged_Forked_Spear",
+      "card": "Runeforged Forked SpearPhysical Damage: 8-57Critical Hit Chance: 7%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 55, 31 Str, 76 Dex Grants Skill: Spear Throw"
+    },
+    {
+      "slug": "Runeforged_Barbed_Spear",
+      "card": "Runeforged Barbed SpearPhysical Damage: 26.52-49.3Fire Damage: 51.48-95.7Critical Hit Chance: 6%Attacks per Second: 1.5Weapon Range: 1.5Requires:  Level 55, 31 Str, 76 Dex Grants Skill: Spear ThrowBleeding you inflict deals Damage (10—20)% fasterlocal weapon implicit hidden % base damage is fire [66]"
+    },
+    {
+      "slug": "Orichalcum_Spear",
+      "card": "Orichalcum SpearPhysical Damage: 46-62Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 67, 41 Str, 104 Dex Grants Skill: Spear Throw"
+    },
+    {
+      "slug": "Soaring_Spear",
+      "card": "Soaring SpearPhysical Damage: 35-65Critical Hit Chance: 5%Attacks per Second: 1.7Weapon Range: 1.5Requires:  Level 70, 41 Str, 115 Dex Grants Skill: Spear Throw"
+    },
+    {
+      "slug": "Pronged_Spear",
+      "card": "Pronged SpearPhysical Damage: 30-89Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.5Requires:  Level 72, 46 Str, 115 Dex Grants Skill: Spear Throw"
+    },
+    {
+      "slug": "Stalking_Spear",
+      "card": "Stalking SpearPhysical Damage: 47-79Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.5Requires:  Level 77, 50 Str, 127 Dex Grants Skill: Spear Throw(15—25)% chance to Maim on Hit"
+    },
+    {
+      "slug": "Flying_Spear",
+      "card": "Flying SpearPhysical Damage: 46-77Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 78, 50 Str, 127 Dex Grants Skill: Spear Throw(25—35)% increased Projectile Speed with this Weapon"
+    },
+    {
+      "slug": "Grand_Spear",
+      "card": "Grand SpearPhysical Damage: 56-84Critical Hit Chance: 5%Attacks per Second: 1.4Weapon Range: 1.5Requires:  Level 79, 68 Str, 109 Dex Grants Skill: Spear Throw25% increased Melee Strike Range with this weapon"
+    },
+    {
+      "slug": "Spiked_Spear",
+      "card": "Spiked SpearPhysical Damage: 41-76Critical Hit Chance: 6%Attacks per Second: 1.5Weapon Range: 1.5Requires:  Level 77, 50 Str, 127 Dex Grants Skill: Spear ThrowBleeding you inflict deals Damage (10—20)% faster"
+    },
+    {
+      "slug": "Guardian_Spear",
+      "card": "Guardian SpearPhysical Damage: 38-79Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.5Requires:  Level 75, 50 Str, 127 Dex Grants Skill: Spear ThrowPrevent +(3—7)% of Damage from Deflected Hits"
+    },
+    {
+      "slug": "Akoyan_Spear",
+      "card": "Akoyan SpearPhysical Damage: 39-72Critical Hit Chance: 7%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 78, 50 Str, 127 Dex, 90 Int Grants Skill: Spear Throw"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Grand_Spear",
+      "card": "Grand SpearPhysical Damage: 56-84Critical Hit Chance: 5%Attacks per Second: 1.4Weapon Range: 1.5Requires:  Level 79, 68 Str, 109 Dex Grants Skill: Spear Throw25% increased Melee Strike Range with this weapon",
+      "requiredLevel": 79
+    },
+    {
+      "slug": "Flying_Spear",
+      "card": "Flying SpearPhysical Damage: 46-77Critical Hit Chance: 5%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 78, 50 Str, 127 Dex Grants Skill: Spear Throw(25—35)% increased Projectile Speed with this Weapon",
+      "requiredLevel": 78
+    },
+    {
+      "slug": "Akoyan_Spear",
+      "card": "Akoyan SpearPhysical Damage: 39-72Critical Hit Chance: 7%Attacks per Second: 1.6Weapon Range: 1.5Requires:  Level 78, 50 Str, 127 Dex, 90 Int Grants Skill: Spear Throw",
+      "requiredLevel": 78
+    },
+    {
+      "slug": "Stalking_Spear",
+      "card": "Stalking SpearPhysical Damage: 47-79Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.5Requires:  Level 77, 50 Str, 127 Dex Grants Skill: Spear Throw(15—25)% chance to Maim on Hit",
+      "requiredLevel": 77
+    },
+    {
+      "slug": "Spiked_Spear",
+      "card": "Spiked SpearPhysical Damage: 41-76Critical Hit Chance: 6%Attacks per Second: 1.5Weapon Range: 1.5Requires:  Level 77, 50 Str, 127 Dex Grants Skill: Spear ThrowBleeding you inflict deals Damage (10—20)% faster",
+      "requiredLevel": 77
+    },
+    {
+      "slug": "Guardian_Spear",
+      "card": "Guardian SpearPhysical Damage: 38-79Critical Hit Chance: 5%Attacks per Second: 1.55Weapon Range: 1.5Requires:  Level 75, 50 Str, 127 Dex Grants Skill: Spear ThrowPrevent +(3—7)% of Damage from Deflected Hits",
+      "requiredLevel": 75
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

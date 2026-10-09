@@ -1,0 +1,112 @@
+{
+  "page": "Boots_str_dex",
+  "url": "https://poe2db.tw/us/Boots_str_dex",
+  "retrievedAt": "2026-10-04T14:45:12.233Z",
+  "sha256": "b503e78407f71bda49d0a1e88485c9f365cf22879392bcecb5021d5260466496",
+  "cards": [
+    {
+      "slug": "Mail_Sabatons",
+      "card": "Mail SabatonsArmour: 22Evasion Rating: 17Requires:  Level 6, 7 Str, 7 Dex"
+    },
+    {
+      "slug": "Braced_Sabatons",
+      "card": "Braced SabatonsArmour: 41Evasion Rating: 35Requires:  Level 16, 14 Str, 14 Dex"
+    },
+    {
+      "slug": "Stacked_Sabatons",
+      "card": "Stacked SabatonsArmour: 73Evasion Rating: 65Requires:  Level 33, 26 Str, 26 Dex"
+    },
+    {
+      "slug": "Covered_Sabatons",
+      "card": "Covered SabatonsArmour: 96Evasion Rating: 86Requires:  Level 45, 34 Str, 34 Dex"
+    },
+    {
+      "slug": "Flexile_Sabatons",
+      "card": "Flexile SabatonsArmour: 109Evasion Rating: 99Requires:  Level 52, 38 Str, 38 Dex"
+    },
+    {
+      "slug": "Bold_Sabatons",
+      "card": "Bold SabatonsArmour: 134Evasion Rating: 122Requires:  Level 65, 47 Str, 47 Dex"
+    },
+    {
+      "slug": "Soldiering_Sabatons",
+      "card": "Soldiering SabatonsArmour: 96Evasion Rating: 86Requires:  Level 45, 34 Str, 34 Dex"
+    },
+    {
+      "slug": "Goldwork_Sabatons",
+      "card": "Goldwork SabatonsArmour: 107Evasion Rating: 97Requires:  Level 51, 38 Str, 38 Dex"
+    },
+    {
+      "slug": "Bastion_Sabatons",
+      "card": "Bastion SabatonsArmour: 123Evasion Rating: 111Requires:  Level 59, 44 Str, 44 Dex"
+    },
+    {
+      "slug": "Veteran_Sabatons",
+      "card": "Veteran SabatonsArmour: 134Evasion Rating: 122Requires:  Level 65, 47 Str, 47 Dex"
+    },
+    {
+      "slug": "Noble_Sabatons",
+      "card": "Noble SabatonsArmour: 141Evasion Rating: 128Requires:  Level 70, 51 Str, 51 Dex"
+    },
+    {
+      "slug": "Fortress_Sabatons",
+      "card": "Fortress SabatonsArmour: 147Evasion Rating: 134Requires:  Level 75, 56 Str, 56 Dex"
+    },
+    {
+      "slug": "Blacksteel_Sabatons",
+      "card": "Blacksteel SabatonsArmour: 154Evasion Rating: 140Requires:  Level 80, 59 Str, 59 Dex"
+    },
+    {
+      "slug": "Runeforged_Mail_Sabatons",
+      "card": "Runeforged Mail SabatonsArmour: 22Evasion Rating: 17Runic Ward: 18Requires:  Level 6, 7 Str, 7 Dex"
+    },
+    {
+      "slug": "Runeforged_Braced_Sabatons",
+      "card": "Runeforged Braced SabatonsArmour: 41Evasion Rating: 35Runic Ward: 26Requires:  Level 16, 14 Str, 14 Dex"
+    },
+    {
+      "slug": "Runeforged_Stacked_Sabatons",
+      "card": "Runeforged Stacked SabatonsArmour: 73Evasion Rating: 65Runic Ward: 34Requires:  Level 33, 26 Str, 26 Dex"
+    },
+    {
+      "slug": "Runeforged_Covered_Sabatons",
+      "card": "Runeforged Covered SabatonsArmour: 96Evasion Rating: 86Runic Ward: 39Requires:  Level 45, 34 Str, 34 Dex"
+    },
+    {
+      "slug": "Runeforged_Bastion_Sabatons",
+      "card": "Runeforged Bastion SabatonsArmour: 118Evasion Rating: 107Runic Ward: 39Requires:  Level 59, 44 Str, 44 Dex"
+    },
+    {
+      "slug": "Runeforged_Veteran_Sabatons",
+      "card": "Runeforged Veteran SabatonsArmour: 133Evasion Rating: 121Runic Ward: 42Requires:  Level 65, 47 Str, 47 Dex"
+    },
+    {
+      "slug": "Runeforged_Noble_Sabatons",
+      "card": "Runeforged Noble SabatonsArmour: 95Evasion Rating: 87Runic Ward: 116Requires:  Level 70, 51 Str, 51 Dex"
+    },
+    {
+      "slug": "Runeforged_Fortress_Sabatons",
+      "card": "Runeforged Fortress SabatonsArmour: 129Evasion Rating: 117Runic Ward: 63Requires:  Level 75, 56 Str, 56 Dex"
+    },
+    {
+      "slug": "Runeforged_Blacksteel_Sabatons",
+      "card": "Runeforged Blacksteel SabatonsArmour: 64Evasion Rating: 59Runic Ward: 190Requires:  Level 80, 59 Str, 59 Dex"
+    },
+    {
+      "slug": "Runemastered_Mail_Sabatons",
+      "card": "Runemastered Mail SabatonsArmour: 50Evasion Rating: 44Runic Ward: 54Requires:  Level 38, 29 Str, 29 Dex5% increased Movement Speed"
+    },
+    {
+      "slug": "Runemastered_Braced_Sabatons",
+      "card": "Runemastered Braced SabatonsArmour: 66Evasion Rating: 59Runic Ward: 34Requires:  Level 38, 29 Str, 29 Dex5% increased Movement Speed"
+    },
+    {
+      "slug": "Runemastered_Stacked_Sabatons",
+      "card": "Runemastered Stacked SabatonsArmour: 173Evasion Rating: 155Runic Ward: 21Requires:  Level 40, 30 Str, 30 Dex10% increased Movement Speed"
+    },
+    {
+      "slug": "Runemastered_Covered_Sabatons",
+      "card": "Runemastered Covered SabatonsArmour: 69Evasion Rating: 63Runic Ward: 73Requires:  Level 55, 41 Str, 41 Dex"
+    }
+  ]
+}

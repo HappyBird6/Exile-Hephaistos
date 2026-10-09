@@ -1,0 +1,1712 @@
+{
+  "retrievedAt": "2026-10-05T10:05:09.861Z",
+  "classes": [
+    {
+      "page": "Staves",
+      "classId": 14,
+      "ordinary": 185,
+      "essence": 18,
+      "perfectEssence": 12,
+      "sourceUrl": "https://poe2db.tw/us/Staves",
+      "sha256": "10f68f183e062aadd62cc6c61c2fcbbaea6e9f085dd062dbe00d82b97d4026c3",
+      "roster": [
+        {
+          "slug": "Ashen_Staff",
+          "card": "Ashen Staff Grants Skill: Firebolt"
+        },
+        {
+          "slug": "Gelid_Staff",
+          "card": "Gelid StaffRequires:  Level 2 Grants Skill: Freezing Shards"
+        },
+        {
+          "slug": "Voltaic_Staff",
+          "card": "Voltaic StaffRequires:  Level 2 Grants Skill: Lightning Bolt"
+        },
+        {
+          "slug": "Spriggan_Staff",
+          "card": "Spriggan StaffRequires:  Level 11, 23 Int Grants Skill: Firebolt"
+        },
+        {
+          "slug": "Pyrophyte_Staff",
+          "card": "Pyrophyte StaffRequires:  Level 16, 31 Int Grants Skill: Solar Orb"
+        },
+        {
+          "slug": "Chiming_Staff",
+          "card": "Chiming StaffRequires:  Level 25, 46 Int Grants Skill: Sigil of Power"
+        },
+        {
+          "slug": "Rending_Staff",
+          "card": "Rending StaffRequires:  Level 33, 60 Int Grants Skill: Soulrend"
+        },
+        {
+          "slug": "Reaping_Staff",
+          "card": "Reaping StaffRequires:  Level 38, 68 Int Grants Skill: Reap"
+        },
+        {
+          "slug": "Icicle_Staff",
+          "card": "Icicle StaffRequires:  Level 45, 80 Int Grants Skill: Firebolt"
+        },
+        {
+          "slug": "Roaring_Staff",
+          "card": "Roaring StaffRequires:  Level 49, 87 Int Grants Skill: Unleash"
+        },
+        {
+          "slug": "Paralysing_Staff",
+          "card": "Paralysing StaffRequires:  Level 52, 92 Int Grants Skill: Enervating Nova"
+        },
+        {
+          "slug": "Sanctified_Staff",
+          "card": "Sanctified StaffRequires:  Level 56, 99 Int Grants Skill: Consecrate"
+        },
+        {
+          "slug": "Dark_Staff",
+          "card": "Dark StaffRequires:  Level 65, 114 Int Grants Skill: Dark Pact"
+        },
+        {
+          "slug": "Ravenous_Staff",
+          "card": "Ravenous StaffRequires:  Level 65, 114 Int Grants Skill: Feast of Flesh"
+        },
+        {
+          "slug": "Permafrost_Staff",
+          "card": "Permafrost StaffRequires:  Level 75, 114 Int Grants Skill: Heart of Ice"
+        },
+        {
+          "slug": "Reflecting_Staff",
+          "card": "Reflecting StaffRequires:  Level 70, 114 Int Grants Skill: Mirror of Refraction"
+        },
+        {
+          "slug": "Perching_Staff",
+          "card": "Perching StaffRequires:  Level 65, 114 Int Grants Skill: Spiraling Conspiracy"
+        }
+      ]
+    },
+    {
+      "page": "Talismans",
+      "classId": 110,
+      "ordinary": 158,
+      "essence": 31,
+      "perfectEssence": 14,
+      "sourceUrl": "https://poe2db.tw/us/Talismans",
+      "sha256": "782d44886186f1296211a15f980e6d8e2cd51216882608d3657d2856c10dd8f1",
+      "roster": [
+        {
+          "slug": "Changeling_Talisman",
+          "card": "Changeling TalismanPhysical Damage: 9-15Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2"
+        },
+        {
+          "slug": "Nettle_Talisman",
+          "card": "Nettle TalismanPhysical Damage: 12-20Critical Hit Chance: 11%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 5, 9 Str, 8 Int"
+        },
+        {
+          "slug": "Cinderbark_Talisman",
+          "card": "Cinderbark TalismanPhysical Damage: 12.6-25.2Fire Damage: 5.4-10.8Critical Hit Chance: 8%Attacks per Second: 1.2Weapon Range: 1.2Requires:  Level 10, 15 Str, 11 Int(50—80)% increased Flammability Magnitude\nlocal weapon implicit hidden % base damage is fire [30]"
+        },
+        {
+          "slug": "Familial_Talisman",
+          "card": "Familial TalismanPhysical Damage: 20-34Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 16, 21 Str, 16 IntMinions deal (30—50)% increased Damage"
+        },
+        {
+          "slug": "Frenzied_Talisman",
+          "card": "Frenzied TalismanPhysical Damage: 23-38Critical Hit Chance: 8%Attacks per Second: 1.4Weapon Range: 1.2Requires:  Level 22, 28 Str, 20 Int"
+        },
+        {
+          "slug": "Primal_Talisman",
+          "card": "Primal TalismanPhysical Damage: 31-46Critical Hit Chance: 9%Attacks per Second: 1.3Weapon Range: 1.2Requires:  Level 28, 34 Str, 25 Int+(14—18)% to Block chance"
+        },
+        {
+          "slug": "Rabid_Talisman",
+          "card": "Rabid TalismanPhysical Damage: 31-58Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 34, 40 Str, 29 Int+(7—10) to Maximum Rage"
+        },
+        {
+          "slug": "Vicious_Talisman",
+          "card": "Vicious TalismanPhysical Damage: 43-71Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 40, 47 Str, 34 Int"
+        },
+        {
+          "slug": "Voltfang_Talisman",
+          "card": "Voltfang TalismanPhysical Damage: 16.1-91Lightning Damage: 6.9-39Critical Hit Chance: 8%Attacks per Second: 1.3Weapon Range: 1.2Requires:  Level 46, 53 Str, 38 Int(20—30)% increased Magnitude of Shock you inflict\nlocal weapon implicit hidden % base damage is lightning [30]"
+        },
+        {
+          "slug": "Lumbering_Talisman",
+          "card": "Lumbering TalismanPhysical Damage: 71-107Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.2Requires:  Level 52, 60 Str, 43 Int"
+        },
+        {
+          "slug": "Roaring_Talisman",
+          "card": "Roaring TalismanPhysical Damage: 57-96Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 58, 66 Str, 47 Int+(7—10) to Maximum Rage"
+        },
+        {
+          "slug": "Wingbeat_Talisman",
+          "card": "Wingbeat TalismanPhysical Damage: 45-83Critical Hit Chance: 7%Attacks per Second: 1.45Weapon Range: 1.2Requires:  Level 65, 74 Str, 52 Int"
+        },
+        {
+          "slug": "Condemned_Talisman",
+          "card": "Condemned TalismanPhysical Damage: 68-113Critical Hit Chance: 9%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 65, 74 Str, 52 Int(10—20)% increased Effect of your Mark Skills"
+        },
+        {
+          "slug": "Howling_Talisman",
+          "card": "Howling TalismanPhysical Damage: 52-78Critical Hit Chance: 9%Attacks per Second: 1.3Weapon Range: 1.2Requires:  Level 55, 63 Str, 45 Int+(14—18)% to Block chance"
+        },
+        {
+          "slug": "Fury_Talisman",
+          "card": "Fury TalismanPhysical Damage: 49-91Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 59, 67 Str, 48 Int+(7—10) to Maximum Rage"
+        },
+        {
+          "slug": "Cruel_Talisman",
+          "card": "Cruel TalismanPhysical Damage: 62-103Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 63, 72 Str, 51 Int"
+        },
+        {
+          "slug": "Runeforged_Changeling_Talisman",
+          "card": "Runeforged Changeling TalismanPhysical Damage: 91-151Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 38, 45 Str, 32 Int"
+        },
+        {
+          "slug": "Runeforged_Nettle_Talisman",
+          "card": "Runeforged Nettle TalismanPhysical Damage: 51-86Critical Hit Chance: 11%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 38, 45 Str, 32 Int"
+        },
+        {
+          "slug": "Runemastered_Nettle_Talisman",
+          "card": "Runemastered Nettle TalismanPhysical Damage: 68-114Critical Hit Chance: 11%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 55, 63 Str, 45 Int"
+        },
+        {
+          "slug": "Runeforged_Familial_Talisman",
+          "card": "Runeforged Familial TalismanPhysical Damage: 54-91Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 38, 45 Str, 32 IntMinions deal (30—50)% increased Damage"
+        },
+        {
+          "slug": "Runemastered_Familial_Talisman",
+          "card": "Runemastered Familial TalismanPhysical Damage: 73-122Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 55, 63 Str, 45 IntMinions deal (51—100)% increased Damage"
+        },
+        {
+          "slug": "Runeforged_Vicious_Talisman",
+          "card": "Runeforged Vicious TalismanPhysical Damage: 123-205Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 65, 74 Str, 52 Int"
+        },
+        {
+          "slug": "Spiny_Talisman",
+          "card": "Spiny TalismanPhysical Damage: 60-99Critical Hit Chance: 11%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 67, 86 Str, 65 Int"
+        },
+        {
+          "slug": "Ashbark_Talisman",
+          "card": "Ashbark TalismanPhysical Damage: 50.4-105Fire Damage: 21.6-45Critical Hit Chance: 8%Attacks per Second: 1.2Weapon Range: 1.2Requires:  Level 72, 94 Str, 67 Int(50—80)% increased Flammability Magnitude\nlocal weapon implicit hidden % base damage is fire [30]"
+        },
+        {
+          "slug": "Fang_Talisman",
+          "card": "Fang TalismanPhysical Damage: 70-116Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 77, 89 Str, 68 IntMinions deal (30—50)% increased Damage"
+        },
+        {
+          "slug": "Fungal_Talisman",
+          "card": "Fungal TalismanPhysical Damage: 59-98Critical Hit Chance: 8%Attacks per Second: 1.4Weapon Range: 1.2Requires:  Level 78, 96 Str, 70 Int"
+        },
+        {
+          "slug": "Alpha_Talisman",
+          "card": "Alpha TalismanPhysical Damage: 63-94Critical Hit Chance: 9%Attacks per Second: 1.3Weapon Range: 1.2Requires:  Level 75, 98 Str, 72 Int+(14—18)% to Block chance"
+        },
+        {
+          "slug": "Maji_Talisman",
+          "card": "Maji TalismanPhysical Damage: 61-114Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 79, 100 Str, 67 Int+(7—10) to Maximum Rage"
+        },
+        {
+          "slug": "Wildwood_Talisman",
+          "card": "Wildwood TalismanPhysical Damage: 67-112Critical Hit Chance: 8%Attacks per Second: 1.25Weapon Range: 1.2Requires:  Level 70, 98 Str, 72 Int"
+        },
+        {
+          "slug": "Thunder_Talisman",
+          "card": "Thunder TalismanPhysical Damage: 23.1-130.9Lightning Damage: 9.9-56.1Critical Hit Chance: 8%Attacks per Second: 1.3Weapon Range: 1.2Requires:  Level 77, 102 Str, 72 Int(20—30)% increased Magnitude of Shock you inflict\nlocal weapon implicit hidden % base damage is lightning [30]"
+        },
+        {
+          "slug": "Jade_Talisman",
+          "card": "Jade TalismanPhysical Damage: 101-151Critical Hit Chance: 5%Attacks per Second: 1.1Weapon Range: 1.2Requires:  Level 78, 109 Str, 65 Int"
+        }
+      ]
+    }
+  ],
+  "bases": [
+    {
+      "slug": "Permafrost_Staff",
+      "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+      "sourceUrl": "https://poe2db.tw/us/Permafrost_Staff",
+      "sha256": "a1d2328c68d483147be25d6aa70ad7b4d4ce8064bd7ba044f7743f157973454d",
+      "requiredLevel": 75,
+      "requirements": "Requires:  Level 75, 114 Int",
+      "tags": "staff, twohand",
+      "properties": [
+        "Staves"
+      ],
+      "rationale": "Highest required-level and distinct granted-skill selected families; Sanctified retains Consecrate family"
+    },
+    {
+      "slug": "Reflecting_Staff",
+      "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+      "sourceUrl": "https://poe2db.tw/us/Reflecting_Staff",
+      "sha256": "dc8f57e708fc88f0596f385af06392cf136919990a8a833906709a04538eae9c",
+      "requiredLevel": 70,
+      "requirements": "Requires:  Level 70, 114 Int",
+      "tags": "staff, twohand",
+      "properties": [
+        "Staves"
+      ],
+      "rationale": "Highest required-level and distinct granted-skill selected families; Sanctified retains Consecrate family"
+    },
+    {
+      "slug": "Dark_Staff",
+      "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
+      "sourceUrl": "https://poe2db.tw/us/Dark_Staff",
+      "sha256": "5037d548d17f43947ca2cc54b0a23daeefec3a2d2c460614b2689c33bb222d61",
+      "requiredLevel": 65,
+      "requirements": "Requires:  Level 65, 114 Int",
+      "tags": "staff, twohand",
+      "properties": [
+        "Staves"
+      ],
+      "rationale": "Highest required-level and distinct granted-skill selected families; Sanctified retains Consecrate family"
+    },
+    {
+      "slug": "Ravenous_Staff",
+      "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+      "sourceUrl": "https://poe2db.tw/us/Ravenous_Staff",
+      "sha256": "22766176e361dfa42ecfaa350d135638d38222f5487618a386b0ffd56b63c317",
+      "requiredLevel": 65,
+      "requirements": "Requires:  Level 65, 114 Int",
+      "tags": "staff, twohand",
+      "properties": [
+        "Staves"
+      ],
+      "rationale": "Highest required-level and distinct granted-skill selected families; Sanctified retains Consecrate family"
+    },
+    {
+      "slug": "Perching_Staff",
+      "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
+      "sourceUrl": "https://poe2db.tw/us/Perching_Staff",
+      "sha256": "2039ad7d586371551b868d6a26c98e81363dfd4c10726a214596da429f522bea",
+      "requiredLevel": 65,
+      "requirements": "Requires:  Level 65, 114 Int",
+      "tags": "staff, twohand",
+      "properties": [
+        "Staves"
+      ],
+      "rationale": "Highest required-level and distinct granted-skill selected families; Sanctified retains Consecrate family"
+    },
+    {
+      "slug": "Sanctified_Staff",
+      "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+      "sourceUrl": "https://poe2db.tw/us/Sanctified_Staff",
+      "sha256": "245eb86ba5d308dd4b513691bbff8bbd1c7e93de6205d724fcdd9e4d059391f8",
+      "requiredLevel": 56,
+      "requirements": "Requires:  Level 56, 99 Int",
+      "tags": "staff, twohand",
+      "properties": [
+        "Staves"
+      ],
+      "rationale": "Highest required-level and distinct granted-skill selected families; Sanctified retains Consecrate family"
+    },
+    {
+      "slug": "Maji_Talisman",
+      "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Maji_Talisman",
+      "sha256": "42990b0f29da53678e3da4fb0182f1231ae70de0fb12938e623c1a006864c3f5",
+      "requiredLevel": 79,
+      "requirements": "Requires:  Level 79, 100 Str, 67 Int",
+      "tags": "vaal_basetype, talisman, two_hand_weapon, twohand, weapon",
+      "properties": [
+        "Talismans",
+        "Physical Damage: 61-114",
+        "Critical Hit Chance: 8%",
+        "Attacks per Second: 1.25",
+        "Weapon Range: 1.2"
+      ],
+      "rationale": "Highest-tier selected Str/Int family: Maji rage, Fungal speed, Jade damage/implicit sidegrade"
+    },
+    {
+      "slug": "Fungal_Talisman",
+      "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Fungal_Talisman",
+      "sha256": "7d3df2faa4c8c333888b9c9d33d8dc8b77a3f7d7d90bb4dae2dd5c21f34a19b9",
+      "requiredLevel": 78,
+      "requirements": "Requires:  Level 78, 96 Str, 70 Int",
+      "tags": "maraketh_basetype, talisman, two_hand_weapon, twohand, weapon",
+      "properties": [
+        "Talismans",
+        "Physical Damage: 59-98",
+        "Critical Hit Chance: 8%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.2"
+      ],
+      "rationale": "Highest-tier selected Str/Int family: Maji rage, Fungal speed, Jade damage/implicit sidegrade"
+    },
+    {
+      "slug": "Jade_Talisman",
+      "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman10Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Jade_Talisman",
+      "sha256": "d17fa029d6af04281cfaf8b38393012c114a32f57ccee8959a139a2ce7eb586b",
+      "requiredLevel": 78,
+      "requirements": "Requires:  Level 78, 109 Str, 65 Int",
+      "tags": "karui_basetype, talisman, two_hand_weapon, twohand, weapon",
+      "properties": [
+        "Talismans",
+        "Physical Damage: 101-151",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.1",
+        "Weapon Range: 1.2"
+      ],
+      "rationale": "Highest-tier selected Str/Int family: Maji rage, Fungal speed, Jade damage/implicit sidegrade"
+    }
+  ],
+  "skills": [
+    {
+      "base": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+      "name": "Heart of Ice",
+      "url": "https://poe2db.tw/us/Heart_of_Ice",
+      "sha256": "559ddc5f999377e91000caa6b56cda570a9e10f75605dd14f043af316213a6a5",
+      "fields": [
+        [
+          "1",
+          "Slow PotencyVitality I"
+        ],
+        [
+          "2",
+          "Herbalism IMysticism I"
+        ],
+        [
+          "3",
+          "Cannibalism IWarm Blooded"
+        ],
+        [
+          "4",
+          "Clarity IIVitality II"
+        ],
+        [
+          "5",
+          "Cold Mastery"
+        ],
+        [
+          "1",
+          "04100%, 100%, 100%26, 39"
+        ],
+        [
+          "2",
+          "39100%, 100%, 100%35, 53"
+        ],
+        [
+          "3",
+          "614100%, 100%, 100%48, 72"
+        ],
+        [
+          "4",
+          "1021100%, 100%, 100%63, 94"
+        ],
+        [
+          "5",
+          "1428100%, 100%, 100%79, 119"
+        ],
+        [
+          "6",
+          "1835100%, 100%, 100%98, 148"
+        ],
+        [
+          "7",
+          "2241100%, 100%, 100%120, 180"
+        ],
+        [
+          "8",
+          "2648100%, 100%, 100%144, 217"
+        ],
+        [
+          "9",
+          "3157100%, 100%, 100%172, 258"
+        ],
+        [
+          "10",
+          "3665100%, 100%, 100%203, 305"
+        ],
+        [
+          "11",
+          "4174100%, 100%, 100%239, 359"
+        ],
+        [
+          "12",
+          "4682100%, 100%, 100%280, 420"
+        ],
+        [
+          "13",
+          "5292100%, 100%, 100%326, 489"
+        ],
+        [
+          "14",
+          "58103100%, 100%, 100%378, 567"
+        ],
+        [
+          "15",
+          "64113100%, 100%, 100%438, 657"
+        ],
+        [
+          "16",
+          "66116100%, 100%, 100%506, 759"
+        ],
+        [
+          "17",
+          "72126100%, 100%, 100%583, 875"
+        ],
+        [
+          "18",
+          "78137100%, 100%, 100%672, 1007"
+        ],
+        [
+          "19",
+          "84147100%, 100%, 100%773, 1159"
+        ],
+        [
+          "20",
+          "90157100%, 100%, 100%888, 1332"
+        ],
+        [
+          "21",
+          "100%, 100%, 100%1021, 1531"
+        ],
+        [
+          "22",
+          "100%, 100%, 100%1172, 1758"
+        ],
+        [
+          "23",
+          "100%, 100%, 100%1346, 2020"
+        ],
+        [
+          "24",
+          "100%, 100%, 100%1546, 2319"
+        ],
+        [
+          "25",
+          "100%, 100%, 100%1776, 2664"
+        ],
+        [
+          "26",
+          "100%, 100%, 100%2041, 3061"
+        ],
+        [
+          "27",
+          "100%, 100%, 100%2346, 3519"
+        ],
+        [
+          "28",
+          "100%, 100%, 100%2699, 4048"
+        ],
+        [
+          "29",
+          "100%, 100%, 100%3106, 4659"
+        ],
+        [
+          "30",
+          "100%, 100%, 100%3577, 5365"
+        ],
+        [
+          "31",
+          "100%, 100%, 100%4123, 6184"
+        ],
+        [
+          "32",
+          "100%, 100%, 100%4756, 7134"
+        ],
+        [
+          "33",
+          "100%, 100%, 100%5492, 8238"
+        ],
+        [
+          "34",
+          "100%, 100%, 100%6348, 9522"
+        ],
+        [
+          "35",
+          "100%, 100%, 100%7346, 11019"
+        ],
+        [
+          "36",
+          "100%, 100%, 100%8509, 12764"
+        ],
+        [
+          "37",
+          "100%, 100%, 100%9869, 14803"
+        ],
+        [
+          "38",
+          "100%, 100%, 100%11459, 17188"
+        ],
+        [
+          "39",
+          "100%, 100%, 100%13322, 19983"
+        ],
+        [
+          "40",
+          "100%, 100%, 100%15509, 23263"
+        ],
+        [
+          "Acronym",
+          "Cold damage, Chill, Presence"
+        ],
+        [
+          "Id",
+          "HeartOfIce"
+        ],
+        [
+          "BaseType",
+          "Heart of Ice"
+        ],
+        [
+          "Class",
+          "Skill Gems"
+        ],
+        [
+          "TargetTypes",
+          "Any"
+        ],
+        [
+          "Type",
+          "Buff, HasReservation, Aura, OngoingSkill, Persistent, AffectsPresence, Cold, Spell, AttackInPlace"
+        ],
+        [
+          "ItemType",
+          "Metadata/Items/Gem/SkillGemHeartOfIce"
+        ],
+        [
+          "ActiveSkillsCode",
+          "heart_of_ice"
+        ],
+        [
+          "0.3.0",
+          "NEW: Heart of Ice, granted by the Whispering Ice Unique Staff: Now Chills enemies in your Presence as though dealing 26-888 to 39-1332 Cold Damage at gem levels 1-20 (previously 12-378 to 18-567).Heart of Ice, granted by the Whispering Ice Unique Staff: Now Chills enemies in your Presence as though dealing 26-888 to 39-1332 Cold Damage at gem levels 1-20 (previously 12-378 to 18-567)."
+        ]
+      ],
+      "displayOnly": true
+    },
+    {
+      "base": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+      "name": "Mirror of Refraction",
+      "url": "https://poe2db.tw/us/Mirror_of_Refraction",
+      "sha256": "cf7654dbd509174f344e16baa8493a39235377f57906efafa0431f411666f855",
+      "fields": [
+        [
+          "1",
+          "Prolonged Duration IClarity I"
+        ],
+        [
+          "2",
+          "Herbalism IMysticism IUpwelling I"
+        ],
+        [
+          "3",
+          "Prolonged Duration IICooldown Recovery ICool Headed"
+        ],
+        [
+          "4",
+          "Vitality IICooldown Recovery IIMysticism II"
+        ],
+        [
+          "Limit 4 Mirrors of RefractionMirrors persist for 8 second durationProjectiles which shatter Mirrors are copied 7 timesModifiers to Cooldown Recovery Rate also apply to\\nMirror appearance frequency    LevelRequires LevelIntBase DamageA Mirror appears in your Presence every 3.9 seconds1",
+          "04100%, 100%, 100%3.9"
+        ],
+        [
+          "2",
+          "39100%, 100%, 100%3.8"
+        ],
+        [
+          "3",
+          "614100%, 100%, 100%3.7"
+        ],
+        [
+          "4",
+          "1021100%, 100%, 100%3.6"
+        ],
+        [
+          "5",
+          "1428100%, 100%, 100%3.5"
+        ],
+        [
+          "6",
+          "1835100%, 100%, 100%3.4"
+        ],
+        [
+          "7",
+          "2241100%, 100%, 100%3.3"
+        ],
+        [
+          "8",
+          "2648100%, 100%, 100%3.2"
+        ],
+        [
+          "9",
+          "3157100%, 100%, 100%3.1"
+        ],
+        [
+          "10",
+          "3665100%, 100%, 100%3"
+        ],
+        [
+          "11",
+          "4174100%, 100%, 100%2.9"
+        ],
+        [
+          "12",
+          "4682100%, 100%, 100%2.8"
+        ],
+        [
+          "13",
+          "5292100%, 100%, 100%2.7"
+        ],
+        [
+          "14",
+          "58103100%, 100%, 100%2.6"
+        ],
+        [
+          "15",
+          "64113100%, 100%, 100%2.5"
+        ],
+        [
+          "16",
+          "66116100%, 100%, 100%2.4"
+        ],
+        [
+          "17",
+          "72126100%, 100%, 100%2.3"
+        ],
+        [
+          "18",
+          "78137100%, 100%, 100%2.2"
+        ],
+        [
+          "19",
+          "84147100%, 100%, 100%2.1"
+        ],
+        [
+          "20",
+          "90157100%, 100%, 100%2"
+        ],
+        [
+          "21",
+          "100%, 100%, 100%1.9"
+        ],
+        [
+          "22",
+          "100%, 100%, 100%1.8"
+        ],
+        [
+          "23",
+          "100%, 100%, 100%1.7"
+        ],
+        [
+          "24",
+          "100%, 100%, 100%1.6"
+        ],
+        [
+          "25",
+          "100%, 100%, 100%1.5"
+        ],
+        [
+          "26",
+          "100%, 100%, 100%1.4"
+        ],
+        [
+          "27",
+          "100%, 100%, 100%1.3"
+        ],
+        [
+          "28",
+          "100%, 100%, 100%1.2"
+        ],
+        [
+          "29",
+          "100%, 100%, 100%1.1"
+        ],
+        [
+          "30",
+          "100%, 100%, 100%1"
+        ],
+        [
+          "31",
+          "100%, 100%, 100%0.95"
+        ],
+        [
+          "32",
+          "100%, 100%, 100%0.9"
+        ],
+        [
+          "33",
+          "100%, 100%, 100%0.85"
+        ],
+        [
+          "34",
+          "100%, 100%, 100%0.8"
+        ],
+        [
+          "35",
+          "100%, 100%, 100%0.75"
+        ],
+        [
+          "36",
+          "100%, 100%, 100%0.7"
+        ],
+        [
+          "37",
+          "100%, 100%, 100%0.65"
+        ],
+        [
+          "38",
+          "100%, 100%, 100%0.6"
+        ],
+        [
+          "39",
+          "100%, 100%, 100%0.55"
+        ],
+        [
+          "40",
+          "100%, 100%, 100%0.5"
+        ],
+        [
+          "Acronym",
+          "Cooldown, Hit, Projectile, Recovery, Modifiers, Presence, Limit"
+        ],
+        [
+          "Id",
+          "MirrorOfRefraction"
+        ],
+        [
+          "BaseType",
+          "Mirror of Refraction"
+        ],
+        [
+          "Class",
+          "Skill Gems"
+        ],
+        [
+          "TargetTypes",
+          "Any"
+        ],
+        [
+          "Type",
+          "Buff, OngoingSkill, HasReservation, Persistent, Duration, Limit, AffectedByCooldownRate"
+        ],
+        [
+          "ItemType",
+          "Metadata/Items/Gems/SkillGemMirrorOfRefraction"
+        ],
+        [
+          "ActiveSkillsCode",
+          "mirror_of_refraction"
+        ],
+        [
+          "0.5.0",
+          "* Mirror of Refraction (granted by the Atziri's Rule unique staff): Now has \"Modifiers to Cooldown Recovery Rate also apply to mirror appearance frequency\"."
+        ],
+        [
+          "IsSkillBuff",
+          "1"
+        ],
+        [
+          "BuffGroupsID",
+          "31"
+        ],
+        [
+          "IsBuffDefinition",
+          "1"
+        ],
+        [
+          "BuffMergeModesID",
+          "3"
+        ],
+        [
+          "OngoingBuffVariations",
+          ""
+        ]
+      ],
+      "displayOnly": true
+    },
+    {
+      "base": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
+      "name": "Dark Pact",
+      "url": "https://poe2db.tw/us/Dark_Pact",
+      "sha256": "ed5966fc44a3fc47b09c8d2050c2c9926f4fa360e04f67d2dda90e541401571d",
+      "fields": [
+        [
+          "Sacrifices 13% of Minion's life to deal that much Chaos damage100% more damage with Hits if using your lifeUses your life if no Minion in range    LevelRequires LevelIntBase DamageDeals 1 to 3 Chaos DamageMinion Level1",
+          "04100%, 100%, 100%1, 32"
+        ],
+        [
+          "2",
+          "39100%, 100%, 100%2, 44"
+        ],
+        [
+          "3",
+          "614100%, 100%, 100%3, 56"
+        ],
+        [
+          "4",
+          "1021100%, 100%, 100%4, 78"
+        ],
+        [
+          "5",
+          "1428100%, 100%, 100%5, 810"
+        ],
+        [
+          "6",
+          "1835100%, 100%, 100%6, 1112"
+        ],
+        [
+          "7",
+          "2241100%, 100%, 100%7, 1314"
+        ],
+        [
+          "8",
+          "2648100%, 100%, 100%9, 1616"
+        ],
+        [
+          "9",
+          "3157100%, 100%, 100%11, 2018"
+        ],
+        [
+          "10",
+          "3665100%, 100%, 100%13, 2420"
+        ],
+        [
+          "11",
+          "4174100%, 100%, 100%15, 2822"
+        ],
+        [
+          "12",
+          "4682100%, 100%, 100%18, 3324"
+        ],
+        [
+          "13",
+          "5292100%, 100%, 100%20, 3826"
+        ],
+        [
+          "14",
+          "58103100%, 100%, 100%23, 4328"
+        ],
+        [
+          "15",
+          "64113100%, 100%, 100%27, 5030"
+        ],
+        [
+          "16",
+          "66116100%, 100%, 100%31, 5732"
+        ],
+        [
+          "17",
+          "72126100%, 100%, 100%35, 6534"
+        ],
+        [
+          "18",
+          "78137100%, 100%, 100%40, 7536"
+        ],
+        [
+          "19",
+          "84147100%, 100%, 100%46, 8538"
+        ],
+        [
+          "20",
+          "90157100%, 100%, 100%52, 9740"
+        ],
+        [
+          "21",
+          "100%, 100%, 100%59, 11042"
+        ],
+        [
+          "22",
+          "100%, 100%, 100%67, 12544"
+        ],
+        [
+          "23",
+          "100%, 100%, 100%76, 14246"
+        ],
+        [
+          "24",
+          "100%, 100%, 100%87, 16148"
+        ],
+        [
+          "25",
+          "100%, 100%, 100%99, 18350"
+        ],
+        [
+          "26",
+          "100%, 100%, 100%112, 20852"
+        ],
+        [
+          "27",
+          "100%, 100%, 100%127, 23654"
+        ],
+        [
+          "28",
+          "100%, 100%, 100%144, 26856"
+        ],
+        [
+          "29",
+          "100%, 100%, 100%164, 30558"
+        ],
+        [
+          "30",
+          "100%, 100%, 100%186, 34660"
+        ],
+        [
+          "31",
+          "100%, 100%, 100%212, 39462"
+        ],
+        [
+          "32",
+          "100%, 100%, 100%241, 44864"
+        ],
+        [
+          "33",
+          "100%, 100%, 100%275, 51066"
+        ],
+        [
+          "34",
+          "100%, 100%, 100%313, 58168"
+        ],
+        [
+          "35",
+          "100%, 100%, 100%357, 66370"
+        ],
+        [
+          "36",
+          "100%, 100%, 100%407, 75772"
+        ],
+        [
+          "37",
+          "100%, 100%, 100%465, 86474"
+        ],
+        [
+          "38",
+          "100%, 100%, 100%532, 98876"
+        ],
+        [
+          "39",
+          "100%, 100%, 100%609, 113178"
+        ],
+        [
+          "40",
+          "100%, 100%, 100%697, 129580"
+        ],
+        [
+          "Acronym",
+          "Hit, Chaos damage, Minion, Hits"
+        ],
+        [
+          "Id",
+          "DarkPact"
+        ],
+        [
+          "BaseType",
+          "Dark Pact"
+        ],
+        [
+          "Class",
+          "Skill Gems"
+        ],
+        [
+          "TargetTypes",
+          "Ground, Self"
+        ],
+        [
+          "Type",
+          "Spell, Damage, Mineable, Totemable, Area, Trappable, Triggerable, Multicastable, Chaos, Minion, Unleashable, AreaSpell, Nova, UsableWhileMoving"
+        ],
+        [
+          "ItemType",
+          "Metadata/Items/Gems/SkillGemDarkPact"
+        ],
+        [
+          "ActiveSkillsCode",
+          "dark_pact"
+        ]
+      ],
+      "displayOnly": true
+    },
+    {
+      "base": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+      "name": "Feast of Flesh",
+      "url": "https://poe2db.tw/us/Feast_of_Flesh",
+      "sha256": "7fe8a84a7bae0e1b8367fbbc42211e510b6dfceb1682ee837d9b7b664f2b527a",
+      "fields": [
+        [
+          "1",
+          "Magnified Area IRapid Casting I"
+        ],
+        [
+          "3",
+          "Magnified Area IIAstral Projection"
+        ],
+        [
+          "4",
+          "Rapid Casting II"
+        ],
+        [
+          "Corpse Consumption radius is 4 metresConsumes up to 5 Corpses    LevelRequires LevelIntBase DamageRecover 21 Life and 21 Mana over 3 seconds per Corpse Consumed1",
+          "04100%, 100%, 100%21, 21, 3"
+        ],
+        [
+          "2",
+          "39100%, 100%, 100%24, 24, 3"
+        ],
+        [
+          "3",
+          "614100%, 100%, 100%29, 29, 3"
+        ],
+        [
+          "4",
+          "1021100%, 100%, 100%35, 35, 3"
+        ],
+        [
+          "5",
+          "1428100%, 100%, 100%41, 41, 3"
+        ],
+        [
+          "6",
+          "1835100%, 100%, 100%51, 51, 3"
+        ],
+        [
+          "7",
+          "2241100%, 100%, 100%60, 60, 3"
+        ],
+        [
+          "8",
+          "2648100%, 100%, 100%69, 69, 3"
+        ],
+        [
+          "9",
+          "3157100%, 100%, 100%79, 79, 3"
+        ],
+        [
+          "10",
+          "3665100%, 100%, 100%90, 90, 3"
+        ],
+        [
+          "11",
+          "4174100%, 100%, 100%101, 101, 3"
+        ],
+        [
+          "12",
+          "4682100%, 100%, 100%113, 113, 3"
+        ],
+        [
+          "13",
+          "5292100%, 100%, 100%127, 127, 3"
+        ],
+        [
+          "14",
+          "58103100%, 100%, 100%140, 140, 3"
+        ],
+        [
+          "15",
+          "64113100%, 100%, 100%154, 154, 3"
+        ],
+        [
+          "16",
+          "66116100%, 100%, 100%168, 168, 3"
+        ],
+        [
+          "17",
+          "72126100%, 100%, 100%173, 173, 3"
+        ],
+        [
+          "18",
+          "78137100%, 100%, 100%188, 188, 3"
+        ],
+        [
+          "19",
+          "84147100%, 100%, 100%203, 203, 3"
+        ],
+        [
+          "20",
+          "90157100%, 100%, 100%211, 211, 3"
+        ],
+        [
+          "21",
+          "100%, 100%, 100%227, 227, 3"
+        ],
+        [
+          "22",
+          "100%, 100%, 100%244, 244, 3"
+        ],
+        [
+          "23",
+          "100%, 100%, 100%261, 261, 3"
+        ],
+        [
+          "24",
+          "100%, 100%, 100%278, 278, 3"
+        ],
+        [
+          "25",
+          "100%, 100%, 100%296, 296, 3"
+        ],
+        [
+          "26",
+          "100%, 100%, 100%313, 313, 3"
+        ],
+        [
+          "27",
+          "100%, 100%, 100%330, 330, 3"
+        ],
+        [
+          "28",
+          "100%, 100%, 100%347, 347, 3"
+        ],
+        [
+          "29",
+          "100%, 100%, 100%365, 365, 3"
+        ],
+        [
+          "30",
+          "100%, 100%, 100%382, 382, 3"
+        ],
+        [
+          "31",
+          "100%, 100%, 100%399, 399, 3"
+        ],
+        [
+          "32",
+          "100%, 100%, 100%416, 416, 3"
+        ],
+        [
+          "33",
+          "100%, 100%, 100%434, 434, 3"
+        ],
+        [
+          "34",
+          "100%, 100%, 100%451, 451, 3"
+        ],
+        [
+          "35",
+          "100%, 100%, 100%468, 468, 3"
+        ],
+        [
+          "36",
+          "100%, 100%, 100%485, 485, 3"
+        ],
+        [
+          "37",
+          "100%, 100%, 100%503, 503, 3"
+        ],
+        [
+          "38",
+          "100%, 100%, 100%520, 520, 3"
+        ],
+        [
+          "39",
+          "100%, 100%, 100%537, 537, 3"
+        ],
+        [
+          "40",
+          "100%, 100%, 100%554, 554, 3"
+        ],
+        [
+          "Acronym",
+          "Corpses, Consume, Mana, Life"
+        ],
+        [
+          "Id",
+          "FeastOfFlesh"
+        ],
+        [
+          "BaseType",
+          "Feast of Flesh"
+        ],
+        [
+          "Class",
+          "Skill Gems"
+        ],
+        [
+          "TargetTypes",
+          "Any"
+        ],
+        [
+          "Type",
+          "Spell, Area, Triggerable, AreaSpell, Nova, Unleashable, Buff, TargetsDestructibleCorpses"
+        ],
+        [
+          "ItemType",
+          "Metadata/Items/Gem/SkillGemFeastOfFlesh"
+        ],
+        [
+          "ActiveSkillsCode",
+          "feast_of_flesh"
+        ],
+        [
+          "0.3.0c",
+          "* Fixed a bug where the Feast of Flesh Skill was not granting any recovery on consuming a corpse."
+        ],
+        [
+          "BuffGroupsID",
+          "31"
+        ],
+        [
+          "IsBuffDefinition",
+          "1"
+        ],
+        [
+          "BuffMergeModesID",
+          "1"
+        ]
+      ],
+      "displayOnly": true
+    },
+    {
+      "base": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
+      "name": "Spiraling Conspiracy",
+      "url": "https://poe2db.tw/us/Spiraling_Conspiracy",
+      "sha256": "fa78a6b324e4841fa36b6f29dc2c4248ae798162b4f62be07a04008d4a1b5a5e",
+      "fields": [
+        [
+          "1",
+          "Magnified Area ISwift Affliction IProfanity I"
+        ],
+        [
+          "2",
+          "Blind IPinpoint CriticalBidding I"
+        ],
+        [
+          "3",
+          "Feeding Frenzy ISwift Affliction IIMuster"
+        ],
+        [
+          "4",
+          "Feeding Frenzy IICulling Strike IBidding II"
+        ],
+        [
+          "5",
+          "Execute IIIMinion MasteryBidding III"
+        ],
+        [
+          "A Raven joins the Flock for every 1 total Power of enemies slain by you or your Minions    LevelRequires LevelIntBase DamageA Raven joins the Flock every 2 seconds while a Rare or Unique enemy is in your PresenceMinion Level1",
+          "04100%, 100%, 100%, 100%22"
+        ],
+        [
+          "2",
+          "39100%, 100%, 100%, 100%1.954"
+        ],
+        [
+          "3",
+          "614100%, 100%, 100%, 100%1.96"
+        ],
+        [
+          "4",
+          "1021100%, 100%, 100%, 100%1.858"
+        ],
+        [
+          "5",
+          "1428100%, 100%, 100%, 100%1.810"
+        ],
+        [
+          "6",
+          "1835100%, 100%, 100%, 100%1.7512"
+        ],
+        [
+          "7",
+          "2241100%, 100%, 100%, 100%1.714"
+        ],
+        [
+          "8",
+          "2648100%, 100%, 100%, 100%1.6516"
+        ],
+        [
+          "9",
+          "3157100%, 100%, 100%, 100%1.618"
+        ],
+        [
+          "10",
+          "3665100%, 100%, 100%, 100%1.5520"
+        ],
+        [
+          "11",
+          "4174100%, 100%, 100%, 100%1.522"
+        ],
+        [
+          "12",
+          "4682100%, 100%, 100%, 100%1.4524"
+        ],
+        [
+          "13",
+          "5292100%, 100%, 100%, 100%1.426"
+        ],
+        [
+          "14",
+          "58103100%, 100%, 100%, 100%1.3528"
+        ],
+        [
+          "15",
+          "64113100%, 100%, 100%, 100%1.330"
+        ],
+        [
+          "16",
+          "66116100%, 100%, 100%, 100%1.2532"
+        ],
+        [
+          "17",
+          "72126100%, 100%, 100%, 100%1.234"
+        ],
+        [
+          "18",
+          "78137100%, 100%, 100%, 100%1.1536"
+        ],
+        [
+          "19",
+          "84147100%, 100%, 100%, 100%1.138"
+        ],
+        [
+          "20",
+          "90157100%, 100%, 100%, 100%1.0540"
+        ],
+        [
+          "21",
+          "100%, 100%, 100%, 100%142"
+        ],
+        [
+          "22",
+          "100%, 100%, 100%, 100%0.9544"
+        ],
+        [
+          "23",
+          "100%, 100%, 100%, 100%0.946"
+        ],
+        [
+          "24",
+          "100%, 100%, 100%, 100%0.8548"
+        ],
+        [
+          "25",
+          "100%, 100%, 100%, 100%0.850"
+        ],
+        [
+          "26",
+          "100%, 100%, 100%, 100%0.77552"
+        ],
+        [
+          "27",
+          "100%, 100%, 100%, 100%0.7554"
+        ],
+        [
+          "28",
+          "100%, 100%, 100%, 100%0.72556"
+        ],
+        [
+          "29",
+          "100%, 100%, 100%, 100%0.758"
+        ],
+        [
+          "30",
+          "100%, 100%, 100%, 100%0.67560"
+        ],
+        [
+          "31",
+          "100%, 100%, 100%, 100%0.6562"
+        ],
+        [
+          "32",
+          "100%, 100%, 100%, 100%0.62564"
+        ],
+        [
+          "33",
+          "100%, 100%, 100%, 100%0.666"
+        ],
+        [
+          "34",
+          "100%, 100%, 100%, 100%0.57568"
+        ],
+        [
+          "35",
+          "100%, 100%, 100%, 100%0.5570"
+        ],
+        [
+          "36",
+          "100%, 100%, 100%, 100%0.52572"
+        ],
+        [
+          "37",
+          "100%, 100%, 100%, 100%0.574"
+        ],
+        [
+          "38",
+          "100%, 100%, 100%, 100%0.47576"
+        ],
+        [
+          "39",
+          "100%, 100%, 100%, 100%0.4578"
+        ],
+        [
+          "40",
+          "100%, 100%, 100%, 100%0.42580"
+        ],
+        [
+          "Acronym",
+          "Minion, Presence, Command"
+        ],
+        [
+          "Id",
+          "SpiralingConspiracy"
+        ],
+        [
+          "BaseType",
+          "Spiraling Conspiracy"
+        ],
+        [
+          "Class",
+          "Skill Gems"
+        ],
+        [
+          "TargetTypes",
+          "Any, ,"
+        ],
+        [
+          "Type",
+          "Minion, CreatesMinion, HasReservation, Persistent, CommandableMinion, MinionsAreUndamagable, Physical, Chaos, Duration, Area"
+        ],
+        [
+          "BuffIcon",
+          ""
+        ],
+        [
+          "ItemType",
+          "Metadata/Items/Gems/SkillGemSpiralingConspiracy"
+        ],
+        [
+          "ActiveSkillsCode",
+          "summon_spiraling_conspiracy"
+        ],
+        [
+          "IsShowCount",
+          "1"
+        ],
+        [
+          "BuffGroupsID",
+          "31"
+        ],
+        [
+          "MaxStacks",
+          "30"
+        ],
+        [
+          "IsBuffDefinition",
+          "1"
+        ],
+        [
+          "BuffMergeModesID",
+          "4"
+        ]
+      ],
+      "displayOnly": true
+    },
+    {
+      "base": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+      "name": "Consecrate",
+      "url": "https://poe2db.tw/us/Consecrate",
+      "sha256": "12a5e50aaea0d5f61854fe31ba008d4cb6f2f8d76d1f35161a5ae441e0295f50",
+      "fields": [
+        [
+          "1",
+          "Prolonged Duration IExpanse"
+        ],
+        [
+          "2",
+          "Persistent Ground IEncroaching Ground"
+        ],
+        [
+          "3",
+          "Astral ProjectionPersistent Ground II"
+        ],
+        [
+          "4",
+          "Efficiency IIRapid Casting II"
+        ],
+        [
+          "5",
+          "Rapid Casting IIIPersistent Ground III"
+        ],
+        [
+          "Consecrated Ground duration is 8 secondsConsecrated Ground radius is 2.2 metres    LevelRequires LevelStrIntBase Damage% increased Effect of Consecrated Ground1",
+          "044100%, 100%, 100%0"
+        ],
+        [
+          "2",
+          "377100%, 100%, 100%2"
+        ],
+        [
+          "3",
+          "699100%, 100%, 100%4"
+        ],
+        [
+          "4",
+          "101313100%, 100%, 100%6"
+        ],
+        [
+          "5",
+          "141717100%, 100%, 100%8"
+        ],
+        [
+          "6",
+          "182020100%, 100%, 100%10"
+        ],
+        [
+          "7",
+          "222424100%, 100%, 100%12"
+        ],
+        [
+          "8",
+          "262828100%, 100%, 100%14"
+        ],
+        [
+          "9",
+          "313232100%, 100%, 100%16"
+        ],
+        [
+          "10",
+          "363737100%, 100%, 100%18"
+        ],
+        [
+          "11",
+          "414141100%, 100%, 100%20"
+        ],
+        [
+          "12",
+          "464646100%, 100%, 100%22"
+        ],
+        [
+          "13",
+          "525151100%, 100%, 100%24"
+        ],
+        [
+          "14",
+          "585757100%, 100%, 100%26"
+        ],
+        [
+          "15",
+          "646262100%, 100%, 100%28"
+        ],
+        [
+          "16",
+          "666464100%, 100%, 100%30"
+        ],
+        [
+          "17",
+          "727070100%, 100%, 100%32"
+        ],
+        [
+          "18",
+          "787575100%, 100%, 100%34"
+        ],
+        [
+          "19",
+          "848080100%, 100%, 100%36"
+        ],
+        [
+          "20",
+          "908686100%, 100%, 100%38"
+        ],
+        [
+          "21",
+          "100%, 100%, 100%40"
+        ],
+        [
+          "22",
+          "100%, 100%, 100%42"
+        ],
+        [
+          "23",
+          "100%, 100%, 100%44"
+        ],
+        [
+          "24",
+          "100%, 100%, 100%46"
+        ],
+        [
+          "25",
+          "100%, 100%, 100%48"
+        ],
+        [
+          "26",
+          "100%, 100%, 100%50"
+        ],
+        [
+          "27",
+          "100%, 100%, 100%52"
+        ],
+        [
+          "28",
+          "100%, 100%, 100%54"
+        ],
+        [
+          "29",
+          "100%, 100%, 100%56"
+        ],
+        [
+          "30",
+          "100%, 100%, 100%58"
+        ],
+        [
+          "31",
+          "100%, 100%, 100%60"
+        ],
+        [
+          "32",
+          "100%, 100%, 100%62"
+        ],
+        [
+          "33",
+          "100%, 100%, 100%64"
+        ],
+        [
+          "34",
+          "100%, 100%, 100%66"
+        ],
+        [
+          "35",
+          "100%, 100%, 100%68"
+        ],
+        [
+          "36",
+          "100%, 100%, 100%70"
+        ],
+        [
+          "37",
+          "100%, 100%, 100%72"
+        ],
+        [
+          "38",
+          "100%, 100%, 100%74"
+        ],
+        [
+          "39",
+          "100%, 100%, 100%76"
+        ],
+        [
+          "40",
+          "100%, 100%, 100%78"
+        ],
+        [
+          "Id",
+          "StaffConsecrate"
+        ],
+        [
+          "BaseType",
+          "Consecrate"
+        ],
+        [
+          "Class",
+          "Skill Gems"
+        ],
+        [
+          "TargetTypes",
+          "Any"
+        ],
+        [
+          "Type",
+          "Spell, Duration, Triggerable, Area, AreaSpell, Nova, Cascadable, UsableWhileMoving, CreatesGroundEffect"
+        ],
+        [
+          "ItemType",
+          "Metadata/items/Gems/SkillGemStaffConsecrate"
+        ],
+        [
+          "ActiveSkillsCode",
+          "consecrate"
+        ]
+      ],
+      "displayOnly": true
+    }
+  ],
+  "availability": "Current PoE2DB ordinary class listing plus source normal/magic/rare enable flags; no market drop-rate inference",
+  "combatSimulation": false
+}

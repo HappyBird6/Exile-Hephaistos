@@ -1,0 +1,92 @@
+{
+  "row": {
+    "Name": "of Bliss",
+    "Level": "42",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ManaRegeneration"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(40<span class=\"ndash\">—</span>49)</span>% increased Mana Regeneration Rate",
+    "fossil_no": [
+      "resource",
+      "mana"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "focus",
+      "sceptre",
+      "wand",
+      "trap",
+      "genesis_tree_caster",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c164c4fb31e36b7a5e7313949737aa1e785d78d564619389a5974a0b35e60eb4"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c164c4fb31e36b7a5e7313949737aa1e785d78d564619389a5974a0b35e60eb4",
+  "textLocale": "us",
+  "detailText": "(40—49)% increased Mana Regeneration Rate",
+  "retrievedAt": "2026-10-05T04:36:38.017Z",
+  "sha256": "c164c4fb31e36b7a5e7313949737aa1e785d78d564619389a5974a0b35e60eb4",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(40<span class=\"ndash\">—</span>49)</span>% increased Mana Regeneration Rate</span></h5>   <span data-tabname=\"of Bliss\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Bliss\n<tr><th>Family<td>ManaRegeneration\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>42 (Effective: 33)\n<tr><th>Gold Price<td>522\n<tr><th>Stats<td><li>mana regeneration rate +% <span class=\"badge bg-primary\">40 <span class=\"ndash\">—</span> 49</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>genesis_tree_caster: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Bliss",
+    "Family": "ManaRegeneration",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "42 (Effective: 33)",
+    "Gold Price": "522",
+    "Stats": "mana regeneration rate +% 40 — 49 Global",
+    "Spawn Tags": "ring: 1 amulet: 1 focus: 1 sceptre: 1 wand: 1 trap: 1 genesis_tree_caster: 1 default: 0",
+    "Craft Tags": "resource Mana"
+  },
+  "code": "ManaRegeneration4",
+  "stats": [
+    {
+      "id": "mana_regeneration_rate_+%",
+      "min": 40,
+      "max": 49,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "sceptre",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "genesis_tree_caster",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

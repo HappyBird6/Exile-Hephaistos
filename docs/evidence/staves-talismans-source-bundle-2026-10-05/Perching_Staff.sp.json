@@ -1,0 +1,32 @@
+{
+  "url": "https://poe2db.tw/sp/Perching_Staff",
+  "retrievedAt": "2026-10-05T10:02:09.203Z",
+  "sha256": "cf940b276e391dab16c3d35a98b5a3512fe7309dfe3c4481d88922c5b3c28364",
+  "variants": [
+    {
+      "name": "Báculo elevado",
+      "card": "Báculo elevado\n        \n    \n    \n        \n            BáculosRequiere:  Nivel 65, 114 Int Otorga la habilidad: Cuervos amenazantes\n        \n\n\n\n        \n            Perching Staff",
+      "requirements": "Requiere:  Nivel 65, 114 Int",
+      "properties": [
+        "Báculos"
+      ],
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "Báculo elevado",
+        "Class": "Báculos",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
+        "Tags": "staff, twohand",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff07",
+        "Base.base_level": "1",
+        "Base.tag": "default, staff, twohand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100 2:5:100"
+      }
+    }
+  ]
+}

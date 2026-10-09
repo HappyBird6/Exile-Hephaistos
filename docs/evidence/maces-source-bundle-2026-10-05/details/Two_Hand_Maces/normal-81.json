@@ -1,0 +1,93 @@
+{
+  "row": {
+    "Name": "of Victory",
+    "Level": "11",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "LifeGainedFromEnemyDeath"
+    ],
+    "DropChance": "750",
+    "str": "Gain <span class='mod-value'>(7<span class=\"ndash\">—</span>9)</span> Life per enemy killed",
+    "fossil_no": [
+      "resource",
+      "life"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "wand",
+      "staff",
+      "ring",
+      "gloves",
+      "quiver",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c92f361c1284ca0a0809c3e2a6fef38f5f9308ac83df681e24825f114b1e4c7b"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath2",
+  "textLocale": "us",
+  "detailText": "Gain (7—9) Life per enemy killed",
+  "retrievedAt": "2026-10-05T07:05:41.740Z",
+  "sha256": "c92f361c1284ca0a0809c3e2a6fef38f5f9308ac83df681e24825f114b1e4c7b",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Gain <span class='mod-value'>(7<span class=\"ndash\">—</span>9)</span> Life per enemy killed</span></h5>   <span data-tabname=\"of Victory\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Victory\n<tr><th>Family<td>LifeGainedFromEnemyDeath\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>11 (Effective: 8)\n<tr><th>Gold Price<td>233\n<tr><th>Stats<td><li>base life gained on enemy death <span class=\"badge bg-primary\">7 <span class=\"ndash\">—</span> 9</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> \n<tr><td>Fists of Stone<td>Recover <span class='mod-value'>1</span>% of maximum Life on Kill</table>  </div></div>",
+  "fields": {
+    "Name": "of Victory",
+    "Family": "LifeGainedFromEnemyDeath",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "11 (Effective: 8)",
+    "Gold Price": "233",
+    "Stats": "base life gained on enemy death 7 — 9 Global",
+    "Spawn Tags": "weapon: 1 wand: 1 staff: 1 ring: 1 gloves: 1 quiver: 1 trap: 1 default: 0",
+    "Craft Tags": "resource Life"
+  },
+  "code": "LifeGainedFromEnemyDeath2",
+  "stats": [
+    {
+      "id": "base_life_gained_on_enemy_death",
+      "min": 7,
+      "max": 9,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "gloves",
+      "weight": 1
+    },
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

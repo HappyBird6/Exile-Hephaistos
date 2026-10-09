@@ -1,3 +1,4 @@
+import { basePolicy } from './baseRegistry'
 // Preserve future/unsupported item data instead of accepting a lossy affix-only projection.
 import { catalystBase, qualityShape } from './catalystQuality'
 const itemFields = new Set([
@@ -31,8 +32,12 @@ export function supportsConcreteStateShape(value: unknown): boolean {
   if (
     item.augmentSockets !== undefined &&
     item.augmentSockets !== null &&
-    (item.baseItemId !== 'Metadata/Items/Armours/Gloves/FourGlovesStr1' ||
-      ![0, 1].includes(item.augmentSockets as number))
+    (typeof item.baseItemId !== 'string' ||
+      basePolicy(item.baseItemId)?.socketExecutionMaximum == null ||
+      !Number.isInteger(item.augmentSockets) ||
+      Number(item.augmentSockets) < 0 ||
+      Number(item.augmentSockets) >
+        basePolicy(item.baseItemId)!.socketExecutionMaximum!)
   )
     return false
   for (const layer of ['implicits', 'explicits'] as const) {

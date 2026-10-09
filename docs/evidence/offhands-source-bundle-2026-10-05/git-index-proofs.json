@@ -1,0 +1,395 @@
+{
+  "verifiedAt": "2026-10-05T05:23:26.612Z",
+  "stagedRuntimeAndRawSourceFiles": 97,
+  "rawWhitespacePolicy": "Original immutable raw HTML retains trailing whitespace. Non-raw staged diff --check passes; exact raw response SHA is verified instead.",
+  "files": [
+    {
+      "path": "backend/src/main/java/com/poe2craft/bootstrap/CraftingConfiguration.java",
+      "sha256": "100223d9ee11540ae4a6ad2b6ec73e0d52c87e9efeb1e03ddc72d0402633e532"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/application/WorkbenchService.java",
+      "sha256": "4c32f6165a1fb411f10c072dbd06b0e0d0dad697860f7c9040583edfa0a13675"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/QualityLimitRules.java",
+      "sha256": "a7ebfb5079c59382ea52fb3f723f70e434121afc97040a2373667d4c65e0810f"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/crafting/domain/WorkbenchSimulator.java",
+      "sha256": "83c58159c0497a62fc81bce4a0513f4102b643897ed1cba52eb7f7ad248d7877"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/ReviewedOffhands.java",
+      "sha256": "0f4ab929c25c334cb19587170cdb701521320b66a3eae1c25d27159a4711f5b7"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/item/infrastructure/ItemCatalogLoader.java",
+      "sha256": "49b411f1e7311cc45f95f90ad1901d3c227899080352967b2ccbf6a371031fca"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/blacksteel-crest-shield/base.raw.json",
+      "sha256": "b027792780ba5a1f7e2903c00202106961b14e63eb96e5baeb5686761bec2a11"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/blacksteel-crest-shield/catalog.json",
+      "sha256": "126487f67f3e6c42ddb938ba5ece2b379dcdd51619fc7e9790fc7ec61cebe804"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/blacksteel-crest-shield/details.raw.json",
+      "sha256": "3ad50522a85abd2f032eec46d922f98c82af67bccfe9d6df4ae64c9b5da9c5c5"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/desert-buckler/base.raw.json",
+      "sha256": "0bc89c36ff50ea499378d23070ebbb7d51d126c04600e2afad2bf6f00f592ae3"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/desert-buckler/catalog.json",
+      "sha256": "578f643d0abde77ff1807720c04b996aaf018e9c0a55972b5d26ec141ac16418"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/desert-buckler/details.raw.json",
+      "sha256": "c07f4f3a80dac6b98aa78a33dc47da093157d607e54bfa1069148e07b42b2d0b"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/golden-targe/base.raw.json",
+      "sha256": "06ca27d9124c51b70f5e0d9e5d4b19deaacd7b7873a11f03ebc15db3dca81d78"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/golden-targe/catalog.json",
+      "sha256": "3275a05be9efc7cf96e01f1361f16ffbaa50988f929fd8c2c3d04a90a37a1edd"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/golden-targe/details.raw.json",
+      "sha256": "adccca6b765a47f1bd8754b5302ef9e3e2ecccdfc876a42e83564eba95413476"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/tasalian-focus/base.raw.json",
+      "sha256": "878058b57759d18ac3f8346dcbd7fc7dfa28c78528dfe659286e4b93af24cfa6"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/tasalian-focus/catalog.json",
+      "sha256": "5e8566346b3f9f1c63e35f929adde8fb4fffbf6015f1ae2842bbb2f3b4777d55"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/tasalian-focus/details.raw.json",
+      "sha256": "042a6200c6f79925668ef8ae57d0787c8effbbeb827e91c881d5e4e519f04a7b"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/tawhoan-tower-shield/base.raw.json",
+      "sha256": "975b2762e8881bb12dd058336922971e1c39b59ffdf583e8caaab25b3952550b"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/tawhoan-tower-shield/catalog.json",
+      "sha256": "a6b870e780081c712c761e582995c0f68917dc56ed37460d5fff8a54c079b6ea"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/tawhoan-tower-shield/details.raw.json",
+      "sha256": "b82852746a43ff8fbf732417b181493b17c004c1dd435f09cb96e2418b440fcd"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/top-base-essences.json",
+      "sha256": "d4416331e971db90a8196eac8d74309e5ee79a6e4704da9e0463bfd300a3865a"
+    },
+    {
+      "path": "backend/src/main/resources/catalog/top-bases.json",
+      "sha256": "54cdd5a35bb158953754ee7cb452f1aa7a9bc89a16c1e7585a182f940067fa3b"
+    },
+    {
+      "path": "backend/src/main/resources/crafting/registry-v2.json",
+      "sha256": "4ef58ecc5c32ed3e164fb512e4594638d3f403b9e9222444dd2c385daccfd2ee"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/crafting/ReviewedOffhandsTest.java",
+      "sha256": "c5b5f4f3cb7df1c66ee28945d4a26a23fd0e6f866543b190119460437d281c8b"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Blacksteel_Crest_Shield.cn.html",
+      "sha256": "8c34bdd6ffcdd8c201640c94e64c58947e2b7635f62ccaf7b9bc213b20a81214"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Blacksteel_Crest_Shield.jp.html",
+      "sha256": "0617dd06013ee92f5b63998f7951680e48b4e60e5b35c513489750bc40e9202e"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Blacksteel_Crest_Shield.kr.html",
+      "sha256": "727d94677f05b6f1546e63c87ee20f65e02075b9555c301b8f79a96b55ab8ca1"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Blacksteel_Crest_Shield.sp.html",
+      "sha256": "d1259b43f761d4800bffd19132f9b9ea2a224b0b5348064282e6a3c031d01fb2"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Blacksteel_Crest_Shield.tw.html",
+      "sha256": "e3c19be053180c7b93e8a6e7c6a92d404689e62ff6b5af8a0c2d60d0ae3ee6af"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Blacksteel_Crest_Shield.us.html",
+      "sha256": "8b49535e38ee89480ddfc988c0472ba79143010bb5a7f163044fcf1b34250d02"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Bucklers.cn.html",
+      "sha256": "f0a7cb79e72e845bb48a2552343372ec2f52b914c7c1b8ef7446de00166223db"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Bucklers.jp.html",
+      "sha256": "4258963113322c5c0815a9b3ffcc4a97abe7a3aa00811b87302b0ca90df42040"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Bucklers.kr.html",
+      "sha256": "ee4aeb3b0d78052b315a9b33ff06db89d6a13536592de06cf4da87b2a0b4cd39"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Bucklers.sp.html",
+      "sha256": "59562203ff2c2a570f9f965d9fe10f54871dbe6b3826276d36d76dcd18561e1a"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Bucklers.tw.html",
+      "sha256": "7d0657681140b6d33f36636ca1ba6e5ec712a3165acfd253cda1c4d690ff26c2"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Bucklers.us.html",
+      "sha256": "985a4a3279c34007d8f6e65d0033dc204e1d6600e4b4c7ed42d551d4f0c09374"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Desert_Buckler.cn.html",
+      "sha256": "fd9ef6f307472c150113b0427032f2e95a943f10211b92ca157cff915d5a56ad"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Desert_Buckler.jp.html",
+      "sha256": "fb3682095e3a6c4a597e01e89488ef5cdb9ccd35598c63ca5c74462ab2e162ed"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Desert_Buckler.kr.html",
+      "sha256": "281f6bbc0f3687a056a737ce3d46c20c8773666f805a4a222b5c92fa72b07b89"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Desert_Buckler.sp.html",
+      "sha256": "641fe4d2a6bc56fe6f2d16972db11c345213c970972e14df79e4a9242e3fe9e2"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Desert_Buckler.tw.html",
+      "sha256": "14abfb4eb6afe6f925c5af1a49155d1d712b30966df3f08a3b37055b7912d0a2"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Desert_Buckler.us.html",
+      "sha256": "1d273f05eb8c38a3007b0146cee719d0911244e52b5c9fee6c510465832dc338"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Foci.cn.html",
+      "sha256": "04ff0656000b7ce943d8d3a24eaaa43b3bc038e2df2d06b2315cc3731c8d9172"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Foci.jp.html",
+      "sha256": "688cf49d153c7a77f5894cb6af3007dccc29cdc8e3d9ebd46e28d42066caf91d"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Foci.kr.html",
+      "sha256": "fe2a5af25ce92c131b9fd8fc681a7be50d022513cc1f905552707173082b2908"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Foci.sp.html",
+      "sha256": "d6a437a82f17a3e22750c27b63dea6e8519d0297bb4887378c76e01b3dbb5d61"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Foci.tw.html",
+      "sha256": "9c7a4b4d151c24ff488b2d74936469e9942abd079e4e8fc8c1223c46d3c22bb0"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Foci.us.html",
+      "sha256": "7967b67492dd0e9cd2c73ab8814a5460c1d85c11d6517097cea3231a29b59492"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Golden_Targe.cn.html",
+      "sha256": "79455d8f2f9420369a7d14eba8aa93f2931c10a8fef5835ebfa7ddc4c859d624"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Golden_Targe.jp.html",
+      "sha256": "4477f63472b29effa82e4051c1088fd9faf5feb6cf43cd582774f9ad0b21c578"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Golden_Targe.kr.html",
+      "sha256": "f2bb143fdef8414f5c5588366bc1d85becc2e846407af96e81738751978ffb6b"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Golden_Targe.sp.html",
+      "sha256": "6abd183057e9dd506c0ed871b56382fb7d7008883a9f9cbd01a81e916a66619f"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Golden_Targe.tw.html",
+      "sha256": "0d8f67e6ff41d915ee53e6ab24ecb4cb4513862d4c7b2c2c97f7e03388d87cba"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Golden_Targe.us.html",
+      "sha256": "ad5a20d37dddf50733c6101684f37f1c7f16ec9687d3f2c9461eabfa39b15609"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Shields_str.cn.html",
+      "sha256": "d733c8019979c79a4fc887a7aa3b115b57a70fed77ff7ed4954e107e0aee25c6"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Shields_str.jp.html",
+      "sha256": "3d4edc5e5b2860f915d6ac3e6b35f53d6717e677e74e3b78fdad4226f6436d63"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Shields_str.kr.html",
+      "sha256": "6fea80e1c2156fc5b003e472f96786cff878d06776322879f7d3556925dd5757"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Shields_str.sp.html",
+      "sha256": "c5f3c50349f05567bbab13a55a6a83f982d32cb317727cd6258aaf9ae30b3b86"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Shields_str.tw.html",
+      "sha256": "2634b722032c3d02017f10929f99be02b0ec309953a783dcdf86698783111ad6"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Shields_str.us.html",
+      "sha256": "ee77f656cf0c669bf268ea4bea0ce6a0ea3f3baa61d8a4c5cee33e9452256327"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Shields_str_dex.cn.html",
+      "sha256": "622d204fac99048ce95d8ec227ecdad8baa8b9d227087825e34470b6abb35b7a"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Shields_str_dex.jp.html",
+      "sha256": "15d0af6a7eebe3d72a059ed9622f0127a0c3caedb0f19824fa30280cc28e0698"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Shields_str_dex.kr.html",
+      "sha256": "824f655d34cb64a610a5fb0822e504831b9674c94395f2321d586e1210982de4"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Shields_str_dex.sp.html",
+      "sha256": "62b1f17917e1b75a6e1a0c4f4c9e362b0e410042c6ac13344c67d4c764f54d5e"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Shields_str_dex.tw.html",
+      "sha256": "2e9595e4a19efa7f6dc2ccdde262c3fba1c9f1321e66f092fbcfb47488e6608e"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Shields_str_dex.us.html",
+      "sha256": "a33241909277d4aecea2bf5c52be4baf5971124cb7b590117bd1f70a71818f10"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Shields_str_int.cn.html",
+      "sha256": "1eb0e531a44e4b010321d4220e9bc5e5a858a8f7a7022556f78a1754cc0ea28b"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Shields_str_int.jp.html",
+      "sha256": "aadd0d4d620cd598856f389c86c933f21d9850b6c783629c88e62431af9bd2dd"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Shields_str_int.kr.html",
+      "sha256": "4b6c6e3ec36ffc5224137e8f783c6f07782da569f3c5b665beb57f94a98be352"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Shields_str_int.sp.html",
+      "sha256": "79e6d1bad54529e22c9b9bdec134575ddc20d4666314d65d307062a652cc4e61"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Shields_str_int.tw.html",
+      "sha256": "af38b0f8e99c5e6feb6635cf98f49f20fff25790c2a6237ded4af2b585a77a6a"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Shields_str_int.us.html",
+      "sha256": "331a0cc5b20f6b49920c088aef214ba70b7d5e567ddeedfd766a513281c4dca2"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Tasalian_Focus.cn.html",
+      "sha256": "e4958673d39c925e95495e9ba26d0a3edc24b18121e7866fcb1e1e31925f0a6a"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Tasalian_Focus.jp.html",
+      "sha256": "70be5ccaaf364c55e73292c6a34cbf2aab8de6601bfe0b92a88b3a7149677194"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Tasalian_Focus.kr.html",
+      "sha256": "2dd4fad33413e4e6ba7e3054981a86ad1be901cc8cd42359b483c3e4a81e456d"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Tasalian_Focus.sp.html",
+      "sha256": "5b755c7d53088b4b0f7b9f0d2e1d00896145fa24afe971e232d447f881d76071"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Tasalian_Focus.tw.html",
+      "sha256": "7b8afbd27f0074c331a96902e6eafd872a955b498a3794a8606359097afc2a40"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Tasalian_Focus.us.html",
+      "sha256": "c26d40aca986cd18dff19c1751b837810ada7f7881878d3a378290cb540fce06"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Tawhoan_Tower_Shield.cn.html",
+      "sha256": "af1bf948f7e7065f3e2c9fb3c1ebcfc2e6ba2b20357cdba83a51dadfaa870b43"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Tawhoan_Tower_Shield.jp.html",
+      "sha256": "fa865e3b505aa6775396d9177b4032732bca6868c31462f213e4d07c17dc4127"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Tawhoan_Tower_Shield.kr.html",
+      "sha256": "5f19932901d502d5d915569fbe11bba647bf1b7a24fd054e8063ea4f4eef7c8c"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Tawhoan_Tower_Shield.sp.html",
+      "sha256": "a42508ea792b2db145d265f1a6c7573e0301e8f44f1a26fbce02e4521e3dcb28"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Tawhoan_Tower_Shield.tw.html",
+      "sha256": "26fba9d9f8c630c63b53d9f7bc5fc293fbb50c9190a5336e685f15f57a228335"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/Tawhoan_Tower_Shield.us.html",
+      "sha256": "47a6d569520839e58bf169ecedb60d0cfa77cabe3590a873a98c4d1060e0cfaf"
+    },
+    {
+      "path": "frontend/src/features/crafting/CraftingPage.tsx",
+      "sha256": "c040ca17e63a051a06dc73a72c7f800b280dd90a2a9c2c05f20b42d2a64244ff"
+    },
+    {
+      "path": "frontend/src/features/crafting/craftingApi.ts",
+      "sha256": "13f28c06d0da0a7e1a6cef28b93290d1b2461b82126a0a3a4a7f16ef6f5b6a90"
+    },
+    {
+      "path": "frontend/src/features/crafting/draft.ts",
+      "sha256": "13482f031b27e67bde7ed7613b96f5594fb8a2eb0d75829f181ed1581e5ab0a4"
+    },
+    {
+      "path": "frontend/src/features/crafting/localizedModifiers.test.ts",
+      "sha256": "ff065e0090e8a44447d30a4a1bb08ea5debc24bae4933f6d3ade65cb28e61800"
+    },
+    {
+      "path": "frontend/src/features/crafting/offhands.test.ts",
+      "sha256": "a53c328868c7146c98b52feea34155f9889f29164b41accf2a20d42957bc5fdf"
+    },
+    {
+      "path": "frontend/src/features/crafting/remainingDisplay.test.tsx",
+      "sha256": "197cdd6280aafd8fac9c0977d959236cd3c67d418923bf5feb546908d0f1c953"
+    },
+    {
+      "path": "frontend/src/features/crafting/topBaseEssences.json",
+      "sha256": "7a4070aaee9f4b4111535a1b96f14c44de257d4fd9c25b8dba8d582cf17337c0"
+    },
+    {
+      "path": "frontend/src/features/crafting/topBases.json",
+      "sha256": "9f683d553d1dcac6b9fb4de10e5c53c8235e3e0cc86895164830c88408206be8"
+    },
+    {
+      "path": "frontend/src/features/crafting/topBases.ts",
+      "sha256": "5c1a0c724328ae0a163d51d406066f4d5193817a12bfd6eb79e6fa8018a53c01"
+    },
+    {
+      "path": "frontend/src/features/crafting/workbenchApi.ts",
+      "sha256": "477d6000317b3d1362b792ec1d102447224382e99d4c533ca75e166323a878d7"
+    },
+    {
+      "path": "frontend/src/shared/i18n/gameTerms.json",
+      "sha256": "f995e69459f2a6cdf7d7ea2f2f12c66d715c55426a7475b83d48b3657e231d0f"
+    },
+    {
+      "path": "frontend/src/shared/i18n/modifierTemplates.json",
+      "sha256": "219849f96b0ea22bca55026bd6e8412867030e6c2445eb3a4fb98274c12a2923"
+    }
+  ]
+}

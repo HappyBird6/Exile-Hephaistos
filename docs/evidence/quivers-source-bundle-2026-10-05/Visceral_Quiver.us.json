@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/us/Visceral_Quiver",
+  "retrievedAt": "2026-10-05T05:29:11.277Z",
+  "sha256": "0018282ecafe114ae4d842155d8441e955892874a9d9c45b524e43ebd06e8ffe",
+  "variants": [
+    {
+      "name": "Visceral Quiver",
+      "card": "Visceral Quiver\n        \n    \n    \n        \n            QuiversRequires:  Level 65(20—30)% increased Critical Hit Chance for Attacks\n        \n\n\n        \n        \n            Can only be equipped if you are wielding a Bow.",
+      "requirements": "Requires:  Level 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "Visceral Quiver",
+        "Class": "Quivers",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver11",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverVisceral",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

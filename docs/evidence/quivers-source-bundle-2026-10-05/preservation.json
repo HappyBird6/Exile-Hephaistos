@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "baseHead": "aa741d572e23067e74bb17aaf6daf3a3949fb87b",
+  "previousBases": 102,
+  "addedBases": 11,
+  "totalBases": 113,
+  "deferred": 50,
+  "oldDefinitionsAndLocalesPreserved": true,
+  "ordinaryPerQuiver": 100
+}

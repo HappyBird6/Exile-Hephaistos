@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/cn/Sacral_Quiver",
+  "retrievedAt": "2026-10-05T05:29:25.367Z",
+  "sha256": "901021c9377cd32e9e62cd89a1bd1e95adb3a98fdfbf813bf4fb8e58f7b9d4b6",
+  "variants": [
+    {
+      "name": "圣骨箭袋",
+      "card": "圣骨箭袋\n        \n    \n    \n        \n            箭袋需求：  等级 16攻击每击中一名敌人获得(2—3)点生命\n        \n\n\n        \n        \n            只能在使用弓时装备。\n        \n\n        \n            Sacral Quiver",
+      "requirements": "需求：  等级 16",
+      "fields": {
+        "DropLevel": "16",
+        "BaseType": "圣骨箭袋",
+        "Class": "箭袋",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver3",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverSacral",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/tw/Vile_Robe",
+  "retrievedAt": "2026-10-04T15:37:56.190Z",
+  "sha256": "4cfa526f7d49fe5a2083740eeaf73f281b3d048b7c1aa8e7cb0a78bbd2aa24bd",
+  "name": "惡毒長袍",
+  "card": "惡毒長袍\n        \n    \n    \n        \n            胸甲能量護盾: 171基礎移動速度: -0.03需求:  等級 65, 121 智慧\n        \n\n\n\n        \n            Vile Robe",
+  "requirements": "需求:  等級 65, 121 智慧",
+  "fields": {
+    "DropLevel": "65",
+    "BaseType": "惡毒長袍",
+    "Class": "胸甲",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame",
+    "Tags": "int_armour, body_armour, armour",
+    "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyInt03",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, body_armour",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "BodyArmour",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "row": {
+    "Name": "of Havoc",
+    "Level": "20",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "CriticalStrikeChanceIncrease"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(1.51<span class=\"ndash\">—</span>2.1)</span>% to <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit</a> Chance",
+    "fossil_no": [
+      "attack",
+      "critical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/aa90842be10e4e7226ef19d7a9bb0a59f911ad5800c0c6a916007ad758f242fc"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalCriticalStrikeChance2",
+  "textLocale": "us",
+  "detailText": "+(1.51—2.1)% to Critical Hit Chance",
+  "retrievedAt": "2026-10-05T08:10:33.989Z",
+  "sha256": "aa90842be10e4e7226ef19d7a9bb0a59f911ad5800c0c6a916007ad758f242fc",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(1.51<span class=\"ndash\">—</span>2.1)</span>% to <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit</a> Chance</span></h5>   <span data-tabname=\"of Havoc\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Havoc\n<tr><th>Family<td>CriticalStrikeChanceIncrease\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>20 (Effective: 16)\n<tr><th>Gold Price<td>480\n<tr><th>Stats<td><li>local critical strike chance <span class=\"badge bg-primary\">151 <span class=\"ndash\">—</span> 210</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attack</span> <span class='badge bg-primary'>Critical</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Havoc",
+    "Family": "CriticalStrikeChanceIncrease",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "20 (Effective: 16)",
+    "Gold Price": "480",
+    "Stats": "local critical strike chance 151 — 210 Local",
+    "Spawn Tags": "weapon: 1 default: 0",
+    "Craft Tags": "Attack Critical"
+  },
+  "code": "LocalCriticalStrikeChance2",
+  "stats": [
+    {
+      "id": "local_critical_strike_chance",
+      "min": 151,
+      "max": 210,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

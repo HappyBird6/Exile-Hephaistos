@@ -1,0 +1,60 @@
+{
+  "row": {
+    "Name": "of Impact",
+    "Level": "5",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "StunDurationIncreasePercent"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(11<span class=\"ndash\">—</span>13)</span>% increased <a data-keyword=\"Stun\" href=\"Stun\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2ee96f67bd8f6686e4f503e78cef409a2735ea3415a4fac84f4aea10b5189aba\">Stun</a> Duration",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "ranged",
+      "weapon",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/523ae04c1bcbd40c4c4a0a21da956dd976214ad1e0ca436163f840d814d046e3"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/tw/Poe_Data_Mods_hover/b1257933bb8151b70f4d3835e7b51b4bb74886f688f735581dedadb130ae559c",
+  "textLocale": "tw",
+  "detailText": "增加(11—13)%暈眩持續時間",
+  "retrievedAt": "2026-10-05T08:11:05.148Z",
+  "sha256": "b1257933bb8151b70f4d3835e7b51b4bb74886f688f735581dedadb130ae559c",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>增加<span class='mod-value'>(11<span class=\"ndash\">—</span>13)</span>%<a data-keyword=\"Stun\" href=\"Stun\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/c2a4a86690230dbbd3dcebbcccaf475d0ed0a20961671881c365b2a045fc7824\">暈眩</a>持續時間</span></h5>   <span data-tabname=\"衝擊之\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>衝擊之\n<tr><th>Family<td>StunDurationIncreasePercent\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>後綴 (2)\n<tr><th>Req. level<td>5 (Effective: 4)\n<tr><th>Gold Price<td>120\n<tr><th>Stats<td><li>local base stun duration +% <span class=\"badge bg-primary\">11 <span class=\"ndash\">—</span> 13</span> <span class=\"badge bg-secondary\">區域</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ranged: 0</span> <span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "衝擊之",
+    "Family": "StunDurationIncreasePercent",
+    "Domains": "物品 (1)",
+    "GenerationType": "後綴 (2)",
+    "Req. level": "5 (Effective: 4)",
+    "Gold Price": "120",
+    "Stats": "local base stun duration +% 11 — 13 區域",
+    "Spawn Tags": "ranged: 0 weapon: 1 default: 0"
+  },
+  "stats": [
+    {
+      "id": "local_base_stun_duration_+%",
+      "min": 11,
+      "max": 13,
+      "locality": "區域"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ranged",
+      "weight": 0
+    },
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

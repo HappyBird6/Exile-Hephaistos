@@ -1,0 +1,77 @@
+{
+  "row": {
+    "Name": "Elephant's",
+    "Level": "63",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DefencesPercentAndStunThreshold"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(33<span class=\"ndash\">—</span>38)</span>% increased <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a><br><span class='mod-value'>+(64<span class=\"ndash\">—</span>94)</span> to <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/316a7a69eefcbd428676307b835263fc26186fee563e3838fb17fd8b29742b43\">Stun Threshold</a>",
+    "fossil_no": [],
+    "adds_no": [],
+    "spawn_no": [
+      "body_armour",
+      "helmet",
+      "gloves",
+      "str_armour",
+      "default"
+    ],
+    "mod_no": [],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/514db6aa4f413ee8eb9e5aba7fe677b295a9681cd43480a4ce3d42de0fa65030"
+  },
+  "url": "https://poe2db.tw/cn/hover?s=Data%5CMods%2FLocalArmourAndStunThreshold5",
+  "textLocale": "cn",
+  "detailText": "护甲提高 (33—38)%\n+(64—94) 晕眩阈值",
+  "retrievedAt": "2026-10-05T04:19:48.214Z",
+  "sha256": "3a079826209d5e7fcef699e0a9de01a29e4c36bc913b2a121a517ffdfdb038a4",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/35dfc434e5b7ae7bdaa9b378843c07d94d1e017d23be04a6edd174758a600724\">护甲</a>提高 <span class='mod-value'>(33<span class=\"ndash\">—</span>38)</span>%<br><span class='mod-value'>+(64<span class=\"ndash\">—</span>94)</span> <a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/1b19145b75cdae6299a272fdc3bfcd0d7603938fb808f1d9aa2e8153fab4e730\">晕眩阈值</a></span></h5>   <span data-tabname=\"大象的\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>大象的\n<tr><th>Family<td>DefencesPercentAndStunThreshold\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>前缀 (1)\n<tr><th>Req. level<td>63 (Effective: 50)\n<tr><th>Gold Price<td>1438\n<tr><th>Stats<td><li>stun threshold + <span class=\"badge bg-primary\">64 <span class=\"ndash\">—</span> 94</span> <span class=\"badge bg-secondary\">Global</span></li><li>local physical damage reduction rating +% <span class=\"badge bg-primary\">33 <span class=\"ndash\">—</span> 38</span> <span class=\"badge bg-secondary\">区域</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 0</span> <span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>str_armour: 1</span> <span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+  "fields": {
+    "Name": "大象的",
+    "Family": "DefencesPercentAndStunThreshold",
+    "Domains": "物品 (1)",
+    "GenerationType": "前缀 (1)",
+    "Req. level": "63 (Effective: 50)",
+    "Gold Price": "1438",
+    "Stats": "stun threshold + 64 — 94 Globallocal physical damage reduction rating +% 33 — 38 区域",
+    "Spawn Tags": "body_armour: 0 helmet: 0 gloves: 0 str_armour: 1 default: 0"
+  },
+  "code": "LocalArmourAndStunThreshold5",
+  "stats": [
+    {
+      "id": "stun_threshold_+",
+      "min": 64,
+      "max": 94,
+      "locality": "Global"
+    },
+    {
+      "id": "local_physical_damage_reduction_rating_+%",
+      "min": 33,
+      "max": 38,
+      "locality": "区域"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "body_armour",
+      "weight": 0
+    },
+    {
+      "tag": "helmet",
+      "weight": 0
+    },
+    {
+      "tag": "gloves",
+      "weight": 0
+    },
+    {
+      "tag": "str_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

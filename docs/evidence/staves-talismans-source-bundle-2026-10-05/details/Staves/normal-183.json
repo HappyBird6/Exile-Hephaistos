@@ -1,0 +1,66 @@
+{
+  "row": {
+    "Name": "Electrifying",
+    "Level": "60",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "LightningDamage"
+    ],
+    "DropChance": "500",
+    "str": "<a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(49<span class=\"ndash\">—</span>54)</span>% of Damage as Extra <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1d5815b2f2bd5f23d99d435288c3b41e79adf38037cf8d2a266bc276f527201d\">Lightning</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "lightning"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a8d60e2f933e966af8eaec2a6b660cc1ab444bfa52bfdbe12553cd9b834d8b97"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FSpellDamageGainedAsLightningTwoHand5",
+  "textLocale": "sp",
+  "detailText": "Ganas el (49—54)% del daño como daño de rayo extra",
+  "retrievedAt": "2026-10-05T10:09:49.333Z",
+  "sha256": "8c15c52dd03e56d5935cbe0cae5137c108c65068af43a43ac508844c4ca4ed6d",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/98356fe2c434c2e7ef67feb13364c32286bb53e242c64e33225ff12cf5a59018\">Ganas</a> el <span class='mod-value'>(49<span class=\"ndash\">—</span>54)</span>% del daño como daño de <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/63633b5e2b8e0137df61182b9551bd4b9af199e6c6e08b4e9b36a29eedb81221\">rayo</a> extra</span></h5>   <span data-tabname=\"<if:MS>{electrificante}<elif:MP>{electrificantes}\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td><if:MS>{electrificante}<elif:MP>{electrificantes}\n<tr><th>Family<td>LightningDamage\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>1492\n<tr><th>Stats<td><li>non skill base all damage % to gain as lightning <span class=\"badge bg-primary\">49 <span class=\"ndash\">—</span> 54</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Daño</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Rayo</span> </table>  </div></div>",
+  "fields": {
+    "Name": "{electrificante}{electrificantes}",
+    "Family": "LightningDamage",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "60 (Effective: 48)",
+    "Gold Price": "1492",
+    "Stats": "non skill base all damage % to gain as lightning 49 — 54 Global",
+    "Spawn Tags": "staff: 1 default: 0",
+    "Craft Tags": "elemental_damage Daño Elemental Rayo"
+  },
+  "code": "SpellDamageGainedAsLightningTwoHand5",
+  "stats": [
+    {
+      "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+      "min": 49,
+      "max": 54,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

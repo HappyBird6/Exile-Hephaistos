@@ -1,0 +1,82 @@
+{
+  "row": {
+    "Name": "of Buffering",
+    "Level": "48",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "EnergyShieldRegeneration"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(16<span class=\"ndash\">—</span>19)</span>% increased <a data-keyword=\"ESRechargeRate\" href=\"Energy_Shield_Recharge_Rate\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a4c99c6b7e4fe2fd74d32f45f9deb2aebe477c44de9077e90c8cc915cc4c61e9\">Energy Shield Recharge Rate</a>",
+    "fossil_no": [
+      "defences",
+      "energy_shield"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_dex_int_armour",
+      "str_int_armour",
+      "dex_int_armour",
+      "int_armour",
+      "focus",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingenergy_shield\" data-tag=\"energy_shield\">Energy Shield</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4750145215bac30f0c29d6af3db04e71183a2192e39b68ebd0bda00cb3c6b7c8"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FEnergyShieldRechargeRate4",
+  "textLocale": "sp",
+  "detailText": "Velocidad de recarga del escudo de energía aumentada un (16—19)%",
+  "retrievedAt": "2026-10-05T04:32:19.432Z",
+  "sha256": "ac525075abf567250dd2a8834989208a3de252c8bdfc9445063543330645c5d5",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"ESRechargeRate\" href=\"Energy_Shield_Recharge_Rate\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FESRechargeRate\">Velocidad de recarga del escudo de energía</a> aumentada un <span class='mod-value'>(16<span class=\"ndash\">—</span>19)</span>%</span></h5>   <span data-tabname=\"de amortiguamiento\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>de amortiguamiento\n<tr><th>Family<td>EnergyShieldRegeneration\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Sufijo (2)\n<tr><th>Req. level<td>48 (Effective: 38)\n<tr><th>Gold Price<td>1918\n<tr><th>Stats<td><li>energy shield recharge rate +% <span class=\"badge bg-primary\">16 <span class=\"ndash\">—</span> 19</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>dex_int_armour: 1</span> <span class='badge bg-primary'>int_armour: 1</span> <span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Escudo de energía</span> \n<tr><td>Puños de roca<td>El <a data-keyword=\"FasterESRechargeStart\" href=\"Faster_Start_of_Energy_Shield_Recharge\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FFasterESRechargeStart\">inicio de la recarga del escudo de energía</a> es un <span class='mod-value'>(41<span class=\"ndash\">—</span>45)</span>% más rápido</table>  </div></div>",
+  "fields": {
+    "Name": "de amortiguamiento",
+    "Family": "EnergyShieldRegeneration",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Sufijo (2)",
+    "Req. level": "48 (Effective: 38)",
+    "Gold Price": "1918",
+    "Stats": "energy shield recharge rate +% 16 — 19 Global",
+    "Spawn Tags": "str_dex_int_armour: 1 str_int_armour: 1 dex_int_armour: 1 int_armour: 1 focus: 1 default: 0",
+    "Craft Tags": "defences Escudo de energía"
+  },
+  "code": "EnergyShieldRechargeRate4",
+  "stats": [
+    {
+      "id": "energy_shield_recharge_rate_+%",
+      "min": 16,
+      "max": 19,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/sp/Omen_Sceptre",
+  "retrievedAt": "2026-10-05T00:43:28.618Z",
+  "sha256": "88cd2005f28819c9aed0ebf9559aaba85671ceace85665269dd3bd1e7fde7480",
+  "variants": [
+    {
+      "name": "Cetro de augurio",
+      "card": "Cetro de augurio\n        \n    \n    \n        \n            CetrosEspíritu: 100Requiere:  Nivel 16, 12 Fue, 25 Int Otorga la habilidad: Malicia\n        \n\n\n\n        \n            Omen Sceptre",
+      "requirements": "Requiere:  Nivel 16, 12 Fue, 25 Int",
+      "fields": {
+        "DropLevel": "16",
+        "BaseType": "Cetro de augurio",
+        "Class": "Cetros",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
+        "Tags": "sceptre, onehand",
+        "Icon": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre04",
+        "Base.base_level": "1",
+        "Base.tag": "default, sceptre, onehand",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "skill": "Malicia",
+      "skillUrl": "https://poe2db.tw/sp/Malice"
+    }
+  ]
+}

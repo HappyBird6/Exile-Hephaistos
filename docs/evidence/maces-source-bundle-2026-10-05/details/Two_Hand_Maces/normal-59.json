@@ -1,0 +1,67 @@
+{
+  "row": {
+    "Name": "Merciless",
+    "Level": "82",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "LocalPhysicalDamagePercent"
+    ],
+    "DropChance": "25",
+    "str": "<span class='mod-value'>(170<span class=\"ndash\">—</span>179)</span>% increased <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage",
+    "fossil_no": [
+      "physical_damage",
+      "damage",
+      "physical",
+      "attack"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "weapon",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>",
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4bf7dc62e7a9965e71de153a652452a92b8e7a652cc373bb12570390e6e64947"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamagePercent8",
+  "textLocale": "us",
+  "detailText": "(170—179)% increased Physical Damage",
+  "retrievedAt": "2026-10-05T07:02:48.923Z",
+  "sha256": "144588d1190e2caad5fbec461c6159eec9d156b308f5659e46309724f42e2ffb",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(170<span class=\"ndash\">—</span>179)</span>% increased <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage</span></h5>   <span data-tabname=\"Merciless\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Merciless\n<tr><th>Family<td>LocalPhysicalDamagePercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>82 (Effective: 65)\n<tr><th>Gold Price<td>6205\n<tr><th>Stats<td><li>local physical damage +% <span class=\"badge bg-primary\">170 <span class=\"ndash\">—</span> 179</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>weapon: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>physical_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Physical</span> <span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Merciless",
+    "Family": "LocalPhysicalDamagePercent",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "82 (Effective: 65)",
+    "Gold Price": "6205",
+    "Stats": "local physical damage +% 170 — 179 Local",
+    "Spawn Tags": "weapon: 1 default: 0",
+    "Craft Tags": "physical_damage Damage Physical Attack"
+  },
+  "code": "LocalIncreasedPhysicalDamagePercent8",
+  "stats": [
+    {
+      "id": "local_physical_damage_+%",
+      "min": 170,
+      "max": 179,
+      "locality": "Local"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "weapon",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

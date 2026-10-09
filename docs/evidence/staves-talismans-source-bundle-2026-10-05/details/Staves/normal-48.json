@@ -1,0 +1,77 @@
+{
+  "row": {
+    "Name": "Biting",
+    "Level": "8",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponDamageTypePrefix"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(69<span class=\"ndash\">—</span>88)</span>% increased <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "cold"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "no_cold_spell_mods",
+      "staff",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/385b1dc6e4afa2d166376f45c19a056e7265726e6de9ba72545257407c6b5345"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FColdDamagePrefixOnTwoHandWeapon2",
+  "textLocale": "sp",
+  "detailText": "Daño de hielo aumentado un (69—88)%",
+  "retrievedAt": "2026-10-05T10:05:00.564Z",
+  "sha256": "a7be1d2f688d81c6b0cc66f32e47251cecdeaeff6aac1b89e8f3fde293bdceaf",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Daño de <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FCold\">hielo</a> aumentado un <span class='mod-value'>(69<span class=\"ndash\">—</span>88)</span>%</span></h5>   <span data-tabname=\"<if:MS>{mordaz}<elif:MP>{mordaces}\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td><if:MS>{mordaz}<elif:MP>{mordaces}\n<tr><th>Family<td>WeaponDamageTypePrefix\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>8 (Effective: 6)\n<tr><th>Gold Price<td>279\n<tr><th>Stats<td><li>cold damage +% <span class=\"badge bg-primary\">69 <span class=\"ndash\">—</span> 88</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>no_cold_spell_mods: 0</span> <span class='badge bg-primary'>staff: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Daño</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Hielo</span> </table>  </div></div>",
+  "fields": {
+    "Name": "{mordaz}{mordaces}",
+    "Family": "WeaponDamageTypePrefix",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "8 (Effective: 6)",
+    "Gold Price": "279",
+    "Stats": "cold damage +% 69 — 88 Global",
+    "Spawn Tags": "no_cold_spell_mods: 0 staff: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_lightning_spell_mods no_chaos_spell_mods no_physical_spell_mods",
+    "Craft Tags": "elemental_damage Daño Elemental Hielo"
+  },
+  "code": "ColdDamagePrefixOnTwoHandWeapon2",
+  "stats": [
+    {
+      "id": "cold_damage_+%",
+      "min": 69,
+      "max": 88,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "no_cold_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "staff",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

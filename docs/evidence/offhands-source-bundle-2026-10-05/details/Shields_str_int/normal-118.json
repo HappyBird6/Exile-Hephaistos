@@ -1,0 +1,65 @@
+{
+  "row": {
+    "Name": "of Regularity",
+    "Level": "68",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "MaximumChaosResistance"
+    ],
+    "DropChance": "125",
+    "str": "<span class='mod-value'>+1</span>% to <a data-keyword=\"MaximumResistances\" href=\"Maximum_Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/10cfc4a861abfa43e56fa517c085678b0a54d64ffccc7e940f7616a55e2e17da\">Maximum Chaos Resistance</a>",
+    "fossil_no": [
+      "chaos_resistance",
+      "chaos",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "shield",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1c340e46c18855afff55b44c400c727b4442337959f2b9aef48b4c69f529a729"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FMaximumChaosResist1",
+  "textLocale": "kr",
+  "detailText": "카오스 저항 최대치 +1%",
+  "retrievedAt": "2026-10-05T04:20:56.645Z",
+  "sha256": "b52d259cab7fd6b33b6e3c8ae485328d9b1d4e4c97553a7b9c687f81f3e320af",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"MaximumResistances\" href=\"Maximum_Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/18237c9882ebde062c52ba47e48fc7b377329871a04607e84646fccb948100a0\">카오스 저항 최대치</a> <span class='mod-value'>+1</span>%</span></h5>   <span data-tabname=\"- 규칙성\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>- 규칙성\n<tr><th>Family<td>MaximumChaosResistance\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접미어 (2)\n<tr><th>Req. level<td>68 (Effective: 54)\n<tr><th>Gold Price<td>2575\n<tr><th>Stats<td><li>base maximum chaos damage resistance % <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 1</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>chaos_resistance</i></span> <span class='badge bg-primary'>카오스</span> <span class='badge bg-primary'>저항</span> </table>  </div></div>",
+  "fields": {
+    "Name": "- 규칙성",
+    "Family": "MaximumChaosResistance",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접미어 (2)",
+    "Req. level": "68 (Effective: 54)",
+    "Gold Price": "2575",
+    "Stats": "base maximum chaos damage resistance % 1 — 1 Global",
+    "Spawn Tags": "shield: 1 default: 0",
+    "Craft Tags": "chaos_resistance 카오스 저항"
+  },
+  "code": "MaximumChaosResist1",
+  "stats": [
+    {
+      "id": "base_maximum_chaos_damage_resistance_%",
+      "min": 1,
+      "max": 1,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "shield",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ],
+  "sharedFreshProof": true
+}

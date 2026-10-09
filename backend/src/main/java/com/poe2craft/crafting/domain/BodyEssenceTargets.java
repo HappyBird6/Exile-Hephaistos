@@ -16,4 +16,10 @@ public final class BodyEssenceTargets {
           List.of("rusted-cuirass:suffix:essence-reduced-incoming-critical-damage"));
 
   private BodyEssenceTargets() {}
+
+  public static boolean supports(String id) {
+    return com.poe2craft.item.ReviewedBodies.supports(id)
+        || id.equals(BASE_ID)
+        || id.equals("Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame");
+  }
 }

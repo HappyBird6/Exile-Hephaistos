@@ -1,0 +1,31 @@
+{
+  "url": "https://poe2db.tw/jp/Blunt_Quiver",
+  "retrievedAt": "2026-10-05T05:29:21.130Z",
+  "sha256": "d8e72d25c66f20360cb40fb03690c05335fec16c81df3f2e2f76af1613af7f6f",
+  "variants": [
+    {
+      "name": "鈍頭の矢筒",
+      "card": "鈍頭の矢筒\n        \n    \n    \n        \n            矢筒装備条件： レベル 33スタン蓄積が(25—40)%増加する\n        \n\n\n        \n        \n            弓装備時のみ装備可能\n        \n\n        \n            Blunt Quiver",
+      "requirements": "装備条件： レベル 33",
+      "fields": {
+        "DropLevel": "33",
+        "BaseType": "鈍頭の矢筒",
+        "Class": "矢筒",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Quivers/FourQuiver5",
+        "Tags": "quiver",
+        "Icon": "Art/2DItems/Quivers/Basetypes/QuiverBlunt",
+        "Base.base_level": "1",
+        "Base.tag": "default, quiver",
+        "Base.description_text": "ItemDescriptionQuiver",
+        "Base.x_size": "2",
+        "Base.y_size": "3",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Offhand",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

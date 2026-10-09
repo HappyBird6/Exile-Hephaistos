@@ -1,0 +1,93 @@
+{
+  "page": "Flails",
+  "url": "https://poe2db.tw/us/Flails",
+  "retrievedAt": "2026-10-05T01:38:25.461Z",
+  "sha256": "bf8fb72a35b0c7f855683cb6e64b0d12d396efceb840a31508bb4077a02740dc",
+  "cards": [
+    {
+      "slug": "Splintered_Flail",
+      "card": "Splintered FlailPhysical Damage: 6-9Critical Hit Chance: 10%Attacks per Second: 1.45Weapon Range: 1.3"
+    },
+    {
+      "slug": "Chain_Flail",
+      "card": "Chain FlailPhysical Damage: 8-14Critical Hit Chance: 10%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 6, 12 Str"
+    },
+    {
+      "slug": "Holy_Flail",
+      "card": "Holy FlailPhysical Damage: 10-17Critical Hit Chance: 10%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 11, 18 Str, 9 Int"
+    },
+    {
+      "slug": "Iron_Flail",
+      "card": "Iron FlailPhysical Damage: 14-23Critical Hit Chance: 10%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 16, 25 Str, 12 Int"
+    },
+    {
+      "slug": "Twin_Flail",
+      "card": "Twin FlailPhysical Damage: 8-18Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 20, 30 Str, 14 IntBifurcates Critical Hits"
+    },
+    {
+      "slug": "Slender_Flail",
+      "card": "Slender FlailPhysical Damage: 19-32Critical Hit Chance: 8%Attacks per Second: 1.5Weapon Range: 1.3Requires:  Level 26, 38 Str, 17 Int"
+    },
+    {
+      "slug": "Stone_Flail",
+      "card": "Stone FlailPhysical Damage: 23-38Critical Hit Chance: 10%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 33, 47 Str, 20 IntUnblockable"
+    },
+    {
+      "slug": "Ring_Flail",
+      "card": "Ring FlailPhysical Damage: 23-44Critical Hit Chance: 10%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 38, 54 Str, 23 Int"
+    },
+    {
+      "slug": "Guarded_Flail",
+      "card": "Guarded FlailPhysical Damage: 31-57Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 45, 63 Str, 26 Int"
+    },
+    {
+      "slug": "Icicle_Flail",
+      "card": "Icicle FlailCold Damage: 24-55Critical Hit Chance: 10%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 47, 66 Str, 27 Intlocal weapon implicit hidden % base damage is cold [100]"
+    },
+    {
+      "slug": "Tearing_Flail",
+      "card": "Tearing FlailPhysical Damage: 27-56Critical Hit Chance: 12.5%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 52, 72 Str, 29 Int"
+    },
+    {
+      "slug": "Great_Flail",
+      "card": "Great FlailPhysical Damage: 35-58Critical Hit Chance: 10%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 58, 80 Str, 32 Int"
+    },
+    {
+      "slug": "Abyssal_Flail",
+      "card": "Abyssal FlailPhysical Damage: 36-66Critical Hit Chance: 10%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 65, 89 Str, 36 Int"
+    }
+  ],
+  "highestRequirementCandidates": [
+    {
+      "slug": "Abyssal_Flail",
+      "card": "Abyssal FlailPhysical Damage: 36-66Critical Hit Chance: 10%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 65, 89 Str, 36 Int",
+      "requiredLevel": 65
+    },
+    {
+      "slug": "Great_Flail",
+      "card": "Great FlailPhysical Damage: 35-58Critical Hit Chance: 10%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 58, 80 Str, 32 Int",
+      "requiredLevel": 58
+    },
+    {
+      "slug": "Tearing_Flail",
+      "card": "Tearing FlailPhysical Damage: 27-56Critical Hit Chance: 12.5%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 52, 72 Str, 29 Int",
+      "requiredLevel": 52
+    },
+    {
+      "slug": "Icicle_Flail",
+      "card": "Icicle FlailCold Damage: 24-55Critical Hit Chance: 10%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 47, 66 Str, 27 Intlocal weapon implicit hidden % base damage is cold [100]",
+      "requiredLevel": 47
+    },
+    {
+      "slug": "Guarded_Flail",
+      "card": "Guarded FlailPhysical Damage: 31-57Critical Hit Chance: 10%Attacks per Second: 1.4Weapon Range: 1.3Requires:  Level 45, 63 Str, 26 Int",
+      "requiredLevel": 45
+    },
+    {
+      "slug": "Ring_Flail",
+      "card": "Ring FlailPhysical Damage: 23-44Critical Hit Chance: 10%Attacks per Second: 1.45Weapon Range: 1.3Requires:  Level 38, 54 Str, 23 Int",
+      "requiredLevel": 38
+    }
+  ],
+  "availability": "Candidate listing only; normal rarity flag and class page are not release proof"
+}

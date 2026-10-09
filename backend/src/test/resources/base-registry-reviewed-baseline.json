@@ -1,0 +1,138 @@
+{
+  "ReviewedAmulets.java": {
+    "stellar": "Metadata/Items/Amulets/FourAmulet8",
+    "amber": "Metadata/Items/Amulets/FourAmulet3",
+    "bloodstone": "Metadata/Items/Amulets/FourAmulet7",
+    "lunar": "Metadata/Items/Amulets/FourAmulet6",
+    "azure": "Metadata/Items/Amulets/FourAmulet2",
+    "crimson": "Metadata/Items/Amulets/FourAmulet1",
+    "pearlescent": "Metadata/Items/Amulets/FourAmulet11"
+  },
+  "ReviewedBelts.java": {
+    "linen-belt": "Metadata/Items/Belts/FourBelt2",
+    "wide-belt": "Metadata/Items/Belts/FourBelt3",
+    "long-belt": "Metadata/Items/Belts/FourBelt4",
+    "plate-belt": "Metadata/Items/Belts/FourBelt5",
+    "ornate-belt": "Metadata/Items/Belts/FourBelt6",
+    "mail-belt": "Metadata/Items/Belts/FourBelt7",
+    "double-belt": "Metadata/Items/Belts/FourBelt8",
+    "heavy-belt": "Metadata/Items/Belts/FourBelt9",
+    "utility-belt": "Metadata/Items/Belts/FourBelt10",
+    "fine-belt": "Metadata/Items/Belts/FourBelt11",
+    "invoking-belt": "Metadata/Items/Belts/FourBeltB2",
+    "sinew-belt": "Metadata/Items/Belts/FourBeltB3",
+    "forking-belt": "Metadata/Items/Belts/FourBeltB4"
+  },
+  "ReviewedBodies.java": {
+    "slipstrike": "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame",
+    "death-mail": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex6Endgame",
+    "sleek": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame",
+    "vile": "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame",
+    "wolfskin": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Endgame"
+  },
+  "ReviewedBoots.java": {
+    "tasalian": "Metadata/Items/Armours/Boots/FourBootsStr6Endgame",
+    "drakeskin": "Metadata/Items/Armours/Boots/FourBootsDex6Endgame",
+    "sekhema": "Metadata/Items/Armours/Boots/FourBootsInt6Endgame",
+    "blacksteel-boots": "Metadata/Items/Armours/Boots/FourBootsStrDex4Endgame",
+    "faithful": "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame",
+    "daggerfoot": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame"
+  },
+  "ReviewedBows.java": {
+    "warmonger": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow8Endgame",
+    "guardian": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow3Endgame",
+    "gemini": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow6Endgame",
+    "fanatic": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow7Endgame",
+    "obliterator": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame"
+  },
+  "ReviewedCrossbows.java": {
+    "siege-crossbow": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow7Endgame",
+    "gemini-crossbow": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow5Endgame",
+    "elegant-crossbow": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow10Endgame",
+    "flexed-crossbow": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow2Endgame",
+    "desolate-crossbow": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow8Endgame",
+    "engraved-crossbow": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame"
+  },
+  "ReviewedGloves.java": {
+    "massive": "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame",
+    "sirenscale": "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame",
+    "adherent": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
+    "polished": "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame",
+    "blacksteel-gloves": "Metadata/Items/Armours/Gloves/FourGlovesStrDex4Endgame",
+    "war-wraps": "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame"
+  },
+  "ReviewedHelmets.java": {
+    "freebooter": "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame",
+    "gladiatorial": "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame",
+    "grinning": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
+    "ancestral": "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame",
+    "cryptic": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame"
+  },
+  "ReviewedMaces.java": {
+    "fortified-hammer": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace8Endgame",
+    "strife-pick": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace5Endgame",
+    "akoyan-club": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace10Endgame",
+    "ruination-maul": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace8Endgame",
+    "fanatic-greathammer": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace5Endgame",
+    "tawhoan-greatclub": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace10Endgame"
+  },
+  "ReviewedOffhands.java": {
+    "tawhoan-tower-shield": "Metadata/Items/Armours/Shields/FourShieldStr10Endgame",
+    "golden-targe": "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame",
+    "blacksteel-crest-shield": "Metadata/Items/Armours/Shields/FourShieldStrInt7Endgame",
+    "desert-buckler": "Metadata/Items/Armours/Shields/FourShieldDex9Endgame",
+    "tasalian-focus": "Metadata/Items/Armours/Focii/FourFocus10Endgame"
+  },
+  "ReviewedQuarterstavesSpears.java": {
+    "aegis-quarterstaff": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame",
+    "bolting-quarterstaff": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff4Endgame",
+    "dreaming-quarterstaff": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame",
+    "grand-spear": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame",
+    "flying-spear": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame",
+    "akoyan-spear": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame"
+  },
+  "ReviewedQuivers.java": {
+    "visceral-quiver": "Metadata/Items/Quivers/FourQuiver11",
+    "volant-quiver": "Metadata/Items/Quivers/FourQuiver10",
+    "penetrating-quiver": "Metadata/Items/Quivers/FourQuiver9",
+    "primed-quiver": "Metadata/Items/Quivers/FourQuiver8",
+    "serrated-quiver": "Metadata/Items/Quivers/FourQuiver7",
+    "toxic-quiver": "Metadata/Items/Quivers/FourQuiver6",
+    "blunt-quiver": "Metadata/Items/Quivers/FourQuiver5",
+    "two-point-quiver": "Metadata/Items/Quivers/FourQuiver4",
+    "sacral-quiver": "Metadata/Items/Quivers/FourQuiver3",
+    "fire-quiver": "Metadata/Items/Quivers/FourQuiver2",
+    "broadhead-quiver": "Metadata/Items/Quivers/FourQuiver1"
+  },
+  "ReviewedRings.java": {
+    "kinetic": "Metadata/Items/Rings/FourRingB4",
+    "vitalic": "Metadata/Items/Rings/FourRingB2",
+    "mnemonic": "Metadata/Items/Rings/FourRingB3",
+    "pearl": "Metadata/Items/Rings/FourRing8",
+    "amethyst": "Metadata/Items/Rings/FourRing6",
+    "prismatic": "Metadata/Items/Rings/FourRing9",
+    "ruby-ring": "Metadata/Items/Rings/FourRing3",
+    "two-stone-fire-cold": "Metadata/Items/Rings/FourRing13a"
+  },
+  "ReviewedSceptres.java": {
+    "hallowed": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
+    "stoic": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+    "omen": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
+    "shrine-fire": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a",
+    "shrine-ice": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b",
+    "shrine-lightning": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c",
+    "clasped": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8",
+    "wrath": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10"
+  },
+  "ReviewedWands.java": {
+    "bone": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2",
+    "siphoning": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4",
+    "volatile": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5",
+    "galvanic": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6",
+    "acrid": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7",
+    "offering": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8",
+    "critical": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11",
+    "primordial": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12",
+    "dueling": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "count": 7,
+  "checks": [
+    "wand real compound legacy fixture",
+    "wand legacy rolls/fracture/snapshot preserved",
+    "sceptre real compound legacy fixture",
+    "sceptre legacy rolls/fracture/snapshot preserved",
+    "hallowed real compound legacy fixture",
+    "hallowed legacy rolls/fracture/snapshot preserved",
+    "no browser errors"
+  ],
+  "errors": []
+}

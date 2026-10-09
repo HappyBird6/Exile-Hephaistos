@@ -1,0 +1,40 @@
+{
+  "code": null,
+  "sourceId": "5328558a77fdd1a63ec464a262cd7066f1898b82c3d172cfbc08fd06cc8c3349",
+  "url": "https://poe2db.tw/cache2/us/Poe_Data_Mods_hover/5328558a77fdd1a63ec464a262cd7066f1898b82c3d172cfbc08fd06cc8c3349",
+  "retrievedAt": "2026-10-04T18:57:32.751Z",
+  "sha256": "5328558a77fdd1a63ec464a262cd7066f1898b82c3d172cfbc08fd06cc8c3349",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(51<span class=\"ndash\">—</span>55)</span>% reduced <a data-keyword=\"Freeze\" href=\"Freeze\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ec7fa61fabe8d4f1e067032d8f775ece04898abb98c6a10b0db800b86fe81320\">Freeze</a> Duration on you</span></h5>   <span data-tabname=\"of the Temperate\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Temperate\n<tr><th>Family<td>ReducedAilmentDuration\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>63 (Effective: 50)\n<tr><th>Gold Price<td>2658\n<tr><th>Stats<td><li>base self freeze duration -% <span class=\"badge bg-primary\">51 <span class=\"ndash\">—</span> 55</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Ailment</span> </table>  </div></div>",
+  "parsed": {
+    "fields": {
+      "Name": "of the Temperate",
+      "Family": "ReducedAilmentDuration",
+      "Domains": "Item (1)",
+      "GenerationType": "Suffix (2)",
+      "Req. level": "63 (Effective: 50)",
+      "Gold Price": "2658",
+      "Stats": "base self freeze duration -% 51 — 55 Global",
+      "Spawn Tags": "boots: 1 default: 0",
+      "Craft Tags": "Elemental Cold Ailment"
+    },
+    "stats": [
+      {
+        "id": "base_self_freeze_duration_-%",
+        "min": 51,
+        "max": 55,
+        "locality": "Global"
+      }
+    ],
+    "spawn": [
+      {
+        "tag": "boots",
+        "weight": 1
+      },
+      {
+        "tag": "default",
+        "weight": 0
+      }
+    ],
+    "effect": "(51—55)% reduced Freeze Duration on you"
+  }
+}

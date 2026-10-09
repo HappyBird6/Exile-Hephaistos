@@ -1,0 +1,28 @@
+{
+  "url": "https://poe2db.tw/us/Bloodstone_Amulet",
+  "retrievedAt": "2026-10-04T21:52:32.728Z",
+  "sha256": "92c27288fc1160bd78016acddd0ec79b52167056ebd96080a416fefc5f7913a1",
+  "name": "Bloodstone Amulet",
+  "card": "Bloodstone Amulet\n        \n    \n    \n        \n            AmuletsRequires:  Level 18+(30—40) to maximum Life",
+  "requirements": "Requires:  Level 18",
+  "fields": {
+    "ID": "BrequelTreeAmulets40d",
+    "Icon": "Art/2DItems/Amulets/Basetypes/BloodstoneAmulet",
+    "PassiveSkillsHash": "46738",
+    "DropLevel": "18",
+    "BaseType": "Bloodstone Amulet",
+    "Class": "Amulets",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Amulets/FourAmulet7",
+    "Tags": "amulet",
+    "Base.base_level": "1",
+    "Base.tag": "default, amulet",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Amulet",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

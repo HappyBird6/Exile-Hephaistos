@@ -1,0 +1,327 @@
+{
+  "base": {
+    "key": "tasalian-focus",
+    "slug": "Tasalian_Focus",
+    "pool": "tasalian-focus",
+    "family": "foci",
+    "id": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
+    "name": "Tasalian Focus",
+    "sourceUrl": "https://poe2db.tw/us/Tasalian_Focus",
+    "sourceSha256": "c26d40aca986cd18dff19c1751b837810ada7f7881878d3a378290cb540fce06",
+    "sourceTags": [
+      "int_armour",
+      "karui_basetype",
+      "focus",
+      "armour"
+    ],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 91,
+    "blockChance": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 115,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Int",
+      "ko": "요구 사항:  레벨 80, 115 지능",
+      "ja": "装備条件： レベル 80, 115 知性",
+      "zh-CN": "需求：  等级 80, 115 智慧",
+      "zh-TW": "需求:  等級 80, 115 智慧",
+      "es": "Requiere:  Nivel 80, 115 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Energy Shield: 91"
+      ],
+      "ko": [
+        "에너지 보호막: 91"
+      ],
+      "ja": [
+        "エナジーシールド: 91"
+      ],
+      "zh-CN": [
+        "能量护盾: 91"
+      ],
+      "zh-TW": [
+        "能量護盾: 91"
+      ],
+      "es": [
+        "Escudo de energía: 91"
+      ]
+    },
+    "skillLines": {
+      "en": [],
+      "ko": [],
+      "ja": [],
+      "zh-CN": [],
+      "zh-TW": [],
+      "es": []
+    },
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 81,
+    "grantedSkill": null
+  },
+  "ordinary": 140,
+  "reused": 140,
+  "special": 3,
+  "fixed": {
+    "LESSER_ESSENCE_ENHANCEMENT": [
+      "sirenscale-gloves:prefix:strong-willed"
+    ],
+    "LESSER_ESSENCE_RUIN": [
+      "stocky-mitts:suffix:of-the-lost"
+    ],
+    "LESSER_ESSENCE_SORCERY": [
+      "attuned-wand:prefix:adept-s"
+    ],
+    "LESSER_ESSENCE_INFINITE": [
+      "attuned-wand:suffix:of-the-student"
+    ],
+    "ESSENCE_ENHANCEMENT": [
+      "sirenscale-gloves:prefix:fearless"
+    ],
+    "ESSENCE_RUIN": [
+      "stocky-mitts:suffix:of-banishment"
+    ],
+    "ESSENCE_SORCERY": [
+      "attuned-wand:prefix:professor-s"
+    ],
+    "ESSENCE_INFINITE": [
+      "attuned-wand:suffix:of-the-augur"
+    ],
+    "GREATER_ESSENCE_ENHANCEMENT": [
+      "sirenscale-gloves:prefix:dauntless"
+    ],
+    "GREATER_ESSENCE_RUIN": [
+      "stocky-mitts:suffix:of-expulsion"
+    ],
+    "GREATER_ESSENCE_SORCERY": [
+      "attuned-wand:prefix:incanter-s"
+    ],
+    "GREATER_ESSENCE_INFINITE": [
+      "attuned-wand:suffix:of-the-sage"
+    ],
+    "LESSER_ESSENCE_SEEKING": [
+      "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2"
+    ],
+    "ESSENCE_SEEKING": [
+      "attuned-wand:suffix:of-disaster"
+    ],
+    "GREATER_ESSENCE_SEEKING": [
+      "attuned-wand:suffix:of-calamity"
+    ],
+    "LESSER_ESSENCE_INSULATION": [
+      "stocky-mitts:suffix:of-the-salamander"
+    ],
+    "ESSENCE_INSULATION": [
+      "stocky-mitts:suffix:of-the-kiln"
+    ],
+    "GREATER_ESSENCE_INSULATION": [
+      "stocky-mitts:suffix:of-the-volcano"
+    ],
+    "LESSER_ESSENCE_THAWING": [
+      "stocky-mitts:suffix:of-the-penguin"
+    ],
+    "ESSENCE_THAWING": [
+      "stocky-mitts:suffix:of-the-yeti"
+    ],
+    "GREATER_ESSENCE_THAWING": [
+      "stocky-mitts:suffix:of-the-polar-bear"
+    ],
+    "LESSER_ESSENCE_GROUNDING": [
+      "stocky-mitts:suffix:of-the-squall"
+    ],
+    "ESSENCE_GROUNDING": [
+      "stocky-mitts:suffix:of-the-thunderhead"
+    ],
+    "GREATER_ESSENCE_GROUNDING": [
+      "stocky-mitts:suffix:of-the-maelstrom"
+    ],
+    "LESSER_ESSENCE_ALACRITY": [
+      "attuned-wand:suffix:of-nimbleness"
+    ],
+    "ESSENCE_ALACRITY": [
+      "attuned-wand:suffix:of-expertise"
+    ],
+    "GREATER_ESSENCE_ALACRITY": [
+      "attuned-wand:suffix:of-legerdemain"
+    ]
+  },
+  "replacements": {
+    "ESSENCE_HYSTERIA": [
+      "sleek-jacket:suffix:of-ardour"
+    ],
+    "ESSENCE_ABYSS": [
+      "stocky-mitts:prefix:essence-abyssal-mark",
+      "stocky-mitts:suffix:essence-abyssal-mark"
+    ],
+    "PERFECT_ESSENCE_ALACRITY": [
+      "attuned-wand:suffix:essence-mana-cost-efficiency"
+    ]
+  },
+  "excluded": [
+    {
+      "kind": "essence",
+      "code": "IncreasedLife3",
+      "action": "LESSER_ESSENCE_BODY",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedPhysicalDamageReductionRatingPercent2",
+      "action": "LESSER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEvasionRatingPercent2",
+      "action": "LESSER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedArmourAndEvasion2",
+      "action": "LESSER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedArmourAndEnergyShield2",
+      "action": "LESSER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEvasionAndEnergyShield2",
+      "action": "LESSER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "Strength2",
+      "action": "LESSER_ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "Dexterity2",
+      "action": "LESSER_ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedPhysicalDamageReductionRatingPercent4",
+      "action": "ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEvasionRatingPercent4",
+      "action": "ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedArmourAndEvasion4",
+      "action": "ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedArmourAndEnergyShield4",
+      "action": "ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEvasionAndEnergyShield4",
+      "action": "ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "Strength4",
+      "action": "ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "Dexterity4",
+      "action": "ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedPhysicalDamageReductionRatingPercent5",
+      "action": "GREATER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEvasionRatingPercent5",
+      "action": "GREATER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedArmourAndEvasion5",
+      "action": "GREATER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedArmourAndEnergyShield5",
+      "action": "GREATER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "LocalIncreasedEvasionAndEnergyShield5_",
+      "action": "GREATER_ESSENCE_ENHANCEMENT",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "Strength6",
+      "action": "GREATER_ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "essence",
+      "code": "Dexterity6",
+      "action": "GREATER_ESSENCE_INFINITE",
+      "reason": "Ordered spawn denies base"
+    },
+    {
+      "kind": "perfect_essence",
+      "code": "AlloyTotemPlacementSpeed1",
+      "action": "SWIFT_ALLOY",
+      "reason": "Existing excluded/deferred action"
+    },
+    {
+      "kind": "perfect_essence",
+      "code": "AlloyExposureEffect1",
+      "action": "PRISMATIC_ALLOY",
+      "reason": "Existing excluded/deferred action"
+    },
+    {
+      "kind": "perfect_essence",
+      "code": "AlloyLocalWardIncreasePercent1",
+      "action": "SOVEREIGN_ALLOY",
+      "reason": "Existing excluded/deferred action"
+    },
+    {
+      "kind": "perfect_essence",
+      "code": "AlloyCastSpeedDamageAsExtraColdHybridOneHand1",
+      "action": "TRANSCENDENT_ALLOY",
+      "reason": "Existing excluded/deferred action"
+    }
+  ],
+  "weightPolicy": "POE2DB_AS_PUBLISHED",
+  "combatSimulation": false,
+  "implicitPolicy": "Source built-in block/property/skill text only; no synthesized canonical item stat without source proof"
+}

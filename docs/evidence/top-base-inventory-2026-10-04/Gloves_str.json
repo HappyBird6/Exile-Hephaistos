@@ -1,0 +1,144 @@
+{
+  "page": "Gloves_str",
+  "url": "https://poe2db.tw/us/Gloves_str",
+  "retrievedAt": "2026-10-04T14:44:58.123Z",
+  "sha256": "2be59d90ebc39e7b954cd3e3129d8dbc68c8b785593beb5905c76340775e762d",
+  "cards": [
+    {
+      "slug": "Stocky_Mitts",
+      "card": "Stocky MittsArmour: 15"
+    },
+    {
+      "slug": "Riveted_Mitts",
+      "card": "Riveted MittsArmour: 38Requires:  Level 11, 16 Str"
+    },
+    {
+      "slug": "Tempered_Mitts",
+      "card": "Tempered MittsArmour: 49Requires:  Level 16, 22 Str"
+    },
+    {
+      "slug": "Bolstered_Mitts",
+      "card": "Bolstered MittsArmour: 75Requires:  Level 27, 35 Str"
+    },
+    {
+      "slug": "Moulded_Mitts",
+      "card": "Moulded MittsArmour: 89Requires:  Level 33, 42 Str"
+    },
+    {
+      "slug": "Detailed_Mitts",
+      "card": "Detailed MittsArmour: 116Requires:  Level 45, 56 Str"
+    },
+    {
+      "slug": "Titan_Mitts",
+      "card": "Titan MittsArmour: 132Requires:  Level 52, 64 Str"
+    },
+    {
+      "slug": "Grand_Mitts",
+      "card": "Grand MittsArmour: 162Requires:  Level 65, 80 Str"
+    },
+    {
+      "slug": "Plated_Mitts",
+      "card": "Plated MittsArmour: 116Requires:  Level 45, 56 Str"
+    },
+    {
+      "slug": "Elegant_Mitts",
+      "card": "Elegant MittsArmour: 130Requires:  Level 51, 64 Str"
+    },
+    {
+      "slug": "Ancient_Mitts",
+      "card": "Ancient MittsArmour: 137Requires:  Level 54, 67 Str"
+    },
+    {
+      "slug": "Feathered_Mitts",
+      "card": "Feathered MittsArmour: 149Requires:  Level 59, 73 Str"
+    },
+    {
+      "slug": "Knightly_Mitts",
+      "card": "Knightly MittsArmour: 162Requires:  Level 65, 80 Str"
+    },
+    {
+      "slug": "Ornate_Mitts",
+      "card": "Ornate MittsArmour: 171Requires:  Level 70, 87 Str"
+    },
+    {
+      "slug": "Vaal_Mitts",
+      "card": "Vaal MittsArmour: 179Requires:  Level 75, 94 Str"
+    },
+    {
+      "slug": "Massive_Mitts",
+      "card": "Massive MittsArmour: 187Requires:  Level 80, 101 Str"
+    },
+    {
+      "slug": "Runeforged_Stocky_Mitts",
+      "card": "Runeforged Stocky MittsArmour: 15Runic Ward: 10"
+    },
+    {
+      "slug": "Runeforged_Riveted_Mitts",
+      "card": "Runeforged Riveted MittsArmour: 38Runic Ward: 16Requires:  Level 11, 16 Str"
+    },
+    {
+      "slug": "Runeforged_Tempered_Mitts",
+      "card": "Runeforged Tempered MittsArmour: 49Runic Ward: 17Requires:  Level 16, 22 Str"
+    },
+    {
+      "slug": "Runeforged_Bolstered_Mitts",
+      "card": "Runeforged Bolstered MittsArmour: 75Runic Ward: 21Requires:  Level 27, 35 Str"
+    },
+    {
+      "slug": "Runeforged_Moulded_Mitts",
+      "card": "Runeforged Moulded MittsArmour: 89Runic Ward: 22Requires:  Level 33, 42 Str"
+    },
+    {
+      "slug": "Runeforged_Detailed_Mitts",
+      "card": "Runeforged Detailed MittsArmour: 116Runic Ward: 26Requires:  Level 45, 56 Str"
+    },
+    {
+      "slug": "Runeforged_Ancient_Mitts",
+      "card": "Runeforged Ancient MittsArmour: 110Runic Ward: 48Requires:  Level 54, 67 Str"
+    },
+    {
+      "slug": "Runeforged_Feathered_Mitts",
+      "card": "Runeforged Feathered MittsArmour: 137Runic Ward: 32Requires:  Level 59, 73 Str"
+    },
+    {
+      "slug": "Runeforged_Knightly_Mitts",
+      "card": "Runeforged Knightly MittsArmour: 153Runic Ward: 28Requires:  Level 65, 80 Str"
+    },
+    {
+      "slug": "Runeforged_Ornate_Mitts",
+      "card": "Runeforged Ornate MittsArmour: 120Runic Ward: 63Requires:  Level 70, 87 Str"
+    },
+    {
+      "slug": "Runeforged_Vaal_Mitts",
+      "card": "Runeforged Vaal MittsArmour: 169Runic Ward: 28Requires:  Level 75, 94 Str"
+    },
+    {
+      "slug": "Runeforged_Massive_Mitts",
+      "card": "Runeforged Massive MittsArmour: 78Runic Ward: 127Requires:  Level 80, 101 Str"
+    },
+    {
+      "slug": "Runemastered_Stocky_Mitts",
+      "card": "Runemastered Stocky MittsArmour: 50Runic Ward: 45Requires:  Level 38, 48 Str"
+    },
+    {
+      "slug": "Runemastered_Riveted_Mitts",
+      "card": "Runemastered Riveted MittsArmour: 80Runic Ward: 23Requires:  Level 38, 48 Str"
+    },
+    {
+      "slug": "Runemastered_Tempered_Mitts",
+      "card": "Runemastered Tempered MittsArmour: 95Runic Ward: 23Requires:  Level 38, 48 Str"
+    },
+    {
+      "slug": "Runemastered_Bolstered_Mitts",
+      "card": "Runemastered Bolstered MittsArmour: 80Runic Ward: 27Requires:  Level 38, 48 Str"
+    },
+    {
+      "slug": "Runemastered_Moulded_Mitts",
+      "card": "Runemastered Moulded MittsArmour: 70Runic Ward: 61Requires:  Level 55, 68 Str"
+    },
+    {
+      "slug": "Runemastered_Titan_Mitts",
+      "card": "Runemastered Titan MittsArmour: 114Runic Ward: 49Requires:  Level 65, 80 Str"
+    }
+  ]
+}

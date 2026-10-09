@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/cn/Pearlescent_Amulet",
+  "retrievedAt": "2026-10-04T21:52:41.742Z",
+  "sha256": "cff5f0f89540acb181e6775f37de8da714aed0f9f0df484429757ef9d0f1c99d",
+  "name": "珠光项链",
+  "card": "珠光项链\n        \n    \n    \n        \n            项链需求：  等级 8所有元素抗性 +(7—10)%\n        \n\n\n\n        \n            Pearlescent Amulet",
+  "requirements": "需求：  等级 8",
+  "fields": {
+    "DropLevel": "8",
+    "BaseType": "珠光项链",
+    "Class": "项链",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Amulets/FourAmulet11",
+    "Tags": "amulet",
+    "Icon": "Art/2DItems/Amulets/Basetypes/PearlescentAmulet",
+    "Base.base_level": "1",
+    "Base.tag": "default, amulet",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Amulet",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5",
+    "珠光项链": "1x 翠玉项链 \n1x 琥珀项链 \n1x 海玉项链"
+  }
+}

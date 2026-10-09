@@ -1,0 +1,38 @@
+{
+  "url": "https://poe2db.tw/us/Engraved_Crossbow",
+  "retrievedAt": "2026-10-05T02:34:23.003Z",
+  "sha256": "93f4d1e8645be76e8050ed07cc720393c3218cf69df843731204ace0820a4017",
+  "variants": [
+    {
+      "name": "Engraved Crossbow",
+      "card": "Engraved Crossbow\n        \n    \n    \n        \n            CrossbowsPhysical Damage: 31-124Critical Hit Chance: 5%Attacks per Second: 1.6Reload Time: 0.8Requires:  Level 72, 82 Str, 82 Dex",
+      "requirements": "Requires:  Level 72, 82 Str, 82 Dex",
+      "fields": {
+        "DropLevel": "72",
+        "BaseType": "Engraved Crossbow",
+        "Class": "Crossbows",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanScourge",
+        "Type": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame",
+        "Tags": "crossbow, ranged, two_hand_weapon, twohand, weapon",
+        "Icon": "Art/2DItems/Weapons/TwoHandWeapons/Crossbows/2HCrossbow04",
+        "Base.base_level": "1",
+        "Base.tag": "default, weapon, twohand, crossbow, ranged, two_hand_weapon",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Weapon",
+        "AttributeRequirements.strength_requirement": "100",
+        "AttributeRequirements.dexterity_requirement": "0",
+        "AttributeRequirements.intelligence_requirement": "0",
+        "Weapon.minimum_attack_distance": "0",
+        "Weapon.maximum_attack_distance": "3",
+        "Weapon.minimum_damage": "5",
+        "Weapon.maximum_damage": "10",
+        "Weapon.weapon_speed": "833",
+        "Weapon.critical_chance": "500",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ]
+}

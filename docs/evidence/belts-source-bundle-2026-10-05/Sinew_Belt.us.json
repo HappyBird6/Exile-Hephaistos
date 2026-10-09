@@ -1,0 +1,30 @@
+{
+  "url": "https://poe2db.tw/us/Sinew_Belt",
+  "retrievedAt": "2026-10-05T01:23:17.781Z",
+  "sha256": "619c4da87b8920c6ac53b66c319ff2f77effa0bc063faf6ddc8236fafc25b7a9",
+  "variants": [
+    {
+      "name": "Sinew Belt",
+      "card": "Sinew Belt\n        \n    \n    \n        \n            BeltsRequires:  Level 32Has (1—3) Charm SlotsHas 1 Charm Slots+(15—20) to Strength\n        \n\n        \n        \n            It is our flesh that binds.",
+      "requirements": "Requires:  Level 32",
+      "fields": {
+        "DropLevel": "32",
+        "BaseType": "Sinew Belt",
+        "Class": "Belts",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Belts/FourBeltB3",
+        "Tags": "belt",
+        "Icon": "Art/2DItems/Belts/Basetypes/SinewBelt",
+        "Base.base_level": "1",
+        "Base.tag": "default, belt",
+        "Base.x_size": "2",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Belt",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ]
+}

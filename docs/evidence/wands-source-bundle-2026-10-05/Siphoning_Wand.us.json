@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/us/Siphoning_Wand",
+  "retrievedAt": "2026-10-05T00:06:33.905Z",
+  "sha256": "ae26469c192d54bf9cf75e46717918299c9b1ff947ec4353d88b22d4f60b9e58",
+  "name": "Siphoning Wand",
+  "card": "Siphoning Wand\n        \n    \n    \n        \n            WandsRequires:  Level 11, 23 Int Grants Skill: Power Siphon",
+  "requirements": "Requires:  Level 11, 23 Int",
+  "fields": {
+    "DropLevel": "11",
+    "BaseType": "Siphoning Wand",
+    "Class": "Wands",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4",
+    "Tags": "wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand04",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

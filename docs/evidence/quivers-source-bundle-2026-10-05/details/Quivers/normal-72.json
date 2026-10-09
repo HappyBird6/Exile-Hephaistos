@@ -1,0 +1,63 @@
+{
+  "row": {
+    "Name": "of Disaster",
+    "Level": "30",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "CriticalStrikeChanceIncrease"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(20<span class=\"ndash\">—</span>24)</span>% increased <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/974f65aa29302e5d144fd3d444be0d603d069aa1e3f2ec43e986586263c458ed\">Critical Hit Chance</a> for <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attacks</a>",
+    "fossil_no": [
+      "attack",
+      "critical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "quiver",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f9c4356e73352d4257cb12b83f975d591d32678757b48ea90ee81f88d69a9b92"
+  },
+  "url": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FAttackCriticalStrikeChance3",
+  "textLocale": "kr",
+  "detailText": "공격 치명타 명중 확률 (20—24)% 증가",
+  "retrievedAt": "2026-10-05T05:32:17.711Z",
+  "sha256": "8369f697548674087ac18ff81a8b5e526dffd570a303bfd5b86cb1d9a736223c",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/f0417cc1244986b8ff045d649792b8afbc512893e892d0c0baad82ceb3d54f31\">공격</a> <a data-keyword=\"Critical\" href=\"Critical_Hits\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/72cba7476c839fc1dcf5e9271d7aabb0226f2f0c8730cee3109c33bf93ad75be\">치명타 명중 확률</a> <span class='mod-value'>(20<span class=\"ndash\">—</span>24)</span>% 증가</span></h5>   <span data-tabname=\"- 재난\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>- 재난\n<tr><th>Family<td>CriticalStrikeChanceIncrease\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>접미어 (2)\n<tr><th>Req. level<td>30 (Effective: 24)\n<tr><th>Gold Price<td>577\n<tr><th>Stats<td><li>attack critical strike chance +% <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 24</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>공격</span> <span class='badge bg-primary'>치명타</span> </table>  </div></div>",
+  "fields": {
+    "Name": "- 재난",
+    "Family": "CriticalStrikeChanceIncrease",
+    "Domains": "아이템 (1)",
+    "GenerationType": "접미어 (2)",
+    "Req. level": "30 (Effective: 24)",
+    "Gold Price": "577",
+    "Stats": "attack critical strike chance +% 20 — 24 Global",
+    "Spawn Tags": "quiver: 1 default: 0",
+    "Craft Tags": "공격 치명타"
+  },
+  "code": "AttackCriticalStrikeChance3",
+  "stats": [
+    {
+      "id": "attack_critical_strike_chance_+%",
+      "min": 20,
+      "max": 24,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "row": {
+    "Name": "Acute",
+    "Level": "1",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DamageWithWeaponTypeSkill"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(11<span class=\"ndash\">—</span>20)</span>% increased Damage with Bow Skills",
+    "fossil_no": [
+      "damage"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "quiver",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/828e5895baf9501490bc213469c1f65872b9b0a1820e9feef77e96d371c8637a"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FDamageWithBows1",
+  "textLocale": "sp",
+  "detailText": "Daño aumentado un (11—20)% con habilidades de arco",
+  "retrievedAt": "2026-10-05T05:33:37.445Z",
+  "sha256": "12aa8d8d1a1a6e610cbde8269bf3854a03690821a12638b35ffb05b3277ecdfd",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Daño aumentado un <span class='mod-value'>(11<span class=\"ndash\">—</span>20)</span>% con habilidades de arco</span></h5>   <span data-tabname=\"<if:MS>{Agudo}<elif:FS>{Aguda}<elif:MP>{Agudos}<elif:FP>{Agudas}\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td><if:MS>{Agudo}<elif:FS>{Aguda}<elif:MP>{Agudos}<elif:FP>{Agudas}\n<tr><th>Family<td>DamageWithWeaponTypeSkill\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>1\n<tr><th>Gold Price<td>95\n<tr><th>Stats<td><li>damage +% with bow skills <span class=\"badge bg-primary\">11 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Daño</span> </table>  </div></div>",
+  "fields": {
+    "Name": "{Agudo}{Aguda}{Agudos}{Agudas}",
+    "Family": "DamageWithWeaponTypeSkill",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "1",
+    "Gold Price": "95",
+    "Stats": "damage +% with bow skills 11 — 20 Global",
+    "Spawn Tags": "quiver: 1 default: 0",
+    "Craft Tags": "Daño"
+  },
+  "code": "DamageWithBows1",
+  "stats": [
+    {
+      "id": "damage_+%_with_bow_skills",
+      "min": 11,
+      "max": 20,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

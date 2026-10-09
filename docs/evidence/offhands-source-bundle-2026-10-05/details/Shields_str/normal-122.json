@@ -1,0 +1,94 @@
+{
+  "row": {
+    "Name": "of Thermokryptance",
+    "Level": "81",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "ArmourAppliesToElementalDamage"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>+(44<span class=\"ndash\">—</span>50)</span>% of <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> also applies to <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/76ff55a46c9d3d007722fb5ccb09592dc48359db448d433f7e0c8dfc6e94dcbd\">Elemental Damage</a>",
+    "fossil_no": [
+      "defences",
+      "armour",
+      "elemental"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "helmet",
+      "gloves",
+      "boots",
+      "str_dex_int_armour",
+      "str_int_armour",
+      "str_dex_armour",
+      "str_armour",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingarmour\" data-tag=\"armour\">Armour</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a07bfde6f11a232d7fdcc67e7cfe1dbf9cfdb04db748f7a6e4a01fb35152f255"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FArmourAppliesToElementalDamage6",
+  "textLocale": "us",
+  "detailText": "+(44—50)% of Armour also applies to Elemental Damage",
+  "retrievedAt": "2026-10-05T04:21:08.470Z",
+  "sha256": "abbf683913bdae9020eeb6428858d79efdef3efce52eb09717aecbd76e4df669",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(44<span class=\"ndash\">—</span>50)</span>% of <a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/28e37dec8844d8248601f5700ab609e6afc822df4f90a82c2cc2359adacdc90f\">Armour</a> also applies to <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/76ff55a46c9d3d007722fb5ccb09592dc48359db448d433f7e0c8dfc6e94dcbd\">Elemental Damage</a></span></h5>   <span data-tabname=\"of Thermokryptance\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Thermokryptance\n<tr><th>Family<td>ArmourAppliesToElementalDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>81 (Effective: 64)\n<tr><th>Gold Price<td>3288\n<tr><th>Stats<td><li>armour % applies to fire cold lightning damage <span class=\"badge bg-primary\">44 <span class=\"ndash\">—</span> 50</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>helmet: 0</span> <span class='badge bg-primary'>gloves: 0</span> <span class='badge bg-primary'>boots: 0</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>str_armour: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>Armour</span> <span class='badge bg-primary'>Elemental</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Thermokryptance",
+    "Family": "ArmourAppliesToElementalDamage",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "81 (Effective: 64)",
+    "Gold Price": "3288",
+    "Stats": "armour % applies to fire cold lightning damage 44 — 50 Global",
+    "Spawn Tags": "helmet: 0 gloves: 0 boots: 0 str_dex_int_armour: 1 str_int_armour: 1 str_dex_armour: 1 str_armour: 1 default: 0",
+    "Craft Tags": "defences Armour Elemental"
+  },
+  "code": "ArmourAppliesToElementalDamage6",
+  "stats": [
+    {
+      "id": "armour_%_applies_to_fire_cold_lightning_damage",
+      "min": 44,
+      "max": 50,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "helmet",
+      "weight": 0
+    },
+    {
+      "tag": "gloves",
+      "weight": 0
+    },
+    {
+      "tag": "boots",
+      "weight": 0
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_armour",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

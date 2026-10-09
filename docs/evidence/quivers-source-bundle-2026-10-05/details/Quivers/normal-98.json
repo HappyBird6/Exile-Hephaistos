@@ -1,0 +1,61 @@
+{
+  "row": {
+    "Name": "Lacerating",
+    "Level": "60",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "DamageWithWeaponTypeSkill"
+    ],
+    "DropChance": "500",
+    "str": "<span class='mod-value'>(43<span class=\"ndash\">—</span>50)</span>% increased Damage with Bow Skills",
+    "fossil_no": [
+      "damage"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "quiver",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/22abe33b49be7d2545641471d984d54ab720b90443916490e5c1732c2c7dc038"
+  },
+  "url": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FDamageWithBows5",
+  "textLocale": "sp",
+  "detailText": "Daño aumentado un (43—50)% con habilidades de arco",
+  "retrievedAt": "2026-10-05T05:33:47.773Z",
+  "sha256": "735a187fb35edc90ec0b4d2957fe04734b07068c02c0c07c0e4da405187eee20",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'>Daño aumentado un <span class='mod-value'>(43<span class=\"ndash\">—</span>50)</span>% con habilidades de arco</span></h5>   <span data-tabname=\"<if:MS>{Lacerante}<elif:MP>{Lacerantes}\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td><if:MS>{Lacerante}<elif:MP>{Lacerantes}\n<tr><th>Family<td>DamageWithWeaponTypeSkill\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>Prefijo (1)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>1490\n<tr><th>Stats<td><li>damage +% with bow skills <span class=\"badge bg-primary\">43 <span class=\"ndash\">—</span> 50</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>quiver: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Daño</span> </table>  </div></div>",
+  "fields": {
+    "Name": "{Lacerante}{Lacerantes}",
+    "Family": "DamageWithWeaponTypeSkill",
+    "Domains": "Objeto (1)",
+    "GenerationType": "Prefijo (1)",
+    "Req. level": "60 (Effective: 48)",
+    "Gold Price": "1490",
+    "Stats": "damage +% with bow skills 43 — 50 Global",
+    "Spawn Tags": "quiver: 1 default: 0",
+    "Craft Tags": "Daño"
+  },
+  "code": "DamageWithBows5",
+  "stats": [
+    {
+      "id": "damage_+%_with_bow_skills",
+      "min": 43,
+      "max": 50,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "quiver",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

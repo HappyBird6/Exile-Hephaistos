@@ -1,0 +1,28 @@
+{
+  "url": "https://poe2db.tw/kr/Bloodstone_Amulet",
+  "retrievedAt": "2026-10-04T21:52:33.018Z",
+  "sha256": "4d3f4c6f37c52234807fde9af74d5725fadc56e4e41e85ad01f925fed8c5a563",
+  "name": "혈석 목걸이",
+  "card": "혈석 목걸이\n        \n    \n    \n        \n            목걸이요구 사항:  레벨 18생명력 최대치 +(30—40)\n        \n\n\n\n        \n            Bloodstone Amulet",
+  "requirements": "요구 사항:  레벨 18",
+  "fields": {
+    "ID": "BrequelTreeAmulets40d",
+    "Icon": "Art/2DItems/Amulets/Basetypes/BloodstoneAmulet",
+    "PassiveSkillsHash": "46738",
+    "DropLevel": "18",
+    "BaseType": "혈석 목걸이",
+    "Class": "목걸이",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Amulets/FourAmulet7",
+    "Tags": "amulet",
+    "Base.base_level": "1",
+    "Base.tag": "default, amulet",
+    "Base.x_size": "1",
+    "Base.y_size": "1",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Amulet",
+    "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "row": {
+    "Name": "of Expertise",
+    "Level": "30",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "IncreasedCastSpeed"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(17<span class=\"ndash\">—</span>20)</span>% increased Cast Speed",
+    "fossil_no": [
+      "caster_speed",
+      "caster",
+      "speed"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "focus",
+      "wand",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+      "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8552df8a97bae6362f5afba7b6d2180861c5f6ef5c31a5ae4837138edc2b7618"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedCastSpeed3",
+  "textLocale": "us",
+  "detailText": "(17—20)% increased Cast Speed",
+  "retrievedAt": "2026-10-05T04:36:46.471Z",
+  "sha256": "8552df8a97bae6362f5afba7b6d2180861c5f6ef5c31a5ae4837138edc2b7618",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(17<span class=\"ndash\">—</span>20)</span>% increased Cast Speed</span></h5>   <span data-tabname=\"of Expertise\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Expertise\n<tr><th>Family<td>IncreasedCastSpeed\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>30 (Effective: 24)\n<tr><th>Gold Price<td>593\n<tr><th>Stats<td><li>base cast speed +% <span class=\"badge bg-primary\">17 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_speed</i></span> <span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Speed</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Expertise",
+    "Family": "IncreasedCastSpeed",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "30 (Effective: 24)",
+    "Gold Price": "593",
+    "Stats": "base cast speed +% 17 — 20 Global",
+    "Spawn Tags": "focus: 1 wand: 1 default: 0",
+    "Craft Tags": "caster_speed Caster Speed"
+  },
+  "code": "IncreasedCastSpeed3",
+  "stats": [
+    {
+      "id": "base_cast_speed_+%",
+      "min": 17,
+      "max": 20,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

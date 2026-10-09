@@ -1,0 +1,135 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "11",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingattribute\" data-tag=\"attribute\">Attribute</span>"
+    ],
+    "fossil_no": [
+      "attribute"
+    ],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/542b853e2cd0eedc165e8c3a697b12fecec69b2cf99de9fdc90c1c6f53545e15\" href=\"Lesser_Essence_of_the_Infinite\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AttributeEssenceLesser.webp\" alt=\"AttributeEssenceLesser\" height=\"16\" />Lesser Essence of the Infinite</a>",
+    "Code": "Strength2",
+    "ModFamilyList": [
+      "Strength"
+    ],
+    "str": "<span class='mod-value'>+(9<span class=\"ndash\">—</span>12)</span> to <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/adc68348c13b27b1b831c2ce4caf358d08d796def82d1d95491b336d8a926849\">Strength</a>, <a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/df68c1bb7e0de9655bd5d2bdce54f7bc115c80605beb6755f7f3d1642f2045fd\">Dexterity</a> or <a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/35ecc1ff28e8ee7386e67bec70cdc12f96a62d638a35d71ab8156e96f0f5e08a\">Intelligence</a>",
+    "adds_no": [],
+    "spawn_no": [
+      "ring",
+      "amulet",
+      "belt",
+      "str_armour",
+      "str_dex_armour",
+      "str_int_armour",
+      "str_dex_int_armour",
+      "mace",
+      "axe",
+      "sword",
+      "spear",
+      "flail",
+      "crossbow",
+      "sceptre",
+      "talisman",
+      "default"
+    ],
+    "reqlvl": 8,
+    "IsPerfect": "0",
+    "IsAlloy": false,
+    "Removes": false
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength2",
+  "textLocale": "us",
+  "detailText": "+(9—12) to Strength",
+  "retrievedAt": "2026-10-05T07:09:13.216Z",
+  "sha256": "be2f3299c420ccabfba4a333a543edff2a09f6882f666961a9c062d00661f281",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(9<span class=\"ndash\">—</span>12)</span> to <a data-keyword=\"Strength\" href=\"Strength\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/adc68348c13b27b1b831c2ce4caf358d08d796def82d1d95491b336d8a926849\">Strength</a></span></h5>   <span data-tabname=\"of the Wrestler\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Wrestler\n<tr><th>Family<td>Strength\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>11 (Effective: 8)\n<tr><th>Gold Price<td>214\n<tr><th>Stats<td><li>additional strength <span class=\"badge bg-primary\">9 <span class=\"ndash\">—</span> 12</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>str_armour: 1</span> <span class='badge bg-primary'>str_dex_armour: 1</span> <span class='badge bg-primary'>str_int_armour: 1</span> <span class='badge bg-primary'>str_dex_int_armour: 1</span> <span class='badge bg-primary'>mace: 1</span> <span class='badge bg-primary'>axe: 1</span> <span class='badge bg-primary'>sword: 1</span> <span class='badge bg-primary'>spear: 1</span> <span class='badge bg-primary'>flail: 1</span> <span class='badge bg-primary'>crossbow: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>talisman: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attribute</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(11<span class=\"ndash\">—</span>13)</span>% increased Area of Effect for [Attack|Attacks]</table>  </div></div>",
+  "fields": {
+    "Name": "of the Wrestler",
+    "Family": "Strength",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "11 (Effective: 8)",
+    "Gold Price": "214",
+    "Stats": "additional strength 9 — 12 Global",
+    "Spawn Tags": "ring: 1 amulet: 1 belt: 1 str_armour: 1 str_dex_armour: 1 str_int_armour: 1 str_dex_int_armour: 1 mace: 1 axe: 1 sword: 1 spear: 1 flail: 1 crossbow: 1 sceptre: 1 talisman: 1 default: 0",
+    "Craft Tags": "Attribute"
+  },
+  "code": "Strength2",
+  "stats": [
+    {
+      "id": "additional_strength",
+      "min": 9,
+      "max": 12,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "belt",
+      "weight": 1
+    },
+    {
+      "tag": "str_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "str_dex_int_armour",
+      "weight": 1
+    },
+    {
+      "tag": "mace",
+      "weight": 1
+    },
+    {
+      "tag": "axe",
+      "weight": 1
+    },
+    {
+      "tag": "sword",
+      "weight": 1
+    },
+    {
+      "tag": "spear",
+      "weight": 1
+    },
+    {
+      "tag": "flail",
+      "weight": 1
+    },
+    {
+      "tag": "crossbow",
+      "weight": 1
+    },
+    {
+      "tag": "sceptre",
+      "weight": 1
+    },
+    {
+      "tag": "talisman",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

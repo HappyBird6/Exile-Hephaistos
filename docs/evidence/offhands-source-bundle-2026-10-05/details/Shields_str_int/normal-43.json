@@ -1,0 +1,83 @@
+{
+  "row": {
+    "Name": "of Variegation",
+    "Level": "54",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "AllResistances"
+    ],
+    "DropChance": "800",
+    "str": "<span class='mod-value'>+(12<span class=\"ndash\">—</span>14)</span>% to all <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/76ff55a46c9d3d007722fb5ccb09592dc48359db448d433f7e0c8dfc6e94dcbd\">Elemental</a> <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Resistances</a>",
+    "fossil_no": [
+      "cold_resistance",
+      "elemental_resistance",
+      "fire_resistance",
+      "lightning_resistance",
+      "elemental",
+      "fire",
+      "cold",
+      "lightning",
+      "resistance"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "str_int_shield",
+      "ring",
+      "amulet",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+      "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+      "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4d6a2293c69dae797b96283c03cf950cb7aa47a82aa76ca0713291b9195f6107"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4d6a2293c69dae797b96283c03cf950cb7aa47a82aa76ca0713291b9195f6107",
+  "textLocale": "us",
+  "detailText": "+(12—14)% to all Elemental Resistances",
+  "retrievedAt": "2026-10-05T04:30:59.782Z",
+  "sha256": "4d6a2293c69dae797b96283c03cf950cb7aa47a82aa76ca0713291b9195f6107",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(12<span class=\"ndash\">—</span>14)</span>% to all <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a1b20367108ac7e1bdcb423f7ab85983176165b58a63e13060d97e9164df22dc\">Elemental</a> <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/84ff16d8aeeb61c6cd1c5a881495ab9e03153c83989fb54629cfeeeb8e92266e\">Resistances</a></span></h5>   <span data-tabname=\"of Variegation\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Variegation\n<tr><th>Family<td>AllResistances\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>54 (Effective: 43)\n<tr><th>Gold Price<td>1245\n<tr><th>Stats<td><li>base resist all elements % <span class=\"badge bg-primary\">12 <span class=\"ndash\">—</span> 14</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>str_int_shield: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>cold_resistance</i></span> <span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>fire_resistance</i></span> <span class='badge bg-primary'><i>lightning_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fire</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Lightning</span> <span class='badge bg-primary'>Resistance</span> </table>  </div></div>",
+  "fields": {
+    "Name": "of Variegation",
+    "Family": "AllResistances",
+    "Domains": "Item (1)",
+    "GenerationType": "Suffix (2)",
+    "Req. level": "54 (Effective: 43)",
+    "Gold Price": "1245",
+    "Stats": "base resist all elements % 12 — 14 Global",
+    "Spawn Tags": "str_int_shield: 1 ring: 1 amulet: 1 default: 0",
+    "Craft Tags": "cold_resistance elemental_resistance fire_resistance lightning_resistance Elemental Fire Cold Lightning Resistance"
+  },
+  "code": "AllResistances4",
+  "stats": [
+    {
+      "id": "base_resist_all_elements_%",
+      "min": 12,
+      "max": 14,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "str_int_shield",
+      "weight": 1
+    },
+    {
+      "tag": "ring",
+      "weight": 1
+    },
+    {
+      "tag": "amulet",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

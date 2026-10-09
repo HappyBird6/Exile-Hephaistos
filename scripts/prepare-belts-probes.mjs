@@ -1,0 +1,21 @@
+import fs from 'node:fs'
+import assert from 'node:assert/strict'
+const q = 'E:/WORK/Exile-Hephaistos/codex/belts-qa-20261005'
+const write = (path, content) => fs.writeFileSync(path, content, { flag: 'wx' })
+let api = fs.readFileSync('scripts/qa-wands-api.mjs', 'utf8').replaceAll('20180', '20380').replace("b.family === 'wands'", "b.family === 'belts'")
+api = api.replace("check(key + ' no simulated built-in skill', root.implicits.length === 0 && !Object.values(i.modifiers).some(d => /Grants Skill:/.test(d.text)))", "check(key + ' source implicit identity', root.implicits.length === 1 && root.implicits[0].modifierId === base.implicitModifierId)\n  check(key + ' Breach fixed Charm stat preserved', !['invoking-belt','sinew-belt','forking-belt'].includes(key) || root.implicits[0].values.local_charm_slots === 1)")
+api = api.replace("const expected = ['bone','offering','primordial'].includes(key) ? 118 : ['volatile','galvanic'].includes(key) ? 123 : 185", 'const expected = 135')
+api = api.replace('for (const d of Object.values(i.modifiers)) assert.deepEqual(d, initials.wand.modifiers[d.id])', 'for (const d of Object.values(i.modifiers).filter(d => d.weight > 0)) assert.deepEqual(d, initials.belt.modifiers[d.id])')
+api = api.replace("check(key + ' quality cap20',(await apply(root,'TRANSMUTATION')).qualityLimit.maximumQuality === 20)", "check(key + ' no unsupported quality cap',(await apply(root,'TRANSMUTATION')).qualityLimit == null)\n  for (const [action,state] of [['GREATER_TRANSMUTATION',root],['PERFECT_TRANSMUTATION',root],['GREATER_AUGMENTATION',{...magic,explicits:magic.explicits.slice(0,1)}],['PERFECT_AUGMENTATION',{...magic,explicits:magic.explicits.slice(0,1)}],['GREATER_REGAL',magic],['PERFECT_REGAL',magic],['GREATER_EXALTED',pair],['PERFECT_EXALTED',pair]]) check(key+' positive higher '+action,(await apply(state,action)).applied)")
+api = api.replace("const low = {...pair,itemLevel:71}, rejected = await apply(low,action)", "const low = {...pair,itemLevel:Math.min(...ids.map(id=>i.modifiers[id].requiredItemLevel))-1}, rejected = await apply(low,action)")
+api = api.replaceAll('PERFECT_ESSENCE_SORCERY', 'PERFECT_ESSENCE_INSULATION')
+api = api.replace("['ESSENCE_COMMAND','PERFECT_ESSENCE_BODY','ARTIFICER','CATALYST_FLESH','RUNIC_ALLOY']", "['ESSENCE_COMMAND','PERFECT_ESSENCE_BODY','ESSENCE_BREACH','ARTIFICER','CATALYST_FLESH','RUNIC_ALLOY']")
+write(`${q}/qa-api.mjs`, api)
+const helper = fs.readFileSync('E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004/browser-helper.cjs', 'utf8').replaceAll('62 base selector choices', '91 base selector choices').replace('=== 62', '=== 91')
+let body = fs.readFileSync('scripts/qa-wands-browser-body.cjs', 'utf8').replaceAll('20181', '20381').replace("b.family === 'wands'", "b.family === 'belts'").replaceAll(' Wand class', ' Belt class').replace("=== 'Wands'", "=== 'Belts'").replaceAll('Greater_Essence_of_Sorcery', 'Greater_Essence_of_the_Body').replaceAll('dueling', 'forking-belt').replaceAll('initials.forking-belt', "initials['forking-belt']")
+body = body.replace("check(base+' '+l+' canonical requirements',card.replace(/\\s+/g,' ').includes(b.requirements[l].replace(/\\s+/g,' ')))", "check(base+' '+l+' canonical requirements',card.replace(/\\s+/g,' ').includes(b.requirements[l].replace(/\\s+/g,' ')))\n      if (base === 'fine-belt') check(base+' source display0.17',card.includes('0.17') || card.includes('0,17'))\n      if (['invoking-belt','sinew-belt','forking-belt'].includes(base)) check(base+' fixed slot remains1',active(await history()).frames[0].state.implicits[0].values.local_charm_slots === 1)")
+write(`${q}/qa-browser.cjs`, helper + body)
+write(`${q}/qa-old-filled.cjs`, helper + fs.readFileSync('scripts/qa-wands-old-filled.cjs', 'utf8').replaceAll('20181', '20381'))
+fs.copyFileSync('scripts/qa-hallowed-contact-sheets.cjs', `${q}/contact-sheets.cjs`)
+fs.copyFileSync('frontend/src/features/crafting/CraftingPage.tsx', `${q}/frontend-check/src/features/crafting/CraftingPage.tsx`)
+console.log('Prepared isolated Belt API/browser/legacy probes; original assertions retain source and film invariants')

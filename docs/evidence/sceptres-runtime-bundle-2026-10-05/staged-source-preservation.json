@@ -1,0 +1,191 @@
+{
+  "passed": true,
+  "exactHtmlFiles": 37,
+  "files": [
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Clasped_Sceptre.cn.html",
+      "bytes": 30625,
+      "sha256": "7e2abf5d2c2f59e45fdbedd5dae80644d86cdb3d395b2b03d406cffbc99632f1"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Clasped_Sceptre.jp.html",
+      "bytes": 30850,
+      "sha256": "83c364d5affa01567ecdfeb8915f432c6daf6de8f150f13f1223c0c0e2880836"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Clasped_Sceptre.kr.html",
+      "bytes": 30609,
+      "sha256": "26dc91fd009d79bc69b492986fc9d419cee5d067909e14472a41694a96839f37"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Clasped_Sceptre.sp.html",
+      "bytes": 29878,
+      "sha256": "42ff448152c994ac9c127d4326f67ac7f689ff3b6d8705d2fc4229184d19f474"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Clasped_Sceptre.tw.html",
+      "bytes": 30630,
+      "sha256": "167de9e4be8d5c2dbd8cb08a496630330352fe8a4fc6956ff01475404dd2e920"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Clasped_Sceptre.us.html",
+      "bytes": 30470,
+      "sha256": "092e5532910d5ab3fcf8483d9b70d3630b318f11a5c71089e415524a20ed57d6"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Discipline.us.html",
+      "bytes": 138484,
+      "sha256": "7087d1e9f45c29188be68bc2ef59918b8288a2abd00b71d02cfd3d0bfc681aaa"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Fulmination.us.html",
+      "bytes": 1483181,
+      "sha256": "d64c3d2dd6e2b48505fa26bb5f5114b0b908798090c234c826af6140f9b0f869"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Heart_of_Ice.us.html",
+      "bytes": 96000,
+      "sha256": "80a4a5719b9bd99cc7c0f21fef09543d14a16870940e14cc38cb4a0918fa242f"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Malice.us.html",
+      "bytes": 155451,
+      "sha256": "68ebbb1c77b708c092e6020601272b8fa7d45491f0a6898cab4f9e08b9cbcf80"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Omen_Sceptre.cn.html",
+      "bytes": 34152,
+      "sha256": "5b00a07e9d12357707db8c3911b486f123336ed7cafc894ce1901f38b07fcc37"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Omen_Sceptre.jp.html",
+      "bytes": 34613,
+      "sha256": "cae8f7776e3fda015b8ca5d72eb78a315eab3e15116ac531148c4e37e945aa48"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Omen_Sceptre.kr.html",
+      "bytes": 34141,
+      "sha256": "344f239d06230fa6e489ad42a0873e92ecfa4b1e34b65a1fbcdcf3edd6a5e664"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Omen_Sceptre.sp.html",
+      "bytes": 32718,
+      "sha256": "88cd2005f28819c9aed0ebf9559aaba85671ceace85665269dd3bd1e7fde7480"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Omen_Sceptre.tw.html",
+      "bytes": 34165,
+      "sha256": "0098688539c9051379fd1586f638ebdd626f32f3b67a5423e5e8fb4f4d90cd58"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Omen_Sceptre.us.html",
+      "bytes": 33989,
+      "sha256": "71f095ab3a79f75ba502a2df8cd1e69ad99fa6ee5f333f4a7afcc518ad0993c6"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Purity_of_Fire.us.html",
+      "bytes": 133632,
+      "sha256": "68107b9982bfdd3c09a1b32d553fffd6413b32f88ff9f99fcb87a83856668e63"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Purity_of_Ice.us.html",
+      "bytes": 133602,
+      "sha256": "ea4cf0dd0a44e1d3d916870a68bb97839f018aa142850b2cc8614a21a2310b2a"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Purity_of_Lightning.us.html",
+      "bytes": 135684,
+      "sha256": "c19415c83c7041700277a345c676a0fd04dcd123d4c88a3e8d5d688b6eb2bc0e"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Shrine_Sceptre.cn.html",
+      "bytes": 64722,
+      "sha256": "23d22d2df0afa8c69e67b4c2b6aa3ad32e94858ebe717465677b4b205f9cc36c"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Shrine_Sceptre.jp.html",
+      "bytes": 65484,
+      "sha256": "091a362b045d091356bea9a74335e4f92b61a381ce23f5538ce143828e669a62"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Shrine_Sceptre.kr.html",
+      "bytes": 65178,
+      "sha256": "0222a66459bc2550216d0dcb86982b2727556fade7c3805648daa4def0d08440"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Shrine_Sceptre.sp.html",
+      "bytes": 58119,
+      "sha256": "1519041c259e6b2ec4b6bbbc43498ac8c311f5701b1cef3f4d34608ec2de158a"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Shrine_Sceptre.tw.html",
+      "bytes": 64878,
+      "sha256": "086b3b0ff98b3ca8a4a2c0e2ffa43f4c7350ed0bcf466135498d3583644c4b98"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Shrine_Sceptre.us.html",
+      "bytes": 64364,
+      "sha256": "f6951ddcf71ee3440ce892beb3896cec48064c461acf14c4258ba96e5545c607"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Stoic_Sceptre.cn.html",
+      "bytes": 35061,
+      "sha256": "d66229a6951437e58e4574e9ab4f4334673b13de3c98b13dcd65e8a0fd449393"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Stoic_Sceptre.jp.html",
+      "bytes": 35512,
+      "sha256": "e5c5b4dc099154bbe312331608752a2c63246f214bb0ba991c4be2e41f74c956"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Stoic_Sceptre.kr.html",
+      "bytes": 35118,
+      "sha256": "dd3244383ef0d07ebc8116cc5327cf19628f2a0157fc00202057c83b5b11cf36"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Stoic_Sceptre.sp.html",
+      "bytes": 33551,
+      "sha256": "88b339eb162088c0e6e2285e71c10adf39955225fcf680c4dd47856f5c97b7a6"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Stoic_Sceptre.tw.html",
+      "bytes": 35062,
+      "sha256": "f3078c8ab78005ecba5d8f4b9bcae19d9b1b2be4fcdc10a989f271abb746aa8f"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Stoic_Sceptre.us.html",
+      "bytes": 34929,
+      "sha256": "783f535207b5d6f4e3950161f75c29bb695124c8c8190896232260ba23fb2003"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Wrath_Sceptre.cn.html",
+      "bytes": 30623,
+      "sha256": "2e128cce35bf7d0d2dad10379719ccc3a4a0a1a1a42b11af0b13b1ad9cc71f02"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Wrath_Sceptre.jp.html",
+      "bytes": 30848,
+      "sha256": "c9fe4601471879c1aa1b8c985960dba3080f037f0390987e9cf0e082df0917c0"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Wrath_Sceptre.kr.html",
+      "bytes": 30561,
+      "sha256": "a79d60feb6915bdee7ee39d7d1d6b7bddee7cf58701c3597f234d0f444a43d8c"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Wrath_Sceptre.sp.html",
+      "bytes": 29840,
+      "sha256": "dfc6fa9ebc1952d82a9e8a726524cf395c7574c2c9df98afdc8b9bd3926317fa"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Wrath_Sceptre.tw.html",
+      "bytes": 30628,
+      "sha256": "945c68adf1d6155d34c0907ee510b60bd67e08582874c5bb473c5380dec25591"
+    },
+    {
+      "file": "docs/evidence/sceptres-source-bundle-2026-10-05/Wrath_Sceptre.us.html",
+      "bytes": 30459,
+      "sha256": "f86d1e72a8882bc7e74c7d35ecf4537ac3b7ef6896e4e6e6cf1ef8a7f09533c8"
+    }
+  ]
+}

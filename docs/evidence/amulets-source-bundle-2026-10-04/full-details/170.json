@@ -1,0 +1,32 @@
+{
+  "row": {
+    "Name": "of Ire",
+    "Level": "8",
+    "ModGenerationTypeID": "2",
+    "ModFamilyList": [
+      "CriticalStrikeMultiplier"
+    ],
+    "DropChance": "1000",
+    "str": "<span class='mod-value'>(10<span class=\"ndash\">—</span>14)</span>% increased <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/8644597a9b33dfec4ba6b01bb1657eb6dd0bd79322d9eb0c07ca1907decfd244\">Critical Damage Bonus</a>",
+    "fossil_no": [
+      "damage",
+      "critical"
+    ],
+    "adds_no": [],
+    "spawn_no": [
+      "gloves",
+      "amulet",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingcritical\" data-tag=\"critical\">Critical</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b4204948fbc53e8566e386263f003b199e5e7b4be71d8854c535b8786a0ab57b"
+  },
+  "url": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b4204948fbc53e8566e386263f003b199e5e7b4be71d8854c535b8786a0ab57b",
+  "retrievedAt": "2026-10-04T22:02:56.334Z",
+  "sha256": "b4204948fbc53e8566e386263f003b199e5e7b4be71d8854c535b8786a0ab57b",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(10<span class=\"ndash\">—</span>14)</span>% increased <a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f912af5e935824753f90aff01707a32ce207b5074acfdeb0caca49fc5ff188d2\">Critical Damage Bonus</a></span></h5>   <span data-tabname=\"of Ire\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Ire\n<tr><th>Family<td>CriticalStrikeMultiplier\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>8 (Effective: 6)\n<tr><th>Gold Price<td>174\n<tr><th>Stats<td><li>base critical strike multiplier + <span class=\"badge bg-primary\">10 <span class=\"ndash\">—</span> 14</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Critical</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>+(0.5<span class=\"ndash\">—</span>1)</span>% to [Critical|Critical Hit] Chance</table>  </div></div>"
+}

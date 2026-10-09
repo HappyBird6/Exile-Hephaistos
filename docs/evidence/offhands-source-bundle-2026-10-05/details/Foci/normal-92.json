@@ -1,0 +1,87 @@
+{
+  "row": {
+    "Name": "Snowy",
+    "Level": "33",
+    "ModGenerationTypeID": "1",
+    "ModFamilyList": [
+      "WeaponDamageTypePrefix"
+    ],
+    "DropChance": "400",
+    "str": "<span class='mod-value'>(55<span class=\"ndash\">—</span>64)</span>% increased <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage",
+    "fossil_no": [
+      "elemental_damage",
+      "damage",
+      "elemental",
+      "cold"
+    ],
+    "adds_no": [
+      "no_fire_spell_mods",
+      "no_lightning_spell_mods",
+      "no_chaos_spell_mods",
+      "no_physical_spell_mods"
+    ],
+    "spawn_no": [
+      "focus",
+      "no_cold_spell_mods",
+      "wand",
+      "trap",
+      "default"
+    ],
+    "mod_no": [
+      "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+      "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+      "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>"
+    ],
+    "mod_fossil_item": [],
+    "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/92dace40a3a063c074e3a9cb8bb952cf49c6d4450a86534c2c98190feed6ec87"
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdDamagePrefixOnWeapon4",
+  "textLocale": "us",
+  "detailText": "(55—64)% increased Cold Damage",
+  "retrievedAt": "2026-10-05T04:36:05.386Z",
+  "sha256": "0166fb2f58522044b42c2038894824b282e758287968c8e2f0f3f05b69bdd6b3",
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(55<span class=\"ndash\">—</span>64)</span>% increased <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage</span></h5>   <span data-tabname=\"Snowy\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Snowy\n<tr><th>Family<td>WeaponDamageTypePrefix\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>33 (Effective: 26)\n<tr><th>Gold Price<td>852\n<tr><th>Stats<td><li>cold damage +% <span class=\"badge bg-primary\">55 <span class=\"ndash\">—</span> 64</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>no_cold_spell_mods: 0</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Adds Tags<td><span class='badge bg-primary'>no_fire_spell_mods</span> <span class='badge bg-primary'>no_lightning_spell_mods</span> <span class='badge bg-primary'>no_chaos_spell_mods</span> <span class='badge bg-primary'>no_physical_spell_mods</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> </table>  </div></div>",
+  "fields": {
+    "Name": "Snowy",
+    "Family": "WeaponDamageTypePrefix",
+    "Domains": "Item (1)",
+    "GenerationType": "Prefix (1)",
+    "Req. level": "33 (Effective: 26)",
+    "Gold Price": "852",
+    "Stats": "cold damage +% 55 — 64 Global",
+    "Spawn Tags": "focus: 1 no_cold_spell_mods: 0 wand: 1 trap: 1 default: 0",
+    "Adds Tags": "no_fire_spell_mods no_lightning_spell_mods no_chaos_spell_mods no_physical_spell_mods",
+    "Craft Tags": "elemental_damage Damage Elemental Cold"
+  },
+  "code": "ColdDamagePrefixOnWeapon4",
+  "stats": [
+    {
+      "id": "cold_damage_+%",
+      "min": 55,
+      "max": 64,
+      "locality": "Global"
+    }
+  ],
+  "spawn": [
+    {
+      "tag": "focus",
+      "weight": 1
+    },
+    {
+      "tag": "no_cold_spell_mods",
+      "weight": 0
+    },
+    {
+      "tag": "wand",
+      "weight": 1
+    },
+    {
+      "tag": "trap",
+      "weight": 1
+    },
+    {
+      "tag": "default",
+      "weight": 0
+    }
+  ]
+}

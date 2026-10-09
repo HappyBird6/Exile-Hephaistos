@@ -1,0 +1,25 @@
+{
+  "url": "https://poe2db.tw/cn/Siphoning_Wand",
+  "retrievedAt": "2026-10-05T00:06:43.370Z",
+  "sha256": "6e169ed93671fdd4cbbd038f1f824c99aedd08b6ea89800c52c29f22d34a5be5",
+  "name": "虹吸法杖",
+  "card": "虹吸法杖\n        \n    \n    \n        \n            法杖需求：  等级 11, 23 智慧 获得技能: 力量抽取\n        \n\n\n\n        \n            Siphoning Wand",
+  "requirements": "需求：  等级 11, 23 智慧",
+  "fields": {
+    "DropLevel": "11",
+    "BaseType": "虹吸法杖",
+    "Class": "法杖",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4",
+    "Tags": "wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand04",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}

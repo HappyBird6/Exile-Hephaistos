@@ -1,0 +1,27 @@
+{
+  "url": "https://poe2db.tw/cn/Cryptic_Leggings",
+  "retrievedAt": "2026-10-04T15:38:39.457Z",
+  "sha256": "3521dcb2c5e6245e36cf4537c84bf858757eaeebb1c5e5053b69727ab8f19704",
+  "name": "隐秘绑腿",
+  "card": "隐秘绑腿\n        \n    \n    \n        \n            鞋子护甲: 134能量护盾: 37需求：  等级 80, 59 力量, 59 智慧\n        \n\n\n\n        \n            Cryptic Leggings",
+  "requirements": "需求：  等级 80, 59 力量, 59 智慧",
+  "fields": {
+    "DropLevel": "80",
+    "BaseType": "隐秘绑腿",
+    "Class": "鞋子",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Armours/Boots/FourBootsStrInt4Endgame",
+    "Tags": "str_int_armour, karui_basetype, boots, armour",
+    "Icon": "Art/2DItems/Armours/Boots/Basetypes/BootsIntStr04",
+    "Base.base_level": "1",
+    "Base.tag": "default, armour, boots",
+    "Base.x_size": "2",
+    "Base.y_size": "2",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Boots",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  }
+}
