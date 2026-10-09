@@ -584,6 +584,62 @@ public final class WorkbenchSimulator {
         : currency.baseAction() == CraftingAction.REGAL ? ItemState.Rarity.RARE : state.rarity();
   }
 
+  /**
+   * Reuses Workbench applicability and pool rules; only the fixed no-omen basic scope is exposed.
+   */
+  BasicCurrencyPlan basicCurrencyPlan(ItemState state, WorkbenchCurrency action) {
+    validate(state);
+    if (!BasicCurrencyPlan.ACTIONS.contains(action))
+      throw new IllegalArgumentException("Action is outside the basic currency transition scope");
+    var available = availability(state, action, List.of());
+    if (!available.available()) return new BasicCurrencyPlan(false, available.reason(), List.of());
+    var branches = new ArrayList<BasicCurrencyPlan.Branch>();
+    if (action.baseAction() == CraftingAction.ANNULMENT
+        || action.baseAction() == CraftingAction.CHAOS) {
+      for (var removed : removalCandidates(state, List.of())) {
+        var explicits = new ArrayList<>(state.explicits());
+        explicits.remove(removed);
+        var remaining = copy(state, state.rarity(), state.implicits(), explicits);
+        branches.add(
+            new BasicCurrencyPlan.Branch(
+                removed,
+                remaining,
+                action == WorkbenchCurrency.ANNULMENT ? List.of() : pool(remaining, action, null)));
+      }
+    } else {
+      var upgraded = copy(state, upgrade(state, action), state.implicits(), state.explicits());
+      branches.add(new BasicCurrencyPlan.Branch(null, upgraded, pool(upgraded, action, null)));
+    }
+    return new BasicCurrencyPlan(true, "", branches);
+  }
+
+  ItemState finishBasicCurrency(ItemState remaining, List<ModifierInstance> explicits) {
+    var result =
+        qualityCapChangePolicy.afterAcceptedOperation(
+            copy(remaining, remaining.rarity(), remaining.implicits(), explicits), catalog);
+    validate(result);
+    return result;
+  }
+
+  List<Assumption> basicSelectionAssumptions(List<ModifierDefinition> candidates) {
+    var assumptions = new ArrayList<Assumption>();
+    recordSapphireSelection(candidates, assumptions);
+    return List.copyOf(assumptions);
+  }
+
+  Assumption basicRemovalAssumption(List<ModifierInstance> candidates, WorkbenchCurrency action) {
+    return new Assumption(
+        "uniform-removal-v1",
+        "eligible explicit modifier instance",
+        candidates.size(),
+        candidates.stream().map(ModifierInstance::modifierId).toList(),
+        null,
+        null,
+        "https://poe2db.tw/us/"
+            + (action.baseAction() == CraftingAction.CHAOS ? "Chaos_Orb" : "Orb_of_Annulment"),
+        "Uniform among eligible removal instances, after affix or lowest modifier-level restriction; no published removal weights.");
+  }
+
   public Result apply(
       ItemState state, WorkbenchCurrency action, Set<String> activeOmens, RandomGenerator random) {
     validate(state);
@@ -664,6 +720,10 @@ public final class WorkbenchSimulator {
           QualityLimitRules.describe(next, catalog));
     }
     var omen = matched.isEmpty() ? null : matched.getFirst();
+    var basicPlan =
+        omens.isEmpty() && BasicCurrencyPlan.ACTIONS.contains(action)
+            ? basicCurrencyPlan(state, action)
+            : null;
     var implicits = new ArrayList<>(state.implicits());
     var explicits = new ArrayList<>(state.explicits());
     var events = new ArrayList<Event>();
@@ -815,27 +875,32 @@ public final class WorkbenchSimulator {
           || action.baseAction() == CraftingAction.CHAOS) {
         int removals = matched.contains(WorkbenchOmen.GREATER_ANNULMENT) ? 2 : 1;
         for (int removal = 0; removal < removals; removal++) {
-          var candidates = removalCandidates(copy(state, rarity, implicits, explicits), matched);
+          var candidates =
+              basicPlan == null
+                  ? removalCandidates(copy(state, rarity, implicits, explicits), matched)
+                  : basicPlan.removals();
           var removed = candidates.get(random.nextInt(candidates.size()));
           explicits.remove(removed);
           events.add(new Event("REMOVE", removed.modifierId(), Map.of(), 1.0 / candidates.size()));
-          assumptions.add(
-              new Assumption(
-                  "uniform-removal-v1",
-                  "eligible explicit modifier instance",
-                  candidates.size(),
-                  candidates.stream().map(ModifierInstance::modifierId).toList(),
-                  null,
-                  null,
-                  omen == null
-                      ? "https://poe2db.tw/us/"
-                          + (action.baseAction() == CraftingAction.CHAOS
-                              ? "Chaos_Orb"
-                              : "Orb_of_Annulment")
-                      : "https://poe2db.tw/us/" + omen.id(),
-                  WorkbenchOmen.sideWhittling(matched)
-                      ? "User-specified side-first composition (with symmetric suffix model): affix candidates first, then lowest modifier level, then uniform ties; not independently established game odds."
-                      : "Uniform among eligible removal instances, after affix or lowest modifier-level restriction; no published removal weights."));
+          if (basicPlan != null) assumptions.add(basicRemovalAssumption(candidates, action));
+          else
+            assumptions.add(
+                new Assumption(
+                    "uniform-removal-v1",
+                    "eligible explicit modifier instance",
+                    candidates.size(),
+                    candidates.stream().map(ModifierInstance::modifierId).toList(),
+                    null,
+                    null,
+                    omen == null
+                        ? "https://poe2db.tw/us/"
+                            + (action.baseAction() == CraftingAction.CHAOS
+                                ? "Chaos_Orb"
+                                : "Orb_of_Annulment")
+                        : "https://poe2db.tw/us/" + omen.id(),
+                    WorkbenchOmen.sideWhittling(matched)
+                        ? "User-specified side-first composition (with symmetric suffix model): affix candidates first, then lowest modifier level, then uniform ties; not independently established game odds."
+                        : "Uniform among eligible removal instances, after affix or lowest modifier-level restriction; no published removal weights."));
         }
       }
       if (action.baseAction() != CraftingAction.ANNULMENT) {
@@ -846,12 +911,14 @@ public final class WorkbenchSimulator {
         for (int i = 0; i < additions; i++) {
           var intermediate = copy(state, rarity, implicits, explicits);
           var candidates =
-              WorkbenchOmen.verifiedDoubleAddition(matched)
-                  ? additionRules.poolWithTags(affixBucket(intermediate), action, originalTags)
-                  : pool(
-                      intermediate,
-                      action,
-                      action.baseAction() == CraftingAction.CHAOS ? null : omen);
+              basicPlan != null
+                  ? basicPlan.candidatesFor(intermediate)
+                  : WorkbenchOmen.verifiedDoubleAddition(matched)
+                      ? additionRules.poolWithTags(affixBucket(intermediate), action, originalTags)
+                      : pool(
+                          intermediate,
+                          action,
+                          action.baseAction() == CraftingAction.CHAOS ? null : omen);
           recordSapphireSelection(candidates, assumptions);
           long total = candidates.stream().mapToLong(ModifierDefinition::weight).sum();
           long draw = random.nextLong(total);
@@ -994,22 +1061,31 @@ public final class WorkbenchSimulator {
     var range = definition.stats().getFirst();
     long n = Math.addExact(Math.subtractExact(range.max(), range.min()), 1);
     long value = Math.addExact(range.min(), random.nextLong(n));
-    if (n > 1)
-      assumptions.add(
-          new Assumption(
-              coupledModifierIds.isEmpty()
-                  ? "uniform-integer-roll-v1"
-                  : "assumed-source-integer-roll-v1",
-              range.id(),
-              n,
-              List.of(),
-              range.min(),
-              range.max(),
-              definition.sourceUrl(),
-              coupledModifierIds.isEmpty()
-                  ? "Each integer in this single-stat source range is a modeled candidate; no published roll weights."
-                  : "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain."));
+    var assumption = singleStatRollAssumption(definition);
+    if (assumption != null) assumptions.add(assumption);
     return new ModifierInstance(definition.id(), Map.of(range.id(), value));
+  }
+
+  Assumption singleStatRollAssumption(ModifierDefinition definition) {
+    if (definition.stats().size() != 1)
+      throw new IllegalArgumentException("Joint stat roll domain needs verification");
+    var range = definition.stats().getFirst();
+    long n = Math.addExact(Math.subtractExact(range.max(), range.min()), 1);
+    return n > 1
+        ? new Assumption(
+            coupledModifierIds.isEmpty()
+                ? "uniform-integer-roll-v1"
+                : "assumed-source-integer-roll-v1",
+            range.id(),
+            n,
+            List.of(),
+            range.min(),
+            range.max(),
+            definition.sourceUrl(),
+            coupledModifierIds.isEmpty()
+                ? "Each integer in this single-stat source range is a modeled candidate; no published roll weights."
+                : "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.")
+        : null;
   }
 
   private boolean lowersCapBelowQuality(ItemState state, ModifierInstance removed) {
