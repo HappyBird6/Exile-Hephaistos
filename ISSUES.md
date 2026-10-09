@@ -469,3 +469,10 @@ Spanish 공식 이름이 없는6항목은 자체 번역 provenance를 표시하�
 Wand9 skill-family를 추가해 총71 bases를 제공한다. ordered Spawn Tags로 일반 pool을118/123/185개로 구분했고 기존 Attuned modifier ID·family·tier·range·weight를 보존했다. granted skill은 표시용 property이며 affix나 combat 계산으로 전환하지 않는다. Spanish Bone/Offering 요구치2건은 원문 증거를 유지하고 English canonical 값으로 표시한다. Infinite 특수 target은 source가 있으나 기존 Attuned 지원 범위를 유지했다. Twisted/Runic Fork/Runemastered의 실제 ordinary availability는 별도 확인 대상으로 남긴다. [Wand bundle](docs/workbench-wands-bundle-2026-10-05.md)에 출처·정책·정확한 다음 Sceptre7/Belt/class gap을 기록했다.
 
 Backend441+integration6, Frontend1820, API539, Browser719가 통과했고228 screenshot을38 contact sheets로 pixels 검사했다. 기존62 initial 응답·film·번역·registry220/deferred50·Solar-only Support/Explorer·quality40/rounding·Shift/Alt·local orange를 보존했다. 첫 Backend accessor 오류와 첫 Frontend Node22 engine 거부 로그는 유지했다. 조건을 완화하지 않고 수정/Node24로 전체 검증을 통과했다. remote push/merge/deploy는 수행하지 않는다.
+
+## Goal filter numeric addition model
+
+- Solar 단일 stat addition 수치 계산은 명시된 uniform-integer-roll-v1 모델 내 구현됨. 실제 게임 정수 roll 분포와 catalog weight의 서버 선택 확률 검증은 미확정이며 ledger/API/UI에서 분리 표시한다.
+- 품질, omens, multi-stat, 미검토 수치 unit/effect, 다른 base의 numeric addition은 구현 범위 밖. 기존 opt-in ratio tick 모델을 Solar에 적용하지 않는다.
+- Annul/Chaos 제거 및 망친 경로에서 복구 경로로 이동하는 정책은 후속 구현. 복구 이후 확률은 정상 addition 경로에 포함하지 않는다.
+- full numeric 상태 공간은 커서 요청 예산에 따라 PARTIAL이 일반적이다. lower/upper/unresolved와 미탐색 순서 수, 미확정 순위를 유지한다.

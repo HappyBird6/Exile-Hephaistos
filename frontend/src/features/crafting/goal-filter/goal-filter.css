@@ -1,0 +1,413 @@
+.goal-filter {
+  color: #d4cbb3;
+  background: #080909;
+  padding: 12px;
+  border: 1px solid #3e3a30;
+  border-radius: 0;
+  font-size: 13px;
+  line-height: 1.35;
+  color-scheme: dark;
+}
+.goal-filter *,
+.goal-filter *::before,
+.goal-filter *::after {
+  box-sizing: border-box;
+}
+.goal-filter [hidden] {
+  display: none !important;
+}
+.goal-filter .goal-filter-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.goal-filter .goal-filter-title {
+  margin-bottom: 12px;
+  border-bottom: 1px solid #3b3e3f;
+}
+.goal-filter .goal-filter-title h2 {
+  margin: 0;
+  padding: 6px 8px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #e2d5ad;
+}
+.goal-filter .goal-filter-title p {
+  margin: 4px 8px;
+}
+.goal-filter-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+.goal-filter .goal-filter-stats,
+.goal-filter .goal-filter-general {
+  min-width: 0;
+}
+.goal-filter .goal-filter-section-heading {
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+  margin: 0;
+  border-bottom: 1px solid #3b3e3f;
+  font-size: 14px;
+  font-weight: 500;
+}
+.goal-filter.goal-filter :where(label) {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  min-width: 0;
+  margin: 0;
+  line-height: inherit;
+}
+.goal-filter.goal-filter :where(input, select, button) {
+  font: inherit;
+  color: inherit;
+  background: #1e2326;
+  border: 1px solid #303337;
+  border-radius: 0;
+  min-height: 32px;
+  padding: 4px 8px;
+  max-width: 100%;
+  box-shadow: none;
+  margin-top: 0;
+  line-height: inherit;
+}
+.goal-filter button {
+  cursor: pointer;
+}
+.goal-filter button:hover,
+.goal-filter select:hover {
+  background: #303639;
+  border-color: #746448;
+}
+.goal-filter input:not([type='checkbox']) {
+  width: 100%;
+  min-width: 0;
+}
+.goal-filter input::placeholder {
+  color: #979894;
+  opacity: 1;
+}
+.goal-filter.goal-filter input[type='checkbox'] {
+  width: 14px;
+  height: 14px;
+  min-height: 0;
+  margin: 0;
+  accent-color: #a38a56;
+}
+.goal-filter :focus-visible {
+  outline: 2px solid #d4b46c;
+  outline-offset: 2px;
+}
+.goal-filter button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.goal-filter .goal-filter-section-heading button {
+  width: 100%;
+  text-align: left;
+  padding-left: 0;
+  border: 0;
+  background: transparent;
+}
+.goal-filter .goal-filter-general-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2px;
+  padding: 0;
+  margin: 2px 0;
+  border: 0;
+  min-width: 0;
+}
+.goal-filter .goal-filter-general-row > span,
+.goal-filter .goal-filter-range legend,
+.goal-filter .goal-filter-rarity legend {
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 4px 10px;
+  background: #101313;
+  border-left: 2px solid #4c452a;
+}
+.goal-filter .goal-filter-general-row select {
+  width: 100%;
+}
+.goal-filter .goal-filter-range {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding-left: 50%;
+}
+.goal-filter .goal-filter-range legend,
+.goal-filter .goal-filter-rarity legend {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: calc(50% - 2px);
+}
+.goal-filter .goal-filter-rarity {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 50%;
+  background: #1e2326;
+  gap: 0;
+}
+.goal-filter .goal-filter-rarity label {
+  min-height: 32px;
+  padding: 4px 6px;
+  font-size: 11px;
+}
+.goal-filter .goal-filter-number {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 64px;
+  flex: 0 0 64px;
+  gap: 0;
+}
+.goal-filter .goal-filter-number input {
+  text-align: center;
+  padding: 4px;
+}
+.goal-filter .goal-filter-number [role='alert'] {
+  font-size: 11px;
+  color: #f1a28a;
+  overflow-wrap: anywhere;
+}
+.goal-filter .goal-filter-range .goal-filter-number {
+  width: 100%;
+}
+.goal-filter input[aria-invalid='true'] {
+  border-color: #d77b64;
+}
+.goal-filter-search {
+  margin: 2px 0 0;
+}
+.goal-filter-search-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 4px 0;
+}
+.goal-filter-search-options label {
+  flex: 1;
+  font-size: 11px;
+}
+.goal-filter-search-options select {
+  min-width: 0;
+  flex: 1;
+}
+.goal-filter .goal-filter-candidates {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid #514934;
+  background: #151819;
+}
+.goal-filter-candidates li {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  padding: 6px 38px 6px 8px;
+  border-bottom: 1px solid #303337;
+  overflow-wrap: anywhere;
+}
+.goal-filter-candidates li:hover {
+  background: #292d2e;
+}
+.goal-filter-candidates li button {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  width: 30px;
+}
+.goal-filter-candidates small {
+  color: #a4a39b;
+  font-size: 10px;
+}
+.goal-filter strong {
+  color: #d7bb7b;
+  font-weight: 500;
+  font-style: italic;
+}
+.goal-filter .goal-filter-group {
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  margin: 0 0 12px;
+}
+.goal-filter-group-controls {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  border-bottom: 1px solid #4a4536;
+}
+.goal-filter-group-type {
+  flex: 1;
+}
+.goal-filter .goal-filter-group-type select {
+  width: auto;
+  max-width: 55%;
+  margin-left: auto;
+  color: #e2d5ad;
+  background: #101313;
+  border: 0;
+}
+.goal-filter-group-title {
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.goal-filter .goal-filter-search-input input:not(:focus) {
+  text-align: center;
+}
+.goal-filter .goal-filter-toggle {
+  order: -1;
+  flex: 0 0 24px;
+  justify-content: center;
+  align-self: stretch;
+  min-height: 32px;
+}
+.goal-filter .goal-filter-icon {
+  flex: 0 0 28px;
+  min-height: 32px;
+  width: 28px;
+  padding: 0;
+  border-color: transparent;
+  background: transparent;
+  font-size: 20px;
+}
+.goal-filter .goal-filter-operation {
+  margin: 3px 0;
+  font-size: 11px;
+  color: #aaa492;
+}
+.goal-filter .goal-filter-group-range {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2px;
+  position: relative;
+  min-width: 0;
+  padding: 0;
+  margin: 2px 0;
+  border: 0;
+}
+.goal-filter-group-range legend {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+}
+.goal-filter-row {
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 2px 0;
+  background: #101313;
+  border-left: 2px solid #4c452a;
+}
+.goal-filter-row-label {
+  flex: 1 1 100px;
+  min-width: 0;
+  min-height: 32px;
+  padding: 7px 8px;
+  overflow-wrap: anywhere;
+}
+.goal-filter .goal-filter-row-warning {
+  order: 1;
+  flex-basis: 100%;
+  margin: 0;
+  padding: 3px 8px;
+  font-size: 11px;
+  color: #e4b986;
+}
+.goal-filter-disabled > .goal-filter-row-label,
+.goal-filter-disabled > .goal-filter-number,
+.goal-filter-disabled .goal-filter-group-type {
+  opacity: 0.5;
+}
+.goal-filter .goal-filter-add-stat {
+  width: 100%;
+  margin-top: 2px;
+  color: #b9bcb9;
+}
+.goal-filter-group > [hidden] + .goal-filter-add-stat {
+  display: none;
+}
+.goal-filter .goal-filter-add-group {
+  display: block;
+  margin-left: auto;
+  width: 50%;
+}
+.goal-filter .goal-filter-evaluate {
+  display: block;
+  width: min(365px, 100%);
+  margin: 16px auto 8px;
+  background: #103149;
+  border-color: #36577a;
+  color: #d5dfeb;
+}
+.goal-filter p,
+.goal-filter legend {
+  overflow-wrap: anywhere;
+}
+.goal-filter > p,
+.goal-filter > [aria-live] {
+  font-size: 12px;
+}
+.goal-filter-connected {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 700px) {
+  .goal-filter .goal-filter-group-title {
+    font-size: 12px;
+  }
+  .goal-filter .goal-filter-group-type select {
+    font-size: 11px;
+    max-width: none;
+    width: 110px;
+    padding-inline: 4px;
+  }
+  .goal-filter-row {
+    position: relative;
+  }
+  .goal-filter .goal-filter-row > .goal-filter-toggle {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 24px;
+  }
+  .goal-filter-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .goal-filter {
+    padding: 8px;
+  }
+  .goal-filter .goal-filter-number {
+    width: 52px;
+    flex-basis: 52px;
+  }
+  .goal-filter-row-label {
+    flex-basis: 100%;
+    padding-left: 28px;
+    padding-bottom: 4px;
+  }
+  .goal-filter-row > .goal-filter-number:first-of-type {
+    margin-left: auto;
+  }
+  .goal-filter .goal-filter-add-group {
+    width: 100%;
+  }
+}
