@@ -36,27 +36,49 @@ public final class BaseRegistry {
 
   private static final Map<String, Base> TOP;
   private static final Map<String, Policy> POLICIES;
+  private static final Set<String> KEYS;
 
   static {
     try (var bases = BaseRegistry.class.getResourceAsStream("/catalog/top-bases.json");
         var policies = BaseRegistry.class.getResourceAsStream("/catalog/base-policies.json")) {
       var mapper = new ObjectMapper();
+      mapper.enable(
+          com.fasterxml.jackson.core.StreamReadFeature.STRICT_DUPLICATE_DETECTION.mappedFeature());
       var source = mapper.readTree(bases);
       var rules = mapper.readTree(policies);
       var snapshot = read(source, rules);
       TOP = snapshot.top();
       POLICIES = snapshot.policies();
+      KEYS = snapshot.keys();
     } catch (IOException e) {
       throw new ExceptionInInitializerError(e);
     }
   }
 
-  record Snapshot(Map<String, Base> top, Map<String, Policy> policies) {}
+  record Snapshot(Map<String, Base> top, Map<String, Policy> policies, Set<String> keys) {}
 
   static Snapshot read(JsonNode source, JsonNode rules) {
     var mapper = new ObjectMapper();
-    if (rules.path("schemaVersion").asInt() != 1)
+    if (source == null
+        || !source.isObject()
+        || source.isEmpty()
+        || rules == null
+        || !rules.isObject()
+        || !rules.path("schemaVersion").isInt()
+        || rules.path("schemaVersion").asInt() != 1)
       throw new IllegalArgumentException("Unknown base policy schema");
+    for (String section : List.of("families", "baseOverrides", "legacy"))
+      if (!rules.path(section).isObject())
+        throw new IllegalArgumentException("Missing base policy section: " + section);
+    rules
+        .path("baseOverrides")
+        .fieldNames()
+        .forEachRemaining(
+            key -> {
+              if (!source.has(key))
+                throw new IllegalArgumentException("Unknown base override: " + key);
+            });
+    var keys = new LinkedHashSet<String>();
     var top = new LinkedHashMap<String, Base>();
     var byId = new LinkedHashMap<String, Policy>();
     source
@@ -65,6 +87,8 @@ public final class BaseRegistry {
             entry -> {
               var b = entry.getValue();
               String key = entry.getKey(), family = required(b, "family");
+              if (!b.isObject() || !key.equals(required(b, "key")))
+                throw new IllegalArgumentException("Base key differs from registry key: " + key);
               var familyPolicy = rules.path("families").get(family);
               if (familyPolicy == null)
                 throw new IllegalArgumentException("Unreviewed base family");
@@ -83,7 +107,7 @@ public final class BaseRegistry {
               for (String field : List.of("initializeImplicit", "sourcePropertyUnscaled"))
                 if (!merged.path(field).isBoolean())
                   throw new IllegalArgumentException("Missing class policy: " + field);
-              var policy = parse(merged, mapper);
+              var policy = parse(merged, mapper, false);
               var base =
                   new Base(
                       key,
@@ -101,18 +125,25 @@ public final class BaseRegistry {
               if (byId.putIfAbsent(base.id(), policy) != null)
                 throw new IllegalArgumentException("Duplicate reviewed base ID");
               top.put(key, base);
+              keys.add(key);
             });
     rules
         .path("legacy")
         .fields()
         .forEachRemaining(
             entry -> {
+              if (!entry.getKey().matches("[a-z0-9-]+"))
+                throw new IllegalArgumentException("Invalid legacy base key");
               if (top.containsKey(entry.getKey())
                   || byId.putIfAbsent(
-                          required(entry.getValue(), "id"), parse(entry.getValue(), mapper))
+                          required(entry.getValue(), "id"), parse(entry.getValue(), mapper, true))
                       != null) throw new IllegalArgumentException("Duplicate legacy base identity");
+              keys.add(entry.getKey());
             });
-    return new Snapshot(Collections.unmodifiableMap(top), Collections.unmodifiableMap(byId));
+    return new Snapshot(
+        Collections.unmodifiableMap(top),
+        Collections.unmodifiableMap(byId),
+        Collections.unmodifiableSet(keys));
   }
 
   private BaseRegistry() {}
@@ -124,7 +155,19 @@ public final class BaseRegistry {
     return value.asText();
   }
 
-  private static Policy parse(JsonNode source, ObjectMapper mapper) {
+  private static Policy parse(JsonNode source, ObjectMapper mapper, boolean legacy) {
+    if (source == null || !source.isObject())
+      throw new IllegalArgumentException("Invalid base policy object");
+    var allowed = new HashSet<String>();
+    if (legacy) allowed.addAll(List.of("id", "slug", "initialText"));
+    for (var component : Policy.class.getRecordComponents()) allowed.add(component.getName());
+    source
+        .fieldNames()
+        .forEachRemaining(
+            field -> {
+              if (!allowed.contains(field))
+                throw new IllegalArgumentException("Unknown base policy field: " + field);
+            });
     // Legacy entries intentionally lack class/version/snapshot fields; their execution remains
     // explicit.
     for (String field :
@@ -155,6 +198,10 @@ public final class BaseRegistry {
 
   public static Map<String, Base> topBases() {
     return TOP;
+  }
+
+  public static Set<String> registeredKeys() {
+    return KEYS;
   }
 
   public static Base require(String key) {

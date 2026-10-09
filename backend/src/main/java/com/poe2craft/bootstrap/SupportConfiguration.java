@@ -13,10 +13,13 @@ public class SupportConfiguration {
   @Bean
   com.poe2craft.crafting.application.goalfilter.GoalFilterService goalFilterService(
       WorkbenchService workbenchService) {
+    RulesetManifestLoader.load();
     return new com.poe2craft.crafting.application.goalfilter.GoalFilterService(
         new com.poe2craft.crafting.domain.goalfilter.GoalCatalogIndex(
             com.poe2craft.crafting.infrastructure.goalfilter.BundledGoalCatalogs.load(
-                workbenchService)));
+                workbenchService),
+            com.poe2craft.crafting.infrastructure.goalfilter.GoalDefinitionsLoader.load(),
+            RulesetManifestLoader.load().identity()));
   }
 
   @Bean
@@ -32,7 +35,8 @@ public class SupportConfiguration {
             registry.get("ledgerVersion").asText()
                 + registry.get("assumptionLedger")
                 + registry.get("modifierWeightPolicy")
-                + registry.get("mixedKnownUnknownWeightPolicy"));
+                + registry.get("mixedKnownUnknownWeightPolicy")
+                + RulesetManifestLoader.load().identity());
     return new AdditionPoolCache(catalog, store, WorkbenchSimulator.RULE_VERSION, digest, 2048);
   }
 

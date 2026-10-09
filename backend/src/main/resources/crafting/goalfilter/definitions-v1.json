@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "ruleVersion": "goal-catalog-source-units-v1/solar-numeric-addition-v1/uniform-integer-roll-v1",
+  "stats": [
+    {
+      "sourceStatId": "base_cold_damage_resistance_%",
+      "label": "Cold Resistance",
+      "unit": "percent"
+    },
+    {
+      "sourceStatId": "base_fire_damage_resistance_%",
+      "label": "Fire Resistance",
+      "unit": "percent"
+    },
+    {
+      "sourceStatId": "base_lightning_damage_resistance_%",
+      "label": "Lightning Resistance",
+      "unit": "percent"
+    },
+    {
+      "sourceStatId": "base_chaos_damage_resistance_%",
+      "label": "Chaos Resistance",
+      "unit": "percent"
+    },
+    {
+      "sourceStatId": "base_resist_all_elements_%",
+      "label": "All Elemental Resistances",
+      "unit": "percent"
+    },
+    {
+      "sourceStatId": "base_maximum_life",
+      "label": "Maximum Life",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "base_maximum_mana",
+      "label": "Maximum Mana",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "base_maximum_energy_shield",
+      "label": "Maximum Energy Shield",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "base_spirit_from_equipment",
+      "label": "Spirit",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "additional_strength",
+      "label": "Strength",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "additional_dexterity",
+      "label": "Dexterity",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "additional_intelligence",
+      "label": "Intelligence",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "additional_all_attributes",
+      "label": "All Attributes",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "accuracy_rating",
+      "label": "Accuracy Rating",
+      "unit": "flat"
+    }
+  ],
+  "pseudos": [
+    {
+      "id": "total_cold_resistance",
+      "label": "Total Cold Resistance",
+      "unit": "percent",
+      "sourceStatIds": [
+        "base_cold_damage_resistance_%",
+        "base_resist_all_elements_%"
+      ]
+    },
+    {
+      "id": "total_fire_resistance",
+      "label": "Total Fire Resistance",
+      "unit": "percent",
+      "sourceStatIds": [
+        "base_fire_damage_resistance_%",
+        "base_resist_all_elements_%"
+      ]
+    },
+    {
+      "id": "total_lightning_resistance",
+      "label": "Total Lightning Resistance",
+      "unit": "percent",
+      "sourceStatIds": [
+        "base_lightning_damage_resistance_%",
+        "base_resist_all_elements_%"
+      ]
+    },
+    {
+      "id": "total_strength",
+      "label": "Total Strength",
+      "unit": "flat",
+      "sourceStatIds": [
+        "additional_strength",
+        "additional_all_attributes"
+      ]
+    },
+    {
+      "id": "total_dexterity",
+      "label": "Total Dexterity",
+      "unit": "flat",
+      "sourceStatIds": [
+        "additional_dexterity",
+        "additional_all_attributes"
+      ]
+    },
+    {
+      "id": "total_intelligence",
+      "label": "Total Intelligence",
+      "unit": "flat",
+      "sourceStatIds": [
+        "additional_intelligence",
+        "additional_all_attributes"
+      ]
+    }
+  ]
+}

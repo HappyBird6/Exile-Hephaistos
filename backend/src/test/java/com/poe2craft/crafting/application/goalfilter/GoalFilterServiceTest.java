@@ -61,7 +61,10 @@ class GoalFilterServiceTest {
 
   @Test
   void checkedInProductionExampleMatchesCurrentCatalogAndActualItemEvaluation() throws Exception {
-    var all = new GoalCatalogIndex(BundledGoalCatalogs.load(ReviewedCatalogTestData.workbench()));
+    var all =
+        new GoalCatalogIndex(
+            BundledGoalCatalogs.load(ReviewedCatalogTestData.workbench()),
+            com.poe2craft.crafting.infrastructure.goalfilter.GoalDefinitionsLoader.load());
     var mapper = new com.fasterxml.jackson.databind.ObjectMapper();
     try (var stream =
         getClass().getResourceAsStream("/crafting/goalfilter/production-example.json")) {
@@ -108,7 +111,10 @@ class GoalFilterServiceTest {
   static final String COLD = "base_cold_damage_resistance_%";
   static final String ALL = "base_resist_all_elements_%";
   final ItemCatalog itemCatalog = ItemCatalogLoader.loadDefault();
-  final GoalCatalogIndex index = new GoalCatalogIndex(List.of(itemCatalog));
+  final GoalCatalogIndex index =
+      new GoalCatalogIndex(
+          List.of(itemCatalog),
+          com.poe2craft.crafting.infrastructure.goalfilter.GoalDefinitionsLoader.load());
   final GoalFilterService service = new GoalFilterService(index);
 
   public static GoalFilter goal(
@@ -256,7 +262,9 @@ class GoalFilterServiceTest {
   void allSeventeenReviewedBasesLoadAndExposeOnlyTheirSourceStats() {
     var bases = BundledGoalCatalogs.load(ReviewedCatalogTestData.workbench());
     assertThat(bases).hasSize(17);
-    var all = new GoalCatalogIndex(bases);
+    var all =
+        new GoalCatalogIndex(
+            bases, com.poe2craft.crafting.infrastructure.goalfilter.GoalDefinitionsLoader.load());
     for (var base : bases) {
       var catalog = all.catalog(new Context(base.metadata().snapshotId(), base.base().id(), 82));
       assertThat(catalog.issues()).isEmpty();
@@ -284,7 +292,12 @@ class GoalFilterServiceTest {
                   .filter(s -> s.support().evaluation() == Capability.SUPPORTED)
                   .count());
     }
-    assertThat(all.version()).isEqualTo(new GoalCatalogIndex(bases.reversed()).version());
+    assertThat(all.version())
+        .isEqualTo(
+            new GoalCatalogIndex(
+                    bases.reversed(),
+                    com.poe2craft.crafting.infrastructure.goalfilter.GoalDefinitionsLoader.load())
+                .version());
     var sampleItem =
         item(
             List.of(modifier(itemCatalog, COLD, 10), modifier(itemCatalog, ALL, 12)), 82, Set.of());

@@ -14,37 +14,43 @@ import java.util.*;
  * Catalog membership proves base applicability; level eligibility only applies to new generation.
  */
 public final class GoalCatalogIndex {
-  public static final String RULE_VERSION =
-      "goal-catalog-source-units-v1/solar-numeric-addition-v1/uniform-integer-roll-v1";
   private final Map<String, ItemCatalog> bases;
   private final String version;
-  private static final Map<String, String> PERCENT =
-      Map.ofEntries(
-          Map.entry("base_cold_damage_resistance_%", "Cold Resistance"),
-          Map.entry("base_fire_damage_resistance_%", "Fire Resistance"),
-          Map.entry("base_lightning_damage_resistance_%", "Lightning Resistance"),
-          Map.entry("base_chaos_damage_resistance_%", "Chaos Resistance"),
-          Map.entry("base_resist_all_elements_%", "All Elemental Resistances"));
-  private static final Map<String, String> FLAT =
-      Map.ofEntries(
-          Map.entry("base_maximum_life", "Maximum Life"),
-          Map.entry("base_maximum_mana", "Maximum Mana"),
-          Map.entry("base_maximum_energy_shield", "Maximum Energy Shield"),
-          Map.entry("base_spirit_from_equipment", "Spirit"),
-          Map.entry("additional_strength", "Strength"),
-          Map.entry("additional_dexterity", "Dexterity"),
-          Map.entry("additional_intelligence", "Intelligence"),
-          Map.entry("additional_all_attributes", "All Attributes"),
-          Map.entry("accuracy_rating", "Accuracy Rating"));
+  private final GoalDefinitions definitions;
+  private final Map<String, GoalDefinitions.Direct> directStats;
 
-  public GoalCatalogIndex(List<ItemCatalog> catalogs) {
+  public GoalCatalogIndex(List<ItemCatalog> catalogs, GoalDefinitions definitions) {
+    this(catalogs, definitions, null);
+  }
+
+  public GoalCatalogIndex(
+      List<ItemCatalog> catalogs, GoalDefinitions definitions, String rulesetIdentity) {
+    this.definitions = Objects.requireNonNull(definitions);
+    directStats = definitions.directStats();
     var indexed = new TreeMap<String, ItemCatalog>();
     for (var catalog : catalogs) {
       if (indexed.put(catalog.base().id(), catalog) != null)
         throw new IllegalArgumentException("Duplicate base catalog");
     }
     bases = Collections.unmodifiableMap(indexed);
-    var signature = new StringBuilder(RULE_VERSION);
+    var signature = new StringBuilder(definitions.ruleVersion());
+    if (rulesetIdentity != null
+        && !rulesetIdentity.equals(
+            "reviewed-equipment-20261009-v1-81b47766ab181f81a31f8fa1452c6ce99074a00e0b5609c4b36279d79724fae8"))
+      signature.append(rulesetIdentity);
+    // Retain deployed goal versions for the exact pre-refactor definitions; any data edit
+    // automatically invalidates that compatibility boundary, even without a manual version bump.
+    try {
+      var digest =
+          HexFormat.of()
+              .formatHex(
+                  MessageDigest.getInstance("SHA-256")
+                      .digest(definitions.signature().getBytes(StandardCharsets.UTF_8)));
+      if (!digest.equals("7c7b34693b448cbe7f8921ef38faa9a4c077e2456bbe59843367cd5acd1d3cfa"))
+        signature.append(digest);
+    } catch (NoSuchAlgorithmException e) {
+      throw new IllegalStateException(e);
+    }
     indexed
         .values()
         .forEach(
@@ -170,7 +176,8 @@ public final class GoalCatalogIndex {
                   .filter(s -> id(first.layer().name(), s).equals(key))
                   .findFirst()
                   .orElseThrow();
-          boolean supported = PERCENT.containsKey(raw) || FLAT.containsKey(raw);
+          var direct = directStats.get(raw);
+          boolean supported = direct != null;
           boolean eligible =
               modifiers.stream()
                   .anyMatch(
@@ -181,8 +188,8 @@ public final class GoalCatalogIndex {
               key,
               new Stat(
                   key,
-                  PERCENT.getOrDefault(raw, FLAT.getOrDefault(raw, raw)),
-                  PERCENT.containsKey(raw) ? "percent" : FLAT.containsKey(raw) ? "flat" : "source",
+                  supported ? direct.label() : raw,
+                  supported ? direct.unit() : "source",
                   Kind.valueOf(first.layer().name()),
                   new Support(
                       supported ? Capability.SUPPORTED : Capability.UNSUPPORTED,
@@ -200,42 +207,8 @@ public final class GoalCatalogIndex {
                       .sorted()
                       .toList()));
         });
-    addPseudo(
-        result,
-        "total_cold_resistance",
-        "Total Cold Resistance",
-        "percent",
-        List.of("base_cold_damage_resistance_%", "base_resist_all_elements_%"));
-    addPseudo(
-        result,
-        "total_fire_resistance",
-        "Total Fire Resistance",
-        "percent",
-        List.of("base_fire_damage_resistance_%", "base_resist_all_elements_%"));
-    addPseudo(
-        result,
-        "total_lightning_resistance",
-        "Total Lightning Resistance",
-        "percent",
-        List.of("base_lightning_damage_resistance_%", "base_resist_all_elements_%"));
-    addPseudo(
-        result,
-        "total_strength",
-        "Total Strength",
-        "flat",
-        List.of("additional_strength", "additional_all_attributes"));
-    addPseudo(
-        result,
-        "total_dexterity",
-        "Total Dexterity",
-        "flat",
-        List.of("additional_dexterity", "additional_all_attributes"));
-    addPseudo(
-        result,
-        "total_intelligence",
-        "Total Intelligence",
-        "flat",
-        List.of("additional_intelligence", "additional_all_attributes"));
+    for (var pseudo : this.definitions.pseudos())
+      addPseudo(result, pseudo.id(), pseudo.label(), pseudo.unit(), pseudo.sourceStatIds());
     if (NumericAdditionKernel.supports(catalog)) {
       result.replaceAll(
           (key, stat) ->

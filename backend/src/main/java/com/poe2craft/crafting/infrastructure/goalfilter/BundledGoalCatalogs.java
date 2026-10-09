@@ -6,42 +6,53 @@ import com.poe2craft.item.ItemCatalog;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 /** Reuses Workbench's publicly exposed reviewed definitions without crossing item internals. */
 public final class BundledGoalCatalogs {
   private BundledGoalCatalogs() {}
 
-  private static final Map<String, String> BASES =
-      Map.ofEntries(
-          Map.entry("solar", "solar-amulet"),
-          Map.entry("stocky", "stocky-mitts"),
-          Map.entry("bow", "crude-bow"),
-          Map.entry("wand", "attuned-wand"),
-          Map.entry("body", "rusted-cuirass"),
-          Map.entry("sceptre", "rattling-sceptre"),
-          Map.entry("belt", "rawhide-belt"),
-          Map.entry("helmet", "rusted-greathelm"),
-          Map.entry("ring", "iron-ring"),
-          Map.entry("sapphire", "sapphire"),
-          Map.entry("ruby", "ruby"),
-          Map.entry("emerald", "emerald"),
-          Map.entry("diamond", "diamond"),
-          Map.entry("time-lost-ruby", "time-lost-ruby"),
-          Map.entry("time-lost-emerald", "time-lost-emerald"),
-          Map.entry("time-lost-sapphire", "time-lost-sapphire"),
-          Map.entry("time-lost-diamond", "time-lost-diamond"));
+  public record Base(String key, String pool) {}
+
+  public record Registry(int schemaVersion, List<Base> bases) {}
+
+  public static List<Base> readBases(java.io.InputStream stream) throws IOException {
+    if (stream == null) throw new IllegalArgumentException("Missing goal base registry");
+    var mapper = com.poe2craft.crafting.infrastructure.BundledJson.mapper();
+    var registry = mapper.readValue(stream, Registry.class);
+    if (registry.schemaVersion() != 1 || registry.bases() == null || registry.bases().isEmpty())
+      throw new IllegalArgumentException("Invalid goal base registry version or entries");
+    var keys = new java.util.HashSet<String>();
+    var pools = new java.util.HashSet<String>();
+    for (var base : registry.bases())
+      if (base == null
+          || base.key() == null
+          || base.pool() == null
+          || !base.key().matches("[a-z0-9-]+")
+          || !base.pool().matches("[a-z0-9-]+")
+          || !keys.add(base.key())
+          || !pools.add(base.pool()))
+        throw new IllegalArgumentException("Invalid or duplicate goal base identity");
+    return registry.bases().stream().sorted(java.util.Comparator.comparing(Base::key)).toList();
+  }
+
+  private static List<Base> bases() {
+    try (var stream =
+        BundledGoalCatalogs.class.getResourceAsStream("/crafting/goalfilter/bases-v1.json")) {
+      return readBases(stream);
+    } catch (IOException e) {
+      throw new IllegalStateException("Cannot read goal base registry", e);
+    }
+  }
 
   /** Called once at bootstrap. initial() is pure: no rolls, writes, currency or remote requests. */
   public static List<ItemCatalog> load(WorkbenchService workbench) {
     var catalogs = new ArrayList<ItemCatalog>();
     var json = new ObjectMapper();
-    for (var entry : new TreeMap<>(BASES).entrySet()) {
-      var reviewed = workbench.initial(entry.getKey(), 82);
+    for (var entry : bases()) {
+      var reviewed = workbench.initial(entry.key(), 82);
       try (var stream =
           BundledGoalCatalogs.class.getResourceAsStream(
-              "/catalog/" + entry.getValue() + "/catalog.json")) {
+              "/catalog/" + entry.pool() + "/catalog.json")) {
         if (stream == null) throw new IllegalStateException("Missing reviewed base properties");
         var base = json.treeToValue(json.readTree(stream).get("base"), ItemCatalog.BaseItem.class);
         if (!base.id().equals(reviewed.state().baseItemId()))

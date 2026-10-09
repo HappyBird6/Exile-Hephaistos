@@ -365,6 +365,8 @@ public final class ItemCatalogLoader {
 
   private static ObjectMapper mapper() {
     return new ObjectMapper()
+        .enable(
+            com.fasterxml.jackson.core.StreamReadFeature.STRICT_DUPLICATE_DETECTION.mappedFeature())
         .enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
         .enable(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES)
         .enable(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES)

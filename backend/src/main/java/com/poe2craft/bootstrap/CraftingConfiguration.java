@@ -98,45 +98,18 @@ public class CraftingConfiguration {
               ItemCatalogLoader.loadBasicJewel("time-lost-diamond"),
               ItemCatalogLoader.loadTopBase("soldier"),
               ItemCatalogLoader.loadTopBase("imperial"));
-      try (var source = getClass().getResourceAsStream("/catalog/top-base-essences.json")) {
-        var manifest = new com.fasterxml.jackson.databind.ObjectMapper().readTree(source);
-        for (var key : com.poe2craft.item.BaseRegistry.topBases().keySet()) {
-          if (com.poe2craft.item.BaseRegistry.require(key).policy().legacyCatalog() != null)
-            continue;
-          var targets = manifest.get(key);
-          if (targets == null)
-            throw new IllegalArgumentException("Missing reviewed essence manifest");
-          service.registerReviewedBase(
-              key,
-              ItemCatalogLoader.loadTopBase(key),
-              reviewedEssences(targets.get("fixed")),
-              reviewedEssences(targets.get("replacements")));
-        }
+      var manifest = com.poe2craft.crafting.infrastructure.ReviewedEssencesLoader.load();
+      for (var entry : manifest.entrySet()) {
+        service.registerReviewedBase(
+            entry.getKey(),
+            ItemCatalogLoader.loadTopBase(entry.getKey()),
+            entry.getValue().fixed(),
+            entry.getValue().replacements());
       }
       return service;
     } catch (java.io.IOException e) {
       throw new IllegalStateException("Cannot load Stocky Mitts catalog", e);
     }
-  }
-
-  private static java.util.Map<
-          com.poe2craft.crafting.domain.WorkbenchCurrency, java.util.List<String>>
-      reviewedEssences(com.fasterxml.jackson.databind.JsonNode source) {
-    var result =
-        new java.util.EnumMap<
-            com.poe2craft.crafting.domain.WorkbenchCurrency, java.util.List<String>>(
-            com.poe2craft.crafting.domain.WorkbenchCurrency.class);
-    source
-        .fields()
-        .forEachRemaining(
-            entry -> {
-              var ids = new java.util.ArrayList<String>();
-              entry.getValue().forEach(id -> ids.add(id.asText()));
-              result.put(
-                  com.poe2craft.crafting.domain.WorkbenchCurrency.valueOf(entry.getKey()),
-                  java.util.List.copyOf(ids));
-            });
-    return result;
   }
 
   @Bean

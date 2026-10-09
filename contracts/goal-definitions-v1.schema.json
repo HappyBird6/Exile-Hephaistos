@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "goal-definitions-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "ruleVersion",
+    "stats",
+    "pseudos"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "ruleVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stats": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sourceStatId",
+          "label",
+          "unit"
+        ],
+        "properties": {
+          "sourceStatId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unit": {
+            "enum": [
+              "flat",
+              "percent"
+            ]
+          }
+        }
+      }
+    },
+    "pseudos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "unit",
+          "sourceStatIds"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unit": {
+            "enum": [
+              "flat",
+              "percent"
+            ]
+          },
+          "sourceStatIds": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          }
+        }
+      }
+    }
+  }
+}

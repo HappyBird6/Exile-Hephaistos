@@ -23,6 +23,7 @@ class BaseRegistryTest {
     var rules = rules();
     var added = source.get("grand-spear").deepCopy();
     ((ObjectNode) added)
+        .put("key", "sourced-spear")
         .put("id", "Metadata/Items/Test/SourcedSpear")
         .put("name", "Sourced Spear")
         .put("slug", "Sourced_Spear")
@@ -57,6 +58,19 @@ class BaseRegistryTest {
     assertThrows(IllegalArgumentException.class, () -> BaseRegistry.require("unknown"));
     assertNull(BaseRegistry.policy("Metadata/Items/Unknown"));
     assertFalse(BaseRegistry.catalystQuality("Metadata/Items/Unknown"));
+  }
+
+  @Test
+  void orphanOverridesKeyMismatchAndPolicyTyposAreRejected() throws Exception {
+    var source = source();
+    var rules = rules();
+    ((ObjectNode) rules.get("baseOverrides")).set("unknown", M.createObjectNode());
+    assertThrows(IllegalArgumentException.class, () -> BaseRegistry.read(source, rules));
+    var complete = rules();
+    ((ObjectNode) complete.get("families").get("spears")).put("ordinaryCatlyst", false);
+    assertThrows(IllegalArgumentException.class, () -> BaseRegistry.read(source, complete));
+    ((ObjectNode) source.get("grand-spear")).put("key", "typo");
+    assertThrows(IllegalArgumentException.class, () -> BaseRegistry.read(source, rules()));
   }
 
   @Test

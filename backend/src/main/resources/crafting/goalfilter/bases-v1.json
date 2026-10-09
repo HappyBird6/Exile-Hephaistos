@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "bases": [
+    {
+      "key": "solar",
+      "pool": "solar-amulet"
+    },
+    {
+      "key": "stocky",
+      "pool": "stocky-mitts"
+    },
+    {
+      "key": "bow",
+      "pool": "crude-bow"
+    },
+    {
+      "key": "wand",
+      "pool": "attuned-wand"
+    },
+    {
+      "key": "body",
+      "pool": "rusted-cuirass"
+    },
+    {
+      "key": "sceptre",
+      "pool": "rattling-sceptre"
+    },
+    {
+      "key": "belt",
+      "pool": "rawhide-belt"
+    },
+    {
+      "key": "helmet",
+      "pool": "rusted-greathelm"
+    },
+    {
+      "key": "ring",
+      "pool": "iron-ring"
+    },
+    {
+      "key": "sapphire",
+      "pool": "sapphire"
+    },
+    {
+      "key": "ruby",
+      "pool": "ruby"
+    },
+    {
+      "key": "emerald",
+      "pool": "emerald"
+    },
+    {
+      "key": "diamond",
+      "pool": "diamond"
+    },
+    {
+      "key": "time-lost-ruby",
+      "pool": "time-lost-ruby"
+    },
+    {
+      "key": "time-lost-emerald",
+      "pool": "time-lost-emerald"
+    },
+    {
+      "key": "time-lost-sapphire",
+      "pool": "time-lost-sapphire"
+    },
+    {
+      "key": "time-lost-diamond",
+      "pool": "time-lost-diamond"
+    }
+  ]
+}

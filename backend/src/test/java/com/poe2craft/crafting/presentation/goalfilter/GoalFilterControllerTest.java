@@ -79,7 +79,10 @@ class GoalFilterControllerTest {
 
   final ObjectMapper json = new ObjectMapper();
   final ItemCatalog itemCatalog = ItemCatalogLoader.loadDefault();
-  final GoalCatalogIndex index = new GoalCatalogIndex(List.of(itemCatalog));
+  final GoalCatalogIndex index =
+      new GoalCatalogIndex(
+          List.of(itemCatalog),
+          com.poe2craft.crafting.infrastructure.goalfilter.GoalDefinitionsLoader.load());
   final MockMvc mvc =
       MockMvcBuilders.standaloneSetup(new GoalFilterController(new GoalFilterService(index), json))
           .setControllerAdvice(new GoalFilterErrors())
