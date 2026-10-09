@@ -470,6 +470,21 @@ Wand9 skill-family를 추가해 총71 bases를 제공한다. ordered Spawn Tags�
 
 Backend441+integration6, Frontend1820, API539, Browser719가 통과했고228 screenshot을38 contact sheets로 pixels 검사했다. 기존62 initial 응답·film·번역·registry220/deferred50·Solar-only Support/Explorer·quality40/rounding·Shift/Alt·local orange를 보존했다. 첫 Backend accessor 오류와 첫 Frontend Node22 engine 거부 로그는 유지했다. 조건을 완화하지 않고 수정/Node24로 전체 검증을 통과했다. remote push/merge/deploy는 수행하지 않는다.
 
+## WB-049 Catalog 유지보수 첫 묶음과 시즌 경계 (2026-10-09)
+
+첫 안전 묶음은 goal direct stat14/pseudo6/선택 base17의 typed JSON, crafting 지원 base whitelist34 단일 출처, 공통 strict JSON reader, base policy/Essence manifest 참조 검증, explicit ruleset manifest다. BaseRegistry의 확장117행과 legacy17행은 Workbench134 지원과 구분한다. JSON은 capability를 자동 구현하지 않으며 Solar-only numeric, 미검토 raw-text mapping, 기존 quality/source/rounding 규칙을 보존한다. 기존 Blessed whitelist의 Elegant/Flexed Crossbow 중복 key2개는 제거했다. public registry oracle는 이 두 삭제와 additive ruleset metadata를 분리하여 이전 나머지 값·배열 순서를 검증한다.
+
+`schemaVersion`은 파일 형식, `rulesetVersion`은 내부 검토 bundle이다. 현재 gameSeason/gamePatch는 UNVERIFIED다. 461개 catalog/지원 resource digest와 engine/ledger version을 초기화에서 검사하고 내용 identity를 goal version/cache namespace에 반영한다. 과거 goal 호환 digest는 현행 정의 그대로일 때만 유효하다. JSON shape·중복 key·coercion·orphan override·unknown target·version mismatch를 거부하며 기존 simulator의 실제 modifier 검증은 유지한다. 변경 가이드는 [catalog 데이터 유지보수](docs/catalog-data-maintenance.md)에 있다.
+
+후속 구현이 필요한 범위:
+
+- `WorkbenchCurrency.java`: enum 생성자의 baseAction/minimumModifierLevel/fixedModifierId/choice IDs/source, `replacementModifiers()`의 ID 배열, `replacementEssenceSource()`와 alloy source URL. enum identity·정적 데이터·실행 규칙을 분리하고 모든 enum getter 값과 target 순서를 먼저 fixture로 고정해야 한다. null/empty 의미와 `replacementEssenceModifiers()`의 alloy/liquid 예외를 보존한다.
+- `WorkbenchOmen.java`: id/trigger/affix와 tiered currency 지원 집합. `sideWhittling`, `sideDoubleRemoval`, `verifiedDoubleAddition`은 현재 조합 알고리즘이며 추출을 이유로 조합을 넓히지 않는다.
+- variant wrapper ruleVersion과 inventory legacy simulator version26개는 역할이 다르다. 동일성 강제로 snapshot/API를 바꾸지 않고 명확한 필드/alias 모델을 후속 설계한다.
+- 기존 film은 frame snapshot과 개별 evidence ruleVersion/ledgerVersion만 가진다. root/film/request의 ruleset ID, mismatch 거부, explicit legacy 읽기/실행 호환 정책은 아직 구현하지 않았다. future season 지원 전에 해결한다. manifest 재봉인만으로 과거 film 실행 호환성을 보증하지 않는다.
+
+기존 migration/DB/volume/local film/source 데이터는 보존한다. 새 Craft Support 경로 탐색이나 과거 시즌 실행 엔진은 이번 묶음에 포함하지 않았다. 검사·commit·원격 SHA는 완료 checkpoint 문서에서 구분한다.
+
 ## Goal filter numeric addition model
 
 - Solar 단일 stat addition 수치 계산은 명시된 uniform-integer-roll-v1 모델 내 구현됨. 실제 게임 정수 roll 분포와 catalog weight의 서버 선택 확률 검증은 미확정이며 ledger/API/UI에서 분리 표시한다.
