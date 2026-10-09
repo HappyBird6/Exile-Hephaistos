@@ -194,10 +194,7 @@ export async function evaluatePath(
       body: JSON.stringify(request),
     },
   )
-  if (!response.ok)
-    throw new Error(
-      `Probability request failed (${response.status}). Inputs are preserved; no probability is available.`,
-    )
+  if (!response.ok) throw new PathRequestError(response.status)
   verifyRulesetResponse(response, request.start.provenance.rulesetIdentity)
   const result = (await response.json()) as PathResult
   const echoed = result?.request
@@ -242,4 +239,10 @@ export async function evaluatePath(
       throw new Error('Probability mass or calculation status is inconsistent.')
   })
   return result
+}
+export class PathRequestError extends Error {
+  constructor(readonly status: number) {
+    super(`Probability request failed (${status}).`)
+    this.name = 'PathRequestError'
+  }
 }

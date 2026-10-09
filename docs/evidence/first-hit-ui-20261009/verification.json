@@ -7,10 +7,24 @@
     "lint": "PASS",
     "typecheck": "PASS",
     "formatCheck": "PASS",
-    "fullRegression": {"command": "npm run test -- --run --maxWorkers=2", "files": 78, "tests": 1984, "failed": 0},
-    "afterFocusReview": {"command": "npm run test -- --run src/features/crafting/basic-paths --maxWorkers=2", "files": 2, "tests": 15, "failed": 0},
+    "fullRegression": {
+      "command": "npm run test -- --run --maxWorkers=2",
+      "files": 78,
+      "tests": 1984,
+      "failed": 0
+    },
+    "afterFocusReview": {
+      "command": "npm run test -- --run src/features/crafting/basic-paths --maxWorkers=2",
+      "files": 2,
+      "tests": 15,
+      "failed": 0
+    },
     "productionBuild": "PASS; includes final action-removal focus implementation",
-    "firstFullRun": {"passed": 1977, "failed": 2, "details": "Existing CraftSupport catalog-wait assertions; identical assertions/timeouts passed on reduced worker count. No skip or timeout changes."}
+    "firstFullRun": {
+      "passed": 1977,
+      "failed": 2,
+      "details": "Existing CraftSupport catalog-wait assertions; identical assertions/timeouts passed on reduced worker count. No skip or timeout changes."
+    }
   },
   "backend": {
     "environment": "Docker Java 21",
@@ -20,8 +34,44 @@
     "scope": "Affected tests and bootJar only. No new full check/generateJooq/integration claim."
   },
   "httpProductionAdapterProbe": "PASS; see http-probe.json and reproducible http-probe.mjs",
-  "browser": {"result": "NOT_RUN", "reason": "computer-use inventory has zero browsers; createBrowserTab('iab') returned Browser is not available: iab", "remaining": ["happy", "partial", "unsupported", "conditional recovery", "large fraction", "stale responses", "375px layout", "keyboard visual QA"]},
+  "browser": {
+    "result": "NOT_RUN",
+    "reason": "computer-use inventory has zero browsers; createBrowserTab('iab') returned Browser is not available: iab",
+    "remaining": [
+      "happy",
+      "partial",
+      "unsupported",
+      "conditional recovery",
+      "large fraction",
+      "stale responses",
+      "375px layout",
+      "keyboard visual QA"
+    ]
+  },
   "selfReview": "Completed; independent review remains pending",
   "qaCleanup": "Own Backend/PostgreSQL/Redis containers, new anonymous DB volume and network removed. Test containers auto-removed. Existing services and volumes were not used.",
-  "masterSha": "891999d87d98a0f1f771177c0b734f8b645ba626"
+  "masterSha": "891999d87d98a0f1f771177c0b734f8b645ba626",
+  "reviewFollowup": {
+    "baseLocalCommit": "d7ef2e3136b44efee947e1154cfa07e0838853ee",
+    "fixes": [
+      "P2: preserve completed main/recovery results and in-flight requests during same-provenance focus/reconnect/manual revalidation; actual identity changes invalidate and cancel",
+      "Approved six-locale policy: translate all 47 new paths keys and reuse existing localized action/modifier display"
+    ],
+    "scope": "Frontend calculator only; no Backend or probability formula changes. Translation changes outside paths namespace: 0.",
+    "environment": "Docker node:24-bookworm",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "formatCheck": "PASS",
+    "regression": {
+      "command": "npm run test -- --run src/features/crafting/basic-paths src/features/crafting/goal-filter/CraftStart.test.tsx src/features/crafting/CraftSupport.test.tsx src/features/crafting/sessionRuleset.test.tsx --maxWorkers=2",
+      "files": 5,
+      "tests": 47,
+      "failed": 0
+    },
+    "productionBuild": "PASS",
+    "browser": "NOT_RUN; existing browser-unavailable blocker remains. DOM tests are not browser QA.",
+    "backend": "NOT_RERUN; no Backend changes in review followup.",
+    "selfReview": "Completed; P2 regression coverage includes identical provenance, recheck failures, pending requests, actual catalog/ruleset changes, and late responses.",
+    "publication": "LOCAL_ONLY; user canceled push. No push or alternate upload/transmission."
+  }
 }

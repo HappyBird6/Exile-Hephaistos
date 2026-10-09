@@ -22,10 +22,10 @@ Solar 외 base와 활성 Omen, 검증 전 원문, ruleset 불일치는 계산을
 - COMPLETE는 정확한 분수와 절삭 근사 비율을 표시한다. PARTIAL/UNKNOWN은 하한·상한·unresolved를 구분한다. active와 policy-ended 질량도 표시하며 global 제작 불가로 해석하지 않는다.
 - 분자·분모 문자열을 각각 Number로 바꾸지 않는다. BigInt 나눗셈으로 percentage의 소수 다섯 자리를 절삭한다. 양수 극소 확률은 `<0.00001%`, 1 미만은 최대 `≈99.99999%`, 정확히 1만 `100%`다. 정확한 분수는 disclosure로 확인할 수 있다.
 - 응답의 ruleset header, 전체 provenance, purpose, recoveryIncludedInMain=false, 요청의 full state/target/policy/observations 및 정확한 질량 보존과 status 일관성을 검증한다. ItemState의 canonical modifier 순서·선택 필드의 null/false 기본값만 동등하게 비교하며 원문 roll을 보정하지 않는다.
-- 입력·시작 상태·원문·history revision·ruleset/refetch 변경은 결과와 실행 선택을 폐기한다. 늦은 응답은 취소된 query에 격리한다. 같은 provenance로 돌아와도 이전 실행을 자동 재개하지 않는다.
-- 자동 retry·focus/reconnect refetch·재마운트 결과 refetch는 하지 않는다. 에러 후 계산 버튼으로 명시적 재시도할 수 있고 중복 클릭은 같은 요청을 중복 실행하지 않는다. 패널 닫기·탭 비활성화는 요청과 결과를 폐기한다.
+- 입력·시작 상태·목표·history revision·실제 ruleset/provenance 변경은 결과와 실행 토큰을 폐기한다. 이전 query는 취소하고 격리한다. 변경 이전 provenance가 돌아와도 이전 실행을 자동 재개하지 않는다.
+- 결과 query는 자동 retry·focus/reconnect refetch·재마운트 refetch를 하지 않는다. provenance는 focus/reconnect와 명시적 새로고침으로 재확인하며, 같은 검증값을 재조회하는 동안과 재조회 실패 시에는 기존 결과와 진행 중 요청을 유지한다. 실제 검증값이 바뀌면 폐기한다. 오류 후 계산 버튼으로 명시적 재시도할 수 있고 중복 클릭은 같은 요청을 중복 발행하지 않는다. 패널 닫기·탭 비활성화는 요청과 결과를 폐기한다.
 - native details/select/button, fieldset/legend, label, alert/status 및 닫기 후 summary focus 복귀를 사용한다. 700px 이하 한 열, 긴 분수·JSON wrapping과 스크롤을 적용한다. 실제 좁은 화면·키보드 브라우저 검증은 아래 미완료 경계에 해당한다.
-- 기존 6개 locale dictionary와 useI18n을 사용한다. AGENTS.md의 제품 UI 영어 정책에 따라 신규 문구는 여섯 locale 모두 영어다. 기존 catalog ID와 기술명은 그대로 유지한다.
+- 사용자 승인 정책에 따라 기존 6개 locale dictionary와 useI18n을 사용하고 신규 문구와 오류 표시를 각 언어로 번역한다. 기존 localizedAction과 검증된 modifier 번역 표시를 재사용한다. 원문 catalog ID와 확률근거는 그대로 보존한다. AGENTS.md의 오래된 영어 전용 문장은 승인된 6개 언어 정책으로 정정한다.
 
 ## 검증 근거와 남은 작업
 
@@ -42,6 +42,8 @@ Frontend npm ci와 Docker lint/typecheck/format/build PASS. 첫 전체 실행은
 **미완료:** 이 실행 환경의 computer-use inventory는 browser 0개이며 in-app browser 생성은 `Browser is not available: iab`로 실패했다. 따라서 실제 브라우저 happy/partial/unsupported/recovery/대용량 분수/stale 응답, 좁은 화면과 keyboard 시각 검증을 수행하지 못했다. DOM 테스트와 HTTP 근거를 실제 브라우저 PASS로 간주하지 않는다. 독립 리뷰도 별도 완료 주장하지 않는다.
 
 ## 독립 리뷰 안내
+
+독립 정적 리뷰의 P2 후속 수정으로 같은 provenance의 focus/reconnect/수동 재조회 및 재조회 실패 동안 완료 결과와 진행 중 요청을 유지한다. 실제 catalog/provenance 또는 ruleset 변경 시 취소·폐기하고 늦은 응답을 격리한다. 신규 `paths.*` 47개 문구는 승인된 6개 언어로 번역했으며 namespace 밖 번역 변경은 없다. Docker `node:24-bookworm`에서 lint/typecheck/format, 영향 범위 **5 files / 47 tests**, production build가 모두 PASS했다. Backend는 변경하지 않아 이번 후속 검사를 반복하지 않았다. 브라우저 미제공에 따른 실제 브라우저 QA 미완료 경계는 유지한다. 사용자 push 취소 지시에 따라 이번 결과는 로컬 commit만 하며 업로드·대체 전송하지 않는다. 상세 기록은 [verification.json](evidence/first-hit-ui-20261009/verification.json)의 `reviewFollowup`을 참고한다.
 
 `frontend/src/features/crafting/basic-paths/BasicPaths.tsx`의 query 실행/취소·입력 store·checkpoint 선택, `api.ts`의 lossless 요청/응답 검증과 BigInt 표시, `basic-paths.css`의 좁은 화면 처리를 확인한다. 접점은 `goal-filter/CraftStart.tsx`의 BasicPaths props 한 곳이다. tests는 동일 디렉터리의 BasicPaths.test.tsx 및 api.test.ts에 있다. API DTO 기준은 BasicPathController.Response와 BasicPathService.Request다.
 

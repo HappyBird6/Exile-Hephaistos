@@ -5,11 +5,13 @@ import { useStore } from 'zustand'
 import type { Initial } from '../craftingApi'
 import type { ConcreteItem } from '../workbenchApi'
 import { localizedAction } from '../localizedCrafting'
+import { localizedModifierText } from '../localizedModifiers'
 import { useI18n } from '../../../shared/i18n/i18n'
 import {
   basicActions,
   evaluatePath,
   loadProvenance,
+  PathRequestError,
   percent,
   sameProvenance,
 } from './api'
@@ -113,7 +115,6 @@ function Calculator({
     valid &&
     item?.baseItemId === 'Metadata/Items/Amulets/FourAmulet9' &&
     !!initial &&
-    !provenance.isFetching &&
     !!provenance.data &&
     initial.rulesetIdentity === provenance.data.rulesetIdentity &&
     activeOmens.length === 0
@@ -131,7 +132,6 @@ function Calculator({
     revision,
     activeOmens,
     provenance.data,
-    provenance.isFetching,
     valid,
   ])
   const key = JSON.stringify([
@@ -174,7 +174,7 @@ function Calculator({
           <option value="">{t('paths.select')}</option>
           {definitions.map((d) => (
             <option key={d.id} value={d.id}>
-              {d.name} — T{d.tier} — {d.text}
+              {d.name} — T{d.tier} — {localizedModifierText(d)}
             </option>
           ))}
         </select>
@@ -301,11 +301,10 @@ function Calculator({
       <p>{t('paths.observations')}</p>
       <p>{t('paths.model')}</p>
       {!ready && <p role="status">{t('paths.notReady')}</p>}
-      {provenance.error && <p role="alert">{provenance.error.message}</p>}
+      {provenance.error && <p role="alert">{t('paths.provenanceError')}</p>}
       <button
         type="button"
         onClick={() => {
-          update({})
           void provenance.refetch()
         }}
       >
@@ -413,10 +412,18 @@ function Calculator({
       </div>
       {busy && <p role="status">{t('paths.pending')}</p>}
       {main && mainResult.error && (
-        <p role="alert">{mainResult.error.message}</p>
+        <p role="alert">
+          {mainResult.error instanceof PathRequestError
+            ? t('paths.requestError', { status: mainResult.error.status })
+            : t('paths.responseError')}
+        </p>
       )}
       {recovery && recoveryResult.error && (
-        <p role="alert">{recoveryResult.error.message}</p>
+        <p role="alert">
+          {recoveryResult.error instanceof PathRequestError
+            ? t('paths.requestError', { status: recoveryResult.error.status })
+            : t('paths.responseError')}
+        </p>
       )}
       {main && mainResult.data && <Results result={mainResult.data} />}
       {recovery && recoveryResult.data && (
@@ -469,7 +476,7 @@ function SavedState({
   return (
     <details>
       <summary>
-        {label} — {state.item.rarity}, level {state.item.itemLevel}
+        {label} — {state.item.rarity}, {t('paths.level')} {state.item.itemLevel}
         {!current && ` — ${t('paths.stale')}`}
       </summary>
       <ul>

@@ -1,6 +1,12 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import {
+  focusManager,
+  onlineManager,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 import {
   fireEvent,
+  act,
   render,
   screen,
   waitFor,
@@ -14,7 +20,8 @@ import {
   jsonResponse,
 } from '../../../shared/test/craftingFixtures'
 import { concreteInitial } from '../workbenchApi'
-import { setLocale } from '../../../shared/i18n/i18n'
+import { locales, setLocale, translate } from '../../../shared/i18n/i18n'
+import messages from '../../../shared/i18n/messages.json'
 
 const provenance: Provenance = {
   rulesetIdentity: initialFixture.rulesetIdentity,
@@ -112,6 +119,8 @@ async function open() {
   )
 }
 beforeEach(() => {
+  focusManager.setFocused(true)
+  onlineManager.setOnline(true)
   setLocale('en')
   vi.stubGlobal(
     'fetch',
@@ -126,6 +135,229 @@ beforeEach(() => {
 })
 afterEach(() => vi.unstubAllGlobals())
 describe('experimental basic paths', () => {
+  it.each(locales)(
+    'renders the new calculator and service error in %s',
+    async (locale) => {
+      setLocale(locale)
+      const keys = Object.keys(messages.en).filter((key) =>
+        key.startsWith('paths.'),
+      )
+      expect(
+        Object.keys(messages[locale]).filter((key) => key.startsWith('paths.')),
+      ).toEqual(keys)
+      for (const key of keys) {
+        const translated = messages[locale][key as keyof typeof messages.en]
+        expect(translated).toBeTruthy()
+        if (locale !== 'en')
+          expect(translated).not.toBe(
+            messages.en[key as keyof typeof messages.en],
+          )
+        expect(translated.match(/\{\w+\}/g) ?? []).toEqual(
+          messages.en[key as keyof typeof messages.en].match(/\{\w+\}/g) ?? [],
+        )
+      }
+      mount()
+      const details = screen
+        .getByText(translate('paths.title'))
+        .closest('details')!
+      details.open = true
+      fireEvent(details, new Event('toggle'))
+      await waitFor(() =>
+        expect(
+          screen.getByRole('button', {
+            name: translate('paths.captureFailure'),
+          }),
+        ).toBeEnabled(),
+      )
+      expect(screen.getByText(translate('paths.observations'))).toBeVisible()
+      fireEvent.change(
+        within(
+          screen.getByRole('region', { name: translate('paths.main') }),
+        ).getByLabelText(translate('paths.target')),
+        { target: { value: 'p' } },
+      )
+      vi.mocked(fetch).mockImplementation(
+        async () => new Response('', { status: 503 }),
+      )
+      fireEvent.click(
+        screen.getByRole('button', { name: translate('paths.calculate') }),
+      )
+      expect(await screen.findByRole('alert')).toHaveTextContent(
+        translate('paths.requestError', { status: 503 }),
+      )
+    },
+  )
+  const events = ['focus', 'reconnect'] as const
+  async function recheck(event: (typeof events)[number] | 'manual') {
+    await act(async () => {
+      if (event === 'focus') {
+        focusManager.setFocused(false)
+        focusManager.setFocused(true)
+      } else if (event === 'reconnect') {
+        onlineManager.setOnline(false)
+        onlineManager.setOnline(true)
+      } else
+        fireEvent.click(
+          screen.getByRole('button', {
+            name: 'Refresh probability provenance',
+          }),
+        )
+    })
+  }
+  it.each([...events, 'manual'] as const)(
+    'retains both completed results during same-provenance %s recheck and clears them only after an actual change',
+    async (event) => {
+      mount()
+      await open()
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: 'Save current item as failure state',
+        }),
+      )
+      fireEvent.change(
+        within(
+          screen.getByRole('region', {
+            name: 'Separate conditional recovery probability',
+          }),
+        ).getByLabelText('Exact modifier tier'),
+        { target: { value: 's' } },
+      )
+      fireEvent.click(
+        screen.getByRole('button', { name: 'Calculate main probability' }),
+      )
+      await screen.findByText('100 — COMPLETE')
+      fireEvent.click(
+        screen.getByRole('button', { name: 'Calculate conditional recovery' }),
+      )
+      await waitFor(() =>
+        expect(
+          screen.getAllByRole('region', { name: 'Probability results' }),
+        ).toHaveLength(2),
+      )
+      let finish: ((response: Response) => void) | undefined
+      vi.mocked(fetch).mockImplementation(async (url) => {
+        if (!String(url).endsWith('/provenance'))
+          throw new Error('Unexpected probability rerun')
+        return new Promise<Response>((resolve) => {
+          finish = resolve
+        })
+      })
+      await recheck(event)
+      await waitFor(() => expect(finish).toBeDefined())
+      expect(
+        screen.getAllByRole('region', { name: 'Probability results' }),
+      ).toHaveLength(2)
+      await act(async () => finish!(jsonResponse(provenance)))
+      expect(
+        screen.getAllByRole('region', { name: 'Probability results' }),
+      ).toHaveLength(2)
+      finish = undefined
+      await recheck(event)
+      await waitFor(() => expect(finish).toBeDefined())
+      await act(async () => finish!(new Response('', { status: 503 })))
+      expect(await screen.findByRole('alert')).toHaveTextContent(
+        translate('paths.provenanceError'),
+      )
+      expect(
+        screen.getAllByRole('region', { name: 'Probability results' }),
+      ).toHaveLength(2)
+      expect(
+        vi
+          .mocked(fetch)
+          .mock.calls.filter(([url]) => !String(url).endsWith('/provenance')),
+      ).toHaveLength(2)
+      finish = undefined
+      await recheck(event)
+      await waitFor(() => expect(finish).toBeDefined())
+      expect(
+        screen.getAllByRole('region', { name: 'Probability results' }),
+      ).toHaveLength(2)
+      // A catalog identity change invalidates results even if the broad ruleset string is unchanged.
+      await act(async () =>
+        finish!(jsonResponse({ ...provenance, catalogDigest: 'f'.repeat(64) })),
+      )
+      await waitFor(() =>
+        expect(
+          screen.queryByRole('region', { name: 'Probability results' }),
+        ).toBeNull(),
+      )
+    },
+  )
+  it.each(events)(
+    'does not cancel an in-flight calculation on same-provenance %s recheck',
+    async (event) => {
+      mount()
+      await open()
+      let finish: ((response: Response) => void) | undefined
+      let request: PathRequest | undefined
+      vi.mocked(fetch).mockImplementation(async (url, init) => {
+        if (String(url).endsWith('/provenance')) return jsonResponse(provenance)
+        request = JSON.parse(String(init?.body)) as PathRequest
+        return new Promise<Response>((resolve) => {
+          finish = resolve
+        })
+      })
+      fireEvent.click(
+        screen.getByRole('button', { name: 'Calculate main probability' }),
+      )
+      await waitFor(() => expect(finish).toBeDefined())
+      const signal = vi
+        .mocked(fetch)
+        .mock.calls.find(([url]) =>
+          String(url).endsWith('/first-hit'),
+        )?.[1]?.signal
+      await recheck(event)
+      await waitFor(() =>
+        expect(
+          vi
+            .mocked(fetch)
+            .mock.calls.filter(([url]) => String(url).endsWith('/provenance')),
+        ).toHaveLength(2),
+      )
+      expect(signal?.aborted).toBe(false)
+      expect(screen.getByText('Calculating explicit policy…')).toBeVisible()
+      await act(async () => finish!(response(request!)))
+      expect(await screen.findByText('100 — COMPLETE')).toBeVisible()
+    },
+  )
+  it.each(events)(
+    'cancels and isolates a late calculation when %s recheck returns changed ruleset identity',
+    async (event) => {
+      mount()
+      await open()
+      let finish: ((response: Response) => void) | undefined
+      let request: PathRequest | undefined
+      vi.mocked(fetch).mockImplementation(async (url, init) => {
+        if (String(url).endsWith('/provenance'))
+          return jsonResponse({
+            ...provenance,
+            rulesetIdentity: 'changed-rules',
+          })
+        request = JSON.parse(String(init?.body)) as PathRequest
+        return new Promise<Response>((resolve) => {
+          finish = resolve
+        })
+      })
+      fireEvent.click(
+        screen.getByRole('button', { name: 'Calculate main probability' }),
+      )
+      await waitFor(() => expect(finish).toBeDefined())
+      const signal = vi
+        .mocked(fetch)
+        .mock.calls.find(([url]) =>
+          String(url).endsWith('/first-hit'),
+        )?.[1]?.signal
+      await recheck(event)
+      await waitFor(() => expect(signal?.aborted).toBe(true))
+      await act(async () => finish!(response(request!)))
+      expect(
+        screen.queryByRole('region', { name: 'Probability results' }),
+      ).toBeNull()
+      expect(
+        screen.getByRole('button', { name: 'Calculate main probability' }),
+      ).toBeDisabled()
+    },
+  )
   it('returns keyboard focus to the action selector after removing an action', async () => {
     mount()
     await open()
@@ -186,7 +418,7 @@ describe('experimental basic paths', () => {
         screen.getByRole('button', { name: 'Calculate main probability' }),
       ).toBeDisabled(),
     )
-    expect(screen.queryByText('100 — COMPLETE')).toBeNull()
+    await waitFor(() => expect(screen.queryByText('100 — COMPLETE')).toBeNull())
     vi.mocked(fetch).mockImplementation(async () => jsonResponse(provenance))
     fireEvent.click(
       screen.getByRole('button', { name: 'Refresh probability provenance' }),
@@ -196,7 +428,7 @@ describe('experimental basic paths', () => {
         screen.getByRole('button', { name: 'Calculate main probability' }),
       ).toBeEnabled(),
     )
-    expect(screen.queryByText('100 — COMPLETE')).toBeNull()
+    await waitFor(() => expect(screen.queryByText('100 — COMPLETE')).toBeNull())
   })
   it('keeps other bases unsupported rather than displaying a zero probability', async () => {
     const mounted = mount()
