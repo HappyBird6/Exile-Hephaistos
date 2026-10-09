@@ -23,7 +23,7 @@ import {
   loadInitial,
   loadTransition,
 } from './craftingApi'
-import type { Action, Bucket, Definition } from './craftingApi'
+import type { Action, Bucket, Definition, Initial } from './craftingApi'
 import './crafting-explorer.css'
 
 const percent = (value: number) =>
@@ -74,15 +74,25 @@ export function CraftingExplorer({
     staleTime: 60_000,
     retry: false,
   })
-  const currentKey = ['crafting', 'current', revision] as const
+  const [root, setRoot] = useState<{
+    revision: number
+    initial: Initial
+  } | null>(null)
+  const [session, setSession] = useState(0)
+  if (initial.data && root?.revision !== revision)
+    setRoot({ revision, initial: initial.data })
+  const origin = root?.revision === revision ? root.initial : undefined
+  const currentKey = ['crafting', 'current', revision, session] as const
   const current = useQuery<{
     id: string
     state: Bucket
+    rulesetIdentity: string
     history: {
       id: string
       state: Bucket
       chance: number
       action: Action | null
+      rulesetIdentity: string
     }[]
   }>({
     queryKey: currentKey,
@@ -91,9 +101,15 @@ export function CraftingExplorer({
   })
   const position =
     current.data ??
-    (initial.data
-      ? { id: initial.data.id, state: initial.data.state }
+    (origin
+      ? {
+          id: origin.id,
+          state: origin.state,
+          rulesetIdentity: origin.rulesetIdentity,
+        }
       : undefined)
+  const currentRules =
+    !!position && position.rulesetIdentity === initial.data?.rulesetIdentity
   const history = current.data?.history ?? []
   const [selection, setSelection] = useState<{
     count: number
@@ -113,48 +129,61 @@ export function CraftingExplorer({
     stateId: string
   } | null>(null)
   const available = useQuery({
-    queryKey: ['crafting', 'actions', position?.id],
-    queryFn: position
-      ? ({ signal }) =>
-          loadActions(position.state, signal, initial.data!.rulesetIdentity)
-      : skipToken,
+    queryKey: ['crafting', 'actions', position?.rulesetIdentity, position?.id],
+    queryFn:
+      position && currentRules
+        ? ({ signal }) =>
+            loadActions(position.state, signal, position.rulesetIdentity)
+        : skipToken,
     initialData:
-      position?.id === initial.data?.id ? initial.data?.actions : undefined,
+      currentRules && position?.id === origin?.id ? origin?.actions : undefined,
     staleTime: 60_000,
     retry: false,
   })
   const transitions = useQuery({
-    queryKey: ['crafting', 'transitions', position?.id, selected],
+    queryKey: [
+      'crafting',
+      'transitions',
+      position?.rulesetIdentity,
+      position?.id,
+      selected,
+    ],
     queryFn:
-      position && selected
+      position && currentRules && selected
         ? ({ signal }) =>
             loadTransition(
               position.state,
               selected,
               signal,
-              initial.data!.rulesetIdentity,
+              position.rulesetIdentity,
             )
         : skipToken,
     staleTime: 60_000,
     retry: false,
   })
   const exploration = useQuery({
-    queryKey: ['crafting', 'explore', position?.id, search],
+    queryKey: [
+      'crafting',
+      'explore',
+      position?.rulesetIdentity,
+      position?.id,
+      search,
+    ],
     queryFn:
-      position && search && search.stateId === position.id
+      position && currentRules && search && search.stateId === position.id
         ? ({ signal }) =>
             explore(
               position.state,
               search.plan,
               signal,
-              initial.data!.rulesetIdentity,
+              position.rulesetIdentity,
             )
         : skipToken,
     staleTime: Infinity,
     gcTime: 0,
     retry: false,
   })
-  const definitions = initial.data?.modifiers ?? {}
+  const definitions = origin?.modifiers ?? {}
   const card: ItemCardData = position
     ? {
         ...fallback,
@@ -179,10 +208,11 @@ export function CraftingExplorer({
     : { ...fallback, itemLevel: level }
 
   function choose(id: string, state: Bucket, probability: number) {
-    if (!position) return
+    if (!position || !currentRules) return
     client.setQueryData(currentKey, {
       id,
       state,
+      rulesetIdentity: position.rulesetIdentity,
       history: [
         ...history,
         {
@@ -190,6 +220,7 @@ export function CraftingExplorer({
           state: position.state,
           chance: probability,
           action: selected,
+          rulesetIdentity: position.rulesetIdentity,
         },
       ],
     })
@@ -204,6 +235,7 @@ export function CraftingExplorer({
     client.setQueryData(currentKey, {
       id: previous.id,
       state: previous.state,
+      rulesetIdentity: previous.rulesetIdentity,
       history: history.slice(0, index),
     })
     setSelection({ count: requestCount, action: null })
@@ -222,6 +254,22 @@ export function CraftingExplorer({
       className="craft-explorer"
       aria-label={t('ui.crafting_probability_explorer')}
     >
+      {position && !currentRules && (
+        <p role="alert">{t('ruleset.request_changed')}</p>
+      )}
+      {initial.data && (
+        <button
+          type="button"
+          onClick={() => {
+            setRoot({ revision, initial: initial.data! })
+            setSession((value) => value + 1)
+            setSelection({ count: requestCount, action: null })
+            setSearch(null)
+          }}
+        >
+          {t('ruleset.new_start')}
+        </button>
+      )}
       <ol className="selected-path" aria-label={t('ui.selected_crafting_path')}>
         {history.map((entry, index) => (
           <li key={`${entry.id}-${index}`}>
@@ -231,7 +279,14 @@ export function CraftingExplorer({
                 {entry.state.rarity} {t('ui.item_level_fragment')}{' '}
                 {entry.state.itemLevel}
               </strong>
-              <p>{describe(entry.state, definitions)}</p>
+              <p>
+                {describe(
+                  entry.state,
+                  entry.rulesetIdentity === origin?.rulesetIdentity
+                    ? definitions
+                    : {},
+                )}
+              </p>
               <button type="button" onClick={() => returnTo(index)}>
                 {t('explorer.return_step', { index: index + 1 })}
               </button>
@@ -257,7 +312,13 @@ export function CraftingExplorer({
           <span className="current-marker">{t('ui.you_are_here')}</span>
         </div>
         <div className="current-overview">
-          <ItemCard baseItemId="Solar_Amulet" item={card} />
+          {currentRules ? (
+            <ItemCard baseItemId="Solar_Amulet" item={card} />
+          ) : position ? (
+            <pre>{JSON.stringify(position.state, null, 2)}</pre>
+          ) : (
+            <ItemCard baseItemId="Solar_Amulet" item={card} />
+          )}
           <div className="current-context">
             <p>{t('notice.predicted_ranges')}</p>
             <p>
@@ -267,7 +328,7 @@ export function CraftingExplorer({
             <button type="button" onClick={back} disabled={!history.length}>
               {t('ui.previous_state')}
             </button>
-            {initial.data && (
+            {currentRules && initial.data && (
               <p className="probability-source">
                 {' '}
                 {t('ui.weights_calculation')}{' '}
@@ -302,9 +363,11 @@ export function CraftingExplorer({
               type="button"
               onClick={() => {
                 void initial.refetch()
-                if (position) void available.refetch()
-                if (selected) void transitions.refetch()
-                if (search) void exploration.refetch()
+                if (currentRules) {
+                  if (position) void available.refetch()
+                  if (selected) void transitions.refetch()
+                  if (search) void exploration.refetch()
+                }
               }}
             >
               {t('ui.retry')}
@@ -319,7 +382,7 @@ export function CraftingExplorer({
             <div key={a.action} className="explorer-action">
               <button
                 type="button"
-                disabled={!a.available}
+                disabled={!currentRules || !a.available}
                 aria-pressed={selected === a.action}
                 aria-label={t('explorer.preview', {
                   name: localizedAction(a.action),
@@ -364,7 +427,7 @@ export function CraftingExplorer({
             </button>
           </p>
         )}
-        {selected && transitions.data && (
+        {currentRules && selected && transitions.data && (
           <div className="transition-outcomes">
             <h3>{localizedAction(selected)}</h3>
             {!transitions.data.available ? (
@@ -502,9 +565,11 @@ export function CraftingExplorer({
           </div>
           <button
             type="button"
-            disabled={!position || !plan[0] || exploration.isFetching}
+            disabled={
+              !currentRules || !position || !plan[0] || exploration.isFetching
+            }
             onClick={() => {
-              if (!position) return
+              if (!position || !currentRules) return
               const end = plan.indexOf('')
               const sequence = (end < 0 ? plan : plan.slice(0, end)) as Action[]
               setSearch({
@@ -525,7 +590,7 @@ export function CraftingExplorer({
               </button>
             </p>
           )}
-          {search && exploration.data && (
+          {currentRules && search && exploration.data && (
             <div className="exploration-summary">
               <p>
                 {exploration.data.complete

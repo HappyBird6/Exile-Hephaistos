@@ -392,7 +392,8 @@
     "ruleset.inconsistent": "This saved craft contains inconsistent ruleset identities. Execution is disabled. The original record is preserved.",
     "ruleset.saved_record": "Preserved craft record",
     "ruleset.request_missing": "Ruleset identity is missing. Start a new craft using the current catalog. Saved records are preserved.",
-    "ruleset.request_changed": "The crafting ruleset changed. Reload the catalog and start a new craft. Saved records are preserved."
+    "ruleset.request_changed": "The crafting ruleset changed. Reload the catalog and start a new craft. Saved records are preserved.",
+    "ruleset.new_start": "Start a new session with current rules"
   },
   "ko": {
     "language": "언어",
@@ -787,7 +788,8 @@
     "ruleset.inconsistent": "이 제작 기록의 규칙 identity가 서로 일치하지 않습니다. 재실행할 수 없습니다. 원본 기록은 보존됩니다.",
     "ruleset.saved_record": "보존된 제작 기록",
     "ruleset.request_missing": "규칙 identity가 없습니다. 현재 catalog로 새 제작을 시작하세요. 저장 기록은 보존됩니다.",
-    "ruleset.request_changed": "제작 규칙이 변경되었습니다. catalog를 새로 불러와 새 제작을 시작하세요. 저장 기록은 보존됩니다."
+    "ruleset.request_changed": "제작 규칙이 변경되었습니다. catalog를 새로 불러와 새 제작을 시작하세요. 저장 기록은 보존됩니다.",
+    "ruleset.new_start": "현재 규칙으로 새 세션 시작"
   },
   "zh-CN": {
     "language": "语言",
@@ -1182,7 +1184,8 @@
     "ruleset.inconsistent": "此制作记录中的规则标识不一致，无法继续执行。原始记录会保留。",
     "ruleset.saved_record": "保留的制作记录",
     "ruleset.request_missing": "缺少规则标识。请使用当前目录开始新的制作，保存的记录会保留。",
-    "ruleset.request_changed": "制作规则已更改。请重新加载目录并开始新的制作，保存的记录会保留。"
+    "ruleset.request_changed": "制作规则已更改。请重新加载目录并开始新的制作，保存的记录会保留。",
+    "ruleset.new_start": "按当前规则开始新会话"
   },
   "zh-TW": {
     "language": "語言",
@@ -1577,7 +1580,8 @@
     "ruleset.inconsistent": "此製作紀錄中的規則識別碼不一致，無法繼續執行。原始紀錄會保留。",
     "ruleset.saved_record": "保留的製作紀錄",
     "ruleset.request_missing": "缺少規則識別碼。請使用目前目錄開始新的製作，儲存的紀錄會保留。",
-    "ruleset.request_changed": "製作規則已變更。請重新載入目錄並開始新的製作，儲存的紀錄會保留。"
+    "ruleset.request_changed": "製作規則已變更。請重新載入目錄並開始新的製作，儲存的紀錄會保留。",
+    "ruleset.new_start": "依目前規則開始新工作階段"
   },
   "ja": {
     "language": "言語",
@@ -1972,7 +1976,8 @@
     "ruleset.inconsistent": "この制作記録のルール識別子が一致していません。再実行できません。元の記録は保持されます。",
     "ruleset.saved_record": "保持された制作記録",
     "ruleset.request_missing": "ルール識別子がありません。現在のカタログで新しい制作を開始してください。保存された記録は保持されます。",
-    "ruleset.request_changed": "制作ルールが変更されました。カタログを再読み込みして新しい制作を開始してください。保存された記録は保持されます。"
+    "ruleset.request_changed": "制作ルールが変更されました。カタログを再読み込みして新しい制作を開始してください。保存された記録は保持されます。",
+    "ruleset.new_start": "現在のルールで新しいセッションを開始"
   },
   "es": {
     "language": "Idioma",
@@ -2367,6 +2372,7 @@
     "ruleset.inconsistent": "Las identidades de reglas de esta creación guardada no coinciden. No se puede ejecutar. El registro original se conserva.",
     "ruleset.saved_record": "Registro de creación conservado",
     "ruleset.request_missing": "Falta la identidad de reglas. Inicia una nueva creación con el catálogo actual. Los registros guardados se conservan.",
-    "ruleset.request_changed": "Las reglas de creación han cambiado. Recarga el catálogo e inicia una nueva creación. Los registros guardados se conservan."
+    "ruleset.request_changed": "Las reglas de creación han cambiado. Recarga el catálogo e inicia una nueva creación. Los registros guardados se conservan.",
+    "ruleset.new_start": "Iniciar una nueva sesión con las reglas actuales"
   }
 }

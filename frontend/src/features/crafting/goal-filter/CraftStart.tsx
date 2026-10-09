@@ -20,11 +20,13 @@ import {
   startItemIssues,
 } from './startItem'
 import './craft-start.css'
+import { useI18n } from '../../../shared/i18n/i18n'
 
 type Draft = {
   base: string
   text: string
   item: ConcreteItem | null
+  rulesetIdentity: string | null
   card: ItemCardData | null
   issue: string
   modifiersOpen: boolean
@@ -44,11 +46,13 @@ export function CraftStart({
   activeOmens?: string[]
   maxMillis?: number
 }) {
+  const { t } = useI18n()
   const [editor] = useState(() =>
     createStore<Draft>(() => ({
       base: 'solar',
       text: '',
       item: null,
+      rulesetIdentity: null,
       card: null,
       issue: '',
       modifiersOpen: false,
@@ -98,6 +102,9 @@ export function CraftStart({
   })
   const solar = inventory.data?.find((entry) => entry.base[0] === 'solar')
   const selected = inventory.data?.find((entry) => entry.base[0] === draft.base)
+  const currentRules =
+    !!draft.rulesetIdentity &&
+    draft.rulesetIdentity === selected?.initial.rulesetIdentity
   function cancel() {
     revision.current++
     request.current?.abort()
@@ -112,6 +119,7 @@ export function CraftStart({
     update({
       base: key,
       item,
+      rulesetIdentity: entry.initial.rulesetIdentity,
       text: startText(entry.base, item, entry.initial.modifiers),
       card: startCard(entry.base, item, entry.initial.modifiers),
       issue: '',
@@ -125,6 +133,7 @@ export function CraftStart({
         const item = concreteInitial(entry.initial)
         editor.setState({
           item,
+          rulesetIdentity: entry.initial.rulesetIdentity,
           text: startText(entry.base, item, entry.initial.modifiers),
           card: startCard(entry.base, item, entry.initial.modifiers),
         })
@@ -142,6 +151,7 @@ export function CraftStart({
   }, [active, editor])
   async function checkText(text: string) {
     const editorItem = editor.getState().item
+    const editorIdentity = editor.getState().rulesetIdentity
     cancel()
     const version = revision.current
     const controller = new AbortController()
@@ -160,6 +170,7 @@ export function CraftStart({
       update({
         card: toItemCard(parsed),
         item: null,
+        rulesetIdentity: null,
         base: entry?.base[0] ?? '',
         issue: '',
       })
@@ -169,11 +180,13 @@ export function CraftStart({
         )
       if (
         editorItem &&
+        editorIdentity === entry.initial.rulesetIdentity &&
         !startItemIssues(entry.initial, editorItem).length &&
         text === startText(entry.base, editorItem, entry.initial.modifiers)
       ) {
         update({
           item: editorItem,
+          rulesetIdentity: editorIdentity,
           card: startCard(entry.base, editorItem, entry.initial.modifiers),
         })
       } else if (entry.base[0] !== 'solar') {
@@ -182,7 +195,7 @@ export function CraftStart({
           throw new Error(
             'Pasted-item catalog mapping currently supports Solar Amulet only. This text is preserved for display.',
           )
-        update({ item })
+        update({ item, rulesetIdentity: entry.initial.rulesetIdentity })
       } else {
         const result = await mapSolarText(
           text,
@@ -203,12 +216,16 @@ export function CraftStart({
               .join(' ') ||
               'The item could not be verified against the Solar catalog.',
           )
-        update({ item: result.state })
+        update({
+          item: result.state,
+          rulesetIdentity: entry.initial.rulesetIdentity,
+        })
       }
     } catch (error) {
       if (!controller.signal.aborted && version === revision.current)
         update({
           item: null,
+          rulesetIdentity: null,
           issue:
             error instanceof Error
               ? error.message
@@ -226,13 +243,14 @@ export function CraftStart({
     update({
       text,
       item: null,
+      rulesetIdentity: null,
       card: null,
       issue: 'Check the edited text before starting.',
       modifiersOpen: false,
     })
   }
   function addModifier(id: string) {
-    if (!selected || !draft.item) return
+    if (!currentRules || !selected || !draft.item) return
     const definition = eligibleStartModifiers(
       selected.initial,
       draft.item,
@@ -283,10 +301,13 @@ export function CraftStart({
           <span>{draft.editing ? 'Hide settings' : 'Edit settings'}</span>
         </button>
         <div id="craft-start-settings" hidden={!draft.editing}>
+          {draft.item && !currentRules && (
+            <p role="alert">{t('ruleset.request_changed')}</p>
+          )}
           {context && (
             <ConnectedGoalFilter
-              rulesetIdentity={selected?.initial.rulesetIdentity}
-              item={draft.item}
+              rulesetIdentity={draft.rulesetIdentity ?? undefined}
+              item={currentRules ? draft.item : null}
               context={context}
               language="en"
               activeOmens={activeOmens}
@@ -374,7 +395,10 @@ export function CraftStart({
                 </button>
                 <button
                   disabled={
-                    !draft.item || !selected || Boolean(stateIssues.length)
+                    !currentRules ||
+                    !draft.item ||
+                    !selected ||
+                    Boolean(stateIssues.length)
                   }
                   aria-expanded={draft.modifiersOpen}
                   onClick={() =>
@@ -390,132 +414,136 @@ export function CraftStart({
                   {issue}
                 </p>
               ))}
-              {draft.modifiersOpen && draft.item && selected && (
-                <div className="craft-start-modifiers">
-                  <label>
-                    Modifier tier
-                    <select
-                      aria-label="Starting modifier tier"
-                      value=""
-                      onChange={(e) => addModifier(e.target.value)}
-                    >
-                      <option value="">Select modifier…</option>
-                      {availableModifiers.map((m) => (
-                        <option key={m.id} value={m.id}>
-                          {m.text} · T{m.tier}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-                  {!availableModifiers.length && (
-                    <p role="status">
-                      No eligible modifiers remain at this level and the current
-                      affix/Crafted capacity.
-                    </p>
-                  )}
-                  <small>
-                    Editor values start at the catalog minimum; choose your
-                    intended rolls.
-                  </small>
-                  {draft.item.explicits.map((m, index) => (
-                    <div key={m.modifierId} className="craft-start-rolls">
-                      <strong>
-                        {selected.initial.modifiers[m.modifierId]?.text}
-                      </strong>
-                      {selected.initial.modifiers[m.modifierId]?.stats?.map(
-                        (stat) => (
-                          <label key={stat.id}>
-                            {stat.id}
-                            <input
-                              type="number"
-                              min={stat.min}
-                              max={stat.max}
-                              value={m.values[stat.id]}
-                              onChange={(e) => {
-                                if (!draft.item) return
-                                const value = Number(e.target.value)
-                                const valid =
-                                  e.target.value !== '' &&
-                                  Number.isSafeInteger(value) &&
-                                  value >= stat.min &&
-                                  value <= stat.max
-                                if (!valid) {
-                                  update({
-                                    issue: `Roll must be an integer from ${stat.min} to ${stat.max}.`,
-                                  })
-                                  return
-                                }
-                                const item = {
-                                  ...draft.item,
-                                  explicits: draft.item.explicits.map(
-                                    (row, i) =>
-                                      i === index
-                                        ? {
-                                            ...row,
-                                            values: {
-                                              ...row.values,
-                                              [stat.id]: value,
-                                            },
-                                          }
-                                        : row,
-                                  ),
-                                }
-                                update({
-                                  item,
-                                  text: startText(
-                                    selected.base,
-                                    item,
-                                    selected.initial.modifiers,
-                                  ),
-                                  card: startCard(
-                                    selected.base,
-                                    item,
-                                    selected.initial.modifiers,
-                                  ),
-                                  issue: '',
-                                })
-                              }}
-                            />
-                          </label>
-                        ),
-                      )}
-                      <button
-                        aria-label={`Remove starting modifier ${index + 1}`}
-                        onClick={() => {
-                          if (!draft.item) return
-                          const item = {
-                            ...draft.item,
-                            explicits: draft.item.explicits.filter(
-                              (_, i) => i !== index,
-                            ),
-                          }
-                          update({
-                            item,
-                            text: startText(
-                              selected.base,
-                              item,
-                              selected.initial.modifiers,
-                            ),
-                            card: startCard(
-                              selected.base,
-                              item,
-                              selected.initial.modifiers,
-                            ),
-                            issue: '',
-                          })
-                        }}
+              {currentRules &&
+                draft.modifiersOpen &&
+                draft.item &&
+                selected && (
+                  <div className="craft-start-modifiers">
+                    <label>
+                      Modifier tier
+                      <select
+                        aria-label="Starting modifier tier"
+                        value=""
+                        onChange={(e) => addModifier(e.target.value)}
                       >
-                        Remove
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              )}
+                        <option value="">Select modifier…</option>
+                        {availableModifiers.map((m) => (
+                          <option key={m.id} value={m.id}>
+                            {m.text} · T{m.tier}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                    {!availableModifiers.length && (
+                      <p role="status">
+                        No eligible modifiers remain at this level and the
+                        current affix/Crafted capacity.
+                      </p>
+                    )}
+                    <small>
+                      Editor values start at the catalog minimum; choose your
+                      intended rolls.
+                    </small>
+                    {draft.item.explicits.map((m, index) => (
+                      <div key={m.modifierId} className="craft-start-rolls">
+                        <strong>
+                          {selected.initial.modifiers[m.modifierId]?.text}
+                        </strong>
+                        {selected.initial.modifiers[m.modifierId]?.stats?.map(
+                          (stat) => (
+                            <label key={stat.id}>
+                              {stat.id}
+                              <input
+                                type="number"
+                                min={stat.min}
+                                max={stat.max}
+                                value={m.values[stat.id]}
+                                onChange={(e) => {
+                                  if (!draft.item) return
+                                  const value = Number(e.target.value)
+                                  const valid =
+                                    e.target.value !== '' &&
+                                    Number.isSafeInteger(value) &&
+                                    value >= stat.min &&
+                                    value <= stat.max
+                                  if (!valid) {
+                                    update({
+                                      issue: `Roll must be an integer from ${stat.min} to ${stat.max}.`,
+                                    })
+                                    return
+                                  }
+                                  const item = {
+                                    ...draft.item,
+                                    explicits: draft.item.explicits.map(
+                                      (row, i) =>
+                                        i === index
+                                          ? {
+                                              ...row,
+                                              values: {
+                                                ...row.values,
+                                                [stat.id]: value,
+                                              },
+                                            }
+                                          : row,
+                                    ),
+                                  }
+                                  update({
+                                    item,
+                                    text: startText(
+                                      selected.base,
+                                      item,
+                                      selected.initial.modifiers,
+                                    ),
+                                    card: startCard(
+                                      selected.base,
+                                      item,
+                                      selected.initial.modifiers,
+                                    ),
+                                    issue: '',
+                                  })
+                                }}
+                              />
+                            </label>
+                          ),
+                        )}
+                        <button
+                          aria-label={`Remove starting modifier ${index + 1}`}
+                          onClick={() => {
+                            if (!draft.item) return
+                            const item = {
+                              ...draft.item,
+                              explicits: draft.item.explicits.filter(
+                                (_, i) => i !== index,
+                              ),
+                            }
+                            update({
+                              item,
+                              text: startText(
+                                selected.base,
+                                item,
+                                selected.initial.modifiers,
+                              ),
+                              card: startCard(
+                                selected.base,
+                                item,
+                                selected.initial.modifiers,
+                              ),
+                              issue: '',
+                            })
+                          }}
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
               <button
                 className="craft-start-primary"
                 ref={startButton}
                 disabled={
                   !draft.item ||
+                  !currentRules ||
                   !draft.card ||
                   checking ||
                   Boolean(draft.issue) ||

@@ -1,10 +1,10 @@
 import { ServiceMessage } from './ServiceMessage'
 import { useI18n, formatPercent, formatNumber } from '../../shared/i18n/i18n'
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useRef, useState } from 'react'
 import type { Dispatch, SetStateAction } from 'react'
 import { loadInitial } from './craftingApi'
-import type { Bucket } from './craftingApi'
+import type { Bucket, Initial } from './craftingApi'
 import { mapSolarText } from './workbenchApi'
 import { CraftStart } from './goal-filter/CraftStart'
 import { assessGoal, loadSupportFamilies, recommendGoal } from './supportApi'
@@ -49,12 +49,17 @@ function FamilySupport({
   setMaxMillis: (value: number) => void
 }) {
   const { t, name, locale } = useI18n()
+  const client = useQueryClient()
   const [source, setSource] = useState<'base' | 'text' | 'manual'>('base')
   const [level, setLevel] = useState('82')
   const [rarity, setRarity] = useState<Bucket['rarity']>('RARE')
   const [manual, setManual] = useState<string[]>([])
   const [text, setText] = useState('')
-  const [mapped, setMapped] = useState<Bucket | null>(null)
+  const [mapped, setMapped] = useState<{
+    state: Bucket
+    rulesetIdentity: string
+  } | null>(null)
+  const [catalog, setCatalog] = useState<Initial | null>(null)
   const [mappingIssues, setMappingIssues] = useState<string[]>([])
   const [goal, setGoal] = useState<SupportGoal>({
     required: [],
@@ -83,24 +88,50 @@ function FamilySupport({
     retry: false,
     staleTime: 60000,
   })
+  if (
+    initial.data &&
+    (!catalog ||
+      (catalog.rulesetIdentity === initial.data.rulesetIdentity &&
+        catalog.state.itemLevel !== Number(level)))
+  )
+    setCatalog(initial.data)
+  const stateIdentity =
+    source === 'text' ? mapped?.rulesetIdentity : catalog?.rulesetIdentity
+  const currentRules =
+    !!stateIdentity && stateIdentity === initial.data?.rulesetIdentity
   const families = useQuery({
-    queryKey: ['support', 'families'],
-    queryFn: ({ signal }) => loadSupportFamilies(signal),
-    enabled: active,
+    queryKey: ['support', 'families', catalog?.rulesetIdentity],
+    queryFn: ({ signal }) =>
+      loadSupportFamilies(signal, catalog!.rulesetIdentity),
+    enabled:
+      active &&
+      !!catalog &&
+      catalog.rulesetIdentity === initial.data?.rulesetIdentity,
     retry: false,
     staleTime: Infinity,
   })
   const state: Bucket | null =
     source === 'text'
-      ? mapped
-      : initial.data
+      ? (mapped?.state ?? null)
+      : catalog
         ? {
-            ...initial.data.state,
+            ...catalog.state,
             rarity: source === 'base' ? 'NORMAL' : rarity,
             modifierIds: source === 'base' ? [] : manual,
           }
         : null
   useEffect(() => () => request.current?.abort(), [])
+  useEffect(() => {
+    if (!currentRules) invalidateAssessment()
+  }, [currentRules])
+  function matchesCurrentIdentity(identity: string | undefined) {
+    return (
+      !!identity &&
+      identity ===
+        client.getQueryData<Initial>(['support', 'initial', Number(level)])
+          ?.rulesetIdentity
+    )
+  }
   function invalidateAssessment() {
     request.current?.abort()
     request.current = null
@@ -120,7 +151,7 @@ function FamilySupport({
     // Resolve through the API-provided stable tier ID; source text only verifies
     // which example that tier represents, and is never an API/grouping key.
     const tier = family.tiers.find((entry) => entry.exampleText === example)
-    const definition = tier && initial.data?.modifiers[tier.modifierId]
+    const definition = tier && catalog?.modifiers[tier.modifierId]
     return definition && definition.text === example
       ? localizedModifierText(definition)
       : example
@@ -245,7 +276,12 @@ function FamilySupport({
     )
   }
   async function validateText() {
-    if (request.current || !initial.data) return
+    if (
+      request.current ||
+      !initial.data ||
+      catalog?.rulesetIdentity !== initial.data.rulesetIdentity
+    )
+      return
     const controller = new AbortController()
     request.current = controller
     setPending(true)
@@ -270,8 +306,11 @@ function FamilySupport({
       setMapped(
         result.state
           ? {
-              ...result.state,
-              modifierIds: result.state.explicits.map((m) => m.modifierId),
+              rulesetIdentity: initial.data.rulesetIdentity,
+              state: {
+                ...result.state,
+                modifierIds: result.state.explicits.map((m) => m.modifierId),
+              },
             }
           : null,
       )
@@ -289,7 +328,14 @@ function FamilySupport({
     }
   }
   async function validateGoal() {
-    if (!state || request.current) return
+    if (
+      !state ||
+      !currentRules ||
+      !stateIdentity ||
+      !matchesCurrentIdentity(stateIdentity) ||
+      request.current
+    )
+      return
     const controller = new AbortController()
     request.current = controller
     setPending(true)
@@ -300,7 +346,7 @@ function FamilySupport({
         state,
         goal,
         controller.signal,
-        initial.data!.rulesetIdentity,
+        stateIdentity,
       )
       if (!controller.signal.aborted) setAssessment(result)
     } catch (e) {
@@ -314,7 +360,14 @@ function FamilySupport({
     }
   }
   async function compareSequences() {
-    if (!state || request.current) return
+    if (
+      !state ||
+      !currentRules ||
+      !stateIdentity ||
+      !matchesCurrentIdentity(stateIdentity) ||
+      request.current
+    )
+      return
     const controller = new AbortController()
     request.current = controller
     setPending(true)
@@ -326,9 +379,10 @@ function FamilySupport({
         state,
         goal,
         controller.signal,
-        initial.data!.rulesetIdentity,
+        stateIdentity,
       )
-      if (controller.signal.aborted) return
+      if (controller.signal.aborted || !matchesCurrentIdentity(stateIdentity))
+        return
       setAssessment(checked)
       if (!checked.valid || !checked.feasible || checked.achieved) return
       const result = await recommendGoal(
@@ -337,7 +391,7 @@ function FamilySupport({
         activeOmens,
         maxMillis,
         controller.signal,
-        initial.data!.rulesetIdentity,
+        stateIdentity,
       )
       if (!controller.signal.aborted) setReport(result)
     } catch (e) {
@@ -371,6 +425,26 @@ function FamilySupport({
       }}
     >
       <p className="support-intro">{t('notice.support_root')}</p>
+      {state && !currentRules && (
+        <p role="alert">{t('ruleset.request_changed')}</p>
+      )}
+      {initial.data && (
+        <button
+          type="button"
+          onClick={() => {
+            invalidateAssessment()
+            setCatalog(initial.data!)
+            setMapped(null)
+            setManual([])
+            setRarity('RARE')
+            setGoal({ required: [], candidates: [], candidateCount: 0 })
+            setSource('base')
+            setRecovering(false)
+          }}
+        >
+          {t('ruleset.new_start')}
+        </button>
+      )}
       <div className="support-columns">
         <section className="support-box">
           <h2>{t('ui.1_starting_item')}</h2>
@@ -422,9 +496,9 @@ function FamilySupport({
               <p>{t('notice.manual_rolls')}</p>
               {manual.map((id, index) => (
                 <p key={id}>
-                  {initial.data?.modifiers[id] &&
-                    localizedModifierText(initial.data.modifiers[id])}{' '}
-                  · T{initial.data?.modifiers[id]?.tier}{' '}
+                  {catalog?.modifiers[id] &&
+                    localizedModifierText(catalog!.modifiers[id])}{' '}
+                  · T{catalog?.modifiers[id]?.tier}{' '}
                   <button
                     type="button"
                     data-remove-condition
@@ -461,8 +535,7 @@ function FamilySupport({
                           t.requiredItemLevel <= Number(level) &&
                           manual.filter(
                             (id) =>
-                              initial.data?.modifiers[id]?.affixType ===
-                              f.affix,
+                              catalog?.modifiers[id]?.affixType === f.affix,
                           ).length < (rarity === 'MAGIC' ? 1 : 3) &&
                           !manual.some((id) =>
                             f.tiers.some((ft) => ft.modifierId === id),
@@ -471,9 +544,9 @@ function FamilySupport({
                       .map((t) => (
                         <option value={t.modifierId} key={t.modifierId}>
                           {f.id} · T{t.tier} ·{' '}
-                          {initial.data?.modifiers[t.modifierId]
+                          {catalog?.modifiers[t.modifierId]
                             ? localizedModifierText(
-                                initial.data.modifiers[t.modifierId]!,
+                                catalog!.modifiers[t.modifierId]!,
                               )
                             : t.exampleText}
                         </option>
@@ -502,7 +575,12 @@ function FamilySupport({
               <button
                 type="button"
                 onClick={validateText}
-                disabled={pending || !text.trim() || !initial.data}
+                disabled={
+                  pending ||
+                  !text.trim() ||
+                  !initial.data ||
+                  catalog?.rulesetIdentity !== initial.data.rulesetIdentity
+                }
               >
                 {t('ui.validate_support_text')}
               </button>
@@ -560,7 +638,12 @@ function FamilySupport({
             type="button"
             onClick={validateGoal}
             disabled={
-              pending || !state || !validLevel || !validN || !families.data
+              !currentRules ||
+              pending ||
+              !state ||
+              !validLevel ||
+              !validN ||
+              !families.data
             }
           >
             {pending
@@ -608,7 +691,12 @@ function FamilySupport({
             type="button"
             onClick={compareSequences}
             disabled={
-              pending || !state || !validLevel || !validN || !families.data
+              !currentRules ||
+              pending ||
+              !state ||
+              !validLevel ||
+              !validN ||
+              !families.data
             }
           >
             {pending ? t('ui.calculating') : t('ui.compare_currency_sequences')}
@@ -642,7 +730,7 @@ function FamilySupport({
           <ServiceMessage text={error} />
         </p>
       )}
-      {assessment && (
+      {currentRules && assessment && (
         <section className="support-assessment" aria-live="polite">
           <h2>
             {assessment.status === 'ACHIEVED'
@@ -671,7 +759,7 @@ function FamilySupport({
           )}
         </section>
       )}
-      {report && (
+      {currentRules && report && (
         <section className="support-results" aria-live="polite">
           <h2>
             {report.rankingCertified
@@ -793,9 +881,9 @@ function FamilySupport({
         <p>{t('notice.recovery_scope')}</p>
         <button
           type="button"
-          disabled={!state || pending}
+          disabled={!currentRules || !state || pending}
           onClick={() => {
-            if (!state) return
+            if (!currentRules || !state) return
             invalidateAssessment()
             setRecovering(true)
             setManual(state.modifierIds)

@@ -257,6 +257,11 @@
   gap: 28px;
   align-items: start;
 }
+.current-overview > pre {
+  min-width: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
 .current-context {
   max-width: 560px;
 }

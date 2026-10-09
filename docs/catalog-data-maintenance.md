@@ -6,6 +6,8 @@
 
 실제 호출 경로는 Workbench apply/map-text/actions/quality-display, Solar actions/transitions/explore, Support assess/recommend 및 goal validate/evaluate/recommend이다. Frontend는 initial에서 받은 identity를 상태의 출처와 함께 전달한다. 독립 goal adapter는 명시적으로 읽은 동일 context의 catalog response identity만 validate에 사용한다. 저장된 goal의 catalogVersion 검증은 그대로 유지한다. 실행 알고리즘, 확률, weight, 지원 범위는 바꾸지 않는다.
 
+Explorer는 선택한 Bucket/current/history 각각의 생성 identity를 유지하고 actions/transitions/explore cache key에 포함한다. initial refetch로 identity만 바뀌고 Solar snapshot은 같아도 기존 state를 최신 identity로 제출하지 않는다. 기존 히스토리 이동과 원본 상태 조회는 유지하고 결과 선택·실행은 제한한다. 명시적인 새 세션 시작은 현행 root와 별도 current cache를 만든다. Support는 base/manual의 원본 catalog와 mapped text의 생성 identity를 유지하고 family cache도 같은 identity에 묶는다. refetch 후 기존 입력·원문을 보존하며 assessment/recommendation과 늦은 결과를 제한한다. CraftStart editor도 item identity를 따로 보관해 inventory refetch 후 기존 input을 numeric 실행에 연결하지 않는다. 현행 base를 명시적으로 선택하거나 텍스트를 다시 검증해야 새 규칙 입력으로 취급한다.
+
 저장 형식/키 `hephaistos.workbench.films.v1`은 유지하며 기존 records를 자동 migration하지 않는다. film 전체의 identity를 다음과 같이 분류한다.
 
 | 분류 | 기준 | 실행 |

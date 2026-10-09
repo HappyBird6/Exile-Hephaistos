@@ -499,6 +499,12 @@ Backend441+integration6, Frontend1820, API539, Browser719가 통과했고228 scr
 
 검증: Docker Java21 `check generateJooq bootJar`에서 unit548/integration7 총555건 실패·오류·skip 0, Node24/npm11.16의 `npm ci`, lint/typecheck/format/test/build에서 75 files/1963 tests 통과. API smoke는 134 initial identity와 31개 정상/누락/불일치 동작을 확인했고 UI는 정상 제작·뒤/앞·과거 분기·reload 및 legacy/mismatch/inconsistent 원본 열람·실행 차단을 확인했다. 서버 불가 상태의 과거 base 기록 선택도 회귀 테스트로 검증했다. compose quiet 검사와 기존 fixture13개 identity 제외 parity도 통과했다. 첫 검사 환경의 contracts mount 누락 및 테스트 저장소 격리 오류는 수정 후 전체 재검증했다. Windows 실행 스크립트 변경이 없어 해당 Python 검사는 미실행이며 원격 CI와 독립 리뷰는 미실행이다. 자체 리뷰만 완료했다.
 
+### WB-050 독립 검토 후속 수정
+
+`d466b49` 독립 검토에서 Explorer current/history와 Support mapped Bucket이 생성 identity 없이 최신 initial identity를 사용하는 누락이 발견됐다. 수정 전 소스를 격리한 실행에서 같은 Solar snapshot을 유지한 identity 변경 후 Explorer 및 Support base/manual/text 네 경로가 새 identity로 이전 상태를 POST하는 것을 재현했다. 각 상태와 원본 catalog의 identity를 유지하고 refetch 후 실행·늦은 결과를 제한했으며, Explorer 요청/cache key와 Support family cache에도 identity를 결합했다. 명시적인 새 시작은 별도 current cache/root를 만든다. 인접 CraftStart editor도 input identity를 보존하고 inventory refetch 후 numeric 실행 연결을 제한한다. 기존 입력과 원문은 자동 재라벨링하지 않는다.
+
+회귀 7건은 refetch, 이전 cache/히스토리, 새 세션 분리, mapped 원문, 늦은 Explorer 응답 및 Support assess→recommend 연쇄 중단을 검증한다. 최종 Docker Frontend lint/typecheck/format/test/build는 76 files/1970 tests 통과했고 `npm ci`도 실행했다. Backend 소스는 동일하며 기존 555건(실패·오류·skip 0)을 재사용했다. 최종 Docker `check generateJooq bootJar` 재확인은 3 executed/12 up-to-date로 성공했다. 기존 Support 테스트의 1초 catalog 준비 대기는 identity 검증 후 family 조회까지 기다리도록 5초로 명시했으며 assertion은 그대로 유지했다. 정상/구기록 UI smoke와 API134 initial/31 checks를 재확인했고, localhost 브라우저의 synthetic same-snapshot refetch에서 Explorer·Support 원문 보존/제한/명시적 새 시작을 확인했다. 긴 JSON 행 줄바꿈도 화면으로 확인했다. Docker 내부 hostname의 secure-context 차이는 localhost origin으로 해결했으며 제품 설정이나 구현을 바꾸지 않았다. 독립 검토의 나머지 영역에 추가 발견이 없다는 전달을 받았고, 후속 수정은 자체 리뷰했다. 이전 SHA의 원격 CI는 0개였으며 새 SHA의 원격 CI는 별도 실행하지 않는다.
+
 ## Goal filter numeric addition model
 
 - Solar 단일 stat addition 수치 계산은 명시된 uniform-integer-roll-v1 모델 내 구현됨. 실제 게임 정수 roll 분포와 catalog weight의 서버 선택 확률 검증은 미확정이며 ledger/API/UI에서 분리 표시한다.

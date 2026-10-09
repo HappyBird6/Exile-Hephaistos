@@ -196,10 +196,12 @@ export async function recommendGoal(
 }
 export async function loadSupportFamilies(
   signal: AbortSignal,
+  rulesetIdentity: string,
 ): Promise<SupportFamily[]> {
   const response = await fetch('/api/v1/crafting/support/families', { signal })
   if (!response.ok)
     throw new Error('Could not load goal families. Please retry.')
+  verifyRulesetResponse(response, rulesetIdentity)
   const value = (await response.json()) as SupportFamily[]
   if (
     !Array.isArray(value) ||

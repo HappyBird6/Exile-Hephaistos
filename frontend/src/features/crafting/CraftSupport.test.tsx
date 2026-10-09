@@ -164,9 +164,15 @@ describe('Independent Craft Support goal input', () => {
     show()
     fireEvent.click(screen.getByRole('tab', { name: 'Craft Support' }))
     openFamilyComparison()
-    await screen.findAllByRole('option', {
-      name: 'IncreaseSocketedGemLevel · suffix',
-    })
+    // The identity-bound family query starts after the initial catalog is verified.
+    // Allow both async stages under the full Docker suite without weakening option assertions.
+    await screen.findAllByRole(
+      'option',
+      {
+        name: 'IncreaseSocketedGemLevel · suffix',
+      },
+      { timeout: 5000 },
+    )
     fireEvent.change(screen.getByLabelText('Add required family'), {
       target: { value: 'IncreaseSocketedGemLevel' },
     })
