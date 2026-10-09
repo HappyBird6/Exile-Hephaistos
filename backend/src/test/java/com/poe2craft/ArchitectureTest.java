@@ -9,6 +9,23 @@ import org.junit.jupiter.api.Test;
 
 class ArchitectureTest {
   @Test
+  void bundledConsumersCannotBypassRulesetSeals() {
+    var classes =
+        new ClassFileImporter()
+            .withImportOption(new ImportOption.DoNotIncludeTests())
+            .importPackages("com.poe2craft");
+    noClasses()
+        .that()
+        .resideInAnyPackage(
+            "com.poe2craft.item..", "com.poe2craft.crafting..", "com.poe2craft.bootstrap..")
+        .and()
+        .doNotHaveFullyQualifiedName("com.poe2craft.crafting.infrastructure.RulesetManifestLoader")
+        .should()
+        .callMethod(Class.class, "getResourceAsStream", String.class)
+        .check(classes);
+  }
+
+  @Test
   void modulesHaveNoCyclesAndDomainsStayPure() {
     var classes =
         new ClassFileImporter()

@@ -37,7 +37,7 @@ public final class BundledGoalCatalogs {
 
   private static List<Base> bases() {
     try (var stream =
-        BundledGoalCatalogs.class.getResourceAsStream("/crafting/goalfilter/bases-v1.json")) {
+        com.poe2craft.support.SealedResources.open("/crafting/goalfilter/bases-v1.json")) {
       return readBases(stream);
     } catch (IOException e) {
       throw new IllegalStateException("Cannot read goal base registry", e);
@@ -51,7 +51,7 @@ public final class BundledGoalCatalogs {
     for (var entry : bases()) {
       var reviewed = workbench.initial(entry.key(), 82);
       try (var stream =
-          BundledGoalCatalogs.class.getResourceAsStream(
+          com.poe2craft.support.SealedResources.open(
               "/catalog/" + entry.pool() + "/catalog.json")) {
         if (stream == null) throw new IllegalStateException("Missing reviewed base properties");
         var base = json.treeToValue(json.readTree(stream).get("base"), ItemCatalog.BaseItem.class);

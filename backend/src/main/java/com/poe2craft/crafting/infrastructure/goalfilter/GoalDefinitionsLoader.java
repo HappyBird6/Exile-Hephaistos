@@ -9,8 +9,7 @@ public final class GoalDefinitionsLoader {
 
   public static GoalDefinitions load() {
     try (var stream =
-        GoalDefinitionsLoader.class.getResourceAsStream(
-            "/crafting/goalfilter/definitions-v1.json")) {
+        com.poe2craft.support.SealedResources.open("/crafting/goalfilter/definitions-v1.json")) {
       return read(stream);
     } catch (IOException e) {
       throw new IllegalStateException("Cannot load goal definitions", e);

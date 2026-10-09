@@ -30,36 +30,48 @@ public class CraftingConfiguration {
 
   @Bean
   WorkbenchService workbenchService(ItemCatalog catalog, WorkbenchSimulator simulator) {
-    try (var data = getClass().getResourceAsStream("/catalog/stocky-mitts/catalog.json");
-        var raw = getClass().getResourceAsStream("/catalog/stocky-mitts/base.raw.json");
-        var details = getClass().getResourceAsStream("/catalog/stocky-mitts/details.raw.json");
+    try (var data =
+            com.poe2craft.support.SealedResources.open("/catalog/stocky-mitts/catalog.json");
+        var raw =
+            com.poe2craft.support.SealedResources.open("/catalog/stocky-mitts/base.raw.json");
+        var details =
+            com.poe2craft.support.SealedResources.open("/catalog/stocky-mitts/details.raw.json");
         var special =
-            getClass().getResourceAsStream("/catalog/stocky-mitts/abyss-essence.catalog.json");
+            com.poe2craft.support.SealedResources.open(
+                "/catalog/stocky-mitts/abyss-essence.catalog.json");
         var specialRaw =
-            getClass().getResourceAsStream("/catalog/stocky-mitts/abyss-essence.raw.json");
+            com.poe2craft.support.SealedResources.open(
+                "/catalog/stocky-mitts/abyss-essence.raw.json");
         var horror =
-            getClass().getResourceAsStream("/catalog/stocky-mitts/horror-essence.catalog.json");
+            com.poe2craft.support.SealedResources.open(
+                "/catalog/stocky-mitts/horror-essence.catalog.json");
         var horrorRaw =
-            getClass().getResourceAsStream("/catalog/stocky-mitts/horror-essence.raw.json");
+            com.poe2craft.support.SealedResources.open(
+                "/catalog/stocky-mitts/horror-essence.raw.json");
         var perfect =
-            getClass()
-                .getResourceAsStream(
-                    "/catalog/stocky-mitts/perfect-grounding-opulence.catalog.json");
+            com.poe2craft.support.SealedResources.open(
+                "/catalog/stocky-mitts/perfect-grounding-opulence.catalog.json");
         var perfectRaw =
-            getClass()
-                .getResourceAsStream("/catalog/stocky-mitts/perfect-grounding-opulence.raw.json");
+            com.poe2craft.support.SealedResources.open(
+                "/catalog/stocky-mitts/perfect-grounding-opulence.raw.json");
         var prismatic =
-            getClass().getResourceAsStream("/catalog/stocky-mitts/prismatic-alloy.catalog.json");
+            com.poe2craft.support.SealedResources.open(
+                "/catalog/stocky-mitts/prismatic-alloy.catalog.json");
         var scalar =
-            getClass().getResourceAsStream("/catalog/stocky-mitts/scalar-alloys.catalog.json");
+            com.poe2craft.support.SealedResources.open(
+                "/catalog/stocky-mitts/scalar-alloys.catalog.json");
         var scalarRaw =
-            getClass().getResourceAsStream("/catalog/stocky-mitts/scalar-alloys.raw.json");
+            com.poe2craft.support.SealedResources.open(
+                "/catalog/stocky-mitts/scalar-alloys.raw.json");
         var reviewed =
-            getClass().getResourceAsStream("/catalog/stocky-mitts/reviewed-alloys.catalog.json");
+            com.poe2craft.support.SealedResources.open(
+                "/catalog/stocky-mitts/reviewed-alloys.catalog.json");
         var reviewedRaw =
-            getClass().getResourceAsStream("/catalog/stocky-mitts/reviewed-alloys.raw.json");
+            com.poe2craft.support.SealedResources.open(
+                "/catalog/stocky-mitts/reviewed-alloys.raw.json");
         var prismaticRaw =
-            getClass().getResourceAsStream("/catalog/stocky-mitts/prismatic-alloy.raw.json")) {
+            com.poe2craft.support.SealedResources.open(
+                "/catalog/stocky-mitts/prismatic-alloy.raw.json")) {
       var service =
           new WorkbenchService(
               catalog,

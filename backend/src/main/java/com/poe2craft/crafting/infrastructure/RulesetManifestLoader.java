@@ -72,12 +72,20 @@ public final class RulesetManifestLoader {
   }
 
   public static void validate(Manifest manifest) throws IOException {
+    validateCoverage(manifest, com.poe2craft.support.SealedResources.requiredPaths());
     for (var entry : manifest.files().entrySet()) {
       try (var data = RulesetManifestLoader.class.getResourceAsStream("/" + entry.getKey())) {
         if (data == null || !entry.getValue().equals(hash(data.readAllBytes())))
           throw new IllegalArgumentException("Ruleset resource digest differs: " + entry.getKey());
       }
     }
+  }
+
+  static void validateCoverage(Manifest manifest, Set<String> consumedPaths) {
+    var missing = new TreeSet<>(consumedPaths);
+    missing.removeAll(manifest.files().keySet());
+    if (!missing.isEmpty())
+      throw new IllegalArgumentException("Consumed resources are absent from ruleset: " + missing);
   }
 
   public static Manifest read(InputStream stream) throws IOException {

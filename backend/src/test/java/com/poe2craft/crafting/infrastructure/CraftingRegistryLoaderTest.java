@@ -11,6 +11,29 @@ import java.util.*;
 import org.junit.jupiter.api.Test;
 
 class CraftingRegistryLoaderTest {
+  @Test
+  void entryTyposAndNonIntegralSummaryCountsAreRejected() throws Exception {
+    var scopes = data("supported-base-sets-v1");
+    var typo = data("registry-v2");
+    var entry = (ObjectNode) typo.get("entries").get(0);
+    entry.set("supportedBaseSett", entry.remove("supportedBaseSet"));
+    assertThrows(IllegalArgumentException.class, () -> read(typo, scopes));
+    for (String field : List.of("registered", "active", "deferred")) {
+      for (String type : List.of("text", "float", "null")) {
+        var bad = data("registry-v2");
+        var summary = (ObjectNode) bad.get("serviceScope");
+        int original = summary.get(field).intValue();
+        if (type.equals("text")) summary.put(field, Integer.toString(original));
+        else if (type.equals("float")) summary.put(field, original + 0.5);
+        else summary.putNull(field);
+        assertThrows(IllegalArgumentException.class, () -> read(bad, scopes));
+      }
+    }
+    var fractional = data("supported-base-sets-v1");
+    fractional.put("schemaVersion", 1.5);
+    assertThrows(IOException.class, () -> read(data("registry-v2"), fractional));
+  }
+
   private static final ObjectMapper M = new ObjectMapper();
 
   private ObjectNode data(String name) throws IOException {

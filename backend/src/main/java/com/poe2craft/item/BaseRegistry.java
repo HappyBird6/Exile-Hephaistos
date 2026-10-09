@@ -39,8 +39,8 @@ public final class BaseRegistry {
   private static final Set<String> KEYS;
 
   static {
-    try (var bases = BaseRegistry.class.getResourceAsStream("/catalog/top-bases.json");
-        var policies = BaseRegistry.class.getResourceAsStream("/catalog/base-policies.json")) {
+    try (var bases = com.poe2craft.support.SealedResources.open("/catalog/top-bases.json");
+        var policies = com.poe2craft.support.SealedResources.open("/catalog/base-policies.json")) {
       var mapper = new ObjectMapper();
       mapper.enable(
           com.fasterxml.jackson.core.StreamReadFeature.STRICT_DUPLICATE_DETECTION.mappedFeature());

@@ -11,14 +11,53 @@ import java.util.*;
 
 /** Immutable versioned inventory, not proof that pending entries are executable rules. */
 public final class CraftingRegistryLoader {
+  private static final Set<String> ENTRY_FIELDS =
+      Set.of(
+          "id",
+          "name",
+          "category",
+          "sourceUrl",
+          "sourcePage",
+          "sourceRetrievedAt",
+          "sourceSha256",
+          "registrationStatus",
+          "effectStatus",
+          "solarStatus",
+          "action",
+          "reason",
+          "ruleSource",
+          "ruleVerifiedAt",
+          "availabilityStatus",
+          "minimumModifierLevel",
+          "minimumLevelException",
+          "serviceScope",
+          "supportedBaseSet",
+          "supportedBases",
+          "implementationScope",
+          "interactionScope",
+          "stockyStatus",
+          "bowStatus",
+          "wandEvidence",
+          "bodyEvidence",
+          "ringEvidence",
+          "ruleSourceSha256",
+          "modifierSource",
+          "minimumSupportedItemLevel",
+          "serviceScopeReason",
+          "beltEvidence",
+          "helmetEvidence",
+          "sceptreEvidence",
+          "availabilitySource",
+          "registrationHistory",
+          "verificationEvidence",
+          "qualityPolicy");
+
   private CraftingRegistryLoader() {}
 
   public static JsonNode load() {
-    try (var stream =
-            CraftingRegistryLoader.class.getResourceAsStream("/crafting/registry-v2.json");
+    try (var stream = com.poe2craft.support.SealedResources.open("/crafting/registry-v2.json");
         var scopes =
-            CraftingRegistryLoader.class.getResourceAsStream(
-                "/crafting/supported-base-sets-v1.json")) {
+            com.poe2craft.support.SealedResources.open("/crafting/supported-base-sets-v1.json")) {
       var registry = (ObjectNode) read(stream, scopes);
       var ruleset = RulesetManifestLoader.load();
       registry
@@ -64,6 +103,15 @@ public final class CraftingRegistryLoader {
     var usedSets = new HashSet<String>();
     int active = 0, deferred = 0;
     for (var entry : registry.get("entries")) {
+      if (!entry.isObject()) throw new IllegalArgumentException("Invalid crafting registry entry");
+      entry
+          .fieldNames()
+          .forEachRemaining(
+              field -> {
+                if (!ENTRY_FIELDS.contains(field))
+                  throw new IllegalArgumentException(
+                      "Unknown crafting registry entry field: " + field);
+              });
       String id = text(entry, "id");
       if (!ids.add(id)) throw new IllegalArgumentException("Duplicate crafting registry ID: " + id);
       text(entry, "name");
@@ -105,9 +153,9 @@ public final class CraftingRegistryLoader {
     if (!usedSets.equals(sets.sets().keySet()))
       throw new IllegalArgumentException("Unused supported base set");
     var summary = registry.path("serviceScope");
-    if (summary.path("registered").asInt(-1) != ids.size()
-        || summary.path("active").asInt(-1) != active
-        || summary.path("deferred").asInt(-1) != deferred)
+    if (count(summary, "registered") != ids.size()
+        || count(summary, "active") != active
+        || count(summary, "deferred") != deferred)
       throw new IllegalArgumentException("Crafting inventory counts differ");
     registry
         .path("workbenchBases")
@@ -126,6 +174,13 @@ public final class CraftingRegistryLoader {
         || new HashSet<>(members).size() != members.size()
         || !BaseRegistry.registeredKeys().containsAll(members))
       throw new IllegalArgumentException("Unknown, empty or duplicate supported base keys");
+  }
+
+  private static int count(JsonNode source, String field) {
+    var value = source.path(field);
+    if (!value.isIntegralNumber() || !value.canConvertToInt() || value.intValue() < 0)
+      throw new IllegalArgumentException("Invalid crafting registry count: " + field);
+    return value.intValue();
   }
 
   private static String text(JsonNode source, String field) {

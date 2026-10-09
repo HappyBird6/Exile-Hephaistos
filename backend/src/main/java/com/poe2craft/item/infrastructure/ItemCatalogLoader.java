@@ -28,9 +28,9 @@ public final class ItemCatalogLoader {
     else if ("HELMET".equals(reviewed.policy().legacyCatalog())) pool = loadHelmet();
     else {
       String root = "/catalog/" + reviewed.pool() + "/";
-      try (var data = ItemCatalogLoader.class.getResourceAsStream(root + "catalog.json");
-          var raw = ItemCatalogLoader.class.getResourceAsStream(root + "base.raw.json");
-          var details = ItemCatalogLoader.class.getResourceAsStream(root + "details.raw.json")) {
+      try (var data = com.poe2craft.support.SealedResources.open(root + "catalog.json");
+          var raw = com.poe2craft.support.SealedResources.open(root + "base.raw.json");
+          var details = com.poe2craft.support.SealedResources.open(root + "details.raw.json")) {
         pool = load(data, raw, details);
       } catch (IOException e) {
         throw new IllegalStateException("Cannot load reviewed base catalog", e);
@@ -81,10 +81,10 @@ public final class ItemCatalogLoader {
 
   /** Sapphire-only ordinary candidates with explicitly modeled equal selection weights. */
   public static ItemCatalog loadSapphire() {
-    try (var data = ItemCatalogLoader.class.getResourceAsStream("/catalog/sapphire/catalog.json");
-        var raw = ItemCatalogLoader.class.getResourceAsStream("/catalog/sapphire/base.raw.json");
+    try (var data = com.poe2craft.support.SealedResources.open("/catalog/sapphire/catalog.json");
+        var raw = com.poe2craft.support.SealedResources.open("/catalog/sapphire/base.raw.json");
         var details =
-            ItemCatalogLoader.class.getResourceAsStream("/catalog/sapphire/details.raw.json")) {
+            com.poe2craft.support.SealedResources.open("/catalog/sapphire/details.raw.json")) {
       var catalog = load(data, raw, details);
       return new ItemCatalog(
           catalog.metadata(),
@@ -109,9 +109,9 @@ public final class ItemCatalogLoader {
             "time-lost-diamond")
         .contains(base)) throw new IllegalArgumentException("Unsupported Basic Jewel catalog");
     String root = "/catalog/" + base + "/";
-    try (var data = ItemCatalogLoader.class.getResourceAsStream(root + "catalog.json");
-        var raw = ItemCatalogLoader.class.getResourceAsStream(root + "base.raw.json");
-        var details = ItemCatalogLoader.class.getResourceAsStream(root + "details.raw.json")) {
+    try (var data = com.poe2craft.support.SealedResources.open(root + "catalog.json");
+        var raw = com.poe2craft.support.SealedResources.open(root + "base.raw.json");
+        var details = com.poe2craft.support.SealedResources.open(root + "details.raw.json")) {
       return load(data, raw, details);
     } catch (IOException e) {
       throw new IllegalStateException("Cannot load Basic Jewel catalog", e);
@@ -120,15 +120,15 @@ public final class ItemCatalogLoader {
 
   /** Complete ordinary Bow snapshot for Workbench dispatch only. */
   public static ItemCatalog loadBow() {
-    try (var data = ItemCatalogLoader.class.getResourceAsStream("/catalog/crude-bow/catalog.json");
-        var raw = ItemCatalogLoader.class.getResourceAsStream("/catalog/crude-bow/base.raw.json");
+    try (var data = com.poe2craft.support.SealedResources.open("/catalog/crude-bow/catalog.json");
+        var raw = com.poe2craft.support.SealedResources.open("/catalog/crude-bow/base.raw.json");
         var details =
-            ItemCatalogLoader.class.getResourceAsStream("/catalog/crude-bow/details.raw.json");
+            com.poe2craft.support.SealedResources.open("/catalog/crude-bow/details.raw.json");
         var special =
-            ItemCatalogLoader.class.getResourceAsStream(
+            com.poe2craft.support.SealedResources.open(
                 "/catalog/crude-bow/perfect-essences.catalog.json");
         var specialRaw =
-            ItemCatalogLoader.class.getResourceAsStream(
+            com.poe2craft.support.SealedResources.open(
                 "/catalog/crude-bow/perfect-essences.raw.json")) {
       return loadWithSpecial(data, raw, details, special, specialRaw);
     } catch (IOException e) {
@@ -139,16 +139,16 @@ public final class ItemCatalogLoader {
   /** Complete ordinary Wand snapshot for Workbench dispatch only. */
   public static ItemCatalog loadWand() {
     try (var data =
-            ItemCatalogLoader.class.getResourceAsStream("/catalog/attuned-wand/catalog.json");
+            com.poe2craft.support.SealedResources.open("/catalog/attuned-wand/catalog.json");
         var raw =
-            ItemCatalogLoader.class.getResourceAsStream("/catalog/attuned-wand/base.raw.json");
+            com.poe2craft.support.SealedResources.open("/catalog/attuned-wand/base.raw.json");
         var details =
-            ItemCatalogLoader.class.getResourceAsStream("/catalog/attuned-wand/details.raw.json");
+            com.poe2craft.support.SealedResources.open("/catalog/attuned-wand/details.raw.json");
         var special =
-            ItemCatalogLoader.class.getResourceAsStream(
+            com.poe2craft.support.SealedResources.open(
                 "/catalog/attuned-wand/perfect-essences.catalog.json");
         var specialRaw =
-            ItemCatalogLoader.class.getResourceAsStream(
+            com.poe2craft.support.SealedResources.open(
                 "/catalog/attuned-wand/perfect-essences.raw.json")) {
       return loadWithSpecial(data, raw, details, special, specialRaw);
     } catch (IOException e) {
@@ -159,17 +159,16 @@ public final class ItemCatalogLoader {
   /** Complete ordinary Body Armour snapshot for Workbench dispatch only. */
   public static ItemCatalog loadBody() {
     try (var data =
-            ItemCatalogLoader.class.getResourceAsStream("/catalog/rusted-cuirass/catalog.json");
+            com.poe2craft.support.SealedResources.open("/catalog/rusted-cuirass/catalog.json");
         var raw =
-            ItemCatalogLoader.class.getResourceAsStream("/catalog/rusted-cuirass/base.raw.json");
+            com.poe2craft.support.SealedResources.open("/catalog/rusted-cuirass/base.raw.json");
         var details =
-            ItemCatalogLoader.class.getResourceAsStream(
-                "/catalog/rusted-cuirass/details.raw.json");
+            com.poe2craft.support.SealedResources.open("/catalog/rusted-cuirass/details.raw.json");
         var special =
-            ItemCatalogLoader.class.getResourceAsStream(
+            com.poe2craft.support.SealedResources.open(
                 "/catalog/rusted-cuirass/perfect-essences.catalog.json");
         var specialRaw =
-            ItemCatalogLoader.class.getResourceAsStream(
+            com.poe2craft.support.SealedResources.open(
                 "/catalog/rusted-cuirass/perfect-essences.raw.json")) {
       return loadWithSpecial(data, raw, details, special, specialRaw);
     } catch (IOException e) {
@@ -180,17 +179,17 @@ public final class ItemCatalogLoader {
   /** Complete ordinary Sceptre snapshot for Workbench dispatch only. */
   public static ItemCatalog loadSceptre() {
     try (var data =
-            ItemCatalogLoader.class.getResourceAsStream("/catalog/rattling-sceptre/catalog.json");
+            com.poe2craft.support.SealedResources.open("/catalog/rattling-sceptre/catalog.json");
         var raw =
-            ItemCatalogLoader.class.getResourceAsStream("/catalog/rattling-sceptre/base.raw.json");
+            com.poe2craft.support.SealedResources.open("/catalog/rattling-sceptre/base.raw.json");
         var details =
-            ItemCatalogLoader.class.getResourceAsStream(
+            com.poe2craft.support.SealedResources.open(
                 "/catalog/rattling-sceptre/details.raw.json");
         var special =
-            ItemCatalogLoader.class.getResourceAsStream(
+            com.poe2craft.support.SealedResources.open(
                 "/catalog/rattling-sceptre/perfect-essences.catalog.json");
         var specialRaw =
-            ItemCatalogLoader.class.getResourceAsStream(
+            com.poe2craft.support.SealedResources.open(
                 "/catalog/rattling-sceptre/perfect-essences.raw.json")) {
       return loadWithSpecial(data, raw, details, special, specialRaw);
     } catch (IOException e) {
@@ -201,16 +200,16 @@ public final class ItemCatalogLoader {
   /** Complete ordinary Belt snapshot for Workbench dispatch only. */
   public static ItemCatalog loadBelt() {
     try (var data =
-            ItemCatalogLoader.class.getResourceAsStream("/catalog/rawhide-belt/catalog.json");
+            com.poe2craft.support.SealedResources.open("/catalog/rawhide-belt/catalog.json");
         var raw =
-            ItemCatalogLoader.class.getResourceAsStream("/catalog/rawhide-belt/base.raw.json");
+            com.poe2craft.support.SealedResources.open("/catalog/rawhide-belt/base.raw.json");
         var details =
-            ItemCatalogLoader.class.getResourceAsStream("/catalog/rawhide-belt/details.raw.json");
+            com.poe2craft.support.SealedResources.open("/catalog/rawhide-belt/details.raw.json");
         var special =
-            ItemCatalogLoader.class.getResourceAsStream(
+            com.poe2craft.support.SealedResources.open(
                 "/catalog/rawhide-belt/perfect-essences.catalog.json");
         var specialRaw =
-            ItemCatalogLoader.class.getResourceAsStream(
+            com.poe2craft.support.SealedResources.open(
                 "/catalog/rawhide-belt/perfect-essences.raw.json")) {
       return loadWithSpecial(data, raw, details, special, specialRaw);
     } catch (IOException e) {
@@ -221,17 +220,17 @@ public final class ItemCatalogLoader {
   /** Complete ordinary Helmet snapshot for Workbench dispatch only. */
   public static ItemCatalog loadHelmet() {
     try (var data =
-            ItemCatalogLoader.class.getResourceAsStream("/catalog/rusted-greathelm/catalog.json");
+            com.poe2craft.support.SealedResources.open("/catalog/rusted-greathelm/catalog.json");
         var raw =
-            ItemCatalogLoader.class.getResourceAsStream("/catalog/rusted-greathelm/base.raw.json");
+            com.poe2craft.support.SealedResources.open("/catalog/rusted-greathelm/base.raw.json");
         var details =
-            ItemCatalogLoader.class.getResourceAsStream(
+            com.poe2craft.support.SealedResources.open(
                 "/catalog/rusted-greathelm/details.raw.json");
         var special =
-            ItemCatalogLoader.class.getResourceAsStream(
+            com.poe2craft.support.SealedResources.open(
                 "/catalog/rusted-greathelm/perfect-essences.catalog.json");
         var specialRaw =
-            ItemCatalogLoader.class.getResourceAsStream(
+            com.poe2craft.support.SealedResources.open(
                 "/catalog/rusted-greathelm/perfect-essences.raw.json")) {
       return loadWithSpecial(data, raw, details, special, specialRaw);
     } catch (IOException e) {
@@ -241,15 +240,15 @@ public final class ItemCatalogLoader {
 
   /** Complete ordinary Ring snapshot for Workbench dispatch only. */
   public static ItemCatalog loadRing() {
-    try (var data = ItemCatalogLoader.class.getResourceAsStream("/catalog/iron-ring/catalog.json");
-        var raw = ItemCatalogLoader.class.getResourceAsStream("/catalog/iron-ring/base.raw.json");
+    try (var data = com.poe2craft.support.SealedResources.open("/catalog/iron-ring/catalog.json");
+        var raw = com.poe2craft.support.SealedResources.open("/catalog/iron-ring/base.raw.json");
         var details =
-            ItemCatalogLoader.class.getResourceAsStream("/catalog/iron-ring/details.raw.json");
+            com.poe2craft.support.SealedResources.open("/catalog/iron-ring/details.raw.json");
         var special =
-            ItemCatalogLoader.class.getResourceAsStream(
+            com.poe2craft.support.SealedResources.open(
                 "/catalog/iron-ring/perfect-essences.catalog.json");
         var specialRaw =
-            ItemCatalogLoader.class.getResourceAsStream(
+            com.poe2craft.support.SealedResources.open(
                 "/catalog/iron-ring/perfect-essences.raw.json")) {
       return loadWithSpecial(data, raw, details, special, specialRaw);
     } catch (IOException e) {
@@ -374,7 +373,7 @@ public final class ItemCatalogLoader {
   }
 
   private static InputStream resource(String name) throws IOException {
-    var input = ItemCatalogLoader.class.getResourceAsStream(ROOT + name);
+    var input = com.poe2craft.support.SealedResources.open(ROOT + name);
     if (input == null) throw new IOException("Missing catalog resource: " + name);
     return input;
   }

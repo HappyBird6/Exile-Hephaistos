@@ -34,7 +34,7 @@ public final class ReviewedEssencesLoader {
 
   public static Map<String, Targets> load() {
     try (var stream =
-        ReviewedEssencesLoader.class.getResourceAsStream("/catalog/top-base-essences.json")) {
+        com.poe2craft.support.SealedResources.open("/catalog/top-base-essences.json")) {
       return read(stream);
     } catch (IOException e) {
       throw new IllegalStateException("Cannot load reviewed essence manifest", e);
