@@ -19,8 +19,12 @@ public final class BasicPathController {
     this.service = service;
     reader =
         mapper
+            .copy()
+            .disable(MapperFeature.ALLOW_COERCION_OF_SCALARS)
             .readerFor(BasicPathService.Request.class)
-            .with(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+            .with(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+            .with(DeserializationFeature.FAIL_ON_NUMBERS_FOR_ENUMS)
+            .without(DeserializationFeature.ACCEPT_FLOAT_AS_INT);
   }
 
   @GetMapping("/provenance")
@@ -46,7 +50,24 @@ public final class BasicPathController {
     if (body == null || !body.isObject())
       throw new IllegalArgumentException("Explicit path request required");
     try {
-      return reader.readValue(body);
+      var normalized = body.deepCopy();
+      var observations = normalized.get("observations");
+      if (observations != null && observations.isArray()) {
+        var array = (com.fasterxml.jackson.databind.node.ArrayNode) observations;
+        for (int i = 0; i < array.size(); i++) {
+          var value = array.get(i);
+          if (value.isTextual()) {
+            if (!value.textValue().matches("0|[1-9][0-9]*"))
+              throw new IllegalArgumentException("Exact nonnegative decimal observations required");
+            array.set(
+                i,
+                com.fasterxml.jackson.databind.node.LongNode.valueOf(
+                    Long.parseLong(value.textValue())));
+          } else if (!value.isIntegralNumber() || !value.canConvertToLong())
+            throw new IllegalArgumentException("Exact integer observations required");
+        }
+      }
+      return reader.readValue(normalized);
     } catch (IOException e) {
       throw new IllegalArgumentException("Invalid or unsupported path request fields");
     }
@@ -97,7 +118,16 @@ public final class BasicPathController {
       BasicPathService.Limits computationLimits,
       List<BasicPathService.Blocker> blockers,
       boolean blockersTruncated,
-      boolean recoveryIncludedInMain) {}
+      boolean recoveryIncludedInMain,
+      RenewalProof renewalProof,
+      String fractionMetricScope) {}
+
+  public record RenewalProof(
+      BasicCurrencyState emptyState,
+      String targetModifierId,
+      Probability probability,
+      List<String> eligibleModifierIds,
+      String proofVersion) {}
 
   private static Response response(
       BasicPathService.Request request, BasicPathService.Result result) {
@@ -115,6 +145,15 @@ public final class BasicPathController {
         BasicPathService.LIMITS,
         result.blockers(),
         result.blockersTruncated(),
-        false);
+        false,
+        result.renewalProof() == null
+            ? null
+            : new RenewalProof(
+                result.renewalProof().emptyState(),
+                result.renewalProof().targetModifierId(),
+                Probability.of(result.renewalProof().probability()),
+                result.renewalProof().eligibleModifierIds(),
+                result.renewalProof().proofVersion()),
+        "OBSERVED_STORED_FRACTIONS_NOT_TOTAL_ARITHMETIC_OR_KERNEL_HIGH_WATER");
   }
 }

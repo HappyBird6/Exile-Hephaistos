@@ -8,6 +8,30 @@ import org.junit.jupiter.api.Test;
 
 class FirstHitCalculatorTest {
   @Test
+  void endedPolicyWinsOverExactBudgetExhaustionAndCancellation() {
+    var cancelled = new java.util.concurrent.atomic.AtomicBoolean();
+    var result =
+        calculator.calculate(
+            "root",
+            List.of(1L, 2L, 500L),
+            this::goal,
+            (state, step) -> {
+              cancelled.set(true);
+              return kernel("hit", "root");
+            },
+            new FirstHitCalculator.Budget(1, 1, 64),
+            cancelled::get,
+            step -> step >= 1);
+    assertThat(result.evaluations()).isEqualTo(1);
+    for (var point : result.points()) {
+      assertThat(point.lower()).isEqualTo(Fraction.of(1, 2));
+      assertThat(point.dead()).isEqualTo(Fraction.of(1, 2));
+      assertThat(point.unresolved()).isEqualTo(Fraction.ZERO);
+      assertThat(point.status()).isEqualTo("COMPLETE");
+    }
+  }
+
+  @Test
   void frontierAndFractionLimitsRemainUnknownAndLargerObservationsAreAllowed() {
     var frontier =
         calculator.calculate(

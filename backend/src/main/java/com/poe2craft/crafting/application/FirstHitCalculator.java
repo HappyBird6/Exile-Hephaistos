@@ -55,18 +55,24 @@ public final class FirstHitCalculator<S> {
       BiFunction<S, Long, Kernel<S>> transition,
       Budget budget,
       BooleanSupplier cancelled) {
+    return calculate(root, observations, goal, transition, budget, cancelled, step -> false);
+  }
+
+  public Result calculate(
+      S root,
+      List<Long> observations,
+      Function<S, Match> goal,
+      BiFunction<S, Long, Kernel<S>> transition,
+      Budget budget,
+      BooleanSupplier cancelled,
+      LongPredicate policyEnded) {
     Objects.requireNonNull(root);
     Objects.requireNonNull(goal);
     Objects.requireNonNull(transition);
     Objects.requireNonNull(budget);
     Objects.requireNonNull(cancelled);
-    if (observations == null || observations.isEmpty() || observations.size() > 32)
-      throw new IllegalArgumentException("One to 32 observation points required");
-    if (observations.stream().anyMatch(Objects::isNull))
-      throw new IllegalArgumentException("Non-null observation points required");
-    var sorted = observations.stream().distinct().sorted().toList();
-    if (sorted.size() != observations.size() || sorted.getFirst() < 0)
-      throw new IllegalArgumentException("Distinct nonnegative observation points required");
+    var sorted = observationPoints(observations);
+    Objects.requireNonNull(policyEnded);
     var frontier = new LinkedHashMap<S, Fraction>();
     var hit = Fraction.ZERO;
     var dead = Fraction.ZERO;
@@ -82,6 +88,11 @@ public final class FirstHitCalculator<S> {
     var points = new ArrayList<Point>();
     for (long observation : sorted) {
       while (depth < observation && !frontier.isEmpty()) {
+        if (policyEnded.test(depth)) {
+          for (var mass : frontier.values()) dead = dead.add(mass);
+          frontier.clear();
+          break;
+        }
         if (cancelled.getAsBoolean() || evaluations >= budget.evaluations()) {
           reason = cancelled.getAsBoolean() ? "CANCELLED" : "EVALUATION_LIMIT";
           for (var mass : frontier.values()) unknown = unknown.add(mass);
@@ -138,8 +149,19 @@ public final class FirstHitCalculator<S> {
         peakFrontier = Math.max(peakFrontier, frontier.size());
         depth++;
       }
+      // Policy termination requires no transition evaluation, even at an exhausted budget boundary.
+      if (policyEnded.test(depth)) {
+        for (var mass : frontier.values()) dead = dead.add(mass);
+        frontier.clear();
+      }
       var active = Fraction.ZERO;
       for (var mass : frontier.values()) active = active.add(mass);
+      peakBits =
+          Math.max(
+              peakBits,
+              Math.max(
+                  bits(active),
+                  Math.max(bits(hit.add(unknown)), Math.max(bits(dead), bits(unknown)))));
       if (!hit.add(dead).add(unknown).add(active).equals(Fraction.ONE))
         throw new IllegalStateException("First-hit mass was not conserved");
       points.add(
@@ -159,5 +181,16 @@ public final class FirstHitCalculator<S> {
 
   private static int bits(Fraction mass) {
     return Math.max(mass.numerator().bitLength(), mass.denominator().bitLength());
+  }
+
+  static List<Long> observationPoints(List<Long> observations) {
+    if (observations == null || observations.isEmpty() || observations.size() > 32)
+      throw new IllegalArgumentException("One to 32 observation points required");
+    if (observations.stream().anyMatch(Objects::isNull))
+      throw new IllegalArgumentException("Non-null observation points required");
+    var sorted = observations.stream().distinct().sorted().toList();
+    if (sorted.size() != observations.size() || sorted.getFirst() < 0)
+      throw new IllegalArgumentException("Distinct nonnegative observation points required");
+    return sorted;
   }
 }

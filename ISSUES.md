@@ -507,6 +507,9 @@ Backend441+integration6, Frontend1820, API539, Browser719가 통과했고228 scr
 
 ## WB-051 기본 화폐 first-hit 및 명시적 복구 (2026-10-09)
 
+- **독립 리뷰 후 보완**: 실제 HTTP의 100.9→100 수용을 재현한 뒤 strict scalar/float/enum ordinal 거부를 추가했다. observation의 정확한 십진 정수 문자열은 별도 정규화로 유지한다. 최종 SINGLE_PASS action과 평가/cancel 한도가 겹친 뒤 관측에서도 종료 질량이 UNKNOWN으로 오염되지 않도록 전이 호출 밖에서 정책종료를 분류한다. 다중 action cycle phase 회귀 및 fraction 측정의 불완전한 high-water 범위를 명시했다.
+- **좁은 renewal 최적화 검증**: nonfractured 단일 explicit Rare / plain CHAOS 반복 / 징조 없음 / ID 한 개 목표에 한정해 기존 전체 roll preflight와 full empty 상태·후속 커널 동치를 증명한다. p=전체 eligible weight 중 target weight, 정확한 CDF=1-(1-p)^n이며 일반 시행에 동일 p를 가정하지 않는다. 증명 실패는 일반 경로로 fallback하고 huge Long은 거듭제곱 전에 출력/연산 bit 한도를 검사해 미계산 질량을 유지한다. 실제 Solar p=125/21107의 100/300/500이 모두 exact COMPLETE/unresolved0, probe113.150ms였다. quality20 보존은 COMPLETE, 단일 fractured는 renewal 없이 CHAOS UNAVAILABLE, synthetic joint 후보는 전체 UNKNOWN이었다. 자세한 계약·측정 한계는 위 문서에 보존한다. 실제 Solar HTTP DTO 회귀까지 포함한 새 전체 Backend **592 + integration7 PASS**, failures/errors/skips0. UI 연결과 서버 checkpoint 저장·재개는 여전히 미완료 후속이다.
+
 - **안전한 Backend 묶음 구현·검증 완료 / 후속 OPEN**: 기존 Solar 16종 단일 전이를 재사용해 지정한 `SINGLE_PASS` / `REPEAT_CYCLE` 정책의 first-hit 누적확률을 상태별로 전파한다. 모든 시도를 같은 p로 가정하지 않는다. 100/300/500은 조회점이며 전체 제작 횟수 상한은 없다. 계산 평가/frontier/elementary/fraction 복잡도 제한은 별도의 자원 한도이며 한도·미지원 질량은 UNKNOWN/PARTIAL과 정확한 하한·상한으로 보존한다. 기존 게임 규칙·Workbench·다중-stat 신규 roll/다른 base/Omen 지원 경계를 확대하지 않는다.
 - `/api/v1/crafting/basic-paths/first-hit` 및 `/recovery`, 현재 provenance 조회와 후속 UI용 lossless 분수 DTO를 제공한다. 복구는 사용자가 지정한 실패 상태에서 정확한 이전 full-state 체크포인트 또는 명시적 modifier-ID 재개 조건에 도달할 조건부 확률이다. 요청에 목표·action 목록·정책·조회점을 명시하며 단일/다단계/반복 복구를 구분한다. 본경로 확률에 복구 이후 성공을 합산하지 않는다. 해당 횟수까지의 0이나 미탐색을 영구적인 복구 불가능으로 표시하지 않는다. [계약·예제·미완료 범위](docs/basic-currency-first-hit.md).
 - **후속 OPEN — 복구목표 제품 선택**: 자동 체크포인트 선정, 실패 분기별 정책 전환, 전역 최적 3~5개 추천 및 numeric/family 목표 확대는 이번 묶음에 없다. 이전 체크포인트와 재개 조건을 어떻게 선택·표시할지는 명시적 입력으로 유지하고 사용자 결정을 먼저 받는다.

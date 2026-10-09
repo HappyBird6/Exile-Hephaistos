@@ -70,7 +70,8 @@ public final class BasicPathService {
       FirstHitCalculator.Result distribution,
       List<Blocker> blockers,
       boolean blockersTruncated,
-      boolean recoveryIncludedInMain) {}
+      boolean recoveryIncludedInMain,
+      BasicCurrencyTransitions.ChaosRenewal renewalProof) {}
 
   private final ItemCatalog catalog;
   private final BasicCurrencyTransitions transitions;
@@ -100,6 +101,38 @@ public final class BasicPathService {
         throw new IllegalArgumentException(
             "Target modifier is not in the current explicit catalog");
     }
+    FirstHitCalculator.observationPoints(request.observations());
+    if (request.policy().mode() == PolicyMode.REPEAT_CYCLE
+        && request.policy().actions().equals(List.of(WorkbenchCurrency.CHAOS))
+        && request.activeOmens().isEmpty()
+        && request.target().checkpoint() == null
+        && request.target().explicitModifierIds().size() == 1) {
+      var proof =
+          transitions.proveSingleExplicitChaos(
+              request.start(), request.target().explicitModifierIds().iterator().next());
+      if (proof.isPresent()) {
+        var renewal = proof.get();
+        var distribution =
+            ChaosRenewalCalculator.calculate(
+                renewal.probability(),
+                request.target().matches(request.start()),
+                request.observations(),
+                LIMITS.fractionBits(),
+                cancelled);
+        return new Result(
+            recovery ? "CONDITIONAL_RECOVERY" : "MAIN_FIRST_HIT",
+            request.start(),
+            request.policy(),
+            request.target(),
+            provenance(),
+            BasicCurrencyTransitions.INTERPRETATION,
+            distribution,
+            List.of(),
+            false,
+            false,
+            renewal);
+      }
+    }
     var blockers = new ArrayList<Blocker>();
     boolean[] truncated = {false};
     var distribution =
@@ -112,9 +145,6 @@ public final class BasicPathService {
                         ? FirstHitCalculator.Match.HIT
                         : FirstHitCalculator.Match.MISS,
                 (state, step) -> {
-                  if (request.policy().mode() == PolicyMode.SINGLE_PASS
-                      && step >= request.policy().actions().size())
-                    return new FirstHitCalculator.Kernel<>(List.of(), Fraction.ZERO, true);
                   var action =
                       request
                           .policy()
@@ -142,31 +172,10 @@ public final class BasicPathService {
                 },
                 new FirstHitCalculator.Budget(
                     LIMITS.evaluations(), LIMITS.frontierStates(), LIMITS.fractionBits()),
-                cancelled);
-    if (request.policy().mode() == PolicyMode.SINGLE_PASS) {
-      var points =
-          distribution.points().stream()
-              .map(
-                  p ->
-                      p.attempts() >= request.policy().actions().size()
-                          ? new FirstHitCalculator.Point(
-                              p.attempts(),
-                              p.lower(),
-                              p.upper(),
-                              Fraction.ZERO,
-                              p.dead().add(p.active()),
-                              p.unresolved(),
-                              p.status())
-                          : p)
-              .toList();
-      distribution =
-          new FirstHitCalculator.Result(
-              points,
-              distribution.evaluations(),
-              distribution.peakFrontier(),
-              distribution.peakFractionBits(),
-              distribution.reason());
-    }
+                cancelled,
+                step ->
+                    request.policy().mode() == PolicyMode.SINGLE_PASS
+                        && step >= request.policy().actions().size());
     return new Result(
         recovery ? "CONDITIONAL_RECOVERY" : "MAIN_FIRST_HIT",
         request.start(),
@@ -177,7 +186,8 @@ public final class BasicPathService {
         distribution,
         List.copyOf(blockers),
         truncated[0],
-        false);
+        false,
+        null);
   }
 
   private void validate(BasicCurrencyState state) {
