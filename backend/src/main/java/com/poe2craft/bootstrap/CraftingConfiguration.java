@@ -14,6 +14,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class CraftingConfiguration {
   @Bean
+  com.poe2craft.crafting.application.BasicPathService basicPathService(ItemCatalog catalog) {
+    return new com.poe2craft.crafting.application.BasicPathService(
+        catalog, com.poe2craft.crafting.infrastructure.RulesetManifestLoader.load().identity());
+  }
+
+  @Bean
   com.poe2craft.crafting.domain.WorkbenchDefinitions workbenchDefinitions() {
     return com.poe2craft.crafting.infrastructure.WorkbenchDefinitionsLoader.initialize();
   }

@@ -505,6 +505,15 @@ Backend441+integration6, Frontend1820, API539, Browser719가 통과했고228 scr
 
 회귀 7건은 refetch, 이전 cache/히스토리, 새 세션 분리, mapped 원문, 늦은 Explorer 응답 및 Support assess→recommend 연쇄 중단을 검증한다. 최종 Docker Frontend lint/typecheck/format/test/build는 76 files/1970 tests 통과했고 `npm ci`도 실행했다. Backend 소스는 동일하며 기존 555건(실패·오류·skip 0)을 재사용했다. 최종 Docker `check generateJooq bootJar` 재확인은 3 executed/12 up-to-date로 성공했다. 기존 Support 테스트의 1초 catalog 준비 대기는 identity 검증 후 family 조회까지 기다리도록 5초로 명시했으며 assertion은 그대로 유지했다. 정상/구기록 UI smoke와 API134 initial/31 checks를 재확인했고, localhost 브라우저의 synthetic same-snapshot refetch에서 Explorer·Support 원문 보존/제한/명시적 새 시작을 확인했다. 긴 JSON 행 줄바꿈도 화면으로 확인했다. Docker 내부 hostname의 secure-context 차이는 localhost origin으로 해결했으며 제품 설정이나 구현을 바꾸지 않았다. 독립 검토의 나머지 영역에 추가 발견이 없다는 전달을 받았고, 후속 수정은 자체 리뷰했다. 이전 SHA의 원격 CI는 0개였으며 새 SHA의 원격 CI는 별도 실행하지 않는다.
 
+## WB-051 기본 화폐 first-hit 및 명시적 복구 (2026-10-09)
+
+- **안전한 Backend 묶음 구현·검증 완료 / 후속 OPEN**: 기존 Solar 16종 단일 전이를 재사용해 지정한 `SINGLE_PASS` / `REPEAT_CYCLE` 정책의 first-hit 누적확률을 상태별로 전파한다. 모든 시도를 같은 p로 가정하지 않는다. 100/300/500은 조회점이며 전체 제작 횟수 상한은 없다. 계산 평가/frontier/elementary/fraction 복잡도 제한은 별도의 자원 한도이며 한도·미지원 질량은 UNKNOWN/PARTIAL과 정확한 하한·상한으로 보존한다. 기존 게임 규칙·Workbench·다중-stat 신규 roll/다른 base/Omen 지원 경계를 확대하지 않는다.
+- `/api/v1/crafting/basic-paths/first-hit` 및 `/recovery`, 현재 provenance 조회와 후속 UI용 lossless 분수 DTO를 제공한다. 복구는 사용자가 지정한 실패 상태에서 정확한 이전 full-state 체크포인트 또는 명시적 modifier-ID 재개 조건에 도달할 조건부 확률이다. 요청에 목표·action 목록·정책·조회점을 명시하며 단일/다단계/반복 복구를 구분한다. 본경로 확률에 복구 이후 성공을 합산하지 않는다. 해당 횟수까지의 0이나 미탐색을 영구적인 복구 불가능으로 표시하지 않는다. [계약·예제·미완료 범위](docs/basic-currency-first-hit.md).
+- **후속 OPEN — 복구목표 제품 선택**: 자동 체크포인트 선정, 실패 분기별 정책 전환, 전역 최적 3~5개 추천 및 numeric/family 목표 확대는 이번 묶음에 없다. 이전 체크포인트와 재개 조건을 어떻게 선택·표시할지는 명시적 입력으로 유지하고 사용자 결정을 먼저 받는다.
+- **후속 OPEN — 서버 checkpoint 저장·이어 계산**: 현재 중단은 미계산 질량으로 반환하며 같은 요청의 새 계산은 가능하다. 저장된 frontier를 계속 계산하는 기능은 미완료다. 후속 계약은 ruleset/model/catalog/root/목표/정책/action phase/조회 기준/정확한 frontier 및 흡수·실패·미계산 질량을 함께 고정하고, identity 변경 거부·부분 layer 중복 반영 방지·중단/재개 oracle을 검증해야 한다. 현재는 목표/정책 의존 결과를 cache하지 않고 bounded 완전 단일 전이 cache만 사용한다.
+- Java 21 Docker `check generateJooq bootJar`: **584 unit/ArchUnit + 7 integration PASS**. Frontend npm ci/lint/typecheck/format/test/build: **76 files / 1970 tests PASS**. Compose quiet 검사 PASS. 작은 독립 binary-path brute force, geometric 500회 oracle, 변화하는 상태/cycles/selfloops/이미 성공/도달 불가/부분 질량/자원 제한/중단 뒤 새 계산/실제 Solar 복구·부분 전이를 검증한다. 서버 checkpoint 이어 계산과 UI 연동, 원격 CI 및 독립 리뷰는 이 통과 범위에 포함하지 않는다. master 병합·배포·서버 재시작은 수행하지 않는다.
+- 이미 생성한 [GitHub issue #1](https://github.com/HappyBird6/Exile-Hephaistos/issues/1)은 복구목표 선정 및 checkpoint 중단·재개 계약의 보조 기록으로 유지한다. 프로젝트 이슈 관리의 주 기록은 이 Markdown이며 추가 GitHub issue를 만들지 않는다.
+
 ## Goal filter numeric addition model
 
 - Solar 단일 stat addition 수치 계산은 명시된 uniform-integer-roll-v1 모델 내 구현됨. 실제 게임 정수 roll 분포와 catalog weight의 서버 선택 확률 검증은 미확정이며 ledger/API/UI에서 분리 표시한다.

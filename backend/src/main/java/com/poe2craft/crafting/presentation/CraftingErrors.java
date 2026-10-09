@@ -10,6 +10,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 @RestControllerAdvice(
     assignableTypes = {
       CraftingController.class,
+      BasicPathController.class,
       WorkbenchController.class,
       SupportController.class,
       SupportRecommendationController.class
