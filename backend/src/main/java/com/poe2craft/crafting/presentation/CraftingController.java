@@ -41,7 +41,8 @@ public final class CraftingController {
         bucket,
         catalog.modifiers(),
         engine.actions(bucket),
-        catalog.compatibleSnapshotIds());
+        catalog.compatibleSnapshotIds(),
+        catalog.base());
   }
 
   @PostMapping("/actions")
@@ -77,7 +78,8 @@ public final class CraftingController {
       StateBucket state,
       Map<String, ModifierDefinition> modifiers,
       List<CraftingEngine.Availability> actions,
-      List<String> compatibleSnapshotIds) {}
+      List<String> compatibleSnapshotIds,
+      ItemCatalog.BaseItem baseRules) {}
 
   public record TransitionRequest(StateBucket state, CraftingAction action) {}
 

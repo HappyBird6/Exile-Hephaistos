@@ -53,7 +53,17 @@ class BaseRegistryParityTest {
       var record = new TreeMap<String, Object>();
       for (int level : new int[] {1, 20, 82}) {
         var initial = service.initial(key, level);
-        record.put("initial-" + level, digest(initial));
+        // The additive UI rules field is checked separately; retain the exact legacy payload hash.
+        var initialJson = (ObjectNode) M.valueToTree(initial);
+        initialJson.remove("baseRules");
+        record.put("initial-" + level, digest(initialJson));
+        var rules = initial.baseRules();
+        org.junit.jupiter.api.Assertions.assertEquals(initial.state().baseItemId(), rules.id());
+        org.junit.jupiter.api.Assertions.assertEquals(1, rules.magicPrefixes());
+        org.junit.jupiter.api.Assertions.assertEquals(1, rules.magicSuffixes());
+        int rareLimit = BasicJewel.supportedCrafting(rules.id()) ? 2 : 3;
+        org.junit.jupiter.api.Assertions.assertEquals(rareLimit, rules.rarePrefixes());
+        org.junit.jupiter.api.Assertions.assertEquals(rareLimit, rules.rareSuffixes());
         var s = initial.state();
         var state =
             new ItemState(

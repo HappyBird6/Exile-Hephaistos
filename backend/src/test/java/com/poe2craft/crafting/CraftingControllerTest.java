@@ -32,6 +32,10 @@ class CraftingControllerTest {
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.state.itemLevel").value(70))
         .andExpect(jsonPath("$.state.rarity").value("NORMAL"))
+        .andExpect(jsonPath("$.baseRules.magicPrefixes").value(catalog.base().magicPrefixes()))
+        .andExpect(jsonPath("$.baseRules.magicSuffixes").value(catalog.base().magicSuffixes()))
+        .andExpect(jsonPath("$.baseRules.rarePrefixes").value(catalog.base().rarePrefixes()))
+        .andExpect(jsonPath("$.baseRules.rareSuffixes").value(catalog.base().rareSuffixes()))
         .andExpect(jsonPath("$.metadata.prefixCount").value(85))
         .andExpect(jsonPath("$.actions.length()").value(6));
     var root = StateBucket.from(SolarAmulet.initial(catalog));

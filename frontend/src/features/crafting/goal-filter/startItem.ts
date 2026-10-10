@@ -137,20 +137,37 @@ export function startItemIssues(
         'Jewel state violates reviewed affix, Crafted, implicit or stat rules.',
       )
   } else {
-    // Existing nine equipment catalogs: Normal 0/0, Magic 1/1, Rare 3/3.
-    // backend/src/main/resources/catalog/*/catalog.json; ItemStateValidator.slots.
-    const cap = item.rarity === 'NORMAL' ? 0 : item.rarity === 'MAGIC' ? 1 : 3
+    // Use the same catalog capacities as ItemStateValidator.slots.
     if (
       ['PREFIX', 'SUFFIX'].some(
         (side) =>
           item.explicits.filter(
             (m) => initial.modifiers[m.modifierId]?.affixType === side,
-          ).length > cap,
+          ).length > startCapacity(initial, item, side),
       )
     )
-      issues.push('Equipment affix capacity exceeded (Magic 1/1; Rare 3/3).')
+      issues.push('The selected rarity cannot hold these modifiers.')
+    if (!initial.baseRules && item.rarity !== 'NORMAL')
+      issues.push('Rarity limits are unavailable for this base.')
   }
   return [...new Set(issues)]
+}
+export function startCapacity(
+  initial: Initial,
+  item: ConcreteItem,
+  side: string,
+): number {
+  if (isWorkbenchJewel(item.baseItemId)) return jewelCapacity(item, side)
+  if (item.rarity === 'NORMAL') return 0
+  const rules = initial.baseRules
+  if (!rules) return 0
+  return item.rarity === 'MAGIC'
+    ? side === 'PREFIX'
+      ? rules.magicPrefixes
+      : rules.magicSuffixes
+    : side === 'PREFIX'
+      ? rules.rarePrefixes
+      : rules.rareSuffixes
 }
 export function startCard(
   base: StartBase,
@@ -204,7 +221,6 @@ export function eligibleStartModifiers(
   item: ConcreteItem,
 ): Definition[] {
   if (startItemIssues(initial, item).length) return []
-  const rare: ConcreteItem = { ...item, rarity: 'RARE' }
   const used = item.explicits.flatMap(
     (m) => initial.modifiers[m.modifierId]?.familyIds ?? [],
   )
@@ -216,15 +232,12 @@ export function eligibleStartModifiers(
       (m.requiredItemLevel ?? 1) <= item.itemLevel &&
       item.explicits.filter(
         (e) => initial.modifiers[e.modifierId]?.affixType === m.affixType,
-      ).length <
-        (isWorkbenchJewel(item.baseItemId)
-          ? jewelCapacity(rare, m.affixType)
-          : 3) &&
+      ).length < startCapacity(initial, item, m.affixType) &&
       !m.familyIds.some((f) => used.includes(f)) &&
       !startItemIssues(initial, {
-        ...rare,
+        ...item,
         explicits: [
-          ...rare.explicits,
+          ...item.explicits,
           {
             modifierId: m.id,
             values: Object.fromEntries(m.stats.map((s) => [s.id, s.min])),

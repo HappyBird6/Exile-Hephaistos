@@ -152,14 +152,17 @@ describe('goal filter async and numeric editing', () => {
         />
       </QueryClientProvider>,
     )
-    const search = screen.getByRole('searchbox', { name: 'Search stats' })
+    const search = screen.getByRole('combobox', { name: 'Search stats' })
     expect(search).toHaveAttribute('aria-expanded', 'false')
     fireEvent.focus(search)
     const add = await screen.findByRole('button', {
       name: 'Add total cold resistance',
     })
     fireEvent.keyDown(search, { key: 'ArrowDown' })
-    expect(screen.getAllByRole('button', { name: /^Add / })[0]).toHaveFocus()
+    expect(search).toHaveFocus()
+    expect(
+      document.getElementById(search.getAttribute('aria-activedescendant')!),
+    ).toHaveAttribute('aria-selected', 'true')
     fireEvent.keyDown(add, { key: 'Escape' })
     expect(search).toHaveFocus()
     expect(search).toHaveAttribute('aria-expanded', 'false')
@@ -235,6 +238,7 @@ describe('goal filter async and numeric editing', () => {
     fireEvent.change(screen.getByLabelText('Equipment base'), {
       target: { value: 'new' },
     })
+    fireEvent.focus(screen.getByRole('combobox', { name: 'Search stats' }))
     await screen.findByText('No eligible stats.')
     await act(async () => completeOld(oldCatalog))
     expect(oldSignal!.aborted).toBe(true)

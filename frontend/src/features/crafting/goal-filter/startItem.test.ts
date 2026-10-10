@@ -80,6 +80,45 @@ function ordinary(initial: Initial, item: ConcreteItem, side: string) {
   )!
 }
 describe('Starting item catalog validation', () => {
+  it('uses catalog capacities rather than assumed equipment limits and never promotes rarity', () => {
+    const initial: Initial = {
+      ...equipment,
+      baseRules: {
+        magicPrefixes: 2,
+        magicSuffixes: 0,
+        rarePrefixes: 4,
+        rareSuffixes: 2,
+      },
+    }
+    const normal = concreteInitial(initial)
+    expect(eligibleStartModifiers(initial, normal)).toEqual([])
+    const magic: ConcreteItem = { ...normal, rarity: 'MAGIC' }
+    expect(
+      eligibleStartModifiers(initial, magic).map((d) => d.affixType),
+    ).toEqual(['PREFIX'])
+    const second = {
+      ...initial.modifiers.p!,
+      id: 'second',
+      familyIds: ['second'],
+    }
+    initial.modifiers = { ...initial.modifiers, second }
+    const two: ConcreteItem = {
+      ...add(add(magic, initial.modifiers.p!), second),
+      rarity: 'MAGIC',
+    }
+    expect(startItemIssues(initial, two)).toEqual([])
+    expect(eligibleStartModifiers(initial, two)).toEqual([])
+    expect(two.rarity).toBe('MAGIC')
+    expect(startItemIssues(initial, { ...two, rarity: 'NORMAL' })).not.toEqual(
+      [],
+    )
+    expect(
+      startItemIssues(initial, { ...magic, conditions: ['CORRUPTED'] }),
+    ).not.toEqual([])
+    const missingRules = { ...initial }
+    delete missingRules.baseRules
+    expect(startItemIssues(missingRules, magic)).not.toEqual([])
+  })
   it('uses exact known class aliases without matching other classes or names', () => {
     expect(startClassMatches('Amulets', 'Amulet')).toBe(true)
     expect(startClassMatches('Amulets', 'Amulets')).toBe(true)
@@ -87,7 +126,10 @@ describe('Starting item catalog validation', () => {
     expect(startClassMatches('Rings', 'Amulet')).toBe(false)
   })
   it('permits non-Solar equipment definitions and rejects conflicts, stat errors and wrong snapshots', () => {
-    const normal = concreteInitial(equipment)
+    const normal: ConcreteItem = {
+      ...concreteInitial(equipment),
+      rarity: 'RARE',
+    }
     const rare = add(normal, ordinary(equipment, normal, 'PREFIX'))
     expect(startItemIssues(equipment, rare)).toEqual([])
     expect(
@@ -142,7 +184,7 @@ describe('Starting item catalog validation', () => {
     )
   })
   it('reuses jewel insertion limits and rejects a third ordinary prefix', () => {
-    let item = concreteInitial(ruby)
+    let item: ConcreteItem = { ...concreteInitial(ruby), rarity: 'RARE' }
     item = add(item, ordinary(ruby, item, 'PREFIX'))
     item = add(item, ordinary(ruby, item, 'PREFIX'))
     expect(startItemIssues(ruby, item)).toEqual([])
@@ -157,7 +199,7 @@ describe('Starting item catalog validation', () => {
     expect(eligibleStartModifiers(ruby, item)).toEqual([])
   })
   it('allows a reviewed Crafted capacity grant, preserves valid cap-loss state, and blocks a second Crafted modifier', () => {
-    let item = concreteInitial(ruby)
+    let item: ConcreteItem = { ...concreteInitial(ruby), rarity: 'RARE' }
     const grant = Object.values(ruby.modifiers).find((d) =>
       d.id.endsWith(':crafted:CraftedJewelAdditionalPrefixAllowed'),
     )!

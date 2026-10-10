@@ -15,6 +15,7 @@ import { ConnectedGoalFilter } from './ConnectedGoalFilter'
 import { StartModifierPicker } from './StartModifierPicker'
 import { craftStartMessages } from './craftStartMessages'
 import { startInputMessages, startInputIssue } from './startInputMessages'
+import { setupMessages } from './setupMessages'
 import { localizedModifierText } from '../localizedModifiers'
 import {
   startBases,
@@ -23,6 +24,7 @@ import {
   eligibleStartModifiers,
   startClassMatches,
   startItemIssues,
+  startCapacity,
 } from './startItem'
 import './craft-start.css'
 import { useI18n, uiText } from '../../../shared/i18n/i18n'
@@ -54,6 +56,7 @@ export function CraftStart({
 }) {
   const { t, locale, name } = useI18n()
   const copy = craftStartMessages[locale]
+  const setup = setupMessages[locale]
   const [editor] = useState(() =>
     createStore<Draft>(() => ({
       base: 'solar',
@@ -310,7 +313,6 @@ export function CraftStart({
     if (!definition?.stats) return
     const item: ConcreteItem = {
       ...draft.item,
-      rarity: 'RARE',
       explicits: [
         ...draft.item.explicits,
         {
@@ -440,6 +442,89 @@ export function CraftStart({
                   </select>
                 </label>
               </div>
+              <label>
+                {setup.rarity}
+                <select
+                  value={draft.item?.rarity ?? ''}
+                  disabled={!currentRules || !selected || !draft.item}
+                  onChange={(event) => {
+                    if (!selected || !draft.item || !currentRules) return
+                    const rarity = event.target.value
+                    if (
+                      rarity !== 'NORMAL' &&
+                      rarity !== 'MAGIC' &&
+                      rarity !== 'RARE'
+                    )
+                      return
+                    const item: ConcreteItem = { ...draft.item, rarity }
+                    if (startItemIssues(selected.initial, item).length) return
+                    cancel()
+                    update({
+                      item,
+                      issue: '',
+                      text: startText(
+                        selected.base,
+                        item,
+                        selected.initial.modifiers,
+                      ),
+                      card: startCard(
+                        selected.base,
+                        item,
+                        selected.initial.modifiers,
+                      ),
+                    })
+                  }}
+                >
+                  {!draft.item && <option value="">{copy.unverified}</option>}
+                  {(['NORMAL', 'MAGIC', 'RARE'] as const).map((rarity) => (
+                    <option
+                      key={rarity}
+                      value={rarity}
+                      disabled={
+                        !!selected &&
+                        !!draft.item &&
+                        startItemIssues(selected.initial, {
+                          ...draft.item,
+                          rarity,
+                        }).length > 0
+                      }
+                    >
+                      {rarity === 'NORMAL'
+                        ? setup.normal
+                        : rarity === 'MAGIC'
+                          ? setup.magic
+                          : setup.rare}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              {selected && draft.item && (
+                <div className="start-rarity-help">
+                  <p>
+                    {setup.limits}:{' '}
+                    {startCapacity(selected.initial, draft.item, 'PREFIX')} /{' '}
+                    {startCapacity(selected.initial, draft.item, 'SUFFIX')}
+                  </p>
+                  {(['NORMAL', 'MAGIC', 'RARE'] as const)
+                    .filter(
+                      (rarity) =>
+                        startItemIssues(selected.initial, {
+                          ...draft.item!,
+                          rarity,
+                        }).length > 0,
+                    )
+                    .map((rarity) => (
+                      <p key={rarity}>
+                        {rarity === 'NORMAL'
+                          ? setup.normal
+                          : rarity === 'MAGIC'
+                            ? setup.magic
+                            : setup.rare}
+                        : {setup.blocked}
+                      </p>
+                    ))}
+                </div>
+              )}
               <button
                 ref={importButton}
                 onClick={() => {
@@ -511,7 +596,7 @@ export function CraftStart({
               )}
               {stateIssues.map((issue) => (
                 <p role="alert" key={issue}>
-                  {issue}
+                  {setup.blocked}
                 </p>
               ))}
               {currentRules &&

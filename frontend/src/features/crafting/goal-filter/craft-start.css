@@ -12,11 +12,9 @@
 }
 .craft-start .start-modifier-picker [role='listbox'] {
   list-style: none;
-  max-height: 220px;
-  overflow-y: auto;
   overflow-wrap: anywhere;
   padding: 0;
-  margin: 0 0 10px;
+  margin: 0;
   border: 1px solid #3b3e3f;
   background: #101112;
 }

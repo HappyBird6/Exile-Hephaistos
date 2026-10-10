@@ -131,7 +131,7 @@ describe('production goal connection', () => {
   it('keeps stat evaluation in compact setup without equipment or probability controls', async () => {
     const fetch = mockFetch()
     setup(item, vi.fn(), true)
-    const search = await screen.findByRole('searchbox', {
+    const search = await screen.findByRole('combobox', {
       name: 'Search stats',
     })
     expect(
@@ -166,7 +166,7 @@ describe('production goal connection', () => {
     mockFetch()
     const legacyChange = vi.fn()
     setup(item, legacyChange)
-    const search = await screen.findByRole('searchbox', {
+    const search = await screen.findByRole('combobox', {
       name: 'Search stats',
     })
     fireEvent.change(search, { target: { value: 'Cold' } })
@@ -203,35 +203,39 @@ describe('production goal connection', () => {
       presentNumericStats({ ...item, baseItemId: 'another' }, c).size,
     ).toBe(0)
   })
-  it('preserves actual values, quality and AbortSignal in both wire requests', async () => {
-    const mock = mockFetch()
-    const signal = new AbortController().signal
-    const goal = {
-      version: 1 as const,
-      catalogVersion: 'v1',
-      general: {
-        baseItemId: 'amulet',
-        itemLevel: { min: null, max: null },
-        rarities: ['RARE'],
-      },
-      groups: [],
-    }
-    await evaluateNumericItem(
-      item,
-      goal,
-      ['Omen_of_Sinistral_Exaltation'],
-      2000,
-      signal,
-      'fixture-ruleset',
-    )
-    for (const [, init] of mock.mock.calls) {
-      expect(JSON.parse(String(init?.body)).item).toEqual(item)
-      expect(init?.signal).toBe(signal)
-      expect(JSON.parse(String(init?.body)).item).not.toHaveProperty(
-        'modifierIds',
+  it.each(['NORMAL', 'MAGIC', 'RARE'] as const)(
+    'preserves %s rarity, actual values, quality and AbortSignal in both wire requests',
+    async (rarity) => {
+      const actual = { ...item, rarity }
+      const mock = mockFetch()
+      const signal = new AbortController().signal
+      const goal = {
+        version: 1 as const,
+        catalogVersion: 'v1',
+        general: {
+          baseItemId: 'amulet',
+          itemLevel: { min: null, max: null },
+          rarities: ['RARE'],
+        },
+        groups: [],
+      }
+      await evaluateNumericItem(
+        actual,
+        goal,
+        ['Omen_of_Sinistral_Exaltation'],
+        2000,
+        signal,
+        'fixture-ruleset',
       )
-    }
-  })
+      for (const [, init] of mock.mock.calls) {
+        expect(JSON.parse(String(init?.body)).item).toEqual(actual)
+        expect(init?.signal).toBe(signal)
+        expect(JSON.parse(String(init?.body)).item).not.toHaveProperty(
+          'modifierIds',
+        )
+      }
+    },
+  )
   it('gates missing actual rolls without sending evaluation requests', async () => {
     const mock = mockFetch()
     setup(null)
@@ -323,6 +327,6 @@ describe('production goal connection', () => {
     fireEvent.click(button)
     expect(await screen.findByText(/Evaluation failed/)).toBeInTheDocument()
     expect(button).toBeEnabled()
-    expect(screen.getByText('Cold total (percent)')).toBeInTheDocument()
+    expect(screen.getByText('Cold total (%)')).toBeInTheDocument()
   })
 })

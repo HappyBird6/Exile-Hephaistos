@@ -34,6 +34,12 @@ export function fixtureActions(state: Bucket): Availability[] {
   }))
 }
 export const initialFixture: Initial = {
+  baseRules: {
+    magicPrefixes: 1,
+    magicSuffixes: 1,
+    rarePrefixes: 3,
+    rareSuffixes: 3,
+  },
   rulesetIdentity: 'fixture-ruleset',
   ruleVersion: 'fixture-rules',
   metadata: {

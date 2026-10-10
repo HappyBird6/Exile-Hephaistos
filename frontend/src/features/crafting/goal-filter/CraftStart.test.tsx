@@ -143,6 +143,88 @@ function chooseLifeGroup() {
   fireEvent.keyDown(picker, { key: 'Enter' })
 }
 describe('Craft Support starting screen', () => {
+  it('requires an explicit rarity choice, blocks conflicting downgrades and keeps Magic through editing and restart', async () => {
+    await setup()
+    const rarity = screen.getByRole('combobox', { name: 'Starting rarity' })
+    expect(rarity).toHaveValue('NORMAL')
+    fireEvent.click(screen.getByRole('button', { name: 'Add modifier' }))
+    expect(
+      screen.getByRole('combobox', { name: 'Modifier group' }),
+    ).toBeDisabled()
+    fireEvent.change(rarity, { target: { value: 'MAGIC' } })
+    chooseLifeGroup()
+    fireEvent.change(screen.getByLabelText('Starting modifier tier'), {
+      target: { value: 'p' },
+    })
+    expect(rarity).toHaveValue('MAGIC')
+    expect(
+      within(rarity).getByRole('option', { name: 'Normal' }),
+    ).toBeDisabled()
+    fireEvent.change(rarity, { target: { value: 'NORMAL' } })
+    expect(rarity).toHaveValue('MAGIC')
+    const preview = screen.getByRole('region', {
+      name: 'Starting item preview',
+    })
+    expect(preview).toHaveTextContent('+10 to maximum Life')
+    fireEvent.click(screen.getByRole('button', { name: 'Import item text' }))
+    expect(
+      (screen.getByLabelText('Starting item text') as HTMLTextAreaElement)
+        .value,
+    ).toContain('Rarity: Magic')
+    fireEvent.click(screen.getByRole('button', { name: 'Check item text' }))
+    await waitFor(() =>
+      expect(
+        screen.getByRole('button', { name: 'Check item text' }),
+      ).toBeEnabled(),
+    )
+    fireEvent.click(screen.getByRole('button', { name: 'Close' }))
+    expect(rarity).toHaveValue('MAGIC')
+    fireEvent.click(screen.getByRole('button', { name: 'Start Crafting' }))
+    expect(
+      screen.getByRole('region', { name: 'Crafting tree preview' }),
+    ).toHaveTextContent('+10 to maximum Life')
+    fireEvent.click(screen.getByRole('button', { name: /Edit settings/ }))
+    expect(rarity).toHaveValue('MAGIC')
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Remove starting modifier 1' }),
+    )
+    fireEvent.change(rarity, { target: { value: 'NORMAL' } })
+    expect(rarity).toHaveValue('NORMAL')
+  })
+  it('synchronizes rarity from verified imported and manually edited text', async () => {
+    await setup()
+    fireEvent.click(screen.getByRole('button', { name: 'Import item text' }))
+    const text = screen.getByLabelText('Starting item text')
+    const magic = { ...concreteInitial(solar), rarity: 'MAGIC' as const }
+    vi.mocked(mapSolarText).mockResolvedValueOnce({
+      mapped: true,
+      state: magic,
+      issues: [],
+    })
+    fireEvent.paste(text, {
+      clipboardData: { getData: () => 'Imported magic text' },
+    })
+    await waitFor(() =>
+      expect(
+        screen.getByRole('combobox', { name: 'Starting rarity' }),
+      ).toHaveValue('MAGIC'),
+    )
+    fireEvent.change(text, { target: { value: 'Manually edited rare text' } })
+    expect(
+      screen.getByRole('combobox', { name: 'Starting rarity' }),
+    ).toBeDisabled()
+    vi.mocked(mapSolarText).mockResolvedValueOnce({
+      mapped: true,
+      state: { ...magic, rarity: 'RARE' },
+      issues: [],
+    })
+    fireEvent.click(screen.getByRole('button', { name: 'Check item text' }))
+    await waitFor(() =>
+      expect(
+        screen.getByRole('combobox', { name: 'Starting rarity' }),
+      ).toHaveValue('RARE'),
+    )
+  })
   it('cancels modal parsing on Escape, retains text, restores focus and discards the late result', async () => {
     await setup()
     const opener = screen.getByRole('button', { name: 'Import item text' })
@@ -298,6 +380,10 @@ describe('Craft Support starting screen', () => {
     fireEvent.change(screen.getByLabelText('Starting equipment type'), {
       target: { value: 'Rings' },
     })
+    fireEvent.change(
+      screen.getByRole('combobox', { name: 'Starting rarity' }),
+      { target: { value: 'MAGIC' } },
+    )
     fireEvent.click(screen.getByRole('button', { name: 'Add modifier' }))
     chooseLifeGroup()
     fireEvent.change(screen.getByLabelText('Starting modifier tier'), {
@@ -345,6 +431,10 @@ describe('Craft Support starting screen', () => {
   })
   it('adds and removes catalog modifiers, blocks invalid rolls and preserves the started root', async () => {
     await setup()
+    fireEvent.change(
+      screen.getByRole('combobox', { name: 'Starting rarity' }),
+      { target: { value: 'RARE' } },
+    )
     fireEvent.click(screen.getByRole('button', { name: 'Add modifier' }))
     chooseLifeGroup()
     fireEvent.change(screen.getByLabelText('Starting modifier tier'), {

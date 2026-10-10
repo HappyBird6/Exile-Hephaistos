@@ -62,6 +62,12 @@ export interface Availability {
   reason: string
 }
 export interface Initial {
+  baseRules?: {
+    magicPrefixes: number
+    magicSuffixes: number
+    rarePrefixes: number
+    rareSuffixes: number
+  }
   rulesetIdentity: string
   augmentSockets?: number | null | undefined
   compatibleSnapshotIds?: string[]
@@ -281,6 +287,19 @@ export async function loadInitial(
     (v.augmentSockets !== undefined &&
       v.augmentSockets !== null &&
       (base !== 'stocky' || v.augmentSockets !== 0)) ||
+    (v.baseRules !== undefined &&
+      (!object(v.baseRules) ||
+        ![
+          'magicPrefixes',
+          'magicSuffixes',
+          'rarePrefixes',
+          'rareSuffixes',
+        ].every(
+          (key) =>
+            object(v.baseRules) &&
+            Number.isSafeInteger(v.baseRules[key]) &&
+            Number(v.baseRules[key]) >= 0,
+        ))) ||
     !object(v.modifiers) ||
     !availability(v.actions) ||
     (v.compatibleSnapshotIds !== undefined && !strings(v.compatibleSnapshotIds))

@@ -4,6 +4,7 @@ import type { Definition } from '../craftingApi'
 import { localizedModifierText } from '../localizedModifiers'
 import { groupStartModifiers } from './modifierGroups'
 import { modifierPickerMessages } from './modifierPickerMessages'
+import { PickerPopover } from './PickerPopover'
 
 export function StartModifierPicker({
   definitions,
@@ -106,7 +107,7 @@ export function StartModifierPicker({
         }}
       />
       {open && (
-        <>
+        <PickerPopover anchor={input}>
           <ul id={`${id}-list`} ref={list} role="listbox" aria-label={t.group}>
             {visible.map((group, index) => (
               <li
@@ -122,7 +123,7 @@ export function StartModifierPicker({
             ))}
           </ul>
           {!visible.length && <p role="status">{t.noMatch}</p>}
-        </>
+        </PickerPopover>
       )}
       <label htmlFor={`${id}-tier`}>{t.tier}</label>
       <select

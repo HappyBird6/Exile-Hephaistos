@@ -8,6 +8,28 @@
   line-height: 1.35;
   color-scheme: dark;
 }
+.picker-popover {
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: #101314;
+  border: 1px solid #a38d6d;
+  box-shadow: 0 8px 24px #000a;
+  overflow-wrap: anywhere;
+}
+.goal-filter .picker-popover .goal-filter-candidates {
+  max-height: none;
+  overflow: visible;
+  margin: 0;
+}
+.goal-filter .goal-filter-candidates [aria-selected='true'] {
+  background: #33302a;
+}
+.goal-filter .goal-filter-group-help,
+.start-rarity-help {
+  font-size: 12px;
+  color: #b5aa93;
+  margin: 6px 0;
+}
 .goal-filter *,
 .goal-filter *::before,
 .goal-filter *::after {
