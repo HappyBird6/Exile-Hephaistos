@@ -1,0 +1,155 @@
+.path-tree {
+  color: #ddd5c4;
+  padding-block: 1rem;
+  min-width: 0;
+}
+.path-tree button,
+.path-tree select {
+  font: inherit;
+  color: inherit;
+  background: #211f1b;
+  border: 1px solid #766445;
+  border-radius: 0.3rem;
+  padding: 0.6rem 0.8rem;
+}
+.path-tree button {
+  cursor: pointer;
+}
+.path-tree button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.path-tree :focus-visible {
+  outline: 3px solid #eecb78;
+  outline-offset: 3px;
+}
+.path-tree__observations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border: 1px solid #514a3d;
+  margin-block: 1rem;
+}
+.path-tree__observations label {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.path-tree__candidates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: 0.65rem;
+}
+.path-tree__candidates button {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-align: start;
+}
+.path-tree__candidates button[aria-pressed='true'] {
+  outline: 2px solid #dfb86a;
+  outline-offset: 2px;
+}
+.path-tree__candidates .path-tree__recommended {
+  border-color: #dfb86a;
+  background: #332b1d;
+}
+.path-tree__recommended em {
+  color: #f2d391;
+  font-size: 0.85rem;
+}
+.path-tree__layer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding-block: 1.5rem;
+}
+.path-tree__layer + .path-tree__layer {
+  border-top: 1px solid #655338;
+}
+.path-tree__node {
+  flex: 1 1 20rem;
+  max-width: 32rem;
+  min-width: 0;
+  border: 1px solid #514a3d;
+  border-radius: 0.5rem;
+  padding: 0.85rem;
+  background: #141412;
+  scroll-margin-block: 2rem;
+}
+.path-tree__node h3 {
+  margin-top: 0;
+}
+.path-tree__node small {
+  font-size: 0.75em;
+  font-weight: normal;
+}
+.path-tree__node .item-card {
+  width: 100%;
+  max-width: 100%;
+}
+.path-tree__edges {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  overflow-wrap: anywhere;
+}
+.path-tree__edges li {
+  border-inline-start: 2px solid #9e824d;
+  padding-inline-start: 0.6rem;
+}
+.path-tree a {
+  color: #efcf90;
+  text-underline-offset: 0.2rem;
+}
+.path-tree__note {
+  color: #b3ad9e;
+  font-size: 0.9rem;
+}
+.path-tree__recovery,
+.path-tree__recovery-picker {
+  margin-block: 1rem;
+  padding: 1rem;
+  border: 1px solid #6e6686;
+  border-radius: 0.5rem;
+}
+.path-tree__recovery-picker label {
+  display: grid;
+  gap: 0.5rem;
+  margin-block: 1rem;
+}
+.path-tree__recovery-picker select {
+  width: 100%;
+  min-width: 0;
+}
+.path-tree__recovery-picker summary {
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.path-tree__status {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+@media (max-width: 40rem) {
+  .path-tree__layer {
+    gap: 0.75rem;
+  }
+  .path-tree__node {
+    flex-basis: 100%;
+    padding: 0.6rem;
+  }
+  .path-tree__candidates {
+    grid-template-columns: 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .path-tree *,
+  .path-tree {
+    scroll-behavior: auto;
+    animation: none;
+    transition: none;
+  }
+}

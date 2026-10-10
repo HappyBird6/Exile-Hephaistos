@@ -1,0 +1,1056 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:hephaistos:crafting-paths:v1",
+  "title": "Crafting path-search v1 contract (not implemented endpoints)",
+  "description": "Compile the named definition for each endpoint; semantic constraints are normative in the companion specification.",
+  "definitions": {
+    "fraction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["numerator", "denominator"],
+      "properties": {
+        "numerator": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$"
+        },
+        "denominator": {
+          "type": "string",
+          "pattern": "^[1-9][0-9]*$"
+        }
+      }
+    },
+    "range": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min", "max"],
+      "properties": {
+        "min": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "max": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "modifier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["modifierId", "values", "fractured"],
+      "properties": {
+        "modifierId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "values": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          }
+        },
+        "fractured": {
+          "type": "boolean"
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "snapshotId",
+        "baseItemId",
+        "itemLevel",
+        "rarity",
+        "implicits",
+        "explicits",
+        "conditions",
+        "augmentSockets",
+        "catalystQuality"
+      ],
+      "properties": {
+        "snapshotId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "baseItemId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "itemLevel": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "rarity": {
+          "enum": ["NORMAL", "MAGIC", "RARE", "UNIQUE"]
+        },
+        "implicits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/modifier"
+          },
+          "minItems": 0
+        },
+        "explicits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/modifier"
+          },
+          "minItems": 0
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "enum": ["CORRUPTED", "MIRRORED", "UNIDENTIFIED", "SANCTIFIED"]
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "augmentSockets": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "catalystQuality": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["type", "amount"],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "amount": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "transitionProvenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rulesetIdentity",
+        "catalogDigest",
+        "modelVersion",
+        "ruleVersion",
+        "ledgerVersion",
+        "weightPolicy",
+        "sourceUrl",
+        "retrievedAt",
+        "rawSha256",
+        "detailsSha256"
+      ],
+      "properties": {
+        "rulesetIdentity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "catalogDigest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "modelVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ruleVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ledgerVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "weightPolicy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceUrl": {
+          "type": "string",
+          "minLength": 1
+        },
+        "retrievedAt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rawSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "detailsSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "start": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item", "provenance"],
+      "properties": {
+        "item": {
+          "$ref": "#/definitions/item"
+        },
+        "provenance": {
+          "$ref": "#/definitions/transitionProvenance"
+        }
+      }
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "statId", "unit", "range", "weight", "disabled"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "statId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "range": {
+          "$ref": "#/definitions/range"
+        },
+        "weight": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "disabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "group": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "disabled", "range", "entries"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "enum": ["AND", "NOT", "IF", "COUNT", "WEIGHTED_V1", "WEIGHTED_V2"]
+        },
+        "disabled": {
+          "type": "boolean"
+        },
+        "range": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/range"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/entry"
+          },
+          "minItems": 0
+        }
+      }
+    },
+    "goal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "catalogVersion", "general", "groups"],
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "catalogVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "general": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["baseItemId", "itemLevel", "rarities"],
+          "properties": {
+            "baseItemId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "itemLevel": {
+              "$ref": "#/definitions/range"
+            },
+            "rarities": {
+              "type": "array",
+              "items": {
+                "enum": ["NORMAL", "MAGIC", "RARE", "UNIQUE"]
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          }
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/group"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "createRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "clientRequestId",
+        "start",
+        "goal",
+        "activeOmens",
+        "observations"
+      ],
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "clientRequestId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start": {
+          "$ref": "#/definitions/start"
+        },
+        "goal": {
+          "$ref": "#/definitions/goal"
+        },
+        "activeOmens": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(0|[1-9][0-9]*)$"
+          },
+          "minItems": 1,
+          "maxItems": 32,
+          "uniqueItems": true
+        }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evaluation",
+        "search",
+        "reasonCode",
+        "actions",
+        "goalGroupTypes",
+        "conditionalRecovery",
+        "resume"
+      ],
+      "properties": {
+        "evaluation": {
+          "enum": ["SUPPORTED", "UNKNOWN", "UNSUPPORTED"]
+        },
+        "search": {
+          "enum": ["SUPPORTED", "UNKNOWN", "UNSUPPORTED"]
+        },
+        "reasonCode": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "goalGroupTypes": {
+          "type": "array",
+          "items": {
+            "enum": ["AND", "COUNT"]
+          },
+          "minItems": 0
+        },
+        "conditionalRecovery": {
+          "type": "boolean"
+        },
+        "resume": {
+          "type": "boolean"
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "transition",
+        "goalCatalogVersion",
+        "predicateVersion",
+        "searchVersion",
+        "candidateSetVersion",
+        "interpretation"
+      ],
+      "properties": {
+        "transition": {
+          "$ref": "#/definitions/transitionProvenance"
+        },
+        "goalCatalogVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "predicateVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "searchVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidateSetVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "interpretation": {
+          "const": "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY"
+        }
+      }
+    },
+    "point": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "attempts",
+        "lower",
+        "upper",
+        "active",
+        "dead",
+        "unresolved",
+        "status"
+      ],
+      "properties": {
+        "attempts": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$"
+        },
+        "lower": {
+          "$ref": "#/definitions/fraction"
+        },
+        "upper": {
+          "$ref": "#/definitions/fraction"
+        },
+        "active": {
+          "$ref": "#/definitions/fraction"
+        },
+        "dead": {
+          "$ref": "#/definitions/fraction"
+        },
+        "unresolved": {
+          "$ref": "#/definitions/fraction"
+        },
+        "status": {
+          "enum": ["COMPLETE", "PARTIAL", "UNKNOWN"]
+        }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "actions", "mode"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "mode": {
+          "enum": ["SINGLE_PASS", "REPEAT_CYCLE"]
+        }
+      }
+    },
+    "recommendation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy", "points", "eventual"],
+      "properties": {
+        "policy": {
+          "$ref": "#/definitions/policy"
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/point"
+          },
+          "minItems": 0
+        },
+        "eventual": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "probability", "proofVersion"],
+          "properties": {
+            "status": {
+              "enum": ["PROVEN", "UNKNOWN"]
+            },
+            "probability": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/fraction"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "proofVersion": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "rank": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policyId", "rank"],
+      "properties": {
+        "policyId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rank": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "ranking": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["attempts", "status", "entries"],
+      "properties": {
+        "attempts": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$"
+        },
+        "status": {
+          "enum": ["CERTIFIED_WITHIN_CANDIDATES", "PROVISIONAL", "UNAVAILABLE"]
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/rank"
+          },
+          "minItems": 0
+        }
+      }
+    },
+    "node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "item", "goalStatus"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "item": {
+          "$ref": "#/definitions/item"
+        },
+        "goalStatus": {
+          "enum": ["MATCH", "NO_MATCH", "UNKNOWN", "UNSUPPORTED"]
+        }
+      }
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "stateId", "policyId", "phase"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stateId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policyId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "phase": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      }
+    },
+    "edge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "from", "to", "action", "probability", "kind"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "from": {
+          "type": "string",
+          "minLength": 1
+        },
+        "to": {
+          "type": "string",
+          "minLength": 1
+        },
+        "action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "probability": {
+          "$ref": "#/definitions/fraction"
+        },
+        "kind": {
+          "enum": ["FORWARD", "REPEAT"]
+        }
+      }
+    },
+    "expansion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["executionId", "status", "unresolved"],
+      "properties": {
+        "executionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": ["COMPLETE", "PARTIAL", "UNSUPPORTED", "UNAVAILABLE"]
+        },
+        "unresolved": {
+          "$ref": "#/definitions/fraction"
+        }
+      }
+    },
+    "graphPage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "jobId",
+        "revision",
+        "nodes",
+        "executions",
+        "edges",
+        "expansions",
+        "nextCursor"
+      ],
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "jobId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/node"
+          },
+          "minItems": 0
+        },
+        "executions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/execution"
+          },
+          "minItems": 0
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/edge"
+          },
+          "minItems": 0
+        },
+        "expansions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/expansion"
+          },
+          "minItems": 0
+        },
+        "nextCursor": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "recovery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "parentJobId",
+        "parentRevision",
+        "failureExecutionId",
+        "checkpointStateId",
+        "conditional",
+        "includedInMain"
+      ],
+      "properties": {
+        "parentJobId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parentRevision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "failureExecutionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "checkpointStateId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "conditional": {
+          "const": true
+        },
+        "includedInMain": {
+          "const": false
+        }
+      }
+    },
+    "jobSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "jobId",
+        "clientRequestId",
+        "requestFingerprint",
+        "revision",
+        "status",
+        "expiresAt",
+        "capabilities",
+        "provenance",
+        "candidateScope",
+        "recommendations",
+        "rankings",
+        "graph",
+        "recovery",
+        "resumable",
+        "reasonCode"
+      ],
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "jobId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "clientRequestId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requestFingerprint": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "status": {
+          "enum": [
+            "QUEUED",
+            "RUNNING",
+            "PAUSED",
+            "CANCELLED",
+            "COMPLETED",
+            "UNSUPPORTED",
+            "FAILED",
+            "EXPIRED"
+          ]
+        },
+        "expiresAt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "capabilities": {
+          "$ref": "#/definitions/capabilities"
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        },
+        "candidateScope": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "generated", "total", "enumerationComplete"],
+          "properties": {
+            "kind": {
+              "const": "FINITE_POLICY_CANDIDATES"
+            },
+            "generated": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "total": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "enumerationComplete": {
+              "type": "boolean"
+            }
+          }
+        },
+        "recommendations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/recommendation"
+          },
+          "minItems": 0
+        },
+        "rankings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ranking"
+          },
+          "minItems": 0
+        },
+        "graph": {
+          "$ref": "#/definitions/graphPage"
+        },
+        "recovery": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/recovery"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "resumable": {
+          "type": "boolean"
+        },
+        "reasonCode": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "mutationRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "operation", "commandId", "expectedRevision"],
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "operation": {
+          "enum": ["CANCEL", "RESUME"]
+        },
+        "commandId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expectedRevision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      }
+    },
+    "recoveryRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "clientRequestId",
+        "parentRevision",
+        "failureExecutionId",
+        "checkpointStateId",
+        "observations"
+      ],
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "clientRequestId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parentRevision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "failureExecutionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "checkpointStateId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(0|[1-9][0-9]*)$"
+          },
+          "minItems": 1,
+          "maxItems": 32,
+          "uniqueItems": true
+        }
+      }
+    },
+    "problem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "title", "status", "code"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "integer",
+          "minimum": 400,
+          "maximum": 599
+        },
+        "code": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/definitions/createRequest"
+    },
+    {
+      "$ref": "#/definitions/jobSnapshot"
+    },
+    {
+      "$ref": "#/definitions/graphPage"
+    },
+    {
+      "$ref": "#/definitions/mutationRequest"
+    },
+    {
+      "$ref": "#/definitions/recoveryRequest"
+    },
+    {
+      "$ref": "#/definitions/problem"
+    }
+  ]
+}
