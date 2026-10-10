@@ -1,0 +1,4442 @@
+{
+  "version": 1,
+  "synthetic": true,
+  "description": "Contract examples only. SYNTHETIC actions and provenance MUST NOT be accepted by production. Partial examples describe stopped computation, not the complete binary oracle.",
+  "examples": [
+    {
+      "id": "create",
+      "definition": "createRequest",
+      "value": {
+        "version": 1,
+        "clientRequestId": "synthetic:create-1",
+        "start": {
+          "item": {
+            "snapshotId": "synthetic:snapshot-v1",
+            "baseItemId": "synthetic:base",
+            "itemLevel": 82,
+            "rarity": "RARE",
+            "implicits": [],
+            "explicits": [
+              {
+                "modifierId": "synthetic:stat",
+                "values": {
+                  "synthetic:value": 0
+                },
+                "fractured": false
+              }
+            ],
+            "conditions": [],
+            "augmentSockets": null,
+            "catalystQuality": null
+          },
+          "provenance": {
+            "rulesetIdentity": "synthetic:ruleset-v1",
+            "catalogDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "modelVersion": "synthetic:binary-roll-v1",
+            "ruleVersion": "synthetic:rules-v1",
+            "ledgerVersion": "synthetic:ledger-v1",
+            "weightPolicy": "SYNTHETIC",
+            "sourceUrl": "urn:synthetic:binary",
+            "retrievedAt": "2026-10-10T00:00:00Z",
+            "rawSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "detailsSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          }
+        },
+        "goal": {
+          "version": 1,
+          "catalogVersion": "synthetic:goals-v1",
+          "general": {
+            "baseItemId": "synthetic:base",
+            "itemLevel": {
+              "min": 1,
+              "max": 100
+            },
+            "rarities": ["RARE"]
+          },
+          "groups": [
+            {
+              "id": "g1",
+              "type": "AND",
+              "disabled": false,
+              "range": null,
+              "entries": [
+                {
+                  "id": "e1",
+                  "statId": "synthetic:explicit:value",
+                  "unit": "flat",
+                  "range": {
+                    "min": 1,
+                    "max": null
+                  },
+                  "weight": null,
+                  "disabled": false
+                }
+              ]
+            }
+          ]
+        },
+        "activeOmens": [],
+        "observations": ["100", "300", "500"]
+      }
+    },
+    {
+      "id": "complete-renewal",
+      "definition": "jobSnapshot",
+      "value": {
+        "version": 1,
+        "jobId": "synthetic:job1",
+        "clientRequestId": "synthetic:create-1",
+        "requestFingerprint": "synthetic:request-v1",
+        "revision": 2,
+        "status": "COMPLETED",
+        "expiresAt": "2026-10-10T01:00:00Z",
+        "capabilities": {
+          "evaluation": "SUPPORTED",
+          "search": "SUPPORTED",
+          "reasonCode": null,
+          "actions": ["SYNTHETIC_FLIP"],
+          "goalGroupTypes": ["AND", "COUNT"],
+          "conditionalRecovery": true,
+          "resume": true
+        },
+        "provenance": {
+          "transition": {
+            "rulesetIdentity": "synthetic:ruleset-v1",
+            "catalogDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "modelVersion": "synthetic:binary-roll-v1",
+            "ruleVersion": "synthetic:rules-v1",
+            "ledgerVersion": "synthetic:ledger-v1",
+            "weightPolicy": "SYNTHETIC",
+            "sourceUrl": "urn:synthetic:binary",
+            "retrievedAt": "2026-10-10T00:00:00Z",
+            "rawSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "detailsSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "goalCatalogVersion": "synthetic:goals-v1",
+          "predicateVersion": "synthetic:predicate-v1",
+          "searchVersion": "synthetic:search-v1",
+          "candidateSetVersion": "synthetic:candidates-v1",
+          "interpretation": "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY"
+        },
+        "candidateScope": {
+          "kind": "FINITE_POLICY_CANDIDATES",
+          "generated": 1,
+          "total": 1,
+          "enumerationComplete": true
+        },
+        "recommendations": [
+          {
+            "policy": {
+              "id": "synthetic:p1",
+              "actions": ["SYNTHETIC_FLIP"],
+              "mode": "REPEAT_CYCLE"
+            },
+            "points": [
+              {
+                "attempts": "100",
+                "lower": {
+                  "numerator": "1267650600228229401496703205375",
+                  "denominator": "1267650600228229401496703205376"
+                },
+                "upper": {
+                  "numerator": "1267650600228229401496703205375",
+                  "denominator": "1267650600228229401496703205376"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "1267650600228229401496703205376"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "300",
+                "lower": {
+                  "numerator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397375",
+                  "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+                },
+                "upper": {
+                  "numerator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397375",
+                  "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "500",
+                "lower": {
+                  "numerator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589375",
+                  "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+                },
+                "upper": {
+                  "numerator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589375",
+                  "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              }
+            ],
+            "eventual": {
+              "status": "PROVEN",
+              "probability": {
+                "numerator": "1",
+                "denominator": "1"
+              },
+              "proofVersion": "synthetic:geometric-proof-v1"
+            }
+          }
+        ],
+        "rankings": [
+          {
+            "attempts": "100",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "300",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "500",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          }
+        ],
+        "graph": {
+          "version": 1,
+          "jobId": "synthetic:job1",
+          "revision": 2,
+          "nodes": [
+            {
+              "id": "s0",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 0
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "NO_MATCH"
+            },
+            {
+              "id": "s1",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 1
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "MATCH"
+            }
+          ],
+          "executions": [
+            {
+              "id": "x0",
+              "stateId": "s0",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            },
+            {
+              "id": "x1",
+              "stateId": "s1",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "from": "x0",
+              "to": "x0",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "2"
+              },
+              "kind": "REPEAT"
+            },
+            {
+              "id": "e1",
+              "from": "x0",
+              "to": "x1",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "2"
+              },
+              "kind": "FORWARD"
+            }
+          ],
+          "expansions": [
+            {
+              "executionId": "x0",
+              "status": "COMPLETE",
+              "unresolved": {
+                "numerator": "0",
+                "denominator": "1"
+              }
+            }
+          ],
+          "nextCursor": null
+        },
+        "recovery": null,
+        "resumable": false,
+        "reasonCode": null
+      }
+    },
+    {
+      "id": "partial",
+      "definition": "jobSnapshot",
+      "value": {
+        "version": 1,
+        "jobId": "synthetic:partial",
+        "clientRequestId": "synthetic:create-1",
+        "requestFingerprint": "synthetic:request-v1",
+        "revision": 2,
+        "status": "PAUSED",
+        "expiresAt": "2026-10-10T01:00:00Z",
+        "capabilities": {
+          "evaluation": "SUPPORTED",
+          "search": "SUPPORTED",
+          "reasonCode": null,
+          "actions": ["SYNTHETIC_FLIP"],
+          "goalGroupTypes": ["AND", "COUNT"],
+          "conditionalRecovery": true,
+          "resume": true
+        },
+        "provenance": {
+          "transition": {
+            "rulesetIdentity": "synthetic:ruleset-v1",
+            "catalogDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "modelVersion": "synthetic:binary-roll-v1",
+            "ruleVersion": "synthetic:rules-v1",
+            "ledgerVersion": "synthetic:ledger-v1",
+            "weightPolicy": "SYNTHETIC",
+            "sourceUrl": "urn:synthetic:binary",
+            "retrievedAt": "2026-10-10T00:00:00Z",
+            "rawSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "detailsSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "goalCatalogVersion": "synthetic:goals-v1",
+          "predicateVersion": "synthetic:predicate-v1",
+          "searchVersion": "synthetic:search-v1",
+          "candidateSetVersion": "synthetic:candidates-v1",
+          "interpretation": "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY"
+        },
+        "candidateScope": {
+          "kind": "FINITE_POLICY_CANDIDATES",
+          "generated": 1,
+          "total": 2,
+          "enumerationComplete": false
+        },
+        "recommendations": [
+          {
+            "policy": {
+              "id": "synthetic:p1",
+              "actions": ["SYNTHETIC_FLIP"],
+              "mode": "REPEAT_CYCLE"
+            },
+            "points": [
+              {
+                "attempts": "100",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "upper": {
+                  "numerator": "3",
+                  "denominator": "4"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "status": "PARTIAL"
+              },
+              {
+                "attempts": "300",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "upper": {
+                  "numerator": "3",
+                  "denominator": "4"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "status": "PARTIAL"
+              },
+              {
+                "attempts": "500",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "upper": {
+                  "numerator": "3",
+                  "denominator": "4"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "status": "PARTIAL"
+              }
+            ],
+            "eventual": {
+              "status": "UNKNOWN",
+              "probability": null,
+              "proofVersion": null
+            }
+          }
+        ],
+        "rankings": [
+          {
+            "attempts": "100",
+            "status": "PROVISIONAL",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "300",
+            "status": "PROVISIONAL",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "500",
+            "status": "PROVISIONAL",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          }
+        ],
+        "graph": {
+          "version": 1,
+          "jobId": "synthetic:partial",
+          "revision": 2,
+          "nodes": [
+            {
+              "id": "s0",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 0
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "NO_MATCH"
+            },
+            {
+              "id": "s1",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 1
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "MATCH"
+            },
+            {
+              "id": "s2",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": -1
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "NO_MATCH"
+            }
+          ],
+          "executions": [
+            {
+              "id": "x0",
+              "stateId": "s0",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            },
+            {
+              "id": "x1",
+              "stateId": "s1",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            },
+            {
+              "id": "x2",
+              "stateId": "s2",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            }
+          ],
+          "edges": [
+            {
+              "id": "e1",
+              "from": "x0",
+              "to": "x1",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "4"
+              },
+              "kind": "FORWARD"
+            },
+            {
+              "id": "e0",
+              "from": "x0",
+              "to": "x2",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "4"
+              },
+              "kind": "FORWARD"
+            },
+            {
+              "id": "e2",
+              "from": "x2",
+              "to": "x2",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "1"
+              },
+              "kind": "REPEAT"
+            }
+          ],
+          "expansions": [
+            {
+              "executionId": "x0",
+              "status": "PARTIAL",
+              "unresolved": {
+                "numerator": "1",
+                "denominator": "2"
+              }
+            },
+            {
+              "executionId": "x2",
+              "status": "COMPLETE",
+              "unresolved": {
+                "numerator": "0",
+                "denominator": "1"
+              }
+            }
+          ],
+          "nextCursor": null
+        },
+        "recovery": null,
+        "resumable": true,
+        "reasonCode": "COMPUTATION_LIMIT"
+      }
+    },
+    {
+      "id": "unsupported",
+      "definition": "jobSnapshot",
+      "value": {
+        "version": 1,
+        "jobId": "synthetic:unsupported",
+        "clientRequestId": "synthetic:create-1",
+        "requestFingerprint": "synthetic:request-v1",
+        "revision": 2,
+        "status": "UNSUPPORTED",
+        "expiresAt": "2026-10-10T01:00:00Z",
+        "capabilities": {
+          "evaluation": "SUPPORTED",
+          "search": "UNSUPPORTED",
+          "reasonCode": "JOINT_ROLL_MODEL_NOT_IMPLEMENTED",
+          "actions": ["SYNTHETIC_FLIP"],
+          "goalGroupTypes": ["AND", "COUNT"],
+          "conditionalRecovery": true,
+          "resume": true
+        },
+        "provenance": {
+          "transition": {
+            "rulesetIdentity": "synthetic:ruleset-v1",
+            "catalogDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "modelVersion": "synthetic:binary-roll-v1",
+            "ruleVersion": "synthetic:rules-v1",
+            "ledgerVersion": "synthetic:ledger-v1",
+            "weightPolicy": "SYNTHETIC",
+            "sourceUrl": "urn:synthetic:binary",
+            "retrievedAt": "2026-10-10T00:00:00Z",
+            "rawSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "detailsSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "goalCatalogVersion": "synthetic:goals-v1",
+          "predicateVersion": "synthetic:predicate-v1",
+          "searchVersion": "synthetic:search-v1",
+          "candidateSetVersion": "synthetic:candidates-v1",
+          "interpretation": "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY"
+        },
+        "candidateScope": {
+          "kind": "FINITE_POLICY_CANDIDATES",
+          "generated": 0,
+          "total": null,
+          "enumerationComplete": false
+        },
+        "recommendations": [],
+        "rankings": [],
+        "graph": {
+          "version": 1,
+          "jobId": "synthetic:unsupported",
+          "revision": 2,
+          "nodes": [],
+          "executions": [],
+          "edges": [],
+          "expansions": [],
+          "nextCursor": null
+        },
+        "recovery": null,
+        "resumable": false,
+        "reasonCode": "JOINT_ROLL_MODEL_NOT_IMPLEMENTED"
+      }
+    },
+    {
+      "id": "unknown-goal",
+      "definition": "jobSnapshot",
+      "value": {
+        "version": 1,
+        "jobId": "synthetic:unknown",
+        "clientRequestId": "synthetic:create-1",
+        "requestFingerprint": "synthetic:request-v1",
+        "revision": 2,
+        "status": "PAUSED",
+        "expiresAt": "2026-10-10T01:00:00Z",
+        "capabilities": {
+          "evaluation": "SUPPORTED",
+          "search": "SUPPORTED",
+          "reasonCode": null,
+          "actions": ["SYNTHETIC_FLIP"],
+          "goalGroupTypes": ["AND", "COUNT"],
+          "conditionalRecovery": true,
+          "resume": true
+        },
+        "provenance": {
+          "transition": {
+            "rulesetIdentity": "synthetic:ruleset-v1",
+            "catalogDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "modelVersion": "synthetic:binary-roll-v1",
+            "ruleVersion": "synthetic:rules-v1",
+            "ledgerVersion": "synthetic:ledger-v1",
+            "weightPolicy": "SYNTHETIC",
+            "sourceUrl": "urn:synthetic:binary",
+            "retrievedAt": "2026-10-10T00:00:00Z",
+            "rawSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "detailsSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "goalCatalogVersion": "synthetic:goals-v1",
+          "predicateVersion": "synthetic:predicate-v1",
+          "searchVersion": "synthetic:search-v1",
+          "candidateSetVersion": "synthetic:candidates-v1",
+          "interpretation": "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY"
+        },
+        "candidateScope": {
+          "kind": "FINITE_POLICY_CANDIDATES",
+          "generated": 1,
+          "total": 2,
+          "enumerationComplete": false
+        },
+        "recommendations": [
+          {
+            "policy": {
+              "id": "synthetic:p1",
+              "actions": ["SYNTHETIC_FLIP"],
+              "mode": "REPEAT_CYCLE"
+            },
+            "points": [
+              {
+                "attempts": "100",
+                "lower": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "active": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "status": "UNKNOWN"
+              },
+              {
+                "attempts": "300",
+                "lower": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "active": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "status": "UNKNOWN"
+              },
+              {
+                "attempts": "500",
+                "lower": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "active": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "status": "UNKNOWN"
+              }
+            ],
+            "eventual": {
+              "status": "UNKNOWN",
+              "probability": null,
+              "proofVersion": null
+            }
+          }
+        ],
+        "rankings": [
+          {
+            "attempts": "100",
+            "status": "PROVISIONAL",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "300",
+            "status": "PROVISIONAL",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "500",
+            "status": "PROVISIONAL",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          }
+        ],
+        "graph": {
+          "version": 1,
+          "jobId": "synthetic:unknown",
+          "revision": 2,
+          "nodes": [
+            {
+              "id": "s0",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 0
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "NO_MATCH"
+            },
+            {
+              "id": "s1",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 1
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "MATCH"
+            }
+          ],
+          "executions": [
+            {
+              "id": "x0",
+              "stateId": "s0",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            },
+            {
+              "id": "x1",
+              "stateId": "s1",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            }
+          ],
+          "edges": [],
+          "expansions": [
+            {
+              "executionId": "x0",
+              "status": "UNSUPPORTED",
+              "unresolved": {
+                "numerator": "1",
+                "denominator": "1"
+              }
+            }
+          ],
+          "nextCursor": null
+        },
+        "recovery": null,
+        "resumable": false,
+        "reasonCode": "GOAL_VALUE_UNKNOWN"
+      }
+    },
+    {
+      "id": "same-state-different-phase",
+      "definition": "graphPage",
+      "value": {
+        "version": 1,
+        "jobId": "synthetic:job1",
+        "revision": 2,
+        "nodes": [
+          {
+            "id": "s0",
+            "item": {
+              "snapshotId": "synthetic:snapshot-v1",
+              "baseItemId": "synthetic:base",
+              "itemLevel": 82,
+              "rarity": "RARE",
+              "implicits": [],
+              "explicits": [
+                {
+                  "modifierId": "synthetic:stat",
+                  "values": {
+                    "synthetic:value": 0
+                  },
+                  "fractured": false
+                }
+              ],
+              "conditions": [],
+              "augmentSockets": null,
+              "catalystQuality": null
+            },
+            "goalStatus": "NO_MATCH"
+          },
+          {
+            "id": "s1",
+            "item": {
+              "snapshotId": "synthetic:snapshot-v1",
+              "baseItemId": "synthetic:base",
+              "itemLevel": 82,
+              "rarity": "RARE",
+              "implicits": [],
+              "explicits": [
+                {
+                  "modifierId": "synthetic:stat",
+                  "values": {
+                    "synthetic:value": 1
+                  },
+                  "fractured": false
+                }
+              ],
+              "conditions": [],
+              "augmentSockets": null,
+              "catalystQuality": null
+            },
+            "goalStatus": "MATCH"
+          }
+        ],
+        "executions": [
+          {
+            "id": "x0",
+            "stateId": "s0",
+            "policyId": "synthetic:p1",
+            "phase": 0
+          },
+          {
+            "id": "x1",
+            "stateId": "s1",
+            "policyId": "synthetic:p1",
+            "phase": 0
+          },
+          {
+            "id": "x2",
+            "stateId": "s0",
+            "policyId": "synthetic:p1",
+            "phase": 1
+          }
+        ],
+        "edges": [
+          {
+            "id": "e0",
+            "from": "x0",
+            "to": "x2",
+            "action": "SYNTHETIC_FLIP",
+            "probability": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "kind": "FORWARD"
+          },
+          {
+            "id": "e1",
+            "from": "x0",
+            "to": "x1",
+            "action": "SYNTHETIC_FLIP",
+            "probability": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "kind": "FORWARD"
+          },
+          {
+            "id": "e2",
+            "from": "x2",
+            "to": "x0",
+            "action": "SYNTHETIC_WAIT",
+            "probability": {
+              "numerator": "1",
+              "denominator": "1"
+            },
+            "kind": "REPEAT"
+          }
+        ],
+        "expansions": [
+          {
+            "executionId": "x0",
+            "status": "COMPLETE",
+            "unresolved": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          },
+          {
+            "executionId": "x2",
+            "status": "COMPLETE",
+            "unresolved": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          }
+        ],
+        "nextCursor": null
+      }
+    },
+    {
+      "id": "conditional-recovery",
+      "definition": "jobSnapshot",
+      "value": {
+        "version": 1,
+        "jobId": "synthetic:recovery",
+        "clientRequestId": "synthetic:create-1",
+        "requestFingerprint": "synthetic:request-v1",
+        "revision": 2,
+        "status": "COMPLETED",
+        "expiresAt": "2026-10-10T01:00:00Z",
+        "capabilities": {
+          "evaluation": "SUPPORTED",
+          "search": "SUPPORTED",
+          "reasonCode": null,
+          "actions": ["SYNTHETIC_FLIP"],
+          "goalGroupTypes": ["AND", "COUNT"],
+          "conditionalRecovery": true,
+          "resume": true
+        },
+        "provenance": {
+          "transition": {
+            "rulesetIdentity": "synthetic:ruleset-v1",
+            "catalogDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "modelVersion": "synthetic:binary-roll-v1",
+            "ruleVersion": "synthetic:rules-v1",
+            "ledgerVersion": "synthetic:ledger-v1",
+            "weightPolicy": "SYNTHETIC",
+            "sourceUrl": "urn:synthetic:binary",
+            "retrievedAt": "2026-10-10T00:00:00Z",
+            "rawSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "detailsSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "goalCatalogVersion": "synthetic:goals-v1",
+          "predicateVersion": "synthetic:predicate-v1",
+          "searchVersion": "synthetic:search-v1",
+          "candidateSetVersion": "synthetic:candidates-v1",
+          "interpretation": "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY"
+        },
+        "candidateScope": {
+          "kind": "FINITE_POLICY_CANDIDATES",
+          "generated": 1,
+          "total": 1,
+          "enumerationComplete": true
+        },
+        "recommendations": [
+          {
+            "policy": {
+              "id": "synthetic:p1",
+              "actions": ["SYNTHETIC_FLIP"],
+              "mode": "REPEAT_CYCLE"
+            },
+            "points": [
+              {
+                "attempts": "100",
+                "lower": {
+                  "numerator": "1267650600228229401496703205375",
+                  "denominator": "1267650600228229401496703205376"
+                },
+                "upper": {
+                  "numerator": "1267650600228229401496703205375",
+                  "denominator": "1267650600228229401496703205376"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "1267650600228229401496703205376"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "300",
+                "lower": {
+                  "numerator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397375",
+                  "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+                },
+                "upper": {
+                  "numerator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397375",
+                  "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "500",
+                "lower": {
+                  "numerator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589375",
+                  "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+                },
+                "upper": {
+                  "numerator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589375",
+                  "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              }
+            ],
+            "eventual": {
+              "status": "PROVEN",
+              "probability": {
+                "numerator": "1",
+                "denominator": "1"
+              },
+              "proofVersion": "synthetic:geometric-proof-v1"
+            }
+          }
+        ],
+        "rankings": [
+          {
+            "attempts": "100",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "300",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "500",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          }
+        ],
+        "graph": {
+          "version": 1,
+          "jobId": "synthetic:recovery",
+          "revision": 2,
+          "nodes": [
+            {
+              "id": "s0",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 0
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "NO_MATCH"
+            },
+            {
+              "id": "s1",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 1
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "MATCH"
+            }
+          ],
+          "executions": [
+            {
+              "id": "x0",
+              "stateId": "s0",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            },
+            {
+              "id": "x1",
+              "stateId": "s1",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "from": "x0",
+              "to": "x0",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "2"
+              },
+              "kind": "REPEAT"
+            },
+            {
+              "id": "e1",
+              "from": "x0",
+              "to": "x1",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "2"
+              },
+              "kind": "FORWARD"
+            }
+          ],
+          "expansions": [
+            {
+              "executionId": "x0",
+              "status": "COMPLETE",
+              "unresolved": {
+                "numerator": "0",
+                "denominator": "1"
+              }
+            }
+          ],
+          "nextCursor": null
+        },
+        "recovery": {
+          "parentJobId": "synthetic:parent",
+          "parentRevision": 7,
+          "failureExecutionId": "failed",
+          "checkpointStateId": "previous",
+          "conditional": true,
+          "includedInMain": false
+        },
+        "resumable": false,
+        "reasonCode": null
+      }
+    },
+    {
+      "id": "cancel",
+      "definition": "mutationRequest",
+      "value": {
+        "version": 1,
+        "operation": "CANCEL",
+        "commandId": "cancel1",
+        "expectedRevision": 2
+      }
+    },
+    {
+      "id": "cancelled",
+      "definition": "jobSnapshot",
+      "value": {
+        "version": 1,
+        "jobId": "synthetic:partial",
+        "clientRequestId": "synthetic:create-1",
+        "requestFingerprint": "synthetic:request-v1",
+        "revision": 3,
+        "status": "CANCELLED",
+        "expiresAt": "2026-10-10T01:00:00Z",
+        "capabilities": {
+          "evaluation": "SUPPORTED",
+          "search": "SUPPORTED",
+          "reasonCode": null,
+          "actions": ["SYNTHETIC_FLIP"],
+          "goalGroupTypes": ["AND", "COUNT"],
+          "conditionalRecovery": true,
+          "resume": true
+        },
+        "provenance": {
+          "transition": {
+            "rulesetIdentity": "synthetic:ruleset-v1",
+            "catalogDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "modelVersion": "synthetic:binary-roll-v1",
+            "ruleVersion": "synthetic:rules-v1",
+            "ledgerVersion": "synthetic:ledger-v1",
+            "weightPolicy": "SYNTHETIC",
+            "sourceUrl": "urn:synthetic:binary",
+            "retrievedAt": "2026-10-10T00:00:00Z",
+            "rawSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "detailsSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "goalCatalogVersion": "synthetic:goals-v1",
+          "predicateVersion": "synthetic:predicate-v1",
+          "searchVersion": "synthetic:search-v1",
+          "candidateSetVersion": "synthetic:candidates-v1",
+          "interpretation": "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY"
+        },
+        "candidateScope": {
+          "kind": "FINITE_POLICY_CANDIDATES",
+          "generated": 1,
+          "total": 2,
+          "enumerationComplete": false
+        },
+        "recommendations": [
+          {
+            "policy": {
+              "id": "synthetic:p1",
+              "actions": ["SYNTHETIC_FLIP"],
+              "mode": "REPEAT_CYCLE"
+            },
+            "points": [
+              {
+                "attempts": "100",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "upper": {
+                  "numerator": "3",
+                  "denominator": "4"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "status": "PARTIAL"
+              },
+              {
+                "attempts": "300",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "upper": {
+                  "numerator": "3",
+                  "denominator": "4"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "status": "PARTIAL"
+              },
+              {
+                "attempts": "500",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "upper": {
+                  "numerator": "3",
+                  "denominator": "4"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "status": "PARTIAL"
+              }
+            ],
+            "eventual": {
+              "status": "UNKNOWN",
+              "probability": null,
+              "proofVersion": null
+            }
+          }
+        ],
+        "rankings": [
+          {
+            "attempts": "100",
+            "status": "PROVISIONAL",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "300",
+            "status": "PROVISIONAL",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "500",
+            "status": "PROVISIONAL",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          }
+        ],
+        "graph": {
+          "version": 1,
+          "jobId": "synthetic:partial",
+          "revision": 3,
+          "nodes": [
+            {
+              "id": "s0",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 0
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "NO_MATCH"
+            },
+            {
+              "id": "s1",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 1
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "MATCH"
+            },
+            {
+              "id": "s2",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": -1
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "NO_MATCH"
+            }
+          ],
+          "executions": [
+            {
+              "id": "x0",
+              "stateId": "s0",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            },
+            {
+              "id": "x1",
+              "stateId": "s1",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            },
+            {
+              "id": "x2",
+              "stateId": "s2",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            }
+          ],
+          "edges": [
+            {
+              "id": "e1",
+              "from": "x0",
+              "to": "x1",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "4"
+              },
+              "kind": "FORWARD"
+            },
+            {
+              "id": "e0",
+              "from": "x0",
+              "to": "x2",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "4"
+              },
+              "kind": "FORWARD"
+            },
+            {
+              "id": "e2",
+              "from": "x2",
+              "to": "x2",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "1"
+              },
+              "kind": "REPEAT"
+            }
+          ],
+          "expansions": [
+            {
+              "executionId": "x0",
+              "status": "PARTIAL",
+              "unresolved": {
+                "numerator": "1",
+                "denominator": "2"
+              }
+            },
+            {
+              "executionId": "x2",
+              "status": "COMPLETE",
+              "unresolved": {
+                "numerator": "0",
+                "denominator": "1"
+              }
+            }
+          ],
+          "nextCursor": null
+        },
+        "recovery": null,
+        "resumable": true,
+        "reasonCode": "USER_CANCELLED"
+      }
+    },
+    {
+      "id": "resume",
+      "definition": "mutationRequest",
+      "value": {
+        "version": 1,
+        "operation": "RESUME",
+        "commandId": "resume1",
+        "expectedRevision": 3
+      }
+    },
+    {
+      "id": "resumed",
+      "definition": "jobSnapshot",
+      "value": {
+        "version": 1,
+        "jobId": "synthetic:partial",
+        "clientRequestId": "synthetic:create-1",
+        "requestFingerprint": "synthetic:request-v1",
+        "revision": 4,
+        "status": "RUNNING",
+        "expiresAt": "2026-10-10T01:00:00Z",
+        "capabilities": {
+          "evaluation": "SUPPORTED",
+          "search": "SUPPORTED",
+          "reasonCode": null,
+          "actions": ["SYNTHETIC_FLIP"],
+          "goalGroupTypes": ["AND", "COUNT"],
+          "conditionalRecovery": true,
+          "resume": true
+        },
+        "provenance": {
+          "transition": {
+            "rulesetIdentity": "synthetic:ruleset-v1",
+            "catalogDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "modelVersion": "synthetic:binary-roll-v1",
+            "ruleVersion": "synthetic:rules-v1",
+            "ledgerVersion": "synthetic:ledger-v1",
+            "weightPolicy": "SYNTHETIC",
+            "sourceUrl": "urn:synthetic:binary",
+            "retrievedAt": "2026-10-10T00:00:00Z",
+            "rawSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "detailsSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "goalCatalogVersion": "synthetic:goals-v1",
+          "predicateVersion": "synthetic:predicate-v1",
+          "searchVersion": "synthetic:search-v1",
+          "candidateSetVersion": "synthetic:candidates-v1",
+          "interpretation": "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY"
+        },
+        "candidateScope": {
+          "kind": "FINITE_POLICY_CANDIDATES",
+          "generated": 1,
+          "total": 2,
+          "enumerationComplete": false
+        },
+        "recommendations": [
+          {
+            "policy": {
+              "id": "synthetic:p1",
+              "actions": ["SYNTHETIC_FLIP"],
+              "mode": "REPEAT_CYCLE"
+            },
+            "points": [
+              {
+                "attempts": "100",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "upper": {
+                  "numerator": "3",
+                  "denominator": "4"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "status": "PARTIAL"
+              },
+              {
+                "attempts": "300",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "upper": {
+                  "numerator": "3",
+                  "denominator": "4"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "status": "PARTIAL"
+              },
+              {
+                "attempts": "500",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "upper": {
+                  "numerator": "3",
+                  "denominator": "4"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "status": "PARTIAL"
+              }
+            ],
+            "eventual": {
+              "status": "UNKNOWN",
+              "probability": null,
+              "proofVersion": null
+            }
+          }
+        ],
+        "rankings": [
+          {
+            "attempts": "100",
+            "status": "PROVISIONAL",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "300",
+            "status": "PROVISIONAL",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "500",
+            "status": "PROVISIONAL",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          }
+        ],
+        "graph": {
+          "version": 1,
+          "jobId": "synthetic:partial",
+          "revision": 4,
+          "nodes": [
+            {
+              "id": "s0",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 0
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "NO_MATCH"
+            },
+            {
+              "id": "s1",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 1
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "MATCH"
+            },
+            {
+              "id": "s2",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": -1
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "NO_MATCH"
+            }
+          ],
+          "executions": [
+            {
+              "id": "x0",
+              "stateId": "s0",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            },
+            {
+              "id": "x1",
+              "stateId": "s1",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            },
+            {
+              "id": "x2",
+              "stateId": "s2",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            }
+          ],
+          "edges": [
+            {
+              "id": "e1",
+              "from": "x0",
+              "to": "x1",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "4"
+              },
+              "kind": "FORWARD"
+            },
+            {
+              "id": "e0",
+              "from": "x0",
+              "to": "x2",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "4"
+              },
+              "kind": "FORWARD"
+            },
+            {
+              "id": "e2",
+              "from": "x2",
+              "to": "x2",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "1"
+              },
+              "kind": "REPEAT"
+            }
+          ],
+          "expansions": [
+            {
+              "executionId": "x0",
+              "status": "PARTIAL",
+              "unresolved": {
+                "numerator": "1",
+                "denominator": "2"
+              }
+            },
+            {
+              "executionId": "x2",
+              "status": "COMPLETE",
+              "unresolved": {
+                "numerator": "0",
+                "denominator": "1"
+              }
+            }
+          ],
+          "nextCursor": null
+        },
+        "recovery": null,
+        "resumable": false,
+        "reasonCode": null
+      }
+    },
+    {
+      "id": "recovery-request",
+      "definition": "recoveryRequest",
+      "value": {
+        "version": 1,
+        "clientRequestId": "recovery1",
+        "parentRevision": 7,
+        "failureExecutionId": "failed",
+        "checkpointStateId": "previous",
+        "observations": ["100", "300", "500"]
+      }
+    },
+    {
+      "id": "stale-revision",
+      "definition": "problem",
+      "value": {
+        "type": "urn:hephaistos:problem:revision-conflict",
+        "title": "Search revision changed",
+        "status": 409,
+        "code": "REVISION_CONFLICT"
+      }
+    },
+    {
+      "id": "recovery-parent",
+      "definition": "jobSnapshot",
+      "value": {
+        "version": 1,
+        "jobId": "synthetic:parent",
+        "clientRequestId": "synthetic:create-1",
+        "requestFingerprint": "synthetic:request-v1",
+        "revision": 7,
+        "status": "COMPLETED",
+        "expiresAt": "2026-10-10T01:00:00Z",
+        "capabilities": {
+          "evaluation": "SUPPORTED",
+          "search": "SUPPORTED",
+          "reasonCode": null,
+          "actions": ["SYNTHETIC_DAMAGE"],
+          "goalGroupTypes": ["AND", "COUNT"],
+          "conditionalRecovery": true,
+          "resume": true
+        },
+        "provenance": {
+          "transition": {
+            "rulesetIdentity": "synthetic:ruleset-v1",
+            "catalogDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "modelVersion": "synthetic:binary-roll-v1",
+            "ruleVersion": "synthetic:rules-v1",
+            "ledgerVersion": "synthetic:ledger-v1",
+            "weightPolicy": "SYNTHETIC",
+            "sourceUrl": "urn:synthetic:binary",
+            "retrievedAt": "2026-10-10T00:00:00Z",
+            "rawSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "detailsSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "goalCatalogVersion": "synthetic:goals-v1",
+          "predicateVersion": "synthetic:predicate-v1",
+          "searchVersion": "synthetic:search-v1",
+          "candidateSetVersion": "synthetic:candidates-v1",
+          "interpretation": "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY"
+        },
+        "candidateScope": {
+          "kind": "FINITE_POLICY_CANDIDATES",
+          "generated": 1,
+          "total": 1,
+          "enumerationComplete": true
+        },
+        "recommendations": [
+          {
+            "policy": {
+              "id": "synthetic:p1",
+              "actions": ["SYNTHETIC_DAMAGE"],
+              "mode": "SINGLE_PASS"
+            },
+            "points": [
+              {
+                "attempts": "100",
+                "lower": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "active": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "dead": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "300",
+                "lower": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "active": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "dead": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "500",
+                "lower": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "active": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "dead": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              }
+            ],
+            "eventual": {
+              "status": "PROVEN",
+              "probability": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "proofVersion": "synthetic:single-pass-v1"
+            }
+          }
+        ],
+        "rankings": [
+          {
+            "attempts": "100",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "300",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "500",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          }
+        ],
+        "graph": {
+          "version": 1,
+          "jobId": "synthetic:parent",
+          "revision": 7,
+          "nodes": [
+            {
+              "id": "previous",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 1
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "NO_MATCH"
+            },
+            {
+              "id": "failure",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 0
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "NO_MATCH"
+            }
+          ],
+          "executions": [
+            {
+              "id": "earlier",
+              "stateId": "previous",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            },
+            {
+              "id": "failed",
+              "stateId": "failure",
+              "policyId": "synthetic:p1",
+              "phase": 1
+            }
+          ],
+          "edges": [
+            {
+              "id": "damage",
+              "from": "earlier",
+              "to": "failed",
+              "action": "SYNTHETIC_DAMAGE",
+              "probability": {
+                "numerator": "1",
+                "denominator": "1"
+              },
+              "kind": "FORWARD"
+            }
+          ],
+          "expansions": [
+            {
+              "executionId": "earlier",
+              "status": "COMPLETE",
+              "unresolved": {
+                "numerator": "0",
+                "denominator": "1"
+              }
+            }
+          ],
+          "nextCursor": null
+        },
+        "recovery": null,
+        "resumable": false,
+        "reasonCode": null
+      }
+    },
+    {
+      "id": "observation-ranking-and-ties",
+      "definition": "jobSnapshot",
+      "value": {
+        "version": 1,
+        "jobId": "synthetic:ranked",
+        "clientRequestId": "synthetic:create-1",
+        "requestFingerprint": "synthetic:request-v1",
+        "revision": 2,
+        "status": "COMPLETED",
+        "expiresAt": "2026-10-10T01:00:00Z",
+        "capabilities": {
+          "evaluation": "SUPPORTED",
+          "search": "SUPPORTED",
+          "reasonCode": null,
+          "actions": ["SYNTHETIC_A", "SYNTHETIC_B", "SYNTHETIC_C"],
+          "goalGroupTypes": ["AND", "COUNT"],
+          "conditionalRecovery": true,
+          "resume": true
+        },
+        "provenance": {
+          "transition": {
+            "rulesetIdentity": "synthetic:ruleset-v1",
+            "catalogDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "modelVersion": "synthetic:binary-roll-v1",
+            "ruleVersion": "synthetic:rules-v1",
+            "ledgerVersion": "synthetic:ledger-v1",
+            "weightPolicy": "SYNTHETIC",
+            "sourceUrl": "urn:synthetic:binary",
+            "retrievedAt": "2026-10-10T00:00:00Z",
+            "rawSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "detailsSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "goalCatalogVersion": "synthetic:goals-v1",
+          "predicateVersion": "synthetic:predicate-v1",
+          "searchVersion": "synthetic:search-v1",
+          "candidateSetVersion": "synthetic:candidates-v1",
+          "interpretation": "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY"
+        },
+        "candidateScope": {
+          "kind": "FINITE_POLICY_CANDIDATES",
+          "generated": 3,
+          "total": 3,
+          "enumerationComplete": true
+        },
+        "recommendations": [
+          {
+            "policy": {
+              "id": "a",
+              "actions": ["SYNTHETIC_A"],
+              "mode": "REPEAT_CYCLE"
+            },
+            "points": [
+              {
+                "attempts": "100",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "300",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "500",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              }
+            ],
+            "eventual": {
+              "status": "UNKNOWN",
+              "probability": null,
+              "proofVersion": null
+            }
+          },
+          {
+            "policy": {
+              "id": "b",
+              "actions": ["SYNTHETIC_B"],
+              "mode": "REPEAT_CYCLE"
+            },
+            "points": [
+              {
+                "attempts": "100",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "active": {
+                  "numerator": "3",
+                  "denominator": "4"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "300",
+                "lower": {
+                  "numerator": "3",
+                  "denominator": "4"
+                },
+                "upper": {
+                  "numerator": "3",
+                  "denominator": "4"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "500",
+                "lower": {
+                  "numerator": "3",
+                  "denominator": "4"
+                },
+                "upper": {
+                  "numerator": "3",
+                  "denominator": "4"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              }
+            ],
+            "eventual": {
+              "status": "UNKNOWN",
+              "probability": null,
+              "proofVersion": null
+            }
+          },
+          {
+            "policy": {
+              "id": "c",
+              "actions": ["SYNTHETIC_C"],
+              "mode": "REPEAT_CYCLE"
+            },
+            "points": [
+              {
+                "attempts": "100",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "300",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "500",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              }
+            ],
+            "eventual": {
+              "status": "UNKNOWN",
+              "probability": null,
+              "proofVersion": null
+            }
+          }
+        ],
+        "rankings": [
+          {
+            "attempts": "100",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "a",
+                "rank": 1
+              },
+              {
+                "policyId": "c",
+                "rank": 1
+              },
+              {
+                "policyId": "b",
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "attempts": "300",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "b",
+                "rank": 1
+              },
+              {
+                "policyId": "a",
+                "rank": 2
+              },
+              {
+                "policyId": "c",
+                "rank": 2
+              }
+            ]
+          },
+          {
+            "attempts": "500",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "b",
+                "rank": 1
+              },
+              {
+                "policyId": "a",
+                "rank": 2
+              },
+              {
+                "policyId": "c",
+                "rank": 2
+              }
+            ]
+          }
+        ],
+        "graph": {
+          "version": 1,
+          "jobId": "synthetic:ranked",
+          "revision": 2,
+          "nodes": [],
+          "executions": [],
+          "edges": [],
+          "expansions": [],
+          "nextCursor": null
+        },
+        "recovery": null,
+        "resumable": false,
+        "reasonCode": null
+      }
+    },
+    {
+      "id": "graph-page1",
+      "definition": "graphPage",
+      "value": {
+        "version": 1,
+        "jobId": "synthetic:job1",
+        "revision": 2,
+        "nodes": [
+          {
+            "id": "s0",
+            "item": {
+              "snapshotId": "synthetic:snapshot-v1",
+              "baseItemId": "synthetic:base",
+              "itemLevel": 82,
+              "rarity": "RARE",
+              "implicits": [],
+              "explicits": [
+                {
+                  "modifierId": "synthetic:stat",
+                  "values": {
+                    "synthetic:value": 0
+                  },
+                  "fractured": false
+                }
+              ],
+              "conditions": [],
+              "augmentSockets": null,
+              "catalystQuality": null
+            },
+            "goalStatus": "NO_MATCH"
+          },
+          {
+            "id": "s1",
+            "item": {
+              "snapshotId": "synthetic:snapshot-v1",
+              "baseItemId": "synthetic:base",
+              "itemLevel": 82,
+              "rarity": "RARE",
+              "implicits": [],
+              "explicits": [
+                {
+                  "modifierId": "synthetic:stat",
+                  "values": {
+                    "synthetic:value": 1
+                  },
+                  "fractured": false
+                }
+              ],
+              "conditions": [],
+              "augmentSockets": null,
+              "catalystQuality": null
+            },
+            "goalStatus": "MATCH"
+          }
+        ],
+        "executions": [
+          {
+            "id": "x0",
+            "stateId": "s0",
+            "policyId": "synthetic:p1",
+            "phase": 0
+          },
+          {
+            "id": "x1",
+            "stateId": "s1",
+            "policyId": "synthetic:p1",
+            "phase": 0
+          },
+          {
+            "id": "x2",
+            "stateId": "s0",
+            "policyId": "synthetic:p1",
+            "phase": 1
+          }
+        ],
+        "edges": [
+          {
+            "id": "e0",
+            "from": "x0",
+            "to": "x2",
+            "action": "SYNTHETIC_FLIP",
+            "probability": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "kind": "FORWARD"
+          }
+        ],
+        "expansions": [],
+        "nextCursor": "synthetic:revision2:page2"
+      }
+    },
+    {
+      "id": "graph-page2",
+      "definition": "graphPage",
+      "value": {
+        "version": 1,
+        "jobId": "synthetic:job1",
+        "revision": 2,
+        "nodes": [],
+        "executions": [],
+        "edges": [
+          {
+            "id": "e1",
+            "from": "x0",
+            "to": "x1",
+            "action": "SYNTHETIC_FLIP",
+            "probability": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "kind": "FORWARD"
+          },
+          {
+            "id": "e2",
+            "from": "x2",
+            "to": "x0",
+            "action": "SYNTHETIC_WAIT",
+            "probability": {
+              "numerator": "1",
+              "denominator": "1"
+            },
+            "kind": "REPEAT"
+          }
+        ],
+        "expansions": [
+          {
+            "executionId": "x0",
+            "status": "COMPLETE",
+            "unresolved": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          },
+          {
+            "executionId": "x2",
+            "status": "COMPLETE",
+            "unresolved": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          }
+        ],
+        "nextCursor": null
+      }
+    },
+    {
+      "id": "schema-negative-unknown-field",
+      "definition": "createRequest",
+      "value": {
+        "version": 1,
+        "clientRequestId": "synthetic:create-1",
+        "start": {
+          "item": {
+            "snapshotId": "synthetic:snapshot-v1",
+            "baseItemId": "synthetic:base",
+            "itemLevel": 82,
+            "rarity": "RARE",
+            "implicits": [],
+            "explicits": [
+              {
+                "modifierId": "synthetic:stat",
+                "values": {
+                  "synthetic:value": 0
+                },
+                "fractured": false
+              }
+            ],
+            "conditions": [],
+            "augmentSockets": null,
+            "catalystQuality": null
+          },
+          "provenance": {
+            "rulesetIdentity": "synthetic:ruleset-v1",
+            "catalogDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "modelVersion": "synthetic:binary-roll-v1",
+            "ruleVersion": "synthetic:rules-v1",
+            "ledgerVersion": "synthetic:ledger-v1",
+            "weightPolicy": "SYNTHETIC",
+            "sourceUrl": "urn:synthetic:binary",
+            "retrievedAt": "2026-10-10T00:00:00Z",
+            "rawSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "detailsSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          }
+        },
+        "goal": {
+          "version": 1,
+          "catalogVersion": "synthetic:goals-v1",
+          "general": {
+            "baseItemId": "synthetic:base",
+            "itemLevel": {
+              "min": 1,
+              "max": 100
+            },
+            "rarities": ["RARE"]
+          },
+          "groups": [
+            {
+              "id": "g1",
+              "type": "AND",
+              "disabled": false,
+              "range": null,
+              "entries": [
+                {
+                  "id": "e1",
+                  "statId": "synthetic:explicit:value",
+                  "unit": "flat",
+                  "range": {
+                    "min": 1,
+                    "max": null
+                  },
+                  "weight": null,
+                  "disabled": false
+                }
+              ]
+            }
+          ]
+        },
+        "activeOmens": [],
+        "observations": ["100", "300", "500"],
+        "maxAttempts": 500
+      },
+      "expectedInvalid": "schema"
+    },
+    {
+      "id": "schema-negative-zero-denominator",
+      "definition": "jobSnapshot",
+      "value": {
+        "version": 1,
+        "jobId": "synthetic:job1",
+        "clientRequestId": "synthetic:create-1",
+        "requestFingerprint": "synthetic:request-v1",
+        "revision": 2,
+        "status": "COMPLETED",
+        "expiresAt": "2026-10-10T01:00:00Z",
+        "capabilities": {
+          "evaluation": "SUPPORTED",
+          "search": "SUPPORTED",
+          "reasonCode": null,
+          "actions": ["SYNTHETIC_FLIP"],
+          "goalGroupTypes": ["AND", "COUNT"],
+          "conditionalRecovery": true,
+          "resume": true
+        },
+        "provenance": {
+          "transition": {
+            "rulesetIdentity": "synthetic:ruleset-v1",
+            "catalogDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "modelVersion": "synthetic:binary-roll-v1",
+            "ruleVersion": "synthetic:rules-v1",
+            "ledgerVersion": "synthetic:ledger-v1",
+            "weightPolicy": "SYNTHETIC",
+            "sourceUrl": "urn:synthetic:binary",
+            "retrievedAt": "2026-10-10T00:00:00Z",
+            "rawSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "detailsSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "goalCatalogVersion": "synthetic:goals-v1",
+          "predicateVersion": "synthetic:predicate-v1",
+          "searchVersion": "synthetic:search-v1",
+          "candidateSetVersion": "synthetic:candidates-v1",
+          "interpretation": "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY"
+        },
+        "candidateScope": {
+          "kind": "FINITE_POLICY_CANDIDATES",
+          "generated": 1,
+          "total": 1,
+          "enumerationComplete": true
+        },
+        "recommendations": [
+          {
+            "policy": {
+              "id": "synthetic:p1",
+              "actions": ["SYNTHETIC_FLIP"],
+              "mode": "REPEAT_CYCLE"
+            },
+            "points": [
+              {
+                "attempts": "100",
+                "lower": {
+                  "numerator": "1267650600228229401496703205375",
+                  "denominator": "0"
+                },
+                "upper": {
+                  "numerator": "1267650600228229401496703205375",
+                  "denominator": "1267650600228229401496703205376"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "1267650600228229401496703205376"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "300",
+                "lower": {
+                  "numerator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397375",
+                  "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+                },
+                "upper": {
+                  "numerator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397375",
+                  "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "500",
+                "lower": {
+                  "numerator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589375",
+                  "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+                },
+                "upper": {
+                  "numerator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589375",
+                  "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              }
+            ],
+            "eventual": {
+              "status": "PROVEN",
+              "probability": {
+                "numerator": "1",
+                "denominator": "1"
+              },
+              "proofVersion": "synthetic:geometric-proof-v1"
+            }
+          }
+        ],
+        "rankings": [
+          {
+            "attempts": "100",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "300",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "500",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          }
+        ],
+        "graph": {
+          "version": 1,
+          "jobId": "synthetic:job1",
+          "revision": 2,
+          "nodes": [
+            {
+              "id": "s0",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 0
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "NO_MATCH"
+            },
+            {
+              "id": "s1",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 1
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "MATCH"
+            }
+          ],
+          "executions": [
+            {
+              "id": "x0",
+              "stateId": "s0",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            },
+            {
+              "id": "x1",
+              "stateId": "s1",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "from": "x0",
+              "to": "x0",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "2"
+              },
+              "kind": "REPEAT"
+            },
+            {
+              "id": "e1",
+              "from": "x0",
+              "to": "x1",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "2"
+              },
+              "kind": "FORWARD"
+            }
+          ],
+          "expansions": [
+            {
+              "executionId": "x0",
+              "status": "COMPLETE",
+              "unresolved": {
+                "numerator": "0",
+                "denominator": "1"
+              }
+            }
+          ],
+          "nextCursor": null
+        },
+        "recovery": null,
+        "resumable": false,
+        "reasonCode": null
+      },
+      "expectedInvalid": "schema"
+    },
+    {
+      "id": "semantic-negative-mass",
+      "definition": "jobSnapshot",
+      "value": {
+        "version": 1,
+        "jobId": "synthetic:job1",
+        "clientRequestId": "synthetic:create-1",
+        "requestFingerprint": "synthetic:request-v1",
+        "revision": 2,
+        "status": "COMPLETED",
+        "expiresAt": "2026-10-10T01:00:00Z",
+        "capabilities": {
+          "evaluation": "SUPPORTED",
+          "search": "SUPPORTED",
+          "reasonCode": null,
+          "actions": ["SYNTHETIC_FLIP"],
+          "goalGroupTypes": ["AND", "COUNT"],
+          "conditionalRecovery": true,
+          "resume": true
+        },
+        "provenance": {
+          "transition": {
+            "rulesetIdentity": "synthetic:ruleset-v1",
+            "catalogDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "modelVersion": "synthetic:binary-roll-v1",
+            "ruleVersion": "synthetic:rules-v1",
+            "ledgerVersion": "synthetic:ledger-v1",
+            "weightPolicy": "SYNTHETIC",
+            "sourceUrl": "urn:synthetic:binary",
+            "retrievedAt": "2026-10-10T00:00:00Z",
+            "rawSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "detailsSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "goalCatalogVersion": "synthetic:goals-v1",
+          "predicateVersion": "synthetic:predicate-v1",
+          "searchVersion": "synthetic:search-v1",
+          "candidateSetVersion": "synthetic:candidates-v1",
+          "interpretation": "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY"
+        },
+        "candidateScope": {
+          "kind": "FINITE_POLICY_CANDIDATES",
+          "generated": 1,
+          "total": 1,
+          "enumerationComplete": true
+        },
+        "recommendations": [
+          {
+            "policy": {
+              "id": "synthetic:p1",
+              "actions": ["SYNTHETIC_FLIP"],
+              "mode": "REPEAT_CYCLE"
+            },
+            "points": [
+              {
+                "attempts": "100",
+                "lower": {
+                  "numerator": "1267650600228229401496703205375",
+                  "denominator": "1267650600228229401496703205376"
+                },
+                "upper": {
+                  "numerator": "1267650600228229401496703205375",
+                  "denominator": "1267650600228229401496703205376"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "300",
+                "lower": {
+                  "numerator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397375",
+                  "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+                },
+                "upper": {
+                  "numerator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397375",
+                  "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "500",
+                "lower": {
+                  "numerator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589375",
+                  "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+                },
+                "upper": {
+                  "numerator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589375",
+                  "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              }
+            ],
+            "eventual": {
+              "status": "PROVEN",
+              "probability": {
+                "numerator": "1",
+                "denominator": "1"
+              },
+              "proofVersion": "synthetic:geometric-proof-v1"
+            }
+          }
+        ],
+        "rankings": [
+          {
+            "attempts": "100",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "300",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "500",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          }
+        ],
+        "graph": {
+          "version": 1,
+          "jobId": "synthetic:job1",
+          "revision": 2,
+          "nodes": [
+            {
+              "id": "s0",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 0
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "NO_MATCH"
+            },
+            {
+              "id": "s1",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 1
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "MATCH"
+            }
+          ],
+          "executions": [
+            {
+              "id": "x0",
+              "stateId": "s0",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            },
+            {
+              "id": "x1",
+              "stateId": "s1",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "from": "x0",
+              "to": "x0",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "2"
+              },
+              "kind": "REPEAT"
+            },
+            {
+              "id": "e1",
+              "from": "x0",
+              "to": "x1",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "2"
+              },
+              "kind": "FORWARD"
+            }
+          ],
+          "expansions": [
+            {
+              "executionId": "x0",
+              "status": "COMPLETE",
+              "unresolved": {
+                "numerator": "0",
+                "denominator": "1"
+              }
+            }
+          ],
+          "nextCursor": null
+        },
+        "recovery": null,
+        "resumable": false,
+        "reasonCode": null
+      },
+      "expectedInvalid": "semantic"
+    },
+    {
+      "id": "semantic-negative-certified-partial",
+      "definition": "jobSnapshot",
+      "value": {
+        "version": 1,
+        "jobId": "synthetic:partial",
+        "clientRequestId": "synthetic:create-1",
+        "requestFingerprint": "synthetic:request-v1",
+        "revision": 2,
+        "status": "PAUSED",
+        "expiresAt": "2026-10-10T01:00:00Z",
+        "capabilities": {
+          "evaluation": "SUPPORTED",
+          "search": "SUPPORTED",
+          "reasonCode": null,
+          "actions": ["SYNTHETIC_FLIP"],
+          "goalGroupTypes": ["AND", "COUNT"],
+          "conditionalRecovery": true,
+          "resume": true
+        },
+        "provenance": {
+          "transition": {
+            "rulesetIdentity": "synthetic:ruleset-v1",
+            "catalogDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "modelVersion": "synthetic:binary-roll-v1",
+            "ruleVersion": "synthetic:rules-v1",
+            "ledgerVersion": "synthetic:ledger-v1",
+            "weightPolicy": "SYNTHETIC",
+            "sourceUrl": "urn:synthetic:binary",
+            "retrievedAt": "2026-10-10T00:00:00Z",
+            "rawSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "detailsSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "goalCatalogVersion": "synthetic:goals-v1",
+          "predicateVersion": "synthetic:predicate-v1",
+          "searchVersion": "synthetic:search-v1",
+          "candidateSetVersion": "synthetic:candidates-v1",
+          "interpretation": "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY"
+        },
+        "candidateScope": {
+          "kind": "FINITE_POLICY_CANDIDATES",
+          "generated": 1,
+          "total": 2,
+          "enumerationComplete": false
+        },
+        "recommendations": [
+          {
+            "policy": {
+              "id": "synthetic:p1",
+              "actions": ["SYNTHETIC_FLIP"],
+              "mode": "REPEAT_CYCLE"
+            },
+            "points": [
+              {
+                "attempts": "100",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "upper": {
+                  "numerator": "3",
+                  "denominator": "4"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "status": "PARTIAL"
+              },
+              {
+                "attempts": "300",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "upper": {
+                  "numerator": "3",
+                  "denominator": "4"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "status": "PARTIAL"
+              },
+              {
+                "attempts": "500",
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "upper": {
+                  "numerator": "3",
+                  "denominator": "4"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "1",
+                  "denominator": "2"
+                },
+                "status": "PARTIAL"
+              }
+            ],
+            "eventual": {
+              "status": "UNKNOWN",
+              "probability": null,
+              "proofVersion": null
+            }
+          }
+        ],
+        "rankings": [
+          {
+            "attempts": "100",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "300",
+            "status": "PROVISIONAL",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "500",
+            "status": "PROVISIONAL",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          }
+        ],
+        "graph": {
+          "version": 1,
+          "jobId": "synthetic:partial",
+          "revision": 2,
+          "nodes": [
+            {
+              "id": "s0",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 0
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "NO_MATCH"
+            },
+            {
+              "id": "s1",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 1
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "MATCH"
+            },
+            {
+              "id": "s2",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": -1
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "NO_MATCH"
+            }
+          ],
+          "executions": [
+            {
+              "id": "x0",
+              "stateId": "s0",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            },
+            {
+              "id": "x1",
+              "stateId": "s1",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            },
+            {
+              "id": "x2",
+              "stateId": "s2",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            }
+          ],
+          "edges": [
+            {
+              "id": "e1",
+              "from": "x0",
+              "to": "x1",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "4"
+              },
+              "kind": "FORWARD"
+            },
+            {
+              "id": "e0",
+              "from": "x0",
+              "to": "x2",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "4"
+              },
+              "kind": "FORWARD"
+            },
+            {
+              "id": "e2",
+              "from": "x2",
+              "to": "x2",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "1"
+              },
+              "kind": "REPEAT"
+            }
+          ],
+          "expansions": [
+            {
+              "executionId": "x0",
+              "status": "PARTIAL",
+              "unresolved": {
+                "numerator": "1",
+                "denominator": "2"
+              }
+            },
+            {
+              "executionId": "x2",
+              "status": "COMPLETE",
+              "unresolved": {
+                "numerator": "0",
+                "denominator": "1"
+              }
+            }
+          ],
+          "nextCursor": null
+        },
+        "recovery": null,
+        "resumable": true,
+        "reasonCode": "COMPUTATION_LIMIT"
+      },
+      "expectedInvalid": "semantic"
+    },
+    {
+      "id": "semantic-negative-unsupported-success",
+      "definition": "jobSnapshot",
+      "value": {
+        "version": 1,
+        "jobId": "synthetic:unsupported",
+        "clientRequestId": "synthetic:create-1",
+        "requestFingerprint": "synthetic:request-v1",
+        "revision": 2,
+        "status": "UNSUPPORTED",
+        "expiresAt": "2026-10-10T01:00:00Z",
+        "capabilities": {
+          "evaluation": "SUPPORTED",
+          "search": "UNSUPPORTED",
+          "reasonCode": "JOINT_ROLL_MODEL_NOT_IMPLEMENTED",
+          "actions": ["SYNTHETIC_FLIP"],
+          "goalGroupTypes": ["AND", "COUNT"],
+          "conditionalRecovery": true,
+          "resume": true
+        },
+        "provenance": {
+          "transition": {
+            "rulesetIdentity": "synthetic:ruleset-v1",
+            "catalogDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "modelVersion": "synthetic:binary-roll-v1",
+            "ruleVersion": "synthetic:rules-v1",
+            "ledgerVersion": "synthetic:ledger-v1",
+            "weightPolicy": "SYNTHETIC",
+            "sourceUrl": "urn:synthetic:binary",
+            "retrievedAt": "2026-10-10T00:00:00Z",
+            "rawSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "detailsSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "goalCatalogVersion": "synthetic:goals-v1",
+          "predicateVersion": "synthetic:predicate-v1",
+          "searchVersion": "synthetic:search-v1",
+          "candidateSetVersion": "synthetic:candidates-v1",
+          "interpretation": "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY"
+        },
+        "candidateScope": {
+          "kind": "FINITE_POLICY_CANDIDATES",
+          "generated": 0,
+          "total": null,
+          "enumerationComplete": false
+        },
+        "recommendations": [
+          {
+            "policy": {
+              "id": "synthetic:p1",
+              "actions": ["SYNTHETIC_FLIP"],
+              "mode": "REPEAT_CYCLE"
+            },
+            "points": [
+              {
+                "attempts": "100",
+                "lower": {
+                  "numerator": "1267650600228229401496703205375",
+                  "denominator": "1267650600228229401496703205376"
+                },
+                "upper": {
+                  "numerator": "1267650600228229401496703205375",
+                  "denominator": "1267650600228229401496703205376"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "1267650600228229401496703205376"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "300",
+                "lower": {
+                  "numerator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397375",
+                  "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+                },
+                "upper": {
+                  "numerator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397375",
+                  "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "500",
+                "lower": {
+                  "numerator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589375",
+                  "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+                },
+                "upper": {
+                  "numerator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589375",
+                  "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              }
+            ],
+            "eventual": {
+              "status": "PROVEN",
+              "probability": {
+                "numerator": "1",
+                "denominator": "1"
+              },
+              "proofVersion": "synthetic:geometric-proof-v1"
+            }
+          }
+        ],
+        "rankings": [],
+        "graph": {
+          "version": 1,
+          "jobId": "synthetic:unsupported",
+          "revision": 2,
+          "nodes": [],
+          "executions": [],
+          "edges": [],
+          "expansions": [],
+          "nextCursor": null
+        },
+        "recovery": null,
+        "resumable": false,
+        "reasonCode": "JOINT_ROLL_MODEL_NOT_IMPLEMENTED"
+      },
+      "expectedInvalid": "semantic"
+    },
+    {
+      "id": "schema-negative-recovery-added-to-main",
+      "definition": "jobSnapshot",
+      "value": {
+        "version": 1,
+        "jobId": "synthetic:recovery",
+        "clientRequestId": "synthetic:create-1",
+        "requestFingerprint": "synthetic:request-v1",
+        "revision": 2,
+        "status": "COMPLETED",
+        "expiresAt": "2026-10-10T01:00:00Z",
+        "capabilities": {
+          "evaluation": "SUPPORTED",
+          "search": "SUPPORTED",
+          "reasonCode": null,
+          "actions": ["SYNTHETIC_FLIP"],
+          "goalGroupTypes": ["AND", "COUNT"],
+          "conditionalRecovery": true,
+          "resume": true
+        },
+        "provenance": {
+          "transition": {
+            "rulesetIdentity": "synthetic:ruleset-v1",
+            "catalogDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "modelVersion": "synthetic:binary-roll-v1",
+            "ruleVersion": "synthetic:rules-v1",
+            "ledgerVersion": "synthetic:ledger-v1",
+            "weightPolicy": "SYNTHETIC",
+            "sourceUrl": "urn:synthetic:binary",
+            "retrievedAt": "2026-10-10T00:00:00Z",
+            "rawSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "detailsSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "goalCatalogVersion": "synthetic:goals-v1",
+          "predicateVersion": "synthetic:predicate-v1",
+          "searchVersion": "synthetic:search-v1",
+          "candidateSetVersion": "synthetic:candidates-v1",
+          "interpretation": "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY"
+        },
+        "candidateScope": {
+          "kind": "FINITE_POLICY_CANDIDATES",
+          "generated": 1,
+          "total": 1,
+          "enumerationComplete": true
+        },
+        "recommendations": [
+          {
+            "policy": {
+              "id": "synthetic:p1",
+              "actions": ["SYNTHETIC_FLIP"],
+              "mode": "REPEAT_CYCLE"
+            },
+            "points": [
+              {
+                "attempts": "100",
+                "lower": {
+                  "numerator": "1267650600228229401496703205375",
+                  "denominator": "1267650600228229401496703205376"
+                },
+                "upper": {
+                  "numerator": "1267650600228229401496703205375",
+                  "denominator": "1267650600228229401496703205376"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "1267650600228229401496703205376"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "300",
+                "lower": {
+                  "numerator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397375",
+                  "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+                },
+                "upper": {
+                  "numerator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397375",
+                  "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              },
+              {
+                "attempts": "500",
+                "lower": {
+                  "numerator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589375",
+                  "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+                },
+                "upper": {
+                  "numerator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589375",
+                  "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+                },
+                "active": {
+                  "numerator": "1",
+                  "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+                },
+                "dead": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "unresolved": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "status": "COMPLETE"
+              }
+            ],
+            "eventual": {
+              "status": "PROVEN",
+              "probability": {
+                "numerator": "1",
+                "denominator": "1"
+              },
+              "proofVersion": "synthetic:geometric-proof-v1"
+            }
+          }
+        ],
+        "rankings": [
+          {
+            "attempts": "100",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "300",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "attempts": "500",
+            "status": "CERTIFIED_WITHIN_CANDIDATES",
+            "entries": [
+              {
+                "policyId": "synthetic:p1",
+                "rank": 1
+              }
+            ]
+          }
+        ],
+        "graph": {
+          "version": 1,
+          "jobId": "synthetic:recovery",
+          "revision": 2,
+          "nodes": [
+            {
+              "id": "s0",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 0
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "NO_MATCH"
+            },
+            {
+              "id": "s1",
+              "item": {
+                "snapshotId": "synthetic:snapshot-v1",
+                "baseItemId": "synthetic:base",
+                "itemLevel": 82,
+                "rarity": "RARE",
+                "implicits": [],
+                "explicits": [
+                  {
+                    "modifierId": "synthetic:stat",
+                    "values": {
+                      "synthetic:value": 1
+                    },
+                    "fractured": false
+                  }
+                ],
+                "conditions": [],
+                "augmentSockets": null,
+                "catalystQuality": null
+              },
+              "goalStatus": "MATCH"
+            }
+          ],
+          "executions": [
+            {
+              "id": "x0",
+              "stateId": "s0",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            },
+            {
+              "id": "x1",
+              "stateId": "s1",
+              "policyId": "synthetic:p1",
+              "phase": 0
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "from": "x0",
+              "to": "x0",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "2"
+              },
+              "kind": "REPEAT"
+            },
+            {
+              "id": "e1",
+              "from": "x0",
+              "to": "x1",
+              "action": "SYNTHETIC_FLIP",
+              "probability": {
+                "numerator": "1",
+                "denominator": "2"
+              },
+              "kind": "FORWARD"
+            }
+          ],
+          "expansions": [
+            {
+              "executionId": "x0",
+              "status": "COMPLETE",
+              "unresolved": {
+                "numerator": "0",
+                "denominator": "1"
+              }
+            }
+          ],
+          "nextCursor": null
+        },
+        "recovery": {
+          "parentJobId": "synthetic:parent",
+          "parentRevision": 7,
+          "failureExecutionId": "failed",
+          "checkpointStateId": "previous",
+          "conditional": true,
+          "includedInMain": true
+        },
+        "resumable": false,
+        "reasonCode": null
+      },
+      "expectedInvalid": "schema"
+    }
+  ],
+  "oracle": {
+    "oneStep": {
+      "numerator": "1",
+      "denominator": "2"
+    },
+    "observations": [
+      {
+        "attempts": "0",
+        "lower": {
+          "numerator": "0",
+          "denominator": "1"
+        },
+        "upper": {
+          "numerator": "0",
+          "denominator": "1"
+        },
+        "active": {
+          "numerator": "1",
+          "denominator": "1"
+        },
+        "dead": {
+          "numerator": "0",
+          "denominator": "1"
+        },
+        "unresolved": {
+          "numerator": "0",
+          "denominator": "1"
+        },
+        "status": "COMPLETE"
+      },
+      {
+        "attempts": "1",
+        "lower": {
+          "numerator": "1",
+          "denominator": "2"
+        },
+        "upper": {
+          "numerator": "1",
+          "denominator": "2"
+        },
+        "active": {
+          "numerator": "1",
+          "denominator": "2"
+        },
+        "dead": {
+          "numerator": "0",
+          "denominator": "1"
+        },
+        "unresolved": {
+          "numerator": "0",
+          "denominator": "1"
+        },
+        "status": "COMPLETE"
+      },
+      {
+        "attempts": "2",
+        "lower": {
+          "numerator": "3",
+          "denominator": "4"
+        },
+        "upper": {
+          "numerator": "3",
+          "denominator": "4"
+        },
+        "active": {
+          "numerator": "1",
+          "denominator": "4"
+        },
+        "dead": {
+          "numerator": "0",
+          "denominator": "1"
+        },
+        "unresolved": {
+          "numerator": "0",
+          "denominator": "1"
+        },
+        "status": "COMPLETE"
+      },
+      {
+        "attempts": "100",
+        "lower": {
+          "numerator": "1267650600228229401496703205375",
+          "denominator": "1267650600228229401496703205376"
+        },
+        "upper": {
+          "numerator": "1267650600228229401496703205375",
+          "denominator": "1267650600228229401496703205376"
+        },
+        "active": {
+          "numerator": "1",
+          "denominator": "1267650600228229401496703205376"
+        },
+        "dead": {
+          "numerator": "0",
+          "denominator": "1"
+        },
+        "unresolved": {
+          "numerator": "0",
+          "denominator": "1"
+        },
+        "status": "COMPLETE"
+      },
+      {
+        "attempts": "300",
+        "lower": {
+          "numerator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397375",
+          "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+        },
+        "upper": {
+          "numerator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397375",
+          "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+        },
+        "active": {
+          "numerator": "1",
+          "denominator": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376"
+        },
+        "dead": {
+          "numerator": "0",
+          "denominator": "1"
+        },
+        "unresolved": {
+          "numerator": "0",
+          "denominator": "1"
+        },
+        "status": "COMPLETE"
+      },
+      {
+        "attempts": "500",
+        "lower": {
+          "numerator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589375",
+          "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+        },
+        "upper": {
+          "numerator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589375",
+          "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+        },
+        "active": {
+          "numerator": "1",
+          "denominator": "3273390607896141870013189696827599152216642046043064789483291368096133796404674554883270092325904157150886684127560071009217256545885393053328527589376"
+        },
+        "dead": {
+          "numerator": "0",
+          "denominator": "1"
+        },
+        "unresolved": {
+          "numerator": "0",
+          "denominator": "1"
+        },
+        "status": "COMPLETE"
+      }
+    ]
+  },
+  "lifecycle": {
+    "initialRevision": 2,
+    "events": [
+      {
+        "operation": "CANCEL",
+        "commandId": "cancel1",
+        "expectedRevision": 2,
+        "result": "ACCEPTED",
+        "revision": 3
+      },
+      {
+        "operation": "CANCEL",
+        "commandId": "cancel1",
+        "expectedRevision": 2,
+        "result": "REPLAY",
+        "revision": 3
+      },
+      {
+        "operation": "RESUME",
+        "commandId": "resume1",
+        "expectedRevision": 3,
+        "result": "ACCEPTED",
+        "revision": 4
+      },
+      {
+        "operation": "CANCEL",
+        "commandId": "cancel-late",
+        "expectedRevision": 2,
+        "result": "REVISION_CONFLICT",
+        "revision": 4
+      }
+    ]
+  }
+}

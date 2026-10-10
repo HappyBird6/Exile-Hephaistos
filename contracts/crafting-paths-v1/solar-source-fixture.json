@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "synthetic": false,
+  "verification": "SOURCE_CONTRACT_ORACLE_ONLY_NOT_PATH_SEARCH_RUNTIME_VERIFIED",
+  "baselineCommit": "15f02631df176aa191e95d1f19bb62110be7796e",
+  "sources": [
+    {
+      "path": "catalog/solar-amulet/catalog.json",
+      "sha256": "5562c61495b012e67566417aaa60e0e2cb569ca28515a74e970ca0fd9a16dfe8"
+    },
+    {
+      "path": "crafting/ruleset-v1.json",
+      "sha256": "6216381473f858bc056f3836f25aff26438d7591ee81cbdd62c93f7f44ec4b87"
+    },
+    {
+      "path": "crafting/goalfilter/definitions-v1.json",
+      "sha256": "d1d4ee592a38aad88cdc99c76934b6ca927b1d3081d15a7316ed979228908ec6"
+    }
+  ],
+  "rulesetIdentity": "reviewed-equipment-20261009-v2-0abb79ac0a175290079d82ade22848946a47d6802e81a59bb6829ee03f2b53af",
+  "gameSeason": "UNVERIFIED",
+  "gamePatch": "UNVERIFIED",
+  "startItem": {
+    "snapshotId": "poe2db-amulets-base-2026-09-29-a4f439852790",
+    "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+    "itemLevel": 82,
+    "rarity": "RARE",
+    "implicits": [
+      {
+        "modifierId": "solar-amulet:implicit:spirit",
+        "values": {
+          "base_spirit_from_equipment": 10
+        },
+        "fractured": false
+      }
+    ],
+    "explicits": [
+      {
+        "modifierId": "amulet:suffix:of-the-seal",
+        "values": {
+          "base_cold_damage_resistance_%": 6
+        },
+        "fractured": false
+      }
+    ],
+    "conditions": [],
+    "augmentSockets": null,
+    "catalystQuality": null
+  },
+  "goalTemplate": {
+    "version": 1,
+    "catalogVersion": "BIND_FROM_CURRENT_GOAL_CATALOG_RESPONSE",
+    "general": {
+      "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+      "itemLevel": {
+        "min": 1,
+        "max": 100
+      },
+      "rarities": ["RARE"]
+    },
+    "groups": [
+      {
+        "id": "g1",
+        "type": "AND",
+        "disabled": false,
+        "range": null,
+        "entries": [
+          {
+            "id": "e1",
+            "statId": "hephaistos:v1:explicit:base_cold_damage_resistance_%",
+            "unit": "percent",
+            "range": {
+              "min": 20,
+              "max": null
+            },
+            "weight": null,
+            "disabled": false
+          }
+        ]
+      }
+    ]
+  },
+  "runtimeBindings": [
+    "start.provenance from current basic-paths/provenance; identity must equal this pinned ruleset",
+    "goal.catalogVersion from matching current goal catalog; never send the template marker"
+  ],
+  "modelOracle": {
+    "action": "CHAOS",
+    "mode": "REPEAT_CYCLE",
+    "eligibleModifierCount": 209,
+    "eligibleTotalWeight": "168856",
+    "oneStepSuccess": {
+      "numerator": "650",
+      "denominator": "21107"
+    },
+    "target": "Explicit Cold Resistance >= 20 (not pseudo total)",
+    "assumptions": [
+      "POE2DB_AS_PUBLISHED modifier selection weights",
+      "uniform-integer-roll-v1 single-stat source integer rolls",
+      "Rare one nonfractured explicit; removal returns identical empty-explicit state"
+    ],
+    "observationFormula": "1 - (1-p)^n",
+    "observations": ["100", "300", "500"],
+    "existingNumericRenewalSupport": false
+  },
+  "requiredRuntimeAcceptance": [
+    "Compile the GoalFilter through the common predicate; do not translate into one modifier ID",
+    "Prove renewal for every eligible outcome and preserve all unrelated candidates",
+    "Compare actual new path-search output to this independent oracle before claiming runtime verification"
+  ]
+}

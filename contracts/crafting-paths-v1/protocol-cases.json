@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "synthetic": true,
+  "verification": "EXPECTED_CONSUMER_TESTS_NOT_RUNTIME_EXECUTED",
+  "cases": [
+    {
+      "id": "stale-ruleset",
+      "given": "Input retains its original ruleset identity after a bundle change",
+      "operation": "CREATE",
+      "expectedHttp": 422,
+      "expectedCode": "RULESET_IDENTITY_MISMATCH",
+      "preserveInput": true
+    },
+    {
+      "id": "deleted-goal-stat-old-version",
+      "given": "A source stat was removed; saved goal still has its original catalog version",
+      "operation": "CREATE",
+      "expectedHttp": 409,
+      "expectedCode": "CATALOG_VERSION_MISMATCH",
+      "preserveInput": true
+    },
+    {
+      "id": "deleted-goal-stat-current-version",
+      "given": "Caller submits an unknown deleted stat ID with current catalog version",
+      "operation": "CREATE",
+      "expectedHttp": 422,
+      "expectedCode": "UNKNOWN_STAT",
+      "preserveInput": true
+    },
+    {
+      "id": "deleted-checkpoint-modifier",
+      "given": "A checkpoint contains an ID absent from the current catalog, despite a caller claiming current provenance",
+      "operation": "CREATE",
+      "expectedHttp": 422,
+      "expectedCode": "INVALID_ITEM",
+      "preserveInput": true
+    },
+    {
+      "id": "non-ancestor-checkpoint",
+      "given": "Selected checkpoint exists in the parent graph but is not an earlier state on the selected policy path",
+      "operation": "RECOVER",
+      "expectedHttp": 422,
+      "expectedCode": "INVALID_RECOVERY_CHECKPOINT",
+      "preserveInput": true
+    },
+    {
+      "id": "expired-job",
+      "given": "Job checkpoint was evicted or the server restarted",
+      "operation": "RESUME",
+      "expectedHttp": 410,
+      "expectedCode": "JOB_EXPIRED",
+      "preserveInput": true
+    },
+    {
+      "id": "expired-page-revision",
+      "given": "Requested graph revision was evicted while a newer revision exists",
+      "operation": "PAGE",
+      "expectedHttp": 410,
+      "expectedCode": "REVISION_EXPIRED",
+      "preserveInput": true
+    },
+    {
+      "id": "cancel-wins",
+      "given": "Cancellation commits before the worker finishes",
+      "operation": "CANCEL",
+      "expectedHttp": 200,
+      "expectedStatus": "CANCELLED",
+      "lateWorkerResult": "DISCARD"
+    },
+    {
+      "id": "completion-wins",
+      "given": "Completion commits before cancellation",
+      "operation": "CANCEL",
+      "expectedHttp": 200,
+      "expectedStatus": "COMPLETED",
+      "lateWorkerResult": "NO_NEW_RESULT"
+    },
+    {
+      "id": "resume-no-double-count",
+      "given": "Pause occurs halfway through one kernel, then resume finishes it",
+      "operation": "RESUME",
+      "expectedHttp": 202,
+      "expectedFinal": "EXACTLY_EQUAL_TO_UNINTERRUPTED_RUN"
+    },
+    {
+      "id": "data-only-stat-addition",
+      "given": "Add an existing-mechanic single-stat definition and reviewed unit mapping using fixture data only",
+      "operation": "FIXTURE_LOAD",
+      "expected": "COMMON_PREDICATE_AND_SEARCH_WORK_WITHOUT_STAT_ID_SWITCH"
+    },
+    {
+      "id": "dangling-pseudo-source",
+      "given": "Delete a direct stat but retain a pseudo referencing it",
+      "operation": "FIXTURE_LOAD",
+      "expected": "REJECT_DANGLING_REFERENCE_BEFORE_SEARCH"
+    },
+    {
+      "id": "unrelated-family-matters",
+      "given": "Two states match the same goal totals but have different unrelated family occupancy",
+      "operation": "NORMALIZE",
+      "expected": "DISTINCT_STATES_AND_CORRECT_DISTINCT_POOLS"
+    },
+    {
+      "id": "partial-budget-not-game-limit",
+      "given": "The first kernel has more than 1000 elementary outcomes",
+      "operation": "RESUME",
+      "expected": "RETAIN_EXACT_CONTINUATION_AND_MASS_WITHOUT_CHANGING_GAME_ATTEMPT_LIMIT"
+    }
+  ]
+}
