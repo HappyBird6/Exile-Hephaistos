@@ -1,10 +1,13 @@
 import { createStore } from 'zustand/vanilla'
 import type { GoalFilter, Group, GroupType, Stat } from './types'
 import { weighted } from './types'
+import type { GroupPresentation } from './groupPresentation'
 export type Editor = {
   goal: GoalFilter
   collapsedByGroupId: Record<string, boolean>
   revision: number
+  presentedTypes: Record<string, GroupPresentation>
+  chooseGroupType: (id: string, type: GroupPresentation) => void
   edit: (fn: (goal: GoalFilter) => void) => void
   collapse: (id: string) => void
 }
@@ -13,6 +16,20 @@ export function createGoalFilterEditor(initial: GoalFilter) {
     goal: structuredClone(initial),
     collapsedByGroupId: {},
     revision: 0,
+    presentedTypes: {},
+    chooseGroupType: (id, type) =>
+      set((state) => {
+        const goal = structuredClone(state.goal)
+        const group = goal.groups.find((group) => group.id === id)
+        if (!group) return state
+        changeGroupType(group, type === 'OR' ? 'COUNT' : type)
+        if (type === 'OR') group.range = { min: 1, max: null }
+        return {
+          goal,
+          revision: state.revision + 1,
+          presentedTypes: { ...state.presentedTypes, [id]: type },
+        }
+      }),
     edit: (fn) =>
       set((state) => {
         const goal = structuredClone(state.goal)

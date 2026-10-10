@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useStore } from 'zustand'
 import type { StoreApi } from 'zustand/vanilla'
-import { addStat, changeGroupType } from './editor'
+import { addStat } from './editor'
+import { presentedGroupType, orHelp } from './groupPresentation'
+import type { GroupPresentation } from './groupPresentation'
 import { GoalFilterApiError } from './api'
 import type { Editor } from './editor'
 import { goalFilterMessages, goalFilterActions } from './i18n'
@@ -109,7 +111,20 @@ export function GoalFilterPanel({
       : unit === 'flat'
         ? startInputMessages[language].value
         : unit
-  const { goal, edit, collapse, collapsedByGroupId } = useStore(editor)
+  const {
+    goal,
+    edit,
+    collapse,
+    collapsedByGroupId,
+    presentedTypes,
+    chooseGroupType,
+  } = useStore(editor)
+  const groupPresentation = (group: GoalFilter['groups'][number]) =>
+    presentedGroupType(group, presentedTypes[group.id])
+  const groupHelp = (group: GoalFilter['groups'][number]) =>
+    groupPresentation(group) === 'OR'
+      ? orHelp[language]
+      : t.operations[group.type]
   const catalog = useGoalFilterCatalog(adapter, {
     ...context,
     baseItemId: goal.general.baseItemId,
@@ -274,7 +289,7 @@ export function GoalFilterPanel({
               >
                 {goal.groups.map((g, i) => (
                   <option key={g.id} value={g.id}>
-                    {i + 1}: {setup.groups[g.type]}
+                    {i + 1}: {groupPresentation(g)}
                   </option>
                 ))}
               </select>
@@ -452,24 +467,20 @@ export function GoalFilterPanel({
                     {t.group} {index + 1}
                   </span>
                   <select
-                    title={t.operations[group.type]}
-                    value={group.type}
+                    title={groupHelp(group)}
+                    value={groupPresentation(group)}
                     onChange={(e) =>
-                      edit((g) =>
-                        changeGroupType(
-                          g.groups[index]!,
-                          e.target.value as typeof group.type,
-                        ),
+                      chooseGroupType(
+                        group.id,
+                        e.target.value as GroupPresentation,
                       )
                     }
                   >
-                    {groupTypes
-                      .filter((type) => ['AND', 'COUNT', 'NOT'].includes(type))
-                      .map((type) => (
-                        <option key={type} value={type}>
-                          {setup.groups[type]}
-                        </option>
-                      ))}
+                    {(['AND', 'OR', 'COUNT', 'NOT'] as const).map((type) => (
+                      <option key={type} value={type}>
+                        {type === 'OR' ? 'OR' : setup.groups[type]}
+                      </option>
+                    ))}
                     <optgroup label={setup.advanced}>
                       {groupTypes
                         .filter(
@@ -530,10 +541,8 @@ export function GoalFilterPanel({
                 id={`goal-group-${group.id}`}
                 hidden={collapsedByGroupId[group.id]}
               >
-                <p className="goal-filter-group-help">
-                  {t.operations[group.type]}
-                </p>
-                {group.range && (
+                <p className="goal-filter-group-help">{groupHelp(group)}</p>
+                {group.range && groupPresentation(group) !== 'OR' && (
                   <fieldset className="goal-filter-group-range">
                     <legend>
                       {group.type === 'COUNT' ? t.count : t.score}
