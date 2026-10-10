@@ -5,6 +5,30 @@
   font-size: 14px;
   color-scheme: dark;
 }
+.craft-start .start-modifier-picker input {
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 10px;
+}
+.craft-start .start-modifier-picker [role='listbox'] {
+  list-style: none;
+  max-height: 220px;
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+  padding: 0;
+  margin: 0 0 10px;
+  border: 1px solid #3b3e3f;
+  background: #101112;
+}
+.craft-start .start-modifier-picker [role='option'] {
+  padding: 8px;
+  cursor: pointer;
+}
+.craft-start .start-modifier-picker [role='option']:hover,
+.craft-start .start-modifier-picker [aria-selected='true'] {
+  background: #33302a;
+  color: #dfcfad;
+}
 .craft-start.craft-start {
   margin: 16px 0 0;
   padding: 0;
@@ -170,9 +194,50 @@
 }
 .craft-start .craft-start-workspace {
   display: grid;
-  grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
+  grid-template-columns: minmax(220px, 0.8fr) minmax(260px, 1fr) minmax(
+      360px,
+      1.6fr
+    );
   border-top: 1px solid #3b3e3f;
   min-height: 390px;
+}
+.craft-start .craft-start-workspace > section {
+  min-width: 0;
+}
+.craft-start .craft-start-stats {
+  padding: 14px;
+  border-left: 1px solid #3b3e3f;
+}
+.craft-start .goal-filter-compact .goal-filter-layout {
+  display: block;
+}
+.craft-start dialog {
+  color: #dfcfad;
+  background: #111314;
+  border: 1px solid #a38d6d;
+  padding: 20px;
+  width: min(620px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+}
+.craft-start dialog::backdrop {
+  background: #000b;
+}
+.craft-start dialog textarea {
+  min-height: 300px;
+}
+.craft-start .craft-start-editor > button {
+  width: 100%;
+  margin-bottom: 10px;
+}
+@media (max-width: 1100px) {
+  .craft-start .craft-start-workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .craft-start .craft-start-stats {
+    border-left: 0;
+    border-top: 1px solid #3b3e3f;
+  }
 }
 .craft-start .craft-start-editor {
   padding: 14px;
@@ -237,6 +302,9 @@
   padding: 28px;
   min-width: 0;
   background: radial-gradient(ellipse at center, #1c1c1a 0, #080909 70%);
+}
+.craft-start .craft-start-preview > div {
+  width: 100%;
 }
 .craft-start :is(.craft-start-preview, .craft-start-root) .item-card {
   width: min(100%, 470px);

@@ -173,81 +173,48 @@ it('preserves Explorer state/history identity across refetch and isolates a new 
   client.clear()
 })
 
-it.each(['base', 'manual', 'text'] as const)(
-  'retains Support %s provenance and blocks assessment after a same-snapshot ruleset refetch',
-  async (source) => {
-    const { client, requests, change } = setup()
-    const page = render(
-      <QueryClientProvider client={client}>
-        <CraftSupport active />
-      </QueryClientProvider>,
-    )
-    fireEvent.click(
-      await screen.findByText('Advanced family / tier comparison'),
-    )
-    const button = await screen.findByRole('button', {
-      name: 'Check starting state and goal',
-    })
-    await waitFor(() => expect(button).toBeEnabled())
-    fireEvent.change(screen.getByLabelText('Support input source'), {
-      target: { value: source },
-    })
-    if (source === 'text') {
-      fireEvent.change(screen.getByLabelText('Support item text'), {
-        target: { value: 'preserved item text' },
-      })
-      fireEvent.click(
-        screen.getByRole('button', { name: 'Validate Support text' }),
-      )
-      await waitFor(() => expect(button).toBeEnabled())
-    }
-    fireEvent.click(button)
-    await screen.findByRole('heading', {
-      name: 'Goal ready for sequence comparison',
-    })
-    const count = requests.length
-    change()
-    await act(async () => {
-      await client.refetchQueries({ queryKey: ['support', 'initial', 82] })
-    })
-    await act(async () => {
-      await new Promise((resolve) => setTimeout(resolve, 0))
-    })
-    await act(async () => {
-      fireEvent.click(button)
-    })
-    expect(requests.slice(count)).toEqual([])
-    await waitFor(() => expect(button).toBeDisabled())
-    expect(
-      screen.queryByRole('heading', {
-        name: 'Goal ready for sequence comparison',
-      }),
-    ).not.toBeInTheDocument()
-    fireEvent.click(button)
-    fireEvent.click(
-      screen.getByRole('button', { name: 'Compare currency sequences' }),
-    )
-    expect(requests).toHaveLength(count)
-    expect(screen.getByLabelText('Support input source')).toHaveValue(source)
-    if (source === 'text')
-      expect(screen.getByLabelText('Support item text')).toHaveValue(
-        'preserved item text',
-      )
-    fireEvent.click(
-      screen.getByRole('button', {
-        name: 'Start a new session with current rules',
-      }),
-    )
-    await waitFor(() => expect(button).toBeEnabled())
-    fireEvent.click(button)
-    await screen.findByRole('heading', {
-      name: 'Goal ready for sequence comparison',
-    })
-    expect(requests.at(-1)?.identity).toBe(newIdentity)
-    page.unmount()
-    client.clear()
-  },
-)
+it('preserves edited modifier rolls and blocks starting after a ruleset change', async () => {
+  const { client, requests, change } = setup()
+  const page = render(
+    <QueryClientProvider client={client}>
+      <CraftSupport active />
+    </QueryClientProvider>,
+  )
+  const start = screen.getByRole('button', { name: 'Start Crafting' })
+  await waitFor(() => expect(start).toBeEnabled())
+  fireEvent.click(screen.getByRole('button', { name: 'Add modifier' }))
+  const picker = screen.getByRole('combobox', { name: 'Modifier group' })
+  fireEvent.change(picker, { target: { value: 'Life' } })
+  fireEvent.keyDown(picker, { key: 'Enter' })
+  fireEvent.change(screen.getByLabelText('Starting modifier tier'), {
+    target: { value: 'p' },
+  })
+  fireEvent.change(screen.getByLabelText('Value 1.1'), {
+    target: { value: '18' },
+  })
+  const text = (
+    screen.getByLabelText('Starting item text') as HTMLTextAreaElement
+  ).value
+  const count = requests.length
+  change()
+  await act(async () => {
+    await client.refetchQueries({ queryKey: ['craftStart', 'inventory'] })
+  })
+  await waitFor(() => expect(start).toBeDisabled())
+  expect(screen.getByLabelText('Starting item text')).toHaveValue(text)
+  expect(
+    screen.getByRole('region', { name: 'Starting item preview' }),
+  ).toHaveTextContent('+18 to maximum Life')
+  fireEvent.click(start)
+  expect(
+    screen.queryByRole('region', { name: 'Crafting tree preview' }),
+  ).not.toBeInTheDocument()
+  expect(
+    requests.slice(count).some((r) => /recommend|first-hit/.test(r.url)),
+  ).toBe(false)
+  page.unmount()
+  client.clear()
+})
 
 it('preserves CraftStart editor provenance and disables the old numeric input after inventory refetch', async () => {
   const { client, change } = setup()
@@ -323,66 +290,6 @@ it('does not expose an Explorer response arriving after the session rules change
     screen.queryByRole('button', { name: 'Explore this state' }),
   ).not.toBeInTheDocument()
   expect(screen.getByRole('alert')).toHaveTextContent('ruleset changed')
-  page.unmount()
-  client.clear()
-})
-
-it('aborts a Support comparison across refetch and never starts recommendation from a late assessment', async () => {
-  const { client, change } = setup()
-  const originalFetch = globalThis.fetch
-  let finish!: (response: Response) => void
-  let signal: AbortSignal | undefined
-  const fetch = vi.fn((url: RequestInfo | URL, init?: RequestInit) => {
-    if (String(url).endsWith('/support/assess')) {
-      signal = init?.signal as AbortSignal
-      return new Promise<Response>((resolve) => {
-        finish = resolve
-      })
-    }
-    return originalFetch(url, init)
-  })
-  vi.stubGlobal('fetch', fetch)
-  const page = render(
-    <QueryClientProvider client={client}>
-      <CraftSupport active />
-    </QueryClientProvider>,
-  )
-  fireEvent.click(await screen.findByText('Advanced family / tier comparison'))
-  const button = screen.getByRole('button', {
-    name: 'Compare currency sequences',
-  })
-  await waitFor(() => expect(button).toBeEnabled())
-  fireEvent.click(button)
-  await waitFor(() => expect(signal).toBeDefined())
-  change()
-  await act(async () => {
-    await client.refetchQueries({ queryKey: ['support', 'initial', 82] })
-  })
-  await waitFor(() => expect(signal?.aborted).toBe(true))
-  await act(async () => {
-    finish(
-      jsonResponse({
-        status: 'READY',
-        valid: true,
-        feasible: true,
-        achieved: false,
-        requiredMatched: 0,
-        candidatesMatched: 0,
-        matches: {},
-        issues: [],
-      }),
-    )
-  })
-  expect(
-    fetch.mock.calls.some(([url]) =>
-      String(url).endsWith('/support/recommend'),
-    ),
-  ).toBe(false)
-  expect(
-    screen.queryByRole('heading', {
-      name: 'Goal ready for sequence comparison',
-    }),
-  ).not.toBeInTheDocument()
   page.unmount()
   client.clear()
 })

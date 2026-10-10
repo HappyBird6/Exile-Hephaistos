@@ -7,6 +7,9 @@ import {
   within,
 } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { act } from '@testing-library/react'
+import { locales, setLocale } from '../../../shared/i18n/i18n'
+import { craftStartMessages } from './craftStartMessages'
 import { CraftStart } from './CraftStart'
 import {
   initialFixture,
@@ -134,7 +137,72 @@ async function setup() {
     ).toBeEnabled(),
   )
 }
+function chooseLifeGroup() {
+  const picker = screen.getByRole('combobox', { name: 'Modifier group' })
+  fireEvent.change(picker, { target: { value: 'maximum Life' } })
+  fireEvent.keyDown(picker, { key: 'Enter' })
+}
 describe('Craft Support starting screen', () => {
+  it('cancels modal parsing on Escape, retains text, restores focus and discards the late result', async () => {
+    await setup()
+    const opener = screen.getByRole('button', { name: 'Import item text' })
+    fireEvent.click(opener)
+    let finish!: (value: Item) => void
+    let signal: AbortSignal | undefined
+    vi.mocked(parseItemText).mockImplementationOnce((_text, requestSignal) => {
+      signal = requestSignal
+      return new Promise((resolve) => {
+        finish = resolve
+      })
+    })
+    fireEvent.paste(screen.getByLabelText('Starting item text'), {
+      clipboardData: { getData: () => 'unfinished original' },
+    })
+    fireEvent(
+      screen.getByRole('dialog'),
+      new Event('cancel', { cancelable: true }),
+    )
+    expect(signal?.aborted).toBe(true)
+    expect(opener).toHaveFocus()
+    await act(async () => finish(parsed()))
+    expect(screen.getByLabelText('Starting item text')).toHaveValue(
+      'unfinished original',
+    )
+    expect(
+      screen.getByRole('button', { name: 'Start Crafting' }),
+    ).toBeDisabled()
+    expect(mapSolarText).not.toHaveBeenCalled()
+    fireEvent.click(opener)
+    expect(screen.getByRole('dialog')).toBeVisible()
+  })
+  it.each(locales)(
+    'keeps setup controls accessible in %s and focuses the result without motion',
+    async (locale) => {
+      await setup()
+      act(() => setLocale(locale))
+      const copy = craftStartMessages[locale]
+      expect(screen.getByRole('button', { name: copy.import })).toBeVisible()
+      expect(
+        screen.getByRole('combobox', { name: copy.typeLabel }),
+      ).toBeVisible()
+      vi.stubGlobal('matchMedia', () => ({ matches: true }))
+      const animate = vi.fn()
+      const previous = HTMLElement.prototype.animate
+      HTMLElement.prototype.animate = animate
+      try {
+        fireEvent.click(screen.getByRole('button', { name: copy.start }))
+        expect(screen.getByRole('region', { name: copy.tree })).toHaveFocus()
+        expect(animate).not.toHaveBeenCalled()
+        fireEvent.click(
+          screen.getByRole('button', { name: new RegExp(copy.edit) }),
+        )
+        await act(async () => {})
+        expect(screen.getByRole('button', { name: copy.start })).toHaveFocus()
+      } finally {
+        HTMLElement.prototype.animate = previous
+      }
+    },
+  )
   it('synchronizes base text and starts an empty tree without mapping or probability calls', async () => {
     await setup()
     fireEvent.change(screen.getByLabelText('Starting equipment type'), {
@@ -170,6 +238,7 @@ describe('Craft Support starting screen', () => {
   })
   it('auto-selects verified pasted base and rejects unknown or unsupported pasted items', async () => {
     await setup()
+    fireEvent.click(screen.getByRole('button', { name: 'Import item text' }))
     const text = screen.getByLabelText('Starting item text')
     fireEvent.paste(text, {
       clipboardData: { getData: () => 'valid Solar copy' },
@@ -185,7 +254,7 @@ describe('Craft Support starting screen', () => {
     fireEvent.paste(text, {
       clipboardData: { getData: () => 'unknown original' },
     })
-    await screen.findByText(/Unknown or unsupported base/)
+    await screen.findByText(/This item base is not supported/)
     expect(screen.getByLabelText('Starting item base')).toHaveValue('')
     expect(
       screen.getByRole('button', { name: 'Start Crafting' }),
@@ -193,9 +262,7 @@ describe('Craft Support starting screen', () => {
     expect(text).toHaveValue('unknown original')
     vi.mocked(parseItemText).mockResolvedValueOnce(parsed('Iron Ring', 'Rings'))
     fireEvent.paste(text, { clipboardData: { getData: () => 'copied ring' } })
-    await screen.findByText(
-      /Pasted-item catalog mapping currently supports Solar/,
-    )
+    await screen.findByText(/Only Solar Amulet text/)
     expect(screen.getByLabelText('Starting item base')).toHaveValue('ring')
     expect(
       screen.getByRole('button', { name: 'Start Crafting' }),
@@ -203,6 +270,7 @@ describe('Craft Support starting screen', () => {
   })
   it('keeps a late validation response from replacing a newly selected base', async () => {
     await setup()
+    fireEvent.click(screen.getByRole('button', { name: 'Import item text' }))
     let resolve!: (item: Item) => void
     vi.mocked(parseItemText).mockImplementationOnce(
       () =>
@@ -231,12 +299,14 @@ describe('Craft Support starting screen', () => {
       target: { value: 'Rings' },
     })
     fireEvent.click(screen.getByRole('button', { name: 'Add modifier' }))
+    chooseLifeGroup()
     fireEvent.change(screen.getByLabelText('Starting modifier tier'), {
       target: { value: 'p' },
     })
     expect(
       screen.getByRole('region', { name: 'Starting item preview' }),
     ).toHaveTextContent('+10 to maximum Life')
+    fireEvent.click(screen.getByRole('button', { name: 'Import item text' }))
     vi.mocked(parseItemText).mockResolvedValueOnce(parsed('Iron Ring', 'Rings'))
     fireEvent.click(screen.getByRole('button', { name: 'Check item text' }))
     await waitFor(() =>
@@ -245,6 +315,7 @@ describe('Craft Support starting screen', () => {
       ).toBeEnabled(),
     )
     expect(mapSolarText).not.toHaveBeenCalled()
+    fireEvent.click(screen.getByRole('button', { name: 'Close' }))
     expect(
       screen.getByRole('region', { name: 'Starting item preview' }),
     ).toHaveTextContent('+10 to maximum Life')
@@ -253,10 +324,11 @@ describe('Craft Support starting screen', () => {
       screen.getByRole('region', { name: 'Crafting tree preview' }),
     ).toHaveTextContent('Iron Ring')
     fireEvent.click(screen.getByRole('button', { name: /Edit settings/ }))
-    expect(screen.getByLabelText('life')).toHaveValue(10)
+    expect(screen.getByLabelText('Value 1.1')).toHaveValue(10)
   })
   it('accepts the exact Amulet alias for verified pasted Solar text', async () => {
     await setup()
+    fireEvent.click(screen.getByRole('button', { name: 'Import item text' }))
     vi.mocked(parseItemText).mockResolvedValueOnce(
       parsed('Solar Amulet', 'Amulet'),
     )
@@ -274,6 +346,7 @@ describe('Craft Support starting screen', () => {
   it('adds and removes catalog modifiers, blocks invalid rolls and preserves the started root', async () => {
     await setup()
     fireEvent.click(screen.getByRole('button', { name: 'Add modifier' }))
+    chooseLifeGroup()
     fireEvent.change(screen.getByLabelText('Starting modifier tier'), {
       target: { value: 'p' },
     })
@@ -281,11 +354,15 @@ describe('Craft Support starting screen', () => {
       name: 'Starting item preview',
     })
     expect(preview).toHaveTextContent('+10 to maximum Life')
-    fireEvent.change(screen.getByLabelText('life'), { target: { value: '21' } })
+    fireEvent.change(screen.getByLabelText('Value 1.1'), {
+      target: { value: '21' },
+    })
     expect(
       screen.getByRole('button', { name: 'Start Crafting' }),
     ).toBeDisabled()
-    fireEvent.change(screen.getByLabelText('life'), { target: { value: '18' } })
+    fireEvent.change(screen.getByLabelText('Value 1.1'), {
+      target: { value: '18' },
+    })
     expect(preview).toHaveTextContent('+18 to maximum Life')
     fireEvent.click(screen.getByRole('button', { name: 'Start Crafting' }))
     fireEvent.click(screen.getByRole('button', { name: /Edit settings/ }))

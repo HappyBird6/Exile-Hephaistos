@@ -19,6 +19,27 @@ type Evaluation = {
   }[]
   issues: Issue[]
 }
+export async function evaluateNumericItemOnly(
+  item: ConcreteItem,
+  goal: GoalFilter,
+  signal: AbortSignal,
+  rulesetIdentity: string,
+) {
+  const response = await fetch(
+    '/api/v1/crafting/support/goal-filters/evaluate',
+    {
+      method: 'POST',
+      signal,
+      headers: rulesetHeaders(rulesetIdentity),
+      body: JSON.stringify({ item, goal }),
+    },
+  )
+  if (response.ok) verifyRulesetResponse(response, rulesetIdentity)
+  return {
+    evaluation: await readGoalFilterResponse<Evaluation>(response),
+    recommendation: undefined,
+  }
+}
 export async function evaluateNumericItem(
   item: ConcreteItem,
   goal: GoalFilter,

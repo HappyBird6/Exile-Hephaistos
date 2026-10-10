@@ -81,7 +81,11 @@ const response = (body: unknown, status = 200) =>
     },
   })
 afterEach(() => vi.unstubAllGlobals())
-function setup(actual: ConcreteItem | null = item, onLegacyChange = vi.fn()) {
+function setup(
+  actual: ConcreteItem | null = item,
+  onLegacyChange = vi.fn(),
+  compact = false,
+) {
   const client = new QueryClient({
     defaultOptions: { queries: { retry: false } },
   })
@@ -95,6 +99,7 @@ function setup(actual: ConcreteItem | null = item, onLegacyChange = vi.fn()) {
           language="en"
           activeOmens={[]}
           maxMillis={2000}
+          compact={compact}
         />
       </QueryClientProvider>
     </div>,
@@ -123,6 +128,40 @@ function mockFetch(failure = false, recommended: unknown = recommendation) {
   return mock
 }
 describe('production goal connection', () => {
+  it('keeps stat evaluation in compact setup without equipment or probability controls', async () => {
+    const fetch = mockFetch()
+    setup(item, vi.fn(), true)
+    const search = await screen.findByRole('searchbox', {
+      name: 'Search stats',
+    })
+    expect(
+      screen.queryByRole('button', { name: /Equipment filters/ }),
+    ).not.toBeInTheDocument()
+    expect(screen.queryByText('Numeric input settings')).not.toBeInTheDocument()
+    fireEvent.change(search, { target: { value: 'Cold' } })
+    fireEvent.click(
+      await screen.findByRole('button', { name: 'Add Cold total' }),
+    )
+    const evaluate = screen.getByRole('button', {
+      name: 'Evaluate current item',
+    })
+    await waitFor(() => expect(evaluate).toBeEnabled())
+    fireEvent.click(evaluate)
+    await screen.findByText('Matches target')
+    expect(
+      fetch.mock.calls.filter(([url]) => String(url).endsWith('/evaluate')),
+    ).toHaveLength(1)
+    expect(
+      fetch.mock.calls.some(([url]) => String(url).endsWith('/recommend')),
+    ).toBe(false)
+    expect(
+      screen.queryByText(
+        /COMPLETE|PARTIAL|UNSUPPORTED|Compared sequences|ledger:/,
+      ),
+    ).not.toBeInTheDocument()
+    fireEvent.change(search, { target: { value: 'edited' } })
+    expect(screen.queryByText('Matches target')).not.toBeInTheDocument()
+  })
   it('keeps numeric editing from canceling the legacy Support requests', async () => {
     mockFetch()
     const legacyChange = vi.fn()

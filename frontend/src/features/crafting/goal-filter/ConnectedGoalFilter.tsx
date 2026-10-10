@@ -1,17 +1,24 @@
 import { useQuery } from '@tanstack/react-query'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useStore } from 'zustand'
 import { concreteInitial } from '../workbenchApi'
 import type { ConcreteItem } from '../workbenchApi'
 import { loadInitial } from '../craftingApi'
 import { createHttpGoalFilterAdapter, GoalFilterApiError } from './api'
-import { evaluateNumericItem, presentNumericStats } from './numericApi'
+import {
+  evaluateNumericItem,
+  evaluateNumericItemOnly,
+  presentNumericStats,
+} from './numericApi'
 import { useGoalFilterCatalog } from './useGoalFilter'
 import { createGoalFilterEditor, emptyGoal } from './editor'
 import { GoalFilterPanel } from './GoalFilterPanel'
 import type { GoalFilterLanguage } from './i18n'
 import type { Catalog, Context, GoalFilter } from './types'
 import { startBases } from './startItem'
+import { useI18n } from '../../../shared/i18n/i18n'
+import { craftStartMessages } from './craftStartMessages'
+import { goalFilterMessages } from './i18n'
 
 const adapter = createHttpGoalFilterAdapter()
 export function ConnectedGoalFilter({
@@ -21,6 +28,7 @@ export function ConnectedGoalFilter({
   activeOmens,
   maxMillis,
   compact = false,
+  language,
 }: {
   item: ConcreteItem | null
   rulesetIdentity?: string | undefined
@@ -32,6 +40,7 @@ export function ConnectedGoalFilter({
 }) {
   const [baseKey, setBaseKey] = useState('support')
   const inventory = useQuery({
+    enabled: !compact,
     queryKey: ['goalFilter', 'base-inventory', context.itemLevel],
     queryFn: async ({ signal }) => {
       const response = await fetch('/api/v1/crafting/workbench/registry', {
@@ -98,8 +107,8 @@ export function ConnectedGoalFilter({
     return (
       <p role={catalog.isError ? 'alert' : 'status'}>
         {catalog.isError
-          ? 'Goal catalog unavailable.'
-          : 'Loading goal catalog…'}{' '}
+          ? goalFilterMessages[language].error
+          : goalFilterMessages[language].loading}{' '}
         {catalog.isError && (
           <button onClick={() => void catalog.refetch()}>Retry</button>
         )}
@@ -169,7 +178,7 @@ export function ConnectedGoalFilter({
               base.key,
           })) ?? [{ id: context.baseItemId, label: context.baseItemId }]
         }
-        language="en"
+        language={language}
         activeOmens={activeOmens}
         maxMillis={maxMillis}
         compact={compact}
@@ -198,12 +207,24 @@ function ConnectedEditor({
   maxMillis: number
   compact: boolean
 }) {
+  const { locale } = useI18n()
+  const copy = craftStartMessages[locale]
   const [editor] = useState(() =>
     createGoalFilterEditor(
       emptyGoal(initialCatalog.context, initialCatalog.catalogVersion),
     ),
   )
   const goal = useStore(editor, (state) => state.goal)
+  useEffect(() => {
+    if (
+      compact &&
+      editor.getState().goal.general.baseItemId !== context.baseItemId
+    ) {
+      editor.getState().edit((goal) => {
+        goal.general.baseItemId = context.baseItemId
+      })
+    }
+  }, [compact, context.baseItemId, editor])
   const currentCatalog = useGoalFilterCatalog(adapter, context)
   const [submitted, setSubmitted] = useState<{
     goal: GoalFilter
@@ -219,52 +240,64 @@ function ConnectedEditor({
     rulesetIdentity,
   })
   const current = submitted?.identity === identity && item !== null
-  const result = useQuery({
+  const result = useQuery<
+    | Awaited<ReturnType<typeof evaluateNumericItem>>
+    | Awaited<ReturnType<typeof evaluateNumericItemOnly>>
+  >({
     queryKey: ['goalFilter', 'item-evaluation', identity, submitted],
     enabled: Boolean(current),
     queryFn: ({ signal }) =>
-      evaluateNumericItem(
-        item!,
-        submitted!.goal,
-        activeOmens,
-        maxMillis,
-        signal,
-        rulesetIdentity!,
-      ),
+      compact
+        ? evaluateNumericItemOnly(
+            item!,
+            submitted!.goal,
+            signal,
+            rulesetIdentity!,
+          )
+        : evaluateNumericItem(
+            item!,
+            submitted!.goal,
+            activeOmens,
+            maxMillis,
+            signal,
+            rulesetIdentity!,
+          ),
     retry: false,
   })
   const visible = current ? result.data : undefined
   const ko = language === 'ko'
   return (
     <div className="goal-filter-connected">
-      <details open={!compact} className="goal-filter-support-notes">
-        <summary>Evaluation support and limitations</summary>
-        <p>
-          {ko
-            ? '수치 필터는 아래 family/tier 목표와 별도로 판정합니다. 화폐를 적용하거나 기존 추천 목표를 변경하지 않습니다.'
-            : 'Numeric filters evaluate separately from the family/tier goal below.'}
-        </p>
-        {!item && (
-          <p role="status">
+      {!compact && (
+        <details open className="goal-filter-support-notes">
+          <summary>Evaluation support and limitations</summary>
+          <p>
             {ko
-              ? '실제 수치가 없습니다. 수동 tier 입력은 roll 값을 보존하지 않으므로 수치 판정할 수 없습니다. 서버 base 또는 검증된 아이템 텍스트를 선택하세요.'
-              : 'Actual rolls are unavailable. Manual tiers cannot be evaluated numerically. Select a server base or verified item text.'}
+              ? '수치 필터는 아래 family/tier 목표와 별도로 판정합니다. 화폐를 적용하거나 기존 추천 목표를 변경하지 않습니다.'
+              : 'Numeric filters evaluate separately from the family/tier goal below.'}
           </p>
-        )}
-        <p>
-          {ko
-            ? '품질·특수 조건의 수치 효과는 미지원입니다. 수치 판정과 확률 지원 상태를 따로 확인하세요.'
-            : 'Quality and special numeric effects are unsupported. Evaluation and probability support are reported separately.'}
-        </p>
-        {item?.catalystQuality && (
-          <p role="status">
+          {!item && (
+            <p role="status">
+              {ko
+                ? '실제 수치가 없습니다. 수동 tier 입력은 roll 값을 보존하지 않으므로 수치 판정할 수 없습니다. 서버 base 또는 검증된 아이템 텍스트를 선택하세요.'
+                : 'Actual rolls are unavailable. Manual tiers cannot be evaluated numerically. Select a server base or verified item text.'}
+            </p>
+          )}
+          <p>
             {ko
-              ? '품질 효과의 수치 판정은 미지원입니다. 입력 품질을 보존하며 적용된 것으로 표시하지 않습니다.'
-              : 'Quality projection is unsupported; input quality is preserved.'}
+              ? '품질·특수 조건의 수치 효과는 미지원입니다. 수치 판정과 확률 지원 상태를 따로 확인하세요.'
+              : 'Quality and special numeric effects are unsupported. Evaluation and probability support are reported separately.'}
           </p>
-        )}
-      </details>
-      {goal.general.baseItemId !== context.baseItemId && (
+          {item?.catalystQuality && (
+            <p role="status">
+              {ko
+                ? '품질 효과의 수치 판정은 미지원입니다. 입력 품질을 보존하며 적용된 것으로 표시하지 않습니다.'
+                : 'Quality projection is unsupported; input quality is preserved.'}
+            </p>
+          )}
+        </details>
+      )}
+      {!compact && goal.general.baseItemId !== context.baseItemId && (
         <p role="alert">
           {ko
             ? '목표 base와 시작 아이템이 다릅니다. 기존 목표 행은 보존됩니다.'
@@ -291,7 +324,8 @@ function ConnectedEditor({
         context={context}
         editor={editor}
         bases={bases}
-        language="en"
+        language={language}
+        compact={compact}
         recommendation={visible?.recommendation}
         recommendationGoal={current ? submitted?.goal : undefined}
         evaluationAvailable={item !== null}
@@ -303,20 +337,66 @@ function ConnectedEditor({
       />
       {current && result.isError && (
         <p role="alert">
-          {ko
-            ? '판정 요청 실패. 입력은 보존됩니다.'
-            : 'Evaluation failed. Inputs are preserved.'}{' '}
-          {result.error.message}
+          {compact
+            ? copy.evaluationError
+            : ko
+              ? '판정 요청 실패. 입력은 보존됩니다.'
+              : 'Evaluation failed. Inputs are preserved.'}{' '}
+          {!compact && result.error.message}
         </p>
       )}
-      {current &&
+      {!compact &&
+        current &&
         result.error instanceof GoalFilterApiError &&
         result.error.issues.map((issue, index) => (
           <p role="alert" key={index}>
             {issue.code}: {issue.message} ({issue.path})
           </p>
         ))}
-      {visible && (
+      {visible && compact && (
+        <section aria-live="polite" aria-label={copy.evaluation}>
+          <h3>{copy.evaluation}</h3>
+          <p>
+            {visible.evaluation.status === 'MATCH'
+              ? copy.match
+              : visible.evaluation.status === 'NO_MATCH'
+                ? copy.noMatch
+                : copy.unknown}
+          </p>
+          {visible.evaluation.groups.map((group, index) => (
+            <div key={group.id}>
+              <p>
+                {index + 1}:{' '}
+                {group.status === 'MATCH'
+                  ? copy.match
+                  : group.status === 'NO_MATCH'
+                    ? copy.noMatch
+                    : copy.unknown}
+              </p>
+              <ul>
+                {group.entries.map((entry) => (
+                  <li key={entry.id}>
+                    {(currentCatalog.data ?? initialCatalog).stats.find(
+                      (stat) =>
+                        stat.statId ===
+                        goal.groups
+                          .flatMap((g) => g.entries)
+                          .find((row) => row.id === entry.id)?.statId,
+                    )?.label ?? copy.unknown}
+                    : {entry.value === null ? '—' : entry.value} ·{' '}
+                    {entry.status === 'MATCH'
+                      ? copy.match
+                      : entry.status === 'NO_MATCH'
+                        ? copy.noMatch
+                        : copy.unknown}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </section>
+      )}
+      {visible && !compact && visible.recommendation && (
         <section
           aria-live="polite"
           aria-label={ko ? '수치 판정 결과' : 'Numeric evaluation result'}

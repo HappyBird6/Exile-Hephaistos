@@ -1089,15 +1089,19 @@ export function CraftingPage() {
               : t(`workspace.${view}`)}
           </h1>
         </div>
-        <span className="preview-badge">
-          <i />
-          {name(baseSlugs[catalogBase], baseName)} · {t('ui.base')}
-        </span>
+        {view !== 'support' && (
+          <span className="preview-badge">
+            <i />
+            {name(baseSlugs[catalogBase], baseName)} · {t('ui.base')}
+          </span>
+        )}
       </div>
-      <aside className="locale-disclosure">
-        <p>{t('probability.disclaimer')}</p>
-        <small>{t('translation.coverage')}</small>
-      </aside>
+      {view !== 'support' && (
+        <aside className="locale-disclosure">
+          <p>{t('probability.disclaimer')}</p>
+          <small>{t('translation.coverage')}</small>
+        </aside>
+      )}
       <div
         className="workbench-layout"
         id="panel-workbench"
@@ -2181,15 +2185,7 @@ export function CraftingPage() {
         aria-labelledby="workspace-support"
         hidden={view !== 'support'}
       >
-        {catalogBase === 'solar' ? (
-          <CraftSupport active={view === 'support'} />
-        ) : (
-          <p>
-            {t('notice.support_base', {
-              name: name(baseSlugs[catalogBase], baseName),
-            })}
-          </p>
-        )}
+        <CraftSupport active={view === 'support'} />
       </div>
       <span className="sr-only" role="status">
         {imported.pending ? 'Analyzing item…' : announcement}

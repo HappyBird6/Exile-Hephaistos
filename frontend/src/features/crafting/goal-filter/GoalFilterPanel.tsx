@@ -4,7 +4,7 @@ import type { StoreApi } from 'zustand/vanilla'
 import { addStat, changeGroupType } from './editor'
 import { GoalFilterApiError } from './api'
 import type { Editor } from './editor'
-import { goalFilterMessages } from './i18n'
+import { goalFilterMessages, goalFilterActions } from './i18n'
 import type { GoalFilterLanguage } from './i18n'
 import { groupTypes, weighted } from './types'
 import type {
@@ -79,6 +79,7 @@ export function GoalFilterPanel({
   evaluationPending = false,
   evaluationAvailable = true,
   presentStatIds = new Set<string>(),
+  compact = false,
 }: {
   adapter: GoalFilterAdapter
   context: Context
@@ -92,8 +93,10 @@ export function GoalFilterPanel({
   evaluationPending?: boolean
   presentStatIds?: ReadonlySet<string>
   evaluationAvailable?: boolean
+  compact?: boolean
 }) {
   const t = goalFilterMessages[language]
+  const actions = goalFilterActions[language]
   const { goal, edit, collapse, collapsedByGroupId } = useStore(editor)
   const catalog = useGoalFilterCatalog(adapter, {
     ...context,
@@ -146,9 +149,7 @@ export function GoalFilterPanel({
         <input
           ref={searchRef}
           type="search"
-          placeholder={
-            language === 'ko' ? '+ 능력치 필터 추가…' : '+ Add stat filter…'
-          }
+          placeholder={`+ ${actions.add}…`}
           aria-expanded={searchOpen}
           aria-controls="goal-stat-candidates"
           value={search}
@@ -222,16 +223,16 @@ export function GoalFilterPanel({
               {stat.label} ({stat.unit}){' '}
               {stat.kind === 'PSEUDO' && <strong>{t.pseudo}</strong>}
             </span>
-            <small>
-              {stat.kind} · {stat.support.evaluation} · {stat.eligibilityReason}
-            </small>
-            {presentStatIds.has(stat.statId) && (
-              <span>
-                {language === 'ko'
-                  ? '현재 아이템에 존재'
-                  : 'Present on current item'}
-              </span>
+            {!compact && (
+              <small>
+                {stat.kind} · {stat.support.evaluation} ·{' '}
+                {stat.eligibilityReason}
+              </small>
             )}
+            {compact && stat.support.evaluation !== 'SUPPORTED' && (
+              <small>{actions.unavailable}</small>
+            )}
+            {presentStatIds.has(stat.statId) && <span>{actions.present}</span>}
             <button
               type="button"
               aria-label={`${t.add} ${stat.label}`}
@@ -263,7 +264,7 @@ export function GoalFilterPanel({
   )
   return (
     <section
-      className="goal-filter"
+      className={`goal-filter${compact ? ' goal-filter-compact' : ''}`}
       aria-label={t.title}
       onChangeCapture={onInputEdit}
     >
@@ -272,78 +273,80 @@ export function GoalFilterPanel({
         {adapter.mock && <p>{t.mock}</p>}
       </header>
       <div className="goal-filter-layout">
-        <aside className="goal-filter-general">
-          <h3 className="goal-filter-section-heading">
-            <button
-              type="button"
-              aria-expanded={!generalCollapsed}
-              aria-controls="goal-general-filters"
-              onClick={() => setGeneralCollapsed((value) => !value)}
-            >
-              <span aria-hidden="true">{generalCollapsed ? '▸' : '▾'}</span>{' '}
-              {t.equipment}
-            </button>
-          </h3>
-          <div id="goal-general-filters" hidden={generalCollapsed}>
-            <label className="goal-filter-general-row">
-              <span>{t.base}</span>
-              <select
-                value={goal.general.baseItemId}
-                onChange={(e) =>
-                  edit((g) => {
-                    g.general.baseItemId = e.target.value
-                  })
-                }
+        {!compact && (
+          <aside className="goal-filter-general">
+            <h3 className="goal-filter-section-heading">
+              <button
+                type="button"
+                aria-expanded={!generalCollapsed}
+                aria-controls="goal-general-filters"
+                onClick={() => setGeneralCollapsed((value) => !value)}
               >
-                {!bases.some((b) => b.id === goal.general.baseItemId) && (
-                  <option value={goal.general.baseItemId}>
-                    {goal.general.baseItemId}
-                  </option>
-                )}
-                {bases.map((b) => (
-                  <option key={b.id} value={b.id}>
-                    {b.label}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <fieldset className="goal-filter-general-row goal-filter-range">
-              <legend>{t.level}</legend>
-              {(['min', 'max'] as const).map((bound) => (
-                <NumberField
-                  fieldId={`general:${bound}`}
-                  invalidLabel={t.invalid}
-                  onValidityChange={onValidityChange}
-                  key={bound}
-                  label={t[bound]}
-                  value={goal.general.itemLevel[bound]}
-                  onChange={(n) =>
-                    edit((g) => editRange(g.general.itemLevel, bound, n))
+                <span aria-hidden="true">{generalCollapsed ? '▸' : '▾'}</span>{' '}
+                {t.equipment}
+              </button>
+            </h3>
+            <div id="goal-general-filters" hidden={generalCollapsed}>
+              <label className="goal-filter-general-row">
+                <span>{t.base}</span>
+                <select
+                  value={goal.general.baseItemId}
+                  onChange={(e) =>
+                    edit((g) => {
+                      g.general.baseItemId = e.target.value
+                    })
                   }
-                />
-              ))}
-            </fieldset>
-            <fieldset className="goal-filter-general-row goal-filter-rarity">
-              <legend>{t.rarity}</legend>
-              {['NORMAL', 'MAGIC', 'RARE'].map((rarity) => (
-                <label key={rarity}>
-                  <input
-                    type="checkbox"
-                    checked={goal.general.rarities.includes(rarity)}
-                    onChange={(e) =>
-                      edit((g) => {
-                        g.general.rarities = e.target.checked
-                          ? [...g.general.rarities, rarity]
-                          : g.general.rarities.filter((r) => r !== rarity)
-                      })
+                >
+                  {!bases.some((b) => b.id === goal.general.baseItemId) && (
+                    <option value={goal.general.baseItemId}>
+                      {goal.general.baseItemId}
+                    </option>
+                  )}
+                  {bases.map((b) => (
+                    <option key={b.id} value={b.id}>
+                      {b.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <fieldset className="goal-filter-general-row goal-filter-range">
+                <legend>{t.level}</legend>
+                {(['min', 'max'] as const).map((bound) => (
+                  <NumberField
+                    fieldId={`general:${bound}`}
+                    invalidLabel={t.invalid}
+                    onValidityChange={onValidityChange}
+                    key={bound}
+                    label={t[bound]}
+                    value={goal.general.itemLevel[bound]}
+                    onChange={(n) =>
+                      edit((g) => editRange(g.general.itemLevel, bound, n))
                     }
                   />
-                  {rarity}
-                </label>
-              ))}
-            </fieldset>
-          </div>
-        </aside>
+                ))}
+              </fieldset>
+              <fieldset className="goal-filter-general-row goal-filter-rarity">
+                <legend>{t.rarity}</legend>
+                {['NORMAL', 'MAGIC', 'RARE'].map((rarity) => (
+                  <label key={rarity}>
+                    <input
+                      type="checkbox"
+                      checked={goal.general.rarities.includes(rarity)}
+                      onChange={(e) =>
+                        edit((g) => {
+                          g.general.rarities = e.target.checked
+                            ? [...g.general.rarities, rarity]
+                            : g.general.rarities.filter((r) => r !== rarity)
+                        })
+                      }
+                    />
+                    {rarity}
+                  </label>
+                ))}
+              </fieldset>
+            </div>
+          </aside>
+        )}
         <div className="goal-filter-stats">
           {goal.groups.map((group, index) => (
             <fieldset
@@ -356,7 +359,7 @@ export function GoalFilterPanel({
               <div className="goal-filter-group-controls">
                 <label className="goal-filter-group-type">
                   <span className="goal-filter-group-title" aria-hidden="true">
-                    {language === 'ko' ? '능력치 필터' : 'Stat filters'}
+                    {actions.stats}
                   </span>
                   <span className="goal-filter-sr-only">
                     {t.group} {index + 1}
@@ -471,7 +474,9 @@ export function GoalFilterPanel({
                       </div>
                       {catalog.data && (!stat || !stat.eligible) && (
                         <p className="goal-filter-row-warning" role="status">
-                          {stat?.eligibilityReason ?? 'UNKNOWN_STAT'}
+                          {compact
+                            ? actions.unavailable
+                            : (stat?.eligibilityReason ?? 'UNKNOWN_STAT')}
                         </p>
                       )}
                       {(['min', 'max'] as const).map((bound) => (
@@ -553,7 +558,7 @@ export function GoalFilterPanel({
                     setSearchOpen(true)
                   }}
                 >
-                  + {language === 'ko' ? '능력치 필터 추가' : 'Add stat filter'}
+                  + {actions.add}
                 </button>
               )}
             </fieldset>
@@ -594,13 +599,7 @@ export function GoalFilterPanel({
           }
           onClick={() => onEvaluate(structuredClone(goal))}
         >
-          {language === 'ko'
-            ? evaluationPending
-              ? '판정 중'
-              : '현재 아이템 수치 판정'
-            : evaluationPending
-              ? 'Evaluating'
-              : 'Evaluate current item'}
+          {evaluationPending ? actions.evaluating : actions.evaluate}
         </button>
       )}
       <div aria-live="polite">
@@ -609,34 +608,43 @@ export function GoalFilterPanel({
           catalog.data.catalogVersion !== goal.catalogVersion && (
             <p>{t.stale}</p>
           )}
-        {[
-          ...(catalog.data?.issues ?? []),
-          ...(validInput
-            ? (validation.data?.issues ??
-              (validation.error instanceof GoalFilterApiError
-                ? validation.error.issues
-                : []))
-            : []),
-        ].map((issue, i) => (
-          <p key={`${issue.path}-${i}`}>
-            {issue.code}: {issue.message} ({issue.path})
-          </p>
-        ))}
-        {validation.isError && <p>{t.error}</p>}
+        {(!compact || goal.groups.some((group) => group.entries.length > 0)) &&
+          [
+            ...(catalog.data?.issues ?? []),
+            ...(validInput
+              ? (validation.data?.issues ??
+                (validation.error instanceof GoalFilterApiError
+                  ? validation.error.issues
+                  : []))
+              : []),
+          ].map((issue, i) => (
+            <p key={`${issue.path}-${i}`}>
+              {compact
+                ? actions.unavailable
+                : `${issue.code}: ${issue.message} (${issue.path})`}
+            </p>
+          ))}
+        {validation.isError &&
+          !(compact && validation.error instanceof GoalFilterApiError) && (
+            <p>{t.error}</p>
+          )}
       </div>
-      <p role="status">
-        {validInput &&
-        (currentRecommendation?.probability.status === 'COMPLETE' ||
-          currentRecommendation?.probability.status === 'PARTIAL')
-          ? `${currentRecommendation.probability.status} · ${currentRecommendation.probability.reasonCode ?? ''}`
-          : currentRecommendation?.probability.status === 'UNKNOWN'
-            ? t.unknownProbability
-            : t.probability}
-        {currentRecommendation?.probability.reasonCode && (
-          <span> · {currentRecommendation.probability.reasonCode}</span>
-        )}
-      </p>
-      {validInput &&
+      {!compact && (
+        <p role="status">
+          {validInput &&
+          (currentRecommendation?.probability.status === 'COMPLETE' ||
+            currentRecommendation?.probability.status === 'PARTIAL')
+            ? `${currentRecommendation.probability.status} · ${currentRecommendation.probability.reasonCode ?? ''}`
+            : currentRecommendation?.probability.status === 'UNKNOWN'
+              ? t.unknownProbability
+              : t.probability}
+          {currentRecommendation?.probability.reasonCode && (
+            <span> · {currentRecommendation.probability.reasonCode}</span>
+          )}
+        </p>
+      )}
+      {!compact &&
+        validInput &&
         currentRecommendation &&
         (currentRecommendation.probability.status === 'COMPLETE' ||
           currentRecommendation.probability.status === 'PARTIAL') && (

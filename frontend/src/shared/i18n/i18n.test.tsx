@@ -123,7 +123,7 @@ describe('locale infrastructure', () => {
     expect(window.localStorage.getItem('i18n-test-film')).toBe(saved)
     window.localStorage.removeItem('i18n-test-film')
   })
-  it('keeps the exact model probability disclosure visible on every tab', () => {
+  it('keeps probability disclosure on calculation tabs and omits it from setup-only Support', () => {
     render(
       <AppProviders>
         <CraftingPage />
@@ -131,14 +131,13 @@ describe('locale infrastructure', () => {
     )
     const disclaimer =
       'Model probability uses published PoE2DB table weights, not verified game odds.'
-    for (const tab of [
-      'Crafting Workbench',
-      'Craft Support',
-      'State explorer',
-    ]) {
+    for (const tab of ['Crafting Workbench', 'State explorer']) {
       fireEvent.click(screen.getByRole('tab', { name: new RegExp(tab) }))
       expect(screen.getByText(disclaimer)).toBeVisible()
     }
+    fireEvent.click(screen.getByRole('tab', { name: 'Craft Support' }))
+    expect(screen.queryByText(disclaimer)).not.toBeInTheDocument()
+    fireEvent.click(screen.getByRole('tab', { name: 'State explorer' }))
     fireEvent.click(screen.getByRole('button', { name: /Language/ }))
     fireEvent.click(screen.getByRole('menuitemradio', { name: '한국어' }))
     expect(

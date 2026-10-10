@@ -1,5 +1,23 @@
 # Craft Support 시작 화면
 
+## 현재 동작 (2026-10-10)
+
+사용자 제공 3열 스케치와 트리 스케치의 실제 이미지를 기준으로 수정했다. 데스크톱에서는 시작 아이템 설정, 실시간 ItemCard, 기존 stat filter 순서로 배치하며 1100px 이하에서는 한 열로 표시한다. 아이템 텍스트는 모달에서 가져오고 확인한다. 모달을 닫으면 진행 중 요청을 취소하고 입력을 보존하며 열기 버튼에 focus를 돌려준다.
+
+속성은 선택한 catalog의 `familyIds`, `affixType`, `layer`, 전체 stat ID 구성이 같은 항목끼리 묶고 별도로 tier를 선택한다. family 또는 stat 근거가 없는 항목은 modifier ID별로 분리한다. 표시 문구·번역·수치 범위를 그룹 식별자로 사용하지 않는다. 기존 level·family 충돌·affix/Crafted 용량·정수 roll 검증을 통과한 후보만 선택할 수 있으며 추가 시에도 재검증한다. 검색 combobox는 번역된 효과와 영어 원문/이름을 검색하고 ArrowUp/Down, Enter, Escape 및 한글 IME를 지원한다. 그룹 선택만으로 아이템을 변경하지 않는다.
+
+기존 stat filter의 조건 편집과 판정은 유지한다. 별도 equipment filter는 없으며 목표 base를 시작 아이템에 맞춰 갱신하되 stat 행은 보존한다. compact 화면의 판정은 `/goal-filters/evaluate`만 호출한다. 실험 확률 계산, 수동 action policy·checkpoint·실패 상태, 별도의 family 비교와 개발 설명은 서비스 화면에 표시하지 않는다. 이전 계산기 API와 해당 모듈의 검증은 그대로 유지한다.
+
+제작 시작은 설정을 접고 당시 카드·아이템·catalog 정의를 루트로 보존한다. 카드 위치에서 루트로 이동하는 애니메이션과 결과 focus/scroll을 제공하며 `prefers-reduced-motion`이면 애니메이션·smooth scroll을 사용하지 않는다. 반복 시작은 루트 하나를 교체한다. 재편집 시 이전 루트는 유지한다. 경로·확률을 만들어내지 않고 빈 트리 안내를 표시한다. 새 UI와 목표 필터 조작 레이블은 기존 6개 locale을 따른다. 생성한 원문과 검증된 ID/수치는 번역으로 변경하지 않는다.
+
+자동 경로 연결의 후속 범위는 stat 목표에서 유효한 정책/후보를 생성하고, 실제 계산 결과로 경로의 상태·간선·확률 범위 및 추천 가능 여부를 반환하는 backend 계약이다. 현재 first-hit API는 명시적인 policy와 modifier/checkpoint 목표를 요구하므로 UI에서 임의 정책을 합성하지 않는다. 기존 Solar 외 붙여넣기 mapping 제한과 goal catalog 지원 범위는 확장하지 않았다.
+
+현재 QA 주소는 `http://localhost:18090`이며 기존 `exile-first-hit-20261010` 프로젝트의 frontend만 갱신한다. DB/Redis와 backend, volume은 변경하지 않는다.
+
+## 이전 구현 기록
+
+아래 내용은 이전 화면의 구현·검증 이력이다. 현재 UI 동작과 QA 주소는 위 명세를 따른다.
+
 이전 디자인 commit `718a2414808a9579510b649f4bf34e1e0eccce7c`에서 이어서 작업했다. 변경은 `CraftSupport.tsx`와 전용 `goal-filter/CraftStart` 연결·스타일·테스트에 한정한다. backend, registry, ItemState, 공통 CSS/i18n은 변경하지 않는다.
 
 실제 Kakao PoE2 거래소의 렌더링 DOM/computed CSS를 확인했다. 1264×800에서 일반/능력치 열은 각각 599.5px, 시작 위치는 x=15/634.5다. 헤더·필터·입력은 30px, 숫자 칸은 약 64px, 접힌 그룹은 33px(헤더 30px+간격 3px)이다. 입력 배경은 `#1e2124`, 라벨은 `#a38d6d`, 선은 `#3b3e3f`다. FontinSmallcaps와 배너 자산은 복사하지 않고 기존 글꼴을 사용한다.
