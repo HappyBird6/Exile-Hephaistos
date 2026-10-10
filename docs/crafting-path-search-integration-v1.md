@@ -109,3 +109,21 @@ Compose/Windows 실행 스크립트는 변경하지 않았다. 기존 DB/volume�
 현재 18090은 교체하지 않았다. 원격 push와 master 병합도 수행하지 않았다.
 
 자체 리뷰만 수행했다. 실제 브라우저 화면 및 전체 Spring/DB 환경에 대한 독립 QA를 권장한다.
+
+## 독립 리뷰 P2: 이전 페이지 요청의 오류 경합
+
+revision 2의 페이지 요청 중 polling이 revision 12를 반영한 뒤 이전 요청의
+`REVISION_EXPIRED`가 최신 job/graph를 지우는 문제를 수정했다. 페이지 성공·실패는
+generation, epoch, job/revision, 요청별 식별자가 모두 현재일 때만 반영한다.
+이전 요청의 정리도 새 페이지 요청의 잠금을 해제하지 않는다. 새 revision은 이전
+요청의 완료를 기다리지 않고 페이지를 요청할 수 있다.
+
+동시 polling의 이전 응답/오류와 새 job 이후 도착한 command conflict도 폐기한다.
+현재 페이지의 만료 오류는 결과를 무효화하고, 현재 transport 오류는 안내와 재시도를
+유지한다. deferred promise로 cancel/resume, 새 job, 새 revision, 페이지 성공/실패,
+완료 순서 및 잠금 보존을 검증하는 22개 회귀를 추가했다. session 검사 37개가 통과했다.
+Backend 변경이 없어 기존 unit/ArchUnit 604개 결과를 재사용했다.
+수정 후 FE 전체 88 files / 2,130 tests가 실패·skip 없이 통과했고,
+lint/typecheck/format:check/build도 통과했다. 동일 lockfile의 npm ci cache를 재사용했다.
+기존 500 kB 초과 bundle 경고는 남아 있다. 검증 container는
+`exile-path-revision-full-v1`이며 socket mount와 외부 network 없이 실행했다.

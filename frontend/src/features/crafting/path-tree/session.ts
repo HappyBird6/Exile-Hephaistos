@@ -34,7 +34,7 @@ export class PathSearchSession {
   private request: CreateRequest | null = null
   private blockedRevision = -1
   private consumed = new Set<string>()
-  private paging = false
+  private paging: symbol | null = null
   private epoch = 0
   constructor(
     readonly client: QueryClient,
@@ -124,6 +124,7 @@ export class PathSearchSession {
       }
       this.client.setQueryData(this.graphKey(), mergeGraph(empty, value.graph))
       this.consumed.clear()
+      this.paging = null
     }
     this.client.setQueryData(this.key(), value)
     this.view.setState({ pending: false, error: null })
@@ -164,7 +165,7 @@ export class PathSearchSession {
     }))
     this.blockedRevision = -1
     this.consumed.clear()
-    this.paging = false
+    this.paging = null
     if (old && ['RUNNING', 'QUEUED', 'PAUSED'].includes(old.status))
       void this.cancelDetached(old).catch(() => {
         /* Old results remain detached even if server cancellation fails. */
@@ -215,10 +216,12 @@ export class PathSearchSession {
     if (!old) throw new PathSearchError('NO_JOB')
     try {
       const value = await this.adapter.read(old.jobId, this.abort.signal)
-      if (epoch !== this.epoch) return this.job ?? old
+      if (epoch !== this.epoch || this.job?.revision !== old.revision)
+        return this.job ?? old
       return this.accept(value, generation) ?? old
     } catch (error) {
-      if (epoch !== this.epoch) return this.job ?? old
+      if (epoch !== this.epoch || this.job?.revision !== old.revision)
+        return this.job ?? old
       this.fail(error, generation)
       throw error
     }
@@ -231,6 +234,8 @@ export class PathSearchSession {
     this.abort.abort()
     this.abort = new AbortController()
     this.epoch++
+    this.paging = null
+    const epoch = this.epoch
     try {
       for (let retry = 0; retry < 2; retry++) {
         const old = this.job
@@ -248,6 +253,7 @@ export class PathSearchSession {
             old.provenance.transition.rulesetIdentity,
             this.abort.signal,
           )
+          if (!this.current(generation) || epoch !== this.epoch) return
           const accepted = this.accept(
             value,
             generation,
@@ -258,6 +264,7 @@ export class PathSearchSession {
               operation === 'CANCEL' ? accepted.revision : -1
           return
         } catch (error) {
+          if (!this.current(generation) || epoch !== this.epoch) return
           if (
             retry ||
             !(error instanceof PathSearchError) ||
@@ -269,18 +276,28 @@ export class PathSearchSession {
         }
       }
     } catch (error) {
-      this.fail(error, generation)
+      if (epoch === this.epoch) this.fail(error, generation)
     } finally {
-      if (this.current(generation)) this.view.setState({ operation: false })
+      if (this.current(generation) && epoch === this.epoch)
+        this.view.setState({ operation: false })
     }
   }
   async more() {
     const generation = this.view.getState().generation,
-      old = this.graph
+      old = this.graph,
+      epoch = this.epoch
     if (!old?.nextCursor || this.paging || this.consumed.has(old.nextCursor))
       return
     const cursor = old.nextCursor
-    this.paging = true
+    const paging = Symbol()
+    this.paging = paging
+    // Success, failure and cleanup all belong to this exact page request.
+    const current = () =>
+      this.current(generation) &&
+      epoch === this.epoch &&
+      this.paging === paging &&
+      this.job?.jobId === old.jobId &&
+      this.job.revision === old.revision
     try {
       const page = await this.adapter.graph(
         old.jobId,
@@ -288,8 +305,7 @@ export class PathSearchSession {
         cursor,
         this.abort.signal,
       )
-      if (!this.current(generation) || this.job?.revision !== old.revision)
-        return
+      if (!current()) return
       if (
         page.nextCursor === cursor ||
         (page.nextCursor && this.consumed.has(page.nextCursor))
@@ -299,9 +315,9 @@ export class PathSearchSession {
       this.consumed.add(cursor)
       this.client.setQueryData(this.graphKey(), merged)
     } catch (error) {
-      this.fail(error, generation)
+      if (current()) this.fail(error, generation)
     } finally {
-      if (this.current(generation)) this.paging = false
+      if (this.paging === paging) this.paging = null
     }
   }
   async recover(parent: JobSnapshot, request: RecoveryRequest) {
