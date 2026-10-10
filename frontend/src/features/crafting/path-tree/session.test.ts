@@ -6,6 +6,9 @@ import { PathSearchSession } from './session'
 import { PathSearchError } from './validation'
 import { fixture, jobFixture, requestFixture } from './fixtures.test-support'
 import type { JobSnapshot } from './types'
+import solarSource from '../../../../../contracts/crafting-paths-v1/solar-source-fixture.json'
+import { createPathSearchRequest } from './request'
+import type { Item } from './types'
 function deferred<T>() {
   let resolve!: (v: T) => void
   const promise = new Promise<T>((r) => {
@@ -29,6 +32,37 @@ function setup() {
   return { adapter, session: new PathSearchSession(client, adapter), client }
 }
 describe('job lifecycle', () => {
+  it('preserves the pinned Solar source snapshot when the current server rejects it', async () => {
+    const original = structuredClone(solarSource.startItem)
+    const input = requestFixture()
+    const request = createPathSearchRequest(
+      solarSource.startItem as Item,
+      input.goal,
+      input.start.provenance,
+    )
+    const transport = vi.fn<typeof fetch>().mockResolvedValue(
+      new Response(
+        JSON.stringify({
+          type: 'about:blank',
+          title: 'Snapshot mismatch',
+          status: 422,
+          code: 'SNAPSHOT_MISMATCH',
+        }),
+        { status: 422 },
+      ),
+    )
+    await expect(
+      createHttpPathSearchAdapter(transport).create(
+        request,
+        new AbortController().signal,
+      ),
+    ).rejects.toMatchObject({ code: 'SNAPSHOT_MISMATCH' })
+    expect(
+      JSON.parse(transport.mock.calls[0]![1]?.body as string).start.item,
+    ).toEqual(original)
+    expect(solarSource.startItem).toEqual(original)
+    expect(transport).toHaveBeenCalledTimes(1)
+  })
   it('retries a lost mutation acknowledgement with the identical command body', async () => {
     const request = {
       version: 1 as const,
@@ -154,6 +188,7 @@ describe('job lifecycle', () => {
     'REVISION_EXPIRED',
     'CATALOG_VERSION_MISMATCH',
     'UNKNOWN_STAT',
+    'SNAPSHOT_MISMATCH',
   ])
     it(`invalidates ${code} without recalculating`, async () => {
       const { adapter, session } = setup()

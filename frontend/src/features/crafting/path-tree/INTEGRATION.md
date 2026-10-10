@@ -2,6 +2,10 @@
 
 기준 계약은 `bb8c624c51106b0047676169bb70362ffe04af7f`이다. 이 namespace만 구현했다. `CraftStart`, `ConnectedGoalFilter`, `editor`, `App`, 번역 루트, 공유 CSS, Backend와 계약 원본은 변경하지 않았다. **프론트 모듈 완료는 Backend 연결 또는 제품 통합 완료가 아니다.** 실제 Solar endpoint의 완전 계산, 서버 취소/재개 경합, 최종 제품 화면은 부모 통합에서 검증해야 한다.
 
+부모의 후속 지시에 따라 wire 변경 없는 계약 보완 `b806a0bf8c1c9c043845f9a032a8c2d3fd77cb31`의 snapshot binding 의미도 반영했다. pinned `solar-source-fixture.startItem`은 원본 oracle이며 제품 입력의 snapshotId를 현재 값으로 자동 교체하지 않는다. `SNAPSHOT_MISMATCH`는 기존 결과/복구를 무효화하고 설정 재검토 안내를 표시한다. 해당 source snapshot을 그대로 전송하고 서버 거부 이후에도 원본이 같은지 확인하는 HTTP 소비자 회귀를 추가했다.
+
+실제 Solar runtime acceptance는 원본과 별개의 current-snapshot 테스트 입력을 만들어야 한다. 현재 Solar catalog/initial, 고정 ruleset, ordinary source 호환성 및 정확한 modifier 정의/roll을 검증한 후 **그 별도 테스트 입력의 snapshotId만** 명시적으로 binding한다. 그 context로 goal catalog를 조회한다. `compatibleSnapshotIds`만으로 제품 입력 migration이나 validator 우회를 승인하지 않는다. 이 작업은 Backend/부모 통합의 실제 endpoint 검증에 남아 있으며 본 FE mock 테스트가 이를 검증했다고 주장하지 않는다.
+
 ## 공개 인터페이스
 
 ```tsx
@@ -163,3 +167,4 @@ IAB 생성 시 `Browser is not available: iab`가 반환되어 실제 브라우�
 - `npm run build`: 통과. 기존 큰 bundle에 대한 Vite 500kB 경고는 남는다. 공통 App에 아직 연결하지 않은 모듈이므로 이것을 최종 제품 통합 빌드라고 표현하지 않는다.
 - 자체 리뷰: 소유 범위, production fixture import 없음, 전이/CDF 구분, 독립 복구 cache, mutation 멱등 키, 늦은 응답 epoch, 읽기 전용 공통 파일 경계를 확인했다. 독립 리뷰는 수행하지 않았다.
 - Backend/Compose/Windows script 변경이 없어 해당 검증은 실행하지 않았다. 기존 18090 서버·DB·볼륨은 변경하지 않았다.
+- 계약 보완 b806a0b 후: 전체 lint/typecheck/format:check/build 재통과. 직접 영향 namespace 4 files / **57 tests 통과**(SNAPSHOT_MISMATCH 2건 추가). 전체 2,103건은 보완 직전 결과이며, 보완 후 전체 재실행이라고 표현하지 않는다. 계약 원본은 계속 읽기 전용이다.

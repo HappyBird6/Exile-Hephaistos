@@ -167,6 +167,7 @@ function SearchStatus({
     'VERSION_CHANGED',
     'CATALOG_VERSION_MISMATCH',
     'RULESET_IDENTITY_MISMATCH',
+    'SNAPSHOT_MISMATCH',
     'UNKNOWN_STAT',
     'INVALID_ITEM',
   ].includes(state.error ?? '')
