@@ -185,16 +185,15 @@ it('preserves edited modifier rolls and blocks starting after a ruleset change',
   fireEvent.change(screen.getByRole('combobox', { name: 'Starting rarity' }), {
     target: { value: 'MAGIC' },
   })
-  fireEvent.click(screen.getByRole('button', { name: 'Add modifier' }))
-  const picker = screen.getByRole('combobox', { name: 'Modifier group' })
+  const picker = screen.getByRole('combobox', { name: 'Add modifier' })
   fireEvent.change(picker, { target: { value: 'Life' } })
   fireEvent.keyDown(picker, { key: 'Enter' })
-  fireEvent.change(screen.getByLabelText('Starting modifier tier'), {
-    target: { value: 'p' },
-  })
-  fireEvent.change(screen.getByLabelText('Value 1.1'), {
-    target: { value: '18' },
-  })
+  fireEvent.change(
+    screen.getByRole('spinbutton', { name: /Value.*maximum Life/ }),
+    {
+      target: { value: '18' },
+    },
+  )
   const text = (
     screen.getByLabelText('Starting item text') as HTMLTextAreaElement
   ).value
@@ -237,7 +236,7 @@ it('preserves CraftStart editor provenance and disables the old numeric input af
   })
   await waitFor(() => expect(start).toBeDisabled())
   expect(screen.getByLabelText('Starting item text')).toHaveValue(text)
-  expect(screen.getByRole('button', { name: 'Add modifier' })).toBeDisabled()
+  expect(screen.getByRole('combobox', { name: 'Add modifier' })).toBeDisabled()
   fireEvent.change(screen.getByLabelText('Starting item base'), {
     target: { value: 'solar' },
   })

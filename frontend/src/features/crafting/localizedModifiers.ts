@@ -116,3 +116,50 @@ export function modifierTranslationStatus(
     ? 'VERIFIED'
     : 'ENGLISH_FALLBACK'
 }
+
+/** Mark the edited value in its verified effect sentence, without internal IDs. */
+export function localizedModifierValueLabel(
+  definition: Definition,
+  statId: string,
+  valueLabel: string,
+  locale = getLocale(),
+): string {
+  const verified = verifiedTemplate(definition, locale)
+  const index = definition.stats?.findIndex((stat) => stat.id === statId) ?? -1
+  if (verified) {
+    const { binding, translation } = verified
+    const valueIndex = binding.valueStats
+      ? binding.valueStats.findIndex((stat) => stat.id === statId)
+      : binding.values.length === definition.stats?.length
+        ? index
+        : -1
+    if (valueIndex >= 0)
+      return translation.template.replace(/\{v(\d+)\}/g, (match, i: string) =>
+        Number(i) === valueIndex
+          ? `[${valueLabel}]`
+          : (binding.values[Number(i)] ?? match),
+      )
+  }
+  const ranges = [
+    ...definition.text.matchAll(
+      /\((-?\d+(?:\.\d+)?)\s*[\u2014\u2013?-]\s*(-?\d+(?:\.\d+)?)\)/g,
+    ),
+  ]
+  if (
+    ranges.length === definition.stats?.length &&
+    ranges[index] &&
+    ranges.every(
+      (match, i) =>
+        Number(match[1]) === definition.stats?.[i]?.min &&
+        Number(match[2]) === definition.stats?.[i]?.max,
+    )
+  ) {
+    const match = ranges[index]!
+    return (
+      definition.text.slice(0, match.index) +
+      `[${valueLabel}]` +
+      definition.text.slice(match.index + match[0].length)
+    )
+  }
+  return `${localizedModifierText(definition, undefined, locale)} — ${valueLabel}`
+}

@@ -5,29 +5,32 @@ import { localizedModifierText } from '../localizedModifiers'
 import { groupStartModifiers } from './modifierGroups'
 import { modifierPickerMessages } from './modifierPickerMessages'
 import { PickerPopover } from './PickerPopover'
+import { PickerSearchInput } from './PickerSearchInput'
+import { craftStartMessages } from './craftStartMessages'
 
 export function StartModifierPicker({
   definitions,
   onAdd,
+  placeholder,
+  disabled = false,
 }: {
   definitions: Definition[]
   onAdd: (id: string) => void
+  placeholder?: string
+  disabled?: boolean
 }) {
   const { locale } = useI18n()
   const t = modifierPickerMessages[locale]
   const id = useId()
   const input = useRef<HTMLInputElement>(null)
-  const tier = useRef<HTMLSelectElement>(null)
   const list = useRef<HTMLUListElement>(null)
   const [open, setOpen] = useState(false)
   const [query, setQuery] = useState('')
-  const [selectedId, setSelectedId] = useState('')
   const [active, setActive] = useState(0)
   const groups = groupStartModifiers(definitions).map((group) => ({
     ...group,
     label: `${localizedModifierText(group.tiers[0]!, undefined, locale)} · ${group.tiers[0]!.affixType === 'PREFIX' ? t.prefix : t.suffix}`,
   }))
-  const selected = groups.find((group) => group.id === selectedId)
   const needle = query.normalize('NFC').toLocaleLowerCase(locale).trim()
   const visible = groups.filter((group) =>
     [group.label, ...group.tiers.flatMap((m) => [m.name, m.text])].some(
@@ -45,17 +48,18 @@ export function StartModifierPicker({
   function choose(index: number) {
     const group = visible[index]
     if (!group) return
-    setSelectedId(group.id)
+    if (disabled) return
+    onAdd(group.tiers[0]!.id)
+    input.current?.focus()
     setOpen(false)
     setQuery('')
-    queueMicrotask(() => tier.current?.focus())
   }
   return (
     <div className="start-modifier-picker">
-      <label htmlFor={`${id}-input`}>{t.group}</label>
-      <input
+      <PickerSearchInput
+        label={craftStartMessages[locale].add}
         id={`${id}-input`}
-        ref={input}
+        inputRef={input}
         role="combobox"
         autoComplete="off"
         aria-autocomplete="list"
@@ -64,16 +68,16 @@ export function StartModifierPicker({
         aria-activedescendant={
           open && visible.length ? `${id}-option-${activeIndex}` : undefined
         }
-        placeholder={t.search}
-        disabled={!groups.length}
-        value={open ? query : (selected?.label ?? '')}
+        placeholder={placeholder ?? `+ ${craftStartMessages[locale].add}`}
+        disabled={disabled}
+        value={query}
         onClick={() => {
           if (open) return
           setOpen(true)
           setQuery('')
           setActive(0)
         }}
-        onFocus={(event) => event.currentTarget.select()}
+        onFocus={() => setOpen(true)}
         onBlur={() => setOpen(false)}
         onChange={(event) => {
           setQuery(event.target.value)
@@ -95,9 +99,10 @@ export function StartModifierPicker({
                   visible.length) %
                   Math.max(1, visible.length),
               )
-          } else if (event.key === 'Enter' && open) {
+          } else if (event.key === 'Enter') {
             event.preventDefault()
-            choose(activeIndex)
+            if (open) choose(activeIndex)
+            else setOpen(true)
           } else if (event.key === 'Escape') {
             event.preventDefault()
             event.stopPropagation()
@@ -122,32 +127,11 @@ export function StartModifierPicker({
               </li>
             ))}
           </ul>
-          {!visible.length && <p role="status">{t.noMatch}</p>}
+          {!visible.length && (
+            <p role="status">{groups.length ? t.noMatch : t.empty}</p>
+          )}
         </PickerPopover>
       )}
-      <label htmlFor={`${id}-tier`}>{t.tier}</label>
-      <select
-        id={`${id}-tier`}
-        ref={tier}
-        value=""
-        disabled={!selected}
-        onChange={(event) => {
-          if (!selected?.tiers.some((m) => m.id === event.target.value)) return
-          onAdd(event.target.value)
-          setSelectedId('')
-          setQuery('')
-          setOpen(false)
-          input.current?.focus()
-        }}
-      >
-        <option value="">{t.chooseTier}</option>
-        {selected?.tiers.map((m) => (
-          <option key={m.id} value={m.id}>
-            T{m.tier} · {localizedModifierText(m, undefined, locale)}
-          </option>
-        ))}
-      </select>
-      {!groups.length && <p role="status">{t.empty}</p>}
     </div>
   )
 }

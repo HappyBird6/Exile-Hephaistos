@@ -7,7 +7,7 @@ import { localizedModifierText } from '../localizedModifiers'
 import templates from '../../../shared/i18n/modifierTemplates.json'
 import { StartModifierPicker } from './StartModifierPicker'
 import { groupStartModifiers } from './modifierGroups'
-import { modifierPickerMessages } from './modifierPickerMessages'
+import { craftStartMessages } from './craftStartMessages'
 
 const life = initialFixture.modifiers.p!
 const strength = initialFixture.modifiers.s!
@@ -40,7 +40,7 @@ describe('starting modifier groups', () => {
       groupStartModifiers([{ ...life, text: 'translated label' }])[0]!.id,
     ).toBe(groups[0]!.id)
   })
-  it('supports open-list typeahead, arrows, Escape and separate tier selection', async () => {
+  it('supports open-list typeahead, arrows, Escape and immediate highest eligible tier selection', async () => {
     const add = vi.fn()
     render(
       <StartModifierPicker
@@ -48,11 +48,7 @@ describe('starting modifier groups', () => {
         onAdd={add}
       />,
     )
-    const input = screen.getByRole('combobox', { name: 'Modifier group' })
-    const tier = screen.getByRole('combobox', {
-      name: 'Starting modifier tier',
-    })
-    expect(tier).toBeDisabled()
+    const input = screen.getByRole('combobox', { name: 'Add modifier' })
     fireEvent.click(input)
     expect(
       within(screen.getByRole('listbox')).getAllByRole('option'),
@@ -68,30 +64,24 @@ describe('starting modifier groups', () => {
     ).toHaveLength(1)
     fireEvent.keyDown(input, { key: 'Escape' })
     expect(input).toHaveAttribute('aria-expanded', 'false')
-    expect(tier).toBeDisabled()
+    expect(add).not.toHaveBeenCalled()
     fireEvent.keyDown(input, { key: 'ArrowDown' })
     fireEvent.keyDown(input, { key: 'Enter' })
     await act(async () => {})
-    expect(tier).toHaveFocus()
-    expect(add).not.toHaveBeenCalled()
-    expect(within(tier).getAllByRole('option')).toHaveLength(3)
-    fireEvent.change(tier, { target: { value: 'life-low' } })
-    expect(add).toHaveBeenCalledExactlyOnceWith('life-low')
+    expect(add).toHaveBeenCalledExactlyOnceWith('p')
     expect(input).toHaveFocus()
-    expect(tier).toBeDisabled()
+    expect(screen.getAllByRole('combobox')).toHaveLength(1)
   })
-  it('preserves a chosen group on Escape, closes on blur and ignores IME Enter', () => {
+  it('does not add on Escape, closes on blur and ignores IME Enter', () => {
     const add = vi.fn()
     render(<StartModifierPicker definitions={[life, strength]} onAdd={add} />)
-    const input = screen.getByRole('combobox', { name: 'Modifier group' })
+    const input = screen.getByRole('combobox', { name: 'Add modifier' })
     fireEvent.click(input)
     fireEvent.keyDown(input, { key: 'Enter', isComposing: true })
     expect(input).toHaveAttribute('aria-expanded', 'true')
-    fireEvent.click(screen.getByRole('option', { name: /maximum Life/ }))
-    fireEvent.click(input)
     fireEvent.change(input, { target: { value: 'Strength' } })
     fireEvent.keyDown(input, { key: 'Escape' })
-    expect((input as HTMLInputElement).value).toContain('Life')
+    expect(input).toHaveValue('')
     fireEvent.click(input)
     fireEvent.blur(input)
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
@@ -102,7 +92,7 @@ describe('starting modifier groups', () => {
     const { rerender } = render(
       <StartModifierPicker definitions={[life]} onAdd={add} />,
     )
-    const input = screen.getByRole('combobox', { name: 'Modifier group' })
+    const input = screen.getByRole('combobox', { name: 'Add modifier' })
     fireEvent.change(input, { target: { value: 'not-a-modifier' } })
     expect(screen.getByRole('status')).toHaveTextContent(
       'No matching modifiers.',
@@ -110,13 +100,13 @@ describe('starting modifier groups', () => {
     fireEvent.keyDown(input, { key: 'Enter' })
     expect(add).not.toHaveBeenCalled()
     fireEvent.change(input, { target: { value: 'Life' } })
-    fireEvent.keyDown(input, { key: 'Enter' })
     rerender(<StartModifierPicker definitions={[strength]} onAdd={add} />)
-    expect(
-      screen.getByRole('combobox', { name: 'Starting modifier tier' }),
-    ).toBeDisabled()
+    fireEvent.keyDown(input, { key: 'Enter' })
+    expect(add).not.toHaveBeenCalled()
     rerender(<StartModifierPicker definitions={[]} onAdd={add} />)
-    expect(input).toBeDisabled()
+    expect(input).toBeEnabled()
+    fireEvent.keyDown(input, { key: 'Enter' })
+    expect(add).not.toHaveBeenCalled()
     expect(screen.getByRole('status')).toHaveTextContent(
       'No more modifiers can be added.',
     )
@@ -134,17 +124,15 @@ describe('starting modifier groups', () => {
       }
       const add = vi.fn()
       render(<StartModifierPicker definitions={[definition]} onAdd={add} />)
-      const t = modifierPickerMessages[locale]
-      const input = screen.getByRole('combobox', { name: t.group })
+      const input = screen.getByRole('combobox', {
+        name: craftStartMessages[locale].add,
+      })
       const text = localizedModifierText(definition, undefined, locale)
       fireEvent.change(input, { target: { value: text } })
       expect(
         within(screen.getByRole('listbox')).getByRole('option'),
       ).toHaveTextContent(text)
       fireEvent.keyDown(input, { key: 'Enter' })
-      fireEvent.change(screen.getByRole('combobox', { name: t.tier }), {
-        target: { value: definition.id },
-      })
       expect(add).toHaveBeenCalledExactlyOnceWith(definition.id)
     },
   )

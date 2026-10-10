@@ -138,24 +138,121 @@ async function setup() {
   )
 }
 function chooseLifeGroup() {
-  const picker = screen.getByRole('combobox', { name: 'Modifier group' })
+  const picker = screen.getByRole('combobox', { name: 'Add modifier' })
   fireEvent.change(picker, { target: { value: 'maximum Life' } })
   fireEvent.keyDown(picker, { key: 'Enter' })
 }
 describe('Craft Support starting screen', () => {
+  it('keeps the picker mounted from the first view and places import first', async () => {
+    await setup()
+    const editor = screen.getByRole('region', { name: 'Starting item editor' })
+    expect(within(editor).getAllByRole('button')[0]).toHaveTextContent(
+      'Import item text',
+    )
+    expect(
+      screen.queryByRole('button', { name: 'Add modifier' }),
+    ).not.toBeInTheDocument()
+    const picker = screen.getByRole('combobox', { name: 'Add modifier' })
+    expect(picker).toHaveAttribute(
+      'placeholder',
+      '+ Add modifier · Prefix ≤0 / Suffix ≤0',
+    )
+    fireEvent.change(screen.getByLabelText('Starting rarity'), {
+      target: { value: 'RARE' },
+    })
+    const rows = editor.querySelector('.craft-start-modifier-rows')
+    for (let i = 0; i < 3; i++) {
+      fireEvent.click(picker)
+      expect(editor.querySelector('.picker-popover')).toHaveStyle({
+        position: 'fixed',
+      })
+      fireEvent.keyDown(picker, { key: 'Escape' })
+      expect(screen.getByRole('combobox', { name: 'Add modifier' })).toBe(
+        picker,
+      )
+      expect(editor.querySelector('.craft-start-modifier-rows')).toBe(rows)
+    }
+    chooseLifeGroup()
+    expect(editor.querySelector('.craft-start-rolls')?.children).toHaveLength(4)
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Remove starting modifier 1' }),
+    )
+    expect(editor.querySelector('.craft-start-modifier-rows')).toBe(rows)
+  })
+  it('selects the highest eligible tier at the edited item level and preserves conflicting rows for correction', async () => {
+    const high = { ...solar.modifiers.p!, requiredItemLevel: 80 }
+    const low = {
+      ...high,
+      id: 'low',
+      tier: 2,
+      requiredItemLevel: 1,
+      text: '+(5–15) to maximum Life',
+      stats: [{ id: 'life', min: 5, max: 15 }],
+    }
+    vi.mocked(fetch).mockImplementation(async (input) =>
+      String(input).includes('/registry')
+        ? jsonResponse({ workbenchBases: { solar: {} }, entries: [] })
+        : jsonResponse({
+            ...solar,
+            modifiers: { ...solar.modifiers, p: high, low },
+          }),
+    )
+    await setup()
+    fireEvent.change(screen.getByLabelText('Starting rarity'), {
+      target: { value: 'MAGIC' },
+    })
+    const level = screen.getByRole('spinbutton', { name: 'Item level' })
+    fireEvent.change(level, { target: { value: '79' } })
+    chooseLifeGroup()
+    let tier = screen.getByRole('combobox', { name: /Starting modifier tier:/ })
+    expect(tier).toHaveValue('low')
+    expect(
+      within(tier).queryByRole('option', { name: 'T1' }),
+    ).not.toBeInTheDocument()
+    fireEvent.change(level, { target: { value: '80' } })
+    fireEvent.change(tier, { target: { value: 'p' } })
+    expect(
+      screen.getByRole('spinbutton', { name: /Value.*maximum Life/ }),
+    ).toHaveValue(10)
+    fireEvent.change(
+      screen.getByRole('spinbutton', { name: /Value.*maximum Life/ }),
+      { target: { value: '18' } },
+    )
+    fireEvent.change(level, { target: { value: '79' } })
+    expect(screen.getByRole('alert')).toHaveTextContent(
+      'Change its tier or restore the level',
+    )
+    expect(
+      screen.getByRole('button', { name: 'Start Crafting' }),
+    ).toBeDisabled()
+    tier = screen.getByRole('combobox', { name: /Starting modifier tier:/ })
+    expect(tier).toHaveValue('p')
+    expect(
+      screen.getByRole('spinbutton', { name: /Value.*maximum Life/ }),
+    ).toHaveValue(18)
+    fireEvent.change(tier, { target: { value: 'low' } })
+    expect(
+      screen.getByRole('spinbutton', { name: /Value.*maximum Life/ }),
+    ).toHaveValue(15)
+    expect(screen.getByRole('button', { name: 'Start Crafting' })).toBeEnabled()
+    fireEvent.click(screen.getByRole('button', { name: 'Start Crafting' }))
+    fireEvent.click(screen.getByRole('button', { name: /Edit settings/ }))
+    expect(level).toHaveValue(79)
+  })
   it('requires an explicit rarity choice, blocks conflicting downgrades and keeps Magic through editing and restart', async () => {
     await setup()
     const rarity = screen.getByRole('combobox', { name: 'Starting rarity' })
     expect(rarity).toHaveValue('NORMAL')
-    fireEvent.click(screen.getByRole('button', { name: 'Add modifier' }))
+    expect(screen.getByRole('combobox', { name: 'Add modifier' })).toBeEnabled()
+    fireEvent.click(screen.getByRole('combobox', { name: 'Add modifier' }))
     expect(
-      screen.getByRole('combobox', { name: 'Modifier group' }),
-    ).toBeDisabled()
+      screen.queryByRole('option', { name: /maximum Life/ }),
+    ).not.toBeInTheDocument()
+    fireEvent.keyDown(screen.getByRole('combobox', { name: 'Add modifier' }), {
+      key: 'Escape',
+    })
     fireEvent.change(rarity, { target: { value: 'MAGIC' } })
     chooseLifeGroup()
-    fireEvent.change(screen.getByLabelText('Starting modifier tier'), {
-      target: { value: 'p' },
-    })
     expect(rarity).toHaveValue('MAGIC')
     expect(
       within(rarity).getByRole('option', { name: 'Normal' }),
@@ -384,11 +481,7 @@ describe('Craft Support starting screen', () => {
       screen.getByRole('combobox', { name: 'Starting rarity' }),
       { target: { value: 'MAGIC' } },
     )
-    fireEvent.click(screen.getByRole('button', { name: 'Add modifier' }))
     chooseLifeGroup()
-    fireEvent.change(screen.getByLabelText('Starting modifier tier'), {
-      target: { value: 'p' },
-    })
     expect(
       screen.getByRole('region', { name: 'Starting item preview' }),
     ).toHaveTextContent('+10 to maximum Life')
@@ -410,7 +503,9 @@ describe('Craft Support starting screen', () => {
       screen.getByRole('region', { name: 'Crafting tree preview' }),
     ).toHaveTextContent('Iron Ring')
     fireEvent.click(screen.getByRole('button', { name: /Edit settings/ }))
-    expect(screen.getByLabelText('Value 1.1')).toHaveValue(10)
+    expect(
+      screen.getByRole('spinbutton', { name: /Value.*maximum Life/ }),
+    ).toHaveValue(10)
   })
   it('accepts the exact Amulet alias for verified pasted Solar text', async () => {
     await setup()
@@ -435,24 +530,26 @@ describe('Craft Support starting screen', () => {
       screen.getByRole('combobox', { name: 'Starting rarity' }),
       { target: { value: 'RARE' } },
     )
-    fireEvent.click(screen.getByRole('button', { name: 'Add modifier' }))
     chooseLifeGroup()
-    fireEvent.change(screen.getByLabelText('Starting modifier tier'), {
-      target: { value: 'p' },
-    })
     const preview = screen.getByRole('region', {
       name: 'Starting item preview',
     })
     expect(preview).toHaveTextContent('+10 to maximum Life')
-    fireEvent.change(screen.getByLabelText('Value 1.1'), {
-      target: { value: '21' },
-    })
+    fireEvent.change(
+      screen.getByRole('spinbutton', { name: /Value.*maximum Life/ }),
+      {
+        target: { value: '21' },
+      },
+    )
     expect(
       screen.getByRole('button', { name: 'Start Crafting' }),
     ).toBeDisabled()
-    fireEvent.change(screen.getByLabelText('Value 1.1'), {
-      target: { value: '18' },
-    })
+    fireEvent.change(
+      screen.getByRole('spinbutton', { name: /Value.*maximum Life/ }),
+      {
+        target: { value: '18' },
+      },
+    )
     expect(preview).toHaveTextContent('+18 to maximum Life')
     fireEvent.click(screen.getByRole('button', { name: 'Start Crafting' }))
     fireEvent.click(screen.getByRole('button', { name: /Edit settings/ }))

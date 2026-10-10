@@ -1,0 +1,44 @@
+.craft-start .craft-picker-label.craft-picker-label,
+.goal-filter .craft-picker-label.craft-picker-label {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 5px;
+  margin: 0 0 10px;
+  font-size: 12px;
+  line-height: 1.35;
+}
+.craft-start.craft-start
+  .craft-picker-label
+  .craft-picker-input.craft-picker-input,
+.goal-filter .craft-picker-label .craft-picker-input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 32px;
+  min-height: 32px;
+  margin: 0;
+  padding: 5px 8px;
+  font: inherit;
+  background: #1e2124;
+  border: 1px solid #393b3d;
+}
+.picker-popover [role='listbox'] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.craft-start .picker-popover [role='option'],
+.picker-popover [role='option'] {
+  padding: 8px;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.craft-start .picker-popover .goal-filter-candidates [role='option'] {
+  padding-right: 38px;
+}
+.picker-popover [role='option']:hover,
+.picker-popover [role='option'][aria-selected='true'] {
+  background: #33302a;
+  color: #dfcfad;
+}

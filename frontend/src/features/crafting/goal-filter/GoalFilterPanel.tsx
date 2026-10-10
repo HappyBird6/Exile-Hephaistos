@@ -10,6 +10,8 @@ import { groupTypes, weighted } from './types'
 import { setupMessages } from './setupMessages'
 import { startInputMessages } from './startInputMessages'
 import { PickerPopover } from './PickerPopover'
+import { PickerSearchInput } from './PickerSearchInput'
+import { craftStartMessages } from './craftStartMessages'
 import type {
   Context,
   GoalFilter,
@@ -151,7 +153,10 @@ export function GoalFilterPanel({
     catalog.data?.stats.filter(
       (s) =>
         (category === 'ALL' || s.kind === category) &&
-        `${s.label} ${s.statId}`.toLowerCase().includes(search.toLowerCase()),
+        `${s.label} ${s.statId}`
+          .normalize('NFC')
+          .toLocaleLowerCase(language)
+          .includes(search.normalize('NFC').toLocaleLowerCase(language).trim()),
     ) ?? []
   const activeIndex = Math.min(activeStat, Math.max(0, stats.length - 1))
   const canAdd = (stat: (typeof stats)[number]) =>
@@ -185,55 +190,57 @@ export function GoalFilterPanel({
           setSearchOpen(false)
       }}
     >
-      <label className="goal-filter-search-input">
-        <span className="goal-filter-sr-only">{t.search}</span>
-        <input
-          ref={searchRef}
-          type="search"
-          role="combobox"
-          autoComplete="off"
-          aria-autocomplete="list"
-          aria-activedescendant={
-            searchOpen && stats.length ? `goal-stat-${activeIndex}` : undefined
+      <PickerSearchInput
+        label={craftStartMessages[language].add}
+        aria-label={t.search}
+        inputRef={searchRef}
+        type="search"
+        role="combobox"
+        autoComplete="off"
+        aria-autocomplete="list"
+        aria-activedescendant={
+          searchOpen && stats.length ? `goal-stat-${activeIndex}` : undefined
+        }
+        placeholder={`+ ${craftStartMessages[language].add}`}
+        aria-expanded={searchOpen}
+        aria-controls="goal-stat-candidates"
+        value={search}
+        onFocus={() => setSearchOpen(true)}
+        onClick={() => setSearchOpen(true)}
+        onKeyDown={(event) => {
+          if (event.nativeEvent.isComposing || event.keyCode === 229) return
+          if (event.key === 'Escape') {
+            event.preventDefault()
+            event.stopPropagation()
+            setSearchOpen(false)
+            setSearch('')
           }
-          placeholder={`+ ${actions.add}…`}
-          aria-expanded={searchOpen}
-          aria-controls="goal-stat-candidates"
-          value={search}
-          onFocus={() => setSearchOpen(true)}
-          onClick={() => setSearchOpen(true)}
-          onKeyDown={(event) => {
-            if (event.nativeEvent.isComposing || event.keyCode === 229) return
-            if (event.key === 'Escape') {
-              event.preventDefault()
-              event.stopPropagation()
-              setSearchOpen(false)
-            }
-            if (event.key === 'Enter') {
-              event.preventDefault()
-              if (searchOpen) chooseStat(activeIndex)
-              else setSearchOpen(true)
-            }
-            if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
-              event.preventDefault()
-              setSearchOpen(true)
-              setActiveStat(
-                searchOpen
-                  ? (activeIndex +
-                      (event.key === 'ArrowDown' ? 1 : -1) +
-                      stats.length) %
-                      Math.max(1, stats.length)
-                  : 0,
-              )
-            }
-          }}
-          onChange={(e) => {
-            setSearch(e.target.value)
+          if (event.key === 'Enter') {
+            event.preventDefault()
+            if (searchOpen) chooseStat(activeIndex)
+            else setSearchOpen(true)
+          }
+          if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+            event.preventDefault()
             setSearchOpen(true)
-            setActiveStat(0)
-          }}
-        />
-      </label>
+            setActiveStat(
+              searchOpen
+                ? (activeIndex +
+                    (event.key === 'ArrowDown' ? 1 : -1) +
+                    stats.length) %
+                    Math.max(1, stats.length)
+                : event.key === 'ArrowUp'
+                  ? Math.max(0, stats.length - 1)
+                  : 0,
+            )
+          }
+        }}
+        onChange={(e) => {
+          setSearch(e.target.value)
+          setSearchOpen(true)
+          setActiveStat(0)
+        }}
+      />
       {searchOpen && (
         <PickerPopover anchor={searchRef}>
           <div className="goal-filter-search-options" hidden={!searchOpen}>
@@ -297,6 +304,8 @@ export function GoalFilterPanel({
                 role="option"
                 aria-selected={index === activeIndex}
                 aria-disabled={!canAdd(stat)}
+                onMouseDown={(event) => event.preventDefault()}
+                onClick={() => chooseStat(index)}
               >
                 <span className="goal-filter-candidate-label">
                   {stat.label} ({unitLabel(stat.unit)}){' '}
@@ -325,7 +334,10 @@ export function GoalFilterPanel({
                   aria-label={`${t.add} ${stat.label}`}
                   disabled={!canAdd(stat)}
                   onMouseDown={(event) => event.preventDefault()}
-                  onClick={() => chooseStat(index)}
+                  onClick={(event) => {
+                    event.stopPropagation()
+                    chooseStat(index)
+                  }}
                 >
                   <span aria-hidden="true">+</span>
                 </button>
