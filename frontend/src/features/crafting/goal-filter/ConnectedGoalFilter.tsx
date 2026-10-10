@@ -22,6 +22,11 @@ import { goalFilterMessages } from './i18n'
 import { presentGoalStat } from './statPresentation'
 
 const adapter = createHttpGoalFilterAdapter()
+export type SearchGoalSnapshot = {
+  goal: GoalFilter
+  catalogVersion: string | null
+  ready: boolean
+}
 export function ConnectedGoalFilter({
   item,
   rulesetIdentity,
@@ -30,6 +35,7 @@ export function ConnectedGoalFilter({
   maxMillis,
   compact = false,
   language,
+  onSearchGoalChange,
 }: {
   item: ConcreteItem | null
   rulesetIdentity?: string | undefined
@@ -38,6 +44,7 @@ export function ConnectedGoalFilter({
   activeOmens: string[]
   maxMillis: number
   compact?: boolean
+  onSearchGoalChange?: (snapshot: SearchGoalSnapshot) => void
 }) {
   const [baseKey, setBaseKey] = useState('support')
   const inventory = useQuery({
@@ -159,6 +166,7 @@ export function ConnectedGoalFilter({
         </p>
       )}
       <ConnectedEditor
+        onSearchGoalChange={onSearchGoalChange}
         initialCatalog={initialCatalog}
         rulesetIdentity={
           baseKey === 'support'
@@ -197,6 +205,7 @@ function ConnectedEditor({
   activeOmens,
   maxMillis,
   compact,
+  onSearchGoalChange,
 }: {
   initialCatalog: Catalog
   item: ConcreteItem | null
@@ -207,6 +216,7 @@ function ConnectedEditor({
   activeOmens: string[]
   maxMillis: number
   compact: boolean
+  onSearchGoalChange?: ((snapshot: SearchGoalSnapshot) => void) | undefined
 }) {
   const { locale } = useI18n()
   const copy = craftStartMessages[locale]
@@ -227,6 +237,32 @@ function ConnectedEditor({
     }
   }, [compact, context.baseItemId, editor])
   const currentCatalog = useGoalFilterCatalog(adapter, context)
+  const [inputReady, setInputReady] = useState(false)
+  useEffect(() => {
+    const catalog = currentCatalog.data
+    onSearchGoalChange?.({
+      goal: structuredClone(goal),
+      catalogVersion: catalog?.catalogVersion ?? null,
+      ready:
+        inputReady &&
+        currentCatalog.isSuccess &&
+        !currentCatalog.isFetching &&
+        catalog?.catalogVersion === goal.catalogVersion &&
+        catalog.context.snapshotId === context.snapshotId &&
+        catalog.context.baseItemId === context.baseItemId &&
+        catalog.context.itemLevel === context.itemLevel,
+    })
+  }, [
+    goal,
+    currentCatalog.data,
+    currentCatalog.isSuccess,
+    currentCatalog.isFetching,
+    context.snapshotId,
+    context.baseItemId,
+    context.itemLevel,
+    onSearchGoalChange,
+    inputReady,
+  ])
   const [submitted, setSubmitted] = useState<{
     goal: GoalFilter
     identity: string
@@ -321,6 +357,7 @@ function ConnectedEditor({
         </p>
       )}
       <GoalFilterPanel
+        onSearchReadinessChange={setInputReady}
         presentStatIds={presentNumericStats(
           item,
           currentCatalog.data ?? initialCatalog,

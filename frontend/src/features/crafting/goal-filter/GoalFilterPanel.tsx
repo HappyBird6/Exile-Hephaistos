@@ -84,6 +84,7 @@ export function GoalFilterPanel({
   recommendationGoal,
   onEvaluate,
   onInputEdit,
+  onSearchReadinessChange,
   evaluationPending = false,
   evaluationAvailable = true,
   presentStatIds = new Set<string>(),
@@ -98,6 +99,7 @@ export function GoalFilterPanel({
   recommendationGoal?: GoalFilter | undefined
   onEvaluate?: (goal: GoalFilter) => void
   onInputEdit?: () => void
+  onSearchReadinessChange?: (ready: boolean) => void
   evaluationPending?: boolean
   presentStatIds?: ReadonlySet<string>
   evaluationAvailable?: boolean
@@ -147,6 +149,14 @@ export function GoalFilterPanel({
       : undefined
   const validInput = !Object.values(invalidFields).some(Boolean)
   const validation = useGoalFilterValidation(adapter, context, goal, validInput)
+  const searchReady =
+    validInput &&
+    validation.data?.valid === true &&
+    !validation.isFetching &&
+    !validation.isError
+  useEffect(() => {
+    onSearchReadinessChange?.(searchReady)
+  }, [searchReady, onSearchReadinessChange])
   const [search, setSearch] = useState('')
   const [searchOpen, setSearchOpen] = useState(false)
   const [activeStat, setActiveStat] = useState(0)

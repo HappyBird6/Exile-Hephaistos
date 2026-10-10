@@ -1,4 +1,10 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react'
 import type { ReactNode } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { createStore } from 'zustand/vanilla'
@@ -12,6 +18,15 @@ import { ItemCard } from '../ItemCard'
 import type { ItemCardData } from '../itemCardData'
 import { toItemCard } from '../itemCardData'
 import { ConnectedGoalFilter } from './ConnectedGoalFilter'
+import type { SearchGoalSnapshot } from './ConnectedGoalFilter'
+import {
+  PathTree,
+  createPathSearchRequest,
+  createItemPresentation,
+} from '../path-tree'
+import type { CreateRequest } from '../path-tree'
+import { loadProvenance } from '../basic-paths/api'
+import { pathTreeMessages } from '../path-tree/messages'
 import { StartModifierPicker } from './StartModifierPicker'
 import { craftStartMessages } from './craftStartMessages'
 import { startInputIssue } from './startInputMessages'
@@ -47,6 +62,9 @@ type Draft = {
   rootItem: ConcreteItem | null
   rootDefinitions: Initial['modifiers'] | null
   checking: boolean
+  searchGoal: SearchGoalSnapshot | null
+  searchRequest: CreateRequest | null
+  searchIssue: boolean
 }
 export function CraftStart({
   active,
@@ -78,10 +96,20 @@ export function CraftStart({
       rootItem: null,
       rootDefinitions: null,
       checking: false,
+      searchGoal: null,
+      searchRequest: null,
+      searchIssue: false,
     })),
   )
   const draft = useStore(editor)
-  const update = (value: Partial<Draft>) => editor.setState(value)
+  const update = (value: Partial<Draft>) =>
+    editor.setState({ searchRequest: null, searchIssue: false, ...value })
+  const onSearchGoalChange = useCallback(
+    (searchGoal: SearchGoalSnapshot) => {
+      editor.setState({ searchGoal, searchRequest: null, searchIssue: false })
+    },
+    [editor],
+  )
   const request = useRef<AbortController | null>(null)
   const revision = useRef(0)
   const checking = draft.checking
@@ -167,6 +195,20 @@ export function CraftStart({
   const currentRules =
     !!draft.rulesetIdentity &&
     draft.rulesetIdentity === selected?.initial.rulesetIdentity
+  const provenance = useQuery({
+    queryKey: ['craftStart', 'provenance', draft.rulesetIdentity],
+    enabled: active && currentRules,
+    queryFn: ({ signal }) => loadProvenance(signal),
+    retry: false,
+  })
+  const currentProvenance =
+    !provenance.isFetching &&
+    !provenance.isError &&
+    provenance.data?.rulesetIdentity === draft.rulesetIdentity
+  const omenIdentity = JSON.stringify(activeOmens)
+  useEffect(() => {
+    editor.setState({ searchRequest: null, searchIssue: false })
+  }, [active, currentRules, currentProvenance, omenIdentity, editor])
   function cancel() {
     revision.current++
     request.current?.abort()
@@ -424,6 +466,20 @@ export function CraftStart({
             </p>
           )}
           {inventory.isLoading && <p role="status">{copy.loading}</p>}
+          {provenance.isError && (
+            <p role="alert">
+              {pathTreeMessages[locale].error}{' '}
+              <button onClick={() => void provenance.refetch()}>
+                {copy.retry}
+              </button>
+            </p>
+          )}
+          {((provenance.data && !currentProvenance && !provenance.isFetching) ||
+            (draft.searchGoal?.catalogVersion &&
+              draft.searchGoal.catalogVersion !==
+                draft.searchGoal.goal.catalogVersion)) && (
+            <p role="status">{pathTreeMessages[locale].changed}</p>
+          )}
           <div className="craft-start-workspace">
             <section className="craft-start-editor" aria-label={copy.editor}>
               <button
@@ -696,23 +752,43 @@ export function CraftStart({
                   checking ||
                   Boolean(draft.issue) ||
                   Boolean(stateIssues.length) ||
+                  !draft.searchGoal?.ready ||
+                  !currentProvenance ||
                   levelConflict
                 }
                 onClick={() => {
+                  let searchRequest: CreateRequest
+                  try {
+                    searchRequest = createPathSearchRequest(
+                      draft.item!,
+                      draft.searchGoal!.goal,
+                      provenance.data!,
+                      activeOmens,
+                    )
+                  } catch {
+                    update({ searchIssue: true })
+                    return
+                  }
                   origin.current =
                     preview.current?.getBoundingClientRect() ?? null
                   update({
                     started: true,
+                    searchRequest,
                     editing: false,
                     root: draft.card,
-                    rootItem: draft.item,
-                    rootDefinitions: selected?.initial.modifiers ?? null,
+                    rootItem: structuredClone(draft.item),
+                    rootDefinitions: structuredClone(
+                      selected?.initial.modifiers ?? null,
+                    ),
                   })
                   setRun((value) => value + 1)
                 }}
               >
                 {copy.start}
               </button>
+              {draft.searchIssue && (
+                <p role="alert">{pathTreeMessages[locale].unsupported}</p>
+              )}
             </section>
             <section className="craft-start-preview" aria-label={copy.preview}>
               <h3>{copy.create}</h3>
@@ -737,6 +813,7 @@ export function CraftStart({
               <h3>{copy.target}</h3>
               {context && (
                 <ConnectedGoalFilter
+                  onSearchGoalChange={onSearchGoalChange}
                   rulesetIdentity={draft.rulesetIdentity ?? undefined}
                   item={currentRules ? draft.item : null}
                   context={context}
@@ -750,31 +827,34 @@ export function CraftStart({
           </div>
         </div>
       </section>
-      {draft.started && draft.root && (
-        <section
-          className="craft-start-tree"
-          ref={tree}
-          tabIndex={-1}
-          aria-label={copy.tree}
-        >
-          <div className="craft-start-root">
-            <span>{copy.create}</span>
-            <ItemCard
-              item={displayCard(
-                draft.root,
-                draft.rootItem,
+      {active &&
+        currentRules &&
+        currentProvenance &&
+        draft.started &&
+        !draft.editing &&
+        draft.root &&
+        draft.searchRequest &&
+        draft.rootDefinitions && (
+          <section
+            className="craft-start-tree"
+            ref={tree}
+            tabIndex={-1}
+            aria-label={copy.tree}
+          >
+            <PathTree
+              request={draft.searchRequest}
+              inputGeneration={run}
+              presentItem={createItemPresentation(
+                { name: draft.root.base!, itemClass: draft.root.itemClass },
                 draft.rootDefinitions,
               )}
-              {...(draft.rootItem
-                ? { baseItemId: draft.rootItem.baseItemId }
-                : {})}
+              onRecalculate={() => {
+                update({ editing: true })
+                requestAnimationFrame(() => startButton.current?.focus())
+              }}
             />
-          </div>
-          <div className="craft-start-tree-empty" role="status">
-            {copy.empty}
-          </div>
-        </section>
-      )}
+          </section>
+        )}
     </section>
   )
 }

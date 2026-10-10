@@ -44,13 +44,13 @@ it('shows the starting workflow without developer policy, recovery or family com
   ).not.toBeInTheDocument()
   expect(document.querySelector('.basic-paths')).toBeNull()
   fireEvent.click(screen.getByRole('button', { name: 'Start Crafting' }))
-  expect(screen.getByText('No crafting paths yet.')).toBeVisible()
+  expect(screen.getByRole('heading', { name: 'Crafting paths' })).toBeVisible()
   expect(
     vi
       .mocked(fetch)
       .mock.calls.some(
         ([url]) =>
-          String(url).includes('basic-paths') ||
+          String(url).includes('basic-paths/first-hit') ||
           String(url).includes('support/recommend'),
       ),
   ).toBe(false)

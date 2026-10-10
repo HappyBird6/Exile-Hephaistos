@@ -5,6 +5,7 @@ import type {
   Outcome,
 } from '../../features/crafting/craftingApi'
 import { actions } from '../../features/crafting/craftingApi'
+import { requestFixture } from '../../features/crafting/path-tree/fixtures.test-support'
 
 export const rootBucket: Bucket = {
   snapshotId: 'fixture-v1',
@@ -105,6 +106,39 @@ export function fixtureFetch(
   init?: RequestInit,
 ): Promise<Response> {
   const url = String(input)
+  if (url.endsWith('/basic-paths/provenance'))
+    return Promise.resolve(
+      jsonResponse({
+        ...requestFixture().start.provenance,
+        rulesetIdentity: initialFixture.rulesetIdentity,
+      }),
+    )
+  if (url.includes('/goal-filters/catalog?')) {
+    const params = new URL(url, 'http://localhost').searchParams
+    return Promise.resolve(
+      jsonResponse({
+        version: 1,
+        catalogVersion: 'test-catalog',
+        context: {
+          snapshotId: params.get('snapshotId'),
+          baseItemId: params.get('baseItemId'),
+          itemLevel: Number(params.get('itemLevel')),
+        },
+        stats: [],
+        groupTypes: [],
+        issues: [],
+      }),
+    )
+  }
+  if (url.endsWith('/goal-filters/validate'))
+    return Promise.resolve(
+      jsonResponse({
+        version: 1,
+        valid: true,
+        issues: [],
+        capabilities: { evaluation: 'SUPPORTED', probability: 'UNSUPPORTED' },
+      }),
+    )
   if (url.includes('/crafting/initial')) {
     const level = Number(
       new URL(url, 'http://localhost').searchParams.get('itemLevel') ?? 82,

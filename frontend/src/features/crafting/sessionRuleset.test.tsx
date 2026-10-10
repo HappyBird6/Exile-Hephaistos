@@ -9,6 +9,7 @@ import {
   jsonResponse,
 } from '../../shared/test/craftingFixtures'
 import { concreteInitial } from './workbenchApi'
+import { requestFixture } from './path-tree/fixtures.test-support'
 
 afterEach(() => vi.unstubAllGlobals())
 const oldIdentity = initialFixture.rulesetIdentity
@@ -25,7 +26,12 @@ function setup() {
           identity: new Headers(init.headers).get('X-Crafting-Ruleset'),
         })
       let response: Response
-      if (String(url).includes('/initial')) {
+      if (String(url).endsWith('/basic-paths/provenance')) {
+        response = jsonResponse({
+          ...requestFixture().start.provenance,
+          rulesetIdentity: identity,
+        })
+      } else if (String(url).includes('/initial')) {
         const initial = await (await fixtureFetch(url, init)).json()
         response = jsonResponse({ ...initial, rulesetIdentity: identity })
       } else if (String(url).endsWith('/workbench/registry'))

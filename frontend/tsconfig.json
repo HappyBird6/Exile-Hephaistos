@@ -16,5 +16,10 @@
     "noEmit": true,
     "types": ["vite/client", "node"]
   },
-  "include": ["src", "vite.config.ts"]
+  "include": [
+    "src",
+    "vite.config.ts",
+    "path-search-runtime.config.ts",
+    "acceptance"
+  ]
 }

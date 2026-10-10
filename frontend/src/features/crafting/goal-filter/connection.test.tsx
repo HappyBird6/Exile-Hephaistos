@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { ConnectedGoalFilter } from './ConnectedGoalFilter'
+import type { SearchGoalSnapshot } from './ConnectedGoalFilter'
 import { evaluateNumericItem, presentNumericStats } from './numericApi'
 import { addStat, emptyGoal } from './editor'
 import type { Catalog } from './types'
@@ -85,6 +86,7 @@ function setup(
   actual: ConcreteItem | null = item,
   onLegacyChange = vi.fn(),
   compact = false,
+  onSearchGoalChange = vi.fn<(snapshot: SearchGoalSnapshot) => void>(),
 ) {
   const client = new QueryClient({
     defaultOptions: { queries: { retry: false } },
@@ -93,6 +95,7 @@ function setup(
     <div onChange={onLegacyChange}>
       <QueryClientProvider client={client}>
         <ConnectedGoalFilter
+          onSearchGoalChange={onSearchGoalChange}
           rulesetIdentity="fixture-ruleset"
           item={actual}
           context={item}
@@ -128,6 +131,42 @@ function mockFetch(failure = false, recommended: unknown = recommendation) {
   return mock
 }
 describe('production goal connection', () => {
+  it('publishes the existing numeric goal as a detached ready snapshot', async () => {
+    mockFetch()
+    const capture = vi.fn<(snapshot: SearchGoalSnapshot) => void>()
+    setup(item, vi.fn(), true, capture)
+    const search = await screen.findByRole('combobox', { name: 'Search stats' })
+    fireEvent.change(search, { target: { value: 'Cold' } })
+    fireEvent.click(
+      await screen.findByRole('button', { name: 'Add Cold total' }),
+    )
+    await waitFor(() =>
+      expect(capture.mock.lastCall?.[0].goal.groups[0]?.entries).toHaveLength(
+        1,
+      ),
+    )
+    await waitFor(() => expect(capture.mock.lastCall?.[0].ready).toBe(true))
+    const snapshot = capture.mock.lastCall![0]
+    expect(snapshot.ready).toBe(true)
+    expect(snapshot.catalogVersion).toBe('v1')
+    expect(snapshot.goal.groups[0]!.entries[0]!.statId).toBe('cold-total')
+    snapshot.goal.groups[0]!.entries[0]!.statId = 'consumer-mutation'
+    expect(
+      screen.getByRole('button', { name: 'Delete Cold total' }),
+    ).toBeVisible()
+    expect(screen.queryByText('consumer-mutation')).not.toBeInTheDocument()
+    fireEvent.change(screen.getByPlaceholderText('Min'), {
+      target: { value: 'invalid' },
+    })
+    await waitFor(() => expect(capture.mock.lastCall?.[0].ready).toBe(false))
+    fireEvent.change(screen.getByPlaceholderText('Min'), {
+      target: { value: '15' },
+    })
+    await waitFor(() => expect(capture.mock.lastCall?.[0].ready).toBe(true))
+    expect(
+      capture.mock.lastCall![0].goal.groups[0]!.entries[0]!.range.min,
+    ).toBe(15)
+  })
   it('keeps stat evaluation in compact setup without equipment or probability controls', async () => {
     const fetch = mockFetch()
     setup(item, vi.fn(), true)

@@ -8,6 +8,13 @@ import {
 } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { act } from '@testing-library/react'
+import { useEffect } from 'react'
+import { emptyGoal } from './editor'
+import type { SearchGoalSnapshot } from './ConnectedGoalFilter'
+import type { PathTreeProps } from '../path-tree'
+import { PathTree } from '../path-tree'
+import { ItemCard } from '../ItemCard'
+import { requestFixture } from '../path-tree/fixtures.test-support'
 import { locales, setLocale } from '../../../shared/i18n/i18n'
 import { craftStartMessages } from './craftStartMessages'
 import { CraftStart } from './CraftStart'
@@ -21,12 +28,45 @@ import { mapSolarText } from '../workbenchApi'
 import type { Item } from '../itemModels'
 
 vi.mock('./ConnectedGoalFilter', () => ({
-  ConnectedGoalFilter: () => (
-    <label>
-      Target draft
-      <input defaultValue="preserved" />
-    </label>
-  ),
+  ConnectedGoalFilter: ({
+    context,
+    onSearchGoalChange,
+  }: {
+    context: { baseItemId: string }
+    onSearchGoalChange: (snapshot: SearchGoalSnapshot) => void
+  }) => {
+    const baseItemId = context.baseItemId
+    useEffect(
+      () =>
+        onSearchGoalChange({
+          goal: emptyGoal({ baseItemId }, 'test-catalog'),
+          catalogVersion: 'test-catalog',
+          ready: true,
+        }),
+      [baseItemId, onSearchGoalChange],
+    )
+    return (
+      <label>
+        Target draft
+        <input defaultValue="preserved" />
+      </label>
+    )
+  },
+}))
+vi.mock('../basic-paths/api', async (original) => ({
+  ...(await original<typeof import('../basic-paths/api')>()),
+  loadProvenance: vi.fn(async () => ({
+    ...requestFixture().start.provenance,
+    rulesetIdentity: initialFixture.rulesetIdentity,
+  })),
+}))
+vi.mock('../path-tree', async (original) => ({
+  ...(await original<typeof import('../path-tree')>()),
+  PathTree: vi.fn(({ request, presentItem }: PathTreeProps) => (
+    <div className="craft-start-root">
+      <ItemCard item={presentItem(request.start.item, 'en')} />
+    </div>
+  )),
 }))
 vi.mock('../itemTextApi', async (importOriginal) => ({
   ...(await importOriginal<typeof import('../itemTextApi')>()),
@@ -119,14 +159,14 @@ afterEach(() => {
   vi.unstubAllGlobals()
   vi.clearAllMocks()
 })
-async function setup() {
+async function setup(activeOmens: string[] = []) {
   render(
     <QueryClientProvider
       client={
         new QueryClient({ defaultOptions: { queries: { retry: false } } })
       }
     >
-      <CraftStart active>
+      <CraftStart active activeOmens={activeOmens}>
         <p>Family controls preserved</p>
       </CraftStart>
     </QueryClientProvider>,
@@ -143,6 +183,37 @@ function chooseLifeGroup() {
   fireEvent.keyDown(picker, { key: 'Enter' })
 }
 describe('Craft Support starting screen', () => {
+  it('preserves settings after an unsupported search input without locking the start button', async () => {
+    await setup(['unsupported-omen'])
+    fireEvent.click(screen.getByRole('button', { name: 'Start Crafting' }))
+    expect(screen.getByRole('alert').textContent).toBe(
+      'This starting item or goal is not supported yet.',
+    )
+    expect(screen.getByRole('button', { name: 'Start Crafting' })).toBeEnabled()
+    expect(vi.mocked(PathTree)).not.toHaveBeenCalled()
+  })
+  it('captures a detached item, existing goal AST and provenance together on start', async () => {
+    await setup()
+    fireEvent.click(screen.getByRole('button', { name: 'Start Crafting' }))
+    const captured = vi.mocked(PathTree).mock.lastCall![0].request
+    expect(captured.start.item.snapshotId).toBe(solar.state.snapshotId)
+    expect(captured.start.item.baseItemId).toBe(solar.state.baseItemId)
+    expect(captured.start.provenance.rulesetIdentity).toBe(
+      solar.rulesetIdentity,
+    )
+    expect(captured.goal.catalogVersion).toBe('test-catalog')
+    expect(captured.goal.groups[0]!.type).toBe('AND')
+    expect(captured.observations).toEqual(['100', '300', '500'])
+    const frozen = structuredClone(captured)
+    fireEvent.click(screen.getByRole('button', { name: /Edit settings/ }))
+    fireEvent.change(screen.getByLabelText('Starting equipment type'), {
+      target: { value: 'Rings' },
+    })
+    expect(captured).toEqual(frozen)
+    expect(
+      screen.queryByRole('region', { name: 'Crafting tree preview' }),
+    ).not.toBeInTheDocument()
+  })
   it('keeps the picker mounted from the first view and places import first', async () => {
     await setup()
     const editor = screen.getByRole('region', { name: 'Starting item editor' })
@@ -394,7 +465,7 @@ describe('Craft Support starting screen', () => {
       }
     },
   )
-  it('synchronizes base text and starts an empty tree without mapping or probability calls', async () => {
+  it('synchronizes base text and commits the tree input without extra mapping or numeric evaluation', async () => {
     await setup()
     fireEvent.change(screen.getByLabelText('Starting equipment type'), {
       target: { value: 'Rings' },
@@ -411,7 +482,6 @@ describe('Craft Support starting screen', () => {
     expect(
       screen.getByRole('region', { name: 'Crafting tree preview' }),
     ).toHaveTextContent('Iron Ring')
-    expect(screen.getByText('No crafting paths yet.')).toBeVisible()
     expect(screen.getByLabelText('Starting item text')).not.toBeVisible()
     fireEvent.click(screen.getByRole('button', { name: /Edit settings/ }))
     expect(screen.getByLabelText('Target draft')).toHaveValue('Spirit target')
@@ -569,10 +639,8 @@ describe('Craft Support starting screen', () => {
       screen.getByRole('button', { name: 'Remove starting modifier 1' }),
     )
     expect(
-      within(
-        screen.getByRole('region', { name: 'Crafting tree preview' }),
-      ).getByText('+18 to maximum Life'),
-    ).toBeVisible()
+      screen.queryByRole('region', { name: 'Crafting tree preview' }),
+    ).not.toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: 'Start Crafting' }))
     expect(
       screen.getByRole('region', { name: 'Crafting tree preview' }),
