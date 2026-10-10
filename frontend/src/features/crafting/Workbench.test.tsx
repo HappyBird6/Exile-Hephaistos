@@ -78,7 +78,7 @@ describe('Workbench actual application', () => {
     fireEvent.change(screen.getByLabelText('Equipment base'), {
       target: { value: 'stocky' },
     })
-    fireEvent.change(screen.getByLabelText('Item level'), {
+    fireEvent.change(screen.getByRole('spinbutton', { name: 'Item level' }), {
       target: { value: '83' },
     })
     fireEvent.click(screen.getByRole('button', { name: /Place base/ }))

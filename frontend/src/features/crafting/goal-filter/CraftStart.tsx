@@ -89,6 +89,7 @@ export function CraftStart({
   const startButton = useRef<HTMLButtonElement>(null)
   const editButton = useRef<HTMLButtonElement>(null)
   const importButton = useRef<HTMLButtonElement>(null)
+  const modifierRegion = useRef<HTMLDivElement>(null)
   const dialog = useRef<HTMLDialogElement>(null)
   const preview = useRef<HTMLDivElement>(null)
   const tree = useRef<HTMLElement>(null)
@@ -608,7 +609,7 @@ export function CraftStart({
                 <p role="alert">{startInputIssue(draft.issue, locale)}</p>
               )}
               {!!stateIssues.length && <p role="alert">{levels.invalid}</p>}
-              <div className="craft-start-modifiers">
+              <div className="craft-start-modifiers" ref={modifierRegion}>
                 <StartModifierPicker
                   key={draft.base + ':' + draft.rulesetIdentity}
                   definitions={levelConflict ? [] : availableModifiers}
@@ -672,7 +673,14 @@ export function CraftStart({
                             })
                           }
                           onIssue={(issue) => update({ issue })}
-                          onRemove={() => saveItem(without)}
+                          onRemove={() => {
+                            saveItem(without)
+                            modifierRegion.current
+                              ?.querySelector<HTMLInputElement>(
+                                'input[role="combobox"]',
+                              )
+                              ?.focus()
+                          }}
                         />
                       )
                     })}

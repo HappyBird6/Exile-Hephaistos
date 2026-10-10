@@ -174,10 +174,14 @@ describe('Craft Support starting screen', () => {
     }
     chooseLifeGroup()
     expect(editor.querySelector('.craft-start-rolls')?.children).toHaveLength(4)
-    fireEvent.click(
-      screen.getByRole('button', { name: 'Remove starting modifier 1' }),
-    )
+    const remove = screen.getByRole('button', {
+      name: 'Remove starting modifier 1',
+    })
+    act(() => remove.focus())
+    expect(remove).toHaveFocus()
+    fireEvent.click(remove)
     expect(editor.querySelector('.craft-start-modifier-rows')).toBe(rows)
+    expect(picker).toHaveFocus()
   })
   it('selects the highest eligible tier at the edited item level and preserves conflicting rows for correction', async () => {
     const high = { ...solar.modifiers.p!, requiredItemLevel: 80 }
@@ -238,6 +242,14 @@ describe('Craft Support starting screen', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Start Crafting' }))
     fireEvent.click(screen.getByRole('button', { name: /Edit settings/ }))
     expect(level).toHaveValue(79)
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Remove starting modifier 1' }),
+    )
+    fireEvent.change(level, { target: { value: '80' } })
+    chooseLifeGroup()
+    expect(
+      screen.getByRole('combobox', { name: /Starting modifier tier:/ }),
+    ).toHaveValue('p')
   })
   it('requires an explicit rarity choice, blocks conflicting downgrades and keeps Magic through editing and restart', async () => {
     await setup()
