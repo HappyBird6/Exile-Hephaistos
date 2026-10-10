@@ -14,6 +14,7 @@ import { startInputMessages } from './startInputMessages'
 import { PickerPopover } from './PickerPopover'
 import { PickerSearchInput } from './PickerSearchInput'
 import { craftStartMessages } from './craftStartMessages'
+import { presentGoalStat } from './statPresentation'
 import type {
   Context,
   GoalFilter,
@@ -110,7 +111,7 @@ export function GoalFilterPanel({
       ? '%'
       : unit === 'flat'
         ? startInputMessages[language].value
-        : unit
+        : '?'
   const {
     goal,
     edit,
@@ -164,11 +165,15 @@ export function GoalFilterPanel({
   function editRange(range: Range, bound: keyof Range, value: number | null) {
     range[bound] = value
   }
+  const presentedStats =
+    catalog.data?.stats.map((s) =>
+      presentGoalStat(s, catalog.data!, language),
+    ) ?? []
   const stats =
-    catalog.data?.stats.filter(
+    presentedStats.filter(
       (s) =>
         (category === 'ALL' || s.kind === category) &&
-        `${s.label} ${s.statId}`
+        s.searchText
           .normalize('NFC')
           .toLocaleLowerCase(language)
           .includes(search.normalize('NFC').toLocaleLowerCase(language).trim()),
@@ -565,7 +570,7 @@ export function GoalFilterPanel({
                   </fieldset>
                 )}
                 {group.entries.map((entry, row) => {
-                  const stat = catalog.data?.stats.find(
+                  const stat = presentedStats.find(
                     (s) => s.statId === entry.statId,
                   )
                   return (

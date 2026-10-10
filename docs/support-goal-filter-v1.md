@@ -24,6 +24,10 @@ disabled 그룹 및 행은 판정에서 제외한다. 전부 disabled면 `EMPTY_
 
 ## Catalog와 pseudo
 
+목표 catalog는 `WorkbenchService.reviewedCatalogs()`의 전체 시작 아이템 catalog를 공유한다. 별도 `bases-v1.json`은 이전 버전의 검증 자료이며 런타임 후보 범위를 제한하지 않는다. 응답의 `sourceModifiers`는 선택한 base의 원본 modifier 정의이며, 목표의 `kind + sourceStatIds`를 modifier의 `layer + stats.id`와 연결한다. 이름이나 번역 문자열로 서로 다른 효과를 합치지 않는다. Frontend는 시작 picker와 같은 검증된 6개 언어 modifier template로 목표 설명을 표시하고, 원문 설명·affix 이름·번역 설명을 모두 검색한다. 목표 설명의 `[값]`은 tier/roll 선택이 아닌 해당 source stat 조건의 입력 위치다.
+
+시작 아이템의 rarity 슬롯이나 이미 선택한 family는 최종 목표 후보를 제거하지 않는다. itemLevel에 따른 새 생성 가능 여부는 별도로 유지하며, 기존 아이템에 존재하는 값은 계속 평가할 수 있다. Pseudo는 별도 종류로 유지한다. 후보 표시 범위의 확장은 평가 지원의 확장이 아니다. `definitions-v1.json`의 검토된 14개 source와 6개 pseudo만 기존 단위·합산 규칙으로 평가한다. 그 외 source도 사용자용 설명으로 검색·선택할 수 있으나 단위/효과 미검토 안내와 `UNSUPPORTED` 평가를 유지한다. 단위 변환·복합 효과·확률 모델의 근거 없이 정상 결과나 확률을 만들지 않는다.
+
 catalog 응답은 `{version:1,catalogVersion,context,groupTypes,stats,issues}`다. context는 snapshot/base/itemLevel, groupTypes는 각 type의 evaluation/probability 지원 상태와 reasonCode를 가진다. stat은 `{statId,label,unit,kind,support,eligible,eligibilityReason,sourceStatIds,contributions,sourceUrls}`다. kind는 `EXPLICIT | IMPLICIT | PSEUDO`, support는 `{evaluation:"SUPPORTED"|"UNKNOWN"|"UNSUPPORTED",probability:동일 enum,reasonCode:string|null}`이다. statId는 자체 버전형 식별자이며 GGG ID로 가장하지 않는다. catalog 원본 stat 단위와 표시 단위의 변환은 명시적인 유리수 scale로 등록한다. 알 수 없는 변환은 UNSUPPORTED다.
 
 회귀용 `fixture:explicit.cold_resistance` 및 `fixture:explicit.all_elemental_resistance`는 percent 단위다. `fixture:pseudo.total_cold_resistance`는 두 원천 stat에 coefficient 1을 적용해 합한다. 냉기 10 + 모든 원소 12 = 22다. 원천 modifier/stat/layer별로 한 번만 기여하고 pseudo 결과를 다시 원천으로 더하지 않는다. 모든 원천이 부재이면 pseudo도 부재, 하나라도 존재하면 0 합이어도 존재, 하나라도 미확정이면 값 UNKNOWN이다. fixture ID는 합성 테스트 전용이다. BE가 실제 번들 stat ID·단위·layer 매핑을 증명하고 production statId를 catalog에 노출해야 한다. hybrid/joint-stat 분포를 독립 roll로 분해하지 않는다.

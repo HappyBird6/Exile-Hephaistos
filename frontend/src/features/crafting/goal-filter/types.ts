@@ -58,6 +58,7 @@ export type Stat = {
   sourceUrls: string[]
 }
 export type Catalog = {
+  sourceModifiers?: Record<string, import('../craftingApi').Definition>
   version: 1
   catalogVersion: string
   context: Context

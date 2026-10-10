@@ -33,6 +33,18 @@ public final class WorkbenchService {
   private final ItemCatalog sapphire;
   private final WorkbenchSimulator sapphireSimulator;
 
+  /** The same immutable catalogs used by starting items, including registered equipment. */
+  public List<ItemCatalog> reviewedCatalogs() {
+    var catalogs = new TreeMap<String, ItemCatalog>();
+    java.util.stream.Stream.of(
+            solar, stocky, bow, wand, body, sceptre, belt, helmet, ring, sapphire)
+        .filter(Objects::nonNull)
+        .forEach(c -> catalogs.put(c.base().id(), c));
+    basicJewels.values().forEach(c -> catalogs.put(c.base().id(), c));
+    topBases.values().forEach(c -> catalogs.put(c.base().id(), c));
+    return List.copyOf(catalogs.values());
+  }
+
   public WorkbenchService(
       ItemCatalog solar, WorkbenchSimulator solarSimulator, ItemCatalog stocky) {
     this(solar, solarSimulator, stocky, null);

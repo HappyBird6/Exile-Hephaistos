@@ -124,7 +124,8 @@ public final class GoalCatalogIndex {
         context,
         groups,
         itemCatalog == null ? List.of() : stats(itemCatalog, context.itemLevel()),
-        List.copyOf(issues));
+        List.copyOf(issues),
+        itemCatalog == null ? Map.of() : itemCatalog.modifiers());
   }
 
   /** Retains known IDs across base changes so validation can diagnose ineligibility. */
@@ -169,7 +170,12 @@ public final class GoalCatalogIndex {
     var result = new TreeMap<String, Stat>();
     definitions.forEach(
         (key, modifiers) -> {
-          var first = modifiers.getFirst();
+          var first =
+              modifiers.stream()
+                  .min(
+                      Comparator.comparingInt(ModifierDefinition::tier)
+                          .thenComparing(ModifierDefinition::id))
+                  .orElseThrow();
           var raw =
               first.stats().stream()
                   .map(ModifierDefinition.StatRange::id)
@@ -188,7 +194,7 @@ public final class GoalCatalogIndex {
               key,
               new Stat(
                   key,
-                  supported ? direct.label() : raw,
+                  supported ? direct.label() : first.text(),
                   supported ? direct.unit() : "source",
                   Kind.valueOf(first.layer().name()),
                   new Support(

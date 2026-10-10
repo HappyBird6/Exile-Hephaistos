@@ -71,8 +71,21 @@ class GoalFilterServiceTest {
       var example = mapper.readTree(stream);
       assertThat(example.get("synthetic").booleanValue()).isFalse();
       var context = mapper.treeToValue(example.get("context"), Context.class);
-      assertThat(example.get("catalog"))
-          .isEqualTo(mapper.readTree(mapper.writeValueAsString(all.catalog(context))));
+      var actualCatalog = all.catalog(context);
+      var expectedCatalog =
+          (com.fasterxml.jackson.databind.node.ObjectNode) example.get("catalog").deepCopy();
+      // Modifier families/tags are sets; JSON array iteration order is not part of their contract.
+      var expectedModifiers =
+          mapper.convertValue(
+              expectedCatalog.remove("sourceModifiers"),
+              new com.fasterxml.jackson.core.type.TypeReference<
+                  Map<String, ModifierDefinition>>() {});
+      assertThat(expectedModifiers).isEqualTo(actualCatalog.sourceModifiers());
+      var actualJson =
+          (com.fasterxml.jackson.databind.node.ObjectNode)
+              mapper.readTree(mapper.writeValueAsString(actualCatalog));
+      actualJson.remove("sourceModifiers");
+      assertThat(expectedCatalog).isEqualTo(actualJson);
       var item = mapper.treeToValue(example.get("evaluateRequest").get("item"), ItemState.class);
       var goal = mapper.treeToValue(example.get("evaluateRequest").get("goal"), GoalFilter.class);
       assertThat(example.get("evaluateResponse"))

@@ -1,8 +1,10 @@
 package com.poe2craft.crafting.domain.goalfilter;
 
 import com.poe2craft.crafting.domain.goalfilter.GoalFilter.*;
+import com.poe2craft.item.ModifierDefinition;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 /** Display units and source scales are explicit; production IDs are local, never GGG IDs. */
 public record GoalCatalog(
@@ -11,7 +13,18 @@ public record GoalCatalog(
     Context context,
     List<GroupSupport> groupTypes,
     List<Stat> stats,
-    List<Issue> issues) {
+    List<Issue> issues,
+    Map<String, ModifierDefinition> sourceModifiers) {
+  public GoalCatalog(
+      int version,
+      String catalogVersion,
+      Context context,
+      List<GroupSupport> groupTypes,
+      List<Stat> stats,
+      List<Issue> issues) {
+    this(version, catalogVersion, context, groupTypes, stats, issues, Map.of());
+  }
+
   public record Support(Capability evaluation, Capability probability, String reasonCode) {}
 
   public record GroupSupport(

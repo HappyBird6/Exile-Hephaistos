@@ -19,6 +19,7 @@ import { startBases } from './startItem'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { craftStartMessages } from './craftStartMessages'
 import { goalFilterMessages } from './i18n'
+import { presentGoalStat } from './statPresentation'
 
 const adapter = createHttpGoalFilterAdapter()
 export function ConnectedGoalFilter({
@@ -265,6 +266,10 @@ function ConnectedEditor({
     retry: false,
   })
   const visible = current ? result.data : undefined
+  const displayCatalog = currentCatalog.data ?? initialCatalog
+  const displayStats = displayCatalog.stats.map((stat) =>
+    presentGoalStat(stat, displayCatalog, locale),
+  )
   const ko = language === 'ko'
   return (
     <div className="goal-filter-connected">
@@ -376,7 +381,7 @@ function ConnectedEditor({
               <ul>
                 {group.entries.map((entry) => (
                   <li key={entry.id}>
-                    {(currentCatalog.data ?? initialCatalog).stats.find(
+                    {displayStats.find(
                       (stat) =>
                         stat.statId ===
                         goal.groups
@@ -418,7 +423,7 @@ function ConnectedEditor({
               <ul>
                 {group.entries.map((entry) => (
                   <li key={entry.id}>
-                    {(currentCatalog.data ?? initialCatalog).stats.find(
+                    {displayStats.find(
                       (stat) =>
                         stat.statId ===
                         goal.groups
