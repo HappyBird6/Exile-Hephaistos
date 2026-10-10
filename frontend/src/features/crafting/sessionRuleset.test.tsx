@@ -182,6 +182,9 @@ it('preserves edited modifier rolls and blocks starting after a ruleset change',
   )
   const start = screen.getByRole('button', { name: 'Start Crafting' })
   await waitFor(() => expect(start).toBeEnabled())
+  fireEvent.change(screen.getByRole('combobox', { name: 'Starting rarity' }), {
+    target: { value: 'MAGIC' },
+  })
   fireEvent.click(screen.getByRole('button', { name: 'Add modifier' }))
   const picker = screen.getByRole('combobox', { name: 'Modifier group' })
   fireEvent.change(picker, { target: { value: 'Life' } })
