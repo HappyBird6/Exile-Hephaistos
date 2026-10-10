@@ -48,7 +48,20 @@ public final class RulesetBoundary extends OncePerRequestFilter {
               "code", missing ? "RULESET_IDENTITY_REQUIRED" : "RULESET_IDENTITY_MISMATCH");
           response.setStatus(422);
           response.setContentType("application/problem+json");
-          json.writeValue(response.getOutputStream(), problem);
+          // Preserve the existing endpoints; path-search v1 has a fixed four-member problem shape.
+          Object payload =
+              request.getRequestURI().startsWith("/api/v1/crafting/path-searches")
+                  ? java.util.Map.of(
+                      "type",
+                      "about:blank",
+                      "title",
+                      problem.getTitle(),
+                      "status",
+                      422,
+                      "code",
+                      missing ? "RULESET_IDENTITY_REQUIRED" : "RULESET_IDENTITY_MISMATCH")
+                  : problem;
+          json.writeValue(response.getOutputStream(), payload);
           return;
         }
       }

@@ -5,8 +5,8 @@ import java.util.*;
 import java.util.function.BooleanSupplier;
 
 /** Only consumes a domain-verified constant post-removal kernel, never an assumed generic p. */
-final class ChaosRenewalCalculator {
-  static FirstHitCalculator.Result calculate(
+public final class ChaosRenewalCalculator {
+  public static FirstHitCalculator.Result calculate(
       Fraction p,
       boolean alreadyHit,
       List<Long> observations,

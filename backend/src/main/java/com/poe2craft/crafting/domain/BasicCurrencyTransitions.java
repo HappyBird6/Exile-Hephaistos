@@ -42,6 +42,145 @@ public final class BasicCurrencyTransitions {
     return provenance;
   }
 
+  /**
+   * Streaming proof for the fixed one-explicit policies. The cursor retains the exact elementary
+   * roll position; no truncated transition is promoted to a complete kernel or cached as one.
+   */
+  public RenewalCursor renewalCursor(BasicCurrencyState source, List<WorkbenchCurrency> actions) {
+    return new RenewalCursor(source, actions);
+  }
+
+  public final class RenewalCursor {
+    private final BasicCurrencyState source;
+    private final List<WorkbenchCurrency> actions;
+    private BasicCurrencyPlan plan;
+    private ItemState empty;
+    private int candidateIndex;
+    private long value;
+    private long totalWeight;
+    private String blocked;
+    private boolean unavailable;
+
+    private RenewalCursor(BasicCurrencyState source, List<WorkbenchCurrency> actions) {
+      this.source = source;
+      this.actions = List.copyOf(actions);
+      boolean chaos =
+          actions.size() == 1 && actions.getFirst().baseAction() == CraftingAction.CHAOS;
+      boolean pair =
+          actions.size() == 2
+              && actions.getFirst() == WorkbenchCurrency.ANNULMENT
+              && actions.getLast().baseAction() == CraftingAction.EXALTED;
+      if (!chaos && !pair) throw new IllegalArgumentException("Fixed renewal policy required");
+      var item = source.item();
+      if (!provenance.equals(source.provenance()))
+        throw new IllegalArgumentException("Current provenance required");
+      if (!catalog.base().id().equals(SolarAmulet.BASE_ID)
+          || item.rarity() != ItemState.Rarity.RARE
+          || item.explicits().size() != 1
+          || item.explicits().getFirst().fractured()
+          || item.catalystQuality() != null
+          || !item.conditions().isEmpty()
+          || QualityCapChangePolicy.DEFAULT != QualityCapChangePolicy.PRESERVE_EXISTING) {
+        blocked = "RENEWAL_SCOPE_NOT_SUPPORTED";
+        return;
+      }
+      var removal = simulator.basicCurrencyPlan(item, actions.getFirst());
+      if (!removal.available()) {
+        unavailable = true;
+        blocked = removal.reason();
+        return;
+      }
+      if (removal.branches().size() != 1) {
+        blocked = "RENEWAL_NOT_PROVEN";
+        return;
+      }
+      empty = removal.branches().getFirst().remaining();
+      var expected =
+          new ItemState(
+              item.snapshotId(),
+              item.baseItemId(),
+              item.itemLevel(),
+              item.rarity(),
+              item.implicits(),
+              List.of(),
+              item.conditions(),
+              item.augmentSockets(),
+              item.catalystQuality());
+      if (!empty.equals(expected)) {
+        blocked = "RENEWAL_NOT_PROVEN";
+        return;
+      }
+      var input = pair ? new BasicCurrencyState(empty, provenance) : source;
+      var preflight = expand(input, actions.getLast(), Set.of(), 1);
+      if (preflight.status() == Status.UNSUPPORTED || preflight.status() == Status.UNAVAILABLE) {
+        blocked = preflight.reason();
+        unavailable = preflight.status() == Status.UNAVAILABLE;
+        return;
+      }
+      plan = simulator.basicCurrencyPlan(input.item(), actions.getLast());
+      if (plan.branches().size() != 1 || !plan.branches().getFirst().remaining().equals(empty)) {
+        blocked = "RENEWAL_NOT_PROVEN";
+        return;
+      }
+      for (var candidate : plan.branches().getFirst().candidates())
+        totalWeight = Math.addExact(totalWeight, candidate.weight());
+      value = plan.branches().getFirst().candidates().getFirst().stats().getFirst().min();
+    }
+
+    public String blocked() {
+      return blocked;
+    }
+
+    public boolean unavailable() {
+      return unavailable;
+    }
+
+    public BasicCurrencyState emptyState() {
+      return empty == null ? null : new BasicCurrencyState(empty, provenance);
+    }
+
+    public boolean complete() {
+      return blocked == null && candidateIndex == plan.branches().getFirst().candidates().size();
+    }
+
+    /**
+     * Checks the return kernel for every positive roll, including unrelated and failing outcomes.
+     */
+    public Outcome next() {
+      if (blocked != null || complete()) throw new IllegalStateException("Cursor is not active");
+      var candidates = plan.branches().getFirst().candidates();
+      var candidate = candidates.get(candidateIndex);
+      var range = candidate.stats().getFirst();
+      var instance = new ModifierInstance(candidate.id(), Map.of(range.id(), value));
+      var item = simulator.finishBasicCurrency(empty, List.of(instance));
+      var next = simulator.basicCurrencyPlan(item, actions.getFirst());
+      if (!next.available()
+          || next.branches().size() != 1
+          || !next.branches().getFirst().remaining().equals(empty)) {
+        blocked = "RENEWAL_NOT_PROVEN";
+        return null;
+      }
+      var returning =
+          actions.size() == 1 ? next : simulator.basicCurrencyPlan(empty, actions.getLast());
+      if (!returning.available()
+          || returning.branches().size() != 1
+          || !returning.branches().getFirst().candidates().equals(candidates)) {
+        blocked = "RENEWAL_NOT_PROVEN";
+        return null;
+      }
+      var mass =
+          new Fraction(
+              BigInteger.valueOf(candidate.weight()),
+              BigInteger.valueOf(totalWeight).multiply(rangeSize(range)));
+      if (value == range.max()) {
+        candidateIndex++;
+        if (candidateIndex < candidates.size())
+          value = candidates.get(candidateIndex).stats().getFirst().min();
+      } else value++;
+      return new Outcome(new BasicCurrencyState(item, provenance), mass);
+    }
+  }
+
   public record ChaosRenewal(
       BasicCurrencyState emptyState,
       String targetModifierId,
