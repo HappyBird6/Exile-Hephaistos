@@ -32,12 +32,15 @@ const present: ItemPresentation = (item) => ({
     })),
   ),
 })
-function renderTree(job = jobFixture()) {
+function renderTree(
+  job = jobFixture(),
+  loadGraph: PathSearchAdapter['graph'] = async () => job.graph,
+) {
   const adapter: PathSearchAdapter = {
     id: 'ui-fixture',
     create: vi.fn(async () => job),
     read: vi.fn(async () => job),
-    graph: vi.fn(async () => job.graph),
+    graph: vi.fn(loadGraph),
     mutate: vi.fn(async () => job),
     recover: vi.fn(async () => fixture<JobSnapshot>('conditional-recovery')),
   }
@@ -151,6 +154,83 @@ describe('path tree', () => {
         'From the selected item only. This return chance is separate from the main goal chance.',
       ).length,
     ).toBeGreaterThan(0)
+  })
+  it('loads real paged connections for a visible method exit before submitting recovery', async () => {
+    const job = jobFixture(),
+      r = job.recommendations[0]!
+    r.policy.actions = ['CHAOS']
+    job.graph.edges.forEach((e) => {
+      e.action = 'CHAOS'
+    })
+    const page = structuredClone(job.graph)
+    page.nodes = []
+    page.executions = []
+    page.edges = [page.edges[0]!]
+    job.graph.edges = [job.graph.edges[1]!]
+    job.graph.expansions = []
+    job.graph.nextCursor = 'later-connections'
+    r.method = {
+      fromStateId: 's0',
+      stopCondition: 'FIRST_GOAL_OR_OBSERVATION',
+      cycleUses: 1,
+      proofVersion: 'synthetic:renewal',
+      exits: [
+        {
+          stateId: 's1',
+          kind: 'HIT',
+          points: r.points.map((p) => ({
+            attempts: p.attempts,
+            probability: p.lower,
+          })),
+        },
+        {
+          stateId: 's0',
+          kind: 'ACTIVE',
+          points: r.points.map((p) => ({
+            attempts: p.attempts,
+            probability: p.active,
+          })),
+        },
+      ],
+      omitted: r.points.map((p) => ({
+        attempts: p.attempts,
+        hit: { numerator: '0', denominator: '1' },
+        active: { numerator: '0', denominator: '1' },
+      })),
+    }
+    const { adapter } = renderTree(job, async () => page)
+    const failure = await screen.findByRole('combobox', {
+      name: 'Choose an item that has not reached the goal',
+    })
+    expect(adapter.graph).toHaveBeenCalledWith(
+      job.jobId,
+      job.revision,
+      'later-connections',
+      expect.any(AbortSignal),
+    )
+    expect(
+      within(failure)
+        .getAllByRole('option')
+        .map((option) => (option as HTMLOptionElement).value),
+    ).toContain('x0')
+    fireEvent.change(failure, { target: { value: 'x0' } })
+    fireEvent.change(
+      screen.getByRole('combobox', {
+        name: 'Choose an earlier item to return to',
+      }),
+      { target: { value: 's0' } },
+    )
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Calculate return chance' }),
+    )
+    await waitFor(() => expect(adapter.recover).toHaveBeenCalled())
+    expect(vi.mocked(adapter.recover).mock.calls[0]![1]).toEqual(
+      expect.objectContaining({
+        failureExecutionId: 'x0',
+        checkpointStateId: 's0',
+        parentRevision: job.revision,
+      }),
+    )
   })
   for (const locale of locales)
     it(`has complete dedicated ${locale} copy and native keyboard controls`, async () => {

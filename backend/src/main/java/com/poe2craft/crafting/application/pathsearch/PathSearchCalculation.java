@@ -130,12 +130,16 @@ final class PathSearchCalculation {
     else if (status != Status.NO_MATCH) c.unknown = c.unknown.add(outcome.probability());
     // Separate display budgets prevent early nonmatching rolls from hiding every success exit.
     var retained = status == Status.MATCH ? c.hitOutcomes : c.activeOutcomes;
-    if ((status == Status.MATCH || status == Status.NO_MATCH)
-        && (retained.containsKey(outcome.state()) || retained.size() < METHOD_DISPLAY_OUTCOMES)) {
+    boolean methodOutcome =
+        (status == Status.MATCH || status == Status.NO_MATCH)
+            && (retained.containsKey(outcome.state()) || retained.size() < METHOD_DISPLAY_OUTCOMES);
+    if (methodOutcome) {
       retained.merge(outcome.state(), outcome.probability(), Fraction::add);
-      node(outcome.state());
     }
-    if (c.displayed < DISPLAY_OUTCOMES) {
+    // Retain the real enumerated transition for every method exit, including outcomes after
+    // the legacy display budget. A node alone cannot establish recovery ancestry or phase.
+    // The union is emitted once, so overlapping display selections do not double-count mass.
+    if (c.displayed < DISPLAY_OUTCOMES || methodOutcome) {
       var from =
           execution(
               c.actions.size() == 2 ? c.cursor.emptyState() : root, c.policy, c.actions.size() - 1);

@@ -162,6 +162,14 @@ For every observation, displayed HIT plus omitted HIT equals `Point.lower`; disp
 ACTIVE plus omitted ACTIVE equals `Point.active`. Adding dead and unresolved yields one.
 Zero probability exits are not drawn. A partial lower bound is marked as such.
 
+Every retained method outcome also retains its actually enumerated elementary edge and
+policy execution/phase, even beyond the legacy first-24 display budget. The union of
+these selections contributes to displayed edge mass only once; its complement remains
+the expansion's unshown mass. These connections establish real recovery ancestry.
+When method outcomes are shown, the client loads the remaining fixed-revision graph
+pages through the existing cancellation/stale-response guards before resolving the
+remaining recovery choices. No execution or ancestry is inferred from item equality alone.
+
 The presentation draws root-to-outcome method arrows, action icons from the existing
 currency mapping, repetition semantics and state-specific observation probabilities.
 All arrows of a certified selected recommendation are emphasized. A recovery job keeps

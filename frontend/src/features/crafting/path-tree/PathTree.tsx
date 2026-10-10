@@ -66,6 +66,12 @@ function Run({
   useEffect(() => {
     recovery.invalidate()
   }, [recovery, state.job?.revision])
+  const hasMethod = state.job?.recommendations.some((r) => r.method)
+  useEffect(() => {
+    // Method exits are already visible from the snapshot. Load their actual paged action
+    // connections so recovery can resolve ancestry for every displayed exit.
+    if (hasMethod && state.graph?.nextCursor) void main.more()
+  }, [hasMethod, main, state.graph?.nextCursor, state.job?.revision])
   return (
     <section className="path-tree" aria-label={copy.title}>
       <h2 tabIndex={-1} ref={heading}>
@@ -99,7 +105,10 @@ function Run({
             presentItem={presentItem}
           />
           {state.graph?.nextCursor && (
-            <button onClick={() => void main.more()}>{copy.more}</button>
+            <>
+              {hasMethod && <p role="status">{copy.loadingBranches}</p>}
+              <button onClick={() => void main.more()}>{copy.more}</button>
+            </>
           )}
           {state.graph && state.job.capabilities.conditionalRecovery && (
             <RecoverySelection

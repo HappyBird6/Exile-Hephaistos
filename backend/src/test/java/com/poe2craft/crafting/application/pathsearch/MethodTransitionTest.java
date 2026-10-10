@@ -73,12 +73,13 @@ class MethodTransitionTest {
     var survival = com.poe2craft.crafting.domain.pathsearch.RenewalFirstHit.complement(q);
     assertThat(hit.points().get(2).probability().fraction()).isEqualTo(q.add(survival.multiply(q)));
     assertThat(chaos.method().omitted().get(1).active().fraction()).isNotEqualTo(Fraction.ZERO);
-    // Legacy first-24 action edges can have no hit: method exits must not be derived from them.
+    // A late method exit must retain its real action edge, not just its aggregate absorption mass.
     assertThat(
             c.edges.values().stream()
                 .filter(e -> e.from().contains(chaos.policy().id()))
-                .noneMatch(e -> c.executions.get(e.to()).stateId().equals(hit.stateId())))
-        .isTrue();
+                .filter(e -> c.executions.get(e.to()).stateId().equals(hit.stateId())))
+        .singleElement()
+        .satisfies(e -> assertThat(e.probability().fraction()).isEqualTo(q));
   }
 
   @Test
@@ -117,6 +118,128 @@ class MethodTransitionTest {
       return fixture.request(service).start().item();
     } catch (Exception e) {
       throw new IllegalStateException(e);
+    }
+  }
+
+  @Test
+  void countExclusionMethodExitsRetainRealExecutionsAndRecoverToRoot() throws Exception {
+    String owner = "00000000-0000-0000-0000-000000000001";
+    try (var service = fixture.service(50000)) {
+      var original = fixture.request(service);
+      var goal =
+          (com.fasterxml.jackson.databind.node.ObjectNode)
+              fixture.json.valueToTree(original.goal());
+      var group = (com.fasterxml.jackson.databind.node.ObjectNode) goal.withArray("groups").get(0);
+      group.put("type", "COUNT");
+      group.putObject("range").put("min", 0).put("max", 0);
+      ((com.fasterxml.jackson.databind.node.ObjectNode) group.withArray("entries").get(0))
+          .putObject("range")
+          .put("min", 6)
+          .put("max", 10);
+      var request =
+          new Create(
+              1,
+              "count-exclusion",
+              original.start(),
+              fixture.json.treeToValue(
+                  goal, com.poe2craft.crafting.domain.goalfilter.GoalFilter.class),
+              List.of(),
+              List.of("0", "1", "2", "3", "100", "300", "500"));
+      assertThat(request.start().item().itemLevel()).isEqualTo(82);
+      assertThat(request.start().item().explicits().getFirst().values()).containsValue(6L);
+      var result = fixture.finish(service, service.create(owner, request));
+      assertThat(result.status()).isEqualTo("COMPLETED");
+      var pages = new ArrayList<GraphPage>();
+      var page = result.graph();
+      while (true) {
+        pages.add(page);
+        if (page.nextCursor() == null) break;
+        page = service.graph(owner, result.jobId(), result.revision(), page.nextCursor());
+      }
+      var edges = pages.stream().flatMap(p -> p.edges().stream()).toList();
+      for (var expansion : pages.stream().flatMap(p -> p.expansions().stream()).toList()) {
+        var mass =
+            edges.stream()
+                .filter(e -> e.from().equals(expansion.executionId()))
+                .map(e -> e.probability().fraction())
+                .reduce(Fraction.ZERO, Fraction::add);
+        assertThat(mass.add(expansion.unresolved().fraction())).isEqualTo(Fraction.ONE);
+      }
+      var chaos = result.recommendations().getFirst();
+      var active =
+          chaos.method().exits().stream()
+              .filter(
+                  e ->
+                      e.kind().equals("ACTIVE")
+                          && e.points().stream()
+                              .anyMatch(
+                                  p ->
+                                      p.attempts().equals("100")
+                                          && p.probability().fraction().numerator().signum() > 0))
+              .toList();
+      assertThat(active).hasSize(5);
+      var transitions = new BasicCurrencyTransitions(fixture.catalog, fixture.identity);
+      var cursor = transitions.renewalCursor(request.start(), List.of(WorkbenchCurrency.CHAOS));
+      var actualMass = new HashMap<String, Fraction>();
+      while (!cursor.complete()) {
+        var outcome = cursor.next();
+        actualMass.merge(outcome.state().canonicalKey(), outcome.probability(), Fraction::add);
+      }
+      for (var exit : active) {
+        var execution =
+            result.graph().executions().stream()
+                .filter(
+                    e ->
+                        e.stateId().equals(exit.stateId())
+                            && e.policyId().equals(chaos.policy().id())
+                            && e.phase() == 0)
+                .findFirst()
+                .orElseThrow();
+        var rootExecution =
+            result.graph().executions().stream()
+                .filter(
+                    e ->
+                        e.stateId().equals(request.start().canonicalKey())
+                            && e.policyId().equals(chaos.policy().id())
+                            && e.phase() == 0)
+                .findFirst()
+                .orElseThrow();
+        assertThat(
+                edges.stream()
+                    .filter(
+                        e -> e.from().equals(rootExecution.id()) && e.to().equals(execution.id())))
+            .singleElement()
+            .satisfies(
+                e -> {
+                  assertThat(e.action()).isEqualTo("CHAOS");
+                  assertThat(e.probability().fraction()).isEqualTo(actualMass.get(exit.stateId()));
+                });
+        var recovery =
+            fixture.finish(
+                service,
+                service.recover(
+                    owner,
+                    result.jobId(),
+                    new Recover(
+                        1,
+                        "recover-" + execution.id(),
+                        result.revision(),
+                        execution.id(),
+                        request.start().canonicalKey(),
+                        List.of("0", "1", "2"))));
+        assertThat(recovery.status()).isEqualTo("COMPLETED");
+        assertThat(recovery.recovery().conditional()).isTrue();
+        assertThat(recovery.recovery().includedInMain()).isFalse();
+        assertThat(recovery.graph().nodes().getFirst().id()).isEqualTo(exit.stateId());
+      }
+      assertThat(service.get(owner, result.jobId())).isEqualTo(result);
+      java.nio.file.Files.createDirectories(java.nio.file.Path.of("build/path-search"));
+      fixture.json.writeValue(
+          java.nio.file.Path.of("build/path-search/recovery-count-request.json").toFile(), request);
+      fixture.json.writeValue(
+          java.nio.file.Path.of("build/path-search/recovery-count-snapshot.json").toFile(), result);
+      fixture.json.writeValue(
+          java.nio.file.Path.of("build/path-search/recovery-count-pages.json").toFile(), pages);
     }
   }
 
