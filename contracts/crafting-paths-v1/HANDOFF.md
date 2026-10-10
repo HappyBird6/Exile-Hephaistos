@@ -1,5 +1,7 @@
 # 계약 구현 인계
 
+2026-10-10 후속 보완: BE가 ordinary source snapshot과 loadDefault의 special 확장 snapshot 차이를 확인했다. `solar-source-fixture.json`의 source startItem은 그대로 유지하고 runtimeBindings/requiredRuntimeAcceptance에 별도 current-snapshot 테스트 입력 구성과 원본 SNAPSHOT_MISMATCH 거부 회귀를 명시했다. wire schema·제품 입력 정책·확률 oracle는 바뀌지 않는다. runtime 결과의 통과 여부는 BE 인계에서 별도로 확인한다.
+
 기준: `15f02631df176aa191e95d1f19bb62110be7796e`.
 작업 branch: `crafting/path-search-contract-v1`.
 범위: 이 디렉터리와 `docs/crafting-path-search-v1.md`만. 제품 코드·dependency·migration·runtime 데이터 변경 없음. 원격 commit SHA는 완료 인계 응답에서 제공한다(자기 commit hash를 파일에 넣지 않음).

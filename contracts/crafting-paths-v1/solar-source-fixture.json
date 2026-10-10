@@ -82,6 +82,9 @@
   },
   "runtimeBindings": [
     "start.provenance from current basic-paths/provenance; identity must equal this pinned ruleset",
+    "startItem is the pinned ordinary source oracle, not a directly executable loadDefault item; preserve it unchanged",
+    "For runtime acceptance only, construct a separate current-snapshot item from the current Solar catalog/initial response after checking the pinned ruleset, base, ordinary source compatibility and exact modifier definitions/rolls; preserve every field except the explicitly bound snapshotId",
+    "Use the separate current-snapshot item context to fetch the goal catalog; compatibleSnapshotIds alone does not authorize product input migration or bypass ItemStateValidator",
     "goal.catalogVersion from matching current goal catalog; never send the template marker"
   ],
   "modelOracle": {
@@ -104,6 +107,8 @@
     "existingNumericRenewalSupport": false
   },
   "requiredRuntimeAcceptance": [
+    "Keep a rejection regression for submitting the unchanged ordinary source snapshot against the extended current catalog (SNAPSHOT_MISMATCH); never silently relabel product inputs",
+    "Verify the separate runtime fixture has the same base, level, rarity, modifier IDs, source rolls, conditions, socket and quality as startItem; only snapshotId is explicitly bound after compatibility checks",
     "Compile the GoalFilter through the common predicate; do not translate into one modifier ID",
     "Prove renewal for every eligible outcome and preserve all unrelated candidates",
     "Compare actual new path-search output to this independent oracle before claiming runtime verification"

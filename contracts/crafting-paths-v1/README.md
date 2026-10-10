@@ -1,5 +1,7 @@
 # Crafting paths v1 공유 계약
 
+Solar snapshot 보완: `startItem`은 ordinary source snapshot의 oracle 입력이다. `ItemCatalogLoader.loadDefault()`는 special catalog를 덧붙인 현재 snapshot을 반환하므로 이 source 입력을 그대로 제출하면 기존 validator가 SNAPSHOT_MISMATCH로 거부한다. 원본 fixture는 보존한다. runtime 테스트에서만 pinned ruleset/base와 source compatibility, modifier 정의 및 roll 보존을 확인한 뒤 **별도의 current-snapshot 아이템**을 명시적으로 구성하고 그 context의 goal catalogVersion을 읽는다. `compatibleSnapshotIds`만으로 제품 입력을 자동 migration하거나 validator를 우회하지 않는다. 원본 제출 거부 회귀와 별도 runtime 입력의 필드 보존 회귀를 함께 유지한다.
+
 상세 의미는 [명세](../../docs/crafting-path-search-v1.md)를 따른다. 이번 묶음은 계약만 고정하며 제품 endpoint나 runtime capability를 추가하지 않는다.
 
 | 파일 | 용도 |
