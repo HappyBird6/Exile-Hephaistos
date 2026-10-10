@@ -119,6 +119,26 @@ public final class GoalFilterService {
         result.issues());
   }
 
+  /** Validates once, then projects every concrete outcome through the same numeric semantics. */
+  public java.util.function.Function<ItemState, Status> compile(ItemState item, GoalFilter goal) {
+    var initial = evaluate(item, goal);
+    if (initial.status() == Status.UNKNOWN || initial.status() == Status.UNSUPPORTED)
+      return state -> evaluate(state, goal).status();
+    var context = new Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
+    var known = index.knownStats(context);
+    return state ->
+        evaluator
+            .evaluate(
+                goal,
+                goal.general().itemLevel().contains(BigDecimal.valueOf(state.itemLevel()))
+                        && goal.general().rarities().contains(state.rarity())
+                    ? Status.MATCH
+                    : Status.NO_MATCH,
+                projection.project(state, known, true),
+                List.of())
+            .status();
+  }
+
   public record Limits(Integer maxStates, Integer maxEdges, Integer maxMillis) {}
 
   public record Probability(
