@@ -192,6 +192,60 @@ export function validateJob(job: JobSnapshot) {
       r.eventual.proofVersion !== null
     )
       invalid()
+    if (r.method) {
+      const method = r.method
+      const nodes = new Map(job.graph.nodes.map((n) => [n.id, n]))
+      if (
+        !nodes.has(method.fromStateId) ||
+        method.fromStateId !== job.graph.nodes[0]?.id ||
+        method.cycleUses !== r.policy.actions.length ||
+        r.policy.mode !== 'REPEAT_CYCLE' ||
+        method.omitted.length !== r.points.length ||
+        new Set(method.exits.map((e) => `${e.stateId}:${e.kind}`)).size !==
+          method.exits.length
+      )
+        invalid()
+      for (const exit of method.exits) {
+        const node = nodes.get(exit.stateId)
+        if (
+          !node ||
+          exit.points.length !== r.points.length ||
+          node.goalStatus !== (exit.kind === 'HIT' ? 'MATCH' : 'NO_MATCH')
+        )
+          invalid()
+        exit.points.forEach((p, i) => {
+          fraction(p.probability)
+          if (p.attempts !== r.points[i]!.attempts) invalid()
+        })
+      }
+      r.points.forEach((point, i) => {
+        const omitted = method.omitted[i]!
+        fraction(omitted.hit)
+        fraction(omitted.active)
+        if (
+          omitted.attempts !== point.attempts ||
+          !sumEquals(
+            [
+              ...method.exits
+                .filter((e) => e.kind === 'HIT')
+                .map((e) => e.points[i]!.probability),
+              omitted.hit,
+            ],
+            point.lower,
+          ) ||
+          !sumEquals(
+            [
+              ...method.exits
+                .filter((e) => e.kind === 'ACTIVE')
+                .map((e) => e.points[i]!.probability),
+              omitted.active,
+            ],
+            point.active,
+          )
+        )
+          invalid()
+      })
+    }
   }
   for (const ranking of job.rankings) {
     if (ranking.status === 'UNAVAILABLE') {

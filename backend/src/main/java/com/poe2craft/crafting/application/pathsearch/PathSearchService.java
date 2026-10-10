@@ -296,11 +296,11 @@ public final class PathSearchService implements AutoCloseable {
   private void publish(Job job) {
     job.revision++;
     var c = job.calculation;
+    var recommendations = job.blocked == null ? c.recommendations() : List.<Recommendation>of();
     var saved = new Revision(job.id, job.revision, c);
     job.revisions.put(job.revision, saved);
     while (job.revisions.size() > MAX_REVISIONS)
       job.revisions.remove(job.revisions.keySet().iterator().next());
-    var recommendations = job.blocked == null ? c.recommendations() : List.<Recommendation>of();
     var capabilities =
         new Capabilities(
             job.evaluation,

@@ -15,6 +15,7 @@ import { pathTreeMessages, numbered } from './messages'
 import { ancestors, stateLayers } from './graph'
 import { canonical, percent } from './validation'
 import './path-tree.css'
+import { MethodGraph } from './MethodGraph'
 
 const http = createHttpPathSearchAdapter()
 export type PathTreeProps = {
@@ -314,9 +315,25 @@ function Results({
           })}
         </div>
       )}
-      {graph && policy && (
-        <StateGraph graph={graph} policy={policy} presentItem={presentItem} />
-      )}
+      {graph &&
+        policy &&
+        (job.recommendations.find((r) => r.policy.id === policy)?.method ? (
+          <MethodGraph
+            graph={graph}
+            recommendation={job.recommendations.find(
+              (r) => r.policy.id === policy,
+            )!}
+            attempts={attempts}
+            presentItem={presentItem}
+            recovery={!!job.recovery}
+            recommended={
+              ranking?.status === 'CERTIFIED_WITHIN_CANDIDATES' &&
+              ranking.entries.some((e) => e.policyId === policy && e.rank === 1)
+            }
+          />
+        ) : (
+          <StateGraph graph={graph} policy={policy} presentItem={presentItem} />
+        ))}
       {graph?.nodes[0] && !policy && (
         <ItemCard
           item={presentItem(graph.nodes[0].item, locale)}

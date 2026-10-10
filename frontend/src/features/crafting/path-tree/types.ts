@@ -102,6 +102,7 @@ export type Recommendation = {
     probability: Fraction | null
     proofVersion: string | null
   }
+  method?: MethodTransition | null
 }
 export type Rank = { policyId: string; rank: number }
 export type Ranking = {
@@ -201,4 +202,19 @@ export type Problem = {
   title: string
   status: number
   code: string
+}
+export type ExitPoint = { attempts: string; probability: Fraction }
+export type MethodExit = {
+  stateId: string
+  kind: 'HIT' | 'ACTIVE'
+  points: Array<ExitPoint>
+}
+export type OmittedPoint = { attempts: string; hit: Fraction; active: Fraction }
+export type MethodTransition = {
+  fromStateId: string
+  stopCondition: 'FIRST_GOAL_OR_OBSERVATION'
+  cycleUses: 1 | 2
+  proofVersion: string
+  exits: Array<MethodExit>
+  omitted: Array<OmittedPoint>
 }

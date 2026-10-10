@@ -130,3 +130,41 @@ graph cursor는 jobId/revision/offset에 묶인 opaque 값이다. 새 revision�
 - 운영 조작부와 내부 ID 미노출. 서버/DB/볼륨을 변경하지 않는 격리 검증.
 
 스케일업은 실제 Solar 완전 사례 → 일반 16종 전파/재개 → 증명된 bucket 압축 → 추가 기본 화폐/base 순서다. 각 단계에서 상태/edge 수·메모리·fraction 크기·첫 결과 시간·취소 응답을 측정한다. 수억 상태 전계산, 영구 저장, 임의 분포 가정으로 시작하지 않는다.
+# Method-state presentation extension
+
+`Recommendation.method` is an optional additive projection of a completed, proven
+single-explicit renewal calculation. It does not replace elementary `GraphPage.edges`
+or change observation counts, goal evaluation, candidate ranking, or recovery semantics.
+Older strict-schema clients must be updated together with the server; omission/null
+means that a method distribution is not available, not that its success chance is zero.
+
+The supported methods remain the six existing Chaos and Annulment/Exalted policies.
+There is no search over successive different methods. Method depth is one for this
+projection even when hundreds of currency uses occur. The starting item is depth zero.
+The goal absorbs immediately, including after the removal action of a two-action cycle.
+At an observation limit an active path is retained at its actual full state; for an odd
+two-action observation this is the empty intermediate state, not a completed cycle.
+
+For each success state with one-cycle mass q, success total p, unresolved total u, and
+r = 1 - p - u, first-hit mass through k complete cycles is q times the geometric sum
+of r^j for j from zero to k-1. This is unconditional from the method's starting item,
+not conditional on eventual success. The implementation apportions the existing
+bounded first-hit mass by q/p, retaining its arithmetic budget and unresolved mass.
+Active mass at a completed cycle is apportioned among nonmatching states by q/r.
+No division is performed for a zero total. Unavailable or incomplete proofs do not
+publish a method projection.
+
+Success and active state details each have an independent six-state display budget.
+Full-state identities are retained; distinct rolls are not merged into a representative
+item. `omitted.hit` and `omitted.active` contain calculated probability whose individual
+states are not shown. They are not unresolved mass or synthetic item nodes.
+For every observation, displayed HIT plus omitted HIT equals `Point.lower`; displayed
+ACTIVE plus omitted ACTIVE equals `Point.active`. Adding dead and unresolved yields one.
+Zero probability exits are not drawn. A partial lower bound is marked as such.
+
+The presentation draws root-to-outcome method arrows, action icons from the existing
+currency mapping, repetition semantics and state-specific observation probabilities.
+All arrows of a certified selected recommendation are emphasized. A recovery job keeps
+its distinct dashed styling and conditional scope and never changes main-path mass.
+The viewport contains horizontal overflow and supports keyboard focus and edge-to-item
+navigation. Existing six locales are preserved.

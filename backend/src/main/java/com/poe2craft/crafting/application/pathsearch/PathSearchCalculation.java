@@ -25,6 +25,7 @@ final class PathSearchCalculation {
           List.of(WorkbenchCurrency.ANNULMENT, WorkbenchCurrency.GREATER_EXALTED),
           List.of(WorkbenchCurrency.ANNULMENT, WorkbenchCurrency.PERFECT_EXALTED));
   static final int DISPLAY_OUTCOMES = 24;
+  static final int METHOD_DISPLAY_OUTCOMES = 6;
   final BasicCurrencyState root;
   final Function<ItemState, Status> predicate;
   final List<String> observations;
@@ -127,6 +128,13 @@ final class PathSearchCalculation {
     c.emitted = c.emitted.add(outcome.probability());
     if (status == Status.MATCH) c.success = c.success.add(outcome.probability());
     else if (status != Status.NO_MATCH) c.unknown = c.unknown.add(outcome.probability());
+    // Separate display budgets prevent early nonmatching rolls from hiding every success exit.
+    var retained = status == Status.MATCH ? c.hitOutcomes : c.activeOutcomes;
+    if ((status == Status.MATCH || status == Status.NO_MATCH)
+        && (retained.containsKey(outcome.state()) || retained.size() < METHOD_DISPLAY_OUTCOMES)) {
+      retained.merge(outcome.state(), outcome.probability(), Fraction::add);
+      node(outcome.state());
+    }
     if (c.displayed < DISPLAY_OUTCOMES) {
       var from =
           execution(
@@ -213,9 +221,139 @@ final class PathSearchCalculation {
                           : Fraction.ZERO),
                   PROOF)
               : new Eventual("UNKNOWN", null, null);
-      result.add(new Recommendation(c.policy, points, eventual));
+      result.add(new Recommendation(c.policy, points, eventual, method(c, points)));
     }
     return List.copyOf(result);
+  }
+
+  private MethodTransition method(Candidate c, List<Point> points) {
+    if (!c.done || c.blocked != null || c.rootHit) return null;
+    var exits = new ArrayList<MethodExit>();
+    var omitted = new ArrayList<OmittedPoint>();
+    if (c.emptyHit) {
+      exits.add(
+          new MethodExit(
+              node(c.cursor.emptyState()),
+              "HIT",
+              points.stream().map(p -> new ExitPoint(p.attempts(), p.lower())).toList()));
+    } else {
+      for (var entry : c.hitOutcomes.entrySet()) {
+        exits.add(
+            new MethodExit(
+                node(entry.getKey()),
+                "HIT",
+                points.stream()
+                    .map(
+                        p ->
+                            new ExitPoint(
+                                p.attempts(),
+                                Probability.of(
+                                    share(p.lower().fraction(), entry.getValue(), c.success))))
+                    .toList()));
+      }
+      var survival = complement(c.success.add(c.unknown));
+      for (var entry : c.activeOutcomes.entrySet()) {
+        exits.add(
+            new MethodExit(
+                node(entry.getKey()),
+                "ACTIVE",
+                points.stream()
+                    .map(
+                        p -> {
+                          long n = Long.parseLong(p.attempts());
+                          boolean boundary = n >= c.actions.size() && n % c.actions.size() == 0;
+                          return new ExitPoint(
+                              p.attempts(),
+                              Probability.of(
+                                  boundary
+                                      ? share(p.active().fraction(), entry.getValue(), survival)
+                                      : Fraction.ZERO));
+                        })
+                    .toList()));
+      }
+    }
+    // Zero uses remains at root; an unfinished two-action cycle remains at its real empty state.
+    exits.add(
+        new MethodExit(
+            node(root),
+            "ACTIVE",
+            points.stream()
+                .map(
+                    p ->
+                        new ExitPoint(
+                            p.attempts(),
+                            Probability.of(
+                                p.attempts().equals("0") ? Fraction.ONE : Fraction.ZERO)))
+                .toList()));
+    if (c.actions.size() == 2 && !c.emptyHit) {
+      exits.add(
+          new MethodExit(
+              node(c.cursor.emptyState()),
+              "ACTIVE",
+              points.stream()
+                  .map(
+                      p ->
+                          new ExitPoint(
+                              p.attempts(),
+                              Probability.of(
+                                  Long.parseLong(p.attempts()) % 2 == 1
+                                      ? p.active().fraction()
+                                      : Fraction.ZERO)))
+                  .toList()));
+    }
+    // The same full state can be both the root and a retained active outcome.
+    var merged = new LinkedHashMap<String, MethodExit>();
+    for (var exit : exits) {
+      String key = exit.stateId() + ":" + exit.kind();
+      var old = merged.get(key);
+      if (old == null) merged.put(key, exit);
+      else {
+        var combined = new ArrayList<ExitPoint>();
+        for (int i = 0; i < points.size(); i++)
+          combined.add(
+              new ExitPoint(
+                  points.get(i).attempts(),
+                  Probability.of(
+                      old.points()
+                          .get(i)
+                          .probability()
+                          .fraction()
+                          .add(exit.points().get(i).probability().fraction()))));
+        merged.put(key, new MethodExit(exit.stateId(), exit.kind(), combined));
+      }
+    }
+    for (int i = 0; i < points.size(); i++) {
+      Fraction hit = Fraction.ZERO, active = Fraction.ZERO;
+      for (var exit : merged.values()) {
+        var mass = exit.points().get(i).probability().fraction();
+        if (exit.kind().equals("HIT")) hit = hit.add(mass);
+        else active = active.add(mass);
+      }
+      var p = points.get(i);
+      omitted.add(
+          new OmittedPoint(
+              p.attempts(),
+              Probability.of(subtract(p.lower().fraction(), hit)),
+              Probability.of(subtract(p.active().fraction(), active))));
+    }
+    return new MethodTransition(
+        node(root),
+        "FIRST_GOAL_OR_OBSERVATION",
+        c.actions.size(),
+        PROOF,
+        List.copyOf(merged.values()),
+        omitted);
+  }
+
+  private static Fraction share(Fraction mass, Fraction part, Fraction total) {
+    if (total.equals(Fraction.ZERO)) return Fraction.ZERO;
+    return mass.multiply(part).multiply(new Fraction(total.denominator(), total.numerator()));
+  }
+
+  private static Fraction subtract(Fraction a, Fraction b) {
+    return new Fraction(
+        a.numerator().multiply(b.denominator()).subtract(b.numerator().multiply(a.denominator())),
+        a.denominator().multiply(b.denominator()));
   }
 
   private Point point(Candidate c, long n) {
@@ -316,6 +454,8 @@ final class PathSearchCalculation {
     final Policy policy;
     final List<WorkbenchCurrency> actions;
     BasicCurrencyTransitions.RenewalCursor cursor;
+    final Map<BasicCurrencyState, Fraction> hitOutcomes = new LinkedHashMap<>(),
+        activeOutcomes = new LinkedHashMap<>();
     Fraction success = Fraction.ZERO,
         unknown = Fraction.ZERO,
         emitted = Fraction.ZERO,

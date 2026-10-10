@@ -3,6 +3,129 @@
   padding-block: 1rem;
   min-width: 0;
 }
+.method-flow__viewport {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  padding: 1rem 0;
+}
+.method-flow__canvas {
+  margin-inline: auto;
+}
+.method-flow__root {
+  width: 300px;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+.method-flow__connections {
+  position: relative;
+}
+.method-flow__arrows {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.method-flow__return svg {
+  width: 100%;
+  height: 65px;
+}
+.method-flow__return svg > path {
+  fill: none;
+  stroke: #aaa08b;
+  stroke-width: 2;
+}
+.method-flow__return marker path {
+  fill: #aaa08b;
+}
+.method-flow--recommended .method-flow__return svg > path {
+  stroke: #f6cf70;
+  stroke-width: 4;
+}
+.method-flow--recommended .method-flow__return marker path {
+  fill: #f6cf70;
+}
+.method-flow--recovery .method-flow__return svg > path {
+  stroke: #ba9fe5;
+  stroke-dasharray: 8 5;
+}
+.method-flow--recovery .method-flow__return marker path {
+  fill: #ba9fe5;
+}
+.method-flow__arrows > path {
+  fill: none;
+  stroke: #aaa08b;
+  stroke-width: 2;
+}
+.method-flow__arrows marker path {
+  fill: #aaa08b;
+}
+.method-flow--recommended .method-flow__arrows > path {
+  stroke: #f6cf70;
+  stroke-width: 4;
+}
+.method-flow--recommended .method-flow__arrows marker path {
+  fill: #f6cf70;
+}
+.method-flow--recovery .method-flow__arrows > path {
+  stroke: #ba9fe5;
+  stroke-dasharray: 8 5;
+}
+.method-flow--recovery .method-flow__arrows marker path {
+  fill: #ba9fe5;
+}
+.method-flow__edge-label {
+  position: absolute;
+  top: 48px;
+  transform: translateX(-50%);
+  width: 276px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  background: #211f1b;
+  border: 1px solid #766445;
+  border-radius: 0.4rem;
+  text-align: center;
+  display: grid;
+  gap: 0.2rem;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+.method-flow__actions {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+}
+.method-flow__actions > span {
+  display: grid;
+  justify-items: center;
+  flex: 1;
+}
+.method-flow__actions img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+.method-flow__exits {
+  display: grid;
+  gap: 12px;
+  align-items: start;
+}
+.method-flow__exits .path-tree__node {
+  width: 300px;
+  box-sizing: border-box;
+  justify-self: center;
+}
+.method-flow__depth {
+  margin: 0 0 0.5rem;
+  text-align: center;
+}
+.method-flow__mass {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.method-flow__mass dd {
+  margin: 0.3rem 0;
+}
 .path-tree button,
 .path-tree select {
   font: inherit;

@@ -575,6 +575,16 @@
               ]
             }
           }
+        },
+        "method": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/methodTransition"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       }
     },
@@ -1029,6 +1039,97 @@
         "code": {
           "type": "string",
           "minLength": 1
+        }
+      }
+    },
+    "exitPoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["attempts", "probability"],
+      "properties": {
+        "attempts": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$"
+        },
+        "probability": {
+          "$ref": "#/definitions/fraction"
+        }
+      }
+    },
+    "methodExit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stateId", "kind", "points"],
+      "properties": {
+        "stateId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": ["HIT", "ACTIVE"]
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/exitPoint"
+          }
+        }
+      }
+    },
+    "omittedPoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["attempts", "hit", "active"],
+      "properties": {
+        "attempts": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$"
+        },
+        "hit": {
+          "$ref": "#/definitions/fraction"
+        },
+        "active": {
+          "$ref": "#/definitions/fraction"
+        }
+      }
+    },
+    "methodTransition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fromStateId",
+        "stopCondition",
+        "cycleUses",
+        "proofVersion",
+        "exits",
+        "omitted"
+      ],
+      "properties": {
+        "fromStateId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stopCondition": {
+          "const": "FIRST_GOAL_OR_OBSERVATION"
+        },
+        "cycleUses": {
+          "enum": [1, 2]
+        },
+        "proofVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "exits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/methodExit"
+          }
+        },
+        "omitted": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/omittedPoint"
+          }
         }
       }
     }

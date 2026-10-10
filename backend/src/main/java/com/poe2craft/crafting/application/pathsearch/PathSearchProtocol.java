@@ -1,5 +1,6 @@
 package com.poe2craft.crafting.application.pathsearch;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.poe2craft.crafting.domain.BasicCurrencyState;
 import com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction;
 import com.poe2craft.crafting.domain.goalfilter.GoalFilter;
@@ -70,7 +71,29 @@ public final class PathSearchProtocol {
 
   public record Eventual(String status, Probability probability, String proofVersion) {}
 
-  public record Recommendation(Policy policy, List<Point> points, Eventual eventual) {}
+  public record ExitPoint(String attempts, Probability probability) {}
+
+  public record MethodExit(String stateId, String kind, List<ExitPoint> points) {}
+
+  public record OmittedPoint(String attempts, Probability hit, Probability active) {}
+
+  public record MethodTransition(
+      String fromStateId,
+      String stopCondition,
+      int cycleUses,
+      String proofVersion,
+      List<MethodExit> exits,
+      List<OmittedPoint> omitted) {}
+
+  public record Recommendation(
+      Policy policy,
+      List<Point> points,
+      Eventual eventual,
+      @JsonInclude(JsonInclude.Include.NON_NULL) MethodTransition method) {
+    public Recommendation(Policy policy, List<Point> points, Eventual eventual) {
+      this(policy, points, eventual, null);
+    }
+  }
 
   public record Rank(String policyId, int rank) {}
 
