@@ -478,6 +478,11 @@ describe('Craft Support starting screen', () => {
     fireEvent.change(screen.getByLabelText('Target draft'), {
       target: { value: 'Spirit target' },
     })
+    await waitFor(() =>
+      expect(
+        screen.getByRole('button', { name: 'Start Crafting' }),
+      ).toBeEnabled(),
+    )
     fireEvent.click(screen.getByRole('button', { name: 'Start Crafting' }))
     expect(
       screen.getByRole('region', { name: 'Crafting tree preview' }),

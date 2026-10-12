@@ -37,6 +37,12 @@ public final class MethodSearchController {
         .body(service.create(owner(request, response), read(body, Create.class)));
   }
 
+  @GetMapping("/provenance")
+  public com.poe2craft.crafting.domain.BasicCurrencyState.Provenance provenance(
+      @RequestParam String baseItemId) {
+    return service.provenance(baseItemId);
+  }
+
   @GetMapping("/{id}")
   public Snapshot get(
       @PathVariable String id, HttpServletRequest request, HttpServletResponse response) {

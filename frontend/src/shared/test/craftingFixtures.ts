@@ -106,7 +106,10 @@ export function fixtureFetch(
   init?: RequestInit,
 ): Promise<Response> {
   const url = String(input)
-  if (url.endsWith('/basic-paths/provenance'))
+  if (
+    url.endsWith('/basic-paths/provenance') ||
+    url.includes('/method-searches/provenance?')
+  )
     return Promise.resolve(
       jsonResponse({
         ...requestFixture().start.provenance,

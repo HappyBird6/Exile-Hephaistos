@@ -93,8 +93,15 @@ const provenanceFields: (keyof Provenance)[] = [
 export function sameProvenance(a: Provenance, b: Provenance) {
   return provenanceFields.every((key) => a[key] === b[key])
 }
-export async function loadProvenance(signal: AbortSignal): Promise<Provenance> {
-  const response = await fetch('/api/v1/crafting/basic-paths/provenance', {
+export async function loadProvenance(
+  signal: AbortSignal,
+  baseItemId?: string,
+): Promise<Provenance> {
+  const url = baseItemId
+    ? '/api/v2/crafting/method-searches/provenance?baseItemId=' +
+      encodeURIComponent(baseItemId)
+    : '/api/v1/crafting/basic-paths/provenance'
+  const response = await fetch(url, {
     signal,
   })
   if (!response.ok) throw new Error('Probability provenance unavailable.')

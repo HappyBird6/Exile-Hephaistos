@@ -13,8 +13,21 @@ public final class BasicCurrencyTransitions {
   private final ItemCatalog catalog;
   private final WorkbenchSimulator simulator;
   private final Provenance provenance;
+  private final boolean reviewedCatalog;
+
+  public static BasicCurrencyTransitions forMethodSearch(
+      ItemCatalog catalog, String rulesetIdentity) {
+    return new BasicCurrencyTransitions(
+        catalog, rulesetIdentity, !SolarAmulet.BASE_ID.equals(catalog.base().id()));
+  }
 
   public BasicCurrencyTransitions(ItemCatalog catalog, String rulesetIdentity) {
+    this(catalog, rulesetIdentity, false);
+  }
+
+  private BasicCurrencyTransitions(
+      ItemCatalog catalog, String rulesetIdentity, boolean reviewedCatalog) {
+    this.reviewedCatalog = reviewedCatalog;
     this.catalog = Objects.requireNonNull(catalog, "catalog");
     if (rulesetIdentity == null || rulesetIdentity.isBlank())
       throw new IllegalArgumentException("Explicit ruleset identity is required");
@@ -24,7 +37,7 @@ public final class BasicCurrencyTransitions {
         new Provenance(
             rulesetIdentity,
             BasicCurrencyState.catalogDigest(catalog),
-            MODEL_VERSION,
+            reviewedCatalog ? "reviewed-basic-transition-v2" : MODEL_VERSION,
             simulator.ruleVersion(),
             simulator.ledgerVersion(),
             m.weightPolicy(),
@@ -40,6 +53,32 @@ public final class BasicCurrencyTransitions {
 
   public Provenance provenance() {
     return provenance;
+  }
+
+  private boolean uniformSelection() {
+    return Set.of(
+            "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+            "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS")
+        .contains(catalog.metadata().weightPolicy());
+  }
+
+  private int selectionWeight(ModifierDefinition candidate) {
+    return uniformSelection() ? 1 : candidate.weight();
+  }
+
+  private List<WorkbenchSimulator.Assumption> selectionAssumptions(
+      List<ModifierDefinition> candidates) {
+    if (!uniformSelection()) return simulator.basicSelectionAssumptions(candidates);
+    return List.of(
+        new WorkbenchSimulator.Assumption(
+            "explicit-uniform-modifier-tier-v1",
+            "eligible individual modifier tier",
+            candidates.size(),
+            candidates.stream().map(ModifierDefinition::id).toList(),
+            null,
+            null,
+            catalog.metadata().sourceUrl(),
+            "Catalog declares unavailable game weights: equal 1/n after eligibility, without family deduplication or removal of non-goal candidates. Numeric rolls are a separate assumption."));
   }
 
   /** Equal keys prove the complete next-item law, not equivalence of the input items. */
@@ -89,7 +128,7 @@ public final class BasicCurrencyTransitions {
         if (action == WorkbenchCurrency.ANNULMENT)
           remainingOutcomes = remainingOutcomes.add(BigInteger.ONE);
         for (var candidate : branch.candidates()) {
-          total = Math.addExact(total, candidate.weight());
+          total = Math.addExact(total, selectionWeight(candidate));
           remainingOutcomes = remainingOutcomes.add(rangeSize(candidate.stats().getFirst()));
         }
         totals.add(total);
@@ -135,7 +174,7 @@ public final class BasicCurrencyTransitions {
           || action.baseAction() == CraftingAction.CHAOS)
         result.add(simulator.basicRemovalAssumption(plan.removals(), action));
       for (var branch : plan.branches()) {
-        result.addAll(simulator.basicSelectionAssumptions(branch.candidates()));
+        result.addAll(selectionAssumptions(branch.candidates()));
         for (var candidate : branch.candidates()) {
           var roll = simulator.singleStatRollAssumption(candidate);
           if (roll != null) result.add(roll);
@@ -152,6 +191,7 @@ public final class BasicCurrencyTransitions {
       if (next == null || !supportedActions().contains(next))
         throw new IllegalArgumentException("Basic currency required");
       if (blocked()) return true;
+      if (BasicJewel.supportedCrafting(catalog.base().id())) return true;
       for (var branch : plan.branches()) {
         var rarity = branch.remaining().rarity();
         if (!WorkbenchSimulator.basicRarityAllows(rarity, next.baseAction())
@@ -200,7 +240,7 @@ public final class BasicCurrencyTransitions {
         var mass =
             removalMass.multiply(
                 new Fraction(
-                    BigInteger.valueOf(candidate.weight()),
+                    BigInteger.valueOf(selectionWeight(candidate)),
                     BigInteger.valueOf(weights.get(branchIndex)).multiply(rangeSize(range))));
         var explicits = new ArrayList<>(branch.remaining().explicits());
         explicits.add(new ModifierInstance(candidate.id(), Map.of(range.id(), value)));
@@ -319,7 +359,7 @@ public final class BasicCurrencyTransitions {
         return;
       }
       for (var candidate : plan.branches().getFirst().candidates())
-        totalWeight = Math.addExact(totalWeight, candidate.weight());
+        totalWeight = Math.addExact(totalWeight, selectionWeight(candidate));
       value = plan.branches().getFirst().candidates().getFirst().stats().getFirst().min();
     }
 
@@ -366,7 +406,7 @@ public final class BasicCurrencyTransitions {
       }
       var mass =
           new Fraction(
-              BigInteger.valueOf(candidate.weight()),
+              BigInteger.valueOf(selectionWeight(candidate)),
               BigInteger.valueOf(totalWeight).multiply(rangeSize(range)));
       if (value == range.max()) {
         candidateIndex++;
@@ -445,8 +485,9 @@ public final class BasicCurrencyTransitions {
             || !next.branches().getFirst().candidates().equals(branch.candidates()))
           return Optional.empty();
       }
-      total = Math.addExact(total, candidate.weight());
-      if (candidate.id().equals(target)) selected = Math.addExact(selected, candidate.weight());
+      total = Math.addExact(total, selectionWeight(candidate));
+      if (candidate.id().equals(target))
+        selected = Math.addExact(selected, selectionWeight(candidate));
     }
     return Optional.of(
         new ChaosRenewal(
@@ -473,9 +514,10 @@ public final class BasicCurrencyTransitions {
       return blocked(source, action, Status.UNSUPPORTED, "ACTION_NOT_IMPLEMENTED");
     if (!activeOmens.isEmpty())
       return blocked(source, action, Status.UNSUPPORTED, "OMEN_MODEL_NOT_IMPLEMENTED");
-    if (!SolarAmulet.BASE_ID.equals(catalog.base().id()))
+    if (!reviewedCatalog && !SolarAmulet.BASE_ID.equals(catalog.base().id()))
       return blocked(source, action, Status.UNSUPPORTED, "NUMERIC_BASE_NOT_IMPLEMENTED");
-    if (!"POE2DB_AS_PUBLISHED".equals(catalog.metadata().weightPolicy()))
+    if (!"POE2DB_AS_PUBLISHED".equals(catalog.metadata().weightPolicy())
+        && !(reviewedCatalog && uniformSelection()))
       return blocked(source, action, Status.UNSUPPORTED, "SELECTION_WEIGHT_MODEL_NOT_IMPLEMENTED");
     if (!source.item().conditions().isEmpty() || source.item().rarity() == ItemState.Rarity.UNIQUE)
       return blocked(source, action, Status.UNSUPPORTED, "SPECIAL_ITEM_STATE_NOT_IMPLEMENTED");
@@ -511,15 +553,16 @@ public final class BasicCurrencyTransitions {
         expanded++;
         continue;
       }
-      assumptions.addAll(simulator.basicSelectionAssumptions(branch.candidates()));
+      assumptions.addAll(selectionAssumptions(branch.candidates()));
       long total = 0;
-      for (var candidate : branch.candidates()) total = Math.addExact(total, candidate.weight());
+      for (var candidate : branch.candidates())
+        total = Math.addExact(total, selectionWeight(candidate));
       for (var candidate : branch.candidates()) {
         var range = candidate.stats().getFirst();
         var mass =
             removalMass.multiply(
                 new Fraction(
-                    BigInteger.valueOf(candidate.weight()),
+                    BigInteger.valueOf(selectionWeight(candidate)),
                     BigInteger.valueOf(total).multiply(rangeSize(range))));
         var rollAssumption = simulator.singleStatRollAssumption(candidate);
         if (rollAssumption != null) assumptions.add(rollAssumption);

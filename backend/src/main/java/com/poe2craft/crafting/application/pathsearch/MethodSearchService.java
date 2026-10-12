@@ -17,14 +17,48 @@ import java.util.concurrent.*;
 /** Process-local v2 jobs. A generation token guards each publication and queued continuation. */
 public final class MethodSearchService implements AutoCloseable {
   private static final int PAGE_SIZE = 12, MAX_JOBS = 8, MAX_REVISIONS = 4, MAX_COMMANDS = 64;
-  private final ItemCatalog catalog;
   private final GoalFilterService goals;
   private final BasicCurrencyTransitions transitions;
+  private final Map<String, ItemCatalog> catalogs = new LinkedHashMap<>();
+  private final Map<String, BasicCurrencyTransitions> models = new LinkedHashMap<>();
   private final ObjectMapper json;
   private final Clock clock;
   private final Executor executor;
   private final int runBudget;
   private final Map<String, Job> jobs = new LinkedHashMap<>();
+
+  public MethodSearchService(
+      List<ItemCatalog> catalogs, GoalFilterService goals, String identity, ObjectMapper json) {
+    this(
+        catalogs.stream()
+            .filter(c -> c.base().id().equals(SolarAmulet.BASE_ID))
+            .findFirst()
+            .orElseThrow(),
+        goals,
+        identity,
+        json);
+    register(catalogs, identity);
+  }
+
+  public MethodSearchService(
+      List<ItemCatalog> catalogs,
+      GoalFilterService goals,
+      String identity,
+      ObjectMapper json,
+      Clock clock,
+      Executor executor,
+      int runBudget) {
+    this(catalogs.getFirst(), goals, identity, json, clock, executor, runBudget);
+    register(catalogs, identity);
+  }
+
+  private void register(List<ItemCatalog> catalogs, String identity) {
+    for (var entry : catalogs) {
+      this.catalogs.put(entry.base().id(), entry);
+      models.computeIfAbsent(
+          entry.base().id(), ignored -> BasicCurrencyTransitions.forMethodSearch(entry, identity));
+    }
+  }
 
   public MethodSearchService(
       ItemCatalog catalog, GoalFilterService goals, String identity, ObjectMapper json) {
@@ -56,9 +90,10 @@ public final class MethodSearchService implements AutoCloseable {
       Clock clock,
       Executor executor,
       int runBudget) {
-    this.catalog = catalog;
     this.goals = goals;
-    this.transitions = new BasicCurrencyTransitions(catalog, identity);
+    this.transitions = BasicCurrencyTransitions.forMethodSearch(catalog, identity);
+    catalogs.put(catalog.base().id(), catalog);
+    models.put(catalog.base().id(), transitions);
     this.json = json.copy();
     this.clock = clock;
     this.executor = executor;
@@ -68,6 +103,12 @@ public final class MethodSearchService implements AutoCloseable {
 
   public BasicCurrencyState.Provenance provenance() {
     return transitions.provenance();
+  }
+
+  public BasicCurrencyState.Provenance provenance(String baseItemId) {
+    var model = models.get(baseItemId);
+    if (model == null) throw new Rejected(422, "UNSUPPORTED_BASE");
+    return model.provenance();
   }
 
   public Snapshot create(String owner, Create input) {
@@ -85,7 +126,10 @@ public final class MethodSearchService implements AutoCloseable {
         || request.start() == null
         || request.goal() == null
         || request.activeOmens() == null) throw new Rejected(422, "INVALID_REQUEST");
-    if (!provenance().equals(request.start().provenance()))
+    var catalog = catalogs.get(request.start().item().baseItemId());
+    if (catalog == null) throw new Rejected(422, "UNSUPPORTED_BASE");
+    var transitions = models.get(catalog.base().id());
+    if (!transitions.provenance().equals(request.start().provenance()))
       throw new Rejected(422, "RULESET_IDENTITY_MISMATCH");
     if (!request.start().item().baseItemId().equals(catalog.base().id()))
       throw new Rejected(422, "UNSUPPORTED_BASE");
@@ -419,7 +463,7 @@ public final class MethodSearchService implements AutoCloseable {
             job.calculation.complete(),
             job.calculation.operations(),
             job.request.start().canonicalKey(),
-            provenance(),
+            job.request.start().provenance(),
             job.request.goal().catalogVersion(),
             MethodSearchCalculation.TEMPLATES,
             MethodSearchCalculation.VERSION,

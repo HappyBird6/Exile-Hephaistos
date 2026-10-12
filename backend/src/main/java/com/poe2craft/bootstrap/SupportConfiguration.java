@@ -12,11 +12,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public class SupportConfiguration {
   @Bean(destroyMethod = "close")
   com.poe2craft.crafting.application.pathsearch.MethodSearchService methodSearchService(
-      ItemCatalog catalog,
+      WorkbenchService workbench,
       com.poe2craft.crafting.application.goalfilter.GoalFilterService goals,
       ObjectMapper json) {
     return new com.poe2craft.crafting.application.pathsearch.MethodSearchService(
-        catalog, goals, RulesetManifestLoader.load().identity(), json);
+        workbench.reviewedCatalogs(), goals, RulesetManifestLoader.load().identity(), json);
   }
 
   @Bean(destroyMethod = "close")

@@ -132,6 +132,56 @@ class BasicCurrencyTransitionsTest {
   }
 
   @Test
+  void reviewedUniformCatalogUsesIndividualEligibleTiersAndSeparateRolls() {
+    var reviewed = com.poe2craft.item.infrastructure.ItemCatalogLoader.loadSapphire();
+    var model = BasicCurrencyTransitions.forMethodSearch(reviewed, RULESET);
+    var source =
+        new BasicCurrencyState(
+            new ItemState(
+                reviewed.metadata().snapshotId(),
+                reviewed.base().id(),
+                82,
+                ItemState.Rarity.RARE,
+                List.of(),
+                List.of(),
+                Set.of()),
+            model.provenance());
+    var result = model.expand(source, WorkbenchCurrency.EXALTED, Set.of(), 100000);
+    assertThat(result.status()).isEqualTo(Status.COMPLETE);
+    normalized(result);
+    // Independent ordinary-catalog count, not family count and not the number of rolled items.
+    var eligible =
+        reviewed.modifiers().values().stream()
+            .filter(
+                d ->
+                    d.layer() == ModifierDefinition.Layer.EXPLICIT
+                        && d.weight() > 0
+                        && d.requiredItemLevel() <= 82)
+            .toList();
+    var perTier = new LinkedHashMap<String, Fraction>();
+    for (var outcome : result.outcomes()) {
+      var modifier = outcome.state().item().explicits().getFirst();
+      perTier.merge(modifier.modifierId(), outcome.probability(), Fraction::add);
+    }
+    assertThat(perTier).hasSize(eligible.size());
+    assertThat(perTier.values()).allMatch(p -> p.equals(Fraction.of(1, eligible.size())));
+    assertThat(result.assumptions())
+        .anyMatch(a -> a.id().equals("explicit-uniform-modifier-tier-v1"));
+    assertThat(model.provenance().modelVersion()).isEqualTo("reviewed-basic-transition-v2");
+    // The old persisted primitive API remains explicitly scoped to its original model.
+    var legacy = new BasicCurrencyTransitions(reviewed, RULESET);
+    assertThat(
+            legacy
+                .expand(
+                    new BasicCurrencyState(source.item(), legacy.provenance()),
+                    WorkbenchCurrency.EXALTED,
+                    Set.of(),
+                    1)
+                .reason())
+        .isEqualTo("NUMERIC_BASE_NOT_IMPLEMENTED");
+  }
+
+  @Test
   void kernelIdentitySharesRemovedInputsButPreservesAllRetainedStateAndAction() {
     var left = item(ItemState.Rarity.RARE, List.of(mod("a", 1)));
     var right = item(ItemState.Rarity.RARE, List.of(mod("b", 4)));

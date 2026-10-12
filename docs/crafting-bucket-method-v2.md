@@ -85,6 +85,14 @@ explicit recalculation. Request/command IDs are idempotent, owner cookies scope
 access, and generation tokens suppress cancelled workers. A run budget pauses
 work; it is never a crafting-currency limit.
 
+`GET /api/v2/crafting/method-searches/provenance?baseItemId=...` resolves the
+selected registered catalog. Craft Support keys this request by selected base
+and ruleset and waits for it before starting. Each job publishes its validated
+input model provenance, not a default Solar model. Non-Solar basic searches use
+`reviewed-basic-transition-v2`; existing Solar and v1 saved identities are not
+silently relabeled. Explicit-uniform selection is a declared model, not a claim
+that game weights were verified.
+
 The Craft Support results now consume v2. Input editing and all six languages
 remain intact. Presentation buckets aggregate goal-entry statuses only; each
 method still names its exact source item, and its paged conditional outcomes retain
@@ -102,14 +110,18 @@ and immediate/final recommendation reversal; it is not game-probability evidence
   deeper layers finish. Keep `PAUSED`/partial; add a proved weighted-bisimulation
   representation with entry-conditioned distributions before claiming full
   production-diamond exploration or a completion latency.
-- **Rules coverage:** the primitive model remains Solar, single-stat integer rolls,
-  supported basic currencies and no active omens. Other bases, joint rolls and
-  omens remain explicitly unresolved. Extend reviewed rule kernels before widening
-  the advertised scope. Whittling must remain a Chaos omen, never a deletion orb.
-- **Uniform fallback:** the current primitive adapter still accepts only the
-  published-weight policy. The 30 explicit-uniform catalogs and future missing
-  weights need a separately tested eligible-modifier-tier selector. No missing
-  weight was found in the reviewed 132-catalog audit.
+- **Rules coverage:** v2 now selects the registered starting base's catalog and
+  reviewed basic-currency model. Complete eligible pools must have single-stat
+  integer rolls; joint rolls and active omens remain explicitly unresolved.
+  Catalog registration is not a promise of complete probability support. The v1
+  primitive model/provenance remains Solar-only. Whittling must remain a Chaos
+  omen, never a deletion orb.
+- **Uniform fallback:** v2 accepts both existing explicit-uniform catalog policy
+  names and selects individual eligible modifier-tier candidates with 1/n,
+  recording candidate IDs/count, reason and source. Non-goal candidates remain in
+  the denominator and per-tier rolls are separate. Zero-weight special definitions
+  retain the shared rules' non-generation eligibility. Future nullable/missing
+  weight ingestion is still separate work; none was found in the reviewed audit.
 - **Cyclic final strategies:** fully known graphs up to 32 states now have an
   exact policy-evaluation cursor. It removes policy classes with no path to a goal,
   solves the remaining rational linear equations one row/pivot per call, improves
@@ -127,12 +139,18 @@ and immediate/final recommendation reversal; it is not game-probability evidence
 
 ## Verification evidence (2026-10-12)
 
-Docker Java 21 full `check generateJooq bootJar` passed (634 unit/contract tests and seven disposable
-DB integration tests). Docker Node 24 lint, typecheck, formatting, 2,146 frontend
+Docker Java 21 full `check generateJooq bootJar` passed (637 unit/contract tests and seven disposable
+DB integration tests). Docker Node 24 lint, typecheck, formatting, 2,147 frontend
 tests and production build passed. The preserved v1 source oracle remains 650/21107.
 The actual Solar pool test enumerates Exalted outcomes for root, Projectile +3,
 explicit Spirit 47 and existing Life 50; both diamond arms/merges and Life+Chaos
 are reachable, and the complete primitive distributions conserve mass.
+The ordinary-catalog audit exercises all 30 declared uniform catalogs against
+the 16 basic actions without base/weight-policy rejection. This is rule-entry
+coverage, not proof of every roll kernel. The real Sapphire addition test checks
+all 58 eligible individual candidates at 1/58 after summing their distinct rolls.
+Service/HTTP tests cover base-specific provenance and mixed-base job responses;
+frontend tests cover the selected-base route and ruleset/base-change gating.
 
 An isolated external JUnit probe used the production catalog with an empty Rare
 Solar item and AND(Projectile >=3, explicit Spirit >=47). One 12,000-operation run

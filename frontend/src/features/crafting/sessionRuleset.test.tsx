@@ -26,7 +26,10 @@ function setup() {
           identity: new Headers(init.headers).get('X-Crafting-Ruleset'),
         })
       let response: Response
-      if (String(url).endsWith('/basic-paths/provenance')) {
+      if (
+        String(url).endsWith('/basic-paths/provenance') ||
+        String(url).includes('/method-searches/provenance?')
+      ) {
         response = jsonResponse({
           ...requestFixture().start.provenance,
           rulesetIdentity: identity,

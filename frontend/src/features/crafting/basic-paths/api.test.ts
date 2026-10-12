@@ -1,7 +1,30 @@
-import { describe, expect, it } from 'vitest'
-import { percent } from './api'
+import { describe, expect, it, vi } from 'vitest'
+import { percent, loadProvenance } from './api'
+import { requestFixture } from '../path-tree/fixtures.test-support'
 
 describe('exact probability display', () => {
+  it('loads the selected base model while preserving the legacy provenance route', async () => {
+    const provenance = requestFixture().start.provenance
+    const fetch = vi.fn(async () => new Response(JSON.stringify(provenance)))
+    vi.stubGlobal('fetch', fetch)
+    try {
+      const signal = new AbortController().signal
+      await expect(
+        loadProvenance(signal, 'Metadata/Items/Jewels/JewelInt'),
+      ).resolves.toEqual(provenance)
+      expect(fetch).toHaveBeenLastCalledWith(
+        '/api/v2/crafting/method-searches/provenance?baseItemId=Metadata%2FItems%2FJewels%2FJewelInt',
+        { signal },
+      )
+      await loadProvenance(signal)
+      expect(fetch).toHaveBeenLastCalledWith(
+        '/api/v1/crafting/basic-paths/provenance',
+        { signal },
+      )
+    } finally {
+      vi.unstubAllGlobals()
+    }
+  })
   it('handles thousands of digits without converting either integer to Number', () => {
     const denominator = 10n ** 5000n
     expect(

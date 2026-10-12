@@ -193,9 +193,10 @@ export function CraftStart({
     !!draft.rulesetIdentity &&
     draft.rulesetIdentity === selected?.initial.rulesetIdentity
   const provenance = useQuery({
-    queryKey: ['craftStart', 'provenance', draft.rulesetIdentity],
+    queryKey: ['craftStart', 'provenance', draft.rulesetIdentity, draft.base],
     enabled: active && currentRules,
-    queryFn: ({ signal }) => loadProvenance(signal),
+    queryFn: ({ signal }) =>
+      loadProvenance(signal, selected?.initial.state.baseItemId),
     retry: false,
   })
   const currentProvenance =
