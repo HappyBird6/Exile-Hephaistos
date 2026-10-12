@@ -29,6 +29,91 @@ class ExactMethodRunnerTest {
   }
 
   @Test
+  void equivalentPhaseInputsShareWorkWithoutAveragingEntryLawsOrUnknownExits() {
+    var shared =
+        new Kernel<String>(
+            List.of(
+                new Outcome<>("goal", HALF),
+                new Outcome<>("x", Fraction.of(1, 8)),
+                new Outcome<>("y", Fraction.of(1, 8))),
+            Fraction.of(1, 4),
+            false);
+    var runners = new ArrayList<ExactMethodRunner<String, String>>();
+    for (boolean reverse : List.of(false, true))
+      for (boolean reuse : List.of(true, false)) {
+        runners.add(
+            new ExactMethodRunner<>(
+                "root",
+                new Template<>(
+                    "entry-" + reverse + reuse, List.of(s -> "prepare"), List.of(s -> "try")),
+                (state, action) ->
+                    action.equals("prepare")
+                        ? new Kernel<>(
+                            List.of(
+                                new Outcome<>("x", Fraction.of(reverse ? 3 : 1, 4)),
+                                new Outcome<>("y", Fraction.of(reverse ? 1 : 3, 4))),
+                            Fraction.ZERO,
+                            false)
+                        : reuse
+                            ? shared
+                            : new Kernel<>(shared.outcomes(), shared.unresolved(), false),
+                ExactMethodRunnerTest::classify));
+      }
+    runners.forEach(ExactMethodRunnerTest::finish);
+    for (int cycle = 1; cycle <= 100; cycle++) {
+      for (var runner : runners) {
+        runner.beginCycle();
+        finish(runner);
+      }
+      assertThat(runners.get(0).observation()).isEqualTo(runners.get(1).observation());
+      assertThat(runners.get(2).observation()).isEqualTo(runners.get(3).observation());
+      if (cycle == 1) {
+        // Independent one-step enumeration: unknown mass is one quarter of each input.
+        assertThat(runners.get(0).observation().exits().get(Exit.UNRESOLVED))
+            .isEqualTo(Map.of("x", Fraction.of(1, 16), "y", Fraction.of(3, 16)));
+        assertThat(runners.get(2).observation().exits().get(Exit.UNRESOLVED))
+            .isEqualTo(Map.of("x", Fraction.of(3, 16), "y", Fraction.of(1, 16)));
+      }
+    }
+    assertThat(runners.get(0).groupedInputs()).isPositive();
+    assertThat(runners.get(1).groupedInputs()).isZero();
+    assertThat(runners.get(0).observation()).isNotEqualTo(runners.get(2).observation());
+  }
+
+  @Test
+  void equalKernelsDoNotMergeDifferentActionsOrUnavailableInputStates() {
+    var shared = kernel("goal");
+    var runner =
+        new ExactMethodRunner<>(
+            "root",
+            new Template<String, String>(
+                "different-actions", List.of(s -> "prepare"), List.of(s -> s)),
+            (state, action) -> action.equals("prepare") ? kernel("x", "y") : shared,
+            ExactMethodRunnerTest::classify);
+    finish(runner);
+    runner.beginCycle();
+    finish(runner);
+    assertThat(runner.groupedInputs()).isZero();
+    assertThat(runner.observation().cycleUses()).isEqualTo(Map.of("x", HALF, "y", HALF));
+
+    var unavailable = new Kernel<String>(List.of(), Fraction.ZERO, true);
+    var blocked =
+        new ExactMethodRunner<>(
+            "root",
+            new Template<String, String>(
+                "blocked-inputs", List.of(s -> "prepare"), List.of(s -> "blocked")),
+            (state, action) -> action.equals("prepare") ? kernel("x", "y") : unavailable,
+            ExactMethodRunnerTest::classify);
+    finish(blocked);
+    blocked.beginCycle();
+    finish(blocked);
+    assertThat(blocked.groupedInputs()).isZero();
+    assertThat(blocked.observation().exits().get(Exit.DEAD))
+        .isEqualTo(Map.of("x", HALF, "y", HALF));
+    assertThat(blocked.observation().cycleUses()).isEmpty();
+  }
+
+  @Test
   void preparationAndCyclesHaveSeparateUsageAndFirstHitStopsBeforeRemoval() {
     var runner =
         new ExactMethodRunner<>(

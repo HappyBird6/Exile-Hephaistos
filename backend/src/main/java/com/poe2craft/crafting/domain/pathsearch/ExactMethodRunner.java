@@ -6,7 +6,7 @@ import java.util.function.Function;
 
 /** Finite-observation Markov calculation. S must be the full immutable transition state. */
 public final class ExactMethodRunner<S, A> {
-  public static final String VERSION = "method-cycle-markov-v3";
+  public static final String VERSION = "method-cycle-markov-v4";
 
   public enum Exit {
     GOAL,
@@ -90,10 +90,44 @@ public final class ExactMethodRunner<S, A> {
   private boolean atBoundary;
   private long cycles;
   private Flight flight;
+  private final Map<WorkKey, Flight> phaseGroups = new LinkedHashMap<>();
+  private boolean phaseReady;
+  private long groupedInputs;
+
+  // The job's proven kernel cache supplies the same immutable object only for equal complete
+  // transition laws. Reference equality avoids repeatedly hashing a large outcome distribution.
+  private final class WorkKey {
+    final int phase;
+    final A action;
+    final Kernel<S> kernel;
+
+    WorkKey(int phase, A action, Kernel<S> kernel) {
+      this.phase = phase;
+      this.action = action;
+      this.kernel = kernel;
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(phase, action, System.identityHashCode(kernel));
+    }
+
+    @Override
+    public boolean equals(Object other) {
+      if (other == null || other.getClass() != getClass()) return false;
+      @SuppressWarnings("unchecked")
+      var key = (ExactMethodRunner<S, A>.WorkKey) other;
+      return phase == key.phase && action.equals(key.action) && kernel == key.kernel;
+    }
+  }
+
+  public long groupedInputs() {
+    return groupedInputs;
+  }
 
   private final class Flight {
     final Execution<S> execution;
-    final Fraction mass;
+    Fraction mass;
     final Kernel<S> kernel;
     final int phases;
     int cursor;
@@ -148,7 +182,7 @@ public final class ExactMethodRunner<S, A> {
   public void step(int maxOutcomes) {
     if (maxOutcomes < 1) throw new IllegalArgumentException("Positive outcome slice required");
     if (atBoundary) throw new IllegalStateException("Begin a cycle before stepping");
-    if (flight == null) {
+    if (flight == null && !phaseReady) {
       var entry = pending.entrySet().iterator().next();
       var execution = entry.getKey();
       var mass = entry.getValue();
@@ -159,12 +193,32 @@ public final class ExactMethodRunner<S, A> {
       pending.remove(execution);
       if (kernel.unavailable()) {
         absorb(Exit.DEAD, execution.state(), mass);
+      } else {
+        var key = new WorkKey(execution.phase(), action, kernel);
+        var group = phaseGroups.get(key);
+        if (group == null)
+          phaseGroups.put(key, new Flight(execution, mass, kernel, actions.size()));
+        else {
+          group.mass = group.mass.add(mass);
+          groupedInputs++;
+        }
+        (initializing ? initialUses : cycleUses).merge(action, mass, Fraction::add);
+        // Keep source-conditioned unknown exits separate even when their known transitions share.
+        absorb(Exit.UNRESOLVED, execution.state(), mass.multiply(kernel.unresolved()));
+      }
+      phaseReady =
+          pending.isEmpty() || pending.keySet().iterator().next().phase() != execution.phase();
+      if (!phaseReady) return;
+      if (phaseGroups.isEmpty()) {
+        phaseReady = false;
         if (pending.isEmpty()) finishBoundary();
         return;
       }
-      flight = new Flight(execution, mass, kernel, actions.size());
-      (initializing ? initialUses : cycleUses).merge(action, mass, Fraction::add);
-      absorb(Exit.UNRESOLVED, execution.state(), mass.multiply(kernel.unresolved()));
+    }
+    if (flight == null) {
+      var group = phaseGroups.entrySet().iterator().next();
+      flight = group.getValue();
+      phaseGroups.remove(group.getKey());
     }
     int consumed = 0;
     while (flight.cursor < flight.kernel.outcomes().size() && consumed < maxOutcomes) {
@@ -187,7 +241,10 @@ public final class ExactMethodRunner<S, A> {
     }
     if (flight.cursor == flight.kernel.outcomes().size()) {
       flight = null;
-      if (pending.isEmpty()) finishBoundary();
+      if (phaseGroups.isEmpty()) {
+        phaseReady = false;
+        if (pending.isEmpty()) finishBoundary();
+      }
     }
   }
 

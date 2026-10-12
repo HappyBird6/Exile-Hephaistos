@@ -13,7 +13,7 @@ import java.util.function.Function;
 
 /** Job-local, resumable method-depth exploration. UI buckets never key calculation states. */
 public final class MethodSearchCalculation {
-  public static final String VERSION = "full-state-method-search-v5";
+  public static final String VERSION = "full-state-method-search-v6";
   static final int OPEN_METHOD_WINDOW = 512;
   public static final String TEMPLATES = "applicable-single-and-two-action-cycles-v3";
   public static final List<Integer> OBSERVATIONS = List.of(100, 300, 500);
@@ -262,7 +262,8 @@ public final class MethodSearchCalculation {
       int outcomes,
       int methodInstances,
       long liveRunners,
-      int completedMethods) {}
+      int completedMethods,
+      long groupedExecutionInputs) {}
 
   public CacheMetrics cacheMetrics() {
     return new CacheMetrics(
@@ -272,7 +273,10 @@ public final class MethodSearchCalculation {
         retainedOutcomes,
         methods.size(),
         methods.values().stream().filter(m -> m.runner != null).count(),
-        methods.size() - openMethods);
+        methods.size() - openMethods,
+        methods.values().stream()
+            .mapToLong(m -> m.foldedInputs + (m.runner == null ? 0 : m.runner.groupedInputs()))
+            .sum());
   }
 
   private int matches(BasicCurrencyState state) {
@@ -502,6 +506,7 @@ public final class MethodSearchCalculation {
     final List<WorkbenchCurrency> actions;
     ExactMethodRunner<BasicCurrencyState, WorkbenchCurrency> runner;
     Observation<BasicCurrencyState, WorkbenchCurrency> previousBoundary;
+    long foldedInputs;
     final Map<Integer, Observation<BasicCurrencyState, WorkbenchCurrency>> points =
         new LinkedHashMap<>();
     boolean done;
@@ -548,6 +553,7 @@ public final class MethodSearchCalculation {
         for (int n : OBSERVATIONS)
           if (!points.containsKey(n)) save(n, point.atLaterAbsorbedBoundary(n));
         done = true;
+        foldedInputs += runner.groupedInputs();
         runner = null;
         previousBoundary = null;
         openMethods--;
@@ -564,6 +570,7 @@ public final class MethodSearchCalculation {
               com.poe2craft.crafting.domain.pathsearch.RenewalMethodObservation.repeat(
                   point, source.value, n));
         done = true;
+        foldedInputs += runner.groupedInputs();
         runner = null;
         previousBoundary = null;
         openMethods--;
@@ -582,6 +589,7 @@ public final class MethodSearchCalculation {
                           previousBoundary, point, n)
                       .orElseThrow());
           done = true;
+          foldedInputs += runner.groupedInputs();
           runner = null;
           previousBoundary = null;
           openMethods--;
@@ -593,6 +601,7 @@ public final class MethodSearchCalculation {
       }
       if (cycles == OBSERVATIONS.getLast()) {
         done = true;
+        foldedInputs += runner.groupedInputs();
         runner = null;
         previousBoundary = null;
         openMethods--;

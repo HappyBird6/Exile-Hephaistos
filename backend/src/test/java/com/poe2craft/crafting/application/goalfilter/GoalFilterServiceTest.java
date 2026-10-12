@@ -13,6 +13,73 @@ import org.junit.jupiter.api.Test;
 
 class GoalFilterServiceTest {
   @Test
+  void compiledDependencyClosurePreservesEveryAstKindAndPseudoAcrossLossAndMerge() {
+    var empty = item(List.of(), 82, Set.of());
+    var sources =
+        List.of(
+            empty,
+            item(List.of(modifier(itemCatalog, COLD, 10)), 82, Set.of()),
+            item(
+                List.of(modifier(itemCatalog, COLD, 10), modifier(itemCatalog, ALL, 12)),
+                82,
+                Set.of()),
+            item(List.of(modifier(itemCatalog, ALL, 12)), 82, Set.of()));
+    for (var type : Type.values()) {
+      boolean weighted = type == Type.WEIGHTED_V1 || type == Type.WEIGHTED_V2;
+      var entries =
+          List.of(
+              new Entry(
+                  "pseudo",
+                  GoalCatalogIndex.id("pseudo", "total_cold_resistance"),
+                  "percent",
+                  new Range(BigDecimal.TEN, null),
+                  weighted ? BigDecimal.valueOf(2) : null,
+                  false),
+              new Entry(
+                  "direct",
+                  GoalCatalogIndex.id("explicit", COLD),
+                  "percent",
+                  new Range(BigDecimal.valueOf(8), BigDecimal.valueOf(15)),
+                  weighted ? BigDecimal.ONE : null,
+                  false));
+      var goal =
+          new GoalFilter(
+              1,
+              index.version(),
+              new General(
+                  empty.baseItemId(), new Range(null, null), List.of(ItemState.Rarity.RARE)),
+              List.of(
+                  new Group(
+                      "target",
+                      type,
+                      false,
+                      weighted || type == Type.COUNT ? new Range(BigDecimal.ONE, null) : null,
+                      entries),
+                  new Group(
+                      "preserved-disabled",
+                      Type.AND,
+                      true,
+                      null,
+                      List.of(
+                          new Entry(
+                              "unknown",
+                              "retained-unknown-stat",
+                              "flat",
+                              new Range(null, null),
+                              null,
+                              true)))));
+      var compiled = service.compileEvaluation(empty, goal);
+      for (var source : sources) {
+        var expected = service.evaluate(source, goal);
+        assertThat(compiled.apply(source).status()).isEqualTo(expected.status());
+        assertThat(compiled.apply(source).groups()).isEqualTo(expected.groups());
+      }
+      assertThat(goal.groups().get(1).entries().getFirst().statId())
+          .isEqualTo("retained-unknown-stat");
+    }
+  }
+
+  @Test
   void disabledUnknownContentStillRequiresUnitAndCountMinimumCanProveImpossibleGoal() {
     var context = new Context(itemCatalog.metadata().snapshotId(), itemCatalog.base().id(), 82);
     var active =

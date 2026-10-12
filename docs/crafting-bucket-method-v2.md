@@ -236,3 +236,27 @@ launcher failed before opening a page: required Windows platform directory missi
 verify all six synthetic methods, eight outcome connections, separate immediate
 and final recommendations, and 100/300/500 observations; they do not replace a
 real-browser layout/interaction check.
+
+Calculation v6 / runner v4 additionally groups inputs within one method and one
+primitive phase only when the action and cached immutable full transition law
+are identical. This sums mutually exclusive arrivals of that method; it never
+averages distinct methods' entry distributions. Unknown and unavailable exits
+retain the original source state, and currency use is charged per incoming mass.
+Differential tests compare shared kernels against independently allocated kernels,
+including distinct entry laws, unknown mass, action choices and unavailable inputs.
+Goal projection now computes the recursive dependency closure of active goal
+entries; the original AST and all required numeric values remain unchanged.
+Tests compare compiled and ordinary evaluation across every supported AST group
+kind, pseudo dependencies, loss and merged modifiers.
+
+Before this change, the same 36,000-operation Solar probe measured 10,052 states,
+10,046 unexpanded states, 574 methods and 108,969 observation support entries in
+30,492ms; sampled process heap reached 197,551,256 bytes. After the change those
+state/method/observation counts were unchanged, with 4,760 execution inputs grouped,
+24,854ms elapsed and 219,915,960 bytes sampled heap. First response/method/goal-bucket
+were 28/328/328ms. Both A/B continuation arms remained present. These single runs
+are diagnostic, not a reliable speedup or memory improvement claim. Neither reached
+first local recommendation or whole-search completion. This is execution-law
+reuse, **not** a quotient of persistent item states or a completed production search.
+Persistent state reduction still needs a goal/action/transition equivalence proof
+and a representation retaining each incoming method's conditional full-item law.

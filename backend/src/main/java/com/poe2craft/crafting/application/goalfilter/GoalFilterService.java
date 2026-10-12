@@ -132,7 +132,7 @@ public final class GoalFilterService {
     if (initial.status() == Status.UNKNOWN || initial.status() == Status.UNSUPPORTED)
       return state -> evaluate(state, goal);
     var context = new Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
-    var known = index.knownStats(context);
+    var known = requiredStats(goal, index.knownStats(context));
     return state ->
         evaluator.evaluate(
             goal,
@@ -142,6 +142,23 @@ public final class GoalFilterService {
                 : Status.NO_MATCH,
             projection.project(state, known, true),
             List.of());
+  }
+
+  /** A dependency closure, not a reduction of the submitted goal AST or its numeric values. */
+  private static java.util.Map<String, GoalCatalog.Stat> requiredStats(
+      GoalFilter goal, java.util.Map<String, GoalCatalog.Stat> known) {
+    var pending = new java.util.ArrayDeque<String>();
+    for (var group : goal.groups())
+      if (!group.disabled())
+        for (var entry : group.entries()) if (!entry.disabled()) pending.add(entry.statId());
+    var result = new java.util.LinkedHashMap<String, GoalCatalog.Stat>();
+    while (!pending.isEmpty()) {
+      var id = pending.remove();
+      var stat = known.get(id);
+      if (stat == null || result.putIfAbsent(id, stat) != null) continue;
+      for (var contribution : stat.contributions()) pending.add(contribution.statId());
+    }
+    return java.util.Map.copyOf(result);
   }
 
   public record Limits(Integer maxStates, Integer maxEdges, Integer maxMillis) {}
