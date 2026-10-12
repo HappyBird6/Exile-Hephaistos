@@ -6,7 +6,7 @@ import java.util.function.Function;
 
 /** Finite-observation Markov calculation. S must be the full immutable transition state. */
 public final class ExactMethodRunner<S, A> {
-  public static final String VERSION = "method-cycle-markov-v2";
+  public static final String VERSION = "method-cycle-markov-v3";
 
   public enum Exit {
     GOAL,
@@ -63,6 +63,12 @@ public final class ExactMethodRunner<S, A> {
       Map<S, Fraction> active,
       Map<A, Fraction> initialUses,
       Map<A, Fraction> cycleUses) {
+    public Observation<S, A> atLaterAbsorbedBoundary(long boundaryCycles) {
+      if (!active.isEmpty() || boundaryCycles < cycles || !mass().equals(Fraction.ONE))
+        throw new IllegalArgumentException("Only a later absorbed observation may be filled");
+      return new Observation<>(boundaryCycles, exits, active, initialUses, cycleUses);
+    }
+
     public Fraction mass() {
       var total = Fraction.ZERO;
       for (var distribution : exits.values())
@@ -83,6 +89,22 @@ public final class ExactMethodRunner<S, A> {
   private boolean initializing;
   private boolean atBoundary;
   private long cycles;
+  private Flight flight;
+
+  private final class Flight {
+    final Execution<S> execution;
+    final Fraction mass;
+    final Kernel<S> kernel;
+    final int phases;
+    int cursor;
+
+    Flight(Execution<S> execution, Fraction mass, Kernel<S> kernel, int phases) {
+      this.execution = execution;
+      this.mass = mass;
+      this.kernel = kernel;
+      this.phases = phases;
+    }
+  }
 
   public ExactMethodRunner(
       S root,
@@ -118,41 +140,55 @@ public final class ExactMethodRunner<S, A> {
     if (pending.isEmpty()) finishBoundary();
   }
 
-  /**
-   * One pending full-state/phase expansion. Callers time-slice between steps and preserve cursor.
-   */
+  /** A bounded portion of one full-state/phase expansion, retaining its outcome cursor. */
   public void step() {
+    step(32);
+  }
+
+  public void step(int maxOutcomes) {
+    if (maxOutcomes < 1) throw new IllegalArgumentException("Positive outcome slice required");
     if (atBoundary) throw new IllegalStateException("Begin a cycle before stepping");
-    var entry = pending.entrySet().iterator().next();
-    var execution = entry.getKey();
-    var mass = entry.getValue();
-    var actions = initializing ? template.initial() : template.cycle();
-    var action = Objects.requireNonNull(actions.get(execution.phase()).apply(execution.state()));
-    // Compute and validate before committing the cursor. Failed computation can safely be retried.
-    var kernel = transition.apply(execution.state(), action);
-    var classified = new ArrayList<Optional<Exit>>();
-    for (var outcome : kernel.outcomes()) classified.add(classify.apply(outcome.state()));
-    pending.remove(execution);
-    if (kernel.unavailable()) {
-      absorb(Exit.DEAD, execution.state(), mass);
-    } else {
+    if (flight == null) {
+      var entry = pending.entrySet().iterator().next();
+      var execution = entry.getKey();
+      var mass = entry.getValue();
+      var actions = initializing ? template.initial() : template.cycle();
+      var action = Objects.requireNonNull(actions.get(execution.phase()).apply(execution.state()));
+      // A suspended/failed kernel lookup commits neither cost nor phase progress.
+      var kernel = transition.apply(execution.state(), action);
+      pending.remove(execution);
+      if (kernel.unavailable()) {
+        absorb(Exit.DEAD, execution.state(), mass);
+        if (pending.isEmpty()) finishBoundary();
+        return;
+      }
+      flight = new Flight(execution, mass, kernel, actions.size());
       (initializing ? initialUses : cycleUses).merge(action, mass, Fraction::add);
       absorb(Exit.UNRESOLVED, execution.state(), mass.multiply(kernel.unresolved()));
-      for (int i = 0; i < kernel.outcomes().size(); i++) {
-        var outcome = kernel.outcomes().get(i);
-        var weight = mass.multiply(outcome.probability());
-        if (weight.equals(Fraction.ZERO)) continue;
-        var terminal = classified.get(i);
-        // First-hit precedes the next primitive: an Exalted hit never pays for a later Annulment.
+    }
+    int consumed = 0;
+    while (flight.cursor < flight.kernel.outcomes().size() && consumed < maxOutcomes) {
+      var outcome = flight.kernel.outcomes().get(flight.cursor);
+      var terminal = classify.apply(outcome.state());
+      var weight = flight.mass.multiply(outcome.probability());
+      if (!weight.equals(Fraction.ZERO)) {
+        // First hit precedes the next primitive, including between slices.
         if (terminal.isPresent()) absorb(terminal.get(), outcome.state(), weight);
-        else if (execution.phase() + 1 == actions.size())
+        else if (flight.execution.phase() + 1 == flight.phases)
           boundary.merge(outcome.state(), weight, Fraction::add);
         else
           pending.merge(
-              new Execution<>(outcome.state(), execution.phase() + 1), weight, Fraction::add);
+              new Execution<>(outcome.state(), flight.execution.phase() + 1),
+              weight,
+              Fraction::add);
       }
+      flight.cursor++;
+      consumed++;
     }
-    if (pending.isEmpty()) finishBoundary();
+    if (flight.cursor == flight.kernel.outcomes().size()) {
+      flight = null;
+      if (pending.isEmpty()) finishBoundary();
+    }
   }
 
   private void finishBoundary() {

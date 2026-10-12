@@ -7,9 +7,13 @@ type Copy = {
   uses: string
   state: string
   complete: string
+  loss: string
+  checkpoint: string
 }
 export const methodSearchMessages: Record<Locale, Copy> = {
   en: {
+    loss: 'Target modifier lost',
+    checkpoint: 'Intermediate state',
     cycles: 'Method repetitions',
     local: 'Best immediate outcome',
     final: 'Recommended strategy',
@@ -19,6 +23,8 @@ export const methodSearchMessages: Record<Locale, Copy> = {
     complete: 'Calculation complete',
   },
   ko: {
+    loss: '목표 속성 손실',
+    checkpoint: '중간 상태',
     cycles: '방법 반복 횟수',
     local: '직계 결과 추천',
     final: '최종 전략 추천',
@@ -28,6 +34,8 @@ export const methodSearchMessages: Record<Locale, Copy> = {
     complete: '계산 완료',
   },
   'zh-CN': {
+    loss: '目标词缀丢失',
+    checkpoint: '中间状态',
     cycles: '方法重复次数',
     local: '直接结果推荐',
     final: '最终策略推荐',
@@ -37,6 +45,8 @@ export const methodSearchMessages: Record<Locale, Copy> = {
     complete: '计算完成',
   },
   'zh-TW': {
+    loss: '目標詞綴遺失',
+    checkpoint: '中間狀態',
     cycles: '方法重複次數',
     local: '直接結果推薦',
     final: '最終策略推薦',
@@ -46,6 +56,8 @@ export const methodSearchMessages: Record<Locale, Copy> = {
     complete: '計算完成',
   },
   ja: {
+    loss: '目標モッドを失った状態',
+    checkpoint: '中間状態',
     cycles: '方法の繰り返し回数',
     local: '直近の結果の推奨',
     final: '最終戦略の推奨',
@@ -55,6 +67,8 @@ export const methodSearchMessages: Record<Locale, Copy> = {
     complete: '計算完了',
   },
   es: {
+    loss: 'Modificador objetivo perdido',
+    checkpoint: 'Estado intermedio',
     cycles: 'Repeticiones del método',
     local: 'Mejor resultado inmediato',
     final: 'Estrategia recomendada',

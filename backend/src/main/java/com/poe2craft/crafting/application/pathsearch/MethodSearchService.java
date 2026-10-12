@@ -209,13 +209,15 @@ public final class MethodSearchService implements AutoCloseable {
                   (s, mass) ->
                       rows.add(
                           new ConditionalState(
-                              s.canonicalKey(), s.item(), exit.getKey().name(), p(mass))));
+                              saved.byState.get(s).id(), s.item(), exit.getKey().name(), p(mass))));
       }
       point
           .active()
           .forEach(
               (s, mass) ->
-                  rows.add(new ConditionalState(s.canonicalKey(), s.item(), "ACTIVE", p(mass))));
+                  rows.add(
+                      new ConditionalState(
+                          saved.byState.get(s).id(), s.item(), "ACTIVE", p(mass))));
       rows.sort(
           Comparator.comparing(ConditionalState::stateId).thenComparing(ConditionalState::kind));
       int end = Math.min(rows.size(), offset + 48);
@@ -328,7 +330,7 @@ public final class MethodSearchService implements AutoCloseable {
     var locals = new ArrayList<Local>();
     for (var source : saved.states)
       if (source.complete()) {
-        var methods = saved.methods.stream().filter(m -> m.source().equals(source.id())).toList();
+        var methods = saved.bySource.getOrDefault(source.id(), List.of());
         for (int cycles : MethodSearchCalculation.OBSERVATIONS) {
           Fraction best = null;
           var ids = new ArrayList<String>();
@@ -395,7 +397,7 @@ public final class MethodSearchService implements AutoCloseable {
                             .orElse(List.of());
                     strategies.add(
                         new Strategy(
-                            state.canonicalKey(),
+                            saved.byState.get(state).id(),
                             cycles,
                             value.exact() ? "EXACT" : "BOUNDS",
                             p(value.lower()),
@@ -497,6 +499,8 @@ public final class MethodSearchService implements AutoCloseable {
     final List<MethodSearchCalculation.StateView> states;
     final List<MethodSearchCalculation.MethodView> methods;
     final Map<String, MethodSearchCalculation.StateView> byId = new HashMap<>();
+    final Map<BasicCurrencyState, MethodSearchCalculation.StateView> byState = new HashMap<>();
+    final Map<String, List<MethodSearchCalculation.MethodView>> bySource = new HashMap<>();
     final List<Bucket> buckets;
     final Map<String, Position> cursors = new HashMap<>();
     final Map<Position, String> tokens = new HashMap<>();
@@ -509,6 +513,7 @@ public final class MethodSearchService implements AutoCloseable {
       states.forEach(
           s -> {
             byId.put(s.id(), s);
+            byState.put(s.state(), s);
             groups.computeIfAbsent(bucket(s.progress()), unused -> new ArrayList<>()).add(s);
           });
       methods =
@@ -519,6 +524,9 @@ public final class MethodSearchService implements AutoCloseable {
                       .thenComparing(m -> m.points().isEmpty())
                       .thenComparing(MethodSearchCalculation.MethodView::id))
               .toList();
+      methods.forEach(
+          method ->
+              bySource.computeIfAbsent(method.source(), unused -> new ArrayList<>()).add(method));
       buckets =
           groups.entrySet().stream()
               .map(
@@ -617,7 +625,7 @@ public final class MethodSearchService implements AutoCloseable {
         String kind,
         BasicCurrencyState state,
         Fraction mass) {
-      var target = byId.get(state.canonicalKey());
+      var target = byState.get(state);
       if (target == null) throw new IllegalStateException("Missing exact exit state");
       groups
           .computeIfAbsent(kind + "|" + bucket(target.progress()), unused -> new LinkedHashMap<>())

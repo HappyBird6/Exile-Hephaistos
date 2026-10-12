@@ -260,12 +260,12 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
                         {exit.kind === 'GOAL'
                           ? common.hit
                           : exit.kind === 'LOSS'
-                            ? common.recovery
+                            ? copy.loss
                             : exit.kind === 'DEAD'
                               ? exits.dead
                               : exit.kind === 'ACTIVE'
                                 ? exits.active
-                                : common.checkpoint}
+                                : copy.checkpoint}
                       </li>
                     ))}
                   </ul>

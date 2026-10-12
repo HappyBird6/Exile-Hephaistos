@@ -13,8 +13,8 @@ import java.util.function.Function;
 
 /** Job-local, resumable method-depth exploration. UI buckets never key calculation states. */
 public final class MethodSearchCalculation {
-  public static final String VERSION = "full-state-method-search-v2";
-  public static final String TEMPLATES = "applicable-single-and-two-action-cycles-v2";
+  public static final String VERSION = "full-state-method-search-v3";
+  public static final String TEMPLATES = "applicable-single-and-two-action-cycles-v3";
   public static final List<Integer> OBSERVATIONS = List.of(100, 300, 500);
 
   public record Progress(Status goal, List<Status> entries) {
@@ -56,7 +56,29 @@ public final class MethodSearchCalculation {
   private final LinkedHashMap<BasicCurrencyState, State> states = new LinkedHashMap<>();
   private final Map<String, BasicCurrencyState> identities = new HashMap<>();
   private final LinkedHashMap<String, Method> methods = new LinkedHashMap<>();
-  private final List<Method> schedule = new ArrayList<>();
+
+  private record Ready(Method method, long ticket) {}
+
+  private final ArrayDeque<Ready> runnable = new ArrayDeque<>();
+  private final PriorityQueue<Ready> preferredMethods =
+      new PriorityQueue<>(
+          Comparator.comparingInt((Ready ready) -> -ready.method().source.matchingEntries)
+              .thenComparingInt(
+                  ready -> ready.method().initial.size() + ready.method().actions.size())
+              .thenComparingLong(Ready::ticket));
+  private int runnableCount;
+  private int methodRound;
+  private long readySequence;
+  private final Map<Key, List<Method>> waiting = new HashMap<>();
+  private final ArrayDeque<Key> fairKernels = new ArrayDeque<>();
+
+  private record Expansion(State state, int depth, int matches) {}
+
+  private final PriorityQueue<Expansion> frontier =
+      new PriorityQueue<>(
+          Comparator.comparingInt(Expansion::depth)
+              .thenComparing(Comparator.comparingInt(Expansion::matches).reversed())
+              .thenComparing(e -> e.state().id));
   private final Map<State, Set<State>> adjacency = new HashMap<>();
   private final Map<Key, Kernel<BasicCurrencyState>> kernels = new HashMap<>();
   private final LinkedHashMap<Key, KernelWork> pendingKernels = new LinkedHashMap<>();
@@ -72,7 +94,6 @@ public final class MethodSearchCalculation {
   private int openMethods;
   private int undiscoveredStates;
   private long operations;
-  private int round;
   private int kernelRound;
   private int retainedOutcomes;
 
@@ -124,7 +145,11 @@ public final class MethodSearchCalculation {
   }
 
   public boolean complete() {
-    return openMethods == 0 && undiscoveredStates == 0 && pendingKernels.isEmpty();
+    return openMethods == 0
+        && undiscoveredStates == 0
+        && pendingKernels.isEmpty()
+        && runnableCount == 0
+        && waiting.isEmpty();
   }
 
   public void increaseMemoryBudget(int limit) {
@@ -136,37 +161,88 @@ public final class MethodSearchCalculation {
   public void step() {
     if (memoryLimited() || complete()) return;
     operations++;
-    var toExpand =
-        states.values().stream()
-            .filter(s -> !s.expanded)
-            .min(Comparator.comparingInt(s -> s.depth));
-    if (toExpand.isPresent() && (schedule.isEmpty() || operations % 3 == 1)) {
-      discover(toExpand.get());
+    while (!frontier.isEmpty()
+        && (frontier.peek().state().expanded
+            || frontier.peek().depth() != frontier.peek().state().depth)) frontier.remove();
+    if (!frontier.isEmpty() && (methods.isEmpty() || openMethods == 0 || operations % 3 == 1)) {
+      discover(frontier.peek().state());
       return;
     }
     // Alternating queues prevents one expensive kernel from starving cheap method observations.
-    if (!pendingKernels.isEmpty() && (operations % 2 == 0)) {
-      var work = new ArrayList<>(pendingKernels.values());
-      var selected = work.get(Math.floorMod(kernelRound++, work.size()));
-      selected.step();
+    if (!pendingKernels.isEmpty() && (runnableCount == 0 || operations % 2 == 0)) {
+      if (Math.floorMod(kernelRound++, 4) == 3) {
+        Key key;
+        do {
+          key = fairKernels.removeFirst();
+        } while (!pendingKernels.containsKey(key));
+        pendingKernels.get(key).step();
+        if (pendingKernels.containsKey(key)) fairKernels.addLast(key);
+      } else {
+        var selected =
+            pendingKernels.values().stream()
+                .min(
+                    Comparator.comparingInt((KernelWork work) -> -matches(work.key.state()))
+                        .thenComparingInt(
+                            work ->
+                                states.containsKey(work.key.state())
+                                    ? states.get(work.key.state()).depth
+                                    : Integer.MAX_VALUE)
+                        .thenComparing(work -> work.cursor.remainingOutcomes()))
+                .orElseThrow();
+        selected.step();
+      }
       return;
     }
-    if (openMethods == 0) return;
-    Method selected;
+    if (runnableCount == 0) return;
+    boolean fair = Math.floorMod(methodRound++, 4) == 3;
+    Ready ready;
     do {
-      selected = schedule.get(Math.floorMod(round++, schedule.size()));
-    } while (selected.done);
+      ready = fair ? runnable.removeFirst() : preferredMethods.remove();
+    } while (!ready.method().queued || ready.ticket() != ready.method().ticket);
+    var selected = ready.method();
+    selected.queued = false;
+    runnableCount--;
     try {
       selected.step();
+      if (!selected.done) queue(selected);
     } catch (PendingKernel pending) {
-      pendingKernels.computeIfAbsent(pending.key, KernelWork::new);
+      waiting.computeIfAbsent(pending.key, unused -> new ArrayList<>()).add(selected);
+      pendingKernels.computeIfAbsent(
+          pending.key,
+          key -> {
+            fairKernels.addLast(key);
+            return new KernelWork(key);
+          });
     }
+  }
+
+  private int matches(BasicCurrencyState state) {
+    return (int) progress(state).entries().stream().filter(s -> s == Status.MATCH).count();
+  }
+
+  private void wake(Key key) {
+    var ready = waiting.remove(key);
+    if (ready != null) ready.forEach(this::queue);
+  }
+
+  private void queue(Method method) {
+    if (method.queued || method.done)
+      throw new IllegalStateException("Method queued twice or after completion");
+    method.queued = true;
+    method.ticket = ++readySequence;
+    var ready = new Ready(method, method.ticket);
+    runnable.addLast(ready);
+    preferredMethods.add(ready);
+    runnableCount++;
   }
 
   private State state(BasicCurrencyState value, int depth) {
     var old = states.get(value);
     if (old != null) {
-      old.depth = Math.min(old.depth, depth);
+      if (depth < old.depth) {
+        old.depth = depth;
+        enqueue(old);
+      }
       return old;
     }
     var id = value.canonicalKey();
@@ -175,8 +251,13 @@ public final class MethodSearchCalculation {
       throw new IllegalStateException("State digest collision");
     var result = new State(value, id, depth);
     states.put(value, result);
+    enqueue(result);
     undiscoveredStates++;
     return result;
+  }
+
+  private void enqueue(State state) {
+    frontier.add(new Expansion(state, state.depth, matches(state.value)));
   }
 
   private void link(State source, BasicCurrencyState value) {
@@ -186,6 +267,7 @@ public final class MethodSearchCalculation {
     var queue = new ArrayDeque<State>();
     if (target.depth > source.depth + 1) {
       target.depth = source.depth + 1;
+      enqueue(target);
       queue.add(target);
     }
     while (!queue.isEmpty()) {
@@ -193,6 +275,7 @@ public final class MethodSearchCalculation {
       for (var to : adjacency.getOrDefault(from, Set.of()))
         if (to.depth > from.depth + 1) {
           to.depth = from.depth + 1;
+          enqueue(to);
           queue.add(to);
         }
     }
@@ -221,6 +304,7 @@ public final class MethodSearchCalculation {
       add(source, List.of(first));
       if (cursor.status() == BasicCurrencyTransitions.Status.UNSUPPORTED) return;
       for (var second : BasicCurrencyTransitions.supportedActions()) {
+        if (!cursor.mayApplyAfter(second)) continue;
         if (second != first) add(source, List.of(first, second));
         add(source, List.of(first), List.of(second));
       }
@@ -245,7 +329,7 @@ public final class MethodSearchCalculation {
     var method = new Method(source, id, initial, actions);
     methods.put(id, method);
     source.methods.add(id);
-    schedule.add(method);
+    queue(method);
     openMethods++;
   }
 
@@ -339,6 +423,7 @@ public final class MethodSearchCalculation {
     final BasicCurrencyState value;
     final String id;
     final List<String> methods = new ArrayList<>();
+    final int matchingEntries;
     int depth;
     int discoveryIndex;
     boolean expanded;
@@ -347,6 +432,7 @@ public final class MethodSearchCalculation {
       this.value = value;
       this.id = id;
       this.depth = depth;
+      this.matchingEntries = matches(value);
     }
   }
 
@@ -359,6 +445,8 @@ public final class MethodSearchCalculation {
     final Map<Integer, Observation<BasicCurrencyState, WorkbenchCurrency>> points =
         new LinkedHashMap<>();
     boolean done;
+    boolean queued;
+    long ticket;
     boolean unresolved;
     String reason;
 
@@ -394,10 +482,7 @@ public final class MethodSearchCalculation {
       int cycles = Math.toIntExact(point.cycles());
       if (point.active().isEmpty()) {
         for (int n : OBSERVATIONS)
-          save(
-              n,
-              new Observation<>(
-                  n, point.exits(), point.active(), point.initialUses(), point.cycleUses()));
+          if (!points.containsKey(n)) save(n, point.atLaterAbsorbedBoundary(n));
         done = true;
         openMethods--;
         return;
@@ -428,7 +513,8 @@ public final class MethodSearchCalculation {
     }
 
     void save(int cycles, Observation<BasicCurrencyState, WorkbenchCurrency> point) {
-      points.put(cycles, point);
+      if (points.putIfAbsent(cycles, point) != null)
+        throw new IllegalStateException("An earlier observation must not be overwritten");
       point.active().keySet().forEach(s -> link(source, s));
       point
           .exits()
@@ -458,6 +544,7 @@ public final class MethodSearchCalculation {
         kernels.put(
             key, new Kernel<>(List.of(), unavailable ? Fraction.ZERO : Fraction.ONE, unavailable));
         pendingKernels.remove(key);
+        wake(key);
         return;
       }
       var next = cursor.next();
@@ -473,6 +560,7 @@ public final class MethodSearchCalculation {
                 Fraction.ZERO,
                 false));
         pendingKernels.remove(key);
+        wake(key);
       }
     }
   }

@@ -423,14 +423,7 @@ public final class WorkbenchSimulator {
       return new Availability(action, true, "");
     }
     var kind = action.baseAction();
-    boolean rarity =
-        switch (kind) {
-          case TRANSMUTATION -> state.rarity() == ItemState.Rarity.NORMAL;
-          case AUGMENTATION, REGAL -> state.rarity() == ItemState.Rarity.MAGIC;
-          case EXALTED, CHAOS -> state.rarity() == ItemState.Rarity.RARE;
-          case ANNULMENT ->
-              state.rarity() == ItemState.Rarity.MAGIC || state.rarity() == ItemState.Rarity.RARE;
-        };
+    boolean rarity = basicRarityAllows(state.rarity(), kind);
     if (!rarity) return blocked(action, "This currency cannot be used on this rarity.");
     if (kind == CraftingAction.ANNULMENT || kind == CraftingAction.CHAOS) {
       var removals = removalCandidates(state, matches);
@@ -587,6 +580,15 @@ public final class WorkbenchSimulator {
   /**
    * Reuses Workbench applicability and pool rules; only the fixed no-omen basic scope is exposed.
    */
+  static boolean basicRarityAllows(ItemState.Rarity rarity, CraftingAction kind) {
+    return switch (kind) {
+      case TRANSMUTATION -> rarity == ItemState.Rarity.NORMAL;
+      case AUGMENTATION, REGAL -> rarity == ItemState.Rarity.MAGIC;
+      case EXALTED, CHAOS -> rarity == ItemState.Rarity.RARE;
+      case ANNULMENT -> rarity == ItemState.Rarity.MAGIC || rarity == ItemState.Rarity.RARE;
+    };
+  }
+
   BasicCurrencyPlan basicCurrencyPlan(ItemState state, WorkbenchCurrency action) {
     validate(state);
     if (!BasicCurrencyPlan.ACTIONS.contains(action))

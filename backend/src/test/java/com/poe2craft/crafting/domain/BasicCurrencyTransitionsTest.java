@@ -132,6 +132,47 @@ class BasicCurrencyTransitionsTest {
   }
 
   @Test
+  void structuralFollowupPruningNeverRemovesAnApplicableConcreteBranch() {
+    var sources =
+        List.of(
+            item(ItemState.Rarity.NORMAL, List.of()),
+            item(ItemState.Rarity.MAGIC, List.of()),
+            item(ItemState.Rarity.MAGIC, List.of(mod("a", 1))),
+            item(ItemState.Rarity.MAGIC, List.of(mod("a", 1), mod("b", 3))),
+            item(ItemState.Rarity.RARE, List.of()),
+            item(ItemState.Rarity.RARE, List.of(mod("a", 1))),
+            item(ItemState.Rarity.RARE, List.of(mod("a", 1), mod("b", 3))));
+    int excluded = 0;
+    for (var source : sources)
+      for (var first : BasicCurrencyTransitions.supportedActions()) {
+        var cursor = kernel.primitiveCursor(state(source), first, Set.of());
+        if (cursor.blocked()) continue;
+        var outcomes = expand(source, first);
+        assertThat(outcomes.status()).isEqualTo(Status.COMPLETE);
+        for (var second : BasicCurrencyTransitions.supportedActions())
+          if (!cursor.mayApplyAfter(second)) {
+            excluded++;
+            for (var outcome : outcomes.outcomes())
+              assertThat(expand(outcome.state().item(), second).status())
+                  .as("%s followed by %s from %s", first, second, source)
+                  .isEqualTo(Status.UNAVAILABLE);
+          }
+      }
+    assertThat(excluded).isGreaterThan(100);
+    assertThat(
+            kernel
+                .primitiveCursor(
+                    state(sources.getFirst()), WorkbenchCurrency.TRANSMUTATION, Set.of())
+                .mayApplyAfter(WorkbenchCurrency.REGAL))
+        .isTrue();
+    assertThat(
+            kernel
+                .primitiveCursor(state(sources.get(5)), WorkbenchCurrency.ANNULMENT, Set.of())
+                .mayApplyAfter(WorkbenchCurrency.CHAOS))
+        .isFalse();
+  }
+
+  @Test
   void allSixteenActionsKeepExactMassAndTheExplicitFirstTabScope() {
     assertThat(BasicCurrencyTransitions.supportedActions())
         .hasSize(16)

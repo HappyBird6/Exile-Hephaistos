@@ -124,7 +124,7 @@ and immediate/final recommendation reversal; it is not game-probability evidence
 
 ## Verification evidence (2026-10-12)
 
-Docker Java 21 full `check generateJooq bootJar` passed (627 unit/contract tests and seven disposable
+Docker Java 21 full `check generateJooq bootJar` passed (631 unit/contract tests and seven disposable
 DB integration tests). Docker Node 24 lint, typecheck, formatting, 2,146 frontend
 tests and production build passed. The preserved v1 source oracle remains 650/21107.
 The actual Solar pool test enumerates Exalted outcomes for root, Projectile +3,
@@ -139,6 +139,29 @@ measured first response **329ms**, first method visible on the first graph page
 First local recommendation and whole-search completion were **not reached**.
 The heap figure is sampled process usage, not a proved peak or isolated job size.
 These measurements do not certify production completion performance.
+
+The v3 calculation/runner update slices primitive outcome classification into
+bounded batches, parks methods waiting for an unfinished kernel, and rotates
+equal-priority work with global queue tickets. One in four kernel/method turns
+uses FIFO, while the other turns prioritize achieved checkpoints. State discovery
+still orders the frontier by method depth. Shared rarity/slot rules prune only
+structurally impossible second actions; exhaustive concrete-branch tests guard
+that pruning. Completed earlier observations are immutable even when a method
+absorbs at a later cycle, and currency cost is charged once across slice retries.
+
+The same external production probe, with two explicit resumes (36,000 operations),
+measured first response **259ms**, first visible method **400ms**, first complete-goal
+display bucket **1,040ms**, and sampled process-heap maximum **265,753,592 bytes**.
+It found four display buckets and 60,557 method instances. Revision-pinned graph
+inspection found positive 100-cycle goal exits from both A-only and B-only source
+buckets within nine pages, establishing both production continuation arms in the
+v2 result. This does not prove every alternative has finished. The job remained
+`PAUSED / COMPUTE_BUDGET`; first local recommendation and whole-search completion
+were not reached. The longer run and changed schedule make its heap/method counts
+incomparable to the earlier single-run baseline as a pure speedup measurement.
+A separate finite tiny-catalog test reaches actual enumeration completion, checks
+every method's 100/300/500 observations, and certifies the outcome-responsive
+strategy; it is not evidence of full production-catalog completion.
 
 Real-browser review was attempted with the computer-use browser tool, but its
 launcher failed before opening a page: required Windows platform directory missing

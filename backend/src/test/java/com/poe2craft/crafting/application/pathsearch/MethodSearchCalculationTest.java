@@ -91,4 +91,19 @@ class MethodSearchCalculationTest {
     assertThat(search.complete()).isFalse();
     assertThat(search.methods()).anyMatch(m -> m.status().equals("PARTIAL"));
   }
+
+  @Test
+  void finiteTinySearchCompletesOnlyAfterEveryStateAndMethodAndChoosesByOutcome() {
+    var search =
+        new MethodSearchCalculation(root(), this::progress, transitions, Set.of(), 100000, true);
+    for (int i = 0; i < 500000 && !search.complete(); i++) search.step();
+    assertThat(search.complete()).isTrue();
+    assertThat(search.states()).allMatch(MethodSearchCalculation.StateView::complete);
+    assertThat(search.methods())
+        .allSatisfy(m -> assertThat(m.points()).containsOnlyKeys(100, 300, 500));
+    var strategy = search.strategy(100);
+    for (int i = 0; i < 5; i++) strategy.refine();
+    assertThat(strategy.bounds().get(root()).lower()).isEqualTo(Fraction.ONE);
+    assertThat(strategy.recommendation(root()).orElseThrow().certified()).isTrue();
+  }
 }

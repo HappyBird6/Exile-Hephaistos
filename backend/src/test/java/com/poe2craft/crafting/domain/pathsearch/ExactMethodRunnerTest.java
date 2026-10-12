@@ -135,4 +135,64 @@ class ExactMethodRunnerTest {
     assertThat(runner.observation().exits().get(Exit.GOAL)).containsEntry("goal", Fraction.ONE);
     assertThat(runner.observation().cycleUses()).containsEntry("roll", Fraction.ONE);
   }
+
+  @Test
+  void outcomeSlicesResumeWithoutDuplicateCostMassOrPostHitRemoval() {
+    var calls = new int[] {0};
+    var fail = new boolean[] {true};
+    var runner =
+        new ExactMethodRunner<>(
+            "root",
+            new Template<String, String>("sliced", List.of(), List.of(s -> "roll", s -> "remove")),
+            (state, action) -> {
+              calls[0]++;
+              return action.equals("roll") ? kernel("goal", "miss") : kernel("root");
+            },
+            state -> {
+              if (state.equals("miss") && fail[0]) {
+                fail[0] = false;
+                throw new IllegalStateException("interrupted projection");
+              }
+              return classify(state);
+            });
+    runner.beginCycle();
+    runner.step(1);
+    assertThat(runner.atBoundary()).isFalse();
+    assertThatThrownBy(runner::observation).isInstanceOf(IllegalStateException.class);
+    assertThatThrownBy(() -> runner.step(1)).isInstanceOf(IllegalStateException.class);
+    finish(runner);
+    var result = runner.observation();
+    assertThat(calls[0]).isEqualTo(2);
+    assertThat(result.mass()).isEqualTo(Fraction.ONE);
+    assertThat(result.exits().get(Exit.GOAL)).containsEntry("goal", HALF);
+    assertThat(result.active()).containsEntry("root", HALF);
+    assertThat(result.cycleUses())
+        .containsEntry("roll", Fraction.ONE)
+        .containsEntry("remove", HALF);
+  }
+
+  @Test
+  void laterAbsorptionCannotRewriteAnEarlierObservationOrChargeUnusedCycles() {
+    var runner =
+        new ExactMethodRunner<>(
+            0,
+            new Template<Integer, String>("long-chain", List.of(), List.of(s -> "advance")),
+            (state, action) ->
+                new Kernel<>(List.of(new Outcome<>(state + 1, Fraction.ONE)), Fraction.ZERO, false),
+            state -> state == 150 ? Optional.of(Exit.GOAL) : Optional.empty());
+    Observation<Integer, String> hundred = null;
+    for (int n = 1; n <= 150; n++) {
+      runner.beginCycle();
+      finish(runner);
+      if (n == 100) hundred = runner.observation();
+    }
+    assertThat(hundred.active()).containsEntry(100, Fraction.ONE);
+    var absorbed = runner.observation();
+    assertThatThrownBy(() -> absorbed.atLaterAbsorbedBoundary(100))
+        .isInstanceOf(IllegalArgumentException.class);
+    var threeHundred = absorbed.atLaterAbsorbedBoundary(300);
+    assertThat(threeHundred.cycles()).isEqualTo(300);
+    assertThat(threeHundred.cycleUses()).containsEntry("advance", Fraction.of(150, 1));
+    assertThat(threeHundred.exits().get(Exit.GOAL)).containsEntry(150, Fraction.ONE);
+  }
 }

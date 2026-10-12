@@ -57,6 +57,7 @@ public final class BasicCurrencyTransitions {
     private int candidateIndex;
     private long value;
     private Fraction emitted = Fraction.ZERO;
+    private BigInteger remainingOutcomes = BigInteger.ZERO;
 
     private PrimitiveCursor(
         BasicCurrencyState source, WorkbenchCurrency action, Set<String> activeOmens) {
@@ -71,7 +72,12 @@ public final class BasicCurrencyTransitions {
       var totals = new ArrayList<Long>();
       for (var branch : plan.branches()) {
         long total = 0;
-        for (var candidate : branch.candidates()) total = Math.addExact(total, candidate.weight());
+        if (action == WorkbenchCurrency.ANNULMENT)
+          remainingOutcomes = remainingOutcomes.add(BigInteger.ONE);
+        for (var candidate : branch.candidates()) {
+          total = Math.addExact(total, candidate.weight());
+          remainingOutcomes = remainingOutcomes.add(rangeSize(candidate.stats().getFirst()));
+        }
         totals.add(total);
       }
       weights = List.copyOf(totals);
@@ -80,6 +86,10 @@ public final class BasicCurrencyTransitions {
 
     public boolean blocked() {
       return preflight.status() == Status.UNSUPPORTED || preflight.status() == Status.UNAVAILABLE;
+    }
+
+    public BigInteger remainingOutcomes() {
+      return remainingOutcomes;
     }
 
     public Status status() {
@@ -104,6 +114,36 @@ public final class BasicCurrencyTransitions {
         }
       }
       return List.copyOf(result);
+    }
+
+    /**
+     * Necessary shared-rule conditions only. Candidate conflicts are still checked by the next
+     * kernel.
+     */
+    public boolean mayApplyAfter(WorkbenchCurrency next) {
+      if (next == null || !supportedActions().contains(next))
+        throw new IllegalArgumentException("Basic currency required");
+      if (blocked()) return true;
+      for (var branch : plan.branches()) {
+        var rarity = branch.remaining().rarity();
+        if (!WorkbenchSimulator.basicRarityAllows(rarity, next.baseAction())
+            || branch.remaining().itemLevel() < next.minimumModifierLevel()) continue;
+        int count =
+            branch.remaining().explicits().size() + (action == WorkbenchCurrency.ANNULMENT ? 0 : 1);
+        if (next.baseAction() == CraftingAction.CHAOS
+            || next.baseAction() == CraftingAction.ANNULMENT) {
+          if (count > 0) return true;
+        } else {
+          var targetRarity =
+              next.baseAction() == CraftingAction.REGAL ? ItemState.Rarity.RARE : rarity;
+          int capacity =
+              targetRarity == ItemState.Rarity.RARE
+                  ? catalog.base().rarePrefixes() + catalog.base().rareSuffixes()
+                  : catalog.base().magicPrefixes() + catalog.base().magicSuffixes();
+          if (count < capacity) return true;
+        }
+      }
+      return false;
     }
 
     public boolean complete() {
@@ -151,6 +191,7 @@ public final class BasicCurrencyTransitions {
         } else value++;
       }
       emitted = emitted.add(result.probability());
+      remainingOutcomes = remainingOutcomes.subtract(BigInteger.ONE);
       if (complete() && !emitted.equals(Fraction.ONE))
         throw new IllegalStateException("Primitive mass not conserved");
       return result;
