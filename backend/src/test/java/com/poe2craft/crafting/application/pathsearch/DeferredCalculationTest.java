@@ -17,15 +17,20 @@ class DeferredCalculationTest {
   @Test
   void completedProductionSearchMatchesConcreteOracleForEveryMethodAndObservation()
       throws Exception {
-    verify(false);
+    verify(false, false);
   }
 
   @Test
   void weightedTierCellsMatchEveryCompletedMethodAndFullConditionalLaw() throws Exception {
-    verify(true);
+    verify(true, false);
   }
 
-  private void verify(boolean weightedTier) throws Exception {
+  @Test
+  void jointFamilyCellsMatchEveryCompletedMethodAndConcreteConditionalLaw() throws Exception {
+    verify(false, true);
+  }
+
+  private void verify(boolean weightedTier, boolean orbit) throws Exception {
     var fixture = new MethodSearchCalculationTest();
     var definitions = new ArrayList<>(fixture.catalog.modifiers().values());
     if (weightedTier) {
@@ -45,8 +50,27 @@ class DeferredCalculationTest {
               original.tags(),
               original.sourceUrl()));
     }
+    if (orbit) {
+      var original = fixture.catalog.modifiers().get("amulet:suffix:of-the-seal");
+      for (var family : List.of("anonymous-x", "anonymous-y")) {
+        definitions.add(
+            new ModifierDefinition(
+                family,
+                family,
+                original.layer(),
+                original.affixType(),
+                Set.of(family),
+                1,
+                1,
+                1,
+                original.text(),
+                List.of(new ModifierDefinition.StatRange(family, 1, 1)),
+                Set.of(),
+                original.sourceUrl()));
+      }
+    }
     var metadata = fixture.catalog.metadata();
-    if (weightedTier)
+    if (weightedTier || orbit)
       metadata =
           new ItemCatalog.Metadata(
               metadata.snapshotId(),
@@ -55,10 +79,10 @@ class DeferredCalculationTest {
               metadata.weightPolicy(),
               metadata.rawSha256(),
               metadata.detailsSha256(),
-              metadata.prefixCount() + 1,
-              metadata.suffixCount(),
-              metadata.prefixWeight() + 3,
-              metadata.suffixWeight());
+              metadata.prefixCount() + (weightedTier ? 1 : 0),
+              metadata.suffixCount() + (orbit ? 2 : 0),
+              metadata.prefixWeight() + (weightedTier ? 3 : 0),
+              metadata.suffixWeight() + (orbit ? 2 : 0));
     var catalog = new ItemCatalog(metadata, fixture.catalog.base(), definitions);
     var transitions = new BasicCurrencyTransitions(catalog, "method-search-fixture");
     var root = new BasicCurrencyState(fixture.root().item(), transitions.provenance());
@@ -106,14 +130,28 @@ class DeferredCalculationTest {
     var full = new MethodSearchCalculation(root, evaluator, transitions, Set.of(), 100000);
     var deferred =
         new MethodSearchCalculation(root, evaluator, transitions, Set.of(), 100000, partition);
-    for (int i = 0; i < 500000 && (!full.complete() || !deferred.complete()); i++) {
+    // Four independent families exercise 1,477 concrete method instances, including
+    // slow 500-cycle tails. This is an oracle work guard, not a crafting budget.
+    for (int i = 0; i < 2000000 && (!full.complete() || !deferred.complete()); i++) {
       full.step();
       deferred.step();
     }
-    assertThat(full.complete()).isTrue();
-    assertThat(deferred.complete()).isTrue();
+    assertThat(full.complete())
+        .withFailMessage(
+            "Full oracle: %s operations=%s states=%s memory=%s",
+            full.cacheMetrics(), full.operations(), full.states().size(), full.memoryLimited())
+        .isTrue();
+    assertThat(deferred.complete())
+        .withFailMessage(
+            "Deferred oracle: %s operations=%s states=%s memory=%s",
+            deferred.cacheMetrics(),
+            deferred.operations(),
+            deferred.states().size(),
+            deferred.memoryLimited())
+        .isTrue();
     assertThat(deferred.states()).hasSizeLessThan(full.states().size());
     if (weightedTier) assertThat(deferred.states()).anyMatch(s -> !s.state().tiers().isEmpty());
+    if (orbit) assertThat(deferred.states()).anyMatch(s -> !s.state().orbits().isEmpty());
     var sources = new HashMap<String, DeferredItem>();
     deferred.states().forEach(s -> sources.put(s.id(), s.state()));
     for (var method : deferred.methods()) {

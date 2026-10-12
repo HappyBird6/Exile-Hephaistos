@@ -212,6 +212,7 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
                 locale,
                 presentItem,
                 b.representativeTiers,
+                b.representativeOrbits,
               )}
             />
             <p>
@@ -266,6 +267,7 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
                     locale,
                     presentItem,
                     method.sourceTiers,
+                    method.sourceOrbits,
                   )}
                 />
               </details>

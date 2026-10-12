@@ -32,6 +32,36 @@ describe('roll cell presentation', () => {
       ],
     })
     expect(result.modifiers[0]!.text).toBe('Life 1–2 / Life 7–9')
+    const joint = presentRollCell(
+      {
+        ...item,
+        explicits: [
+          ...item.explicits,
+          { modifierId: 'second', values: { life: 7 }, fractured: false },
+        ],
+      },
+      {},
+      'en',
+      present,
+      {},
+      {
+        group: {
+          representativeIds: ['first', 'second'],
+          assignments: [
+            [
+              [{ modifierId: 'first', stat: 'life', min: 1, max: 1 }],
+              [{ modifierId: 'second', stat: 'life', min: 7, max: 7 }],
+            ],
+            [
+              [{ modifierId: 'first', stat: 'life', min: 2, max: 2 }],
+              [{ modifierId: 'second', stat: 'life', min: 8, max: 8 }],
+            ],
+          ],
+        },
+      },
+    )
+    expect(joint.modifiers).toHaveLength(1)
+    expect(joint.modifiers[0]!.text).toBe('Life 1 + Life 7 | Life 2 + Life 8')
   })
   it('keeps complete numbers and localized surrounding text', () => {
     for (const label of [

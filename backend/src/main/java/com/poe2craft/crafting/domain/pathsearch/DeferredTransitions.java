@@ -13,7 +13,8 @@ public final class DeferredTransitions {
   public record Identity(
       BasicCurrencyTransitions.KernelIdentity kernel,
       List<Map<String, DeferredItem.Band>> retainedLaws,
-      List<Map<String, TierCell>> retainedTiers) {}
+      List<Map<String, TierCell>> retainedTiers,
+      Map<String, OrbitCell> sourceOrbits) {}
 
   private final BasicCurrencyTransitions primitive;
   private final RollPartition partition;
@@ -24,6 +25,7 @@ public final class DeferredTransitions {
   }
 
   public Cursor primitiveCursor(DeferredItem source, WorkbenchCurrency action, Set<String> omens) {
+    partition.orbits().validateSource(source);
     return new Cursor(source, primitive.primitiveCursor(source.representative(), action, omens));
   }
 
@@ -105,7 +107,8 @@ public final class DeferredTransitions {
                                             .toList());
                                 return Map.copyOf(retained);
                               })
-                          .toList()));
+                          .toList(),
+                      source.orbits()));
     }
 
     public ExactMethodRunner.Outcome<DeferredItem> next() {
@@ -171,7 +174,8 @@ public final class DeferredTransitions {
                 new DeferredItem.Band(group.stat(), group.min(), group.max()));
         }
         next =
-            new ExactMethodRunner.Outcome<>(new DeferredItem(state, retained, tiers), probability);
+            new ExactMethodRunner.Outcome<>(
+                partition.orbits().normalize(state, retained, tiers), probability);
         return;
       }
     }

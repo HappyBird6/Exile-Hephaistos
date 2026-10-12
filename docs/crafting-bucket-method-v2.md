@@ -530,3 +530,57 @@ snapshot/method/goal times were 111/253/3,048ms. Sampled heap peaked at 309,165,
 bytes and VmHWM at 505,032 KiB. The driver stopped resuming at its 300MB sampled
 heap guard with `PAUSED / COMPUTE_BUDGET`; first-local and whole exploration were
 still unreached. Both A-to-C and B-to-C continuation buckets remained present.
+
+## Joint exchangeable-family cells (v9)
+
+The production partition now also represents a joint distribution over anonymous
+families whose complete basic-currency eligibility-weight profiles are identical.
+The profile includes affix side and weights in every actual currency eligibility
+category (the current thresholds are 0, 35, 44, 50 and 70). Goal-relevant families,
+all initially observed families, overlapping conflict-family sets and multi-stat
+families are excluded. The existing no-quality/no-omen support gate remains.
+Unequal profiles, including the Solar cold-resistance family, stay separate.
+
+An orbit records occupied counts per eligibility category. Its conditional law is
+uniform over injective family assignments, followed by each family's weighted
+modifier-tier and roll law. Selection is without replacement: two occupied slots
+cannot independently choose the same family. Different category-count cells are
+disjoint. Outer state probabilities preserve correlations between cells, while
+incoming methods retain their own conditional distributions.
+
+This reduction follows by induction from the empty anonymous-family population:
+identical profile totals make each unoccupied family equally likely, and uniform
+eligible removal marginalizes the same joint law. Primitive branches are merged
+before a complete kernel is exposed to a method runner. A single projected raw
+branch must not be interpreted as its own concrete conditional distribution.
+All supported actions and goal evaluation are invariant under these permutations;
+unsupported actions must not reuse this proof.
+
+Concrete distribution cursors restore weighted item probabilities from the joint
+law. Display cards show whole family combinations, rather than falsely presenting
+independent choices. Hashes include the law identity and equality still checks
+actual profile contents. The partition rejects a fixed observed modifier that a
+caller incorrectly supplies as an anonymous family.
+
+Verification of v9 passed the independent complete tiny-search comparison for all
+methods and all three observations, including full conditional exit laws, active
+laws, currency use and strategy bounds. Its four-family concrete oracle has 24
+states and 1,477 method instances; the test work guard was increased from 500,000
+to 2,000,000 steps after the former stopped with 108 methods still running. No
+production budget or expected probability was changed. The real Solar primitive
+oracle also checks all 16 actions from a two-family, mixed-category joint cell.
+
+The isolated v9 probe reached 132,000 operations in 27,946ms, with 794 cells
+representing 185,009 concrete items (345 orbit cells, 348 weighted-tier cells).
+It retained 51,719 kernel outcomes and 40,713 observation support entries. Of 784
+methods, 260 completed and 524 still ran; 786 states remained unexpanded. First
+snapshot/method/goal times were 132/284/7,024ms. Sampled process heap peaked at
+233,481,976 bytes and VmHWM at 460,344 KiB. The driver exhausted its ten resumes
+with `PAUSED / COMPUTE_BUDGET`, below the 300MB driver guard. Both continuation
+buckets reached the goal. First-local recommendation and full completion remain
+unreached; no global completion or optimal full-catalog strategy is claimed.
+The changed step composition and operation count preclude a fixed-work speedup
+claim against v8. Frontend lint/type/format, all 2,152 tests and production build
+passed (the existing large bundle warning remains).
+
+Docker backend check, integration tests, jOOQ generation and bootJar also passed: 664 unit/contract tests and 7 integration tests, including fixed observed-family exclusion. Browser verification remains blocked by the previously recorded launcher failure; no application server was started.

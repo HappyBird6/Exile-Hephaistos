@@ -8,12 +8,20 @@ import java.security.*;
 import java.util.*;
 
 /**
- * A disjoint product cell of the declared independent single-stat roll model, not an averaged entry
- * law.
+ * A disjoint conditional cell with weighted tiers, independent single-stat rolls and joint
+ * without-replacement family assignments. Incoming method laws remain separate.
  */
 public record DeferredItem(
-    BasicCurrencyState representative, Map<String, Band> rolls, Map<String, TierCell> tiers) {
-  public static final String VERSION = "deferred-disjoint-tier-roll-v2";
+    BasicCurrencyState representative,
+    Map<String, Band> rolls,
+    Map<String, TierCell> tiers,
+    Map<String, OrbitCell> orbits) {
+  public static final String VERSION = "deferred-joint-family-tier-roll-v3";
+
+  public DeferredItem(
+      BasicCurrencyState representative, Map<String, Band> rolls, Map<String, TierCell> tiers) {
+    this(representative, rolls, tiers, Map.of());
+  }
 
   public DeferredItem(BasicCurrencyState representative, Map<String, Band> rolls) {
     this(representative, rolls, Map.of());
@@ -38,6 +46,19 @@ public record DeferredItem(
     Objects.requireNonNull(representative);
     rolls = Map.copyOf(rolls);
     tiers = Map.copyOf(tiers);
+    orbits = Map.copyOf(orbits);
+    var orbitIds = new HashSet<String>();
+    for (var entry : orbits.entrySet()) {
+      if (!entry.getKey().equals(entry.getValue().profile().id()))
+        throw new IllegalArgumentException("Wrong orbit identity");
+      for (var modifier : entry.getValue().representatives()) {
+        if (!representative.item().explicits().contains(modifier)
+            || !orbitIds.add(modifier.modifierId())
+            || rolls.containsKey(modifier.modifierId())
+            || tiers.containsKey(modifier.modifierId()))
+          throw new IllegalArgumentException("Orbit law must match disjoint representatives");
+      }
+    }
     for (var entry : tiers.entrySet()) {
       var modifier =
           representative.item().explicits().stream()
@@ -76,6 +97,10 @@ public record DeferredItem(
         .multiply(
             tiers.values().stream()
                 .map(TierCell::cardinality)
+                .reduce(BigInteger.ONE, BigInteger::multiply))
+        .multiply(
+            orbits.values().stream()
+                .map(OrbitCell::cardinality)
                 .reduce(BigInteger.ONE, BigInteger::multiply));
   }
 
@@ -85,6 +110,14 @@ public record DeferredItem(
       throw new IllegalArgumentException("Cell offset out of range");
     var values = new HashMap<String, Long>();
     var replacements = new HashMap<String, ModifierInstance>();
+    var orbitIds = new HashSet<String>();
+    var orbitModifiers = new ArrayList<ModifierInstance>();
+    for (var cell : new TreeMap<>(orbits).values()) {
+      cell.representatives().forEach(m -> orbitIds.add(m.modifierId()));
+      var divided = offset.divideAndRemainder(cell.cardinality());
+      orbitModifiers.addAll(cell.concrete(divided[1]).modifiers());
+      offset = divided[0];
+    }
     for (var entry : new TreeMap<>(tiers).entrySet()) {
       var divided = offset.divideAndRemainder(entry.getValue().cardinality());
       boolean fractured =
@@ -105,6 +138,7 @@ public record DeferredItem(
     }
     var explicit =
         item().explicits().stream()
+            .filter(m -> !orbitIds.contains(m.modifierId()))
             .map(
                 m ->
                     replacements.containsKey(m.modifierId())
@@ -117,6 +151,8 @@ public record DeferredItem(
                                 m.fractured())
                             : m)
             .toList();
+    var fullExplicit = new ArrayList<>(explicit);
+    fullExplicit.addAll(orbitModifiers);
     return new BasicCurrencyState(
         new ItemState(
             item().snapshotId(),
@@ -124,7 +160,7 @@ public record DeferredItem(
             item().itemLevel(),
             item().rarity(),
             item().implicits(),
-            explicit,
+            fullExplicit,
             item().conditions(),
             item().augmentSockets(),
             item().catalystQuality()),
@@ -132,14 +168,16 @@ public record DeferredItem(
   }
 
   public String canonicalKey() {
-    if (rolls.isEmpty() && tiers.isEmpty()) return representative.canonicalKey();
+    if (rolls.isEmpty() && tiers.isEmpty() && orbits.isEmpty())
+      return representative.canonicalKey();
     try {
       var text =
           "deferred-roll-cell-v1:"
               + representative.canonicalKey()
               + ":"
               + new TreeMap<>(rolls)
-              + (tiers.isEmpty() ? "" : ":tiers-v1:" + new TreeMap<>(tiers));
+              + (tiers.isEmpty() ? "" : ":tiers-v1:" + new TreeMap<>(tiers))
+              + (orbits.isEmpty() ? "" : ":orbits-v1:" + new TreeMap<>(orbits));
       return HexFormat.of()
           .formatHex(
               MessageDigest.getInstance("SHA-256").digest(text.getBytes(StandardCharsets.UTF_8)));
@@ -154,6 +192,11 @@ public record DeferredItem(
       throw new IllegalArgumentException("Cell offset out of range");
     var probability =
         com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction.ONE;
+    for (var cell : new TreeMap<>(orbits).values()) {
+      var divided = offset.divideAndRemainder(cell.cardinality());
+      probability = probability.multiply(cell.concrete(divided[1]).probability());
+      offset = divided[0];
+    }
     for (var cell : new TreeMap<>(tiers).values()) {
       var divided = offset.divideAndRemainder(cell.cardinality());
       probability = probability.multiply(cell.concrete(divided[1], false).probability());

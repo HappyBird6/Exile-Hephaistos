@@ -7,6 +7,10 @@ export type TierVariants = Record<
   string,
   { modifierId: string; stat: string; min: number; max: number }[]
 >
+export type OrbitViews = Record<
+  string,
+  { representativeIds: string[]; assignments: TierVariants[string][][] }
+>
 export type Exit = {
   bucketId: string
   kind: string
@@ -27,6 +31,7 @@ export type Arrow = {
   sourceItem: Item
   sourceRolls?: RollBands
   sourceTiers?: TierVariants
+  sourceOrbits?: OrbitViews
   initialActions: string[]
   cycleActions: string[]
   status: string
@@ -42,6 +47,7 @@ export type Bucket = {
   representative: Item
   representativeRolls?: RollBands
   representativeTiers?: TierVariants
+  representativeOrbits?: OrbitViews
   directComplete: boolean
 }
 export type Graph = {

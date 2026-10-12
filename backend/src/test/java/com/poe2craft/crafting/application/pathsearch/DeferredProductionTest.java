@@ -204,8 +204,24 @@ class DeferredProductionTest {
             .filter(c -> !c.tiers().isEmpty())
             .min(Comparator.comparing(DeferredItem::cardinality))
             .orElseThrow();
-    // Loss, fresh replacement and retaining the source law must agree for every supported action.
-    for (var source : List.of(spirit, weightedTier)) {
+    var jointFamily =
+        cells.keySet().stream()
+            .filter(c -> !c.orbits().isEmpty())
+            .flatMap(c -> deferredLaw(deferred, c, WorkbenchCurrency.EXALTED).keySet().stream())
+            .filter(
+                c ->
+                    c.orbits().size() == 1
+                        && c.orbits().values().iterator().next().counts().size() == 2
+                        && c.orbits().values().iterator().next().counts().values().stream()
+                                .mapToInt(Integer::intValue)
+                                .sum()
+                            == 2)
+            .min(Comparator.comparing(DeferredItem::cardinality))
+            .orElseThrow();
+    assertThat(jointFamily.cardinality()).isLessThanOrEqualTo(BigInteger.valueOf(100));
+    // Loss, fresh replacement and retaining the joint source law must agree for every supported
+    // action.
+    for (var source : List.of(spirit, weightedTier, jointFamily)) {
       for (var action : BasicCurrencyTransitions.supportedActions()) {
         var next = deferred.primitiveCursor(source, action, Set.of());
         var reference = primitive.primitiveCursor(source.representative(), action, Set.of());
@@ -219,6 +235,41 @@ class DeferredProductionTest {
         assertThat(restore(law)).as("action %s", action).isEqualTo(eager(source, action));
       }
     }
+  }
+
+  @Test
+  void observedAnonymousFamilyIsExcludedFromARecompiledPartition() {
+    var partition = fixture.goals.rollPartition(root().item(), goal(47));
+    var anonymous =
+        deferredLaw(
+                new DeferredTransitions(primitive, partition),
+                new DeferredItem(root()),
+                WorkbenchCurrency.EXALTED)
+            .keySet()
+            .stream()
+            .filter(c -> !c.orbits().isEmpty())
+            .findFirst()
+            .orElseThrow();
+    var fixed = new DeferredItem(anonymous.concrete(BigInteger.ZERO));
+    assertThatThrownBy(
+            () ->
+                new DeferredTransitions(primitive, partition)
+                    .primitiveCursor(fixed, WorkbenchCurrency.CHAOS, Set.of()))
+        .isInstanceOf(IllegalArgumentException.class);
+    var initialFamilies =
+        fixture
+            .catalog
+            .modifiers()
+            .get(fixed.item().explicits().getFirst().modifierId())
+            .familyIds();
+    var recomputed =
+        new DeferredTransitions(primitive, fixture.goals.rollPartition(fixed.item(), goal(47)));
+    var law = deferredLaw(recomputed, fixed, WorkbenchCurrency.CHAOS);
+    assertThat(restore(law)).isEqualTo(eager(fixed, WorkbenchCurrency.CHAOS));
+    for (var cell : law.keySet())
+      for (var orbit : cell.orbits().values())
+        for (var family : orbit.profile().families())
+          assertThat(Collections.disjoint(initialFamilies, family.ids())).isTrue();
   }
 
   @Test

@@ -538,6 +538,38 @@ public final class MethodSearchService implements AutoCloseable {
     return Map.copyOf(result);
   }
 
+  private static Map<String, OrbitView> orbitView(DeferredItem state) {
+    var result = new TreeMap<String, OrbitView>();
+    state
+        .orbits()
+        .forEach(
+            (id, cell) ->
+                result.put(
+                    id,
+                    new OrbitView(
+                        cell.representatives().stream()
+                            .map(com.poe2craft.item.ModifierInstance::modifierId)
+                            .toList(),
+                        cell.assignments().stream()
+                            .map(
+                                a ->
+                                    a.families().stream()
+                                        .map(
+                                            tier ->
+                                                tier.variants().stream()
+                                                    .map(
+                                                        v ->
+                                                            new TierVariant(
+                                                                v.modifierId(),
+                                                                v.stat(),
+                                                                v.min(),
+                                                                v.max()))
+                                                    .toList())
+                                        .toList())
+                            .toList())));
+    return Map.copyOf(result);
+  }
+
   private static int compare(Fraction a, Fraction b) {
     return a.numerator()
         .multiply(b.denominator())
@@ -650,6 +682,7 @@ public final class MethodSearchService implements AutoCloseable {
                         first.state().item(),
                         first.state().rolls(),
                         tierView(first.state()),
+                        orbitView(first.state()),
                         e.getValue().stream()
                             .allMatch(MethodSearchCalculation.StateView::complete));
                   })
@@ -730,6 +763,7 @@ public final class MethodSearchService implements AutoCloseable {
               source.state().item(),
               source.state().rolls(),
               tierView(source.state()),
+              orbitView(source.state()),
               method.initialActions().stream().map(Enum::name).toList(),
               method.actions().stream().map(Enum::name).toList(),
               method.status(),

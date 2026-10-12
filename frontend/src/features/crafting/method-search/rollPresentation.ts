@@ -1,6 +1,6 @@
 import type { PathTreeProps } from '../path-tree/PathTree'
 import type { Item } from '../path-tree/types'
-import type { RollBands, TierVariants } from './types'
+import type { OrbitViews, RollBands, TierVariants } from './types'
 
 export function rangeText(low: string, high: string) {
   if (low === high) return low
@@ -25,11 +25,13 @@ export function presentRollCell(
   locale: Parameters<PathTreeProps['presentItem']>[1],
   present: PathTreeProps['presentItem'],
   tiers?: TierVariants,
+  orbits?: OrbitViews,
 ) {
   const low = present(item, locale)
   if (
     (!bands || Object.keys(bands).length === 0) &&
-    (!tiers || Object.keys(tiers).length === 0)
+    (!tiers || Object.keys(tiers).length === 0) &&
+    (!orbits || Object.keys(orbits).length === 0)
   )
     return low
   const high = present(
@@ -50,7 +52,48 @@ export function presentRollCell(
   const upper = new Map(high.modifiers.map((line) => [line.id, line.text]))
   return {
     ...low,
-    modifiers: low.modifiers.map((line) => {
+    modifiers: low.modifiers.flatMap((line) => {
+      const orbit = Object.values(orbits ?? {}).find((value) =>
+        value.representativeIds.includes(line.id),
+      )
+      if (orbit) {
+        if (line.id !== orbit.representativeIds[0]) return []
+        const render = (variant: TierVariants[string][number], value: number) =>
+          present(
+            {
+              ...item,
+              explicits: [
+                ...item.explicits.filter(
+                  (m) => !orbit.representativeIds.includes(m.modifierId),
+                ),
+                {
+                  modifierId: variant.modifierId,
+                  values: { [variant.stat]: value },
+                  fractured: false,
+                },
+              ],
+            },
+            locale,
+          ).modifiers.find((m) => m.id === variant.modifierId)?.text ??
+          line.text
+        const alternatives = orbit.assignments.map((assignment) =>
+          assignment
+            .map((family) => {
+              const choices = [
+                ...new Set(
+                  family.map((v) =>
+                    rangeText(render(v, v.min), render(v, v.max)),
+                  ),
+                ),
+              ]
+              return choices.length > 1
+                ? `(${choices.join(' / ')})`
+                : choices[0]!
+            })
+            .join(' + '),
+        )
+        return [{ ...line, text: [...new Set(alternatives)].join(' | ') }]
+      }
       const variants = tiers?.[line.id]
       if (!variants)
         return {
