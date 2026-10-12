@@ -81,6 +81,10 @@ public final class MethodSearchCalculation {
               .thenComparing(e -> e.state().id));
   private final Map<State, Set<State>> adjacency = new HashMap<>();
   private final Map<Key, Kernel<BasicCurrencyState>> kernels = new HashMap<>();
+  private final Map<Key, Key> kernelAliases = new HashMap<>();
+  private final Map<BasicCurrencyTransitions.KernelIdentity, Key> kernelIdentities =
+      new HashMap<>();
+  private long sharedKernelLookups;
   private final LinkedHashMap<Key, KernelWork> pendingKernels = new LinkedHashMap<>();
   private final Map<BasicCurrencyState, Progress> progress = new HashMap<>();
   private final Set<String> activeOmens;
@@ -206,14 +210,40 @@ public final class MethodSearchCalculation {
       selected.step();
       if (!selected.done) queue(selected);
     } catch (PendingKernel pending) {
-      waiting.computeIfAbsent(pending.key, unused -> new ArrayList<>()).add(selected);
-      pendingKernels.computeIfAbsent(
-          pending.key,
-          key -> {
-            fairKernels.addLast(key);
-            return new KernelWork(key);
-          });
+      var key = registerKernel(pending.key);
+      if (kernels.containsKey(key)) queue(selected);
+      else waiting.computeIfAbsent(key, unused -> new ArrayList<>()).add(selected);
     }
+  }
+
+  private Key registerKernel(Key request) {
+    var known = kernelAliases.get(request);
+    if (known != null) return known;
+    var cursor = transitions.primitiveCursor(request.state(), request.action(), activeOmens);
+    assumptions.addAll(cursor.assumptions());
+    var identity = cursor.identity();
+    var canonical = identity.map(kernelIdentities::get).orElse(null);
+    if (canonical != null) {
+      kernelAliases.put(request, canonical);
+      sharedKernelLookups++;
+      return canonical;
+    }
+    kernelAliases.put(request, request);
+    identity.ifPresent(value -> kernelIdentities.put(value, request));
+    fairKernels.addLast(request);
+    pendingKernels.put(request, new KernelWork(request, cursor));
+    return request;
+  }
+
+  public record CacheMetrics(
+      int sourceActions, int distinctKernels, long sharedLookups, int outcomes) {}
+
+  public CacheMetrics cacheMetrics() {
+    return new CacheMetrics(
+        kernelAliases.size(),
+        kernels.size() + pendingKernels.size(),
+        sharedKernelLookups,
+        retainedOutcomes);
   }
 
   private int matches(BasicCurrencyState state) {
@@ -357,7 +387,7 @@ public final class MethodSearchCalculation {
 
   private Kernel<BasicCurrencyState> kernel(BasicCurrencyState state, WorkbenchCurrency action) {
     var key = new Key(state, action);
-    var result = kernels.get(key);
+    var result = kernels.get(kernelAliases.getOrDefault(key, key));
     if (result == null) throw new PendingKernel(key);
     return result;
   }
@@ -532,10 +562,9 @@ public final class MethodSearchCalculation {
     final BasicCurrencyTransitions.PrimitiveCursor cursor;
     final Map<BasicCurrencyState, Fraction> outcomes = new LinkedHashMap<>();
 
-    KernelWork(Key key) {
+    KernelWork(Key key, BasicCurrencyTransitions.PrimitiveCursor cursor) {
       this.key = key;
-      cursor = transitions.primitiveCursor(key.state(), key.action(), activeOmens);
-      assumptions.addAll(cursor.assumptions());
+      this.cursor = cursor;
     }
 
     void step() {

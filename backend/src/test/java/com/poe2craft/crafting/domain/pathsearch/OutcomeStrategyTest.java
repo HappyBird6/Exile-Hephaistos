@@ -82,6 +82,57 @@ class OutcomeStrategyTest {
   }
 
   @Test
+  void exactPolicyCursorSolvesRecoveryCyclesAndRetainsAProperWitness() {
+    // Independent equations: A = B/2 + 1/4, B = A/2 + 1/2; hence A=2/3, B=5/6.
+    // A's direct alternative is 3/5, while stalling forever has least reachability zero.
+    var solver =
+        new OutcomeStrategy<>(
+            Map.of(
+                "A",
+                state(
+                    choice("stall", "A"),
+                    choice("direct", "goal", "goal", "goal", "dead", "dead"),
+                    choice("recover", "B", "B", "goal", "dead")),
+                "B",
+                state(choice("return", "A", "goal")),
+                "goal",
+                new State<String>(true, true, List.of()),
+                "dead",
+                state()));
+    for (int i = 0; i < 100; i++) solver.refineExactPolicy();
+    assertThat(solver.bounds().get("A"))
+        .isEqualTo(new Bounds(Fraction.of(2, 3), Fraction.of(2, 3)));
+    assertThat(solver.bounds().get("B"))
+        .isEqualTo(new Bounds(Fraction.of(5, 6), Fraction.of(5, 6)));
+    assertThat(solver.recommendation("A").orElseThrow().methodId()).isEqualTo("recover");
+    assertThat(solver.recommendation("A").orElseThrow().certified()).isTrue();
+    solver.refine();
+    assertThat(solver.recommendation("A").orElseThrow().methodId()).isEqualTo("recover");
+  }
+
+  @Test
+  void exactPolicyCursorNeverCertifiesMissingActionsOrUnknownMass() {
+    var solver =
+        new OutcomeStrategy<>(
+            Map.of(
+                "open",
+                new State<String>(false, false, List.of(choice("known", "goal", "dead"))),
+                "unknown",
+                state(
+                    new Choice<>("unknown", Map.of("goal", Fraction.of(1, 2)), Fraction.of(1, 2))),
+                "goal",
+                new State<String>(true, true, List.of()),
+                "dead",
+                state()));
+    for (int i = 0; i < 100; i++) {
+      solver.refine();
+      solver.refineExactPolicy();
+    }
+    assertThat(solver.bounds().get("open").exact()).isFalse();
+    assertThat(solver.bounds().get("unknown").exact()).isFalse();
+  }
+
+  @Test
   void incompleteActionEnumerationPreventsFinalRecommendation() {
     var solver =
         new OutcomeStrategy<>(

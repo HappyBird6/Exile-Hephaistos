@@ -42,6 +42,20 @@ public final class BasicCurrencyTransitions {
     return provenance;
   }
 
+  /** Equal keys prove the complete next-item law, not equivalence of the input items. */
+  public record KernelIdentity(
+      Provenance provenance, WorkbenchCurrency action, List<KernelBranch> branches) {
+    public KernelIdentity {
+      branches = List.copyOf(branches);
+    }
+  }
+
+  public record KernelBranch(ItemState remaining, List<ModifierDefinition> candidates) {
+    public KernelBranch {
+      candidates = List.copyOf(candidates);
+    }
+  }
+
   /** Full-state primitive stream. Preflight checks all candidates before any mass is emitted. */
   public PrimitiveCursor primitiveCursor(
       BasicCurrencyState source, WorkbenchCurrency action, Set<String> activeOmens) {
@@ -86,6 +100,20 @@ public final class BasicCurrencyTransitions {
 
     public boolean blocked() {
       return preflight.status() == Status.UNSUPPORTED || preflight.status() == Status.UNAVAILABLE;
+    }
+
+    public Optional<KernelIdentity> identity() {
+      if (blocked()) return Optional.empty();
+      // Removal is uniform over these branches, including duplicate remaining items. Removed
+      // values no longer affect the next item. All retained fields, candidate tiers/weights/rolls,
+      // action and model provenance remain in record equality; no hash-only comparison is used.
+      return Optional.of(
+          new KernelIdentity(
+              provenance,
+              action,
+              plan.branches().stream()
+                  .map(branch -> new KernelBranch(branch.remaining(), branch.candidates()))
+                  .toList()));
     }
 
     public BigInteger remainingOutcomes() {

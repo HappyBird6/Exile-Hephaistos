@@ -5,7 +5,7 @@ import java.util.*;
 
 /** Reachability bounds for a finite discovered decision graph, including external cycles. */
 public final class OutcomeStrategy<S> {
-  public static final String VERSION = "outcome-responsive-reachability-v2";
+  public static final String VERSION = "outcome-responsive-reachability-v3";
 
   public record Choice<S>(String methodId, Map<S, Fraction> outcomes, Fraction unresolved) {
     public Choice {
@@ -39,6 +39,22 @@ public final class OutcomeStrategy<S> {
   private Map<S, Bounds> values;
   private long iterations;
   private final Map<S, String> improvingChoices = new HashMap<>();
+  private FinitePolicySolver<S> policySolver;
+
+  /** Optional exact cursor. Larger or unresolved graphs retain their sound iterative bounds. */
+  public void refineExactPolicy() {
+    if (!FinitePolicySolver.supported(graph)) return;
+    if (policySolver == null) policySolver = new FinitePolicySolver<>(graph);
+    policySolver
+        .step()
+        .ifPresent(
+            solution -> {
+              solution
+                  .values()
+                  .forEach((state, value) -> values.put(state, new Bounds(value, value)));
+              improvingChoices.putAll(solution.policy());
+            });
+  }
 
   public OutcomeStrategy(Map<S, State<S>> graph) {
     this.graph = Map.copyOf(graph);

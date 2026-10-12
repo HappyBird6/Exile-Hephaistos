@@ -110,9 +110,12 @@ and immediate/final recommendation reversal; it is not game-probability evidence
   published-weight policy. The 30 explicit-uniform catalogs and future missing
   weights need a separately tested eligible-modifier-tier selector. No missing
   weight was found in the reviewed 132-catalog audit.
-- **Cyclic final strategies:** Bellman bounds are sound but do not always converge
-  to an exact rational in finite iterations. Add SCC/policy solution proofs and
-  bounded solver cursors; never call a stable decimal an exact optimum.
+- **Cyclic final strategies:** fully known graphs up to 32 states now have an
+  exact policy-evaluation cursor. It removes policy classes with no path to a goal,
+  solves the remaining rational linear equations one row/pivot per call, improves
+  actions strictly, and certifies only an attained policy value satisfying all
+  Bellman inequalities. Larger or unresolved graphs retain iterative bounds;
+  widening the solver and making all graph/choice work resumable remains open.
 - **Memory budgets:** retained primitive outcomes are bounded; runner distributions,
   method objects and revision indexes also need a total-memory budget. Resume can
   request a larger retained-outcome limit through the API. Eviction must preserve
@@ -124,7 +127,7 @@ and immediate/final recommendation reversal; it is not game-probability evidence
 
 ## Verification evidence (2026-10-12)
 
-Docker Java 21 full `check generateJooq bootJar` passed (631 unit/contract tests and seven disposable
+Docker Java 21 full `check generateJooq bootJar` passed (634 unit/contract tests and seven disposable
 DB integration tests). Docker Node 24 lint, typecheck, formatting, 2,146 frontend
 tests and production build passed. The preserved v1 source oracle remains 650/21107.
 The actual Solar pool test enumerates Exalted outcomes for root, Projectile +3,
@@ -162,6 +165,19 @@ incomparable to the earlier single-run baseline as a pure speedup measurement.
 A separate finite tiny-catalog test reaches actual enumeration completion, checks
 every method's 100/300/500 observations, and certifies the outcome-responsive
 strategy; it is not evidence of full production-catalog completion.
+
+Complete primitive laws now share cache entries when retained item fields,
+candidate definitions, ordered removal branches, action and provenance are equal.
+Removed inputs may differ, but source item/method identities and conditional
+distributions remain separate. Unknown/unavailable kernels do not share identities.
+The 36,000-operation probe requested 1,596 state/action kernels and reused 884,
+leaving 712 distinct kernels and 13,234 retained outcomes. It still discovered
+60,557 methods and paused; sampled heap was 224,279,816 bytes, first response 350ms,
+first method 1,038ms and first goal bucket 1,267ms. Both continuation arms remained
+visible. This isolates method proliferation as a remaining issue and does not
+establish a latency improvement. Exact cyclic tests independently solve
+`A=B/2+1/4, B=A/2+1/2` (A=2/3, B=5/6), compare an alternative 3/5 action, reject
+closed self-loop witnesses, and retain unknown bounds when support is incomplete.
 
 Real-browser review was attempted with the computer-use browser tool, but its
 launcher failed before opening a page: required Windows platform directory missing

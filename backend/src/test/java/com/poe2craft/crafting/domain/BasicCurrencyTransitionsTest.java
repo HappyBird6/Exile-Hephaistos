@@ -132,6 +132,32 @@ class BasicCurrencyTransitionsTest {
   }
 
   @Test
+  void kernelIdentitySharesRemovedInputsButPreservesAllRetainedStateAndAction() {
+    var left = item(ItemState.Rarity.RARE, List.of(mod("a", 1)));
+    var right = item(ItemState.Rarity.RARE, List.of(mod("b", 4)));
+    var leftCursor = kernel.primitiveCursor(state(left), WorkbenchCurrency.CHAOS, Set.of());
+    var rightCursor = kernel.primitiveCursor(state(right), WorkbenchCurrency.CHAOS, Set.of());
+    assertThat(left).isNotEqualTo(right);
+    assertThat(leftCursor.identity()).isPresent().isEqualTo(rightCursor.identity());
+    assertThat(masses(expand(left, WorkbenchCurrency.CHAOS)))
+        .isEqualTo(masses(expand(right, WorkbenchCurrency.CHAOS)));
+    assertThat(kernel.primitiveCursor(state(left), WorkbenchCurrency.EXALTED, Set.of()).identity())
+        .isNotEqualTo(
+            kernel.primitiveCursor(state(right), WorkbenchCurrency.EXALTED, Set.of()).identity());
+    assertThat(
+            kernel.primitiveCursor(state(left), WorkbenchCurrency.ANNULMENT, Set.of()).identity())
+        .isNotEqualTo(leftCursor.identity());
+    assertThat(
+            kernel
+                .primitiveCursor(
+                    state(item(ItemState.Rarity.RARE, List.of())),
+                    WorkbenchCurrency.CHAOS,
+                    Set.of())
+                .identity())
+        .isEmpty();
+  }
+
+  @Test
   void structuralFollowupPruningNeverRemovesAnApplicableConcreteBranch() {
     var sources =
         List.of(

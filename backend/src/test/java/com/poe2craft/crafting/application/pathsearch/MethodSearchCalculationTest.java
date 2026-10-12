@@ -98,6 +98,9 @@ class MethodSearchCalculationTest {
         new MethodSearchCalculation(root(), this::progress, transitions, Set.of(), 100000, true);
     for (int i = 0; i < 500000 && !search.complete(); i++) search.step();
     assertThat(search.complete()).isTrue();
+    assertThat(search.cacheMetrics().sharedLookups()).isPositive();
+    assertThat(search.cacheMetrics().distinctKernels())
+        .isLessThan(search.cacheMetrics().sourceActions());
     assertThat(search.states()).allMatch(MethodSearchCalculation.StateView::complete);
     assertThat(search.methods())
         .allSatisfy(m -> assertThat(m.points()).containsOnlyKeys(100, 300, 500));
