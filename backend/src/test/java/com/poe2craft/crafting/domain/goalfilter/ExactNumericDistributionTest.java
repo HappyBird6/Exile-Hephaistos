@@ -12,6 +12,36 @@ import org.junit.jupiter.api.Test;
 
 class ExactNumericDistributionTest {
   @Test
+  void canonicalArithmeticPreservesValueIdentityAndJsonContract() throws Exception {
+    var json = new com.fasterxml.jackson.databind.ObjectMapper();
+    var half = Fraction.of(2, 4);
+    assertThat(json.writeValueAsString(half)).isEqualTo("{\"numerator\":1,\"denominator\":2}");
+    assertThat(json.readValue("{\"numerator\":2,\"denominator\":4}", Fraction.class))
+        .isEqualTo(half);
+    assertThat(half.toString()).isEqualTo("Fraction[numerator=1, denominator=2]");
+    assertThat(half.hashCode())
+        .isEqualTo(31 * half.numerator().hashCode() + half.denominator().hashCode());
+    assertThat(Fraction.ZERO.pow(0)).isEqualTo(Fraction.ONE);
+    assertThatThrownBy(() -> half.pow(-1)).isInstanceOf(IllegalArgumentException.class);
+    assertThatThrownBy(() -> half.divide(Fraction.ZERO))
+        .isInstanceOf(IllegalArgumentException.class);
+    assertThatThrownBy(() -> Fraction.of(3, 2).complement())
+        .isInstanceOf(IllegalArgumentException.class);
+    for (int a = 0; a <= 12; a++)
+      for (int b = 1; b <= 12; b++) {
+        var value = Fraction.of(a, b);
+        assertThat(value.pow(11))
+            .isEqualTo(new Fraction(value.numerator().pow(11), value.denominator().pow(11)));
+        if (a <= b) assertThat(value.complement()).isEqualTo(Fraction.of(b - a, b));
+        for (int c = 1; c <= 12; c++) {
+          var divisor = Fraction.of(c, b + 1);
+          assertThat(value.divide(divisor))
+              .isEqualTo(Fraction.of((long) a * (b + 1), (long) b * c));
+        }
+      }
+  }
+
+  @Test
   void arithmeticMatchesDirectRationalOracleWithLargeSharedDenominators() {
     var random = new Random(913);
     for (int i = 0; i < 250; i++) {

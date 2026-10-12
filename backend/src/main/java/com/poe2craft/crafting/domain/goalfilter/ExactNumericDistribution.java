@@ -14,16 +14,54 @@ import java.util.function.Function;
 public final class ExactNumericDistribution {
   private ExactNumericDistribution() {}
 
-  public record Fraction(BigInteger numerator, BigInteger denominator) {
+  public static final class Fraction {
+    private final BigInteger numerator;
+    private final BigInteger denominator;
     public static final Fraction ZERO = of(0, 1);
     public static final Fraction ONE = of(1, 1);
 
-    public Fraction {
+    @com.fasterxml.jackson.annotation.JsonCreator
+    public Fraction(
+        @com.fasterxml.jackson.annotation.JsonProperty("numerator") BigInteger numerator,
+        @com.fasterxml.jackson.annotation.JsonProperty("denominator") BigInteger denominator) {
+      this(numerator, denominator, false);
+    }
+
+    // Only arithmetic below may assert reducedness, from already canonical operands.
+    private Fraction(BigInteger numerator, BigInteger denominator, boolean reduced) {
       if (denominator.signum() <= 0 || numerator.signum() < 0)
         throw new IllegalArgumentException("Invalid probability fraction");
-      var divisor = numerator.gcd(denominator);
-      numerator = numerator.divide(divisor);
-      denominator = denominator.divide(divisor);
+      var divisor = reduced ? BigInteger.ONE : numerator.gcd(denominator);
+      this.numerator = numerator.divide(divisor);
+      this.denominator = denominator.divide(divisor);
+    }
+
+    @com.fasterxml.jackson.annotation.JsonProperty
+    public BigInteger numerator() {
+      return numerator;
+    }
+
+    @com.fasterxml.jackson.annotation.JsonProperty
+    public BigInteger denominator() {
+      return denominator;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+      return this == other
+          || other instanceof Fraction f
+              && numerator.equals(f.numerator)
+              && denominator.equals(f.denominator);
+    }
+
+    @Override
+    public int hashCode() {
+      return 31 * numerator.hashCode() + denominator.hashCode();
+    }
+
+    @Override
+    public String toString() {
+      return "Fraction[numerator=" + numerator + ", denominator=" + denominator + "]";
     }
 
     public static Fraction of(long numerator, long denominator) {
@@ -41,9 +79,11 @@ public final class ExactNumericDistribution {
       var common = denominator.gcd(other.denominator);
       var leftScale = other.denominator.divide(common);
       var rightScale = denominator.divide(common);
+      var sum = numerator.multiply(leftScale).add(other.numerator.multiply(rightScale));
+      // Coprime operands prove that only a factor of the original common divisor remains.
+      var reduction = sum.gcd(common);
       return new Fraction(
-          numerator.multiply(leftScale).add(other.numerator.multiply(rightScale)),
-          denominator.multiply(leftScale));
+          sum.divide(reduction), rightScale.multiply(other.denominator.divide(reduction)), true);
     }
 
     public Fraction multiply(Fraction other) {
@@ -51,8 +91,26 @@ public final class ExactNumericDistribution {
       if (numerator.signum() == 0 || other.numerator.signum() == 0) return ZERO;
       if (equals(ONE)) return other;
       if (other.equals(ONE)) return this;
+      var left = numerator.gcd(other.denominator);
+      var right = other.numerator.gcd(denominator);
       return new Fraction(
-          numerator.multiply(other.numerator), denominator.multiply(other.denominator));
+          numerator.divide(left).multiply(other.numerator.divide(right)),
+          denominator.divide(right).multiply(other.denominator.divide(left)),
+          true);
+    }
+
+    public Fraction pow(int exponent) {
+      if (exponent < 0) throw new IllegalArgumentException("Negative exponent");
+      return new Fraction(numerator.pow(exponent), denominator.pow(exponent), true);
+    }
+
+    public Fraction complement() {
+      return new Fraction(denominator.subtract(numerator), denominator, true);
+    }
+
+    public Fraction divide(Fraction other) {
+      if (other.numerator.signum() == 0) throw new IllegalArgumentException("Division by zero");
+      return multiply(new Fraction(other.denominator, other.numerator, true));
     }
   }
 

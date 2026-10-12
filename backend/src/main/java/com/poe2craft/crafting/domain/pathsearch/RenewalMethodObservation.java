@@ -28,7 +28,7 @@ public final class RenewalMethodObservation {
     var expected = scale(before.active(), q);
     if (!expected.equals(after.active())) return Optional.empty();
     int repeats = Math.toIntExact(count - before.cycles());
-    var survival = new Fraction(q.numerator().pow(repeats), q.denominator().pow(repeats));
+    var survival = q.pow(repeats);
     var factor =
         q.equals(Fraction.ONE)
             ? Fraction.of(repeats, 1)
@@ -49,8 +49,7 @@ public final class RenewalMethodObservation {
   }
 
   private static Fraction divide(Fraction a, Fraction b) {
-    return new Fraction(
-        a.numerator().multiply(b.denominator()), a.denominator().multiply(b.numerator()));
+    return a.divide(b);
   }
 
   private static <K> Map<K, Fraction> scale(Map<K, Fraction> values, Fraction factor) {
@@ -91,15 +90,10 @@ public final class RenewalMethodObservation {
         || !cycle.mass().equals(Fraction.ONE))
       throw new IllegalArgumentException("Full return proof required");
     var r = cycle.active().getOrDefault(source, Fraction.ZERO);
-    var survival = new Fraction(r.numerator().pow(count), r.denominator().pow(count));
+    var survival = r.pow(count);
     var stop = RenewalFirstHit.complement(r);
     var totalStop = RenewalFirstHit.complement(survival);
-    var factor =
-        r.equals(Fraction.ONE)
-            ? Fraction.of(count, 1)
-            : new Fraction(
-                totalStop.numerator().multiply(stop.denominator()),
-                totalStop.denominator().multiply(stop.numerator()));
+    var factor = r.equals(Fraction.ONE) ? Fraction.of(count, 1) : totalStop.divide(stop);
     var exits = new EnumMap<Exit, Map<S, Fraction>>(Exit.class);
     cycle
         .exits()

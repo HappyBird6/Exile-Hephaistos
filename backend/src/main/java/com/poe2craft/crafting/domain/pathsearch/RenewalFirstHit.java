@@ -9,7 +9,7 @@ public final class RenewalFirstHit {
   public record Mass(Fraction hit, Fraction active, Fraction dead, Fraction unresolved) {}
 
   public static Fraction complement(Fraction value) {
-    return new Fraction(value.denominator().subtract(value.numerator()), value.denominator());
+    return value.complement();
   }
 
   public static Mass at(
@@ -33,8 +33,7 @@ public final class RenewalFirstHit {
     // Arithmetic/output cap is distinct from a game attempt limit. Retain honest unknown bounds.
     int computed =
         (int) Math.min(cycles, fractionBits / Math.max(1, survival.denominator().bitLength()));
-    var active =
-        new Fraction(survival.numerator().pow(computed), survival.denominator().pow(computed));
+    var active = survival.pow(computed);
     var absorbed = complement(active);
     var total = success.add(unknown);
     var hit =

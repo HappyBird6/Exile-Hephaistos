@@ -387,16 +387,13 @@ public final class MethodSearchService implements AutoCloseable {
     }
   }
 
-  private void publish(Job job) {
-    job.revision++;
-    var saved = new Revision(job);
-    job.revisions.put(job.revision, saved);
-    while (job.revisions.size() > MAX_REVISIONS)
-      job.revisions.remove(job.revisions.keySet().iterator().next());
+  static List<Local> localRecommendations(
+      List<MethodSearchCalculation.StateView> states,
+      Map<String, List<MethodSearchCalculation.MethodView>> bySource) {
     var locals = new ArrayList<Local>();
-    for (var source : saved.states)
-      if (source.complete()) {
-        var methods = saved.bySource.getOrDefault(source.id(), List.of());
+    for (var source : states)
+      if (source.expanded()) {
+        var methods = bySource.getOrDefault(source.id(), List.of());
         for (int cycles : MethodSearchCalculation.OBSERVATIONS) {
           Fraction best = null;
           var ids = new ArrayList<String>();
@@ -448,6 +445,16 @@ public final class MethodSearchService implements AutoCloseable {
           }
         }
       }
+    return List.copyOf(locals);
+  }
+
+  private void publish(Job job) {
+    job.revision++;
+    var saved = new Revision(job);
+    job.revisions.put(job.revision, saved);
+    while (job.revisions.size() > MAX_REVISIONS)
+      job.revisions.remove(job.revisions.keySet().iterator().next());
+    var locals = localRecommendations(saved.states, saved.bySource);
     var strategies = new ArrayList<Strategy>();
     job.solvers.forEach(
         (cycles, solver) -> {
