@@ -42,6 +42,117 @@ public final class BasicCurrencyTransitions {
     return provenance;
   }
 
+  /** Full-state primitive stream. Preflight checks all candidates before any mass is emitted. */
+  public PrimitiveCursor primitiveCursor(
+      BasicCurrencyState source, WorkbenchCurrency action, Set<String> activeOmens) {
+    return new PrimitiveCursor(source, action, activeOmens);
+  }
+
+  public final class PrimitiveCursor {
+    private final WorkbenchCurrency action;
+    private final Result preflight;
+    private final BasicCurrencyPlan plan;
+    private final List<Long> weights;
+    private int branchIndex;
+    private int candidateIndex;
+    private long value;
+    private Fraction emitted = Fraction.ZERO;
+
+    private PrimitiveCursor(
+        BasicCurrencyState source, WorkbenchCurrency action, Set<String> activeOmens) {
+      this.action = action;
+      preflight = expand(source, action, activeOmens, 1);
+      if (blocked()) {
+        plan = null;
+        weights = List.of();
+        return;
+      }
+      plan = simulator.basicCurrencyPlan(source.item(), action);
+      var totals = new ArrayList<Long>();
+      for (var branch : plan.branches()) {
+        long total = 0;
+        for (var candidate : branch.candidates()) total = Math.addExact(total, candidate.weight());
+        totals.add(total);
+      }
+      weights = List.copyOf(totals);
+      startRange();
+    }
+
+    public boolean blocked() {
+      return preflight.status() == Status.UNSUPPORTED || preflight.status() == Status.UNAVAILABLE;
+    }
+
+    public Status status() {
+      return blocked() ? preflight.status() : complete() ? Status.COMPLETE : Status.PARTIAL;
+    }
+
+    public String reason() {
+      return blocked() ? preflight.reason() : "";
+    }
+
+    public boolean complete() {
+      return !blocked() && branchIndex == plan.branches().size();
+    }
+
+    public Fraction unresolved() {
+      return new Fraction(
+          emitted.denominator().subtract(emitted.numerator()), emitted.denominator());
+    }
+
+    /**
+     * Exactly one modifier-tier/roll outcome per call; resume retains branch, candidate and roll.
+     */
+    public Outcome next() {
+      if (blocked() || complete()) throw new IllegalStateException("Cursor is not active");
+      var branch = plan.branches().get(branchIndex);
+      var removalMass = Fraction.of(1, plan.branches().size());
+      Outcome result;
+      if (action == WorkbenchCurrency.ANNULMENT) {
+        result = new Outcome(new BasicCurrencyState(branch.remaining(), provenance), removalMass);
+        branchIndex++;
+      } else {
+        var candidate = branch.candidates().get(candidateIndex);
+        var range = candidate.stats().getFirst();
+        var mass =
+            removalMass.multiply(
+                new Fraction(
+                    BigInteger.valueOf(candidate.weight()),
+                    BigInteger.valueOf(weights.get(branchIndex)).multiply(rangeSize(range))));
+        var explicits = new ArrayList<>(branch.remaining().explicits());
+        explicits.add(new ModifierInstance(candidate.id(), Map.of(range.id(), value)));
+        result =
+            new Outcome(
+                new BasicCurrencyState(
+                    simulator.finishBasicCurrency(branch.remaining(), explicits), provenance),
+                mass);
+        if (value == range.max()) {
+          candidateIndex++;
+          if (candidateIndex == branch.candidates().size()) {
+            branchIndex++;
+            candidateIndex = 0;
+          }
+          startRange();
+        } else value++;
+      }
+      emitted = emitted.add(result.probability());
+      if (complete() && !emitted.equals(Fraction.ONE))
+        throw new IllegalStateException("Primitive mass not conserved");
+      return result;
+    }
+
+    private void startRange() {
+      if (action != WorkbenchCurrency.ANNULMENT && branchIndex < plan.branches().size())
+        value =
+            plan.branches()
+                .get(branchIndex)
+                .candidates()
+                .get(candidateIndex)
+                .stats()
+                .getFirst()
+                .min();
+    }
+  }
+
   /**
    * Streaming proof for the fixed one-explicit policies. The cursor retains the exact elementary
    * roll position; no truncated transition is promoted to a complete kernel or cached as one.
