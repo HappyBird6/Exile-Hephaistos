@@ -227,20 +227,37 @@ public final class BasicCurrencyTransitions {
      * Exactly one modifier-tier/roll outcome per call; resume retains branch, candidate and roll.
      */
     public Outcome next() {
+      return nextGrouped((candidate, first) -> first).outcome();
+    }
+
+    public GroupedOutcome nextGrouped(
+        java.util.function.ToLongBiFunction<ModifierDefinition, Long> end) {
       if (blocked() || complete()) throw new IllegalStateException("Cursor is not active");
       var branch = plan.branches().get(branchIndex);
       var removalMass = Fraction.of(1, plan.branches().size());
       Outcome result;
+      String added = null;
+      String stat = null;
+      long first = value, last = value;
       if (action == WorkbenchCurrency.ANNULMENT) {
         result = new Outcome(new BasicCurrencyState(branch.remaining(), provenance), removalMass);
         branchIndex++;
       } else {
         var candidate = branch.candidates().get(candidateIndex);
         var range = candidate.stats().getFirst();
+        added = candidate.id();
+        stat = range.id();
+        last = end.applyAsLong(candidate, value);
+        if (last < value || last > range.max())
+          throw new IllegalArgumentException("Invalid roll cell");
         var mass =
             removalMass.multiply(
                 new Fraction(
-                    BigInteger.valueOf(selectionWeight(candidate)),
+                    BigInteger.valueOf(selectionWeight(candidate))
+                        .multiply(
+                            BigInteger.valueOf(last)
+                                .subtract(BigInteger.valueOf(value))
+                                .add(BigInteger.ONE)),
                     BigInteger.valueOf(weights.get(branchIndex)).multiply(rangeSize(range))));
         var explicits = new ArrayList<>(branch.remaining().explicits());
         explicits.add(new ModifierInstance(candidate.id(), Map.of(range.id(), value)));
@@ -249,20 +266,26 @@ public final class BasicCurrencyTransitions {
                 new BasicCurrencyState(
                     simulator.finishBasicCurrency(branch.remaining(), explicits), provenance),
                 mass);
-        if (value == range.max()) {
+        if (last == range.max()) {
           candidateIndex++;
           if (candidateIndex == branch.candidates().size()) {
             branchIndex++;
             candidateIndex = 0;
           }
           startRange();
-        } else value++;
+        } else value = last + 1;
       }
       emitted = emitted.add(result.probability());
-      remainingOutcomes = remainingOutcomes.subtract(BigInteger.ONE);
+      remainingOutcomes =
+          remainingOutcomes.subtract(
+              action == WorkbenchCurrency.ANNULMENT
+                  ? BigInteger.ONE
+                  : BigInteger.valueOf(last)
+                      .subtract(BigInteger.valueOf(first))
+                      .add(BigInteger.ONE));
       if (complete() && !emitted.equals(Fraction.ONE))
         throw new IllegalStateException("Primitive mass not conserved");
-      return result;
+      return new GroupedOutcome(result, added, stat, first, last);
     }
 
     private void startRange() {
@@ -277,6 +300,9 @@ public final class BasicCurrencyTransitions {
                 .min();
     }
   }
+
+  public record GroupedOutcome(
+      Outcome outcome, String addedModifier, String stat, long min, long max) {}
 
   /**
    * Streaming proof for the fixed one-explicit policies. The cursor retains the exact elementary

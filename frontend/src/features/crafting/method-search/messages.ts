@@ -1,5 +1,7 @@
 import type { Locale } from '../../../shared/i18n/i18n'
 type Copy = {
+  eventual: string
+  tied: string
   cycles: string
   local: string
   final: string
@@ -12,6 +14,8 @@ type Copy = {
 }
 export const methodSearchMessages: Record<Locale, Copy> = {
   en: {
+    eventual: 'Eventual success with unlimited repeats',
+    tied: 'Equal success probability',
     loss: 'Target modifier lost',
     checkpoint: 'Intermediate state',
     cycles: 'Method repetitions',
@@ -23,6 +27,8 @@ export const methodSearchMessages: Record<Locale, Copy> = {
     complete: 'Calculation complete',
   },
   ko: {
+    eventual: '무제한 반복 시 최종 성공확률',
+    tied: '성공확률 동률',
     loss: '목표 속성 손실',
     checkpoint: '중간 상태',
     cycles: '방법 반복 횟수',
@@ -34,6 +40,8 @@ export const methodSearchMessages: Record<Locale, Copy> = {
     complete: '계산 완료',
   },
   'zh-CN': {
+    eventual: '无限重试的最终成功率',
+    tied: '成功率并列',
     loss: '目标词缀丢失',
     checkpoint: '中间状态',
     cycles: '方法重复次数',
@@ -45,6 +53,8 @@ export const methodSearchMessages: Record<Locale, Copy> = {
     complete: '计算完成',
   },
   'zh-TW': {
+    eventual: '無限重試的最終成功率',
+    tied: '成功率並列',
     loss: '目標詞綴遺失',
     checkpoint: '中間狀態',
     cycles: '方法重複次數',
@@ -56,6 +66,8 @@ export const methodSearchMessages: Record<Locale, Copy> = {
     complete: '計算完成',
   },
   ja: {
+    eventual: '無制限に繰り返した場合の最終成功率',
+    tied: '成功率が同率',
     loss: '目標モッドを失った状態',
     checkpoint: '中間状態',
     cycles: '方法の繰り返し回数',
@@ -67,6 +79,8 @@ export const methodSearchMessages: Record<Locale, Copy> = {
     complete: '計算完了',
   },
   es: {
+    eventual: 'Exito final con repeticiones ilimitadas',
+    tied: 'Igual probabilidad de exito',
     loss: 'Modificador objetivo perdido',
     checkpoint: 'Estado intermedio',
     cycles: 'Repeticiones del método',

@@ -5,7 +5,7 @@ import java.util.*;
 
 /** Reachability bounds for a finite discovered decision graph, including external cycles. */
 public final class OutcomeStrategy<S> {
-  public static final String VERSION = "outcome-responsive-reachability-v4";
+  public static final String VERSION = "outcome-responsive-reachability-v5";
 
   public record Choice<S>(String methodId, Map<S, Fraction> outcomes, Fraction unresolved) {
     public Choice {
@@ -179,6 +179,58 @@ public final class OutcomeStrategy<S> {
       upper = upper.add(outcome.getValue().multiply(value.upper()));
     }
     return new Bounds(lower, upper);
+  }
+
+  /** Equal attained policy values stay tied. Each alternative has its own proper policy witness. */
+  public List<Recommendation> certifiedAlternatives(S source) {
+    var best = recommendation(source);
+    if (best.isEmpty() || !best.get().certified()) return List.of();
+    if (!best.get().value().exact()) return List.of(best.get());
+    var result = new ArrayList<Recommendation>();
+    for (var choice : graph.get(source).choices()) {
+      var value = evaluate(choice);
+      if (value.equals(best.get().value())
+          && (value.lower().equals(Fraction.ZERO) || properReplacement(source, choice)))
+        result.add(new Recommendation(choice.methodId(), value, true));
+    }
+    return List.copyOf(result);
+  }
+
+  private boolean properReplacement(S source, Choice<S> replacement) {
+    var reached = new HashSet<S>();
+    var reverse = new HashMap<S, Set<S>>();
+    var terminal = new HashSet<S>();
+    var pending = new ArrayDeque<S>();
+    pending.add(source);
+    while (!pending.isEmpty()) {
+      var state = pending.remove();
+      if (!reached.add(state)) continue;
+      if (!values.get(state).exact() || !graph.get(state).expansionComplete()) return false;
+      if (graph.get(state).goal() || values.get(state).lower().equals(Fraction.ZERO)) {
+        terminal.add(state);
+        continue;
+      }
+      var selected =
+          state.equals(source)
+              ? replacement
+              : graph.get(state).choices().stream()
+                  .filter(c -> c.methodId().equals(improvingChoices.get(state)))
+                  .findFirst()
+                  .orElse(null);
+      if (selected == null
+          || !selected.unresolved().equals(Fraction.ZERO)
+          || !evaluate(selected).equals(values.get(state))) return false;
+      for (var target : selected.outcomes().entrySet())
+        if (!target.getValue().equals(Fraction.ZERO)) {
+          reverse.computeIfAbsent(target.getKey(), ignored -> new HashSet<>()).add(state);
+          pending.add(target.getKey());
+        }
+    }
+    pending.addAll(terminal);
+    while (!pending.isEmpty())
+      for (var predecessor : reverse.getOrDefault(pending.remove(), Set.of()))
+        if (terminal.add(predecessor)) pending.add(predecessor);
+    return terminal.containsAll(reached);
   }
 
   private static Fraction maximum(Fraction a, Fraction b) {

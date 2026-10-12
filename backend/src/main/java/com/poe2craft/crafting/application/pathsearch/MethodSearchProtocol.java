@@ -31,6 +31,7 @@ public final class MethodSearchProtocol {
       List<String> entries,
       int states,
       ItemState representative,
+      Map<String, com.poe2craft.crafting.domain.pathsearch.DeferredItem.Band> representativeRolls,
       boolean directComplete) {}
 
   public record Exit(String bucketId, String kind, Probability probability, int states) {}
@@ -47,6 +48,7 @@ public final class MethodSearchProtocol {
       String sourceStateId,
       String sourceBucketId,
       ItemState sourceItem,
+      Map<String, com.poe2craft.crafting.domain.pathsearch.DeferredItem.Band> sourceRolls,
       List<String> initialActions,
       List<String> cycleActions,
       String status,
@@ -101,6 +103,9 @@ public final class MethodSearchProtocol {
       String goalCatalogVersion,
       String templateVersion,
       String calculationVersion,
+      String rollRepresentationVersion,
+      String rollPartitionVersion,
+      String strategyVersion,
       String interpretation,
       List<com.poe2craft.crafting.domain.WorkbenchSimulator.Assumption> assumptions,
       List<Local> localRecommendations,

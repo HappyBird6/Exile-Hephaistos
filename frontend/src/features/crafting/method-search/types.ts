@@ -1,4 +1,8 @@
 import type { Fraction, Item } from '../path-tree/types'
+export type RollBands = Record<
+  string,
+  { stat: string; min: number; max: number }
+>
 export type Exit = {
   bucketId: string
   kind: string
@@ -17,6 +21,7 @@ export type Arrow = {
   sourceStateId: string
   sourceBucketId: string
   sourceItem: Item
+  sourceRolls?: RollBands
   initialActions: string[]
   cycleActions: string[]
   status: string
@@ -30,6 +35,7 @@ export type Bucket = {
   entries: string[]
   states: number
   representative: Item
+  representativeRolls?: RollBands
   directComplete: boolean
 }
 export type Graph = {

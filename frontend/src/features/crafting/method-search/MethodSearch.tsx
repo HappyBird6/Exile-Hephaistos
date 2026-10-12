@@ -13,8 +13,15 @@ import type { PathTreeProps } from '../path-tree/PathTree'
 import { pathTreeMessages } from '../path-tree/messages'
 import { methodMessages } from '../path-tree/methodMessages'
 import { canonical, percent } from '../path-tree/validation'
-import { acceptSnapshot, call, createBody, validateGraph } from './api'
+import {
+  acceptSnapshot,
+  call,
+  createBody,
+  mutateJob,
+  validateGraph,
+} from './api'
 import { methodSearchMessages } from './messages'
+import { presentRollCell } from './rollPresentation'
 import type { Distribution, Graph, Snapshot } from './types'
 import './method-search.css'
 
@@ -86,17 +93,11 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
     mutationFn: async (operation: 'CANCEL' | 'RESUME') => {
       const current = latest.current
       if (!current) throw new Error('NO_JOB')
-      const next = await call<Snapshot>(
-        `/${current.jobId}/${operation.toLowerCase()}`,
+      const next = await mutateJob(
+        current,
+        operation,
         ruleset,
         control.current.signal,
-        {
-          version: 2,
-          commandId: crypto.randomUUID(),
-          expectedRevision: current.revision,
-          operation,
-          retainedOutcomeLimit: null,
-        },
       )
       latest.current = acceptSnapshot(latest.current, next)
       client.setQueryData(key, latest.current)
@@ -174,7 +175,7 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
       </div>
       {final && (
         <p>
-          {copy.final}: {percent(final.lower)}
+          {copy.eventual}: {percent(final.lower)}
           {final.status !== 'EXACT' && ` – ${percent(final.upper)}`}
         </p>
       )}
@@ -204,7 +205,14 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
                   ? common.noMatch
                   : common.unknown}
             </p>
-            <ItemCard item={presentItem(b.representative, locale)} />
+            <ItemCard
+              item={presentRollCell(
+                b.representative,
+                b.representativeRolls,
+                locale,
+                presentItem,
+              )}
+            />
             <p>
               {b.entries
                 .map((s) =>
@@ -235,6 +243,12 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
                 {method.cycleActions.map(action).join(' → ')} ↻
               </h3>
               {recommended.has(method.id) && <strong>{copy.final}</strong>}
+              {job?.strategies.some(
+                (strategy) =>
+                  strategy.cycles === cycles &&
+                  strategy.methodIds.length > 1 &&
+                  strategy.methodIds.includes(method.id),
+              ) && <span>{copy.tied}</span>}
               {local && <strong>{copy.local}</strong>}
               {method.initialActions.length > 0 && (
                 <p>
@@ -244,7 +258,14 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
               )}
               <details>
                 <summary>{common.inspect}</summary>
-                <ItemCard item={presentItem(method.sourceItem, locale)} />
+                <ItemCard
+                  item={presentRollCell(
+                    method.sourceItem,
+                    method.sourceRolls,
+                    locale,
+                    presentItem,
+                  )}
+                />
               </details>
               {!point ? (
                 <p>{common.unknown}</p>

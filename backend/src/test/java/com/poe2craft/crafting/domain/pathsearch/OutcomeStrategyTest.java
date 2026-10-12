@@ -8,6 +8,44 @@ import java.util.*;
 import org.junit.jupiter.api.Test;
 
 class OutcomeStrategyTest {
+  @Test
+  void eventualTiesPreserveProperAlternativesWithoutCallingStallingAnOptimalPolicy() {
+    var solver =
+        new OutcomeStrategy<>(
+            Map.of(
+                "root",
+                state(
+                    choice("stall", "root"),
+                    choice("fast", "goal"),
+                    choice("slow", "root", "goal")),
+                "goal",
+                new State<String>(true, true, List.of())));
+    for (int i = 0; i < 10; i++) {
+      solver.refine();
+      solver.refineAlmostSure();
+    }
+    assertThat(solver.certifiedAlternatives("root"))
+        .extracting(Recommendation::methodId)
+        .containsExactlyInAnyOrder("fast", "slow");
+    // Finite one-method observations still distinguish these policies (1 versus 1-2^-N).
+    var slowOnly =
+        new OutcomeStrategy<>(
+            Map.of(
+                "root",
+                state(choice("slow", "root", "goal")),
+                "goal",
+                new State<String>(true, true, List.of())));
+    for (int n = 1; n <= 500; n++) {
+      slowOnly.refine();
+      if (Set.of(100, 300, 500).contains(n)) {
+        var denominator = java.math.BigInteger.ONE.shiftLeft(n);
+        assertThat(slowOnly.bounds().get("root").lower())
+            .isEqualTo(new Fraction(denominator.subtract(java.math.BigInteger.ONE), denominator));
+        assertThat(slowOnly.bounds().get("root").exact()).isFalse();
+      }
+    }
+  }
+
   private static Choice<String> choice(String id, String... targets) {
     var mass = new LinkedHashMap<String, Fraction>();
     for (var target : targets) mass.merge(target, Fraction.of(1, targets.length), Fraction::add);

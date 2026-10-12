@@ -26,6 +26,18 @@ public final class GoalFilterService {
     return index.catalog(context);
   }
 
+  public com.poe2craft.crafting.domain.pathsearch.RollPartition rollPartition(
+      ItemState item, GoalFilter goal) {
+    var context = new Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
+    var catalog = index.itemCatalog(context);
+    return catalog
+        .map(
+            c ->
+                com.poe2craft.crafting.domain.pathsearch.RollPartition.compile(
+                    c, index.knownStats(context), goal, item))
+        .orElseGet(com.poe2craft.crafting.domain.pathsearch.RollPartition::exact);
+  }
+
   public GoalValidator.Validation validate(Context context, GoalFilter goal) {
     requireContext(context);
     var result =

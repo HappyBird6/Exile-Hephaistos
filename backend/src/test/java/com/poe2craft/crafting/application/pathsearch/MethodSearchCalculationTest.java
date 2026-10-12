@@ -143,7 +143,8 @@ class MethodSearchCalculationTest {
         .allSatisfy(m -> assertThat(m.points()).containsOnlyKeys(100, 300, 500));
     var strategy = search.strategy(100);
     for (int i = 0; i < 5; i++) strategy.refine();
-    assertThat(strategy.bounds().get(root()).lower()).isEqualTo(Fraction.ONE);
-    assertThat(strategy.recommendation(root()).orElseThrow().certified()).isTrue();
+    var deferredRoot = new com.poe2craft.crafting.domain.pathsearch.DeferredItem(root());
+    assertThat(strategy.bounds().get(deferredRoot).lower()).isEqualTo(Fraction.ONE);
+    assertThat(strategy.recommendation(deferredRoot).orElseThrow().certified()).isTrue();
   }
 }

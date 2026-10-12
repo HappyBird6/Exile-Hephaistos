@@ -8,6 +8,7 @@ import com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Probabil
 import com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Rejected;
 import com.poe2craft.crafting.domain.*;
 import com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction;
+import com.poe2craft.crafting.domain.pathsearch.DeferredItem;
 import com.poe2craft.crafting.domain.pathsearch.OutcomeStrategy;
 import com.poe2craft.item.*;
 import java.time.*;
@@ -143,7 +144,7 @@ public final class MethodSearchService implements AutoCloseable {
         if (job.owner.equals(owner)
             && job.request.clientRequestId().equals(request.clientRequestId())) {
           if (!job.request.equals(request)) throw new Rejected(409, "REQUEST_ID_REUSED");
-          synchronized (job) {
+          try (var ignored = job.acquire()) {
             return job.snapshot;
           }
         }
@@ -157,9 +158,10 @@ public final class MethodSearchService implements AutoCloseable {
                   evaluator,
                   transitions,
                   Set.copyOf(request.activeOmens()),
-                  100000));
+                  100000,
+                  goals.rollPartition(request.start().item(), request.goal())));
       jobs.put(job.id, job);
-      synchronized (job) {
+      try (var ignored = job.acquire()) {
         publish(job);
         var accepted = job.snapshot;
         submit(job);
@@ -169,10 +171,7 @@ public final class MethodSearchService implements AutoCloseable {
   }
 
   public Snapshot get(String owner, String id) {
-    var job = job(owner, id);
-    synchronized (job) {
-      return job.snapshot;
-    }
+    return job(owner, id).snapshot;
   }
 
   public Snapshot mutate(String owner, String id, Mutation command) {
@@ -186,7 +185,7 @@ public final class MethodSearchService implements AutoCloseable {
         || !Set.of("CANCEL", "RESUME").contains(command.operation()))
       throw new Rejected(422, "INVALID_REQUEST");
     var job = job(owner, id);
-    synchronized (job) {
+    try (var ignored = job.acquire()) {
       var old = job.commands.get(command.commandId());
       if (old != null) {
         if (!old.command.equals(command)) throw new Rejected(409, "COMMAND_ID_REUSED");
@@ -209,7 +208,6 @@ public final class MethodSearchService implements AutoCloseable {
         }
         job.generation++;
         job.status = "QUEUED";
-        job.lastPublishedWork = 0;
         job.reason = null;
         publish(job);
         submit(job);
@@ -221,7 +219,7 @@ public final class MethodSearchService implements AutoCloseable {
 
   public Graph graph(String owner, String id, long revision, String cursor) {
     var job = job(owner, id);
-    synchronized (job) {
+    try (var ignored = job.acquire()) {
       var saved = revision(job, revision);
       return saved.graph(position(saved, cursor, "graph"));
     }
@@ -230,7 +228,7 @@ public final class MethodSearchService implements AutoCloseable {
   public Distribution distribution(
       String owner, String id, long revision, String methodId, int cycles, String cursor) {
     var job = job(owner, id);
-    synchronized (job) {
+    try (var ignored = job.acquire()) {
       var saved = revision(job, revision);
       var method =
           saved.methods.stream()
@@ -240,8 +238,9 @@ public final class MethodSearchService implements AutoCloseable {
       var point = method.points().get(cycles);
       if (point == null) throw new Rejected(409, "OBSERVATION_NOT_READY");
       String scope = "distribution:" + methodId + ":" + cycles;
-      int offset = position(saved, cursor, scope);
+      var offset = bigPosition(saved, cursor, scope);
       var rows = new ArrayList<ConditionalState>();
+      var cells = new ArrayList<DistributionCell>();
       var unresolved = Fraction.ZERO;
       for (var exit : point.exits().entrySet()) {
         if (exit.getKey()
@@ -249,42 +248,63 @@ public final class MethodSearchService implements AutoCloseable {
           for (var mass : exit.getValue().values()) unresolved = unresolved.add(mass);
         else
           exit.getValue()
-              .forEach(
-                  (s, mass) ->
-                      rows.add(
-                          new ConditionalState(
-                              saved.byState.get(s).id(), s.item(), exit.getKey().name(), p(mass))));
+              .forEach((s, mass) -> cells.add(new DistributionCell(s, exit.getKey().name(), mass)));
       }
-      point
-          .active()
-          .forEach(
-              (s, mass) ->
-                  rows.add(
-                      new ConditionalState(
-                          saved.byState.get(s).id(), s.item(), "ACTIVE", p(mass))));
-      rows.sort(
-          Comparator.comparing(ConditionalState::stateId).thenComparing(ConditionalState::kind));
-      int end = Math.min(rows.size(), offset + 48);
-      if (offset > rows.size()) throw new Rejected(422, "INVALID_CURSOR");
+      point.active().forEach((s, mass) -> cells.add(new DistributionCell(s, "ACTIVE", mass)));
+      cells.sort(
+          Comparator.comparing((DistributionCell cell) -> cell.state().canonicalKey())
+              .thenComparing(DistributionCell::kind));
+      var total =
+          cells.stream()
+              .map(cell -> cell.state().cardinality())
+              .reduce(java.math.BigInteger.ZERO, java.math.BigInteger::add);
+      if (offset.compareTo(total) > 0) throw new Rejected(422, "INVALID_CURSOR");
+      var skip = offset;
+      for (var cell : cells) {
+        var size = cell.state().cardinality();
+        if (skip.compareTo(size) >= 0) {
+          skip = skip.subtract(size);
+          continue;
+        }
+        var mass = new Fraction(cell.mass().numerator(), cell.mass().denominator().multiply(size));
+        while (skip.compareTo(size) < 0 && rows.size() < 48) {
+          var concrete = cell.state().concrete(skip);
+          rows.add(
+              new ConditionalState(concrete.canonicalKey(), concrete.item(), cell.kind(), p(mass)));
+          skip = skip.add(java.math.BigInteger.ONE);
+        }
+        if (rows.size() == 48) break;
+        skip = java.math.BigInteger.ZERO;
+      }
+      var end = offset.add(java.math.BigInteger.valueOf(rows.size()));
       return new Distribution(
           2,
           id,
           revision,
           methodId,
           cycles,
-          List.copyOf(rows.subList(offset, end)),
+          List.copyOf(rows),
           p(unresolved),
-          end < rows.size() ? saved.cursor(scope, end) : null);
+          end.compareTo(total) < 0 ? saved.cursor(scope, end) : null);
     }
   }
 
   private int position(Revision saved, String cursor, String scope) {
-    if (cursor == null) return 0;
+    var offset = bigPosition(saved, cursor, scope);
+    if (offset.compareTo(java.math.BigInteger.valueOf(Integer.MAX_VALUE)) > 0)
+      throw new Rejected(422, "INVALID_CURSOR");
+    return offset.intValueExact();
+  }
+
+  private java.math.BigInteger bigPosition(Revision saved, String cursor, String scope) {
+    if (cursor == null) return java.math.BigInteger.ZERO;
     var position = saved.cursors.get(cursor);
     if (position == null || !position.scope.equals(scope))
       throw new Rejected(422, "INVALID_CURSOR");
     return position.offset;
   }
+
+  private record DistributionCell(DeferredItem state, String kind, Fraction mass) {}
 
   private Revision revision(Job job, long revision) {
     var saved = job.revisions.get(revision);
@@ -304,14 +324,14 @@ public final class MethodSearchService implements AutoCloseable {
   }
 
   private void run(Job job, long generation) {
-    int used = 0;
+    int used = 0, lastPublishedWork = 0;
     while (used < runBudget) {
-      synchronized (job) {
+      try (var ignored = job.acquire()) {
         if (generation != job.generation || !Set.of("QUEUED", "RUNNING").contains(job.status))
           return;
         job.status = "RUNNING";
         try {
-          // Each slice publishes a coherent revision; cancellation can acquire the monitor between
+          // Each slice publishes a coherent revision; queued controls acquire the fair lock between
           // slices.
           long until = System.nanoTime() + 20_000_000L;
           int steps = 0;
@@ -352,8 +372,8 @@ public final class MethodSearchService implements AutoCloseable {
             publish(job);
             return;
           }
-          if (used - job.lastPublishedWork >= 512) {
-            job.lastPublishedWork = used;
+          if (used - lastPublishedWork >= 512) {
+            lastPublishedWork = used;
             publish(job);
           }
         } catch (RuntimeException ex) {
@@ -436,11 +456,9 @@ public final class MethodSearchService implements AutoCloseable {
               .forEach(
                   (state, value) -> {
                     var ids =
-                        solver
-                            .recommendation(state)
-                            .filter(OutcomeStrategy.Recommendation::certified)
-                            .map(r -> List.of(r.methodId()))
-                            .orElse(List.of());
+                        solver.certifiedAlternatives(state).stream()
+                            .map(OutcomeStrategy.Recommendation::methodId)
+                            .toList();
                     strategies.add(
                         new Strategy(
                             saved.byState.get(state).id(),
@@ -468,6 +486,9 @@ public final class MethodSearchService implements AutoCloseable {
             job.request.goal().catalogVersion(),
             MethodSearchCalculation.TEMPLATES,
             MethodSearchCalculation.VERSION,
+            DeferredItem.VERSION,
+            com.poe2craft.crafting.domain.pathsearch.RollPartition.VERSION,
+            OutcomeStrategy.VERSION,
             BasicCurrencyTransitions.INTERPRETATION,
             job.calculation.assumptions(),
             List.copyOf(locals),
@@ -487,7 +508,7 @@ public final class MethodSearchService implements AutoCloseable {
   private void expire() {
     var expired = jobs.values().stream().filter(j -> !clock.instant().isBefore(j.expires)).toList();
     for (var job : expired) {
-      synchronized (job) {
+      try (var ignored = job.acquire()) {
         job.generation++;
         jobs.remove(job.id);
       }
@@ -516,17 +537,24 @@ public final class MethodSearchService implements AutoCloseable {
   }
 
   private final class Job {
+    final java.util.concurrent.locks.ReentrantLock lock =
+        new java.util.concurrent.locks.ReentrantLock(true);
+
+    LockGuard acquire() {
+      lock.lock();
+      return lock::unlock;
+    }
+
     final String id = UUID.randomUUID().toString(), owner;
     final Create request;
     final Instant expires = clock.instant().plus(Duration.ofMinutes(20));
     final MethodSearchCalculation calculation;
     final Map<Long, Revision> revisions = new LinkedHashMap<>();
     final Map<String, Command> commands = new LinkedHashMap<>();
-    final Map<Integer, OutcomeStrategy<BasicCurrencyState>> solvers = new LinkedHashMap<>();
+    final Map<Integer, OutcomeStrategy<DeferredItem>> solvers = new LinkedHashMap<>();
     long revision = -1, generation;
-    int lastPublishedWork;
     String status = "QUEUED", reason;
-    Snapshot snapshot;
+    volatile Snapshot snapshot;
 
     Job(String owner, Create request, MethodSearchCalculation calculation) {
       this.owner = owner;
@@ -535,9 +563,14 @@ public final class MethodSearchService implements AutoCloseable {
     }
   }
 
+  private interface LockGuard extends AutoCloseable {
+    @Override
+    void close();
+  }
+
   private record Command(Mutation command, Snapshot response) {}
 
-  private record Position(String scope, int offset) {}
+  private record Position(String scope, java.math.BigInteger offset) {}
 
   private final class Revision {
     final String jobId;
@@ -545,7 +578,7 @@ public final class MethodSearchService implements AutoCloseable {
     final List<MethodSearchCalculation.StateView> states;
     final List<MethodSearchCalculation.MethodView> methods;
     final Map<String, MethodSearchCalculation.StateView> byId = new HashMap<>();
-    final Map<BasicCurrencyState, MethodSearchCalculation.StateView> byState = new HashMap<>();
+    final Map<DeferredItem, MethodSearchCalculation.StateView> byState = new HashMap<>();
     final Map<String, List<MethodSearchCalculation.MethodView>> bySource = new HashMap<>();
     final List<Bucket> buckets;
     final Map<String, Position> cursors = new HashMap<>();
@@ -588,6 +621,7 @@ public final class MethodSearchService implements AutoCloseable {
                         first.progress().entries().stream().map(Enum::name).toList(),
                         e.getValue().size(),
                         first.state().item(),
+                        first.state().rolls(),
                         e.getValue().stream()
                             .allMatch(MethodSearchCalculation.StateView::complete));
                   })
@@ -595,6 +629,10 @@ public final class MethodSearchService implements AutoCloseable {
     }
 
     String cursor(String scope, int offset) {
+      return cursor(scope, java.math.BigInteger.valueOf(offset));
+    }
+
+    String cursor(String scope, java.math.BigInteger offset) {
       var position = new Position(scope, offset);
       return tokens.computeIfAbsent(
           position,
@@ -622,7 +660,7 @@ public final class MethodSearchService implements AutoCloseable {
       var source = byId.get(method.source());
       var points = new ArrayList<Point>();
       for (var entry : new TreeMap<>(method.points()).entrySet()) {
-        var groups = new LinkedHashMap<String, Map<BasicCurrencyState, Fraction>>();
+        var groups = new LinkedHashMap<String, Map<DeferredItem, Fraction>>();
         var observation = entry.getValue();
         var unresolved = Fraction.ZERO;
         for (var exit : observation.exits().entrySet()) {
@@ -659,6 +697,7 @@ public final class MethodSearchService implements AutoCloseable {
           method.source(),
           bucket(source.progress()),
           source.state().item(),
+          source.state().rolls(),
           method.initialActions().stream().map(Enum::name).toList(),
           method.actions().stream().map(Enum::name).toList(),
           method.status(),
@@ -667,9 +706,9 @@ public final class MethodSearchService implements AutoCloseable {
     }
 
     void group(
-        Map<String, Map<BasicCurrencyState, Fraction>> groups,
+        Map<String, Map<DeferredItem, Fraction>> groups,
         String kind,
-        BasicCurrencyState state,
+        DeferredItem state,
         Fraction mass) {
       var target = byState.get(state);
       if (target == null) throw new IllegalStateException("Missing exact exit state");

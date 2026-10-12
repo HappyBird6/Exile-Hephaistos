@@ -114,11 +114,11 @@ and immediate/final recommendation reversal; it is not game-probability evidence
 
 ## Open issues and recommended next work
 
-- **Production search scale:** no transition-equivalence reduction of full roll
-  states is implemented. Large catalogs can pause before all direct methods or
-  deeper layers finish. Keep `PAUSED`/partial; add a proved weighted-bisimulation
-  representation with entry-conditioned distributions before claiming full
-  production-diamond exploration or a completion latency.
+- **Production search scale:** v7 carries exact deferred roll cells through the
+  production cursor, method runner and concrete-outcome pages. Modifier/tier
+  combinations are still separate, so large catalogs can pause before all direct
+  methods or deeper layers finish. Keep `PAUSED`/partial until the actual remaining
+  frontier is exhausted; roll compression alone is not full diamond completion.
   The ilvl-82 Solar inventory alone contains 209 positive-weight explicit tier
   definitions across 12 prefix and 18 suffix families (before state-dependent
   eligibility). Excluding the Spirit and gem-level families still leaves
@@ -165,9 +165,10 @@ and immediate/final recommendation reversal; it is not game-probability evidence
 
 ## Verification evidence (2026-10-12)
 
-Docker Java 21 full `check generateJooq bootJar` passed (651 unit/contract tests and seven disposable
+Docker Java 21 full `check generateJooq bootJar` passed (658 unit/contract tests and seven disposable
 DB integration tests). Docker Node 24 lint, typecheck, formatting, 2,147 frontend
-tests and production build passed. The preserved v1 source oracle remains 650/21107.
+tests and production build passed. The final v7 frontend run passed 2,151 tests plus lint,
+typecheck, formatting and production build. The preserved v1 source oracle remains 650/21107.
 The actual Solar pool test enumerates Exalted outcomes for root, Projectile +3,
 explicit Spirit 47 and existing Life 50; both diamond arms/merges and Life+Chaos
 are reachable, and the complete primitive distributions conserve mass.
@@ -285,7 +286,7 @@ cover a 100-state recovery cycle with stalling alternatives, risky exits propaga
 backward through 100 states, and incomplete/unknown graphs. Only fully enumerated,
 resolved graphs enter this proof; the production Solar job above remains partial.
 
-## Exact reduction investigation
+## Exact reduction investigation at d6e4e51
 
 The unchanged 36,000-operation Solar workload at `909f7d6` was profiled by nested
 shape keys while preserving base, ilvl, rarity, implicit values, conditions,
@@ -336,7 +337,7 @@ it should not be mandatory for every unrelated roll before graph exploration.
 Enumeration is a fallback only for a known finite law; it cannot repair an
 unverified joint-roll model or missing candidates, which must remain unresolved.
 
-The next implementation boundary is replacing the primitive cursor's one-roll
+The implementation boundary identified at that checkpoint was replacing the primitive cursor's one-roll
 output with a modifier-tier plus exact roll-domain law, then making method runners
 carry those laws through append/remove/condition operations. The existing paged
 full-item API requires a lazy expansion cursor for those expressions. The finite
@@ -349,7 +350,88 @@ Eventual success and finite method observations are different objectives. The
 arrows may make many strategies all have value one. The current returned proper
 policy is a success-probability witness, not proof of a unique fastest/cheapest
 strategy. No currency prices, total attempt cap or secondary preference is defined.
-The pending product choice is to display exact ties (recommended with the existing
-contract) or introduce an explicit secondary cost objective. A scalar expected
-currency cost additionally needs an exchange-rate/weight policy; per-currency
-expected counts alone only give a partial ordering.
+The user subsequently chose to preserve exact success-probability ties and not
+add a cost objective. A scalar expected currency cost would additionally need an
+exchange-rate/weight policy; per-currency expected counts alone only give a partial
+ordering.
+
+## Production deferred roll representation (v7)
+
+`DeferredItem` stores an immutable representative plus disjoint uniform integer
+roll bands per modifier. Each cell is a product law under the existing declared
+single-stat roll model. It does not average entries or posit a joint-roll model.
+The primitive cursor emits each safe interval once, multiplying the elementary
+roll probability by its integer cardinality. Retained variables survive additions;
+removal marginalizes only the removed variable, and replacement creates a fresh
+roll law. Method runners and outcome-responsive strategy calculations now use
+these cells. Distinct method distributions remain separate.
+
+The initial production gate is the reviewed Solar basic-currency model without
+active omens, special-state transitions or catalyst quality. Other bases and
+unproved numeric dependencies retain exact individual rolls. All candidate tiers
+and non-goal candidates remain in the denominator. For direct explicit targets,
+an interval may span values only when all contributing modifiers share a conflict
+family, so at most one can contribute; every active entry's numeric threshold is
+converted to an integer boundary. COUNT/AND/NOT/IF still evaluate their complete
+AST on every result. Pseudo and weighted dependencies keep their relevant rolls
+individual. Unrelated rolls may share intervals because the supported action
+rules do not inspect their values. Every starting deterministic explicit value is
+also split into a singleton, preventing overlap with regenerated uniform cells.
+
+The full-item detail endpoint uses BigInteger offsets and Cartesian-product random
+access to emit at most 48 concrete items per page. It divides cell mass by exact
+cardinality, without expanding the full product in memory. Tokens remain scoped
+to job revision, method and observation. Source cards now show ranges in all six
+languages; detail cards show actual values. Snapshot metadata separately reports
+roll representation, partition and strategy versions.
+
+The small production-search differential test exhausts both eager and deferred
+graphs, then compares every method at 100/300/500: each exclusive exit, active
+law, initial/cycle consumption and strategy bounds. The oracle integrates each
+specified entry cell's law, not alternative actions. Real Solar checks restore
+the complete primitive law, split Spirit 47 from 48–50 at a target of 48, compare
+all 16 basic actions, and check existing Life preservation, loss and reacquisition.
+The production page test restores all real Exalted outcomes exactly once, checks
+mass against eager enumeration, repeats cursors and rejects a wrong observation
+scope. A separate cell test exercises random access over `2^126` and `2^127` outcomes.
+
+Strategy v5 preserves equal attained success probabilities. Tied arrows each have
+a proper stationary-policy witness obtained by replacing that source's action in
+the witnessed policy; an equal-valued self-loop that never reaches success is
+excluded. Different alternatives' witnesses must not be combined arbitrarily into
+a new cyclic policy. No currency-cost preference is added. The UI separately labels
+unlimited-repeat eventual success and per-method 100/300/500 observations. For
+example, immediate certain success and a retry with probability 1/2 per cycle tie
+at eventual one, but their finite observations are `1` and `1-2^-N`, respectively.
+
+An initial v7 36,000-operation run retained 916 cells representing modifier/tier
+shapes instead of 10,052 concrete states, and 32,454 observation support entries
+instead of 108,969. Sampled heap was 149,080,488 bytes. It remained partial and first
+visible result regressed to 25,836ms. Follow-up changes restore kernel reuse after
+removing a roll variable, prioritize shallow single-method kernels while retaining
+FIFO service for longer work, and let immutable snapshot reads bypass the worker
+monitor. Performance/completion claims require the follow-up measurement below.
+
+Control requests now share a fair job lock with computation slices; immutable GET
+snapshots remain lock-free. The client refreshes and retries only revision
+conflicts (at most three refreshes), retains the identical command on a transport
+retry, and never overrides a changed generation. Other conflicts remain visible.
+This fixes the cancellation race found by the production performance probe; it
+does not turn a paused or cancelled exploration into a completed result.
+
+The follow-up isolated Docker probe returned the first snapshot in 94ms and the
+first visible method observation in 246ms. A goal bucket first appeared at
+14,409ms; both A-to-C and B-to-C entry buckets were present. At the 60s driver
+stop, cancellation completed and metrics were captured at 61,345ms: 23,855
+operations, 632 disjoint calculation cells representing 28,647 concrete items,
+619 cells with deferred rolls, 626 unexpanded cells, 616 method instances, 102
+completed methods and 514 live runners. There were 204 distinct kernels for
+1,036 source/action requests (832 shared lookups), 11,880 retained kernel
+outcomes, 6,187 folded execution inputs and 34,185 observation support entries.
+Sampled process heap peaked at 138,158,960 bytes; Linux process VmHWM was
+360,692 KiB (includes JVM and fixtures, not a job-only allocation measure).
+First local recommendation and full completion were not reached. This was a
+bounded latency probe cancelled by its driver, not a completed production search.
+Comparisons with the earlier 36,000-operation run are not equal-work throughput
+comparisons. The retained modifier/tier frontier remains the next scale boundary;
+roll-cell compression alone does not prove that exhaustive Solar exploration fits.

@@ -4,16 +4,19 @@ import com.poe2craft.crafting.domain.*;
 import com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction;
 import com.poe2craft.crafting.domain.goalfilter.GoalEvaluator.Evaluation;
 import com.poe2craft.crafting.domain.goalfilter.GoalFilter.Status;
+import com.poe2craft.crafting.domain.pathsearch.DeferredItem;
+import com.poe2craft.crafting.domain.pathsearch.DeferredTransitions;
 import com.poe2craft.crafting.domain.pathsearch.ExactMethodRunner;
 import com.poe2craft.crafting.domain.pathsearch.ExactMethodRunner.*;
 import com.poe2craft.crafting.domain.pathsearch.OutcomeStrategy;
+import com.poe2craft.crafting.domain.pathsearch.RollPartition;
 import com.poe2craft.item.ItemState;
 import java.util.*;
 import java.util.function.Function;
 
 /** Job-local, resumable method-depth exploration. UI buckets never key calculation states. */
 public final class MethodSearchCalculation {
-  public static final String VERSION = "full-state-method-search-v6";
+  public static final String VERSION = "deferred-roll-method-search-v7";
   static final int OPEN_METHOD_WINDOW = 512;
   public static final String TEMPLATES = "applicable-single-and-two-action-cycles-v3";
   public static final List<Integer> OBSERVATIONS = List.of(100, 300, 500);
@@ -26,7 +29,7 @@ public final class MethodSearchCalculation {
 
   public record StateView(
       String id,
-      BasicCurrencyState state,
+      DeferredItem state,
       int depth,
       Progress progress,
       boolean expanded,
@@ -39,9 +42,9 @@ public final class MethodSearchCalculation {
       List<WorkbenchCurrency> actions,
       String status,
       String reason,
-      Map<Integer, Observation<BasicCurrencyState, WorkbenchCurrency>> points) {}
+      Map<Integer, Observation<DeferredItem, WorkbenchCurrency>> points) {}
 
-  private record Key(BasicCurrencyState state, WorkbenchCurrency action) {}
+  private record Key(DeferredItem state, WorkbenchCurrency action) {}
 
   private static final class PendingKernel extends RuntimeException {
     final Key key;
@@ -52,10 +55,10 @@ public final class MethodSearchCalculation {
     }
   }
 
-  private final BasicCurrencyTransitions transitions;
+  private final DeferredTransitions transitions;
   private final Function<ItemState, Progress> evaluate;
-  private final LinkedHashMap<BasicCurrencyState, State> states = new LinkedHashMap<>();
-  private final Map<String, BasicCurrencyState> identities = new HashMap<>();
+  private final LinkedHashMap<DeferredItem, State> states = new LinkedHashMap<>();
+  private final Map<String, DeferredItem> identities = new HashMap<>();
   private final LinkedHashMap<String, Method> methods = new LinkedHashMap<>();
 
   private record Ready(Method method, long ticket) {}
@@ -63,7 +66,8 @@ public final class MethodSearchCalculation {
   private final ArrayDeque<Ready> runnable = new ArrayDeque<>();
   private final PriorityQueue<Ready> preferredMethods =
       new PriorityQueue<>(
-          Comparator.comparingInt((Ready ready) -> -ready.method().source.matchingEntries)
+          Comparator.comparingInt((Ready ready) -> ready.method().source.depth)
+              .thenComparingInt(ready -> -ready.method().source.matchingEntries)
               .thenComparingInt(
                   ready -> ready.method().initial.size() + ready.method().actions.size())
               .thenComparingLong(Ready::ticket));
@@ -81,13 +85,14 @@ public final class MethodSearchCalculation {
               .thenComparing(Comparator.comparingInt(Expansion::matches).reversed())
               .thenComparing(e -> e.state().id));
   private final Map<State, Set<State>> adjacency = new HashMap<>();
-  private final Map<Key, Kernel<BasicCurrencyState>> kernels = new HashMap<>();
+  private final Map<Key, Kernel<DeferredItem>> kernels = new HashMap<>();
   private final Map<Key, Key> kernelAliases = new HashMap<>();
-  private final Map<BasicCurrencyTransitions.KernelIdentity, Key> kernelIdentities =
-      new HashMap<>();
+  private final Map<Key, Integer> kernelDepth = new HashMap<>();
+  private final Map<Key, Integer> kernelMethodLength = new HashMap<>();
+  private final Map<DeferredTransitions.Identity, Key> kernelIdentities = new HashMap<>();
   private long sharedKernelLookups;
   private final LinkedHashMap<Key, KernelWork> pendingKernels = new LinkedHashMap<>();
-  private final Map<BasicCurrencyState, Progress> progress = new HashMap<>();
+  private final Map<DeferredItem, Progress> progress = new HashMap<>();
   private final Set<String> activeOmens;
   private final Set<WorkbenchSimulator.Assumption> assumptions = new LinkedHashSet<>();
 
@@ -109,6 +114,16 @@ public final class MethodSearchCalculation {
       BasicCurrencyTransitions transitions,
       Set<String> activeOmens,
       int retainedOutcomeLimit) {
+    this(root, evaluator, transitions, activeOmens, retainedOutcomeLimit, RollPartition.exact());
+  }
+
+  public MethodSearchCalculation(
+      BasicCurrencyState root,
+      Function<ItemState, Evaluation> evaluator,
+      BasicCurrencyTransitions transitions,
+      Set<String> activeOmens,
+      int retainedOutcomeLimit,
+      RollPartition partition) {
     this(
         root,
         item -> {
@@ -123,7 +138,9 @@ public final class MethodSearchCalculation {
         transitions,
         activeOmens,
         retainedOutcomeLimit,
-        true);
+        true,
+        OPEN_METHOD_WINDOW,
+        partition);
   }
 
   MethodSearchCalculation(
@@ -145,15 +162,35 @@ public final class MethodSearchCalculation {
       int retainedOutcomeLimit,
       boolean direct,
       int openMethodWindow) {
+    this(
+        root,
+        evaluate,
+        transitions,
+        activeOmens,
+        retainedOutcomeLimit,
+        direct,
+        openMethodWindow,
+        RollPartition.exact());
+  }
+
+  MethodSearchCalculation(
+      BasicCurrencyState root,
+      Function<ItemState, Progress> evaluate,
+      BasicCurrencyTransitions transitions,
+      Set<String> activeOmens,
+      int retainedOutcomeLimit,
+      boolean direct,
+      int openMethodWindow,
+      RollPartition partition) {
     this.evaluate = evaluate;
-    this.transitions = transitions;
+    this.transitions = new DeferredTransitions(transitions, partition);
     this.activeOmens = Set.copyOf(activeOmens);
     if (retainedOutcomeLimit < 1)
       throw new IllegalArgumentException("Positive memory budget required");
     this.retainedOutcomeLimit = retainedOutcomeLimit;
     if (openMethodWindow < 1) throw new IllegalArgumentException("Positive work window required");
     this.openMethodWindow = openMethodWindow;
-    state(root, 0);
+    state(new DeferredItem(root), 0);
   }
 
   public long operations() {
@@ -205,13 +242,10 @@ public final class MethodSearchCalculation {
         var selected =
             pendingKernels.values().stream()
                 .min(
-                    Comparator.comparingInt((KernelWork work) -> -matches(work.key.state()))
-                        .thenComparingInt(
-                            work ->
-                                states.containsKey(work.key.state())
-                                    ? states.get(work.key.state()).depth
-                                    : Integer.MAX_VALUE)
-                        .thenComparing(work -> work.cursor.remainingOutcomes()))
+                    Comparator.comparingInt((KernelWork work) -> kernelDepth.get(work.key))
+                        .thenComparingInt(work -> kernelMethodLength.get(work.key))
+                        .thenComparing(work -> work.cursor.remainingOutcomes())
+                        .thenComparingInt(work -> -matches(work.key.state())))
                 .orElseThrow();
         selected.step();
       }
@@ -230,25 +264,37 @@ public final class MethodSearchCalculation {
       selected.step();
       if (!selected.done) queue(selected);
     } catch (PendingKernel pending) {
-      var key = registerKernel(pending.key);
+      var key =
+          registerKernel(
+              pending.key,
+              selected.source.depth,
+              selected.initial.size() + selected.actions.size());
       if (kernels.containsKey(key)) queue(selected);
       else waiting.computeIfAbsent(key, unused -> new ArrayList<>()).add(selected);
     }
   }
 
-  private Key registerKernel(Key request) {
+  private Key registerKernel(Key request, int depth, int methodLength) {
     var known = kernelAliases.get(request);
-    if (known != null) return known;
+    if (known != null) {
+      kernelDepth.merge(known, depth, Math::min);
+      kernelMethodLength.merge(known, methodLength, Math::min);
+      return known;
+    }
     var cursor = transitions.primitiveCursor(request.state(), request.action(), activeOmens);
     assumptions.addAll(cursor.assumptions());
     var identity = cursor.identity();
     var canonical = identity.map(kernelIdentities::get).orElse(null);
     if (canonical != null) {
+      kernelDepth.merge(canonical, depth, Math::min);
+      kernelMethodLength.merge(canonical, methodLength, Math::min);
       kernelAliases.put(request, canonical);
       sharedKernelLookups++;
       return canonical;
     }
     kernelAliases.put(request, request);
+    kernelDepth.put(request, depth);
+    kernelMethodLength.put(request, methodLength);
     identity.ifPresent(value -> kernelIdentities.put(value, request));
     fairKernels.addLast(request);
     pendingKernels.put(request, new KernelWork(request, cursor));
@@ -279,7 +325,7 @@ public final class MethodSearchCalculation {
             .sum());
   }
 
-  private int matches(BasicCurrencyState state) {
+  private int matches(DeferredItem state) {
     return (int) progress(state).entries().stream().filter(s -> s == Status.MATCH).count();
   }
 
@@ -299,7 +345,7 @@ public final class MethodSearchCalculation {
     runnableCount++;
   }
 
-  private State state(BasicCurrencyState value, int depth) {
+  private State state(DeferredItem value, int depth) {
     var old = states.get(value);
     if (old != null) {
       if (depth < old.depth) {
@@ -323,7 +369,7 @@ public final class MethodSearchCalculation {
     frontier.add(new Expansion(state, state.depth, matches(state.value)));
   }
 
-  private void link(State source, BasicCurrencyState value) {
+  private void link(State source, DeferredItem value) {
     var target = states.get(value);
     if (target == null) target = state(value, Integer.MAX_VALUE);
     adjacency.computeIfAbsent(source, unused -> new LinkedHashSet<>()).add(target);
@@ -344,7 +390,7 @@ public final class MethodSearchCalculation {
     }
   }
 
-  private Progress progress(BasicCurrencyState state) {
+  private Progress progress(DeferredItem state) {
     return progress.computeIfAbsent(state, s -> evaluate.apply(s.item()));
   }
 
@@ -397,7 +443,7 @@ public final class MethodSearchCalculation {
   }
 
   private Optional<Exit> classify(
-      State source, BasicCurrencyState outcome, boolean structuralCheckpoint) {
+      State source, DeferredItem outcome, boolean structuralCheckpoint) {
     var now = progress(outcome);
     if (now.goal() == Status.MATCH) return Optional.of(Exit.GOAL);
     if (now.goal() == Status.UNKNOWN
@@ -418,7 +464,7 @@ public final class MethodSearchCalculation {
     return Optional.empty();
   }
 
-  private Kernel<BasicCurrencyState> kernel(BasicCurrencyState state, WorkbenchCurrency action) {
+  private Kernel<DeferredItem> kernel(DeferredItem state, WorkbenchCurrency action) {
     var key = new Key(state, action);
     var result = kernels.get(kernelAliases.getOrDefault(key, key));
     if (result == null) throw new PendingKernel(key);
@@ -454,10 +500,10 @@ public final class MethodSearchCalculation {
         .toList();
   }
 
-  public OutcomeStrategy<BasicCurrencyState> strategy(int cycles) {
-    var graph = new LinkedHashMap<BasicCurrencyState, OutcomeStrategy.State<BasicCurrencyState>>();
+  public OutcomeStrategy<DeferredItem> strategy(int cycles) {
+    var graph = new LinkedHashMap<DeferredItem, OutcomeStrategy.State<DeferredItem>>();
     for (var s : states.values()) {
-      var choices = new ArrayList<OutcomeStrategy.Choice<BasicCurrencyState>>();
+      var choices = new ArrayList<OutcomeStrategy.Choice<DeferredItem>>();
       boolean closed = s.expanded;
       for (var id : s.methods) {
         var method = methods.get(id);
@@ -466,7 +512,7 @@ public final class MethodSearchCalculation {
           closed = false;
           continue;
         }
-        var outcomes = new LinkedHashMap<BasicCurrencyState, Fraction>(point.active());
+        var outcomes = new LinkedHashMap<DeferredItem, Fraction>(point.active());
         var unresolved = Fraction.ZERO;
         for (var exit : point.exits().entrySet())
           if (exit.getKey() == Exit.UNRESOLVED)
@@ -483,7 +529,7 @@ public final class MethodSearchCalculation {
   }
 
   private final class State {
-    final BasicCurrencyState value;
+    final DeferredItem value;
     final String id;
     final List<String> methods = new ArrayList<>();
     final int matchingEntries;
@@ -491,7 +537,7 @@ public final class MethodSearchCalculation {
     int discoveryIndex;
     boolean expanded;
 
-    State(BasicCurrencyState value, String id, int depth) {
+    State(DeferredItem value, String id, int depth) {
       this.value = value;
       this.id = id;
       this.depth = depth;
@@ -504,11 +550,10 @@ public final class MethodSearchCalculation {
     final String id;
     final List<WorkbenchCurrency> initial;
     final List<WorkbenchCurrency> actions;
-    ExactMethodRunner<BasicCurrencyState, WorkbenchCurrency> runner;
-    Observation<BasicCurrencyState, WorkbenchCurrency> previousBoundary;
+    ExactMethodRunner<DeferredItem, WorkbenchCurrency> runner;
+    Observation<DeferredItem, WorkbenchCurrency> previousBoundary;
     long foldedInputs;
-    final Map<Integer, Observation<BasicCurrencyState, WorkbenchCurrency>> points =
-        new LinkedHashMap<>();
+    final Map<Integer, Observation<DeferredItem, WorkbenchCurrency>> points = new LinkedHashMap<>();
     boolean done;
     boolean queued;
     long ticket;
@@ -524,9 +569,9 @@ public final class MethodSearchCalculation {
     }
 
     void initialize() {
-      List<Function<BasicCurrencyState, WorkbenchCurrency>> selectors =
+      List<Function<DeferredItem, WorkbenchCurrency>> selectors =
           actions.stream()
-              .<Function<BasicCurrencyState, WorkbenchCurrency>>map(action -> s -> action)
+              .<Function<DeferredItem, WorkbenchCurrency>>map(action -> s -> action)
               .toList();
       runner =
           new ExactMethodRunner<>(
@@ -534,7 +579,7 @@ public final class MethodSearchCalculation {
               new Template<>(
                   TEMPLATES + ":" + id,
                   initial.stream()
-                      .<Function<BasicCurrencyState, WorkbenchCurrency>>map(action -> s -> action)
+                      .<Function<DeferredItem, WorkbenchCurrency>>map(action -> s -> action)
                       .toList(),
                   selectors),
               MethodSearchCalculation.this::kernel,
@@ -611,7 +656,7 @@ public final class MethodSearchCalculation {
       runner.beginCycle();
     }
 
-    void save(int cycles, Observation<BasicCurrencyState, WorkbenchCurrency> point) {
+    void save(int cycles, Observation<DeferredItem, WorkbenchCurrency> point) {
       if (points.putIfAbsent(cycles, point) != null)
         throw new IllegalStateException("An earlier observation must not be overwritten");
       point.active().keySet().forEach(s -> link(source, s));
@@ -628,10 +673,10 @@ public final class MethodSearchCalculation {
 
   private final class KernelWork {
     final Key key;
-    final BasicCurrencyTransitions.PrimitiveCursor cursor;
-    final Map<BasicCurrencyState, Fraction> outcomes = new LinkedHashMap<>();
+    final DeferredTransitions.Cursor cursor;
+    final Map<DeferredItem, Fraction> outcomes = new LinkedHashMap<>();
 
-    KernelWork(Key key, BasicCurrencyTransitions.PrimitiveCursor cursor) {
+    KernelWork(Key key, DeferredTransitions.Cursor cursor) {
       this.key = key;
       this.cursor = cursor;
     }

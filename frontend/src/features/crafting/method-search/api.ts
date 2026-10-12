@@ -2,6 +2,14 @@ import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
 import type { CreateRequest, Fraction } from '../path-tree/types'
 import type { Graph, Snapshot } from './types'
 const root = '/api/v2/crafting/method-searches'
+export class MethodSearchError extends Error {
+  constructor(
+    readonly status: number,
+    readonly code: string,
+  ) {
+    super(`METHOD_SEARCH_${status}:${code}`)
+  }
+}
 function probability(p: Fraction) {
   if (
     !p ||
@@ -103,7 +111,10 @@ export async function call<T>(
     if (signal.aborted || !(error instanceof TypeError)) throw error
     response = await fetch(root + path, init)
   }
-  if (!response.ok) throw new Error(`METHOD_SEARCH_${response.status}`)
+  if (!response.ok) {
+    const body = (await response.json().catch(() => ({}))) as { code?: string }
+    throw new MethodSearchError(response.status, body.code ?? 'UNKNOWN')
+  }
   verifyRulesetResponse(response, ruleset)
   return (await response.json()) as T
 }
@@ -114,5 +125,52 @@ export function createBody(request: CreateRequest) {
     start: request.start,
     goal: request.goal,
     activeOmens: request.activeOmens,
+  }
+}
+
+export async function mutateJob(
+  current: Snapshot,
+  operation: 'CANCEL' | 'RESUME',
+  ruleset: string,
+  signal: AbortSignal,
+): Promise<Snapshot> {
+  const generation = current.generation
+  for (let attempt = 0; ; attempt++) {
+    try {
+      return acceptSnapshot(
+        current,
+        await call<Snapshot>(
+          `/${current.jobId}/${operation.toLowerCase()}`,
+          ruleset,
+          signal,
+          {
+            version: 2,
+            commandId: crypto.randomUUID(),
+            expectedRevision: current.revision,
+            operation,
+            retainedOutcomeLimit: null,
+          },
+        ),
+      )
+    } catch (error) {
+      if (
+        !(error instanceof MethodSearchError) ||
+        error.status !== 409 ||
+        error.code !== 'REVISION_CONFLICT' ||
+        attempt >= 3
+      )
+        throw error
+      current = acceptSnapshot(
+        current,
+        await call<Snapshot>(`/${current.jobId}`, ruleset, signal),
+      )
+      // Another control already changed this generation. Do not undo it.
+      if (
+        current.generation !== generation ||
+        (operation === 'CANCEL' &&
+          !['QUEUED', 'RUNNING', 'PAUSED'].includes(current.status))
+      )
+        return current
+    }
   }
 }
