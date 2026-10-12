@@ -13,7 +13,7 @@ import java.util.function.Function;
 
 /** Job-local, resumable method-depth exploration. UI buckets never key calculation states. */
 public final class MethodSearchCalculation {
-  public static final String VERSION = "full-state-method-search-v3";
+  public static final String VERSION = "full-state-method-search-v4";
   public static final String TEMPLATES = "applicable-single-and-two-action-cycles-v3";
   public static final List<Integer> OBSERVATIONS = List.of(100, 300, 500);
 
@@ -236,14 +236,23 @@ public final class MethodSearchCalculation {
   }
 
   public record CacheMetrics(
-      int sourceActions, int distinctKernels, long sharedLookups, int outcomes) {}
+      int sourceActions,
+      int distinctKernels,
+      long sharedLookups,
+      int outcomes,
+      int methodInstances,
+      long liveRunners,
+      int completedMethods) {}
 
   public CacheMetrics cacheMetrics() {
     return new CacheMetrics(
         kernelAliases.size(),
         kernels.size() + pendingKernels.size(),
         sharedKernelLookups,
-        retainedOutcomes);
+        retainedOutcomes,
+        methods.size(),
+        methods.values().stream().filter(m -> m.runner != null).count(),
+        methods.size() - openMethods);
   }
 
   private int matches(BasicCurrencyState state) {
@@ -471,7 +480,8 @@ public final class MethodSearchCalculation {
     final String id;
     final List<WorkbenchCurrency> initial;
     final List<WorkbenchCurrency> actions;
-    final ExactMethodRunner<BasicCurrencyState, WorkbenchCurrency> runner;
+    ExactMethodRunner<BasicCurrencyState, WorkbenchCurrency> runner;
+    Observation<BasicCurrencyState, WorkbenchCurrency> previousBoundary;
     final Map<Integer, Observation<BasicCurrencyState, WorkbenchCurrency>> points =
         new LinkedHashMap<>();
     boolean done;
@@ -486,6 +496,9 @@ public final class MethodSearchCalculation {
       this.id = id;
       this.initial = List.copyOf(initial);
       this.actions = List.copyOf(actions);
+    }
+
+    void initialize() {
       List<Function<BasicCurrencyState, WorkbenchCurrency>> selectors =
           actions.stream()
               .<Function<BasicCurrencyState, WorkbenchCurrency>>map(action -> s -> action)
@@ -504,6 +517,7 @@ public final class MethodSearchCalculation {
     }
 
     void step() {
+      if (runner == null) initialize();
       if (!runner.atBoundary()) {
         runner.step();
         return;
@@ -514,6 +528,8 @@ public final class MethodSearchCalculation {
         for (int n : OBSERVATIONS)
           if (!points.containsKey(n)) save(n, point.atLaterAbsorbedBoundary(n));
         done = true;
+        runner = null;
+        previousBoundary = null;
         openMethods--;
         return;
       }
@@ -528,17 +544,41 @@ public final class MethodSearchCalculation {
               com.poe2craft.crafting.domain.pathsearch.RenewalMethodObservation.repeat(
                   point, source.value, n));
         done = true;
+        runner = null;
+        previousBoundary = null;
         openMethods--;
         return;
+      }
+      if (previousBoundary != null) {
+        var invariant =
+            com.poe2craft.crafting.domain.pathsearch.RenewalMethodObservation.repeatInvariant(
+                previousBoundary, point, cycles);
+        if (invariant.isPresent()) {
+          for (int n : OBSERVATIONS)
+            if (!points.containsKey(n))
+              save(
+                  n,
+                  com.poe2craft.crafting.domain.pathsearch.RenewalMethodObservation.repeatInvariant(
+                          previousBoundary, point, n)
+                      .orElseThrow());
+          done = true;
+          runner = null;
+          previousBoundary = null;
+          openMethods--;
+          return;
+        }
       }
       if (OBSERVATIONS.contains(cycles) && !points.containsKey(cycles)) {
         save(cycles, point);
       }
       if (cycles == OBSERVATIONS.getLast()) {
         done = true;
+        runner = null;
+        previousBoundary = null;
         openMethods--;
         return;
       }
+      previousBoundary = point;
       runner.beginCycle();
     }
 

@@ -9,6 +9,89 @@ import org.junit.jupiter.api.Test;
 
 class RenewalMethodObservationTest {
   @Test
+  void invariantConditionalLawAfterPreparationMatchesFullMarkovWithDistinctStatesAndCosts() {
+    var runner =
+        new ExactMethodRunner<String, String>(
+            "root",
+            new Template<>("prepare-then-retry", List.of(s -> "prepare"), List.of(s -> "try")),
+            (state, action) ->
+                action.equals("prepare")
+                    ? new Kernel<>(
+                        List.of(
+                            new Outcome<>("goal", Fraction.of(1, 4)),
+                            new Outcome<>("x", Fraction.of(1, 4)),
+                            new Outcome<>("y", Fraction.of(1, 2))),
+                        Fraction.ZERO,
+                        false)
+                    : new Kernel<>(
+                        List.of(
+                            new Outcome<>("goal", Fraction.of(1, 4)),
+                            new Outcome<>("lost", Fraction.of(1, 4)),
+                            new Outcome<>("x", Fraction.of(1, 6)),
+                            new Outcome<>("y", Fraction.of(1, 3))),
+                        Fraction.ZERO,
+                        false),
+            state ->
+                state.equals("goal")
+                    ? Optional.of(Exit.GOAL)
+                    : state.equals("lost") ? Optional.of(Exit.LOSS) : Optional.empty());
+    while (!runner.atBoundary()) runner.step();
+    var prepared = runner.observation();
+    assertThat(prepared.active()).hasSize(2);
+    runner.beginCycle();
+    while (!runner.atBoundary()) runner.step();
+    var one = runner.observation();
+    var hundred = RenewalMethodObservation.repeatInvariant(prepared, one, 100).orElseThrow();
+    var power = java.math.BigInteger.ONE.shiftLeft(100);
+    // Independent closed form: preparation succeeds with 1/4; each later trial absorbs
+    // half of the remaining 3/4, equally into goal and loss.
+    assertThat(hundred.exits().get(Exit.GOAL).get("goal"))
+        .isEqualTo(
+            new Fraction(
+                power
+                    .multiply(java.math.BigInteger.valueOf(5))
+                    .subtract(java.math.BigInteger.valueOf(3)),
+                power.multiply(java.math.BigInteger.valueOf(8))));
+    assertThat(hundred.initialUses()).isEqualTo(Map.of("prepare", Fraction.ONE));
+    assertThat(hundred.cycleUses().get("try"))
+        .isEqualTo(
+            new Fraction(
+                power.subtract(java.math.BigInteger.ONE).multiply(java.math.BigInteger.valueOf(3)),
+                power.multiply(java.math.BigInteger.TWO)));
+    for (int cycle = 2; cycle <= 500; cycle++) {
+      runner.beginCycle();
+      while (!runner.atBoundary()) runner.step();
+      if (List.of(100, 300, 500).contains(cycle))
+        assertThat(RenewalMethodObservation.repeatInvariant(prepared, one, cycle))
+            .contains(runner.observation());
+    }
+  }
+
+  @Test
+  void equalDisplayProgressDoesNotProveAnInvariantFullStateLaw() {
+    var runner =
+        new ExactMethodRunner<String, String>(
+            "same-goal-tier-one",
+            new Template<>("alternating", List.of(), List.of(s -> "change")),
+            (state, action) ->
+                new Kernel<>(
+                    List.of(
+                        new Outcome<>(
+                            state.equals("same-goal-tier-one")
+                                ? "same-goal-tier-two"
+                                : "same-goal-tier-one",
+                            Fraction.ONE)),
+                    Fraction.ZERO,
+                    false),
+            state -> Optional.empty());
+    var before = runner.observation();
+    runner.beginCycle();
+    while (!runner.atBoundary()) runner.step();
+    assertThat(RenewalMethodObservation.repeatInvariant(before, runner.observation(), 100))
+        .isEmpty();
+  }
+
+  @Test
   void provenFullReturnMatchesExplicitMarkovAtAllRequestedCycleCounts() {
     var runner =
         new ExactMethodRunner<String, String>(

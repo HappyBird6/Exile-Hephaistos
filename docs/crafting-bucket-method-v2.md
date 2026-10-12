@@ -75,6 +75,15 @@ item; Exalted/Annulment still tests first hit before removal. New exact states a
 discovered lazily. Identical full return states permit the proven renewal shortcut;
 other methods continue the Markov calculation.
 
+Calculation v4 also recognizes a full-state invariant retry distribution. For
+adjacent boundaries of the same immutable cycle kernel, it requires exact
+`T*u=q*u` equality, then scales every exit/state and currency-use increment by
+the geometric sum. Preparation costs and already absorbed mass remain unchanged.
+Equal goal-display buckets are not a proof. Independent closed-form checks and
+500-cycle Markov enumeration agree at 100/300/500, including initial success,
+loss and expected currency use. Pending methods initialize their runner only when
+scheduled; completed methods release the mutable runner after saving observations.
+
 The new `/api/v2/crafting/method-searches` endpoints expose create/read,
 revision-pinned graph pages, exact conditional outcome pages, cancel and resume.
 They require version 2 and the current ruleset header. `cycles` means method
@@ -139,7 +148,7 @@ and immediate/final recommendation reversal; it is not game-probability evidence
 
 ## Verification evidence (2026-10-12)
 
-Docker Java 21 full `check generateJooq bootJar` passed (637 unit/contract tests and seven disposable
+Docker Java 21 full `check generateJooq bootJar` passed (639 unit/contract tests and seven disposable
 DB integration tests). Docker Node 24 lint, typecheck, formatting, 2,147 frontend
 tests and production build passed. The preserved v1 source oracle remains 650/21107.
 The actual Solar pool test enumerates Exalted outcomes for root, Projectile +3,
@@ -196,6 +205,13 @@ visible. This isolates method proliferation as a remaining issue and does not
 establish a latency improvement. Exact cyclic tests independently solve
 `A=B/2+1/4, B=A/2+1/2` (A=2/3, B=5/6), compare an alternative 3/5 action, reject
 closed self-loop witnesses, and retain unknown bounds when support is incomplete.
+
+With lazy runner allocation and invariant-law detection, the same 36,000-operation
+probe retained 5,633 active runners for 60,557 discovered methods (119 complete).
+First response was 267ms, first method 425ms, first goal bucket 993ms, and sampled
+heap maximum 191,889,408 bytes. Both diamond continuation arms were retained.
+First local recommendation and whole exploration remained unreached. This exposes
+the next bottleneck: creating new method work substantially outpaces completing it.
 
 Real-browser review was attempted with the computer-use browser tool, but its
 launcher failed before opening a page: required Windows platform directory missing
