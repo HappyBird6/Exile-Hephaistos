@@ -32,7 +32,10 @@ public final class MethodSearchProtocol {
       int states,
       ItemState representative,
       Map<String, com.poe2craft.crafting.domain.pathsearch.DeferredItem.Band> representativeRolls,
+      Map<String, List<TierVariant>> representativeTiers,
       boolean directComplete) {}
+
+  public record TierVariant(String modifierId, String stat, long min, long max) {}
 
   public record Exit(String bucketId, String kind, Probability probability, int states) {}
 
@@ -49,6 +52,7 @@ public final class MethodSearchProtocol {
       String sourceBucketId,
       ItemState sourceItem,
       Map<String, com.poe2craft.crafting.domain.pathsearch.DeferredItem.Band> sourceRolls,
+      Map<String, List<TierVariant>> sourceTiers,
       List<String> initialActions,
       List<String> cycleActions,
       String status,

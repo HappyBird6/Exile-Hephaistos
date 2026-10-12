@@ -114,8 +114,8 @@ and immediate/final recommendation reversal; it is not game-probability evidence
 
 ## Open issues and recommended next work
 
-- **Production search scale:** v7 carries exact deferred roll cells through the
-  production cursor, method runner and concrete-outcome pages. Modifier/tier
+- **Production search scale:** v8 carries disjoint weighted tier/roll cells through the
+  production cursor, method runner and concrete-outcome pages. Family/tier-cell
   combinations are still separate, so large catalogs can pause before all direct
   methods or deeper layers finish. Keep `PAUSED`/partial until the actual remaining
   frontier is exhausted; roll compression alone is not full diamond completion.
@@ -165,9 +165,9 @@ and immediate/final recommendation reversal; it is not game-probability evidence
 
 ## Verification evidence (2026-10-12)
 
-Docker Java 21 full `check generateJooq bootJar` passed (659 unit/contract tests and seven disposable
+Docker Java 21 full `check generateJooq bootJar` passed (661 unit/contract tests and seven disposable
 DB integration tests). Docker Node 24 lint, typecheck, formatting, 2,147 frontend
-tests and production build passed. The final v7 frontend run passed 2,151 tests plus lint,
+tests and production build passed. The final v8 frontend run passed 2,152 tests plus lint,
 typecheck, formatting and production build. The preserved v1 source oracle remains 650/21107.
 The actual Solar pool test enumerates Exalted outcomes for root, Projectile +3,
 explicit Spirit 47 and existing Life 50; both diamond arms/merges and Life+Chaos
@@ -483,3 +483,50 @@ must separate a proven transition-equivalence key from each incoming full-item
 conditional law, including tier/family correlations and removal/replacement.
 Raising the budget, dropping expensive alternative methods, or calling the four
 visible goal-status buckets a completed graph would not satisfy this contract.
+
+### Disjoint weighted tier cells (v8)
+
+The next production representation groups modifier/roll intervals only when their
+family set, affix type, tags, supported-currency minimum-level eligibility vector
+and every supported direct goal's numeric region agree. It is restricted to the
+same reviewed Solar no-omen/no-quality scope. Initial exact modifier values form
+separate singleton cells. Weighted/pseudo or unproved numeric dependencies retain
+the earlier exact representation. No assumption of equal family probability is
+introduced: each interval retains candidate weight times interval-width/tier-width,
+then is normalized within its disjoint cell. Other eligible families remain in the
+primitive denominator.
+
+Cells are job-fixed and disjoint, not a different overlapping mixture for each
+currency. This is essential: overlapping ordinary/greater-currency tier mixtures
+would otherwise duplicate concrete items in a result and erase history-dependent
+correlations. With this partition, a retained cell's law is unchanged by any
+supported rule; a fresh addition independently draws a cell's proven conditional
+law, and a removal marginalizes that component. Correlations between cell choices
+remain in the full item-cell distribution. Distinct incoming methods still have
+separate distributions.
+
+Production cursors aggregate only whole eligible cells and assert that no member
+crosses an actual eligible-pool boundary. Canonical state identity includes the
+weighted tier law, and the primitive cache includes retained tier laws. Concrete
+pages use nonuniform per-item probabilities and arbitrary-size random access;
+source cards list disjoint localized ranges instead of inventing values in gaps.
+Full weighted enumeration checks pass for this unit; the full production frontier is still incomplete.
+
+The weighted tiny search exhausts both representations and compares every method
+at 100/300/500, each exclusive exit, active distribution, initial/cycle cost and
+strategy bounds. Solar tests compare both roll-only and weighted-tier source cells
+under all 16 actions against full weighted enumeration. The actual detail API
+restores every root Exalted outcome once with its original probability. A separate
+check proves an initial fixed Life 50 unrelated to the requested goal stays a
+singleton disjoint from regenerated weighted cells.
+
+The v8 isolated JFR probe reached 120,000 operations in 41,634ms: 1,037 cells
+represented 149,026 concrete items, versus v7's 1,584 cells and 105,846 concrete
+items at the same operation count. Representation changes the work inside a step,
+so this is not an equal-work timing comparison. There were 588 weighted-tier
+cells, 1,029 unexpanded cells, 270 completed methods of 784 and 514 live runners.
+Kernel outcomes numbered 59,908 and observation support entries 58,398. First
+snapshot/method/goal times were 111/253/3,048ms. Sampled heap peaked at 309,165,048
+bytes and VmHWM at 505,032 KiB. The driver stopped resuming at its 300MB sampled
+heap guard with `PAUSED / COMPUTE_BUDGET`; first-local and whole exploration were
+still unreached. Both A-to-C and B-to-C continuation buckets remained present.

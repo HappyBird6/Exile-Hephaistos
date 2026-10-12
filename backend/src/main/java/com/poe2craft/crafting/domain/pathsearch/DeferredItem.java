@@ -11,8 +11,13 @@ import java.util.*;
  * A disjoint product cell of the declared independent single-stat roll model, not an averaged entry
  * law.
  */
-public record DeferredItem(BasicCurrencyState representative, Map<String, Band> rolls) {
-  public static final String VERSION = "deferred-independent-single-stat-v1";
+public record DeferredItem(
+    BasicCurrencyState representative, Map<String, Band> rolls, Map<String, TierCell> tiers) {
+  public static final String VERSION = "deferred-disjoint-tier-roll-v2";
+
+  public DeferredItem(BasicCurrencyState representative, Map<String, Band> rolls) {
+    this(representative, rolls, Map.of());
+  }
 
   public record Band(String stat, long min, long max) {
     public Band {
@@ -32,6 +37,17 @@ public record DeferredItem(BasicCurrencyState representative, Map<String, Band> 
   public DeferredItem {
     Objects.requireNonNull(representative);
     rolls = Map.copyOf(rolls);
+    tiers = Map.copyOf(tiers);
+    for (var entry : tiers.entrySet()) {
+      var modifier =
+          representative.item().explicits().stream()
+              .filter(m -> m.modifierId().equals(entry.getKey()))
+              .findFirst()
+              .orElseThrow();
+      if (rolls.containsKey(entry.getKey())
+          || !modifier.equals(entry.getValue().representative(modifier.fractured())))
+        throw new IllegalArgumentException("Tier law must match its representative");
+    }
     for (var entry : rolls.entrySet()) {
       var modifier =
           representative.item().explicits().stream()
@@ -54,7 +70,13 @@ public record DeferredItem(BasicCurrencyState representative, Map<String, Band> 
   }
 
   public BigInteger cardinality() {
-    return rolls.values().stream().map(Band::size).reduce(BigInteger.ONE, BigInteger::multiply);
+    return rolls.values().stream()
+        .map(Band::size)
+        .reduce(BigInteger.ONE, BigInteger::multiply)
+        .multiply(
+            tiers.values().stream()
+                .map(TierCell::cardinality)
+                .reduce(BigInteger.ONE, BigInteger::multiply));
   }
 
   /** Random access into a cell permits revision-pinned pages without materializing its product. */
@@ -62,6 +84,18 @@ public record DeferredItem(BasicCurrencyState representative, Map<String, Band> 
     if (offset.signum() < 0 || offset.compareTo(cardinality()) >= 0)
       throw new IllegalArgumentException("Cell offset out of range");
     var values = new HashMap<String, Long>();
+    var replacements = new HashMap<String, ModifierInstance>();
+    for (var entry : new TreeMap<>(tiers).entrySet()) {
+      var divided = offset.divideAndRemainder(entry.getValue().cardinality());
+      boolean fractured =
+          item().explicits().stream()
+              .filter(m -> m.modifierId().equals(entry.getKey()))
+              .findFirst()
+              .orElseThrow()
+              .fractured();
+      replacements.put(entry.getKey(), entry.getValue().concrete(divided[1], fractured).modifier());
+      offset = divided[0];
+    }
     for (var entry : new TreeMap<>(rolls).entrySet()) {
       var divided = offset.divideAndRemainder(entry.getValue().size());
       values.put(
@@ -73,12 +107,15 @@ public record DeferredItem(BasicCurrencyState representative, Map<String, Band> 
         item().explicits().stream()
             .map(
                 m ->
-                    rolls.containsKey(m.modifierId())
-                        ? new ModifierInstance(
-                            m.modifierId(),
-                            Map.of(rolls.get(m.modifierId()).stat(), values.get(m.modifierId())),
-                            m.fractured())
-                        : m)
+                    replacements.containsKey(m.modifierId())
+                        ? replacements.get(m.modifierId())
+                        : rolls.containsKey(m.modifierId())
+                            ? new ModifierInstance(
+                                m.modifierId(),
+                                Map.of(
+                                    rolls.get(m.modifierId()).stat(), values.get(m.modifierId())),
+                                m.fractured())
+                            : m)
             .toList();
     return new BasicCurrencyState(
         new ItemState(
@@ -95,15 +132,36 @@ public record DeferredItem(BasicCurrencyState representative, Map<String, Band> 
   }
 
   public String canonicalKey() {
-    if (rolls.isEmpty()) return representative.canonicalKey();
+    if (rolls.isEmpty() && tiers.isEmpty()) return representative.canonicalKey();
     try {
       var text =
-          "deferred-roll-cell-v1:" + representative.canonicalKey() + ":" + new TreeMap<>(rolls);
+          "deferred-roll-cell-v1:"
+              + representative.canonicalKey()
+              + ":"
+              + new TreeMap<>(rolls)
+              + (tiers.isEmpty() ? "" : ":tiers-v1:" + new TreeMap<>(tiers));
       return HexFormat.of()
           .formatHex(
               MessageDigest.getInstance("SHA-256").digest(text.getBytes(StandardCharsets.UTF_8)));
     } catch (NoSuchAlgorithmException e) {
       throw new IllegalStateException(e);
     }
+  }
+
+  public com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction
+      concreteProbability(BigInteger offset) {
+    if (offset.signum() < 0 || offset.compareTo(cardinality()) >= 0)
+      throw new IllegalArgumentException("Cell offset out of range");
+    var probability =
+        com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction.ONE;
+    for (var cell : new TreeMap<>(tiers).values()) {
+      var divided = offset.divideAndRemainder(cell.cardinality());
+      probability = probability.multiply(cell.concrete(divided[1], false).probability());
+      offset = divided[0];
+    }
+    var rollCount =
+        rolls.values().stream().map(Band::size).reduce(BigInteger.ONE, BigInteger::multiply);
+    return new com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction(
+        probability.numerator(), probability.denominator().multiply(rollCount));
   }
 }

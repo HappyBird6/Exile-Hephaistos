@@ -234,6 +234,7 @@ public final class BasicCurrencyTransitions {
         java.util.function.ToLongBiFunction<ModifierDefinition, Long> end) {
       if (blocked() || complete()) throw new IllegalStateException("Cursor is not active");
       var branch = plan.branches().get(branchIndex);
+      int emittedBranch = branchIndex;
       var removalMass = Fraction.of(1, plan.branches().size());
       Outcome result;
       String added = null;
@@ -285,7 +286,7 @@ public final class BasicCurrencyTransitions {
                       .add(BigInteger.ONE));
       if (complete() && !emitted.equals(Fraction.ONE))
         throw new IllegalStateException("Primitive mass not conserved");
-      return new GroupedOutcome(result, added, stat, first, last);
+      return new GroupedOutcome(result, added, stat, first, last, emittedBranch);
     }
 
     private void startRange() {
@@ -302,7 +303,7 @@ public final class BasicCurrencyTransitions {
   }
 
   public record GroupedOutcome(
-      Outcome outcome, String addedModifier, String stat, long min, long max) {}
+      Outcome outcome, String addedModifier, String stat, long min, long max, int branch) {}
 
   /**
    * Streaming proof for the fixed one-explicit policies. The cursor retains the exact elementary

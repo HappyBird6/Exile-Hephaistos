@@ -16,7 +16,7 @@ import java.util.function.Function;
 
 /** Job-local, resumable method-depth exploration. UI buckets never key calculation states. */
 public final class MethodSearchCalculation {
-  public static final String VERSION = "deferred-roll-method-search-v7";
+  public static final String VERSION = "deferred-tier-roll-method-search-v8";
   static final int OPEN_METHOD_WINDOW = 512;
   public static final String TEMPLATES = "applicable-single-and-two-action-cycles-v3";
   public static final List<Integer> OBSERVATIONS = List.of(100, 300, 500);

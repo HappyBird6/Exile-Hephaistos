@@ -211,6 +211,7 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
                 b.representativeRolls,
                 locale,
                 presentItem,
+                b.representativeTiers,
               )}
             />
             <p>
@@ -264,6 +265,7 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
                     method.sourceRolls,
                     locale,
                     presentItem,
+                    method.sourceTiers,
                   )}
                 />
               </details>

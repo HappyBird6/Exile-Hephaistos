@@ -266,9 +266,9 @@ public final class MethodSearchService implements AutoCloseable {
           skip = skip.subtract(size);
           continue;
         }
-        var mass = new Fraction(cell.mass().numerator(), cell.mass().denominator().multiply(size));
         while (skip.compareTo(size) < 0 && rows.size() < 48) {
           var concrete = cell.state().concrete(skip);
+          var mass = cell.mass().multiply(cell.state().concreteProbability(skip));
           rows.add(
               new ConditionalState(concrete.canonicalKey(), concrete.item(), cell.kind(), p(mass)));
           skip = skip.add(java.math.BigInteger.ONE);
@@ -524,6 +524,20 @@ public final class MethodSearchService implements AutoCloseable {
     return Probability.of(f);
   }
 
+  private static Map<String, List<TierVariant>> tierView(DeferredItem state) {
+    var result = new LinkedHashMap<String, List<TierVariant>>();
+    state
+        .tiers()
+        .forEach(
+            (key, cell) ->
+                result.put(
+                    key,
+                    cell.variants().stream()
+                        .map(v -> new TierVariant(v.modifierId(), v.stat(), v.min(), v.max()))
+                        .toList()));
+    return Map.copyOf(result);
+  }
+
   private static int compare(Fraction a, Fraction b) {
     return a.numerator()
         .multiply(b.denominator())
@@ -635,6 +649,7 @@ public final class MethodSearchService implements AutoCloseable {
                         e.getValue().size(),
                         first.state().item(),
                         first.state().rolls(),
+                        tierView(first.state()),
                         e.getValue().stream()
                             .allMatch(MethodSearchCalculation.StateView::complete));
                   })
@@ -714,6 +729,7 @@ public final class MethodSearchService implements AutoCloseable {
               bucket(source.progress()),
               source.state().item(),
               source.state().rolls(),
+              tierView(source.state()),
               method.initialActions().stream().map(Enum::name).toList(),
               method.actions().stream().map(Enum::name).toList(),
               method.status(),

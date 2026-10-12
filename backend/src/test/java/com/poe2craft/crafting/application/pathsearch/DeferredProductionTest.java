@@ -183,6 +183,7 @@ class DeferredProductionTest {
     var full = eager(new DeferredItem(root()), WorkbenchCurrency.EXALTED);
     assertThat(restore(cells)).isEqualTo(full);
     assertThat(cells.size()).isLessThan(full.size());
+    assertThat(cells.keySet()).anyMatch(c -> !c.tiers().isEmpty());
     var evaluate = fixture.goals.compileEvaluation(root().item(), goal(48));
     for (var cell : cells.keySet()) {
       var expected = statuses(evaluate.apply(cell.item()));
@@ -198,18 +199,51 @@ class DeferredProductionTest {
             .orElseThrow();
     assertThat(spirit.rolls().get("amulet:prefix:countess").min()).isEqualTo(48);
     assertThat(spirit.rolls().get("amulet:prefix:countess").max()).isEqualTo(50);
+    var weightedTier =
+        cells.keySet().stream()
+            .filter(c -> !c.tiers().isEmpty())
+            .min(Comparator.comparing(DeferredItem::cardinality))
+            .orElseThrow();
     // Loss, fresh replacement and retaining the source law must agree for every supported action.
-    for (var action : BasicCurrencyTransitions.supportedActions()) {
-      var next = deferred.primitiveCursor(spirit, action, Set.of());
-      var reference = primitive.primitiveCursor(spirit.representative(), action, Set.of());
-      assertThat(next.blocked()).isEqualTo(reference.blocked());
-      if (next.blocked()) continue;
-      var law = new LinkedHashMap<DeferredItem, Fraction>();
-      while (!next.complete()) {
-        var outcome = next.next();
-        law.merge(outcome.state(), outcome.probability(), Fraction::add);
+    for (var source : List.of(spirit, weightedTier)) {
+      for (var action : BasicCurrencyTransitions.supportedActions()) {
+        var next = deferred.primitiveCursor(source, action, Set.of());
+        var reference = primitive.primitiveCursor(source.representative(), action, Set.of());
+        assertThat(next.blocked()).isEqualTo(reference.blocked());
+        if (next.blocked()) continue;
+        var law = new LinkedHashMap<DeferredItem, Fraction>();
+        while (!next.complete()) {
+          var outcome = next.next();
+          law.merge(outcome.state(), outcome.probability(), Fraction::add);
+        }
+        assertThat(restore(law)).as("action %s", action).isEqualTo(eager(source, action));
       }
-      assertThat(restore(law)).as("action %s", action).isEqualTo(eager(spirit, action));
+    }
+  }
+
+  @Test
+  void initialIrrelevantFixedValueNeverOverlapsARegeneratedWeightedTierCell() {
+    var original = root().item();
+    var item =
+        new ItemState(
+            original.snapshotId(),
+            original.baseItemId(),
+            original.itemLevel(),
+            original.rarity(),
+            original.implicits(),
+            List.of(
+                new ModifierInstance("amulet:prefix:stalwart", Map.of("base_maximum_life", 50L))),
+            original.conditions());
+    var initial = new DeferredItem(new BasicCurrencyState(item, primitive.provenance()));
+    var transitions =
+        new DeferredTransitions(primitive, fixture.goals.rollPartition(item, goal(47)));
+    var law = deferredLaw(transitions, initial, WorkbenchCurrency.CHAOS);
+    assertThat(law).containsKey(initial);
+    assertThat(restore(law)).isEqualTo(eager(initial, WorkbenchCurrency.CHAOS));
+    var seen = new HashSet<BasicCurrencyState>();
+    for (var cell : law.keySet()) {
+      for (var i = BigInteger.ZERO; i.compareTo(cell.cardinality()) < 0; i = i.add(BigInteger.ONE))
+        assertThat(seen.add(cell.concrete(i))).as("disjoint cell %s", cell.canonicalKey()).isTrue();
     }
   }
 
@@ -354,10 +388,7 @@ class DeferredProductionTest {
       var cursor = primitive.primitiveCursor(source.concrete(i), action, Set.of());
       while (!cursor.complete()) {
         var next = cursor.next();
-        var p =
-            new Fraction(
-                next.probability().numerator(),
-                next.probability().denominator().multiply(source.cardinality()));
+        var p = next.probability().multiply(source.concreteProbability(i));
         result.merge(next.state(), p, Fraction::add);
       }
     }
@@ -368,10 +399,11 @@ class DeferredProductionTest {
     var result = new LinkedHashMap<BasicCurrencyState, Fraction>();
     cells.forEach(
         (cell, mass) -> {
-          var p = new Fraction(mass.numerator(), mass.denominator().multiply(cell.cardinality()));
           for (var i = BigInteger.ZERO;
               i.compareTo(cell.cardinality()) < 0;
-              i = i.add(BigInteger.ONE)) result.merge(cell.concrete(i), p, Fraction::add);
+              i = i.add(BigInteger.ONE))
+            result.merge(
+                cell.concrete(i), mass.multiply(cell.concreteProbability(i)), Fraction::add);
         });
     return result;
   }

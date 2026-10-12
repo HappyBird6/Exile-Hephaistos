@@ -7,20 +7,31 @@ import java.util.*;
 
 /** Job-fixed disjoint intervals; uncertain numeric dependencies retain individual rolls. */
 public final class RollPartition {
-  public static final String VERSION = "goal-and-initial-roll-partition-v1";
+  public static final String VERSION = "goal-initial-and-currency-tier-partition-v2";
   private final boolean exact;
   private final Set<String> relevant, intervalSafe;
   private final Map<String, NavigableSet<BigInteger>> cuts;
+  private final TierPartition tiers;
 
   private RollPartition(
       boolean exact,
       Set<String> relevant,
       Set<String> intervalSafe,
       Map<String, NavigableSet<BigInteger>> cuts) {
+    this(exact, relevant, intervalSafe, cuts, TierPartition.empty());
+  }
+
+  private RollPartition(
+      boolean exact,
+      Set<String> relevant,
+      Set<String> intervalSafe,
+      Map<String, NavigableSet<BigInteger>> cuts,
+      TierPartition tiers) {
     this.exact = exact;
     this.relevant = Set.copyOf(relevant);
     this.intervalSafe = Set.copyOf(intervalSafe);
     this.cuts = new HashMap<>();
+    this.tiers = tiers;
     cuts.forEach(
         (key, value) ->
             this.cuts.put(key, Collections.unmodifiableNavigableSet(new TreeSet<>(value))));
@@ -102,7 +113,11 @@ public final class RollPartition {
                 boundaries.add(BigInteger.valueOf(value));
                 boundaries.add(BigInteger.valueOf(value).add(BigInteger.ONE));
               });
-    return new RollPartition(false, relevant, safe, cuts);
+    var result = new RollPartition(false, relevant, safe, cuts);
+    return simple && safe.containsAll(relevant)
+        ? new RollPartition(
+            false, relevant, safe, cuts, TierPartition.compile(catalog, root, result))
+        : result;
   }
 
   private static BigInteger raw(
@@ -122,5 +137,17 @@ public final class RollPartition {
     return boundary == null
         ? range.max()
         : BigInteger.valueOf(range.max()).min(boundary.subtract(BigInteger.ONE)).longValueExact();
+  }
+
+  public TierPartition tiers() {
+    return tiers;
+  }
+
+  Object tierRegion(String stat, long first) {
+    if (!relevant.contains(stat)) return List.of();
+    var floor =
+        cuts.getOrDefault(stat, Collections.emptyNavigableSet()).floor(BigInteger.valueOf(first));
+    return List.of(
+        stat, floor == null ? BigInteger.valueOf(Long.MIN_VALUE).subtract(BigInteger.ONE) : floor);
   }
 }
