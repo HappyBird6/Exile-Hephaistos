@@ -2,7 +2,7 @@
   "synthetic": false,
   "catalog": {
     "version": 1,
-    "catalogVersion": "hephaistos-goal-v1-6483ce0f1635a78f1541629cbca4b8ec6a81eb9d55e27e66e1243eb8ea4348f9",
+    "catalogVersion": "hephaistos-goal-v1-f8624082163400ca57607f486674fb4216923957aa0f0bac51b2909697b004ca",
     "context": {
       "snapshotId": "solar-special-0eddf6e6993c96d9c19942db5e81ff0774afe85c42d4a6646b978d442700d7b4",
       "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
@@ -918,13 +918,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:projectile_skill_gem_level_+",
-        "label": "+3 to Level of all Projectile Skills",
-        "unit": "source",
+        "label": "Level of all Projectile Skills",
+        "unit": "flat",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
-          "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "evaluation": "SUPPORTED",
+          "probability": "SUPPORTED",
+          "reasonCode": null
         },
         "eligible": true,
         "eligibilityReason": null,
@@ -6834,7 +6834,7 @@
     },
     "goal": {
       "version": 1,
-      "catalogVersion": "hephaistos-goal-v1-6483ce0f1635a78f1541629cbca4b8ec6a81eb9d55e27e66e1243eb8ea4348f9",
+      "catalogVersion": "hephaistos-goal-v1-f8624082163400ca57607f486674fb4216923957aa0f0bac51b2909697b004ca",
       "general": {
         "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
         "itemLevel": {
@@ -6873,7 +6873,7 @@
   "version": 1,
   "evaluateResponse": {
     "version": 1,
-    "catalogVersion": "hephaistos-goal-v1-6483ce0f1635a78f1541629cbca4b8ec6a81eb9d55e27e66e1243eb8ea4348f9",
+    "catalogVersion": "hephaistos-goal-v1-f8624082163400ca57607f486674fb4216923957aa0f0bac51b2909697b004ca",
     "status": "MATCH",
     "generalStatus": "MATCH",
     "groups": [

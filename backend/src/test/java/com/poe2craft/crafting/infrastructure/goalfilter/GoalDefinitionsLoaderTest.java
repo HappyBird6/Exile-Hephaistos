@@ -24,7 +24,7 @@ class GoalDefinitionsLoaderTest {
   @Test
   void reviewedDataHasExactCountsAndRejectsInvalidDefinitions() throws Exception {
     var bundled = GoalDefinitionsLoader.load();
-    assertEquals(14, bundled.stats().size());
+    assertEquals(15, bundled.stats().size());
     assertEquals(6, bundled.pseudos().size());
     var data = data();
     ((ArrayNode) data.get("stats")).add(data.get("stats").get(0).deepCopy());
@@ -69,7 +69,7 @@ class GoalDefinitionsLoaderTest {
     pseudo.putArray("sourceStatIds").add("test_reviewed_flat").add("base_maximum_life");
     ((ArrayNode) data.get("pseudos")).add(pseudo);
     var definitions = read(data);
-    assertEquals(15, definitions.directStats().size());
+    assertEquals(16, definitions.directStats().size());
     assertEquals(7, definitions.pseudos().size());
     var original = com.poe2craft.item.infrastructure.ItemCatalogLoader.loadBow();
     var modifiers = new ArrayList<>(original.modifiers().values());

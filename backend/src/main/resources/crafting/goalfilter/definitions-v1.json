@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "ruleVersion": "goal-catalog-source-units-v1/solar-numeric-addition-v1/uniform-integer-roll-v1",
+  "ruleVersion": "goal-catalog-source-units-v2/solar-numeric-addition-v1/uniform-integer-roll-v1",
   "stats": [
     {
       "sourceStatId": "base_cold_damage_resistance_%",
@@ -45,6 +45,11 @@
     {
       "sourceStatId": "base_spirit_from_equipment",
       "label": "Spirit",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "projectile_skill_gem_level_+",
+      "label": "Level of all Projectile Skills",
       "unit": "flat"
     },
     {

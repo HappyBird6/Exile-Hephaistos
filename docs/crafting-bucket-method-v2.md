@@ -55,6 +55,15 @@ of its probability or completion of the whole exploration.
 
 ## Integration boundary
 
+The reviewed direct numeric goal definitions now include
+`projectile_skill_gem_level_+` in source level units (`flat`). The existing
+`hephaistos:v1:explicit:base_spirit_from_equipment` goal excludes the implicit
+Spirit roll. Tests cover explicit 46 versus 47, projectile 2 versus 3, the empty
+Rare/A/B/C goal states, and loss/reacquisition with the same compiled full goal.
+This establishes goal evaluation, not completion of the diamond method search.
+The goal-definition rule version and resource seal change with this mapping;
+the production example is regenerated against that catalog version.
+
 The v2 domain components do not yet replace `PathSearchCalculation`, which is
 still the v1 six-policy/single-explicit renewal implementation. Do not advertise
 v2 completion, numeric Solar diamond support, generalized omen handling, or a
@@ -63,8 +72,8 @@ The production adapter must supply reviewed kernels and full goal AST evaluation
 not the unverified coupled roll model. Synthetic oracle tests prove arithmetic
 and state handling, not actual game probabilities.
 
-Pending integration: expose the existing shared family/tier index; connect the primitive cursor; explicit
-Spirit >=47 and projectile +3 goal fixtures; applicability-driven method discovery;
+Pending integration: expose the existing shared family/tier index; connect the primitive cursor;
+applicability-driven method discovery;
 method-depth BFS; per-arrival distributions; local versus final recommendation;
 v2 job/generation/revision responses and six-language map consumption. Catalog
 completeness, missing-weight fallback and roll assumptions must be independently
