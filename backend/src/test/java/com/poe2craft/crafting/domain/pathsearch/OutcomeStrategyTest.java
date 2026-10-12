@@ -147,4 +147,61 @@ class OutcomeStrategyTest {
     assertThat(solver.bounds().get("root")).isEqualTo(new Bounds(Fraction.of(1, 2), Fraction.ONE));
     assertThat(solver.recommendation("root").orElseThrow().certified()).isFalse();
   }
+
+  @Test
+  void largeRecoveryCycleHasExactSuccessAndAProperOutcomeResponsivePolicy() {
+    var graph = new LinkedHashMap<String, State<String>>();
+    graph.put("goal", new State<>(true, true, List.of()));
+    for (int i = 0; i < 100; i++)
+      graph.put(
+          "s" + i,
+          state(
+              choice("stall-" + i, "s" + i),
+              choice("advance-" + i, "s" + ((i + 1) % 100), i == 99 ? "goal" : "s" + i)));
+    var solver = new OutcomeStrategy<>(graph);
+    for (int i = 0; i < 100; i++) solver.refineAlmostSure();
+    for (int i = 0; i < 100; i++) {
+      assertThat(solver.bounds().get("s" + i)).isEqualTo(new Bounds(Fraction.ONE, Fraction.ONE));
+      var recommended = solver.recommendation("s" + i).orElseThrow();
+      assertThat(recommended.methodId()).isEqualTo("advance-" + i);
+      assertThat(recommended.certified()).isTrue();
+    }
+    solver.refine();
+    assertThat(solver.recommendation("s0").orElseThrow().methodId()).isEqualTo("advance-0");
+  }
+
+  @Test
+  void qualitativeProofEliminatesRiskyPredecessorsAndDoesNotPromoteUnknownGraphs() {
+    var graph = new LinkedHashMap<String, State<String>>();
+    graph.put("goal", new State<>(true, true, List.of()));
+    graph.put("dead", state(choice("closed", "dead")));
+    for (int i = 0; i < 100; i++)
+      graph.put(
+          "s" + i,
+          state(
+              choice("stall", "s" + i), choice("risky", i == 99 ? "goal" : "s" + (i + 1), "dead")));
+    var solver = new OutcomeStrategy<>(graph);
+    for (int i = 0; i < 2000; i++) solver.refineAlmostSure();
+    assertThat(solver.bounds().get("s0").exact()).isFalse();
+    assertThat(solver.bounds().get("dead")).isEqualTo(new Bounds(Fraction.ZERO, Fraction.ZERO));
+    for (boolean unknown : List.of(false, true)) {
+      var incomplete =
+          new OutcomeStrategy<>(
+              Map.of(
+                  "goal", new State<String>(true, true, List.of()),
+                  "s",
+                      new State<>(
+                          false,
+                          unknown,
+                          List.of(
+                              unknown
+                                  ? new Choice<>(
+                                      "unknown",
+                                      Map.of("goal", Fraction.of(1, 2)),
+                                      Fraction.of(1, 2))
+                                  : choice("known", "s", "goal")))));
+      for (int i = 0; i < 100; i++) incomplete.refineAlmostSure();
+      assertThat(incomplete.bounds().get("s")).isEqualTo(new Bounds(Fraction.ZERO, Fraction.ONE));
+    }
+  }
 }

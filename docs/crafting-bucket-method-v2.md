@@ -23,7 +23,7 @@ Preparation can itself absorb, and its first observation has cycle count zero.
 `BasicCurrencyTransitions.primitiveCursor` streams one elementary modifier/roll
 outcome at a time, with a retained removal-branch/candidate/roll position. It uses
 the existing eligibility rules and preflights all candidates before publication.
-Its scope remains the declared single-stat Solar model without omens. In particular,
+Its scope is the declared reviewed single-stat basic model without omens. In particular,
 it does not turn an unsupported joint roll or omen into a zero-probability result.
 
 The caller retains a runner while paused and calls `step()` between time-budget
@@ -119,6 +119,16 @@ and immediate/final recommendation reversal; it is not game-probability evidence
   deeper layers finish. Keep `PAUSED`/partial; add a proved weighted-bisimulation
   representation with entry-conditioned distributions before claiming full
   production-diamond exploration or a completion latency.
+  The ilvl-82 Solar inventory alone contains 209 positive-weight explicit tier
+  definitions across 12 prefix and 18 suffix families (before state-dependent
+  eligibility). Excluding the Spirit and gem-level families still leaves
+  `C(11,3)*C(17,3)=112,200` possible family-set combinations before tier, roll or
+  ordering variants; this combinatorial count is not a reachable-pool audit.
+  The recommended next representation is a family/tier transition index plus
+  goal-dependent bisimulation classes, with an entry-specific conditional-law DAG
+  that can reconstruct full item outcomes. A representative roll or pooled law
+  across alternative incoming methods is not acceptable. Shared primitive caches
+  and the new phase folding do not substitute for this representation.
 - **Rules coverage:** v2 now selects the registered starting base's catalog and
   reviewed basic-currency model. Complete eligible pools must have single-stat
   integer rolls; joint rolls and active omens remain explicitly unresolved.
@@ -135,8 +145,14 @@ and immediate/final recommendation reversal; it is not game-probability evidence
   exact policy-evaluation cursor. It removes policy classes with no path to a goal,
   solves the remaining rational linear equations one row/pivot per call, improves
   actions strictly, and certifies only an attained policy value satisfying all
-  Bellman inequalities. Larger or unresolved graphs retain iterative bounds;
-  widening the solver and making all graph/choice work resumable remains open.
+  Bellman inequalities. Strategy v4 also proves almost-sure reachability on larger
+  fully enumerated, resolved finite graphs, with a support-edge cursor and a proper
+  stationary policy witness. It repeatedly removes states that cannot reach a goal
+  using actions staying inside the remaining set. Its witness has a positive edge
+  toward a smaller reverse-BFS rank at every non-goal state, excluding closed
+  non-goal recurrent classes. This does not solve every probability strictly
+  between zero and one on large graphs. Such values and unresolved graphs retain
+  bounds; making the remaining Bellman/graph initialization work resumable stays open.
 - **Memory budgets:** retained primitive outcomes are bounded; runner distributions,
   method objects and revision indexes also need a total-memory budget. Resume can
   request a larger retained-outcome limit through the API. Eviction must preserve
@@ -148,7 +164,7 @@ and immediate/final recommendation reversal; it is not game-probability evidence
 
 ## Verification evidence (2026-10-12)
 
-Docker Java 21 full `check generateJooq bootJar` passed (640 unit/contract tests and seven disposable
+Docker Java 21 full `check generateJooq bootJar` passed (646 unit/contract tests and seven disposable
 DB integration tests). Docker Node 24 lint, typecheck, formatting, 2,147 frontend
 tests and production build passed. The preserved v1 source oracle remains 650/21107.
 The actual Solar pool test enumerates Exalted outcomes for root, Projectile +3,
@@ -260,3 +276,10 @@ first local recommendation or whole-search completion. This is execution-law
 reuse, **not** a quotient of persistent item states or a completed production search.
 Persistent state reduction still needs a goal/action/transition equivalence proof
 and a representation retaining each incoming method's conditional full-item law.
+
+Strategy v4 is checked against independent exhaustive deterministic-policy
+enumeration for 200 seeded small MDPs. A separate transitive-closure oracle checks
+the returned combined policy has no reachable non-goal closed class. Larger tests
+cover a 100-state recovery cycle with stalling alternatives, risky exits propagating
+backward through 100 states, and incomplete/unknown graphs. Only fully enumerated,
+resolved graphs enter this proof; the production Solar job above remains partial.

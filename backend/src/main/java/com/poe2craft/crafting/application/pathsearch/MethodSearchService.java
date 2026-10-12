@@ -330,6 +330,7 @@ public final class MethodSearchService implements AutoCloseable {
               var solver = job.solvers.computeIfAbsent(cycles, n -> job.calculation.strategy(n));
               solver.refine();
               solver.refineExactPolicy();
+              solver.refineAlmostSure();
               used++;
               exact &= solver.bounds().values().stream().allMatch(OutcomeStrategy.Bounds::exact);
             }
