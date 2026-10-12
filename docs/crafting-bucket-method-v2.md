@@ -165,7 +165,7 @@ and immediate/final recommendation reversal; it is not game-probability evidence
 
 ## Verification evidence (2026-10-12)
 
-Docker Java 21 full `check generateJooq bootJar` passed (658 unit/contract tests and seven disposable
+Docker Java 21 full `check generateJooq bootJar` passed (659 unit/contract tests and seven disposable
 DB integration tests). Docker Node 24 lint, typecheck, formatting, 2,147 frontend
 tests and production build passed. The final v7 frontend run passed 2,151 tests plus lint,
 typecheck, formatting and production build. The preserved v1 source oracle remains 650/21107.
@@ -435,3 +435,51 @@ bounded latency probe cancelled by its driver, not a completed production search
 Comparisons with the earlier 36,000-operation run are not equal-work throughput
 comparisons. The retained modifier/tier frontier remains the next scale boundary;
 roll-cell compression alone does not prove that exhaustive Solar exploration fits.
+
+### Extended profile and exact arithmetic follow-up
+
+At `d3333d8`, an isolated JFR-enabled 180s probe reached 67,983 operations after
+five resumes. It retained 1,025 cells representing 81,321 concrete items, with
+1,018 cells still unexpanded; 141 of 658 methods had completed. The driver
+cancelled successfully at 182,314ms. First snapshot/method/goal times were
+102/265/14,801ms; first-local and full completion were unreached. Sampled heap
+peaked at 224,367,936 bytes and process VmHWM was 491,248 KiB. These are process
+measurements with the profiler enabled. Both diamond continuation arms remained
+available. The 13-page graph inspection happened after the captured elapsed time.
+
+16,135 of 16,427 sampled worker stacks contained `MutableBigInteger.binaryGCD`
+(98.2%, inclusive sampled stacks, not a wall-time percentage). A thread dump also
+showed graph-page exit aggregation in Fraction.add/gcd after calculation stopped.
+This gives a second bottleneck beyond the state frontier: repeated exact fraction
+normalization and repeated aggregation of immutable observations.
+
+The follow-up arithmetic uses equal-denominator addition or an LCM denominator
+and exact zero/one identities; it never rounds probabilities. A direct rational
+oracle checks 250 deterministic pairs with large shared denominators. Job-local
+arrow presentation reuse is keyed by method identity, status/reason and identical
+immutable observation objects, so revised points invalidate it and old revision
+pages remain valid. This is presentation reuse, not a completed calculation cache;
+partial method status is preserved. No entry laws or alternative action masses
+are pooled by this cache.
+
+With those exact-arithmetic/presentation changes, the same JFR-enabled probe
+reached 120,000 operations in 39,428ms, then stayed `PAUSED / COMPUTE_BUDGET`:
+the measurement driver stopped resuming once its sampled process-heap guard of
+300,000,000 bytes was exceeded. That driver guard is not a production currency
+limit and is not the service's retained-outcome memory limit. First snapshot,
+method and goal times were 90/245/4,181ms. It retained 1,584 cells representing
+105,846 concrete items, 1,576 unexpanded cells, 212 completed methods of 735,
+523 live runners, 59,929 kernel outcomes and 67,632 observation support entries.
+Sampled heap peaked at 326,854,224 bytes; VmHWM was 533,968 KiB. Both continuation
+arms remained visible. First local recommendation and full completion were still
+unreached. Of 3,637 worker samples, 3,517 contained binaryGCD, so normalization
+remains a CPU hotspot even though substantially more work completed sooner.
+The runs have different stop conditions and are not a fixed-work benchmark.
+
+The remaining acceptance blocker is explicit: the production graph still indexes
+modifier/tier combinations separately, and the outstanding alternatives/frontier
+have not been exhausted for the requested real Solar example. The next change
+must separate a proven transition-equivalence key from each incoming full-item
+conditional law, including tier/family correlations and removal/replacement.
+Raising the budget, dropping expensive alternative methods, or calling the four
+visible goal-status buckets a completed graph would not satisfy this contract.

@@ -31,12 +31,26 @@ public final class ExactNumericDistribution {
     }
 
     public Fraction add(Fraction other) {
+      Objects.requireNonNull(other);
+      if (numerator.signum() == 0) return other;
+      if (other.numerator.signum() == 0) return this;
+      if (denominator.equals(other.denominator))
+        return new Fraction(numerator.add(other.numerator), denominator);
+      // Markov exit laws often share a large denominator. Form their LCM instead
+      // of squaring that denominator before reducing every accumulated outcome.
+      var common = denominator.gcd(other.denominator);
+      var leftScale = other.denominator.divide(common);
+      var rightScale = denominator.divide(common);
       return new Fraction(
-          numerator.multiply(other.denominator).add(other.numerator.multiply(denominator)),
-          denominator.multiply(other.denominator));
+          numerator.multiply(leftScale).add(other.numerator.multiply(rightScale)),
+          denominator.multiply(leftScale));
     }
 
     public Fraction multiply(Fraction other) {
+      Objects.requireNonNull(other);
+      if (numerator.signum() == 0 || other.numerator.signum() == 0) return ZERO;
+      if (equals(ONE)) return other;
+      if (other.equals(ONE)) return this;
       return new Fraction(
           numerator.multiply(other.numerator), denominator.multiply(other.denominator));
     }

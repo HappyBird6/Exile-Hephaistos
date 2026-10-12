@@ -115,6 +115,11 @@ class DeferredProductionTest {
               snapshot.rootStateId(), root().canonicalKey(), rootMethods)
           .isNotNull();
       var expected = eager(new DeferredItem(root()), WorkbenchCurrency.EXALTED);
+      var firstGraph = service.graph("owner", snapshot.jobId(), snapshot.revision(), null);
+      var repeatedGraph = service.graph("owner", snapshot.jobId(), snapshot.revision(), null);
+      assertThat(repeatedGraph).isEqualTo(firstGraph);
+      for (int i = 0; i < firstGraph.methods().size(); i++)
+        assertThat(repeatedGraph.methods().get(i)).isSameAs(firstGraph.methods().get(i));
       var actual = new LinkedHashMap<BasicCurrencyState, Fraction>();
       String cursor = null, firstToken = null;
       int pages = 0;
@@ -153,6 +158,8 @@ class DeferredProductionTest {
           "owner",
           snapshot.jobId(),
           new MethodSearchProtocol.Mutation(2, "stop", snapshot.revision(), "CANCEL", null));
+      assertThat(service.graph("owner", snapshot.jobId(), snapshot.revision(), null))
+          .isEqualTo(firstGraph);
       assertThat(
               service
                   .distribution(

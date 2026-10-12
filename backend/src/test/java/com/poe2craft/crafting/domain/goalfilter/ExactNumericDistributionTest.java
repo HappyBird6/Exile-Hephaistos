@@ -11,6 +11,40 @@ import java.util.function.Function;
 import org.junit.jupiter.api.Test;
 
 class ExactNumericDistributionTest {
+  @Test
+  void arithmeticMatchesDirectRationalOracleWithLargeSharedDenominators() {
+    var random = new Random(913);
+    for (int i = 0; i < 250; i++) {
+      var shared = new java.math.BigInteger(1024, random).add(java.math.BigInteger.ONE);
+      var a =
+          new Fraction(
+              new java.math.BigInteger(256, random),
+              shared.multiply(java.math.BigInteger.valueOf(1 + random.nextInt(31))));
+      var b =
+          new Fraction(
+              new java.math.BigInteger(256, random),
+              shared.multiply(java.math.BigInteger.valueOf(1 + random.nextInt(31))));
+      assertThat(a.add(b))
+          .isEqualTo(
+              new Fraction(
+                  a.numerator()
+                      .multiply(b.denominator())
+                      .add(b.numerator().multiply(a.denominator())),
+                  a.denominator().multiply(b.denominator())));
+      assertThat(a.multiply(b))
+          .isEqualTo(
+              new Fraction(
+                  a.numerator().multiply(b.numerator()),
+                  a.denominator().multiply(b.denominator())));
+      assertThat(a.add(Fraction.ZERO)).isEqualTo(a);
+      assertThat(Fraction.ZERO.add(a)).isEqualTo(a);
+      assertThat(a.multiply(Fraction.ONE)).isEqualTo(a);
+      assertThat(Fraction.ONE.multiply(a)).isEqualTo(a);
+      assertThat(a.multiply(Fraction.ZERO)).isEqualTo(Fraction.ZERO);
+      assertThat(a.add(a)).isEqualTo(new Fraction(a.numerator().shiftLeft(1), a.denominator()));
+    }
+  }
+
   ItemState state(long cold, long all) {
     return new ItemState(
         "synthetic",

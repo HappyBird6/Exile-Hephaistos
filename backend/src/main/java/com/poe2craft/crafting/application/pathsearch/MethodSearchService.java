@@ -552,6 +552,7 @@ public final class MethodSearchService implements AutoCloseable {
     final Map<Long, Revision> revisions = new LinkedHashMap<>();
     final Map<String, Command> commands = new LinkedHashMap<>();
     final Map<Integer, OutcomeStrategy<DeferredItem>> solvers = new LinkedHashMap<>();
+    final Map<String, CachedArrow> arrows = new HashMap<>();
     long revision = -1, generation;
     String status = "QUEUED", reason;
     volatile Snapshot snapshot;
@@ -570,9 +571,20 @@ public final class MethodSearchService implements AutoCloseable {
 
   private record Command(Mutation command, Snapshot response) {}
 
+  private record CachedArrow(MethodSearchCalculation.MethodView method, Arrow arrow) {
+    boolean matches(MethodSearchCalculation.MethodView next) {
+      return method.status().equals(next.status())
+          && Objects.equals(method.reason(), next.reason())
+          && method.points().size() == next.points().size()
+          && method.points().entrySet().stream()
+              .allMatch(e -> next.points().get(e.getKey()) == e.getValue());
+    }
+  }
+
   private record Position(String scope, java.math.BigInteger offset) {}
 
   private final class Revision {
+    final Map<String, CachedArrow> arrows;
     final String jobId;
     final long number;
     final List<MethodSearchCalculation.StateView> states;
@@ -585,6 +597,7 @@ public final class MethodSearchService implements AutoCloseable {
     final Map<Position, String> tokens = new HashMap<>();
 
     Revision(Job job) {
+      arrows = job.arrows;
       jobId = job.id;
       number = job.revision;
       states = job.calculation.states();
@@ -657,6 +670,8 @@ public final class MethodSearchService implements AutoCloseable {
     }
 
     Arrow arrow(MethodSearchCalculation.MethodView method) {
+      var cached = arrows.get(method.id());
+      if (cached != null && cached.matches(method)) return cached.arrow();
       var source = byId.get(method.source());
       var points = new ArrayList<Point>();
       for (var entry : new TreeMap<>(method.points()).entrySet()) {
@@ -692,17 +707,20 @@ public final class MethodSearchService implements AutoCloseable {
             new Point(
                 entry.getKey(), exits, p(unresolved), Map.copyOf(initial), Map.copyOf(cycle)));
       }
-      return new Arrow(
-          method.id(),
-          method.source(),
-          bucket(source.progress()),
-          source.state().item(),
-          source.state().rolls(),
-          method.initialActions().stream().map(Enum::name).toList(),
-          method.actions().stream().map(Enum::name).toList(),
-          method.status(),
-          method.reason(),
-          List.copyOf(points));
+      var result =
+          new Arrow(
+              method.id(),
+              method.source(),
+              bucket(source.progress()),
+              source.state().item(),
+              source.state().rolls(),
+              method.initialActions().stream().map(Enum::name).toList(),
+              method.actions().stream().map(Enum::name).toList(),
+              method.status(),
+              method.reason(),
+              List.copyOf(points));
+      arrows.put(method.id(), new CachedArrow(method, result));
+      return result;
     }
 
     void group(
