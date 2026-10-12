@@ -122,8 +122,9 @@ and immediate/final recommendation reversal; it is not game-probability evidence
   The ilvl-82 Solar inventory alone contains 209 positive-weight explicit tier
   definitions across 12 prefix and 18 suffix families (before state-dependent
   eligibility). Excluding the Spirit and gem-level families still leaves
-  `C(11,3)*C(17,3)=112,200` possible family-set combinations before tier, roll or
-  ordering variants; this combinatorial count is not a reachable-pool audit.
+  `C(11,3)*C(17,3)=112,200` possible family-set combinations before tier and roll
+  variants; this combinatorial count is not a reachable-pool audit. ItemState
+  already canonicalizes modifier order; ordering does not multiply item states.
   The recommended next representation is a family/tier transition index plus
   goal-dependent bisimulation classes, with an entry-specific conditional-law DAG
   that can reconstruct full item outcomes. A representative roll or pooled law
@@ -164,7 +165,7 @@ and immediate/final recommendation reversal; it is not game-probability evidence
 
 ## Verification evidence (2026-10-12)
 
-Docker Java 21 full `check generateJooq bootJar` passed (646 unit/contract tests and seven disposable
+Docker Java 21 full `check generateJooq bootJar` passed (651 unit/contract tests and seven disposable
 DB integration tests). Docker Node 24 lint, typecheck, formatting, 2,147 frontend
 tests and production build passed. The preserved v1 source oracle remains 650/21107.
 The actual Solar pool test enumerates Exalted outcomes for root, Projectile +3,
@@ -283,3 +284,72 @@ the returned combined policy has no reachable non-goal closed class. Larger test
 cover a 100-state recovery cycle with stalling alternatives, risky exits propagating
 backward through 100 states, and incomplete/unknown graphs. Only fully enumerated,
 resolved graphs enter this proof; the production Solar job above remains partial.
+
+## Exact reduction investigation
+
+The unchanged 36,000-operation Solar workload at `909f7d6` was profiled by nested
+shape keys while preserving base, ilvl, rarity, implicit values, conditions,
+socket/catalyst state and fracture flags. It contained 10,052 full item states:
+one empty state, 1,544 one-explicit states and 8,507 two-explicit states. Dropping
+only explicit rolls yields 275 modifier/tier shapes (largest: 1,420 full states).
+Replacing modifier IDs with their complete conflict-family sets yields 88 shapes
+(largest: 3,540). Keeping only affix counts yields six shapes (largest: 4,937).
+These projections are **diagnostic, not valid equivalence classes**. Removing tier
+or family information can alter eligibility, removal restrictions and transitions;
+removing goal-dependent numeric values can alter AST evaluation after later loss.
+
+Phase and incoming distributions are not in the persistent ItemState key. There
+were seven expanded/discovered method sources, 574 method instances, 513 live
+runners and 183 saved observation points containing 108,969 support entries;
+the observation exit/active laws had 24 distinct contents. Identical stored laws
+can potentially share immutable storage; distinct incoming laws must stay distinct.
+The run paused after 29,620ms, with first response/method/goal bucket at
+606/1,238/1,238ms, and sampled heap 187,555,552 bytes. Local recommendation and
+whole exploration were not reached. This is the same budget, not a larger run.
+
+`FiniteQuotientProof` is a closed-finite-graph proof oracle. It refines an initial
+partition of full observation judgements until every member has the same labelled
+action availability, exact mass into every result block and action costs. Missing
+support, partial mass and non-closed graphs are rejected. It retains the original
+transition laws and can push a supplied entry law through one selected action,
+then condition on a result block; different incoming methods are never averaged.
+This deliberately does not reduce production exploration before enumeration.
+The tiny ordinary-currency catalog closes at six full states and refines to four
+proved classes. Independent sparse finite-horizon Bellman calculations compare
+every action value for 12 horizons, and first-hit propagation agrees at
+100/300/500 Exalted/Annulment and Chaos cycles. Numeric observations, changed
+future laws and different action costs prevent unsafe merging. Opposite 1/4–3/4
+incoming roll laws produce distinct full goal arrivals despite sharing a block.
+On the real Solar catalog, all 16 basic actions were enumerated for each of the
+same-tier Countess Spirit rolls 47, 48, 49 and 50. Their projected transition laws
+agree exactly when only that interval is collapsed; Exalted goal arrivals remain
+distinct full items per source. This is a local witness for one interval, **not**
+a global Solar equivalence proof or production integration.
+
+Production needs lazy roll-domain variables attached to modifier identities,
+shared eligible pools, and a conditional-law expression per entry. A variable may
+be replaced by a goal interval only with proof that all relevant AST judgements
+and future action branches are constant on that interval. Correlated variables
+must retain their joint law. Concrete roll enumeration is needed when inspecting
+full outcomes or when a rule/goal cannot be evaluated exactly on the representation;
+it should not be mandatory for every unrelated roll before graph exploration.
+Enumeration is a fallback only for a known finite law; it cannot repair an
+unverified joint-roll model or missing candidates, which must remain unresolved.
+
+The next implementation boundary is replacing the primitive cursor's one-roll
+output with a modifier-tier plus exact roll-domain law, then making method runners
+carry those laws through append/remove/condition operations. The existing paged
+full-item API requires a lazy expansion cursor for those expressions. The finite
+proof module and local Solar check are references for that work, not a drop-in
+substitute: applying a post-hoc quotient to the current partial graph would repeat
+the original full enumeration bottleneck and cannot prove future equivalence.
+
+Eventual success and finite method observations are different objectives. The
+100/300/500 values describe each arrow; solving an unlimited sequence of such
+arrows may make many strategies all have value one. The current returned proper
+policy is a success-probability witness, not proof of a unique fastest/cheapest
+strategy. No currency prices, total attempt cap or secondary preference is defined.
+The pending product choice is to display exact ties (recommended with the existing
+contract) or introduce an explicit secondary cost objective. A scalar expected
+currency cost additionally needs an exchange-rate/weight policy; per-currency
+expected counts alone only give a partial ordering.
