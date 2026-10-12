@@ -13,7 +13,8 @@ import java.util.function.Function;
 
 /** Job-local, resumable method-depth exploration. UI buckets never key calculation states. */
 public final class MethodSearchCalculation {
-  public static final String VERSION = "full-state-method-search-v4";
+  public static final String VERSION = "full-state-method-search-v5";
+  static final int OPEN_METHOD_WINDOW = 512;
   public static final String TEMPLATES = "applicable-single-and-two-action-cycles-v3";
   public static final List<Integer> OBSERVATIONS = List.of(100, 300, 500);
 
@@ -95,6 +96,7 @@ public final class MethodSearchCalculation {
   }
 
   private int retainedOutcomeLimit;
+  private final int openMethodWindow;
   private int openMethods;
   private int undiscoveredStates;
   private long operations;
@@ -131,12 +133,26 @@ public final class MethodSearchCalculation {
       Set<String> activeOmens,
       int retainedOutcomeLimit,
       boolean direct) {
+    this(
+        root, evaluate, transitions, activeOmens, retainedOutcomeLimit, direct, OPEN_METHOD_WINDOW);
+  }
+
+  MethodSearchCalculation(
+      BasicCurrencyState root,
+      Function<ItemState, Progress> evaluate,
+      BasicCurrencyTransitions transitions,
+      Set<String> activeOmens,
+      int retainedOutcomeLimit,
+      boolean direct,
+      int openMethodWindow) {
     this.evaluate = evaluate;
     this.transitions = transitions;
     this.activeOmens = Set.copyOf(activeOmens);
     if (retainedOutcomeLimit < 1)
       throw new IllegalArgumentException("Positive memory budget required");
     this.retainedOutcomeLimit = retainedOutcomeLimit;
+    if (openMethodWindow < 1) throw new IllegalArgumentException("Positive work window required");
+    this.openMethodWindow = openMethodWindow;
     state(root, 0);
   }
 
@@ -168,7 +184,11 @@ public final class MethodSearchCalculation {
     while (!frontier.isEmpty()
         && (frontier.peek().state().expanded
             || frontier.peek().depth() != frontier.peek().state().depth)) frontier.remove();
-    if (!frontier.isEmpty() && (methods.isEmpty() || openMethods == 0 || operations % 3 == 1)) {
+    // Backpressure postpones frontier discovery; it never discards states/actions or marks
+    // them complete. At most one action's finite template batch can overshoot this window.
+    if (!frontier.isEmpty()
+        && openMethods < openMethodWindow
+        && (methods.isEmpty() || openMethods == 0 || operations % 3 == 1)) {
       discover(frontier.peek().state());
       return;
     }

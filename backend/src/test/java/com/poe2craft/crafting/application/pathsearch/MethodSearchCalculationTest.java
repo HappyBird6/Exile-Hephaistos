@@ -93,6 +93,42 @@ class MethodSearchCalculationTest {
   }
 
   @Test
+  void discoveryBackpressurePreservesEveryCompletedMethodAndConditionalDistribution() {
+    var bounded =
+        new MethodSearchCalculation(root(), this::progress, transitions, Set.of(), 100000, true, 2);
+    var unrestricted =
+        new MethodSearchCalculation(
+            root(), this::progress, transitions, Set.of(), 100000, true, Integer.MAX_VALUE);
+    boolean deferred = false;
+    for (int i = 0; i < 500000 && (!bounded.complete() || !unrestricted.complete()); i++) {
+      bounded.step();
+      unrestricted.step();
+      var metrics = bounded.cacheMetrics();
+      int open = metrics.methodInstances() - metrics.completedMethods();
+      assertThat(open)
+          .isLessThanOrEqualTo(2 + BasicCurrencyTransitions.supportedActions().size() * 2);
+      if (open >= 2 && bounded.states().stream().anyMatch(s -> !s.expanded())) deferred = true;
+    }
+    assertThat(deferred).isTrue();
+    assertThat(bounded.complete()).isTrue();
+    assertThat(unrestricted.complete()).isTrue();
+    var expected =
+        unrestricted.methods().stream()
+            .collect(
+                java.util.stream.Collectors.toMap(MethodSearchCalculation.MethodView::id, m -> m));
+    assertThat(bounded.methods())
+        .hasSize(expected.size())
+        .allSatisfy(m -> assertThat(m).isEqualTo(expected.get(m.id())));
+    var expectedStates =
+        unrestricted.states().stream()
+            .collect(
+                java.util.stream.Collectors.toMap(MethodSearchCalculation.StateView::id, s -> s));
+    assertThat(bounded.states())
+        .hasSize(expectedStates.size())
+        .allSatisfy(s -> assertThat(s).isEqualTo(expectedStates.get(s.id())));
+  }
+
+  @Test
   void finiteTinySearchCompletesOnlyAfterEveryStateAndMethodAndChoosesByOutcome() {
     var search =
         new MethodSearchCalculation(root(), this::progress, transitions, Set.of(), 100000, true);

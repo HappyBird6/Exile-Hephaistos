@@ -148,7 +148,7 @@ and immediate/final recommendation reversal; it is not game-probability evidence
 
 ## Verification evidence (2026-10-12)
 
-Docker Java 21 full `check generateJooq bootJar` passed (639 unit/contract tests and seven disposable
+Docker Java 21 full `check generateJooq bootJar` passed (640 unit/contract tests and seven disposable
 DB integration tests). Docker Node 24 lint, typecheck, formatting, 2,147 frontend
 tests and production build passed. The preserved v1 source oracle remains 650/21107.
 The actual Solar pool test enumerates Exalted outcomes for root, Projectile +3,
@@ -212,6 +212,23 @@ First response was 267ms, first method 425ms, first goal bucket 993ms, and sampl
 heap maximum 191,889,408 bytes. Both diamond continuation arms were retained.
 First local recommendation and whole exploration remained unreached. This exposes
 the next bottleneck: creating new method work substantially outpaces completing it.
+
+Calculation v5 applies frontier backpressure at 512 unfinished methods (one
+finite action-template batch may overshoot). All undiscovered states/actions stay
+in the frontier and prevent enumeration completion. This is a scheduling window,
+not a method-depth, currency-use or support-scope cutoff. The same 36,000-operation
+production probe discovered 574 methods (61 complete, 513 live runners), used
+170 distinct kernels for 1,731 source/action requests, and retained 18,990 kernel
+outcomes. First response was 278ms, first method 516ms and first goal bucket 621ms;
+both A/B continuation arms were found within six pages. Sampled heap maximum was
+201,371,856 bytes, so this run does not establish a memory reduction over v4.
+It remained paused without a local recommendation or global completion. The
+working-set change reduces premature method creation and redirects work into
+kernels; it does not solve the full combinatorial state space.
+A tiny-catalog differential test runs a window of two and an unrestricted
+scheduler to actual completion, comparing every method, all 100/300/500 exact
+conditional distributions, every full state and final shortest method depth.
+They are identical; the test also proves that deferred frontier work was retained.
 
 Real-browser review was attempted with the computer-use browser tool, but its
 launcher failed before opening a page: required Windows platform directory missing
