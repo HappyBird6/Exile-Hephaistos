@@ -64,6 +64,24 @@ class OutcomeStrategyTest {
   }
 
   @Test
+  void equalValueCyclesDoNotDisplaceTheActionThatEstablishedSuccess() {
+    var solver =
+        new OutcomeStrategy<>(
+            Map.of(
+                "A",
+                    state(
+                        choice("stall-A", "A"), choice("cycle-A", "B"), choice("finish-A", "goal")),
+                "B",
+                    state(
+                        choice("stall-B", "B"), choice("cycle-B", "A"), choice("finish-B", "goal")),
+                "goal", new State<String>(true, true, List.of())));
+    for (int i = 0; i < 4; i++) solver.refine();
+    assertThat(solver.bounds().get("A")).isEqualTo(new Bounds(Fraction.ONE, Fraction.ONE));
+    assertThat(solver.recommendation("A").orElseThrow().methodId()).isEqualTo("finish-A");
+    assertThat(solver.recommendation("B").orElseThrow().methodId()).isEqualTo("finish-B");
+  }
+
+  @Test
   void incompleteActionEnumerationPreventsFinalRecommendation() {
     var solver =
         new OutcomeStrategy<>(

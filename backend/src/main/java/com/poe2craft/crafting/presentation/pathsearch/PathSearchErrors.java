@@ -5,7 +5,7 @@ import com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Rejected
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
-@RestControllerAdvice(assignableTypes = PathSearchController.class)
+@RestControllerAdvice(assignableTypes = {PathSearchController.class, MethodSearchController.class})
 public final class PathSearchErrors {
   public record Problem(String type, String title, int status, String code) {}
 

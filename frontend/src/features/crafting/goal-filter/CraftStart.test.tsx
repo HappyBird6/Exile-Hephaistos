@@ -12,7 +12,7 @@ import { useEffect } from 'react'
 import { emptyGoal } from './editor'
 import type { SearchGoalSnapshot } from './ConnectedGoalFilter'
 import type { PathTreeProps } from '../path-tree'
-import { PathTree } from '../path-tree'
+import { MethodSearch } from '../method-search/MethodSearch'
 import { ItemCard } from '../ItemCard'
 import { requestFixture } from '../path-tree/fixtures.test-support'
 import { locales, setLocale } from '../../../shared/i18n/i18n'
@@ -60,9 +60,9 @@ vi.mock('../basic-paths/api', async (original) => ({
     rulesetIdentity: initialFixture.rulesetIdentity,
   })),
 }))
-vi.mock('../path-tree', async (original) => ({
-  ...(await original<typeof import('../path-tree')>()),
-  PathTree: vi.fn(({ request, presentItem }: PathTreeProps) => (
+vi.mock('../method-search/MethodSearch', async (original) => ({
+  ...(await original<typeof import('../method-search/MethodSearch')>()),
+  MethodSearch: vi.fn(({ request, presentItem }: PathTreeProps) => (
     <div className="craft-start-root">
       <ItemCard item={presentItem(request.start.item, 'en')} />
     </div>
@@ -190,12 +190,12 @@ describe('Craft Support starting screen', () => {
       'This starting item or goal is not supported yet.',
     )
     expect(screen.getByRole('button', { name: 'Start Crafting' })).toBeEnabled()
-    expect(vi.mocked(PathTree)).not.toHaveBeenCalled()
+    expect(vi.mocked(MethodSearch)).not.toHaveBeenCalled()
   })
   it('captures a detached item, existing goal AST and provenance together on start', async () => {
     await setup()
     fireEvent.click(screen.getByRole('button', { name: 'Start Crafting' }))
-    const captured = vi.mocked(PathTree).mock.lastCall![0].request
+    const captured = vi.mocked(MethodSearch).mock.lastCall![0].request
     expect(captured.start.item.snapshotId).toBe(solar.state.snapshotId)
     expect(captured.start.item.baseItemId).toBe(solar.state.baseItemId)
     expect(captured.start.provenance.rulesetIdentity).toBe(

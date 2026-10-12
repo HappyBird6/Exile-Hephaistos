@@ -1,0 +1,48 @@
+.method-map {
+  display: grid;
+  gap: 1rem;
+}
+.method-map__overview {
+  overflow: auto;
+}
+.method-map__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+.method-map__controls fieldset {
+  display: flex;
+  gap: 1rem;
+}
+.method-map__states {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+.method-map__states > article {
+  flex: 0 0 300px;
+  border: 1px solid #555;
+  padding: 1rem;
+  border-radius: 8px;
+}
+.method-map__methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 1rem;
+}
+.method-map__methods > article {
+  border: 1px solid #555;
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-wrap: anywhere;
+}
+.method-map__methods .method-map__recommended,
+.method-map__states .method-map__goal {
+  border-color: #c9a55c;
+}
+.method-map strong {
+  display: block;
+  color: #dec082;
+}

@@ -1,3 +1,4 @@
+import { MethodSearch } from '../method-search/MethodSearch'
 import {
   useCallback,
   useEffect,
@@ -19,11 +20,7 @@ import type { ItemCardData } from '../itemCardData'
 import { toItemCard } from '../itemCardData'
 import { ConnectedGoalFilter } from './ConnectedGoalFilter'
 import type { SearchGoalSnapshot } from './ConnectedGoalFilter'
-import {
-  PathTree,
-  createPathSearchRequest,
-  createItemPresentation,
-} from '../path-tree'
+import { createPathSearchRequest, createItemPresentation } from '../path-tree'
 import type { CreateRequest } from '../path-tree'
 import { loadProvenance } from '../basic-paths/api'
 import { pathTreeMessages } from '../path-tree/messages'
@@ -841,7 +838,7 @@ export function CraftStart({
             tabIndex={-1}
             aria-label={copy.tree}
           >
-            <PathTree
+            <MethodSearch
               request={draft.searchRequest}
               inputGeneration={run}
               presentItem={createItemPresentation(

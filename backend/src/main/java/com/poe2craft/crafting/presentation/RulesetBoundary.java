@@ -31,7 +31,8 @@ public final class RulesetBoundary extends OncePerRequestFilter {
   protected void doFilterInternal(
       HttpServletRequest request, HttpServletResponse response, FilterChain chain)
       throws ServletException, IOException {
-    if (request.getRequestURI().startsWith("/api/v1/crafting/")) {
+    if (request.getRequestURI().startsWith("/api/v1/crafting/")
+        || request.getRequestURI().startsWith("/api/v2/crafting/")) {
       response.setHeader(HEADER, IDENTITY);
       if ("POST".equals(request.getMethod())) {
         String identity = request.getHeader(HEADER);

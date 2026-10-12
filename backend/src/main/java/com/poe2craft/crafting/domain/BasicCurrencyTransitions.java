@@ -90,6 +90,22 @@ public final class BasicCurrencyTransitions {
       return blocked() ? preflight.reason() : "";
     }
 
+    public List<WorkbenchSimulator.Assumption> assumptions() {
+      if (blocked()) return preflight.assumptions();
+      var result = new LinkedHashSet<WorkbenchSimulator.Assumption>();
+      if (action.baseAction() == CraftingAction.ANNULMENT
+          || action.baseAction() == CraftingAction.CHAOS)
+        result.add(simulator.basicRemovalAssumption(plan.removals(), action));
+      for (var branch : plan.branches()) {
+        result.addAll(simulator.basicSelectionAssumptions(branch.candidates()));
+        for (var candidate : branch.candidates()) {
+          var roll = simulator.singleStatRollAssumption(candidate);
+          if (roll != null) result.add(roll);
+        }
+      }
+      return List.copyOf(result);
+    }
+
     public boolean complete() {
       return !blocked() && branchIndex == plan.branches().size();
     }

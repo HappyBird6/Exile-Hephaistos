@@ -74,6 +74,78 @@ class SolarCheckpointGoalTest {
   }
 
   @Test
+  void actualSolarEligiblePoolsReachBothDiamondArmsAndUseExistingLife() {
+    var transitions =
+        new com.poe2craft.crafting.domain.BasicCurrencyTransitions(
+            catalog, "solar-production-probe");
+    var a = modifier(PROJECTILE, 3);
+    var b = modifier(SPIRIT, 47);
+    var both = goal(target(PROJECTILE, 3), target(SPIRIT, 47));
+    var match = service.compileEvaluation(item(), both);
+    for (var start : List.of(item(), item(a), item(b))) {
+      var result =
+          transitions.expand(
+              new com.poe2craft.crafting.domain.BasicCurrencyState(start, transitions.provenance()),
+              com.poe2craft.crafting.domain.WorkbenchCurrency.EXALTED,
+              Set.of(),
+              200000);
+      assertThat(result.status())
+          .isEqualTo(com.poe2craft.crafting.domain.BasicCurrencyTransitions.Status.COMPLETE);
+      assertThat(
+              result.outcomes().stream()
+                  .map(com.poe2craft.crafting.domain.BasicCurrencyTransitions.Outcome::probability)
+                  .reduce(
+                      com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction
+                          .ZERO,
+                      com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction
+                          ::add))
+          .isEqualTo(
+              com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction.ONE);
+      if (start.explicits().isEmpty()) {
+        assertThat(result.outcomes())
+            .anyMatch(
+                o ->
+                    match.apply(o.state().item()).groups().getFirst().entries().getFirst().status()
+                        == Status.MATCH);
+        assertThat(result.outcomes())
+            .anyMatch(
+                o ->
+                    match.apply(o.state().item()).groups().getFirst().entries().getLast().status()
+                        == Status.MATCH);
+      } else
+        assertThat(result.outcomes())
+            .anyMatch(o -> match.apply(o.state().item()).status() == Status.MATCH);
+    }
+    var life = modifier("base_maximum_life", 50);
+    var goal =
+        goal(
+            target("base_maximum_life", 50),
+            new Entry(
+                "chaos",
+                GoalCatalogIndex.id("explicit", "base_chaos_damage_resistance_%"),
+                "percent",
+                new Range(BigDecimal.ONE, null),
+                null,
+                false));
+    var evaluator = service.compileEvaluation(item(life), goal);
+    assertThat(evaluator.apply(item(life)).groups().getFirst().entries().getFirst().status())
+        .isEqualTo(Status.MATCH);
+    var result =
+        transitions.expand(
+            new com.poe2craft.crafting.domain.BasicCurrencyState(
+                item(life), transitions.provenance()),
+            com.poe2craft.crafting.domain.WorkbenchCurrency.EXALTED,
+            Set.of(),
+            200000);
+    assertThat(result.status())
+        .isEqualTo(com.poe2craft.crafting.domain.BasicCurrencyTransitions.Status.COMPLETE);
+    assertThat(result.outcomes())
+        .anyMatch(o -> evaluator.apply(o.state().item()).status() == Status.MATCH);
+    assertThat(evaluator.apply(item()).groups().getFirst().entries().getFirst().status())
+        .isEqualTo(Status.NO_MATCH);
+  }
+
+  @Test
   void solarRootABCDiamondUsesReviewedNumericGoalsAndReevaluatesLossAndReacquisition() {
     var a = modifier(PROJECTILE, 3);
     var b = modifier(SPIRIT, 47);

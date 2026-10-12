@@ -38,6 +38,7 @@ public final class OutcomeStrategy<S> {
   private final Map<S, State<S>> graph;
   private Map<S, Bounds> values;
   private long iterations;
+  private final Map<S, String> improvingChoices = new HashMap<>();
 
   public OutcomeStrategy(Map<S, State<S>> graph) {
     this.graph = Map.copyOf(graph);
@@ -92,11 +93,15 @@ public final class OutcomeStrategy<S> {
       }
       var lower = Fraction.ZERO;
       var upper = state.expansionComplete() ? Fraction.ZERO : Fraction.ONE;
+      String witness = null;
       for (var choice : state.choices()) {
         var bound = evaluate(choice);
+        if (compare(bound.lower(), lower) > 0) witness = choice.methodId();
         lower = maximum(lower, bound.lower());
         upper = maximum(upper, bound.upper());
       }
+      if (witness != null && compare(lower, values.get(entry.getKey()).lower()) > 0)
+        improvingChoices.put(entry.getKey(), witness);
       next.put(entry.getKey(), new Bounds(lower, upper));
     }
     values = next;
@@ -118,7 +123,10 @@ public final class OutcomeStrategy<S> {
     Bounds bestValue = null;
     for (var choice : state.choices()) {
       var value = evaluate(choice);
-      if (best == null || compare(value.lower(), bestValue.lower()) > 0) {
+      if (best == null
+          || compare(value.lower(), bestValue.lower()) > 0
+          || (value.lower().equals(bestValue.lower())
+              && choice.methodId().equals(improvingChoices.get(source)))) {
         best = choice;
         bestValue = value;
       }
