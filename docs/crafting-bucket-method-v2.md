@@ -1242,3 +1242,30 @@ Exalted pool, then checks Exalted/Annulment 100/300/500 observations and currenc
 counts against the exact renewal law at 16 and 64 bits. The return-to-source
 condition is checked, not assumed. These are numerical containment checks under
 the declared catalog/rule/roll model, not verification of game-data completeness.
+
+## Certified graph and conditional transport
+
+The certified graph engine preserves the same discovered single-action, paired
+cycle and preparation/cycle alternatives as the exact indexed engine. A complete
+small-map comparison checks every 100/300/500 exit and active probability against
+the exact engine, including method depth, state joins and all alternatives.
+Priority-based frontier discovery avoids rescanning every known class on each
+primitive step; adding an edge only propagates depth changes when needed.
+
+Certified observations retain conditional operators, not representative-item
+substitutes. Requested concrete transport still uses exact fractions, verifies
+that the actual selected event mass lies inside its recorded enclosure, and
+normalizes by that exact selected mass. Bounds are never used as normalization
+constants. Chained bounded operators are checked against independent concrete
+laws; the original exact API remains compatible. The graph/transport targeted
+Docker run passed eight tests. The bounded graph is not yet exposed through an
+API or the UI; final adaptive recommendations remain outstanding.
+
+A real blank Rare level-82 Solar Exalted/Chaos method with Projectile +3 and
+explicit Spirit >=47 checkpoints completed absorption at cycle seven in 64,258
+ms using 64-bit certified arithmetic and a 512 MiB heap. It visited 108,999
+classes, calculated 153,171 kernels (2,000 cached), and retained 73,318 exit
+classes. Sampled heap peak was 508,559,360 bytes; post-GC heap 137,025,552 bytes.
+The earlier exact run of this method took 326,202 ms. These observations are not
+an isolated benchmark comparison and cover one method only, not the entire root
+method set or the whole graph. Full-search measurements remain required.

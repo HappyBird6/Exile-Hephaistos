@@ -136,10 +136,12 @@ final class IndexedMethodSearchEngine implements MethodSearchEngine {
   }
 
   private void link(State source, int target) {
-    state(target, Integer.MAX_VALUE);
+    var linked = state(target, Integer.MAX_VALUE);
     adjacency.computeIfAbsent(source.key, unused -> new LinkedHashSet<>()).add(target);
+    if (linked.depth <= source.depth + 1) return;
+    linked.depth = source.depth + 1;
     var queue = new ArrayDeque<Integer>();
-    queue.add(source.key);
+    queue.add(target);
     while (!queue.isEmpty()) {
       var from = states.get(queue.removeFirst());
       for (int next : adjacency.getOrDefault(from.key, Set.of())) {

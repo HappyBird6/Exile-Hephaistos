@@ -81,6 +81,12 @@ public final class CertifiedMethodRunner<S, A> {
     }
   }
 
+  public long retainedStates() {
+    return (long) pending.size()
+        + boundary.size()
+        + exits.values().stream().mapToLong(Map::size).sum();
+  }
+
   public boolean atBoundary() {
     return atBoundary;
   }

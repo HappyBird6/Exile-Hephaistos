@@ -663,6 +663,62 @@ class BasicTransitionClassesTest {
           next.condition(singletonInput, Optional.of(ExactMethodRunner.Exit.GOAL), target);
       assertThat(singleton.probability()).isEqualTo(chained.probability());
       assertThat(expand(singleton)).hasSize(1).isNotEqualTo(expected);
+      var bounded =
+          new IndexedCertifiedMethodRunner(
+              new IndexedKernelStore(index, 1, 100),
+              parent.classId(),
+              new ExactMethodRunner.Template<>(
+                  "bounded-follow-up", List.of(), List.of(id -> WorkbenchCurrency.EXALTED)),
+              id -> methodExit(sourceKey, index.key(id)),
+              new CertifiedInterval.Precision(16, 2));
+      bounded.beginCycle();
+      while (!bounded.atBoundary()) bounded.step();
+      var boundedLaw =
+          bounded.snapshot().condition(parent, Optional.of(ExactMethodRunner.Exit.GOAL), target);
+      assertThat(boundedLaw.enclosure().orElseThrow().contains(chained.probability())).isTrue();
+      assertThatThrownBy(boundedLaw::probability).isInstanceOf(IllegalStateException.class);
+      var transport = boundedLaw.expansion();
+      while (!transport.complete()) transport.step();
+      assertThat(transport.probability()).isEqualTo(chained.probability());
+      assertThat(transport.result()).isEqualTo(expected);
+      var boundedSingleton =
+          bounded
+              .snapshot()
+              .condition(singletonInput, Optional.of(ExactMethodRunner.Exit.GOAL), target);
+      assertThat(boundedSingleton.enclosure()).isEqualTo(boundedLaw.enclosure());
+      assertThat(expand(boundedSingleton)).hasSize(1).isNotEqualTo(expected);
+      var origin =
+          graph.keySet().stream()
+              .filter(state -> state.item().explicits().isEmpty())
+              .findFirst()
+              .orElseThrow();
+      int originClass = index.classOf(origin);
+      var first =
+          new IndexedCertifiedMethodRunner(
+              new IndexedKernelStore(index, 1, 100),
+              originClass,
+              new ExactMethodRunner.Template<>(
+                  "bounded-origin",
+                  List.of(),
+                  List.of(id -> WorkbenchCurrency.EXALTED, id -> WorkbenchCurrency.ANNULMENT)),
+              id -> methodExit(index.key(originClass), index.key(id)),
+              new CertifiedInterval.Precision(16, 2));
+      first.beginCycle();
+      while (!first.atBoundary()) first.step();
+      var boundedParent =
+          first
+              .snapshot()
+              .condition(
+                  ConditionalMethodLaw.root(index, Map.of(origin, Fraction.ONE)),
+                  Optional.of(ExactMethodRunner.Exit.CHECKPOINT),
+                  parent.classId());
+      assertThat(expand(boundedParent)).isEqualTo(actualInput);
+      assertThat(
+              expand(
+                  bounded
+                      .snapshot()
+                      .condition(boundedParent, Optional.of(ExactMethodRunner.Exit.GOAL), target)))
+          .isEqualTo(expected);
     }
   }
 

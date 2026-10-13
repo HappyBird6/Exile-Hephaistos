@@ -8,10 +8,11 @@ import java.util.function.Function;
 
 /** Exact conditional item transport retained as method operators, separate from class marginals. */
 public final class ConditionalMethodLaw {
-  public static final String VERSION = "conditional-method-operator-v1";
+  public static final String VERSION = "conditional-method-operator-v2-certified";
   private final BasicClassIndex index;
   private final int target;
   private final Fraction probability;
+  private final CertifiedInterval enclosure;
   private final Map<BasicCurrencyState, Fraction> root;
   private final ConditionalMethodLaw parent;
   private final Template<Integer, WorkbenchCurrency> template;
@@ -27,7 +28,7 @@ public final class ConditionalMethodLaw {
     if (input.keySet().stream().anyMatch(s -> index.classOf(s) != source))
       throw new IllegalArgumentException("Incoming law spans different classes");
     return new ConditionalMethodLaw(
-        index, source, Fraction.ONE, Map.copyOf(input), null, null, null, 0, null);
+        index, source, Fraction.ONE, null, Map.copyOf(input), null, null, null, 0, null);
   }
 
   static ConditionalMethodLaw output(
@@ -48,13 +49,57 @@ public final class ConditionalMethodLaw {
       throw new IllegalArgumentException("Positive conditional probability required");
     index.key(target);
     return new ConditionalMethodLaw(
-        index, target, probability, null, parent, template, classify, cycles, exit.orElse(null));
+        index,
+        target,
+        probability,
+        null,
+        null,
+        parent,
+        template,
+        classify,
+        cycles,
+        exit.orElse(null));
+  }
+
+  static ConditionalMethodLaw boundedOutput(
+      ConditionalMethodLaw parent,
+      BasicClassIndex index,
+      int source,
+      Template<Integer, WorkbenchCurrency> template,
+      Function<Integer, Optional<Exit>> classify,
+      long cycles,
+      Optional<Exit> exit,
+      int target,
+      CertifiedInterval enclosure) {
+    if (parent.index != index || parent.target != source)
+      throw new IllegalArgumentException("Different incoming law class or job");
+    if (cycles < 0
+        || enclosure.zero()
+        || enclosure.upper().numerator().compareTo(enclosure.upper().denominator()) > 0)
+      throw new IllegalArgumentException("Positive probability enclosure required");
+    index.key(target);
+    return new ConditionalMethodLaw(
+        index,
+        target,
+        null,
+        enclosure,
+        null,
+        parent,
+        template,
+        classify,
+        cycles,
+        exit.orElse(null));
+  }
+
+  public Optional<CertifiedInterval> enclosure() {
+    return Optional.ofNullable(enclosure);
   }
 
   private ConditionalMethodLaw(
       BasicClassIndex index,
       int target,
       Fraction probability,
+      CertifiedInterval enclosure,
       Map<BasicCurrencyState, Fraction> root,
       ConditionalMethodLaw parent,
       Template<Integer, WorkbenchCurrency> template,
@@ -64,6 +109,7 @@ public final class ConditionalMethodLaw {
     this.index = index;
     this.target = target;
     this.probability = probability;
+    this.enclosure = enclosure;
     this.root = root;
     this.parent = parent;
     this.template = template;
@@ -78,6 +124,8 @@ public final class ConditionalMethodLaw {
 
   /** Probability relative to the specified parent law; this is not an alternative-policy sum. */
   public Fraction probability() {
+    if (probability == null)
+      throw new IllegalStateException("Use the enclosure until exact transport completes");
     return probability;
   }
 
@@ -89,6 +137,7 @@ public final class ConditionalMethodLaw {
     private final ArrayDeque<ConditionalMethodLaw> stages = new ArrayDeque<>();
     private Map<BasicCurrencyState, Fraction> current;
     private Transport transport;
+    private Fraction eventProbability;
 
     private Expansion() {
       var law = ConditionalMethodLaw.this;
@@ -97,6 +146,7 @@ public final class ConditionalMethodLaw {
         law = law.parent;
       }
       current = law.root;
+      if (stages.isEmpty()) eventProbability = Fraction.ONE;
     }
 
     public long retainedStates() {
@@ -117,9 +167,15 @@ public final class ConditionalMethodLaw {
       if (transport == null) transport = new Transport(stages.removeFirst(), current);
       if (!transport.complete) transport.step();
       if (transport.complete) {
+        if (transport.law == ConditionalMethodLaw.this) eventProbability = transport.selectedMass;
         current = transport.result;
         transport = null;
       }
+    }
+
+    public Fraction probability() {
+      if (!complete()) throw new IllegalStateException("Partial conditional transport");
+      return eventProbability;
     }
 
     public Map<BasicCurrencyState, Fraction> result() {
@@ -249,14 +305,17 @@ public final class ConditionalMethodLaw {
         activeSelection = null;
       }
       if (normalization == null) {
-        if (!selectedMass.equals(law.probability))
+        if (selectedMass.equals(Fraction.ZERO)
+            || (law.probability != null
+                ? !selectedMass.equals(law.probability)
+                : !law.enclosure.contains(selectedMass)))
           throw new IllegalStateException(
               "Class marginal disagrees with full conditional transport");
         normalization = selected.entrySet().iterator();
       }
       if (normalization.hasNext()) {
         var entry = normalization.next();
-        entry.setValue(entry.getValue().divide(law.probability));
+        entry.setValue(entry.getValue().divide(selectedMass));
         return;
       }
       result = Collections.unmodifiableMap(selected);
