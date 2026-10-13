@@ -6,7 +6,7 @@ import java.util.function.Function;
 
 /** Finite-observation Markov calculation. S must be the full immutable transition state. */
 public final class ExactMethodRunner<S, A> {
-  public static final String VERSION = "method-cycle-markov-compaction-v5";
+  public static final String VERSION = "method-cycle-incremental-terminal-laws-v6";
 
   /**
    * A law-preserving normalization of one mutually exclusive distribution, never alternatives.
@@ -95,6 +95,14 @@ public final class ExactMethodRunner<S, A> {
   private final Transition<S, A> transition;
   private final Function<S, Optional<Exit>> classify;
   private final Function<Map<S, Fraction>, Compaction<S>> compact;
+  private final Function<Map<S, Fraction>, Compaction<S>> normalizeTerminal;
+
+  private record PendingExit<S>(Exit kind, Compaction<S> normalization) {}
+
+  private final ArrayDeque<PendingExit<S>> terminalQueue = new ArrayDeque<>();
+  private Compaction<S> terminalNormalization;
+  private Iterator<Map.Entry<S, Fraction>> terminalResults;
+  private boolean finishingBoundary;
   private final ArrayDeque<Map<S, Fraction>> compactionQueue = new ArrayDeque<>();
   private Compaction<S> compaction;
   private final Map<Exit, Map<S, Fraction>> exits = new EnumMap<>(Exit.class);
@@ -170,17 +178,33 @@ public final class ExactMethodRunner<S, A> {
       Transition<S, A> transition,
       Function<S, Optional<Exit>> classify,
       Function<Map<S, Fraction>, Compaction<S>> compact) {
+    this(root, template, transition, classify, compact, null);
+  }
+
+  public ExactMethodRunner(
+      S root,
+      Template<S, A> template,
+      Transition<S, A> transition,
+      Function<S, Optional<Exit>> classify,
+      Function<Map<S, Fraction>, Compaction<S>> compact,
+      Function<Map<S, Fraction>, Compaction<S>> normalizeTerminal) {
     this.template = Objects.requireNonNull(template);
     this.transition = Objects.requireNonNull(transition);
     this.classify = Objects.requireNonNull(classify);
     this.compact = compact;
+    this.normalizeTerminal = normalizeTerminal;
     for (var exit : Exit.values()) exits.put(exit, new LinkedHashMap<>());
     initializing = !template.initial().isEmpty();
     var terminal = classify.apply(root);
     if (terminal.isPresent()) {
       absorb(terminal.get(), root, Fraction.ONE);
-      initializing = false;
-      atBoundary = true;
+      if (normalizeTerminal == null) {
+        initializing = false;
+        atBoundary = true;
+      } else {
+        initializing = true; // Resolving an already terminal root consumes no cycle or currency.
+        finishBoundary();
+      }
     } else if (initializing) {
       pending.put(new Execution<>(root, 0), Fraction.ONE);
     } else {
@@ -208,6 +232,10 @@ public final class ExactMethodRunner<S, A> {
   public void step(int maxOutcomes) {
     if (maxOutcomes < 1) throw new IllegalArgumentException("Positive outcome slice required");
     if (atBoundary) throw new IllegalStateException("Begin a cycle before stepping");
+    if (!terminalQueue.isEmpty()) {
+      stepTerminal(maxOutcomes);
+      return;
+    }
     if (!compactionQueue.isEmpty()) {
       if (compaction == null) compaction = compact.apply(compactionQueue.getFirst());
       if (!compaction.complete()) compaction.step(maxOutcomes);
@@ -290,9 +318,15 @@ public final class ExactMethodRunner<S, A> {
   }
 
   private void finishBoundary() {
+    if (!terminalQueue.isEmpty()) {
+      finishingBoundary = true;
+      return;
+    }
+    finishingBoundary = false;
     if (compact != null) {
       if (boundary.size() > 1) compactionQueue.add(boundary);
-      for (var values : exits.values()) if (values.size() > 1) compactionQueue.add(values);
+      if (normalizeTerminal == null)
+        for (var values : exits.values()) if (values.size() > 1) compactionQueue.add(values);
     }
     if (compactionQueue.isEmpty()) endBoundary();
   }
@@ -330,7 +364,37 @@ public final class ExactMethodRunner<S, A> {
   }
 
   private void absorb(Exit exit, S state, Fraction mass) {
-    if (!mass.equals(Fraction.ZERO)) exits.get(exit).merge(state, mass, Fraction::add);
+    if (mass.equals(Fraction.ZERO)) return;
+    if (normalizeTerminal == null) exits.get(exit).merge(state, mass, Fraction::add);
+    else {
+      var normalization = normalizeTerminal.apply(Map.of(state, mass));
+      if (normalization.complete() && normalization.result().size() <= 1)
+        normalization
+            .result()
+            .forEach((target, value) -> exits.get(exit).merge(target, value, Fraction::add));
+      else terminalQueue.addLast(new PendingExit<>(exit, normalization));
+    }
+  }
+
+  private void stepTerminal(int maxOutcomes) {
+    var pendingExit = terminalQueue.getFirst();
+    if (terminalNormalization == null) terminalNormalization = pendingExit.normalization();
+    if (!terminalNormalization.complete()) {
+      terminalNormalization.step(maxOutcomes);
+      return;
+    }
+    if (terminalResults == null)
+      terminalResults = terminalNormalization.result().entrySet().iterator();
+    for (int n = 0; n < maxOutcomes && terminalResults.hasNext(); n++) {
+      var next = terminalResults.next();
+      exits.get(pendingExit.kind()).merge(next.getKey(), next.getValue(), Fraction::add);
+    }
+    if (!terminalResults.hasNext()) {
+      terminalQueue.removeFirst();
+      terminalNormalization = null;
+      terminalResults = null;
+      if (terminalQueue.isEmpty() && finishingBoundary) finishBoundary();
+    }
   }
 
   private static void probability(Fraction value) {

@@ -50,6 +50,14 @@ class DeferredMixturesTest {
     var mixed = compacted.keySet().iterator().next();
     assertThat(mixed.orbits().values()).allMatch(OrbitCell::mixed);
     assertThat(mixtures.expand(compacted)).isEqualTo(independent);
+    var expansion = mixtures.startExpansion(compacted);
+    for (int i = 0; i < 4; i++) {
+      assertThat(expansion.complete()).isFalse();
+      assertThatThrownBy(expansion::result).isInstanceOf(IllegalStateException.class);
+      expansion.step(1);
+    }
+    assertThat(expansion.complete()).isTrue();
+    assertThat(expansion.result()).isEqualTo(independent);
     assertThatThrownBy(
             () -> transitions.primitiveCursor(mixed, WorkbenchCurrency.EXALTED, Set.of()))
         .isInstanceOf(IllegalArgumentException.class)

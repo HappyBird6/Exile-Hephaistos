@@ -861,3 +861,40 @@ that GC. Root readiness stayed at 18/42 for 100 and 500 cycles; no first local o
 full completion was reached. This confirms bounded kernel reuse, not a solution
 to the total live-distribution/frontier cost. More operations did not mean more
 completed methods than the differently budgeted v13 diagnostic.
+
+## Incremental terminal laws (v15)
+
+Method execution now restores each newly absorbed result into its original finite
+cells once and adds that increment to its exit accumulator. Existing accumulated
+goal/checkpoint/loss/dead/unresolved laws are not recompressed and expanded again
+at every later cycle. Active laws retain their conditional compaction. Restoring
+a multi-axis law uses a Cartesian-position cursor that emits at most the requested
+number of original-cell combinations per slice; it does not allocate the complete
+product before yielding. An already-original law takes a direct immutable fast path.
+The application also slices active-law restoration before evaluating a completed
+cycle. A partially restored terminal law cannot expose a completed boundary.
+
+First-hit decisions precede normalization, so normalization never executes another
+primitive or changes consumed currencies. An already terminal root still consumes
+zero cycles. Public result mass checks remain mandatory. Targeted tests cover
+one-output slices of a correlated/independent orbit fixture, terminal preparation,
+first-hit before a destructive next action, unchanged cumulative exits, and the
+small complete concrete/deferred method comparisons. Docker
+`spotlessApply check generateJooq bootJar` passed 692 unit/contract tests and
+7 integration tests; the full check/build took 5m38s.
+
+The isolated 132,000-operation v15 run took 7,270ms, with first snapshot/method/goal
+at 116/269/686ms, 609 cells, 277/798 completed methods and 31,242 observation support
+entries. Sampled heap peak was 270,805,104 bytes (VmHWM 488,612 KiB). Internal
+compaction processed 1,219 distributions and retained 403 generated tier laws,
+versus v14's 1,997 distributions and 579 laws at the same operation guard.
+
+The extended diagnostic used the same default 100,000 kernel-outcome allowance,
+1GiB test heap and external 650MB sampled-heap guard as extended v14. It stopped
+at 504,000 operations in 37,119ms: 656 cells, 310/833 completed methods, 34,026
+observation support entries and 74,983 cached kernel references. Peak sampled heap
+was 652,172,672 bytes, post-GC heap 367,419,952 bytes, and VmHWM 892,328 KiB. It
+processed 3,147 compactions and retained 1,039 generated tier laws. Both runs still
+had only 18/42 root methods ready and no first local recommendation or full
+completion. Reducing cumulative normalization work did not resolve combinatorial
+state/method expansion; larger fixed work allowances are not the proposed fix.

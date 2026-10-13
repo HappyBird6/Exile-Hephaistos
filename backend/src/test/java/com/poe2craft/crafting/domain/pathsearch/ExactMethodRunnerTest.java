@@ -11,6 +11,112 @@ import org.junit.jupiter.api.Test;
 class ExactMethodRunnerTest {
   private static final Fraction HALF = Fraction.of(1, 2);
 
+  private static Compaction<String> terminalExpansion(Map<String, Fraction> input) {
+    var mass = input.values().iterator().next();
+    return new Compaction<>() {
+      int remaining = 2;
+
+      public boolean complete() {
+        return remaining == 0;
+      }
+
+      public void step(int maxInputs) {
+        remaining = Math.max(0, remaining - maxInputs);
+      }
+
+      public Map<String, Fraction> result() {
+        if (!complete()) throw new IllegalStateException("Partial terminal law");
+        return Map.of(
+            "goal-a", mass.multiply(Fraction.of(1, 3)), "goal-b", mass.multiply(Fraction.of(2, 3)));
+      }
+    };
+  }
+
+  @Test
+  void terminalLawIsExpandedOnceWithoutRecurrencyCostsOrCumulativeRecompaction() {
+    var normalizations = new java.util.concurrent.atomic.AtomicInteger();
+    var runner =
+        new ExactMethodRunner<String, String>(
+            "root",
+            new Template<>("first-hit", List.of(), List.of(s -> "add", s -> "remove")),
+            (state, action) -> {
+              assertThat(action).isEqualTo("add");
+              return kernel("goal-bundle");
+            },
+            state -> state.startsWith("goal") ? Optional.of(Exit.GOAL) : Optional.empty(),
+            values -> {
+              throw new AssertionError("Absorbed results must not be recompacted");
+            },
+            values -> {
+              normalizations.incrementAndGet();
+              return terminalExpansion(values);
+            });
+    runner.beginCycle();
+    runner.step(1);
+    assertThat(runner.atBoundary()).isFalse();
+    assertThatThrownBy(runner::observation).isInstanceOf(IllegalStateException.class);
+    while (!runner.atBoundary()) runner.step(1);
+    var point = runner.observation();
+    assertThat(point.exits().get(Exit.GOAL))
+        .isEqualTo(Map.of("goal-a", Fraction.of(1, 3), "goal-b", Fraction.of(2, 3)));
+    assertThat(point.cycleUses()).isEqualTo(Map.of("add", Fraction.ONE));
+    assertThat(point.cycles()).isEqualTo(1);
+    runner.beginCycle();
+    finish(runner);
+    assertThat(normalizations.get()).isEqualTo(1);
+    assertThat(runner.observation().exits()).isEqualTo(point.exits());
+    assertThat(runner.observation().cycleUses()).isEqualTo(point.cycleUses());
+  }
+
+  @Test
+  void alreadyTerminalRootNormalizationConsumesNoCycleOrCurrency() {
+    var runner =
+        new ExactMethodRunner<String, String>(
+            "goal-bundle",
+            new Template<>("terminal-root", List.of(s -> "prepare"), List.of(s -> "add")),
+            (state, action) -> {
+              throw new AssertionError("Already successful root must not act");
+            },
+            state -> Optional.of(Exit.GOAL),
+            null,
+            ExactMethodRunnerTest::terminalExpansion);
+    finish(runner);
+    var point = runner.observation();
+    assertThat(point.cycles()).isZero();
+    assertThat(point.mass()).isEqualTo(Fraction.ONE);
+    assertThat(point.initialUses()).isEmpty();
+    assertThat(point.cycleUses()).isEmpty();
+  }
+
+  @Test
+  void publishedObservationRejectsMassLostByTerminalNormalization() {
+    var runner =
+        new ExactMethodRunner<String, String>(
+            "root",
+            new Template<>("terminal-guard", List.of(), List.of(s -> "draw")),
+            (state, action) -> kernel("goal"),
+            ExactMethodRunnerTest::classify,
+            null,
+            values ->
+                new Compaction<>() {
+                  public boolean complete() {
+                    return true;
+                  }
+
+                  public void step(int maxInputs) {}
+
+                  public Map<String, Fraction> result() {
+                    return Map.of("goal", HALF);
+                  }
+                });
+    runner.beginCycle();
+    finish(runner);
+    assertThat(runner.boundarySnapshot().mass()).isEqualTo(HALF);
+    assertThatThrownBy(runner::observation)
+        .isInstanceOf(IllegalStateException.class)
+        .hasMessage("Method mass not conserved");
+  }
+
   @Test
   void publishedObservationRejectsMassLostByFaultyCompaction() {
     var runner =

@@ -8,7 +8,7 @@ import java.util.*;
 
 /** Exact one-axis mixtures inside a single mutually exclusive execution distribution. */
 public final class DeferredMixtures {
-  public static final String VERSION = "conditional-tier-orbit-mixture-v2";
+  public static final String VERSION = "conditional-tier-orbit-mixture-expansion-v3";
   private final BasicTransitionClasses classes;
   // Generated posterior laws retain their decomposition into the original finite cells.
   private final Map<TierCell, Map<TierCell, Fraction>> decompositions = new HashMap<>();
@@ -73,35 +73,120 @@ public final class DeferredMixtures {
 
   /** Restore finite graph identities without discarding the conditional mixture weights. */
   public Map<DeferredItem, Fraction> expand(Map<DeferredItem, Fraction> distribution) {
-    var result = new LinkedHashMap<DeferredItem, Fraction>();
-    for (var entry : distribution.entrySet()) {
-      Map<DeferredItem, Fraction> current = Map.of(entry.getKey(), entry.getValue());
-      for (var tier : entry.getKey().tiers().entrySet()) {
-        var basis = decompositions.get(tier.getValue());
-        if (basis == null) continue;
-        var next = new LinkedHashMap<DeferredItem, Fraction>();
-        for (var source : current.entrySet())
-          for (var atom : basis.entrySet())
-            next.merge(
-                replaceLaw(source.getKey(), tier.getKey(), atom.getKey()),
-                source.getValue().multiply(atom.getValue()),
-                Fraction::add);
-        current = next;
-      }
-      for (var orbit : entry.getKey().orbits().entrySet()) {
-        if (!orbit.getValue().mixed()) continue;
-        var next = new LinkedHashMap<DeferredItem, Fraction>();
-        for (var source : current.entrySet())
-          for (var atom : orbit.getValue().basis().entrySet())
-            next.merge(
-                withOrbit(withoutOrbit(source.getKey(), orbit.getKey()), atom.getKey()),
-                source.getValue().multiply(atom.getValue()),
-                Fraction::add);
-        current = next;
-      }
-      current.forEach((state, mass) -> result.merge(state, mass, Fraction::add));
+    var cursor = startExpansion(distribution);
+    while (!cursor.complete()) cursor.step(32);
+    return cursor.result();
+  }
+
+  /** A slice emits at most maxInputs original-cell combinations, never a full Cartesian product. */
+  public ExactMethodRunner.Compaction<DeferredItem> startExpansion(
+      Map<DeferredItem, Fraction> distribution) {
+    if (distribution.keySet().stream().allMatch(this::original)) {
+      var result = Map.copyOf(distribution);
+      return new ExactMethodRunner.Compaction<>() {
+        public boolean complete() {
+          return true;
+        }
+
+        public void step(int maxInputs) {
+          if (maxInputs < 1)
+            throw new IllegalArgumentException("Positive expansion slice required");
+        }
+
+        public Map<DeferredItem, Fraction> result() {
+          return result;
+        }
+      };
     }
-    return result;
+    return new ExpansionCursor(distribution);
+  }
+
+  private boolean original(DeferredItem state) {
+    return state.orbits().values().stream().noneMatch(OrbitCell::mixed)
+        && state.tiers().values().stream().noneMatch(decompositions::containsKey);
+  }
+
+  private record ExpansionChoice(
+      Fraction mass, java.util.function.UnaryOperator<DeferredItem> transform) {}
+
+  private List<List<ExpansionChoice>> expansionAxes(DeferredItem source) {
+    var axes = new ArrayList<List<ExpansionChoice>>();
+    for (var tier : source.tiers().entrySet()) {
+      var basis = decompositions.get(tier.getValue());
+      if (basis != null)
+        axes.add(
+            basis.entrySet().stream()
+                .map(
+                    atom ->
+                        new ExpansionChoice(
+                            atom.getValue(),
+                            state -> replaceLaw(state, tier.getKey(), atom.getKey())))
+                .toList());
+    }
+    for (var orbit : source.orbits().entrySet()) {
+      if (orbit.getValue().mixed())
+        axes.add(
+            orbit.getValue().basis().entrySet().stream()
+                .map(
+                    atom ->
+                        new ExpansionChoice(
+                            atom.getValue(),
+                            state -> withOrbit(withoutOrbit(state, orbit.getKey()), atom.getKey())))
+                .toList());
+    }
+    return axes;
+  }
+
+  private final class ExpansionCursor implements ExactMethodRunner.Compaction<DeferredItem> {
+    final Iterator<Map.Entry<DeferredItem, Fraction>> inputs;
+    final Map<DeferredItem, Fraction> expanded = new LinkedHashMap<>();
+    Map.Entry<DeferredItem, Fraction> current;
+    List<List<ExpansionChoice>> axes;
+    int[] positions;
+    boolean complete;
+
+    ExpansionCursor(Map<DeferredItem, Fraction> distribution) {
+      inputs = Map.copyOf(distribution).entrySet().iterator();
+      complete = !inputs.hasNext();
+    }
+
+    public boolean complete() {
+      return complete;
+    }
+
+    public Map<DeferredItem, Fraction> result() {
+      if (!complete) throw new IllegalStateException("Partial original-cell expansion");
+      return Map.copyOf(expanded);
+    }
+
+    public void step(int maxInputs) {
+      if (maxInputs < 1) throw new IllegalArgumentException("Positive expansion slice required");
+      for (int n = 0; n < maxInputs && !complete; n++) {
+        if (current == null) {
+          current = inputs.next();
+          axes = expansionAxes(current.getKey());
+          positions = new int[axes.size()];
+        }
+        var state = current.getKey();
+        var mass = current.getValue();
+        for (int axis = 0; axis < axes.size(); axis++) {
+          var choice = axes.get(axis).get(positions[axis]);
+          state = choice.transform().apply(state);
+          mass = mass.multiply(choice.mass());
+        }
+        expanded.merge(state, mass, Fraction::add);
+        boolean more = false;
+        for (int axis = positions.length - 1; axis >= 0; axis--) {
+          if (++positions[axis] < axes.get(axis).size()) {
+            more = true;
+            break;
+          }
+          positions[axis] = 0;
+        }
+        if (!more) current = null;
+        complete = current == null && !inputs.hasNext();
+      }
+    }
   }
 
   private static DeferredItem withoutOrbit(DeferredItem source, String profile) {

@@ -14,11 +14,10 @@ import com.poe2craft.crafting.domain.pathsearch.RollPartition;
 import com.poe2craft.item.ItemState;
 import java.util.*;
 import java.util.function.Function;
-import java.util.function.UnaryOperator;
 
 /** Job-local, resumable method-depth exploration. UI buckets never key calculation states. */
 public final class MethodSearchCalculation {
-  public static final String VERSION = "bounded-primitive-mixture-method-search-v14";
+  public static final String VERSION = "incremental-terminal-method-search-v15";
   static final int OPEN_METHOD_WINDOW = 512;
   public static final String TEMPLATES = "applicable-single-and-two-action-cycles-v3";
   public static final List<Integer> OBSERVATIONS = List.of(100, 300, 500);
@@ -61,7 +60,6 @@ public final class MethodSearchCalculation {
   private final Function<ItemState, Progress> evaluate;
   private Function<Map<DeferredItem, Fraction>, ExactMethodRunner.Compaction<DeferredItem>> compact;
   private DeferredMixtures mixtures;
-  private UnaryOperator<Map<DeferredItem, Fraction>> expandMixtures = UnaryOperator.identity();
   private final LinkedHashMap<DeferredItem, State> states = new LinkedHashMap<>();
   private final Map<String, DeferredItem> identities = new HashMap<>();
   private final LinkedHashMap<String, Method> methods = new LinkedHashMap<>();
@@ -169,7 +167,6 @@ public final class MethodSearchCalculation {
     if (activeOmens.isEmpty()) {
       this.mixtures = mixtures;
       compact = mixtures::start;
-      expandMixtures = mixtures::expand;
     }
   }
 
@@ -675,6 +672,8 @@ public final class MethodSearchCalculation {
     final List<WorkbenchCurrency> actions;
     ExactMethodRunner<DeferredItem, WorkbenchCurrency> runner;
     Observation<DeferredItem, WorkbenchCurrency> previousBoundary;
+    Observation<DeferredItem, WorkbenchCurrency> pendingBoundary;
+    ExactMethodRunner.Compaction<DeferredItem> activeExpansion;
     long foldedInputs;
     final Map<Integer, Observation<DeferredItem, WorkbenchCurrency>> points = new LinkedHashMap<>();
     boolean done;
@@ -707,7 +706,8 @@ public final class MethodSearchCalculation {
                   selectors),
               MethodSearchCalculation.this::kernel,
               outcome -> classify(source, outcome, initial.isEmpty() && actions.size() == 1),
-              compact);
+              compact,
+              mixtures == null ? null : mixtures::startExpansion);
     }
 
     void step() {
@@ -716,7 +716,24 @@ public final class MethodSearchCalculation {
         runner.step();
         return;
       }
-      var point = expanded(runner.boundarySnapshot());
+      if (pendingBoundary == null) {
+        pendingBoundary = runner.boundarySnapshot();
+        activeExpansion =
+            mixtures == null ? null : mixtures.startExpansion(pendingBoundary.active());
+      }
+      if (activeExpansion != null && !activeExpansion.complete()) {
+        activeExpansion.step(32);
+        return;
+      }
+      var point =
+          new Observation<DeferredItem, WorkbenchCurrency>(
+              pendingBoundary.cycles(),
+              pendingBoundary.exits(),
+              activeExpansion == null ? pendingBoundary.active() : activeExpansion.result(),
+              pendingBoundary.initialUses(),
+              pendingBoundary.cycleUses());
+      pendingBoundary = null;
+      activeExpansion = null;
       int cycles = Math.toIntExact(point.cycles());
       if (point.active().isEmpty()) {
         for (int n : OBSERVATIONS)
@@ -778,18 +795,6 @@ public final class MethodSearchCalculation {
       }
       previousBoundary = point;
       runner.beginCycle();
-    }
-
-    Observation<DeferredItem, WorkbenchCurrency> expanded(
-        Observation<DeferredItem, WorkbenchCurrency> point) {
-      var exits = new EnumMap<Exit, Map<DeferredItem, Fraction>>(Exit.class);
-      point.exits().forEach((kind, values) -> exits.put(kind, expandMixtures.apply(values)));
-      return new Observation<>(
-          point.cycles(),
-          Map.copyOf(exits),
-          Map.copyOf(expandMixtures.apply(point.active())),
-          point.initialUses(),
-          point.cycleUses());
     }
 
     void save(int cycles, Observation<DeferredItem, WorkbenchCurrency> point) {
