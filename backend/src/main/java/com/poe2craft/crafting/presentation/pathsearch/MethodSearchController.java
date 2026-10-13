@@ -1,6 +1,7 @@
 package com.poe2craft.crafting.presentation.pathsearch;
 
 import com.fasterxml.jackson.databind.*;
+import com.poe2craft.crafting.application.pathsearch.CertifiedMethodProtocol;
 import com.poe2craft.crafting.application.pathsearch.IndexedMethodProtocol;
 import com.poe2craft.crafting.application.pathsearch.MethodSearchProtocol.*;
 import com.poe2craft.crafting.application.pathsearch.MethodSearchService;
@@ -43,6 +44,86 @@ public final class MethodSearchController {
       @RequestBody String body, HttpServletRequest request, HttpServletResponse response) {
     return ResponseEntity.accepted()
         .body(service.createIndexed(owner(request, response), read(body, Create.class)));
+  }
+
+  @PostMapping("/certified")
+  public ResponseEntity<CertifiedMethodProtocol.Started> createCertified(
+      @RequestBody String body, HttpServletRequest request, HttpServletResponse response) {
+    return ResponseEntity.accepted()
+        .body(
+            service.createCertified(
+                owner(request, response), read(body, CertifiedMethodProtocol.Create.class)));
+  }
+
+  @GetMapping("/certified/{id}")
+  public CertifiedMethodProtocol.Snapshot certified(
+      @PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
+    return service.getCertified(owner(request, response), id);
+  }
+
+  @GetMapping("/certified/{id}/graph")
+  public CertifiedMethodProtocol.Graph certifiedGraph(
+      @PathVariable String id,
+      @RequestParam long revision,
+      @RequestParam(defaultValue = "0") int stateOffset,
+      @RequestParam(defaultValue = "0") int methodOffset,
+      HttpServletRequest request,
+      HttpServletResponse response) {
+    return service.certifiedGraph(
+        owner(request, response), id, revision, stateOffset, methodOffset);
+  }
+
+  @GetMapping("/certified/{id}/outcomes")
+  public CertifiedMethodProtocol.Outcomes certifiedOutcomes(
+      @PathVariable String id,
+      @RequestParam long revision,
+      @RequestParam String methodId,
+      @RequestParam int cycles,
+      @RequestParam(defaultValue = "0") int offset,
+      HttpServletRequest request,
+      HttpServletResponse response) {
+    return service.certifiedOutcomes(
+        owner(request, response), id, revision, methodId, cycles, offset);
+  }
+
+  @PostMapping("/certified/{id}/control")
+  public CertifiedMethodProtocol.Snapshot controlCertified(
+      @PathVariable String id,
+      @RequestBody String body,
+      HttpServletRequest request,
+      HttpServletResponse response) {
+    return service.mutateCertified(owner(request, response), id, read(body, Mutation.class));
+  }
+
+  @PostMapping("/certified/{id}/entries")
+  public CertifiedMethodProtocol.Entry bindCertified(
+      @PathVariable String id,
+      @RequestBody String body,
+      HttpServletRequest request,
+      HttpServletResponse response) {
+    return service.bindCertifiedEntry(
+        owner(request, response), id, read(body, IndexedMethodProtocol.Bind.class));
+  }
+
+  @GetMapping("/certified/{id}/entries/{entryId}")
+  public CertifiedMethodProtocol.Entry certifiedEntry(
+      @PathVariable String id,
+      @PathVariable String entryId,
+      @RequestParam(defaultValue = "0") int offset,
+      HttpServletRequest request,
+      HttpServletResponse response) {
+    return service.certifiedEntry(owner(request, response), id, entryId, offset);
+  }
+
+  @PostMapping("/certified/{id}/entries/{entryId}/advance")
+  public CertifiedMethodProtocol.Entry advanceCertified(
+      @PathVariable String id,
+      @PathVariable String entryId,
+      @RequestBody String body,
+      HttpServletRequest request,
+      HttpServletResponse response) {
+    return service.advanceCertifiedEntry(
+        owner(request, response), id, entryId, read(body, IndexedMethodProtocol.Advance.class));
   }
 
   @GetMapping("/{id}/class-outcomes")
@@ -156,6 +237,7 @@ public final class MethodSearchController {
           if (!n.isTextual()) throw new Rejected(422, "INVALID_OBSERVATIONS");
       }
       if (body.has("start")) safeIntegers(body.path("start").path("item"));
+      if (body.has("request")) safeIntegers(body.path("request").path("start").path("item"));
       if (body.has("expectedRevision")) safeIntegers(body.get("expectedRevision"));
       if (body.has("expectedGeneration")) safeIntegers(body.get("expectedGeneration"));
       if (body.has("revision")) safeIntegers(body.get("revision"));

@@ -1269,3 +1269,88 @@ classes. Sampled heap peak was 508,559,360 bytes; post-GC heap 137,025,552 bytes
 The earlier exact run of this method took 326,202 ms. These observations are not
 an isolated benchmark comparison and cover one method only, not the entire root
 method set or the whole graph. Full-search measurements remain required.
+
+## Whole-search certified diagnostic
+
+The first whole-search diagnostic used the real blank Rare level-82 Solar,
+Projectile +3 and explicit Spirit >=47, 64 fractional bits, a 1 GiB test JVM,
+a 180-second wall-time guard and a two-million retained-entry allowance. It
+stopped at the memory allowance after 113,564 ms, with 41,567,948 cooperative
+operations. Engine construction/first root view took 5 ms (not HTTP latency).
+There were 78,393 calculation classes, 13,763 public state classes and 133
+methods. The root had 42 methods, of which 18 were complete. No root direct
+completion, first local recommendation or whole-search completion was reached.
+Sampled JVM heap peak was 669,866,288 bytes and post-GC heap 360,177,656 bytes.
+
+This is a partial search, not a currency limit or completed support map. The
+retained-entry total at pause was 2,000,011; one cooperative operation can cross
+the allowance before the next check. Retained entries are an accounting measure,
+not a hard byte cap. The precision change alone does not solve concurrent method
+law retention or the number of reachable boundary classes. These remain
+scalability work. The diagnostic used an allowance larger than the initial
+certified API allowance and its current maximum; it is not an API benchmark.
+
+## Certified API contract
+
+The additive `/api/v2/crafting/method-searches/certified` creation route accepts
+`{version:1, request:<existing v2 create>, precision:{fractionalBits,percentDecimals}}`.
+The exact and deferred routes remain unchanged. Precision is immutable for a job;
+changing it requires a new request ID. Request IDs cannot silently switch engine
+kind. Certified jobs use the existing single worker, owner scope, generation
+checks, four retained revisions, twenty-minute lifetime and bounded capacity.
+
+GET `certified/{id}` returns coherent status. GET `certified/{id}/graph` pages
+states and methods independently using revision plus state/method offsets.
+GET `certified/{id}/outcomes` pages a method's disjoint class exits at the specified
+revision and 100/300/500 cycles. POST `certified/{id}/control` accepts the existing
+v2 CANCEL/RESUME mutation. `entries`, `entries/{entryId}` and
+`entries/{entryId}/advance` bind, read and cooperatively materialize the actual
+conditional item law using the existing indexed bind/advance request contracts.
+Expired revision pages are rejected rather than mixed with current results.
+
+Probability wire values carry exact rational endpoint strings, arithmetic width,
+an exactness flag and nullable `confirmedPercent`. Expected currency quantities
+use the same endpoint representation without a percent label or clipping at one.
+Model-unresolved exit mass and incomplete method discovery are separate from
+arithmetic width. Local recommendations are certified only when the requested
+horizon is available for every discovered direct method and discovery is closed;
+overlapping candidates remain pending. The root's local status appears in the
+snapshot, and each state page includes its own local results.
+
+The snapshot reports `strategyStatus:NOT_REQUESTED`: completed enumeration does
+not claim a completed adaptive strategy. This route is not yet selected by the
+production frontend. Its initial retained-entry allowance is 100,000; RESUME can
+raise it monotonically to 1,000,000. Conditional transport has a separate shared
+entry allowance. Neither allowance caps crafting currency use. API integration
+does not remove the whole-search scalability limitation reported above.
+
+### Remaining issues and recommended continuation
+
+- Whole-map retention: keep partial/pause semantics and reduce simultaneous dense
+  method-law retention before increasing the production allowance. Slice boundary
+  publication as well as primitive transitions; measure API publication cost
+  separately from the bare engine diagnostic.
+- Certified frontend: add the typed client and shared FE/BE rounding fixture,
+  preserve all six locales and existing start/goal controls, and show a single
+  percentage only when endpoint rounding agrees. A rounded 100 percent with
+  nonzero arithmetic width must not be presented as a certainty proof.
+- Adaptive strategy: retain the exact strategy oracle. Add a certified solver
+  with explicit cyclic/fixed-point uncertainty and policy verification before
+  publishing final recommendations. Method completion or a local winner is not
+  final-strategy completion. Recovery remains a conditional next decision.
+- Integration evidence: the current HTTP checks use MockMvc; they do not claim
+  live-browser E2E. Recheck the final assembled UI with the actual bounded routes
+  when frontend integration is complete.
+
+These are implementation work items, not requests for further user permission.
+
+Final assembled backend verification for this certified API unit passed in
+Docker: `spotlessApply`, then a frozen-source `check generateJooq bootJar` in
+6m02s. Reports contain 705 unit/contract tests and seven integration tests, with
+zero failures, errors or skips. This includes cross-engine request-ID isolation,
+precision mismatch, real-catalog conditional reconstruction, stale generations,
+revision expiry and completed-enumeration entry cancellation/resume. Temporary
+verification containers exited; unrelated Redis services were preserved.
+Frontend files were unchanged in this unit; the earlier 2,152-test worker-limited
+pass and build remain the latest frontend evidence, not validation of a certified
+UI connection. No application server, master merge or deployment was performed.

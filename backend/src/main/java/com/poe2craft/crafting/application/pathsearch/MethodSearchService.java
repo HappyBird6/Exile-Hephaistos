@@ -31,6 +31,7 @@ public final class MethodSearchService implements AutoCloseable {
   private final Executor executor;
   private final int runBudget;
   private final Map<String, Job> jobs = new LinkedHashMap<>();
+  private final CertifiedSearchJobs certified;
 
   public MethodSearchService(
       List<ItemCatalog> catalogs, GoalFilterService goals, String identity, ObjectMapper json) {
@@ -104,6 +105,93 @@ public final class MethodSearchService implements AutoCloseable {
     this.executor = executor;
     if (runBudget < 1) throw new IllegalArgumentException("Positive run budget required");
     this.runBudget = runBudget;
+    certified = new CertifiedSearchJobs(clock, executor, runBudget, this::certifiedEngine);
+  }
+
+  private CertifiedMethodSearchEngine certifiedEngine(
+      Create request,
+      com.poe2craft.crafting.domain.pathsearch.CertifiedInterval.Precision precision) {
+    if (request == null
+        || !Integer.valueOf(2).equals(request.version())
+        || request.clientRequestId() == null
+        || request.clientRequestId().isBlank()
+        || request.clientRequestId().length() > 256
+        || request.start() == null
+        || request.goal() == null
+        || request.activeOmens() == null) throw new Rejected(422, "INVALID_REQUEST");
+    var catalog = catalogs.get(request.start().item().baseItemId());
+    if (catalog == null) throw new Rejected(422, "UNSUPPORTED_BASE");
+    var model = models.get(catalog.base().id());
+    if (!model.provenance().equals(request.start().provenance()))
+      throw new Rejected(422, "RULESET_IDENTITY_MISMATCH");
+    if (!new ItemStateValidator(catalog).validate(request.start().item()).isEmpty())
+      throw new Rejected(422, "INVALID_ITEM");
+    if (!request.activeOmens().isEmpty()) throw new Rejected(422, "INDEXED_OMENS_UNSUPPORTED");
+    var evaluator = goals.compileEvaluation(request.start().item(), request.goal());
+    var classes =
+        new BasicTransitionClasses(
+            catalog, model, goals.rollPartition(request.start().item(), request.goal()), evaluator);
+    return new CertifiedMethodSearchEngine(request.start(), classes, evaluator, 100000, precision);
+  }
+
+  public CertifiedMethodProtocol.Started createCertified(
+      String owner, CertifiedMethodProtocol.Create input) {
+    try {
+      var request =
+          json.readValue(json.writeValueAsBytes(input), CertifiedMethodProtocol.Create.class);
+      synchronized (jobs) {
+        expire();
+        if (request != null
+            && request.request() != null
+            && jobs.values().stream()
+                .anyMatch(
+                    j ->
+                        j.owner.equals(owner)
+                            && j.request
+                                .clientRequestId()
+                                .equals(request.request().clientRequestId())))
+          throw new Rejected(409, "REQUEST_ID_REUSED");
+        return certified.create(owner, request);
+      }
+    } catch (Rejected ex) {
+      throw ex;
+    } catch (java.io.IOException | IllegalArgumentException ex) {
+      throw new Rejected(422, "INVALID_REQUEST");
+    }
+  }
+
+  public CertifiedMethodProtocol.Snapshot getCertified(String owner, String id) {
+    return certified.get(owner, id);
+  }
+
+  public CertifiedMethodProtocol.Snapshot mutateCertified(
+      String owner, String id, Mutation command) {
+    return certified.mutate(owner, id, command);
+  }
+
+  public CertifiedMethodProtocol.Graph certifiedGraph(
+      String owner, String id, long revision, int stateOffset, int methodOffset) {
+    return certified.graph(owner, id, revision, stateOffset, methodOffset);
+  }
+
+  public CertifiedMethodProtocol.Outcomes certifiedOutcomes(
+      String owner, String id, long revision, String method, int cycles, int offset) {
+    return certified.outcomes(owner, id, revision, method, cycles, offset);
+  }
+
+  public CertifiedMethodProtocol.Entry bindCertifiedEntry(
+      String owner, String id, IndexedMethodProtocol.Bind request) {
+    return certified.bind(owner, id, request);
+  }
+
+  public CertifiedMethodProtocol.Entry certifiedEntry(
+      String owner, String id, String entryId, int offset) {
+    return certified.entry(owner, id, entryId, offset);
+  }
+
+  public CertifiedMethodProtocol.Entry advanceCertifiedEntry(
+      String owner, String id, String entryId, IndexedMethodProtocol.Advance request) {
+    return certified.advance(owner, id, entryId, request);
   }
 
   public BasicCurrencyState.Provenance provenance() {
@@ -157,6 +245,8 @@ public final class MethodSearchService implements AutoCloseable {
     var evaluator = goals.compileEvaluation(request.start().item(), request.goal());
     synchronized (jobs) {
       expire();
+      if (certified.hasRequest(owner, request.clientRequestId()))
+        throw new Rejected(409, "REQUEST_ID_REUSED");
       for (var job : jobs.values())
         if (job.owner.equals(owner)
             && job.request.clientRequestId().equals(request.clientRequestId())) {
