@@ -192,6 +192,15 @@ class BasicTransitionClassesTest {
         var cursor = classes.cursor(source, action);
         while (!cursor.complete()) cursor.step();
         var projected = cursor.result();
+        var indexed = classes.indexedCursor(source, action);
+        while (!indexed.complete()) indexed.step();
+        assertThat(indexed.result().outcomes()).isEqualTo(projected.outcomes());
+        assertThat(indexed.result().unresolved()).isEqualTo(projected.unresolved());
+        assertThat(indexed.result().unavailable()).isEqualTo(projected.unavailable());
+        indexed
+            .result()
+            .witnesses()
+            .forEach((key, witness) -> assertThat(classes.key(witness)).isEqualTo(key));
         var law =
             new ActionLaw(projected.outcomes(), projected.unresolved(), projected.unavailable());
         var previous = laws.putIfAbsent(List.of(classes.key(source), action), law);
@@ -253,6 +262,48 @@ class BasicTransitionClassesTest {
     assertThat(first.item().explicits()).contains(variants.get(0).item().explicits().getFirst());
     assertThat(second.item().explicits()).contains(variants.get(1).item().explicits().getFirst());
     assertThatThrownBy(() -> kernel.replay(root)).isInstanceOf(IllegalArgumentException.class);
+    var indexed = classes.indexedCursor(variants.get(0), WorkbenchCurrency.EXALTED);
+    assertThatThrownBy(indexed::result).isInstanceOf(IllegalStateException.class);
+    while (!indexed.complete()) indexed.step();
+    assertThat(indexed.result().replay(variants.get(0)).next().state()).isEqualTo(first);
+    assertThat(indexed.result().replay(variants.get(1)).next().state()).isEqualTo(second);
+    assertThatThrownBy(() -> indexed.result().replay(root))
+        .isInstanceOf(IllegalArgumentException.class);
+  }
+
+  @Test
+  void indexedAdditionPreservesCursorAndMaterializesOnlyGroupedWitnesses() {
+    var fixture = new DeferredProductionTest();
+    var root = fixture.root();
+    var partition = fixture.fixture.goals.rollPartition(root.item(), fixture.goal(47));
+    var classes =
+        new BasicTransitionClasses(
+            fixture.fixture.catalog,
+            fixture.primitive,
+            partition,
+            fixture.fixture.goals.compileEvaluation(root.item(), fixture.goal(47)));
+    var raw = fixture.primitive.primitiveCursor(root, WorkbenchCurrency.EXALTED, Set.of());
+    var candidate = raw.identity().orElseThrow().branches().getFirst().candidates().getFirst();
+    var range = candidate.stats().getFirst();
+    var witness = raw.candidateWitness(0, 0, range.min());
+    var probability = raw.candidateBandProbability(0, 0, range.min(), range.min());
+    assertThat(raw.status()).isEqualTo(BasicCurrencyTransitions.Status.PARTIAL);
+    var first = raw.next();
+    assertThat(first.state()).isEqualTo(witness);
+    assertThat(first.probability()).isEqualTo(probability);
+    assertThatThrownBy(() -> raw.candidateBandProbability(0, 0, range.max(), range.min() - 1))
+        .isInstanceOf(IllegalArgumentException.class);
+    var grouped = fixture.primitive.primitiveCursor(root, WorkbenchCurrency.EXALTED, Set.of());
+    long concreteWitnesses = 0;
+    while (!grouped.complete()) {
+      grouped.nextGrouped(partition::end);
+      concreteWitnesses++;
+    }
+    var indexed = classes.indexedCursor(root, WorkbenchCurrency.EXALTED);
+    while (!indexed.complete()) indexed.step();
+    assertThat(indexed.materializedWitnesses()).isLessThan(concreteWitnesses);
+    assertThat(indexed.result().outcomes().values().stream().reduce(Fraction.ZERO, Fraction::add))
+        .isEqualTo(Fraction.ONE);
   }
 
   @Test
@@ -284,6 +335,16 @@ class BasicTransitionClassesTest {
         var b = classes.cursor(last, action);
         while (!a.complete()) a.step();
         while (!b.complete()) b.step();
+        var indexed = classes.indexedCursor(first, action);
+        while (!indexed.complete()) indexed.step();
+        assertThat(
+                new ActionLaw(
+                    indexed.result().outcomes(),
+                    indexed.result().unresolved(),
+                    indexed.result().unavailable()))
+            .isEqualTo(
+                new ActionLaw(
+                    a.result().outcomes(), a.result().unresolved(), a.result().unavailable()));
         assertThat(
                 new ActionLaw(
                     a.result().outcomes(), a.result().unresolved(), a.result().unavailable()))

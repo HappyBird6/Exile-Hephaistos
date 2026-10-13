@@ -898,3 +898,38 @@ processed 3,147 compactions and retained 1,039 generated tier laws. Both runs st
 had only 18/42 root methods ready and no first local recommendation or full
 completion. Reducing cumulative normalization work did not resolve combinatorial
 state/method expansion; larger fixed work allowances are not the proposed fix.
+
+## Indexed transition-class kernels
+
+The class-kernel cursor now groups generated modifier/roll regions within each
+removal branch before constructing full item witnesses. Candidate-band mass uses
+the primitive cursor's validated pool, effective weight policy, roll range and
+removal denominator. Witness construction uses the shared basic-currency finisher.
+This does not infer eligibility from family counts or replace individual-candidate
+weights with family weights. Equivalent candidates' already-computed masses are
+added only within the same mutually exclusive action outcome law.
+
+The original projection cursor remains an independent comparison path. Tests compare
+all supported basic actions on every state of the small exhaustive fixture and on
+production Solar goal-threshold variants. Indexed reads do not advance the primitive
+cursor. Replay still requires the actual incoming full item and preserves its rolls;
+the class witness is not a conditional distribution or a replacement for that item.
+
+This is a foundation for separating class probability calculation from conditional
+item transport. The production method calculation does not yet execute methods on
+these class kernels, so this change alone does not establish production completion
+or resolve the recorded distribution/frontier growth.
+
+Docker `spotlessApply check generateJooq bootJar` passed 693 unit/contract tests
+and 7 integration tests. The full check/build took 6m01s.
+
+Two isolated 60-second diagnostics used the same current rules and source, a blank
+Rare Solar82 root, and Projectile+3 plus explicit Spirit47 goal observations. The
+original projection discovered 34,280 classes and expanded 8,177, leaving 26,103
+pending; it calculated 56,672 kernels/2,136,547 class edges with a sampled heap
+peak of 137,659,448 bytes. The indexed cursor discovered 75,079 and expanded
+25,546, leaving 49,533 pending; it calculated 176,022 kernels/6,739,970 edges,
+materialized 7,139,988 witnesses and reached a sampled heap peak of 229,495,800
+bytes. Both stopped at the time guard with `complete=false`. This compares work
+within a time window, not equal completed work or peak memory for equal frontiers.
+The 112,236 combinatorial class bound and 22 family profiles are unchanged.

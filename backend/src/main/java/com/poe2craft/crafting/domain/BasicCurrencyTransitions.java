@@ -173,6 +173,38 @@ public final class BasicCurrencyTransitions {
       return remainingOutcomes;
     }
 
+    /** Read-only indexed projection uses the same validated pool, weights and roll model. */
+    public Fraction candidateBandProbability(int branch, int candidate, long first, long last) {
+      var definition = indexedCandidate(branch, candidate, first, last);
+      return new Fraction(
+          BigInteger.valueOf(selectionWeight(definition))
+              .multiply(
+                  BigInteger.valueOf(last).subtract(BigInteger.valueOf(first)).add(BigInteger.ONE)),
+          BigInteger.valueOf(weights.get(branch))
+              .multiply(rangeSize(definition.stats().getFirst()))
+              .multiply(BigInteger.valueOf(plan.branches().size())));
+    }
+
+    public BasicCurrencyState candidateWitness(int branch, int candidate, long value) {
+      var definition = indexedCandidate(branch, candidate, value, value);
+      var remaining = plan.branches().get(branch).remaining();
+      var explicits = new ArrayList<>(remaining.explicits());
+      explicits.add(
+          new ModifierInstance(definition.id(), Map.of(definition.stats().getFirst().id(), value)));
+      return new BasicCurrencyState(
+          simulator.finishBasicCurrency(remaining, explicits), provenance);
+    }
+
+    private ModifierDefinition indexedCandidate(int branch, int candidate, long first, long last) {
+      if (blocked() || action == WorkbenchCurrency.ANNULMENT)
+        throw new IllegalStateException("No indexed addition pool");
+      var definition = plan.branches().get(branch).candidates().get(candidate);
+      var range = definition.stats().getFirst();
+      if (first < range.min() || last > range.max() || first > last)
+        throw new IllegalArgumentException("Invalid indexed roll range");
+      return definition;
+    }
+
     public Status status() {
       return blocked() ? preflight.status() : complete() ? Status.COMPLETE : Status.PARTIAL;
     }
