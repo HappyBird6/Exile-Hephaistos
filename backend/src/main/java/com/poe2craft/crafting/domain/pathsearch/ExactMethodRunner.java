@@ -6,7 +6,8 @@ import java.util.function.Function;
 
 /** Finite-observation Markov calculation. S must be the full immutable transition state. */
 public final class ExactMethodRunner<S, A> {
-  public static final String VERSION = "method-cycle-incremental-terminal-laws-v6";
+  public static final String VERSION = "method-cycle-bounded-phase-kernels-v7";
+  static final int PHASE_KERNEL_WINDOW = 32;
 
   /**
    * A law-preserving normalization of one mutually exclusive distribution, never alternatives.
@@ -149,6 +150,10 @@ public final class ExactMethodRunner<S, A> {
     return groupedInputs;
   }
 
+  int retainedPhaseKernels() {
+    return phaseGroups.size() + (flight == null ? 0 : 1);
+  }
+
   private final class Flight {
     final Execution<S> execution;
     Fraction mass;
@@ -276,7 +281,9 @@ public final class ExactMethodRunner<S, A> {
         absorb(Exit.UNRESOLVED, execution.state(), mass.multiply(kernel.unresolved()));
       }
       phaseReady =
-          pending.isEmpty() || pending.keySet().iterator().next().phase() != execution.phase();
+          phaseGroups.size() >= PHASE_KERNEL_WINDOW
+              || pending.isEmpty()
+              || pending.keySet().iterator().next().phase() != execution.phase();
       if (!phaseReady) return;
       if (phaseGroups.isEmpty()) {
         phaseReady = false;

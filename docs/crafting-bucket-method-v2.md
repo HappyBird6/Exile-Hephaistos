@@ -970,3 +970,41 @@ been weakened or silently replaced by floating-point estimates.
 
 Docker `spotlessApply check generateJooq bootJar` passed the complete 693
 unit/contract tests and 7 integration tests in 5m49s for the class-index change.
+
+## Bounded phase-kernel retention (v16)
+
+The method runner previously collected every distinct kernel in a primitive phase
+before consuming their outcomes. Those references remained live even after a
+bounded application cache evicted them. It now consumes a prefix when 32 distinct
+kernels have accumulated. Remaining inputs retain their phase and exact mass;
+new next-phase inputs stay behind them and coalesce normally. Equal kernels still
+share work within each prefix. This is a live-reference bound, not a restriction
+on states, actions, cycles or currency use.
+
+A regression with 96 distinct kernels proves that at most 32 are retained and
+checks the complete first-hit exit law and preparation/cycle consumption against
+closed-form fractions. It includes success before the second action, so batching
+cannot charge that action on already successful paths. The targeted runner suite
+passed. The same short class-method diagnostic reached four cycles, 48,874 classes
+and 28,005 kernels/1,476,197 outcomes in 33,134ms before its sampled-heap guard
+stopped it at 467,602,416 bytes. This still does not prove lower total live memory
+or completion; sampled allocated heap includes garbage awaiting collection.
+
+Docker `spotlessApply check generateJooq bootJar` passed all 694 unit/contract
+tests and 7 integration tests for v16. The full check/build took 5m26s.
+
+With the same fixed 512MiB JVM heap but without the early sampled-allocation guard,
+the class-method diagnostic ran for 180,000ms and completed five cycles. It had
+108,999 classes, 90,337 calculated kernels and 4,279,654 outcomes; the last complete
+boundary had 24,884 active classes and 13,193 exit classes. Peak sampled allocation
+was 531,628,032 bytes, but post-diagnostic-GC use was 116,095,128 bytes. It remained
+partial at the time guard. This distinguishes allocation pressure from retained
+heap; it does not establish a completed 100-cycle method observation.
+
+The production v16 132,000-operation diagnostic took 7,001ms, with first
+snapshot/method/goal at 128/280/727ms. It had 609 cells (600 unexpanded), 274/798
+completed methods and 30,885 observation support entries. Sampled heap peak was
+275,456,608 bytes and VmHWM 529,516 KiB. Root readiness remained 18/42 at 100 and
+500 cycles, with no first local recommendation or full completion. The phase
+reference bound is verified, but this production measurement does not demonstrate
+a total-memory improvement or resolve the outstanding frontier problem.

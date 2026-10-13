@@ -11,6 +11,56 @@ import org.junit.jupiter.api.Test;
 class ExactMethodRunnerTest {
   private static final Fraction HALF = Fraction.of(1, 2);
 
+  @Test
+  void boundedPhaseBatchesPreserveFirstHitConditionalMassAndCurrencyUses() {
+    var runner =
+        new ExactMethodRunner<Integer, String>(
+            0,
+            new Template<>(
+                "many-distinct-kernels",
+                List.of(s -> "seed"),
+                List.of(s -> "branch", s -> "finish")),
+            (state, action) -> {
+              if (action.equals("seed")) {
+                var outcomes = new ArrayList<Outcome<Integer>>();
+                for (int value = 1; value <= 96; value++)
+                  outcomes.add(new Outcome<>(value, Fraction.of(1, 96)));
+                return new Kernel<>(outcomes, Fraction.ZERO, false);
+              }
+              if (action.equals("branch"))
+                return new Kernel<>(
+                    List.of(
+                        new Outcome<>(1000 + state, Fraction.of(state, 100)),
+                        new Outcome<>(0, Fraction.of(100 - state, 100))),
+                    Fraction.ZERO,
+                    false);
+              assertThat(action).isEqualTo("finish");
+              assertThat(state).isZero();
+              return new Kernel<>(List.of(new Outcome<>(2000, Fraction.ONE)), Fraction.ZERO, false);
+            },
+            state -> state >= 1000 ? Optional.of(Exit.GOAL) : Optional.empty());
+    while (!runner.atBoundary()) runner.step(1);
+    runner.beginCycle();
+    int peak = 0;
+    while (!runner.atBoundary()) {
+      runner.step(1);
+      peak = Math.max(peak, runner.retainedPhaseKernels());
+      assertThat(runner.retainedPhaseKernels())
+          .isLessThanOrEqualTo(ExactMethodRunner.PHASE_KERNEL_WINDOW);
+    }
+    assertThat(peak).isEqualTo(ExactMethodRunner.PHASE_KERNEL_WINDOW);
+    var point = runner.observation();
+    var expected = new HashMap<Integer, Fraction>();
+    for (int value = 1; value <= 96; value++) expected.put(1000 + value, Fraction.of(value, 9600));
+    expected.put(2000, Fraction.of(103, 200));
+    assertThat(point.exits().get(Exit.GOAL)).isEqualTo(expected);
+    assertThat(point.active()).isEmpty();
+    assertThat(point.initialUses()).isEqualTo(Map.of("seed", Fraction.ONE));
+    assertThat(point.cycleUses())
+        .isEqualTo(Map.of("branch", Fraction.ONE, "finish", Fraction.of(103, 200)));
+    assertThat(point.mass()).isEqualTo(Fraction.ONE);
+  }
+
   private static Compaction<String> terminalExpansion(Map<String, Fraction> input) {
     var mass = input.values().iterator().next();
     return new Compaction<>() {
