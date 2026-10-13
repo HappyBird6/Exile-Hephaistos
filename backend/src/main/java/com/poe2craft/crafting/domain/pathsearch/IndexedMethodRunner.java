@@ -6,7 +6,7 @@ import java.util.function.Function;
 
 /** Cooperative method marginals on proven classes; observations are not incoming item laws. */
 public final class IndexedMethodRunner {
-  public static final String VERSION = "cooperative-class-method-marginals-v1";
+  public static final String VERSION = "cooperative-shared-class-method-marginals-v2";
 
   private record Key(int source, WorkbenchCurrency action) {}
 
@@ -23,13 +23,10 @@ public final class IndexedMethodRunner {
   private final int source;
   private final ExactMethodRunner.Template<Integer, WorkbenchCurrency> template;
   private final Function<Integer, Optional<ExactMethodRunner.Exit>> classify;
-  private final int cacheLimit;
-  private final LinkedHashMap<Key, ExactMethodRunner.Kernel<Integer>> kernels =
-      new LinkedHashMap<>(16, .75f, true);
+  private final IndexedKernelStore store;
   private final ExactMethodRunner<Integer, WorkbenchCurrency> runner;
   private Key pendingKey;
-  private BasicClassIndex.Cursor pending;
-  private long calculatedKernels, evictedKernels;
+  private IndexedKernelStore.Request pending;
 
   public IndexedMethodRunner(
       BasicClassIndex index,
@@ -37,21 +34,37 @@ public final class IndexedMethodRunner {
       ExactMethodRunner.Template<Integer, WorkbenchCurrency> template,
       Function<Integer, Optional<ExactMethodRunner.Exit>> classify,
       int cacheLimit) {
-    if (cacheLimit < 1) throw new IllegalArgumentException("Positive kernel cache limit required");
-    this.index = Objects.requireNonNull(index);
+    this(new IndexedKernelStore(index, cacheLimit, Integer.MAX_VALUE), source, template, classify);
+  }
+
+  public IndexedMethodRunner(
+      IndexedKernelStore store,
+      int source,
+      ExactMethodRunner.Template<Integer, WorkbenchCurrency> template,
+      Function<Integer, Optional<ExactMethodRunner.Exit>> classify) {
+    this.store = Objects.requireNonNull(store);
+    this.index = store.index();
     index.key(source);
     this.source = source;
     this.template = template;
     this.classify = classify;
-    this.cacheLimit = cacheLimit;
     runner = new ExactMethodRunner<>(source, template, this::kernel, classify);
   }
 
   private ExactMethodRunner.Kernel<Integer> kernel(int source, WorkbenchCurrency action) {
     var key = new Key(source, action);
-    var result = kernels.get(key);
-    if (result == null) throw new MissingKernel(key);
-    return result;
+    if (pending != null && pendingKey.equals(key)) {
+      if (!pending.complete()) throw new MissingKernel(key);
+      var result = pending.result();
+      pending = null;
+      pendingKey = null;
+      return result;
+    }
+    var request = store.request(source, action);
+    if (request.complete()) return request.result();
+    pendingKey = key;
+    pending = request;
+    throw new MissingKernel(key);
   }
 
   public boolean atBoundary() {
@@ -63,25 +76,14 @@ public final class IndexedMethodRunner {
   }
 
   public void step() {
-    if (pending != null) {
-      if (!pending.complete()) pending.step();
-      if (pending.complete()) {
-        kernels.put(pendingKey, pending.result());
-        calculatedKernels++;
-        pendingKey = null;
-        pending = null;
-        while (kernels.size() > cacheLimit) {
-          kernels.pollFirstEntry();
-          evictedKernels++;
-        }
-      }
+    if (pending != null && !pending.complete()) {
+      pending.step();
       return;
     }
     try {
       runner.step();
     } catch (MissingKernel missing) {
-      pendingKey = missing.key;
-      pending = index.cursor(pendingKey.source(), pendingKey.action());
+      // The handle was registered before suspension and survives shared-cache eviction.
     }
   }
 
@@ -89,27 +91,65 @@ public final class IndexedMethodRunner {
     return runner.observation();
   }
 
+  public Snapshot snapshot() {
+    return new Snapshot(index, source, template, classify, runner.observation());
+  }
+
   public ConditionalMethodLaw condition(
       ConditionalMethodLaw input, Optional<ExactMethodRunner.Exit> exit, int target) {
-    var point = runner.observation();
-    var values = exit.map(point.exits()::get).orElse(point.active());
-    var probability =
-        values.getOrDefault(
-            target,
-            com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction.ZERO);
-    return ConditionalMethodLaw.output(
-        input, index, source, template, classify, point.cycles(), exit, target, probability);
+    return snapshot().condition(input, exit, target);
+  }
+
+  /** A completed observation can outlive its runner without losing its actual-input operator. */
+  public static final class Snapshot {
+    private final BasicClassIndex index;
+    private final int source;
+    private final ExactMethodRunner.Template<Integer, WorkbenchCurrency> template;
+    private final Function<Integer, Optional<ExactMethodRunner.Exit>> classify;
+    private final ExactMethodRunner.Observation<Integer, WorkbenchCurrency> point;
+
+    private Snapshot(
+        BasicClassIndex index,
+        int source,
+        ExactMethodRunner.Template<Integer, WorkbenchCurrency> template,
+        Function<Integer, Optional<ExactMethodRunner.Exit>> classify,
+        ExactMethodRunner.Observation<Integer, WorkbenchCurrency> point) {
+      this.index = index;
+      this.source = source;
+      this.template = template;
+      this.classify = classify;
+      this.point = point;
+    }
+
+    public ExactMethodRunner.Observation<Integer, WorkbenchCurrency> observation() {
+      return point;
+    }
+
+    public Snapshot atLaterAbsorbedBoundary(long cycles) {
+      return new Snapshot(index, source, template, classify, point.atLaterAbsorbedBoundary(cycles));
+    }
+
+    public ConditionalMethodLaw condition(
+        ConditionalMethodLaw input, Optional<ExactMethodRunner.Exit> exit, int target) {
+      var values = exit.map(point.exits()::get).orElse(point.active());
+      var probability =
+          values.getOrDefault(
+              target,
+              com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction.ZERO);
+      return ConditionalMethodLaw.output(
+          input, index, source, template, classify, point.cycles(), exit, target, probability);
+    }
   }
 
   public int cachedKernels() {
-    return kernels.size();
+    return store.cachedKernels();
   }
 
   public long calculatedKernels() {
-    return calculatedKernels;
+    return store.calculatedKernels();
   }
 
   public long evictedKernels() {
-    return evictedKernels;
+    return store.evictedKernels();
   }
 }

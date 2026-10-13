@@ -317,6 +317,52 @@ class BasicTransitionClassesTest {
         classIndex,
         graph);
     verifyPreparationAndTerminalTransport(root, classes, classIndex, graph);
+    verifySharedKernelDelivery(root, classIndex);
+  }
+
+  private static void verifySharedKernelDelivery(BasicCurrencyState root, BasicClassIndex index) {
+    int source = index.classOf(root);
+    var store = new IndexedKernelStore(index, 1, 1);
+    var first = store.request(source, WorkbenchCurrency.EXALTED);
+    assertThat(store.request(source, WorkbenchCurrency.EXALTED)).isSameAs(first);
+    assertThatThrownBy(first::result).isInstanceOf(IllegalStateException.class);
+    while (!first.complete()) first.step();
+    var expected = first.result();
+    var other = store.request(source, WorkbenchCurrency.ANNULMENT);
+    while (!other.complete()) other.step();
+    assertThat(first.result()).isSameAs(expected);
+    assertThat(store.cachedKernels()).isLessThanOrEqualTo(1);
+    assertThat(store.cachedOutcomes()).isLessThanOrEqualTo(1);
+    assertThat(store.pendingKernels()).isZero();
+    assertThat(store.calculatedKernels()).isEqualTo(2);
+    assertThat(store.evictedKernels()).isPositive();
+    assertThat(store.sharedRequests()).isEqualTo(1);
+
+    var template =
+        new ExactMethodRunner.Template<Integer, WorkbenchCurrency>(
+            "shared-delivery", List.of(), List.of(s -> WorkbenchCurrency.EXALTED));
+    java.util.function.Function<Integer, Optional<ExactMethodRunner.Exit>> classify =
+        id -> methodExit(index.key(source), index.key(id));
+    var left = new IndexedMethodRunner(store, source, template, classify);
+    var right = new IndexedMethodRunner(store, source, template, classify);
+    var reference = new IndexedMethodRunner(index, source, template, classify, 1);
+    for (int cycle = 0; cycle < 4; cycle++) {
+      int steps = 0;
+      while (!left.atBoundary() || !right.atBoundary() || !reference.atBoundary()) {
+        if (!left.atBoundary()) left.step();
+        if (!right.atBoundary()) right.step();
+        if (!reference.atBoundary()) reference.step();
+        assertThat(++steps).isLessThan(100_000);
+      }
+      assertThat(left.observation()).isEqualTo(reference.observation());
+      assertThat(right.observation()).isEqualTo(reference.observation());
+      if (cycle < 3) {
+        left.beginCycle();
+        right.beginCycle();
+        reference.beginCycle();
+      }
+    }
+    assertThat(store.sharedRequests()).isGreaterThan(1);
   }
 
   private static void verifyPreparationAndTerminalTransport(
@@ -338,6 +384,7 @@ class BasicTransitionClassesTest {
             1);
     while (!runner.atBoundary()) runner.step();
     var point = runner.observation();
+    var snapshot = runner.snapshot();
     assertThat(point.cycles()).isZero();
     assertThat(point.initialUses()).isEqualTo(Map.of(WorkbenchCurrency.EXALTED, Fraction.ONE));
     var direct =
@@ -358,6 +405,15 @@ class BasicTransitionClassesTest {
     }
     runner.beginCycle();
     while (!runner.atBoundary()) runner.step();
+    assertThat(snapshot.observation()).isEqualTo(point);
+    for (var exit : ExactMethodRunner.Exit.values())
+      for (var target : point.exits().get(exit).keySet()) {
+        var law = snapshot.condition(input, Optional.of(exit), target);
+        var expansion = law.expansion();
+        while (!expansion.complete()) expansion.step();
+        assertThat(expansion.result())
+            .isEqualTo(conditional(direct, index, target, law.probability()));
+      }
     saved.forEach((law, expected) -> assertThat(expand(law)).isEqualTo(expected));
     assertThat(expand(runner.condition(input, Optional.empty(), source)))
         .isEqualTo(Map.of(root, Fraction.ONE));
@@ -381,6 +437,15 @@ class BasicTransitionClassesTest {
     var terminalInput = ConditionalMethodLaw.root(index, Map.of(terminal, Fraction.ONE));
     assertThat(stopped.atBoundary()).isTrue();
     assertThat(stopped.calculatedKernels()).isZero();
+    var later = stopped.snapshot().atLaterAbsorbedBoundary(500);
+    assertThat(later.observation().cycles()).isEqualTo(500);
+    assertThat(later.observation().initialUses()).isEmpty();
+    assertThat(later.observation().cycleUses()).isEmpty();
+    assertThat(
+            expand(later.condition(terminalInput, Optional.of(ExactMethodRunner.Exit.GOAL), goal)))
+        .isEqualTo(Map.of(terminal, Fraction.ONE));
+    assertThatThrownBy(() -> later.atLaterAbsorbedBoundary(499))
+        .isInstanceOf(IllegalArgumentException.class);
     assertThat(
             expand(
                 stopped.condition(terminalInput, Optional.of(ExactMethodRunner.Exit.GOAL), goal)))

@@ -1092,3 +1092,35 @@ Elapsed time was 6,844 ms; first response/method/goal bucket appeared at
 129/281/710 ms. Sampled heap peak was 281,545,640 bytes and process peak RSS was
 505,660 KiB. Neither first local recommendation nor whole-search completion was
 reached. This adapter does not yet enable the class engine in production.
+
+## Shared indexed kernels and retained observations
+
+`IndexedKernelStore` scopes completed primitive kernels to one class index/job.
+Interleaved cooperative method runners share an unfinished request; only complete
+kernels enter the LRU. Both kernel count and total cached outcome rows are bounded.
+A delivery handle retains its complete law across cache eviction, including a
+single kernel larger than the entire outcome allowance. These cache allowances
+bound retained derived data, not currency use or exploration completeness. Active
+requests and in-flight method phases remain separate working memory.
+
+`IndexedMethodRunner.Snapshot` retains a completed observation and its conditional
+input operator without retaining the mutable runner. A later request can bind the
+saved observation to a verified actual incoming law. Absorbed observations can be
+extended to later horizons without additional currency use; an active observation
+cannot use that shortcut. This is a prerequisite for the class-engine API adapter,
+not its activation. Tests retain an earlier observation across runner advancement
+and compare its reconstructed conditional law with direct concrete enumeration.
+
+Remaining integration decisions: expose incoming-law identities and bounded
+asynchronous detail work explicitly; never serve class witnesses as distributions.
+A full exact-fraction real-data method was measured separately at about five
+minutes. Dense all-source/all-method distributions remain a scalability limit.
+Certified enclosing probability intervals have been proposed to the user, but
+are not implemented or assumed approved. Exact fractions remain the contract.
+
+Validation: the shared-store version passed Docker `check generateJooq bootJar`
+with 695 unit/contract tests and 7 integration tests (5m41s). After adding the
+retained observation API, final-source targeted probability, engine-view, service
+and lifecycle tests plus `spotlessCheck bootJar` passed (42s). The full test run
+preceded that last small observation change; it is not reported as a final-source
+full-suite rerun. No probability assertion was weakened.
