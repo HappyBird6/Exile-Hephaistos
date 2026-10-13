@@ -1198,3 +1198,47 @@ The user subsequently approved certified arithmetic intervals on 2026-10-13.
 That supersedes the earlier pending decision; this API checkpoint still uses
 exact fractions. Interval arithmetic, strict display/ranking certification and
 real Solar performance measurements form the following implementation unit.
+
+## Certified arithmetic foundation
+
+The exact fraction oracle is retained. `CertifiedInterval` represents a
+nonnegative quantity as `[L/2^b, U/2^b]`, using `BigInteger` throughout. Converting
+an exact `N/D` uses `floor(N*2^b/D)` and `ceil(N*2^b/D)`. Addition sums endpoint
+integers exactly. Multiplication uses `floor(L1*L2/2^b)` and
+`ceil(U1*U2/2^b)`. Every rounding operation is outward; neither floating-point
+estimates nor statistical confidence intervals are used. Intersecting with [0,1]
+is allowed only for quantities already known independently to be probabilities.
+Expected currency counts are not clipped to [0,1].
+
+The domain precision policy accepts 16–256 fractional bits and 0–12 percent
+places; the initial default is 64 bits and two percent places. Different binary
+precisions cannot be mixed in arithmetic. `confirmedPercent` returns a single
+rounded number only when both endpoints produce exactly the same HALF_UP decimal
+percentage using integer/decimal arithmetic. An interval straddling a rounding
+tie remains unconfirmed even when very narrow. This foundation is not yet wired
+to the UI or a bounded-search request contract.
+
+`CertifiedMethodRunner` propagates enclosing Markov laws, checks first hit after
+every primitive, and separates preparation usage, cycle usage, active mass and
+all five exit kinds. Every completed boundary must enclose total mass one.
+Unresolved model mass remains an explicit exit, not an arithmetic error term.
+`IndexedCertifiedMethodRunner` shares the unchanged exact primitive kernel cache;
+method arithmetic is scoped to its precision policy. Exact kernel support is not
+dropped when a positive probability rounds down to a zero lower bound.
+
+Local ranking distinguishes `PENDING_ENUMERATION`, `PENDING_MODEL` and
+`PENDING_ARITHMETIC`. A strict winner needs its lower bound above every other
+potential upper bound; exact proven ties may also be returned. Missing direct
+observations cannot be treated as zero. Recovery remains a separately classified
+loss/checkpoint transition; this arithmetic layer does not add it to success or
+substitute fixed-path products for a strategy.
+
+Targeted Docker tests passed for integer enclosure, 500-cycle first-hit and cost
+laws, preparation, unavailable actions, explicit unresolved mass, rounding ties,
+precision mismatch and ranking ambiguity. Five precisions (16/32/64/128/256 bits)
+were compared with exact fraction arithmetic. A real level-one Solar catalog
+case derives its one-cycle Cold Resistance >=7 chance from the full eligible
+Exalted pool, then checks Exalted/Annulment 100/300/500 observations and currency
+counts against the exact renewal law at 16 and 64 bits. The return-to-source
+condition is checked, not assumed. These are numerical containment checks under
+the declared catalog/rule/roll model, not verification of game-data completeness.
