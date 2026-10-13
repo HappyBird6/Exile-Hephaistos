@@ -304,6 +304,111 @@ class BasicTransitionClassesTest {
         .isEqualTo(second);
     assertThatThrownBy(() -> classIndex.replay(variantClass, root, WorkbenchCurrency.EXALTED))
         .isInstanceOf(IllegalArgumentException.class);
+    verifyIndexedMethod(
+        root,
+        List.of(WorkbenchCurrency.EXALTED, WorkbenchCurrency.ANNULMENT),
+        classes,
+        classIndex,
+        graph);
+    verifyIndexedMethod(
+        variants.get(0),
+        List.of(WorkbenchCurrency.EXALTED, WorkbenchCurrency.CHAOS),
+        classes,
+        classIndex,
+        graph);
+  }
+
+  private static Optional<ExactMethodRunner.Exit> methodExit(
+      BasicTransitionClasses.Key source, BasicTransitionClasses.Key target) {
+    var now = target.observations();
+    if (now.getFirst() == Status.MATCH) return Optional.of(ExactMethodRunner.Exit.GOAL);
+    if (now.stream().anyMatch(s -> s == Status.UNKNOWN || s == Status.UNSUPPORTED))
+      return Optional.of(ExactMethodRunner.Exit.UNRESOLVED);
+    if (source.observations().equals(now)) return Optional.empty();
+    for (int i = 0; i < now.size(); i++)
+      if (source.observations().get(i) == Status.MATCH && now.get(i) != Status.MATCH)
+        return Optional.of(ExactMethodRunner.Exit.LOSS);
+    return Optional.of(ExactMethodRunner.Exit.CHECKPOINT);
+  }
+
+  private static Map<Integer, Fraction> indexedLaw(
+      Map<BasicCurrencyState, Fraction> law, BasicClassIndex index) {
+    var result = new HashMap<Integer, Fraction>();
+    law.forEach((state, mass) -> result.merge(index.intern(state), mass, Fraction::add));
+    return result;
+  }
+
+  /** Independent forward enumeration uses the closed concrete graph, never the class kernels. */
+  private static void verifyIndexedMethod(
+      BasicCurrencyState source,
+      List<WorkbenchCurrency> actions,
+      BasicTransitionClasses classes,
+      BasicClassIndex index,
+      Map<BasicCurrencyState, FiniteQuotientProof.Node<BasicCurrencyState>> graph) {
+    var sourceKey = classes.key(source);
+    var selectors =
+        actions.stream()
+            .<java.util.function.Function<Integer, WorkbenchCurrency>>map(a -> s -> a)
+            .toList();
+    var runner =
+        new IndexedMethodRunner(
+            index,
+            index.intern(source),
+            new ExactMethodRunner.Template<>("closed-graph-oracle", List.of(), selectors),
+            id -> methodExit(sourceKey, index.key(id)),
+            1);
+    Map<BasicCurrencyState, Fraction> active = Map.of(source, Fraction.ONE);
+    var exits =
+        new EnumMap<ExactMethodRunner.Exit, Map<BasicCurrencyState, Fraction>>(
+            ExactMethodRunner.Exit.class);
+    for (var exit : ExactMethodRunner.Exit.values()) exits.put(exit, new HashMap<>());
+    var uses = new HashMap<WorkbenchCurrency, Fraction>();
+    long steps = 0;
+    for (int cycle = 1; cycle <= 500; cycle++) {
+      runner.beginCycle();
+      if (cycle == 1)
+        assertThatThrownBy(runner::observation).isInstanceOf(IllegalStateException.class);
+      while (!runner.atBoundary()) {
+        runner.step();
+        assertThat(++steps).isLessThan(1000000);
+        assertThat(runner.cachedKernels()).isLessThanOrEqualTo(1);
+      }
+      for (var action : actions) {
+        var next = new HashMap<BasicCurrencyState, Fraction>();
+        for (var entry : active.entrySet()) {
+          var law =
+              graph.get(entry.getKey()).actions().stream()
+                  .filter(a -> a.label().equals(action.name()))
+                  .findFirst();
+          if (law.isEmpty()) {
+            exits
+                .get(ExactMethodRunner.Exit.DEAD)
+                .merge(entry.getKey(), entry.getValue(), Fraction::add);
+            continue;
+          }
+          uses.merge(action, entry.getValue(), Fraction::add);
+          for (var outcome : law.get().outcomes().entrySet()) {
+            var mass = entry.getValue().multiply(outcome.getValue());
+            var terminal = methodExit(sourceKey, classes.key(outcome.getKey()));
+            if (terminal.isPresent())
+              exits.get(terminal.get()).merge(outcome.getKey(), mass, Fraction::add);
+            else next.merge(outcome.getKey(), mass, Fraction::add);
+          }
+        }
+        active = next;
+      }
+      if (Set.of(100, 300, 500).contains(cycle)) {
+        var actual = runner.observation();
+        for (var exit : ExactMethodRunner.Exit.values())
+          assertThat(actual.exits().get(exit)).isEqualTo(indexedLaw(exits.get(exit), index));
+        assertThat(actual.active()).isEqualTo(indexedLaw(active, index));
+        assertThat(actual.initialUses()).isEmpty();
+        assertThat(actual.cycleUses()).isEqualTo(uses);
+        assertThat(actual.cycles()).isEqualTo(cycle);
+        assertThat(actual.mass()).isEqualTo(Fraction.ONE);
+      }
+    }
+    assertThat(runner.evictedKernels()).isPositive();
   }
 
   @Test

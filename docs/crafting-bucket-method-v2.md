@@ -1008,3 +1008,25 @@ completed methods and 30,885 observation support entries. Sampled heap peak was
 500 cycles, with no first local recommendation or full completion. The phase
 reference bound is verified, but this production measurement does not demonstrate
 a total-memory improvement or resolve the outstanding frontier problem.
+
+## Cooperative class method marginals
+
+`IndexedMethodRunner` now advances class-kernel construction and method execution
+cooperatively. A missing kernel suspends before committing currency consumption or
+phase progress. Only completed kernels enter its bounded LRU cache. Eviction drops
+derived work, not states or probability mass; the fixed class index preserves
+identities and exact incoming-item replay.
+
+An independent forward enumeration of the closed concrete fixture compares every
+exit class, active mass and currency cost at 100/300/500 cycles for retry and
+loss-capable methods. An initial cache-limit-two test did not actually evict: its
+first method needed only two class kernels. The guard correctly failed even though
+all probability comparisons passed. Reducing the cache allowance to one forces
+repeated eviction/recalculation; the same probability assertions then passed.
+Docker `spotlessApply check generateJooq bootJar` passed 694 unit/contract tests
+and 7 integration tests in 5m37s.
+
+This runner returns class marginals, not full conditional item distributions. It
+is not yet wired into the user API. The separate conditional method-operator
+implementation and its full-state transport checks remain the next integration
+step; a class witness must not be published as that distribution.
