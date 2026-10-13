@@ -142,6 +142,9 @@ public final class OrbitPartition {
   }
 
   public void validateSource(DeferredItem source) {
+    if (source.orbits().values().stream().anyMatch(OrbitCell::mixed))
+      throw new IllegalArgumentException(
+          "Expand conditional orbit components before primitive transport");
     var represented = new HashSet<String>();
     source
         .orbits()

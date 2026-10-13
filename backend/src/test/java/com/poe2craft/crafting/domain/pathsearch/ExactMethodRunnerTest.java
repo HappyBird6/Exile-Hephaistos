@@ -11,6 +11,34 @@ import org.junit.jupiter.api.Test;
 class ExactMethodRunnerTest {
   private static final Fraction HALF = Fraction.of(1, 2);
 
+  @Test
+  void publishedObservationRejectsMassLostByFaultyCompaction() {
+    var runner =
+        new ExactMethodRunner<String, String>(
+            "root",
+            new Template<>("guard", List.of(), List.of(s -> "draw")),
+            (state, action) -> kernel("a", "b"),
+            state -> Optional.empty(),
+            values ->
+                new Compaction<>() {
+                  public boolean complete() {
+                    return true;
+                  }
+
+                  public void step(int maxInputs) {}
+
+                  public Map<String, Fraction> result() {
+                    return Map.of("a", HALF);
+                  }
+                });
+    runner.beginCycle();
+    finish(runner);
+    assertThat(runner.boundarySnapshot().mass()).isEqualTo(HALF);
+    assertThatThrownBy(runner::observation)
+        .isInstanceOf(IllegalStateException.class)
+        .hasMessage("Method mass not conserved");
+  }
+
   private static Kernel<String> kernel(String... states) {
     return new Kernel<>(
         Arrays.stream(states)

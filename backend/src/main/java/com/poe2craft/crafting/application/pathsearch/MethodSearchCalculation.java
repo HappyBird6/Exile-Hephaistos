@@ -18,7 +18,7 @@ import java.util.function.UnaryOperator;
 
 /** Job-local, resumable method-depth exploration. UI buckets never key calculation states. */
 public final class MethodSearchCalculation {
-  public static final String VERSION = "conditional-mixture-method-search-v12";
+  public static final String VERSION = "conditional-orbit-mixture-method-search-v13";
   static final int OPEN_METHOD_WINDOW = 512;
   public static final String TEMPLATES = "applicable-single-and-two-action-cycles-v3";
   public static final List<Integer> OBSERVATIONS = List.of(100, 300, 500);
@@ -91,13 +91,18 @@ public final class MethodSearchCalculation {
               .thenComparing(e -> e.state().id));
   private final Map<State, Set<State>> adjacency = new HashMap<>();
   private final Map<Key, Kernel<DeferredItem>> kernels = new HashMap<>();
+  // Posterior laws change each cycle. Keep original finite-cell kernels, but bound derived reuse.
+  private final LinkedHashMap<Key, Integer> derivedKernels = new LinkedHashMap<>(16, .75f, true);
+  private final Map<Key, Set<Method>> kernelDeliveries = new HashMap<>();
+  private Method executingMethod;
+  private long derivedKernelEvictions;
   private final Map<Key, Key> kernelAliases = new HashMap<>();
   private final Map<Key, Integer> kernelDepth = new HashMap<>();
   private final Map<Key, Integer> kernelMethodLength = new HashMap<>();
   private final Map<DeferredTransitions.Identity, Key> kernelIdentities = new HashMap<>();
   private long sharedKernelLookups;
   private final LinkedHashMap<Key, KernelWork> pendingKernels = new LinkedHashMap<>();
-  private final Map<DeferredItem, Progress> progress = new HashMap<>();
+  private final Map<ItemState, Progress> progress = new HashMap<>();
   private final Set<String> activeOmens;
   private final Set<WorkbenchSimulator.Assumption> assumptions = new LinkedHashSet<>();
 
@@ -219,7 +224,7 @@ public final class MethodSearchCalculation {
   }
 
   public DeferredMixtures.Metrics mixtureMetrics() {
-    return mixtures == null ? new DeferredMixtures.Metrics(0, 0, 0) : mixtures.metrics();
+    return mixtures == null ? new DeferredMixtures.Metrics(0, 0, 0, 0) : mixtures.metrics();
   }
 
   public boolean memoryLimited() {
@@ -287,6 +292,7 @@ public final class MethodSearchCalculation {
     selected.queued = false;
     runnableCount--;
     try {
+      executingMethod = selected;
       selected.step();
       if (!selected.done) queue(selected);
     } catch (PendingKernel pending) {
@@ -297,7 +303,38 @@ public final class MethodSearchCalculation {
               selected.initial.size() + selected.actions.size());
       if (kernels.containsKey(key)) queue(selected);
       else waiting.computeIfAbsent(key, unused -> new ArrayList<>()).add(selected);
+    } finally {
+      executingMethod = null;
+      trimDerivedKernels();
     }
+  }
+
+  private void trimDerivedKernels() {
+    var entries = derivedKernels.entrySet().iterator();
+    while (derivedKernels.size() > openMethodWindow && entries.hasNext()) {
+      var entry = entries.next();
+      var key = entry.getKey();
+      if (kernelDeliveries.containsKey(key)) continue;
+      retainedOutcomes -= entry.getValue();
+      entries.remove();
+      kernels.remove(key);
+      kernelAliases.remove(key);
+      kernelDepth.remove(key);
+      kernelMethodLength.remove(key);
+      derivedKernelEvictions++;
+    }
+  }
+
+  private void finishDerivedKernel(Key key, Kernel<DeferredItem> value, int ownedOutcomes) {
+    kernels.put(key, value);
+    derivedKernels.put(key, ownedOutcomes);
+    var consumers = waiting.get(key);
+    if (consumers != null && !consumers.isEmpty())
+      kernelDeliveries.put(key, new HashSet<>(consumers));
+    pendingKernels.remove(key);
+    fairKernels.remove(key);
+    wake(key);
+    trimDerivedKernels();
   }
 
   private Key registerKernel(Key request, int depth, int methodLength) {
@@ -354,6 +391,10 @@ public final class MethodSearchCalculation {
       long liveRunners,
       int completedMethods,
       long groupedExecutionInputs) {}
+
+  public long derivedKernelEvictions() {
+    return derivedKernelEvictions;
+  }
 
   public CacheMetrics cacheMetrics() {
     return new CacheMetrics(
@@ -435,7 +476,7 @@ public final class MethodSearchCalculation {
   }
 
   private Progress progress(DeferredItem state) {
-    return progress.computeIfAbsent(state, s -> evaluate.apply(s.item()));
+    return progress.computeIfAbsent(state.item(), evaluate);
   }
 
   private boolean finished(State state) {
@@ -512,6 +553,13 @@ public final class MethodSearchCalculation {
     var key = new Key(state, action);
     var result = kernels.get(kernelAliases.getOrDefault(key, key));
     if (result == null) throw new PendingKernel(key);
+    if (derivedKernels.containsKey(key)) {
+      derivedKernels.get(
+          key); // Refresh access order without changing the kernel's probability law.
+      var consumers = kernelDeliveries.get(key);
+      if (consumers != null && consumers.remove(executingMethod) && consumers.isEmpty())
+        kernelDeliveries.remove(key);
+    }
     return result;
   }
 
@@ -637,7 +685,7 @@ public final class MethodSearchCalculation {
         runner.step();
         return;
       }
-      var point = expanded(runner.observation());
+      var point = expanded(runner.boundarySnapshot());
       int cycles = Math.toIntExact(point.cycles());
       if (point.active().isEmpty()) {
         for (int n : OBSERVATIONS)
@@ -714,6 +762,8 @@ public final class MethodSearchCalculation {
     }
 
     void save(int cycles, Observation<DeferredItem, WorkbenchCurrency> point) {
+      if (!point.mass().equals(Fraction.ONE))
+        throw new IllegalStateException("Method result lost mass");
       if (points.putIfAbsent(cycles, point) != null)
         throw new IllegalStateException("An earlier observation must not be overwritten");
       point.active().keySet().forEach(s -> link(source, s));
@@ -803,10 +853,8 @@ public final class MethodSearchCalculation {
     void step() {
       if (!ready()) return;
       if (dependencies.size() == 1) {
-        kernels.put(key, kernels.get(dependencies.keySet().iterator().next()));
+        finishDerivedKernel(key, kernels.get(dependencies.keySet().iterator().next()), 0);
         sharedKernelLookups++;
-        pendingKernels.remove(key);
-        wake(key);
         return;
       }
       if (inputs == null) inputs = dependencies.entrySet().iterator();
@@ -834,14 +882,13 @@ public final class MethodSearchCalculation {
       if (!normalizer.complete()) return;
       var values = normalizer.result();
       retainedOutcomes += values.size() - outcomes.size();
-      kernels.put(
+      finishDerivedKernel(
           key,
           new Kernel<>(
               values.entrySet().stream().map(e -> new Outcome<>(e.getKey(), e.getValue())).toList(),
               unresolved,
-              Boolean.TRUE.equals(unavailable)));
-      pendingKernels.remove(key);
-      wake(key);
+              Boolean.TRUE.equals(unavailable)),
+          values.size());
     }
   }
 }

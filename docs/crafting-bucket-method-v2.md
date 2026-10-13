@@ -736,3 +736,65 @@ mechanism proves conditional-law transport but has not yet demonstrated the
 required whole-search performance. Anonymous orbit category mixtures, which this
 one-axis tier compactor leaves unchanged, remain a candidate for further exact
 reduction rather than another raw enumeration budget increase.
+
+A subsequent isolated v12 run confirmed the limitation: 132,000 operations in
+15,949ms, 610 cells, 280/798 methods done, 31,689 observation support entries,
+and 285,466,680 bytes sampled heap (VmHWM 537,008 KiB). First snapshot/method/goal
+were 142/335/1,953ms. Internal compaction merged 36,455 cells and retained 751
+generated tier laws. The first local recommendation and full completion remained
+unreached. The verified v12 source was backed up at
+`ad467e9c67548ba7d244c6e2a3cc64676f860b1d` before further changes.
+
+## Joint category mixtures and derived-kernel lifetime (v13)
+
+Anonymous family orbits can now carry an exact weighted mixture of category-count
+laws at fixed occupancy. Every component retains the original injective family
+assignment and weighted tier/roll law. Components are flattened, normalized, and
+checked against the complete profile, not just a profile hash. Different occupied
+slot counts remain separate. Compaction combines one axis only when the entire
+remaining conditional item is equal; correlated diagonal inputs therefore stay
+separate, while an independent rectangle can compact without losing its joint law.
+Graph observations and primitive dependencies restore the original finite cells.
+Direct primitive evaluation of a mixed orbit is rejected rather than treating its
+representative category as the whole distribution.
+
+The larger independent fixture has 54 concrete states and 2,849 methods. Its first
+full run passed 681 of 682 tests but stopped the deferred comparison at 100,001
+retained kernel outcomes, with 31,368 distinct kernels and only 24 graph cells.
+The failure exposed posterior-law cache retention, not a probability discrepancy.
+The retained-outcome limit remains 100,000. Derived kernels now use a bounded
+reuse cache; deliveries are pinned until every waiting method obtains the complete
+kernel. Eviction removes only reconstructible derived results and their metadata;
+original finite-cell kernels and method observations remain available. In-flight
+runners own immutable kernel references and are unaffected by cache eviction.
+
+Internal complete-cycle snapshots avoid repeatedly summing all accumulated exits.
+Public observations, saved 100/300/500-cycle results and renewal shortcuts still
+validate total mass. Renewal checks compare each active component by exact integer
+cross multiplication and stop on the first mismatch, before cumulative checks.
+They do not construct and reduce a whole temporary scaled distribution merely
+to reject nonstationarity. Exact fraction addition can retain an
+unreduced rational internally; multiplication and every public value operation
+canonicalize it. The canonical numerator/denominator JSON contract, equality and
+hashing are unchanged. Atomic immutable representation snapshots support concurrent
+reads. An independent Java arithmetic driver verified 168,500 comparisons and
+64,000 concurrent comparisons before integration. Docker
+`spotlessApply check generateJooq bootJar` then passed 683 unit/contract tests and
+7 integration tests in 7m18s for the full check/build. The 54-state, 2,849-method
+comparison completed with derived-kernel eviction enabled, below the unchanged
+100,000-outcome guard, and matched every full conditional 100/300/500-cycle law,
+currency count and strategy bound. Two intermediate verification runs were
+intentionally stopped for the subsequent cache/comparison fixes and are not counted
+as passes. The isolated production measurement remains separate.
+
+The isolated v13 Solar run used the same 132,000-operation driver guard and paused
+for `COMPUTE_BUDGET` in 8,111ms. First snapshot/method/goal were 160/323/925ms.
+It retained 609 graph cells (600 unexpanded), 272/784 completed methods, 30,744
+observation support entries and 44,715 cached kernel outcomes. Internal compaction
+merged 43,625 cells, including 20,398 orbit cells, and retained 579 generated tier
+laws. Sampled heap peak was 283,476,352 bytes; process VmHWM was 533,372 KiB.
+Only 18/42 root methods were ready at both 100 and 500 cycles, with no first local
+recommendation or full completion. Compared with isolated v12's 15,949ms, this is
+a lower runtime for the fixed driver guard, not proof of a completed-work speedup:
+work per operation and the completed-method count differ. Total-memory control and
+the remaining production frontier still require further work.

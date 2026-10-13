@@ -43,8 +43,10 @@ public final class OrbitCell {
   private final Map<Integer, Integer> counts;
   private final List<Assignment> assignments;
   private final BigInteger cardinality;
+  private final Map<OrbitCell, Fraction> components;
 
   public OrbitCell(Profile profile, Map<Integer, Integer> counts) {
+    components = Map.of();
     this.profile = Objects.requireNonNull(profile);
     this.counts = Collections.unmodifiableMap(new TreeMap<>(counts));
     int occupied = counts.values().stream().mapToInt(Integer::intValue).sum();
@@ -59,6 +61,51 @@ public final class OrbitCell {
     assignments = List.copyOf(options);
     cardinality =
         assignments.stream().map(Assignment::cardinality).reduce(BigInteger.ZERO, BigInteger::add);
+  }
+
+  private OrbitCell(Map<OrbitCell, Fraction> components) {
+    var first = components.keySet().iterator().next();
+    this.profile = first.profile;
+    this.counts = first.counts;
+    this.assignments = first.assignments;
+    this.components = Collections.unmodifiableMap(new LinkedHashMap<>(components));
+    this.cardinality =
+        components.keySet().stream()
+            .map(OrbitCell::cardinality)
+            .reduce(BigInteger.ZERO, BigInteger::add);
+  }
+
+  /** Components have disjoint category-count support and equal family occupancy. */
+  public static OrbitCell mix(Map<OrbitCell, Fraction> distribution) {
+    if (distribution.isEmpty()) throw new IllegalArgumentException("Empty orbit mixture");
+    var first = distribution.keySet().iterator().next();
+    var flat = new TreeMap<OrbitCell, Fraction>(Comparator.comparing(c -> c.counts.toString()));
+    var total = Fraction.ZERO;
+    for (var entry : distribution.entrySet()) {
+      var cell = entry.getKey();
+      if (!cell.profile.equals(first.profile) || cell.occupancy() != first.occupancy())
+        throw new IllegalArgumentException("Orbit mixture crosses a family or slot boundary");
+      if (entry.getValue().numerator().signum() <= 0)
+        throw new IllegalArgumentException("Positive orbit mixture weight required");
+      total = total.add(entry.getValue());
+      cell.basis()
+          .forEach(
+              (atom, weight) -> flat.merge(atom, weight.multiply(entry.getValue()), Fraction::add));
+    }
+    if (!total.equals(Fraction.ONE)) throw new IllegalArgumentException("Orbit mixture lost mass");
+    return flat.size() == 1 ? flat.firstKey() : new OrbitCell(flat);
+  }
+
+  public boolean mixed() {
+    return !components.isEmpty();
+  }
+
+  public int occupancy() {
+    return counts.values().stream().mapToInt(Integer::intValue).sum();
+  }
+
+  public Map<OrbitCell, Fraction> basis() {
+    return components.isEmpty() ? Map.of(this, Fraction.ONE) : components;
   }
 
   private void enumerate(
@@ -90,10 +137,12 @@ public final class OrbitCell {
   }
 
   public Map<Integer, Integer> counts() {
+    if (mixed()) throw new IllegalStateException("A mixture has no single category occupancy");
     return counts;
   }
 
   public List<Assignment> assignments() {
+    if (mixed()) throw new IllegalStateException("Expand weighted orbit components first");
     return assignments;
   }
 
@@ -108,6 +157,17 @@ public final class OrbitCell {
   public Concrete concrete(BigInteger offset) {
     if (offset.signum() < 0 || offset.compareTo(cardinality) >= 0)
       throw new IllegalArgumentException("Orbit offset out of range");
+    if (mixed()) {
+      for (var entry : components.entrySet()) {
+        if (offset.compareTo(entry.getKey().cardinality()) >= 0) {
+          offset = offset.subtract(entry.getKey().cardinality());
+          continue;
+        }
+        var result = entry.getKey().concrete(offset);
+        return new Concrete(result.modifiers(), result.probability().multiply(entry.getValue()));
+      }
+      throw new IllegalStateException("Missing orbit mixture component");
+    }
     for (var assignment : assignments) {
       if (offset.compareTo(assignment.cardinality()) >= 0) {
         offset = offset.subtract(assignment.cardinality());
@@ -132,16 +192,21 @@ public final class OrbitCell {
     return this == other
         || other instanceof OrbitCell cell
             && profile.equals(cell.profile)
-            && counts.equals(cell.counts);
+            && counts.equals(cell.counts)
+            && components.equals(cell.components);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(profile.id(), counts);
+    return components.isEmpty()
+        ? Objects.hash(profile.id(), counts)
+        : Objects.hash(profile.id(), components);
   }
 
   @Override
   public String toString() {
-    return "OrbitCell[profile=" + profile.id() + ", counts=" + counts + "]";
+    return components.isEmpty()
+        ? "OrbitCell[profile=" + profile.id() + ", counts=" + counts + "]"
+        : "OrbitCell[profile=" + profile.id() + ", components=" + components + "]";
   }
 }

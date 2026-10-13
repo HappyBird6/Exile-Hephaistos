@@ -12,6 +12,55 @@ import org.junit.jupiter.api.Test;
 
 class ExactNumericDistributionTest {
   @Test
+  void accumulatedUnreducedSumsKeepCanonicalJsonAndConcurrentValueIdentity() throws Exception {
+    var random = new Random(732);
+    var values = new ArrayList<Fraction>();
+    var expected = new ArrayList<Fraction>();
+    for (int trial = 0; trial < 100; trial++) {
+      var sum = Fraction.ZERO;
+      var numerator = java.math.BigInteger.ZERO;
+      var denominator = java.math.BigInteger.ONE;
+      for (int i = 0; i < 30; i++) {
+        var n = java.math.BigInteger.valueOf(random.nextInt(25));
+        var d = java.math.BigInteger.valueOf(1 + random.nextInt(25));
+        sum = sum.add(new Fraction(n, d));
+        numerator = numerator.multiply(d).add(n.multiply(denominator));
+        denominator = denominator.multiply(d);
+        var gcd = numerator.gcd(denominator);
+        numerator = numerator.divide(gcd);
+        denominator = denominator.divide(gcd);
+      }
+      values.add(sum);
+      expected.add(new Fraction(numerator, denominator));
+    }
+    try (var pool = java.util.concurrent.Executors.newFixedThreadPool(8)) {
+      var jobs = new ArrayList<java.util.concurrent.Future<?>>();
+      for (int thread = 0; thread < 8; thread++)
+        jobs.add(
+            pool.submit(
+                () -> {
+                  var json = new com.fasterxml.jackson.databind.ObjectMapper();
+                  for (int i = 0; i < values.size(); i++) {
+                    var actual = values.get(i);
+                    var oracle = expected.get(i);
+                    assertThat(actual).isEqualTo(oracle).hasSameHashCodeAs(oracle);
+                    assertThat(actual.numerator()).isEqualTo(oracle.numerator());
+                    assertThat(actual.denominator()).isEqualTo(oracle.denominator());
+                    assertThat(actual.multiply(Fraction.of(17, 23)))
+                        .isEqualTo(
+                            new Fraction(
+                                oracle.numerator().multiply(java.math.BigInteger.valueOf(17)),
+                                oracle.denominator().multiply(java.math.BigInteger.valueOf(23))));
+                    assertThat(json.writeValueAsString(actual))
+                        .isEqualTo(json.writeValueAsString(oracle));
+                  }
+                  return null;
+                }));
+      for (var job : jobs) job.get();
+    }
+  }
+
+  @Test
   void canonicalArithmeticPreservesValueIdentityAndJsonContract() throws Exception {
     var json = new com.fasterxml.jackson.databind.ObjectMapper();
     var half = Fraction.of(2, 4);
@@ -66,6 +115,10 @@ class ExactNumericDistributionTest {
               new Fraction(
                   a.numerator().multiply(b.numerator()),
                   a.denominator().multiply(b.denominator())));
+      assertThat(a.multiplyEquals(b, a.multiply(b))).isTrue();
+      assertThat(a.add(a).multiplyEquals(b.add(b), a.multiply(b).multiply(Fraction.of(4, 1))))
+          .isTrue();
+      assertThat(a.multiplyEquals(b, a.multiply(b).add(Fraction.ONE))).isFalse();
       assertThat(a.add(Fraction.ZERO)).isEqualTo(a);
       assertThat(Fraction.ZERO.add(a)).isEqualTo(a);
       assertThat(a.multiply(Fraction.ONE)).isEqualTo(a);

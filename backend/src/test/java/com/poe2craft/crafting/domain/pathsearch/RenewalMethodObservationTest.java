@@ -9,6 +9,19 @@ import org.junit.jupiter.api.Test;
 
 class RenewalMethodObservationTest {
   @Test
+  void proportionalActiveComponentsStillRequireCompleteMassValidation() {
+    var exits = new EnumMap<Exit, Map<String, Fraction>>(Exit.class);
+    for (var kind : Exit.values()) exits.put(kind, Map.of());
+    var before =
+        new Observation<String, String>(
+            1, exits, Map.of("x", Fraction.of(1, 2)), Map.of(), Map.of());
+    var after =
+        new Observation<String, String>(
+            2, exits, Map.of("x", Fraction.of(1, 4)), Map.of(), Map.of());
+    assertThat(RenewalMethodObservation.repeatInvariant(before, after, 100)).isEmpty();
+  }
+
+  @Test
   void changedExitRepresentationDoesNotProveRenewal() {
     var beforeExits = new EnumMap<Exit, Map<String, Fraction>>(Exit.class);
     var afterExits = new EnumMap<Exit, Map<String, Fraction>>(Exit.class);

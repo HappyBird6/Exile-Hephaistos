@@ -15,8 +15,10 @@ public final class ExactNumericDistribution {
   private ExactNumericDistribution() {}
 
   public static final class Fraction {
-    private final BigInteger numerator;
-    private final BigInteger denominator;
+    private record Value(BigInteger numerator, BigInteger denominator, boolean reduced) {}
+
+    // Atomic immutable snapshots permit concurrent canonical reads while an exact sum is lazy.
+    private volatile Value value;
     public static final Fraction ZERO = of(0, 1);
     public static final Fraction ONE = of(1, 1);
 
@@ -32,36 +34,49 @@ public final class ExactNumericDistribution {
       if (denominator.signum() <= 0 || numerator.signum() < 0)
         throw new IllegalArgumentException("Invalid probability fraction");
       var divisor = reduced ? BigInteger.ONE : numerator.gcd(denominator);
-      this.numerator = numerator.divide(divisor);
-      this.denominator = denominator.divide(divisor);
+      value = new Value(numerator.divide(divisor), denominator.divide(divisor), true);
+    }
+
+    private Fraction(Value exactSum) {
+      value = exactSum;
+    }
+
+    private Value canonical() {
+      var current = value;
+      if (current.reduced()) return current;
+      var divisor = current.numerator().gcd(current.denominator());
+      var result =
+          new Value(
+              current.numerator().divide(divisor), current.denominator().divide(divisor), true);
+      value = result;
+      return result;
     }
 
     @com.fasterxml.jackson.annotation.JsonProperty
     public BigInteger numerator() {
-      return numerator;
+      return canonical().numerator();
     }
 
     @com.fasterxml.jackson.annotation.JsonProperty
     public BigInteger denominator() {
-      return denominator;
+      return canonical().denominator();
     }
 
     @Override
     public boolean equals(Object other) {
-      return this == other
-          || other instanceof Fraction f
-              && numerator.equals(f.numerator)
-              && denominator.equals(f.denominator);
+      return this == other || other instanceof Fraction f && canonical().equals(f.canonical());
     }
 
     @Override
     public int hashCode() {
-      return 31 * numerator.hashCode() + denominator.hashCode();
+      var v = canonical();
+      return 31 * v.numerator().hashCode() + v.denominator().hashCode();
     }
 
     @Override
     public String toString() {
-      return "Fraction[numerator=" + numerator + ", denominator=" + denominator + "]";
+      var v = canonical();
+      return "Fraction[numerator=" + v.numerator() + ", denominator=" + v.denominator() + "]";
     }
 
     public static Fraction of(long numerator, long denominator) {
@@ -70,47 +85,66 @@ public final class ExactNumericDistribution {
 
     public Fraction add(Fraction other) {
       Objects.requireNonNull(other);
+      var a = value;
+      var b = other.value;
+      var numerator = a.numerator();
+      var denominator = a.denominator();
       if (numerator.signum() == 0) return other;
-      if (other.numerator.signum() == 0) return this;
-      if (denominator.equals(other.denominator))
-        return new Fraction(numerator.add(other.numerator), denominator);
+      if (b.numerator().signum() == 0) return this;
+      if (denominator.equals(b.denominator()))
+        return new Fraction(new Value(numerator.add(b.numerator()), denominator, false));
       // Markov exit laws often share a large denominator. Form their LCM instead
       // of squaring that denominator before reducing every accumulated outcome.
-      var common = denominator.gcd(other.denominator);
-      var leftScale = other.denominator.divide(common);
+      var common = denominator.gcd(b.denominator());
+      var leftScale = b.denominator().divide(common);
       var rightScale = denominator.divide(common);
-      var sum = numerator.multiply(leftScale).add(other.numerator.multiply(rightScale));
-      // Coprime operands prove that only a factor of the original common divisor remains.
-      var reduction = sum.gcd(common);
-      return new Fraction(
-          sum.divide(reduction), rightScale.multiply(other.denominator.divide(reduction)), true);
+      var sum = numerator.multiply(leftScale).add(b.numerator().multiply(rightScale));
+      return new Fraction(new Value(sum, rightScale.multiply(b.denominator()), false));
     }
 
     public Fraction multiply(Fraction other) {
       Objects.requireNonNull(other);
-      if (numerator.signum() == 0 || other.numerator.signum() == 0) return ZERO;
+      var a = canonical();
+      var b = other.canonical();
+      var numerator = a.numerator();
+      var denominator = a.denominator();
+      if (numerator.signum() == 0 || b.numerator().signum() == 0) return ZERO;
       if (equals(ONE)) return other;
       if (other.equals(ONE)) return this;
-      var left = numerator.gcd(other.denominator);
-      var right = other.numerator.gcd(denominator);
+      var left = numerator.gcd(b.denominator());
+      var right = b.numerator().gcd(denominator);
       return new Fraction(
-          numerator.divide(left).multiply(other.numerator.divide(right)),
-          denominator.divide(right).multiply(other.denominator.divide(left)),
+          numerator.divide(left).multiply(b.numerator().divide(right)),
+          denominator.divide(right).multiply(b.denominator().divide(left)),
           true);
+    }
+
+    /** Exact product comparison without constructing and reducing a temporary rational. */
+    public boolean multiplyEquals(Fraction other, Fraction expected) {
+      var a = value;
+      var b = Objects.requireNonNull(other).value;
+      var c = Objects.requireNonNull(expected).value;
+      return a.numerator()
+          .multiply(b.numerator())
+          .multiply(c.denominator())
+          .equals(c.numerator().multiply(a.denominator()).multiply(b.denominator()));
     }
 
     public Fraction pow(int exponent) {
       if (exponent < 0) throw new IllegalArgumentException("Negative exponent");
-      return new Fraction(numerator.pow(exponent), denominator.pow(exponent), true);
+      var v = canonical();
+      return new Fraction(v.numerator().pow(exponent), v.denominator().pow(exponent), true);
     }
 
     public Fraction complement() {
-      return new Fraction(denominator.subtract(numerator), denominator, true);
+      var v = canonical();
+      return new Fraction(v.denominator().subtract(v.numerator()), v.denominator(), true);
     }
 
     public Fraction divide(Fraction other) {
-      if (other.numerator.signum() == 0) throw new IllegalArgumentException("Division by zero");
-      return multiply(new Fraction(other.denominator, other.numerator, true));
+      var v = Objects.requireNonNull(other).canonical();
+      if (v.numerator().signum() == 0) throw new IllegalArgumentException("Division by zero");
+      return multiply(new Fraction(v.denominator(), v.numerator(), true));
     }
   }
 

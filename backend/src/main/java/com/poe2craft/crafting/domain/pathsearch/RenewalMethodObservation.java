@@ -18,15 +18,30 @@ public final class RenewalMethodObservation {
     if (after.cycles() != before.cycles() + 1
         || count < after.cycles()
         || before.active().isEmpty()
-        || !before.initialUses().equals(after.initialUses())
-        || !before.mass().equals(Fraction.ONE)
-        || !after.mass().equals(Fraction.ONE)) return Optional.empty();
-    var initialMass = before.active().values().stream().reduce(Fraction.ZERO, Fraction::add);
-    var nextMass = after.active().values().stream().reduce(Fraction.ZERO, Fraction::add);
-    var q = divide(nextMass, initialMass);
+        || !before.initialUses().equals(after.initialUses())) return Optional.empty();
+    if (!after.active().isEmpty() && !before.active().keySet().equals(after.active().keySet()))
+      return Optional.empty();
+    var anchor =
+        before.active().entrySet().stream()
+            .filter(e -> !e.getValue().equals(Fraction.ZERO))
+            .findFirst();
+    if (anchor.isEmpty()) return Optional.empty();
+    // One positive component determines q; equality of every component still proves T*u=q*u.
+    var q =
+        divide(
+            after.active().getOrDefault(anchor.get().getKey(), Fraction.ZERO),
+            anchor.get().getValue());
     if (q.numerator().compareTo(q.denominator()) > 0) return Optional.empty();
-    var expected = scale(before.active(), q);
-    if (!expected.equals(after.active())) return Optional.empty();
+    int positive = 0;
+    for (var entry : before.active().entrySet()) {
+      if (entry.getValue().equals(Fraction.ZERO) || q.equals(Fraction.ZERO)) continue;
+      var actual = after.active().get(entry.getKey());
+      if (actual == null || !entry.getValue().multiplyEquals(q, actual)) return Optional.empty();
+      positive++;
+    }
+    if (positive != after.active().size()) return Optional.empty();
+    if (!before.mass().equals(Fraction.ONE) || !after.mass().equals(Fraction.ONE))
+      return Optional.empty();
     if (!monotone(before.cycleUses(), after.cycleUses())) return Optional.empty();
     for (var kind : Exit.values())
       if (!monotone(before.exits().get(kind), after.exits().get(kind))) return Optional.empty();

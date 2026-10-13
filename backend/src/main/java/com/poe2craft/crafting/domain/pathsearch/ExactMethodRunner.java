@@ -8,7 +8,11 @@ import java.util.function.Function;
 public final class ExactMethodRunner<S, A> {
   public static final String VERSION = "method-cycle-markov-compaction-v5";
 
-  /** A law-preserving normalization of one mutually exclusive distribution, never alternatives. */
+  /**
+   * A law-preserving normalization of one mutually exclusive distribution, never alternatives.
+   * Selectors and classifiers must have identical semantics on every represented member. The
+   * application uses constant currency selectors and compiled goal-equivalent regions.
+   */
   public interface Compaction<S> {
     boolean complete();
 
@@ -304,6 +308,14 @@ public final class ExactMethodRunner<S, A> {
   }
 
   public Observation<S, A> observation() {
+    var result = boundarySnapshot();
+    if (!result.mass().equals(Fraction.ONE))
+      throw new IllegalStateException("Method mass not conserved");
+    return result;
+  }
+
+  /** Internal complete-cycle snapshot; consumers must validate mass before publishing a result. */
+  public Observation<S, A> boundarySnapshot() {
     if (!atBoundary) throw new IllegalStateException("Partial cycle is not an observation");
     var saved = new EnumMap<Exit, Map<S, Fraction>>(Exit.class);
     exits.forEach((exit, distribution) -> saved.put(exit, Map.copyOf(distribution)));
@@ -314,8 +326,6 @@ public final class ExactMethodRunner<S, A> {
             Map.copyOf(boundary),
             Map.copyOf(initialUses),
             Map.copyOf(cycleUses));
-    if (!result.mass().equals(Fraction.ONE))
-      throw new IllegalStateException("Method mass not conserved");
     return result;
   }
 

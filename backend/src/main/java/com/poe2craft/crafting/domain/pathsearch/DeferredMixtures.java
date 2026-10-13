@@ -8,17 +8,18 @@ import java.util.*;
 
 /** Exact one-axis mixtures inside a single mutually exclusive execution distribution. */
 public final class DeferredMixtures {
-  public static final String VERSION = "conditional-one-axis-mixture-v1";
+  public static final String VERSION = "conditional-tier-orbit-mixture-v2";
   private final BasicTransitionClasses classes;
   // Generated posterior laws retain their decomposition into the original finite cells.
   private final Map<TierCell, Map<TierCell, Fraction>> decompositions = new HashMap<>();
   private final Set<TierCell> originalCells = new HashSet<>();
-  private long distributions, mergedCells;
+  private long distributions, mergedCells, mergedOrbitCells;
 
-  public record Metrics(long distributions, long mergedCells, int generatedLaws) {}
+  public record Metrics(
+      long distributions, long mergedCells, int generatedLaws, long mergedOrbitCells) {}
 
   public Metrics metrics() {
-    return new Metrics(distributions, mergedCells, decompositions.size());
+    return new Metrics(distributions, mergedCells, decompositions.size(), mergedOrbitCells);
   }
 
   public DeferredMixtures(BasicTransitionClasses classes) {
@@ -39,7 +40,35 @@ public final class DeferredMixtures {
 
   public ExactMethodRunner.Compaction<DeferredItem> start(
       Map<DeferredItem, Fraction> distribution) {
-    return new Cursor(distribution);
+    return new Pipeline(distribution);
+  }
+
+  private final class Pipeline implements ExactMethodRunner.Compaction<DeferredItem> {
+    ExactMethodRunner.Compaction<DeferredItem> phase;
+    boolean tiers;
+
+    Pipeline(Map<DeferredItem, Fraction> input) {
+      distributions++;
+      phase = new OrbitCursor(input);
+    }
+
+    public boolean complete() {
+      return tiers && phase.complete();
+    }
+
+    public void step(int maxInputs) {
+      if (maxInputs < 1) throw new IllegalArgumentException("Positive mixture slice required");
+      if (!phase.complete()) phase.step(maxInputs);
+      if (phase.complete() && !tiers) {
+        phase = new Cursor(phase.result());
+        tiers = true;
+      }
+    }
+
+    public Map<DeferredItem, Fraction> result() {
+      if (!complete()) throw new IllegalStateException("Partial mixture pipeline");
+      return phase.result();
+    }
   }
 
   /** Restore finite graph identities without discarding the conditional mixture weights. */
@@ -59,9 +88,125 @@ public final class DeferredMixtures {
                 Fraction::add);
         current = next;
       }
+      for (var orbit : entry.getKey().orbits().entrySet()) {
+        if (!orbit.getValue().mixed()) continue;
+        var next = new LinkedHashMap<DeferredItem, Fraction>();
+        for (var source : current.entrySet())
+          for (var atom : orbit.getValue().basis().entrySet())
+            next.merge(
+                withOrbit(withoutOrbit(source.getKey(), orbit.getKey()), atom.getKey()),
+                source.getValue().multiply(atom.getValue()),
+                Fraction::add);
+        current = next;
+      }
       current.forEach((state, mass) -> result.merge(state, mass, Fraction::add));
     }
     return result;
+  }
+
+  private static DeferredItem withoutOrbit(DeferredItem source, String profile) {
+    var removed = source.orbits().get(profile).representatives();
+    var orbits = new HashMap<>(source.orbits());
+    orbits.remove(profile);
+    return new DeferredItem(
+        replace(
+            source.representative(),
+            source.item().explicits().stream().filter(m -> !removed.contains(m)).toList()),
+        source.rolls(),
+        source.tiers(),
+        orbits);
+  }
+
+  private static DeferredItem withOrbit(DeferredItem rest, OrbitCell cell) {
+    var explicits = new ArrayList<>(rest.item().explicits());
+    explicits.addAll(cell.representatives());
+    var orbits = new HashMap<>(rest.orbits());
+    orbits.put(cell.profile().id(), cell);
+    return new DeferredItem(
+        replace(rest.representative(), explicits), rest.rolls(), rest.tiers(), orbits);
+  }
+
+  private record OrbitGroup(DeferredItem rest, OrbitCell.Profile profile, int occupied) {}
+
+  private record OrbitSlice(DeferredItem state, OrbitCell law, Fraction mass) {}
+
+  private final class OrbitCursor implements ExactMethodRunner.Compaction<DeferredItem> {
+    final LinkedHashMap<DeferredItem, Fraction> result;
+    final TreeSet<String> profiles = new TreeSet<>();
+    Iterator<Map.Entry<DeferredItem, Fraction>> scan;
+    Iterator<String> axes;
+    String profile;
+    Map<OrbitGroup, List<OrbitSlice>> groups;
+    Iterator<Map.Entry<OrbitGroup, List<OrbitSlice>>> merging;
+    boolean complete;
+
+    OrbitCursor(Map<DeferredItem, Fraction> input) {
+      result = new LinkedHashMap<>(input);
+      scan = result.entrySet().iterator();
+      complete = input.size() < 2;
+    }
+
+    public boolean complete() {
+      return complete;
+    }
+
+    public Map<DeferredItem, Fraction> result() {
+      if (!complete) throw new IllegalStateException("Partial orbit mixture");
+      return Collections.unmodifiableMap(result);
+    }
+
+    public void step(int maxInputs) {
+      if (maxInputs < 1) throw new IllegalArgumentException("Positive orbit slice required");
+      for (int n = 0; n < maxInputs && !complete; n++) advance();
+    }
+
+    void advance() {
+      if (axes == null) {
+        if (scan.hasNext()) {
+          profiles.addAll(scan.next().getKey().orbits().keySet());
+          return;
+        }
+        axes = profiles.iterator();
+      }
+      if (profile == null) {
+        if (!axes.hasNext()) {
+          complete = true;
+          return;
+        }
+        profile = axes.next();
+        groups = new LinkedHashMap<>();
+        scan = result.entrySet().iterator();
+        merging = null;
+      }
+      if (scan.hasNext()) {
+        var entry = scan.next();
+        var law = entry.getKey().orbits().get(profile);
+        if (law != null && !entry.getValue().equals(Fraction.ZERO)) {
+          var group =
+              new OrbitGroup(withoutOrbit(entry.getKey(), profile), law.profile(), law.occupancy());
+          groups
+              .computeIfAbsent(group, ignored -> new ArrayList<>())
+              .add(new OrbitSlice(entry.getKey(), law, entry.getValue()));
+        }
+        return;
+      }
+      if (merging == null) merging = groups.entrySet().iterator();
+      if (merging.hasNext()) {
+        var entry = merging.next();
+        var slices = entry.getValue();
+        if (slices.size() < 2) return;
+        var mass = slices.stream().map(OrbitSlice::mass).reduce(Fraction.ZERO, Fraction::add);
+        var law = new LinkedHashMap<OrbitCell, Fraction>();
+        slices.forEach(s -> law.merge(s.law(), s.mass().divide(mass), Fraction::add));
+        var mixed = withOrbit(entry.getKey().rest(), OrbitCell.mix(law));
+        slices.forEach(s -> result.remove(s.state()));
+        result.merge(mixed, mass, Fraction::add);
+        mergedCells += slices.size() - 1;
+        mergedOrbitCells += slices.size() - 1;
+        return;
+      }
+      profile = null;
+    }
   }
 
   private static DeferredItem replaceLaw(DeferredItem source, String modifier, TierCell law) {
@@ -96,7 +241,6 @@ public final class DeferredMixtures {
     boolean complete;
 
     Cursor(Map<DeferredItem, Fraction> distribution) {
-      distributions++;
       result = new LinkedHashMap<>(distribution);
       scan = result.entrySet().iterator();
       complete = distribution.size() < 2;

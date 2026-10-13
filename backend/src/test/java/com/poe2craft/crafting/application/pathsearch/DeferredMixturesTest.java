@@ -14,6 +14,59 @@ import org.junit.jupiter.api.Test;
 
 class DeferredMixturesTest {
   @Test
+  void jointOrbitAxesPreserveCorrelationAndExpandBeforePrimitiveTransport() {
+    var transitions = new DeferredTransitions(fixture.primitive, partition);
+    var cursor =
+        transitions.primitiveCursor(new DeferredItem(root), WorkbenchCurrency.EXALTED, Set.of());
+    var profiles = new TreeMap<String, Set<OrbitCell>>();
+    while (!cursor.complete())
+      for (var cell : cursor.next().state().orbits().values())
+        profiles.computeIfAbsent(cell.profile().id(), ignored -> new LinkedHashSet<>()).add(cell);
+    var pairs =
+        profiles.values().stream()
+            .filter(cells -> cells.size() >= 2)
+            .map(cells -> new ArrayList<>(cells).subList(0, 2))
+            .limit(2)
+            .toList();
+    assertThat(pairs).hasSize(2);
+    var lowLow = orbitItem(pairs.get(0).get(0), pairs.get(1).get(0));
+    var lowHigh = orbitItem(pairs.get(0).get(0), pairs.get(1).get(1));
+    var highLow = orbitItem(pairs.get(0).get(1), pairs.get(1).get(0));
+    var highHigh = orbitItem(pairs.get(0).get(1), pairs.get(1).get(1));
+    var correlated = Map.of(lowLow, Fraction.of(1, 2), highHigh, Fraction.of(1, 2));
+    assertThat(mixtures.compact(correlated)).isEqualTo(correlated);
+    var independent =
+        Map.of(
+            lowLow,
+            Fraction.of(1, 4),
+            lowHigh,
+            Fraction.of(1, 4),
+            highLow,
+            Fraction.of(1, 4),
+            highHigh,
+            Fraction.of(1, 4));
+    var compacted = mixtures.compact(independent);
+    assertThat(compacted).hasSize(1);
+    var mixed = compacted.keySet().iterator().next();
+    assertThat(mixed.orbits().values()).allMatch(OrbitCell::mixed);
+    assertThat(mixtures.expand(compacted)).isEqualTo(independent);
+    assertThatThrownBy(
+            () -> transitions.primitiveCursor(mixed, WorkbenchCurrency.EXALTED, Set.of()))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessageContaining("Expand conditional orbit components");
+  }
+
+  DeferredItem orbitItem(OrbitCell first, OrbitCell second) {
+    var modifiers = new ArrayList<>(first.representatives());
+    modifiers.addAll(second.representatives());
+    return new DeferredItem(
+        item(modifiers).representative(),
+        Map.of(),
+        Map.of(),
+        Map.of(first.profile().id(), first, second.profile().id(), second));
+  }
+
+  @Test
   void slicedMethodCompactionKeepsFirstHitAndActualCurrencyUse() {
     var d = spirit();
     var first = item(List.of(value(d, 47)));

@@ -39,6 +39,12 @@ class DeferredCalculationTest {
     verify(true, false, true);
   }
 
+  @Test
+  void internalOrbitMixturesMatchEveryConcreteMethodAndRestoreOriginalGraphCells()
+      throws Exception {
+    verify(false, true, true);
+  }
+
   private void verify(boolean weightedTier, boolean orbit, boolean mixture) throws Exception {
     var fixture = new MethodSearchCalculationTest();
     var definitions = new ArrayList<>(fixture.catalog.modifiers().values());
@@ -76,6 +82,21 @@ class DeferredCalculationTest {
                 List.of(new ModifierDefinition.StatRange(family, 1, 1)),
                 Set.of(),
                 original.sourceUrl()));
+        if (mixture)
+          definitions.add(
+              new ModifierDefinition(
+                  family + "-high",
+                  family,
+                  original.layer(),
+                  original.affixType(),
+                  Set.of(family),
+                  50,
+                  3,
+                  2,
+                  original.text(),
+                  List.of(new ModifierDefinition.StatRange(family, 10, 10)),
+                  Set.of(),
+                  original.sourceUrl()));
       }
     }
     var metadata = fixture.catalog.metadata();
@@ -89,9 +110,9 @@ class DeferredCalculationTest {
               metadata.rawSha256(),
               metadata.detailsSha256(),
               metadata.prefixCount() + (weightedTier ? 1 : 0),
-              metadata.suffixCount() + (orbit ? 2 : 0),
+              metadata.suffixCount() + (orbit ? mixture ? 4 : 2 : 0),
               metadata.prefixWeight() + (weightedTier ? 3 : 0),
-              metadata.suffixWeight() + (orbit ? 2 : 0));
+              metadata.suffixWeight() + (orbit ? mixture ? 8 : 2 : 0));
     var catalog = new ItemCatalog(metadata, fixture.catalog.base(), definitions);
     var transitions = new BasicCurrencyTransitions(catalog, "method-search-fixture");
     var root = new BasicCurrencyState(fixture.root().item(), transitions.provenance());
@@ -152,7 +173,11 @@ class DeferredCalculationTest {
                 root, evaluator, transitions, Set.of(), 100000, partition);
     // Four independent families exercise 1,477 concrete method instances, including
     // slow 500-cycle tails. This is an oracle work guard, not a crafting budget.
-    for (int i = 0; i < 2000000 && (!full.complete() || !deferred.complete()); i++) {
+    // The additional low/high orbit categories grow the independent oracle from 24 to 54
+    // concrete states and 2,849 methods with nonstationary 500-cycle tails. Keep the same
+    // complete-law assertions; only this larger fixture receives a larger execution guard.
+    int workGuard = mixture && orbit ? 8000000 : 2000000;
+    for (int i = 0; i < workGuard && (!full.complete() || !deferred.complete()); i++) {
       full.step();
       deferred.step();
     }
@@ -174,8 +199,17 @@ class DeferredCalculationTest {
       assertThat(deferred.states()).anyMatch(s -> !s.state().tiers().isEmpty());
     if (mixture) {
       assertThat(deferred.mixtureMetrics().mergedCells()).isPositive();
-      assertThat(deferred.mixtureMetrics().generatedLaws()).isPositive();
-      assertThat(deferred.states()).hasSize(6).allMatch(s -> s.state().tiers().isEmpty());
+      if (orbit) {
+        assertThat(deferred.mixtureMetrics().mergedOrbitCells()).isPositive();
+        assertThat(deferred.derivedKernelEvictions()).isPositive();
+        assertThat(deferred.cacheMetrics().outcomes()).isLessThan(100000);
+      }
+      if (weightedTier) {
+        assertThat(deferred.mixtureMetrics().generatedLaws()).isPositive();
+        assertThat(deferred.states()).hasSize(6).allMatch(s -> s.state().tiers().isEmpty());
+      }
+      assertThat(deferred.states())
+          .allMatch(s -> s.state().orbits().values().stream().noneMatch(OrbitCell::mixed));
     }
     if (orbit) assertThat(deferred.states()).anyMatch(s -> !s.state().orbits().isEmpty());
     var sources = new HashMap<String, DeferredItem>();

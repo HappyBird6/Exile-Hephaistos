@@ -16,7 +16,7 @@ public record DeferredItem(
     Map<String, Band> rolls,
     Map<String, TierCell> tiers,
     Map<String, OrbitCell> orbits) {
-  public static final String VERSION = "deferred-joint-family-tier-roll-v3";
+  public static final String VERSION = "deferred-joint-family-category-tier-roll-v4";
 
   public DeferredItem(
       BasicCurrencyState representative, Map<String, Band> rolls, Map<String, TierCell> tiers) {
