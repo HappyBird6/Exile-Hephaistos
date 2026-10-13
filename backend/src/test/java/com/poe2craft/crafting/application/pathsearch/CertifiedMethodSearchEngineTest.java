@@ -68,6 +68,26 @@ class CertifiedMethodSearchEngineTest {
                 methods.put(
                     new Identity(exactStates.get(m.source()), m.initialActions(), m.actions()), m));
     assertThat(bounded.methods()).hasSize(methods.size()).hasSizeGreaterThan(6);
+    var absorbed =
+        bounded.methods().stream()
+            .filter(
+                m ->
+                    m.initialActions().isEmpty()
+                        && m.actions().equals(List.of(WorkbenchCurrency.EXALTED)))
+            .findFirst()
+            .orElseThrow();
+    assertThat(absorbed.points().get(100).active()).isEmpty();
+    for (var kind : ExactMethodRunner.Exit.values()) {
+      var first = absorbed.points().get(100).exits().get(kind);
+      assertThat(absorbed.points().get(300).exits().get(kind)).isSameAs(first);
+      assertThat(absorbed.points().get(500).exits().get(kind)).isSameAs(first);
+      assertThatThrownBy(() -> first.put("class:invalid", CertifiedInterval.one(32)))
+          .isInstanceOf(UnsupportedOperationException.class);
+      first.forEach((key, value) -> assertThat(first.get(key)).isSameAs(value));
+      assertThat(first.get("class:+1")).isNull();
+    }
+    assertThat(bounded.retention().savedAccounting())
+        .isEqualTo(bounded.retention().uniqueSavedEntries());
     for (var method : bounded.methods()) {
       var reference =
           methods.get(

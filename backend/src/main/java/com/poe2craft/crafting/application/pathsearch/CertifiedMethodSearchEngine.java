@@ -12,13 +12,15 @@ import java.util.function.Function;
 
 /** Certified class marginals. Incoming item laws remain exact retained conditional operators. */
 final class CertifiedMethodSearchEngine {
-  static final String VERSION = "certified-method-map-v1";
+  static final String VERSION = "certified-method-map-v2-shared-observations";
   private final BasicClassIndex index;
   private final CertifiedInterval.Precision precision;
   private final Map<Integer, String> identifiers = new HashMap<>();
   private final Map<Integer, MethodSearchCalculation.Progress> progressCache = new HashMap<>();
   private final List<Integer> entryOffsets = new ArrayList<>();
   private long liveEntries, savedEntries;
+  private final Map<Map<Integer, CertifiedInterval>, Map<String, CertifiedInterval>> lawViews =
+      new IdentityHashMap<>();
   private final IndexedKernelStore kernels;
   private final Function<ItemState, Evaluation> evaluate;
   private final Map<Integer, State> states = new LinkedHashMap<>();
@@ -110,6 +112,78 @@ final class CertifiedMethodSearchEngine {
 
   public int classCount() {
     return index.size();
+  }
+
+  record Retention(
+      int classes,
+      int states,
+      int progressKeys,
+      long adjacencyEdges,
+      int queuedMethods,
+      int activeRunners,
+      long pending,
+      long boundary,
+      long exits,
+      long flightOutcomes,
+      long savedAccounting,
+      long uniqueSavedEntries,
+      int cachedKernels,
+      int cachedOutcomes,
+      int pendingKernels,
+      long calculatedKernels,
+      long sharedRequests,
+      List<MethodRetention> largestMethods) {}
+
+  record MethodRetention(String id, long cycles, long pending, long boundary, long exits) {}
+
+  Retention retention() {
+    long pending = 0, boundary = 0, exits = 0, flights = 0;
+    int active = 0;
+    var largest = new ArrayList<MethodRetention>();
+    Set<Map<?, ?>> unique = Collections.newSetFromMap(new IdentityHashMap<>());
+    for (var method : methods.values()) {
+      if (method.runner != null) {
+        active++;
+        var retained = method.runner.retention();
+        pending += retained.pending();
+        boundary += retained.boundary();
+        exits += retained.exits();
+        flights += retained.flightOutcomes();
+        largest.add(
+            new MethodRetention(
+                method.id,
+                method.runner.cycles(),
+                retained.pending(),
+                retained.boundary(),
+                retained.exits()));
+      }
+      for (var point : method.saved.values()) {
+        unique.add(point.observation().active());
+        unique.addAll(point.observation().exits().values());
+      }
+    }
+    largest.sort(
+        Comparator.comparingLong((MethodRetention m) -> m.pending() + m.boundary() + m.exits())
+            .reversed());
+    return new Retention(
+        index.size(),
+        states.size(),
+        progressCache.size(),
+        adjacency.values().stream().mapToLong(Set::size).sum(),
+        ready.size(),
+        active,
+        pending,
+        boundary,
+        exits,
+        flights,
+        savedEntries,
+        unique.stream().mapToLong(Map::size).sum(),
+        kernels.cachedKernels(),
+        kernels.cachedOutcomes(),
+        kernels.pendingKernels(),
+        kernels.calculatedKernels(),
+        kernels.sharedRequests(),
+        List.copyOf(largest.subList(0, Math.min(12, largest.size()))));
   }
 
   public CertifiedInterval.Precision precision() {
@@ -292,9 +366,56 @@ final class CertifiedMethodSearchEngine {
   }
 
   private Map<String, CertifiedInterval> ids(Map<Integer, CertifiedInterval> input) {
-    var output = new LinkedHashMap<String, CertifiedInterval>();
-    input.forEach((key, mass) -> output.put(id(key), mass));
-    return Collections.unmodifiableMap(output);
+    return lawViews.computeIfAbsent(
+        input,
+        law -> {
+          savedEntries += law.size();
+          return Collections.unmodifiableMap(
+              new AbstractMap<>() {
+                @Override
+                public int size() {
+                  return law.size();
+                }
+
+                @Override
+                public CertifiedInterval get(Object key) {
+                  if (!(key instanceof String text) || !text.startsWith("class:")) return null;
+                  try {
+                    int parsed = Integer.parseInt(text.substring(6));
+                    return parsed >= 0 && text.equals("class:" + parsed) ? law.get(parsed) : null;
+                  } catch (NumberFormatException ignored) {
+                    return null;
+                  }
+                }
+
+                @Override
+                public Set<Map.Entry<String, CertifiedInterval>> entrySet() {
+                  return new AbstractSet<>() {
+                    @Override
+                    public int size() {
+                      return law.size();
+                    }
+
+                    @Override
+                    public Iterator<Map.Entry<String, CertifiedInterval>> iterator() {
+                      var source = law.entrySet().iterator();
+                      return new Iterator<>() {
+                        @Override
+                        public boolean hasNext() {
+                          return source.hasNext();
+                        }
+
+                        @Override
+                        public Map.Entry<String, CertifiedInterval> next() {
+                          var next = source.next();
+                          return Map.entry(id(next.getKey()), next.getValue());
+                        }
+                      };
+                    }
+                  };
+                }
+              });
+        });
   }
 
   private static final class State {
@@ -319,6 +440,8 @@ final class CertifiedMethodSearchEngine {
     final Map<Integer, CertifiedMethodRunner.Observation<String, WorkbenchCurrency>> points =
         new LinkedHashMap<>();
     IndexedCertifiedMethodRunner runner;
+    final Set<Map<Integer, CertifiedInterval>> linkedLaws =
+        Collections.newSetFromMap(new IdentityHashMap<>());
     boolean done, unresolved;
 
     Method(
@@ -373,20 +496,17 @@ final class CertifiedMethodSearchEngine {
 
     void save(int cycles, IndexedCertifiedMethodRunner.Snapshot snapshot) {
       saved.put(cycles, snapshot);
-      savedEntries +=
-          2L
-              * (snapshot.observation().active().size()
-                  + snapshot.observation().exits().values().stream().mapToLong(Map::size).sum());
       var point = snapshot.observation();
       var exits = new EnumMap<Exit, Map<String, CertifiedInterval>>(Exit.class);
       point
           .exits()
           .forEach(
               (kind, law) -> {
-                law.keySet().forEach(target -> link(source, target));
+                if (linkedLaws.add(law)) law.keySet().forEach(target -> link(source, target));
                 exits.put(kind, ids(law));
               });
-      point.active().keySet().forEach(target -> link(source, target));
+      if (linkedLaws.add(point.active()))
+        point.active().keySet().forEach(target -> link(source, target));
       unresolved |= !point.exits().get(Exit.UNRESOLVED).isEmpty();
       points.put(
           cycles,

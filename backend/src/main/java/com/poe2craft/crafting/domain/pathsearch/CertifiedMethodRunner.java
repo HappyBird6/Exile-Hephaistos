@@ -87,6 +87,16 @@ public final class CertifiedMethodRunner<S, A> {
         + exits.values().stream().mapToLong(Map::size).sum();
   }
 
+  public record Retention(long pending, long boundary, long exits, long flightOutcomes) {}
+
+  public Retention retention() {
+    return new Retention(
+        pending.size(),
+        boundary.size(),
+        exits.values().stream().mapToLong(Map::size).sum(),
+        flight == null ? 0 : flight.kernel.outcomes().size());
+  }
+
   public boolean atBoundary() {
     return atBoundary;
   }

@@ -58,6 +58,10 @@ public final class IndexedCertifiedMethodRunner {
     return runner.retainedStates();
   }
 
+  public CertifiedMethodRunner.Retention retention() {
+    return runner.retention();
+  }
+
   public boolean atBoundary() {
     return runner.atBoundary();
   }

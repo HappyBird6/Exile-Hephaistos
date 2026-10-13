@@ -1354,3 +1354,33 @@ verification containers exited; unrelated Redis services were preserved.
 Frontend files were unchanged in this unit; the earlier 2,152-test worker-limited
 pass and build remain the latest frontend evidence, not validation of a certified
 UI connection. No application server, master merge or deployment was performed.
+
+## Retention instrumentation and shared observation laws
+
+A structural diagnostic separates active pending/boundary/exit maps, completed
+observation maps, class/progress indexes, adjacency, cached kernels and method
+execution phases. It does not equate an entry count with allocated bytes. In the
+instrumented Solar baseline, the two-million entry allowance was crossed after
+104,362 ms: 1,136,076 accounted saved entries, 853,349 active entries, 74,854
+classes and 15,958 cached kernel outcomes. Saved map identity counting found
+759,250 actual map entries; the accounting also counted already-shared absorbed
+integer laws repeatedly. Root completion remained 18/42. Different JVM immutable
+map iteration order affects the partial frontier and pause point, so these are
+observations rather than a deterministic time comparison.
+
+The v2 certified engine now reuses the immutable integer law across absorbed
+100/300/500 observations and exposes string state IDs through immutable map views.
+No second string-key probability table is allocated, and the same underlying law
+is counted once. Conditional operators keep their original template and incoming
+law. Full small-map exact-oracle comparisons, immutable view/identity checks and
+certified API conditional transport tests passed in Docker.
+
+At the same two-million retained-entry allowance and 1 GiB test heap, the shared
+run reached its 180-second diagnostic guard without a memory pause: 67,108,584
+operations, 90,251 classes, 13,784 public states, 147 methods and 18/42 root methods
+complete. Unique saved entries were 203,301; active entries were 1,211,333; total
+accounting 1,541,898. Sampled heap peak was 768,799,664 bytes and post-GC heap
+438,214,488 bytes. It did more work and retained more live frontier than the
+baseline, so these heap figures are not a matched-frontier memory comparison.
+Neither the first root local recommendation nor whole-search completion was
+reached. Active method distributions are now the largest retained category.
