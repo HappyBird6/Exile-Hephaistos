@@ -238,6 +238,73 @@ class DeferredProductionTest {
   }
 
   @Test
+  void rarePartitionOmitsOnlyUnreachableCurrencyBoundaries() {
+    var initial = root().item();
+    var partition = fixture.goals.rollPartition(initial, goal(47));
+    assertThat(BasicCurrencyTransitions.reachableActions(initial))
+        .extracting(WorkbenchCurrency::minimumModifierLevel)
+        .containsOnly(0, 35, 50);
+    assertThat(partition.allows(WorkbenchCurrency.GREATER_AUGMENTATION)).isFalse();
+    var magic =
+        new ItemState(
+            initial.snapshotId(),
+            initial.baseItemId(),
+            initial.itemLevel(),
+            ItemState.Rarity.MAGIC,
+            initial.implicits(),
+            List.of(),
+            initial.conditions());
+    var conservative = fixture.goals.rollPartition(magic, goal(47));
+    assertThat(conservative.allows(WorkbenchCurrency.GREATER_AUGMENTATION)).isTrue();
+    assertThatThrownBy(
+            () ->
+                new DeferredTransitions(primitive, partition)
+                    .primitiveCursor(
+                        new DeferredItem(new BasicCurrencyState(magic, primitive.provenance())),
+                        WorkbenchCurrency.GREATER_AUGMENTATION,
+                        Set.of()))
+        .isInstanceOf(IllegalArgumentException.class);
+    var law =
+        deferredLaw(
+            new DeferredTransitions(primitive, partition),
+            new DeferredItem(root()),
+            WorkbenchCurrency.EXALTED);
+    assertThat(law.keySet().stream().flatMap(c -> c.tiers().values().stream()))
+        .anyMatch(
+            cell ->
+                cell.variants().stream()
+                        .anyMatch(
+                            v ->
+                                fixture.catalog.modifiers().get(v.modifierId()).requiredItemLevel()
+                                    < 70)
+                    && cell.variants().stream()
+                        .anyMatch(
+                            v ->
+                                fixture.catalog.modifiers().get(v.modifierId()).requiredItemLevel()
+                                    >= 70));
+    assertThat(restore(law)).isEqualTo(eager(new DeferredItem(root()), WorkbenchCurrency.EXALTED));
+  }
+
+  @Test
+  void removingTheLastVariableSharesOnlyTheIdenticalCompleteKernel() {
+    var deferred =
+        new DeferredTransitions(primitive, fixture.goals.rollPartition(root().item(), goal(47)));
+    var cells = deferredLaw(deferred, new DeferredItem(root()), WorkbenchCurrency.EXALTED).keySet();
+    var anonymous = cells.stream().filter(c -> !c.orbits().isEmpty()).findFirst().orElseThrow();
+    var ordinary = cells.stream().filter(c -> c.orbits().isEmpty()).findFirst().orElseThrow();
+    for (var action : List.of(WorkbenchCurrency.CHAOS, WorkbenchCurrency.ANNULMENT)) {
+      assertThat(deferred.primitiveCursor(anonymous, action, Set.of()).identity())
+          .isEqualTo(deferred.primitiveCursor(ordinary, action, Set.of()).identity());
+      assertThat(deferredLaw(deferred, anonymous, action))
+          .isEqualTo(deferredLaw(deferred, ordinary, action));
+    }
+    // Retained variables still distinguish the full conditional output law.
+    assertThat(deferred.primitiveCursor(anonymous, WorkbenchCurrency.EXALTED, Set.of()).identity())
+        .isNotEqualTo(
+            deferred.primitiveCursor(ordinary, WorkbenchCurrency.EXALTED, Set.of()).identity());
+  }
+
+  @Test
   void observedAnonymousFamilyIsExcludedFromARecompiledPartition() {
     var partition = fixture.goals.rollPartition(root().item(), goal(47));
     var anonymous =

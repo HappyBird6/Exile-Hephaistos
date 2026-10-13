@@ -1,5 +1,7 @@
 package com.poe2craft.crafting.domain.pathsearch;
 
+import com.poe2craft.crafting.domain.BasicCurrencyTransitions;
+import com.poe2craft.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.crafting.domain.goalfilter.*;
 import com.poe2craft.item.*;
 import java.math.*;
@@ -7,19 +9,27 @@ import java.util.*;
 
 /** Job-fixed disjoint intervals; uncertain numeric dependencies retain individual rolls. */
 public final class RollPartition {
-  public static final String VERSION = "goal-initial-currency-and-family-partition-v3";
+  public static final String VERSION = "goal-initial-reachable-currency-family-partition-v4";
   private final boolean exact;
   private final Set<String> relevant, intervalSafe;
   private final Map<String, NavigableSet<BigInteger>> cuts;
   private final TierPartition tiers;
   private final OrbitPartition orbits;
+  private final Set<WorkbenchCurrency> actions;
 
   private RollPartition(
       boolean exact,
       Set<String> relevant,
       Set<String> intervalSafe,
       Map<String, NavigableSet<BigInteger>> cuts) {
-    this(exact, relevant, intervalSafe, cuts, TierPartition.empty(), OrbitPartition.empty());
+    this(
+        exact,
+        relevant,
+        intervalSafe,
+        cuts,
+        TierPartition.empty(),
+        OrbitPartition.empty(),
+        Set.copyOf(BasicCurrencyTransitions.supportedActions()));
   }
 
   private RollPartition(
@@ -28,13 +38,15 @@ public final class RollPartition {
       Set<String> intervalSafe,
       Map<String, NavigableSet<BigInteger>> cuts,
       TierPartition tiers,
-      OrbitPartition orbits) {
+      OrbitPartition orbits,
+      Set<WorkbenchCurrency> actions) {
     this.exact = exact;
     this.relevant = Set.copyOf(relevant);
     this.intervalSafe = Set.copyOf(intervalSafe);
     this.cuts = new HashMap<>();
     this.tiers = tiers;
     this.orbits = orbits;
+    this.actions = Set.copyOf(actions);
     cuts.forEach(
         (key, value) ->
             this.cuts.put(key, Collections.unmodifiableNavigableSet(new TreeSet<>(value))));
@@ -124,7 +136,8 @@ public final class RollPartition {
             safe,
             cuts,
             TierPartition.compile(catalog, root, result),
-            OrbitPartition.compile(catalog, root, result))
+            OrbitPartition.compile(catalog, root, result),
+            Set.copyOf(BasicCurrencyTransitions.reachableActions(root)))
         : result;
   }
 
@@ -153,6 +166,10 @@ public final class RollPartition {
 
   public OrbitPartition orbits() {
     return orbits;
+  }
+
+  public boolean allows(WorkbenchCurrency action) {
+    return actions.contains(action);
   }
 
   boolean relevant(String stat) {

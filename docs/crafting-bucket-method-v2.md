@@ -599,3 +599,50 @@ are now fully backend-verified. Frontend sources/dependencies are unchanged from
 the previous 2,152-test full frontend check. Production whole-search completion
 and real browser verification are still open; this verification does not imply
 that the full Solar frontier has been exhausted.
+
+## Reachable-action partition and consumed-law cache (v10)
+
+Rare starts remain rare under every supported basic action. The partition now
+uses that shared-rule invariant: its eligibility vector includes all seven
+reachable Exalted/Chaos/Annulment variants (thresholds 0, 35 and 50), rather than
+also splitting at the unreachable magic-action thresholds 44 and 70. Other
+starts keep the conservative full action set. Method discovery still inspects
+all 16 supported actions; unavailable actions remain unavailable. An adapter
+rejects a caller that attempts an available out-of-scope action with a partition
+compiled for a different reachable rarity scope.
+
+This coarsens only proven equivalent cells. Family conflicts, eligible candidate
+weights, goal numeric regions, initial fixed values and conditional tier/roll
+laws remain intact. Full concrete restoration and all 16 action comparisons
+pass, as does the independent complete tiny method-search oracle. A regression
+also verifies that a rare partition cannot be reused for an available Greater
+Augmentation on a magic item.
+
+Primitive cache identity now retains an orbit law only for removal branches in
+which at least one of its variables survives. Once the entire variable is
+consumed, it cannot affect the fresh outcome law. Partially retained laws remain
+conservatively separate. Tests compare both the shared identity and full result
+law of last-modifier Chaos/Annulment, and preserve different addition identities.
+
+The isolated v10 Solar probe used the same 132,000 operations: 610 cells,
+179,706 represented concrete items, 601 unexpanded states, 305/819 methods done,
+514 live runners, 50,738 kernel outcomes and 33,798 observation support entries.
+Elapsed time was 16,202ms; first snapshot/method/goal were 117/269/1,388ms.
+Sampled heap peak was 221,747,376 bytes, VmHWM 458,756 KiB. The root had 42
+methods, 18 with all observations; the remaining 24 predominantly add modifiers
+repeatedly. The job paused at the diagnostic resume budget. First-local and
+whole-search completion remain unreached. The preceding v9 resumed measurement
+was 17,258ms, 794 cells and 40,713 observation support entries at 132,000
+operations. Different representations change work per operation, so this is
+not a fixed-work timing comparison.
+
+V10 passed Docker `check generateJooq bootJar`: 669 unit/contract tests and 7
+integration tests. No frontend source changed in this unit. A separate real
+Chromium run loaded the actual MethodSearch component from a static file using
+the shared diamond contract: all six locales rendered six method cards/eight
+arrows, 100/300/500 radio changes worked, no page errors occurred, and document
+width stayed within 1440px desktop and 390px mobile viewports. Screenshots and
+results are under `codex/bucket-browser` outside Git. This is a component browser
+check with recorded contract responses, not a live-server end-to-end check.
+The native browser connector still fails at startup with HRESULT 0x80070003.
+No application server was started.

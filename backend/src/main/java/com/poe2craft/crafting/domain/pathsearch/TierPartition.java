@@ -8,7 +8,7 @@ import java.util.*;
 
 /** Job-fixed disjoint tier cells, split at every supported currency eligibility boundary. */
 public final class TierPartition {
-  public static final String VERSION = "family-goal-currency-tier-partition-v1";
+  public static final String VERSION = "family-goal-reachable-currency-tier-partition-v2";
 
   public record BandKey(String modifier, long min, long max) {}
 
@@ -64,7 +64,7 @@ public final class TierPartition {
                 definition.affixType(),
                 definition.familyIds(),
                 definition.tags(),
-                BasicCurrencyTransitions.supportedActions().stream()
+                BasicCurrencyTransitions.reachableActions(root).stream()
                     .map(a -> definition.requiredItemLevel() >= a.minimumModifierLevel())
                     .toList(),
                 fixed.contains(band) ? definition.id() + ":" + first : "");

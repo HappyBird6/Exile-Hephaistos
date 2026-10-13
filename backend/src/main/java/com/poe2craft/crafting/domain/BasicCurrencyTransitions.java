@@ -51,6 +51,20 @@ public final class BasicCurrencyTransitions {
     return BasicCurrencyPlan.ACTIONS;
   }
 
+  /**
+   * The basic rules never downgrade rare items; all other starts keep the conservative full set.
+   */
+  public static List<WorkbenchCurrency> reachableActions(ItemState root) {
+    return root.rarity() == ItemState.Rarity.RARE
+        ? supportedActions().stream()
+            .filter(
+                action ->
+                    WorkbenchSimulator.basicRarityAllows(
+                        ItemState.Rarity.RARE, action.baseAction()))
+            .toList()
+        : supportedActions();
+  }
+
   public Provenance provenance() {
     return provenance;
   }

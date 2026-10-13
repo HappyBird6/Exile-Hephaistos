@@ -14,7 +14,7 @@ public final class DeferredTransitions {
       BasicCurrencyTransitions.KernelIdentity kernel,
       List<Map<String, DeferredItem.Band>> retainedLaws,
       List<Map<String, TierCell>> retainedTiers,
-      Map<String, OrbitCell> sourceOrbits) {}
+      List<Map<String, OrbitCell>> retainedOrbits) {}
 
   private final BasicCurrencyTransitions primitive;
   private final RollPartition partition;
@@ -26,7 +26,11 @@ public final class DeferredTransitions {
 
   public Cursor primitiveCursor(DeferredItem source, WorkbenchCurrency action, Set<String> omens) {
     partition.orbits().validateSource(source);
-    return new Cursor(source, primitive.primitiveCursor(source.representative(), action, omens));
+    var cursor = primitive.primitiveCursor(source.representative(), action, omens);
+    if (!cursor.blocked() && !partition.allows(action))
+      throw new IllegalArgumentException(
+          "Action is outside the partition's reachable rarity scope");
+    return new Cursor(source, cursor);
   }
 
   public final class Cursor {
@@ -108,7 +112,23 @@ public final class DeferredTransitions {
                                 return Map.copyOf(retained);
                               })
                           .toList(),
-                      source.orbits()));
+                      k.branches().stream()
+                          .map(
+                              branch -> {
+                                var ids =
+                                    branch.remaining().explicits().stream()
+                                        .map(ModifierInstance::modifierId)
+                                        .collect(java.util.stream.Collectors.toSet());
+                                var retained = new HashMap<>(source.orbits());
+                                retained
+                                    .entrySet()
+                                    .removeIf(
+                                        entry ->
+                                            entry.getValue().representatives().stream()
+                                                .noneMatch(m -> ids.contains(m.modifierId())));
+                                return Map.copyOf(retained);
+                              })
+                          .toList()));
     }
 
     public ExactMethodRunner.Outcome<DeferredItem> next() {

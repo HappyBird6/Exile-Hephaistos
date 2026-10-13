@@ -9,7 +9,7 @@ import java.util.*;
 
 /** Permutations are allowed only for identical complete basic-action weight profiles. */
 public final class OrbitPartition {
-  public static final String VERSION = "irrelevant-family-permutation-v1";
+  public static final String VERSION = "reachable-action-family-permutation-v2";
 
   private record Key(ModifierDefinition.AffixType affix, Map<Integer, Long> weights) {}
 
@@ -27,15 +27,15 @@ public final class OrbitPartition {
     return new OrbitPartition(Map.of());
   }
 
-  private static int category(ModifierDefinition definition) {
+  private static int category(ModifierDefinition definition, List<WorkbenchCurrency> actions) {
     int mask = 0;
-    var actions = BasicCurrencyTransitions.supportedActions();
     for (int i = 0; i < actions.size(); i++)
       if (definition.requiredItemLevel() >= actions.get(i).minimumModifierLevel()) mask |= 1 << i;
     return mask;
   }
 
   static OrbitPartition compile(ItemCatalog catalog, ItemState root, RollPartition rolls) {
+    var actions = BasicCurrencyTransitions.reachableActions(root);
     var families = new LinkedHashMap<Set<String>, List<ModifierDefinition>>();
     catalog.modifiers().values().stream()
         .filter(d -> d.layer() == ModifierDefinition.Layer.EXPLICIT)
@@ -66,7 +66,10 @@ public final class OrbitPartition {
           || eligible.stream().map(ModifierDefinition::affixType).distinct().count() != 1) continue;
       var byCategory = new TreeMap<Integer, List<ModifierDefinition>>();
       eligible.forEach(
-          d -> byCategory.computeIfAbsent(category(d), ignored -> new ArrayList<>()).add(d));
+          d ->
+              byCategory
+                  .computeIfAbsent(category(d, actions), ignored -> new ArrayList<>())
+                  .add(d));
       var weights = new TreeMap<Integer, Long>();
       var categories = new TreeMap<Integer, TierCell>();
       byCategory.forEach(
