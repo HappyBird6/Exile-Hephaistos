@@ -19,6 +19,7 @@ public final class ExactNumericDistribution {
 
     // Atomic immutable snapshots permit concurrent canonical reads while an exact sum is lazy.
     private volatile Value value;
+    private volatile long cachedHash;
     public static final Fraction ZERO = of(0, 1);
     public static final Fraction ONE = of(1, 1);
 
@@ -33,8 +34,11 @@ public final class ExactNumericDistribution {
     private Fraction(BigInteger numerator, BigInteger denominator, boolean reduced) {
       if (denominator.signum() <= 0 || numerator.signum() < 0)
         throw new IllegalArgumentException("Invalid probability fraction");
-      var divisor = reduced ? BigInteger.ONE : numerator.gcd(denominator);
-      value = new Value(numerator.divide(divisor), denominator.divide(divisor), true);
+      if (reduced) value = new Value(numerator, denominator, true);
+      else {
+        var divisor = numerator.gcd(denominator);
+        value = new Value(numerator.divide(divisor), denominator.divide(divisor), true);
+      }
     }
 
     private Fraction(Value exactSum) {
@@ -69,8 +73,13 @@ public final class ExactNumericDistribution {
 
     @Override
     public int hashCode() {
+      var known = cachedHash;
+      if (known != 0) return (int) known;
       var v = canonical();
-      return 31 * v.numerator().hashCode() + v.denominator().hashCode();
+      int result = 31 * v.numerator().hashCode() + v.denominator().hashCode();
+      // The high bit is a presence marker; all 32-bit hash values, including zero, remain valid.
+      cachedHash = 0x100000000L | Integer.toUnsignedLong(result);
+      return result;
     }
 
     @Override

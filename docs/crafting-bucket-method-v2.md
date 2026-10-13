@@ -799,6 +799,14 @@ a lower runtime for the fixed driver guard, not proof of a completed-work speedu
 work per operation and the completed-method count differ. Total-memory control and
 the remaining production frontier still require further work.
 
+A longer v13 diagnostic used a 1GiB test heap, a 500,000 retained-outcome allowance
+after the first resume, and an external 650MB sampled-heap guard. It stopped after
+408,000 operations/33 resumes in 34,938ms at 656,608,688 sampled bytes (VmHWM
+902,364 KiB). It had 656 cells, 317/833 completed methods and 163,924 retained kernel
+outcomes, but still only 18/42 root methods ready and no local/complete milestone.
+Those are diagnostic limits, not product defaults or currency-use limits. Raising
+the computation allowance alone did not solve the outstanding frontier.
+
 ## Lifecycle boundary follow-up
 
 A resume request below a previously enlarged retained-outcome allowance now returns
@@ -811,3 +819,45 @@ revision pages, and replace an expired job using the same client request ID with
 accepting the old worker's publication. Docker ran all six lifecycle/service tests,
 `spotlessCheck` and `bootJar` successfully. Calculation code is unchanged from the
 683+7-test v13 full verification.
+
+## Bounded primitive reuse (v14)
+
+Completed original and mixed primitive kernels now share an access-ordered cache.
+Eviction starts at three quarters of the configured retained-outcome allowance;
+partial kernels are never cached as complete or discarded. Every waiting method
+pins a completed delivery until it obtains the immutable kernel, including a cache
+alias discovered after a miss. A mixed kernel pins all original-cell dependencies
+until its complete linear composition is available. Eviction removes all aliases,
+identity indexes and scheduling metadata for that kernel. Later demand reconstructs
+it from the same versioned rules. Shared immutable outcome lists are conservatively
+counted for each cached reference, so evicting an original does not hide storage
+still retained by a derived alias. This remains a kernel-cache budget, not a total
+process-memory guarantee; in-flight runners, graph results and revisions are separate.
+
+Immutable fraction hashes and orbit representatives/hashes are memoized without
+changing equality, hash values, canonical fraction JSON or conditional item laws.
+A tiny full search with forced primitive eviction matches every completed method
+and state. A separate 32-outcome-cache test reconstructs mixed dependencies and
+matches every full concrete 100/300/500-cycle law and strategy bound. These targeted
+tests and arithmetic/mixture checks passed. Docker
+`spotlessApply check generateJooq bootJar` passed 689 unit/contract tests and
+7 integration tests; the full check/build took 6m59s. Production completion has
+not yet been demonstrated.
+
+The isolated 132,000-operation v14 measurement took 7,258ms, with first
+snapshot/method/goal at 124/266/836ms. It had 609 cells, 272/784 completed methods,
+30,744 observation support entries, sampled heap peak 272,629,760 bytes and VmHWM
+490,908 KiB. The retained-outcome counter now conservatively counts shared cached
+references, so it is not directly comparable with v13's unique-list ownership count.
+
+A longer v14 diagnostic kept the product's 100,000 kernel-outcome allowance, with
+the same 1GiB test heap and external 650MB sampled-heap guard used for the extended
+v13 run. It stopped at 504,000 operations/41 resumes in 37,676ms: 656 cells,
+312/833 completed methods, 34,251 observation support entries and 74,978 retained
+kernel references. It evicted/rebuilt 5,719 primitive and 1,806 derived kernels.
+Sampled heap peak was 663,320,384 bytes (VmHWM 913,000 KiB), with 378,888,448 bytes
+still used after an explicit diagnostic GC. The measured search time excludes
+that GC. Root readiness stayed at 18/42 for 100 and 500 cycles; no first local or
+full completion was reached. This confirms bounded kernel reuse, not a solution
+to the total live-distribution/frontier cost. More operations did not mean more
+completed methods than the differently budgeted v13 diagnostic.

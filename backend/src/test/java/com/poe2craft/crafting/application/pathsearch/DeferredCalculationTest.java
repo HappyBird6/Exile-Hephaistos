@@ -46,6 +46,17 @@ class DeferredCalculationTest {
   }
 
   private void verify(boolean weightedTier, boolean orbit, boolean mixture) throws Exception {
+    verify(weightedTier, orbit, mixture, 100000);
+  }
+
+  @Test
+  void boundedPrimitiveCachePreservesMixedDependenciesAndEveryConditionalMethodLaw()
+      throws Exception {
+    verify(true, false, true, 32);
+  }
+
+  private void verify(boolean weightedTier, boolean orbit, boolean mixture, int cacheLimit)
+      throws Exception {
     var fixture = new MethodSearchCalculationTest();
     var definitions = new ArrayList<>(fixture.catalog.modifiers().values());
     if (weightedTier) {
@@ -165,12 +176,12 @@ class DeferredCalculationTest {
                 evaluator,
                 transitions,
                 Set.of(),
-                100000,
+                cacheLimit,
                 partition,
                 new DeferredMixtures(
                     new BasicTransitionClasses(catalog, transitions, partition, evaluator)))
             : new MethodSearchCalculation(
-                root, evaluator, transitions, Set.of(), 100000, partition);
+                root, evaluator, transitions, Set.of(), cacheLimit, partition);
     // Four independent families exercise 1,477 concrete method instances, including
     // slow 500-cycle tails. This is an oracle work guard, not a crafting budget.
     // The additional low/high orbit categories grow the independent oracle from 24 to 54
@@ -195,6 +206,10 @@ class DeferredCalculationTest {
             deferred.memoryLimited())
         .isTrue();
     assertThat(deferred.states()).hasSizeLessThan(full.states().size());
+    if (cacheLimit < 100000) {
+      assertThat(deferred.primitiveKernelEvictions()).isPositive();
+      assertThat(deferred.cacheMetrics().outcomes()).isLessThan(cacheLimit);
+    }
     if (weightedTier && !mixture)
       assertThat(deferred.states()).anyMatch(s -> !s.state().tiers().isEmpty());
     if (mixture) {

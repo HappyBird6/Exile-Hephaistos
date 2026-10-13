@@ -83,6 +83,27 @@ class MethodSearchCalculationTest {
   }
 
   @Test
+  void evictedPrimitiveKernelsRebuildAliasesWithoutChangingAnyCompletedMethod() {
+    var reference =
+        new MethodSearchCalculation(root(), this::progress, transitions, Set.of(), 100000, true);
+    for (int i = 0; i < 500000 && !reference.complete(); i++) reference.step();
+    assertThat(reference.complete()).isTrue();
+    int limit = reference.cacheMetrics().outcomes() - 1;
+    assertThat(limit).isGreaterThan(1);
+    var bounded =
+        new MethodSearchCalculation(root(), this::progress, transitions, Set.of(), limit, true, 2);
+    for (int i = 0; i < 500000 && !bounded.complete(); i++) bounded.step();
+    assertThat(bounded.complete())
+        .withFailMessage(
+            "%s limit=%s operations=%s", bounded.cacheMetrics(), limit, bounded.operations())
+        .isTrue();
+    assertThat(bounded.primitiveKernelEvictions()).isPositive();
+    assertThat(bounded.cacheMetrics().outcomes()).isLessThan(limit);
+    assertThat(bounded.methods()).containsExactlyInAnyOrderElementsOf(reference.methods());
+    assertThat(bounded.states()).containsExactlyInAnyOrderElementsOf(reference.states());
+  }
+
+  @Test
   void memoryBudgetIsNotReportedAsCompleteAndUnsupportedIsNotZeroProbability() {
     var search =
         new MethodSearchCalculation(root(), this::progress, transitions, Set.of(), 1, true);

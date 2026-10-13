@@ -44,6 +44,8 @@ public final class OrbitCell {
   private final List<Assignment> assignments;
   private final BigInteger cardinality;
   private final Map<OrbitCell, Fraction> components;
+  private final List<ModifierInstance> representatives;
+  private final int hash;
 
   public OrbitCell(Profile profile, Map<Integer, Integer> counts) {
     components = Map.of();
@@ -61,6 +63,9 @@ public final class OrbitCell {
     assignments = List.copyOf(options);
     cardinality =
         assignments.stream().map(Assignment::cardinality).reduce(BigInteger.ZERO, BigInteger::add);
+    representatives =
+        assignments.getFirst().families().stream().map(c -> c.representative(false)).toList();
+    hash = Objects.hash(profile.id(), this.counts);
   }
 
   private OrbitCell(Map<OrbitCell, Fraction> components) {
@@ -68,11 +73,13 @@ public final class OrbitCell {
     this.profile = first.profile;
     this.counts = first.counts;
     this.assignments = first.assignments;
+    this.representatives = first.representatives;
     this.components = Collections.unmodifiableMap(new LinkedHashMap<>(components));
     this.cardinality =
         components.keySet().stream()
             .map(OrbitCell::cardinality)
             .reduce(BigInteger.ZERO, BigInteger::add);
+    this.hash = Objects.hash(profile.id(), this.components);
   }
 
   /** Components have disjoint category-count support and equal family occupancy. */
@@ -151,7 +158,7 @@ public final class OrbitCell {
   }
 
   public List<ModifierInstance> representatives() {
-    return assignments.getFirst().families().stream().map(c -> c.representative(false)).toList();
+    return representatives;
   }
 
   public Concrete concrete(BigInteger offset) {
@@ -198,9 +205,7 @@ public final class OrbitCell {
 
   @Override
   public int hashCode() {
-    return components.isEmpty()
-        ? Objects.hash(profile.id(), counts)
-        : Objects.hash(profile.id(), components);
+    return hash;
   }
 
   @Override

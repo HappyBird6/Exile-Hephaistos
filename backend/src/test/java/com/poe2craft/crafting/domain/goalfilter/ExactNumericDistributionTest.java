@@ -70,6 +70,9 @@ class ExactNumericDistributionTest {
     assertThat(half.toString()).isEqualTo("Fraction[numerator=1, denominator=2]");
     assertThat(half.hashCode())
         .isEqualTo(31 * half.numerator().hashCode() + half.denominator().hashCode());
+    var zeroHash = Fraction.of(1, 4294967265L);
+    assertThat(zeroHash.hashCode()).isZero();
+    assertThat(zeroHash.hashCode()).isEqualTo(Fraction.of(2, 8589934530L).hashCode());
     assertThat(Fraction.ZERO.pow(0)).isEqualTo(Fraction.ONE);
     assertThatThrownBy(() -> half.pow(-1)).isInstanceOf(IllegalArgumentException.class);
     assertThatThrownBy(() -> half.divide(Fraction.ZERO))
