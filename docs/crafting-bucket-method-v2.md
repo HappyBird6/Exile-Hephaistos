@@ -933,3 +933,40 @@ materialized 7,139,988 witnesses and reached a sampled heap peak of 229,495,800
 bytes. Both stopped at the time guard with `complete=false`. This compares work
 within a time window, not equal completed work or peak memory for equal frontiers.
 The 112,236 combinatorial class bound and 22 family profiles are unchanged.
+
+## Interned class identities
+
+`BasicClassIndex` assigns stable job-local integer identities to complete class
+keys. A projected kernel stores integer destinations, while the index keeps one
+key and witness per class. It checks structural key equality through the map and
+through replay validation; a matching hash is insufficient. Its cursor projects
+candidate bands first, then interns one result per step. No partial kernel is
+available from `result()`. The witness serves class calculation only. Replaying
+an actual incoming item still uses that item's full state and validates its class.
+
+The small closed-graph test compares every integer kernel with the original
+full-state projection for all supported actions, including unavailable actions.
+It verifies stable identities, exact masses and distinct entry-roll replay.
+
+A separate diagnostic ran the repeated Exalted/Chaos method directly on class
+keys, with first-hit goal/checkpoint classification, a 2,000-kernel cache and a
+450MB sampled-heap guard. It reached three completed cycles in 7,558ms, discovered
+14,058 classes and computed 9,934 kernels/617,618 outcomes before stopping at a
+sampled heap peak of 479,701,792 bytes. Replacing kernel destinations with integer
+identities reached four completed cycles in 30,610ms, 48,874 classes and 32,850
+kernels/1,867,794 outcomes before stopping at 455,866,160 sampled bytes. These are
+different amounts of completed work; neither reached a 100-cycle observation.
+The diagnostic guard is not a currency limit or a supported completion boundary.
+
+Remaining integration issue: storing exact full conditional laws at every method
+boundary still couples display/transport size to probability calculation. The
+recommended next representation is a conditional method operator retaining the
+actual entry law, template/phases, first-hit classifier, observation cycle and
+selected exit/class. It must reconstruct or page the actual item law when needed,
+never substitute the class witness or average alternative methods. Class-only
+method arithmetic also remains expensive; the integer representation is not yet
+a completed production search engine, and no numerical probability contract has
+been weakened or silently replaced by floating-point estimates.
+
+Docker `spotlessApply check generateJooq bootJar` passed the complete 693
+unit/contract tests and 7 integration tests in 5m49s for the class-index change.

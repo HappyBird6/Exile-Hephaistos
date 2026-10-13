@@ -125,6 +125,13 @@ public final class BasicTransitionClasses {
     return new Cursor(source, action);
   }
 
+  public BasicCurrencyTransitions.PrimitiveCursor replay(
+      Key source, BasicCurrencyState actualInput, WorkbenchCurrency action) {
+    if (!source.equals(key(actualInput)))
+      throw new IllegalArgumentException("Different input class");
+    return raw(actualInput, action);
+  }
+
   public final class Kernel {
     private final Key source;
     private final WorkbenchCurrency action;
@@ -173,9 +180,7 @@ public final class BasicTransitionClasses {
 
     /** Exact concrete transport for one actual member; distinct entry laws remain distinct. */
     public BasicCurrencyTransitions.PrimitiveCursor replay(BasicCurrencyState actualInput) {
-      if (!source.equals(key(actualInput)))
-        throw new IllegalArgumentException("Different input class");
-      return raw(actualInput, action);
+      return BasicTransitionClasses.this.replay(source, actualInput, action);
     }
   }
 

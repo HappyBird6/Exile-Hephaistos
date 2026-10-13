@@ -178,6 +178,7 @@ class BasicTransitionClassesTest {
     var partition = RollPartition.compile(catalog, known, goal, root.item());
     var evaluate = new GoalFilterService(index).compileEvaluation(root.item(), goal);
     var classes = new BasicTransitionClasses(catalog, primitive, partition, evaluate);
+    var classIndex = new BasicClassIndex(classes);
     var graph =
         new LinkedHashMap<BasicCurrencyState, FiniteQuotientProof.Node<BasicCurrencyState>>();
     var laws = new HashMap<List<Object>, ActionLaw>();
@@ -197,6 +198,19 @@ class BasicTransitionClassesTest {
         assertThat(indexed.result().outcomes()).isEqualTo(projected.outcomes());
         assertThat(indexed.result().unresolved()).isEqualTo(projected.unresolved());
         assertThat(indexed.result().unavailable()).isEqualTo(projected.unavailable());
+        int sourceId = classIndex.intern(source);
+        var integerCursor = classIndex.cursor(sourceId, action);
+        assertThatThrownBy(integerCursor::result).isInstanceOf(IllegalStateException.class);
+        while (!integerCursor.complete()) integerCursor.step();
+        var integerKernel = integerCursor.result();
+        var integerLaw = new HashMap<BasicTransitionClasses.Key, Fraction>();
+        integerKernel
+            .outcomes()
+            .forEach(
+                o -> integerLaw.merge(classIndex.key(o.state()), o.probability(), Fraction::add));
+        assertThat(integerLaw).isEqualTo(projected.outcomes());
+        assertThat(integerKernel.unresolved()).isEqualTo(projected.unresolved());
+        assertThat(integerKernel.unavailable()).isEqualTo(projected.unavailable());
         indexed
             .result()
             .witnesses()
@@ -239,6 +253,11 @@ class BasicTransitionClassesTest {
                     .add(proof.blocks().get(s)));
     assertThat(grouped).hasSizeLessThan(graph.size());
     assertThat(grouped.values()).allSatisfy(blocks -> assertThat(blocks).hasSize(1));
+    assertThat(classIndex.size()).isEqualTo(grouped.size());
+    for (int id = 0; id < classIndex.size(); id++) {
+      assertThat(classes.key(classIndex.witness(id))).isEqualTo(classIndex.key(id));
+      assertThat(classIndex.intern(classIndex.witness(id))).isEqualTo(id);
+    }
     var variants =
         graph.keySet().stream()
             .filter(
@@ -268,6 +287,22 @@ class BasicTransitionClassesTest {
     assertThat(indexed.result().replay(variants.get(0)).next().state()).isEqualTo(first);
     assertThat(indexed.result().replay(variants.get(1)).next().state()).isEqualTo(second);
     assertThatThrownBy(() -> indexed.result().replay(root))
+        .isInstanceOf(IllegalArgumentException.class);
+    int variantClass = classIndex.intern(variants.get(0));
+    assertThat(classIndex.intern(variants.get(1))).isEqualTo(variantClass);
+    assertThat(
+            classIndex
+                .replay(variantClass, variants.get(0), WorkbenchCurrency.EXALTED)
+                .next()
+                .state())
+        .isEqualTo(first);
+    assertThat(
+            classIndex
+                .replay(variantClass, variants.get(1), WorkbenchCurrency.EXALTED)
+                .next()
+                .state())
+        .isEqualTo(second);
+    assertThatThrownBy(() -> classIndex.replay(variantClass, root, WorkbenchCurrency.EXALTED))
         .isInstanceOf(IllegalArgumentException.class);
   }
 
