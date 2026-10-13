@@ -6,7 +6,16 @@ import java.util.function.Function;
 
 /** Finite-observation Markov calculation. S must be the full immutable transition state. */
 public final class ExactMethodRunner<S, A> {
-  public static final String VERSION = "method-cycle-markov-v4";
+  public static final String VERSION = "method-cycle-markov-compaction-v5";
+
+  /** A law-preserving normalization of one mutually exclusive distribution, never alternatives. */
+  public interface Compaction<S> {
+    boolean complete();
+
+    void step(int maxInputs);
+
+    Map<S, Fraction> result();
+  }
 
   public enum Exit {
     GOAL,
@@ -81,6 +90,9 @@ public final class ExactMethodRunner<S, A> {
   private final Template<S, A> template;
   private final Transition<S, A> transition;
   private final Function<S, Optional<Exit>> classify;
+  private final Function<Map<S, Fraction>, Compaction<S>> compact;
+  private final ArrayDeque<Map<S, Fraction>> compactionQueue = new ArrayDeque<>();
+  private Compaction<S> compaction;
   private final Map<Exit, Map<S, Fraction>> exits = new EnumMap<>(Exit.class);
   private final Map<A, Fraction> initialUses = new LinkedHashMap<>();
   private final Map<A, Fraction> cycleUses = new LinkedHashMap<>();
@@ -145,9 +157,19 @@ public final class ExactMethodRunner<S, A> {
       Template<S, A> template,
       Transition<S, A> transition,
       Function<S, Optional<Exit>> classify) {
+    this(root, template, transition, classify, null);
+  }
+
+  public ExactMethodRunner(
+      S root,
+      Template<S, A> template,
+      Transition<S, A> transition,
+      Function<S, Optional<Exit>> classify,
+      Function<Map<S, Fraction>, Compaction<S>> compact) {
     this.template = Objects.requireNonNull(template);
     this.transition = Objects.requireNonNull(transition);
     this.classify = Objects.requireNonNull(classify);
+    this.compact = compact;
     for (var exit : Exit.values()) exits.put(exit, new LinkedHashMap<>());
     initializing = !template.initial().isEmpty();
     var terminal = classify.apply(root);
@@ -182,6 +204,21 @@ public final class ExactMethodRunner<S, A> {
   public void step(int maxOutcomes) {
     if (maxOutcomes < 1) throw new IllegalArgumentException("Positive outcome slice required");
     if (atBoundary) throw new IllegalStateException("Begin a cycle before stepping");
+    if (!compactionQueue.isEmpty()) {
+      if (compaction == null) compaction = compact.apply(compactionQueue.getFirst());
+      if (!compaction.complete()) compaction.step(maxOutcomes);
+      if (compaction.complete()) {
+        var target = compactionQueue.removeFirst();
+        var result = compaction.result();
+        if (result != target) {
+          target.clear();
+          target.putAll(result);
+        }
+        compaction = null;
+        if (compactionQueue.isEmpty()) endBoundary();
+      }
+      return;
+    }
     if (flight == null && !phaseReady) {
       var entry = pending.entrySet().iterator().next();
       var execution = entry.getKey();
@@ -249,6 +286,14 @@ public final class ExactMethodRunner<S, A> {
   }
 
   private void finishBoundary() {
+    if (compact != null) {
+      if (boundary.size() > 1) compactionQueue.add(boundary);
+      for (var values : exits.values()) if (values.size() > 1) compactionQueue.add(values);
+    }
+    if (compactionQueue.isEmpty()) endBoundary();
+  }
+
+  private void endBoundary() {
     if (initializing) initializing = false;
     else cycles++;
     atBoundary = true;

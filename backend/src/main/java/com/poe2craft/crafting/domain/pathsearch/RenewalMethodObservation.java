@@ -27,6 +27,9 @@ public final class RenewalMethodObservation {
     if (q.numerator().compareTo(q.denominator()) > 0) return Optional.empty();
     var expected = scale(before.active(), q);
     if (!expected.equals(after.active())) return Optional.empty();
+    if (!monotone(before.cycleUses(), after.cycleUses())) return Optional.empty();
+    for (var kind : Exit.values())
+      if (!monotone(before.exits().get(kind), after.exits().get(kind))) return Optional.empty();
     int repeats = Math.toIntExact(count - before.cycles());
     var survival = q.pow(repeats);
     var factor =
@@ -50,6 +53,19 @@ public final class RenewalMethodObservation {
 
   private static Fraction divide(Fraction a, Fraction b) {
     return a.divide(b);
+  }
+
+  private static <K> boolean monotone(Map<K, Fraction> before, Map<K, Fraction> after) {
+    return before.entrySet().stream()
+        .allMatch(
+            entry -> {
+              var a = entry.getValue();
+              var b = after.getOrDefault(entry.getKey(), Fraction.ZERO);
+              return b.numerator()
+                      .multiply(a.denominator())
+                      .compareTo(a.numerator().multiply(b.denominator()))
+                  >= 0;
+            });
   }
 
   private static <K> Map<K, Fraction> scale(Map<K, Fraction> values, Fraction factor) {

@@ -9,6 +9,33 @@ import org.junit.jupiter.api.Test;
 
 class RenewalMethodObservationTest {
   @Test
+  void changedExitRepresentationDoesNotProveRenewal() {
+    var beforeExits = new EnumMap<Exit, Map<String, Fraction>>(Exit.class);
+    var afterExits = new EnumMap<Exit, Map<String, Fraction>>(Exit.class);
+    for (var kind : Exit.values()) {
+      beforeExits.put(kind, Map.of());
+      afterExits.put(kind, Map.of());
+    }
+    beforeExits.put(Exit.GOAL, Map.of("original-cell", Fraction.of(1, 2)));
+    afterExits.put(Exit.GOAL, Map.of("mixture-cell", Fraction.of(3, 4)));
+    var before =
+        new Observation<String, String>(
+            1,
+            beforeExits,
+            Map.of("active", Fraction.of(1, 2)),
+            Map.of(),
+            Map.of("try", Fraction.ONE));
+    var after =
+        new Observation<String, String>(
+            2,
+            afterExits,
+            Map.of("active", Fraction.of(1, 4)),
+            Map.of(),
+            Map.of("try", Fraction.of(3, 2)));
+    assertThat(RenewalMethodObservation.repeatInvariant(before, after, 100)).isEmpty();
+  }
+
+  @Test
   void invariantConditionalLawAfterPreparationMatchesFullMarkovWithDistinctStatesAndCosts() {
     var runner =
         new ExactMethodRunner<String, String>(

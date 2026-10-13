@@ -8,7 +8,9 @@ import com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Probabil
 import com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Rejected;
 import com.poe2craft.crafting.domain.*;
 import com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction;
+import com.poe2craft.crafting.domain.pathsearch.BasicTransitionClasses;
 import com.poe2craft.crafting.domain.pathsearch.DeferredItem;
+import com.poe2craft.crafting.domain.pathsearch.DeferredMixtures;
 import com.poe2craft.crafting.domain.pathsearch.OutcomeStrategy;
 import com.poe2craft.item.*;
 import java.time.*;
@@ -149,6 +151,10 @@ public final class MethodSearchService implements AutoCloseable {
           }
         }
       if (jobs.size() >= MAX_JOBS) throw new Rejected(503, "SEARCH_CAPACITY_REACHED");
+      var partition = goals.rollPartition(request.start().item(), request.goal());
+      var mixtures =
+          new DeferredMixtures(
+              new BasicTransitionClasses(catalog, transitions, partition, evaluator));
       var job =
           new Job(
               owner,
@@ -159,7 +165,8 @@ public final class MethodSearchService implements AutoCloseable {
                   transitions,
                   Set.copyOf(request.activeOmens()),
                   100000,
-                  goals.rollPartition(request.start().item(), request.goal())));
+                  partition,
+                  mixtures));
       jobs.put(job.id, job);
       try (var ignored = job.acquire()) {
         publish(job);

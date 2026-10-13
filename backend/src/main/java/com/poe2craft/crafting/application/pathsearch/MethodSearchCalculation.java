@@ -5,6 +5,7 @@ import com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fractio
 import com.poe2craft.crafting.domain.goalfilter.GoalEvaluator.Evaluation;
 import com.poe2craft.crafting.domain.goalfilter.GoalFilter.Status;
 import com.poe2craft.crafting.domain.pathsearch.DeferredItem;
+import com.poe2craft.crafting.domain.pathsearch.DeferredMixtures;
 import com.poe2craft.crafting.domain.pathsearch.DeferredTransitions;
 import com.poe2craft.crafting.domain.pathsearch.ExactMethodRunner;
 import com.poe2craft.crafting.domain.pathsearch.ExactMethodRunner.*;
@@ -13,10 +14,11 @@ import com.poe2craft.crafting.domain.pathsearch.RollPartition;
 import com.poe2craft.item.ItemState;
 import java.util.*;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 /** Job-local, resumable method-depth exploration. UI buckets never key calculation states. */
 public final class MethodSearchCalculation {
-  public static final String VERSION = "shared-pool-joint-family-method-search-v11";
+  public static final String VERSION = "conditional-mixture-method-search-v12";
   static final int OPEN_METHOD_WINDOW = 512;
   public static final String TEMPLATES = "applicable-single-and-two-action-cycles-v3";
   public static final List<Integer> OBSERVATIONS = List.of(100, 300, 500);
@@ -57,6 +59,9 @@ public final class MethodSearchCalculation {
 
   private final DeferredTransitions transitions;
   private final Function<ItemState, Progress> evaluate;
+  private Function<Map<DeferredItem, Fraction>, ExactMethodRunner.Compaction<DeferredItem>> compact;
+  private DeferredMixtures mixtures;
+  private UnaryOperator<Map<DeferredItem, Fraction>> expandMixtures = UnaryOperator.identity();
   private final LinkedHashMap<DeferredItem, State> states = new LinkedHashMap<>();
   private final Map<String, DeferredItem> identities = new HashMap<>();
   private final LinkedHashMap<String, Method> methods = new LinkedHashMap<>();
@@ -143,6 +148,22 @@ public final class MethodSearchCalculation {
         partition);
   }
 
+  public MethodSearchCalculation(
+      BasicCurrencyState root,
+      Function<ItemState, Evaluation> evaluator,
+      BasicCurrencyTransitions transitions,
+      Set<String> activeOmens,
+      int retainedOutcomeLimit,
+      RollPartition partition,
+      DeferredMixtures mixtures) {
+    this(root, evaluator, transitions, activeOmens, retainedOutcomeLimit, partition);
+    if (activeOmens.isEmpty()) {
+      this.mixtures = mixtures;
+      compact = mixtures::start;
+      expandMixtures = mixtures::expand;
+    }
+  }
+
   MethodSearchCalculation(
       BasicCurrencyState root,
       Function<ItemState, Progress> evaluate,
@@ -197,6 +218,10 @@ public final class MethodSearchCalculation {
     return operations;
   }
 
+  public DeferredMixtures.Metrics mixtureMetrics() {
+    return mixtures == null ? new DeferredMixtures.Metrics(0, 0, 0) : mixtures.metrics();
+  }
+
   public boolean memoryLimited() {
     return retainedOutcomes >= retainedOutcomeLimit;
   }
@@ -241,10 +266,11 @@ public final class MethodSearchCalculation {
       } else {
         var selected =
             pendingKernels.values().stream()
+                .filter(KernelWork::ready)
                 .min(
                     Comparator.comparingInt((KernelWork work) -> kernelDepth.get(work.key))
                         .thenComparingInt(work -> kernelMethodLength.get(work.key))
-                        .thenComparing(work -> work.cursor.remainingOutcomes())
+                        .thenComparing(KernelWork::remainingWork)
                         .thenComparingInt(work -> -matches(work.key.state())))
                 .orElseThrow();
         selected.step();
@@ -280,6 +306,24 @@ public final class MethodSearchCalculation {
       kernelDepth.merge(known, depth, Math::min);
       kernelMethodLength.merge(known, methodLength, Math::min);
       return known;
+    }
+    if (mixtures != null) {
+      var basis = mixtures.expand(Map.of(request.state(), Fraction.ONE));
+      if (!basis.equals(Map.of(request.state(), Fraction.ONE))) {
+        var dependencies = new LinkedHashMap<Key, Fraction>();
+        basis.forEach(
+            (state, mass) ->
+                dependencies.merge(
+                    registerKernel(new Key(state, request.action()), depth, methodLength),
+                    mass,
+                    Fraction::add));
+        kernelAliases.put(request, request);
+        kernelDepth.put(request, depth);
+        kernelMethodLength.put(request, methodLength);
+        fairKernels.addLast(request);
+        pendingKernels.put(request, new MixtureKernelWork(request, dependencies));
+        return request;
+      }
     }
     var cursor = transitions.primitiveCursor(request.state(), request.action(), activeOmens);
     assumptions.addAll(cursor.assumptions());
@@ -583,7 +627,8 @@ public final class MethodSearchCalculation {
                       .toList(),
                   selectors),
               MethodSearchCalculation.this::kernel,
-              outcome -> classify(source, outcome, initial.isEmpty() && actions.size() == 1));
+              outcome -> classify(source, outcome, initial.isEmpty() && actions.size() == 1),
+              compact);
     }
 
     void step() {
@@ -592,7 +637,7 @@ public final class MethodSearchCalculation {
         runner.step();
         return;
       }
-      var point = runner.observation();
+      var point = expanded(runner.observation());
       int cycles = Math.toIntExact(point.cycles());
       if (point.active().isEmpty()) {
         for (int n : OBSERVATIONS)
@@ -656,6 +701,18 @@ public final class MethodSearchCalculation {
       runner.beginCycle();
     }
 
+    Observation<DeferredItem, WorkbenchCurrency> expanded(
+        Observation<DeferredItem, WorkbenchCurrency> point) {
+      var exits = new EnumMap<Exit, Map<DeferredItem, Fraction>>(Exit.class);
+      point.exits().forEach((kind, values) -> exits.put(kind, expandMixtures.apply(values)));
+      return new Observation<>(
+          point.cycles(),
+          Map.copyOf(exits),
+          Map.copyOf(expandMixtures.apply(point.active())),
+          point.initialUses(),
+          point.cycleUses());
+    }
+
     void save(int cycles, Observation<DeferredItem, WorkbenchCurrency> point) {
       if (points.putIfAbsent(cycles, point) != null)
         throw new IllegalStateException("An earlier observation must not be overwritten");
@@ -671,7 +728,7 @@ public final class MethodSearchCalculation {
     }
   }
 
-  private final class KernelWork {
+  private class KernelWork {
     final Key key;
     final DeferredTransitions.Cursor cursor;
     final Map<DeferredItem, Fraction> outcomes = new LinkedHashMap<>();
@@ -679,6 +736,14 @@ public final class MethodSearchCalculation {
     KernelWork(Key key, DeferredTransitions.Cursor cursor) {
       this.key = key;
       this.cursor = cursor;
+    }
+
+    boolean ready() {
+      return true;
+    }
+
+    java.math.BigInteger remainingWork() {
+      return cursor.remainingOutcomes();
     }
 
     void step() {
@@ -705,6 +770,78 @@ public final class MethodSearchCalculation {
         pendingKernels.remove(key);
         wake(key);
       }
+    }
+  }
+
+  /** Linear transport of one conditional mixture through already verified finite-cell kernels. */
+  private final class MixtureKernelWork extends KernelWork {
+    final Map<Key, Fraction> dependencies;
+    Iterator<Map.Entry<Key, Fraction>> inputs;
+    Map.Entry<Key, Fraction> input;
+    Kernel<DeferredItem> current;
+    int position;
+    Boolean unavailable;
+    Fraction unresolved = Fraction.ZERO;
+    ExactMethodRunner.Compaction<DeferredItem> normalizer;
+
+    MixtureKernelWork(Key key, Map<Key, Fraction> dependencies) {
+      super(key, null);
+      this.dependencies = Map.copyOf(dependencies);
+    }
+
+    @Override
+    boolean ready() {
+      return dependencies.keySet().stream().allMatch(kernels::containsKey);
+    }
+
+    @Override
+    java.math.BigInteger remainingWork() {
+      return java.math.BigInteger.valueOf(dependencies.size());
+    }
+
+    @Override
+    void step() {
+      if (!ready()) return;
+      if (dependencies.size() == 1) {
+        kernels.put(key, kernels.get(dependencies.keySet().iterator().next()));
+        sharedKernelLookups++;
+        pendingKernels.remove(key);
+        wake(key);
+        return;
+      }
+      if (inputs == null) inputs = dependencies.entrySet().iterator();
+      if (current == null && inputs.hasNext()) {
+        input = inputs.next();
+        current = kernels.get(input.getKey());
+        if (unavailable != null && unavailable != current.unavailable())
+          throw new IllegalStateException("Mixture crossed an applicability boundary");
+        unavailable = current.unavailable();
+        unresolved = unresolved.add(input.getValue().multiply(current.unresolved()));
+        position = 0;
+      }
+      if (current != null) {
+        for (int n = 0; n < 32 && position < current.outcomes().size(); n++, position++) {
+          var outcome = current.outcomes().get(position);
+          if (!outcomes.containsKey(outcome.state())) retainedOutcomes++;
+          outcomes.merge(
+              outcome.state(), input.getValue().multiply(outcome.probability()), Fraction::add);
+        }
+        if (position == current.outcomes().size()) current = null;
+        return;
+      }
+      if (normalizer == null) normalizer = mixtures.start(outcomes);
+      if (!normalizer.complete()) normalizer.step(32);
+      if (!normalizer.complete()) return;
+      var values = normalizer.result();
+      retainedOutcomes += values.size() - outcomes.size();
+      kernels.put(
+          key,
+          new Kernel<>(
+              values.entrySet().stream().map(e -> new Outcome<>(e.getKey(), e.getValue())).toList(),
+              unresolved,
+              Boolean.TRUE.equals(unavailable)));
+      pendingKernels.remove(key);
+      wake(key);
     }
   }
 }

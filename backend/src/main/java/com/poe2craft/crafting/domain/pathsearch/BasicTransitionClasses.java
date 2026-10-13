@@ -85,6 +85,16 @@ public final class BasicTransitionClasses {
     return new Key(context, roles, statuses);
   }
 
+  /** Existing numeric laws may mix only within this exact family and observation region. */
+  public Role retainedRole(ModifierInstance modifier) {
+    var definition = catalog.modifiers().get(modifier.modifierId());
+    if (definition == null) throw new IllegalArgumentException("Unknown modifier");
+    return new Role(
+        definition.affixType() + ":" + new TreeSet<>(definition.familyIds()),
+        partition.transitionRegion(definition, modifier),
+        modifier.fractured());
+  }
+
   private BasicCurrencyTransitions.PrimitiveCursor raw(
       BasicCurrencyState source, WorkbenchCurrency action) {
     var cursor = primitive.primitiveCursor(source, action, Set.of());

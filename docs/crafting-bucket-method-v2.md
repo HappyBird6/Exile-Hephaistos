@@ -684,3 +684,55 @@ implementation step.
 V11 passed Docker `check generateJooq bootJar`: 672 unit/contract tests and
 7 integration tests. Frontend source and dependencies remain unchanged from
 the previously verified build and six-locale Chromium component check.
+
+## Conditional mixtures inside method execution (v12)
+
+The production method service now compacts mutually exclusive outcomes inside
+one method at cycle boundaries. It combines one modifier family at a time only
+when the entire remaining item and its conditional laws are equal. The family,
+fracture flag and compiled numeric goal region must also agree. Other-family
+correlations and alternative methods remain separate. Overlapping numeric
+intervals use an exact piecewise rational density, not an independent-roll
+approximation. Anonymous family orbits retain their existing joint law.
+
+Each generated mixture records its exact coefficients over the original finite
+cells. Method observations are expanded back into those cells before renewal
+proofs and graph insertion. Posterior weights therefore remain entry-conditional
+probabilities rather than creating a potentially unbounded series of new graph
+node identities. Renewal shortcuts also reject decreasing per-cell cumulative
+exits: different representations alone cannot prove stationary renewal.
+
+Compaction scans yield through the method cursor and consume normal calculation
+work slices. A partial compaction cannot publish a completed cycle. Primitive
+first-hit checks and currency accounting precede the compaction. Tests restore
+overlapping weighted laws exactly, compare all following basic actions, retain
+correlated inputs, check first-hit/currency use under one-input slices, and
+compare every completed tiny-catalog method at 100/300/500 cycles with the full
+concrete oracle. That graph closes with the original six cells rather than
+posterior mixture nodes. Docker `spotlessApply check generateJooq bootJar` passed
+with 677 unit/contract tests and 7 integration tests. Frontend sources are
+unchanged. This change does not claim whole-search completion.
+
+Mixed inputs reuse the original-cell primitive kernels by linear composition.
+Dependencies are scheduled before the composition; a partial dependency or
+compaction remains pending. If all components share one complete kernel, the
+same immutable object is reused. Otherwise weighted outputs are accumulated and
+compacted in bounded work slices. Original cells cannot later become generated
+posterior laws, so basis references stay flat and acyclic.
+
+The isolated v11 comparison at 132,000 operations took 16,034ms: 610 graph cells,
+305/819 completed methods, 33,798 observation support entries and a sampled heap
+peak of 220,069,960 bytes (VmHWM 448,144 KiB). The first v12 attempt, which built
+fresh primitive kernels for mixed inputs, took 17,001ms with 293/812 methods done
+and 254,564,224 bytes sampled heap. This was not a performance improvement.
+After linear kernel reuse, a diagnostic observed 15,533ms, 610 graph cells,
+280/798 methods done, 31,689 support entries and 283,444,304 bytes sampled heap
+(VmHWM 575,448 KiB). It merged 35,318 internal cells across 1,993 distributions
+and retained 751 mixture laws. That diagnostic shared its JVM with the new
+mixture tests, so startup/heap figures are not an isolated comparison. None of
+these runs completed a first local recommendation or the full Solar frontier;
+all had 18/42 root methods ready. Work per operation also changes. The current
+mechanism proves conditional-law transport but has not yet demonstrated the
+required whole-search performance. Anonymous orbit category mixtures, which this
+one-axis tier compactor leaves unchanged, remain a candidate for further exact
+reduction rather than another raw enumeration budget increase.

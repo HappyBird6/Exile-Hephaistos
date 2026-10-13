@@ -31,6 +31,15 @@ class DeferredCalculationTest {
   }
 
   private void verify(boolean weightedTier, boolean orbit) throws Exception {
+    verify(weightedTier, orbit, false);
+  }
+
+  @Test
+  void internalMixturesRestoreFiniteGraphAndEveryConcreteMethodLaw() throws Exception {
+    verify(true, false, true);
+  }
+
+  private void verify(boolean weightedTier, boolean orbit, boolean mixture) throws Exception {
     var fixture = new MethodSearchCalculationTest();
     var definitions = new ArrayList<>(fixture.catalog.modifiers().values());
     if (weightedTier) {
@@ -42,7 +51,7 @@ class DeferredCalculationTest {
               original.layer(),
               original.affixType(),
               original.familyIds(),
-              1,
+              mixture ? 50 : 1,
               3,
               2,
               original.text(),
@@ -129,7 +138,18 @@ class DeferredCalculationTest {
             .compileEvaluation(root.item(), goal);
     var full = new MethodSearchCalculation(root, evaluator, transitions, Set.of(), 100000);
     var deferred =
-        new MethodSearchCalculation(root, evaluator, transitions, Set.of(), 100000, partition);
+        mixture
+            ? new MethodSearchCalculation(
+                root,
+                evaluator,
+                transitions,
+                Set.of(),
+                100000,
+                partition,
+                new DeferredMixtures(
+                    new BasicTransitionClasses(catalog, transitions, partition, evaluator)))
+            : new MethodSearchCalculation(
+                root, evaluator, transitions, Set.of(), 100000, partition);
     // Four independent families exercise 1,477 concrete method instances, including
     // slow 500-cycle tails. This is an oracle work guard, not a crafting budget.
     for (int i = 0; i < 2000000 && (!full.complete() || !deferred.complete()); i++) {
@@ -150,7 +170,13 @@ class DeferredCalculationTest {
             deferred.memoryLimited())
         .isTrue();
     assertThat(deferred.states()).hasSizeLessThan(full.states().size());
-    if (weightedTier) assertThat(deferred.states()).anyMatch(s -> !s.state().tiers().isEmpty());
+    if (weightedTier && !mixture)
+      assertThat(deferred.states()).anyMatch(s -> !s.state().tiers().isEmpty());
+    if (mixture) {
+      assertThat(deferred.mixtureMetrics().mergedCells()).isPositive();
+      assertThat(deferred.mixtureMetrics().generatedLaws()).isPositive();
+      assertThat(deferred.states()).hasSize(6).allMatch(s -> s.state().tiers().isEmpty());
+    }
     if (orbit) assertThat(deferred.states()).anyMatch(s -> !s.state().orbits().isEmpty());
     var sources = new HashMap<String, DeferredItem>();
     deferred.states().forEach(s -> sources.put(s.id(), s.state()));
