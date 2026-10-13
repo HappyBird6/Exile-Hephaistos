@@ -159,14 +159,15 @@ public final class MethodSearchService implements AutoCloseable {
           new Job(
               owner,
               request,
-              new MethodSearchCalculation(
-                  request.start(),
-                  evaluator,
-                  transitions,
-                  Set.copyOf(request.activeOmens()),
-                  100000,
-                  partition,
-                  mixtures));
+              new DeferredMethodSearchEngine(
+                  new MethodSearchCalculation(
+                      request.start(),
+                      evaluator,
+                      transitions,
+                      Set.copyOf(request.activeOmens()),
+                      100000,
+                      partition,
+                      mixtures)));
       jobs.put(job.id, job);
       try (var ignored = job.acquire()) {
         publish(job);
@@ -260,9 +261,13 @@ public final class MethodSearchService implements AutoCloseable {
           for (var mass : exit.getValue().values()) unresolved = unresolved.add(mass);
         else
           exit.getValue()
-              .forEach((s, mass) -> cells.add(new DistributionCell(s, exit.getKey().name(), mass)));
+              .forEach(
+                  (s, mass) ->
+                      cells.add(new DistributionCell(saved.cell(s), exit.getKey().name(), mass)));
       }
-      point.active().forEach((s, mass) -> cells.add(new DistributionCell(s, "ACTIVE", mass)));
+      point
+          .active()
+          .forEach((s, mass) -> cells.add(new DistributionCell(saved.cell(s), "ACTIVE", mass)));
       cells.sort(
           Comparator.comparing((DistributionCell cell) -> cell.state().canonicalKey())
               .thenComparing(DistributionCell::kind));
@@ -400,8 +405,8 @@ public final class MethodSearchService implements AutoCloseable {
   }
 
   static List<Local> localRecommendations(
-      List<MethodSearchCalculation.StateView> states,
-      Map<String, List<MethodSearchCalculation.MethodView>> bySource) {
+      List<MethodSearchEngine.StateView> states,
+      Map<String, List<MethodSearchEngine.MethodView>> bySource) {
     var locals = new ArrayList<Local>();
     for (var source : states)
       if (source.expanded()) {
@@ -480,7 +485,7 @@ public final class MethodSearchService implements AutoCloseable {
                             .toList();
                     strategies.add(
                         new Strategy(
-                            saved.byState.get(state).id(),
+                            state,
                             cycles,
                             value.exact() ? "EXACT" : "BOUNDS",
                             p(value.lower()),
@@ -500,12 +505,12 @@ public final class MethodSearchService implements AutoCloseable {
             Set.of("PAUSED", "CANCELLED").contains(job.status),
             job.calculation.complete(),
             job.calculation.operations(),
-            job.request.start().canonicalKey(),
+            job.calculation.rootId(),
             job.request.start().provenance(),
             job.request.goal().catalogVersion(),
-            MethodSearchCalculation.TEMPLATES,
-            MethodSearchCalculation.VERSION,
-            DeferredItem.VERSION,
+            job.calculation.templatesVersion(),
+            job.calculation.calculationVersion(),
+            job.calculation.stateVersion(),
             com.poe2craft.crafting.domain.pathsearch.RollPartition.VERSION,
             OutcomeStrategy.VERSION,
             BasicCurrencyTransitions.INTERPRETATION,
@@ -613,16 +618,16 @@ public final class MethodSearchService implements AutoCloseable {
     final String id = UUID.randomUUID().toString(), owner;
     final Create request;
     final Instant expires = clock.instant().plus(Duration.ofMinutes(20));
-    final MethodSearchCalculation calculation;
+    final MethodSearchEngine calculation;
     final Map<Long, Revision> revisions = new LinkedHashMap<>();
     final Map<String, Command> commands = new LinkedHashMap<>();
-    final Map<Integer, OutcomeStrategy<DeferredItem>> solvers = new LinkedHashMap<>();
+    final Map<Integer, OutcomeStrategy<String>> solvers = new LinkedHashMap<>();
     final Map<String, CachedArrow> arrows = new HashMap<>();
     long revision = -1, generation;
     String status = "QUEUED", reason;
     volatile Snapshot snapshot;
 
-    Job(String owner, Create request, MethodSearchCalculation calculation) {
+    Job(String owner, Create request, MethodSearchEngine calculation) {
       this.owner = owner;
       this.request = request;
       this.calculation = calculation;
@@ -636,8 +641,8 @@ public final class MethodSearchService implements AutoCloseable {
 
   private record Command(Mutation command, Snapshot response) {}
 
-  private record CachedArrow(MethodSearchCalculation.MethodView method, Arrow arrow) {
-    boolean matches(MethodSearchCalculation.MethodView next) {
+  private record CachedArrow(MethodSearchEngine.MethodView method, Arrow arrow) {
+    boolean matches(MethodSearchEngine.MethodView next) {
       return method.status().equals(next.status())
           && Objects.equals(method.reason(), next.reason())
           && method.points().size() == next.points().size()
@@ -652,11 +657,10 @@ public final class MethodSearchService implements AutoCloseable {
     final Map<String, CachedArrow> arrows;
     final String jobId;
     final long number;
-    final List<MethodSearchCalculation.StateView> states;
-    final List<MethodSearchCalculation.MethodView> methods;
-    final Map<String, MethodSearchCalculation.StateView> byId = new HashMap<>();
-    final Map<DeferredItem, MethodSearchCalculation.StateView> byState = new HashMap<>();
-    final Map<String, List<MethodSearchCalculation.MethodView>> bySource = new HashMap<>();
+    final List<MethodSearchEngine.StateView> states;
+    final List<MethodSearchEngine.MethodView> methods;
+    final Map<String, MethodSearchEngine.StateView> byId = new HashMap<>();
+    final Map<String, List<MethodSearchEngine.MethodView>> bySource = new HashMap<>();
     final List<Bucket> buckets;
     final Map<String, Position> cursors = new HashMap<>();
     final Map<Position, String> tokens = new HashMap<>();
@@ -666,20 +670,19 @@ public final class MethodSearchService implements AutoCloseable {
       jobId = job.id;
       number = job.revision;
       states = job.calculation.states();
-      var groups = new LinkedHashMap<String, List<MethodSearchCalculation.StateView>>();
+      var groups = new LinkedHashMap<String, List<MethodSearchEngine.StateView>>();
       states.forEach(
           s -> {
             byId.put(s.id(), s);
-            byState.put(s.state(), s);
             groups.computeIfAbsent(bucket(s.progress()), unused -> new ArrayList<>()).add(s);
           });
       methods =
           job.calculation.methods().stream()
               .sorted(
                   Comparator.comparingInt(
-                          (MethodSearchCalculation.MethodView m) -> byId.get(m.source()).depth())
+                          (MethodSearchEngine.MethodView m) -> byId.get(m.source()).depth())
                       .thenComparing(m -> m.points().isEmpty())
-                      .thenComparing(MethodSearchCalculation.MethodView::id))
+                      .thenComparing(MethodSearchEngine.MethodView::id))
               .toList();
       methods.forEach(
           method ->
@@ -692,18 +695,17 @@ public final class MethodSearchService implements AutoCloseable {
                     return new Bucket(
                         e.getKey(),
                         e.getValue().stream()
-                            .mapToInt(MethodSearchCalculation.StateView::depth)
+                            .mapToInt(MethodSearchEngine.StateView::depth)
                             .min()
                             .orElseThrow(),
                         first.progress().goal().name(),
                         first.progress().entries().stream().map(Enum::name).toList(),
                         e.getValue().size(),
-                        first.state().item(),
-                        first.state().rolls(),
-                        tierView(first.state()),
-                        orbitView(first.state()),
-                        e.getValue().stream()
-                            .allMatch(MethodSearchCalculation.StateView::complete));
+                        first.representative().item(),
+                        first.representative().rolls(),
+                        tierView(first.representative()),
+                        orbitView(first.representative()),
+                        e.getValue().stream().allMatch(MethodSearchEngine.StateView::complete));
                   })
               .toList();
     }
@@ -736,13 +738,13 @@ public final class MethodSearchService implements AutoCloseable {
           end < methods.size() ? cursor("graph", end) : null);
     }
 
-    Arrow arrow(MethodSearchCalculation.MethodView method) {
+    Arrow arrow(MethodSearchEngine.MethodView method) {
       var cached = arrows.get(method.id());
       if (cached != null && cached.matches(method)) return cached.arrow();
       var source = byId.get(method.source());
       var points = new ArrayList<Point>();
       for (var entry : new TreeMap<>(method.points()).entrySet()) {
-        var groups = new LinkedHashMap<String, Map<DeferredItem, Fraction>>();
+        var groups = new LinkedHashMap<String, Map<String, Fraction>>();
         var observation = entry.getValue();
         var unresolved = Fraction.ZERO;
         for (var exit : observation.exits().entrySet()) {
@@ -779,10 +781,10 @@ public final class MethodSearchService implements AutoCloseable {
               method.id(),
               method.source(),
               bucket(source.progress()),
-              source.state().item(),
-              source.state().rolls(),
-              tierView(source.state()),
-              orbitView(source.state()),
+              source.representative().item(),
+              source.representative().rolls(),
+              tierView(source.representative()),
+              orbitView(source.representative()),
               method.initialActions().stream().map(Enum::name).toList(),
               method.actions().stream().map(Enum::name).toList(),
               method.status(),
@@ -793,15 +795,20 @@ public final class MethodSearchService implements AutoCloseable {
     }
 
     void group(
-        Map<String, Map<DeferredItem, Fraction>> groups,
-        String kind,
-        DeferredItem state,
-        Fraction mass) {
-      var target = byState.get(state);
+        Map<String, Map<String, Fraction>> groups, String kind, String state, Fraction mass) {
+      var target = byId.get(state);
       if (target == null) throw new IllegalStateException("Missing exact exit state");
       groups
           .computeIfAbsent(kind + "|" + bucket(target.progress()), unused -> new LinkedHashMap<>())
           .merge(state, mass, Fraction::add);
+    }
+
+    DeferredItem cell(String id) {
+      var state = byId.get(id);
+      if (state == null) throw new IllegalStateException("Missing distribution state");
+      return state
+          .distributionCell()
+          .orElseThrow(() -> new Rejected(409, "CONDITIONAL_DISTRIBUTION_REQUIRED"));
     }
   }
 }

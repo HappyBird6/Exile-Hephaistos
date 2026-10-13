@@ -1071,3 +1071,24 @@ phase's accumulated mass removed the unnecessary operation. No probability
 assertion was relaxed. Targeted checks then passed, followed by Docker
 `spotlessApply check generateJooq bootJar`: 694 unit/contract tests and 7 integration
 tests, with the full check/build taking 5m29s.
+
+## Probability-representation-independent API views
+
+The progressive service now consumes immutable state-ID-based engine views. The
+existing deferred-cell implementation is wrapped without changing the v2 wire
+contract or probability calculations. Display representatives and optional actual
+distribution cells are separate fields; a missing actual cell is rejected with
+`CONDITIONAL_DISTRIBUTION_REQUIRED`, never replaced with the display witness.
+Observations retain their identity across unchanged snapshots, and strategy edges
+combine only exclusive outcomes within one method choice.
+
+A complete small graph test compares every state, method mass, currency cost and
+five strategy sweeps at 100/300/500 cycles with the original calculation. Lifecycle,
+service and local-recommendation checks also pass. Docker
+`spotlessApply check generateJooq bootJar` passed 695 unit/contract and 7 integration
+tests. The production 132,000-operation diagnostic remained partial: 609 states,
+798 methods, 274 completed methods, root readiness 18/42 at 100 and 500 cycles.
+Elapsed time was 6,844 ms; first response/method/goal bucket appeared at
+129/281/710 ms. Sampled heap peak was 281,545,640 bytes and process peak RSS was
+505,660 KiB. Neither first local recommendation nor whole-search completion was
+reached. This adapter does not yet enable the class engine in production.

@@ -2,7 +2,7 @@ package com.poe2craft.crafting.application.pathsearch;
 
 import static org.assertj.core.api.Assertions.*;
 
-import com.poe2craft.crafting.application.pathsearch.MethodSearchCalculation.*;
+import com.poe2craft.crafting.application.pathsearch.MethodSearchEngine.*;
 import com.poe2craft.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction;
 import com.poe2craft.crafting.domain.pathsearch.DeferredItem;
@@ -15,17 +15,23 @@ class LocalMethodRecommendationTest {
   final DeferredItem item = new DeferredItem(fixture.root());
 
   StateView source(boolean expanded) {
-    return new StateView("root", item, 0, fixture.progress(item.item()), expanded, false);
+    return StateView.cell(
+        new MethodSearchCalculation.StateView(
+            "root", item, 0, fixture.progress(item.item()), expanded, false));
   }
 
   MethodView method(String id, int success, int unknown, boolean ready) {
-    var exits = new EnumMap<Exit, Map<DeferredItem, Fraction>>(Exit.class);
+    var exits = new EnumMap<Exit, Map<String, Fraction>>(Exit.class);
     for (var kind : Exit.values()) exits.put(kind, Map.of());
-    if (success > 0) exits.put(Exit.GOAL, Map.of(item, Fraction.of(success, 10)));
-    if (unknown > 0) exits.put(Exit.UNRESOLVED, Map.of(item, Fraction.of(unknown, 10)));
+    if (success > 0) exits.put(Exit.GOAL, Map.of("root", Fraction.of(success, 10)));
+    if (unknown > 0) exits.put(Exit.UNRESOLVED, Map.of("root", Fraction.of(unknown, 10)));
     var point =
-        new Observation<DeferredItem, WorkbenchCurrency>(
-            100, exits, Map.of(item, Fraction.of(10 - success - unknown, 10)), Map.of(), Map.of());
+        new Observation<String, WorkbenchCurrency>(
+            100,
+            exits,
+            Map.of("root", Fraction.of(10 - success - unknown, 10)),
+            Map.of(),
+            Map.of());
     assertThat(point.mass()).isEqualTo(Fraction.ONE);
     return new MethodView(
         id,
