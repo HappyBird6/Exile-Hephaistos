@@ -584,3 +584,18 @@ claim against v8. Frontend lint/type/format, all 2,152 tests and production buil
 passed (the existing large bundle warning remains).
 
 Docker backend check, integration tests, jOOQ generation and bootJar also passed: 664 unit/contract tests and 7 integration tests, including fixed observed-family exclusion. Browser verification remains blocked by the previously recorded launcher failure; no application server was started.
+
+## 2026-10-13 resumption: WIP verified
+
+The user explicitly resumed work on 2026-10-13. The prior-day stop instruction
+is historical. The WIP at e9f5e258a04d2bf8535ad5186ed80d5e528a0852 passed Docker
+`check generateJooq bootJar`, including 667 unit/contract tests and 7 integration
+tests. The checked work branch was fast-forwarded to this verified source; the
+WIP backup branch remains intact. The earlier handoff records the checks that
+were available at the time of the stop, not this new verification.
+
+The rational arithmetic and observation-specific local recommendation changes
+are now fully backend-verified. Frontend sources/dependencies are unchanged from
+the previous 2,152-test full frontend check. Production whole-search completion
+and real browser verification are still open; this verification does not imply
+that the full Solar frontier has been exhausted.
