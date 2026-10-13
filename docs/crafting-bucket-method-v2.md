@@ -1384,3 +1384,111 @@ accounting 1,541,898. Sampled heap peak was 768,799,664 bytes and post-GC heap
 baseline, so these heap figures are not a matched-frontier memory comparison.
 Neither the first root local recommendation nor whole-search completion was
 reached. Active method distributions are now the largest retained category.
+
+## Equivalent preparations and finite adaptive strategy validation
+
+Preparation sharing requires equality of completed exact class kernels: source
+class, applicability, unresolved mass and every target probability must match.
+The source job/class and repeated action sequence must also match. Hash equality
+alone is insufficient. Separate methods retain their identities, their actual
+initial currency costs and their actual primitive replay template. Conditional
+entry transport therefore uses the original action even when class-marginal
+calculation is shared. The small complete-map oracle still compares all methods,
+100/300/500 outcomes and currency counts independently.
+
+An initial test assumption was rejected: at item level one, Greater Exalted is
+unavailable and is not equivalent to ordinary Exalted. This is retained as an
+explicit rejection regression. The positive sharing/replay test uses the declared
+small catalog fixture with equal eligible laws, not a claim that all public Solar
+preparations are equal. In the 180-second real Solar run, 66 preparation groups
+were checked and zero methods qualified for sharing. The run remained partial
+with 18/42 root methods complete. Identical support sizes are not enough: different
+weights or eligibility must remain distinct.
+
+`CertifiedOutcomeStrategy` provides conservative adaptive reachability on a finite
+graph. It takes maxima over alternative decisions and sums only mutually exclusive
+outcomes of each decision. Integer outward arithmetic encloses Bellman updates.
+Separate flags describe reachable unexplored states, unresolved model mass and
+arithmetic in input transition enclosures. Residual eventual-value width is a
+fixed-point proof gap; it is not labeled solely as numerical error. Arithmetic
+rounding during solver updates is enclosed even if input transitions are dyadic.
+A nested support fixed point proves zero/one reachability where possible; a
+positive decreasing-rank witness avoids recommending a stalling cycle as an
+almost-sure strategy. Edges with zero lower bounds cannot justify that witness.
+
+Tests cover local/final preference reversal in a diamond, different actions after
+A/B outcomes, closed failure cycles, unknown/missing work, and recovery equations
+A=B/2+1/4, B=A/2+1/2 (A=2/3, B=5/6). A self-loop alternative that prevents elementary
+upper iteration from converging remains pending. This is not a complete general
+cyclic decision solver. The finite completed-map adapter is being compared with
+the existing exact strategy oracle for each requested horizon; large-job strategy
+scheduling and the public UI remain separate unfinished work.
+
+### Measurement correction
+
+The earlier diagnostic checked root direct completion by constructing the entire
+public state view every 4,096 operations. That observer adds allocation and CPU
+cost and contaminates time/peak-heap comparisons. The corrected probe uses a
+constant-size root completion lookup. Active exit-entry counts are also maintained
+incrementally instead of repeatedly creating streams in every method step.
+Earlier post-GC retained-state measurements remain useful, but earlier timings and
+sampled peaks are not isolated engine benchmarks.
+
+### Cross-origin sharing and candidate profiles
+
+The preparation certificate can also cross starting classes when the prepared
+class law is equal and the subsequent classifier and cycle are equal. The engine
+uses equal supported goal-progress baselines for its nonstructural classifier;
+unknown/unsupported baselines stay source-scoped. The certificate rejects changing
+an already-terminal origin. The replay snapshot is rebound to the actual new
+source and initial currency. A real low-level Solar regression verifies empty
+Rare + Exalted versus one-mod Rare + Chaos, followed by Annulment, including exact
+conditional replay to the empty item. This is equality of the prepared law, not
+an assertion that the starting items are equivalent.
+
+The addition-profile cache is separate from full-state kernels. Its key contains
+the ordered eligible individual candidate IDs and the number of removal branches;
+its owner fixes catalog, weight policy, rule model and roll partition. Under the
+current validated primitive formula these determine candidate-band probabilities.
+A completed profile contains only candidate indexes, representative roll values
+and exact role masses. It contains no source item or cursor. Every hit still builds
+witnesses from the actual remaining item and reevaluates the resulting state.
+Partial candidate aggregation is not cached; a completed profile is not a
+completed primitive kernel. The cache is bounded to 128 profiles/20,000 retained
+key/result rows and those rows count toward the certified engine's memory guard.
+Real-catalog tests compare cached and uncached kernels, witnesses, eviction and
+Chaos removal-branch denominators.
+
+Method-depth scheduling now completes the lower layer before activating the next
+layer's methods. Methods within that layer remain cooperatively round-robin, and
+completed outcomes are publishable immediately. This prevents unfinished root
+methods from competing in memory with dozens of deeper executions. It does not
+remove alternatives, declare unvisited states complete, or cap currency uses.
+
+### Corrected long-run result and next bottleneck
+
+The corrected probe (no full-view allocation on each progress sample), with the
+same 1 GiB JVM and two-million retained-entry allowance, reached the 600-second
+wall-time guard normally. It performed 195,226,345 operations and completed 36 of
+42 root methods. It discovered 108,999 calculation classes and 73,342 public state
+classes. Under lower-layer scheduling it had not activated deeper methods; six
+root Exalted/Chaos variant cycles remained at cycles four/five. First root direct
+completion, first root local recommendation and whole completion were not reached.
+
+At that point retained accounting was 1,854,869: 1,269,094 unique saved-law entries,
+421,004 active entries, 108,999 classes, 44,548 cached full-kernel outcomes,
+10,713 addition-profile rows and 511 preparation rows. Addition profiles recorded
+2,179,379 hits and 994,159 misses. Sampled heap peak was 941,096,960 bytes and post-GC
+heap 519,606,224 bytes. This was a time-guard stop, not a memory pause. It is a bare
+engine diagnostic, not API or live-browser latency.
+
+The data exposes an API limit independently of timing: already-completed root
+methods alone retain 1,269,094 law rows, exceeding the API's current maximum of one
+million resident entries. Increasing the allowance alone is not the recommended
+fix. Preserve the immutable result law via bounded resident pages or deferred
+materialization, with the original conditional replay operator and exact enclosure
+metadata intact. Resident working state, stored outcome rows and numeric error
+must be reported separately. Final general cyclic solving and UI integration are
+still unfinished; the small completed-map strategy adapter is verified scope.
+
+Validation of this unit: Docker Java 21 frozen-source check generateJooq bootJar passed (711 unit/contract tests and 7 integration tests, zero failures/errors); formatting passed. Frontend is unchanged in this unit.

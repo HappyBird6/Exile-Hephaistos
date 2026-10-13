@@ -31,11 +31,42 @@ public final class BasicTransitionClasses {
   private final Map<String, String> exactFamilies = new HashMap<>();
   private final Map<String, String> classFamilies = new HashMap<>();
 
+  private record ProfileKey(List<String> candidates, int removalBranches) {}
+
+  private record AdditionProfile(int candidate, long value, Fraction mass) {}
+
+  private final LinkedHashMap<ProfileKey, List<AdditionProfile>> additionProfiles =
+      new LinkedHashMap<>(16, .75f, true);
+  private final int profileLimit;
+  private long profileHits, profileMisses;
+  private int profileRows;
+
+  public record ProfileMetrics(int profiles, int retainedRows, long hits, long misses) {}
+
+  public int profileRetainedRows() {
+    return profileRows;
+  }
+
+  public ProfileMetrics profileMetrics() {
+    return new ProfileMetrics(additionProfiles.size(), profileRows, profileHits, profileMisses);
+  }
+
   public BasicTransitionClasses(
       ItemCatalog catalog,
       BasicCurrencyTransitions primitive,
       RollPartition partition,
       Function<ItemState, GoalEvaluator.Evaluation> evaluate) {
+    this(catalog, primitive, partition, evaluate, 128);
+  }
+
+  public BasicTransitionClasses(
+      ItemCatalog catalog,
+      BasicCurrencyTransitions primitive,
+      RollPartition partition,
+      Function<ItemState, GoalEvaluator.Evaluation> evaluate,
+      int profileLimit) {
+    if (profileLimit < 0) throw new IllegalArgumentException("Negative profile cache limit");
+    this.profileLimit = profileLimit;
     this.catalog = catalog;
     this.primitive = primitive;
     this.partition = partition;
@@ -197,7 +228,8 @@ public final class BasicTransitionClasses {
     private final Map<Key, Fraction> outcomes = new LinkedHashMap<>();
     private final Map<Key, BasicCurrencyState> witnesses = new LinkedHashMap<>();
     private final Map<Role, Addition> additions = new LinkedHashMap<>();
-    private Iterator<Addition> flush;
+    private Iterator<AdditionProfile> flush;
+    private ProfileKey profileKey;
     private int branch, candidate;
     private Long value;
     private long materializedWitnesses;
@@ -245,7 +277,9 @@ public final class BasicTransitionClasses {
       if (flush != null) {
         if (flush.hasNext()) {
           var addition = flush.next();
-          accept(raw.candidateWitness(branch, addition.candidate, addition.value), addition.mass);
+          accept(
+              raw.candidateWitness(branch, addition.candidate(), addition.value()),
+              addition.mass());
         }
         if (!flush.hasNext()) {
           branch++;
@@ -253,10 +287,23 @@ public final class BasicTransitionClasses {
           value = null;
           additions.clear();
           flush = null;
+          profileKey = null;
         }
         return;
       }
       var candidates = branches.get(branch).candidates();
+      if (profileKey == null) {
+        profileKey =
+            new ProfileKey(
+                candidates.stream().map(ModifierDefinition::id).toList(), branches.size());
+        var cached = additionProfiles.get(profileKey);
+        if (cached != null) {
+          profileHits++;
+          flush = cached.iterator();
+          return;
+        }
+        profileMisses++;
+      }
       var definition = candidates.get(candidate);
       var range = definition.stats().getFirst();
       if (value == null) value = range.min();
@@ -270,7 +317,23 @@ public final class BasicTransitionClasses {
         candidate++;
         value = null;
       } else value = last + 1;
-      if (candidate == candidates.size()) flush = additions.values().iterator();
+      if (candidate == candidates.size()) {
+        var profile =
+            additions.values().stream()
+                .map(a -> new AdditionProfile(a.candidate, a.value, a.mass))
+                .toList();
+        if (profileLimit > 0) {
+          var previousProfile = additionProfiles.put(profileKey, profile);
+          if (previousProfile != null)
+            profileRows -= profileKey.candidates().size() + previousProfile.size();
+          profileRows += profileKey.candidates().size() + profile.size();
+          while (additionProfiles.size() > profileLimit || profileRows > 20000) {
+            var removed = additionProfiles.pollFirstEntry();
+            profileRows -= removed.getKey().candidates().size() + removed.getValue().size();
+          }
+        }
+        flush = profile.iterator();
+      }
     }
 
     private void accept(BasicCurrencyState witness, Fraction mass) {

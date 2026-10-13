@@ -35,6 +35,9 @@ class CertifiedMethodRunnerTest {
         runner.beginCycle();
         while (!runner.atBoundary()) runner.step(1);
         var point = runner.observation();
+        assertThat(runner.retainedStates())
+            .isEqualTo(
+                point.active().size() + point.exits().values().stream().mapToLong(Map::size).sum());
         var goal =
             new Fraction(
                 remaining.denominator().subtract(remaining.numerator()), remaining.denominator());

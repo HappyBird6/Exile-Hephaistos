@@ -84,6 +84,18 @@ public final class IndexedKernelStore {
     private BasicClassIndex.Cursor cursor;
     private ExactMethodRunner.Kernel<Integer> result;
 
+    public IndexedKernelStore store() {
+      return IndexedKernelStore.this;
+    }
+
+    public int source() {
+      return key.source();
+    }
+
+    public WorkbenchCurrency action() {
+      return key.action();
+    }
+
     private Request(Key key, ExactMethodRunner.Kernel<Integer> result) {
       this.key = key;
       this.result = result;

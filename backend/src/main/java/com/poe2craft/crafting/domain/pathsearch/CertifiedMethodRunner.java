@@ -37,6 +37,7 @@ public final class CertifiedMethodRunner<S, A> {
   private CertifiedInterval absorbedMass, boundaryMass;
   private boolean initializing, atBoundary;
   private long cycles;
+  private long absorbedEntries;
   private Flight flight;
 
   private final class Flight {
@@ -82,9 +83,7 @@ public final class CertifiedMethodRunner<S, A> {
   }
 
   public long retainedStates() {
-    return (long) pending.size()
-        + boundary.size()
-        + exits.values().stream().mapToLong(Map::size).sum();
+    return (long) pending.size() + boundary.size() + absorbedEntries;
   }
 
   public record Retention(long pending, long boundary, long exits, long flightOutcomes) {}
@@ -93,7 +92,7 @@ public final class CertifiedMethodRunner<S, A> {
     return new Retention(
         pending.size(),
         boundary.size(),
-        exits.values().stream().mapToLong(Map::size).sum(),
+        absorbedEntries,
         flight == null ? 0 : flight.kernel.outcomes().size());
   }
 
@@ -126,7 +125,10 @@ public final class CertifiedMethodRunner<S, A> {
 
   private void absorb(Exit kind, S state, CertifiedInterval mass) {
     if (mass.zero()) return;
-    exits.get(kind).merge(state, mass, CertifiedMethodRunner::probabilitySum);
+    var law = exits.get(kind);
+    int before = law.size();
+    law.merge(state, mass, CertifiedMethodRunner::probabilitySum);
+    absorbedEntries += law.size() - before;
     absorbedMass = absorbedMass.add(mass).probability();
   }
 

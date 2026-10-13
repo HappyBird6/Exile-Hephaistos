@@ -1,6 +1,7 @@
 package com.poe2craft.crafting.domain.pathsearch;
 
 import com.poe2craft.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction;
 import java.util.*;
 import java.util.function.Function;
 
@@ -98,6 +99,68 @@ public final class IndexedCertifiedMethodRunner {
     return new Snapshot(store.index(), source, template, classify, precision, runner.observation());
   }
 
+  /** Certified from a completed shared primitive request, never from an asserted hash. */
+  public static final class InitialLaw {
+    private final BasicClassIndex index;
+    private final int source;
+    private final WorkbenchCurrency action;
+    private final Map<Integer, Fraction> outcomes;
+    private final Fraction unresolved;
+    private final boolean unavailable;
+
+    public InitialLaw(IndexedKernelStore.Request request) {
+      var kernel = request.result();
+      index = request.store().index();
+      source = request.source();
+      action = request.action();
+      var law = new HashMap<Integer, Fraction>();
+      kernel.outcomes().forEach(o -> law.merge(o.state(), o.probability(), Fraction::add));
+      outcomes = Map.copyOf(law);
+      unresolved = kernel.unresolved();
+      unavailable = kernel.unavailable();
+    }
+
+    public Map<Integer, Fraction> outcomes() {
+      return outcomes;
+    }
+
+    public Fraction unresolved() {
+      return unresolved;
+    }
+
+    public boolean unavailable() {
+      return unavailable;
+    }
+
+    public InitialEquivalence equivalentTo(InitialLaw other) {
+      if (index != other.index
+          || unavailable != other.unavailable
+          || !unresolved.equals(other.unresolved)
+          || !outcomes.equals(other.outcomes))
+        throw new IllegalArgumentException("Initial class laws differ");
+      return new InitialEquivalence(index, source, other.source, action, other.action);
+    }
+  }
+
+  public static final class InitialEquivalence {
+    private final BasicClassIndex index;
+    private final int source, targetSource;
+    private final WorkbenchCurrency from, to;
+
+    private InitialEquivalence(
+        BasicClassIndex index,
+        int source,
+        int targetSource,
+        WorkbenchCurrency from,
+        WorkbenchCurrency to) {
+      this.index = index;
+      this.source = source;
+      this.targetSource = targetSource;
+      this.from = from;
+      this.to = to;
+    }
+  }
+
   public static final class Snapshot {
     private final BasicClassIndex index;
     private final int source;
@@ -128,6 +191,37 @@ public final class IndexedCertifiedMethodRunner {
     public Snapshot atLaterAbsorbedBoundary(long cycles) {
       return new Snapshot(
           index, source, template, classify, precision, point.atLaterAbsorbedBoundary(cycles));
+    }
+
+    /**
+     * Change only an equivalent one-action preparation; retain the real action for exact replay.
+     */
+    public Snapshot withEquivalentInitial(InitialEquivalence proof) {
+      if (proof.index != index
+          || proof.source != source
+          || template.initial().size() != 1
+          || template.initial().getFirst().apply(source) != proof.from)
+        throw new IllegalArgumentException("Equivalence does not match this method");
+      if (source != proof.targetSource
+          && (classify.apply(source).isPresent() || classify.apply(proof.targetSource).isPresent()))
+        throw new IllegalArgumentException("Cannot change an already terminal origin");
+      var uses = new HashMap<>(point.initialUses());
+      var count = uses.remove(proof.from);
+      if (count != null) uses.merge(proof.to, count, CertifiedInterval::add);
+      var rebound =
+          new CertifiedMethodRunner.Observation<>(
+              point.cycles(),
+              point.exits(),
+              point.active(),
+              Map.copyOf(uses),
+              point.cycleUses(),
+              point.mass());
+      var reboundTemplate =
+          new ExactMethodRunner.Template<Integer, WorkbenchCurrency>(
+              template.id() + ":equivalent-initial:" + proof.to,
+              List.of(s -> proof.to),
+              template.cycle());
+      return new Snapshot(index, proof.targetSource, reboundTemplate, classify, precision, rebound);
     }
 
     public ConditionalMethodLaw condition(

@@ -12,13 +12,26 @@ import java.util.function.Function;
 
 /** Certified class marginals. Incoming item laws remain exact retained conditional operators. */
 final class CertifiedMethodSearchEngine {
-  static final String VERSION = "certified-method-map-v2-shared-observations";
+  static final String VERSION = "certified-method-map-v3-shared-preparation";
   private final BasicClassIndex index;
   private final CertifiedInterval.Precision precision;
   private final Map<Integer, String> identifiers = new HashMap<>();
   private final Map<Integer, MethodSearchCalculation.Progress> progressCache = new HashMap<>();
   private final List<Integer> entryOffsets = new ArrayList<>();
   private long liveEntries, savedEntries;
+  private long preparationEntries;
+
+  private record Preparation(
+      int source,
+      MethodSearchCalculation.Progress progress,
+      List<WorkbenchCurrency> cycle,
+      Map<Integer, Fraction> law,
+      Fraction unresolved,
+      boolean unavailable) {}
+
+  private record Prepared(Method owner, IndexedCertifiedMethodRunner.InitialLaw law) {}
+
+  private final Map<Preparation, Prepared> preparations = new HashMap<>();
   private final Map<Map<Integer, CertifiedInterval>, Map<String, CertifiedInterval>> lawViews =
       new IdentityHashMap<>();
   private final IndexedKernelStore kernels;
@@ -86,6 +99,11 @@ final class CertifiedMethodSearchEngine {
     return id(root);
   }
 
+  boolean rootDirectComplete() {
+    var state = states.get(root);
+    return state.expanded && state.methods.stream().allMatch(m -> m.done);
+  }
+
   public String calculationVersion() {
     return VERSION;
   }
@@ -107,7 +125,12 @@ final class CertifiedMethodSearchEngine {
   }
 
   public long retainedEntries() {
-    return (long) index.size() + kernels.cachedOutcomes() + liveEntries + savedEntries;
+    return (long) index.size()
+        + index.profileRetainedRows()
+        + kernels.cachedOutcomes()
+        + liveEntries
+        + savedEntries
+        + preparationEntries;
   }
 
   public int classCount() {
@@ -132,6 +155,10 @@ final class CertifiedMethodSearchEngine {
       int pendingKernels,
       long calculatedKernels,
       long sharedRequests,
+      int preparationGroups,
+      long preparationEntries,
+      long sharedMethods,
+      BasicTransitionClasses.ProfileMetrics additionProfiles,
       List<MethodRetention> largestMethods) {}
 
   record MethodRetention(String id, long cycles, long pending, long boundary, long exits) {}
@@ -183,6 +210,10 @@ final class CertifiedMethodSearchEngine {
         kernels.pendingKernels(),
         kernels.calculatedKernels(),
         kernels.sharedRequests(),
+        preparations.size(),
+        preparationEntries,
+        methods.values().stream().filter(m -> m.delegate != null).count(),
+        index.profileMetrics(),
         List.copyOf(largest.subList(0, Math.min(12, largest.size()))));
   }
 
@@ -211,7 +242,11 @@ final class CertifiedMethodSearchEngine {
     while (!frontier.isEmpty()
         && (frontier.peek().state().expanded
             || frontier.peek().depth() != frontier.peek().state().depth)) frontier.remove();
-    if (!frontier.isEmpty() && (ready.isEmpty() || (operations % 4 == 0 && ready.size() < 64))) {
+    if (!frontier.isEmpty()
+        && (ready.isEmpty()
+            || (operations % 4 == 0
+                && ready.size() < 64
+                && frontier.peek().depth() <= ready.peekFirst().source.depth))) {
       discover(frontier.peek().state());
     } else if (!ready.isEmpty()) {
       var method = ready.removeFirst();
@@ -365,6 +400,39 @@ final class CertifiedMethodSearchEngine {
         .toList();
   }
 
+  /** Finite completed graph adapter. Large-job cooperative strategy scheduling is separate. */
+  CertifiedOutcomeStrategy<String> strategy(int cycles) {
+    if (!complete()) throw new IllegalStateException("Enumeration incomplete");
+    if (!MethodSearchCalculation.OBSERVATIONS.contains(cycles))
+      throw new IllegalArgumentException("Unknown horizon");
+    var graph = new LinkedHashMap<String, CertifiedOutcomeStrategy.State<String>>();
+    for (var state : states.values()) {
+      var choices = new ArrayList<CertifiedOutcomeStrategy.Choice<String>>();
+      for (var method : state.methods) {
+        var point = method.points.get(cycles);
+        if (point == null) throw new IllegalStateException("Completed method lacks observation");
+        var outcomes = new LinkedHashMap<>(point.active());
+        var unresolved = CertifiedInterval.zero(precision.fractionalBits());
+        for (var exit : point.exits().entrySet()) {
+          if (exit.getKey() == Exit.UNRESOLVED)
+            for (var mass : exit.getValue().values())
+              unresolved = unresolved.add(mass).probability();
+          else
+            exit.getValue()
+                .forEach(
+                    (target, mass) ->
+                        outcomes.merge(target, mass, (a, b) -> a.add(b).probability()));
+        }
+        choices.add(new CertifiedOutcomeStrategy.Choice<>(method.id, outcomes, unresolved));
+      }
+      graph.put(
+          id(state.key),
+          new CertifiedOutcomeStrategy.State<>(
+              state.progress.goal() == Status.MATCH, false, choices));
+    }
+    return new CertifiedOutcomeStrategy<>(graph, precision.fractionalBits());
+  }
+
   private Map<String, CertifiedInterval> ids(Map<Integer, CertifiedInterval> input) {
     return lawViews.computeIfAbsent(
         input,
@@ -440,6 +508,10 @@ final class CertifiedMethodSearchEngine {
     final Map<Integer, CertifiedMethodRunner.Observation<String, WorkbenchCurrency>> points =
         new LinkedHashMap<>();
     IndexedCertifiedMethodRunner runner;
+    IndexedKernelStore.Request preparationRequest;
+    Method delegate;
+    IndexedCertifiedMethodRunner.InitialEquivalence equivalence;
+    boolean prepared;
     final Set<Map<Integer, CertifiedInterval>> linkedLaws =
         Collections.newSetFromMap(new IdentityHashMap<>());
     boolean done, unresolved;
@@ -453,6 +525,44 @@ final class CertifiedMethodSearchEngine {
     }
 
     void step() {
+      if (!prepared && !initial.isEmpty()) {
+        if (preparationRequest == null)
+          preparationRequest = kernels.request(source.key, initial.getFirst());
+        if (!preparationRequest.complete()) {
+          preparationRequest.step();
+          return;
+        }
+        var law = new IndexedCertifiedMethodRunner.InitialLaw(preparationRequest);
+        preparationRequest = null;
+        var key =
+            new Preparation(
+                source.progress.goal() == Status.NO_MATCH
+                        && source.progress.entries().stream()
+                            .allMatch(s -> s == Status.MATCH || s == Status.NO_MATCH)
+                    ? -1
+                    : source.key,
+                source.progress,
+                actions,
+                law.outcomes(),
+                law.unresolved(),
+                law.unavailable());
+        var shared = preparations.get(key);
+        if (shared == null) {
+          preparations.put(key, new Prepared(this, law));
+          preparationEntries += law.outcomes().size();
+        } else {
+          delegate = shared.owner();
+          equivalence = shared.law().equivalentTo(law);
+        }
+        prepared = true;
+      }
+      if (delegate != null) {
+        for (int cycles : MethodSearchCalculation.OBSERVATIONS)
+          if (!saved.containsKey(cycles) && delegate.saved.containsKey(cycles))
+            save(cycles, delegate.saved.get(cycles).withEquivalentInitial(equivalence));
+        done = delegate.done;
+        return;
+      }
       if (runner == null)
         runner =
             new IndexedCertifiedMethodRunner(

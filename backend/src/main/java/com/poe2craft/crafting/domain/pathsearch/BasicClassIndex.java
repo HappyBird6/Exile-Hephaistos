@@ -35,6 +35,14 @@ public final class BasicClassIndex {
     return entries.size();
   }
 
+  public BasicTransitionClasses.ProfileMetrics profileMetrics() {
+    return classes.profileMetrics();
+  }
+
+  public int profileRetainedRows() {
+    return classes.profileRetainedRows();
+  }
+
   public int classOf(BasicCurrencyState actual) {
     var id = identities.get(classes.key(actual));
     if (id == null) throw new IllegalArgumentException("Item has no registered transition class");

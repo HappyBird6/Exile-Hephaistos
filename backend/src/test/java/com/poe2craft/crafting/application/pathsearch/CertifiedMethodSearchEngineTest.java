@@ -46,6 +46,8 @@ class CertifiedMethodSearchEngineTest {
     for (int step = 0; step < 5000000 && (!exact.complete() || !bounded.complete()); step++) {
       if (!exact.complete()) exact.step();
       if (!bounded.complete()) bounded.step();
+      if (step % 100 == 0 && !bounded.rootDirectComplete())
+        assertThat(bounded.methods()).allMatch(m -> m.source().equals(bounded.rootId()));
     }
     assertThat(exact.complete()).isTrue();
     assertThat(bounded.complete())
@@ -88,6 +90,30 @@ class CertifiedMethodSearchEngineTest {
     }
     assertThat(bounded.retention().savedAccounting())
         .isEqualTo(bounded.retention().uniqueSavedEntries());
+    assertThat(bounded.retention().sharedMethods()).isPositive();
+    for (int cycles : List.of(100, 300, 500)) {
+      var oracle = exact.strategy(cycles);
+      var strategy = bounded.strategy(cycles);
+      for (int i = 0; i < 100; i++) {
+        oracle.refine();
+        oracle.refineExactPolicy();
+        oracle.refineAlmostSure();
+        strategy.refine();
+      }
+      var exactValues = new HashMap<BasicTransitionClasses.Key, Fraction>();
+      oracle
+          .bounds()
+          .forEach(
+              (id, value) -> {
+                assertThat(value.exact()).isTrue();
+                exactValues.put(exactStates.get(id), value.lower());
+              });
+      boundedStates.forEach(
+          (id, key) ->
+              assertThat(strategy.result(id).value().contains(exactValues.get(key))).isTrue());
+      assertThat(strategy.result(bounded.rootId()).status()).isEqualTo("PROVEN_ONE");
+      assertThat(strategy.result(bounded.rootId()).methodIds()).isNotEmpty();
+    }
     for (var method : bounded.methods()) {
       var reference =
           methods.get(
