@@ -12,7 +12,8 @@ import java.util.function.Function;
 
 /** Certified class marginals. Incoming item laws remain exact retained conditional operators. */
 final class CertifiedMethodSearchEngine {
-  static final String VERSION = "certified-method-map-v3-shared-preparation";
+  static final String VERSION = "certified-method-map-v4-lazy-law-pages";
+  private final CertifiedLawStore laws;
   private final BasicClassIndex index;
   private final CertifiedInterval.Precision precision;
   private final Map<Integer, String> identifiers = new HashMap<>();
@@ -61,6 +62,7 @@ final class CertifiedMethodSearchEngine {
       CertifiedInterval.Precision precision) {
     this.index = new BasicClassIndex(classes);
     this.precision = precision;
+    laws = new CertifiedLawStore(precision.fractionalBits());
     int offset = 2;
     for (var group : evaluate.apply(start.item()).groups()) {
       offset++;
@@ -129,8 +131,31 @@ final class CertifiedMethodSearchEngine {
         + index.profileRetainedRows()
         + kernels.cachedOutcomes()
         + liveEntries
-        + savedEntries
+        + laws.pageCount()
+        + laws.descriptors()
+        + laws.materializedRows()
         + preparationEntries;
+  }
+
+  CertifiedLawStore.Metrics storage() {
+    return laws.metrics();
+  }
+
+  boolean storageLimited() {
+    return laws.packedBytes() > 32L * 1024 * 1024;
+  }
+
+  void close() {
+    ready.clear();
+    preparations.clear();
+    methods.clear();
+    states.clear();
+    frontier.clear();
+    lawViews.clear();
+    adjacency.clear();
+    progressCache.clear();
+    identifiers.clear();
+    laws.close();
   }
 
   public int classCount() {
@@ -158,6 +183,7 @@ final class CertifiedMethodSearchEngine {
       int preparationGroups,
       long preparationEntries,
       long sharedMethods,
+      CertifiedLawStore.Metrics lawStorage,
       BasicTransitionClasses.ProfileMetrics additionProfiles,
       List<MethodRetention> largestMethods) {}
 
@@ -213,6 +239,7 @@ final class CertifiedMethodSearchEngine {
         preparations.size(),
         preparationEntries,
         methods.values().stream().filter(m -> m.delegate != null).count(),
+        laws.metrics(),
         index.profileMetrics(),
         List.copyOf(largest.subList(0, Math.min(12, largest.size()))));
   }
@@ -222,7 +249,7 @@ final class CertifiedMethodSearchEngine {
   }
 
   public boolean memoryLimited() {
-    return retainedEntries() > budget;
+    return retainedEntries() > budget || storageLimited();
   }
 
   public void increaseMemoryBudget(int limit) {
@@ -441,6 +468,11 @@ final class CertifiedMethodSearchEngine {
           return Collections.unmodifiableMap(
               new AbstractMap<>() {
                 @Override
+                public Collection<CertifiedInterval> values() {
+                  return law.values();
+                }
+
+                @Override
                 public int size() {
                   return law.size();
                 }
@@ -587,7 +619,7 @@ final class CertifiedMethodSearchEngine {
         runner.beginCycle();
         return;
       }
-      var snapshot = runner.snapshot();
+      var snapshot = runner.snapshot().freeze(laws);
       var point = snapshot.observation();
       if (point.active().isEmpty()) {
         for (int cycles : MethodSearchCalculation.OBSERVATIONS)

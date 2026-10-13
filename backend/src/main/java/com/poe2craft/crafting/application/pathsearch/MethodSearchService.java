@@ -870,6 +870,7 @@ public final class MethodSearchService implements AutoCloseable {
   @Override
   public void close() {
     if (executor instanceof ExecutorService service) service.shutdownNow();
+    certified.close();
   }
 
   private static Probability p(Fraction f) {

@@ -7,7 +7,7 @@ import java.util.*;
 
 /** Additive wire values: an arithmetic enclosure is never a statistical confidence interval. */
 public final class CertifiedMethodProtocol {
-  public static final String VERSION = "certified-method-wire-v1";
+  public static final String VERSION = "certified-method-wire-v2-lazy-laws";
 
   private CertifiedMethodProtocol() {}
 
@@ -45,7 +45,17 @@ public final class CertifiedMethodProtocol {
       String strategyStatus,
       int stateCount,
       int methodCount,
+      Storage storage,
       List<Local> localRecommendations) {}
+
+  public record Storage(
+      String version,
+      long residentEntries,
+      long storedClassRows,
+      long packedBytes,
+      long packedByteLimit,
+      int materializedRows,
+      int uniquePages) {}
 
   public record Graph(
       String jobId,
@@ -193,9 +203,7 @@ public final class CertifiedMethodProtocol {
 
   private static CertifiedInterval sum(
       Collection<CertifiedInterval> values, CertifiedInterval.Precision precision) {
-    var sum = CertifiedInterval.zero(precision.fractionalBits());
-    for (var value : values) sum = sum.add(value);
-    return sum.probability();
+    return CertifiedLawStore.total(values, precision.fractionalBits());
   }
 
   private static Map<String, Bounds> quantities(Map<WorkbenchCurrency, CertifiedInterval> values) {

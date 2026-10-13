@@ -188,6 +188,26 @@ public final class IndexedCertifiedMethodRunner {
       return point;
     }
 
+    public Snapshot freeze(CertifiedLawStore store) {
+      var exits =
+          new EnumMap<ExactMethodRunner.Exit, Map<Integer, CertifiedInterval>>(
+              ExactMethodRunner.Exit.class);
+      point.exits().forEach((kind, law) -> exits.put(kind, store.freeze(law)));
+      return new Snapshot(
+          index,
+          source,
+          template,
+          classify,
+          precision,
+          new CertifiedMethodRunner.Observation<>(
+              point.cycles(),
+              Map.copyOf(exits),
+              store.freeze(point.active()),
+              point.initialUses(),
+              point.cycleUses(),
+              point.mass()));
+    }
+
     public Snapshot atLaterAbsorbedBoundary(long cycles) {
       return new Snapshot(
           index, source, template, classify, precision, point.atLaterAbsorbedBoundary(cycles));

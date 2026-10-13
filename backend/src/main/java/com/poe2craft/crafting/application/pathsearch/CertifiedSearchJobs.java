@@ -39,7 +39,13 @@ final class CertifiedSearchJobs {
         || request.request() == null
         || request.precision() == null) throw new Rejected(422, "INVALID_REQUEST");
     synchronized (jobs) {
-      jobs.values().removeIf(j -> clock.instant().isAfter(j.expires));
+      jobs.values()
+          .removeIf(
+              j -> {
+                if (!clock.instant().isAfter(j.expires)) return false;
+                dispose(j);
+                return true;
+              });
       for (var existing : jobs.values()) {
         if (existing.owner.equals(owner)
             && Objects.equals(
@@ -408,7 +414,10 @@ final class CertifiedSearchJobs {
           }
           if (job.engine.memoryLimited() || used >= runBudget) {
             job.status = "PAUSED";
-            job.reason = job.engine.memoryLimited() ? "MEMORY_BUDGET" : "COMPUTE_BUDGET";
+            job.reason =
+                job.engine.storageLimited()
+                    ? "STORAGE_BUDGET"
+                    : job.engine.memoryLimited() ? "MEMORY_BUDGET" : "COMPUTE_BUDGET";
             publish(job);
             return;
           }
@@ -454,7 +463,35 @@ final class CertifiedSearchJobs {
             "NOT_REQUESTED",
             states.size(),
             methods.size(),
+            new Storage(
+                CertifiedLawStore.VERSION,
+                job.engine.retainedEntries(),
+                job.engine.storage().storedRows(),
+                job.engine.storage().packedBytes(),
+                32L * 1024 * 1024,
+                job.engine.storage().materializedRows(),
+                job.engine.storage().uniquePages()),
             CertifiedMethodProtocol.locals(rootStates, rootMethods, job.engine.precision()));
+  }
+
+  private void dispose(Job job) {
+    try (var ignored = job.acquire()) {
+      job.generation++;
+      job.status = "EXPIRED";
+      job.revisions.clear();
+      job.commands.clear();
+      job.entries.clear();
+      job.bindings.clear();
+      job.entryIds.clear();
+      job.engine.close();
+    }
+  }
+
+  void close() {
+    synchronized (jobs) {
+      jobs.values().forEach(this::dispose);
+      jobs.clear();
+    }
   }
 
   private record Revision(
