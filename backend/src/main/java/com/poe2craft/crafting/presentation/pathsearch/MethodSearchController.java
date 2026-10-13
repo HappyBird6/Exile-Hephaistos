@@ -1,6 +1,7 @@
 package com.poe2craft.crafting.presentation.pathsearch;
 
 import com.fasterxml.jackson.databind.*;
+import com.poe2craft.crafting.application.pathsearch.IndexedMethodProtocol;
 import com.poe2craft.crafting.application.pathsearch.MethodSearchProtocol.*;
 import com.poe2craft.crafting.application.pathsearch.MethodSearchService;
 import com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Rejected;
@@ -35,6 +36,57 @@ public final class MethodSearchController {
       @RequestBody String body, HttpServletRequest request, HttpServletResponse response) {
     return ResponseEntity.accepted()
         .body(service.create(owner(request, response), read(body, Create.class)));
+  }
+
+  @PostMapping("/indexed")
+  public ResponseEntity<IndexedMethodProtocol.Started> createIndexed(
+      @RequestBody String body, HttpServletRequest request, HttpServletResponse response) {
+    return ResponseEntity.accepted()
+        .body(service.createIndexed(owner(request, response), read(body, Create.class)));
+  }
+
+  @GetMapping("/{id}/class-outcomes")
+  public IndexedMethodProtocol.Outcomes classOutcomes(
+      @PathVariable String id,
+      @RequestParam long revision,
+      @RequestParam String methodId,
+      @RequestParam int cycles,
+      @RequestParam(required = false) String cursor,
+      HttpServletRequest request,
+      HttpServletResponse response) {
+    return service.indexedOutcomes(
+        owner(request, response), id, revision, methodId, cycles, cursor);
+  }
+
+  @PostMapping("/{id}/entries")
+  public IndexedMethodProtocol.Entry bindEntry(
+      @PathVariable String id,
+      @RequestBody String body,
+      HttpServletRequest request,
+      HttpServletResponse response) {
+    return service.bindEntry(
+        owner(request, response), id, read(body, IndexedMethodProtocol.Bind.class));
+  }
+
+  @GetMapping("/{id}/entries/{entryId}")
+  public IndexedMethodProtocol.Entry entry(
+      @PathVariable String id,
+      @PathVariable String entryId,
+      @RequestParam(defaultValue = "0") int offset,
+      HttpServletRequest request,
+      HttpServletResponse response) {
+    return service.entry(owner(request, response), id, entryId, offset);
+  }
+
+  @PostMapping("/{id}/entries/{entryId}/advance")
+  public IndexedMethodProtocol.Entry advanceEntry(
+      @PathVariable String id,
+      @PathVariable String entryId,
+      @RequestBody String body,
+      HttpServletRequest request,
+      HttpServletResponse response) {
+    return service.advanceEntry(
+        owner(request, response), id, entryId, read(body, IndexedMethodProtocol.Advance.class));
   }
 
   @GetMapping("/provenance")
@@ -105,6 +157,8 @@ public final class MethodSearchController {
       }
       if (body.has("start")) safeIntegers(body.path("start").path("item"));
       if (body.has("expectedRevision")) safeIntegers(body.get("expectedRevision"));
+      if (body.has("expectedGeneration")) safeIntegers(body.get("expectedGeneration"));
+      if (body.has("revision")) safeIntegers(body.get("revision"));
       if (body.has("parentRevision")) safeIntegers(body.get("parentRevision"));
       return json.treeToValue(body, type);
     } catch (Rejected e) {

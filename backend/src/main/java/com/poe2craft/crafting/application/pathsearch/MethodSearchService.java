@@ -9,8 +9,10 @@ import com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Rejected
 import com.poe2craft.crafting.domain.*;
 import com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction;
 import com.poe2craft.crafting.domain.pathsearch.BasicTransitionClasses;
+import com.poe2craft.crafting.domain.pathsearch.ConditionalMethodLaw;
 import com.poe2craft.crafting.domain.pathsearch.DeferredItem;
 import com.poe2craft.crafting.domain.pathsearch.DeferredMixtures;
+import com.poe2craft.crafting.domain.pathsearch.ExactMethodRunner;
 import com.poe2craft.crafting.domain.pathsearch.OutcomeStrategy;
 import com.poe2craft.item.*;
 import java.time.*;
@@ -115,6 +117,19 @@ public final class MethodSearchService implements AutoCloseable {
   }
 
   public Snapshot create(String owner, Create input) {
+    return create(owner, input, false);
+  }
+
+  public IndexedMethodProtocol.Started createIndexed(String owner, Create input) {
+    var snapshot = create(owner, input, true);
+    var job = job(owner, snapshot.jobId());
+    try (var ignored = job.acquire()) {
+      return new IndexedMethodProtocol.Started(
+          job.snapshot, entryView(job, job.entries.get("root"), 0));
+    }
+  }
+
+  private Snapshot create(String owner, Create input, boolean indexed) {
     Create request;
     try {
       request = json.readValue(json.writeValueAsBytes(input), Create.class);
@@ -145,29 +160,34 @@ public final class MethodSearchService implements AutoCloseable {
       for (var job : jobs.values())
         if (job.owner.equals(owner)
             && job.request.clientRequestId().equals(request.clientRequestId())) {
-          if (!job.request.equals(request)) throw new Rejected(409, "REQUEST_ID_REUSED");
+          if (!job.request.equals(request)
+              || indexed != (job.calculation instanceof IndexedMethodSearchEngine))
+            throw new Rejected(409, "REQUEST_ID_REUSED");
           try (var ignored = job.acquire()) {
             return job.snapshot;
           }
         }
       if (jobs.size() >= MAX_JOBS) throw new Rejected(503, "SEARCH_CAPACITY_REACHED");
       var partition = goals.rollPartition(request.start().item(), request.goal());
-      var mixtures =
-          new DeferredMixtures(
-              new BasicTransitionClasses(catalog, transitions, partition, evaluator));
+      if (indexed && !request.activeOmens().isEmpty())
+        throw new Rejected(422, "INDEXED_OMENS_UNSUPPORTED");
+      var classes = new BasicTransitionClasses(catalog, transitions, partition, evaluator);
+      var mixtures = new DeferredMixtures(classes);
       var job =
           new Job(
               owner,
               request,
-              new DeferredMethodSearchEngine(
-                  new MethodSearchCalculation(
-                      request.start(),
-                      evaluator,
-                      transitions,
-                      Set.copyOf(request.activeOmens()),
-                      100000,
-                      partition,
-                      mixtures)));
+              indexed
+                  ? new IndexedMethodSearchEngine(request.start(), classes, evaluator, 100000)
+                  : new DeferredMethodSearchEngine(
+                      new MethodSearchCalculation(
+                          request.start(),
+                          evaluator,
+                          transitions,
+                          Set.copyOf(request.activeOmens()),
+                          100000,
+                          partition,
+                          mixtures)));
       jobs.put(job.id, job);
       try (var ignored = job.acquire()) {
         publish(job);
@@ -202,7 +222,9 @@ public final class MethodSearchService implements AutoCloseable {
       if (job.commands.size() >= MAX_COMMANDS) throw new Rejected(503, "SEARCH_CAPACITY_REACHED");
       if (command.expectedRevision() != job.revision) throw new Rejected(409, "REVISION_CONFLICT");
       if (command.operation().equals("CANCEL")) {
-        if (Set.of("QUEUED", "RUNNING", "PAUSED").contains(job.status)) {
+        if (Set.of("QUEUED", "RUNNING", "PAUSED").contains(job.status)
+            || (job.calculation instanceof IndexedMethodSearchEngine
+                && job.status.equals("COMPLETED"))) {
           job.generation++;
           job.status = "CANCELLED";
           publish(job);
@@ -306,6 +328,215 @@ public final class MethodSearchService implements AutoCloseable {
     }
   }
 
+  public IndexedMethodProtocol.Outcomes indexedOutcomes(
+      String owner, String id, long revision, String methodId, int cycles) {
+    return indexedOutcomes(owner, id, revision, methodId, cycles, null);
+  }
+
+  public IndexedMethodProtocol.Outcomes indexedOutcomes(
+      String owner, String id, long revision, String methodId, int cycles, String cursor) {
+    var job = job(owner, id);
+    try (var ignored = job.acquire()) {
+      indexed(job);
+      var saved = revision(job, revision);
+      var point = indexedPoint(saved, methodId, cycles);
+      String scope = "class-outcomes:" + methodId + ":" + cycles;
+      int offset = position(saved, cursor, scope);
+      int total = point.active().size() + point.exits().values().stream().mapToInt(Map::size).sum();
+      if (offset > total) throw new Rejected(422, "INVALID_CURSOR");
+      var rows = new ArrayList<IndexedMethodProtocol.Outcome>();
+      int at = 0;
+      for (var exit : point.exits().entrySet())
+        for (var entry : exit.getValue().entrySet()) {
+          if (at++ >= offset && rows.size() < 48)
+            rows.add(
+                new IndexedMethodProtocol.Outcome(
+                    exit.getKey().name(), entry.getKey(), p(entry.getValue())));
+        }
+      for (var entry : point.active().entrySet()) {
+        if (at++ >= offset && rows.size() < 48)
+          rows.add(
+              new IndexedMethodProtocol.Outcome("ACTIVE", entry.getKey(), p(entry.getValue())));
+      }
+      int end = offset + rows.size();
+      return new IndexedMethodProtocol.Outcomes(
+          id,
+          revision,
+          methodId,
+          cycles,
+          List.copyOf(rows),
+          end < total ? saved.cursor(scope, end) : null);
+    }
+  }
+
+  private static IndexedMethodSearchEngine indexed(Job job) {
+    if (!(job.calculation instanceof IndexedMethodSearchEngine engine))
+      throw new Rejected(409, "NOT_INDEXED_SEARCH");
+    return engine;
+  }
+
+  private ExactMethodRunner.Observation<String, WorkbenchCurrency> indexedPoint(
+      Revision revision, String methodId, int cycles) {
+    var method =
+        revision.methods.stream()
+            .filter(m -> m.id().equals(methodId))
+            .findFirst()
+            .orElseThrow(() -> new Rejected(422, "INVALID_METHOD"));
+    var point = method.points().get(cycles);
+    if (point == null) throw new Rejected(409, "OBSERVATION_NOT_READY");
+    return point;
+  }
+
+  public IndexedMethodProtocol.Entry bindEntry(
+      String owner, String id, IndexedMethodProtocol.Bind request) {
+    if (request == null
+        || !Integer.valueOf(2).equals(request.version())
+        || request.requestId() == null
+        || request.requestId().isBlank()
+        || request.requestId().length() > 256
+        || request.revision() == null
+        || request.parentEntryId() == null
+        || request.methodId() == null
+        || request.cycles() == null
+        || request.kind() == null
+        || request.targetStateId() == null) throw new Rejected(422, "INVALID_REQUEST");
+    var job = job(owner, id);
+    try (var ignored = job.acquire()) {
+      var engine = indexed(job);
+      var old = job.bindings.get(request.requestId());
+      String entryId = job.entryIds.get(request.requestId());
+      if (old != null) {
+        if (!old.equals(request)) throw new Rejected(409, "REQUEST_ID_REUSED");
+        return entryView(job, job.entries.get(entryId), 0);
+      }
+      if (job.status.equals("CANCELLED")) throw new Rejected(409, "JOB_CANCELLED");
+      if (job.entries.size() >= 65) throw new Rejected(503, "ENTRY_CAPACITY_REACHED");
+      indexedPoint(revision(job, request.revision()), request.methodId(), request.cycles());
+      var parent = job.entries.get(request.parentEntryId());
+      if (parent == null) throw new Rejected(422, "INVALID_ENTRY");
+      try {
+        var kind =
+            request.kind().equals("ACTIVE")
+                ? Optional.<ExactMethodRunner.Exit>empty()
+                : Optional.of(ExactMethodRunner.Exit.valueOf(request.kind()));
+        if (kind.filter(k -> k == ExactMethodRunner.Exit.UNRESOLVED).isPresent())
+          throw new IllegalArgumentException("Unresolved has no known law");
+        var law =
+            engine
+                .observation(request.methodId(), request.cycles())
+                .condition(parent.law, kind, engine.classId(request.targetStateId()));
+        entryId = UUID.randomUUID().toString();
+        var work = new EntryWork(entryId, request.parentEntryId(), law);
+        job.entries.put(entryId, work);
+        job.bindings.put(request.requestId(), request);
+        job.entryIds.put(request.requestId(), entryId);
+        return entryView(job, work, 0);
+      } catch (IllegalArgumentException ex) {
+        throw new Rejected(422, "INVALID_CONDITIONAL_ENTRY");
+      }
+    }
+  }
+
+  public IndexedMethodProtocol.Entry entry(String owner, String id, String entryId, int offset) {
+    var job = job(owner, id);
+    try (var ignored = job.acquire()) {
+      indexed(job);
+      return entryView(job, entryWork(job, entryId), offset);
+    }
+  }
+
+  public IndexedMethodProtocol.Entry advanceEntry(
+      String owner, String id, String entryId, IndexedMethodProtocol.Advance request) {
+    if (request == null
+        || !Integer.valueOf(2).equals(request.version())
+        || request.expectedGeneration() == null
+        || request.maxSteps() == null
+        || request.maxSteps() < 1
+        || request.maxSteps() > 4096
+        || request.retainedStateLimit() == null
+        || request.retainedStateLimit() < 1
+        || request.retainedStateLimit() > 1000000) throw new Rejected(422, "INVALID_REQUEST");
+    var job = job(owner, id);
+    try (var ignored = job.acquire()) {
+      indexed(job);
+      if (request.expectedGeneration() != job.generation)
+        throw new Rejected(409, "GENERATION_CONFLICT");
+      if (job.status.equals("CANCELLED")) throw new Rejected(409, "JOB_CANCELLED");
+      var work = entryWork(job, entryId);
+      if (request.retainedStateLimit() < job.entryLimit) throw new Rejected(422, "INVALID_BUDGET");
+      job.entryLimit = request.retainedStateLimit();
+      long until = System.nanoTime() + 20_000_000L;
+      for (int n = 0;
+          n < request.maxSteps()
+              && !work.expansion.complete()
+              && retainedEntryStates(job) <= job.entryLimit
+              && System.nanoTime() < until;
+          n++) work.expansion.step();
+      return entryView(job, work, 0);
+    }
+  }
+
+  private static long retainedEntryStates(Job job) {
+    return job.entries.values().stream().mapToLong(e -> e.expansion.retainedStates()).sum();
+  }
+
+  private static EntryWork entryWork(Job job, String id) {
+    var work = job.entries.get(id);
+    if (work == null) throw new Rejected(422, "INVALID_ENTRY");
+    return work;
+  }
+
+  private IndexedMethodProtocol.Entry entryView(Job job, EntryWork work, int offset) {
+    if (offset < 0) throw new Rejected(422, "INVALID_CURSOR");
+    boolean complete = work.expansion.complete();
+    var rows = new ArrayList<ConditionalState>();
+    Integer next = null;
+    if (complete) {
+      var law = work.expansion.result();
+      if (offset > law.size()) throw new Rejected(422, "INVALID_CURSOR");
+      int at = 0;
+      for (var item : law.entrySet()) {
+        if (at++ < offset) continue;
+        if (rows.size() == 48) {
+          next = offset + rows.size();
+          break;
+        }
+        rows.add(
+            new ConditionalState(
+                item.getKey().canonicalKey(),
+                item.getKey().item(),
+                "CONDITIONAL",
+                p(item.getValue())));
+      }
+    } else if (offset != 0) throw new Rejected(409, "ENTRY_NOT_READY");
+    String reason = !complete && retainedEntryStates(job) > job.entryLimit ? "MEMORY_BUDGET" : null;
+    return new IndexedMethodProtocol.Entry(
+        work.id,
+        "class:" + work.law.classId(),
+        work.parent,
+        complete
+            ? "COMPLETE"
+            : job.status.equals("CANCELLED") ? "CANCELLED" : reason == null ? "PENDING" : "PAUSED",
+        reason,
+        p(work.law.probability()),
+        job.generation,
+        List.copyOf(rows),
+        next);
+  }
+
+  private static final class EntryWork {
+    final String id, parent;
+    final ConditionalMethodLaw law;
+    final ConditionalMethodLaw.Expansion expansion;
+
+    EntryWork(String id, String parent, ConditionalMethodLaw law) {
+      this.id = id;
+      this.parent = parent;
+      this.law = law;
+      expansion = law.expansion();
+    }
+  }
+
   private int position(Revision saved, String cursor, String scope) {
     var offset = bigPosition(saved, cursor, scope);
     if (offset.compareTo(java.math.BigInteger.valueOf(Integer.MAX_VALUE)) > 0)
@@ -362,6 +593,11 @@ public final class MethodSearchService implements AutoCloseable {
             steps++;
           }
           if (job.calculation.complete()) {
+            if (job.calculation instanceof IndexedMethodSearchEngine) {
+              job.status = "COMPLETED";
+              publish(job);
+              return;
+            }
             boolean exact = true;
             for (int cycles : MethodSearchCalculation.OBSERVATIONS) {
               var solver = job.solvers.computeIfAbsent(cycles, n -> job.calculation.strategy(n));
@@ -512,7 +748,9 @@ public final class MethodSearchService implements AutoCloseable {
             job.calculation.calculationVersion(),
             job.calculation.stateVersion(),
             com.poe2craft.crafting.domain.pathsearch.RollPartition.VERSION,
-            OutcomeStrategy.VERSION,
+            job.calculation instanceof IndexedMethodSearchEngine
+                ? "NOT_REQUESTED"
+                : OutcomeStrategy.VERSION,
             BasicCurrencyTransitions.INTERPRETATION,
             job.calculation.assumptions(),
             List.copyOf(locals),
@@ -623,7 +861,11 @@ public final class MethodSearchService implements AutoCloseable {
     final Map<String, Command> commands = new LinkedHashMap<>();
     final Map<Integer, OutcomeStrategy<String>> solvers = new LinkedHashMap<>();
     final Map<String, CachedArrow> arrows = new HashMap<>();
+    final Map<String, EntryWork> entries = new LinkedHashMap<>();
+    final Map<String, IndexedMethodProtocol.Bind> bindings = new LinkedHashMap<>();
+    final Map<String, String> entryIds = new LinkedHashMap<>();
     long revision = -1, generation;
+    int entryLimit = 1;
     String status = "QUEUED", reason;
     volatile Snapshot snapshot;
 
@@ -631,6 +873,8 @@ public final class MethodSearchService implements AutoCloseable {
       this.owner = owner;
       this.request = request;
       this.calculation = calculation;
+      if (calculation instanceof IndexedMethodSearchEngine indexed)
+        entries.put("root", new EntryWork("root", null, indexed.rootLaw()));
     }
   }
 

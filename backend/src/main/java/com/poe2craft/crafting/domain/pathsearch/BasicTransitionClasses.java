@@ -214,6 +214,10 @@ public final class BasicTransitionClasses {
       }
     }
 
+    public List<WorkbenchSimulator.Assumption> assumptions() {
+      return raw.assumptions();
+    }
+
     IndexedCursor(BasicCurrencyState state, WorkbenchCurrency action) {
       source = key(state);
       this.action = action;

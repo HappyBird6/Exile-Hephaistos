@@ -61,6 +61,7 @@ public final class BasicClassIndex {
 
   public final class Cursor {
     private BasicTransitionClasses.IndexedCursor projection;
+    private final List<WorkbenchSimulator.Assumption> assumptions;
     private BasicTransitionClasses.Kernel projected;
     private Iterator<Map.Entry<BasicTransitionClasses.Key, Fraction>> pending;
     private final List<ExactMethodRunner.Outcome<Integer>> outcomes = new ArrayList<>();
@@ -68,6 +69,11 @@ public final class BasicClassIndex {
 
     private Cursor(int source, WorkbenchCurrency action) {
       projection = classes.indexedCursor(witness(source), action);
+      assumptions = projection.assumptions();
+    }
+
+    public List<WorkbenchSimulator.Assumption> assumptions() {
+      return assumptions;
     }
 
     public boolean complete() {

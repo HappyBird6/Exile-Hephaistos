@@ -99,6 +99,15 @@ public final class ConditionalMethodLaw {
       current = law.root;
     }
 
+    public long retainedStates() {
+      return current.size()
+          + (transport == null
+              ? 0L
+              : (long) transport.remaining.size()
+                  + transport.next.size()
+                  + transport.selected.size());
+    }
+
     public boolean complete() {
       return stages.isEmpty() && transport == null;
     }

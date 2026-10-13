@@ -1124,3 +1124,77 @@ retained observation API, final-source targeted probability, engine-view, servic
 and lifecycle tests plus `spotlessCheck bootJar` passed (42s). The full test run
 preceded that last small observation change; it is not reported as a final-source
 full-suite rerun. No probability assertion was weakened.
+
+## Explicit indexed API connection
+
+The existing `POST /api/v2/crafting/method-searches` continues to use the deferred
+engine and its unchanged v2 contracts. The additive `POST .../indexed` uses the
+same validated create payload and returns `{search, rootEntry}`. It enables the
+exact class engine explicitly; ordinary requests are not switched silently.
+A client request ID cannot be reused between the two engines. Active omens are
+rejected on the indexed route because the class equivalence proof excludes them;
+the existing route remains available. No indexed global strategy is computed or
+recommended (`strategyVersion: NOT_REQUESTED`, empty `strategies`). On this route,
+`COMPLETED` means every supported state/method expansion is enumerated, not that a
+final strategy has been solved. Budget exhaustion stays `PAUSED`.
+
+Indexed methods discover the shared rule engine's applicable single, two-action
+and preparation/cycle templates. Their full observation maps remain exact
+fractions. Only method-boundary classes enter the public graph; primitive classes
+stay inside the job-local index. The class witness is display-only. Shared kernel
+assumptions are collected from every requested primitive pool, including internal
+method states. The current indexed memory allowance pauses when the registered
+class count exceeds the retained allowance; the separately bounded kernel LRU
+may discard derived work without dropping probability mass.
+
+`GET .../{id}/class-outcomes?revision=...&methodId=...&cycles=...` returns at most
+48 explicit `(kind, stateId, probability)` outcomes and a revision-scoped cursor.
+These probabilities are class marginals for a specified source class.
+`POST .../{id}/entries` binds one positive known outcome to a named parent entry:
+`{version:2,requestId,revision,parentEntryId,methodId,cycles,kind,targetStateId}`.
+The returned opaque entry ID retains the original conditional operator chain.
+Repeated identical bindings reuse the entry; changed bindings with the same ID
+are rejected. Wrong source classes/jobs and unresolved outcomes cannot manufacture
+a concrete law. The ordinary distribution endpoint rejects indexed classes with
+`CONDITIONAL_DISTRIBUTION_REQUIRED` instead of returning a witness.
+
+`POST .../{id}/entries/{entryId}/advance` takes
+`{version:2,expectedGeneration,maxSteps,retainedStateLimit}`. Work is bounded by
+4096 steps and a 20 ms cooperative slice. The monotonically increased state
+allowance applies across this job's entry expansions, not separately per entry;
+at most 64 non-root entries are retained. Exceeding it pauses transport without
+renormalizing or publishing a partial law. A generation mismatch or cancelled job
+rejects advancement. Resuming the search preserves the saved operators and their
+transport cursors. `GET .../{id}/entries/{entryId}?offset=...` reads at most 48
+concrete rows only after complete transport; each page probability is normalized
+within the selected entry, and `conditionalProbability` is relative to its named
+parent. Pending work is distinct from unresolved probability. Root/entry access is
+owner-scoped and expires with its job. No new server or global recommendation is
+part of this integration.
+
+Indexed cancellation also covers completed enumeration, because concrete entry
+transport may still be pending. Resume preserves that transport even when no graph
+expansion remains. The indexed create wrapper reads its search snapshot and root
+entry under the same job lock, so a concurrent cancellation cannot pair different
+generations in one response.
+
+Frontend revalidation used the unchanged source. The first default-parallel run
+spawned 92 workers and failed 14 of 2,152 tests with timeouts or asynchronous UI
+readiness errors. With only `--maxWorkers=2` changed, all 2,152 tests passed; test
+assertions and timeouts were unchanged. Lint, typecheck, formatting, all six-locale
+coverage and production build passed. The existing large-bundle build warning
+remains. This is component/contract verification, not a live browser/server test.
+
+Final API assembly validation: Docker `spotlessApply check generateJooq bootJar`
+passed 697 unit/contract tests and 7 integration tests in 6m04s. This run includes
+the retained observation changes, indexed API, completed-enumeration cancellation
+and coherent create wrapper. The real low-level Solar test uses the complete
+current catalog with item-level eligibility, not fabricated weights: recombining
+all returned conditional laws equals the raw Exalted kernel exactly, and there
+are more concrete outcomes than classes. The same test verifies that incomplete
+exploration remains paused and emits no global strategy.
+
+The user subsequently approved certified arithmetic intervals on 2026-10-13.
+That supersedes the earlier pending decision; this API checkpoint still uses
+exact fractions. Interval arithmetic, strict display/ranking certification and
+real Solar performance measurements form the following implementation unit.

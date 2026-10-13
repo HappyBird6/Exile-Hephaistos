@@ -20,6 +20,12 @@ public final class IndexedKernelStore {
   private final Map<Key, Request> pending = new HashMap<>();
   private int outcomes;
   private long calculated, evicted, shared;
+  private final Set<com.poe2craft.crafting.domain.WorkbenchSimulator.Assumption> assumptions =
+      new LinkedHashSet<>();
+
+  public List<com.poe2craft.crafting.domain.WorkbenchSimulator.Assumption> assumptions() {
+    return List.copyOf(assumptions);
+  }
 
   public IndexedKernelStore(BasicClassIndex index, int kernelLimit, int outcomeLimit) {
     this.index = Objects.requireNonNull(index);
@@ -81,7 +87,10 @@ public final class IndexedKernelStore {
     private Request(Key key, ExactMethodRunner.Kernel<Integer> result) {
       this.key = key;
       this.result = result;
-      if (result == null) cursor = index.cursor(key.source(), key.action());
+      if (result == null) {
+        cursor = index.cursor(key.source(), key.action());
+        assumptions.addAll(cursor.assumptions());
+      }
     }
 
     public boolean complete() {
