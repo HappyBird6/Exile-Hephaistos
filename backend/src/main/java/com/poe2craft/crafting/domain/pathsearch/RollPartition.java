@@ -9,7 +9,7 @@ import java.util.*;
 
 /** Job-fixed disjoint intervals; uncertain numeric dependencies retain individual rolls. */
 public final class RollPartition {
-  public static final String VERSION = "goal-initial-reachable-currency-family-partition-v4";
+  public static final String VERSION = "goal-initial-shared-pool-family-partition-v5";
   private final boolean exact;
   private final Set<String> relevant, intervalSafe;
   private final Map<String, NavigableSet<BigInteger>> cuts;
@@ -129,16 +129,25 @@ public final class RollPartition {
                 boundaries.add(BigInteger.valueOf(value).add(BigInteger.ONE));
               });
     var result = new RollPartition(false, relevant, safe, cuts);
-    return simple && safe.containsAll(relevant)
-        ? new RollPartition(
-            false,
-            relevant,
-            safe,
-            cuts,
-            TierPartition.compile(catalog, root, result),
-            OrbitPartition.compile(catalog, root, result),
-            Set.copyOf(BasicCurrencyTransitions.reachableActions(root)))
-        : result;
+    // The shared minimum-level grouping does not yet support multi-family generation groups.
+    if (!simple
+        || !safe.containsAll(relevant)
+        || catalog.modifiers().values().stream()
+            .anyMatch(
+                d ->
+                    d.layer() == ModifierDefinition.Layer.EXPLICIT
+                        && d.weight() > 0
+                        && d.requiredItemLevel() <= root.itemLevel()
+                        && d.familyIds().size() != 1)) return result;
+    var eligibility = new BasicCandidateEligibility(catalog, root);
+    return new RollPartition(
+        false,
+        relevant,
+        safe,
+        cuts,
+        TierPartition.compile(catalog, root, result, eligibility),
+        OrbitPartition.compile(catalog, root, result, eligibility),
+        Set.copyOf(BasicCurrencyTransitions.reachableActions(root)));
   }
 
   private static BigInteger raw(
@@ -174,6 +183,17 @@ public final class RollPartition {
 
   boolean relevant(String stat) {
     return relevant.contains(stat);
+  }
+
+  /** Existing tier eligibility is not inspected by the no-omen basic rules. */
+  Object transitionRegion(ModifierDefinition definition, ModifierInstance modifier) {
+    if (exact || definition.stats().size() != 1 || modifier.values().size() != 1)
+      return List.of(modifier.modifierId(), new TreeMap<>(modifier.values()));
+    var stat = definition.stats().getFirst().id();
+    var value = modifier.values().get(stat);
+    if (value == null) throw new IllegalArgumentException("Missing modifier stat");
+    if (relevant.contains(stat) && !intervalSafe.contains(stat)) return List.of(stat, value);
+    return tierRegion(stat, value);
   }
 
   Object tierRegion(String stat, long first) {

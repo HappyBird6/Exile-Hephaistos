@@ -1,6 +1,5 @@
 package com.poe2craft.crafting.domain.pathsearch;
 
-import com.poe2craft.crafting.domain.BasicCurrencyTransitions;
 import com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction;
 import com.poe2craft.item.*;
 import java.math.BigInteger;
@@ -8,7 +7,7 @@ import java.util.*;
 
 /** Job-fixed disjoint tier cells, split at every supported currency eligibility boundary. */
 public final class TierPartition {
-  public static final String VERSION = "family-goal-reachable-currency-tier-partition-v2";
+  public static final String VERSION = "shared-pool-eligibility-tier-partition-v3";
 
   public record BandKey(String modifier, long min, long max) {}
 
@@ -19,7 +18,7 @@ public final class TierPartition {
       ModifierDefinition.AffixType affix,
       Set<String> families,
       Set<String> tags,
-      List<Boolean> currencyEligibility,
+      int currencyEligibility,
       String initialSingleton) {}
 
   private record Weighted(ModifierDefinition definition, long min, long max, Fraction weight) {}
@@ -38,7 +37,11 @@ public final class TierPartition {
     return Optional.ofNullable(members.get(new BandKey(modifier, min, max)));
   }
 
-  static TierPartition compile(ItemCatalog catalog, ItemState root, RollPartition rolls) {
+  static TierPartition compile(
+      ItemCatalog catalog,
+      ItemState root,
+      RollPartition rolls,
+      BasicCandidateEligibility eligibility) {
     var groups = new LinkedHashMap<Key, List<Weighted>>();
     var fixed = new HashSet<BandKey>();
     root.explicits()
@@ -64,9 +67,7 @@ public final class TierPartition {
                 definition.affixType(),
                 definition.familyIds(),
                 definition.tags(),
-                BasicCurrencyTransitions.reachableActions(root).stream()
-                    .map(a -> definition.requiredItemLevel() >= a.minimumModifierLevel())
-                    .toList(),
+                eligibility.category(definition.id()),
                 fixed.contains(band) ? definition.id() + ":" + first : "");
         var width =
             BigInteger.valueOf(last).subtract(BigInteger.valueOf(first)).add(BigInteger.ONE);

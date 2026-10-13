@@ -646,3 +646,41 @@ results are under `codex/bucket-browser` outside Git. This is a component browse
 check with recorded contract responses, not a live-server end-to-end check.
 The native browser connector still fails at startup with HRESULT 0x80070003.
 No application server was started.
+
+## Shared eligibility and action-equivalence proof (v11)
+
+Tier/family compression now derives its eligibility signature from the shared
+`AdditionRules.pool` result. Comparing required item level with currency cutoffs
+alone missed the rule that retains a generation family's highest eligible tier
+even below that cutoff. A regression uses two families with equal ordinary total
+weight but different highest-tier weights: Greater Exalted must retain the high
+tiers with probabilities 1/2 and 1/6, and neither lower tier. The compressed law
+is restored to every concrete outcome and compared with the original kernel.
+Multi-family generation groups conservatively keep the roll-only representation
+because their tiered-currency grouping is not supported by the shared rule.
+
+`BasicTransitionClasses` separates an action-equivalence key from an incoming
+item law. Keys retain nonexplicit context, provenance, family conflicts, goal
+regions, fracture status and all goal observations. A completed kernel describes
+class probabilities; its replay requires the actual input item and preserves
+that item's values. It never substitutes the witness for an incoming distribution.
+A complete 24-state graph checks every basic action against the concrete kernel
+and an independent finite probabilistic-bisimulation oracle. Real Solar single
+modifier members additionally check every basic action and the Spirit threshold.
+This is a verified primitive foundation, not yet the production method-transport
+integration or a declaration that the full search is complete.
+
+A diagnostic of the preceding class key estimated 112,236 possible Solar
+classes (22 family profiles). In 60,004ms it discovered 30,276 classes and expanded
+7,186, with 23,090 pending; 49,777 kernels produced 1,855,829 projected edges.
+Sampled heap peak was 165,483,656 bytes. Its 60-second driver guard stopped the
+diagnostic with `complete=false`. It did not measure completed methods, local
+recommendations or eventual optimal strategy, and it preceded the shared-pool
+eligibility correction. Production integration must preserve conditional entry
+laws separately; replacing full deferred states with these witnesses would be
+incorrect. Merely increasing the existing enumeration budget is not the next
+implementation step.
+
+V11 passed Docker `check generateJooq bootJar`: 672 unit/contract tests and
+7 integration tests. Frontend source and dependencies remain unchanged from
+the previously verified build and six-locale Chromium component check.

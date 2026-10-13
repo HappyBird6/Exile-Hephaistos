@@ -9,7 +9,7 @@ import java.util.*;
 
 /** Permutations are allowed only for identical complete basic-action weight profiles. */
 public final class OrbitPartition {
-  public static final String VERSION = "reachable-action-family-permutation-v2";
+  public static final String VERSION = "shared-pool-family-permutation-v3";
 
   private record Key(ModifierDefinition.AffixType affix, Map<Integer, Long> weights) {}
 
@@ -27,15 +27,11 @@ public final class OrbitPartition {
     return new OrbitPartition(Map.of());
   }
 
-  private static int category(ModifierDefinition definition, List<WorkbenchCurrency> actions) {
-    int mask = 0;
-    for (int i = 0; i < actions.size(); i++)
-      if (definition.requiredItemLevel() >= actions.get(i).minimumModifierLevel()) mask |= 1 << i;
-    return mask;
-  }
-
-  static OrbitPartition compile(ItemCatalog catalog, ItemState root, RollPartition rolls) {
-    var actions = BasicCurrencyTransitions.reachableActions(root);
+  static OrbitPartition compile(
+      ItemCatalog catalog,
+      ItemState root,
+      RollPartition rolls,
+      BasicCandidateEligibility eligibility) {
     var families = new LinkedHashMap<Set<String>, List<ModifierDefinition>>();
     catalog.modifiers().values().stream()
         .filter(d -> d.layer() == ModifierDefinition.Layer.EXPLICIT)
@@ -68,7 +64,7 @@ public final class OrbitPartition {
       eligible.forEach(
           d ->
               byCategory
-                  .computeIfAbsent(category(d, actions), ignored -> new ArrayList<>())
+                  .computeIfAbsent(eligibility.category(d.id()), ignored -> new ArrayList<>())
                   .add(d));
       var weights = new TreeMap<Integer, Long>();
       var categories = new TreeMap<Integer, TierCell>();
@@ -165,6 +161,11 @@ public final class OrbitPartition {
             m -> members.containsKey(m.modifierId()) && !represented.contains(m.modifierId())))
       throw new IllegalArgumentException(
           "A fixed observed family must not be treated as an anonymous orbit");
+  }
+
+  Optional<OrbitCell.Profile> profile(String modifierId) {
+    var member = members.get(modifierId);
+    return member == null ? Optional.empty() : Optional.of(member.profile());
   }
 
   public DeferredItem normalize(
