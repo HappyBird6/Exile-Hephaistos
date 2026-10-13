@@ -798,3 +798,16 @@ recommendation or full completion. Compared with isolated v12's 15,949ms, this i
 a lower runtime for the fixed driver guard, not proof of a completed-work speedup:
 work per operation and the completed-method count differ. Total-memory control and
 the remaining production frontier still require further work.
+
+## Lifecycle boundary follow-up
+
+A resume request below a previously enlarged retained-outcome allowance now returns
+`422 INVALID_BUDGET` without changing generation, revision or job state. The new
+regression reproduced the prior uncategorized `IllegalArgumentException` before
+the fix. Additional service tests execute an old queued generation after cancellation
+and resumption, replay a command after later revisions, reject reused/stale commands,
+retain an available old page while rejecting cross-revision cursors, expire old
+revision pages, and replace an expired job using the same client request ID without
+accepting the old worker's publication. Docker ran all six lifecycle/service tests,
+`spotlessCheck` and `bootJar` successfully. Calculation code is unchanged from the
+683+7-test v13 full verification.

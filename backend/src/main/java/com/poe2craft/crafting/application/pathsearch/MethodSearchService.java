@@ -211,7 +211,12 @@ public final class MethodSearchService implements AutoCloseable {
         if (command.retainedOutcomeLimit() != null) {
           if (command.retainedOutcomeLimit() < 100000 || command.retainedOutcomeLimit() > 1000000)
             throw new Rejected(422, "INVALID_BUDGET");
-          job.calculation.increaseMemoryBudget(command.retainedOutcomeLimit());
+          try {
+            job.calculation.increaseMemoryBudget(command.retainedOutcomeLimit());
+          } catch (IllegalArgumentException ex) {
+            // A previously enlarged job cannot shrink its retained-outcome allowance.
+            throw new Rejected(422, "INVALID_BUDGET");
+          }
         }
         job.generation++;
         job.status = "QUEUED";
