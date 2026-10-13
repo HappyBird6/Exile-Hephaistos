@@ -1030,3 +1030,44 @@ This runner returns class marginals, not full conditional item distributions. It
 is not yet wired into the user API. The separate conditional method-operator
 implementation and its full-state transport checks remain the next integration
 step; a class witness must not be published as that distribution.
+
+The longer cooperative Solar diagnostic completed the repeated Exalted/Chaos
+method's class distribution at cycle 7, with no active mass. It took 326,202ms
+and 63,196,775 cursor/execution steps under a fixed 512MiB JVM heap. It registered
+108,999 classes and calculated 153,171 kernels, keeping 2,000 cached and evicting
+151,171. The absorbed law has 73,318 exit classes. Peak sampled allocation was
+536,228,880 bytes; post-diagnostic-GC use was 282,371,112 bytes. The complete
+absorbed law can fill later 100/300/500 observations without further currency use.
+This is one method, not the 42-method root comparison, first local recommendation,
+whole graph or final strategy completion. During this diagnostic a separate
+Java compilation check ran briefly; the elapsed time is not an isolated benchmark.
+
+## Conditional method operators
+
+`ConditionalMethodLaw` retains a normalized actual entry law and a chain of method
+definitions, observation horizons and selected exit/classes. The class runner
+creates an operator only for a positive, completed marginal and the correct
+incoming class/job. Each probability is relative to that specified parent law;
+alternative methods are not combined. Keeping an operator does not enumerate its
+possible complete items or substitute a class witness for their distribution.
+
+The reference full-state transport advances input preparation, each primitive
+outcome, active-exit selection and normalization incrementally. It checks first hit
+after every primitive, distinguishes unavailable and unresolved outcomes, verifies
+total mass and verifies the selected mass against the independently calculated
+class marginal before exposing a normalized result. Operator chains are traversed
+iteratively. A saved operator is unchanged when its originating runner advances.
+This full-state expansion still materializes the selected law before `result()`;
+production pagination/resource handling and the UI/API connection are not yet
+implemented and must not publish a witness in place of the law.
+
+Tests compare full conditional distributions with independent concrete enumeration
+at 100/300/500 cycles. They also check composed methods, a two-roll incoming law
+versus a singleton with the same class probability, preparation at cycle zero,
+already-successful starts, unavailable actions, zero-probability selections and
+wrong-class/wrong-job inputs. A draft sliced-mass implementation failed compilation
+by referencing a nonexistent fraction subtraction method; tracking the completed
+phase's accumulated mass removed the unnecessary operation. No probability
+assertion was relaxed. Targeted checks then passed, followed by Docker
+`spotlessApply check generateJooq bootJar`: 694 unit/contract tests and 7 integration
+tests, with the full check/build taking 5m29s.

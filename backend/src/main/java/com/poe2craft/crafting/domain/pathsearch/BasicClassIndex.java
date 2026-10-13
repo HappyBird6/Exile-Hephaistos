@@ -35,6 +35,12 @@ public final class BasicClassIndex {
     return entries.size();
   }
 
+  public int classOf(BasicCurrencyState actual) {
+    var id = identities.get(classes.key(actual));
+    if (id == null) throw new IllegalArgumentException("Item has no registered transition class");
+    return id;
+  }
+
   public BasicTransitionClasses.Key key(int id) {
     return entries.get(id).key();
   }

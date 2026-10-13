@@ -20,6 +20,9 @@ public final class IndexedMethodRunner {
   }
 
   private final BasicClassIndex index;
+  private final int source;
+  private final ExactMethodRunner.Template<Integer, WorkbenchCurrency> template;
+  private final Function<Integer, Optional<ExactMethodRunner.Exit>> classify;
   private final int cacheLimit;
   private final LinkedHashMap<Key, ExactMethodRunner.Kernel<Integer>> kernels =
       new LinkedHashMap<>(16, .75f, true);
@@ -37,6 +40,9 @@ public final class IndexedMethodRunner {
     if (cacheLimit < 1) throw new IllegalArgumentException("Positive kernel cache limit required");
     this.index = Objects.requireNonNull(index);
     index.key(source);
+    this.source = source;
+    this.template = template;
+    this.classify = classify;
     this.cacheLimit = cacheLimit;
     runner = new ExactMethodRunner<>(source, template, this::kernel, classify);
   }
@@ -81,6 +87,18 @@ public final class IndexedMethodRunner {
 
   public ExactMethodRunner.Observation<Integer, WorkbenchCurrency> observation() {
     return runner.observation();
+  }
+
+  public ConditionalMethodLaw condition(
+      ConditionalMethodLaw input, Optional<ExactMethodRunner.Exit> exit, int target) {
+    var point = runner.observation();
+    var values = exit.map(point.exits()::get).orElse(point.active());
+    var probability =
+        values.getOrDefault(
+            target,
+            com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction.ZERO);
+    return ConditionalMethodLaw.output(
+        input, index, source, template, classify, point.cycles(), exit, target, probability);
   }
 
   public int cachedKernels() {

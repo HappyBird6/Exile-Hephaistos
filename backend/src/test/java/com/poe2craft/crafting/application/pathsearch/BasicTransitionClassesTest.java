@@ -316,6 +316,101 @@ class BasicTransitionClassesTest {
         classes,
         classIndex,
         graph);
+    verifyPreparationAndTerminalTransport(root, classes, classIndex, graph);
+  }
+
+  private static void verifyPreparationAndTerminalTransport(
+      BasicCurrencyState root,
+      BasicTransitionClasses classes,
+      BasicClassIndex index,
+      Map<BasicCurrencyState, FiniteQuotientProof.Node<BasicCurrencyState>> graph) {
+    int source = index.classOf(root);
+    var input = ConditionalMethodLaw.root(index, Map.of(root, Fraction.ONE));
+    var runner =
+        new IndexedMethodRunner(
+            index,
+            source,
+            new ExactMethodRunner.Template<>(
+                "prepare-then-remove",
+                List.of(s -> WorkbenchCurrency.EXALTED),
+                List.of(s -> WorkbenchCurrency.ANNULMENT)),
+            id -> methodExit(index.key(source), index.key(id)),
+            1);
+    while (!runner.atBoundary()) runner.step();
+    var point = runner.observation();
+    assertThat(point.cycles()).isZero();
+    assertThat(point.initialUses()).isEqualTo(Map.of(WorkbenchCurrency.EXALTED, Fraction.ONE));
+    var direct =
+        graph.get(root).actions().stream()
+            .filter(a -> a.label().equals(WorkbenchCurrency.EXALTED.name()))
+            .findFirst()
+            .orElseThrow()
+            .outcomes();
+    var saved = new HashMap<ConditionalMethodLaw, Map<BasicCurrencyState, Fraction>>();
+    for (var exit : ExactMethodRunner.Exit.values())
+      for (var target : point.exits().get(exit).keySet()) {
+        var law = runner.condition(input, Optional.of(exit), target);
+        saved.put(law, conditional(direct, index, target, law.probability()));
+      }
+    for (var target : point.active().keySet()) {
+      var law = runner.condition(input, Optional.empty(), target);
+      saved.put(law, conditional(direct, index, target, law.probability()));
+    }
+    runner.beginCycle();
+    while (!runner.atBoundary()) runner.step();
+    saved.forEach((law, expected) -> assertThat(expand(law)).isEqualTo(expected));
+    assertThat(expand(runner.condition(input, Optional.empty(), source)))
+        .isEqualTo(Map.of(root, Fraction.ONE));
+
+    var terminal =
+        graph.keySet().stream()
+            .filter(s -> classes.key(s).observations().getFirst() == Status.MATCH)
+            .findFirst()
+            .orElseThrow();
+    int goal = index.classOf(terminal);
+    var stopped =
+        new IndexedMethodRunner(
+            index,
+            goal,
+            new ExactMethodRunner.Template<>(
+                "already-complete",
+                List.of(s -> WorkbenchCurrency.ANNULMENT),
+                List.of(s -> WorkbenchCurrency.EXALTED)),
+            id -> methodExit(index.key(goal), index.key(id)),
+            1);
+    var terminalInput = ConditionalMethodLaw.root(index, Map.of(terminal, Fraction.ONE));
+    assertThat(stopped.atBoundary()).isTrue();
+    assertThat(stopped.calculatedKernels()).isZero();
+    assertThat(
+            expand(
+                stopped.condition(terminalInput, Optional.of(ExactMethodRunner.Exit.GOAL), goal)))
+        .isEqualTo(Map.of(terminal, Fraction.ONE));
+    assertThatThrownBy(
+            () -> stopped.condition(input, Optional.of(ExactMethodRunner.Exit.GOAL), goal))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessageContaining("Different incoming law");
+    var otherIndex = new BasicClassIndex(classes);
+    otherIndex.intern(terminal);
+    var otherJob = ConditionalMethodLaw.root(otherIndex, Map.of(terminal, Fraction.ONE));
+    assertThatThrownBy(
+            () -> stopped.condition(otherJob, Optional.of(ExactMethodRunner.Exit.GOAL), goal))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessageContaining("Different incoming law");
+
+    var unavailable =
+        new IndexedMethodRunner(
+            index,
+            source,
+            new ExactMethodRunner.Template<>(
+                "unavailable", List.of(), List.of(s -> WorkbenchCurrency.TRANSMUTATION)),
+            id -> methodExit(index.key(source), index.key(id)),
+            1);
+    unavailable.beginCycle();
+    while (!unavailable.atBoundary()) unavailable.step();
+    assertThat(unavailable.observation().cycleUses()).isEmpty();
+    assertThat(
+            expand(unavailable.condition(input, Optional.of(ExactMethodRunner.Exit.DEAD), source)))
+        .isEqualTo(Map.of(root, Fraction.ONE));
   }
 
   private static Optional<ExactMethodRunner.Exit> methodExit(
@@ -406,9 +501,104 @@ class BasicTransitionClassesTest {
         assertThat(actual.cycleUses()).isEqualTo(uses);
         assertThat(actual.cycles()).isEqualTo(cycle);
         assertThat(actual.mass()).isEqualTo(Fraction.ONE);
+        var input = ConditionalMethodLaw.root(index, Map.of(source, Fraction.ONE));
+        for (var exit : ExactMethodRunner.Exit.values())
+          for (var target : actual.exits().get(exit).keySet()) {
+            var law = runner.condition(input, Optional.of(exit), target);
+            var expected = conditional(exits.get(exit), index, target, law.probability());
+            assertThat(expand(law)).isEqualTo(expected);
+            if (cycle == 100
+                && source.item().explicits().isEmpty()
+                && exit == ExactMethodRunner.Exit.CHECKPOINT
+                && expected.size() > 1)
+              verifyConditionalChain(law, expected, classes, index, graph);
+          }
+        for (var target : actual.active().keySet()) {
+          var law = runner.condition(input, Optional.empty(), target);
+          assertThat(expand(law)).isEqualTo(conditional(active, index, target, law.probability()));
+        }
+        assertThatThrownBy(
+                () ->
+                    runner.condition(
+                        input, Optional.of(ExactMethodRunner.Exit.GOAL), index.classOf(source)))
+            .isInstanceOf(IllegalArgumentException.class);
       }
     }
     assertThat(runner.evictedKernels()).isPositive();
+  }
+
+  private static Map<BasicCurrencyState, Fraction> conditional(
+      Map<BasicCurrencyState, Fraction> values,
+      BasicClassIndex index,
+      int target,
+      Fraction probability) {
+    var result = new HashMap<BasicCurrencyState, Fraction>();
+    values.forEach(
+        (state, mass) -> {
+          if (index.classOf(state) == target) result.put(state, mass.divide(probability));
+        });
+    return result;
+  }
+
+  private static Map<BasicCurrencyState, Fraction> expand(ConditionalMethodLaw law) {
+    var expansion = law.expansion();
+    assertThatThrownBy(expansion::result).isInstanceOf(IllegalStateException.class);
+    for (int step = 0; step < 2000000 && !expansion.complete(); step++) expansion.step();
+    assertThat(expansion.complete()).isTrue();
+    var result = expansion.result();
+    assertThat(result.values().stream().reduce(Fraction.ZERO, Fraction::add))
+        .isEqualTo(Fraction.ONE);
+    return result;
+  }
+
+  private static void verifyConditionalChain(
+      ConditionalMethodLaw parent,
+      Map<BasicCurrencyState, Fraction> actualInput,
+      BasicTransitionClasses classes,
+      BasicClassIndex index,
+      Map<BasicCurrencyState, FiniteQuotientProof.Node<BasicCurrencyState>> graph) {
+    var sourceKey = index.key(parent.classId());
+    var next =
+        new IndexedMethodRunner(
+            index,
+            parent.classId(),
+            new ExactMethodRunner.Template<>(
+                "conditional-follow-up", List.of(), List.of(s -> WorkbenchCurrency.EXALTED)),
+            id -> methodExit(sourceKey, index.key(id)),
+            1);
+    next.beginCycle();
+    while (!next.atBoundary()) next.step();
+    var point = next.observation();
+    assertThat(point.exits().get(ExactMethodRunner.Exit.GOAL)).isNotEmpty();
+    for (var target : point.exits().get(ExactMethodRunner.Exit.GOAL).keySet()) {
+      var selected = new HashMap<BasicCurrencyState, Fraction>();
+      actualInput.forEach(
+          (state, mass) -> {
+            var action =
+                graph.get(state).actions().stream()
+                    .filter(a -> a.label().equals(WorkbenchCurrency.EXALTED.name()))
+                    .findFirst()
+                    .orElseThrow();
+            action
+                .outcomes()
+                .forEach(
+                    (outcome, probability) -> {
+                      if (index.classOf(outcome) == target)
+                        selected.merge(outcome, mass.multiply(probability), Fraction::add);
+                    });
+          });
+      var chained = next.condition(parent, Optional.of(ExactMethodRunner.Exit.GOAL), target);
+      var expected = conditional(selected, index, target, chained.probability());
+      assertThat(expected).hasSizeGreaterThan(1);
+      assertThat(expand(chained)).isEqualTo(expected);
+      var singletonInput =
+          ConditionalMethodLaw.root(
+              index, Map.of(actualInput.keySet().iterator().next(), Fraction.ONE));
+      var singleton =
+          next.condition(singletonInput, Optional.of(ExactMethodRunner.Exit.GOAL), target);
+      assertThat(singleton.probability()).isEqualTo(chained.probability());
+      assertThat(expand(singleton)).hasSize(1).isNotEqualTo(expected);
+    }
   }
 
   @Test
