@@ -99,6 +99,8 @@ public interface MethodGraphStore extends AutoCloseable {
 
   Optional<Source> source(long id);
 
+  Optional<Method> method(String id);
+
   Page methods(long expectedRevision, Cursor after, int limit);
 
   Optional<Observation> observation(String method, int cycles);

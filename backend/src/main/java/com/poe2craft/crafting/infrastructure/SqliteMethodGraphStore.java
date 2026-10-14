@@ -225,6 +225,23 @@ public final class SqliteMethodGraphStore implements MethodGraphStore {
   }
 
   @Override
+  public synchronized Optional<Method> method(String id) {
+    return access(
+        () -> {
+          try (var statement =
+              connection.prepareStatement("SELECT source,program FROM methods WHERE id=?")) {
+            statement.setString(1, id);
+            try (var result = statement.executeQuery()) {
+              reads++;
+              return result.next()
+                  ? Optional.of(new Method(id, result.getLong(1), result.getString(2)))
+                  : Optional.empty();
+            }
+          }
+        });
+  }
+
+  @Override
   public synchronized Page methods(long expectedRevision, Cursor after, int limit) {
     if (limit < 1 || limit > 256) throw new IllegalArgumentException("Page size must be 1..256");
     return access(
