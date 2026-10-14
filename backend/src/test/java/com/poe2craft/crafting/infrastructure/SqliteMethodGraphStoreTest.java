@@ -10,6 +10,84 @@ import org.junit.jupiter.api.io.TempDir;
 
 class SqliteMethodGraphStoreTest {
   @Test
+  void streamingCaptureCommitsOnceAndFailureLeavesPublishedCursorUntouched(@TempDir Path dir)
+      throws Exception {
+    var path = dir.resolve("capture.sqlite");
+    String saved;
+    try (var store = new SqliteMethodGraphStore(path, identity("capture"), 64)) {
+      var field = SqliteMethodGraphStore.class.getDeclaredField("connection");
+      field.setAccessible(true);
+      var actual = (java.sql.Connection) field.get(store);
+      var commits = new java.util.concurrent.atomic.AtomicInteger();
+      var wrapped =
+          java.lang.reflect.Proxy.newProxyInstance(
+              getClass().getClassLoader(),
+              new Class<?>[] {java.sql.Connection.class},
+              (proxy, method, args) -> {
+                if (method.getName().equals("commit")) commits.incrementAndGet();
+                try {
+                  return method.invoke(actual, args);
+                } catch (java.lang.reflect.InvocationTargetException failure) {
+                  throw failure.getCause();
+                }
+              });
+      field.set(store, wrapped);
+      var cursor =
+          store.captureExecution(
+              "job",
+              "header",
+              sink -> {
+                for (int i = 0; i < 5000; i++) sink.accept("row-" + i);
+              });
+      assertThat(commits.get()).isEqualTo(1);
+      assertThat(cursor.rows()).isEqualTo(5000);
+      assertThat(cursor.sealed()).isTrue();
+      assertThat(store.execution("job")).isEmpty();
+      store.commit(
+          0,
+          new Batch(
+              List.of(),
+              List.of(),
+              List.of(),
+              List.of(
+                  com.poe2craft.crafting.application.pathsearch.MethodCursorStore.reference(
+                      cursor))));
+      saved = cursor.id();
+      var failure = new AssertionError("interrupted capture");
+      assertThatThrownBy(
+              () ->
+                  store.captureExecution(
+                      "job",
+                      "new",
+                      sink -> {
+                        for (int i = 0; i < 513; i++) sink.accept("pending-" + i);
+                        throw failure;
+                      }))
+          .isSameAs(failure);
+      assertThat(store.execution("job").orElseThrow().id()).isEqualTo(saved);
+      assertThat(store.revision()).isEqualTo(1);
+      try (var statement = actual.createStatement();
+          var rows = statement.executeQuery("SELECT COUNT(*) FROM execution_cursors")) {
+        assertThat(rows.next()).isTrue();
+        assertThat(rows.getInt(1)).isEqualTo(1);
+      }
+    }
+    try (var store = new SqliteMethodGraphStore(path, identity("capture"), 64)) {
+      assertThat(store.execution("job").orElseThrow().id()).isEqualTo(saved);
+      long offset = 0;
+      while (true) {
+        var page = store.executionRows(saved, offset, 128);
+        for (var row : page.rows()) {
+          assertThat(row.ordinal()).isEqualTo(offset);
+          assertThat(row.content()).isEqualTo("row-" + offset++);
+        }
+        if (page.complete()) break;
+      }
+      assertThat(offset).isEqualTo(5000);
+    }
+  }
+
+  @Test
   void sameDepthPaginationSeeksPastOrdinalRatherThanScanningTheDepthAgain(@TempDir Path dir)
       throws Exception {
     try (var store = new SqliteMethodGraphStore(dir.resolve("plan.sqlite"), identity("plan"), 64)) {

@@ -21,9 +21,16 @@ final class CertifiedMethodSearchEngine {
   private final TemporaryWorkingLaws workingLaws;
   private final CertifiedMethodRunner.WorkingMaps<Integer> workingMaps;
   private final BasicClassIndex index;
+  private final TemporaryClassIndex classStorage;
   private final CertifiedInterval.Precision precision;
-  private final Map<Integer, String> identifiers = new HashMap<>();
-  private final Map<Integer, MethodSearchCalculation.Progress> progressCache = new HashMap<>();
+  private final Map<Integer, MethodSearchCalculation.Progress> progressCache =
+      new LinkedHashMap<>(16, .75f, true) {
+        @Override
+        protected boolean removeEldestEntry(
+            Map.Entry<Integer, MethodSearchCalculation.Progress> eldest) {
+          return size() > 512;
+        }
+      };
   private final List<Integer> entryOffsets = new ArrayList<>();
   private long liveEntries, savedEntries;
   private long preparationEntries;
@@ -500,7 +507,10 @@ final class CertifiedMethodSearchEngine {
       int budget,
       CertifiedInterval.Precision precision,
       CertifiedLawStore.PackedPages backing) {
-    this.index = new BasicClassIndex(classes);
+    classStorage =
+        new TemporaryClassIndex(
+            java.nio.file.Path.of(System.getProperty("java.io.tmpdir")), classes, 256);
+    this.index = new BasicClassIndex(classes, classStorage);
     this.precision = precision;
     laws = new CertifiedLawStore(precision.fractionalBits(), backing);
     absorptionStore = new CertifiedMutableLawStore(precision.fractionalBits(), 64);
@@ -542,7 +552,7 @@ final class CertifiedMethodSearchEngine {
   }
 
   private String id(int key) {
-    return identifiers.computeIfAbsent(key, k -> "class:" + k);
+    return "class:" + key;
   }
 
   public String rootId() {
@@ -583,7 +593,10 @@ final class CertifiedMethodSearchEngine {
   }
 
   private long workingEntries() {
-    return (long) index.size()
+    return index.residentEntries()
+        + progressCache.size()
+        + states.size()
+        + methods.size()
         + index.profileRetainedRows()
         + liveEntries
         + laws.pageCount()
@@ -634,7 +647,7 @@ final class CertifiedMethodSearchEngine {
     progressLaws.clear();
     adjacency.clear();
     progressCache.clear();
-    identifiers.clear();
+    index.close();
     laws.close();
     absorptionStore.close();
     workingLaws.close();
@@ -671,6 +684,7 @@ final class CertifiedMethodSearchEngine {
       CertifiedLawStore.Metrics lawStorage,
       CertifiedMutableLawStore.Metrics absorptionStorage,
       TemporaryWorkingLaws.Metrics workingStorage,
+      TemporaryClassIndex.Metrics classStorage,
       BasicTransitionClasses.ProfileMetrics additionProfiles,
       List<MethodRetention> largestMethods) {}
 
@@ -731,6 +745,7 @@ final class CertifiedMethodSearchEngine {
         laws.metrics(),
         absorptionStore.metrics(),
         workingLaws.metrics(),
+        classStorage.metrics(),
         index.profileMetrics(),
         List.copyOf(largest.subList(0, Math.min(12, largest.size()))));
   }

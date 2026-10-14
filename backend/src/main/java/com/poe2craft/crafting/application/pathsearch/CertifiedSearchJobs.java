@@ -247,21 +247,12 @@ final class CertifiedSearchJobs {
     }
     var previous = job.store.execution("job");
     long revision = job.storeRevision;
-    var draft = job.store.beginExecution("job", encode(header));
-    long[] offset = {0};
-    var batch = new ArrayList<String>();
+    var sealed =
+        job.store.captureExecution(
+            "job",
+            encode(header),
+            sink -> job.engine.checkpoint(json, line -> sink.accept(encode(line))));
     try {
-      job.engine.checkpoint(
-          json,
-          line -> {
-            batch.add(encode(line));
-            if (batch.size() == 128) {
-              offset[0] = job.store.appendExecution(draft.id(), offset[0], batch);
-              batch.clear();
-            }
-          });
-      if (!batch.isEmpty()) offset[0] = job.store.appendExecution(draft.id(), offset[0], batch);
-      var sealed = job.store.sealExecution(draft.id(), offset[0]);
       job.storeRevision =
           job.store.commit(
               revision,
@@ -288,7 +279,7 @@ final class CertifiedSearchJobs {
           });
     } catch (RuntimeException | Error failure) {
       try {
-        job.store.discardExecution(draft.id());
+        job.store.discardExecution(sealed.id());
       } catch (RuntimeException cleanup) {
         failure.addSuppressed(cleanup);
       }

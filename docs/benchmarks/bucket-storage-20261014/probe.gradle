@@ -1,0 +1,6 @@
+allprojects {
+    plugins.withId('java') {
+        sourceSets.test.java.srcDir('/task-cache/bucket-method-review/durable-solar-probe')
+        tasks.withType(Test).configureEach { maxHeapSize = '1g' }
+    }
+}

@@ -389,3 +389,25 @@ Docker `check generateJooq bootJar` passed with 753 unit/contract tests and seve
 integration tests. Focused ordered-map, independent first-hit oracle and existing
 job restart tests also passed. The frozen backend source manifest matched with
 zero differences; reports are under `codex/bucket-method-verification/working-laws-r1`.
+
+## Class witnesses and synchronous checkpoint capture
+
+`TemporaryClassIndex` stores every class witness in a local scratch database and
+retains at most 256 decoded witnesses/keys. Hashes select candidate rows only;
+the complete class key is reconstructed from the stored witness and compared
+before an identity is reused. Interning preserves class ID order, and durable
+cursor restoration rebuilds the scratch index from the existing versioned
+witness/key evidence. A separate goal-progress cache is limited to 512 entries;
+simple `class:<id>` strings no longer need an unbounded cache. Resident accounting
+includes the retained public state/method inventory as well as these bounded
+caches. This index does not collapse distinct incoming item distributions.
+
+The synchronous job capture uses `captureExecution`: SQLite streams rows through
+one prepared statement in a single FULL-synchronous transaction, then atomically
+publishes its reference with job control metadata in the existing revision check.
+An exception rolls the entire unpublished capture back. The incremental
+`beginExecution`/`appendExecution`/`sealExecution` contract is unchanged for callers
+that checkpoint over multiple slices. This avoids thousands of durable commits
+while capturing one already-locked job, without changing durability or allocating
+the whole row stream. Capture remains synchronous, and an individual observation
+or conditional-expansion JSON value can still be large.

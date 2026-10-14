@@ -1,6 +1,7 @@
 package com.poe2craft.crafting.application.pathsearch;
 
 import java.util.*;
+import java.util.function.Consumer;
 
 /** Staged execution rows become visible only through an atomic graph checkpoint publication. */
 public interface MethodCursorStore {
@@ -21,6 +22,33 @@ public interface MethodCursorStore {
   long appendExecution(String id, long expectedRows, List<String> rows);
 
   ExecutionCursor sealExecution(String id, long expectedRows);
+
+  /** Synchronous bounded-memory capture. The returned sealed cursor is not yet published. */
+  default ExecutionCursor captureExecution(
+      String scope, String header, Consumer<Consumer<String>> producer) {
+    var draft = beginExecution(scope, header);
+    long[] offset = {0};
+    var batch = new ArrayList<String>();
+    try {
+      producer.accept(
+          row -> {
+            batch.add(row);
+            if (batch.size() == 128) {
+              offset[0] = appendExecution(draft.id(), offset[0], batch);
+              batch.clear();
+            }
+          });
+      if (!batch.isEmpty()) offset[0] = appendExecution(draft.id(), offset[0], batch);
+      return sealExecution(draft.id(), offset[0]);
+    } catch (RuntimeException | Error failure) {
+      try {
+        discardExecution(draft.id());
+      } catch (RuntimeException cleanup) {
+        failure.addSuppressed(cleanup);
+      }
+      throw failure;
+    }
+  }
 
   Optional<ExecutionCursor> execution(String scope);
 

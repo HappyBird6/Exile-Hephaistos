@@ -320,6 +320,46 @@ public final class SqliteMethodGraphStore implements MethodGraphStore {
   }
 
   @Override
+  public synchronized ExecutionCursor captureExecution(
+      String scope,
+      String header,
+      java.util.function.Consumer<java.util.function.Consumer<String>> producer) {
+    if (scope == null || scope.isBlank() || header == null || header.isBlank())
+      throw new IllegalArgumentException("Execution scope and header required");
+    Objects.requireNonNull(producer);
+    return access(
+        () ->
+            transaction(
+                () -> {
+                  String id = UUID.randomUUID().toString();
+                  update("INSERT INTO execution_cursors VALUES(?,?,?,0,0)", id, scope, header);
+                  long[] count = {0};
+                  try (var insert =
+                      connection.prepareStatement("INSERT INTO execution_rows VALUES(?,?,?)")) {
+                    producer.accept(
+                        row -> {
+                          if (row == null || row.isBlank())
+                            throw new IllegalArgumentException("Nonblank cursor row required");
+                          try {
+                            insert.setString(1, id);
+                            insert.setLong(2, count[0]);
+                            insert.setString(3, row);
+                            insert.executeUpdate();
+                            writes++;
+                            count[0] = Math.incrementExact(count[0]);
+                          } catch (SQLException failure) {
+                            throw new IllegalStateException(
+                                "Cannot capture execution row", failure);
+                          }
+                        });
+                  }
+                  update(
+                      "UPDATE execution_cursors SET row_count=?,sealed=1 WHERE id=?", count[0], id);
+                  return new ExecutionCursor(id, scope, header, count[0], true);
+                }));
+  }
+
+  @Override
   public synchronized ExecutionCursor sealExecution(String id, long expectedRows) {
     return access(
         () ->

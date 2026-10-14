@@ -5,17 +5,69 @@ import com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fractio
 import java.util.*;
 
 /** Job-local class identities. An integer identifies a proven class, never an incoming item law. */
-public final class BasicClassIndex {
+public final class BasicClassIndex implements AutoCloseable {
   public static final String VERSION = "interned-basic-transition-classes-v1";
 
-  private record Entry(BasicTransitionClasses.Key key, BasicCurrencyState witness) {}
+  public record Entry(BasicTransitionClasses.Key key, BasicCurrencyState witness) {}
+
+  public interface Storage extends AutoCloseable {
+    Integer find(BasicTransitionClasses.Key key);
+
+    int add(BasicTransitionClasses.Key key, BasicCurrencyState witness);
+
+    Entry entry(int id);
+
+    int size();
+
+    long residentEntries();
+
+    @Override
+    void close();
+  }
+
+  private static final class MemoryStorage implements Storage {
+    private final Map<BasicTransitionClasses.Key, Integer> identities = new HashMap<>();
+    private final List<Entry> entries = new ArrayList<>();
+
+    public Integer find(BasicTransitionClasses.Key key) {
+      return identities.get(key);
+    }
+
+    public int add(BasicTransitionClasses.Key key, BasicCurrencyState witness) {
+      int id = entries.size();
+      identities.put(key, id);
+      entries.add(new Entry(key, witness));
+      return id;
+    }
+
+    public Entry entry(int id) {
+      return entries.get(id);
+    }
+
+    public int size() {
+      return entries.size();
+    }
+
+    public long residentEntries() {
+      return entries.size();
+    }
+
+    public void close() {
+      identities.clear();
+      entries.clear();
+    }
+  }
 
   private final BasicTransitionClasses classes;
-  private final Map<BasicTransitionClasses.Key, Integer> identities = new HashMap<>();
-  private final List<Entry> entries = new ArrayList<>();
+  private final Storage storage;
 
   public BasicClassIndex(BasicTransitionClasses classes) {
+    this(classes, new MemoryStorage());
+  }
+
+  public BasicClassIndex(BasicTransitionClasses classes, Storage storage) {
     this.classes = Objects.requireNonNull(classes);
+    this.storage = Objects.requireNonNull(storage);
   }
 
   public int intern(BasicCurrencyState actual) {
@@ -23,16 +75,21 @@ public final class BasicClassIndex {
   }
 
   private int intern(BasicTransitionClasses.Key key, BasicCurrencyState witness) {
-    var existing = identities.get(key);
+    var existing = storage.find(key);
     if (existing != null) return existing;
-    int id = entries.size();
-    identities.put(key, id);
-    entries.add(new Entry(key, witness));
-    return id;
+    return storage.add(key, witness);
   }
 
   public int size() {
-    return entries.size();
+    return storage.size();
+  }
+
+  public long residentEntries() {
+    return storage.residentEntries();
+  }
+
+  public void close() {
+    storage.close();
   }
 
   public BasicTransitionClasses.ProfileMetrics profileMetrics() {
@@ -44,17 +101,17 @@ public final class BasicClassIndex {
   }
 
   public int classOf(BasicCurrencyState actual) {
-    var id = identities.get(classes.key(actual));
+    var id = storage.find(classes.key(actual));
     if (id == null) throw new IllegalArgumentException("Item has no registered transition class");
     return id;
   }
 
   public BasicTransitionClasses.Key key(int id) {
-    return entries.get(id).key();
+    return storage.entry(id).key();
   }
 
   public BasicCurrencyState witness(int id) {
-    return entries.get(id).witness();
+    return storage.entry(id).witness();
   }
 
   /** Validate full equality of the class key; hash equality alone never admits an input. */
