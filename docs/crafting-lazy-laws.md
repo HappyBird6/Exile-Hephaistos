@@ -347,3 +347,34 @@ Do not silently label all zero-direct-success alternatives as the final strategy
   The production certified API still reports final strategy NOT_REQUESTED. The
   finite completed-map strategy adapter is an oracle-scale integration and can
   materialize many rows; it is not yet a scalable whole-job strategy scheduler.
+
+
+## Bounded immutable payload backing
+
+The v11 engine keeps at most 8 MiB of compressed immutable payloads in its hot
+cache. Older complete pages spill to a job-owned temporary file and are read back
+on demand. The decoded-row cache remains capped at four pages. Page identity still
+checks complete compressed bytes after the hash lookup, including spilled pages;
+no class, endpoint, low-probability outcome or conditional entry is dropped.
+Repeated eviction of an already stored immutable page reuses its file offset.
+
+The 32 MiB guard now applies to resident immutable packed bytes plus mutable
+working packed bytes, rather than all logical saved bytes. This is an explicit
+v6 wire change: `residentPackedByteLimit`, `residentPackedBytes` and `diskBytes`
+separate the memory allowance from total `packedBytes`. The memory allowance is
+unchanged. File backing does not remove the separate resident-entry guard or make
+unfinished exploration complete. Pending and boundary maps are still resident.
+
+Spill files are created lazily, owned by one job and removed on disposal. Cancellation
+retains them for resume within the existing job lifetime. This is temporary storage,
+not restart persistence or a saved-plan migration. I/O failures fail explicitly;
+a missing or truncated page never becomes a zero-probability result. Only the
+owned file is removed; sibling files and directories are preserved.
+
+Focused verification covers cache eviction/reload, exact byte preservation,
+16/64/256-bit law endpoints, full-page deduplication, independent reconstruction,
+file failures, and cleanup. The complete small-map oracle is also run with a zero
+packed-memory cache, forcing every immutable page through disk. Eight focused tests
+and Docker Java 21 `check generateJooq bootJar` passed: 728 unit/contract tests and
+seven integration tests, zero failures/errors (`backed-pages-targeted`,
+`backed-pages-full`). The follow-up whole-frontier Solar measurement is pending.

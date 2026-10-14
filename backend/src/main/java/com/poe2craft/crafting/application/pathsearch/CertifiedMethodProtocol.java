@@ -7,7 +7,7 @@ import java.util.*;
 
 /** Additive wire values: an arithmetic enclosure is never a statistical confidence interval. */
 public final class CertifiedMethodProtocol {
-  public static final String VERSION = "certified-method-wire-v5-paged-absorption";
+  public static final String VERSION = "certified-method-wire-v6-backed-pages";
 
   private CertifiedMethodProtocol() {}
 
@@ -53,7 +53,7 @@ public final class CertifiedMethodProtocol {
       long residentEntries,
       long storedClassRows,
       long packedBytes,
-      long packedByteLimit,
+      long residentPackedByteLimit,
       long transientFreezeBytes,
       long kernelPackedBytes,
       long kernelPackedByteLimit,
@@ -62,7 +62,9 @@ public final class CertifiedMethodProtocol {
       String workingVersion,
       long workingClassRows,
       long workingPackedBytes,
-      int workingMaterializedRows) {}
+      int workingMaterializedRows,
+      long residentPackedBytes,
+      long diskBytes) {}
 
   public record Graph(
       String jobId,

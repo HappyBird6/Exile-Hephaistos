@@ -12,7 +12,7 @@ import java.util.function.Function;
 
 /** Certified class marginals. Incoming item laws remain exact retained conditional operators. */
 final class CertifiedMethodSearchEngine {
-  static final String VERSION = "certified-method-map-v10-checkpoint-preview";
+  static final String VERSION = "certified-method-map-v11-backed-pages";
   private final CertifiedLawStore laws;
   private final CertifiedMutableLawStore absorptionStore;
   private final BasicClassIndex index;
@@ -86,9 +86,26 @@ final class CertifiedMethodSearchEngine {
       Function<ItemState, Evaluation> evaluate,
       int budget,
       CertifiedInterval.Precision precision) {
+    this(
+        start,
+        classes,
+        evaluate,
+        budget,
+        precision,
+        new TemporaryLawPages(
+            java.nio.file.Path.of(System.getProperty("java.io.tmpdir")), 8L * 1024 * 1024));
+  }
+
+  CertifiedMethodSearchEngine(
+      BasicCurrencyState start,
+      BasicTransitionClasses classes,
+      Function<ItemState, Evaluation> evaluate,
+      int budget,
+      CertifiedInterval.Precision precision,
+      CertifiedLawStore.PackedPages backing) {
     this.index = new BasicClassIndex(classes);
     this.precision = precision;
-    laws = new CertifiedLawStore(precision.fractionalBits());
+    laws = new CertifiedLawStore(precision.fractionalBits(), backing);
     absorptionStore = new CertifiedMutableLawStore(precision.fractionalBits(), 64);
     int offset = 2;
     for (var group : evaluate.apply(start.item()).groups()) {
@@ -195,7 +212,7 @@ final class CertifiedMethodSearchEngine {
   }
 
   boolean storageLimited() {
-    return laws.packedBytes() + absorptionStore.packedBytes() > 32L * 1024 * 1024;
+    return laws.residentPackedBytes() + absorptionStore.packedBytes() > 32L * 1024 * 1024;
   }
 
   void close() {

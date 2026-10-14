@@ -7,10 +7,12 @@ import java.util.zip.*;
 
 /** Lossless class-law pages. Interval objects are materialized only in a bounded read cache. */
 public final class CertifiedLawStore implements AutoCloseable {
-  public static final String VERSION = "certified-law-pages-v1";
+  public static final String VERSION = "certified-law-pages-v2-backed-payloads";
   private static final int PAGE_ROWS = 256;
   private final int bits;
-  private final Map<Bytes, Page> pages = new HashMap<>();
+  private final Map<Integer, List<Page>> pages = new HashMap<>();
+  private final PackedPages backing;
+  private int pageCount;
   private final LinkedHashMap<Page, Decoded> cache = new LinkedHashMap<>(16, .75f, true);
   private long bytes, rows, reused, decoded;
   private int cachedRows;
@@ -36,31 +38,65 @@ public final class CertifiedLawStore implements AutoCloseable {
   }
 
   public CertifiedLawStore(int bits) {
+    this(bits, new MemoryPages());
+  }
+
+  public CertifiedLawStore(int bits, PackedPages backing) {
     new CertifiedInterval.Precision(bits, 0);
     this.bits = bits;
+    this.backing = Objects.requireNonNull(backing);
   }
 
-  private static final class Bytes {
-    byte[] data;
-    final int hash;
-
-    Bytes(byte[] data) {
-      this.data = data;
-      hash = Arrays.hashCode(data);
+  /** Job-owned immutable payload storage; returned byte arrays are borrowed read-only views. */
+  public interface PackedPages extends AutoCloseable {
+    interface Payload {
+      byte[] read();
     }
 
-    @Override
-    public int hashCode() {
-      return hash;
-    }
+    Payload store(byte[] bytes);
+
+    long residentBytes();
+
+    long diskBytes();
 
     @Override
-    public boolean equals(Object other) {
-      return other instanceof Bytes b && Arrays.equals(data, b.data);
+    void close();
+  }
+
+  private static final class MemoryPages implements PackedPages {
+    private final Map<Payload, byte[]> data = new IdentityHashMap<>();
+    private long bytes;
+
+    private final class MemoryPayload implements Payload {
+      public byte[] read() {
+        var found = data.get(this);
+        if (found == null) throw new IllegalStateException("Page storage closed");
+        return found;
+      }
+    }
+
+    public Payload store(byte[] value) {
+      var payload = new MemoryPayload();
+      data.put(payload, value);
+      bytes += value.length;
+      return payload;
+    }
+
+    public long residentBytes() {
+      return bytes;
+    }
+
+    public long diskBytes() {
+      return 0;
+    }
+
+    public void close() {
+      data.clear();
+      bytes = 0;
     }
   }
 
-  private record Page(Bytes bytes, int first, int last, int size) {}
+  private record Page(PackedPages.Payload bytes, int first, int last, int size) {}
 
   private record Decoded(int[] keys, CertifiedInterval[] values) {
     Map.Entry<Integer, CertifiedInterval> entry(int index) {
@@ -75,10 +111,21 @@ public final class CertifiedLawStore implements AutoCloseable {
       int materializedRows,
       long reusedPages,
       long descriptors,
-      long decodedPages) {}
+      long decodedPages,
+      long residentPackedBytes,
+      long diskBytes) {}
 
   public Metrics metrics() {
-    return new Metrics(rows, bytes, pages.size(), materializedRows(), reused, descriptors, decoded);
+    return new Metrics(
+        rows,
+        bytes,
+        pageCount,
+        materializedRows(),
+        reused,
+        descriptors,
+        decoded,
+        backing.residentBytes(),
+        backing.diskBytes());
   }
 
   public int materializedRows() {
@@ -90,7 +137,11 @@ public final class CertifiedLawStore implements AutoCloseable {
   }
 
   public int pageCount() {
-    return pages.size();
+    return pageCount;
+  }
+
+  public long residentPackedBytes() {
+    return backing.residentBytes();
   }
 
   public long descriptors() {
@@ -243,16 +294,23 @@ public final class CertifiedLawStore implements AutoCloseable {
       } finally {
         compressor.end();
       }
-      var key = new Bytes(buffer.toByteArray());
-      var old = pages.get(key);
-      if (old != null) {
-        reused++;
-        return old;
-      }
+      var payload = buffer.toByteArray();
+      int hash = Arrays.hashCode(payload);
+      var matches = pages.computeIfAbsent(hash, ignored -> new ArrayList<>());
+      for (var old : matches)
+        if (Arrays.equals(old.bytes.read(), payload)) {
+          reused++;
+          return old;
+        }
       var page =
-          new Page(key, entries.getFirst().getKey(), entries.getLast().getKey(), entries.size());
-      pages.put(key, page);
-      bytes += key.data.length;
+          new Page(
+              backing.store(payload),
+              entries.getFirst().getKey(),
+              entries.getLast().getKey(),
+              entries.size());
+      matches.add(page);
+      pageCount++;
+      bytes += payload.length;
       rows += entries.size();
       return page;
     } catch (IOException ex) {
@@ -273,7 +331,7 @@ public final class CertifiedLawStore implements AutoCloseable {
     var keys = new int[page.size];
     var values = new CertifiedInterval[page.size];
     try (var data =
-        new DataInputStream(new InflaterInputStream(new ByteArrayInputStream(page.bytes.data)))) {
+        new DataInputStream(new InflaterInputStream(new ByteArrayInputStream(page.bytes.read())))) {
       int count = data.readInt();
       if (count != page.size) throw new IllegalStateException("Corrupt page");
       for (int i = 0; i < count; i++) {
@@ -446,13 +504,15 @@ public final class CertifiedLawStore implements AutoCloseable {
 
   @Override
   public void close() {
+    if (closed) return;
     closed = true;
-    pages.values().forEach(page -> page.bytes.data = new byte[0]);
     pages.clear();
     cache.clear();
     bytes = 0;
     rows = 0;
     cachedRows = 0;
     descriptors = 0;
+    pageCount = 0;
+    backing.close();
   }
 }

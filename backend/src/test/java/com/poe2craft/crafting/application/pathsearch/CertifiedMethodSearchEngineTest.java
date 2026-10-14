@@ -10,6 +10,7 @@ import com.poe2craft.item.ItemState;
 import java.util.*;
 import java.util.function.Function;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 class CertifiedMethodSearchEngineTest {
   record Identity(
@@ -18,7 +19,8 @@ class CertifiedMethodSearchEngineTest {
       List<WorkbenchCurrency> cycle) {}
 
   @Test
-  void completeSmallMapContainsEveryExactLawAndPreservesMethodDepthAndAlternatives() {
+  void completeSmallMapContainsEveryExactLawAndPreservesMethodDepthAndAlternatives(
+      @TempDir java.nio.file.Path directory) throws Exception {
     var fixture = new MethodSearchCalculationTest();
     Function<ItemState, GoalEvaluator.Evaluation> evaluate =
         item -> {
@@ -42,7 +44,12 @@ class CertifiedMethodSearchEngineTest {
     var exact = new IndexedMethodSearchEngine(fixture.root(), classes, evaluate, 1000000);
     var bounded =
         new CertifiedMethodSearchEngine(
-            fixture.root(), classes, evaluate, 1000000, new CertifiedInterval.Precision(32, 2));
+            fixture.root(),
+            classes,
+            evaluate,
+            1000000,
+            new CertifiedInterval.Precision(32, 2),
+            new TemporaryLawPages(directory, 0));
     int unchangedGraphSamples = 0;
     boolean earlyGoal = false;
     for (int step = 0; step < 5000000 && (!exact.complete() || !bounded.complete()); step++) {
@@ -78,6 +85,9 @@ class CertifiedMethodSearchEngineTest {
     assertThat(bounded.complete())
         .withFailMessage("work=%s retained=%s", bounded.operations(), bounded.retainedEntries())
         .isTrue();
+    assertThat(bounded.storage().residentPackedBytes()).isZero();
+    assertThat(bounded.storage().diskBytes()).isPositive();
+    assertThat(bounded.storageLimited()).isFalse();
     var exactStates = keys(exact.states(), classes);
     var exactProgress = new HashMap<String, MethodSearchCalculation.Progress>();
     exact.states().forEach(s -> exactProgress.put(s.id(), s.progress()));
@@ -205,6 +215,10 @@ class CertifiedMethodSearchEngineTest {
                         (action, mass) ->
                             assertThat(point.cycleUses().get(action).contains(mass)).isTrue());
               });
+    }
+    bounded.close();
+    try (var files = java.nio.file.Files.list(directory)) {
+      assertThat(files.toList()).isEmpty();
     }
   }
 

@@ -501,7 +501,9 @@ final class CertifiedSearchJobs {
                 CertifiedMutableLawStore.VERSION,
                 job.engine.absorptionStorage().rows(),
                 job.engine.absorptionStorage().packedBytes(),
-                job.engine.absorptionStorage().decodedRows()),
+                job.engine.absorptionStorage().decodedRows(),
+                job.engine.storage().residentPackedBytes(),
+                job.engine.storage().diskBytes()),
             local);
   }
 
