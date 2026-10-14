@@ -31,6 +31,26 @@ public final class IndexedKernelStore {
   private final Map<Key, Request> pending = new HashMap<>();
   private int outcomes;
   private long calculated, evicted, shared;
+  private Map<WorkbenchCurrency, BitSet> diagnosticKeys;
+  private long diagnosticStarts, diagnosticUnique;
+
+  /** Opt-in measurement only; never used to admit, merge or discard a transition. */
+  public void enableDiagnostics() {
+    if (diagnosticKeys == null) diagnosticKeys = new EnumMap<>(WorkbenchCurrency.class);
+  }
+
+  public record Workload(long starts, long uniqueKeys, long repeatedStarts, long keyBytes) {}
+
+  public Workload workload() {
+    return new Workload(
+        diagnosticStarts,
+        diagnosticUnique,
+        diagnosticStarts - diagnosticUnique,
+        diagnosticKeys == null
+            ? 0
+            : diagnosticKeys.values().stream().mapToLong(b -> b.size() / 8L).sum());
+  }
+
   private final Set<com.poe2craft.crafting.domain.WorkbenchSimulator.Assumption> assumptions =
       new LinkedHashSet<>();
 
@@ -183,6 +203,7 @@ public final class IndexedKernelStore {
     completed.clear();
     packed.clear();
     pending.clear();
+    if (diagnosticKeys != null) diagnosticKeys.clear();
     outcomes = 0;
     packedRows = 0;
     packedBytes = 0;
@@ -215,6 +236,14 @@ public final class IndexedKernelStore {
       return existing;
     }
     var created = new Request(key, null);
+    if (diagnosticKeys != null) {
+      diagnosticStarts++;
+      var keys = diagnosticKeys.computeIfAbsent(action, ignored -> new BitSet());
+      if (!keys.get(source)) {
+        keys.set(source);
+        diagnosticUnique++;
+      }
+    }
     pending.put(key, created);
     return created;
   }

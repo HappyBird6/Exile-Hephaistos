@@ -1,0 +1,83 @@
+# Solar workload diagnosis, 2026-10-14
+
+Input: the existing `DeferredProductionTest` empty rare Solar Amulet and projectile
++3 / explicit Spirit >=47 goal, unchanged full AST. Docker Java 21, one engine,
+1 GiB test heap, 64-bit certified arithmetic, one-million resident-entry allowance.
+The baseline is edbb424 plus opt-in diagnostic counters. No server was started.
+
+Two runs stop at 33,554,432 scheduler operations (a diagnostic guard, not currency
+uses or a completion claim). JFR samples CPU execution every 20 ms. Counters record
+distinct source/action kernel keys in optional bitsets; they do not merge outcomes
+or influence scheduling. Their final payload was about 58 KiB.
+
+| Measurement | Baseline | Preindexed generation groups |
+| --- | ---: | ---: |
+| elapsed milliseconds | 130,851 | 121,570 |
+| registered methods | 50 | 50 |
+| completed / unfinished methods | 36 / 14 | 36 / 14 |
+| root completed / total methods | 28 / 42 | 28 / 42 |
+| public states | 73,343 | 73,343 |
+| primitive kernel starts | 686,682 | 694,655 |
+| distinct source/action keys | 246,640 | 245,418 |
+| repeated kernel starts | 440,042 | 449,237 |
+
+The runs have the same input and operation guard, but hash/iteration order and
+cache timing vary across JVMs: the guard is not identical logical work. The 7.1%
+elapsed reduction is a single-run observation, not a proven general speedup.
+The independent complete-map oracle remains the correctness check.
+
+In the baseline 33,504,192 steps (99.85%) were transition work; freeze waiting was
+11,038 (0.033%). Ready queue identity count equalled its length. Kernel recomputation
+was 64.1% of starts, not newly discovered source/action pairs. JFR's top project
+frame was `AdditionRules.minimumLevelPool` or its filtering lambda in 313 of 1,683
+execution samples (18.6%). The optimization indexes immutable generation-group
+identities once and uses a small integer array for maxima over the **actual eligible
+pool**. It does not preselect a catalog-wide highest tier, alter fallback rules,
+or assume tag/omen eligibility. Afterward group lookup was 67 of 1,351 samples
+(5.0%); other costs remain, including exact fractions, validation and primitive
+preflight. Sample shares are diagnostic, not allocation or total CPU accounting.
+
+## Known remaining work
+
+After the optimized run, a separate read-only inventory applied the existing
+discovery grammar to every one of the 73,343 known public states. It completed in
+26,585 ms. One was already a goal; the other states admit **3,430,805 candidate
+methods in total**, including the registered 50. This counts the same initial,
+single-action and two-action templates used by discovery, with actual currency
+preflight and `mayApplyAfter` rules. It does not expand their probability laws.
+There were also 1,173,456 primitive discovery checks still unperformed by the
+engine. Future methods can discover additional states: this is a known-work lower
+bound, not the total size of the eventual graph.
+
+The graph is not unfolding infinite history: state and method keys are deduplicated,
+the catalog/roll partition and slots are finite, and each individual method has
+100/300/500-cycle observations. However, a finite graph can still be impractically
+large. Nor do the measurements prove every future phase will be free of defects.
+
+There is a concrete capacity obstruction independent of wall time. Each completed
+method retains three checkpoint-summary descriptors (at least one entry each)
+and three exit-summary maps with five exit kinds plus ACTIVE (seven accounting
+entries each). Thus even these known candidates require at least
+`3,430,805 * 3 * (1 + 7) = 82,339,320` resident summary accounting entries, before
+law pages, classes, method objects or working distributions. The current API max
+is 1,000,000. Immutable-law disk backing does not externalize these summaries.
+Simply extending the run cannot complete this input under the present contract.
+
+## Structural decision still required
+
+Recommended: preserve all candidate identities, conditional laws and residual mass,
+but externalize method metadata/summaries and evaluate shared transition operators
+lazily. Enumeration and probability readiness must remain separate; uncomputed
+results stay partial, and final strategy requires its own sound convergence proof.
+This changes storage/evaluation architecture, not the goal or permitted methods.
+
+Alternative: persist the complete eager result graph in an offline batch store.
+It still requires externalized metadata, restartable cursors and a measured storage
+budget; these runs do not justify an ETA or disk-space estimate for completion.
+Neither option is implemented by the small group-index optimization.
+
+Verification: Docker `check generateJooq bootJar` passed with 729 unit/contract and
+seven integration tests, zero failures/errors. The complete-map oracle ran with
+diagnostics enabled; a forced kernel eviction verifies unique versus repeat counts.
+Frontend is unchanged. Raw host artifacts are under
+`codex/bucket-method-verification/workload-before` and `workload-group-index`.

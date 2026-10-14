@@ -8,11 +8,24 @@ public final class AdditionRules {
   private final ItemCatalog catalog;
   private final ModifierPoolResolver resolver;
   private final CraftingEngine validator;
+  private final Map<String, Integer> generationGroups;
+  private final int generationGroupCount;
 
   public AdditionRules(ItemCatalog catalog) {
     this.catalog = Objects.requireNonNull(catalog);
     resolver = new ModifierPoolResolver(catalog);
     validator = new CraftingEngine(catalog);
+    var groups = new HashMap<String, Integer>();
+    var definitions = new HashMap<String, Integer>();
+    for (var definition : catalog.modifiers().values()) {
+      // Keep the existing lazy rejection when a tiered operation encounters an
+      // unverified multi-family modifier; catalog presence alone is not support.
+      if (definition.familyIds().size() != 1) continue;
+      int group = groups.computeIfAbsent(group(definition), ignored -> groups.size());
+      definitions.put(definition.id(), group);
+    }
+    generationGroups = Map.copyOf(definitions);
+    generationGroupCount = groups.size();
   }
 
   public static boolean isAddition(WorkbenchCurrency action) {
@@ -100,14 +113,24 @@ public final class AdditionRules {
   private List<ModifierDefinition> minimumLevelPool(
       List<ModifierDefinition> eligible, WorkbenchCurrency currency) {
     if (currency.minimumModifierLevel() == 0) return eligible;
-    var highest = new HashMap<String, Integer>();
-    for (var d : eligible) highest.merge(group(d), d.requiredItemLevel(), Math::max);
+    var highest = new int[generationGroupCount];
+    for (var d : eligible) {
+      int group = generationGroup(d);
+      highest[group] = Math.max(highest[group], d.requiredItemLevel());
+    }
     return eligible.stream()
         .filter(
             d ->
                 d.requiredItemLevel() >= currency.minimumModifierLevel()
-                    || d.requiredItemLevel() == highest.get(group(d)))
+                    || d.requiredItemLevel() == highest[generationGroup(d)])
         .toList();
+  }
+
+  private int generationGroup(ModifierDefinition definition) {
+    var group = generationGroups.get(definition.id());
+    if (group == null)
+      throw new IllegalArgumentException("Modifier-type grouping needs verification");
+    return group;
   }
 
   private String group(ModifierDefinition d) {

@@ -53,6 +53,72 @@ final class CertifiedMethodSearchEngine {
   private final int root;
   private int budget;
   private long operations;
+  private boolean diagnostics;
+  private final Map<String, Long> diagnosticSteps = new LinkedHashMap<>();
+
+  void enableDiagnostics() {
+    diagnostics = true;
+    kernels.enableDiagnostics();
+  }
+
+  record DepthWork(
+      int depth,
+      long states,
+      long goals,
+      long expanded,
+      long complete,
+      long undiscoveredActions,
+      long methods,
+      long completedMethods) {}
+
+  record Workload(
+      long operations,
+      long methods,
+      long completedMethods,
+      long unfinishedMethods,
+      long unresolvedMethods,
+      long delegates,
+      long queued,
+      long uniqueQueued,
+      Map<String, Long> steps,
+      List<DepthWork> depths,
+      IndexedKernelStore.Workload kernels) {}
+
+  /** On-demand accounting, separate from the probability graph and production UI. */
+  Workload workload() {
+    var levels = new TreeMap<Integer, long[]>();
+    for (var state : states.values()) {
+      var counts = levels.computeIfAbsent(state.depth, ignored -> new long[7]);
+      counts[0]++;
+      if (state.progress.goal() == Status.MATCH) counts[1]++;
+      if (state.expanded) counts[2]++;
+      if (state.expanded && state.methods.stream().allMatch(m -> m.done)) counts[3]++;
+      if (!state.expanded)
+        counts[4] += BasicCurrencyTransitions.supportedActions().size() - state.discovery;
+      counts[5] += state.methods.size();
+      counts[6] += state.methods.stream().filter(m -> m.done).count();
+    }
+    long done = methods.values().stream().filter(m -> m.done).count();
+    return new Workload(
+        operations,
+        methods.size(),
+        done,
+        methods.size() - done,
+        methods.values().stream().filter(m -> m.unresolved).count(),
+        methods.values().stream().filter(m -> m.delegate != null).count(),
+        ready.size(),
+        ready.stream().map(m -> m.id).distinct().count(),
+        Map.copyOf(diagnosticSteps),
+        levels.entrySet().stream()
+            .map(
+                e -> {
+                  var n = e.getValue();
+                  return new DepthWork(e.getKey(), n[0], n[1], n[2], n[3], n[4], n[5], n[6]);
+                })
+            .toList(),
+        kernels.workload());
+  }
+
   private long graphRevision;
   private int undiscovered;
 
@@ -375,6 +441,7 @@ final class CertifiedMethodSearchEngine {
       discover(frontier.peek().state());
     } else if (!ready.isEmpty()) {
       var method = ready.removeFirst();
+      if (diagnostics) diagnosticSteps.merge(method.phase(), 1L, Long::sum);
       long before = method.runner == null ? 0 : method.runner.retainedStates();
       method.step();
       if (method.done) graphRevision++;
@@ -825,6 +892,21 @@ final class CertifiedMethodSearchEngine {
         runner.close();
         runner = null;
       } else runner.beginCycle();
+    }
+
+    String phase() {
+      if (!publications.isEmpty()) return "PUBLICATION";
+      if (executionDone) return "FINISH";
+      if (!prepared && !initial.isEmpty()) return "PREPARATION";
+      if (delegate != null) return "DELEGATE";
+      if (runner == null) return "START";
+      if (!runner.atBoundary()) return "TRANSITION";
+      if (!runner.absorbed()
+          && !MethodSearchCalculation.OBSERVATIONS.contains(Math.toIntExact(runner.cycles())))
+        return "NEXT_CYCLE";
+      if (freezing == null)
+        return freezeOwner != null && freezeOwner != this ? "FREEZE_WAIT" : "FREEZE_START";
+      return freezing.complete() ? "FREEZE_FINISH" : "FREEZE";
     }
 
     void save(int cycles, IndexedCertifiedMethodRunner.Snapshot snapshot) {

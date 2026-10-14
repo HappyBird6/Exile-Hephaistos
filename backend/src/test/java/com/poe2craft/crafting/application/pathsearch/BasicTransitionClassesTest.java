@@ -345,12 +345,16 @@ class BasicTransitionClassesTest {
     assertThat(store.cacheMetrics().pressureEvictions()).isPositive();
     assertThatThrownBy(() -> store.trimToEntries(-1)).isInstanceOf(IllegalArgumentException.class);
     var tiny = new IndexedKernelStore(index, 1, 1, 1);
+    tiny.enableDiagnostics();
     var first = tiny.request(source, WorkbenchCurrency.EXALTED);
     while (!first.complete()) first.step();
     tiny.trimToEntries(0);
     var second = tiny.request(source, WorkbenchCurrency.EXALTED);
     while (!second.complete()) second.step();
     assertThat(second.result()).isEqualTo(first.result());
+    assertThat(tiny.workload().starts()).isEqualTo(2);
+    assertThat(tiny.workload().uniqueKeys()).isEqualTo(1);
+    assertThat(tiny.workload().repeatedStarts()).isEqualTo(1);
     assertThat(tiny.cacheMetrics().packedBytes()).isZero();
     store.close();
     assertThatThrownBy(() -> store.request(source, WorkbenchCurrency.EXALTED))

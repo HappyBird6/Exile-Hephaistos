@@ -50,6 +50,7 @@ class CertifiedMethodSearchEngineTest {
             1000000,
             new CertifiedInterval.Precision(32, 2),
             new TemporaryLawPages(directory, 0));
+    bounded.enableDiagnostics();
     int unchangedGraphSamples = 0;
     boolean earlyGoal = false;
     for (int step = 0; step < 5000000 && (!exact.complete() || !bounded.complete()); step++) {
@@ -88,6 +89,21 @@ class CertifiedMethodSearchEngineTest {
     assertThat(bounded.storage().residentPackedBytes()).isZero();
     assertThat(bounded.storage().diskBytes()).isPositive();
     assertThat(bounded.storageLimited()).isFalse();
+    var workload = bounded.workload();
+    assertThat(workload.methods()).isEqualTo(bounded.methods().size());
+    assertThat(workload.completedMethods()).isEqualTo(workload.methods());
+    assertThat(workload.unfinishedMethods()).isZero();
+    assertThat(workload.queued()).isZero();
+    assertThat(workload.uniqueQueued()).isZero();
+    assertThat(
+            workload.depths().stream()
+                .mapToLong(CertifiedMethodSearchEngine.DepthWork::states)
+                .sum())
+        .isEqualTo(bounded.states().size());
+    assertThat(workload.depths()).allMatch(d -> d.undiscoveredActions() == 0);
+    assertThat(workload.kernels().uniqueKeys()).isPositive();
+    assertThat(workload.kernels().starts())
+        .isEqualTo(workload.kernels().uniqueKeys() + workload.kernels().repeatedStarts());
     var exactStates = keys(exact.states(), classes);
     var exactProgress = new HashMap<String, MethodSearchCalculation.Progress>();
     exact.states().forEach(s -> exactProgress.put(s.id(), s.progress()));
