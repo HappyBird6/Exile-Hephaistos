@@ -250,9 +250,42 @@ compared with the ordinary in-memory implementation. The existing exact small-ma
 oracle still checks every method distribution. Thirteen focused tests and Docker
 Java 21 `check generateJooq bootJar` passed: 721 unit/contract tests and seven
 integration tests, zero failures/errors (`absorption-targeted`, `absorption-full`).
-Solar resource measurements for this change are pending.
+The one-million-entry Solar root run completed 42/42 methods after 915,147 ms
+(915,153 ms including reporting), with 223,633,408 operations and no resource
+pause. Peak sampled resident entries were 662,128. Immutable results retained
+1,709,002 rows in 19,241,251 bytes. Sampled heap peak was 911,098,528 bytes and
+core post-GC heap 189,383,096 bytes. The working store performed 1,421,046 page
+evictions (`absorption-root`). This restores progress under the tested allowance
+but is slower than the earlier single 702-second completion; it is not a CPU
+speedup claim. Whole enumeration remained incomplete. The probe's old local
+summary compares immediate whole-goal mass; checkpoint-specific local timing
+requires the subsequent whole-frontier diagnostic.
+
+A read-only profile-shape diagnostic found six exchangeable profile groups in
+this Solar fixture, each containing only two or three families. Therefore the
+existing six-family metadata batch bound is not splitting these groups and is
+not the cause of its 108,999 transition classes. Raising that bound is not a
+supported optimization for this measured workload.
 
 ## Root diagnostic and remaining integration
+
+Checkpoint lookahead now interleaves a bounded amount of work one method layer
+ahead of the shallowest active method. It previews structural single-action
+methods (addition, rarity promotion and removal) for the first eligible class
+of a goal/entry pattern at that depth, preferring fewer explicit modifiers.
+Replacement cycles remain in ordinary discovery because they need not absorb
+after a single primitive action. All classes and all supported one/two-action
+templates remain on the ordinary frontier; a preview pattern is a scheduling
+choice, never a calculation-state merge or a distribution shared between inputs.
+The normal 64-open-method window also bounds preview activation. Previewed states
+remain unexpanded until their complete normal discovery finishes.
+
+The exact small-map test observes a goal continuation before root direct
+completion, then compares every final state, method, depth and distribution with
+the independent engine. Seven focused scheduler/service tests and Docker Java 21
+`check generateJooq bootJar` pass: 721 unit/contract tests and seven integration
+tests, zero failures/errors (`preview-targeted`, `preview-full`). The whole-frontier
+Solar measurement is pending.
 
 The one-million-entry root diagnostic on the verified cooperative-page source
 finished all 42 root methods after 702,060 ms (702,064 ms including the report).
@@ -285,7 +318,8 @@ Do not silently label all zero-direct-success alternatives as the final strategy
   224-million-operation root through 12,000-operation leases. Bounded replay now
   removes that lifetime ceiling, and unchanged graph lists are reused. The service
   probe verifies 1,821 resumptions, but does not establish whole-job performance.
-- Lower-layer scheduling still defers deeper methods until root methods finish.
+- Full lower-layer discovery still precedes full deeper discovery, with the
+  structural checkpoint lookahead described above.
   The production certified API still reports final strategy NOT_REQUESTED. The
   finite completed-map strategy adapter is an oracle-scale integration and can
   materialize many rows; it is not yet a scalable whole-job strategy scheduler.

@@ -44,6 +44,7 @@ class CertifiedMethodSearchEngineTest {
         new CertifiedMethodSearchEngine(
             fixture.root(), classes, evaluate, 1000000, new CertifiedInterval.Precision(32, 2));
     int unchangedGraphSamples = 0;
+    boolean earlyGoal = false;
     for (int step = 0; step < 5000000 && (!exact.complete() || !bounded.complete()); step++) {
       if (!exact.complete()) exact.step();
       if (!bounded.complete()) {
@@ -59,11 +60,21 @@ class CertifiedMethodSearchEngineTest {
           }
         } else bounded.step();
       }
-      if (step % 100 == 0 && !bounded.rootDirectComplete())
-        assertThat(bounded.methods()).allMatch(m -> m.source().equals(bounded.rootId()));
+      if (step % 100 == 0 && !bounded.rootDirectComplete()) {
+        var earlyStates = bounded.states();
+        var earlyDepths = new HashMap<String, Integer>();
+        earlyStates.forEach(s -> earlyDepths.put(s.id(), s.depth()));
+        assertThat(bounded.methods()).allMatch(m -> earlyDepths.get(m.source()) <= 1);
+        earlyGoal |=
+            earlyStates.stream().anyMatch(s -> s.progress().goal() == GoalFilter.Status.MATCH);
+        assertThat(bounded.complete()).isFalse();
+      }
     }
     assertThat(exact.complete()).isTrue();
     assertThat(unchangedGraphSamples).isPositive();
+    assertThat(earlyGoal)
+        .as("A checkpoint continuation reaches the goal before all root methods finish")
+        .isTrue();
     assertThat(bounded.complete())
         .withFailMessage("work=%s retained=%s", bounded.operations(), bounded.retainedEntries())
         .isTrue();

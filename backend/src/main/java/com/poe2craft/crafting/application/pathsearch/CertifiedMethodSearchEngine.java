@@ -12,7 +12,7 @@ import java.util.function.Function;
 
 /** Certified class marginals. Incoming item laws remain exact retained conditional operators. */
 final class CertifiedMethodSearchEngine {
-  static final String VERSION = "certified-method-map-v9-paged-absorption";
+  static final String VERSION = "certified-method-map-v10-checkpoint-preview";
   private final CertifiedLawStore laws;
   private final CertifiedMutableLawStore absorptionStore;
   private final BasicClassIndex index;
@@ -46,6 +46,7 @@ final class CertifiedMethodSearchEngine {
   private final Map<Integer, State> states = new LinkedHashMap<>();
   private final Map<String, Method> methods = new LinkedHashMap<>();
   private final ArrayDeque<Method> ready = new ArrayDeque<>();
+  private int shallowestReadyDepth = Integer.MAX_VALUE;
   private final Map<Integer, Set<Integer>> adjacency = new HashMap<>();
   private final Set<WorkbenchSimulator.Assumption> assumptions = new LinkedHashSet<>();
   private final ConditionalMethodLaw rootLaw;
@@ -57,9 +58,27 @@ final class CertifiedMethodSearchEngine {
 
   private record Expansion(State state, int depth) {}
 
+  private record PreviewPattern(int depth, MethodSearchCalculation.Progress progress) {}
+
+  private final Set<PreviewPattern> previewedPatterns = new HashSet<>();
+
   private final PriorityQueue<Expansion> frontier =
       new PriorityQueue<>(
           Comparator.comparingInt(Expansion::depth).thenComparingInt(e -> e.state().key));
+  private final PriorityQueue<Expansion> previews =
+      new PriorityQueue<>(
+          Comparator.comparingInt(Expansion::depth)
+              .thenComparingInt(e -> -matched(e.state().progress))
+              .thenComparingInt(this::previewSlots)
+              .thenComparingInt(e -> e.state().key));
+
+  private static int matched(MethodSearchCalculation.Progress progress) {
+    return (int) progress.entries().stream().filter(s -> s == Status.MATCH).count();
+  }
+
+  private int previewSlots(Expansion expansion) {
+    return index.witness(expansion.state().key).item().explicits().size();
+  }
 
   CertifiedMethodSearchEngine(
       BasicCurrencyState start,
@@ -151,6 +170,8 @@ final class CertifiedMethodSearchEngine {
         + laws.materializedRows()
         + progressLawEntries
         + targetSummaryEntries
+        + previews.size()
+        + previewedPatterns.size()
         + absorptionStore.residentEntries()
         + preparationEntries;
   }
@@ -185,6 +206,8 @@ final class CertifiedMethodSearchEngine {
     methods.clear();
     states.clear();
     frontier.clear();
+    previews.clear();
+    previewedPatterns.clear();
     lawViews.clear();
     progressLaws.clear();
     adjacency.clear();
@@ -314,11 +337,24 @@ final class CertifiedMethodSearchEngine {
     while (!frontier.isEmpty()
         && (frontier.peek().state().expanded
             || frontier.peek().depth() != frontier.peek().state().depth)) frontier.remove();
-    if (!frontier.isEmpty()
+    while (!previews.isEmpty()
+        && (previews.peek().state().expanded
+            || previews.peek().state().previewDiscovery
+                == BasicCurrencyTransitions.supportedActions().size()
+            || (previews.peek().state().previewDiscovery == 0
+                && previewedPatterns.contains(
+                    new PreviewPattern(previews.peek().depth(), previews.peek().state().progress)))
+            || previews.peek().depth() != previews.peek().state().depth)) previews.remove();
+    if (operations % 4 == 0
+        && ready.size() < 64
+        && !previews.isEmpty()
+        && (ready.isEmpty() || previews.peek().depth() <= shallowestReadyDepth + 1)) {
+      preview(previews.peek().state());
+    } else if (!frontier.isEmpty()
         && (ready.isEmpty()
             || (operations % 4 == 0
                 && ready.size() < 64
-                && frontier.peek().depth() <= ready.peekFirst().source.depth))) {
+                && frontier.peek().depth() <= shallowestReadyDepth))) {
       discover(frontier.peek().state());
     } else if (!ready.isEmpty()) {
       var method = ready.removeFirst();
@@ -327,6 +363,9 @@ final class CertifiedMethodSearchEngine {
       if (method.done) graphRevision++;
       liveEntries += (method.runner == null ? 0 : method.runner.retainedStates()) - before;
       if (!method.done) ready.addLast(method);
+      else if (method.source.depth == shallowestReadyDepth)
+        shallowestReadyDepth =
+            ready.stream().mapToInt(m -> m.source.depth).min().orElse(Integer.MAX_VALUE);
     }
   }
 
@@ -356,6 +395,7 @@ final class CertifiedMethodSearchEngine {
     linked.depth = source.depth + 1;
     graphRevision++;
     if (!linked.expanded) frontier.add(new Expansion(linked, linked.depth));
+    previewCandidate(linked);
     var queue = new ArrayDeque<Integer>();
     queue.add(target);
     while (!queue.isEmpty()) {
@@ -366,10 +406,33 @@ final class CertifiedMethodSearchEngine {
           to.depth = from.depth + 1;
           graphRevision++;
           if (!to.expanded) frontier.add(new Expansion(to, to.depth));
+          previewCandidate(to);
           queue.addLast(next);
         }
       }
     }
+  }
+
+  private void previewCandidate(State state) {
+    if (state.methods.stream().anyMatch(m -> !m.done))
+      shallowestReadyDepth = Math.min(shallowestReadyDepth, state.depth);
+    if (!state.expanded
+        && matched(state.progress) > 0
+        && !previewedPatterns.contains(new PreviewPattern(state.depth, state.progress)))
+      previews.add(new Expansion(state, state.depth));
+  }
+
+  /** One-layer lookahead exposes checkpoint continuations without declaring full discovery. */
+  private void preview(State source) {
+    if (source.previewDiscovery == 0)
+      previewedPatterns.add(new PreviewPattern(source.depth, source.progress));
+    var action = BasicCurrencyTransitions.supportedActions().get(source.previewDiscovery++);
+    // Replacement can retain an active law for many cycles; it remains in normal discovery.
+    if (action.baseAction() == CraftingAction.CHAOS) return;
+    var cursor = index.replay(source.key, index.witness(source.key), action);
+    assumptions.addAll(cursor.assumptions());
+    if (cursor.status() != BasicCurrencyTransitions.Status.UNAVAILABLE)
+      add(source, List.of(), List.of(action));
   }
 
   private void discover(State source) {
@@ -407,6 +470,7 @@ final class CertifiedMethodSearchEngine {
     graphRevision++;
     source.methods.add(method);
     ready.addLast(method);
+    shallowestReadyDepth = Math.min(shallowestReadyDepth, source.depth);
   }
 
   private MethodSearchCalculation.Progress progress(int key) {
@@ -597,7 +661,7 @@ final class CertifiedMethodSearchEngine {
     final int key;
     final MethodSearchCalculation.Progress progress;
     final List<Method> methods = new ArrayList<>();
-    int depth, discovery;
+    int depth, discovery, previewDiscovery;
     boolean expanded;
 
     State(int key, int depth, MethodSearchCalculation.Progress progress) {
