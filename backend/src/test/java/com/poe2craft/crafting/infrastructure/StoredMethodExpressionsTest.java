@@ -24,6 +24,8 @@ class StoredMethodExpressionsTest {
           expressions.define(
               "one", 0, List.of(), List.of(WorkbenchCurrency.EXALTED), "full-policy");
       var before = store.metrics();
+      var measured = store.metrics();
+      long counterReads = measured.reads() - before.reads();
       for (int i = 0; i < 100; i++)
         assertThat(
                 expressions
@@ -38,8 +40,7 @@ class StoredMethodExpressionsTest {
       var after = store.metrics();
       assertThat(after.operators()).isEqualTo(before.operators());
       assertThat(after.writes()).isEqualTo(before.writes());
-      assertThat(after.reads() - before.reads())
-          .isEqualTo(5); // Only the five metrics COUNT queries.
+      assertThat(after.reads() - measured.reads()).isEqualTo(counterReads);
     }
   }
 

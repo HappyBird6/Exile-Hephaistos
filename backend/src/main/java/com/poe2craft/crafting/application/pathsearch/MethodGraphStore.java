@@ -3,7 +3,7 @@ package com.poe2craft.crafting.application.pathsearch;
 import java.util.*;
 
 /** Durable calculation catalog; absence or pending work is never a zero-probability result. */
-public interface MethodGraphStore extends AutoCloseable {
+public interface MethodGraphStore extends MethodCursorStore, AutoCloseable {
   String VERSION = "method-graph-store-v1";
 
   record Identity(
@@ -91,7 +91,9 @@ public interface MethodGraphStore extends AutoCloseable {
       long diskBytes,
       long reads,
       long writes,
-      int cacheKiB) {}
+      int cacheKiB,
+      long executionCursors,
+      long executionRows) {}
 
   long revision();
 

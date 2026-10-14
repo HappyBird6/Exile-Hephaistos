@@ -65,6 +65,12 @@ public final class SqliteMethodGraphStore implements MethodGraphStore {
                 "CREATE TABLE IF NOT EXISTS observations(method TEXT NOT NULL REFERENCES methods(id), cycles INTEGER NOT NULL CHECK(cycles IN(100,300,500)), status TEXT NOT NULL, operator INTEGER REFERENCES operators(id), summary TEXT, PRIMARY KEY(method,cycles))");
             execute(
                 "CREATE TABLE IF NOT EXISTS checkpoints(name TEXT PRIMARY KEY, content TEXT NOT NULL)");
+            execute("CREATE INDEX IF NOT EXISTS checkpoint_content ON checkpoints(content,name)");
+            execute(
+                "CREATE TABLE IF NOT EXISTS execution_cursors(id TEXT PRIMARY KEY, scope TEXT NOT NULL, header TEXT NOT NULL, row_count INTEGER NOT NULL, sealed INTEGER NOT NULL)");
+            execute("CREATE INDEX IF NOT EXISTS execution_scope ON execution_cursors(scope,id)");
+            execute(
+                "CREATE TABLE IF NOT EXISTS execution_rows(cursor TEXT NOT NULL REFERENCES execution_cursors(id) ON DELETE CASCADE, ordinal INTEGER NOT NULL, content TEXT NOT NULL, PRIMARY KEY(cursor,ordinal))");
             return null;
           });
     } catch (SQLException | IOException | RuntimeException | Error error) {
@@ -210,11 +216,23 @@ public final class SqliteMethodGraphStore implements MethodGraphStore {
                         observation.operator(),
                         observation.summary());
                   }
-                  for (var checkpoint : batch.checkpoints())
+                  for (var checkpoint : batch.checkpoints()) {
+                    if (checkpoint.name().startsWith(CHECKPOINT_PREFIX)) {
+                      if (checkpoint.content().isEmpty()) {
+                        update("DELETE FROM checkpoints WHERE name=?", checkpoint.name());
+                        continue;
+                      }
+                      var cursor = executionById(checkpoint.content());
+                      if (!cursor.sealed()
+                          || !checkpoint.name().equals(CHECKPOINT_PREFIX + cursor.scope()))
+                        throw new IllegalArgumentException(
+                            "Invalid execution checkpoint reference");
+                    }
                     update(
                         "INSERT INTO checkpoints VALUES(?,?) ON CONFLICT(name) DO UPDATE SET content=excluded.content",
                         checkpoint.name(),
                         checkpoint.content());
+                  }
                   update("UPDATE graph_identity SET revision=revision+1 WHERE id=1");
                   return revision();
                 }));
@@ -237,6 +255,154 @@ public final class SqliteMethodGraphStore implements MethodGraphStore {
             }
           }
         });
+  }
+
+  @Override
+  public synchronized ExecutionCursor beginExecution(String scope, String header) {
+    if (scope == null || scope.isBlank() || header == null || header.isBlank())
+      throw new IllegalArgumentException("Execution scope and header required");
+    return access(
+        () ->
+            transaction(
+                () -> {
+                  var cursor =
+                      new ExecutionCursor(UUID.randomUUID().toString(), scope, header, 0, false);
+                  update(
+                      "INSERT INTO execution_cursors VALUES(?,?,?,0,0)",
+                      cursor.id(),
+                      scope,
+                      header);
+                  return cursor;
+                }));
+  }
+
+  private ExecutionCursor executionById(String id) throws SQLException {
+    try (var statement =
+        connection.prepareStatement(
+            "SELECT scope,header,row_count,sealed FROM execution_cursors WHERE id=?")) {
+      statement.setString(1, id);
+      try (var result = statement.executeQuery()) {
+        reads++;
+        if (!result.next()) throw new IllegalArgumentException("Unknown execution cursor");
+        return new ExecutionCursor(
+            id, result.getString(1), result.getString(2), result.getLong(3), result.getBoolean(4));
+      }
+    }
+  }
+
+  @Override
+  public synchronized long appendExecution(String id, long expectedRows, List<String> rows) {
+    var values = List.copyOf(rows);
+    if (expectedRows < 0
+        || values.isEmpty()
+        || values.size() > 256
+        || values.stream().anyMatch(String::isBlank))
+      throw new IllegalArgumentException("Execution append requires 1..256 rows");
+    long next = Math.addExact(expectedRows, values.size());
+    return access(
+        () ->
+            transaction(
+                () -> {
+                  if (update(
+                          "UPDATE execution_cursors SET row_count=? WHERE id=? AND row_count=? AND sealed=0",
+                          next,
+                          id,
+                          expectedRows)
+                      != 1) throw new IllegalStateException("STALE_EXECUTION_CURSOR");
+                  for (int i = 0; i < values.size(); i++)
+                    update(
+                        "INSERT INTO execution_rows VALUES(?,?,?)",
+                        id,
+                        expectedRows + i,
+                        values.get(i));
+                  return next;
+                }));
+  }
+
+  @Override
+  public synchronized ExecutionCursor sealExecution(String id, long expectedRows) {
+    return access(
+        () ->
+            transaction(
+                () -> {
+                  if (update(
+                          "UPDATE execution_cursors SET sealed=1 WHERE id=? AND row_count=? AND sealed=0",
+                          id,
+                          expectedRows)
+                      != 1) throw new IllegalStateException("STALE_EXECUTION_CURSOR");
+                  return executionById(id);
+                }));
+  }
+
+  @Override
+  public synchronized Optional<ExecutionCursor> execution(String scope) {
+    return access(
+        () ->
+            transaction(
+                () -> {
+                  var reference = checkpoint(CHECKPOINT_PREFIX + scope);
+                  if (reference.isEmpty()) return Optional.empty();
+                  var cursor = executionById(reference.get().content());
+                  if (!cursor.sealed() || !cursor.scope().equals(scope))
+                    throw new IllegalStateException("Invalid committed execution");
+                  return Optional.of(cursor);
+                }));
+  }
+
+  @Override
+  public synchronized ExecutionPage executionRows(String id, long offset, int limit) {
+    if (offset < 0 || limit < 1 || limit > 256)
+      throw new IllegalArgumentException("Invalid execution page");
+    return access(
+        () ->
+            transaction(
+                () -> {
+                  var cursor = executionById(id);
+                  if (!cursor.sealed())
+                    throw new IllegalStateException("Execution cursor is not sealed");
+                  if (offset > cursor.rows())
+                    throw new IllegalArgumentException("Execution offset outside cursor");
+                  var rows = new ArrayList<ExecutionRow>();
+                  try (var statement =
+                      connection.prepareStatement(
+                          "SELECT ordinal,content FROM execution_rows WHERE cursor=? AND ordinal>=? ORDER BY ordinal LIMIT ?")) {
+                    statement.setString(1, id);
+                    statement.setLong(2, offset);
+                    statement.setInt(3, limit);
+                    try (var result = statement.executeQuery()) {
+                      reads++;
+                      while (result.next()) {
+                        if (result.getLong(1) != offset + rows.size())
+                          throw new IllegalStateException("Noncontiguous execution rows");
+                        rows.add(new ExecutionRow(result.getLong(1), result.getString(2)));
+                      }
+                    }
+                  }
+                  if (rows.size() != Math.min(limit, cursor.rows() - offset))
+                    throw new IllegalStateException("Truncated execution cursor");
+                  return new ExecutionPage(rows, offset + rows.size() == cursor.rows());
+                }));
+  }
+
+  @Override
+  public synchronized void discardExecution(String id) {
+    access(
+        () ->
+            transaction(
+                () -> {
+                  try (var statement =
+                      connection.prepareStatement(
+                          "SELECT 1 FROM checkpoints WHERE name LIKE 'execution/%' AND content=? LIMIT 1")) {
+                    statement.setString(1, id);
+                    try (var result = statement.executeQuery()) {
+                      reads++;
+                      if (result.next())
+                        throw new IllegalStateException("EXECUTION_CURSOR_REFERENCED");
+                    }
+                  }
+                  update("DELETE FROM execution_cursors WHERE id=?", id);
+                  return null;
+                }));
   }
 
   @Override
@@ -402,6 +568,8 @@ public final class SqliteMethodGraphStore implements MethodGraphStore {
           } catch (IOException error) {
             throw new IllegalStateException("Cannot inspect graph storage", error);
           }
+          long cursorCount = number("SELECT COUNT(*) FROM execution_cursors");
+          long cursorRows = number("SELECT COUNT(*) FROM execution_rows");
           return new Metrics(
               number("SELECT COUNT(*) FROM sources"),
               number("SELECT COUNT(*) FROM methods"),
@@ -411,7 +579,9 @@ public final class SqliteMethodGraphStore implements MethodGraphStore {
               bytes,
               reads,
               writes,
-              cacheKiB);
+              cacheKiB,
+              cursorCount,
+              cursorRows);
         });
   }
 

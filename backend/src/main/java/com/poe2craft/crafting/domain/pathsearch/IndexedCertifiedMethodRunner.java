@@ -20,7 +20,7 @@ public final class IndexedCertifiedMethodRunner implements AutoCloseable {
   private final ExactMethodRunner.Template<Integer, WorkbenchCurrency> template;
   private final Function<Integer, Optional<ExactMethodRunner.Exit>> classify;
   private final CertifiedInterval.Precision precision;
-  private final CertifiedMethodRunner<Integer, WorkbenchCurrency> runner;
+  private CertifiedMethodRunner<Integer, WorkbenchCurrency> runner;
   private IndexedKernelStore.Request pending;
   private Key pendingKey;
   private final List<CertifiedMutableLawStore.Law> absorptionLaws = new ArrayList<>();
@@ -41,12 +41,24 @@ public final class IndexedCertifiedMethodRunner implements AutoCloseable {
       Function<Integer, Optional<ExactMethodRunner.Exit>> classify,
       CertifiedInterval.Precision precision,
       CertifiedMutableLawStore absorptionStore) {
+    this(store, source, template, classify, precision, absorptionStore, true);
+  }
+
+  private IndexedCertifiedMethodRunner(
+      IndexedKernelStore store,
+      int source,
+      ExactMethodRunner.Template<Integer, WorkbenchCurrency> template,
+      Function<Integer, Optional<ExactMethodRunner.Exit>> classify,
+      CertifiedInterval.Precision precision,
+      CertifiedMutableLawStore absorptionStore,
+      boolean initialize) {
     this.store = Objects.requireNonNull(store);
     this.source = source;
     this.template = template;
     this.classify = classify;
     this.precision = precision;
     store.index().key(source);
+    if (!initialize) return;
     runner =
         absorptionStore == null
             ? new CertifiedMethodRunner<>(source, template, this::kernel, classify, precision)
@@ -61,6 +73,74 @@ public final class IndexedCertifiedMethodRunner implements AutoCloseable {
                   absorptionLaws.add(law);
                   return law;
                 });
+  }
+
+  public CertifiedMethodRunner<Integer, WorkbenchCurrency>.CursorLease leaseCursor() {
+    return runner.leaseCursor();
+  }
+
+  /**
+   * The caller restores the same class index and versioned method semantics before reading rows.
+   */
+  public static Restoration restoreCursor(
+      CertifiedMethodRunner.CursorHeader<Integer> header,
+      IndexedKernelStore store,
+      int source,
+      ExactMethodRunner.Template<Integer, WorkbenchCurrency> template,
+      Function<Integer, Optional<ExactMethodRunner.Exit>> classify,
+      CertifiedInterval.Precision precision,
+      CertifiedMutableLawStore absorptionStore) {
+    var target =
+        new IndexedCertifiedMethodRunner(
+            store, source, template, classify, precision, absorptionStore, false);
+    return new Restoration(
+        target,
+        CertifiedMethodRunner.restoreCursor(
+            header,
+            template,
+            target::kernel,
+            classify,
+            precision,
+            () -> {
+              if (absorptionStore == null) return new LinkedHashMap<Integer, CertifiedInterval>();
+              var law = absorptionStore.create();
+              target.absorptionLaws.add(law);
+              return law;
+            }));
+  }
+
+  public static final class Restoration implements AutoCloseable {
+    private final IndexedCertifiedMethodRunner target;
+    private final CertifiedMethodRunner.CursorRestore<Integer, WorkbenchCurrency> restoration;
+    private boolean finished;
+
+    private Restoration(
+        IndexedCertifiedMethodRunner target,
+        CertifiedMethodRunner.CursorRestore<Integer, WorkbenchCurrency> restoration) {
+      this.target = target;
+      this.restoration = restoration;
+    }
+
+    public void accept(CertifiedMethodRunner.CursorRow<Integer, WorkbenchCurrency> row) {
+      restoration.accept(row);
+    }
+
+    public long retainedStates() {
+      return restoration.retainedStates();
+    }
+
+    public IndexedCertifiedMethodRunner finish() {
+      target.runner = restoration.finish();
+      finished = true;
+      return target;
+    }
+
+    @Override
+    public void close() {
+      if (finished) return;
+      restoration.close();
+      target.absorptionLaws.clear();
+    }
   }
 
   @Override

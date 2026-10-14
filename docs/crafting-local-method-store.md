@@ -216,3 +216,58 @@ and no stored method has a ready probability observation in this experiment.
 First response, first local recommendation, root direct completion and global
 completion must still be measured after production integration. The result
 explicitly records `knownInventoryComplete=true` and `wholeSearchComplete=false`.
+
+## Incremental execution checkpoint contract
+
+`MethodCursorStore` adds staged, immutable execution rows to the same local job
+database. A writer appends at most 256 rows per call with an expected row count,
+then seals the cursor. Sealing means that storage is complete, not that a method
+probability observation is ready. Only a revision-checked graph transaction can
+publish the cursor pointer together with source, method, observation and job
+checkpoint changes. An interrupted or stale writer cannot replace the previous
+committed pointer. A terminal observation can atomically remove that pointer;
+unreferenced rows can then be reclaimed. Referenced rows cannot be deleted.
+
+`CertifiedMethodRunner` exports a leased row iterator rather than cloning every
+retained map. It records pending executions, boundary and disjoint exit laws,
+initial/cycle currency uses, and the full immutable in-flight primitive kernel
+with its consumed-outcome position. Restoration validates version, template,
+precision, phase, row uniqueness, accumulator agreement and total mass enclosing
+one. It does not execute a primitive or charge its cost again. First-hit outcomes
+already consumed remain absorbed. `PersistentMethodCursor` reads and writes this
+contract incrementally using strict JSON decoding. Cancellation releases the
+lease or partial restoration; publication and reclamation are separate steps.
+
+`IndexedCertifiedMethodRunner` can restore this cursor against an existing,
+identical class index and registered method semantics. Subsequent primitive
+requests use its normal cooperative shared-kernel adapter. A pending primitive
+lookup that has not charged an action can be requested again; rebuilding that
+lookup may repeat computation, but must not repeat probability transport or
+currency cost. The caller must retain or restore the exact class-ID mapping and
+full policy identity; a template name alone is not proof of semantic identity.
+
+Verification includes 36 initial/phase/kernel/boundary cut points, bit-identical
+resumed observations and costs, an independent geometric oracle, and a 600-outcome
+primitive saved in seven-row chunks and reopened in a new store connection.
+The latter reads 17 rows per call, retains goal/loss/unresolved mass, and confirms
+that the saved addition is not executed twice. Revision cancellation, unpublished
+drafts, pointer replacement, terminal cleanup and invalid storage references are
+also covered. The real Solar renewal test restores the indexed runner during
+execution and continues checking exact truth inside its 100/300/500-cycle bounds.
+
+This is a runner-level persistence contract, not whole-job cold restart. The
+production job scheduler, class-index persistence, incoming conditional-operator
+and expansion cursors, disk-backed method inventory and large-graph strategy
+solver still require integration. No additional full Solar search measurement
+or whole-search completion is claimed by these cursor tests. Final cursor
+validation sums retained laws and constructs the immutable kernel; although row
+I/O is paged, that final validation has no hard wall-clock slice guarantee yet.
+
+The final Java 21 Docker run passed `check generateJooq bootJar` in 6m 10s,
+including 748 unit/contract tests and seven integration tests. The seven focused
+cursor/Solar tests passed separately. The checked backend source manifest matches
+the worktree with zero hash differences. Reports are retained locally under
+`codex/bucket-method-verification/indexed-cursor`. An earlier test compilation
+attempt failed because two imported types were named `Observation`; qualifying
+the graph-store type fixed it before these passing runs. No frontend files were
+changed in this unit, and no new browser verification is claimed.

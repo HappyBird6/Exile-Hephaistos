@@ -51,25 +51,48 @@ class CertifiedMethodProductionTest {
                 new BasicTransitionClasses(
                     fixture.catalog, primitive, fixture.goals.rollPartition(item, goal), evaluate));
         int source = index.intern(root);
+        var template =
+            new Template<Integer, WorkbenchCurrency>(
+                "real-exalt-annul",
+                List.of(),
+                List.of(s -> WorkbenchCurrency.EXALTED, s -> WorkbenchCurrency.ANNULMENT));
+        java.util.function.Function<Integer, Optional<Exit>> classify =
+            state ->
+                index.key(state).observations().getFirst() == GoalFilter.Status.MATCH
+                    ? Optional.of(Exit.GOAL)
+                    : Optional.empty();
+        var precision = new CertifiedInterval.Precision(bits, 2);
         var runner =
             new IndexedCertifiedMethodRunner(
-                new IndexedKernelStore(index, 64, 10000),
-                source,
-                new Template<>(
-                    "real-exalt-annul",
-                    List.of(),
-                    List.of(s -> WorkbenchCurrency.EXALTED, s -> WorkbenchCurrency.ANNULMENT)),
-                state ->
-                    index.key(state).observations().getFirst() == GoalFilter.Status.MATCH
-                        ? Optional.of(Exit.GOAL)
-                        : Optional.empty(),
-                new CertifiedInterval.Precision(bits, 2));
+                new IndexedKernelStore(index, 64, 10000), source, template, classify, precision);
         Fraction remaining = Fraction.ONE, exalt = Fraction.ZERO, annul = Fraction.ZERO;
         for (int cycles = 1; cycles <= 500; cycles++) {
           exalt = exalt.add(remaining);
           remaining = remaining.multiply(miss);
           annul = annul.add(remaining);
           runner.beginCycle();
+          if (cycles == 13) {
+            runner.step();
+            IndexedCertifiedMethodRunner restored;
+            try (var lease = runner.leaseCursor();
+                var restoration =
+                    IndexedCertifiedMethodRunner.restoreCursor(
+                        lease.header(),
+                        new IndexedKernelStore(index, 64, 10000),
+                        source,
+                        template,
+                        classify,
+                        precision,
+                        null)) {
+              lease.rows().forEachRemaining(restoration::accept);
+              restored = restoration.finish();
+            }
+            while (!runner.atBoundary()) runner.step();
+            while (!restored.atBoundary()) restored.step();
+            assertThat(restored.observation()).isEqualTo(runner.observation());
+            runner.close();
+            runner = restored;
+          }
           while (!runner.atBoundary()) runner.step();
           if (!List.of(100, 300, 500).contains(cycles)) continue;
           var point = runner.observation();
