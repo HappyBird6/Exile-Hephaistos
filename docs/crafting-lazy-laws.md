@@ -162,7 +162,13 @@ unit/contract tests and seven integration tests, zero failures/errors
 (`checkpoint-targeted`, `checkpoint-full`). Every checkpoint aggregate is checked
 against the independent exact engine's resolved exit laws. The tests also retain
 an active job for 76 simulated minutes and reject it after 21 idle minutes.
-The service-publication timing probe remains pending at this checkpoint.
+The service-publication probe then ran for 60,003 ms: first in-process response
+11 ms, 1,821 resumptions, 21,852,000 operations and 5,497 revisions. It reached
+26 public states/42 methods; first local recommendation and whole completion
+were not reached. The diagnostic cancelled at its time guard. Sampled heap peak
+was 647,397,096 bytes and post-GC heap 311,779,176 bytes (`checkpoint-api`). This
+does not include HTTP serialization/network latency. Its final snapshot carried
+4,568 assumption records, so wire payload size remains a separate concern.
 
 ## Verification record
 
@@ -218,7 +224,35 @@ one-million resident setting and stops at root direct completion, a resource
 pause, or an explicitly reported diagnostic time guard. Root completion alone
 must still not be presented as whole enumeration completion.
 
-## Remaining integration and performance work
+## Mutable absorption laws
+
+The next working-set change pages the cumulative resolved/unresolved exit maps
+of active certified runners. Each map still contains every class and its exact
+integer interval endpoints. Updates replace a class value; they never discard
+low mass, normalize a subset, or merge distinct calculation classes. A job-wide
+LRU holds at most 64 decoded pages of 256 slots. Dirty eviction writes a lossless
+compressed page and replaces the old payload, so it does not retain a history of
+every addition. Pending phases and active cycle-boundary laws remain ordinary
+maps. Primitive first-hit classification and arithmetic are unchanged.
+
+The resident policy counts decoded rows and working page/law descriptors. The
+existing 32 MiB packed guard now covers immutable observation payloads plus
+mutable working payloads together. No global allowance is increased. Logical
+exit rows in diagnostic retention are therefore distinct from resident exit rows.
+The v5 wire storage record reports working rows, bytes and decoded rows separately.
+
+Observation freezing uses the existing lease while reading these maps. Finished
+runners release mutable pages only after their immutable observation is captured;
+saved pages survive independently. Job disposal releases the entire working store.
+Focused tests cover exact endpoint replacement across evictions, independent laws,
+interleaved iteration, 16/64/256-bit storage and a 2,048-outcome first-hit runner
+compared with the ordinary in-memory implementation. The existing exact small-map
+oracle still checks every method distribution. Thirteen focused tests and Docker
+Java 21 `check generateJooq bootJar` passed: 721 unit/contract tests and seven
+integration tests, zero failures/errors (`absorption-targeted`, `absorption-full`).
+Solar resource measurements for this change are pending.
+
+## Root diagnostic and remaining integration
 
 The one-million-entry root diagnostic on the verified cooperative-page source
 finished all 42 root methods after 702,060 ms (702,064 ms including the report).
@@ -231,10 +265,11 @@ not directly comparable to the previous probes' post-GC measurements.
 Evidence is `root-api-budget`. The measurement exercises the engine at the API
 allowance, not HTTP publication latency. Whole enumeration was still incomplete.
 
-The root's existing local ranking reports ties because it compares only immediate
+That root diagnostic's local ranking reported ties because it compared only immediate
 whole-goal mass. Methods stop at the first intermediate checkpoint, so this does
-not rank the A/B directions usefully. Follow-up: expose target/checkpoint-specific
-local ranking, keeping intermediate progress distinct from final adaptive success.
+not rank the A/B directions usefully. The later target-specific summaries address
+that distinction and pass the exact small-map oracle; the real Solar first-local
+milestone still needs to be reached with that version.
 Do not silently label all zero-direct-success alternatives as the final strategy.
 
 - The original-WIP run calculated 1,705,181 primitive kernels while retaining at
@@ -242,14 +277,14 @@ Do not silently label all zero-direct-success alternatives as the final strategy
   Any cache redistribution must stay within the working-memory policy and be
   compared against the same exact kernel oracle; it must not simply raise the
   global memory allowance.
-- These are bare-engine measurements. API revision publication constructs state
-  views, and its latency/memory must be measured separately before calling the
-  UI responsive. The fixed job lifetime also needs review against long resumed
-  calculations; an expired job is not a completed search.
+- Root timings above are bare-engine measurements. The later 60-second service
+  probe measures publication/resumption, but HTTP serialization and browser
+  latency remain unmeasured. Idle renewal replaces fixed-lifetime expiration;
+  an expired job is still never a completed search.
   The former 64-command lifetime capacity could not support the measured
   224-million-operation root through 12,000-operation leases. Bounded replay now
-  removes that lifetime ceiling, and unchanged graph lists are reused. Actual
-  service publication and repeated-resumption costs still require measurement.
+  removes that lifetime ceiling, and unchanged graph lists are reused. The service
+  probe verifies 1,821 resumptions, but does not establish whole-job performance.
 - Lower-layer scheduling still defers deeper methods until root methods finish.
   The production certified API still reports final strategy NOT_REQUESTED. The
   finite completed-map strategy adapter is an oracle-scale integration and can

@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.function.Function;
 
 /** Shared exact primitive kernels, with arithmetic precision scoped to one cooperative method. */
-public final class IndexedCertifiedMethodRunner {
+public final class IndexedCertifiedMethodRunner implements AutoCloseable {
   private static final class Missing extends RuntimeException {
     Missing() {
       super(null, null, false, false);
@@ -23,6 +23,7 @@ public final class IndexedCertifiedMethodRunner {
   private final CertifiedMethodRunner<Integer, WorkbenchCurrency> runner;
   private IndexedKernelStore.Request pending;
   private Key pendingKey;
+  private final List<CertifiedMutableLawStore.Law> absorptionLaws = new ArrayList<>();
 
   public IndexedCertifiedMethodRunner(
       IndexedKernelStore store,
@@ -30,13 +31,44 @@ public final class IndexedCertifiedMethodRunner {
       ExactMethodRunner.Template<Integer, WorkbenchCurrency> template,
       Function<Integer, Optional<ExactMethodRunner.Exit>> classify,
       CertifiedInterval.Precision precision) {
+    this(store, source, template, classify, precision, null);
+  }
+
+  public IndexedCertifiedMethodRunner(
+      IndexedKernelStore store,
+      int source,
+      ExactMethodRunner.Template<Integer, WorkbenchCurrency> template,
+      Function<Integer, Optional<ExactMethodRunner.Exit>> classify,
+      CertifiedInterval.Precision precision,
+      CertifiedMutableLawStore absorptionStore) {
     this.store = Objects.requireNonNull(store);
     this.source = source;
     this.template = template;
     this.classify = classify;
     this.precision = precision;
     store.index().key(source);
-    runner = new CertifiedMethodRunner<>(source, template, this::kernel, classify, precision);
+    runner =
+        absorptionStore == null
+            ? new CertifiedMethodRunner<>(source, template, this::kernel, classify, precision)
+            : new CertifiedMethodRunner<>(
+                source,
+                template,
+                this::kernel,
+                classify,
+                precision,
+                () -> {
+                  var law = absorptionStore.create();
+                  absorptionLaws.add(law);
+                  return law;
+                });
+  }
+
+  @Override
+  public void close() {
+    absorptionLaws.forEach(CertifiedMutableLawStore.Law::close);
+    absorptionLaws.clear();
+    pending = null;
+    pendingKey = null;
   }
 
   private ExactMethodRunner.Kernel<Integer> kernel(int source, WorkbenchCurrency action) {

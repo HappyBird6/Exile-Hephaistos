@@ -7,7 +7,7 @@ import java.util.*;
 
 /** Additive wire values: an arithmetic enclosure is never a statistical confidence interval. */
 public final class CertifiedMethodProtocol {
-  public static final String VERSION = "certified-method-wire-v4-checkpoint-ranking";
+  public static final String VERSION = "certified-method-wire-v5-paged-absorption";
 
   private CertifiedMethodProtocol() {}
 
@@ -58,7 +58,11 @@ public final class CertifiedMethodProtocol {
       long kernelPackedBytes,
       long kernelPackedByteLimit,
       int materializedRows,
-      int uniquePages) {}
+      int uniquePages,
+      String workingVersion,
+      long workingClassRows,
+      long workingPackedBytes,
+      int workingMaterializedRows) {}
 
   public record Graph(
       String jobId,

@@ -497,7 +497,11 @@ final class CertifiedSearchJobs {
                 job.engine.kernelStorage().packedBytes(),
                 job.engine.kernelStorage().packedByteLimit(),
                 job.engine.storage().materializedRows(),
-                job.engine.storage().uniquePages()),
+                job.engine.storage().uniquePages(),
+                CertifiedMutableLawStore.VERSION,
+                job.engine.absorptionStorage().rows(),
+                job.engine.absorptionStorage().packedBytes(),
+                job.engine.absorptionStorage().decodedRows()),
             local);
   }
 

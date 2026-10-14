@@ -4,6 +4,7 @@ import com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fractio
 import com.poe2craft.crafting.domain.pathsearch.ExactMethodRunner.*;
 import java.util.*;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 /**
  * Finite-horizon Markov transport with deterministic enclosing arithmetic and primitive first hit.
@@ -62,13 +63,23 @@ public final class CertifiedMethodRunner<S, A> {
       Transition<S, A> transition,
       Function<S, Optional<Exit>> classify,
       CertifiedInterval.Precision precision) {
+    this(root, template, transition, classify, precision, LinkedHashMap::new);
+  }
+
+  public CertifiedMethodRunner(
+      S root,
+      Template<S, A> template,
+      Transition<S, A> transition,
+      Function<S, Optional<Exit>> classify,
+      CertifiedInterval.Precision precision,
+      Supplier<? extends Map<S, CertifiedInterval>> absorptionMaps) {
     this.template = template;
     this.transition = transition;
     this.classify = classify;
     bits = precision.fractionalBits();
     absorbedMass = CertifiedInterval.zero(bits);
     boundaryMass = CertifiedInterval.zero(bits);
-    for (var kind : Exit.values()) exits.put(kind, new LinkedHashMap<>());
+    for (var kind : Exit.values()) exits.put(kind, absorptionMaps.get());
     var first = classify.apply(root);
     if (first.isPresent()) {
       absorb(first.orElseThrow(), root, CertifiedInterval.one(bits));
@@ -84,7 +95,10 @@ public final class CertifiedMethodRunner<S, A> {
   }
 
   public long retainedStates() {
-    return (long) pending.size() + boundary.size() + absorbedEntries;
+    long residentExits = 0;
+    for (var law : exits.values())
+      if (!(law instanceof CertifiedMutableLawStore.Law)) residentExits += law.size();
+    return (long) pending.size() + boundary.size() + residentExits;
   }
 
   public record Retention(long pending, long boundary, long exits, long flightOutcomes) {}
