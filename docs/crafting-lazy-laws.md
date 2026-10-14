@@ -377,4 +377,28 @@ file failures, and cleanup. The complete small-map oracle is also run with a zer
 packed-memory cache, forcing every immutable page through disk. Eight focused tests
 and Docker Java 21 `check generateJooq bootJar` passed: 728 unit/contract tests and
 seven integration tests, zero failures/errors (`backed-pages-targeted`,
-`backed-pages-full`). The follow-up whole-frontier Solar measurement is pending.
+`backed-pages-full`).
+
+The follow-up one-million-entry Solar run (`backed-pages-whole`) reached its
+30-minute diagnostic guard at 1,800,000 ms without a resident-entry or packed-memory
+pause. Whole enumeration was still incomplete. First whole-goal state was observed
+at 4,448 ms, root direct completion at 810,200 ms and all root observations plus the
+first certified checkpoint-local recommendation at 814,056 ms. Constructor time was
+6 ms. These sampled engine milestones are not HTTP or browser latency.
+
+At the guard it retained 2,721,584 immutable rows in 30,762,291 logical packed bytes,
+with only 8,386,625 resident packed bytes and 28,587,795 bytes in the spill file.
+Mutable packed bytes were 6,975,815. Logical saved-plus-working bytes therefore
+exceeded the old 32 MiB guard while resident packed bytes stayed below it. The run
+had 112,236 classes, 76,837 public states, 64 active/queued methods, 491,990 pending
+rows, 248,026 boundary rows and 734,579 absorbed rows. Completed-kernel pressure
+reclamation evicted 78,673 cache entries. No probabilities were truncated.
+
+Sampled heap peak was 1,018,683,648 bytes and core post-GC heap 411,830,896 bytes;
+this later, unfinished workload is larger than the earlier storage-paused run and
+is not evidence of lower peak RAM. The confirmed improvement is bounded immutable
+payload residency and progress beyond the old storage barrier. Pending/boundary
+maps and whole enumeration time remain unresolved scaling concerns. The probe
+closed the engine and its owned spill file was removed; the runtime directory had
+no remaining files. It performed 476,641,167 scheduler operations. A time guard is
+partial diagnostic output, never a completed graph or global currency limit.
