@@ -31,8 +31,17 @@ public final class CertifiedMethodRunner<S, A> {
   private final Function<S, Optional<Exit>> classify;
   private final int bits;
   private final Map<Exit, Map<S, CertifiedInterval>> exits = new EnumMap<>(Exit.class);
-  private final LinkedHashMap<Execution<S>, CertifiedInterval> pending = new LinkedHashMap<>();
-  private final LinkedHashMap<S, CertifiedInterval> boundary = new LinkedHashMap<>();
+  private final Map<Execution<S>, CertifiedInterval> pending;
+  private final Map<S, CertifiedInterval> boundary;
+
+  public record WorkingMaps<S>(
+      Supplier<? extends Map<Execution<S>, CertifiedInterval>> pending,
+      Supplier<? extends Map<S, CertifiedInterval>> boundary) {
+    public static <S> WorkingMaps<S> memory() {
+      return new WorkingMaps<>(LinkedHashMap::new, LinkedHashMap::new);
+    }
+  }
+
   private final Map<A, CertifiedInterval> initialUses = new LinkedHashMap<>(),
       cycleUses = new LinkedHashMap<>();
   private CertifiedInterval absorbedMass, boundaryMass;
@@ -73,7 +82,18 @@ public final class CertifiedMethodRunner<S, A> {
       Function<S, Optional<Exit>> classify,
       CertifiedInterval.Precision precision,
       Supplier<? extends Map<S, CertifiedInterval>> absorptionMaps) {
-    this(template, transition, classify, precision, absorptionMaps);
+    this(root, template, transition, classify, precision, absorptionMaps, WorkingMaps.memory());
+  }
+
+  public CertifiedMethodRunner(
+      S root,
+      Template<S, A> template,
+      Transition<S, A> transition,
+      Function<S, Optional<Exit>> classify,
+      CertifiedInterval.Precision precision,
+      Supplier<? extends Map<S, CertifiedInterval>> absorptionMaps,
+      WorkingMaps<S> workingMaps) {
+    this(template, transition, classify, precision, absorptionMaps, workingMaps);
     var first = classify.apply(root);
     if (first.isPresent()) {
       absorb(first.orElseThrow(), root, CertifiedInterval.one(bits));
@@ -93,11 +113,14 @@ public final class CertifiedMethodRunner<S, A> {
       Transition<S, A> transition,
       Function<S, Optional<Exit>> classify,
       CertifiedInterval.Precision precision,
-      Supplier<? extends Map<S, CertifiedInterval>> absorptionMaps) {
+      Supplier<? extends Map<S, CertifiedInterval>> absorptionMaps,
+      WorkingMaps<S> workingMaps) {
     this.template = template;
     this.transition = transition;
     this.classify = classify;
     bits = precision.fractionalBits();
+    pending = workingMaps.pending().get();
+    boundary = workingMaps.boundary().get();
     absorbedMass = CertifiedInterval.zero(bits);
     boundaryMass = CertifiedInterval.zero(bits);
     for (var kind : Exit.values()) exits.put(kind, absorptionMaps.get());
@@ -276,7 +299,20 @@ public final class CertifiedMethodRunner<S, A> {
       Function<S, Optional<Exit>> classify,
       CertifiedInterval.Precision precision,
       Supplier<? extends Map<S, CertifiedInterval>> absorptionMaps) {
-    return new CursorRestore<>(header, template, transition, classify, precision, absorptionMaps);
+    return restoreCursor(
+        header, template, transition, classify, precision, absorptionMaps, WorkingMaps.memory());
+  }
+
+  public static <S, A> CursorRestore<S, A> restoreCursor(
+      CursorHeader<S> header,
+      Template<S, A> template,
+      Transition<S, A> transition,
+      Function<S, Optional<Exit>> classify,
+      CertifiedInterval.Precision precision,
+      Supplier<? extends Map<S, CertifiedInterval>> absorptionMaps,
+      WorkingMaps<S> workingMaps) {
+    return new CursorRestore<>(
+        header, template, transition, classify, precision, absorptionMaps, workingMaps);
   }
 
   public static final class CursorRestore<S, A> implements AutoCloseable {
@@ -291,7 +327,8 @@ public final class CertifiedMethodRunner<S, A> {
         Transition<S, A> transition,
         Function<S, Optional<Exit>> classify,
         CertifiedInterval.Precision precision,
-        Supplier<? extends Map<S, CertifiedInterval>> maps) {
+        Supplier<? extends Map<S, CertifiedInterval>> maps,
+        WorkingMaps<S> workingMaps) {
       if (!CURSOR_VERSION.equals(header.version())
           || !template.id().equals(header.templateId())
           || precision.fractionalBits() != header.bits()
@@ -302,7 +339,8 @@ public final class CertifiedMethodRunner<S, A> {
               && (header.cycles() != 0 || header.initialPhases() == 0 || header.atBoundary()))
         throw new IllegalArgumentException("Incompatible method cursor");
       this.header = header;
-      runner = new CertifiedMethodRunner<>(template, transition, classify, precision, maps);
+      runner =
+          new CertifiedMethodRunner<>(template, transition, classify, precision, maps, workingMaps);
       runner.cycles = header.cycles();
       runner.initializing = header.initializing();
       runner.atBoundary = header.atBoundary();
@@ -365,6 +403,7 @@ public final class CertifiedMethodRunner<S, A> {
       finished = true;
       runner.pending.clear();
       runner.boundary.clear();
+      runner.closeWorkingMaps();
       outcomes.clear();
       for (var law : runner.exits.values()) {
         if (law instanceof CertifiedMutableLawStore.Law backed) backed.close();
@@ -433,7 +472,16 @@ public final class CertifiedMethodRunner<S, A> {
     long residentExits = 0;
     for (var law : exits.values())
       if (!(law instanceof CertifiedMutableLawStore.Law)) residentExits += law.size();
-    return (long) pending.size() + boundary.size() + residentExits;
+    return resident(pending) + resident(boundary) + residentExits;
+  }
+
+  private static long resident(Map<?, CertifiedInterval> map) {
+    return map instanceof CertifiedWorkingLaw<?> law ? law.residentEntries() : map.size();
+  }
+
+  public void closeWorkingMaps() {
+    if (pending instanceof CertifiedWorkingLaw<?> law) law.close();
+    if (boundary instanceof CertifiedWorkingLaw<?> law) law.close();
   }
 
   public record Retention(long pending, long boundary, long exits, long flightOutcomes) {}
@@ -492,7 +540,10 @@ public final class CertifiedMethodRunner<S, A> {
     if (allowance < 1 || atBoundary)
       throw new IllegalStateException("Active phase and positive allowance required");
     if (flight == null) {
-      var entry = pending.firstEntry();
+      var entry =
+          pending instanceof CertifiedWorkingLaw<Execution<S>> law
+              ? law.firstEntry()
+              : pending.entrySet().iterator().next();
       var execution = entry.getKey();
       var mass = entry.getValue();
       var actions = initializing ? template.initial() : template.cycle();

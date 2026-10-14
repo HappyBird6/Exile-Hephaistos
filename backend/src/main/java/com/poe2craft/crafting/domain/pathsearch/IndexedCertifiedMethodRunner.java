@@ -41,7 +41,25 @@ public final class IndexedCertifiedMethodRunner implements AutoCloseable {
       Function<Integer, Optional<ExactMethodRunner.Exit>> classify,
       CertifiedInterval.Precision precision,
       CertifiedMutableLawStore absorptionStore) {
-    this(store, source, template, classify, precision, absorptionStore, true);
+    this(
+        store,
+        source,
+        template,
+        classify,
+        precision,
+        absorptionStore,
+        CertifiedMethodRunner.WorkingMaps.memory());
+  }
+
+  public IndexedCertifiedMethodRunner(
+      IndexedKernelStore store,
+      int source,
+      ExactMethodRunner.Template<Integer, WorkbenchCurrency> template,
+      Function<Integer, Optional<ExactMethodRunner.Exit>> classify,
+      CertifiedInterval.Precision precision,
+      CertifiedMutableLawStore absorptionStore,
+      CertifiedMethodRunner.WorkingMaps<Integer> workingMaps) {
+    this(store, source, template, classify, precision, absorptionStore, workingMaps, true);
   }
 
   private IndexedCertifiedMethodRunner(
@@ -51,6 +69,7 @@ public final class IndexedCertifiedMethodRunner implements AutoCloseable {
       Function<Integer, Optional<ExactMethodRunner.Exit>> classify,
       CertifiedInterval.Precision precision,
       CertifiedMutableLawStore absorptionStore,
+      CertifiedMethodRunner.WorkingMaps<Integer> workingMaps,
       boolean initialize) {
     this.store = Objects.requireNonNull(store);
     this.source = source;
@@ -61,7 +80,14 @@ public final class IndexedCertifiedMethodRunner implements AutoCloseable {
     if (!initialize) return;
     runner =
         absorptionStore == null
-            ? new CertifiedMethodRunner<>(source, template, this::kernel, classify, precision)
+            ? new CertifiedMethodRunner<>(
+                source,
+                template,
+                this::kernel,
+                classify,
+                precision,
+                LinkedHashMap::new,
+                workingMaps)
             : new CertifiedMethodRunner<>(
                 source,
                 template,
@@ -72,7 +98,8 @@ public final class IndexedCertifiedMethodRunner implements AutoCloseable {
                   var law = absorptionStore.create();
                   absorptionLaws.add(law);
                   return law;
-                });
+                },
+                workingMaps);
   }
 
   public CertifiedMethodRunner<Integer, WorkbenchCurrency>.CursorLease leaseCursor() {
@@ -90,9 +117,29 @@ public final class IndexedCertifiedMethodRunner implements AutoCloseable {
       Function<Integer, Optional<ExactMethodRunner.Exit>> classify,
       CertifiedInterval.Precision precision,
       CertifiedMutableLawStore absorptionStore) {
+    return restoreCursor(
+        header,
+        store,
+        source,
+        template,
+        classify,
+        precision,
+        absorptionStore,
+        CertifiedMethodRunner.WorkingMaps.memory());
+  }
+
+  public static Restoration restoreCursor(
+      CertifiedMethodRunner.CursorHeader<Integer> header,
+      IndexedKernelStore store,
+      int source,
+      ExactMethodRunner.Template<Integer, WorkbenchCurrency> template,
+      Function<Integer, Optional<ExactMethodRunner.Exit>> classify,
+      CertifiedInterval.Precision precision,
+      CertifiedMutableLawStore absorptionStore,
+      CertifiedMethodRunner.WorkingMaps<Integer> workingMaps) {
     var target =
         new IndexedCertifiedMethodRunner(
-            store, source, template, classify, precision, absorptionStore, false);
+            store, source, template, classify, precision, absorptionStore, workingMaps, false);
     return new Restoration(
         target,
         CertifiedMethodRunner.restoreCursor(
@@ -106,7 +153,8 @@ public final class IndexedCertifiedMethodRunner implements AutoCloseable {
               var law = absorptionStore.create();
               target.absorptionLaws.add(law);
               return law;
-            }));
+            },
+            workingMaps));
   }
 
   public static final class Restoration implements AutoCloseable {
@@ -145,6 +193,7 @@ public final class IndexedCertifiedMethodRunner implements AutoCloseable {
 
   @Override
   public void close() {
+    if (runner != null) runner.closeWorkingMaps();
     absorptionLaws.forEach(CertifiedMutableLawStore.Law::close);
     absorptionLaws.clear();
     pending = null;

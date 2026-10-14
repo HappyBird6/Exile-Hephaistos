@@ -364,3 +364,28 @@ conditional result always fits on one page. Different JVM iteration order can
 select a class with more than 48 concrete rolls. The oracle now reads every page,
 checks unique state IDs and compares all probabilities to raw enumeration; its
 probability assertions were not weakened. Subsequent full runs passed.
+
+## Ordered working probability laws
+
+`TemporaryWorkingLaws` connects the certified runner's pending executions and
+cycle-boundary laws to a job-owned SQLite scratch file. `(law, key)` identifies
+the exact state/phase; `(law, ordinal)` preserves insertion order. Updating an
+existing row retains its ordinal, while removal and reinsertion appends it.
+No rows or residual probability are discarded. The shared Java value cache is
+limited to 128 entries and SQLite's page cache to 1 MiB, with memory mapping
+disabled. A scan retains one decoded entry at a time.
+
+Scratch laws are disposable working memory, not durable publication. Their
+transactions do not fsync; the separately committed job cursor remains the
+authority after a process failure. Cursor export streams the ordered rows and
+recovery restores them into a fresh scratch store, preserving the same numerical
+state and currency costs. Graceful engine closure deletes only its owned file.
+Scratch rows are excluded from resident-entry accounting; their actual cache,
+map descriptors, logical rows and disk bytes are reported separately in retention
+diagnostics. This does not remove the class registry, method inventory or strategy
+limits described above.
+
+Docker `check generateJooq bootJar` passed with 753 unit/contract tests and seven
+integration tests. Focused ordered-map, independent first-hit oracle and existing
+job restart tests also passed. The frozen backend source manifest matched with
+zero differences; reports are under `codex/bucket-method-verification/working-laws-r1`.

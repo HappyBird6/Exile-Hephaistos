@@ -141,3 +141,21 @@ consistent with eliminating the full numerical rewrite. Execution itself was
 slower in this pair of runs. JVM iteration order and cache timing can change the
 prefix, and each configuration was measured once: neither a general speedup nor
 a complete-search performance claim follows from this comparison.
+
+## Active working-law retention
+
+A further same-input run at `7923a14` stopped at 895,363 operations with 100,060
+resident accounting entries. There were 31,367 pending executions and 37,582
+cycle-boundary states across 24 active runners: about 69% of the entry allowance.
+The class registry held 10,089 classes and addition profiles held 17,122 rows.
+Only 70 states and 50 methods were visible; 18 of the root's 42 methods were
+complete. Thus externalizing only the visible method list would not remove this
+particular interruption. Raw retention/workload data and the probe are under
+`codex/bucket-method-verification/durable-solar-retention-before`.
+
+The next implementation connects pending and boundary laws to ordered SQLite
+scratch rows with a shared bounded value cache. It preserves the insertion order,
+state/phase identity, exact interval endpoints and all remaining probability.
+The same durable job cursor continues to define restart recovery. Logical disk
+rows are distinguished from resident cache entries; physical heap/RSS and disk
+measurements remain necessary alongside the entry allowance.

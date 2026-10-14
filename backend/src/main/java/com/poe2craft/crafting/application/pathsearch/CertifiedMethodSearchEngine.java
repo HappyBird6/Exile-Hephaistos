@@ -18,6 +18,8 @@ final class CertifiedMethodSearchEngine {
   static final String VERSION = "certified-method-map-v11-backed-pages";
   private final CertifiedLawStore laws;
   private final CertifiedMutableLawStore absorptionStore;
+  private final TemporaryWorkingLaws workingLaws;
+  private final CertifiedMethodRunner.WorkingMaps<Integer> workingMaps;
   private final BasicClassIndex index;
   private final CertifiedInterval.Precision precision;
   private final Map<Integer, String> identifiers = new HashMap<>();
@@ -381,7 +383,8 @@ final class CertifiedMethodSearchEngine {
                           target,
                           method.initial.isEmpty() && method.actions.size() == 1),
                   precision,
-                  absorptionStore);
+                  absorptionStore,
+                  workingMaps);
         }
         case "ROW" -> {
           if (runner == null) throw new IllegalArgumentException("Missing runner header");
@@ -501,6 +504,13 @@ final class CertifiedMethodSearchEngine {
     this.precision = precision;
     laws = new CertifiedLawStore(precision.fractionalBits(), backing);
     absorptionStore = new CertifiedMutableLawStore(precision.fractionalBits(), 64);
+    workingLaws =
+        new TemporaryWorkingLaws(
+            java.nio.file.Path.of(System.getProperty("java.io.tmpdir")),
+            precision.fractionalBits(),
+            128);
+    workingMaps =
+        new CertifiedMethodRunner.WorkingMaps<>(workingLaws::pending, workingLaws::boundary);
     int offset = 2;
     for (var group : evaluate.apply(start.item()).groups()) {
       offset++;
@@ -584,6 +594,7 @@ final class CertifiedMethodSearchEngine {
         + previews.size()
         + previewedPatterns.size()
         + absorptionStore.residentEntries()
+        + workingLaws.residentEntries()
         + preparationEntries;
   }
 
@@ -626,6 +637,7 @@ final class CertifiedMethodSearchEngine {
     identifiers.clear();
     laws.close();
     absorptionStore.close();
+    workingLaws.close();
     kernels.close();
   }
 
@@ -658,6 +670,7 @@ final class CertifiedMethodSearchEngine {
       long freezeTransientBytes,
       CertifiedLawStore.Metrics lawStorage,
       CertifiedMutableLawStore.Metrics absorptionStorage,
+      TemporaryWorkingLaws.Metrics workingStorage,
       BasicTransitionClasses.ProfileMetrics additionProfiles,
       List<MethodRetention> largestMethods) {}
 
@@ -717,6 +730,7 @@ final class CertifiedMethodSearchEngine {
         freezeTransientBytes(),
         laws.metrics(),
         absorptionStore.metrics(),
+        workingLaws.metrics(),
         index.profileMetrics(),
         List.copyOf(largest.subList(0, Math.min(12, largest.size()))));
   }
@@ -1213,7 +1227,8 @@ final class CertifiedMethodSearchEngine {
                         .toList()),
                 target -> classify(source, target, initial.isEmpty() && actions.size() == 1),
                 precision,
-                absorptionStore);
+                absorptionStore,
+                workingMaps);
       if (!runner.atBoundary()) {
         runner.step();
         return;
