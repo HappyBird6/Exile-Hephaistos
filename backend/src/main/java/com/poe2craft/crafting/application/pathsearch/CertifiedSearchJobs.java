@@ -109,7 +109,6 @@ final class CertifiedSearchJobs {
         if (!old.command().equals(command)) throw new Rejected(409, "COMMAND_ID_REUSED");
         return old.snapshot();
       }
-      if (job.commands.size() >= 64) throw new Rejected(503, "SEARCH_CAPACITY_REACHED");
       if (command.expectedRevision() != job.revision) throw new Rejected(409, "REVISION_CONFLICT");
       if (command.operation().equals("RESUME")) {
         if (!Set.of("PAUSED", "CANCELLED").contains(job.status))
@@ -133,6 +132,7 @@ final class CertifiedSearchJobs {
         publish(job);
       }
       job.commands.put(command.commandId(), new Command(command, job.snapshot));
+      while (job.commands.size() > 64) job.commands.remove(job.commands.keySet().iterator().next());
       return job.snapshot;
     }
   }
@@ -441,9 +441,17 @@ final class CertifiedSearchJobs {
   }
 
   private void publish(Job job) {
+    if (job.snapshot != null
+        && job.publishedGraphRevision == job.engine.graphRevision()
+        && job.snapshot.generation() == job.generation
+        && job.snapshot.status().equals(job.status)
+        && Objects.equals(job.snapshot.reason(), job.reason)) return;
     job.revision++;
-    var states = job.engine.states();
-    var methods = job.engine.methods();
+    boolean changed = job.publishedGraphRevision != job.engine.graphRevision();
+    var previous = job.revisions.isEmpty() ? null : job.revisions.get(job.revision - 1);
+    var states = changed || previous == null ? job.engine.states() : previous.states();
+    var methods = changed || previous == null ? job.engine.methods() : previous.methods();
+    job.publishedGraphRevision = job.engine.graphRevision();
     var rootStates = states.stream().filter(s -> s.id().equals(job.engine.rootId())).toList();
     var rootMethods = methods.stream().filter(m -> m.source().equals(job.engine.rootId())).toList();
     job.revisions.put(job.revision, new Revision(states, methods));
@@ -557,6 +565,7 @@ final class CertifiedSearchJobs {
     final Map<String, IndexedMethodProtocol.Bind> bindings = new LinkedHashMap<>();
     final Map<String, String> entryIds = new LinkedHashMap<>();
     long revision = -1, generation;
+    long publishedGraphRevision = -1;
     boolean disposed;
     int limit = 100000, entryLimit = 1;
     String status = "QUEUED", reason;

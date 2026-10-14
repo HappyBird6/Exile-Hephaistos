@@ -12,7 +12,7 @@ import java.util.function.Function;
 
 /** Certified class marginals. Incoming item laws remain exact retained conditional operators. */
 final class CertifiedMethodSearchEngine {
-  static final String VERSION = "certified-method-map-v6-reclaimable-kernels";
+  static final String VERSION = "certified-method-map-v7-observable-revisions";
   private final CertifiedLawStore laws;
   private final BasicClassIndex index;
   private final CertifiedInterval.Precision precision;
@@ -47,6 +47,7 @@ final class CertifiedMethodSearchEngine {
   private final int root;
   private int budget;
   private long operations;
+  private long graphRevision;
   private int undiscovered;
 
   private record Expansion(State state, int depth) {}
@@ -71,7 +72,7 @@ final class CertifiedMethodSearchEngine {
     }
     this.evaluate = evaluate;
     this.budget = budget;
-    kernels = new IndexedKernelStore(index, 2000, budget, 16L * 1024 * 1024);
+    kernels = new IndexedKernelStore(index, 2000, budget);
     root = index.intern(start);
     rootLaw = ConditionalMethodLaw.root(index, Map.of(start, Fraction.ONE));
     state(root, 0);
@@ -121,6 +122,10 @@ final class CertifiedMethodSearchEngine {
 
   public long operations() {
     return operations;
+  }
+
+  long graphRevision() {
+    return graphRevision;
   }
 
   public boolean complete() {
@@ -302,6 +307,7 @@ final class CertifiedMethodSearchEngine {
       var method = ready.removeFirst();
       long before = method.runner == null ? 0 : method.runner.retainedStates();
       method.step();
+      if (method.done) graphRevision++;
       liveEntries += (method.runner == null ? 0 : method.runner.retainedStates()) - before;
       if (!method.done) ready.addLast(method);
     }
@@ -310,12 +316,14 @@ final class CertifiedMethodSearchEngine {
   private State state(int key, int depth) {
     var found = states.get(key);
     if (found != null) {
+      if (depth < found.depth) graphRevision++;
       found.depth = Math.min(found.depth, depth);
       return found;
     }
     var progress = progress(key);
     var added = new State(key, depth, progress);
     states.put(key, added);
+    graphRevision++;
     if (progress.goal() == Status.MATCH) added.expanded = true;
     else {
       undiscovered++;
@@ -329,6 +337,7 @@ final class CertifiedMethodSearchEngine {
     adjacency.computeIfAbsent(source.key, unused -> new LinkedHashSet<>()).add(target);
     if (linked.depth <= source.depth + 1) return;
     linked.depth = source.depth + 1;
+    graphRevision++;
     if (!linked.expanded) frontier.add(new Expansion(linked, linked.depth));
     var queue = new ArrayDeque<Integer>();
     queue.add(target);
@@ -338,6 +347,7 @@ final class CertifiedMethodSearchEngine {
         var to = states.get(next);
         if (to.depth > from.depth + 1) {
           to.depth = from.depth + 1;
+          graphRevision++;
           if (!to.expanded) frontier.add(new Expansion(to, to.depth));
           queue.addLast(next);
         }
@@ -348,12 +358,14 @@ final class CertifiedMethodSearchEngine {
   private void discover(State source) {
     if (source.progress.goal() == Status.MATCH) {
       source.expanded = true;
+      graphRevision++;
       undiscovered--;
       return;
     }
     var actions = BasicCurrencyTransitions.supportedActions();
     if (source.discovery == actions.size()) {
       source.expanded = true;
+      graphRevision++;
       undiscovered--;
       return;
     }
@@ -375,6 +387,7 @@ final class CertifiedMethodSearchEngine {
     if (methods.containsKey(key)) return;
     var method = new Method(source, key, initial, actions);
     methods.put(key, method);
+    graphRevision++;
     source.methods.add(method);
     ready.addLast(method);
   }
@@ -742,6 +755,7 @@ final class CertifiedMethodSearchEngine {
     }
 
     void publish(int cycles, IndexedCertifiedMethodRunner.Snapshot snapshot) {
+      graphRevision++;
       saved.put(cycles, snapshot);
       var point = snapshot.observation();
       var exits = new EnumMap<Exit, Map<String, CertifiedInterval>>(Exit.class);

@@ -12,6 +12,45 @@ import org.junit.jupiter.api.Test;
 
 class CertifiedSearchJobsTest {
   @Test
+  void boundedCommandReplayDoesNotLimitTheNumberOfResumptions() throws Exception {
+    var fixture = new PathSearchServiceTest();
+    try (var old = fixture.service(1);
+        var service =
+            new MethodSearchService(
+                fixture.catalog,
+                fixture.goals,
+                fixture.identity,
+                fixture.json,
+                Clock.systemUTC(),
+                fixture.executor,
+                1)) {
+      var original = fixture.request(old);
+      var request =
+          new CertifiedMethodProtocol.Create(
+              1,
+              new MethodSearchProtocol.Create(
+                  2, "many-resumes", original.start(), original.goal(), List.of()),
+              CertifiedInterval.Precision.standard());
+      var created = service.createCertified("owner", request).search();
+      var first = new MethodSearchProtocol.Mutation(2, "first", created.revision(), "CANCEL", null);
+      var current = service.mutateCertified("owner", created.jobId(), first);
+      fixture.queue.remove().run();
+      for (int i = 0; i < 80; i++) {
+        var command =
+            new MethodSearchProtocol.Mutation(2, "resume-" + i, current.revision(), "RESUME", null);
+        var resumed = service.mutateCertified("owner", created.jobId(), command);
+        assertThat(service.mutateCertified("owner", created.jobId(), command)).isEqualTo(resumed);
+        fixture.queue.remove().run();
+        current = service.getCertified("owner", created.jobId());
+        assertThat(current.status()).isEqualTo("PAUSED");
+        assertThat(current.enumerationComplete()).isFalse();
+      }
+      rejected("REVISION_CONFLICT", () -> service.mutateCertified("owner", created.jobId(), first));
+      assertThat(service.getCertified("owner", created.jobId())).isEqualTo(current);
+    }
+  }
+
+  @Test
   void expiryEvictionAndShutdownInvalidateQueuedWorkWithoutRunningClosedStores() throws Exception {
     var fixture = new PathSearchServiceTest();
     var now =

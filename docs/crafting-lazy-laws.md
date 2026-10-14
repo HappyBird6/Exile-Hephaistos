@@ -59,7 +59,7 @@ use limit.
 
 Primitive kernels use a separate, recomputable cache. Under resident pressure,
 completed kernels are evicted before declaring the working calculation paused.
-Outstanding delivery handles retain their exact result. A bounded 16 MiB cold
+Outstanding delivery handles retain their exact result. The optional cold
 cache serializes class IDs, unavailable status, unresolved mass and the full
 integer numerator/denominator of every outcome. Inflation reconstructs an exact
 kernel and checks its mass; it does not convert it to rounded probabilities.
@@ -73,7 +73,16 @@ The change passed nine focused tests and Docker Java 21
 zero failures/errors (`kernel-cache-targeted`, `kernel-cache-full`). The tests
 compare restored kernels with independent exact calculations and exercise
 delivery after eviction, zero cache allowance and an insufficient byte allowance.
-The same-input root performance measurement is still pending at this checkpoint.
+The same-input root measurement with a 16 MiB cold cache stopped after 32,694 ms
+at the unchanged one-million resident-entry guard: 18/42 root methods were done,
+with 886,494 active pending/boundary/exit rows. All recomputable cache entries had
+already been reclaimed. It calculated 87,956 kernels and restored 104,955 cold
+kernels, but different relative method progress accumulated too many concurrent
+working laws. This is a performance/resource regression, not a completed root.
+Evidence: `kernel-cache-root`. The cold cache is therefore disabled in the default
+engine; its exact codec remains tested but is not a claimed production speedup.
+Working-cache reclamation remains enabled. Scheduling/working-law storage must
+address the concurrent working set before enabling the cold cache again.
 
 The resident-entry limit counts active calculation rows, class/kernel records,
 page descriptors and currently decoded rows. Packed payload bytes have a separate
@@ -96,6 +105,28 @@ shutdown invalidate its readers and release packed payloads. Historical graph
 revisions within a live job retain immutable descriptors. Closed-law lookup,
 paging, iteration and aggregate reads reject access. No file spill or database
 storage is introduced by this implementation.
+
+## Observable revisions and command replay
+
+The v3 certified wire contract retains the most recent 64 mutation responses for
+idempotent replay, rather than limiting a job to 64 mutations. A replay still in
+that window returns its original response. An evicted original request carries
+an old expected revision and receives `REVISION_CONFLICT`; it cannot perform the
+action again. Clients must use a new command ID for a new action and refresh the
+snapshot after a conflict. Generation, cancellation and request ownership checks
+are unchanged. The fixed expiration period is a separate outstanding limitation.
+
+The engine tracks changes to observable states, depths, methods, completed
+observations and direct completion. Scheduler work that changes none of those
+does not force another full graph snapshot. Status/generation changes still
+publish, reusing immutable graph lists when possible. Operation/storage counters
+describe the published snapshot, not a separate live telemetry stream. Four
+graph revisions remain available; this does not remove pagination or stale
+revision checks. These changes passed six focused tests and Docker Java 21
+`check generateJooq bootJar`: 718 unit/contract tests and seven integration tests,
+zero failures/errors (`publication-targeted`, `publication-full`). Coverage includes
+80 resumptions, retained duplicate replay, eviction followed by stale-revision
+rejection, and unchanged graph-version samples checked against complete views.
 
 ## Verification record
 
@@ -179,11 +210,10 @@ Do not silently label all zero-direct-success alternatives as the final strategy
   views, and its latency/memory must be measured separately before calling the
   UI responsive. The fixed job lifetime also needs review against long resumed
   calculations; an expired job is not a completed search.
-  The current 12,000-operation lease and 64-command lifetime capacity cannot
-  support the measured 224-million-operation root through ordinary resumption.
-  Retain bounded replay responses with stale-revision rejection rather than
-  turning command-history capacity into a lifetime exploration cap. Revisions
-  should reuse an unchanged graph instead of rebuilding every 512 operations.
+  The former 64-command lifetime capacity could not support the measured
+  224-million-operation root through 12,000-operation leases. Bounded replay now
+  removes that lifetime ceiling, and unchanged graph lists are reused. Actual
+  service publication and repeated-resumption costs still require measurement.
 - Lower-layer scheduling still defers deeper methods until root methods finish.
   The production certified API still reports final strategy NOT_REQUESTED. The
   finite completed-map strategy adapter is an oracle-scale integration and can

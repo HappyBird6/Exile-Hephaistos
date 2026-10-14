@@ -43,13 +43,27 @@ class CertifiedMethodSearchEngineTest {
     var bounded =
         new CertifiedMethodSearchEngine(
             fixture.root(), classes, evaluate, 1000000, new CertifiedInterval.Precision(32, 2));
+    int unchangedGraphSamples = 0;
     for (int step = 0; step < 5000000 && (!exact.complete() || !bounded.complete()); step++) {
       if (!exact.complete()) exact.step();
-      if (!bounded.complete()) bounded.step();
+      if (!bounded.complete()) {
+        if (step % 100 == 0) {
+          long revision = bounded.graphRevision();
+          var statesBefore = bounded.states();
+          var methodsBefore = bounded.methods();
+          bounded.step();
+          if (revision == bounded.graphRevision()) {
+            unchangedGraphSamples++;
+            assertThat(bounded.states()).isEqualTo(statesBefore);
+            assertThat(bounded.methods()).isEqualTo(methodsBefore);
+          }
+        } else bounded.step();
+      }
       if (step % 100 == 0 && !bounded.rootDirectComplete())
         assertThat(bounded.methods()).allMatch(m -> m.source().equals(bounded.rootId()));
     }
     assertThat(exact.complete()).isTrue();
+    assertThat(unchangedGraphSamples).isPositive();
     assertThat(bounded.complete())
         .withFailMessage("work=%s retained=%s", bounded.operations(), bounded.retainedEntries())
         .isTrue();

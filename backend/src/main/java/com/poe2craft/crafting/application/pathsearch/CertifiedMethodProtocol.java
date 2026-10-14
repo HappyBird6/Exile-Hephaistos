@@ -7,7 +7,7 @@ import java.util.*;
 
 /** Additive wire values: an arithmetic enclosure is never a statistical confidence interval. */
 public final class CertifiedMethodProtocol {
-  public static final String VERSION = "certified-method-wire-v2-lazy-laws";
+  public static final String VERSION = "certified-method-wire-v3-bounded-replay";
 
   private CertifiedMethodProtocol() {}
 
