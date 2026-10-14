@@ -9,6 +9,66 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
 class SqliteMethodGraphStoreTest {
+  @Test
+  void sameDepthPaginationSeeksPastOrdinalRatherThanScanningTheDepthAgain(@TempDir Path dir)
+      throws Exception {
+    try (var store = new SqliteMethodGraphStore(dir.resolve("plan.sqlite"), identity("plan"), 64)) {
+      var field = SqliteMethodGraphStore.class.getDeclaredField("connection");
+      field.setAccessible(true);
+      var connection = (java.sql.Connection) field.get(store);
+      try (var query =
+          connection.prepareStatement(
+              "EXPLAIN QUERY PLAN " + SqliteMethodGraphStore.CURRENT_DEPTH_PAGE_SQL)) {
+        query.setInt(1, 1);
+        query.setLong(2, 2000000);
+        query.setInt(3, 129);
+        try (var rows = query.executeQuery()) {
+          assertThat(rows.next()).isTrue();
+          assertThat(rows.getString(4)).contains("method_depth", "depth=? AND ordinal>?");
+        }
+      }
+    }
+  }
+
+  @Test
+  void uncaughtErrorAfterPartialBatchRollsBackInsteadOfCommittingOnAutocommitRestore(
+      @TempDir Path dir) throws Exception {
+    try (var store =
+        new SqliteMethodGraphStore(dir.resolve("fault.sqlite"), identity("fault"), 64)) {
+      var field = SqliteMethodGraphStore.class.getDeclaredField("connection");
+      field.setAccessible(true);
+      var actual = (java.sql.Connection) field.get(store);
+      var failure = new AssertionError("injected process-level failure");
+      var wrapped =
+          java.lang.reflect.Proxy.newProxyInstance(
+              getClass().getClassLoader(),
+              new Class<?>[] {java.sql.Connection.class},
+              (proxy, method, args) -> {
+                if (method.getName().equals("prepareStatement")
+                    && ((String) args[0]).startsWith("INSERT INTO methods")) throw failure;
+                try {
+                  return method.invoke(actual, args);
+                } catch (java.lang.reflect.InvocationTargetException error) {
+                  throw error.getCause();
+                }
+              });
+      field.set(store, wrapped);
+      assertThatThrownBy(
+              () ->
+                  store.commit(
+                      0,
+                      new Batch(
+                          List.of(new Source(0, 0, false, "full-source")),
+                          List.of(new Method("m", 0, "program")),
+                          List.of(),
+                          List.of())))
+          .isSameAs(failure);
+      assertThat(store.revision()).isZero();
+      assertThat(store.source(0)).isEmpty();
+      assertThat(store.method("m")).isEmpty();
+    }
+  }
+
   public static class CrashWriter {
     public static void main(String[] args) {
       var store = new SqliteMethodGraphStore(Path.of(args[0]), identity("crash-input"), 64);

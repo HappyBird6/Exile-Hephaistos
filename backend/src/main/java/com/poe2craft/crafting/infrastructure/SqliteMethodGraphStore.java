@@ -9,6 +9,10 @@ import java.util.*;
 
 /** Job-owned local file. SQLite's page cache is bounded; graph rows are never mirrored in a map. */
 public final class SqliteMethodGraphStore implements MethodGraphStore {
+  static final String CURRENT_DEPTH_PAGE_SQL =
+      "SELECT ordinal,depth,id,source,program FROM methods WHERE depth=? AND ordinal>? ORDER BY ordinal LIMIT ?";
+  private static final String LATER_DEPTH_PAGE_SQL =
+      "SELECT ordinal,depth,id,source,program FROM methods WHERE depth>? ORDER BY depth,ordinal LIMIT ?";
   private final Path path;
   private final Connection connection;
   private final int cacheKiB;
@@ -63,13 +67,14 @@ public final class SqliteMethodGraphStore implements MethodGraphStore {
                 "CREATE TABLE IF NOT EXISTS checkpoints(name TEXT PRIMARY KEY, content TEXT NOT NULL)");
             return null;
           });
-    } catch (SQLException | IOException | RuntimeException error) {
+    } catch (SQLException | IOException | RuntimeException | Error error) {
       if (opened != null)
         try {
           opened.close();
         } catch (SQLException cleanup) {
           error.addSuppressed(cleanup);
         }
+      if (error instanceof Error fatal) throw fatal;
       throw new IllegalStateException("Cannot open local method graph", error);
     }
   }
@@ -84,11 +89,21 @@ public final class SqliteMethodGraphStore implements MethodGraphStore {
       T result = work.run();
       connection.commit();
       return result;
-    } catch (SQLException | RuntimeException error) {
-      connection.rollback();
+    } catch (SQLException | RuntimeException | Error error) {
+      try {
+        connection.rollback();
+      } catch (SQLException rollback) {
+        error.addSuppressed(rollback);
+        closed = true;
+        try {
+          connection.close();
+        } catch (SQLException cleanup) {
+          error.addSuppressed(cleanup);
+        }
+      }
       throw error;
     } finally {
-      connection.setAutoCommit(true);
+      if (!closed) connection.setAutoCommit(true);
     }
   }
 
@@ -251,24 +266,17 @@ public final class SqliteMethodGraphStore implements MethodGraphStore {
                   if (revision() != expectedRevision)
                     throw new IllegalStateException("STALE_GRAPH_REVISION");
                   var rows = new ArrayList<MethodRow>();
-                  String sql =
-                      "SELECT ordinal,depth,id,source,program FROM methods WHERE (depth,ordinal)>(?,?) ORDER BY depth,ordinal LIMIT ?";
-                  try (var statement = connection.prepareStatement(sql)) {
-                    int depth = after == null ? -1 : after.depth();
-                    statement.setInt(1, depth);
-                    statement.setLong(2, after == null ? -1 : after.ordinal());
-                    statement.setInt(3, limit + 1);
-                    try (var result = statement.executeQuery()) {
-                      reads++;
-                      while (result.next())
-                        rows.add(
-                            new MethodRow(
-                                result.getLong(1),
-                                result.getInt(2),
-                                new Method(
-                                    result.getString(3), result.getLong(4), result.getString(5))));
-                    }
-                  }
+                  // A row-value range can seek only depth on SQLite's INTEGER PRIMARY KEY
+                  // alias, repeatedly scanning earlier ordinals. Split the ranges explicitly.
+                  if (after != null)
+                    readMethodRows(
+                        rows, CURRENT_DEPTH_PAGE_SQL, after.depth(), after.ordinal(), limit + 1);
+                  if (rows.size() < limit + 1)
+                    readMethodRows(
+                        rows,
+                        LATER_DEPTH_PAGE_SQL,
+                        after == null ? -1 : after.depth(),
+                        limit + 1 - rows.size());
                   boolean more = rows.size() > limit;
                   if (more) rows.removeLast();
                   var last = rows.isEmpty() ? null : rows.getLast();
@@ -277,6 +285,22 @@ public final class SqliteMethodGraphStore implements MethodGraphStore {
                       List.copyOf(rows),
                       more ? new Cursor(last.depth(), last.ordinal()) : null);
                 }));
+  }
+
+  private void readMethodRows(List<MethodRow> rows, String sql, Object... parameters)
+      throws SQLException {
+    try (var statement = connection.prepareStatement(sql)) {
+      for (int i = 0; i < parameters.length; i++) statement.setObject(i + 1, parameters[i]);
+      try (var result = statement.executeQuery()) {
+        reads++;
+        while (result.next())
+          rows.add(
+              new MethodRow(
+                  result.getLong(1),
+                  result.getInt(2),
+                  new Method(result.getString(3), result.getLong(4), result.getString(5))));
+      }
+    }
   }
 
   @Override
