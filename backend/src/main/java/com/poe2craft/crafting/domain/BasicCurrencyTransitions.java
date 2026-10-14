@@ -126,6 +126,60 @@ public final class BasicCurrencyTransitions {
     private Fraction emitted = Fraction.ZERO;
     private BigInteger remainingOutcomes = BigInteger.ZERO;
 
+    public record Position(
+        int branch, int candidate, long value, Fraction emitted, BigInteger remaining) {}
+
+    public Position position() {
+      return new Position(branchIndex, candidateIndex, value, emitted, remainingOutcomes);
+    }
+
+    /**
+     * Rebuild the eligible plan, then seek by candidate bands, never by replaying rolled outcomes.
+     */
+    public void restorePosition(Position saved) {
+      if (blocked() || saved.branch() < 0 || saved.branch() > plan.branches().size())
+        throw new IllegalArgumentException("Invalid primitive position");
+      Fraction consumed = Fraction.ZERO;
+      BigInteger count = BigInteger.ZERO;
+      for (int b = 0; b < plan.branches().size(); b++) {
+        if (action == WorkbenchCurrency.ANNULMENT) {
+          if (b < saved.branch()) {
+            consumed = consumed.add(Fraction.of(1, plan.branches().size()));
+            count = count.add(BigInteger.ONE);
+          }
+          continue;
+        }
+        var candidates = plan.branches().get(b).candidates();
+        if (b == saved.branch()
+            && (saved.candidate() < 0 || saved.candidate() >= candidates.size()))
+          throw new IllegalArgumentException("Invalid primitive candidate");
+        for (int c = 0; c < candidates.size(); c++) {
+          var range = candidates.get(c).stats().getFirst();
+          if (b < saved.branch() || b == saved.branch() && c < saved.candidate()) {
+            consumed = consumed.add(candidateBandProbability(b, c, range.min(), range.max()));
+            count = count.add(rangeSize(range));
+          } else if (b == saved.branch() && c == saved.candidate()) {
+            if (saved.value() < range.min() || saved.value() > range.max())
+              throw new IllegalArgumentException("Invalid primitive roll");
+            if (saved.value() > range.min())
+              consumed =
+                  consumed.add(candidateBandProbability(b, c, range.min(), saved.value() - 1));
+            count =
+                count.add(
+                    BigInteger.valueOf(saved.value()).subtract(BigInteger.valueOf(range.min())));
+          }
+        }
+      }
+      if (!consumed.equals(saved.emitted())
+          || !remainingOutcomes.subtract(count).equals(saved.remaining()))
+        throw new IllegalArgumentException("Primitive cursor mass mismatch");
+      branchIndex = saved.branch();
+      candidateIndex = saved.candidate();
+      value = saved.value();
+      emitted = saved.emitted();
+      remainingOutcomes = saved.remaining();
+    }
+
     private PrimitiveCursor(
         BasicCurrencyState source, WorkbenchCurrency action, Set<String> activeOmens) {
       this.action = action;

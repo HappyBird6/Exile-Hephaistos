@@ -14,9 +14,15 @@ public class SupportConfiguration {
   com.poe2craft.crafting.application.pathsearch.MethodSearchService methodSearchService(
       WorkbenchService workbench,
       com.poe2craft.crafting.application.goalfilter.GoalFilterService goals,
-      ObjectMapper json) {
-    return new com.poe2craft.crafting.application.pathsearch.MethodSearchService(
-        workbench.reviewedCatalogs(), goals, RulesetManifestLoader.load().identity(), json);
+      ObjectMapper json,
+      @org.springframework.beans.factory.annotation.Value(
+              "${crafting.method-job-directory:./data/method-jobs}")
+          String directory) {
+    var service =
+        new com.poe2craft.crafting.application.pathsearch.MethodSearchService(
+            workbench.reviewedCatalogs(), goals, RulesetManifestLoader.load().identity(), json);
+    service.persistence(new LocalCertifiedJobRepository(java.nio.file.Path.of(directory), json));
+    return service;
   }
 
   @Bean(destroyMethod = "close")

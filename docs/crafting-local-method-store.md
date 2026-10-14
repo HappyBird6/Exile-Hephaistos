@@ -255,11 +255,11 @@ drafts, pointer replacement, terminal cleanup and invalid storage references are
 also covered. The real Solar renewal test restores the indexed runner during
 execution and continues checking exact truth inside its 100/300/500-cycle bounds.
 
-This is a runner-level persistence contract, not whole-job cold restart. The
-production job scheduler, class-index persistence, incoming conditional-operator
-and expansion cursors, disk-backed method inventory and large-graph strategy
-solver still require integration. No additional full Solar search measurement
-or whole-search completion is claimed by these cursor tests. Final cursor
+The runner contract alone does not establish whole-job cold restart. The job
+integration below adds class identities, the search frontier and incoming
+conditional operators. A disk-backed method inventory and large-graph strategy
+solver remain separate work. No whole-search completion is claimed by cursor
+tests. Final cursor
 validation sums retained laws and constructs the immutable kernel; although row
 I/O is paged, that final validation has no hard wall-clock slice guarantee yet.
 
@@ -271,3 +271,68 @@ the worktree with zero hash differences. Reports are retained locally under
 attempt failed because two imported types were named `Observation`; qualifying
 the graph-store type fixed it before these passing runs. No frontend files were
 changed in this unit, and no new browser verification is claimed.
+
+## Actual job checkpoints and process recovery
+
+`SupportConfiguration` now supplies `LocalCertifiedJobRepository` to the existing
+`MethodSearchService`; the certified job scheduler writes through
+`MethodCursorStore`. The default local directory is `./data/method-jobs`,
+configurable with `crafting.method-job-directory`. No external database service
+is needed. Runtime files are ignored by Git. The owner identifier is stored as a
+SHA-256 digest, while the exact item, goal AST, precision and version identity are
+retained for reproduction. Atomic descriptor publication and revision-checked
+SQLite cursor publication keep incomplete writes out of recovery.
+
+A checkpoint records full class witnesses and class-key equality evidence,
+method definitions, completed observations, active runner rows, BFS/frontier and
+preview positions, adjacency, assumptions, generation and command identities.
+Publication bookkeeping is settled before capture; this does not execute another
+currency action. Recovery reconstructs the same class IDs and validates the
+registered data/rules/goal/template/arithmetic identity before admitting rows.
+An uncertain total-mass enclosure may extend above one: absorbed and active
+probability laws are bounded separately, preserving the original total enclosure.
+
+Conditional entries retain their parent binding, exact method/exit/target and
+expansion cursor. The saved transport includes its input, active and selected
+laws, partially normalized values, iterator positions and in-flight primitive
+branch/candidate/roll position. Seeking the primitive rebuilds the eligible plan
+and sums candidate bands, rather than replaying previously emitted roll outcomes.
+Restoration does not replace these incoming laws with an averaged class witness.
+
+On reopening, generation advances and an unfinished job becomes resumable
+`PAUSED/PROCESS_RESTART`. Stored cancellation remains cancellation. The restored
+worker holds the new database revision; an older writer cannot overwrite it.
+Command and binding IDs remain idempotent. No automatic resumed run or new server
+is started. Existing idle expiration still applies to durable checkpoints.
+Incompatible or unreadable checkpoints retain their original files; a recognized
+job returns `CHECKPOINT_RECALCULATION_REQUIRED` instead of preventing the whole
+application from starting or silently deleting its original goal.
+
+The job restart test launches a separate Java process against the actual service
+and database, resumes a partial conditional transport, and compares saved graph
+observations including currency uses. It also checks stale generation/write
+rejection, repeated bindings/cancellation, a completed entry across another
+restart, and preservation of incompatible/corrupt files. A separate engine test
+compares uninterrupted and restored 100/300/500-cycle continuation exit bounds
+and initial/cycle uses. The conditional result is checked against direct raw
+primitive enumeration, independently of the restored class marginals.
+
+Known limits: job checkpoint capture/recovery is synchronous under the job lock;
+one observation and one conditional expansion can still materialize a large JSON
+value. A bounded row count alone is therefore not a bounded-memory or wall-clock
+guarantee for the whole checkpoint. Shared preparation equivalences are re-proved
+on recovery, and the bounded strategy solver rebuilds its refinement work from
+the saved number of steps; this repeats CPU work without charging currency again.
+The in-memory method inventory and large-graph strategy preparation limits have
+not been removed by job persistence. Crash-abandoned unreferenced staging rows
+are not yet automatically collected. These limitations must remain visible in
+performance reports, and partial search must not be labeled globally complete.
+
+Final job-integration verification passed `check generateJooq bootJar` in Java 21
+Docker: 750 unit/contract tests and seven integration tests, with zero failures.
+The two focused restart/continuation tests also passed separately. The checked
+backend source manifest matched the worktree with no hash differences. Reports
+are retained under `codex/bucket-method-verification/job-restart-r3`.
+Earlier attempts exposed numeric JSON-node comparison and missing standalone-JVM
+definition initialization; both were fixed before the passing runs. No assertion
+was removed or loosened to hide either failure. Frontend source was unchanged.

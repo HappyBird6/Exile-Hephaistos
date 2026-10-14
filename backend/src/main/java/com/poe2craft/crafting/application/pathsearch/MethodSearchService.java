@@ -33,6 +33,10 @@ public final class MethodSearchService implements AutoCloseable {
   private final Map<String, Job> jobs = new LinkedHashMap<>();
   private final CertifiedSearchJobs certified;
 
+  public void persistence(CertifiedJobRepository repository) {
+    certified.persistence(repository, json);
+  }
+
   public MethodSearchService(
       List<ItemCatalog> catalogs, GoalFilterService goals, String identity, ObjectMapper json) {
     this(

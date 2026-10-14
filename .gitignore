@@ -18,5 +18,6 @@
 .vscode/
 *.iml
 .toolchains/
+**/data/method-jobs/
 # Raw external evidence is local-only; fixtures are separately reviewed.
 data-pipeline/captures/

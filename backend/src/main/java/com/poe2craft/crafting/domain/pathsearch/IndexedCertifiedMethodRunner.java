@@ -211,6 +211,38 @@ public final class IndexedCertifiedMethodRunner implements AutoCloseable {
     return new Snapshot(store.index(), source, template, classify, precision, runner.observation());
   }
 
+  public static Snapshot restoredSnapshot(
+      BasicClassIndex index,
+      int source,
+      ExactMethodRunner.Template<Integer, WorkbenchCurrency> template,
+      Function<Integer, Optional<ExactMethodRunner.Exit>> classify,
+      CertifiedInterval.Precision precision,
+      CertifiedMethodRunner.Observation<Integer, WorkbenchCurrency> point) {
+    index.key(source);
+    var total = CertifiedInterval.zero(precision.fractionalBits());
+    if (point.cycles() < 0 || point.exits().size() != ExactMethodRunner.Exit.values().length)
+      throw new IllegalArgumentException("Invalid saved observation");
+    var parts = new ArrayList<>(point.exits().values());
+    for (var law : parts)
+      for (var entry : law.entrySet()) {
+        index.key(entry.getKey());
+        if (entry.getValue().fractionalBits() != precision.fractionalBits())
+          throw new IllegalArgumentException("Observation precision mismatch");
+        total = total.add(entry.getValue()).probability();
+      }
+    var active = CertifiedInterval.zero(precision.fractionalBits());
+    for (var entry : point.active().entrySet()) {
+      index.key(entry.getKey());
+      if (entry.getValue().fractionalBits() != precision.fractionalBits())
+        throw new IllegalArgumentException("Observation precision mismatch");
+      active = active.add(entry.getValue()).probability();
+    }
+    total = total.add(active);
+    if (!total.equals(point.mass()) || !total.contains(Fraction.ONE))
+      throw new IllegalArgumentException("Saved observation mass mismatch");
+    return new Snapshot(index, source, template, classify, precision, point);
+  }
+
   public FrozenSnapshot freezeSnapshot(CertifiedLawStore store) {
     return new FrozenSnapshot(store);
   }

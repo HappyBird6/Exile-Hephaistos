@@ -2,16 +2,252 @@ package com.poe2craft.crafting.application.pathsearch;
 
 import static com.poe2craft.crafting.application.pathsearch.CertifiedMethodProtocol.*;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Probability;
 import com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Rejected;
 import com.poe2craft.crafting.domain.pathsearch.*;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.time.*;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.BiFunction;
 
-/** Process-local certified jobs share the existing service's single worker. */
+/** Certified jobs share one worker; optional local checkpoints survive process restarts. */
 final class CertifiedSearchJobs {
+  static final String CHECKPOINT_VERSION = "certified-job-checkpoint-v1";
+  private CertifiedJobRepository repository;
+  private ObjectMapper json;
+  private final Map<String, DiskInput> unavailable = new LinkedHashMap<>();
+
+  private record DiskInput(String owner, Create request) {}
+
+  private record DiskEntry(
+      String id,
+      String parent,
+      IndexedMethodProtocol.Bind binding,
+      ConditionalMethodLaw.ExpansionCheckpoint expansion) {}
+
+  private record DiskJob(
+      String version,
+      String id,
+      long revision,
+      long generation,
+      String status,
+      String reason,
+      int limit,
+      int entryLimit,
+      long strategySteps,
+      String strategyBlocked,
+      Map<String, Command> commands,
+      List<DiskEntry> entries,
+      long expires) {}
+
+  private static String ownerKey(String owner) {
+    try {
+      return HexFormat.of()
+          .formatHex(
+              MessageDigest.getInstance("SHA-256").digest(owner.getBytes(StandardCharsets.UTF_8)));
+    } catch (java.security.NoSuchAlgorithmException e) {
+      throw new IllegalStateException(e);
+    }
+  }
+
+  void persistence(CertifiedJobRepository repository, ObjectMapper json) {
+    synchronized (jobs) {
+      if (this.repository != null || !jobs.isEmpty())
+        throw new IllegalStateException("Persistence must be configured before requests");
+      this.repository = repository;
+      this.json =
+          json.copy()
+              .enable(
+                  com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+      for (var descriptor : repository.list()) {
+        MethodGraphStore opened = null;
+        CertifiedMethodSearchEngine restoring = null;
+        try {
+          var input = decode(descriptor.identity().originalInput(), DiskInput.class);
+          var store = opened = repository.open(descriptor);
+          var saved = store.execution("job");
+          if (saved.isEmpty()) {
+            store.close();
+            continue;
+          }
+          var header = decode(saved.get().header(), DiskJob.class);
+          if (clock.instant().toEpochMilli() > header.expires()) {
+            store.close();
+            continue;
+          }
+          if (!CHECKPOINT_VERSION.equals(header.version())
+              || !descriptor.id().equals(header.id())) {
+            throw new IllegalStateException("Incompatible job checkpoint");
+          }
+          var engine =
+              restoring = factory.apply(input.request().request(), input.request().precision());
+          if (!descriptor.identity().equals(identity(engine, input))) {
+            throw new IllegalStateException(
+                "Job calculation versions changed; explicit recalculation required");
+          }
+          var job = new Job(header.id(), input.owner(), input.request(), engine);
+          job.store = store;
+          job.storeRevision = store.revision();
+          try (var restore = engine.checkpointRestore(this.json)) {
+            long offset = 0;
+            while (true) {
+              var page = store.executionRows(saved.get().id(), offset, 128);
+              for (var row : page.rows())
+                restore.accept(
+                    decode(row.content(), CertifiedMethodSearchEngine.CheckpointLine.class));
+              offset += page.rows().size();
+              if (page.complete()) break;
+            }
+            restore.finish();
+            job.revision = header.revision();
+            job.generation = header.generation() + 1;
+            job.limit = header.limit();
+            job.entryLimit = header.entryLimit();
+            job.commands.putAll(header.commands());
+            job.strategyBlocked = header.strategyBlocked();
+            if (header.strategySteps() > 0) {
+              job.strategy = engine.strategyWork();
+              for (long i = 0; i < header.strategySteps(); i++) job.strategy.step();
+              job.strategySteps = header.strategySteps();
+            }
+            for (var savedEntry : header.entries()) {
+              if (savedEntry.id().equals("root")) {
+                job.entries.put(
+                    "root", new EntryWork("root", null, engine.rootLaw(), savedEntry.expansion()));
+                continue;
+              }
+              var binding = savedEntry.binding();
+              var parent = entryWork(job, savedEntry.parent());
+              var kind =
+                  binding.kind().equals("ACTIVE")
+                      ? Optional.<ExactMethodRunner.Exit>empty()
+                      : Optional.of(ExactMethodRunner.Exit.valueOf(binding.kind()));
+              var law =
+                  engine
+                      .observation(binding.methodId(), binding.cycles())
+                      .condition(parent.law, kind, engine.classId(binding.targetStateId()));
+              job.entries.put(
+                  savedEntry.id(),
+                  new EntryWork(savedEntry.id(), savedEntry.parent(), law, savedEntry.expansion()));
+              job.bindings.put(binding.requestId(), binding);
+              job.entryIds.put(binding.requestId(), savedEntry.id());
+            }
+            job.status =
+                Set.of("CANCELLED", "COMPLETED", "FAILED").contains(header.status())
+                    ? header.status()
+                    : "PAUSED";
+            job.reason = job.status.equals("PAUSED") ? "PROCESS_RESTART" : header.reason();
+            jobs.put(job.id, job);
+            publish(job);
+          }
+        } catch (RuntimeException | Error failure) {
+          jobs.remove(descriptor.id());
+          if (restoring != null) restoring.close();
+          if (opened != null) opened.close();
+          if (failure instanceof Error error) throw error;
+          try {
+            unavailable.put(
+                descriptor.id(), decode(descriptor.identity().originalInput(), DiskInput.class));
+          } catch (RuntimeException ignored) {
+            /* Retain the original file for explicit recovery. */
+          }
+          java.util.logging.Logger.getLogger(CertifiedSearchJobs.class.getName())
+              .warning(
+                  "Job checkpoint could not be restored; original file retained: "
+                      + descriptor.id());
+        }
+      }
+    }
+  }
+
+  private String encode(Object value) {
+    try {
+      return json.writeValueAsString(value);
+    } catch (com.fasterxml.jackson.core.JsonProcessingException e) {
+      throw new IllegalArgumentException("Invalid job checkpoint", e);
+    }
+  }
+
+  private <T> T decode(String value, Class<T> type) {
+    try {
+      return json.readValue(value, type);
+    } catch (com.fasterxml.jackson.core.JsonProcessingException e) {
+      throw new IllegalArgumentException("Invalid job checkpoint", e);
+    }
+  }
+
+  private void persist(Job job) {
+    if (job.store == null) return;
+    var entries = new ArrayList<DiskEntry>();
+    for (var entry : job.entries.values()) {
+      IndexedMethodProtocol.Bind binding = null;
+      for (var link : job.entryIds.entrySet())
+        if (link.getValue().equals(entry.id)) binding = job.bindings.get(link.getKey());
+      entries.add(new DiskEntry(entry.id, entry.parent, binding, entry.expansion.checkpoint()));
+    }
+    var header =
+        new DiskJob(
+            CHECKPOINT_VERSION,
+            job.id,
+            job.revision,
+            job.generation,
+            job.status,
+            job.reason,
+            job.limit,
+            job.entryLimit,
+            job.strategySteps,
+            job.strategyBlocked,
+            Map.copyOf(job.commands),
+            entries,
+            job.expires.toEpochMilli());
+    var previous = job.store.execution("job");
+    long revision = job.storeRevision;
+    var draft = job.store.beginExecution("job", encode(header));
+    long[] offset = {0};
+    var batch = new ArrayList<String>();
+    try {
+      job.engine.checkpoint(
+          json,
+          line -> {
+            batch.add(encode(line));
+            if (batch.size() == 128) {
+              offset[0] = job.store.appendExecution(draft.id(), offset[0], batch);
+              batch.clear();
+            }
+          });
+      if (!batch.isEmpty()) offset[0] = job.store.appendExecution(draft.id(), offset[0], batch);
+      var sealed = job.store.sealExecution(draft.id(), offset[0]);
+      job.storeRevision =
+          job.store.commit(
+              revision,
+              new MethodGraphStore.Batch(
+                  List.of(), List.of(), List.of(), List.of(MethodCursorStore.reference(sealed))));
+      previous.ifPresent(old -> job.store.discardExecution(old.id()));
+    } catch (RuntimeException | Error failure) {
+      try {
+        job.store.discardExecution(draft.id());
+      } catch (RuntimeException cleanup) {
+        failure.addSuppressed(cleanup);
+      }
+      throw failure;
+    }
+  }
+
+  private MethodGraphStore.Identity identity(CertifiedMethodSearchEngine engine, DiskInput input) {
+    return new MethodGraphStore.Identity(
+        CHECKPOINT_VERSION,
+        engine.calculationVersion(),
+        ConditionalMethodLaw.VERSION,
+        engine.templatesVersion(),
+        input.request().request().goal().catalogVersion(),
+        CertifiedInterval.VERSION,
+        "request-provenance",
+        encode(input));
+  }
+
   private final Map<String, Job> jobs = new LinkedHashMap<>();
   private final Clock clock;
   private final Executor executor;
@@ -39,6 +275,16 @@ final class CertifiedSearchJobs {
         || request.request() == null
         || request.precision() == null) throw new Rejected(422, "INVALID_REQUEST");
     synchronized (jobs) {
+      if (unavailable.values().stream()
+          .anyMatch(
+              input ->
+                  input.owner().equals(ownerKey(owner))
+                      && input
+                          .request()
+                          .request()
+                          .clientRequestId()
+                          .equals(request.request().clientRequestId())))
+        throw new Rejected(409, "CHECKPOINT_RECALCULATION_REQUIRED");
       jobs.values()
           .removeIf(
               j -> {
@@ -47,7 +293,7 @@ final class CertifiedSearchJobs {
                 return true;
               });
       for (var existing : jobs.values()) {
-        if (existing.owner.equals(owner)
+        if (existing.owner.equals(ownerKey(owner))
             && Objects.equals(
                 existing.request.request().clientRequestId(),
                 request.request().clientRequestId())) {
@@ -60,6 +306,12 @@ final class CertifiedSearchJobs {
       }
       if (jobs.size() >= 2) throw new Rejected(503, "SEARCH_CAPACITY_REACHED");
       var job = new Job(owner, request, factory.apply(request.request(), request.precision()));
+      if (repository != null) {
+        job.store =
+            repository.create(
+                new CertifiedJobRepository.Descriptor(
+                    job.id, identity(job.engine, new DiskInput(job.owner, request))));
+      }
       jobs.put(job.id, job);
       try (var ignored = job.acquireRequest()) {
         publish(job);
@@ -82,15 +334,19 @@ final class CertifiedSearchJobs {
           .anyMatch(
               j ->
                   !clock.instant().isAfter(j.expires)
-                      && j.owner.equals(owner)
+                      && j.owner.equals(ownerKey(owner))
                       && j.request.request().clientRequestId().equals(requestId));
     }
   }
 
   private Job job(String owner, String id) {
     synchronized (jobs) {
+      var rejected = unavailable.get(id);
+      if (rejected != null && rejected.owner().equals(ownerKey(owner)))
+        throw new Rejected(409, "CHECKPOINT_RECALCULATION_REQUIRED");
       var job = jobs.get(id);
-      if (job == null || !job.owner.equals(owner)) throw new Rejected(404, "SEARCH_NOT_FOUND");
+      if (job == null || !job.owner.equals(ownerKey(owner)))
+        throw new Rejected(404, "SEARCH_NOT_FOUND");
       if (clock.instant().isAfter(job.expires)) throw new Rejected(410, "SEARCH_EXPIRED");
       return job;
     }
@@ -136,6 +392,7 @@ final class CertifiedSearchJobs {
       }
       job.commands.put(command.commandId(), new Command(command, job.snapshot));
       while (job.commands.size() > 64) job.commands.remove(job.commands.keySet().iterator().next());
+      persist(job);
       return job.snapshot;
     }
   }
@@ -321,6 +578,7 @@ final class CertifiedSearchJobs {
         job.entries.put(entry.id, entry);
         job.bindings.put(request.requestId(), request);
         job.entryIds.put(request.requestId(), entry.id);
+        persist(job);
         return entryView(job, entry, 0);
       } catch (IllegalArgumentException ex) {
         throw new Rejected(422, "INVALID_CONDITIONAL_EXIT");
@@ -361,6 +619,7 @@ final class CertifiedSearchJobs {
         if (entryRetained(job) > job.entryLimit) break;
         work.expansion.step();
       }
+      persist(job);
       return entryView(job, work, 0);
     }
   }
@@ -481,7 +740,10 @@ final class CertifiedSearchJobs {
               if (job.engine.strategyFitsPreparationBudget())
                 job.strategy = job.engine.strategyWork();
               else job.strategyBlocked = "STRATEGY_PREPARATION_BUDGET";
-            } else job.strategy.step();
+            } else {
+              job.strategy.step();
+              job.strategySteps++;
+            }
           }
           if (job.finished()) {
             job.status = "COMPLETED";
@@ -513,6 +775,7 @@ final class CertifiedSearchJobs {
   }
 
   private void publish(Job job) {
+    if (job.store != null) job.engine.settleCheckpoint();
     if (job.snapshot != null
         && job.publishedGraphRevision == job.engine.graphRevision()
         && job.publishedStrategyRevision == (job.strategy == null ? -1 : job.strategy.revision())
@@ -597,6 +860,7 @@ final class CertifiedSearchJobs {
                               result.fixedPointPending());
                         })
                     .toList());
+    persist(job);
   }
 
   private void dispose(Job job) {
@@ -610,6 +874,7 @@ final class CertifiedSearchJobs {
       job.bindings.clear();
       job.entryIds.clear();
       job.engine.close();
+      if (job.store != null) job.store.close();
       job.strategy = null;
     }
   }
@@ -643,6 +908,17 @@ final class CertifiedSearchJobs {
       this.law = law;
       expansion = law.expansion();
     }
+
+    EntryWork(
+        String id,
+        String parent,
+        ConditionalMethodLaw law,
+        ConditionalMethodLaw.ExpansionCheckpoint saved) {
+      this.id = id;
+      this.parent = parent;
+      this.law = law;
+      this.expansion = law.restoreExpansion(saved);
+    }
   }
 
   private final class Job {
@@ -664,7 +940,10 @@ final class CertifiedSearchJobs {
       return guard;
     }
 
-    final String id = UUID.randomUUID().toString(), owner;
+    final String id, owner;
+    MethodGraphStore store;
+    long strategySteps;
+    long storeRevision;
     final Create request;
     final CertifiedMethodSearchEngine engine;
     volatile Instant expires = clock.instant().plus(Duration.ofMinutes(20));
@@ -695,6 +974,11 @@ final class CertifiedSearchJobs {
     volatile Snapshot snapshot;
 
     Job(String owner, Create request, CertifiedMethodSearchEngine engine) {
+      this(UUID.randomUUID().toString(), ownerKey(owner), request, engine);
+    }
+
+    Job(String id, String owner, Create request, CertifiedMethodSearchEngine engine) {
+      this.id = id;
       this.owner = owner;
       this.request = request;
       this.engine = engine;

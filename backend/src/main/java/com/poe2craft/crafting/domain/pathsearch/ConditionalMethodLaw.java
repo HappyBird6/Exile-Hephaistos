@@ -133,11 +133,148 @@ public final class ConditionalMethodLaw {
     return new Expansion();
   }
 
+  public record WeightedState(BasicCurrencyState state, Fraction mass) {}
+
+  public record TransportCheckpoint(
+      List<WeightedState> remaining,
+      List<WeightedState> next,
+      List<WeightedState> selected,
+      Fraction absorbed,
+      Fraction boundaryMass,
+      Fraction nextMass,
+      Fraction selectedMass,
+      Fraction sourceMass,
+      int phase,
+      long cycles,
+      boolean initializing,
+      boolean preparing,
+      boolean finishing,
+      int inputsConsumed,
+      int activeConsumed,
+      int normalized,
+      boolean selectingActive,
+      boolean normalizing,
+      BasicCurrencyState cursorSource,
+      WorkbenchCurrency cursorAction,
+      BasicCurrencyTransitions.PrimitiveCursor.Position position) {}
+
+  public record ExpansionCheckpoint(
+      String version,
+      int stage,
+      List<WeightedState> current,
+      Fraction eventProbability,
+      TransportCheckpoint transport) {}
+
+  private static List<WeightedState> rows(Map<BasicCurrencyState, Fraction> law) {
+    return law.entrySet().stream().map(e -> new WeightedState(e.getKey(), e.getValue())).toList();
+  }
+
+  private static Map<BasicCurrencyState, Fraction> law(List<WeightedState> rows) {
+    var result = new LinkedHashMap<BasicCurrencyState, Fraction>();
+    for (var row : rows)
+      if (result.putIfAbsent(row.state(), row.mass()) != null)
+        throw new IllegalArgumentException("Duplicate conditional state");
+    return result;
+  }
+
+  public Expansion restoreExpansion(ExpansionCheckpoint saved) {
+    if (!VERSION.equals(saved.version()) || saved.stage() < 0)
+      throw new IllegalArgumentException("Conditional checkpoint version mismatch");
+    var result = new Expansion();
+    if (saved.stage() > result.stages.size())
+      throw new IllegalArgumentException("Conditional stage outside operator chain");
+    for (int i = 0; i < saved.stage(); i++) result.stages.removeFirst();
+    result.stage = saved.stage();
+    result.current = law(saved.current());
+    result.eventProbability = saved.eventProbability();
+    if (!sum(result.current).equals(Fraction.ONE))
+      throw new IllegalArgumentException("Conditional input mass mismatch");
+    if (saved.transport() != null) {
+      var transport = new Transport(result.stages.removeFirst(), result.current);
+      var s = saved.transport();
+      transport.remaining = law(s.remaining());
+      transport.next = law(s.next());
+      transport.selected.putAll(law(s.selected()));
+      transport.absorbed = s.absorbed();
+      transport.boundaryMass = s.boundaryMass();
+      transport.nextMass = s.nextMass();
+      transport.selectedMass = s.selectedMass();
+      transport.sourceMass = s.sourceMass();
+      transport.phase = s.phase();
+      transport.cycles = s.cycles();
+      transport.initializing = s.initializing();
+      transport.preparing = s.preparing();
+      transport.finishing = s.finishing();
+      transport.inputsConsumed = s.inputsConsumed();
+      transport.activeConsumed = s.activeConsumed();
+      transport.normalized = s.normalized();
+      transport.inputs = transport.preparing ? result.current.entrySet().iterator() : null;
+      if (transport.inputs != null) skip(transport.inputs, s.inputsConsumed());
+      if (s.selectingActive()) {
+        transport.activeSelection = transport.remaining.entrySet().iterator();
+        skip(transport.activeSelection, s.activeConsumed());
+      }
+      if (s.normalizing()) {
+        transport.normalization = transport.selected.entrySet().iterator();
+        skip(transport.normalization, s.normalized());
+      }
+      if (s.position() != null) {
+        transport.cursorSource = s.cursorSource();
+        transport.cursorAction = s.cursorAction();
+        transport.cursor =
+            index.replay(index.classOf(s.cursorSource()), s.cursorSource(), s.cursorAction());
+        transport.cursor.restorePosition(s.position());
+      }
+      result.transport = transport;
+    }
+    return result;
+  }
+
+  private static void skip(Iterator<?> rows, int count) {
+    if (count < 0) throw new IllegalArgumentException("Negative conditional position");
+    for (int i = 0; i < count; i++) {
+      if (!rows.hasNext()) throw new IllegalArgumentException("Conditional position outside law");
+      rows.next();
+    }
+  }
+
   public final class Expansion {
     private final ArrayDeque<ConditionalMethodLaw> stages = new ArrayDeque<>();
     private Map<BasicCurrencyState, Fraction> current;
     private Transport transport;
     private Fraction eventProbability;
+    private int stage;
+
+    public ExpansionCheckpoint checkpoint() {
+      TransportCheckpoint saved = null;
+      if (transport != null) {
+        var t = transport;
+        saved =
+            new TransportCheckpoint(
+                rows(t.remaining),
+                rows(t.next),
+                rows(t.selected),
+                t.absorbed,
+                t.boundaryMass,
+                t.nextMass,
+                t.selectedMass,
+                t.sourceMass,
+                t.phase,
+                t.cycles,
+                t.initializing,
+                t.preparing,
+                t.finishing,
+                t.inputsConsumed,
+                t.activeConsumed,
+                t.normalized,
+                t.activeSelection != null,
+                t.normalization != null,
+                t.cursorSource,
+                t.cursorAction,
+                t.cursor == null ? null : t.cursor.position());
+      }
+      return new ExpansionCheckpoint(VERSION, stage, rows(current), eventProbability, saved);
+    }
 
     private Expansion() {
       var law = ConditionalMethodLaw.this;
@@ -170,6 +307,7 @@ public final class ConditionalMethodLaw {
         if (transport.law == ConditionalMethodLaw.this) eventProbability = transport.selectedMass;
         current = transport.result;
         transport = null;
+        stage++;
       }
     }
 
@@ -194,6 +332,9 @@ public final class ConditionalMethodLaw {
     Fraction boundaryMass = Fraction.ZERO, nextMass = Fraction.ZERO, selectedMass = Fraction.ZERO;
     Iterator<Map.Entry<BasicCurrencyState, Fraction>> inputs, activeSelection, normalization;
     BasicCurrencyTransitions.PrimitiveCursor cursor;
+    BasicCurrencyState cursorSource;
+    WorkbenchCurrency cursorAction;
+    int inputsConsumed, activeConsumed, normalized;
     Fraction sourceMass;
     int phase;
     long cycles;
@@ -210,6 +351,7 @@ public final class ConditionalMethodLaw {
       if (preparing) {
         if (inputs.hasNext()) {
           var entry = inputs.next();
+          inputsConsumed++;
           int id = law.index.classOf(entry.getKey());
           var terminal = law.classify.apply(id);
           if (terminal.isPresent()) absorb(entry.getKey(), id, entry.getValue(), terminal.get());
@@ -250,6 +392,8 @@ public final class ConditionalMethodLaw {
         var actions = initializing ? law.template.initial() : law.template.cycle();
         var action = Objects.requireNonNull(actions.get(phase).apply(id));
         cursor = law.index.replay(id, entry.getKey(), action);
+        cursorSource = entry.getKey();
+        cursorAction = action;
         sourceMass = entry.getValue();
         remaining.remove(entry.getKey());
         if (cursor.blocked()) {
@@ -298,6 +442,7 @@ public final class ConditionalMethodLaw {
       if (activeSelection != null) {
         if (activeSelection.hasNext()) {
           var entry = activeSelection.next();
+          activeConsumed++;
           if (law.index.classOf(entry.getKey()) == law.target)
             select(entry.getKey(), entry.getValue());
           return;
@@ -315,6 +460,7 @@ public final class ConditionalMethodLaw {
       }
       if (normalization.hasNext()) {
         var entry = normalization.next();
+        normalized++;
         entry.setValue(entry.getValue().divide(selectedMass));
         return;
       }

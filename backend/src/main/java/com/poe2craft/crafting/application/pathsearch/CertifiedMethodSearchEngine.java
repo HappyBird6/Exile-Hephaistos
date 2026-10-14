@@ -1,5 +1,7 @@
 package com.poe2craft.crafting.application.pathsearch;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.poe2craft.crafting.domain.*;
 import com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction;
 import com.poe2craft.crafting.domain.goalfilter.GoalEvaluator.Evaluation;
@@ -8,6 +10,7 @@ import com.poe2craft.crafting.domain.pathsearch.*;
 import com.poe2craft.crafting.domain.pathsearch.ExactMethodRunner.*;
 import com.poe2craft.item.ItemState;
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 /** Certified class marginals. Incoming item laws remain exact retained conditional operators. */
@@ -120,6 +123,331 @@ final class CertifiedMethodSearchEngine {
   }
 
   private long graphRevision;
+
+  record CheckpointLine(String kind, JsonNode value) {}
+
+  record ClassCheckpoint(int id, BasicCurrencyState witness, JsonNode key) {}
+
+  record StateCheckpoint(
+      int key, int depth, int discovery, int previewDiscovery, boolean expanded) {}
+
+  record MethodCheckpoint(
+      String id,
+      int source,
+      List<WorkbenchCurrency> initial,
+      List<WorkbenchCurrency> actions,
+      boolean done,
+      boolean executionDone,
+      String delegate) {}
+
+  record PointCheckpoint(
+      String method,
+      int cycles,
+      CertifiedMethodRunner.Observation<Integer, WorkbenchCurrency> point) {}
+
+  record QueueCheckpoint(
+      long operations,
+      long graphRevision,
+      int budget,
+      List<String> ready,
+      List<int[]> frontier,
+      List<int[]> previews,
+      List<PreviewPattern> patterns,
+      Map<Integer, Set<Integer>> adjacency,
+      List<WorkbenchSimulator.Assumption> assumptions) {}
+
+  /** Finish publication bookkeeping only; this never advances a primitive action. */
+  void settleCheckpoint() {
+    long before =
+        methods.values().stream()
+            .filter(m -> m.runner != null)
+            .mapToLong(m -> m.runner.retainedStates())
+            .sum();
+    if (freezeOwner != null) {
+      var owner = freezeOwner;
+      while (owner.freezing != null) owner.step();
+    }
+    for (var method : methods.values()) {
+      while (!method.publications.isEmpty()) method.step();
+    }
+    ready.removeIf(m -> m.done);
+    liveEntries +=
+        methods.values().stream()
+                .filter(m -> m.runner != null)
+                .mapToLong(m -> m.runner.retainedStates())
+                .sum()
+            - before;
+    shallowestReadyDepth =
+        ready.stream().mapToInt(m -> m.source.depth).min().orElse(Integer.MAX_VALUE);
+  }
+
+  void checkpoint(ObjectMapper json, Consumer<CheckpointLine> sink) {
+    if (freezeOwner != null || methods.values().stream().anyMatch(m -> !m.publications.isEmpty()))
+      throw new IllegalStateException("Checkpoint publication is not settled");
+    for (int id = 0; id < index.size(); id++)
+      sink.accept(
+          new CheckpointLine(
+              "CLASS",
+              json.valueToTree(
+                  new ClassCheckpoint(id, index.witness(id), json.valueToTree(index.key(id))))));
+    for (var state : states.values())
+      sink.accept(
+          new CheckpointLine(
+              "STATE",
+              json.valueToTree(
+                  new StateCheckpoint(
+                      state.key,
+                      state.depth,
+                      state.discovery,
+                      state.previewDiscovery,
+                      state.expanded))));
+    for (var method : methods.values()) {
+      sink.accept(
+          new CheckpointLine(
+              "METHOD",
+              json.valueToTree(
+                  new MethodCheckpoint(
+                      method.id,
+                      method.source.key,
+                      method.initial,
+                      method.actions,
+                      method.done,
+                      method.executionDone,
+                      method.delegate == null ? null : method.delegate.id))));
+      for (var point : method.saved.entrySet())
+        sink.accept(
+            new CheckpointLine(
+                "POINT",
+                json.valueToTree(
+                    new PointCheckpoint(
+                        method.id, point.getKey(), point.getValue().observation()))));
+      if (method.runner != null)
+        try (var lease = method.runner.leaseCursor()) {
+          sink.accept(new CheckpointLine("RUNNER", json.valueToTree(lease.header())));
+          lease
+              .rows()
+              .forEachRemaining(
+                  row -> sink.accept(new CheckpointLine("ROW", json.valueToTree(row))));
+          sink.accept(new CheckpointLine("END_RUNNER", json.valueToTree(method.id)));
+        }
+    }
+    sink.accept(
+        new CheckpointLine(
+            "QUEUES",
+            json.valueToTree(
+                new QueueCheckpoint(
+                    operations,
+                    graphRevision,
+                    budget,
+                    ready.stream().map(m -> m.id).toList(),
+                    frontier.stream().map(e -> new int[] {e.state.key, e.depth}).toList(),
+                    previews.stream().map(e -> new int[] {e.state.key, e.depth}).toList(),
+                    List.copyOf(previewedPatterns),
+                    adjacency,
+                    assumptions()))));
+  }
+
+  CheckpointRestore checkpointRestore(ObjectMapper json) {
+    return new CheckpointRestore(json);
+  }
+
+  final class CheckpointRestore implements AutoCloseable {
+    final ObjectMapper json;
+    final Map<String, String> delegates = new LinkedHashMap<>();
+    Method current;
+    IndexedCertifiedMethodRunner.Restoration runner;
+    QueueCheckpoint queues;
+    boolean finished;
+    int classes;
+
+    CheckpointRestore(ObjectMapper json) {
+      if (operations != 0 || index.size() != 1)
+        throw new IllegalStateException("Fresh engine required");
+      this.json = json;
+      states.clear();
+      frontier.clear();
+      previews.clear();
+      undiscovered = 0;
+    }
+
+    void accept(CheckpointLine line) {
+      if (finished) throw new IllegalStateException("Checkpoint restore finished");
+      switch (line.kind()) {
+        case "CLASS" -> {
+          var row = json.convertValue(line.value(), ClassCheckpoint.class);
+          if (row.id() != classes++
+              || index.intern(row.witness()) != row.id()
+              || !json.valueToTree(index.key(row.id()))
+                  .equals(
+                      (a, b) ->
+                          a.isNumber() && b.isNumber()
+                              ? a.decimalValue().compareTo(b.decimalValue())
+                              : a.equals(b) ? 0 : 1,
+                      row.key()))
+            throw new IllegalArgumentException("Transition class identity changed");
+        }
+        case "STATE" -> {
+          var row = json.convertValue(line.value(), StateCheckpoint.class);
+          int actions = BasicCurrencyTransitions.supportedActions().size();
+          if (row.depth() < 0
+              || row.discovery() < 0
+              || row.discovery() > actions
+              || row.previewDiscovery() < 0
+              || row.previewDiscovery() > actions)
+            throw new IllegalArgumentException("Invalid discovery position");
+          var state = new State(row.key(), row.depth(), progress(row.key()));
+          state.discovery = row.discovery();
+          state.previewDiscovery = row.previewDiscovery();
+          state.expanded = row.expanded();
+          if (states.putIfAbsent(row.key(), state) != null)
+            throw new IllegalArgumentException("Duplicate state");
+          if (!state.expanded) undiscovered++;
+        }
+        case "METHOD" -> {
+          if (runner != null) throw new IllegalArgumentException("Unfinished runner");
+          var row = json.convertValue(line.value(), MethodCheckpoint.class);
+          if (row.actions().isEmpty()
+              || !row.id().equals(id(row.source()) + ":" + row.initial() + ">" + row.actions()))
+            throw new IllegalArgumentException("Method definition identity changed");
+          current =
+              new Method(
+                  Objects.requireNonNull(states.get(row.source())),
+                  row.id(),
+                  row.initial(),
+                  row.actions());
+          current.done = row.done();
+          current.executionDone = row.executionDone();
+          current.prepared = true;
+          if (methods.putIfAbsent(row.id(), current) != null)
+            throw new IllegalArgumentException("Duplicate method");
+          current.source.methods.add(current);
+          if (row.delegate() != null) delegates.put(row.id(), row.delegate());
+        }
+        case "POINT" -> {
+          var row = json.convertValue(line.value(), PointCheckpoint.class);
+          if (current == null || !current.id.equals(row.method()))
+            throw new IllegalArgumentException("Point owner mismatch");
+          if (!MethodSearchCalculation.OBSERVATIONS.contains(row.cycles())
+              || current.saved.containsKey(row.cycles())
+              || row.point().cycles() != row.cycles())
+            throw new IllegalArgumentException("Invalid observation horizon");
+          var method = current;
+          var point =
+              IndexedCertifiedMethodRunner.restoredSnapshot(
+                      index,
+                      method.source.key,
+                      method.template(),
+                      target ->
+                          classify(
+                              method.source,
+                              target,
+                              method.initial.isEmpty() && method.actions.size() == 1),
+                      precision,
+                      row.point())
+                  .freeze(laws);
+          // Derive only display summaries. Discovery queues and adjacency are restored separately.
+          var parts = new ArrayList<>(point.observation().exits().values());
+          parts.add(point.observation().active());
+          for (var law : parts) {
+            var totals = new LinkedHashMap<MethodSearchCalculation.Progress, CertifiedInterval>();
+            law.forEach(
+                (target, mass) ->
+                    totals.merge(progress(target), mass, (a, b) -> a.add(b).probability()));
+            progressLaws.put(law, Map.copyOf(totals));
+            progressLawEntries += totals.size() + 1;
+            current.linkedLaws.add(law);
+          }
+          current.publish(row.cycles(), point);
+        }
+        case "RUNNER" -> {
+          if (current == null || runner != null)
+            throw new IllegalArgumentException("Invalid runner owner");
+          CertifiedMethodRunner.CursorHeader<Integer> header =
+              json.convertValue(
+                  line.value(),
+                  json.getTypeFactory()
+                      .constructParametricType(
+                          CertifiedMethodRunner.CursorHeader.class, Integer.class));
+          var method = current;
+          runner =
+              IndexedCertifiedMethodRunner.restoreCursor(
+                  header,
+                  kernels,
+                  method.source.key,
+                  method.template(),
+                  target ->
+                      classify(
+                          method.source,
+                          target,
+                          method.initial.isEmpty() && method.actions.size() == 1),
+                  precision,
+                  absorptionStore);
+        }
+        case "ROW" -> {
+          if (runner == null) throw new IllegalArgumentException("Missing runner header");
+          runner.accept(
+              json.convertValue(
+                  line.value(),
+                  json.getTypeFactory()
+                      .constructParametricType(
+                          CertifiedMethodRunner.CursorRow.class,
+                          Integer.class,
+                          WorkbenchCurrency.class)));
+        }
+        case "END_RUNNER" -> {
+          if (runner == null || !current.id.equals(line.value().asText()))
+            throw new IllegalArgumentException("Runner owner mismatch");
+          current.runner = runner.finish();
+          runner = null;
+          liveEntries += current.runner.retainedStates();
+        }
+        case "QUEUES" -> {
+          if (queues != null) throw new IllegalArgumentException("Duplicate queues");
+          queues = json.convertValue(line.value(), QueueCheckpoint.class);
+        }
+        default -> throw new IllegalArgumentException("Unknown engine checkpoint row");
+      }
+    }
+
+    void finish() {
+      if (finished || runner != null || queues == null || !states.containsKey(root))
+        throw new IllegalArgumentException("Incomplete engine checkpoint");
+      for (var entry : delegates.entrySet()) {
+        var method = methods.get(entry.getKey());
+        var owner = Objects.requireNonNull(methods.get(entry.getValue()));
+        var first = kernels.request(owner.source.key, owner.initial.getFirst());
+        while (!first.complete()) first.step();
+        var second = kernels.request(method.source.key, method.initial.getFirst());
+        while (!second.complete()) second.step();
+        method.delegate = owner;
+        method.equivalence =
+            new IndexedCertifiedMethodRunner.InitialLaw(first)
+                .equivalentTo(new IndexedCertifiedMethodRunner.InitialLaw(second));
+      }
+      ready.clear();
+      for (var id : queues.ready()) ready.addLast(Objects.requireNonNull(methods.get(id)));
+      frontier.clear();
+      for (var e : queues.frontier())
+        frontier.add(new Expansion(Objects.requireNonNull(states.get(e[0])), e[1]));
+      previews.clear();
+      for (var e : queues.previews())
+        previews.add(new Expansion(Objects.requireNonNull(states.get(e[0])), e[1]));
+      previewedPatterns.addAll(queues.patterns());
+      adjacency.putAll(queues.adjacency());
+      assumptions.addAll(queues.assumptions());
+      operations = queues.operations();
+      graphRevision = queues.graphRevision();
+      budget = queues.budget();
+      shallowestReadyDepth =
+          ready.stream().mapToInt(m -> m.source.depth).min().orElse(Integer.MAX_VALUE);
+      finished = true;
+    }
+
+    public void close() {
+      if (runner != null) runner.close();
+    }
+  }
+
   private int undiscovered;
 
   private record Expansion(State state, int depth) {}
@@ -806,6 +1134,13 @@ final class CertifiedMethodSearchEngine {
     final Set<Map<Integer, CertifiedInterval>> linkedLaws =
         Collections.newSetFromMap(new IdentityHashMap<>());
     boolean done, unresolved;
+
+    Template<Integer, WorkbenchCurrency> template() {
+      return new Template<>(
+          templatesVersion() + id,
+          initial.stream().<Function<Integer, WorkbenchCurrency>>map(a -> s -> a).toList(),
+          actions.stream().<Function<Integer, WorkbenchCurrency>>map(a -> s -> a).toList());
+    }
 
     Method(
         State source, String id, List<WorkbenchCurrency> initial, List<WorkbenchCurrency> actions) {
