@@ -12,7 +12,7 @@ import java.util.function.Function;
 
 /** Certified class marginals. Incoming item laws remain exact retained conditional operators. */
 final class CertifiedMethodSearchEngine {
-  static final String VERSION = "certified-method-map-v4-lazy-law-pages";
+  static final String VERSION = "certified-method-map-v5-cooperative-law-pages";
   private final CertifiedLawStore laws;
   private final BasicClassIndex index;
   private final CertifiedInterval.Precision precision;
@@ -21,6 +21,7 @@ final class CertifiedMethodSearchEngine {
   private final List<Integer> entryOffsets = new ArrayList<>();
   private long liveEntries, savedEntries;
   private long preparationEntries;
+  private Method freezeOwner;
 
   private record Preparation(
       int source,
@@ -141,11 +142,19 @@ final class CertifiedMethodSearchEngine {
     return laws.metrics();
   }
 
+  long freezeTransientBytes() {
+    return freezeOwner == null || freezeOwner.freezing == null
+        ? 0
+        : freezeOwner.freezing.transientBytes();
+  }
+
   boolean storageLimited() {
     return laws.packedBytes() > 32L * 1024 * 1024;
   }
 
   void close() {
+    if (freezeOwner != null && freezeOwner.freezing != null) freezeOwner.freezing.close();
+    freezeOwner = null;
     ready.clear();
     preparations.clear();
     methods.clear();
@@ -183,6 +192,7 @@ final class CertifiedMethodSearchEngine {
       int preparationGroups,
       long preparationEntries,
       long sharedMethods,
+      long freezeTransientBytes,
       CertifiedLawStore.Metrics lawStorage,
       BasicTransitionClasses.ProfileMetrics additionProfiles,
       List<MethodRetention> largestMethods) {}
@@ -239,6 +249,7 @@ final class CertifiedMethodSearchEngine {
         preparations.size(),
         preparationEntries,
         methods.values().stream().filter(m -> m.delegate != null).count(),
+        freezeTransientBytes(),
         laws.metrics(),
         index.profileMetrics(),
         List.copyOf(largest.subList(0, Math.min(12, largest.size()))));
@@ -465,57 +476,77 @@ final class CertifiedMethodSearchEngine {
         input,
         law -> {
           savedEntries += law.size();
-          return Collections.unmodifiableMap(
-              new AbstractMap<>() {
-                @Override
-                public Collection<CertifiedInterval> values() {
-                  return law.values();
-                }
-
-                @Override
-                public int size() {
-                  return law.size();
-                }
-
-                @Override
-                public CertifiedInterval get(Object key) {
-                  if (!(key instanceof String text) || !text.startsWith("class:")) return null;
-                  try {
-                    int parsed = Integer.parseInt(text.substring(6));
-                    return parsed >= 0 && text.equals("class:" + parsed) ? law.get(parsed) : null;
-                  } catch (NumberFormatException ignored) {
-                    return null;
-                  }
-                }
-
-                @Override
-                public Set<Map.Entry<String, CertifiedInterval>> entrySet() {
-                  return new AbstractSet<>() {
-                    @Override
-                    public int size() {
-                      return law.size();
-                    }
-
-                    @Override
-                    public Iterator<Map.Entry<String, CertifiedInterval>> iterator() {
-                      var source = law.entrySet().iterator();
-                      return new Iterator<>() {
-                        @Override
-                        public boolean hasNext() {
-                          return source.hasNext();
-                        }
-
-                        @Override
-                        public Map.Entry<String, CertifiedInterval> next() {
-                          var next = source.next();
-                          return Map.entry(id(next.getKey()), next.getValue());
-                        }
-                      };
-                    }
-                  };
-                }
-              });
+          return new IdentifierLaw(law);
         });
+  }
+
+  private final class IdentifierLaw extends AbstractMap<String, CertifiedInterval>
+      implements CertifiedLawStore.PagedLaw<String> {
+    private final Map<Integer, CertifiedInterval> law;
+
+    IdentifierLaw(Map<Integer, CertifiedInterval> law) {
+      this.law = law;
+    }
+
+    @Override
+    public CertifiedInterval total() {
+      return CertifiedLawStore.total(law, precision.fractionalBits());
+    }
+
+    @Override
+    public List<Map.Entry<String, CertifiedInterval>> page(int offset, int limit) {
+      return CertifiedLawStore.page(law, offset, limit).stream()
+          .map(e -> Map.entry(id(e.getKey()), e.getValue()))
+          .toList();
+    }
+
+    @Override
+    public Collection<CertifiedInterval> values() {
+      return law.values();
+    }
+
+    @Override
+    public int size() {
+      return law.size();
+    }
+
+    @Override
+    public CertifiedInterval get(Object key) {
+      if (!(key instanceof String text) || !text.startsWith("class:")) return null;
+      try {
+        int parsed = Integer.parseInt(text.substring(6));
+        return parsed >= 0 && text.equals("class:" + parsed) ? law.get(parsed) : null;
+      } catch (NumberFormatException ignored) {
+        return null;
+      }
+    }
+
+    @Override
+    public Set<Map.Entry<String, CertifiedInterval>> entrySet() {
+      return new AbstractSet<>() {
+        @Override
+        public int size() {
+          return law.size();
+        }
+
+        @Override
+        public Iterator<Map.Entry<String, CertifiedInterval>> iterator() {
+          var source = law.entrySet().iterator();
+          return new Iterator<>() {
+            @Override
+            public boolean hasNext() {
+              return source.hasNext();
+            }
+
+            @Override
+            public Map.Entry<String, CertifiedInterval> next() {
+              var next = source.next();
+              return Map.entry(id(next.getKey()), next.getValue());
+            }
+          };
+        }
+      };
+    }
   }
 
   private static final class State {
@@ -540,6 +571,9 @@ final class CertifiedMethodSearchEngine {
     final Map<Integer, CertifiedMethodRunner.Observation<String, WorkbenchCurrency>> points =
         new LinkedHashMap<>();
     IndexedCertifiedMethodRunner runner;
+    IndexedCertifiedMethodRunner.FrozenSnapshot freezing;
+    final ArrayDeque<Publication> publications = new ArrayDeque<>();
+    boolean executionDone;
     IndexedKernelStore.Request preparationRequest;
     Method delegate;
     IndexedCertifiedMethodRunner.InitialEquivalence equivalence;
@@ -557,6 +591,15 @@ final class CertifiedMethodSearchEngine {
     }
 
     void step() {
+      if (!publications.isEmpty()) {
+        if (publications.peekFirst().step()) publications.removeFirst();
+        if (publications.isEmpty() && executionDone) done = true;
+        return;
+      }
+      if (executionDone) {
+        done = true;
+        return;
+      }
       if (!prepared && !initial.isEmpty()) {
         if (preparationRequest == null)
           preparationRequest = kernels.request(source.key, initial.getFirst());
@@ -592,7 +635,7 @@ final class CertifiedMethodSearchEngine {
         for (int cycles : MethodSearchCalculation.OBSERVATIONS)
           if (!saved.containsKey(cycles) && delegate.saved.containsKey(cycles))
             save(cycles, delegate.saved.get(cycles).withEquivalentInitial(equivalence));
-        done = delegate.done;
+        executionDone = delegate.done;
         return;
       }
       if (runner == null)
@@ -619,24 +662,74 @@ final class CertifiedMethodSearchEngine {
         runner.beginCycle();
         return;
       }
-      var snapshot = runner.snapshot().freeze(laws);
+      if (freezing == null) {
+        if (freezeOwner != null && freezeOwner != this) return;
+        freezeOwner = this;
+        freezing = runner.freezeSnapshot(laws);
+        return;
+      }
+      if (!freezing.complete()) {
+        freezing.step();
+        return;
+      }
+      var snapshot = freezing.result();
+      freezing.close();
+      freezing = null;
+      freezeOwner = null;
       var point = snapshot.observation();
       if (point.active().isEmpty()) {
         for (int cycles : MethodSearchCalculation.OBSERVATIONS)
           if (!saved.containsKey(cycles)) save(cycles, snapshot.atLaterAbsorbedBoundary(cycles));
-        done = true;
+        executionDone = true;
         runner = null;
         return;
       }
       int cycles = Math.toIntExact(point.cycles());
       if (MethodSearchCalculation.OBSERVATIONS.contains(cycles)) save(cycles, snapshot);
       if (cycles == 500) {
-        done = true;
+        executionDone = true;
         runner = null;
       } else runner.beginCycle();
     }
 
     void save(int cycles, IndexedCertifiedMethodRunner.Snapshot snapshot) {
+      publications.addLast(new Publication(cycles, snapshot));
+    }
+
+    private final class Publication {
+      final int cycles;
+      final IndexedCertifiedMethodRunner.Snapshot snapshot;
+      final Iterator<Map<Integer, CertifiedInterval>> lawsToLink;
+      Iterator<Integer> targets = Collections.emptyIterator();
+
+      Publication(int cycles, IndexedCertifiedMethodRunner.Snapshot snapshot) {
+        this.cycles = cycles;
+        this.snapshot = snapshot;
+        var laws = new ArrayList<>(snapshot.observation().exits().values());
+        laws.add(snapshot.observation().active());
+        lawsToLink = laws.iterator();
+      }
+
+      boolean step() {
+        int used = 0;
+        while (used < 256) {
+          if (targets.hasNext()) {
+            link(source, targets.next());
+            used++;
+            continue;
+          }
+          if (!lawsToLink.hasNext()) {
+            publish(cycles, snapshot);
+            return true;
+          }
+          var law = lawsToLink.next();
+          if (linkedLaws.add(law)) targets = law.keySet().iterator();
+        }
+        return false;
+      }
+    }
+
+    void publish(int cycles, IndexedCertifiedMethodRunner.Snapshot snapshot) {
       saved.put(cycles, snapshot);
       var point = snapshot.observation();
       var exits = new EnumMap<Exit, Map<String, CertifiedInterval>>(Exit.class);
@@ -644,11 +737,8 @@ final class CertifiedMethodSearchEngine {
           .exits()
           .forEach(
               (kind, law) -> {
-                if (linkedLaws.add(law)) law.keySet().forEach(target -> link(source, target));
                 exits.put(kind, ids(law));
               });
-      if (linkedLaws.add(point.active()))
-        point.active().keySet().forEach(target -> link(source, target));
       unresolved |= !point.exits().get(Exit.UNRESOLVED).isEmpty();
       points.put(
           cycles,

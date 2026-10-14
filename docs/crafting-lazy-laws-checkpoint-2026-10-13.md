@@ -4,6 +4,10 @@ The user requested a safe stop and remote backup before 2026-10-13 17:45 KST.
 Do not resume automatically after the stop report. This branch is a backup of an
 unfinished implementation, not a completed feature or a release candidate.
 
+The user explicitly resumed work on 2026-10-14. The historical stop instruction
+above no longer blocks that resumed work. See `crafting-lazy-laws.md` for the
+subsequent original-WIP verification, measurements and implementation changes.
+
 ## Verified baseline
 
 - Host: DESKTOP-NTUJ7E4.

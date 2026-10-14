@@ -66,7 +66,15 @@ class CertifiedPreparationSharingTest {
       runner.beginCycle();
       while (!runner.atBoundary()) runner.step();
     }
-    var rebound = runner.snapshot().atLaterAbsorbedBoundary(100).withEquivalentInitial(crossProof);
+    var pages = new CertifiedLawStore(64);
+    var frozen = runner.freezeSnapshot(pages);
+    assertThatThrownBy(runner::beginCycle).isInstanceOf(IllegalStateException.class);
+    int freezeSteps = 0;
+    while (!frozen.complete() && freezeSteps++ < 10000) frozen.step();
+    assertThat(frozen.complete()).isTrue();
+    assertThat(freezeSteps).isGreaterThan(1);
+    var rebound = frozen.result().atLaterAbsorbedBoundary(100).withEquivalentInitial(crossProof);
+    frozen.close();
     assertThat(rebound.observation().initialUses()).containsOnlyKeys(WorkbenchCurrency.CHAOS);
     var actualInput = index.witness(otherSource);
     assertThat(actualInput.item().explicits()).hasSize(1);
@@ -80,6 +88,7 @@ class CertifiedPreparationSharingTest {
     assertThat(expansion.complete()).isTrue();
     assertThat(expansion.result()).containsExactlyEntriesOf(Map.of(root, Fraction.ONE));
     assertThat(expansion.probability()).isEqualTo(Fraction.ONE);
+    pages.close();
   }
 
   @Test

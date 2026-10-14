@@ -99,6 +99,92 @@ public final class IndexedCertifiedMethodRunner {
     return new Snapshot(store.index(), source, template, classify, precision, runner.observation());
   }
 
+  public FrozenSnapshot freezeSnapshot(CertifiedLawStore store) {
+    return new FrozenSnapshot(store);
+  }
+
+  /** Cooperative storage of a leased boundary; no duplicate row maps are captured. */
+  public final class FrozenSnapshot implements AutoCloseable {
+    private final CertifiedLawStore store;
+    private CertifiedMethodRunner<Integer, WorkbenchCurrency>.ObservationLease lease;
+    private final Map<ExactMethodRunner.Exit, Map<Integer, CertifiedInterval>> exits =
+        new EnumMap<>(ExactMethodRunner.Exit.class);
+    private CertifiedLawStore.Freeze current;
+    private int part;
+    private Snapshot result;
+    private boolean closed;
+
+    private FrozenSnapshot(CertifiedLawStore store) {
+      this.store = store;
+      lease = runner.leaseObservation();
+    }
+
+    public boolean complete() {
+      return result != null;
+    }
+
+    public long transientBytes() {
+      return current == null ? 0 : current.transientBytes();
+    }
+
+    public void step() {
+      if (closed) throw new IllegalStateException("Snapshot freeze closed");
+      if (complete()) return;
+      var point = lease.point();
+      var kinds = ExactMethodRunner.Exit.values();
+      if (current == null) {
+        current =
+            store.prepare(part < kinds.length ? point.exits().get(kinds[part]) : point.active());
+        return;
+      }
+      if (!current.complete()) {
+        current.step();
+        return;
+      }
+      if (part < kinds.length) {
+        exits.put(kinds[part++], current.result());
+        current = null;
+        return;
+      }
+      result =
+          new Snapshot(
+              storeIndex(),
+              source,
+              template,
+              classify,
+              precision,
+              new CertifiedMethodRunner.Observation<>(
+                  point.cycles(),
+                  Map.copyOf(exits),
+                  current.result(),
+                  point.initialUses(),
+                  point.cycleUses(),
+                  point.mass()));
+      lease.close();
+      lease = null;
+      current = null;
+      exits.clear();
+    }
+
+    private BasicClassIndex storeIndex() {
+      return IndexedCertifiedMethodRunner.this.store.index();
+    }
+
+    public Snapshot result() {
+      if (!complete()) throw new IllegalStateException("Partial snapshot freeze");
+      return result;
+    }
+
+    @Override
+    public void close() {
+      closed = true;
+      if (lease != null) lease.close();
+      lease = null;
+      current = null;
+      exits.clear();
+    }
+  }
+
   /** Certified from a completed shared primitive request, never from an asserted hash. */
   public static final class InitialLaw {
     private final BasicClassIndex index;

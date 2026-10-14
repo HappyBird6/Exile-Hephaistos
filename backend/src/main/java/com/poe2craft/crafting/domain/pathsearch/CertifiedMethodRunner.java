@@ -39,6 +39,7 @@ public final class CertifiedMethodRunner<S, A> {
   private long cycles;
   private long absorbedEntries;
   private Flight flight;
+  private boolean observationLeased;
 
   private final class Flight {
     final Execution<S> execution;
@@ -110,6 +111,7 @@ public final class CertifiedMethodRunner<S, A> {
   }
 
   public void beginCycle() {
+    if (observationLeased) throw new IllegalStateException("Observation is being frozen");
     if (!atBoundary || cycles == Long.MAX_VALUE)
       throw new IllegalStateException("Cannot begin cycle");
     boundary.forEach((state, mass) -> pending.put(new Execution<>(state, 0), mass));
@@ -137,6 +139,7 @@ public final class CertifiedMethodRunner<S, A> {
   }
 
   public void step(int allowance) {
+    if (observationLeased) throw new IllegalStateException("Observation is being frozen");
     if (allowance < 1 || atBoundary)
       throw new IllegalStateException("Active phase and positive allowance required");
     if (flight == null) {
@@ -204,5 +207,44 @@ public final class CertifiedMethodRunner<S, A> {
         Map.copyOf(initialUses),
         Map.copyOf(cycleUses),
         absorbedMass.add(boundaryMass));
+  }
+
+  /** Internal immutable view lease: advancement is blocked until the reader releases it. */
+  final class ObservationLease implements AutoCloseable {
+    private final Observation<S, A> point;
+    private boolean closed;
+
+    private ObservationLease() {
+      if (!atBoundary || observationLeased)
+        throw new IllegalStateException("Boundary lease unavailable");
+      observationLeased = true;
+      var view = new EnumMap<Exit, Map<S, CertifiedInterval>>(Exit.class);
+      exits.forEach((kind, law) -> view.put(kind, Collections.unmodifiableMap(law)));
+      point =
+          new Observation<>(
+              cycles,
+              Map.copyOf(view),
+              Collections.unmodifiableMap(boundary),
+              Map.copyOf(initialUses),
+              Map.copyOf(cycleUses),
+              absorbedMass.add(boundaryMass));
+    }
+
+    Observation<S, A> point() {
+      if (closed) throw new IllegalStateException("Observation lease closed");
+      return point;
+    }
+
+    @Override
+    public void close() {
+      if (!closed) {
+        closed = true;
+        observationLeased = false;
+      }
+    }
+  }
+
+  ObservationLease leaseObservation() {
+    return new ObservationLease();
   }
 }

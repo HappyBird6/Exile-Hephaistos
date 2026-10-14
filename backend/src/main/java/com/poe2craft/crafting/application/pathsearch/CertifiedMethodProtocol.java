@@ -54,6 +54,7 @@ public final class CertifiedMethodProtocol {
       long storedClassRows,
       long packedBytes,
       long packedByteLimit,
+      long transientFreezeBytes,
       int materializedRows,
       int uniquePages) {}
 
@@ -151,13 +152,13 @@ public final class CertifiedMethodProtocol {
                           exits.put(
                               kind.name(),
                               Bounds.probability(
-                                  sum(law.values(), precision), precision.percentDecimals())));
+                                  sum(law, precision), precision.percentDecimals())));
               points.add(
                   new Point(
                       entry.getKey(),
                       Map.copyOf(exits),
                       Bounds.probability(
-                          sum(point.active().values(), precision), precision.percentDecimals()),
+                          sum(point.active(), precision), precision.percentDecimals()),
                       quantities(point.initialUses()),
                       quantities(point.cycleUses())));
             });
@@ -191,8 +192,8 @@ public final class CertifiedMethodProtocol {
           choices.add(
               new CertifiedRecommendations.Choice(
                   method.id(),
-                  sum(point.exits().get(ExactMethodRunner.Exit.GOAL).values(), precision),
-                  sum(point.exits().get(ExactMethodRunner.Exit.UNRESOLVED).values(), precision)));
+                  sum(point.exits().get(ExactMethodRunner.Exit.GOAL), precision),
+                  sum(point.exits().get(ExactMethodRunner.Exit.UNRESOLVED), precision)));
         }
         var ranked = CertifiedRecommendations.local(choices, complete);
         result.add(new Local(state.id(), cycles, ranked.status(), ranked.methodIds()));
@@ -202,7 +203,7 @@ public final class CertifiedMethodProtocol {
   }
 
   private static CertifiedInterval sum(
-      Collection<CertifiedInterval> values, CertifiedInterval.Precision precision) {
+      Map<?, CertifiedInterval> values, CertifiedInterval.Precision precision) {
     return CertifiedLawStore.total(values, precision.fractionalBits());
   }
 

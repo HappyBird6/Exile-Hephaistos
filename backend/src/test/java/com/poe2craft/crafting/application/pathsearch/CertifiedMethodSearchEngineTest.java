@@ -70,6 +70,10 @@ class CertifiedMethodSearchEngineTest {
                 methods.put(
                     new Identity(exactStates.get(m.source()), m.initialActions(), m.actions()), m));
     assertThat(bounded.methods()).hasSize(methods.size()).hasSizeGreaterThan(6);
+    long decodedBeforeSummaries = bounded.storage().decodedPages();
+    bounded.methods().forEach(m -> CertifiedMethodProtocol.method(m, bounded.precision()));
+    CertifiedMethodProtocol.locals(bounded.states(), bounded.methods(), bounded.precision());
+    assertThat(bounded.storage().decodedPages()).isEqualTo(decodedBeforeSummaries);
     var absorbed =
         bounded.methods().stream()
             .filter(

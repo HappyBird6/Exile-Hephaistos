@@ -9,6 +9,24 @@ import java.util.*;
 import org.junit.jupiter.api.Test;
 
 class CertifiedMethodRunnerTest {
+  @Test
+  void leasedBoundaryBlocksAdvancementUntilCooperativeStorageFinishes() {
+    var runner = runner(64, List.of(), List.of("add", "remove"));
+    var lease = runner.leaseObservation();
+    assertThat(lease.point().active()).containsOnlyKeys(0);
+    assertThatThrownBy(runner::beginCycle).isInstanceOf(IllegalStateException.class);
+    assertThatThrownBy(() -> runner.step(1)).isInstanceOf(IllegalStateException.class);
+    assertThatThrownBy(runner::leaseObservation).isInstanceOf(IllegalStateException.class);
+    assertThatThrownBy(() -> lease.point().active().clear())
+        .isInstanceOf(UnsupportedOperationException.class);
+    lease.close();
+    lease.close();
+    assertThatThrownBy(lease::point).isInstanceOf(IllegalStateException.class);
+    runner.beginCycle();
+    while (!runner.atBoundary()) runner.step(1);
+    assertThat(runner.observation().exits().get(Exit.GOAL).get(2).contains(f(2, 7))).isTrue();
+  }
+
   static Fraction f(long a, long b) {
     return new Fraction(BigInteger.valueOf(a), BigInteger.valueOf(b));
   }

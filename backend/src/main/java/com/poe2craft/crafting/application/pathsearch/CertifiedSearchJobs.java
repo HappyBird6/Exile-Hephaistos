@@ -52,7 +52,7 @@ final class CertifiedSearchJobs {
                 existing.request.request().clientRequestId(),
                 request.request().clientRequestId())) {
           if (!existing.request.equals(request)) throw new Rejected(409, "REQUEST_ID_REUSED");
-          try (var ignored = existing.acquire()) {
+          try (var ignored = existing.acquireRequest()) {
             return new Started(
                 existing.snapshot, entryView(existing, existing.entries.get("root"), 0));
           }
@@ -61,7 +61,7 @@ final class CertifiedSearchJobs {
       if (jobs.size() >= 2) throw new Rejected(503, "SEARCH_CAPACITY_REACHED");
       var job = new Job(owner, request, factory.apply(request.request(), request.precision()));
       jobs.put(job.id, job);
-      try (var ignored = job.acquire()) {
+      try (var ignored = job.acquireRequest()) {
         publish(job);
         submit(job);
         return new Started(job.snapshot, entryView(job, job.entries.get("root"), 0));
@@ -103,7 +103,7 @@ final class CertifiedSearchJobs {
         || !Set.of("CANCEL", "RESUME").contains(Objects.toString(command.operation(), "")))
       throw new Rejected(422, "INVALID_REQUEST");
     var job = job(owner, id);
-    try (var ignored = job.acquire()) {
+    try (var ignored = job.acquireRequest()) {
       var old = job.commands.get(command.commandId());
       if (old != null) {
         if (!old.command().equals(command)) throw new Rejected(409, "COMMAND_ID_REUSED");
@@ -139,7 +139,7 @@ final class CertifiedSearchJobs {
 
   Graph graph(String owner, String id, long revision, int stateOffset, int methodOffset) {
     var job = job(owner, id);
-    try (var ignored = job.acquire()) {
+    try (var ignored = job.acquireRequest()) {
       var saved = revision(job, revision);
       checkOffset(stateOffset, saved.states.size());
       checkOffset(methodOffset, saved.methods.size());
@@ -176,34 +176,28 @@ final class CertifiedSearchJobs {
   Outcomes outcomes(
       String owner, String id, long revision, String methodId, int cycles, int offset) {
     var job = job(owner, id);
-    try (var ignored = job.acquire()) {
+    try (var ignored = job.acquireRequest()) {
       var method = method(revision(job, revision), methodId);
       var point = method.points().get(cycles);
       if (point == null) throw new Rejected(409, "OBSERVATION_NOT_READY");
       int size = point.active().size() + point.exits().values().stream().mapToInt(Map::size).sum();
       checkOffset(offset, size);
       var result = new ArrayList<Outcome>();
-      int position = 0;
+      int remainingOffset = offset;
       for (var kind : ExactMethodRunner.Exit.values())
-        for (var entry : point.exits().get(kind).entrySet()) {
-          if (position >= offset && result.size() < 48)
-            result.add(
-                new Outcome(
-                    kind.name(),
-                    entry.getKey(),
-                    Bounds.probability(
-                        entry.getValue(), job.engine.precision().percentDecimals())));
-          position++;
-        }
-      for (var entry : point.active().entrySet()) {
-        if (position >= offset && result.size() < 48)
-          result.add(
-              new Outcome(
-                  "ACTIVE",
-                  entry.getKey(),
-                  Bounds.probability(entry.getValue(), job.engine.precision().percentDecimals())));
-        position++;
-      }
+        remainingOffset =
+            appendOutcomes(
+                result,
+                kind.name(),
+                point.exits().get(kind),
+                remainingOffset,
+                job.engine.precision().percentDecimals());
+      appendOutcomes(
+          result,
+          "ACTIVE",
+          point.active(),
+          remainingOffset,
+          job.engine.precision().percentDecimals());
       return new Outcomes(
           id,
           revision,
@@ -212,6 +206,19 @@ final class CertifiedSearchJobs {
           List.copyOf(result),
           offset + result.size() < size ? offset + result.size() : null);
     }
+  }
+
+  private static int appendOutcomes(
+      List<Outcome> result,
+      String kind,
+      Map<String, CertifiedInterval> law,
+      int offset,
+      int decimals) {
+    if (result.size() == 48) return 0;
+    if (offset >= law.size()) return offset - law.size();
+    for (var entry : CertifiedLawStore.page(law, offset, 48 - result.size()))
+      result.add(new Outcome(kind, entry.getKey(), Bounds.probability(entry.getValue(), decimals)));
+    return 0;
   }
 
   Entry bind(String owner, String id, IndexedMethodProtocol.Bind request) {
@@ -226,7 +233,7 @@ final class CertifiedSearchJobs {
         || request.kind() == null
         || request.kind().equals("UNRESOLVED")) throw new Rejected(422, "INVALID_REQUEST");
     var job = job(owner, id);
-    try (var ignored = job.acquire()) {
+    try (var ignored = job.acquireRequest()) {
       var previous = job.bindings.get(request.requestId());
       if (previous != null) {
         if (!previous.equals(request)) throw new Rejected(409, "REQUEST_ID_REUSED");
@@ -262,7 +269,7 @@ final class CertifiedSearchJobs {
 
   Entry entry(String owner, String id, String entryId, int offset) {
     var job = job(owner, id);
-    try (var ignored = job.acquire()) {
+    try (var ignored = job.acquireRequest()) {
       return entryView(job, entryWork(job, entryId), offset);
     }
   }
@@ -278,7 +285,7 @@ final class CertifiedSearchJobs {
         || request.retainedStateLimit() < 1
         || request.retainedStateLimit() > 1000000) throw new Rejected(422, "INVALID_REQUEST");
     var job = job(owner, id);
-    try (var ignored = job.acquire()) {
+    try (var ignored = job.acquireRequest()) {
       if (request.expectedGeneration() != job.generation)
         throw new Rejected(409, "GENERATION_CONFLICT");
       if (job.status.equals("CANCELLED")) throw new Rejected(409, "SEARCH_CANCELLED");
@@ -469,6 +476,7 @@ final class CertifiedSearchJobs {
                 job.engine.storage().storedRows(),
                 job.engine.storage().packedBytes(),
                 32L * 1024 * 1024,
+                job.engine.freezeTransientBytes(),
                 job.engine.storage().materializedRows(),
                 job.engine.storage().uniquePages()),
             CertifiedMethodProtocol.locals(rootStates, rootMethods, job.engine.precision()));
@@ -478,6 +486,7 @@ final class CertifiedSearchJobs {
     try (var ignored = job.acquire()) {
       job.generation++;
       job.status = "EXPIRED";
+      job.disposed = true;
       job.revisions.clear();
       job.commands.clear();
       job.entries.clear();
@@ -527,6 +536,15 @@ final class CertifiedSearchJobs {
       return lock::unlock;
     }
 
+    Guard acquireRequest() {
+      var guard = acquire();
+      if (disposed || clock.instant().isAfter(expires)) {
+        guard.close();
+        throw new Rejected(410, "SEARCH_EXPIRED");
+      }
+      return guard;
+    }
+
     final String id = UUID.randomUUID().toString(), owner;
     final Create request;
     final CertifiedMethodSearchEngine engine;
@@ -537,6 +555,7 @@ final class CertifiedSearchJobs {
     final Map<String, IndexedMethodProtocol.Bind> bindings = new LinkedHashMap<>();
     final Map<String, String> entryIds = new LinkedHashMap<>();
     long revision = -1, generation;
+    boolean disposed;
     int limit = 100000, entryLimit = 1;
     String status = "QUEUED", reason;
     volatile Snapshot snapshot;

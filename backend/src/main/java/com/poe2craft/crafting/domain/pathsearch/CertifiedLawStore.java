@@ -11,12 +11,29 @@ public final class CertifiedLawStore implements AutoCloseable {
   private static final int PAGE_ROWS = 256;
   private final int bits;
   private final Map<Bytes, Page> pages = new HashMap<>();
-  private final LinkedHashMap<Page, Map<Integer, CertifiedInterval>> cache =
-      new LinkedHashMap<>(16, .75f, true);
-  private long bytes, rows, reused;
+  private final LinkedHashMap<Page, Decoded> cache = new LinkedHashMap<>(16, .75f, true);
+  private long bytes, rows, reused, decoded;
   private int cachedRows;
   private long descriptors;
   private boolean closed;
+
+  public interface PagedLaw<K> extends Map<K, CertifiedInterval> {
+    CertifiedInterval total();
+
+    List<Map.Entry<K, CertifiedInterval>> page(int offset, int limit);
+  }
+
+  public static <K> List<Map.Entry<K, CertifiedInterval>> page(
+      Map<K, CertifiedInterval> law, int offset, int limit) {
+    if (offset < 0 || offset > law.size() || limit < 0)
+      throw new IllegalArgumentException("Invalid law page");
+    if (law instanceof PagedLaw<K> paged) return paged.page(offset, limit);
+    return law.entrySet().stream()
+        .skip(offset)
+        .limit(limit)
+        .map(e -> Map.entry(e.getKey(), e.getValue()))
+        .toList();
+  }
 
   public CertifiedLawStore(int bits) {
     new CertifiedInterval.Precision(bits, 0);
@@ -45,16 +62,23 @@ public final class CertifiedLawStore implements AutoCloseable {
 
   private record Page(Bytes bytes, int first, int last, int size) {}
 
+  private record Decoded(int[] keys, CertifiedInterval[] values) {
+    Map.Entry<Integer, CertifiedInterval> entry(int index) {
+      return Map.entry(keys[index], values[index]);
+    }
+  }
+
   public record Metrics(
       long storedRows,
       long packedBytes,
       int uniquePages,
       int materializedRows,
       long reusedPages,
-      long descriptors) {}
+      long descriptors,
+      long decodedPages) {}
 
   public Metrics metrics() {
-    return new Metrics(rows, bytes, pages.size(), materializedRows(), reused, descriptors);
+    return new Metrics(rows, bytes, pages.size(), materializedRows(), reused, descriptors, decoded);
   }
 
   public int materializedRows() {
@@ -83,7 +107,8 @@ public final class CertifiedLawStore implements AutoCloseable {
     return cursor.result();
   }
 
-  public Freeze prepare(Map<Integer, CertifiedInterval> input) {
+  /** Package-internal borrowed input, protected by the runner's observation lease. */
+  Freeze prepare(Map<Integer, CertifiedInterval> input) {
     open();
     return new Freeze(input);
   }
@@ -92,6 +117,10 @@ public final class CertifiedLawStore implements AutoCloseable {
   public final class Freeze {
     private Map<Integer, CertifiedInterval> input;
     private int[] keys;
+    private int[] scratch;
+    private Iterator<Integer> inputKeys;
+    private final int[] counts = new int[256];
+    private int phase, shift;
     private int position;
     private final List<Page> result = new ArrayList<>();
     private CertifiedInterval total = CertifiedInterval.zero(bits);
@@ -105,8 +134,9 @@ public final class CertifiedLawStore implements AutoCloseable {
         this.input = null;
         return;
       }
-      keys = input.keySet().stream().mapToInt(Integer::intValue).toArray();
-      Arrays.sort(keys);
+      keys = new int[input.size()];
+      scratch = new int[input.size()];
+      inputKeys = input.keySet().iterator();
     }
 
     public boolean complete() {
@@ -114,9 +144,62 @@ public final class CertifiedLawStore implements AutoCloseable {
       return finished != null;
     }
 
+    public long transientBytes() {
+      return keys == null ? 0 : 8L * keys.length + 1024;
+    }
+
     public void step() {
       open();
       if (complete()) return;
+      if (phase == 0) {
+        for (int n = 0; n < PAGE_ROWS && inputKeys.hasNext(); n++) {
+          int key = inputKeys.next();
+          if (key < 0) throw new IllegalArgumentException("Negative class id");
+          keys[position++] = key;
+        }
+        if (!inputKeys.hasNext()) {
+          inputKeys = null;
+          position = 0;
+          phase = 1;
+        }
+        return;
+      }
+      if (phase == 1) {
+        int end = Math.min(position + PAGE_ROWS, keys.length);
+        for (; position < end; position++) counts[(keys[position] >>> shift) & 255]++;
+        if (position == keys.length) {
+          position = 0;
+          phase = 2;
+        }
+        return;
+      }
+      if (phase == 2) {
+        int offset = 0;
+        for (int i = 0; i < counts.length; i++) {
+          int count = counts[i];
+          counts[i] = offset;
+          offset += count;
+        }
+        phase = 3;
+        return;
+      }
+      if (phase == 3) {
+        int end = Math.min(position + PAGE_ROWS, keys.length);
+        for (; position < end; position++) {
+          int key = keys[position];
+          scratch[counts[(key >>> shift) & 255]++] = key;
+        }
+        if (position == keys.length) {
+          var swap = keys;
+          keys = scratch;
+          scratch = swap;
+          shift += 8;
+          position = 0;
+          Arrays.fill(counts, 0);
+          phase = shift == 32 ? 4 : 1;
+        }
+        return;
+      }
       var batch = new ArrayList<Map.Entry<Integer, CertifiedInterval>>(PAGE_ROWS);
       int end = Math.min(position + PAGE_ROWS, keys.length);
       for (; position < end; position++) {
@@ -135,6 +218,7 @@ public final class CertifiedLawStore implements AutoCloseable {
         finished = new Law(List.copyOf(result), keys.length, total.probability());
         input = null;
         keys = null;
+        scratch = null;
         result.clear();
       }
     }
@@ -182,25 +266,30 @@ public final class CertifiedLawStore implements AutoCloseable {
     data.write(encoded);
   }
 
-  private Map<Integer, CertifiedInterval> read(Page page) {
+  private Decoded read(Page page) {
     open();
     var found = cache.get(page);
     if (found != null) return found;
-    var result = new LinkedHashMap<Integer, CertifiedInterval>();
+    var keys = new int[page.size];
+    var values = new CertifiedInterval[page.size];
     try (var data =
         new DataInputStream(new InflaterInputStream(new ByteArrayInputStream(page.bytes.data)))) {
       int count = data.readInt();
       if (count != page.size) throw new IllegalStateException("Corrupt page");
-      for (int i = 0; i < count; i++)
-        result.put(data.readInt(), new CertifiedInterval(bits, integer(data), integer(data)));
+      for (int i = 0; i < count; i++) {
+        keys[i] = data.readInt();
+        values[i] = new CertifiedInterval(bits, integer(data), integer(data));
+      }
       if (data.read() != -1) throw new IllegalStateException("Trailing page data");
     } catch (IOException ex) {
       throw new UncheckedIOException(ex);
     }
-    var immutable = Collections.unmodifiableMap(result);
+    var immutable = new Decoded(keys, values);
+    decoded++;
     cache.put(page, immutable);
-    cachedRows += immutable.size();
-    while (cache.size() > 4) cachedRows -= cache.remove(cache.keySet().iterator().next()).size();
+    cachedRows += keys.length;
+    while (cache.size() > 4)
+      cachedRows -= cache.remove(cache.keySet().iterator().next()).keys.length;
     return immutable;
   }
 
@@ -213,12 +302,12 @@ public final class CertifiedLawStore implements AutoCloseable {
   }
 
   public static CertifiedInterval total(Map<?, CertifiedInterval> law, int bits) {
-    if (law instanceof CertifiedLawStore.Law packed) return packed.total;
+    if (law instanceof PagedLaw<?> packed) return packed.total();
     return total(law.values(), bits);
   }
 
   public static CertifiedInterval total(Collection<CertifiedInterval> values, int bits) {
-    if (values instanceof CertifiedLawStore.Values packed) return packed.law.total;
+    if (values instanceof CertifiedLawStore.Values packed) return packed.law.total();
     var sum = CertifiedInterval.zero(bits);
     for (var value : values) sum = sum.add(value);
     return sum.probability();
@@ -253,7 +342,8 @@ public final class CertifiedLawStore implements AutoCloseable {
     }
   }
 
-  private final class Law extends AbstractMap<Integer, CertifiedInterval> {
+  private final class Law extends AbstractMap<Integer, CertifiedInterval>
+      implements PagedLaw<Integer> {
     final List<Page> parts;
     final int size;
     final CertifiedInterval total;
@@ -266,6 +356,28 @@ public final class CertifiedLawStore implements AutoCloseable {
 
     CertifiedLawStore owner() {
       return CertifiedLawStore.this;
+    }
+
+    @Override
+    public CertifiedInterval total() {
+      open();
+      return total;
+    }
+
+    @Override
+    public List<Map.Entry<Integer, CertifiedInterval>> page(int offset, int limit) {
+      open();
+      if (offset < 0 || offset > size || limit < 0)
+        throw new IllegalArgumentException("Invalid law page");
+      var result = new ArrayList<Map.Entry<Integer, CertifiedInterval>>();
+      int end = (int) Math.min(size, (long) offset + limit);
+      for (int part = offset / PAGE_ROWS; offset < end; part++) {
+        var decoded = read(parts.get(part));
+        for (int row = offset % PAGE_ROWS;
+            row < decoded.keys.length && offset < end;
+            row++, offset++) result.add(decoded.entry(row));
+      }
+      return List.copyOf(result);
     }
 
     @Override
@@ -290,7 +402,11 @@ public final class CertifiedLawStore implements AutoCloseable {
         var page = parts.get(mid);
         if (target < page.first) high = mid - 1;
         else if (target > page.last) low = mid + 1;
-        else return read(page).get(target);
+        else {
+          var decoded = read(page);
+          int found = Arrays.binarySearch(decoded.keys, target);
+          return found < 0 ? null : decoded.values[found];
+        }
       }
       return null;
     }
@@ -308,21 +424,19 @@ public final class CertifiedLawStore implements AutoCloseable {
             @Override
             public Iterator<Map.Entry<Integer, CertifiedInterval>> iterator() {
               return new Iterator<>() {
-                int page;
-                Iterator<Map.Entry<Integer, CertifiedInterval>> current =
-                    Collections.emptyIterator();
+                int position;
 
                 @Override
                 public boolean hasNext() {
                   open();
-                  return current.hasNext() || page < parts.size();
+                  return position < size;
                 }
 
                 @Override
                 public Map.Entry<Integer, CertifiedInterval> next() {
                   if (!hasNext()) throw new NoSuchElementException();
-                  if (!current.hasNext()) current = read(parts.get(page++)).entrySet().iterator();
-                  return current.next();
+                  int row = position++;
+                  return read(parts.get(row / PAGE_ROWS)).entry(row % PAGE_ROWS);
                 }
               };
             }
