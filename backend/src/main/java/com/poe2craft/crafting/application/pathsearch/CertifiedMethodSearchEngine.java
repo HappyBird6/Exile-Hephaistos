@@ -508,7 +508,9 @@ final class CertifiedMethodSearchEngine {
       String status,
       String reason,
       Map<Integer, CertifiedMethodRunner.Observation<String, WorkbenchCurrency>> points,
-      Map<Integer, Map<MethodSearchCalculation.Progress, CertifiedInterval>> checkpoints) {}
+      Map<Integer, Map<MethodSearchCalculation.Progress, CertifiedInterval>> checkpoints,
+      Map<Integer, Map<String, Map<MethodSearchCalculation.Progress, CertifiedInterval>>>
+          branches) {}
 
   private Optional<Exit> classify(State source, int key, boolean structural) {
     var now = progress(key);
@@ -559,7 +561,8 @@ final class CertifiedMethodSearchEngine {
                     m.done ? m.unresolved ? "UNSUPPORTED" : "COMPLETE" : "PARTIAL",
                     null,
                     Map.copyOf(m.points),
-                    Map.copyOf(m.checkpoints)))
+                    Map.copyOf(m.checkpoints),
+                    Map.copyOf(m.branches)))
         .toList();
   }
 
@@ -697,6 +700,8 @@ final class CertifiedMethodSearchEngine {
         new LinkedHashMap<>();
     final Map<Integer, Map<MethodSearchCalculation.Progress, CertifiedInterval>> checkpoints =
         new LinkedHashMap<>();
+    final Map<Integer, Map<String, Map<MethodSearchCalculation.Progress, CertifiedInterval>>>
+        branches = new LinkedHashMap<>();
     IndexedCertifiedMethodRunner runner;
     IndexedCertifiedMethodRunner.FrozenSnapshot freezing;
     final ArrayDeque<Publication> publications = new ArrayDeque<>();
@@ -887,6 +892,12 @@ final class CertifiedMethodSearchEngine {
                 (target, mass) -> targets.merge(target, mass, (a, b) -> a.add(b).probability()));
       checkpoints.put(cycles, Map.copyOf(targets));
       targetSummaryEntries += targets.size() + 1;
+      var exitsByProgress =
+          new LinkedHashMap<String, Map<MethodSearchCalculation.Progress, CertifiedInterval>>();
+      point.exits().forEach((kind, law) -> exitsByProgress.put(kind.name(), progressLaws.get(law)));
+      exitsByProgress.put("ACTIVE", progressLaws.get(point.active()));
+      branches.put(cycles, Map.copyOf(exitsByProgress));
+      targetSummaryEntries += exitsByProgress.size() + 1;
       var exits = new EnumMap<Exit, Map<String, CertifiedInterval>>(Exit.class);
       point
           .exits()

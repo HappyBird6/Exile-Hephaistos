@@ -40,28 +40,52 @@ export function validateGraph(graph: Graph) {
     for (const point of method.points) {
       if (![100, 300, 500].includes(point.cycles))
         throw new Error('INVALID_CYCLES')
-      let n = 0n,
-        d = 1n
-      for (const p of [
-        point.unresolved,
-        ...point.exits.map((e) => e.probability),
-      ]) {
-        probability(p)
-        const pn = BigInt(p.numerator),
-          pd = BigInt(p.denominator)
-        n = n * pd + pn * d
-        d *= pd
-        let a = n,
-          b = d
-        while (b !== 0n) {
-          const remainder = a % b
-          a = b
-          b = remainder
-        }
-        n /= a
-        d /= a
+      const masses = [
+        point.unresolvedBounds ?? {
+          lower: point.unresolved,
+          upper: point.unresolved,
+        },
+        ...point.exits.map(
+          (e) => e.bounds ?? { lower: e.probability, upper: e.probability },
+        ),
+      ]
+      for (const mass of masses) {
+        probability(mass.lower)
+        probability(mass.upper)
+        if (
+          BigInt(mass.lower.numerator) * BigInt(mass.upper.denominator) >
+          BigInt(mass.upper.numerator) * BigInt(mass.lower.denominator)
+        )
+          throw new Error('INVALID_PROBABILITY')
       }
-      if (n !== d || point.exits.some((e) => !buckets.has(e.bucketId)))
+      const sum = (values: Fraction[]) => {
+        let n = 0n,
+          d = 1n
+        for (const p of values) {
+          probability(p)
+          const pn = BigInt(p.numerator),
+            pd = BigInt(p.denominator)
+          n = n * pd + pn * d
+          d *= pd
+          let a = n,
+            b = d
+          while (b !== 0n) {
+            const remainder = a % b
+            a = b
+            b = remainder
+          }
+          n /= a
+          d /= a
+        }
+        return { n, d }
+      }
+      const lower = sum(masses.map((m) => m.lower)),
+        upper = sum(masses.map((m) => m.upper))
+      if (
+        lower.n > lower.d ||
+        upper.n < upper.d ||
+        point.exits.some((e) => !buckets.has(e.bucketId))
+      )
         throw new Error('INVALID_MASS')
     }
   }

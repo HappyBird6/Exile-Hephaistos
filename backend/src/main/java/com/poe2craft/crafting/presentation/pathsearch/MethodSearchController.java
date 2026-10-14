@@ -1,6 +1,7 @@
 package com.poe2craft.crafting.presentation.pathsearch;
 
 import com.fasterxml.jackson.databind.*;
+import com.poe2craft.crafting.application.pathsearch.CertifiedMapProtocol;
 import com.poe2craft.crafting.application.pathsearch.CertifiedMethodProtocol;
 import com.poe2craft.crafting.application.pathsearch.IndexedMethodProtocol;
 import com.poe2craft.crafting.application.pathsearch.MethodSearchProtocol.*;
@@ -83,6 +84,35 @@ public final class MethodSearchController {
       HttpServletRequest request,
       HttpServletResponse response) {
     return service.certifiedOutcomes(
+        owner(request, response), id, revision, methodId, cycles, offset);
+  }
+
+  @GetMapping("/certified/{id}/map")
+  public CertifiedMapProtocol.Graph certifiedMap(
+      @PathVariable String id,
+      @RequestParam long revision,
+      @RequestParam(defaultValue = "0") int offset,
+      HttpServletRequest request,
+      HttpServletResponse response) {
+    return service.certifiedMap(owner(request, response), id, revision, offset);
+  }
+
+  @GetMapping("/certified/{id}/view")
+  public CertifiedMapProtocol.View certifiedView(
+      @PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
+    return service.certifiedView(owner(request, response), id);
+  }
+
+  @GetMapping("/certified/{id}/map-outcomes")
+  public CertifiedMapProtocol.Distribution certifiedMapOutcomes(
+      @PathVariable String id,
+      @RequestParam long revision,
+      @RequestParam String methodId,
+      @RequestParam int cycles,
+      @RequestParam(defaultValue = "0") int offset,
+      HttpServletRequest request,
+      HttpServletResponse response) {
+    return service.certifiedMapOutcomes(
         owner(request, response), id, revision, methodId, cycles, offset);
   }
 

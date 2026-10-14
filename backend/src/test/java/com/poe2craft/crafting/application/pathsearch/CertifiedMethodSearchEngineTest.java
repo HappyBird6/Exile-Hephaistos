@@ -109,6 +109,31 @@ class CertifiedMethodSearchEngineTest {
     assertThat(bounded.methods()).hasSize(methods.size()).hasSizeGreaterThan(6);
     long decodedBeforeSummaries = bounded.storage().decodedPages();
     bounded.methods().forEach(m -> CertifiedMethodProtocol.method(m, bounded.precision()));
+    var displayStates = bounded.states();
+    var displayMethods = bounded.methods();
+    var displayed = new ArrayList<String>();
+    for (int offset = 0; ; ) {
+      var page =
+          CertifiedMapProtocol.graph(
+              "fixture", 1, displayStates, displayMethods, offset, bounded.precision());
+      assertThat(page.buckets().stream().mapToInt(MethodSearchProtocol.Bucket::states).sum())
+          .isEqualTo(displayStates.size());
+      var bucketIds = page.buckets().stream().map(MethodSearchProtocol.Bucket::id).toList();
+      for (var arrow : page.methods()) {
+        assertThat(bucketIds).contains(arrow.sourceBucketId());
+        arrow
+            .points()
+            .forEach(
+                point ->
+                    point.exits().forEach(exit -> assertThat(bucketIds).contains(exit.bucketId())));
+        displayed.add(arrow.id());
+      }
+      if (page.nextOffset() == null) break;
+      offset = page.nextOffset();
+    }
+    assertThat(displayed)
+        .containsExactlyElementsOf(
+            displayMethods.stream().map(CertifiedMethodSearchEngine.MethodView::id).toList());
     var locals =
         CertifiedMethodProtocol.locals(bounded.states(), bounded.methods(), bounded.precision());
     assertThat(
@@ -179,6 +204,16 @@ class CertifiedMethodSearchEngineTest {
           .forEach(
               (cycles, point) -> {
                 var expected = reference.points().get(cycles);
+                expected
+                    .exits()
+                    .forEach(
+                        (kind, law) ->
+                            verifyProgress(
+                                law,
+                                exactProgress,
+                                method.branches().get(cycles).get(kind.name())));
+                verifyProgress(
+                    expected.active(), exactProgress, method.branches().get(cycles).get("ACTIVE"));
                 var checkpointTotals = new HashMap<MethodSearchCalculation.Progress, Fraction>();
                 for (var kind :
                     List.of(
@@ -227,6 +262,16 @@ class CertifiedMethodSearchEngineTest {
     var result = new HashMap<String, BasicTransitionClasses.Key>();
     states.forEach(s -> result.put(s.id(), classes.key(s.representative().representative())));
     return result;
+  }
+
+  private static void verifyProgress(
+      Map<String, Fraction> law,
+      Map<String, MethodSearchCalculation.Progress> progress,
+      Map<MethodSearchCalculation.Progress, CertifiedInterval> actual) {
+    var expected = new HashMap<MethodSearchCalculation.Progress, Fraction>();
+    law.forEach((id, mass) -> expected.merge(progress.get(id), mass, Fraction::add));
+    assertThat(actual.keySet()).isEqualTo(expected.keySet());
+    expected.forEach((target, mass) -> assertThat(actual.get(target).contains(mass)).isTrue());
   }
 
   private static void verify(

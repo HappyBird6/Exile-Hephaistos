@@ -1,0 +1,1675 @@
+{
+  "search": {
+    "version": "certified-bucket-map-v1",
+    "jobId": "synthetic-diamond",
+    "clientRequestId": "synthetic-diamond-request",
+    "revision": 1,
+    "generation": 0,
+    "status": "COMPLETED",
+    "reason": null,
+    "resumable": false,
+    "enumerationComplete": true,
+    "rootStateId": "root",
+    "strategyStatus": "CERTIFIED",
+    "localRecommendations": [
+      {
+        "stateId": "root",
+        "cycles": 100,
+        "target": null,
+        "status": "CERTIFIED",
+        "methodIds": ["direct"]
+      }
+    ],
+    "strategies": [
+      {
+        "stateId": "root",
+        "cycles": 100,
+        "status": "EXACT",
+        "lower": {
+          "numerator": "1",
+          "denominator": "1"
+        },
+        "upper": {
+          "numerator": "1",
+          "denominator": "1"
+        },
+        "methodIds": ["branch"]
+      }
+    ]
+  },
+  "graph": {
+    "version": "certified-bucket-map-v1",
+    "jobId": "synthetic-diamond",
+    "revision": 1,
+    "buckets": [
+      {
+        "id": "root",
+        "depth": 0,
+        "goal": "NO_MATCH",
+        "entries": ["NO_MATCH", "NO_MATCH"],
+        "states": 1,
+        "representative": {
+          "snapshotId": "poe2db-amulets-base-2026-09-29-a4f439852790",
+          "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [
+            {
+              "modifierId": "solar-amulet:implicit:spirit",
+              "values": {
+                "base_spirit_from_equipment": 10
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "amulet:suffix:of-the-seal",
+              "values": {
+                "base_cold_damage_resistance_%": 6
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "directComplete": true
+      },
+      {
+        "id": "A",
+        "depth": 1,
+        "goal": "NO_MATCH",
+        "entries": ["MATCH", "NO_MATCH"],
+        "states": 1,
+        "representative": {
+          "snapshotId": "poe2db-amulets-base-2026-09-29-a4f439852790",
+          "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [
+            {
+              "modifierId": "solar-amulet:implicit:spirit",
+              "values": {
+                "base_spirit_from_equipment": 10
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "amulet:suffix:of-the-seal",
+              "values": {
+                "base_cold_damage_resistance_%": 6
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "directComplete": true
+      },
+      {
+        "id": "B",
+        "depth": 1,
+        "goal": "NO_MATCH",
+        "entries": ["NO_MATCH", "MATCH"],
+        "states": 1,
+        "representative": {
+          "snapshotId": "poe2db-amulets-base-2026-09-29-a4f439852790",
+          "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [
+            {
+              "modifierId": "solar-amulet:implicit:spirit",
+              "values": {
+                "base_spirit_from_equipment": 10
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "amulet:suffix:of-the-seal",
+              "values": {
+                "base_cold_damage_resistance_%": 6
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "directComplete": true
+      },
+      {
+        "id": "C",
+        "depth": 2,
+        "goal": "MATCH",
+        "entries": ["MATCH", "MATCH"],
+        "states": 1,
+        "representative": {
+          "snapshotId": "poe2db-amulets-base-2026-09-29-a4f439852790",
+          "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [
+            {
+              "modifierId": "solar-amulet:implicit:spirit",
+              "values": {
+                "base_spirit_from_equipment": 10
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "amulet:suffix:of-the-seal",
+              "values": {
+                "base_cold_damage_resistance_%": 6
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "directComplete": true
+      },
+      {
+        "id": "dead",
+        "depth": 2,
+        "goal": "NO_MATCH",
+        "entries": ["NO_MATCH", "NO_MATCH"],
+        "states": 1,
+        "representative": {
+          "snapshotId": "poe2db-amulets-base-2026-09-29-a4f439852790",
+          "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [
+            {
+              "modifierId": "solar-amulet:implicit:spirit",
+              "values": {
+                "base_spirit_from_equipment": 10
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "amulet:suffix:of-the-seal",
+              "values": {
+                "base_cold_damage_resistance_%": 6
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "directComplete": true
+      }
+    ],
+    "methods": [
+      {
+        "id": "direct",
+        "sourceStateId": "root",
+        "sourceBucketId": "root",
+        "sourceItem": {
+          "snapshotId": "poe2db-amulets-base-2026-09-29-a4f439852790",
+          "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [
+            {
+              "modifierId": "solar-amulet:implicit:spirit",
+              "values": {
+                "base_spirit_from_equipment": 10
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "amulet:suffix:of-the-seal",
+              "values": {
+                "base_cold_damage_resistance_%": 6
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "sourceRolls": {},
+        "sourceTiers": {},
+        "sourceOrbits": {},
+        "initialActions": [],
+        "cycleActions": ["EXALTED"],
+        "status": "COMPLETE",
+        "points": [
+          {
+            "cycles": 100,
+            "exits": [
+              {
+                "bucketId": "C",
+                "kind": "GOAL",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              },
+              {
+                "bucketId": "dead",
+                "kind": "DEAD",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              }
+            ],
+            "unresolved": {
+              "lower": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "upper": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "arithmeticWidth": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "exact": true,
+              "confirmedPercent": null
+            },
+            "initialUses": {},
+            "cycleUses": {
+              "EXALTED": {
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "arithmeticWidth": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "exact": true,
+                "confirmedPercent": null
+              }
+            }
+          },
+          {
+            "cycles": 300,
+            "exits": [
+              {
+                "bucketId": "C",
+                "kind": "GOAL",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              },
+              {
+                "bucketId": "dead",
+                "kind": "DEAD",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              }
+            ],
+            "unresolved": {
+              "lower": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "upper": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "arithmeticWidth": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "exact": true,
+              "confirmedPercent": null
+            },
+            "initialUses": {},
+            "cycleUses": {
+              "EXALTED": {
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "arithmeticWidth": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "exact": true,
+                "confirmedPercent": null
+              }
+            }
+          },
+          {
+            "cycles": 500,
+            "exits": [
+              {
+                "bucketId": "C",
+                "kind": "GOAL",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              },
+              {
+                "bucketId": "dead",
+                "kind": "DEAD",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              }
+            ],
+            "unresolved": {
+              "lower": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "upper": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "arithmeticWidth": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "exact": true,
+              "confirmedPercent": null
+            },
+            "initialUses": {},
+            "cycleUses": {
+              "EXALTED": {
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "arithmeticWidth": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "exact": true,
+                "confirmedPercent": null
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "branch",
+        "sourceStateId": "root",
+        "sourceBucketId": "root",
+        "sourceItem": {
+          "snapshotId": "poe2db-amulets-base-2026-09-29-a4f439852790",
+          "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [
+            {
+              "modifierId": "solar-amulet:implicit:spirit",
+              "values": {
+                "base_spirit_from_equipment": 10
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "amulet:suffix:of-the-seal",
+              "values": {
+                "base_cold_damage_resistance_%": 6
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "sourceRolls": {},
+        "sourceTiers": {},
+        "sourceOrbits": {},
+        "initialActions": [],
+        "cycleActions": ["EXALTED"],
+        "status": "COMPLETE",
+        "points": [
+          {
+            "cycles": 100,
+            "exits": [
+              {
+                "bucketId": "A",
+                "kind": "CHECKPOINT",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              },
+              {
+                "bucketId": "B",
+                "kind": "CHECKPOINT",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              }
+            ],
+            "unresolved": {
+              "lower": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "upper": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "arithmeticWidth": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "exact": true,
+              "confirmedPercent": null
+            },
+            "initialUses": {},
+            "cycleUses": {
+              "EXALTED": {
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "arithmeticWidth": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "exact": true,
+                "confirmedPercent": null
+              }
+            }
+          },
+          {
+            "cycles": 300,
+            "exits": [
+              {
+                "bucketId": "A",
+                "kind": "CHECKPOINT",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              },
+              {
+                "bucketId": "B",
+                "kind": "CHECKPOINT",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              }
+            ],
+            "unresolved": {
+              "lower": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "upper": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "arithmeticWidth": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "exact": true,
+              "confirmedPercent": null
+            },
+            "initialUses": {},
+            "cycleUses": {
+              "EXALTED": {
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "arithmeticWidth": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "exact": true,
+                "confirmedPercent": null
+              }
+            }
+          },
+          {
+            "cycles": 500,
+            "exits": [
+              {
+                "bucketId": "A",
+                "kind": "CHECKPOINT",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              },
+              {
+                "bucketId": "B",
+                "kind": "CHECKPOINT",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "2"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              }
+            ],
+            "unresolved": {
+              "lower": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "upper": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "arithmeticWidth": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "exact": true,
+              "confirmedPercent": null
+            },
+            "initialUses": {},
+            "cycleUses": {
+              "EXALTED": {
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "arithmeticWidth": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "exact": true,
+                "confirmedPercent": null
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "finish-A",
+        "sourceStateId": "A",
+        "sourceBucketId": "A",
+        "sourceItem": {
+          "snapshotId": "poe2db-amulets-base-2026-09-29-a4f439852790",
+          "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [
+            {
+              "modifierId": "solar-amulet:implicit:spirit",
+              "values": {
+                "base_spirit_from_equipment": 10
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "amulet:suffix:of-the-seal",
+              "values": {
+                "base_cold_damage_resistance_%": 6
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "sourceRolls": {},
+        "sourceTiers": {},
+        "sourceOrbits": {},
+        "initialActions": [],
+        "cycleActions": ["EXALTED"],
+        "status": "COMPLETE",
+        "points": [
+          {
+            "cycles": 100,
+            "exits": [
+              {
+                "bucketId": "C",
+                "kind": "GOAL",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              }
+            ],
+            "unresolved": {
+              "lower": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "upper": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "arithmeticWidth": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "exact": true,
+              "confirmedPercent": null
+            },
+            "initialUses": {},
+            "cycleUses": {
+              "EXALTED": {
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "arithmeticWidth": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "exact": true,
+                "confirmedPercent": null
+              }
+            }
+          },
+          {
+            "cycles": 300,
+            "exits": [
+              {
+                "bucketId": "C",
+                "kind": "GOAL",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              }
+            ],
+            "unresolved": {
+              "lower": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "upper": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "arithmeticWidth": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "exact": true,
+              "confirmedPercent": null
+            },
+            "initialUses": {},
+            "cycleUses": {
+              "EXALTED": {
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "arithmeticWidth": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "exact": true,
+                "confirmedPercent": null
+              }
+            }
+          },
+          {
+            "cycles": 500,
+            "exits": [
+              {
+                "bucketId": "C",
+                "kind": "GOAL",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              }
+            ],
+            "unresolved": {
+              "lower": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "upper": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "arithmeticWidth": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "exact": true,
+              "confirmedPercent": null
+            },
+            "initialUses": {},
+            "cycleUses": {
+              "EXALTED": {
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "arithmeticWidth": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "exact": true,
+                "confirmedPercent": null
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "other-A",
+        "sourceStateId": "A",
+        "sourceBucketId": "A",
+        "sourceItem": {
+          "snapshotId": "poe2db-amulets-base-2026-09-29-a4f439852790",
+          "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [
+            {
+              "modifierId": "solar-amulet:implicit:spirit",
+              "values": {
+                "base_spirit_from_equipment": 10
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "amulet:suffix:of-the-seal",
+              "values": {
+                "base_cold_damage_resistance_%": 6
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "sourceRolls": {},
+        "sourceTiers": {},
+        "sourceOrbits": {},
+        "initialActions": [],
+        "cycleActions": ["EXALTED"],
+        "status": "COMPLETE",
+        "points": [
+          {
+            "cycles": 100,
+            "exits": [
+              {
+                "bucketId": "dead",
+                "kind": "DEAD",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              }
+            ],
+            "unresolved": {
+              "lower": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "upper": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "arithmeticWidth": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "exact": true,
+              "confirmedPercent": null
+            },
+            "initialUses": {},
+            "cycleUses": {
+              "EXALTED": {
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "arithmeticWidth": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "exact": true,
+                "confirmedPercent": null
+              }
+            }
+          },
+          {
+            "cycles": 300,
+            "exits": [
+              {
+                "bucketId": "dead",
+                "kind": "DEAD",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              }
+            ],
+            "unresolved": {
+              "lower": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "upper": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "arithmeticWidth": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "exact": true,
+              "confirmedPercent": null
+            },
+            "initialUses": {},
+            "cycleUses": {
+              "EXALTED": {
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "arithmeticWidth": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "exact": true,
+                "confirmedPercent": null
+              }
+            }
+          },
+          {
+            "cycles": 500,
+            "exits": [
+              {
+                "bucketId": "dead",
+                "kind": "DEAD",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              }
+            ],
+            "unresolved": {
+              "lower": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "upper": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "arithmeticWidth": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "exact": true,
+              "confirmedPercent": null
+            },
+            "initialUses": {},
+            "cycleUses": {
+              "EXALTED": {
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "arithmeticWidth": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "exact": true,
+                "confirmedPercent": null
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "other-B",
+        "sourceStateId": "B",
+        "sourceBucketId": "B",
+        "sourceItem": {
+          "snapshotId": "poe2db-amulets-base-2026-09-29-a4f439852790",
+          "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [
+            {
+              "modifierId": "solar-amulet:implicit:spirit",
+              "values": {
+                "base_spirit_from_equipment": 10
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "amulet:suffix:of-the-seal",
+              "values": {
+                "base_cold_damage_resistance_%": 6
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "sourceRolls": {},
+        "sourceTiers": {},
+        "sourceOrbits": {},
+        "initialActions": [],
+        "cycleActions": ["EXALTED"],
+        "status": "COMPLETE",
+        "points": [
+          {
+            "cycles": 100,
+            "exits": [
+              {
+                "bucketId": "dead",
+                "kind": "DEAD",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              }
+            ],
+            "unresolved": {
+              "lower": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "upper": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "arithmeticWidth": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "exact": true,
+              "confirmedPercent": null
+            },
+            "initialUses": {},
+            "cycleUses": {
+              "EXALTED": {
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "arithmeticWidth": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "exact": true,
+                "confirmedPercent": null
+              }
+            }
+          },
+          {
+            "cycles": 300,
+            "exits": [
+              {
+                "bucketId": "dead",
+                "kind": "DEAD",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              }
+            ],
+            "unresolved": {
+              "lower": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "upper": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "arithmeticWidth": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "exact": true,
+              "confirmedPercent": null
+            },
+            "initialUses": {},
+            "cycleUses": {
+              "EXALTED": {
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "arithmeticWidth": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "exact": true,
+                "confirmedPercent": null
+              }
+            }
+          },
+          {
+            "cycles": 500,
+            "exits": [
+              {
+                "bucketId": "dead",
+                "kind": "DEAD",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              }
+            ],
+            "unresolved": {
+              "lower": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "upper": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "arithmeticWidth": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "exact": true,
+              "confirmedPercent": null
+            },
+            "initialUses": {},
+            "cycleUses": {
+              "EXALTED": {
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "arithmeticWidth": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "exact": true,
+                "confirmedPercent": null
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "finish-B",
+        "sourceStateId": "B",
+        "sourceBucketId": "B",
+        "sourceItem": {
+          "snapshotId": "poe2db-amulets-base-2026-09-29-a4f439852790",
+          "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+          "itemLevel": 82,
+          "rarity": "RARE",
+          "implicits": [
+            {
+              "modifierId": "solar-amulet:implicit:spirit",
+              "values": {
+                "base_spirit_from_equipment": 10
+              },
+              "fractured": false
+            }
+          ],
+          "explicits": [
+            {
+              "modifierId": "amulet:suffix:of-the-seal",
+              "values": {
+                "base_cold_damage_resistance_%": 6
+              },
+              "fractured": false
+            }
+          ],
+          "conditions": [],
+          "augmentSockets": null,
+          "catalystQuality": null
+        },
+        "sourceRolls": {},
+        "sourceTiers": {},
+        "sourceOrbits": {},
+        "initialActions": [],
+        "cycleActions": ["EXALTED"],
+        "status": "COMPLETE",
+        "points": [
+          {
+            "cycles": 100,
+            "exits": [
+              {
+                "bucketId": "C",
+                "kind": "GOAL",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              }
+            ],
+            "unresolved": {
+              "lower": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "upper": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "arithmeticWidth": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "exact": true,
+              "confirmedPercent": null
+            },
+            "initialUses": {},
+            "cycleUses": {
+              "EXALTED": {
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "arithmeticWidth": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "exact": true,
+                "confirmedPercent": null
+              }
+            }
+          },
+          {
+            "cycles": 300,
+            "exits": [
+              {
+                "bucketId": "C",
+                "kind": "GOAL",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              }
+            ],
+            "unresolved": {
+              "lower": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "upper": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "arithmeticWidth": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "exact": true,
+              "confirmedPercent": null
+            },
+            "initialUses": {},
+            "cycleUses": {
+              "EXALTED": {
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "arithmeticWidth": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "exact": true,
+                "confirmedPercent": null
+              }
+            }
+          },
+          {
+            "cycles": 500,
+            "exits": [
+              {
+                "bucketId": "C",
+                "kind": "GOAL",
+                "probability": {
+                  "lower": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "upper": {
+                    "numerator": "1",
+                    "denominator": "1"
+                  },
+                  "arithmeticWidth": {
+                    "denominator": "1",
+                    "numerator": "0"
+                  },
+                  "exact": true,
+                  "confirmedPercent": null
+                }
+              }
+            ],
+            "unresolved": {
+              "lower": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "upper": {
+                "numerator": "0",
+                "denominator": "1"
+              },
+              "arithmeticWidth": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "exact": true,
+              "confirmedPercent": null
+            },
+            "initialUses": {},
+            "cycleUses": {
+              "EXALTED": {
+                "lower": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "upper": {
+                  "numerator": "1",
+                  "denominator": "1"
+                },
+                "arithmeticWidth": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "exact": true,
+                "confirmedPercent": null
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "localRecommendations": [
+      {
+        "stateId": "root",
+        "cycles": 100,
+        "target": null,
+        "status": "CERTIFIED",
+        "methodIds": ["direct"]
+      }
+    ],
+    "methodCount": 6,
+    "nextOffset": null
+  }
+}

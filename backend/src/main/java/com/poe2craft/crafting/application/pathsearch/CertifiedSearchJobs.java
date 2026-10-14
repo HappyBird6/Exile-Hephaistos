@@ -180,35 +180,82 @@ final class CertifiedSearchJobs {
       String owner, String id, long revision, String methodId, int cycles, int offset) {
     var job = job(owner, id);
     try (var ignored = job.acquireRequest()) {
-      var method = method(revision(job, revision), methodId);
-      var point = method.points().get(cycles);
-      if (point == null) throw new Rejected(409, "OBSERVATION_NOT_READY");
-      int size = point.active().size() + point.exits().values().stream().mapToInt(Map::size).sum();
-      checkOffset(offset, size);
-      var result = new ArrayList<Outcome>();
-      int remainingOffset = offset;
-      for (var kind : ExactMethodRunner.Exit.values())
-        remainingOffset =
-            appendOutcomes(
-                result,
-                kind.name(),
-                point.exits().get(kind),
-                remainingOffset,
-                job.engine.precision().percentDecimals());
-      appendOutcomes(
-          result,
-          "ACTIVE",
-          point.active(),
-          remainingOffset,
-          job.engine.precision().percentDecimals());
-      return new Outcomes(
-          id,
-          revision,
-          methodId,
-          cycles,
-          List.copyOf(result),
-          offset + result.size() < size ? offset + result.size() : null);
+      return outcomes(job, revision, methodId, cycles, offset);
     }
+  }
+
+  CertifiedMapProtocol.Graph map(String owner, String id, long revision, int offset) {
+    var job = job(owner, id);
+    try (var ignored = job.acquireRequest()) {
+      var saved = revision(job, revision);
+      return CertifiedMapProtocol.graph(
+          id, revision, saved.states(), saved.methods(), offset, job.engine.precision());
+    }
+  }
+
+  CertifiedMapProtocol.View view(String owner, String id) {
+    var job = job(owner, id);
+    try (var ignored = job.acquireRequest()) {
+      var current = job.snapshot;
+      var saved = revision(job, current.revision());
+      return new CertifiedMapProtocol.View(
+          new CertifiedMapProtocol.Header(
+              CertifiedMapProtocol.VERSION,
+              id,
+              job.request.request().clientRequestId(),
+              current.revision(),
+              current.generation(),
+              current.status(),
+              current.reason(),
+              Set.of("PAUSED", "CANCELLED").contains(current.status()),
+              current.enumerationComplete(),
+              current.rootStateId(),
+              current.strategyStatus(),
+              current.localRecommendations(),
+              List.of()),
+          CertifiedMapProtocol.graph(
+              id, current.revision(), saved.states(), saved.methods(), 0, job.engine.precision()));
+    }
+  }
+
+  CertifiedMapProtocol.Distribution mapOutcomes(
+      String owner, String id, long revision, String methodId, int cycles, int offset) {
+    var job = job(owner, id);
+    try (var ignored = job.acquireRequest()) {
+      return CertifiedMapProtocol.distribution(
+          outcomes(job, revision, methodId, cycles, offset), revision(job, revision).states());
+    }
+  }
+
+  private Outcomes outcomes(Job job, long revision, String methodId, int cycles, int offset) {
+    var method = method(revision(job, revision), methodId);
+    var point = method.points().get(cycles);
+    if (point == null) throw new Rejected(409, "OBSERVATION_NOT_READY");
+    int size = point.active().size() + point.exits().values().stream().mapToInt(Map::size).sum();
+    checkOffset(offset, size);
+    var result = new ArrayList<Outcome>();
+    int remainingOffset = offset;
+    for (var kind : ExactMethodRunner.Exit.values())
+      remainingOffset =
+          appendOutcomes(
+              result,
+              kind.name(),
+              point.exits().get(kind),
+              remainingOffset,
+              job.engine.precision().percentDecimals());
+    appendOutcomes(
+        result,
+        "ACTIVE",
+        point.active(),
+        remainingOffset,
+        job.engine.precision().percentDecimals());
+    return new Outcomes(
+        job.id,
+        revision,
+        methodId,
+        cycles,
+        List.copyOf(result),
+        offset + result.size() < size ? offset + result.size() : null);
   }
 
   private static int appendOutcomes(

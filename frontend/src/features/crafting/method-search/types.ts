@@ -1,4 +1,11 @@
 import type { Fraction, Item } from '../path-tree/types'
+export type Bounds = {
+  lower: Fraction
+  upper: Fraction
+  arithmeticWidth: Fraction
+  exact: boolean
+  confirmedPercent: string | null
+}
 export type RollBands = Record<
   string,
   { stat: string; min: number; max: number }
@@ -15,14 +22,18 @@ export type Exit = {
   bucketId: string
   kind: string
   probability: Fraction
-  states: number
+  bounds?: Bounds
+  states?: number
 }
 export type Point = {
   cycles: number
   exits: Exit[]
   unresolved: Fraction
+  unresolvedBounds?: Bounds
   initialUses: Record<string, Fraction>
   cycleUses: Record<string, Fraction>
+  initialUseBounds?: Record<string, Bounds>
+  cycleUseBounds?: Record<string, Bounds>
 }
 export type Arrow = {
   id: string
@@ -58,6 +69,11 @@ export type Graph = {
   methods: Arrow[]
   methodCount: number
   nextCursor: string | null
+  localRecommendations?: {
+    stateId: string
+    cycles: number
+    methodIds: string[]
+  }[]
 }
 export type Snapshot = {
   version: 2
@@ -91,7 +107,16 @@ export type Distribution = {
   revision: number
   methodId: string
   cycles: number
-  states: { stateId: string; item: Item; kind: string; probability: Fraction }[]
-  unresolved: Fraction
+  states: {
+    stateId: string
+    item: Item
+    kind: string
+    probability: Fraction
+    bounds?: Bounds
+    rolls?: RollBands
+    tiers?: TierVariants
+    orbits?: OrbitViews
+  }[]
+  unresolved?: Fraction
   nextCursor: string | null
 }

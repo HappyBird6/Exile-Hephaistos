@@ -237,6 +237,24 @@ class CertifiedSearchJobsTest {
       assertThat(current.strategyStatus()).isEqualTo("NOT_REQUESTED");
       assertThat(current.arithmeticVersion()).isEqualTo(CertifiedInterval.VERSION);
       assertThat(current.transition()).isEqualTo(original.start().provenance());
+      var display = service.certifiedView("owner", current.jobId());
+      assertThat(display.search().clientRequestId()).isEqualTo(request.request().clientRequestId());
+      assertThat(display.search().revision()).isEqualTo(current.revision());
+      assertThat(display.graph().revision()).isEqualTo(current.revision());
+      assertThat(
+              display.graph().buckets().stream()
+                  .mapToInt(MethodSearchProtocol.Bucket::states)
+                  .sum())
+          .isEqualTo(current.stateCount());
+      var displayMethods = new ArrayList<CertifiedMapProtocol.Arrow>();
+      var displayPage = display.graph();
+      while (true) {
+        displayMethods.addAll(displayPage.methods());
+        if (displayPage.nextOffset() == null) break;
+        displayPage =
+            service.certifiedMap(
+                "owner", current.jobId(), current.revision(), displayPage.nextOffset());
+      }
       var methods = new ArrayList<CertifiedMethodProtocol.Method>();
       int offset = 0;
       while (true) {
@@ -254,6 +272,10 @@ class CertifiedSearchJobsTest {
                           && m.cycleActions().equals(List.of("EXALTED")))
               .findFirst()
               .orElseThrow();
+      assertThat(displayMethods)
+          .extracting(CertifiedMapProtocol.Arrow::id)
+          .containsExactlyElementsOf(
+              methods.stream().map(CertifiedMethodProtocol.Method::id).toList());
       assertThat(method.points())
           .extracting(CertifiedMethodProtocol.Point::cycles)
           .containsExactly(100, 300, 500);
@@ -261,6 +283,18 @@ class CertifiedSearchJobsTest {
           service.certifiedOutcomes(
               "owner", current.jobId(), current.revision(), method.id(), 100, 0);
       assertThat(outcomes.nextOffset()).isNull();
+      var displayOutcomes =
+          service.certifiedMapOutcomes(
+              "owner", current.jobId(), current.revision(), method.id(), 100, 0);
+      assertThat(displayOutcomes.states()).hasSize(outcomes.outcomes().size());
+      for (int i = 0; i < displayOutcomes.states().size(); i++) {
+        assertThat(displayOutcomes.states().get(i).stateId())
+            .isEqualTo(outcomes.outcomes().get(i).stateId());
+        assertThat(displayOutcomes.states().get(i).probability())
+            .isEqualTo(outcomes.outcomes().get(i).probability());
+        assertThat(displayOutcomes.states().get(i).item().baseItemId())
+            .isEqualTo(original.start().item().baseItemId());
+      }
       var raw = new HashMap<BasicCurrencyState, Fraction>();
       var primitive = BasicCurrencyTransitions.forMethodSearch(fixture.catalog, fixture.identity);
       var cursor =
@@ -337,29 +371,65 @@ class CertifiedSearchJobsTest {
       rejected(
           "REVISION_EXPIRED",
           () -> service.certifiedGraph("owner", current.jobId(), created.revision(), 0, 0));
+      rejected(
+          "REVISION_EXPIRED",
+          () -> service.certifiedMap("owner", current.jobId(), created.revision(), 0));
+      rejected("SEARCH_NOT_FOUND", () -> service.certifiedView("other-owner", current.jobId()));
+      rejected(
+          "INVALID_OFFSET",
+          () -> service.certifiedMap("owner", current.jobId(), current.revision(), -1));
       var mvc =
           org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup(
                   new com.poe2craft.crafting.presentation.pathsearch.MethodSearchController(
                       service, fixture.json))
               .build();
+      var http =
+          mvc.perform(
+                  org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post(
+                          "/api/v2/crafting/method-searches/certified")
+                      .contentType(org.springframework.http.MediaType.APPLICATION_JSON)
+                      .content(
+                          fixture.json.writeValueAsString(
+                              new CertifiedMethodProtocol.Create(
+                                  1,
+                                  new MethodSearchProtocol.Create(
+                                      2,
+                                      "http",
+                                      request.request().start(),
+                                      request.request().goal(),
+                                      List.of()),
+                                  request.precision()))))
+              .andExpect(
+                  org.springframework.test.web.servlet.result.MockMvcResultMatchers.status()
+                      .isAccepted())
+              .andReturn();
+      var httpId =
+          fixture
+              .json
+              .readTree(http.getResponse().getContentAsByteArray())
+              .path("search")
+              .path("jobId")
+              .asText();
+      var cookie = http.getResponse().getCookie("crafting_method_client");
+      assertThat(cookie).isNotNull();
       mvc.perform(
-              org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post(
-                      "/api/v2/crafting/method-searches/certified")
-                  .contentType(org.springframework.http.MediaType.APPLICATION_JSON)
-                  .content(
-                      fixture.json.writeValueAsString(
-                          new CertifiedMethodProtocol.Create(
-                              1,
-                              new MethodSearchProtocol.Create(
-                                  2,
-                                  "http",
-                                  request.request().start(),
-                                  request.request().goal(),
-                                  List.of()),
-                              request.precision()))))
+              org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get(
+                      "/api/v2/crafting/method-searches/certified/" + httpId + "/view")
+                  .cookie(cookie))
           .andExpect(
-              org.springframework.test.web.servlet.result.MockMvcResultMatchers.status()
-                  .isAccepted());
+              org.springframework.test.web.servlet.result.MockMvcResultMatchers.status().isOk())
+          .andExpect(
+              org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath(
+                      "$.search.version")
+                  .value(CertifiedMapProtocol.VERSION))
+          .andExpect(
+              org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath(
+                      "$.search.clientRequestId")
+                  .value("http"))
+          .andExpect(
+              org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath(
+                      "$.graph.jobId")
+                  .value(httpId));
     }
   }
 

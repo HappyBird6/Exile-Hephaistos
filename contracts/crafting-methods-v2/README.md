@@ -30,3 +30,24 @@ See `docs/crafting-bucket-method-v2.md` for implementation boundaries and open
 acceptance issues. In particular, primitive coverage is not all game currencies,
 and a finite template grammar does not establish global optimality over arbitrary
 crafting programs.
+
+
+## Certified display map
+
+`certified-diamond.json` carries the same synthetic decision problem through
+`CertifiedMapProtocol` (`certified-bucket-map-v1`). Bounds have exact rational
+lower/upper endpoints and an arithmetic width. Production values may be intervals;
+all exits and unresolved mass must jointly enclose one, rather than treating lower
+bounds as a normalized distribution. Currency-use bounds may exceed one.
+
+The `/certified/{id}/view` read returns a header and first map page under one job
+lock, with the same revision. `/map?revision=...&offset=...` retains every alternative
+method in pages of at most twelve. `/map-outcomes` supplies class representatives,
+roll/tier/orbit metadata and their probability bounds. These are class marginals;
+full entry-conditioned item distributions remain available through the certified
+entry binding/expansion endpoints and are not replaced by display grouping.
+
+The display response omits the large audit ledger; the existing certified snapshot
+endpoint retains it. A grouped node never merges the calculation state identities.
+The shared fixture includes a final recommendation for presentation/oracle checks;
+production final strategy scheduling is still reported separately as NOT_REQUESTED.

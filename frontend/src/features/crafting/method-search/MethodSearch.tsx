@@ -13,16 +13,17 @@ import type { PathTreeProps } from '../path-tree/PathTree'
 import { pathTreeMessages } from '../path-tree/messages'
 import { methodMessages } from '../path-tree/methodMessages'
 import { canonical, percent } from '../path-tree/validation'
+import { acceptSnapshot } from './api'
 import {
-  acceptSnapshot,
-  call,
-  createBody,
-  mutateJob,
-  validateGraph,
-} from './api'
+  fetchSnapshot,
+  loadGraph,
+  loadDistribution,
+  mutateCertifiedJob,
+} from './certifiedApi'
+import { probabilityText, quantityText } from './probabilityPresentation'
 import { methodSearchMessages } from './messages'
 import { presentRollCell } from './rollPresentation'
-import type { Distribution, Graph, Snapshot } from './types'
+import type { Graph, Snapshot } from './types'
 import './method-search.css'
 
 export function MethodSearch(props: PathTreeProps) {
@@ -36,8 +37,10 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
     copy = methodSearchMessages[locale],
     exits = methodMessages[locale]
   const client = useQueryClient(),
-    [cycles, setCycles] = useState(100)
-  const key = ['method-search-v2', request.clientRequestId] as const
+    [cycles, setCycles] = useState(100),
+    [continueSearch, setContinueSearch] = useState(true),
+    [visiblePages, setVisiblePages] = useState(1)
+  const key = ['certified-method-map-v1', request.clientRequestId] as const
   const latest = useRef<Snapshot | undefined>(undefined)
   const control = useRef(new AbortController())
   const ruleset = request.start.provenance.rulesetIdentity
@@ -50,12 +53,7 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
     queryKey: key,
     queryFn: async ({ signal }) => {
       const old = latest.current
-      const next = await call<Snapshot>(
-        old ? `/${old.jobId}` : '',
-        ruleset,
-        signal,
-        old ? undefined : createBody(request),
-      )
+      const next = await fetchSnapshot(request, old, ruleset, signal)
       if (next.clientRequestId !== request.clientRequestId)
         throw new Error('WRONG_REQUEST')
       latest.current = acceptSnapshot(latest.current, next)
@@ -75,13 +73,7 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
     queryFn: async ({ pageParam, signal }) => {
       if (!job) throw new Error('NO_JOB')
       if (pageParam === null) return job.graph
-      const graph = validateGraph(
-        await call<Graph>(
-          `/${job.jobId}/graph?revision=${job.revision}&cursor=${encodeURIComponent(pageParam)}`,
-          ruleset,
-          signal,
-        ),
-      )
+      const graph = await loadGraph(job, pageParam, ruleset, signal)
       if (graph.jobId !== job.jobId || graph.revision !== job.revision)
         throw new Error('STALE_GRAPH')
       return graph
@@ -89,11 +81,35 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
     getNextPageParam: (last) => last.nextCursor ?? undefined,
     retry: false,
   })
+  const {
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+    isError: pageError,
+  } = pages
+  const loadedPages = pages.data?.pages.length ?? 0
+  useEffect(() => {
+    if (
+      loadedPages > 0 &&
+      loadedPages < visiblePages &&
+      hasNextPage &&
+      !isFetchingNextPage &&
+      !pageError
+    )
+      void fetchNextPage()
+  }, [
+    loadedPages,
+    visiblePages,
+    hasNextPage,
+    isFetchingNextPage,
+    pageError,
+    fetchNextPage,
+  ])
   const mutation = useMutation({
     mutationFn: async (operation: 'CANCEL' | 'RESUME') => {
       const current = latest.current
       if (!current) throw new Error('NO_JOB')
-      const next = await mutateJob(
+      const next = await mutateCertifiedJob(
         current,
         operation,
         ruleset,
@@ -106,6 +122,21 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
       void client.invalidateQueries({ queryKey: key })
     },
   })
+  const { mutate, isPending, isError } = mutation
+  useEffect(() => {
+    if (!job || isPending || isError) return
+    if (
+      continueSearch &&
+      job.status === 'PAUSED' &&
+      job.reason === 'COMPUTE_BUDGET'
+    )
+      mutate('RESUME')
+    else if (
+      !continueSearch &&
+      ['QUEUED', 'RUNNING', 'PAUSED'].includes(job.status)
+    )
+      mutate('CANCEL')
+  }, [job, continueSearch, mutate, isPending, isError])
   const graph = job?.graph
   const methods = [
     ...new Map(
@@ -126,13 +157,27 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
       .filter((s) => s.cycles === cycles)
       .flatMap((s) => s.methodIds) ?? [],
   )
+  const localRecommended = new Set(
+    [
+      ...(job?.localRecommendations ?? []),
+      ...(pages.data?.pages.flatMap(
+        (page) => page.localRecommendations ?? [],
+      ) ?? []),
+    ]
+      .filter((r) => r.cycles === cycles)
+      .flatMap((r) => r.methodIds),
+  )
   return (
     <section className="method-map" aria-label={common.title}>
       <h2>{common.title}</h2>
       <p role="status">
         {query.isError || mutation.isError
           ? common.error
-          : !job || ['QUEUED', 'RUNNING'].includes(job.status)
+          : !job ||
+              ['QUEUED', 'RUNNING'].includes(job.status) ||
+              (continueSearch &&
+                job.reason === 'COMPUTE_BUDGET' &&
+                !mutation.isError)
             ? common.calculating
             : job.status === 'COMPLETED'
               ? copy.complete
@@ -141,18 +186,25 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
                 : common.partial}
       </p>
       <div className="method-map__controls">
-        {job && ['QUEUED', 'RUNNING'].includes(job.status) && (
-          <button
-            disabled={mutation.isPending}
-            onClick={() => mutation.mutate('CANCEL')}
-          >
-            {common.stop}
-          </button>
-        )}
+        {job &&
+          (['QUEUED', 'RUNNING'].includes(job.status) ||
+            (continueSearch && mutation.isPending)) && (
+            <button
+              onClick={() => {
+                if (mutation.isError) mutation.reset()
+                setContinueSearch(false)
+              }}
+            >
+              {common.stop}
+            </button>
+          )}
         {job?.resumable && (
           <button
             disabled={mutation.isPending}
-            onClick={() => mutation.mutate('RESUME')}
+            onClick={() => {
+              setContinueSearch(true)
+              mutation.mutate('RESUME')
+            }}
           >
             {common.resume}
           </button>
@@ -185,6 +237,7 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
           names={names}
           cycles={cycles}
           label={common.title}
+          recommended={new Set([...recommended, ...localRecommended])}
         />
       )}
       <div className="method-map__states">
@@ -228,9 +281,7 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
       <div className="method-map__methods">
         {methods.map((method) => {
           const point = method.points.find((p) => p.cycles === cycles)
-          const local = job?.localRecommendations.some(
-            (r) => r.cycles === cycles && r.methodIds.includes(method.id),
-          )
+          const local = localRecommended.has(method.id)
           return (
             <article
               key={method.id}
@@ -281,7 +332,7 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
                         <a href={`#bucket-${exit.bucketId}`}>
                           → {names.get(exit.bucketId)}
                         </a>
-                        : {percent(exit.probability)} ·{' '}
+                        : {probabilityText(exit.probability, exit.bounds)} ·{' '}
                         {exit.kind === 'GOAL'
                           ? common.hit
                           : exit.kind === 'LOSS'
@@ -294,9 +345,16 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
                       </li>
                     ))}
                   </ul>
-                  {BigInt(point.unresolved.numerator) > 0n && (
+                  {BigInt(
+                    (point.unresolvedBounds?.upper ?? point.unresolved)
+                      .numerator,
+                  ) > 0n && (
                     <p>
-                      {common.unknown}: {percent(point.unresolved)}
+                      {common.unknown}:{' '}
+                      {probabilityText(
+                        point.unresolved,
+                        point.unresolvedBounds,
+                      )}
                     </p>
                   )}
                   {point && job && (
@@ -320,7 +378,7 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
                         {Object.entries(uses)
                           .map(
                             ([currency, p]) =>
-                              `${action(currency)} ${decimal(p.numerator, p.denominator)}`,
+                              `${action(currency)} ${quantityText(p, (phase === 'initial' ? point.initialUseBounds : point.cycleUseBounds)?.[currency])}`,
                           )
                           .join(' · ') || '0'}
                       </p>
@@ -335,7 +393,7 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
       {pages.hasNextPage && (
         <button
           disabled={pages.isFetchingNextPage}
-          onClick={() => void pages.fetchNextPage()}
+          onClick={() => setVisiblePages((count) => count + 1)}
         >
           {common.more}
         </button>
@@ -343,10 +401,6 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
       {pages.isError && <p role="alert">{common.error}</p>}
     </section>
   )
-}
-function decimal(n: string, d: string) {
-  const scaled = (BigInt(n) * 100n) / BigInt(d)
-  return `${scaled / 100n}.${(scaled % 100n).toString().padStart(2, '0')}`
 }
 
 function OutcomeItems({
@@ -370,14 +424,11 @@ function OutcomeItems({
     enabled: open,
     initialPageParam: null as string | null,
     queryFn: async ({ signal, pageParam }) => {
-      const params = new URLSearchParams({
-        revision: String(job.revision),
+      const value = await loadDistribution(
+        job,
         methodId,
-        cycles: String(cycles),
-        ...(pageParam ? { cursor: pageParam } : {}),
-      })
-      const value = await call<Distribution>(
-        `/${job.jobId}/distribution?${params}`,
+        cycles,
+        pageParam,
         ruleset,
         signal,
       )
@@ -405,8 +456,17 @@ function OutcomeItems({
         .flatMap((p) => p.states)
         .map((s) => (
           <div key={`${s.stateId}:${s.kind}`}>
-            <p>{percent(s.probability)}</p>
-            <ItemCard item={presentItem(s.item, locale)} />
+            <p>{probabilityText(s.probability, s.bounds)}</p>
+            <ItemCard
+              item={presentRollCell(
+                s.item,
+                s.rolls,
+                locale,
+                presentItem,
+                s.tiers,
+                s.orbits,
+              )}
+            />
           </div>
         ))}
       {results.hasNextPage && (
@@ -426,11 +486,13 @@ function Overview({
   names,
   cycles,
   label,
+  recommended,
 }: {
   graph: Graph
   names: Map<string, string>
   cycles: number
   label: string
+  recommended: Set<string>
 }) {
   const columns = new Map<number, number>()
   const positions = new Map(
@@ -462,12 +524,14 @@ function Overview({
                 <g key={`${method.id}:${exit.kind}:${exit.bucketId}`}>
                   <title>
                     {names.get(method.sourceBucketId)} →{' '}
-                    {names.get(exit.bucketId)}: {percent(exit.probability)}
+                    {names.get(exit.bucketId)}:{' '}
+                    {probabilityText(exit.probability, exit.bounds)}
                   </title>
                   <path
                     d={`M ${from.x + 90} ${from.y} C ${from.x + 150} ${from.y - lift}, ${to.x - 60} ${to.y - lift}, ${to.x} ${to.y}`}
                     fill="none"
-                    stroke="#a9905b"
+                    stroke={recommended.has(method.id) ? '#e6c979' : '#a9905b'}
+                    strokeWidth={recommended.has(method.id) ? 3 : 1}
                   />
                   <text x={to.x - 10} y={to.y + 4} fill="#dec082">
                     ›

@@ -85,7 +85,8 @@ public final class MethodSearchService implements AutoCloseable {
               t.setDaemon(true);
               return t;
             }),
-        12000);
+        12000,
+        1000000);
   }
 
   public MethodSearchService(
@@ -96,6 +97,18 @@ public final class MethodSearchService implements AutoCloseable {
       Clock clock,
       Executor executor,
       int runBudget) {
+    this(catalog, goals, identity, json, clock, executor, runBudget, runBudget);
+  }
+
+  private MethodSearchService(
+      ItemCatalog catalog,
+      GoalFilterService goals,
+      String identity,
+      ObjectMapper json,
+      Clock clock,
+      Executor executor,
+      int runBudget,
+      int certifiedRunBudget) {
     this.goals = goals;
     this.transitions = BasicCurrencyTransitions.forMethodSearch(catalog, identity);
     catalogs.put(catalog.base().id(), catalog);
@@ -105,7 +118,7 @@ public final class MethodSearchService implements AutoCloseable {
     this.executor = executor;
     if (runBudget < 1) throw new IllegalArgumentException("Positive run budget required");
     this.runBudget = runBudget;
-    certified = new CertifiedSearchJobs(clock, executor, runBudget, this::certifiedEngine);
+    certified = new CertifiedSearchJobs(clock, executor, certifiedRunBudget, this::certifiedEngine);
   }
 
   private CertifiedMethodSearchEngine certifiedEngine(
@@ -177,6 +190,20 @@ public final class MethodSearchService implements AutoCloseable {
   public CertifiedMethodProtocol.Outcomes certifiedOutcomes(
       String owner, String id, long revision, String method, int cycles, int offset) {
     return certified.outcomes(owner, id, revision, method, cycles, offset);
+  }
+
+  public CertifiedMapProtocol.Graph certifiedMap(
+      String owner, String id, long revision, int offset) {
+    return certified.map(owner, id, revision, offset);
+  }
+
+  public CertifiedMapProtocol.View certifiedView(String owner, String id) {
+    return certified.view(owner, id);
+  }
+
+  public CertifiedMapProtocol.Distribution certifiedMapOutcomes(
+      String owner, String id, long revision, String method, int cycles, int offset) {
+    return certified.mapOutcomes(owner, id, revision, method, cycles, offset);
   }
 
   public CertifiedMethodProtocol.Entry bindCertifiedEntry(
@@ -877,7 +904,7 @@ public final class MethodSearchService implements AutoCloseable {
     return Probability.of(f);
   }
 
-  private static Map<String, List<TierVariant>> tierView(DeferredItem state) {
+  static Map<String, List<TierVariant>> tierView(DeferredItem state) {
     var result = new LinkedHashMap<String, List<TierVariant>>();
     state
         .tiers()
@@ -891,7 +918,7 @@ public final class MethodSearchService implements AutoCloseable {
     return Map.copyOf(result);
   }
 
-  private static Map<String, OrbitView> orbitView(DeferredItem state) {
+  static Map<String, OrbitView> orbitView(DeferredItem state) {
     var result = new TreeMap<String, OrbitView>();
     state
         .orbits()
@@ -929,7 +956,7 @@ public final class MethodSearchService implements AutoCloseable {
         .compareTo(b.numerator().multiply(a.denominator()));
   }
 
-  private static String bucket(MethodSearchCalculation.Progress p) {
+  static String bucket(MethodSearchCalculation.Progress p) {
     return p.goal()
         + ":"
         + p.entries().stream().map(Enum::name).reduce((a, b) -> a + "," + b).orElse("");
