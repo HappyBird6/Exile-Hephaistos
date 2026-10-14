@@ -55,6 +55,8 @@ public final class CertifiedMethodProtocol {
       long packedBytes,
       long packedByteLimit,
       long transientFreezeBytes,
+      long kernelPackedBytes,
+      long kernelPackedByteLimit,
       int materializedRows,
       int uniquePages) {}
 

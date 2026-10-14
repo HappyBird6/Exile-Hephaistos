@@ -12,7 +12,7 @@ import java.util.function.Function;
 
 /** Certified class marginals. Incoming item laws remain exact retained conditional operators. */
 final class CertifiedMethodSearchEngine {
-  static final String VERSION = "certified-method-map-v5-cooperative-law-pages";
+  static final String VERSION = "certified-method-map-v6-reclaimable-kernels";
   private final CertifiedLawStore laws;
   private final BasicClassIndex index;
   private final CertifiedInterval.Precision precision;
@@ -71,7 +71,7 @@ final class CertifiedMethodSearchEngine {
     }
     this.evaluate = evaluate;
     this.budget = budget;
-    kernels = new IndexedKernelStore(index, 2000, budget);
+    kernels = new IndexedKernelStore(index, 2000, budget, 16L * 1024 * 1024);
     root = index.intern(start);
     rootLaw = ConditionalMethodLaw.root(index, Map.of(start, Fraction.ONE));
     state(root, 0);
@@ -128,9 +128,12 @@ final class CertifiedMethodSearchEngine {
   }
 
   public long retainedEntries() {
+    return workingEntries() + kernels.cachedEntries();
+  }
+
+  private long workingEntries() {
     return (long) index.size()
         + index.profileRetainedRows()
-        + kernels.cachedOutcomes()
         + liveEntries
         + laws.pageCount()
         + laws.descriptors()
@@ -140,6 +143,10 @@ final class CertifiedMethodSearchEngine {
 
   CertifiedLawStore.Metrics storage() {
     return laws.metrics();
+  }
+
+  IndexedKernelStore.CacheMetrics kernelStorage() {
+    return kernels.cacheMetrics();
   }
 
   long freezeTransientBytes() {
@@ -165,6 +172,7 @@ final class CertifiedMethodSearchEngine {
     progressCache.clear();
     identifiers.clear();
     laws.close();
+    kernels.close();
   }
 
   public int classCount() {
@@ -189,6 +197,7 @@ final class CertifiedMethodSearchEngine {
       int pendingKernels,
       long calculatedKernels,
       long sharedRequests,
+      IndexedKernelStore.CacheMetrics kernelStorage,
       int preparationGroups,
       long preparationEntries,
       long sharedMethods,
@@ -246,6 +255,7 @@ final class CertifiedMethodSearchEngine {
         kernels.pendingKernels(),
         kernels.calculatedKernels(),
         kernels.sharedRequests(),
+        kernels.cacheMetrics(),
         preparations.size(),
         preparationEntries,
         methods.values().stream().filter(m -> m.delegate != null).count(),
@@ -260,6 +270,8 @@ final class CertifiedMethodSearchEngine {
   }
 
   public boolean memoryLimited() {
+    kernels.trimToEntries(
+        (int) Math.max(0, Math.min(Integer.MAX_VALUE, budget - workingEntries())));
     return retainedEntries() > budget || storageLimited();
   }
 

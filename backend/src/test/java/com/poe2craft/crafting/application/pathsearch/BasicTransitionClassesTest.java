@@ -318,6 +318,44 @@ class BasicTransitionClassesTest {
         graph);
     verifyPreparationAndTerminalTransport(root, classes, classIndex, graph);
     verifySharedKernelDelivery(root, classIndex);
+    verifyColdKernelDelivery(root, classIndex);
+  }
+
+  private static void verifyColdKernelDelivery(BasicCurrencyState root, BasicClassIndex index) {
+    int source = index.classOf(root);
+    var store = new IndexedKernelStore(index, 1, 1, 1_000_000);
+    for (var action :
+        List.of(WorkbenchCurrency.EXALTED, WorkbenchCurrency.ANNULMENT, WorkbenchCurrency.CHAOS)) {
+      var first = store.request(source, action);
+      while (!first.complete()) first.step();
+      var expected = first.result();
+      store.trimToEntries(1);
+      long calculated = store.calculatedKernels();
+      var restored = store.request(source, action);
+      assertThat(restored.complete()).isTrue();
+      assertThat(restored.result()).isEqualTo(expected);
+      assertThat(store.calculatedKernels()).isEqualTo(calculated);
+      assertThat(first.result()).isSameAs(expected);
+      store.trimToEntries(0);
+      assertThat(store.cachedEntries()).isZero();
+      assertThat(store.cacheMetrics().packedBytes()).isZero();
+      assertThat(first.result()).isSameAs(expected);
+    }
+    assertThat(store.cacheMetrics().packedHits()).isPositive();
+    assertThat(store.cacheMetrics().pressureEvictions()).isPositive();
+    assertThatThrownBy(() -> store.trimToEntries(-1)).isInstanceOf(IllegalArgumentException.class);
+    var tiny = new IndexedKernelStore(index, 1, 1, 1);
+    var first = tiny.request(source, WorkbenchCurrency.EXALTED);
+    while (!first.complete()) first.step();
+    tiny.trimToEntries(0);
+    var second = tiny.request(source, WorkbenchCurrency.EXALTED);
+    while (!second.complete()) second.step();
+    assertThat(second.result()).isEqualTo(first.result());
+    assertThat(tiny.cacheMetrics().packedBytes()).isZero();
+    store.close();
+    assertThatThrownBy(() -> store.request(source, WorkbenchCurrency.EXALTED))
+        .isInstanceOf(IllegalStateException.class);
+    assertThat(store.cachedEntries()).isZero();
   }
 
   private static void verifySharedKernelDelivery(BasicCurrencyState root, BasicClassIndex index) {

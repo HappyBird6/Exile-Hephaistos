@@ -57,6 +57,24 @@ use limit.
 
 ## Accounting and lifetime
 
+Primitive kernels use a separate, recomputable cache. Under resident pressure,
+completed kernels are evicted before declaring the working calculation paused.
+Outstanding delivery handles retain their exact result. A bounded 16 MiB cold
+cache serializes class IDs, unavailable status, unresolved mass and the full
+integer numerator/denominator of every outcome. Inflation reconstructs an exact
+kernel and checks its mass; it does not convert it to rounded probabilities.
+The hot limit remains 2,000 kernels, and the resident allowance is unchanged.
+Cold descriptors count toward that allowance; payload bytes and their limit are
+reported separately. Cold eviction permits recomputation and never deletes an
+outcome from a method distribution. Partial kernels are not cached as complete.
+This changes representation and reclamation, not supported actions or goals.
+The change passed nine focused tests and Docker Java 21
+`check generateJooq bootJar`: 717 unit/contract tests and seven integration tests,
+zero failures/errors (`kernel-cache-targeted`, `kernel-cache-full`). The tests
+compare restored kernels with independent exact calculations and exercise
+delivery after eviction, zero cache allowance and an insufficient byte allowance.
+The same-input root performance measurement is still pending at this checkpoint.
+
 The resident-entry limit counts active calculation rows, class/kernel records,
 page descriptors and currently decoded rows. Packed payload bytes have a separate
 provisional 32 MiB guard. Storage metrics expose these quantities separately,
@@ -135,6 +153,23 @@ must still not be presented as whole enumeration completion.
 
 ## Remaining integration and performance work
 
+The one-million-entry root diagnostic on the verified cooperative-page source
+finished all 42 root methods after 702,060 ms (702,064 ms including the report).
+It performed 224,858,112 scheduler operations and calculated 2,241,653 primitive
+kernels. Peak resident entries were 947,367; no memory or packed-storage pause
+occurred. It retained 1,709,002 saved class rows in 19,188,122 packed bytes.
+Sampled JVM peak was 927,001,296 bytes. Core post-GC heap was 190,597,496 bytes;
+this probe did not retain the complete public state-view list, so that value is
+not directly comparable to the previous probes' post-GC measurements.
+Evidence is `root-api-budget`. The measurement exercises the engine at the API
+allowance, not HTTP publication latency. Whole enumeration was still incomplete.
+
+The root's existing local ranking reports ties because it compares only immediate
+whole-goal mass. Methods stop at the first intermediate checkpoint, so this does
+not rank the A/B directions usefully. Follow-up: expose target/checkpoint-specific
+local ranking, keeping intermediate progress distinct from final adaptive success.
+Do not silently label all zero-direct-success alternatives as the final strategy.
+
 - The original-WIP run calculated 1,705,181 primitive kernels while retaining at
   most 2,000 full kernels. Compression has not established a CPU improvement.
   Any cache redistribution must stay within the working-memory policy and be
@@ -144,6 +179,11 @@ must still not be presented as whole enumeration completion.
   views, and its latency/memory must be measured separately before calling the
   UI responsive. The fixed job lifetime also needs review against long resumed
   calculations; an expired job is not a completed search.
+  The current 12,000-operation lease and 64-command lifetime capacity cannot
+  support the measured 224-million-operation root through ordinary resumption.
+  Retain bounded replay responses with stale-revision rejection rather than
+  turning command-history capacity into a lifetime exploration cap. Revisions
+  should reuse an unchanged graph instead of rebuilding every 512 operations.
 - Lower-layer scheduling still defers deeper methods until root methods finish.
   The production certified API still reports final strategy NOT_REQUESTED. The
   finite completed-map strategy adapter is an oracle-scale integration and can

@@ -477,6 +477,8 @@ final class CertifiedSearchJobs {
                 job.engine.storage().packedBytes(),
                 32L * 1024 * 1024,
                 job.engine.freezeTransientBytes(),
+                job.engine.kernelStorage().packedBytes(),
+                job.engine.kernelStorage().packedByteLimit(),
                 job.engine.storage().materializedRows(),
                 job.engine.storage().uniquePages()),
             CertifiedMethodProtocol.locals(rootStates, rootMethods, job.engine.precision()));
