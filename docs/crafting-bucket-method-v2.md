@@ -1418,9 +1418,9 @@ almost-sure strategy. Edges with zero lower bounds cannot justify that witness.
 
 Tests cover local/final preference reversal in a diamond, different actions after
 A/B outcomes, closed failure cycles, unknown/missing work, and recovery equations
-A=B/2+1/4, B=A/2+1/2 (A=2/3, B=5/6). A self-loop alternative that prevents elementary
-upper iteration from converging remains pending. This is not a complete general
-cyclic decision solver. The finite completed-map adapter is being compared with
+A=B/2+1/4, B=A/2+1/2 (A=2/3, B=5/6). The original self-loop limitation is addressed
+by the subsequent communicating-region refinement below. The finite completed-map
+adapter is being compared with
 the existing exact strategy oracle for each requested horizon; large-job strategy
 scheduling and the public UI remain separate unfinished work.
 
@@ -1492,3 +1492,34 @@ must be reported separately. Final general cyclic solving and UI integration are
 still unfinished; the small completed-map strategy adapter is verified scope.
 
 Validation of this unit: Docker Java 21 frozen-source check generateJooq bootJar passed (711 unit/contract tests and 7 integration tests, zero failures/errors); formatting passed. Frontend is unchanged in this unit.
+
+### Certified communicating-region refinement
+
+The v2 adaptive solver detects closed communicating regions using an iterative
+SCC decomposition with pruning of states lacking an internal action. Closure
+uses every positive upper-bound outcome; navigation uses only strictly positive
+lower-bound outcomes. A possibly positive edge cannot establish a navigation
+witness. Open states cannot be included in a closed region.
+
+For each action that leaves a region, the solver bounds its value conditional on
+leaving, using integer floor/ceiling division of outside probability-weighted
+values by outside probability mass. Unknown exits or an unproved positive exit
+retain a [0, 1] bound. Before the first exit, a strategy either stays forever or
+produces a mixture of these exit laws. Conversely, guaranteed internal navigation
+can return to a chosen exit action after each internal outcome. These facts give
+sound upper and lower bounds for all members without counting alternative actions
+as probability mass.
+
+A certified recommendation selects one proved best exit and constructs a decreasing
+navigation-rank witness back to its source. It does not independently recommend all
+Bellman ties, which could select only stalling actions. Interval ties that cannot be
+separated remain pending. The algorithm has no 32-state exact-oracle cutoff, but its
+current graph construction and sweeps are not a cooperative large-job integration.
+
+Verification added: conditional exit/recovery, unproved navigation, unknown exits,
+a 96-state cycle, and 80 seeded finite decision graphs compared at every refinement
+with independent rational policy evaluation. Restricted recommended policies are
+also evaluated to detect false optimality from stalling. Seven focused tests and
+Docker Java 21 `check generateJooq bootJar` passed: 725 unit/contract tests and
+seven integration tests, zero failures/errors (`end-components-targeted`,
+`end-components-full`). Production final-strategy scheduling remains separate.

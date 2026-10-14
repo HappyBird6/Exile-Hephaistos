@@ -5,7 +5,7 @@ import java.util.*;
 
 /** Conservative adaptive reachability bounds; residual iteration width is not arithmetic error. */
 public final class CertifiedOutcomeStrategy<S> {
-  public static final String VERSION = "certified-adaptive-reachability-v1";
+  public static final String VERSION = "certified-adaptive-reachability-v2-end-components";
 
   public record Choice<S>(
       String id, Map<S, CertifiedInterval> outcomes, CertifiedInterval unresolved) {
@@ -44,6 +44,9 @@ public final class CertifiedOutcomeStrategy<S> {
   private final Map<S, String> almostSure = new HashMap<>();
   private final int bits;
   private final Set<S> possible, open, unresolved, arithmetic;
+  private final List<CertifiedEndComponents.Component<S>> components;
+  private final Set<S> componentStates = new HashSet<>();
+  private final Map<S, String> componentWitness = new HashMap<>();
   private long iterations;
 
   public CertifiedOutcomeStrategy(Map<S, State<S>> graph, int bits) {
@@ -94,6 +97,8 @@ public final class CertifiedOutcomeStrategy<S> {
                             bits,
                             java.math.BigInteger.ZERO,
                             java.math.BigInteger.ONE.shiftLeft(bits))));
+    components = new CertifiedEndComponents<>(this.graph).find();
+    components.forEach(c -> componentStates.addAll(c.members()));
   }
 
   private Set<S> predecessors(Set<S> seeds) {
@@ -184,7 +189,97 @@ public final class CertifiedOutcomeStrategy<S> {
         });
     values.clear();
     values.putAll(next);
+    refineComponents();
     iterations++;
+  }
+
+  private record Exit<S>(S source, Choice<S> choice, CertifiedInterval value) {}
+
+  /**
+   * Before first exit, a policy either stays forever (value zero) or selects a mixture of
+   * conditional exit laws. A closed communicating region can navigate back and retry any positive
+   * exit. Thus the best conditional exit bounds the value of every member.
+   */
+  private void refineComponents() {
+    componentWitness.clear();
+    for (var component : components) {
+      var exits = new ArrayList<Exit<S>>();
+      for (var source : component.members())
+        for (var choice : graph.get(source).choices())
+          if (!CertifiedEndComponents.internal(choice, component.members()))
+            exits.add(new Exit<>(source, choice, conditionalExit(choice, component.members())));
+      var lower = java.math.BigInteger.ZERO;
+      var upper = java.math.BigInteger.ZERO;
+      for (var exit : exits) {
+        lower = lower.max(exit.value().lowerUnits());
+        upper = upper.max(exit.value().upperUnits());
+      }
+      for (var id : component.members()) {
+        var old = values.get(id);
+        values.put(
+            id,
+            new CertifiedInterval(bits, old.lowerUnits().max(lower), old.upperUnits().min(upper)));
+      }
+      // A single proper witness is intentional: independently choosing tied internal
+      // actions can create a policy that stalls forever although its Bellman value ties.
+      var ranked = new ArrayList<CertifiedRecommendations.Choice>();
+      for (int i = 0; i < exits.size(); i++)
+        ranked.add(
+            new CertifiedRecommendations.Choice(
+                Integer.toString(i), exits.get(i).value(), exits.get(i).choice().unresolved()));
+      var recommendation = CertifiedRecommendations.local(ranked, true);
+      if (!recommendation.status().equals("CERTIFIED")) continue;
+      var selected = exits.get(Integer.parseInt(recommendation.methodIds().getFirst()));
+      if (!selected.choice().unresolved().zero()) continue;
+      // A positive lower exit probability is necessary to prove eventual exit.
+      if (selected.choice().outcomes().entrySet().stream()
+          .noneMatch(
+              e ->
+                  !component.members().contains(e.getKey())
+                      && e.getValue().lowerUnits().signum() > 0)) continue;
+      var reached = new HashSet<S>();
+      reached.add(selected.source());
+      componentWitness.put(selected.source(), selected.choice().id());
+      while (reached.size() < component.members().size()) {
+        boolean changed = false;
+        for (var id : component.members()) {
+          if (reached.contains(id)) continue;
+          for (var choice : component.internal().get(id))
+            if (choice.outcomes().entrySet().stream()
+                .anyMatch(
+                    e -> e.getValue().lowerUnits().signum() > 0 && reached.contains(e.getKey()))) {
+              componentWitness.put(id, choice.id());
+              reached.add(id);
+              changed = true;
+              break;
+            }
+        }
+        if (!changed) throw new IllegalStateException("Missing end-component navigation witness");
+      }
+    }
+  }
+
+  private CertifiedInterval conditionalExit(Choice<S> choice, Set<S> region) {
+    var zero = java.math.BigInteger.ZERO;
+    var one = java.math.BigInteger.ONE.shiftLeft(bits);
+    if (!choice.unresolved().zero()) return new CertifiedInterval(bits, zero, one);
+    var massLower = zero;
+    var massUpper = zero;
+    var numeratorLower = zero;
+    var numeratorUpper = zero;
+    for (var entry : choice.outcomes().entrySet()) {
+      if (region.contains(entry.getKey())) continue;
+      var p = entry.getValue();
+      var value = values.get(entry.getKey());
+      massLower = massLower.add(p.lowerUnits());
+      massUpper = massUpper.add(p.upperUnits());
+      numeratorLower = numeratorLower.add(p.lowerUnits().multiply(value.lowerUnits()));
+      numeratorUpper = numeratorUpper.add(p.upperUnits().multiply(value.upperUnits()));
+    }
+    if (massLower.signum() == 0) return new CertifiedInterval(bits, zero, one);
+    var division = numeratorUpper.divideAndRemainder(massLower);
+    var upper = division[1].signum() == 0 ? division[0] : division[0].add(java.math.BigInteger.ONE);
+    return new CertifiedInterval(bits, numeratorLower.divide(massUpper), upper.min(one));
   }
 
   private CertifiedInterval action(Choice<S> choice) {
@@ -217,6 +312,15 @@ public final class CertifiedOutcomeStrategy<S> {
           unresolved.contains(id),
           arithmetic.contains(id),
           false);
+    if (componentStates.contains(id))
+      return new Result(
+          value,
+          componentWitness.containsKey(id) ? "ACTION_CERTIFIED" : "PENDING",
+          componentWitness.containsKey(id) ? List.of(componentWitness.get(id)) : List.of(),
+          open.contains(id),
+          unresolved.contains(id),
+          arithmetic.contains(id),
+          !value.exact());
     var actions =
         state.choices().stream()
             .map(

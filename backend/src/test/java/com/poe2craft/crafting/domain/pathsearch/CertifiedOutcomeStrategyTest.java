@@ -121,8 +121,180 @@ class CertifiedOutcomeStrategyTest {
             64);
     for (int n = 0; n < 100; n++) stalled.refine();
     assertThat(stalled.result("A").value().contains(Fraction.of(1, 2))).isTrue();
-    assertThat(stalled.result("A").status()).isEqualTo("PENDING");
-    assertThat(stalled.result("A").fixedPointPending()).isTrue();
+    assertThat(stalled.result("A").status()).isEqualTo("ACTION_CERTIFIED");
+    assertThat(stalled.result("A").methodIds()).containsExactly("risk");
+    assertThat(stalled.result("A").value()).isEqualTo(p(1, 2));
+    assertThat(stalled.result("A").fixedPointPending()).isFalse();
     assertThat(stalled.result("A").transitionArithmetic()).isFalse();
+  }
+
+  @Test
+  void communicatingRegionUsesConditionalExitAndAProperNavigationPolicy() {
+    var solver =
+        new CertifiedOutcomeStrategy<>(
+            Map.of(
+                "A",
+                state(
+                    choice("stall-A", "A"),
+                    choice("navigate", "A", "B"),
+                    choice("bad", "goal", "dead")),
+                "B",
+                state(choice("back", "A"), choice("exit", "A", "goal", "goal", "goal", "dead")),
+                "goal",
+                goal(),
+                "dead",
+                state()),
+            64);
+    for (int i = 0; i < 100; i++) solver.refine();
+    assertThat(solver.result("A").value().contains(Fraction.of(3, 4))).isTrue();
+    assertThat(solver.result("A").value().confirmedPercent(2)).contains("75.00");
+    assertThat(solver.result("A").methodIds()).containsExactly("navigate");
+    assertThat(solver.result("B").methodIds()).containsExactly("exit");
+  }
+
+  @Test
+  void unknownExitAndUnprovenPositiveNavigationCannotProduceFalseCertification() {
+    var uncertain =
+        new CertifiedInterval(
+            64, java.math.BigInteger.ZERO, java.math.BigInteger.ONE.shiftLeft(64));
+    var solver =
+        new CertifiedOutcomeStrategy<>(
+            Map.of(
+                "A",
+                state(
+                    choice("stall", "A"),
+                    choice("risk", "goal", "dead"),
+                    new Choice<>(
+                        "uncertain-move", Map.of("A", uncertain, "B", uncertain), p(0, 1))),
+                "B",
+                state(choice("back", "A"), choice("win", "goal")),
+                "goal",
+                goal(),
+                "dead",
+                state()),
+            64);
+    for (int i = 0; i < 100; i++) solver.refine();
+    assertThat(solver.result("A").value().contains(Fraction.of(1, 2))).isTrue();
+    assertThat(solver.result("A").value().contains(Fraction.ONE)).isTrue();
+    assertThat(solver.result("A").status()).isEqualTo("PENDING");
+    assertThat(solver.result("A").methodIds()).isEmpty();
+    var unknown =
+        new CertifiedOutcomeStrategy<>(
+            Map.of(
+                "A",
+                state(
+                    choice("stall", "A"),
+                    choice("risk", "goal", "dead"),
+                    new Choice<>("unknown", Map.of(), p(1, 1))),
+                "goal",
+                goal(),
+                "dead",
+                state()),
+            64);
+    for (int i = 0; i < 100; i++) unknown.refine();
+    assertThat(unknown.result("A").value().contains(Fraction.of(1, 2))).isTrue();
+    assertThat(unknown.result("A").value().contains(Fraction.ONE)).isTrue();
+    assertThat(unknown.result("A").status()).isEqualTo("PENDING");
+    assertThat(unknown.result("A").reachableUnresolved()).isTrue();
+  }
+
+  @Test
+  void communicatingCycleIsNotLimitedToTheSmallExactPolicyOracle() {
+    var graph = new LinkedHashMap<String, State<String>>();
+    for (int i = 0; i < 96; i++) graph.put("s" + i, state(choice("next", "s" + ((i + 1) % 96))));
+    graph.put("s0", state(choice("next", "s1"), choice("exit", "goal", "dead")));
+    graph.put("goal", goal());
+    graph.put("dead", state());
+    var solver = new CertifiedOutcomeStrategy<>(graph, 64);
+    solver.refine();
+    for (int i = 0; i < 96; i++) {
+      assertThat(solver.result("s" + i).value()).isEqualTo(p(1, 2));
+      assertThat(solver.result("s" + i).methodIds()).containsExactly(i == 0 ? "exit" : "next");
+      assertThat(solver.result("s" + i).fixedPointPending()).isFalse();
+    }
+  }
+
+  @Test
+  void cyclicBoundsAndSelectedPoliciesAgreeWithIndependentRationalPolicyEvaluation() {
+    var random = new Random(914071L);
+    for (int example = 0; example < 80; example++) {
+      var exact = new LinkedHashMap<Integer, OutcomeStrategy.State<Integer>>();
+      var certified = new LinkedHashMap<Integer, State<Integer>>();
+      for (int source = 0; source < 6; source++) {
+        var choices = new ArrayList<OutcomeStrategy.Choice<Integer>>();
+        choices.add(
+            new OutcomeStrategy.Choice<>("stall", Map.of(source, Fraction.ONE), Fraction.ZERO));
+        if (random.nextBoolean())
+          choices.add(
+              new OutcomeStrategy.Choice<>(
+                  "move", Map.of(random.nextInt(6), Fraction.ONE), Fraction.ZERO));
+        for (int action = 0; action < 2; action++) {
+          var law = new LinkedHashMap<Integer, Fraction>();
+          int outcomeCount = 3 + random.nextInt(4);
+          for (int outcome = 0; outcome < outcomeCount; outcome++)
+            law.merge(random.nextInt(8), Fraction.of(1, outcomeCount), Fraction::add);
+          choices.add(new OutcomeStrategy.Choice<>("try-" + action, law, Fraction.ZERO));
+        }
+        exact.put(source, new OutcomeStrategy.State<>(false, true, choices));
+        certified.put(
+            source,
+            new State<>(
+                false,
+                false,
+                choices.stream()
+                    .map(
+                        c -> {
+                          var law = new LinkedHashMap<Integer, CertifiedInterval>();
+                          c.outcomes()
+                              .forEach(
+                                  (target, probability) ->
+                                      law.put(target, CertifiedInterval.enclose(probability, 64)));
+                          return new Choice<>(c.methodId(), law, p(0, 1));
+                        })
+                    .toList()));
+      }
+      exact.put(6, new OutcomeStrategy.State<>(true, true, List.of()));
+      exact.put(7, new OutcomeStrategy.State<>(false, true, List.of()));
+      certified.put(6, new State<>(true, false, List.of()));
+      certified.put(7, new State<>(false, false, List.of()));
+      var oracle = new FinitePolicySolver<>(exact);
+      Optional<FinitePolicySolver.Solution<Integer>> solution = Optional.empty();
+      for (int i = 0; i < 2000 && solution.isEmpty(); i++) solution = oracle.step();
+      assertThat(solution).isPresent();
+      var solver = new CertifiedOutcomeStrategy<>(certified, 64);
+      for (int iteration = 0; iteration < 160; iteration++) {
+        solver.refine();
+        for (int source = 0; source < 8; source++)
+          assertThat(
+                  solver
+                      .result(source)
+                      .value()
+                      .contains(solution.orElseThrow().values().get(source)))
+              .as("example %s, iteration %s, source %s", example, iteration, source)
+              .isTrue();
+      }
+      // Restrict only certified choices; independently evaluate the resulting policy.
+      // This detects Bellman ties that would otherwise recommend perpetual stalling.
+      var restricted = new LinkedHashMap<Integer, OutcomeStrategy.State<Integer>>();
+      exact.forEach(
+          (id, state) -> {
+            var ids = solver.result(id).methodIds();
+            restricted.put(
+                id,
+                new OutcomeStrategy.State<>(
+                    state.goal(),
+                    true,
+                    ids.isEmpty()
+                        ? state.choices()
+                        : state.choices().stream()
+                            .filter(c -> ids.contains(c.methodId()))
+                            .toList()));
+          });
+      var witness = new FinitePolicySolver<>(restricted);
+      Optional<FinitePolicySolver.Solution<Integer>> evaluated = Optional.empty();
+      for (int i = 0; i < 2000 && evaluated.isEmpty(); i++) evaluated = witness.step();
+      assertThat(evaluated).isPresent();
+      assertThat(evaluated.orElseThrow().values()).isEqualTo(solution.orElseThrow().values());
+    }
   }
 }
