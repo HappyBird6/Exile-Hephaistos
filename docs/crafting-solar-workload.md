@@ -159,3 +159,34 @@ state/phase identity, exact interval endpoints and all remaining probability.
 The same durable job cursor continues to define restart recovery. Logical disk
 rows are distinguished from resident cache entries; physical heap/RSS and disk
 measurements remain necessary alongside the entry allowance.
+
+At `8d4e717`, the same 100,000-entry allowance reached the full 1,000,000-operation
+server slice and paused for `COMPUTE_BUDGET`, rather than memory. It retained
+31,499 pending and 59,840 boundary rows on disk, with 128 cached values and 48 law
+descriptors. The working file occupied 4,419,584 bytes. There were 11,404 classes,
+70 visible states and 50 methods; the root local recommendation was still pending.
+First response was 406 ms, run time 58,133 ms, and fresh-process recovery 5,107 ms.
+All published observations and currency costs matched across recovery.
+
+Execution peak RSS was 408,300 KiB and heap pool peak sum 174,223,816 bytes;
+recovery peak RSS was 397,604 KiB. Durable job files occupied 84,683,351 bytes,
+separately from the scratch file that is deleted on service closure. This removes
+the measured active-map interruption in this slice, but does not establish whole
+search completion or a runtime speedup: SQL lookup/update cost increased runtime.
+Artifacts and source are under `codex/bucket-method-verification/durable-solar-working-laws`.
+
+A separate continuation probe fixed source at `8d4e717` and kept the same memory
+allowance. It recorded completed server slices at 1,000,000, 2,000,000 and
+3,000,000 operations (54.3, 195.2 and 540.5 seconds from creation), each paused
+for compute budget. There was still no root local recommendation, and the graph
+remained at 70 visible states and 50 methods. This is real progress beyond the
+previous memory interruption, not repeated failure at the same memory boundary.
+However, sampling showed substantial time in full checkpoint row appends; storage
+cost had become another bottleneck. The longer probe was intentionally stopped
+after recording these slices, with committed job files retained. It is not a
+passing full-search or large-checkpoint recovery test. Artifacts are under
+`codex/bucket-method-verification/durable-solar-continuation`.
+
+Work stopped at the user's 2026-10-14 safe-shutdown request. Subsequent class-index
+and checkpoint-capture changes belong to a separate WIP branch and are not covered
+by the complete validation reported for `8d4e717`.
