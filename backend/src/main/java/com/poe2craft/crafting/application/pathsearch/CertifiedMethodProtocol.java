@@ -7,7 +7,7 @@ import java.util.*;
 
 /** Additive wire values: an arithmetic enclosure is never a statistical confidence interval. */
 public final class CertifiedMethodProtocol {
-  public static final String VERSION = "certified-method-wire-v6-backed-pages";
+  public static final String VERSION = "certified-method-wire-v7-strategy-job";
 
   private CertifiedMethodProtocol() {}
 
@@ -43,10 +43,24 @@ public final class CertifiedMethodProtocol {
       String goalCatalogVersion,
       List<com.poe2craft.crafting.domain.WorkbenchSimulator.Assumption> assumptions,
       String strategyStatus,
+      String strategyVersion,
       int stateCount,
       int methodCount,
       Storage storage,
-      List<Local> localRecommendations) {}
+      List<Local> localRecommendations,
+      List<Strategy> strategies) {}
+
+  public record Strategy(
+      String stateId,
+      int cycles,
+      String status,
+      Probability lower,
+      Probability upper,
+      List<String> methodIds,
+      boolean reachableOpen,
+      boolean reachableUnresolved,
+      boolean transitionArithmetic,
+      boolean fixedPointPending) {}
 
   public record Storage(
       String version,

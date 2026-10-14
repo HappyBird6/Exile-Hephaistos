@@ -49,5 +49,8 @@ entry binding/expansion endpoints and are not replaced by display grouping.
 
 The display response omits the large audit ledger; the existing certified snapshot
 endpoint retains it. A grouped node never merges the calculation state identities.
-The shared fixture includes a final recommendation for presentation/oracle checks;
-production final strategy scheduling is still reported separately as NOT_REQUESTED.
+The shared fixture includes a final recommendation for presentation/oracle checks.
+Production final strategy scheduling now runs for completed maps within the finite
+adapter preparation budget; larger maps pause explicitly. Raw certified wire v7
+reports strategy version, status, bounds and uncertainty causes separately from
+enumeration. See `docs/crafting-strategy-job.md` for the exact boundary.

@@ -207,12 +207,23 @@ final class CertifiedSearchJobs {
               current.generation(),
               current.status(),
               current.reason(),
-              Set.of("PAUSED", "CANCELLED").contains(current.status()),
+              Set.of("PAUSED", "CANCELLED").contains(current.status())
+                  && job.strategyPause() == null,
               current.enumerationComplete(),
               current.rootStateId(),
               current.strategyStatus(),
               current.localRecommendations(),
-              List.of()),
+              current.strategies().stream()
+                  .map(
+                      s ->
+                          new MethodSearchProtocol.Strategy(
+                              s.stateId(),
+                              s.cycles(),
+                              s.lower().equals(s.upper()) ? "EXACT" : "BOUNDED",
+                              s.lower(),
+                              s.upper(),
+                              s.methodIds()))
+                  .toList()),
           CertifiedMapProtocol.graph(
               id, current.revision(), saved.states(), saved.methods(), 0, job.engine.precision()));
     }
@@ -461,21 +472,31 @@ final class CertifiedSearchJobs {
               n < 128
                   && used < runBudget
                   && System.nanoTime() < until
-                  && !job.engine.complete()
+                  && !job.finished()
+                  && job.strategyPause() == null
                   && !job.engine.memoryLimited();
-              n++, used++) job.engine.step();
-          if (job.engine.complete()) {
+              n++, used++) {
+            if (!job.engine.complete()) job.engine.step();
+            else if (job.strategy == null) {
+              if (job.engine.strategyFitsPreparationBudget())
+                job.strategy = job.engine.strategyWork();
+              else job.strategyBlocked = "STRATEGY_PREPARATION_BUDGET";
+            } else job.strategy.step();
+          }
+          if (job.finished()) {
             job.status = "COMPLETED";
             job.reason = null;
             publish(job);
             return;
           }
-          if (job.engine.memoryLimited() || used >= runBudget) {
+          if (job.strategyPause() != null || job.engine.memoryLimited() || used >= runBudget) {
             job.status = "PAUSED";
             job.reason =
-                job.engine.storageLimited()
-                    ? "STORAGE_BUDGET"
-                    : job.engine.memoryLimited() ? "MEMORY_BUDGET" : "COMPUTE_BUDGET";
+                job.strategyPause() != null
+                    ? job.strategyPause()
+                    : job.engine.storageLimited()
+                        ? "STORAGE_BUDGET"
+                        : job.engine.memoryLimited() ? "MEMORY_BUDGET" : "COMPUTE_BUDGET";
             publish(job);
             return;
           }
@@ -494,6 +515,7 @@ final class CertifiedSearchJobs {
   private void publish(Job job) {
     if (job.snapshot != null
         && job.publishedGraphRevision == job.engine.graphRevision()
+        && job.publishedStrategyRevision == (job.strategy == null ? -1 : job.strategy.revision())
         && job.snapshot.generation() == job.generation
         && job.snapshot.status().equals(job.status)
         && Objects.equals(job.snapshot.reason(), job.reason)) return;
@@ -503,6 +525,7 @@ final class CertifiedSearchJobs {
     var states = changed || previous == null ? job.engine.states() : previous.states();
     var methods = changed || previous == null ? job.engine.methods() : previous.methods();
     job.publishedGraphRevision = job.engine.graphRevision();
+    job.publishedStrategyRevision = job.strategy == null ? -1 : job.strategy.revision();
     var local =
         !changed && job.snapshot != null
             ? job.snapshot.localRecommendations()
@@ -531,7 +554,10 @@ final class CertifiedSearchJobs {
             job.request.request().start().provenance(),
             job.request.request().goal().catalogVersion(),
             job.engine.assumptions(),
-            "NOT_REQUESTED",
+            job.strategyBlocked != null
+                ? "PAUSED"
+                : job.strategy == null ? "NOT_REQUESTED" : job.strategy.status(),
+            CertifiedOutcomeStrategy.VERSION,
             states.size(),
             methods.size(),
             new Storage(
@@ -551,7 +577,26 @@ final class CertifiedSearchJobs {
                 job.engine.absorptionStorage().decodedRows(),
                 job.engine.storage().residentPackedBytes(),
                 job.engine.storage().diskBytes()),
-            local);
+            local,
+            job.strategy == null
+                ? List.of()
+                : job.strategy.rows().stream()
+                    .map(
+                        row -> {
+                          var result = row.result();
+                          return new Strategy(
+                              row.stateId(),
+                              row.cycles(),
+                              result.status(),
+                              Probability.of(result.value().lower()),
+                              Probability.of(result.value().upper()),
+                              result.methodIds(),
+                              result.reachableOpen(),
+                              result.reachableUnresolved(),
+                              result.transitionArithmetic(),
+                              result.fixedPointPending());
+                        })
+                    .toList());
   }
 
   private void dispose(Job job) {
@@ -565,6 +610,7 @@ final class CertifiedSearchJobs {
       job.bindings.clear();
       job.entryIds.clear();
       job.engine.close();
+      job.strategy = null;
     }
   }
 
@@ -629,6 +675,20 @@ final class CertifiedSearchJobs {
     final Map<String, String> entryIds = new LinkedHashMap<>();
     long revision = -1, generation;
     long publishedGraphRevision = -1;
+    long publishedStrategyRevision = -1;
+    CertifiedStrategyWork strategy;
+    String strategyBlocked;
+
+    boolean finished() {
+      return engine.complete() && strategy != null && strategy.complete();
+    }
+
+    String strategyPause() {
+      return strategyBlocked != null
+          ? strategyBlocked
+          : strategy == null ? null : strategy.pauseReason();
+    }
+
     boolean disposed;
     int limit = 100000, entryLimit = 1;
     String status = "QUEUED", reason;

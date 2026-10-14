@@ -634,6 +634,32 @@ final class CertifiedMethodSearchEngine {
   }
 
   /** Finite completed graph adapter. Large-job cooperative strategy scheduling is separate. */
+  boolean strategyFitsPreparationBudget() {
+    if (!complete()) return false;
+    if (states.size() > 128 || methods.size() > 1024) return false;
+    for (int cycles : MethodSearchCalculation.OBSERVATIONS) {
+      long rows = 0;
+      for (var method : methods.values()) {
+        var point = method.points.get(cycles);
+        if (point == null) throw new IllegalStateException("Completed method lacks observation");
+        rows += point.active().size();
+        for (var law : point.exits().values()) rows += law.size();
+        if (rows > 8192) return false;
+      }
+    }
+    return true;
+  }
+
+  CertifiedStrategyWork strategyWork() {
+    if (!strategyFitsPreparationBudget())
+      throw new IllegalStateException("Strategy preparation budget exceeded");
+    return new CertifiedStrategyWork(
+        states.keySet().stream().map(this::id).toList(),
+        precision.percentDecimals(),
+        this::strategy);
+  }
+
+  /** Finite completed graph adapter; callers must guard synchronous preparation. */
   CertifiedOutcomeStrategy<String> strategy(int cycles) {
     if (!complete()) throw new IllegalStateException("Enumeration incomplete");
     if (!MethodSearchCalculation.OBSERVATIONS.contains(cycles))

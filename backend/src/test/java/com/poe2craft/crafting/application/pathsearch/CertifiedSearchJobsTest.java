@@ -453,7 +453,7 @@ class CertifiedSearchJobsTest {
   }
 
   @Test
-  void completedEnumerationStillHonorsEntryCancellationAndDoesNotClaimStrategy() throws Exception {
+  void completedGoalPublishesStrategyAndStillHonorsEntryCancellation() throws Exception {
     var fixture = new PathSearchServiceTest();
     try (var old = fixture.service(1);
         var service =
@@ -482,7 +482,17 @@ class CertifiedSearchJobsTest {
       var completed = service.getCertified("owner", started.search().jobId());
       assertThat(completed.status()).isEqualTo("COMPLETED");
       assertThat(completed.enumerationComplete()).isTrue();
-      assertThat(completed.strategyStatus()).isEqualTo("NOT_REQUESTED");
+      assertThat(completed.strategyStatus()).isEqualTo("COMPLETE");
+      assertThat(completed.strategies())
+          .hasSize(3)
+          .allMatch(
+              s ->
+                  s.status().equals("GOAL")
+                      && s.lower().fraction().equals(Fraction.ONE)
+                      && s.upper().fraction().equals(Fraction.ONE)
+                      && s.methodIds().isEmpty());
+      assertThat(service.certifiedView("owner", completed.jobId()).search().strategies())
+          .hasSize(3);
       var cancelled =
           service.mutateCertified(
               "owner",

@@ -267,10 +267,88 @@ class CertifiedMethodSearchEngineTest {
                             assertThat(point.cycleUses().get(action).contains(mass)).isTrue());
               });
     }
-    bounded.close();
+    verifyStrategyJob(bounded, fixture.root());
     try (var files = java.nio.file.Files.list(directory)) {
       assertThat(files.toList()).isEmpty();
     }
+  }
+
+  private static void verifyStrategyJob(
+      CertifiedMethodSearchEngine engine, com.poe2craft.crafting.domain.BasicCurrencyState root) {
+    assertThat(engine.strategyFitsPreparationBudget()).isTrue();
+    var queue = new ArrayDeque<Runnable>();
+    var jobs =
+        new CertifiedSearchJobs(
+            java.time.Clock.systemUTC(), queue::add, 1, (request, precision) -> engine);
+    // The injected engine above has already been checked against the independent
+    // full-state oracle. This fixture now isolates job sequencing and controls.
+    var request =
+        new CertifiedMethodProtocol.Create(
+            1,
+            new MethodSearchProtocol.Create(
+                2,
+                "complete-small-job",
+                root,
+                new GoalFilter(1, "fixture", null, List.of()),
+                List.of()),
+            engine.precision());
+    var current = jobs.create("owner", request).search();
+    int command = 0;
+    while (current.strategies().isEmpty() && command < 20) {
+      queue.removeFirst().run();
+      current = jobs.get("owner", current.jobId());
+      assertThat(current.enumerationComplete()).isTrue();
+      assertThat(current.status()).isEqualTo("PAUSED");
+      if (current.strategies().isEmpty())
+        current =
+            jobs.mutate(
+                "owner",
+                current.jobId(),
+                new MethodSearchProtocol.Mutation(
+                    2, "resume-" + command++, current.revision(), "RESUME", null));
+    }
+    assertThat(current.strategies()).isNotEmpty();
+    var saved = current.strategies();
+    var queued =
+        jobs.mutate(
+            "owner",
+            current.jobId(),
+            new MethodSearchProtocol.Mutation(2, "queued", current.revision(), "RESUME", null));
+    var cancelled =
+        jobs.mutate(
+            "owner",
+            current.jobId(),
+            new MethodSearchProtocol.Mutation(2, "cancel", queued.revision(), "CANCEL", null));
+    queue.removeFirst().run();
+    assertThat(jobs.get("owner", current.jobId())).isEqualTo(cancelled);
+    assertThat(cancelled.strategies()).isEqualTo(saved);
+    current = cancelled;
+    while (!current.status().equals("COMPLETED") && command < 100) {
+      current =
+          jobs.mutate(
+              "owner",
+              current.jobId(),
+              new MethodSearchProtocol.Mutation(
+                  2, "resume-" + command++, current.revision(), "RESUME", null));
+      queue.removeFirst().run();
+      current = jobs.get("owner", current.jobId());
+    }
+    assertThat(current.status()).isEqualTo("COMPLETED");
+    assertThat(current.strategyStatus()).isEqualTo("COMPLETE");
+    var rootRows =
+        current.strategies().stream().filter(s -> s.stateId().equals(engine.rootId())).toList();
+    assertThat(rootRows)
+        .hasSize(3)
+        .allMatch(
+            s ->
+                s.lower().equals(s.upper())
+                    && s.lower().numerator().equals("1")
+                    && s.lower().denominator().equals("1")
+                    && !s.methodIds().isEmpty());
+    var view = jobs.view("owner", current.jobId());
+    assertThat(view.search().revision()).isEqualTo(current.revision());
+    assertThat(view.search().strategies()).hasSize(current.strategies().size());
+    jobs.close();
   }
 
   private static Map<String, BasicTransitionClasses.Key> keys(

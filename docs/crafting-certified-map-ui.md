@@ -32,8 +32,9 @@ primitive currency uses nor method cycles. The UI continues COMPUTE_BUDGET pause
 while the user is running the search and stops automatic continuation on other
 resource/error states. Resume requests use the existing one-million-entry API
 allowance. Enumeration completion and final strategy completion remain distinct:
-the production final-strategy scheduler is still pending, so the display header
-currently carries NOT_REQUESTED and no final strategy rows.
+the header carries NOT_REQUESTED until enumeration finishes. A subsequent bounded
+finite-adapter integration publishes real final rows for small completed maps;
+see [strategy job scope](crafting-strategy-job.md). Large-map scheduling remains open.
 
 Frontend validation passed in a frozen Docker source copy: npm ci, lint, typecheck,
 format:check, all 2,161 tests in 93 files, and production build. The existing bundle
@@ -59,10 +60,10 @@ server or deployment is part of this verification.
 
 Remaining engineering work:
 
-- Connect cooperative final-strategy preparation, refinement and publication to the
-  production job lifecycle. The current finite adapter copies whole outcome maps
-  and its solver constructor/sweeps are synchronous; wiring it directly into the
-  job lock would undermine cancellation and bounded resident storage.
+- Replace the bounded finite strategy adapter with cooperative preparation and
+  shared operators for large maps. Its constructor/sweeps remain synchronous
+  within the explicit small-map gate; that gate must not be removed merely to
+  make a large job appear supported.
 - Bound or page pending/boundary working laws as well as immutable/absorbed laws.
   The preceding 30-minute Solar run avoided the old storage pause but did not finish
   whole enumeration; its measurements are for the preceding engine source, not this
