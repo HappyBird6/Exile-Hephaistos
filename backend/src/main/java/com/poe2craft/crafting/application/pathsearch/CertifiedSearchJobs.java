@@ -15,7 +15,7 @@ import java.util.function.BiFunction;
 
 /** Certified jobs share one worker; optional local checkpoints survive process restarts. */
 final class CertifiedSearchJobs {
-  static final String CHECKPOINT_VERSION = "certified-job-checkpoint-v1";
+  static final String CHECKPOINT_VERSION = "certified-job-checkpoint-v2-control";
   private CertifiedJobRepository repository;
   private ObjectMapper json;
   private final Map<String, DiskInput> unavailable = new LinkedHashMap<>();
@@ -43,6 +43,8 @@ final class CertifiedSearchJobs {
       List<DiskEntry> entries,
       long expires) {}
 
+  private record ControlCheckpoint(String execution, DiskJob job) {}
+
   private static String ownerKey(String owner) {
     try {
       return HexFormat.of()
@@ -68,13 +70,28 @@ final class CertifiedSearchJobs {
         try {
           var input = decode(descriptor.identity().originalInput(), DiskInput.class);
           var store = opened = repository.open(descriptor);
+          long recoveryRevision = store.revision();
           var saved = store.execution("job");
           if (saved.isEmpty()) {
             store.close();
             continue;
           }
-          var header = decode(saved.get().header(), DiskJob.class);
-          if (clock.instant().toEpochMilli() > header.expires()) {
+          var control =
+              store
+                  .checkpoint("job/control")
+                  .map(c -> decode(c.content(), ControlCheckpoint.class));
+          if (control.isPresent() && !control.get().execution().equals(saved.get().id()))
+            throw new IllegalStateException("Job control references another execution");
+          var header =
+              control
+                  .map(ControlCheckpoint::job)
+                  .orElseGet(() -> decode(saved.get().header(), DiskJob.class));
+          long lease =
+              store
+                  .checkpoint("job/lease")
+                  .map(c -> Long.parseLong(c.content()))
+                  .orElse(header.expires());
+          if (clock.instant().toEpochMilli() > Math.max(header.expires(), lease)) {
             store.close();
             continue;
           }
@@ -84,13 +101,15 @@ final class CertifiedSearchJobs {
           }
           var engine =
               restoring = factory.apply(input.request().request(), input.request().precision());
-          if (!descriptor.identity().equals(identity(engine, input))) {
+          if (!descriptor
+              .identity()
+              .equals(identity(engine, input, descriptor.identity().originalInput()))) {
             throw new IllegalStateException(
                 "Job calculation versions changed; explicit recalculation required");
           }
           var job = new Job(header.id(), input.owner(), input.request(), engine);
           job.store = store;
-          job.storeRevision = store.revision();
+          job.storeRevision = recoveryRevision;
           try (var restore = engine.checkpointRestore(this.json)) {
             long offset = 0;
             while (true) {
@@ -105,6 +124,10 @@ final class CertifiedSearchJobs {
             job.revision = header.revision();
             job.generation = header.generation() + 1;
             job.limit = header.limit();
+            engine.increaseMemoryBudget(job.limit);
+            job.checkpointOperations = engine.operations();
+            job.checkpointGraphRevision = engine.graphRevision();
+            job.checkpointExecution = saved.get().id();
             job.entryLimit = header.entryLimit();
             job.commands.putAll(header.commands());
             job.strategyBlocked = header.strategyBlocked();
@@ -181,6 +204,10 @@ final class CertifiedSearchJobs {
 
   private void persist(Job job) {
     if (job.store == null) return;
+    boolean changed =
+        job.checkpointOperations != job.engine.operations()
+            || job.checkpointGraphRevision != job.engine.graphRevision();
+    if (changed) job.engine.settleCheckpoint();
     var entries = new ArrayList<DiskEntry>();
     for (var entry : job.entries.values()) {
       IndexedMethodProtocol.Bind binding = null;
@@ -203,6 +230,21 @@ final class CertifiedSearchJobs {
             Map.copyOf(job.commands),
             entries,
             job.expires.toEpochMilli());
+    if (!changed) {
+      job.storeRevision =
+          job.store.commit(
+              job.storeRevision,
+              new MethodGraphStore.Batch(
+                  List.of(),
+                  List.of(),
+                  List.of(),
+                  List.of(
+                      new MethodGraphStore.Checkpoint(
+                          "job/control",
+                          encode(new ControlCheckpoint(job.checkpointExecution, header))))));
+      job.durableLeaseUntil = job.expires.toEpochMilli();
+      return;
+    }
     var previous = job.store.execution("job");
     long revision = job.storeRevision;
     var draft = job.store.beginExecution("job", encode(header));
@@ -224,8 +266,26 @@ final class CertifiedSearchJobs {
           job.store.commit(
               revision,
               new MethodGraphStore.Batch(
-                  List.of(), List.of(), List.of(), List.of(MethodCursorStore.reference(sealed))));
-      previous.ifPresent(old -> job.store.discardExecution(old.id()));
+                  List.of(),
+                  List.of(),
+                  List.of(),
+                  List.of(
+                      MethodCursorStore.reference(sealed),
+                      new MethodGraphStore.Checkpoint(
+                          "job/control", encode(new ControlCheckpoint(sealed.id(), header))))));
+      job.durableLeaseUntil = job.expires.toEpochMilli();
+      job.checkpointOperations = job.engine.operations();
+      job.checkpointGraphRevision = job.engine.graphRevision();
+      job.checkpointExecution = sealed.id();
+      previous.ifPresent(
+          old -> {
+            try {
+              job.store.discardExecution(old.id());
+            } catch (RuntimeException cleanup) {
+              java.util.logging.Logger.getLogger(CertifiedSearchJobs.class.getName())
+                  .warning("Unreferenced job checkpoint retained for later cleanup: " + old.id());
+            }
+          });
     } catch (RuntimeException | Error failure) {
       try {
         job.store.discardExecution(draft.id());
@@ -237,6 +297,11 @@ final class CertifiedSearchJobs {
   }
 
   private MethodGraphStore.Identity identity(CertifiedMethodSearchEngine engine, DiskInput input) {
+    return identity(engine, input, encode(input));
+  }
+
+  private MethodGraphStore.Identity identity(
+      CertifiedMethodSearchEngine engine, DiskInput input, String originalInput) {
     return new MethodGraphStore.Identity(
         CHECKPOINT_VERSION,
         engine.calculationVersion(),
@@ -245,7 +310,7 @@ final class CertifiedSearchJobs {
         input.request().request().goal().catalogVersion(),
         CertifiedInterval.VERSION,
         "request-provenance",
-        encode(input));
+        originalInput);
   }
 
   private final Map<String, Job> jobs = new LinkedHashMap<>();
@@ -937,6 +1002,24 @@ final class CertifiedSearchJobs {
         throw new Rejected(410, "SEARCH_EXPIRED");
       }
       expires = clock.instant().plus(Duration.ofMinutes(20));
+      if (store != null && expires.toEpochMilli() > durableLeaseUntil) {
+        try {
+          storeRevision =
+              store.commit(
+                  storeRevision,
+                  new MethodGraphStore.Batch(
+                      List.of(),
+                      List.of(),
+                      List.of(),
+                      List.of(
+                          new MethodGraphStore.Checkpoint(
+                              "job/lease", Long.toString(expires.toEpochMilli())))));
+          durableLeaseUntil = expires.toEpochMilli();
+        } catch (RuntimeException | Error failure) {
+          guard.close();
+          throw failure;
+        }
+      }
       return guard;
     }
 
@@ -944,6 +1027,9 @@ final class CertifiedSearchJobs {
     MethodGraphStore store;
     long strategySteps;
     long storeRevision;
+    long durableLeaseUntil;
+    long checkpointOperations = -1, checkpointGraphRevision = -1;
+    String checkpointExecution;
     final Create request;
     final CertifiedMethodSearchEngine engine;
     volatile Instant expires = clock.instant().plus(Duration.ofMinutes(20));

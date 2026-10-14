@@ -13,6 +13,94 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
 class CertifiedJobRestartTest {
+  private String storedCursor(Path dir, PathSearchServiceTest fixture, String id) {
+    var repository = new LocalCertifiedJobRepository(dir, fixture.json);
+    var descriptor =
+        repository.list().stream().filter(d -> d.id().equals(id)).findFirst().orElseThrow();
+    try (var store = repository.open(descriptor)) {
+      return store.execution("job").orElseThrow().id();
+    }
+  }
+
+  @Test
+  void readRenewedLeaseSurvivesRestartWithoutRewritingTheGraph(@TempDir Path dir) throws Exception {
+    var fixture = new PathSearchServiceTest();
+    var request = request(fixture);
+    var now =
+        new java.util.concurrent.atomic.AtomicReference<>(
+            java.time.Instant.parse("2026-10-14T00:00:00Z"));
+    Clock clock =
+        new Clock() {
+          public java.time.ZoneId getZone() {
+            return java.time.ZoneOffset.UTC;
+          }
+
+          public Clock withZone(java.time.ZoneId zone) {
+            return Clock.fixed(now.get(), zone);
+          }
+
+          public java.time.Instant instant() {
+            return now.get();
+          }
+        };
+    String id;
+    var local = new LocalCertifiedJobRepository(dir, fixture.json);
+    CertifiedJobRepository repository =
+        new CertifiedJobRepository() {
+          public MethodGraphStore create(Descriptor descriptor) {
+            var i = descriptor.identity();
+            return local.create(
+                new Descriptor(
+                    descriptor.id(),
+                    new MethodGraphStore.Identity(
+                        i.data(),
+                        i.rules(),
+                        i.rolls(),
+                        i.templates(),
+                        i.goals(),
+                        i.arithmetic(),
+                        i.season(),
+                        " " + i.originalInput() + " ")));
+          }
+
+          public MethodGraphStore open(Descriptor descriptor) {
+            return local.open(descriptor);
+          }
+
+          public List<Descriptor> list() {
+            return local.list();
+          }
+        };
+    try (var service =
+        new MethodSearchService(
+            fixture.catalog,
+            fixture.goals,
+            fixture.identity,
+            fixture.json,
+            clock,
+            fixture.executor,
+            1)) {
+      service.persistence(repository);
+      var started = service.createCertified("owner", request).search();
+      id = started.jobId();
+      now.set(now.get().plusSeconds(19 * 60));
+      assertThat(service.getCertified("owner", id).revision()).isEqualTo(started.revision());
+    }
+    now.set(now.get().plusSeconds(2 * 60));
+    try (var service =
+        new MethodSearchService(
+            fixture.catalog,
+            fixture.goals,
+            fixture.identity,
+            fixture.json,
+            clock,
+            fixture.executor,
+            1)) {
+      service.persistence(repository);
+      assertThat(service.getCertified("owner", id).reason()).isEqualTo("PROCESS_RESTART");
+    }
+  }
+
   private CertifiedMethodSearchEngine engine(
       PathSearchServiceTest fixture, CertifiedMethodProtocol.Create request) {
     var start = request.request().start();
@@ -251,7 +339,9 @@ class CertifiedJobRestartTest {
               entryId,
               new IndexedMethodProtocol.Advance(2, before.generation(), 3, 100000));
       assertThat(entry.status()).isEqualTo("PARTIAL");
+      String execution = storedCursor(dir, fixture, before.jobId());
       child(dir, before.jobId(), entryId);
+      assertThat(storedCursor(dir, fixture, before.jobId())).isEqualTo(execution);
       var childResult =
           fixture.json.readTree(java.nio.file.Files.readString(dir.resolve("child-result.json")));
       assertThat(childResult.get("methods")).isEqualTo(fixture.json.valueToTree(points));
@@ -281,7 +371,18 @@ class CertifiedJobRestartTest {
                   entryId,
                   new IndexedMethodProtocol.Advance(2, restored.generation(), 4096, 100000));
         assertThat(value.status()).isEqualTo("COMPLETE");
-        assertThat(value.nextOffset()).isNull();
+        var concrete = new ArrayList<>(value.states());
+        var page = value;
+        while (page.nextOffset() != null) {
+          page = reopened.certifiedEntry("owner", before.jobId(), entryId, page.nextOffset());
+          concrete.addAll(page.states());
+        }
+        assertThat(
+                concrete.stream()
+                    .map(MethodSearchProtocol.ConditionalState::stateId)
+                    .distinct()
+                    .count())
+            .isEqualTo(concrete.size());
         var primitive =
             BasicCurrencyTransitions.forMethodSearch(fixture.catalog, fixture.identity)
                 .primitiveCursor(request.request().start(), WorkbenchCurrency.EXALTED, Set.of());
@@ -297,9 +398,9 @@ class CertifiedJobRestartTest {
               com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction::add);
         }
         var mass = com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction.ZERO;
-        for (var state : value.states())
+        for (var state : concrete)
           mass = mass.add(Objects.requireNonNull(raw.get(state.stateId())));
-        for (var state : value.states())
+        for (var state : concrete)
           assertThat(state.probability().fraction())
               .isEqualTo(raw.get(state.stateId()).divide(mass));
         var lower = value.conditionalProbability().lower().fraction();

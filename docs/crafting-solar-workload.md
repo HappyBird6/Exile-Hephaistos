@@ -86,3 +86,58 @@ seven integration tests, zero failures/errors. The complete-map oracle ran with
 diagnostics enabled; a forced kernel eviction verifies unique versus repeat counts.
 Frontend is unchanged. Raw host artifacts are under
 `codex/bucket-method-verification/workload-before` and `workload-group-index`.
+
+## Durable job integration measurement, 2026-10-14
+
+The actual `MethodSearchService` and local job repository were measured with an
+empty rare level-82 Solar Amulet, projectile skill level +3 and explicit Spirit
+at least 47. Implicit Spirit is excluded. Each run closes the original service
+and starts a separate Java process, then compares every published method's
+100/300/500 observations and currency costs exactly. These are warm, single-run
+measurements with a 1 GiB Java heap, not a completion or throughput estimate.
+
+At commit `0bd0006`, the 8,192-operation run returned its first response in 379 ms,
+paused for compute budget after 1,374 ms, and recovered in 1,789 ms. It retained
+26 visible states and 50 methods; job files occupied 3,119,692 bytes.
+
+The 1,000,000-operation configuration instead paused for resident memory budget
+at 817,847 operations. Its first response took 397 ms, run took 30,787 ms and fresh
+process recovery took 36,993 ms. It retained 70 visible states and 50 methods,
+with 131,009,103 bytes of job files. Neither run reached a root local
+recommendation or whole-search completion. Polling observed the root snapshot;
+these numbers do not measure all child-node recommendations.
+
+For the larger run, Linux process peak RSS was 588,588 KiB during execution and
+401,440 KiB during recovery. Heap pool peak sums were 258,784,928 and 249,889,672
+bytes respectively; pool peaks need not occur simultaneously. The file total
+includes SQLite high-water/free pages and job checkpoints; the snapshot's law
+page `diskBytes` field is not this total. The checkpoint contained 8,889 CLASS
+rows and 89,641 runner ROW records, despite having only 70 visible states.
+
+This exposed redundant numerical checkpoint rewriting during generation changes.
+The v2 control format keeps immutable numerical rows and updates control metadata
+against the same execution reference. It does not externalize the live engine
+inventory or remove the large-graph strategy preparation bound. Recommended next
+work remains paged method inventory, bounded mutable law storage and incremental
+strategy construction; increasing caps would only postpone the same obstruction.
+
+Raw measurements and the probe source are retained under
+`codex/bucket-method-verification/durable-solar-probe-r1` and
+`durable-solar-probe-production`. The initial small probe failed to locate its
+standalone Java class; the classpath was fixed before these passing measurements.
+
+With v2 control records, the same 1,000,000-operation configuration returned its
+first response in 416 ms and paused for memory budget at 845,116 operations after
+34,501 ms, again with 70 visible states and 50 methods. Fresh-process recovery
+took 3,936 ms, with every published method
+observation and currency cost equal before and after recovery. Job files occupied
+67,209,815 bytes. Execution/recovery peak RSS was 548,580/380,728 KiB; heap pool
+peak sums were 248,762,744/247,877,800 bytes. Root local recommendation and global
+completion were still not reached. Reports and the exact probe source are under
+`codex/bucket-method-verification/durable-solar-probe-control`.
+
+The observed recovery reduction from about 37.0 seconds to 3.9 seconds is
+consistent with eliminating the full numerical rewrite. Execution itself was
+slower in this pair of runs. JVM iteration order and cache timing can change the
+prefix, and each configuration was measured once: neither a general speedup nor
+a complete-search performance claim follows from this comparison.

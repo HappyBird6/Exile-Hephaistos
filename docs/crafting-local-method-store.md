@@ -308,6 +308,17 @@ Incompatible or unreadable checkpoints retain their original files; a recognized
 job returns `CHECKPOINT_RECALCULATION_REQUIRED` instead of preventing the whole
 application from starting or silently deleting its original goal.
 
+The `certified-job-checkpoint-v2-control` format separates immutable numerical
+execution rows from mutable job control metadata. Generation, cancellation,
+command/binding identities, conditional expansion progress and strategy progress
+can be committed against the same execution reference when the numerical engine
+has not advanced. Recovery therefore does not rewrite all numerical rows just to
+claim a new generation. A control record referencing a different execution is
+rejected. The v1 job format requires explicit recalculation and its original
+input remains retained; an older binary must not ignore newer cancellation data.
+Active requests persist the renewed idle lease as a small metadata update,
+without rewriting the graph or changing the visible graph revision.
+
 The job restart test launches a separate Java process against the actual service
 and database, resumes a partial conditional transport, and compares saved graph
 observations including currency uses. It also checks stale generation/write
@@ -324,7 +335,10 @@ guarantee for the whole checkpoint. Shared preparation equivalences are re-prove
 on recovery, and the bounded strategy solver rebuilds its refinement work from
 the saved number of steps; this repeats CPU work without charging currency again.
 The in-memory method inventory and large-graph strategy preparation limits have
-not been removed by job persistence. Crash-abandoned unreferenced staging rows
+not been removed by job persistence. Strategy preparation currently admits at
+most 128 states, 1,024 methods and 8,192 transition rows per horizon; exceeding
+these limits remains a partial result, not a completed final recommendation.
+Crash-abandoned unreferenced staging rows
 are not yet automatically collected. These limitations must remain visible in
 performance reports, and partial search must not be labeled globally complete.
 
@@ -336,3 +350,17 @@ are retained under `codex/bucket-method-verification/job-restart-r3`.
 Earlier attempts exposed numeric JSON-node comparison and missing standalone-JVM
 definition initialization; both were fixed before the passing runs. No assertion
 was removed or loosened to hide either failure. Frontend source was unchanged.
+
+The control/lease follow-up passed `check generateJooq bootJar`: 751 unit/contract
+and seven integration tests, plus three focused restart tests. The frozen source
+manifest again matched with zero differences; reports are under
+`codex/bucket-method-verification/job-restart-r6`. Recovery also preserves the
+exact stored original-input JSON instead of requiring reserialization to produce
+identical whitespace or property order. The idle-lease regression exercises this
+with a semantically equivalent, differently formatted input.
+
+An earlier follow-up run (`job-restart-r4`) exposed a test assumption that a
+conditional result always fits on one page. Different JVM iteration order can
+select a class with more than 48 concrete rolls. The oracle now reads every page,
+checks unique state IDs and compares all probabilities to raw enumeration; its
+probability assertions were not weakened. Subsequent full runs passed.
