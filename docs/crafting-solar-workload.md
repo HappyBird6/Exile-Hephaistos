@@ -63,7 +63,7 @@ law pages, classes, method objects or working distributions. The current API max
 is 1,000,000. Immutable-law disk backing does not externalize these summaries.
 Simply extending the run cannot complete this input under the present contract.
 
-## Structural decision still required
+## Approved structural direction
 
 Recommended: preserve all candidate identities, conditional laws and residual mass,
 but externalize method metadata/summaries and evaluate shared transition operators
@@ -75,6 +75,11 @@ Alternative: persist the complete eager result graph in an offline batch store.
 It still requires externalized metadata, restartable cursors and a measured storage
 budget; these runs do not justify an ETA or disk-space estimate for completion.
 Neither option is implemented by the small group-index optimization.
+
+The user subsequently approved the lazy/shared-operator direction with bounded
+memory caches and local external storage. The first implementation unit is the
+[versioned local method store](crafting-local-method-store.md). Its storage tests
+do not replace the required same-input end-to-end completion measurement.
 
 Verification: Docker `check generateJooq bootJar` passed with 729 unit/contract and
 seven integration tests, zero failures/errors. The complete-map oracle ran with
