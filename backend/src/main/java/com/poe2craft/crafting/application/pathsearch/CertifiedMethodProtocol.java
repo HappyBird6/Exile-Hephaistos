@@ -7,7 +7,7 @@ import java.util.*;
 
 /** Additive wire values: an arithmetic enclosure is never a statistical confidence interval. */
 public final class CertifiedMethodProtocol {
-  public static final String VERSION = "certified-method-wire-v3-bounded-replay";
+  public static final String VERSION = "certified-method-wire-v4-checkpoint-ranking";
 
   private CertifiedMethodProtocol() {}
 
@@ -126,7 +126,10 @@ public final class CertifiedMethodProtocol {
       Map<String, Bounds> exits,
       Bounds active,
       Map<String, Bounds> initialUses,
-      Map<String, Bounds> cycleUses) {}
+      Map<String, Bounds> cycleUses,
+      List<Checkpoint> checkpoints) {}
+
+  public record Checkpoint(Target target, Bounds probability) {}
 
   public record Method(
       String id,
@@ -136,7 +139,11 @@ public final class CertifiedMethodProtocol {
       String status,
       List<Point> points) {}
 
-  public record Local(String stateId, int cycles, String status, List<String> methodIds) {}
+  public record Target(String goal, List<String> entries) {}
+
+  /** A null target ranks the whole goal; a target ranks one observed checkpoint pattern. */
+  public record Local(
+      String stateId, int cycles, Target target, String status, List<String> methodIds) {}
 
   static Method method(
       CertifiedMethodSearchEngine.MethodView method, CertifiedInterval.Precision precision) {
@@ -162,7 +169,20 @@ public final class CertifiedMethodProtocol {
                       Bounds.probability(
                           sum(point.active(), precision), precision.percentDecimals()),
                       quantities(point.initialUses()),
-                      quantities(point.cycleUses())));
+                      quantities(point.cycleUses()),
+                      method
+                          .checkpoints()
+                          .getOrDefault(entry.getKey(), Map.of())
+                          .entrySet()
+                          .stream()
+                          .sorted(Comparator.comparing(e -> e.getKey().toString()))
+                          .map(
+                              e ->
+                                  new Checkpoint(
+                                      target(e.getKey()),
+                                      Bounds.probability(
+                                          e.getValue(), precision.percentDecimals())))
+                          .toList()));
             });
     return new Method(
         method.id(),
@@ -198,10 +218,51 @@ public final class CertifiedMethodProtocol {
                   sum(point.exits().get(ExactMethodRunner.Exit.UNRESOLVED), precision)));
         }
         var ranked = CertifiedRecommendations.local(choices, complete);
-        result.add(new Local(state.id(), cycles, ranked.status(), ranked.methodIds()));
+        result.add(new Local(state.id(), cycles, null, ranked.status(), ranked.methodIds()));
+        var targets = new LinkedHashSet<MethodSearchCalculation.Progress>();
+        for (var method : direct)
+          targets.addAll(method.checkpoints().getOrDefault(cycles, Map.of()).keySet());
+        targets.remove(state.progress());
+        targets.removeIf(
+            target ->
+                unresolved(target.goal())
+                    || target.entries().stream().anyMatch(CertifiedMethodProtocol::unresolved));
+        for (var target : targets) {
+          var targetChoices = new ArrayList<CertifiedRecommendations.Choice>();
+          for (var method : direct) {
+            var point = method.points().get(cycles);
+            if (point == null) continue;
+            targetChoices.add(
+                new CertifiedRecommendations.Choice(
+                    method.id(),
+                    method
+                        .checkpoints()
+                        .getOrDefault(cycles, Map.of())
+                        .getOrDefault(target, CertifiedInterval.zero(precision.fractionalBits())),
+                    sum(point.exits().get(ExactMethodRunner.Exit.UNRESOLVED), precision)));
+          }
+          var targetRanked = CertifiedRecommendations.local(targetChoices, complete);
+          result.add(
+              new Local(
+                  state.id(),
+                  cycles,
+                  target(target),
+                  targetRanked.status(),
+                  targetRanked.methodIds()));
+        }
       }
     }
     return List.copyOf(result);
+  }
+
+  private static boolean unresolved(
+      com.poe2craft.crafting.domain.goalfilter.GoalFilter.Status status) {
+    return status == com.poe2craft.crafting.domain.goalfilter.GoalFilter.Status.UNKNOWN
+        || status == com.poe2craft.crafting.domain.goalfilter.GoalFilter.Status.UNSUPPORTED;
+  }
+
+  private static Target target(MethodSearchCalculation.Progress progress) {
+    return new Target(progress.goal().name(), progress.entries().stream().map(Enum::name).toList());
   }
 
   private static CertifiedInterval sum(

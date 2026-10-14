@@ -84,6 +84,16 @@ engine; its exact codec remains tested but is not a claimed production speedup.
 Working-cache reclamation remains enabled. Scheduling/working-law storage must
 address the concurrent working set before enabling the cold cache again.
 
+The follow-up with the cold cache disabled also paused at the same resident guard
+after 52,303 ms, with 18/42 methods complete and 876,393 pending/boundary/exit rows.
+It calculated 246,891 kernels, used no cold payload, and reclaimed every completed
+kernel. Evidence: `reclaimed-hot-root`. Thus the earlier single 702-second root
+completion is not a reproducible resource guarantee. Relative iteration and
+method progress can accumulate a larger concurrent working set even without
+cold caching. Do not attribute the entire regression to compression or claim that
+disabling it fixes the working-set limitation. No distribution was dropped and
+both resource stops remained explicitly incomplete.
+
 The resident-entry limit counts active calculation rows, class/kernel records,
 page descriptors and currently decoded rows. Packed payload bytes have a separate
 provisional 32 MiB guard. Storage metrics expose these quantities separately,
@@ -127,6 +137,32 @@ revision checks. These changes passed six focused tests and Docker Java 21
 zero failures/errors (`publication-targeted`, `publication-full`). Coverage includes
 80 resumptions, retained duplicate replay, eviction followed by stale-revision
 rejection, and unchanged graph-version samples checked against complete views.
+
+## Checkpoint-specific local comparisons
+
+The v4 wire model adds checkpoint summaries keyed by the complete goal/entry
+status pattern. They aggregate only mutually exclusive resolved goal, checkpoint
+and loss exits within one method observation. They never add alternative methods
+or incoming execution laws. The full class distribution and conditional entry
+operator remain available independently of this display summary.
+
+Summaries are accumulated cooperatively while publication already walks the law,
+cached only after the entire law has been read, and included in resident accounting.
+The protocol compares methods separately for each observed target pattern; unknown
+or unsupported targets are not treated as numeric failure. Unresolved mass still
+widens the possible ranking. The existing whole-goal local comparison remains
+explicitly identifiable by a null target. Neither is the final adaptive strategy.
+
+Authenticated activity now renews the 20-minute idle lease, and running slices
+renew it while doing work. Abandoned paused jobs still expire. A request rechecks
+expiration after obtaining the job lock before renewal. Unchanged root-local
+summaries are reused with unchanged graph lists. These checkpoint/lifetime changes
+passed seven focused tests and Docker Java 21 `check generateJooq bootJar`: 719
+unit/contract tests and seven integration tests, zero failures/errors
+(`checkpoint-targeted`, `checkpoint-full`). Every checkpoint aggregate is checked
+against the independent exact engine's resolved exit laws. The tests also retain
+an active job for 76 simulated minutes and reject it after 21 idle minutes.
+The service-publication timing probe remains pending at this checkpoint.
 
 ## Verification record
 

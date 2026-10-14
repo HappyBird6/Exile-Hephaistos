@@ -68,6 +68,8 @@ class CertifiedMethodSearchEngineTest {
         .withFailMessage("work=%s retained=%s", bounded.operations(), bounded.retainedEntries())
         .isTrue();
     var exactStates = keys(exact.states(), classes);
+    var exactProgress = new HashMap<String, MethodSearchCalculation.Progress>();
+    exact.states().forEach(s -> exactProgress.put(s.id(), s.progress()));
     var boundedStates = keys(bounded.states(), classes);
     assertThat(new HashSet<>(boundedStates.values()))
         .isEqualTo(new HashSet<>(exactStates.values()));
@@ -86,7 +88,19 @@ class CertifiedMethodSearchEngineTest {
     assertThat(bounded.methods()).hasSize(methods.size()).hasSizeGreaterThan(6);
     long decodedBeforeSummaries = bounded.storage().decodedPages();
     bounded.methods().forEach(m -> CertifiedMethodProtocol.method(m, bounded.precision()));
-    CertifiedMethodProtocol.locals(bounded.states(), bounded.methods(), bounded.precision());
+    var locals =
+        CertifiedMethodProtocol.locals(bounded.states(), bounded.methods(), bounded.precision());
+    assertThat(
+            locals.stream()
+                .filter(
+                    local ->
+                        local.stateId().equals(bounded.rootId())
+                            && local.cycles() == 100
+                            && local.target() != null)
+                .map(CertifiedMethodProtocol.Local::target)
+                .distinct()
+                .count())
+        .isGreaterThanOrEqualTo(2);
     assertThat(bounded.storage().decodedPages()).isEqualTo(decodedBeforeSummaries);
     var absorbed =
         bounded.methods().stream()
@@ -144,6 +158,24 @@ class CertifiedMethodSearchEngineTest {
           .forEach(
               (cycles, point) -> {
                 var expected = reference.points().get(cycles);
+                var checkpointTotals = new HashMap<MethodSearchCalculation.Progress, Fraction>();
+                for (var kind :
+                    List.of(
+                        ExactMethodRunner.Exit.GOAL,
+                        ExactMethodRunner.Exit.CHECKPOINT,
+                        ExactMethodRunner.Exit.LOSS))
+                  expected
+                      .exits()
+                      .get(kind)
+                      .forEach(
+                          (target, mass) ->
+                              checkpointTotals.merge(
+                                  exactProgress.get(target), mass, Fraction::add));
+                var actualCheckpoints = method.checkpoints().get(cycles);
+                assertThat(actualCheckpoints.keySet()).isEqualTo(checkpointTotals.keySet());
+                checkpointTotals.forEach(
+                    (target, mass) ->
+                        assertThat(actualCheckpoints.get(target).contains(mass)).isTrue());
                 assertThat(point.mass().contains(Fraction.ONE)).isTrue();
                 expected
                     .exits()

@@ -12,7 +12,7 @@ import java.util.function.Function;
 
 /** Certified class marginals. Incoming item laws remain exact retained conditional operators. */
 final class CertifiedMethodSearchEngine {
-  static final String VERSION = "certified-method-map-v7-observable-revisions";
+  static final String VERSION = "certified-method-map-v8-checkpoint-ranking";
   private final CertifiedLawStore laws;
   private final BasicClassIndex index;
   private final CertifiedInterval.Precision precision;
@@ -36,6 +36,10 @@ final class CertifiedMethodSearchEngine {
   private final Map<Preparation, Prepared> preparations = new HashMap<>();
   private final Map<Map<Integer, CertifiedInterval>, Map<String, CertifiedInterval>> lawViews =
       new IdentityHashMap<>();
+  private final Map<
+          Map<Integer, CertifiedInterval>, Map<MethodSearchCalculation.Progress, CertifiedInterval>>
+      progressLaws = new IdentityHashMap<>();
+  private long progressLawEntries, targetSummaryEntries;
   private final IndexedKernelStore kernels;
   private final Function<ItemState, Evaluation> evaluate;
   private final Map<Integer, State> states = new LinkedHashMap<>();
@@ -143,6 +147,8 @@ final class CertifiedMethodSearchEngine {
         + laws.pageCount()
         + laws.descriptors()
         + laws.materializedRows()
+        + progressLawEntries
+        + targetSummaryEntries
         + preparationEntries;
   }
 
@@ -173,6 +179,7 @@ final class CertifiedMethodSearchEngine {
     states.clear();
     frontier.clear();
     lawViews.clear();
+    progressLaws.clear();
     adjacency.clear();
     progressCache.clear();
     identifiers.clear();
@@ -409,7 +416,8 @@ final class CertifiedMethodSearchEngine {
       List<WorkbenchCurrency> actions,
       String status,
       String reason,
-      Map<Integer, CertifiedMethodRunner.Observation<String, WorkbenchCurrency>> points) {}
+      Map<Integer, CertifiedMethodRunner.Observation<String, WorkbenchCurrency>> points,
+      Map<Integer, Map<MethodSearchCalculation.Progress, CertifiedInterval>> checkpoints) {}
 
   private Optional<Exit> classify(State source, int key, boolean structural) {
     var now = progress(key);
@@ -459,7 +467,8 @@ final class CertifiedMethodSearchEngine {
                     m.actions,
                     m.done ? m.unresolved ? "UNSUPPORTED" : "COMPLETE" : "PARTIAL",
                     null,
-                    Map.copyOf(m.points)))
+                    Map.copyOf(m.points),
+                    Map.copyOf(m.checkpoints)))
         .toList();
   }
 
@@ -595,6 +604,8 @@ final class CertifiedMethodSearchEngine {
     final Map<Integer, IndexedCertifiedMethodRunner.Snapshot> saved = new LinkedHashMap<>();
     final Map<Integer, CertifiedMethodRunner.Observation<String, WorkbenchCurrency>> points =
         new LinkedHashMap<>();
+    final Map<Integer, Map<MethodSearchCalculation.Progress, CertifiedInterval>> checkpoints =
+        new LinkedHashMap<>();
     IndexedCertifiedMethodRunner runner;
     IndexedCertifiedMethodRunner.FrozenSnapshot freezing;
     final ArrayDeque<Publication> publications = new ArrayDeque<>();
@@ -725,7 +736,10 @@ final class CertifiedMethodSearchEngine {
       final int cycles;
       final IndexedCertifiedMethodRunner.Snapshot snapshot;
       final Iterator<Map<Integer, CertifiedInterval>> lawsToLink;
-      Iterator<Integer> targets = Collections.emptyIterator();
+      Iterator<Map.Entry<Integer, CertifiedInterval>> targets = Collections.emptyIterator();
+      Map<Integer, CertifiedInterval> currentLaw;
+      Map<MethodSearchCalculation.Progress, CertifiedInterval> totals;
+      boolean linkLaw;
 
       Publication(int cycles, IndexedCertifiedMethodRunner.Snapshot snapshot) {
         this.cycles = cycles;
@@ -739,16 +753,29 @@ final class CertifiedMethodSearchEngine {
         int used = 0;
         while (used < 256) {
           if (targets.hasNext()) {
-            link(source, targets.next());
+            var target = targets.next();
+            if (linkLaw) link(source, target.getKey());
+            if (totals != null)
+              totals.merge(
+                  progress(target.getKey()), target.getValue(), (a, b) -> a.add(b).probability());
             used++;
             continue;
+          }
+          if (currentLaw != null && totals != null) {
+            if (!progressLaws.containsKey(currentLaw)) {
+              progressLaws.put(currentLaw, Map.copyOf(totals));
+              progressLawEntries += totals.size() + 1;
+            }
+            totals = null;
           }
           if (!lawsToLink.hasNext()) {
             publish(cycles, snapshot);
             return true;
           }
-          var law = lawsToLink.next();
-          if (linkedLaws.add(law)) targets = law.keySet().iterator();
+          currentLaw = lawsToLink.next();
+          linkLaw = linkedLaws.add(currentLaw);
+          totals = progressLaws.containsKey(currentLaw) ? null : new LinkedHashMap<>();
+          if (linkLaw || totals != null) targets = currentLaw.entrySet().iterator();
         }
         return false;
       }
@@ -758,6 +785,14 @@ final class CertifiedMethodSearchEngine {
       graphRevision++;
       saved.put(cycles, snapshot);
       var point = snapshot.observation();
+      var targets = new LinkedHashMap<MethodSearchCalculation.Progress, CertifiedInterval>();
+      for (var kind : List.of(Exit.GOAL, Exit.CHECKPOINT, Exit.LOSS))
+        progressLaws
+            .get(point.exits().get(kind))
+            .forEach(
+                (target, mass) -> targets.merge(target, mass, (a, b) -> a.add(b).probability()));
+      checkpoints.put(cycles, Map.copyOf(targets));
+      targetSummaryEntries += targets.size() + 1;
       var exits = new EnumMap<Exit, Map<String, CertifiedInterval>>(Exit.class);
       point
           .exits()

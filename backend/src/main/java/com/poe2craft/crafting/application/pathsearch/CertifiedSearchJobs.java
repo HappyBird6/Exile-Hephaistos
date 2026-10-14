@@ -70,7 +70,10 @@ final class CertifiedSearchJobs {
   }
 
   Snapshot get(String owner, String id) {
-    return job(owner, id).snapshot;
+    var job = job(owner, id);
+    try (var ignored = job.acquireRequest()) {
+      return job.snapshot;
+    }
   }
 
   boolean hasRequest(String owner, String requestId) {
@@ -404,6 +407,7 @@ final class CertifiedSearchJobs {
           return;
         }
         job.status = "RUNNING";
+        job.expires = clock.instant().plus(Duration.ofMinutes(20));
         try {
           long until = System.nanoTime() + 20000000L;
           for (int n = 0;
@@ -452,8 +456,13 @@ final class CertifiedSearchJobs {
     var states = changed || previous == null ? job.engine.states() : previous.states();
     var methods = changed || previous == null ? job.engine.methods() : previous.methods();
     job.publishedGraphRevision = job.engine.graphRevision();
-    var rootStates = states.stream().filter(s -> s.id().equals(job.engine.rootId())).toList();
-    var rootMethods = methods.stream().filter(m -> m.source().equals(job.engine.rootId())).toList();
+    var local =
+        !changed && job.snapshot != null
+            ? job.snapshot.localRecommendations()
+            : CertifiedMethodProtocol.locals(
+                states.stream().filter(s -> s.id().equals(job.engine.rootId())).toList(),
+                methods.stream().filter(m -> m.source().equals(job.engine.rootId())).toList(),
+                job.engine.precision());
     job.revisions.put(job.revision, new Revision(states, methods));
     while (job.revisions.size() > 4) job.revisions.remove(job.revisions.keySet().iterator().next());
     job.snapshot =
@@ -489,7 +498,7 @@ final class CertifiedSearchJobs {
                 job.engine.kernelStorage().packedByteLimit(),
                 job.engine.storage().materializedRows(),
                 job.engine.storage().uniquePages()),
-            CertifiedMethodProtocol.locals(rootStates, rootMethods, job.engine.precision()));
+            local);
   }
 
   private void dispose(Job job) {
@@ -552,13 +561,14 @@ final class CertifiedSearchJobs {
         guard.close();
         throw new Rejected(410, "SEARCH_EXPIRED");
       }
+      expires = clock.instant().plus(Duration.ofMinutes(20));
       return guard;
     }
 
     final String id = UUID.randomUUID().toString(), owner;
     final Create request;
     final CertifiedMethodSearchEngine engine;
-    final Instant expires = clock.instant().plus(Duration.ofMinutes(20));
+    volatile Instant expires = clock.instant().plus(Duration.ofMinutes(20));
     final Map<Long, Revision> revisions = new LinkedHashMap<>();
     final Map<String, Command> commands = new LinkedHashMap<>();
     final Map<String, EntryWork> entries = new LinkedHashMap<>();
