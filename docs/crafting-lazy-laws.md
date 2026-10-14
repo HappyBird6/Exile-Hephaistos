@@ -117,6 +117,22 @@ zero failures/errors. Formatting passed. Evidence is under
 pending at this checkpoint; this functional result alone does not establish a
 performance improvement or whole-search completion. Frontend source is unchanged.
 
+The updated same-condition run then finished at 600,021 ms with 197,881,908
+operations, 108,999 classes, 73,342 displayed state classes and root 36/42 methods
+complete. First root direct completion and whole completion were still absent.
+It retained the same 1,269,094 saved rows in 14,253,341 bytes/5,047 pages, with no
+additional equal-page reuse. Post-GC heap was 294,496,272 bytes; sampled peak was
+929,846,736 bytes. There was no memory/storage pause. Evidence is in
+`cooperative-laws-solar`.
+
+The storage benefit is retained; this run does not establish a CPU speedup.
+Different class-interning/iteration order and cache timing changed individual
+unfinished-method progress and kernel cache statistics between runs. Both runs
+stopped with six root methods unfinished. The next diagnostic uses the actual
+one-million resident setting and stops at root direct completion, a resource
+pause, or an explicitly reported diagnostic time guard. Root completion alone
+must still not be presented as whole enumeration completion.
+
 ## Remaining integration and performance work
 
 - The original-WIP run calculated 1,705,181 primitive kernels while retaining at
