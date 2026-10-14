@@ -284,8 +284,32 @@ The exact small-map test observes a goal continuation before root direct
 completion, then compares every final state, method, depth and distribution with
 the independent engine. Seven focused scheduler/service tests and Docker Java 21
 `check generateJooq bootJar` pass: 721 unit/contract tests and seven integration
-tests, zero failures/errors (`preview-targeted`, `preview-full`). The whole-frontier
-Solar measurement is pending.
+tests, zero failures/errors (`preview-targeted`, `preview-full`).
+
+The one-million-entry whole-frontier Solar diagnostic (`preview-whole`) observed
+its first whole-goal state at 4,318 ms, root direct completion at 853,716 ms, and
+all root 100/300/500 observations plus the first certified target-specific local
+recommendation at 858,429 ms. Milestones are sampled upper bounds. Constructor
+response was 5 ms; these are engine measurements, not HTTP/browser latency.
+
+The run continued beyond root completion and paused at 1,437,316 ms because the
+combined packed-storage guard was reached: immutable payloads 28,620,217 bytes
+plus mutable payloads 4,934,220 bytes exceeded 32 MiB. It was not complete and did
+not reach the 30-minute diagnostic guard. `memoryLimited` includes this storage
+condition; `storageLimited` was true. It had 112,236 classes, 76,837 public states,
+250,275 adjacency edges, 64 active runners and 66 queued methods. Working logical
+rows were 389,278 pending, 205,451 boundary and 508,663 absorbed. Immutable pages
+held 2,539,513 rows. Heap peak was 911,810,224 bytes; core post-GC heap 382,156,344
+bytes still included unfinished work and is not comparable to a root-only finished
+run's post-GC heap. It performed 361,777,626 scheduler operations. Forty-five
+methods shared certified preparation results.
+
+This confirms early goal-state delivery and identifies a subsequent storage
+barrier, not completion of whole enumeration. The next storage change should move
+completed immutable payloads to a bounded-memory backing store, retaining all
+rows and exact endpoints; simply raising the existing heap guard or truncating
+probabilities would not address this measured limitation. Active pending/boundary
+rows remain a separate possible resident-memory barrier after that change.
 
 The one-million-entry root diagnostic on the verified cooperative-page source
 finished all 42 root methods after 702,060 ms (702,064 ms including the report).
