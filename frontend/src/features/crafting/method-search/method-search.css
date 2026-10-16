@@ -2,6 +2,57 @@
   display: grid;
   gap: 1rem;
 }
+.calculation-status {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.2rem;
+  border: 2px solid #a3a9b3;
+  border-left-width: 7px;
+  border-radius: 8px;
+  background: #202630;
+  color: #f4f7fb;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.calculation-status__icon {
+  font-size: 1.6rem;
+  min-width: 1.8rem;
+  text-align: center;
+}
+.calculation-status--calculating {
+  border-color: #65c7ff;
+  background: #102e40;
+}
+.calculation-status--calculating .calculation-status__icon {
+  animation: calculation-spin 1.2s linear infinite;
+}
+.calculation-status--stopping,
+.calculation-status--resuming,
+.calculation-status--paused,
+.calculation-status--partial {
+  border-color: #f4bd59;
+  background: #392b13;
+}
+.calculation-status--complete {
+  border-color: #74daa6;
+  background: #173b2a;
+}
+.calculation-status--error,
+.calculation-status--expired {
+  border-color: #ff9292;
+  background: #421f26;
+}
+@keyframes calculation-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .calculation-status--calculating .calculation-status__icon {
+    animation: none;
+  }
+}
 .method-map__overview {
   overflow: auto;
 }
@@ -45,4 +96,63 @@
 .method-map strong {
   display: block;
   color: #dec082;
+}
+.automatic-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+  gap: 1rem;
+  align-items: start;
+  min-width: 0;
+}
+.automatic-workspace .method-map__overview {
+  height: min(72vh, 820px);
+  min-height: 360px;
+  border: 1px solid #555;
+  border-radius: 8px;
+  overscroll-behavior: contain;
+}
+.automatic-inspector {
+  min-width: 0;
+}
+.automatic-inspector select {
+  max-width: 100%;
+}
+.automatic-inspector .method-map__states {
+  display: block;
+  overflow: visible;
+}
+.automatic-inspector .method-map__states > article {
+  min-width: 0;
+}
+.candidate-route {
+  border: 1px solid #555;
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-wrap: anywhere;
+}
+.candidate-route label {
+  display: grid;
+  gap: 0.5rem;
+}
+.candidate-route ol {
+  padding-left: 1.4rem;
+}
+.automatic-edge {
+  stroke-width: 2;
+  cursor: pointer;
+}
+.automatic-edge:hover,
+.automatic-edge:focus,
+.automatic-edge.is-selected {
+  stroke: #ffe0a0;
+  stroke-width: 4;
+  opacity: 1;
+}
+@media (max-width: 760px) {
+  .automatic-workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .automatic-workspace .method-map__overview {
+    height: 50vh;
+  }
 }

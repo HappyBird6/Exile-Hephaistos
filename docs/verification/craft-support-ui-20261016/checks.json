@@ -1,0 +1,17 @@
+{
+  "lint": "passed",
+  "typecheck": "passed",
+  "formatCheck": "passed",
+  "testFiles": 98,
+  "testsPassed": 2180,
+  "testsFailed": 0,
+  "build": "passed",
+  "sourceHashMismatches": 0,
+  "javascriptAsset": "index-DLbjUxxM.js",
+  "cssAsset": "index-qOvfiEHF.css",
+  "browserEvidence": "browser.json",
+  "backendChanged": false,
+  "testServer": "http://localhost:8080/",
+  "serverLeftRunning": true,
+  "pushed": false
+}

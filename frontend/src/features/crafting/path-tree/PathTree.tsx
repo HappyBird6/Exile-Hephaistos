@@ -19,6 +19,7 @@ import { MethodGraph } from './MethodGraph'
 
 const http = createHttpPathSearchAdapter()
 export type PathTreeProps = {
+  active?: boolean
   /** Immutable start + goal + provenance, committed by the parent start button. */
   request: CreateRequest
   /** Change whenever the editor or current ruleset/catalog changes; unmount while editing. */

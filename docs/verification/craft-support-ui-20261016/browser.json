@@ -1,0 +1,19 @@
+{
+  "creates": 1,
+  "job": "45923e38-fe21-4b1d-a37d-b6df390a45a7",
+  "selected": "1",
+  "routePreserved": true,
+  "tabRestored": true,
+  "reloadRestored": true,
+  "cycles": 300,
+  "implicitExcluded": true,
+  "stopResume": true,
+  "reducedMotion": "none",
+  "finalStatus": "stopped",
+  "desktop": {
+    "graphRight": 1025,
+    "panelLeft": 1041
+  },
+  "mobileOverflow": false,
+  "errors": []
+}

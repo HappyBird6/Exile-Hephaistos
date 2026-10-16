@@ -1,3 +1,7 @@
+import { restoredStart } from './savedStart'
+import { saveSupport } from '../method-search/supportStorage'
+import { canonical } from '../path-tree/validation'
+import { workspaceMessages } from '../method-search/workspaceMessages'
 import { AutomaticMethodSearch as MethodSearch } from '../method-search/AutomaticMethodSearch'
 import {
   useCallback,
@@ -100,9 +104,41 @@ export function CraftStart({
       searchGoal: null,
       searchRequest: null,
       searchIssue: false,
+      ...restoredStart(),
     })),
   )
   const draft = useStore(editor)
+  const [storageFailed, setStorageFailed] = useState(false)
+  useEffect(() => {
+    const persist = () => {
+      const d = editor.getState()
+      setStorageFailed(
+        !saveSupport('start', {
+          base: d.base,
+          text: d.text,
+          item: d.item,
+          rulesetIdentity: d.rulesetIdentity,
+          abstractQuality40: d.abstractQuality40,
+          editing: d.editing,
+          started: d.started,
+          levelEdited: d.levelEdited,
+          searchRequest: d.searchRequest,
+        }),
+      )
+    }
+    let timer: ReturnType<typeof setTimeout>
+    const unsubscribe = editor.subscribe(() => {
+      clearTimeout(timer)
+      timer = setTimeout(persist, 150)
+    })
+    const flush = () => persist()
+    window.addEventListener('pagehide', flush)
+    return () => {
+      unsubscribe()
+      clearTimeout(timer)
+      window.removeEventListener('pagehide', flush)
+    }
+  }, [editor])
   const update = (value: Partial<Draft>) =>
     editor.setState({
       searchRequest: null,
@@ -115,7 +151,14 @@ export function CraftStart({
     })
   const onSearchGoalChange = useCallback(
     (searchGoal: SearchGoalSnapshot) => {
-      editor.setState({ searchGoal, searchRequest: null, searchIssue: false })
+      const d = editor.getState()
+      const changed =
+        d.searchRequest &&
+        canonical(d.searchRequest.goal) !== canonical(searchGoal.goal)
+      editor.setState({
+        searchGoal,
+        ...(changed ? { searchRequest: null, searchIssue: false } : {}),
+      })
     },
     [editor],
   )
@@ -217,8 +260,15 @@ export function CraftStart({
     provenance.data?.rulesetIdentity === draft.rulesetIdentity
   const omenIdentity = JSON.stringify(activeOmens)
   useEffect(() => {
-    editor.setState({ searchRequest: null, searchIssue: false })
-  }, [active, currentRules, currentProvenance, omenIdentity, editor])
+    const d = editor.getState()
+    if (
+      selected &&
+      d.searchRequest &&
+      d.searchRequest.start.provenance.rulesetIdentity !==
+        selected.initial.rulesetIdentity
+    )
+      editor.setState({ searchRequest: null, searchIssue: true, editing: true })
+  }, [selected, omenIdentity, editor])
   function cancel() {
     revision.current++
     request.current?.abort()
@@ -254,6 +304,34 @@ export function CraftStart({
       }
     }
   }, [inventory.data, editor])
+  useEffect(() => {
+    const d = editor.getState()
+    if (!selected || !d.item) return
+    if (!d.card || (d.searchRequest && !d.rootDefinitions)) {
+      const rawRoot = d.searchRequest?.start.item
+      if (
+        rawRoot &&
+        (!qualityShape(rawRoot.catalystQuality) ||
+          !supportsConcreteStateShape(rawRoot))
+      )
+        return
+      const rootItem = rawRoot as ConcreteItem | undefined
+      editor.setState({
+        card: startCard(selected.base, d.item, selected.initial.modifiers),
+        ...(rootItem
+          ? {
+              root: startCard(
+                selected.base,
+                rootItem,
+                selected.initial.modifiers,
+              ),
+              rootItem,
+              rootDefinitions: selected.initial.modifiers,
+            }
+          : {}),
+      })
+    }
+  }, [selected, editor])
   useEffect(() => () => request.current?.abort(), [])
   useEffect(() => {
     if (!active) {
@@ -446,6 +524,9 @@ export function CraftStart({
   }
   return (
     <section className="craft-start" aria-label={copy.setup}>
+      {storageFailed && (
+        <p role="status">{workspaceMessages[locale].storage}</p>
+      )}
       <section className="craft-start-target">
         <button
           className="craft-start-disclosure"
@@ -837,9 +918,7 @@ export function CraftStart({
           </div>
         </div>
       </section>
-      {active &&
-        currentRules &&
-        currentProvenance &&
+      {currentRules &&
         draft.started &&
         !draft.editing &&
         draft.root &&
@@ -852,6 +931,7 @@ export function CraftStart({
             aria-label={copy.tree}
           >
             <MethodSearch
+              active={active}
               request={draft.searchRequest}
               inputGeneration={run}
               abstractQuality40={draft.abstractQuality40}

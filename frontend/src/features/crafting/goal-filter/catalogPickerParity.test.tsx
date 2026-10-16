@@ -10,6 +10,65 @@ import { createGoalFilterEditor, emptyGoal } from './editor'
 import { goalFilterMessages } from './i18n'
 import type { Catalog, GoalFilterAdapter } from './types'
 
+it('omits implicit candidates while preserving and warning about an existing implicit condition', async () => {
+  const catalog = structuredClone(example.catalog) as Catalog
+  const implicit = {
+    ...catalog.stats[0]!,
+    statId: 'hephaistos:v1:implicit:test',
+    kind: 'IMPLICIT' as const,
+    label: 'Fixed only test',
+  }
+  catalog.stats.push(implicit)
+  const goal = emptyGoal(catalog.context, catalog.catalogVersion)
+  goal.groups[0]!.entries.push({
+    id: 'old-implicit',
+    statId: implicit.statId,
+    unit: implicit.unit,
+    range: { min: 1, max: null },
+    weight: null,
+    disabled: false,
+  })
+  const editor = createGoalFilterEditor(goal)
+  const adapter: GoalFilterAdapter = {
+    id: 'implicit-picker',
+    catalog: async () => catalog,
+    validate: async () => ({
+      version: 1,
+      valid: true,
+      issues: [],
+      capabilities: { evaluation: 'SUPPORTED', probability: 'SUPPORTED' },
+    }),
+  }
+  render(
+    <QueryClientProvider
+      client={
+        new QueryClient({ defaultOptions: { queries: { retry: false } } })
+      }
+    >
+      <GoalFilterPanel
+        adapter={adapter}
+        context={catalog.context}
+        editor={editor}
+        bases={[]}
+        language="en"
+        compact
+      />
+    </QueryClientProvider>,
+  )
+  expect(
+    await screen.findByText(/Existing implicit target conditions/),
+  ).toBeInTheDocument()
+  fireEvent.change(screen.getByRole('combobox', { name: 'Search stats' }), {
+    target: { value: 'Fixed only test' },
+  })
+  expect(
+    screen.queryByRole('option', { name: /Fixed only test/ }),
+  ).not.toBeInTheDocument()
+  expect(editor.getState().goal.groups[0]!.entries[0]!.statId).toBe(
+    implicit.statId,
+  )
+})
+
 for (const locale of locales) {
   it(`renders the same life effect in both actual picker components: ${locale}`, async () => {
     setLocale(locale)

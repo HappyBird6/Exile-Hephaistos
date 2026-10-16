@@ -1,3 +1,9 @@
+import {
+  readSupport,
+  saveSupport,
+  validGoal,
+} from '../method-search/supportStorage'
+import { workspaceMessages } from '../method-search/workspaceMessages'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 import { useStore } from 'zustand'
@@ -222,10 +228,22 @@ function ConnectedEditor({
   const copy = craftStartMessages[locale]
   const [editor] = useState(() =>
     createGoalFilterEditor(
-      emptyGoal(initialCatalog.context, initialCatalog.catalogVersion),
+      (compact ? readSupport('goal', validGoal) : null) ??
+        emptyGoal(initialCatalog.context, initialCatalog.catalogVersion),
     ),
   )
   const goal = useStore(editor, (state) => state.goal)
+  const [storageFailed, setStorageFailed] = useState(false)
+  useEffect(() => {
+    if (!compact) return
+    const persist = () => setStorageFailed(!saveSupport('goal', goal))
+    const timer = setTimeout(persist, 250)
+    window.addEventListener('pagehide', persist)
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('pagehide', persist)
+    }
+  }, [compact, goal])
   useEffect(() => {
     if (
       compact &&
@@ -355,6 +373,9 @@ function ConnectedEditor({
               : 'Use current starting base in goal'}
           </button>
         </p>
+      )}
+      {storageFailed && (
+        <p role="status">{workspaceMessages[locale].storage}</p>
       )}
       <GoalFilterPanel
         onSearchReadinessChange={setInputReady}

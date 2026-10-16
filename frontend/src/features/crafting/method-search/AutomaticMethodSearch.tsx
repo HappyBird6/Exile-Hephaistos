@@ -1,3 +1,10 @@
+import { CalculationStatus, CalculationControlLabel } from './CalculationStatus'
+import { calculationState } from './calculationStatus'
+import { CandidateRoute } from './CandidateRoute'
+import { routeThrough, validRoute } from './candidateRoute'
+import { readSupport, saveSupport, validRun } from './supportStorage'
+import type { Selection } from './supportStorage'
+import { workspaceMessages } from './workspaceMessages'
 import { useEffect, useRef, useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { ItemCard } from '../ItemCard'
@@ -38,21 +45,32 @@ function Run({
   onEditState,
   onRecalculate,
   abstractQuality40 = false,
+  active = true,
 }: PathTreeProps) {
   const { locale, name } = useI18n(),
     copy = methodSearchMessages[locale],
     common = pathTreeMessages[locale],
     policy = policyMessages[locale],
     quality = qualityWorkMessages[locale]
+  const [saved] = useState(() => {
+    const stored = readSupport('run', validRun)
+    return stored?.request === request.clientRequestId ? stored : null
+  })
+  const [storageFailed, setStorageFailed] = useState(false)
+  const [expired, setExpired] = useState(false)
+  const [controlPhase, setControlPhase] = useState<'STOP' | 'RESUME' | null>(
+    null,
+  )
+  const [runEnabled, setRunEnabled] = useState(!saved)
+  const [route, setRoute] = useState<Selection[]>(saved?.route ?? [])
   const [view, setView] = useState<AutomaticView | null>(null),
     [failed, setFailed] = useState(false),
     [busy, setBusy] = useState(false),
-    [cycles, setCycles] = useState(100),
-    [selected, setSelected] = useState(0)
+    [cycles, setCycles] = useState(saved?.cycles ?? 100),
+    [selected, setSelected] = useState(saved?.selected ?? 0)
   const current = useRef<AutomaticView | null>(null),
     alive = useRef(false),
-    token = useRef(0),
-    running = useRef(true)
+    token = useRef(0)
   const controllers = useRef(new Set<AbortController>())
   const accept = (next: AutomaticView) => {
     if (alive.current && acceptsAutomatic(current.current, next)) {
@@ -65,15 +83,14 @@ function Run({
     const turn = ++token.current
     const controller = new AbortController()
     controllers.current.add(controller)
-    const storageKey = `automatic-method:${request.clientRequestId}`
     const start = async () => {
       try {
-        const saved = sessionStorage.getItem(storageKey)
+        const job = saved?.job
         let next: AutomaticView
         try {
-          next = saved
+          next = job
             ? await automaticApi.get(
-                saved,
+                job,
                 request.start.provenance.rulesetIdentity,
                 controller.signal,
               )
@@ -83,13 +100,15 @@ function Run({
                 abstractQuality40,
               )
         } catch (error) {
-          if (saved && error instanceof AutomaticError && error.status === 404)
-            next = await automaticApi.create(
-              request,
-              controller.signal,
-              abstractQuality40,
-            )
-          else throw error
+          if (
+            job &&
+            error instanceof AutomaticError &&
+            [404, 409].includes(error.status)
+          ) {
+            if (alive.current) setExpired(true)
+            return
+          }
+          throw error
         }
         if (!alive.current) {
           void cancelAutomatic(
@@ -99,7 +118,15 @@ function Run({
           return
         }
         if (turn !== token.current) return
-        sessionStorage.setItem(storageKey, next.id)
+        setStorageFailed(
+          !saveSupport('run', {
+            request: request.clientRequestId,
+            job: next.id,
+            selected: saved?.selected ?? 0,
+            cycles: saved?.cycles ?? 100,
+            route: saved?.route ?? [],
+          }),
+        )
         accept(next)
       } catch (error) {
         if (
@@ -119,11 +146,6 @@ function Run({
       token.current = turn + 1
       for (const c of pending) c.abort()
       pending.clear()
-      if (current.current)
-        void cancelAutomatic(
-          current.current.id,
-          request.start.provenance.rulesetIdentity,
-        )
     }
     // A committed request is immutable; the outer key owns subsequent generations.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -132,6 +154,7 @@ function Run({
     const previous = current.current
     if (!previous) return
     setBusy(true)
+    if (operation === 'RESUME') setControlPhase('RESUME')
     setFailed(false)
     const controller = new AbortController()
     controllers.current.add(controller)
@@ -168,25 +191,42 @@ function Run({
         setFailed(true)
     } finally {
       controllers.current.delete(controller)
-      if (alive.current) setBusy(false)
+      if (alive.current) {
+        setBusy(false)
+        if (operation === 'RESUME') setControlPhase(null)
+      }
     }
   }
   useEffect(() => {
-    if (!view || view.status !== 'READY' || !running.current || busy || failed)
+    if (
+      !view ||
+      view.status !== 'READY' ||
+      !runEnabled ||
+      !active ||
+      busy ||
+      failed
+    )
       return
     const timeout = setTimeout(() => void command('ADVANCE'), 150)
     return () => clearTimeout(timeout)
     // Each accepted revision schedules exactly one bounded slice.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [view, busy, failed])
+  }, [view, busy, failed, runEnabled, active])
   const stop = () => {
-    running.current = false
-    if (current.current)
-      void cancelAutomatic(
-        current.current.id,
-        request.start.provenance.rulesetIdentity,
-      ).then((next) => {
+    setRunEnabled(false)
+    if (!current.current || controlPhase) return
+    setControlPhase('STOP')
+    void cancelAutomatic(
+      current.current.id,
+      request.start.provenance.rulesetIdentity,
+    )
+      .then((next) => {
+        if (!alive.current) return
         if (next) accept(next)
+        else setFailed(true)
+      })
+      .finally(() => {
+        if (alive.current) setControlPhase(null)
       })
   }
   const selectedNode =
@@ -218,51 +258,91 @@ function Run({
   for (const n of view?.nodes ?? []) {
     const row = rows.get(n.depth) ?? 0
     rows.set(n.depth, row + 1)
-    positions.set(n.id, { x: 55 + n.depth * 180, y: 35 + row * 65 })
+    positions.set(n.id, { x: 55 + row * 90, y: 35 + n.depth * 140 })
   }
   const width = Math.max(320, ...[...positions.values()].map((p) => p.x + 80)),
     height = Math.max(100, ...[...positions.values()].map((p) => p.y + 45))
+  const jobId = view?.id
+  useEffect(() => {
+    if (!jobId) return
+    const persist = () =>
+      setStorageFailed(
+        !saveSupport('run', {
+          request: request.clientRequestId,
+          job: jobId,
+          selected,
+          cycles,
+          route,
+        }),
+      )
+    const timer = setTimeout(persist, 100)
+    window.addEventListener('pagehide', persist)
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('pagehide', persist)
+    }
+  }, [jobId, request.clientRequestId, selected, cycles, route])
+  const selectNode = (id: number) => {
+    setSelected(id)
+    setRoute((previous) => {
+      const i = previous.findIndex((e) => e.target === id)
+      return i >= 0 ? previous.slice(0, i + 1) : []
+    })
+  }
+  const chooseEdge = (edge: Selection) => {
+    setSelected(edge.target)
+    setRoute((previous) =>
+      routeThrough(validRoute(view!, previous, cycles) ? previous : [], edge),
+    )
+  }
   return (
     <section className="method-map" aria-label={common.title}>
       <h2>{common.title}</h2>
-      {failed && (
-        <p role="alert">
-          {common.error}
-          <button
-            onClick={() => {
-              setFailed(false)
-              if (current.current) void command('ADVANCE')
-              else onRecalculate()
-            }}
-          >
-            {common.recalculate}
-          </button>
-        </p>
+      {storageFailed && (
+        <p role="status">{workspaceMessages[locale].storage}</p>
       )}
-      <p role="status">
-        {!view || view.status === 'READY'
-          ? common.calculating
-          : view.status === 'COMPLETE'
-            ? copy.complete
-            : view.status === 'CANCELLED'
-              ? common.stopped
-              : common.partial}
-      </p>
-      <div className="method-map__controls">
-        <button onClick={stop} disabled={!view || view.status === 'CANCELLED'}>
-          {common.stop}
-        </button>
-        {view && ['PAUSED', 'CANCELLED'].includes(view.status) && (
-          <button
-            disabled={busy}
-            onClick={() => {
-              running.current = true
-              void command('RESUME')
-            }}
-          >
-            {common.resume}
-          </button>
+      {expired && <p role="alert">{workspaceMessages[locale].expired}</p>}
+      {failed && <p role="alert">{common.error}</p>}
+      <CalculationStatus
+        state={calculationState(
+          view,
+          runEnabled && active,
+          busy,
+          controlPhase,
+          failed,
+          expired,
         )}
+      />
+      <div className="method-map__controls">
+        <button
+          onClick={stop}
+          disabled={
+            !view || view.status === 'CANCELLED' || controlPhase !== null
+          }
+        >
+          {controlPhase === 'STOP' ? (
+            <CalculationControlLabel state="stopping" />
+          ) : (
+            common.stop
+          )}
+        </button>
+        {view &&
+          (['PAUSED', 'CANCELLED'].includes(view.status) ||
+            (view.status === 'READY' && !runEnabled)) && (
+            <button
+              disabled={busy || controlPhase !== null}
+              onClick={() => {
+                setRunEnabled(true)
+                if (view.status !== 'READY') void command('RESUME')
+              }}
+            >
+              {controlPhase === 'RESUME' ? (
+                <CalculationControlLabel state="resuming" />
+              ) : (
+                common.resume
+              )}
+            </button>
+          )}
         <button
           onClick={() => {
             stop()
@@ -274,6 +354,7 @@ function Run({
         <label>
           {copy.cycles}
           <select
+            aria-label={copy.cycles}
             value={cycles}
             onChange={(e) => setCycles(Number(e.target.value))}
           >
@@ -285,136 +366,184 @@ function Run({
       </div>
       {view && (
         <>
-          <div
-            className="method-map__overview"
-            style={{ overflow: 'auto', maxHeight: 360 }}
-          >
-            <svg width={width} height={height} aria-label={common.title}>
-              <defs>
-                <marker
-                  id={`automatic-arrow-${view.id}`}
-                  markerWidth="8"
-                  markerHeight="8"
-                  refX="7"
-                  refY="4"
-                  orient="auto"
-                >
-                  <path d="M0,0 L8,4 L0,8 Z" fill="currentColor" />
-                </marker>
-              </defs>
-              {view.methods.flatMap((m, index) => {
-                const source = positions.get(m.source)
-                const point = m.points.find((p) => p.cycles === cycles)
-                if (!source || !point) return []
-                return point.outcomes
-                  .filter(
-                    (o) =>
-                      o.target !== null &&
-                      o.kind !== 'UNRESOLVED' &&
-                      o.kind !== 'DEAD',
-                  )
-                  .map((o, i) => {
-                    const target = positions.get(o.target!)
-                    if (!target) return null
-                    const offset = 12 + (index % 7) * 5
-                    return (
-                      <path
-                        key={`${m.id}:${i}`}
-                        d={`M${source.x + 18},${source.y} Q${(source.x + target.x) / 2 + offset},${(source.y + target.y) / 2 - offset} ${target.x - 18},${target.y}`}
-                        fill="none"
-                        stroke="currentColor"
-                        opacity={m.source === selectedNode?.id ? 1 : 0.3}
-                        markerEnd={`url(#automatic-arrow-${view.id})`}
-                      >
-                        <title>
-                          {m.cycle.map(action).join(' → ')}:{' '}
-                          {probabilityText(o.probability.lower, o.probability)}
-                        </title>
-                      </path>
-                    )
-                  })
-              })}
-              {view.nodes.map((n) => {
-                const p = positions.get(n.id)!
-                return (
-                  <g
-                    key={n.id}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`${copy.state} ${n.id}`}
-                    onClick={() => setSelected(n.id)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') setSelected(n.id)
-                    }}
+          <div className="automatic-workspace">
+            <div className="method-map__overview">
+              <svg width={width} height={height} aria-label={common.title}>
+                <defs>
+                  <marker
+                    id={`automatic-arrow-${view.id}`}
+                    markerWidth="8"
+                    markerHeight="8"
+                    refX="7"
+                    refY="4"
+                    orient="auto"
                   >
-                    <circle
-                      cx={p.x}
-                      cy={p.y}
-                      r="18"
-                      fill={n.id === selectedNode?.id ? '#c69b57' : '#242424'}
-                      stroke="currentColor"
-                    />
-                    <text x={p.x} y={p.y + 5} textAnchor="middle" fill="white">
-                      {n.id}
-                    </text>
-                  </g>
-                )
-              })}
-            </svg>
-          </div>
-          <label>
-            {copy.state}
-            <select
-              value={selectedNode?.id ?? 0}
-              onChange={(e) => setSelected(Number(e.target.value))}
-            >
-              {view.nodes.map((n) => (
-                <option key={n.id} value={n.id}>
-                  {copy.state} {n.id}
-                </option>
-              ))}
-            </select>
-          </label>
-          {selectedNode && (
-            <div className="method-map__states">
-              <article>
-                <h3>
-                  {copy.state} {selectedNode.id}
-                </h3>
-                {selectedNode.quality40 && <p>{quality.completed}</p>}
-                <p>
-                  {selectedNode.progress.goal === 'MATCH'
-                    ? common.hit
-                    : selectedNode.progress.goal === 'NO_MATCH'
-                      ? common.noMatch
-                      : common.unknown}
-                </p>
-                <ItemCard
-                  item={presentRollCell(
-                    selectedNode.item,
-                    selectedNode.rolls,
-                    locale,
-                    presentItem,
-                  )}
-                />
-                {onEditState && (
-                  <>
-                    <button
-                      onClick={() => {
-                        stop()
-                        onEditState(structuredClone(selectedNode.item), {
-                          abstractQuality40: selectedNode.quality40,
-                        })
+                    <path d="M0,0 L8,4 L0,8 Z" fill="currentColor" />
+                  </marker>
+                </defs>
+                {view.methods.flatMap((m, index) => {
+                  const source = positions.get(m.source)
+                  const point = m.points.find((p) => p.cycles === cycles)
+                  if (!source || !point) return []
+                  return point.outcomes
+                    .filter(
+                      (o) =>
+                        o.target !== null &&
+                        o.kind !== 'UNRESOLVED' &&
+                        o.kind !== 'DEAD',
+                    )
+                    .map((o, i) => {
+                      const target = positions.get(o.target!)
+                      if (!target) return null
+                      const offset = 12 + (index % 7) * 5
+                      return (
+                        <path
+                          key={`${m.id}:${i}`}
+                          role="button"
+                          tabIndex={0}
+                          aria-label={`${m.source} → ${o.target}: ${m.initial.concat(m.cycle).map(action).join(' → ')}`}
+                          onClick={() =>
+                            chooseEdge({
+                              method: m.id,
+                              source: m.source,
+                              target: o.target!,
+                              kind: o.kind,
+                            })
+                          }
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              e.preventDefault()
+                              chooseEdge({
+                                method: m.id,
+                                source: m.source,
+                                target: o.target!,
+                                kind: o.kind,
+                              })
+                            }
+                          }}
+                          className={
+                            route.some(
+                              (e) => e.method === m.id && e.target === o.target,
+                            )
+                              ? 'automatic-edge is-selected'
+                              : 'automatic-edge'
+                          }
+                          d={`M${source.x},${source.y + 18} Q${(source.x + target.x) / 2 + offset},${(source.y + target.y) / 2} ${target.x},${target.y - 18}`}
+                          fill="none"
+                          stroke="currentColor"
+                          opacity={m.source === selectedNode?.id ? 1 : 0.3}
+                          markerEnd={`url(#automatic-arrow-${view.id})`}
+                        >
+                          <title>
+                            {m.cycle.map(action).join(' → ')}:{' '}
+                            {probabilityText(
+                              o.probability.lower,
+                              o.probability,
+                            )}
+                          </title>
+                        </path>
+                      )
+                    })
+                })}
+                {view.nodes.map((n) => {
+                  const p = positions.get(n.id)!
+                  return (
+                    <g
+                      key={n.id}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`${copy.state} ${n.id}`}
+                      onClick={() => selectNode(n.id)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') selectNode(n.id)
                       }}
                     >
-                      {policy[22]}
-                    </button>
-                    <p>{policy[23]}</p>
-                  </>
-                )}
-              </article>
+                      <circle
+                        cx={p.x}
+                        cy={p.y}
+                        r="18"
+                        fill={n.id === selectedNode?.id ? '#c69b57' : '#242424'}
+                        stroke="currentColor"
+                      />
+                      <text
+                        x={p.x}
+                        y={p.y + 5}
+                        textAnchor="middle"
+                        fill="white"
+                      >
+                        {n.id}
+                      </text>
+                    </g>
+                  )
+                })}
+              </svg>
             </div>
-          )}
+            <aside className="automatic-inspector">
+              <label>
+                {copy.state}
+                <select
+                  aria-label={copy.state}
+                  value={selectedNode?.id ?? 0}
+                  onChange={(e) => selectNode(Number(e.target.value))}
+                >
+                  {view.nodes.map((n) => (
+                    <option key={n.id} value={n.id}>
+                      {copy.state} {n.id}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              {selectedNode && (
+                <div className="method-map__states">
+                  <article>
+                    <h3>
+                      {copy.state} {selectedNode.id}
+                    </h3>
+                    {selectedNode.quality40 && <p>{quality.completed}</p>}
+                    <p>
+                      {selectedNode.progress.goal === 'MATCH'
+                        ? common.hit
+                        : selectedNode.progress.goal === 'NO_MATCH'
+                          ? common.noMatch
+                          : common.unknown}
+                    </p>
+                    <ItemCard
+                      item={presentRollCell(
+                        selectedNode.item,
+                        selectedNode.rolls,
+                        locale,
+                        presentItem,
+                      )}
+                    />
+                    {onEditState && (
+                      <>
+                        <button
+                          onClick={() => {
+                            stop()
+                            onEditState(structuredClone(selectedNode.item), {
+                              abstractQuality40: selectedNode.quality40,
+                            })
+                          }}
+                        >
+                          {policy[22]}
+                        </button>
+                        <p>{policy[23]}</p>
+                      </>
+                    )}
+                  </article>
+                </div>
+              )}
+              <CandidateRoute
+                view={view}
+                selected={selectedNode?.id ?? 0}
+                cycles={cycles}
+                route={route}
+                choose={chooseEdge}
+                clear={() => setRoute([])}
+                action={action}
+              />
+            </aside>
+          </div>
           {recommendations && (
             <p>
               {view.complete ? copy.final : copy.eventual}:{' '}
@@ -459,7 +588,16 @@ function Run({
                               {o.target === null ? (
                                 common.unknown
                               ) : (
-                                <button onClick={() => setSelected(o.target!)}>
+                                <button
+                                  onClick={() =>
+                                    chooseEdge({
+                                      method: m.id,
+                                      source: m.source,
+                                      target: o.target!,
+                                      kind: o.kind,
+                                    })
+                                  }
+                                >
                                   {copy.state} {o.target}
                                 </button>
                               )}{' '}

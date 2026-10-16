@@ -9,6 +9,8 @@ beforeEach(() => {
   setLocale('en')
   vi.stubGlobal('fetch', fixtureFetch)
   window.localStorage.removeItem('hephaistos.workbench.films.v1')
+  for (const key of ['start', 'goal', 'run', 'workspace'])
+    window.localStorage.removeItem(`hephaistos.support.v1:${key}`)
 })
 afterEach(() => vi.unstubAllGlobals())
 

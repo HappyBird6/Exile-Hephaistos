@@ -1,3 +1,4 @@
+import { readSupport, saveSupport } from './method-search/supportStorage'
 import { baseSlugs, baseClass, sourcePropertyUnscaled } from './baseRegistry'
 import type { WorkbenchBaseKey } from './baseRegistry'
 import { topBase, topBaseKey, reviewedArmourKeys } from './topBases'
@@ -186,7 +187,15 @@ export function CraftingPage() {
     }
     setFilmState({ ...filmState, history, revision, error })
   }
-  const [view, setView] = useState<(typeof workspaceTabs)[number]>('workbench')
+  const [view, setView] = useState<(typeof workspaceTabs)[number]>(
+    () =>
+      readSupport('workspace', (v): v is (typeof workspaceTabs)[number] =>
+        workspaceTabs.includes(v as (typeof workspaceTabs)[number]),
+      ) ?? 'workbench',
+  )
+  useEffect(() => {
+    saveSupport('workspace', view)
+  }, [view])
   const imported = useItemTextImport()
   const dialog = useRef<HTMLDialogElement>(null)
   const [searches, setSearches] = useState<

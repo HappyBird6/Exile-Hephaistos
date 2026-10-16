@@ -1,3 +1,5 @@
+import { hasImplicitGoal } from '../method-search/supportStorage'
+import { workspaceMessages } from '../method-search/workspaceMessages'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useStore } from 'zustand'
 import type { StoreApi } from 'zustand/vanilla'
@@ -147,7 +149,9 @@ export function GoalFilterPanel({
     recommendation?.catalogVersion === goal.catalogVersion
       ? recommendation
       : undefined
-  const validInput = !Object.values(invalidFields).some(Boolean)
+  const implicitGoal = hasImplicitGoal(goal)
+  const validInput =
+    !implicitGoal && !Object.values(invalidFields).some(Boolean)
   const validation = useGoalFilterValidation(adapter, context, goal, validInput)
   const searchReady =
     validInput &&
@@ -182,6 +186,7 @@ export function GoalFilterPanel({
   const stats =
     presentedStats.filter(
       (s) =>
+        s.kind !== 'IMPLICIT' &&
         (category === 'ALL' || s.kind === category) &&
         s.searchText
           .normalize('NFC')
@@ -283,7 +288,7 @@ export function GoalFilterPanel({
                   setActiveStat(0)
                 }}
               >
-                {['ALL', 'EXPLICIT', 'IMPLICIT', 'PSEUDO'].map((kind) => (
+                {['ALL', 'EXPLICIT', 'PSEUDO'].map((kind) => (
                   <option key={kind} value={kind}>
                     {kind === 'ALL'
                       ? t.all
@@ -385,6 +390,9 @@ export function GoalFilterPanel({
       aria-label={t.title}
       onChangeCapture={onInputEdit}
     >
+      {implicitGoal && (
+        <p role="alert">{workspaceMessages[language].implicit}</p>
+      )}
       <header className="goal-filter-title">
         <h2>{t.title}</h2>
         {adapter.mock && <p>{t.mock}</p>}
