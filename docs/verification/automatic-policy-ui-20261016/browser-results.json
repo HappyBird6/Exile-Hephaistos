@@ -1,0 +1,50 @@
+[
+  {
+    "locale": "en",
+    "policyEntries": 187,
+    "mobileFits": true,
+    "focusRestored": true,
+    "nodeEditorInvoked": true,
+    "errors": []
+  },
+  {
+    "locale": "ko",
+    "policyEntries": 187,
+    "mobileFits": true,
+    "focusRestored": true,
+    "nodeEditorInvoked": true,
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "policyEntries": 187,
+    "mobileFits": true,
+    "focusRestored": true,
+    "nodeEditorInvoked": true,
+    "errors": []
+  },
+  {
+    "locale": "zh-TW",
+    "policyEntries": 187,
+    "mobileFits": true,
+    "focusRestored": true,
+    "nodeEditorInvoked": true,
+    "errors": []
+  },
+  {
+    "locale": "ja",
+    "policyEntries": 187,
+    "mobileFits": true,
+    "focusRestored": true,
+    "nodeEditorInvoked": true,
+    "errors": []
+  },
+  {
+    "locale": "es",
+    "policyEntries": 187,
+    "mobileFits": true,
+    "focusRestored": true,
+    "nodeEditorInvoked": true,
+    "errors": []
+  }
+]

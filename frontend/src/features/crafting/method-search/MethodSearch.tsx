@@ -22,6 +22,7 @@ import {
 } from './certifiedApi'
 import { probabilityText, quantityText } from './probabilityPresentation'
 import { methodSearchMessages } from './messages'
+import { policyMessages } from './policyMessages'
 import { presentRollCell } from './rollPresentation'
 import type { Graph, Snapshot } from './types'
 import './method-search.css'
@@ -31,7 +32,12 @@ export function MethodSearch(props: PathTreeProps) {
     <Run key={canonical([props.inputGeneration, props.request])} {...props} />
   )
 }
-function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
+function Run({
+  request,
+  presentItem,
+  onRecalculate,
+  onEditState,
+}: PathTreeProps) {
   const { locale } = useI18n(),
     common = pathTreeMessages[locale],
     copy = methodSearchMessages[locale],
@@ -268,6 +274,32 @@ function Run({ request, presentItem, onRecalculate }: PathTreeProps) {
                 b.representativeOrbits,
               )}
             />
+            {onEditState && (
+              <>
+                <button
+                  onClick={() => {
+                    setContinueSearch(false)
+                    const current = latest.current
+                    if (
+                      current &&
+                      ['QUEUED', 'RUNNING', 'PAUSED'].includes(current.status)
+                    )
+                      void mutateCertifiedJob(
+                        current,
+                        'CANCEL',
+                        ruleset,
+                        new AbortController().signal,
+                      ).catch(() => {
+                        /* A stale generation cannot publish into the new editor. */
+                      })
+                    onEditState(structuredClone(b.representative))
+                  }}
+                >
+                  {policyMessages[locale][22]}
+                </button>
+                <p>{policyMessages[locale][23]}</p>
+              </>
+            )}
             <p>
               {b.entries
                 .map((s) =>

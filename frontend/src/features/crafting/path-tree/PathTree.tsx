@@ -6,7 +6,7 @@ import { localizedAction } from '../localizedCrafting'
 import { workbenchActionNames } from '../workbenchApi'
 import type { WorkbenchAction } from '../workbenchApi'
 import type { ItemPresentation } from './presentation'
-import type { CreateRequest, GraphPage, JobSnapshot } from './types'
+import type { CreateRequest, GraphPage, JobSnapshot, Item } from './types'
 import type { PathSearchAdapter } from './api'
 import { createHttpPathSearchAdapter } from './api'
 import { PathSearchSession } from './session'
@@ -26,6 +26,7 @@ export type PathTreeProps = {
   presentItem: ItemPresentation
   adapter?: PathSearchAdapter
   onRecalculate: () => void
+  onEditState?: (item: Item) => void
 }
 export function PathTree(props: PathTreeProps) {
   // A new committed input owns new sessions/cache keys. Unmount invalidates both server jobs.

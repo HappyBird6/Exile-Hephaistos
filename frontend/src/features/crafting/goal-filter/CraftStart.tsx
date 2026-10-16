@@ -14,6 +14,8 @@ import { loadInitial } from '../craftingApi'
 import type { Initial } from '../craftingApi'
 import { concreteInitial, mapSolarText } from '../workbenchApi'
 import type { ConcreteItem } from '../workbenchApi'
+import { qualityShape } from '../catalystQuality'
+import { supportsConcreteStateShape } from '../workbenchStateShape'
 import { parseItemText, maxItemTextBytes } from '../itemTextApi'
 import { ItemCard } from '../ItemCard'
 import type { ItemCardData } from '../itemCardData'
@@ -849,6 +851,28 @@ export function CraftStart({
               onRecalculate={() => {
                 update({ editing: true })
                 requestAnimationFrame(() => startButton.current?.focus())
+              }}
+              onEditState={(item) => {
+                if (
+                  item.rarity === 'UNIQUE' ||
+                  !qualityShape(item.catalystQuality) ||
+                  !supportsConcreteStateShape(item) ||
+                  item.baseItemId !== draft.item?.baseItemId
+                ) {
+                  update({ searchIssue: true, editing: true })
+                  return
+                }
+                saveItem({
+                  ...item,
+                  rarity: item.rarity,
+                  catalystQuality: item.catalystQuality,
+                })
+                update({ editing: true, levelEdited: false })
+                requestAnimationFrame(() =>
+                  modifierRegion.current
+                    ?.querySelector<HTMLInputElement>('input[role="combobox"]')
+                    ?.focus(),
+                )
               }}
             />
           </section>

@@ -10,6 +10,51 @@ import { createItemPresentation } from '../path-tree/presentation'
 import { setLocale } from '../../../shared/i18n/i18n'
 
 afterEach(() => vi.unstubAllGlobals())
+it('copies a selected node into the editor without changing its conditional-law representative', async () => {
+  setLocale('en')
+  const request = requestFixture()
+  request.clientRequestId = fixture.search.clientRequestId
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(
+      async () =>
+        new Response(JSON.stringify(fixture), {
+          headers: {
+            'X-Crafting-Ruleset': request.start.provenance.rulesetIdentity,
+          },
+        }),
+    ),
+  )
+  const edit = vi.fn()
+  const client = new QueryClient({
+    defaultOptions: { queries: { retry: false } },
+  })
+  const view = render(
+    <QueryClientProvider client={client}>
+      <MethodSearch
+        request={request}
+        inputGeneration={1}
+        presentItem={createItemPresentation(
+          { name: 'Solar Amulet', itemClass: 'Amulet' },
+          {},
+        )}
+        onRecalculate={() => {}}
+        onEditState={edit}
+      />
+    </QueryClientProvider>,
+  )
+  const buttons = await screen.findAllByRole('button', {
+    name: 'Edit this state',
+  })
+  fireEvent.click(buttons[1]!)
+  expect(edit).toHaveBeenCalledWith(fixture.graph.buckets[1]!.representative)
+  expect(edit.mock.calls[0]![0]).not.toBe(
+    fixture.graph.buckets[1]!.representative,
+  )
+  view.unmount()
+  client.clear()
+})
+
 it('keeps unknown goal evaluation distinct from a failed goal', async () => {
   setLocale('en')
   const request = requestFixture()
