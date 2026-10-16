@@ -589,6 +589,77 @@ public final class WorkbenchSimulator {
     };
   }
 
+  /** Read-only exhaustive projection; the manual sampler remains independent of search policy. */
+  public AutomaticCraftingPlan automaticPlan(ItemState state, AutomaticCraftingAction execution) {
+    validate(state);
+    var action = execution.currency();
+    var omens = List.copyOf(execution.omens());
+    boolean basic = action == WorkbenchCurrency.REGAL || action == WorkbenchCurrency.EXALTED;
+    boolean replacement = !replacementTargets(action).isEmpty();
+    boolean essence = !essenceTargets(action).isEmpty();
+    if (action == WorkbenchCurrency.ESSENCE_ABYSS
+        || (!basic && !replacement && !essence)
+        || action.isLiquid()
+        || matching(action, omens).size() != omens.size())
+      return new AutomaticCraftingPlan(
+          AutomaticCraftingPlan.Status.UNSUPPORTED,
+          "AUTOMATIC_OPERATION_NOT_IMPLEMENTED",
+          List.of(),
+          false,
+          "");
+    var required =
+        action == WorkbenchCurrency.REGAL || essence
+            ? ItemState.Rarity.MAGIC
+            : ItemState.Rarity.RARE;
+    if (state.rarity() != required)
+      return new AutomaticCraftingPlan(
+          AutomaticCraftingPlan.Status.UNAVAILABLE, "RARITY_NOT_APPLICABLE", List.of(), !basic, "");
+    var available = availability(state, action, omens);
+    if (!available.available())
+      return new AutomaticCraftingPlan(
+          AutomaticCraftingPlan.Status.UNSUPPORTED, available.reason(), List.of(), !basic, "");
+    var branches = new ArrayList<AutomaticCraftingPlan.Branch>();
+    var omen = omens.isEmpty() ? null : omens.getFirst();
+    if (replacement) {
+      var targets =
+          replacementTargets(action).stream().map(id -> catalog.find(id).orElseThrow()).toList();
+      for (var removed : replacementRemovalCandidates(state, action, omen)) {
+        var rest = new ArrayList<>(state.explicits());
+        rest.remove(removed);
+        branches.add(
+            new AutomaticCraftingPlan.Branch(
+                copy(state, state.rarity(), state.implicits(), rest), targets));
+      }
+    } else {
+      var upgraded =
+          copy(
+              state,
+              essence || action == WorkbenchCurrency.REGAL ? ItemState.Rarity.RARE : state.rarity(),
+              state.implicits(),
+              state.explicits());
+      branches.add(
+          new AutomaticCraftingPlan.Branch(
+              upgraded,
+              essence
+                  ? essenceTargets(action).stream()
+                      .map(id -> catalog.find(id).orElseThrow())
+                      .toList()
+                  : pool(upgraded, action, omen)));
+    }
+    return new AutomaticCraftingPlan(
+        AutomaticCraftingPlan.Status.READY,
+        "",
+        branches,
+        !basic,
+        replacement
+            ? action.replacementSource()
+            : essence
+                ? Optional.ofNullable(action.essenceChoiceSource())
+                    .orElse(branches.getFirst().candidates().getFirst().sourceUrl())
+                : "https://poe2db.tw/us/"
+                    + (action == WorkbenchCurrency.REGAL ? "Regal_Orb" : "Exalted_Orb"));
+  }
+
   BasicCurrencyPlan basicCurrencyPlan(ItemState state, WorkbenchCurrency action) {
     validate(state);
     if (!BasicCurrencyPlan.ACTIONS.contains(action))

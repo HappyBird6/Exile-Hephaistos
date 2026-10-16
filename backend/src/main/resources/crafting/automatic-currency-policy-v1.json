@@ -1,0 +1,1879 @@
+{
+  "schemaVersion": 1,
+  "policyVersion": "approved-187-2026-10-15-v1",
+  "sourceUrl": "https://drive.google.com/file/d/1T-V7AxH9BT6qMxFDfsWcpb9u9_o-LSYT/view",
+  "sourceModifiedAt": "2026-10-15T08:05:34.858Z",
+  "maximumExploredExplicits": 4,
+  "entries": [
+    {
+      "number": 1,
+      "id": "TRANSMUTATION",
+      "nameKo": "진화의 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Orb_of_Transmutation",
+      "effectKo": "일반 → 마법. 무작위 속성 1개를 부여한다.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 2,
+      "id": "GREATER_TRANSMUTATION",
+      "nameKo": "상위 진화의 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Orb_of_Transmutation",
+      "effectKo": "일반 → 마법. 무작위 속성 1개를 부여한다. 최소 속성 레벨 44.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 3,
+      "id": "PERFECT_TRANSMUTATION",
+      "nameKo": "완벽한 진화의 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Orb_of_Transmutation",
+      "effectKo": "일반 → 마법. 무작위 속성 1개를 부여한다. 최소 속성 레벨 70.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 4,
+      "id": "AUGMENTATION",
+      "nameKo": "확장의 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Orb_of_Augmentation",
+      "effectKo": "마법 아이템에 무작위 속성 1개를 추가한다.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 5,
+      "id": "GREATER_AUGMENTATION",
+      "nameKo": "상위 확장의 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Orb_of_Augmentation",
+      "effectKo": "마법 아이템에 무작위 속성 1개를 추가한다. 최소 속성 레벨 44.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 6,
+      "id": "PERFECT_AUGMENTATION",
+      "nameKo": "완벽한 확장의 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Orb_of_Augmentation",
+      "effectKo": "마법 아이템에 무작위 속성 1개를 추가한다. 최소 속성 레벨 70.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 7,
+      "id": "REGAL",
+      "nameKo": "제왕의 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Regal_Orb",
+      "effectKo": "마법 → 희귀. 기존 속성에 무작위 속성 1개를 추가한다.",
+      "decision": "CONDITIONAL",
+      "restrictionKo": "후속 제작에서 제거할 임시 속성을 추가하는 용도로만 사용. 무작위 유효 속성 획득·일반 마무리용으로 자동 탐색하지 않음.",
+      "condition": "TEMPORARY_REMOVAL"
+    },
+    {
+      "number": 8,
+      "id": "GREATER_REGAL",
+      "nameKo": "상위 제왕의 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Regal_Orb",
+      "effectKo": "마법 → 희귀. 기존 속성에 무작위 속성 1개를 추가한다. 최소 속성 레벨 35.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 9,
+      "id": "PERFECT_REGAL",
+      "nameKo": "완벽한 제왕의 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Regal_Orb",
+      "effectKo": "마법 → 희귀. 기존 속성에 무작위 속성 1개를 추가한다. 최소 속성 레벨 50.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 10,
+      "id": "EXALTED",
+      "nameKo": "엑잘티드 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Exalted_Orb",
+      "effectKo": "희귀 아이템에 무작위 속성 1개를 추가한다.",
+      "decision": "CONDITIONAL",
+      "restrictionKo": "후속 제작에서 제거할 임시 속성을 추가하는 용도로만 사용. 무작위 유효 속성 획득·일반 마무리용으로 자동 탐색하지 않음.",
+      "condition": "TEMPORARY_REMOVAL"
+    },
+    {
+      "number": 11,
+      "id": "GREATER_EXALTED",
+      "nameKo": "상위 엑잘티드 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Exalted_Orb",
+      "effectKo": "희귀 아이템에 무작위 속성 1개를 추가한다. 최소 속성 레벨 35.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 12,
+      "id": "PERFECT_EXALTED",
+      "nameKo": "완벽한 엑잘티드 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Exalted_Orb",
+      "effectKo": "희귀 아이템에 무작위 속성 1개를 추가한다. 최소 속성 레벨 50.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 13,
+      "id": "ANNULMENT",
+      "nameKo": "소멸의 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Orb_of_Annulment",
+      "effectKo": "아이템의 무작위 속성 1개를 제거한다.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 사용 후 트리 해당 지점의 아이템 상태를 수정하고 변경 상태에서 이후를 재탐색.",
+      "condition": "NONE"
+    },
+    {
+      "number": 14,
+      "id": "CHAOS",
+      "nameKo": "카오스 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Chaos_Orb",
+      "effectKo": "희귀 아이템의 무작위 속성 1개를 제거한 후 무작위 속성 1개를 추가한다.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 15,
+      "id": "GREATER_CHAOS",
+      "nameKo": "상위 카오스 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Chaos_Orb",
+      "effectKo": "희귀 아이템의 무작위 속성 1개를 제거한 후 무작위 속성 1개를 추가한다. 최소 속성 레벨 35.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 16,
+      "id": "PERFECT_CHAOS",
+      "nameKo": "완벽한 카오스 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Chaos_Orb",
+      "effectKo": "희귀 아이템의 무작위 속성 1개를 제거한 후 무작위 속성 1개를 추가한다. 최소 속성 레벨 50.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 17,
+      "id": "ARTIFICER",
+      "nameKo": "숙련공의 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Artificers_Orb",
+      "effectKo": "무도 무기·마법봉·지팡이·방어구에 증강물 홈을 추가한다. 최대 홈 수 제한은 별도 검사.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 18,
+      "id": "DIVINE",
+      "nameKo": "신성한 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Divine_Orb",
+      "effectKo": "기존 명시 속성의 수치를 해당 범위 안에서 다시 정한다.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 19,
+      "id": "ALCHEMY",
+      "nameKo": "연금술의 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Orb_of_Alchemy",
+      "effectKo": "일반 또는 마법 아이템을 무작위 속성 4개인 희귀 아이템으로 만든다.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 20,
+      "id": "FRACTURING",
+      "nameKo": "분열의 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Fracturing_Orb",
+      "effectKo": "명시 속성이 4개 이상인 희귀 아이템의 무작위 속성 1개를 분열시켜 고정한다.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 21,
+      "id": "LESSER_ESSENCE_COMMAND",
+      "nameKo": "하위 지휘의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_Command",
+      "effectKo": "셉터: 접근해 있는 동료가 주는 피해 (35–44)% 증가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 22,
+      "id": "LESSER_ESSENCE_ABRASION",
+      "nameKo": "하위 마모의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_Abrasion",
+      "effectKo": "한손 근접 무기 또는 활: 물리 피해 (4–6)~(7–11) 추가<br>양손 근접 무기 또는 석궁: 물리 피해 (5–8)~(10–15) 추가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 23,
+      "id": "LESSER_ESSENCE_FLAMES",
+      "nameKo": "하위 화염의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_Flames",
+      "effectKo": "한손 근접 무기 또는 활: 화염 피해 (4–6)~(7–10) 추가<br>양손 근접 무기 또는 석궁: 화염 피해 (6–9)~(10–16) 추가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 24,
+      "id": "LESSER_ESSENCE_ICE",
+      "nameKo": "하위 얼음의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_Ice",
+      "effectKo": "한손 근접 무기 또는 활: 냉기 피해 (3–5)~(6–9) 추가<br>양손 근접 무기 또는 석궁: 냉기 피해 (5–8)~(9–14) 추가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 25,
+      "id": "LESSER_ESSENCE_ELECTRICITY",
+      "nameKo": "하위 전기의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_Electricity",
+      "effectKo": "한손 근접 무기 또는 활: 번개 피해 1~(13–19) 추가<br>양손 근접 무기 또는 석궁: 번개 피해 (1–2)~(19–27) 추가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 26,
+      "id": "LESSER_ESSENCE_BATTLE",
+      "nameKo": "하위 전투의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_Battle",
+      "effectKo": "무도 무기: 정확도 +(61–84)",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 27,
+      "id": "LESSER_ESSENCE_HASTE",
+      "nameKo": "하위 가속의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_Haste",
+      "effectKo": "근접 무기: 공격 속도 (11–13)% 증가<br>활 또는 석궁: 공격 속도 (8–10)% 증가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 28,
+      "id": "LESSER_ESSENCE_SEEKING",
+      "nameKo": "하위 추구의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_Seeking",
+      "effectKo": "무도 무기: 치명타 확률 +(1.51–2.1)%<br>집중구 또는 마법봉: 주문 치명타 명중 확률 (34–39)% 증가<br>지팡이: 주문 치명타 명중 확률 (50–59)% 증가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 29,
+      "id": "LESSER_ESSENCE_SORCERY",
+      "nameKo": "하위 마술의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_Sorcery",
+      "effectKo": "집중구 또는 마법봉: 주문 피해 (35–44)% 증가<br>지팡이: 주문 피해 (69–88)% 증가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 30,
+      "id": "LESSER_ESSENCE_ALACRITY",
+      "nameKo": "하위 기민성의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_Alacrity",
+      "effectKo": "집중구 또는 마법봉: 시전 속도 (13–16)% 증가<br>지팡이: 시전 속도 (20–25)% 증가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 31,
+      "id": "LESSER_ESSENCE_ENHANCEMENT",
+      "nameKo": "하위 강화의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_Enhancement",
+      "effectKo": "방어구: 방어도, 회피, 에너지 보호막 (27–42)% 증가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 32,
+      "id": "LESSER_ESSENCE_BODY",
+      "nameKo": "하위 육신의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_the_Body",
+      "effectKo": "방어구 또는 허리띠: 생명력 최대치 +(30–39)<br>장신구: 생명력 최대치 +(20–29)",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 33,
+      "id": "LESSER_ESSENCE_MIND",
+      "nameKo": "하위 정신의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_the_Mind",
+      "effectKo": "허리띠, 장화, 장갑, 투구 또는 장신구: 마나 최대치 +(25–34)",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 34,
+      "id": "LESSER_ESSENCE_RUIN",
+      "nameKo": "하위 폐허의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_Ruin",
+      "effectKo": "방어구, 허리띠 또는 장신구: 카오스 저항 +(4–7)%",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 35,
+      "id": "LESSER_ESSENCE_INSULATION",
+      "nameKo": "하위 절연의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_Insulation",
+      "effectKo": "방어구, 허리띠 또는 장신구: 화염 저항 +(11–15)%",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 36,
+      "id": "LESSER_ESSENCE_THAWING",
+      "nameKo": "하위 해동의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_Thawing",
+      "effectKo": "방어구, 허리띠 또는 장신구: 냉기 저항 +(11–15)%",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 37,
+      "id": "LESSER_ESSENCE_GROUNDING",
+      "nameKo": "하위 접지의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_Grounding",
+      "effectKo": "방어구, 허리띠 또는 장신구: 번개 저항 +(11–15)%",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 38,
+      "id": "LESSER_ESSENCE_OPULENCE",
+      "nameKo": "하위 풍요의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_Opulence",
+      "effectKo": "장화, 장갑, 투구 또는 장신구: 발견하는 아이템 희귀도 (6–10)% 증가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 39,
+      "id": "LESSER_ESSENCE_INFINITE",
+      "nameKo": "하위 무한의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Lesser_Essence_of_the_Infinite",
+      "effectKo": "장비: 힘, 민첩 또는 지능 +(9–12)",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 40,
+      "id": "ESSENCE_COMMAND",
+      "nameKo": "지휘의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Command",
+      "effectKo": "셉터: 접근해 있는 동료가 주는 피해 (55–64)% 증가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 41,
+      "id": "ESSENCE_ABRASION",
+      "nameKo": "마모의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Abrasion",
+      "effectKo": "한손 근접 무기 또는 활: 물리 피해 (10–15)~(18–26) 추가<br>양손 근접 무기 또는 석궁: 물리 피해 (14–21)~(25–37) 추가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 42,
+      "id": "ESSENCE_FLAMES",
+      "nameKo": "화염의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Flames",
+      "effectKo": "한손 근접 무기 또는 활: 화염 피해 (20–24)~(32–37) 추가<br>양손 근접 무기 또는 석궁: 화염 피해 (30–37)~(45–56) 추가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 43,
+      "id": "ESSENCE_ICE",
+      "nameKo": "얼음의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Ice",
+      "effectKo": "한손 근접 무기 또는 활: 냉기 피해 (17–20)~(26–32) 추가<br>양손 근접 무기 또는 석궁: 냉기 피해 (25–30)~(38–46) 추가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 44,
+      "id": "ESSENCE_ELECTRICITY",
+      "nameKo": "전기의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Electricity",
+      "effectKo": "한손 근접 무기 또는 활: 번개 피해 (1–3)~(55–60) 추가<br>양손 근접 무기 또는 석궁: 번개 피해 (1–4)~(80–88) 추가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 45,
+      "id": "ESSENCE_BATTLE",
+      "nameKo": "전투의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Battle",
+      "effectKo": "무도 무기: 정확도 +(124–167)",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 46,
+      "id": "ESSENCE_HASTE",
+      "nameKo": "가속의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Haste",
+      "effectKo": "근접 무기: 공격 속도 (17–19)% 증가<br>활 또는 석궁: 공격 속도 (11–13)% 증가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 47,
+      "id": "ESSENCE_SEEKING",
+      "nameKo": "추구의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Seeking",
+      "effectKo": "무도 무기: 치명타 확률 +(2.11–2.7)%<br>집중구 또는 마법봉: 주문 치명타 명중 확률 (40–46)% 증가<br>지팡이: 주문 치명타 명중 확률 (60–69)% 증가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 48,
+      "id": "ESSENCE_SORCERY",
+      "nameKo": "마술의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Sorcery",
+      "effectKo": "집중구 또는 마법봉: 주문 피해 (55–64)% 증가<br>지팡이: 주문 피해 (109–128)% 증가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 49,
+      "id": "ESSENCE_ALACRITY",
+      "nameKo": "기민성의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Alacrity",
+      "effectKo": "집중구 또는 마법봉: 시전 속도 (17–20)% 증가<br>지팡이: 시전 속도 (26–31)% 증가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 50,
+      "id": "ESSENCE_ENHANCEMENT",
+      "nameKo": "강화의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Enhancement",
+      "effectKo": "방어구: 방어도, 회피, 에너지 보호막 (56–67)% 증가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 51,
+      "id": "ESSENCE_BODY",
+      "nameKo": "육신의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_the_Body",
+      "effectKo": "허리띠, 갑옷, 투구 또는 방패: 생명력 최대치 +(85–99)<br>목걸이, 장화, 장갑 또는 반지: 생명력 최대치 +(70–84)",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 52,
+      "id": "ESSENCE_MIND",
+      "nameKo": "정신의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_the_Mind",
+      "effectKo": "허리띠, 장화, 장갑 또는 투구: 마나 최대치 +(65–79)<br>장신구: 마나 최대치 +(80–89)",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 53,
+      "id": "ESSENCE_RUIN",
+      "nameKo": "폐허의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Ruin",
+      "effectKo": "방어구, 허리띠 또는 장신구: 카오스 저항 +(8–11)%",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 54,
+      "id": "ESSENCE_INSULATION",
+      "nameKo": "절연의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Insulation",
+      "effectKo": "방어구, 허리띠 또는 장신구: 화염 저항 +(21–25)%",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 55,
+      "id": "ESSENCE_THAWING",
+      "nameKo": "해동의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Thawing",
+      "effectKo": "방어구, 허리띠 또는 장신구: 냉기 저항 +(21–25)%",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 56,
+      "id": "ESSENCE_GROUNDING",
+      "nameKo": "접지의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Grounding",
+      "effectKo": "방어구, 허리띠 또는 장신구: 번개 저항 +(21–25)%",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 57,
+      "id": "ESSENCE_OPULENCE",
+      "nameKo": "풍요의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Opulence",
+      "effectKo": "장화, 장갑, 투구 또는 장신구: 발견하는 아이템 희귀도 (11–14)% 증가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 58,
+      "id": "ESSENCE_INFINITE",
+      "nameKo": "무한의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_the_Infinite",
+      "effectKo": "장비: 힘, 민첩 또는 지능 +(17–20)",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 59,
+      "id": "GREATER_ESSENCE_COMMAND",
+      "nameKo": "상위 지휘의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_Command",
+      "effectKo": "셉터: 접근해 있는 동료가 주는 피해 (75–89)% 증가",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 60,
+      "id": "GREATER_ESSENCE_ABRASION",
+      "nameKo": "상위 마모의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_Abrasion",
+      "effectKo": "한손 근접 무기 또는 활: 물리 피해 (16–24)~(28–42) 추가<br>양손 근접 무기 또는 석궁: 물리 피해 (23–35)~(39–59) 추가",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 61,
+      "id": "GREATER_ESSENCE_FLAMES",
+      "nameKo": "상위 화염의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_Flames",
+      "effectKo": "한손 근접 무기 또는 활: 화염 피해 (35–44)~(56–71) 추가<br>양손 근접 무기 또는 석궁: 화염 피해 (56–70)~(84–107) 추가",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 62,
+      "id": "GREATER_ESSENCE_ICE",
+      "nameKo": "상위 얼음의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_Ice",
+      "effectKo": "한손 근접 무기 또는 활: 냉기 피해 (31–38)~(47–59) 추가<br>양손 근접 무기 또는 석궁: 냉기 피해 (46–57)~(70–88) 추가",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 63,
+      "id": "GREATER_ESSENCE_ELECTRICITY",
+      "nameKo": "상위 전기의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_Electricity",
+      "effectKo": "한손 근접 무기 또는 활: 번개 피해 (1–6)~(85–107) 추가<br>양손 근접 무기 또는 석궁: 번개 피해 (1–8)~(128–162) 추가",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 64,
+      "id": "GREATER_ESSENCE_HASTE",
+      "nameKo": "상위 가속의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_Haste",
+      "effectKo": "근접 무기: 공격 속도 (23–25)% 증가<br>활 또는 석궁: 공격 속도 (14–16)% 증가",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 65,
+      "id": "GREATER_ESSENCE_SEEKING",
+      "nameKo": "상위 추구의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_Seeking",
+      "effectKo": "무도 무기: 치명타 확률 +(3.11–3.8)%<br>집중구 또는 마법봉: 주문 치명타 명중 확률 (47–53)% 증가<br>지팡이: 주문 치명타 명중 확률 (70–79)% 증가",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 66,
+      "id": "GREATER_ESSENCE_SORCERY",
+      "nameKo": "상위 마술의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_Sorcery",
+      "effectKo": "집중구 또는 마법봉: 주문 피해 (75–89)% 증가<br>지팡이: 주문 피해 (149–188)% 증가",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 67,
+      "id": "GREATER_ESSENCE_ALACRITY",
+      "nameKo": "상위 기민성의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_Alacrity",
+      "effectKo": "집중구 또는 마법봉: 시전 속도 (25–28)% 증가<br>지팡이: 시전 속도 (38–43)% 증가",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 68,
+      "id": "GREATER_ESSENCE_ENHANCEMENT",
+      "nameKo": "상위 강화의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_Enhancement",
+      "effectKo": "방어구: 방어도, 회피, 에너지 보호막 (68–79)% 증가",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 69,
+      "id": "GREATER_ESSENCE_BATTLE",
+      "nameKo": "상위 전투의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_Battle",
+      "effectKo": "무도 무기, 장갑 또는 화살통: 정확도 +(237–346)",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 70,
+      "id": "GREATER_ESSENCE_BODY",
+      "nameKo": "상위 육신의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_the_Body",
+      "effectKo": "허리띠, 갑옷, 투구 또는 방패: 생명력 최대치 +(100–119)<br>목걸이, 장화 또는 장갑: 생명력 최대치 +(85–99)",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 71,
+      "id": "GREATER_ESSENCE_MIND",
+      "nameKo": "상위 정신의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_the_Mind",
+      "effectKo": "허리띠, 장화, 장갑 또는 투구: 마나 최대치 +(80–89)<br>장신구: 마나 최대치 +(90–104)",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 72,
+      "id": "GREATER_ESSENCE_RUIN",
+      "nameKo": "상위 폐허의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_Ruin",
+      "effectKo": "방어구, 허리띠 또는 장신구: 카오스 저항 +(16–19)%",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 73,
+      "id": "GREATER_ESSENCE_INSULATION",
+      "nameKo": "상위 절연의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_Insulation",
+      "effectKo": "방어구, 허리띠 또는 장신구: 화염 저항 +(31–35)%",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 74,
+      "id": "GREATER_ESSENCE_THAWING",
+      "nameKo": "상위 해동의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_Thawing",
+      "effectKo": "방어구, 허리띠 또는 장신구: 냉기 저항 +(31–35)%",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 75,
+      "id": "GREATER_ESSENCE_GROUNDING",
+      "nameKo": "상위 접지의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_Grounding",
+      "effectKo": "방어구, 허리띠 또는 장신구: 번개 저항 +(31–35)%",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 76,
+      "id": "GREATER_ESSENCE_OPULENCE",
+      "nameKo": "상위 풍요의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_Opulence",
+      "effectKo": "장화, 장갑, 투구 또는 장신구: 발견하는 아이템 희귀도 (15–18)% 증가",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 77,
+      "id": "GREATER_ESSENCE_INFINITE",
+      "nameKo": "상위 무한의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Greater_Essence_of_the_Infinite",
+      "effectKo": "장비: 힘, 민첩 또는 지능 +(25–27)",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 78,
+      "id": "PERFECT_ESSENCE_MIND",
+      "nameKo": "완벽한 정신의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_the_Mind",
+      "effectKo": "반지: 최대 마나 (4–6)% 증가",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 79,
+      "id": "PERFECT_ESSENCE_THAWING",
+      "nameKo": "완벽한 해동의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_Thawing",
+      "effectKo": "투구: 냉기 피해 중 (26–30)%를 생명력으로 회생",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 80,
+      "id": "PERFECT_ESSENCE_INSULATION",
+      "nameKo": "완벽한 절연의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_Insulation",
+      "effectKo": "허리띠: 받은 화염 피해 중 (26–30)%를 생명력으로 회생",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 81,
+      "id": "PERFECT_ESSENCE_COMMAND",
+      "nameKo": "완벽한 지휘의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_Command",
+      "effectKo": "셉터: 오라 스킬의 강도 (15–20)% 증가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 82,
+      "id": "PERFECT_ESSENCE_BODY",
+      "nameKo": "완벽한 육신의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_the_Body",
+      "effectKo": "갑옷: 최대 생명력 (8–10)% 증가",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 83,
+      "id": "PERFECT_ESSENCE_RUIN",
+      "nameKo": "완벽한 폐허의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_Ruin",
+      "effectKo": "갑옷: 피격 시 물리 피해 중 (10–15)%를 카오스 피해로 받음",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 84,
+      "id": "PERFECT_ESSENCE_SEEKING",
+      "nameKo": "완벽한 추구의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_Seeking",
+      "effectKo": "갑옷: 받는 명중 치명타 피해 보너스 (40–50)% 감소",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 85,
+      "id": "PERFECT_ESSENCE_SORCERY",
+      "nameKo": "완벽한 마술의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_Sorcery",
+      "effectKo": "마법봉: 모든 주문 스킬 레벨 +3<br>지팡이: 모든 주문 스킬 레벨 +5",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 86,
+      "id": "PERFECT_ESSENCE_ALACRITY",
+      "nameKo": "완벽한 기민성의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_Alacrity",
+      "effectKo": "집중구 또는 마법봉: 마나 소모 효율 (18–20)% 증가<br>지팡이: 마나 소모 효율 (28–32)% 증가",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 87,
+      "id": "PERFECT_ESSENCE_ABRASION",
+      "nameKo": "완벽한 마모의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_Abrasion",
+      "effectKo": "한손 근접 무기 또는 활: 피해 중 (15–20)% 추가 물리 피해<br>양손 근접 무기 또는 석궁: 피해 중 (25–33)% 추가 물리 피해",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 88,
+      "id": "PERFECT_ESSENCE_FLAMES",
+      "nameKo": "완벽한 화염의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_Flames",
+      "effectKo": "한손 근접 무기 또는 활: 피해 중 (15–20)% 추가 화염 피해<br>양손 근접 무기 또는 석궁: 피해 중 (25–33)% 추가 화염 피해",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 89,
+      "id": "PERFECT_ESSENCE_ICE",
+      "nameKo": "완벽한 얼음의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_Ice",
+      "effectKo": "한손 근접 무기 또는 활: 피해 중 (15–20)% 추가 냉기 피해<br>양손 근접 무기 또는 석궁: 피해 중 (25–33)% 추가 냉기 피해",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 90,
+      "id": "PERFECT_ESSENCE_ELECTRICITY",
+      "nameKo": "완벽한 전기의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_Electricity",
+      "effectKo": "한손 근접 무기 또는 활: 피해 중 (15–20)% 추가 번개 피해<br>양손 근접 무기 또는 석궁: 피해 중 (25–33)% 추가 번개 피해",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 91,
+      "id": "PERFECT_ESSENCE_BATTLE",
+      "nameKo": "완벽한 전투의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_Battle",
+      "effectKo": "한손 근접 무기 또는 활: 모든 공격 스킬 레벨 +2<br>양손 근접 무기 또는 석궁: 모든 공격 스킬 레벨 +3",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 92,
+      "id": "PERFECT_ESSENCE_HASTE",
+      "nameKo": "완벽한 가속의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_Haste",
+      "effectKo": "무도 무기: 해당 무기 명중으로 처치: (20–25)%의 확률로 맹공 획득",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 93,
+      "id": "PERFECT_ESSENCE_GROUNDING",
+      "nameKo": "완벽한 접지의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_Grounding",
+      "effectKo": "장갑: 받은 번개 피해 중 (26–30)%를 생명력으로 회생",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 94,
+      "id": "PERFECT_ESSENCE_OPULENCE",
+      "nameKo": "완벽한 풍요의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_Opulence",
+      "effectKo": "장갑: 처치 골드량 (10–15)% 증가",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 95,
+      "id": "PERFECT_ESSENCE_INFINITE",
+      "nameKo": "완벽한 무한의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_the_Infinite",
+      "effectKo": "목걸이: 힘, 민첩 또는 지능 (7–10)% 증가",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 96,
+      "id": "PERFECT_ESSENCE_ENHANCEMENT",
+      "nameKo": "완벽한 강화의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Perfect_Essence_of_Enhancement",
+      "effectKo": "목걸이: 일반 방어도, 회피, 에너지 보호막 (20–30)% 증가",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 97,
+      "id": "ESSENCE_HYSTERIA",
+      "nameKo": "발작의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Hysteria",
+      "effectKo": "투구: 모든 소환수 스킬 레벨 +1<br>갑옷: (64–97)~(98–145) 물리 가시 피해<br>장갑: 치명타 피해 보너스 (25–29)% 증가<br>장화: 이동 속도 30% 증가<br>반지: 마나 재생 속도 (50–59)% 증가<br>목걸이: 받은 피해 중 (19–21)%를 생명력으로 회생<br>허리띠: 기절 한계치 +(254–304)<br>방패: 막기 확률 (20–24)% 증가<br>화살통: 활 스킬로 주는 피해 (43–50)% 증가<br>집중구: 에너지 보호막 재충전 속도 (20–23)% 증가",
+      "decision": "CONDITIONAL",
+      "restrictionKo": "장갑·장화·화살통에서만 사용. 게임 적용 가능 조건도 준수.",
+      "condition": "HYSTERIA_PARTS"
+    },
+    {
+      "number": 98,
+      "id": "ESSENCE_HORROR",
+      "nameKo": "경악의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Horror",
+      "effectKo": "장갑 또는 장화: 장착된 아이템의 효과 60% 증가",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 99,
+      "id": "ESSENCE_BREACH",
+      "nameKo": "균열의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_the_Breach",
+      "effectKo": "장신구: 최대 퀄리티 +20%",
+      "decision": "CONDITIONAL",
+      "restrictionKo": "균열 경로의 퀄리티 40 작업 단계 허용. 최대 퀄리티 +20 옵션 제거 전에 퀄리티 작업 경고. 달성 후 해당 옵션을 필요 옵션으로 평가하지 않되 즉시·강제 제거하지 않고 잔존만으로 완료를 막지 않음. 수동 변경 시 이후 재탐색. §16의 5항 참조.",
+      "condition": "BREACH_QUALITY"
+    },
+    {
+      "number": 100,
+      "id": "ESSENCE_ABYSS",
+      "nameKo": "심연의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_the_Abyss",
+      "effectKo": "장비: 심연의 군주의 징표",
+      "decision": "USE",
+      "restrictionKo": "심연 제작 확장 대상으로 포함. 향후 구현·검증 필요; 현재 구현 완료로 취급하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 101,
+      "id": "RUNIC_ALLOY",
+      "nameKo": "룬 합금",
+      "sourceUrl": "https://poe2db.tw/kr/Runic_Alloy",
+      "effectKo": "반지: 최대 룬 수호 +37~49. 목걸이: 최대 룬 수호 증가율 6~10%. 허리띠: 룬 수호 재생 속도 증가율 15~20%.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 102,
+      "id": "PRISMATIC_ALLOY",
+      "nameKo": "분광 합금",
+      "sourceUrl": "https://poe2db.tw/kr/Prismatic_Alloy",
+      "effectKo": "장갑: 원소 저항 관통률 9~15%. 무도 무기: 자신이 유발하는 상태 이상 강도 증가율 20~30%. 집중구·지팡이·마법봉: 노출 효과 증가율 40~50%. 셉터: 소환수 피해형 상태 이상 강도 증가율 40~49%.",
+      "decision": "CONDITIONAL",
+      "restrictionKo": "장갑에서만 사용. 게임 적용 가능 조건도 준수.",
+      "condition": "PRISMATIC_PARTS"
+    },
+    {
+      "number": 103,
+      "id": "ADAPTIVE_ALLOY",
+      "nameKo": "적응형 합금",
+      "sourceUrl": "https://poe2db.tw/kr/Adaptive_Alloy",
+      "effectKo": "룬 수호 부재 조건에서 지팡이는 피해의 42~52%, 마법봉은 21~26%를 추가 화염으로 획득하고, 장갑은 공격 속도 증가율 10~15%. 셉터는 명령 사용 시 30~50% 초과 확률로 인형사 중첩.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 104,
+      "id": "SWIFT_ALLOY",
+      "nameKo": "재빠른 합금",
+      "sourceUrl": "https://poe2db.tw/kr/Swift_Alloy",
+      "effectKo": "장갑: 시전 속도 증가율 9~12%. 반지: 공격 속도 증가율 7~9%. 허리띠: 매초 플라스크 충전 0.75~1. 방패·버클러·집중구: 토템 설치 속도 증가율 30~49%.",
+      "decision": "CONDITIONAL",
+      "restrictionKo": "장갑·반지·방패·버클러·집중구에서만 사용. 게임 적용 가능 조건도 준수.",
+      "condition": "SWIFT_PARTS"
+    },
+    {
+      "number": 105,
+      "id": "SOVEREIGN_ALLOY",
+      "nameKo": "군왕의 합금",
+      "sourceUrl": "https://poe2db.tw/kr/Sovereign_Alloy",
+      "effectKo": "무기: 소켓에 장착한 강화 아이템의 효과 증가율 20~30%. 방어구: 룬 수호 증가율 24~30%. 반지·목걸이·허리띠: 비고정 저항 속성의 규모 증가율 20~30%.",
+      "decision": "CONDITIONAL",
+      "restrictionKo": "반지·목걸이·허리띠에서만 사용. 게임 적용 가능 조건도 준수.",
+      "condition": "SOVEREIGN_PARTS"
+    },
+    {
+      "number": 106,
+      "id": "EXPANSIVE_ALLOY",
+      "nameKo": "팽창하는 합금",
+      "sourceUrl": "https://poe2db.tw/kr/Expansive_Alloy",
+      "effectKo": "장갑: 잔류물 수집 거리 증가율 35~50%. 갑옷: 접근 범위 증가율 35~50%. 투구: 마나 비용 효율 증가율 18~29%. 장화: 일시적 소환수 한도 +1~2.",
+      "decision": "CONDITIONAL",
+      "restrictionKo": "장화에서만 사용. 게임 적용 가능 조건도 준수.",
+      "condition": "EXPANSIVE_PARTS"
+    },
+    {
+      "number": 107,
+      "id": "CYCLONIC_ALLOY",
+      "nameKo": "회오리바람 합금",
+      "sourceUrl": "https://poe2db.tw/kr/Cyclonic_Alloy",
+      "effectKo": "갑옷: 자신에게 걸린 감속 디버프 효력 감소율 15~30%. 장화: 스킬 지속시간 증가율 15~19%. 장갑: 적의 피해형 상태 이상 지속시간 증가율 20~25%. 투구: 집정관 지속시간 증가율 35~42%.",
+      "decision": "CONDITIONAL",
+      "restrictionKo": "장화·장갑·투구에서만 사용. 게임 적용 가능 조건도 준수.",
+      "condition": "CYCLONIC_PARTS"
+    },
+    {
+      "number": 108,
+      "id": "MYSTIC_ALLOY",
+      "nameKo": "신비한 합금",
+      "sourceUrl": "https://poe2db.tw/kr/Mystic_Alloy",
+      "effectKo": "투구: 주문 범위 증가율 10~15%. 장갑: 공격 범위 증가율 10~15%. 장화: 정신력 +10~15. 화살통: 추가 연쇄 1회 확률 25~35%. 지팡이·마법봉·셉터: 원소 주입 한도 +1.",
+      "decision": "CONDITIONAL",
+      "restrictionKo": "투구·장갑·장화·화살통에서만 사용. 게임 적용 가능 조건도 준수. 장화는 정신력 옵션 용도.",
+      "condition": "MYSTIC_PARTS"
+    },
+    {
+      "number": 109,
+      "id": "CATALYST_FLESH",
+      "nameKo": "육체 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Flesh_Catalyst",
+      "effectKo": "반지·목걸이: 생명력 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 110,
+      "id": "REFINED_CATALYST_FLESH",
+      "nameKo": "제련된 육체 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Refined_Flesh_Catalyst",
+      "effectKo": "주얼: 생명력 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 111,
+      "id": "CATALYST_NEURAL",
+      "nameKo": "신경 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Neural_Catalyst",
+      "effectKo": "반지·목걸이: 마나 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 112,
+      "id": "REFINED_CATALYST_NEURAL",
+      "nameKo": "제련된 신경 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Refined_Neural_Catalyst",
+      "effectKo": "주얼: 마나 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 113,
+      "id": "CATALYST_CARAPACE",
+      "nameKo": "갑각 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Carapace_Catalyst",
+      "effectKo": "반지·목걸이: 방어도, 회피, 에너지 보호막 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 114,
+      "id": "REFINED_CATALYST_CARAPACE",
+      "nameKo": "제련된 갑각 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Refined_Carapace_Catalyst",
+      "effectKo": "주얼: 방어도, 회피, 에너지 보호막 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 115,
+      "id": "CATALYST_UUL_NETOL",
+      "nameKo": "울네톨의 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Uul-Netols_Catalyst",
+      "effectKo": "반지·목걸이: 물리 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 116,
+      "id": "REFINED_CATALYST_UUL_NETOL",
+      "nameKo": "제련된 울네톨의 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Refined_Uul-Netols_Catalyst",
+      "effectKo": "주얼: 물리 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 117,
+      "id": "CATALYST_XOPH",
+      "nameKo": "조프의 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Xophs_Catalyst",
+      "effectKo": "반지·목걸이: 화염 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 118,
+      "id": "REFINED_CATALYST_XOPH",
+      "nameKo": "제련된 조프의 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Refined_Xophs_Catalyst",
+      "effectKo": "주얼: 화염 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 119,
+      "id": "CATALYST_TUL",
+      "nameKo": "툴의 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Tuls_Catalyst",
+      "effectKo": "반지·목걸이: 냉기 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 120,
+      "id": "REFINED_CATALYST_TUL",
+      "nameKo": "제련된 툴의 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Refined_Tuls_Catalyst",
+      "effectKo": "주얼: 냉기 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 121,
+      "id": "CATALYST_ESH",
+      "nameKo": "에쉬의 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Eshs_Catalyst",
+      "effectKo": "반지·목걸이: 번개 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 122,
+      "id": "REFINED_CATALYST_ESH",
+      "nameKo": "제련된 에쉬의 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Refined_Eshs_Catalyst",
+      "effectKo": "주얼: 번개 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 123,
+      "id": "CATALYST_CHAYULA",
+      "nameKo": "차율라의 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Chayulas_Catalyst",
+      "effectKo": "반지·목걸이: 카오스 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 124,
+      "id": "REFINED_CATALYST_CHAYULA",
+      "nameKo": "제련된 차율라의 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Refined_Chayulas_Catalyst",
+      "effectKo": "주얼: 카오스 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 125,
+      "id": "CATALYST_REAVER",
+      "nameKo": "강탈자 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Reaver_Catalyst",
+      "effectKo": "반지·목걸이: 공격 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 126,
+      "id": "REFINED_CATALYST_REAVER",
+      "nameKo": "제련된 강탈자 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Refined_Reaver_Catalyst",
+      "effectKo": "주얼: 공격 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 127,
+      "id": "CATALYST_SIBILANT",
+      "nameKo": "쇳소리 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Sibilant_Catalyst",
+      "effectKo": "반지·목걸이: 시전 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 128,
+      "id": "REFINED_CATALYST_SIBILANT",
+      "nameKo": "제련된 쇳소리 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Refined_Sibilant_Catalyst",
+      "effectKo": "주얼: 시전 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 129,
+      "id": "CATALYST_SKITTERING",
+      "nameKo": "달리는 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Skittering_Catalyst",
+      "effectKo": "반지·목걸이: 속도 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 130,
+      "id": "REFINED_CATALYST_SKITTERING",
+      "nameKo": "제련된 달리는 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Refined_Skittering_Catalyst",
+      "effectKo": "주얼: 속도 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 131,
+      "id": "CATALYST_ADAPTIVE",
+      "nameKo": "적응형 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Adaptive_Catalyst",
+      "effectKo": "반지·목걸이: 능력치 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 132,
+      "id": "REFINED_CATALYST_ADAPTIVE",
+      "nameKo": "제련된 적응형 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Refined_Adaptive_Catalyst",
+      "effectKo": "주얼: 능력치 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 133,
+      "id": "CATALYST_NECROTIC",
+      "nameKo": "괴사의 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Necrotic_Catalyst",
+      "effectKo": "반지·목걸이: 소환수 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 134,
+      "id": "REFINED_CATALYST_NECROTIC",
+      "nameKo": "제련된 괴사의 기폭제",
+      "sourceUrl": "https://poe2db.tw/kr/Refined_Necrotic_Catalyst",
+      "effectKo": "주얼: 소환수 계열 속성을 퀄리티로 강화. 기존 퀄리티 유형 교체.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "개별 기폭제 자동 탐색 제외. 99 균열 경로에서는 종류를 구분하지 않는 ‘퀄리티 40 작업’ 중간 단계만 예외로 표시. 최대 퀄리티 +20 옵션 제거 전 작업 경고.",
+      "condition": "NONE"
+    },
+    {
+      "number": 135,
+      "id": "POTENT_LIQUID_MELANCHOLY",
+      "nameKo": "위력적인 액체 우울",
+      "sourceUrl": "https://poe2db.tw/kr/Potent_Liquid_Melancholy",
+      "effectKo": "루비 접미어: 에메랄드 및 사파이어가 장착된 동안 명중 시 적 쇠잔 유발<br>사파이어 접미어: 루비 및 에메랄드가 장착된 동안 명중 시 적 원소 노출 유발<br>에메랄드 접미어: 루비 및 사파이어가 장착된 동안 명중 시 적 실명 유발",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 136,
+      "id": "POTENT_LIQUID_FEROCITY",
+      "nameKo": "위력적인 액체 흉포함",
+      "sourceUrl": "https://poe2db.tw/kr/Potent_Liquid_Ferocity",
+      "effectKo": "루비 접두어: 접미어 효과 (40–60)% 증가<br>루비 접미어: 접두어 효과 (40–60)% 증가<br>사파이어 접두어: 접미어 효과 (40–60)% 증가<br>사파이어 접미어: 접두어 효과 (40–60)% 증가<br>에메랄드 접두어: 접미어 효과 (40–60)% 증가<br>에메랄드 접미어: 접두어 효과 (40–60)% 증가<br>다이아몬드 접두어: 접미어 효과 (40–60)% 증가<br>다이아몬드 접미어: 접두어 효과 (40–60)% 증가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 137,
+      "id": "POTENT_LIQUID_CONTEMPT",
+      "nameKo": "위력적인 액체 경멸",
+      "sourceUrl": "https://poe2db.tw/kr/Potent_Liquid_Contempt",
+      "effectKo": "루비 접두어: 접미어 속성 최대 개수 +1개<br>루비 접미어: 접두어 속성 최대 개수 +1개<br>사파이어 접두어: 접미어 속성 최대 개수 +1개<br>사파이어 접미어: 접두어 속성 최대 개수 +1개<br>에메랄드 접두어: 접미어 속성 최대 개수 +1개<br>에메랄드 접미어: 접두어 속성 최대 개수 +1개<br>다이아몬드 접두어: 접미어 속성 최대 개수 +1개<br>다이아몬드 접미어: 접두어 속성 최대 개수 +1개",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 138,
+      "id": "DILUTED_LIQUID_IRE",
+      "nameKo": "희석된 액체 진노",
+      "sourceUrl": "https://poe2db.tw/kr/Diluted_Liquid_Ire",
+      "effectKo": "루비 접두어: 방어도 (10–20)% 증가<br>사파이어 접두어: 에너지 보호막 최대치 (10–20)% 증가<br>에메랄드 접두어: 회피 (10–20)% 증가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 139,
+      "id": "DILUTED_LIQUID_GUILT",
+      "nameKo": "희석된 액체 죄책감",
+      "sourceUrl": "https://poe2db.tw/kr/Diluted_Liquid_Guilt",
+      "effectKo": "루비 접두어: 화염 피해 (5–15)% 증가<br>사파이어 접두어: 냉기 피해 (5–15)% 증가<br>에메랄드 접두어: 번개 피해 (5–15)% 증가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 140,
+      "id": "DILUTED_LIQUID_GREED",
+      "nameKo": "희석된 액체 탐욕",
+      "sourceUrl": "https://poe2db.tw/kr/Diluted_Liquid_Greed",
+      "effectKo": "루비 접두어: 일반 물리 피해 (5–15)% 증가<br>사파이어 접두어: 카오스 피해 (7–13)% 증가<br>에메랄드 접두어: 원소 피해 (5–15)% 증가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 141,
+      "id": "LIQUID_PARANOIA",
+      "nameKo": "액체 집착",
+      "sourceUrl": "https://poe2db.tw/kr/Liquid_Paranoia",
+      "effectKo": "루비 접두어: 공격 피해 (5–15)% 증가<br>사파이어 접미어: 시전 속도 (2–4)% 증가<br>에메랄드 접미어: 공격 속도 (2–4)% 증가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 142,
+      "id": "LIQUID_ENVY",
+      "nameKo": "액체 선망",
+      "sourceUrl": "https://poe2db.tw/kr/Liquid_Envy",
+      "effectKo": "루비 접미어: 스킬의 마나 소모의 (4–6)%가 생명력 소모로 전환<br>사파이어 접두어: 주문 피해 (5–15)% 증가<br>에메랄드 접미어: 재사용 대기시간 회복 속도 (3–5)% 증가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 143,
+      "id": "LIQUID_DISGUST",
+      "nameKo": "액체 혐오",
+      "sourceUrl": "https://poe2db.tw/kr/Liquid_Disgust",
+      "effectKo": "루비 접미어: 생명력 재생 속도 (5–10)% 증가<br>사파이어 접미어: 처치 시 마나의 (1–2)% 회복<br>에메랄드 접미어: 처치 시 생명력의 (1–2)% 회복",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 144,
+      "id": "LIQUID_DESPAIR",
+      "nameKo": "액체 절망",
+      "sourceUrl": "https://poe2db.tw/kr/Liquid_Despair",
+      "effectKo": "루비 접미어: 근접 명중 시 격노 1 획득<br>사파이어 접미어: 주문 치명타 명중 확률 (5–15)% 증가<br>에메랄드 접미어: 공격 치명타 명중 확률 (6–16)% 증가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 145,
+      "id": "CONCENTRATED_LIQUID_FEAR",
+      "nameKo": "농축된 액체 두려움",
+      "sourceUrl": "https://poe2db.tw/kr/Concentrated_Liquid_Fear",
+      "effectKo": "루비 접미어: 함성 속도 (10–20)% 증가<br>사파이어 접미어: 주문 치명타 피해 보너스 (10–20)% 증가<br>에메랄드 접미어: 공격 피해의 치명타 피해 보너스 (10–20)% 증가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 146,
+      "id": "CONCENTRATED_LIQUID_SUFFERING",
+      "nameKo": "농축된 액체 고통",
+      "sourceUrl": "https://poe2db.tw/kr/Concentrated_Liquid_Suffering",
+      "effectKo": "루비 접두어: 격노 최대치 +(1–2)<br>사파이어 접두어: 효과 범위 (4–6)% 증가<br>에메랄드 접미어: 이동 속도 (1–2)% 증가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 147,
+      "id": "CONCENTRATED_LIQUID_ISOLATION",
+      "nameKo": "농축된 액체 고립",
+      "sourceUrl": "https://poe2db.tw/kr/Concentrated_Liquid_Isolation",
+      "effectKo": "루비 접미어: 화염 저항 최대치 +1%<br>사파이어 접미어: 냉기 저항 최대치 +1%<br>에메랄드 접미어: 번개 저항 최대치 +1%<br>다이아몬드 접미어: 카오스 저항 최대치 +1%",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 148,
+      "id": "ANCIENT_DILUTED_LIQUID_IRE",
+      "nameKo": "고대 희석된 액체 진노",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Diluted_Liquid_Ire",
+      "effectKo": "루비 접두어: 반경 내 소형 노드: 방어도 (2–3)% 증가 추가<br>사파이어 접두어: 반경 내 소형 노드: 에너지 보호막 최대치 (2–3)% 증가 추가<br>에메랄드 접두어: 반경 내 소형 노드: 회피 (2–3)% 증가 추가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 149,
+      "id": "ANCIENT_DILUTED_LIQUID_GUILT",
+      "nameKo": "고대 희석된 액체 죄책감",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Diluted_Liquid_Guilt",
+      "effectKo": "루비 접두어: 반경 내 소형 노드: 화염 피해 (1–2)% 증가 추가<br>사파이어 접두어: 반경 내 소형 노드: 냉기 피해 (1–2)% 증가 추가<br>에메랄드 접두어: 반경 내 소형 노드: 번개 피해 (1–2)% 증가 추가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 150,
+      "id": "ANCIENT_DILUTED_LIQUID_GREED",
+      "nameKo": "고대 희석된 액체 탐욕",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Diluted_Liquid_Greed",
+      "effectKo": "루비 접두어: 반경 내 소형 노드: 일반 물리 피해 (1–2)% 증가 추가<br>사파이어 접두어: 반경 내 소형 노드: 카오스 피해 (1–2)% 증가 추가<br>에메랄드 접두어: 반경 내 소형 노드: 원소 피해 (1–2)% 증가 추가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 151,
+      "id": "ANCIENT_LIQUID_PARANOIA",
+      "nameKo": "고대 액체 집착",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Liquid_Paranoia",
+      "effectKo": "루비 접두어: 반경 내 소형 노드: 공격 피해 (1–2)% 증가 추가<br>사파이어 접미어: 반경 내 주요 노드: 시전 속도 (1–2)% 증가 추가<br>에메랄드 접미어: 반경 내 주요 노드: 공격 속도 (1–2)% 증가 추가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 152,
+      "id": "ANCIENT_LIQUID_ENVY",
+      "nameKo": "고대 액체 선망",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Liquid_Envy",
+      "effectKo": "루비 접미어: 반경 내 주요 노드: 스킬의 마나 소모의 (2–3)%가 생명력 소모로 전환 추가<br>사파이어 접두어: 반경 내 소형 노드: 주문 피해 (1–2)% 증가 추가<br>에메랄드 접미어: 반경 내 주요 노드: 재사용 대기시간 회복 속도 (1–3)% 증가 추가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 153,
+      "id": "ANCIENT_LIQUID_DISGUST",
+      "nameKo": "고대 액체 혐오",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Liquid_Disgust",
+      "effectKo": "루비 접미어: 반경 내 주요 노드: 생명력 재생 속도 (3–5)% 증가 추가<br>사파이어 접미어: 반경 내 주요 노드: 처치 시 마나의 1% 회복 추가<br>에메랄드 접미어: 반경 내 주요 노드: 처치 시 생명력의 1% 회복 추가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 154,
+      "id": "ANCIENT_LIQUID_DESPAIR",
+      "nameKo": "고대 액체 절망",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Liquid_Despair",
+      "effectKo": "루비 접미어: 반경 내 주요 노드: 근접 명중 시 격노 1 획득 추가<br>사파이어 접미어: 반경 내 주요 노드: 주문 치명타 명중 확률 (3–7)% 증가 추가<br>에메랄드 접미어: 반경 내 주요 노드: 공격 치명타 명중 확률 (3–7)% 증가 추가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 155,
+      "id": "ANCIENT_CONCENTRATED_LIQUID_FEAR",
+      "nameKo": "고대 농축된 액체 두려움",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Concentrated_Liquid_Fear",
+      "effectKo": "루비 접미어: 반경 내 소형 노드: 함성 속도 (2–3)% 증가 추가<br>사파이어 접미어: 반경 내 주요 노드: 주문 치명타 피해 보너스 (5–10)% 증가 추가<br>에메랄드 접미어: 반경 내 주요 노드: 공격 피해의 치명타 피해 보너스 (5–10)% 증가 추가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 156,
+      "id": "ANCIENT_CONCENTRATED_LIQUID_SUFFERING",
+      "nameKo": "고대 농축된 액체 고통",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Concentrated_Liquid_Suffering",
+      "effectKo": "루비 접두어: 반경 내 주요 노드: 격노 최대치 +1 추가<br>사파이어 접두어: 반경 내 주요 노드: 효과 범위 (2–3)% 증가 추가<br>에메랄드 접미어: 반경 내 주요 노드: 이동 속도 1% 증가 추가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 157,
+      "id": "ANCIENT_CONCENTRATED_LIQUID_ISOLATION",
+      "nameKo": "고대 농축된 액체 고립",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Concentrated_Liquid_Isolation",
+      "effectKo": "루비 접두어: 반경 내 냉기 및 번개 피해의 증가 및 감소가 변형되어 화염 피해에 적용<br>사파이어 접두어: 반경 내 화염 및 번개 피해의 증가 및 감소가 변형되어 냉기 피해에 적용<br>에메랄드 접두어: 반경 내 냉기 및 화염 피해의 증가 및 감소가 변형되어 번개 피해에 적용",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 158,
+      "id": "ANCIENT_POTENT_LIQUID_MELANCHOLY",
+      "nameKo": "고대 위력적인 액체 우울",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Potent_Liquid_Melancholy",
+      "effectKo": "루비 접두어: 반경이 매우 넓은 반경으로 업그레이드 (데이터 반경 500)<br>사파이어 접두어: 반경이 매우 넓은 반경으로 업그레이드 (데이터 반경 500)<br>에메랄드 접두어: 반경이 매우 넓은 반경으로 업그레이드 (데이터 반경 500)<br>다이아몬드 접두어: 반경이 매우 넓은 반경으로 업그레이드 (데이터 반경 500)",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 159,
+      "id": "ANCIENT_POTENT_LIQUID_FEROCITY",
+      "nameKo": "고대 위력적인 액체 흉포함",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Potent_Liquid_Ferocity",
+      "effectKo": "루비 접미어: 반경 내 주요 노드: 화염 저항 +(5–7)% 추가<br>사파이어 접미어: 반경 내 주요 노드: 냉기 저항 +(5–7)% 추가<br>에메랄드 접미어: 반경 내 주요 노드: 번개 저항 +(5–7)% 추가<br>다이아몬드 접미어: 반경 내 주요 노드: 카오스 저항 +(4–5)% 추가",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 160,
+      "id": "ANCIENT_POTENT_LIQUID_CONTEMPT",
+      "nameKo": "고대 위력적인 액체 경멸",
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Potent_Liquid_Contempt",
+      "effectKo": "루비 접두어: 접미어 속성 최대 개수 +1개<br>루비 접미어: 접두어 속성 최대 개수 +1개<br>사파이어 접두어: 접미어 속성 최대 개수 +1개<br>사파이어 접미어: 접두어 속성 최대 개수 +1개<br>에메랄드 접두어: 접미어 속성 최대 개수 +1개<br>에메랄드 접미어: 접두어 속성 최대 개수 +1개<br>다이아몬드 접두어: 접미어 속성 최대 개수 +1개<br>다이아몬드 접미어: 접두어 속성 최대 개수 +1개",
+      "decision": "DEFERRED",
+      "restrictionKo": "주얼 제작 후순위·미정. 영구 미사용으로 확정하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 161,
+      "id": "OMEN:SINISTRAL_ALCHEMY",
+      "nameKo": "좌측 연금술의 징조",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Sinistral_Alchemy",
+      "effectKo": "연금술 적용 결과의 접두어 개수를 최대화.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 162,
+      "id": "OMEN:DEXTRAL_ALCHEMY",
+      "nameKo": "우측 연금술의 징조",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Dextral_Alchemy",
+      "effectKo": "연금술 적용 결과의 접미어 개수를 최대화.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 163,
+      "id": "OMEN:SINISTRAL_CORONATION",
+      "nameKo": "좌측 대관식의 징조",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Sinistral_Coronation",
+      "effectKo": "제왕으로 추가하는 속성을 접두어로 제한.",
+      "decision": "CONDITIONAL",
+      "restrictionKo": "7 제왕으로 제거용 임시 속성을 접두/접미 중 어디에 추가할지 선택할 때만 사용.",
+      "condition": "TEMPORARY_REGAL_PREFIX"
+    },
+    {
+      "number": 164,
+      "id": "OMEN:DEXTRAL_CORONATION",
+      "nameKo": "우측 대관식의 징조",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Dextral_Coronation",
+      "effectKo": "제왕으로 추가하는 속성을 접미어로 제한.",
+      "decision": "CONDITIONAL",
+      "restrictionKo": "7 제왕으로 제거용 임시 속성을 접두/접미 중 어디에 추가할지 선택할 때만 사용.",
+      "condition": "TEMPORARY_REGAL_SUFFIX"
+    },
+    {
+      "number": 165,
+      "id": "OMEN:GREATER_ANNULMENT",
+      "nameKo": "상위 소멸의 징조",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Greater_Annulment",
+      "effectKo": "소멸 1회로 제거하는 속성이 2개가 됨.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 166,
+      "id": "OMEN:SINISTRAL_CRYSTALLISATION",
+      "nameKo": "좌측 결정화의 징조",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Sinistral_Crystallisation",
+      "effectKo": "완벽한·타락한 에센스의 제거 대상을 접두어로 제한.",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 167,
+      "id": "OMEN:DEXTRAL_CRYSTALLISATION",
+      "nameKo": "우측 결정화의 징조",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Dextral_Crystallisation",
+      "effectKo": "완벽한·타락한 에센스의 제거 대상을 접미어로 제한.",
+      "decision": "USE",
+      "restrictionKo": "게임 적용 가능 조건 준수. 정책 허용이며 자동탐색 구현 완료를 뜻하지 않음.",
+      "condition": "NONE"
+    },
+    {
+      "number": 168,
+      "id": "OMEN:GREATER_EXALTATION",
+      "nameKo": "상위 찬미의 징조",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Greater_Exaltation",
+      "effectKo": "엑잘티드 1회가 무작위 속성 2개를 추가.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 169,
+      "id": "OMEN:HOMOGENISING_EXALTATION",
+      "nameKo": "동질화하는 찬미의 징조",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Homogenising_Exaltation",
+      "effectKo": "엑잘티드가 기존 속성과 같은 유형의 새 속성을 추가.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "시즌 존재 여부와 무관하게 이번 자동 탐색 목록에서는 제외. 수동 시뮬레이터와 구현 상태는 구분.",
+      "condition": "NONE"
+    },
+    {
+      "number": 170,
+      "id": "OMEN:HOMOGENISING_CORONATION",
+      "nameKo": "동질화하는 대관식의 징조",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Homogenising_Coronation",
+      "effectKo": "제왕이 기존 속성과 같은 유형의 새 속성을 추가.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "시즌 존재 여부와 무관하게 이번 자동 탐색 목록에서는 제외. 수동 시뮬레이터와 구현 상태는 구분.",
+      "condition": "NONE"
+    },
+    {
+      "number": 171,
+      "id": "OMEN:SINISTRAL_EXALTATION",
+      "nameKo": "좌측 찬미의 징조",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Sinistral_Exaltation",
+      "effectKo": "엑잘티드의 추가 대상을 접두어로 제한.",
+      "decision": "CONDITIONAL",
+      "restrictionKo": "10 엑잘티드로 제거용 임시 속성을 접두/접미 중 어디에 추가할지 선택할 때만 사용.",
+      "condition": "TEMPORARY_EXALTED_PREFIX"
+    },
+    {
+      "number": 172,
+      "id": "OMEN:DEXTRAL_EXALTATION",
+      "nameKo": "우측 찬미의 징조",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Dextral_Exaltation",
+      "effectKo": "엑잘티드의 추가 대상을 접미어로 제한.",
+      "decision": "CONDITIONAL",
+      "restrictionKo": "10 엑잘티드로 제거용 임시 속성을 접두/접미 중 어디에 추가할지 선택할 때만 사용.",
+      "condition": "TEMPORARY_EXALTED_SUFFIX"
+    },
+    {
+      "number": 173,
+      "id": "OMEN:SINISTRAL_ANNULMENT",
+      "nameKo": "좌측 소멸의 징조",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Sinistral_Annulment",
+      "effectKo": "소멸의 제거 대상을 접두어로 제한.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 174,
+      "id": "OMEN:DEXTRAL_ANNULMENT",
+      "nameKo": "우측 소멸의 징조",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Dextral_Annulment",
+      "effectKo": "소멸의 제거 대상을 접미어로 제한.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 175,
+      "id": "OMEN:SINISTRAL_ERASURE",
+      "nameKo": "좌측 말소의 징조",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Sinistral_Erasure",
+      "effectKo": "카오스의 제거 대상을 접두어로 제한. 추가 쪽까지 접두어로 제한한다는 뜻은 아님.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 176,
+      "id": "OMEN:DEXTRAL_ERASURE",
+      "nameKo": "우측 말소의 징조",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Dextral_Erasure",
+      "effectKo": "카오스의 제거 대상을 접미어로 제한. 추가 쪽까지 접미어로 제한한다는 뜻은 아님.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 177,
+      "id": "OMEN:WHITTLING",
+      "nameKo": "절사의 징조",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_Whittling",
+      "effectKo": "카오스가 제거할 속성을 최저 속성 레벨인 것으로 지정. 표시 티어 번호나 실제 수치 최저와 구별.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 178,
+      "id": "OMEN:BLESSED",
+      "nameKo": "축복받은 자의 징조",
+      "sourceUrl": "https://poe2db.tw/kr/Omen_of_the_Blessed",
+      "effectKo": "신성한 오브의 수치 재설정을 고정 속성으로 한정.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 179,
+      "id": "EXTRA:Vaal_Orb",
+      "nameKo": "바알 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Vaal_Orb",
+      "effectKo": "아이템을 타락시키며 결과는 무작위다. 가능한 결과별 확률은 이 요약의 범위 밖.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 180,
+      "id": "EXTRA:Hinekoras_Lock",
+      "nameKo": "히네코라의 머리카락",
+      "sourceUrl": "https://poe2db.tw/kr/Hinekoras_Lock",
+      "effectKo": "다음 화폐 적용 결과를 미리 본다. 아이템을 다른 방식으로 변경하면 예측 효력이 사라진다.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 181,
+      "id": "EXTRA:Orb_of_Chance",
+      "nameKo": "기회의 오브",
+      "sourceUrl": "https://poe2db.tw/kr/Orb_of_Chance",
+      "effectKo": "일반 아이템을 고유로 만들거나 파괴하는 확률적 제작.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 182,
+      "id": "EXTRA:Mirror_of_Kalandra",
+      "nameKo": "칼란드라의 거울",
+      "sourceUrl": "https://poe2db.tw/kr/Mirror_of_Kalandra",
+      "effectKo": "동일한 복제본을 만드는 재료. 복제 가능한 아이템 조건은 구현 전 별도 확인.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 183,
+      "id": "EXTRA:Blacksmiths_Whetstone",
+      "nameKo": "대장장이의 숫돌",
+      "sourceUrl": "https://poe2db.tw/kr/Blacksmiths_Whetstone",
+      "effectKo": "무도 무기의 퀄리티를 높인다.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 184,
+      "id": "EXTRA:Armourers_Scrap",
+      "nameKo": "방어구 장인의 고철",
+      "sourceUrl": "https://poe2db.tw/kr/Armourers_Scrap",
+      "effectKo": "방어구의 퀄리티를 높인다.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 185,
+      "id": "EXTRA:Arcanists_Etcher",
+      "nameKo": "신비학자의 식각기",
+      "sourceUrl": "https://poe2db.tw/kr/Arcanists_Etcher",
+      "effectKo": "마법봉·지팡이·셉터의 퀄리티를 높인다.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 186,
+      "id": "EXTRA:Essence_of_Delirium",
+      "nameKo": "섬망의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Delirium",
+      "effectKo": "희귀 아이템의 속성 1개를 무작위 제거 후 부여. 갑옷에서는 무작위 주요 패시브 할당 효과.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    },
+    {
+      "number": 187,
+      "id": "EXTRA:Essence_of_Insanity",
+      "nameKo": "광기의 에센스",
+      "sourceUrl": "https://poe2db.tw/kr/Essence_of_Insanity",
+      "effectKo": "희귀 아이템의 속성 1개를 무작위 제거 후 부여. 허리띠에는 타락 시 인챈트 2개를 얻는 효과.",
+      "decision": "EXCLUDED",
+      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
+      "condition": "NONE"
+    }
+  ]
+}
