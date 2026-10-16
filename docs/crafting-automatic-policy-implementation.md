@@ -30,8 +30,25 @@ This foundation is not yet the production certified graph's action provider. Tha
 - Preserve partial/unsupported discovery instead of treating the inventory as fully searched.
 - Integrate the Breach quality-40 abstract checkpoint, warning and post-checkpoint objective handling; no individual catalyst is authorized.
 - Verify Life/Chaos resistance and Solar diamond examples under the newly approved action policy; earlier examples must not override new exclusions.
-- Finish UI and browser validation for policy disclosure and restarting from an edited selected node.
+- Production graph integration must retain the existing API generation, cancellation and durable-storage behavior. The policy modal and selected-node editor are locally verified; see [UI verification](verification/automatic-policy-ui-20261016/README.md).
 
-Regal/Exalted cannot be standalone random goal-acquisition templates. Preparation templates require a subsequent replacement. The proposed boundary behavior retains primitive first-hit success, including accidental success during a preparation, pending the user's clarification. Preparation alone is not published as a completed intermediate method checkpoint.
+Regal/Exalted cannot be standalone random goal-acquisition templates. Preparation templates require a subsequent replacement. Success immediately after temporary preparation is awaiting the user's clarification; it must not be finalized as either success or failure in the meantime. The in-progress execution layer retains this case as unresolved and can represent either eventual choice explicitly. Preparation alone is not published as a completed intermediate method checkpoint.
 
 No claim is made that production exploration already enforces this policy, that Abyss/jewel crafting is implemented, or that a complete policy search/performance run has passed. No remote push, PR, master integration or deployment is part of this local verification stage.
+
+## Method execution and discovery increment
+
+`AutomaticMethodExecution` carries currency, consumed omens, temporary-preparation purpose and phase independently of full item identity. It reuses certified interval Markov transport, reports initial and cycle material consumption separately, and retains 100/300/500-cycle observations. Its JSON cursor includes the canonical objective identity, policy/catalog/rule/definition/target configuration, precision and pending preparation decision; model or objective changes require explicit recalculation.
+
+Primitive enumeration exhaustion pauses before removing pending mass or charging currency. Increasing the resource budget retries that primitive from its original state; no probability is converted to failure or silently cached as complete. This retry currently recomputes the bounded primitive enumeration rather than resuming an internal scalar-roll cursor. Its materialized kernel and checkpoint rows still require integration with the existing streaming stores before large production searches.
+
+`AutomaticMethodGraph` is an unconnected domain implementation for full-state discovery. It considers all approved candidates and ordered one/two-action method variants, keeps same-node-pair alternatives, queues method transport cooperatively, and passes mutually exclusive outcome laws to the existing cyclic decision-strategy solver. Node/method/retained-state limits pause discovery. Unresolved goals, unsupported laws and the explicit boundary prevent a complete result.
+
+This increment does not yet provide a production API, graph-level durable restore, compressed eligible-state indexing, local recommendation publication, Breach quality work, or the requested real-catalog performance evidence. Its method inventory is the implemented one/two-action template grammar, not a proof of completeness over arbitrary programs. The unconnected layer must not replace the production engine until those integration contracts are implemented and verified.
+## Next integration seams
+
+1. Share the immutable, reviewed per-base simulator configuration currently registered by `WorkbenchService` (including fixed/replacement essence targets). Constructing a default simulator for every base loses that registration. Craft Support remains an independent service while sharing these game rules.
+2. Extend `BasicTransitionClasses` / `BasicClassIndex` / `IndexedKernelStore` with compound action identities and eligible replacement laws. Preserve the existing deferred conditional operators and streaming working-law stores; do not substitute eager concrete-state enumeration for their production memory behavior.
+3. Adapt `CertifiedMethodSearchEngine` discovery and `CertifiedSearchJobs` durable cursors together. Persist execution purpose, consumed omens and the original goal AST under a new explicit version; retain old-version replay or explicit recalculation.
+4. Map the new method distributions to the existing local/final recommendation protocol, keeping alternatives separate. Resume after budget exhaustion must retain pending action and newly arriving mass. Add API stale-generation, cancellation, restart and reconnect checks for the new version.
+5. Implement the Breach quality-40 checkpoint independently of individual catalysts, then verify the new-policy Life/Chaos and Solar examples. Record first response, first local recommendation, full supported discovery and peak memory separately; unresolved model scope is not complete support.

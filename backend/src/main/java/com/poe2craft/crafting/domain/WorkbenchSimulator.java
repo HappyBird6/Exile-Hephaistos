@@ -589,6 +589,24 @@ public final class WorkbenchSimulator {
     };
   }
 
+  public record AutomaticIdentity(
+      String ruleVersion,
+      String ledgerVersion,
+      WorkbenchDefinitions.Document definitions,
+      Map<WorkbenchCurrency, List<String>> fixedTargets,
+      Map<WorkbenchCurrency, List<String>> replacementTargets,
+      QualityCapChangePolicy qualityPolicy) {}
+
+  public AutomaticIdentity automaticIdentity() {
+    return new AutomaticIdentity(
+        ruleVersion(),
+        ledgerVersion(),
+        WorkbenchDefinitions.active().document(),
+        essenceTargetOverrides,
+        replacementTargetOverrides,
+        qualityCapChangePolicy);
+  }
+
   /** Read-only exhaustive projection; the manual sampler remains independent of search policy. */
   public AutomaticCraftingPlan automaticPlan(ItemState state, AutomaticCraftingAction execution) {
     validate(state);

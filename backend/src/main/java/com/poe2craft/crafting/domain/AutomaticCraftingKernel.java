@@ -11,6 +11,17 @@ import java.util.*;
 public final class AutomaticCraftingKernel {
   public static final String VERSION = "automatic-scalar-kernel-v1";
 
+  public record Identity(
+      String kernelVersion,
+      String policyVersion,
+      String catalogDigest,
+      String family,
+      WorkbenchSimulator.AutomaticIdentity model) {}
+
+  public Identity identity() {
+    return identity;
+  }
+
   public enum Status {
     COMPLETE,
     PARTIAL,
@@ -42,6 +53,7 @@ public final class AutomaticCraftingKernel {
   private final ItemCatalog catalog;
   private final WorkbenchSimulator simulator;
   private final String family;
+  private final Identity identity;
 
   public AutomaticCraftingKernel(
       AutomaticCurrencyPolicy policy,
@@ -52,6 +64,13 @@ public final class AutomaticCraftingKernel {
     this.catalog = Objects.requireNonNull(catalog);
     this.simulator = Objects.requireNonNull(simulator);
     this.family = Objects.requireNonNull(family);
+    identity =
+        new Identity(
+            VERSION,
+            policy.document().policyVersion(),
+            BasicCurrencyState.catalogDigest(catalog),
+            family,
+            simulator.automaticIdentity());
   }
 
   public Result expand(ItemState state, AutomaticCraftingAction execution, long outcomeBudget) {
@@ -92,9 +111,16 @@ public final class AutomaticCraftingKernel {
     // Preflight the entire law; unsupported joint rolls never disappear from a denominator.
     for (var branch : plan.branches()) {
       if (branch.candidates().isEmpty()) return blocked(Status.UNSUPPORTED, "EMPTY_CANDIDATE_LAW");
-      for (var candidate : branch.candidates())
+      for (var candidate : branch.candidates()) {
         if (candidate.stats().size() != 1)
           return blocked(Status.UNSUPPORTED, "JOINT_ROLL_MODEL_NOT_IMPLEMENTED");
+        var range = candidate.stats().getFirst();
+        if (BigInteger.valueOf(range.max())
+                .subtract(BigInteger.valueOf(range.min()))
+                .add(BigInteger.ONE)
+                .compareTo(BigInteger.valueOf(Long.MAX_VALUE))
+            > 0) return blocked(Status.UNSUPPORTED, "ROLL_DOMAIN_NOT_IMPLEMENTED");
+      }
     }
     if (plan.branches().isEmpty()) return blocked(Status.UNAVAILABLE, "NO_REMOVAL_CANDIDATE");
     var outcomes = new LinkedHashMap<ItemState, Fraction>();

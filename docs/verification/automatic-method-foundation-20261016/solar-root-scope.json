@@ -1,0 +1,451 @@
+[ {
+  "currency" : "REGAL",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "REGAL",
+  "status" : "UNAVAILABLE",
+  "omens" : [ "SINISTRAL_CORONATION" ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "REGAL",
+  "status" : "UNAVAILABLE",
+  "omens" : [ "DEXTRAL_CORONATION" ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "EXALTED",
+  "status" : "COMPLETE",
+  "omens" : [ ],
+  "outcomes" : 3378,
+  "reason" : ""
+}, {
+  "currency" : "EXALTED",
+  "status" : "COMPLETE",
+  "omens" : [ "SINISTRAL_EXALTATION" ],
+  "outcomes" : 1038,
+  "reason" : ""
+}, {
+  "currency" : "EXALTED",
+  "status" : "COMPLETE",
+  "omens" : [ "DEXTRAL_EXALTATION" ],
+  "outcomes" : 2340,
+  "reason" : ""
+}, {
+  "currency" : "GREATER_ESSENCE_COMMAND",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "GREATER_ESSENCE_ABRASION",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "GREATER_ESSENCE_FLAMES",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "GREATER_ESSENCE_ICE",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "GREATER_ESSENCE_ELECTRICITY",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "GREATER_ESSENCE_HASTE",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "GREATER_ESSENCE_SEEKING",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "GREATER_ESSENCE_SORCERY",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "GREATER_ESSENCE_ALACRITY",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "GREATER_ESSENCE_ENHANCEMENT",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "GREATER_ESSENCE_BODY",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "GREATER_ESSENCE_MIND",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "GREATER_ESSENCE_RUIN",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "GREATER_ESSENCE_INSULATION",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "GREATER_ESSENCE_THAWING",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "GREATER_ESSENCE_GROUNDING",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "GREATER_ESSENCE_OPULENCE",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "GREATER_ESSENCE_INFINITE",
+  "status" : "UNAVAILABLE",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "RARITY_NOT_APPLICABLE"
+}, {
+  "currency" : "PERFECT_ESSENCE_MIND",
+  "status" : "UNSUPPORTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_MIND",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_MIND",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_BODY",
+  "status" : "UNSUPPORTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_BODY",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_BODY",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_SORCERY",
+  "status" : "UNSUPPORTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_SORCERY",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_SORCERY",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_ALACRITY",
+  "status" : "UNSUPPORTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_ALACRITY",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_ALACRITY",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_ABRASION",
+  "status" : "UNSUPPORTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_ABRASION",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_ABRASION",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_FLAMES",
+  "status" : "UNSUPPORTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_FLAMES",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_FLAMES",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_ICE",
+  "status" : "UNSUPPORTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_ICE",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_ICE",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_ELECTRICITY",
+  "status" : "UNSUPPORTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_ELECTRICITY",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_ELECTRICITY",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_BATTLE",
+  "status" : "UNSUPPORTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_BATTLE",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_BATTLE",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "PERFECT_ESSENCE_INFINITE",
+  "status" : "UNSUPPORTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "No non-Fractured explicit can be removed."
+}, {
+  "currency" : "PERFECT_ESSENCE_INFINITE",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "No non-Fractured explicit can be removed."
+}, {
+  "currency" : "PERFECT_ESSENCE_INFINITE",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "No non-Fractured explicit can be removed."
+}, {
+  "currency" : "PERFECT_ESSENCE_ENHANCEMENT",
+  "status" : "UNSUPPORTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "No non-Fractured explicit can be removed."
+}, {
+  "currency" : "PERFECT_ESSENCE_ENHANCEMENT",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "No non-Fractured explicit can be removed."
+}, {
+  "currency" : "PERFECT_ESSENCE_ENHANCEMENT",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "No non-Fractured explicit can be removed."
+}, {
+  "currency" : "ESSENCE_HYSTERIA",
+  "status" : "POLICY_REJECTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "AUTOMATIC_POLICY_REJECTED"
+}, {
+  "currency" : "ESSENCE_HYSTERIA",
+  "status" : "POLICY_REJECTED",
+  "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "AUTOMATIC_POLICY_REJECTED"
+}, {
+  "currency" : "ESSENCE_HYSTERIA",
+  "status" : "POLICY_REJECTED",
+  "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "AUTOMATIC_POLICY_REJECTED"
+}, {
+  "currency" : "ESSENCE_HORROR",
+  "status" : "UNSUPPORTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "ESSENCE_HORROR",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "ESSENCE_HORROR",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "ESSENCE_BREACH",
+  "status" : "UNSUPPORTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "No non-Fractured explicit can be removed."
+}, {
+  "currency" : "ESSENCE_BREACH",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "No non-Fractured explicit can be removed."
+}, {
+  "currency" : "ESSENCE_BREACH",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "No non-Fractured explicit can be removed."
+}, {
+  "currency" : "ESSENCE_ABYSS",
+  "status" : "UNSUPPORTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "AUTOMATIC_OPERATION_NOT_IMPLEMENTED"
+}, {
+  "currency" : "ESSENCE_ABYSS",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "AUTOMATIC_OPERATION_NOT_IMPLEMENTED"
+}, {
+  "currency" : "ESSENCE_ABYSS",
+  "status" : "UNSUPPORTED",
+  "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+  "outcomes" : 0,
+  "reason" : "AUTOMATIC_OPERATION_NOT_IMPLEMENTED"
+}, {
+  "currency" : "PRISMATIC_ALLOY",
+  "status" : "POLICY_REJECTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "AUTOMATIC_POLICY_REJECTED"
+}, {
+  "currency" : "SWIFT_ALLOY",
+  "status" : "POLICY_REJECTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "AUTOMATIC_POLICY_REJECTED"
+}, {
+  "currency" : "SOVEREIGN_ALLOY",
+  "status" : "UNSUPPORTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "This material's results are not verified for this base."
+}, {
+  "currency" : "EXPANSIVE_ALLOY",
+  "status" : "POLICY_REJECTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "AUTOMATIC_POLICY_REJECTED"
+}, {
+  "currency" : "CYCLONIC_ALLOY",
+  "status" : "POLICY_REJECTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "AUTOMATIC_POLICY_REJECTED"
+}, {
+  "currency" : "MYSTIC_ALLOY",
+  "status" : "POLICY_REJECTED",
+  "omens" : [ ],
+  "outcomes" : 0,
+  "reason" : "AUTOMATIC_POLICY_REJECTED"
+} ]
