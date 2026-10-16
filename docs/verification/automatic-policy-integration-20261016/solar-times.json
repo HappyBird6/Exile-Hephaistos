@@ -1,0 +1,62 @@
+[
+  {
+    "operation": "CREATE",
+    "ms": 1404.86961
+  },
+  {
+    "operation": "ADVANCE",
+    "ms": 650.4279649999999,
+    "nodes": 2,
+    "methods": 94,
+    "status": "READY"
+  },
+  {
+    "operation": "ADVANCE",
+    "ms": 556.7468549999999,
+    "nodes": 2,
+    "methods": 128,
+    "status": "READY"
+  },
+  {
+    "operation": "ADVANCE",
+    "ms": 531.2954019999997,
+    "nodes": 2,
+    "methods": 128,
+    "status": "READY"
+  },
+  {
+    "operation": "ADVANCE",
+    "ms": 399.6594399999999,
+    "nodes": 2,
+    "methods": 128,
+    "status": "READY"
+  },
+  {
+    "operation": "ADVANCE",
+    "ms": 437.8086849999995,
+    "nodes": 2,
+    "methods": 128,
+    "status": "READY"
+  },
+  {
+    "operation": "ADVANCE",
+    "ms": 1490.4606949999998,
+    "nodes": 2,
+    "methods": 128,
+    "status": "READY"
+  },
+  {
+    "operation": "ADVANCE",
+    "ms": 706.3178740000003,
+    "nodes": 3,
+    "methods": 128,
+    "status": "READY"
+  },
+  {
+    "operation": "ADVANCE",
+    "ms": 835.5058530000006,
+    "nodes": 6,
+    "methods": 128,
+    "status": "READY"
+  }
+]

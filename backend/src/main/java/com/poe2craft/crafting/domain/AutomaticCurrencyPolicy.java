@@ -32,7 +32,8 @@ public final class AutomaticCurrencyPolicy {
 
   public enum Purpose {
     ORDINARY,
-    TEMPORARY_AFFIX_FOR_REMOVAL
+    TEMPORARY_AFFIX_FOR_REMOVAL,
+    QUALITY_CHECKPOINT
   }
 
   public enum Verdict {

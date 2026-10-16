@@ -12,7 +12,7 @@ import { useEffect } from 'react'
 import { emptyGoal } from './editor'
 import type { SearchGoalSnapshot } from './ConnectedGoalFilter'
 import type { PathTreeProps } from '../path-tree'
-import { MethodSearch } from '../method-search/MethodSearch'
+import { AutomaticMethodSearch as MethodSearch } from '../method-search/AutomaticMethodSearch'
 import { ItemCard } from '../ItemCard'
 import { requestFixture } from '../path-tree/fixtures.test-support'
 import { locales, setLocale } from '../../../shared/i18n/i18n'
@@ -60,9 +60,11 @@ vi.mock('../basic-paths/api', async (original) => ({
     rulesetIdentity: initialFixture.rulesetIdentity,
   })),
 }))
-vi.mock('../method-search/MethodSearch', async (original) => ({
-  ...(await original<typeof import('../method-search/MethodSearch')>()),
-  MethodSearch: vi.fn(({ request, presentItem }: PathTreeProps) => (
+vi.mock('../method-search/AutomaticMethodSearch', async (original) => ({
+  ...(await original<
+    typeof import('../method-search/AutomaticMethodSearch')
+  >()),
+  AutomaticMethodSearch: vi.fn(({ request, presentItem }: PathTreeProps) => (
     <div className="craft-start-root">
       <ItemCard item={presentItem(request.start.item, 'en')} />
     </div>

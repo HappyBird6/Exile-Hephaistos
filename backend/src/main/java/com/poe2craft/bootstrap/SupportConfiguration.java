@@ -11,6 +11,67 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @Configuration
 public class SupportConfiguration {
   @Bean(destroyMethod = "close")
+  com.poe2craft.crafting.application.pathsearch.AutomaticSearchService automaticSearchService(
+      WorkbenchService workbench,
+      com.poe2craft.crafting.application.goalfilter.GoalFilterService goals,
+      com.poe2craft.crafting.application.pathsearch.MethodSearchService legacy,
+      ObjectMapper json,
+      @org.springframework.beans.factory.annotation.Value(
+              "${crafting.method-job-directory:./data/method-jobs}")
+          String directory) {
+    var policy = AutomaticCurrencyPolicyLoader.load();
+    return new com.poe2craft.crafting.application.pathsearch.AutomaticSearchService(
+        json,
+        new LocalAutomaticJobRepository(java.nio.file.Path.of(directory).resolve("automatic-v1")),
+        policy,
+        request -> {
+          if (request == null
+              || !Integer.valueOf(2).equals(request.version())
+              || request.start() == null
+              || request.goal() == null
+              || request.activeOmens() == null
+              || !request.activeOmens().isEmpty())
+            throw new com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Rejected(
+                422, "INVALID_REQUEST");
+          var item = request.start().item();
+          if (!legacy.provenance(item.baseItemId()).equals(request.start().provenance()))
+            throw new com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Rejected(
+                422, "RULESET_IDENTITY_MISMATCH");
+          var catalog =
+              workbench.reviewedCatalogs().stream()
+                  .filter(c -> c.base().id().equals(item.baseItemId()))
+                  .findFirst()
+                  .orElseThrow();
+          if (!new com.poe2craft.item.ItemStateValidator(catalog).validate(item).isEmpty()
+              || item.explicits().size() > 4)
+            throw new com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Rejected(
+                422, "INVALID_ITEM");
+          var evaluate = goals.compileEvaluation(item, request.goal());
+          try {
+            return new com.poe2craft.crafting.application.pathsearch.AutomaticSearchService.Runtime(
+                workbench
+                    .automaticKernel(item, policy)
+                    .withRollPartition(
+                        goals.rollPartition(item, request.goal()),
+                        json.writeValueAsString(request.goal())),
+                state -> {
+                  var result = evaluate.apply(state);
+                  return new com.poe2craft.crafting.domain.pathsearch.AutomaticMethodGraph.Progress(
+                      result.status(),
+                      result.groups().stream()
+                          .flatMap(g -> g.entries().stream())
+                          .map(e -> e.status())
+                          .toList());
+                },
+                json.writeValueAsString(request.goal()));
+          } catch (java.io.IOException e) {
+            throw new IllegalArgumentException("Cannot preserve objective", e);
+          }
+        },
+        java.time.Clock.systemUTC());
+  }
+
+  @Bean(destroyMethod = "close")
   com.poe2craft.crafting.application.pathsearch.MethodSearchService methodSearchService(
       WorkbenchService workbench,
       com.poe2craft.crafting.application.goalfilter.GoalFilterService goals,

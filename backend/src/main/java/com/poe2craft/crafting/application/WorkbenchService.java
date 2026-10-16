@@ -513,6 +513,43 @@ public final class WorkbenchService {
     return simulator(state).actions(state, omens);
   }
 
+  /** Shared reviewed rules, without applying a manual crafting action. */
+  public AutomaticCraftingKernel automaticKernel(ItemState state, AutomaticCurrencyPolicy policy) {
+    var catalog =
+        reviewedCatalogs().stream()
+            .filter(c -> c.base().id().equals(state.baseItemId()))
+            .findFirst()
+            .orElseThrow(() -> new IllegalArgumentException("Unsupported crafting base"));
+    var family =
+        BaseRegistry.topBases().values().stream()
+            .filter(b -> b.id().equals(state.baseItemId()))
+            .map(BaseRegistry.Base::family)
+            .findFirst()
+            .orElseGet(
+                () -> {
+                  if (state.baseItemId().equals(SolarAmulet.BASE_ID)) return "amulets";
+                  return Map.of(
+                          STOCKY_BASE_ID,
+                          "gloves",
+                          RingEssenceTargets.BASE_ID,
+                          "rings",
+                          HelmetEssenceTargets.BASE_ID,
+                          "helmets",
+                          BeltEssenceTargets.BASE_ID,
+                          "belts",
+                          SceptreEssenceTargets.BASE_ID,
+                          "sceptres",
+                          BodyEssenceTargets.BASE_ID,
+                          "body-armours",
+                          WandEssenceTargets.BASE_ID,
+                          "wands",
+                          BowEssenceTargets.BASE_ID,
+                          "bows")
+                      .getOrDefault(state.baseItemId(), "unsupported");
+                });
+    return new AutomaticCraftingKernel(policy, catalog, simulator(state), family);
+  }
+
   public QualityDisplay qualityDisplay(ItemState state) {
     if (topBaseSimulators.containsKey(state.baseItemId())) {
       var selected =

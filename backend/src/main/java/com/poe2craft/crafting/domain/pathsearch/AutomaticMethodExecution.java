@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 /** Method transport for approved currency/omen executions, with primitive first-hit semantics. */
 public final class AutomaticMethodExecution implements AutoCloseable {
-  public static final String VERSION = "automatic-method-execution-v1";
+  public static final String VERSION = "automatic-method-execution-v2-quality-work";
 
   public enum PreparationSuccess {
     UNDECIDED,
@@ -17,7 +17,11 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     REQUIRE_REPLACEMENT
   }
 
-  public record State(ItemState item, boolean temporaryPreparation) {}
+  public record State(ItemState item, boolean temporaryPreparation, boolean quality40) {
+    public State(ItemState item, boolean temporaryPreparation) {
+      this(item, temporaryPreparation, false);
+    }
+  }
 
   public record Template(
       String id, List<AutomaticCraftingAction> initial, List<AutomaticCraftingAction> cycle) {
@@ -43,6 +47,7 @@ public final class AutomaticMethodExecution implements AutoCloseable {
 
   private CertifiedMethodRunner<State, AutomaticCraftingAction> runner;
   private final ItemState root;
+  private final boolean initialQuality40;
   private final Template template;
   private final AutomaticCraftingKernel kernel;
   private final Function<ItemState, Optional<Exit>> classify;
@@ -81,9 +86,30 @@ public final class AutomaticMethodExecution implements AutoCloseable {
       CertifiedInterval.Precision precision,
       long primitiveOutcomeBudget,
       PreparationSuccess preparationSuccess) {
+    this(
+        root,
+        template,
+        kernel,
+        classify,
+        precision,
+        primitiveOutcomeBudget,
+        preparationSuccess,
+        false);
+  }
+
+  public AutomaticMethodExecution(
+      ItemState root,
+      Template template,
+      AutomaticCraftingKernel kernel,
+      Function<ItemState, Optional<Exit>> classify,
+      CertifiedInterval.Precision precision,
+      long primitiveOutcomeBudget,
+      PreparationSuccess preparationSuccess,
+      boolean initialQuality40) {
     if (primitiveOutcomeBudget < 1)
       throw new IllegalArgumentException("Positive primitive budget required");
     this.root = root;
+    this.initialQuality40 = initialQuality40;
     this.template = template;
     this.kernel = kernel;
     this.classify = classify;
@@ -92,7 +118,7 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     this.preparationSuccess = Objects.requireNonNull(preparationSuccess);
     runner =
         new CertifiedMethodRunner<>(
-            new State(root, false),
+            new State(root, false, initialQuality40),
             compiledTemplate(),
             this::transition,
             this::classifyState,
@@ -119,22 +145,36 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     if (law.status() == AutomaticCraftingKernel.Status.UNAVAILABLE)
       return new Kernel<>(List.of(), Fraction.ZERO, true);
     if (!law.reason().isEmpty()) unresolvedReasons.add(law.reason());
-    var outcomes =
-        law.outcomes().stream()
-            .map(
-                o ->
-                    new Outcome<>(
-                        new State(
-                            o.item(),
-                            action.purpose()
-                                == AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL),
-                        o.probability()))
-            .toList();
-    return new Kernel<>(outcomes, law.unresolved().add(law.boundary()), false);
+    var outcomes = new ArrayList<Outcome<State>>();
+    var unresolved = law.unresolved().add(law.boundary());
+    for (var outcome : law.outcomes()) {
+      if (!state.quality40()
+          && AutomaticCraftingKernel.hasQualityCap(state.item())
+          && !AutomaticCraftingKernel.hasQualityCap(outcome.item())) {
+        unresolved = unresolved.add(outcome.probability());
+        unresolvedReasons.add("QUALITY_CAP_REMOVAL_BEFORE_40");
+      } else
+        outcomes.add(
+            new Outcome<>(
+                new State(
+                    outcome.item(),
+                    action.purpose() == AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL,
+                    state.quality40()
+                        || action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT),
+                outcome.probability()));
+    }
+    return new Kernel<>(outcomes, unresolved, false);
   }
 
   private Optional<Exit> classifyState(State state) {
     var exit = classify.apply(state.item());
+    if (!state.quality40()
+        && AutomaticCraftingKernel.hasQualityCap(state.item())
+        && state.temporaryPreparation()) return Optional.empty();
+    if (!state.quality40() && AutomaticCraftingKernel.hasQualityCap(state.item()))
+      return state.item().equals(root) ? Optional.empty() : Optional.of(Exit.CHECKPOINT);
+    if (state.quality40() && !initialQuality40 && exit.isEmpty())
+      return Optional.of(Exit.CHECKPOINT);
     if (state.temporaryPreparation() && exit.orElse(null) == Exit.GOAL) {
       if (preparationSuccess == PreparationSuccess.UNDECIDED) {
         unresolvedReasons.add("PREPARATION_FIRST_HIT_POLICY_UNDECIDED");
@@ -153,6 +193,7 @@ public final class AutomaticMethodExecution implements AutoCloseable {
       String objectiveIdentity,
       AutomaticCraftingKernel.Identity identity,
       ItemState root,
+      boolean initialQuality40,
       Template template,
       CertifiedInterval.Precision precision,
       long primitiveOutcomeBudget,
@@ -168,6 +209,23 @@ public final class AutomaticMethodExecution implements AutoCloseable {
       assumptions = List.copyOf(assumptions);
       unresolvedReasons = Set.copyOf(unresolvedReasons);
     }
+
+    public Checkpoint withIdentity(AutomaticCraftingKernel.Identity shared) {
+      return new Checkpoint(
+          version,
+          objectiveIdentity,
+          shared,
+          root,
+          initialQuality40,
+          template,
+          precision,
+          primitiveOutcomeBudget,
+          preparationSuccess,
+          header,
+          rows,
+          assumptions,
+          unresolvedReasons);
+    }
   }
 
   public Checkpoint checkpoint(String objectiveIdentity) {
@@ -179,6 +237,7 @@ public final class AutomaticMethodExecution implements AutoCloseable {
           objectiveIdentity,
           kernel.identity(),
           root,
+          initialQuality40,
           template,
           precision,
           primitiveOutcomeBudget,
@@ -208,7 +267,8 @@ public final class AutomaticMethodExecution implements AutoCloseable {
             classify,
             saved.precision(),
             saved.primitiveOutcomeBudget(),
-            saved.preparationSuccess());
+            saved.preparationSuccess(),
+            saved.initialQuality40());
     execution.runner.closeWorkingMaps();
     try (var restore =
         CertifiedMethodRunner.restoreCursor(
@@ -239,7 +299,11 @@ public final class AutomaticMethodExecution implements AutoCloseable {
   }
 
   public long retainedStates() {
-    return runner.retainedStates();
+    return runner.retainedStates() + runner.retention().flightOutcomes();
+  }
+
+  public boolean hasPrimitiveInFlight() {
+    return runner.retention().flightOutcomes() > 0;
   }
 
   public void beginCycle() {
@@ -270,6 +334,41 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     return runner.observation();
   }
 
+  public CertifiedMethodRunner.Observation<State, AutomaticCraftingAction> provisional(
+      int horizon) {
+    if (runner.atBoundary() && runner.absorbed())
+      return runner.observation().atLaterAbsorbedBoundary(horizon);
+    if (runner.atBoundary() && runner.cycles() == horizon) return runner.observation();
+    var point = runner.provisional(horizon, new State(root, false, initialQuality40));
+    return new CertifiedMethodRunner.Observation<>(
+        horizon,
+        point.exits(),
+        point.active(),
+        usageBounds(point.initialUses(), template.initial(), 1),
+        usageBounds(point.cycleUses(), template.cycle(), horizon),
+        point.mass());
+  }
+
+  private Map<AutomaticCraftingAction, CertifiedInterval> usageBounds(
+      Map<AutomaticCraftingAction, CertifiedInterval> spent,
+      List<AutomaticCraftingAction> actions,
+      int repetitions) {
+    var counts = new LinkedHashMap<AutomaticCraftingAction, Long>();
+    actions.forEach(a -> counts.merge(a, (long) repetitions, Long::sum));
+    var result = new LinkedHashMap<AutomaticCraftingAction, CertifiedInterval>();
+    counts.forEach(
+        (action, count) ->
+            result.put(
+                action,
+                new CertifiedInterval(
+                    precision.fractionalBits(),
+                    spent
+                        .getOrDefault(action, CertifiedInterval.zero(precision.fractionalBits()))
+                        .lowerUnits(),
+                    java.math.BigInteger.valueOf(count).shiftLeft(precision.fractionalBits()))));
+    return result;
+  }
+
   public List<WorkbenchSimulator.Assumption> assumptions() {
     return List.copyOf(assumptions);
   }
@@ -286,6 +385,10 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     var result = new LinkedHashMap<String, CertifiedInterval>();
     uses.forEach(
         (action, probability) -> {
+          if (action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT) {
+            result.merge("WORK:QUALITY_40", probability, CertifiedInterval::add);
+            return;
+          }
           result.merge(action.currency().name(), probability, CertifiedInterval::add);
           action
               .omens()

@@ -1,4 +1,4 @@
-import { MethodSearch } from '../method-search/MethodSearch'
+import { AutomaticMethodSearch as MethodSearch } from '../method-search/AutomaticMethodSearch'
 import {
   useCallback,
   useEffect,
@@ -48,6 +48,7 @@ import './craft-start.css'
 import { useI18n, uiText } from '../../../shared/i18n/i18n'
 
 type Draft = {
+  abstractQuality40: boolean
   base: string
   text: string
   item: ConcreteItem | null
@@ -82,6 +83,7 @@ export function CraftStart({
   const pickerCopy = modifierPickerMessages[locale]
   const [editor] = useState(() =>
     createStore<Draft>(() => ({
+      abstractQuality40: false,
       base: 'solar',
       text: '',
       item: null,
@@ -102,7 +104,15 @@ export function CraftStart({
   )
   const draft = useStore(editor)
   const update = (value: Partial<Draft>) =>
-    editor.setState({ searchRequest: null, searchIssue: false, ...value })
+    editor.setState({
+      searchRequest: null,
+      searchIssue: false,
+      ...((value.base !== undefined && value.base !== editor.getState().base) ||
+      value.item === null
+        ? { abstractQuality40: false }
+        : {}),
+      ...value,
+    })
   const onSearchGoalChange = useCallback(
     (searchGoal: SearchGoalSnapshot) => {
       editor.setState({ searchGoal, searchRequest: null, searchIssue: false })
@@ -844,6 +854,7 @@ export function CraftStart({
             <MethodSearch
               request={draft.searchRequest}
               inputGeneration={run}
+              abstractQuality40={draft.abstractQuality40}
               presentItem={createItemPresentation(
                 { name: draft.root.base!, itemClass: draft.root.itemClass },
                 draft.rootDefinitions,
@@ -852,7 +863,7 @@ export function CraftStart({
                 update({ editing: true })
                 requestAnimationFrame(() => startButton.current?.focus())
               }}
-              onEditState={(item) => {
+              onEditState={(item, context) => {
                 if (
                   item.rarity === 'UNIQUE' ||
                   !qualityShape(item.catalystQuality) ||
@@ -867,7 +878,11 @@ export function CraftStart({
                   rarity: item.rarity,
                   catalystQuality: item.catalystQuality,
                 })
-                update({ editing: true, levelEdited: false })
+                update({
+                  editing: true,
+                  levelEdited: false,
+                  abstractQuality40: context?.abstractQuality40 ?? false,
+                })
                 requestAnimationFrame(() =>
                   modifierRegion.current
                     ?.querySelector<HTMLInputElement>('input[role="combobox"]')

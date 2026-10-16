@@ -635,7 +635,17 @@ public final class WorkbenchSimulator {
     var available = availability(state, action, omens);
     if (!available.available())
       return new AutomaticCraftingPlan(
-          AutomaticCraftingPlan.Status.UNSUPPORTED, available.reason(), List.of(), !basic, "");
+          Set.of(
+                      "No non-Fractured explicit can be removed.",
+                      "No eligible modifier or free affix slot remains for this currency and omen.",
+                      "Item level is below the currency's minimum modifier level.")
+                  .contains(available.reason())
+              ? AutomaticCraftingPlan.Status.UNAVAILABLE
+              : AutomaticCraftingPlan.Status.UNSUPPORTED,
+          available.reason(),
+          List.of(),
+          !basic,
+          "");
     var branches = new ArrayList<AutomaticCraftingPlan.Branch>();
     var omen = omens.isEmpty() ? null : omens.getFirst();
     if (replacement) {

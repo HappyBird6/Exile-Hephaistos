@@ -23,6 +23,10 @@ public record AutomaticCraftingAction(
               ? AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL
               : AutomaticCurrencyPolicy.Purpose.ORDINARY;
       result.add(new AutomaticCraftingAction(currency, Set.of(), purpose));
+      if (currency == WorkbenchCurrency.ESSENCE_BREACH)
+        result.add(
+            new AutomaticCraftingAction(
+                currency, Set.of(), AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT));
       var variants =
           currency == WorkbenchCurrency.REGAL
               ? List.of(WorkbenchOmen.SINISTRAL_CORONATION, WorkbenchOmen.DEXTRAL_CORONATION)

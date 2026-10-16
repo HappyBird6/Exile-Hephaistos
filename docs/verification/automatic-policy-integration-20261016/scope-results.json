@@ -1,0 +1,956 @@
+{
+  "kernel" : "automatic-scalar-kernel-v4-roll-cells",
+  "boundedGraph" : [ {
+    "round" : 0,
+    "elapsedMs" : 1438.900592,
+    "A" : 1,
+    "paused" : false,
+    "B" : 3,
+    "C" : 0,
+    "complete" : false,
+    "retained" : 15713,
+    "nodes" : 10,
+    "methods" : 128
+  }, {
+    "round" : 1,
+    "elapsedMs" : 2145.126846,
+    "A" : 3,
+    "paused" : true,
+    "B" : 3,
+    "C" : 0,
+    "complete" : false,
+    "retained" : 50005,
+    "nodes" : 15,
+    "methods" : 256
+  } ],
+  "selectedNodeContinuations" : [ {
+    "complete" : false,
+    "start" : [ "MATCH", "NO_MATCH" ],
+    "C" : 0,
+    "reasons" : [ "An essence removal branch conflicts with a guaranteed modifier or available slots; this interaction is unsupported.", "This material's results are not verified for this base.", "AUTOMATIC_OPERATION_NOT_IMPLEMENTED", "PREPARATION_FIRST_HIT_POLICY_UNDECIDED" ],
+    "nodes" : 64,
+    "goalExitWitnesses" : 2
+  }, {
+    "complete" : false,
+    "start" : [ "NO_MATCH", "MATCH" ],
+    "C" : 0,
+    "reasons" : [ "An essence removal branch conflicts with a guaranteed modifier or available slots; this interaction is unsupported.", "This material's results are not verified for this base.", "AUTOMATIC_OPERATION_NOT_IMPLEMENTED", "PREPARATION_FIRST_HIT_POLICY_UNDECIDED" ],
+    "nodes" : 64,
+    "goalExitWitnesses" : 1
+  } ],
+  "scope" : [ {
+    "currency" : "REGAL",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 1.39394,
+    "omens" : [ ],
+    "purpose" : "TEMPORARY_AFFIX_FOR_REMOVAL"
+  }, {
+    "currency" : "REGAL",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.150105,
+    "omens" : [ "SINISTRAL_CORONATION" ],
+    "purpose" : "TEMPORARY_AFFIX_FOR_REMOVAL"
+  }, {
+    "currency" : "REGAL",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.03269,
+    "omens" : [ "DEXTRAL_CORONATION" ],
+    "purpose" : "TEMPORARY_AFFIX_FOR_REMOVAL"
+  }, {
+    "currency" : "EXALTED",
+    "status" : "COMPLETE",
+    "outcomes" : 209,
+    "reason" : "",
+    "unresolved" : {
+      "numerator" : 0,
+      "denominator" : 1
+    },
+    "ms" : 52.433204,
+    "omens" : [ ],
+    "purpose" : "TEMPORARY_AFFIX_FOR_REMOVAL"
+  }, {
+    "currency" : "EXALTED",
+    "status" : "COMPLETE",
+    "outcomes" : 81,
+    "reason" : "",
+    "unresolved" : {
+      "numerator" : 0,
+      "denominator" : 1
+    },
+    "ms" : 5.172448,
+    "omens" : [ "SINISTRAL_EXALTATION" ],
+    "purpose" : "TEMPORARY_AFFIX_FOR_REMOVAL"
+  }, {
+    "currency" : "EXALTED",
+    "status" : "COMPLETE",
+    "outcomes" : 128,
+    "reason" : "",
+    "unresolved" : {
+      "numerator" : 0,
+      "denominator" : 1
+    },
+    "ms" : 4.578048,
+    "omens" : [ "DEXTRAL_EXALTATION" ],
+    "purpose" : "TEMPORARY_AFFIX_FOR_REMOVAL"
+  }, {
+    "currency" : "GREATER_ESSENCE_COMMAND",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.030939,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "GREATER_ESSENCE_ABRASION",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.009959,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "GREATER_ESSENCE_FLAMES",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.008477,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "GREATER_ESSENCE_ICE",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.007353,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "GREATER_ESSENCE_ELECTRICITY",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.006788,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "GREATER_ESSENCE_HASTE",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.006372,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "GREATER_ESSENCE_SEEKING",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.006109,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "GREATER_ESSENCE_SORCERY",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.006145,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "GREATER_ESSENCE_ALACRITY",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.00633,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "GREATER_ESSENCE_ENHANCEMENT",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.005985,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "GREATER_ESSENCE_BODY",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.005952,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "GREATER_ESSENCE_MIND",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.01231,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "GREATER_ESSENCE_RUIN",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.041197,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "GREATER_ESSENCE_INSULATION",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.014801,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "GREATER_ESSENCE_THAWING",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.011346,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "GREATER_ESSENCE_GROUNDING",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.009154,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "GREATER_ESSENCE_OPULENCE",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.007198,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "GREATER_ESSENCE_INFINITE",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "RARITY_NOT_APPLICABLE",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.00709,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_MIND",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.058849,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_MIND",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.048328,
+    "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_MIND",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.02506,
+    "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_BODY",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.022876,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_BODY",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.019786,
+    "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_BODY",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.035753,
+    "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_SORCERY",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.027368,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_SORCERY",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.022904,
+    "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_SORCERY",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.018063,
+    "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_ALACRITY",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.026417,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_ALACRITY",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.020106,
+    "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_ALACRITY",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.029969,
+    "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_ABRASION",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.014761,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_ABRASION",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.019426,
+    "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_ABRASION",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.026523,
+    "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_FLAMES",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.021716,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_FLAMES",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.018158,
+    "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_FLAMES",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.016279,
+    "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_ICE",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.016164,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_ICE",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.029033,
+    "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_ICE",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.026586,
+    "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_ELECTRICITY",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.025006,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_ELECTRICITY",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.020429,
+    "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_ELECTRICITY",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.017625,
+    "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_BATTLE",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.013782,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_BATTLE",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.019849,
+    "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_BATTLE",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.017308,
+    "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_INFINITE",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "No non-Fractured explicit can be removed.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.500237,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_INFINITE",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "No non-Fractured explicit can be removed.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.178713,
+    "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_INFINITE",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "No non-Fractured explicit can be removed.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.051016,
+    "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_ENHANCEMENT",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "No non-Fractured explicit can be removed.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.038616,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_ENHANCEMENT",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "No non-Fractured explicit can be removed.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.034232,
+    "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PERFECT_ESSENCE_ENHANCEMENT",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "No non-Fractured explicit can be removed.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.03072,
+    "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "ESSENCE_HYSTERIA",
+    "status" : "POLICY_REJECTED",
+    "outcomes" : 0,
+    "reason" : "AUTOMATIC_POLICY_REJECTED",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.011812,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "ESSENCE_HYSTERIA",
+    "status" : "POLICY_REJECTED",
+    "outcomes" : 0,
+    "reason" : "AUTOMATIC_POLICY_REJECTED",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.00183,
+    "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "ESSENCE_HYSTERIA",
+    "status" : "POLICY_REJECTED",
+    "outcomes" : 0,
+    "reason" : "AUTOMATIC_POLICY_REJECTED",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.001127,
+    "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "ESSENCE_HORROR",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.020526,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "ESSENCE_HORROR",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.020042,
+    "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "ESSENCE_HORROR",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.031305,
+    "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "ESSENCE_BREACH",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "No non-Fractured explicit can be removed.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.026088,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "ESSENCE_BREACH",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "QUALITY_40_REQUIRES_MAXIMUM_QUALITY_MODIFIER",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.10104,
+    "omens" : [ ],
+    "purpose" : "QUALITY_CHECKPOINT"
+  }, {
+    "currency" : "ESSENCE_BREACH",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "No non-Fractured explicit can be removed.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.041449,
+    "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "ESSENCE_BREACH",
+    "status" : "UNAVAILABLE",
+    "outcomes" : 0,
+    "reason" : "No non-Fractured explicit can be removed.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.04061,
+    "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "ESSENCE_ABYSS",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "AUTOMATIC_OPERATION_NOT_IMPLEMENTED",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.015472,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "ESSENCE_ABYSS",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "AUTOMATIC_OPERATION_NOT_IMPLEMENTED",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.011536,
+    "omens" : [ "SINISTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "ESSENCE_ABYSS",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "AUTOMATIC_OPERATION_NOT_IMPLEMENTED",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.015207,
+    "omens" : [ "DEXTRAL_CRYSTALLISATION" ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "PRISMATIC_ALLOY",
+    "status" : "POLICY_REJECTED",
+    "outcomes" : 0,
+    "reason" : "AUTOMATIC_POLICY_REJECTED",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.019796,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "SWIFT_ALLOY",
+    "status" : "POLICY_REJECTED",
+    "outcomes" : 0,
+    "reason" : "AUTOMATIC_POLICY_REJECTED",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.007456,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "SOVEREIGN_ALLOY",
+    "status" : "UNSUPPORTED",
+    "outcomes" : 0,
+    "reason" : "This material's results are not verified for this base.",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.024812,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "EXPANSIVE_ALLOY",
+    "status" : "POLICY_REJECTED",
+    "outcomes" : 0,
+    "reason" : "AUTOMATIC_POLICY_REJECTED",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.001526,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "CYCLONIC_ALLOY",
+    "status" : "POLICY_REJECTED",
+    "outcomes" : 0,
+    "reason" : "AUTOMATIC_POLICY_REJECTED",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.003075,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  }, {
+    "currency" : "MYSTIC_ALLOY",
+    "status" : "POLICY_REJECTED",
+    "outcomes" : 0,
+    "reason" : "AUTOMATIC_POLICY_REJECTED",
+    "unresolved" : {
+      "numerator" : 1,
+      "denominator" : 1
+    },
+    "ms" : 0.001454,
+    "omens" : [ ],
+    "purpose" : "ORDINARY"
+  } ],
+  "allCandidateExecutions" : 76,
+  "peakHeapBytes" : 210891312
+}

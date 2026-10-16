@@ -609,6 +609,25 @@ public final class CertifiedMethodRunner<S, A> {
         absorbedMass.add(boundaryMass));
   }
 
+  /**
+   * Conservative first-hit observation while a cycle is still running. Unprocessed mass is unknown.
+   */
+  public Observation<S, A> provisional(long horizon, S pendingState) {
+    if (horizon < cycles) throw new IllegalArgumentException("Cannot project an earlier horizon");
+    var saved = new EnumMap<Exit, Map<S, CertifiedInterval>>(Exit.class);
+    exits.forEach((kind, law) -> saved.put(kind, new LinkedHashMap<>(law)));
+    var remaining = absorbedMass.probability().complement();
+    if (!remaining.zero())
+      saved.get(Exit.UNRESOLVED).merge(pendingState, remaining, CertifiedInterval::add);
+    return new Observation<>(
+        horizon,
+        saved,
+        Map.of(),
+        Map.copyOf(initialUses),
+        Map.copyOf(cycleUses),
+        absorbedMass.add(remaining));
+  }
+
   /** Internal immutable view lease: advancement is blocked until the reader releases it. */
   final class ObservationLease implements AutoCloseable {
     private final Observation<S, A> point;

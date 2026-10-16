@@ -10,6 +10,23 @@ import org.junit.jupiter.api.Test;
 
 class CertifiedMethodRunnerTest {
   @Test
+  void provisionalMassEnclosesUnprocessedWorkWithoutCompletingItsHorizon() {
+    var runner = runner(64, List.of(), List.of("add", "remove"));
+    runner.beginCycle();
+    runner.step(1);
+    var partial = runner.provisional(100, 0);
+    assertThat(partial.exits().get(Exit.GOAL).get(2).contains(f(2, 7))).isTrue();
+    assertThat(partial.exits().get(Exit.UNRESOLVED).get(0).contains(f(5, 7))).isTrue();
+    assertThat(partial.mass().contains(Fraction.ONE)).isTrue();
+    assertThat(partial.active()).isEmpty();
+    assertThat(runner.atBoundary()).isFalse();
+    while (!runner.atBoundary()) runner.step(1);
+    assertThat(runner.observation().cycles()).isEqualTo(1);
+    assertThat(runner.observation().exits().get(Exit.UNRESOLVED)).isEmpty();
+    assertThat(runner.observation().cycleUses().get("remove").contains(f(5, 7))).isTrue();
+  }
+
+  @Test
   void leasedBoundaryBlocksAdvancementUntilCooperativeStorageFinishes() {
     var runner = runner(64, List.of(), List.of("add", "remove"));
     var lease = runner.leaseObservation();

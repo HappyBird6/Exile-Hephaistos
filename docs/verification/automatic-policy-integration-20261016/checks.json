@@ -1,0 +1,43 @@
+{
+  "backend": {
+    "exit": 0,
+    "checkSeconds": 379,
+    "suites": [
+      {
+        "suite": "test",
+        "tests": 779,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "suite": "integrationTest",
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ],
+    "sourceHashMismatches": 0
+  },
+  "frontend": {
+    "exit": 0,
+    "testFiles": 95,
+    "tests": 2171,
+    "sourceHashMismatches": 0,
+    "checks": [
+      "lint",
+      "typecheck",
+      "format:check",
+      "test",
+      "build"
+    ]
+  },
+  "scripts": {
+    "tests": 6,
+    "failures": 0
+  },
+  "composeConfigurationExit": 0,
+  "browser": "browser-results.json",
+  "remoteMutation": false
+}

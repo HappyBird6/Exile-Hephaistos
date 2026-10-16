@@ -1,0 +1,49 @@
+{
+  "initial": {
+    "goal": "NO_MATCH",
+    "entries": [
+      "MATCH",
+      "NO_MATCH"
+    ]
+  },
+  "createMs": 1000.805457,
+  "slices": [
+    {
+      "ms": 277.671691,
+      "nodes": 19,
+      "methods": 128,
+      "status": "READY"
+    },
+    {
+      "ms": 395.363335,
+      "nodes": 49,
+      "methods": 128,
+      "status": "READY"
+    },
+    {
+      "ms": 483.02560700000004,
+      "nodes": 64,
+      "methods": 128,
+      "status": "PAUSED"
+    }
+  ],
+  "final": {
+    "complete": false,
+    "status": "PAUSED",
+    "root": {
+      "goal": "NO_MATCH",
+      "entries": [
+        "MATCH",
+        "NO_MATCH"
+      ]
+    },
+    "goals": 6,
+    "losses": 1164,
+    "localRecommendations": 0,
+    "reasons": [
+      "This material's results are not verified for this base.",
+      "AUTOMATIC_OPERATION_NOT_IMPLEMENTED",
+      "PREPARATION_FIRST_HIT_POLICY_UNDECIDED"
+    ]
+  }
+}

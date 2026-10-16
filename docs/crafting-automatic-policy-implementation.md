@@ -1,54 +1,47 @@
-# Approved automatic crafting policy implementation
+# Automatic crafting methods under the approved material policy
 
-## Contract foundation (2026-10-16)
+Craft Support now uses `/api/v2/crafting/method-searches/automatic`. Workbench remains an independent manual simulator. The older method-search endpoints remain available for saved records.
 
-The approved roster is preserved in [the source snapshot](crafting-currency-policy-approved-20261015.md). The runtime document is `backend/src/main/resources/crafting/automatic-currency-policy-v1.json`, version `approved-187-2026-10-15-v1`. Its fixed 187 numbers cover 160 Workbench currencies, 18 omens and 9 supplemental materials: 33 USE, 14 CONDITIONAL, 114 EXCLUDED, 26 DEFERRED. Policy permission is independent of game eligibility and numeric-model support.
+## Policy and calculation boundary
 
-`AutomaticCurrencyPolicy` checks the temporary-removal purpose, paired Regal/Exalted omen and approved item families. It retains both existing registry spellings `helmet` and `helmets`. The four-explicit exploration boundary is an item-state boundary, not an action or currency-use limit.
+The approved [187-entry roster](crafting-currency-policy-approved-20261015.md) is sealed in `automatic-currency-policy-v1.json`: 33 USE, 14 CONDITIONAL, 114 EXCLUDED, 26 DEFERRED. The discovery inventory contains 76 execution variants, including consumed-omen combinations and one abstract quality-40 operation. Permission, current-state applicability, and supported probability models are separate decisions. Abyss laws remain unsupported; jewel crafting is outside this integration.
 
-`AutomaticCraftingAction` keeps currency, consumed omens and purpose separate from item identity. Its candidate inventory represents all 47 approved/conditional materials, including explicitly unsupported Abyss crafting. `WorkbenchSimulator.automaticPlan` reads the same reviewed eligible branches as the manual simulator without changing manual application. It retains all eligible removal branches and fixed modifier outcomes. `AutomaticCraftingKernel` enumerates scalar rolls with exact rational mass, keeps ordinary eligible modifier-tier weights, and declares uniform fixed-material selection separately from ordinary spawn weights. Unsupported joint rolls remain unresolved, even if the manual sampler has an unverified coupled-roll model.
+Exploration permits at most four explicit modifiers per item. A fifth explicit contributes boundary/unknown mass; it is never removed from the denominator. Resource limits pause computation and do not cap total currency usage. Method observations use 100, 300 and 500 **cycles**, with preparation and actual currency/omen consumption reported separately.
 
-Every primitive result conserves outcome + boundary + unresolved mass = 1. A fifth explicit receives boundary mass without renormalizing allowed outcomes. Replacement at four explicits remains possible. An outcome budget leaves unresolved mass; it is not a failed outcome or a complete search.
+Regal and Exalted are temporary-affix preparation operations with a subsequent replacement. If preparation itself completes the whole goal, the policy decision remains `PREPARATION_FIRST_HIT_POLICY_UNDECIDED`. That exclusive mass is UNRESOLVED, not success or failure. Its concrete goal item can be displayed without counting it as a successful strategy exit.
 
-## Verification of this foundation
+## Shared rules and exact roll cells
 
-Docker Java 21, two CPUs and 3 GiB container limit:
+`WorkbenchService.automaticKernel` supplies the same immutable, reviewed per-base configuration used by the manual rules, including essence target overrides. Candidate selection includes every eligible modifier-tier and all non-goal candidates. Ordinary pools use their declared weight policy. Fixed-material pools explicitly declare uniform individual-candidate selection. Removal denominators include all eligible instances after omen restrictions.
 
-- Focused policy, kernel, ruleset-seal, class-storage, graph-storage and restart tests passed.
-- `check generateJooq bootJar`: 763 unit/contract tests and 7 integration tests passed, none skipped.
-- The initial full run failed on 25 pinned ruleset-identity checks and one expected resource-count check after adding the sealed policy document. The source fixture identity and resource count were updated; item values, goal AST and probability expectations were unchanged. The complete rerun passed.
-- The kernel oracle checks weighted non-goal candidates, remaining mass under an outcome budget, uniform removal, prefix-only Crystallisation removal, fifth-explicit boundary mass, and four-explicit replacement. Candidate registration covers every approved material; it does not claim every material/base combination has a verified numeric law.
+The scalar kernel preserves the selection mass of unverified joint rolls as unresolved while continuing verified scalar branches. It does not use the manual unverified coupled-roll sampler as an exact law. Scalar roll assumptions and their sources remain attached to execution checkpoints.
 
-The policy is included in the resource seal, so the reviewed bundle identity changes. Its policy version remains distinct from `automatic-scalar-kernel-v1` and the existing game-rule and numeric-assumption versions.
+The existing `RollPartition` is now used by automatic search. It partitions rolls only where the complete goal AST proves intervals safe. Unknown dependencies and coexisting numeric contributors retain individual relevant values. Existing deterministic starting values receive their own cuts. Modifier IDs, tiers, required levels, implicit values, conditions and quality state are not merged. Tier/family orbit compression is deliberately not applied to the new replacement actions.
 
-## Integration still in progress
+For supported automatic add/replacement operations, current scalar roll values do not control eligibility or removal. Goal-equivalent scalar intervals therefore have uniform conditional roll laws and identical subsequent transitions. Interval mass is the sum of its individual uniform rolls; a node exposes the interval in `rolls` and the UI renders its range. The stored item is a valid lower-end witness. Editing opens that concrete witness for the user to choose exact values; the new job recompiles partitions from its own start and unchanged goal. The job-scoped kernel identity includes the partition version and full objective; its starting state is retained in the graph checkpoint. Partition kernels are not shared between jobs.
 
-This foundation is not yet the production certified graph's action provider. That graph still uses `WorkbenchCurrency` without a consumed-omen execution identity. Merely replacing its 16-action list would omit supported material families and misrepresent completion. The following work remains:
+## Method graph and strategy
 
-- Connect compound execution identity, method phases and material consumption to discovery, conditional transport, cache keys and durable cursor restore.
-- Apply the four-explicit boundary to graph expansion and include its unresolved mass in strategy bounds.
-- Preserve partial/unsupported discovery instead of treating the inventory as fully searched.
-- Integrate the Breach quality-40 abstract checkpoint, warning and post-checkpoint objective handling; no individual catalyst is authorized.
-- Verify Life/Chaos resistance and Solar diamond examples under the newly approved action policy; earlier examples must not override new exclusions.
-- Production graph integration must retain the existing API generation, cancellation and durable-storage behavior. The policy modal and selected-node editor are locally verified; see [UI verification](verification/automatic-policy-ui-20261016/README.md).
+Item state/roll-cell identity is separate from method template, execution phase, temporary purpose and consumed omens. Method templates contain preparation and one/two-action cycles. First-hit is evaluated after every primitive. Goal, checkpoint, loss, dead, active and unresolved mass remain disjoint and enclose total mass one.
 
-Regal/Exalted cannot be standalone random goal-acquisition templates. Preparation templates require a subsequent replacement. Success immediately after temporary preparation is awaiting the user's clarification; it must not be finalized as either success or failure in the meantime. The in-progress execution layer retains this case as unresolved and can represent either eventual choice explicitly. Preparation alone is not published as a completed intermediate method checkpoint.
+Discovery uses method depth. Within a depth, achieved conditions and a bounded representative probe affect ordering only; they never remove choices or supply probabilities. Candidate order is persisted with scan/pair cursors. At most two primitive laws are opened concurrently. A method admission limit stops new method creation while allowing admitted methods to make progress. Primitive, state and retained-law budgets remain bounded. Shorter late merges relax existing descendant depths.
 
-No claim is made that production exploration already enforces this policy, that Abyss/jewel crafting is implemented, or that a complete policy search/performance run has passed. No remote push, PR, master integration or deployment is part of this local verification stage.
+Partial horizon observations publish absorbed first-hit mass as lower bounds and place all unprocessed mass in unresolved. They are not stored as completed observations. Currency-use bounds include already spent mass and a conservative horizon upper bound.
 
-## Method execution and discovery increment
+Alternative arrows are separate decision choices. Only mutually exclusive exits within one choice are summed. The cyclic `CertifiedOutcomeStrategy` computes outcome-dependent strategy bounds, including loss/recovery continuations. Local recommendations require finished direct methods and a lower bound that dominates other immediate upper bounds, including their unresolved mass. Final highlighting is separate and requires completed supported discovery. A fixed path product is not substituted for the adaptive strategy.
 
-`AutomaticMethodExecution` carries currency, consumed omens, temporary-preparation purpose and phase independently of full item identity. It reuses certified interval Markov transport, reports initial and cycle material consumption separately, and retains 100/300/500-cycle observations. Its JSON cursor includes the canonical objective identity, policy/catalog/rule/definition/target configuration, precision and pending preparation decision; model or objective changes require explicit recalculation.
+## Versioned API and persistence
 
-Primitive enumeration exhaustion pauses before removing pending mass or charging currency. Increasing the resource budget retries that primitive from its original state; no probability is converted to failure or silently cached as complete. This retry currently recomputes the bounded primitive enumeration rather than resuming an internal scalar-roll cursor. Its materialized kernel and checkpoint rows still require integration with the existing streaming stores before large production searches.
+POST create accepts `{request: {version: 2, clientRequestId, start, goal, activeOmens: []}, abstractQuality40}`. GET returns a revisioned view. POST `/{id}/control` accepts command ID, expected revision/generation, and ADVANCE, RESUME or CANCEL. GET `/{id}/request` preserves the original AST and abstract-quality context for explicit recalculation. The existing ruleset request/response header is required; owner cookies isolate jobs. Conflicts return 409, unavailable ownership returns 404, malformed input returns 422.
 
-`AutomaticMethodGraph` is an unconnected domain implementation for full-state discovery. It considers all approved candidates and ordered one/two-action method variants, keeps same-node-pair alternatives, queues method transport cooperatively, and passes mutually exclusive outcome laws to the existing cyclic decision-strategy solver. Node/method/retained-state limits pause discovery. Unresolved goals, unsupported laws and the explicit boundary prevent a complete result.
+Each request advances a bounded slice. Cancellation changes generation; duplicate commands are idempotent and stale responses cannot replace newer UI state. Checkpoints include queued discovery, execution phases, conditional laws, costs, horizons and model identities. The model is shared once per graph document. Atomic publication retains the previous document on failure; storage-budget exhaustion returns PAUSED at that last durable cursor. Unknown model versions require explicit recalculation rather than deleting the original goal.
 
-This increment does not yet provide a production API, graph-level durable restore, compressed eligible-state indexing, local recommendation publication, Breach quality work, or the requested real-catalog performance evidence. Its method inventory is the implemented one/two-action template grammar, not a proof of completeness over arbitrary programs. The unconnected layer must not replace the production engine until those integration contracts are implemented and verified.
-## Next integration seams
+The graph uses bounded in-memory working laws and local JSON checkpoints. It does not yet reuse the legacy SQLite streaming class/transition stores. This is a material scaling limitation, not proof that all supported states have been explored. The implemented template grammar is also not a completeness proof over arbitrary crafting programs.
 
-1. Share the immutable, reviewed per-base simulator configuration currently registered by `WorkbenchService` (including fixed/replacement essence targets). Constructing a default simulator for every base loses that registration. Craft Support remains an independent service while sharing these game rules.
-2. Extend `BasicTransitionClasses` / `BasicClassIndex` / `IndexedKernelStore` with compound action identities and eligible replacement laws. Preserve the existing deferred conditional operators and streaming working-law stores; do not substitute eager concrete-state enumeration for their production memory behavior.
-3. Adapt `CertifiedMethodSearchEngine` discovery and `CertifiedSearchJobs` durable cursors together. Persist execution purpose, consumed omens and the original goal AST under a new explicit version; retain old-version replay or explicit recalculation.
-4. Map the new method distributions to the existing local/final recommendation protocol, keeping alternatives separate. Resume after budget exhaustion must retain pending action and newly arriving mass. Add API stale-generation, cancellation, restart and reconnect checks for the new version.
-5. Implement the Breach quality-40 checkpoint independently of individual catalysts, then verify the new-policy Life/Chaos and Solar examples. Record first response, first local recommendation, full supported discovery and peak memory separately; unresolved model scope is not complete support.
+## Breach quality work
+
+The approved #99 workflow adds a distinct abstract `WORK:QUALITY_40` checkpoint after the verified maximum-quality modifier exists. It does not choose a catalyst, infer catalyst count or invent numeric quality scaling. Before the work, a branch removing that modifier remains unresolved with `QUALITY_CAP_REMOVAL_BEFORE_40`. After the work, keeping or removing it preserves the completion flag; keeping it does not prevent the goal. The flag survives persistence and selected-node editing.
+
+## Verification and remaining scope
+
+See [integration evidence](verification/automatic-policy-integration-20261016/README.md) for exact tested snapshots, bounded real-catalog measurements, browser results and remaining limitations. Earlier [foundation evidence](verification/automatic-method-foundation-20261016/README.md) describes earlier commits only.

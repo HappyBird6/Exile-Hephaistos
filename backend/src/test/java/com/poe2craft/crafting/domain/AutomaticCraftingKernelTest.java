@@ -13,6 +13,127 @@ class AutomaticCraftingKernelTest {
   final BasicCurrencyTransitionsTest tiny = new BasicCurrencyTransitionsTest();
 
   @Test
+  void goalRollCellsReconstructTheIndependentScalarOracleWithoutMergingModifierTiers() {
+    var root = tiny.item(ItemState.Rarity.RARE, List.of());
+    var known =
+        new com.poe2craft.crafting.domain.goalfilter.GoalCatalog.Stat(
+            "a",
+            "a",
+            "flat",
+            com.poe2craft.crafting.domain.goalfilter.GoalCatalog.Kind.EXPLICIT,
+            new com.poe2craft.crafting.domain.goalfilter.GoalCatalog.Support(
+                com.poe2craft.crafting.domain.goalfilter.GoalFilter.Capability.SUPPORTED,
+                com.poe2craft.crafting.domain.goalfilter.GoalFilter.Capability.SUPPORTED,
+                null),
+            true,
+            null,
+            List.of("a"),
+            List.of(),
+            List.of());
+    var goal =
+        new com.poe2craft.crafting.domain.goalfilter.GoalFilter(
+            1,
+            "test",
+            new com.poe2craft.crafting.domain.goalfilter.GoalFilter.General(
+                root.baseItemId(),
+                new com.poe2craft.crafting.domain.goalfilter.GoalFilter.Range(null, null),
+                List.of(ItemState.Rarity.RARE)),
+            List.of(
+                new com.poe2craft.crafting.domain.goalfilter.GoalFilter.Group(
+                    "g",
+                    com.poe2craft.crafting.domain.goalfilter.GoalFilter.Type.AND,
+                    false,
+                    null,
+                    List.of(
+                        new com.poe2craft.crafting.domain.goalfilter.GoalFilter.Entry(
+                            "e",
+                            "a",
+                            "flat",
+                            new com.poe2craft.crafting.domain.goalfilter.GoalFilter.Range(
+                                java.math.BigDecimal.valueOf(2), null),
+                            null,
+                            false)))));
+    var exact =
+        new AutomaticCraftingKernel(
+            policy,
+            tiny.catalog,
+            new WorkbenchSimulator(tiny.catalog, new CraftingEngine(tiny.catalog)),
+            "amulets");
+    var grouped =
+        exact.withRollPartition(
+            com.poe2craft.crafting.domain.pathsearch.RollPartition.compile(
+                tiny.catalog, Map.of("a", known), goal, root),
+            goal.toString());
+    var action =
+        new AutomaticCraftingAction(
+            WorkbenchCurrency.EXALTED,
+            Set.of(),
+            AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL);
+    var oracle = exact.expand(root, action, 100);
+    var cells = grouped.expand(root, action, 100);
+    assertThat(cells.outcomes()).hasSize(3);
+    var rebuilt = new LinkedHashMap<ItemState, Fraction>();
+    for (var cell : cells.outcomes()) {
+      var bands = grouped.rollBands(cell.item());
+      if (bands.isEmpty()) rebuilt.put(cell.item(), cell.probability());
+      else {
+        var modifier = cell.item().explicits().getFirst();
+        var band = bands.get(modifier.modifierId());
+        for (long v = band.min(); v <= band.max(); v++)
+          rebuilt.put(
+              tiny.item(ItemState.Rarity.RARE, List.of(tiny.mod(modifier.modifierId(), v))),
+              cell.probability().multiply(Fraction.of(1, band.max() - band.min() + 1)));
+      }
+    }
+    assertThat(rebuilt).hasSize(oracle.outcomes().size());
+    for (var outcome : oracle.outcomes())
+      assertThat(rebuilt.get(outcome.item())).isEqualTo(outcome.probability());
+    assertThat(grouped.identity()).isNotEqualTo(exact.identity());
+  }
+
+  @Test
+  void unverifiedJointCandidateKeepsItsWeightWithoutHidingVerifiedScalarOutcomes() {
+    var joint =
+        new ModifierDefinition(
+            "joint",
+            "joint",
+            ModifierDefinition.Layer.EXPLICIT,
+            ModifierDefinition.AffixType.PREFIX,
+            Set.of("joint"),
+            1,
+            4,
+            1,
+            "joint",
+            List.of(
+                new ModifierDefinition.StatRange("x", 1, 2),
+                new ModifierDefinition.StatRange("y", 1, 2)),
+            Set.of(),
+            "https://example.test/joint");
+    var catalog = tiny.catalog(List.of(tiny.implicit, tiny.a, tiny.b, joint));
+    var kernel =
+        new AutomaticCraftingKernel(
+            policy,
+            catalog,
+            new WorkbenchSimulator(catalog, new CraftingEngine(catalog), Set.of("joint")),
+            "amulets");
+    var result =
+        kernel.expand(
+            tiny.item(ItemState.Rarity.RARE, List.of()),
+            new AutomaticCraftingAction(
+                WorkbenchCurrency.EXALTED,
+                Set.of(),
+                AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL),
+            100);
+    assertThat(result.status()).isEqualTo(AutomaticCraftingKernel.Status.PARTIAL);
+    assertThat(result.reason()).isEqualTo("JOINT_ROLL_MODEL_NOT_IMPLEMENTED");
+    assertThat(result.unresolved()).isEqualTo(Fraction.of(1, 2));
+    assertThat(result.outcomes())
+        .extracting(AutomaticCraftingKernel.Outcome::probability)
+        .containsExactlyInAnyOrder(
+            Fraction.of(1, 16), Fraction.of(1, 16), Fraction.of(3, 16), Fraction.of(3, 16));
+  }
+
+  @Test
   void scalarOraclePreservesNonGoalCandidatesAndBudgetRemainder() {
     var kernel =
         new AutomaticCraftingKernel(
