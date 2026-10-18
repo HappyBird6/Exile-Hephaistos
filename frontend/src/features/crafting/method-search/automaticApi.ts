@@ -74,11 +74,13 @@ function validate(raw: unknown): AutomaticView {
       v.status,
     ) ||
     !Array.isArray(v.nodes) ||
-    v.nodes.length > 128 ||
+    v.nodes.length > 50000 ||
     !Array.isArray(v.methods) ||
     v.methods.length > 256 ||
     !Array.isArray(v.recommendations)
   )
+    throw new Error('Invalid automatic graph')
+  if (v.nodes.filter((node) => node.progress?.goal !== 'MATCH').length > 128)
     throw new Error('Invalid automatic graph')
   const ids = new Set<number>()
   for (const n of v.nodes) {
