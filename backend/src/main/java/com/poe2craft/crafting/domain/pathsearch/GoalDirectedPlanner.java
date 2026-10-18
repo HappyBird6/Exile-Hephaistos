@@ -52,6 +52,13 @@ public final class GoalDirectedPlanner {
         && plan.branches().stream().anyMatch(b -> preserves(before, b.remaining()));
   }
 
+  private boolean guaranteedProtectedRemoval(ItemState source, AutomaticCraftingPlan plan) {
+    var before = evaluate.apply(source);
+    return plan.status() == AutomaticCraftingPlan.Status.READY
+        && !plan.branches().isEmpty()
+        && plan.branches().stream().allMatch(b -> preserves(before, b.remaining()));
+  }
+
   public List<Choice> choices(ItemState source) {
     var progress = evaluate.apply(source);
     if (progress.goal() == Status.UNKNOWN
@@ -103,7 +110,7 @@ public final class GoalDirectedPlanner {
         if (tierPreparation
             && (acquisition.currency() != WorkbenchCurrency.CHAOS
                 || !acquisition.omens().contains(WorkbenchOmen.WHITTLING)
-                || protectedRemoval(source, kernel.plan(source, acquisition)))) continue;
+                || guaranteedProtectedRemoval(source, kernel.plan(source, acquisition)))) continue;
         if (acquisition.purpose() != AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION
             && acquisition.currency().replacementModifiers().isEmpty()) continue;
         boolean useful = false;

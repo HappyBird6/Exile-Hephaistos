@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 /** Cooperative method-depth discovery. Display grouping must not replace these full item states. */
 public final class AutomaticMethodGraph implements AutoCloseable {
-  public static final String VERSION = "goal-directed-milestone-graph-v6-preparation";
+  public static final String VERSION = "goal-directed-milestone-graph-v7-removal-risk";
 
   public record Progress(Status goal, List<Status> entries) {
     public Progress {
@@ -172,7 +172,12 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       }
       return node;
     }
-    if (nodes.size() >= stateLimit) {
+    // Absorbed goal outcomes need no successor search. Preserve their exact item identity,
+    // but charge them to retained storage rather than the expandable-state budget.
+    boolean terminalGoal =
+        evaluate.apply(item).goal() == Status.MATCH
+            && (quality40 || !AutomaticCraftingKernel.hasQualityCap(item));
+    if ((!terminalGoal && expandableStates() >= stateLimit) || retainedStates() >= retainedLimit) {
       limited = true;
       return null;
     }
@@ -419,8 +424,12 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     return limited;
   }
 
+  private long expandableStates() {
+    return orderedNodes.stream().filter(n -> n.progress.goal() != Status.MATCH).count();
+  }
+
   public boolean canResume() {
-    if (limited && nodes.size() >= stateLimit && stateLimit >= 128) return false;
+    if (limited && expandableStates() >= stateLimit && stateLimit >= 128) return false;
     if (discoveryLimited && methodLimit >= 256) return false;
     if (retainedStates() > retainedLimit && retainedLimit >= 50000) return false;
     return !limited
