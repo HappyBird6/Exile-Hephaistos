@@ -48,6 +48,17 @@ public final class CertifiedMethodRunner<S, A> {
   private boolean initializing, atBoundary;
   private long cycles;
   private long absorbedEntries;
+  private S terminalFailureSentinel;
+
+  /**
+   * Only absorbing failure maps are compacted: no future action can inspect these items. Active,
+   * checkpoint and goal states retain their complete identities.
+   */
+  public void compactTerminalFailures(S sentinel) {
+    if (observationLeased) throw new IllegalStateException("Observation is being frozen");
+    terminalFailureSentinel = Objects.requireNonNull(sentinel);
+  }
+
   private Flight flight;
   private boolean observationLeased;
 
@@ -524,6 +535,8 @@ public final class CertifiedMethodRunner<S, A> {
 
   private void absorb(Exit kind, S state, CertifiedInterval mass) {
     if (mass.zero()) return;
+    if (terminalFailureSentinel != null && (kind == Exit.LOSS || kind == Exit.DEAD))
+      state = terminalFailureSentinel;
     var law = exits.get(kind);
     int before = law.size();
     law.merge(state, mass, CertifiedMethodRunner::probabilitySum);

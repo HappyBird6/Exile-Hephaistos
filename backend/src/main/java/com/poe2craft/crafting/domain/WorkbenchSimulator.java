@@ -612,7 +612,10 @@ public final class WorkbenchSimulator {
     validate(state);
     var action = execution.currency();
     var omens = List.copyOf(execution.omens());
-    boolean basic = action == WorkbenchCurrency.REGAL || action == WorkbenchCurrency.EXALTED;
+    boolean basic =
+        action == WorkbenchCurrency.REGAL
+            || action == WorkbenchCurrency.EXALTED
+            || action == WorkbenchCurrency.CHAOS;
     boolean replacement = !replacementTargets(action).isEmpty();
     boolean essence = !essenceTargets(action).isEmpty();
     if (action == WorkbenchCurrency.ESSENCE_ABYSS
@@ -648,7 +651,14 @@ public final class WorkbenchSimulator {
           "");
     var branches = new ArrayList<AutomaticCraftingPlan.Branch>();
     var omen = omens.isEmpty() ? null : omens.getFirst();
-    if (replacement) {
+    if (action == WorkbenchCurrency.CHAOS) {
+      for (var removed : removalCandidates(state, omens)) {
+        var rest = new ArrayList<>(state.explicits());
+        rest.remove(removed);
+        var remaining = copy(state, state.rarity(), state.implicits(), rest);
+        branches.add(new AutomaticCraftingPlan.Branch(remaining, pool(remaining, action, null)));
+      }
+    } else if (replacement) {
       var targets =
           replacementTargets(action).stream().map(id -> catalog.find(id).orElseThrow()).toList();
       for (var removed : replacementRemovalCandidates(state, action, omen)) {
@@ -685,7 +695,9 @@ public final class WorkbenchSimulator {
                 ? Optional.ofNullable(action.essenceChoiceSource())
                     .orElse(branches.getFirst().candidates().getFirst().sourceUrl())
                 : "https://poe2db.tw/us/"
-                    + (action == WorkbenchCurrency.REGAL ? "Regal_Orb" : "Exalted_Orb"));
+                    + (action == WorkbenchCurrency.REGAL
+                        ? "Regal_Orb"
+                        : action == WorkbenchCurrency.CHAOS ? "Chaos_Orb" : "Exalted_Orb"));
   }
 
   BasicCurrencyPlan basicCurrencyPlan(ItemState state, WorkbenchCurrency action) {

@@ -1,4 +1,4 @@
-import { validRoute } from './candidateRoute'
+import { validRoute } from './routeSelection'
 import type { AutomaticAction, AutomaticView } from './automaticApi'
 import type { Selection } from './supportStorage'
 import { workspaceMessages } from './workspaceMessages'

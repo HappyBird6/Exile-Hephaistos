@@ -58,6 +58,7 @@ public final class AutomaticSearchService implements AutoCloseable {
       String status,
       String reason,
       boolean complete,
+      boolean canResume,
       long operations,
       long retainedStates,
       List<AutomaticMethodGraph.NodeView> nodes,
@@ -292,6 +293,9 @@ public final class AutomaticSearchService implements AutoCloseable {
         case "RESUME" -> {
           if (job.graph.finished()) break;
           var saved = job.graph.checkpoint(job.runtime.objective());
+          if (job.status.equals("PAUSED")
+              && (job.reason.equals("STORAGE_BUDGET") || !job.graph.canResume()))
+            throw new Rejected(409, "MAXIMUM_RESOURCE_BUDGET");
           job.graph.increaseLimits(
               Math.min(128, saved.states() * 2),
               Math.min(256, saved.methods() * 2),
@@ -316,7 +320,12 @@ public final class AutomaticSearchService implements AutoCloseable {
             job.reason = "RESOURCE_BUDGET";
           } else if (job.graph.finished()) {
             job.status = job.graph.complete() ? "COMPLETE" : "PARTIAL";
-            job.reason = job.graph.complete() ? "" : "UNRESOLVED_MODEL_OR_POLICY";
+            job.reason =
+                job.graph.complete()
+                    ? (job.graph.hasGoal()
+                        ? "SUPPORTED_PLANS_COMPLETE"
+                        : "NO_PLAN_IN_SUPPORTED_SCOPE")
+                    : "UNRESOLVED_MODEL_OR_POLICY";
           }
         }
         default -> throw new IllegalStateException();
@@ -368,9 +377,10 @@ public final class AutomaticSearchService implements AutoCloseable {
           var target =
               ids.get(
                   new AutomaticMethodGraph.Identity(mass.state().item(), mass.state().quality40()));
+          if (mass.exit() == Exit.LOSS || mass.exit() == Exit.DEAD) target = null;
           String kind = mass.exit() == null ? "ACTIVE" : mass.exit().name();
           if ((mass.exit() == Exit.UNRESOLVED && !mass.state().temporaryPreparation())
-              || (target == null && mass.exit() != Exit.DEAD)) {
+              || (target == null && mass.exit() != Exit.DEAD && mass.exit() != Exit.LOSS)) {
             target = null;
             kind = "UNRESOLVED";
           }
@@ -459,6 +469,7 @@ public final class AutomaticSearchService implements AutoCloseable {
         job.status,
         job.reason,
         job.graph.complete(),
+        !job.reason.equals("STORAGE_BUDGET") && job.graph.canResume(),
         job.graph.operations(),
         job.graph.retainedStates(),
         nodes,

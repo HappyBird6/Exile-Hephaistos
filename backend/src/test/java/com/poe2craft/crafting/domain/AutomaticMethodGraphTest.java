@@ -69,19 +69,13 @@ class AutomaticMethodGraphTest {
                       && n.progress().entries().equals(List.of(Status.NO_MATCH, Status.MATCH)));
       assertThat(graph.nodes())
           .anyMatch(n -> n.depth() == 2 && n.progress().goal() == Status.MATCH);
-      assertThat(
-              graph.methods().stream()
-                  .filter(
-                      m ->
-                          m.source() == 0
-                              && m.points()
-                                      .get(100)
-                                      .exits()
-                                      .get(ExactMethodRunner.Exit.CHECKPOINT)
-                                      .size()
-                                  > 0)
-                  .count())
-          .isGreaterThan(1);
+      // A single probabilistic acquisition may branch into both milestone orders;
+      // duplicating it as unrelated prep pairs is no longer a planning requirement.
+      assertThat(graph.methods().stream().filter(m -> m.source() == 0).toList())
+          .anySatisfy(
+              m ->
+                  assertThat(m.points().get(100).exits().get(ExactMethodRunner.Exit.CHECKPOINT))
+                      .hasSizeGreaterThanOrEqualTo(2));
       assertThat(graph.nodes()).allMatch(n -> n.item().explicits().size() <= 4);
       assertThat(graph.complete()).isFalse();
     }
@@ -246,7 +240,13 @@ class AutomaticMethodGraphTest {
             tiny.item(ItemState.Rarity.RARE, List.of()),
             policy,
             kernel,
-            item -> new AutomaticMethodGraph.Progress(Status.NO_MATCH, List.of(Status.NO_MATCH)),
+            item -> {
+              boolean a = item.explicits().stream().anyMatch(m -> m.modifierId().equals("a"));
+              boolean b = item.explicits().stream().anyMatch(m -> m.modifierId().equals("b"));
+              return new AutomaticMethodGraph.Progress(
+                  a && b ? Status.MATCH : Status.NO_MATCH,
+                  List.of(a ? Status.MATCH : Status.NO_MATCH, b ? Status.MATCH : Status.NO_MATCH));
+            },
             CertifiedInterval.Precision.standard(),
             10,
             2,
@@ -272,7 +272,16 @@ class AutomaticMethodGraphTest {
                   m.template().initial().size() > 0
                       || m.template().cycle().size() > 1
                       || m.template().cycle().getFirst().purpose()
-                          == AutomaticCurrencyPolicy.Purpose.ORDINARY);
+                          == AutomaticCurrencyPolicy.Purpose.ORDINARY
+                      || m.template().cycle().getFirst().purpose()
+                          == AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION);
+      assertThat(graph.methods())
+          .noneMatch(
+              m ->
+                  m.template().initial().isEmpty()
+                      && m.template().cycle().size() == 1
+                      && m.template().cycle().getFirst().purpose()
+                          == AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL);
       graph.strategy(100);
     }
   }

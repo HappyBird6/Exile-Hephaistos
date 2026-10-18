@@ -4,7 +4,7 @@ import java.util.*;
 
 /** User-approved exploration policy. This never grants game eligibility or probability support. */
 public final class AutomaticCurrencyPolicy {
-  public static final String VERSION = "approved-187-2026-10-15-v1";
+  public static final String VERSION = "approved-187-2026-10-19-goal-v2";
 
   public enum Decision {
     USE,
@@ -15,6 +15,7 @@ public final class AutomaticCurrencyPolicy {
 
   public enum Condition {
     NONE,
+    GOAL_ACQUISITION,
     TEMPORARY_REMOVAL,
     HYSTERIA_PARTS,
     BREACH_QUALITY,
@@ -32,6 +33,8 @@ public final class AutomaticCurrencyPolicy {
 
   public enum Purpose {
     ORDINARY,
+    GOAL_ACQUISITION,
+    TARGET_PREPARATION,
     TEMPORARY_AFFIX_FOR_REMOVAL,
     QUALITY_CHECKPOINT
   }
@@ -130,11 +133,16 @@ public final class AutomaticCurrencyPolicy {
     boolean permitted =
         switch (entry.condition()) {
           case NONE, BREACH_QUALITY -> true;
-          case TEMPORARY_REMOVAL -> temporary;
+          case GOAL_ACQUISITION ->
+              context.purpose() == Purpose.GOAL_ACQUISITION
+                  || context.purpose() == Purpose.TARGET_PREPARATION;
+          case TEMPORARY_REMOVAL -> temporary || context.purpose() == Purpose.GOAL_ACQUISITION;
           case TEMPORARY_REGAL_PREFIX, TEMPORARY_REGAL_SUFFIX ->
-              temporary && context.currency() == WorkbenchCurrency.REGAL;
+              (temporary || context.purpose() == Purpose.GOAL_ACQUISITION)
+                  && context.currency() == WorkbenchCurrency.REGAL;
           case TEMPORARY_EXALTED_PREFIX, TEMPORARY_EXALTED_SUFFIX ->
-              temporary && context.currency() == WorkbenchCurrency.EXALTED;
+              (temporary || context.purpose() == Purpose.GOAL_ACQUISITION)
+                  && context.currency() == WorkbenchCurrency.EXALTED;
           case HYSTERIA_PARTS -> Set.of("gloves", "boots", "quivers").contains(context.family());
           case PRISMATIC_PARTS -> context.family().equals("gloves");
           case SWIFT_PARTS ->

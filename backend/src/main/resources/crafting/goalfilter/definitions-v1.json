@@ -1,7 +1,17 @@
 {
   "schemaVersion": 1,
-  "ruleVersion": "goal-catalog-source-units-v2/solar-numeric-addition-v1/uniform-integer-roll-v1",
+  "ruleVersion": "goal-catalog-source-units-v3-minion-strength/solar-numeric-addition-v1/uniform-integer-roll-v1",
   "stats": [
+    {
+      "sourceStatId": "minion_skill_gem_level_+",
+      "label": "Level of all Minion Skills",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "strength_+%",
+      "label": "Increased Strength",
+      "unit": "percent"
+    },
     {
       "sourceStatId": "base_cold_damage_resistance_%",
       "label": "Cold Resistance",

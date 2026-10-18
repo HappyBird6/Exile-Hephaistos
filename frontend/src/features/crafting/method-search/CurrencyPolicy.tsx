@@ -2,6 +2,7 @@ import { useId, useRef } from 'react'
 import policy from '../../../../../backend/src/main/resources/crafting/automatic-currency-policy-v1.json'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { policyMessages } from './policyMessages'
+import { acquisitionHints } from './planningMessages'
 import './currency-policy.css'
 
 const parts: Record<string, number[]> = {
@@ -53,7 +54,10 @@ export function CurrencyPolicy() {
                 {' — '}
                 {copy[decisions[entry.decision]!]}
                 {family && <p>{family.map((i) => copy[i]).join(' · ')}</p>}
-                {entry.condition.startsWith('TEMPORARY_') && <p>{copy[7]}</p>}
+                {(entry.condition.startsWith('TEMPORARY_') ||
+                  entry.condition === 'GOAL_ACQUISITION') && (
+                  <p>{acquisitionHints[locale]}</p>
+                )}
                 {entry.condition === 'BREACH_QUALITY' && <p>{copy[18]}</p>}
                 {entry.number === 100 && <p>{copy[19]}</p>}
                 {entry.decision === 'DEFERRED' && <p>{copy[20]}</p>}

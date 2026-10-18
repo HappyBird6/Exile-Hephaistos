@@ -5,6 +5,7 @@ RUN chmod +x gradlew && ./gradlew --no-daemon bootJar
 FROM eclipse-temurin:21-jre-jammy@sha256:e9aaf73145bbd1f9f6ec7f6867dd75a44f34b1a6c32a813504bf4129be2d09d7
 RUN groupadd --gid 10001 app && useradd --uid 10001 --gid app --no-create-home app
 WORKDIR /app
+RUN mkdir -p /app/data/method-jobs && chown -R app:app /app/data
 COPY --from=build --chown=app:app /workspace/build/libs/poe2craft.jar ./app.jar
 USER 10001:10001
 EXPOSE 8080

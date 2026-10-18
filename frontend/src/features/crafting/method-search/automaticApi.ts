@@ -40,6 +40,7 @@ export type AutomaticView = {
   status: 'READY' | 'PAUSED' | 'CANCELLED' | 'PARTIAL' | 'COMPLETE'
   reason: string
   complete: boolean
+  canResume?: boolean
   operations: number
   retainedStates: number
   nodes: AutomaticNode[]

@@ -22,12 +22,12 @@ class AutomaticCurrencyPolicyTest {
                 Decision.USE,
                 33L,
                 Decision.CONDITIONAL,
-                14L,
+                18L,
                 Decision.EXCLUDED,
-                114L,
+                110L,
                 Decision.DEFERRED,
                 26L));
-    assertThat(policy.candidates()).hasSize(47);
+    assertThat(policy.candidates()).hasSize(51);
     assertThat(policy.candidates())
         .extracting(Entry::id)
         .contains(

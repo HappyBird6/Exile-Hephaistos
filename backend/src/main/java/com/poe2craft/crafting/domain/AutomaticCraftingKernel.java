@@ -10,7 +10,7 @@ import java.util.*;
  * Finite primitive laws under declared scalar roll assumptions, never sampled game probabilities.
  */
 public final class AutomaticCraftingKernel {
-  public static final String VERSION = "automatic-scalar-kernel-v4-roll-cells";
+  public static final String VERSION = "automatic-scalar-kernel-v5-goal-acquisition";
 
   public record Identity(
       String kernelVersion,
@@ -72,6 +72,41 @@ public final class AutomaticCraftingKernel {
       if (end > value) result.put(modifier.modifierId(), new RollBand(stat, value, end));
     }
     return Map.copyOf(result);
+  }
+
+  /** Eligibility and prerequisite projection, before allocating a numeric probability law. */
+  public AutomaticCraftingPlan plan(ItemState item, AutomaticCraftingAction action) {
+    var context = new AutomaticCurrencyPolicy.Context(family, action.purpose(), action.currency());
+    if (policy.evaluate(action.currency().name(), context)
+            != AutomaticCurrencyPolicy.Verdict.PERMITTED
+        || action.omens().stream()
+            .anyMatch(
+                o ->
+                    policy.evaluate("OMEN:" + o.name(), context)
+                        != AutomaticCurrencyPolicy.Verdict.PERMITTED))
+      return new AutomaticCraftingPlan(
+          AutomaticCraftingPlan.Status.UNAVAILABLE, "POLICY_REJECTED", List.of(), false, "");
+    return simulator.automaticPlan(item, action);
+  }
+
+  /** Every disjoint scalar goal cell is considered; this supplies no selection probability. */
+  public List<ItemState> representatives(AutomaticCraftingPlan plan) {
+    var result = new ArrayList<ItemState>();
+    for (var branch : plan.branches())
+      for (var candidate : branch.candidates()) {
+        if (candidate.stats().size() != 1) continue;
+        var range = candidate.stats().getFirst();
+        for (long value = range.min(); ; ) {
+          var explicits = new ArrayList<>(branch.remaining().explicits());
+          explicits.add(new ModifierInstance(candidate.id(), Map.of(range.id(), value)));
+          if (policy.withinExplorationBoundary(explicits.size()))
+            result.add(simulator.finishBasicCurrency(branch.remaining(), explicits));
+          long end = partition.end(candidate, value);
+          if (end >= range.max()) break;
+          value = end + 1;
+        }
+      }
+    return List.copyOf(result);
   }
 
   public AutomaticCraftingKernel withRollPartition(RollPartition partition, String objective) {
@@ -189,6 +224,23 @@ public final class AutomaticCraftingKernel {
     if (plan.branches().isEmpty()) return blocked(Status.UNAVAILABLE, "NO_REMOVAL_CANDIDATE");
     var outcomes = new LinkedHashMap<ItemState, Fraction>();
     var assumptions = new LinkedHashSet<WorkbenchSimulator.Assumption>();
+    if (execution.omens().contains(WorkbenchOmen.WHITTLING)) {
+      var source =
+          policy.document().entries().stream()
+              .filter(e -> e.id().equals("OMEN:WHITTLING"))
+              .findFirst()
+              .orElseThrow();
+      assumptions.add(
+          new WorkbenchSimulator.Assumption(
+              "declared-whittling-priority-v1",
+              "eligible lowest modifier-level removal",
+              plan.branches().size(),
+              List.of(),
+              null,
+              null,
+              source.sourceUrl(),
+              "Lowest required modifier level after any affix-side restriction. Fractured combinations remain unsupported. Side+Whittling order is a declared composition, not independently established game odds."));
+    }
     var boundary = Fraction.ZERO;
     var emitted = Fraction.ZERO;
     long count = 0;

@@ -10,6 +10,46 @@ import { createGoalFilterEditor, emptyGoal } from './editor'
 import { goalFilterMessages } from './i18n'
 import type { Catalog, GoalFilterAdapter } from './types'
 
+it('preserves an explicit Rare-only target selection in the compact editor', async () => {
+  const catalog = structuredClone(example.catalog) as Catalog
+  const goal = emptyGoal(catalog.context, catalog.catalogVersion)
+  goal.general.rarities = ['RARE']
+  const editor = createGoalFilterEditor(goal)
+  const adapter: GoalFilterAdapter = {
+    id: 'compact-rarity',
+    catalog: async () => catalog,
+    validate: async () => ({
+      version: 1,
+      valid: true,
+      issues: [],
+      capabilities: { evaluation: 'SUPPORTED', probability: 'SUPPORTED' },
+    }),
+  }
+  render(
+    <QueryClientProvider
+      client={
+        new QueryClient({ defaultOptions: { queries: { retry: false } } })
+      }
+    >
+      <GoalFilterPanel
+        adapter={adapter}
+        context={catalog.context}
+        editor={editor}
+        bases={[]}
+        language="en"
+        compact
+      />
+    </QueryClientProvider>,
+  )
+  const rare = await screen.findByRole('checkbox', { name: 'RARE' })
+  expect(rare).toBeChecked()
+  expect(screen.getByRole('checkbox', { name: 'MAGIC' })).not.toBeChecked()
+  fireEvent.click(screen.getByRole('checkbox', { name: 'MAGIC' }))
+  expect(editor.getState().goal.general.rarities).toEqual(['RARE', 'MAGIC'])
+  fireEvent.click(screen.getByRole('checkbox', { name: 'MAGIC' }))
+  expect(editor.getState().goal.general.rarities).toEqual(['RARE'])
+})
+
 it('omits implicit candidates while preserving and warning about an existing implicit condition', async () => {
   const catalog = structuredClone(example.catalog) as Catalog
   const implicit = {

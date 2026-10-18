@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 /** Cooperative method-depth discovery. Display grouping must not replace these full item states. */
 public final class AutomaticMethodGraph implements AutoCloseable {
-  public static final String VERSION = "automatic-full-state-method-graph-v4-admission";
+  public static final String VERSION = "goal-directed-milestone-graph-v6-preparation";
 
   public record Progress(Status goal, List<Status> entries) {
     public Progress {
@@ -67,6 +67,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     final Set<AutomaticCraftingAction> allowedByPolicy = new HashSet<>();
     final List<Method> outgoing = new ArrayList<>();
     int depth, scan, pairs;
+    List<GoalDirectedPlanner.Choice> choices;
     boolean discovered;
 
     Node(ItemState item, boolean quality40, int depth) {
@@ -107,7 +108,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
               item -> classify(source, item),
               precision,
               primitiveOutcomeBudget,
-              AutomaticMethodExecution.PreparationSuccess.UNDECIDED,
+              AutomaticMethodExecution.PreparationSuccess.STOP_ON_FIRST_HIT,
               source.quality40);
     }
   }
@@ -155,42 +156,10 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     this.methodLimit = methodLimit;
     this.retainedLimit = retainedLimit;
     this.primitiveOutcomeBudget = primitiveOutcomeBudget;
-    candidates = orderCandidates(root, AutomaticCraftingAction.candidates(policy));
+    candidates = AutomaticCraftingAction.candidates(policy);
     if (!policy.withinExplorationBoundary(root.explicits().size()))
       throw new IllegalArgumentException("Root exceeds the explicit exploration boundary");
     intern(root, initialQuality40, 0);
-  }
-
-  /**
-   * Ordering only: a bounded representative probe never supplies a probability or removes choices.
-   */
-  private List<AutomaticCraftingAction> orderCandidates(
-      ItemState root, List<AutomaticCraftingAction> all) {
-    ItemState representative = root;
-    if (root.explicits().isEmpty()) {
-      for (var action : all)
-        if (action.purpose() == AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL) {
-          var law = kernel.expand(root, action, 1);
-          if (!law.outcomes().isEmpty()) {
-            representative = law.outcomes().getFirst().item();
-            break;
-          }
-        }
-    }
-    var priority = new HashMap<AutomaticCraftingAction, Long>();
-    for (var action : all) {
-      var law = kernel.expand(representative, action, 100);
-      long score =
-          law.outcomes().stream()
-              .map(o -> evaluate.apply(o.item()))
-              .mapToLong(p -> p.entries().stream().filter(s -> s == Status.MATCH).count())
-              .max()
-              .orElse(0);
-      priority.put(action, score);
-    }
-    return all.stream()
-        .sorted(Comparator.comparingLong((AutomaticCraftingAction a) -> priority.get(a)).reversed())
-        .toList();
   }
 
   private Node intern(ItemState item, boolean quality40, int depth) {
@@ -249,14 +218,16 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   private Optional<Exit> classify(Node source, ItemState item) {
     var now = evaluate.apply(item);
     if (now.goal() == Status.MATCH) return Optional.of(Exit.GOAL);
+    if (now.entries().size() != source.progress.entries().size())
+      return Optional.of(Exit.UNRESOLVED);
     if (now.goal() == Status.UNKNOWN
         || now.goal() == Status.UNSUPPORTED
         || now.entries().stream().anyMatch(s -> s == Status.UNKNOWN || s == Status.UNSUPPORTED))
       return Optional.of(Exit.UNRESOLVED);
-    if (!source.progress.entries().equals(now.entries())) {
-      for (int i = 0; i < now.entries().size(); i++)
-        if (source.progress.entries().get(i) == Status.MATCH
-            && now.entries().get(i) != Status.MATCH) return Optional.of(Exit.LOSS);
+    for (int i = 0; i < now.entries().size(); i++)
+      if (source.progress.entries().get(i) == Status.MATCH && now.entries().get(i) != Status.MATCH)
+        return Optional.of(Exit.LOSS);
+    if (GoalDirectedPlanner.matched(now) > GoalDirectedPlanner.matched(source.progress)) {
       return Optional.of(Exit.CHECKPOINT);
     }
     return Optional.empty();
@@ -276,13 +247,13 @@ public final class AutomaticMethodGraph implements AutoCloseable {
             : orderedNodes.stream()
                 .filter(n -> !n.discovered)
                 .min(
-                    Comparator.<Node>comparingInt(n -> n.depth)
+                    Comparator.<Node>comparingInt(n -> n.scan)
                         .thenComparingLong(
                             n ->
                                 -n.progress.entries().stream()
                                     .filter(s -> s == Status.MATCH)
                                     .count())
-                        .thenComparingInt(n -> n.scan + n.pairs))
+                        .thenComparingInt(n -> n.depth))
                 .orElse(null);
     if (source != null) discover(source);
     if (limited || ready.isEmpty()) return;
@@ -324,50 +295,17 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   }
 
   private void discover(Node source) {
-    if (source.scan < candidates.size()) {
-      var action = candidates.get(source.scan++);
-      if (source.quality40
-          && action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT) return;
-      var law = kernel.expand(source.item, action, 1);
-      if (law.status() == AutomaticCraftingKernel.Status.POLICY_REJECTED) return;
-      boolean permanentUnsupported =
-          Set.of(
-                  "AUTOMATIC_OPERATION_NOT_IMPLEMENTED",
-                  "This material's results are not verified for this base.")
-              .contains(law.reason());
-      boolean rareCannotDowngrade =
-          source.item.rarity() == ItemState.Rarity.RARE
-              && law.reason().equals("RARITY_NOT_APPLICABLE");
-      if (!permanentUnsupported && !rareCannotDowngrade) source.allowedByPolicy.add(action);
-      if (law.status() == AutomaticCraftingKernel.Status.UNAVAILABLE) return;
-      if (law.status() != AutomaticCraftingKernel.Status.UNSUPPORTED
-          && !source.applicable.contains(action)) source.applicable.add(action);
-      if (action.purpose() != AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL)
-        add(source, List.of(), List.of(action));
-      if (limited || discoveryLimited) source.scan--;
-      revision++;
-      return;
-    }
-    int combinations = source.applicable.size() * candidates.size();
-    if (source.pairs >= combinations) {
+    if (source.choices == null)
+      source.choices = new GoalDirectedPlanner(kernel, evaluate, candidates).choices(source.item);
+    if (source.scan >= source.choices.size()) {
       source.discovered = true;
       revision++;
       return;
     }
-    var first = source.applicable.get(source.pairs / candidates.size());
-    var next = candidates.get(source.pairs++ % candidates.size());
-    if (!source.allowedByPolicy.contains(next)) return;
-    if (next.purpose() == AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL) return;
-    if (first.purpose() == AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL) {
-      if (!next.currency().replacementModifiers().isEmpty()) {
-        add(source, List.of(first), List.of(next));
-        if (!limited && !discoveryLimited) add(source, List.of(), List.of(first, next));
-      }
-    } else if (!first.equals(next)) {
-      add(source, List.of(first), List.of(next));
-      if (!limited && !discoveryLimited) add(source, List.of(), List.of(first, next));
-    }
-    if (limited || discoveryLimited) source.pairs--;
+    var choice = source.choices.get(source.scan++);
+    add(source, choice.initial(), choice.cycle());
+    if (limited || discoveryLimited) source.scan--;
+    revision++;
   }
 
   private void add(
@@ -403,7 +341,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
         .exits()
         .forEach(
             (kind, law) -> {
-              if (kind == Exit.DEAD) return;
+              if (kind == Exit.DEAD || kind == Exit.LOSS) return;
               law.forEach(
                   (state, mass) -> {
                     if (!mass.zero()
@@ -481,8 +419,21 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     return limited;
   }
 
+  public boolean canResume() {
+    if (limited && nodes.size() >= stateLimit && stateLimit >= 128) return false;
+    if (discoveryLimited && methodLimit >= 256) return false;
+    if (retainedStates() > retainedLimit && retainedLimit >= 50000) return false;
+    return !limited
+        || primitiveOutcomeBudget < 10000
+        || ready.stream().anyMatch(m -> !m.execution.resourceLimited());
+  }
+
   public long operations() {
     return operations;
+  }
+
+  public boolean hasGoal() {
+    return orderedNodes.stream().anyMatch(n -> n.progress.goal() == Status.MATCH);
   }
 
   public long revision() {
@@ -556,7 +507,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                     law.forEach(
                         (state, mass) -> {
                           if (kind == Exit.UNRESOLVED) unknown[0] = unknown[0].add(mass);
-                          else if (kind == Exit.DEAD)
+                          else if (kind == Exit.DEAD || kind == Exit.LOSS)
                             outcomes.merge(-1, mass, CertifiedInterval::add);
                           else {
                             var target = nodes.get(new Identity(state.item(), state.quality40()));

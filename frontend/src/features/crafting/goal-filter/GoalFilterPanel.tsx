@@ -398,6 +398,27 @@ export function GoalFilterPanel({
         {adapter.mock && <p>{t.mock}</p>}
       </header>
       <div className="goal-filter-layout">
+        {compact && (
+          <fieldset className="goal-filter-rarity">
+            <legend>{t.rarity}</legend>
+            {['NORMAL', 'MAGIC', 'RARE'].map((rarity) => (
+              <label key={rarity}>
+                <input
+                  type="checkbox"
+                  checked={goal.general.rarities.includes(rarity)}
+                  onChange={(e) =>
+                    edit((g) => {
+                      g.general.rarities = e.target.checked
+                        ? [...g.general.rarities, rarity]
+                        : g.general.rarities.filter((r) => r !== rarity)
+                    })
+                  }
+                />
+                {rarity}
+              </label>
+            ))}
+          </fieldset>
+        )}
         {!compact && (
           <aside className="goal-filter-general">
             <h3 className="goal-filter-section-heading">

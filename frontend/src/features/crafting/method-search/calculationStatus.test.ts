@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { calculationState } from './calculationStatus'
+import { calculationState } from './calculationState'
 import type { AutomaticView } from './automaticApi'
 it('distinguishes pending controls, restored READY, budget pauses and unresolved completion', () => {
   const view = { status: 'READY', complete: false } as AutomaticView

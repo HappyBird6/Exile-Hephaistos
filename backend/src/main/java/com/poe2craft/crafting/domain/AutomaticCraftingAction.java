@@ -23,6 +23,27 @@ public record AutomaticCraftingAction(
               ? AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL
               : AutomaticCurrencyPolicy.Purpose.ORDINARY;
       result.add(new AutomaticCraftingAction(currency, Set.of(), purpose));
+      if (temporary || currency == WorkbenchCurrency.CHAOS) {
+        result.add(
+            new AutomaticCraftingAction(
+                currency, Set.of(), AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION));
+      }
+      if (currency == WorkbenchCurrency.CHAOS) {
+        result.add(
+            new AutomaticCraftingAction(
+                currency, Set.of(), AutomaticCurrencyPolicy.Purpose.TARGET_PREPARATION));
+        for (var omens :
+            List.of(
+                Set.of(WorkbenchOmen.WHITTLING),
+                Set.of(WorkbenchOmen.SINISTRAL_ERASURE),
+                Set.of(WorkbenchOmen.DEXTRAL_ERASURE),
+                Set.of(WorkbenchOmen.WHITTLING, WorkbenchOmen.SINISTRAL_ERASURE),
+                Set.of(WorkbenchOmen.WHITTLING, WorkbenchOmen.DEXTRAL_ERASURE))) {
+          result.add(
+              new AutomaticCraftingAction(
+                  currency, omens, AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION));
+        }
+      }
       if (currency == WorkbenchCurrency.ESSENCE_BREACH)
         result.add(
             new AutomaticCraftingAction(
@@ -37,8 +58,13 @@ public record AutomaticCraftingAction(
                           WorkbenchOmen.SINISTRAL_CRYSTALLISATION,
                           WorkbenchOmen.DEXTRAL_CRYSTALLISATION)
                       : List.<WorkbenchOmen>of();
-      for (var omen : variants)
+      for (var omen : variants) {
         result.add(new AutomaticCraftingAction(currency, Set.of(omen), purpose));
+        if (temporary)
+          result.add(
+              new AutomaticCraftingAction(
+                  currency, Set.of(omen), AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION));
+      }
     }
     return List.copyOf(result);
   }

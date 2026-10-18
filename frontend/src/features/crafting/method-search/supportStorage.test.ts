@@ -6,7 +6,7 @@ import {
   hasImplicitGoal,
 } from './supportStorage'
 import { requestFixture } from '../path-tree/fixtures.test-support'
-import { routeThrough } from './candidateRoute'
+import { routeThrough } from './routeSelection'
 it('rejects corrupt, expired, oversized and wrong-version local state', () => {
   const key = 'hephaistos.support.v1:run'
   const data = {

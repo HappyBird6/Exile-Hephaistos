@@ -10,14 +10,14 @@
     },
     {
       "path": "crafting/ruleset-v1.json",
-      "sha256": "88f86139d3d205dd26781d198ae0ebb68aa4feb4f7eda4fd1ddb95a2bc913976"
+      "sha256": "645d908295f8218f27a06a0bb365237e6aa0cd1524a2e52bd1d8b4412f5c52ca"
     },
     {
       "path": "crafting/goalfilter/definitions-v1.json",
-      "sha256": "5ef36ab83520e56c89d98e8868d92065e00c4da5a6d1c3c31e5b0b6875feafbd"
+      "sha256": "370f5d76382cd5735a1862ee5bd2ffd637f9150f777052b91849bd8417c50d48"
     }
   ],
-  "rulesetIdentity": "reviewed-equipment-20261009-v2-237f9a3d93ed85da9ce92dad066e43f598dd4da557186886dbb7b735e6f1becb",
+  "rulesetIdentity": "reviewed-equipment-20261009-v2-99ed6f9ea4352c2ed8abe5247c1008736484ded2307cf70c10a2c49e801e956a",
   "gameSeason": "UNVERIFIED",
   "gamePatch": "UNVERIFIED",
   "startItem": {
@@ -56,7 +56,9 @@
         "min": 1,
         "max": 100
       },
-      "rarities": ["RARE"]
+      "rarities": [
+        "RARE"
+      ]
     },
     "groups": [
       {
@@ -103,7 +105,11 @@
       "Rare one nonfractured explicit; removal returns identical empty-explicit state"
     ],
     "observationFormula": "1 - (1-p)^n",
-    "observations": ["100", "300", "500"],
+    "observations": [
+      "100",
+      "300",
+      "500"
+    ],
     "existingNumericRenewalSupport": false
   },
   "requiredRuntimeAcceptance": [

@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 /** Method transport for approved currency/omen executions, with primitive first-hit semantics. */
 public final class AutomaticMethodExecution implements AutoCloseable {
-  public static final String VERSION = "automatic-method-execution-v2-quality-work";
+  public static final String VERSION = "automatic-method-execution-v3-planned-preparation";
 
   public enum PreparationSuccess {
     UNDECIDED,
@@ -35,10 +35,21 @@ public final class AutomaticMethodExecution implements AutoCloseable {
       sequence.addAll(cycle);
       for (int i = 0; i < sequence.size(); i++) {
         var action = sequence.get(i);
+        if (action.purpose() == AutomaticCurrencyPolicy.Purpose.TARGET_PREPARATION) {
+          if (action.currency() != WorkbenchCurrency.CHAOS
+              || !action.omens().isEmpty()
+              || i + 1 == sequence.size()
+              || sequence.get(i + 1).currency() != WorkbenchCurrency.CHAOS
+              || !sequence.get(i + 1).omens().contains(WorkbenchOmen.WHITTLING))
+            throw new IllegalArgumentException(
+                "Tier preparation requires a planned Whittling acquisition");
+        }
         if (action.purpose() != AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL)
           continue;
         if (i + 1 == sequence.size()
-            || sequence.get(i + 1).currency().replacementModifiers().isEmpty())
+            || (sequence.get(i + 1).currency().replacementModifiers().isEmpty()
+                && sequence.get(i + 1).purpose()
+                    != AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION))
           throw new IllegalArgumentException(
               "Temporary addition requires a following replacement step");
       }
@@ -46,6 +57,9 @@ public final class AutomaticMethodExecution implements AutoCloseable {
   }
 
   private CertifiedMethodRunner<State, AutomaticCraftingAction> runner;
+  // The runner synchronously classifies its root during construction. A post-preparation
+  // return to that item is a failure; the untouched initial root is not.
+  private boolean initializingRoot = true;
   private final ItemState root;
   private final boolean initialQuality40;
   private final Template template;
@@ -123,6 +137,9 @@ public final class AutomaticMethodExecution implements AutoCloseable {
             this::transition,
             this::classifyState,
             precision);
+    initializingRoot = false;
+    if (preparationSuccess == PreparationSuccess.STOP_ON_FIRST_HIT)
+      runner.compactTerminalFailures(new State(root, false, initialQuality40));
   }
 
   private ExactMethodRunner.Template<State, AutomaticCraftingAction> compiledTemplate() {
@@ -138,6 +155,18 @@ public final class AutomaticMethodExecution implements AutoCloseable {
   }
 
   private Kernel<State> transition(State state, AutomaticCraftingAction action) {
+    if (template.initial().stream()
+            .anyMatch(a -> a.purpose() == AutomaticCurrencyPolicy.Purpose.TARGET_PREPARATION)
+        && action.currency() == WorkbenchCurrency.CHAOS
+        && action.omens().contains(WorkbenchOmen.WHITTLING)) {
+      var plan = kernel.plan(state.item(), action);
+      // Stop before charging the follower if preparation did not protect any reviewed target.
+      if (plan.status() == AutomaticCraftingPlan.Status.READY
+          && !plan.branches().isEmpty()
+          && plan.branches().stream()
+              .allMatch(b -> classify.apply(b.remaining()).orElse(null) == Exit.LOSS))
+        return new Kernel<>(List.of(), Fraction.ZERO, true);
+    }
     var law = kernel.expand(state.item(), action, primitiveOutcomeBudget);
     // The runner has not removed this pending state or charged material yet.
     if (law.reason().equals("OUTCOME_BUDGET")) throw new PrimitiveBudgetReached();
@@ -153,15 +182,36 @@ public final class AutomaticMethodExecution implements AutoCloseable {
           && !AutomaticCraftingKernel.hasQualityCap(outcome.item())) {
         unresolved = unresolved.add(outcome.probability());
         unresolvedReasons.add("QUALITY_CAP_REMOVAL_BEFORE_40");
-      } else
+      } else {
+        // One non-fractured affix is completely removed by each Chaos attempt. The next
+        // eligible pool is therefore identical, independent of the failed modifier/tier.
+        // Do not apply this quotient to multi-affix, quality-changing, or prepared cycles.
+        boolean stationaryRetry =
+            action.currency() == WorkbenchCurrency.CHAOS
+                && action.omens().stream().allMatch(o -> o == WorkbenchOmen.WHITTLING)
+                && action.purpose() == AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION
+                && template.initial().isEmpty()
+                && template.cycle().size() == 1
+                && root.explicits().size() == 1
+                && state.item().explicits().size() == 1
+                && outcome.item().explicits().size() == 1
+                && !root.explicits().getFirst().fractured()
+                && root.catalystQuality() == null
+                && outcome.item().catalystQuality() == null
+                && !AutomaticCraftingKernel.hasQualityCap(root)
+                && !AutomaticCraftingKernel.hasQualityCap(outcome.item())
+                && classifyState(new State(outcome.item(), false, state.quality40())).orElse(null)
+                    == Exit.LOSS;
         outcomes.add(
             new Outcome<>(
                 new State(
-                    outcome.item(),
-                    action.purpose() == AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL,
+                    stationaryRetry ? root : outcome.item(),
+                    action.purpose() == AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL
+                        || action.purpose() == AutomaticCurrencyPolicy.Purpose.TARGET_PREPARATION,
                     state.quality40()
                         || action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT),
                 outcome.probability()));
+      }
     }
     return new Kernel<>(outcomes, unresolved, false);
   }
@@ -183,9 +233,17 @@ public final class AutomaticMethodExecution implements AutoCloseable {
       if (preparationSuccess == PreparationSuccess.REQUIRE_REPLACEMENT) return Optional.empty();
     }
     // Preparation is not a completed method checkpoint.
-    return state.temporaryPreparation() && exit.orElse(null) == Exit.CHECKPOINT
-        ? Optional.empty()
-        : exit;
+    if (state.temporaryPreparation() && exit.orElse(null) == Exit.CHECKPOINT)
+      return Optional.empty();
+    if (!initializingRoot
+        && preparationSuccess == PreparationSuccess.STOP_ON_FIRST_HIT
+        && !state.temporaryPreparation()
+        && exit.isEmpty()
+        && (!state.item().equals(root)
+            || template.initial().stream()
+                .anyMatch(a -> a.purpose() == AutomaticCurrencyPolicy.Purpose.TARGET_PREPARATION)))
+      return Optional.of(Exit.LOSS);
+    return exit;
   }
 
   public record Checkpoint(
@@ -280,6 +338,9 @@ public final class AutomaticMethodExecution implements AutoCloseable {
             LinkedHashMap::new)) {
       saved.rows().forEach(restore::accept);
       execution.runner = restore.finish();
+      if (saved.preparationSuccess() == PreparationSuccess.STOP_ON_FIRST_HIT)
+        execution.runner.compactTerminalFailures(
+            new State(saved.root(), false, saved.initialQuality40()));
     }
     execution.assumptions.addAll(saved.assumptions());
     execution.unresolvedReasons.addAll(saved.unresolvedReasons());

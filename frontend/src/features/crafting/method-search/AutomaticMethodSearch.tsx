@@ -1,7 +1,9 @@
 import { CalculationStatus, CalculationControlLabel } from './CalculationStatus'
-import { calculationState } from './calculationStatus'
+import { PlanningDisclosure } from './PlanningDisclosure'
+import { acquisitionLabels, preparationConditions } from './planningMessages'
+import { calculationState } from './calculationState'
 import { CandidateRoute } from './CandidateRoute'
-import { routeThrough, validRoute } from './candidateRoute'
+import { routeThrough, validRoute } from './routeSelection'
 import { readSupport, saveSupport, validRun } from './supportStorage'
 import type { Selection } from './supportStorage'
 import { workspaceMessages } from './workspaceMessages'
@@ -249,7 +251,7 @@ function Run({
                 )
                 .join(' + ')}`
             : ''
-        }`
+        }${a.purpose === 'GOAL_ACQUISITION' ? ` (${acquisitionLabels[locale]})` : ''}`
   const recommendations = view?.recommendations.find(
     (r) => r.node === selectedNode?.id && r.cycles === cycles,
   )
@@ -298,6 +300,10 @@ function Run({
   return (
     <section className="method-map" aria-label={common.title}>
       <h2>{common.title}</h2>
+      <PlanningDisclosure
+        view={view}
+        rarities={request.goal.general.rarities}
+      />
       {storageFailed && (
         <p role="status">{workspaceMessages[locale].storage}</p>
       )}
@@ -330,7 +336,9 @@ function Run({
           (['PAUSED', 'CANCELLED'].includes(view.status) ||
             (view.status === 'READY' && !runEnabled)) && (
             <button
-              disabled={busy || controlPhase !== null}
+              disabled={
+                busy || controlPhase !== null || view.canResume === false
+              }
               onClick={() => {
                 setRunEnabled(true)
                 if (view.status !== 'READY') void command('RESUME')
@@ -386,12 +394,7 @@ function Run({
                   const point = m.points.find((p) => p.cycles === cycles)
                   if (!source || !point) return []
                   return point.outcomes
-                    .filter(
-                      (o) =>
-                        o.target !== null &&
-                        o.kind !== 'UNRESOLVED' &&
-                        o.kind !== 'DEAD',
-                    )
+                    .filter((o) => o.target !== null && o.kind !== 'DEAD')
                     .map((o, i) => {
                       const target = positions.get(o.target!)
                       if (!target) return null
@@ -431,6 +434,9 @@ function Run({
                           d={`M${source.x},${source.y + 18} Q${(source.x + target.x) / 2 + offset},${(source.y + target.y) / 2} ${target.x},${target.y - 18}`}
                           fill="none"
                           stroke="currentColor"
+                          strokeDasharray={
+                            o.kind === 'UNRESOLVED' ? '5 4' : undefined
+                          }
                           opacity={m.source === selectedNode?.id ? 1 : 0.3}
                           markerEnd={`url(#automatic-arrow-${view.id})`}
                         >
@@ -572,6 +578,9 @@ function Run({
                     {m.reasons.includes('QUALITY_CAP_REMOVAL_BEFORE_40') && (
                       <p>{policy[18]}</p>
                     )}
+                    {m.initial.some(
+                      (a) => a.purpose === 'TARGET_PREPARATION',
+                    ) && <p>{preparationConditions[locale]}</p>}
                     {m.initial.length > 0 && (
                       <p>
                         {copy.initial}: {m.initial.map(action).join(' → ')}

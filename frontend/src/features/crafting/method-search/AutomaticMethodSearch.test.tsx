@@ -39,6 +39,96 @@ const present = createItemPresentation(
   { name: 'Solar Amulet', itemClass: 'Amulet' },
   {},
 )
+it('shows the selected target rarity and blocks resume at the maximum resource limit', async () => {
+  setLocale('en')
+  const request = requestFixture()
+  request.goal.general.rarities = ['RARE']
+  const server = {
+    ...initial(),
+    status: 'PAUSED',
+    canResume: false,
+    reason: 'RESOURCE_BUDGET',
+  }
+  const fetcher = vi.fn(
+    async () =>
+      new Response(JSON.stringify(server), {
+        headers: {
+          'X-Crafting-Ruleset': request.start.provenance.rulesetIdentity,
+        },
+      }),
+  )
+  vi.stubGlobal('fetch', fetcher)
+  render(
+    <AutomaticMethodSearch
+      request={request}
+      inputGeneration={1}
+      presentItem={present}
+      onRecalculate={vi.fn()}
+    />,
+  )
+  expect(
+    await screen.findByRole('button', { name: 'Continue calculation' }),
+  ).toBeDisabled()
+  expect(screen.getByText('Target rarities: RARE')).toBeInTheDocument()
+  expect(screen.getByText(/Maximum resource limit reached/)).toBeInTheDocument()
+  expect(fetcher).toHaveBeenCalledTimes(1)
+})
+
+it('keeps an unresolved target connection visible as a dashed edge', async () => {
+  setLocale('en')
+  const request = requestFixture()
+  const server = { ...initial(), status: 'PARTIAL' as const }
+  server.nodes.push({ ...server.nodes[0]!, id: 1, depth: 1 })
+  const bound = {
+    lower: { numerator: '0', denominator: '1' },
+    upper: { numerator: '1', denominator: '1' },
+    arithmeticWidth: { numerator: '1', denominator: '1' },
+    exact: false,
+    confirmedPercent: null,
+  }
+  server.methods.push({
+    id: 'uncertain',
+    source: 0,
+    initial: [],
+    cycle: [{ currency: 'CHAOS', omens: [], purpose: 'GOAL_ACQUISITION' }],
+    points: [
+      {
+        cycles: 100,
+        complete: false,
+        outcomes: [{ target: 1, kind: 'UNRESOLVED', probability: bound }],
+        initialUses: {},
+        cycleUses: {},
+      },
+    ],
+    reasons: ['UNRESOLVED_MODEL'],
+    finished: true,
+  })
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(
+      async () =>
+        new Response(JSON.stringify(server), {
+          headers: {
+            'X-Crafting-Ruleset': request.start.provenance.rulesetIdentity,
+          },
+        }),
+    ),
+  )
+  const mounted = render(
+    <AutomaticMethodSearch
+      request={request}
+      inputGeneration={1}
+      presentItem={present}
+      onRecalculate={vi.fn()}
+    />,
+  )
+  await screen.findByRole('heading', { name: 'Item state 0' })
+  await waitFor(() =>
+    expect(
+      mounted.container.querySelector('path.automatic-edge'),
+    ).toHaveAttribute('stroke-dasharray', '5 4'),
+  )
+})
 it('restores the same job and selection after remount without creating or advancing another job', async () => {
   const request = requestFixture()
   const server = { ...initial(), status: 'READY' as const }

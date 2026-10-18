@@ -368,6 +368,18 @@ class CertifiedSearchJobsTest {
                   current.jobId(),
                   "root",
                   new IndexedMethodProtocol.Advance(2, 0L, 1, 100000)));
+      // Worker slices and publication counts vary with scheduling. Explicitly exceed
+      // the four-revision retention window before asserting expiration.
+      var latest = service.getCertified("owner", current.jobId());
+      for (int i = 0; i < 5; i++)
+        latest =
+            service.mutateCertified(
+                "owner",
+                current.jobId(),
+                new MethodSearchProtocol.Mutation(
+                    2, "expire-revision-" + i, latest.revision(), "CANCEL", null));
+      long latestRevision = latest.revision();
+      assertThat(latestRevision - created.revision()).isGreaterThan(4);
       rejected(
           "REVISION_EXPIRED",
           () -> service.certifiedGraph("owner", current.jobId(), created.revision(), 0, 0));
@@ -377,7 +389,7 @@ class CertifiedSearchJobsTest {
       rejected("SEARCH_NOT_FOUND", () -> service.certifiedView("other-owner", current.jobId()));
       rejected(
           "INVALID_OFFSET",
-          () -> service.certifiedMap("owner", current.jobId(), current.revision(), -1));
+          () -> service.certifiedMap("owner", current.jobId(), latestRevision, -1));
       var mvc =
           org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup(
                   new com.poe2craft.crafting.presentation.pathsearch.MethodSearchController(
