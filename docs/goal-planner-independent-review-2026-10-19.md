@@ -1,6 +1,6 @@
 # 목표 지향 제작 계획 독립 리뷰 및 최종 검증
 
-**리뷰 결함 2건을 수정했고, 서로 다른 정상 지원 시나리오 12개 모두 COMPLETE 및 목표 도달을 확인했다.** 최종 제품 소스의 단위·아키텍처 826개, 통합 8개, Frontend 2183개가 통과했다. 화면 검증과 실행 앱 교체는 수행하지 않았다.
+**리뷰·런타임 연결 점검 결함 3건을 수정했고, 정상 지원 시나리오 12개 모두 COMPLETE 및 목표 도달을 확인했다.** Backend 단위·아키텍처 826개, 통합 8개, 최종 Frontend 2186개가 통과했다. 최종 실행 소스는 0afab1aa374a06c75ac4d546c15e2fe5a355500b이며 localhost 앱·프런트에 반영했다. 화면 조작 검증은 지원 브라우저 부재로 미실행이다.
 
 - 기준 commit: `2350296f4354b7f9efe6f2d2f45c3e5e5497cc41`
 - 작업 branch: `crafting/goal-directed-planner`
@@ -27,16 +27,21 @@
 
 공통 입력은 실제 production catalog/policy, Solar Amulet, item level 82, Spirit implicit 15다. 목표 희귀도는 RARE이며 표의 수치 이상을 AND로 요구한다. 전체 graph 기본 예산은 확장 상태 64, 방법 128, 보관 상태 20000, primitive outcome 5000으로 유지했다. 기존 100/300/500회 관측점과 최대 명시속성 4개도 유지했다.
 
-## 임시 판단과 이유
+## 임시 판단 전체 목록과 이유
 
-1. 모든 제거 분기가 안전할 때만 고티어 선행 준비를 불필요하다고 판단한다. 일부 안전 분기가 있다는 이유로 위험을 줄이는 다른 계획을 제외하지 않기 위해서다.
-2. 완료된 성공 결과는 확장 예산에서 제외하지만 전체 보관 예산에 포함한다. 성공 결과가 다양하다는 이유로 아직 필요한 제작 단계가 막히지 않게 하면서 메모리 제한을 유지하기 위해서다.
-3. 성공 결과를 하나의 가상 아이템으로 합치지 않는다. 분기·합류와 실제 옵션·확률을 보존한다.
-4. 기존 저장 작업은 수정·삭제하지 않는다. 그래프 버전 변경 후 재계산이 필요하다.
-5. 확률은 카탈로그 weight와 기존 simulator 가정에 기반한다. 실게임에서 독립 측정한 확률로 주장하지 않는다.
-6. 단일 비분열 옵션 CHAOS 반복만 검증된 동일 pool 조건에서 반복한다. 다른 상태 의존 실패를 무료 복구나 독립 반복으로 바꾸지 않는다.
-7. 무관한 준비 작업을 추가하지 않으며, 기존 계획의 STOP_ON_FIRST_HIT 규칙은 유지한다. 의도된 준비 중 실제 목표가 먼저 완성되면 그 시점 성공으로 기록한다.
-8. 미지원 조합·일반 복구·장기 준비·전역 최적성은 확대 주장하지 않는다.
+1. REGAL·EXALTED 목표 획득 목적을 허용하고 CHAOS·WHITTLING·좌/우 제거 징조만 목표 목적에 조건부 허용한다. ANNULMENT·GREATER_CHAOS 등 나머지 제외 정책은 유지하여 무관한 화폐 전체를 열지 않는다.
+2. 목표를 보존하는 milestone과 지원되는 준비→획득 쌍을 계획 범위로 삼는다. 동일 화폐의 직접 획득이 가능한 경우 일부 준비 쌍을 생략하는 기존 정책과 장기 목표 손실·복구 미지원은 유지한다. 모든 전략 열거·전역 최적성은 주장하지 않는다.
+3. 의도된 준비 중 실제 목표가 먼저 완성되면 STOP_ON_FIRST_HIT로 종료한다. 무관한 준비를 성공 가능성만으로 추가하는 것과 구분한다.
+4. 일반 실패는 해당 방법을 종료한다. 실패를 시작 아이템으로 무료 복구하지 않으며 새 아이템·복구·시장 비용은 별도다. 준비 조건 실패 시 후속 화폐는 청구하지 않는다.
+5. 비분열 단일 옵션, 준비·촉매·품질 조건이 없는 bare CHAOS/WHITTLING-only만 동일 pool 반복 법칙을 쓴다. 다른 상태 의존 시도를 독립 시행으로 바꾸지 않는다. 방법 관측점 100/300/500회를 유지한다.
+6. 고티어 준비는 실제 catalog modifier required level로 판단한다. 모든 제거 분기가 안전할 때만 준비를 불필요하다고 판단하여, 동률에서 일부 안전 분기만 있는 경우의 보호 준비를 남긴다.
+7. 종료된 LOSS/DEAD는 확률·재료 사용량을 보존하는 흡수 상태로 압축하되, 성공 아이템은 정확한 ItemState로 별도 보존한다. 가상 실패 상태를 실제 아이템으로 표시하지 않는다.
+8. 종료된 GOAL은 확장 상태 예산에서 제외하고 전체 보관 예산에는 포함한다. 숫자 예산을 올리지 않았다. Frontend도 비종료 상태 128/전체 보관 노드 50000의 최대 한도를 구분해 동일 계약을 검증한다.
+9. 단위·weight·roll은 근거 있는 catalog 및 기존 simulator 가정을 따른다. side+WHITTLING 조합의 명시 가정과 미지원 joint roll·fractured WHITTLING의 unresolved mass를 숨기지 않는다. 누락 질량 재정규화로 성공을 만들지 않는다.
+10. 그래프 버전을 v7로 올려 오래된 checkpoint는 재계산하도록 한다. 기존 입력과 저장 파일은 삭제하거나 덮어쓰지 않는다.
+11. COMPLETE는 지원 계획 탐색 소진이며 최선 방법 인증과 별개다. 128회 정련 후 PENDING인 결과도 그대로 보고한다. 보고서 소수 표시는 요약이고 정확한 유리수 구간은 증거 JSON에 보존한다. 무제한 반복 한계와 100회 성공률을 구분한다.
+12. 비교 시나리오는 Solar Amulet, ilvl82, Spirit15, RARE 목표를 공통으로 쓰고 표에서 생략한 목표 최소값은 1로 명시했다. 카탈로그에서 유효한 합성 입력이며 사용자 아이템이나 확률 oracle을 완화하지 않았다.
+13. 로컬 반영은 검증 JAR를 재사용하고 최종 Frontend를 빌드하며 이전 이미지도 남긴다. 검증 CPU/메모리를 제한하고 임시 DB만 사용한다. DB·Redis 컨테이너, .env, 기존 저장 파일 5개는 그대로 보존한다.
 
 ## 범위와 남는 한계
 
@@ -44,7 +49,7 @@
 - 임의로 목표를 잃었다가 복구하는 장기 계획과 일반적인 실패 복구는 여전히 지원 범위 밖이다.
 - 미지원 joint roll, fractured WHITTLING, 가정이 필요한 조합의 unresolved mass를 성공으로 재정규화하지 않는다.
 - 지원 브라우저 inventory가 비어 있어 실제 화면 조작·시각 검증은 수행하지 못했다. React 검사와 HTTP/API 기록을 화면 검증으로 대신 표현하지 않는다.
-- 현재 실행 중인 사용자 앱 컨테이너를 교체하거나 원격 push/merge/deploy하지 않았다. 최종 수정 코드의 런타임 반영은 별도 단계다.
+- 후속 요청에 따라 localhost 앱·프런트만 최종 소스로 갱신했다. 원격 push/merge/deploy는 하지 않았다.
 - 사용자 DB, Redis, 원본 설정과 저장 작업을 변경하지 않았다.
 
 ## 검증 이력과 재현
@@ -60,7 +65,7 @@
 
 재현 명령은 backend에서 `./gradlew check generateJooq bootJar`, frontend에서 `npm ci`, `npm run typecheck`, `npm run lint`, `npm run format:check`, `npm run test -- --run --maxWorkers=2`, `npm run build`다. Docker 내부에서 Windows Docker Engine을 이용할 때는 위 Testcontainers host override를 함께 지정한다. 테스트 DB는 Testcontainers가 만드는 임시 DB이며 사용자 DB를 사용하지 않는다.
 
-증거 폴더: `E:\CODEX\codex\2026-10-19\task-2`. `review-final-test-results/test`는 전체 826개 단위 결과, `review-recovery-results`는 연결 환경 보정 후 결과, `review-frontend-tests.json`은 Frontend 결과, `scenarios-before.json`/`scenarios-final.json`은 시나리오 측정값이다. `poe2craft-reviewed.jar`는 리뷰 수정 제품 소스에서 생성한 별도 산출물이며 현재 실행 앱을 교체하지 않았다.
+증거 폴더: `E:\CODEX\codex\2026-10-19\task-2`. `review-final-test-results/test`는 전체 826개 단위 결과, `review-recovery-results`는 연결 환경 보정 후 결과, `review-frontend-tests.json`은 Frontend 결과, `scenarios-before.json`/`scenarios-final.json`은 시나리오 측정값이다. `poe2craft-reviewed.jar`는 리뷰 수정 제품 소스에서 생성한 별도 산출물이며 후속 localhost 갱신에서 실행 앱에 동일 JAR를 반영했다.
 
 ## 최종 전체 시나리오 결과
 
@@ -109,3 +114,31 @@
 동일 화폐의 직접 목표 획득이 이미 가능한 경우 일부 준비 쌍을 생략하는 기존 지원 정책은 유지했다. 모든 준비 대안·장기 복구 경로를 열거했다는 보장은 없다. 전체 경로 확률의 PENDING(4·6·7번)은 정련 후에도 최선 방법 인증이 완료되지 않았다는 뜻이며, 탐색 완료를 전역 최적성으로 표현하지 않았다.
 
 검증 JAR SHA256: EA46BFDCD8AF7C6C955ADBDA96355A684A10F915A3734C719C86A9F40D14DC1D.
+
+## 추가 런타임 계약 수정과 localhost 반영
+
+세 번째 결함: Backend의 terminal GOAL 보존 개선 후 전체 노드가 128개를 넘을 수 있지만 Frontend automaticApi 응답 검증이 전체 노드 128개를 상한으로 유지하고 있었다. 이를 비종료 상태 최대 128개, 전체 보관 노드 최대 50000개로 구분했다. 201개 응답 수용, 비종료 129개 거부, 전체 50001개 거부의 회귀 3개를 추가했다. 최종 Frontend npm ci·typecheck·lint·format·2186/2186 tests·build 모두 통과했다. Backend는 6aba50b와 0afab1a 간 diff가 없어 기존 최종 전체 검증과 동일한 제품 소스다.
+
+실행 소스 commit: 0afab1aa374a06c75ac4d546c15e2fe5a355500b.
+
+- 앱: exile-hephaistos-app:review-0afab1a, image sha256:f7dddfc28d6c248370182167e8bbbdd3e4f33c207ef0245c2b008597e0ce3779.
+- 프런트: exile-hephaistos-frontend:review-0afab1a, image sha256:b060543e941b0c7be4cc267c3552e316f61362eed907eaaa2b669f8da27faa29.
+- 두 컨테이너의 source-commit 및 OCI revision 라벨이 위 commit과 일치한다.
+- 실제 /app/app.jar SHA256은 위 검증 JAR와 일치한다.
+- 실제 제공 JS는 index-DGVv0F9B.js; HTTP 다운로드와 컨테이너 파일 SHA256이 e0ec6ce16063e1f5551bc9d1ae98253a956e13470a9ebc931ef44417d8d8a2d9로 일치한다.
+- readiness UP/200, HTML 200, JS 200, 프런트 경유 API 정상.
+- PostgreSQL·Redis 컨테이너 ID와 mount 불변, .env 해시 불변, 기존 저장 파일 5개 모두 해시 불변.
+- 지원 브라우저 inventory는 다시 확인해도 비어 있다. HTML/JS/API 확인을 화면 조작 검증이라고 표현하지 않는다.
+
+갱신 후 실제 http://localhost:8081 경유 API 결과:
+
+| 사례 | 시간(ms) | slices / operations | 노드 / 방법 / 목표 노드 | 종료 |
+|---|---:|---:|---:|---|
+| 생명력+카저 2목표 | 3280 | 1 / 11 | 7 / 3 / 6 | COMPLETE / SUPPORTED_PLANS_COMPLETE |
+| 생명력+카저+냉저 3목표 | 3578 | 2 / 606 | 63 / 32 / 48 | COMPLETE / SUPPORTED_PLANS_COMPLETE |
+| RARE 단일 생명력 → 소환수+3 | 6337 | 10 / 14021 | 3 / 6 / 2 | COMPLETE / SUPPORTED_PLANS_COMPLETE |
+| MAGIC 생명력120 → RARE 생명력120 | 2895 | 1 / 26 | 201 / 10 / 200 | COMPLETE / SUPPORTED_PLANS_COMPLETE |
+
+실제 API의 bare CHAOS 100회 GOAL 확률은 0.05751907842025816이며 독립 유한급수 oracle 결과와 일치했다. 3목표의 모든 목표 노드는 최소 3개 명시속성을 가졌다. 새 합성 작업만 생성했고 기존 작업을 재개·취소·삭제하지 않았다.
+
+재현용 로컬 Compose override는 E:\CODEX\codex\2026-10-19\task-2\runtime-reviewed.yaml이다. 원본 .env와 저장 bind 경로를 유지하며 up -d --no-deps --no-build --pull never app frontend로 두 서비스만 갱신했다. 런타임 증거는 runtime-final-verification.json, runtime-api-final-results.jsonl, runtime-api-case-*.json, runtime-final-images.txt, runtime-final-labels.jsonl에 있다.
