@@ -27,3 +27,11 @@ Catalog 검증 충돌과 ruleset 변경에 한해 Catalog를 다시 읽는다. �
 최종 소스 기준 npm ci, lint, typecheck, format:check, 전체 테스트 2,201개(실패 0, 보류 0), production build가 통과했다. 전체 검증 종료 코드는 0이다. Windows 직접 실행과 Debian 실행은 기존 native binding 환경이 맞지 않아 테스트 시작 전 실패했으며, 잠금 파일을 유지한 Alpine Node 24 환경에서 npm ci 후 최종 검증했다. 기존 dependency audit high 1건과 큰 번들 경고는 남아 있으며 이번 수정으로 의존성을 변경하지 않았다.
 
 검증 증거: `E:/CODEX/codex/2026-10-19/task-2/catalog-recovery-tests.json`, `catalog-recovery-validation.log`. 자체 리뷰 완료. Backend 소스가 바뀌지 않아 Backend 전체 검사를 반복하지 않았고 실제 API 연결은 별도 검증했다.
+
+## localhost 반영 확인
+
+프런트 실행 소스는 `568aa74fcd7a79a4f383c2e3bacbb8f19ed5c52a`, 이미지는 `exile-hephaistos-frontend:catalog-recovery-568aa74`이다. 검증 완료된 dist로 이미지를 만들고 frontend만 교체했다. Backend 실행 소스 `0afab1a`와 app/PostgreSQL/Redis 컨테이너 ID는 그대로다. 원격 push/merge/deploy는 하지 않았다.
+
+반영 후 `/` 200, backend readiness UP, 실제 목표 필터 검증 200/valid:true를 확인했다. 제공 bundle `index-Byi3n3vI.js`의 SHA256 `da00481aaaea821a1ceacbcdc4c5ec1a6677f0b8847ccfa1ba2dadd29b821e29`는 검증 빌드와 일치한다. `.env` 해시와 기존 저장 작업 12개 파일 해시 모두 동일하다. 실행 검증 증거는 `E:/CODEX/codex/2026-10-19/task-2/catalog-recovery-runtime-result.json`이다.
+
+사용자는 localhost:8081을 새로고침하면 된다. 이전 bundle이 유지되면 Ctrl+F5로 갱신한다. localStorage를 지울 필요는 없다. 실제 브라우저 화면은 연결 수단이 없어 미검증이며, 합성 API와 React/jsdom 검증으로 확인한 범위를 보고한다.
