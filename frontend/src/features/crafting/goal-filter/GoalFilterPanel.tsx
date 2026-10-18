@@ -1,3 +1,8 @@
+import {
+  useCatalogRecovery,
+  useRefreshConflictedCatalog,
+} from './useCatalogRecovery'
+import { recoveryMessages } from './recoveryMessages'
 import { hasImplicitGoal } from '../method-search/supportStorage'
 import { workspaceMessages } from '../method-search/workspaceMessages'
 import { useCallback, useEffect, useRef, useState } from 'react'
@@ -152,9 +157,30 @@ export function GoalFilterPanel({
   const implicitGoal = hasImplicitGoal(goal)
   const validInput =
     !implicitGoal && !Object.values(invalidFields).some(Boolean)
-  const validation = useGoalFilterValidation(adapter, context, goal, validInput)
+  const recovery = useCatalogRecovery(
+    adapter,
+    context,
+    goal,
+    catalog.data,
+    editor,
+    validInput,
+  )
+  const validation = useGoalFilterValidation(
+    adapter,
+    context,
+    goal,
+    validInput &&
+      !!catalog.data &&
+      catalog.data.catalogVersion === goal.catalogVersion,
+  )
+  useRefreshConflictedCatalog(
+    validation.error ?? recovery.error,
+    catalog.refetch,
+  )
+  const recoveryCopy = recoveryMessages[language]
   const searchReady =
     validInput &&
+    catalog.data?.catalogVersion === goal.catalogVersion &&
     validation.data?.valid === true &&
     !validation.isFetching &&
     !validation.isError
@@ -760,6 +786,32 @@ export function GoalFilterPanel({
         </button>
       )}
       <div aria-live="polite">
+        {recovery.pending && <p role="status">{recoveryCopy.pending}</p>}
+        {(recovery.issues.length > 0 || recovery.failed) && (
+          <div role="alert">
+            <p>{recoveryCopy.blocked}</p>
+            {recovery.issues.map((issue, index) => {
+              const match = issue.path.match(/\/groups\/(\d+)\/entries\/(\d+)/)
+              const entry = match
+                ? goal.groups[Number(match[1])]?.entries[Number(match[2])]
+                : undefined
+              const label =
+                catalog.data?.stats.find((s) => s.statId === entry?.statId)
+                  ?.label ??
+                entry?.statId ??
+                issue.path
+              const message =
+                recoveryCopy[issue.code as keyof typeof recoveryCopy] ??
+                recoveryCopy.invalid
+              return (
+                <p key={`${issue.path}-${index}`}>
+                  {label}: {message} ({issue.path})
+                </p>
+              )
+            })}
+            {recovery.failed && !recovery.issues.length && <p>{t.error}</p>}
+          </div>
+        )}
         {!validInput && <p role="alert">{t.invalid}</p>}
         {catalog.data &&
           catalog.data.catalogVersion !== goal.catalogVersion && (

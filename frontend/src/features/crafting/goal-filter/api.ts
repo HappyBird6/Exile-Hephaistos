@@ -76,7 +76,16 @@ export async function readGoalFilterResponse<T>(
   if (response.ok) return response.json() as Promise<T>
   let issues: Issue[] = []
   try {
-    const body = (await response.json()) as { issues?: unknown }
+    const body = (await response.json()) as { issues?: unknown; code?: string }
+    if (body.code === 'RULESET_IDENTITY_MISMATCH')
+      issues = [
+        {
+          code: body.code,
+          path: '/goal/catalogVersion',
+          message: body.code,
+          severity: 'ERROR',
+        },
+      ]
     if (Array.isArray(body.issues))
       issues = body.issues.filter(
         (issue): issue is Issue =>
