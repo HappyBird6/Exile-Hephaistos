@@ -154,7 +154,8 @@ async function request(
     let code = ''
     try {
       const body = (await response.json()) as { code?: unknown }
-      if (body.code === 'JOB_CAPACITY') code = body.code
+      if (body.code === 'JOB_CAPACITY' || body.code === 'JOB_STORAGE_CAPACITY')
+        code = body.code
     } catch {
       /* Error bodies may be unavailable. */
     }

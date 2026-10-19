@@ -409,34 +409,39 @@ it('resumes a paused job and starts a fresh generation after an edited request',
   rendered.unmount()
 })
 
-it('shows the saved-search capacity and expiry without retrying POST in StrictMode', async () => {
-  setLocale('en')
-  const fetcher = vi.fn(
-    async () =>
-      new Response(JSON.stringify({ code: 'JOB_CAPACITY' }), {
-        status: 429,
-        headers: { 'Retry-After': '120' },
-      }),
-  )
-  vi.stubGlobal('fetch', fetcher)
-  render(
-    <StrictMode>
-      <AutomaticMethodSearch
-        request={requestFixture()}
-        inputGeneration={1}
-        presentItem={present}
-        onRecalculate={vi.fn()}
-      />
-    </StrictMode>,
-  )
-  expect(await screen.findByRole('alert')).toHaveTextContent(
-    capacityMessages.en.full,
-  )
-  expect(screen.getByRole('alert')).toHaveTextContent('Try again after')
-  await new Promise((resolve) => setTimeout(resolve, 250))
-  expect(fetcher).toHaveBeenCalledTimes(1)
-  expect(screen.queryByText('Calculation error')).not.toBeInTheDocument()
-})
+it.each(['JOB_CAPACITY', 'JOB_STORAGE_CAPACITY'])(
+  'shows %s without retrying POST in StrictMode',
+  async (code) => {
+    setLocale('en')
+    const fetcher = vi.fn(
+      async () =>
+        new Response(JSON.stringify({ code }), {
+          status: 429,
+          headers: { 'Retry-After': '120' },
+        }),
+    )
+    vi.stubGlobal('fetch', fetcher)
+    render(
+      <StrictMode>
+        <AutomaticMethodSearch
+          request={requestFixture()}
+          inputGeneration={1}
+          presentItem={present}
+          onRecalculate={vi.fn()}
+        />
+      </StrictMode>,
+    )
+    expect(await screen.findByRole('alert')).toHaveTextContent(
+      code === 'JOB_CAPACITY'
+        ? capacityMessages.en.full
+        : capacityMessages.en.storage,
+    )
+    expect(screen.getByRole('alert')).toHaveTextContent('Try again after')
+    await new Promise((resolve) => setTimeout(resolve, 250))
+    expect(fetcher).toHaveBeenCalledTimes(1)
+    expect(screen.queryByText('Calculation error')).not.toBeInTheDocument()
+  },
+)
 it('shares an in-flight create after local abort and never guesses success on 429', async () => {
   let finish!: (response: Response) => void
   const fetcher = vi.fn(

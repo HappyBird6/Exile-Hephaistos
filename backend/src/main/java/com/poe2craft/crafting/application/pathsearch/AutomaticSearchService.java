@@ -79,7 +79,7 @@ public final class AutomaticSearchService implements AutoCloseable {
       Map<String, Control> commands,
       AutomaticMethodGraph.Checkpoint graph) {}
 
-  private static final int MAX_FILES = 16;
+  private static final int MAX_ACTIVE = 16;
   private final ObjectMapper json;
   private final AutomaticJobRepository repository;
   private final AutomaticCurrencyPolicy policy;
@@ -228,15 +228,7 @@ public final class AutomaticSearchService implements AutoCloseable {
         return view(load(owner, id));
       }
     }
-    if (repository.ids().size() >= MAX_FILES) {
-      long earliest =
-          repository.ids().stream()
-              .map(this::read)
-              .mapToLong(Disk::expires)
-              .min()
-              .orElse(clock.millis());
-      throw new Rejected(429, "JOB_CAPACITY", Math.max(1L, (earliest - clock.millis()) / 1000 + 1));
-    }
+    requireActiveSlot();
     var job = new Job();
     job.id = UUID.randomUUID().toString();
     job.owner = ownerKey(owner);
@@ -255,9 +247,24 @@ public final class AutomaticSearchService implements AutoCloseable {
             20000,
             5000,
             input.abstractQuality40());
-    save(job);
+    try {
+      save(job);
+    } catch (AutomaticJobRepository.BudgetExceeded error) {
+      job.graph.close();
+      throw new Rejected(429, "JOB_STORAGE_CAPACITY");
+    }
     cache(job);
     return view(job);
+  }
+
+  /** READY owns admission; paused/cancelled work must reacquire it on RESUME. */
+  private void requireActiveSlot() {
+    long active =
+        repository.ids().stream()
+            .map(this::read)
+            .filter(d -> d.expires() >= clock.millis() && d.status().equals("READY"))
+            .count();
+    if (active >= MAX_ACTIVE) throw new Rejected(429, "JOB_CAPACITY");
   }
 
   public synchronized View get(String owner, String id) {
@@ -301,6 +308,7 @@ public final class AutomaticSearchService implements AutoCloseable {
         }
         case "RESUME" -> {
           if (job.graph.finished()) break;
+          if (!job.status.equals("READY")) requireActiveSlot();
           var saved = job.graph.checkpoint(job.runtime.objective());
           if (job.status.equals("PAUSED")
               && (job.reason.equals("STORAGE_BUDGET") || !job.graph.canResume()))

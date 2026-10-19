@@ -320,7 +320,9 @@ function Run({
         <p role="alert">
           {capacity.code === 'JOB_CAPACITY'
             ? capacityMessages[locale].full
-            : capacityMessages[locale].limited}
+            : capacity.code === 'JOB_STORAGE_CAPACITY'
+              ? capacityMessages[locale].storage
+              : capacityMessages[locale].limited}
           {capacity.retryAt !== null && (
             <>
               {' '}

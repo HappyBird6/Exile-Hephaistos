@@ -7,6 +7,8 @@ import java.util.*;
 
 public final class LocalAutomaticJobRepository implements AutomaticJobRepository {
   private static final long MAX_BYTES = 64L * 1024 * 1024;
+  private static final long MAX_TOTAL_BYTES = 1024L * 1024 * 1024;
+  private static final int MAX_DOCUMENTS = 256;
   private final Path directory;
 
   public LocalAutomaticJobRepository(Path directory) {
@@ -47,11 +49,19 @@ public final class LocalAutomaticJobRepository implements AutomaticJobRepository
     }
   }
 
-  public void save(String id, byte[] value) {
+  public synchronized void save(String id, byte[] value) {
     if (value.length > MAX_BYTES) throw new AutomaticJobRepository.BudgetExceeded();
     var target = path(id);
     var temporary = directory.resolve(id + ".pending");
     try {
+      var ids = ids();
+      if (!Files.exists(target) && ids.size() >= MAX_DOCUMENTS)
+        throw new AutomaticJobRepository.BudgetExceeded();
+      long total = value.length;
+      for (var existing : ids) {
+        if (!existing.equals(id)) total += Files.size(path(existing));
+      }
+      if (total > MAX_TOTAL_BYTES) throw new AutomaticJobRepository.BudgetExceeded();
       Files.write(temporary, value);
       try {
         Files.move(
