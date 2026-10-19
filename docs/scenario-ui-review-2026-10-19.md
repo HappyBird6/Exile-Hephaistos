@@ -112,3 +112,22 @@ Backend·계약·카탈로그·infra·Windows 스크립트의 diff는 없다. �
 - 크기: scenario-code-sizes.json, scenario-size-source.exile, measure-scenario-sizes.cjs
 
 스크린샷은 Library에 올리지 않았다. 환경 보존의 최종 근거는 scenario-deployment-verification.json이며 반영 전의 scenario-environment-check.json은 당시 상태 기록으로 유지한다. 현재 실행 차단은 없다.
+
+
+## 최종 P2 레이어 수정 및 검증 (77eac40)
+
+이 절이 앞선 c2f4e2e 단계의 최종 상태를 갱신한다. 독립 최종 UI 리뷰의 핵심 15개 검사 및 오류·취소 UI 2개 검사는 통과했지만, 후속 화살표가 앞선 작업명 상자를 덮는 P2 결함이 남았다. GroupedMethodGraph에서 모든 선을 먼저 그리고 모든 작업명 라벨을 다음에 그리도록 두 렌더링 순회를 분리했다. 기존 불투명 배경, 라벨 위치, 경로 선택과 키보드 조작은 유지했다. 제품 변경은 해당 컴포넌트 한 파일이며 회귀 검사 한 개를 추가했다. 코드 크기 추가 최적화는 하지 않았다.
+
+구현 커밋: 77eac4061ea3a9dba4d0db794fa118e2670a6549. 최종 소스로 npm ci, lint, typecheck, format:check, 전체 테스트 2,254개(실패 0, skip 0), build를 통과했다. 기존 큰 번들 경고는 남지만 실패는 아니다. Backend는 이번 수정 대상이 아니므로 기존 동일 소스 검증을 유지한다.
+
+기존 localhost 프런트만 exile-hephaistos-frontend:scenario-77eac40으로 갱신했다. 실제 제공 JS는 /assets/index-hMDTmko7.js, SHA256은 1F82071EFA4A3AD0E7F885D5F3CEF34D11A87C79B5A23AC276F9626605E3025B이며 검사한 build 산출물과 일치한다. Readiness UP, UI HTTP 200. Backend JAR, PostgreSQL/Redis 컨테이너, .env 및 기존 저장 작업 16개 해시는 모두 보존됐다. 원격 push, merge, 외부 배포는 하지 않았다.
+
+실제 제공 번들을 사용하는 브라우저 검사에서 일반 그래프(화살표 16, 라벨 2)와 큰 그래프(화살표 58, 라벨 42)를 각각 데스크톱과 375px 모바일로 검사했다. 모든 화살표가 모든 라벨보다 먼저 그려지며 모든 라벨 배경이 불투명함을 확인했다. 두 모바일 이미지도 직접 확인하여 선이 작업명 글자를 덮지 않는 것을 확인했다. 가져오기/새로고침/큰 코드 교체는 계산 API 요청 0회, 브라우저 오류 0회로 통과했다. 기존 독립 리뷰는 이전 번들 기준, 이번 레이어 수정은 이 작업의 회귀·실제 브라우저 검사 기준임을 구분한다.
+
+최종 증거 (E:/CODEX/codex/2026-10-19/task-2):
+- scenario-layer-verified.log, scenario-ui-tests.json: 최종 필수 검사
+- scenario-layer-browser.log, scenario-browser-result.json: 실제 제공 번들 UI 검사
+- layer-desktop.png, layer-mobile.png, layer-large-desktop.png, layer-large-mobile.png: 레이어 화면 증거
+- scenario-layer-deployment-verification.json: 실제 번들 및 데이터 보존
+
+추가 제품 판단: 기존 색상과 배치를 유지하고 SVG 그리기 순서만 고쳤다. 잘림/잘못된 코드 감지와 한 줄 코드 입력·복사·불러오기 UX를 유지했다. 현재 실행 차단 사항은 없다. 독립 리뷰 담당자가 마지막 수정 화면을 재확인할 수 있도록 커밋과 증거를 인계한다.
