@@ -1,3 +1,4 @@
+import { validateSearchResources } from './searchResourcesValidation'
 import { assertShape } from '../path-tree/validation'
 import type { Item, CreateRequest } from '../path-tree/types'
 import type { Bounds, RollBands } from './types'
@@ -44,6 +45,18 @@ export type AutomaticView = {
   canResume?: boolean
   operations: number
   retainedStates: number
+  resources?: {
+    computationStates: number
+    stateLimit: number
+    methodExecutions: number
+    methodLimit: number
+    concreteStates: number
+    concreteMethods: number
+    retainedRecords: number
+    retainedLimit: number
+    primitiveOutcomeBudget: number
+    blockers: string[]
+  }
   nodes: AutomaticNode[]
   methods: AutomaticArrow[]
   recommendations: {
@@ -81,11 +94,16 @@ function validate(raw: unknown): AutomaticView {
     !Array.isArray(v.nodes) ||
     v.nodes.length > 50000 ||
     !Array.isArray(v.methods) ||
-    v.methods.length > 256 ||
+    v.methods.length > (v.resources ? 50000 : 256) ||
     !Array.isArray(v.recommendations)
   )
     throw new Error('Invalid automatic graph')
-  if (v.nodes.filter((node) => node.progress?.goal !== 'MATCH').length > 128)
+  if (v.resources !== undefined)
+    validateSearchResources(v.resources, v.nodes.length, v.methods.length)
+  if (
+    !v.resources &&
+    v.nodes.filter((node) => node.progress?.goal !== 'MATCH').length > 128
+  )
     throw new Error('Invalid automatic graph')
   const ids = new Set<number>()
   for (const n of v.nodes) {
@@ -154,7 +172,11 @@ async function request(
     let code = ''
     try {
       const body = (await response.json()) as { code?: unknown }
-      if (body.code === 'JOB_CAPACITY' || body.code === 'JOB_STORAGE_CAPACITY')
+      if (
+        body.code === 'JOB_CAPACITY' ||
+        body.code === 'JOB_STORAGE_CAPACITY' ||
+        body.code === 'GOAL_EXCEEDS_FOUR_EXPLICIT_SCOPE'
+      )
         code = body.code
     } catch {
       /* Error bodies may be unavailable. */

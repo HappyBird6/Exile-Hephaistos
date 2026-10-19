@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 /** Cooperative method-depth discovery. Display grouping must not replace these full item states. */
 public final class AutomaticMethodGraph implements AutoCloseable {
-  public static final String VERSION = "goal-directed-milestone-graph-v8-prepared-renewal";
+  public static final String VERSION = "goal-directed-milestone-graph-v9-terminal-classes";
 
   public record Progress(Status goal, List<Status> entries) {
     public Progress {
@@ -50,6 +50,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   public record Identity(ItemState item, boolean quality40) {}
 
   private final Map<Identity, Node> nodes = new LinkedHashMap<>();
+  private final Map<TerminalAdditionClasses.Key, Node> terminalClasses = new LinkedHashMap<>();
   private final List<Node> orderedNodes = new ArrayList<>();
   private final Map<String, Method> methods = new LinkedHashMap<>();
   private final ArrayDeque<Method> ready = new ArrayDeque<>();
@@ -57,6 +58,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   private long retainedLimit;
   private long primitiveOutcomeBudget;
   private long operations, revision;
+  private long proofRows, proofNanos;
   private boolean limited;
   private boolean discoveryLimited;
 
@@ -71,6 +73,8 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     int depth, scan, pairs;
     List<GoalDirectedPlanner.Choice> choices;
     boolean discovered;
+    Node representative;
+    TerminalAdditionClasses.Key terminalKey;
 
     Node(ItemState item, boolean quality40, int depth) {
       id = orderedNodes.size();
@@ -97,6 +101,11 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                 AutomaticMethodExecution.State, AutomaticCraftingAction>>
         points = new LinkedHashMap<>();
     boolean finished;
+    Method owner;
+
+    boolean done() {
+      return owner == null ? finished : owner.done();
+    }
 
     Method(String id, Node source, AutomaticMethodExecution.Template template) {
       this.id = id;
@@ -174,16 +183,40 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       }
       return node;
     }
+    node = new Node(item, quality40, depth);
+    if (depth > 0 && node.progress.goal() != Status.MATCH) {
+      node.choices = new GoalDirectedPlanner(kernel, evaluate, candidates).choices(item);
+      var candidateNode = node;
+      long proofStarted = System.nanoTime();
+      var keyProof =
+          TerminalAdditionClasses.prove(
+              item,
+              quality40,
+              node.progress,
+              node.choices,
+              kernel,
+              target -> classify(candidateNode, target),
+              primitiveOutcomeBudget,
+              count -> proofRows += count);
+      proofNanos += System.nanoTime() - proofStarted;
+      if (keyProof.isPresent()) {
+        node.terminalKey = keyProof.get();
+        node.representative = terminalClasses.get(node.terminalKey);
+        if (node.representative != null) node.terminalKey = node.representative.terminalKey;
+      }
+    }
     // Absorbed goal outcomes need no successor search. Preserve their exact item identity,
     // but charge them to retained storage rather than the expandable-state budget.
     boolean terminalGoal =
         evaluate.apply(item).goal() == Status.MATCH
             && (quality40 || !AutomaticCraftingKernel.hasQualityCap(item));
-    if ((!terminalGoal && expandableStates() >= stateLimit) || retainedStates() >= retainedLimit) {
+    if ((!terminalGoal && node.representative == null && expandableStates() >= stateLimit)
+        || retainedStates() >= retainedLimit) {
       limited = true;
       return null;
     }
-    node = new Node(item, quality40, depth);
+    if (node.terminalKey != null && node.representative == null)
+      terminalClasses.put(node.terminalKey, node);
     nodes.put(key, node);
     orderedNodes.add(node);
     revision++;
@@ -319,14 +352,26 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       Node source, List<AutomaticCraftingAction> initial, List<AutomaticCraftingAction> cycle) {
     String id = source.id + ":" + initial + ">" + cycle;
     if (methods.containsKey(id)) return;
-    if (methods.size() >= methodLimit) {
+    Method owner = null;
+    if (source.representative != null) {
+      add(source.representative, initial, cycle);
+      owner = methods.get(source.representative.id + ":" + initial + ">" + cycle);
+      if (owner == null) return;
+    }
+    if (owner == null && executionCount() >= methodLimit) {
       discoveryLimited = true;
       return;
     }
     var method = new Method(id, source, new AutomaticMethodExecution.Template(id, initial, cycle));
     methods.put(id, method);
     source.outgoing.add(method);
-    ready.addLast(method);
+    if (owner == null) ready.addLast(method);
+    else {
+      method.execution.close();
+      method.owner = owner;
+      method.execution = owner.execution;
+      visiblePoints(method).values().forEach(point -> publishTargets(method, point));
+    }
     revision++;
   }
 
@@ -337,6 +382,8 @@ public final class AutomaticMethodGraph implements AutoCloseable {
           point) {
     method.points.put(cycles, point);
     publishTargets(method, point);
+    for (var alias : methods.values())
+      if (alias.owner == method) publishTargets(alias, transport(alias, point));
     revision++;
   }
 
@@ -370,7 +417,8 @@ public final class AutomaticMethodGraph implements AutoCloseable {
 
   public void publishProgress() {
     for (var method : methods.values())
-      if (!method.finished) publishTargets(method, method.execution.provisional(500));
+      if (!method.done())
+        publishTargets(method, transport(method, method.execution.provisional(500)));
   }
 
   private Map<
@@ -378,6 +426,16 @@ public final class AutomaticMethodGraph implements AutoCloseable {
           CertifiedMethodRunner.Observation<
               AutomaticMethodExecution.State, AutomaticCraftingAction>>
       visiblePoints(Method method) {
+    if (method.owner != null) {
+      var result =
+          new LinkedHashMap<
+              Integer,
+              CertifiedMethodRunner.Observation<
+                  AutomaticMethodExecution.State, AutomaticCraftingAction>>();
+      visiblePoints(method.owner)
+          .forEach((cycles, point) -> result.put(cycles, transport(method, point)));
+      return Map.copyOf(result);
+    }
     var points = new LinkedHashMap<>(method.points);
     for (int horizon : List.of(1, 100, 300, 500))
       if (!points.containsKey(horizon) && horizon >= method.execution.cycles())
@@ -414,7 +472,9 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     if (primitiveOutcomes < primitiveOutcomeBudget)
       throw new IllegalArgumentException("Primitive budget cannot shrink on resume");
     primitiveOutcomeBudget = primitiveOutcomes;
-    this.methods.values().forEach(m -> m.execution.increasePrimitiveBudget(primitiveOutcomes));
+    this.methods.values().stream()
+        .filter(m -> m.owner == null)
+        .forEach(m -> m.execution.increasePrimitiveBudget(primitiveOutcomes));
     stateLimit = states;
     methodLimit = methods;
     retainedLimit = retained;
@@ -430,16 +490,100 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   }
 
   private long expandableStates() {
-    return orderedNodes.stream().filter(n -> n.progress.goal() != Status.MATCH).count();
+    return orderedNodes.stream()
+        .filter(n -> n.progress.goal() != Status.MATCH && n.representative == null)
+        .count();
   }
 
   public boolean canResume() {
     if (limited && expandableStates() >= stateLimit && stateLimit >= 128) return false;
     if (discoveryLimited && methodLimit >= 256) return false;
-    if (retainedStates() > retainedLimit && retainedLimit >= 50000) return false;
+    if (retainedStates() >= retainedLimit && retainedLimit >= 50000) return false;
     return !limited
         || primitiveOutcomeBudget < 10000
         || ready.stream().anyMatch(m -> !m.execution.resourceLimited());
+  }
+
+  public record ResourceUsage(
+      long computationStates,
+      int stateLimit,
+      long methodExecutions,
+      int methodLimit,
+      int concreteStates,
+      int concreteMethods,
+      long retainedRecords,
+      long retainedLimit,
+      long primitiveOutcomeBudget,
+      List<String> blockers) {}
+
+  public ResourceUsage resources() {
+    var blockers = new ArrayList<String>();
+    if (limited && expandableStates() >= stateLimit) blockers.add("STATES");
+    if (discoveryLimited) blockers.add("METHODS");
+    if (limited && retainedStates() >= retainedLimit) blockers.add("RETAINED_RECORDS");
+    if (limited && ready.stream().anyMatch(m -> m.execution.resourceLimited()))
+      blockers.add("PRIMITIVE_OUTCOMES");
+    return new ResourceUsage(
+        expandableStates(),
+        stateLimit,
+        executionCount(),
+        methodLimit,
+        nodes.size(),
+        methods.size(),
+        retainedStates(),
+        retainedLimit,
+        primitiveOutcomeBudget,
+        List.copyOf(blockers));
+  }
+
+  public long executionCount() {
+    return methods.values().stream().filter(m -> m.owner == null).count();
+  }
+
+  public long computationStates() {
+    return expandableStates();
+  }
+
+  public long proofRows() {
+    return proofRows;
+  }
+
+  public long proofNanos() {
+    return proofNanos;
+  }
+
+  private CertifiedMethodRunner.Observation<AutomaticMethodExecution.State, AutomaticCraftingAction>
+      transport(
+          Method method,
+          CertifiedMethodRunner.Observation<AutomaticMethodExecution.State, AutomaticCraftingAction>
+              point) {
+    if (method.owner == null) return point;
+    var exits =
+        new EnumMap<Exit, Map<AutomaticMethodExecution.State, CertifiedInterval>>(Exit.class);
+    point.exits().forEach((kind, law) -> exits.put(kind, transportLaw(method, law)));
+    return new CertifiedMethodRunner.Observation<>(
+        point.cycles(),
+        exits,
+        transportLaw(method, point.active()),
+        point.initialUses(),
+        point.cycleUses(),
+        point.mass());
+  }
+
+  private Map<AutomaticMethodExecution.State, CertifiedInterval> transportLaw(
+      Method method, Map<AutomaticMethodExecution.State, CertifiedInterval> law) {
+    var result = new LinkedHashMap<AutomaticMethodExecution.State, CertifiedInterval>();
+    law.forEach(
+        (state, mass) ->
+            result.merge(
+                new AutomaticMethodExecution.State(
+                    TerminalAdditionClasses.transport(
+                        method.owner.source.item, method.source.item, state.item()),
+                    state.temporaryPreparation(),
+                    state.quality40()),
+                mass,
+                CertifiedInterval::add));
+    return result;
   }
 
   public long operations() {
@@ -457,7 +601,14 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   public long retainedStates() {
     return nodes.size()
         + methods.size()
-        + methods.values().stream().mapToLong(m -> m.execution.retainedStates()).sum();
+        + methods.values().stream()
+            .filter(m -> m.owner == null)
+            .mapToLong(m -> m.execution.retainedStates())
+            .sum()
+        + terminalClasses.keySet().stream()
+            .flatMap(k -> k.laws().stream())
+            .mapToLong(l -> l.outcomes().size())
+            .sum();
   }
 
   public List<NodeView> nodes() {
@@ -472,7 +623,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                     n.quality40,
                     n.progress,
                     n.discovered,
-                    n.discovered && n.outgoing.stream().allMatch(m -> m.finished)))
+                    n.discovered && n.outgoing.stream().allMatch(Method::done)))
         .toList();
   }
 
@@ -484,7 +635,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   }
 
   private Set<Integer> completeObservations(Method method) {
-    var complete = new HashSet<>(method.points.keySet());
+    var complete = new HashSet<>((method.owner == null ? method : method.owner).points.keySet());
     // Older persisted single-pass jobs have only 100/300/500 snapshots. Their
     // absorbed execution still holds the exact first pass, so expose it safely.
     if (method.execution.atBoundary()
@@ -506,7 +657,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                     m.execution.unresolvedReasons(),
                     completeObservations(m),
                     m.execution.retryRepresentatives(),
-                    m.finished))
+                    m.done()))
         .toList();
   }
 
@@ -526,10 +677,11 @@ public final class AutomaticMethodGraph implements AutoCloseable {
               || source.progress.goal() == Status.UNKNOWN
               || source.progress.goal() == Status.UNSUPPORTED;
       for (var method : source.outgoing) {
-        var point = method.points.get(cycles);
+        var point = (method.owner == null ? method : method.owner).points.get(cycles);
+        if (point != null) point = transport(method, point);
         if (point == null) {
           open = true;
-          point = method.execution.provisional(cycles);
+          point = transport(method, method.execution.provisional(cycles));
         }
         var outcomes = new LinkedHashMap<Integer, CertifiedInterval>();
         var unknown = new CertifiedInterval[] {CertifiedInterval.zero(bits)};
@@ -628,7 +780,17 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       int source,
       AutomaticMethodExecution.Checkpoint execution,
       List<Point> points,
-      boolean finished) {}
+      boolean finished,
+      String owner) {
+    public MethodCursor(
+        String id,
+        int source,
+        AutomaticMethodExecution.Checkpoint execution,
+        List<Point> points,
+        boolean finished) {
+      this(id, source, execution, points, finished, null);
+    }
+  }
 
   public record Checkpoint(
       String version,
@@ -682,9 +844,12 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                     new MethodCursor(
                         m.id,
                         m.source.id,
-                        m.execution.checkpoint(objective).withIdentity(null),
+                        m.owner == null
+                            ? m.execution.checkpoint(objective).withIdentity(null)
+                            : null,
                         m.points.values().stream().map(AutomaticMethodGraph::encode).toList(),
-                        m.finished))
+                        m.finished,
+                        m.owner == null ? null : m.owner.id))
             .toList(),
         ready.stream().map(m -> m.id).toList());
   }
@@ -712,6 +877,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
             saved.retained(),
             saved.primitive());
     graph.nodes.clear();
+    graph.terminalClasses.clear();
     graph.orderedNodes.clear();
     if (saved.candidates().size() != graph.candidates.size()
         || !new HashSet<>(saved.candidates()).equals(new HashSet<>(graph.candidates)))
@@ -728,14 +894,24 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     }
     for (var row : saved.executions()) {
       var source = graph.orderedNodes.get(row.source());
-      var method = graph.new Method(row.id(), source, row.execution().template());
+      var owner =
+          row.owner() == null ? null : Objects.requireNonNull(graph.methods.get(row.owner()));
+      var template =
+          owner == null
+              ? row.execution().template()
+              : new AutomaticMethodExecution.Template(
+                  row.id(), owner.template.initial(), owner.template.cycle());
+      var method = graph.new Method(row.id(), source, template);
       method.execution.close();
+      method.owner = owner;
       method.execution =
-          AutomaticMethodExecution.restore(
-              row.execution().withIdentity(saved.identity()),
-              kernel,
-              objective,
-              item -> graph.classify(source, item));
+          owner != null
+              ? owner.execution
+              : AutomaticMethodExecution.restore(
+                  row.execution().withIdentity(saved.identity()),
+                  kernel,
+                  objective,
+                  item -> graph.classify(source, item));
       method.finished = row.finished();
       row.points().forEach(p -> method.points.put(Math.toIntExact(p.cycles()), decode(p)));
       graph.methods.put(method.id, method);
@@ -751,7 +927,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
 
   @Override
   public void close() {
-    methods.values().forEach(m -> m.execution.close());
+    methods.values().stream().filter(m -> m.owner == null).forEach(m -> m.execution.close());
     ready.clear();
   }
 }

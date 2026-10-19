@@ -126,8 +126,17 @@ it('keeps terminal cards and bundle count stable through details, candidate sele
   const details = document.querySelector(
     '.graph-candidates',
   ) as HTMLDetailsElement
-  fireEvent.click(within(details).getByText(/Candidates and probabilities/))
-  fireEvent.click(within(details).getAllByText(/^Result /)[0]!)
+  expect(details.open).toBe(true)
+  expect(details.querySelectorAll('details')).toHaveLength(0)
+  expect(
+    details.querySelectorAll('[data-candidate-id] .graph-candidate-options'),
+  ).toHaveLength(7)
+  expect(
+    document.querySelectorAll('.graph-method-probability').length,
+  ).toBeGreaterThan(0)
+  expect(
+    document.querySelector('.graph-method-probability')?.textContent,
+  ).toContain('Outcome probability')
   fireEvent.click(
     within(details).getAllByRole('button', {
       name: 'Select this item state',

@@ -54,3 +54,34 @@ it('still bounds total retained response nodes', async () => {
     respond({ ...view(0), nodes: Array(50001).fill(null) }),
   ).rejects.toThrow('Invalid automatic graph')
 })
+
+it('accepts concrete aliases above the old state count only with consistent bounded computation accounting', async () => {
+  const payload = {
+    ...view(0, 129),
+    resources: {
+      computationStates: 3,
+      stateLimit: 64,
+      methodExecutions: 0,
+      methodLimit: 128,
+      concreteStates: 129,
+      concreteMethods: 0,
+      retainedRecords: 129,
+      retainedLimit: 20000,
+      primitiveOutcomeBudget: 5000,
+      blockers: [],
+    },
+  }
+  await expect(respond(payload)).resolves.toHaveProperty('nodes.length', 129)
+  await expect(
+    respond({
+      ...payload,
+      resources: { ...payload.resources, concreteStates: 128 },
+    }),
+  ).rejects.toThrow('Invalid resource accounting')
+  await expect(
+    respond({
+      ...payload,
+      resources: { ...payload.resources, methodExecutions: 257 },
+    }),
+  ).rejects.toThrow('Invalid resource accounting')
+})

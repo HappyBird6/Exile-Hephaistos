@@ -99,6 +99,14 @@ class IndependentPlannerReviewTest extends GoalDirectedPlannerScenariosTest {
                                 + graph.nodes().size()
                                 + "|methods="
                                 + graph.methods().size()
+                                + "|computationStates="
+                                + graph.computationStates()
+                                + "|executions="
+                                + graph.executionCount()
+                                + "|proofRows="
+                                + graph.proofRows()
+                                + "|proofMs="
+                                + graph.proofNanos() / 1000000
                                 + "|operations="
                                 + graph.operations()
                                 + "|retained="

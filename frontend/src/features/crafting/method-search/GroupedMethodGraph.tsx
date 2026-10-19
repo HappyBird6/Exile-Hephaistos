@@ -1,9 +1,15 @@
+import { attemptLabel } from './attemptLabel'
 import { useLayoutEffect, useRef, useState } from 'react'
-import type { AutomaticAction, AutomaticView } from './automaticApi'
+import type {
+  AutomaticAction,
+  AutomaticArrow,
+  AutomaticView,
+} from './automaticApi'
 import type { Selection } from './supportStorage'
 import type { Scenario } from './scenarioCode'
 import type { PathTreeProps } from '../path-tree/PathTree'
 import { methodPoint } from './methodObservation'
+import { sumBounds } from './outcomeGrouping'
 import { stateProjection, type BundleEdge } from './stateProjection'
 import { commonStateCard } from './commonStateCard'
 import { MeasuredGraphBox } from './MeasuredGraphBox'
@@ -65,17 +71,38 @@ export function GroupedMethodGraph({
   }, [])
   const projection = stateProjection(view, cycles)
   const nodeWidth = Math.min(320, Math.max(240, viewport.width - 24))
+  const renderedCards = new Map<
+    number,
+    ReturnType<PathTreeProps['presentItem']>
+  >()
   const cardFor = (id: number) => {
+    const cached = renderedCards.get(id)
+    if (cached) return cached
     const n = view.nodes.find((n) => n.id === id)!
-    return (
+    const card =
       frozenCards?.[String(id)]?.[locale] ??
       presentRollCell(n.item, n.rolls, locale, presentItem)
-    )
+    renderedCards.set(id, card)
+    return card
   }
   const labelFor = (edge: BundleEdge) =>
     edge.variants[0]!.method.initial.concat(edge.variants[0]!.method.cycle)
       .map(action)
       .join(' → ')
+  const candidateArrivals = new Map<
+    number,
+    {
+      method: AutomaticArrow
+      outcome: AutomaticArrow['points'][number]['outcomes'][number]
+    }[]
+  >()
+  for (const method of view.methods)
+    for (const outcome of methodPoint(method, cycles)?.outcomes ?? []) {
+      if (outcome.target === null) continue
+      const rows = candidateArrivals.get(outcome.target) ?? []
+      rows.push({ method, outcome })
+      candidateArrivals.set(outcome.target, rows)
+    }
   const incoming = new Map(
     projection.bundles.map((b) => [
       b.id,
@@ -287,6 +314,23 @@ export function GroupedMethodGraph({
                         onClick={() => openEdge(e)}
                       >
                         {labelFor(e)}
+                        {e.variants.map(({ method, outcomes }) => {
+                          const probability = sumBounds(
+                            outcomes.map((o) => o.probability),
+                          )
+                          const point = methodPoint(method, cycles)
+                          return (
+                            <span
+                              className="graph-method-probability"
+                              key={method.id}
+                            >
+                              {nav.source} {method.source} ·{' '}
+                              {point && attemptLabel(locale, point.cycles)} ·{' '}
+                              {copy.probability}:{' '}
+                              {probabilityText(probability.lower, probability)}
+                            </span>
+                          )
+                        })}
                       </button>
                     ))}
                   </MeasuredGraphBox>
@@ -338,51 +382,63 @@ export function GroupedMethodGraph({
                         )}
                       />
                       <p>{graphStateMessages[locale].candidates}</p>
-                      <details className="graph-candidates">
+                      <details className="graph-candidates" open>
                         <summary>
                           {nav.variants} ({b.nodes.length})
                         </summary>
                         {b.nodes.map((candidate) => (
-                          <details key={candidate.id}>
-                            <summary>
-                              {guide.result} {candidate.id}
-                            </summary>
-                            <ItemCard item={cardFor(candidate.id)} />
+                          <section
+                            key={candidate.id}
+                            data-candidate-id={candidate.id}
+                          >
+                            <div className="graph-candidate-options">
+                              {cardFor(candidate.id).modifiers.map((line) => (
+                                <div key={line.id}>
+                                  {line.affixLabel && (
+                                    <span>{line.affixLabel} </span>
+                                  )}
+                                  {line.text}
+                                </div>
+                              ))}
+                            </div>
                             <button
                               aria-pressed={candidate.id === selected}
                               onClick={() => select(candidate.id)}
                             >
                               {graphStateMessages[locale].select}
                             </button>
-                            {view.methods.flatMap((method) =>
-                              (methodPoint(method, cycles)?.outcomes ?? [])
-                                .filter((o) => o.target === candidate.id)
-                                .map((o) => (
-                                  <button
-                                    key={method.id + o.kind}
-                                    onClick={() =>
-                                      choose({
-                                        method: method.id,
-                                        source: method.source,
-                                        target: candidate.id,
-                                        kind: o.kind,
-                                      })
-                                    }
-                                  >
-                                    {method.initial
-                                      .concat(method.cycle)
-                                      .map(action)
-                                      .join(' → ')}{' '}
-                                    · {nav.source} {method.source} ·{' '}
-                                    {copy.probability}:{' '}
-                                    {probabilityText(
-                                      o.probability.lower,
-                                      o.probability,
-                                    )}
-                                  </button>
-                                )),
+                            {(candidateArrivals.get(candidate.id) ?? []).map(
+                              ({ method, outcome: o }) => (
+                                <button
+                                  key={method.id + o.kind}
+                                  onClick={() =>
+                                    choose({
+                                      method: method.id,
+                                      source: method.source,
+                                      target: candidate.id,
+                                      kind: o.kind,
+                                    })
+                                  }
+                                >
+                                  {method.initial
+                                    .concat(method.cycle)
+                                    .map(action)
+                                    .join(' → ')}{' '}
+                                  · {nav.source} {method.source} ·{' '}
+                                  {copy.probability} (
+                                  {attemptLabel(
+                                    locale,
+                                    methodPoint(method, cycles)?.cycles ?? 1,
+                                  )}
+                                  ):{' '}
+                                  {probabilityText(
+                                    o.probability.lower,
+                                    o.probability,
+                                  )}
+                                </button>
+                              ),
                             )}
-                          </details>
+                          </section>
                         ))}
                       </details>
                     </div>
@@ -429,12 +485,7 @@ export function GroupedMethodGraph({
                     </button>{' '}
                     · {copy.probability}:{' '}
                     {probabilityText(o.probability.lower, o.probability)}
-                    <details>
-                      <summary>
-                        {guide.result} {o.target}
-                      </summary>
-                      <ItemCard item={cardFor(o.target!)} />
-                    </details>
+                    <ItemCard item={cardFor(o.target!)} />
                   </li>
                 ))}
               </ul>

@@ -517,3 +517,213 @@ it('serializes different creates so the first owner cookie settles before the ne
     JSON.parse(fetcher.mock.calls[1]![1].body).request.clientRequestId,
   ).toBe('different-create')
 })
+
+it('automatically resumes an expandable resource slice and finishes without another click', async () => {
+  setLocale('en')
+  const request = requestFixture()
+  let server: AutomaticView = {
+    ...initial(),
+    status: 'PAUSED',
+    reason: 'RESOURCE_BUDGET',
+    canResume: true,
+  }
+  const operations: string[] = []
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(async (_url: unknown, options?: RequestInit) => {
+      const body = options?.body ? JSON.parse(String(options.body)) : {}
+      if (body.operation) {
+        operations.push(body.operation)
+        server = {
+          ...server,
+          revision: server.revision + 1,
+          generation: server.generation + (body.operation === 'RESUME' ? 1 : 0),
+          status: body.operation === 'RESUME' ? 'READY' : 'COMPLETE',
+          reason: body.operation === 'RESUME' ? '' : 'SUPPORTED_PLANS_COMPLETE',
+          complete: body.operation === 'ADVANCE',
+          canResume: false,
+        }
+      }
+      return new Response(JSON.stringify(server), {
+        headers: {
+          'X-Crafting-Ruleset': request.start.provenance.rulesetIdentity,
+        },
+      })
+    }),
+  )
+  render(
+    <AutomaticMethodSearch
+      request={request}
+      inputGeneration={1}
+      presentItem={present}
+      onRecalculate={vi.fn()}
+    />,
+  )
+  await waitFor(() => expect(operations).toEqual(['RESUME', 'ADVANCE']))
+  await new Promise((resolve) => setTimeout(resolve, 350))
+  expect(operations).toEqual(['RESUME', 'ADVANCE'])
+})
+
+it('does not auto resume a cancelled or storage-limited calculation', async () => {
+  setLocale('en')
+  const request = requestFixture()
+  for (const state of [
+    { status: 'CANCELLED' as const, reason: '' },
+    { status: 'PAUSED' as const, reason: 'STORAGE_BUDGET' },
+  ]) {
+    const fetcher = vi.fn(
+      async () =>
+        new Response(
+          JSON.stringify({ ...initial(), ...state, canResume: true }),
+          {
+            headers: {
+              'X-Crafting-Ruleset': request.start.provenance.rulesetIdentity,
+            },
+          },
+        ),
+    )
+    vi.stubGlobal('fetch', fetcher)
+    sessionStorage.clear()
+    const mounted = render(
+      <AutomaticMethodSearch
+        request={request}
+        inputGeneration={1}
+        presentItem={present}
+        onRecalculate={vi.fn()}
+      />,
+    )
+    await waitFor(() => expect(fetcher).toHaveBeenCalledTimes(1))
+    await act(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 350))
+    })
+    expect(fetcher).toHaveBeenCalledTimes(1)
+    mounted.unmount()
+  }
+})
+
+it('does not repeatedly resume the same rejected resource revision', async () => {
+  const request = requestFixture()
+  const server = {
+    ...initial(),
+    status: 'PAUSED',
+    reason: 'RESOURCE_BUDGET',
+    canResume: true,
+  }
+  let resumes = 0
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(async (_url: unknown, options?: RequestInit) => {
+      const body = options?.body ? JSON.parse(String(options.body)) : {}
+      if (body.operation === 'RESUME') {
+        resumes++
+        return new Response('{}', { status: 409 })
+      }
+      return new Response(JSON.stringify(server), {
+        headers: {
+          'X-Crafting-Ruleset': request.start.provenance.rulesetIdentity,
+        },
+      })
+    }),
+  )
+  render(
+    <AutomaticMethodSearch
+      request={request}
+      inputGeneration={1}
+      presentItem={present}
+      onRecalculate={vi.fn()}
+    />,
+  )
+  await waitFor(() => expect(resumes).toBe(1))
+  await act(async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500))
+  })
+  expect(resumes).toBe(1)
+})
+
+it('allows Stop while automatic resume is pending and rejects its late READY response', async () => {
+  setLocale('en')
+  const request = requestFixture()
+  let server: AutomaticView = {
+    ...initial(),
+    status: 'PAUSED',
+    reason: 'RESOURCE_BUDGET',
+    canResume: true,
+  }
+  let resume: ((response: Response) => void) | undefined
+  let cancel: ((response: Response) => void) | undefined
+  let resumed: AutomaticView | undefined
+  const operations: string[] = []
+  const response = (view: AutomaticView) =>
+    new Response(JSON.stringify(view), {
+      headers: {
+        'X-Crafting-Ruleset': request.start.provenance.rulesetIdentity,
+      },
+    })
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(async (_url: unknown, options?: RequestInit) => {
+      const body = options?.body ? JSON.parse(String(options.body)) : {}
+      if (body.operation) operations.push(body.operation)
+      if (body.operation === 'RESUME') {
+        server = {
+          ...server,
+          status: 'READY',
+          revision: 2,
+          generation: 2,
+          reason: '',
+        }
+        resumed = server
+        return new Promise<Response>((resolve) => {
+          resume = resolve
+        })
+      }
+      if (body.operation === 'CANCEL') {
+        server = { ...server, status: 'CANCELLED', revision: 3, generation: 3 }
+        return new Promise<Response>((resolve) => {
+          cancel = resolve
+        })
+      }
+      return response(server)
+    }),
+  )
+  render(
+    <AutomaticMethodSearch
+      request={request}
+      inputGeneration={1}
+      presentItem={present}
+      onRecalculate={vi.fn()}
+    />,
+  )
+  await waitFor(() => expect(resume).toBeDefined())
+  expect(screen.getByRole('button', { name: 'Stop' })).toBeEnabled()
+  fireEvent.click(screen.getByRole('button', { name: 'Stop' }))
+  await waitFor(() => expect(cancel).toBeDefined())
+  await act(async () => resume!(response(resumed!)))
+  expect(screen.getByRole('button', { name: /Stopping/ })).toBeDisabled()
+  await act(async () => cancel!(response(server)))
+  expect(await screen.findByText('Calculation stopped.')).toBeInTheDocument()
+  await act(async () => {
+    await new Promise((resolve) => setTimeout(resolve, 350))
+  })
+  expect(operations).toEqual(['RESUME', 'CANCEL'])
+})
+
+it('explains a catalog-proven target outside the four explicit modifier scope without advancing', async () => {
+  setLocale('en')
+  vi.spyOn(automaticApi, 'create').mockRejectedValue(
+    new AutomaticError(422, 'GOAL_EXCEEDS_FOUR_EXPLICIT_SCOPE'),
+  )
+  const control = vi.spyOn(automaticApi, 'control')
+  render(
+    <AutomaticMethodSearch
+      request={requestFixture()}
+      inputGeneration={1}
+      presentItem={present}
+      onRecalculate={vi.fn()}
+    />,
+  )
+  expect(await screen.findByRole('alert')).toHaveTextContent(
+    'requires more than four explicit modifiers',
+  )
+  expect(control).not.toHaveBeenCalled()
+})

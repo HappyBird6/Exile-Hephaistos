@@ -1,3 +1,4 @@
+import { validateSearchResources } from './searchResourcesValidation'
 import { assertShape, canonical } from '../path-tree/validation'
 import type { CreateRequest, Item } from '../path-tree/types'
 import type { AutomaticView } from './automaticApi'
@@ -207,7 +208,7 @@ export function validateScenario(raw: unknown): Scenario {
       'methods',
       'recommendations',
     ],
-    ['canResume'],
+    ['canResume', 'resources'],
   )
   if (v.version !== 'automatic-method-job-v1')
     fail('UNSUPPORTED_SCENARIO_VERSION')
@@ -220,6 +221,12 @@ export function validateScenario(raw: unknown): Scenario {
   if ((v.status === 'COMPLETE') !== v.complete) fail()
   text(v.reason)
   if (v.canResume !== undefined) bool(v.canResume)
+  if (v.resources !== undefined)
+    validateSearchResources(
+      v.resources,
+      array(v.nodes, 5000).length,
+      array(v.methods, 50000).length,
+    )
   const ids = new Set<number>(),
     methods = new Set<string>()
   for (const rawNode of array(v.nodes, 5000)) {
@@ -278,7 +285,7 @@ export function validateScenario(raw: unknown): Scenario {
   )
     fail()
   let outcomeCount = 0
-  for (const rawMethod of array(v.methods, 256)) {
+  for (const rawMethod of array(v.methods, v.resources ? 50000 : 256)) {
     const m = object(
       rawMethod,
       ['id', 'source', 'initial', 'cycle', 'points', 'reasons', 'finished'],
@@ -414,7 +421,7 @@ function mapWireReferences(
 ) {
   const root = record(snapshot),
     result = record(root.result)
-  const methods = array(result.methods, 256),
+  const methods = array(result.methods, result.resources ? 50000 : 256),
     names = methods.map((m) => record(m).id)
   for (const raw of methods)
     for (const rawPoint of array(record(raw).points, 4)) {

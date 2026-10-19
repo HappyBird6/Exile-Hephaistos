@@ -21,6 +21,11 @@ public final class GoalFilterService {
     this.index = index;
   }
 
+  public int minimumExplicitModifiers(ItemState item, GoalFilter goal) {
+    return ExplicitGoalScope.minimumModifiers(
+        goal, index.catalog(new Context(item.snapshotId(), item.baseItemId(), item.itemLevel())));
+  }
+
   public GoalCatalog catalog(Context context) {
     requireContext(context);
     return index.catalog(context);

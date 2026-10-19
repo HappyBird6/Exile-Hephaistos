@@ -240,3 +240,24 @@ it('shares repeated display data without changing any locale or item value', () 
   invalid.snapshot.cards['0']!.en = [999, []]
   expect(() => expandScenario(invalid)).toThrow()
 })
+
+it('round trips computation accounting while retaining old scenario compatibility', async () => {
+  const scenario = fixture()
+  scenario.result.resources = {
+    computationStates: 0,
+    stateLimit: 64,
+    methodExecutions: 0,
+    methodLimit: 128,
+    concreteStates: 1,
+    concreteMethods: 0,
+    retainedRecords: 1,
+    retainedLimit: 20000,
+    primitiveOutcomeBudget: 5000,
+    blockers: [],
+  }
+  const decoded = await decodeScenario(await encodeScenario(scenario))
+  expect(decoded).toEqual(scenario)
+  const corrupt = structuredClone(scenario)
+  corrupt.result.resources!.concreteStates = 2
+  expect(() => validateScenario(corrupt)).toThrow()
+})

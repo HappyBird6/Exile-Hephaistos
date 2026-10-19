@@ -62,6 +62,7 @@ public final class AutomaticSearchService implements AutoCloseable {
       boolean canResume,
       long operations,
       long retainedStates,
+      AutomaticMethodGraph.ResourceUsage resources,
       List<AutomaticMethodGraph.NodeView> nodes,
       List<Arrow> methods,
       List<Recommendation> recommendations) {}
@@ -382,6 +383,11 @@ public final class AutomaticSearchService implements AutoCloseable {
   private View view(Job job) {
     var nodes = job.graph.nodes();
     var methodViews = job.graph.methods();
+    var probabilities = new HashMap<CertifiedInterval, CertifiedMethodProtocol.Bounds>();
+    Function<CertifiedInterval, CertifiedMethodProtocol.Bounds> probability =
+        value ->
+            probabilities.computeIfAbsent(
+                value, v -> CertifiedMethodProtocol.Bounds.probability(v, 2));
     var ids = new HashMap<AutomaticMethodGraph.Identity, Integer>();
     nodes.forEach(n -> ids.put(new AutomaticMethodGraph.Identity(n.item(), n.quality40()), n.id()));
     var arrows = new ArrayList<Arrow>();
@@ -417,8 +423,11 @@ public final class AutomaticSearchService implements AutoCloseable {
                   new ExitView(
                       pair[0].equals("null") ? null : Integer.valueOf(pair[0]),
                       pair[1],
-                      CertifiedMethodProtocol.Bounds.probability(value, 2)));
+                      probability.apply(value)));
             });
+        rows.sort(
+            Comparator.comparing(ExitView::kind)
+                .thenComparing(ExitView::target, Comparator.nullsFirst(Comparator.naturalOrder())));
         points.add(
             new PointView(
                 entry.getKey(),
@@ -480,7 +489,7 @@ public final class AutomaticSearchService implements AutoCloseable {
                 node.id(),
                 cycles,
                 local,
-                CertifiedMethodProtocol.Bounds.probability(result.value(), 2),
+                probability.apply(result.value()),
                 result.status(),
                 result.methodIds()));
       }
@@ -496,6 +505,7 @@ public final class AutomaticSearchService implements AutoCloseable {
         !job.reason.equals("STORAGE_BUDGET") && job.graph.canResume(),
         job.graph.operations(),
         job.graph.retainedStates(),
+        job.graph.resources(),
         nodes,
         arrows,
         recommendations);

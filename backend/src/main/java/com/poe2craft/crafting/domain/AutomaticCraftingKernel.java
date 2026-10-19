@@ -58,6 +58,25 @@ public final class AutomaticCraftingKernel {
   private final Identity identity;
   private final RollPartition partition;
 
+  public record RetainedModifierRole(
+      ModifierDefinition.AffixType side, Set<String> families, boolean fractured) {}
+
+  /** Tier-independent identity used only after a caller proves every future transition. */
+  public List<RetainedModifierRole> retainedModifierRoles(ItemState item) {
+    return item.explicits().stream()
+        .map(
+            m -> {
+              var definition = Objects.requireNonNull(catalog.modifiers().get(m.modifierId()));
+              return new RetainedModifierRole(
+                  definition.affixType(), Set.copyOf(definition.familyIds()), m.fractured());
+            })
+        .sorted(
+            Comparator.comparing((RetainedModifierRole r) -> r.side().name())
+                .thenComparing(r -> new TreeSet<>(r.families()).toString())
+                .thenComparing(RetainedModifierRole::fractured))
+        .toList();
+  }
+
   public record RollBand(String stat, long min, long max) {}
 
   public Map<String, RollBand> rollBands(ItemState item) {

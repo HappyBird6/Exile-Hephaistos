@@ -47,6 +47,9 @@ public class SupportConfiguration {
             throw new com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Rejected(
                 422, "INVALID_ITEM");
           var evaluate = goals.compileEvaluation(item, request.goal());
+          if (goals.minimumExplicitModifiers(item, request.goal()) > 4)
+            throw new com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Rejected(
+                422, "GOAL_EXCEEDS_FOUR_EXPLICIT_SCOPE");
           try {
             return new com.poe2craft.crafting.application.pathsearch.AutomaticSearchService.Runtime(
                 workbench

@@ -1,8 +1,10 @@
+import { SearchResources } from './SearchResources'
 import { ScenarioExport } from './ScenarioCodePanel'
 import type { Scenario } from './scenarioCode'
 import { OperationCards } from './OperationCards'
 import { retryMessages } from './retryMessages'
 import { capacityMessages } from './capacityMessages'
+import { scopeMessages } from './scopeMessages'
 import { sumBounds } from './outcomeGrouping'
 import { guideMessages } from './guideMessages'
 import { removesModifier } from './methodRisk'
@@ -86,8 +88,10 @@ function Run({
   })
   const [storageFailed, setStorageFailed] = useState(false)
   const [expired, setExpired] = useState(false)
+  const [scopeUnsupported, setScopeUnsupported] = useState(false)
   const [capacity, setCapacity] = useState<AutomaticError | null>(null)
   const commandInFlight = useRef(false)
+  const automaticResumeRevision = useRef<string | null>(null)
   const [controlPhase, setControlPhase] = useState<'STOP' | 'RESUME' | null>(
     null,
   )
@@ -167,7 +171,12 @@ function Run({
           turn === token.current &&
           !(error instanceof DOMException && error.name === 'AbortError')
         ) {
-          if (error instanceof AutomaticError && error.status === 429)
+          if (
+            error instanceof AutomaticError &&
+            error.code === 'GOAL_EXCEEDS_FOUR_EXPLICIT_SCOPE'
+          )
+            setScopeUnsupported(true)
+          else if (error instanceof AutomaticError && error.status === 429)
             setCapacity(error)
           else setFailed(true)
         }
@@ -232,28 +241,44 @@ function Run({
       controllers.current.delete(controller)
       if (alive.current) {
         setBusy(false)
-        if (operation === 'RESUME') setControlPhase(null)
+        if (operation === 'RESUME')
+          setControlPhase((phase) => (phase === 'RESUME' ? null : phase))
       }
     }
   }
   useEffect(() => {
     if (
       !view ||
-      view.status !== 'READY' ||
+      !(
+        view.status === 'READY' ||
+        (view.status === 'PAUSED' &&
+          view.reason === 'RESOURCE_BUDGET' &&
+          view.canResume === true)
+      ) ||
       !runEnabled ||
       !active ||
       busy ||
       failed
     )
       return
-    const timeout = setTimeout(() => void command('ADVANCE'), 150)
+    const resumeRevision = [view.id, view.revision, view.generation].join(':')
+    if (
+      view.status === 'PAUSED' &&
+      automaticResumeRevision.current === resumeRevision
+    )
+      return
+    const timeout = setTimeout(() => {
+      if (view.status === 'PAUSED')
+        automaticResumeRevision.current = resumeRevision
+      void command(view.status === 'READY' ? 'ADVANCE' : 'RESUME')
+    }, 150)
     return () => clearTimeout(timeout)
     // Each accepted revision schedules exactly one bounded slice.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view, busy, failed, runEnabled, active])
   const stop = () => {
     setRunEnabled(false)
-    if (!current.current || controlPhase) return
+    if (!current.current || controlPhase === 'STOP') return
     setControlPhase('STOP')
     void cancelAutomatic(
       current.current.id,
@@ -338,6 +363,7 @@ function Run({
       )}
       {expired && <p role="alert">{workspaceMessages[locale].expired}</p>}
       {failed && <p role="alert">{common.error}</p>}
+      {scopeUnsupported && <p role="alert">{scopeMessages[locale]}</p>}
       {capacity && (
         <p role="alert">
           {capacity.code === 'JOB_CAPACITY'
@@ -354,7 +380,8 @@ function Run({
           )}
         </p>
       )}
-      {!capacity && (
+      {view && <SearchResources view={view} />}
+      {!capacity && !scopeUnsupported && (
         <CalculationStatus
           state={calculationState(
             view,
@@ -371,7 +398,7 @@ function Run({
           <button
             onClick={stop}
             disabled={
-              !view || view.status === 'CANCELLED' || controlPhase !== null
+              !view || view.status === 'CANCELLED' || controlPhase === 'STOP'
             }
           >
             {controlPhase === 'STOP' ? (
