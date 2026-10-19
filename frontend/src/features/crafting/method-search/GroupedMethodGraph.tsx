@@ -111,7 +111,7 @@ export function GroupedMethodGraph({
         height,
       })
     })
-    levelY += maxHeight + 110
+    levelY += maxHeight + 160
   }
   const width = Math.max(
       nodeWidth + 20,
@@ -211,22 +211,21 @@ export function GroupedMethodGraph({
                 </title>
               </path>
               {showAction && (
-                <text
-                  className="graph-action-label"
-                  x={(source.x + target.x) / 2}
-                  y={
-                    (source.y + source.height + target.y) / 2 -
-                    12 +
-                    labelRow * 18
-                  }
-                  textAnchor="middle"
+                <foreignObject
+                  x={(source.x + target.x) / 2 - 85}
+                  y={source.y + source.height + 12 + labelRow * 42}
+                  width={170}
+                  height={38}
                 >
-                  {operationKind(e.method) === 'other'
-                    ? e.method.cycle.map(action).join(' → ')
-                    : operationMessages[locale][
-                        operationKind(e.method) as 'add' | 'replace' | 'prepare'
-                      ]}
-                </text>
+                  <div className="graph-action-label">
+                    {operationKind(e.method) === 'other'
+                      ? e.method.cycle.map(action).join(' → ')
+                      : operationMessages[locale][
+                          operationKind(e.method) as
+                            'add' | 'replace' | 'prepare'
+                        ]}
+                  </div>
+                </foreignObject>
               )}
             </g>
           )

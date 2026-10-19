@@ -1,5 +1,10 @@
 import type { Locale } from '../../../shared/i18n/i18n'
 type Copy = {
+  complete: string
+  partial: string
+  states: string
+  methods: string
+  repeats: string
   current: string
   pasted: string
   title: string
@@ -24,6 +29,11 @@ type Copy = {
 }
 export const scenarioMessages: Record<Locale, Copy> = {
   en: {
+    complete: 'Result ready',
+    partial: 'Partial result ready',
+    states: 'Item states',
+    methods: 'Crafting methods',
+    repeats: 'Attempt limit for repeatable methods only',
     current: 'Use current result code',
     pasted: 'Pasted code — automatic updates are paused',
     title: 'Scenario code',
@@ -52,6 +62,11 @@ export const scenarioMessages: Record<Locale, Copy> = {
       'Copying replaces your current inputs. Recalculation is a separate action using the current supported catalog.',
   },
   ko: {
+    complete: '결과 준비 완료',
+    partial: '일부 결과 준비 완료',
+    states: '아이템 상태',
+    methods: '제작 방법',
+    repeats: '반복 가능한 작업의 최대 시도 횟수',
     current: '현재 결과 코드로 바꾸기',
     pasted: '붙여넣은 코드 · 자동 덮어쓰기 중지',
     title: '시나리오 코드',
@@ -79,6 +94,11 @@ export const scenarioMessages: Record<Locale, Copy> = {
       '복사하면 현재 입력을 바꿉니다. 재계산은 별도 동작이며 현재 지원 카탈로그를 사용합니다.',
   },
   'zh-CN': {
+    complete: '结果已就绪',
+    partial: '部分结果已就绪',
+    states: '物品状态',
+    methods: '制作方法',
+    repeats: '仅可重复操作的最大尝试次数',
     current: '使用当前结果代码',
     pasted: '已粘贴代码，不自动覆盖',
     title: '场景代码',
@@ -103,6 +123,11 @@ export const scenarioMessages: Record<Locale, Copy> = {
     editWarning: '复制会替换当前输入。重新计算是独立操作，使用当前支持的目录。',
   },
   'zh-TW': {
+    complete: '結果已就緒',
+    partial: '部分結果已就緒',
+    states: '物品狀態',
+    methods: '製作方法',
+    repeats: '僅可重複操作的最大嘗試次數',
     current: '使用目前結果代碼',
     pasted: '已貼上代碼，不自動覆寫',
     title: '情境代碼',
@@ -127,6 +152,11 @@ export const scenarioMessages: Record<Locale, Copy> = {
     editWarning: '複製會取代目前輸入。重新計算是獨立操作，使用目前支援的目錄。',
   },
   ja: {
+    complete: '結果の準備完了',
+    partial: '一部結果の準備完了',
+    states: 'アイテム状態',
+    methods: 'クラフト方法',
+    repeats: '繰り返せる操作のみの最大試行回数',
     current: '現在の結果コードに切り替え',
     pasted: '貼り付けたコード・自動上書き停止',
     title: 'シナリオコード',
@@ -153,6 +183,11 @@ export const scenarioMessages: Record<Locale, Copy> = {
       'コピーすると現在の入力を置き換えます。再計算は別操作で、現在対応するカタログを使用します。',
   },
   es: {
+    complete: 'Resultado listo',
+    partial: 'Resultado parcial listo',
+    states: 'Estados del objeto',
+    methods: 'Métodos de fabricación',
+    repeats: 'Intentos máximos solo para métodos repetibles',
     current: 'Usar código del resultado actual',
     pasted: 'Código pegado: no se sobrescribe automáticamente',
     title: 'Código de escenario',

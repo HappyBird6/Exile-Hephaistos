@@ -557,3 +557,18 @@
   stroke-width: 5px;
   stroke-linejoin: round;
 }
+
+.graph-action-label {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 32px;
+  padding: 4px 6px;
+  border: 1px solid #65674e;
+  border-radius: 5px;
+  color: #dfcfad;
+  background: #1b222b;
+  font-size: 12px;
+  line-height: 1.2;
+  text-align: center;
+  overflow-wrap: anywhere;
+}

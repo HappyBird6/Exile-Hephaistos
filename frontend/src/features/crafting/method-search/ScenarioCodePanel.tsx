@@ -1,3 +1,4 @@
+import { isRepeatable } from './methodObservation'
 import { ScenarioTransferContext } from './scenarioTransfer'
 import type { ReactNode } from 'react'
 import { useContext, useEffect, useLayoutEffect, useRef, useState } from 'react'
@@ -347,12 +348,17 @@ export function ScenarioImport({
             ? copy.busy
             : transfer?.state.dirty
               ? copy.pasted
-              : transfer?.state.status}
+              : transfer?.state.status.startsWith('COMPLETE')
+                ? copy.complete
+                : transfer?.state.status.startsWith('PARTIAL')
+                  ? copy.partial
+                  : ''}
           {notice && <p>{notice}</p>}
           {transfer?.state.failed && <p>{copy.invalid}</p>}
         </div>
         <details className="scenario-code-help">
           <summary>{copy.details}</summary>
+          {transfer?.state.status && <p>{transfer.state.status}</p>}
           <p>{copy.warning}</p>
           <p>{copy.manual}</p>
           <button disabled={!text} onClick={() => download(text)}>
@@ -396,9 +402,17 @@ export function ScenarioImport({
             <h3>{copy.goal}</h3>
             <GoalSummary scenario={preview} />
             <p>
-              {preview.result.status} · {preview.result.nodes.length} /{' '}
-              {preview.result.methods.length} · N={preview.cycles}
+              {preview.result.status === 'COMPLETE'
+                ? copy.complete
+                : copy.partial}{' '}
+              · {copy.states}: {preview.result.nodes.length} · {copy.methods}:{' '}
+              {preview.result.methods.length}
             </p>
+            {preview.result.methods.some(isRepeatable) && (
+              <p>
+                {copy.repeats}: {preview.cycles}
+              </p>
+            )}
             <button
               onClick={() => {
                 try {

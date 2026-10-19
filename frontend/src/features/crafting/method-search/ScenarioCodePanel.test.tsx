@@ -1,3 +1,5 @@
+import { ScenarioTransferContext, emptyTransfer } from './scenarioTransfer'
+import { scenarioMessages } from './scenarioMessages'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { beforeEach, expect, it, vi } from 'vitest'
 import { webcrypto } from 'node:crypto'
@@ -85,6 +87,10 @@ it('previews before opening, restores without API calls, and preserves existing 
   const open = await screen.findByRole('button', {
     name: 'Open read-only result',
   })
+  expect(screen.getByText(/Item states: 1/)).toHaveTextContent(
+    'Crafting methods: 0',
+  )
+  expect(screen.queryByText(/N=300/)).not.toBeInTheDocument()
   expect(changed).not.toHaveBeenCalled()
   expect(localStorage.getItem('existing-user-work')).toBe('keep exactly')
   fireEvent.click(open)
@@ -177,3 +183,34 @@ it('does not execute pasted content or show a result for invalid data', async ()
   ).not.toBeInTheDocument()
   expect(copied).not.toHaveBeenCalled()
 })
+
+it.each(scenarioLocales)(
+  'keeps technical status and timestamp in details in %s',
+  (locale) => {
+    setLocale(locale)
+    const noop = vi.fn(),
+      technical = 'COMPLETE · 2026-10-19T00:00:00.000Z'
+    render(
+      <ScenarioTransferContext.Provider
+        value={{
+          state: { ...emptyTransfer, status: technical },
+          begin: noop,
+          ready: noop,
+          clear: noop,
+          failed: noop,
+          edit: noop,
+          useGenerated: noop,
+        }}
+      >
+        <ScenarioImport onOpenChanged={noop} onCopy={noop} />
+      </ScenarioTransferContext.Provider>,
+    )
+    expect(screen.getByRole('status')).toHaveTextContent(
+      scenarioMessages[locale].complete,
+    )
+    expect(screen.getByRole('status')).not.toHaveTextContent(
+      /COMPLETE|2026-10-19/,
+    )
+    expect(screen.getByText(technical)).not.toBeVisible()
+  },
+)
