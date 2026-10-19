@@ -20,7 +20,15 @@ public final class AutomaticSearchService implements AutoCloseable {
   public record Runtime(
       AutomaticCraftingKernel kernel,
       Function<ItemState, AutomaticMethodGraph.Progress> evaluate,
-      String objective) {}
+      String objective,
+      int minimumExplicitModifiers) {
+    public Runtime(
+        AutomaticCraftingKernel kernel,
+        Function<ItemState, AutomaticMethodGraph.Progress> evaluate,
+        String objective) {
+      this(kernel, evaluate, objective, 0);
+    }
+  }
 
   public record Control(String commandId, long revision, long generation, String operation) {}
 
@@ -62,7 +70,9 @@ public final class AutomaticSearchService implements AutoCloseable {
       boolean canResume,
       long operations,
       long retainedStates,
-      AutomaticMethodGraph.ResourceUsage resources,
+      @com.fasterxml.jackson.annotation.JsonInclude(
+              com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+          AutomaticMethodGraph.ResourceUsage resources,
       List<AutomaticMethodGraph.NodeView> nodes,
       List<Arrow> methods,
       List<Recommendation> recommendations) {}
@@ -103,7 +113,15 @@ public final class AutomaticSearchService implements AutoCloseable {
       AutomaticCurrencyPolicy policy,
       Function<MethodSearchProtocol.Create, Runtime> factory,
       Clock clock) {
-    this.json = json.copy();
+    this.json =
+        json.copy()
+            .disable(com.fasterxml.jackson.databind.MapperFeature.ALLOW_COERCION_OF_SCALARS)
+            .enable(
+                com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES,
+                com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_NUMBERS_FOR_ENUMS,
+                com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_TRAILING_TOKENS)
+            .enable(com.fasterxml.jackson.core.JsonParser.Feature.STRICT_DUPLICATE_DETECTION)
+            .disable(com.fasterxml.jackson.databind.DeserializationFeature.ACCEPT_FLOAT_AS_INT);
     this.repository = repository;
     this.policy = policy;
     this.factory = factory;
@@ -123,7 +141,14 @@ public final class AutomaticSearchService implements AutoCloseable {
 
   private Disk read(String id) {
     try {
-      return json.readValue(repository.read(id), Disk.class);
+      var saved = json.readValue(repository.read(id), Disk.class);
+      if (saved == null
+          || saved.graph() == null
+          || saved.request() == null
+          || saved.owner() == null
+          || saved.status() == null
+          || !id.equals(saved.id())) throw new java.io.IOException("Invalid saved document");
+      return saved;
     } catch (java.io.IOException e) {
       throw new Rejected(409, "RECALCULATION_REQUIRED");
     }
@@ -226,7 +251,7 @@ public final class AutomaticSearchService implements AutoCloseable {
         if (!saved.request().equals(request)
             || saved.graph().nodes().getFirst().quality40() != input.abstractQuality40())
           throw new Rejected(409, "REQUEST_ID_REUSED");
-        return view(load(owner, id));
+        return get(owner, id);
       }
     }
     requireActiveSlot();
@@ -235,6 +260,8 @@ public final class AutomaticSearchService implements AutoCloseable {
     job.owner = ownerKey(owner);
     job.request = request;
     job.runtime = factory.apply(request);
+    if (job.runtime.minimumExplicitModifiers() > 4)
+      throw new Rejected(422, "GOAL_EXCEEDS_FOUR_EXPLICIT_SCOPE");
     job.expires = clock.millis() + Duration.ofHours(24).toMillis();
     job.graph =
         new AutomaticMethodGraph(
@@ -269,6 +296,18 @@ public final class AutomaticSearchService implements AutoCloseable {
   }
 
   public synchronized View get(String owner, String id) {
+    if (!id.matches("[0-9a-f-]{36}") || !repository.ids().contains(id))
+      throw new Rejected(404, "JOB_NOT_FOUND");
+    var saved = read(id);
+    if (!saved.owner().equals(ownerKey(owner)) || saved.expires() < clock.millis())
+      throw new Rejected(404, "JOB_NOT_FOUND");
+    if (LegacyAutomaticResultReader.VERSION.equals(saved.graph().version())) {
+      try {
+        return LegacyAutomaticResultReader.read(saved, factory.apply(saved.request()));
+      } catch (RuntimeException error) {
+        throw new Rejected(409, "RECALCULATION_REQUIRED");
+      }
+    }
     return view(load(owner, id));
   }
 
@@ -380,9 +419,9 @@ public final class AutomaticSearchService implements AutoCloseable {
     return result;
   }
 
-  private View view(Job job) {
-    var nodes = job.graph.nodes();
-    var methodViews = job.graph.methods();
+  static List<Arrow> arrows(
+      List<AutomaticMethodGraph.NodeView> nodes,
+      List<AutomaticMethodGraph.MethodView> methodViews) {
     var probabilities = new HashMap<CertifiedInterval, CertifiedMethodProtocol.Bounds>();
     Function<CertifiedInterval, CertifiedMethodProtocol.Bounds> probability =
         value ->
@@ -448,6 +487,18 @@ public final class AutomaticSearchService implements AutoCloseable {
               method.unresolvedReasons(),
               method.finished()));
     }
+    return List.copyOf(arrows);
+  }
+
+  private View view(Job job) {
+    var nodes = job.graph.nodes();
+    var methodViews = job.graph.methods();
+    var probabilities = new HashMap<CertifiedInterval, CertifiedMethodProtocol.Bounds>();
+    Function<CertifiedInterval, CertifiedMethodProtocol.Bounds> probability =
+        value ->
+            probabilities.computeIfAbsent(
+                value, v -> CertifiedMethodProtocol.Bounds.probability(v, 2));
+    var arrows = arrows(nodes, methodViews);
     var recommendations = new ArrayList<Recommendation>();
     for (int cycles : List.of(100, 300, 500)) {
       var strategy = job.graph.strategy(cycles);

@@ -31,7 +31,7 @@
 
 모든 시작은 실제 카탈로그의 Solar Amulet, ilvl 82, implicit Spirit +15이다. 목표 희귀도는 RARE이며, 아래에 쓴 수치는 하한이다. `생명`은 최대 생명력, `소환수`는 소환수 스킬 레벨이다. 목표를 낮춰 통과시킨 것이 아니라 기존 시나리오의 입력·목표를 그대로 재실행했다. 원본 세 번째 가져오기 코드도 생명/카오스/냉기 각각 1 이상임을 직접 확인했다.
 
-모든 행의 실제 종결은 **COMPLETE, 목표 도달, 예산 중단 없음**이다. 시간은 최종 소스 집중 회귀의 단일 측정이며 CPU 속도 비교의 근거로 사용하지 않는다.
+모든 행의 실제 종결은 **COMPLETE, 목표 도달, 예산 중단 없음**이다. 이 표의 시간은 계산 공유 수정 commit `98b0413`의 집중 회귀 단일 측정이며 CPU 속도 비교의 근거로 사용하지 않는다.
 
 | # | 시작 → 목표 | 서로 다른 검증 목적·예상/실제 방법 | 대표 확률과 전제 | 실제 상태/방법 | 계산 상태/실행 | 시간 ms |
 |---|---|---|---|---:|---:|---:|
@@ -58,17 +58,17 @@
 
 ## 자원·시간·저장 검토
 
-원본 3목표의 기준 결과는 63상태/32방법, 587operations, 347retained, 353ms였다. 변경 후 63/32를 그대로 보존하고 계산3/실행8, 52operations, 191retained이다. 실제 티어를 지운 것이 아니라 중복 실행을 공유한 결과다. 최종 집중 회귀 시간은461ms이며 이전 반복 측정은306~434ms였다. **CPU 또는 응답 속도가 빨라졌다고 주장할 수 없다.** 동등성 증명 자체의 비용도 있다(원본 3목표 4392행, 45ms). 머신 부하와 순서에 영향을 받는다. retained는 논리 레코드 계수이며 실제 heap byte 측정값이 아니다.
+원본 3목표의 기준 결과는 63상태/32방법, 587operations, 347retained, 353ms였다. 변경 후 63/32를 그대로 보존하고 계산3/실행8, 52operations, 191retained이다. 실제 티어를 지운 것이 아니라 중복 실행을 공유한 결과다. 계산 공유 수정 단계 집중 회귀 시간은461ms이며 이전 반복 측정은306~434ms였다. **CPU 또는 응답 속도가 빨라졌다고 주장할 수 없다.** 동등성 증명 자체의 비용도 있다(원본 3목표 4392행, 45ms). 머신 부하와 순서에 영향을 받는다. retained는 논리 레코드 계수이며 실제 heap byte 측정값이 아니다.
 
-실제 API의 4목표 취소→재개→완료→디스크 JSON 재로드 회귀는 ADVANCE 3회, 취소 뒤 사용자가 재개한 것 외 추가 RESOURCE RESUME 0회였다. 최대 ADVANCE3391ms, 취소 확인567ms였다. 과거 측정은 각각3790/530ms였다. 300ms 설정은 계산 slice 목표이며 저장·표시·직렬화와 동기화까지 포함한 응답/취소 지연의 보장이 아니다. 재개가 기존 규칙에 따라 예산을 확대했기 때문에 API 완료 자원 한도는128/256/40000/10000으로 기록된다. 별도 직접 graph 사례는 초기 예산 안에서 완료했다.
+계산 공유 단계 실제 API의 4목표 취소→재개→완료→디스크 JSON 재로드 회귀는 ADVANCE 3회, 취소 뒤 사용자가 재개한 것 외 추가 RESOURCE RESUME 0회였다. 최대 ADVANCE3391ms, 취소 확인567ms였다. 과거 측정은 각각3790/530ms였다. 300ms 설정은 계산 slice 목표이며 저장·표시·직렬화와 동기화까지 포함한 응답/취소 지연의 보장이 아니다. 재개가 기존 규칙에 따라 예산을 확대했기 때문에 API 완료 자원 한도는128/256/40000/10000으로 기록된다. 별도 직접 graph 사례는 초기 예산 안에서 완료했다.
 
 설정은 늘리지 않았다: 계산 상태64→128, 경로 실행128→256, retained20000→40000→50000, primitive5000→10000, 활성 작업16, 디스크 작업당64MiB/전체1GiB/256개. concrete 방법 수369를 허용하려고 실행 한도를 올린 것이 아니다. 새 resources 검증은 실제 배열 수와 공유 계산 수를 구별하며 위조된 계수를 거절한다. 기존 resources 없는 응답·코드는 이전 한도를 적용한다.
 
 4목표 API 결과는 약6.2MB다. 6개 언어 카드까지 담은 가져오기 원문은8,573,320byte, `.exile` 코드는83,231byte였다. 기존16MiB 원문/2MiB 압축 안전 한도와 codec은 변경하지 않았다. 큰 결과의 직렬화·UI 처리 비용은 여전히 남는다.
 
-## 최종 검증
+## 계산 공유 단계(98b0413)의 검증
 
-Backend: 최종 소스에서 `spotlessApply check generateJooq bootJar`가 10분 36초에 성공했다. unit/ArchUnit 860개와 Docker 통합 8개가 모두 통과했고 실패·오류·skip은 0개다. PostgreSQL codegen/통합 검사는 임시 Testcontainers DB에서 수행했다. 운영 DB는 사용하지 않았다.
+Backend: 해당 단계 소스에서 `spotlessApply check generateJooq bootJar`가 10분 36초에 성공했다. unit/ArchUnit 860개와 Docker 통합 8개가 모두 통과했고 실패·오류·skip은 0개다. PostgreSQL codegen/통합 검사는 임시 Testcontainers DB에서 수행했다. 운영 DB는 사용하지 않았다.
 
 Frontend: `npm ci`, lint, typecheck, format:check, build, **107파일 2273테스트 통과**, 실패/skip0. 최신 후보 간소화와 범위 안내를 포함한 소스에서 실행했다. Backend 집중 회귀는 **75/75** 통과했다. 최종 소스와 테스트 컨테이너에서 포맷된 소스의 일치 hash를 별도 manifest에 기록한다.
 
@@ -84,7 +84,7 @@ Frontend: `npm ci`, lint, typecheck, format:check, build, **107파일 2273테스
 4. 후보 확률은 source 기준 결과 질량으로 명시했다. 조건부 티어 분포는 별도 기능이며 이번에 계산하지 않았다. 여러 source/방법의 확률을 혼합하지 않는다.
 5. 반복 목록의 100/300/500은 결과 관측 지평이다. 한 번만 수행할 수 있는 방법에는 단일 시도로 표시한다. 그래프 깊이·최대4명시옵션과 혼동하지 않는다.
 6. 다섯 조건이라는 숫자만으로 미지원 판정하지 않는다. 현재 카탈로그의 최소 옵션 수가4를 넘는 좁은 경우만 빠르게 안내하고 나머지 복잡한 논리식은 기존 평가/탐색으로 넘긴다.
-7. checkpoint 계산 버전은 `goal-directed-milestone-graph-v9-terminal-classes`다. 이전 v8 서버 저장 계산 checkpoint는 완료 여부와 관계없이 새 실행기에서 재계산이 필요하다. 파일을 삭제하거나 자동 변환하지 않았다. 기존 완결 `.exile` 코드는 계속 읽기 전용으로 열린다.
+7. checkpoint 계산 버전은 `goal-directed-milestone-graph-v9-terminal-classes`다. v8 서버 저장 결과는 검증된 읽기 전용 경로로 열람·내보내기할 수 있다. v8 실행 재개는 거절하며 명시적 재계산만 새 탐색을 만든다. 완료·미완료 원본 파일과 요청은 수정하지 않는다. 기존 완결 `.exile` 코드도 계속 열린다. 아래 호환성 수정 검증을 참고한다.
 8. 큰 응답과 취소 지연은 개선 여지가 남는다. 이번 결과는 실행 수/retained 감소와 기존 예산에서의 완료를 입증하며 보편적 시간 단축을 입증하지 않는다.
 9. UI6언어를 유지하고 내부 계수는 접힌 세부정보에 둔다. 영어 화폐 ID와 한국어 보고서 용어는 실제 로컬 카탈로그 의미를 따른다.
 10. 외부 push/merge/deploy 없이 전용 작업 트리의 변경만 로컬 commit한다. 실행 반영에는 **backend와 frontend 모두** 새 버전이 필요하며, 현재 localhost는 기존 버전이다. 추가 승인 전 교체하지 않는다.
@@ -101,3 +101,28 @@ Frontend: `npm ci`, lint, typecheck, format:check, build, **107파일 2273테스
 - `terminal-fixtures/four-goal-api.json`, `four-goal-request.json`, `terminal-four-goals.exile`: 실제 큰 결과와 재현 코드. 원본3목표 `large-three-goals.exile`은 수정하지 않았으며 SHA256은 `2081c8817397fe8938b0d0093ba8bc7747b9667c14886c6807aefde30b440ed1`이다.
 
 연결이 잠시 끊긴 편집 호출은 대상 파일이 생성되지 않았음을 확인한 뒤 재실행했다. 장기 테스트는 중단 없이 완료됐고 같은 검사를 중복 시작하지 않았다. 이번 단계에서 미해결 승인 거부는 없으며, 실행 서비스 교체는 요청 범위 밖으로 미수행 상태다.
+
+## 최종 리뷰 후 v8 저장 결과 읽기 호환성 수정
+
+`98b0413`에 완료된 v8 서버 결과의 GET까지 실행 복원을 요구하여 409로 막는 회귀가 있었다. 이전 보고서에서 이를 단순 재계산 제약으로 수용한 판단은 잘못이었다. 이 수정은 그 결함을 해결한다.
+
+- GET은 정확히 v8 graph와 v4 execution 형식의 저장 관측값을 별도 reader로 투영한다. 실행 cursor 복원·화폐 전이 실행·전략 재계산·저장 갱신은 하지 않는다.
+- 원본 request, ruleset/objective identity, 버전, 상태, 참조, 관측 지평, 확률 질량 및 중복 행을 검증한다. 손상되거나 알 수 없는 버전은 안전하게 거절한다. 새 v9 실행 버전 검사를 우회하지 않는다.
+- 완료된 v8은 COMPLETE·읽기 전용·canResume=false로 반환한다. 미완료 v8은 PARTIAL·읽기 전용이며 저장된 관측값만 반환한다. 없는 관측값을 새로 계산하거나 완료로 바꾸지 않는다.
+- 원래 v8 파일에 저장되지 않은 추천과 retry-anchor metadata는 다시 계산하지 않는다. 추천은 빈 목록이며, 분류 근거가 없는 남은 질량은 UNRESOLVED로 보수적으로 표시한다. 성공 확률 질량과 기존 실제 아이템 결과는 보존한다.
+- 기존 요청 ID의 idempotent 생성 요청도 읽기 전용 결과를 반환한다. ADVANCE·RESUME·CANCEL은 실행 복원 버전 검사에서 거절되며 원본 파일을 변경하지 않는다. 원본 요청 조회도 유지한다.
+- 6개 언어로 읽기 전용 이유를 안내하고 제어 요청을 차단한다. 명시적인 재계산 버튼은 남기되 자동 재계산하지 않는다. 결과 내보내기/가져오기는 기존 형식으로 유지한다.
+
+회귀 fixture는 `1b5b104fa2f8719b2fc687b37c700c088dc923c4`의 실제 v8 실행기를 임시 컨테이너에서 실행해 생성한 Solar Amulet 2목표 테스트 결과다. 사용자 저장 기록을 가져오지 않았다. 완료 JSON, 시작 직후 READY JSON, 당시 API View를 `backend/src/test/resources/legacy-v8`에 보관한다. 테스트는 임시 사본의 TTL만 고정하여 날짜가 지나도 반복 가능하게 하고, 모든 GET·원본 조회·idempotent 조회·거절된 제어 이후 사본의 전체 byte가 그대로인지 비교한다.
+
+최종 호환성 수정 소스에서 `spotlessApply check generateJooq bootJar`가 11분 12초에 성공했다. unit/ArchUnit864개와 Docker 통합8개 모두 통과했으며 실패·오류·skip0개다. 최종 검사 로그는 `legacy-final-pipeline.log`, 소스/fixture 일치 기록은 `legacy-final-source-manifest.json`이다.
+
+Frontend의 npm ci·lint·typecheck·format:check·build 및 2275개 테스트가 통과했다. Backend 집중 회귀79개도 통과했다. 기존 정상 지원12개는 모두 COMPLETE/목표 도달/예산 중단 없음으로 재확인했으며 측정 원문은 `legacy-scenarios-final.json`이다. 이 호환성 수정은 계산 공유·화폐 정책·확률 엔진을 바꾸지 않았다.
+
+실제 GET 응답에서 내보낸 결과는 7상태/3방법, JSON51482byte, 코드4165byte였다. encode/decode 뒤 결과 객체 전체와 원본 목표·아이템·provenance·6개 언어 표시를 wire JSON 기준으로 완전 비교했다. Browser는 3개 묶음·7개 상태, 후보 선택, desktop/mobile, reload 등6개 항목이 통과했고 계산 API0회·JavaScript 오류0회였다. import/open310ms는 한 번의 측정이다. 증거는 `legacy-export-result.json`, `legacy-response-validation.json`, `legacy-result-browser-results.json`, `legacy-fixtures`에 있다.
+
+첫 검증 시 테스트의 AssertJ 제네릭 오버로드를 명시했고, Jackson 내부 정수/소수 노드 타입 차이 비교는 실제 wire JSON의 완전 일치 비교로 바꿨다. 내보내기 검증 역시 JSON에 존재하지 않는 undefined 속성만 직렬화 규칙대로 처리한다. 목표·확률·상태·원본 파일 byte 보존 단언은 완화하지 않았다. 화면 묶음 수는 추측을 버리고 실제 투영(3묶음/7상태)과 대조했다.
+
+읽기 호환은 검증 가능한 v8/v4와 동일한 frozen ruleset/objective에 한정한다. 알 수 없거나 손상된 형식은 원본을 보존하고 거절한다. 기존 TTL·소유자 접근 정책은 바꾸지 않았다. 저장되지 않은 잠정 관측값이나 추천을 새로 만들어내지 않는다.
+
+실행 반영은 여전히 하지 않았다. 이후 승인받아 backend·frontend를 함께 반영하더라도 기존 v8 완료 결과를 읽기 위해 재계산할 필요는 없다. 실행을 계속하려는 v8 작업만 명시적 새 계산이 필요하다. 오래된 결과의 원본 파일 삭제·일괄 migration·자동 덮어쓰기는 수행하지 않는다.

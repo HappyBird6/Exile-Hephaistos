@@ -47,9 +47,7 @@ public class SupportConfiguration {
             throw new com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Rejected(
                 422, "INVALID_ITEM");
           var evaluate = goals.compileEvaluation(item, request.goal());
-          if (goals.minimumExplicitModifiers(item, request.goal()) > 4)
-            throw new com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Rejected(
-                422, "GOAL_EXCEEDS_FOUR_EXPLICIT_SCOPE");
+
           try {
             return new com.poe2craft.crafting.application.pathsearch.AutomaticSearchService.Runtime(
                 workbench
@@ -66,7 +64,8 @@ public class SupportConfiguration {
                           .map(e -> e.status())
                           .toList());
                 },
-                json.writeValueAsString(request.goal()));
+                json.writeValueAsString(request.goal()),
+                goals.minimumExplicitModifiers(item, request.goal()));
           } catch (java.io.IOException e) {
             throw new IllegalArgumentException("Cannot preserve objective", e);
           }

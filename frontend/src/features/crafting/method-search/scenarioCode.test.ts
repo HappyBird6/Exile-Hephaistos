@@ -261,3 +261,12 @@ it('round trips computation accounting while retaining old scenario compatibilit
   corrupt.result.resources!.concreteStates = 2
   expect(() => validateScenario(corrupt)).toThrow()
 })
+
+it('round trips read-only legacy results and original requests without enabling resume', async () => {
+  const original = fixture()
+  original.result.reason = 'LEGACY_READ_ONLY'
+  original.result.canResume = false
+  const restored = await decodeScenario(await encodeScenario(original))
+  expect(restored).toEqual(original)
+  expect(restored.result.canResume).toBe(false)
+})

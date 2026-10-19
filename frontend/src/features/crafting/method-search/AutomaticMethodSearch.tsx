@@ -5,6 +5,7 @@ import { OperationCards } from './OperationCards'
 import { retryMessages } from './retryMessages'
 import { capacityMessages } from './capacityMessages'
 import { scopeMessages } from './scopeMessages'
+import { legacyResultMessages } from './legacyResultMessages'
 import { sumBounds } from './outcomeGrouping'
 import { guideMessages } from './guideMessages'
 import { removesModifier } from './methodRisk'
@@ -148,6 +149,7 @@ function Run({
           throw error
         }
         if (!alive.current) {
+          if (next.reason === 'LEGACY_READ_ONLY') return
           void cancelAutomatic(
             next.id,
             request.start.provenance.rulesetIdentity,
@@ -198,7 +200,12 @@ function Run({
   }, [])
   const command = async (operation: 'ADVANCE' | 'RESUME') => {
     const previous = current.current
-    if (!previous || commandInFlight.current) return
+    if (
+      !previous ||
+      previous.reason === 'LEGACY_READ_ONLY' ||
+      commandInFlight.current
+    )
+      return
     commandInFlight.current = true
     setBusy(true)
     if (operation === 'RESUME') setControlPhase('RESUME')
@@ -380,6 +387,12 @@ function Run({
           )}
         </p>
       )}
+      {view?.reason === 'LEGACY_READ_ONLY' && (
+        <p role="status">{legacyResultMessages[locale]}</p>
+      )}
+      {!snapshot && view?.reason === 'LEGACY_READ_ONLY' && (
+        <button onClick={onRecalculate}>{common.recalculate}</button>
+      )}
       {view && <SearchResources view={view} />}
       {!capacity && !scopeUnsupported && (
         <CalculationStatus
@@ -393,7 +406,7 @@ function Run({
           )}
         />
       )}
-      {!snapshot && (
+      {!snapshot && view?.reason !== 'LEGACY_READ_ONLY' && (
         <div className="method-map__controls">
           <button
             onClick={stop}

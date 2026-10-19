@@ -727,3 +727,41 @@ it('explains a catalog-proven target outside the four explicit modifier scope wi
   )
   expect(control).not.toHaveBeenCalled()
 })
+
+it('opens legacy partial results without advance, resume, cancellation or automatic recalculation', async () => {
+  setLocale('en')
+  const request = requestFixture()
+  saveSupport('run', {
+    request: request.clientRequestId,
+    job: id,
+    selected: 0,
+    cycles: 100,
+    route: [],
+  })
+  vi.spyOn(automaticApi, 'get').mockResolvedValue({
+    ...initial(),
+    status: 'PARTIAL',
+    reason: 'LEGACY_READ_ONLY',
+    canResume: false,
+  })
+  const control = vi.spyOn(automaticApi, 'control')
+  const recalculate = vi.fn()
+  const { unmount } = render(
+    <AutomaticMethodSearch
+      request={request}
+      inputGeneration={1}
+      presentItem={present}
+      onRecalculate={recalculate}
+    />,
+  )
+  expect(
+    await screen.findByText(/Saved result from an earlier calculation version/),
+  ).toBeInTheDocument()
+  expect(
+    screen.queryByRole('button', { name: 'Continue calculation' }),
+  ).not.toBeInTheDocument()
+  expect(screen.queryByRole('button', { name: 'Stop' })).not.toBeInTheDocument()
+  unmount()
+  expect(control).not.toHaveBeenCalled()
+  expect(recalculate).not.toHaveBeenCalled()
+})

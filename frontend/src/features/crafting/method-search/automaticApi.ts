@@ -268,7 +268,11 @@ export async function cancelAutomatic(id: string, identity: string) {
   for (let i = 0; i < 2; i++)
     try {
       const current = await automaticApi.get(id, identity)
-      if (current.status === 'CANCELLED') return current
+      if (
+        current.status === 'CANCELLED' ||
+        current.reason === 'LEGACY_READ_ONLY'
+      )
+        return current
       return await automaticApi.control(current, 'CANCEL', identity)
     } catch (error) {
       if (!(error instanceof AutomaticError) || error.status !== 409) return
