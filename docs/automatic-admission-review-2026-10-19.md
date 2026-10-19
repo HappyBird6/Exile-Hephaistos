@@ -36,3 +36,28 @@ AutomaticSearchService는 이제 READY만 활성 admission 16개에 포함한다
 최종 소스에서 Backend `spotlessApply check generateJooq bootJar` 성공(9분 7초), 단위/ArchUnit 849개 및 통합 8개 모두 통과, 실패/skip 0개. Frontend `npm ci`, lint, typecheck, format:check, 2,222개 테스트, build 통과. 수정 영역의 포맷된 소스는 검증 환경과 작업 트리를 일치시켰다. 이번 변경은 Windows 실행 스크립트를 변경하지 않았다.
 
 검증 로그: `E:/CODEX/codex/2026-10-19/task-2/admission-backend.log`, `admission-test-summary.json`, `admission-ui.log`. 실제 결과 XML은 같은 디렉터리의 `empty-focused-results`, `empty-integration-results`에 보존했다. 제작 시나리오 회귀 검사도 전체 검사에 포함되어 통과했다.
+
+## localhost 반영 및 실제 새 계산
+
+제품 커밋 `2c601dae4e09fbfa30ab12d0443028b456fd5d11`의 검증된 JAR/프런트를 localhost에 반영했다. 첫 반영 후 JS 해시 검사가 임시 배포 스크립트의 기존 assets 디렉터리 복사 오류를 발견해 중단했고, 복사 대상을 파일 단위로 수정해 프런트만 다시 반영했다. 이 실패 시점에는 실제 새 계산 POST를 보내지 않았다. 재검사에서 readiness UP, UI 200 및 아래 파일 해시가 모두 일치했다.
+
+- 앱 이미지 `exile-hephaistos-app:empty-2c601da`, 프런트 `exile-hephaistos-frontend:empty-2c601da`.
+- JAR SHA256 `d2d4344b6330f39ec6714a5751242f9b79ef113a00677c77b05c33108744e81c`.
+- JS `index-DZsOu3a_.js`, SHA256 `1f332992e20bf550a6b9d319bbfbedfc18b98e8242457b8b6fb831773a2fc539`.
+- 기존 PostgreSQL/Redis 컨테이너 ID 및 `.env` hash 동일. 원격 push/merge/배포 없음.
+
+| 실제 시작 → 목표 | 생성 | 종결 | 시간 | 제어 요청 | 연산 | 노드/방법 |
+|---|---|---|---:|---:|---:|---:|
+| Solar Amulet ilvl82, RARE, 정신력15 implicit, 명시옵션 없음 → RARE 소환수 스킬 레벨≥3 | HTTP 202 | COMPLETE, complete=true | 3,700ms | 6 | 7,037 | 2/16 |
+
+실제 검증 작업 id는 `68ea474f-21c4-408d-9493-a9d20e9f4e39`이다. 기존 16개 결과를 삭제·취소·변경하지 않고 17번째 작업으로 생성했다. 동일 clientRequestId를 다시 보내도 같은 id를 반환했고 GET 응답은 완료 응답과 같았다. 원본 16개 파일의 SHA256은 계산 전후와 브라우저 검증 후 모두 동일했다. 현재 총 17개는 원본 16개와 이번 합성 검증 결과 1개이며, 이 결과 역시 보존했다.
+
+브라우저는 실제 localhost 번들과 실제 서버 응답을 사용했고 API mock을 사용하지 않았다. 실제 새 결과의 idempotent POST 202 후 화면에 탐색 완료, 엑잘1회+카오스100회 5.81% 등 결과가 표시됐다. 새로고침 후 GET 200으로 같은 작업을 복원했고 추가 POST는 없었다. 모바일 inspector clientWidth/scrollWidth는 모두 317px, 브라우저 오류 0개였다. 처음 브라우저 검사 입력에서 API 버전2를 UI 저장 계약에 넣어 화면을 복원하지 못했으나, UI 계약 버전으로 검사 입력을 수정한 뒤 통과했다. 이 검사 입력 수정은 제품 코드 변경이 아니다.
+
+증거 파일: `admission-deployment-verification.json`, `admission-live-before.json`, `admission-live-result.json`, `admission-live-browser.json` (모두 `E:/CODEX/codex/2026-10-19/task-2`). 스크린샷은 내부 검토용으로만 보관하고 Library에 올리지 않았다.
+
+## 사용자에게 적용되는 결과와 남은 한계
+
+이전의 '한국시간 10월20일 01:10 이후까지 기다려야 한다'는 안내는 이번 수정으로 대체된다. 현재 저장 결과 때문에 신규 계산이 막히지 않는다. 현재 화면을 새로고침하고 다시 계산을 시작할 수 있다. 실제 READY가 16개이면 완료/중단으로 슬롯이 해제될 때까지 429가 유지된다. 저장 한도에 실제로 도달했을 때는 별도 저장 용량 안내가 나온다.
+
+확률 모델의 기존 미지원 결합 질량과 PARTIAL 표시는 그대로다. 이번 수정이 미지원 제작 메커니즘을 지원한다고 주장하지 않는다. 전체 제작 시나리오 회귀는 최종 소스에서 다시 통과했다. 현재 작업에 남은 실행 차단은 없다.
