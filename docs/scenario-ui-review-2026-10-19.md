@@ -187,3 +187,12 @@ Backend·계약·카탈로그·infra·Windows 스크립트의 diff는 없다. �
 사용하지 않는 이전 투영 코드와 그 회귀5개를 정리하려던 요청은 자동 승인 검토가 coverage 약화 위험으로 거부했고 실행되지 않았다. 기존 구현/검사는 그대로 두고 실제 화면은 새 stateProjection을 사용한다. 이 선택은 기능 수정의 차단이 아니다. 현재 남은 차단은 localhost 갱신의 명시적 승인 대기다.
 
 증거는 E:/CODEX/codex/2026-10-19/task-2 아래 state-release-checks.log, scenario-ui-tests.json, state-source-manifest.json, state-release-preview.log, state-graph-browser-results.json, state-code-regression.log, state-release-summary.json, state-runtime-before-update.json, state-graph-*.png이다. 사용자 이미지는 재업로드하지 않았다.
+
+
+## 사용자 승인 후 localhost 반영 완료
+
+사용자가 기존 localhost:8081 프런트만 교체하는 질문에 “어 교체해줘”라고 명시 승인했다. 이전 작업이 실행 전 거부됐고 서비스가77eac40임을 확인한 뒤, 이 새 승인을 근거로 동일 스크립트를 한 번 재시도하여 성공했다. 위 절의 승인 대기/미반영 상태는 이 절로 해소된다. 추가 승인이나 실행 차단은 남아 있지 않다.
+
+실제 프런트는 exile-hephaistos-frontend:scenario-a5c3707이며, 구현580f102와 보고서HEAD a5c3707의 검증된 동일 산출물이다. 실제 제공 bundle /assets/index-BA5fgXJC.js의 SHA256은 4D902C628EA14E200A6981A59C72D88EAAE082DCA1AC5C975CDE62A89F5CD0C0으로 준비 build와 일치했다. UI HTTP200, Backend readiness UP을 확인했다. Backend JAR·PostgreSQL/Redis 컨테이너·.env·기존 저장 작업16개 hash는 모두 보존됐다. 외부 공개 배포나 원격 push/merge는 하지 않았다.
+
+원본 세 번째 코드를 실제 제공 화면에서 가져와 12개 브라우저 검사를 다시 통과했다(LOCAL_DIST=false).9개 카드·63개 원본 상태·4개 말단, 도착 라벨·격자·투명 배경, 펼침/접기, 정확한2단계 목표 경로, 새로고침, 데스크톱/모바일 줌과 확대 상태 후보 클릭을 확인했다. 계산 API 요청0회, 브라우저 오류0회다. 최종 증거는 state-live-verification.json, state-live-browser.log, state-graph-browser-results.json 및 state-graph-*.png이다. 독립 최종 리뷰는 별도 작업에서 이어진다.
