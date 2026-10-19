@@ -572,3 +572,72 @@
   text-align: center;
   overflow-wrap: anywhere;
 }
+
+/* The graph shares the site surface; only cards and arrival labels are filled. */
+.graph-workspace {
+  min-width: 0;
+}
+.graph-zoom-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+.graph-zoom-controls output {
+  min-width: 3.5rem;
+  text-align: center;
+}
+.automatic-workspace .method-map__overview {
+  height: max(900px, 90vh);
+  min-height: 900px;
+  background: transparent;
+  border: 1px solid #555;
+  scrollbar-color: #776640 #141a15;
+  scrollbar-width: auto;
+  scrollbar-gutter: stable;
+}
+.method-map__overview:hover {
+  scrollbar-color: #a28b56 #141a15;
+}
+.method-map__overview:focus-visible {
+  outline: 2px solid #dec082;
+  outline-offset: 2px;
+}
+.method-map__overview > svg {
+  display: block;
+  max-width: none;
+}
+.graph-arrival-labels {
+  display: grid;
+  gap: 6px;
+}
+.graph-arrival-labels .graph-action-label {
+  height: auto;
+  min-height: 32px;
+  white-space: normal;
+  margin: 0;
+  background: #1b222b;
+  color: #dfcfad;
+}
+.graph-state-bundle > p {
+  font-size: 0.85rem;
+  margin: 0.4rem 0;
+}
+.graph-candidates details {
+  padding: 0.4rem 0;
+}
+.graph-candidates button {
+  width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.graph-state-bundle .item-card__modifier-detail > span {
+  white-space: pre-line;
+}
+@media (max-width: 760px) {
+  .automatic-workspace .method-map__overview {
+    height: 75vh;
+    min-height: 560px;
+  }
+}

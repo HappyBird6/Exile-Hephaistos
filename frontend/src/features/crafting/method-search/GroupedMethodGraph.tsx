@@ -1,16 +1,16 @@
-import { GraphItemState } from './GraphItemState'
-import { graphStateMessages } from './graphStateMessages'
-import type { Scenario } from './scenarioCode'
-import { operationKind } from './operationGrouping'
-import { operationMessages } from './operationMessages'
-import { methodSearchMessages } from './messages'
-import { guideMessages } from './guideMessages'
-import { methodPoint } from './methodObservation'
 import { useLayoutEffect, useRef, useState } from 'react'
 import type { AutomaticAction, AutomaticView } from './automaticApi'
 import type { Selection } from './supportStorage'
+import type { Scenario } from './scenarioCode'
 import type { PathTreeProps } from '../path-tree/PathTree'
-import { graphProjection, groupMass, exaltedGroups } from './outcomeGrouping'
+import { methodPoint } from './methodObservation'
+import { stateProjection, type BundleEdge } from './stateProjection'
+import { commonStateCard } from './commonStateCard'
+import { MeasuredGraphBox } from './MeasuredGraphBox'
+import { GraphItemState } from './GraphItemState'
+import { graphStateMessages } from './graphStateMessages'
+import { graphNavigationMessages } from './graphNavigationMessages'
+import { guideMessages } from './guideMessages'
 import { outcomeMessages } from './outcomeMessages'
 import { probabilityText } from './probabilityPresentation'
 import { presentRollCell } from './rollPresentation'
@@ -42,332 +42,404 @@ export function GroupedMethodGraph({
   const { locale } = useI18n(),
     guide = guideMessages[locale],
     copy = outcomeMessages[locale],
-    common = pathTreeMessages[locale]
-  const [opened, setOpened] = useState<string | null>(null),
-    [expanded, setExpanded] = useState<Set<string>>(new Set())
+    common = pathTreeMessages[locale],
+    nav = graphNavigationMessages[locale]
   const host = useRef<HTMLDivElement>(null)
-  const [viewportWidth, setViewportWidth] = useState(340)
+  const [viewport, setViewport] = useState({ width: 340, height: 720 }),
+    [zoom, setZoom] = useState(1)
+  const [measured, setMeasured] = useState<Record<string, number>>({}),
+    [opened, setOpened] = useState<string | null>(null)
   useLayoutEffect(() => {
-    const element = host.current
-    if (!element) return
-    const measure = () => setViewportWidth(element.clientWidth || 340)
+    const el = host.current
+    if (!el) return
+    const measure = () =>
+      setViewport({
+        width: el.clientWidth || 340,
+        height: el.clientHeight || 720,
+      })
     measure()
     if (typeof ResizeObserver === 'undefined') return
     const observer = new ResizeObserver(measure)
-    observer.observe(element)
+    observer.observe(el)
     return () => observer.disconnect()
   }, [])
-  const nodeWidth = Math.min(320, Math.max(240, viewportWidth - 20))
-  const [measured, setMeasured] = useState<Record<string, number>>({})
+  const projection = stateProjection(view, cycles)
+  const nodeWidth = Math.min(320, Math.max(240, viewport.width - 24))
   const cardFor = (id: number) => {
-    const n = view.nodes.find((node) => node.id === id)!
+    const n = view.nodes.find((n) => n.id === id)!
     return (
       frozenCards?.[String(id)]?.[locale] ??
       presentRollCell(n.item, n.rolls, locale, presentItem)
     )
   }
-  const allGroups = exaltedGroups(view, cycles)
-  const effective = expanded
-  const projection = graphProjection(view, cycles, effective, route)
-  const group = allGroups.find((g) => g.id === opened)
-  const groupTitle = group
-    ? operationMessages[locale][
-        operationKind(group.method) === 'add' ? 'add' : 'replace'
-      ]
-    : guide.details
-  const vertices = [
-    ...projection.nodes.map((n) => ({
-      id: `state:${n.id}`,
-      depth: n.depth,
-      label:
-        n.id === 0
-          ? guide.start
-          : n.progress.goal === 'MATCH'
-            ? common.hit
-            : guide.result,
-      state: n.id,
-    })),
-    ...projection.groups.map((g) => ({
-      id: g.id,
-      depth:
-        (view.nodes.find((n) => n.id === g.method.source)?.depth ?? 0) + 0.5,
-      label: `${operationMessages[locale][operationKind(g.method) === 'add' ? 'add' : 'replace']} (${g.point.outcomes.length})`,
-      state: null,
-    })),
-  ]
-  const positions = new Map<string, { x: number; y: number; height: number }>()
+  const labelFor = (edge: BundleEdge) =>
+    edge.variants[0]!.method.initial.concat(edge.variants[0]!.method.cycle)
+      .map(action)
+      .join(' → ')
+  const incoming = new Map(
+    projection.bundles.map((b) => [
+      b.id,
+      projection.edges.filter((e) => e.to === b.id),
+    ]),
+  )
+  const positions = new Map<
+    string,
+    { x: number; y: number; height: number; labelHeight: number }
+  >()
   let levelY = 20
-  for (const depth of [...new Set(vertices.map((v) => v.depth))].sort(
+  for (const depth of [...new Set(projection.bundles.map((b) => b.depth))].sort(
     (a, b) => a - b,
   )) {
-    const level = vertices.filter((v) => v.depth === depth)
+    const level = projection.bundles.filter((b) => b.depth === depth)
+    const labelHeight = Math.max(
+      0,
+      ...level.map(
+        (b) =>
+          measured['labels:' + b.id] ?? (incoming.get(b.id)?.length ?? 0) * 64,
+      ),
+    )
     let maxHeight = 0
-    level.forEach((v, index) => {
-      const height = v.state === null ? 180 : (measured[v.id] ?? 420)
+    level.forEach((b, index) => {
+      const height = measured[b.id] ?? 480
       maxHeight = Math.max(maxHeight, height)
-      positions.set(v.id, {
-        x: nodeWidth / 2 + 10 + index * (nodeWidth + 30),
-        y: levelY,
+      positions.set(b.id, {
+        x: 12 + nodeWidth / 2 + index * (nodeWidth + 48),
+        y: levelY + labelHeight + (labelHeight ? 18 : 0),
         height,
+        labelHeight:
+          measured['labels:' + b.id] ?? (incoming.get(b.id)?.length ?? 0) * 64,
       })
     })
-    levelY += maxHeight + 160
+    levelY += labelHeight + (labelHeight ? 18 : 0) + maxHeight + 100
   }
   const width = Math.max(
-      nodeWidth + 20,
-      ...[...positions.values()].map((p) => p.x + nodeWidth / 2 + 10),
+      nodeWidth + 24,
+      ...[...positions.values()].map((p) => p.x + nodeWidth / 2 + 12),
     ),
     height = Math.max(100, levelY)
-  const actionLabels = new Set<string>()
-  const labelRows = new Map<string, number>()
-  const kindLabel = (kind: string) =>
-    kind === 'GOAL'
-      ? common.hit
-      : kind === 'LOSS'
-        ? methodSearchMessages[locale].loss
-        : kind === 'UNRESOLVED'
-          ? common.unknown
-          : kind === 'DEAD'
-            ? common.unavailable
-            : guide.result
+  const updateSize = (id: string, h: number) =>
+    setMeasured((previous) =>
+      previous[id] === h ? previous : { ...previous, [id]: h },
+    )
+  const openEdge = (edge: BundleEdge) => {
+    setOpened(edge.id)
+    const outcomes = edge.variants.flatMap((v) =>
+      v.outcomes.map((o) => ({ method: v.method, o })),
+    )
+    if (outcomes.length === 1) {
+      const { method, o } = outcomes[0]!
+      choose({
+        method: method.id,
+        source: method.source,
+        target: o.target!,
+        kind: o.kind,
+      })
+    }
+  }
+  const chosen = projection.edges.find((e) => e.id === opened)
+  const fit = () => {
+    setZoom(
+      Math.max(
+        0.1,
+        Math.min(
+          1,
+          (viewport.width - 8) / width,
+          (viewport.height - 8) / height,
+        ),
+      ),
+    )
+    host.current?.scrollTo?.({ left: 0, top: 0 })
+  }
   return (
-    <div ref={host} className="method-map__overview">
-      <svg width={width} height={height} aria-label={common.title}>
-        <defs>
-          <marker
-            id={`automatic-arrow-${view.id}`}
-            markerWidth="8"
-            markerHeight="8"
-            refX="7"
-            refY="4"
-            orient="auto"
-          >
-            <path d="M0,0 L8,4 L0,8 Z" fill="currentColor" />
-          </marker>
-        </defs>
-        {projection.edges.map((e) => {
-          const source = positions.get(e.from),
-            target = positions.get(e.to)
-          if (!source || !target) return null
-          const click = () =>
-            e.target === null
-              ? setOpened(e.to)
-              : choose({
-                  method: e.method.id,
-                  source: e.method.source,
-                  target: e.target,
-                  kind: e.kind,
-                })
-          return (
-            <g key={`${e.method.id}:${e.to}:${e.kind}`}>
+    <div className="graph-workspace">
+      <div
+        className="graph-zoom-controls"
+        role="group"
+        aria-label={common.title}
+      >
+        <button
+          aria-label={nav.zoomOut}
+          disabled={zoom <= 0.1}
+          onClick={() =>
+            setZoom((z) => Math.max(0.1, Math.round((z - 0.1) * 100) / 100))
+          }
+        >
+          −
+        </button>
+        <output aria-live="polite">{Math.round(zoom * 100)}%</output>
+        <button
+          aria-label={nav.zoomIn}
+          disabled={zoom >= 2}
+          onClick={() =>
+            setZoom((z) => Math.min(2, Math.round((z + 0.1) * 100) / 100))
+          }
+        >
+          +
+        </button>
+        <button onClick={() => setZoom(1)}>{nav.reset}</button>
+        <button onClick={fit}>{nav.fit}</button>
+      </div>
+      <div
+        ref={host}
+        className="method-map__overview"
+        tabIndex={0}
+        role="region"
+        aria-label={common.title}
+      >
+        <svg
+          width={width * zoom}
+          height={height * zoom}
+          viewBox={`0 0 ${width} ${height}`}
+          aria-label={common.title}
+          data-bundles={projection.bundles.length}
+        >
+          <defs>
+            <marker
+              id={`automatic-arrow-${view.id}`}
+              markerWidth="8"
+              markerHeight="8"
+              refX="7"
+              refY="4"
+              orient="auto"
+            >
+              <path d="M0,0 L8,4 L0,8 Z" fill="currentColor" />
+            </marker>
+            <pattern
+              id={`graph-dots-${view.id}`}
+              width="24"
+              height="24"
+              patternUnits="userSpaceOnUse"
+            >
+              <circle cx="1" cy="1" r="1" fill="#776640" opacity="0.5" />
+            </pattern>
+          </defs>
+          <rect
+            width={width}
+            height={height}
+            fill={`url(#graph-dots-${view.id})`}
+            pointerEvents="none"
+          />
+          {projection.edges.map((e) => {
+            const source = positions.get(e.from)!,
+              target = positions.get(e.to)!
+            return (
               <path
-                key={`${e.method.id}:${e.to}:${e.kind}`}
+                key={e.id}
                 role="button"
                 tabIndex={0}
-                aria-label={e.method.initial
-                  .concat(e.method.cycle)
-                  .map(action)
-                  .join(' → ')}
-                onClick={click}
+                aria-label={labelFor(e)}
+                onClick={() => openEdge(e)}
                 onKeyDown={(event) => {
                   if (event.key === 'Enter' || event.key === ' ') {
                     event.preventDefault()
-                    click()
+                    openEdge(e)
                   }
                 }}
                 className={
-                  route.some(
-                    (r) => r.method === e.method.id && r.target === e.target,
+                  'automatic-edge' +
+                  (e.variants.some((v) =>
+                    route.some(
+                      (r) =>
+                        r.method === v.method.id &&
+                        v.outcomes.some((o) => o.target === r.target),
+                    ),
                   )
-                    ? 'automatic-edge is-selected'
-                    : 'automatic-edge'
+                    ? ' is-selected'
+                    : '')
                 }
-                d={`M${source.x},${source.y + source.height} Q${(source.x + target.x) / 2 + 12},${(source.y + source.height + target.y) / 2} ${target.x},${target.y}`}
+                d={`M${source.x},${source.y + source.height} C${source.x},${source.y + source.height + 50} ${target.x},${target.y - 60} ${target.x},${target.y - 3}`}
                 fill="none"
                 stroke="currentColor"
-                strokeDasharray={e.kind === 'UNRESOLVED' ? '5 4' : undefined}
+                strokeDasharray={
+                  e.variants.some((v) =>
+                    v.outcomes.some((o) => o.kind === 'UNRESOLVED'),
+                  )
+                    ? '5 4'
+                    : undefined
+                }
                 markerEnd={`url(#automatic-arrow-${view.id})`}
               >
-                <title>
-                  {e.method.initial
-                    .concat(e.method.cycle)
-                    .map(action)
-                    .join(' → ')}
-                  :{' '}
-                  {(() => {
-                    const o = methodPoint(e.method, cycles)?.outcomes.find(
-                      (o) => o.target === e.target && o.kind === e.kind,
-                    )
-                    return o
-                      ? probabilityText(o.probability.lower, o.probability)
-                      : guide.details
-                  })()}
-                </title>
+                <title>{labelFor(e)}</title>
               </path>
-            </g>
-          )
-        })}
-        {projection.edges.map((e) => {
-          const source = positions.get(e.from),
-            target = positions.get(e.to)
-          if (!source || !target) return null
-          const actionKey = e.from + e.to + operationKind(e.method)
-          const showAction = !actionLabels.has(actionKey)
-          actionLabels.add(actionKey)
-          const pair = e.from + e.to
-          const labelRow = labelRows.get(pair) ?? 0
-          if (showAction) labelRows.set(pair, labelRow + 1)
-          if (!showAction) return null
-          return (
-            <foreignObject
-              key={`${e.method.id}:${e.to}:${e.kind}`}
-              x={(source.x + target.x) / 2 - 85}
-              y={source.y + source.height + 12 + labelRow * 42}
-              width={170}
-              height={38}
-            >
-              <div className="graph-action-label">
-                {operationKind(e.method) === 'other'
-                  ? e.method.cycle.map(action).join(' → ')
-                  : operationMessages[locale][
-                      operationKind(e.method) as 'add' | 'replace' | 'prepare'
-                    ]}
-              </div>
-            </foreignObject>
-          )
-        })}
-        {vertices.map((v) => {
-          const position = positions.get(v.id)!
-          if (v.state === null)
+            )
+          })}
+          {projection.bundles.map((b) => {
+            const p = positions.get(b.id)!,
+              edges = incoming.get(b.id)!
+            return (
+              edges.length > 0 && (
+                <foreignObject
+                  key={'labels:' + b.id}
+                  data-label-target={b.id}
+                  x={p.x - nodeWidth / 2}
+                  y={p.y - p.labelHeight - 14}
+                  width={nodeWidth}
+                  height={p.labelHeight + 2}
+                >
+                  <MeasuredGraphBox
+                    className="graph-arrival-labels"
+                    onSize={(h) => updateSize('labels:' + b.id, h)}
+                  >
+                    {edges.map((e) => (
+                      <button
+                        key={e.id}
+                        className="graph-action-label"
+                        onClick={() => openEdge(e)}
+                      >
+                        {labelFor(e)}
+                      </button>
+                    ))}
+                  </MeasuredGraphBox>
+                </foreignObject>
+              )
+            )
+          })}
+          {projection.bundles.map((b) => {
+            const p = positions.get(b.id)!,
+              multiple = b.nodes.length > 1
+            const n = b.nodes.find((n) => n.id === selected) ?? b.nodes[0]!
+            const badge = b.nodes.every((n) => n.progress.goal === 'MATCH')
+              ? common.hit
+              : b.nodes.some((n) => n.id === 0)
+                ? guide.start
+                : guide.result
+            const edge = [...route].reverse().find((e) => e.target === n.id)
             return (
               <foreignObject
-                key={v.id}
-                x={position.x - nodeWidth / 2}
-                y={position.y}
+                key={b.id}
+                data-bundle-id={b.id}
+                data-state-ids={b.nodes.map((n) => n.id).join(',')}
+                data-terminal={!projection.edges.some((e) => e.from === b.id)}
+                x={p.x - nodeWidth / 2}
+                y={p.y}
                 width={nodeWidth}
-                height={position.height}
+                height={p.height + 2}
               >
-                <div className="graph-operation-node">
-                  <span>{graphStateMessages[locale].step}</span>
-                  <button aria-label={v.label} onClick={() => setOpened(v.id)}>
-                    {v.label}
-                  </button>
-                  <p>{graphStateMessages[locale].candidates}</p>
-                </div>
+                <MeasuredGraphBox onSize={(h) => updateSize(b.id, h)}>
+                  {multiple ? (
+                    <div
+                      className={
+                        'graph-item-state graph-state-bundle' +
+                        (b.nodes.some((n) => n.id === selected)
+                          ? ' is-selected'
+                          : '')
+                      }
+                    >
+                      <div className="graph-item-badges">
+                        <span>{badge}</span>
+                        <span>
+                          {nav.candidates} ({b.nodes.length})
+                        </span>
+                      </div>
+                      <p>{nav.common}</p>
+                      <ItemCard
+                        item={commonStateCard(
+                          b.nodes.map((n) => cardFor(n.id)),
+                        )}
+                      />
+                      <p>{graphStateMessages[locale].candidates}</p>
+                      <details className="graph-candidates">
+                        <summary>
+                          {nav.variants} ({b.nodes.length})
+                        </summary>
+                        {b.nodes.map((candidate) => (
+                          <details key={candidate.id}>
+                            <summary>
+                              {guide.result} {candidate.id}
+                            </summary>
+                            <ItemCard item={cardFor(candidate.id)} />
+                            <button
+                              aria-pressed={candidate.id === selected}
+                              onClick={() => select(candidate.id)}
+                            >
+                              {graphStateMessages[locale].select}
+                            </button>
+                            {view.methods.flatMap((method) =>
+                              (methodPoint(method, cycles)?.outcomes ?? [])
+                                .filter((o) => o.target === candidate.id)
+                                .map((o) => (
+                                  <button
+                                    key={method.id + o.kind}
+                                    onClick={() =>
+                                      choose({
+                                        method: method.id,
+                                        source: method.source,
+                                        target: candidate.id,
+                                        kind: o.kind,
+                                      })
+                                    }
+                                  >
+                                    {method.initial
+                                      .concat(method.cycle)
+                                      .map(action)
+                                      .join(' → ')}{' '}
+                                    · {nav.source} {method.source} ·{' '}
+                                    {copy.probability}:{' '}
+                                    {probabilityText(
+                                      o.probability.lower,
+                                      o.probability,
+                                    )}
+                                  </button>
+                                )),
+                            )}
+                          </details>
+                        ))}
+                      </details>
+                    </div>
+                  ) : (
+                    <GraphItemState
+                      card={cardFor(n.id)}
+                      previous={edge ? cardFor(edge.source) : undefined}
+                      badge={badge}
+                      selected={n.id === selected}
+                      select={() => select(n.id)}
+                      onSize={() => {}}
+                    />
+                  )}
+                </MeasuredGraphBox>
               </foreignObject>
             )
-          const selectedEdge = [...route]
-            .reverse()
-            .find((e) => e.target === v.state)
-          const parents = [
-            ...new Set(
-              projection.edges
-                .filter((e) => e.target === v.state)
-                .map((e) => e.method.source),
-            ),
-          ]
-          const parent =
-            selectedEdge?.source ??
-            (parents.length === 1 ? parents[0] : undefined)
-          return (
-            <foreignObject
-              key={v.id}
-              data-state-id={v.state}
-              x={position.x - nodeWidth / 2}
-              y={position.y}
-              width={nodeWidth}
-              height={position.height + 2}
-            >
-              <GraphItemState
-                card={cardFor(v.state)}
-                previous={parent === undefined ? undefined : cardFor(parent)}
-                badge={v.label}
-                selected={v.state === selected}
-                select={() => select(v.state!)}
-                onSize={(height) =>
-                  setMeasured((previous) =>
-                    previous[v.id] === height
-                      ? previous
-                      : { ...previous, [v.id]: height },
-                  )
-                }
-              />
-            </foreignObject>
-          )
-        })}
-      </svg>
-      {group && (
-        <section className="exalted-outcomes" aria-label={groupTitle}>
-          <h3>
-            {groupTitle}:
-            {group.method.initial
-              .concat(group.method.cycle)
-              .map(action)
-              .join(' → ')}
-          </h3>
+          })}
+        </svg>
+      </div>
+      {chosen && (
+        <section className="exalted-outcomes" aria-label={nav.variants}>
+          <h3>{labelFor(chosen)}</h3>
           <p>{copy.detail}</p>
-          <ul>
-            {groupMass(group).map((o) => (
-              <li key={o.kind}>
-                {kindLabel(o.kind)}:{' '}
-                {probabilityText(o.probability.lower, o.probability)}
-              </li>
-            ))}
-          </ul>
-          <button
-            onClick={() => {
-              setExpanded((previous) => {
-                const next = new Set(previous)
-                if (effective.has(group.id)) next.delete(group.id)
-                else next.add(group.id)
-                return next
-              })
-            }}
-          >
-            {effective.has(group.id) ? copy.collapse : copy.expand}
-          </button>
-          <ul>
-            {group.point.outcomes.map((o, index) => (
-              <li key={`${o.target}:${o.kind}`}>
-                {o.target !== null ? (
-                  <button
-                    onClick={() =>
-                      choose({
-                        method: group.method.id,
-                        source: group.method.source,
-                        target: o.target!,
-                        kind: o.kind,
-                      })
-                    }
-                  >
-                    {guide.result} {index + 1}
-                  </button>
-                ) : (
-                  common.unknown
-                )}{' '}
-                · {kindLabel(o.kind)} · {copy.probability}:{' '}
-                {probabilityText(o.probability.lower, o.probability)}
-                {o.target !== null && (
-                  <details>
-                    <summary>
-                      {guide.result} {index + 1}
-                    </summary>
-                    <ItemCard
-                      item={
-                        frozenCards?.[String(o.target)]?.[locale] ??
-                        presentRollCell(
-                          view.nodes.find((n) => n.id === o.target)!.item,
-                          view.nodes.find((n) => n.id === o.target)!.rolls,
-                          locale,
-                          presentItem,
-                        )
+          {chosen.variants.map(({ method, outcomes }) => (
+            <details key={method.id} open={chosen.variants.length === 1}>
+              <summary>
+                {nav.source} {method.source} · {labelFor(chosen)}
+              </summary>
+              <ItemCard item={cardFor(method.source)} />
+              <ul>
+                {outcomes.map((o) => (
+                  <li key={`${o.target}:${o.kind}`}>
+                    <button
+                      onClick={() =>
+                        choose({
+                          method: method.id,
+                          source: method.source,
+                          target: o.target!,
+                          kind: o.kind,
+                        })
                       }
-                    />
-                  </details>
-                )}
-              </li>
-            ))}
-          </ul>
+                    >
+                      {guide.result} {o.target}
+                    </button>{' '}
+                    · {copy.probability}:{' '}
+                    {probabilityText(o.probability.lower, o.probability)}
+                    <details>
+                      <summary>
+                        {guide.result} {o.target}
+                      </summary>
+                      <ItemCard item={cardFor(o.target!)} />
+                    </details>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ))}
         </section>
       )}
     </div>

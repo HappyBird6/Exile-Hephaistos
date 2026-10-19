@@ -185,14 +185,15 @@ it('hides repetition N for a single Exalted, exposes individual outcomes and con
       onRecalculate={vi.fn()}
     />,
   )
-  const group = await screen.findByRole('button', {
-    name: 'Add one modifier (3)',
-  })
+  await screen.findByRole('heading', { name: 'Selected item' })
+  const group = document.querySelector('.graph-arrival-labels button')!
   expect(
     screen.queryByRole('combobox', { name: 'Method repetitions' }),
   ).not.toBeInTheDocument()
   fireEvent.click(group)
-  const details = screen.getByRole('region', { name: 'Add one modifier' })
+  const details = screen.getByRole('region', {
+    name: 'Candidates and probabilities',
+  })
   expect(within(details).getAllByText(/25.00%/).length).toBeGreaterThan(0)
   fireEvent.click(within(details).getByRole('button', { name: 'Result 1' }))
   expect(await screen.findByLabelText('Other results')).toHaveValue('1')
