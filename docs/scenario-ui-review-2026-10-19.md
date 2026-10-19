@@ -31,13 +31,13 @@
 
 ## 검증 결과
 
-구현 커밋: a18651b741e5fb77bb869b883f9228a567751432. Frontend npm ci, lint, typecheck, format:check, 2247개 테스트, build 모두 통과했다. 실패/skip은 최종 결과에서 0개다. 변경 소스 28개는 검증 컨테이너의 포맷된 소스와 해시를 일치시켜 커밋했다. 새 검사는 25개이며 코드 형식/공유 테이블/경쟁 상태/변형별 구분/아이템 변화 표시를 포함한다.
+구현 커밋: a18651b741e5fb77bb869b883f9228a567751432. 독립 리뷰 수정 커밋: c2f4e2ee5bd6dd8b19f8c93442b92b7c4e63240c. Frontend npm ci, lint, typecheck, format:check, 2253개 테스트, build 모두 통과했다. 실패/skip은 최종 결과에서 0개다. 변경 소스 28개는 검증 컨테이너의 포맷된 소스와 해시를 일치시켜 커밋했다. 새 검사는 31개이며 코드 형식/공유 테이블/경쟁 상태/변형별 구분/아이템 변화 표시를 포함한다.
 
 검증 중 기존 BasicPaths 영어 화면 테스트 하나가 버튼 활성화 대기에서 일시 실패했다. 동시 빌드와 브라우저를 종료한 단독 전체 재실행에서 통과했고, 해당 테스트의 기대값·시간 제한·제품 코드는 바꾸지 않았다. 이후 압축 개선이 포함된 최종 전체 검사도 통과했다. 기존 큰 JavaScript chunk 경고는 남아 있으며 빌드 오류는 아니다.
 
 Backend·계약·카탈로그·infra·Windows 스크립트의 diff는 없다. 같은 백엔드 최종 검증인 unit/ArchUnit 849개 및 통합 8개 통과 기록을 유지하며 이번 프런트 작업에서 이를 새로 실행했다고 표현하지 않는다.
 
-브라우저는 기존 검증 이미지의 Headless Chromium을 사용했다. 새 번들만 브라우저 요청에서 공급하고 실제 localhost API와 완료된 합성 작업을 사용했다. 계산 API mock은 없다. 읽기 전용 복원 검사는 별도 빈 브라우저에서 모든 API를 차단했다. 대표 코드의 N=300·선택 노드 1·경로 1개를 확인하고 복원/새로고침, 큰 63노드·32방법 코드 연속 열기도 통과했다. 복원 중 계산 API 요청은 0개, 브라우저 오류 0개였다. 1440px와 375px 화면을 캡처해 직접 검토했고, 페이지 넘침 및 모바일 카드 잘림 검사도 통과했다. 사용자 실제 브라우저 세션을 검증한 것은 아니다.
+브라우저는 기존 검증 이미지의 Headless Chromium을 사용했다. 반영 전에는 새 번들만 브라우저 요청에서 공급했고, 최종 검사는 실제 localhost 제공 번들과 실제 API/완료된 합성 작업을 사용했다(localDist=false). 계산 API mock은 없다. 읽기 전용 복원 검사는 별도 빈 브라우저에서 모든 API를 차단했다. 대표 코드의 N=300·선택 노드 1·경로 1개를 확인하고 복원/새로고침, 큰 63노드·32방법 코드 연속 열기도 통과했다. 복원 중 계산 API 요청은 0개, 브라우저 오류 0개였다. 1440px와 375px 화면을 캡처해 직접 검토했고, 페이지 넘침 및 모바일 카드 잘림 검사도 통과했다. 사용자 실제 브라우저 세션을 검증한 것은 아니다.
 
 검증용 host.docker.internal 주소와 정적 요청 대체를 함께 사용한 첫 시도는 Chromium 로컬 네트워크 보안 정책에 막혔다. 보안 기능을 끄지 않고 검증 컨테이너 내부 localhost 프록시로 사용자와 같은 보안 문맥을 구성해 해결했다. 곡선 bounding-box의 빈 지점에 강제 클릭하던 검사도 실제 키보드 Enter 선택으로 수정했다. 제품 경로 선택 검증은 실제 이벤트로 수행했다.
 
@@ -85,12 +85,30 @@ Backend·계약·카탈로그·infra·Windows 스크립트의 diff는 없다. �
 
 전체 문자열 사전화 실험은 대표 gzip을 6,720B에서 6,946B로 늘려 폐기했다. 정확한 구간과 방법 참조 공유는 5,528B로 줄였으며, 표시 카드 공유는 큰 사례에 특히 유효했다. 작은 사례에서도 무조건 같은 표현을 강제하지 않는다. 결과를 버리거나 서버 ID 방식으로 바꾸지 않았다.
 
-## 반영 차단과 최종 인계 상태
+## 독립 UI/UX 리뷰 피드백 반영
 
-구현·자체 리뷰·자동 검사·실제 API/독립 코드 복원 브라우저 검사는 완료했다. localhost 반영은 완료하지 못했다. Docker 이미지 빌드와 frontend 컨테이너 교체 명령이 자동 승인 검토에서 프로세스 생성 전에 두 차례 거부됐다. 이유는 최초 인계의 “deploy 하지 마세요” 지시와 충돌한다는 판단이었다. 새 인계의 localhost 반영 요청 이후 한 번 재검토했으나 같은 사유로 거부됐다. 우회 실행하지 않았고 명시적 승인 질문이 대기 중이다.
+부모가 생성한 리뷰 채팅 01a152b5-69a8-736e-8509-58ab64e0f0de에서 a18651b 기준으로 세 항목을 지적했다. 모두 c2f4e2e에 반영했다.
 
-현재 app/frontend 모두 empty-2c601da 이미지 그대로다. 원본 저장 작업 16개의 SHA256, PostgreSQL/Redis 컨테이너 ID, .env 해시가 보존됐음을 확인했다. 원격 push/merge/공개 배포는 하지 않았다. 승인되면 준비된 deploy-scenario-ui.ps1은 프런트만 교체하며, 그 뒤 실제 제공 번들 해시와 브라우저 검사를 다시 해야 한다. 현재 브라우저 통과를 localhost 제공 번들 반영 완료로 해석하면 안 된다.
+1. 기본 화면의 COMPLETE/PARTIAL과 UTC 시각을 6개 언어의 간단한 상태 문구로 바꾸고 기술 상태·시각은 상세 안으로 옮겼다. 6개 언어별 가시성 회귀 검사를 추가했다.
+2. 모바일의 화살표 위 작업명을 별도 배경 상자로 분리하고 행 간격을 확보했다. 최종 375px 브라우저에서 두 상자의 bounding rectangle이 겹치지 않음을 검사하고 스크린샷도 직접 확인했다.
+3. 코드 미리보기 숫자에 아이템 상태·제작 방법 이름을 붙였다. 반복 가능한 방법이 있을 때만 해당 작업의 최대 시도 횟수를 표시한다. 단발 작업에 N을 적용하지 않는다.
 
-부모가 독립 UI/UX 리뷰 채팅 01a152b5-69a8-736e-8509-58ab64e0f0de를 생성했다. 본 구현자가 별도 리뷰를 중복 생성하지 않았다. 독립 리뷰 완료는 이 보고서의 완료 범위에 포함하지 않는다.
+## localhost 최종 반영과 보존 확인
 
-리뷰용 실제 코드: small-two-goals.exile, representative-empty-rare-minion.exile, large-three-goals.exile. 화면: scenario-desktop.png, scenario-mobile.png, scenario-graph-mobile.png, scenario-offline-import.png. 모두 위 task-2 경로에 있으며 스크린샷은 Library에 업로드하지 않았다.
+최초 Docker 이미지 빌드/프런트 교체 명령은 “deploy 하지 마세요” 지시와 충돌한다는 자동 승인 검토로 두 차례 프로세스 생성 전에 거부됐다. 이후 부모가 금지 범위를 외부 공개 배포·원격 push/merge로 명확히 정정하고, 기존 localhost 프런트만 갱신하도록 다시 지시했다. 이 새 근거의 재검토는 통과했다. 첫 허용 실행은 Windows PowerShell 실행 정책으로 시작되지 않았고, 정책을 변경하지 않은 채 현재 작업 환경의 PowerShell Core에서 같은 스크립트를 실행해 성공했다. 거부된 실행을 우회하지 않았다.
+
+현재 프런트는 exile-hephaistos-frontend:scenario-c2f4e2e, 백엔드는 기존 exile-hephaistos-app:empty-2c601da다. Readiness UP, UI HTTP 200을 확인했다. 제공 JS /assets/index-9jCsR1Vm.js의 SHA256 919AD993693383870EB10CDDC81F26A07F20C8FFB7DA5A792F8319194746D8FD이 검증 빌드와 일치한다. 기존 JAR hash도 동일하다. PostgreSQL/Redis ID, .env hash, 원본 저장 작업 16개 SHA256 모두 보존됐다. 외부 공개·새 포트 공개·원격 push/merge는 하지 않았다. 최초 반영 차단은 해결됐으며 추가 승인 대기는 필요하지 않다.
+
+실제 제공 번들로 대표 코드(N=300, 선택 상태 1, 경로 1개) 복원/새로고침과 큰 3목표 코드 연속 열기를 확인했다. API를 차단한 가져오기에서 계산 요청 0개, 브라우저 오류 0개, 페이지 넘침 0이었다. 이 실행에서 새 시각으로 생성된 대표 코드는 7443자다. 위 크기 표는 고정된 scenario-size-source.exile 스냅샷을 기준으로 하며 생성 시각 문자열이 바뀌면 gzip 크기가 소폭 달라질 수 있다.
+
+## 최종 리뷰 인계 경로
+
+작업 트리 E:/CODEX/codex/2026-10-19/task/goal-planner, 브랜치 crafting/goal-directed-planner. 프런트 최종 소스 기준 커밋은 c2f4e2ee5bd6dd8b19f8c93442b92b7c4e63240c다. 독립 리뷰의 최종 재확인은 부모가 이어가며 이 보고서가 그 완료를 대신하지 않는다.
+
+자료 루트 E:/CODEX/codex/2026-10-19/task-2 아래:
+- 코드: small-two-goals.exile, representative-empty-rare-minion.exile, large-three-goals.exile
+- 화면: scenario-desktop.png, scenario-mobile.png, scenario-graph-mobile.png, scenario-offline-import.png
+- 검증: scenario-ui-final.log, scenario-ui-tests.json, scenario-source-manifest.json, scenario-browser-result.json, scenario-deployment-verification.json
+- 크기: scenario-code-sizes.json, scenario-size-source.exile, measure-scenario-sizes.cjs
+
+스크린샷은 Library에 올리지 않았다. 환경 보존의 최종 근거는 scenario-deployment-verification.json이며 반영 전의 scenario-environment-check.json은 당시 상태 기록으로 유지한다. 현재 실행 차단은 없다.
