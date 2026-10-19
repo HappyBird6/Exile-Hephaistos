@@ -412,3 +412,35 @@ it('labels preparation once and N only for the Chaos follower', async () => {
     screen.getAllByText(/Target not reached within 100 attempts/),
   ).toHaveLength(1)
 })
+
+it('paints every graph arrow before every action label so later routes cannot obscure text', async () => {
+  const view = fixture()
+  const alternative = structuredClone(view.methods[0]!)
+  alternative.id = 'chaos-alternative'
+  alternative.cycle = [
+    { currency: 'CHAOS', omens: [], purpose: 'GOAL_ACQUISITION' },
+  ]
+  view.methods.push(alternative)
+  const request = serve(view)
+  render(
+    <AutomaticMethodSearch
+      request={request}
+      inputGeneration={6}
+      presentItem={present}
+      onRecalculate={vi.fn()}
+    />,
+  )
+  await screen.findByRole('heading', { name: 'Selected item' })
+  const graph = document.querySelector('.method-map__overview svg')!
+  const arrows = [...graph.querySelectorAll('path[role="button"]')]
+  const labels = [...graph.querySelectorAll('.graph-action-label')]
+  expect(arrows.length).toBeGreaterThan(1)
+  expect(labels.length).toBeGreaterThan(1)
+  for (const arrow of arrows) {
+    for (const label of labels) {
+      expect(
+        arrow.compareDocumentPosition(label) & Node.DOCUMENT_POSITION_FOLLOWING,
+      ).not.toBe(0)
+    }
+  }
+})

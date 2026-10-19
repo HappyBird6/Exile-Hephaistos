@@ -158,12 +158,6 @@ export function GroupedMethodGraph({
                   target: e.target,
                   kind: e.kind,
                 })
-          const actionKey = e.from + e.to + operationKind(e.method)
-          const showAction = !actionLabels.has(actionKey)
-          actionLabels.add(actionKey)
-          const pair = e.from + e.to
-          const labelRow = labelRows.get(pair) ?? 0
-          if (showAction) labelRows.set(pair, labelRow + 1)
           return (
             <g key={`${e.method.id}:${e.to}:${e.kind}`}>
               <path
@@ -210,24 +204,36 @@ export function GroupedMethodGraph({
                   })()}
                 </title>
               </path>
-              {showAction && (
-                <foreignObject
-                  x={(source.x + target.x) / 2 - 85}
-                  y={source.y + source.height + 12 + labelRow * 42}
-                  width={170}
-                  height={38}
-                >
-                  <div className="graph-action-label">
-                    {operationKind(e.method) === 'other'
-                      ? e.method.cycle.map(action).join(' → ')
-                      : operationMessages[locale][
-                          operationKind(e.method) as
-                            'add' | 'replace' | 'prepare'
-                        ]}
-                  </div>
-                </foreignObject>
-              )}
             </g>
+          )
+        })}
+        {projection.edges.map((e) => {
+          const source = positions.get(e.from),
+            target = positions.get(e.to)
+          if (!source || !target) return null
+          const actionKey = e.from + e.to + operationKind(e.method)
+          const showAction = !actionLabels.has(actionKey)
+          actionLabels.add(actionKey)
+          const pair = e.from + e.to
+          const labelRow = labelRows.get(pair) ?? 0
+          if (showAction) labelRows.set(pair, labelRow + 1)
+          if (!showAction) return null
+          return (
+            <foreignObject
+              key={`${e.method.id}:${e.to}:${e.kind}`}
+              x={(source.x + target.x) / 2 - 85}
+              y={source.y + source.height + 12 + labelRow * 42}
+              width={170}
+              height={38}
+            >
+              <div className="graph-action-label">
+                {operationKind(e.method) === 'other'
+                  ? e.method.cycle.map(action).join(' → ')
+                  : operationMessages[locale][
+                      operationKind(e.method) as 'add' | 'replace' | 'prepare'
+                    ]}
+              </div>
+            </foreignObject>
           )
         })}
         {vertices.map((v) => {
