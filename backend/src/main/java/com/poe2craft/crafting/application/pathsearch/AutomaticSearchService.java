@@ -38,6 +38,7 @@ public final class AutomaticSearchService implements AutoCloseable {
       int source,
       List<AutomaticCraftingAction> initial,
       List<AutomaticCraftingAction> cycle,
+      String executionMode,
       List<PointView> points,
       Set<String> reasons,
       boolean finished) {}
@@ -411,6 +412,7 @@ public final class AutomaticSearchService implements AutoCloseable {
               method.source(),
               method.template().initial(),
               method.template().cycle(),
+              method.executionMode(),
               points,
               method.unresolvedReasons(),
               method.finished()));

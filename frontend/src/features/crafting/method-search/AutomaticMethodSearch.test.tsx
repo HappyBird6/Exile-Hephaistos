@@ -133,6 +133,22 @@ it('restores the same job and selection after remount without creating or advanc
   const request = requestFixture()
   const server = { ...initial(), status: 'READY' as const }
   server.nodes.push({ ...server.nodes[0]!, id: 1, depth: 1 })
+  server.methods.push({
+    id: 'restored-chaos',
+    source: 1,
+    executionMode: 'REPEATABLE',
+    initial: [],
+    cycle: [{ currency: 'CHAOS', omens: [], purpose: 'GOAL_ACQUISITION' }],
+    points: [100, 300, 500].map((cycles) => ({
+      cycles,
+      complete: true,
+      outcomes: [],
+      initialUses: {},
+      cycleUses: {},
+    })),
+    reasons: [],
+    finished: true,
+  })
   saveSupport('run', {
     request: request.clientRequestId,
     job: id,

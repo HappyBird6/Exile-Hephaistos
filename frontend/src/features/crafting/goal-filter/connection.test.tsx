@@ -1,3 +1,8 @@
+import {
+  saveSupport,
+  readSupport,
+  validGoal,
+} from '../method-search/supportStorage'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
@@ -368,4 +373,33 @@ describe('production goal connection', () => {
     expect(button).toBeEnabled()
     expect(screen.getByText('Cold total (%)')).toBeInTheDocument()
   })
+})
+
+it('resets goal defaults immediately without changing the start and restores them after reload', async () => {
+  mockFetch()
+  const goal = emptyGoal(context, 'v1')
+  goal.general.rarities = ['RARE']
+  goal.general.itemLevel = { min: 70, max: 90 }
+  addStat(goal.groups[0]!, (catalog as Catalog).stats[0]!)
+  saveSupport('goal', goal)
+  localStorage.setItem('hephaistos.support.v1:start', 'untouched-start')
+  const capture = vi.fn<(snapshot: SearchGoalSnapshot) => void>()
+  const rendered = setup(item, vi.fn(), true, capture)
+  const reset = await screen.findByRole('button', { name: 'Reset goal' })
+  await waitFor(() => expect(reset).toBeEnabled())
+  fireEvent.click(reset)
+  const saved = readSupport('goal', validGoal)!
+  expect(saved.general).toEqual({
+    baseItemId: context.baseItemId,
+    itemLevel: { min: null, max: null },
+    rarities: ['NORMAL', 'MAGIC', 'RARE'],
+  })
+  expect(saved.groups).toHaveLength(1)
+  expect(saved.groups[0]!.entries).toEqual([])
+  expect(localStorage.getItem('hephaistos.support.v1:start')).toBe(
+    'untouched-start',
+  )
+  rendered.unmount()
+  setup(item, vi.fn(), true, capture)
+  await waitFor(() => expect(capture.mock.lastCall?.[0].goal).toEqual(saved))
 })

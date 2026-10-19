@@ -18,6 +18,7 @@ export type AutomaticNode = {
   directFinished: boolean
 }
 export type AutomaticArrow = {
+  executionMode?: 'SINGLE_PASS' | 'REPEATABLE' | 'PENDING'
   id: string
   source: number
   initial: AutomaticAction[]
@@ -106,10 +107,19 @@ function validate(raw: unknown): AutomaticView {
   }
   for (const m of v.methods) {
     if (!ids.has(m.source)) throw new Error('Invalid source')
+    if (
+      m.executionMode !== undefined &&
+      !['SINGLE_PASS', 'REPEATABLE', 'PENDING'].includes(m.executionMode)
+    )
+      throw new Error('Invalid execution mode')
     for (const p of m.points) {
-      if (![100, 300, 500].includes(p.cycles))
+      if (![1, 100, 300, 500].includes(p.cycles))
         throw new Error('Invalid cycle count')
+      const outcomeKeys = new Set<string>()
       for (const o of p.outcomes) {
+        const key = `${o.target}:${o.kind}`
+        if (outcomeKeys.has(key)) throw new Error('Duplicate method outcome')
+        outcomeKeys.add(key)
         if (o.target !== null && !ids.has(o.target))
           throw new Error('Invalid target')
         bound(o.probability)

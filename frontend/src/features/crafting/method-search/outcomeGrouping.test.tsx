@@ -1,0 +1,297 @@
+import { saveSupport } from './supportStorage'
+import { beforeEach, expect, it, vi } from 'vitest'
+import {
+  render,
+  screen,
+  fireEvent,
+  within,
+  waitFor,
+} from '@testing-library/react'
+import { exaltedGroups, groupMass, graphProjection } from './outcomeGrouping'
+import { methodPoint, isRepeatable } from './methodObservation'
+import { AutomaticMethodSearch } from './AutomaticMethodSearch'
+import type { AutomaticView, AutomaticArrow } from './automaticApi'
+import type { Bounds } from './types'
+import { requestFixture } from '../path-tree/fixtures.test-support'
+import { createItemPresentation } from '../path-tree/presentation'
+import { setLocale } from '../../../shared/i18n/i18n'
+const bound = (n: string, d = '4'): Bounds => ({
+  lower: { numerator: n, denominator: d },
+  upper: { numerator: n, denominator: d },
+  arithmeticWidth: { numerator: '0', denominator: '1' },
+  exact: true,
+  confirmedPercent: null,
+})
+const present = createItemPresentation(
+  { name: 'Solar Amulet', itemClass: 'Amulet' },
+  {},
+)
+function fixture(): AutomaticView {
+  const item = requestFixture().start.item
+  const point = {
+    cycles: 1,
+    complete: true,
+    outcomes: [
+      { target: 1, kind: 'GOAL', probability: bound('1') },
+      { target: 2, kind: 'CHECKPOINT', probability: bound('2') },
+      { target: null, kind: 'LOSS', probability: bound('1') },
+    ],
+    initialUses: {},
+    cycleUses: { EXALTED: bound('1', '1') },
+  }
+  return {
+    version: 'automatic-method-job-v1',
+    id: '11111111-1111-4111-8111-111111111111',
+    revision: 1,
+    generation: 1,
+    status: 'COMPLETE',
+    reason: '',
+    complete: true,
+    operations: 1,
+    retainedStates: 3,
+    nodes: [0, 1, 2].map((id) => ({
+      id,
+      depth: id === 0 ? 0 : 1,
+      quality40: false,
+      item: structuredClone(item),
+      progress: { goal: id === 1 ? 'MATCH' : 'NO_MATCH', entries: [] },
+      discoveryFinished: true,
+      directFinished: true,
+    })),
+    methods: [
+      {
+        id: 'exalt',
+        source: 0,
+        executionMode: 'SINGLE_PASS',
+        initial: [],
+        cycle: [
+          { currency: 'EXALTED', omens: [], purpose: 'GOAL_ACQUISITION' },
+        ],
+        points: [
+          point,
+          ...[100, 300, 500].map((cycles) => ({ ...point, cycles })),
+        ],
+        reasons: [],
+        finished: true,
+      },
+    ],
+    recommendations: [],
+  }
+}
+beforeEach(() => {
+  localStorage.clear()
+  setLocale('en')
+})
+it('groups multiple attributes/tiers only inside one Exalted method and preserves exact mass by result kind', () => {
+  const view = fixture(),
+    g = exaltedGroups(view, 100)[0]!
+  expect(exaltedGroups(view, 100)).toHaveLength(1)
+  expect(groupMass(g).map((x) => [x.kind, x.probability.lower])).toEqual([
+    ['GOAL', { numerator: '1', denominator: '4' }],
+    ['CHECKPOINT', { numerator: '1', denominator: '2' }],
+    ['LOSS', { numerator: '1', denominator: '4' }],
+  ])
+  const p = graphProjection(view, 100, new Set())
+  expect(p.nodes.map((n) => n.id)).toEqual([0])
+  expect(p.groups).toHaveLength(1)
+  expect(view.nodes).toHaveLength(3)
+  expect(
+    graphProjection(view, 100, new Set([g.id])).nodes.map((n) => n.id),
+  ).toEqual([0, 1, 2])
+})
+it('does not combine different methods, omens, sources or Essence results', () => {
+  const view = fixture(),
+    m = view.methods[0]!
+  view.methods.push({
+    ...m,
+    id: 'omen',
+    cycle: [{ ...m.cycle[0]!, omens: ['DEXTRAL_EXALTATION'] }],
+  })
+  view.methods.push({ ...m, id: 'other-source', source: 2 })
+  view.methods.push({
+    ...m,
+    id: 'essence',
+    cycle: [{ ...m.cycle[0]!, currency: 'PERFECT_ESSENCE_BODY' }],
+  })
+  expect(exaltedGroups(view, 100).map((g) => g.method.id)).toEqual([
+    'exalt',
+    'omen',
+    'other-source',
+  ])
+  expect(
+    graphProjection(view, 100, new Set()).edges.some(
+      (e) => e.method.id === 'essence' && e.target === 1,
+    ),
+  ).toBe(true)
+})
+it('rejects duplicate outcome rows instead of double-counting their probability', () => {
+  const view = fixture()
+  view.methods[0]!.points[0]!.outcomes.push({
+    ...view.methods[0]!.points[0]!.outcomes[0]!,
+  })
+  expect(() => groupMass(exaltedGroups(view, 100)[0]!)).toThrow(
+    'Duplicate method outcome',
+  )
+})
+it('uses the first pass for Exalted and finite selected horizons for repeatable Chaos without multiplying preparation', () => {
+  const m = fixture().methods[0]!
+  expect(isRepeatable(m)).toBe(false)
+  expect(methodPoint(m, 500)?.cycles).toBe(1)
+  const chaos: AutomaticArrow = {
+    ...m,
+    executionMode: 'REPEATABLE',
+    cycle: [{ currency: 'CHAOS', omens: [], purpose: 'GOAL_ACQUISITION' }],
+    initial: [
+      {
+        currency: 'EXALTED',
+        omens: [],
+        purpose: 'TEMPORARY_AFFIX_FOR_REMOVAL',
+      },
+    ],
+    points: m.points.map((p) => ({
+      ...p,
+      initialUses: { EXALTED: bound('1', '1') },
+      cycleUses: { CHAOS: bound(String(p.cycles), '1') },
+    })),
+  }
+  expect(methodPoint(chaos, 300)?.initialUses.EXALTED?.lower.numerator).toBe(
+    '1',
+  )
+  expect(methodPoint(chaos, 300)?.cycleUses.CHAOS?.lower.numerator).toBe('300')
+})
+function serve(view: AutomaticView) {
+  const request = requestFixture()
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(
+      async () =>
+        new Response(JSON.stringify(view), {
+          headers: {
+            'X-Crafting-Ruleset': request.start.provenance.rulesetIdentity,
+          },
+        }),
+    ),
+  )
+  return request
+}
+it('hides repetition N for a single Exalted, exposes individual outcomes and connects the selected state and route', async () => {
+  const view = fixture(),
+    request = serve(view)
+  render(
+    <AutomaticMethodSearch
+      request={request}
+      inputGeneration={1}
+      presentItem={present}
+      onRecalculate={vi.fn()}
+    />,
+  )
+  const group = await screen.findByRole('button', {
+    name: 'Exalted outcomes (3)',
+  })
+  expect(
+    screen.queryByRole('combobox', { name: 'Method repetitions' }),
+  ).not.toBeInTheDocument()
+  fireEvent.click(group)
+  const details = screen.getByRole('region', { name: 'Exalted outcomes' })
+  expect(within(details).getAllByText(/25.00%/).length).toBeGreaterThan(0)
+  fireEvent.click(within(details).getByRole('button', { name: 'Item state 1' }))
+  await screen.findByRole('heading', { name: 'Item state 1' })
+  expect(screen.getByText('0 → 1 (GOAL)')).toBeInTheDocument()
+  expect(screen.getByText('Single pass: 1')).toBeInTheDocument()
+})
+it('lets the user change N only on a repeatable Chaos method', async () => {
+  const view = fixture(),
+    m = view.methods[0]!
+  m.executionMode = 'REPEATABLE'
+  m.cycle = [{ currency: 'CHAOS', omens: [], purpose: 'GOAL_ACQUISITION' }]
+  const request = serve(view)
+  render(
+    <AutomaticMethodSearch
+      request={request}
+      inputGeneration={2}
+      presentItem={present}
+      onRecalculate={vi.fn()}
+    />,
+  )
+  const selector = await screen.findByRole('combobox', {
+    name: 'Method repetitions',
+  })
+  fireEvent.change(selector, { target: { value: '300' } })
+  await waitFor(() => expect(selector).toHaveValue('300'))
+})
+
+it('reveals only the chosen exact branch while the other grouped outcomes remain collapsed', () => {
+  const view = fixture()
+  const p = graphProjection(view, 100, new Set(), [
+    { method: 'exalt', source: 0, target: 1, kind: 'GOAL' },
+  ])
+  expect(p.nodes.map((n) => n.id)).toEqual([0, 1])
+  expect(p.groups).toHaveLength(1)
+  expect(view.nodes.map((n) => n.id)).toEqual([0, 1, 2])
+})
+it('shows the catalog tier beside the unchanged exact modifier value', () => {
+  const display = createItemPresentation(
+    { name: 'Solar Amulet', itemClass: 'Amulet' },
+    {
+      test: {
+        id: 'test',
+        name: 'Life',
+        text: '+# to maximum Life',
+        tier: 3,
+        affixType: 'PREFIX',
+        familyIds: ['life'],
+        stats: [{ id: 'life', min: 1, max: 9 }],
+      },
+    },
+  )
+  const item = {
+    ...requestFixture().start.item,
+    explicits: [{ modifierId: 'test', values: { life: 7 }, fractured: false }],
+  }
+  const row = display(item, 'en').modifiers.find((m) => m.id === 'test')!
+  expect(row.affixLabel).toBe('T3')
+  expect(row.text).toContain('7')
+  expect(item.explicits[0]!.values.life).toBe(7)
+})
+
+it('restores a single-pass grouped selection without applying saved repeat N and preserves it across tabs', async () => {
+  const view = fixture(),
+    request = serve(view)
+  saveSupport('run', {
+    request: request.clientRequestId,
+    job: view.id,
+    selected: 1,
+    cycles: 300,
+    route: [{ method: 'exalt', source: 0, target: 1, kind: 'GOAL' }],
+  })
+  const props = {
+    request,
+    inputGeneration: 3,
+    presentItem: present,
+    onRecalculate: vi.fn(),
+  }
+  const mounted = render(<AutomaticMethodSearch {...props} />)
+  await screen.findByRole('heading', { name: 'Item state 1' })
+  expect(screen.getByText('Single pass: 1')).toBeInTheDocument()
+  expect(
+    screen.queryByRole('combobox', { name: 'Method repetitions' }),
+  ).not.toBeInTheDocument()
+  mounted.rerender(<AutomaticMethodSearch {...props} active={false} />)
+  mounted.rerender(<AutomaticMethodSearch {...props} active />)
+  expect(screen.getByText('0 → 1 (GOAL)')).toBeInTheDocument()
+  mounted.unmount()
+  render(<AutomaticMethodSearch {...props} />)
+  await screen.findByRole('heading', { name: 'Item state 1' })
+  expect(screen.getByText('Single pass: 1')).toBeInTheDocument()
+})
+
+it('keeps an Essence preparation value separate even when followed by Exalted', () => {
+  const view = fixture()
+  view.methods[0]!.initial = [
+    { currency: 'PERFECT_ESSENCE_BODY', omens: [], purpose: 'ORDINARY' },
+  ]
+  expect(exaltedGroups(view, 100)).toEqual([])
+  expect(graphProjection(view, 100, new Set()).nodes.map((n) => n.id)).toEqual([
+    0, 1, 2,
+  ])
+})

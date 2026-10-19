@@ -27,6 +27,10 @@ export function createItemPresentation(
       id: m.modifierId,
       kind: m.kind,
       fractured: m.fractured,
+      affixLabel:
+        m.kind === 'explicit' && definitions[m.modifierId]?.tier
+          ? 'T' + definitions[m.modifierId]!.tier
+          : undefined,
       text: definitions[m.modifierId]
         ? localizedModifierText(definitions[m.modifierId]!, m.values, locale)
         : pathTreeMessages[locale].unavailable,

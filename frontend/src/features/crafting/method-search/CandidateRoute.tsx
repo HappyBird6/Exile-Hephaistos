@@ -1,3 +1,6 @@
+import { isRepeatable, methodPoint } from './methodObservation'
+import { outcomeMessages } from './outcomeMessages'
+import { probabilityText } from './probabilityPresentation'
 import { validRoute } from './routeSelection'
 import type { AutomaticAction, AutomaticView } from './automaticApi'
 import type { Selection } from './supportStorage'
@@ -26,7 +29,7 @@ export function CandidateRoute({
     copy = workspaceMessages[locale],
     methods = methodSearchMessages[locale]
   const incoming = view.methods.flatMap((m) =>
-    (m.points.find((p) => p.cycles === cycles)?.outcomes ?? [])
+    (methodPoint(m, cycles)?.outcomes ?? [])
       .filter(
         (o) =>
           o.target === selected && o.kind !== 'UNRESOLVED' && o.kind !== 'DEAD',
@@ -97,7 +100,21 @@ export function CandidateRoute({
                 </>
               )}
               <p>
-                {methods.cycles}: {cycles}
+                {isRepeatable(m)
+                  ? methods.cycles
+                  : outcomeMessages[locale].single}
+                : {isRepeatable(m) ? cycles : 1}
+              </p>
+              <p>
+                {outcomeMessages[locale].probability}:{' '}
+                {(() => {
+                  const o = methodPoint(m, cycles)?.outcomes.find(
+                    (o) => o.target === e.target && o.kind === e.kind,
+                  )
+                  return o
+                    ? probabilityText(o.probability.lower, o.probability)
+                    : '…'
+                })()}
               </p>
               <ol>
                 {m.cycle.map((a, j) => (

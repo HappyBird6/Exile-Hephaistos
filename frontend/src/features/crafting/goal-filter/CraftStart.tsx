@@ -1,3 +1,4 @@
+import { resetMessages } from './resetMessages'
 import { restoredStart } from './savedStart'
 import { saveSupport } from '../method-search/supportStorage'
 import { canonical } from '../path-tree/validation'
@@ -109,23 +110,23 @@ export function CraftStart({
   )
   const draft = useStore(editor)
   const [storageFailed, setStorageFailed] = useState(false)
+  const persist = useCallback(() => {
+    const d = editor.getState()
+    setStorageFailed(
+      !saveSupport('start', {
+        base: d.base,
+        text: d.text,
+        item: d.item,
+        rulesetIdentity: d.rulesetIdentity,
+        abstractQuality40: d.abstractQuality40,
+        editing: d.editing,
+        started: d.started,
+        levelEdited: d.levelEdited,
+        searchRequest: d.searchRequest,
+      }),
+    )
+  }, [editor])
   useEffect(() => {
-    const persist = () => {
-      const d = editor.getState()
-      setStorageFailed(
-        !saveSupport('start', {
-          base: d.base,
-          text: d.text,
-          item: d.item,
-          rulesetIdentity: d.rulesetIdentity,
-          abstractQuality40: d.abstractQuality40,
-          editing: d.editing,
-          started: d.started,
-          levelEdited: d.levelEdited,
-          searchRequest: d.searchRequest,
-        }),
-      )
-    }
     let timer: ReturnType<typeof setTimeout>
     const unsubscribe = editor.subscribe(() => {
       clearTimeout(timer)
@@ -138,7 +139,7 @@ export function CraftStart({
       clearTimeout(timer)
       window.removeEventListener('pagehide', flush)
     }
-  }, [editor])
+  }, [editor, persist])
   const update = (value: Partial<Draft>) =>
     editor.setState({
       searchRequest: null,
@@ -274,6 +275,34 @@ export function CraftStart({
     request.current?.abort()
     request.current = null
     setChecking(false)
+  }
+  function invalidateCalculation() {
+    cancel()
+    update({
+      started: false,
+      editing: true,
+      root: null,
+      rootItem: null,
+      rootDefinitions: null,
+    })
+    persist()
+  }
+  function resetStart() {
+    if (!selected) return
+    const item = {
+      ...concreteInitial(selected.initial),
+      itemLevel: draft.item?.itemLevel ?? selected.initial.state.itemLevel,
+    }
+    invalidateCalculation()
+    update({
+      item,
+      rulesetIdentity: selected.initial.rulesetIdentity,
+      abstractQuality40: false,
+      text: startText(selected.base, item, selected.initial.modifiers),
+      card: startCard(selected.base, item, selected.initial.modifiers),
+      issue: '',
+    })
+    persist()
   }
   function selectBase(key: string) {
     cancel()
@@ -581,6 +610,13 @@ export function CraftStart({
                 }}
               >
                 {copy.import}
+              </button>
+              <button
+                disabled={!selected}
+                title={resetMessages[locale].startHelp}
+                onClick={resetStart}
+              >
+                {resetMessages[locale].start}
               </button>
               <h3>{copy.create}</h3>
               <div className="craft-start-base-selects">
@@ -904,6 +940,7 @@ export function CraftStart({
               <h3>{copy.target}</h3>
               {context && (
                 <ConnectedGoalFilter
+                  onResetGoal={invalidateCalculation}
                   onSearchGoalChange={onSearchGoalChange}
                   rulesetIdentity={draft.rulesetIdentity ?? undefined}
                   item={currentRules ? draft.item : null}

@@ -1,3 +1,4 @@
+import { resetMessages } from './resetMessages'
 import {
   readSupport,
   saveSupport,
@@ -42,6 +43,7 @@ export function ConnectedGoalFilter({
   compact = false,
   language,
   onSearchGoalChange,
+  onResetGoal,
 }: {
   item: ConcreteItem | null
   rulesetIdentity?: string | undefined
@@ -50,6 +52,7 @@ export function ConnectedGoalFilter({
   activeOmens: string[]
   maxMillis: number
   compact?: boolean
+  onResetGoal?: (() => void) | undefined
   onSearchGoalChange?: (snapshot: SearchGoalSnapshot) => void
 }) {
   const [baseKey, setBaseKey] = useState('support')
@@ -172,6 +175,7 @@ export function ConnectedGoalFilter({
         </p>
       )}
       <ConnectedEditor
+        onResetGoal={onResetGoal}
         onSearchGoalChange={onSearchGoalChange}
         initialCatalog={initialCatalog}
         rulesetIdentity={
@@ -212,6 +216,7 @@ function ConnectedEditor({
   maxMillis,
   compact,
   onSearchGoalChange,
+  onResetGoal,
 }: {
   initialCatalog: Catalog
   item: ConcreteItem | null
@@ -222,6 +227,7 @@ function ConnectedEditor({
   activeOmens: string[]
   maxMillis: number
   compact: boolean
+  onResetGoal?: (() => void) | undefined
   onSearchGoalChange?: ((snapshot: SearchGoalSnapshot) => void) | undefined
 }) {
   const { locale } = useI18n()
@@ -236,14 +242,15 @@ function ConnectedEditor({
   const [storageFailed, setStorageFailed] = useState(false)
   useEffect(() => {
     if (!compact) return
-    const persist = () => setStorageFailed(!saveSupport('goal', goal))
+    const persist = () =>
+      setStorageFailed(!saveSupport('goal', editor.getState().goal))
     const timer = setTimeout(persist, 250)
     window.addEventListener('pagehide', persist)
     return () => {
       clearTimeout(timer)
       window.removeEventListener('pagehide', persist)
     }
-  }, [compact, goal])
+  }, [compact, goal, editor])
   useEffect(() => {
     if (
       compact &&
@@ -255,6 +262,7 @@ function ConnectedEditor({
     }
   }, [compact, context.baseItemId, editor])
   const currentCatalog = useGoalFilterCatalog(adapter, context)
+  const [resetGeneration, setResetGeneration] = useState(0)
   const [inputReady, setInputReady] = useState(false)
   useEffect(() => {
     const catalog = currentCatalog.data
@@ -377,7 +385,33 @@ function ConnectedEditor({
       {storageFailed && (
         <p role="status">{workspaceMessages[locale].storage}</p>
       )}
+      <button
+        disabled={
+          !currentCatalog.data ||
+          currentCatalog.isFetching ||
+          currentCatalog.isError
+        }
+        title={resetMessages[language].goalHelp}
+        onClick={() => {
+          if (!currentCatalog.data) return
+          const goal = emptyGoal(context, currentCatalog.data.catalogVersion)
+          onResetGoal?.()
+          setSubmitted(null)
+          setInputReady(false)
+          editor.setState((state) => ({
+            goal,
+            revision: state.revision + 1,
+            collapsedByGroupId: {},
+            presentedTypes: {},
+          }))
+          if (compact) setStorageFailed(!saveSupport('goal', goal))
+          setResetGeneration((n) => n + 1)
+        }}
+      >
+        {resetMessages[language].goal}
+      </button>
       <GoalFilterPanel
+        key={resetGeneration}
         onSearchReadinessChange={setInputReady}
         presentStatIds={presentNumericStats(
           item,

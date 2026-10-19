@@ -1,3 +1,4 @@
+import { methodPoint } from './methodObservation'
 import type { AutomaticView } from './automaticApi'
 import type { Selection } from './supportStorage'
 export function routeThrough(route: Selection[], edge: Selection): Selection[] {
@@ -18,12 +19,8 @@ export function validRoute(
         (m) =>
           m.id === e.method &&
           m.source === e.source &&
-          m.points.some(
-            (p) =>
-              p.cycles === cycles &&
-              p.outcomes.some(
-                (o) => o.target === e.target && o.kind === e.kind,
-              ),
+          methodPoint(m, cycles)?.outcomes.some(
+            (o) => o.target === e.target && o.kind === e.kind,
           ),
       ),
   )

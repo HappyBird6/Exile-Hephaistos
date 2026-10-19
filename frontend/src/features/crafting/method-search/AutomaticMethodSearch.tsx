@@ -1,3 +1,6 @@
+import { GroupedMethodGraph } from './GroupedMethodGraph'
+import { isRepeatable, methodPoint } from './methodObservation'
+import { outcomeMessages } from './outcomeMessages'
 import { CalculationStatus, CalculationControlLabel } from './CalculationStatus'
 import { PlanningDisclosure } from './PlanningDisclosure'
 import { acquisitionLabels, preparationConditions } from './planningMessages'
@@ -255,15 +258,6 @@ function Run({
   const recommendations = view?.recommendations.find(
     (r) => r.node === selectedNode?.id && r.cycles === cycles,
   )
-  const positions = new Map<number, { x: number; y: number }>(),
-    rows = new Map<number, number>()
-  for (const n of view?.nodes ?? []) {
-    const row = rows.get(n.depth) ?? 0
-    rows.set(n.depth, row + 1)
-    positions.set(n.id, { x: 55 + row * 90, y: 35 + n.depth * 140 })
-  }
-  const width = Math.max(320, ...[...positions.values()].map((p) => p.x + 80)),
-    height = Math.max(100, ...[...positions.values()].map((p) => p.y + 45))
   const jobId = view?.id
   useEffect(() => {
     if (!jobId) return
@@ -359,131 +353,20 @@ function Run({
         >
           {common.recalculate}
         </button>
-        <label>
-          {copy.cycles}
-          <select
-            aria-label={copy.cycles}
-            value={cycles}
-            onChange={(e) => setCycles(Number(e.target.value))}
-          >
-            {[100, 300, 500].map((n) => (
-              <option key={n}>{n}</option>
-            ))}
-          </select>
-        </label>
       </div>
       {view && (
         <>
           <div className="automatic-workspace">
-            <div className="method-map__overview">
-              <svg width={width} height={height} aria-label={common.title}>
-                <defs>
-                  <marker
-                    id={`automatic-arrow-${view.id}`}
-                    markerWidth="8"
-                    markerHeight="8"
-                    refX="7"
-                    refY="4"
-                    orient="auto"
-                  >
-                    <path d="M0,0 L8,4 L0,8 Z" fill="currentColor" />
-                  </marker>
-                </defs>
-                {view.methods.flatMap((m, index) => {
-                  const source = positions.get(m.source)
-                  const point = m.points.find((p) => p.cycles === cycles)
-                  if (!source || !point) return []
-                  return point.outcomes
-                    .filter((o) => o.target !== null && o.kind !== 'DEAD')
-                    .map((o, i) => {
-                      const target = positions.get(o.target!)
-                      if (!target) return null
-                      const offset = 12 + (index % 7) * 5
-                      return (
-                        <path
-                          key={`${m.id}:${i}`}
-                          role="button"
-                          tabIndex={0}
-                          aria-label={`${m.source} → ${o.target}: ${m.initial.concat(m.cycle).map(action).join(' → ')}`}
-                          onClick={() =>
-                            chooseEdge({
-                              method: m.id,
-                              source: m.source,
-                              target: o.target!,
-                              kind: o.kind,
-                            })
-                          }
-                          onKeyDown={(e) => {
-                            if (e.key === 'Enter' || e.key === ' ') {
-                              e.preventDefault()
-                              chooseEdge({
-                                method: m.id,
-                                source: m.source,
-                                target: o.target!,
-                                kind: o.kind,
-                              })
-                            }
-                          }}
-                          className={
-                            route.some(
-                              (e) => e.method === m.id && e.target === o.target,
-                            )
-                              ? 'automatic-edge is-selected'
-                              : 'automatic-edge'
-                          }
-                          d={`M${source.x},${source.y + 18} Q${(source.x + target.x) / 2 + offset},${(source.y + target.y) / 2} ${target.x},${target.y - 18}`}
-                          fill="none"
-                          stroke="currentColor"
-                          strokeDasharray={
-                            o.kind === 'UNRESOLVED' ? '5 4' : undefined
-                          }
-                          opacity={m.source === selectedNode?.id ? 1 : 0.3}
-                          markerEnd={`url(#automatic-arrow-${view.id})`}
-                        >
-                          <title>
-                            {m.cycle.map(action).join(' → ')}:{' '}
-                            {probabilityText(
-                              o.probability.lower,
-                              o.probability,
-                            )}
-                          </title>
-                        </path>
-                      )
-                    })
-                })}
-                {view.nodes.map((n) => {
-                  const p = positions.get(n.id)!
-                  return (
-                    <g
-                      key={n.id}
-                      role="button"
-                      tabIndex={0}
-                      aria-label={`${copy.state} ${n.id}`}
-                      onClick={() => selectNode(n.id)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') selectNode(n.id)
-                      }}
-                    >
-                      <circle
-                        cx={p.x}
-                        cy={p.y}
-                        r="18"
-                        fill={n.id === selectedNode?.id ? '#c69b57' : '#242424'}
-                        stroke="currentColor"
-                      />
-                      <text
-                        x={p.x}
-                        y={p.y + 5}
-                        textAnchor="middle"
-                        fill="white"
-                      >
-                        {n.id}
-                      </text>
-                    </g>
-                  )
-                })}
-              </svg>
-            </div>
+            <GroupedMethodGraph
+              view={view}
+              cycles={cycles}
+              selected={selectedNode?.id ?? 0}
+              route={route}
+              choose={chooseEdge}
+              select={selectNode}
+              action={action}
+              presentItem={presentItem}
+            />
             <aside className="automatic-inspector">
               <label>
                 {copy.state}
@@ -563,7 +446,7 @@ function Run({
             {view.methods
               .filter((m) => m.source === selectedNode?.id)
               .map((m) => {
-                const point = m.points.find((p) => p.cycles === cycles)
+                const point = methodPoint(m, cycles)
                 const local = recommendations?.local.includes(m.id),
                   final =
                     view.complete &&
@@ -587,6 +470,27 @@ function Run({
                       </p>
                     )}
                     <h3>{m.cycle.map(action).join(' → ')}</h3>
+                    <p>
+                      {isRepeatable(m)
+                        ? copy.cycles + ': ' + cycles
+                        : m.executionMode === 'PENDING'
+                          ? outcomeMessages[locale].pending
+                          : outcomeMessages[locale].single + ': 1'}
+                    </p>
+                    {isRepeatable(m) && (
+                      <label>
+                        {copy.cycles}
+                        <select
+                          aria-label={copy.cycles}
+                          value={cycles}
+                          onChange={(e) => setCycles(Number(e.target.value))}
+                        >
+                          {[100, 300, 500].map((n) => (
+                            <option key={n}>{n}</option>
+                          ))}
+                        </select>
+                      </label>
+                    )}
                     {!point ? (
                       <p>{common.calculating}</p>
                     ) : (
@@ -636,7 +540,12 @@ function Run({
                           {[point.initialUses, point.cycleUses].map(
                             (uses, i) => (
                               <p key={i}>
-                                {i === 0 ? copy.initial : copy.cycles}:{' '}
+                                {i === 0
+                                  ? copy.initial
+                                  : isRepeatable(m)
+                                    ? copy.cycles
+                                    : outcomeMessages[locale].single}
+                                :{' '}
                                 {Object.entries(uses)
                                   .filter(
                                     ([material]) =>

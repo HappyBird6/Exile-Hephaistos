@@ -31,6 +31,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       String id,
       int source,
       AutomaticMethodExecution.Template template,
+      String executionMode,
       Map<
               Integer,
               CertifiedMethodRunner.Observation<
@@ -276,8 +277,8 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     }
     if (method.execution.atBoundary()) {
       if (method.execution.absorbed()) {
-        for (int horizon : List.of(100, 300, 500))
-          if (!method.points.containsKey(horizon))
+        for (int horizon : List.of(1, 100, 300, 500))
+          if (!method.points.containsKey(horizon) && horizon >= method.execution.cycles())
             publish(
                 method, horizon, method.execution.observation().atLaterAbsorbedBoundary(horizon));
         method.finished = true;
@@ -285,7 +286,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
         return;
       }
       int cycle = Math.toIntExact(method.execution.cycles());
-      if (List.of(100, 300, 500).contains(cycle) && !method.points.containsKey(cycle))
+      if (List.of(1, 100, 300, 500).contains(cycle) && !method.points.containsKey(cycle))
         publish(method, cycle, method.execution.observation());
       if (cycle == 500) {
         method.finished = true;
@@ -375,8 +376,9 @@ public final class AutomaticMethodGraph implements AutoCloseable {
               AutomaticMethodExecution.State, AutomaticCraftingAction>>
       visiblePoints(Method method) {
     var points = new LinkedHashMap<>(method.points);
-    for (int horizon : List.of(100, 300, 500))
-      if (!points.containsKey(horizon)) points.put(horizon, method.execution.provisional(horizon));
+    for (int horizon : List.of(1, 100, 300, 500))
+      if (!points.containsKey(horizon) && horizon >= method.execution.cycles())
+        points.put(horizon, method.execution.provisional(horizon));
     return Map.copyOf(points);
   }
 
@@ -471,6 +473,23 @@ public final class AutomaticMethodGraph implements AutoCloseable {
         .toList();
   }
 
+  private String executionMode(Method method) {
+    if (method.execution.cycles() > 1) return "REPEATABLE";
+    if (method.execution.atBoundary() && method.execution.absorbed()) return "SINGLE_PASS";
+    var first = method.points.get(1);
+    return first != null && !first.active().isEmpty() ? "REPEATABLE" : "PENDING";
+  }
+
+  private Set<Integer> completeObservations(Method method) {
+    var complete = new HashSet<>(method.points.keySet());
+    // Older persisted single-pass jobs have only 100/300/500 snapshots. Their
+    // absorbed execution still holds the exact first pass, so expose it safely.
+    if (method.execution.atBoundary()
+        && method.execution.absorbed()
+        && method.execution.cycles() <= 1) complete.add(1);
+    return Set.copyOf(complete);
+  }
+
   public List<MethodView> methods() {
     return methods.values().stream()
         .map(
@@ -479,9 +498,10 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                     m.id,
                     m.source.id,
                     m.template,
+                    executionMode(m),
                     visiblePoints(m),
                     m.execution.unresolvedReasons(),
-                    Set.copyOf(m.points.keySet()),
+                    completeObservations(m),
                     m.finished))
         .toList();
   }

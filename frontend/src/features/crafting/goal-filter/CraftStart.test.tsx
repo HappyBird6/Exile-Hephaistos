@@ -1,3 +1,9 @@
+import { cleanup } from '@testing-library/react'
+import {
+  readSupport,
+  saveSupport,
+  validGoal,
+} from '../method-search/supportStorage'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import {
   fireEvent,
@@ -31,7 +37,9 @@ vi.mock('./ConnectedGoalFilter', () => ({
   ConnectedGoalFilter: ({
     context,
     onSearchGoalChange,
+    onResetGoal,
   }: {
+    onResetGoal: () => void
     context: { baseItemId: string }
     onSearchGoalChange: (snapshot: SearchGoalSnapshot) => void
   }) => {
@@ -46,10 +54,13 @@ vi.mock('./ConnectedGoalFilter', () => ({
       [baseItemId, onSearchGoalChange],
     )
     return (
-      <label>
-        Target draft
-        <input defaultValue="preserved" />
-      </label>
+      <>
+        <label>
+          Target draft
+          <input defaultValue="preserved" />
+        </label>
+        <button onClick={onResetGoal}>Reset goal</button>
+      </>
     )
   },
 }))
@@ -653,4 +664,61 @@ describe('Craft Support starting screen', () => {
       screen.getByRole('region', { name: 'Crafting tree preview' }),
     ).not.toHaveTextContent('maximum Life')
   })
+})
+
+it('resets only the start immediately, preserves base and level, and reloads the cleared item', async () => {
+  await setup()
+  fireEvent.change(screen.getByLabelText('Starting equipment type'), {
+    target: { value: 'Rings' },
+  })
+  fireEvent.change(screen.getByLabelText('Starting rarity'), {
+    target: { value: 'MAGIC' },
+  })
+  chooseLifeGroup()
+  const goal = emptyGoal({ baseItemId: ring.state.baseItemId }, 'test-catalog')
+  goal.general.rarities = ['RARE']
+  saveSupport('goal', goal)
+  const level = (screen.getByLabelText('Item level') as HTMLInputElement).value
+  fireEvent.change(screen.getByLabelText('Target draft'), {
+    target: { value: 'untouched' },
+  })
+  fireEvent.click(screen.getByRole('button', { name: 'Reset starting item' }))
+  expect(screen.getByLabelText('Starting rarity')).toHaveValue('NORMAL')
+  expect(screen.getByLabelText('Starting item base')).toHaveValue('ring')
+  expect(screen.getByLabelText('Item level')).toHaveValue(Number(level))
+  expect(screen.getByLabelText('Target draft')).toHaveValue('untouched')
+  expect(readSupport('goal', validGoal)).toEqual(goal)
+  const saved = JSON.parse(
+    localStorage.getItem('hephaistos.support.v1:start')!,
+  ).data
+  expect(saved.item.explicits).toEqual([])
+  expect(saved.searchRequest).toBeNull()
+  cleanup()
+  await setup()
+  expect(screen.getByLabelText('Starting rarity')).toHaveValue('NORMAL')
+  expect(screen.getByLabelText('Starting item base')).toHaveValue('ring')
+})
+
+it('goal reset immediately invalidates the committed calculation while preserving the starting item', async () => {
+  await setup()
+  fireEvent.change(screen.getByLabelText('Starting rarity'), {
+    target: { value: 'MAGIC' },
+  })
+  chooseLifeGroup()
+  fireEvent.click(screen.getByRole('button', { name: 'Start Crafting' }))
+  fireEvent(window, new Event('pagehide'))
+  const before = JSON.parse(
+    localStorage.getItem('hephaistos.support.v1:start')!,
+  ).data.item
+  fireEvent.click(screen.getByRole('button', { name: /Edit settings/ }))
+  fireEvent.click(screen.getByRole('button', { name: 'Reset goal' }))
+  const saved = JSON.parse(
+    localStorage.getItem('hephaistos.support.v1:start')!,
+  ).data
+  expect(saved.searchRequest).toBeNull()
+  expect(saved.started).toBe(false)
+  expect(saved.item).toEqual(before)
+  expect(
+    screen.queryByRole('region', { name: 'Crafting tree preview' }),
+  ).not.toBeInTheDocument()
 })
