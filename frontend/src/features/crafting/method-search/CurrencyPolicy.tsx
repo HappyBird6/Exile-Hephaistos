@@ -1,3 +1,6 @@
+import { guideMessages } from './guideMessages'
+import { workspaceMessages } from './workspaceMessages'
+import { planningNotes } from './planningNotes'
 import { useId, useRef } from 'react'
 import policy from '../../../../../backend/src/main/resources/crafting/automatic-currency-policy-v1.json'
 import { useI18n } from '../../../shared/i18n/i18n'
@@ -29,7 +32,11 @@ export function CurrencyPolicy() {
   const title = useId()
   return (
     <>
-      <button ref={button} onClick={() => dialog.current?.showModal()}>
+      <button
+        id="crafting-policy"
+        ref={button}
+        onClick={() => dialog.current?.showModal()}
+      >
         {copy[0]}
       </button>
       <dialog
@@ -42,6 +49,16 @@ export function CurrencyPolicy() {
         <form method="dialog">
           <button>{copy[1]}</button>
         </form>
+        <h3>{guideMessages[locale].scope}</h3>
+        <p>
+          {planningNotes[locale][0]} {planningNotes[locale][1]}
+        </p>
+        <h3>{guideMessages[locale].calculations}</h3>
+        <p>{planningNotes[locale][2]}</p>
+        <h3>{guideMessages[locale].records}</h3>
+        <p>{workspaceMessages[locale].hint}</p>
+        <p>{workspaceMessages[locale].unknown}</p>
+        <h3>{guideMessages[locale].supported}</h3>
         <p>{copy[6]}</p>
         <p>{copy[21]}</p>
         <ol>

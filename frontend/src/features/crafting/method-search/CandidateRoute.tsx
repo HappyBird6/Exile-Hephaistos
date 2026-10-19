@@ -1,11 +1,11 @@
 import { isRepeatable, methodPoint } from './methodObservation'
-import { outcomeMessages } from './outcomeMessages'
+import { guideMessages } from './guideMessages'
+import { removesModifier } from './methodRisk'
 import { probabilityText } from './probabilityPresentation'
 import { validRoute } from './routeSelection'
 import type { AutomaticAction, AutomaticView } from './automaticApi'
 import type { Selection } from './supportStorage'
 import { workspaceMessages } from './workspaceMessages'
-import { methodSearchMessages } from './messages'
 import { useI18n } from '../../../shared/i18n/i18n'
 
 export function CandidateRoute({
@@ -27,7 +27,7 @@ export function CandidateRoute({
 }) {
   const { locale } = useI18n(),
     copy = workspaceMessages[locale],
-    methods = methodSearchMessages[locale]
+    guide = guideMessages[locale]
   const incoming = view.methods.flatMap((m) =>
     (methodPoint(m, cycles)?.outcomes ?? [])
       .filter(
@@ -43,43 +43,44 @@ export function CandidateRoute({
   )
   const visible = validRoute(view, route, cycles) ? route : []
   return (
-    <section className="candidate-route" aria-label={copy.route}>
-      <h3>{copy.route}</h3>
-      <p>{copy.hint}</p>
-      <label>
-        {copy.incoming}
-        <select
-          aria-label={copy.incoming}
-          value=""
-          onChange={(e) => {
-            const edge = incoming[Number(e.target.value)]
-            if (edge) choose(edge)
-          }}
-        >
-          <option value="">{copy.choose}</option>
-          {incoming.map((e, i) => (
-            <option key={`${e.method}:${e.kind}`} value={i}>
-              {e.source} → {e.target}:{' '}
-              {view.methods
-                .find((m) => m.id === e.method)!
-                .initial.concat(
-                  view.methods.find((m) => m.id === e.method)!.cycle,
-                )
-                .map(action)
-                .join(' → ')}{' '}
-              ({e.kind})
-            </option>
-          ))}
-        </select>
-      </label>
-      <button onClick={clear} disabled={!route.length}>
-        {copy.reset}
-      </button>
+    <section className="candidate-route" aria-label={guide.route}>
+      <h3>{guide.route}</h3>
+      {!visible.length && selected === 0 && <p>{guide.empty}</p>}
+      <details>
+        <summary>{guide.alternative}</summary>
+        <label>
+          {copy.incoming}
+          <select
+            aria-label={copy.incoming}
+            value=""
+            onChange={(e) => {
+              const edge = incoming[Number(e.target.value)]
+              if (edge) choose(edge)
+            }}
+          >
+            <option value="">{copy.choose}</option>
+            {incoming.map((e, i) => (
+              <option key={`${e.method}:${e.kind}`} value={i}>
+                {view.methods
+                  .find((m) => m.id === e.method)!
+                  .initial.concat(
+                    view.methods.find((m) => m.id === e.method)!.cycle,
+                  )
+                  .map(action)
+                  .join(' → ')}{' '}
+              </option>
+            ))}
+          </select>
+        </label>
+        <button onClick={clear} disabled={!route.length}>
+          {guide.reset}
+        </button>
+      </details>
       {selected !== 0 &&
         (!visible.length ||
           visible[0]!.source !== 0 ||
           visible.at(-1)!.target !== selected) && (
-          <p role="status">{copy.disconnected}</p>
+          <p role="status">{guide.empty}</p>
         )}
       <ol>
         {visible.map((e, i) => {
@@ -87,45 +88,34 @@ export function CandidateRoute({
           return (
             <li key={`${i}:${e.method}`}>
               <strong>
-                {e.source} → {e.target} ({e.kind})
+                {m.initial.concat(m.cycle).map(action).join(' → ')}
               </strong>
-              {m.initial.length > 0 && (
-                <>
-                  <p>{methods.initial}</p>
-                  <ol>
-                    {m.initial.map((a, j) => (
-                      <li key={j}>{action(a)}</li>
-                    ))}
-                  </ol>
-                </>
-              )}
-              <p>
-                {isRepeatable(m)
-                  ? methods.cycles
-                  : outcomeMessages[locale].single}
-                : {isRepeatable(m) ? cycles : 1}
-              </p>
-              <p>
-                {outcomeMessages[locale].probability}:{' '}
+              <p className="craft-chance">
+                <span>
+                  {isRepeatable(m)
+                    ? guide.within.replace('{n}', String(cycles))
+                    : guide.once}
+                </span>
+                {' · '}
+                {guide.chance}:{' '}
                 {(() => {
                   const o = methodPoint(m, cycles)?.outcomes.find(
                     (o) => o.target === e.target && o.kind === e.kind,
                   )
                   return o
                     ? probabilityText(o.probability.lower, o.probability)
-                    : '…'
+                    : '—'
                 })()}
               </p>
-              <ol>
-                {m.cycle.map((a, j) => (
-                  <li key={j}>{action(a)}</li>
-                ))}
-              </ol>
+              {removesModifier(m) && (
+                <p className="craft-risk">
+                  {guide.risk} <a href="#crafting-policy">{guide.scope}</a>
+                </p>
+              )}
             </li>
           )
         })}
       </ol>
-      <p>{copy.unknown}</p>
     </section>
   )
 }

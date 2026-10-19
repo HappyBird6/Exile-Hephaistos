@@ -194,10 +194,23 @@ it('hides repetition N for a single Exalted, exposes individual outcomes and con
   fireEvent.click(group)
   const details = screen.getByRole('region', { name: 'Exalted outcomes' })
   expect(within(details).getAllByText(/25.00%/).length).toBeGreaterThan(0)
-  fireEvent.click(within(details).getByRole('button', { name: 'Item state 1' }))
-  await screen.findByRole('heading', { name: 'Item state 1' })
-  expect(screen.getByText('0 → 1 (GOAL)')).toBeInTheDocument()
-  expect(screen.getByText('Single pass: 1')).toBeInTheDocument()
+  fireEvent.click(within(details).getByRole('button', { name: 'Result 1' }))
+  expect(await screen.findByLabelText('Other results')).toHaveValue('1')
+  expect(
+    screen.getByRole('region', { name: 'Crafting steps' }),
+  ).toHaveTextContent('Exalted Orb')
+  expect(
+    screen.getByRole('region', { name: 'Crafting steps' }),
+  ).toHaveTextContent('25.00%')
+  expect(
+    screen.getByRole('region', { name: 'Crafting steps' }),
+  ).not.toHaveTextContent('GOAL')
+  expect(screen.getByLabelText('Other results')).toHaveValue('1')
+  expect(
+    within(screen.getByRole('region', { name: 'Crafting steps' })).getByText(
+      /Chance of this result:/,
+    ),
+  ).toHaveTextContent('1 attempt · Chance of this result: 25.00%')
 })
 it('lets the user change N only on a repeatable Chaos method', async () => {
   const view = fixture(),
@@ -271,18 +284,35 @@ it('restores a single-pass grouped selection without applying saved repeat N and
     onRecalculate: vi.fn(),
   }
   const mounted = render(<AutomaticMethodSearch {...props} />)
-  await screen.findByRole('heading', { name: 'Item state 1' })
-  expect(screen.getByText('Single pass: 1')).toBeInTheDocument()
+  expect(await screen.findByLabelText('Other results')).toHaveValue('1')
+  expect(
+    within(screen.getByRole('region', { name: 'Crafting steps' })).getByText(
+      /Chance of this result:/,
+    ),
+  ).toHaveTextContent('1 attempt · Chance of this result: 25.00%')
   expect(
     screen.queryByRole('combobox', { name: 'Method repetitions' }),
   ).not.toBeInTheDocument()
   mounted.rerender(<AutomaticMethodSearch {...props} active={false} />)
   mounted.rerender(<AutomaticMethodSearch {...props} active />)
-  expect(screen.getByText('0 → 1 (GOAL)')).toBeInTheDocument()
+  expect(
+    screen.getByRole('region', { name: 'Crafting steps' }),
+  ).toHaveTextContent('Exalted Orb')
+  expect(
+    screen.getByRole('region', { name: 'Crafting steps' }),
+  ).toHaveTextContent('25.00%')
+  expect(
+    screen.getByRole('region', { name: 'Crafting steps' }),
+  ).not.toHaveTextContent('GOAL')
+  expect(screen.getByLabelText('Other results')).toHaveValue('1')
   mounted.unmount()
   render(<AutomaticMethodSearch {...props} />)
-  await screen.findByRole('heading', { name: 'Item state 1' })
-  expect(screen.getByText('Single pass: 1')).toBeInTheDocument()
+  expect(await screen.findByLabelText('Other results')).toHaveValue('1')
+  expect(
+    within(screen.getByRole('region', { name: 'Crafting steps' })).getByText(
+      /Chance of this result:/,
+    ),
+  ).toHaveTextContent('1 attempt · Chance of this result: 25.00%')
 })
 
 it('keeps an Essence preparation value separate even when followed by Exalted', () => {
@@ -294,4 +324,51 @@ it('keeps an Essence preparation value separate even when followed by Exalted', 
   expect(graphProjection(view, 100, new Set()).nodes.map((n) => n.id)).toEqual([
     0, 1, 2,
   ])
+})
+
+it('keeps probabilities prominent while hiding implementation prose and detailed outcomes until requested', async () => {
+  const request = serve(fixture())
+  render(
+    <AutomaticMethodSearch
+      request={request}
+      inputGeneration={4}
+      presentItem={present}
+      onRecalculate={vi.fn()}
+    />,
+  )
+  await screen.findByRole('heading', { name: 'Selected item' })
+  const method = document.querySelector('.method-map__methods .craft-choice')!
+  expect(method.querySelector('.craft-chance')).toHaveTextContent('25.00%')
+  const details = method.querySelector('details.craft-outcomes')!
+  expect(details).not.toHaveAttribute('open')
+  expect(screen.queryByText(/The API provides/)).not.toBeInTheDocument()
+  expect(
+    screen.queryByText(/Choose arrows from state 0/),
+  ).not.toBeInTheDocument()
+  expect(screen.queryByText(/global optimality/)).not.toBeInTheDocument()
+  expect(
+    screen.queryByText(/GOAL_ACQUISITION|Item state 0/),
+  ).not.toBeInTheDocument()
+})
+it('keeps removal risk and incomplete calculation visible without opening outcome details', async () => {
+  const view = fixture()
+  view.methods[0]!.cycle[0]!.currency = 'CHAOS'
+  view.methods[0]!.executionMode = 'REPEATABLE'
+  view.methods[0]!.points.forEach((p) => (p.complete = false))
+  const request = serve(view)
+  render(
+    <AutomaticMethodSearch
+      request={request}
+      inputGeneration={5}
+      presentItem={present}
+      onRecalculate={vi.fn()}
+    />,
+  )
+  expect(
+    await screen.findByText('An existing modifier may be removed.'),
+  ).toBeVisible()
+  expect(
+    document.querySelector('.method-map__methods [role="status"]'),
+  ).toBeVisible()
+  expect(document.querySelector('.craft-outcomes')).not.toHaveAttribute('open')
 })

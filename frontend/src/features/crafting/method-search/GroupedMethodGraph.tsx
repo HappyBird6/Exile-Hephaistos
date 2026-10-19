@@ -1,3 +1,5 @@
+import { methodSearchMessages } from './messages'
+import { guideMessages } from './guideMessages'
 import { methodPoint } from './methodObservation'
 import { useState } from 'react'
 import type { AutomaticAction, AutomaticView } from './automaticApi'
@@ -9,7 +11,6 @@ import { probabilityText } from './probabilityPresentation'
 import { presentRollCell } from './rollPresentation'
 import { ItemCard } from '../ItemCard'
 import { useI18n } from '../../../shared/i18n/i18n'
-import { methodSearchMessages } from './messages'
 import { pathTreeMessages } from '../path-tree/messages'
 
 export function GroupedMethodGraph({
@@ -32,8 +33,8 @@ export function GroupedMethodGraph({
   presentItem: PathTreeProps['presentItem']
 }) {
   const { locale } = useI18n(),
+    guide = guideMessages[locale],
     copy = outcomeMessages[locale],
-    methods = methodSearchMessages[locale],
     common = pathTreeMessages[locale]
   const [opened, setOpened] = useState<string | null>(null),
     [expanded, setExpanded] = useState<Set<string>>(new Set())
@@ -45,7 +46,12 @@ export function GroupedMethodGraph({
     ...projection.nodes.map((n) => ({
       id: `state:${n.id}`,
       depth: n.depth,
-      label: String(n.id),
+      label:
+        n.id === 0
+          ? guide.start
+          : n.progress.goal === 'MATCH'
+            ? common.hit
+            : guide.result,
       state: n.id,
     })),
     ...projection.groups.map((g) => ({
@@ -61,7 +67,7 @@ export function GroupedMethodGraph({
   for (const v of vertices) {
     const row = rows.get(v.depth) ?? 0
     rows.set(v.depth, row + 1)
-    positions.set(v.id, { x: 110 + row * 220, y: 35 + v.depth * 180 })
+    positions.set(v.id, { x: 110 + row * 240, y: 35 + v.depth * 180 })
   }
   const width = Math.max(320, ...[...positions.values()].map((p) => p.x + 115)),
     height = Math.max(100, ...[...positions.values()].map((p) => p.y + 40))
@@ -73,12 +79,12 @@ export function GroupedMethodGraph({
     kind === 'GOAL'
       ? common.hit
       : kind === 'LOSS'
-        ? methods.loss
+        ? methodSearchMessages[locale].loss
         : kind === 'UNRESOLVED'
           ? common.unknown
           : kind === 'DEAD'
             ? common.unavailable
-            : methods.checkpoint
+            : guide.result
   return (
     <div className="method-map__overview">
       <svg width={width} height={height} aria-label={common.title}>
@@ -112,7 +118,10 @@ export function GroupedMethodGraph({
               key={`${e.method.id}:${e.to}:${e.kind}`}
               role="button"
               tabIndex={0}
-              aria-label={`${e.method.source} → ${e.target ?? copy.group}: ${e.method.initial.concat(e.method.cycle).map(action).join(' → ')}`}
+              aria-label={e.method.initial
+                .concat(e.method.cycle)
+                .map(action)
+                .join(' → ')}
               onClick={click}
               onKeyDown={(event) => {
                 if (event.key === 'Enter' || event.key === ' ') {
@@ -127,7 +136,7 @@ export function GroupedMethodGraph({
                   ? 'automatic-edge is-selected'
                   : 'automatic-edge'
               }
-              d={`M${source.x},${source.y + 18} Q${(source.x + target.x) / 2 + 12 + (i % 7) * 5},${(source.y + target.y) / 2} ${target.x},${target.y - 18}`}
+              d={`M${source.x},${source.y + (e.from.startsWith('group:') ? 18 : 30)} Q${(source.x + target.x) / 2 + 12 + (i % 7) * 5},${(source.y + target.y) / 2} ${target.x},${target.y - (e.to.startsWith('group:') ? 18 : 30)}`}
               fill="none"
               stroke="currentColor"
               strokeDasharray={e.kind === 'UNRESOLVED' ? '5 4' : undefined}
@@ -158,9 +167,7 @@ export function GroupedMethodGraph({
               key={v.id}
               role="button"
               tabIndex={0}
-              aria-label={
-                v.state === null ? v.label : `${methods.state} ${v.state}`
-              }
+              aria-label={v.label}
               onClick={() => activate(v.id, v.state)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
@@ -180,10 +187,12 @@ export function GroupedMethodGraph({
                   stroke="currentColor"
                 />
               ) : (
-                <circle
-                  cx={p.x}
-                  cy={p.y}
-                  r={18}
+                <rect
+                  x={p.x - 90}
+                  y={p.y - 30}
+                  width={180}
+                  height={60}
+                  rx={10}
                   fill={v.state === selected ? '#c69b57' : '#242424'}
                   stroke="currentColor"
                 />
@@ -198,7 +207,7 @@ export function GroupedMethodGraph({
       {group && (
         <section className="exalted-outcomes" aria-label={copy.group}>
           <h3>
-            {copy.group}: {group.method.source} ·{' '}
+            {copy.group}:
             {group.method.initial
               .concat(group.method.cycle)
               .map(action)
@@ -226,7 +235,7 @@ export function GroupedMethodGraph({
             {effective.has(group.id) ? copy.collapse : copy.expand}
           </button>
           <ul>
-            {group.point.outcomes.map((o) => (
+            {group.point.outcomes.map((o, index) => (
               <li key={`${o.target}:${o.kind}`}>
                 {o.target !== null ? (
                   <button
@@ -239,7 +248,7 @@ export function GroupedMethodGraph({
                       })
                     }
                   >
-                    {methods.state} {o.target}
+                    {guide.result} {index + 1}
                   </button>
                 ) : (
                   common.unknown
@@ -249,7 +258,7 @@ export function GroupedMethodGraph({
                 {o.target !== null && (
                   <details>
                     <summary>
-                      {methods.state} {o.target}
+                      {guide.result} {index + 1}
                     </summary>
                     <ItemCard
                       item={presentRollCell(

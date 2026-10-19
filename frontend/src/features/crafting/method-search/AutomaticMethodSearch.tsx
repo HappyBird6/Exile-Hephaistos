@@ -1,9 +1,11 @@
+import { sumBounds } from './outcomeGrouping'
+import { guideMessages } from './guideMessages'
+import { removesModifier } from './methodRisk'
 import { GroupedMethodGraph } from './GroupedMethodGraph'
 import { isRepeatable, methodPoint } from './methodObservation'
 import { outcomeMessages } from './outcomeMessages'
 import { CalculationStatus, CalculationControlLabel } from './CalculationStatus'
 import { PlanningDisclosure } from './PlanningDisclosure'
-import { acquisitionLabels, preparationConditions } from './planningMessages'
 import { calculationState } from './calculationState'
 import { CandidateRoute } from './CandidateRoute'
 import { routeThrough, validRoute } from './routeSelection'
@@ -254,7 +256,8 @@ function Run({
                 )
                 .join(' + ')}`
             : ''
-        }${a.purpose === 'GOAL_ACQUISITION' ? ` (${acquisitionLabels[locale]})` : ''}`
+        }`
+  const guide = guideMessages[locale]
   const recommendations = view?.recommendations.find(
     (r) => r.node === selectedNode?.id && r.cycles === cycles,
   )
@@ -368,26 +371,29 @@ function Run({
               presentItem={presentItem}
             />
             <aside className="automatic-inspector">
-              <label>
-                {copy.state}
-                <select
-                  aria-label={copy.state}
-                  value={selectedNode?.id ?? 0}
-                  onChange={(e) => selectNode(Number(e.target.value))}
-                >
-                  {view.nodes.map((n) => (
-                    <option key={n.id} value={n.id}>
-                      {copy.state} {n.id}
-                    </option>
-                  ))}
-                </select>
-              </label>
+              <h3>{guide.selected}</h3>
+              <details className="item-switcher">
+                <summary>{guide.otherItems}</summary>
+                <label>
+                  <span className="goal-filter-sr-only">
+                    {guide.otherItems}
+                  </span>
+                  <select
+                    aria-label={guide.otherItems}
+                    value={selectedNode?.id ?? 0}
+                    onChange={(e) => selectNode(Number(e.target.value))}
+                  >
+                    {view.nodes.map((n, index) => (
+                      <option key={n.id} value={n.id}>
+                        {n.id === 0 ? guide.start : guide.result + ' ' + index}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </details>
               {selectedNode && (
                 <div className="method-map__states">
                   <article>
-                    <h3>
-                      {copy.state} {selectedNode.id}
-                    </h3>
                     {selectedNode.quality40 && <p>{quality.completed}</p>}
                     <p>
                       {selectedNode.progress.goal === 'MATCH'
@@ -414,9 +420,8 @@ function Run({
                             })
                           }}
                         >
-                          {policy[22]}
+                          {guide.edit}
                         </button>
-                        <p>{policy[23]}</p>
                       </>
                     )}
                   </article>
@@ -431,149 +436,207 @@ function Run({
                 clear={() => setRoute([])}
                 action={action}
               />
+              {view.methods.some((m) => m.source === selectedNode?.id) && (
+                <h3>{guide.next}</h3>
+              )}
+              <div className="method-map__methods">
+                {view.methods
+                  .filter((m) => m.source === selectedNode?.id)
+                  .map((m, methodIndex) => {
+                    const point = methodPoint(m, cycles)
+                    const local = recommendations?.local.includes(m.id),
+                      final =
+                        view.complete &&
+                        recommendations?.strategyMethods.includes(m.id)
+                    return (
+                      <details
+                        className="craft-choice"
+                        key={m.id}
+                        open={methodIndex === 0}
+                      >
+                        <summary>
+                          <strong>
+                            {m.initial.concat(m.cycle).map(action).join(' → ')}
+                          </strong>
+                          <span>
+                            {isRepeatable(m)
+                              ? guide.within.replace('{n}', String(cycles))
+                              : m.executionMode === 'PENDING'
+                                ? outcomeMessages[locale].pending
+                                : guide.once}
+                          </span>
+                          {point && (
+                            <span className="craft-chance">
+                              {(() => {
+                                const goal = point.outcomes.filter(
+                                  (o) => o.kind === 'GOAL',
+                                )
+                                const next = goal.length
+                                  ? goal
+                                  : point.outcomes.filter(
+                                      (o) => o.kind === 'CHECKPOINT',
+                                    )
+                                if (!next.length) return common.unknown
+                                const mass = sumBounds(
+                                  next.map((o) => o.probability),
+                                )
+                                return (
+                                  (goal.length ? common.hit : copy.checkpoint) +
+                                  ': ' +
+                                  probabilityText(mass.lower, mass)
+                                )
+                              })()}
+                            </span>
+                          )}
+                        </summary>
+                        <article
+                          className={
+                            final || local ? 'method-map__recommended' : ''
+                          }
+                        >
+                          {local && <strong>{copy.local}</strong>}
+                          {final && <strong>{copy.final}</strong>}
+                          {m.reasons.includes(
+                            'QUALITY_CAP_REMOVAL_BEFORE_40',
+                          ) && <p>{policy[18]}</p>}
+
+                          {m.initial.length > 0 && (
+                            <p>
+                              {guide.prepared}:{' '}
+                              {m.initial.map(action).join(' → ')}
+                            </p>
+                          )}
+
+                          {removesModifier(m) && (
+                            <p className="craft-risk">
+                              {guide.risk}{' '}
+                              <a href="#crafting-policy">{guide.scope}</a>
+                            </p>
+                          )}
+                          {isRepeatable(m) && (
+                            <label>
+                              {copy.cycles}
+                              <select
+                                aria-label={copy.cycles}
+                                value={cycles}
+                                onChange={(e) =>
+                                  setCycles(Number(e.target.value))
+                                }
+                              >
+                                {[100, 300, 500].map((n) => (
+                                  <option key={n}>{n}</option>
+                                ))}
+                              </select>
+                            </label>
+                          )}
+                          {!point ? (
+                            <p>{common.calculating}</p>
+                          ) : (
+                            <>
+                              {!point.complete && (
+                                <p role="status">{common.calculating}</p>
+                              )}
+                              <details className="craft-outcomes">
+                                <summary>{guide.details}</summary>
+                                <ul>
+                                  {point.outcomes.map((o, i) => (
+                                    <li key={i}>
+                                      {o.target === null ? (
+                                        common.unknown
+                                      ) : (
+                                        <button
+                                          onClick={() =>
+                                            chooseEdge({
+                                              method: m.id,
+                                              source: m.source,
+                                              target: o.target!,
+                                              kind: o.kind,
+                                            })
+                                          }
+                                        >
+                                          {guide.result} {i + 1}
+                                        </button>
+                                      )}{' '}
+                                      —{' '}
+                                      {o.kind === 'GOAL'
+                                        ? common.hit
+                                        : o.kind === 'LOSS'
+                                          ? copy.loss
+                                          : o.kind === 'UNRESOLVED'
+                                            ? common.unknown
+                                            : o.kind === 'DEAD'
+                                              ? common.unavailable
+                                              : copy.checkpoint}
+                                      :{' '}
+                                      {!point.complete &&
+                                      o.kind !== 'UNRESOLVED'
+                                        ? '≥ '
+                                        : ''}
+                                      {probabilityText(
+                                        o.probability.lower,
+                                        o.probability,
+                                      )}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </details>
+                              <details>
+                                <summary>{copy.uses}</summary>
+                                {[point.initialUses, point.cycleUses].map(
+                                  (uses, i) => (
+                                    <p key={i}>
+                                      {i === 0
+                                        ? copy.initial
+                                        : isRepeatable(m)
+                                          ? copy.cycles
+                                          : outcomeMessages[locale].single}
+                                      :{' '}
+                                      {Object.entries(uses)
+                                        .filter(
+                                          ([material]) =>
+                                            !material.startsWith('WORK:'),
+                                        )
+                                        .map(
+                                          ([material, b]) =>
+                                            `${material.startsWith('OMEN:') ? material.slice(5).replaceAll('_', ' ') : localizedAction(material as WorkbenchAction)} ${quantityText(b.lower, b)}`,
+                                        )
+                                        .join(', ') || '0'}
+                                    </p>
+                                  ),
+                                )}
+                              </details>
+                              {[point.initialUses, point.cycleUses].map(
+                                (uses, i) => {
+                                  const value = uses['WORK:QUALITY_40']
+                                  return value ? (
+                                    <p key={i}>
+                                      {quality.work}:{' '}
+                                      {quantityText(value.lower, value)}
+                                    </p>
+                                  ) : null
+                                },
+                              )}
+                            </>
+                          )}
+                        </article>
+                      </details>
+                    )
+                  })}
+              </div>
             </aside>
           </div>
           {recommendations && (
-            <p>
-              {view.complete ? copy.final : copy.eventual}:{' '}
-              {probabilityText(
-                recommendations.strategy.lower,
-                recommendations.strategy,
-              )}
-            </p>
+            <details>
+              <summary>{guide.calculations}</summary>
+              <p>
+                {view.complete ? copy.final : copy.eventual}:{' '}
+                {probabilityText(
+                  recommendations.strategy.lower,
+                  recommendations.strategy,
+                )}
+              </p>
+            </details>
           )}
-          <div className="method-map__methods">
-            {view.methods
-              .filter((m) => m.source === selectedNode?.id)
-              .map((m) => {
-                const point = methodPoint(m, cycles)
-                const local = recommendations?.local.includes(m.id),
-                  final =
-                    view.complete &&
-                    recommendations?.strategyMethods.includes(m.id)
-                return (
-                  <article
-                    key={m.id}
-                    className={final || local ? 'method-map__recommended' : ''}
-                  >
-                    {local && <strong>{copy.local}</strong>}
-                    {final && <strong>{copy.final}</strong>}
-                    {m.reasons.includes('QUALITY_CAP_REMOVAL_BEFORE_40') && (
-                      <p>{policy[18]}</p>
-                    )}
-                    {m.initial.some(
-                      (a) => a.purpose === 'TARGET_PREPARATION',
-                    ) && <p>{preparationConditions[locale]}</p>}
-                    {m.initial.length > 0 && (
-                      <p>
-                        {copy.initial}: {m.initial.map(action).join(' → ')}
-                      </p>
-                    )}
-                    <h3>{m.cycle.map(action).join(' → ')}</h3>
-                    <p>
-                      {isRepeatable(m)
-                        ? copy.cycles + ': ' + cycles
-                        : m.executionMode === 'PENDING'
-                          ? outcomeMessages[locale].pending
-                          : outcomeMessages[locale].single + ': 1'}
-                    </p>
-                    {isRepeatable(m) && (
-                      <label>
-                        {copy.cycles}
-                        <select
-                          aria-label={copy.cycles}
-                          value={cycles}
-                          onChange={(e) => setCycles(Number(e.target.value))}
-                        >
-                          {[100, 300, 500].map((n) => (
-                            <option key={n}>{n}</option>
-                          ))}
-                        </select>
-                      </label>
-                    )}
-                    {!point ? (
-                      <p>{common.calculating}</p>
-                    ) : (
-                      <>
-                        <ul>
-                          {point.outcomes.map((o, i) => (
-                            <li key={i}>
-                              {o.target === null ? (
-                                common.unknown
-                              ) : (
-                                <button
-                                  onClick={() =>
-                                    chooseEdge({
-                                      method: m.id,
-                                      source: m.source,
-                                      target: o.target!,
-                                      kind: o.kind,
-                                    })
-                                  }
-                                >
-                                  {copy.state} {o.target}
-                                </button>
-                              )}{' '}
-                              —{' '}
-                              {o.kind === 'GOAL'
-                                ? common.hit
-                                : o.kind === 'LOSS'
-                                  ? copy.loss
-                                  : o.kind === 'UNRESOLVED'
-                                    ? common.unknown
-                                    : o.kind === 'DEAD'
-                                      ? common.unavailable
-                                      : copy.checkpoint}
-                              :{' '}
-                              {!point.complete && o.kind !== 'UNRESOLVED'
-                                ? '≥ '
-                                : ''}
-                              {probabilityText(
-                                o.probability.lower,
-                                o.probability,
-                              )}
-                            </li>
-                          ))}
-                        </ul>
-                        <details>
-                          <summary>{copy.uses}</summary>
-                          {[point.initialUses, point.cycleUses].map(
-                            (uses, i) => (
-                              <p key={i}>
-                                {i === 0
-                                  ? copy.initial
-                                  : isRepeatable(m)
-                                    ? copy.cycles
-                                    : outcomeMessages[locale].single}
-                                :{' '}
-                                {Object.entries(uses)
-                                  .filter(
-                                    ([material]) =>
-                                      !material.startsWith('WORK:'),
-                                  )
-                                  .map(
-                                    ([material, b]) =>
-                                      `${material.startsWith('OMEN:') ? material.slice(5).replaceAll('_', ' ') : localizedAction(material as WorkbenchAction)} ${quantityText(b.lower, b)}`,
-                                  )
-                                  .join(', ') || '0'}
-                              </p>
-                            ),
-                          )}
-                        </details>
-                        {[point.initialUses, point.cycleUses].map((uses, i) => {
-                          const value = uses['WORK:QUALITY_40']
-                          return value ? (
-                            <p key={i}>
-                              {quality.work}: {quantityText(value.lower, value)}
-                            </p>
-                          ) : null
-                        })}
-                      </>
-                    )}
-                  </article>
-                )
-              })}
-          </div>
         </>
       )}
     </section>

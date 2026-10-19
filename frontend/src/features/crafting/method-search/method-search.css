@@ -156,3 +156,172 @@
     height: 50vh;
   }
 }
+
+/* Crafting guide: quiet surfaces, readable text, details on demand. */
+.method-map {
+  background: #171c22;
+  color: #f1f4f8;
+  padding: 1.25rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.method-map h2,
+.method-map h3 {
+  color: #f7f8fa;
+  margin: 0 0 0.7rem;
+}
+.method-map p {
+  margin: 0.5rem 0;
+}
+.method-map strong {
+  color: #f7f8fa;
+}
+.method-map button,
+.method-map select,
+.method-map summary {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.method-map button,
+.method-map select {
+  min-height: 44px;
+  padding: 0.55rem 0.8rem;
+}
+.method-map summary {
+  cursor: pointer;
+  color: #c6dcf5;
+  padding: 0.5rem 0;
+}
+.method-map button:focus-visible,
+.method-map summary:focus-visible,
+.method-map select:focus-visible {
+  outline: 3px solid #89c6ff;
+  outline-offset: 3px;
+}
+.automatic-inspector {
+  background: #232b35;
+  padding: 1.2rem;
+  border-radius: 12px;
+}
+.automatic-inspector .method-map__states > article {
+  border: 0;
+  padding: 0;
+}
+.automatic-inspector .method-map__states {
+  padding: 0.8rem 0;
+}
+.automatic-inspector .item-card {
+  font-size: 1rem;
+}
+.automatic-inspector .method-map__states button {
+  background: #d7e9fb;
+  color: #102235;
+  border: 0;
+  border-radius: 6px;
+  margin-top: 0.8rem;
+}
+.candidate-route {
+  border: 0;
+  border-top: 1px solid #526171;
+  border-radius: 0;
+  padding: 1.2rem 0 0;
+}
+.candidate-route > ol > li {
+  padding: 0.5rem 0 1rem 0.3rem;
+}
+.candidate-route > details {
+  margin: 0.5rem 0;
+}
+.craft-chance {
+  color: #dbeaf9;
+  font-size: 1rem;
+}
+.craft-risk {
+  color: #ffd6a2;
+  border-left: 3px solid #e9aa60;
+  padding-left: 0.7rem;
+}
+.method-map__methods > article {
+  background: #232b35;
+  border: 0;
+  padding: 1.25rem;
+}
+.method-map__methods .method-map__recommended {
+  box-shadow: inset 0 3px #91bde8;
+}
+.automatic-workspace .method-map__overview {
+  background: #1b222b;
+  border: 0;
+}
+.exalted-outcomes {
+  padding: 1.25rem;
+  background: #232b35;
+}
+.exalted-outcomes > ul {
+  padding-left: 1.3rem;
+}
+.exalted-outcomes li {
+  padding: 0.5rem 0;
+}
+.automatic-inspector .item-switcher {
+  margin-bottom: 0.5rem;
+}
+.currency-policy {
+  color: #f1f4f8;
+  background: #202833;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+@media (max-width: 760px) {
+  .automatic-inspector {
+    grid-row: 1;
+  }
+  .method-map {
+    padding: 0.75rem;
+  }
+  .automatic-inspector {
+    padding: 1rem;
+  }
+}
+
+.automatic-inspector .item-card__line--modifier,
+.exalted-outcomes .item-card__line--modifier {
+  color: #b6baff;
+}
+.automatic-inspector .item-card__section {
+  border-color: #404957;
+}
+.automatic-inspector .item-card__affix {
+  color: #d7dfea;
+}
+.method-map__scope:empty {
+  display: none;
+}
+
+.automatic-inspector .method-map__methods {
+  display: block;
+}
+.craft-choice {
+  background: #1b222b;
+  border-radius: 8px;
+  margin: 0.7rem 0;
+  padding: 0.3rem 0.9rem;
+}
+.craft-choice > summary {
+  display: list-item;
+}
+.craft-choice > summary strong {
+  display: inline;
+}
+.craft-choice > summary > span {
+  display: block;
+  padding-left: 1rem;
+  color: #dae7f5;
+}
+.craft-choice > article {
+  padding: 0.5rem 0 0.9rem;
+}
+.method-map__methods > .craft-choice > article {
+  border: 0;
+}

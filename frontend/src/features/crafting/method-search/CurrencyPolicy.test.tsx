@@ -1,3 +1,5 @@
+import { guideMessages } from './guideMessages'
+import { planningNotes } from './planningNotes'
 import { fireEvent, render, screen, within } from '@testing-library/react'
 import { expect, it, vi } from 'vitest'
 import { CurrencyPolicy } from './CurrencyPolicy'
@@ -19,6 +21,17 @@ it.each(locales)(
       screen.getByRole('button', { name: policyMessages[locale][0]! }),
     )
     const dialog = screen.getByRole('dialog')
+    expect(
+      within(dialog).getByRole('heading', {
+        name: guideMessages[locale].calculations,
+      }),
+    ).toBeVisible()
+    expect(within(dialog).getByText(planningNotes[locale][2]!)).toBeVisible()
+    expect(
+      within(dialog).getByRole('heading', {
+        name: guideMessages[locale].records,
+      }),
+    ).toBeVisible()
     expect(within(dialog).getAllByRole('listitem')).toHaveLength(187)
     expect(within(dialog).queryByRole('checkbox')).not.toBeInTheDocument()
     expect(

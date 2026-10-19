@@ -122,7 +122,7 @@ it('keeps an unresolved target connection visible as a dashed edge', async () =>
       onRecalculate={vi.fn()}
     />,
   )
-  await screen.findByRole('heading', { name: 'Item state 0' })
+  expect(await screen.findByLabelText('Other results')).toHaveValue('0')
   await waitFor(() =>
     expect(
       mounted.container.querySelector('path.automatic-edge'),
@@ -174,9 +174,7 @@ it('restores the same job and selection after remount without creating or advanc
   const mounted = render(<AutomaticMethodSearch {...props} />)
   await screen.findByRole('button', { name: 'Continue calculation' })
   expect(screen.getByLabelText('Method repetitions')).toHaveValue('300')
-  expect(
-    screen.getByRole('heading', { name: 'Item state 1' }),
-  ).toBeInTheDocument()
+  expect(screen.getByLabelText('Other results')).toHaveValue('1')
   mounted.rerender(<AutomaticMethodSearch {...props} active={false} />)
   mounted.rerender(<AutomaticMethodSearch {...props} active />)
   await act(async () => {
@@ -326,7 +324,7 @@ it('ignores a late slice after cancellation and copies the selected state into e
   await screen.findByText('Calculation stopped.')
   await act(async () => finish?.(new Response()))
   expect(screen.getByText('Calculation stopped.')).toBeInTheDocument()
-  fireEvent.click(screen.getByRole('button', { name: 'Edit this state' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Use as starting item' }))
   expect(edit).toHaveBeenCalledWith(server.nodes[0]!.item, {
     abstractQuality40: false,
   })
