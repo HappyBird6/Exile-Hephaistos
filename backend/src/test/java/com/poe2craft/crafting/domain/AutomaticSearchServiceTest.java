@@ -50,6 +50,10 @@ class AutomaticSearchServiceTest {
           "amulets");
 
   AutomaticSearchService service(Repository repository) {
+    return service(repository, Clock.systemUTC());
+  }
+
+  AutomaticSearchService service(Repository repository, Clock clock) {
     return new AutomaticSearchService(
         new ObjectMapper(),
         repository,
@@ -61,7 +65,7 @@ class AutomaticSearchServiceTest {
                     new AutomaticMethodGraph.Progress(
                         GoalFilter.Status.NO_MATCH, List.of(GoalFilter.Status.NO_MATCH)),
                 request.goal().toString()),
-        Clock.systemUTC());
+        clock);
   }
 
   MethodSearchProtocol.Create request(String id) {
@@ -92,6 +96,41 @@ class AutomaticSearchServiceTest {
                             null,
                             false))))),
         List.of());
+  }
+
+  @Test
+  void capacityExpiresAfterFixedTtlForEveryStoredStatus() throws Exception {
+    var repository = new Repository();
+    var json = new ObjectMapper();
+    var now = Instant.parse("2026-10-19T00:00:00Z");
+    try (var service = service(repository, Clock.fixed(now, ZoneOffset.UTC))) {
+      for (int i = 0; i < 16; i++) service.create("owner", request("ttl-" + i));
+    }
+    var states = List.of("READY", "PAUSED", "CANCELLED", "PARTIAL", "COMPLETE");
+    int i = 0;
+    for (var id : repository.ids()) {
+      var document =
+          (com.fasterxml.jackson.databind.node.ObjectNode) json.readTree(repository.read(id));
+      document.put("status", states.get(i++ % states.size()));
+      repository.save(id, json.writeValueAsBytes(document));
+    }
+    var before = new LinkedHashMap<>(repository.documents);
+    try (var service = service(repository, Clock.fixed(now.plusSeconds(86399), ZoneOffset.UTC))) {
+      assertThatThrownBy(() -> service.create("owner", request("before-expiry")))
+          .isInstanceOfSatisfying(
+              PathSearchProtocol.Rejected.class,
+              e -> {
+                assertThat(e.code()).isEqualTo("JOB_CAPACITY");
+                assertThat(e.retryAfterSeconds()).isEqualTo(2L);
+              });
+      assertThat(repository.documents).containsExactlyEntriesOf(before);
+    }
+    try (var service = service(repository, Clock.fixed(now.plusSeconds(86401), ZoneOffset.UTC))) {
+      var created = service.create("owner", request("after-expiry"));
+      assertThat(repository.ids()).containsExactly(created.id());
+      assertThat(json.readTree(repository.read(created.id())).get("expires").asLong())
+          .isEqualTo(now.plusSeconds(172801).toEpochMilli());
+    }
   }
 
   @Test

@@ -1,6 +1,6 @@
 # 빈 희귀 아이템의 확률 획득·429·장비군 일반성 후속 리뷰
 
-제품·테스트 커밋은 `c61a6ad934097eac1c9406895526119909fb1c38`이다. Backend 843+8개, Frontend 2221개 검사가 통과했다. localhost 서비스 교체는 자동 승인 검토의 거부로 실행하지 않았다.
+제품·테스트 커밋은 `c61a6ad934097eac1c9406895526119909fb1c38`이다. Backend 843+8개, Frontend 2221개 검사가 통과했다. localhost 서비스 교체는 범위 명확화 후 한 번의 재검토에서 승인되어 완료했다. 실제 JAR·JS 해시, readiness, 429 Retry-After와 기존 데이터 보존을 확인했다.
 
 이 보고서는 `crafting/goal-directed-planner`의 후속 수정과 검증을 기록한다. 이전 보고서의 성공 수치를 최신 소스의 결과로 대신 사용하지 않는다. 원격 push·merge·배포는 하지 않는다.
 
@@ -97,14 +97,25 @@ Backend: unit/ArchUnit 843개, integration 8개. 실패 0, skip 0. 최종 소스
 - `AutomaticMethodExecutionTest.java`: 독립 분수 oracle·비용·checkpoint 복원·사용 불가능한 후속 화폐 무청구.
 - 로컬 증거: `E:/CODEX/codex/2026-10-19/task-2/empty-backend-complete-final.log`, `empty-final-summary.json`, `empty-ui-tests.json`, `empty-browser-results.json`, `empty-capacity-before.json`, `empty-preservation-final.json`. 실제 API 응답과 JUnit XML도 같은 디렉터리에 보존했다.
 
-## localhost 반영 차단과 인계
+## localhost 반영 완료와 429 TTL 확인
 
-- 상태: **거부됨·미실행**. `deploy-empty.ps1` 실행 요청이 CreateProcess 이전에 자동 승인 검토에서 거부됐다. 앱·프런트 이미지 빌드와 컨테이너 교체를 수행하지 않았다.
-- 정확한 대상: 기존 `exile-hephaistos-app-1`, `exile-hephaistos-frontend-1`을 검증된 c61a6ad 산출물로 교체하는 localhost 작업.
-- 거부 이유: 서비스 상태를 바꾸는 배포성 변경이 기존 “deploy 하지 마세요” 제한과 충돌한다는 판단. 우회·간접 실행·재시도하지 않았다. localhost만 반영할 명시적 승인을 요청한 상태다.
-- 현재 실행 버전: app `ui-outcomes-962a3a9`, frontend `ux-e896ed7`. 따라서 실제 실행 서버의 새로운 Retry-After 응답과 교체 후 JAR/JS 해시 대조는 **미실행**이다. 실제 이전 429의 원인 확인, 새 응답의 서비스/단위 테스트, 최종 번들 화면 검증과 구분한다.
-- 기존 16개 저장 작업의 SHA256, PostgreSQL·Redis 컨테이너 ID, `.env` SHA256이 모두 보존됨을 읽기 전용 검사로 확인했다.
-- 검증된 JAR: `E:/CODEX/codex/2026-10-19/task-2/empty-final.jar`, SHA256 `967d76adce1c61c9ce04de117fc39bb8781820b44bc289a062c3473a5ecdbcc4`.
-- 검증된 프런트: `E:/CODEX/codex/2026-10-19/task-2/empty-ui-dist`, JS `index-2K1uD216.js`, SHA256 `03927749cde9a19806847e4cf6aed0c7893625ad4f42de0939ce504861ea2a85`.
-- 승인 후 사용할 준비 파일: `deploy-empty.ps1`, `verify-empty.ps1`, `verify-empty-capacity.cjs`. 이 파일의 존재는 실행 완료를 뜻하지 않는다. 새 검증 POST는 16개 작업이 아직 유효한 경우에만 보내며, 만료 또는 파일 변경으로 전제가 달라지면 중단하도록 했다.
-- 원격 push·merge·배포는 하지 않았다.
+최초 교체 요청은 “deploy 하지 마세요” 제한과 충돌한다는 자동 검토로 거부됐고 미실행이었다. 이후 handoff의 금지는 원격 push/merge/deploy이며 현재 컴퓨터의 localhost 개발 서비스 갱신은 승인 범위라는 명확화가 전달됐다. 기존 버전 그대로임을 확인하고 같은 명령을 한 번만 재검토 요청했으며, 승인되어 로컬 앱·프런트 교체를 완료했다. 우회 실행은 없었다.
+
+- 실제 실행 이미지: `exile-hephaistos-app:empty-f1ec9f4`, `exile-hephaistos-frontend:empty-f1ec9f4`.
+- 실행 이미지 source label: `f1ec9f45985da4426240e296b84cd109605cff69`(제품 c61a6ad + 보고서). 이후 변경은 TTL 회귀 테스트와 문서뿐이며 제품 소스·JAR·프런트는 동일하다.
+- readiness `UP`, UI HTTP 200, Compose `config --quiet` 통과.
+- 실제 JAR SHA256: `967d76adce1c61c9ce04de117fc39bb8781820b44bc289a062c3473a5ecdbcc4`.
+- 실제 JS `index-2K1uD216.js` SHA256: `03927749cde9a19806847e4cf6aed0c7893625ad4f42de0939ce504861ea2a85`.
+- PostgreSQL·Redis 컨테이너 ID, `.env` SHA256, 기존 작업 16개 SHA256 모두 보존. 기존 작업 삭제·취소 없음.
+- 갱신된 서버의 실제 유효한 생성 요청은 `429 / JOB_CAPACITY`, `Retry-After: 47481`을 반환했다. 새 작업은 생성되지 않았으며 기존 파일도 그대로였다. 이 초 값은 검사 시점의 값이다.
+- 실제 localhost에서 제공되는 새 번들로 빈 RARE → 소환수+3 표시, 엑잘1→카오스N, 목표 아이템 선택, 새로고침 복원, 429 안내를 재검증했다. 이 화면 검사의 자동 탐색 응답은 격리 서비스 fixture이고, 실제 공개 API의 429 검사는 별도로 수행했다. 용량이 찬 실제 서버에 새 계산 작업을 만들지 않았다.
+
+### 429는 언제 해소되는가
+
+`AutomaticSearchService.create`는 생성 시 `expires = 생성 시각 + 24시간`으로 저장한다. 모든 저장 상태가 전역 한도 16개에 포함된다. 현재 상태 집계는 COMPLETE 11개, CANCELLED 3개, PAUSED 2개다. READY·PARTIAL도 동일하게 포함된다. 완료나 취소는 슬롯 삭제가 아니며, GET·ADVANCE·RESUME·CANCEL·save에는 만료 시각을 갱신하는 코드가 없다.
+
+현재 최초 만료는 **2026-10-19 16:10:43.422 UTC**(한국시간 2026-10-20 01:10:43.422)다. 사용자는 UI에 표시되는 시각이 지난 뒤 **‘다시 계산’으로 설정을 열고 제작 시작을 다시 실행**하면 된다. 단순 대기만으로 자동 재요청·자동 재개되지는 않는다. 새 생성 요청은 만료 파일을 먼저 정리하고 그 뒤 한도를 검사한다. 429는 만료 시간을 연장하지 않으므로 이 용량 조건 때문에 영구적으로 막히지는 않는다. 다른 요청이 빈 슬롯을 먼저 사용했다면 새 Retry-After를 따른다.
+
+실제 작업은 건드리지 않고 고정 시계와 메모리 저장소로 5개 상태를 섞은 16개 fixture를 검증했다. 24시간 만료 1초 전은 429·Retry-After 2초이며 내용이 보존됐다. 만료 1초 후 새 요청은 성공하고 새 작업 1개만 남았으며 새 만료는 그 생성 시점부터 다시 24시간이었다. 추가한 `capacityExpiresAfterFixedTtlForEveryStoredStatus`를 포함해 해당 테스트 클래스 5개가 모두 통과했다. 전체 제품 검사 843+8개 이후 테스트만 추가했으므로 이를 전체 844개 재실행으로 표현하지 않는다.
+
+추가 증거: `empty-deployment-verification.json`, `empty-capacity-after.json`, `empty-live-browser-results.json`, `empty-ttl-tests.xml`, `empty-ttl-tests.log`. 원격 push·merge·배포는 하지 않았다. 남은 실행 차단은 없다.
