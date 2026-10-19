@@ -30,3 +30,17 @@
 - frontend image exile-hephaistos-frontend:ux-e896ed7. app image ui-outcomes-962a3a9 유지. app·PostgreSQL·Redis 컨테이너 ID, .env, 기존 저장 작업 13개 hash 보존 확인.
 - 증거: task-2/ux-tests-final.json, ux-check.log, ux-deployment-verification.json, ux-preserved-containers.txt.
 - 남은 한계: 실제 브라우저 픽셀 및 터치 조작 검증 미실행. DOM 기반 검증을 시각 검수로 대체했다고 주장하지 않는다.
+## 추가 실제 브라우저 시각 검증
+기존 scripts/qa/ui-feedback-20261004/README.md와 browser.cjs에서 문서화된 Playwright 이미지 exile-workbench-browser:20261002를 발견했다. 로컬 이미지 sha256:9e71b7eb5aa30236994743fe29aa564c69cbb336942914370cab77df49718260을 --pull never로 재사용했다. 추가 설치나 보안 설정 변경은 없었다. 기존 frontend package에는 Playwright가 없고 jsdom 테스트만 있으나 scripts/qa의 별도 이미지에 실행 가능한 브라우저가 있었다. 앞선 브라우저 미검증 한계는 아래 확인 범위에 한해 해소되었다.
+
+실제 localhost:8081 제공 번들을 새 Playwright context에서 실행했다. 기존 검증용 합성 시작/목표와 저장된 API 응답을 임시 context에 넣고 자동 탐색 API는 route.fulfill로 가로챘다. 사용자 프로필/localStorage 및 서버 작업은 수정하지 않았다. 1280px 화면과 375px 화면에서 우측 패널, 정책 창, 엑잘 그룹/개별 상태 펼침/개별 아이템 상세/마지막 결과 스크롤을 실행하고 내부 스크린샷 픽셀을 직접 읽었다.
+
+- 좁은 패널 실제 폭 317px, scrollWidth 317px, 본문 16px. 선택 패널 하위 요소의 visible 가로 넘침 0개.
+- 기본 본문 색 #f1f4f8, 패널 #232b35. 중복 상태 제목 및 내부 ID가 없고 긴 화폐 조합은 줄바꿈된다.
+- 정책 창에서 지원 범위, 확률과 반복, 예상 비용과 기록이 별도 표시된다.
+- 엑잘 그룹 실제 폭/scrollWidth 모두 317px. 개별 상태 펼침 후 버튼은 '결과 접기', 아이템 details open=true. 결과 확률, 목표 속성 상실 및 계산되지 않은 부분 표시가 남는다.
+- 결과가 긴 그룹은 그래프 영역의 내부 세로 스크롤로 끝까지 접근한다. 전체 그룹 element screenshot은 스크롤 조상에 잘려 찍혀 viewport screenshot으로 상세와 마지막 행을 다시 확인했다.
+- 별도 임시 페이지 빌드는 기존 rolldown native binding 누락으로 실패했다. 설치하지 않고 실제 서비스 번들 검증으로 전환했다. 처음 단일 결과 사례에서는 그룹이 생성되지 않아 그룹 screenshot 대기가 만료됐으며, 다중 결과가 실제 존재하는 기존 사례 3으로 다시 확인했다. 제품 실패로 숨기거나 입력 확률을 변경하지 않았다.
+- 추가 제품 수정은 하지 않았다. 서비스는 e896ed7 그대로다. 한국어/두 viewport의 합성 입력 시각 확인이며 모든 언어·실기기·모든 제작 분기의 시각 품질을 보증하지 않는다.
+
+내부 증거: task-2/ux-browser.cjs, ux-exalt-browser.cjs, ux-visual-measurements.json, ux-exalt-measurements.json, ux-inspector-desktop.png, ux-inspector-mobile.png, ux-policy-mobile.png, ux-exalt-detail-viewport.png, ux-exalt-last-viewport.png. 사용자용 스크린샷 업로드는 하지 않았다.
