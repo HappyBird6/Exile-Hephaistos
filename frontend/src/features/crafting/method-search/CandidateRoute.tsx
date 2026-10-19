@@ -93,7 +93,14 @@ export function CandidateRoute({
               <p className="craft-chance">
                 <span>
                   {isRepeatable(m)
-                    ? guide.within.replace('{n}', String(cycles))
+                    ? (m.initial.length
+                        ? m.initial.map(action).join(' → ') +
+                          ': ' +
+                          guide.once +
+                          ' · ' +
+                          m.cycle.map(action).join(' → ') +
+                          ': '
+                        : '') + guide.within.replace('{n}', String(cycles))
                     : guide.once}
                 </span>
                 {' · '}

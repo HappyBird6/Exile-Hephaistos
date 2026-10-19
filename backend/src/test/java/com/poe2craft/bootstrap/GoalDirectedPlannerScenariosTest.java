@@ -198,6 +198,115 @@ class GoalDirectedPlannerScenariosTest {
   }
 
   @Test
+  void emptyMagicPreparesRareBeforeChaosAndFracturedAffixIsNotAFreeRetry() {
+    var magic = item(ItemState.Rarity.MAGIC, 82, List.of());
+    var goal = goal(magic, Map.of("minion_skill_gem_level_+", 3L));
+    var planner =
+        new GoalDirectedPlanner(
+            kernel(magic, goal),
+            evaluation(magic, goal),
+            AutomaticCraftingAction.candidates(policy));
+    assertThat(planner.choices(magic))
+        .anyMatch(
+            c ->
+                c.initial().size() == 1
+                    && c.initial().getFirst().currency() == WorkbenchCurrency.REGAL
+                    && c.cycle().getFirst().currency() == WorkbenchCurrency.CHAOS);
+    var upgrade = kernel(magic, goal).expand(magic, action(WorkbenchCurrency.REGAL), 5000);
+    assertThat(upgrade.outcomes())
+        .isNotEmpty()
+        .allMatch(
+            o -> o.item().rarity() == ItemState.Rarity.RARE && o.item().explicits().size() == 1);
+    var fractured =
+        item(
+            ItemState.Rarity.RARE,
+            82,
+            List.of(new ModifierInstance(life().modifierId(), life().values(), true)));
+    var fracturedGoal = goal(fractured, Map.of("minion_skill_gem_level_+", 3L));
+    var k = kernel(fractured, fracturedGoal);
+    assertThat(k.plan(fractured, action(WorkbenchCurrency.CHAOS)).status())
+        .isEqualTo(AutomaticCraftingPlan.Status.UNAVAILABLE);
+    assertThat(k.expand(fractured, action(WorkbenchCurrency.EXALTED), 5000).outcomes())
+        .allMatch(o -> o.item().explicits().contains(fractured.explicits().getFirst()));
+    assertThat(
+            new GoalDirectedPlanner(
+                    k,
+                    evaluation(fractured, fracturedGoal),
+                    AutomaticCraftingAction.candidates(policy))
+                .choices(fractured))
+        .noneMatch(
+            c ->
+                c.initial().isEmpty()
+                    && c.cycle().getFirst().currency() == WorkbenchCurrency.CHAOS);
+  }
+
+  @Test
+  void emptyRareMinionGoalKeepsPreparedChaosAndCompletes() {
+    var root = item(ItemState.Rarity.RARE, 82, List.of());
+    var goal = goal(root, Map.of("minion_skill_gem_level_+", 3L));
+    assertThat(kernel(root, goal).plan(root, action(WorkbenchCurrency.CHAOS)).status())
+        .isEqualTo(AutomaticCraftingPlan.Status.UNAVAILABLE);
+    try (var graph = graph(root, goal)) {
+      exhaust(graph);
+      System.out.println(
+          "EMPTY_DIAGNOSTIC finished="
+              + graph.finished()
+              + " limited="
+              + graph.resourceLimited()
+              + " retained="
+              + graph.retainedStates()
+              + " nodes="
+              + graph.nodes().size()
+              + " methods="
+              + graph.methods().size()
+              + " ops="
+              + graph.operations());
+      graph
+          .methods()
+          .forEach(
+              m ->
+                  System.out.println(
+                      "EMPTY_METHOD "
+                          + m.id()
+                          + " "
+                          + m.executionMode()
+                          + " "
+                          + m.finished()
+                          + " "
+                          + m.points().keySet()));
+      assertThat(graph.finished()).isTrue();
+      assertThat(graph.resourceLimited()).isFalse();
+      var prepared =
+          graph.methods().stream()
+              .filter(
+                  m ->
+                      m.source() == 0
+                          && !m.template().initial().isEmpty()
+                          && m.template().cycle().getFirst().currency() == WorkbenchCurrency.CHAOS
+                          && m.template().cycle().getFirst().omens().isEmpty())
+              .toList();
+      assertThat(prepared).isNotEmpty();
+      assertThat(prepared).allMatch(m -> m.executionMode().equals("REPEATABLE"));
+      assertThat(prepared)
+          .allSatisfy(
+              m -> {
+                assertThat(m.points().get(100).exits().get(ExactMethodRunner.Exit.GOAL))
+                    .isNotEmpty();
+                assertThat(
+                        m.points().get(100).mass().contains(ExactNumericDistribution.Fraction.ONE))
+                    .isTrue();
+                System.out.println(
+                    "EMPTY_RARE_CHAOS "
+                        + m.template()
+                        + " GOAL="
+                        + m.points().get(100).exits().get(ExactMethodRunner.Exit.GOAL)
+                        + " USES="
+                        + m.points().get(100).cycleUses());
+              });
+    }
+  }
+
+  @Test
   void minionLevelThreeIsAnIntentionalProbabilisticAcquisition() {
     var stat =
         catalog.modifiers().values().stream()

@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 /** Method transport for approved currency/omen executions, with primitive first-hit semantics. */
 public final class AutomaticMethodExecution implements AutoCloseable {
-  public static final String VERSION = "automatic-method-execution-v3-planned-preparation";
+  public static final String VERSION = "automatic-method-execution-v4-prepared-renewal";
 
   public enum PreparationSuccess {
     UNDECIDED,
@@ -63,6 +63,18 @@ public final class AutomaticMethodExecution implements AutoCloseable {
   private final ItemState root;
   private final boolean initialQuality40;
   private final Template template;
+  private final ItemState preparedRetryAnchor;
+  // This memo only avoids repeated plan comparisons; evicting it never changes probability mass.
+  private final Map<ItemState, ItemState> preparedRepresentatives =
+      new LinkedHashMap<>(64, 0.75f, true) {
+        @Override
+        protected boolean removeEldestEntry(Map.Entry<ItemState, ItemState> eldest) {
+          return size() > 64;
+        }
+      };
+  private State preparedTransitionState;
+  private AutomaticCraftingAction preparedTransitionAction;
+  private Kernel<State> preparedTransition;
   private final AutomaticCraftingKernel kernel;
   private final Function<ItemState, Optional<Exit>> classify;
   private final CertifiedInterval.Precision precision;
@@ -130,6 +142,7 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     this.precision = precision;
     this.primitiveOutcomeBudget = primitiveOutcomeBudget;
     this.preparationSuccess = Objects.requireNonNull(preparationSuccess);
+    preparedRetryAnchor = preparedRetryCandidate();
     runner =
         new CertifiedMethodRunner<>(
             new State(root, false, initialQuality40),
@@ -155,6 +168,8 @@ public final class AutomaticMethodExecution implements AutoCloseable {
   }
 
   private Kernel<State> transition(State state, AutomaticCraftingAction action) {
+    if (state.equals(preparedTransitionState) && action.equals(preparedTransitionAction))
+      return preparedTransition;
     if (template.initial().stream()
             .anyMatch(a -> a.purpose() == AutomaticCurrencyPolicy.Purpose.TARGET_PREPARATION)
         && action.currency() == WorkbenchCurrency.CHAOS
@@ -174,7 +189,8 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     if (law.status() == AutomaticCraftingKernel.Status.UNAVAILABLE)
       return new Kernel<>(List.of(), Fraction.ZERO, true);
     if (!law.reason().isEmpty()) unresolvedReasons.add(law.reason());
-    var outcomes = new ArrayList<Outcome<State>>();
+    var outcomes = new LinkedHashMap<State, Fraction>();
+    var terminalRepresentatives = new EnumMap<Exit, State>(Exit.class);
     var unresolved = law.unresolved().add(law.boundary());
     for (var outcome : law.outcomes()) {
       if (!state.quality40()
@@ -202,18 +218,74 @@ public final class AutomaticMethodExecution implements AutoCloseable {
                 && !AutomaticCraftingKernel.hasQualityCap(outcome.item())
                 && classifyState(new State(outcome.item(), false, state.quality40())).orElse(null)
                     == Exit.LOSS;
-        outcomes.add(
-            new Outcome<>(
-                new State(
-                    stationaryRetry ? root : outcome.item(),
-                    action.purpose() == AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL
-                        || action.purpose() == AutomaticCurrencyPolicy.Purpose.TARGET_PREPARATION,
-                    state.quality40()
-                        || action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT),
-                outcome.probability()));
+        var next =
+            new State(
+                stationaryRetry ? root : preparedRepresentative(outcome.item()),
+                action.purpose() == AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL
+                    || action.purpose() == AutomaticCurrencyPolicy.Purpose.TARGET_PREPARATION,
+                state.quality40()
+                    || action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT);
+        if (preparationSuccess == PreparationSuccess.STOP_ON_FIRST_HIT
+            && preparedRetryAnchor != null) {
+          var terminal = classifyState(next).orElse(null);
+          if (terminal == Exit.LOSS || terminal == Exit.DEAD) {
+            var representative = terminalRepresentatives.putIfAbsent(terminal, next);
+            if (representative != null) next = representative;
+          }
+        }
+        outcomes.merge(next, outcome.probability(), Fraction::add);
       }
     }
-    return new Kernel<>(outcomes, unresolved, false);
+    var result =
+        new Kernel<State>(
+            outcomes.entrySet().stream().map(e -> new Outcome<>(e.getKey(), e.getValue())).toList(),
+            unresolved,
+            false);
+    // A proven renewal state's complete transition law is identical on every cycle.
+    // Retain only this one folded law; never cache an OUTCOME_BUDGET result.
+    if (state.item().equals(preparedRetryAnchor) && action.equals(template.cycle().getFirst())) {
+      preparedTransitionState = state;
+      preparedTransitionAction = action;
+      preparedTransition = result;
+    }
+    return result;
+  }
+
+  private AutomaticCraftingPlan retryPlan(ItemState item) {
+    if (template.initial().size() != 1
+        || !root.explicits().isEmpty()
+        || template.cycle().size() != 1
+        || template.cycle().getFirst().currency() != WorkbenchCurrency.CHAOS
+        || item.explicits().size() != 1
+        || item.explicits().getFirst().fractured()
+        || item.catalystQuality() != null
+        || AutomaticCraftingKernel.hasQualityCap(item)) return null;
+    var plan = kernel.plan(item, template.cycle().getFirst());
+    return plan.status() == AutomaticCraftingPlan.Status.READY
+            && plan.branches().size() == 1
+            && plan.branches().getFirst().remaining().explicits().isEmpty()
+        ? plan
+        : null;
+  }
+
+  private ItemState preparedRetryCandidate() {
+    if (template.initial().size() != 1 || !root.explicits().isEmpty()) return null;
+    return kernel.representatives(kernel.plan(root, template.initial().getFirst())).stream()
+        .filter(item -> classify.apply(item).isEmpty() && retryPlan(item) != null)
+        .findFirst()
+        .orElse(null);
+  }
+
+  private ItemState preparedRepresentative(ItemState item) {
+    if (preparedRetryAnchor == null || !classify.apply(item).isEmpty()) return item;
+    return preparedRepresentatives.computeIfAbsent(
+        item,
+        value -> {
+          var plan = retryPlan(value);
+          return plan != null && plan.equals(retryPlan(preparedRetryAnchor))
+              ? preparedRetryAnchor
+              : value;
+        });
   }
 
   private Optional<Exit> classifyState(State state) {
@@ -232,6 +304,17 @@ public final class AutomaticMethodExecution implements AutoCloseable {
       }
       if (preparationSuccess == PreparationSuccess.REQUIRE_REPLACEMENT) return Optional.empty();
     }
+    // An eligible one-affix Chaos retry continues without another preparation charge.
+    // Only equal complete removal plans are quotiented; distinct pools remain distinct.
+    if (exit.isEmpty() && preparedRetryAnchor != null && retryPlan(state.item()) != null)
+      return Optional.empty();
+    // A prepared state with an unavailable follower cannot consume that follower.
+    // Absorb it now so thousands of failed numeric rolls do not become pending jobs.
+    if (exit.isEmpty()
+        && preparedRetryAnchor != null
+        && state.temporaryPreparation()
+        && kernel.plan(state.item(), template.cycle().getFirst()).status()
+            == AutomaticCraftingPlan.Status.UNAVAILABLE) return Optional.of(Exit.DEAD);
     // Preparation is not a completed method checkpoint.
     if (state.temporaryPreparation() && exit.orElse(null) == Exit.CHECKPOINT)
       return Optional.empty();
@@ -359,8 +442,15 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     return runner.cycles();
   }
 
+  public Set<ItemState> retryRepresentatives() {
+    return preparedRetryAnchor == null ? Set.of() : Set.of(preparedRetryAnchor);
+  }
+
   public long retainedStates() {
-    return runner.retainedStates() + runner.retention().flightOutcomes();
+    return runner.retainedStates()
+        + runner.retention().flightOutcomes()
+        + preparedRepresentatives.size()
+        + (preparedTransition == null ? 0 : preparedTransition.outcomes().size());
   }
 
   public boolean hasPrimitiveInFlight() {

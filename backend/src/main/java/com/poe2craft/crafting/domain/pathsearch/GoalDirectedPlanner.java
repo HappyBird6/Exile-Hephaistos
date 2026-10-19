@@ -91,20 +91,20 @@ public final class GoalDirectedPlanner {
     }
     // Preparations are admitted only with an eligible, goal-acquiring successor, never all pairs.
     for (var preparation : prerequisites) {
-      // If this same addition already acquires a missing goal, let its checkpoint own
-      // the next step. Hiding that acquisition inside a prep pair duplicates the graph
-      // and admits unrelated filler states before the useful target is selected.
-      if (preparation.purpose() != AutomaticCurrencyPolicy.Purpose.TARGET_PREPARATION
-          && result.stream()
-              .anyMatch(
-                  c ->
-                      c.initial().isEmpty()
-                          && c.cycle().getFirst().currency() == preparation.currency()
-                          && c.cycle().getFirst().purpose()
-                              == AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION)) continue;
       var prepared = kernel.representatives(kernel.plan(source, preparation));
       for (var acquisition : inventory) {
         if (acquisition.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT) continue;
+        // A direct acquisition does not replace preparation when the follower is
+        // unavailable at the source (for example Chaos on an empty rare item).
+        if (preparation.purpose() != AutomaticCurrencyPolicy.Purpose.TARGET_PREPARATION
+            && !(source.explicits().isEmpty() && acquisition.currency() == WorkbenchCurrency.CHAOS)
+            && result.stream()
+                .anyMatch(
+                    c ->
+                        c.initial().isEmpty()
+                            && c.cycle().getFirst().currency() == preparation.currency()
+                            && c.cycle().getFirst().purpose()
+                                == AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION)) continue;
         boolean tierPreparation =
             preparation.purpose() == AutomaticCurrencyPolicy.Purpose.TARGET_PREPARATION;
         if (tierPreparation
@@ -114,6 +114,7 @@ public final class GoalDirectedPlanner {
         if (acquisition.purpose() != AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION
             && acquisition.currency().replacementModifiers().isEmpty()) continue;
         boolean useful = false;
+        var checkedSuccessors = new HashSet<AutomaticCraftingPlan>();
         for (var state : prepared) {
           if (tierPreparation
               && (!preserves(progress, state)
@@ -121,6 +122,7 @@ public final class GoalDirectedPlanner {
           var next = kernel.plan(state, acquisition);
           if (next.status() == AutomaticCraftingPlan.Status.READY
               && (!tierPreparation || protectedRemoval(source, next))
+              && checkedSuccessors.add(next)
               && kernel.representatives(next).stream().anyMatch(t -> advances(source, t))) {
             useful = true;
             break;

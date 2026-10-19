@@ -228,7 +228,15 @@ public final class AutomaticSearchService implements AutoCloseable {
         return view(load(owner, id));
       }
     }
-    if (repository.ids().size() >= MAX_FILES) throw new Rejected(429, "JOB_CAPACITY");
+    if (repository.ids().size() >= MAX_FILES) {
+      long earliest =
+          repository.ids().stream()
+              .map(this::read)
+              .mapToLong(Disk::expires)
+              .min()
+              .orElse(clock.millis());
+      throw new Rejected(429, "JOB_CAPACITY", Math.max(1L, (earliest - clock.millis()) / 1000 + 1));
+    }
     var job = new Job();
     job.id = UUID.randomUUID().toString();
     job.owner = ownerKey(owner);
@@ -379,9 +387,15 @@ public final class AutomaticSearchService implements AutoCloseable {
               ids.get(
                   new AutomaticMethodGraph.Identity(mass.state().item(), mass.state().quality40()));
           if (mass.exit() == Exit.LOSS || mass.exit() == Exit.DEAD) target = null;
-          String kind = mass.exit() == null ? "ACTIVE" : mass.exit().name();
+          boolean retry =
+              mass.exit() == null && method.retryRepresentatives().contains(mass.state().item());
+          if (retry) target = null;
+          String kind = retry ? "RETRY" : mass.exit() == null ? "ACTIVE" : mass.exit().name();
           if ((mass.exit() == Exit.UNRESOLVED && !mass.state().temporaryPreparation())
-              || (target == null && mass.exit() != Exit.DEAD && mass.exit() != Exit.LOSS)) {
+              || (target == null
+                  && !retry
+                  && mass.exit() != Exit.DEAD
+                  && mass.exit() != Exit.LOSS)) {
             target = null;
             kind = "UNRESOLVED";
           }

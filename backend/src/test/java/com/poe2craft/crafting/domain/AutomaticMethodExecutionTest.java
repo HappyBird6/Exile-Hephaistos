@@ -12,6 +12,201 @@ import org.junit.jupiter.api.Test;
 
 class AutomaticMethodExecutionTest {
   @Test
+  void ineligiblePreparedSideStopsWithoutChargingChaos() {
+    var tiny = new BasicCurrencyTransitionsTest();
+    var kernel =
+        new AutomaticCraftingKernel(
+            AutomaticCurrencyPolicyLoader.load(),
+            tiny.catalog,
+            new WorkbenchSimulator(tiny.catalog, new CraftingEngine(tiny.catalog)),
+            "amulets");
+    var prep =
+        new AutomaticCraftingAction(
+            WorkbenchCurrency.EXALTED,
+            Set.of(),
+            AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL);
+    var chaos =
+        new AutomaticCraftingAction(
+            WorkbenchCurrency.CHAOS,
+            Set.of(WorkbenchOmen.SINISTRAL_ERASURE),
+            AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION);
+    var empty = tiny.item(ItemState.Rarity.RARE, List.of());
+    try (var run =
+        new AutomaticMethodExecution(
+            empty,
+            new AutomaticMethodExecution.Template("ineligible-side", List.of(prep), List.of(chaos)),
+            kernel,
+            item ->
+                item.explicits().stream().anyMatch(m -> m.modifierId().equals("a"))
+                    ? Optional.of(Exit.GOAL)
+                    : Optional.empty(),
+            CertifiedInterval.Precision.standard(),
+            100,
+            AutomaticMethodExecution.PreparationSuccess.STOP_ON_FIRST_HIT)) {
+      while (!run.atBoundary()) run.step(100);
+      if (!run.absorbed()) {
+        run.beginCycle();
+        while (!run.atBoundary()) run.step(100);
+      }
+      var point = run.observation();
+      assertThat(run.absorbed()).isTrue();
+      var hit =
+          point.exits().get(Exit.GOAL).values().stream()
+              .reduce(CertifiedInterval.zero(64), CertifiedInterval::add);
+      var dead =
+          point.exits().get(Exit.DEAD).values().stream()
+              .reduce(CertifiedInterval.zero(64), CertifiedInterval::add);
+      assertThat(hit.contains(Fraction.of(1, 4))).isTrue();
+      assertThat(dead.contains(Fraction.of(3, 4))).isTrue();
+      assertThat(point.cycleUses()).isEmpty();
+      assertThat(
+              AutomaticMethodExecution.materialUses(point.initialUses())
+                  .get("EXALTED")
+                  .contains(Fraction.ONE))
+          .isTrue();
+      assertThat(point.mass().contains(Fraction.ONE)).isTrue();
+    }
+  }
+
+  @Test
+  void emptyRarePreparationThenChaosHasExactRenewalCostsAndRestores() {
+    var tiny = new BasicCurrencyTransitionsTest();
+    var kernel =
+        new AutomaticCraftingKernel(
+            AutomaticCurrencyPolicyLoader.load(),
+            tiny.catalog,
+            new WorkbenchSimulator(tiny.catalog, new CraftingEngine(tiny.catalog)),
+            "amulets");
+    var prep =
+        new AutomaticCraftingAction(
+            WorkbenchCurrency.EXALTED,
+            Set.of(),
+            AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL);
+    var chaos =
+        new AutomaticCraftingAction(
+            WorkbenchCurrency.CHAOS, Set.of(), AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION);
+    var empty = tiny.item(ItemState.Rarity.RARE, List.of());
+    assertThat(kernel.plan(empty, chaos).status())
+        .isEqualTo(AutomaticCraftingPlan.Status.UNAVAILABLE);
+    java.util.function.Function<ItemState, Optional<Exit>> classify =
+        item ->
+            item.explicits().stream().anyMatch(m -> m.modifierId().equals("a"))
+                ? Optional.of(Exit.GOAL)
+                : Optional.empty();
+    try (var run =
+        new AutomaticMethodExecution(
+            empty,
+            new AutomaticMethodExecution.Template("prepared-chaos", List.of(prep), List.of(chaos)),
+            kernel,
+            classify,
+            CertifiedInterval.Precision.standard(),
+            100,
+            AutomaticMethodExecution.PreparationSuccess.STOP_ON_FIRST_HIT)) {
+      while (!run.atBoundary()) run.step(100);
+      var miss = Fraction.of(3, 4);
+      var uses = Fraction.ZERO;
+      for (int n = 0; n <= 3; n++) {
+        var point = run.observation();
+        var hit =
+            point.exits().get(Exit.GOAL).values().stream()
+                .reduce(CertifiedInterval.zero(64), CertifiedInterval::add);
+        assertThat(hit.contains(miss.complement())).as("first Exalted plus %s Chaos", n).isTrue();
+        assertThat(
+                AutomaticMethodExecution.materialUses(point.initialUses())
+                    .get("EXALTED")
+                    .contains(Fraction.ONE))
+            .isTrue();
+        if (n > 0)
+          assertThat(
+                  AutomaticMethodExecution.materialUses(point.cycleUses())
+                      .get("CHAOS")
+                      .contains(uses))
+              .isTrue();
+        assertThat(point.mass().contains(Fraction.ONE)).isTrue();
+        assertThat(point.exits().get(Exit.LOSS)).isEmpty();
+        try (var restored =
+            AutomaticMethodExecution.restore(run.checkpoint("a"), kernel, "a", classify)) {
+          assertThat(restored.observation()).isEqualTo(point);
+        }
+        uses = uses.add(miss);
+        miss = miss.multiply(Fraction.of(3, 4));
+        run.beginCycle();
+        while (!run.atBoundary()) run.step(100);
+      }
+    }
+  }
+
+  @Test
+  void emptyRarePreparationThenDextralChaosHasExactRenewalCostsAndRestores() {
+    var tiny = new BasicCurrencyTransitionsTest();
+    var kernel =
+        new AutomaticCraftingKernel(
+            AutomaticCurrencyPolicyLoader.load(),
+            tiny.catalog,
+            new WorkbenchSimulator(tiny.catalog, new CraftingEngine(tiny.catalog)),
+            "amulets");
+    var prep =
+        new AutomaticCraftingAction(
+            WorkbenchCurrency.EXALTED,
+            Set.of(),
+            AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL);
+    var chaos =
+        new AutomaticCraftingAction(
+            WorkbenchCurrency.CHAOS,
+            Set.of(WorkbenchOmen.DEXTRAL_ERASURE),
+            AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION);
+    var empty = tiny.item(ItemState.Rarity.RARE, List.of());
+    assertThat(kernel.plan(empty, chaos).status())
+        .isEqualTo(AutomaticCraftingPlan.Status.UNAVAILABLE);
+    java.util.function.Function<ItemState, Optional<Exit>> classify =
+        item ->
+            item.explicits().stream().anyMatch(m -> m.modifierId().equals("a"))
+                ? Optional.of(Exit.GOAL)
+                : Optional.empty();
+    try (var run =
+        new AutomaticMethodExecution(
+            empty,
+            new AutomaticMethodExecution.Template("prepared-chaos", List.of(prep), List.of(chaos)),
+            kernel,
+            classify,
+            CertifiedInterval.Precision.standard(),
+            100,
+            AutomaticMethodExecution.PreparationSuccess.STOP_ON_FIRST_HIT)) {
+      while (!run.atBoundary()) run.step(100);
+      var miss = Fraction.of(3, 4);
+      var uses = Fraction.ZERO;
+      for (int n = 0; n <= 3; n++) {
+        var point = run.observation();
+        var hit =
+            point.exits().get(Exit.GOAL).values().stream()
+                .reduce(CertifiedInterval.zero(64), CertifiedInterval::add);
+        assertThat(hit.contains(miss.complement())).as("first Exalted plus %s Chaos", n).isTrue();
+        assertThat(
+                AutomaticMethodExecution.materialUses(point.initialUses())
+                    .get("EXALTED")
+                    .contains(Fraction.ONE))
+            .isTrue();
+        if (n > 0)
+          assertThat(
+                  AutomaticMethodExecution.materialUses(point.cycleUses())
+                      .get("CHAOS")
+                      .contains(uses))
+              .isTrue();
+        assertThat(point.mass().contains(Fraction.ONE)).isTrue();
+        assertThat(point.exits().get(Exit.LOSS)).isEmpty();
+        try (var restored =
+            AutomaticMethodExecution.restore(run.checkpoint("a"), kernel, "a", classify)) {
+          assertThat(restored.observation()).isEqualTo(point);
+        }
+        uses = uses.add(miss);
+        miss = miss.multiply(Fraction.of(3, 4));
+        run.beginCycle();
+        while (!run.atBoundary()) run.step(100);
+      }
+    }
+  }
+
+  @Test
   void pendingPreparationDecisionRetainsSuccessMassAsUnresolved() {
     var tiny = new BasicCurrencyTransitionsTest();
     var kernel =

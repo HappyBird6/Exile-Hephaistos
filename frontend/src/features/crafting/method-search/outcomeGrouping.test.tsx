@@ -372,3 +372,43 @@ it('keeps removal risk and incomplete calculation visible without opening outcom
   ).toBeVisible()
   expect(document.querySelector('.craft-outcomes')).not.toHaveAttribute('open')
 })
+
+it('labels preparation once and N only for the Chaos follower', async () => {
+  const view = fixture()
+  const m = view.methods[0]!
+  m.initial = [
+    { currency: 'EXALTED', omens: [], purpose: 'TEMPORARY_AFFIX_FOR_REMOVAL' },
+  ]
+  m.cycle = [{ currency: 'CHAOS', omens: [], purpose: 'GOAL_ACQUISITION' }]
+  m.executionMode = 'REPEATABLE'
+  for (const point of m.points) point.outcomes.at(-1)!.kind = 'RETRY'
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(
+      async () =>
+        new Response(JSON.stringify(view), {
+          headers: {
+            'X-Crafting-Ruleset':
+              requestFixture().start.provenance.rulesetIdentity,
+          },
+        }),
+    ),
+  )
+  render(
+    <AutomaticMethodSearch
+      request={requestFixture()}
+      inputGeneration={1}
+      presentItem={present}
+      onRecalculate={vi.fn()}
+    />,
+  )
+  await screen.findByLabelText('Method repetitions')
+  const summary = document.querySelector('.craft-choice > summary')!
+  expect(summary).toHaveTextContent(
+    'Exalted Orb: 1 attempt · Chaos Orb: Up to 100 attempts',
+  )
+  expect(summary).toHaveTextContent('25.00%')
+  expect(
+    screen.getAllByText(/Target not reached within 100 attempts/),
+  ).toHaveLength(1)
+})

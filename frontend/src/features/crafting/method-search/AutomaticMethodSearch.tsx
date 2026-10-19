@@ -1,3 +1,5 @@
+import { retryMessages } from './retryMessages'
+import { capacityMessages } from './capacityMessages'
 import { sumBounds } from './outcomeGrouping'
 import { guideMessages } from './guideMessages'
 import { removesModifier } from './methodRisk'
@@ -65,6 +67,8 @@ function Run({
   })
   const [storageFailed, setStorageFailed] = useState(false)
   const [expired, setExpired] = useState(false)
+  const [capacity, setCapacity] = useState<AutomaticError | null>(null)
+  const commandInFlight = useRef(false)
   const [controlPhase, setControlPhase] = useState<'STOP' | 'RESUME' | null>(
     null,
   )
@@ -140,15 +144,19 @@ function Run({
           alive.current &&
           turn === token.current &&
           !(error instanceof DOMException && error.name === 'AbortError')
-        )
-          setFailed(true)
+        ) {
+          if (error instanceof AutomaticError && error.status === 429)
+            setCapacity(error)
+          else setFailed(true)
+        }
       } finally {
         controllers.current.delete(controller)
       }
     }
-    void start()
+    const startTimer = setTimeout(() => void start(), 0)
     const pending = controllers.current
     return () => {
+      clearTimeout(startTimer)
       alive.current = false
       token.current = turn + 1
       for (const c of pending) c.abort()
@@ -159,7 +167,8 @@ function Run({
   }, [])
   const command = async (operation: 'ADVANCE' | 'RESUME') => {
     const previous = current.current
-    if (!previous) return
+    if (!previous || commandInFlight.current) return
+    commandInFlight.current = true
     setBusy(true)
     if (operation === 'RESUME') setControlPhase('RESUME')
     setFailed(false)
@@ -197,6 +206,7 @@ function Run({
       )
         setFailed(true)
     } finally {
+      commandInFlight.current = false
       controllers.current.delete(controller)
       if (alive.current) {
         setBusy(false)
@@ -306,16 +316,32 @@ function Run({
       )}
       {expired && <p role="alert">{workspaceMessages[locale].expired}</p>}
       {failed && <p role="alert">{common.error}</p>}
-      <CalculationStatus
-        state={calculationState(
-          view,
-          runEnabled && active,
-          busy,
-          controlPhase,
-          failed,
-          expired,
-        )}
-      />
+      {capacity && (
+        <p role="alert">
+          {capacity.code === 'JOB_CAPACITY'
+            ? capacityMessages[locale].full
+            : capacityMessages[locale].limited}
+          {capacity.retryAt !== null && (
+            <>
+              {' '}
+              {capacityMessages[locale].after}:{' '}
+              {new Date(capacity.retryAt).toLocaleString(locale)}
+            </>
+          )}
+        </p>
+      )}
+      {!capacity && (
+        <CalculationStatus
+          state={calculationState(
+            view,
+            runEnabled && active,
+            busy,
+            controlPhase,
+            failed,
+            expired,
+          )}
+        />
+      )}
       <div className="method-map__controls">
         <button
           onClick={stop}
@@ -460,7 +486,15 @@ function Run({
                           </strong>
                           <span>
                             {isRepeatable(m)
-                              ? guide.within.replace('{n}', String(cycles))
+                              ? (m.initial.length
+                                  ? m.initial.map(action).join(' → ') +
+                                    ': ' +
+                                    guide.once +
+                                    ' · ' +
+                                    m.cycle.map(action).join(' → ') +
+                                    ': '
+                                  : '') +
+                                guide.within.replace('{n}', String(cycles))
                               : m.executionMode === 'PENDING'
                                 ? outcomeMessages[locale].pending
                                 : guide.once}
@@ -542,7 +576,11 @@ function Run({
                                   {point.outcomes.map((o, i) => (
                                     <li key={i}>
                                       {o.target === null ? (
-                                        common.unknown
+                                        o.kind === 'RETRY' ? (
+                                          guide.result
+                                        ) : (
+                                          common.unknown
+                                        )
                                       ) : (
                                         <button
                                           onClick={() =>
@@ -558,15 +596,20 @@ function Run({
                                         </button>
                                       )}{' '}
                                       —{' '}
-                                      {o.kind === 'GOAL'
-                                        ? common.hit
-                                        : o.kind === 'LOSS'
-                                          ? copy.loss
-                                          : o.kind === 'UNRESOLVED'
-                                            ? common.unknown
-                                            : o.kind === 'DEAD'
-                                              ? common.unavailable
-                                              : copy.checkpoint}
+                                      {o.kind === 'RETRY'
+                                        ? retryMessages[locale].replace(
+                                            'N',
+                                            String(cycles),
+                                          )
+                                        : o.kind === 'GOAL'
+                                          ? common.hit
+                                          : o.kind === 'LOSS'
+                                            ? copy.loss
+                                            : o.kind === 'UNRESOLVED'
+                                              ? common.unknown
+                                              : o.kind === 'DEAD'
+                                                ? common.unavailable
+                                                : copy.checkpoint}
                                       :{' '}
                                       {!point.complete &&
                                       o.kind !== 'UNRESOLVED'

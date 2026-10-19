@@ -640,6 +640,7 @@ public final class WorkbenchSimulator {
       return new AutomaticCraftingPlan(
           Set.of(
                       "No non-Fractured explicit can be removed.",
+                      "No eligible explicit modifier can be removed with this omen.",
                       "No eligible modifier or free affix slot remains for this currency and omen.",
                       "Item level is below the currency's minimum modifier level.")
                   .contains(available.reason())

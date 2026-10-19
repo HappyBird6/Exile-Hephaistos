@@ -16,7 +16,12 @@ public final class PathSearchErrors {
 
   @ExceptionHandler(Rejected.class)
   public ResponseEntity<Problem> rejected(Rejected error) {
-    return problem(error.status(), error.code());
+    var result = problem(error.status(), error.code());
+    if (error.retryAfterSeconds() == null) return result;
+    return ResponseEntity.status(error.status())
+        .contentType(MediaType.APPLICATION_PROBLEM_JSON)
+        .header(HttpHeaders.RETRY_AFTER, String.valueOf(error.retryAfterSeconds()))
+        .body(result.getBody());
   }
 
   @ExceptionHandler(InvalidGoal.class)

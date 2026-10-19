@@ -9,7 +9,7 @@ import java.util.*;
 
 /** Job-fixed disjoint intervals; uncertain numeric dependencies retain individual rolls. */
 public final class RollPartition {
-  public static final String VERSION = "goal-initial-shared-pool-family-partition-v5";
+  public static final String VERSION = "goal-reviewed-scalar-shared-pool-partition-v6";
   private final boolean exact;
   private final Set<String> relevant, intervalSafe;
   private final Map<String, NavigableSet<BigInteger>> cuts;
@@ -58,8 +58,7 @@ public final class RollPartition {
 
   public static RollPartition compile(
       ItemCatalog catalog, Map<String, GoalCatalog.Stat> known, GoalFilter goal, ItemState root) {
-    if (!root.baseItemId().equals(SolarAmulet.BASE_ID) || root.catalystQuality() != null)
-      return exact();
+    if (root.catalystQuality() != null) return exact();
     var relevant = new HashSet<String>();
     var pending = new ArrayDeque<String>();
     goal.groups().stream()
@@ -130,7 +129,8 @@ public final class RollPartition {
               });
     var result = new RollPartition(false, relevant, safe, cuts);
     // The shared minimum-level grouping does not yet support multi-family generation groups.
-    if (!simple
+    if (!root.baseItemId().equals(SolarAmulet.BASE_ID)
+        || !simple
         || !safe.containsAll(relevant)
         || catalog.modifiers().values().stream()
             .anyMatch(

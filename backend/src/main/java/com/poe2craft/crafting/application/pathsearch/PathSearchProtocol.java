@@ -149,11 +149,21 @@ public final class PathSearchProtocol {
   public static final class Rejected extends IllegalArgumentException {
     private final int status;
     private final String code;
+    private final Long retryAfterSeconds;
 
     public Rejected(int status, String code) {
+      this(status, code, null);
+    }
+
+    public Rejected(int status, String code, Long retryAfterSeconds) {
       super(code);
       this.status = status;
       this.code = code;
+      this.retryAfterSeconds = retryAfterSeconds;
+    }
+
+    public Long retryAfterSeconds() {
+      return retryAfterSeconds;
     }
 
     public int status() {

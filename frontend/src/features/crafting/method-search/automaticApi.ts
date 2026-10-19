@@ -57,7 +57,11 @@ export type AutomaticView = {
 }
 const root = '/api/v2/crafting/method-searches/automatic'
 export class AutomaticError extends Error {
-  constructor(readonly status: number) {
+  constructor(
+    readonly status: number,
+    readonly code = '',
+    readonly retryAt: number | null = null,
+  ) {
     super('Automatic search request failed')
   }
 }
@@ -146,31 +150,66 @@ async function request(
           body: JSON.stringify(body),
         }),
   })
-  if (!response.ok) throw new AutomaticError(response.status)
+  if (!response.ok) {
+    let code = ''
+    try {
+      const body = (await response.json()) as { code?: unknown }
+      if (body.code === 'JOB_CAPACITY') code = body.code
+    } catch {
+      /* Error bodies may be unavailable. */
+    }
+    const raw = response.headers.get('Retry-After')
+    const seconds = raw && /^\d+$/.test(raw) ? Number(raw) : NaN
+    const retryAt =
+      Number.isSafeInteger(seconds) && seconds > 0 && seconds <= 86401
+        ? Date.now() + seconds * 1000
+        : null
+    throw new AutomaticError(response.status, code, retryAt)
+  }
   verifyRulesetResponse(response, identity)
   return validate(await response.json())
 }
+const pendingCreates = new Map<string, Promise<AutomaticView>>()
+let createQueue: Promise<void> = Promise.resolve()
 export const automaticApi = {
   create: (
     input: CreateRequest,
     signal?: AbortSignal,
     abstractQuality40 = false,
-  ) =>
-    request(
-      '',
-      input.start.provenance.rulesetIdentity,
-      {
-        abstractQuality40,
-        request: {
-          version: 2,
-          clientRequestId: input.clientRequestId,
-          start: input.start,
-          goal: input.goal,
-          activeOmens: [],
-        },
-      },
-      signal,
-    ),
+  ) => {
+    if (signal?.aborted)
+      return Promise.reject(new DOMException('Aborted', 'AbortError'))
+    const key = JSON.stringify([input, abstractQuality40])
+    const pending = pendingCreates.get(key)
+    if (pending) return pending
+    // A dispatched POST can succeed after a local abort. Keep its result and let
+    // the owning component cancel the newly created job when it has unmounted.
+    const created = createQueue
+      .then(() =>
+        request(
+          '',
+          input.start.provenance.rulesetIdentity,
+          {
+            abstractQuality40,
+            request: {
+              version: 2,
+              clientRequestId: input.clientRequestId,
+              start: input.start,
+              goal: input.goal,
+              activeOmens: [],
+            },
+          },
+          undefined,
+        ),
+      )
+      .finally(() => pendingCreates.delete(key))
+    createQueue = created.then(
+      () => undefined,
+      () => undefined,
+    )
+    pendingCreates.set(key, created)
+    return created
+  },
   get: (id: string, identity: string, signal?: AbortSignal) =>
     request(`/${id}`, identity, undefined, signal),
   control: (

@@ -95,6 +95,32 @@ class AutomaticSearchServiceTest {
   }
 
   @Test
+  void capacityRejectsWithoutDeletingJobsAndAllowsIdempotentRead() {
+    var repository = new Repository();
+    try (var service = service(repository)) {
+      for (int i = 0; i < 16; i++) service.create("owner", request("capacity-" + i));
+      var before = new LinkedHashMap<>(repository.documents);
+      assertThatThrownBy(() -> service.create("owner", request("extra")))
+          .isInstanceOfSatisfying(
+              PathSearchProtocol.Rejected.class,
+              e -> {
+                assertThat(e.status()).isEqualTo(429);
+                assertThat(e.code()).isEqualTo("JOB_CAPACITY");
+                assertThat(e.retryAfterSeconds()).isBetween(86390L, 86401L);
+                var response =
+                    new com.poe2craft.crafting.presentation.pathsearch.PathSearchErrors()
+                        .rejected(e);
+                assertThat(response.getHeaders().getFirst("Retry-After"))
+                    .isEqualTo(String.valueOf(e.retryAfterSeconds()));
+                assertThat(response.getBody().code()).isEqualTo("JOB_CAPACITY");
+              });
+      assertThat(repository.documents).containsExactlyEntriesOf(before);
+      assertThat(service.create("owner", request("capacity-0")).id())
+          .isEqualTo(repository.ids().getFirst());
+    }
+  }
+
+  @Test
   void restartCommandsCancellationAndOriginalUnknownGoalsArePreserved() {
     var repository = new Repository();
     var request = request("original");

@@ -1,7 +1,9 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 import { AutomaticMethodSearch } from './AutomaticMethodSearch'
-import { acceptsAutomatic } from './automaticApi'
+import { StrictMode } from 'react'
+import { capacityMessages } from './capacityMessages'
+import { automaticApi, AutomaticError, acceptsAutomatic } from './automaticApi'
 import type { AutomaticView } from './automaticApi'
 import { requestFixture } from '../path-tree/fixtures.test-support'
 import { createItemPresentation } from '../path-tree/presentation'
@@ -405,4 +407,108 @@ it('resumes a paused job and starts a fresh generation after an edited request',
     abstractQuality40: false,
   })
   rendered.unmount()
+})
+
+it('shows the saved-search capacity and expiry without retrying POST in StrictMode', async () => {
+  setLocale('en')
+  const fetcher = vi.fn(
+    async () =>
+      new Response(JSON.stringify({ code: 'JOB_CAPACITY' }), {
+        status: 429,
+        headers: { 'Retry-After': '120' },
+      }),
+  )
+  vi.stubGlobal('fetch', fetcher)
+  render(
+    <StrictMode>
+      <AutomaticMethodSearch
+        request={requestFixture()}
+        inputGeneration={1}
+        presentItem={present}
+        onRecalculate={vi.fn()}
+      />
+    </StrictMode>,
+  )
+  expect(await screen.findByRole('alert')).toHaveTextContent(
+    capacityMessages.en.full,
+  )
+  expect(screen.getByRole('alert')).toHaveTextContent('Try again after')
+  await new Promise((resolve) => setTimeout(resolve, 250))
+  expect(fetcher).toHaveBeenCalledTimes(1)
+  expect(screen.queryByText('Calculation error')).not.toBeInTheDocument()
+})
+it('shares an in-flight create after local abort and never guesses success on 429', async () => {
+  let finish!: (response: Response) => void
+  const fetcher = vi.fn(
+    () =>
+      new Promise<Response>((resolve) => {
+        finish = resolve
+      }),
+  )
+  vi.stubGlobal('fetch', fetcher)
+  const request = requestFixture(),
+    controller = new AbortController()
+  const first = automaticApi.create(request, controller.signal)
+  controller.abort()
+  const second = automaticApi.create(request)
+  expect(first).toBe(second)
+  await waitFor(() => expect(fetcher).toHaveBeenCalledTimes(1))
+  const rejection = expect(first).rejects.toMatchObject({
+    status: 429,
+    code: 'JOB_CAPACITY',
+  })
+  finish(
+    new Response(JSON.stringify({ code: 'JOB_CAPACITY' }), {
+      status: 429,
+      headers: { 'Retry-After': '60' },
+    }),
+  )
+  await rejection
+  expect(fetcher).toHaveBeenCalledTimes(1)
+})
+it('does not render private error codes or invent a retry deadline', async () => {
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(
+      async () =>
+        new Response(JSON.stringify({ code: 'PRIVATE_SERVER_DETAIL' }), {
+          status: 429,
+          headers: { 'Retry-After': 'bad' },
+        }),
+    ),
+  )
+  const err = await automaticApi.create(requestFixture()).catch((e) => e)
+  expect(err).toBeInstanceOf(AutomaticError)
+  expect(err).toMatchObject({ status: 429, code: '', retryAt: null })
+})
+
+it('serializes different creates so the first owner cookie settles before the next request', async () => {
+  let finish!: (response: Response) => void
+  const fetcher = vi
+    .fn()
+    .mockImplementationOnce(
+      () =>
+        new Promise<Response>((resolve) => {
+          finish = resolve
+        }),
+    )
+    .mockImplementation(
+      async () =>
+        new Response(JSON.stringify({ code: 'JOB_CAPACITY' }), { status: 429 }),
+    )
+  vi.stubGlobal('fetch', fetcher)
+  const first = automaticApi.create(requestFixture()).catch((e) => e)
+  const next = requestFixture()
+  next.clientRequestId = 'different-create'
+  const second = automaticApi.create(next).catch((e) => e)
+  await waitFor(() => expect(fetcher).toHaveBeenCalledTimes(1))
+  finish(
+    new Response(JSON.stringify({ code: 'JOB_CAPACITY' }), { status: 429 }),
+  )
+  expect(await first).toMatchObject({ status: 429 })
+  expect(await second).toMatchObject({ status: 429 })
+  expect(fetcher).toHaveBeenCalledTimes(2)
+  expect(
+    JSON.parse(fetcher.mock.calls[1]![1].body).request.clientRequestId,
+  ).toBe('different-create')
 })

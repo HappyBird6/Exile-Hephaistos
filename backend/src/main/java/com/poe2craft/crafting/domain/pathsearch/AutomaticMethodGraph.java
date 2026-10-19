@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 /** Cooperative method-depth discovery. Display grouping must not replace these full item states. */
 public final class AutomaticMethodGraph implements AutoCloseable {
-  public static final String VERSION = "goal-directed-milestone-graph-v7-removal-risk";
+  public static final String VERSION = "goal-directed-milestone-graph-v8-prepared-renewal";
 
   public record Progress(Status goal, List<Status> entries) {
     public Progress {
@@ -39,6 +39,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
           points,
       Set<String> unresolvedReasons,
       Set<Integer> completeObservations,
+      Set<ItemState> retryRepresentatives,
       boolean finished) {}
 
   private final AutomaticCraftingKernel kernel;
@@ -361,7 +362,9 @@ public final class AutomaticMethodGraph implements AutoCloseable {
         .active()
         .forEach(
             (state, mass) -> {
-              if (!mass.zero()) intern(state.item(), state.quality40(), method.source.depth + 1);
+              // This is a law-equivalent retry class, not a particular rolled item.
+              if (!mass.zero() && !method.execution.retryRepresentatives().contains(state.item()))
+                intern(state.item(), state.quality40(), method.source.depth + 1);
             });
   }
 
@@ -502,6 +505,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                     visiblePoints(m),
                     m.execution.unresolvedReasons(),
                     completeObservations(m),
+                    m.execution.retryRepresentatives(),
                     m.finished))
         .toList();
   }
