@@ -6,9 +6,11 @@ import './item-card.css'
 function Lines({
   lines,
   flags = false,
+  changes,
 }: {
   lines: readonly ItemCardLine[]
   flags?: boolean
+  changes?: Record<string, 'added' | 'changed'> | undefined
 }) {
   const { t } = useI18n()
   const visible = lines.filter((line) => !isTradePrice(line.text))
@@ -18,7 +20,7 @@ function Lines({
       {visible.map((line) => (
         <div
           key={line.id}
-          className={`item-card__line item-card__line--${flags && /^(Corrupted|Twice Corrupted)$/.test(line.text.trim()) ? 'corrupted' : (line.kind ?? 'property')}${line.removalCandidate ? ' item-card__line--removal-candidate' : ''}`}
+          className={`item-card__line item-card__line--${flags && /^(Corrupted|Twice Corrupted)$/.test(line.text.trim()) ? 'corrupted' : (line.kind ?? 'property')}${line.removalCandidate ? ' item-card__line--removal-candidate' : ''}${changes?.[line.id] ? ' item-card__line--' + changes[line.id] : ''}`}
           data-removal-candidate={line.removalCandidate ? line.id : undefined}
           data-fractured={
             line.fractured || line.kind === 'fractured' ? true : undefined
@@ -57,10 +59,12 @@ export function ItemCard({
   item,
   baseItemId,
   showOriginalOrder = false,
+  modifierChanges,
 }: {
   item: ItemCardData
   baseItemId?: string
   showOriginalOrder?: boolean
+  modifierChanges?: Record<string, 'added' | 'changed'> | undefined
 }) {
   const { t, name } = useI18n()
   const implicit = item.modifiers.filter((line) => line.kind === 'implicit')
@@ -111,8 +115,8 @@ export function ItemCard({
               <div key={line.id}>{line.text}</div>
             ))}
         </div>
-        <Lines lines={implicit} />
-        <Lines lines={other} />
+        <Lines lines={implicit} changes={modifierChanges} />
+        <Lines lines={other} changes={modifierChanges} />
         <Lines lines={item.flags} flags />
       </div>
     </article>

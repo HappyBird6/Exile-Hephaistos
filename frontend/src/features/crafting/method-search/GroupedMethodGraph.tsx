@@ -1,7 +1,12 @@
+import { GraphItemState } from './GraphItemState'
+import { graphStateMessages } from './graphStateMessages'
+import type { Scenario } from './scenarioCode'
+import { operationKind } from './operationGrouping'
+import { operationMessages } from './operationMessages'
 import { methodSearchMessages } from './messages'
 import { guideMessages } from './guideMessages'
 import { methodPoint } from './methodObservation'
-import { useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import type { AutomaticAction, AutomaticView } from './automaticApi'
 import type { Selection } from './supportStorage'
 import type { PathTreeProps } from '../path-tree/PathTree'
@@ -22,6 +27,7 @@ export function GroupedMethodGraph({
   select,
   action,
   presentItem,
+  frozenCards,
 }: {
   view: AutomaticView
   cycles: number
@@ -31,6 +37,7 @@ export function GroupedMethodGraph({
   select: (id: number) => void
   action: (a: AutomaticAction) => string
   presentItem: PathTreeProps['presentItem']
+  frozenCards?: Scenario['cards'] | undefined
 }) {
   const { locale } = useI18n(),
     guide = guideMessages[locale],
@@ -38,10 +45,36 @@ export function GroupedMethodGraph({
     common = pathTreeMessages[locale]
   const [opened, setOpened] = useState<string | null>(null),
     [expanded, setExpanded] = useState<Set<string>>(new Set())
+  const host = useRef<HTMLDivElement>(null)
+  const [viewportWidth, setViewportWidth] = useState(340)
+  useLayoutEffect(() => {
+    const element = host.current
+    if (!element) return
+    const measure = () => setViewportWidth(element.clientWidth || 340)
+    measure()
+    if (typeof ResizeObserver === 'undefined') return
+    const observer = new ResizeObserver(measure)
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [])
+  const nodeWidth = Math.min(320, Math.max(240, viewportWidth - 20))
+  const [measured, setMeasured] = useState<Record<string, number>>({})
+  const cardFor = (id: number) => {
+    const n = view.nodes.find((node) => node.id === id)!
+    return (
+      frozenCards?.[String(id)]?.[locale] ??
+      presentRollCell(n.item, n.rolls, locale, presentItem)
+    )
+  }
   const allGroups = exaltedGroups(view, cycles)
   const effective = expanded
   const projection = graphProjection(view, cycles, effective, route)
   const group = allGroups.find((g) => g.id === opened)
+  const groupTitle = group
+    ? operationMessages[locale][
+        operationKind(group.method) === 'add' ? 'add' : 'replace'
+      ]
+    : guide.details
   const vertices = [
     ...projection.nodes.map((n) => ({
       id: `state:${n.id}`,
@@ -58,23 +91,35 @@ export function GroupedMethodGraph({
       id: g.id,
       depth:
         (view.nodes.find((n) => n.id === g.method.source)?.depth ?? 0) + 0.5,
-      label: `${copy.group} (${g.point.outcomes.length})`,
+      label: `${operationMessages[locale][operationKind(g.method) === 'add' ? 'add' : 'replace']} (${g.point.outcomes.length})`,
       state: null,
     })),
   ]
-  const rows = new Map<number, number>(),
-    positions = new Map<string, { x: number; y: number }>()
-  for (const v of vertices) {
-    const row = rows.get(v.depth) ?? 0
-    rows.set(v.depth, row + 1)
-    positions.set(v.id, { x: 110 + row * 240, y: 35 + v.depth * 180 })
+  const positions = new Map<string, { x: number; y: number; height: number }>()
+  let levelY = 20
+  for (const depth of [...new Set(vertices.map((v) => v.depth))].sort(
+    (a, b) => a - b,
+  )) {
+    const level = vertices.filter((v) => v.depth === depth)
+    let maxHeight = 0
+    level.forEach((v, index) => {
+      const height = v.state === null ? 180 : (measured[v.id] ?? 420)
+      maxHeight = Math.max(maxHeight, height)
+      positions.set(v.id, {
+        x: nodeWidth / 2 + 10 + index * (nodeWidth + 30),
+        y: levelY,
+        height,
+      })
+    })
+    levelY += maxHeight + 110
   }
-  const width = Math.max(320, ...[...positions.values()].map((p) => p.x + 115)),
-    height = Math.max(100, ...[...positions.values()].map((p) => p.y + 40))
-  const activate = (id: string, state: number | null) => {
-    if (state === null) setOpened(id)
-    else select(state)
-  }
+  const width = Math.max(
+      nodeWidth + 20,
+      ...[...positions.values()].map((p) => p.x + nodeWidth / 2 + 10),
+    ),
+    height = Math.max(100, levelY)
+  const actionLabels = new Set<string>()
+  const labelRows = new Map<string, number>()
   const kindLabel = (kind: string) =>
     kind === 'GOAL'
       ? common.hit
@@ -86,7 +131,7 @@ export function GroupedMethodGraph({
             ? common.unavailable
             : guide.result
   return (
-    <div className="method-map__overview">
+    <div ref={host} className="method-map__overview">
       <svg width={width} height={height} aria-label={common.title}>
         <defs>
           <marker
@@ -100,7 +145,7 @@ export function GroupedMethodGraph({
             <path d="M0,0 L8,4 L0,8 Z" fill="currentColor" />
           </marker>
         </defs>
-        {projection.edges.map((e, i) => {
+        {projection.edges.map((e) => {
           const source = positions.get(e.from),
             target = positions.get(e.to)
           if (!source || !target) return null
@@ -113,101 +158,143 @@ export function GroupedMethodGraph({
                   target: e.target,
                   kind: e.kind,
                 })
+          const actionKey = e.from + e.to + operationKind(e.method)
+          const showAction = !actionLabels.has(actionKey)
+          actionLabels.add(actionKey)
+          const pair = e.from + e.to
+          const labelRow = labelRows.get(pair) ?? 0
+          if (showAction) labelRows.set(pair, labelRow + 1)
           return (
-            <path
-              key={`${e.method.id}:${e.to}:${e.kind}`}
-              role="button"
-              tabIndex={0}
-              aria-label={e.method.initial
-                .concat(e.method.cycle)
-                .map(action)
-                .join(' → ')}
-              onClick={click}
-              onKeyDown={(event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                  event.preventDefault()
-                  click()
-                }
-              }}
-              className={
-                route.some(
-                  (r) => r.method === e.method.id && r.target === e.target,
-                )
-                  ? 'automatic-edge is-selected'
-                  : 'automatic-edge'
-              }
-              d={`M${source.x},${source.y + (e.from.startsWith('group:') ? 18 : 30)} Q${(source.x + target.x) / 2 + 12 + (i % 7) * 5},${(source.y + target.y) / 2} ${target.x},${target.y - (e.to.startsWith('group:') ? 18 : 30)}`}
-              fill="none"
-              stroke="currentColor"
-              strokeDasharray={e.kind === 'UNRESOLVED' ? '5 4' : undefined}
-              markerEnd={`url(#automatic-arrow-${view.id})`}
-            >
-              <title>
-                {e.method.initial
+            <g key={`${e.method.id}:${e.to}:${e.kind}`}>
+              <path
+                key={`${e.method.id}:${e.to}:${e.kind}`}
+                role="button"
+                tabIndex={0}
+                aria-label={e.method.initial
                   .concat(e.method.cycle)
                   .map(action)
                   .join(' → ')}
-                :{' '}
-                {(() => {
-                  const o = methodPoint(e.method, cycles)?.outcomes.find(
-                    (o) => o.target === e.target && o.kind === e.kind,
+                onClick={click}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault()
+                    click()
+                  }
+                }}
+                className={
+                  route.some(
+                    (r) => r.method === e.method.id && r.target === e.target,
                   )
-                  return o
-                    ? probabilityText(o.probability.lower, o.probability)
-                    : copy.group
-                })()}
-              </title>
-            </path>
+                    ? 'automatic-edge is-selected'
+                    : 'automatic-edge'
+                }
+                d={`M${source.x},${source.y + source.height} Q${(source.x + target.x) / 2 + 12},${(source.y + source.height + target.y) / 2} ${target.x},${target.y}`}
+                fill="none"
+                stroke="currentColor"
+                strokeDasharray={e.kind === 'UNRESOLVED' ? '5 4' : undefined}
+                markerEnd={`url(#automatic-arrow-${view.id})`}
+              >
+                <title>
+                  {e.method.initial
+                    .concat(e.method.cycle)
+                    .map(action)
+                    .join(' → ')}
+                  :{' '}
+                  {(() => {
+                    const o = methodPoint(e.method, cycles)?.outcomes.find(
+                      (o) => o.target === e.target && o.kind === e.kind,
+                    )
+                    return o
+                      ? probabilityText(o.probability.lower, o.probability)
+                      : guide.details
+                  })()}
+                </title>
+              </path>
+              {showAction && (
+                <text
+                  className="graph-action-label"
+                  x={(source.x + target.x) / 2}
+                  y={
+                    (source.y + source.height + target.y) / 2 -
+                    12 +
+                    labelRow * 18
+                  }
+                  textAnchor="middle"
+                >
+                  {operationKind(e.method) === 'other'
+                    ? e.method.cycle.map(action).join(' → ')
+                    : operationMessages[locale][
+                        operationKind(e.method) as 'add' | 'replace' | 'prepare'
+                      ]}
+                </text>
+              )}
+            </g>
           )
         })}
         {vertices.map((v) => {
-          const p = positions.get(v.id)!
+          const position = positions.get(v.id)!
+          if (v.state === null)
+            return (
+              <foreignObject
+                key={v.id}
+                x={position.x - nodeWidth / 2}
+                y={position.y}
+                width={nodeWidth}
+                height={position.height}
+              >
+                <div className="graph-operation-node">
+                  <span>{graphStateMessages[locale].step}</span>
+                  <button aria-label={v.label} onClick={() => setOpened(v.id)}>
+                    {v.label}
+                  </button>
+                  <p>{graphStateMessages[locale].candidates}</p>
+                </div>
+              </foreignObject>
+            )
+          const selectedEdge = [...route]
+            .reverse()
+            .find((e) => e.target === v.state)
+          const parents = [
+            ...new Set(
+              projection.edges
+                .filter((e) => e.target === v.state)
+                .map((e) => e.method.source),
+            ),
+          ]
+          const parent =
+            selectedEdge?.source ??
+            (parents.length === 1 ? parents[0] : undefined)
           return (
-            <g
+            <foreignObject
               key={v.id}
-              role="button"
-              tabIndex={0}
-              aria-label={v.label}
-              onClick={() => activate(v.id, v.state)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault()
-                  activate(v.id, v.state)
-                }
-              }}
+              data-state-id={v.state}
+              x={position.x - nodeWidth / 2}
+              y={position.y}
+              width={nodeWidth}
+              height={position.height + 2}
             >
-              {v.state === null ? (
-                <rect
-                  x={p.x - 100}
-                  y={p.y - 18}
-                  width={200}
-                  height={36}
-                  rx={7}
-                  fill="#343024"
-                  stroke="currentColor"
-                />
-              ) : (
-                <rect
-                  x={p.x - 90}
-                  y={p.y - 30}
-                  width={180}
-                  height={60}
-                  rx={10}
-                  fill={v.state === selected ? '#c69b57' : '#242424'}
-                  stroke="currentColor"
-                />
-              )}
-              <text x={p.x} y={p.y + 5} textAnchor="middle" fill="white">
-                {v.label}
-              </text>
-            </g>
+              <GraphItemState
+                card={cardFor(v.state)}
+                previous={parent === undefined ? undefined : cardFor(parent)}
+                badge={v.label}
+                selected={v.state === selected}
+                select={() => select(v.state!)}
+                onSize={(height) =>
+                  setMeasured((previous) =>
+                    previous[v.id] === height
+                      ? previous
+                      : { ...previous, [v.id]: height },
+                  )
+                }
+              />
+            </foreignObject>
           )
         })}
       </svg>
       {group && (
-        <section className="exalted-outcomes" aria-label={copy.group}>
+        <section className="exalted-outcomes" aria-label={groupTitle}>
           <h3>
-            {copy.group}:
+            {groupTitle}:
             {group.method.initial
               .concat(group.method.cycle)
               .map(action)
@@ -261,12 +348,15 @@ export function GroupedMethodGraph({
                       {guide.result} {index + 1}
                     </summary>
                     <ItemCard
-                      item={presentRollCell(
-                        view.nodes.find((n) => n.id === o.target)!.item,
-                        view.nodes.find((n) => n.id === o.target)!.rolls,
-                        locale,
-                        presentItem,
-                      )}
+                      item={
+                        frozenCards?.[String(o.target)]?.[locale] ??
+                        presentRollCell(
+                          view.nodes.find((n) => n.id === o.target)!.item,
+                          view.nodes.find((n) => n.id === o.target)!.rolls,
+                          locale,
+                          presentItem,
+                        )
+                      }
                     />
                   </details>
                 )}

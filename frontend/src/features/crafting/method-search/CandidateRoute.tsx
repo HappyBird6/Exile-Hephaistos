@@ -1,3 +1,5 @@
+import { operationGroups, operationKind } from './operationGrouping'
+import { operationMessages } from './operationMessages'
 import { isRepeatable, methodPoint } from './methodObservation'
 import { guideMessages } from './guideMessages'
 import { removesModifier } from './methodRisk'
@@ -48,30 +50,46 @@ export function CandidateRoute({
       {!visible.length && selected === 0 && <p>{guide.empty}</p>}
       <details>
         <summary>{guide.alternative}</summary>
-        <label>
-          {copy.incoming}
-          <select
-            aria-label={copy.incoming}
-            value=""
-            onChange={(e) => {
-              const edge = incoming[Number(e.target.value)]
-              if (edge) choose(edge)
-            }}
-          >
-            <option value="">{copy.choose}</option>
-            {incoming.map((e, i) => (
-              <option key={`${e.method}:${e.kind}`} value={i}>
-                {view.methods
-                  .find((m) => m.id === e.method)!
-                  .initial.concat(
-                    view.methods.find((m) => m.id === e.method)!.cycle,
-                  )
-                  .map(action)
-                  .join(' → ')}{' '}
-              </option>
-            ))}
-          </select>
-        </label>
+        <div className="operation-alternatives" aria-label={copy.incoming}>
+          {operationGroups(
+            view.methods.filter((m) => incoming.some((e) => e.method === m.id)),
+          ).map((group) => {
+            const kind = operationKind(group.variants[0]!)
+            return (
+              <details key={group.id}>
+                <summary>
+                  {kind === 'other'
+                    ? group.variants[0]!.cycle.map(action).join(' → ')
+                    : operationMessages[locale][kind]}{' '}
+                  ({group.variants.length})
+                </summary>
+                {group.variants.flatMap((m) =>
+                  incoming
+                    .filter((e) => e.method === m.id)
+                    .map((e) => {
+                      const outcome = methodPoint(m, cycles)?.outcomes.find(
+                        (o) => o.target === e.target && o.kind === e.kind,
+                      )
+                      return (
+                        <button
+                          key={m.id + ':' + e.target + ':' + e.kind}
+                          onClick={() => choose(e)}
+                        >
+                          {m.initial.concat(m.cycle).map(action).join(' → ')} ·{' '}
+                          {outcome
+                            ? probabilityText(
+                                outcome.probability.lower,
+                                outcome.probability,
+                              )
+                            : '?'}
+                        </button>
+                      )
+                    }),
+                )}
+              </details>
+            )
+          })}
+        </div>
         <button onClick={clear} disabled={!route.length}>
           {guide.reset}
         </button>

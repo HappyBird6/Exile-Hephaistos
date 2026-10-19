@@ -1,16 +1,11 @@
+import { scenarioGoalLabels } from '../method-search/scenarioPresentation'
 import { resetMessages } from './resetMessages'
 import { restoredStart } from './savedStart'
-import { saveSupport } from '../method-search/supportStorage'
+import { readSupport, saveSupport } from '../method-search/supportStorage'
 import { canonical } from '../path-tree/validation'
 import { workspaceMessages } from '../method-search/workspaceMessages'
 import { AutomaticMethodSearch as MethodSearch } from '../method-search/AutomaticMethodSearch'
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ReactNode } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { createStore } from 'zustand/vanilla'
@@ -109,6 +104,13 @@ export function CraftStart({
     })),
   )
   const draft = useStore(editor)
+  const [settingsExpanded, setSettingsExpanded] = useState(
+    () =>
+      readSupport(
+        'settings-expanded',
+        (v): v is boolean => typeof v === 'boolean',
+      ) ?? true,
+  )
   const [storageFailed, setStorageFailed] = useState(false)
   const persist = useCallback(() => {
     const d = editor.getState()
@@ -174,7 +176,6 @@ export function CraftStart({
   const dialog = useRef<HTMLDialogElement>(null)
   const preview = useRef<HTMLDivElement>(null)
   const tree = useRef<HTMLElement>(null)
-  const origin = useRef<DOMRect | null>(null)
   const [run, setRun] = useState(0)
   const [importOpen, setImportOpen] = useState(false)
   function closeImport() {
@@ -183,36 +184,6 @@ export function CraftStart({
     dialog.current?.close()
     importButton.current?.focus()
   }
-  useLayoutEffect(() => {
-    if (!run || !tree.current) return
-    const reduced = window.matchMedia?.(
-      '(prefers-reduced-motion: reduce)',
-    ).matches
-    const target = tree.current.querySelector<HTMLElement>('.craft-start-root')
-    if (target && origin.current && !reduced) {
-      const rect = target.getBoundingClientRect()
-      target.animate?.(
-        [
-          {
-            transform:
-              'translate(' +
-              (origin.current.x - rect.x) +
-              'px, ' +
-              (origin.current.y - rect.y) +
-              'px)',
-            opacity: 0.65,
-          },
-          { transform: 'translate(0, 0)', opacity: 1 },
-        ],
-        { duration: 320, easing: 'ease-out' },
-      )
-    }
-    tree.current.focus({ preventScroll: true })
-    tree.current.scrollIntoView?.({
-      block: 'start',
-      behavior: reduced ? 'instant' : 'smooth',
-    })
-  }, [run])
   const inventory = useQuery({
     queryKey: ['craftStart', 'inventory'],
     enabled: active,
@@ -320,7 +291,7 @@ export function CraftStart({
     })
   }
   useEffect(() => {
-    if (inventory.data && !editor.getState().text) {
+    if (inventory.data && !editor.getState().text && !editor.getState().item) {
       const entry = inventory.data.find((e) => e.base[0] === 'solar')
       if (entry) {
         const item = concreteInitial(entry.initial)
@@ -559,21 +530,20 @@ export function CraftStart({
       <section className="craft-start-target">
         <button
           className="craft-start-disclosure"
-          aria-expanded={draft.editing}
+          aria-expanded={settingsExpanded}
           aria-controls="craft-start-settings"
           ref={editButton}
           onClick={() => {
-            update({ editing: !draft.editing })
-            if (!draft.editing)
-              queueMicrotask(() => startButton.current?.focus())
+            setSettingsExpanded(!settingsExpanded)
+            saveSupport('settings-expanded', !settingsExpanded)
           }}
         >
           <span>
-            {draft.editing ? '▾' : '▸'} {copy.setup}
+            {settingsExpanded ? '▾' : '▸'} {copy.setup}
           </span>
-          <span>{draft.editing ? copy.hide : copy.edit}</span>
+          <span>{settingsExpanded ? copy.hide : copy.edit}</span>
         </button>
-        <div id="craft-start-settings" hidden={!draft.editing}>
+        <div id="craft-start-settings" hidden={!settingsExpanded}>
           {draft.item && !currentRules && (
             <p role="alert">{t('ruleset.request_changed')}</p>
           )}
@@ -896,8 +866,6 @@ export function CraftStart({
                     update({ searchIssue: true })
                     return
                   }
-                  origin.current =
-                    preview.current?.getBoundingClientRect() ?? null
                   update({
                     started: true,
                     searchRequest,
@@ -970,6 +938,11 @@ export function CraftStart({
             <MethodSearch
               active={active}
               request={draft.searchRequest}
+              scenarioBaseKey={draft.base}
+              goalLabels={scenarioGoalLabels(
+                draft.rootDefinitions,
+                draft.searchRequest.goal,
+              )}
               inputGeneration={run}
               abstractQuality40={draft.abstractQuality40}
               presentItem={createItemPresentation(

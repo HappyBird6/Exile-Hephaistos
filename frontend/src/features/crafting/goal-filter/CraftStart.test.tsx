@@ -218,6 +218,13 @@ describe('Craft Support starting screen', () => {
     expect(captured.goal.groups[0]!.type).toBe('AND')
     expect(captured.observations).toEqual(['100', '300', '500'])
     const frozen = structuredClone(captured)
+    expect(
+      screen.getByRole('button', { name: /Hide settings/ }),
+    ).toHaveAttribute('aria-expanded', 'true')
+    fireEvent.click(screen.getByRole('button', { name: /Hide settings/ }))
+    expect(
+      screen.getByRole('button', { name: /Edit settings/ }),
+    ).toHaveAttribute('aria-expanded', 'false')
     fireEvent.click(screen.getByRole('button', { name: /Edit settings/ }))
     fireEvent.change(screen.getByLabelText('Starting equipment type'), {
       target: { value: 'Rings' },
@@ -324,6 +331,13 @@ describe('Craft Support starting screen', () => {
     ).toHaveValue(15)
     expect(screen.getByRole('button', { name: 'Start Crafting' })).toBeEnabled()
     fireEvent.click(screen.getByRole('button', { name: 'Start Crafting' }))
+    expect(
+      screen.getByRole('button', { name: /Hide settings/ }),
+    ).toHaveAttribute('aria-expanded', 'true')
+    fireEvent.click(screen.getByRole('button', { name: /Hide settings/ }))
+    expect(
+      screen.getByRole('button', { name: /Edit settings/ }),
+    ).toHaveAttribute('aria-expanded', 'false')
     fireEvent.click(screen.getByRole('button', { name: /Edit settings/ }))
     expect(level).toHaveValue(79)
     fireEvent.click(
@@ -376,6 +390,13 @@ describe('Craft Support starting screen', () => {
     expect(
       screen.getByRole('region', { name: 'Crafting tree preview' }),
     ).toHaveTextContent('+10 to maximum Life')
+    expect(
+      screen.getByRole('button', { name: /Hide settings/ }),
+    ).toHaveAttribute('aria-expanded', 'true')
+    fireEvent.click(screen.getByRole('button', { name: /Hide settings/ }))
+    expect(
+      screen.getByRole('button', { name: /Edit settings/ }),
+    ).toHaveAttribute('aria-expanded', 'false')
     fireEvent.click(screen.getByRole('button', { name: /Edit settings/ }))
     expect(rarity).toHaveValue('MAGIC')
     fireEvent.click(
@@ -451,7 +472,7 @@ describe('Craft Support starting screen', () => {
     expect(screen.getByRole('dialog')).toBeVisible()
   })
   it.each(locales)(
-    'keeps setup controls accessible in %s and focuses the result without motion',
+    'keeps setup controls visible in %s without automatic focus or motion',
     async (locale) => {
       await setup()
       act(() => setLocale(locale))
@@ -465,9 +486,18 @@ describe('Craft Support starting screen', () => {
       const previous = HTMLElement.prototype.animate
       HTMLElement.prototype.animate = animate
       try {
-        fireEvent.click(screen.getByRole('button', { name: copy.start }))
-        expect(screen.getByRole('region', { name: copy.tree })).toHaveFocus()
+        const start = screen.getByRole('button', { name: copy.start })
+        start.focus()
+        fireEvent.click(start)
+        expect(start).toHaveFocus()
+        expect(screen.getByRole('region', { name: copy.tree })).toBeVisible()
+        expect(
+          screen.getByRole('combobox', { name: copy.typeLabel }),
+        ).toBeVisible()
         expect(animate).not.toHaveBeenCalled()
+        fireEvent.click(
+          screen.getByRole('button', { name: new RegExp(copy.hide) }),
+        )
         fireEvent.click(
           screen.getByRole('button', { name: new RegExp(copy.edit) }),
         )
@@ -501,6 +531,13 @@ describe('Craft Support starting screen', () => {
       screen.getByRole('region', { name: 'Crafting tree preview' }),
     ).toHaveTextContent('Iron Ring')
     expect(screen.getByLabelText('Starting item text')).not.toBeVisible()
+    expect(
+      screen.getByRole('button', { name: /Hide settings/ }),
+    ).toHaveAttribute('aria-expanded', 'true')
+    fireEvent.click(screen.getByRole('button', { name: /Hide settings/ }))
+    expect(
+      screen.getByRole('button', { name: /Edit settings/ }),
+    ).toHaveAttribute('aria-expanded', 'false')
     fireEvent.click(screen.getByRole('button', { name: /Edit settings/ }))
     expect(screen.getByLabelText('Target draft')).toHaveValue('Spirit target')
     fireEvent.click(screen.getByRole('button', { name: 'Start Crafting' }))
@@ -602,6 +639,13 @@ describe('Craft Support starting screen', () => {
     expect(
       screen.getByRole('region', { name: 'Crafting tree preview' }),
     ).toHaveTextContent('Iron Ring')
+    expect(
+      screen.getByRole('button', { name: /Hide settings/ }),
+    ).toHaveAttribute('aria-expanded', 'true')
+    fireEvent.click(screen.getByRole('button', { name: /Hide settings/ }))
+    expect(
+      screen.getByRole('button', { name: /Edit settings/ }),
+    ).toHaveAttribute('aria-expanded', 'false')
     fireEvent.click(screen.getByRole('button', { name: /Edit settings/ }))
     expect(
       screen.getByRole('spinbutton', { name: /Value.*maximum Life/ }),
@@ -652,6 +696,13 @@ describe('Craft Support starting screen', () => {
     )
     expect(preview).toHaveTextContent('+18 to maximum Life')
     fireEvent.click(screen.getByRole('button', { name: 'Start Crafting' }))
+    expect(
+      screen.getByRole('button', { name: /Hide settings/ }),
+    ).toHaveAttribute('aria-expanded', 'true')
+    fireEvent.click(screen.getByRole('button', { name: /Hide settings/ }))
+    expect(
+      screen.getByRole('button', { name: /Edit settings/ }),
+    ).toHaveAttribute('aria-expanded', 'false')
     fireEvent.click(screen.getByRole('button', { name: /Edit settings/ }))
     fireEvent.click(
       screen.getByRole('button', { name: 'Remove starting modifier 1' }),
@@ -710,6 +761,15 @@ it('goal reset immediately invalidates the committed calculation while preservin
   const before = JSON.parse(
     localStorage.getItem('hephaistos.support.v1:start')!,
   ).data.item
+  expect(screen.getByRole('button', { name: /Hide settings/ })).toHaveAttribute(
+    'aria-expanded',
+    'true',
+  )
+  fireEvent.click(screen.getByRole('button', { name: /Hide settings/ }))
+  expect(screen.getByRole('button', { name: /Edit settings/ })).toHaveAttribute(
+    'aria-expanded',
+    'false',
+  )
   fireEvent.click(screen.getByRole('button', { name: /Edit settings/ }))
   fireEvent.click(screen.getByRole('button', { name: 'Reset goal' }))
   const saved = JSON.parse(

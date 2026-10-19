@@ -1,3 +1,6 @@
+import { ScenarioExport } from './ScenarioCodePanel'
+import type { Scenario } from './scenarioCode'
+import { OperationCards } from './OperationCards'
 import { retryMessages } from './retryMessages'
 import { capacityMessages } from './capacityMessages'
 import { sumBounds } from './outcomeGrouping'
@@ -36,7 +39,12 @@ import {
 import type { AutomaticAction, AutomaticView } from './automaticApi'
 import './method-search.css'
 
-export function AutomaticMethodSearch(props: PathTreeProps) {
+type Props = PathTreeProps & {
+  snapshot?: Scenario | undefined
+  scenarioBaseKey?: string | undefined
+  goalLabels?: Scenario['goalLabels']
+}
+export function AutomaticMethodSearch(props: Props) {
   return (
     <Run
       key={canonical([
@@ -55,13 +63,24 @@ function Run({
   onRecalculate,
   abstractQuality40 = false,
   active = true,
-}: PathTreeProps) {
+  snapshot,
+  scenarioBaseKey = 'solar',
+  goalLabels,
+}: Props) {
   const { locale, name } = useI18n(),
     copy = methodSearchMessages[locale],
     common = pathTreeMessages[locale],
     policy = policyMessages[locale],
     quality = qualityWorkMessages[locale]
   const [saved] = useState(() => {
+    if (snapshot)
+      return {
+        request: request.clientRequestId,
+        job: snapshot.result.id,
+        selected: snapshot.selected,
+        cycles: snapshot.cycles,
+        route: snapshot.route,
+      }
     const stored = readSupport('run', validRun)
     return stored?.request === request.clientRequestId ? stored : null
   })
@@ -72,9 +91,11 @@ function Run({
   const [controlPhase, setControlPhase] = useState<'STOP' | 'RESUME' | null>(
     null,
   )
-  const [runEnabled, setRunEnabled] = useState(!saved)
+  const [runEnabled, setRunEnabled] = useState(!snapshot && !saved)
   const [route, setRoute] = useState<Selection[]>(saved?.route ?? [])
-  const [view, setView] = useState<AutomaticView | null>(null),
+  const [view, setView] = useState<AutomaticView | null>(
+      snapshot?.result ?? null,
+    ),
     [failed, setFailed] = useState(false),
     [busy, setBusy] = useState(false),
     [cycles, setCycles] = useState(saved?.cycles ?? 100),
@@ -90,6 +111,7 @@ function Run({
     }
   }
   useEffect(() => {
+    if (snapshot) return
     alive.current = true
     const turn = ++token.current
     const controller = new AbortController()
@@ -273,7 +295,7 @@ function Run({
   )
   const jobId = view?.id
   useEffect(() => {
-    if (!jobId) return
+    if (!jobId || snapshot) return
     const persist = () =>
       setStorageFailed(
         !saveSupport('run', {
@@ -290,7 +312,7 @@ function Run({
       clearTimeout(timer)
       window.removeEventListener('pagehide', persist)
     }
-  }, [jobId, request.clientRequestId, selected, cycles, route])
+  }, [jobId, request.clientRequestId, selected, cycles, route, snapshot])
   const selectNode = (id: number) => {
     setSelected(id)
     setRoute((previous) => {
@@ -344,47 +366,63 @@ function Run({
           )}
         />
       )}
-      <div className="method-map__controls">
-        <button
-          onClick={stop}
-          disabled={
-            !view || view.status === 'CANCELLED' || controlPhase !== null
-          }
-        >
-          {controlPhase === 'STOP' ? (
-            <CalculationControlLabel state="stopping" />
-          ) : (
-            common.stop
-          )}
-        </button>
-        {view &&
-          (['PAUSED', 'CANCELLED'].includes(view.status) ||
-            (view.status === 'READY' && !runEnabled)) && (
-            <button
-              disabled={
-                busy || controlPhase !== null || view.canResume === false
-              }
-              onClick={() => {
-                setRunEnabled(true)
-                if (view.status !== 'READY') void command('RESUME')
-              }}
-            >
-              {controlPhase === 'RESUME' ? (
-                <CalculationControlLabel state="resuming" />
-              ) : (
-                common.resume
-              )}
-            </button>
-          )}
-        <button
-          onClick={() => {
-            stop()
-            onRecalculate()
-          }}
-        >
-          {common.recalculate}
-        </button>
-      </div>
+      {!snapshot && (
+        <div className="method-map__controls">
+          <button
+            onClick={stop}
+            disabled={
+              !view || view.status === 'CANCELLED' || controlPhase !== null
+            }
+          >
+            {controlPhase === 'STOP' ? (
+              <CalculationControlLabel state="stopping" />
+            ) : (
+              common.stop
+            )}
+          </button>
+          {view &&
+            (['PAUSED', 'CANCELLED'].includes(view.status) ||
+              (view.status === 'READY' && !runEnabled)) && (
+              <button
+                disabled={
+                  busy || controlPhase !== null || view.canResume === false
+                }
+                onClick={() => {
+                  setRunEnabled(true)
+                  if (view.status !== 'READY') void command('RESUME')
+                }}
+              >
+                {controlPhase === 'RESUME' ? (
+                  <CalculationControlLabel state="resuming" />
+                ) : (
+                  common.resume
+                )}
+              </button>
+            )}
+          <button
+            onClick={() => {
+              stop()
+              onRecalculate()
+            }}
+          >
+            {common.recalculate}
+          </button>
+        </div>
+      )}
+      {view && (
+        <ScenarioExport
+          request={request}
+          view={view}
+          selected={selectedNode?.id ?? 0}
+          cycles={cycles}
+          route={validRoute(view, route, cycles) ? route : []}
+          presentItem={presentItem}
+          abstractQuality40={abstractQuality40}
+          baseKey={scenarioBaseKey}
+          frozen={snapshot}
+          goalLabels={goalLabels}
+        />
+      )}
       {view && (
         <>
           <div className="automatic-workspace">
@@ -397,6 +435,7 @@ function Run({
               select={selectNode}
               action={action}
               presentItem={presentItem}
+              frozenCards={snapshot?.cards}
             />
             <aside className="automatic-inspector">
               <h3>{guide.selected}</h3>
@@ -431,12 +470,15 @@ function Run({
                           : common.unknown}
                     </p>
                     <ItemCard
-                      item={presentRollCell(
-                        selectedNode.item,
-                        selectedNode.rolls,
-                        locale,
-                        presentItem,
-                      )}
+                      item={
+                        snapshot?.cards[String(selectedNode.id)]?.[locale] ??
+                        presentRollCell(
+                          selectedNode.item,
+                          selectedNode.rolls,
+                          locale,
+                          presentItem,
+                        )
+                      }
                     />
                     {onEditState && (
                       <>
@@ -468,9 +510,13 @@ function Run({
                 <h3>{guide.next}</h3>
               )}
               <div className="method-map__methods">
-                {view.methods
-                  .filter((m) => m.source === selectedNode?.id)
-                  .map((m, methodIndex) => {
+                <OperationCards
+                  methods={view.methods.filter(
+                    (m) => m.source === selectedNode?.id,
+                  )}
+                  cycles={cycles}
+                  action={action}
+                  render={(m, methodIndex) => {
                     const point = methodPoint(m, cycles)
                     const local = recommendations?.local.includes(m.id),
                       final =
@@ -666,7 +712,8 @@ function Run({
                         </article>
                       </details>
                     )
-                  })}
+                  }}
+                />
               </div>
             </aside>
           </div>

@@ -17,7 +17,7 @@ export function exaltedGroups(
       !point ||
       method.cycle.length !== 1 ||
       method.initial.some((a) => a.currency.includes('ESSENCE')) ||
-      !/^(GREATER_|PERFECT_)?EXALTED$/.test(method.cycle[0]!.currency)
+      !/^(GREATER_|PERFECT_)?(EXALTED|CHAOS)$/.test(method.cycle[0]!.currency)
     )
       return []
     const targets = new Set(

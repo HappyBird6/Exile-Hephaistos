@@ -325,3 +325,235 @@
 .method-map__methods > .craft-choice > article {
   border: 0;
 }
+
+.operation-card {
+  border: 1px solid #526675;
+  border-radius: 0.65rem;
+  padding: 0.8rem;
+  margin-block: 0.8rem;
+  background: #17232e;
+}
+.operation-card h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+.operation-card p {
+  line-height: 1.5;
+}
+.operation-variants [role='group'] {
+  display: grid;
+  gap: 0.5rem;
+  margin-block: 0.6rem;
+}
+.operation-variants button {
+  text-align: left;
+  white-space: normal;
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.65rem;
+}
+.operation-variants button[aria-pressed='true'] {
+  outline: 2px solid #63d1bb;
+}
+
+.scenario-import,
+.scenario-export {
+  padding: 0.8rem;
+  border: 1px solid #526675;
+  border-radius: 0.5rem;
+  margin-block: 0.8rem;
+}
+.scenario-import textarea,
+.scenario-export textarea {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+.scenario-import pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 20rem;
+  overflow: auto;
+}
+.scenario-import button,
+.scenario-export button {
+  margin: 0.3rem;
+}
+.scenario-preview {
+  border-left: 3px solid #63d1bb;
+  padding: 1rem;
+}
+
+.operation-alternatives button {
+  display: block;
+  width: 100%;
+  white-space: normal;
+  text-align: left;
+  margin-block: 0.4rem;
+  padding: 0.6rem;
+}
+
+#panel-support {
+  width: 100%;
+  min-width: 0;
+}
+#panel-support .craft-start {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  margin-inline: 0;
+}
+#panel-support .scenario-import {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+.scenario-code-entry {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: end;
+}
+.scenario-code-entry > label {
+  flex: 1 1 26rem;
+  min-width: 0;
+}
+#panel-support .scenario-code-entry textarea {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  height: 48px;
+  resize: vertical;
+  padding: 0.65rem;
+  background: #101512;
+  color: #dfcfad;
+  border: 1px solid #494737;
+  border-radius: 5px;
+  font:
+    14px ui-monospace,
+    monospace;
+}
+.scenario-code-entry > button,
+#crafting-policy {
+  min-height: 44px;
+  padding: 10px 14px;
+  background: #20251f;
+  color: #dfcfad;
+  border: 1px solid #494737;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.scenario-policy-control {
+  margin-left: auto;
+  flex: 0 1 auto;
+}
+.scenario-code-status,
+.scenario-code-help,
+.scenario-preview {
+  flex-basis: 100%;
+  min-width: 0;
+}
+.scenario-code-help {
+  color: #a7ac9e;
+  font-size: 0.9rem;
+}
+@media (max-width: 600px) {
+  .scenario-code-entry > label {
+    flex-basis: 100%;
+  }
+  .scenario-policy-control {
+    margin-left: auto;
+  }
+  #panel-support .craft-start {
+    margin-inline: 0;
+  }
+}
+
+.graph-item-state {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  background: #151a17;
+  border: 1px solid #636452;
+  border-radius: 8px;
+  color: #dfcfad;
+}
+.graph-item-state.is-selected {
+  border: 2px solid #d7bc82;
+}
+.graph-item-state .item-card {
+  font-size: 15px;
+  line-height: 1.5;
+}
+.graph-item-state .item-card h2 {
+  font-size: 17px;
+}
+.graph-item-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+.graph-item-state button {
+  width: 100%;
+  min-height: 40px;
+  margin-top: 8px;
+  color: #dfcfad;
+  background: #242c24;
+  border: 1px solid #65674e;
+  border-radius: 4px;
+}
+.item-card__line--added {
+  background: #24482f;
+  border-left: 3px solid #80d69b;
+}
+.item-card__line--changed {
+  background: #4d4022;
+  border-left: 3px solid #e8c56b;
+}
+.graph-added {
+  color: #80d69b;
+}
+.graph-changed {
+  color: #e8c56b;
+}
+.graph-removed {
+  color: #f2aaa3;
+  font-size: 14px;
+}
+.graph-removed ul {
+  margin: 0.2rem 0;
+  padding-left: 1.2rem;
+}
+.graph-operation-node {
+  padding: 12px;
+  border: 1px dashed #8c805b;
+  border-radius: 8px;
+  background: #24291f;
+  color: #dfcfad;
+  font-size: 14px;
+}
+.graph-operation-node button {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px;
+  color: inherit;
+  background: #343a29;
+  border: 1px solid #8c805b;
+}
+.graph-action-label {
+  fill: #dfcfad;
+  font-size: 13px;
+  paint-order: stroke;
+  stroke: #1b222b;
+  stroke-width: 5px;
+  stroke-linejoin: round;
+}

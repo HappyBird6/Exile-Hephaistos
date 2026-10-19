@@ -186,13 +186,13 @@ it('hides repetition N for a single Exalted, exposes individual outcomes and con
     />,
   )
   const group = await screen.findByRole('button', {
-    name: 'Exalted outcomes (3)',
+    name: 'Add one modifier (3)',
   })
   expect(
     screen.queryByRole('combobox', { name: 'Method repetitions' }),
   ).not.toBeInTheDocument()
   fireEvent.click(group)
-  const details = screen.getByRole('region', { name: 'Exalted outcomes' })
+  const details = screen.getByRole('region', { name: 'Add one modifier' })
   expect(within(details).getAllByText(/25.00%/).length).toBeGreaterThan(0)
   fireEvent.click(within(details).getByRole('button', { name: 'Result 1' }))
   expect(await screen.findByLabelText('Other results')).toHaveValue('1')
