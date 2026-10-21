@@ -9,6 +9,7 @@ export type SavedStart = {
   item: ConcreteItem | null
   rulesetIdentity: string | null
   abstractQuality40: boolean
+  abstractQuality?: number
   editing: boolean
   started: boolean
   levelEdited: boolean
@@ -29,6 +30,13 @@ export function loadStart() {
         !['abstractQuality40', 'editing', 'started', 'levelEdited'].every(
           (k) => typeof v[k as keyof SavedStart] === 'boolean',
         )
+      )
+        return false
+      if (
+        v.abstractQuality !== undefined &&
+        (!Number.isInteger(v.abstractQuality) ||
+          v.abstractQuality < 0 ||
+          v.abstractQuality > 40)
       )
         return false
       if (v.item !== null) {
@@ -54,7 +62,14 @@ export function loadStart() {
   })
 }
 export function restoredStart() {
-  const saved = loadStart()
+  const stored = loadStart()
+  const saved = stored
+    ? {
+        ...stored,
+        abstractQuality:
+          stored.abstractQuality ?? (stored.abstractQuality40 ? 40 : 0),
+      }
+    : null
   if (!saved) return {}
   return saved.searchRequest && hasImplicitGoal(saved.searchRequest.goal)
     ? { ...saved, searchRequest: null, editing: true }

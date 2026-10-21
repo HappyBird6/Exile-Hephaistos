@@ -91,7 +91,7 @@ public final class GoalFilterService {
       }
     }
     // Quality can change displayed values. Never assume its source values are final display values.
-    if (item.catalystQuality() != null) {
+    if (item.catalystQuality() != null && goal.groups().stream().anyMatch(g -> !g.disabled())) {
       supported = false;
       issues.add(
           Issue.warning(
@@ -123,6 +123,9 @@ public final class GoalFilterService {
     var generalStatus =
         general.itemLevel().contains(BigDecimal.valueOf(item.itemLevel()))
                 && general.rarities().contains(item.rarity())
+                && (general.quality() == null
+                    || general.quality()
+                        <= (item.catalystQuality() == null ? 0 : item.catalystQuality().amount()))
             ? Status.MATCH
             : Status.NO_MATCH;
     var result = evaluator.evaluate(goal, generalStatus, observations, issues);
@@ -155,6 +158,11 @@ public final class GoalFilterService {
             goal,
             goal.general().itemLevel().contains(BigDecimal.valueOf(state.itemLevel()))
                     && goal.general().rarities().contains(state.rarity())
+                    && (goal.general().quality() == null
+                        || goal.general().quality()
+                            <= (state.catalystQuality() == null
+                                ? 0
+                                : state.catalystQuality().amount()))
                 ? Status.MATCH
                 : Status.NO_MATCH,
             projection.project(state, known, true),

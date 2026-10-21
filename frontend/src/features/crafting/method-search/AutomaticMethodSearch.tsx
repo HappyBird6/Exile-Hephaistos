@@ -1,3 +1,4 @@
+import { qualityGoalMessages } from '../goal-filter/qualityGoalMessages'
 import { SearchResources } from './SearchResources'
 import { ScenarioExport } from './ScenarioCodePanel'
 import type { Scenario } from './scenarioCode'
@@ -54,6 +55,7 @@ export function AutomaticMethodSearch(props: Props) {
         props.inputGeneration,
         props.request,
         props.abstractQuality40,
+        props.abstractQuality,
       ])}
       {...props}
     />
@@ -65,6 +67,7 @@ function Run({
   onEditState,
   onRecalculate,
   abstractQuality40 = false,
+  abstractQuality = abstractQuality40 ? 40 : 0,
   active = true,
   snapshot,
   scenarioBaseKey = 'solar',
@@ -103,7 +106,7 @@ function Run({
     ),
     [failed, setFailed] = useState(false),
     [busy, setBusy] = useState(false),
-    [cycles, setCycles] = useState(saved?.cycles ?? 100),
+    [cycles, setCycles] = useState(snapshot?.cycles ?? 100),
     [selected, setSelected] = useState(saved?.selected ?? 0)
   const current = useRef<AutomaticView | null>(null),
     alive = useRef(false),
@@ -136,6 +139,7 @@ function Run({
                 request,
                 controller.signal,
                 abstractQuality40,
+                abstractQuality,
               )
         } catch (error) {
           if (
@@ -162,7 +166,7 @@ function Run({
             request: request.clientRequestId,
             job: next.id,
             selected: saved?.selected ?? 0,
-            cycles: saved?.cycles ?? 100,
+            cycles: 100,
             route: saved?.route ?? [],
           }),
         )
@@ -303,24 +307,26 @@ function Run({
   const selectedNode =
     view?.nodes.find((n) => n.id === selected) ?? view?.nodes[0]
   const action = (a: AutomaticAction) =>
-    a.purpose === 'QUALITY_CHECKPOINT'
-      ? quality.work
-      : `${localizedAction(a.currency as WorkbenchAction)}${
-          a.omens.length
-            ? ` + ${a.omens
-                .map((o) =>
-                  name(
-                    `Omen_of_${o
-                      .toLowerCase()
-                      .split('_')
-                      .map((p) => p[0]!.toUpperCase() + p.slice(1))
-                      .join('_')}`,
-                    o.replaceAll('_', ' '),
-                  ),
-                )
-                .join(' + ')}`
-            : ''
-        }`
+    a.purpose === 'QUALITY_BASE_CHECKPOINT'
+      ? qualityGoalMessages[locale].work20
+      : a.purpose === 'QUALITY_CHECKPOINT'
+        ? quality.work
+        : `${localizedAction(a.currency as WorkbenchAction)}${
+            a.omens.length
+              ? ` + ${a.omens
+                  .map((o) =>
+                    name(
+                      `Omen_of_${o
+                        .toLowerCase()
+                        .split('_')
+                        .map((p) => p[0]!.toUpperCase() + p.slice(1))
+                        .join('_')}`,
+                      o.replaceAll('_', ' '),
+                    ),
+                  )
+                  .join(' + ')}`
+              : ''
+          }`
   const guide = guideMessages[locale]
   const recommendations = view?.recommendations.find(
     (r) => r.node === selectedNode?.id && r.cycles === cycles,
@@ -458,6 +464,7 @@ function Run({
           route={validRoute(view, route, cycles) ? route : []}
           presentItem={presentItem}
           abstractQuality40={abstractQuality40}
+          abstractQuality={abstractQuality}
           baseKey={scenarioBaseKey}
           frozen={snapshot}
           goalLabels={goalLabels}
@@ -502,12 +509,18 @@ function Run({
                 <div className="method-map__states">
                   <article>
                     {selectedNode.quality40 && <p>{quality.completed}</p>}
+                    {!selectedNode.quality40 &&
+                      (selectedNode.abstractQuality ?? 0) >= 20 && (
+                        <p>{qualityGoalMessages[locale].work20} ✓</p>
+                      )}
                     <p>
                       {selectedNode.progress.goal === 'MATCH'
                         ? common.hit
                         : selectedNode.progress.goal === 'NO_MATCH'
                           ? common.noMatch
-                          : common.unknown}
+                          : selectedNode.progress.goal === 'UNSUPPORTED'
+                            ? common.unsupported
+                            : common.unknown}
                     </p>
                     <ItemCard
                       item={
@@ -527,6 +540,9 @@ function Run({
                             stop()
                             onEditState(structuredClone(selectedNode.item), {
                               abstractQuality40: selectedNode.quality40,
+                              abstractQuality:
+                                selectedNode.abstractQuality ??
+                                (selectedNode.quality40 ? 40 : 0),
                             })
                           }}
                         >
@@ -576,8 +592,6 @@ function Run({
                             {isRepeatable(m)
                               ? (m.initial.length
                                   ? m.initial.map(action).join(' → ') +
-                                    ': ' +
-                                    guide.once +
                                     ' · ' +
                                     m.cycle.map(action).join(' → ') +
                                     ': '
@@ -585,7 +599,7 @@ function Run({
                                 guide.within.replace('{n}', String(cycles))
                               : m.executionMode === 'PENDING'
                                 ? outcomeMessages[locale].pending
-                                : guide.once}
+                                : ''}
                           </span>
                           {point && (
                             <span className="craft-chance">
@@ -641,13 +655,17 @@ function Run({
                               <select
                                 aria-label={copy.cycles}
                                 value={cycles}
-                                onChange={(e) =>
-                                  setCycles(Number(e.target.value))
+                                onChange={(event) =>
+                                  setCycles(
+                                    snapshot ? Number(event.target.value) : 100,
+                                  )
                                 }
                               >
-                                {[100, 300, 500].map((n) => (
-                                  <option key={n}>{n}</option>
-                                ))}
+                                {(snapshot ? [100, 300, 500] : [100]).map(
+                                  (n) => (
+                                    <option key={n}>{n}</option>
+                                  ),
+                                )}
                               </select>
                             </label>
                           )}

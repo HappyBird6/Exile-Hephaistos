@@ -16,6 +16,7 @@ import type { Editor } from './editor'
 import { goalFilterMessages, goalFilterActions } from './i18n'
 import type { GoalFilterLanguage } from './i18n'
 import { groupTypes, weighted } from './types'
+import { qualityGoalMessages } from './qualityGoalMessages'
 import { setupMessages } from './setupMessages'
 import { startInputMessages } from './startInputMessages'
 import { PickerPopover } from './PickerPopover'
@@ -423,6 +424,33 @@ export function GoalFilterPanel({
         <h2>{t.title}</h2>
         {adapter.mock && <p>{t.mock}</p>}
       </header>
+      <label className="goal-filter-general-row">
+        <span>{qualityGoalMessages[language].label}</span>
+        <input
+          type="number"
+          min={0}
+          max={40}
+          step={1}
+          aria-label={qualityGoalMessages[language].label}
+          aria-invalid={invalidFields.quality === true}
+          value={goal.general.quality ?? ''}
+          onChange={(event) => {
+            const value = event.target.value
+            const quality = value === '' ? null : Number(value)
+            onValidityChange(
+              'quality',
+              quality !== null &&
+                (!Number.isInteger(quality) || quality < 0 || quality > 40),
+            )
+            edit((g) => {
+              g.general.quality = quality
+            })
+          }}
+        />
+      </label>
+      {(goal.general.quality ?? 0) > 20 && (
+        <p>{qualityGoalMessages[language].above20}</p>
+      )}
       <div className="goal-filter-layout">
         {compact && (
           <fieldset className="goal-filter-rarity">

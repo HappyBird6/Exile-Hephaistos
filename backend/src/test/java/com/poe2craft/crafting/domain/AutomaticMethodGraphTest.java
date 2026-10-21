@@ -53,8 +53,24 @@ class AutomaticMethodGraphTest {
       for (int i = 0; i < 30000 && !graph.resourceLimited(); i++) {
         graph.step();
         if (i % 100 == 0) graph.publishProgress();
-        if (graph.nodes().stream()
-            .anyMatch(n -> n.depth() == 2 && n.progress().goal() == Status.MATCH)) break;
+        // Candidate ranking may discover the first goal before the other milestone
+        // order. Observe the whole diamond asserted below, within the same budget.
+        var visible = graph.nodes();
+        if (visible.stream().anyMatch(n -> n.depth() == 2 && n.progress().goal() == Status.MATCH)
+            && visible.stream()
+                .anyMatch(
+                    n ->
+                        n.depth() == 1
+                            && n.progress()
+                                .entries()
+                                .equals(List.of(Status.MATCH, Status.NO_MATCH)))
+            && visible.stream()
+                .anyMatch(
+                    n ->
+                        n.depth() == 1
+                            && n.progress()
+                                .entries()
+                                .equals(List.of(Status.NO_MATCH, Status.MATCH)))) break;
       }
       graph.publishProgress();
       assertThat(graph.nodes())

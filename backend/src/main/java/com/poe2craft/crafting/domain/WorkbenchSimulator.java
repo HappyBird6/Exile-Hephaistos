@@ -612,6 +612,19 @@ public final class WorkbenchSimulator {
     validate(state);
     var action = execution.currency();
     var omens = List.copyOf(execution.omens());
+    if (action == WorkbenchCurrency.TRANSMUTATION && omens.isEmpty()) {
+      var plan = basicCurrencyPlan(state, action);
+      return new AutomaticCraftingPlan(
+          plan.available()
+              ? AutomaticCraftingPlan.Status.READY
+              : AutomaticCraftingPlan.Status.UNAVAILABLE,
+          plan.reason(),
+          plan.branches().stream()
+              .map(b -> new AutomaticCraftingPlan.Branch(b.remaining(), b.candidates()))
+              .toList(),
+          false,
+          "https://poe2db.tw/us/Orb_of_Transmutation");
+    }
     boolean basic =
         action == WorkbenchCurrency.REGAL
             || action == WorkbenchCurrency.EXALTED

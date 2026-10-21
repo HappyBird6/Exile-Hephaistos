@@ -43,6 +43,12 @@ public final class GoalValidator {
                 "CONTEXT_BASE_MISMATCH",
                 "/goal/general/baseItemId",
                 "Goal and request base must match."));
+      if (general.quality() != null && (general.quality() < 0 || general.quality() > 40))
+        issues.add(
+            Issue.error(
+                "INVALID_QUALITY",
+                "/goal/general/quality",
+                "Minimum quality must be an integer from 0 to 40."));
       range(general.itemLevel(), "/goal/general/itemLevel", issues);
       if (general.itemLevel() != null
           && (invalidLevel(general.itemLevel().min()) || invalidLevel(general.itemLevel().max())))
@@ -172,7 +178,10 @@ public final class GoalValidator {
                   path + "/range",
                   "Count bounds must be nonnegative integers within the active entry count."));
       }
-      if (active == 0)
+      if (active == 0
+          && (goal.general() == null
+              || goal.general().quality() == null
+              || goal.general().quality() == 0))
         issues.add(Issue.error("EMPTY_GOAL", "/goal/groups", "At least one group must be active."));
     }
     if (!catalog.issues().isEmpty()) {

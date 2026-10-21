@@ -113,15 +113,13 @@ export function CandidateRoute({
                   {isRepeatable(m)
                     ? (m.initial.length
                         ? m.initial.map(action).join(' → ') +
-                          ': ' +
-                          guide.once +
                           ' · ' +
                           m.cycle.map(action).join(' → ') +
                           ': '
                         : '') + guide.within.replace('{n}', String(cycles))
-                    : guide.once}
+                    : ''}
                 </span>
-                {' · '}
+                {isRepeatable(m) && ' · '}
                 {guide.chance}:{' '}
                 {(() => {
                   const o = methodPoint(m, cycles)?.outcomes.find(

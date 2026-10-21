@@ -19,9 +19,11 @@ public record AutomaticCraftingAction(
       var currency = WorkbenchCurrency.valueOf(entry.id());
       var temporary = currency == WorkbenchCurrency.REGAL || currency == WorkbenchCurrency.EXALTED;
       var purpose =
-          temporary
-              ? AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL
-              : AutomaticCurrencyPolicy.Purpose.ORDINARY;
+          currency == WorkbenchCurrency.TRANSMUTATION
+              ? AutomaticCurrencyPolicy.Purpose.RARITY_UPGRADE
+              : temporary
+                  ? AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL
+                  : AutomaticCurrencyPolicy.Purpose.ORDINARY;
       result.add(new AutomaticCraftingAction(currency, Set.of(), purpose));
       if (temporary || currency == WorkbenchCurrency.CHAOS) {
         result.add(
@@ -66,7 +68,18 @@ public record AutomaticCraftingAction(
                   currency, Set.of(omen), AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION));
       }
     }
-    return List.copyOf(result);
+    return result.stream()
+        .filter(
+            a ->
+                a.omens().stream()
+                    .allMatch(
+                        o ->
+                            policy.evaluate(
+                                    "OMEN:" + o.name(),
+                                    new AutomaticCurrencyPolicy.Context(
+                                        "amulets", a.purpose(), a.currency()))
+                                == AutomaticCurrencyPolicy.Verdict.PERMITTED))
+        .toList();
   }
 
   public Set<String> omenIds() {

@@ -6,6 +6,7 @@ import policy from '../../../../../backend/src/main/resources/crafting/automatic
 import { useI18n } from '../../../shared/i18n/i18n'
 import { policyMessages } from './policyMessages'
 import { acquisitionHints } from './planningMessages'
+import { rarityUpgradeHints } from './rarityUpgradeHints'
 import './currency-policy.css'
 
 const parts: Record<string, number[]> = {
@@ -71,6 +72,9 @@ export function CurrencyPolicy() {
                 {' — '}
                 {copy[decisions[entry.decision]!]}
                 {family && <p>{family.map((i) => copy[i]).join(' · ')}</p>}
+                {entry.condition === 'RARITY_UPGRADE' && (
+                  <p>{rarityUpgradeHints[locale]}</p>
+                )}
                 {(entry.condition.startsWith('TEMPORARY_') ||
                   entry.condition === 'GOAL_ACQUISITION') && (
                   <p>{acquisitionHints[locale]}</p>

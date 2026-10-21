@@ -163,7 +163,7 @@ class IndependentPlannerReviewTest extends GoalDirectedPlannerScenariosTest {
                 new ModifierInstance("amulet:prefix:hale", Map.of(LIFE, 10L)),
                 new ModifierInstance("amulet:suffix:of-the-seal", Map.of(COLD, 6L))));
     var target = goal(root, Map.of(LIFE, 1L, CHAOS, 1L));
-    var k = kernel(root, target);
+    var k = historicalKernel(root, target);
     var direct =
         k.plan(
             root,
@@ -180,7 +180,8 @@ class IndependentPlannerReviewTest extends GoalDirectedPlannerScenariosTest {
         new GoalDirectedPlanner(
                 k,
                 evaluation(root, target),
-                com.poe2craft.crafting.domain.AutomaticCraftingAction.candidates(policy))
+                com.poe2craft.crafting.domain.AutomaticCraftingAction.candidates(
+                    com.poe2craft.crafting.HistoricalAutomaticPolicy.beforeDeferrals()))
             .choices(root);
     assertThat(choices)
         .anyMatch(

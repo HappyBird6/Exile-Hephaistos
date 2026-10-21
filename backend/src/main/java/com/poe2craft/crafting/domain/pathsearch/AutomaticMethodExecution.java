@@ -17,7 +17,18 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     REQUIRE_REPLACEMENT
   }
 
-  public record State(ItemState item, boolean temporaryPreparation, boolean quality40) {
+  public record State(
+      ItemState item, boolean temporaryPreparation, boolean quality40, int abstractQuality) {
+    public State {
+      if (abstractQuality < 0 || abstractQuality > 40)
+        throw new IllegalArgumentException("Invalid quality work amount");
+      if (quality40) abstractQuality = 40;
+    }
+
+    public State(ItemState item, boolean temporaryPreparation, boolean quality40) {
+      this(item, temporaryPreparation, quality40, quality40 ? 40 : 0);
+    }
+
     public State(ItemState item, boolean temporaryPreparation) {
       this(item, temporaryPreparation, false);
     }
@@ -25,6 +36,13 @@ public final class AutomaticMethodExecution implements AutoCloseable {
 
   public record Template(
       String id, List<AutomaticCraftingAction> initial, List<AutomaticCraftingAction> cycle) {
+    public boolean boundedChaos() {
+      return cycle.size() == 1
+          && cycle.getFirst().currency() == WorkbenchCurrency.CHAOS
+          && cycle.getFirst().omens().isEmpty()
+          && cycle.getFirst().purpose() == AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION;
+    }
+
     public Template {
       Objects.requireNonNull(id);
       initial = List.copyOf(initial);
@@ -62,6 +80,7 @@ public final class AutomaticMethodExecution implements AutoCloseable {
   private boolean initializingRoot = true;
   private final ItemState root;
   private final boolean initialQuality40;
+  private final int initialAbstractQuality;
   private final Template template;
   private final ItemState preparedRetryAnchor;
   // This memo only avoids repeated plan comparisons; evicting it never changes probability mass.
@@ -76,7 +95,7 @@ public final class AutomaticMethodExecution implements AutoCloseable {
   private AutomaticCraftingAction preparedTransitionAction;
   private Kernel<State> preparedTransition;
   private final AutomaticCraftingKernel kernel;
-  private final Function<ItemState, Optional<Exit>> classify;
+  private final java.util.function.BiFunction<ItemState, Integer, Optional<Exit>> classify;
   private final CertifiedInterval.Precision precision;
   private long primitiveOutcomeBudget;
   private boolean primitiveLimited;
@@ -132,10 +151,33 @@ public final class AutomaticMethodExecution implements AutoCloseable {
       long primitiveOutcomeBudget,
       PreparationSuccess preparationSuccess,
       boolean initialQuality40) {
+    this(
+        root,
+        template,
+        kernel,
+        (item, quality) -> classify.apply(item),
+        precision,
+        primitiveOutcomeBudget,
+        preparationSuccess,
+        initialQuality40,
+        initialQuality40 ? 40 : 0);
+  }
+
+  public AutomaticMethodExecution(
+      ItemState root,
+      Template template,
+      AutomaticCraftingKernel kernel,
+      java.util.function.BiFunction<ItemState, Integer, Optional<Exit>> classify,
+      CertifiedInterval.Precision precision,
+      long primitiveOutcomeBudget,
+      PreparationSuccess preparationSuccess,
+      boolean initialQuality40,
+      int initialAbstractQuality) {
     if (primitiveOutcomeBudget < 1)
       throw new IllegalArgumentException("Positive primitive budget required");
     this.root = root;
     this.initialQuality40 = initialQuality40;
+    this.initialAbstractQuality = initialAbstractQuality;
     this.template = template;
     this.kernel = kernel;
     this.classify = classify;
@@ -145,14 +187,15 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     preparedRetryAnchor = preparedRetryCandidate();
     runner =
         new CertifiedMethodRunner<>(
-            new State(root, false, initialQuality40),
+            new State(root, false, initialQuality40, initialAbstractQuality),
             compiledTemplate(),
             this::transition,
             this::classifyState,
             precision);
     initializingRoot = false;
     if (preparationSuccess == PreparationSuccess.STOP_ON_FIRST_HIT)
-      runner.compactTerminalFailures(new State(root, false, initialQuality40));
+      runner.compactTerminalFailures(
+          new State(root, false, initialQuality40, initialAbstractQuality));
   }
 
   private ExactMethodRunner.Template<State, AutomaticCraftingAction> compiledTemplate() {
@@ -179,8 +222,10 @@ public final class AutomaticMethodExecution implements AutoCloseable {
       if (plan.status() == AutomaticCraftingPlan.Status.READY
           && !plan.branches().isEmpty()
           && plan.branches().stream()
-              .allMatch(b -> classify.apply(b.remaining()).orElse(null) == Exit.LOSS))
-        return new Kernel<>(List.of(), Fraction.ZERO, true);
+              .allMatch(
+                  b ->
+                      classify.apply(b.remaining(), state.abstractQuality()).orElse(null)
+                          == Exit.LOSS)) return new Kernel<>(List.of(), Fraction.ZERO, true);
     }
     var law = kernel.expand(state.item(), action, primitiveOutcomeBudget);
     // The runner has not removed this pending state or charged material yet.
@@ -193,7 +238,7 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     var terminalRepresentatives = new EnumMap<Exit, State>(Exit.class);
     var unresolved = law.unresolved().add(law.boundary());
     for (var outcome : law.outcomes()) {
-      if (!state.quality40()
+      if (!completedQuality(state)
           && AutomaticCraftingKernel.hasQualityCap(state.item())
           && !AutomaticCraftingKernel.hasQualityCap(outcome.item())) {
         unresolved = unresolved.add(outcome.probability());
@@ -214,17 +259,23 @@ public final class AutomaticMethodExecution implements AutoCloseable {
                 && !root.explicits().getFirst().fractured()
                 && root.catalystQuality() == null
                 && outcome.item().catalystQuality() == null
-                && !AutomaticCraftingKernel.hasQualityCap(root)
-                && !AutomaticCraftingKernel.hasQualityCap(outcome.item())
-                && classifyState(new State(outcome.item(), false, state.quality40())).orElse(null)
-                    == Exit.LOSS;
+                && (!AutomaticCraftingKernel.hasQualityCap(root) || initialQuality40)
+                && (!AutomaticCraftingKernel.hasQualityCap(outcome.item()) || state.quality40())
+                && classify.apply(outcome.item(), state.abstractQuality()).isEmpty();
         var next =
             new State(
                 stationaryRetry ? root : preparedRepresentative(outcome.item()),
                 action.purpose() == AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL
-                    || action.purpose() == AutomaticCurrencyPolicy.Purpose.TARGET_PREPARATION,
+                    || action.purpose() == AutomaticCurrencyPolicy.Purpose.TARGET_PREPARATION
+                    || (action.purpose() == AutomaticCurrencyPolicy.Purpose.RARITY_UPGRADE
+                        && template.initial().contains(action)),
                 state.quality40()
-                    || action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT);
+                    || action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT,
+                action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT
+                    ? 40
+                    : action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_BASE_CHECKPOINT
+                        ? Math.max(20, state.abstractQuality())
+                        : state.abstractQuality());
         if (preparationSuccess == PreparationSuccess.STOP_ON_FIRST_HIT
             && preparedRetryAnchor != null) {
           var terminal = classifyState(next).orElse(null);
@@ -271,13 +322,16 @@ public final class AutomaticMethodExecution implements AutoCloseable {
   private ItemState preparedRetryCandidate() {
     if (template.initial().size() != 1 || !root.explicits().isEmpty()) return null;
     return kernel.representatives(kernel.plan(root, template.initial().getFirst())).stream()
-        .filter(item -> classify.apply(item).isEmpty() && retryPlan(item) != null)
+        .filter(
+            item ->
+                classify.apply(item, initialAbstractQuality).isEmpty() && retryPlan(item) != null)
         .findFirst()
         .orElse(null);
   }
 
   private ItemState preparedRepresentative(ItemState item) {
-    if (preparedRetryAnchor == null || !classify.apply(item).isEmpty()) return item;
+    if (preparedRetryAnchor == null || !classify.apply(item, initialAbstractQuality).isEmpty())
+      return item;
     return preparedRepresentatives.computeIfAbsent(
         item,
         value -> {
@@ -289,11 +343,20 @@ public final class AutomaticMethodExecution implements AutoCloseable {
   }
 
   private Optional<Exit> classifyState(State state) {
-    var exit = classify.apply(state.item());
-    if (!state.quality40()
+    var exit = classify.apply(state.item(), state.abstractQuality());
+    if (state.abstractQuality() > initialAbstractQuality && exit.isEmpty())
+      return Optional.of(Exit.CHECKPOINT);
+    // Retry an eligible unsuccessful Chaos from its actual next state. Losing an already
+    // matched milestone remains LOSS; only a failure with no milestone change continues.
+    if (!initializingRoot
+        && template.cycle().size() == 1
+        && template.cycle().getFirst().currency() == WorkbenchCurrency.CHAOS
+        && template.cycle().getFirst().omens().isEmpty()
+        && exit.isEmpty()) return Optional.empty();
+    if (!completedQuality(state)
         && AutomaticCraftingKernel.hasQualityCap(state.item())
         && state.temporaryPreparation()) return Optional.empty();
-    if (!state.quality40() && AutomaticCraftingKernel.hasQualityCap(state.item()))
+    if (!completedQuality(state) && AutomaticCraftingKernel.hasQualityCap(state.item()))
       return state.item().equals(root) ? Optional.empty() : Optional.of(Exit.CHECKPOINT);
     if (state.quality40() && !initialQuality40 && exit.isEmpty())
       return Optional.of(Exit.CHECKPOINT);
@@ -329,12 +392,17 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     return exit;
   }
 
+  private boolean completedQuality(State state) {
+    return kernel.workedQuality(state.item(), state.abstractQuality()) >= 40;
+  }
+
   public record Checkpoint(
       String version,
       String objectiveIdentity,
       AutomaticCraftingKernel.Identity identity,
       ItemState root,
       boolean initialQuality40,
+      int initialAbstractQuality,
       Template template,
       CertifiedInterval.Precision precision,
       long primitiveOutcomeBudget,
@@ -358,6 +426,7 @@ public final class AutomaticMethodExecution implements AutoCloseable {
           shared,
           root,
           initialQuality40,
+          initialAbstractQuality,
           template,
           precision,
           primitiveOutcomeBudget,
@@ -379,6 +448,7 @@ public final class AutomaticMethodExecution implements AutoCloseable {
           kernel.identity(),
           root,
           initialQuality40,
+          initialAbstractQuality,
           template,
           precision,
           primitiveOutcomeBudget,
@@ -395,6 +465,14 @@ public final class AutomaticMethodExecution implements AutoCloseable {
       AutomaticCraftingKernel kernel,
       String objectiveIdentity,
       Function<ItemState, Optional<Exit>> classify) {
+    return restore(saved, kernel, objectiveIdentity, (item, quality) -> classify.apply(item));
+  }
+
+  public static AutomaticMethodExecution restore(
+      Checkpoint saved,
+      AutomaticCraftingKernel kernel,
+      String objectiveIdentity,
+      java.util.function.BiFunction<ItemState, Integer, Optional<Exit>> classify) {
     if (!VERSION.equals(saved.version())
         || !kernel.identity().equals(saved.identity())
         || !saved.objectiveIdentity().equals(objectiveIdentity))
@@ -409,7 +487,8 @@ public final class AutomaticMethodExecution implements AutoCloseable {
             saved.precision(),
             saved.primitiveOutcomeBudget(),
             saved.preparationSuccess(),
-            saved.initialQuality40());
+            saved.initialQuality40(),
+            saved.initialAbstractQuality());
     execution.runner.closeWorkingMaps();
     try (var restore =
         CertifiedMethodRunner.restoreCursor(
@@ -423,7 +502,8 @@ public final class AutomaticMethodExecution implements AutoCloseable {
       execution.runner = restore.finish();
       if (saved.preparationSuccess() == PreparationSuccess.STOP_ON_FIRST_HIT)
         execution.runner.compactTerminalFailures(
-            new State(saved.root(), false, saved.initialQuality40()));
+            new State(
+                saved.root(), false, saved.initialQuality40(), saved.initialAbstractQuality()));
     }
     execution.assumptions.addAll(saved.assumptions());
     execution.unresolvedReasons.addAll(saved.unresolvedReasons());
@@ -490,7 +570,9 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     if (runner.atBoundary() && runner.absorbed())
       return runner.observation().atLaterAbsorbedBoundary(horizon);
     if (runner.atBoundary() && runner.cycles() == horizon) return runner.observation();
-    var point = runner.provisional(horizon, new State(root, false, initialQuality40));
+    var point =
+        runner.provisional(
+            horizon, new State(root, false, initialQuality40, initialAbstractQuality));
     return new CertifiedMethodRunner.Observation<>(
         horizon,
         point.exits(),
@@ -536,6 +618,10 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     var result = new LinkedHashMap<String, CertifiedInterval>();
     uses.forEach(
         (action, probability) -> {
+          if (action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_BASE_CHECKPOINT) {
+            result.merge("WORK:QUALITY_20", probability, CertifiedInterval::add);
+            return;
+          }
           if (action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT) {
             result.merge("WORK:QUALITY_40", probability, CertifiedInterval::add);
             return;

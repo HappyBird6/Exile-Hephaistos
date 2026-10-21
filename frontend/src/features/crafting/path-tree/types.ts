@@ -52,6 +52,7 @@ export type Goal = {
     baseItemId: string
     itemLevel: Range
     rarities: Array<'NORMAL' | 'MAGIC' | 'RARE' | 'UNIQUE'>
+    quality?: number | null
   }
   groups: Array<Group>
 }

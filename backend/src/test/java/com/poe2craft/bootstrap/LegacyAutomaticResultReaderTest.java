@@ -16,17 +16,26 @@ class LegacyAutomaticResultReaderTest {
   @TempDir Path directory;
 
   AutomaticSearchService open() {
+    return open(false);
+  }
+
+  AutomaticSearchService open(boolean productionCatalog) {
+    var goals =
+        productionCatalog
+            ? new SupportConfiguration()
+                .goalFilterService(GoalDirectedPlannerScenariosTest.workbench)
+            : GoalDirectedPlannerScenariosTest.goals;
     var legacy =
         new MethodSearchService(
             GoalDirectedPlannerScenariosTest.workbench.reviewedCatalogs(),
-            GoalDirectedPlannerScenariosTest.goals,
+            goals,
             "legacy-read-fixture",
             json);
     var service =
         new SupportConfiguration()
             .automaticSearchService(
                 GoalDirectedPlannerScenariosTest.workbench,
-                GoalDirectedPlannerScenariosTest.goals,
+                goals,
                 legacy,
                 json,
                 directory.toString());
@@ -118,6 +127,70 @@ class LegacyAutomaticResultReaderTest {
             .hasMessage("RECALCULATION_REQUIRED");
     }
     assertThat(bytes(id)).containsExactly(before);
+  }
+
+  @Test
+  void historicalV9ObservationsRemainReadOnlyAcrossThePolicyChange() throws Exception {
+    var node = fixture("complete");
+    ((ObjectNode) node.path("graph"))
+        .put("version", "goal-directed-milestone-graph-v9-terminal-classes");
+    var id = save(node);
+    var before = bytes(id);
+    try (var service = open()) {
+      var view = service.get("legacy-owner", id);
+      assertThat(view.reason()).isEqualTo("LEGACY_READ_ONLY");
+      assertThat(view.canResume()).isFalse();
+      assertThat(view.complete()).isTrue();
+      assertThat(view.nodes()).hasSize(node.path("graph").path("nodes").size());
+      assertThat(view.methods()).isNotEmpty();
+      assertThatThrownBy(
+              () ->
+                  service.control(
+                      "legacy-owner",
+                      id,
+                      new AutomaticSearchService.Control(
+                          "resume", view.revision(), view.generation(), "RESUME")))
+          .hasMessage("RECALCULATION_REQUIRED");
+    }
+    assertThat(bytes(id)).containsExactly(before);
+  }
+
+  @Test
+  void actualV10V3QualityAndChaosObservationsRemainUnchangedAndReadOnly() throws Exception {
+    for (var name : List.of("quality30", "chaos")) {
+      var node =
+          (ObjectNode)
+              json.readTree(getClass().getResourceAsStream("/legacy-v10/" + name + "-disk.json"));
+      var id = save(node);
+      var before = bytes(id);
+      var expected =
+          json.readValue(
+              getClass().getResourceAsStream("/legacy-v10/" + name + "-view.json"),
+              AutomaticSearchService.View.class);
+      try (var service = open(true)) {
+        var view = service.get("legacy-owner", id);
+        assertThat(view.reason()).isEqualTo("LEGACY_READ_ONLY");
+        assertThat(view.complete()).isEqualTo(expected.complete());
+        assertThat(view.canResume()).isFalse();
+        assertThat(view.nodes()).isEqualTo(expected.nodes());
+        assertThat(view.methods())
+            .usingRecursiveComparison()
+            .ignoringCollectionOrder()
+            .isEqualTo(expected.methods());
+        assertThat(json.writeValueAsString(service.original("legacy-owner", id)))
+            .isEqualTo(json.writeValueAsString(node.path("request")));
+        for (var operation : List.of("ADVANCE", "RESUME", "CANCEL"))
+          assertThatThrownBy(
+                  () ->
+                      service.control(
+                          "legacy-owner",
+                          id,
+                          new AutomaticSearchService.Control(
+                              operation, view.revision(), view.generation(), operation)))
+              .hasMessage("RECALCULATION_REQUIRED");
+      }
+      assertThat(bytes(id)).containsExactly(before);
+    }
   }
 
   @Test

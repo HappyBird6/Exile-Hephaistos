@@ -4,7 +4,7 @@ import java.util.*;
 
 /** User-approved exploration policy. This never grants game eligibility or probability support. */
 public final class AutomaticCurrencyPolicy {
-  public static final String VERSION = "approved-187-2026-10-19-goal-v2";
+  public static final String VERSION = "approved-187-2026-10-21-rarity-v4";
 
   public enum Decision {
     USE,
@@ -16,6 +16,7 @@ public final class AutomaticCurrencyPolicy {
   public enum Condition {
     NONE,
     GOAL_ACQUISITION,
+    RARITY_UPGRADE,
     TEMPORARY_REMOVAL,
     HYSTERIA_PARTS,
     BREACH_QUALITY,
@@ -33,10 +34,12 @@ public final class AutomaticCurrencyPolicy {
 
   public enum Purpose {
     ORDINARY,
+    RARITY_UPGRADE,
     GOAL_ACQUISITION,
     TARGET_PREPARATION,
     TEMPORARY_AFFIX_FOR_REMOVAL,
-    QUALITY_CHECKPOINT
+    QUALITY_CHECKPOINT,
+    QUALITY_BASE_CHECKPOINT
   }
 
   public enum Verdict {
@@ -133,6 +136,10 @@ public final class AutomaticCurrencyPolicy {
     boolean permitted =
         switch (entry.condition()) {
           case NONE, BREACH_QUALITY -> true;
+          case RARITY_UPGRADE ->
+              context.purpose() == Purpose.RARITY_UPGRADE
+                  && context.currency() == WorkbenchCurrency.TRANSMUTATION
+                  && context.family().equals("amulets");
           case GOAL_ACQUISITION ->
               context.purpose() == Purpose.GOAL_ACQUISITION
                   || context.purpose() == Purpose.TARGET_PREPARATION;

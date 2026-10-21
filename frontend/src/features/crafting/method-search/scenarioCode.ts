@@ -24,6 +24,7 @@ export type Scenario = {
   baseKey: string
   request: CreateRequest
   abstractQuality40: boolean
+  abstractQuality?: number
   result: AutomaticView
   selected: number
   cycles: number
@@ -178,7 +179,7 @@ export function validateScenario(raw: unknown): Scenario {
       'route',
       'cards',
     ],
-    ['goalLabels'],
+    ['goalLabels', 'abstractQuality'],
   )
   if (s.format !== 'exile-scenario' || s.version !== 1)
     fail('UNSUPPORTED_SCENARIO_VERSION')
@@ -190,6 +191,7 @@ export function validateScenario(raw: unknown): Scenario {
   const request = s.request as CreateRequest
   item(request.start.item)
   bool(s.abstractQuality40)
+  if (s.abstractQuality !== undefined) integer(s.abstractQuality, 40)
   choice(s.cycles, [100, 300, 500])
   integer(s.selected)
   const v = object(
@@ -241,7 +243,7 @@ export function validateScenario(raw: unknown): Scenario {
         'discoveryFinished',
         'directFinished',
       ],
-      ['rolls'],
+      ['rolls', 'abstractQuality'],
     )
     integer(n.id)
     integer(n.depth, 10000)
@@ -249,12 +251,13 @@ export function validateScenario(raw: unknown): Scenario {
     ids.add(n.id as number)
     item(n.item)
     bool(n.quality40)
+    if (n.abstractQuality !== undefined) integer(n.abstractQuality, 40)
     bool(n.discoveryFinished)
     bool(n.directFinished)
     const p = object(n.progress, ['goal', 'entries'])
-    choice(p.goal, ['MATCH', 'NO_MATCH', 'UNKNOWN'])
+    choice(p.goal, ['MATCH', 'NO_MATCH', 'UNKNOWN', 'UNSUPPORTED'])
     for (const e of array(p.entries, 4096))
-      choice(e, ['MATCH', 'NO_MATCH', 'UNKNOWN'])
+      choice(e, ['MATCH', 'NO_MATCH', 'UNKNOWN', 'UNSUPPORTED'])
     if (n.rolls !== undefined) {
       if (!n.rolls || typeof n.rolls !== 'object' || Array.isArray(n.rolls))
         fail()
@@ -285,7 +288,12 @@ export function validateScenario(raw: unknown): Scenario {
   )
     fail()
   let outcomeCount = 0
-  for (const rawMethod of array(v.methods, v.resources ? 50000 : 256)) {
+  for (const rawMethod of array(
+    v.methods,
+    v.resources || (v.reason === 'LEGACY_READ_ONLY' && v.canResume === false)
+      ? 50000
+      : 256,
+  )) {
     const m = object(
       rawMethod,
       ['id', 'source', 'initial', 'cycle', 'points', 'reasons', 'finished'],
@@ -421,7 +429,13 @@ function mapWireReferences(
 ) {
   const root = record(snapshot),
     result = record(root.result)
-  const methods = array(result.methods, result.resources ? 50000 : 256),
+  const methods = array(
+      result.methods,
+      result.resources ||
+        (result.reason === 'LEGACY_READ_ONLY' && result.canResume === false)
+        ? 50000
+        : 256,
+    ),
     names = methods.map((m) => record(m).id)
   for (const raw of methods)
     for (const rawPoint of array(record(raw).points, 4)) {

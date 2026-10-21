@@ -63,11 +63,53 @@ function fixture(): Scenario {
     },
   }
 }
+
+it('preserves optional quality goals and work amounts through scenario export/import', async () => {
+  const value = fixture()
+  value.request.goal.general.quality = 30
+  value.abstractQuality = 20
+  value.result.nodes[0]!.abstractQuality = 20
+  const restored = await decodeScenario(await encodeScenario(value))
+  expect(restored.request.goal.general.quality).toBe(30)
+  expect(restored.abstractQuality).toBe(20)
+  expect(restored.result.nodes[0]!.abstractQuality).toBe(20)
+})
+it('preserves an unsupported quality goal without changing it into a successful result', async () => {
+  const source = fixture()
+  source.request.goal.general.quality = 30
+  source.result.status = 'PARTIAL'
+  source.result.complete = false
+  source.result.nodes[0]!.progress = {
+    goal: 'UNSUPPORTED',
+    entries: ['UNSUPPORTED'],
+  }
+  expect(await decodeScenario(await encodeScenario(source))).toEqual(source)
+})
 beforeEach(() => {
   vi.stubGlobal('crypto', webcrypto)
   vi.stubGlobal('CompressionStream', CompressionStream)
   vi.stubGlobal('DecompressionStream', DecompressionStream)
   vi.stubGlobal('Blob', Blob)
+})
+it('round trips historical alias observations above the live method count without adding quality', async () => {
+  const source = fixture()
+  source.result.status = 'PARTIAL'
+  source.result.complete = false
+  source.result.reason = 'LEGACY_READ_ONLY'
+  source.result.canResume = false
+  source.result.methods = Array.from({ length: 257 }, (_, index) => ({
+    id: `historical-alias-${index}`,
+    source: 0,
+    initial: [],
+    cycle: [{ currency: 'CHAOS', omens: [], purpose: 'GOAL_ACQUISITION' }],
+    points: [],
+    reasons: [],
+    finished: false,
+  }))
+  const restored = await decodeScenario(await encodeScenario(source))
+  expect(restored).toEqual(source)
+  expect(restored.request.goal.general).not.toHaveProperty('quality')
+  expect(restored).not.toHaveProperty('abstractQuality')
 })
 it.each(['COMPLETE', 'PARTIAL'] as const)(
   'losslessly preserves %s and catalog versions without server access',

@@ -104,6 +104,12 @@ class GoalDirectedPlannerScenariosTest {
         currency, Set.of(omens), AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION);
   }
 
+  AutomaticCraftingKernel historicalKernel(ItemState root, GoalFilter goal) {
+    return workbench
+        .automaticKernel(root, com.poe2craft.crafting.HistoricalAutomaticPolicy.beforeDeferrals())
+        .withRollPartition(goals.rollPartition(root, goal), goal.toString());
+  }
+
   AutomaticMethodGraph graph(ItemState root, GoalFilter goal) {
     return new AutomaticMethodGraph(
         root,
@@ -344,14 +350,18 @@ class GoalDirectedPlannerScenariosTest {
   void highTierPreparationIsPlannedBeforeWhittlingWithoutImmediateGoalGain() {
     var root = lowLifeAndMinionTwo();
     var goal = goal(root, Map.of(LIFE, 1L, "minion_skill_gem_level_+", 3L));
-    var k = kernel(root, goal);
+    var k = historicalKernel(root, goal);
     var evaluate = evaluation(root, goal);
     var direct = k.plan(root, action(WorkbenchCurrency.CHAOS, WorkbenchOmen.WHITTLING));
     assertThat(direct.branches())
         .allMatch(
             b -> b.remaining().explicits().stream().noneMatch(m -> m.values().containsKey(LIFE)));
     var choices =
-        new GoalDirectedPlanner(k, evaluate, AutomaticCraftingAction.candidates(policy))
+        new GoalDirectedPlanner(
+                k,
+                evaluate,
+                AutomaticCraftingAction.candidates(
+                    com.poe2craft.crafting.HistoricalAutomaticPolicy.beforeDeferrals()))
             .choices(root);
     assertThat(choices)
         .anyMatch(
@@ -395,11 +405,15 @@ class GoalDirectedPlannerScenariosTest {
   void highTierPreparationStopsFailedPrerequisitesAndConservesAllMass() {
     var root = lowLifeAndMinionTwo();
     var goal = goal(root, Map.of(LIFE, 1L, "minion_skill_gem_level_+", 3L));
-    var k = kernel(root, goal);
+    var k = historicalKernel(root, goal);
     var evaluate = evaluation(root, goal);
     var before = evaluate.apply(root);
     var choice =
-        new GoalDirectedPlanner(k, evaluate, AutomaticCraftingAction.candidates(policy))
+        new GoalDirectedPlanner(
+                k,
+                evaluate,
+                AutomaticCraftingAction.candidates(
+                    com.poe2craft.crafting.HistoricalAutomaticPolicy.beforeDeferrals()))
             .choices(root).stream()
                 .filter(
                     c ->
@@ -548,7 +562,8 @@ class GoalDirectedPlannerScenariosTest {
                     Map.of(weak.stats().getFirst().id(), weak.stats().getFirst().min()))));
     var goal = goal(root, Map.of(LIFE, 1L, CHAOS, 1L));
     var plan =
-        kernel(root, goal).plan(root, action(WorkbenchCurrency.CHAOS, WorkbenchOmen.WHITTLING));
+        historicalKernel(root, goal)
+            .plan(root, action(WorkbenchCurrency.CHAOS, WorkbenchOmen.WHITTLING));
     assertThat(plan.status()).isEqualTo(AutomaticCraftingPlan.Status.READY);
     assertThat(plan.branches()).allMatch(b -> b.remaining().explicits().contains(life()));
   }
@@ -603,7 +618,7 @@ class GoalDirectedPlannerScenariosTest {
             List.of(new ModifierInstance(life().modifierId(), life().values(), true)));
     var goal = goal(root, Map.of(CHAOS, 1L));
     var law =
-        kernel(root, goal)
+        historicalKernel(root, goal)
             .expand(root, action(WorkbenchCurrency.CHAOS, WorkbenchOmen.WHITTLING), 5000);
     assertThat(law.status()).isEqualTo(AutomaticCraftingKernel.Status.UNSUPPORTED);
     assertThat(law.unresolved()).isEqualTo(ExactNumericDistribution.Fraction.ONE);
@@ -670,7 +685,7 @@ class GoalDirectedPlannerScenariosTest {
                 Optional.ofNullable(
                     evaluate.apply(state).goal() == GoalFilter.Status.MATCH
                         ? ExactMethodRunner.Exit.GOAL
-                        : state.equals(root) ? null : ExactMethodRunner.Exit.LOSS),
+                        : null),
             CertifiedInterval.Precision.standard(),
             5000)) {
       for (int i = 0; i < 100; i++) {

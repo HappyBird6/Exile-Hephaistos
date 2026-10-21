@@ -64,6 +64,15 @@ public final class AutomaticSearchController {
       if (input.length() > 262144) throw new IllegalArgumentException("Request too large");
       var node = json.readTree(input);
       safe(node);
+      // Optional additions keep older clients valid; original required fields stay strict.
+      if (type == AutomaticSearchService.Input.class
+          && node instanceof com.fasterxml.jackson.databind.node.ObjectNode body) {
+        if (!body.has("abstractQuality"))
+          body.put("abstractQuality", body.path("abstractQuality40").asBoolean() ? 40 : 0);
+        var general = body.path("request").path("goal").path("general");
+        if (general instanceof com.fasterxml.jackson.databind.node.ObjectNode object
+            && !object.has("quality")) object.putNull("quality");
+      }
       return json.treeToValue(node, type);
     } catch (java.io.IOException | IllegalArgumentException e) {
       throw new PathSearchProtocol.Rejected(422, "INVALID_REQUEST");

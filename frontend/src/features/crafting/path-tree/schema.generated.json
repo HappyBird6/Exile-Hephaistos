@@ -315,6 +315,12 @@
           "additionalProperties": false,
           "required": ["baseItemId", "itemLevel", "rarities"],
           "properties": {
+            "quality": {
+              "anyOf": [
+                { "type": "integer", "minimum": 0, "maximum": 40 },
+                { "type": "null" }
+              ]
+            },
             "baseItemId": {
               "type": "string",
               "minLength": 1

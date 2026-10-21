@@ -62,7 +62,15 @@ class EmptyRareApiRegressionTest {
                           && m.cycle().getFirst().currency() == WorkbenchCurrency.CHAOS
                           && m.cycle().getFirst().omens().isEmpty())
               .toList();
-      assertThat(prepared).hasSize(3).allMatch(m -> m.executionMode().equals("REPEATABLE"));
+      // v4 intentionally offers only plain Exalted when it prepares a Chaos roll.
+      assertThat(prepared).hasSize(1).allMatch(m -> m.executionMode().equals("REPEATABLE"));
+      assertThat(prepared.getFirst().initial())
+          .singleElement()
+          .satisfies(
+              a -> {
+                assertThat(a.currency()).isEqualTo(WorkbenchCurrency.EXALTED);
+                assertThat(a.omens()).isEmpty();
+              });
       assertThat(prepared)
           .allSatisfy(
               m -> {

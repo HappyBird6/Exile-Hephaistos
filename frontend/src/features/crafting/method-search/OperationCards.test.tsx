@@ -1,3 +1,6 @@
+import { fireEvent, render, screen } from '@testing-library/react'
+import { OperationCards } from './OperationCards'
+import { setLocale } from '../../../shared/i18n/i18n'
 import { expect, it } from 'vitest'
 import { operationGroups, operationKind } from './operationGrouping'
 import type { AutomaticArrow } from './automaticApi'
@@ -54,4 +57,121 @@ it('keeps different states, purposes and preparation sequences separate', () => 
   expect(operationKind(first)).toBe('replace')
   expect(operationKind(prepared)).toBe('prepare')
   expect(operationKind(method('EXALTED'))).toBe('add')
+})
+
+const probability = (numerator: string, denominator = '100') => ({
+  lower: { numerator, denominator },
+  upper: { numerator, denominator },
+  arithmeticWidth: { numerator: '0', denominator: '1' },
+  exact: true,
+  confirmedPercent: null,
+})
+it('defaults composite Transmutation-Regal variants to the certified whole-method goal probability', () => {
+  const ordinary = {
+    ...method('REGAL'),
+    initial: [
+      { currency: 'TRANSMUTATION', omens: [], purpose: 'RARITY_UPGRADE' },
+    ],
+    points: [
+      {
+        cycles: 1,
+        complete: true,
+        initialUses: {},
+        cycleUses: {},
+        outcomes: [
+          { kind: 'GOAL', target: 1, probability: probability('20') },
+          { kind: 'LOSS', target: null, probability: probability('80') },
+        ],
+      },
+    ],
+  }
+  const omen = {
+    ...ordinary,
+    id: 'regal-omen',
+    cycle: [
+      {
+        currency: 'REGAL',
+        omens: ['DEXTRAL_CORONATION'],
+        purpose: 'GOAL_ACQUISITION',
+      },
+    ],
+    points: [
+      {
+        ...ordinary.points[0]!,
+        outcomes: [
+          { kind: 'GOAL', target: 2, probability: probability('30') },
+          { kind: 'LOSS', target: null, probability: probability('70') },
+        ],
+      },
+    ],
+  }
+  const groups = operationGroups([ordinary, omen], 100)
+  expect(groups).toHaveLength(1)
+  expect(groups[0]!.variants).toEqual([omen, ordinary])
+  expect(groups[0]!.variants[0]!.initial).toEqual(ordinary.initial)
+  setLocale('en')
+  const mounted = render(
+    <OperationCards
+      methods={[ordinary, omen]}
+      cycles={100}
+      action={(a) => a.currency + a.omens.join('+')}
+      render={(m) => <output data-testid="chosen-regal">{m.id}</output>}
+    />,
+  )
+  expect(screen.getByTestId('chosen-regal')).toHaveTextContent(omen.id)
+  fireEvent.click(
+    mounted.container.querySelector('button[aria-pressed="false"]')!,
+  )
+  expect(screen.getByTestId('chosen-regal')).toHaveTextContent(ordinary.id)
+  mounted.unmount()
+  expect(ordinary.points[0]!.outcomes[0]!.probability.lower.numerator).toBe(
+    '20',
+  )
+  expect(
+    operationGroups([
+      ordinary,
+      { ...omen, points: [{ ...omen.points[0]!, complete: false }] },
+    ])[0]!.variants[0],
+  ).toBe(ordinary)
+})
+it('does not rank overlapping certified intervals using rounded percentages', () => {
+  const first = {
+    ...method('REGAL'),
+    points: [
+      {
+        cycles: 1,
+        complete: true,
+        initialUses: {},
+        cycleUses: {},
+        outcomes: [
+          {
+            kind: 'GOAL',
+            target: 1,
+            probability: {
+              ...probability('10'),
+              upper: { numerator: '30', denominator: '100' },
+            },
+          },
+        ],
+      },
+    ],
+  }
+  const second = {
+    ...first,
+    id: 'other',
+    cycle: [
+      {
+        currency: 'REGAL',
+        omens: ['DEXTRAL_CORONATION'],
+        purpose: 'GOAL_ACQUISITION',
+      },
+    ],
+    points: [
+      {
+        ...first.points[0]!,
+        outcomes: [{ kind: 'GOAL', target: 2, probability: probability('20') }],
+      },
+    ],
+  }
+  expect(operationGroups([first, second])[0]!.variants).toEqual([first, second])
 })

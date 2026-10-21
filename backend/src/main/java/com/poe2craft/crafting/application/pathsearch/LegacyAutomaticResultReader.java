@@ -16,14 +16,31 @@ final class LegacyAutomaticResultReader {
     if (!valid) throw new IllegalArgumentException("Invalid legacy result");
   }
 
+  static boolean sameGoal(String a, String b) {
+    try {
+      var json = new com.fasterxml.jackson.databind.ObjectMapper();
+      var left = json.readTree(a);
+      var right = json.readTree(b);
+      for (var node : List.of(left, right)) {
+        var general = node.path("general");
+        if (general instanceof com.fasterxml.jackson.databind.node.ObjectNode object
+            && !object.has("quality")) object.putNull("quality");
+      }
+      return left.equals(right);
+    } catch (java.io.IOException error) {
+      return false;
+    }
+  }
+
   static AutomaticSearchService.View read(
       AutomaticSearchService.Disk disk, AutomaticSearchService.Runtime runtime) {
     var graph = disk.graph();
     require(
         AutomaticSearchService.VERSION.equals(disk.version()) && VERSION.equals(graph.version()));
     require(
-        graph.identity().equals(runtime.kernel().identity())
-            && graph.objective().equals(runtime.objective()));
+        graph.identity().catalogDigest().equals(runtime.kernel().identity().catalogDigest())
+            && graph.identity().model().equals(runtime.kernel().identity().model())
+            && sameGoal(graph.objective(), runtime.objective()));
     require(
         disk.revision() > 0
             && disk.generation() > 0

@@ -1,12 +1,6 @@
 import { saveSupport } from './supportStorage'
 import { beforeEach, expect, it, vi } from 'vitest'
-import {
-  render,
-  screen,
-  fireEvent,
-  within,
-  waitFor,
-} from '@testing-library/react'
+import { render, screen, fireEvent, within } from '@testing-library/react'
 import { exaltedGroups, groupMass, graphProjection } from './outcomeGrouping'
 import { methodPoint, isRepeatable } from './methodObservation'
 import { AutomaticMethodSearch } from './AutomaticMethodSearch'
@@ -211,9 +205,9 @@ it('hides repetition N for a single Exalted, exposes individual outcomes and con
     within(screen.getByRole('region', { name: 'Crafting steps' })).getByText(
       /Chance of this result:/,
     ),
-  ).toHaveTextContent('1 attempt · Chance of this result: 25.00%')
+  ).toHaveTextContent('Chance of this result: 25.00%')
 })
-it('lets the user change N only on a repeatable Chaos method', async () => {
+it('keeps Chaos fixed at the requested 100 attempts', async () => {
   const view = fixture(),
     m = view.methods[0]!
   m.executionMode = 'REPEATABLE'
@@ -230,8 +224,8 @@ it('lets the user change N only on a repeatable Chaos method', async () => {
   const selector = await screen.findByRole('combobox', {
     name: 'Method repetitions',
   })
-  fireEvent.change(selector, { target: { value: '300' } })
-  await waitFor(() => expect(selector).toHaveValue('300'))
+  expect(within(selector).getAllByRole('option')).toHaveLength(1)
+  expect(selector).toHaveValue('100')
 })
 
 it('reveals only the chosen exact branch while the other grouped outcomes remain collapsed', () => {
@@ -290,7 +284,7 @@ it('restores a single-pass grouped selection without applying saved repeat N and
     within(screen.getByRole('region', { name: 'Crafting steps' })).getByText(
       /Chance of this result:/,
     ),
-  ).toHaveTextContent('1 attempt · Chance of this result: 25.00%')
+  ).toHaveTextContent('Chance of this result: 25.00%')
   expect(
     screen.queryByRole('combobox', { name: 'Method repetitions' }),
   ).not.toBeInTheDocument()
@@ -313,7 +307,7 @@ it('restores a single-pass grouped selection without applying saved repeat N and
     within(screen.getByRole('region', { name: 'Crafting steps' })).getByText(
       /Chance of this result:/,
     ),
-  ).toHaveTextContent('1 attempt · Chance of this result: 25.00%')
+  ).toHaveTextContent('Chance of this result: 25.00%')
 })
 
 it('keeps an Essence preparation value separate even when followed by Exalted', () => {
@@ -406,7 +400,7 @@ it('labels preparation once and N only for the Chaos follower', async () => {
   await screen.findByLabelText('Method repetitions')
   const summary = document.querySelector('.craft-choice > summary')!
   expect(summary).toHaveTextContent(
-    'Exalted Orb: 1 attempt · Chaos Orb: Up to 100 attempts',
+    'Exalted Orb · Chaos Orb: Up to 100 attempts',
   )
   expect(summary).toHaveTextContent('25.00%')
   expect(

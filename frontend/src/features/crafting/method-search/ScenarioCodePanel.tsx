@@ -39,6 +39,7 @@ export function ScenarioExport({
   route,
   presentItem,
   abstractQuality40,
+  abstractQuality,
   baseKey,
   frozen,
   goalLabels,
@@ -50,6 +51,7 @@ export function ScenarioExport({
   route: Selection[]
   presentItem: PathTreeProps['presentItem']
   abstractQuality40: boolean
+  abstractQuality?: number
   baseKey: string
   frozen?: Scenario | undefined
   goalLabels?: Scenario['goalLabels']
@@ -68,6 +70,7 @@ export function ScenarioExport({
     baseKey,
     request: structuredClone({ ...request, clientRequestId: anonymousId }),
     abstractQuality40,
+    ...(abstractQuality !== undefined ? { abstractQuality } : {}),
     result: structuredClone({ ...view, id: anonymousId }),
     selected,
     cycles,
@@ -272,6 +275,8 @@ export function ScenarioImport({
       item: start.item,
       rulesetIdentity: start.provenance.rulesetIdentity,
       abstractQuality40: opened.abstractQuality40,
+      abstractQuality:
+        opened.abstractQuality ?? (opened.abstractQuality40 ? 40 : 0),
       editing: true,
       started: false,
       levelEdited: false,
@@ -465,6 +470,9 @@ export function ScenarioImport({
             request={opened.request}
             inputGeneration={opened.createdAt}
             abstractQuality40={opened.abstractQuality40}
+            abstractQuality={
+              opened.abstractQuality ?? (opened.abstractQuality40 ? 40 : 0)
+            }
             presentItem={(item, language) => {
               const node =
                 opened.result.nodes.find(

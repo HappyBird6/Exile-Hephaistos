@@ -22,12 +22,12 @@ class AutomaticCurrencyPolicyTest {
                 Decision.USE,
                 33L,
                 Decision.CONDITIONAL,
-                18L,
+                16L,
                 Decision.EXCLUDED,
-                110L,
+                109L,
                 Decision.DEFERRED,
-                26L));
-    assertThat(policy.candidates()).hasSize(51);
+                29L));
+    assertThat(policy.candidates()).hasSize(49);
     assertThat(policy.candidates())
         .extracting(Entry::id)
         .contains(
@@ -39,6 +39,28 @@ class AutomaticCurrencyPolicyTest {
       assertThat(policy.document().entries()).anyMatch(e -> e.id().equals(currency.name()));
     for (var omen : WorkbenchOmen.values())
       assertThat(policy.document().entries()).anyMatch(e -> e.id().equals("OMEN:" + omen.name()));
+  }
+
+  @Test
+  void transmutationIsOnlyEnabledForAmuletRarityUpgradesAndAlchemyStaysExcluded() {
+    assertThat(
+            policy.evaluate(
+                "TRANSMUTATION",
+                new Context("amulets", Purpose.RARITY_UPGRADE, WorkbenchCurrency.TRANSMUTATION)))
+        .isEqualTo(Verdict.PERMITTED);
+    assertThat(
+            policy.evaluate(
+                "TRANSMUTATION",
+                new Context("amulets", Purpose.ORDINARY, WorkbenchCurrency.TRANSMUTATION)))
+        .isEqualTo(Verdict.CONDITION_NOT_MET);
+    assertThat(
+            policy.evaluate(
+                "TRANSMUTATION",
+                new Context("rings", Purpose.RARITY_UPGRADE, WorkbenchCurrency.TRANSMUTATION)))
+        .isEqualTo(Verdict.CONDITION_NOT_MET);
+    for (var id : List.of("ALCHEMY", "GREATER_TRANSMUTATION", "PERFECT_TRANSMUTATION"))
+      assertThat(policy.evaluate(id, new Context("amulets", Purpose.RARITY_UPGRADE, null)))
+          .isEqualTo(Verdict.EXCLUDED);
   }
 
   @Test

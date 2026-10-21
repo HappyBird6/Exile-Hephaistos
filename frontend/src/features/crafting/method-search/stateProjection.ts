@@ -61,6 +61,7 @@ export function stateProjection(view: AutomaticView, cycles: number) {
         : canonical({
             depth: n.depth,
             quality40: n.quality40,
+            abstractQuality: n.abstractQuality ?? (n.quality40 ? 40 : 0),
             item: {
               ...n.item,
               explicits: n.item.explicits

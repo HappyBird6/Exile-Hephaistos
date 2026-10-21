@@ -16,7 +16,7 @@ class AutomaticMethodExecutionTest {
     var tiny = new BasicCurrencyTransitionsTest();
     var kernel =
         new AutomaticCraftingKernel(
-            AutomaticCurrencyPolicyLoader.load(),
+            com.poe2craft.crafting.HistoricalAutomaticPolicy.beforeDeferrals(),
             tiny.catalog,
             new WorkbenchSimulator(tiny.catalog, new CraftingEngine(tiny.catalog)),
             "amulets");
@@ -141,7 +141,7 @@ class AutomaticMethodExecutionTest {
     var tiny = new BasicCurrencyTransitionsTest();
     var kernel =
         new AutomaticCraftingKernel(
-            AutomaticCurrencyPolicyLoader.load(),
+            com.poe2craft.crafting.HistoricalAutomaticPolicy.beforeDeferrals(),
             tiny.catalog,
             new WorkbenchSimulator(tiny.catalog, new CraftingEngine(tiny.catalog)),
             "amulets");

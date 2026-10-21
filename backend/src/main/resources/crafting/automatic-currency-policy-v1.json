@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "approved-187-2026-10-19-goal-v2",
+  "policyVersion": "approved-187-2026-10-21-rarity-v4",
   "sourceUrl": "https://drive.google.com/file/d/1T-V7AxH9BT6qMxFDfsWcpb9u9_o-LSYT/view",
   "sourceModifiedAt": "2026-10-15T08:05:34.858Z",
   "maximumExploredExplicits": 4,
@@ -11,9 +11,9 @@
       "nameKo": "진화의 오브",
       "sourceUrl": "https://poe2db.tw/kr/Orb_of_Transmutation",
       "effectKo": "일반 → 마법. 무작위 속성 1개를 부여한다.",
-      "decision": "EXCLUDED",
-      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
-      "condition": "NONE"
+      "decision": "CONDITIONAL",
+      "restrictionKo": "목걸이의 등급 상승(일반 → 마법) 목적만 허용. 연금술의 오브 제외는 유지.",
+      "condition": "RARITY_UPGRADE"
     },
     {
       "number": 2,
@@ -1751,9 +1751,9 @@
       "nameKo": "좌측 말소의 징조",
       "sourceUrl": "https://poe2db.tw/kr/Omen_of_Sinistral_Erasure",
       "effectKo": "카오스의 제거 대상을 접두어로 제한. 추가 쪽까지 접두어로 제한한다는 뜻은 아님.",
-      "decision": "CONDITIONAL",
-      "restrictionKo": "2026-10-19: 목표 옵션 획득을 계획한 단계에서만 허용. 실제 아이템 레벨·제거·슬롯 조건과 미검증 확률 질량은 유지.",
-      "condition": "GOAL_ACQUISITION"
+      "decision": "DEFERRED",
+      "restrictionKo": "2026-10-21 사용자 요청으로 자동 탐색 보류. 수동 Workbench 지원 유지.",
+      "condition": "NONE"
     },
     {
       "number": 176,
@@ -1761,9 +1761,9 @@
       "nameKo": "우측 말소의 징조",
       "sourceUrl": "https://poe2db.tw/kr/Omen_of_Dextral_Erasure",
       "effectKo": "카오스의 제거 대상을 접미어로 제한. 추가 쪽까지 접미어로 제한한다는 뜻은 아님.",
-      "decision": "CONDITIONAL",
-      "restrictionKo": "2026-10-19: 목표 옵션 획득을 계획한 단계에서만 허용. 실제 아이템 레벨·제거·슬롯 조건과 미검증 확률 질량은 유지.",
-      "condition": "GOAL_ACQUISITION"
+      "decision": "DEFERRED",
+      "restrictionKo": "2026-10-21 사용자 요청으로 자동 탐색 보류. 수동 Workbench 지원 유지.",
+      "condition": "NONE"
     },
     {
       "number": 177,
@@ -1771,9 +1771,9 @@
       "nameKo": "절사의 징조",
       "sourceUrl": "https://poe2db.tw/kr/Omen_of_Whittling",
       "effectKo": "카오스가 제거할 속성을 최저 속성 레벨인 것으로 지정. 표시 티어 번호나 실제 수치 최저와 구별.",
-      "decision": "CONDITIONAL",
-      "restrictionKo": "2026-10-19: 목표 옵션 획득을 계획한 단계에서만 허용. 실제 아이템 레벨·제거·슬롯 조건과 미검증 확률 질량은 유지.",
-      "condition": "GOAL_ACQUISITION"
+      "decision": "DEFERRED",
+      "restrictionKo": "2026-10-21 사용자 요청으로 자동 탐색 보류. 수동 Workbench 지원 유지.",
+      "condition": "NONE"
     },
     {
       "number": 178,

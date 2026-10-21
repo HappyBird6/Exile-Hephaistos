@@ -97,6 +97,9 @@ public final class PathSearchController {
       if (body.has("start")) safeIntegers(body.path("start").path("item"));
       if (body.has("expectedRevision")) safeIntegers(body.get("expectedRevision"));
       if (body.has("parentRevision")) safeIntegers(body.get("parentRevision"));
+      var general = body.path("goal").path("general");
+      if (general instanceof com.fasterxml.jackson.databind.node.ObjectNode object
+          && !object.has("quality")) object.putNull("quality");
       return json.treeToValue(body, type);
     } catch (Rejected e) {
       throw e;

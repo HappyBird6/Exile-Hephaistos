@@ -27,8 +27,12 @@ export type PathTreeProps = {
   presentItem: ItemPresentation
   adapter?: PathSearchAdapter
   onRecalculate: () => void
-  onEditState?: (item: Item, context?: { abstractQuality40: boolean }) => void
+  onEditState?: (
+    item: Item,
+    context?: { abstractQuality40: boolean; abstractQuality?: number },
+  ) => void
   abstractQuality40?: boolean
+  abstractQuality?: number
 }
 export function PathTree(props: PathTreeProps) {
   // A new committed input owns new sessions/cache keys. Unmount invalidates both server jobs.

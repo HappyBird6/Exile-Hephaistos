@@ -325,7 +325,9 @@ export function GroupedMethodGraph({
                               key={method.id}
                             >
                               {nav.source} {method.source} ·{' '}
-                              {point && attemptLabel(locale, point.cycles)} ·{' '}
+                              {point && point.cycles > 1 && (
+                                <>{attemptLabel(locale, point.cycles)} · </>
+                              )}
                               {copy.probability}:{' '}
                               {probabilityText(probability.lower, probability)}
                             </span>
@@ -425,12 +427,20 @@ export function GroupedMethodGraph({
                                     .map(action)
                                     .join(' → ')}{' '}
                                   · {nav.source} {method.source} ·{' '}
-                                  {copy.probability} (
-                                  {attemptLabel(
-                                    locale,
-                                    methodPoint(method, cycles)?.cycles ?? 1,
+                                  {copy.probability}
+                                  {(methodPoint(method, cycles)?.cycles ?? 1) >
+                                    1 && (
+                                    <>
+                                      {' '}
+                                      (
+                                      {attemptLabel(
+                                        locale,
+                                        methodPoint(method, cycles)!.cycles,
+                                      )}
+                                      )
+                                    </>
                                   )}
-                                  ):{' '}
+                                  :{' '}
                                   {probabilityText(
                                     o.probability.lower,
                                     o.probability,

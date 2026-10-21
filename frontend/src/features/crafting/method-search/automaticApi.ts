@@ -11,6 +11,7 @@ export type AutomaticAction = {
 export type AutomaticNode = {
   rolls?: RollBands
   quality40: boolean
+  abstractQuality?: number
   id: number
   depth: number
   item: Item
@@ -94,7 +95,10 @@ function validate(raw: unknown): AutomaticView {
     !Array.isArray(v.nodes) ||
     v.nodes.length > 50000 ||
     !Array.isArray(v.methods) ||
-    v.methods.length > (v.resources ? 50000 : 256) ||
+    v.methods.length >
+      (v.resources || (v.reason === 'LEGACY_READ_ONLY' && v.canResume === false)
+        ? 50000
+        : 256) ||
     !Array.isArray(v.recommendations)
   )
     throw new Error('Invalid automatic graph')
@@ -102,6 +106,7 @@ function validate(raw: unknown): AutomaticView {
     validateSearchResources(v.resources, v.nodes.length, v.methods.length)
   if (
     !v.resources &&
+    !(v.reason === 'LEGACY_READ_ONLY' && v.canResume === false) &&
     v.nodes.filter((node) => node.progress?.goal !== 'MATCH').length > 128
   )
     throw new Error('Invalid automatic graph')
@@ -189,8 +194,19 @@ async function request(
         : null
     throw new AutomaticError(response.status, code, retryAt)
   }
-  verifyRulesetResponse(response, identity)
-  return validate(await response.json())
+  const view = validate(await response.json())
+  if (!(
+    body === undefined &&
+    view.reason === 'LEGACY_READ_ONLY' &&
+    view.canResume === false
+  ))
+    verifyRulesetResponse(response, identity)
+  else
+    verifyRulesetResponse(
+      response,
+      response.headers.get('X-Crafting-Ruleset') ?? '',
+    )
+  return view
 }
 const pendingCreates = new Map<string, Promise<AutomaticView>>()
 let createQueue: Promise<void> = Promise.resolve()
@@ -199,10 +215,11 @@ export const automaticApi = {
     input: CreateRequest,
     signal?: AbortSignal,
     abstractQuality40 = false,
+    abstractQuality = abstractQuality40 ? 40 : 0,
   ) => {
     if (signal?.aborted)
       return Promise.reject(new DOMException('Aborted', 'AbortError'))
-    const key = JSON.stringify([input, abstractQuality40])
+    const key = JSON.stringify([input, abstractQuality40, abstractQuality])
     const pending = pendingCreates.get(key)
     if (pending) return pending
     // A dispatched POST can succeed after a local abort. Keep its result and let
@@ -214,6 +231,7 @@ export const automaticApi = {
           input.start.provenance.rulesetIdentity,
           {
             abstractQuality40,
+            abstractQuality,
             request: {
               version: 2,
               clientRequestId: input.clientRequestId,

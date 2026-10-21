@@ -175,7 +175,7 @@ it('restores the same job and selection after remount without creating or advanc
   }
   const mounted = render(<AutomaticMethodSearch {...props} />)
   await screen.findByRole('button', { name: 'Continue calculation' })
-  expect(screen.getByLabelText('Method repetitions')).toHaveValue('300')
+  expect(screen.getByLabelText('Method repetitions')).toHaveValue('100')
   expect(screen.getByLabelText('Other results')).toHaveValue('1')
   mounted.rerender(<AutomaticMethodSearch {...props} active={false} />)
   mounted.rerender(<AutomaticMethodSearch {...props} active />)
@@ -329,6 +329,7 @@ it('ignores a late slice after cancellation and copies the selected state into e
   fireEvent.click(screen.getByRole('button', { name: 'Use as starting item' }))
   expect(edit).toHaveBeenCalledWith(server.nodes[0]!.item, {
     abstractQuality40: false,
+    abstractQuality: 0,
   })
   expect(edit.mock.calls[0]![0]).not.toBe(server.nodes[0]!.item)
   rendered.unmount()

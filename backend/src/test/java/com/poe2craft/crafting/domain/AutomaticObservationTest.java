@@ -103,7 +103,7 @@ class AutomaticObservationTest {
               .findFirst()
               .orElseThrow();
       assertThat(method.executionMode()).isEqualTo("REPEATABLE");
-      assertThat(method.points()).containsKeys(1, 100, 300, 500);
+      assertThat(method.points()).containsKeys(1, 100).doesNotContainKeys(300, 500);
       assertThat(method.points().get(1).active()).isNotEmpty();
       assertThat(method.points().get(1).initialUses()).isEmpty();
     }

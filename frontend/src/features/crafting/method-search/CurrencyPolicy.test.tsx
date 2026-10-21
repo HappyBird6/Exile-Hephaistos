@@ -1,5 +1,6 @@
 import { guideMessages } from './guideMessages'
 import { planningNotes } from './planningNotes'
+import { rarityUpgradeHints } from './rarityUpgradeHints'
 import { fireEvent, render, screen, within } from '@testing-library/react'
 import { expect, it, vi } from 'vitest'
 import { CurrencyPolicy } from './CurrencyPolicy'
@@ -33,6 +34,7 @@ it.each(locales)(
       }),
     ).toBeVisible()
     expect(within(dialog).getAllByRole('listitem')).toHaveLength(187)
+    expect(within(dialog).getByText(rarityUpgradeHints[locale])).toBeVisible()
     expect(within(dialog).queryByRole('checkbox')).not.toBeInTheDocument()
     expect(
       within(dialog).getByText(policyMessages[locale][18]!),
@@ -42,7 +44,7 @@ it.each(locales)(
     ).toBeInTheDocument()
     expect(
       policy.entries.filter((e) => ['USE', 'CONDITIONAL'].includes(e.decision)),
-    ).toHaveLength(51)
+    ).toHaveLength(49)
     expect(policy.entries.map((e) => e.number)).toEqual(
       Array.from({ length: 187 }, (_, i) => i + 1),
     )

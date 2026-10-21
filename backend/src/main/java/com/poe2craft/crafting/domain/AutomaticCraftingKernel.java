@@ -57,6 +57,7 @@ public final class AutomaticCraftingKernel {
   private final String family;
   private final Identity identity;
   private final RollPartition partition;
+  private int qualityGoal;
 
   public record RetainedModifierRole(
       ModifierDefinition.AffixType side, Set<String> families, boolean fractured) {}
@@ -77,6 +78,28 @@ public final class AutomaticCraftingKernel {
         .toList();
   }
 
+  public AutomaticCraftingKernel withQualityGoal(int quality) {
+    if (quality < 0 || quality > 40) throw new IllegalArgumentException("Invalid quality goal");
+    var configured =
+        new AutomaticCraftingKernel(
+            policy, catalog, simulator, family, partition, identity.rollPartition());
+    configured.qualityGoal = quality;
+    return configured;
+  }
+
+  public int qualityGoal() {
+    return qualityGoal;
+  }
+
+  public int workedQuality(ItemState item, int abstractQuality) {
+    return Math.max(
+        abstractQuality, item.catalystQuality() == null ? 0 : item.catalystQuality().amount());
+  }
+
+  public boolean baseQualitySupported(ItemState item) {
+    return com.poe2craft.item.CatalystQuality.supportedBase(item.baseItemId());
+  }
+
   public record RollBand(String stat, long min, long max) {}
 
   public Map<String, RollBand> rollBands(ItemState item) {
@@ -95,6 +118,9 @@ public final class AutomaticCraftingKernel {
 
   /** Eligibility and prerequisite projection, before allocating a numeric probability law. */
   public AutomaticCraftingPlan plan(ItemState item, AutomaticCraftingAction action) {
+    if (action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_BASE_CHECKPOINT)
+      return new AutomaticCraftingPlan(
+          AutomaticCraftingPlan.Status.UNAVAILABLE, "ABSTRACT_QUALITY_WORK", List.of(), false, "");
     var context = new AutomaticCurrencyPolicy.Context(family, action.purpose(), action.currency());
     if (policy.evaluate(action.currency().name(), context)
             != AutomaticCurrencyPolicy.Verdict.PERMITTED
@@ -165,6 +191,19 @@ public final class AutomaticCraftingKernel {
 
   public Result expand(ItemState state, AutomaticCraftingAction execution, long outcomeBudget) {
     if (outcomeBudget < 1) throw new IllegalArgumentException("Positive outcome budget required");
+    if (execution.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_BASE_CHECKPOINT) {
+      if (execution.currency() != WorkbenchCurrency.ESSENCE_BREACH
+          || !execution.omens().isEmpty()
+          || !baseQualitySupported(state))
+        return blocked(Status.UNAVAILABLE, "BASE_QUALITY_NOT_VERIFIED");
+      return new Result(
+          Status.COMPLETE,
+          "",
+          List.of(new Outcome(state, Fraction.ONE)),
+          Fraction.ZERO,
+          Fraction.ZERO,
+          List.of());
+    }
     var context =
         new AutomaticCurrencyPolicy.Context(family, execution.purpose(), execution.currency());
     if (policy.evaluate(execution.currency().name(), context)

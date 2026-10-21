@@ -24,7 +24,7 @@ it('restores editor items with omitted optional defaults and keeps the immutable
   }
   saveSupport('start', data)
   expect(loadStart()).toEqual(data)
-  expect(restoredStart()).toEqual(data)
+  expect(restoredStart()).toEqual({ ...data, abstractQuality: 0 })
   request.goal.groups[0]!.entries[0]!.statId =
     'hephaistos:v1:implicit:base_spirit_from_equipment'
   saveSupport('start', data)

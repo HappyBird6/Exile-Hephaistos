@@ -9,7 +9,17 @@ public record GoalFilter(
     Integer version, String catalogVersion, General general, List<Group> groups) {
   public record Context(String snapshotId, String baseItemId, Integer itemLevel) {}
 
-  public record General(String baseItemId, Range itemLevel, List<Rarity> rarities) {}
+  public record General(
+      String baseItemId,
+      Range itemLevel,
+      List<Rarity> rarities,
+      @com.fasterxml.jackson.annotation.JsonInclude(
+              com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+          Integer quality) {
+    public General(String baseItemId, Range itemLevel, List<Rarity> rarities) {
+      this(baseItemId, itemLevel, rarities, null);
+    }
+  }
 
   public record Range(BigDecimal min, BigDecimal max) {
     public boolean contains(BigDecimal value) {

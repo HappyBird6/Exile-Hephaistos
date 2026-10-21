@@ -8,6 +8,7 @@ import com.poe2craft.crafting.application.pathsearch.MethodSearchProtocol.*;
 import com.poe2craft.crafting.application.pathsearch.MethodSearchService;
 import com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Rejected;
 import jakarta.servlet.http.*;
+import java.util.List;
 import java.util.UUID;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
@@ -272,6 +273,11 @@ public final class MethodSearchController {
       if (body.has("expectedGeneration")) safeIntegers(body.get("expectedGeneration"));
       if (body.has("revision")) safeIntegers(body.get("revision"));
       if (body.has("parentRevision")) safeIntegers(body.get("parentRevision"));
+      for (var general :
+          List.of(
+              body.path("goal").path("general"), body.path("request").path("goal").path("general")))
+        if (general instanceof com.fasterxml.jackson.databind.node.ObjectNode object
+            && !object.has("quality")) object.putNull("quality");
       return json.treeToValue(body, type);
     } catch (Rejected e) {
       throw e;

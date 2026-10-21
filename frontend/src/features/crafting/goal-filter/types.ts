@@ -32,7 +32,12 @@ export type Group = {
 export type GoalFilter = {
   version: 1
   catalogVersion: string
-  general: { baseItemId: string; itemLevel: Range; rarities: string[] }
+  general: {
+    baseItemId: string
+    itemLevel: Range
+    rarities: string[]
+    quality?: number | null
+  }
   groups: Group[]
 }
 export type Issue = {

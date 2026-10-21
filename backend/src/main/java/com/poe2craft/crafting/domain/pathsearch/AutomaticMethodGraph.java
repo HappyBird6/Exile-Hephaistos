@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 /** Cooperative method-depth discovery. Display grouping must not replace these full item states. */
 public final class AutomaticMethodGraph implements AutoCloseable {
-  public static final String VERSION = "goal-directed-milestone-graph-v9-terminal-classes";
+  public static final String VERSION = "goal-directed-milestone-graph-v10-quality-goal";
 
   public record Progress(Status goal, List<Status> entries) {
     public Progress {
@@ -23,9 +23,31 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       ItemState item,
       Map<String, AutomaticCraftingKernel.RollBand> rolls,
       boolean quality40,
+      int abstractQuality,
       Progress progress,
       boolean discoveryFinished,
-      boolean directFinished) {}
+      boolean directFinished) {
+    public NodeView(
+        int id,
+        int depth,
+        ItemState item,
+        Map<String, AutomaticCraftingKernel.RollBand> rolls,
+        boolean quality40,
+        Progress progress,
+        boolean discoveryFinished,
+        boolean directFinished) {
+      this(
+          id,
+          depth,
+          item,
+          rolls,
+          quality40,
+          quality40 ? 40 : 0,
+          progress,
+          discoveryFinished,
+          directFinished);
+    }
+  }
 
   public record MethodView(
       String id,
@@ -47,7 +69,11 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   private final CertifiedInterval.Precision precision;
   private List<AutomaticCraftingAction> candidates;
 
-  public record Identity(ItemState item, boolean quality40) {}
+  public record Identity(ItemState item, boolean quality40, int abstractQuality) {
+    public Identity(ItemState item, boolean quality40) {
+      this(item, quality40, quality40 ? 40 : 0);
+    }
+  }
 
   private final Map<Identity, Node> nodes = new LinkedHashMap<>();
   private final Map<TerminalAdditionClasses.Key, Node> terminalClasses = new LinkedHashMap<>();
@@ -66,6 +92,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     final int id;
     final ItemState item;
     final boolean quality40;
+    final int abstractQuality;
     final Progress progress;
     final List<AutomaticCraftingAction> applicable = new ArrayList<>();
     final Set<AutomaticCraftingAction> allowedByPolicy = new HashSet<>();
@@ -76,14 +103,17 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     Node representative;
     TerminalAdditionClasses.Key terminalKey;
 
-    Node(ItemState item, boolean quality40, int depth) {
+    Node(ItemState item, boolean quality40, int abstractQuality, int depth) {
       id = orderedNodes.size();
       this.item = item;
       this.quality40 = quality40;
+      this.abstractQuality = Math.max(quality40 ? 40 : 0, abstractQuality);
       this.depth = depth;
-      var raw = evaluate.apply(item);
+      var raw = progress(item, this.abstractQuality);
       progress =
-          !quality40 && AutomaticCraftingKernel.hasQualityCap(item) && raw.goal() == Status.MATCH
+          kernel.workedQuality(item, this.abstractQuality) < 40
+                  && AutomaticCraftingKernel.hasQualityCap(item)
+                  && raw.goal() == Status.MATCH
               ? new Progress(Status.NO_MATCH, raw.entries())
               : raw;
       discovered = progress.goal() == Status.MATCH;
@@ -116,11 +146,12 @@ public final class AutomaticMethodGraph implements AutoCloseable {
               source.item,
               template,
               kernel,
-              item -> classify(source, item),
+              (item, quality) -> classify(source, item, quality),
               precision,
               primitiveOutcomeBudget,
               AutomaticMethodExecution.PreparationSuccess.STOP_ON_FIRST_HIT,
-              source.quality40);
+              source.quality40,
+              source.abstractQuality);
     }
   }
 
@@ -158,6 +189,32 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       long retainedLimit,
       long primitiveOutcomeBudget,
       boolean initialQuality40) {
+    this(
+        root,
+        policy,
+        kernel,
+        evaluate,
+        precision,
+        stateLimit,
+        methodLimit,
+        retainedLimit,
+        primitiveOutcomeBudget,
+        initialQuality40,
+        initialQuality40 ? 40 : 0);
+  }
+
+  public AutomaticMethodGraph(
+      ItemState root,
+      AutomaticCurrencyPolicy policy,
+      AutomaticCraftingKernel kernel,
+      Function<ItemState, Progress> evaluate,
+      CertifiedInterval.Precision precision,
+      int stateLimit,
+      int methodLimit,
+      long retainedLimit,
+      long primitiveOutcomeBudget,
+      boolean initialQuality40,
+      int initialAbstractQuality) {
     if (stateLimit < 1 || methodLimit < 1 || retainedLimit < 1 || primitiveOutcomeBudget < 1)
       throw new IllegalArgumentException("Positive server resource budgets required");
     this.kernel = kernel;
@@ -170,11 +227,32 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     candidates = AutomaticCraftingAction.candidates(policy);
     if (!policy.withinExplorationBoundary(root.explicits().size()))
       throw new IllegalArgumentException("Root exceeds the explicit exploration boundary");
-    intern(root, initialQuality40, 0);
+    intern(root, initialQuality40, initialAbstractQuality, 0);
   }
 
-  private Node intern(ItemState item, boolean quality40, int depth) {
-    var key = new Identity(item, quality40);
+  public Progress progress(ItemState item, int abstractQuality) {
+    return qualityProgress(kernel, item, abstractQuality, evaluate.apply(item));
+  }
+
+  /** The saved-result reader uses the same quality predicate without restoring any execution. */
+  public static Progress qualityProgress(
+      AutomaticCraftingKernel kernel, ItemState item, int abstractQuality, Progress raw) {
+    if (kernel.qualityGoal() == 0) return raw;
+    boolean achieved = kernel.workedQuality(item, abstractQuality) >= kernel.qualityGoal();
+    boolean supported =
+        kernel.baseQualitySupported(item)
+            && (kernel.qualityGoal() <= 20
+                || com.poe2craft.item.BaseRegistry.maximumQualityBreach(item.baseItemId()));
+    var quality = achieved ? Status.MATCH : supported ? Status.NO_MATCH : Status.UNSUPPORTED;
+    var entries = new ArrayList<>(raw.entries());
+    entries.add(quality);
+    return new Progress(
+        com.poe2craft.crafting.domain.goalfilter.GoalEvaluator.and(List.of(raw.goal(), quality)),
+        entries);
+  }
+
+  private Node intern(ItemState item, boolean quality40, int abstractQuality, int depth) {
+    var key = new Identity(item, quality40, Math.max(quality40 ? 40 : 0, abstractQuality));
     var node = nodes.get(key);
     if (node != null) {
       if (depth < node.depth) {
@@ -183,9 +261,11 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       }
       return node;
     }
-    node = new Node(item, quality40, depth);
+    node = new Node(item, quality40, abstractQuality, depth);
     if (depth > 0 && node.progress.goal() != Status.MATCH) {
-      node.choices = new GoalDirectedPlanner(kernel, evaluate, candidates).choices(item);
+      int work = node.abstractQuality;
+      node.choices =
+          new GoalDirectedPlanner(kernel, state -> progress(state, work), candidates).choices(item);
       var candidateNode = node;
       long proofStarted = System.nanoTime();
       var keyProof =
@@ -195,7 +275,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
               node.progress,
               node.choices,
               kernel,
-              target -> classify(candidateNode, target),
+              target -> classify(candidateNode, target, candidateNode.abstractQuality),
               primitiveOutcomeBudget,
               count -> proofRows += count);
       proofNanos += System.nanoTime() - proofStarted;
@@ -209,7 +289,8 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     // but charge them to retained storage rather than the expandable-state budget.
     boolean terminalGoal =
         evaluate.apply(item).goal() == Status.MATCH
-            && (quality40 || !AutomaticCraftingKernel.hasQualityCap(item));
+            && (kernel.workedQuality(item, node.abstractQuality) >= 40
+                || !AutomaticCraftingKernel.hasQualityCap(item));
     if ((!terminalGoal && node.representative == null && expandableStates() >= stateLimit)
         || retainedStates() >= retainedLimit) {
       limited = true;
@@ -245,7 +326,8 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                           .forEach(targets::add);
                   });
           for (var state : targets) {
-            var target = nodes.get(new Identity(state.item(), state.quality40()));
+            var target =
+                nodes.get(new Identity(state.item(), state.quality40(), state.abstractQuality()));
             if (target != null && target.depth > source.depth + 1) {
               target.depth = source.depth + 1;
               queue.addLast(target);
@@ -255,8 +337,8 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     }
   }
 
-  private Optional<Exit> classify(Node source, ItemState item) {
-    var now = evaluate.apply(item);
+  private Optional<Exit> classify(Node source, ItemState item, int quality) {
+    var now = progress(item, quality);
     if (now.goal() == Status.MATCH) return Optional.of(Exit.GOAL);
     if (now.entries().size() != source.progress.entries().size())
       return Optional.of(Exit.UNRESOLVED);
@@ -322,7 +404,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       int cycle = Math.toIntExact(method.execution.cycles());
       if (List.of(1, 100, 300, 500).contains(cycle) && !method.points.containsKey(cycle))
         publish(method, cycle, method.execution.observation());
-      if (cycle == 500) {
+      if (cycle >= 100) {
         method.finished = true;
         revision++;
         return;
@@ -336,7 +418,10 @@ public final class AutomaticMethodGraph implements AutoCloseable {
 
   private void discover(Node source) {
     if (source.choices == null)
-      source.choices = new GoalDirectedPlanner(kernel, evaluate, candidates).choices(source.item);
+      source.choices =
+          new GoalDirectedPlanner(
+                  kernel, item -> progress(item, source.abstractQuality), candidates)
+              .choices(source.item);
     if (source.scan >= source.choices.size()) {
       source.discovered = true;
       revision++;
@@ -402,23 +487,34 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                         && (kind != Exit.UNRESOLVED
                             || (state.temporaryPreparation()
                                 && evaluate.apply(state.item()).goal() == Status.MATCH)))
-                      intern(state.item(), state.quality40(), method.source.depth + 1);
+                      intern(
+                          state.item(),
+                          state.quality40(),
+                          state.abstractQuality(),
+                          method.source.depth + 1);
                   });
             });
+    // Failed attempts belong to this finite first-hit calculation. Keep their complete
+    // states inside the execution, rather than launching new crafting paths from them.
+    if (method.template.boundedChaos()) return;
     point
         .active()
         .forEach(
             (state, mass) -> {
               // This is a law-equivalent retry class, not a particular rolled item.
               if (!mass.zero() && !method.execution.retryRepresentatives().contains(state.item()))
-                intern(state.item(), state.quality40(), method.source.depth + 1);
+                intern(
+                    state.item(),
+                    state.quality40(),
+                    state.abstractQuality(),
+                    method.source.depth + 1);
             });
   }
 
   public void publishProgress() {
     for (var method : methods.values())
       if (!method.done())
-        publishTargets(method, transport(method, method.execution.provisional(500)));
+        publishTargets(method, transport(method, method.execution.provisional(100)));
   }
 
   private Map<
@@ -437,7 +533,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       return Map.copyOf(result);
     }
     var points = new LinkedHashMap<>(method.points);
-    for (int horizon : List.of(1, 100, 300, 500))
+    for (int horizon : List.of(1, 100))
       if (!points.containsKey(horizon) && horizon >= method.execution.cycles())
         points.put(horizon, method.execution.provisional(horizon));
     return Map.copyOf(points);
@@ -580,7 +676,8 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                     TerminalAdditionClasses.transport(
                         method.owner.source.item, method.source.item, state.item()),
                     state.temporaryPreparation(),
-                    state.quality40()),
+                    state.quality40(),
+                    state.abstractQuality()),
                 mass,
                 CertifiedInterval::add));
     return result;
@@ -621,6 +718,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                     n.item,
                     kernel.rollBands(n.item),
                     n.quality40,
+                    n.abstractQuality,
                     n.progress,
                     n.discovered,
                     n.discovered && n.outgoing.stream().allMatch(Method::done)))
@@ -628,6 +726,9 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   }
 
   private String executionMode(Method method) {
+    if (method.template.cycle().size() == 1
+        && method.template.cycle().getFirst().currency() == WorkbenchCurrency.CHAOS)
+      return "REPEATABLE";
     if (method.execution.cycles() > 1) return "REPEATABLE";
     if (method.execution.atBoundary() && method.execution.absorbed()) return "SINGLE_PASS";
     var first = method.points.get(1);
@@ -656,9 +757,18 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                     visiblePoints(m),
                     m.execution.unresolvedReasons(),
                     completeObservations(m),
-                    m.execution.retryRepresentatives(),
+                    retryStates(m),
                     m.done()))
         .toList();
+  }
+
+  private Set<ItemState> retryStates(Method method) {
+    var result = new HashSet<>(method.execution.retryRepresentatives());
+    if (method.template.boundedChaos())
+      visiblePoints(method)
+          .values()
+          .forEach(point -> point.active().keySet().forEach(state -> result.add(state.item())));
+    return Set.copyOf(result);
   }
 
   /**
@@ -695,7 +805,10 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                           else if (kind == Exit.DEAD || kind == Exit.LOSS)
                             outcomes.merge(-1, mass, CertifiedInterval::add);
                           else {
-                            var target = nodes.get(new Identity(state.item(), state.quality40()));
+                            var target =
+                                nodes.get(
+                                    new Identity(
+                                        state.item(), state.quality40(), state.abstractQuality()));
                             if (target == null) unknown[0] = unknown[0].add(mass);
                             else outcomes.merge(target.id, mass, CertifiedInterval::add);
                           }
@@ -704,7 +817,16 @@ public final class AutomaticMethodGraph implements AutoCloseable {
             .active()
             .forEach(
                 (state, mass) -> {
-                  var target = nodes.get(new Identity(state.item(), state.quality40()));
+                  // The displayed method permits at most this horizon's Chaos uses.
+                  // Do not turn its failed remainder into another horizon, which would
+                  // silently report unlimited retries in the route recommendation.
+                  if (method.template.boundedChaos()) {
+                    outcomes.merge(-1, mass, CertifiedInterval::add);
+                    return;
+                  }
+                  var target =
+                      nodes.get(
+                          new Identity(state.item(), state.quality40(), state.abstractQuality()));
                   if (target == null) unknown[0] = unknown[0].add(mass);
                   else outcomes.merge(target.id, mass, CertifiedInterval::add);
                 });
@@ -748,7 +870,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     return new Point(point.cycles(), outcomes, uses, point.mass());
   }
 
-  private static CertifiedMethodRunner.Observation<
+  public static CertifiedMethodRunner.Observation<
           AutomaticMethodExecution.State, AutomaticCraftingAction>
       decode(Point point) {
     var exits =
@@ -768,12 +890,26 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   public record NodeCursor(
       ItemState item,
       boolean quality40,
+      int abstractQuality,
       int depth,
       int scan,
       int pairs,
       boolean discovered,
       List<AutomaticCraftingAction> applicable,
-      Set<AutomaticCraftingAction> allowed) {}
+      Set<AutomaticCraftingAction> allowed) {
+    public NodeCursor(
+        ItemState item,
+        boolean quality40,
+        int depth,
+        int scan,
+        int pairs,
+        boolean discovered,
+        List<AutomaticCraftingAction> applicable,
+        Set<AutomaticCraftingAction> allowed) {
+      this(
+          item, quality40, quality40 ? 40 : 0, depth, scan, pairs, discovered, applicable, allowed);
+    }
+  }
 
   public record MethodCursor(
       String id,
@@ -831,6 +967,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                     new NodeCursor(
                         n.item,
                         n.quality40,
+                        n.abstractQuality,
                         n.depth,
                         n.scan,
                         n.pairs,
@@ -884,7 +1021,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       throw new IllegalArgumentException("Saved candidate inventory differs from policy");
     graph.candidates = List.copyOf(saved.candidates());
     for (var row : saved.nodes()) {
-      var node = graph.intern(row.item(), row.quality40(), row.depth());
+      var node = graph.intern(row.item(), row.quality40(), row.abstractQuality(), row.depth());
       if (node == null) throw new IllegalArgumentException("Invalid saved state budget");
       node.scan = row.scan();
       node.pairs = row.pairs();
@@ -911,7 +1048,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                   row.execution().withIdentity(saved.identity()),
                   kernel,
                   objective,
-                  item -> graph.classify(source, item));
+                  (item, quality) -> graph.classify(source, item, quality));
       method.finished = row.finished();
       row.points().forEach(p -> method.points.put(Math.toIntExact(p.cycles()), decode(p)));
       graph.methods.put(method.id, method);

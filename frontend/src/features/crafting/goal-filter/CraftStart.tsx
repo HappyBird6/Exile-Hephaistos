@@ -49,6 +49,7 @@ import { useI18n, uiText } from '../../../shared/i18n/i18n'
 
 type Draft = {
   abstractQuality40: boolean
+  abstractQuality: number
   base: string
   text: string
   item: ConcreteItem | null
@@ -84,6 +85,7 @@ export function CraftStart({
   const [editor] = useState(() =>
     createStore<Draft>(() => ({
       abstractQuality40: false,
+      abstractQuality: 0,
       base: 'solar',
       text: '',
       item: null,
@@ -121,6 +123,7 @@ export function CraftStart({
         item: d.item,
         rulesetIdentity: d.rulesetIdentity,
         abstractQuality40: d.abstractQuality40,
+        abstractQuality: d.abstractQuality,
         editing: d.editing,
         started: d.started,
         levelEdited: d.levelEdited,
@@ -148,7 +151,7 @@ export function CraftStart({
       searchIssue: false,
       ...((value.base !== undefined && value.base !== editor.getState().base) ||
       value.item === null
-        ? { abstractQuality40: false }
+        ? { abstractQuality40: false, abstractQuality: 0 }
         : {}),
       ...value,
     })
@@ -269,6 +272,7 @@ export function CraftStart({
       item,
       rulesetIdentity: selected.initial.rulesetIdentity,
       abstractQuality40: false,
+      abstractQuality: 0,
       text: startText(selected.base, item, selected.initial.modifiers),
       card: startCard(selected.base, item, selected.initial.modifiers),
       issue: '',
@@ -945,6 +949,7 @@ export function CraftStart({
               )}
               inputGeneration={run}
               abstractQuality40={draft.abstractQuality40}
+              abstractQuality={draft.abstractQuality}
               presentItem={createItemPresentation(
                 { name: draft.root.base!, itemClass: draft.root.itemClass },
                 draft.rootDefinitions,
@@ -972,6 +977,9 @@ export function CraftStart({
                   editing: true,
                   levelEdited: false,
                   abstractQuality40: context?.abstractQuality40 ?? false,
+                  abstractQuality:
+                    context?.abstractQuality ??
+                    (context?.abstractQuality40 ? 40 : 0),
                 })
                 requestAnimationFrame(() =>
                   modifierRegion.current

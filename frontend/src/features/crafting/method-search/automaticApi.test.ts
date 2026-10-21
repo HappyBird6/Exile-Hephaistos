@@ -43,6 +43,26 @@ function respond(payload: unknown) {
   return automaticApi.get(id, request.start.provenance.rulesetIdentity)
 }
 afterEach(() => vi.unstubAllGlobals())
+
+it('opens historical results across a policy header change without allowing execution', async () => {
+  const payload = { ...view(1), reason: 'LEGACY_READ_ONLY', canResume: false }
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(
+      async () =>
+        new Response(JSON.stringify(payload), {
+          headers: { 'X-Crafting-Ruleset': 'new-policy-identity' },
+        }),
+    ),
+  )
+  await expect(
+    automaticApi.get(id, request.start.provenance.rulesetIdentity),
+  ).resolves.toHaveProperty('canResume', false)
+  payload.reason = 'SUPPORTED_PLANS_COMPLETE'
+  await expect(
+    automaticApi.get(id, request.start.provenance.rulesetIdentity),
+  ).rejects.toThrow()
+})
 it('accepts completed terminal outcomes beyond the expandable-state limit', async () => {
   await expect(respond(view(200))).resolves.toHaveProperty('nodes.length', 201)
 })
