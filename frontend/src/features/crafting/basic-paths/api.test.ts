@@ -14,12 +14,12 @@ describe('exact probability display', () => {
       ).resolves.toEqual(provenance)
       expect(fetch).toHaveBeenLastCalledWith(
         '/api/v2/crafting/method-searches/provenance?baseItemId=Metadata%2FItems%2FJewels%2FJewelInt',
-        { signal },
+        { signal, cache: 'no-store' },
       )
       await loadProvenance(signal)
       expect(fetch).toHaveBeenLastCalledWith(
         '/api/v1/crafting/basic-paths/provenance',
-        { signal },
+        { signal, cache: 'no-store' },
       )
     } finally {
       vi.unstubAllGlobals()

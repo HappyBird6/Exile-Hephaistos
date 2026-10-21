@@ -34,7 +34,7 @@ export function createHttpGoalFilterAdapter(
     const response = await fetch(`${baseUrl}${path}`, {
       signal,
       ...(body === undefined
-        ? {}
+        ? { cache: 'no-store' as const }
         : {
             method: 'POST',
             headers: rulesetHeaders(rulesetIdentity),
@@ -77,15 +77,6 @@ export async function readGoalFilterResponse<T>(
   let issues: Issue[] = []
   try {
     const body = (await response.json()) as { issues?: unknown; code?: string }
-    if (body.code === 'RULESET_IDENTITY_MISMATCH')
-      issues = [
-        {
-          code: body.code,
-          path: '/goal/catalogVersion',
-          message: body.code,
-          severity: 'ERROR',
-        },
-      ]
     if (Array.isArray(body.issues))
       issues = body.issues.filter(
         (issue): issue is Issue =>
@@ -96,8 +87,24 @@ export async function readGoalFilterResponse<T>(
           typeof issue.message === 'string' &&
           ['ERROR', 'WARNING'].includes(issue.severity),
       )
+    if (
+      body.code === 'RULESET_IDENTITY_MISMATCH' &&
+      !issues.some((issue) => issue.code === body.code)
+    )
+      issues = [
+        ...issues,
+        {
+          code: body.code,
+          path: '/goal/catalogVersion',
+          message: body.code,
+          severity: 'ERROR',
+        },
+      ]
   } catch {
     /* A proxy failure need not contain JSON. */
   }
   throw new GoalFilterApiError(response.status, issues)
 }
+
+// Bootstrap recovery and the goal editor must share the catalog's verified identity.
+export const httpGoalFilterAdapter = createHttpGoalFilterAdapter()

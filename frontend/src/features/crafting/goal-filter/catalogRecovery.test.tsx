@@ -311,3 +311,21 @@ describe('recovery user interface and persistence', () => {
     expect(next.validate).not.toHaveBeenCalled()
   })
 })
+
+it.each(['EMPTY_GROUP', 'INVALID_QUALITY', 'RULESET_IDENTITY_MISMATCH'])(
+  'refreshes only the explicit ruleset conflict and does not refetch for %s input errors',
+  (code) => {
+    const refetch = vi.fn()
+    const error = new GoalFilterApiError(422, [
+      { code, path: '/goal', message: code, severity: 'ERROR' },
+    ])
+    const h = renderHook(() => useRefreshConflictedCatalog(error, refetch))
+    expect(refetch).toHaveBeenCalledTimes(
+      code === 'RULESET_IDENTITY_MISMATCH' ? 1 : 0,
+    )
+    h.rerender()
+    expect(refetch).toHaveBeenCalledTimes(
+      code === 'RULESET_IDENTITY_MISMATCH' ? 1 : 0,
+    )
+  },
+)

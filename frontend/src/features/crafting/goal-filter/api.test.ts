@@ -105,3 +105,84 @@ describe('goal filter Problem Details', () => {
     })
   })
 })
+
+it('refreshes the shared-context validation identity when catalog rules change', async () => {
+  const controller = new AbortController()
+  let current = 'old-rules'
+  const original = await mockGoalFilterAdapter.catalog(
+    fixtureContext,
+    controller.signal,
+  )
+  const sent: string[] = []
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(async (url: string, init?: RequestInit) => {
+      const isCatalog = url.includes('/catalog?')
+      if (isCatalog) expect(init?.cache).toBe('no-store')
+      else sent.push(new Headers(init?.headers).get('X-Crafting-Ruleset')!)
+      return new Response(
+        JSON.stringify(
+          isCatalog ? original : fixture.apiExamples.validateResponse,
+        ),
+        {
+          status: 200,
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Crafting-Ruleset': current,
+          },
+        },
+      )
+    }),
+  )
+  const adapter = createHttpGoalFilterAdapter()
+  await adapter.catalog(fixtureContext, controller.signal)
+  await adapter.validate(
+    fixtureContext,
+    fixture.apiExamples.validateRequest.goal as GoalFilter,
+    controller.signal,
+  )
+  current = 'new-rules'
+  await adapter.catalog(fixtureContext, controller.signal)
+  await adapter.validate(
+    fixtureContext,
+    fixture.apiExamples.validateRequest.goal as GoalFilter,
+    controller.signal,
+  )
+  expect(sent).toEqual(['old-rules', 'new-rules'])
+})
+
+it('preserves the ruleset conflict code when the actual 422 response contains an empty issues array', async () => {
+  const response = new Response(
+    JSON.stringify({ code: 'RULESET_IDENTITY_MISMATCH', issues: [] }),
+    { status: 422 },
+  )
+  await expect(readGoalFilterResponse(response)).rejects.toMatchObject({
+    status: 422,
+    issues: [
+      {
+        code: 'RULESET_IDENTITY_MISMATCH',
+        path: '/goal/catalogVersion',
+        severity: 'ERROR',
+      },
+    ],
+  })
+})
+it.each(['EMPTY_GROUP', 'INVALID_QUALITY'])(
+  'keeps ordinary 422 %s as an input issue rather than a ruleset conflict',
+  async (code) => {
+    const issue = {
+      code,
+      path: '/goal/general',
+      message: 'Invalid input',
+      severity: 'ERROR',
+    }
+    const response = new Response(
+      JSON.stringify({ code: 'INVALID_GOAL_FILTER', issues: [issue] }),
+      { status: 422 },
+    )
+    await expect(readGoalFilterResponse(response)).rejects.toMatchObject({
+      status: 422,
+      issues: [issue],
+    })
+  },
+)

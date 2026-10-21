@@ -11,7 +11,7 @@ import { useStore } from 'zustand'
 import { concreteInitial } from '../workbenchApi'
 import type { ConcreteItem } from '../workbenchApi'
 import { loadInitial } from '../craftingApi'
-import { createHttpGoalFilterAdapter, GoalFilterApiError } from './api'
+import { httpGoalFilterAdapter, GoalFilterApiError } from './api'
 import {
   evaluateNumericItem,
   evaluateNumericItemOnly,
@@ -28,7 +28,7 @@ import { craftStartMessages } from './craftStartMessages'
 import { goalFilterMessages } from './i18n'
 import { presentGoalStat } from './statPresentation'
 
-const adapter = createHttpGoalFilterAdapter()
+const adapter = httpGoalFilterAdapter
 export type SearchGoalSnapshot = {
   goal: GoalFilter
   catalogVersion: string | null

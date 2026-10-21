@@ -7,7 +7,8 @@ import { workspaceMessages } from '../method-search/workspaceMessages'
 import { AutomaticMethodSearch as MethodSearch } from '../method-search/AutomaticMethodSearch'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ReactNode } from 'react'
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { httpGoalFilterAdapter } from './api'
 import { createStore } from 'zustand/vanilla'
 import { useStore } from 'zustand'
 import { loadInitial } from '../craftingApi'
@@ -78,6 +79,9 @@ export function CraftStart({
   maxMillis?: number
 }) {
   const { t, locale, name } = useI18n()
+  const client = useQueryClient()
+  const [reloadingCatalog, setReloadingCatalog] = useState(false)
+  const [reloadFailed, setReloadFailed] = useState(false)
   const copy = craftStartMessages[locale]
   const setup = setupMessages[locale]
   const levels = levelMessages[locale]
@@ -195,6 +199,7 @@ export function CraftStart({
     queryFn: async ({ signal }) => {
       const response = await fetch('/api/v1/crafting/workbench/registry', {
         signal,
+        cache: 'no-store',
       })
       if (!response.ok) throw new Error('Base inventory unavailable.')
       const registry = (await response.json()) as {
@@ -260,6 +265,77 @@ export function CraftStart({
       rootDefinitions: null,
     })
     persist()
+  }
+  async function reloadCatalog() {
+    cancel()
+    const version = revision.current
+    const original = editor.getState()
+    setReloadingCatalog(true)
+    setReloadFailed(false)
+    try {
+      const fresh = await inventory.refetch()
+      if (fresh.isError || !fresh.data?.length)
+        throw new Error('Inventory unavailable')
+      const entry =
+        fresh.data.find((e) => e.base[0] === original.base) ??
+        fresh.data.find((e) => e.base[0] === 'solar') ??
+        fresh.data[0]!
+      const item = {
+        ...concreteInitial(entry.initial),
+        itemLevel: original.item?.itemLevel ?? entry.initial.state.itemLevel,
+      }
+      const context = {
+        snapshotId: item.snapshotId,
+        baseItemId: item.baseItemId,
+        itemLevel: item.itemLevel,
+      }
+      const catalog = await client.fetchQuery({
+        queryKey: ['goalFilter', httpGoalFilterAdapter.id, 'catalog', context],
+        queryFn: ({ signal }) => httpGoalFilterAdapter.catalog(context, signal),
+        staleTime: 0,
+        retry: false,
+      })
+      const proof = await client.fetchQuery({
+        queryKey: [
+          'craftStart',
+          'provenance',
+          entry.initial.rulesetIdentity,
+          entry.base[0],
+        ],
+        queryFn: ({ signal }) => loadProvenance(signal, item.baseItemId),
+        staleTime: 0,
+        retry: false,
+      })
+      if (
+        proof.rulesetIdentity !== entry.initial.rulesetIdentity ||
+        catalog.context.snapshotId !== item.snapshotId ||
+        catalog.context.baseItemId !== item.baseItemId ||
+        catalog.context.itemLevel !== item.itemLevel
+      )
+        throw new Error('Rules changed during recovery')
+      if (version !== revision.current) return
+      // Start a fresh server preset. Never relabel the old item or rewrite history.
+      update({
+        base: entry.base[0],
+        item,
+        rulesetIdentity: entry.initial.rulesetIdentity,
+        abstractQuality40: false,
+        abstractQuality: 0,
+        text: startText(entry.base, item, entry.initial.modifiers),
+        card: startCard(entry.base, item, entry.initial.modifiers),
+        issue: '',
+        started: false,
+        editing: true,
+        root: null,
+        rootItem: null,
+        rootDefinitions: null,
+      })
+      persist()
+    } catch {
+      if (version === revision.current) setReloadFailed(true)
+    } finally {
+      setReloadingCatalog(false)
+    }
   }
   function resetStart() {
     if (!selected) return
@@ -551,6 +627,8 @@ export function CraftStart({
           {draft.item && !currentRules && (
             <p role="alert">{t('ruleset.request_changed')}</p>
           )}
+          {reloadFailed && <p role="alert">{copy.loadError}</p>}
+          {reloadingCatalog && <p role="status">{copy.loading}</p>}
           {inventory.isError && (
             <p role="alert">
               {copy.loadError}{' '}
@@ -591,6 +669,13 @@ export function CraftStart({
                 onClick={resetStart}
               >
                 {resetMessages[locale].start}
+              </button>
+              <button
+                type="button"
+                disabled={reloadingCatalog || inventory.isLoading}
+                onClick={() => void reloadCatalog()}
+              >
+                {t('ruleset.reload_catalog')}
               </button>
               <h3>{copy.create}</h3>
               <div className="craft-start-base-selects">
@@ -847,6 +932,7 @@ export function CraftStart({
                 className="craft-start-primary"
                 ref={startButton}
                 disabled={
+                  reloadingCatalog ||
                   !draft.item ||
                   !currentRules ||
                   !draft.card ||
@@ -927,7 +1013,8 @@ export function CraftStart({
           </div>
         </div>
       </section>
-      {currentRules &&
+      {!reloadingCatalog &&
+        currentRules &&
         draft.started &&
         !draft.editing &&
         draft.root &&

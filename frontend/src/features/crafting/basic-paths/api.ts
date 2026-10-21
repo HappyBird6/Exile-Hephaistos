@@ -103,6 +103,7 @@ export async function loadProvenance(
     : '/api/v1/crafting/basic-paths/provenance'
   const response = await fetch(url, {
     signal,
+    cache: 'no-store',
   })
   if (!response.ok) throw new Error('Probability provenance unavailable.')
   const value = (await response.json()) as Provenance

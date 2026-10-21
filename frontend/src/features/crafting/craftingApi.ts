@@ -159,6 +159,9 @@ async function request(
 ): Promise<unknown> {
   const response = await fetch(`/api/v1/crafting/${path}`, {
     signal,
+    ...(body === undefined && /^(workbench\/)?initial\?/.test(path)
+      ? { cache: 'no-store' as const }
+      : {}),
     ...(body === undefined
       ? {}
       : {

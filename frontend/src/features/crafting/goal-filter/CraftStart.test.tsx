@@ -1,3 +1,4 @@
+import { loadProvenance } from '../basic-paths/api'
 import { cleanup } from '@testing-library/react'
 import {
   readSupport,
@@ -149,6 +150,10 @@ function parsed(base = 'Solar Amulet', itemClass = 'Amulets'): Item {
   }
 }
 beforeEach(() => {
+  vi.mocked(loadProvenance).mockResolvedValue({
+    ...requestFixture().start.provenance,
+    rulesetIdentity: initialFixture.rulesetIdentity,
+  })
   vi.stubGlobal(
     'fetch',
     vi.fn(async (input: RequestInfo | URL) => {
@@ -781,4 +786,171 @@ it('goal reset immediately invalidates the committed calculation while preservin
   expect(
     screen.queryByRole('region', { name: 'Crafting tree preview' }),
   ).not.toBeInTheDocument()
+})
+
+const reloadLabel = 'Reload catalog and start a new craft'
+function restoredRulesDraft() {
+  saveSupport('start', {
+    base: 'solar',
+    text: 'previous item text',
+    item: concreteInitial(solar),
+    rulesetIdentity: solar.rulesetIdentity,
+    abstractQuality40: false,
+    abstractQuality: 0,
+    editing: true,
+    started: false,
+    levelEdited: false,
+    searchRequest: null,
+  })
+  saveSupport('run', {
+    request: 'previous-saved-request',
+    job: '11111111-1111-4111-8111-111111111111',
+    selected: 0,
+    cycles: 100,
+    route: [],
+  })
+  return localStorage.getItem('hephaistos.support.v1:run')
+}
+function recoveryFetch(failCatalog: () => boolean = () => false) {
+  const current = { ...solar, rulesetIdentity: 'current-rules' }
+  const calls: string[] = []
+  vi.mocked(loadProvenance).mockResolvedValue({
+    ...requestFixture().start.provenance,
+    rulesetIdentity: current.rulesetIdentity,
+  })
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      calls.push(url)
+      if (url.includes('/registry')) {
+        expect(init?.cache).toBe('no-store')
+        return jsonResponse({ workbenchBases: { solar: {} }, entries: [] })
+      }
+      if (url.includes('/catalog?')) {
+        expect(init?.cache).toBe('no-store')
+        if (failCatalog()) return new Response('{}', { status: 503 })
+        const q = new URL(url, 'http://localhost').searchParams
+        const response = jsonResponse({
+          version: 1,
+          catalogVersion: 'test-catalog',
+          context: {
+            snapshotId: q.get('snapshotId'),
+            baseItemId: q.get('baseItemId'),
+            itemLevel: Number(q.get('itemLevel')),
+          },
+          groupTypes: [],
+          stats: [],
+          issues: [],
+        })
+        response.headers.set('X-Crafting-Ruleset', current.rulesetIdentity)
+        return response
+      }
+      expect(init?.cache).toBe('no-store')
+      const response = jsonResponse(current)
+      response.headers.set('X-Crafting-Ruleset', current.rulesetIdentity)
+      return response
+    }),
+  )
+  return { calls, current }
+}
+it.each(['restored draft', 'cached inventory'])(
+  'reloads the catalog and starts with current provenance from a %s without deleting old results',
+  async (mode) => {
+    const record = restoredRulesDraft()
+    const { calls, current } = recoveryFetch()
+    const client = new QueryClient({
+      defaultOptions: { queries: { retry: false } },
+    })
+    if (mode === 'cached inventory')
+      client.setQueryData(
+        ['craftStart', 'inventory'],
+        [{ base: ['solar', 'Amulets', 'Solar Amulet'], initial: solar }],
+      )
+    render(
+      <QueryClientProvider client={client}>
+        <CraftStart active />
+      </QueryClientProvider>,
+    )
+    await screen.findByRole('button', { name: reloadLabel })
+    await waitFor(() =>
+      expect(screen.getByRole('button', { name: reloadLabel })).toBeEnabled(),
+    )
+    expect(
+      screen.getByRole('button', { name: 'Start Crafting' }),
+    ).toBeDisabled()
+    if (mode === 'cached inventory') expect(calls).toEqual([])
+    fireEvent.click(screen.getByRole('button', { name: reloadLabel }))
+    await waitFor(() =>
+      expect(
+        screen.getByRole('button', { name: 'Start Crafting' }),
+      ).toBeEnabled(),
+    )
+    expect(calls.some((url) => url.includes('/registry'))).toBe(true)
+    expect(calls.some((url) => url.includes('/catalog?'))).toBe(true)
+    fireEvent.click(screen.getByRole('button', { name: 'Start Crafting' }))
+    const created = vi.mocked(MethodSearch).mock.lastCall![0].request
+    expect(created.start.provenance.rulesetIdentity).toBe(
+      current.rulesetIdentity,
+    )
+    expect(created.start.item.explicits).toEqual([])
+    expect(localStorage.getItem('hephaistos.support.v1:run')).toBe(record)
+  },
+)
+it('preserves the stale draft and saved result on catalog failure and recovers on retry', async () => {
+  const record = restoredRulesDraft()
+  let failed = true
+  recoveryFetch(() => failed)
+  render(
+    <QueryClientProvider
+      client={
+        new QueryClient({ defaultOptions: { queries: { retry: false } } })
+      }
+    >
+      <CraftStart active />
+    </QueryClientProvider>,
+  )
+  const reload = await screen.findByRole('button', { name: reloadLabel })
+  await waitFor(() => expect(reload).toBeEnabled())
+  fireEvent.click(reload)
+  await waitFor(() => expect(reload).toBeEnabled())
+  expect(screen.getByRole('button', { name: 'Start Crafting' })).toBeDisabled()
+  expect(screen.getByLabelText('Starting item text')).toHaveValue(
+    'previous item text',
+  )
+  expect(localStorage.getItem('hephaistos.support.v1:run')).toBe(record)
+  failed = false
+  fireEvent.click(reload)
+  await waitFor(() =>
+    expect(
+      screen.getByRole('button', { name: 'Start Crafting' }),
+    ).toBeEnabled(),
+  )
+  expect(localStorage.getItem('hephaistos.support.v1:run')).toBe(record)
+})
+it('rejects a mixed ruleset bootstrap without relabeling the old item', async () => {
+  const record = restoredRulesDraft()
+  recoveryFetch()
+  vi.mocked(loadProvenance).mockResolvedValue({
+    ...requestFixture().start.provenance,
+    rulesetIdentity: 'another-ruleset',
+  })
+  render(
+    <QueryClientProvider
+      client={
+        new QueryClient({ defaultOptions: { queries: { retry: false } } })
+      }
+    >
+      <CraftStart active />
+    </QueryClientProvider>,
+  )
+  const reload = await screen.findByRole('button', { name: reloadLabel })
+  await waitFor(() => expect(reload).toBeEnabled())
+  fireEvent.click(reload)
+  await waitFor(() => expect(reload).toBeEnabled())
+  expect(screen.getByRole('button', { name: 'Start Crafting' })).toBeDisabled()
+  expect(screen.getByLabelText('Starting item text')).toHaveValue(
+    'previous item text',
+  )
+  expect(localStorage.getItem('hephaistos.support.v1:run')).toBe(record)
 })
