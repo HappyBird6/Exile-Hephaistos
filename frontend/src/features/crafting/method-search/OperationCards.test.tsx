@@ -175,3 +175,91 @@ it('does not rank overlapping certified intervals using rounded percentages', ()
   }
   expect(operationGroups([first, second])[0]!.variants).toEqual([first, second])
 })
+
+it.each(['REGAL', 'EXALTED'])(
+  'prefers plain %s for identical conditional laws even if the omen was certified first',
+  (currency) => {
+    const plain = {
+      ...method(currency),
+      id: 'plain',
+      points: [
+        {
+          cycles: 1,
+          complete: true,
+          initialUses: {},
+          cycleUses: {},
+          outcomes: [
+            { target: 1, kind: 'GOAL', probability: probability('100') },
+          ],
+        },
+      ],
+    }
+    const omen = {
+      ...plain,
+      id: 'omen',
+      cycle: [
+        {
+          currency,
+          omens: ['SINISTRAL_CORONATION'],
+          purpose: 'GOAL_ACQUISITION',
+        },
+      ],
+    }
+    const recommendation = {
+      node: 0,
+      cycles: 100,
+      local: ['omen'],
+      strategy: probability('100'),
+      strategyStatus: 'ACTION_CERTIFIED',
+      strategyMethods: ['omen'],
+    }
+    expect(
+      operationGroups([omen, plain], 100, [recommendation])[0]!.variants.map(
+        (m) => m.id,
+      ),
+    ).toEqual(['plain', 'omen'])
+  },
+)
+it('keeps a certified whole-route action ahead of a larger immediate Exalted chance', () => {
+  const plain = {
+    ...method('EXALTED'),
+    id: 'plain',
+    points: [
+      {
+        cycles: 1,
+        complete: true,
+        initialUses: {},
+        cycleUses: {},
+        outcomes: [{ target: 1, kind: 'GOAL', probability: probability('10') }],
+      },
+    ],
+  }
+  const omen = {
+    ...plain,
+    id: 'omen',
+    cycle: [
+      {
+        currency: 'EXALTED',
+        omens: ['SINISTRAL_EXALTATION'],
+        purpose: 'GOAL_ACQUISITION',
+      },
+    ],
+    points: [
+      {
+        ...plain.points[0]!,
+        outcomes: [{ target: 2, kind: 'GOAL', probability: probability('20') }],
+      },
+    ],
+  }
+  const recommendation = {
+    node: 0,
+    cycles: 100,
+    local: ['omen'],
+    strategy: probability('50'),
+    strategyStatus: 'ACTION_CERTIFIED',
+    strategyMethods: ['plain'],
+  }
+  expect(
+    operationGroups([omen, plain], 100, [recommendation])[0]!.variants[0]!.id,
+  ).toBe('plain')
+})

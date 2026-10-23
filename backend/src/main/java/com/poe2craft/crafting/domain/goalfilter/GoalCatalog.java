@@ -42,7 +42,35 @@ public record GoalCatalog(
       String eligibilityReason,
       List<String> sourceStatIds,
       List<Contribution> contributions,
-      List<String> sourceUrls) {}
+      List<String> sourceUrls,
+      @com.fasterxml.jackson.annotation.JsonInclude(
+              com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+          Long sourceDivisor) {
+    public Stat(
+        String statId,
+        String label,
+        String unit,
+        Kind kind,
+        Support support,
+        boolean eligible,
+        String eligibilityReason,
+        List<String> sourceStatIds,
+        List<Contribution> contributions,
+        List<String> sourceUrls) {
+      this(
+          statId,
+          label,
+          unit,
+          kind,
+          support,
+          eligible,
+          eligibilityReason,
+          sourceStatIds,
+          contributions,
+          sourceUrls,
+          null);
+    }
+  }
 
   public enum Kind {
     EXPLICIT,

@@ -123,7 +123,8 @@ class TerminalAdditionClassesTest {
       for (int i = 0; i < 20000 && !graph.finished() && !graph.resourceLimited(); i++) graph.step();
       graph.publishProgress();
       assertThat(graph.finished()).isTrue();
-      assertThat(graph.executionCount()).isLessThan(graph.methods().size());
+      assertThat(graph.executionCount()).isEqualTo(graph.methods().size());
+      assertThat(graph.nodes()).anyMatch(n -> n.members().size() > 1);
       try (var restored =
           AutomaticMethodGraph.restore(
               graph.checkpoint("same-goal"), "same-goal", policy, kernel, evaluate)) {
@@ -191,19 +192,19 @@ class TerminalAdditionClassesTest {
       for (int i = 0; i < 20000 && !graph.finished(); i++) {
         graph.step();
         var c = graph.checkpoint("running");
-        if (c.executions().stream()
+        if (java.util.stream.IntStream.range(0, c.nodes().size())
             .anyMatch(
-                m ->
-                    m.owner() != null
+                id ->
+                    c.nodes().get(id).members().size() > 1
                         && c.executions().stream()
-                            .anyMatch(
-                                owner -> owner.id().equals(m.owner()) && !owner.finished()))) {
+                            .anyMatch(m -> m.source() == id && !m.finished()))) {
           cursor = c;
           break;
         }
       }
       assertThat(cursor)
-          .as("checkpoint must contain an unfinished representative and a concrete alias")
+          .as(
+              "checkpoint must contain an unfinished method on one node with several conditional inputs")
           .isNotNull();
       try (var restored = AutomaticMethodGraph.restore(cursor, "running", policy, k, both())) {
         assertThat(restored.methods()).isEqualTo(graph.methods());

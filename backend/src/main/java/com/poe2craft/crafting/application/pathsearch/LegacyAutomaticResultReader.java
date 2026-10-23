@@ -71,7 +71,9 @@ final class LegacyAutomaticResultReader {
       var execution = Objects.requireNonNull(saved.execution());
       var header = Objects.requireNonNull(execution.header());
       require(
-          AutomaticMethodExecution.VERSION.equals(execution.version())
+          (AutomaticMethodExecution.VERSION.equals(execution.version())
+                  || "automatic-method-execution-v5-tier-laws".equals(execution.version())
+                  || "automatic-method-execution-v4-prepared-renewal".equals(execution.version()))
               && CertifiedMethodRunner.CURSOR_VERSION.equals(header.version()));
       require(
           execution.objectiveIdentity().equals(graph.objective())

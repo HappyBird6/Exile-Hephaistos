@@ -114,7 +114,7 @@ class AutomaticCraftingKernelTest {
         new AutomaticCraftingKernel(
             policy,
             catalog,
-            new WorkbenchSimulator(catalog, new CraftingEngine(catalog), Set.of("joint")),
+            new WorkbenchSimulator(catalog, new CraftingEngine(catalog)),
             "amulets");
     var result =
         kernel.expand(
@@ -131,6 +131,74 @@ class AutomaticCraftingKernelTest {
         .extracting(AutomaticCraftingKernel.Outcome::probability)
         .containsExactlyInAnyOrder(
             Fraction.of(1, 16), Fraction.of(1, 16), Fraction.of(3, 16), Fraction.of(3, 16));
+  }
+
+  @Test
+  void optedInJointRollsKeepCorrelationTickWeightsAndUnresolvedBudgetMass() {
+    var joint =
+        new ModifierDefinition(
+            "joint",
+            "joint",
+            ModifierDefinition.Layer.EXPLICIT,
+            ModifierDefinition.AffixType.PREFIX,
+            Set.of("joint"),
+            1,
+            4,
+            1,
+            "joint",
+            List.of(
+                new ModifierDefinition.StatRange("x", 1, 2),
+                new ModifierDefinition.StatRange("y", 1, 2)),
+            Set.of(),
+            "https://example.test/joint");
+    var catalog = tiny.catalog(List.of(tiny.implicit, tiny.a, tiny.b, joint));
+    var kernel =
+        new AutomaticCraftingKernel(
+            policy,
+            catalog,
+            new WorkbenchSimulator(catalog, new CraftingEngine(catalog), Set.of("joint")),
+            "amulets");
+    var root = tiny.item(ItemState.Rarity.RARE, List.of());
+    var action =
+        new AutomaticCraftingAction(
+            WorkbenchCurrency.EXALTED,
+            Set.of(),
+            AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL);
+    var result = kernel.expand(root, action, 100);
+    assertThat(result.status()).isEqualTo(AutomaticCraftingKernel.Status.COMPLETE);
+    assertThat(result.unresolved()).isEqualTo(Fraction.ZERO);
+    var tuples = new LinkedHashMap<Map<String, Long>, Fraction>();
+    result
+        .outcomes()
+        .forEach(
+            o -> {
+              var m = o.item().explicits().getFirst();
+              if (m.modifierId().equals("joint")) tuples.put(m.values(), o.probability());
+            });
+    assertThat(tuples)
+        .containsOnly(
+            entry(Map.of("x", 1L, "y", 1L), Fraction.of(5000, 20002)),
+            entry(Map.of("x", 2L, "y", 2L), Fraction.of(5001, 20002)));
+    assertThat(result.assumptions())
+        .anySatisfy(
+            a -> {
+              assertThat(a.id()).isEqualTo(CoupledStatRollModel.ID);
+              assertThat(a.reason()).contains("Unverified user conjecture");
+              assertThat(a.ratioTick()).isNull();
+            });
+    assertThat(kernel.representatives(kernel.plan(root, action)))
+        .anySatisfy(
+            i -> assertThat(i.explicits().getFirst().values()).isEqualTo(Map.of("x", 2L, "y", 2L)));
+    var partial = kernel.expand(root, action, 5);
+    assertThat(partial.status()).isEqualTo(AutomaticCraftingKernel.Status.PARTIAL);
+    assertThat(partial.reason()).isEqualTo("OUTCOME_BUDGET");
+    assertThat(
+            partial.outcomes().stream()
+                .map(AutomaticCraftingKernel.Outcome::probability)
+                .reduce(Fraction.ZERO, Fraction::add)
+                .add(partial.unresolved()))
+        .isEqualTo(Fraction.ONE);
+    assertThat(partial.unresolved().numerator()).isPositive();
   }
 
   @Test

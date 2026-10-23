@@ -5,8 +5,10 @@ import com.poe2craft.item.ModifierInstance;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.random.RandomGenerator;
 
 /** User-approved conjecture, not a verified game distribution. See ISSUES.md WB-001. */
@@ -25,22 +27,55 @@ public final class CoupledStatRollModel {
     int tick = random.nextInt(RESOLUTION + 1);
     var values = new LinkedHashMap<String, Long>();
     for (var stat : definition.stats()) values.put(stat.id(), value(stat, tick));
-    assumptions.add(
-        new WorkbenchSimulator.Assumption(
-            ID,
-            "assumed shared ratio ticks (not distinct item outcomes)",
-            RESOLUTION + 1L,
-            List.of(definition.id()),
-            0L,
-            (long) RESOLUTION,
-            definition.sourceUrl(),
-            "Unverified user conjecture approved 2026-10-02; ISSUES.md WB-001. "
-                + "One shared ratio tick/10000 for all stats; 10001 equally sampled model ticks, "
-                + "not a game-verified permitted outcome set or uniform rounded outcomes. "
-                + "Interpolate each source min/max; integer HALF_UP rounding, ties away from zero. "
-                + "Different ticks may produce the same tuple; modifier selection weights are separate.",
-            tick));
+    assumptions.add(assumption(definition, tick));
     return new ModifierInstance(definition.id(), values);
+  }
+
+  public static WorkbenchSimulator.Assumption assumption(
+      ModifierDefinition definition, Integer tick) {
+    return new WorkbenchSimulator.Assumption(
+        ID,
+        "assumed shared ratio ticks (not distinct item outcomes)",
+        RESOLUTION + 1L,
+        List.of(definition.id()),
+        0L,
+        (long) RESOLUTION,
+        definition.sourceUrl(),
+        "Unverified user conjecture approved 2026-10-02; ISSUES.md WB-001. "
+            + "One shared ratio tick/10000 for all stats; 10001 equally sampled model ticks, "
+            + "not a game-verified permitted outcome set or uniform rounded outcomes. "
+            + "Interpolate each source min/max; integer HALF_UP rounding, ties away from zero. "
+            + "Different ticks may produce the same tuple; modifier selection weights are separate.",
+        tick);
+  }
+
+  /** Each joint tuple keeps the count of source ticks producing it, never uniform tuples. */
+  public record Cell(ModifierInstance modifier, int ticks) {}
+
+  public static List<Cell> cells(ModifierDefinition definition) {
+    if (definition.stats().size() < 2)
+      throw new IllegalArgumentException("Coupled model requires multiple source stats");
+    var result = new ArrayList<Cell>();
+    for (int first = 0; first <= RESOLUTION; ) {
+      var values = new LinkedHashMap<String, Long>();
+      int last = RESOLUTION;
+      for (var stat : definition.stats()) {
+        long number = value(stat, first);
+        values.put(stat.id(), number);
+        int low = first, high = RESOLUTION;
+        // HALF_UP interpolation is monotone, including negative ties and fixed stats.
+        while (low < high) {
+          int mid = low + (high - low + 1) / 2;
+          if (value(stat, mid) == number) low = mid;
+          else high = mid - 1;
+        }
+        last = Math.min(last, low);
+      }
+      result.add(
+          new Cell(new ModifierInstance(definition.id(), Map.copyOf(values)), last - first + 1));
+      first = last + 1;
+    }
+    return List.copyOf(result);
   }
 
   public static long value(ModifierDefinition.StatRange stat, int tick) {

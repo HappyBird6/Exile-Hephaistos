@@ -2,7 +2,7 @@
   "synthetic": false,
   "catalog": {
     "version": 1,
-    "catalogVersion": "hephaistos-goal-v1-e363e82f9afcbe40c42acb9a5cbc3d733fd074936d1dbeb2edc81f90341ae43d",
+    "catalogVersion": "hephaistos-goal-v1-d109fbfd2cc5f48c0db529306c9c3162dac27b562c6c0d447e55163a0aff298b",
     "context": {
       "snapshotId": "solar-special-0eddf6e6993c96d9c19942db5e81ff0774afe85c42d4a6646b978d442700d7b4",
       "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
@@ -185,13 +185,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:base_cast_speed_+%",
-        "label": "(25—28)% increased Cast Speed",
-        "unit": "source",
+        "label": "Increased Cast Speed",
+        "unit": "percent",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
-          "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "evaluation": "SUPPORTED",
+          "probability": "SUPPORTED",
+          "reasonCode": null
         },
         "eligible": true,
         "eligibilityReason": null,
@@ -314,13 +314,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:base_item_found_rarity_+%",
-        "label": "(16—19)% increased Rarity of Items found",
-        "unit": "source",
+        "label": "Increased Rarity of Items found",
+        "unit": "percent",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
-          "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "evaluation": "SUPPORTED",
+          "probability": "SUPPORTED",
+          "reasonCode": null
         },
         "eligible": true,
         "eligibilityReason": null,
@@ -339,13 +339,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:base_life_regeneration_rate_per_minute",
-        "label": "(29.1—33) Life Regeneration per second",
-        "unit": "source",
+        "label": "Life Regeneration per second",
+        "unit": "flat",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
-          "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "evaluation": "SUPPORTED",
+          "probability": "SUPPORTED",
+          "reasonCode": null
         },
         "eligible": true,
         "eligibilityReason": null,
@@ -364,7 +364,8 @@
           "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ac83f08dfe4308d856621084a4ca51519416a8a519ec52b28f0e6eb40be5bffd",
           "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e15bc71f06b8df9cebbc62504d383e1578ede3222f8155f033bfc217bdacf1a1",
           "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fb3df008bb8a0d1daa13f6acde5bd6580fbe2c48a4d28e2aed3ef2a5ae1e1028"
-        ]
+        ],
+        "sourceDivisor": 60
       },
       {
         "statId": "hephaistos:v1:explicit:base_lightning_damage_resistance_%",
@@ -733,13 +734,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:mana_regeneration_rate_+%",
-        "label": "(60—69)% increased Mana Regeneration Rate",
-        "unit": "source",
+        "label": "Increased Mana Regeneration Rate",
+        "unit": "percent",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
-          "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "evaluation": "SUPPORTED",
+          "probability": "SUPPORTED",
+          "reasonCode": null
         },
         "eligible": true,
         "eligibilityReason": null,
@@ -806,13 +807,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:maximum_mana_+%",
-        "label": "(7—8)% increased maximum Mana",
-        "unit": "source",
+        "label": "Increased maximum Mana",
+        "unit": "percent",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
-          "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "evaluation": "SUPPORTED",
+          "probability": "SUPPORTED",
+          "reasonCode": null
         },
         "eligible": true,
         "eligibilityReason": null,
@@ -6834,7 +6835,7 @@
     },
     "goal": {
       "version": 1,
-      "catalogVersion": "hephaistos-goal-v1-e363e82f9afcbe40c42acb9a5cbc3d733fd074936d1dbeb2edc81f90341ae43d",
+      "catalogVersion": "hephaistos-goal-v1-d109fbfd2cc5f48c0db529306c9c3162dac27b562c6c0d447e55163a0aff298b",
       "general": {
         "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
         "itemLevel": {
@@ -6873,7 +6874,7 @@
   "version": 1,
   "evaluateResponse": {
     "version": 1,
-    "catalogVersion": "hephaistos-goal-v1-e363e82f9afcbe40c42acb9a5cbc3d733fd074936d1dbeb2edc81f90341ae43d",
+    "catalogVersion": "hephaistos-goal-v1-d109fbfd2cc5f48c0db529306c9c3162dac27b562c6c0d447e55163a0aff298b",
     "status": "MATCH",
     "generalStatus": "MATCH",
     "groups": [

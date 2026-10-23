@@ -1,5 +1,8 @@
 export const graphNavigationMessages = {
   en: {
+    conditions: 'Conditions and route selection',
+    condition: 'Condition {n}',
+    sharedProbability: 'Shared conditional bounds',
     zoomIn: 'Zoom in',
     zoomOut: 'Zoom out',
     fit: 'Fit graph',
@@ -10,6 +13,9 @@ export const graphNavigationMessages = {
     variants: 'Candidates and probabilities',
   },
   ko: {
+    conditions: '조건별 경로 선택',
+    condition: '조건 {n}',
+    sharedProbability: '조건별 공통 확률 구간',
     zoomIn: '확대',
     zoomOut: '축소',
     fit: '전체 보기',
@@ -20,6 +26,9 @@ export const graphNavigationMessages = {
     variants: '후보와 확률',
   },
   'zh-CN': {
+    conditions: '条件与路径选择',
+    condition: '条件 {n}',
+    sharedProbability: '共享条件概率范围',
     zoomIn: '放大',
     zoomOut: '缩小',
     fit: '查看全图',
@@ -30,6 +39,9 @@ export const graphNavigationMessages = {
     variants: '候选与概率',
   },
   'zh-TW': {
+    conditions: '條件與路徑選擇',
+    condition: '條件 {n}',
+    sharedProbability: '共用條件機率範圍',
     zoomIn: '放大',
     zoomOut: '縮小',
     fit: '查看全圖',
@@ -40,6 +52,9 @@ export const graphNavigationMessages = {
     variants: '候選與機率',
   },
   ja: {
+    conditions: '条件と経路の選択',
+    condition: '条件 {n}',
+    sharedProbability: '共通の条件付き確率区間',
     zoomIn: '拡大',
     zoomOut: '縮小',
     fit: '全体表示',
@@ -50,6 +65,9 @@ export const graphNavigationMessages = {
     variants: '候補と確率',
   },
   es: {
+    conditions: 'Condiciones y selección de ruta',
+    condition: 'Condición {n}',
+    sharedProbability: 'Intervalo condicional común',
     zoomIn: 'Ampliar',
     zoomOut: 'Reducir',
     fit: 'Ver todo',

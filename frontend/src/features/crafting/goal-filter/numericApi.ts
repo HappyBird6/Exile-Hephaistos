@@ -10,11 +10,13 @@ type Evaluation = {
     status: string
     count: number | null
     score: number | null
+    exactScore?: { numerator: string; denominator: string }
     entries: {
       id: string
       status: string
       presence: string
       value: number | null
+      exactValue?: { numerator: string; denominator: string }
     }[]
   }[]
   issues: Issue[]

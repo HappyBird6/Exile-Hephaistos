@@ -1,7 +1,125 @@
 {
   "schemaVersion": 1,
-  "ruleVersion": "goal-catalog-source-units-v3-minion-strength/solar-numeric-addition-v1/uniform-integer-roll-v1",
+  "ruleVersion": "goal-catalog-source-units-v5-reviewed-rate-conversions/solar-numeric-addition-v1/uniform-integer-roll-v1",
   "stats": [
+    {
+      "sourceStatId": "base_life_regeneration_rate_per_minute",
+      "label": "Life Regeneration per second",
+      "unit": "flat",
+      "sourceDivisor": 60
+    },
+    {
+      "sourceStatId": "base_life_leech_from_physical_attack_damage_permyriad",
+      "label": "Physical Attack Damage leeched as Life",
+      "unit": "percent",
+      "sourceDivisor": 100
+    },
+    {
+      "sourceStatId": "base_mana_leech_from_physical_attack_damage_permyriad",
+      "label": "Physical Attack Damage leeched as Mana",
+      "unit": "percent",
+      "sourceDivisor": 100
+    },
+    {
+      "sourceStatId": "maximum_mana_+%",
+      "label": "Increased maximum Mana",
+      "unit": "percent"
+    },
+    {
+      "sourceStatId": "attack_minimum_added_physical_damage",
+      "label": "Minimum added Physical Damage to Attacks",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "attack_maximum_added_physical_damage",
+      "label": "Maximum added Physical Damage to Attacks",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "attack_minimum_added_fire_damage",
+      "label": "Minimum added Fire Damage to Attacks",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "attack_maximum_added_fire_damage",
+      "label": "Maximum added Fire Damage to Attacks",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "attack_minimum_added_cold_damage",
+      "label": "Minimum added Cold Damage to Attacks",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "attack_maximum_added_cold_damage",
+      "label": "Maximum added Cold Damage to Attacks",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "attack_minimum_added_lightning_damage",
+      "label": "Minimum added Lightning Damage to Attacks",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "attack_maximum_added_lightning_damage",
+      "label": "Maximum added Lightning Damage to Attacks",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "base_evasion_rating",
+      "label": "Evasion Rating",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "base_life_gained_on_enemy_death",
+      "label": "Life gained per enemy killed",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "base_mana_gained_on_enemy_death",
+      "label": "Mana gained per enemy killed",
+      "unit": "flat"
+    },
+    {
+      "sourceStatId": "mana_regeneration_rate_+%",
+      "label": "Increased Mana Regeneration Rate",
+      "unit": "percent"
+    },
+    {
+      "sourceStatId": "base_item_found_rarity_+%",
+      "label": "Increased Rarity of Items found",
+      "unit": "percent"
+    },
+    {
+      "sourceStatId": "light_radius_+%",
+      "label": "Increased Light Radius",
+      "unit": "percent"
+    },
+    {
+      "sourceStatId": "fire_damage_+%",
+      "label": "Increased Fire Damage",
+      "unit": "percent"
+    },
+    {
+      "sourceStatId": "cold_damage_+%",
+      "label": "Increased Cold Damage",
+      "unit": "percent"
+    },
+    {
+      "sourceStatId": "lightning_damage_+%",
+      "label": "Increased Lightning Damage",
+      "unit": "percent"
+    },
+    {
+      "sourceStatId": "chaos_damage_+%",
+      "label": "Increased Chaos Damage",
+      "unit": "percent"
+    },
+    {
+      "sourceStatId": "base_cast_speed_+%",
+      "label": "Increased Cast Speed",
+      "unit": "percent"
+    },
     {
       "sourceStatId": "minion_skill_gem_level_+",
       "label": "Level of all Minion Skills",
@@ -120,28 +238,19 @@
       "id": "total_strength",
       "label": "Total Strength",
       "unit": "flat",
-      "sourceStatIds": [
-        "additional_strength",
-        "additional_all_attributes"
-      ]
+      "sourceStatIds": ["additional_strength", "additional_all_attributes"]
     },
     {
       "id": "total_dexterity",
       "label": "Total Dexterity",
       "unit": "flat",
-      "sourceStatIds": [
-        "additional_dexterity",
-        "additional_all_attributes"
-      ]
+      "sourceStatIds": ["additional_dexterity", "additional_all_attributes"]
     },
     {
       "id": "total_intelligence",
       "label": "Total Intelligence",
       "unit": "flat",
-      "sourceStatIds": [
-        "additional_intelligence",
-        "additional_all_attributes"
-      ]
+      "sourceStatIds": ["additional_intelligence", "additional_all_attributes"]
     }
   ]
 }

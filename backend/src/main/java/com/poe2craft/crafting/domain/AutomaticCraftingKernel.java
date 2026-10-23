@@ -1,16 +1,20 @@
 package com.poe2craft.crafting.domain;
 
 import com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction;
+import com.poe2craft.crafting.domain.pathsearch.AutomaticTierPartition;
 import com.poe2craft.crafting.domain.pathsearch.RollPartition;
+import com.poe2craft.crafting.domain.pathsearch.TierCell;
+import com.poe2craft.crafting.domain.pathsearch.TierPartition;
 import com.poe2craft.item.*;
 import java.math.BigInteger;
 import java.util.*;
 
 /**
- * Finite primitive laws under declared scalar roll assumptions, never sampled game probabilities.
+ * Finite primitive laws under declared scalar/coupled assumptions, never sampled game
+ * probabilities.
  */
 public final class AutomaticCraftingKernel {
-  public static final String VERSION = "automatic-scalar-kernel-v5-goal-acquisition";
+  public static final String VERSION = "automatic-finite-kernel-v7-reviewed-source-units";
 
   public record Identity(
       String kernelVersion,
@@ -32,7 +36,34 @@ public final class AutomaticCraftingKernel {
     POLICY_REJECTED
   }
 
-  public record Outcome(ItemState item, Fraction probability) {}
+  public record Outcome(
+      ItemState item, Fraction probability, Map<String, TierCell> tiers, Set<String> retained) {
+    public Outcome {
+      tiers = Map.copyOf(tiers);
+      retained = Set.copyOf(retained);
+    }
+
+    public Outcome(ItemState item, Fraction probability, Map<String, TierCell> tiers) {
+      this(
+          item,
+          probability,
+          tiers,
+          item.explicits().stream()
+              .map(ModifierInstance::modifierId)
+              .collect(java.util.stream.Collectors.toSet()));
+    }
+
+    public Outcome(ItemState item, Fraction probability) {
+      this(item, probability, Map.of());
+    }
+  }
+
+  private record TierState(
+      ItemState item, Map<String, TierCell> tiers, Set<String> retained, boolean lineage) {
+    TierState {
+      tiers = Map.copyOf(tiers);
+    }
+  }
 
   public record Result(
       Status status,
@@ -58,6 +89,7 @@ public final class AutomaticCraftingKernel {
   private final Identity identity;
   private final RollPartition partition;
   private int qualityGoal;
+  private final boolean tierGroupingSafe;
 
   public record RetainedModifierRole(
       ModifierDefinition.AffixType side, Set<String> families, boolean fractured) {}
@@ -76,6 +108,73 @@ public final class AutomaticCraftingKernel {
                 .thenComparing(r -> new TreeSet<>(r.families()).toString())
                 .thenComparing(RetainedModifierRole::fractured))
         .toList();
+  }
+
+  private record Role(Object attribute, Set<String> tags, Object region) {}
+
+  private record Behavior(ItemState context, List<Role> roles) {}
+
+  public int modifierTier(String id) {
+    return Objects.requireNonNull(catalog.modifiers().get(id)).tier();
+  }
+
+  public Object attributeKey(ModifierInstance modifier) {
+    var definition = Objects.requireNonNull(catalog.modifiers().get(modifier.modifierId()));
+    return List.of(
+        definition.affixType(),
+        new TreeSet<>(definition.familyIds()),
+        new TreeSet<>(modifier.values().keySet()),
+        modifier.fractured());
+  }
+
+  public Object behaviorKey(ItemState item) {
+    if (!tierGroupingSafe) return item;
+    var roles =
+        item.explicits().stream()
+            .map(
+                m -> {
+                  var definition = Objects.requireNonNull(catalog.modifiers().get(m.modifierId()));
+                  var regions = new TreeMap<String, Object>();
+                  m.values()
+                      .forEach(
+                          (stat, value) ->
+                              regions.put(stat, partition.automaticRegion(stat, value)));
+                  return new Role(attributeKey(m), definition.tags(), regions);
+                })
+            .sorted(Comparator.comparing(Object::toString))
+            .toList();
+    var context =
+        new ItemState(
+            item.snapshotId(),
+            item.baseItemId(),
+            item.itemLevel(),
+            item.rarity(),
+            item.implicits(),
+            List.of(),
+            item.conditions(),
+            item.augmentSockets(),
+            item.catalystQuality());
+    return new Behavior(context, roles);
+  }
+
+  public Object attributeContext(ItemState item) {
+    var roles =
+        item.explicits().stream()
+            .map(this::attributeKey)
+            .sorted(Comparator.comparing(Object::toString))
+            .toList();
+    var context =
+        new ItemState(
+            item.snapshotId(),
+            item.baseItemId(),
+            item.itemLevel(),
+            item.rarity(),
+            item.implicits(),
+            List.of(),
+            item.conditions(),
+            item.augmentSockets(),
+            item.catalystQuality());
+    return List.of(context, roles);
   }
 
   public AutomaticCraftingKernel withQualityGoal(int quality) {
@@ -134,12 +233,22 @@ public final class AutomaticCraftingKernel {
     return simulator.automaticPlan(item, action);
   }
 
-  /** Every disjoint scalar goal cell is considered; this supplies no selection probability. */
+  /**
+   * Every scalar goal cell or declared joint tuple is considered, without selection probability.
+   */
   public List<ItemState> representatives(AutomaticCraftingPlan plan) {
     var result = new ArrayList<ItemState>();
     for (var branch : plan.branches())
       for (var candidate : branch.candidates()) {
-        if (candidate.stats().size() != 1) continue;
+        if (candidate.stats().size() != 1) {
+          for (var cell : simulator.automaticJointRolls(candidate).orElse(List.of())) {
+            var explicits = new ArrayList<>(branch.remaining().explicits());
+            explicits.add(cell.modifier());
+            if (policy.withinExplorationBoundary(explicits.size()))
+              result.add(simulator.finishBasicCurrency(branch.remaining(), explicits));
+          }
+          continue;
+        }
         var range = candidate.stats().getFirst();
         for (long value = range.min(); ; ) {
           var explicits = new ArrayList<>(branch.remaining().explicits());
@@ -175,6 +284,9 @@ public final class AutomaticCraftingKernel {
       RollPartition partition,
       String partitionIdentity) {
     this.policy = Objects.requireNonNull(policy);
+    tierGroupingSafe =
+        AutomaticCraftingAction.candidates(policy).stream()
+            .noneMatch(a -> a.omens().contains(WorkbenchOmen.WHITTLING));
     this.catalog = Objects.requireNonNull(catalog);
     this.simulator = Objects.requireNonNull(simulator);
     this.family = Objects.requireNonNull(family);
@@ -190,6 +302,25 @@ public final class AutomaticCraftingKernel {
   }
 
   public Result expand(ItemState state, AutomaticCraftingAction execution, long outcomeBudget) {
+    return expand(state, Map.of(), execution, outcomeBudget, false, false);
+  }
+
+  /** Keep each conditional tier law attached to its state, including through removal. */
+  public Result expandDeferred(
+      ItemState state,
+      Map<String, TierCell> tiers,
+      AutomaticCraftingAction execution,
+      long outcomeBudget) {
+    return expand(state, tiers, execution, outcomeBudget, tierGroupingSafe, true);
+  }
+
+  private Result expand(
+      ItemState state,
+      Map<String, TierCell> retainedTiers,
+      AutomaticCraftingAction execution,
+      long outcomeBudget,
+      boolean deferred,
+      boolean lineage) {
     if (outcomeBudget < 1) throw new IllegalArgumentException("Positive outcome budget required");
     if (execution.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_BASE_CHECKPOINT) {
       if (execution.currency() != WorkbenchCurrency.ESSENCE_BREACH
@@ -199,7 +330,7 @@ public final class AutomaticCraftingKernel {
       return new Result(
           Status.COMPLETE,
           "",
-          List.of(new Outcome(state, Fraction.ONE)),
+          List.of(new Outcome(state, Fraction.ONE, retainedTiers)),
           Fraction.ZERO,
           Fraction.ZERO,
           List.of());
@@ -233,7 +364,7 @@ public final class AutomaticCraftingKernel {
       return new Result(
           Status.COMPLETE,
           "",
-          List.of(new Outcome(state, Fraction.ONE)),
+          List.of(new Outcome(state, Fraction.ONE, retainedTiers)),
           Fraction.ZERO,
           Fraction.ZERO,
           List.of(
@@ -268,7 +399,8 @@ public final class AutomaticCraftingKernel {
       if (branch.candidates().isEmpty()) return blocked(Status.UNSUPPORTED, "EMPTY_CANDIDATE_LAW");
       for (var candidate : branch.candidates()) {
         if (candidate.stats().size() != 1) {
-          unsupportedRoll = "JOINT_ROLL_MODEL_NOT_IMPLEMENTED";
+          if (simulator.automaticJointRolls(candidate).isEmpty())
+            unsupportedRoll = "JOINT_ROLL_MODEL_NOT_IMPLEMENTED";
           continue;
         }
         var range = candidate.stats().getFirst();
@@ -280,7 +412,7 @@ public final class AutomaticCraftingKernel {
       }
     }
     if (plan.branches().isEmpty()) return blocked(Status.UNAVAILABLE, "NO_REMOVAL_CANDIDATE");
-    var outcomes = new LinkedHashMap<ItemState, Fraction>();
+    var outcomes = new LinkedHashMap<TierState, Fraction>();
     var assumptions = new LinkedHashSet<WorkbenchSimulator.Assumption>();
     if (execution.omens().contains(WorkbenchOmen.WHITTLING)) {
       var source =
@@ -315,6 +447,22 @@ public final class AutomaticCraftingKernel {
               plan.sourceUrl(),
               "Uniform over every eligible removal, after the consumed omen restriction; no published removal weights."));
     for (var branch : plan.branches()) {
+      var emittedCells = new HashSet<TierCell>();
+      var posterior =
+          deferred
+              ? new AutomaticTierPartition(partition)
+                  .members(branch.candidates(), uniform, outcomeBudget)
+              : Map.<TierPartition.BandKey, TierPartition.Member>of();
+      var candidateIds =
+          branch.candidates().stream()
+              .map(ModifierDefinition::id)
+              .collect(java.util.stream.Collectors.toSet());
+      var retainedIds =
+          branch.remaining().explicits().stream()
+              .map(ModifierInstance::modifierId)
+              .collect(java.util.stream.Collectors.toSet());
+      var keptTiers = new HashMap<>(retainedTiers);
+      keptTiers.keySet().retainAll(retainedIds);
       long total = 0;
       for (var candidate : branch.candidates())
         total = Math.addExact(total, uniform ? 1 : candidate.weight());
@@ -333,14 +481,43 @@ public final class AutomaticCraftingKernel {
                     ? "Fixed sourced outcomes use 1/n: ordinary spawn weight is not a fixed-material selection weight."
                     : "Catalog explicitly declares uniform eligible modifier-tier candidates; game weights are unavailable."));
       for (var candidate : branch.candidates()) {
-        if (candidate.stats().size() != 1) continue;
+        var selection = branchMass.multiply(Fraction.of(uniform ? 1 : candidate.weight(), total));
+        if (candidate.stats().size() != 1) {
+          var law = simulator.automaticJointRolls(candidate);
+          if (law.isEmpty()) continue;
+          if (candidate.stats().stream().anyMatch(s -> s.min() != s.max()))
+            assumptions.add(CoupledStatRollModel.assumption(candidate, null));
+          if (!policy.withinExplorationBoundary(branch.remaining().explicits().size() + 1)) {
+            boundary = boundary.add(selection);
+            emitted = emitted.add(selection);
+            continue;
+          }
+          for (var cell : law.get()) {
+            if (count >= outcomeBudget)
+              return result(outcomes, boundary, emitted, assumptions, "OUTCOME_BUDGET");
+            var explicits = new ArrayList<>(branch.remaining().explicits());
+            explicits.add(cell.modifier());
+            var item = simulator.finishBasicCurrency(branch.remaining(), explicits);
+            var tierLaws = new HashMap<>(keptTiers);
+            tierLaws.remove(candidate.id());
+            var mass =
+                selection.multiply(Fraction.of(cell.ticks(), CoupledStatRollModel.RESOLUTION + 1));
+            outcomes.merge(
+                new TierState(
+                    item, tierLaws, lineage ? Set.copyOf(retainedIds) : Set.of(), lineage),
+                mass,
+                Fraction::add);
+            emitted = emitted.add(mass);
+            count++;
+          }
+          continue;
+        }
         var range = candidate.stats().getFirst();
         var size =
             BigInteger.valueOf(range.max())
                 .subtract(BigInteger.valueOf(range.min()))
                 .add(BigInteger.ONE);
         if (size.compareTo(BigInteger.valueOf(Long.MAX_VALUE)) > 0) continue;
-        var selection = branchMass.multiply(Fraction.of(uniform ? 1 : candidate.weight(), total));
         var roll = simulator.singleStatRollAssumption(candidate);
         if (roll != null) assumptions.add(roll);
         if (!policy.withinExplorationBoundary(branch.remaining().explicits().size() + 1)) {
@@ -363,7 +540,43 @@ public final class AutomaticCraftingKernel {
                           .subtract(BigInteger.valueOf(value))
                           .add(BigInteger.ONE),
                       BigInteger.ONE));
-          outcomes.merge(item, cellMass, Fraction::add);
+          var tierLaws = new HashMap<>(keptTiers);
+          tierLaws.remove(candidate.id()); // Removed and re-added means a fresh random draw.
+          var member =
+              deferred
+                  ? Optional.ofNullable(
+                      posterior.get(new TierPartition.BandKey(candidate.id(), value, end)))
+                  : Optional.<com.poe2craft.crafting.domain.pathsearch.TierPartition.Member>empty();
+          if (member.isPresent()
+              && member.get().cell().variants().stream()
+                  .allMatch(v -> candidateIds.contains(v.modifierId()))) {
+            var tier = member.get();
+            { // The posterior was built with this branch's actual selection model.
+              if (!emittedCells.add(tier.cell())) {
+                if (end == range.max()) break;
+                value = end + 1;
+                continue;
+              }
+              var representative = tier.cell().representative(false);
+              explicits.removeLast();
+              explicits.add(representative);
+              item = simulator.finishBasicCurrency(branch.remaining(), explicits);
+              tierLaws.put(representative.modifierId(), tier.cell());
+              cellMass =
+                  cellMass.multiply(
+                      new Fraction(
+                          tier.cellWeight()
+                              .numerator()
+                              .multiply(tier.intervalWeight().denominator()),
+                          tier.cellWeight()
+                              .denominator()
+                              .multiply(tier.intervalWeight().numerator())));
+            }
+          }
+          outcomes.merge(
+              new TierState(item, tierLaws, lineage ? Set.copyOf(retainedIds) : Set.of(), lineage),
+              cellMass,
+              Fraction::add);
           emitted = emitted.add(cellMass);
           count++;
           if (end == range.max()) break;
@@ -382,7 +595,7 @@ public final class AutomaticCraftingKernel {
   }
 
   private static Result result(
-      Map<ItemState, Fraction> outcomes,
+      Map<TierState, Fraction> outcomes,
       Fraction boundary,
       Fraction emitted,
       Set<WorkbenchSimulator.Assumption> assumptions,
@@ -394,7 +607,17 @@ public final class AutomaticCraftingKernel {
             ? Status.COMPLETE
             : Status.PARTIAL,
         reason,
-        outcomes.entrySet().stream().map(e -> new Outcome(e.getKey(), e.getValue())).toList(),
+        outcomes.entrySet().stream()
+            .map(
+                e ->
+                    e.getKey().lineage()
+                        ? new Outcome(
+                            e.getKey().item(),
+                            e.getValue(),
+                            e.getKey().tiers(),
+                            e.getKey().retained())
+                        : new Outcome(e.getKey().item(), e.getValue(), e.getKey().tiers()))
+            .toList(),
         boundary,
         unresolved,
         List.copyOf(assumptions));

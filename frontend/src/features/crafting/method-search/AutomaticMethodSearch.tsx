@@ -1,5 +1,7 @@
+import { compactFrozenCard } from './compactFrozenCard'
 import { qualityGoalMessages } from '../goal-filter/qualityGoalMessages'
 import { SearchResources } from './SearchResources'
+import { NumericRollNotice } from './NumericRollNotice'
 import { ScenarioExport } from './ScenarioCodePanel'
 import type { Scenario } from './scenarioCode'
 import { OperationCards } from './OperationCards'
@@ -32,7 +34,11 @@ import { pathTreeMessages } from '../path-tree/messages'
 import { methodSearchMessages } from './messages'
 import { policyMessages } from './policyMessages'
 import { qualityWorkMessages } from './qualityWorkMessages'
-import { presentRollCell } from './rollPresentation'
+import {
+  presentAutomaticItem,
+  distributionEditMessages,
+  automaticItemIsDistribution,
+} from './automaticTierLaws'
 import { probabilityText, quantityText } from './probabilityPresentation'
 import {
   automaticApi,
@@ -400,6 +406,7 @@ function Run({
         <button onClick={onRecalculate}>{common.recalculate}</button>
       )}
       {view && <SearchResources view={view} />}
+      <NumericRollNotice models={view?.rollModels} />
       {!capacity && !scopeUnsupported && (
         <CalculationStatus
           state={calculationState(
@@ -524,32 +531,40 @@ function Run({
                     </p>
                     <ItemCard
                       item={
-                        snapshot?.cards[String(selectedNode.id)]?.[locale] ??
-                        presentRollCell(
-                          selectedNode.item,
-                          selectedNode.rolls,
-                          locale,
-                          presentItem,
-                        )
+                        snapshot?.cards[String(selectedNode.id)]?.[locale]
+                          ? compactFrozenCard(
+                              snapshot.cards[String(selectedNode.id)]![locale],
+                            )
+                          : presentAutomaticItem(
+                              selectedNode,
+                              locale,
+                              presentItem,
+                              view.nodes,
+                            )
                       }
                     />
-                    {onEditState && (
-                      <>
-                        <button
-                          onClick={() => {
-                            stop()
-                            onEditState(structuredClone(selectedNode.item), {
-                              abstractQuality40: selectedNode.quality40,
-                              abstractQuality:
-                                selectedNode.abstractQuality ??
-                                (selectedNode.quality40 ? 40 : 0),
-                            })
-                          }}
-                        >
-                          {guide.edit}
-                        </button>
-                      </>
-                    )}
+                    {onEditState &&
+                      automaticItemIsDistribution(selectedNode) && (
+                        <p>{distributionEditMessages[locale]}</p>
+                      )}
+                    {onEditState &&
+                      !automaticItemIsDistribution(selectedNode) && (
+                        <>
+                          <button
+                            onClick={() => {
+                              stop()
+                              onEditState(structuredClone(selectedNode.item), {
+                                abstractQuality40: selectedNode.quality40,
+                                abstractQuality:
+                                  selectedNode.abstractQuality ??
+                                  (selectedNode.quality40 ? 40 : 0),
+                              })
+                            }}
+                          >
+                            {guide.edit}
+                          </button>
+                        </>
+                      )}
                   </article>
                 </div>
               )}
@@ -567,6 +582,7 @@ function Run({
               )}
               <div className="method-map__methods">
                 <OperationCards
+                  recommendations={view.recommendations}
                   methods={view.methods.filter(
                     (m) => m.source === selectedNode?.id,
                   )}

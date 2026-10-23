@@ -1,3 +1,5 @@
+import { compactFrozenCard } from './compactFrozenCard'
+import { arrivalProbabilities } from './arrivalProbabilities'
 import { attemptLabel } from './attemptLabel'
 import { useLayoutEffect, useRef, useState } from 'react'
 import type {
@@ -9,7 +11,6 @@ import type { Selection } from './supportStorage'
 import type { Scenario } from './scenarioCode'
 import type { PathTreeProps } from '../path-tree/PathTree'
 import { methodPoint } from './methodObservation'
-import { sumBounds } from './outcomeGrouping'
 import { stateProjection, type BundleEdge } from './stateProjection'
 import { commonStateCard } from './commonStateCard'
 import { MeasuredGraphBox } from './MeasuredGraphBox'
@@ -19,10 +20,12 @@ import { graphNavigationMessages } from './graphNavigationMessages'
 import { guideMessages } from './guideMessages'
 import { outcomeMessages } from './outcomeMessages'
 import { probabilityText } from './probabilityPresentation'
-import { presentRollCell } from './rollPresentation'
+import { presentAutomaticItem } from './automaticTierLaws'
 import { ItemCard } from '../ItemCard'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { pathTreeMessages } from '../path-tree/messages'
+import { useGraphPan } from './useGraphPan'
+import { useGraphWheelZoom } from './useGraphWheelZoom'
 
 export function GroupedMethodGraph({
   view,
@@ -51,8 +54,10 @@ export function GroupedMethodGraph({
     common = pathTreeMessages[locale],
     nav = graphNavigationMessages[locale]
   const host = useRef<HTMLDivElement>(null)
+  const { panning, ...panHandlers } = useGraphPan()
   const [viewport, setViewport] = useState({ width: 340, height: 720 }),
     [zoom, setZoom] = useState(1)
+  useGraphWheelZoom(host, zoom, setZoom)
   const [measured, setMeasured] = useState<Record<string, number>>({}),
     [opened, setOpened] = useState<string | null>(null)
   useLayoutEffect(() => {
@@ -79,9 +84,9 @@ export function GroupedMethodGraph({
     const cached = renderedCards.get(id)
     if (cached) return cached
     const n = view.nodes.find((n) => n.id === id)!
-    const card =
-      frozenCards?.[String(id)]?.[locale] ??
-      presentRollCell(n.item, n.rolls, locale, presentItem)
+    const card = frozenCards?.[String(id)]?.[locale]
+      ? compactFrozenCard(frozenCards[String(id)]![locale])
+      : presentAutomaticItem(n, locale, presentItem, view.nodes)
     renderedCards.set(id, card)
     return card
   }
@@ -208,7 +213,8 @@ export function GroupedMethodGraph({
       </div>
       <div
         ref={host}
-        className="method-map__overview"
+        className={`method-map__overview graph-pan-viewport${panning ? ' is-panning' : ''}`}
+        {...panHandlers}
         tabIndex={0}
         role="region"
         aria-label={common.title}
@@ -314,25 +320,41 @@ export function GroupedMethodGraph({
                         onClick={() => openEdge(e)}
                       >
                         {labelFor(e)}
-                        {e.variants.map(({ method, outcomes }) => {
-                          const probability = sumBounds(
-                            outcomes.map((o) => o.probability),
-                          )
-                          const point = methodPoint(method, cycles)
-                          return (
-                            <span
-                              className="graph-method-probability"
-                              key={method.id}
-                            >
-                              {nav.source} {method.source} ·{' '}
-                              {point && point.cycles > 1 && (
-                                <>{attemptLabel(locale, point.cycles)} · </>
-                              )}
-                              {copy.probability}:{' '}
-                              {probabilityText(probability.lower, probability)}
-                            </span>
-                          )
-                        })}
+                        {arrivalProbabilities(e, cycles).map(
+                          (
+                            { method, probability, sources },
+                            conditionIndex,
+                          ) => {
+                            const point = methodPoint(method, cycles)
+                            return (
+                              <span
+                                className="graph-method-probability"
+                                key={method.id}
+                              >
+                                {arrivalProbabilities(e, cycles).length > 1 && (
+                                  <>
+                                    {nav.condition.replace(
+                                      '{n}',
+                                      String(conditionIndex + 1),
+                                    )}{' '}
+                                    ·{' '}
+                                  </>
+                                )}
+                                {sources.length > 1 && (
+                                  <>{nav.sharedProbability} · </>
+                                )}
+                                {point && point.cycles > 1 && (
+                                  <>{attemptLabel(locale, point.cycles)} · </>
+                                )}
+                                {copy.probability}:{' '}
+                                {probabilityText(
+                                  probability.lower,
+                                  probability,
+                                )}
+                              </span>
+                            )
+                          },
+                        )}
                       </button>
                     ))}
                   </MeasuredGraphBox>
@@ -384,7 +406,7 @@ export function GroupedMethodGraph({
                         )}
                       />
                       <p>{graphStateMessages[locale].candidates}</p>
-                      <details className="graph-candidates" open>
+                      <details className="graph-candidates">
                         <summary>
                           {nav.variants} ({b.nodes.length})
                         </summary>
@@ -472,35 +494,86 @@ export function GroupedMethodGraph({
         <section className="exalted-outcomes" aria-label={nav.variants}>
           <h3>{labelFor(chosen)}</h3>
           <p>{copy.detail}</p>
-          {chosen.variants.map(({ method, outcomes }) => (
-            <details key={method.id} open={chosen.variants.length === 1}>
-              <summary>
-                {nav.source} {method.source} · {labelFor(chosen)}
-              </summary>
-              <ItemCard item={cardFor(method.source)} />
-              <ul>
-                {outcomes.map((o) => (
-                  <li key={`${o.target}:${o.kind}`}>
+          {arrivalProbabilities(chosen, cycles).map(
+            ({ method, probability, sources }) => {
+              const variants = chosen.variants.filter(
+                (v) =>
+                  sources.includes(v.method.source) &&
+                  v.method.initial
+                    .concat(v.method.cycle)
+                    .map(action)
+                    .join(' → ') ===
+                    method.initial.concat(method.cycle).map(action).join(' → '),
+              )
+              const targets = [
+                ...new Set(
+                  variants.flatMap((v) => v.outcomes.map((o) => o.target!)),
+                ),
+              ]
+              return (
+                <article key={method.id} className="graph-conditional-summary">
+                  <p>
+                    {method.initial
+                      .concat(method.cycle)
+                      .map(action)
+                      .join(' → ')}{' '}
+                    · {copy.probability}:{' '}
+                    {probabilityText(probability.lower, probability)}
+                  </p>
+                  <ItemCard item={commonStateCard(sources.map(cardFor))} />
+                  <ItemCard item={commonStateCard(targets.map(cardFor))} />
+                  {sources.length === 1 && targets.length === 1 && (
                     <button
-                      onClick={() =>
+                      onClick={() => {
+                        const o = variants[0]!.outcomes[0]!
                         choose({
                           method: method.id,
                           source: method.source,
                           target: o.target!,
                           kind: o.kind,
                         })
-                      }
+                      }}
                     >
-                      {guide.result} {o.target}
-                    </button>{' '}
-                    · {copy.probability}:{' '}
-                    {probabilityText(o.probability.lower, o.probability)}
-                    <ItemCard item={cardFor(o.target!)} />
-                  </li>
-                ))}
-              </ul>
-            </details>
-          ))}
+                      {guide.result}
+                    </button>
+                  )}
+                </article>
+              )
+            },
+          )}
+          <details className="graph-original-conditions">
+            <summary>{nav.conditions}</summary>
+            {chosen.variants.map(({ method, outcomes }, index) => (
+              <details key={method.id} open={index === 0}>
+                <summary>
+                  {nav.source} {method.source} ·{' '}
+                  {method.initial.concat(method.cycle).map(action).join(' → ')}
+                </summary>
+                <ItemCard item={cardFor(method.source)} />
+                <ul>
+                  {outcomes.map((o) => (
+                    <li key={`${o.target}:${o.kind}`}>
+                      <button
+                        onClick={() =>
+                          choose({
+                            method: method.id,
+                            source: method.source,
+                            target: o.target!,
+                            kind: o.kind,
+                          })
+                        }
+                      >
+                        {guide.result} {o.target}
+                      </button>{' '}
+                      · {copy.probability}:{' '}
+                      {probabilityText(o.probability.lower, o.probability)}
+                      <ItemCard item={cardFor(o.target!)} />
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            ))}
+          </details>
         </section>
       )}
     </div>

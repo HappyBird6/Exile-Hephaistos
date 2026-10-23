@@ -5,7 +5,15 @@ import java.util.*;
 /** Reviewed display units and direct pseudo sources; never grants probability support. */
 public record GoalDefinitions(
     int schemaVersion, String ruleVersion, List<Direct> stats, List<Pseudo> pseudos) {
-  public record Direct(String sourceStatId, String label, String unit) {}
+  public record Direct(String sourceStatId, String label, String unit, Long sourceDivisor) {
+    public Direct {
+      if (sourceDivisor != null && sourceDivisor == 1) sourceDivisor = null;
+    }
+
+    public Direct(String sourceStatId, String label, String unit) {
+      this(sourceStatId, label, unit, null);
+    }
+  }
 
   public record Pseudo(String id, String label, String unit, List<String> sourceStatIds) {
     public Pseudo {
@@ -23,6 +31,8 @@ public record GoalDefinitions(
       require(stat.sourceStatId());
       require(stat.label());
       unit(stat.unit());
+      if (stat.sourceDivisor() != null && stat.sourceDivisor() <= 0)
+        throw new IllegalArgumentException("Positive source divisor required");
       if (ids.putIfAbsent(stat.sourceStatId(), stat) != null)
         throw new IllegalArgumentException("Duplicate goal source stat: " + stat.sourceStatId());
     }
@@ -70,6 +80,8 @@ public record GoalDefinitions(
               append(result, s.sourceStatId());
               append(result, s.label());
               append(result, s.unit());
+              if (s.sourceDivisor() != null && s.sourceDivisor() != 1)
+                append(result, "sourceDivisor=" + s.sourceDivisor());
             });
     pseudos.stream()
         .sorted(Comparator.comparing(Pseudo::id))

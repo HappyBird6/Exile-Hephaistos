@@ -100,3 +100,16 @@
 .item-card__modifier-detail > span {
   white-space: pre-wrap;
 }
+
+.item-card__tier-values {
+  width: 100%;
+  border-collapse: collapse;
+  font: inherit;
+}
+.item-card__tier-values th,
+.item-card__tier-values td {
+  padding: 0.12rem 0.4rem;
+  text-align: left;
+  font-weight: normal;
+  white-space: nowrap;
+}

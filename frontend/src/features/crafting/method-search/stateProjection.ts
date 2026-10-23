@@ -5,6 +5,7 @@ import type {
 } from './automaticApi'
 import { methodPoint } from './methodObservation'
 import { canonical } from '../path-tree/validation'
+import { operationGroups, operationSignature } from './operationGrouping'
 
 export type StateBundle = { id: string; depth: number; nodes: AutomaticNode[] }
 export type BundleEdge = {
@@ -15,6 +16,7 @@ export type BundleEdge = {
     method: AutomaticArrow
     outcomes: AutomaticArrow['points'][number]['outcomes']
   }[]
+  preferred: string[]
 }
 // Only display equivalence: every concrete state and source-conditional method survives.
 export function stateProjection(view: AutomaticView, cycles: number) {
@@ -24,7 +26,12 @@ export function stateProjection(view: AutomaticView, cycles: number) {
   const modifierKey = (
     n: AutomaticNode,
     m: AutomaticNode['item']['explicits'][number],
-  ) => canonical({ modifier: m, roll: n.rolls?.[m.modifierId] ?? null })
+  ) =>
+    canonical({
+      modifier: m,
+      roll: n.rolls?.[m.modifierId] ?? null,
+      tiers: n.tiers?.[m.modifierId] ?? null,
+    })
   for (const method of view.methods) {
     const hasEssence = method.initial
       .concat(method.cycle)
@@ -66,7 +73,9 @@ export function stateProjection(view: AutomaticView, cycles: number) {
               ...n.item,
               explicits: n.item.explicits
                 .map((m) =>
-                  (n.rolls?.[m.modifierId] || random.has(modifierKey(n, m))) &&
+                  (n.tiers?.[m.modifierId] ||
+                    n.rolls?.[m.modifierId] ||
+                    random.has(modifierKey(n, m))) &&
                   !fixed.has(modifierKey(n, m))
                     ? {
                         stats: Object.keys(m.values).sort(),
@@ -100,17 +109,34 @@ export function stateProjection(view: AutomaticView, cycles: number) {
       const key = canonical({
         from,
         to,
-        initial: method.initial,
-        cycle: method.cycle,
+        operation: operationSignature(method),
         mode: method.executionMode ?? null,
       })
       let edge = edges.get(key)
       if (!edge) {
-        edge = { id: `edge:${edges.size}`, from, to, variants: [] }
+        edge = {
+          id: `edge:${edges.size}`,
+          from,
+          to,
+          variants: [],
+          preferred: [],
+        }
         edges.set(key, edge)
       }
       edge.variants.push({ method, outcomes })
     }
+  }
+  for (const edge of edges.values()) {
+    const ordered = operationGroups(
+      edge.variants.map((v) => v.method),
+      cycles,
+      view.recommendations,
+    )
+    edge.preferred = ordered.map((g) => g.variants[0]!.id)
+    const rank = ordered.flatMap((g) => g.variants).map((m) => m.id)
+    edge.variants.sort(
+      (a, b) => rank.indexOf(a.method.id) - rank.indexOf(b.method.id),
+    )
   }
   // Only show root-reachable bundles; membership is never expanded into tier nodes.
   const reachable = new Set([owner.get(0)!])

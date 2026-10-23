@@ -1,3 +1,5 @@
+import { validateJointGraph } from './jointValidation'
+import { validateTierLaws } from './automaticTierLaws'
 import { validateSearchResources } from './searchResourcesValidation'
 import { assertShape } from '../path-tree/validation'
 import type { Item, CreateRequest } from '../path-tree/types'
@@ -9,6 +11,40 @@ export type AutomaticAction = {
   purpose: string
 }
 export type AutomaticNode = {
+  attributes?: Record<
+    string,
+    {
+      modifierId: string
+      stat: string
+      min: number
+      max: number
+      tier: number
+      role: string
+    }[]
+  >
+  members?: {
+    item: Item
+    tiers: NonNullable<AutomaticNode['tiers']>
+    rolls: RollBands
+  }[]
+  joint?: {
+    method: string
+    source: number
+    kind: string
+    retained: Record<string, string>
+  }[]
+  tiers?: Record<
+    string,
+    {
+      variants: {
+        modifierId: string
+        stat: string
+        min: number
+        max: number
+        probability: { numerator: string; denominator: string }
+      }[]
+    }
+  >
   rolls?: RollBands
   quality40: boolean
   abstractQuality?: number
@@ -30,12 +66,24 @@ export type AutomaticArrow = {
   points: {
     cycles: number
     complete: boolean
-    outcomes: { target: number | null; kind: string; probability: Bounds }[]
+    outcomes: {
+      target: number | null
+      kind: string
+      probability: Bounds
+      conditional?: {
+        local: Item['explicits']
+        tiers: NonNullable<AutomaticNode['tiers']>
+        rolls: RollBands
+        retainedFromSource: string[]
+        probability: Bounds
+      }[]
+    }[]
     initialUses: Record<string, Bounds>
     cycleUses: Record<string, Bounds>
   }[]
 }
 export type AutomaticView = {
+  rollModels?: string[]
   version: string
   id: string
   revision: number
@@ -105,6 +153,13 @@ function validate(raw: unknown): AutomaticView {
   if (v.resources !== undefined)
     validateSearchResources(v.resources, v.nodes.length, v.methods.length)
   if (
+    v.rollModels !== undefined &&
+    (!Array.isArray(v.rollModels) ||
+      v.rollModels.some((id) => id !== 'user-coupled-ratio-half-up-v1') ||
+      new Set(v.rollModels).size !== v.rollModels.length)
+  )
+    throw new Error('Invalid automatic roll model')
+  if (
     !v.resources &&
     !(v.reason === 'LEGACY_READ_ONLY' && v.canResume === false) &&
     v.nodes.filter((node) => node.progress?.goal !== 'MATCH').length > 128
@@ -113,6 +168,7 @@ function validate(raw: unknown): AutomaticView {
   const ids = new Set<number>()
   for (const n of v.nodes) {
     assertShape('item', n.item)
+    validateTierLaws(n)
     if (
       ids.has(n.id) ||
       !Number.isSafeInteger(n.id) ||
@@ -154,6 +210,7 @@ function validate(raw: unknown): AutomaticView {
     }
   }
   for (const r of v.recommendations) bound(r.strategy)
+  validateJointGraph(v, bound)
   return v
 }
 async function request(

@@ -99,6 +99,39 @@ class AutomaticSearchServiceTest {
   }
 
   @Test
+  void resumingAnAlreadyFinishedCancelledJobRestoresItsResultWithoutMoreWork() {
+    var repository = new Repository();
+    try (var service = service(repository)) {
+      var started = service.create("owner", request("finished-before-cancel"));
+      var completed =
+          service.control(
+              "owner",
+              started.id(),
+              new AutomaticSearchService.Control(
+                  "advance", started.revision(), started.generation(), "ADVANCE"));
+      assertThat(completed.status()).isEqualTo("COMPLETE");
+      var cancelled =
+          service.control(
+              "owner",
+              completed.id(),
+              new AutomaticSearchService.Control(
+                  "cancel", completed.revision(), completed.generation(), "CANCEL"));
+      assertThat(cancelled.status()).isEqualTo("CANCELLED");
+      var command =
+          new AutomaticSearchService.Control(
+              "resume", cancelled.revision(), cancelled.generation(), "RESUME");
+      var resumed = service.control("owner", cancelled.id(), command);
+      assertThat(resumed.status()).isEqualTo(completed.status());
+      assertThat(resumed.reason()).isEqualTo(completed.reason());
+      assertThat(resumed.operations()).isEqualTo(completed.operations());
+      assertThat(resumed.resources()).isEqualTo(completed.resources());
+      assertThat(resumed.nodes()).isEqualTo(completed.nodes());
+      assertThat(resumed.methods()).isEqualTo(completed.methods());
+      assertThat(service.control("owner", resumed.id(), command)).isEqualTo(resumed);
+    }
+  }
+
+  @Test
   void activeCapacityExpiresAfterFixedTtl() throws Exception {
     var repository = new Repository();
     var json = new ObjectMapper();
@@ -119,7 +152,8 @@ class AutomaticSearchServiceTest {
     }
     try (var service = service(repository, Clock.fixed(now.plusSeconds(86401), ZoneOffset.UTC))) {
       var created = service.create("owner", request("after-expiry"));
-      assertThat(repository.ids()).containsExactly(created.id());
+      assertThat(repository.ids()).hasSize(17).contains(created.id());
+      before.forEach((id, bytes) -> assertThat(repository.read(id)).isEqualTo(bytes));
       assertThat(json.readTree(repository.read(created.id())).get("expires").asLong())
           .isEqualTo(now.plusSeconds(172801).toEpochMilli());
     }

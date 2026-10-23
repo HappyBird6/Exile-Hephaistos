@@ -26,14 +26,17 @@ public final class ItemStatProjection {
         var value = modifier.values().get(mapping.sourceStatId());
         if (value != null && seen.add(modifier.modifierId())) {
           present = true;
-          sum =
-              sum.add(
-                  BigDecimal.valueOf(value)
-                      .multiply(BigDecimal.valueOf(mapping.numerator()))
-                      .divide(BigDecimal.valueOf(mapping.denominator())));
+          sum = sum.add(BigDecimal.valueOf(value));
         }
       }
-      result.put(stat.statId(), present ? Observation.present(sum) : Observation.absent());
+      result.put(
+          stat.statId(),
+          present
+              ? Observation.presentNumber(
+                  new GoalNumber(
+                      sum.multiply(BigDecimal.valueOf(mapping.numerator())),
+                      BigDecimal.valueOf(mapping.denominator())))
+              : Observation.absent());
     }
     for (var stat : stats.values())
       if (stat.kind() == GoalCatalog.Kind.PSEUDO)

@@ -9,7 +9,7 @@ import type { Selection } from './supportStorage'
 import { saveSupport } from './supportStorage'
 import { canonical } from '../path-tree/validation'
 import { ItemCard } from '../ItemCard'
-import { presentRollCell } from './rollPresentation'
+import { presentAutomaticItem } from './automaticTierLaws'
 import { AutomaticMethodSearch } from './AutomaticMethodSearch'
 import {
   decodeScenario,
@@ -86,7 +86,7 @@ export function ScenarioExport({
           Object.fromEntries(
             scenarioLocales.map((language) => [
               language,
-              presentRollCell(n.item, n.rolls, language, presentItem),
+              presentAutomaticItem(n, language, presentItem, view.nodes),
             ]),
           ),
         ]),

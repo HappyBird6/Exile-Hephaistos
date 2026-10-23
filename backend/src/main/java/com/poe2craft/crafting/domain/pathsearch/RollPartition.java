@@ -11,8 +11,10 @@ import java.util.*;
 public final class RollPartition {
   public static final String VERSION = "goal-reviewed-scalar-shared-pool-partition-v6";
   private final boolean exact;
+  private final ItemState initial;
   private final Set<String> relevant, intervalSafe;
   private final Map<String, NavigableSet<BigInteger>> cuts;
+  private final Map<String, NavigableSet<BigInteger>> automaticCuts;
   private final TierPartition tiers;
   private final OrbitPartition orbits;
   private final Set<WorkbenchCurrency> actions;
@@ -40,10 +42,41 @@ public final class RollPartition {
       TierPartition tiers,
       OrbitPartition orbits,
       Set<WorkbenchCurrency> actions) {
+    this(exact, relevant, intervalSafe, cuts, tiers, orbits, actions, null);
+  }
+
+  private RollPartition(
+      boolean exact,
+      Set<String> relevant,
+      Set<String> intervalSafe,
+      Map<String, NavigableSet<BigInteger>> cuts,
+      TierPartition tiers,
+      OrbitPartition orbits,
+      Set<WorkbenchCurrency> actions,
+      ItemState initial) {
+    this(exact, relevant, intervalSafe, cuts, tiers, orbits, actions, initial, cuts);
+  }
+
+  private RollPartition(
+      boolean exact,
+      Set<String> relevant,
+      Set<String> intervalSafe,
+      Map<String, NavigableSet<BigInteger>> cuts,
+      TierPartition tiers,
+      OrbitPartition orbits,
+      Set<WorkbenchCurrency> actions,
+      ItemState initial,
+      Map<String, NavigableSet<BigInteger>> automaticCuts) {
+    this.initial = initial;
     this.exact = exact;
     this.relevant = Set.copyOf(relevant);
     this.intervalSafe = Set.copyOf(intervalSafe);
     this.cuts = new HashMap<>();
+    this.automaticCuts = new HashMap<>();
+    automaticCuts.forEach(
+        (key, value) ->
+            this.automaticCuts.put(
+                key, Collections.unmodifiableNavigableSet(new TreeSet<>(value))));
     this.tiers = tiers;
     this.orbits = orbits;
     this.actions = Set.copyOf(actions);
@@ -52,13 +85,28 @@ public final class RollPartition {
             this.cuts.put(key, Collections.unmodifiableNavigableSet(new TreeSet<>(value))));
   }
 
+  public ItemState initial() {
+    return initial;
+  }
+
+  private RollPartition withInitial(ItemState root) {
+    return new RollPartition(
+        exact, relevant, intervalSafe, cuts, tiers, orbits, actions, root, automaticCuts);
+  }
+
+  public Object automaticRegion(String stat, long value) {
+    return exact || (relevant.contains(stat) && !intervalSafe.contains(stat))
+        ? List.of(stat, value)
+        : region(stat, value, automaticCuts);
+  }
+
   public static RollPartition exact() {
     return new RollPartition(true, Set.of(), Set.of(), Map.of());
   }
 
   public static RollPartition compile(
       ItemCatalog catalog, Map<String, GoalCatalog.Stat> known, GoalFilter goal, ItemState root) {
-    if (root.catalystQuality() != null) return exact();
+    if (root.catalystQuality() != null) return exact().withInitial(root);
     var relevant = new HashSet<String>();
     var pending = new ArrayDeque<String>();
     goal.groups().stream()
@@ -72,7 +120,7 @@ public final class RollPartition {
       if (!seen.add(id)) continue;
       var stat = known.get(id);
       if (stat == null || stat.support().evaluation() != GoalFilter.Capability.SUPPORTED)
-        return exact();
+        return exact().withInitial(root);
       relevant.addAll(stat.sourceStatIds());
       stat.contributions().forEach(c -> pending.add(c.statId()));
     }
@@ -95,7 +143,8 @@ public final class RollPartition {
           for (var entry : group.entries())
             if (!entry.disabled()) {
               var mapping = GoalCatalogIndex.mapping(known.get(entry.statId()));
-              if (mapping.isEmpty() || mapping.get().numerator() <= 0) return exact();
+              if (mapping.isEmpty() || mapping.get().numerator() <= 0)
+                return exact().withInitial(root);
               var m = mapping.get();
               var producers =
                   catalog.modifiers().values().stream()
@@ -117,6 +166,10 @@ public final class RollPartition {
               if (entry.range() != null && entry.range().max() != null)
                 boundaries.add(raw(entry.range().max(), m, RoundingMode.FLOOR).add(BigInteger.ONE));
             }
+    // A known point must remain disjoint in probability space. Its artificial
+    // boundaries do not change the goal or any later transition, however.
+    var automaticCuts = new HashMap<String, NavigableSet<BigInteger>>();
+    cuts.forEach((stat, values) -> automaticCuts.put(stat, new TreeSet<>(values)));
     // Initial deterministic values must never overlap a generated uniform cell.
     for (var modifier : root.explicits())
       modifier
@@ -127,7 +180,17 @@ public final class RollPartition {
                 boundaries.add(BigInteger.valueOf(value));
                 boundaries.add(BigInteger.valueOf(value).add(BigInteger.ONE));
               });
-    var result = new RollPartition(false, relevant, safe, cuts);
+    var result =
+        new RollPartition(
+            false,
+            relevant,
+            safe,
+            cuts,
+            TierPartition.empty(),
+            OrbitPartition.empty(),
+            Set.copyOf(BasicCurrencyTransitions.supportedActions()),
+            root,
+            automaticCuts);
     // The shared minimum-level grouping does not yet support multi-family generation groups.
     if (!root.baseItemId().equals(SolarAmulet.BASE_ID)
         || !simple
@@ -147,7 +210,9 @@ public final class RollPartition {
         cuts,
         TierPartition.compile(catalog, root, result, eligibility),
         OrbitPartition.compile(catalog, root, result, eligibility),
-        Set.copyOf(BasicCurrencyTransitions.reachableActions(root)));
+        Set.copyOf(BasicCurrencyTransitions.reachableActions(root)),
+        root,
+        automaticCuts);
   }
 
   private static BigInteger raw(
@@ -197,9 +262,15 @@ public final class RollPartition {
   }
 
   Object tierRegion(String stat, long first) {
+    return region(stat, first, cuts);
+  }
+
+  private Object region(String stat, long first, Map<String, NavigableSet<BigInteger>> boundaries) {
     if (!relevant.contains(stat)) return List.of();
     var floor =
-        cuts.getOrDefault(stat, Collections.emptyNavigableSet()).floor(BigInteger.valueOf(first));
+        boundaries
+            .getOrDefault(stat, Collections.emptyNavigableSet())
+            .floor(BigInteger.valueOf(first));
     return List.of(
         stat, floor == null ? BigInteger.valueOf(Long.MIN_VALUE).subtract(BigInteger.ONE) : floor);
   }

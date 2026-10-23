@@ -61,6 +61,7 @@ export type Stat = {
   sourceStatIds: string[]
   contributions: { statId: string; coefficient: number }[]
   sourceUrls: string[]
+  sourceDivisor?: number
 }
 export type Catalog = {
   sourceModifiers?: Record<string, import('../craftingApi').Definition>

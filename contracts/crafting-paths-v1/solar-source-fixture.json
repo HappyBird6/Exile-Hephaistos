@@ -10,14 +10,14 @@
     },
     {
       "path": "crafting/ruleset-v1.json",
-      "sha256": "645d908295f8218f27a06a0bb365237e6aa0cd1524a2e52bd1d8b4412f5c52ca"
+      "sha256": "50a82d7b74cb6eabc000b26cd3d906186b00ef54e22fe27725e5a547d2d68dfd"
     },
     {
       "path": "crafting/goalfilter/definitions-v1.json",
-      "sha256": "370f5d76382cd5735a1862ee5bd2ffd637f9150f777052b91849bd8417c50d48"
+      "sha256": "01f0dcb28e930f5c6c1e511dd177f54f4ee46a430c764929d632312e9599be07"
     }
   ],
-  "rulesetIdentity": "reviewed-equipment-20261009-v2-debb3f07052d54419a4732f49d9febf78508e23cd69a489698c5e81be80597f7",
+  "rulesetIdentity": "reviewed-equipment-20261009-v2-c303fc1ea724ddf2ccca61f7c9512e6c9fdcd997cb9d4348fe5a5f8766f07d5a",
   "gameSeason": "UNVERIFIED",
   "gamePatch": "UNVERIFIED",
   "startItem": {
@@ -118,5 +118,6 @@
     "Compile the GoalFilter through the common predicate; do not translate into one modifier ID",
     "Prove renewal for every eligible outcome and preserve all unrelated candidates",
     "Compare actual new path-search output to this independent oracle before claiming runtime verification"
-  ]
+  ],
+  "bindingNote": "Current ruleset digest bindings updated for additive reviewed goal units; the item and numeric oracle retain their historical baseline and are not a fresh runtime capture."
 }

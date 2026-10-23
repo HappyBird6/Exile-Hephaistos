@@ -28,6 +28,27 @@ class CoupledStatRollModelTest {
   }
 
   @Test
+  void finiteCellsExactlyReproduceTheEntireTickHistogramIncludingUnequalTupleWeights() {
+    var definition = fixture();
+    var expected = new LinkedHashMap<Map<String, Long>, Integer>();
+    for (int tick = 0; tick <= CoupledStatRollModel.RESOLUTION; tick++) {
+      var values = new TreeMap<String, Long>();
+      for (var stat : definition.stats())
+        values.put(stat.id(), CoupledStatRollModel.value(stat, tick));
+      expected.merge(values, 1, Integer::sum);
+    }
+    var cells = CoupledStatRollModel.cells(definition);
+    var actual = new LinkedHashMap<Map<String, Long>, Integer>();
+    cells.forEach(c -> actual.put(c.modifier().values(), c.ticks()));
+    assertThat(actual).isEqualTo(expected);
+    assertThat(cells.stream().mapToInt(CoupledStatRollModel.Cell::ticks).sum()).isEqualTo(10001);
+    assertThat(new HashSet<>(actual.values())).hasSizeGreaterThan(1);
+    assertThat(CoupledStatRollModel.assumption(definition, null).reason())
+        .contains("Unverified user conjecture", "not a game-verified");
+    assertThat(CoupledStatRollModel.assumption(definition, null).ratioTick()).isNull();
+  }
+
+  @Test
   void sharedMidpointProducesCoupledValuesAndExplicitConjectureLedger() {
     var assumptions = new ArrayList<WorkbenchSimulator.Assumption>();
     var random =

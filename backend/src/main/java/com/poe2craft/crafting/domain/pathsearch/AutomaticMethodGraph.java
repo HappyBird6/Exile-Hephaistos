@@ -7,9 +7,9 @@ import com.poe2craft.item.ItemState;
 import java.util.*;
 import java.util.function.Function;
 
-/** Cooperative method-depth discovery. Display grouping must not replace these full item states. */
+/** Cooperative discovery over conditional item laws; distinct joint laws never share identity. */
 public final class AutomaticMethodGraph implements AutoCloseable {
-  public static final String VERSION = "goal-directed-milestone-graph-v10-quality-goal";
+  public static final String VERSION = "goal-directed-milestone-graph-v12-joint-attribute-laws";
 
   public record Progress(Status goal, List<Status> entries) {
     public Progress {
@@ -17,16 +17,146 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     }
   }
 
+  public record TierFraction(String numerator, String denominator) {}
+
+  public record TierVariant(
+      String modifierId, String stat, long min, long max, TierFraction probability) {}
+
+  public record TierLaw(List<TierVariant> variants) {
+    static TierLaw from(TierCell cell) {
+      return new TierLaw(
+          cell.variants().stream()
+              .map(
+                  v ->
+                      new TierVariant(
+                          v.modifierId(),
+                          v.stat(),
+                          v.min(),
+                          v.max(),
+                          new TierFraction(
+                              v.probability().numerator().toString(),
+                              v.probability().denominator().toString())))
+              .toList());
+    }
+
+    TierCell cell() {
+      return new TierCell(
+          variants.stream()
+              .map(
+                  v ->
+                      new TierCell.Variant(
+                          v.modifierId(),
+                          v.stat(),
+                          v.min(),
+                          v.max(),
+                          new com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution
+                              .Fraction(
+                              new java.math.BigInteger(v.probability().numerator()),
+                              new java.math.BigInteger(v.probability().denominator()))))
+              .toList());
+    }
+  }
+
+  public static Map<String, TierLaw> tierView(Map<String, TierCell> tiers) {
+    var result = new LinkedHashMap<String, TierLaw>();
+    tiers.forEach((id, cell) -> result.put(id, TierLaw.from(cell)));
+    return Map.copyOf(result);
+  }
+
+  public record MemberView(
+      ItemState item,
+      Map<String, TierLaw> tiers,
+      Map<String, AutomaticCraftingKernel.RollBand> rolls) {}
+
+  public record AttributeOption(
+      String modifierId, String stat, long min, long max, int tier, String role) {}
+
+  /** Conditional source projection; row weights remain in the named method's observations. */
+  public record Origin(String method, int source, String kind, Map<String, String> retained) {
+    public Origin {
+      retained = Map.copyOf(retained);
+    }
+  }
+
+  private record ClassKey(Object item, boolean quality40, int abstractQuality, Progress progress) {}
+
   public record NodeView(
       int id,
       int depth,
       ItemState item,
+      Map<String, TierLaw> tiers,
       Map<String, AutomaticCraftingKernel.RollBand> rolls,
       boolean quality40,
       int abstractQuality,
       Progress progress,
       boolean discoveryFinished,
-      boolean directFinished) {
+      boolean directFinished,
+      List<MemberView> members,
+      Map<String, List<AttributeOption>> attributes,
+      Set<Origin> joint) {
+    public NodeView {
+      tiers = tiers == null ? Map.of() : Map.copyOf(tiers);
+      members = members == null ? List.of() : List.copyOf(members);
+      attributes = attributes == null ? Map.of() : Map.copyOf(attributes);
+      joint = joint == null ? Set.of() : Set.copyOf(joint);
+    }
+
+    public NodeView(
+        int id,
+        int depth,
+        ItemState item,
+        Map<String, TierLaw> tiers,
+        Map<String, AutomaticCraftingKernel.RollBand> rolls,
+        boolean quality40,
+        int abstractQuality,
+        Progress progress,
+        boolean discoveryFinished,
+        boolean directFinished) {
+      this(
+          id,
+          depth,
+          item,
+          tiers,
+          rolls,
+          quality40,
+          abstractQuality,
+          progress,
+          discoveryFinished,
+          directFinished,
+          List.of(),
+          Map.of(),
+          Set.of());
+    }
+
+    public Map<String, TierCell> tierCells() {
+      var result = new LinkedHashMap<String, TierCell>();
+      tiers.forEach((id, law) -> result.put(id, law.cell()));
+      return Map.copyOf(result);
+    }
+
+    public NodeView(
+        int id,
+        int depth,
+        ItemState item,
+        Map<String, AutomaticCraftingKernel.RollBand> rolls,
+        boolean quality40,
+        int abstractQuality,
+        Progress progress,
+        boolean discoveryFinished,
+        boolean directFinished) {
+      this(
+          id,
+          depth,
+          item,
+          Map.of(),
+          rolls,
+          quality40,
+          abstractQuality,
+          progress,
+          discoveryFinished,
+          directFinished);
+    }
+
     public NodeView(
         int id,
         int depth,
@@ -69,13 +199,23 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   private final CertifiedInterval.Precision precision;
   private List<AutomaticCraftingAction> candidates;
 
-  public record Identity(ItemState item, boolean quality40, int abstractQuality) {
+  public record Identity(
+      ItemState item, boolean quality40, int abstractQuality, Map<String, TierCell> tiers) {
+    public Identity {
+      tiers = tiers == null ? Map.of() : Map.copyOf(tiers);
+    }
+
+    public Identity(ItemState item, boolean quality40, int abstractQuality) {
+      this(item, quality40, abstractQuality, Map.of());
+    }
+
     public Identity(ItemState item, boolean quality40) {
       this(item, quality40, quality40 ? 40 : 0);
     }
   }
 
   private final Map<Identity, Node> nodes = new LinkedHashMap<>();
+  private final Map<ClassKey, Node> classes = new LinkedHashMap<>();
   private final Map<TerminalAdditionClasses.Key, Node> terminalClasses = new LinkedHashMap<>();
   private final List<Node> orderedNodes = new ArrayList<>();
   private final Map<String, Method> methods = new LinkedHashMap<>();
@@ -91,19 +231,28 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   private final class Node {
     final int id;
     final ItemState item;
+    final Map<String, TierCell> tiers;
     final boolean quality40;
     final int abstractQuality;
     final Progress progress;
     final List<AutomaticCraftingAction> applicable = new ArrayList<>();
     final Set<AutomaticCraftingAction> allowedByPolicy = new HashSet<>();
     final List<Method> outgoing = new ArrayList<>();
+    final Set<Identity> members = new LinkedHashSet<>();
+    final Set<Origin> origins = new LinkedHashSet<>();
     int depth, scan, pairs;
     List<GoalDirectedPlanner.Choice> choices;
     boolean discovered;
     Node representative;
     TerminalAdditionClasses.Key terminalKey;
 
-    Node(ItemState item, boolean quality40, int abstractQuality, int depth) {
+    Node(
+        ItemState item,
+        boolean quality40,
+        int abstractQuality,
+        int depth,
+        Map<String, TierCell> tiers) {
+      this.tiers = Map.copyOf(tiers);
       id = orderedNodes.size();
       this.item = item;
       this.quality40 = quality40;
@@ -117,6 +266,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
               ? new Progress(Status.NO_MATCH, raw.entries())
               : raw;
       discovered = progress.goal() == Status.MATCH;
+      members.add(new Identity(item, quality40, this.abstractQuality, tiers));
     }
   }
 
@@ -151,7 +301,9 @@ public final class AutomaticMethodGraph implements AutoCloseable {
               primitiveOutcomeBudget,
               AutomaticMethodExecution.PreparationSuccess.STOP_ON_FIRST_HIT,
               source.quality40,
-              source.abstractQuality);
+              source.abstractQuality,
+              source.tiers,
+              source.id != 0);
     }
   }
 
@@ -252,7 +404,16 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   }
 
   private Node intern(ItemState item, boolean quality40, int abstractQuality, int depth) {
-    var key = new Identity(item, quality40, Math.max(quality40 ? 40 : 0, abstractQuality));
+    return intern(item, quality40, abstractQuality, depth, Map.of());
+  }
+
+  private Node intern(
+      ItemState item,
+      boolean quality40,
+      int abstractQuality,
+      int depth,
+      Map<String, TierCell> tiers) {
+    var key = new Identity(item, quality40, Math.max(quality40 ? 40 : 0, abstractQuality), tiers);
     var node = nodes.get(key);
     if (node != null) {
       if (depth < node.depth) {
@@ -261,7 +422,16 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       }
       return node;
     }
-    node = new Node(item, quality40, abstractQuality, depth);
+    node = new Node(item, quality40, abstractQuality, depth, tiers);
+    var classKey =
+        new ClassKey(
+            node.progress.goal() == Status.MATCH
+                ? kernel.attributeContext(item)
+                : kernel.behaviorKey(item),
+            quality40,
+            node.abstractQuality,
+            node.progress);
+    if (depth > 0 && classes.containsKey(classKey)) return alias(classes.get(classKey), key, depth);
     if (depth > 0 && node.progress.goal() != Status.MATCH) {
       int work = node.abstractQuality;
       node.choices =
@@ -296,12 +466,51 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       limited = true;
       return null;
     }
-    if (node.terminalKey != null && node.representative == null)
-      terminalClasses.put(node.terminalKey, node);
+    if (node.representative != null) {
+      var representative = alias(node.representative, key, depth);
+      if (representative != null) classes.put(classKey, representative);
+      return representative;
+    }
+    if (node.terminalKey != null) terminalClasses.put(node.terminalKey, node);
+    if (depth > 0) classes.put(classKey, node);
     nodes.put(key, node);
     orderedNodes.add(node);
     revision++;
     return node;
+  }
+
+  private Node alias(Node target, Identity member, int depth) {
+    if (retainedStates() >= retainedLimit) {
+      limited = true;
+      return null;
+    }
+    target.members.add(member);
+    nodes.put(member, target);
+    if (depth < target.depth) {
+      target.depth = depth;
+      relaxDepths(target);
+    }
+    revision++;
+    return target;
+  }
+
+  private void origin(
+      Node target, Method method, AutomaticMethodExecution.State result, String kind) {
+    if (target == null) return;
+    var retained = new TreeMap<String, String>();
+    for (var id : result.retainedFromRoot()) {
+      var before =
+          method.source.item.explicits().stream()
+              .filter(m -> m.modifierId().equals(id))
+              .findFirst()
+              .orElseThrow();
+      var role = kernel.attributeKey(before);
+      target.item.explicits().stream()
+          .filter(m -> kernel.attributeKey(m).equals(role))
+          .findFirst()
+          .ifPresent(m -> retained.put(m.modifierId(), id));
+    }
+    if (target.origins.add(new Origin(method.id, method.source.id, kind, retained))) revision++;
   }
 
   private void relaxDepths(Node first) {
@@ -327,7 +536,9 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                   });
           for (var state : targets) {
             var target =
-                nodes.get(new Identity(state.item(), state.quality40(), state.abstractQuality()));
+                nodes.get(
+                    new Identity(
+                        state.item(), state.quality40(), state.abstractQuality(), state.tiers()));
             if (target != null && target.depth > source.depth + 1) {
               target.depth = source.depth + 1;
               queue.addLast(target);
@@ -487,11 +698,16 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                         && (kind != Exit.UNRESOLVED
                             || (state.temporaryPreparation()
                                 && evaluate.apply(state.item()).goal() == Status.MATCH)))
-                      intern(
-                          state.item(),
-                          state.quality40(),
-                          state.abstractQuality(),
-                          method.source.depth + 1);
+                      origin(
+                          intern(
+                              state.item(),
+                              state.quality40(),
+                              state.abstractQuality(),
+                              method.source.depth + 1,
+                              state.tiers()),
+                          method,
+                          state,
+                          kind.name());
                   });
             });
     // Failed attempts belong to this finite first-hit calculation. Keep their complete
@@ -503,11 +719,16 @@ public final class AutomaticMethodGraph implements AutoCloseable {
             (state, mass) -> {
               // This is a law-equivalent retry class, not a particular rolled item.
               if (!mass.zero() && !method.execution.retryRepresentatives().contains(state.item()))
-                intern(
-                    state.item(),
-                    state.quality40(),
-                    state.abstractQuality(),
-                    method.source.depth + 1);
+                origin(
+                    intern(
+                        state.item(),
+                        state.quality40(),
+                        state.abstractQuality(),
+                        method.source.depth + 1,
+                        state.tiers()),
+                    method,
+                    state,
+                    "ACTIVE");
             });
   }
 
@@ -624,7 +845,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
         stateLimit,
         executionCount(),
         methodLimit,
-        nodes.size(),
+        orderedNodes.size(),
         methods.size(),
         retainedStates(),
         retainedLimit,
@@ -677,14 +898,52 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                         method.owner.source.item, method.source.item, state.item()),
                     state.temporaryPreparation(),
                     state.quality40(),
-                    state.abstractQuality()),
+                    state.abstractQuality(),
+                    transportedTiers(method, state),
+                    transportedRetention(method, state)),
                 mass,
                 CertifiedInterval::add));
     return result;
   }
 
+  private Set<String> transportedRetention(Method method, AutomaticMethodExecution.State state) {
+    var result = new HashSet<String>();
+    for (var id : state.retainedFromRoot()) {
+      var before =
+          method.owner.source.item.explicits().stream()
+              .filter(m -> m.modifierId().equals(id))
+              .findFirst()
+              .orElseThrow();
+      method.source.item.explicits().stream()
+          .filter(m -> kernel.attributeKey(m).equals(kernel.attributeKey(before)))
+          .findFirst()
+          .ifPresent(m -> result.add(m.modifierId()));
+    }
+    return Set.copyOf(result);
+  }
+
+  private Map<String, TierCell> transportedTiers(
+      Method method, AutomaticMethodExecution.State state) {
+    var tiers = new HashMap<>(state.tiers());
+    method.owner.source.item.explicits().forEach(m -> tiers.remove(m.modifierId()));
+    tiers.putAll(method.source.tiers);
+    return Map.copyOf(tiers);
+  }
+
   public long operations() {
     return operations;
+  }
+
+  /** Model declarations follow the executed laws, not the presence of a source unit label. */
+  public List<String> rollModels() {
+    return methods.values().stream()
+        .filter(m -> m.owner == null)
+        .flatMap(m -> m.execution.assumptions().stream())
+        .map(com.poe2craft.crafting.domain.WorkbenchSimulator.Assumption::id)
+        .filter(com.poe2craft.crafting.domain.CoupledStatRollModel.ID::equals)
+        .distinct()
+        .sorted()
+        .toList();
   }
 
   public boolean hasGoal() {
@@ -702,6 +961,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
             .filter(m -> m.owner == null)
             .mapToLong(m -> m.execution.retainedStates())
             .sum()
+        + orderedNodes.stream().mapToLong(n -> n.origins.size()).sum()
         + terminalClasses.keySet().stream()
             .flatMap(k -> k.laws().stream())
             .mapToLong(l -> l.outcomes().size())
@@ -709,6 +969,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   }
 
   public List<NodeView> nodes() {
+    var supports = attributeSupports();
     return orderedNodes.stream()
         .map(
             n ->
@@ -716,13 +977,110 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                     n.id,
                     n.depth,
                     n.item,
+                    tierView(n.tiers),
                     kernel.rollBands(n.item),
                     n.quality40,
                     n.abstractQuality,
                     n.progress,
                     n.discovered,
-                    n.discovered && n.outgoing.stream().allMatch(Method::done)))
+                    n.discovered && n.outgoing.stream().allMatch(Method::done),
+                    n.members.stream()
+                        .map(
+                            m ->
+                                new MemberView(
+                                    m.item(), tierView(m.tiers()), kernel.rollBands(m.item())))
+                        .toList(),
+                    supports.get(n.id),
+                    Set.copyOf(n.origins)))
         .toList();
+  }
+
+  private Map<Integer, Map<String, List<AttributeOption>>> attributeSupports() {
+    return attributeSupports(
+        orderedNodes.stream()
+            .map(n -> new AttributeSource(n.id, n.item, n.members, n.origins))
+            .toList(),
+        kernel);
+  }
+
+  private record AttributeSource(
+      int id, ItemState item, Collection<Identity> members, Set<Origin> origins) {}
+
+  /** Read-only projection uses saved members and lineage without restoring any execution. */
+  public static Map<Integer, Map<String, List<AttributeOption>>> savedAttributeSupports(
+      List<NodeCursor> nodes, AutomaticCraftingKernel kernel) {
+    var sources = new ArrayList<AttributeSource>();
+    for (int i = 0; i < nodes.size(); i++) {
+      var n = nodes.get(i);
+      if (n.members().isEmpty()) throw new IllegalArgumentException("Missing saved joint members");
+      sources.add(new AttributeSource(i, n.item(), n.members(), n.joint()));
+    }
+    return attributeSupports(sources, kernel);
+  }
+
+  private static Map<Integer, Map<String, List<AttributeOption>>> attributeSupports(
+      List<AttributeSource> sources, AutomaticCraftingKernel kernel) {
+    var supports = new LinkedHashMap<Integer, Map<String, LinkedHashSet<AttributeOption>>>();
+    for (var n : sources) {
+      var fields = new LinkedHashMap<String, LinkedHashSet<AttributeOption>>();
+      for (var primary : n.item.explicits())
+        fields.put(primary.modifierId(), new LinkedHashSet<>());
+      for (var member : n.members)
+        for (var modifier : member.item().explicits()) {
+          var primary =
+              n.item.explicits().stream()
+                  .filter(m -> kernel.attributeKey(m).equals(kernel.attributeKey(modifier)))
+                  .findFirst()
+                  .orElseThrow();
+          var options = fields.get(primary.modifierId());
+          var cell = member.tiers().get(modifier.modifierId());
+          if (cell != null)
+            for (var v : cell.variants())
+              options.add(
+                  new AttributeOption(
+                      v.modifierId(),
+                      v.stat(),
+                      v.min(),
+                      v.max(),
+                      kernel.modifierTier(v.modifierId()),
+                      kernel.attributeKey(modifier).toString()));
+          else
+            modifier
+                .values()
+                .forEach(
+                    (stat, value) -> {
+                      var band = kernel.rollBands(member.item()).get(modifier.modifierId());
+                      options.add(
+                          new AttributeOption(
+                              modifier.modifierId(),
+                              stat,
+                              value,
+                              band != null && band.stat().equals(stat) ? band.max() : value,
+                              kernel.modifierTier(modifier.modifierId()),
+                              kernel.attributeKey(modifier).toString()));
+                    });
+        }
+      supports.put(n.id, fields);
+    }
+    boolean changed;
+    do {
+      changed = false;
+      for (var n : sources)
+        for (var origin : n.origins)
+          for (var mapping : origin.retained().entrySet()) {
+            var values = supports.get(origin.source()).get(mapping.getValue());
+            if (values == null) throw new IllegalStateException("Invalid joint source projection");
+            if (supports.get(n.id).get(mapping.getKey()).addAll(values)) changed = true;
+          }
+    } while (changed);
+    var result = new LinkedHashMap<Integer, Map<String, List<AttributeOption>>>();
+    supports.forEach(
+        (id, fields) -> {
+          var projected = new LinkedHashMap<String, List<AttributeOption>>();
+          fields.forEach((field, options) -> projected.put(field, List.copyOf(options)));
+          result.put(id, Map.copyOf(projected));
+        });
+    return result;
   }
 
   private String executionMode(Method method) {
@@ -808,7 +1166,10 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                             var target =
                                 nodes.get(
                                     new Identity(
-                                        state.item(), state.quality40(), state.abstractQuality()));
+                                        state.item(),
+                                        state.quality40(),
+                                        state.abstractQuality(),
+                                        state.tiers()));
                             if (target == null) unknown[0] = unknown[0].add(mass);
                             else outcomes.merge(target.id, mass, CertifiedInterval::add);
                           }
@@ -826,7 +1187,11 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                   }
                   var target =
                       nodes.get(
-                          new Identity(state.item(), state.quality40(), state.abstractQuality()));
+                          new Identity(
+                              state.item(),
+                              state.quality40(),
+                              state.abstractQuality(),
+                              state.tiers()));
                   if (target == null) unknown[0] = unknown[0].add(mass);
                   else outcomes.merge(target.id, mass, CertifiedInterval::add);
                 });
@@ -889,6 +1254,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
 
   public record NodeCursor(
       ItemState item,
+      Map<String, TierCell> tiers,
       boolean quality40,
       int abstractQuality,
       int depth,
@@ -896,7 +1262,64 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       int pairs,
       boolean discovered,
       List<AutomaticCraftingAction> applicable,
-      Set<AutomaticCraftingAction> allowed) {
+      Set<AutomaticCraftingAction> allowed,
+      List<Identity> members,
+      Set<Origin> joint) {
+    public NodeCursor {
+      tiers = tiers == null ? Map.of() : Map.copyOf(tiers);
+      members = members == null ? List.of() : List.copyOf(members);
+      joint = joint == null ? Set.of() : Set.copyOf(joint);
+    }
+
+    public NodeCursor(
+        ItemState item,
+        Map<String, TierCell> tiers,
+        boolean quality40,
+        int abstractQuality,
+        int depth,
+        int scan,
+        int pairs,
+        boolean discovered,
+        List<AutomaticCraftingAction> applicable,
+        Set<AutomaticCraftingAction> allowed) {
+      this(
+          item,
+          tiers,
+          quality40,
+          abstractQuality,
+          depth,
+          scan,
+          pairs,
+          discovered,
+          applicable,
+          allowed,
+          List.of(),
+          Set.of());
+    }
+
+    public NodeCursor(
+        ItemState item,
+        boolean quality40,
+        int abstractQuality,
+        int depth,
+        int scan,
+        int pairs,
+        boolean discovered,
+        List<AutomaticCraftingAction> applicable,
+        Set<AutomaticCraftingAction> allowed) {
+      this(
+          item,
+          Map.of(),
+          quality40,
+          abstractQuality,
+          depth,
+          scan,
+          pairs,
+          discovered,
+          applicable,
+          allowed);
+    }
+
     public NodeCursor(
         ItemState item,
         boolean quality40,
@@ -966,6 +1389,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                 n ->
                     new NodeCursor(
                         n.item,
+                        n.tiers,
                         n.quality40,
                         n.abstractQuality,
                         n.depth,
@@ -973,7 +1397,9 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                         n.pairs,
                         n.discovered,
                         List.copyOf(n.applicable),
-                        Set.copyOf(n.allowedByPolicy)))
+                        Set.copyOf(n.allowedByPolicy),
+                        List.copyOf(n.members),
+                        Set.copyOf(n.origins)))
             .toList(),
         methods.values().stream()
             .map(
@@ -1014,6 +1440,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
             saved.retained(),
             saved.primitive());
     graph.nodes.clear();
+    graph.classes.clear();
     graph.terminalClasses.clear();
     graph.orderedNodes.clear();
     if (saved.candidates().size() != graph.candidates.size()
@@ -1021,8 +1448,17 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       throw new IllegalArgumentException("Saved candidate inventory differs from policy");
     graph.candidates = List.copyOf(saved.candidates());
     for (var row : saved.nodes()) {
-      var node = graph.intern(row.item(), row.quality40(), row.abstractQuality(), row.depth());
+      var node =
+          graph.intern(
+              row.item(), row.quality40(), row.abstractQuality(), row.depth(), row.tiers());
       if (node == null) throw new IllegalArgumentException("Invalid saved state budget");
+      if (node.id != graph.orderedNodes.size() - 1)
+        throw new IllegalArgumentException("Duplicate canonical saved state");
+      for (var member : row.members()) {
+        node.members.add(member);
+        graph.nodes.put(member, node);
+      }
+      node.origins.addAll(row.joint());
       node.scan = row.scan();
       node.pairs = row.pairs();
       node.discovered = row.discovered();

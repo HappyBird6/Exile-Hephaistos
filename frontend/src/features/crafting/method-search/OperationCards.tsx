@@ -1,7 +1,11 @@
 import { operationKind, operationGroups } from './operationGrouping'
 import { useState } from 'react'
 import type { ReactNode } from 'react'
-import type { AutomaticAction, AutomaticArrow } from './automaticApi'
+import type {
+  AutomaticAction,
+  AutomaticArrow,
+  AutomaticView,
+} from './automaticApi'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { operationMessages } from './operationMessages'
 import { methodPoint } from './methodObservation'
@@ -13,16 +17,18 @@ export function OperationCards({
   cycles,
   action,
   render,
+  recommendations = [],
 }: {
   methods: AutomaticArrow[]
   cycles: number
   action: (a: AutomaticAction) => string
   render: (method: AutomaticArrow, index: number) => ReactNode
+  recommendations?: AutomaticView['recommendations']
 }) {
   const { locale } = useI18n(),
     copy = operationMessages[locale]
   const [chosen, setChosen] = useState<Record<string, string>>({})
-  return operationGroups(methods, cycles).map((group) => {
+  return operationGroups(methods, cycles, recommendations).map((group) => {
     const method =
       group.variants.find((v) => v.id === chosen[group.id]) ??
       group.variants[0]!

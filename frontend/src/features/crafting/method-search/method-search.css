@@ -608,6 +608,17 @@
   display: block;
   max-width: none;
 }
+.graph-pan-viewport {
+  cursor: grab;
+}
+.graph-pan-viewport foreignObject {
+  cursor: auto;
+}
+.graph-pan-viewport.is-panning,
+.graph-pan-viewport.is-panning * {
+  cursor: grabbing !important;
+  user-select: none;
+}
 .graph-arrival-labels {
   display: grid;
   gap: 6px;

@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 /** Method transport for approved currency/omen executions, with primitive first-hit semantics. */
 public final class AutomaticMethodExecution implements AutoCloseable {
-  public static final String VERSION = "automatic-method-execution-v4-prepared-renewal";
+  public static final String VERSION = "automatic-method-execution-v6-joint-lineage";
 
   public enum PreparationSuccess {
     UNDECIDED,
@@ -18,11 +18,32 @@ public final class AutomaticMethodExecution implements AutoCloseable {
   }
 
   public record State(
-      ItemState item, boolean temporaryPreparation, boolean quality40, int abstractQuality) {
+      ItemState item,
+      boolean temporaryPreparation,
+      boolean quality40,
+      int abstractQuality,
+      Map<String, TierCell> tiers,
+      Set<String> retainedFromRoot) {
     public State {
+      tiers = tiers == null ? Map.of() : Map.copyOf(tiers);
+      retainedFromRoot = retainedFromRoot == null ? Set.of() : Set.copyOf(retainedFromRoot);
       if (abstractQuality < 0 || abstractQuality > 40)
         throw new IllegalArgumentException("Invalid quality work amount");
       if (quality40) abstractQuality = 40;
+    }
+
+    public State(
+        ItemState item,
+        boolean temporaryPreparation,
+        boolean quality40,
+        int abstractQuality,
+        Map<String, TierCell> tiers) {
+      this(item, temporaryPreparation, quality40, abstractQuality, tiers, Set.of());
+    }
+
+    public State(
+        ItemState item, boolean temporaryPreparation, boolean quality40, int abstractQuality) {
+      this(item, temporaryPreparation, quality40, abstractQuality, Map.of());
     }
 
     public State(ItemState item, boolean temporaryPreparation, boolean quality40) {
@@ -79,6 +100,8 @@ public final class AutomaticMethodExecution implements AutoCloseable {
   // return to that item is a failure; the untouched initial root is not.
   private boolean initializingRoot = true;
   private final ItemState root;
+  private final Map<String, TierCell> initialTiers;
+  private final boolean symbolicSource;
   private final boolean initialQuality40;
   private final int initialAbstractQuality;
   private final Template template;
@@ -173,6 +196,58 @@ public final class AutomaticMethodExecution implements AutoCloseable {
       PreparationSuccess preparationSuccess,
       boolean initialQuality40,
       int initialAbstractQuality) {
+    this(
+        root,
+        template,
+        kernel,
+        classify,
+        precision,
+        primitiveOutcomeBudget,
+        preparationSuccess,
+        initialQuality40,
+        initialAbstractQuality,
+        Map.of());
+  }
+
+  public AutomaticMethodExecution(
+      ItemState root,
+      Template template,
+      AutomaticCraftingKernel kernel,
+      java.util.function.BiFunction<ItemState, Integer, Optional<Exit>> classify,
+      CertifiedInterval.Precision precision,
+      long primitiveOutcomeBudget,
+      PreparationSuccess preparationSuccess,
+      boolean initialQuality40,
+      int initialAbstractQuality,
+      Map<String, TierCell> initialTiers) {
+    this(
+        root,
+        template,
+        kernel,
+        classify,
+        precision,
+        primitiveOutcomeBudget,
+        preparationSuccess,
+        initialQuality40,
+        initialAbstractQuality,
+        initialTiers,
+        !initialTiers.isEmpty());
+  }
+
+  public AutomaticMethodExecution(
+      ItemState root,
+      Template template,
+      AutomaticCraftingKernel kernel,
+      java.util.function.BiFunction<ItemState, Integer, Optional<Exit>> classify,
+      CertifiedInterval.Precision precision,
+      long primitiveOutcomeBudget,
+      PreparationSuccess preparationSuccess,
+      boolean initialQuality40,
+      int initialAbstractQuality,
+      Map<String, TierCell> initialTiers,
+      boolean symbolicSource) {
+    this.symbolicSource = symbolicSource;
+    this.initialTiers = Map.copyOf(initialTiers);
     if (primitiveOutcomeBudget < 1)
       throw new IllegalArgumentException("Positive primitive budget required");
     this.root = root;
@@ -187,7 +262,17 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     preparedRetryAnchor = preparedRetryCandidate();
     runner =
         new CertifiedMethodRunner<>(
-            new State(root, false, initialQuality40, initialAbstractQuality),
+            new State(
+                root,
+                false,
+                initialQuality40,
+                initialAbstractQuality,
+                initialTiers,
+                symbolicSource
+                    ? root.explicits().stream()
+                        .map(com.poe2craft.item.ModifierInstance::modifierId)
+                        .collect(java.util.stream.Collectors.toSet())
+                    : Set.of()),
             compiledTemplate(),
             this::transition,
             this::classifyState,
@@ -195,7 +280,17 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     initializingRoot = false;
     if (preparationSuccess == PreparationSuccess.STOP_ON_FIRST_HIT)
       runner.compactTerminalFailures(
-          new State(root, false, initialQuality40, initialAbstractQuality));
+          new State(
+              root,
+              false,
+              initialQuality40,
+              initialAbstractQuality,
+              initialTiers,
+              symbolicSource
+                  ? root.explicits().stream()
+                      .map(com.poe2craft.item.ModifierInstance::modifierId)
+                      .collect(java.util.stream.Collectors.toSet())
+                  : Set.of()));
   }
 
   private ExactMethodRunner.Template<State, AutomaticCraftingAction> compiledTemplate() {
@@ -227,7 +322,7 @@ public final class AutomaticMethodExecution implements AutoCloseable {
                       classify.apply(b.remaining(), state.abstractQuality()).orElse(null)
                           == Exit.LOSS)) return new Kernel<>(List.of(), Fraction.ZERO, true);
     }
-    var law = kernel.expand(state.item(), action, primitiveOutcomeBudget);
+    var law = kernel.expandDeferred(state.item(), state.tiers(), action, primitiveOutcomeBudget);
     // The runner has not removed this pending state or charged material yet.
     if (law.reason().equals("OUTCOME_BUDGET")) throw new PrimitiveBudgetReached();
     assumptions.addAll(law.assumptions());
@@ -275,7 +370,11 @@ public final class AutomaticMethodExecution implements AutoCloseable {
                     ? 40
                     : action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_BASE_CHECKPOINT
                         ? Math.max(20, state.abstractQuality())
-                        : state.abstractQuality());
+                        : state.abstractQuality(),
+                stationaryRetry || !preparedRepresentative(outcome.item()).equals(outcome.item())
+                    ? initialTiers
+                    : outcome.tiers(),
+                retained(state, outcome));
         if (preparationSuccess == PreparationSuccess.STOP_ON_FIRST_HIT
             && preparedRetryAnchor != null) {
           var terminal = classifyState(next).orElse(null);
@@ -300,6 +399,12 @@ public final class AutomaticMethodExecution implements AutoCloseable {
       preparedTransition = result;
     }
     return result;
+  }
+
+  private Set<String> retained(State source, AutomaticCraftingKernel.Outcome outcome) {
+    var retained = new HashSet<>(source.retainedFromRoot());
+    retained.retainAll(outcome.retained());
+    return Set.copyOf(retained);
   }
 
   private AutomaticCraftingPlan retryPlan(ItemState item) {
@@ -403,6 +508,8 @@ public final class AutomaticMethodExecution implements AutoCloseable {
       ItemState root,
       boolean initialQuality40,
       int initialAbstractQuality,
+      Map<String, TierCell> initialTiers,
+      boolean symbolicSource,
       Template template,
       CertifiedInterval.Precision precision,
       long primitiveOutcomeBudget,
@@ -427,6 +534,8 @@ public final class AutomaticMethodExecution implements AutoCloseable {
           root,
           initialQuality40,
           initialAbstractQuality,
+          initialTiers,
+          symbolicSource,
           template,
           precision,
           primitiveOutcomeBudget,
@@ -449,6 +558,8 @@ public final class AutomaticMethodExecution implements AutoCloseable {
           root,
           initialQuality40,
           initialAbstractQuality,
+          initialTiers,
+          symbolicSource,
           template,
           precision,
           primitiveOutcomeBudget,
@@ -488,7 +599,9 @@ public final class AutomaticMethodExecution implements AutoCloseable {
             saved.primitiveOutcomeBudget(),
             saved.preparationSuccess(),
             saved.initialQuality40(),
-            saved.initialAbstractQuality());
+            saved.initialAbstractQuality(),
+            saved.initialTiers() == null ? Map.of() : saved.initialTiers(),
+            saved.symbolicSource());
     execution.runner.closeWorkingMaps();
     try (var restore =
         CertifiedMethodRunner.restoreCursor(
@@ -503,7 +616,11 @@ public final class AutomaticMethodExecution implements AutoCloseable {
       if (saved.preparationSuccess() == PreparationSuccess.STOP_ON_FIRST_HIT)
         execution.runner.compactTerminalFailures(
             new State(
-                saved.root(), false, saved.initialQuality40(), saved.initialAbstractQuality()));
+                saved.root(),
+                false,
+                saved.initialQuality40(),
+                saved.initialAbstractQuality(),
+                saved.initialTiers() == null ? Map.of() : saved.initialTiers()));
     }
     execution.assumptions.addAll(saved.assumptions());
     execution.unresolvedReasons.addAll(saved.unresolvedReasons());
@@ -572,7 +689,18 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     if (runner.atBoundary() && runner.cycles() == horizon) return runner.observation();
     var point =
         runner.provisional(
-            horizon, new State(root, false, initialQuality40, initialAbstractQuality));
+            horizon,
+            new State(
+                root,
+                false,
+                initialQuality40,
+                initialAbstractQuality,
+                initialTiers,
+                symbolicSource
+                    ? root.explicits().stream()
+                        .map(com.poe2craft.item.ModifierInstance::modifierId)
+                        .collect(java.util.stream.Collectors.toSet())
+                    : Set.of()));
     return new CertifiedMethodRunner.Observation<>(
         horizon,
         point.exits(),

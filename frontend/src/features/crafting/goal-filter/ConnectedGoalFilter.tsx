@@ -1,3 +1,4 @@
+import { evaluationNumber } from './evaluationNumber'
 import { resetMessages } from './resetMessages'
 import {
   readSupport,
@@ -480,7 +481,7 @@ function ConnectedEditor({
                           .flatMap((g) => g.entries)
                           .find((row) => row.id === entry.id)?.statId,
                     )?.label ?? copy.unknown}
-                    : {entry.value === null ? '—' : entry.value} ·{' '}
+                    : {evaluationNumber(entry.value, entry.exactValue)} ·{' '}
                     {entry.status === 'MATCH'
                       ? copy.match
                       : entry.status === 'NO_MATCH'
@@ -510,7 +511,9 @@ function ConnectedEditor({
                 {goal.groups.findIndex((g) => g.id === group.id) + 1}:{' '}
                 {group.status}{' '}
                 {group.count === null ? '' : `count ${group.count}`}{' '}
-                {group.score === null ? '' : `score ${group.score}`}
+                {group.score === null
+                  ? ''
+                  : `score ${evaluationNumber(group.score, group.exactScore)}`}
               </p>
               <ul>
                 {group.entries.map((entry) => (
@@ -523,7 +526,9 @@ function ConnectedEditor({
                           .find((e) => e.id === entry.id)?.statId,
                     )?.label ?? entry.id}
                     : {entry.status} / {entry.presence} /{' '}
-                    {entry.value === null ? 'unknown / absent' : entry.value}
+                    {entry.value === null
+                      ? 'unknown / absent'
+                      : evaluationNumber(entry.value, entry.exactValue)}
                   </li>
                 ))}
               </ul>

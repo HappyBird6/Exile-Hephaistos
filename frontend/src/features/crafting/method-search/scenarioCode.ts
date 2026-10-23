@@ -1,3 +1,5 @@
+import { validateJointGraph } from './jointValidation'
+import { validateTierLaws } from './automaticTierLaws'
 import { validateSearchResources } from './searchResourcesValidation'
 import { assertShape, canonical } from '../path-tree/validation'
 import type { CreateRequest, Item } from '../path-tree/types'
@@ -140,12 +142,32 @@ function card(v: unknown) {
       const l = object(
         line,
         ['id', 'text'],
-        ['kind', 'detail', 'affixLabel', 'removalCandidate', 'fractured'],
+        [
+          'kind',
+          'detail',
+          'affixLabel',
+          'removalCandidate',
+          'fractured',
+          'attributeKey',
+          'tierRows',
+        ],
       )
       text(l.id)
       text(l.text)
-      for (const k of ['detail', 'affixLabel'])
+      for (const k of ['detail', 'affixLabel', 'attributeKey'])
         if (l[k] !== undefined) text(l[k])
+      if (l.tierRows !== undefined)
+        for (const row of array(l.tierRows, 50000)) {
+          const r = object(
+            row,
+            ['label', 'value'],
+            ['chance', 'chanceKey', 'low', 'high'],
+          )
+          text(r.label)
+          text(r.value)
+          for (const key of ['chance', 'chanceKey', 'low', 'high'])
+            if (r[key] !== undefined) text(r[key])
+        }
       if (l.kind !== undefined)
         choice(l.kind, [
           'implicit',
@@ -210,7 +232,7 @@ export function validateScenario(raw: unknown): Scenario {
       'methods',
       'recommendations',
     ],
-    ['canResume', 'resources'],
+    ['canResume', 'resources', 'rollModels'],
   )
   if (v.version !== 'automatic-method-job-v1')
     fail('UNSUPPORTED_SCENARIO_VERSION')
@@ -223,6 +245,10 @@ export function validateScenario(raw: unknown): Scenario {
   if ((v.status === 'COMPLETE') !== v.complete) fail()
   text(v.reason)
   if (v.canResume !== undefined) bool(v.canResume)
+  if (v.rollModels !== undefined) {
+    const models = array(v.rollModels, 1)
+    models.forEach((model) => choice(model, ['user-coupled-ratio-half-up-v1']))
+  }
   if (v.resources !== undefined)
     validateSearchResources(
       v.resources,
@@ -243,13 +269,14 @@ export function validateScenario(raw: unknown): Scenario {
         'discoveryFinished',
         'directFinished',
       ],
-      ['rolls', 'abstractQuality'],
+      ['rolls', 'abstractQuality', 'tiers', 'attributes', 'members', 'joint'],
     )
     integer(n.id)
     integer(n.depth, 10000)
     if (ids.has(n.id as number)) fail()
     ids.add(n.id as number)
     item(n.item)
+    validateTierLaws(n as unknown as import('./automaticApi').AutomaticNode)
     bool(n.quality40)
     if (n.abstractQuality !== undefined) integer(n.abstractQuality, 40)
     bool(n.discoveryFinished)
@@ -332,7 +359,11 @@ export function validateScenario(raw: unknown): Scenario {
       const scale = 1n << 128n
       for (const rawOutcome of array(p.outcomes, 10000)) {
         if (++outcomeCount > 100000) fail('SCENARIO_TOO_LARGE')
-        const o = object(rawOutcome, ['target', 'kind', 'probability'])
+        const o = object(
+          rawOutcome,
+          ['target', 'kind', 'probability'],
+          ['conditional'],
+        )
         if (o.target !== null && !ids.has(o.target as number)) fail()
         choice(o.kind, [
           'GOAL',
@@ -415,6 +446,7 @@ export function validateScenario(raw: unknown): Scenario {
       for (const label of Object.values(values)) text(label)
     }
   }
+  validateJointGraph(result, (b) => bounds(b))
   return raw as Scenario
 }
 
@@ -443,6 +475,11 @@ function mapWireReferences(
       for (const rawOutcome of array(point.outcomes, 10000)) {
         const outcome = record(rawOutcome)
         outcome.probability = bound(outcome.probability)
+        if (outcome.conditional !== undefined)
+          for (const rawComponent of array(outcome.conditional, 50000)) {
+            const component = record(rawComponent)
+            component.probability = bound(component.probability)
+          }
       }
       for (const field of ['initialUses', 'cycleUses']) {
         const uses = record(point[field])

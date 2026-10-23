@@ -98,7 +98,7 @@ it('never invents a concrete tier in the common card and retains exact variation
     const line = s.cards[String(n.id)]!.en.modifiers.find(
       (m) => m.id === n.item.explicits[1]!.modifierId,
     )!
-    expect(candidates.detail).toContain(line.text)
+    expect(candidates.tierRows!.some((r) => r.low === line.text)).toBe(true)
   }
 })
 it('keeps terminal cards and bundle count stable through details, candidate selection and zoom', () => {
@@ -126,7 +126,8 @@ it('keeps terminal cards and bundle count stable through details, candidate sele
   const details = document.querySelector(
     '.graph-candidates',
   ) as HTMLDetailsElement
-  expect(details.open).toBe(true)
+  expect(details.open).toBe(false)
+  fireEvent.click(details.querySelector('summary')!)
   expect(details.querySelectorAll('details')).toHaveLength(0)
   expect(
     details.querySelectorAll('[data-candidate-id] .graph-candidate-options'),
@@ -207,3 +208,61 @@ it('preserves a guaranteed Essence modifier without freezing the random tiers in
   ).toEqual([6, 8])
   expect(p.bundles.filter((b) => b.depth === 2)).toHaveLength(1)
 })
+
+it.each(['REGAL', 'EXALTED'])(
+  'defaults %s graph edges to the better whole method while keeping all alternatives',
+  (currency) => {
+    const s = original()
+    const base = s.result.methods.find((m) => m.source === 0)!
+    const target = base.points[0]!.outcomes.find(
+      (o) => o.target !== null,
+    )!.target
+    const point = (numerator: string) => ({
+      cycles: 1,
+      complete: true,
+      initialUses: {},
+      cycleUses: {},
+      outcomes: [
+        {
+          target,
+          kind: 'GOAL',
+          probability: {
+            lower: { numerator, denominator: '100' },
+            upper: { numerator, denominator: '100' },
+            arithmeticWidth: { numerator: '0', denominator: '1' },
+            exact: true,
+            confirmedPercent: null,
+          },
+        },
+      ],
+    })
+    const plain = {
+      ...base,
+      id: 'plain',
+      initial: [],
+      cycle: [{ currency, omens: [], purpose: 'GOAL_ACQUISITION' }],
+      points: [point('10')],
+    }
+    const omen = {
+      ...plain,
+      id: 'omen',
+      cycle: [
+        {
+          currency,
+          omens: ['SINISTRAL_CORONATION'],
+          purpose: 'GOAL_ACQUISITION',
+        },
+      ],
+      points: [point('20')],
+    }
+    s.result.methods = [plain, omen]
+    s.result.recommendations = []
+    const p = stateProjection(s.result, 100)
+    expect(p.edges).toHaveLength(1)
+    expect(p.edges[0]!.variants.map((v) => v.method.id)).toEqual([
+      'omen',
+      'plain',
+    ])
+    expect(p.edges[0]!.preferred).toEqual(['omen'])
+  },
+)

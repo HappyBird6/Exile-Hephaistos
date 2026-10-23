@@ -12,6 +12,8 @@ public final class WorkbenchSimulator {
   private final QualityCapChangePolicy qualityCapChangePolicy;
   private final AdditionRules additionRules;
   private final Set<String> coupledModifierIds;
+  private final Map<String, List<CoupledStatRollModel.Cell>> automaticJointRolls =
+      new java.util.concurrent.ConcurrentHashMap<>();
   private final Map<WorkbenchCurrency, List<String>> essenceTargetOverrides;
   private final Map<WorkbenchCurrency, List<String>> replacementTargetOverrides;
 
@@ -1177,6 +1179,17 @@ public final class WorkbenchSimulator {
               ReviewedGloves.supports(catalog.base().id())
                   ? "USER-APPROVED SIMULATOR MODEL: equal 1/N among eligible Gloves modifiers after family, side and level restrictions. Actual game spawn weights are unavailable; published DropChance is not a verified game weight."
                   : "USER-APPROVED SIMULATOR MODEL: equal 1/N among the eligible normal-section candidates after family, side and level restrictions. Actual game spawn weights are unavailable; DropChance=1 is not a verified weight."));
+  }
+
+  /** Only existing opt-ins use the conjecture; fully fixed tuples need no stochastic model. */
+  Optional<List<CoupledStatRollModel.Cell>> automaticJointRolls(ModifierDefinition definition) {
+    if (definition.stats().size() < 2
+        || (!coupledModifierIds.contains(definition.id())
+            && definition.stats().stream().anyMatch(s -> s.min() != s.max())))
+      return Optional.empty();
+    return Optional.of(
+        automaticJointRolls.computeIfAbsent(
+            definition.id(), ignored -> CoupledStatRollModel.cells(definition)));
   }
 
   private ModifierInstance roll(

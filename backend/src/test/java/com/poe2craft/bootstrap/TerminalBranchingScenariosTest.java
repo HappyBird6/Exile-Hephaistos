@@ -35,7 +35,19 @@ class TerminalBranchingScenariosTest {
       assertThat(graph.complete()).isTrue();
       assertThat(graph.hasGoal()).isTrue();
       assertThat(graph.computationStates()).isLessThan(64);
-      assertThat(graph.executionCount()).isLessThan(graph.methods().size());
+      // The old graph shared executions but retained duplicate per-tier methods.
+      // The joint graph stores the class once, with exact conditional source links.
+      assertThat(graph.executionCount()).isEqualTo(graph.methods().size());
+      var terminal =
+          graph.nodes().stream()
+              .filter(
+                  n ->
+                      n.progress().goal()
+                          == com.poe2craft.crafting.domain.goalfilter.GoalFilter.Status.MATCH)
+              .toList();
+      assertThat(terminal).hasSize(1);
+      assertThat(terminal.getFirst().joint()).isNotEmpty();
+      assertThat(terminal.getFirst().attributes().values()).anyMatch(options -> options.size() > 1);
       assertThat(graph.nodes()).allMatch(n -> n.item().explicits().size() <= 4);
     }
   }

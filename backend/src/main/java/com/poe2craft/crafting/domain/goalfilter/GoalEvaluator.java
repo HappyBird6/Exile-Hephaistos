@@ -8,14 +8,25 @@ import java.util.Map;
 
 /** Pure evaluation over proven observations. Missing keys mean unknown, never absent. */
 public final class GoalEvaluator {
-  public record Observation(Presence presence, BigDecimal value, Capability support) {
+  public record Observation(
+      Presence presence, BigDecimal value, Capability support, GoalNumber exact) {
+    public Observation(Presence presence, BigDecimal value, Capability support) {
+      this(presence, value, support, value == null ? null : GoalNumber.of(value));
+    }
+
     public Observation {
       if ((presence == Presence.PRESENT) != (value != null))
         throw new IllegalArgumentException("Only present observations have a numeric value");
+      if ((presence == Presence.PRESENT) != (exact != null))
+        throw new IllegalArgumentException("Only present observations have an exact number");
     }
 
     public static Observation present(BigDecimal value) {
       return new Observation(Presence.PRESENT, value, Capability.SUPPORTED);
+    }
+
+    public static Observation presentNumber(GoalNumber number) {
+      return new Observation(Presence.PRESENT, number.display(), Capability.SUPPORTED, number);
     }
 
     public static Observation absent() {
@@ -31,10 +42,33 @@ public final class GoalEvaluator {
     }
   }
 
-  public record EntryResult(String id, Status status, Presence presence, BigDecimal value) {}
+  public record EntryResult(
+      String id,
+      Status status,
+      Presence presence,
+      BigDecimal value,
+      @com.fasterxml.jackson.annotation.JsonInclude(
+              com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+          GoalNumber.Ratio exactValue) {
+    public EntryResult(String id, Status status, Presence presence, BigDecimal value) {
+      this(id, status, presence, value, null);
+    }
+  }
 
   public record GroupResult(
-      String id, Status status, Integer count, BigDecimal score, List<EntryResult> entries) {}
+      String id,
+      Status status,
+      Integer count,
+      BigDecimal score,
+      List<EntryResult> entries,
+      @com.fasterxml.jackson.annotation.JsonInclude(
+              com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+          GoalNumber.Ratio exactScore) {
+    public GroupResult(
+        String id, Status status, Integer count, BigDecimal score, List<EntryResult> entries) {
+      this(id, status, count, score, entries, null);
+    }
+  }
 
   public record Evaluation(
       int version,
@@ -64,7 +98,7 @@ public final class GoalEvaluator {
 
   public static Observation pseudo(
       List<GoalCatalog.Contribution> contributions, Map<String, Observation> sources) {
-    var sum = BigDecimal.ZERO;
+    var sum = GoalNumber.ZERO;
     boolean present = false, unknown = false, unsupported = false;
     for (var contribution : contributions) {
       var source = sources.getOrDefault(contribution.statId(), Observation.unknown());
@@ -72,24 +106,30 @@ public final class GoalEvaluator {
       unknown |= source.presence() == Presence.UNKNOWN;
       if (source.presence() == Presence.PRESENT) {
         present = true;
-        sum = sum.add(source.value().multiply(contribution.coefficient()));
+        sum = sum.add(source.exact().multiply(contribution.coefficient()));
       }
     }
     if (unsupported) return Observation.unsupported();
     if (unknown) return Observation.unknown();
-    return present ? Observation.present(sum) : Observation.absent();
+    return present ? Observation.presentNumber(sum) : Observation.absent();
   }
 
   private GroupResult group(Group group, Map<String, Observation> observations) {
     var entries = new ArrayList<EntryResult>();
     var hard = new ArrayList<Status>();
     int matched = 0, uncertain = 0, present = 0;
-    var score = BigDecimal.ZERO;
+    var score = GoalNumber.ZERO;
     for (var entry : group.entries()) {
       if (entry.disabled()) continue;
       var value = observations.getOrDefault(entry.statId(), Observation.unknown());
       var status = row(entry, value);
-      entries.add(new EntryResult(entry.id(), status, value.presence(), value.value()));
+      entries.add(
+          new EntryResult(
+              entry.id(),
+              status,
+              value.presence(),
+              value.value(),
+              value.exact() == null ? null : value.exact().ratio()));
       if (status == Status.MATCH) matched++;
       if (status == Status.UNKNOWN || status == Status.UNSUPPORTED) uncertain++;
       if (value.presence() == Presence.PRESENT) present++;
@@ -98,7 +138,7 @@ public final class GoalEvaluator {
       if (value.presence() == Presence.PRESENT
           && entry.weight() != null
           && (group.type() == Type.WEIGHTED_V1 || status == Status.MATCH))
-        score = score.add(value.value().multiply(entry.weight()));
+        score = score.add(value.exact().multiply(entry.weight()));
     }
     var statuses = entries.stream().map(EntryResult::status).toList();
     Status result;
@@ -119,11 +159,11 @@ public final class GoalEvaluator {
       case WEIGHTED_V1 -> {
         result = and(hard);
         if (result == Status.MATCH)
-          result = group.range().contains(score) ? Status.MATCH : Status.NO_MATCH;
+          result = score.within(group.range()) ? Status.MATCH : Status.NO_MATCH;
       }
       case WEIGHTED_V2 -> {
         if (uncertain > 0) result = uncertainty(statuses);
-        else result = present > 0 && group.range().contains(score) ? Status.MATCH : Status.NO_MATCH;
+        else result = present > 0 && score.within(group.range()) ? Status.MATCH : Status.NO_MATCH;
       }
       default -> throw new IllegalStateException("Unknown group type");
     }
@@ -132,15 +172,18 @@ public final class GoalEvaluator {
         result,
         group.type() == Type.COUNT && uncertain == 0 ? matched : null,
         (group.type() == Type.WEIGHTED_V1 || group.type() == Type.WEIGHTED_V2) && uncertain == 0
-            ? score
+            ? score.display()
             : null,
-        List.copyOf(entries));
+        List.copyOf(entries),
+        (group.type() == Type.WEIGHTED_V1 || group.type() == Type.WEIGHTED_V2) && uncertain == 0
+            ? score.ratio()
+            : null);
   }
 
   private static Status row(Entry entry, Observation observation) {
     if (observation.support() == Capability.UNSUPPORTED) return Status.UNSUPPORTED;
     if (observation.presence() == Presence.UNKNOWN) return Status.UNKNOWN;
-    return observation.presence() == Presence.PRESENT && entry.range().contains(observation.value())
+    return observation.presence() == Presence.PRESENT && observation.exact().within(entry.range())
         ? Status.MATCH
         : Status.NO_MATCH;
   }

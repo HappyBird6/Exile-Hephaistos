@@ -6,6 +6,16 @@ import type {
 
 export type ModifierKind = Lowercase<ApiModifierType> | 'unknown'
 export interface ItemCardLine {
+  attributeKey?: string
+  tierRows?: {
+    label: string
+    value: string
+    chance?: string
+    chanceKey?: string
+    low?: string
+    high?: string
+  }[]
+
   id: string
   text: string
   kind?: ModifierKind

@@ -37,7 +37,30 @@ public final class AutomaticSearchService implements AutoCloseable {
 
   public record Control(String commandId, long revision, long generation, String operation) {}
 
-  public record ExitView(Integer target, String kind, CertifiedMethodProtocol.Bounds probability) {}
+  /**
+   * Mutually exclusive joint components. Local factors include fresh draws and known constants;
+   * projected source variables retain their complete joint law, never products of marginals.
+   */
+  public record JointCase(
+      List<com.poe2craft.item.ModifierInstance> local,
+      Map<String, AutomaticMethodGraph.TierLaw> tiers,
+      Map<String, AutomaticCraftingKernel.RollBand> rolls,
+      Set<String> retainedFromSource,
+      CertifiedMethodProtocol.Bounds probability) {}
+
+  public record ExitView(
+      Integer target,
+      String kind,
+      CertifiedMethodProtocol.Bounds probability,
+      List<JointCase> conditional) {
+    public ExitView {
+      conditional = conditional == null ? List.of() : List.copyOf(conditional);
+    }
+
+    public ExitView(Integer target, String kind, CertifiedMethodProtocol.Bounds probability) {
+      this(target, kind, probability, List.of());
+    }
+  }
 
   public record PointView(
       int cycles,
@@ -80,7 +103,47 @@ public final class AutomaticSearchService implements AutoCloseable {
           AutomaticMethodGraph.ResourceUsage resources,
       List<AutomaticMethodGraph.NodeView> nodes,
       List<Arrow> methods,
-      List<Recommendation> recommendations) {}
+      List<Recommendation> recommendations,
+      @com.fasterxml.jackson.annotation.JsonInclude(
+              com.fasterxml.jackson.annotation.JsonInclude.Include.NON_EMPTY)
+          List<String> rollModels) {
+    public View {
+      rollModels = rollModels == null ? List.of() : List.copyOf(rollModels);
+    }
+
+    public View(
+        String version,
+        String id,
+        long revision,
+        long generation,
+        String status,
+        String reason,
+        boolean complete,
+        boolean canResume,
+        long operations,
+        long retainedStates,
+        AutomaticMethodGraph.ResourceUsage resources,
+        List<AutomaticMethodGraph.NodeView> nodes,
+        List<Arrow> methods,
+        List<Recommendation> recommendations) {
+      this(
+          version,
+          id,
+          revision,
+          generation,
+          status,
+          reason,
+          complete,
+          canResume,
+          operations,
+          retainedStates,
+          resources,
+          nodes,
+          methods,
+          recommendations,
+          List.of());
+    }
+  }
 
   public record Disk(
       String version,
@@ -162,6 +225,14 @@ public final class AutomaticSearchService implements AutoCloseable {
         object.put("abstractQuality", object.path("quality40").asBoolean() ? 40 : 0);
       if (object.has("initialQuality40") && !object.has("initialAbstractQuality"))
         object.put("initialAbstractQuality", object.path("initialQuality40").asBoolean() ? 40 : 0);
+      // Historical executions have no source-lineage flag. They are read-only;
+      // keep strict primitive validation for the current cursor schema.
+      if (object.has("initialQuality40")
+          && !object.has("symbolicSource")
+          && Set.of(
+                  "automatic-method-execution-v4-prepared-renewal",
+                  "automatic-method-execution-v5-tier-laws")
+              .contains(object.path("version").asText())) object.put("symbolicSource", false);
     }
     if (node != null && node.isContainerNode())
       node.forEach(AutomaticSearchService::qualityDefaults);
@@ -275,7 +346,8 @@ public final class AutomaticSearchService implements AutoCloseable {
     for (var id : repository.ids()) {
       var saved = read(id);
       if (saved.expires() < clock.millis()) {
-        repository.delete(id);
+        // Expiry releases admission and working memory, never the user's stored result.
+        // Existing byte/document ceilings still reject new work when storage is full.
         var old = jobs.remove(id);
         if (old != null) old.graph.close();
         continue;
@@ -337,9 +409,15 @@ public final class AutomaticSearchService implements AutoCloseable {
     var saved = read(id);
     if (!saved.owner().equals(ownerKey(owner)) || saved.expires() < clock.millis())
       throw new Rejected(404, "JOB_NOT_FOUND");
-    if ("goal-directed-milestone-graph-v9-terminal-classes".equals(saved.graph().version())
+    if ("goal-directed-milestone-graph-v11-tier-laws".equals(saved.graph().version())
+        || "goal-directed-milestone-graph-v10-quality-goal".equals(saved.graph().version())
+        || "goal-directed-milestone-graph-v9-terminal-classes".equals(saved.graph().version())
         || (AutomaticMethodGraph.VERSION.equals(saved.graph().version())
-            && "approved-187-2026-10-21-goal-v3".equals(saved.graph().identity().policyVersion())))
+            && ("approved-187-2026-10-21-goal-v3".equals(saved.graph().identity().policyVersion())
+                || "automatic-scalar-kernel-v5-goal-acquisition"
+                    .equals(saved.graph().identity().kernelVersion())
+                || "automatic-finite-kernel-v6-declared-coupled-rolls"
+                    .equals(saved.graph().identity().kernelVersion()))))
       try {
         return SavedAutomaticResultReader.read(saved, historicalFactory.apply(saved.request()));
       } catch (RuntimeException error) {
@@ -394,7 +472,19 @@ public final class AutomaticSearchService implements AutoCloseable {
           job.generation++;
         }
         case "RESUME" -> {
-          if (job.graph.finished()) break;
+          // A fast calculation can finish immediately before a queued CANCEL.
+          // Restore its actual terminal result without increasing any budget.
+          if (job.graph.finished()) {
+            job.status = job.graph.complete() ? "COMPLETE" : "PARTIAL";
+            job.reason =
+                job.graph.complete()
+                    ? (job.graph.hasGoal()
+                        ? "SUPPORTED_PLANS_COMPLETE"
+                        : "NO_PLAN_IN_SUPPORTED_SCOPE")
+                    : "UNRESOLVED_MODEL_OR_POLICY";
+            job.generation++;
+            break;
+          }
           if (!job.status.equals("READY")) requireActiveSlot();
           var saved = job.graph.checkpoint(job.runtime.objective());
           if (job.status.equals("PAUSED")
@@ -478,21 +568,57 @@ public final class AutomaticSearchService implements AutoCloseable {
     nodes.forEach(
         n ->
             ids.put(
-                new AutomaticMethodGraph.Identity(n.item(), n.quality40(), n.abstractQuality()),
+                new AutomaticMethodGraph.Identity(
+                    n.item(), n.quality40(), n.abstractQuality(), n.tierCells()),
                 n.id()));
+    var memberViews = new HashMap<AutomaticMethodGraph.Identity, AutomaticMethodGraph.MemberView>();
+    for (var n : nodes)
+      for (var member : n.members()) {
+        var cells = new LinkedHashMap<String, com.poe2craft.crafting.domain.pathsearch.TierCell>();
+        member
+            .tiers()
+            .forEach(
+                (id, law) ->
+                    cells.put(
+                        id,
+                        new com.poe2craft.crafting.domain.pathsearch.TierCell(
+                            law.variants().stream()
+                                .map(
+                                    v ->
+                                        new com.poe2craft.crafting.domain.pathsearch.TierCell
+                                            .Variant(
+                                            v.modifierId(),
+                                            v.stat(),
+                                            v.min(),
+                                            v.max(),
+                                            new com.poe2craft.crafting.domain.goalfilter
+                                                .ExactNumericDistribution.Fraction(
+                                                new java.math.BigInteger(
+                                                    v.probability().numerator()),
+                                                new java.math.BigInteger(
+                                                    v.probability().denominator()))))
+                                .toList())));
+        var key =
+            new AutomaticMethodGraph.Identity(
+                member.item(), n.quality40(), n.abstractQuality(), cells);
+        ids.put(key, n.id());
+        memberViews.put(key, member);
+      }
     var arrows = new ArrayList<Arrow>();
     for (var method : methodViews) {
       var points = new ArrayList<PointView>();
       for (var entry : method.points().entrySet()) {
         var rows = new ArrayList<ExitView>();
         var grouped = new LinkedHashMap<String, CertifiedInterval>();
+        var components = new LinkedHashMap<String, List<JointCase>>();
         for (var mass : AutomaticMethodGraph.encode(entry.getValue()).outcomes()) {
           var target =
               ids.get(
                   new AutomaticMethodGraph.Identity(
                       mass.state().item(),
                       mass.state().quality40(),
-                      mass.state().abstractQuality()));
+                      mass.state().abstractQuality(),
+                      mass.state().tiers()));
           if (mass.exit() == Exit.LOSS || mass.exit() == Exit.DEAD) target = null;
           boolean retry =
               mass.exit() == null && method.retryRepresentatives().contains(mass.state().item());
@@ -508,6 +634,29 @@ public final class AutomaticSearchService implements AutoCloseable {
           }
           var key = (target == null ? "null" : target.toString()) + ":" + kind;
           grouped.merge(key, mass.probability(), CertifiedInterval::add);
+          if (target != null && !memberViews.isEmpty()) {
+            var state = mass.state();
+            var member =
+                memberViews.get(
+                    new AutomaticMethodGraph.Identity(
+                        state.item(), state.quality40(), state.abstractQuality(), state.tiers()));
+            var fresh = new LinkedHashMap<>(member.tiers());
+            fresh.keySet().removeAll(state.retainedFromRoot());
+            var rolls = new LinkedHashMap<>(member.rolls());
+            rolls.keySet().removeAll(state.retainedFromRoot());
+            rolls.keySet().removeAll(fresh.keySet());
+            components
+                .computeIfAbsent(key, ignored -> new ArrayList<>())
+                .add(
+                    new JointCase(
+                        state.item().explicits().stream()
+                            .filter(m -> !state.retainedFromRoot().contains(m.modifierId()))
+                            .toList(),
+                        Map.copyOf(fresh),
+                        Map.copyOf(rolls),
+                        state.retainedFromRoot(),
+                        probability.apply(mass.probability())));
+          }
         }
         grouped.forEach(
             (key, value) -> {
@@ -516,7 +665,8 @@ public final class AutomaticSearchService implements AutoCloseable {
                   new ExitView(
                       pair[0].equals("null") ? null : Integer.valueOf(pair[0]),
                       pair[1],
-                      probability.apply(value)));
+                      probability.apply(value),
+                      components.getOrDefault(key, List.of())));
             });
         rows.sort(
             Comparator.comparing(ExitView::kind)
@@ -613,7 +763,8 @@ public final class AutomaticSearchService implements AutoCloseable {
         job.graph.resources(),
         nodes,
         arrows,
-        recommendations);
+        recommendations,
+        job.graph.rollModels());
   }
 
   @Override

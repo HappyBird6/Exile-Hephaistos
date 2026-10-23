@@ -223,7 +223,21 @@ class LegacyAutomaticResultReaderTest {
         json.treeToValue(fixture("complete").path("request"), MethodSearchProtocol.Create.class);
     var request =
         new MethodSearchProtocol.Create(
-            old.version(), "new-v9", old.start(), old.goal(), old.activeOmens());
+            old.version(),
+            "new-v9",
+            old.start(),
+            new com.poe2craft.crafting.domain.goalfilter.GoalFilter(
+                old.goal().version(),
+                GoalDirectedPlannerScenariosTest.goals
+                    .catalog(
+                        new com.poe2craft.crafting.domain.goalfilter.GoalFilter.Context(
+                            old.start().item().snapshotId(),
+                            old.start().item().baseItemId(),
+                            old.start().item().itemLevel()))
+                    .catalogVersion(),
+                old.goal().general(),
+                old.goal().groups()),
+            old.activeOmens());
     try (var service = open()) {
       var view = service.create("new-owner", request);
       view =

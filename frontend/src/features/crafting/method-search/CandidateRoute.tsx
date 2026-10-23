@@ -53,6 +53,8 @@ export function CandidateRoute({
         <div className="operation-alternatives" aria-label={copy.incoming}>
           {operationGroups(
             view.methods.filter((m) => incoming.some((e) => e.method === m.id)),
+            cycles,
+            view.recommendations,
           ).map((group) => {
             const kind = operationKind(group.variants[0]!)
             return (

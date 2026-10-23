@@ -81,7 +81,10 @@ class TerminalContinuationApiTest {
         } else resumes++;
       }
       assertThat(current.status()).isEqualTo("COMPLETE");
-      assertThat(current.resources().methodExecutions()).isLessThan(current.methods().size());
+      // Lumpable inputs now share the actual graph node and method, rather than
+      // publishing one alias method per concrete tier input.
+      assertThat(current.resources().methodExecutions()).isEqualTo(current.methods().size());
+      assertThat(current.nodes()).anyMatch(n -> !n.joint().isEmpty());
       finalView = current;
     }
     try (var reloaded =

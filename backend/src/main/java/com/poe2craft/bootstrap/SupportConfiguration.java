@@ -20,11 +20,12 @@ public class SupportConfiguration {
               "${crafting.method-job-directory:./data/method-jobs}")
           String directory) {
     var policy = AutomaticCurrencyPolicyLoader.load();
-    java.util.function.Function<
+    java.util.function.BiFunction<
+            com.poe2craft.crafting.application.goalfilter.GoalFilterService,
             com.poe2craft.crafting.application.pathsearch.MethodSearchProtocol.Create,
             com.poe2craft.crafting.application.pathsearch.AutomaticSearchService.Runtime>
         factory =
-            request -> {
+            (goalService, request) -> {
               if (request == null
                   || !Integer.valueOf(2).equals(request.version())
                   || request.start() == null
@@ -47,7 +48,7 @@ public class SupportConfiguration {
                 throw new com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Rejected(
                     422, "INVALID_ITEM");
               var general = request.goal().general();
-              goals.validate(
+              goalService.validate(
                   new com.poe2craft.crafting.domain.goalfilter.GoalFilter.Context(
                       item.snapshotId(), item.baseItemId(), item.itemLevel()),
                   request.goal());
@@ -63,7 +64,7 @@ public class SupportConfiguration {
                       com.poe2craft.crafting.domain.goalfilter.GoalEvaluator.Evaluation>
                   evaluate =
                       request.goal().groups().stream().anyMatch(g -> !g.disabled())
-                          ? goals.compileEvaluation(item, affixGoal)
+                          ? goalService.compileEvaluation(item, affixGoal)
                           : state ->
                               new com.poe2craft.crafting.domain.goalfilter.GoalEvaluator.Evaluation(
                                   1,
@@ -88,7 +89,7 @@ public class SupportConfiguration {
                     workbench
                         .automaticKernel(item, policy)
                         .withRollPartition(
-                            goals.rollPartition(item, request.goal()),
+                            goalService.rollPartition(item, request.goal()),
                             json.writeValueAsString(request.goal()))
                         .withQualityGoal(general.quality() == null ? 0 : general.quality()),
                     state -> {
@@ -102,7 +103,7 @@ public class SupportConfiguration {
                               .toList());
                     },
                     json.writeValueAsString(request.goal()),
-                    goals.minimumExplicitModifiers(item, request.goal()));
+                    goalService.minimumExplicitModifiers(item, request.goal()));
               } catch (java.io.IOException e) {
                 throw new IllegalArgumentException("Cannot preserve objective", e);
               }
@@ -111,7 +112,7 @@ public class SupportConfiguration {
         json,
         new LocalAutomaticJobRepository(java.nio.file.Path.of(directory).resolve("automatic-v1")),
         policy,
-        factory,
+        request -> factory.apply(goals, request),
         java.time.Clock.systemUTC(),
         request -> {
           var item = request.start().item();
@@ -119,25 +120,42 @@ public class SupportConfiguration {
               new com.poe2craft.crafting.domain.goalfilter.GoalFilter.Context(
                   item.snapshotId(), item.baseItemId(), item.itemLevel());
           var goal = request.goal();
-          var currentCatalog = goals.catalog(context).catalogVersion();
-          if (!currentCatalog.equals(goal.catalogVersion())) {
-            // Only this known v3 ruleset is rebound for immutable observation reads.
-            // Rebuild its goal-catalog signature from the unchanged reviewed data;
-            // a changed stat definition or catalog must still reject the old result.
-            var previousCatalog =
-                new com.poe2craft.crafting.domain.goalfilter.GoalCatalogIndex(
-                    com.poe2craft.crafting.infrastructure.goalfilter.BundledGoalCatalogs.load(
-                        workbench),
-                    com.poe2craft.crafting.infrastructure.goalfilter.GoalDefinitionsLoader.load(),
-                    "reviewed-equipment-20261009-v2-68910c93fedbba8263972e2c97605e96271d6cf73fa6186088d3c9b76903cf1a");
-            if (!previousCatalog.version().equals(goal.catalogVersion()))
+          var goalService = goals;
+          if (!goals.catalog(context).catalogVersion().equals(goal.catalogVersion())) {
+            // Frozen definitions reproduce the exact historical catalog, never relabel its AST.
+            var catalogs =
+                com.poe2craft.crafting.infrastructure.goalfilter.BundledGoalCatalogs.load(
+                    workbench);
+            goalService = null;
+            for (var definitions :
+                java.util.List.of(
+                    com.poe2craft.crafting.infrastructure.goalfilter.GoalDefinitionsLoader
+                        .loadHistoricalV3(),
+                    com.poe2craft.crafting.infrastructure.goalfilter.GoalDefinitionsLoader
+                        .loadHistoricalV4())) {
+              for (var identity :
+                  java.util.Arrays.asList(
+                      (String) null,
+                      "reviewed-equipment-20261009-v2-68910c93fedbba8263972e2c97605e96271d6cf73fa6186088d3c9b76903cf1a",
+                      "reviewed-equipment-20261009-v2-debb3f07052d54419a4732f49d9febf78508e23cd69a489698c5e81be80597f7",
+                      "reviewed-equipment-20261009-v2-6346262eb5667dafc37a65907bb03f16469d2ce976559de50a4b6cb1a7a2d727")) {
+                var index =
+                    new com.poe2craft.crafting.domain.goalfilter.GoalCatalogIndex(
+                        catalogs, definitions, identity);
+                if (index.version().equals(goal.catalogVersion())) {
+                  goalService =
+                      new com.poe2craft.crafting.application.goalfilter.GoalFilterService(index);
+                  break;
+                }
+              }
+              if (goalService != null) break;
+            }
+            if (goalService == null)
               throw new IllegalArgumentException("Historical goal catalog changed");
-            goal =
-                new com.poe2craft.crafting.domain.goalfilter.GoalFilter(
-                    goal.version(), currentCatalog, goal.general(), goal.groups());
           }
           var runtime =
               factory.apply(
+                  goalService,
                   new com.poe2craft.crafting.application.pathsearch.MethodSearchProtocol.Create(
                       request.version(),
                       request.clientRequestId(),

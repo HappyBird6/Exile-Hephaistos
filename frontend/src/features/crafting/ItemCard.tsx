@@ -30,7 +30,22 @@ function Lines({
           {line.affixLabel && (
             <span className="item-card__affix">{line.affixLabel}</span>
           )}
-          {line.detail ? (
+          {line.tierRows?.length ? (
+            <details className="item-card__modifier-detail">
+              <summary>{line.text}</summary>
+              <table className="item-card__tier-values" aria-label={line.text}>
+                <tbody>
+                  {line.tierRows.map((row, index) => (
+                    <tr key={index}>
+                      <th scope="row">{row.label}</th>
+                      <td>{row.value}</td>
+                      {row.chance && <td>{row.chance}</td>}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </details>
+          ) : line.detail ? (
             <details className="item-card__modifier-detail">
               <summary>
                 {(line.fractured || line.kind === 'fractured') && (

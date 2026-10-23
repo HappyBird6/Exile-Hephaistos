@@ -145,7 +145,8 @@ public final class GoalCatalogIndex {
                 "STAT_NOT_ON_SELECTED_BASE",
                 stat.sourceStatIds(),
                 stat.contributions(),
-                stat.sourceUrls()));
+                stat.sourceUrls(),
+                stat.sourceDivisor()));
     catalog(context).stats().forEach(s -> known.put(s.statId(), s));
     return Collections.unmodifiableMap(known);
   }
@@ -157,7 +158,12 @@ public final class GoalCatalogIndex {
   public static Optional<Mapping> mapping(Stat stat) {
     if (stat.kind() == Kind.PSEUDO || stat.support().evaluation() != Capability.SUPPORTED)
       return Optional.empty();
-    return Optional.of(new Mapping(stat.sourceStatIds().getFirst(), stat.kind().name(), 1, 1));
+    return Optional.of(
+        new Mapping(
+            stat.sourceStatIds().getFirst(),
+            stat.kind().name(),
+            1,
+            stat.sourceDivisor() == null ? 1 : stat.sourceDivisor()));
   }
 
   private List<Stat> stats(ItemCatalog catalog, int level) {
@@ -211,7 +217,8 @@ public final class GoalCatalogIndex {
                       .map(ModifierDefinition::sourceUrl)
                       .distinct()
                       .sorted()
-                      .toList()));
+                      .toList(),
+                  supported ? direct.sourceDivisor() : null));
         });
     for (var pseudo : this.definitions.pseudos())
       addPseudo(result, pseudo.id(), pseudo.label(), pseudo.unit(), pseudo.sourceStatIds());
@@ -229,7 +236,8 @@ public final class GoalCatalogIndex {
                       stat.eligibilityReason(),
                       stat.sourceStatIds(),
                       stat.contributions(),
-                      stat.sourceUrls())
+                      stat.sourceUrls(),
+                      stat.sourceDivisor())
                   : stat);
     }
     return List.copyOf(result.values());

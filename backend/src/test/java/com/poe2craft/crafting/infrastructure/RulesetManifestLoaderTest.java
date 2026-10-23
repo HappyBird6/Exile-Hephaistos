@@ -70,7 +70,7 @@ class RulesetManifestLoaderTest {
   @Test
   void currentBundleIsSealedAndUnknownSeasonsAreExplicit() {
     var manifest = RulesetManifestLoader.load();
-    assertEquals(463, manifest.files().size());
+    assertEquals(465, manifest.files().size());
     assertTrue(manifest.files().containsKey("crafting/automatic-currency-policy-v1.json"));
     assertEquals("UNVERIFIED", manifest.gameSeason());
     assertEquals("UNVERIFIED", manifest.gamePatch());
