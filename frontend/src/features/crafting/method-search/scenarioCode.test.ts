@@ -516,3 +516,54 @@ it.each(['mass', 'projection'] as const)(
     expect(() => validateScenario(s)).toThrow()
   },
 )
+
+it.each([4, 5, 6])('round trips %i explicit modifiers', async (count) => {
+  const value = fixture()
+  const item = value.request.start.item
+  item.rarity = 'RARE'
+  item.explicits = Array.from({ length: count }, (_, index) => ({
+    modifierId: `test:explicit:${index}`,
+    values: { test: index + 1 },
+    fractured: false,
+  }))
+  value.cards['0'] = Object.fromEntries(
+    scenarioLocales.map((locale) => [locale, present(item, locale)]),
+  ) as Scenario['cards'][string]
+  expect(await decodeScenario(await encodeScenario(value))).toEqual(value)
+})
+it('rejects seven explicit modifiers in an imported scenario', () => {
+  const value = fixture()
+  value.request.start.item.explicits = Array.from(
+    { length: 7 },
+    (_, index) => ({
+      modifierId: `test:explicit:${index}`,
+      values: { test: index + 1 },
+      fractured: false,
+    }),
+  )
+  expect(() => validateScenario(value)).toThrow()
+})
+
+it('round trips five-local-affix joint laws into six-affix targets', async () => {
+  const value = jointScenario()
+  const extras = Array.from({ length: 3 }, (_, i) => ({
+    modifierId: `extra:${i}`,
+    values: { extra: i + 1 },
+    fractured: false,
+  }))
+  for (const node of value.result.nodes.slice(1)) {
+    node.item.explicits.push(...extras)
+    for (const member of node.members ?? [])
+      member.item.explicits.push(...extras)
+    value.cards[String(node.id)] = Object.fromEntries(
+      scenarioLocales.map((locale) => [locale, present(node.item, locale)]),
+    ) as Scenario['cards'][string]
+  }
+  const target = value.result.nodes[2]!
+  for (const extra of extras)
+    target.joint![0]!.retained[extra.modifierId] = extra.modifierId
+  value.result.methods[1]!.points[0]!.outcomes[0]!.conditional![0]!.retainedFromSource.push(
+    ...extras.map((m) => m.modifierId),
+  )
+  expect(await decodeScenario(await encodeScenario(value))).toEqual(value)
+})

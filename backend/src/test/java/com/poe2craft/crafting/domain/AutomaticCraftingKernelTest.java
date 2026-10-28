@@ -268,7 +268,7 @@ class AutomaticCraftingKernelTest {
   }
 
   @Test
-  void fifthExplicitRetainsBoundaryMassAndReplacementCanStillRunAtFour() {
+  void fifthExplicitPreservesItsMassAndReplacementCanStillRunAtFour() {
     var c = tiny.definition("c", ModifierDefinition.AffixType.PREFIX, 1, 1, 1);
     var d = tiny.definition("d", ModifierDefinition.AffixType.SUFFIX, 1, 1, 1);
     var e = tiny.definition("e", ModifierDefinition.AffixType.PREFIX, 1, 1, 1);
@@ -293,9 +293,11 @@ class AutomaticCraftingKernelTest {
                 Set.of(),
                 AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL),
             1);
-    assertThat(result.boundary()).isEqualTo(Fraction.ONE);
+    assertThat(result.boundary()).isEqualTo(Fraction.ZERO);
     assertThat(result.unresolved()).isEqualTo(Fraction.ZERO);
-    assertThat(result.outcomes()).isEmpty();
+    assertThat(result.outcomes()).hasSize(1);
+    assertThat(result.outcomes().getFirst().item().explicits()).hasSize(5);
+    assertThat(result.outcomes().getFirst().probability()).isEqualTo(Fraction.ONE);
     var replacement =
         kernel.expand(
             item,

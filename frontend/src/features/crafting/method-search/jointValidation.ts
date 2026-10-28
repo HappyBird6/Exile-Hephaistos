@@ -58,6 +58,8 @@ export function validateJointNode(n: AutomaticNode) {
     for (const m of n.members) {
       if (!object(m)) throw new Error('Invalid joint member')
       assertShape('item', m.item)
+      if (m.item.explicits.length > 6)
+        throw new Error('Invalid joint member size')
       validateTierLaws({ ...n, item: m.item, tiers: m.tiers })
       validateRollBands(m.item, m.rolls)
     }
@@ -124,7 +126,7 @@ export function validateJointGraph(
           if (
             !object(c) ||
             !Array.isArray(c.local) ||
-            c.local.length > 4 ||
+            c.local.length > 6 ||
             !Array.isArray(c.retainedFromSource) ||
             new Set(c.retainedFromSource).size !==
               c.retainedFromSource.length ||

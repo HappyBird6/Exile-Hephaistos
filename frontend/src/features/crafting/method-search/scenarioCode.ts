@@ -118,7 +118,7 @@ function bounds(v: unknown, probability = true) {
 function item(v: unknown) {
   assertShape('item', v)
   const i = v as Item
-  if (i.explicits.length > 4 || i.itemLevel > 100) fail()
+  if (i.explicits.length > 6 || i.itemLevel > 100) fail()
 }
 function card(v: unknown) {
   const r = object(v, [

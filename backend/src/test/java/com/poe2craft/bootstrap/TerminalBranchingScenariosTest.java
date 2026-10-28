@@ -8,7 +8,7 @@ import com.poe2craft.item.ItemState;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
-/** Real-policy branching regression: unchanged explicit cap and resource constants. */
+/** Real-policy branching regression: six-affix scope with unchanged resource constants. */
 class TerminalBranchingScenariosTest {
   final GoalDirectedPlannerScenariosTest f = new GoalDirectedPlannerScenariosTest();
 
@@ -48,12 +48,12 @@ class TerminalBranchingScenariosTest {
       assertThat(terminal).hasSize(1);
       assertThat(terminal.getFirst().joint()).isNotEmpty();
       assertThat(terminal.getFirst().attributes().values()).anyMatch(options -> options.size() > 1);
-      assertThat(graph.nodes()).allMatch(n -> n.item().explicits().size() <= 4);
+      assertThat(graph.nodes()).allMatch(n -> n.item().explicits().size() <= 6);
     }
   }
 
   @Test
-  void unsupportedFiveExplicitGoalDoesNotBecomeCompleteSuccessByCompression() {
+  void fourSuffixGoalDoesNotBecomeCompleteSuccessByCompression() {
     var root = f.item(ItemState.Rarity.MAGIC, 82, List.of(f.life()));
     var goal =
         f.goal(
@@ -90,7 +90,7 @@ class TerminalBranchingScenariosTest {
               + "|resources="
               + graph.resources());
       assertThat(graph.hasGoal()).isFalse();
-      assertThat(graph.nodes()).allMatch(n -> n.item().explicits().size() <= 4);
+      assertThat(graph.nodes()).allMatch(n -> n.item().explicits().size() <= 6);
       if (graph.resourceLimited()) assertThat(graph.complete()).isFalse();
     }
   }
@@ -98,13 +98,17 @@ class TerminalBranchingScenariosTest {
   @org.junit.jupiter.api.io.TempDir java.nio.file.Path directory;
 
   @Test
-  void fiveGoalScopeProofRejectsBeforeCreatingAProductionJob() throws Exception {
+  void sevenGoalScopeProofRejectsBeforeCreatingAProductionJob() throws Exception {
     var root = f.item(ItemState.Rarity.MAGIC, 82, List.of(f.life()));
     var goal =
         f.goal(
             root,
             Map.of(
                 LIFE,
+                1L,
+                "base_maximum_mana",
+                1L,
+                "base_maximum_energy_shield",
                 1L,
                 CHAOS,
                 1L,
@@ -114,7 +118,7 @@ class TerminalBranchingScenariosTest {
                 1L,
                 "minion_skill_gem_level_+",
                 3L));
-    assertThat(goals.minimumExplicitModifiers(root, goal)).isEqualTo(5);
+    assertThat(goals.minimumExplicitModifiers(root, goal)).isEqualTo(7);
     var json = new com.fasterxml.jackson.databind.ObjectMapper();
     try (var legacy =
             new com.poe2craft.crafting.application.pathsearch.MethodSearchService(
@@ -125,7 +129,7 @@ class TerminalBranchingScenariosTest {
       var request =
           new com.poe2craft.crafting.application.pathsearch.MethodSearchProtocol.Create(
               2,
-              "five-scope",
+              "seven-scope",
               new com.poe2craft.crafting.domain.BasicCurrencyState(
                   root, legacy.provenance(root.baseItemId())),
               goal,
@@ -133,7 +137,7 @@ class TerminalBranchingScenariosTest {
       assertThatThrownBy(() -> service.create("scope", request))
           .isInstanceOf(
               com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Rejected.class)
-          .hasMessage("GOAL_EXCEEDS_FOUR_EXPLICIT_SCOPE");
+          .hasMessage("GOAL_EXCEEDS_SIX_EXPLICIT_SCOPE");
       try (var paths = java.nio.file.Files.walk(directory)) {
         assertThat(paths.filter(java.nio.file.Files::isRegularFile).count()).isZero();
       }

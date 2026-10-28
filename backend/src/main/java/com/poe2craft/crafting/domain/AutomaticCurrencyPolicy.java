@@ -4,7 +4,8 @@ import java.util.*;
 
 /** User-approved exploration policy. This never grants game eligibility or probability support. */
 public final class AutomaticCurrencyPolicy {
-  public static final String VERSION = "approved-187-2026-10-21-rarity-v4";
+  public static final String VERSION = "approved-187-2026-10-28-six-affix-v5";
+  public static final int MAXIMUM_EXPLORED_EXPLICITS = 6;
 
   public enum Decision {
     USE,
@@ -86,7 +87,7 @@ public final class AutomaticCurrencyPolicy {
   public AutomaticCurrencyPolicy(Document document) {
     if (document.schemaVersion() != 1
         || !VERSION.equals(document.policyVersion())
-        || document.maximumExploredExplicits() != 4
+        || document.maximumExploredExplicits() != MAXIMUM_EXPLORED_EXPLICITS
         || document.entries().size() != 187)
       throw new IllegalArgumentException("Unrecognized automatic currency policy contract");
     var indexed = new LinkedHashMap<String, Entry>();

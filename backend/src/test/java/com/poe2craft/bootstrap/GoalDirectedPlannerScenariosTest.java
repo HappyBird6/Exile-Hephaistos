@@ -585,17 +585,24 @@ class GoalDirectedPlannerScenariosTest {
   }
 
   @Test
-  void fourExplicitBoundaryKeepsOutOfScopeMass() {
+  void fourToFiveToSixPreservesProbabilityMassAndStopsAtCapacity() {
     var root = item(ItemState.Rarity.RARE, 82, List.of(life()));
     var goal = goal(root, Map.of(CHAOS, 1L));
     var k = kernel(root, goal);
     var current = root;
-    for (int i = 0; i < 3; i++)
-      current =
-          k.expand(current, action(WorkbenchCurrency.EXALTED), 5000).outcomes().getFirst().item();
-    var law = k.expand(current, action(WorkbenchCurrency.EXALTED), 5000);
-    assertThat(law.boundary()).isEqualTo(ExactNumericDistribution.Fraction.ONE);
-    assertThat(law.outcomes()).isEmpty();
+    for (int count = 2; count <= 6; count++) {
+      var law = k.expand(current, action(WorkbenchCurrency.EXALTED), 5000);
+      var mass = law.boundary().add(law.unresolved());
+      for (var outcome : law.outcomes()) mass = mass.add(outcome.probability());
+      assertThat(mass).isEqualTo(ExactNumericDistribution.Fraction.ONE);
+      assertThat(law.boundary()).isEqualTo(ExactNumericDistribution.Fraction.ZERO);
+      final int expected = count;
+      assertThat(law.outcomes())
+          .isNotEmpty()
+          .allMatch(o -> o.item().explicits().size() == expected);
+      current = law.outcomes().getFirst().item();
+    }
+    assertThat(k.expand(current, action(WorkbenchCurrency.EXALTED), 5000).outcomes()).isEmpty();
   }
 
   @Test

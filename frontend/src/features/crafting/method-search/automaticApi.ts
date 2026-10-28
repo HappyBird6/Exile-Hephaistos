@@ -235,9 +235,10 @@ async function request(
     try {
       const body = (await response.json()) as { code?: unknown }
       if (
+        body.code === 'INVALID_ITEM' ||
         body.code === 'JOB_CAPACITY' ||
         body.code === 'JOB_STORAGE_CAPACITY' ||
-        body.code === 'GOAL_EXCEEDS_FOUR_EXPLICIT_SCOPE'
+        body.code === 'GOAL_EXCEEDS_SIX_EXPLICIT_SCOPE'
       )
         code = body.code
     } catch {

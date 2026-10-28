@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "rulesetVersion": "reviewed-equipment-20261009-v2",
+  "rulesetVersion": "reviewed-equipment-20261028-v3",
   "gameSeason": "UNVERIFIED",
   "gamePatch": "UNVERIFIED",
   "provenance": "Bundled source-reviewed project snapshots; retrieval dates differ by resource. No verified current GGG season or patch mapping. See docs/catalog-data-maintenance.md.",
@@ -464,7 +464,7 @@
     "catalog/wrath-sceptre/base.raw.json": "8042c018040e987be4046c5ce49fa3690b2e3ad6718f63013f2669f80f0f92f5",
     "catalog/wrath-sceptre/catalog.json": "6d3010e003a7b59c6c218a716244c01d89b4185576997cb816a9ea0c10f29d6c",
     "catalog/wrath-sceptre/details.raw.json": "bc5903d4676ae05dd8b323184ddd283322a39c4c1c363a1dd0e98851b3eec5f0",
-    "crafting/automatic-currency-policy-v1.json": "493134625e72011206fae248cbe25b2c22b5a922959447999dd1a4a63d18f140",
+    "crafting/automatic-currency-policy-v1.json": "34471ea349b60e3a3f4c252c633a9fad9852d48776918a2613a878dd72fbb3c4",
     "crafting/goalfilter/bases-v1.json": "eb436d8b327e5d3646be426914a66939dd918e39fb07ff05bd66aea6bf24763f",
     "crafting/goalfilter/definitions-v1.json": "01f0dcb28e930f5c6c1e511dd177f54f4ee46a430c764929d632312e9599be07",
     "crafting/goalfilter/definitions-v3-readonly.json": "370f5d76382cd5735a1862ee5bd2ffd637f9150f777052b91849bd8417c50d48",

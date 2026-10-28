@@ -6,7 +6,7 @@ Craft Support now uses `/api/v2/crafting/method-searches/automatic`. Workbench r
 
 The approved [187-entry roster](crafting-currency-policy-approved-20261015.md) is sealed in `automatic-currency-policy-v1.json`: 33 USE, 14 CONDITIONAL, 114 EXCLUDED, 26 DEFERRED. The discovery inventory contains 76 execution variants, including consumed-omen combinations and one abstract quality-40 operation. Permission, current-state applicability, and supported probability models are separate decisions. Abyss laws remain unsupported; jewel crafting is outside this integration.
 
-Exploration permits at most four explicit modifiers per item. A fifth explicit contributes boundary/unknown mass; it is never removed from the denominator. Resource limits pause computation and do not cap total currency usage. Method observations use 100, 300 and 500 **cycles**, with preparation and actual currency/omen consumption reported separately.
+Exploration permits at most six explicit modifiers per item under policy `approved-187-2026-10-28-six-affix-v5`. Actual base and rarity prefix/suffix capacities still apply. Outcomes outside the supported boundary retain their probability mass; it is never removed from the denominator. Resource limits pause computation and do not cap total currency usage. Method observations use 100, 300 and 500 **cycles**, with preparation and actual currency/omen consumption reported separately.
 
 Regal and Exalted are temporary-affix preparation operations with a subsequent replacement. If preparation itself completes the whole goal, the policy decision remains `PREPARATION_FIRST_HIT_POLICY_UNDECIDED`. That exclusive mass is UNRESOLVED, not success or failure. Its concrete goal item can be displayed without counting it as a successful strategy exit.
 

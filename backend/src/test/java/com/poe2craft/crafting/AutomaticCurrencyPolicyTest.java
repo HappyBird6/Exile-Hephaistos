@@ -130,7 +130,9 @@ class AutomaticCurrencyPolicyTest {
     }
     assertThat(policy.evaluate("NEW_CURRENCY", context)).isEqualTo(Verdict.UNREVIEWED);
     assertThat(policy.withinExplorationBoundary(4)).isTrue();
-    assertThat(policy.withinExplorationBoundary(5)).isFalse();
+    assertThat(policy.withinExplorationBoundary(5)).isTrue();
+    assertThat(policy.withinExplorationBoundary(6)).isTrue();
+    assertThat(policy.withinExplorationBoundary(7)).isFalse();
     assertThatThrownBy(() -> policy.withinExplorationBoundary(-1))
         .isInstanceOf(IllegalArgumentException.class);
   }

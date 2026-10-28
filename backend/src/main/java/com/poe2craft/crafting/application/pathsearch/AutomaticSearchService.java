@@ -367,8 +367,8 @@ public final class AutomaticSearchService implements AutoCloseable {
     job.owner = ownerKey(owner);
     job.request = request;
     job.runtime = factory.apply(request);
-    if (job.runtime.minimumExplicitModifiers() > 4)
-      throw new Rejected(422, "GOAL_EXCEEDS_FOUR_EXPLICIT_SCOPE");
+    if (job.runtime.minimumExplicitModifiers() > AutomaticCurrencyPolicy.MAXIMUM_EXPLORED_EXPLICITS)
+      throw new Rejected(422, "GOAL_EXCEEDS_SIX_EXPLICIT_SCOPE");
     job.expires = clock.millis() + Duration.ofHours(24).toMillis();
     job.graph =
         new AutomaticMethodGraph(
@@ -413,7 +413,9 @@ public final class AutomaticSearchService implements AutoCloseable {
         || "goal-directed-milestone-graph-v10-quality-goal".equals(saved.graph().version())
         || "goal-directed-milestone-graph-v9-terminal-classes".equals(saved.graph().version())
         || (AutomaticMethodGraph.VERSION.equals(saved.graph().version())
-            && ("approved-187-2026-10-21-goal-v3".equals(saved.graph().identity().policyVersion())
+            && ("approved-187-2026-10-21-rarity-v4".equals(saved.graph().identity().policyVersion())
+                || "approved-187-2026-10-21-goal-v3"
+                    .equals(saved.graph().identity().policyVersion())
                 || "automatic-scalar-kernel-v5-goal-acquisition"
                     .equals(saved.graph().identity().kernelVersion())
                 || "automatic-finite-kernel-v6-declared-coupled-rolls"

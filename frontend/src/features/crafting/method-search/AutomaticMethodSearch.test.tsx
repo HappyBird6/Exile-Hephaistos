@@ -709,10 +709,10 @@ it('allows Stop while automatic resume is pending and rejects its late READY res
   expect(operations).toEqual(['RESUME', 'CANCEL'])
 })
 
-it('explains a catalog-proven target outside the four explicit modifier scope without advancing', async () => {
+it('explains a catalog-proven target outside the six explicit modifier scope without advancing', async () => {
   setLocale('en')
   vi.spyOn(automaticApi, 'create').mockRejectedValue(
-    new AutomaticError(422, 'GOAL_EXCEEDS_FOUR_EXPLICIT_SCOPE'),
+    new AutomaticError(422, 'GOAL_EXCEEDS_SIX_EXPLICIT_SCOPE'),
   )
   const control = vi.spyOn(automaticApi, 'control')
   render(
@@ -724,7 +724,7 @@ it('explains a catalog-proven target outside the four explicit modifier scope wi
     />,
   )
   expect(await screen.findByRole('alert')).toHaveTextContent(
-    'requires more than four explicit modifiers',
+    'requires more than six explicit modifiers',
   )
   expect(control).not.toHaveBeenCalled()
 })
@@ -765,4 +765,24 @@ it('opens legacy partial results without advance, resume, cancellation or automa
   unmount()
   expect(control).not.toHaveBeenCalled()
   expect(recalculate).not.toHaveBeenCalled()
+})
+
+it('explains invalid starting item constraints without advancing', async () => {
+  setLocale('en')
+  vi.spyOn(automaticApi, 'create').mockRejectedValue(
+    new AutomaticError(422, 'INVALID_ITEM'),
+  )
+  const control = vi.spyOn(automaticApi, 'control')
+  render(
+    <AutomaticMethodSearch
+      request={requestFixture()}
+      inputGeneration={1}
+      presentItem={present}
+      onRecalculate={vi.fn()}
+    />,
+  )
+  expect(await screen.findByRole('alert')).toHaveTextContent(
+    'Check its rarity, prefix/suffix limits',
+  )
+  expect(control).not.toHaveBeenCalled()
 })

@@ -7,7 +7,7 @@ import type { Scenario } from './scenarioCode'
 import { OperationCards } from './OperationCards'
 import { retryMessages } from './retryMessages'
 import { capacityMessages } from './capacityMessages'
-import { scopeMessages } from './scopeMessages'
+import { scopeMessages, invalidItemMessages } from './scopeMessages'
 import { legacyResultMessages } from './legacyResultMessages'
 import { sumBounds } from './outcomeGrouping'
 import { guideMessages } from './guideMessages'
@@ -99,6 +99,7 @@ function Run({
   const [storageFailed, setStorageFailed] = useState(false)
   const [expired, setExpired] = useState(false)
   const [scopeUnsupported, setScopeUnsupported] = useState(false)
+  const [invalidItem, setInvalidItem] = useState(false)
   const [capacity, setCapacity] = useState<AutomaticError | null>(null)
   const commandInFlight = useRef(false)
   const automaticResumeRevision = useRef<string | null>(null)
@@ -185,9 +186,14 @@ function Run({
         ) {
           if (
             error instanceof AutomaticError &&
-            error.code === 'GOAL_EXCEEDS_FOUR_EXPLICIT_SCOPE'
+            error.code === 'GOAL_EXCEEDS_SIX_EXPLICIT_SCOPE'
           )
             setScopeUnsupported(true)
+          else if (
+            error instanceof AutomaticError &&
+            error.code === 'INVALID_ITEM'
+          )
+            setInvalidItem(true)
           else if (error instanceof AutomaticError && error.status === 429)
             setCapacity(error)
           else setFailed(true)
@@ -382,6 +388,7 @@ function Run({
       )}
       {expired && <p role="alert">{workspaceMessages[locale].expired}</p>}
       {failed && <p role="alert">{common.error}</p>}
+      {invalidItem && <p role="alert">{invalidItemMessages[locale]}</p>}
       {scopeUnsupported && <p role="alert">{scopeMessages[locale]}</p>}
       {capacity && (
         <p role="alert">
@@ -407,7 +414,7 @@ function Run({
       )}
       {view && <SearchResources view={view} />}
       <NumericRollNotice models={view?.rollModels} />
-      {!capacity && !scopeUnsupported && (
+      {!capacity && !scopeUnsupported && !invalidItem && (
         <CalculationStatus
           state={calculationState(
             view,
