@@ -33,6 +33,22 @@ Exile-Hephaistos는 PoE2 복사 텍스트를 해석하고, 검토된 카탈로�
 이 계약 원문과 미완료 이슈는 그대로 보존한다. 문서 통합으로 알고리즘을 재설계하거나 이슈를 종결하지 않는다.
 
 
+## 코드와 API 구성
+
+| 위치 | 책임 |
+|---|---|
+| `item` / `item.testparser` | 계산용 상태·catalog·검증과 표시용 영어 텍스트 분석 |
+| `crafting.presentation` / `crafting.application` | HTTP 입력·응답, Workbench·Support·계산 job 조정 |
+| `crafting.domain` / `crafting.infrastructure` | 제작 규칙·목표·확률 계산, 봉인 리소스와 저장소 연결 |
+| `frontend/src/features/crafting/goal-filter` | 시작 아이템·목표 입력과 catalog 복구 |
+| `frontend/src/features/crafting/method-search` | 자동 계산 제어·그래프·시나리오 |
+
+표시 파서는 `POST /api/v1/items/parse`, 수동 simulator는 `/api/v1/crafting/workbench`, 목표 판정은 `/api/v1/crafting/support/goal-filters`, 현행 자동 계산은 `/api/v2/crafting/method-searches/automatic`을 사용한다. 구형 family Support·버킷 탐색·method API는 각 계약의 별도 경로를 유지한다.
+
+제작 POST는 `X-Crafting-Ruleset`으로 입력의 규칙 출처를 명시하며 목표의 `catalogVersion`도 별도로 검사한다. 사용자 로그인·관리자 인증은 없고 method job 소유권은 `crafting_method_client` cookie로 구분한다. 소유권 cookie를 공개 운영용 사용자 인증으로 해석하지 않는다.
+
+Workbench film은 브라우저에, 자동 job은 로컬 JSON에 저장한다. 기존 Support addition pool은 PostgreSQL cache, 구형 certified 계산은 SQLite 기반 저장을 사용한다. Redis 연결 기반과 readiness는 제작 계산의 완결을 보장하지 않는다. [Frontend 구조와 검사](../../frontend/README.md), [자동 저장·재개](automatic-planning.md)를 함께 확인한다.
+
 ## 구현 근거
 
 [SupportConfiguration.java](../../backend/src/main/java/com/poe2craft/bootstrap/SupportConfiguration.java) · [CraftingConfiguration.java](../../backend/src/main/java/com/poe2craft/bootstrap/CraftingConfiguration.java) · [LocalCertifiedJobRepository.java](../../backend/src/main/java/com/poe2craft/crafting/infrastructure/LocalCertifiedJobRepository.java)

@@ -22,7 +22,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\dev.ps1 stack
 
 Compose 프로젝트 이름은 `exile-hephaistos`입니다. 운영 실행은 원본 checkout에서 하며 검증용 worktree에서 기존 프로젝트를 실행하지 않습니다.
 Frontend: http://localhost:8081 · Backend liveness: http://localhost:8080/actuator/health/liveness
-readiness는 앱·PostgreSQL·Redis 연결 상태를 확인합니다. 미구현 제작 계산의 준비 완료를 뜻하지 않습니다.
+readiness는 앱·PostgreSQL·Redis 연결 상태를 확인합니다. 제작 계산의 완결이나 게임 규칙 검증을 뜻하지 않습니다.
 
 최초 실행 시 스크립트가 DB·Redis 설정과 무작위 로컬 DB 비밀번호를 `.env`에 생성합니다. 기존 `.env`는 덮어쓰지 않습니다. `.env.example`은 필요하지 않습니다.
 `stop`은 컨테이너만 정지합니다. PostgreSQL은 외부 volume을 사용하며 기존 데이터를 삭제하지 않습니다. 코드 반영 시 `stack`을 다시 실행합니다.
@@ -45,7 +45,7 @@ Java 21 (`JAVA_HOME`), Node 24.18.1 / npm 11.16.0, Docker를 사용합니다.
 ```
 
 Vite는 http://localhost:5173 에서 실행하고 `/api`를 Backend 8080 포트로 전달합니다. Python은 앱 실행에 필요하지 않습니다.
-로그인·세션·역할 검사는 없습니다. Compose 포트는 localhost에만 노출합니다.
+사용자 로그인·역할 기반 접근 통제는 없습니다. 계산 job은 소유권 cookie로 구분합니다. Compose 포트는 localhost에만 노출합니다.
 
 ## 검증
 
