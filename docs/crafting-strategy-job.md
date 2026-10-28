@@ -39,7 +39,7 @@ most three result rows per state; it is not included in that engine counter.
 
 This unit connects the verified general-cycle solver only for small maps. It does
 not solve the Solar capacity problem documented in
-[the workload diagnosis](crafting-solar-workload.md), nor does it claim production
+the workload diagnosis (이전 기록), nor does it claim production
 support for arbitrarily large cyclic graphs. Large-map operator storage and fully
 cooperative preparation remain separate architectural work.
 

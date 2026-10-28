@@ -1,6 +1,6 @@
 # Exile-Hephaistos
 
-PoE2 아이템 텍스트 파싱, 검토된 카탈로그 기반 Workbench와 최대 6옵션 자동 탐색을 제공하는 로컬 작업대입니다. 실제 지원 범위와 계산 한계는 [현행 개요](docs/current/overview.md), 문서·과거 기록은 [문서 지도](docs/README.md)를 확인하세요.
+PoE2 아이템 텍스트 파싱, 검토된 카탈로그 기반 Workbench와 최대 6옵션 자동 탐색을 제공하는 로컬 작업대입니다. 실제 지원 범위와 계산 한계는 [현행 개요](docs/current/overview.md), 개발 문서는 [문서 지도](docs/README.md)를 확인하세요.
 
 등록 베이스 134개와 한국어 기본 6개 UI 언어를 지원합니다. 등록 수가 모든 화폐·목표의 계산 완료를 보장하지는 않습니다. 확률은 출처 스냅샷과 명시된 모델 가정에 따릅니다.
 
@@ -72,9 +72,3 @@ docker compose --env-file .env -f infra/compose.yaml --profile stack config --qu
 ```
 
 GitHub Actions는 사용하지 않습니다. `.gitattributes`는 Windows/Linux 줄바꿈을, `.editorconfig`는 편집기 인코딩·들여쓰기를 통일합니다.
-
-
-
-## 이전 개발 기록
-
-통합 전 README의 날짜별 확장 기록과 출처 설명은 [원문 스냅샷](docs/archive/2026-10/spec-snapshots-49190b5/README.md.txt)에 바이트 그대로 보존했습니다.

@@ -16,7 +16,7 @@
 - 검토된 카탈로그의 ItemState·검증기·Workbench와 최대 6옵션 자동 탐색 API·UI를 제공한다. [현행 개요](docs/current/overview.md)를 참고한다. 표시용 파싱과 Workbench catalog 매핑은 별도 검증 경로다.
 
 요청 없이 미래 기능·추상화·외부 연동·의존성·CI를 추가하지 않는다. 새 기능은 실제 요청 시 명세와 필요한 구현을 함께 작성한다.
-상세 기준은 [기술 명세](docs/TECHNICAL_SPEC.md), [아이템 파싱](docs/item-text-parsing.md), [지원 범위](docs/supported-mechanics.md)를 따른다.
+상세 기준은 [기술 명세](docs/current/overview.md), [아이템 파싱](docs/current/text-parsing.md), [지원 범위](docs/current/support.md)를 따른다.
 
 ## 데이터와 동작
 

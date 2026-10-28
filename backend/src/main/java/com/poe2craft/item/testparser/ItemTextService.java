@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-/** Clipboard display parser adapted from PoB ParseRaw; see docs/item-text-parsing.md. */
+/** Clipboard display parser adapted from PoB ParseRaw; see docs/current/text-parsing.md. */
 @org.springframework.stereotype.Service
 public final class ItemTextService {
   public static final int MAX_TEXT_BYTES = 16 * 1024;

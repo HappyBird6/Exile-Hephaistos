@@ -17,7 +17,7 @@ registered base 수는 [지원 범위](support.md), 상태 검증은 [아이템 
 
 ## 확인되지 않은 기능
 
-[감정 주문서 근거](../workbench-wisdom-evidence-2026-10-03.md), [주얼·Liquid 계획](../workbench-jewel-liquid-next-2026-10-04.md), [다음 장비 계획](../workbench-next-equipment-plan-2026-10-05.md)은 미완료 계약과 과거 계획을 포함한다. 문서 통합을 구현 완료 증거로 쓰지 않는다.
+[감정 주문서·숨겨진 상태](../workbench-wisdom-evidence-2026-10-03.md)는 reveal과 보존·적격성에 필요한 근거가 미해결이다. 다른 베이스·제작 수단은 현재 catalog·화폐 정책과 [미해결 이슈](../../ISSUES.md)를 확인한다.
 
 
 ## 구현 근거

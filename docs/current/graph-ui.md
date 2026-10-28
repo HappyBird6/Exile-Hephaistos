@@ -17,7 +17,7 @@
 
 ## 화면 언어
 
-한국어 기본의 6개 locale을 지원한다. [지원 범위](support.md)의 언어 fallback과 영어 아이템 텍스트 입력 경계를 구분한다. 초기 영어 UI 전용 설명·자산 출처는 [초기 UI 원문](../archive/2026-10/spec-snapshots-49190b5/docs__crafting-ui.md.txt)에 보존한다.
+한국어 기본의 6개 locale을 지원한다. [지원 범위](support.md)의 언어 fallback과 영어 아이템 텍스트 입력 경계를 구분한다. 표시 자산 출처는 `frontend/public/assets/currency/sources.json`, `frontend/public/assets/materials/sources.json`, `frontend/public/assets/materials/tooltip-sources.json`에 기록한다. 게임 아트의 권리는 원저작권자에게 있으며 출처 기록이 재배포 허가를 뜻하지 않는다.
 
 
 ## 구현 근거

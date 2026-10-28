@@ -5,7 +5,7 @@
 pinned SQLite JDBC 3.53.4.0 runtime library. It needs no database server or paid
 service. This is a storage foundation; the current certified search engine still
 uses its existing eager method maps. It does not yet solve the Solar completion
-limit documented in [the workload measurement](crafting-solar-workload.md).
+limit documented in the workload measurement (이전 기록).
 
 ## Identity and consistency
 

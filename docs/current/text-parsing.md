@@ -15,8 +15,20 @@
 
 ## 근거와 유지보수
 
-정규화·경고·필드의 상세 구현은 아래 서비스와 기존 API 계약을 기준으로 확인한다. 이전 설명·참고 출처는 [원문](../archive/2026-10/spec-snapshots-49190b5/docs__item-text-parsing.md.txt)에 보존했다. 외부 자료는 [MIT 고지](../third-party/PathOfBuilding-LICENSE.txt)를 유지한다.
+정규화·경고·필드의 상세 구현은 아래 서비스와 기존 API 계약을 기준으로 확인한다. 외부 자료는 [MIT 고지](../third-party/PathOfBuilding-LICENSE.txt)를 유지한다.
 
+
+## 참조 소스와 라이선스
+
+기존의 고정 참조 소스·조회 시점·checksum을 옮긴 기록이다. 입력 문법 검증과 게임 규칙 검증은 구분한다.
+
+The display parsing approach is adapted from Path of Building Community PoE2 `ItemClass:ParseRaw` at commit `ce566eac45ea8a86477f513c7ee65a1ebe60014e`:
+
+- https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/blob/ce566eac45ea8a86477f513c7ee65a1ebe60014e/src/Classes/Item.lua
+- SHA-256 of retrieved Item.lua: `0ca39961256eefc960da7b30b4e5cb6eb45d08037aa72bc751201cc0630af2a4`.
+- MIT copyright and permission notice: [PathOfBuilding-LICENSE.txt](../third-party/PathOfBuilding-LICENSE.txt).
+- Actual advanced clipboard regression fixture: https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/issues/2117.
+- `backend/src/test/resources/item-text/pob-issue-2117.txt` SHA-256: `a8f674d8b3b2f4641eb6d9ee6eb5f58bcb8b18ca7e1c465e30b62009a698e457`. Retrieved 2026-09-23, original report's game patch/snapshot unspecified. It verifies text grammar only, never current item rules or production catalog facts.
 
 ## 구현 근거
 
