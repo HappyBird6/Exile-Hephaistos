@@ -1,8 +1,8 @@
 # 다음 묶음: Jewel 기본 화폐와 Liquid
 
-완료 갱신: [Ancient Liquid / Time-Lost 구현](workbench-ancient-liquid-2026-10-04.md)으로 JL-01~05의 요청된 Jewel 기본18종과 제작 Liquid26종의 base별 실제 경로를 다룬다. 아래 Ancient14/Inspiration1 언급은 이전 조사 오류이며 실제 Ancient 화폐13·Time-Lost Crafted outcome14로 정정한다. Liquid Verisium1은 별개다. live 서버 갱신은 하지 않는다.
+완료 갱신: [Ancient Liquid / Time-Lost 구현](archive/2026-10/workbench/workbench-ancient-liquid-2026-10-04.md)으로 JL-01~05의 요청된 Jewel 기본18종과 제작 Liquid26종의 base별 실제 경로를 다룬다. 아래 Ancient14/Inspiration1 언급은 이전 조사 오류이며 실제 Ancient 화폐13·Time-Lost Crafted outcome14로 정정한다. Liquid Verisium1은 별개다. live 서버 갱신은 하지 않는다.
 
-진행 경계: JL-01의 기존 Sapphire suffix Annulment/Divine 부분은 [제거·재굴림 변경](workbench-sapphire-existing-currency-2026-10-04.md)으로 구현했다. 일반 pool/실제 slot 확대와 Liquid는 아직 미완료다. 아래 순서는 남은 작업의 순서이며 전체 JL-01 완료를 뜻하지 않는다.
+진행 경계: JL-01의 기존 Sapphire suffix Annulment/Divine 부분은 [제거·재굴림 변경](archive/2026-10/workbench/workbench-sapphire-existing-currency-2026-10-04.md)으로 구현했다. 일반 pool/실제 slot 확대와 Liquid는 아직 미완료다. 아래 순서는 남은 작업의 순서이며 전체 JL-01 완료를 뜻하지 않는다.
 
 이번 채팅은 cap 정정만 구현한다. 다음 fresh chat은 Jewel 기본 제작과 Liquid를 구현한다. 사용자가 Jewel도 첫 Currency tab의 기본 규칙을 적용받는다고 확인했고 Liquid를 다시 요청했으므로 이전 Liquid 제외·catalyst-only Jewel guard는 다음 묶음에서 갱신한다. Essence는 Jewel에 적용하지 않는다. “장비라고 명시되어 있지 않은 애들”은 검증할 가설이다. tooltip 단어 부재를 eligibility로 사용하지 않는다. 서버 갱신 요청은 없다.
 
@@ -31,4 +31,4 @@
 원문 HTML/raw ModsView와 SHA256는 `codex/quality-preserve-20261004`에 보존했다. `Crafted` 페이지404도 source 실패 기록으로 유지한다. 다음 채팅은 해당 증거와 인벤토리를 재사용하고 최신 source 변경을 비교한다.
 
 
-현재 진행 갱신: Sapphire JL-01의 ordinary58/실제 슬롯/기본18종과 JL-02 Basic Liquid10을 [새 구현 명세](workbench-sapphire-generation-liquid-2026-10-04.md)에서 다룬다. 기존 Annul/Divine 전용 handoff는 이 부분에서 superseded. Liquid inventory27은 Basic13+Ancient13+unrelated Liquid Verisium1이다. raw15/14는 modifier outcome 행 수이며 currency 수가 아니다. JL-03~05는 잔여다.
+현재 진행 갱신: Sapphire JL-01의 ordinary58/실제 슬롯/기본18종과 JL-02 Basic Liquid10을 [새 구현 명세](archive/2026-10/workbench/workbench-sapphire-generation-liquid-2026-10-04.md)에서 다룬다. 기존 Annul/Divine 전용 handoff는 이 부분에서 superseded. Liquid inventory27은 Basic13+Ancient13+unrelated Liquid Verisium1이다. raw15/14는 modifier outcome 행 수이며 currency 수가 아니다. JL-03~05는 잔여다.

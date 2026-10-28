@@ -6,7 +6,7 @@
 
 | 다음 class | Bounded 최고 tier/sidegrade 후보 | import 전 확인할 경계 |
 |---|---|---|
-| Crossbows | [대표6종 완료](workbench-crossbows-bundle-2026-10-05.md); 남은 distinct Stout, Dedalian, Cumbrous | 전체 class 완료 아님; 후속 ordinary provenance·complete pool·6locale 검증 |
+| Crossbows | [대표6종 완료](archive/2026-10/workbench/workbench-crossbows-bundle-2026-10-05.md); 남은 distinct Stout, Dedalian, Cumbrous | 전체 class 완료 아님; 후속 ordinary provenance·complete pool·6locale 검증 |
 | One Hand Maces | Fortified Hammer, Strife Pick, Akoyan Club; source가 증명한 distinct implicit sidegrade | local weapon properties와 global implicit, dual wield/combat은 표시 밖 |
 | Two Hand Maces | Ruination Maul, Fanatic Greathammer, Tawhoan Greatclub | complete class pool·attack speed·critical/range·implicit |
 | Quarterstaves | Aegis, Bolting, Dreaming | distinct implicit와 높은 damage/defence sidegrade |
@@ -18,7 +18,7 @@
 | Foci | Tasalian Focus; distinct implicit가 있으면 해당 family 최고 tier 1종 | Energy Shield·caster pool·requirements·socket cap |
 | Quivers | Visceral, Volant, Penetrating, Primed 및 남은 distinct implicit마다 대표 1종 | physical/elemental/poison/accuracy sidegrade; Level55와100% pierce 분리 |
 
-Crossbow 대표6종은 독립 class와 complete ordinary pool·Essence/Omen restrictions·6locale·old/new film 범위로 구현했다. [Offhand core5 완료](workbench-offhands-bundle-2026-10-05.md): Shields 3 defence archetypes + Desert Buckler + Tasalian Focus를 연결했다. 권장 다음 bundle은 Quiver distinct implicit 11종이며 이후 melee/Staves/Talismans와 기록한 distinct sidegrades를 이어간다. 이 순서는 나머지 class를 취소하거나 생략하는 결정이 아니다.
+Crossbow 대표6종은 독립 class와 complete ordinary pool·Essence/Omen restrictions·6locale·old/new film 범위로 구현했다. [Offhand core5 완료](archive/2026-10/workbench/workbench-offhands-bundle-2026-10-05.md): Shields 3 defence archetypes + Desert Buckler + Tasalian Focus를 연결했다. 권장 다음 bundle은 Quiver distinct implicit 11종이며 이후 melee/Staves/Talismans와 기록한 distinct sidegrades를 이어간다. 이 순서는 나머지 class를 취소하거나 생략하는 결정이 아니다.
 
 Claws, Daggers, One/Two Hand Swords, One/Two Hand Axes, Flails, Traps는 [Items index](https://poe2db.tw/us/Items)에 페이지가 있으나 이번 source 수집은 현재 released/craftable availability를 입증하지 못했다. 모두 별도 release-unverified 후보로 남긴다. 긍정적인 출시·ordinary drop provenance가 확인되기 전 import하지 않는다. unique-only, Runeforged/Runemastered, 특별 socket transfer, 추가 affix-cap 변경은 ordinary 최고 tier에 섞지 않는다.
 

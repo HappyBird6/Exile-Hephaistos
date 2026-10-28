@@ -13,5 +13,5 @@ fs.writeFileSync(`${q}/qa-release.json`, JSON.stringify(release, null, 2) + '\n'
 fs.writeFileSync(ownerPath, JSON.stringify({ ...owner, active: false, releasedAt }, null, 2) + '\n')
 const out = 'docs/evidence/belts-runtime-bundle-2026-10-05'
 for (const file of ['live-before.json', 'live-after.json', 'qa-release.json']) { assert(!fs.existsSync(`${out}/${file}`)); fs.copyFileSync(`${q}/${file}`, `${out}/${file}`) }
-fs.appendFileSync('docs/workbench-belts-bundle-2026-10-05.md', '\nQA는 전용 project만 `docker compose down`으로 정상 종료했고 heavy QA slot을 반환했다. [release evidence](evidence/belts-runtime-bundle-2026-10-05/qa-release.json)의 live container ID/start time/mount 비교는 일치한다. 기존 volumes와 사용자 browser storage를 보존했으며 push/merge/deploy는 수행하지 않았다.\n')
+fs.appendFileSync('docs/archive/2026-10/workbench/workbench-belts-bundle-2026-10-05.md', '\nQA는 전용 project만 `docker compose down`으로 정상 종료했고 heavy QA slot을 반환했다. [release evidence](../../../evidence/belts-runtime-bundle-2026-10-05/qa-release.json)의 live container ID/start time/mount 비교는 일치한다. 기존 volumes와 사용자 browser storage를 보존했으며 push/merge/deploy는 수행하지 않았다.\n')
 console.log(release)

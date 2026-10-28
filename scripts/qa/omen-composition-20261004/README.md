@@ -12,4 +12,4 @@ StateBucket→ItemState 비교는 이미 정해진 nullable `augmentSockets/cata
 
 최종 한정 복구에서 FE22/API640/browser95 PASS. 원래 복구2회와 최초 실패는 보존했다. 사용자의 명시 `중단없이 진행` 지시를 우선한 추가 bounded harness 복구1묶음으로 기록하며 stage/session으로 기존 횟수를 초기화하지 않았다. i18n slot 반환과 부모 grant 후 heavy command를 순차 실행했다. 결과는 특정 최종 소스·격리 catalog의 검증이며 미래 source에 자동 적용하지 않는다.
 
-관련 계약·이력: [모델과 checkpoint](../../../docs/workbench-omen-composition-2026-10-04.md), [검증 근거](../../../docs/evidence/workbench-omen-composition-validation-2026-10-04.json), [Worker 운영 명세](../../../docs/solo-workflow/MULTI_SESSION_WORKFLOW.md).
+관련 계약·이력: [모델과 checkpoint](../../../docs/archive/2026-10/workbench/workbench-omen-composition-2026-10-04.md), [검증 근거](../../../docs/evidence/workbench-omen-composition-validation-2026-10-04.json), [Worker 운영 명세](../../../docs/solo-workflow/MULTI_SESSION_WORKFLOW.md).

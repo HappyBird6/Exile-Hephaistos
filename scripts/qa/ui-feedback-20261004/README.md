@@ -9,4 +9,4 @@
 
 frontend 필수 검사는 독립 소스 복사본에서 순차 수행하고 formatter 결과를 source로 되돌린 뒤 byte 단위 동등성을 확인한다. `.env`, 사용자 DB volume, 18080/18081 서비스와 다른 작업의 출력 디렉터리는 사용하거나 덮어쓰지 않는다. `QA_RUN`을 지정하면 browser 실패 증거 파일 이름을 구분할 수 있다.
 
-이번 검증 출력은 `codex/ui-feedback-qa-20261004`에 보존했다. 요약은 `docs/evidence/workbench-ui-feedback-validation-2026-10-04.json`, UI 명세와 원인 분석은 `docs/workbench-ui-feedback-2026-10-04.md`에 있다. Backend·Windows 실행 스크립트는 변경하지 않았다.
+이번 검증 출력은 `codex/ui-feedback-qa-20261004`에 보존했다. 요약은 `docs/evidence/workbench-ui-feedback-validation-2026-10-04.json`, UI 명세와 원인 분석은 `docs/archive/2026-10/workbench/workbench-ui-feedback-2026-10-04.md`에 있다. Backend·Windows 실행 스크립트는 변경하지 않았다.
