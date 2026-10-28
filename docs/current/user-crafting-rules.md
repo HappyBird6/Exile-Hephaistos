@@ -120,3 +120,29 @@
 2026-10-28, Docker에서 `rejectedLegacyChaosScenarios` 2개와 기존 `GoalDirectedPlannerScenariosTest` 22개, 총 24개가 실패·오류 없이 통과했고 Java 포맷 검사도 통과했다. 06·07은 각각 operations=1, methods=0, goals=0, complete=true, limited=false, 확률 하한/상한=0, PROVEN_ZERO였다. 첫 1옵션 획득·매직/희귀 0옵션 준비 성공 회귀는 그대로 재검증했다. 전체 check를 다시 실행한 결과는 아니다. 테스트와 문서만 변경하여 서버 재배포는 하지 않았다.
 
 후속 브라우저 확인에서 localhost:9001 기본 화면·제작 지원·새 카오스 정책 안내가 정상 표시됐으며 콘솔 오류는 없었다. 첫 1옵션/2옵션 실제 탐색 UI 실행은 추가 수행하지 않았고, 앞서 격리 API에서 검증한 범위와 구분한다. 운영 저장 자료에 테스트 기록을 추가하지 않았다.
+
+## 목걸이 조건 판정 보완 — 2026-10-28
+
+등록 목걸이 solar, stellar, amber, bloodstone, lunar, azure, crimson, pearlescent를 대상으로 전체 카탈로그를 검사한다. 기존 반지 43개 판정 완료를 목걸이 완료로 일반화했던 안내는 잘못이었다. 목걸이의 치명타·회생·방어·능력치 비율·주문 피해·스킬 레벨 및 특수 속성의 raw stat 매핑 17개가 누락되어 있었다.
+
+이번 범위는 실제 아이템 속성의 조건 판정(evaluation)이며 별도 수치 확률 API(probability)의 지원 확대가 아니다. 신규 매핑은 evaluationOnly로 구분한다. 아이템의 원본 수치·가중치·게임 효과·화폐 자격은 바꾸지 않는다. implicit는 평가 자료에 남지만 새 목표 선택에서 제외하는 기존 R06을 유지한다. pseudo는 원래 정의된 기여분만 합산하며, 전역 방어도·회피·에너지 보호막 증가를 세 독립 옵션처럼 합산하지 않는다.
+
+특수 속성 해석:
+
+- 심연 군주의 표식: 원자료의 `essence_abyss_guaranteed_pick=1`은 표식 보유 표시다. 보유 시 1, 미보유는 ABSENT이며 0이 자동 MATCH되는 것으로 처리하지 않는다. 이 판정은 심연 제작·타락 결과를 구현했다는 뜻이 아니다.
+- 최대 퀄리티 +20: `local_maximum_quality_+=20`은 추가 품질 상한이다. 현재 품질 20 또는 총 품질 상한 20이라는 의미가 아니다. 기폭제 적용 효과의 수치 투영은 별도 기존 제한을 따른다.
+- 최대 Runic Ward 증가: `maximum_ward_+%`의 6~10을 증가율로 비교한다. 캐릭터의 최종 Ward 양을 계산하지 않는다.
+- 재생은 원본 분당 값을 60으로 나눈 초당 값, 흡수율은 원본 permyriad를 100으로 나눈 %다. 기존 정확한 유리수 비교를 유지한다.
+
+근거: 저장소 `catalog/solar-amulet/abyss-essence.catalog.json`, `breach-essence.catalog.json`, `runic-alloy.catalog.json` 및 각 목걸이 catalog의 stat 범위·표시문·출처 URL. [PoE2DB 목걸이 표](https://poe2db.tw/Amulets), [에센스 표](https://poe2db.tw/Essence)도 대조했다. 라이브 게임 전체 효과나 미검증 roll 분포까지 확정하는 근거로 사용하지 않는다.
+
+기존 v5 판정 정의는 `definitions-v5-readonly.json`으로 바이트 보존한다. 그래프 v13 결과는 새 v14 판정으로 조용히 재개하지 않고 읽기 전용으로 열며, 새 탐색은 새 카탈로그를 사용한다. 저장 자료를 삭제·재작성하지 않는다.
+
+### 목걸이 검증 및 서버 반영 결과
+
+- 카탈로그 전항목 판정 지원: 태양 목걸이(solar) 46/46, stellar·amber·bloodstone·lunar·azure·crimson·pearlescent 각각 45/45. explicit·implicit·pseudo 목록을 모두 검사했다. 기존 implicit 목표 선택 제외 정책은 유지한다.
+- 수정 전 8종 회귀 테스트가 모두 실패함을 확인한 뒤 수정했다. 관련 백엔드 81개, 통합 8개, 프런트 목표 필터 134개가 통과했다. 8종 격리 API에서 주문 스킬 레벨·심연 표식·추가 최대 퀄리티의 일치/경계 초과/미보유 72건을 검증했다. 격리 브라우저에서 주문 레벨 목표와 실제 +3 상태의 MATCH, 미보유 NO_MATCH를 확인했다.
+- 카오스 첫 1옵션·0옵션 준비, 6옵션, 반지·단위 환산·AND/OR, 구형 저장 읽기 및 재개 거절 회귀를 포함한다. Java 포맷, generateJooq, 프런트 lint/typecheck/format, 백엔드·프런트 빌드를 통과했다. Windows 마운트에서 프런트 초기화 대기 1건이 timeout되었고, 같은 코드의 Linux 복사본에서 134개 전체 재검증을 통과했다. 전체 backend check 및 프런트 전체 스위트를 이번에 재실행한 것은 아니다. 번들 크기 경고는 남아 있다.
+- http://localhost:9001 / http://localhost:9000 에 검증 JAR를 기존 앱 컨테이너로 반영했다. 실행 JAR SHA256은 `2a908ac8bf5520fdabb1e607297cd9d92615114c8dd1f398db210e98389cb0e4`다. 테스트 JAR와 모든 클래스·봉인 리소스는 동일하고 예제 JSON의 서식/집합 배열 순서만 다르다. 프런트 빌드 227개 파일은 기존 운영 파일과 모두 동일하여 교체하지 않았다.
+- 운영 health UP, 프런트 프록시를 통한 8종 카탈로그 판정 지원을 확인했다. 사용자 저장 파일 21개(163,081,660 bytes)는 외부 압축 백업의 전체 복원 해시를 검증한 뒤 적용했으며 적용 전후 모두 동일하다. DB·Redis 컨테이너/볼륨, 환경 파일, 8080의 다른 서버는 변경하지 않았다. 운영 저장 자료에 합성 테스트 결과를 만들지 않았다.
+- 이번 범위는 등록 목걸이 카탈로그의 조건 판정이다. 별도 probability 지원은 solar 29개만 유지하며 새 17개 및 다른 목걸이 확률 미지원은 그대로다. 게임 전체 효과 시뮬레이션이나 미지원 아이템 조건까지 지원한다고 해석하지 않는다.

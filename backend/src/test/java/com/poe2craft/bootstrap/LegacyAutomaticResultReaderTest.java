@@ -117,6 +117,61 @@ class LegacyAutomaticResultReaderTest {
   }
 
   @Test
+  void previousAmuletV5CatalogAndV13CursorRemainReadableWithoutMutation() throws Exception {
+    var workbench = GoalDirectedPlannerScenariosTest.workbench;
+    var goals = new SupportConfiguration().goalFilterService(workbench);
+    var requestNode = (ObjectNode) fixture("complete").path("request").deepCopy();
+    var item =
+        json.treeToValue(
+            requestNode.path("start").path("item"), com.poe2craft.item.ItemState.class);
+    var context =
+        new com.poe2craft.crafting.domain.goalfilter.GoalFilter.Context(
+            item.snapshotId(), item.baseItemId(), item.itemLevel());
+    ((ObjectNode) requestNode.path("goal"))
+        .put("catalogVersion", goals.catalog(context).catalogVersion());
+    requestNode.put("clientRequestId", "previous-six-affix");
+    String id;
+    try (var service = open(true)) {
+      id =
+          service
+              .create(
+                  "legacy-owner", json.treeToValue(requestNode, MethodSearchProtocol.Create.class))
+              .id();
+    }
+    var node = (ObjectNode) json.readTree(bytes(id));
+    var oldIndex =
+        new com.poe2craft.crafting.domain.goalfilter.GoalCatalogIndex(
+            com.poe2craft.crafting.infrastructure.goalfilter.BundledGoalCatalogs.load(workbench),
+            com.poe2craft.crafting.infrastructure.goalfilter.GoalDefinitionsLoader
+                .loadHistoricalV5(),
+            "reviewed-equipment-20261028-v4-81ceaf5378ae88a6b874c0b8c04d729d35bd0f87a40c7b59a93ae16df03a6736");
+    ((ObjectNode) node.path("request").path("goal")).put("catalogVersion", oldIndex.version());
+    var graph = (ObjectNode) node.path("graph");
+    graph.put("version", "goal-directed-milestone-graph-v13-initial-chaos-stage");
+    graph.put("objective", json.writeValueAsString(node.path("request").path("goal")));
+    ((ObjectNode) graph.path("identity"))
+        .put("policyVersion", "approved-187-2026-10-28-first-affix-v6");
+    for (var row : graph.path("nodes"))
+      for (var member : row.path("members")) ((ObjectNode) member).remove("initialStage");
+    save(node);
+    var before = bytes(id);
+    try (var service = open(true)) {
+      var view = service.get("legacy-owner", id);
+      assertThat(view.reason()).isEqualTo("LEGACY_READ_ONLY");
+      assertThat(view.canResume()).isFalse();
+      assertThatThrownBy(
+              () ->
+                  service.control(
+                      "legacy-owner",
+                      id,
+                      new AutomaticSearchService.Control(
+                          "resume", view.revision(), view.generation(), "RESUME")))
+          .hasMessage("RECALCULATION_REQUIRED");
+    }
+    assertThat(bytes(id)).containsExactly(before);
+  }
+
+  @Test
   void readsActualV8CompletedResultAndOriginalRequestWithoutChangingAnyBytes() throws Exception {
     var saved = fixture("complete");
     var id = save(saved);

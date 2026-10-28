@@ -2,7 +2,7 @@
   "synthetic": false,
   "catalog": {
     "version": 1,
-    "catalogVersion": "hephaistos-goal-v1-d109fbfd2cc5f48c0db529306c9c3162dac27b562c6c0d447e55163a0aff298b",
+    "catalogVersion": "hephaistos-goal-v1-e02aeb99056dcb6ea33612fd557f2df793abbd0341f56c024f315784a2714594",
     "context": {
       "snapshotId": "solar-special-0eddf6e6993c96d9c19942db5e81ff0774afe85c42d4a6646b978d442700d7b4",
       "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
@@ -262,13 +262,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:base_critical_strike_multiplier_+",
-        "label": "(35—39)% increased Critical Damage Bonus",
-        "unit": "source",
+        "label": "Increased Critical Damage Bonus",
+        "unit": "percent",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
+          "evaluation": "SUPPORTED",
           "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
         "eligible": true,
         "eligibilityReason": null,
@@ -534,13 +534,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:critical_strike_chance_+%",
-        "label": "(35—38)% increased Critical Hit Chance",
-        "unit": "source",
+        "label": "Increased Critical Hit Chance",
+        "unit": "percent",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
+          "evaluation": "SUPPORTED",
           "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
         "eligible": true,
         "eligibilityReason": null,
@@ -559,13 +559,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:damage_taken_goes_to_life_over_4_seconds_%",
-        "label": "(22—24)% of Damage taken Recouped as Life",
-        "unit": "source",
+        "label": "Damage taken Recouped as Life",
+        "unit": "percent",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
+          "evaluation": "SUPPORTED",
           "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
         "eligible": true,
         "eligibilityReason": null,
@@ -583,13 +583,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:damage_taken_goes_to_mana_%",
-        "label": "(22—24)% of Damage taken Recouped as Mana",
-        "unit": "source",
+        "label": "Damage taken Recouped as Mana",
+        "unit": "percent",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
+          "evaluation": "SUPPORTED",
           "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
         "eligible": true,
         "eligibilityReason": null,
@@ -607,13 +607,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:dexterity_+%",
-        "label": "(7—10)% increased Dexterity",
-        "unit": "source",
+        "label": "Increased Dexterity",
+        "unit": "percent",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
+          "evaluation": "SUPPORTED",
           "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
         "eligible": false,
         "eligibilityReason": "NO_ELIGIBLE_GENERATION_MODIFIER",
@@ -627,13 +627,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:essence_abyss_guaranteed_pick",
-        "label": "Bears the Mark of the Abyssal Lord",
-        "unit": "source",
+        "label": "Mark of the Abyssal Lord (1 = present)",
+        "unit": "flat",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
+          "evaluation": "SUPPORTED",
           "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
         "eligible": false,
         "eligibilityReason": "NO_ELIGIBLE_GENERATION_MODIFIER",
@@ -648,13 +648,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:evasion_rating_+%",
-        "label": "(45—50)% increased Evasion Rating",
-        "unit": "source",
+        "label": "Increased Evasion Rating",
+        "unit": "percent",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
+          "evaluation": "SUPPORTED",
           "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
         "eligible": true,
         "eligibilityReason": null,
@@ -674,13 +674,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:global_armour_evasion_energy_shield_+%",
-        "label": "(20—30)% increased Global Armour, Evasion and Energy Shield",
-        "unit": "source",
+        "label": "Increased Global Armour, Evasion and Energy Shield",
+        "unit": "percent",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
+          "evaluation": "SUPPORTED",
           "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
         "eligible": false,
         "eligibilityReason": "NO_ELIGIBLE_GENERATION_MODIFIER",
@@ -694,13 +694,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:intelligence_+%",
-        "label": "(7—10)% increased Intelligence",
-        "unit": "source",
+        "label": "Increased Intelligence",
+        "unit": "percent",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
+          "evaluation": "SUPPORTED",
           "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
         "eligible": false,
         "eligibilityReason": "NO_ELIGIBLE_GENERATION_MODIFIER",
@@ -714,13 +714,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:local_maximum_quality_+",
-        "label": "+20% to Maximum Quality",
-        "unit": "source",
+        "label": "Additional Maximum Quality",
+        "unit": "percent",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
+          "evaluation": "SUPPORTED",
           "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
         "eligible": false,
         "eligibilityReason": "NO_ELIGIBLE_GENERATION_MODIFIER",
@@ -759,13 +759,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:maximum_energy_shield_+%",
-        "label": "(45—50)% increased maximum Energy Shield",
-        "unit": "source",
+        "label": "Increased maximum Energy Shield",
+        "unit": "percent",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
+          "evaluation": "SUPPORTED",
           "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
         "eligible": true,
         "eligibilityReason": null,
@@ -785,13 +785,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:maximum_life_+%",
-        "label": "(7—8)% increased maximum Life",
-        "unit": "source",
+        "label": "Increased maximum Life",
+        "unit": "percent",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
+          "evaluation": "SUPPORTED",
           "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
         "eligible": true,
         "eligibilityReason": null,
@@ -829,13 +829,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:maximum_ward_+%",
-        "label": "(6—10)% increased maximum Runic Ward",
-        "unit": "source",
+        "label": "Increased maximum Runic Ward",
+        "unit": "percent",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
+          "evaluation": "SUPPORTED",
           "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
         "eligible": false,
         "eligibilityReason": "NO_ELIGIBLE_GENERATION_MODIFIER",
@@ -849,13 +849,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:melee_skill_gem_level_+",
-        "label": "+3 to Level of all Melee Skills",
-        "unit": "source",
+        "label": "Level of all Melee Skills",
+        "unit": "flat",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
+          "evaluation": "SUPPORTED",
           "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
         "eligible": true,
         "eligibilityReason": null,
@@ -893,13 +893,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:physical_damage_reduction_rating_+%",
-        "label": "(45—50)% increased Armour",
-        "unit": "source",
+        "label": "Increased Armour",
+        "unit": "percent",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
+          "evaluation": "SUPPORTED",
           "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
         "eligible": true,
         "eligibilityReason": null,
@@ -941,13 +941,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:spell_damage_+%",
-        "label": "(27—30)% increased Spell Damage",
-        "unit": "source",
+        "label": "Increased Spell Damage",
+        "unit": "percent",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
+          "evaluation": "SUPPORTED",
           "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
         "eligible": true,
         "eligibilityReason": null,
@@ -966,13 +966,13 @@
       },
       {
         "statId": "hephaistos:v1:explicit:spell_skill_gem_level_+",
-        "label": "+3 to Level of all Spell Skills",
-        "unit": "source",
+        "label": "Level of all Spell Skills",
+        "unit": "flat",
         "kind": "EXPLICIT",
         "support": {
-          "evaluation": "UNSUPPORTED",
+          "evaluation": "SUPPORTED",
           "probability": "UNSUPPORTED",
-          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+          "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
         "eligible": true,
         "eligibilityReason": null,
@@ -6835,7 +6835,7 @@
     },
     "goal": {
       "version": 1,
-      "catalogVersion": "hephaistos-goal-v1-d109fbfd2cc5f48c0db529306c9c3162dac27b562c6c0d447e55163a0aff298b",
+      "catalogVersion": "hephaistos-goal-v1-e02aeb99056dcb6ea33612fd557f2df793abbd0341f56c024f315784a2714594",
       "general": {
         "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
         "itemLevel": {
@@ -6874,7 +6874,7 @@
   "version": 1,
   "evaluateResponse": {
     "version": 1,
-    "catalogVersion": "hephaistos-goal-v1-d109fbfd2cc5f48c0db529306c9c3162dac27b562c6c0d447e55163a0aff298b",
+    "catalogVersion": "hephaistos-goal-v1-e02aeb99056dcb6ea33612fd557f2df793abbd0341f56c024f315784a2714594",
     "status": "MATCH",
     "generalStatus": "MATCH",
     "groups": [

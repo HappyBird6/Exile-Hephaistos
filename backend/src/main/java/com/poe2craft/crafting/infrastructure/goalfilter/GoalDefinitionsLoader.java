@@ -22,9 +22,22 @@ public final class GoalDefinitionsLoader {
     var data = mapper.readTree(stream);
     if (data.has("stats") && data.get("stats").isArray())
       for (var stat : data.get("stats"))
-        if (stat.isObject() && !stat.has("sourceDivisor"))
-          ((com.fasterxml.jackson.databind.node.ObjectNode) stat).put("sourceDivisor", 1);
+        if (stat.isObject()) {
+          var object = (com.fasterxml.jackson.databind.node.ObjectNode) stat;
+          if (!stat.has("sourceDivisor")) object.put("sourceDivisor", 1);
+          if (!stat.has("evaluationOnly")) object.putNull("evaluationOnly");
+        }
     return mapper.treeToValue(data, GoalDefinitions.class);
+  }
+
+  public static GoalDefinitions loadHistoricalV5() {
+    try (var stream =
+        com.poe2craft.support.SealedResources.open(
+            "/crafting/goalfilter/definitions-v5-readonly.json")) {
+      return read(stream);
+    } catch (IOException e) {
+      throw new IllegalStateException("Cannot load historical goal definitions", e);
+    }
   }
 
   /** Frozen additive-era definitions are used exclusively to read old observations. */

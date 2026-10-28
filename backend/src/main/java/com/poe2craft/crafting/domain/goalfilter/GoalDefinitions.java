@@ -5,9 +5,14 @@ import java.util.*;
 /** Reviewed display units and direct pseudo sources; never grants probability support. */
 public record GoalDefinitions(
     int schemaVersion, String ruleVersion, List<Direct> stats, List<Pseudo> pseudos) {
-  public record Direct(String sourceStatId, String label, String unit, Long sourceDivisor) {
+  public record Direct(
+      String sourceStatId, String label, String unit, Long sourceDivisor, Boolean evaluationOnly) {
     public Direct {
       if (sourceDivisor != null && sourceDivisor == 1) sourceDivisor = null;
+    }
+
+    public Direct(String sourceStatId, String label, String unit, Long sourceDivisor) {
+      this(sourceStatId, label, unit, sourceDivisor, null);
     }
 
     public Direct(String sourceStatId, String label, String unit) {
@@ -80,6 +85,7 @@ public record GoalDefinitions(
               append(result, s.sourceStatId());
               append(result, s.label());
               append(result, s.unit());
+              if (Boolean.TRUE.equals(s.evaluationOnly())) append(result, "evaluationOnly=true");
               if (s.sourceDivisor() != null && s.sourceDivisor() != 1)
                 append(result, "sourceDivisor=" + s.sourceDivisor());
             });

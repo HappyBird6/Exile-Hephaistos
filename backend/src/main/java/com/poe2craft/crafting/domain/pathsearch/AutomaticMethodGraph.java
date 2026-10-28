@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 /** Cooperative discovery over conditional item laws; distinct joint laws never share identity. */
 public final class AutomaticMethodGraph implements AutoCloseable {
-  public static final String VERSION = "goal-directed-milestone-graph-v13-initial-chaos-stage";
+  public static final String VERSION = "goal-directed-milestone-graph-v14-amulet-evaluation";
 
   public record Progress(Status goal, List<Status> entries) {
     public Progress {

@@ -12,6 +12,7 @@ final class SavedAutomaticResultReader {
     var graph = Objects.requireNonNull(disk.graph());
     boolean jointVersion =
         AutomaticMethodGraph.VERSION.equals(graph.version())
+            || "goal-directed-milestone-graph-v13-initial-chaos-stage".equals(graph.version())
             || "goal-directed-milestone-graph-v12-joint-attribute-laws".equals(graph.version());
     boolean qualityVersion =
         jointVersion

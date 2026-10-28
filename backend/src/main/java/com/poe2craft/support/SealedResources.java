@@ -107,6 +107,7 @@ public final class SealedResources {
           "crafting/goalfilter/definitions-v1.json",
           "crafting/goalfilter/definitions-v3-readonly.json",
           "crafting/goalfilter/definitions-v4-readonly.json",
+          "crafting/goalfilter/definitions-v5-readonly.json",
           "crafting/registry-v2.json",
           "crafting/supported-base-sets-v1.json",
           "crafting/workbench-definitions-v1.json",

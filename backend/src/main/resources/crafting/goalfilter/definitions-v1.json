@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "ruleVersion": "goal-catalog-source-units-v5-reviewed-rate-conversions/solar-numeric-addition-v1/uniform-integer-roll-v1",
+  "ruleVersion": "goal-catalog-source-units-v6-reviewed-amulet-evaluation/solar-numeric-addition-v1/uniform-integer-roll-v1",
   "stats": [
     {
       "sourceStatId": "base_life_regeneration_rate_per_minute",
@@ -204,6 +204,108 @@
       "sourceStatId": "accuracy_rating",
       "label": "Accuracy Rating",
       "unit": "flat"
+    },
+    {
+      "sourceStatId": "base_critical_strike_multiplier_+",
+      "label": "Increased Critical Damage Bonus",
+      "unit": "percent",
+      "evaluationOnly": true
+    },
+    {
+      "sourceStatId": "critical_strike_chance_+%",
+      "label": "Increased Critical Hit Chance",
+      "unit": "percent",
+      "evaluationOnly": true
+    },
+    {
+      "sourceStatId": "damage_taken_goes_to_life_over_4_seconds_%",
+      "label": "Damage taken Recouped as Life",
+      "unit": "percent",
+      "evaluationOnly": true
+    },
+    {
+      "sourceStatId": "damage_taken_goes_to_mana_%",
+      "label": "Damage taken Recouped as Mana",
+      "unit": "percent",
+      "evaluationOnly": true
+    },
+    {
+      "sourceStatId": "dexterity_+%",
+      "label": "Increased Dexterity",
+      "unit": "percent",
+      "evaluationOnly": true
+    },
+    {
+      "sourceStatId": "intelligence_+%",
+      "label": "Increased Intelligence",
+      "unit": "percent",
+      "evaluationOnly": true
+    },
+    {
+      "sourceStatId": "evasion_rating_+%",
+      "label": "Increased Evasion Rating",
+      "unit": "percent",
+      "evaluationOnly": true
+    },
+    {
+      "sourceStatId": "physical_damage_reduction_rating_+%",
+      "label": "Increased Armour",
+      "unit": "percent",
+      "evaluationOnly": true
+    },
+    {
+      "sourceStatId": "global_armour_evasion_energy_shield_+%",
+      "label": "Increased Global Armour, Evasion and Energy Shield",
+      "unit": "percent",
+      "evaluationOnly": true
+    },
+    {
+      "sourceStatId": "local_maximum_quality_+",
+      "label": "Additional Maximum Quality",
+      "unit": "percent",
+      "evaluationOnly": true
+    },
+    {
+      "sourceStatId": "maximum_energy_shield_+%",
+      "label": "Increased maximum Energy Shield",
+      "unit": "percent",
+      "evaluationOnly": true
+    },
+    {
+      "sourceStatId": "maximum_life_+%",
+      "label": "Increased maximum Life",
+      "unit": "percent",
+      "evaluationOnly": true
+    },
+    {
+      "sourceStatId": "maximum_ward_+%",
+      "label": "Increased maximum Runic Ward",
+      "unit": "percent",
+      "evaluationOnly": true
+    },
+    {
+      "sourceStatId": "melee_skill_gem_level_+",
+      "label": "Level of all Melee Skills",
+      "unit": "flat",
+      "evaluationOnly": true
+    },
+    {
+      "sourceStatId": "spell_skill_gem_level_+",
+      "label": "Level of all Spell Skills",
+      "unit": "flat",
+      "evaluationOnly": true
+    },
+    {
+      "sourceStatId": "spell_damage_+%",
+      "label": "Increased Spell Damage",
+      "unit": "percent",
+      "evaluationOnly": true
+    },
+    {
+      "sourceStatId": "essence_abyss_guaranteed_pick",
+      "label": "Mark of the Abyssal Lord (1 = present)",
+      "unit": "flat",
+      "evaluationOnly": true
     }
   ],
   "pseudos": [
@@ -238,19 +340,28 @@
       "id": "total_strength",
       "label": "Total Strength",
       "unit": "flat",
-      "sourceStatIds": ["additional_strength", "additional_all_attributes"]
+      "sourceStatIds": [
+        "additional_strength",
+        "additional_all_attributes"
+      ]
     },
     {
       "id": "total_dexterity",
       "label": "Total Dexterity",
       "unit": "flat",
-      "sourceStatIds": ["additional_dexterity", "additional_all_attributes"]
+      "sourceStatIds": [
+        "additional_dexterity",
+        "additional_all_attributes"
+      ]
     },
     {
       "id": "total_intelligence",
       "label": "Total Intelligence",
       "unit": "flat",
-      "sourceStatIds": ["additional_intelligence", "additional_all_attributes"]
+      "sourceStatIds": [
+        "additional_intelligence",
+        "additional_all_attributes"
+      ]
     }
   ]
 }

@@ -226,6 +226,11 @@ public final class GoalCatalogIndex {
       result.replaceAll(
           (key, stat) ->
               stat.support().evaluation() == Capability.SUPPORTED
+                      && stat.sourceStatIds().stream()
+                          .noneMatch(
+                              raw ->
+                                  directStats.containsKey(raw)
+                                      && Boolean.TRUE.equals(directStats.get(raw).evaluationOnly()))
                   ? new Stat(
                       stat.statId(),
                       stat.label(),

@@ -1,0 +1,146 @@
+package com.poe2craft.bootstrap;
+
+import static org.assertj.core.api.Assertions.*;
+
+import com.poe2craft.crafting.application.goalfilter.GoalFilterService;
+import com.poe2craft.crafting.domain.goalfilter.*;
+import com.poe2craft.crafting.domain.goalfilter.GoalFilter.*;
+import com.poe2craft.crafting.infrastructure.goalfilter.*;
+import com.poe2craft.item.*;
+import java.math.BigDecimal;
+import java.util.*;
+import java.util.stream.*;
+import org.junit.jupiter.api.*;
+
+class ReviewedAmuletGoalTest {
+  @TestFactory
+  Stream<DynamicTest> everyRegisteredAmuletEvaluatesEveryCatalogStat() {
+    return Stream.concat(Stream.of("solar"), ReviewedAmulets.BASES.keySet().stream().sorted())
+        .map(
+            key ->
+                DynamicTest.dynamicTest(
+                    key,
+                    () -> {
+                      var cfg = new CraftingConfiguration();
+                      var base = cfg.itemCatalog(cfg.workbenchDefinitions());
+                      var wb =
+                          cfg.workbenchService(
+                              base, cfg.workbenchSimulator(base, cfg.craftingEngine(base)));
+                      var service =
+                          new GoalFilterService(
+                              new GoalCatalogIndex(
+                                  BundledGoalCatalogs.load(wb), GoalDefinitionsLoader.load()));
+                      var initial = wb.initial(key, 82);
+                      var root = initial.state();
+                      var catalog =
+                          service.catalog(new Context(root.snapshotId(), root.baseItemId(), 82));
+                      assertThat(catalog.stats()).isNotEmpty();
+                      for (var stat : catalog.stats()) {
+                        assertThat(stat.support().evaluation())
+                            .as(key + ":" + stat.statId())
+                            .isEqualTo(Capability.SUPPORTED);
+                        if (stat.kind() == GoalCatalog.Kind.PSEUDO) continue;
+                        var definitionEntry =
+                            GoalDefinitionsLoader.load()
+                                .directStats()
+                                .get(stat.sourceStatIds().getFirst());
+                        if (Boolean.TRUE.equals(definitionEntry.evaluationOnly()))
+                          assertThat(stat.support().probability())
+                              .isEqualTo(Capability.UNSUPPORTED);
+                        var raw = stat.sourceStatIds().getFirst();
+                        var definition =
+                            initial.modifiers().values().stream()
+                                .filter(
+                                    d ->
+                                        d.layer().name().equals(stat.kind().name())
+                                            && d.stats().stream().anyMatch(s -> s.id().equals(raw)))
+                                .findFirst()
+                                .orElseThrow();
+                        for (boolean maximum : List.of(false, true)) {
+                          var values = new TreeMap<String, Long>();
+                          definition
+                              .stats()
+                              .forEach(s -> values.put(s.id(), maximum ? s.max() : s.min()));
+                          var modifier = new ModifierInstance(definition.id(), values);
+                          var item =
+                              new ItemState(
+                                  root.snapshotId(),
+                                  root.baseItemId(),
+                                  82,
+                                  ItemState.Rarity.RARE,
+                                  stat.kind() == GoalCatalog.Kind.IMPLICIT
+                                      ? List.of(modifier)
+                                      : root.implicits(),
+                                  stat.kind() == GoalCatalog.Kind.EXPLICIT
+                                      ? List.of(modifier)
+                                      : List.of(),
+                                  Set.of());
+                          var value =
+                              BigDecimal.valueOf(values.get(raw))
+                                  .divide(
+                                      BigDecimal.valueOf(
+                                          stat.sourceDivisor() == null ? 1 : stat.sourceDivisor()),
+                                      java.math.MathContext.DECIMAL128);
+                          assertThat(
+                                  service
+                                      .evaluate(
+                                          item,
+                                          goal(
+                                              catalog,
+                                              stat,
+                                              new Range(
+                                                  value.subtract(BigDecimal.ONE),
+                                                  value.add(BigDecimal.ONE))))
+                                      .status())
+                              .as(key + ":" + raw)
+                              .isEqualTo(Status.MATCH);
+                          assertThat(
+                                  service
+                                      .evaluate(
+                                          item,
+                                          goal(
+                                              catalog,
+                                              stat,
+                                              new Range(value.add(BigDecimal.ONE), null)))
+                                      .status())
+                              .as(key + ":" + raw + " boundary")
+                              .isEqualTo(Status.NO_MATCH);
+                          if (stat.kind() == GoalCatalog.Kind.EXPLICIT) {
+                            var empty =
+                                new ItemState(
+                                    root.snapshotId(),
+                                    root.baseItemId(),
+                                    82,
+                                    ItemState.Rarity.RARE,
+                                    root.implicits(),
+                                    List.of(),
+                                    Set.of());
+                            assertThat(
+                                    service
+                                        .evaluate(
+                                            empty,
+                                            goal(catalog, stat, new Range(BigDecimal.ZERO, null)))
+                                        .status())
+                                .as(raw + " absent is not a matching zero")
+                                .isEqualTo(Status.NO_MATCH);
+                          }
+                        }
+                      }
+                    }));
+  }
+
+  private GoalFilter goal(GoalCatalog catalog, GoalCatalog.Stat stat, Range range) {
+    return new GoalFilter(
+        1,
+        catalog.catalogVersion(),
+        new General(
+            catalog.context().baseItemId(), new Range(null, null), List.of(ItemState.Rarity.RARE)),
+        List.of(
+            new Group(
+                "g",
+                Type.AND,
+                false,
+                null,
+                List.of(new Entry("e", stat.statId(), stat.unit(), range, null, false)))));
+  }
+}
