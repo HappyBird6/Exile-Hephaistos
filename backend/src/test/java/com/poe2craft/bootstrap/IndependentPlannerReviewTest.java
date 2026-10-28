@@ -14,6 +14,15 @@ class IndependentPlannerReviewTest extends GoalDirectedPlannerScenariosTest {
 
   @TestFactory
   Stream<DynamicTest> completedProductScenarios() {
+    return reviewedScenarios(false);
+  }
+
+  @TestFactory
+  Stream<DynamicTest> rejectedLegacyChaosScenarios() {
+    return reviewedScenarios(true);
+  }
+
+  private Stream<DynamicTest> reviewedScenarios(boolean rejected) {
     var cold = new ModifierInstance("amulet:suffix:of-the-seal", Map.of(COLD, 6L));
     var chaos = new ModifierInstance("amulet:suffix:of-expulsion", Map.of(CHAOS, 16L));
     var minion =
@@ -71,6 +80,9 @@ class IndependentPlannerReviewTest extends GoalDirectedPlannerScenariosTest {
                     List.of(new ModifierInstance(life().modifierId(), life().values(), true))),
                 Map.of(LIFE, 120L, CHAOS, 1L)))
         .stream()
+        .filter(
+            s ->
+                rejected == Set.of("06-tier-preparation", "07-rarity-preparation").contains(s.id()))
         .map(
             s ->
                 DynamicTest.dynamicTest(
@@ -146,9 +158,26 @@ class IndependentPlannerReviewTest extends GoalDirectedPlannerScenariosTest {
                         assertThat(graph.finished())
                             .as(s.id() + " must exhaust supported plans")
                             .isTrue();
-                        assertThat(goalCount)
-                            .as(s.id() + " must reach unchanged goal")
-                            .isPositive();
+                        if (rejected) {
+                          // These unchanged goals previously depended on now-forbidden multi-affix
+                          // Chaos.
+                          assertThat(graph.complete()).isTrue();
+                          assertThat(graph.resourceLimited()).isFalse();
+                          assertThat(graph.methods())
+                              .as("no forbidden acquisition route")
+                              .isEmpty();
+                          assertThat(graph.nodes()).hasSize(1);
+                          assertThat(goalCount).isZero();
+                          assertThat(reachability.value().lower())
+                              .isEqualTo(ExactNumericDistribution.Fraction.ZERO);
+                          assertThat(reachability.value().upper())
+                              .isEqualTo(ExactNumericDistribution.Fraction.ZERO);
+                          assertThat(reachability.status()).isEqualTo("PROVEN_ZERO");
+                        } else {
+                          assertThat(goalCount)
+                              .as(s.id() + " must reach unchanged goal")
+                              .isPositive();
+                        }
                       }
                     }));
   }
