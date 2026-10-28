@@ -1,11 +1,11 @@
-# 데이터 출처
+# 이전 문서 안내: data-sources.md
 
-검증된 게임 catalog와 production seed는 아직 없다. 외부 데이터를 수집하는 실행 코드와 API는 제공하지 않는다.
+현행 명세는 [대표 문서](current/overview.md)에서 확인합니다. 이 경로는 기존 참조와 절 링크 호환을 위해 유지합니다.
 
-현재 사용하는 표시 자산은 [제작 화면 자산 기록](crafting-ui.md), `frontend/public/assets/currency/sources.json`, `frontend/public/assets/materials/sources.json`, `frontend/public/assets/materials/tooltip-sources.json`에 기록한다. 게임 아트의 권리는 원저작권자에게 있으며 출처 기록이 재배포 허가를 의미하지 않는다.
+확장 이력·당시 수치·실험 설명을 포함한 [통합 전 원문](archive/2026-10/spec-snapshots-49190b5/docs__data-sources.md.txt)은 바이트 그대로 보존했습니다. 과거의 4옵션·Solar 전용 설명은 현행 지원 범위가 아닙니다.
 
-아이템 파서의 참조 출처와 라이선스는 [아이템 파싱 명세](item-text-parsing.md)와 `third-party/PathOfBuilding-LICENSE.txt`에 보존한다.
+## 이전 절 링크 호환
 
-과거에 저장한 로컬 원본은 이번 코드 정리로 삭제하지 않는다. `data-pipeline/captures/`의 Git 제외 규칙도 원본 보호를 위해 유지한다. 해당 경로가 기록에 등장하더라도 실행 가능한 수집 기능을 뜻하지 않는다.
+아래 앵커는 이전 링크의 도착점입니다. 원래 절 내용은 위 원문에서 확인하세요.
 
-테스트용 synthetic 데이터는 실제 게임 규칙의 근거가 아니다. 실제 제작 계산을 추가하려면 먼저 대상 patch·규칙·weight의 출처와 검증 기록이 필요하다.
+<a id="데이터-출처"></a>

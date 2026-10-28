@@ -1,19 +1,25 @@
 # 문서 지도
 
-이 지도는 `dbd76a7`의 문서를 기준으로 2026-10-28에 분류했다. 문서 위치만 정리했으며, 과거 보고서의 정책·검증 결과·미완료 상태를 현재 결과로 바꾸지 않았다.
+현행 설명은 아래 대표 문서를 먼저 읽습니다. 기준 앱 소스는 `dbd76a7`이며, 과거 문서의 수치·실험·미완료 상태를 현재 구현으로 승격하지 않습니다.
 
-## 먼저 읽을 문서
+## 현행 대표 문서
 
-| 목적 | 문서 | 읽을 때 주의할 점 |
-|---|---|---|
-| 프로젝트 실행·검증 | [프로젝트 README](../README.md) | 실행 절차와 날짜별 개발 이력이 함께 있다. 과거 지원 숫자를 현재 집계로 읽지 않는다. |
-| 개발 운영 | [개발 지침](../AGENTS.md), [Worker 운영](solo-workflow/MULTI_SESSION_WORKFLOW.md), [Git 통합](solo-workflow/GIT_INTEGRATION.md) | 운영 지침의 기존 위치와 권한 경계를 유지한다. |
-| 기술 개요·상태 트리 hover/focus | [기술 명세](TECHNICAL_SPEC.md#상태-트리-후속-경로-강조) | 앞부분에 과거 장비 확장 이력이 누적되어 있다. |
-| 자동 탐색·6옵션 | [자동 정책 구현](crafting-automatic-policy-implementation.md), [6옵션 검증·한계](automatic-six-affix-2026-10-28.md) | 최대 6개는 탐색 상한이다. 장비·희귀도별 접두/접미 한도와 기존 계산 예산은 별도로 적용한다. |
-| 현재 지원 범위 확인 | [지원 범위](supported-mechanics.md), [Workbench 모델](workbench-simulator.md) | 여러 시점의 집계가 섞여 있어 각 항목의 날짜·후속 문서를 함께 확인한다. |
-| 아이템 상태·파싱 | [ItemState](item-state.md), [영어 텍스트 파서](item-text-parsing.md), [파싱 OpenAPI](openapi-item.yaml) | 표시용 파싱과 catalog 검증된 제작 상태를 구분한다. |
-| 데이터 변경·출처 | [Catalog 유지보수](catalog-data-maintenance.md), [출처 안내](data-sources.md), [초기 UI·자산 기록](crafting-ui.md) | 초기 UI/출처 안내에는 현행 기능과 다른 과거 설명이 남아 있다. |
-| 미해결 작업 | [이슈 목록](../ISSUES.md) | archive 이동은 이슈 해결·종결을 뜻하지 않는다. |
+| 문서 | 역할 |
+|---|---|
+| [프로젝트 개요](current/overview.md) | 전체 구조·출처·구형 계약 연결 |
+| [지원 범위](current/support.md) | 134개 등록 범위·언어·자동 정책 분류 |
+| [아이템 상태](current/item-state.md) | 옵션 인스턴스·희귀도·후보 검증 |
+| [텍스트 파싱과 매핑](current/text-parsing.md) | 표시용 파싱과 catalog 매핑 |
+| [Workbench](current/workbench.md) | 단일 화폐 적용·품질·제한 |
+| [자동 탐색](current/automatic-planning.md) | 6옵션·확률·계산 한계·저장 호환 |
+| [목표 조건](current/goals.md) | AND/OR·복합 조건·최소 필요 옵션 |
+| [그래프 UI](current/graph-ui.md) | hover/focus 후속 강조·선택·패닝 |
+
+[실행 안내](../README.md) · [개발 지침](../AGENTS.md) · [catalog 유지보수](catalog-data-maintenance.md) · [이슈](../ISSUES.md) · [6옵션 검증](automatic-six-affix-2026-10-28.md)
+
+## 통합 전 원문
+
+[스냅샷 색인과 SHA-256](archive/2026-10/spec-snapshots-49190b5/README.md)에 원문 11개를 보존했습니다. 기존 명세 경로와 절 앵커는 안내 문서로 유지합니다. `.md.txt`는 당시 원문으로, 내부 상대 경로는 원래 위치 기준이며 현행 지침이 아닙니다.
 
 ## 승인 자료와 유지한 정책
 
@@ -38,7 +44,7 @@
 | [bucket 계산 v2](crafting-bucket-method-v2.md) | 계약과 긴 버전별 구현·성능 이력 |
 | [certified 지도 UI](crafting-certified-map-ui.md) | certified 결과의 표시 계약 |
 | [lazy 확률 법칙](crafting-lazy-laws.md) | 압축·지연 로딩·조건부 재생 및 미완료 경계 |
-| [로컬 방법 저장](crafting-local-method-store.md) | SQLite 저장 기반; 엔진 전체 연결 완료와 구분 |
+| [로컬 방법 저장](crafting-local-method-store.md) | 구형 certified 엔진에 SQLite 연결됨. 초기 미연결 설명과 현행 자동 JSON 저장을 구분 |
 | [전략 계산 작업](crafting-strategy-job.md) | 제한된 그래프의 전략 계산·중단/재개 |
 | [Solar 부하 측정](crafting-solar-workload.md) | 대형 목표의 당시 계산·메모리 한계 |
 | [초기 Workbench v2 목록](workbench-support-v2.md) | 당시 Solar 지원표; 현행 전체 지원표가 아님 |
