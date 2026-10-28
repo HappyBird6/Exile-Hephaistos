@@ -37,7 +37,7 @@ function docker {
         if ($env:TEST_FAILURE -eq 'config') { $global:LASTEXITCODE = 9; return }
         '{"volumes":{"postgres-data":{"name":"fixture-volume"}}}'
     } elseif ($items[0] -eq 'volume' -and $items[1] -eq 'ls') {
-        if ($env:TEST_EXISTING -eq 'yes') { 'fixture-volume' }
+        if ($env:TEST_EXISTING -eq 'yes') { 'fixture-volume'; 'exile-hephaistos_app-data' }
     } elseif ($items -contains 'up' -and $env:TEST_FAILURE -eq 'up') {
         $global:LASTEXITCODE = 17
     }
@@ -62,6 +62,7 @@ function docker {
         self.assertNotIn(values["POSTGRES_PASSWORD"], result.stdout + result.stderr)
         self.assertFalse(self.env_file.read_bytes().startswith(b"\xef\xbb\xbf"))
         self.assertIn(["volume", "create", "fixture-volume"], calls)
+        self.assertIn(["volume", "create", "exile-hephaistos_app-data"], calls)
         for call in calls:
             if call[0] == "compose":
                 self.assertEqual(call[call.index("--project-name") + 1], "exile-hephaistos")
@@ -73,6 +74,14 @@ function docker {
         original = b"POSTGRES_PASSWORD=local-test-value\n"
         self.env_file.write_bytes(original)
         result, calls = self.run_script("infra", existing_volume=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(self.env_file.read_bytes(), original)
+        self.assertFalse(any(c[:2] == ["volume", "create"] for c in calls))
+
+    def test_existing_stack_volumes_and_environment_are_preserved(self):
+        original = b"POSTGRES_PASSWORD=local-test-value\n"
+        self.env_file.write_bytes(original)
+        result, calls = self.run_script("stack", existing_volume=True)
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(self.env_file.read_bytes(), original)
         self.assertFalse(any(c[:2] == ["volume", "create"] for c in calls))

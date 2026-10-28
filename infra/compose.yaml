@@ -39,13 +39,15 @@ services:
       SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
       SPRING_DATA_REDIS_HOST: redis
       SPRING_DATA_REDIS_PORT: 6379
+    volumes:
+      - app-data:/app/data
     depends_on:
       postgres:
         condition: service_healthy
       redis:
         condition: service_healthy
     ports:
-      - "127.0.0.1:8080:8080"
+      - "127.0.0.1:${EXILE_BACKEND_PORT:-9000}:8080"
   frontend:
     profiles: [stack]
     build:
@@ -53,8 +55,11 @@ services:
       dockerfile: infra/docker/frontend.Dockerfile
     depends_on: [app]
     ports:
-      - "127.0.0.1:8081:8080"
+      - "127.0.0.1:${EXILE_FRONTEND_PORT:-9001}:8080"
 volumes:
   postgres-data:
     external: true
     name: ${POSTGRES_VOLUME_NAME:-exile-hephaistos_postgres-data}
+  app-data:
+    external: true
+    name: exile-hephaistos_app-data

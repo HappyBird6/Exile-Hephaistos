@@ -49,6 +49,11 @@ SPRING_DATA_REDIS_PORT=6379
         # External volumes survive compose down --volumes. Only create on a fresh installation.
         $volumes = & docker volume ls --format '{{.Name}}'
         if ($LASTEXITCODE -ne 0) { throw 'Cannot list Docker volumes. Check Docker Desktop.' }
+        $appVolumeName = 'exile-hephaistos_app-data'
+        if ($Target -eq 'stack' -and $volumes -notcontains $appVolumeName) {
+            & docker volume create $appVolumeName | Out-Null
+            if ($LASTEXITCODE -ne 0) { throw 'Cannot create application data volume.' }
+        }
         if ($volumes -notcontains $volumeName) {
             & docker volume create $volumeName | Out-Null
             if ($LASTEXITCODE -ne 0) { throw 'Cannot create PostgreSQL volume.' }

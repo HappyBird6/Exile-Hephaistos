@@ -21,7 +21,9 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\dev.ps1 stack
 ```
 
 Compose 프로젝트 이름은 `exile-hephaistos`입니다. 운영 실행은 원본 checkout에서 하며 검증용 worktree에서 기존 프로젝트를 실행하지 않습니다.
-Frontend: http://localhost:8081 · Backend liveness: http://localhost:8080/actuator/health/liveness
+Compose의 호스트 포트 기본값은 백엔드 9000, 프런트 9001입니다. 필요하면 `.env`의 `EXILE_BACKEND_PORT`와 `EXILE_FRONTEND_PORT`로 변경합니다. 컨테이너 내부 포트와 프록시는 8080을 유지합니다. 작업 저장 파일은 외부 `exile-hephaistos_app-data` 볼륨에 보존합니다. 기존 컨테이너 내부 저장 파일이 있다면 최초 전환 전에 백업·복원이 필요합니다.
+
+Frontend: http://localhost:9001 · Backend liveness: http://localhost:9000/actuator/health/liveness
 readiness는 앱·PostgreSQL·Redis 연결 상태를 확인합니다. 제작 계산의 완결이나 게임 규칙 검증을 뜻하지 않습니다.
 
 최초 실행 시 스크립트가 DB·Redis 설정과 무작위 로컬 DB 비밀번호를 `.env`에 생성합니다. 기존 `.env`는 덮어쓰지 않습니다. `.env.example`은 필요하지 않습니다.
