@@ -1,5 +1,6 @@
 package com.poe2craft.crafting.domain.goalfilter;
 
+import com.poe2craft.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.crafting.domain.goalfilter.GoalCatalog.*;
 import com.poe2craft.crafting.domain.goalfilter.GoalFilter.*;
 import com.poe2craft.item.ItemCatalog;
@@ -166,6 +167,19 @@ public final class GoalCatalogIndex {
             stat.sourceDivisor() == null ? 1 : stat.sourceDivisor()));
   }
 
+  /**
+   * Fixed essence targets are selectable without entering the ordinary weighted roll pool. IDs must
+   * also occur in the selected base catalog; item-level eligibility remains enforced.
+   */
+  private static boolean reviewedAmuletEssenceTarget(ModifierDefinition modifier) {
+    return WorkbenchCurrency.PERFECT_ESSENCE_ENHANCEMENT
+            .replacementEssenceModifiers()
+            .contains(modifier.id())
+        || WorkbenchCurrency.PERFECT_ESSENCE_INFINITE
+            .replacementEssenceModifiers()
+            .contains(modifier.id());
+  }
+
   private List<Stat> stats(ItemCatalog catalog, int level) {
     var definitions = new TreeMap<String, List<ModifierDefinition>>();
     for (var modifier : catalog.modifiers().values())
@@ -195,7 +209,8 @@ public final class GoalCatalogIndex {
                   .anyMatch(
                       d ->
                           d.layer() == ModifierDefinition.Layer.IMPLICIT
-                              || (d.requiredItemLevel() <= level && d.weight() > 0));
+                              || (d.requiredItemLevel() <= level
+                                  && (d.weight() > 0 || reviewedAmuletEssenceTarget(d))));
           result.put(
               key,
               new Stat(

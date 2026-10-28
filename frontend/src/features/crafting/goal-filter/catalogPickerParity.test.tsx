@@ -171,3 +171,61 @@ for (const locale of locales) {
     setLocale('en')
   })
 }
+
+it.each([
+  ['global_armour_evasion_energy_shield_+%', '일반 방어도'],
+  ['strength_+%', '힘'],
+  ['dexterity_+%', '민첩'],
+  ['intelligence_+%', '지능'],
+])(
+  'selects and serializes reviewed essence target %s from the actual catalog',
+  async (raw, search) => {
+    setLocale('ko')
+    const catalog = structuredClone(example.catalog) as Catalog
+    const editor = createGoalFilterEditor(
+      emptyGoal(catalog.context, catalog.catalogVersion),
+    )
+    const adapter: GoalFilterAdapter = {
+      id: `essence-target-${raw}`,
+      catalog: async () => catalog,
+      validate: async () => ({
+        version: 1,
+        valid: true,
+        issues: [],
+        capabilities: { evaluation: 'SUPPORTED', probability: 'UNSUPPORTED' },
+      }),
+    }
+    render(
+      <QueryClientProvider
+        client={
+          new QueryClient({ defaultOptions: { queries: { retry: false } } })
+        }
+      >
+        <GoalFilterPanel
+          adapter={adapter}
+          context={catalog.context}
+          editor={editor}
+          bases={[]}
+          language="ko"
+          compact
+        />
+      </QueryClientProvider>,
+    )
+    const target = screen.getByRole('combobox', {
+      name: goalFilterMessages.ko.search,
+    })
+    fireEvent.change(target, { target: { value: search } })
+    const list = await screen.findByRole('listbox')
+    const option = await within(list).findByRole('option', { name: /%/ })
+    expect(option).not.toHaveAttribute('aria-disabled', 'true')
+    fireEvent.click(option)
+    const persisted = JSON.parse(JSON.stringify(editor.getState().goal))
+    expect(persisted.groups[0].entries).toHaveLength(1)
+    expect(persisted.groups[0].entries[0]).toMatchObject({
+      statId: `hephaistos:v1:explicit:${raw}`,
+      unit: 'percent',
+      disabled: false,
+    })
+    setLocale('en')
+  },
+)

@@ -35,6 +35,33 @@ class ReviewedAmuletGoalTest {
                       var catalog =
                           service.catalog(new Context(root.snapshotId(), root.baseItemId(), 82));
                       assertThat(catalog.stats()).isNotEmpty();
+                      var essenceStats =
+                          Set.of(
+                              "global_armour_evasion_energy_shield_+%",
+                              "strength_+%", "dexterity_+%", "intelligence_+%");
+                      var low =
+                          service.catalog(new Context(root.snapshotId(), root.baseItemId(), 1));
+                      for (var raw : essenceStats) {
+                        var selected =
+                            catalog.stats().stream()
+                                .filter(
+                                    s ->
+                                        s.kind() == GoalCatalog.Kind.EXPLICIT
+                                            && s.sourceStatIds().equals(List.of(raw)))
+                                .findFirst()
+                                .orElseThrow();
+                        assertThat(selected.eligible())
+                            .as(key + ": selectable essence " + raw)
+                            .isTrue();
+                        assertThat(selected.unit()).isEqualTo("percent");
+                        assertThat(
+                                low.stats().stream()
+                                    .filter(s -> s.statId().equals(selected.statId()))
+                                    .findFirst()
+                                    .orElseThrow()
+                                    .eligible())
+                            .isFalse();
+                      }
                       for (var stat : catalog.stats()) {
                         assertThat(stat.support().evaluation())
                             .as(key + ":" + stat.statId())

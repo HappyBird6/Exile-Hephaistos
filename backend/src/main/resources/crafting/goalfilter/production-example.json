@@ -615,8 +615,8 @@
           "probability": "UNSUPPORTED",
           "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
-        "eligible": false,
-        "eligibilityReason": "NO_ELIGIBLE_GENERATION_MODIFIER",
+        "eligible": true,
+        "eligibilityReason": null,
         "sourceStatIds": [
           "dexterity_+%"
         ],
@@ -682,8 +682,8 @@
           "probability": "UNSUPPORTED",
           "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
-        "eligible": false,
-        "eligibilityReason": "NO_ELIGIBLE_GENERATION_MODIFIER",
+        "eligible": true,
+        "eligibilityReason": null,
         "sourceStatIds": [
           "global_armour_evasion_energy_shield_+%"
         ],
@@ -702,8 +702,8 @@
           "probability": "UNSUPPORTED",
           "reasonCode": "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"
         },
-        "eligible": false,
-        "eligibilityReason": "NO_ELIGIBLE_GENERATION_MODIFIER",
+        "eligible": true,
+        "eligibilityReason": null,
         "sourceStatIds": [
           "intelligence_+%"
         ],
@@ -996,8 +996,8 @@
           "probability": "SUPPORTED",
           "reasonCode": null
         },
-        "eligible": false,
-        "eligibilityReason": "NO_ELIGIBLE_GENERATION_MODIFIER",
+        "eligible": true,
+        "eligibilityReason": null,
         "sourceStatIds": [
           "strength_+%"
         ],
