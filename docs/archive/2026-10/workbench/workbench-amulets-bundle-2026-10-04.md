@@ -1,3 +1,5 @@
+> 2026-10-28 보관 정리: 이 문서의 일부 과거 QA 산출물 링크는 로컬 백업 안내로 연결됩니다. 당시 검증 결과를 현재 재검증한 것은 아닙니다. 원경로·해시는 보관 목록에서 확인하세요.
+
 # Distinct implicit Amulet 7종 · 2026-10-04
 
 기준 HEAD `233044a6e233fa3250de2483d860e63407b79308`, branch `workbench/top-bases-20261004`. 기존54개에 7개를 추가하여 Workbench는 **61개 base**다. Jewelry는 strict tier가 아니라 distinct implicit sidegrade다. Solar catalog·implicit·film과 모든 기존54개 identity를 유지한다. Support/Explorer는 Solar-only이며 active170/deferred50을 확장하지 않는다.
@@ -95,7 +97,7 @@ Belt의 distinct implicit 후보는 Linen(Mana Flask), Wide(Flask Charges gained
 
 최종 [runtime 검증 기록](../../../evidence/amulets-runtime-bundle-2026-10-04/verification.json): Backend unit438/integration6(실패·skip0), `check generateJooq bootJar`와 formatter 통과. Frontend `npm ci`, lint/typecheck/format/coverage/unit1809/build 통과. 기존 Vite large chunk 경고만 유지된다. API1248 + material-path490 = **1738 assertions**, 실제 currency133/Omen126 positive paths를 포함한다. Browser **1551 assertions**와 console error0, importer replay14/source14 검증을 통과했다. 검증 copy와 최종 source522파일은 byte-identical이다.
 
-[Screenshot manifest](../../../evidence/amulets-runtime-bundle-2026-10-04/screenshots.json)은 원본326PNG와 contact sheet48개(총374)의 경로·SHA256을 기록한다. 48개 contact sheets를 모두 visual review했다. 새7종의 six-language implicit/quality/mobile1440·390, Catalyst repeat/overflow, crossclass rejection, orange preview, 기존54films를 확인했다. Amulet ordinary209/special8에는 multi-stat definition이 없으므로 compound roll은 실제 Kinetic Ring two-stat source modifier로 six-language Alt ranges와 원본 roll/film 보존을 별도 검증했다. Amulet에 가짜 compound를 추가하지 않았다.
+[Screenshot manifest](../../../evidence-retention.md#archived-files)은 원본326PNG와 contact sheet48개(총374)의 경로·SHA256을 기록한다. 48개 contact sheets를 모두 visual review했다. 새7종의 six-language implicit/quality/mobile1440·390, Catalyst repeat/overflow, crossclass rejection, orange preview, 기존54films를 확인했다. Amulet ordinary209/special8에는 multi-stat definition이 없으므로 compound roll은 실제 Kinetic Ring two-stat source modifier로 six-language Alt ranges와 원본 roll/film 보존을 별도 검증했다. Amulet에 가짜 compound를 추가하지 않았다.
 
 실패 이력은 runtime 기록과 QA attempt별 원본에 보존한다. Backend 첫 신규 fixture의 deferred Solar Runic 포함 오류, Frontend coverage의 Azure/Crimson 빈 requirement 가정, 실제 UI class singular fallback, Browser compound/Essence capacity fixture 오류를 각각 고쳤다. 기존 test 기대값을 약화하거나 skip하지 않았다. 실제 UI 수정 후 Frontend 전체 검증을 재실행했다.
 

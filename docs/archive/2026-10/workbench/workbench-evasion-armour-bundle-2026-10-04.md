@@ -1,3 +1,5 @@
+> 2026-10-28 보관 정리: 이 문서의 일부 과거 QA 산출물 링크는 로컬 백업 안내로 연결됩니다. 당시 검증 결과를 현재 재검증한 것은 아닙니다. 원경로·해시는 보관 목록에서 확인하세요.
+
 # Highest-tier Evasion Gloves / Helmets 묶음 — 2026-10-04
 
 기준 HEAD는 `1c8fa7d3294f5ffdc86e2325dd263588aa38ece6`, 작업 branch는 `workbench/top-bases-20261004`다. 기존 22개 base의 ID·snapshot·catalog·film을 유지하고 아래 6개를 추가하여 Workbench 선택지가 28개가 된다. 낮은 tier의 전체 base 목록을 추가하지 않는다. Support/Explorer는 Solar-only다.
@@ -39,8 +41,8 @@ QA root: `codex/evasion-armour-qa-20261004`. QA project: `exile-evasion-gloves-2
 | 최종 registry packaging | `spotlessCheck bootJar` 성공; 실제 runtime JAR의 registry 일치 | QA `backend-final-package.log`, API check 2 |
 | Frontend npm ci / lint / typecheck / format:check / unit / build | 59 files, 1,768 tests 통과 | QA `frontend-check-1.log` |
 | 6locale completeness | 2,444 definitions, compound 290, single-stat 171; min/middle/max 유지 | [coverage](../../../evidence/evasion-armour-runtime-bundle-2026-10-04/display-coverage.json), Frontend unit |
-| API | 397 assertions, 28 initial bases | [results](../../../evidence/evasion-armour-runtime-bundle-2026-10-04/api-results.json) |
-| Browser | 449 checks, error 0 | [results](../../../evidence/evasion-armour-runtime-bundle-2026-10-04/browser-results.json) |
+| API | 397 assertions, 28 initial bases | [results](../../../evidence-retention.md#archived-files) |
+| Browser | 449 checks, error 0 | [results](../../../evidence-retention.md#archived-files) |
 | 화면 | 6 bases × 6 locales × 2 widths = 72; orange 6; old film 8 = 86 | QA `browser-attempt-1`; repository의 대표 9장 시각 확인 |
 | cached importer replay | 24 JSON 일치, source ID/family/level/effect/tags 추가 assertion 통과 | [results](../../../evidence/evasion-armour-runtime-bundle-2026-10-04/importer-replay-results.json) |
 | Compose | 격리 profile `config --quiet` 통과 | QA `compose.yaml` |
@@ -49,7 +51,7 @@ QA root: `codex/evasion-armour-qa-20261004`. QA project: `exile-evasion-gloves-2
 
 API check 1은 실제 crafting 경로를 통과한 뒤 registry 일치 검사에서 실패했다. 최종 shell-script의 Windows 줄바꿈 때문에 JAR 복사 목적지 이름에 carriage return이 붙었다. 잘못 복사된 파일과 이전 정상 이름 JAR를 보존하고, 이미 성공한 최종 build JAR를 정확한 QA 경로로 복사했다. 격리 app만 재시작한 API check 2가 397개 전부 통과했다. 검증 summary parser의 첫 시도는 ANSI 색상 escape 때문에 실제 Frontend 성공 줄을 인식하지 못했고, escape만 제거한 뒤 정확한 1,768개 성공을 확인했다. assertion count나 성공 조건은 완화하지 않았다. Build의 기존 large-chunk 안내는 실패가 아니며 남겨두었다.
 
-대표 화면: [Polished / 한국어](../../../evidence/evasion-armour-runtime-bundle-2026-10-04/polished-ko-390.png), [Blacksteel / Español](../../../evidence/evasion-armour-runtime-bundle-2026-10-04/blacksteel-gloves-es-1440.png), [War Wraps / 日本語](../../../evidence/evasion-armour-runtime-bundle-2026-10-04/war-wraps-ja-390.png), [Freebooter / 简体中文](../../../evidence/evasion-armour-runtime-bundle-2026-10-04/freebooter-zh-CN-390.png), [Gladiatorial / English](../../../evidence/evasion-armour-runtime-bundle-2026-10-04/gladiatorial-en-1440.png), [Grinning / 繁體中文](../../../evidence/evasion-armour-runtime-bundle-2026-10-04/grinning-zh-TW-390.png). 나머지 전체 86개 화면·로그·XML·JAR·실패 이력은 QA root에 보존한다.
+대표 화면: [Polished / 한국어](../../../evidence-retention.md#archived-files), [Blacksteel / Español](../../../evidence-retention.md#archived-files), [War Wraps / 日本語](../../../evidence-retention.md#archived-files), [Freebooter / 简体中文](../../../evidence-retention.md#archived-files), [Gladiatorial / English](../../../evidence-retention.md#archived-files), [Grinning / 繁體中文](../../../evidence-retention.md#archived-files). 나머지 전체 86개 화면·로그·XML·JAR·실패 이력은 QA root에 보존한다.
 
 구현·전체 검증·자체 리뷰를 완료했다. [QA 종료 기록](../../../evidence/evasion-armour-runtime-bundle-2026-10-04/qa-release.json)에 따라 격리 services만 정상 종료하고 독점 slot을 해제했다. live 18080/18081의 기존 4개 container는 유지했다. 사용자 browser/localStorage·DB volume·원본 작업 tree·다른 services는 변경하지 않았다. 작업 branch의 local commit으로 전달하며 master 반영·remote push·deploy는 하지 않는다.
 

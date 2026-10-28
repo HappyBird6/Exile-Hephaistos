@@ -1,3 +1,5 @@
+> 2026-10-28 보관 정리: 이 문서의 일부 과거 QA 산출물 링크는 로컬 백업 안내로 연결됩니다. 당시 검증 결과를 현재 재검증한 것은 아닙니다. 원경로·해시는 보관 목록에서 확인하세요.
+
 # Offhand highest-tier core 5종
 
 기준 `ba9df63a0fddc6c15967103ebb4e2636b7488cd7`, branch `workbench/top-bases-20261004`. 기존 Workbench 97종에 아래 5종을 추가하여 **102 bases**를 제공한다. 최고 requirement의 Str/StrDex/StrInt Shield, Dex Buckler, Int Focus 대표 범위이며 전체 low-tier catalog를 채우는 작업은 아니다.
@@ -54,7 +56,7 @@ Crossbow의 남은 distinct Stout/Dedalian/Cumbrous도 [이전 기록](workbench
 
 실제 QA API **594 checks**, browser **703 checks**, legacy filled film **25 checks**가 통과했다. API는 complete source definitions/weights·일반/상위 화폐·모든 지원 fixed/replacement Essence와 source ilvl·활성 Omen·wrong-class/deferred 거절·Blessed 거절·socket/typed-quality422·Solar-only Support/Explorer를 검증했다. browser는 actual class·Focus-only Perfect Alacrity 긍정과 Shield/Buckler 거절·Command/Body 거절의 film 원자성·6locale names/properties/requirements·Raise Shield/Parry의 implicit 영역·Shift/Alt·orange preview·old97 film 복원·Solar overflow40/cap20/HALF_UP을 검증했다. 브라우저 page errors는 0이다.
 
-신규5×6locale×desktop1440/mobile390의 card60·full60, legacy Wand/Sceptre/Hallowed×6locale card18·full18, orange preview6·Solar overflow6으로 **168 original screenshots**를 보존했다. contact sheets28개와 필요한 원본 crop을 시각 검토했다. 원문 movement metadata의 영어 label과 raw decimal은 추측 번역/단위 보정하지 않았다. [Screenshot hash inventory](../../../evidence/offhands-source-bundle-2026-10-05/screenshots.json)는 전용 QA의 `browser-attempt-1`을 가리킨다.
+신규5×6locale×desktop1440/mobile390의 card60·full60, legacy Wand/Sceptre/Hallowed×6locale card18·full18, orange preview6·Solar overflow6으로 **168 original screenshots**를 보존했다. contact sheets28개와 필요한 원본 crop을 시각 검토했다. 원문 movement metadata의 영어 label과 raw decimal은 추측 번역/단위 보정하지 않았다. [Screenshot hash inventory](../../../evidence-retention.md#archived-files)는 전용 QA의 `browser-attempt-1`을 가리킨다.
 
 초기 Node22 engine 실패, strict lookup/draft 누락 실패, historical binding-count 실패의 각 log·원인·수정 이력을 보존했다. 역사1883과 신규 포함1914를 별도 검사하며 기존 count·전체 locale content 검사·strict 설정을 약화하지 않았다. 수집/locale 매칭 실패는 `scripts/offhands-source-provenance.json`에 남긴다. [Final QA input equivalence](../../../evidence/offhands-source-bundle-2026-10-05/final-qa-inputs.json)는 최종 runtime/test source659개와 jar SHA를 확인하며 [최종 보존 검사](../../../evidence/offhands-source-bundle-2026-10-05/preservation-completion.json)는 old97/deferred50을 확인한다.
 

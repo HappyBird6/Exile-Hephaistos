@@ -1,3 +1,5 @@
+> 2026-10-28 보관 정리: 이 문서의 일부 과거 QA 산출물 링크는 로컬 백업 안내로 연결됩니다. 당시 검증 결과를 현재 재검증한 것은 아닙니다. 원경로·해시는 보관 목록에서 확인하세요.
+
 # Highest-tier Gloves 실제 구현 묶음 — 2026-10-04
 
 이 문서는 source preflight 이후 실제 runtime 추가를 기록한다. 기존 19개 base와 snapshot/film identity를 유지하고 아래 3개를 추가하여 22개가 된다. 기존 Stocky Mitts를 교체하지 않는다.
@@ -35,8 +37,8 @@ Source importer의 최초 perfect/Abyss 검사는 축약된 section text를 full
 | Backend `spotlessApply check generateJooq bootJar` | unit/ArchUnit 396 + Docker integration 6 = 402 통과 | QA `backend-check-4.log`, XML |
 | Frontend `npm ci`, lint, typecheck, format:check, test -- --run, build | 59 files, 1,756 tests 통과 | QA `frontend-check-6.log`; npm ci 성공은 check 3 |
 | 여섯 언어 completeness | 정의 2,353개, compound binding 244개, 이름 220/220 | [JSON](../../../evidence/gloves-runtime-bundle-2026-10-04/display-coverage.json) |
-| 실제 API | 217 assertions, 22 initial bases | [JSON](../../../evidence/gloves-runtime-bundle-2026-10-04/api-results.json) |
-| 실제 browser | 223 checks, error 0 | [JSON](../../../evidence/gloves-runtime-bundle-2026-10-04/browser-results.json) |
+| 실제 API | 217 assertions, 22 initial bases | [JSON](../../../evidence-retention.md#archived-files) |
+| 실제 browser | 223 checks, error 0 | [JSON](../../../evidence-retention.md#archived-files) |
 | 화면 | 3 bases × 6 locales × 2 widths = 36 captures, orange preview 3개 | QA `browser-attempt-2`; 여섯 언어 대표 화면 시각 검토 |
 | Compose | 격리 profile `config --quiet` 통과 | QA `compose.yaml` |
 | Importer cached replay | 9개 JSON 문서의 완전 동등성, ID/hash/원래 timestamp 유지 | [JSON](../../../evidence/gloves-runtime-bundle-2026-10-04/importer-replay-results.json) |

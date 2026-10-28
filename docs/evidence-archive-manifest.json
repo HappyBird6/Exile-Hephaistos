@@ -1,0 +1,775 @@
+{
+  "base": "67749897ff42a5f4801670222d6fed2a478517a5",
+  "backupDirectory": "C:\\SSAFY\\PYJ\\PROJECT\\_backups\\Exile-Hephaistos\\docs-evidence-2026-10-28-6774989",
+  "zipSha256": "2b791554af065643df6dc6a62b8e1cf56246edab8fdb7f521e8deee3add7cf18",
+  "files": [
+    {
+      "path": "docs/evidence/amulets-runtime-bundle-2026-10-04/api-results.json",
+      "size": 67117,
+      "sha256": "8e1022833dfb4cdd821b29448d3951cef2705e7c0949e4db269ffc36903ce7b3",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/amulets-runtime-bundle-2026-10-04/browser-results.json",
+      "size": 926725,
+      "sha256": "af7bea6bab365c7f2ecfef632adc68e14d23c8dac93085b629df4e538b4e0c36",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/amulets-runtime-bundle-2026-10-04/final-resource-verification.json",
+      "size": 164,
+      "sha256": "c00c7704b5b19db76602cb26d0f4f7649c08bee5f0455b4924ffa3186b77da41",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/amulets-runtime-bundle-2026-10-04/screenshots.json",
+      "size": 78101,
+      "sha256": "1ee28e00d9d41708eeb68d05dd0981362d29b333559f7477f5714d0e9e7513d2",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/api-results.json",
+      "size": 140929,
+      "sha256": "c227421c54e66887a27c121edba5907ab332e0df40de28d67d359b10b761b6ce",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/browser-results.json",
+      "size": 54242,
+      "sha256": "102a15e30f14eeebc7ceec91b1dccfc24ffaca7b7e64147efd5647a1ad684b08",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/filled-results.json",
+      "size": 23136,
+      "sha256": "70086f82d3639928b2d975eaba729747db10ee9759da4d96c959da64837161fc",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/negative-jewel-results.json",
+      "size": 1157,
+      "sha256": "9146c55f167bb3d7515f07c3e09c9766f4c25708e2bc19b8cda83d4da28e610c",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots.json",
+      "size": 119443,
+      "sha256": "55737129c322f6bb499dc2f3c4f01079bb9ec8cd020dd467b24421ea38541971",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots/legacy-bone-en.png",
+      "size": 27783,
+      "sha256": "d5312c181c30fc910576dd0c113e74d1652ba62ca1bca85b4340ed6b4091c827",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots/legacy-bone-es.png",
+      "size": 30559,
+      "sha256": "14a57e02389116b5a55f6ea1e12fd7dfae0a33d5b3b5bc71de910b837af1a1c3",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots/legacy-bone-ja.png",
+      "size": 28100,
+      "sha256": "01081924b170b3f499eb61f8af1d1ea434061d4164ed79c20ad448fb2d9b1ea8",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots/legacy-bone-ko.png",
+      "size": 24438,
+      "sha256": "cb5b7ef998c0feca28a852e8ef66aff9a48b8f37b8613bfc542a0a0e343d7418",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots/legacy-bone-zh-CN.png",
+      "size": 27986,
+      "sha256": "97f8e7b441759451011565694752e2e9b031432ef77038b2559b8f181cf14fe0",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots/legacy-bone-zh-TW.png",
+      "size": 29453,
+      "sha256": "6fbc0aeddd45066a0437cf8c3851363c55483683159342e39ba8913b09a5eb74",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots/legacy-sapphire-en.png",
+      "size": 25606,
+      "sha256": "5755504e68f6ce466116510dddad0742f0da871b03a0f9897d89e07ed65d5ac1",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots/legacy-sapphire-es.png",
+      "size": 27658,
+      "sha256": "924604d20d0c561c522ec2595e059efb1fb09a1072f8430abc46ef4bb4b41b08",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots/legacy-sapphire-ja.png",
+      "size": 27526,
+      "sha256": "d807555f23eb598a9af79d8c4bbf80ee4c809cd67361e8a110663a5529516b94",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots/legacy-sapphire-ko.png",
+      "size": 23456,
+      "sha256": "8503bdcf5c05f4b57fcdecca3bffac63744f5032378bdf5bfd646c9840f1e36b",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots/legacy-sapphire-zh-CN.png",
+      "size": 25720,
+      "sha256": "822d7c07596e8634e449ad88b2239ecff3f414738cec443fdc6408699ead21ae",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots/legacy-sapphire-zh-TW.png",
+      "size": 27748,
+      "sha256": "24bdef8a769288df101a40cfe6e29c38d97da7b43eb9717ff6d6b7d8f1c7ce35",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots/legacy-time-lost-sapphire-en.png",
+      "size": 28854,
+      "sha256": "634cb11318254776e83de1fcbcb7e2a2d76687e1d56d599de82fb918090566e3",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots/legacy-time-lost-sapphire-es.png",
+      "size": 31481,
+      "sha256": "e5bc3ab764594bf901e6fe610642b09628bf8ffe724f094c65536685ee4a6779",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots/legacy-time-lost-sapphire-ja.png",
+      "size": 31462,
+      "sha256": "dcb64d4d3d9761e4cfc056227c3b08a0d9f7774bf2695bc8eab1dece46fdb5cc",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots/legacy-time-lost-sapphire-ko.png",
+      "size": 27557,
+      "sha256": "366c01e4a8c591820fb1982428cc2ebcc9787f37246dbeaa39de6092ad41a21c",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots/legacy-time-lost-sapphire-zh-CN.png",
+      "size": 29783,
+      "sha256": "86657e1639cb0cf05c0712f6be557edc19448c445ac651950f2aec18b2f7394d",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/base-registry-refactor-2026-10-05/screenshots/legacy-time-lost-sapphire-zh-TW.png",
+      "size": 30567,
+      "sha256": "3a8035142fcff3f43ed0c8eeece4c2445d0c09cae333625fe0a2121d8569741b",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/belts-runtime-bundle-2026-10-05/api-results.json",
+      "size": 62876,
+      "sha256": "57504d1c435bec40ab5c21c7c9abdb8c8d26fc5e11d8ff1acd5ddf91d7daa2f6",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/belts-runtime-bundle-2026-10-05/browser-results.json",
+      "size": 41822,
+      "sha256": "47182801a56177b4037038443a38a8580339f1d7f5b7c505ff460ad351d29b83",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/belts-runtime-bundle-2026-10-05/old-filled-results.json",
+      "size": 390,
+      "sha256": "80a258108e5d05fea3e50864f37911544576ad77778d4480914f3707538de948",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/belts-runtime-bundle-2026-10-05/screenshots.json",
+      "size": 77915,
+      "sha256": "62aab2b5343db91aae162c6d995bbd2d329168888ce42e704ae68a5e5ef3b917",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/body-helmets-runtime-bundle-2026-10-04/ancestral-zh-TW-390.png",
+      "size": 254124,
+      "sha256": "89078caa2787a4dac9f2966ca24559a409addd9f3fdeef65c8b7d91d1254f91d",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/body-helmets-runtime-bundle-2026-10-04/api-results.json",
+      "size": 24264,
+      "sha256": "b8cb1b736ed8102aeba390d192efa2f967243e1326de2fa4c2f9950938760207",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/body-helmets-runtime-bundle-2026-10-04/body-import-1.log",
+      "size": 3504,
+      "sha256": "98753bdf08f2f7f4e14263e22924170788268e54d609a34d7a2743ec23f51409",
+      "reason": "과거 일회성 실행 로그"
+    },
+    {
+      "path": "docs/evidence/body-helmets-runtime-bundle-2026-10-04/body-import-2.log",
+      "size": 3504,
+      "sha256": "98753bdf08f2f7f4e14263e22924170788268e54d609a34d7a2743ec23f51409",
+      "reason": "과거 일회성 실행 로그"
+    },
+    {
+      "path": "docs/evidence/body-helmets-runtime-bundle-2026-10-04/body-import-4.log",
+      "size": 3504,
+      "sha256": "4bcd9fd282a1608dc8cb962c08aecd3d6013bc00d391c20b4f9fbcfa8af5c205",
+      "reason": "과거 일회성 실행 로그"
+    },
+    {
+      "path": "docs/evidence/body-helmets-runtime-bundle-2026-10-04/body-import-5.log",
+      "size": 3504,
+      "sha256": "4bcd9fd282a1608dc8cb962c08aecd3d6013bc00d391c20b4f9fbcfa8af5c205",
+      "reason": "과거 일회성 실행 로그"
+    },
+    {
+      "path": "docs/evidence/body-helmets-runtime-bundle-2026-10-04/browser-results.json",
+      "size": 466066,
+      "sha256": "9476104a3706ee5e61efd8e74d38fe706f72bccebee439a9753d75212e4aeb42",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/body-helmets-runtime-bundle-2026-10-04/cryptic-ja-1440.png",
+      "size": 607586,
+      "sha256": "6654a119e3d8ecaa21fad2e9151be7829a04d23f057218ae83a9a8db6e8c370d",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/body-helmets-runtime-bundle-2026-10-04/death-mail-en-1440.png",
+      "size": 596723,
+      "sha256": "1c24564c4796ac5bdbcb76a25affc9083c2bd7a760ae97c85b1005541041fdd6",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/body-helmets-runtime-bundle-2026-10-04/helmets-import-1.log",
+      "size": 1726,
+      "sha256": "4d3468b00692b5b31e3ede78fa48b31b4f3d48dba078d76cdee36a29213cd690",
+      "reason": "과거 일회성 실행 로그"
+    },
+    {
+      "path": "docs/evidence/body-helmets-runtime-bundle-2026-10-04/helmets-import-2.log",
+      "size": 1726,
+      "sha256": "df843ee825caabdeedab2c01cd284622ab4dad799c5899b748def31014e48f5c",
+      "reason": "과거 일회성 실행 로그"
+    },
+    {
+      "path": "docs/evidence/body-helmets-runtime-bundle-2026-10-04/old-film-war-wraps.png",
+      "size": 600782,
+      "sha256": "97d32d3838ff15ffe31563750a2791661e557eb08155a4d866c3f430ae1dc8f6",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/body-helmets-runtime-bundle-2026-10-04/sleek-ja-390.png",
+      "size": 269035,
+      "sha256": "cb7d22a4681ebcba88820738343654e2e380ad2ae6472d9731770b82e347b937",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/body-helmets-runtime-bundle-2026-10-04/sleek-orange-preview.png",
+      "size": 627907,
+      "sha256": "169cdc5732f342f51f335e5e61d5cd842229a8738e07ba324a555199ac8706d2",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/body-helmets-runtime-bundle-2026-10-04/slipstrike-ko-390.png",
+      "size": 242631,
+      "sha256": "7fe251a5ec64a56a9527ca48f8df2224d92c29e1d955a83fcf9fb0f65311a3d0",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/body-helmets-runtime-bundle-2026-10-04/vile-zh-CN-390.png",
+      "size": 252223,
+      "sha256": "8c10a022f99c847d636a13a85905474d22d559bcb5da4f7f999fb22cd9c941a3",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/body-helmets-runtime-bundle-2026-10-04/wolfskin-es-1440.png",
+      "size": 608645,
+      "sha256": "aa8876c736603d30bf612c46a4b45318473015e322c4842f66ef053b3873671a",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/boots-runtime-bundle-2026-10-04/api-results.json",
+      "size": 21862,
+      "sha256": "c18a1a5e565cac1faef305563d10d3b9a81ec6cb2a7d81c36fca9c8b5d03a8b8",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/boots-runtime-bundle-2026-10-04/blacksteel-boots-zh-CN-390.png",
+      "size": 255290,
+      "sha256": "7399e9e80ed3eedd7ae76b4fe55175b39a328fabd5ad721d9714c05e347f8c4d",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/boots-runtime-bundle-2026-10-04/browser-results.json",
+      "size": 453378,
+      "sha256": "8f082dc12fde969b829051f52d7cc00f16ba3d670362109b8e1085058272cf96",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/boots-runtime-bundle-2026-10-04/daggerfoot-zh-TW-390.png",
+      "size": 259919,
+      "sha256": "dc8d6e00d804d9ef0e51e6174797756cfaf6d2fdc89442bf123b1ced8293575e",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/boots-runtime-bundle-2026-10-04/drakeskin-en-1440.png",
+      "size": 596209,
+      "sha256": "7bd4608e505b4dbe49b944ba5f2caddc7243b0aaa0430172ff31d8897d63b149",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/boots-runtime-bundle-2026-10-04/faithful-es-1440.png",
+      "size": 605929,
+      "sha256": "354018d7ad12647b8c1bc172355b6669514cc32d2da189efdb8ebb1b93ba105b",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/boots-runtime-bundle-2026-10-04/old-film-sleek.png",
+      "size": 604943,
+      "sha256": "64b1756d76e310ac0efc7f24507082694cd79bb4129aacd3d3f28b0c3ce191b1",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/boots-runtime-bundle-2026-10-04/sekhema-ja-390.png",
+      "size": 265925,
+      "sha256": "824ea51baf5bde07e0809b5b653658a6d952b40af39c2faf0197eaa755879c1d",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/boots-runtime-bundle-2026-10-04/tasalian-ko-390.png",
+      "size": 243242,
+      "sha256": "1cb281c6bcd7522262fd26281b1cd8dca243a538928634b02f41be6b194eff79",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/boots-runtime-bundle-2026-10-04/tasalian-orange-preview.png",
+      "size": 625267,
+      "sha256": "864c7a66b56fee6f2d1074447dd61effbd8bcec502f378e05286fcb36af8b5cd",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/bows-runtime-bundle-2026-10-04/api-results.json",
+      "size": 25868,
+      "sha256": "9cb05f1e3d1328aeec8f1dabfd7efe42f3459ecdc1ab8db86af8fa1af0f82401",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/bows-runtime-bundle-2026-10-04/browser-results.json",
+      "size": 441727,
+      "sha256": "f3c3bdb5b208a8b976e791b71987da210ca4786f372713bedf11397473d15ad1",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/crossbows-source-bundle-2026-10-05/api-results.json",
+      "size": 43190,
+      "sha256": "5d48259dd94794f7132f3c2d26e9ce20f0a48e0b00c5f451733e3c3fa9934f1b",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/crossbows-source-bundle-2026-10-05/browser-results.json",
+      "size": 36153,
+      "sha256": "402da93b8ceb912a931947ea811b724dccedde531f8846d787b185ae595b89de",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/crossbows-source-bundle-2026-10-05/old-filled-results.json",
+      "size": 390,
+      "sha256": "80a258108e5d05fea3e50864f37911544576ad77778d4480914f3707538de948",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/evasion-armour-runtime-bundle-2026-10-04/api-results.json",
+      "size": 21826,
+      "sha256": "e1194c2ed493492cef0094da933485f8ef9611a594c6259021e9e492c96b00cf",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/evasion-armour-runtime-bundle-2026-10-04/blacksteel-gloves-es-1440.png",
+      "size": 607931,
+      "sha256": "bf637708097cf2b56b5c1c7198a03ed8ed42d3282aa050f4e1a6d453e7cd3e55",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/evasion-armour-runtime-bundle-2026-10-04/browser-results.json",
+      "size": 336486,
+      "sha256": "57f3bc0651119bebe40e1ee5ffc22e9cd9e8350e13e3c99020df32399cdbcf97",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/evasion-armour-runtime-bundle-2026-10-04/freebooter-orange-preview.png",
+      "size": 626051,
+      "sha256": "20a8be77155dae6fbd5b65ea47c7ebd553d05d3bad745dcb8369580718167c29",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/evasion-armour-runtime-bundle-2026-10-04/freebooter-zh-CN-390.png",
+      "size": 250672,
+      "sha256": "7046e458eb510f1516ec82ca70621f2b60bca0f99d697f30f78a22a4f22d2338",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/evasion-armour-runtime-bundle-2026-10-04/gladiatorial-en-1440.png",
+      "size": 597478,
+      "sha256": "f7fea8499b90a7ff3355e159b21d876ef7d73a072e47da9fedde865b243fab53",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/evasion-armour-runtime-bundle-2026-10-04/grinning-zh-TW-390.png",
+      "size": 257458,
+      "sha256": "e273aefb82f2093f40ddc808bbc1ced003d34008638363823395d7c2b430fd91",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/evasion-armour-runtime-bundle-2026-10-04/old-film-massive.png",
+      "size": 597890,
+      "sha256": "4c020333de177675d9fabec8b3480620d10d51f142d1c717b74110ab99822d6d",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/evasion-armour-runtime-bundle-2026-10-04/polished-ko-390.png",
+      "size": 240951,
+      "sha256": "ee81ba2e546822b1beac06aeda4610c1b1fd781aa24d87361da64ccba88fa5e1",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/evasion-armour-runtime-bundle-2026-10-04/polished-orange-preview.png",
+      "size": 626188,
+      "sha256": "efae2f91e2295ed616f9df18a95c58eb7adc322e409678f0756854f9994c40d6",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/evasion-armour-runtime-bundle-2026-10-04/war-wraps-ja-390.png",
+      "size": 263421,
+      "sha256": "5434ccb318489f7b1f5f4f239130d8c7e792389ecf2cf24abf698a51b939347a",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/gloves-runtime-bundle-2026-10-04/adherent-ko-1440.png",
+      "size": 581147,
+      "sha256": "ade2dc97c7577ccdf4ecfe7b2914f8d37975ea54bb634c2cc133b834cc5e5244",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/gloves-runtime-bundle-2026-10-04/api-results.json",
+      "size": 11454,
+      "sha256": "6b5bec9285db7b4035fc75f8ae4d87fe70c226de6e36085ddffc0b930eb7b50d",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/gloves-runtime-bundle-2026-10-04/browser-results.json",
+      "size": 171354,
+      "sha256": "cc1a0970b67a750bad5c3bcbffb9a6de022d76eb027922a8f954da7019a183d2",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/gloves-runtime-bundle-2026-10-04/import-abyss-routing-2.log",
+      "size": 2683,
+      "sha256": "6074481c2dfd347ccd5f1876b04b1f17946d4168b2fd90092aa64cd84feab2aa",
+      "reason": "과거 일회성 실행 로그"
+    },
+    {
+      "path": "docs/evidence/gloves-runtime-bundle-2026-10-04/import-abyss-routing.log",
+      "size": 466,
+      "sha256": "5da70c4d553941d4305c272926e2080a1950e353947100154d8f86df510ab1d3",
+      "reason": "과거 일회성 실행 로그"
+    },
+    {
+      "path": "docs/evidence/gloves-runtime-bundle-2026-10-04/massive-orange-preview.png",
+      "size": 624615,
+      "sha256": "89c103c5817a7603af822db9164d0c724ffbb4667efdcf19518d0e894af8f22a",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/gloves-runtime-bundle-2026-10-04/sirenscale-zh-CN-390.png",
+      "size": 253872,
+      "sha256": "e361c6f8272fe6c5fffc6ce40b962dfcdbf1d35acd4312f58dadff88958cf9e3",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/evidence/hallowed-runtime-bundle-2026-10-04/api-results.json",
+      "size": 5652,
+      "sha256": "539157620254521bbc34c1205f492153348bb0e42558a8930c3936b0de6fe700",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/hallowed-runtime-bundle-2026-10-04/browser-results.json",
+      "size": 20420,
+      "sha256": "04abe3281da4ab3338311d14601c9b0b8412de547e650618d750da6f81e694f9",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/hallowed-runtime-bundle-2026-10-04/screenshots.json",
+      "size": 15289,
+      "sha256": "954c75097fa891d8fdbf669d4ca7369adfd947c6add4252dd27c53a908da7bea",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/maces-source-bundle-2026-10-05/api-results.json",
+      "size": 132365,
+      "sha256": "6efddd994bf2be98f91dc3b2c453949a0df61ac51f0e59984e311e2a238a262a",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/maces-source-bundle-2026-10-05/browser-results.json",
+      "size": 51967,
+      "sha256": "8ad56558cdc59a4408ef9a9b1f7bf2454a9bc9b06c555a3b48c3d14ded74205b",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/maces-source-bundle-2026-10-05/old-filled-results.json",
+      "size": 1207,
+      "sha256": "e4246f7f6dee06d6346c76de9d23d68ae347174ccb0fd2f72cc8dcc85ccad7d6",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/maces-source-bundle-2026-10-05/screenshots.json",
+      "size": 31768,
+      "sha256": "1dcf93464a682ae9b35a2c689b82b7c46d08be51ad74cbf38458ecc1e533a0bf",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/api-results.json",
+      "size": 32793,
+      "sha256": "a882befadb3ddad1f74ea87bfb52260c1f13bfb0ceb8365d4cb477f88bdc9587",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/browser-results.json",
+      "size": 33232,
+      "sha256": "1df1c2a4c22a1fc7163ff6b3f5ceb0382f7f374adf67c35405aaaae823e108e7",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/old-filled-results.json",
+      "size": 1207,
+      "sha256": "e4246f7f6dee06d6346c76de9d23d68ae347174ccb0fd2f72cc8dcc85ccad7d6",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/offhands-source-bundle-2026-10-05/screenshots.json",
+      "size": 31701,
+      "sha256": "251e009a6a0fb9b57cc92f37059419fa0104d753128c29a504d95c1c9fd0ecaf",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/quarterstaves-spears-source-bundle-2026-10-05/api-results.json",
+      "size": 140929,
+      "sha256": "c227421c54e66887a27c121edba5907ab332e0df40de28d67d359b10b761b6ce",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/quarterstaves-spears-source-bundle-2026-10-05/browser-results.json",
+      "size": 54242,
+      "sha256": "102a15e30f14eeebc7ceec91b1dccfc24ffaca7b7e64147efd5647a1ad684b08",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/quarterstaves-spears-source-bundle-2026-10-05/old-filled-results.json",
+      "size": 1207,
+      "sha256": "e4246f7f6dee06d6346c76de9d23d68ae347174ccb0fd2f72cc8dcc85ccad7d6",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/quarterstaves-spears-source-bundle-2026-10-05/screenshots.json",
+      "size": 31969,
+      "sha256": "9958ea2e1762ac4d0df3d3198e0a24c8c1fded2a9f7aadf7beec069e2e79f3cf",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/api-results.json",
+      "size": 47516,
+      "sha256": "b14fcd2e61b87c944f4054d4de644ff1f998c202862f56e5fdb9e9999b2e9faa",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/browser-results.json",
+      "size": 50837,
+      "sha256": "ce042428fe4767b5343689c7139750454d0e1787aa1475461989560970f09317",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/old-filled-results.json",
+      "size": 1207,
+      "sha256": "e4246f7f6dee06d6346c76de9d23d68ae347174ccb0fd2f72cc8dcc85ccad7d6",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/quivers-source-bundle-2026-10-05/screenshots.json",
+      "size": 59889,
+      "sha256": "fe581ad37e7f40ebbc88cbf45e163c291630a8276a15ae98f530b2b2d1795ebe",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/rings-runtime-bundle-2026-10-04/api-results.json",
+      "size": 70770,
+      "sha256": "6df684d1730273659f0d256215292f42231cfff3f6e6757eb8a402fa66c49c63",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/rings-runtime-bundle-2026-10-04/browser-results.json",
+      "size": 802424,
+      "sha256": "e51f02b719a46275edc9279d76ed41df8bbfdff7efa5e5b90a36a6fe9517c38c",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/sceptres-runtime-bundle-2026-10-05/api-results.json",
+      "size": 19504,
+      "sha256": "07e0b60dd33f8ebe2f1253d3b1382831ee5d8ebb0cb3ad0f39f25aa1107b0f8f",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/sceptres-runtime-bundle-2026-10-05/browser-results.json",
+      "size": 29837,
+      "sha256": "fa025e8b0ebee3d7d4d8a9d317052cffd90b3efa3b4384168e0f43c398ab18a7",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/sceptres-runtime-bundle-2026-10-05/old-filled-results.json",
+      "size": 390,
+      "sha256": "80a258108e5d05fea3e50864f37911544576ad77778d4480914f3707538de948",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/sceptres-runtime-bundle-2026-10-05/screenshots.json",
+      "size": 43605,
+      "sha256": "8bac130b576631b40585fbdd1548172d33887a21cd6a7d0f9fceaf202e47e826",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/staves-talismans-source-bundle-2026-10-05/api-results.json",
+      "size": 198081,
+      "sha256": "fa64a3ad5b8661d5353bd8f5da0e46305a13120ed4dd92ea3e0fe7744191d216",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/staves-talismans-source-bundle-2026-10-05/browser-results.json",
+      "size": 58490,
+      "sha256": "5da9aa95c96f452ea9dc181354a0f5a9a7af4d46b79ad75e54f030015987fa04",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/staves-talismans-source-bundle-2026-10-05/negativeJewel-results.json",
+      "size": 1157,
+      "sha256": "9146c55f167bb3d7515f07c3e09c9766f4c25708e2bc19b8cda83d4da28e610c",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/staves-talismans-source-bundle-2026-10-05/oldFilled-results.json",
+      "size": 23136,
+      "sha256": "70086f82d3639928b2d975eaba729747db10ee9759da4d96c959da64837161fc",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/wands-runtime-bundle-2026-10-05/api-results.json",
+      "size": 25521,
+      "sha256": "06150d23616e1866ff2949d67f54b29a8bbbcfb80611cd8c670cc056136b22f2",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/wands-runtime-bundle-2026-10-05/browser-results.json",
+      "size": 27684,
+      "sha256": "496697177b56b280325548462c314063f244173c7668eba28af51200d627dbd2",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/wands-runtime-bundle-2026-10-05/old-filled-results.json",
+      "size": 390,
+      "sha256": "80a258108e5d05fea3e50864f37911544576ad77778d4480914f3707538de948",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/evidence/wands-runtime-bundle-2026-10-05/screenshots.json",
+      "size": 54165,
+      "sha256": "d857082bd7efc77fc6997442905db8dfec38b506f4f5180dd9bef66030f8f46f",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/verification/automatic-method-foundation-20261016/solar-root-scope.json",
+      "size": 12938,
+      "sha256": "b5da88c26c08069e6cd0654e0bf24fdfbd6f60f9aebae4a9df00a126119fc82b",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/verification/automatic-policy-integration-20261016/browser-desktop.png",
+      "size": 52597,
+      "sha256": "8b0f9916b190a030dbcabdab850922beeacbe5eb00d08f489149d17a2ddc15c1",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/verification/automatic-policy-integration-20261016/browser-mobile.png",
+      "size": 50895,
+      "sha256": "f0699ca737dc91aa89421a6c09af9e00d4e0ac8fb7c5569dd9c3f661552a6ba5",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/verification/automatic-policy-integration-20261016/browser-results.json",
+      "size": 168,
+      "sha256": "fd9171396867f7a9501c824b68e011981148f2ab57e6b66403fa17681bc267de",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/verification/automatic-policy-integration-20261016/checks.json",
+      "size": 744,
+      "sha256": "f0c9e1c49e795759d8534b683e48aa51d3c927974589b274f559502bdedb8a3b",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/verification/automatic-policy-integration-20261016/life-results.json",
+      "size": 883,
+      "sha256": "f231dd0e2ace5fc19bf44ef9ec8356e81385fff1751e52c8a87a5a6f338a8b28",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/verification/automatic-policy-integration-20261016/scope-results.json",
+      "size": 24958,
+      "sha256": "33d595a847e591d175d9afeca704b36f9422277ddf603c19dc73958caae07c4b",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/verification/automatic-policy-integration-20261016/solar-times.json",
+      "size": 1051,
+      "sha256": "e4f1fa2b6bab68bf95c2bdde8909b9e324f647e336ff41a1b44271d797ecce34",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/verification/automatic-policy-ui-20261016/browser-results.json",
+      "size": 932,
+      "sha256": "3b733a450dd1d5966cc7f6865c3a3fc87dd532c51b5d56d74fbed6facdf56798",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/verification/craft-support-ui-20261016/browser.json",
+      "size": 392,
+      "sha256": "6196c5698125c647bf506528f30c4294c8285674a3b02f84ed7b61959e6bd425",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/verification/craft-support-ui-20261016/checks.json",
+      "size": 419,
+      "sha256": "52207fe2c815ef1cff64e4cc485ffc4e90a46f36510987de24bad7b7f2647fdf",
+      "reason": "과거 QA 실행 산출물; 당시 요약 및 재현 스크립트 보존"
+    },
+    {
+      "path": "docs/verification/craft-support-ui-20261016/desktop.png",
+      "size": 53502,
+      "sha256": "f6af21a40fbe11e372f78d2543ce5830d352133027b62ba843c7a3dea32c49b2",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/verification/craft-support-ui-20261016/mobile.png",
+      "size": 19389,
+      "sha256": "1c404c58d337e89a5ee86c17b4288d9f8dc375a0e5ce1283b915e6eeb759674e",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    },
+    {
+      "path": "docs/verification/craft-support-ui-20261016/stopped.png",
+      "size": 3748,
+      "sha256": "769b84ff71798c9a5d2ce4b3a71cfa3c1db74277fe2353310acfd8a4528a1688",
+      "reason": "과거 UI 화면 캡처; 당시 요약 보존, QA 재실행 시 재생성"
+    }
+  ]
+}

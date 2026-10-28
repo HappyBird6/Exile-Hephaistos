@@ -1,3 +1,5 @@
+> 2026-10-28 보관 정리: 이 문서의 일부 과거 QA 산출물 링크는 로컬 백업 안내로 연결됩니다. 당시 검증 결과를 현재 재검증한 것은 아닙니다. 원경로·해시는 보관 목록에서 확인하세요.
+
 # Crossbow highest-tier 대표 6종
 
 기준 `9fbb83da948d515756b6cea9ffb7a24155abba8e`, branch `workbench/top-bases-20261004`. 기존 Workbench 91종에 Crossbow 6종을 추가하여 **97 bases**를 제공한다. 이 묶음은 요청된 highest-tier/sidegrade 대표 범위다. 전체 Crossbow base나 모든 장비 class의 완료를 뜻하지 않는다.
@@ -29,8 +31,8 @@ QA는 새 `codex/crossbows-qa-20261005`, project `exile-crossbows-20261005`, loc
 
 - Backend 최종 `check generateJooq bootJar`: unit460, Docker integration6, formatter/ArchUnit 통과. codegen은 migration을 적용한 임시 DB에서 실행했다. `backend-check-3.log`에 최종 registry version을 포함한 성공 결과를 남겼다.
 - Frontend `npm ci`, lint, typecheck, format:check, test, build: 63 files / 1865 tests 통과. 2675 catalog definitions, compound432의 6locale coverage를 확인했다. Vite의 기존 큰 bundle 경고는 남으며 code splitting을 범위 밖에서 추가하지 않았다.
-- [API785 checks](../../../evidence/crossbows-source-bundle-2026-10-05/api-results.json): 기존91 initial 전체 비교, 신규6 전체 definitions/source weights, ordinary/higher currency·fixed24·replacement7·Omens, wrong-class/deferred atomic refusal, low-ilvl/source minimum, Blessed·implicit·quality/socket 및 Solar-only Support/Explorer를 검증했다.
-- [Browser780 checks](../../../evidence/crossbows-source-bundle-2026-10-05/browser-results.json): 신규6 positive/negative class 경로, Shift/Alt/orange, 기존91 films의 exact state 복원, Solar overflow40/cap20/HALF_UP를 확인했다. page errors는0이다. [Legacy filled film7 checks](../../../evidence/crossbows-source-bundle-2026-10-05/old-filled-results.json)로 Wand/Sceptre/Hallowed compound·fracture·snapshot을 추가 검증했다.
+- [API785 checks](../../../evidence-retention.md#archived-files): 기존91 initial 전체 비교, 신규6 전체 definitions/source weights, ordinary/higher currency·fixed24·replacement7·Omens, wrong-class/deferred atomic refusal, low-ilvl/source minimum, Blessed·implicit·quality/socket 및 Solar-only Support/Explorer를 검증했다.
+- [Browser780 checks](../../../evidence-retention.md#archived-files): 신규6 positive/negative class 경로, Shift/Alt/orange, 기존91 films의 exact state 복원, Solar overflow40/cap20/HALF_UP를 확인했다. page errors는0이다. [Legacy filled film7 checks](../../../evidence-retention.md#archived-files)로 Wand/Sceptre/Hallowed compound·fracture·snapshot을 추가 검증했다.
 - 6 bases × 6 locales × desktop1440/mobile390의 카드72와 전체 화면72, orange6·Solar overflow6를 캡처했다. 카드12/full14 contact sheets를 모두 직접 시각 검토했고 name·source properties·requirements·implicit 및 줄바꿈/화면 경계에 문제가 없었다. 원본 PNG와 실행 로그는 전용 QA 경로에 보존한다.
 - 첫 Backend 실패6은 source ordinary pool에 없는 Reload Speed를 기대한 새 테스트 오류였다. 실제 AdditionalAmmo canonical stat 검증으로 수정했다. 첫 Frontend 실패3은 신규 binding 수를 반영하지 않은 coverage assertion이었다. 기존1812 equipment / compound382 / numeric-single234 보존 assertion을 유지하고 신규71 /50 /18 및 총1883 /432 /252를 별도 검증하도록 확장했다. 실패 로그를 보존했으며 skip·기대값 완화는 하지 않았다.
 - 자체 리뷰에서 registry 설명 version의 Bow 복사값을 독립 Crossbow version으로 수정하고 Backend aggregate를 다시 실행했다. 새 numeric binding68의 stat 연결은 모두 유일함을 확인했으며 importer는 ambiguous binding을 거절한다. authored formatter 결과만 scope에 맞게 복사했고 JSON 의미가 동일함을 확인했다.

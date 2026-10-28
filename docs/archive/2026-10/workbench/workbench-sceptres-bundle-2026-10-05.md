@@ -1,3 +1,5 @@
+> 2026-10-28 보관 정리: 이 문서의 일부 과거 QA 산출물 링크는 로컬 백업 안내로 연결됩니다. 당시 검증 결과를 현재 재검증한 것은 아닙니다. 원경로·해시는 보관 목록에서 확인하세요.
+
 # Sceptre ordinary skill-family bundle
 
 기준 HEAD `5ae15bfbeaa29a134a422f8a84013928e688064a`, branch `workbench/top-bases-20261004`, sole writer. 기존 71개에 ordinary skill variant 7개를 추가하여 총 78개를 제공한다. Hallowed와 Rattling 및 기존 snapshot/modifier identity는 보존한다.
@@ -24,7 +26,7 @@ Six-locale class rows의 family와 기존 display template 대응을 모두 검�
 
 Infinite Essence의 특별 attribute target은 기존 Sceptre 지원 경계를 유지한다. source class rows에 존재한다는 사실을 보존하며 이번 ordinary base 확장으로 지원 범위를 넓히지 않는다. 기존 Command 및 source-reviewed fixed Essence들과 Perfect Command가 새 base에 동일하게 적용된다.
 
-최종 [runtime validation](../../../evidence/sceptres-runtime-bundle-2026-10-05/validation.json)은 Backend unit/architecture441 + Docker integration6, Frontend 필수 검사 및1820 tests/build, API400, browser740, legacy filled film7을 모두 통과했다. 검증 copy와 최종 소스577개가 byte 단위로 일치한다. [Screenshot index](../../../evidence/sceptres-runtime-bundle-2026-10-05/screenshots.json)의 180장과 contact sheets30장을 pixels 자체 리뷰했다. 카드84장/contact14장은 앞서 직접 검토한 원본과 byte 단위로 동일하며, 최종 full-page contact16장은 수정 후 직접 검토했다. [실패 이력](../../../evidence/sceptres-runtime-bundle-2026-10-05/failure-history.json)을 보존한다. 독립 리뷰가 아닌 sole-writer 자체 리뷰다.
+최종 [runtime validation](../../../evidence/sceptres-runtime-bundle-2026-10-05/validation.json)은 Backend unit/architecture441 + Docker integration6, Frontend 필수 검사 및1820 tests/build, API400, browser740, legacy filled film7을 모두 통과했다. 검증 copy와 최종 소스577개가 byte 단위로 일치한다. [Screenshot index](../../../evidence-retention.md#archived-files)의 180장과 contact sheets30장을 pixels 자체 리뷰했다. 카드84장/contact14장은 앞서 직접 검토한 원본과 byte 단위로 동일하며, 최종 full-page contact16장은 수정 후 직접 검토했다. [실패 이력](../../../evidence/sceptres-runtime-bundle-2026-10-05/failure-history.json)을 보존한다. 독립 리뷰가 아닌 sole-writer 자체 리뷰다.
 
 첫 pixels 자체 리뷰에서 신규 Sceptre도 기존 Skeletal Warrior scope 안내를 상속하는 표시 결함을 발견했다. 기존 Rattling/Hallowed 문구와 번역을 보존하고 신규 7종에는 source granted skill을 일반적으로 설명하는 6locale key를 추가했다. 첫 captures `browser-attempt-1`과 첫 성공 Frontend log를 보존했다. 수정 후 필수 Frontend 검사를 전체 재실행하고, 잘못된 legacy scope 안내가 없는지 추가 assertion으로 검증한다.
 

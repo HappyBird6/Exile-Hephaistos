@@ -1,3 +1,5 @@
+> 2026-10-28 보관 정리: 이 문서의 일부 과거 QA 산출물 링크는 로컬 백업 안내로 연결됩니다. 당시 검증 결과를 현재 재검증한 것은 아닙니다. 원경로·해시는 보관 목록에서 확인하세요.
+
 # Automatic policy production integration — 2026-10-16
 
 This is bounded integration evidence, not a claim that the full requested search space is complete. See [implementation contract](../../crafting-automatic-policy-implementation.md).
@@ -19,7 +21,7 @@ The final backend snapshot was copied into a Linux filesystem and tested in the 
 - Windows scripts: six unittest cases passed. Compose stack configuration validation passed without starting the application stack or touching its volumes.
 - Tests cover independent small diamond/oracle cases, disjoint mass, first-hit, roll-cell reconstruction, late merge depth, quality work, storage rollback, restart, stale commands and HTTP contracts. Existing strategy tests cover adaptive outcome choices.
 
-[Check summary](checks.json) records the final outcomes. Both source manifests were compared with the files committed here: zero hash mismatches. Backend and frontend checks finished with exit zero.
+[Check summary](../../evidence-retention.md#archived-files) records the final outcomes. Both source manifests were compared with the files committed here: zero hash mismatches. Backend and frontend checks finished with exit zero.
 
 During real HTTP verification, a required ruleset header and controller error-advice registration were corrected. A later cyclic strategy request exposed outward-rounded, mutually exclusive masses whose merged upper bound exceeded one. The merged target interval is now intersected with the probability domain before strategy construction; a three-way merge regression and the actual API scenario both pass. Storage exhaustion returns a paused durable cursor instead of a broken job.
 
@@ -27,15 +29,15 @@ During real HTTP verification, a required ruleset header and controller error-ad
 
 The final JAR and frontend build were served by one disposable application server, with isolated PostgreSQL and Redis instances. No HTTP search response was mocked in these probes.
 
-[Browser results](browser-results.json) confirm create/recreate 202, distinct job identities, stop, resume, non-root selection, editing, goal preservation and a second stop. Desktop and 390-pixel mobile viewports were inspected; see [desktop](browser-desktop.png) and [mobile](browser-mobile.png). Automated stale-response tests supplement this flow. The long method list is still a usability/scaling limitation; this was not a UI redesign.
+[Browser results](../../evidence-retention.md#archived-files) confirm create/recreate 202, distinct job identities, stop, resume, non-root selection, editing, goal preservation and a second stop. Desktop and 390-pixel mobile viewports were inspected; see [desktop](../../evidence-retention.md#archived-files) and [mobile](../../evidence-retention.md#archived-files). Automated stale-response tests supplement this flow. The long method list is still a usability/scaling limitation; this was not a UI redesign.
 
-[Solar HTTP timings](solar-times.json): empty rare ilvl 82 Solar Amulet, explicit projectile level ≥3 AND explicit Spirit ≥47. Create took about 1.405 s. Eight bounded advances took roughly 0.400–1.490 s each and returned six nodes / 128 methods, still READY and incomplete. The slice's 300 ms target is not a hard response deadline: primitive work, checkpoint serialization and response construction can exceed it. This run overlapped other verification work, so these are observations, not a latency guarantee.
+[Solar HTTP timings](../../evidence-retention.md#archived-files): empty rare ilvl 82 Solar Amulet, explicit projectile level ≥3 AND explicit Spirit ≥47. Create took about 1.405 s. Eight bounded advances took roughly 0.400–1.490 s each and returned six nodes / 128 methods, still READY and incomplete. The slice's 300 ms target is not a hard response deadline: primitive work, checkpoint serialization and response construction can exceed it. This run overlapped other verification work, so these are observations, not a latency guarantee.
 
-[Life + Chaos results](life-results.json): a rare starting item already satisfying explicit life ≥100 retains root condition statuses MATCH/NO_MATCH. Three advances produced 64 nodes / 128 methods and PAUSED, with loss outcomes and six goal-matching state witnesses. The 1,164 loss rows include repeated horizons/methods and are not unique paths. Goal witnesses are not a claim of resolved success probability. Local recommendations remained zero; completion remained false.
+[Life + Chaos results](../../evidence-retention.md#archived-files): a rare starting item already satisfying explicit life ≥100 retains root condition statuses MATCH/NO_MATCH. Three advances produced 64 nodes / 128 methods and PAUSED, with loss outcomes and six goal-matching state witnesses. The 1,164 loss rows include repeated horizons/methods and are not unique paths. Goal witnesses are not a claim of resolved success probability. Local recommendations remained zero; completion remained false.
 
 ## Bounded real-catalog scope probe
 
-[Scope results](scope-results.json) and [probe source](ScopeProbe.java) use the final JAR's classes and reviewed Solar data. The approved 187-material inventory yields 76 candidate execution variants, all queried on the starting state, including variants that are unavailable, unsupported or rejected by policy. This is not proof that every material/base interaction is implemented. Abyss and jewel scope remain outside this benchmark.
+[Scope results](../../evidence-retention.md#archived-files) and [probe source](ScopeProbe.java) use the final JAR's classes and reviewed Solar data. The approved 187-material inventory yields 76 candidate execution variants, all queried on the starting state, including variants that are unavailable, unsupported or rejected by policy. This is not proof that every material/base interaction is implemented. Abyss and jewel scope remain outside this benchmark.
 
 The initial graph budget was 64 nodes, 128 methods, 20,000 retained states and 5,000 primitive outcomes. One bounded continuation used 128/256/50,000/10,000 respectively. The loops also had explicit operation limits. No unrestricted complete exploration was attempted. The retained count can cross its admission threshold by an already-open atomic batch (observed 50,005).
 

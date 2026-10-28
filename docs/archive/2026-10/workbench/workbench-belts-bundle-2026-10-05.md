@@ -1,3 +1,5 @@
+> 2026-10-28 보관 정리: 이 문서의 일부 과거 QA 산출물 링크는 로컬 백업 안내로 연결됩니다. 당시 검증 결과를 현재 재검증한 것은 아닙니다. 원경로·해시는 보관 목록에서 확인하세요.
+
 # Belt distinct implicit bundle
 
 시작 HEAD `e5d7c4e663049565de869e0aed826cfa714c8eb5`, branch `workbench/top-bases-20261004`, sole writer. 기존 78종에 ordinary 10종과 Breach identity 3종을 추가하여 **91 bases**를 제공한다. 기존 Rawhide snapshot·modifier ID·film과 기존 78종의 metadata·6locale 번역은 보존한다.
@@ -38,7 +40,7 @@ Frontend 첫 coverage 실패는 source requirement가 없는 Linen을 신규 man
 
 최종 검증: Backend unit/architecture **454**, Docker integration **6**; Frontend **1859**; API **1248**; implicit/slot **84**; browser **1027**; filled legacy **7**. failures/errors/skips와 browser page errors는 0이다. Backend의 check/generateJooq/bootJar, Frontend npm ci/lint/typecheck/format/test/build를 격리 복사본에서 완료했다. 마지막 Frontend는 log4의 npm ci/lint/typecheck와 log5의 format/test/build를 합쳐 검증하며, 새 method chain의 고정 Prettier second pass를 기록한다.
 
-6locale desktop/mobile screenshot **324장**, contact sheet **54장**을 모두 시각 검토했다. [Runtime validation](../../../evidence/belts-runtime-bundle-2026-10-05/validation.json), [API checks](../../../evidence/belts-runtime-bundle-2026-10-05/api-results.json), [browser checks](../../../evidence/belts-runtime-bundle-2026-10-05/browser-results.json), [screenshot SHA index](../../../evidence/belts-runtime-bundle-2026-10-05/screenshots.json), [failure recovery](../../../evidence/belts-runtime-bundle-2026-10-05/failure-history.json)에 검증 범위와 실패 이력을 보존한다. 검증된 backend/frontend src 621개와 작업 source의 bytes가 일치한다.
+6locale desktop/mobile screenshot **324장**, contact sheet **54장**을 모두 시각 검토했다. [Runtime validation](../../../evidence/belts-runtime-bundle-2026-10-05/validation.json), [API checks](../../../evidence-retention.md#archived-files), [browser checks](../../../evidence-retention.md#archived-files), [screenshot SHA index](../../../evidence-retention.md#archived-files), [failure recovery](../../../evidence/belts-runtime-bundle-2026-10-05/failure-history.json)에 검증 범위와 실패 이력을 보존한다. 검증된 backend/frontend src 621개와 작업 source의 bytes가 일치한다.
 
 첫 browser 시도는 성공한 HTTP200 결과의 null quality cap을 Frontend 검증기가 거절하는 회귀를 발견했다. reviewed Belt class만 null-cap 허용에 추가하고 실제 응답 수용13건/가짜 cap 거절13건을 추가했다. 다른 class 규칙과 기존78 identity, registry220/deferred50, old/new film, Solar quality overflow/HALF_UP, Shift/Alt/orange 검증은 유지했다. API의 host 경유 timeout은 QA health UP 확인 뒤 전용 Compose network에서 동일 assertions로 검증했으며 이전 output을 덮어쓰지 않았다.
 
