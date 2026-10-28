@@ -266,3 +266,78 @@ it.each(['REGAL', 'EXALTED'])(
     expect(p.edges[0]!.preferred).toEqual(['omen'])
   },
 )
+
+it('highlights downstream cards and methods on hover, restores selection on leave, and supports keyboard focus', () => {
+  const s = original(),
+    p = stateProjection(s.result, 100),
+    select = vi.fn(),
+    choose = vi.fn()
+  const branch = p.bundles.find((b) => b.depth === 1)!
+  const selectedEdge = p.edges.find((e) => e.from === 'state:0')!
+  const v = selectedEdge.variants[0]!,
+    o = v.outcomes[0]!
+  const mounted = render(
+    <GroupedMethodGraph
+      view={s.result}
+      cycles={100}
+      selected={0}
+      route={[
+        {
+          method: v.method.id,
+          source: v.method.source,
+          target: o.target!,
+          kind: o.kind,
+        },
+      ]}
+      select={select}
+      choose={choose}
+      action={(a) => a.currency}
+      presentItem={() => s.cards['0']!.en}
+      frozenCards={s.cards}
+    />,
+  )
+  const card = mounted.container.querySelector(
+    `[data-bundle-id="${branch.id}"]`,
+  )!
+  fireEvent.mouseEnter(card)
+  expect(card).toHaveClass('is-downstream')
+  expect(
+    mounted.container.querySelector('[data-bundle-id="state:0"]'),
+  ).not.toHaveClass('is-downstream')
+  const outgoing = p.edges.filter((e) => e.from === branch.id)
+  expect(
+    mounted.container.querySelectorAll('.automatic-edge.is-downstream'),
+  ).toHaveLength(outgoing.length)
+  expect(
+    mounted.container.querySelectorAll('.graph-action-label.is-downstream'),
+  ).toHaveLength(outgoing.length)
+  for (const e of outgoing)
+    expect(
+      mounted.container.querySelector(`[data-bundle-id="${e.to}"]`),
+    ).toHaveClass('is-downstream')
+  const selectedBefore = mounted.container.querySelectorAll(
+    '.automatic-edge.is-selected',
+  ).length
+  fireEvent.mouseLeave(card)
+  expect(mounted.container.querySelectorAll('.is-downstream')).toHaveLength(0)
+  expect(
+    mounted.container.querySelectorAll('.automatic-edge.is-selected'),
+  ).toHaveLength(selectedBefore)
+  const button = within(card as HTMLElement).getAllByRole('button', {
+    name: 'Select this item state',
+  })[0]!
+  const matches = vi
+    .spyOn(button, 'matches')
+    .mockImplementation((selector) => selector === ':focus-visible')
+  fireEvent.focus(button)
+  expect(card).toHaveClass('is-downstream')
+  fireEvent.click(button)
+  expect(select).toHaveBeenCalledOnce()
+  expect(choose).not.toHaveBeenCalled()
+  fireEvent.blur(button, {
+    relatedTarget: screen.getByRole('button', { name: 'Zoom in' }),
+  })
+  expect(mounted.container.querySelectorAll('.is-downstream')).toHaveLength(0)
+  matches.mockRestore()
+  mounted.unmount()
+})

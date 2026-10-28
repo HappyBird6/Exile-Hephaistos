@@ -1,3 +1,4 @@
+import { downstream } from './downstream'
 import { compactFrozenCard } from './compactFrozenCard'
 import { arrivalProbabilities } from './arrivalProbabilities'
 import { attemptLabel } from './attemptLabel'
@@ -74,7 +75,13 @@ export function GroupedMethodGraph({
     observer.observe(el)
     return () => observer.disconnect()
   }, [])
+  const [hovered, setHovered] = useState<string | null>(null)
+  const [focused, setFocused] = useState<string | null>(null)
   const projection = stateProjection(view, cycles)
+  const highlighted = downstream(
+    panning ? null : (hovered ?? focused),
+    projection.edges,
+  )
   const nodeWidth = Math.min(320, Math.max(240, viewport.width - 24))
   const renderedCards = new Map<
     number,
@@ -270,6 +277,7 @@ export function GroupedMethodGraph({
                 }}
                 className={
                   'automatic-edge' +
+                  (highlighted.links.has(e.id) ? ' is-downstream' : '') +
                   (e.variants.some((v) =>
                     route.some(
                       (r) =>
@@ -316,7 +324,10 @@ export function GroupedMethodGraph({
                     {edges.map((e) => (
                       <button
                         key={e.id}
-                        className="graph-action-label"
+                        className={
+                          'graph-action-label' +
+                          (highlighted.links.has(e.id) ? ' is-downstream' : '')
+                        }
                         onClick={() => openEdge(e)}
                       >
                         {labelFor(e)}
@@ -376,6 +387,26 @@ export function GroupedMethodGraph({
               <foreignObject
                 key={b.id}
                 data-bundle-id={b.id}
+                className={
+                  highlighted.nodes.has(b.id) ? 'is-downstream' : undefined
+                }
+                onMouseEnter={() => setHovered(b.id)}
+                onMouseLeave={() => setHovered(null)}
+                onFocus={(event) => {
+                  if (
+                    event.target instanceof Element &&
+                    event.target.matches(':focus-visible')
+                  )
+                    setFocused(b.id)
+                }}
+                onBlur={(event) => {
+                  if (
+                    !event.currentTarget.contains(
+                      event.relatedTarget as Node | null,
+                    )
+                  )
+                    setFocused(null)
+                }}
                 data-state-ids={b.nodes.map((n) => n.id).join(',')}
                 data-terminal={!projection.edges.some((e) => e.from === b.id)}
                 x={p.x - nodeWidth / 2}
