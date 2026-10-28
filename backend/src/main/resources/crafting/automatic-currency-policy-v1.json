@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "approved-187-2026-10-28-six-affix-v5",
+  "policyVersion": "approved-187-2026-10-28-first-affix-v6",
   "sourceUrl": "https://drive.google.com/file/d/1T-V7AxH9BT6qMxFDfsWcpb9u9_o-LSYT/view",
   "sourceModifiedAt": "2026-10-15T08:05:34.858Z",
   "maximumExploredExplicits": 6,
@@ -142,8 +142,8 @@
       "sourceUrl": "https://poe2db.tw/kr/Chaos_Orb",
       "effectKo": "희귀 아이템의 무작위 속성 1개를 제거한 후 무작위 속성 1개를 추가한다.",
       "decision": "CONDITIONAL",
-      "restrictionKo": "2026-10-19: 목표 옵션 획득을 계획한 단계에서만 허용. 실제 아이템 레벨·제거·슬롯 조건과 미검증 확률 질량은 유지.",
-      "condition": "GOAL_ACQUISITION"
+      "restrictionKo": "제작 시작 단계의 실제 명시 속성 1개인 희귀 아이템에서 원하는 첫 속성 획득을 위한 반복만 허용. 이후 제작·다중 속성·목표 준비에는 사용하지 않음.",
+      "condition": "FIRST_AFFIX_ACQUISITION"
     },
     {
       "number": 15,

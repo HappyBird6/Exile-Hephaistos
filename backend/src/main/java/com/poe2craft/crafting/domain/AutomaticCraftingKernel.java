@@ -215,13 +215,28 @@ public final class AutomaticCraftingKernel {
     return Map.copyOf(result);
   }
 
+  public boolean initialChaosOnly() {
+    return policy.document().entries().stream()
+        .anyMatch(
+            e ->
+                e.id().equals("CHAOS")
+                    && e.condition() == AutomaticCurrencyPolicy.Condition.FIRST_AFFIX_ACQUISITION);
+  }
+
+  private boolean invalidInitialChaos(ItemState item, WorkbenchCurrency currency) {
+    return initialChaosOnly()
+        && currency == WorkbenchCurrency.CHAOS
+        && (item.rarity() != ItemState.Rarity.RARE || item.explicits().size() != 1);
+  }
+
   /** Eligibility and prerequisite projection, before allocating a numeric probability law. */
   public AutomaticCraftingPlan plan(ItemState item, AutomaticCraftingAction action) {
     if (action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_BASE_CHECKPOINT)
       return new AutomaticCraftingPlan(
           AutomaticCraftingPlan.Status.UNAVAILABLE, "ABSTRACT_QUALITY_WORK", List.of(), false, "");
     var context = new AutomaticCurrencyPolicy.Context(family, action.purpose(), action.currency());
-    if (policy.evaluate(action.currency().name(), context)
+    if (invalidInitialChaos(item, action.currency())
+        || policy.evaluate(action.currency().name(), context)
             != AutomaticCurrencyPolicy.Verdict.PERMITTED
         || action.omens().stream()
             .anyMatch(
@@ -337,7 +352,8 @@ public final class AutomaticCraftingKernel {
     }
     var context =
         new AutomaticCurrencyPolicy.Context(family, execution.purpose(), execution.currency());
-    if (policy.evaluate(execution.currency().name(), context)
+    if (invalidInitialChaos(state, execution.currency())
+        || policy.evaluate(execution.currency().name(), context)
             != AutomaticCurrencyPolicy.Verdict.PERMITTED
         || execution.omens().stream()
             .anyMatch(

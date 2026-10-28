@@ -64,7 +64,7 @@ class AutomaticSearchServiceTest {
                 item ->
                     new AutomaticMethodGraph.Progress(
                         GoalFilter.Status.NO_MATCH, List.of(GoalFilter.Status.NO_MATCH)),
-                request.goal().toString()),
+                new ObjectMapper().valueToTree(request.goal()).toString()),
         clock);
   }
 
@@ -96,6 +96,35 @@ class AutomaticSearchServiceTest {
                             null,
                             false))))),
         List.of());
+  }
+
+  @Test
+  void previousChaosPolicyIsReadOnlyWithoutRewritingStoredBytes() throws Exception {
+    var repository = new Repository();
+    String id;
+    try (var service = service(repository)) {
+      id = service.create("owner", request("old-chaos")).id();
+    }
+    var json = new ObjectMapper();
+    var document =
+        (com.fasterxml.jackson.databind.node.ObjectNode) json.readTree(repository.read(id));
+    var graph = (com.fasterxml.jackson.databind.node.ObjectNode) document.get("graph");
+    graph.put("version", "goal-directed-milestone-graph-v12-joint-attribute-laws");
+    ((com.fasterxml.jackson.databind.node.ObjectNode) graph.get("identity"))
+        .put("policyVersion", "approved-187-2026-10-28-six-affix-v5");
+    repository.save(id, json.writeValueAsBytes(document));
+    var before = repository.read(id);
+    try (var service = service(repository)) {
+      assertThatCode(() -> service.get("owner", id)).doesNotThrowAnyException();
+      assertThatThrownBy(
+              () ->
+                  service.control(
+                      "owner",
+                      id,
+                      new AutomaticSearchService.Control("resume-old", 1, 1, "RESUME")))
+          .isInstanceOf(PathSearchProtocol.Rejected.class);
+    }
+    assertThat(repository.read(id)).isEqualTo(before);
   }
 
   @Test
@@ -200,7 +229,7 @@ class AutomaticSearchServiceTest {
                     item ->
                         new AutomaticMethodGraph.Progress(
                             GoalFilter.Status.MATCH, List.of(GoalFilter.Status.MATCH)),
-                    request.goal().toString()),
+                    new ObjectMapper().valueToTree(request.goal()).toString()),
             Clock.systemUTC())) {
       for (int i = 0; i < 16; i++) {
         var created = service.create("owner", request("complete-" + i));

@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 /** Cooperative discovery over conditional item laws; distinct joint laws never share identity. */
 public final class AutomaticMethodGraph implements AutoCloseable {
-  public static final String VERSION = "goal-directed-milestone-graph-v12-joint-attribute-laws";
+  public static final String VERSION = "goal-directed-milestone-graph-v13-initial-chaos-stage";
 
   public record Progress(Status goal, List<Status> entries) {
     public Progress {
@@ -78,7 +78,12 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     }
   }
 
-  private record ClassKey(Object item, boolean quality40, int abstractQuality, Progress progress) {}
+  private record ClassKey(
+      Object item,
+      boolean quality40,
+      int abstractQuality,
+      Progress progress,
+      boolean initialStage) {}
 
   public record NodeView(
       int id,
@@ -200,7 +205,16 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   private List<AutomaticCraftingAction> candidates;
 
   public record Identity(
-      ItemState item, boolean quality40, int abstractQuality, Map<String, TierCell> tiers) {
+      ItemState item,
+      boolean quality40,
+      int abstractQuality,
+      Map<String, TierCell> tiers,
+      boolean initialStage) {
+    public Identity(
+        ItemState item, boolean quality40, int abstractQuality, Map<String, TierCell> tiers) {
+      this(item, quality40, abstractQuality, tiers, false);
+    }
+
     public Identity {
       tiers = tiers == null ? Map.of() : Map.copyOf(tiers);
     }
@@ -266,7 +280,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
               ? new Progress(Status.NO_MATCH, raw.entries())
               : raw;
       discovered = progress.goal() == Status.MATCH;
-      members.add(new Identity(item, quality40, this.abstractQuality, tiers));
+      members.add(new Identity(item, quality40, this.abstractQuality, tiers, depth == 0));
     }
   }
 
@@ -413,7 +427,9 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       int abstractQuality,
       int depth,
       Map<String, TierCell> tiers) {
-    var key = new Identity(item, quality40, Math.max(quality40 ? 40 : 0, abstractQuality), tiers);
+    var key =
+        new Identity(
+            item, quality40, Math.max(quality40 ? 40 : 0, abstractQuality), tiers, depth == 0);
     var node = nodes.get(key);
     if (node != null) {
       if (depth < node.depth) {
@@ -430,12 +446,14 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                 : kernel.behaviorKey(item),
             quality40,
             node.abstractQuality,
-            node.progress);
+            node.progress,
+            depth == 0);
     if (depth > 0 && classes.containsKey(classKey)) return alias(classes.get(classKey), key, depth);
     if (depth > 0 && node.progress.goal() != Status.MATCH) {
       int work = node.abstractQuality;
       node.choices =
-          new GoalDirectedPlanner(kernel, state -> progress(state, work), candidates).choices(item);
+          new GoalDirectedPlanner(kernel, state -> progress(state, work), candidates)
+              .choices(item, false);
       var candidateNode = node;
       long proofStarted = System.nanoTime();
       var keyProof =
@@ -632,7 +650,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       source.choices =
           new GoalDirectedPlanner(
                   kernel, item -> progress(item, source.abstractQuality), candidates)
-              .choices(source.item);
+              .choices(source.item, source.id == 0);
     if (source.scan >= source.choices.size()) {
       source.discovered = true;
       revision++;

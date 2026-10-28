@@ -4,7 +4,7 @@ import java.util.*;
 
 /** User-approved exploration policy. This never grants game eligibility or probability support. */
 public final class AutomaticCurrencyPolicy {
-  public static final String VERSION = "approved-187-2026-10-28-six-affix-v5";
+  public static final String VERSION = "approved-187-2026-10-28-first-affix-v6";
   public static final int MAXIMUM_EXPLORED_EXPLICITS = 6;
 
   public enum Decision {
@@ -17,6 +17,7 @@ public final class AutomaticCurrencyPolicy {
   public enum Condition {
     NONE,
     GOAL_ACQUISITION,
+    FIRST_AFFIX_ACQUISITION,
     RARITY_UPGRADE,
     TEMPORARY_REMOVAL,
     HYSTERIA_PARTS,
@@ -141,6 +142,7 @@ public final class AutomaticCurrencyPolicy {
               context.purpose() == Purpose.RARITY_UPGRADE
                   && context.currency() == WorkbenchCurrency.TRANSMUTATION
                   && context.family().equals("amulets");
+          case FIRST_AFFIX_ACQUISITION -> context.purpose() == Purpose.GOAL_ACQUISITION;
           case GOAL_ACQUISITION ->
               context.purpose() == Purpose.GOAL_ACQUISITION
                   || context.purpose() == Purpose.TARGET_PREPARATION;

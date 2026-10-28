@@ -12,6 +12,19 @@ class AutomaticCurrencyPolicyTest {
   final AutomaticCurrencyPolicy policy = AutomaticCurrencyPolicyLoader.load();
 
   @Test
+  void chaosAcquisitionIsDistinctFromTargetPreparation() {
+    assertThat(
+            policy.evaluate(
+                "CHAOS", new Context("amulets", Purpose.GOAL_ACQUISITION, WorkbenchCurrency.CHAOS)))
+        .isEqualTo(Verdict.PERMITTED);
+    assertThat(
+            policy.evaluate(
+                "CHAOS",
+                new Context("amulets", Purpose.TARGET_PREPARATION, WorkbenchCurrency.CHAOS)))
+        .isEqualTo(Verdict.CONDITION_NOT_MET);
+  }
+
+  @Test
   void approvedRosterIncludesEveryCurrencyAndOmenWithoutClaimingExecutionSupport() {
     assertThat(policy.document().entries()).hasSize(187);
     var counts = new EnumMap<Decision, Long>(Decision.class);

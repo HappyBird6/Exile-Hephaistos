@@ -156,7 +156,28 @@ public final class GoalDirectedPlanner {
   }
 
   public List<Choice> choices(ItemState source) {
+    return choices(source, true);
+  }
+
+  public List<Choice> choices(ItemState source, boolean initialStage) {
     var progress = evaluate.apply(source);
+    var withoutAffixes =
+        new ItemState(
+            source.snapshotId(),
+            source.baseItemId(),
+            source.itemLevel(),
+            source.rarity(),
+            source.implicits(),
+            List.of(),
+            source.conditions(),
+            source.augmentSockets(),
+            source.catalystQuality());
+    var emptyProgress = evaluate.apply(withoutAffixes);
+    boolean acquired = false;
+    for (int i = 0; i < Math.min(progress.entries().size(), emptyProgress.entries().size()); i++)
+      if (progress.entries().get(i) == Status.MATCH
+          && emptyProgress.entries().get(i) != Status.MATCH) acquired = true;
+    boolean allowChaos = !kernel.initialChaosOnly() || (initialStage && !acquired);
     if (progress.goal() == Status.UNKNOWN
         || progress.goal() == Status.UNSUPPORTED
         || progress.entries().stream()
@@ -190,6 +211,7 @@ public final class GoalDirectedPlanner {
     }
     var prerequisites = new ArrayList<AutomaticCraftingAction>();
     for (var action : inventory) {
+      if (!allowChaos && action.currency() == WorkbenchCurrency.CHAOS) continue;
       if (action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT) {
         if (AutomaticCraftingKernel.hasQualityCap(source)
             && (kernel.qualityGoal() == 0 || progress.entries().getLast() != Status.MATCH))
@@ -223,6 +245,7 @@ public final class GoalDirectedPlanner {
     for (var preparation : prerequisites) {
       var prepared = kernel.representatives(kernel.plan(source, preparation));
       for (var acquisition : inventory) {
+        if (!allowChaos && acquisition.currency() == WorkbenchCurrency.CHAOS) continue;
         // This is an explicit material policy, not an equivalence of the three laws.
         if (acquisition.currency() == WorkbenchCurrency.CHAOS
             && Set.of(WorkbenchCurrency.EXALTED, WorkbenchCurrency.REGAL)

@@ -1,3 +1,4 @@
+import { chaosFirstAffixHints } from './chaosFirstAffixHints'
 import { guideMessages } from './guideMessages'
 import { planningNotes } from './planningNotes'
 import { rarityUpgradeHints } from './rarityUpgradeHints'
@@ -45,6 +46,7 @@ it.each(locales)(
     expect(
       policy.entries.filter((e) => ['USE', 'CONDITIONAL'].includes(e.decision)),
     ).toHaveLength(49)
+    expect(within(dialog).getByText(chaosFirstAffixHints[locale])).toBeVisible()
     expect(policy.entries.map((e) => e.number)).toEqual(
       Array.from({ length: 187 }, (_, i) => i + 1),
     )

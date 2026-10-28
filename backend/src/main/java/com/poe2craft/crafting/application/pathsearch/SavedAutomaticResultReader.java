@@ -10,9 +10,11 @@ final class SavedAutomaticResultReader {
   static AutomaticSearchService.View read(
       AutomaticSearchService.Disk disk, AutomaticSearchService.Runtime runtime) {
     var graph = Objects.requireNonNull(disk.graph());
-    boolean jointVersion = AutomaticMethodGraph.VERSION.equals(graph.version());
-    boolean qualityVersion =
+    boolean jointVersion =
         AutomaticMethodGraph.VERSION.equals(graph.version())
+            || "goal-directed-milestone-graph-v12-joint-attribute-laws".equals(graph.version());
+    boolean qualityVersion =
+        jointVersion
             || "goal-directed-milestone-graph-v11-tier-laws".equals(graph.version())
             || "goal-directed-milestone-graph-v10-quality-goal".equals(graph.version());
     if (!graph.identity().catalogDigest().equals(runtime.kernel().identity().catalogDigest())

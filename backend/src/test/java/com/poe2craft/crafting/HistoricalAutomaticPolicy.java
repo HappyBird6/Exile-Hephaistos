@@ -15,17 +15,27 @@ public final class HistoricalAutomaticPolicy {
         current.entries().stream()
             .map(
                 e ->
-                    deferred.contains(e.id())
+                    e.id().equals("CHAOS")
                         ? new AutomaticCurrencyPolicy.Entry(
                             e.number(),
                             e.id(),
                             e.nameKo(),
                             e.sourceUrl(),
                             e.effectKo(),
-                            AutomaticCurrencyPolicy.Decision.CONDITIONAL,
-                            "Historical engine fixture",
-                            AutomaticCurrencyPolicy.Condition.TEMPORARY_REMOVAL)
-                        : e)
+                            e.decision(),
+                            "Historical pre-first-affix fixture",
+                            AutomaticCurrencyPolicy.Condition.GOAL_ACQUISITION)
+                        : deferred.contains(e.id())
+                            ? new AutomaticCurrencyPolicy.Entry(
+                                e.number(),
+                                e.id(),
+                                e.nameKo(),
+                                e.sourceUrl(),
+                                e.effectKo(),
+                                AutomaticCurrencyPolicy.Decision.CONDITIONAL,
+                                "Historical engine fixture",
+                                AutomaticCurrencyPolicy.Condition.TEMPORARY_REMOVAL)
+                            : e)
             .toList();
     return new AutomaticCurrencyPolicy(
         new AutomaticCurrencyPolicy.Document(

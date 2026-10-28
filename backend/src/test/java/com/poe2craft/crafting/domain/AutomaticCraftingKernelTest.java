@@ -13,6 +13,46 @@ class AutomaticCraftingKernelTest {
   final BasicCurrencyTransitionsTest tiny = new BasicCurrencyTransitionsTest();
 
   @Test
+  void compoundStatsCountAsOneAffixAndMultiAffixExecutionIsRejected() {
+    var d = tiny.a;
+    var compound =
+        new ModifierDefinition(
+            d.id(),
+            d.name(),
+            d.layer(),
+            d.affixType(),
+            d.familyIds(),
+            d.requiredItemLevel(),
+            d.weight(),
+            d.tier(),
+            d.text(),
+            List.of(
+                new ModifierDefinition.StatRange("a", 1, 2),
+                new ModifierDefinition.StatRange("second", 1, 2)),
+            d.tags(),
+            d.sourceUrl());
+    var catalog = tiny.catalog(List.of(tiny.implicit, compound, tiny.b));
+    var kernel =
+        new AutomaticCraftingKernel(
+            policy,
+            catalog,
+            new WorkbenchSimulator(catalog, new CraftingEngine(catalog)),
+            "amulets");
+    var action =
+        new AutomaticCraftingAction(
+            WorkbenchCurrency.CHAOS, Set.of(), AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION);
+    var root =
+        tiny.item(
+            ItemState.Rarity.RARE,
+            List.of(new ModifierInstance("a", Map.of("a", 1L, "second", 1L))));
+    assertThat(kernel.plan(root, action).status()).isEqualTo(AutomaticCraftingPlan.Status.READY);
+    var multiple =
+        tiny.item(ItemState.Rarity.RARE, List.of(root.explicits().getFirst(), tiny.mod("b", 3)));
+    assertThat(kernel.expand(multiple, action, 100).status())
+        .isEqualTo(AutomaticCraftingKernel.Status.POLICY_REJECTED);
+  }
+
+  @Test
   void goalRollCellsReconstructTheIndependentScalarOracleWithoutMergingModifierTiers() {
     var root = tiny.item(ItemState.Rarity.RARE, List.of());
     var known =

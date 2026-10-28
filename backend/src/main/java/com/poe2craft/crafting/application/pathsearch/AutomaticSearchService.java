@@ -242,6 +242,14 @@ public final class AutomaticSearchService implements AutoCloseable {
     try {
       var tree = json.readTree(repository.read(id));
       qualityDefaults(tree);
+      // Historical identities predate the stage flag. Decode only for read-only viewing;
+      // never persist this compatibility default or resume under the new graph contract.
+      var graph = tree.path("graph");
+      if (!AutomaticMethodGraph.VERSION.equals(graph.path("version").asText()))
+        for (var row : graph.path("nodes"))
+          for (var member : row.path("members"))
+            if (member instanceof com.fasterxml.jackson.databind.node.ObjectNode object
+                && !object.has("initialStage")) object.put("initialStage", false);
       var saved = json.treeToValue(tree, Disk.class);
       if (saved == null
           || saved.graph() == null
@@ -409,7 +417,8 @@ public final class AutomaticSearchService implements AutoCloseable {
     var saved = read(id);
     if (!saved.owner().equals(ownerKey(owner)) || saved.expires() < clock.millis())
       throw new Rejected(404, "JOB_NOT_FOUND");
-    if ("goal-directed-milestone-graph-v11-tier-laws".equals(saved.graph().version())
+    if ("goal-directed-milestone-graph-v12-joint-attribute-laws".equals(saved.graph().version())
+        || "goal-directed-milestone-graph-v11-tier-laws".equals(saved.graph().version())
         || "goal-directed-milestone-graph-v10-quality-goal".equals(saved.graph().version())
         || "goal-directed-milestone-graph-v9-terminal-classes".equals(saved.graph().version())
         || (AutomaticMethodGraph.VERSION.equals(saved.graph().version())

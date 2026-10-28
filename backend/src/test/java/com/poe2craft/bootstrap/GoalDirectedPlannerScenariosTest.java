@@ -132,6 +132,49 @@ class GoalDirectedPlannerScenariosTest {
   }
 
   @Test
+  void laterSingleAffixCannotReenterInitialChaosStage() {
+    var root = item(ItemState.Rarity.RARE, 82, List.of(life()));
+    var goal = goal(root, Map.of("minion_skill_gem_level_+", 3L));
+    var planner =
+        new GoalDirectedPlanner(
+            kernel(root, goal), evaluation(root, goal), AutomaticCraftingAction.candidates(policy));
+    assertThat(planner.choices(root, true))
+        .anyMatch(c -> c.cycle().stream().anyMatch(a -> a.currency() == WorkbenchCurrency.CHAOS));
+    assertThat(planner.choices(root, false))
+        .noneMatch(c -> c.cycle().stream().anyMatch(a -> a.currency() == WorkbenchCurrency.CHAOS));
+    var acquiredGoal = goal(root, Map.of(LIFE, 1L, "minion_skill_gem_level_+", 3L));
+    assertThat(
+            new GoalDirectedPlanner(
+                    kernel(root, acquiredGoal),
+                    evaluation(root, acquiredGoal),
+                    AutomaticCraftingAction.candidates(policy))
+                .choices(root))
+        .noneMatch(c -> c.cycle().stream().anyMatch(a -> a.currency() == WorkbenchCurrency.CHAOS));
+  }
+
+  @Test
+  void chaosCannotAcquireFirstTargetFromMultipleExplicitAffixes() {
+    var root = lowLifeAndMinionTwo();
+    var goal = goal(root, Map.of("minion_skill_gem_level_+", 3L));
+    var choices =
+        new GoalDirectedPlanner(
+                kernel(root, goal),
+                evaluation(root, goal),
+                AutomaticCraftingAction.candidates(policy))
+            .choices(root);
+    assertThat(choices)
+        .noneMatch(c -> c.cycle().stream().anyMatch(a -> a.currency() == WorkbenchCurrency.CHAOS));
+  }
+
+  @Test
+  void chaosKernelRejectsMultipleExplicitAffixes() {
+    var root = lowLifeAndMinionTwo();
+    var goal = goal(root, Map.of("minion_skill_gem_level_+", 3L));
+    assertThat(kernel(root, goal).plan(root, action(WorkbenchCurrency.CHAOS)).status())
+        .isNotEqualTo(AutomaticCraftingPlan.Status.READY);
+  }
+
+  @Test
   void magicLifeToRareLifeChaosHasDirectCertainEssence() {
     var root = item(ItemState.Rarity.MAGIC, 82, List.of(life()));
     var goal = goal(root, Map.of(LIFE, 1L, CHAOS, 1L));
@@ -373,7 +416,7 @@ class GoalDirectedPlannerScenariosTest {
   }
 
   @Test
-  void magicLowMinionCanPlanRarityPreparationThenProbabilisticReroll() {
+  void magicSingleAffixCannotPrepareTwoAffixChaos() {
     var root =
         item(
             ItemState.Rarity.MAGIC,
@@ -389,16 +432,10 @@ class GoalDirectedPlannerScenariosTest {
                 AutomaticCraftingAction.candidates(policy))
             .choices(root);
     assertThat(choices)
-        .anySatisfy(
-            c -> {
-              assertThat(c.initial()).anyMatch(a -> a.currency() == WorkbenchCurrency.REGAL);
-              assertThat(c.cycle()).anyMatch(a -> a.currency() == WorkbenchCurrency.CHAOS);
-              assertThatCode(
-                      () ->
-                          new AutomaticMethodExecution.Template(
-                              "rarity-preparation", c.initial(), c.cycle()))
-                  .doesNotThrowAnyException();
-            });
+        .noneMatch(
+            c ->
+                c.cycle().stream()
+                    .anyMatch(action -> action.currency() == WorkbenchCurrency.CHAOS));
   }
 
   @Test
@@ -577,7 +614,7 @@ class GoalDirectedPlannerScenariosTest {
             List.of(
                 life(), new ModifierInstance("amulet:suffix:of-expulsion", Map.of(CHAOS, 16L))));
     var goal = goal(root, Map.of(LIFE, 1L, CHAOS, 1L, COLD, 1L));
-    var law = kernel(root, goal).expand(root, action(WorkbenchCurrency.CHAOS), 5000);
+    var law = historicalKernel(root, goal).expand(root, action(WorkbenchCurrency.CHAOS), 5000);
     assertThat(law.outcomes()).anyMatch(o -> !o.item().explicits().contains(life()));
     var sum = law.unresolved().add(law.boundary());
     for (var o : law.outcomes()) sum = sum.add(o.probability());

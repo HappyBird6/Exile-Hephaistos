@@ -6,6 +6,7 @@ import policy from '../../../../../backend/src/main/resources/crafting/automatic
 import { useI18n } from '../../../shared/i18n/i18n'
 import { policyMessages } from './policyMessages'
 import { acquisitionHints } from './planningMessages'
+import { chaosFirstAffixHints } from './chaosFirstAffixHints'
 import { rarityUpgradeHints } from './rarityUpgradeHints'
 import './currency-policy.css'
 
@@ -78,6 +79,9 @@ export function CurrencyPolicy() {
                 {(entry.condition.startsWith('TEMPORARY_') ||
                   entry.condition === 'GOAL_ACQUISITION') && (
                   <p>{acquisitionHints[locale]}</p>
+                )}
+                {entry.condition === 'FIRST_AFFIX_ACQUISITION' && (
+                  <p>{chaosFirstAffixHints[locale]}</p>
                 )}
                 {entry.condition === 'BREACH_QUALITY' && <p>{copy[18]}</p>}
                 {entry.number === 100 && <p>{copy[19]}</p>}

@@ -139,6 +139,7 @@ public class SupportConfiguration {
               for (var identity :
                   java.util.Arrays.asList(
                       (String) null,
+                      "reviewed-equipment-20261028-v3-d8fc1817187354306f0db443768486e8e15ea3f4e4904447300104750421bb7a",
                       "reviewed-equipment-20261009-v2-c303fc1ea724ddf2ccca61f7c9512e6c9fdcd997cb9d4348fe5a5f8766f07d5a",
                       "reviewed-equipment-20261009-v2-68910c93fedbba8263972e2c97605e96271d6cf73fa6186088d3c9b76903cf1a",
                       "reviewed-equipment-20261009-v2-debb3f07052d54419a4732f49d9febf78508e23cd69a489698c5e81be80597f7",

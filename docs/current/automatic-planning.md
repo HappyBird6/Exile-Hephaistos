@@ -29,3 +29,9 @@
 [AutomaticSearchService.java](../../backend/src/main/java/com/poe2craft/crafting/application/pathsearch/AutomaticSearchService.java) · [AutomaticCraftingKernel.java](../../backend/src/main/java/com/poe2craft/crafting/domain/AutomaticCraftingKernel.java) · [LocalAutomaticJobRepository.java](../../backend/src/main/java/com/poe2craft/crafting/infrastructure/LocalAutomaticJobRepository.java) · [SavedAutomaticResultReader.java](../../backend/src/main/java/com/poe2craft/crafting/application/pathsearch/SavedAutomaticResultReader.java) · [SixAffixScenariosTest.java](../../backend/src/test/java/com/poe2craft/bootstrap/SixAffixScenariosTest.java)
 
 [문서 지도](../README.md)
+
+## 첫 옵션 카오스 정책
+
+2026-10-28 확정 규칙과 구현은 [사용자 제작 규칙 R11](user-crafting-rules.md)에 기록한다. 자동 탐색의 카오스는 시작 단계에서 실제 explicit modifier가 정확히 1개인 희귀 아이템의 첫 목표 옵션 획득용 반복에만 허용한다. 시작 0옵션의 기본 준비→1옵션 경로는 유지하며, 후속 상태나 옵션 감소 후에는 시작 단계로 되돌아가지 않는다. 수동 Workbench는 이 자동 탐색 정책과 별개다.
+
+정책 v6·그래프 v13 이전의 v12 저장 결과는 읽기 전용으로 보존하고 새 정책으로 재개하지 않는다. 과거 `07-rarity-preparation`의 매직 1옵션→제왕 2옵션→카오스 경로는 새 정책에서 허용되지 않는다. 기존 완료 시나리오의 기대값을 조용히 변경하지 않았으며 전체 검사 결과와 한계는 제작 규칙 문서의 검증 기록을 따른다.
