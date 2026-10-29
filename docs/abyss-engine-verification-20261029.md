@@ -27,3 +27,20 @@
 검증 산출물은 외부 task 디렉터리에 보존한다: engine-qa.jar, engine-final-test-results, engine-full-tests.json, engine-qa-results.json, engine-predeploy-backup, engine-delivery-manifest.json. JAR SHA256: `1ed740bf1e5b07f26a95a6320f8c16ae83267b86ad2b6e87fdbf11ee2dc913f2`.
 
 Library 규칙 문서의 동일 identity 갱신은 이 환경에서 Library 도구가 제공되지 않아 미완료다(접근 거절 아님). 대상 libfile_bfc527a44a54819198cb7e30dbeb270b의 기존 v7을 새 로컬 규칙과 동일 바이트로 갱신해야 한다. 자동 재개하지 않는다.
+
+
+## 2026-10-30 재개 및 서버 적용 완료
+
+사용자 재개 요청에 따라 종료 제한을 해제하고 같은 작업의 배포를 완료했다. 새 코드 변경 없이 구현 커밋 `053d0f0`의 검증 산출물을 적용했다. 별도 프런트 개편은 대기 상태를 유지한다.
+
+- 재개 시 작업 트리는 clean이었다. 기존 엑자일/다른 프로젝트 컨테이너가 중지되어 있었고, 엑자일 4개만 기동했다. 다른 프로젝트 Redis와 STS는 조작하지 않았다.
+- 어제 백업 이후 app-data 차이는 method-jobs 저장 파일 2개 추가와 1개 변경이며 삭제는 0개다. 이는 저장 결과 갱신 위치의 차이로 확인했으며, 특정 사용자 조작이나 자동 저장이 원인인지는 로그 근거 없이 단정하지 않는다.
+- 운영 앱을 중지한 상태로 새 백업 `engine-predeploy-backup-1030a`를 만들었다. 42파일/241431656바이트의 archive 복원 해시, 원본의 전후 일관성, 격리 PostgreSQL 복원 검증에 성공했다. 중지 컨테이너에서 exec가 불가능한 첫 백업 시도는 데이터 변경 없이 실패했고 docker cp 기반 새 백업으로 완료했다.
+- 동일 JAR로 격리 API를 다시 검증했다. 사용자 훼손 클릭 없이 일반 시작 11경로/541결과, 분열 포함 11경로/526결과가 생성됐다. 분열+일반1 카오스 허용, 일반2 차단, 저장 복원 확인. 분열 보존 15회 및 심연 7사례도 성공했다. 전날의 전체/관련 검사 결과는 위 기록 그대로이며 전체 테스트를 새로 반복한 것은 아니다.
+- 기존 컨테이너에 JAR와 frontend/dist를 복사했다. 이미지 재생성이나 Redis/DB 설정 변경은 하지 않았다. Redis는 기존 내부 연결과 볼륨을 유지한다. 컨테이너를 새 이미지로 재생성할 경우 해당 검증 산출물을 다시 적용해야 한다.
+- 운영 `http://localhost:9000` health/readiness/liveness는 모두 UP이다. `http://localhost:9001`의 catalog GET과 실제 화면 표시, 브라우저 오류 0개를 확인했다. 운영에서는 쓰기 QA를 수행하지 않았다.
+- JAR SHA256은 위 기록과 일치하고, 프런트 227파일의 HTTP 응답 해시가 로컬 dist와 일치한다. 적용 후 42파일 전부의 크기/해시가 새 백업과 동일하다. .env 해시, 컨테이너 ID/이미지/볼륨/포트 보존, 다른 프로젝트 컨테이너 미기동을 확인했다.
+- 이번 격리 QA 컨테이너 4개와 전용 네트워크는 정리했고 운영 9000/9001은 계속 실행한다.
+- 규칙 Library 파일 `libfile_bfc527a44a54819198cb7e30dbeb270b`를 동일 identity의 v8로 교체했다. 48321바이트, SHA256 `fb911c680c0e689bc246cfd98735270bc44927d32cfcce6f6ac4c2563b6efaa7`. 공식 helper로 Linux에서 materialize 후 원본과 cmp 및 해시 일치를 확인했다. Windows Python의 setxattr 미지원으로 Windows 원본의 확장 메타데이터 저장은 불가했으며, Library 교체·바이트 검증에는 영향이 없다.
+
+실제 지원 범위와 한계는 위 구현 범위를 유지한다. 압축 혼합 상태나 미확정 후보 선택을 관통하는 전체 최적 비용을 지원한다고 주장하지 않는다. 배포 결과는 task 디렉터리의 `engine-production-verification-1030.json`, Library 결과는 `library-resume-1030/replace-result.json`에 보존했다.
