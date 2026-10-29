@@ -1,0 +1,94 @@
+package com.poe2craft.crafting;
+
+import static org.assertj.core.api.Assertions.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.poe2craft.bootstrap.CraftingConfiguration;
+import com.poe2craft.crafting.domain.AbyssCraftingState;
+import com.poe2craft.crafting.presentation.*;
+import com.poe2craft.item.ModifierDefinition.AffixType;
+import java.util.*;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.Import;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+
+@WebMvcTest(WorkbenchController.class)
+@Import({
+  CraftingConfiguration.class,
+  CraftingErrors.class,
+  com.poe2craft.item.testparser.ItemTextService.class
+})
+class AbyssControllerTest {
+  @Autowired MockMvc mvc;
+  @Autowired ObjectMapper json;
+  final HysteriaEssenceTest fixture = new HysteriaEssenceTest();
+
+  ObjectNode request() {
+    var state =
+        AbyssCraftingState.from(fixture.rare(82, "", "amulet:prefix:hale"), fixture.catalog)
+            .addUnrevealed("abyss", AffixType.SUFFIX, fixture.catalog);
+    return json.valueToTree(Map.of("state", state));
+  }
+
+  @Test
+  void restoresAnUnrevealedSlotWithoutLosingItsOccupancyAndNeverReturnsRevealProbability()
+      throws Exception {
+    var request = request();
+    var restored =
+        mvc.perform(
+                post("/api/v1/crafting/workbench/abyss/validate")
+                    .header(RulesetBoundary.HEADER, RulesetBoundary.identity())
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(json.writeValueAsBytes(request)))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.slots[1].desecrated").value(true))
+            .andReturn();
+    request.set("state", json.readTree(restored.getResponse().getContentAsString()));
+    request.put("slotId", "abyss");
+    var candidate = fixture.rare(82, "", "amulet:suffix:of-the-brute").explicits().getFirst();
+    request.set("candidates", json.valueToTree(List.of(candidate, candidate, candidate)));
+    var observed =
+        mvc.perform(
+                post("/api/v1/crafting/workbench/abyss/observe")
+                    .header(RulesetBoundary.HEADER, RulesetBoundary.identity())
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(json.writeValueAsBytes(request)))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.offer.candidates.length()").value(3))
+            .andReturn();
+    assertThat(observed.getResponse().getContentAsString())
+        .doesNotContain("Probability", "probability");
+  }
+
+  @Test
+  void unknownFieldsAndFractionalStatValuesAreRejectedBeforeConversion() throws Exception {
+    var extra = request();
+    ((ObjectNode) extra.path("state").path("slots").get(1)).put("inventedWeight", 10);
+    var fractional = request();
+    ((ObjectNode) fractional.path("state").path("slots").get(0).path("modifier").path("values"))
+        .put("maximum_life", 1.5);
+    for (var invalid : List.of(extra, fractional))
+      mvc.perform(
+              post("/api/v1/crafting/workbench/abyss/validate")
+                  .header(RulesetBoundary.HEADER, RulesetBoundary.identity())
+                  .contentType(MediaType.APPLICATION_JSON)
+                  .content(json.writeValueAsBytes(invalid)))
+          .andExpect(status().isUnprocessableEntity())
+          .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_PROBLEM_JSON));
+  }
+
+  @Test
+  void missingRulesetCannotExecuteNewEndpoints() throws Exception {
+    mvc.perform(
+            post("/api/v1/crafting/workbench/abyss/add")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(json.writeValueAsBytes(request())))
+        .andExpect(status().isUnprocessableEntity());
+  }
+}

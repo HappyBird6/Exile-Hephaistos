@@ -199,6 +199,31 @@ public final class AutomaticCraftingKernel {
     return com.poe2craft.item.CatalystQuality.supportedBase(item.baseItemId());
   }
 
+  public List<AbyssStrategyPlanner.Strategy> abyssStrategies(
+      ItemState item,
+      java.util.function.Function<
+              ItemState, com.poe2craft.crafting.domain.pathsearch.AutomaticMethodGraph.Progress>
+          evaluate,
+      List<AutomaticCraftingAction> inventory) {
+    var permitted =
+        inventory.stream()
+            .filter(
+                action -> {
+                  var context =
+                      new AutomaticCurrencyPolicy.Context(
+                          family, action.purpose(), action.currency());
+                  return policy.evaluate(action.currency().name(), context)
+                          == AutomaticCurrencyPolicy.Verdict.PERMITTED
+                      && action.omens().stream()
+                          .allMatch(
+                              omen ->
+                                  policy.evaluate("OMEN:" + omen.name(), context)
+                                      == AutomaticCurrencyPolicy.Verdict.PERMITTED);
+                })
+            .toList();
+    return new AbyssStrategyPlanner(catalog, simulator, evaluate).recommend(item, permitted);
+  }
+
   public record RollBand(String stat, long min, long max) {}
 
   public Map<String, RollBand> rollBands(ItemState item) {

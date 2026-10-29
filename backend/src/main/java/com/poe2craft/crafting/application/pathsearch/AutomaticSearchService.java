@@ -706,6 +706,11 @@ public final class AutomaticSearchService implements AutoCloseable {
     return List.copyOf(arrows);
   }
 
+  public synchronized List<com.poe2craft.crafting.domain.AbyssStrategyPlanner.Strategy>
+      abyssStrategies(String owner, String id, int nodeId) {
+    return load(owner, id).graph.abyssStrategies(nodeId);
+  }
+
   private View view(Job job) {
     var nodes = job.graph.nodes();
     var methodViews = job.graph.methods();

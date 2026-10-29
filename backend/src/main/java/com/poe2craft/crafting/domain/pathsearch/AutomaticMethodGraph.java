@@ -986,6 +986,16 @@ public final class AutomaticMethodGraph implements AutoCloseable {
             .sum();
   }
 
+  /** Manual routes are attached to this node, never multiplied into stochastic graph edges. */
+  public List<AbyssStrategyPlanner.Strategy> abyssStrategies(int nodeId) {
+    if (nodeId < 0 || nodeId >= orderedNodes.size())
+      throw new IllegalArgumentException("Unknown source node");
+    var node = orderedNodes.get(nodeId);
+    if (!node.tiers.isEmpty() || !kernel.rollBands(node.item).isEmpty() || node.members.size() > 1)
+      return List.of();
+    return kernel.abyssStrategies(node.item, evaluate, candidates);
+  }
+
   public List<NodeView> nodes() {
     var supports = attributeSupports();
     return orderedNodes.stream()

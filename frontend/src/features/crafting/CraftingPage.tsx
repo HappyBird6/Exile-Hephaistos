@@ -1,3 +1,4 @@
+import { AbyssPanel } from './AbyssPanel'
 import { readSupport, saveSupport } from './method-search/supportStorage'
 import { baseSlugs, baseClass, sourcePropertyUnscaled } from './baseRegistry'
 import type { WorkbenchBaseKey } from './baseRegistry'
@@ -1769,6 +1770,15 @@ export function CraftingPage() {
                     <pre>{JSON.stringify(storedFrame, null, 2)}</pre>
                   </details>
                 )}
+                {concrete?.rarity === 'RARE' &&
+                  initial.data &&
+                  restoredValid && (
+                    <AbyssPanel
+                      key={JSON.stringify(concrete)}
+                      source={concrete}
+                      initial={initial.data}
+                    />
+                  )}
                 {storedFrame && !restoredValid ? null : card ? (
                   <ItemCard
                     item={card}

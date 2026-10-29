@@ -134,6 +134,142 @@ public final class WorkbenchController {
     return json.convertValue(input, ItemState.class);
   }
 
+  public record AbyssRequest(
+      JsonNode state,
+      String slotId,
+      com.poe2craft.item.ModifierDefinition.AffixType side,
+      JsonNode candidates,
+      Integer candidateIndex,
+      WorkbenchCurrency action,
+      Set<String> activeOmens,
+      Set<String> targetIds) {}
+
+  private com.poe2craft.crafting.domain.AbyssCraftingState abyssState(JsonNode input) {
+    try {
+      if (input == null || !input.isObject())
+        throw new IllegalArgumentException("Abyss state required");
+      validateAbyssNumbers(input);
+      concreteState(input.get("item"));
+      var state =
+          json.readerFor(com.poe2craft.crafting.domain.AbyssCraftingState.class)
+              .with(
+                  com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+              .without(com.fasterxml.jackson.databind.DeserializationFeature.ACCEPT_FLOAT_AS_INT)
+              .readValue(input.traverse(json));
+      var result = (com.poe2craft.crafting.domain.AbyssCraftingState) state;
+      result.validate(simulator.abyssCatalog(result.item()));
+      return result;
+    } catch (java.io.IOException invalid) {
+      throw new IllegalArgumentException("Invalid Abyss state");
+    }
+  }
+
+  private List<com.poe2craft.item.ModifierInstance> abyssCandidates(JsonNode input) {
+    if (input == null || !input.isArray() || input.size() != 3)
+      throw new IllegalArgumentException("Three observed candidates required");
+    validateAbyssNumbers(input);
+    try {
+      return json.readerFor(
+              new com.fasterxml.jackson.core.type.TypeReference<
+                  List<com.poe2craft.item.ModifierInstance>>() {})
+          .with(com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+          .without(com.fasterxml.jackson.databind.DeserializationFeature.ACCEPT_FLOAT_AS_INT)
+          .readValue(input.traverse(json));
+    } catch (java.io.IOException invalid) {
+      throw new IllegalArgumentException("Invalid observed candidates");
+    }
+  }
+
+  private void validateAbyssNumbers(JsonNode node) {
+    if (node.isObject() && node.has("values")) {
+      var values = node.get("values");
+      if (!values.isObject()) throw new IllegalArgumentException("Integral stat values required");
+      values
+          .elements()
+          .forEachRemaining(
+              value -> {
+                if (!value.isIntegralNumber() || !value.canConvertToLong())
+                  throw new IllegalArgumentException("Integral stat values required");
+              });
+    }
+    if (node.isContainerNode()) node.elements().forEachRemaining(this::validateAbyssNumbers);
+  }
+
+  @PostMapping("/abyss/validate")
+  public com.poe2craft.crafting.domain.AbyssCraftingState validateAbyss(
+      @RequestBody AbyssRequest request) {
+    return abyssState(request.state());
+  }
+
+  @PostMapping("/abyss/import")
+  public com.poe2craft.crafting.domain.AbyssCraftingState importAbyss(
+      @RequestBody ActionRequest request) {
+    var item = concreteState(request.state());
+    return com.poe2craft.crafting.domain.AbyssCraftingState.from(
+        item, simulator.abyssCatalog(item));
+  }
+
+  @PostMapping("/abyss/add")
+  public com.poe2craft.crafting.domain.AbyssCraftingState addAbyss(
+      @RequestBody AbyssRequest request) {
+    var state = abyssState(request.state());
+    return state.addUnrevealed(
+        request.slotId(), request.side(), simulator.abyssCatalog(state.item()));
+  }
+
+  @PostMapping("/abyss/observe")
+  public com.poe2craft.crafting.domain.AbyssCraftingState observeAbyss(
+      @RequestBody AbyssRequest request) {
+    var state = abyssState(request.state());
+    return state.observe(
+        request.slotId(),
+        abyssCandidates(request.candidates()),
+        simulator.abyssCatalog(state.item()));
+  }
+
+  @PostMapping("/abyss/choose")
+  public com.poe2craft.crafting.domain.AbyssCraftingState chooseAbyss(
+      @RequestBody AbyssRequest request) {
+    var state = abyssState(request.state());
+    if (request.candidateIndex() == null) throw new IllegalArgumentException("Candidate required");
+    return state.choose(request.candidateIndex(), simulator.abyssCatalog(state.item()));
+  }
+
+  @PostMapping("/abyss/plan")
+  public com.poe2craft.crafting.domain.AbyssCraftingPlan planAbyss(
+      @RequestBody AbyssRequest request) {
+    return simulator.abyssPlan(
+        abyssState(request.state()), request.action(), request.activeOmens());
+  }
+
+  @PostMapping("/abyss/apply")
+  public com.poe2craft.crafting.domain.AbyssCraftingState applyAbyss(
+      @RequestBody AbyssRequest request) {
+    return simulator.applyAbyss(
+        abyssState(request.state()), request.action(), request.activeOmens(), random);
+  }
+
+  @PostMapping("/abyss/compare")
+  public com.poe2craft.crafting.domain.AbyssProbabilityComparison.Comparison compareAbyss(
+      @RequestBody AbyssRequest request) {
+    var state = abyssState(request.state());
+    if (request.targetIds() == null || request.targetIds().isEmpty())
+      throw new IllegalArgumentException("Target modifiers required");
+    var omenIds = request.activeOmens() == null ? Set.<String>of() : request.activeOmens();
+    if (omenIds.size() > 1)
+      throw new IllegalArgumentException("At most one addition omen supported");
+    var omen =
+        omenIds.isEmpty()
+            ? null
+            : com.poe2craft.crafting.domain.WorkbenchOmen.fromId(omenIds.iterator().next());
+    var plan = simulator.abyssPlan(state, request.action(), omenIds);
+    if (!plan.available()) throw new IllegalArgumentException("Next addition unavailable");
+    return new com.poe2craft.crafting.domain.AbyssProbabilityComparison(
+            simulator.abyssCatalog(state.item()))
+        .compare(state, request.slotId(), request.action(), omen, request.targetIds())
+        .orElse(null);
+  }
+
   @PostMapping("/map-text")
   public SolarTextMapper.Result mapText(@RequestBody TextRequest request) {
     return mapper.map(parser.parseText(request.text()));

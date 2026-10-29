@@ -1,3 +1,4 @@
+import { AutomaticAbyssRoutes } from './AutomaticAbyssRoutes'
 import { compactFrozenCard } from './compactFrozenCard'
 import { qualityGoalMessages } from '../goal-filter/qualityGoalMessages'
 import { SearchResources } from './SearchResources'
@@ -27,7 +28,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { ItemCard } from '../ItemCard'
 import { localizedAction } from '../localizedCrafting'
-import type { WorkbenchAction } from '../workbenchApi'
+import type { ConcreteItem, WorkbenchAction } from '../workbenchApi'
 import type { PathTreeProps } from '../path-tree/PathTree'
 import { canonical } from '../path-tree/validation'
 import { pathTreeMessages } from '../path-tree/messages'
@@ -550,6 +551,18 @@ function Run({
                             )
                       }
                     />
+                    {!snapshot &&
+                      !automaticItemIsDistribution(selectedNode) &&
+                      selectedNode.item.rarity === 'RARE' && (
+                        <AutomaticAbyssRoutes
+                          key={`${view.id}:${selectedNode.id}`}
+                          jobId={view.id}
+                          nodeId={selectedNode.id}
+                          source={selectedNode.item as ConcreteItem}
+                          base={scenarioBaseKey}
+                          identity={request.start.provenance.rulesetIdentity}
+                        />
+                      )}
                     {onEditState &&
                       automaticItemIsDistribution(selectedNode) && (
                         <p>{distributionEditMessages[locale]}</p>

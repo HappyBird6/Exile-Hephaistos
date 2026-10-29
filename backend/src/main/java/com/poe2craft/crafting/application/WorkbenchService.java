@@ -399,6 +399,29 @@ public final class WorkbenchService {
         catalog.base());
   }
 
+  public ItemCatalog abyssCatalog(ItemState state) {
+    return reviewedCatalogs().stream()
+        .filter(
+            c ->
+                c.base().id().equals(state.baseItemId())
+                    && c.metadata().snapshotId().equals(state.snapshotId()))
+        .findFirst()
+        .orElseThrow(() -> new IllegalArgumentException("Unsupported Abyss catalog"));
+  }
+
+  public AbyssCraftingPlan abyssPlan(
+      AbyssCraftingState state, WorkbenchCurrency action, Set<String> omens) {
+    return simulator(state.item()).abyssPlan(state, action, omens);
+  }
+
+  public AbyssCraftingState applyAbyss(
+      AbyssCraftingState state,
+      WorkbenchCurrency action,
+      Set<String> omens,
+      RandomGenerator random) {
+    return simulator(state.item()).applyAbyss(state, action, omens, random);
+  }
+
   private ItemCatalog catalog(String base) {
     if (topBases.containsKey(base)) return topBases.get(base);
     if (basicJewels.containsKey(base)) return basicJewels.get(base);

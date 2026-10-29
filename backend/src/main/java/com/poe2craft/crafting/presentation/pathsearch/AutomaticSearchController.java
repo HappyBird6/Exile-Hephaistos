@@ -43,6 +43,16 @@ public final class AutomaticSearchController {
     return service.get(owner(request, response), id);
   }
 
+  @GetMapping("/{id}/nodes/{node}/abyss")
+  public java.util.List<com.poe2craft.crafting.domain.AbyssStrategyPlanner.Strategy>
+      abyssStrategies(
+          @PathVariable String id,
+          @PathVariable int node,
+          HttpServletRequest request,
+          HttpServletResponse response) {
+    return service.abyssStrategies(owner(request, response), id, node);
+  }
+
   @GetMapping("/{id}/request")
   public AutomaticSearchService.Input original(
       @PathVariable String id, HttpServletRequest request, HttpServletResponse response) {

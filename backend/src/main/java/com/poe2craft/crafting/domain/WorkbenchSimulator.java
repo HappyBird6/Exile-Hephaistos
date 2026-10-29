@@ -599,6 +599,100 @@ public final class WorkbenchSimulator {
       Map<WorkbenchCurrency, List<String>> replacementTargets,
       QualityCapChangePolicy qualityPolicy) {}
 
+  /** Manual Abyss scenarios preserve slots without inventing reveal probabilities. */
+  public AbyssCraftingPlan abyssPlan(
+      AbyssCraftingState state, WorkbenchCurrency action, Set<String> activeOmens) {
+    state.validate(catalog);
+    validate(state.knownItem());
+    if (state.offer() != null || state.item().catalystQuality() != null)
+      return AbyssCraftingPlan.blocked("RESOLVE_OFFER_OR_QUALITY_BEFORE_CURRENCY");
+    if (action == null || state.item().rarity() != ItemState.Rarity.RARE)
+      return AbyssCraftingPlan.blocked("RARITY_NOT_APPLICABLE");
+    var omens = parseOmens(activeOmens);
+    var matches = matching(action, omens);
+    if (matches.size() > 1
+        || matches.size() != omens.size()
+        || matches.contains(WorkbenchOmen.GREATER_EXALTATION))
+      return AbyssCraftingPlan.blocked("ABYSS_OMEN_COMBINATION_UNSUPPORTED");
+    if (matches.contains(WorkbenchOmen.WHITTLING))
+      return AbyssCraftingPlan.blocked("UNREVEALED_MODIFIER_LEVEL_UNKNOWN");
+    if (state.item().itemLevel() < action.minimumModifierLevel()
+        || (action.minimumModifierLevel() > 0
+            && matches.stream().anyMatch(o -> !o.supportsTieredCurrency())))
+      return AbyssCraftingPlan.blocked("ITEM_LEVEL_OR_OMEN_UNSUPPORTED");
+    var omen = matches.isEmpty() ? null : matches.getFirst();
+    boolean addition = action.baseAction() == CraftingAction.EXALTED;
+    boolean annulment = action == WorkbenchCurrency.ANNULMENT;
+    boolean replacement = !replacementTargets(action).isEmpty();
+    if ((!addition && !annulment && !replacement)
+        || action == WorkbenchCurrency.ESSENCE_ABYSS
+        || action.isLiquid()) return AbyssCraftingPlan.blocked("ABYSS_OPERATION_UNSUPPORTED");
+    var branches = new ArrayList<AbyssCraftingPlan.Branch>();
+    if (addition) {
+      var candidates = new AbyssProbabilityComparison(catalog).pool(state, action, omen);
+      if (candidates.isEmpty()) return AbyssCraftingPlan.blocked("NO_ELIGIBLE_ADDITION");
+      branches.add(new AbyssCraftingPlan.Branch(null, 1, state, candidates, false));
+    } else {
+      var removals = state.removalCandidates(omen == null ? null : omen.affix());
+      if (removals.isEmpty()) return AbyssCraftingPlan.blocked("NO_ELIGIBLE_REMOVAL");
+      for (var removed : removals) {
+        var remaining = state.remove(removed.id(), omen == null ? null : omen.affix(), catalog);
+        var targets = new ArrayList<ModifierDefinition>();
+        for (var id : annulment ? List.<String>of() : replacementTargets(action)) {
+          var target = catalog.find(id).orElse(null);
+          if (target == null) return AbyssCraftingPlan.blocked("UNREVIEWED_REPLACEMENT");
+          var values = new HashMap<String, Long>();
+          target.stats().forEach(stat -> values.put(stat.id(), stat.min()));
+          try {
+            remaining.append(removed.id(), new ModifierInstance(id, values), catalog);
+          } catch (IllegalArgumentException invalid) {
+            return AbyssCraftingPlan.blocked("REPLACEMENT_BRANCH_CONFLICT");
+          }
+          targets.add(target);
+        }
+        branches.add(
+            new AbyssCraftingPlan.Branch(
+                removed.id(), 1.0 / removals.size(), remaining, targets, true));
+      }
+    }
+    return new AbyssCraftingPlan(true, "", branches);
+  }
+
+  public AbyssCraftingState applyAbyss(
+      AbyssCraftingState state,
+      WorkbenchCurrency action,
+      Set<String> omens,
+      RandomGenerator random) {
+    var plan = abyssPlan(state, action, omens);
+    if (!plan.available()) throw new IllegalArgumentException("Abyss currency unavailable");
+    var branch = plan.branches().get(random.nextInt(plan.branches().size()));
+    if (branch.candidates().isEmpty()) return branch.remaining();
+    ModifierDefinition chosen;
+    if (branch.uniformSelection()) {
+      chosen = branch.candidates().get(random.nextInt(branch.candidates().size()));
+    } else {
+      long draw =
+          random.nextLong(branch.candidates().stream().mapToLong(ModifierDefinition::weight).sum());
+      chosen = branch.candidates().getLast();
+      for (var candidate : branch.candidates()) {
+        draw -= candidate.weight();
+        if (draw < 0) {
+          chosen = candidate;
+          break;
+        }
+      }
+    }
+    var instance = roll(chosen, random, new ArrayList<>());
+    String id = branch.removedSlotId();
+    if (id == null) {
+      int index = 0;
+      var occupied = state.slots().stream().map(AbyssCraftingState.Slot::id).toList();
+      while (occupied.contains("added-" + index)) index++;
+      id = "added-" + index;
+    }
+    return branch.remaining().append(id, instance, catalog);
+  }
+
   public AutomaticIdentity automaticIdentity() {
     return new AutomaticIdentity(
         ruleVersion(),
