@@ -44,7 +44,8 @@ public final class SolarTextMapper {
     var explicits = new ArrayList<ModifierInstance>();
     for (var modifier : item.modifiers()) {
       if (modifier.type() != ItemModels.ModifierType.IMPLICIT
-          && modifier.type() != ItemModels.ModifierType.EXPLICIT) {
+          && modifier.type() != ItemModels.ModifierType.EXPLICIT
+          && modifier.type() != ItemModels.ModifierType.FRACTURED) {
         issues.add(new Issue(modifier.source().number(), "Unsupported modifier layer."));
         continue;
       }
@@ -59,7 +60,12 @@ public final class SolarTextMapper {
             || (modifier.affix() != null
                 && !modifier.affix().equals(definition.affixType().name()))) continue;
         var match = match(definition, modifier.text());
-        if (match != null) matches.add(match);
+        if (match != null)
+          matches.add(
+              new ModifierInstance(
+                  match.modifierId(),
+                  match.values(),
+                  modifier.type() == ItemModels.ModifierType.FRACTURED));
       }
       if (matches.size() != 1)
         issues.add(

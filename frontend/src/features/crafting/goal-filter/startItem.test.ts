@@ -11,6 +11,8 @@ import {
   startClassMatches,
   startItemIssues,
   startBases,
+  startCard,
+  startText,
 } from './startItem'
 
 it('offers every reviewed registry base exactly once with its canonical class and name', () => {
@@ -220,4 +222,48 @@ describe('Starting item catalog validation', () => {
       eligibleStartModifiers(ruby, lost).some((d) => d.affixType === 'PREFIX'),
     ).toBe(false)
   })
+})
+
+it('accepts one Rare explicit lock, preserves its slot/family, card and copy marker, and rejects invalid locks', () => {
+  const base = concreteInitial(equipment)
+  const item: ConcreteItem = {
+    ...base,
+    rarity: 'RARE',
+    explicits: [{ modifierId: 'p', values: { life: 15 }, fractured: true }],
+  }
+  expect(startItemIssues(equipment, item)).toEqual([])
+  expect(eligibleStartModifiers(equipment, item).map((m) => m.id)).toEqual([
+    's',
+  ])
+  expect(startItemIssues(equipment, { ...item, rarity: 'MAGIC' })).not.toEqual(
+    [],
+  )
+  expect(
+    startItemIssues(equipment, {
+      ...item,
+      explicits: [
+        ...item.explicits,
+        { modifierId: 's', values: { strength: 5 }, fractured: true },
+      ],
+    }),
+  ).not.toEqual([])
+  expect(
+    startItemIssues(equipment, {
+      ...item,
+      implicits: item.implicits.map((m) => ({ ...m, fractured: true })),
+    }),
+  ).not.toEqual([])
+  expect(
+    startCard(startBases[0]!, item, equipment.modifiers).modifiers.at(-1),
+  ).toMatchObject({ fractured: true })
+  expect(startText(startBases[0]!, item, equipment.modifiers)).toContain(
+    '+15 to maximum Life (fractured)',
+  )
+  const full = {
+    ...equipment,
+    baseRules: { ...equipment.baseRules!, rarePrefixes: 1 },
+  }
+  expect(
+    eligibleStartModifiers(full, item).every((m) => m.affixType !== 'PREFIX'),
+  ).toBe(true)
 })

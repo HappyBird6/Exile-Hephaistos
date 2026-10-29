@@ -35,3 +35,25 @@ it('restores editor items with omitted optional defaults and keeps the immutable
   })
   expect(loadStart()?.searchRequest?.goal).toEqual(request.goal)
 })
+
+it('retains the exact fractured modifier through saved start and restoration', () => {
+  const request = requestFixture()
+  const item = {
+    ...request.start.item,
+    rarity: 'RARE' as const,
+    explicits: [{ modifierId: 'p', values: { life: 17 }, fractured: true }],
+  }
+  saveSupport('start', {
+    base: 'solar',
+    text: '+17 to maximum Life (fractured)',
+    item,
+    rulesetIdentity: request.start.provenance.rulesetIdentity,
+    abstractQuality40: false,
+    editing: true,
+    started: false,
+    levelEdited: false,
+    searchRequest: null,
+  })
+  expect(loadStart()?.item).toEqual(item)
+  expect(restoredStart()).toMatchObject({ item })
+})

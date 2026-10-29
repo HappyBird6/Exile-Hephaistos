@@ -191,4 +191,46 @@ class AutomaticTierLawTest {
               + graph.nodes().stream().filter(n -> !n.tiers().isEmpty()).count());
     }
   }
+
+  @Test
+  void fracturedStartingPointSurvivesCompressedChaosAndAdditionLaws() {
+    var original = fixture.lowLifeAndMinionTwo();
+    var first = original.explicits().getFirst();
+    var locked = new ModifierInstance(first.modifierId(), first.values(), true);
+    var root =
+        fixture.item(ItemState.Rarity.RARE, 82, List.of(locked, original.explicits().get(1)));
+    var goal =
+        fixture.goal(
+            root,
+            Map.of(GoalDirectedPlannerScenariosTest.LIFE, 1L, "minion_skill_gem_level_+", 3L));
+    var kernel = fixture.kernel(root, goal);
+    assertThat(kernel.rollBands(root)).doesNotContainKey(locked.modifierId());
+    assertThat(kernel.behaviorKey(root)).isNotEqualTo(kernel.behaviorKey(original));
+    assertThat(kernel.expand(root, fixture.action(WorkbenchCurrency.ANNULMENT), 20000).status())
+        .isEqualTo(AutomaticCraftingKernel.Status.POLICY_REJECTED);
+    for (var currency : List.of(WorkbenchCurrency.EXALTED, WorkbenchCurrency.CHAOS)) {
+      var action = fixture.action(currency);
+      if (currency != WorkbenchCurrency.EXALTED)
+        assertThat(kernel.expand(root, action, 20000).status())
+            .isEqualTo(AutomaticCraftingKernel.Status.POLICY_REJECTED);
+      // Historical policy tests the underlying removal law without enabling it in production.
+      var calculation =
+          currency == WorkbenchCurrency.EXALTED ? kernel : fixture.historicalKernel(root, goal);
+      var scalar = calculation.expand(root, action, 20000);
+      var grouped = calculation.expandDeferred(root, Map.of(), action, 20000);
+      assertThat(scalar.status()).isEqualTo(AutomaticCraftingKernel.Status.COMPLETE);
+      assertThat(grouped.status()).isEqualTo(AutomaticCraftingKernel.Status.COMPLETE);
+      var law = flatten(grouped.outcomes());
+      assertThat(law).isEqualTo(flatten(scalar.outcomes()));
+      assertThat(law.values().stream().reduce(Fraction.ZERO, Fraction::add))
+          .isEqualTo(Fraction.ONE);
+      assertThat(law.keySet())
+          .allSatisfy(
+              item -> {
+                assertThat(item.explicits()).contains(locked);
+                assertThat(kernel.rollBands(item)).doesNotContainKey(locked.modifierId());
+                assertThat(new ItemStateValidator(fixture.catalog).validate(item)).isEmpty();
+              });
+    }
+  }
 }

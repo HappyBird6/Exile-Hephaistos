@@ -585,3 +585,26 @@ it('round trips optional junk display metadata while preserving the original ite
   Object.assign(invalid.cards['0']!.en.modifiers[0]!, { junkSide: 'UNKNOWN' })
   expect(() => validateScenario(invalid)).toThrow('INVALID_SCENARIO')
 })
+
+it('round-trips a fractured starting item when the server sorts its modifiers, but rejects changed locks or rolls', async () => {
+  const s = fixture()
+  s.request.start.item.rarity = 'RARE'
+  s.request.start.item.explicits = [
+    { modifierId: 'z', values: { life: 117 }, fractured: true },
+    { modifierId: 'a', values: { mana: 180 }, fractured: false },
+  ]
+  s.result.nodes[0]!.item = structuredClone(s.request.start.item)
+  s.result.nodes[0]!.item.explicits.reverse()
+  s.cards['0'] = Object.fromEntries(
+    scenarioLocales.map((locale) => [
+      locale,
+      present(s.result.nodes[0]!.item, locale),
+    ]),
+  ) as Scenario['cards'][string]
+  expect(await decodeScenario(await encodeScenario(s))).toEqual(s)
+  s.result.nodes[0]!.item.explicits[1]!.fractured = false
+  expect(() => validateScenario(s)).toThrow()
+  s.result.nodes[0]!.item.explicits[1]!.fractured = true
+  s.result.nodes[0]!.item.explicits[1]!.values.life = 118
+  expect(() => validateScenario(s)).toThrow()
+})

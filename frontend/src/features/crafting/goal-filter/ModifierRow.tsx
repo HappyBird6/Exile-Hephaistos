@@ -9,6 +9,7 @@ import { modifierPickerMessages } from './modifierPickerMessages'
 import { craftStartMessages } from './craftStartMessages'
 import { startInputMessages } from './startInputMessages'
 import { changeModifierTier } from './modifierGroups'
+import { fractureMessages } from './fractureMessages'
 
 type Modifier = ConcreteItem['explicits'][number]
 
@@ -21,6 +22,7 @@ export function ModifierRow({
   onChange,
   onIssue,
   onRemove,
+  canFracture = false,
 }: {
   definition: Definition
   modifier: Modifier
@@ -30,6 +32,7 @@ export function ModifierRow({
   onChange: (modifier: Modifier) => void
   onIssue: (issue: string) => void
   onRemove: () => void
+  canFracture?: boolean
 }) {
   const { locale } = useI18n()
   const copy = craftStartMessages[locale]
@@ -93,6 +96,18 @@ export function ModifierRow({
           )
         })}
       </div>
+      <button
+        type="button"
+        aria-pressed={Boolean(modifier.fractured)}
+        aria-label={fractureMessages[locale].label + ': ' + label}
+        title={fractureMessages[locale].help}
+        disabled={!modifier.fractured && !canFracture}
+        onClick={() =>
+          onChange({ ...modifier, fractured: !modifier.fractured })
+        }
+      >
+        {fractureMessages[locale].label} {modifier.fractured ? 'ON' : 'OFF'}
+      </button>
       <button
         aria-label={`${copy.removeLabel} ${index + 1}`}
         onClick={onRemove}

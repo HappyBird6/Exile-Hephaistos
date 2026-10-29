@@ -898,6 +898,14 @@ export function CraftStart({
                           key={index}
                           definition={definition}
                           modifier={m}
+                          canFracture={
+                            !startItemIssues(selected.initial, {
+                              ...draft.item!,
+                              explicits: draft.item!.explicits.map((old, i) =>
+                                i === index ? { ...old, fractured: true } : old,
+                              ),
+                            }).length
+                          }
                           tiers={
                             group?.tiers.filter(
                               (d) =>

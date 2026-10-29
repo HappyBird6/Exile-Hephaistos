@@ -189,6 +189,16 @@ function card(v: unknown) {
         if (l[k] !== undefined) bool(l[k])
     }
 }
+// ItemState sorts modifiers on the server; editor insertion order is not identity.
+// Preserve every value and flag while comparing the same unordered modifier sets.
+function itemIdentity(value: Item) {
+  return canonical({
+    ...value,
+    implicits: value.implicits.map(canonical).sort(),
+    explicits: value.explicits.map(canonical).sort(),
+    conditions: [...value.conditions].sort(),
+  })
+}
 export function validateScenario(raw: unknown): Scenario {
   safeTree(raw)
   const s = object(
@@ -315,7 +325,7 @@ export function validateScenario(raw: unknown): Scenario {
   const result = s.result as AutomaticView,
     root = result.nodes.find((n) => n.id === 0)!
   if (
-    canonical(root.item) !== canonical(request.start.item) ||
+    itemIdentity(root.item) !== itemIdentity(request.start.item) ||
     root.quality40 !== s.abstractQuality40
   )
     fail()

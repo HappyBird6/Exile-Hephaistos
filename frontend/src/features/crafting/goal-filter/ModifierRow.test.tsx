@@ -52,7 +52,7 @@ describe('compact starting modifier rows', () => {
       />,
     )
     const row = screen.getByRole('group')
-    expect(row.children).toHaveLength(4)
+    expect(row.children).toHaveLength(5)
     const inputs = within(row).getAllByRole('spinbutton')
     expect(inputs[0]).toHaveAccessibleName(
       'Adds [Value] to (4–8) Physical Damage',
@@ -67,7 +67,9 @@ describe('compact starting modifier rows', () => {
     })
     fireEvent.change(inputs[1]!, { target: { value: '9' } })
     expect(issue).toHaveBeenCalledWith('Roll must be an integer from 4 to 8.')
-    fireEvent.click(within(row).getByRole('button'))
+    fireEvent.click(
+      within(row).getByRole('button', { name: /Remove starting modifier/ }),
+    )
     expect(remove).toHaveBeenCalledOnce()
     expect(row).not.toHaveTextContent('Value 1.1')
   })
@@ -111,4 +113,39 @@ describe('compact starting modifier rows', () => {
     )
     expect(pickerCss).toContain('height: 32px')
   })
+})
+
+it('toggles fracture explicitly and keeps it through roll and tier edits', () => {
+  const change = vi.fn()
+  const props = {
+    definition,
+    modifier,
+    tiers: [definition],
+    eligible: new Set(['physical']),
+    index: 0,
+    onChange: change,
+    onIssue: vi.fn(),
+    onRemove: vi.fn(),
+    canFracture: true,
+  }
+  const { rerender } = render(<ModifierRow {...props} />)
+  const toggle = screen.getByRole('button', { name: /Fractured:/ })
+  fireEvent.click(toggle)
+  expect(change).toHaveBeenLastCalledWith({ ...modifier, fractured: true })
+  const locked = { ...modifier, fractured: true }
+  rerender(<ModifierRow {...props} modifier={locked} canFracture={false} />)
+  expect(toggle).toBeEnabled()
+  expect(toggle).toHaveAttribute('aria-pressed', 'true')
+  fireEvent.change(screen.getAllByRole('spinbutton')[0]!, {
+    target: { value: '3' },
+  })
+  expect(change.mock.lastCall?.[0]).toMatchObject({
+    fractured: true,
+    values: { 'min-damage': 3 },
+  })
+  expect(changeModifierTier(locked, definition).fractured).toBe(true)
+  fireEvent.click(toggle)
+  expect(change).toHaveBeenLastCalledWith({ ...modifier, fractured: false })
+  rerender(<ModifierRow {...props} canFracture={false} />)
+  expect(toggle).toBeDisabled()
 })

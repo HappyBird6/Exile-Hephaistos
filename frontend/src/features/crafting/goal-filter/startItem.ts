@@ -55,11 +55,10 @@ export function startItemIssues(
   if (
     !supportsConcreteStateShape(item) ||
     item.conditions.length ||
-    item.catalystQuality != null ||
-    [...item.implicits, ...item.explicits].some((m) => m.fractured)
+    item.catalystQuality != null
   )
     issues.push(
-      'Special conditions, quality and fractured modifiers are not supported by this editor.',
+      'Special conditions and quality are not supported by this editor.',
     )
   if (
     item.baseItemId !== initial.state.baseItemId ||
@@ -81,6 +80,15 @@ export function startItemIssues(
     )
   )
     issues.push('Implicits must match the selected server base.')
+  if (
+    item.implicits.some((m) => m.fractured) ||
+    item.explicits.filter((m) => m.fractured).length > 1 ||
+    (item.explicits.some((m) => m.fractured) &&
+      (item.rarity !== 'RARE' || isWorkbenchJewel(item.baseItemId)))
+  )
+    issues.push(
+      'Only one fractured explicit on a supported Rare equipment item is allowed.',
+    )
   const families = new Set<string>(),
     ids = new Set<string>()
   for (const [layer, rows] of [
@@ -189,6 +197,7 @@ export function startCard(
     ].map((m) => ({
       id: m.modifierId,
       kind: m.kind,
+      fractured: Boolean(m.fractured),
       text: definitions[m.modifierId]
         ? rolledText(definitions[m.modifierId]!, m.values)
         : m.modifierId,
@@ -213,7 +222,9 @@ export function startText(
       .filter((m) => m.kind === 'implicit')
       .map((m) => `${m.text} (implicit)`),
     ...(item.implicits.length && item.explicits.length ? ['--------'] : []),
-    ...card.modifiers.filter((m) => m.kind === 'explicit').map((m) => m.text),
+    ...card.modifiers
+      .filter((m) => m.kind === 'explicit')
+      .map((m) => m.text + (m.fractured ? ' (fractured)' : '')),
   ].join('\n')
 }
 export function eligibleStartModifiers(

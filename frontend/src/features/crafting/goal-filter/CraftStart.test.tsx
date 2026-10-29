@@ -269,7 +269,7 @@ describe('Craft Support starting screen', () => {
       expect(editor.querySelector('.craft-start-modifier-rows')).toBe(rows)
     }
     chooseLifeGroup()
-    expect(editor.querySelector('.craft-start-rolls')?.children).toHaveLength(4)
+    expect(editor.querySelector('.craft-start-rolls')?.children).toHaveLength(5)
     const remove = screen.getByRole('button', {
       name: 'Remove starting modifier 1',
     })
@@ -953,4 +953,22 @@ it('rejects a mixed ruleset bootstrap without relabeling the old item', async ()
     'previous item text',
   )
   expect(localStorage.getItem('hephaistos.support.v1:run')).toBe(record)
+})
+
+it('allows exactly one explicit fracture and prevents rarity loss until it is switched off', async () => {
+  await setup()
+  const rarity = screen.getByLabelText('Starting rarity')
+  fireEvent.change(rarity, { target: { value: 'RARE' } })
+  chooseLifeGroup()
+  const lock = screen.getByRole('button', { name: /Fractured:/ })
+  fireEvent.click(lock)
+  expect(lock).toHaveAttribute('aria-pressed', 'true')
+  expect(within(rarity).getByRole('option', { name: 'Magic' })).toBeDisabled()
+  fireEvent.change(rarity, { target: { value: 'MAGIC' } })
+  expect(rarity).toHaveValue('RARE')
+  expect(lock).toHaveAttribute('aria-pressed', 'true')
+  fireEvent.click(lock)
+  expect(within(rarity).getByRole('option', { name: 'Magic' })).toBeEnabled()
+  fireEvent.change(rarity, { target: { value: 'MAGIC' } })
+  expect(lock).toBeDisabled()
 })

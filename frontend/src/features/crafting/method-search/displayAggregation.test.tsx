@@ -316,3 +316,19 @@ it('resolves pseudo contributions and conservatively disables junk grouping for 
     junkClassifier(undefined, definitions)(node(1, 'mana', 5), 'mana'),
   ).toBeUndefined()
 })
+
+it('keeps fractured junk separate and preserves original conditional probabilities', () => {
+  const unlocked = node(1, 'mana', 5)
+  const locked = node(2, 'mana', 5)
+  locked.item.explicits[0]!.fractured = true
+  const graph = view([unlocked, locked])
+  const junk = junkClassifier(['spirit'], definitions)
+  const projection = stateProjection(graph, 1, junk)
+  expect(projection.owner.get(1)).not.toBe(projection.owner.get(2))
+  expect(
+    junkCard(locked, present(locked.item, 'en'), junk, 'en').modifiers[0],
+  ).toMatchObject({ fractured: true })
+  expect(
+    projection.edges.flatMap((e) => e.variants).flatMap((v) => v.outcomes),
+  ).toHaveLength(2)
+})

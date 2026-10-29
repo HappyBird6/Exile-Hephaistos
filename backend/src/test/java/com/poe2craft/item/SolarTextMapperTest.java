@@ -81,4 +81,26 @@ class SolarTextMapperTest {
                 .mapped())
         .isFalse();
   }
+
+  @Test
+  void fracturedClipboardMarkerPreservesTheLockAndRejectsMultipleOrNonRareLocks() {
+    var source = text("+17 to maximum Life (fractured)");
+    var result = mapper.map(parser.parseText(source));
+    assertThat(result.mapped()).isTrue();
+    assertThat(result.state().explicits())
+        .containsExactly(
+            new ModifierInstance(
+                "amulet:prefix:hale", java.util.Map.of("base_maximum_life", 17L), true));
+    assertThat(parser.parseText(source).text().originalText()).isEqualTo(source);
+    assertThat(
+            mapper
+                .map(
+                    parser.parseText(
+                        text("+17 to maximum Life (fractured)\n+5 to Strength (fractured)")))
+                .mapped())
+        .isFalse();
+    assertThat(
+            mapper.map(parser.parseText(source.replace("Rarity: Rare", "Rarity: Magic"))).mapped())
+        .isFalse();
+  }
 }
