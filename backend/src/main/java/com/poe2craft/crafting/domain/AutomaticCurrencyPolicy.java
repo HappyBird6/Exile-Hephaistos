@@ -4,7 +4,7 @@ import java.util.*;
 
 /** User-approved exploration policy. This never grants game eligibility or probability support. */
 public final class AutomaticCurrencyPolicy {
-  public static final String VERSION = "approved-187-2026-10-28-first-affix-v6";
+  public static final String VERSION = "approved-187-2026-10-29-fractured-first-affix-v7";
   public static final int MAXIMUM_EXPLORED_EXPLICITS = 6;
 
   public enum Decision {

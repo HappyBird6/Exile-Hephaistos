@@ -1,3 +1,7 @@
+import {
+  validateAutomaticAbyss,
+  type AutomaticAbyssRoute,
+} from './automaticAbyss'
 import { validateJointGraph } from './jointValidation'
 import { validateTierLaws } from './automaticTierLaws'
 import { validateSearchResources } from './searchResourcesValidation'
@@ -284,7 +288,15 @@ export function validateScenario(raw: unknown): Scenario {
         'discoveryFinished',
         'directFinished',
       ],
-      ['rolls', 'abstractQuality', 'tiers', 'attributes', 'members', 'joint'],
+      [
+        'rolls',
+        'abstractQuality',
+        'tiers',
+        'attributes',
+        'members',
+        'joint',
+        'abyss',
+      ],
     )
     integer(n.id)
     integer(n.depth, 10000)
@@ -292,6 +304,7 @@ export function validateScenario(raw: unknown): Scenario {
     ids.add(n.id as number)
     item(n.item)
     validateTierLaws(n as unknown as import('./automaticApi').AutomaticNode)
+    validateAutomaticAbyss(n.abyss as AutomaticAbyssRoute[] | undefined)
     bool(n.quality40)
     if (n.abstractQuality !== undefined) integer(n.abstractQuality, 40)
     bool(n.discoveryFinished)

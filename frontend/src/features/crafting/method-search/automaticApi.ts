@@ -1,3 +1,7 @@
+import {
+  validateAutomaticAbyss,
+  type AutomaticAbyssRoute,
+} from './automaticAbyss'
 import { validateJointGraph } from './jointValidation'
 import { validateTierLaws } from './automaticTierLaws'
 import { validateSearchResources } from './searchResourcesValidation'
@@ -11,6 +15,7 @@ export type AutomaticAction = {
   purpose: string
 }
 export type AutomaticNode = {
+  abyss?: AutomaticAbyssRoute[]
   attributes?: Record<
     string,
     {
@@ -169,6 +174,7 @@ function validate(raw: unknown): AutomaticView {
   for (const n of v.nodes) {
     assertShape('item', n.item)
     validateTierLaws(n)
+    validateAutomaticAbyss(n.abyss)
     if (
       ids.has(n.id) ||
       !Number.isSafeInteger(n.id) ||

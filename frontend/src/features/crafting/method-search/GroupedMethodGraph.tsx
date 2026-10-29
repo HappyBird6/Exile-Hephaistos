@@ -1,3 +1,4 @@
+import { AutomaticAbyssState } from './AutomaticAbyssState'
 import {
   abyssCard,
   candidateState,
@@ -255,8 +256,37 @@ export function GroupedMethodGraph({
     branchPrior = { x, y: branchY + h }
     branchY += h + 100
   }
-  const width = branch?.steps.length ? baseWidth + nodeWidth + 72 : baseWidth
-  const height = Math.max(100, levelY, branch?.steps.length ? branchY : 0)
+  const manualWidth = branch?.steps.length
+    ? baseWidth + nodeWidth + 72
+    : baseWidth
+  const abyssRows = view.nodes.flatMap((node) =>
+    (node.abyss ?? []).map((route, index) => ({
+      id: `abyss:${node.id}:${index}`,
+      route,
+      from: positions.get(projection.owner.get(node.id) ?? ''),
+    })),
+  )
+  const automaticAbyss = abyssRows.map((row, index) => ({
+    ...row,
+    h: measured[row.id] ?? 650,
+    y:
+      20 +
+      abyssRows
+        .slice(0, index)
+        .reduce((sum, r) => sum + (measured[r.id] ?? 650) + 80, 0),
+  }))
+  const abyssY = automaticAbyss.at(-1)
+    ? automaticAbyss.at(-1)!.y + automaticAbyss.at(-1)!.h + 80
+    : 0
+  const width = automaticAbyss.length
+    ? manualWidth + nodeWidth + 72
+    : manualWidth
+  const height = Math.max(
+    100,
+    levelY,
+    branch?.steps.length ? branchY : 0,
+    automaticAbyss.length ? abyssY : 0,
+  )
   const updateSize = (id: string, h: number) =>
     setMeasured((previous) =>
       previous[id] === h ? previous : { ...previous, [id]: h },
@@ -575,6 +605,33 @@ export function GroupedMethodGraph({
               markerEnd={`url(#automatic-arrow-${view.id})`}
             />
           )}
+          {automaticAbyss.map(({ id, route, y, h, from }) => (
+            <g key={id} data-automatic-abyss-node={id}>
+              {from && (
+                <path
+                  d={`M${from.x},${from.y + from.height} L${manualWidth + 48 + nodeWidth / 2},${y}`}
+                  stroke="currentColor"
+                  fill="none"
+                  strokeDasharray="6 5"
+                  markerEnd={`url(#automatic-arrow-${view.id})`}
+                />
+              )}
+              <foreignObject
+                x={manualWidth + 48}
+                y={y}
+                width={nodeWidth}
+                height={h + 2}
+              >
+                <MeasuredGraphBox onSize={(size) => updateSize(id, size)}>
+                  <AutomaticAbyssState
+                    route={route}
+                    presentItem={presentItem}
+                    action={action}
+                  />
+                </MeasuredGraphBox>
+              </foreignObject>
+            </g>
+          ))}
           {manualNodes.map(({ step, x, y, height: h, from }) => (
             <g key={step.id} data-flow-step={step.transition.operation}>
               {from && (

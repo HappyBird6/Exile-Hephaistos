@@ -210,12 +210,7 @@ class AutomaticTierLawTest {
         .isEqualTo(AutomaticCraftingKernel.Status.POLICY_REJECTED);
     for (var currency : List.of(WorkbenchCurrency.EXALTED, WorkbenchCurrency.CHAOS)) {
       var action = fixture.action(currency);
-      if (currency != WorkbenchCurrency.EXALTED)
-        assertThat(kernel.expand(root, action, 20000).status())
-            .isEqualTo(AutomaticCraftingKernel.Status.POLICY_REJECTED);
-      // Historical policy tests the underlying removal law without enabling it in production.
-      var calculation =
-          currency == WorkbenchCurrency.EXALTED ? kernel : fixture.historicalKernel(root, goal);
+      var calculation = kernel;
       var scalar = calculation.expand(root, action, 20000);
       var grouped = calculation.expandDeferred(root, Map.of(), action, 20000);
       assertThat(scalar.status()).isEqualTo(AutomaticCraftingKernel.Status.COMPLETE);

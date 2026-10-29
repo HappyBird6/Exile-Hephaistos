@@ -14,7 +14,7 @@ import java.util.*;
  * probabilities.
  */
 public final class AutomaticCraftingKernel {
-  public static final String VERSION = "automatic-finite-kernel-v7-reviewed-source-units";
+  public static final String VERSION = "automatic-finite-kernel-v8-fractured-first-affix";
 
   public record Identity(
       String kernelVersion,
@@ -205,23 +205,41 @@ public final class AutomaticCraftingKernel {
               ItemState, com.poe2craft.crafting.domain.pathsearch.AutomaticMethodGraph.Progress>
           evaluate,
       List<AutomaticCraftingAction> inventory) {
-    var permitted =
-        inventory.stream()
-            .filter(
-                action -> {
-                  var context =
-                      new AutomaticCurrencyPolicy.Context(
-                          family, action.purpose(), action.currency());
-                  return policy.evaluate(action.currency().name(), context)
-                          == AutomaticCurrencyPolicy.Verdict.PERMITTED
-                      && action.omens().stream()
-                          .allMatch(
-                              omen ->
-                                  policy.evaluate("OMEN:" + omen.name(), context)
-                                      == AutomaticCurrencyPolicy.Verdict.PERMITTED);
-                })
-            .toList();
+    var permitted = abyssInventory(inventory);
     return new AbyssStrategyPlanner(catalog, simulator, evaluate).recommend(item, permitted);
+  }
+
+  private List<AutomaticCraftingAction> abyssInventory(List<AutomaticCraftingAction> inventory) {
+    return inventory.stream()
+        .filter(
+            action -> {
+              var context =
+                  new AutomaticCurrencyPolicy.Context(family, action.purpose(), action.currency());
+              return policy.evaluate(action.currency().name(), context)
+                      == AutomaticCurrencyPolicy.Verdict.PERMITTED
+                  && action.omens().stream()
+                      .allMatch(
+                          omen ->
+                              policy.evaluate("OMEN:" + omen.name(), context)
+                                  == AutomaticCurrencyPolicy.Verdict.PERMITTED);
+            })
+        .toList();
+  }
+
+  public List<com.poe2craft.crafting.domain.pathsearch.AutomaticAbyssSearch.Route> automaticAbyss(
+      ItemState item,
+      java.util.function.Function<
+              ItemState, com.poe2craft.crafting.domain.pathsearch.AutomaticMethodGraph.Progress>
+          evaluate,
+      List<AutomaticCraftingAction> inventory) {
+    // Desecration is a preparation step; it must not reopen the initial Chaos stage.
+    var permitted =
+        abyssInventory(inventory).stream()
+            .filter(action -> action.currency() != WorkbenchCurrency.CHAOS)
+            .toList();
+    return new com.poe2craft.crafting.domain.pathsearch.AutomaticAbyssSearch(
+            catalog, simulator, permitted)
+        .expand(new AbyssStrategyPlanner(catalog, simulator, evaluate).recommend(item, permitted));
   }
 
   public record RollBand(String stat, long min, long max) {}
@@ -248,10 +266,19 @@ public final class AutomaticCraftingKernel {
                     && e.condition() == AutomaticCurrencyPolicy.Condition.FIRST_AFFIX_ACQUISITION);
   }
 
+  public static long mutableAffixCount(ItemState item) {
+    return item.explicits().stream().filter(m -> !m.fractured()).count();
+  }
+
+  public static boolean sameFractures(ItemState first, ItemState second) {
+    return new HashSet<>(first.explicits().stream().filter(m -> m.fractured()).toList())
+        .equals(new HashSet<>(second.explicits().stream().filter(m -> m.fractured()).toList()));
+  }
+
   private boolean invalidInitialChaos(ItemState item, WorkbenchCurrency currency) {
     return initialChaosOnly()
         && currency == WorkbenchCurrency.CHAOS
-        && (item.rarity() != ItemState.Rarity.RARE || item.explicits().size() != 1);
+        && (item.rarity() != ItemState.Rarity.RARE || mutableAffixCount(item) != 1);
   }
 
   /** Eligibility and prerequisite projection, before allocating a numeric probability law. */

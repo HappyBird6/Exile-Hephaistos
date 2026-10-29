@@ -168,7 +168,7 @@ public final class GoalDirectedPlanner {
             source.itemLevel(),
             source.rarity(),
             source.implicits(),
-            List.of(),
+            source.explicits().stream().filter(m -> m.fractured()).toList(),
             source.conditions(),
             source.augmentSockets(),
             source.catalystQuality());
@@ -255,7 +255,8 @@ public final class GoalDirectedPlanner {
         // A direct acquisition does not replace preparation when the follower is
         // unavailable at the source (for example Chaos on an empty rare item).
         if (preparation.purpose() != AutomaticCurrencyPolicy.Purpose.TARGET_PREPARATION
-            && !(source.explicits().isEmpty() && acquisition.currency() == WorkbenchCurrency.CHAOS)
+            && !(AutomaticCraftingKernel.mutableAffixCount(source) == 0
+                && acquisition.currency() == WorkbenchCurrency.CHAOS)
             && result.stream()
                 .anyMatch(
                     c ->

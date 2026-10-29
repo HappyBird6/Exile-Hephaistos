@@ -417,7 +417,8 @@ public final class AutomaticSearchService implements AutoCloseable {
     var saved = read(id);
     if (!saved.owner().equals(ownerKey(owner)) || saved.expires() < clock.millis())
       throw new Rejected(404, "JOB_NOT_FOUND");
-    if ("goal-directed-milestone-graph-v13-initial-chaos-stage".equals(saved.graph().version())
+    if ("goal-directed-milestone-graph-v14-amulet-evaluation".equals(saved.graph().version())
+        || "goal-directed-milestone-graph-v13-initial-chaos-stage".equals(saved.graph().version())
         || "goal-directed-milestone-graph-v12-joint-attribute-laws".equals(saved.graph().version())
         || "goal-directed-milestone-graph-v11-tier-laws".equals(saved.graph().version())
         || "goal-directed-milestone-graph-v10-quality-goal".equals(saved.graph().version())

@@ -47,9 +47,12 @@
 .item-card__line--implicit,
 .item-card__line--explicit,
 .item-card__line--enchant,
-.item-card__line--rune,
-.item-card__line--desecrated {
+.item-card__line--rune {
   color: #9999ff;
+}
+.item-card__line--desecrated,
+.item-card__line--desecrated .item-card__affix {
+  color: #b9ff66;
 }
 .item-card__line[data-fractured],
 .item-card__line[data-fractured] .item-card__affix,

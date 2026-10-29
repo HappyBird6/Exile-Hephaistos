@@ -9,7 +9,8 @@ import java.util.function.Function;
 
 /** Cooperative discovery over conditional item laws; distinct joint laws never share identity. */
 public final class AutomaticMethodGraph implements AutoCloseable {
-  public static final String VERSION = "goal-directed-milestone-graph-v14-amulet-evaluation";
+  public static final String VERSION =
+      "goal-directed-milestone-graph-v15-abyss-fractured-first-affix";
 
   public record Progress(Status goal, List<Status> entries) {
     public Progress {
@@ -98,12 +99,47 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       boolean directFinished,
       List<MemberView> members,
       Map<String, List<AttributeOption>> attributes,
-      Set<Origin> joint) {
+      Set<Origin> joint,
+      @com.fasterxml.jackson.annotation.JsonInclude(
+              com.fasterxml.jackson.annotation.JsonInclude.Include.NON_EMPTY)
+          List<AutomaticAbyssSearch.Route> abyss) {
     public NodeView {
+      abyss = abyss == null ? List.of() : List.copyOf(abyss);
       tiers = tiers == null ? Map.of() : Map.copyOf(tiers);
       members = members == null ? List.of() : List.copyOf(members);
       attributes = attributes == null ? Map.of() : Map.copyOf(attributes);
       joint = joint == null ? Set.of() : Set.copyOf(joint);
+    }
+
+    public NodeView(
+        int id,
+        int depth,
+        ItemState item,
+        Map<String, TierLaw> tiers,
+        Map<String, AutomaticCraftingKernel.RollBand> rolls,
+        boolean quality40,
+        int abstractQuality,
+        Progress progress,
+        boolean discoveryFinished,
+        boolean directFinished,
+        List<MemberView> members,
+        Map<String, List<AttributeOption>> attributes,
+        Set<Origin> joint) {
+      this(
+          id,
+          depth,
+          item,
+          tiers,
+          rolls,
+          quality40,
+          abstractQuality,
+          progress,
+          discoveryFinished,
+          directFinished,
+          members,
+          attributes,
+          joint,
+          List.of());
     }
 
     public NodeView(
@@ -256,6 +292,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     final Set<Origin> origins = new LinkedHashSet<>();
     int depth, scan, pairs;
     List<GoalDirectedPlanner.Choice> choices;
+    List<AutomaticAbyssSearch.Route> abyss;
     boolean discovered;
     Node representative;
     TerminalAdditionClasses.Key terminalKey;
@@ -646,6 +683,15 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   }
 
   private void discover(Node source) {
+    if (source.abyss == null) {
+      source.abyss =
+          source.tiers.isEmpty()
+                  && kernel.rollBands(source.item).isEmpty()
+                  && source.members.size() <= 1
+              ? kernel.automaticAbyss(source.item, evaluate, candidates)
+              : List.of();
+      revision++;
+    }
     if (source.choices == null)
       source.choices =
           new GoalDirectedPlanner(
@@ -975,6 +1021,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   public long retainedStates() {
     return nodes.size()
         + methods.size()
+        + orderedNodes.stream().mapToLong(n -> AutomaticAbyssSearch.retainedRecords(n.abyss)).sum()
         + methods.values().stream()
             .filter(m -> m.owner == null)
             .mapToLong(m -> m.execution.retainedStates())
@@ -1019,7 +1066,8 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                                     m.item(), tierView(m.tiers()), kernel.rollBands(m.item())))
                         .toList(),
                     supports.get(n.id),
-                    Set.copyOf(n.origins)))
+                    Set.copyOf(n.origins),
+                    n.abyss))
         .toList();
   }
 
@@ -1292,11 +1340,42 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       List<AutomaticCraftingAction> applicable,
       Set<AutomaticCraftingAction> allowed,
       List<Identity> members,
-      Set<Origin> joint) {
+      Set<Origin> joint,
+      List<AutomaticAbyssSearch.Route> abyss) {
     public NodeCursor {
+      abyss = abyss == null ? List.of() : List.copyOf(abyss);
       tiers = tiers == null ? Map.of() : Map.copyOf(tiers);
       members = members == null ? List.of() : List.copyOf(members);
       joint = joint == null ? Set.of() : Set.copyOf(joint);
+    }
+
+    public NodeCursor(
+        ItemState item,
+        Map<String, TierCell> tiers,
+        boolean quality40,
+        int abstractQuality,
+        int depth,
+        int scan,
+        int pairs,
+        boolean discovered,
+        List<AutomaticCraftingAction> applicable,
+        Set<AutomaticCraftingAction> allowed,
+        List<Identity> members,
+        Set<Origin> joint) {
+      this(
+          item,
+          tiers,
+          quality40,
+          abstractQuality,
+          depth,
+          scan,
+          pairs,
+          discovered,
+          applicable,
+          allowed,
+          members,
+          joint,
+          List.of());
     }
 
     public NodeCursor(
@@ -1427,7 +1506,8 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                         List.copyOf(n.applicable),
                         Set.copyOf(n.allowedByPolicy),
                         List.copyOf(n.members),
-                        Set.copyOf(n.origins)))
+                        Set.copyOf(n.origins),
+                        n.abyss))
             .toList(),
         methods.values().stream()
             .map(
@@ -1487,6 +1567,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
         graph.nodes.put(member, node);
       }
       node.origins.addAll(row.joint());
+      node.abyss = !row.discovered() && row.abyss().isEmpty() ? null : row.abyss();
       node.scan = row.scan();
       node.pairs = row.pairs();
       node.discovered = row.discovered();

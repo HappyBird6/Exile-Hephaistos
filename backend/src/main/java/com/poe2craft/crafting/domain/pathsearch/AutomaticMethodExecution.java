@@ -348,10 +348,11 @@ public final class AutomaticMethodExecution implements AutoCloseable {
                 && action.purpose() == AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION
                 && template.initial().isEmpty()
                 && template.cycle().size() == 1
-                && root.explicits().size() == 1
-                && state.item().explicits().size() == 1
-                && outcome.item().explicits().size() == 1
-                && !root.explicits().getFirst().fractured()
+                && AutomaticCraftingKernel.mutableAffixCount(root) == 1
+                && AutomaticCraftingKernel.mutableAffixCount(state.item()) == 1
+                && AutomaticCraftingKernel.mutableAffixCount(outcome.item()) == 1
+                && AutomaticCraftingKernel.sameFractures(root, state.item())
+                && AutomaticCraftingKernel.sameFractures(root, outcome.item())
                 && root.catalystQuality() == null
                 && outcome.item().catalystQuality() == null
                 && (!AutomaticCraftingKernel.hasQualityCap(root) || initialQuality40)
@@ -409,23 +410,26 @@ public final class AutomaticMethodExecution implements AutoCloseable {
 
   private AutomaticCraftingPlan retryPlan(ItemState item) {
     if (template.initial().size() != 1
-        || !root.explicits().isEmpty()
+        || AutomaticCraftingKernel.mutableAffixCount(root) != 0
         || template.cycle().size() != 1
         || template.cycle().getFirst().currency() != WorkbenchCurrency.CHAOS
-        || item.explicits().size() != 1
-        || item.explicits().getFirst().fractured()
+        || AutomaticCraftingKernel.mutableAffixCount(item) != 1
+        || !AutomaticCraftingKernel.sameFractures(root, item)
         || item.catalystQuality() != null
         || AutomaticCraftingKernel.hasQualityCap(item)) return null;
     var plan = kernel.plan(item, template.cycle().getFirst());
     return plan.status() == AutomaticCraftingPlan.Status.READY
             && plan.branches().size() == 1
-            && plan.branches().getFirst().remaining().explicits().isEmpty()
+            && AutomaticCraftingKernel.mutableAffixCount(plan.branches().getFirst().remaining())
+                == 0
+            && AutomaticCraftingKernel.sameFractures(root, plan.branches().getFirst().remaining())
         ? plan
         : null;
   }
 
   private ItemState preparedRetryCandidate() {
-    if (template.initial().size() != 1 || !root.explicits().isEmpty()) return null;
+    if (template.initial().size() != 1 || AutomaticCraftingKernel.mutableAffixCount(root) != 0)
+      return null;
     return kernel.representatives(kernel.plan(root, template.initial().getFirst())).stream()
         .filter(
             item ->
