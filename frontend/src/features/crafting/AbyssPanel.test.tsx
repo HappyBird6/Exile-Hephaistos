@@ -209,6 +209,19 @@ it('opens a prepared automatic route with its dummy and preserves the selected o
       ),
     ).toBe(true),
   )
-  expect(screen.getByRole('combobox', { name: 'Next currency' })).toBeDisabled()
+  expect(screen.getByRole('combobox', { name: 'Next currency' })).toBeEnabled()
+  fireEvent.change(screen.getByRole('combobox', { name: 'Next currency' }), {
+    target: { value: 'ANNULMENT' },
+  })
+  await waitFor(() =>
+    expect(
+      calls.some(
+        (c) =>
+          c.url.endsWith('/plan') &&
+          c.body.action === 'ANNULMENT' &&
+          JSON.stringify(c.body.activeOmens) === '[]',
+      ),
+    ).toBe(true),
+  )
   expect(calls.some((c) => c.url.endsWith('/import'))).toBe(false)
 })

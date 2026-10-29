@@ -1,3 +1,11 @@
+import {
+  abyssCard,
+  candidateState,
+  flowLabel,
+  flowMessages,
+  type CraftingFlow,
+  type FlowStep,
+} from './craftingFlow'
 import { GraphCandidates } from './GraphCandidates'
 import { junkCard, tierCandidates, type JunkClassifier } from './graphDisplay'
 import { downstream } from './downstream'
@@ -41,6 +49,9 @@ export function GroupedMethodGraph({
   presentItem,
   frozenCards,
   junk,
+  flow,
+  selectedFlow,
+  selectFlow,
 }: {
   view: AutomaticView
   cycles: number
@@ -52,6 +63,9 @@ export function GroupedMethodGraph({
   presentItem: PathTreeProps['presentItem']
   junk?: JunkClassifier | undefined
   frozenCards?: Scenario['cards'] | undefined
+  flow?: CraftingFlow
+  selectedFlow?: string | null
+  selectFlow?: (id: string) => void
 }) {
   const { locale } = useI18n(),
     guide = guideMessages[locale],
@@ -103,9 +117,12 @@ export function GroupedMethodGraph({
     const cached = renderedCards.get(id)
     if (cached) return cached
     const n = view.nodes.find((n) => n.id === id)!
-    const card = frozenCards?.[String(id)]?.[locale]
-      ? compactFrozenCard(frozenCards[String(id)]![locale])
-      : presentAutomaticItem(n, locale, presentItem, view.nodes)
+    const card =
+      id === 0 && flow?.carry
+        ? abyssCard(flow.carry, presentItem, locale)
+        : frozenCards?.[String(id)]?.[locale]
+          ? compactFrozenCard(frozenCards[String(id)]![locale])
+          : presentAutomaticItem(n, locale, presentItem, view.nodes)
     renderedCards.set(id, card)
     return card
   }
@@ -172,11 +189,74 @@ export function GroupedMethodGraph({
     })
     levelY += labelHeight + (labelHeight ? 18 : 0) + maxHeight + 100
   }
-  const width = Math.max(
-      nodeWidth + 24,
-      ...[...positions.values()].map((p) => p.x + nodeWidth / 2 + 12),
-    ),
-    height = Math.max(100, levelY)
+  const flowCopy = flowMessages[locale]
+  const prefix: FlowStep[] =
+    flow?.prefix.length && flow.anchor
+      ? [
+          {
+            id: 'flow-origin',
+            state: {
+              item: { ...flow.anchor, explicits: [] },
+              slots: flow.prefix[0]!.state.slots.filter((slot) =>
+                flow.anchor!.explicits.some(
+                  (m) => m.modifierId === slot.modifier?.modifierId,
+                ),
+              ),
+              offer: null,
+            },
+            transition: { operation: 'restore' },
+          },
+          ...flow.prefix,
+        ]
+      : (flow?.prefix ?? [])
+  const prefixHeight = prefix.reduce(
+    (sum, s) => sum + (measured['flow:' + s.id] ?? 420) + 100,
+    0,
+  )
+  if (prefixHeight) {
+    for (const p of positions.values()) p.y += prefixHeight
+    levelY += prefixHeight
+  }
+  const baseWidth = Math.max(
+    nodeWidth + 24,
+    ...[...positions.values()].map((p) => p.x + nodeWidth / 2 + 12),
+  )
+  const manualNodes: {
+    step: FlowStep
+    x: number
+    y: number
+    height: number
+    from: { x: number; y: number } | null
+  }[] = []
+  let prefixY = 20
+  let prior: { x: number; y: number } | null = null
+  for (const step of prefix) {
+    const h = measured['flow:' + step.id] ?? 420
+    const x = nodeWidth / 2 + 12
+    manualNodes.push({ step, x, y: prefixY, height: h, from: prior })
+    prior = { x, y: prefixY + h }
+    prefixY += h + 100
+  }
+  const rootPosition = positions.get(projection.owner.get(0) ?? '')
+  const branch = flow?.branch
+  const sourcePosition = branch
+    ? positions.get(projection.owner.get(branch.sourceNode) ?? '')
+    : undefined
+  let branchY = sourcePosition
+    ? sourcePosition.y + sourcePosition.height + 100
+    : prefixHeight + 20
+  let branchPrior = sourcePosition
+    ? { x: sourcePosition.x, y: sourcePosition.y + sourcePosition.height }
+    : null
+  for (const step of branch?.steps ?? []) {
+    const h = measured['flow:' + step.id] ?? 420
+    const x = baseWidth + nodeWidth / 2 + 48
+    manualNodes.push({ step, x, y: branchY, height: h, from: branchPrior })
+    branchPrior = { x, y: branchY + h }
+    branchY += h + 100
+  }
+  const width = branch?.steps.length ? baseWidth + nodeWidth + 72 : baseWidth
+  const height = Math.max(100, levelY, branch?.steps.length ? branchY : 0)
   const updateSize = (id: string, h: number) =>
     setMeasured((previous) =>
       previous[id] === h ? previous : { ...previous, [id]: h },
@@ -486,6 +566,77 @@ export function GroupedMethodGraph({
               </foreignObject>
             )
           })}
+          {prefix.length > 0 && prior && rootPosition && (
+            <path
+              d={`M${prior.x},${prior.y} L${rootPosition.x},${rootPosition.y}`}
+              stroke="currentColor"
+              fill="none"
+              strokeDasharray="6 5"
+              markerEnd={`url(#automatic-arrow-${view.id})`}
+            />
+          )}
+          {manualNodes.map(({ step, x, y, height: h, from }) => (
+            <g key={step.id} data-flow-step={step.transition.operation}>
+              {from && (
+                <path
+                  d={`M${from.x},${from.y} C${from.x},${y - 50} ${x},${y - 50} ${x},${y}`}
+                  stroke="currentColor"
+                  fill="none"
+                  strokeDasharray={
+                    step.transition.operation === 'apply' ? undefined : '6 5'
+                  }
+                  markerEnd={`url(#automatic-arrow-${view.id})`}
+                />
+              )}
+              <foreignObject
+                x={x - nodeWidth / 2}
+                y={y}
+                width={nodeWidth}
+                height={h + 2}
+              >
+                <MeasuredGraphBox
+                  onSize={(size) => updateSize('flow:' + step.id, size)}
+                >
+                  <div
+                    className="graph-item-state"
+                    data-manual-transition={step.transition.operation}
+                  >
+                    <strong>{flowLabel(step.transition, locale)}</strong>
+                    {['observe', 'choose'].includes(
+                      step.transition.operation,
+                    ) && <p>{flowCopy.unknown}</p>}
+                    {step.transition.removal?.map((r, index) => (
+                      <p key={r.slotId}>
+                        {index + 1}: {(r.probability * 100).toFixed(2)}%
+                      </p>
+                    ))}
+                    <GraphItemState
+                      card={abyssCard(step.state, presentItem, locale)}
+                      badge={flowCopy.current}
+                      selected={selectedFlow === step.id}
+                      select={() => selectFlow?.(step.id)}
+                      onSize={() => {}}
+                    />
+                    {step.state.offer && (
+                      <div>
+                        <strong>{flowCopy.observe}</strong>
+                        {step.state.offer.candidates.map((_, index) => (
+                          <ItemCard
+                            key={index}
+                            item={abyssCard(
+                              candidateState(step.state, index),
+                              presentItem,
+                              locale,
+                            )}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </MeasuredGraphBox>
+              </foreignObject>
+            </g>
+          ))}
         </svg>
       </div>
       {chosen && (

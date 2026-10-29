@@ -1,4 +1,12 @@
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { AppProviders } from '../../../app/AppProviders'
+import type { ReactNode } from 'react'
+import {
+  act,
+  fireEvent,
+  render as testingRender,
+  screen,
+  waitFor,
+} from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 import { AutomaticMethodSearch } from './AutomaticMethodSearch'
 import { StrictMode } from 'react'
@@ -73,7 +81,7 @@ it('shows the selected target rarity and blocks resume at the maximum resource l
   ).toBeDisabled()
   expect(screen.getByText('Target rarities: RARE')).toBeInTheDocument()
   expect(screen.getByText(/Maximum resource limit reached/)).toBeInTheDocument()
-  expect(fetcher).toHaveBeenCalledTimes(1)
+  expectJobAndCatalogCalls(fetcher.mock.calls, 1)
 })
 
 it('keeps an unresolved target connection visible as a dashed edge', async () => {
@@ -182,11 +190,11 @@ it('restores the same job and selection after remount without creating or advanc
   await act(async () => {
     await new Promise((resolve) => setTimeout(resolve, 300))
   })
-  expect(fetcher).toHaveBeenCalledTimes(1)
+  expectJobAndCatalogCalls(fetcher.mock.calls, 1)
   mounted.unmount()
   render(<AutomaticMethodSearch {...props} />)
   await screen.findByRole('button', { name: 'Continue calculation' })
-  expect(fetcher).toHaveBeenCalledTimes(2)
+  expectJobAndCatalogCalls(fetcher.mock.calls, 2)
   expect(
     fetcher.mock.calls.every(
       (call) =>
@@ -593,11 +601,11 @@ it('does not auto resume a cancelled or storage-limited calculation', async () =
         onRecalculate={vi.fn()}
       />,
     )
-    await waitFor(() => expect(fetcher).toHaveBeenCalledTimes(1))
+    await waitFor(() => expectJobAndCatalogCalls(fetcher.mock.calls, 1))
     await act(async () => {
       await new Promise((resolve) => setTimeout(resolve, 350))
     })
-    expect(fetcher).toHaveBeenCalledTimes(1)
+    expectJobAndCatalogCalls(fetcher.mock.calls, 1)
     mounted.unmount()
   }
 })
@@ -786,3 +794,28 @@ it('explains invalid starting item constraints without advancing', async () => {
   )
   expect(control).not.toHaveBeenCalled()
 })
+
+function render(ui: ReactNode) {
+  return testingRender(ui, { wrapper: AppProviders })
+}
+
+// The integrated action area performs one additional catalog GET per mount.
+// Keep the original exact job-request counts and verify every additional call.
+function expectJobAndCatalogCalls(calls: unknown[][], count: number) {
+  const catalog = calls.filter((c) =>
+    String(c[0]).startsWith('/api/v1/crafting/initial?'),
+  )
+  const jobs = calls.filter((c) =>
+    String(c[0]).startsWith('/api/v2/crafting/method-searches/automatic'),
+  )
+  expect(jobs).toHaveLength(count)
+  expect(catalog).toHaveLength(count)
+  expect(calls).toHaveLength(count * 2)
+  expect(
+    catalog.every(
+      (c) =>
+        !(c[1] as RequestInit | undefined)?.method ||
+        (c[1] as RequestInit).method === 'GET',
+    ),
+  ).toBe(true)
+}

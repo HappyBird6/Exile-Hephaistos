@@ -1,5 +1,11 @@
 import { validAbyssResponse } from './abyssResponse'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import {
+  materializeAbyss,
+  flowMessages,
+  type FlowTransition,
+} from './method-search/craftingFlow'
+import type { Item } from './path-tree/types'
 import { create } from 'zustand'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { gameName, useI18n } from '../../shared/i18n/i18n'
@@ -178,16 +184,24 @@ export function AbyssPanel({
   prepared,
   initialAction = 'EXALTED',
   initialOmens = [],
+  embedded = false,
+  restoredState,
+  onTransition,
+  onContinue,
 }: {
   source: ConcreteItem
   initial: Initial
   prepared?: AbyssState
   initialAction?: WorkbenchAction
   initialOmens?: string[]
+  restoredState?: AbyssState | undefined
+  embedded?: boolean
+  onTransition?: (state: AbyssState, transition: FlowTransition) => void
+  onContinue?: (state: AbyssState, item: Item) => void
 }) {
   const { locale } = useI18n()
   const t = texts[locale]
-  const [open, setOpen] = useState(!!prepared)
+  const [open, setOpen] = useState(embedded || !!prepared)
   const [saveError, setSaveError] = useState(false)
   const focus = useRef<HTMLSelectElement>(null)
   const client = useQueryClient()
@@ -217,6 +231,7 @@ export function AbyssPanel({
     })),
   )
   const draft = useDraft()
+  const activeOmens = draft.action === initialAction ? initialOmens : []
   const identity = initial.rulesetIdentity
   const seed = JSON.stringify(
     prepared ? [prepared, initialAction, initialOmens] : source,
@@ -253,6 +268,8 @@ export function AbyssPanel({
     retry: false,
     queryFn: async ({ signal }) => {
       const saved = window.localStorage.getItem(storageKey)
+      if (restoredState)
+        return request<AbyssState>('validate', { state: restoredState }, signal)
       return saved
         ? request<AbyssState>(
             'validate',
@@ -265,6 +282,17 @@ export function AbyssPanel({
     },
   })
   const state = query.data
+  const transitionCallback = useRef(onTransition)
+  useEffect(() => {
+    transitionCallback.current = onTransition
+  }, [onTransition])
+  const initialReported = useRef(false)
+  useEffect(() => {
+    if (state && !initialReported.current) {
+      initialReported.current = true
+      transitionCallback.current?.(state, { operation: 'restore' })
+    }
+  }, [state])
   const mutation = useMutation({
     mutationFn: ({
       operation,
@@ -273,7 +301,23 @@ export function AbyssPanel({
       operation: string
       payload: Record<string, unknown>
     }) => request<AbyssState>(operation, { state, ...payload }),
-    onSuccess: (next) => {
+    onSuccess: (next, variables) => {
+      const operation = variables.operation as FlowTransition['operation']
+      transitionCallback.current?.(next, {
+        operation,
+        ...(operation === 'apply'
+          ? {
+              action: draft.action,
+              removal:
+                plan.data?.branches
+                  .filter((b) => b.removedSlotId)
+                  .map((b) => ({
+                    slotId: b.removedSlotId!,
+                    probability: b.removalProbability,
+                  })) ?? [],
+            }
+          : {}),
+      })
       client.setQueryData(key, next)
       try {
         window.localStorage.setItem(storageKey, JSON.stringify(next))
@@ -285,12 +329,12 @@ export function AbyssPanel({
     },
   })
   const plan = useQuery({
-    queryKey: [...key, 'plan', state, draft.action, initialOmens],
+    queryKey: [...key, 'plan', state, draft.action, activeOmens],
     enabled: !!state,
     queryFn: ({ signal }) =>
       request<Plan>(
         'plan',
-        { state, action: draft.action, activeOmens: initialOmens },
+        { state, action: draft.action, activeOmens },
         signal,
       ),
     retry: false,
@@ -329,9 +373,15 @@ export function AbyssPanel({
     mutation.mutate({ operation, payload })
   return (
     <section className="abyss-panel">
-      <button type="button" aria-expanded={open} onClick={() => setOpen(!open)}>
-        {t[0]}
-      </button>
+      {!embedded && (
+        <button
+          type="button"
+          aria-expanded={open}
+          onClick={() => setOpen(!open)}
+        >
+          {t[0]}
+        </button>
+      )}
       {open && (
         <>
           <p>{t[20]}</p>
@@ -342,23 +392,36 @@ export function AbyssPanel({
           {saveError && <p role="alert">{t[15]}</p>}
           {state && (
             <>
-              <ul>
-                {state.slots.map((slot) => (
-                  <li
-                    key={slot.id}
-                    className={slot.desecrated ? 'abyss-slot' : undefined}
-                  >
-                    {slot.side === 'PREFIX' ? t[2] : t[3]}:{' '}
-                    {slot.modifier &&
-                    initial.modifiers[slot.modifier.modifierId]
-                      ? label(
-                          initial.modifiers[slot.modifier.modifierId]!,
-                          slot.modifier.values,
-                        )
-                      : t[1]}
-                  </li>
-                ))}
-              </ul>
+              {onContinue && (
+                <button
+                  disabled={busy || !materializeAbyss(state)}
+                  onClick={() => {
+                    const item = materializeAbyss(state)
+                    if (item) onContinue(state, item)
+                  }}
+                >
+                  {flowMessages[locale].resume}
+                </button>
+              )}
+              {!embedded && (
+                <ul>
+                  {state.slots.map((slot) => (
+                    <li
+                      key={slot.id}
+                      className={slot.desecrated ? 'abyss-slot' : undefined}
+                    >
+                      {slot.side === 'PREFIX' ? t[2] : t[3]}:{' '}
+                      {slot.modifier &&
+                      initial.modifiers[slot.modifier.modifierId]
+                        ? label(
+                            initial.modifiers[slot.modifier.modifierId]!,
+                            slot.modifier.values,
+                          )
+                        : t[1]}
+                    </li>
+                  ))}
+                </ul>
+              )}
               <label>
                 {t[5]}{' '}
                 <select
@@ -498,13 +561,12 @@ export function AbyssPanel({
                   ))}
                 </ol>
               )}
-              {initialOmens.map((omen) => (
+              {activeOmens.map((omen) => (
                 <p key={omen}>{gameName(omen, omen)}</p>
               ))}
               <label>
                 {t[9]}{' '}
                 <select
-                  disabled={initialOmens.length > 0}
                   value={draft.action}
                   onChange={(e) =>
                     draft.edit({ action: e.target.value as WorkbenchAction })
@@ -539,7 +601,7 @@ export function AbyssPanel({
                 onClick={() =>
                   submit('apply', {
                     action: draft.action,
-                    activeOmens: initialOmens,
+                    activeOmens,
                   })
                 }
               >

@@ -1,3 +1,15 @@
+import { create } from 'zustand'
+import { createPathSearchRequest } from '../path-tree/request'
+import {
+  abyssCard,
+  materializeAbyss,
+  flowMessages,
+  flowExportMessages,
+  validFlow,
+  type CraftingFlow,
+  type FlowTransition,
+} from './craftingFlow'
+import type { AbyssState } from '../AbyssPanel'
 import { junkClassifier } from './graphDisplay'
 import type { Definition } from '../craftingApi'
 import { AutomaticAbyssRoutes } from './AutomaticAbyssRoutes'
@@ -61,7 +73,7 @@ type Props = PathTreeProps & {
 }
 export function AutomaticMethodSearch(props: Props) {
   return (
-    <Run
+    <Workflow
       key={canonical([
         props.inputGeneration,
         props.request,
@@ -72,7 +84,91 @@ export function AutomaticMethodSearch(props: Props) {
     />
   )
 }
+function Workflow(props: Props) {
+  const { locale } = useI18n()
+  const [useFlow] = useState(() =>
+    create<{
+      value: CraftingFlow
+      saveError: boolean
+      change: (fn: (f: CraftingFlow) => CraftingFlow) => void
+    }>((set) => ({
+      saveError: false,
+      value: (props.snapshot
+        ? null
+        : readSupport(
+            'crafting-flow:' + props.request.clientRequestId,
+            (v): v is CraftingFlow =>
+              validFlow(v, props.request.clientRequestId),
+          )) ?? {
+        origin: props.request.clientRequestId,
+        request: props.request,
+        prefix: [],
+        anchor: null,
+        carry: null,
+        branch: null,
+      },
+      change: (fn) =>
+        set((s) => {
+          const value = fn(s.value)
+          return {
+            value,
+            saveError:
+              !props.snapshot &&
+              !saveSupport(
+                'crafting-flow:' + props.request.clientRequestId,
+                value,
+              ),
+          }
+        }),
+    })),
+  )
+  const { value: flow, change, saveError } = useFlow()
+  return (
+    <>
+      {saveError && <p role="alert">{flowMessages[locale].stored}</p>}
+      <Run
+        {...props}
+        key={flow.request.clientRequestId}
+        request={flow.request}
+        flow={flow}
+        changeFlow={change}
+        continueFlow={(state, item) =>
+          change((old) => ({
+            ...old,
+            request: createPathSearchRequest(
+              item,
+              old.request.goal,
+              old.request.start.provenance,
+              old.request.activeOmens,
+            ),
+            prefix: [...old.prefix, ...(old.branch?.steps ?? [])],
+            carry: state,
+            branch: {
+              sourceNode: 0,
+              source: materializeAbyss(state)!,
+              prepared: state,
+              action: 'EXALTED',
+              omens: [],
+              steps: [],
+            },
+          }))
+        }
+      />
+    </>
+  )
+}
+type FlowProps = {
+  flow: CraftingFlow
+  changeFlow: (fn: (f: CraftingFlow) => CraftingFlow) => void
+  continueFlow: (
+    state: AbyssState,
+    item: import('../path-tree/types').Item,
+  ) => void
+}
 function Run({
+  flow,
+  changeFlow,
+  continueFlow,
   graphDefinitions,
   targetSources,
   request,
@@ -85,7 +181,7 @@ function Run({
   snapshot,
   scenarioBaseKey = 'solar',
   goalLabels,
-}: Props) {
+}: Props & FlowProps) {
   const { locale, name } = useI18n(),
     copy = methodSearchMessages[locale],
     common = pathTreeMessages[locale],
@@ -103,6 +199,33 @@ function Run({
     const stored = readSupport('run', validRun)
     return stored?.request === request.clientRequestId ? stored : null
   })
+  const [manualSelected, setManualSelected] = useState<string | null>(
+    flow.branch?.steps.at(-1)?.id ?? null,
+  )
+  const manualStep = [...flow.prefix, ...(flow.branch?.steps ?? [])].find(
+    (s) => s.id === manualSelected,
+  )
+  const transition = (state: AbyssState, event: FlowTransition) => {
+    const previous = flow.branch?.steps.at(-1)?.state ?? flow.branch?.prepared
+    if (!flow.branch || canonical(previous) === canonical(state)) return
+    const id = crypto.randomUUID()
+    changeFlow((old) => {
+      if (
+        !old.branch ||
+        canonical(old.branch.steps.at(-1)?.state ?? old.branch.prepared) ===
+          canonical(state)
+      )
+        return old
+      return {
+        ...old,
+        branch: {
+          ...old.branch,
+          steps: [...old.branch.steps, { id, state, transition: event }],
+        },
+      }
+    })
+    if (event.operation !== 'restore') setManualSelected(id)
+  }
   const [storageFailed, setStorageFailed] = useState(false)
   const [expired, setExpired] = useState(false)
   const [scopeUnsupported, setScopeUnsupported] = useState(false)
@@ -476,6 +599,9 @@ function Run({
           </button>
         </div>
       )}
+      {(flow.branch || flow.prefix.length > 0) && (
+        <p>{flowExportMessages[locale]}</p>
+      )}
       {view && (
         <ScenarioExport
           request={request}
@@ -505,7 +631,13 @@ function Run({
               selected={selectedNode?.id ?? 0}
               route={route}
               choose={chooseEdge}
-              select={selectNode}
+              select={(id) => {
+                setManualSelected(null)
+                selectNode(id)
+              }}
+              flow={flow}
+              selectedFlow={manualSelected}
+              selectFlow={setManualSelected}
               action={action}
               presentItem={presentItem}
               frozenCards={snapshot?.cards}
@@ -545,45 +677,41 @@ function Run({
                         <p>{qualityGoalMessages[locale].work20} ✓</p>
                       )}
                     <p>
-                      {selectedNode.progress.goal === 'MATCH'
-                        ? common.hit
-                        : selectedNode.progress.goal === 'NO_MATCH'
-                          ? common.noMatch
-                          : selectedNode.progress.goal === 'UNSUPPORTED'
-                            ? common.unsupported
-                            : common.unknown}
+                      {manualStep
+                        ? common.unknown
+                        : selectedNode.progress.goal === 'MATCH'
+                          ? common.hit
+                          : selectedNode.progress.goal === 'NO_MATCH'
+                            ? common.noMatch
+                            : selectedNode.progress.goal === 'UNSUPPORTED'
+                              ? common.unsupported
+                              : common.unknown}
                     </p>
                     <ItemCard
                       item={
-                        snapshot?.cards[String(selectedNode.id)]?.[locale]
-                          ? compactFrozenCard(
-                              snapshot.cards[String(selectedNode.id)]![locale],
-                            )
-                          : presentAutomaticItem(
-                              selectedNode,
-                              locale,
-                              presentItem,
-                              view.nodes,
-                            )
+                        manualStep
+                          ? abyssCard(manualStep.state, presentItem, locale)
+                          : snapshot?.cards[String(selectedNode.id)]?.[locale]
+                            ? compactFrozenCard(
+                                snapshot.cards[String(selectedNode.id)]![
+                                  locale
+                                ],
+                              )
+                            : presentAutomaticItem(
+                                selectedNode,
+                                locale,
+                                presentItem,
+                                view.nodes,
+                              )
                       }
                     />
-                    {!snapshot &&
-                      !automaticItemIsDistribution(selectedNode) &&
-                      selectedNode.item.rarity === 'RARE' && (
-                        <AutomaticAbyssRoutes
-                          key={`${view.id}:${selectedNode.id}`}
-                          jobId={view.id}
-                          nodeId={selectedNode.id}
-                          source={selectedNode.item as ConcreteItem}
-                          base={scenarioBaseKey}
-                          identity={request.start.provenance.rulesetIdentity}
-                        />
-                      )}
                     {onEditState &&
                       automaticItemIsDistribution(selectedNode) && (
                         <p>{distributionEditMessages[locale]}</p>
                       )}
                     {onEditState &&
+                      !manualStep &&
+                      !flow.carry &&
                       !automaticItemIsDistribution(selectedNode) && (
                         <>
                           <button
@@ -616,11 +744,50 @@ function Run({
               {view.methods.some((m) => m.source === selectedNode?.id) && (
                 <h3>{guide.next}</h3>
               )}
+              {(flow.branch || flow.prefix.length > 0) && (
+                <p>{flowMessages[locale].conditional}</p>
+              )}
+              {!snapshot &&
+                selectedNode &&
+                (flow.branch ||
+                  (!automaticItemIsDistribution(selectedNode) &&
+                    selectedNode.item.rarity === 'RARE')) && (
+                  <section
+                    className="craft-choice"
+                    aria-label={flowMessages[locale].next}
+                  >
+                    <AutomaticAbyssRoutes
+                      key={`${view.id}:${flow.branch?.sourceNode ?? selectedNode.id}`}
+                      jobId={view.id}
+                      nodeId={flow.branch?.sourceNode ?? selectedNode.id}
+                      source={
+                        flow.branch?.source ??
+                        (selectedNode.item as ConcreteItem)
+                      }
+                      base={scenarioBaseKey}
+                      identity={request.start.provenance.rulesetIdentity}
+                      branch={flow.branch}
+                      onStart={(branch) => {
+                        changeFlow((old) => ({
+                          ...old,
+                          anchor: old.anchor ?? branch.source,
+                          branch,
+                        }))
+                        setManualSelected(branch.steps[0]!.id)
+                      }}
+                      onTransition={transition}
+                      onContinue={(state, item) => {
+                        stop()
+                        continueFlow(state, item)
+                      }}
+                    />
+                  </section>
+                )}
               <div className="method-map__methods">
                 <OperationCards
                   recommendations={view.recommendations}
                   methods={view.methods.filter(
-                    (m) => m.source === selectedNode?.id,
+                    (m) => !manualStep && m.source === selectedNode?.id,
                   )}
                   cycles={cycles}
                   action={action}

@@ -1,5 +1,10 @@
 import { localizedModifierText } from '../localizedModifiers'
-import { useState } from 'react'
+import {
+  flowMessages,
+  type FlowBranch,
+  type FlowTransition,
+} from './craftingFlow'
+import type { Item } from '../path-tree/types'
 import { useQuery } from '@tanstack/react-query'
 import { gameName, useI18n } from '../../../shared/i18n/i18n'
 import { AbyssPanel, type AbyssState } from '../AbyssPanel'
@@ -105,23 +110,24 @@ type Props = {
   base: string
   identity: string
   source: ConcreteItem
+  branch?: FlowBranch | null
+  onStart: (branch: FlowBranch) => void
+  onTransition: (state: AbyssState, transition: FlowTransition) => void
+  onContinue: (state: AbyssState, item: Item) => void
 }
-export function AutomaticAbyssRoutes(props: Props) {
+export function AutomaticAbyssRoutes({
+  jobId,
+  nodeId,
+  base,
+  identity,
+  source,
+  branch,
+  onStart,
+  onTransition,
+  onContinue,
+}: Props) {
   const { locale } = useI18n()
   const t = messages[locale]
-  const [open, setOpen] = useState(false)
-  return (
-    <details onToggle={(e) => setOpen(e.currentTarget.open)}>
-      <summary>{t[0]}</summary>
-      <p>{t[5]}</p>
-      {open && <Routes {...props} />}
-    </details>
-  )
-}
-function Routes({ jobId, nodeId, base, identity, source }: Props) {
-  const { locale } = useI18n()
-  const t = messages[locale]
-  const [selected, setSelected] = useState<number | null>(null)
   const query = useQuery({
     queryKey: ['automatic-abyss', identity, jobId, nodeId],
     staleTime: Infinity,
@@ -180,84 +186,108 @@ function Routes({ jobId, nodeId, base, identity, source }: Props) {
       return { initial, routes: data as Route[] }
     },
   })
-  const route = selected === null ? undefined : query.data?.routes[selected]
   return (
     <div>
       {query.isError && <p role="alert">{t[6]}</p>}
-      {query.data?.routes.map((r, i) => (
-        <div key={i}>
-          <p>
-            {
-              t[
-                r.kind === 'COMPLETE_SIDE'
-                  ? 1
-                  : r.kind === 'BLOCK_HIGH_WEIGHT'
-                    ? 2
-                    : 3
-              ]
-            }{' '}
-            · {localizedAction(r.nextCurrency)}
-          </p>
-          <p>
-            {
-              sides[locale][
-                r.prepared.slots.find((s) => s.desecrated)?.side === 'PREFIX'
-                  ? 0
-                  : 1
-              ]
-            }
-            {r.activeOmens.map((o) => ` · ${gameName(o, o)}`).join('')}
-          </p>
-          {r.modifierSelection && query.data && (
+      {!branch &&
+        query.data?.routes.map((r, i) => (
+          <div key={i}>
             <p>
-              {localizedModifierText(
-                query.data.initial.modifiers[
-                  r.modifierSelection.blockerModifierId
-                ]!,
-              )}
+              {
+                t[
+                  r.kind === 'COMPLETE_SIDE'
+                    ? 1
+                    : r.kind === 'BLOCK_HIGH_WEIGHT'
+                      ? 2
+                      : 3
+                ]
+              }{' '}
+              · {localizedAction(r.nextCurrency)}
             </p>
-          )}
-          {r.modifierSelection && (
             <p>
-              {pct(
-                r.modifierSelection.baseline.targetWeight,
-                r.modifierSelection.baseline.totalWeight,
-              )}
-              (~
-              {pct(
-                r.modifierSelection.afterBlocking.targetWeight,
-                r.modifierSelection.afterBlocking.totalWeight,
-              )}
-              )
+              {
+                sides[locale][
+                  r.prepared.slots.find((s) => s.desecrated)?.side === 'PREFIX'
+                    ? 0
+                    : 1
+                ]
+              }
+              {r.activeOmens.map((o) => ` · ${gameName(o, o)}`).join('')}
             </p>
-          )}
-          {r.removalProtection && (
-            <p>
-              {t[7]}:{' '}
-              {pct(
-                r.removalProtection.safeBefore,
-                r.removalProtection.totalBefore,
-              )}{' '}
-              →{' '}
-              {pct(
-                r.removalProtection.safeAfter,
-                r.removalProtection.totalAfter,
-              )}
-            </p>
-          )}
-          <button onClick={() => setSelected(i)}>{t[4]}</button>
-        </div>
-      ))}
-      {route && query.data && (
+            {r.modifierSelection && query.data && (
+              <p>
+                {localizedModifierText(
+                  query.data.initial.modifiers[
+                    r.modifierSelection.blockerModifierId
+                  ]!,
+                )}
+              </p>
+            )}
+            {r.modifierSelection && (
+              <p>
+                {pct(
+                  r.modifierSelection.baseline.targetWeight,
+                  r.modifierSelection.baseline.totalWeight,
+                )}
+                (~
+                {pct(
+                  r.modifierSelection.afterBlocking.targetWeight,
+                  r.modifierSelection.afterBlocking.totalWeight,
+                )}
+                )
+              </p>
+            )}
+            {r.removalProtection && (
+              <p>
+                {t[7]}:{' '}
+                {pct(
+                  r.removalProtection.safeBefore,
+                  r.removalProtection.totalBefore,
+                )}{' '}
+                →{' '}
+                {pct(
+                  r.removalProtection.safeAfter,
+                  r.removalProtection.totalAfter,
+                )}
+              </p>
+            )}
+            <button
+              onClick={() =>
+                onStart({
+                  sourceNode: nodeId,
+                  source,
+                  prepared: r.prepared,
+                  action: r.nextCurrency,
+                  omens: r.activeOmens,
+                  steps: [
+                    {
+                      id: crypto.randomUUID(),
+                      state: r.prepared,
+                      transition: { operation: 'prepare' },
+                    },
+                  ],
+                })
+              }
+            >
+              {flowMessages[locale].prepare} · {localizedAction(r.nextCurrency)}
+            </button>
+          </div>
+        ))}
+      {branch && query.data && (
         <AbyssPanel
-          key={selected}
-          source={source}
+          key={JSON.stringify([branch.prepared, branch.action, branch.omens])}
+          source={branch.source}
           initial={query.data.initial}
-          prepared={route.prepared}
-          initialAction={route.nextCurrency}
-          initialOmens={route.activeOmens}
+          prepared={branch.prepared}
+          restoredState={branch.steps.at(-1)?.state}
+          initialAction={branch.action}
+          initialOmens={branch.omens}
+          embedded
+          onTransition={onTransition}
+          onContinue={onContinue}
         />
       )}
+      {!!query.data?.routes.length && <p>{t[5]}</p>}
     </div>
   )
 }

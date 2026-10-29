@@ -1,6 +1,13 @@
+import { AppProviders } from '../../../app/AppProviders'
+import type { ReactNode } from 'react'
 import { saveSupport } from './supportStorage'
 import { beforeEach, expect, it, vi } from 'vitest'
-import { render, screen, fireEvent, within } from '@testing-library/react'
+import {
+  render as testingRender,
+  screen,
+  fireEvent,
+  within,
+} from '@testing-library/react'
 import { exaltedGroups, groupMass, graphProjection } from './outcomeGrouping'
 import { methodPoint, isRepeatable } from './methodObservation'
 import { AutomaticMethodSearch } from './AutomaticMethodSearch'
@@ -439,3 +446,7 @@ it('paints every graph arrow before every action label so later routes cannot ob
     }
   }
 })
+
+function render(ui: ReactNode) {
+  return testingRender(ui, { wrapper: AppProviders })
+}
