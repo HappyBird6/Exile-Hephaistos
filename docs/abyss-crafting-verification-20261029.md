@@ -34,3 +34,17 @@
 최종 실행 JAR SHA-256: `c9909934c76713726453df681c45dcd1404234f8662fa4cab0a7926872c71c78`. 이 JAR는 격리 QA에서만 실행했으며 운영 배포가 완료된 것은 아니다.
 
 최종 JAR의 실제 브라우저에서도 세 전략과 5.45%(~5.60%)를 확인했다. 목걸이 자동 추천에서 발작 에센스가 제외되고, 한쪽 채우기에서 마나 14·생명력 19·녹색 미공개 접두가 유지됐다. 콘솔 오류는 없었다.
+
+## 승인 후 운영 적용 완료 — 2026-10-29
+
+사용자가 Redis 변경 및 서버 적용을 승인하여 위 승인 대기 상태를 해소했다. 구현 커밋은 `69d61516f67bec36201c9998f4a87fa8d6e7a9d7`이며 코드 변경 없이 검증 산출물을 적용했다.
+
+- 서버: http://localhost:9000 (Backend), http://localhost:9001 (Frontend). health/readiness/liveness 모두 UP, 프런트 프록시 정상, 운영 Redis PONG.
+- 기존 Exile Redis만 재생성했다. 호스트 포트 공개는 없고 내부 별칭 redis:6379를 유지한다. /data는 기존 `7b1c7972e679dbae5773a7237ca430bce8b7d9a2ed933bac264fccff6b07b5d2` 볼륨이다. 다른 프로젝트의 6379/6380 Redis는 그대로 실행 중이다.
+- 실제 배포 구성은 기존 운영 `infra/compose.yaml`과 `C:\Users\SSAFY\Documents\Codex\2026-10-29\task\abyss-redis-internal-only.yaml` override의 조합이다. 운영 원본 Compose와 .env를 수정하지 않았다. 향후 Compose로 Redis를 재생성할 때도 이 override를 함께 지정해야 호스트 포트 충돌이 재발하지 않는다.
+- 기존 app/frontend/postgres 컨테이너를 재사용했다. 실행 JAR는 위 최종 SHA-256과 일치하며, 프런트 HTTP 파일 227개가 빌드 산출물과 모두 일치한다. 컨테이너의 실행 파일을 갱신한 방식이며 기존 이미지 태그를 재빌드한 것은 아니다. 향후 app/frontend를 재생성한다면 이 커밋의 산출물을 다시 배포해야 한다.
+- 운영 stateless 훼손 API 7건을 재검증했다. 운영 서버에 합성 자동 탐색 job을 만들지 않았다. 실제 브라우저에서 작업대 및 제작 지원의 카탈로그·목표 UI 로딩을 확인했고 콘솔 오류가 없었다.
+- 적용 직전 백업: app-data 25개/185,887,212 bytes, PostgreSQL 1,292개/48,074,731 bytes, Redis 0개/0 bytes. 각 볼륨을 읽기 전용으로 압축한 뒤 임시 디렉터리에 복원하여 모든 파일 해시를 비교했다. 기존 JAR와 프런트도 별도 보관했다. 백업 위치는 `C:\Users\SSAFY\Documents\Codex\2026-10-29\task\abyss-approved-deploy-backup`이다.
+- 적용 후 사용자 저장 25개 파일의 경로·크기·SHA-256이 모두 동일하다. PostgreSQL은 기존 볼륨을 그대로 사용한다. .env 해시도 동일하다. STS와 다른 프로젝트의 서비스·볼륨은 조작하지 않았다.
+- 이번 작업이 생성한 QA app/frontend/postgres/redis와 전용 exile-abyss-qa 네트워크를 정리했다. QA PostgreSQL은 tmpfs, QA 앱/프런트의 소스 마운트는 읽기 전용임을 확인했다. 운영 볼륨과 백업은 정리 대상에 포함하지 않았다.
+- 남은 제품 제한과 기존 Backend 검사 실패 29건은 앞선 기록과 같다. 배포 차단이나 승인 대기 항목은 없다.
