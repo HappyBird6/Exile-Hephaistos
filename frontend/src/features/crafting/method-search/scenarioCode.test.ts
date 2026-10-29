@@ -567,3 +567,21 @@ it('round trips five-local-affix joint laws into six-affix targets', async () =>
   )
   expect(await decodeScenario(await encodeScenario(value))).toEqual(value)
 })
+
+it('round trips optional junk display metadata while preserving the original item and goal', async () => {
+  const value = fixture()
+  for (const locale of scenarioLocales)
+    value.cards['0']![locale].modifiers = [
+      {
+        id: 'display-test',
+        text: 'original modifier',
+        affixType: 'PREFIX',
+        junkSide: 'PREFIX',
+      },
+    ]
+  const restored = await decodeScenario(await encodeScenario(value))
+  expect(restored).toEqual(value)
+  const invalid = structuredClone(value)
+  Object.assign(invalid.cards['0']!.en.modifiers[0]!, { junkSide: 'UNKNOWN' })
+  expect(() => validateScenario(invalid)).toThrow('INVALID_SCENARIO')
+})

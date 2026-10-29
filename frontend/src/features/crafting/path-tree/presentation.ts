@@ -25,6 +25,7 @@ export function createItemPresentation(
       ...item.explicits.map((m) => ({ ...m, kind: 'explicit' as const })),
     ].map((m) => ({
       id: m.modifierId,
+      affixType: definitions[m.modifierId]?.affixType,
       kind: m.kind,
       fractured: m.fractured,
       affixLabel:

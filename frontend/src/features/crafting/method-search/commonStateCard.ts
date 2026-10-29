@@ -1,3 +1,4 @@
+import { mergeTierRenderings } from './mergeTierRenderings'
 import {
   compactAttribute,
   tierLabel,
@@ -19,6 +20,7 @@ export function commonStateCard(cards: ItemCardData[]): ItemCardData {
       if (common.some((c) => canonical(c) === canonical(line))) continue
       const key = canonical({
         kind: line.kind ?? null,
+        affixType: line.affixType ?? null,
         fractured: line.fractured ?? false,
         attribute: line.attributeKey ?? attributeHeading(line.text),
       })
@@ -37,13 +39,24 @@ export function commonStateCard(cards: ItemCardData[]): ItemCardData {
           const variants = lines.flatMap((l) =>
             l.tierRows?.length
               ? l.tierRows.map((r) => ({
+                  groupKey: l.id,
                   label: r.label,
                   low: r.low ?? l.text,
                   high: r.high ?? l.text,
                 }))
-              : [{ label: tierLabel(l.affixLabel), low: l.text, high: l.text }],
+              : [
+                  {
+                    groupKey: l.id,
+                    label: tierLabel(l.affixLabel),
+                    low: l.text,
+                    high: l.text,
+                  },
+                ],
           )
-          const compacted = compactAttribute(combined, variants)
+          const compacted = compactAttribute(
+            combined,
+            mergeTierRenderings(variants),
+          )
           if (compacted !== combined) return compacted
           const rows = lines.flatMap((l) =>
             l.tierRows?.length
@@ -78,11 +91,14 @@ export function commonStateCard(cards: ItemCardData[]): ItemCardData {
         }
         return compactAttribute(
           combined,
-          lines.map((l) => ({
-            label: tierLabel(l.affixLabel),
-            low: l.text,
-            high: l.text,
-          })),
+          mergeTierRenderings(
+            lines.map((l) => ({
+              groupKey: l.id,
+              label: tierLabel(l.affixLabel),
+              low: l.text,
+              high: l.text,
+            })),
+          ),
         )
       }),
     ],

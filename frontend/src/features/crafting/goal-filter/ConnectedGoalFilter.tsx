@@ -1,4 +1,4 @@
-import { evaluationNumber } from './evaluationNumber'
+import { goalSources } from '../method-search/graphDisplay'
 import { resetMessages } from './resetMessages'
 import {
   readSupport,
@@ -12,12 +12,8 @@ import { useStore } from 'zustand'
 import { concreteInitial } from '../workbenchApi'
 import type { ConcreteItem } from '../workbenchApi'
 import { loadInitial } from '../craftingApi'
-import { httpGoalFilterAdapter, GoalFilterApiError } from './api'
-import {
-  evaluateNumericItem,
-  evaluateNumericItemOnly,
-  presentNumericStats,
-} from './numericApi'
+import { httpGoalFilterAdapter } from './api'
+import { presentNumericStats } from './numericApi'
 import { useGoalFilterCatalog } from './useGoalFilter'
 import { createGoalFilterEditor, emptyGoal } from './editor'
 import { GoalFilterPanel } from './GoalFilterPanel'
@@ -25,12 +21,11 @@ import type { GoalFilterLanguage } from './i18n'
 import type { Catalog, Context, GoalFilter } from './types'
 import { startBases } from './startItem'
 import { useI18n } from '../../../shared/i18n/i18n'
-import { craftStartMessages } from './craftStartMessages'
 import { goalFilterMessages } from './i18n'
-import { presentGoalStat } from './statPresentation'
 
 const adapter = httpGoalFilterAdapter
 export type SearchGoalSnapshot = {
+  sourceStatIds?: string[] | undefined
   goal: GoalFilter
   catalogVersion: string | null
   ready: boolean
@@ -209,12 +204,9 @@ export function ConnectedGoalFilter({
 function ConnectedEditor({
   initialCatalog,
   item,
-  rulesetIdentity,
   context,
   bases,
   language,
-  activeOmens,
-  maxMillis,
   compact,
   onSearchGoalChange,
   onResetGoal,
@@ -232,7 +224,6 @@ function ConnectedEditor({
   onSearchGoalChange?: ((snapshot: SearchGoalSnapshot) => void) | undefined
 }) {
   const { locale } = useI18n()
-  const copy = craftStartMessages[locale]
   const [editor] = useState(() =>
     createGoalFilterEditor(
       (compact ? readSupport('goal', validGoal) : null) ??
@@ -269,6 +260,7 @@ function ConnectedEditor({
     const catalog = currentCatalog.data
     onSearchGoalChange?.({
       goal: structuredClone(goal),
+      sourceStatIds: catalog ? goalSources(goal, catalog) : undefined,
       catalogVersion: catalog?.catalogVersion ?? null,
       ready:
         inputReady &&
@@ -290,49 +282,6 @@ function ConnectedEditor({
     onSearchGoalChange,
     inputReady,
   ])
-  const [submitted, setSubmitted] = useState<{
-    goal: GoalFilter
-    identity: string
-    nonce: number
-  } | null>(null)
-  const identity = JSON.stringify({
-    item,
-    context,
-    goal,
-    activeOmens,
-    maxMillis,
-    rulesetIdentity,
-  })
-  const current = submitted?.identity === identity && item !== null
-  const result = useQuery<
-    | Awaited<ReturnType<typeof evaluateNumericItem>>
-    | Awaited<ReturnType<typeof evaluateNumericItemOnly>>
-  >({
-    queryKey: ['goalFilter', 'item-evaluation', identity, submitted],
-    enabled: Boolean(current),
-    queryFn: ({ signal }) =>
-      compact
-        ? evaluateNumericItemOnly(
-            item!,
-            submitted!.goal,
-            signal,
-            rulesetIdentity!,
-          )
-        : evaluateNumericItem(
-            item!,
-            submitted!.goal,
-            activeOmens,
-            maxMillis,
-            signal,
-            rulesetIdentity!,
-          ),
-    retry: false,
-  })
-  const visible = current ? result.data : undefined
-  const displayCatalog = currentCatalog.data ?? initialCatalog
-  const displayStats = displayCatalog.stats.map((stat) =>
-    presentGoalStat(stat, displayCatalog, locale),
-  )
   const ko = language === 'ko'
   return (
     <div className="goal-filter-connected">
@@ -397,7 +346,6 @@ function ConnectedEditor({
           if (!currentCatalog.data) return
           const goal = emptyGoal(context, currentCatalog.data.catalogVersion)
           onResetGoal?.()
-          setSubmitted(null)
           setInputReady(false)
           editor.setState((state) => ({
             goal,
@@ -424,138 +372,7 @@ function ConnectedEditor({
         bases={bases}
         language={language}
         compact={compact}
-        recommendation={visible?.recommendation}
-        recommendationGoal={current ? submitted?.goal : undefined}
-        evaluationAvailable={item !== null}
-        evaluationPending={Boolean(current && result.isFetching)}
-        onInputEdit={() => setSubmitted(null)}
-        onEvaluate={(selected) =>
-          setSubmitted({ goal: selected, identity, nonce: Date.now() })
-        }
       />
-      {current && result.isError && (
-        <p role="alert">
-          {compact
-            ? copy.evaluationError
-            : ko
-              ? '판정 요청 실패. 입력은 보존됩니다.'
-              : 'Evaluation failed. Inputs are preserved.'}{' '}
-          {!compact && result.error.message}
-        </p>
-      )}
-      {!compact &&
-        current &&
-        result.error instanceof GoalFilterApiError &&
-        result.error.issues.map((issue, index) => (
-          <p role="alert" key={index}>
-            {issue.code}: {issue.message} ({issue.path})
-          </p>
-        ))}
-      {visible && compact && (
-        <section aria-live="polite" aria-label={copy.evaluation}>
-          <h3>{copy.evaluation}</h3>
-          <p>
-            {visible.evaluation.status === 'MATCH'
-              ? copy.match
-              : visible.evaluation.status === 'NO_MATCH'
-                ? copy.noMatch
-                : copy.unknown}
-          </p>
-          {visible.evaluation.groups.map((group, index) => (
-            <div key={group.id}>
-              <p>
-                {index + 1}:{' '}
-                {group.status === 'MATCH'
-                  ? copy.match
-                  : group.status === 'NO_MATCH'
-                    ? copy.noMatch
-                    : copy.unknown}
-              </p>
-              <ul>
-                {group.entries.map((entry) => (
-                  <li key={entry.id}>
-                    {displayStats.find(
-                      (stat) =>
-                        stat.statId ===
-                        goal.groups
-                          .flatMap((g) => g.entries)
-                          .find((row) => row.id === entry.id)?.statId,
-                    )?.label ?? copy.unknown}
-                    : {evaluationNumber(entry.value, entry.exactValue)} ·{' '}
-                    {entry.status === 'MATCH'
-                      ? copy.match
-                      : entry.status === 'NO_MATCH'
-                        ? copy.noMatch
-                        : copy.unknown}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </section>
-      )}
-      {visible && !compact && visible.recommendation && (
-        <section
-          aria-live="polite"
-          aria-label={ko ? '수치 판정 결과' : 'Numeric evaluation result'}
-        >
-          <h3>
-            {ko ? '현재 아이템 판정' : 'Current item evaluation'}:{' '}
-            {visible.evaluation.status}
-          </h3>
-          <p>General: {visible.evaluation.generalStatus}</p>
-          {visible.evaluation.groups.map((group) => (
-            <div key={group.id}>
-              <p>
-                {ko ? '그룹' : 'Group'}{' '}
-                {goal.groups.findIndex((g) => g.id === group.id) + 1}:{' '}
-                {group.status}{' '}
-                {group.count === null ? '' : `count ${group.count}`}{' '}
-                {group.score === null
-                  ? ''
-                  : `score ${evaluationNumber(group.score, group.exactScore)}`}
-              </p>
-              <ul>
-                {group.entries.map((entry) => (
-                  <li key={entry.id}>
-                    {displayStats.find(
-                      (stat) =>
-                        stat.statId ===
-                        goal.groups
-                          .flatMap((g) => g.entries)
-                          .find((e) => e.id === entry.id)?.statId,
-                    )?.label ?? entry.id}
-                    : {entry.status} / {entry.presence} /{' '}
-                    {entry.value === null
-                      ? 'unknown / absent'
-                      : evaluationNumber(entry.value, entry.exactValue)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          {visible.evaluation.issues.map((issue, index) => (
-            <p key={index}>
-              {issue.code}: {issue.message} ({issue.path})
-            </p>
-          ))}
-          <p>
-            {ko ? '수치 확률' : 'Numeric probability'}:{' '}
-            {visible.recommendation.probability.status} /{' '}
-            {visible.recommendation.probability.reasonCode}
-          </p>
-          <p>
-            {ko ? '비교한 경로' : 'Compared sequences'}:{' '}
-            {visible.recommendation.comparedSequences};{' '}
-            {ko
-              ? '전체 경로 수 미정'
-              : visible.recommendation.totalSequences === null
-                ? 'Total sequences unknown'
-                : 'Total sequences'}
-            : {String(visible.recommendation.totalSequences)}
-          </p>
-        </section>
-      )}
     </div>
   )
 }

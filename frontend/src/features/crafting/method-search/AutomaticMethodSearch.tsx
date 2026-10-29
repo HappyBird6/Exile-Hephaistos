@@ -1,3 +1,5 @@
+import { junkClassifier } from './graphDisplay'
+import type { Definition } from '../craftingApi'
 import { AutomaticAbyssRoutes } from './AutomaticAbyssRoutes'
 import { compactFrozenCard } from './compactFrozenCard'
 import { qualityGoalMessages } from '../goal-filter/qualityGoalMessages'
@@ -51,6 +53,8 @@ import type { AutomaticAction, AutomaticView } from './automaticApi'
 import './method-search.css'
 
 type Props = PathTreeProps & {
+  graphDefinitions?: Record<string, Definition> | undefined
+  targetSources?: string[] | undefined
   snapshot?: Scenario | undefined
   scenarioBaseKey?: string | undefined
   goalLabels?: Scenario['goalLabels']
@@ -69,6 +73,8 @@ export function AutomaticMethodSearch(props: Props) {
   )
 }
 function Run({
+  graphDefinitions,
+  targetSources,
   request,
   presentItem,
   onEditState,
@@ -483,6 +489,11 @@ function Run({
           baseKey={scenarioBaseKey}
           frozen={snapshot}
           goalLabels={goalLabels}
+          junk={
+            graphDefinitions
+              ? junkClassifier(targetSources, graphDefinitions)
+              : undefined
+          }
         />
       )}
       {view && (
@@ -498,6 +509,11 @@ function Run({
               action={action}
               presentItem={presentItem}
               frozenCards={snapshot?.cards}
+              junk={
+                graphDefinitions
+                  ? junkClassifier(targetSources, graphDefinitions)
+                  : undefined
+              }
             />
             <aside className="automatic-inspector">
               <h3>{guide.selected}</h3>

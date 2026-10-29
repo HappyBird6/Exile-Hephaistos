@@ -1,3 +1,5 @@
+import { GraphCandidates } from './GraphCandidates'
+import { junkCard, tierCandidates, type JunkClassifier } from './graphDisplay'
 import { downstream } from './downstream'
 import { compactFrozenCard } from './compactFrozenCard'
 import { arrivalProbabilities } from './arrivalProbabilities'
@@ -38,6 +40,7 @@ export function GroupedMethodGraph({
   action,
   presentItem,
   frozenCards,
+  junk,
 }: {
   view: AutomaticView
   cycles: number
@@ -47,6 +50,7 @@ export function GroupedMethodGraph({
   select: (id: number) => void
   action: (a: AutomaticAction) => string
   presentItem: PathTreeProps['presentItem']
+  junk?: JunkClassifier | undefined
   frozenCards?: Scenario['cards'] | undefined
 }) {
   const { locale } = useI18n(),
@@ -77,7 +81,15 @@ export function GroupedMethodGraph({
   }, [])
   const [hovered, setHovered] = useState<string | null>(null)
   const [focused, setFocused] = useState<string | null>(null)
-  const projection = stateProjection(view, cycles)
+  const classifyJunk: JunkClassifier | undefined =
+    junk ??
+    (frozenCards
+      ? (node, id) =>
+          frozenCards[String(node.id)]?.[locale]?.modifiers.find(
+            (line) => line.id === id,
+          )?.junkSide
+      : undefined)
+  const projection = stateProjection(view, cycles, classifyJunk)
   const highlighted = downstream(
     panning ? null : (hovered ?? focused),
     projection.edges,
@@ -97,6 +109,15 @@ export function GroupedMethodGraph({
     renderedCards.set(id, card)
     return card
   }
+  const displayCardFor = (id: number) =>
+    classifyJunk
+      ? junkCard(
+          view.nodes.find((n) => n.id === id)!,
+          cardFor(id),
+          classifyJunk,
+          locale,
+        )
+      : cardFor(id)
   const labelFor = (edge: BundleEdge) =>
     edge.variants[0]!.method.initial.concat(edge.variants[0]!.method.cycle)
       .map(action)
@@ -427,87 +448,33 @@ export function GroupedMethodGraph({
                       <div className="graph-item-badges">
                         <span>{badge}</span>
                         <span>
-                          {nav.candidates} ({b.nodes.length})
+                          {nav.candidates} (
+                          {tierCandidates(b.nodes, classifyJunk).length})
                         </span>
                       </div>
                       <p>{nav.common}</p>
                       <ItemCard
                         item={commonStateCard(
-                          b.nodes.map((n) => cardFor(n.id)),
+                          b.nodes.map((n) => displayCardFor(n.id)),
                         )}
                       />
                       <p>{graphStateMessages[locale].candidates}</p>
-                      <details className="graph-candidates">
-                        <summary>
-                          {nav.variants} ({b.nodes.length})
-                        </summary>
-                        {b.nodes.map((candidate) => (
-                          <section
-                            key={candidate.id}
-                            data-candidate-id={candidate.id}
-                          >
-                            <div className="graph-candidate-options">
-                              {cardFor(candidate.id).modifiers.map((line) => (
-                                <div key={line.id}>
-                                  {line.affixLabel && (
-                                    <span>{line.affixLabel} </span>
-                                  )}
-                                  {line.text}
-                                </div>
-                              ))}
-                            </div>
-                            <button
-                              aria-pressed={candidate.id === selected}
-                              onClick={() => select(candidate.id)}
-                            >
-                              {graphStateMessages[locale].select}
-                            </button>
-                            {(candidateArrivals.get(candidate.id) ?? []).map(
-                              ({ method, outcome: o }) => (
-                                <button
-                                  key={method.id + o.kind}
-                                  onClick={() =>
-                                    choose({
-                                      method: method.id,
-                                      source: method.source,
-                                      target: candidate.id,
-                                      kind: o.kind,
-                                    })
-                                  }
-                                >
-                                  {method.initial
-                                    .concat(method.cycle)
-                                    .map(action)
-                                    .join(' → ')}{' '}
-                                  · {nav.source} {method.source} ·{' '}
-                                  {copy.probability}
-                                  {(methodPoint(method, cycles)?.cycles ?? 1) >
-                                    1 && (
-                                    <>
-                                      {' '}
-                                      (
-                                      {attemptLabel(
-                                        locale,
-                                        methodPoint(method, cycles)!.cycles,
-                                      )}
-                                      )
-                                    </>
-                                  )}
-                                  :{' '}
-                                  {probabilityText(
-                                    o.probability.lower,
-                                    o.probability,
-                                  )}
-                                </button>
-                              ),
-                            )}
-                          </section>
-                        ))}
-                      </details>
+                      <GraphCandidates
+                        cycles={cycles}
+                        nodes={b.nodes}
+                        cardFor={cardFor}
+                        displayCardFor={displayCardFor}
+                        junk={classifyJunk}
+                        arrivals={candidateArrivals}
+                        selected={selected}
+                        select={select}
+                        choose={choose}
+                        action={action}
+                      />
                     </div>
                   ) : (
                     <GraphItemState
-                      card={cardFor(n.id)}
+                      card={displayCardFor(n.id)}
                       previous={edge ? cardFor(edge.source) : undefined}
                       badge={badge}
                       selected={n.id === selected}

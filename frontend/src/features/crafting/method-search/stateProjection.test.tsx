@@ -128,9 +128,10 @@ it('keeps terminal cards and bundle count stable through details, candidate sele
   ) as HTMLDetailsElement
   expect(details.open).toBe(false)
   fireEvent.click(details.querySelector('summary')!)
-  expect(details.querySelectorAll('details')).toHaveLength(0)
+  expect(details.querySelectorAll('[data-tier-candidates]')).toHaveLength(7)
+  fireEvent.click(details.querySelector('details summary')!)
   expect(
-    details.querySelectorAll('[data-candidate-id] .graph-candidate-options'),
+    details.querySelectorAll('[data-candidate-id] .item-card'),
   ).toHaveLength(7)
   expect(
     document.querySelectorAll('.graph-method-probability').length,

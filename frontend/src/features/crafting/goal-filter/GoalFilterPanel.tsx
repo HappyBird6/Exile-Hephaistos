@@ -90,11 +90,8 @@ export function GoalFilterPanel({
   language = 'ko',
   recommendation,
   recommendationGoal,
-  onEvaluate,
   onInputEdit,
   onSearchReadinessChange,
-  evaluationPending = false,
-  evaluationAvailable = true,
   presentStatIds = new Set<string>(),
   compact = false,
 }: {
@@ -452,27 +449,6 @@ export function GoalFilterPanel({
         <p>{qualityGoalMessages[language].above20}</p>
       )}
       <div className="goal-filter-layout">
-        {compact && (
-          <fieldset className="goal-filter-rarity">
-            <legend>{t.rarity}</legend>
-            {['NORMAL', 'MAGIC', 'RARE'].map((rarity) => (
-              <label key={rarity}>
-                <input
-                  type="checkbox"
-                  checked={goal.general.rarities.includes(rarity)}
-                  onChange={(e) =>
-                    edit((g) => {
-                      g.general.rarities = e.target.checked
-                        ? [...g.general.rarities, rarity]
-                        : g.general.rarities.filter((r) => r !== rarity)
-                    })
-                  }
-                />
-                {rarity}
-              </label>
-            ))}
-          </fieldset>
-        )}
         {!compact && (
           <aside className="goal-filter-general">
             <h3 className="goal-filter-section-heading">
@@ -523,25 +499,6 @@ export function GoalFilterPanel({
                       edit((g) => editRange(g.general.itemLevel, bound, n))
                     }
                   />
-                ))}
-              </fieldset>
-              <fieldset className="goal-filter-general-row goal-filter-rarity">
-                <legend>{t.rarity}</legend>
-                {['NORMAL', 'MAGIC', 'RARE'].map((rarity) => (
-                  <label key={rarity}>
-                    <input
-                      type="checkbox"
-                      checked={goal.general.rarities.includes(rarity)}
-                      onChange={(e) =>
-                        edit((g) => {
-                          g.general.rarities = e.target.checked
-                            ? [...g.general.rarities, rarity]
-                            : g.general.rarities.filter((r) => r !== rarity)
-                        })
-                      }
-                    />
-                    {rarity}
-                  </label>
                 ))}
               </fieldset>
             </div>
@@ -797,22 +754,6 @@ export function GoalFilterPanel({
           </button>
         </div>
       </div>
-      {onEvaluate && (
-        <button
-          type="button"
-          className="goal-filter-evaluate"
-          disabled={
-            !evaluationAvailable ||
-            evaluationPending ||
-            !validInput ||
-            !validation.data?.valid ||
-            catalog.data?.catalogVersion !== goal.catalogVersion
-          }
-          onClick={() => onEvaluate(structuredClone(goal))}
-        >
-          {evaluationPending ? actions.evaluating : actions.evaluate}
-        </button>
-      )}
       <div aria-live="polite">
         {recovery.pending && <p role="status">{recoveryCopy.pending}</p>}
         {(recovery.issues.length > 0 || recovery.failed) && (

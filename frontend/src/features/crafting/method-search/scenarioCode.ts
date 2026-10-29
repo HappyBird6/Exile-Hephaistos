@@ -146,12 +146,17 @@ function card(v: unknown) {
           'kind',
           'detail',
           'affixLabel',
+          'affixType',
+          'junkSide',
           'removalCandidate',
           'fractured',
           'attributeKey',
           'tierRows',
         ],
       )
+      if (l.affixType !== undefined)
+        choice(l.affixType, ['NONE', 'PREFIX', 'SUFFIX'])
+      if (l.junkSide !== undefined) choice(l.junkSide, ['PREFIX', 'SUFFIX'])
       text(l.id)
       text(l.text)
       for (const k of ['detail', 'affixLabel', 'attributeKey'])

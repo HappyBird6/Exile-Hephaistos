@@ -13,7 +13,7 @@ export type Editor = {
 }
 export function createGoalFilterEditor(initial: GoalFilter) {
   return createStore<Editor>((set) => ({
-    goal: structuredClone(initial),
+    goal: rareGoal(initial),
     collapsedByGroupId: {},
     revision: 0,
     presentedTypes: {},
@@ -34,6 +34,7 @@ export function createGoalFilterEditor(initial: GoalFilter) {
       set((state) => {
         const goal = structuredClone(state.goal)
         fn(goal)
+        goal.general.rarities = ['RARE']
         return { goal, revision: state.revision + 1 }
       }),
     collapse: (id) =>
@@ -83,7 +84,7 @@ export function emptyGoal(
     general: {
       baseItemId: context.baseItemId,
       itemLevel: { min: null, max: null },
-      rarities: ['NORMAL', 'MAGIC', 'RARE'],
+      rarities: ['RARE'],
     },
     groups: [
       {
@@ -95,4 +96,10 @@ export function emptyGoal(
       },
     ],
   }
+}
+
+export function rareGoal<T extends GoalFilter>(goal: T): T {
+  const copy = structuredClone(goal)
+  copy.general.rarities = ['RARE']
+  return copy
 }

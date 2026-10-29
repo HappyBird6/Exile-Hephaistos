@@ -1030,6 +1030,8 @@ export function CraftStart({
               active={active}
               request={draft.searchRequest}
               scenarioBaseKey={draft.base}
+              graphDefinitions={draft.rootDefinitions}
+              targetSources={draft.searchGoal?.sourceStatIds}
               goalLabels={scenarioGoalLabels(
                 draft.rootDefinitions,
                 draft.searchRequest.goal,

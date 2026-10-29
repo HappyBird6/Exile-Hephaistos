@@ -1,3 +1,4 @@
+import { mergeTierRenderings } from './mergeTierRenderings'
 import type { AutomaticNode } from './automaticApi'
 import type { PathTreeProps } from '../path-tree/PathTree'
 import { presentRollCell } from './rollPresentation'
@@ -156,6 +157,7 @@ export function presentAutomaticItem(
             )?.probability
           : undefined
         return {
+          groupKey: JSON.stringify([v.modifierId, v.stat, v.tier]),
           label: v.tier ? `T${v.tier}` : (low?.affixLabel ?? '—'),
           low: low?.text ?? line.text,
           high: high?.text ?? line.text,
@@ -174,7 +176,7 @@ export function presentAutomaticItem(
             ? { attributeKey: options[0].role as string }
             : {}),
         },
-        variants,
+        mergeTierRenderings(variants),
         locale,
       )
     }),

@@ -172,7 +172,7 @@ describe('production goal connection', () => {
       capture.mock.lastCall![0].goal.groups[0]!.entries[0]!.range.min,
     ).toBe(15)
   })
-  it('keeps stat evaluation in compact setup without equipment or probability controls', async () => {
+  it('removes manual evaluation while retaining numeric editing', async () => {
     const fetch = mockFetch()
     setup(item, vi.fn(), true)
     const search = await screen.findByRole('combobox', {
@@ -186,25 +186,12 @@ describe('production goal connection', () => {
     fireEvent.click(
       await screen.findByRole('button', { name: 'Add Cold total' }),
     )
-    const evaluate = screen.getByRole('button', {
-      name: 'Evaluate current item',
-    })
-    await waitFor(() => expect(evaluate).toBeEnabled())
-    fireEvent.click(evaluate)
-    await screen.findByText('Matches target')
     expect(
-      fetch.mock.calls.filter(([url]) => String(url).endsWith('/evaluate')),
-    ).toHaveLength(1)
-    expect(
-      fetch.mock.calls.some(([url]) => String(url).endsWith('/recommend')),
-    ).toBe(false)
-    expect(
-      screen.queryByText(
-        /COMPLETE|PARTIAL|UNSUPPORTED|Compared sequences|ledger:/,
-      ),
+      screen.queryByRole('button', { name: 'Evaluate current item' }),
     ).not.toBeInTheDocument()
-    fireEvent.change(search, { target: { value: 'edited' } })
-    expect(screen.queryByText('Matches target')).not.toBeInTheDocument()
+    expect(
+      fetch.mock.calls.some(([url]) => /evaluate|recommend/.test(String(url))),
+    ).toBe(false)
   })
   it('keeps numeric editing from canceling the legacy Support requests', async () => {
     mockFetch()
@@ -287,91 +274,36 @@ describe('production goal connection', () => {
       await screen.findByText(/Actual rolls are unavailable/),
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('button', { name: 'Evaluate current item' }),
-    ).toBeDisabled()
+      screen.queryByRole('button', { name: 'Evaluate current item' }),
+    ).not.toBeInTheDocument()
     expect(
       mock.mock.calls.every(([url]) => !String(url).endsWith('/evaluate')),
     ).toBe(true)
   })
-  it('shows unsupported numeric probability and removes stale results on unfinished editing', async () => {
+  it('retains internal numeric evaluation and service failure handling', async () => {
+    const goal = emptyGoal(context, 'v1')
     mockFetch()
-    setup()
-    fireEvent.focus(await screen.findByLabelText('Search stats'))
-    fireEvent.click(
-      await screen.findByRole('button', { name: 'Add Cold total' }),
+    const result = await evaluateNumericItem(
+      item,
+      goal,
+      [],
+      2000,
+      new AbortController().signal,
+      'fixture-ruleset',
     )
-    const button = screen.getByRole('button', { name: 'Evaluate current item' })
-    await waitFor(() => expect(button).toBeEnabled())
-    fireEvent.click(button)
-    expect(
-      await screen.findByText('Current item evaluation: MATCH'),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText(/Numeric probability: UNSUPPORTED/),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText(/Total sequences unknown: null/),
-    ).toBeInTheDocument()
-    const mins = screen.getAllByLabelText('Min')
-    fireEvent.change(mins.at(-1)!, { target: { value: '-' } })
-    expect(
-      screen.queryByText('Current item evaluation: MATCH'),
-    ).not.toBeInTheDocument()
-    expect(button).toBeDisabled()
-  })
-  it('shows declared-model partial bounds and uncertified ranking', async () => {
-    mockFetch(false, {
-      ...recommendation,
-      probability: {
-        status: 'PARTIAL',
-        reasonCode: 'BUDGET_EXHAUSTED',
-        modelVersion: 'solar-numeric-addition-v1',
-        ledgerVersion: 'uniform-integer-roll-v1',
-      },
-      comparisons: [
-        {
-          sequence: ['EXALTED'],
-          successLower: 0.125,
-          successUpper: 0.5,
-          failureProbability: 0.5,
-          unresolvedProbability: 0.375,
-          complete: false,
-        },
-      ],
-      comparedSequences: 1,
-      totalSequences: 4,
-    })
-    setup({ ...item, catalystQuality: null })
-    fireEvent.focus(await screen.findByLabelText('Search stats'))
-    fireEvent.click(
-      await screen.findByRole('button', { name: 'Add Cold total' }),
-    )
-    const button = screen.getByRole('button', { name: 'Evaluate current item' })
-    await waitFor(() => expect(button).toBeEnabled())
-    fireEvent.click(button)
-    expect(
-      await screen.findByText(/Declared model probability/),
-    ).toBeInTheDocument()
-    expect(screen.getByText(/Ranking unresolved/)).toBeInTheDocument()
-    expect(
-      screen.getByText(
-        /success 12.5000% to 50.0000%; failure 50.0000%; unresolved 37.5000%/,
-      ),
-    ).toBeInTheDocument()
-  })
-  it('keeps inputs and permits retry after service failure', async () => {
+    expect(result.evaluation.status).toBe('MATCH')
+    expect(result.recommendation.probability.status).toBe('UNSUPPORTED')
     mockFetch(true)
-    setup()
-    fireEvent.focus(await screen.findByLabelText('Search stats'))
-    fireEvent.click(
-      await screen.findByRole('button', { name: 'Add Cold total' }),
-    )
-    const button = screen.getByRole('button', { name: 'Evaluate current item' })
-    await waitFor(() => expect(button).toBeEnabled())
-    fireEvent.click(button)
-    expect(await screen.findByText(/Evaluation failed/)).toBeInTheDocument()
-    expect(button).toBeEnabled()
-    expect(screen.getByText('Cold total (%)')).toBeInTheDocument()
+    await expect(
+      evaluateNumericItem(
+        item,
+        goal,
+        [],
+        2000,
+        new AbortController().signal,
+        'fixture-ruleset',
+      ),
+    ).rejects.toThrow()
   })
 })
 
@@ -392,7 +324,7 @@ it('resets goal defaults immediately without changing the start and restores the
   expect(saved.general).toEqual({
     baseItemId: context.baseItemId,
     itemLevel: { min: null, max: null },
-    rarities: ['NORMAL', 'MAGIC', 'RARE'],
+    rarities: ['RARE'],
   })
   expect(saved.groups).toHaveLength(1)
   expect(saved.groups[0]!.entries).toEqual([])

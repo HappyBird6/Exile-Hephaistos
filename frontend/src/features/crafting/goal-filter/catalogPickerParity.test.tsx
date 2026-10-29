@@ -13,7 +13,7 @@ import type { Catalog, GoalFilterAdapter } from './types'
 it('preserves an explicit Rare-only target selection in the compact editor', async () => {
   const catalog = structuredClone(example.catalog) as Catalog
   const goal = emptyGoal(catalog.context, catalog.catalogVersion)
-  goal.general.rarities = ['RARE']
+  goal.general.rarities = ['NORMAL', 'MAGIC']
   const editor = createGoalFilterEditor(goal)
   const adapter: GoalFilterAdapter = {
     id: 'compact-rarity',
@@ -41,12 +41,12 @@ it('preserves an explicit Rare-only target selection in the compact editor', asy
       />
     </QueryClientProvider>,
   )
-  const rare = await screen.findByRole('checkbox', { name: 'RARE' })
-  expect(rare).toBeChecked()
-  expect(screen.getByRole('checkbox', { name: 'MAGIC' })).not.toBeChecked()
-  fireEvent.click(screen.getByRole('checkbox', { name: 'MAGIC' }))
-  expect(editor.getState().goal.general.rarities).toEqual(['RARE', 'MAGIC'])
-  fireEvent.click(screen.getByRole('checkbox', { name: 'MAGIC' }))
+  expect(
+    screen.queryByRole('checkbox', { name: 'RARE' }),
+  ).not.toBeInTheDocument()
+  expect(
+    screen.queryByRole('checkbox', { name: 'MAGIC' }),
+  ).not.toBeInTheDocument()
   expect(editor.getState().goal.general.rarities).toEqual(['RARE'])
 })
 

@@ -1,3 +1,4 @@
+import { rareGoal } from '../goal-filter/editor'
 import type { ConcreteItem } from '../workbenchApi'
 import type { GoalFilter } from '../goal-filter/types'
 import type { Provenance } from '../basic-paths/api'
@@ -28,7 +29,7 @@ export function createPathSearchRequest(
       },
       provenance,
     },
-    goal,
+    goal: rareGoal(goal),
     activeOmens,
     observations: ['100', '300', '500'],
   }) as CreateRequest

@@ -1,3 +1,5 @@
+import type { ItemCardData } from '../itemCardData'
+import type { JunkClassifier } from './graphDisplay'
 import { isRepeatable } from './methodObservation'
 import { ScenarioTransferContext } from './scenarioTransfer'
 import type { ReactNode } from 'react'
@@ -43,6 +45,7 @@ export function ScenarioExport({
   baseKey,
   frozen,
   goalLabels,
+  junk,
 }: {
   request: PathTreeProps['request']
   view: AutomaticView
@@ -55,6 +58,7 @@ export function ScenarioExport({
   baseKey: string
   frozen?: Scenario | undefined
   goalLabels?: Scenario['goalLabels']
+  junk?: JunkClassifier | undefined
 }) {
   const { locale } = useI18n(),
     copy = scenarioMessages[locale]
@@ -86,7 +90,21 @@ export function ScenarioExport({
           Object.fromEntries(
             scenarioLocales.map((language) => [
               language,
-              presentAutomaticItem(n, language, presentItem, view.nodes),
+              ((): ItemCardData => {
+                const card = presentAutomaticItem(
+                  n,
+                  language,
+                  presentItem,
+                  view.nodes,
+                )
+                return {
+                  ...card,
+                  modifiers: card.modifiers.map((line) => {
+                    const side = junk?.(n, line.id)
+                    return side ? { ...line, junkSide: side } : line
+                  }),
+                }
+              })(),
             ]),
           ),
         ]),

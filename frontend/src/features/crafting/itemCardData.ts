@@ -6,6 +6,9 @@ import type {
 
 export type ModifierKind = Lowercase<ApiModifierType> | 'unknown'
 export interface ItemCardLine {
+  junkSide?: 'PREFIX' | 'SUFFIX' | undefined
+  affixType?: 'NONE' | 'PREFIX' | 'SUFFIX' | undefined
+
   attributeKey?: string
   tierRows?: {
     label: string

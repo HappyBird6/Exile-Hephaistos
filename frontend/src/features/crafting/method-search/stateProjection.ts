@@ -1,3 +1,4 @@
+import type { JunkClassifier } from './graphDisplay'
 import type {
   AutomaticArrow,
   AutomaticNode,
@@ -19,7 +20,11 @@ export type BundleEdge = {
   preferred: string[]
 }
 // Only display equivalence: every concrete state and source-conditional method survives.
-export function stateProjection(view: AutomaticView, cycles: number) {
+export function stateProjection(
+  view: AutomaticView,
+  cycles: number,
+  junk?: JunkClassifier,
+) {
   const nodeById = new Map(view.nodes.map((n) => [n.id, n]))
   const fixed = new Set<string>(),
     random = new Set<string>()
@@ -73,15 +78,18 @@ export function stateProjection(view: AutomaticView, cycles: number) {
               ...n.item,
               explicits: n.item.explicits
                 .map((m) =>
-                  (n.tiers?.[m.modifierId] ||
-                    n.rolls?.[m.modifierId] ||
-                    random.has(modifierKey(n, m))) &&
-                  !fixed.has(modifierKey(n, m))
-                    ? {
-                        stats: Object.keys(m.values).sort(),
-                        fractured: m.fractured,
-                      }
-                    : { fixed: modifierKey(n, m) },
+                  junk?.(n, m.modifierId)
+                    ? { junk: junk(n, m.modifierId), fractured: m.fractured }
+                    : (n.tiers?.[m.modifierId] ||
+                          n.rolls?.[m.modifierId] ||
+                          random.has(modifierKey(n, m))) &&
+                        !fixed.has(modifierKey(n, m))
+                      ? {
+                          stats: Object.keys(m.values).sort(),
+                          role: n.attributes?.[m.modifierId]?.[0]?.role ?? null,
+                          fractured: m.fractured,
+                        }
+                      : { fixed: modifierKey(n, m) },
                 )
                 .sort((a, b) => canonical(a).localeCompare(canonical(b))),
             },
