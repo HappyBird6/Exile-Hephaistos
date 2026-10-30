@@ -23,3 +23,14 @@
 ## 배포
 
 검증 후보를 로컬 commit 후 최신 운영 데이터 일관 백업 및 격리 PostgreSQL 복원 검증을 거쳐 9000/9001에 반영한다. 운영 검증은 health/GET/실행 JAR·프런트 산출물 해시만 사용한다. 운영 쓰기 QA는 하지 않는다. 배포 후 결과는 별도 기록한다.
+
+### 반영 완료
+
+- 실행 구현: `1fdf85302faf718b9327eec9b37c0e2433c5c488`.
+- http://localhost:9000 / http://localhost:9001 정상. health/readiness/liveness UP, GET catalog 통과.
+- JAR SHA-256: `699a1dff6f406a2a01ed2e79e7545cf8524ddda7e4512fc8502b5d90e1330fac`. 프런트 227개 파일의 HTTP 응답 해시가 빌드와 일치한다.
+- 저장 49파일/314,672,700bytes 백업·복원 검증, 배포 전후 모든 해시 동일. PostgreSQL 덤프를 격리 DB에서 복원 확인했다.
+- .env, DB/Redis 볼륨·내부 연결·포트, 다른 프로젝트 컨테이너는 변경하지 않았다. 다른 서비스 재시작 없음.
+- 운영 브라우저는 쓰기 요청 없는 /admin 페이지를 확인했다. 제작 동작 UI는 격리 QA에서만 검증했다.
+- 백업: `C:\Users\SSAFY\Documents\Codex\2026-10-29\task\base-recovery-predeploy-backup-1030`.
+- 별도 게임 규칙 변경이 없어 Library 제작 규칙 문서는 변경하지 않았다.
