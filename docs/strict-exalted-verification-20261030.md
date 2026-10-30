@@ -60,3 +60,21 @@
 ## 배포
 
 이 기록의 구현 commit 시점에는 배포 전이다. 최신 일관된 데이터 백업·격리 복원 검증 후 9000/9001에 반영하고 별도 배포 결과를 아래에 기록한다. 운영 POST QA는 수행하지 않는다. Redis 내부 연결, 사용자 데이터, .env, DB/Redis 볼륨 및 다른 프로젝트 서버를 보존한다. 원격 push/master 병합은 하지 않는다.
+
+
+## 운영 반영 결과
+
+구현 commit: `9c7d6ed1e22a0664f207fcb581d029c92462d038`.
+
+- Frontend: http://localhost:9001 / Backend: http://localhost:9000
+- health/readiness/liveness 정상, GET catalog 통과.
+- 실행 JAR SHA256은 위 최종 후보와 일치. HTTP로 프런트 파일 227개 해시 일치 확인.
+- 앱 데이터 49개 파일 / 314,672,700바이트: 백업 및 복원 검증, 반영 전후 모든 파일 hash 일치.
+- PostgreSQL dump를 격리 DB로 복원해 검증. 운영 DB를 초기화하거나 복원하지 않았다.
+- `.env`, 기존 마운트·볼륨·포트와 다른 컨테이너의 시작 시각/상태를 보존. Redis 내부 연결 유지.
+- 운영 브라우저에서 새 엑잘 정책 문구를 확인. 운영 POST/제작 실행 QA는 하지 않았다.
+- 백업: `C:/Users/SSAFY/Documents/Codex/2026-10-29/task/strict-exalted-predeploy-backup-1030`.
+- 배포 증거: 같은 staging의 `strict-production-verification.json`.
+
+수정 전 전체 검사 실패 40개와 영향 범위의 기존 실패 4개는 이번 기능 완료와 별개로 남아 있다. 미지의 드러내기 확률을 포함하는 전역 최적성을 주장하지 않으며, 탐색 자원 한도에 도달하면 중간 경로와 제한 사유를 보여준다.
+
