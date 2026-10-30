@@ -72,15 +72,19 @@ class SixAffixScenariosTest {
                 new BasicCurrencyState(item, legacy.provenance(item.baseItemId())),
                 goal,
                 List.of());
+        var payload = json.valueToTree(new AutomaticSearchService.Input(request, false));
+        if (count == 5)
+          ((com.fasterxml.jackson.databind.node.ObjectNode)
+                  payload.path("request").path("start").path("item"))
+              .remove(
+                  "desecrated"); // Existing clients and stored scenarios omit the optional field.
         var response =
             mvc.perform(
                     org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post(
                             "/api/v2/crafting/method-searches/automatic")
                         .cookie(new jakarta.servlet.http.Cookie("crafting_method_client", owner))
                         .contentType("application/json")
-                        .content(
-                            json.writeValueAsString(
-                                new AutomaticSearchService.Input(request, false))))
+                        .content(json.writeValueAsString(payload)))
                 .andExpect(
                     org.springframework.test.web.servlet.result.MockMvcResultMatchers.status()
                         .isAccepted())

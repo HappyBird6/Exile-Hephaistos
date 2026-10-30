@@ -9,8 +9,7 @@ import java.util.function.Function;
 
 /** Cooperative discovery over conditional item laws; distinct joint laws never share identity. */
 public final class AutomaticMethodGraph implements AutoCloseable {
-  public static final String VERSION =
-      "goal-directed-milestone-graph-v15-abyss-fractured-first-affix";
+  public static final String VERSION = "goal-directed-milestone-graph-v16-common-desecrated-slots";
 
   public record Progress(Status goal, List<Status> entries) {
     public Progress {
@@ -615,6 +614,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     for (int i = 0; i < now.entries().size(); i++)
       if (source.progress.entries().get(i) == Status.MATCH && now.entries().get(i) != Status.MATCH)
         return Optional.of(Exit.LOSS);
+    if (!source.item.desecrated().equals(item.desecrated())) return Optional.of(Exit.CHECKPOINT);
     if (GoalDirectedPlanner.matched(now) > GoalDirectedPlanner.matched(source.progress)) {
       return Optional.of(Exit.CHECKPOINT);
     }
@@ -683,15 +683,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   }
 
   private void discover(Node source) {
-    if (source.abyss == null) {
-      source.abyss =
-          source.tiers.isEmpty()
-                  && kernel.rollBands(source.item).isEmpty()
-                  && source.members.size() <= 1
-              ? kernel.automaticAbyss(source.item, evaluate, candidates)
-              : List.of();
-      revision++;
-    }
+    source.abyss = List.of();
     if (source.choices == null)
       source.choices =
           new GoalDirectedPlanner(
@@ -828,8 +820,15 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     return !limited && ready.isEmpty() && orderedNodes.stream().allMatch(n -> n.discovered);
   }
 
+  /** Candidate observation/rework has no supplied draw law and cannot prove global optimality. */
+  public boolean hasPendingObservation() {
+    return orderedNodes.stream()
+        .anyMatch(n -> n.progress.goal() != Status.MATCH && !n.item.desecrated().isEmpty());
+  }
+
   public boolean complete() {
     return finished()
+        && !hasPendingObservation()
         && orderedNodes.stream()
             .allMatch(
                 n -> n.progress.goal() != Status.UNKNOWN && n.progress.goal() != Status.UNSUPPORTED)
@@ -1218,6 +1217,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       var choices = new ArrayList<CertifiedOutcomeStrategy.Choice<Integer>>();
       boolean open =
           !source.discovered
+              || !source.item.desecrated().isEmpty()
               || source.progress.goal() == Status.UNKNOWN
               || source.progress.goal() == Status.UNSUPPORTED;
       for (var method : source.outgoing) {

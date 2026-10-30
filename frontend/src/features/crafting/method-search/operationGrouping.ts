@@ -96,7 +96,9 @@ export function additionOrder(
 export function operationSignature(method: AutomaticArrow) {
   const signature = (actions: AutomaticAction[]) =>
     actions.map((a) => [
-      a.currency.replace(/^(GREATER_|PERFECT_)/, ''),
+      a.operation
+        ? `${a.operation}:${a.side}`
+        : (a.currency ?? '').replace(/^(GREATER_|PERFECT_)/, ''),
       a.purpose,
     ])
   return operationKind(method) === 'other' &&

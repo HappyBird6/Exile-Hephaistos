@@ -290,8 +290,21 @@ public final class GoalDirectedPlanner {
         if (useful) result.add(new Choice(List.of(preparation), List.of(acquisition)));
       }
     }
+    kernel.desecrationActions(source).forEach(a -> result.add(new Choice(List.of(), List.of(a))));
     preferAddition(source, result, WorkbenchCurrency.EXALTED);
     preferAddition(source, result, WorkbenchCurrency.REGAL);
+    if (!source.desecrated().isEmpty())
+      return result.stream()
+          .map(
+              c ->
+                  c.initial().isEmpty() && c.cycle().size() == 1
+                      ? new Choice(
+                          c.initial(),
+                          List.of(
+                              kernel.withSelectionComparison(
+                                  source, c.cycle().getFirst(), evaluate)))
+                      : c)
+          .toList();
     return List.copyOf(result);
   }
 }

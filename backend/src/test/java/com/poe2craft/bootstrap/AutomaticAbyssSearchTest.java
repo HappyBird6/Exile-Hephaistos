@@ -76,7 +76,7 @@ class AutomaticAbyssSearchTest {
   }
 
   @Test
-  void automaticDiscoveryCreatesThreeDesecrationStrategiesWithoutAnyUserActionAndPersistsThem()
+  void automaticDiscoveryUsesCommonMethodsAndNodesWithoutAnyUserActionAndPersistsThem()
       throws Exception {
     var mana =
         f.catalog.modifiers().values().stream()
@@ -98,49 +98,18 @@ class AutomaticAbyssSearchTest {
                 "additional_strength",
                 5L));
     try (var graph = f.graph(root, goal)) {
-      graph.step();
-      var routes = graph.nodes().getFirst().abyss();
-      assertThat(routes)
-          .extracting(r -> r.strategy().kind())
-          .contains(
-              AbyssStrategyPlanner.Kind.COMPLETE_SIDE,
-              AbyssStrategyPlanner.Kind.BLOCK_HIGH_WEIGHT,
-              AbyssStrategyPlanner.Kind.SHARE_REMOVAL_RISK);
-      assertThat(routes)
-          .allSatisfy(
-              route -> {
-                assertThat(route.prepared().item().slots()).hasSize(3);
-                assertThat(route.prepared().item().slots())
-                    .anyMatch(s -> s.modifier() == null && s.desecrated());
-                assertThat(route.transitions()).isNotEmpty();
-                for (var transition : route.transitions()) {
-                  assertThat(transition.removals()).isNotEmpty();
-                  assertThat(
-                          transition.removals().stream()
-                              .map(b -> fraction(b.probability()))
-                              .reduce(Fraction.ZERO, Fraction::add))
-                      .isEqualTo(Fraction.ONE);
-                  for (var removal : transition.removals()) {
-                    if (!removal.candidates().isEmpty())
-                      assertThat(
-                              removal.candidates().stream()
-                                  .map(c -> fraction(c.selection()))
-                                  .reduce(Fraction.ZERO, Fraction::add))
-                          .isEqualTo(Fraction.ONE);
-                    for (var candidate : removal.candidates()) {
-                      candidate.result().item().validate(f.catalog);
-                      assertThat(candidate.result().ranges()).containsKey(candidate.modifierId());
-                    }
-                  }
-                }
-              });
-      var blocker = routes.stream().filter(r -> r.assumed() != null).findFirst().orElseThrow();
-      assertThat(blocker.assumed().condition()).isEqualTo("IF_REVEAL_CHOOSES_MODIFIER");
-      assertThat(blocker.transitions().getLast().removals().getFirst().candidates())
-          .noneMatch(
-              c ->
-                  c.modifierId()
-                      .equals(blocker.strategy().modifierSelection().blockerModifierId()));
+      for (int i = 0; i < 1000 && !graph.finished() && !graph.resourceLimited(); i++) graph.step();
+      graph.publishProgress();
+      assertThat(graph.nodes().getFirst().abyss()).isEmpty();
+      assertThat(graph.methods())
+          .anyMatch(
+              m ->
+                  m.source() == 0
+                      && m.template().cycle().stream()
+                          .anyMatch(
+                              a -> a.operation() == AutomaticCraftingAction.Operation.DESECRATE));
+      assertThat(graph.nodes())
+          .anyMatch(n -> n.item().explicitSlotCount() == 3 && !n.item().desecrated().isEmpty());
       var json = new ObjectMapper();
       var saved =
           json.readValue(
@@ -149,7 +118,11 @@ class AutomaticAbyssSearchTest {
       try (var restored =
           AutomaticMethodGraph.restore(
               saved, goal.toString(), f.policy, f.kernel(root, goal), f.evaluation(root, goal))) {
-        assertThat(restored.nodes().getFirst().abyss()).isEqualTo(routes);
+        assertThat(restored.nodes()).isEqualTo(graph.nodes());
+        assertThat(
+                restored.methods().stream().map(AutomaticMethodGraph.MethodView::template).toList())
+            .isEqualTo(
+                graph.methods().stream().map(AutomaticMethodGraph.MethodView::template).toList());
       }
     }
   }

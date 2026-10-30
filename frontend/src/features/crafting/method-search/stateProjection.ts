@@ -40,7 +40,7 @@ export function stateProjection(
   for (const method of view.methods) {
     const hasEssence = method.initial
       .concat(method.cycle)
-      .some((a) => a.currency.includes('ESSENCE'))
+      .some((a) => a.currency?.includes('ESSENCE'))
     const source = nodeById.get(method.source)!
     const targets = (methodPoint(method, cycles)?.outcomes ?? []).flatMap(
       (o) => (o.target === null ? [] : [nodeById.get(o.target)!]),

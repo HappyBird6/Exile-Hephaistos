@@ -82,6 +82,7 @@ public final class WorkbenchController {
             "conditions",
             "augmentSockets",
             "catalystQuality",
+            "desecrated",
             "modifierIds");
     if (input == null || !input.isObject())
       throw new IllegalArgumentException("Concrete item state required");
@@ -91,6 +92,10 @@ public final class WorkbenchController {
             name -> {
               if (!fields.contains(name)) throw new UnsupportedItemProperties();
             });
+    var desecrated = input.get("desecrated");
+    // Common automatic states use the slot-aware simulator; this editor is concrete-only.
+    if (desecrated != null && (!desecrated.isArray() || !desecrated.isEmpty()))
+      throw new UnsupportedItemProperties();
     var sockets = input.get("augmentSockets");
     if (sockets != null
         && !sockets.isNull()

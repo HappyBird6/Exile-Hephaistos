@@ -42,7 +42,8 @@ export function junkClassifier(
 ): JunkClassifier {
   const targets = new Set(sources)
   return (node, id) => {
-    if (!sources) return undefined
+    if (!sources || node.item.desecrated?.some((s) => s.modifierId === id))
+      return undefined
     const m = node.item.explicits.find((m) => m.modifierId === id),
       d = definitions[id]
     if (!m || !d || (d.affixType !== 'PREFIX' && d.affixType !== 'SUFFIX'))
@@ -91,28 +92,30 @@ export function junkCard(
 export function tierCandidates(nodes: AutomaticNode[], junk?: JunkClassifier) {
   const groups = new Map<string, AutomaticNode[]>()
   for (const n of nodes) {
-    const key = canonical(
-      n.item.explicits
-        .map((m) => ({
-          modifier: junk?.(n, m.modifierId) ?? m.modifierId,
-          fractured: m.fractured,
-          // Distribution support is not interchangeable with a concrete roll.
-          support: junk?.(n, m.modifierId)
-            ? null
-            : (n.attributes?.[m.modifierId]?.map((v) => [
-                v.modifierId,
-                v.stat,
-                v.tier,
-                v.role,
-              ]) ??
-              n.tiers?.[m.modifierId]?.variants.map((v) => [
-                v.modifierId,
-                v.stat,
-              ]) ??
-              (n.rolls?.[m.modifierId] ? 'roll' : null)),
-        }))
-        .sort((a, b) => canonical(a).localeCompare(canonical(b))),
-    )
+    const key =
+      canonical(n.item.desecrated ?? []) +
+      canonical(
+        n.item.explicits
+          .map((m) => ({
+            modifier: junk?.(n, m.modifierId) ?? m.modifierId,
+            fractured: m.fractured,
+            // Distribution support is not interchangeable with a concrete roll.
+            support: junk?.(n, m.modifierId)
+              ? null
+              : (n.attributes?.[m.modifierId]?.map((v) => [
+                  v.modifierId,
+                  v.stat,
+                  v.tier,
+                  v.role,
+                ]) ??
+                n.tiers?.[m.modifierId]?.variants.map((v) => [
+                  v.modifierId,
+                  v.stat,
+                ]) ??
+                (n.rolls?.[m.modifierId] ? 'roll' : null)),
+          }))
+          .sort((a, b) => canonical(a).localeCompare(canonical(b))),
+      )
     groups.set(key, [...(groups.get(key) ?? []), n])
   }
   return [...groups.values()]

@@ -92,6 +92,13 @@ class IndependentPlannerReviewTest extends GoalDirectedPlannerScenariosTest {
                       var target = goal(s.start(), s.target());
                       try (var graph = graph(s.start(), target)) {
                         exhaust(graph);
+                        if (s.id().equals("04-empty-strength-percent") && graph.resourceLimited()) {
+                          // Common desecrated states enlarge the search; exercise the production
+                          // resume budget.
+                          assertThat(graph.canResume()).isTrue();
+                          graph.increaseLimits(128, 256, 50000, 10000);
+                          exhaust(graph);
+                        }
                         var goalCount =
                             graph.nodes().stream()
                                 .filter(n -> n.progress().goal() == GoalFilter.Status.MATCH)
@@ -155,10 +162,42 @@ class IndependentPlannerReviewTest extends GoalDirectedPlannerScenariosTest {
                                 + reachability.value().upper()
                                 + "|status="
                                 + reachability.status());
-                        assertThat(graph.finished())
-                            .as(s.id() + " must exhaust supported plans")
-                            .isTrue();
-                        if (rejected) {
+                        if (s.id().equals("04-empty-strength-percent")) {
+                          // Newly reachable common slot states exceed the fixed production ceiling.
+                          // This is an explicit bounded-search limitation, never a completed/zero
+                          // result.
+                          assertThat(graph.resourceLimited()).isTrue();
+                          assertThat(graph.complete()).isFalse();
+                          assertThat(graph.hasPendingObservation()).isTrue();
+                          assertThat(graph.resources().stateLimit()).isEqualTo(128);
+                          assertThat(graph.resources().methodLimit()).isEqualTo(256);
+                          assertThat(graph.retainedStates()).isLessThanOrEqualTo(50000);
+                          assertThat(reachability.status()).isEqualTo("PENDING");
+                          assertThat(reachability.value().lower().numerator().signum())
+                              .isPositive();
+                          assertThat(graph.nodes()).anyMatch(n -> !n.item().desecrated().isEmpty());
+                        } else {
+                          assertThat(graph.finished())
+                              .as(s.id() + " must exhaust supported plans")
+                              .isTrue();
+                        }
+                        if (rejected && s.id().equals("06-tier-preparation")) {
+                          assertThat(graph.complete()).isFalse();
+                          assertThat(graph.hasPendingObservation()).isTrue();
+                          assertThat(graph.methods())
+                              .hasSize(2)
+                              .allMatch(
+                                  m ->
+                                      m.template().cycle().getFirst().operation()
+                                          == com.poe2craft.crafting.domain.AutomaticCraftingAction
+                                              .Operation.DESECRATE);
+                          assertThat(goalCount).isZero();
+                          assertThat(reachability.status()).isEqualTo("PENDING");
+                          assertThat(reachability.value().lower())
+                              .isEqualTo(ExactNumericDistribution.Fraction.ZERO);
+                          assertThat(reachability.value().upper())
+                              .isEqualTo(ExactNumericDistribution.Fraction.ONE);
+                        } else if (rejected) {
                           // These unchanged goals previously depended on now-forbidden multi-affix
                           // Chaos.
                           assertThat(graph.complete()).isTrue();

@@ -32,7 +32,8 @@ class TerminalBranchingScenariosTest {
               + "|ms="
               + (System.nanoTime() - started) / 1000000);
       assertThat(graph.finished()).isTrue();
-      assertThat(graph.complete()).isTrue();
+      assertThat(graph.complete()).isFalse();
+      assertThat(graph.hasPendingObservation()).isTrue();
       assertThat(graph.hasGoal()).isTrue();
       assertThat(graph.computationStates()).isLessThan(64);
       // The old graph shared executions but retained duplicate per-tier methods.
@@ -45,7 +46,13 @@ class TerminalBranchingScenariosTest {
                       n.progress().goal()
                           == com.poe2craft.crafting.domain.goalfilter.GoalFilter.Status.MATCH)
               .toList();
-      assertThat(terminal).hasSize(1);
+      // Three suffix goals leave room only for a prefix dummy; never merge it with the ordinary
+      // state.
+      assertThat(terminal).hasSize(2);
+      assertThat(terminal.stream().filter(n -> n.item().desecrated().isEmpty())).hasSize(1);
+      assertThat(terminal.stream().map(n -> n.item().desecrated()).distinct()).hasSize(2);
+      assertThat(terminal.stream().flatMap(n -> n.item().desecrated().stream()))
+          .allMatch(slot -> slot.side() == com.poe2craft.item.ModifierDefinition.AffixType.PREFIX);
       assertThat(terminal.getFirst().joint()).isNotEmpty();
       assertThat(terminal.getFirst().attributes().values()).anyMatch(options -> options.size() > 1);
       assertThat(graph.nodes()).allMatch(n -> n.item().explicits().size() <= 6);

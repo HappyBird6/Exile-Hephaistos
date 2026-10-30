@@ -4,9 +4,41 @@ import java.util.*;
 
 /** Execution identity is separate from ItemState; an omen here is consumed by this action. */
 public record AutomaticCraftingAction(
-    WorkbenchCurrency currency, Set<WorkbenchOmen> omens, AutomaticCurrencyPolicy.Purpose purpose) {
+    WorkbenchCurrency currency,
+    Set<WorkbenchOmen> omens,
+    AutomaticCurrencyPolicy.Purpose purpose,
+    @com.fasterxml.jackson.annotation.JsonInclude(
+            com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+        Operation operation,
+    @com.fasterxml.jackson.annotation.JsonInclude(
+            com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+        com.poe2craft.item.ModifierDefinition.AffixType side,
+    @com.fasterxml.jackson.annotation.JsonInclude(
+            com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+        AbyssProbabilityComparison.Comparison comparison) {
+  public enum Operation {
+    DESECRATE
+  }
+
+  public AutomaticCraftingAction(
+      WorkbenchCurrency currency,
+      Set<WorkbenchOmen> omens,
+      AutomaticCurrencyPolicy.Purpose purpose) {
+    this(currency, omens, purpose, null, null, null);
+  }
+
+  public static AutomaticCraftingAction desecrate(
+      com.poe2craft.item.ModifierDefinition.AffixType side) {
+    return new AutomaticCraftingAction(
+        null, Set.of(), AutomaticCurrencyPolicy.Purpose.ORDINARY, Operation.DESECRATE, side, null);
+  }
+
   public AutomaticCraftingAction {
-    Objects.requireNonNull(currency);
+    if (operation == null) Objects.requireNonNull(currency);
+    else if (currency != null
+        || side == null
+        || side == com.poe2craft.item.ModifierDefinition.AffixType.NONE
+        || !omens.isEmpty()) throw new IllegalArgumentException("Invalid non-currency operation");
     Objects.requireNonNull(purpose);
     omens = Collections.unmodifiableSet(new TreeSet<>(omens));
   }

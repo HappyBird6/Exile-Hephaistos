@@ -608,3 +608,39 @@ it('round-trips a fractured starting item when the server sorts its modifiers, b
   s.result.nodes[0]!.item.explicits[1]!.values.life = 118
   expect(() => validateScenario(s)).toThrow()
 })
+
+it('preserves common desecration actions and optional empty-slot compatibility in scenario codes', async () => {
+  const scenario = fixture()
+  scenario.result.nodes[0]!.item = {
+    ...scenario.result.nodes[0]!.item,
+    desecrated: [],
+  }
+  scenario.result.methods = [
+    {
+      id: 'common-desecrate',
+      source: 0,
+      initial: [],
+      cycle: [
+        {
+          currency: null,
+          omens: [],
+          purpose: 'ORDINARY',
+          operation: 'DESECRATE',
+          side: 'PREFIX',
+        },
+      ],
+      points: [],
+      reasons: [],
+      finished: true,
+      executionMode: 'SINGLE_PASS',
+    },
+  ]
+  expect(
+    validateScenario(scenario).result.methods[0]!.cycle[0]!.operation,
+  ).toBe('DESECRATE')
+  const restored = await decodeScenario(await encodeScenario(scenario))
+  expect(restored.result.methods).toEqual(scenario.result.methods)
+  const malformed = structuredClone(scenario)
+  malformed.result.methods[0]!.cycle[0]!.currency = 'EXALTED'
+  expect(() => validateScenario(malformed)).toThrow()
+})

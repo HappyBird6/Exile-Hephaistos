@@ -47,8 +47,20 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
           catalog
               .find(m.modifierId())
               .orElseThrow(() -> new IllegalArgumentException("Unknown slot or modifier"));
-      slots.add(new Slot("explicit-" + i, d.affixType(), m, false));
+      var marked =
+          state.desecrated().stream()
+              .filter(s -> m.modifierId().equals(s.modifierId()))
+              .findFirst();
+      slots.add(
+          new Slot(
+              marked.map(ItemState.DesecratedSlot::id).orElse("explicit-" + i),
+              d.affixType(),
+              m,
+              marked.isPresent()));
     }
+    state.desecrated().stream()
+        .filter(s -> s.modifierId() == null)
+        .forEach(s -> slots.add(new Slot(s.id(), s.side(), null, true)));
     var result = new AbyssCraftingState(withExplicits(state, List.of()), slots, null);
     result.validate(catalog);
     return result;
@@ -58,6 +70,21 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
   public ItemState knownItem() {
     return withExplicits(
         item, slots.stream().map(Slot::modifier).filter(Objects::nonNull).toList());
+  }
+
+  /** Lossless common state, unlike knownItem(), which is only a stat evaluation projection. */
+  public ItemState storedItem() {
+    return knownItem()
+        .withDesecrated(
+            slots.stream()
+                .filter(Slot::desecrated)
+                .map(
+                    s ->
+                        new ItemState.DesecratedSlot(
+                            s.id(),
+                            s.side(),
+                            s.modifier() == null ? null : s.modifier().modifierId()))
+                .toList());
   }
 
   public void validate(ItemCatalog catalog) {

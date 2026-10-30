@@ -1367,7 +1367,8 @@ public final class WorkbenchSimulator {
         explicits,
         s.conditions(),
         s.augmentSockets(),
-        s.catalystQuality());
+        s.catalystQuality(),
+        s.desecrated());
   }
 
   public record Availability(WorkbenchCurrency action, boolean available, String reason) {}

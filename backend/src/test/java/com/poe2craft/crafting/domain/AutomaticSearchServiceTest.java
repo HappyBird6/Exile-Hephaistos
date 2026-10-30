@@ -196,7 +196,9 @@ class AutomaticSearchServiceTest {
               started.id(),
               new AutomaticSearchService.Control(
                   "advance", started.revision(), started.generation(), "ADVANCE"));
-      assertThat(completed.status()).isEqualTo("COMPLETE");
+      assertThat(completed.status()).isEqualTo("PARTIAL");
+      assertThat(completed.reason()).isEqualTo("UNRESOLVED_MODEL_OR_POLICY");
+      assertThat(completed.nodes()).anyMatch(n -> !n.item().desecrated().isEmpty());
       var cancelled =
           service.control(
               "owner",

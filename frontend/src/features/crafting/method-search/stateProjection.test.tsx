@@ -68,7 +68,7 @@ it.each(['REGAL', 'EXALTED', 'CHAOS', 'GREATER_EXALTED', 'PERFECT_CHAOS'])(
     const s = original()
     s.result.methods = s.result.methods.filter(
       (m) =>
-        !m.initial.concat(m.cycle).some((a) => a.currency.includes('ESSENCE')),
+        !m.initial.concat(m.cycle).some((a) => a.currency?.includes('ESSENCE')),
     )
     s.result.methods.forEach(
       (m) => (m.cycle = [{ currency, omens: [], purpose: 'GOAL_ACQUISITION' }]),
@@ -160,7 +160,7 @@ it('also groups fixed-valued random tiers without roll bands', () => {
   const s = original()
   s.result.methods = s.result.methods.filter(
     (m) =>
-      !m.initial.concat(m.cycle).some((a) => a.currency.includes('ESSENCE')),
+      !m.initial.concat(m.cycle).some((a) => a.currency?.includes('ESSENCE')),
   )
   s.result.nodes.forEach((n) => (n.rolls = {}))
   const p = stateProjection(s.result, 100)
@@ -194,7 +194,7 @@ it('preserves a guaranteed Essence modifier without freezing the random tiers in
   const s = original()
   s.result.methods = s.result.methods.filter(
     (m) =>
-      !m.initial.concat(m.cycle).some((a) => a.currency.includes('ESSENCE')),
+      !m.initial.concat(m.cycle).some((a) => a.currency?.includes('ESSENCE')),
   )
   for (const m of s.result.methods.filter((m) => m.source === 0))
     m.initial = [
@@ -292,7 +292,7 @@ it('highlights downstream cards and methods on hover, restores selection on leav
       ]}
       select={select}
       choose={choose}
-      action={(a) => a.currency}
+      action={(a) => a.currency ?? a.operation ?? ''}
       presentItem={() => s.cards['0']!.en}
       frozenCards={s.cards}
     />,

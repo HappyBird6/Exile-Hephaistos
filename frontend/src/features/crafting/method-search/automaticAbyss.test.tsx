@@ -152,7 +152,7 @@ it('renders server-generated desecration in the graph without a user preparation
       route={[]}
       choose={() => {}}
       select={() => {}}
-      action={(a) => a.currency}
+      action={(a) => a.currency ?? a.operation ?? ''}
       presentItem={present}
     />,
   )

@@ -142,22 +142,26 @@ export const flowMessages: Record<
 export function materializeAbyss(
   state: AbyssState,
 ): (Item & ConcreteItem) | null {
-  if (
-    state.offer ||
-    state.item.catalystQuality != null ||
-    state.slots.some((s) => !s.modifier)
-  )
-    return null
+  if (state.offer || state.item.catalystQuality != null) return null
   return {
     ...state.item,
     implicits: state.item.implicits.map((m) => ({
       ...m,
       fractured: m.fractured ?? false,
     })),
-    explicits: state.slots.map((s) => ({
-      ...s.modifier!,
-      fractured: s.modifier!.fractured ?? false,
-    })),
+    desecrated: state.slots
+      .filter((s) => s.desecrated)
+      .map((s) => ({
+        id: s.id,
+        side: s.side,
+        modifierId: s.modifier?.modifierId ?? null,
+      })),
+    explicits: state.slots
+      .filter((s) => s.modifier)
+      .map((s) => ({
+        ...s.modifier!,
+        fractured: s.modifier!.fractured ?? false,
+      })),
     augmentSockets: state.item.augmentSockets ?? null,
     catalystQuality: state.item.catalystQuality ?? null,
   } as Item & ConcreteItem

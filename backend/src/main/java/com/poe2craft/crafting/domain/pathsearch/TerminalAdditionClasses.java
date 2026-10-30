@@ -47,7 +47,10 @@ public final class TerminalAdditionClasses {
       Function<ItemState, Optional<Exit>> classify,
       long outcomeBudget,
       java.util.function.LongConsumer recordWork) {
-    if (choices.isEmpty() || AutomaticCraftingKernel.hasQualityCap(item)) return Optional.empty();
+    if (!item.desecrated().isEmpty()
+        || choices.stream().anyMatch(c -> c.cycle().stream().anyMatch(a -> a.operation() != null))
+        || choices.isEmpty()
+        || AutomaticCraftingKernel.hasQualityCap(item)) return Optional.empty();
     // This is only a proof-work cap. An unproved state keeps its ordinary exact execution.
     long remainingProofRows = Math.min(outcomeBudget, 512);
     var laws = new ArrayList<Law>();

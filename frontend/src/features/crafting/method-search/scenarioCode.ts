@@ -122,7 +122,13 @@ function bounds(v: unknown, probability = true) {
 function item(v: unknown) {
   assertShape('item', v)
   const i = v as Item
-  if (i.explicits.length > 6 || i.itemLevel > 100) fail()
+  if (
+    i.explicits.length +
+      (i.desecrated?.filter((s) => s.modifierId === null).length ?? 0) >
+      6 ||
+    i.itemLevel > 100
+  )
+    fail()
 }
 function card(v: unknown) {
   const r = object(v, [
@@ -201,6 +207,7 @@ function itemIdentity(value: Item) {
     implicits: value.implicits.map(canonical).sort(),
     explicits: value.explicits.map(canonical).sort(),
     conditions: [...value.conditions].sort(),
+    desecrated: (value.desecrated ?? []).map(canonical).sort(),
   })
 }
 export function validateScenario(raw: unknown): Scenario {
@@ -362,8 +369,45 @@ export function validateScenario(raw: unknown): Scenario {
     bool(m.finished)
     for (const key of ['initial', 'cycle'])
       for (const a of array(m[key], 16)) {
-        const action = object(a, ['currency', 'omens', 'purpose'])
-        text(action.currency, 128)
+        const action = object(
+          a,
+          ['currency', 'omens', 'purpose'],
+          ['operation', 'side', 'comparison'],
+        )
+        if (action.operation !== undefined && action.operation !== null) {
+          choice(action.operation, ['DESECRATE'])
+          choice(action.side, ['PREFIX', 'SUFFIX'])
+          if (
+            action.currency !== null ||
+            array(action.omens, 16).length !== 0 ||
+            action.comparison != null
+          )
+            fail()
+        } else {
+          text(action.currency, 128)
+          if (action.side != null) fail()
+        }
+        if (action.comparison != null) {
+          const c = object(action.comparison, [
+            'baseline',
+            'afterBlocking',
+            'blockerModifierId',
+            'blockerWeight',
+          ])
+          text(c.blockerModifierId, 256)
+          integer(c.blockerWeight)
+          if ((c.blockerWeight as number) < 1) fail()
+          for (const key of ['baseline', 'afterBlocking']) {
+            const chance = object(c[key], ['targetWeight', 'totalWeight'])
+            integer(chance.targetWeight)
+            integer(chance.totalWeight)
+            if ((chance.totalWeight as number) < 1) fail()
+            if (
+              (chance.targetWeight as number) > (chance.totalWeight as number)
+            )
+              fail()
+          }
+        }
         text(action.purpose, 128)
         for (const omen of array(action.omens, 16)) text(omen, 128)
       }

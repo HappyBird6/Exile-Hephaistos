@@ -90,6 +90,36 @@ export function presentAutomaticItem(
   present: PathTreeProps['presentItem'],
   nodes: AutomaticNode[] = [node],
 ): ReturnType<PathTreeProps['presentItem']> {
+  const originalPresent = present
+  present = (item, language) => {
+    const card = originalPresent(item, language)
+    const labels = {
+      en: 'Unrevealed desecrated modifier',
+      ko: '미공개 훼손 속성',
+      'zh-CN': '未揭示的亵渎词缀',
+      'zh-TW': '未揭示的褻瀆詞綴',
+      ja: '未公開の冒涜モッド',
+      es: 'Modificador profanado sin revelar',
+    }
+    return {
+      ...card,
+      modifiers: [
+        ...card.modifiers.map((line) =>
+          item.desecrated?.some((s) => s.modifierId === line.id)
+            ? { ...line, kind: 'desecrated' as const }
+            : line,
+        ),
+        ...(item.desecrated ?? [])
+          .filter((s) => s.modifierId === null)
+          .map((s) => ({
+            id: s.id,
+            kind: 'desecrated' as const,
+            text: labels[language],
+            affixLabel: s.side === 'PREFIX' ? 'P' : 'S',
+          })),
+      ],
+    }
+  }
   const base = present(node.item, locale)
   const support =
     node.attributes ??

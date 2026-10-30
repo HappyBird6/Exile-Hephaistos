@@ -27,13 +27,14 @@ class BasicWorkbenchParityTest {
         if (action.baseAction() == null) continue;
         for (int seed = 0; seed < 12; seed++) {
           var result = simulator.apply(input, action, Set.of(), new Random(seed));
+          assertThat(result.state().desecrated()).isEmpty();
           text.append(action)
               .append('|')
               .append(result.applied())
               .append('|')
               .append(result.reason())
               .append('|')
-              .append(result.state())
+              .append(result.state().toString().replace(", desecrated=[]]", "]"))
               .append('|');
           for (var event : result.events()) {
             text.append(event.kind())

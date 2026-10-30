@@ -278,6 +278,11 @@ public final class MethodSearchController {
               body.path("goal").path("general"), body.path("request").path("goal").path("general")))
         if (general instanceof com.fasterxml.jackson.databind.node.ObjectNode object
             && !object.has("quality")) object.putNull("quality");
+      for (var item :
+          java.util.List.of(
+              body.path("start").path("item"), body.path("request").path("start").path("item")))
+        if (item instanceof com.fasterxml.jackson.databind.node.ObjectNode object
+            && !object.has("desecrated")) object.putArray("desecrated");
       return json.treeToValue(body, type);
     } catch (Rejected e) {
       throw e;

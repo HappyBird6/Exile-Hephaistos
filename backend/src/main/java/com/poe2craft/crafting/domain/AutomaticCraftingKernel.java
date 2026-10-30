@@ -14,7 +14,7 @@ import java.util.*;
  * probabilities.
  */
 public final class AutomaticCraftingKernel {
-  public static final String VERSION = "automatic-finite-kernel-v8-fractured-first-affix";
+  public static final String VERSION = "automatic-finite-kernel-v9-common-desecrated-slots";
 
   public record Identity(
       String kernelVersion,
@@ -153,7 +153,8 @@ public final class AutomaticCraftingKernel {
             List.of(),
             item.conditions(),
             item.augmentSockets(),
-            item.catalystQuality());
+            item.catalystQuality(),
+            item.desecrated());
     return new Behavior(context, roles);
   }
 
@@ -173,7 +174,8 @@ public final class AutomaticCraftingKernel {
             List.of(),
             item.conditions(),
             item.augmentSockets(),
-            item.catalystQuality());
+            item.catalystQuality(),
+            item.desecrated());
     return List.of(context, roles);
   }
 
@@ -267,7 +269,8 @@ public final class AutomaticCraftingKernel {
   }
 
   public static long mutableAffixCount(ItemState item) {
-    return item.explicits().stream().filter(m -> !m.fractured()).count();
+    return item.explicits().stream().filter(m -> !m.fractured()).count()
+        + item.desecrated().stream().filter(s -> s.modifierId() == null).count();
   }
 
   public static boolean sameFractures(ItemState first, ItemState second) {
@@ -282,7 +285,86 @@ public final class AutomaticCraftingKernel {
   }
 
   /** Eligibility and prerequisite projection, before allocating a numeric probability law. */
+  public List<AutomaticCraftingAction> desecrationActions(ItemState item) {
+    if (!item.desecrated().isEmpty()
+        || item.rarity() != ItemState.Rarity.RARE
+        || item.explicitSlotCount() >= 6
+        || !item.conditions().isEmpty()
+        || BasicJewel.supportedCrafting(item.baseItemId())
+        || item.catalystQuality() != null) return List.of();
+    var slots = new ItemStateValidator(catalog).slots(item);
+    var result = new ArrayList<AutomaticCraftingAction>();
+    if (slots.remainingPrefixes() > 0)
+      result.add(AutomaticCraftingAction.desecrate(ModifierDefinition.AffixType.PREFIX));
+    if (slots.remainingSuffixes() > 0)
+      result.add(AutomaticCraftingAction.desecrate(ModifierDefinition.AffixType.SUFFIX));
+    return List.copyOf(result);
+  }
+
+  /** Conditional next-modifier sensitivity, not a distribution over reveal offers. */
+  public AutomaticCraftingAction withSelectionComparison(
+      ItemState item,
+      AutomaticCraftingAction action,
+      java.util.function.Function<
+              ItemState, com.poe2craft.crafting.domain.pathsearch.AutomaticMethodGraph.Progress>
+          evaluate) {
+    if (action.currency() != WorkbenchCurrency.EXALTED || !action.omens().isEmpty()) return action;
+    var source = AbyssCraftingState.from(item, catalog);
+    var slot =
+        source.slots().stream().filter(s -> s.desecrated() && s.modifier() == null).findFirst();
+    if (slot.isEmpty()) return action;
+    var comparison = new AbyssProbabilityComparison(catalog);
+    var before = evaluate.apply(item);
+    var targets = new HashSet<String>();
+    for (var candidate : comparison.pool(source, action.currency(), null)) {
+      var values = new HashMap<String, Long>();
+      candidate.stats().forEach(stat -> values.put(stat.id(), stat.max()));
+      var after =
+          evaluate.apply(
+              source
+                  .append("comparison-probe", new ModifierInstance(candidate.id(), values), catalog)
+                  .knownItem());
+      if (com.poe2craft.crafting.domain.pathsearch.GoalDirectedPlanner.matched(after)
+          > com.poe2craft.crafting.domain.pathsearch.GoalDirectedPlanner.matched(before))
+        targets.add(candidate.id());
+    }
+    if (targets.isEmpty()) return action;
+    var result = comparison.compare(source, slot.get().id(), action.currency(), null, targets);
+    return result
+        .map(
+            c ->
+                new AutomaticCraftingAction(
+                    action.currency(), action.omens(), action.purpose(), null, null, c))
+        .orElse(action);
+  }
+
+  private AutomaticCraftingPlan slotPlan(ItemState item, AutomaticCraftingAction action) {
+    var p =
+        simulator.abyssPlan(
+            AbyssCraftingState.from(item, catalog), action.currency(), action.omenIds());
+    if (!p.available())
+      return new AutomaticCraftingPlan(
+          AutomaticCraftingPlan.Status.UNAVAILABLE, p.reason(), List.of(), false, "");
+    return new AutomaticCraftingPlan(
+        AutomaticCraftingPlan.Status.READY,
+        "",
+        p.branches().stream()
+            .map(b -> new AutomaticCraftingPlan.Branch(b.remaining().storedItem(), b.candidates()))
+            .toList(),
+        p.branches().stream().allMatch(AbyssCraftingPlan.Branch::uniformSelection),
+        "");
+  }
+
   public AutomaticCraftingPlan plan(ItemState item, AutomaticCraftingAction action) {
+    if (action.operation() != null)
+      return new AutomaticCraftingPlan(
+          desecrationActions(item).contains(action)
+              ? AutomaticCraftingPlan.Status.READY
+              : AutomaticCraftingPlan.Status.UNAVAILABLE,
+          "",
+          List.of(),
+          false,
+          "");
     if (action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_BASE_CHECKPOINT)
       return new AutomaticCraftingPlan(
           AutomaticCraftingPlan.Status.UNAVAILABLE, "ABSTRACT_QUALITY_WORK", List.of(), false, "");
@@ -297,7 +379,9 @@ public final class AutomaticCraftingKernel {
                         != AutomaticCurrencyPolicy.Verdict.PERMITTED))
       return new AutomaticCraftingPlan(
           AutomaticCraftingPlan.Status.UNAVAILABLE, "POLICY_REJECTED", List.of(), false, "");
-    return simulator.automaticPlan(item, action);
+    return item.desecrated().isEmpty()
+        ? simulator.automaticPlan(item, action)
+        : slotPlan(item, action);
   }
 
   /**
@@ -389,6 +473,21 @@ public final class AutomaticCraftingKernel {
       boolean deferred,
       boolean lineage) {
     if (outcomeBudget < 1) throw new IllegalArgumentException("Positive outcome budget required");
+    if (execution.operation() != null) {
+      if (!desecrationActions(state).contains(execution))
+        return blocked(Status.UNAVAILABLE, "DESECRATION_UNAVAILABLE");
+      var target =
+          AbyssCraftingState.from(state, catalog)
+              .addUnrevealed("desecrated-" + execution.side().name(), execution.side(), catalog)
+              .storedItem();
+      return new Result(
+          Status.COMPLETE,
+          "",
+          List.of(new Outcome(target, Fraction.ONE, retainedTiers)),
+          Fraction.ZERO,
+          Fraction.ZERO,
+          List.of());
+    }
     if (execution.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_BASE_CHECKPOINT) {
       if (execution.currency() != WorkbenchCurrency.ESSENCE_BREACH
           || !execution.omens().isEmpty()
@@ -413,7 +512,7 @@ public final class AutomaticCraftingKernel {
                     policy.evaluate("OMEN:" + o.name(), context)
                         != AutomaticCurrencyPolicy.Verdict.PERMITTED))
       return blocked(Status.POLICY_REJECTED, "AUTOMATIC_POLICY_REJECTED");
-    if (!policy.withinExplorationBoundary(state.explicits().size()))
+    if (!policy.withinExplorationBoundary(state.explicitSlotCount()))
       return new Result(
           Status.PARTIAL,
           "EXPLICIT_MODIFIER_BOUNDARY",
@@ -446,13 +545,33 @@ public final class AutomaticCraftingKernel {
                   "https://poe2db.tw/us/Essence_of_the_Breach",
                   "User-approved abstract work to 40 quality; catalyst type, count and numeric scaling are not inferred.")));
     }
-    var plan = simulator.automaticPlan(state, execution);
+    var plan =
+        state.desecrated().isEmpty()
+            ? simulator.automaticPlan(state, execution)
+            : slotPlan(state, execution);
     if (plan.status() != AutomaticCraftingPlan.Status.READY)
       return blocked(
           plan.status() == AutomaticCraftingPlan.Status.UNAVAILABLE
               ? Status.UNAVAILABLE
               : Status.UNSUPPORTED,
           plan.reason());
+    if (!state.desecrated().isEmpty() && execution.currency() == WorkbenchCurrency.ANNULMENT) {
+      var mass = Fraction.of(1, plan.branches().size());
+      var outcomes =
+          plan.branches().stream()
+              .map(
+                  branch -> {
+                    var kept = new HashMap<>(retainedTiers);
+                    kept.keySet()
+                        .retainAll(
+                            branch.remaining().explicits().stream()
+                                .map(ModifierInstance::modifierId)
+                                .toList());
+                    return new Outcome(branch.remaining(), mass, kept);
+                  })
+              .toList();
+      return new Result(Status.COMPLETE, "", outcomes, Fraction.ZERO, Fraction.ZERO, List.of());
+    }
     boolean uniform =
         plan.uniformCandidates()
             || Set.of(

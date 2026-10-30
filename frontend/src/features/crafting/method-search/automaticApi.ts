@@ -10,7 +10,16 @@ import type { Item, CreateRequest } from '../path-tree/types'
 import type { Bounds, RollBands } from './types'
 import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
 export type AutomaticAction = {
-  currency: string
+  comparison?: {
+    baseline: { targetWeight: number; totalWeight: number }
+    afterBlocking: { targetWeight: number; totalWeight: number }
+    blockerModifierId: string
+    blockerWeight: number
+  }
+  operation?: 'DESECRATE'
+  side?: 'PREFIX' | 'SUFFIX'
+
+  currency: string | null
   omens: string[]
   purpose: string
 }

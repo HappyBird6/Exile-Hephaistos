@@ -804,7 +804,7 @@ function render(ui: ReactNode) {
   return testingRender(ui, { wrapper: AppProviders })
 }
 
-// The integrated action area performs one additional catalog GET per mount.
+// Ordinary nodes no longer fetch the removed separate Abyss routes/catalog panel.
 // Keep the original exact job-request counts and verify every additional call.
 function expectJobAndCatalogCalls(calls: unknown[][], count: number) {
   const catalog = calls.filter((c) =>
@@ -814,8 +814,8 @@ function expectJobAndCatalogCalls(calls: unknown[][], count: number) {
     String(c[0]).startsWith('/api/v2/crafting/method-searches/automatic'),
   )
   expect(jobs).toHaveLength(count)
-  expect(catalog).toHaveLength(count)
-  expect(calls).toHaveLength(count * 2)
+  expect(catalog).toHaveLength(0)
+  expect(calls).toHaveLength(count)
   expect(
     catalog.every(
       (c) =>

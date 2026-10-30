@@ -155,6 +155,32 @@
               "type": "null"
             }
           ]
+        },
+        "desecrated": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "side", "modifierId"],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "side": {
+                "enum": ["PREFIX", "SUFFIX"]
+              },
+              "modifierId": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            }
+          }
         }
       }
     },
@@ -317,8 +343,14 @@
           "properties": {
             "quality": {
               "anyOf": [
-                { "type": "integer", "minimum": 0, "maximum": 40 },
-                { "type": "null" }
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 40
+                },
+                {
+                  "type": "null"
+                }
               ]
             },
             "baseItemId": {

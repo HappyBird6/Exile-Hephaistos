@@ -17,6 +17,25 @@ public final class ItemStateValidator {
 
   public List<Violation> validate(ItemState state) {
     var errors = new ArrayList<Violation>();
+    if (!state.desecrated().isEmpty()) {
+      if (state.rarity() != ItemState.Rarity.RARE
+          || BasicJewel.supportedCrafting(state.baseItemId()))
+        errors.add(
+            new Violation(Code.UNSUPPORTED_STATE, "", "Desecration requires Rare equipment"));
+      var marked = new HashSet<String>();
+      for (var slot : state.desecrated()) {
+        if (slot.modifierId() == null) continue;
+        var m =
+            state.explicits().stream()
+                .filter(v -> v.modifierId().equals(slot.modifierId()))
+                .findFirst();
+        if (!marked.add(slot.modifierId())
+            || m.isEmpty()
+            || m.get().fractured()
+            || catalog.find(slot.modifierId()).map(d -> d.affixType() != slot.side()).orElse(true))
+          errors.add(new Violation(Code.UNSUPPORTED_STATE, "", "Invalid desecrated modifier"));
+      }
+    }
     if (BasicJewel.supportedCrafting(state.baseItemId())
         && (state.augmentSockets() != null
             || state.explicits().stream().anyMatch(ModifierInstance::fractured)))
@@ -176,6 +195,16 @@ public final class ItemStateValidator {
         if (definition.affixType() == AffixType.SUFFIX) suffixes++;
       }
     }
+    prefixes +=
+        (int)
+            state.desecrated().stream()
+                .filter(s -> s.modifierId() == null && s.side() == AffixType.PREFIX)
+                .count();
+    suffixes +=
+        (int)
+            state.desecrated().stream()
+                .filter(s -> s.modifierId() == null && s.side() == AffixType.SUFFIX)
+                .count();
     int maxPrefixes =
         switch (state.rarity()) {
           case NORMAL -> 0;

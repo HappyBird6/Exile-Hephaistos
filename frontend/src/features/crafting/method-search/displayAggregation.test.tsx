@@ -180,7 +180,7 @@ it('shows 47–50 as one T1 candidate while retaining a 49 target boundary and e
       select={vi.fn()}
       choose={vi.fn()}
       selected={0}
-      action={(a) => a.currency}
+      action={(a) => a.currency ?? a.operation ?? ''}
     />,
   )
   expect(

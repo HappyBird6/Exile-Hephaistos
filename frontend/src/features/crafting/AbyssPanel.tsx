@@ -185,6 +185,7 @@ export function AbyssPanel({
   initialAction = 'EXALTED',
   initialOmens = [],
   embedded = false,
+  observationOnly = false,
   restoredState,
   onTransition,
   onContinue,
@@ -196,6 +197,7 @@ export function AbyssPanel({
   initialOmens?: string[]
   restoredState?: AbyssState | undefined
   embedded?: boolean
+  observationOnly?: boolean
   onTransition?: (state: AbyssState, transition: FlowTransition) => void
   onContinue?: (state: AbyssState, item: Item) => void
 }) {
@@ -330,7 +332,7 @@ export function AbyssPanel({
   })
   const plan = useQuery({
     queryKey: [...key, 'plan', state, draft.action, activeOmens],
-    enabled: !!state,
+    enabled: !!state && !observationOnly,
     queryFn: ({ signal }) =>
       request<Plan>(
         'plan',
@@ -444,29 +446,35 @@ export function AbyssPanel({
                     ))}
                 </select>
               </label>
-              <label>
-                {t[4]}{' '}
-                <select
-                  value={draft.side}
-                  onChange={(e) =>
-                    draft.edit({ side: e.target.value as 'PREFIX' | 'SUFFIX' })
-                  }
-                >
-                  <option value="PREFIX">{t[2]}</option>
-                  <option value="SUFFIX">{t[3]}</option>
-                </select>
-              </label>
-              <button
-                disabled={busy || state.slots.length >= 6}
-                onClick={() =>
-                  submit('add', {
-                    slotId: crypto.randomUUID(),
-                    side: draft.side,
-                  })
-                }
-              >
-                {t[4]}
-              </button>
+              {!observationOnly && (
+                <>
+                  <label>
+                    {t[4]}{' '}
+                    <select
+                      value={draft.side}
+                      onChange={(e) =>
+                        draft.edit({
+                          side: e.target.value as 'PREFIX' | 'SUFFIX',
+                        })
+                      }
+                    >
+                      <option value="PREFIX">{t[2]}</option>
+                      <option value="SUFFIX">{t[3]}</option>
+                    </select>
+                  </label>
+                  <button
+                    disabled={busy || state.slots.length >= 6}
+                    onClick={() =>
+                      submit('add', {
+                        slotId: crypto.randomUUID(),
+                        side: draft.side,
+                      })
+                    }
+                  >
+                    {t[4]}
+                  </button>
+                </>
+              )}
               {selected && (
                 <fieldset disabled={busy}>
                   <legend>{t[6]}</legend>
@@ -561,71 +569,80 @@ export function AbyssPanel({
                   ))}
                 </ol>
               )}
-              {activeOmens.map((omen) => (
-                <p key={omen}>{gameName(omen, omen)}</p>
-              ))}
-              <label>
-                {t[9]}{' '}
-                <select
-                  value={draft.action}
-                  onChange={(e) =>
-                    draft.edit({ action: e.target.value as WorkbenchAction })
-                  }
-                >
-                  {[
-                    ...new Set([
-                      initialAction,
-                      'EXALTED',
-                      'ANNULMENT',
-                      'ESSENCE_HYSTERIA',
-                      'PERFECT_ESSENCE_INFINITE',
-                      'PERFECT_ESSENCE_ENHANCEMENT',
-                      'RUNIC_ALLOY',
-                      'EXPANSIVE_ALLOY',
-                      'CYCLONIC_ALLOY',
-                      'MYSTIC_ALLOY',
-                      'ADAPTIVE_ALLOY',
-                      'SWIFT_ALLOY',
-                      'SOVEREIGN_ALLOY',
-                      'PRISMATIC_ALLOY',
-                    ] as WorkbenchAction[]),
-                  ].map((a) => (
-                    <option key={a} value={a}>
-                      {localizedAction(a)}
-                    </option>
+              {!observationOnly && (
+                <>
+                  {activeOmens.map((omen) => (
+                    <p key={omen}>{gameName(omen, omen)}</p>
                   ))}
-                </select>
-              </label>
-              <button
-                disabled={busy || !plan.data?.available || plan.isFetching}
-                onClick={() =>
-                  submit('apply', {
-                    action: draft.action,
-                    activeOmens,
-                  })
-                }
-              >
-                {t[10]}
-              </button>
-              {plan.data?.available && (
-                <ul>
-                  {plan.data.branches
-                    .filter((b) => b.removedSlotId)
-                    .map((b) => (
-                      <li key={b.removedSlotId}>
-                        {t[18]} ·{' '}
-                        {(() => {
-                          const m = state.slots.find(
-                            (s) => s.id === b.removedSlotId,
-                          )?.modifier
-                          return m
-                            ? label(initial.modifiers[m.modifierId]!, m.values)
-                            : t[1]
-                        })()}
-                        : {(100 * b.removalProbability).toFixed(2)}%
-                      </li>
-                    ))}
-                </ul>
+                  <label>
+                    {t[9]}{' '}
+                    <select
+                      value={draft.action}
+                      onChange={(e) =>
+                        draft.edit({
+                          action: e.target.value as WorkbenchAction,
+                        })
+                      }
+                    >
+                      {[
+                        ...new Set([
+                          initialAction,
+                          'EXALTED',
+                          'ANNULMENT',
+                          'ESSENCE_HYSTERIA',
+                          'PERFECT_ESSENCE_INFINITE',
+                          'PERFECT_ESSENCE_ENHANCEMENT',
+                          'RUNIC_ALLOY',
+                          'EXPANSIVE_ALLOY',
+                          'CYCLONIC_ALLOY',
+                          'MYSTIC_ALLOY',
+                          'ADAPTIVE_ALLOY',
+                          'SWIFT_ALLOY',
+                          'SOVEREIGN_ALLOY',
+                          'PRISMATIC_ALLOY',
+                        ] as WorkbenchAction[]),
+                      ].map((a) => (
+                        <option key={a} value={a}>
+                          {localizedAction(a)}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <button
+                    disabled={busy || !plan.data?.available || plan.isFetching}
+                    onClick={() =>
+                      submit('apply', {
+                        action: draft.action,
+                        activeOmens,
+                      })
+                    }
+                  >
+                    {t[10]}
+                  </button>
+                  {plan.data?.available && (
+                    <ul>
+                      {plan.data.branches
+                        .filter((b) => b.removedSlotId)
+                        .map((b) => (
+                          <li key={b.removedSlotId}>
+                            {t[18]} ·{' '}
+                            {(() => {
+                              const m = state.slots.find(
+                                (s) => s.id === b.removedSlotId,
+                              )?.modifier
+                              return m
+                                ? label(
+                                    initial.modifiers[m.modifierId]!,
+                                    m.values,
+                                  )
+                                : t[1]
+                            })()}
+                            : {(100 * b.removalProbability).toFixed(2)}%
+                          </li>
+                        ))}
+                    </ul>
+                  )}
+                </>
               )}
               {selected?.modifier === null && (
                 <>

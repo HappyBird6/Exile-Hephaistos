@@ -45,10 +45,14 @@ function flow(s = state()): CraftingFlow {
     },
   }
 }
-it('never materializes an unrevealed slot or pending choice as an ordinary item', () => {
+it('preserves an unrevealed common slot but waits for a pending observed choice', () => {
   const s = state()
   s.slots[5]!.modifier = null
-  expect(materializeAbyss(s)).toBeNull()
+  expect(materializeAbyss(s)?.desecrated).toContainEqual({
+    id: 'slot-5',
+    side: s.slots[5]!.side,
+    modifierId: null,
+  })
   s.offer = {
     slotId: 'slot-5',
     candidates: [0, 1, 2].map((i) => ({

@@ -16,6 +16,11 @@ export type Item = {
   conditions: Array<'CORRUPTED' | 'MIRRORED' | 'UNIDENTIFIED' | 'SANCTIFIED'>
   augmentSockets: number | null
   catalystQuality: { type: string; amount: number } | null
+  desecrated?: Array<{
+    id: string
+    side: 'PREFIX' | 'SUFFIX'
+    modifierId: string | null
+  }>
 }
 export type TransitionProvenance = {
   rulesetIdentity: string
@@ -49,10 +54,10 @@ export type Goal = {
   version: 1
   catalogVersion: string
   general: {
+    quality?: number | null
     baseItemId: string
     itemLevel: Range
     rarities: Array<'NORMAL' | 'MAGIC' | 'RARE' | 'UNIQUE'>
-    quality?: number | null
   }
   groups: Array<Group>
 }

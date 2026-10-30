@@ -15,7 +15,57 @@ public record ItemState(
     List<ModifierInstance> explicits,
     Set<Condition> conditions,
     Integer augmentSockets,
-    CatalystQuality catalystQuality) {
+    CatalystQuality catalystQuality,
+    List<DesecratedSlot> desecrated) {
+  /** Slot identity survives observation; a null modifier ID is an unrevealed explicit slot. */
+  public record DesecratedSlot(String id, ModifierDefinition.AffixType side, String modifierId) {
+    public DesecratedSlot {
+      if (id == null || id.isBlank() || side == null || side == ModifierDefinition.AffixType.NONE)
+        throw new IllegalArgumentException("Desecrated slot identity and side required");
+    }
+  }
+
+  public ItemState(
+      String snapshotId,
+      String baseItemId,
+      int itemLevel,
+      Rarity rarity,
+      List<ModifierInstance> implicits,
+      List<ModifierInstance> explicits,
+      Set<Condition> conditions,
+      Integer augmentSockets,
+      CatalystQuality catalystQuality) {
+    this(
+        snapshotId,
+        baseItemId,
+        itemLevel,
+        rarity,
+        implicits,
+        explicits,
+        conditions,
+        augmentSockets,
+        catalystQuality,
+        List.of());
+  }
+
+  public ItemState withDesecrated(List<DesecratedSlot> slots) {
+    return new ItemState(
+        snapshotId,
+        baseItemId,
+        itemLevel,
+        rarity,
+        implicits,
+        explicits,
+        conditions,
+        augmentSockets,
+        catalystQuality,
+        slots);
+  }
+
+  public int explicitSlotCount() {
+    return explicits.size() + (int) desecrated.stream().filter(s -> s.modifierId() == null).count();
+  }
+
   public ItemState(
       String snapshotId,
       String baseItemId,
@@ -60,6 +110,9 @@ public record ItemState(
     implicits = canonical(implicits);
     explicits = canonical(explicits);
     conditions = Set.copyOf(conditions);
+    desecrated = desecrated == null ? List.of() : List.copyOf(desecrated);
+    if (desecrated.stream().map(DesecratedSlot::id).distinct().count() != desecrated.size())
+      throw new IllegalArgumentException("Duplicate desecrated slot");
   }
 
   private static List<ModifierInstance> canonical(List<ModifierInstance> modifiers) {

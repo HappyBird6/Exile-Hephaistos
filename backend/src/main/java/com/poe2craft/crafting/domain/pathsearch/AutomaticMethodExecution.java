@@ -758,7 +758,8 @@ public final class AutomaticMethodExecution implements AutoCloseable {
             result.merge("WORK:QUALITY_40", probability, CertifiedInterval::add);
             return;
           }
-          result.merge(action.currency().name(), probability, CertifiedInterval::add);
+          if (action.currency() != null)
+            result.merge(action.currency().name(), probability, CertifiedInterval::add);
           action
               .omens()
               .forEach(

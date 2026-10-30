@@ -13,7 +13,7 @@ import {
 import type { AbyssState } from '../AbyssPanel'
 import { junkClassifier } from './graphDisplay'
 import type { Definition } from '../craftingApi'
-import { AutomaticAbyssRoutes } from './AutomaticAbyssRoutes'
+import { CommonSlotObservation } from './CommonSlotObservation'
 import { compactFrozenCard } from './compactFrozenCard'
 import { qualityGoalMessages } from '../goal-filter/qualityGoalMessages'
 import { NumericRollNotice } from './NumericRollNotice'
@@ -448,26 +448,35 @@ function Run({
   const selectedNode =
     view?.nodes.find((n) => n.id === selected) ?? view?.nodes[0]
   const action = (a: AutomaticAction) =>
-    a.purpose === 'QUALITY_BASE_CHECKPOINT'
-      ? qualityGoalMessages[locale].work20
-      : a.purpose === 'QUALITY_CHECKPOINT'
-        ? quality.work
-        : `${localizedAction(a.currency as WorkbenchAction)}${
-            a.omens.length
-              ? ` + ${a.omens
-                  .map((o) =>
-                    name(
-                      `Omen_of_${o
-                        .toLowerCase()
-                        .split('_')
-                        .map((p) => p[0]!.toUpperCase() + p.slice(1))
-                        .join('_')}`,
-                      o.replaceAll('_', ' '),
-                    ),
-                  )
-                  .join(' + ')}`
-              : ''
-          }`
+    a.operation === 'DESECRATE'
+      ? {
+          en: 'Desecrate',
+          ko: '훼손',
+          'zh-CN': '亵渎',
+          'zh-TW': '褻瀆',
+          ja: '冒涜',
+          es: 'Profanar',
+        }[locale] + (a.side === 'PREFIX' ? ' · P' : ' · S')
+      : a.purpose === 'QUALITY_BASE_CHECKPOINT'
+        ? qualityGoalMessages[locale].work20
+        : a.purpose === 'QUALITY_CHECKPOINT'
+          ? quality.work
+          : `${localizedAction(a.currency as WorkbenchAction)}${a.comparison ? ` · ${((100 * a.comparison.baseline.targetWeight) / a.comparison.baseline.totalWeight).toFixed(2)}%(~${((100 * a.comparison.afterBlocking.targetWeight) / a.comparison.afterBlocking.totalWeight).toFixed(2)}%)` : ''}${
+              a.omens.length
+                ? ` + ${a.omens
+                    .map((o) =>
+                      name(
+                        `Omen_of_${o
+                          .toLowerCase()
+                          .split('_')
+                          .map((p) => p[0]!.toUpperCase() + p.slice(1))
+                          .join('_')}`,
+                        o.replaceAll('_', ' '),
+                      ),
+                    )
+                    .join(' + ')}`
+                : ''
+            }`
   const guide = guideMessages[locale]
   const recommendations = view?.recommendations.find(
     (r) => r.node === selectedNode?.id && r.cycles === cycles,
@@ -699,6 +708,7 @@ function Run({
                             <p>{distributionEditMessages[locale]}</p>
                           )}
                         {onEditState &&
+                          !selectedNode.item.desecrated?.length &&
                           !manualStep &&
                           !flow.carry &&
                           !automaticItemIsDistribution(selectedNode) && (
@@ -733,6 +743,26 @@ function Run({
                     clear={() => setRoute([])}
                     action={action}
                   />
+                  {view.methods.some(
+                    (m) =>
+                      m.source === selectedNode?.id &&
+                      m.cycle.some((a) => a.comparison),
+                  ) && (
+                    <p>
+                      {
+                        {
+                          en: 'p%(~N%): next modifier selection before / after selecting the highest-weight non-target blocker. This is not a reveal probability or the full goal chance.',
+                          ko: 'p%(~N%): 다음 속성 선택의 기준 확률 / 최고 가중치 비목표 차단 옵션 선택 후 확률입니다. 드러내기 추첨 확률이나 전체 목표 성공률이 아닙니다.',
+                          'zh-CN':
+                            'p%(~N%)：下一条属性的基准概率 / 选择最高权重非目标阻挡属性后的概率。不是揭示抽取概率或完整目标成功率。',
+                          'zh-TW':
+                            'p%(~N%)：下一條屬性的基準機率 / 選擇最高權重非目標阻擋屬性後的機率。不是揭示抽取機率或完整目標成功率。',
+                          ja: 'p%(~N%)：次の特性選択の基準確率 / 最大重みの非目標ブロッカー選択後の確率。公開候補の抽選確率や目標全体の成功率ではありません。',
+                          es: 'p%(~N%): probabilidad base del siguiente modificador / tras elegir el bloqueador no objetivo de mayor peso. No es la probabilidad de revelado ni del objetivo completo.',
+                        }[locale]
+                      }
+                    </p>
+                  )}
                   {view.methods.some((m) => m.source === selectedNode?.id) && (
                     <h3>{guide.next}</h3>
                   )}
@@ -741,39 +771,42 @@ function Run({
                   )}
                   {!snapshot &&
                     selectedNode &&
-                    (flow.branch ||
-                      (!automaticItemIsDistribution(selectedNode) &&
-                        selectedNode.item.rarity === 'RARE')) && (
-                      <section
-                        className="craft-choice"
-                        aria-label={flowMessages[locale].next}
-                      >
-                        <AutomaticAbyssRoutes
-                          key={`${view.id}:${flow.branch?.sourceNode ?? selectedNode.id}`}
-                          jobId={view.id}
-                          nodeId={flow.branch?.sourceNode ?? selectedNode.id}
-                          source={
-                            flow.branch?.source ??
-                            (selectedNode.item as ConcreteItem)
+                    !!selectedNode.item.desecrated?.length &&
+                    !automaticItemIsDistribution(selectedNode) && (
+                      <CommonSlotObservation
+                        item={selectedNode.item}
+                        base={scenarioBaseKey}
+                        identity={request.start.provenance.rulesetIdentity}
+                        onTransition={(state, event) => {
+                          if (flow.branch?.sourceNode === selectedNode.id) {
+                            transition(state, event)
+                            return
                           }
-                          base={scenarioBaseKey}
-                          identity={request.start.provenance.rulesetIdentity}
-                          branch={flow.branch}
-                          onStart={(branch) => {
-                            changeFlow((old) => ({
-                              ...old,
-                              anchor: old.anchor ?? branch.source,
-                              branch,
-                            }))
-                            setManualSelected(branch.steps[0]!.id)
-                          }}
-                          onTransition={transition}
-                          onContinue={(state, item) => {
-                            stop()
-                            continueFlow(state, item)
-                          }}
-                        />
-                      </section>
+                          changeFlow((old) => ({
+                            ...old,
+                            anchor:
+                              old.anchor ?? (selectedNode.item as ConcreteItem),
+                            branch: {
+                              sourceNode: selectedNode.id,
+                              source: selectedNode.item as ConcreteItem,
+                              prepared: state,
+                              action: 'EXALTED',
+                              omens: [],
+                              steps: [
+                                {
+                                  id: crypto.randomUUID(),
+                                  state,
+                                  transition: event,
+                                },
+                              ],
+                            },
+                          }))
+                        }}
+                        onContinue={(state, item) => {
+                          stop()
+                          continueFlow(state, item)
+                        }}
+                      />
                     )}
                   <div className="method-map__methods">
                     <OperationCards

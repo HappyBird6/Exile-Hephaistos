@@ -83,6 +83,11 @@ public final class AutomaticSearchController {
         if (general instanceof com.fasterxml.jackson.databind.node.ObjectNode object
             && !object.has("quality")) object.putNull("quality");
       }
+      for (var item :
+          java.util.List.of(
+              node.path("start").path("item"), node.path("request").path("start").path("item")))
+        if (item instanceof com.fasterxml.jackson.databind.node.ObjectNode object
+            && !object.has("desecrated")) object.putArray("desecrated");
       return json.treeToValue(node, type);
     } catch (java.io.IOException | IllegalArgumentException e) {
       throw new PathSearchProtocol.Rejected(422, "INVALID_REQUEST");
