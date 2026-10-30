@@ -29,7 +29,10 @@ class TerminalAdditionClassesTest {
       new AutomaticMethodGraph.Progress(Status.NO_MATCH, List.of(Status.MATCH, Status.NO_MATCH));
 
   ItemState source(long value) {
-    return tiny.item(ItemState.Rarity.RARE, List.of(tiny.mod("a", value)));
+    // A fixed source affix permits first-mutable addition; transport and conditional laws stay
+    // exact.
+    return tiny.item(
+        ItemState.Rarity.RARE, List.of(new ModifierInstance("a", Map.of("a", value), true)));
   }
 
   Optional<TerminalAdditionClasses.Key> prove(
@@ -124,7 +127,13 @@ class TerminalAdditionClassesTest {
       graph.publishProgress();
       assertThat(graph.finished()).isTrue();
       assertThat(graph.executionCount()).isEqualTo(graph.methods().size());
-      assertThat(graph.nodes()).anyMatch(n -> n.members().size() > 1);
+      assertThat(graph.nodes().size()).isGreaterThan(1);
+      assertThat(graph.methods())
+          .noneMatch(
+              m ->
+                  m.source() != 0
+                      && m.template().initial().isEmpty()
+                      && m.template().cycle().equals(List.of(exalt)));
       try (var restored =
           AutomaticMethodGraph.restore(
               graph.checkpoint("same-goal"), "same-goal", policy, kernel, evaluate)) {

@@ -48,15 +48,8 @@ class CommonDesecrationGraphTest {
         new AutomaticCraftingAction(
             WorkbenchCurrency.EXALTED, Set.of(), AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION);
     var next = kernel.expand(prepared, exalt, 100);
-    assertThat(next.status()).isEqualTo(AutomaticCraftingKernel.Status.COMPLETE);
-    assertThat(next.outcomes())
-        .isNotEmpty()
-        .allMatch(o -> o.item().desecrated().equals(prepared.desecrated()));
-    assertThat(
-            next.outcomes().stream()
-                .map(AutomaticCraftingKernel.Outcome::probability)
-                .reduce(Fraction.ZERO, Fraction::add))
-        .isEqualTo(Fraction.ONE);
+    assertThat(next.status()).isEqualTo(AutomaticCraftingKernel.Status.POLICY_REJECTED);
+    assertThat(next.outcomes()).isEmpty();
     try (var graph =
         new AutomaticMethodGraph(
             root,
@@ -83,9 +76,10 @@ class CommonDesecrationGraphTest {
       assertThat(strategy.result(preparedNodes.getFirst().id()).status())
           .isNotEqualTo("PROVEN_ZERO");
       assertThat(graph.methods())
-          .anyMatch(
+          .noneMatch(
               m ->
                   preparedNodes.stream().anyMatch(n -> n.id() == m.source())
+                      && m.template().initial().isEmpty()
                       && m.template().cycle().getFirst().currency() == WorkbenchCurrency.EXALTED);
     }
   }
@@ -163,7 +157,15 @@ class CommonDesecrationGraphTest {
               i + 1));
     var catalog = f.catalog(definitions);
     var locked = new ModifierInstance("m0", Map.of("m0", 1L), true);
-    var state = f.item(ItemState.Rarity.RARE, List.of(locked));
+    var state =
+        f.item(
+            ItemState.Rarity.RARE,
+            List.of(
+                locked,
+                new ModifierInstance("m1", Map.of("m1", 1L)),
+                new ModifierInstance("m4", Map.of("m4", 1L)),
+                new ModifierInstance("m5", Map.of("m5", 1L)),
+                new ModifierInstance("m6", Map.of("m6", 1L))));
     var kernel =
         new AutomaticCraftingKernel(
             removalTestPolicy(),
@@ -180,18 +182,9 @@ class CommonDesecrationGraphTest {
     var add =
         new AutomaticCraftingAction(
             WorkbenchCurrency.EXALTED, Set.of(), AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION);
-    while (state.explicitSlotCount() < 6) {
-      var next = kernel.expand(state, add, 100);
-      assertThat(next.status()).isEqualTo(AutomaticCraftingKernel.Status.COMPLETE);
-      assertThat(
-              next.outcomes().stream()
-                  .map(AutomaticCraftingKernel.Outcome::probability)
-                  .reduce(Fraction.ZERO, Fraction::add))
-          .isEqualTo(Fraction.ONE);
-      state = next.outcomes().getFirst().item();
-      assertThat(state.explicits()).contains(locked);
-      assertThat(state.desecrated()).hasSize(1);
-    }
+    assertThat(state.explicitSlotCount()).isEqualTo(6);
+    assertThat(state.explicits()).contains(locked);
+    assertThat(state.desecrated()).hasSize(1);
     assertThat(kernel.plan(state, add).status()).isNotEqualTo(AutomaticCraftingPlan.Status.READY);
     var remove =
         new AutomaticCraftingAction(

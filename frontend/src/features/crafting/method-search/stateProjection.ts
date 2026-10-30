@@ -163,3 +163,36 @@ export function stateProjection(
     owner,
   }
 }
+
+/** A convergent state belongs below every acyclic predecessor, not its first-discovery depth. */
+export function layoutDepths(bundles: StateBundle[], edges: BundleEdge[]) {
+  const incoming = new Map(bundles.map((b) => [b.id, new Set<string>()]))
+  const outgoing = new Map(bundles.map((b) => [b.id, new Set<string>()]))
+  for (const e of edges) {
+    if (e.from === e.to) continue
+    incoming.get(e.to)?.add(e.from)
+    outgoing.get(e.from)?.add(e.to)
+  }
+  const remaining = new Map([...incoming].map(([id, from]) => [id, from.size]))
+  const depths = new Map<string, number>()
+  const queue = bundles
+    .filter((b) => remaining.get(b.id) === 0)
+    .map((b) => b.id)
+  for (let i = 0; i < queue.length; i++) {
+    const id = queue[i]!
+    depths.set(
+      id,
+      Math.max(
+        0,
+        ...[...incoming.get(id)!].map((p) => (depths.get(p) ?? 0) + 1),
+      ),
+    )
+    for (const next of outgoing.get(id)!) {
+      remaining.set(next, remaining.get(next)! - 1)
+      if (remaining.get(next) === 0) queue.push(next)
+    }
+  }
+  // Cyclic components retain their declared depth; never delete a real transition to lay it out.
+  for (const b of bundles) if (!depths.has(b.id)) depths.set(b.id, b.depth)
+  return depths
+}

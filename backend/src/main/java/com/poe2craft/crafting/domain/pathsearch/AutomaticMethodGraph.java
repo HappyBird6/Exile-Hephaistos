@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 /** Cooperative discovery over conditional item laws; distinct joint laws never share identity. */
 public final class AutomaticMethodGraph implements AutoCloseable {
-  public static final String VERSION = "goal-directed-milestone-graph-v16-common-desecrated-slots";
+  public static final String VERSION = "goal-directed-milestone-graph-v17-strict-exalted";
 
   public record Progress(Status goal, List<Status> entries) {
     public Progress {
@@ -346,10 +346,13 @@ public final class AutomaticMethodGraph implements AutoCloseable {
               source.item,
               template,
               kernel,
-              (item, quality) -> classify(source, item, quality),
+              (item, quality) -> classify(source, item, quality, rarityCheckpoint(template)),
               precision,
               primitiveOutcomeBudget,
-              AutomaticMethodExecution.PreparationSuccess.STOP_ON_FIRST_HIT,
+              template.initial().stream().anyMatch(a -> a.currency() == WorkbenchCurrency.EXALTED)
+                      && template.cycle().getFirst().currency() != WorkbenchCurrency.CHAOS
+                  ? AutomaticMethodExecution.PreparationSuccess.REQUIRE_REPLACEMENT
+                  : AutomaticMethodExecution.PreparationSuccess.STOP_ON_FIRST_HIT,
               source.quality40,
               source.abstractQuality,
               source.tiers,
@@ -602,7 +605,17 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     }
   }
 
+  private static boolean rarityCheckpoint(AutomaticMethodExecution.Template template) {
+    return template.initial().isEmpty()
+        && template.cycle().size() == 1
+        && template.cycle().getFirst().purpose() == AutomaticCurrencyPolicy.Purpose.RARITY_UPGRADE;
+  }
+
   private Optional<Exit> classify(Node source, ItemState item, int quality) {
+    return classify(source, item, quality, false);
+  }
+
+  private Optional<Exit> classify(Node source, ItemState item, int quality, boolean retainRarity) {
     var now = progress(item, quality);
     if (now.goal() == Status.MATCH) return Optional.of(Exit.GOAL);
     if (now.entries().size() != source.progress.entries().size())
@@ -614,6 +627,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     for (int i = 0; i < now.entries().size(); i++)
       if (source.progress.entries().get(i) == Status.MATCH && now.entries().get(i) != Status.MATCH)
         return Optional.of(Exit.LOSS);
+    if (retainRarity && source.item.rarity() != item.rarity()) return Optional.of(Exit.CHECKPOINT);
     if (!source.item.desecrated().equals(item.desecrated())) return Optional.of(Exit.CHECKPOINT);
     if (GoalDirectedPlanner.matched(now) > GoalDirectedPlanner.matched(source.progress)) {
       return Optional.of(Exit.CHECKPOINT);
@@ -1593,7 +1607,8 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                   row.execution().withIdentity(saved.identity()),
                   kernel,
                   objective,
-                  (item, quality) -> graph.classify(source, item, quality));
+                  (item, quality) ->
+                      graph.classify(source, item, quality, rarityCheckpoint(template)));
       method.finished = row.finished();
       row.points().forEach(p -> method.points.put(Math.toIntExact(p.cycles()), decode(p)));
       graph.methods.put(method.id, method);

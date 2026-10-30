@@ -145,7 +145,15 @@ class AutomaticTierLawTest {
             .orElseThrow();
     for (var action :
         List.of(
-            fixture.action(WorkbenchCurrency.EXALTED), fixture.action(WorkbenchCurrency.CHAOS))) {
+            new AutomaticCraftingAction(
+                WorkbenchCurrency.EXALTED,
+                Set.of(WorkbenchOmen.SINISTRAL_EXALTATION),
+                AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL),
+            new AutomaticCraftingAction(
+                WorkbenchCurrency.EXALTED,
+                Set.of(WorkbenchOmen.DEXTRAL_EXALTATION),
+                AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL),
+            fixture.action(WorkbenchCurrency.CHAOS))) {
       var expected = new LinkedHashMap<ItemState, Fraction>();
       for (var source :
           flatten(
@@ -208,8 +216,19 @@ class AutomaticTierLawTest {
     assertThat(kernel.behaviorKey(root)).isNotEqualTo(kernel.behaviorKey(original));
     assertThat(kernel.expand(root, fixture.action(WorkbenchCurrency.ANNULMENT), 20000).status())
         .isEqualTo(AutomaticCraftingKernel.Status.POLICY_REJECTED);
-    for (var currency : List.of(WorkbenchCurrency.EXALTED, WorkbenchCurrency.CHAOS)) {
-      var action = fixture.action(currency);
+    // Expand both legal dummy-addition phase laws; planner successor eligibility has separate
+    // tests.
+    for (var action :
+        List.of(
+            new AutomaticCraftingAction(
+                WorkbenchCurrency.EXALTED,
+                Set.of(WorkbenchOmen.SINISTRAL_EXALTATION),
+                AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL),
+            new AutomaticCraftingAction(
+                WorkbenchCurrency.EXALTED,
+                Set.of(WorkbenchOmen.DEXTRAL_EXALTATION),
+                AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL),
+            fixture.action(WorkbenchCurrency.CHAOS))) {
       var calculation = kernel;
       var scalar = calculation.expand(root, action, 20000);
       var grouped = calculation.expandDeferred(root, Map.of(), action, 20000);

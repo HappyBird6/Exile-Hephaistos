@@ -2,6 +2,7 @@ package com.poe2craft.bootstrap;
 
 import static org.assertj.core.api.Assertions.*;
 
+import com.poe2craft.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.crafting.domain.goalfilter.*;
 import com.poe2craft.crafting.domain.pathsearch.*;
 import com.poe2craft.item.*;
@@ -212,6 +213,21 @@ class IndependentPlannerReviewTest extends GoalDirectedPlannerScenariosTest {
                           assertThat(reachability.value().upper())
                               .isEqualTo(ExactNumericDistribution.Fraction.ZERO);
                           assertThat(reachability.status()).isEqualTo("PROVEN_ZERO");
+                        } else if (Set.of(
+                                "02-original-three",
+                                "05-whittling-preserve-life",
+                                "08-exalted-third")
+                            .contains(s.id())) {
+                          // Preserve reachable work; strict Exalted no longer finishes these goals.
+                          assertThat(graph.nodes().size()).isGreaterThan(1);
+                          assertThat(goalCount).isZero();
+                          assertThat(graph.methods())
+                              .noneMatch(
+                                  m ->
+                                      m.template().initial().isEmpty()
+                                          && m.template().cycle().getFirst().currency()
+                                              == WorkbenchCurrency.EXALTED);
+                          if (graph.resourceLimited()) assertThat(graph.complete()).isFalse();
                         } else {
                           assertThat(goalCount)
                               .as(s.id() + " must reach unchanged goal")

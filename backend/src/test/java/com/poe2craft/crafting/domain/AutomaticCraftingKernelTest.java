@@ -330,7 +330,7 @@ class AutomaticCraftingKernelTest {
             item,
             new AutomaticCraftingAction(
                 WorkbenchCurrency.EXALTED,
-                Set.of(),
+                Set.of(WorkbenchOmen.SINISTRAL_EXALTATION),
                 AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL),
             1);
     assertThat(result.boundary()).isEqualTo(Fraction.ZERO);

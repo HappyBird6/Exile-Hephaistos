@@ -24,7 +24,11 @@ import type { Selection } from './supportStorage'
 import type { Scenario } from './scenarioCode'
 import type { PathTreeProps } from '../path-tree/PathTree'
 import { methodPoint } from './methodObservation'
-import { stateProjection, type BundleEdge } from './stateProjection'
+import {
+  stateProjection,
+  layoutDepths,
+  type BundleEdge,
+} from './stateProjection'
 import { commonStateCard } from './commonStateCard'
 import { MeasuredGraphBox } from './MeasuredGraphBox'
 import { GraphItemState } from './GraphItemState'
@@ -178,11 +182,10 @@ export function GroupedMethodGraph({
     string,
     { x: number; y: number; height: number; labelHeight: number }
   >()
+  const layout = layoutDepths(projection.bundles, projection.edges)
   let levelY = 20
-  for (const depth of [...new Set(projection.bundles.map((b) => b.depth))].sort(
-    (a, b) => a - b,
-  )) {
-    const level = projection.bundles.filter((b) => b.depth === depth)
+  for (const depth of [...new Set(layout.values())].sort((a, b) => a - b)) {
+    const level = projection.bundles.filter((b) => layout.get(b.id) === depth)
     const labelHeight = Math.max(
       0,
       ...level.map(
@@ -486,6 +489,10 @@ export function GroupedMethodGraph({
                         }
                         onClick={() => openEdge(e)}
                       >
+                        <small className="graph-edge-endpoints">
+                          {e.from.replace('state:', 'S')} →{' '}
+                          {e.to.replace('state:', 'S')}
+                        </small>
                         {labelFor(e)}
                         {arrivalProbabilities(e, cycles).map(
                           (
@@ -581,7 +588,9 @@ export function GroupedMethodGraph({
                       }
                     >
                       <div className="graph-item-badges">
-                        <span>{badge}</span>
+                        <span>
+                          {b.id.replace('state:', 'S')} · {badge}
+                        </span>
                         <span>
                           {nav.candidates} (
                           {tierCandidates(b.nodes, classifyJunk).length})
@@ -611,7 +620,7 @@ export function GroupedMethodGraph({
                     <GraphItemState
                       card={displayCardFor(n.id)}
                       previous={edge ? cardFor(edge.source) : undefined}
-                      badge={badge}
+                      badge={`${b.id.replace('state:', 'S')} · ${badge}`}
                       selected={n.id === selected}
                       select={() => select(n.id)}
                       onSize={() => {}}

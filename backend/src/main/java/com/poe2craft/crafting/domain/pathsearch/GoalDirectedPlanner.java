@@ -53,6 +53,28 @@ public final class GoalDirectedPlanner {
         && plan.branches().stream().anyMatch(b -> preserves(before, b.remaining()));
   }
 
+  private boolean consumesPreparedAffix(
+      ItemState source, ItemState prepared, AutomaticCraftingPlan next) {
+    var added = prepared.explicits().stream().filter(m -> !source.explicits().contains(m)).toList();
+    if (added.size() != 1 || added.getFirst().fractured()) return false;
+    return next.branches().stream()
+        .anyMatch(
+            branch ->
+                !branch.remaining().explicits().contains(added.getFirst())
+                    && branch.remaining().explicits().containsAll(source.explicits())
+                    && branch.remaining().desecrated().equals(source.desecrated())
+                    && kernel
+                        .representatives(
+                            new AutomaticCraftingPlan(
+                                AutomaticCraftingPlan.Status.READY,
+                                "",
+                                List.of(branch),
+                                next.uniformCandidates(),
+                                next.sourceUrl()))
+                        .stream()
+                        .anyMatch(target -> advances(source, target)));
+  }
+
   private boolean guaranteedProtectedRemoval(ItemState source, AutomaticCraftingPlan plan) {
     var before = evaluate.apply(source);
     return plan.status() == AutomaticCraftingPlan.Status.READY
@@ -212,6 +234,11 @@ public final class GoalDirectedPlanner {
     var prerequisites = new ArrayList<AutomaticCraftingAction>();
     for (var action : inventory) {
       if (!allowChaos && action.currency() == WorkbenchCurrency.CHAOS) continue;
+      if (action.currency() == WorkbenchCurrency.EXALTED
+          && action.purpose() == AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION
+          && (!initialStage
+              || !allowChaos
+              || AutomaticCraftingKernel.mutableAffixCount(source) != 0)) continue;
       if (action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT) {
         if (AutomaticCraftingKernel.hasQualityCap(source)
             && (kernel.qualityGoal() == 0 || progress.entries().getLast() != Status.MATCH))
@@ -221,9 +248,6 @@ public final class GoalDirectedPlanner {
       var plan = kernel.plan(source, action);
       if (plan.status() != AutomaticCraftingPlan.Status.READY) continue;
       if (action.purpose() == AutomaticCurrencyPolicy.Purpose.RARITY_UPGRADE) {
-        if (kernel.representatives(plan).stream()
-            .anyMatch(t -> evaluate.apply(t).goal() == Status.MATCH))
-          result.add(new Choice(List.of(), List.of(action)));
         prerequisites.add(action);
         continue;
       }
@@ -246,6 +270,18 @@ public final class GoalDirectedPlanner {
       var prepared = kernel.representatives(kernel.plan(source, preparation));
       for (var acquisition : inventory) {
         if (!allowChaos && acquisition.currency() == WorkbenchCurrency.CHAOS) continue;
+        if (preparation.currency() == WorkbenchCurrency.EXALTED) {
+          boolean firstChaos =
+              initialStage
+                  && allowChaos
+                  && AutomaticCraftingKernel.mutableAffixCount(source) == 0
+                  && preparation.omens().isEmpty()
+                  && acquisition.currency() == WorkbenchCurrency.CHAOS;
+          boolean dummy =
+              !preparation.omens().isEmpty()
+                  && !acquisition.currency().replacementModifiers().isEmpty();
+          if (!firstChaos && !dummy) continue;
+        }
         // This is an explicit material policy, not an equivalence of the three laws.
         if (acquisition.currency() == WorkbenchCurrency.CHAOS
             && Set.of(WorkbenchCurrency.EXALTED, WorkbenchCurrency.REGAL)
@@ -280,6 +316,9 @@ public final class GoalDirectedPlanner {
                   || matched(evaluate.apply(state)) != matched(progress))) continue;
           var next = kernel.plan(state, acquisition);
           if (next.status() == AutomaticCraftingPlan.Status.READY
+              && (preparation.currency() != WorkbenchCurrency.EXALTED
+                  || acquisition.currency() == WorkbenchCurrency.CHAOS
+                  || consumesPreparedAffix(source, state, next))
               && (!tierPreparation || protectedRemoval(source, next))
               && checkedSuccessors.add(next)
               && kernel.representatives(next).stream().anyMatch(t -> advances(source, t))) {
@@ -290,6 +329,13 @@ public final class GoalDirectedPlanner {
         if (useful) result.add(new Choice(List.of(preparation), List.of(acquisition)));
       }
     }
+    // Keep a standalone rarity step when no acquiring preparation is available.
+    // Otherwise its full junk distribution duplicates the prepared method and
+    // consumes the search budget before that method can reach its checkpoints.
+    if (result.isEmpty())
+      prerequisites.stream()
+          .filter(a -> a.purpose() == AutomaticCurrencyPolicy.Purpose.RARITY_UPGRADE)
+          .forEach(a -> result.add(new Choice(List.of(), List.of(a))));
     kernel.desecrationActions(source).forEach(a -> result.add(new Choice(List.of(), List.of(a))));
     preferAddition(source, result, WorkbenchCurrency.EXALTED);
     preferAddition(source, result, WorkbenchCurrency.REGAL);

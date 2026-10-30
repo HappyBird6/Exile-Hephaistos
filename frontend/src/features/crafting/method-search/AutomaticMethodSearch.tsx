@@ -46,7 +46,7 @@ import type { PathTreeProps } from '../path-tree/PathTree'
 import { canonical } from '../path-tree/validation'
 import { pathTreeMessages } from '../path-tree/messages'
 import { methodSearchMessages } from './messages'
-import { policyMessages } from './policyMessages'
+import { policyMessages, strictExaltedMessages } from './policyMessages'
 import { qualityWorkMessages } from './qualityWorkMessages'
 import {
   presentAutomaticItem,
@@ -667,6 +667,19 @@ function Run({
                   {selectedNode && (
                     <div className="method-map__states">
                       <article>
+                        {!snapshot && (
+                          <p>{strictExaltedMessages[locale].policy}</p>
+                        )}
+                        {!snapshot &&
+                          selectedNode.discoveryFinished &&
+                          selectedNode.progress.goal !== 'MATCH' &&
+                          !view.methods.some(
+                            (m) => m.source === selectedNode.id,
+                          ) && (
+                            <p role="status">
+                              {strictExaltedMessages[locale].blocked}
+                            </p>
+                          )}
                         {selectedNode.quality40 && <p>{quality.completed}</p>}
                         {!selectedNode.quality40 &&
                           (selectedNode.abstractQuality ?? 0) >= 20 && (

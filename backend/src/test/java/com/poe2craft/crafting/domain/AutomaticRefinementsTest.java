@@ -203,16 +203,12 @@ class AutomaticRefinementsTest {
                     c.initial().isEmpty()
                         && c.cycle().getFirst().currency() == WorkbenchCurrency.EXALTED)
             .toList();
-    assertThat(exalt).hasSize(3);
-    assertThat(exalt.stream().map(c -> c.cycle().getFirst().omens()))
-        .containsExactlyInAnyOrder(
-            Set.of(),
-            Set.of(WorkbenchOmen.SINISTRAL_EXALTATION),
-            Set.of(WorkbenchOmen.DEXTRAL_EXALTATION));
+    assertThat(exalt).hasSize(1);
+    assertThat(exalt.getFirst().cycle().getFirst().omens()).isEmpty();
   }
 
   @Test
-  void exaltPrefersUsefulPrefixOmenAndKeepsProbabilities() {
+  void firstPlainExaltKeepsExactLuckyGoalProbability() {
     var root = tiny.item(ItemState.Rarity.RARE, List.of());
     java.util.function.Function<ItemState, AutomaticMethodGraph.Progress> evaluate =
         item -> {
@@ -232,10 +228,19 @@ class AutomaticRefinementsTest {
                         && c.cycle().getFirst().currency() == WorkbenchCurrency.EXALTED)
             .toList();
     assertThat(exalt).hasSize(1);
-    assertThat(exalt.getFirst().cycle().getFirst().omens())
-        .containsExactly(WorkbenchOmen.SINISTRAL_EXALTATION);
-    assertThat(kernel.expand(root, exalt.getFirst().cycle().getFirst(), 100).outcomes())
-        .allMatch(o -> evaluate.apply(o.item()).goal() == Status.MATCH);
+    assertThat(exalt.getFirst().cycle().getFirst().omens()).isEmpty();
+    var law = kernel.expand(root, exalt.getFirst().cycle().getFirst(), 100);
+    assertThat(
+            law.outcomes().stream()
+                .map(AutomaticCraftingKernel.Outcome::probability)
+                .reduce(Fraction.ZERO, Fraction::add))
+        .isEqualTo(Fraction.ONE);
+    assertThat(
+            law.outcomes().stream()
+                .filter(o -> evaluate.apply(o.item()).goal() == Status.MATCH)
+                .map(AutomaticCraftingKernel.Outcome::probability)
+                .reduce(Fraction.ZERO, Fraction::add))
+        .isEqualTo(new Fraction(java.math.BigInteger.ONE, java.math.BigInteger.valueOf(4)));
   }
 
   @Test
@@ -264,8 +269,7 @@ class AutomaticRefinementsTest {
                     c.initial().isEmpty()
                         && c.cycle().getFirst().currency() == WorkbenchCurrency.EXALTED)
             .toList();
-    assertThat(exalt).hasSize(1);
-    assertThat(exalt.getFirst().cycle().getFirst().omens()).isEmpty();
+    assertThat(exalt).isEmpty();
   }
 
   @Test
@@ -293,7 +297,6 @@ class AutomaticRefinementsTest {
                     c.initial().isEmpty()
                         && c.cycle().getFirst().currency() == WorkbenchCurrency.EXALTED)
             .toList();
-    assertThat(exalt).hasSize(1);
-    assertThat(exalt.getFirst().cycle().getFirst().omens()).isEmpty();
+    assertThat(exalt).isEmpty();
   }
 }

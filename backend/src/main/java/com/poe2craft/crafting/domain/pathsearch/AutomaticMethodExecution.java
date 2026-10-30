@@ -87,8 +87,7 @@ public final class AutomaticMethodExecution implements AutoCloseable {
           continue;
         if (i + 1 == sequence.size()
             || (sequence.get(i + 1).currency().replacementModifiers().isEmpty()
-                && sequence.get(i + 1).purpose()
-                    != AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION))
+                && sequence.get(i + 1).currency() != WorkbenchCurrency.CHAOS))
           throw new IllegalArgumentException(
               "Temporary addition requires a following replacement step");
       }

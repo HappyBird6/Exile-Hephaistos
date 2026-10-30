@@ -4,7 +4,7 @@ import { planningNotes } from './planningNotes'
 import { useId, useRef } from 'react'
 import policy from '../../../../../backend/src/main/resources/crafting/automatic-currency-policy-v1.json'
 import { useI18n } from '../../../shared/i18n/i18n'
-import { policyMessages } from './policyMessages'
+import { policyMessages, strictExaltedMessages } from './policyMessages'
 import { acquisitionHints } from './planningMessages'
 import { chaosFirstAffixHints } from './chaosFirstAffixHints'
 import { rarityUpgradeHints } from './rarityUpgradeHints'
@@ -78,7 +78,12 @@ export function CurrencyPolicy() {
                 )}
                 {(entry.condition.startsWith('TEMPORARY_') ||
                   entry.condition === 'GOAL_ACQUISITION') && (
-                  <p>{acquisitionHints[locale]}</p>
+                  <p>
+                    {entry.id === 'EXALTED' ||
+                    entry.condition.startsWith('TEMPORARY_EXALTED')
+                      ? strictExaltedMessages[locale].policy
+                      : acquisitionHints[locale]}
+                  </p>
                 )}
                 {entry.condition === 'FIRST_AFFIX_ACQUISITION' && (
                   <p>{chaosFirstAffixHints[locale]}</p>

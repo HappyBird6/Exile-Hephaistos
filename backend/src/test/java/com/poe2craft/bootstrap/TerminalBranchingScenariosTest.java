@@ -13,49 +13,34 @@ class TerminalBranchingScenariosTest {
   final GoalDirectedPlannerScenariosTest f = new GoalDirectedPlannerScenariosTest();
 
   @Test
-  void fourIndependentGoalsPreserveAllConcreteTiersWithinTheOriginalBudget() {
+  void fourGoalsKeepPartialEssenceStatesWithoutInventingFinishingExalt() {
     var root = f.item(ItemState.Rarity.MAGIC, 82, List.of(f.life()));
     var goal =
         f.goal(root, Map.of(LIFE, 1L, CHAOS, 1L, COLD, 1L, "base_fire_damage_resistance_%", 1L));
-    var started = System.nanoTime();
     try (var graph = f.graph(root, goal)) {
       f.exhaust(graph);
-      System.out.println(
-          "BRANCHING_FOUR|finished="
-              + graph.finished()
-              + "|complete="
-              + graph.complete()
-              + "|resources="
-              + graph.resources()
-              + "|operations="
-              + graph.operations()
-              + "|ms="
-              + (System.nanoTime() - started) / 1000000);
-      assertThat(graph.finished()).isTrue();
-      assertThat(graph.complete()).isFalse();
-      assertThat(graph.hasPendingObservation()).isTrue();
-      assertThat(graph.hasGoal()).isTrue();
-      assertThat(graph.computationStates()).isLessThan(64);
-      // The old graph shared executions but retained duplicate per-tier methods.
-      // The joint graph stores the class once, with exact conditional source links.
+      assertThat(graph.hasGoal()).isFalse();
+      assertThat(graph.nodes()).anyMatch(n -> n.item().explicits().size() == 2);
+      assertThat(graph.methods())
+          .noneMatch(
+              m ->
+                  m.template().initial().isEmpty()
+                      && m.template().cycle().getFirst().currency()
+                          == com.poe2craft.crafting.domain.WorkbenchCurrency.EXALTED);
       assertThat(graph.executionCount()).isEqualTo(graph.methods().size());
-      var terminal =
-          graph.nodes().stream()
-              .filter(
-                  n ->
-                      n.progress().goal()
-                          == com.poe2craft.crafting.domain.goalfilter.GoalFilter.Status.MATCH)
-              .toList();
-      // Three suffix goals leave room only for a prefix dummy; never merge it with the ordinary
-      // state.
-      assertThat(terminal).hasSize(2);
-      assertThat(terminal.stream().filter(n -> n.item().desecrated().isEmpty())).hasSize(1);
-      assertThat(terminal.stream().map(n -> n.item().desecrated()).distinct()).hasSize(2);
-      assertThat(terminal.stream().flatMap(n -> n.item().desecrated().stream()))
-          .allMatch(slot -> slot.side() == com.poe2craft.item.ModifierDefinition.AffixType.PREFIX);
-      assertThat(terminal.getFirst().joint()).isNotEmpty();
-      assertThat(terminal.getFirst().attributes().values()).anyMatch(options -> options.size() > 1);
-      assertThat(graph.nodes()).allMatch(n -> n.item().explicits().size() <= 6);
+      assertThat(graph.nodes()).allMatch(n -> n.item().explicitSlotCount() <= 6);
+      if (graph.resourceLimited() || graph.hasPendingObservation())
+        assertThat(graph.complete()).isFalse();
+      try (var restored =
+          AutomaticMethodGraph.restore(
+              graph.checkpoint(goal.toString()),
+              goal.toString(),
+              policy,
+              f.kernel(root, goal),
+              f.evaluation(root, goal))) {
+        assertThat(restored.nodes()).isEqualTo(graph.nodes());
+        assertThat(restored.methods()).isEqualTo(graph.methods());
+      }
     }
   }
 

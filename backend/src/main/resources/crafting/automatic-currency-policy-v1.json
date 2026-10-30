@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "approved-187-2026-10-29-fractured-first-affix-v7",
+  "policyVersion": "approved-187-2026-10-30-strict-exalted-v8",
   "sourceUrl": "https://drive.google.com/file/d/1T-V7AxH9BT6qMxFDfsWcpb9u9_o-LSYT/view",
   "sourceModifiedAt": "2026-10-15T08:05:34.858Z",
   "maximumExploredExplicits": 6,
@@ -102,7 +102,7 @@
       "sourceUrl": "https://poe2db.tw/kr/Exalted_Orb",
       "effectKo": "희귀 아이템에 무작위 속성 1개를 추가한다.",
       "decision": "CONDITIONAL",
-      "restrictionKo": "후속 제작에서 제거할 임시 속성을 추가하는 용도로만 사용. 무작위 유효 속성 획득·일반 마무리용으로 자동 탐색하지 않음.",
+      "restrictionKo": "최초 변경 가능한 속성 0개에서 카오스를 준비하는 첫 추가 또는 적법한 제거·추가 후속 작업용 더미 추가만 허용. 더미는 접두/접미 징조별로 표시하며 마무리 유효옵 채우기는 금지.",
       "condition": "TEMPORARY_REMOVAL"
     },
     {

@@ -181,7 +181,7 @@ class SixAffixScenariosTest {
   }
 
   @Test
-  void fiveAndSixGoalsFromFourAffixesUseOriginalBudgets() {
+  void fiveAndSixGoalsFromFourAffixesKeepPartialWorkWithoutFinishingExalt() {
     for (int count : List.of(5, 6)) {
       var item = root(4);
       var requirements = new LinkedHashMap<String, Long>();
@@ -201,7 +201,8 @@ class SixAffixScenariosTest {
                 + graph.resources()
                 + "|ms="
                 + (System.nanoTime() - started) / 1000000);
-        assertThat(graph.hasGoal()).isTrue();
+        assertThat(graph.hasGoal()).isFalse();
+        assertThat(graph.nodes().size()).isGreaterThan(1);
         assertThat(graph.nodes()).allMatch(n -> n.item().explicits().size() <= 6);
         assertThat(graph.nodes())
             .allMatch(n -> new ItemStateValidator(catalog).validate(n.item()).isEmpty());
@@ -256,12 +257,13 @@ class SixAffixScenariosTest {
                     "advance-" + i, view.revision(), view.generation(), "ADVANCE"));
         maxMillis = Math.max(maxMillis, (System.nanoTime() - started) / 1000000);
       }
+      assertThat(view.nodes().size()).isGreaterThan(1);
       assertThat(view.nodes())
-          .anyMatch(
+          .noneMatch(
               n ->
-                  n.item().explicits().size() == 6
-                      && n.progress().goal()
-                          == com.poe2craft.crafting.domain.goalfilter.GoalFilter.Status.MATCH);
+                  n.progress().goal()
+                      == com.poe2craft.crafting.domain.goalfilter.GoalFilter.Status.MATCH);
+      assertThat(view.nodes()).allMatch(n -> n.item().explicitSlotCount() <= 6);
       result = view;
       System.out.println(
           "SIX_API|status="

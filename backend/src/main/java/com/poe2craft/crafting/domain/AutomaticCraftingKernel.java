@@ -14,7 +14,7 @@ import java.util.*;
  * probabilities.
  */
 public final class AutomaticCraftingKernel {
-  public static final String VERSION = "automatic-finite-kernel-v9-common-desecrated-slots";
+  public static final String VERSION = "automatic-finite-kernel-v10-strict-exalted";
 
   public record Identity(
       String kernelVersion,
@@ -355,7 +355,24 @@ public final class AutomaticCraftingKernel {
         "");
   }
 
+  private boolean strictExaltedAllowed(ItemState item, AutomaticCraftingAction action) {
+    if (action.currency() != WorkbenchCurrency.EXALTED) return true;
+    if (action.purpose() == AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION)
+      return mutableAffixCount(item) == 0 && action.omens().isEmpty();
+    return action.purpose() == AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL
+        && (action.omens().equals(Set.of(WorkbenchOmen.SINISTRAL_EXALTATION))
+            || action.omens().equals(Set.of(WorkbenchOmen.DEXTRAL_EXALTATION))
+            || (mutableAffixCount(item) == 0 && action.omens().isEmpty()));
+  }
+
   public AutomaticCraftingPlan plan(ItemState item, AutomaticCraftingAction action) {
+    if (!strictExaltedAllowed(item, action))
+      return new AutomaticCraftingPlan(
+          AutomaticCraftingPlan.Status.UNAVAILABLE,
+          "EXALTED_REQUIRES_FIRST_AFFIX_OR_PLANNED_REMOVAL",
+          List.of(),
+          false,
+          "");
     if (action.operation() != null)
       return new AutomaticCraftingPlan(
           desecrationActions(item).contains(action)
@@ -473,6 +490,8 @@ public final class AutomaticCraftingKernel {
       boolean deferred,
       boolean lineage) {
     if (outcomeBudget < 1) throw new IllegalArgumentException("Positive outcome budget required");
+    if (!strictExaltedAllowed(state, execution))
+      return blocked(Status.POLICY_REJECTED, "EXALTED_REQUIRES_FIRST_AFFIX_OR_PLANNED_REMOVAL");
     if (execution.operation() != null) {
       if (!desecrationActions(state).contains(execution))
         return blocked(Status.UNAVAILABLE, "DESECRATION_UNAVAILABLE");

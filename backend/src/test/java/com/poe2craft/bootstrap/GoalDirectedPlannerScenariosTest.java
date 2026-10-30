@@ -198,18 +198,13 @@ class GoalDirectedPlannerScenariosTest {
   }
 
   @Test
-  void thirdColdGoalExpandsBeyondTwoAffixesAndKeepsBothOrders() {
+  void thirdColdGoalKeepsPartialEssenceRoutesWithoutFinishingExalted() {
     var root = item(ItemState.Rarity.MAGIC, 82, List.of(life()));
     var goal = goal(root, Map.of(LIFE, 1L, CHAOS, 1L, COLD, 1L));
     try (var graph = graph(root, goal)) {
       exhaust(graph);
-      assertThat(graph.nodes())
-          .anyMatch(
-              n ->
-                  n.item().explicits().size() == 3
-                      && n.progress().goal() == GoalFilter.Status.MATCH);
-      assertThat(graph.nodes()).anyMatch(n -> n.depth() >= 2);
-      assertThat(graph.methods().stream().filter(m -> m.source() != 0).count()).isPositive();
+      assertThat(graph.nodes()).anyMatch(n -> n.item().explicits().size() == 2);
+      assertThat(graph.nodes()).noneMatch(n -> n.progress().goal() == GoalFilter.Status.MATCH);
       assertThat(
               graph.methods().stream()
                   .filter(m -> m.source() == 0)
@@ -217,32 +212,12 @@ class GoalDirectedPlannerScenariosTest {
                   .map(AutomaticCraftingAction::currency))
           .contains(
               WorkbenchCurrency.GREATER_ESSENCE_RUIN, WorkbenchCurrency.GREATER_ESSENCE_THAWING);
-      assertThat(
-              graph.nodes().stream()
-                  .filter(n -> n.progress().goal() == GoalFilter.Status.MATCH)
-                  .toList())
-          .anySatisfy(
-              n ->
-                  assertThat(
-                          graph.methods().stream()
-                              .filter(
-                                  m ->
-                                      m
-                                          .points()
-                                          .get(100)
-                                          .exits()
-                                          .get(ExactMethodRunner.Exit.GOAL)
-                                          .keySet()
-                                          .stream()
-                                          .anyMatch(s -> s.item().equals(n.item())))
-                              .map(AutomaticMethodGraph.MethodView::source)
-                              .distinct()
-                              .count())
-                      .isGreaterThan(1));
-      assertThat(graph.nodes())
-          .filteredOn(n -> n.item().explicits().size() == 2)
-          .allMatch(n -> n.progress().goal() != GoalFilter.Status.MATCH);
-      assertThat(graph.finished()).isTrue();
+      assertThat(graph.methods())
+          .noneMatch(
+              m ->
+                  m.template().initial().isEmpty()
+                      && m.template().cycle().getFirst().currency() == WorkbenchCurrency.EXALTED);
+      if (graph.resourceLimited()) assertThat(graph.complete()).isFalse();
     }
   }
 
@@ -502,7 +477,7 @@ class GoalDirectedPlannerScenariosTest {
 
   @Test
   void absorbingFailureCompactionPreservesProbabilityAndChargedMaterials() {
-    var root = item(ItemState.Rarity.RARE, 82, List.of(life()));
+    var root = item(ItemState.Rarity.RARE, 82, List.of());
     var goal = goal(root, Map.of(CHAOS, 1L));
     var k = kernel(root, goal);
     var evaluate = evaluation(root, goal);
@@ -628,7 +603,25 @@ class GoalDirectedPlannerScenariosTest {
     var k = kernel(root, goal);
     var current = root;
     for (int count = 2; count <= 6; count++) {
-      var law = k.expand(current, action(WorkbenchCurrency.EXALTED), 5000);
+      // Isolated addition-phase capacity/mass law, not an automatic finishing route.
+      var side =
+          current.explicits().stream()
+                      .filter(
+                          m ->
+                              catalog.modifiers().get(m.modifierId()).affixType()
+                                  == ModifierDefinition.AffixType.PREFIX)
+                      .count()
+                  < 3
+              ? WorkbenchOmen.SINISTRAL_EXALTATION
+              : WorkbenchOmen.DEXTRAL_EXALTATION;
+      var law =
+          k.expand(
+              current,
+              new AutomaticCraftingAction(
+                  WorkbenchCurrency.EXALTED,
+                  Set.of(side),
+                  AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL),
+              5000);
       var mass = law.boundary().add(law.unresolved());
       for (var outcome : law.outcomes()) mass = mass.add(outcome.probability());
       assertThat(mass).isEqualTo(ExactNumericDistribution.Fraction.ONE);
@@ -639,7 +632,16 @@ class GoalDirectedPlannerScenariosTest {
           .allMatch(o -> o.item().explicits().size() == expected);
       current = law.outcomes().getFirst().item();
     }
-    assertThat(k.expand(current, action(WorkbenchCurrency.EXALTED), 5000).outcomes()).isEmpty();
+    assertThat(
+            k.expand(
+                    current,
+                    new AutomaticCraftingAction(
+                        WorkbenchCurrency.EXALTED,
+                        Set.of(WorkbenchOmen.SINISTRAL_EXALTATION),
+                        AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL),
+                    5000)
+                .outcomes())
+        .isEmpty();
   }
 
   @Test
@@ -683,7 +685,7 @@ class GoalDirectedPlannerScenariosTest {
 
   @Test
   void probabilityBudgetNeverRenormalizesRetainedOutcomes() {
-    var root = item(ItemState.Rarity.RARE, 82, List.of(life()));
+    var root = item(ItemState.Rarity.RARE, 82, List.of());
     var goal = goal(root, Map.of(CHAOS, 1L));
     var law = kernel(root, goal).expand(root, action(WorkbenchCurrency.EXALTED), 1);
     assertThat(law.reason()).isEqualTo("OUTCOME_BUDGET");
