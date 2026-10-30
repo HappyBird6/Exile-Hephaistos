@@ -36,3 +36,12 @@
 ## 배포
 
 현재 검증된 변경을 로컬 commit 후, 운영 앱을 정지한 일관된 시점에 app-data archive/추출 해시 검증과 PostgreSQL dump/격리 복원 검증을 수행한다. 기존 컨테이너와 볼륨을 유지한 채 JAR/frontend를 교체하고 health/정적 파일 해시/저장 데이터 전후 해시를 검증한다. 배포 완료 기록은 아래에 추가한다.
+
+### 배포 완료
+
+- 구현 commit `3d7f3f6b93ec8027dbace656e209547824dee3b6`을 기존 http://localhost:9000 / http://localhost:9001 에 반영했다.
+- health/readiness/liveness UP, 프록시 catalog GET 및 실제 브라우저 초기 UI 로딩 확인. 운영 POST 검증은 수행하지 않았다.
+- JAR SHA-256 `c823441a6588801a66921a58244dcdb378d0fc49ed5ef1011fdef3afd761f33c`, frontend 227개 파일 HTTP 바이트 해시 일치.
+- app-data 43 files / 252,480,537 bytes: archive 추출 복원과 배포 전후 전체 해시 동일. PostgreSQL dump는 격리 QA DB로 복원 성공.
+- 백업: `C:\Users\SSAFY\Documents\Codex\2026-10-29\task\common-predeploy-backup-1030`. rollback JAR/HTML, 데이터 archive/manifest, DB dump 보존.
+- 기존 컨테이너 ID/image/mount/port, .env 동일. 운영 app만 재시작했다. 다른 프로젝트 Redis 두 개는 작업 중 사용자가 시작한 현재 실행 상태와 StartedAt을 보존했다. STS는 조작하지 않았다.
