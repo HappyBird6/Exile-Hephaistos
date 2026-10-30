@@ -99,6 +99,45 @@ class AutomaticSearchServiceTest {
   }
 
   @Test
+  void incompatibleHistoricalTemplateDoesNotBlockNewRequestsOrAdmission() throws Exception {
+    var repository = new Repository();
+    var json = new ObjectMapper();
+    String oldId;
+    try (var service = service(repository)) {
+      oldId = service.create("old-owner", request("old-request")).id();
+    }
+    var document =
+        (com.fasterxml.jackson.databind.node.ObjectNode) json.readTree(repository.read(oldId));
+    var graph = (com.fasterxml.jackson.databind.node.ObjectNode) document.get("graph");
+    graph.put("version", "goal-directed-milestone-graph-v16-common-desecration");
+    var execution = graph.withArray("executions").addObject().putObject("execution");
+    var template = execution.putObject("template");
+    template.put("id", "historical-standalone-dummy").putArray("initial");
+    var action = template.putArray("cycle").addObject();
+    action.put("currency", "EXALTED").putArray("omens");
+    action.put("purpose", "TEMPORARY_AFFIX_FOR_REMOVAL");
+    repository.save(oldId, json.writeValueAsBytes(document));
+    var before = repository.read(oldId);
+    try (var service = service(repository)) {
+      assertThatThrownBy(() -> service.get("old-owner", oldId))
+          .isInstanceOfSatisfying(
+              PathSearchProtocol.Rejected.class,
+              e -> assertThat(e.code()).isEqualTo("RECALCULATION_REQUIRED"));
+      // A new request from either owner must not decode the incompatible template.
+      var created = service.create("old-owner", request("new-request"));
+      assertThat(created.status()).isEqualTo("READY");
+      assertThat(service.create("old-owner", request("new-request")).id()).isEqualTo(created.id());
+      assertThat(service.create("different-owner", request("new-request")).id())
+          .isNotEqualTo(created.id());
+      assertThatThrownBy(() -> service.create("old-owner", request("old-request")))
+          .isInstanceOfSatisfying(
+              PathSearchProtocol.Rejected.class,
+              e -> assertThat(e.code()).isEqualTo("RECALCULATION_REQUIRED"));
+    }
+    assertThat(repository.read(oldId)).isEqualTo(before);
+  }
+
+  @Test
   void previousChaosPolicyIsReadOnlyWithoutRewritingStoredBytes() throws Exception {
     var repository = new Repository();
     String id;

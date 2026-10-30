@@ -254,6 +254,7 @@ export function CraftStart({
       editor.setState({ searchRequest: null, searchIssue: true, editing: true })
   }, [selected, omenIdentity, editor])
   function cancel() {
+    setReloadingCatalog(false)
     revision.current++
     request.current?.abort()
     request.current = null
@@ -280,10 +281,12 @@ export function CraftStart({
       const fresh = await inventory.refetch()
       if (fresh.isError || !fresh.data?.length)
         throw new Error('Inventory unavailable')
-      const entry =
-        fresh.data.find((e) => e.base[0] === original.base) ??
-        fresh.data.find((e) => e.base[0] === 'solar') ??
-        fresh.data[0]!
+      const entry = fresh.data.find((e) => e.base[0] === original.base)
+      if (!entry) throw new Error('Selected base is no longer available')
+      if (!original.item && original.text)
+        throw new Error(
+          'Existing text requires review before restoring its item',
+        )
       const item = {
         ...concreteInitial(entry.initial),
         itemLevel: original.item?.itemLevel ?? entry.initial.state.itemLevel,
@@ -321,7 +324,6 @@ export function CraftStart({
       if (
         original.item &&
         (original.base !== entry.base[0] ||
-          original.rulesetIdentity !== entry.initial.rulesetIdentity ||
           startItemIssues(entry.initial, original.item).length)
       ) {
         throw new Error(
@@ -329,12 +331,24 @@ export function CraftStart({
         )
       }
       // Keep all user input and do not start a calculation as a side effect.
-      update({ started: false, editing: true })
+      const retained = original.item ?? item
+      update({
+        base: entry.base[0],
+        item: retained,
+        rulesetIdentity: entry.initial.rulesetIdentity,
+        card: startCard(entry.base, retained, entry.initial.modifiers),
+        text: original.item
+          ? original.text
+          : startText(entry.base, retained, entry.initial.modifiers),
+        issue: '',
+        started: false,
+        editing: true,
+      })
       persist()
     } catch {
       if (version === revision.current) setReloadFailed(true)
     } finally {
-      setReloadingCatalog(false)
+      if (version === revision.current) setReloadingCatalog(false)
     }
   }
   function resetStart() {
@@ -372,7 +386,9 @@ export function CraftStart({
   }
   useEffect(() => {
     if (inventory.data && !editor.getState().text && !editor.getState().item) {
-      const entry = inventory.data.find((e) => e.base[0] === 'solar')
+      const entry = inventory.data.find(
+        (e) => e.base[0] === editor.getState().base,
+      )
       if (entry) {
         const item = concreteInitial(entry.initial)
         editor.setState({

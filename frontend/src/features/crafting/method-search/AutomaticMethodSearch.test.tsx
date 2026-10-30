@@ -208,31 +208,42 @@ it('restores the same job and selection after remount without creating or advanc
     ),
   ).toBe(true)
 })
-it('preserves input and asks for explicit recalculation for an expired job', async () => {
-  const request = requestFixture(),
-    recalculate = vi.fn()
-  saveSupport('run', {
-    request: request.clientRequestId,
-    job: id,
-    selected: 0,
-    cycles: 100,
-    route: [],
-  })
-  const fetcher = vi.fn(async () => new Response('', { status: 404 }))
-  vi.stubGlobal('fetch', fetcher)
-  render(
-    <AutomaticMethodSearch
-      request={request}
-      inputGeneration={1}
-      presentItem={present}
-      onRecalculate={recalculate}
-    />,
-  )
-  await screen.findByText(/saved search is unavailable/i)
-  expect(fetcher).toHaveBeenCalledTimes(1)
-  fireEvent.click(screen.getByRole('button', { name: 'Recalculate' }))
-  expect(recalculate).toHaveBeenCalledOnce()
-})
+it.each([404, 409])(
+  'preserves input and asks for explicit recalculation after saved job error %s',
+  async (status) => {
+    const request = requestFixture(),
+      recalculate = vi.fn()
+    saveSupport('run', {
+      request: request.clientRequestId,
+      job: id,
+      selected: 0,
+      cycles: 100,
+      route: [],
+    })
+    const fetcher = vi.fn(
+      async () =>
+        new Response(
+          JSON.stringify({
+            code: status === 409 ? 'RECALCULATION_REQUIRED' : 'JOB_NOT_FOUND',
+          }),
+          { status },
+        ),
+    )
+    vi.stubGlobal('fetch', fetcher)
+    render(
+      <AutomaticMethodSearch
+        request={request}
+        inputGeneration={1}
+        presentItem={present}
+        onRecalculate={recalculate}
+      />,
+    )
+    await screen.findByText(/saved search is unavailable/i)
+    expect(fetcher).toHaveBeenCalledTimes(1)
+    fireEvent.click(screen.getByRole('button', { name: 'Recalculate' }))
+    expect(recalculate).toHaveBeenCalledOnce()
+  },
+)
 afterEach(() => {
   vi.unstubAllGlobals()
   sessionStorage.clear()

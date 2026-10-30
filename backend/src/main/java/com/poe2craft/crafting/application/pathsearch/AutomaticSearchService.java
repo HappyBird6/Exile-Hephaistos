@@ -238,6 +238,40 @@ public final class AutomaticSearchService implements AutoCloseable {
       node.forEach(AutomaticSearchService::qualityDefaults);
   }
 
+  // Admission and idempotency must not deserialize another job's historical graph.
+  // Its original bytes remain available for explicit read-only recovery/recalculation.
+  private record StoredHeader(
+      String owner,
+      MethodSearchProtocol.Create request,
+      long expires,
+      String status,
+      boolean quality40,
+      int abstractQuality) {}
+
+  private StoredHeader header(String id) {
+    try {
+      var tree = json.readTree(repository.read(id));
+      qualityDefaults(tree);
+      if (tree == null
+          || !id.equals(tree.path("id").asText())
+          || !tree.path("owner").isTextual()
+          || !tree.path("status").isTextual()
+          || !tree.path("expires").isIntegralNumber()
+          || !tree.path("request").isObject())
+        throw new java.io.IOException("Invalid saved header");
+      var root = tree.path("graph").path("nodes").path(0);
+      return new StoredHeader(
+          tree.path("owner").asText(),
+          json.treeToValue(tree.get("request"), MethodSearchProtocol.Create.class),
+          tree.path("expires").asLong(),
+          tree.path("status").asText(),
+          root.path("quality40").asBoolean(),
+          root.path("abstractQuality").asInt());
+    } catch (java.io.IOException e) {
+      throw new Rejected(409, "RECALCULATION_REQUIRED");
+    }
+  }
+
   private Disk read(String id) {
     try {
       var tree = json.readTree(repository.read(id));
@@ -352,7 +386,7 @@ public final class AutomaticSearchService implements AutoCloseable {
         || request.clientRequestId().isBlank()
         || request.clientRequestId().length() > 256) throw new Rejected(422, "INVALID_REQUEST");
     for (var id : repository.ids()) {
-      var saved = read(id);
+      var saved = header(id);
       if (saved.expires() < clock.millis()) {
         // Expiry releases admission and working memory, never the user's stored result.
         // Existing byte/document ceilings still reject new work when storage is full.
@@ -363,8 +397,8 @@ public final class AutomaticSearchService implements AutoCloseable {
       if (saved.owner().equals(ownerKey(owner))
           && saved.request().clientRequestId().equals(request.clientRequestId())) {
         if (!saved.request().equals(request)
-            || (saved.graph().nodes().getFirst().quality40() != input.abstractQuality40()
-                || saved.graph().nodes().getFirst().abstractQuality() != input.abstractQuality()))
+            || (saved.quality40() != input.abstractQuality40()
+                || saved.abstractQuality() != input.abstractQuality()))
           throw new Rejected(409, "REQUEST_ID_REUSED");
         return get(owner, id);
       }
@@ -405,7 +439,7 @@ public final class AutomaticSearchService implements AutoCloseable {
   private void requireActiveSlot() {
     long active =
         repository.ids().stream()
-            .map(this::read)
+            .map(this::header)
             .filter(d -> d.expires() >= clock.millis() && d.status().equals("READY"))
             .count();
     if (active >= MAX_ACTIVE) throw new Rejected(429, "JOB_CAPACITY");
