@@ -1,3 +1,6 @@
+import { qualityWorkGoal } from './qualityWorkGoal'
+import type { ReactNode } from 'react'
+import { supportLayoutMessages } from '../supportLayoutMessages'
 import {
   useCatalogRecovery,
   useRefreshConflictedCatalog,
@@ -16,7 +19,6 @@ import type { Editor } from './editor'
 import { goalFilterMessages, goalFilterActions } from './i18n'
 import type { GoalFilterLanguage } from './i18n'
 import { groupTypes, weighted } from './types'
-import { qualityGoalMessages } from './qualityGoalMessages'
 import { setupMessages } from './setupMessages'
 import { startInputMessages } from './startInputMessages'
 import { PickerPopover } from './PickerPopover'
@@ -94,6 +96,8 @@ export function GoalFilterPanel({
   onSearchReadinessChange,
   presentStatIds = new Set<string>(),
   compact = false,
+  headerActions,
+  allowQualityWork = true,
 }: {
   adapter: GoalFilterAdapter
   context: Context
@@ -109,6 +113,8 @@ export function GoalFilterPanel({
   presentStatIds?: ReadonlySet<string>
   evaluationAvailable?: boolean
   compact?: boolean
+  headerActions?: ReactNode
+  allowQualityWork?: boolean
 }) {
   const t = goalFilterMessages[language]
   const actions = goalFilterActions[language]
@@ -166,7 +172,7 @@ export function GoalFilterPanel({
   const validation = useGoalFilterValidation(
     adapter,
     context,
-    goal,
+    qualityWorkGoal(goal, allowQualityWork),
     validInput &&
       !!catalog.data &&
       catalog.data.catalogVersion === goal.catalogVersion,
@@ -417,37 +423,29 @@ export function GoalFilterPanel({
       {implicitGoal && (
         <p role="alert">{workspaceMessages[language].implicit}</p>
       )}
-      <header className="goal-filter-title">
-        <h2>{t.title}</h2>
+      <header className="support-section-heading goal-filter-heading">
+        <h3>{compact ? craftStartMessages[language].target : t.title}</h3>
+        {headerActions}
         {adapter.mock && <p>{t.mock}</p>}
+        <label
+          className="quality-work-toggle"
+          title={supportLayoutMessages[language].qualityHelp}
+        >
+          <input
+            type="checkbox"
+            disabled={!allowQualityWork}
+            aria-label={supportLayoutMessages[language].qualityHelp}
+            checked={allowQualityWork && (goal.general.quality ?? 0) > 20}
+            onChange={(event) => {
+              onValidityChange('quality', false)
+              edit((g) => {
+                g.general.quality = event.target.checked ? 40 : null
+              })
+            }}
+          />
+          <span>{supportLayoutMessages[language].quality}</span>
+        </label>
       </header>
-      <label className="goal-filter-general-row">
-        <span>{qualityGoalMessages[language].label}</span>
-        <input
-          type="number"
-          min={0}
-          max={40}
-          step={1}
-          aria-label={qualityGoalMessages[language].label}
-          aria-invalid={invalidFields.quality === true}
-          value={goal.general.quality ?? ''}
-          onChange={(event) => {
-            const value = event.target.value
-            const quality = value === '' ? null : Number(value)
-            onValidityChange(
-              'quality',
-              quality !== null &&
-                (!Number.isInteger(quality) || quality < 0 || quality > 40),
-            )
-            edit((g) => {
-              g.general.quality = quality
-            })
-          }}
-        />
-      </label>
-      {(goal.general.quality ?? 0) > 20 && (
-        <p>{qualityGoalMessages[language].above20}</p>
-      )}
       <div className="goal-filter-layout">
         {!compact && (
           <aside className="goal-filter-general">

@@ -49,7 +49,7 @@ const present = createItemPresentation(
   { name: 'Solar Amulet', itemClass: 'Amulet' },
   {},
 )
-it('shows the selected target rarity and blocks resume at the maximum resource limit', async () => {
+it('hides redundant target rarity and blocks resume at the maximum resource limit', async () => {
   setLocale('en')
   const request = requestFixture()
   request.goal.general.rarities = ['RARE']
@@ -79,7 +79,12 @@ it('shows the selected target rarity and blocks resume at the maximum resource l
   expect(
     await screen.findByRole('button', { name: 'Continue calculation' }),
   ).toBeDisabled()
-  expect(screen.getByText('Target rarities: RARE')).toBeInTheDocument()
+  expect(screen.queryByText('Target rarities: RARE')).not.toBeInTheDocument()
+  expect(document.querySelector('.automatic-inspector')).toBeNull()
+  expect(document.querySelector('.search-resource-details')).toBeNull()
+  expect(
+    document.querySelector('.graph-zoom-controls .calculation-status'),
+  ).not.toBeNull()
   expect(screen.getByText(/Maximum resource limit reached/)).toBeInTheDocument()
   expectJobAndCatalogCalls(fetcher.mock.calls, 1)
 })

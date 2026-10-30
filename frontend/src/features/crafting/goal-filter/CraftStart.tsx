@@ -1,3 +1,6 @@
+import { createPortal } from 'react-dom'
+import { SupportToolbarContext } from '../supportToolbar'
+import { supportLayoutMessages } from '../supportLayoutMessages'
 import { scenarioGoalLabels } from '../method-search/scenarioPresentation'
 import { resetMessages } from './resetMessages'
 import { restoredStart } from './savedStart'
@@ -5,7 +8,7 @@ import { readSupport, saveSupport } from '../method-search/supportStorage'
 import { canonical } from '../path-tree/validation'
 import { workspaceMessages } from '../method-search/workspaceMessages'
 import { AutomaticMethodSearch as MethodSearch } from '../method-search/AutomaticMethodSearch'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import type { ReactNode } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { httpGoalFilterAdapter } from './api'
@@ -78,6 +81,7 @@ export function CraftStart({
   activeOmens?: string[]
   maxMillis?: number
 }) {
+  const toolbar = useContext(SupportToolbarContext)
   const { t, locale, name } = useI18n()
   const client = useQueryClient()
   const [reloadingCatalog, setReloadingCatalog] = useState(false)
@@ -314,22 +318,18 @@ export function CraftStart({
       )
         throw new Error('Rules changed during recovery')
       if (version !== revision.current) return
-      // Start a fresh server preset. Never relabel the old item or rewrite history.
-      update({
-        base: entry.base[0],
-        item,
-        rulesetIdentity: entry.initial.rulesetIdentity,
-        abstractQuality40: false,
-        abstractQuality: 0,
-        text: startText(entry.base, item, entry.initial.modifiers),
-        card: startCard(entry.base, item, entry.initial.modifiers),
-        issue: '',
-        started: false,
-        editing: true,
-        root: null,
-        rootItem: null,
-        rootDefinitions: null,
-      })
+      if (
+        original.item &&
+        (original.base !== entry.base[0] ||
+          original.rulesetIdentity !== entry.initial.rulesetIdentity ||
+          startItemIssues(entry.initial, original.item).length)
+      ) {
+        throw new Error(
+          'Existing input needs explicit review against the refreshed catalog',
+        )
+      }
+      // Keep all user input and do not start a calculation as a side effect.
+      update({ started: false, editing: true })
       persist()
     } catch {
       if (version === revision.current) setReloadFailed(true)
@@ -602,8 +602,18 @@ export function CraftStart({
       }),
     }
   }
+  const reloadControl = (
+    <button
+      type="button"
+      disabled={reloadingCatalog || inventory.isLoading}
+      onClick={() => void reloadCatalog()}
+    >
+      {supportLayoutMessages[locale].reload}
+    </button>
+  )
   return (
     <section className="craft-start" aria-label={copy.setup}>
+      {toolbar && createPortal(reloadControl, toolbar)}
       {storageFailed && (
         <p role="status">{workspaceMessages[locale].storage}</p>
       )}
@@ -654,30 +664,18 @@ export function CraftStart({
           )}
           <div className="craft-start-workspace">
             <section className="craft-start-editor" aria-label={copy.editor}>
-              <button
-                ref={importButton}
-                onClick={() => {
-                  setImportOpen(true)
-                  dialog.current?.showModal()
-                }}
-              >
-                {copy.import}
-              </button>
-              <button
-                disabled={!selected}
-                title={resetMessages[locale].startHelp}
-                onClick={resetStart}
-              >
-                {resetMessages[locale].start}
-              </button>
-              <button
-                type="button"
-                disabled={reloadingCatalog || inventory.isLoading}
-                onClick={() => void reloadCatalog()}
-              >
-                {t('ruleset.reload_catalog')}
-              </button>
-              <h3>{copy.create}</h3>
+              <header className="support-section-heading">
+                <h3>{supportLayoutMessages[locale].start}</h3>{' '}
+                <button
+                  disabled={!selected}
+                  aria-label={resetMessages[locale].start}
+                  title={resetMessages[locale].startHelp}
+                  onClick={resetStart}
+                >
+                  {supportLayoutMessages[locale].reset}
+                </button>
+              </header>
+              {!toolbar && reloadControl}
               <div className="craft-start-base-selects">
                 <label>
                   {copy.type}
@@ -984,7 +982,18 @@ export function CraftStart({
               )}
             </section>
             <section className="craft-start-preview" aria-label={copy.preview}>
-              <h3>{copy.create}</h3>
+              <header className="support-section-heading">
+                <h3>{supportLayoutMessages[locale].start}</h3>{' '}
+                <button
+                  ref={importButton}
+                  onClick={() => {
+                    setImportOpen(true)
+                    dialog.current?.showModal()
+                  }}
+                >
+                  {copy.import}
+                </button>
+              </header>
               {draft.card ? (
                 <div ref={preview}>
                   <ItemCard
@@ -1003,9 +1012,12 @@ export function CraftStart({
               )}
             </section>
             <section className="craft-start-stats" aria-label={copy.target}>
-              <h3>{copy.target}</h3>
               {context && (
                 <ConnectedGoalFilter
+                  allowQualityWork={
+                    !!selected &&
+                    ['Amulets', 'Rings', 'Belts'].includes(selected.base[1])
+                  }
                   onResetGoal={invalidateCalculation}
                   onSearchGoalChange={onSearchGoalChange}
                   rulesetIdentity={draft.rulesetIdentity ?? undefined}

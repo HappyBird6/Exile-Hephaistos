@@ -239,12 +239,17 @@ describe('Craft Support starting screen', () => {
       screen.queryByRole('region', { name: 'Crafting tree preview' }),
     ).not.toBeInTheDocument()
   })
-  it('keeps the picker mounted from the first view and places import first', async () => {
+  it('keeps the picker mounted from the first view and places compact import above the preview', async () => {
     await setup()
     const editor = screen.getByRole('region', { name: 'Starting item editor' })
-    expect(within(editor).getAllByRole('button')[0]).toHaveTextContent(
-      'Import item text',
+    expect(within(editor).getAllByRole('button')[0]).toHaveAccessibleName(
+      'Reset starting item',
     )
+    expect(
+      screen
+        .getByRole('button', { name: 'Import item text' })
+        .closest('.craft-start-preview'),
+    ).not.toBeNull()
     expect(
       screen.queryByRole('button', { name: 'Add modifier' }),
     ).not.toBeInTheDocument()
@@ -788,7 +793,7 @@ it('goal reset immediately invalidates the committed calculation while preservin
   ).not.toBeInTheDocument()
 })
 
-const reloadLabel = 'Reload catalog and start a new craft'
+const reloadLabel = 'Refresh catalog'
 function restoredRulesDraft() {
   saveSupport('start', {
     base: 'solar',
@@ -882,6 +887,16 @@ it.each(['restored draft', 'cached inventory'])(
     if (mode === 'cached inventory') expect(calls).toEqual([])
     fireEvent.click(screen.getByRole('button', { name: reloadLabel }))
     await waitFor(() =>
+      expect(screen.getByRole('button', { name: reloadLabel })).toBeEnabled(),
+    )
+    expect(
+      screen.getByRole('button', { name: 'Start Crafting' }),
+    ).toBeDisabled()
+    expect(screen.getByLabelText('Starting item text')).toHaveValue(
+      'previous item text',
+    )
+    fireEvent.click(screen.getByRole('button', { name: 'Reset starting item' }))
+    await waitFor(() =>
       expect(
         screen.getByRole('button', { name: 'Start Crafting' }),
       ).toBeEnabled(),
@@ -921,6 +936,9 @@ it('preserves the stale draft and saved result on catalog failure and recovers o
   expect(localStorage.getItem('hephaistos.support.v1:run')).toBe(record)
   failed = false
   fireEvent.click(reload)
+  await waitFor(() => expect(reload).toBeEnabled())
+  expect(screen.getByRole('button', { name: 'Start Crafting' })).toBeDisabled()
+  fireEvent.click(screen.getByRole('button', { name: 'Reset starting item' }))
   await waitFor(() =>
     expect(
       screen.getByRole('button', { name: 'Start Crafting' }),

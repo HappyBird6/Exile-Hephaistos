@@ -83,7 +83,7 @@ it('previews before opening, restores without API calls, and preserves existing 
   fireEvent.change(screen.getByRole('textbox', { name: 'Scenario code' }), {
     target: { value: code },
   })
-  fireEvent.click(screen.getByRole('button', { name: 'Validate and preview' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Validate' }))
   const open = await screen.findByRole('button', {
     name: 'Open read-only result',
   })
@@ -120,13 +120,13 @@ it('previews before opening, restores without API calls, and preserves existing 
   fireEvent.change(screen.getByRole('textbox', { name: 'Scenario code' }), {
     target: { value: await encodeScenario(second) },
   })
-  fireEvent.click(screen.getByRole('button', { name: 'Validate and preview' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Validate' }))
   fireEvent.click(
     await screen.findByRole('button', { name: 'Open read-only result' }),
   )
   await waitFor(() =>
     expect(
-      document.querySelector('.scenario-readonly .automatic-inspector'),
+      document.querySelector('.scenario-readonly .graph-selection-content'),
     ).toHaveTextContent('Second snapshot selected'),
   )
   expect(fetcher).not.toHaveBeenCalled()
@@ -176,7 +176,7 @@ it('does not execute pasted content or show a result for invalid data', async ()
   fireEvent.change(screen.getByRole('textbox', { name: 'Scenario code' }), {
     target: { value: '<script>globalThis.executed=true</script>' },
   })
-  fireEvent.click(screen.getByRole('button', { name: 'Validate and preview' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Validate' }))
   expect(await screen.findByRole('alert')).toHaveTextContent('Cannot load')
   expect(
     screen.queryByRole('button', { name: 'Open read-only result' }),

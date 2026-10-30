@@ -366,9 +366,11 @@ it('keeps removal risk and incomplete calculation visible without opening outcom
       onRecalculate={vi.fn()}
     />,
   )
-  expect(
-    await screen.findByText('An existing modifier may be removed.'),
-  ).toBeVisible()
+  await screen.findByText('An existing modifier may be removed.')
+  fireEvent.click(
+    screen.getAllByRole('button', { name: 'Select this item state' })[0]!,
+  )
+  expect(screen.getByText('An existing modifier may be removed.')).toBeVisible()
   expect(
     document.querySelector('.method-map__methods [role="status"]'),
   ).toBeVisible()

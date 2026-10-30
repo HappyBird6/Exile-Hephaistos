@@ -113,11 +113,14 @@ it('recovers a real goal editor and submits a fresh craft with current catalog a
     </QueryClientProvider>,
   )
   const reload = await screen.findByRole('button', {
-    name: 'Reload catalog and start a new craft',
+    name: 'Refresh catalog',
   })
   await waitFor(() => expect(reload).toBeEnabled())
   expect(screen.getByRole('button', { name: 'Start Crafting' })).toBeDisabled()
   fireEvent.click(reload)
+  await waitFor(() => expect(reload).toBeEnabled())
+  expect(screen.getByRole('button', { name: 'Start Crafting' })).toBeDisabled()
+  fireEvent.click(screen.getByRole('button', { name: 'Reset starting item' }))
   await waitFor(() =>
     expect(
       screen.getByRole('button', { name: 'Start Crafting' }),
@@ -128,7 +131,7 @@ it('recovers a real goal editor and submits a fresh craft with current catalog a
   const created = vi.mocked(AutomaticMethodSearch).mock.lastCall![0].request
   expect(created.start.provenance.rulesetIdentity).toBe('current-rules')
   expect(created.goal.catalogVersion).toBe('current-catalog')
-  expect(created.goal.general.quality).toBe(20)
+  expect(created.goal.general.quality).toBeNull()
   expect(postIdentities.length).toBeGreaterThan(0)
   expect(postIdentities.every((identity) => identity === 'current-rules')).toBe(
     true,

@@ -1,3 +1,4 @@
+import { qualityWorkGoal } from './qualityWorkGoal'
 import { goalSources } from '../method-search/graphDisplay'
 import { resetMessages } from './resetMessages'
 import {
@@ -37,6 +38,7 @@ export function ConnectedGoalFilter({
   activeOmens,
   maxMillis,
   compact = false,
+  allowQualityWork = true,
   language,
   onSearchGoalChange,
   onResetGoal,
@@ -48,6 +50,7 @@ export function ConnectedGoalFilter({
   activeOmens: string[]
   maxMillis: number
   compact?: boolean
+  allowQualityWork?: boolean
   onResetGoal?: (() => void) | undefined
   onSearchGoalChange?: (snapshot: SearchGoalSnapshot) => void
 }) {
@@ -196,6 +199,7 @@ export function ConnectedGoalFilter({
         language={language}
         activeOmens={activeOmens}
         maxMillis={maxMillis}
+        allowQualityWork={allowQualityWork}
         compact={compact}
       />
     </div>
@@ -208,6 +212,7 @@ function ConnectedEditor({
   bases,
   language,
   compact,
+  allowQualityWork,
   onSearchGoalChange,
   onResetGoal,
 }: {
@@ -220,6 +225,7 @@ function ConnectedEditor({
   activeOmens: string[]
   maxMillis: number
   compact: boolean
+  allowQualityWork: boolean
   onResetGoal?: (() => void) | undefined
   onSearchGoalChange?: ((snapshot: SearchGoalSnapshot) => void) | undefined
 }) {
@@ -259,7 +265,7 @@ function ConnectedEditor({
   useEffect(() => {
     const catalog = currentCatalog.data
     onSearchGoalChange?.({
-      goal: structuredClone(goal),
+      goal: structuredClone(qualityWorkGoal(goal, allowQualityWork)),
       sourceStatIds: catalog ? goalSources(goal, catalog) : undefined,
       catalogVersion: catalog?.catalogVersion ?? null,
       ready:
@@ -273,6 +279,7 @@ function ConnectedEditor({
     })
   }, [
     goal,
+    allowQualityWork,
     currentCatalog.data,
     currentCatalog.isSuccess,
     currentCatalog.isFetching,
@@ -335,31 +342,36 @@ function ConnectedEditor({
       {storageFailed && (
         <p role="status">{workspaceMessages[locale].storage}</p>
       )}
-      <button
-        disabled={
-          !currentCatalog.data ||
-          currentCatalog.isFetching ||
-          currentCatalog.isError
-        }
-        title={resetMessages[language].goalHelp}
-        onClick={() => {
-          if (!currentCatalog.data) return
-          const goal = emptyGoal(context, currentCatalog.data.catalogVersion)
-          onResetGoal?.()
-          setInputReady(false)
-          editor.setState((state) => ({
-            goal,
-            revision: state.revision + 1,
-            collapsedByGroupId: {},
-            presentedTypes: {},
-          }))
-          if (compact) setStorageFailed(!saveSupport('goal', goal))
-          setResetGeneration((n) => n + 1)
-        }}
-      >
-        {resetMessages[language].goal}
-      </button>
       <GoalFilterPanel
+        headerActions={
+          <button
+            disabled={
+              !currentCatalog.data ||
+              currentCatalog.isFetching ||
+              currentCatalog.isError
+            }
+            title={resetMessages[language].goalHelp}
+            onClick={() => {
+              if (!currentCatalog.data) return
+              const goal = emptyGoal(
+                context,
+                currentCatalog.data.catalogVersion,
+              )
+              onResetGoal?.()
+              setInputReady(false)
+              editor.setState((state) => ({
+                goal,
+                revision: state.revision + 1,
+                collapsedByGroupId: {},
+                presentedTypes: {},
+              }))
+              if (compact) setStorageFailed(!saveSupport('goal', goal))
+              setResetGeneration((n) => n + 1)
+            }}
+          >
+            {resetMessages[language].goal}
+          </button>
+        }
         key={resetGeneration}
         onSearchReadinessChange={setInputReady}
         presentStatIds={presentNumericStats(
@@ -371,6 +383,7 @@ function ConnectedEditor({
         editor={editor}
         bases={bases}
         language={language}
+        allowQualityWork={allowQualityWork}
         compact={compact}
       />
     </div>

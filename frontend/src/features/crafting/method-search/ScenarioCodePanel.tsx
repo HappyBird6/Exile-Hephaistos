@@ -1,3 +1,4 @@
+import { supportLayoutMessages } from '../supportLayoutMessages'
 import type { ItemCardData } from '../itemCardData'
 import type { JunkClassifier } from './graphDisplay'
 import { isRepeatable } from './methodObservation'
@@ -204,9 +205,11 @@ export function ScenarioImport({
   onOpenChanged,
   onCopy,
   policyControl,
+  settingsControl,
 }: {
   onOpenChanged: (open: boolean) => void
   onCopy: () => void
+  settingsControl?: ReactNode
   policyControl?: ReactNode
 }) {
   const { locale } = useI18n(),
@@ -325,12 +328,14 @@ export function ScenarioImport({
   return (
     <section className="scenario-import" aria-label={copy.import}>
       <div className="scenario-code-entry">
+        <div className="scenario-policy-control">{policyControl}</div>
+        {settingsControl}
         <label>
           {copy.title}
           <textarea
             value={text}
             maxLength={SCENARIO_CODE_LIMIT + 1}
-            rows={4}
+            rows={1}
             onChange={(e) => {
               generation.current++
               setBusy(false)
@@ -345,9 +350,11 @@ export function ScenarioImport({
             !text ||
             Boolean(transfer?.state.pending && !transfer.state.dirty)
           }
+          aria-label={copy.export}
+          title={copy.export}
           onClick={() => void copyCode()}
         >
-          {copy.export}
+          <span aria-hidden="true">⧉</span>
         </button>
         {transfer?.state.generated && transfer.state.dirty && (
           <button
@@ -363,9 +370,9 @@ export function ScenarioImport({
           </button>
         )}
         <button disabled={busy || !text} onClick={() => void parse()}>
-          {busy ? copy.busy : copy.preview}
+          {busy ? copy.busy : supportLayoutMessages[locale].validate}
         </button>
-        <div className="scenario-policy-control">{policyControl}</div>
+
         <div className="scenario-code-status" role="status">
           {transfer?.state.pending
             ? copy.busy

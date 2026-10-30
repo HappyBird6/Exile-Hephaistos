@@ -4,15 +4,15 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createGoalFilterEditor, emptyGoal } from './editor'
 import { fixtureContext, mockGoalFilterAdapter } from './mock'
 import { GoalFilterPanel } from './GoalFilterPanel'
+import { qualityWorkGoal } from './qualityWorkGoal'
 
-it('edits the optional minimum quality and explains the boundary above 20', async () => {
+it('connects the jewellery checkbox to cap work and retains preference across equipment changes', async () => {
   const editor = createGoalFilterEditor(emptyGoal(fixtureContext, 'fixture'))
-  render(
-    <QueryClientProvider
-      client={
-        new QueryClient({ defaultOptions: { queries: { retry: false } } })
-      }
-    >
+  const client = new QueryClient({
+    defaultOptions: { queries: { retry: false } },
+  })
+  const panel = (allowed: boolean) => (
+    <QueryClientProvider client={client}>
       <GoalFilterPanel
         editor={editor}
         adapter={mockGoalFilterAdapter}
@@ -20,21 +20,41 @@ it('edits the optional minimum quality and explains the boundary above 20', asyn
         bases={[]}
         language="en"
         compact
+        allowQualityWork={allowed}
       />
-    </QueryClientProvider>,
+    </QueryClientProvider>
   )
-  const quality = await screen.findByLabelText('Minimum quality')
-  fireEvent.change(quality, { target: { value: '20' } })
-  expect(editor.getState().goal.general.quality).toBe(20)
-  expect(screen.queryByText(/Above 20:/)).not.toBeInTheDocument()
-  fireEvent.change(quality, { target: { value: '30' } })
-  expect(editor.getState().goal.general.quality).toBe(30)
-  expect(screen.getByText(/Above 20:/)).toHaveTextContent(
-    'Essence of the Breach',
-  )
-  fireEvent.change(quality, { target: { value: '41' } })
-  expect(quality).toHaveAttribute('aria-invalid', 'true')
-  fireEvent.change(quality, { target: { value: '' } })
+  const mounted = render(panel(true))
+  const checkbox = await screen.findByRole('checkbox', {
+    name: /Use Essence of the Breach/,
+  })
+  expect(screen.queryByLabelText('Minimum quality')).not.toBeInTheDocument()
+  fireEvent.click(checkbox)
+  expect(editor.getState().goal.general.quality).toBe(40)
+  expect(qualityWorkGoal(editor.getState().goal, true).general.quality).toBe(40)
+  mounted.rerender(panel(false))
+  expect(checkbox).toBeDisabled()
+  expect(checkbox).not.toBeChecked()
+  expect(
+    qualityWorkGoal(editor.getState().goal, false).general.quality,
+  ).toBeNull()
+  expect(editor.getState().goal.general.quality).toBe(40)
+  mounted.rerender(panel(true))
+  expect(checkbox).toBeChecked()
+  fireEvent.click(checkbox)
   expect(editor.getState().goal.general.quality).toBeNull()
-  expect(quality).toHaveAttribute('aria-invalid', 'false')
 })
+
+it.each([null, 0, 20, 21, 30, 40])(
+  'maps legacy numeric quality %s without mutating stored input',
+  (value) => {
+    const goal = emptyGoal(fixtureContext, 'fixture')
+    goal.general.quality = value
+    const restored = JSON.parse(JSON.stringify(goal))
+    expect(qualityWorkGoal(restored, true).general.quality).toBe(
+      (value ?? 0) > 20 ? 40 : null,
+    )
+    expect(qualityWorkGoal(restored, false).general.quality).toBeNull()
+    expect(restored.general.quality).toBe(value)
+  },
+)

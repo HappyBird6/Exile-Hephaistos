@@ -111,17 +111,17 @@
   border-radius: 8px;
   overscroll-behavior: contain;
 }
-.automatic-inspector {
+.graph-selection-content {
   min-width: 0;
 }
-.automatic-inspector select {
+.graph-selection-content select {
   max-width: 100%;
 }
-.automatic-inspector .method-map__states {
+.graph-selection-content .method-map__states {
   display: block;
   overflow: visible;
 }
-.automatic-inspector .method-map__states > article {
+.graph-selection-content .method-map__states > article {
   min-width: 0;
 }
 .candidate-route {
@@ -199,22 +199,22 @@
   outline: 3px solid #89c6ff;
   outline-offset: 3px;
 }
-.automatic-inspector {
+.graph-selection-content {
   background: #232b35;
   padding: 1.2rem;
   border-radius: 12px;
 }
-.automatic-inspector .method-map__states > article {
+.graph-selection-content .method-map__states > article {
   border: 0;
   padding: 0;
 }
-.automatic-inspector .method-map__states {
+.graph-selection-content .method-map__states {
   padding: 0.8rem 0;
 }
-.automatic-inspector .item-card {
+.graph-selection-content .item-card {
   font-size: 1rem;
 }
-.automatic-inspector .method-map__states button {
+.graph-selection-content .method-map__states button {
   background: #d7e9fb;
   color: #102235;
   border: 0;
@@ -264,7 +264,7 @@
 .exalted-outcomes li {
   padding: 0.5rem 0;
 }
-.automatic-inspector .item-switcher {
+.graph-selection-content .item-switcher {
   margin-bottom: 0.5rem;
 }
 .currency-policy {
@@ -274,32 +274,32 @@
   line-height: 1.65;
 }
 @media (max-width: 760px) {
-  .automatic-inspector {
+  .graph-selection-content {
     grid-row: 1;
   }
   .method-map {
     padding: 0.75rem;
   }
-  .automatic-inspector {
+  .graph-selection-content {
     padding: 1rem;
   }
 }
 
-.automatic-inspector .item-card__line--modifier,
+.graph-selection-content .item-card__line--modifier,
 .exalted-outcomes .item-card__line--modifier {
   color: #b6baff;
 }
-.automatic-inspector .item-card__section {
+.graph-selection-content .item-card__section {
   border-color: #404957;
 }
-.automatic-inspector .item-card__affix {
+.graph-selection-content .item-card__affix {
   color: #d7dfea;
 }
 .method-map__scope:empty {
   display: none;
 }
 
-.automatic-inspector .method-map__methods {
+.graph-selection-content .method-map__methods {
   display: block;
 }
 .craft-choice {
@@ -689,4 +689,126 @@
 .graph-action-label.is-downstream {
   border-color: #7fe3f0;
   box-shadow: inset 0 0 0 2px #7fe3f0;
+}
+
+.automatic-workspace {
+  display: block;
+}
+.graph-workspace {
+  position: relative;
+  min-width: 0;
+}
+.graph-zoom-controls {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.45rem;
+  overflow-x: auto;
+}
+.graph-zoom-controls .method-map__controls {
+  display: contents;
+}
+.graph-zoom-controls button {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.graph-zoom-controls .calculation-status {
+  margin: 0 auto 0 0;
+  padding: 0.35rem 0.55rem;
+  font-size: 0.8rem;
+  gap: 0.35rem;
+  min-width: 0;
+  max-width: 22rem;
+}
+.graph-zoom-controls .calculation-status__icon {
+  font-size: 1em;
+  width: 1.2em;
+  height: 1.2em;
+}
+.graph-selection-details {
+  position: absolute;
+  top: 3.2rem;
+  right: 1rem;
+  z-index: 5;
+  max-width: calc(100% - 2rem);
+  border: 1px solid #6f6042;
+  border-radius: 8px;
+  background: #171a20;
+}
+.graph-selection-details > summary {
+  cursor: pointer;
+  padding: 0.5rem 0.8rem;
+  color: #dec082;
+}
+.graph-selection-details[open] {
+  width: min(500px, calc(100% - 2rem));
+}
+.graph-selection-content {
+  padding: 0.75rem;
+  max-height: 58vh;
+  overflow: auto;
+  position: static;
+  width: auto;
+}
+.scenario-code-entry {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+.scenario-code-entry > label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1 1 240px;
+}
+.scenario-code-entry textarea {
+  min-height: 2.2rem;
+  height: 2.2rem;
+  width: 100%;
+  resize: vertical;
+}
+.scenario-code-entry button {
+  white-space: nowrap;
+}
+.scenario-code-status {
+  font-size: 0.78rem;
+}
+
+.scenario-policy-control {
+  margin-left: 0;
+}
+#panel-support .scenario-code-entry textarea {
+  min-height: 34px;
+  height: 34px;
+  padding: 0.4rem;
+}
+.scenario-code-entry > button,
+.support-catalog-slot button,
+#crafting-policy {
+  min-height: 34px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.82rem;
+}
+.support-catalog-slot button {
+  background: #20251f;
+  color: #dfcfad;
+  border: 1px solid #494737;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.graph-zoom-controls button {
+  min-height: 34px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.82rem;
+}
+.graph-zoom-controls .calculation-status {
+  white-space: nowrap;
+}
+
+.scenario-code-entry > label {
+  white-space: nowrap;
+}
+.scenario-code-entry > label textarea {
+  min-width: 0;
 }

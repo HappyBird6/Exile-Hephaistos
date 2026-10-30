@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { AutomaticAbyssState } from './AutomaticAbyssState'
 import {
   abyssCard,
@@ -44,8 +45,8 @@ export function GroupedMethodGraph({
   cycles,
   selected,
   route,
-  choose,
-  select,
+  choose: onChoose,
+  select: onSelect,
   action,
   presentItem,
   frozenCards,
@@ -53,7 +54,11 @@ export function GroupedMethodGraph({
   flow,
   selectedFlow,
   selectFlow,
+  toolbar,
+  detailContent,
 }: {
+  toolbar?: ReactNode
+  detailContent?: ReactNode
   view: AutomaticView
   cycles: number
   selected: number
@@ -73,6 +78,15 @@ export function GroupedMethodGraph({
     copy = outcomeMessages[locale],
     common = pathTreeMessages[locale],
     nav = graphNavigationMessages[locale]
+  const [detailsOpen, setDetailsOpen] = useState(false)
+  const select = (id: number) => {
+    onSelect(id)
+    setDetailsOpen(true)
+  }
+  const choose = (edge: Selection) => {
+    onChoose(edge)
+    setDetailsOpen(true)
+  }
   const host = useRef<HTMLDivElement>(null)
   const { panning, ...panHandlers } = useGraphPan()
   const [viewport, setViewport] = useState({ width: 340, height: 720 }),
@@ -327,6 +341,7 @@ export function GroupedMethodGraph({
         role="group"
         aria-label={common.title}
       >
+        {toolbar}
         <button
           aria-label={nav.zoomOut}
           disabled={zoom <= 0.1}
@@ -349,6 +364,16 @@ export function GroupedMethodGraph({
         <button onClick={() => setZoom(1)}>{nav.reset}</button>
         <button onClick={fit}>{nav.fit}</button>
       </div>
+      {detailContent && (
+        <details
+          className="graph-selection-details"
+          open={detailsOpen}
+          onToggle={(event) => setDetailsOpen(event.currentTarget.open)}
+        >
+          <summary>{guide.selected}</summary>
+          {detailContent}
+        </details>
+      )}
       <div
         ref={host}
         className={`method-map__overview graph-pan-viewport${panning ? ' is-panning' : ''}`}

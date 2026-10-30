@@ -44,7 +44,10 @@ it('shows the starting workflow without developer policy, recovery or family com
   ).not.toBeInTheDocument()
   expect(document.querySelector('.basic-paths')).toBeNull()
   fireEvent.click(screen.getByRole('button', { name: 'Start Crafting' }))
-  expect(screen.getByRole('heading', { name: 'Crafting paths' })).toBeVisible()
+  expect(
+    screen.queryByRole('heading', { name: 'Crafting paths' }),
+  ).not.toBeInTheDocument()
+  expect(screen.getByRole('region', { name: 'Crafting paths' })).toBeVisible()
   expect(
     vi
       .mocked(fetch)

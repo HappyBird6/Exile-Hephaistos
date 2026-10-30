@@ -440,3 +440,66 @@
   padding: 12px 16px;
   gap: 12px;
 }
+
+.support-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+.support-section-heading h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.support-section-heading button {
+  width: auto;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.78rem;
+}
+.craft-start-editor > .support-section-heading button {
+  margin-left: auto;
+}
+.craft-start-preview > .support-section-heading {
+  justify-content: space-between;
+}
+.quality-work-toggle {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.quality-work-toggle:has(input:disabled) {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.quality-work-toggle input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: #c9a55c;
+}
+
+.craft-start .craft-start-preview {
+  justify-content: flex-start;
+  padding-top: 14px;
+}
+.craft-start-preview > .support-section-heading {
+  width: 100%;
+  flex-wrap: nowrap;
+}
+.craft-start-preview > .support-section-heading h3 {
+  white-space: nowrap;
+}
+.craft-start-preview > .support-section-heading button {
+  white-space: nowrap;
+}
+.craft-start .craft-start-preview > div {
+  margin-block: auto;
+}
+.goal-filter .quality-work-toggle {
+  display: flex;
+  margin-left: auto;
+  white-space: nowrap;
+}

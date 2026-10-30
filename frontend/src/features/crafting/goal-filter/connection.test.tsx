@@ -335,3 +335,30 @@ it('resets goal defaults immediately without changing the start and restores the
   setup(item, vi.fn(), true, capture)
   await waitFor(() => expect(capture.mock.lastCall?.[0].goal).toEqual(saved))
 })
+
+it('sends the same above-cap goal to validation and automatic search from a restored numeric setting', async () => {
+  const fetcher = mockFetch()
+  const goal = emptyGoal(context, 'v1')
+  goal.general.quality = 30
+  addStat(goal.groups[0]!, (catalog as Catalog).stats[0]!)
+  saveSupport('goal', goal)
+  const capture = vi.fn<(snapshot: SearchGoalSnapshot) => void>()
+  setup(item, vi.fn(), true, capture)
+  const checkbox = await screen.findByRole('checkbox', {
+    name: /Use Essence of the Breach/,
+  })
+  expect(checkbox).toBeChecked()
+  await waitFor(() => expect(capture.mock.lastCall?.[0].ready).toBe(true))
+  expect(capture.mock.lastCall?.[0].goal.general.quality).toBe(40)
+  const validated = fetcher.mock.calls.filter(([url]) =>
+    String(url).endsWith('/validate'),
+  )
+  expect(
+    JSON.parse(String(validated.at(-1)![1]?.body)).goal.general.quality,
+  ).toBe(40)
+  fireEvent.click(checkbox)
+  await waitFor(() =>
+    expect(capture.mock.lastCall?.[0].goal.general.quality).toBeNull(),
+  )
+  expect(readSupport('goal', validGoal)?.groups[0]?.entries).toHaveLength(1)
+})
