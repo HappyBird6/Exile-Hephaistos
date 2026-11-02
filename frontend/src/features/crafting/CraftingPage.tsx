@@ -21,13 +21,7 @@ import { WorkbenchBasePicker } from './base-picker/WorkbenchBasePicker'
 import { SessionLibrary } from './session-library/SessionLibrary'
 import { ServiceMessage } from './ServiceMessage'
 import { serviceText } from './serviceMessages'
-import {
-  useI18n,
-  gameTerm,
-  matchesGameName,
-  uiText,
-  translate,
-} from '../../shared/i18n/i18n'
+import { useI18n, gameTerm, uiText, translate } from '../../shared/i18n/i18n'
 import { LocaleSelector } from '../../shared/i18n/LocaleSelector'
 import { localizedAction, catalystItemIds } from './localizedCrafting'
 import { localizedModifierText } from './localizedModifiers'
@@ -48,15 +42,10 @@ import { currencies } from './currencies'
 import { abyssWorkbenchMessages } from './abyss-workbench/messages'
 import { excludedWorkbenchBoneIds } from './abyss-workbench/policy'
 import { WorkbenchStash } from './stash/WorkbenchStash'
+import { WorkbenchFavorites } from './stash/WorkbenchFavorites'
 import type { WorkbenchResource } from './stash/stashTypes'
-import {
-  materials,
-  materialTabs,
-  specialEssences,
-  essenceRows,
-  isSelectableMaterial,
-} from './materials'
-import type { Material, MaterialTab } from './materials'
+import { materials, materialTabs } from './materials'
+import type { MaterialTab } from './materials'
 import { useItemDraft } from './draft'
 import { CraftSupport } from './CraftSupport'
 import { CraftingExplorer } from './CraftingExplorer'
@@ -66,7 +55,6 @@ import {
   concreteInitial,
   workbenchCurrencyActions,
   workbenchOmens,
-  legacyOmenIds,
   compatibleOmenPair,
   mapSolarText,
 } from './workbenchApi'
@@ -248,12 +236,8 @@ export function CraftingPage() {
     saveSupport('workspace', view)
   }, [view])
   const dialog = useRef<HTMLDialogElement>(null)
-  const [searches, setSearches] = useState<
-    Partial<Record<MaterialTab, string>>
-  >({})
   const [tooltipsEnabled, setTooltipsEnabled] = useState(true)
   const [activeTab, setActiveTab] = useState<MaterialTab>('Currency')
-  const [stashTab, setStashTab] = useState<MaterialTab>('Currency')
   const excludedResourceIds: readonly string[] = excludedWorkbenchBoneIds
   const stashResources: WorkbenchResource[] = [
     ...currencies.map((currency) => ({
@@ -922,50 +906,6 @@ export function CraftingPage() {
     draft.source === 'base'
       ? name(baseSlugs[catalogBase], baseName)
       : (item?.displayName ?? 'Pasted item')
-  const search = searches[activeTab] ?? ''
-  const currentMaterials = materials.filter(
-    (m) =>
-      inServiceScope(m.id) &&
-      isSelectableMaterial(m) &&
-      !excludedResourceIds.includes(m.id) &&
-      m.category === activeTab &&
-      (showLegacyOmens || !legacyOmenIds.includes(m.id)) &&
-      matchesGameName(m.id, m.name, search),
-  )
-  function materialButton(material: Material) {
-    return (
-      <button
-        type="button"
-        key={material.id}
-        className={`material-entry ${held?.id === material.id ? 'is-held' : ''} ${selected?.id === material.id ? 'is-selected' : ''}`}
-        aria-label={name(material.id, material.name)}
-        aria-pressed={held?.id === material.id || selected?.id === material.id}
-        {...tooltipEvents(material.id)}
-        onContextMenu={(event) => {
-          event.preventDefault()
-          setPointer({ x: event.clientX, y: event.clientY })
-          choose(material)
-        }}
-        onClick={(event) => {
-          if (event.detail === 0) setPointer(null)
-          setHeld(material)
-          setSelected(null)
-          setAnnouncement(
-            t('material.picked', { name: name(material.id, material.name) }),
-          )
-        }}
-      >
-        <span className="material-entry__image">
-          <CurrencyImage key={material.id} {...material} />
-        </span>
-        <span>
-          {name(material.id, material.name)}
-          {legacyOmenIds.includes(material.id) ? t('legacy.suffix') : ''}
-        </span>
-      </button>
-    )
-  }
-  const matchingEssenceRows = essenceRows(search)
   const cursor = held ?? selected
   const concrete = storedFrame
     ? restoredState
@@ -1397,173 +1337,63 @@ export function CraftingPage() {
                 className="stash-canvas"
                 aria-label={t('ui.currency_stash')}
               >
-                <div
-                  id="material-list"
-                  role="tabpanel"
-                  aria-labelledby={`tab-${activeTab}`}
-                  className={
-                    activeTab === 'Currency'
-                      ? 'currency-catalog'
-                      : 'material-panel'
-                  }
-                >
-                  {activeTab === 'Currency' ? (
-                    currencies
-                      .filter(
-                        (currency) =>
-                          inServiceScope(currency.id) &&
-                          !isBone(currency.id) &&
-                          currency.id !== 'Artificers_Orb' &&
-                          !excludedResourceIds.includes(currency.id),
+                <div className="currency-catalog">
+                  {currencies
+                    .filter(
+                      (currency) =>
+                        inServiceScope(currency.id) &&
+                        !isBone(currency.id) &&
+                        currency.id !== 'Artificers_Orb' &&
+                        !excludedResourceIds.includes(currency.id),
+                    )
+                    .map((currency) => {
+                      const currencyName = name(
+                        currency.id,
+                        currencyNames[currency.id],
                       )
-                      .map((currency) => {
-                        const currencyName = name(
-                          currency.id,
-                          currencyNames[currency.id],
-                        )
-                        return (
-                          <button
-                            key={currency.id}
-                            type="button"
-                            className={`currency-slot ${selected?.id === currency.id ? 'is-selected' : ''}`}
-                            style={{
-                              left: `${currency.x / 9.35}%`,
-                              top: `${currency.y / 5.5}%`,
-                            }}
-                            aria-label={currencyName}
-                            aria-pressed={selected?.id === currency.id}
-                            {...tooltipEvents(currency.id)}
-                            onContextMenu={(event) => {
-                              event.preventDefault()
-                              setPointer({ x: event.clientX, y: event.clientY })
-                              choose({
-                                ...currency,
-                                name: currencyNames[currency.id],
-                              })
-                            }}
-                            onClick={(event) => {
-                              if (event.detail === 0) setPointer(null)
-                              choose({
-                                ...currency,
-                                name: currencyNames[currency.id],
-                              })
-                            }}
-                          >
-                            <CurrencyImage {...currency} name={currencyName} />
-                            {currency.id.startsWith('Greater') && (
-                              <span
-                                className="currency-tier"
-                                aria-hidden="true"
-                              >
-                                II
-                              </span>
-                            )}
-                            {currency.id.startsWith('Perfect') && (
-                              <span
-                                className="currency-tier"
-                                aria-hidden="true"
-                              >
-                                III
-                              </span>
-                            )}
-                          </button>
-                        )
-                      })
-                  ) : (
-                    <>
-                      {activeTab === 'Omen' && (
-                        <div className="legacy-omen-info">
-                          <label>
-                            <input
-                              type="checkbox"
-                              checked={showLegacyOmens}
-                              onChange={(event) =>
-                                setShowLegacyOmens(event.target.checked)
-                              }
-                            />{' '}
-                            {t('ui.show_legacy_omens')}
-                          </label>
-                          {showLegacyOmens && (
-                            <p>
-                              Homogenising: drops disabled in 0.4; existing
-                              items work. Alchemy, Coronation and Greater
-                              Annulment: no longer obtainable in 0.3. Legacy
-                              effects are modeled within the supported scope;
-                              current acquisition is not asserted. Coronation
-                              and Homogenising support matching ordinary,
-                              Greater and Perfect currency. Tiered composition
-                              is an unverified model. Alchemy and Annulment use
-                              ordinary currency. Greater Exaltation with
-                              Homogenising uses pre-craft tags for both
-                              additions. Only reviewed combinations are enabled;
-                              Catalysing Exaltation remains unsupported. Failed
-                              requests preserve resources here; actual game
-                              failure consumption is unverified.{' '}
-                              <a
-                                href="https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff"
-                                target="_blank"
-                                rel="noreferrer"
-                              >
-                                {t('ui.official_homogenising_source')}
-                              </a>{' '}
-                              <a
-                                href="https://www.pathofexile.com/forum/view-thread/3826682"
-                                target="_blank"
-                                rel="noreferrer"
-                              >
-                                {t('ui.official_0_3_availability')}
-                              </a>
-                            </p>
+                      return (
+                        <button
+                          key={currency.id}
+                          type="button"
+                          className={`currency-slot ${selected?.id === currency.id ? 'is-selected' : ''}`}
+                          style={{
+                            left: `${currency.x / 9.35}%`,
+                            top: `${currency.y / 5.5}%`,
+                          }}
+                          aria-label={currencyName}
+                          aria-pressed={selected?.id === currency.id}
+                          {...tooltipEvents(currency.id)}
+                          onContextMenu={(event) => {
+                            event.preventDefault()
+                            setPointer({ x: event.clientX, y: event.clientY })
+                            choose({
+                              ...currency,
+                              name: currencyNames[currency.id],
+                            })
+                          }}
+                          onClick={(event) => {
+                            if (event.detail === 0) setPointer(null)
+                            choose({
+                              ...currency,
+                              name: currencyNames[currency.id],
+                            })
+                          }}
+                        >
+                          <CurrencyImage {...currency} name={currencyName} />
+                          {currency.id.startsWith('Greater') && (
+                            <span className="currency-tier" aria-hidden="true">
+                              II
+                            </span>
                           )}
-                        </div>
-                      )}
-                      <input
-                        type="search"
-                        className="material-search"
-                        aria-label={t('material.search', {
-                          category: t(`stash.${activeTab}`),
-                        })}
-                        placeholder={t('ui.search')}
-                        value={search}
-                        onChange={(event) =>
-                          setSearches((old) => ({
-                            ...old,
-                            [activeTab]: event.target.value,
-                          }))
-                        }
-                      />
-                      <div
-                        className={`material-catalog ${activeTab === 'Essence' ? 'essence-catalog' : ''}`}
-                      >
-                        {activeTab === 'Essence'
-                          ? matchingEssenceRows.map((row, i) => (
-                              <div className="essence-row" key={i}>
-                                {row.map((m, j) =>
-                                  m ? materialButton(m) : <span key={j} />,
-                                )}
-                              </div>
-                            ))
-                          : currentMaterials.map(materialButton)}
-                        {(activeTab === 'Essence'
-                          ? matchingEssenceRows.length === 0
-                          : currentMaterials.length === 0) && (
-                          <p className="material-no-results">
-                            {t('ui.no_materials_found')}
-                          </p>
-                        )}
-                      </div>
-                    </>
-                  )}
+                          {currency.id.startsWith('Perfect') && (
+                            <span className="currency-tier" aria-hidden="true">
+                              III
+                            </span>
+                          )}
+                        </button>
+                      )
+                    })}
                 </div>
-                {activeTab === 'Essence' && (
-                  <div
-                    className="special-essences"
-                    role="group"
-                    aria-label={t('ui.special_essences')}
-                  >
-                    {specialEssences.map(materialButton)}
-                  </div>
-                )}
                 <div className="item-placement">
                   <span className="placement-label">
                     {t('ui.current_item')}
@@ -1607,11 +1437,9 @@ export function CraftingPage() {
                 <WorkbenchStash
                   resources={stashResources}
                   excludedIds={excludedResourceIds}
-                  activeTab={stashTab}
-                  onTabChange={setStashTab}
+                  activeTab={activeTab}
                   selectedId={selected?.id ?? null}
                   activeOmenIds={draft.activeOmens}
-                  favorites={favorites}
                   held={held}
                   disabled={applying !== null}
                   showLegacyOmens={showLegacyOmens}
@@ -1630,16 +1458,6 @@ export function CraftingPage() {
                       }),
                     )
                   }}
-                  onFavoriteActivate={(_, resource, pointer) => {
-                    if (pointer && resource?.category === 'Omen') {
-                      toggleOmen(resource.id)
-                      return
-                    }
-                    setPointer(pointer ?? null)
-                    if (resource) choose(resource)
-                    else setSelected(null)
-                  }}
-                  onFavoritePlace={placeFavorite}
                 />
               </div>
               <div
@@ -2198,6 +2016,26 @@ export function CraftingPage() {
                 )}
               </div>
             </div>
+          </div>
+          <div className="workbench-favorites-region">
+            <WorkbenchFavorites
+              excludedIds={excludedResourceIds}
+              selectedId={selected?.id ?? null}
+              activeOmenIds={draft.activeOmens}
+              favorites={favorites}
+              held={held}
+              disabled={applying !== null}
+              onFavoriteActivate={(_, resource, pointer) => {
+                if (pointer && resource?.category === 'Omen') {
+                  toggleOmen(resource.id)
+                  return
+                }
+                setPointer(pointer ?? null)
+                if (resource) choose(resource)
+                else setSelected(null)
+              }}
+              onFavoritePlace={placeFavorite}
+            />
           </div>
           <WorkbenchBasePicker
             id="workbench-base-picker"

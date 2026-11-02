@@ -11,27 +11,6 @@
   border: 1px solid #655738;
   padding: 7px;
 }
-.workbench-stash__tabs {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2px;
-  flex: none;
-}
-.workbench-stash .workbench-stash__tabs button {
-  min-width: 0;
-  padding: 6px 2px;
-  border: 1px solid #504b36;
-  background: #252b20;
-  color: #aaa994;
-  font-size: 10px;
-  line-height: 1.25;
-  overflow-wrap: anywhere;
-}
-.workbench-stash__tabs button[aria-selected='true'] {
-  color: #f1d597;
-  border-color: #b99b5a;
-  background: #393a27;
-}
 .workbench-stash__panel {
   flex: 1;
   min-height: 0;
@@ -85,7 +64,7 @@
   overflow-wrap: anywhere;
 }
 .workbench-stash__image,
-.workbench-stash .workbench-stash__favorite {
+.workbench-stash__favorites .workbench-stash__favorite {
   display: grid;
   place-items: center;
   box-sizing: border-box;
@@ -97,7 +76,8 @@
 .workbench-stash__image {
   width: 100%;
 }
-.workbench-stash img {
+.workbench-stash img,
+.workbench-stash__favorites img {
   width: 100%;
   height: 100%;
   min-height: 0;
@@ -121,12 +101,11 @@
   grid-template-columns: repeat(5, minmax(0, 1fr));
   grid-template-rows: repeat(2, auto);
   gap: 4px;
-  flex: none;
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #655738;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
 }
-.workbench-stash .workbench-stash__favorite {
+.workbench-stash__favorites .workbench-stash__favorite {
   width: 100%;
   padding: 2px;
   overflow: hidden;
@@ -147,11 +126,37 @@
   border-color: #e34b4b;
   box-shadow: 0 0 6px #e34b4b80;
 }
-.workbench-stash [aria-disabled='true'] {
+.workbench-stash [aria-disabled='true'],
+.workbench-stash__favorites [aria-disabled='true'] {
   opacity: 0.45;
 }
 .workbench-stash button:focus-visible,
-.workbench-stash input:focus-visible {
+.workbench-stash input:focus-visible,
+.workbench-stash__favorites button:focus-visible {
   outline: 2px solid #edce87;
   outline-offset: -2px;
+}
+
+.workbench-stash__resources .essence-row {
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+}
+.workbench-stash__specials {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 3px;
+  flex: none;
+}
+.workbench-stash__favorites .currency-name-fallback {
+  font-size: 10px;
+}
+
+.workbench-stash__legacy-note {
+  max-height: 90px;
+  flex: none;
+  overflow-y: auto;
+  margin: 0;
+  font-size: 9px;
+  line-height: 1.35;
 }

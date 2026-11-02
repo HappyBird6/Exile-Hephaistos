@@ -8,7 +8,27 @@ import { essenceRows, isSelectableMaterial, materials } from '../materials'
 import type { MaterialTab } from '../materials'
 import { MaterialTooltip } from '../MaterialTooltip'
 import { WorkbenchStash } from './WorkbenchStash'
-import type { WorkbenchResource, WorkbenchStashProps } from './stashTypes'
+import { WorkbenchFavorites } from './WorkbenchFavorites'
+import type {
+  WorkbenchResource,
+  WorkbenchStashProps,
+  WorkbenchFavoritesProps,
+} from './stashTypes'
+
+type SurfaceProps = WorkbenchStashProps & WorkbenchFavoritesProps
+function StashSurface(props: SurfaceProps) {
+  return (
+    <>
+      <span hidden id={`tab-${props.activeTab}`}>
+        {props.activeTab.replaceAll('_', ' ')}
+      </span>
+      <WorkbenchStash {...props} />
+      <div className="workbench-favorites-region">
+        <WorkbenchFavorites {...props} />
+      </div>
+    </>
+  )
+}
 
 const resources: WorkbenchResource[] = [
   ...currencies.map((currency) => ({
@@ -25,14 +45,11 @@ const favorite = (index: number) =>
     screen.getByRole('group', { name: 'Shared material favorites' }),
   ).getAllByRole('button')[index]!
 
-function props(
-  overrides: Partial<WorkbenchStashProps> = {},
-): WorkbenchStashProps {
+function props(overrides: Partial<SurfaceProps> = {}): SurfaceProps {
   return {
     resources,
     excludedIds,
     activeTab: 'Currency',
-    onTabChange: vi.fn(),
     selectedId: null,
     activeOmenIds: [],
     favorites: Array(10).fill(null),
@@ -53,35 +70,57 @@ function ControlledStash() {
     Array(10).fill(null),
   )
   return (
-    <WorkbenchStash
-      {...props()}
-      activeTab={activeTab}
-      onTabChange={onTabChange}
-      held={held}
-      selectedId={selectedId}
-      favorites={favorites}
-      onPickUp={(entry) => {
-        setHeld(entry)
-        setSelectedId(null)
-      }}
-      onSelect={(entry) => {
-        setHeld(null)
-        setSelectedId(entry.id)
-      }}
-      onFavoritePlace={(index, entry) => {
-        setFavorites((current) =>
-          current.map((value, slot) => (slot === index ? entry : value)),
-        )
-        setHeld(null)
-      }}
-      onFavoriteActivate={(_, entry) => setSelectedId(entry?.id ?? null)}
-    />
+    <>
+      <div role="tablist" aria-label="Existing category selector">
+        {(
+          [
+            'Currency',
+            'Essence',
+            'Alloy',
+            'Omen',
+            'Catalysts',
+            'Liquid_Emotions',
+          ] as const
+        ).map((tab) => (
+          <button
+            key={tab}
+            role="tab"
+            aria-selected={activeTab === tab}
+            onClick={() => onTabChange(tab)}
+          >
+            {tab.replaceAll('_', ' ')}
+          </button>
+        ))}
+      </div>
+      <StashSurface
+        {...props()}
+        activeTab={activeTab}
+        held={held}
+        selectedId={selectedId}
+        favorites={favorites}
+        onPickUp={(entry) => {
+          setHeld(entry)
+          setSelectedId(null)
+        }}
+        onSelect={(entry) => {
+          setHeld(null)
+          setSelectedId(entry.id)
+        }}
+        onFavoritePlace={(index, entry) => {
+          setFavorites((current) =>
+            current.map((value, slot) => (slot === index ? entry : value)),
+          )
+          setHeld(null)
+        }}
+        onFavoriteActivate={(_, entry) => setSelectedId(entry?.id ?? null)}
+      />
+    </>
   )
 }
 
 describe('right-hand controlled workbench stash', () => {
   it('offers the actual Artificer and every retained abyss currency in its currency tab', () => {
-    render(<WorkbenchStash {...props()} />)
+    render(<StashSurface {...props()} />)
     const catalog = within(screen.getByRole('tabpanel', { name: 'Currency' }))
     expect(
       catalog.getByRole('button', { name: "Artificer's Orb" }),
@@ -103,11 +142,11 @@ describe('right-hand controlled workbench stash', () => {
       expect(
         catalog.queryByRole('button', { name: resource(id).name }),
       ).toBeNull()
-    expect(screen.getByRole('tablist').children).toHaveLength(6)
+    expect(screen.queryByRole('tablist')).toBeNull()
     expect(screen.getByRole('group').querySelectorAll('button')).toHaveLength(
       10,
     )
-    expect(document.querySelector('.workbench-stash')?.lastElementChild).toBe(
+    expect(document.querySelector('.workbench-stash')).not.toContainElement(
       screen.getByRole('group'),
     )
     act(() => setLocale('ko'))
@@ -117,7 +156,7 @@ describe('right-hand controlled workbench stash', () => {
   it('limits new ordinary essence choices to greater/perfect while retaining every source ID', () => {
     const lower = resource('Lesser_Essence_of_the_Body')
     const base = resource('Essence_of_the_Body')
-    render(<WorkbenchStash {...props({ activeTab: 'Essence' })} />)
+    render(<StashSurface {...props({ activeTab: 'Essence' })} />)
     expect(screen.queryByRole('button', { name: lower.name })).toBeNull()
     expect(screen.queryByRole('button', { name: base.name })).toBeNull()
     expect(
@@ -139,30 +178,22 @@ describe('right-hand controlled workbench stash', () => {
     ).toEqual(['Greater_Essence_of_the_Body', 'Perfect_Essence_of_the_Body'])
   })
 
-  it('keeps search per internal tab and moves between tabs with keyboard focus', () => {
+  it('keeps search per category controlled by the existing selector', () => {
     render(<ControlledStash />)
     const currency = screen.getByRole('tab', { name: 'Currency' })
-    currency.focus()
-    fireEvent.keyDown(currency, { key: 'ArrowRight' })
-    expect(screen.getByRole('tab', { name: 'Essence' })).toHaveFocus()
+    fireEvent.click(screen.getByRole('tab', { name: 'Essence' }))
     fireEvent.change(screen.getByRole('searchbox'), {
       target: { value: 'perfect' },
     })
     expect(
       screen.queryByRole('button', { name: 'Greater Essence of the Body' }),
-    ).toBeNull()
+    ).toBeVisible()
     fireEvent.click(screen.getByRole('tab', { name: 'Alloy' }))
     expect(screen.getByRole('searchbox')).toHaveValue('')
     expect(screen.getByRole('button', { name: 'Runic Alloy' })).toBeVisible()
     fireEvent.click(screen.getByRole('tab', { name: 'Essence' }))
     expect(screen.getByRole('searchbox')).toHaveValue('perfect')
-    const essence = screen.getByRole('tab', { name: 'Essence' })
-    fireEvent.keyDown(essence, { key: 'End' })
-    expect(screen.getByRole('tab', { name: 'Liquid Emotions' })).toHaveFocus()
-    fireEvent.keyDown(screen.getByRole('tab', { name: 'Liquid Emotions' }), {
-      key: 'ArrowRight',
-    })
-    expect(currency).toHaveFocus()
+    fireEvent.click(currency)
     fireEvent.change(screen.getByRole('searchbox'), {
       target: { value: 'nonexistent material' },
     })
@@ -171,14 +202,14 @@ describe('right-hand controlled workbench stash', () => {
 
   it('preserves currency click selection and material pickup versus right-click selection', () => {
     const callbacks = props()
-    const view = render(<WorkbenchStash {...callbacks} />)
+    const view = render(<StashSurface {...callbacks} />)
     fireEvent.click(screen.getByRole('button', { name: 'Chaos Orb' }))
     expect(callbacks.onSelect).toHaveBeenCalledWith(
       resource('Chaos_Orb'),
       undefined,
     )
     expect(callbacks.onPickUp).not.toHaveBeenCalled()
-    view.rerender(<WorkbenchStash {...callbacks} activeTab="Alloy" />)
+    view.rerender(<StashSurface {...callbacks} activeTab="Alloy" />)
     const alloy = screen.getByRole('button', { name: 'Runic Alloy' })
     fireEvent.click(alloy)
     expect(callbacks.onPickUp).toHaveBeenCalledWith(
@@ -218,7 +249,7 @@ describe('right-hand controlled workbench stash', () => {
 
   it('accepts a local resource drag and refuses arbitrary external drop IDs', () => {
     const callbacks = props()
-    render(<WorkbenchStash {...callbacks} />)
+    const view = render(<StashSurface {...callbacks} />)
     const data = new Map<string, string>()
     const dataTransfer = {
       setData: (type: string, value: string) => data.set(type, value),
@@ -231,12 +262,14 @@ describe('right-hand controlled workbench stash', () => {
     fireEvent.dragStart(screen.getByRole('button', { name: 'Chaos Orb' }), {
       dataTransfer,
     })
+    view.rerender(<StashSurface {...callbacks} held={resource('Chaos_Orb')} />)
     expect(fireEvent.dragOver(favorite(0), { dataTransfer })).toBe(false)
     fireEvent.drop(favorite(0), { dataTransfer })
     expect(callbacks.onFavoritePlace).toHaveBeenCalledExactlyOnceWith(
       0,
       resource('Chaos_Orb'),
     )
+    view.rerender(<StashSurface {...callbacks} held={null} />)
     fireEvent.drop(favorite(1), { dataTransfer })
     expect(callbacks.onFavoritePlace).toHaveBeenCalledTimes(1)
   })
@@ -248,7 +281,7 @@ describe('right-hand controlled workbench stash', () => {
         resource('Lesser_Essence_of_the_Body'),
       ],
     })
-    const view = render(<WorkbenchStash {...callbacks} />)
+    const view = render(<StashSurface {...callbacks} />)
     expect(favorite(0)).toHaveAccessibleName(
       `Favorite slot 1: ${resource('Gnawed_Rib').name}`,
     )
@@ -257,7 +290,7 @@ describe('right-hand controlled workbench stash', () => {
     fireEvent.contextMenu(favorite(1))
     expect(callbacks.onFavoriteActivate).not.toHaveBeenCalled()
     view.rerender(
-      <WorkbenchStash {...callbacks} held={resource('Runic_Alloy')} />,
+      <StashSurface {...callbacks} held={resource('Runic_Alloy')} />,
     )
     fireEvent.click(favorite(0))
     expect(callbacks.onFavoritePlace).toHaveBeenCalledWith(
@@ -273,7 +306,7 @@ describe('right-hand controlled workbench stash', () => {
     })
     const view = render(
       <>
-        <WorkbenchStash {...callbacks} />
+        <StashSurface {...callbacks} />
         <MaterialTooltip />
       </>,
     )
@@ -292,7 +325,7 @@ describe('right-hand controlled workbench stash', () => {
     fireEvent.error(favorite(0).querySelector('img')!)
     expect(favorite(0)).toHaveTextContent('Image unavailable')
     view.rerender(
-      <WorkbenchStash {...callbacks} favorites={[resource('Runic_Alloy')]} />,
+      <StashSurface {...callbacks} favorites={[resource('Runic_Alloy')]} />,
     )
     expect(favorite(0).querySelector('img')).toHaveAttribute(
       'src',
@@ -306,13 +339,13 @@ describe('right-hand controlled workbench stash', () => {
       onShowLegacyOmensChange: vi.fn(),
       favorites: [resource('Omen_of_Whittling')],
     })
-    const view = render(<WorkbenchStash {...callbacks} />)
+    const view = render(<StashSurface {...callbacks} />)
     expect(
       screen.queryByRole('button', { name: 'Omen of Homogenising Exaltation' }),
     ).toBeNull()
     fireEvent.click(screen.getByRole('checkbox', { name: 'Show legacy Omens' }))
     expect(callbacks.onShowLegacyOmensChange).toHaveBeenCalledWith(true)
-    view.rerender(<WorkbenchStash {...callbacks} showLegacyOmens disabled />)
+    view.rerender(<StashSurface {...callbacks} showLegacyOmens disabled />)
     expect(
       screen.getByRole('button', { name: 'Omen of Homogenising Exaltation' }),
     ).toHaveTextContent('(Legacy)')
@@ -324,6 +357,12 @@ describe('right-hand controlled workbench stash', () => {
     expect(callbacks.onSelect).not.toHaveBeenCalled()
     expect(callbacks.onPickUp).not.toHaveBeenCalled()
     expect(callbacks.onFavoriteActivate).not.toHaveBeenCalled()
-    expect(screen.getByRole('tab', { name: 'Currency' })).toBeDisabled()
+    expect(screen.getByRole('searchbox')).toBeDisabled()
+    view.rerender(
+      <StashSurface {...callbacks} activeTab="Alloy" showLegacyOmens />,
+    )
+    expect(
+      screen.queryByText(/actual game failure consumption is unverified/),
+    ).toBeNull()
   })
 })

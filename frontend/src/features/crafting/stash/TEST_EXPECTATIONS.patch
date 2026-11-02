@@ -1,0 +1,45 @@
+--- a/frontend/src/features/crafting/MaterialStash.test.tsx
++++ b/frontend/src/features/crafting/MaterialStash.test.tsx
+@@ -278,7 +278,7 @@
+     )
+     expect(
+       within(document.getElementById('material-list')!).getAllByRole('button'),
+-    ).toHaveLength(21)
++    ).toHaveLength(30)
+     for (const name of [
+       'Mirror of Kalandra',
+       'Orb of Chance',
+--- a/frontend/src/features/crafting/WorkbenchIntegration.test.tsx
++++ b/frontend/src/features/crafting/WorkbenchIntegration.test.tsx
+@@ -30,7 +30,7 @@
+     </QueryClientProvider>,
+   )
+ }
+-it('keeps outer tabs independent and registers a material in ten inner favorites', () => {
++it('uses one selector for right content and registers a material in ten bottom favorites', () => {
+   show()
+   const inner = within(
+     document.querySelector('.workbench-stash') as HTMLElement,
+@@ -40,10 +40,11 @@
+     'aria-selected',
+     'true',
+   )
+-  fireEvent.click(inner.getByRole('tab', { name: 'Essence' }))
++  expect(inner.queryByRole('tablist')).toBeNull()
++  fireEvent.click(outer.getByRole('tab', { name: 'Essence' }))
+   expect(outer.getByRole('tab', { name: 'Currency' })).toHaveAttribute(
+     'aria-selected',
+-    'true',
++    'false',
+   )
+   expect(
+     inner.queryByRole('button', { name: 'Lesser Essence of the Body' }),
+@@ -51,7 +52,7 @@
+   fireEvent.click(
+     inner.getByRole('button', { name: 'Greater Essence of the Body' }),
+   )
+-  const favorites = inner.getByRole('group', {
++  const favorites = within(document.querySelector('.workbench-favorites-region') as HTMLElement).getByRole('group', {
+     name: 'Shared material favorites',
+   })
+   expect(within(favorites).getAllByRole('button')).toHaveLength(10)
