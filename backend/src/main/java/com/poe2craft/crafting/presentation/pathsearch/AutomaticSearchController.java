@@ -86,8 +86,13 @@ public final class AutomaticSearchController {
       for (var item :
           java.util.List.of(
               node.path("start").path("item"), node.path("request").path("start").path("item")))
-        if (item instanceof com.fasterxml.jackson.databind.node.ObjectNode object
-            && !object.has("desecrated")) object.putArray("desecrated");
+        if (item instanceof com.fasterxml.jackson.databind.node.ObjectNode object) {
+          if (!object.has("desecrated")) object.putArray("desecrated");
+          // Ordinary quality belongs to the manual workbench until automatic copies retain it.
+          if (object.hasNonNull("equipmentQuality"))
+            throw new IllegalArgumentException("Equipment quality requires the manual workbench");
+          if (!object.has("equipmentQuality")) object.putNull("equipmentQuality");
+        }
       return json.treeToValue(node, type);
     } catch (java.io.IOException | IllegalArgumentException e) {
       throw new PathSearchProtocol.Rejected(422, "INVALID_REQUEST");

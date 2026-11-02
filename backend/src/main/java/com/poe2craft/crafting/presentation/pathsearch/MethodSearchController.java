@@ -281,8 +281,13 @@ public final class MethodSearchController {
       for (var item :
           java.util.List.of(
               body.path("start").path("item"), body.path("request").path("start").path("item")))
-        if (item instanceof com.fasterxml.jackson.databind.node.ObjectNode object
-            && !object.has("desecrated")) object.putArray("desecrated");
+        if (item instanceof com.fasterxml.jackson.databind.node.ObjectNode object) {
+          if (!object.has("desecrated")) object.putArray("desecrated");
+          // Ordinary quality belongs to the manual workbench until automatic copies retain it.
+          if (object.hasNonNull("equipmentQuality"))
+            throw new IllegalArgumentException("Equipment quality requires the manual workbench");
+          if (!object.has("equipmentQuality")) object.putNull("equipmentQuality");
+        }
       return json.treeToValue(body, type);
     } catch (Rejected e) {
       throw e;

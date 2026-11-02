@@ -92,6 +92,13 @@ class RegisteredTextMapperTest {
     assertThat(result.state().implicits()).hasSize(1);
     assertThat(
             new SolarTextMapper(catalog)
+                .map(
+                    parser.parseText(
+                        source.replace("{ Prefix Modifier", "{ Desecrated Prefix Modifier")))
+                .mapped())
+        .isFalse();
+    assertThat(
+            new SolarTextMapper(catalog)
                 .map(parser.parseText(source.replace("5(4-6)", "5(3-6)")))
                 .mapped())
         .isFalse();

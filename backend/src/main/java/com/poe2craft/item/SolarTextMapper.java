@@ -112,6 +112,14 @@ public final class SolarTextMapper {
     }
     for (var group : groups.values()) {
       var modifier = group.getFirst();
+      if (modifier.metadata() != null
+          && ((modifier.metadata().raw().startsWith("{ Fractured ")
+                  && modifier.type() != ItemModels.ModifierType.FRACTURED)
+              || (modifier.metadata().raw().startsWith("{ Desecrated ")
+                  && modifier.type() != ItemModels.ModifierType.DESECRATED))) {
+        issues.add(new Issue(modifier.source().number(), "Conflicting modifier layer markers."));
+        continue;
+      }
       if (group.stream().anyMatch(line -> line.type() != modifier.type())) {
         issues.add(
             new Issue(

@@ -100,3 +100,21 @@ checks continue independently under the parent's explicit continuation instructi
 - Full frontend rerun: 2402 tests, 2400 passed; two 5000ms timeouts (`stateProjection`, `CraftingExplorer`). Both files and the updated import-display test passed in a single-worker recheck: 3 suites / 29 tests. The last property-boundary and import tests passed: 2 suites / 14 tests. No test timeout or expected value was relaxed. Full-run failures are retained in logs, not reported as a green full run.
 - Backend full `check generateJooq bootJar` is still running at this functional checkpoint; final comparison and integration results will be recorded separately. The last endpoint-only duplicate-mark guard is covered by the 43-test focused run and will replace the corresponding suite in the final comparison.
 - Self review completed: original constructor signatures remain supported; absence stays unknown; ordinary quality survives simulator copies and slot projections; frontend rejects a response that drops quality; unknown/duplicate slot metadata is rejected before conversion; old records and lower identities are not rewritten.
+
+
+## Final verification checkpoint
+
+- Full backend run: 970 unit tests, 41 failures; 8 integration tests, 1 failure. The new unit failure was the basic-result diagnostic-string digest including the new null observation field; the new integration failure was strict legacy requests missing that optional constructor field.
+- Corrected all three strict path-search request readers to treat an absent equipment-quality observation as unknown (`null`). Non-null ordinary quality remains explicitly refused in automatic requests until its copy paths support it; manual workbench support is unaffected. No automatic probability/search algorithm changed.
+- The basic parity test now explicitly asserts absent equipment quality, then excludes that absent observation from its pre-existing diagnostic-string fixture, just as it already excludes empty desecrated slots. The original SHA-256 expected value is unchanged.
+- Recheck: 45 unit tests, 44 passed and the same pre-existing `PathSearchHttpTest` failure; all 8 integration tests passed. `spotlessCheck` and `bootJar` passed. Full-run `generateJooq` passed. Latest 43 focused tests also passed with conflicting fracture/desecration metadata rejected.
+- Merging rechecked suites with the full run: **971 unit tests, 40 failures, zero newly failing test identities; 8 integration tests, zero failures**. This is not a green overall `check`: the existing 40 failures remain.
+- Four existing failure messages differ from the previous baseline. Three differ only by the additional null equipment-quality field in raw JSON/record diagnostics (two LegacyAutomaticResultReader cases and PathSearchContractTest). BaseRegistryParityTest's raw serialized seeded hashes differ; it is not reported as an identical failure signature. The seeded BasicWorkbenchParityTest's original behavior digest passes.
+- Raw evidence lives in the task root: `state-full.log`, `state-full-results`, `state-final-target-results/test-results`, `state-compatibility.log`, `state-compatibility-results`, `state-validation-summary.json`; frontend logs are `state-frontend-final.log`, `state-frontend-recheck.log`, and `state-frontend-last.log`.
+- Confirmed cleanup: no task-created containers remain. Only the user's two pre-existing mini-redis containers were running at the final inventory. No existing volume, DB, environment file, or saved record was removed.
+
+The first functional checkpoint is `e11377a` on `codex/manual-workbench-20261102` at
+`C:\Users\SSAFY\Documents\Codex\2026-11-02\task\manual-workbench`.
+A follow-up local commit records the compatibility/marker corrections and this final evidence.
+This remains a **partial workbench checkpoint**, with the implementation boundaries and actual UI
+policy block above still open. No push, deployment, release, master integration or production restart.
