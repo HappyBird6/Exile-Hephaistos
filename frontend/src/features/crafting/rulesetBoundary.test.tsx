@@ -1,3 +1,7 @@
+import {
+  currencyButton,
+  selectSavedSession,
+} from '../../shared/test/workbenchQueries'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
@@ -47,9 +51,7 @@ it('permits preserved record selection even when the current catalog service is 
       <CraftingPage />
     </QueryClientProvider>,
   )
-  fireEvent.change(screen.getByRole('combobox', { name: 'Crafting session' }), {
-    target: { value: 'past' },
-  })
+  selectSavedSession(1)
   await waitFor(() =>
     expect(JSON.parse(localStorage.getItem(historyStorageKey)!).active).toBe(
       'past',
@@ -208,9 +210,7 @@ it.each(['legacy-unverified', 'mismatch', 'inconsistent'] as const)(
     expect(
       screen.getByText(/"rulesetIdentity"|"snapshotId"/, { selector: 'pre' }),
     ).toBeVisible()
-    fireEvent.click(
-      screen.getByRole('button', { name: 'Orb of Transmutation' }),
-    )
+    fireEvent.click(currencyButton('Orb of Transmutation'))
     fireEvent.click(
       screen.getByRole('button', {
         name: 'Use selected currency on the central item',

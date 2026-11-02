@@ -217,7 +217,11 @@ export function CraftingPage() {
       : draft.source === 'text'
         ? (imported.data?.itemLevel ?? draft.baseItemLevel)
         : draft.baseItemLevel
-  function saveFilms(history: Films, revision = draft.baseRevision) {
+  function saveFilms(
+    history: Films,
+    revision = draft.baseRevision,
+    requirePersistence = false,
+  ) {
     let error = filmState.error
     if (!filmState.blockedSaving) {
       try {
@@ -227,7 +231,7 @@ export function CraftingPage() {
         error = t('notice.history_save')
       }
     }
-    if (error && !filmState.blockedSaving) {
+    if (error && requirePersistence) {
       setFilmState({ ...filmState, error })
       return false
     }
@@ -250,7 +254,6 @@ export function CraftingPage() {
   const [tooltipsEnabled, setTooltipsEnabled] = useState(true)
   const [activeTab, setActiveTab] = useState<MaterialTab>('Currency')
   const [stashTab, setStashTab] = useState<MaterialTab>('Currency')
-  // B supplies exclusions here when its policy module is integrated.
   const excludedResourceIds: readonly string[] = excludedWorkbenchBoneIds
   const stashResources: WorkbenchResource[] = [
     ...currencies.map((currency) => ({
@@ -478,7 +481,7 @@ export function CraftingPage() {
       filmState.blockedSaving
     )
       return false
-    if (!saveFilms(next)) return false
+    if (!saveFilms(next, draft.baseRevision, true)) return false
     const activeChanged =
       next.active !== filmState.history.active ||
       next.cursor !== filmState.history.cursor

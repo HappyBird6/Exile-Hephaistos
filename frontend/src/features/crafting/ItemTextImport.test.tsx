@@ -1,3 +1,4 @@
+import { currencyButton } from '../../shared/test/workbenchQueries'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import {
   act,
@@ -98,7 +99,6 @@ function enter(text = raw) {
   ) {
     fireEvent.click(screen.getByRole('button', { name: 'Edit item' }))
   }
-  fireEvent.click(screen.getByRole('button', { name: 'Item text' }))
   fireEvent.change(screen.getByRole('textbox'), { target: { value: text } })
 }
 function submit() {
@@ -149,9 +149,7 @@ describe('Item text import', () => {
     fireEvent.change(screen.getByRole('textbox'), {
       target: { value: raw + 'changed' },
     })
-    fireEvent.click(
-      screen.getByRole('button', { name: 'Orb of Transmutation' }),
-    )
+    fireEvent.click(currencyButton('Orb of Transmutation'))
     expect(screen.getByRole('status')).toHaveTextContent(
       'Orb of Transmutation selected',
     )
@@ -190,7 +188,7 @@ describe('Item text import', () => {
         headers: { 'Content-Type': 'application/json' },
       }),
     )
-    fireEvent.click(screen.getByRole('button', { name: 'Chaos Orb' }))
+    fireEvent.click(currencyButton('Chaos Orb'))
     fireEvent.click(
       screen.getByRole('button', {
         name: 'Use selected currency on the central item',
@@ -306,11 +304,8 @@ describe('Item text import', () => {
     submit()
     await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1))
     const first = fetchMock.mock.calls[0]?.[1]?.signal
-    fireEvent.click(
-      within(screen.getByRole('dialog')).getByRole('button', {
-        name: 'Select base',
-      }),
-    )
+    fireEvent.click(screen.getByRole('button', { name: 'Close item input' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
     expect(first?.aborted).toBe(true)
     fireEvent.click(screen.getByRole('button', { name: /Place base/ }))
     expect(useItemDraft.getState().source).toBe('base')

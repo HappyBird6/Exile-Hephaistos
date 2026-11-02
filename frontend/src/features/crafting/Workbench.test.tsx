@@ -1,3 +1,7 @@
+import {
+  currencyButton,
+  selectSavedSession,
+} from '../../shared/test/workbenchQueries'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
@@ -35,7 +39,7 @@ async function selectAndApply() {
   await waitFor(() =>
     expect(client.getQueryData(['crafting', 'initial', 82])).toBeDefined(),
   )
-  fireEvent.click(screen.getByRole('button', { name: 'Orb of Transmutation' }))
+  fireEvent.click(currencyButton('Orb of Transmutation'))
   fireEvent.click(
     screen.getByRole('button', {
       name: 'Use selected currency on the central item',
@@ -74,10 +78,8 @@ describe('Workbench actual application', () => {
     await waitFor(() =>
       expect(screen.getByRole('article')).toHaveClass('item-card--normal'),
     )
-    fireEvent.click(screen.getByRole('button', { name: 'Edit item' }))
-    fireEvent.change(screen.getByLabelText('Equipment base'), {
-      target: { value: 'massive' },
-    })
+    fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
+    fireEvent.click(screen.getByRole('button', { name: /Massive Mitts/ }))
     fireEvent.change(screen.getByRole('spinbutton', { name: 'Item level' }), {
       target: { value: '83' },
     })
@@ -216,10 +218,7 @@ describe('Workbench actual application', () => {
     await waitFor(() =>
       expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
     )
-    fireEvent.change(
-      screen.getByRole('combobox', { name: 'Crafting session' }),
-      { target: { value: fork.films[0]!.id } },
-    )
+    selectSavedSession(0)
     await waitFor(() =>
       expect(
         (JSON.parse(window.localStorage.getItem(historyStorageKey)!) as Films)
@@ -264,9 +263,7 @@ describe('Workbench actual application', () => {
     await waitFor(() =>
       expect(client.getQueryData(['crafting', 'initial', 82])).toBeDefined(),
     )
-    const currency = screen.getByRole('button', {
-      name: 'Orb of Transmutation',
-    })
+    const currency = currencyButton('Orb of Transmutation')
     fireEvent.contextMenu(currency)
     fireEvent.click(
       screen.getByRole('button', {
@@ -278,7 +275,7 @@ describe('Workbench actual application', () => {
       expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
     )
     expect(currency).toHaveAttribute('aria-pressed', 'true')
-    fireEvent.click(screen.getByLabelText('Currency stash'))
+    fireEvent.click(document.querySelector('.stash-canvas')!)
     expect(currency).toHaveAttribute('aria-pressed', 'false')
     act(() => useItemDraft.getState().setBase())
     fireEvent.click(currency)

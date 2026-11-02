@@ -1,3 +1,4 @@
+import { outerMaterialTab } from '../../shared/test/workbenchQueries'
 import { afterEach, expect, it, vi } from 'vitest'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
@@ -78,9 +79,8 @@ it('selects a typed Ring film from an active Solar film without losing either ro
       <CraftingPage />
     </QueryClientProvider>,
   )
-  fireEvent.change(await screen.findByLabelText('Crafting session'), {
-    target: { value: 'typed-ring' },
-  })
+  fireEvent.click(screen.getByRole('button', { name: 'Crafting session' }))
+  fireEvent.click(screen.getByRole('button', { name: /Select session:.*1/ }))
   await screen.findByText('Quality (Reaver): +20%')
   expect(repo.load().active).toBe('typed-ring')
   expect(repo.load().films[0]!.frames[0]!.state).toEqual(ring)
@@ -194,10 +194,33 @@ it('preserves typed and legacy frames without rewriting storage and sends suppor
     ),
   ).toBe(false)
 })
-it('places already present quality through the existing base form and restores it on reload', async () => {
+it('applies a selected catalyst currency and restores its recorded quality on reload', async () => {
   localStorage.clear()
   useItemDraft.getState().setBase()
-  vi.stubGlobal('fetch', reviewedFetch)
+  vi.stubGlobal(
+    'fetch',
+    async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input).endsWith('/workbench/apply')) {
+        const response = await fixtureFetch(input, init)
+        const data = await response.json()
+        const request = JSON.parse(String(init?.body))
+        expect(request.action).toBe('CATALYST_FLESH')
+        return new Response(
+          JSON.stringify({
+            ...data,
+            applied: true,
+            reason: '',
+            state: {
+              ...request.state,
+              catalystQuality: { type: 'FLESH', amount: 20 },
+            },
+          }),
+          { status: 200, headers: { 'X-Crafting-Ruleset': 'fixture-ruleset' } },
+        )
+      }
+      return reviewedFetch(input, init)
+    },
+  )
   const client = new QueryClient({
     defaultOptions: { queries: { retry: false } },
   })
@@ -208,18 +231,16 @@ it('places already present quality through the existing base form and restores i
       </QueryClientProvider>,
     )
   const view = show()
-  fireEvent.click(screen.getByRole('button', { name: 'Edit item' }))
-  fireEvent.change(screen.getByLabelText('Existing catalyst quality'), {
-    target: { value: 'FLESH' },
-  })
-  fireEvent.change(screen.getByLabelText('Current quality (%)'), {
-    target: { value: '21' },
-  })
-  expect(screen.getByRole('button', { name: /Place base/ })).toBeDisabled()
-  fireEvent.change(screen.getByLabelText('Current quality (%)'), {
-    target: { value: '20' },
-  })
-  fireEvent.click(screen.getByRole('button', { name: /Place base/ }))
+  await waitFor(() =>
+    expect(client.getQueryData(['crafting', 'initial', 82])).toBeDefined(),
+  )
+  fireEvent.click(outerMaterialTab('Catalysts'))
+  fireEvent.contextMenu(screen.getByRole('button', { name: 'Flesh Catalyst' }))
+  fireEvent.click(
+    screen.getByRole('button', {
+      name: 'Use selected currency on the central item',
+    }),
+  )
   await screen.findByText('Quality (Flesh): +20%')
   await waitFor(() =>
     expect(localStorage.getItem(historyStorageKey)).toContain(

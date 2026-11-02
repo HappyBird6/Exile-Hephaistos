@@ -1,3 +1,4 @@
+import { outerMaterialTab } from '../../shared/test/workbenchQueries'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
@@ -207,7 +208,7 @@ it.each(['', 'Omen_of_Sinistral_Necromancy', 'Omen_of_Dextral_Necromancy'])(
     ))
       expect(screen.getByRole('button', { name })).toBeVisible()
     if (omen) {
-      fireEvent.click(screen.getByRole('tab', { name: 'Omen' }))
+      fireEvent.click(outerMaterialTab('Omen'))
       fireEvent.click(
         screen.getByRole('button', { name: omen.replaceAll('_', ' ') }),
       )
@@ -220,7 +221,7 @@ it.each(['', 'Omen_of_Sinistral_Necromancy', 'Omen_of_Dextral_Necromancy'])(
         }),
       )
       expect(useItemDraft.getState().activeOmens).toEqual([omen])
-      fireEvent.click(screen.getByRole('tab', { name: 'Currency' }))
+      fireEvent.click(outerMaterialTab('Currency'))
     }
     fireEvent.click(
       screen.getByRole('button', { name: 'Preserved Collarbone' }),

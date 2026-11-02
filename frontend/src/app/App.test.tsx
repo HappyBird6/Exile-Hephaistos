@@ -1,3 +1,4 @@
+import { currencyButton } from '../shared/test/workbenchQueries'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
@@ -54,7 +55,7 @@ describe('Crafting workbench', () => {
     expect(
       screen.queryByRole('button', { name: 'Scroll of Wisdom' }),
     ).not.toBeInTheDocument()
-    expect(screen.getAllByRole('tab')).toHaveLength(9)
+    expect(screen.getAllByRole('tab')).toHaveLength(15)
     expect(
       screen.getByRole('tab', { name: 'Crafting Workbench' }),
     ).toHaveAttribute('aria-selected', 'true')
@@ -64,9 +65,7 @@ describe('Crafting workbench', () => {
   })
   it('preserves the item after a use request and clears selection with Escape', () => {
     show()
-    const currency = screen.getByRole('button', {
-      name: 'Orb of Transmutation',
-    })
+    const currency = currencyButton('Orb of Transmutation')
     fireEvent.contextMenu(currency, { clientX: 30, clientY: 40 })
     expect(currency).toHaveAttribute('aria-pressed', 'true')
     fireEvent.click(
@@ -92,26 +91,23 @@ describe('Crafting workbench', () => {
   })
   it('renders currency images and toggles selection', () => {
     show()
-    const currency = screen.getByRole('button', {
-      name: "Hinekora's Lock",
-    })
+    const currency = currencyButton("Hinekora's Lock")
     fireEvent.click(currency)
     expect(currency).toHaveAttribute('aria-pressed', 'true')
     expect(currency.querySelector('img')).toHaveAttribute(
       'src',
       '/assets/currency/HinekorasLock.webp',
     )
-    expect(
-      screen
-        .getByRole('button', { name: "Hinekora's Lock" })
-        .querySelector('img'),
-    ).toHaveAttribute('src', '/assets/currency/HinekorasLock.webp')
+    expect(currency.querySelector('img')).toHaveAttribute(
+      'src',
+      '/assets/currency/HinekorasLock.webp',
+    )
     fireEvent.keyDown(window, { key: 'Escape' })
     expect(currency).toHaveAttribute('aria-pressed', 'false')
   })
   it('shows fallback for failed slot and cursor images', () => {
     show()
-    const currency = screen.getByRole('button', { name: "Hinekora's Lock" })
+    const currency = currencyButton("Hinekora's Lock")
     fireEvent.contextMenu(currency, { clientX: 30, clientY: 40 })
     const slotImage = currency.querySelector('img')
     const cursorImage = document.querySelector('.currency-cursor img')

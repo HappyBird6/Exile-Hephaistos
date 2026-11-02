@@ -29,7 +29,8 @@ class QualityLimitTest {
             Set.of());
     assertThat(QualityLimitRules.describe(rare, solar).maximumQuality()).isEqualTo(40);
     var divine = simulator.apply(rare, WorkbenchCurrency.DIVINE, Set.of(), new Random(7));
-    assertThat(divine.applied()).isTrue();
+    assertThat(divine.applied()).isFalse();
+    assertThat(divine.state()).isEqualTo(rare);
     assertThat(divine.qualityLimit()).isEqualTo(QualityLimitRules.describe(rare, solar));
     assertThat(divine.state().explicits()).isEqualTo(rare.explicits());
     var blocked = simulator.apply(rare, WorkbenchCurrency.REGAL, Set.of(), new Random(7));

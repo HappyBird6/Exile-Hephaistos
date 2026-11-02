@@ -1,3 +1,4 @@
+import { outerMaterialTab } from '../../shared/test/workbenchQueries'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { expect, it, vi } from 'vitest'
@@ -189,7 +190,7 @@ it('default stash hides legacy; explicit opt-in names availability and unverifie
       <CraftingPage />
     </QueryClientProvider>,
   )
-  fireEvent.click(screen.getByRole('tab', { name: 'Omen' }))
+  fireEvent.click(outerMaterialTab('Omen'))
   expect(
     screen.queryByRole('button', { name: 'Omen of Homogenising Exaltation' }),
   ).toBeNull()

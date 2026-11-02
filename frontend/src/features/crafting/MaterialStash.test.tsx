@@ -1,3 +1,8 @@
+import {
+  currencyButton,
+  outerMaterialSearch,
+  outerMaterialTab,
+} from '../../shared/test/workbenchQueries'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fireEvent, render, screen, within } from '@testing-library/react'
 import { beforeEach, describe, expect, it } from 'vitest'
@@ -14,7 +19,7 @@ function show() {
     </QueryClientProvider>,
   )
 }
-const tab = (name: string) => screen.getByRole('tab', { name })
+const tab = outerMaterialTab
 const favorite = (slot: number) =>
   screen.getByRole('button', { name: new RegExp(`^Favorite slot ${slot}:`) })
 const pick = (name: string) =>
@@ -62,10 +67,8 @@ describe('Material stash and shared favorites', () => {
     fireEvent.click(tab('Alloy'))
     expect(screen.getByRole('button', { name: 'Runic Alloy' })).toBeVisible()
     fireEvent.click(tab('Essence'))
-    expect(screen.getByRole('searchbox')).toHaveValue(
-      '  greater essence of the body ',
-    )
-    fireEvent.change(screen.getByRole('searchbox'), { target: { value: '' } })
+    expect(outerMaterialSearch()).toHaveValue('  greater essence of the body ')
+    fireEvent.change(outerMaterialSearch(), { target: { value: '' } })
     expect(
       within(
         screen.getByRole('group', { name: 'Special essences' }),
@@ -88,7 +91,7 @@ describe('Material stash and shared favorites', () => {
       'hysteria',
       'nonexistent',
     ]) {
-      fireEvent.change(screen.getByRole('searchbox'), {
+      fireEvent.change(outerMaterialSearch(), {
         target: { value: query },
       })
       expect(special.getAllByRole('button')).toEqual(buttons)
@@ -172,7 +175,7 @@ describe('Material stash and shared favorites', () => {
     ).toBe(false)
     for (const label of ['Omen', 'Alloy', 'Catalysts', 'Liquid Emotions']) {
       fireEvent.click(tab(label))
-      fireEvent.change(screen.getByRole('searchbox'), {
+      fireEvent.change(outerMaterialSearch(), {
         target: { value: 'nonexistent synthetic material' },
       })
       expect(screen.getByText('No materials found')).toBeVisible()
@@ -184,7 +187,7 @@ describe('Material stash and shared favorites', () => {
     const toggle = screen.getByRole('checkbox', { name: 'Show tooltips' })
     expect(toggle).toBeChecked()
     expect(screen.queryByText(/^\d+ items$/)).not.toBeInTheDocument()
-    const chaos = screen.getByRole('button', { name: 'Chaos Orb' })
+    const chaos = currencyButton('Chaos Orb')
     fireEvent.pointerOver(chaos)
     expect(screen.getByRole('tooltip')).not.toHaveTextContent('Stack Size')
     expect(
@@ -209,12 +212,12 @@ describe('Material stash and shared favorites', () => {
 
   it('hides tooltips during use selection and restores them after cancellation', () => {
     show()
-    const chaos = screen.getByRole('button', { name: 'Chaos Orb' })
+    const chaos = currencyButton('Chaos Orb')
     fireEvent.pointerOver(chaos)
     expect(screen.getByRole('tooltip')).toBeInTheDocument()
     fireEvent.contextMenu(chaos)
     expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
-    fireEvent.pointerOver(screen.getByRole('button', { name: 'Divine Orb' }))
+    fireEvent.pointerOver(currencyButton('Divine Orb'))
     expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
     fireEvent.click(tab('Essence'))
     const essence = screen.getByRole('button', {
@@ -234,9 +237,9 @@ describe('Material stash and shared favorites', () => {
 
   it('shows sourced descriptions on hover and focus, including favorites', () => {
     show()
-    fireEvent.pointerOver(screen.getByRole('button', { name: 'Chaos Orb' }))
+    fireEvent.pointerOver(currencyButton('Chaos Orb'))
     expect(screen.getByRole('tooltip')).toHaveTextContent('Chaos Orb')
-    expect(screen.getByRole('button', { name: 'Chaos Orb' })).toHaveAttribute(
+    expect(currencyButton('Chaos Orb')).toHaveAttribute(
       'aria-describedby',
       'material-description',
     )
@@ -275,7 +278,7 @@ describe('Material stash and shared favorites', () => {
     )
     expect(
       within(document.getElementById('material-list')!).getAllByRole('button'),
-    ).toHaveLength(33)
+    ).toHaveLength(21)
     for (const name of [
       'Mirror of Kalandra',
       'Orb of Chance',
@@ -313,7 +316,7 @@ describe('Material stash and shared favorites', () => {
     ).toBeVisible()
   })
 
-  it('shows only the selected catalog while keeping fifteen favorites and the current card', () => {
+  it('shows only the selected catalog while keeping ten favorites and the current card', () => {
     show()
     const card = screen.getByRole('article')
     for (const [label, count] of [
@@ -380,10 +383,13 @@ describe('Material stash and shared favorites', () => {
         within(
           screen.getByRole('group', { name: 'Shared material favorites' }),
         ).getAllByRole('button'),
-      ).toHaveLength(15)
+      ).toHaveLength(10)
       expect(screen.getByRole('article')).toBe(card)
       expect(
-        screen.queryByRole('button', { name: 'Chaos Orb' }),
+        within(document.getElementById('material-list')!).queryByRole(
+          'button',
+          { name: 'Chaos Orb' },
+        ),
       ).not.toBeInTheDocument()
     }
     expect(materials).toHaveLength(180)
@@ -488,9 +494,9 @@ describe('Material stash and shared favorites', () => {
     const view = show()
     fireEvent.click(tab('Essence'))
     pick('Greater Essence of the Body')
-    fireEvent.click(favorite(15))
+    fireEvent.click(favorite(10))
     view.unmount()
     show()
-    expect(favorite(15)).toHaveAccessibleName('Favorite slot 15: empty')
+    expect(favorite(10)).toHaveAccessibleName('Favorite slot 10: empty')
   })
 })

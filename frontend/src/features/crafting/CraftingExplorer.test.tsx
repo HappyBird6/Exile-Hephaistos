@@ -1,3 +1,4 @@
+import { currencyButton } from '../../shared/test/workbenchQueries'
 import {
   act,
   fireEvent,
@@ -247,7 +248,7 @@ describe('Crafting probability explorer', () => {
         <CraftingPage />
       </QueryClientProvider>,
     )
-    fireEvent.click(screen.getByRole('button', { name: 'Edit item' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
     fireEvent.change(screen.getByRole('spinbutton', { name: 'Item level' }), {
       target: { value: '70' },
     })
@@ -270,9 +271,7 @@ describe('Crafting probability explorer', () => {
       screen.getByRole('button', { name: 'Return to step 1' }),
     ).toBeVisible()
     fireEvent.click(screen.getByRole('tab', { name: 'Crafting Workbench' }))
-    fireEvent.click(
-      screen.getByRole('button', { name: 'Orb of Transmutation' }),
-    )
+    fireEvent.click(currencyButton('Orb of Transmutation'))
     fireEvent.click(
       screen.getByRole('button', {
         name: 'Use selected currency on the central item',
@@ -291,9 +290,7 @@ describe('Crafting probability explorer', () => {
     expect(localStorage.getItem('hephaistos.workbench.films.v1')).toContain(
       '"n":11',
     )
-    fireEvent.click(
-      screen.getByRole('button', { name: 'Orb of Transmutation' }),
-    )
+    fireEvent.click(currencyButton('Orb of Transmutation'))
     fireEvent.click(
       screen.getByRole('button', {
         name: 'Use selected currency on the central item',

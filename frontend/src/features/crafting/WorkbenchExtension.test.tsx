@@ -1,3 +1,7 @@
+import {
+  currencyButton,
+  outerMaterialTab,
+} from '../../shared/test/workbenchQueries'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
@@ -27,7 +31,7 @@ function show() {
   )
 }
 const useCurrency = (name: string) => {
-  fireEvent.click(screen.getByRole('button', { name }))
+  fireEvent.click(currencyButton(name))
   fireEvent.click(
     screen.getByRole('button', {
       name: 'Use selected currency on the central item',
@@ -35,8 +39,8 @@ const useCurrency = (name: string) => {
   )
 }
 function favoriteOmen(name: string, slot: number) {
-  fireEvent.click(screen.getByRole('tab', { name: 'Omen' }))
-  fireEvent.click(screen.getByRole('button', { name }))
+  fireEvent.click(outerMaterialTab('Omen'))
+  fireEvent.click(currencyButton(name))
   fireEvent.click(
     screen.getByRole('button', { name: `Favorite slot ${slot}: empty` }),
   )
@@ -44,7 +48,7 @@ function favoriteOmen(name: string, slot: number) {
     name: `Favorite slot ${slot}: ${name}`,
   })
   fireEvent.contextMenu(button)
-  fireEvent.click(screen.getByRole('tab', { name: 'Currency' }))
+  fireEvent.click(outerMaterialTab('Currency'))
   return button
 }
 describe('Workbench extensions', () => {
@@ -124,7 +128,7 @@ describe('Workbench extensions', () => {
     fireEvent.contextMenu(sinistral)
     fireEvent.contextMenu(dextral)
     expect(dextral).toHaveClass('is-active-omen')
-    fireEvent.click(screen.getByRole('tab', { name: 'Omen' }))
+    fireEvent.click(outerMaterialTab('Omen'))
     fireEvent.click(screen.getByRole('button', { name: 'Omen of the Blessed' }))
     fireEvent.click(dextral)
     expect(useItemDraft.getState().activeOmens).toEqual([])
