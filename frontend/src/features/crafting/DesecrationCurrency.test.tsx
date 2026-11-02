@@ -10,6 +10,7 @@ import {
 } from '../../shared/test/craftingFixtures'
 import { concreteInitial } from './workbenchApi'
 import { applyBone, boneNames } from './desecrationCurrency'
+import { isExcludedWorkbenchBone } from './abyss-workbench/policy'
 import {
   LocalFilmRepository,
   emptyFilms,
@@ -201,7 +202,9 @@ it.each(['', 'Omen_of_Sinistral_Necromancy', 'Omen_of_Dextral_Necromancy'])(
     await waitFor(() =>
       expect(screen.getByRole('article')).toHaveClass('item-card--rare'),
     )
-    for (const name of Object.values(boneNames))
+    for (const [, name] of Object.entries(boneNames).filter(
+      ([id]) => !isExcludedWorkbenchBone(id),
+    ))
       expect(screen.getByRole('button', { name })).toBeVisible()
     if (omen) {
       fireEvent.click(screen.getByRole('tab', { name: 'Omen' }))

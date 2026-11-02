@@ -1,0 +1,12 @@
+.abyss-unrevealed-rune {
+  display: inline-block;
+  width: 94px;
+  height: 15px;
+  flex: 0 0 94px;
+  vertical-align: middle;
+  /* Clip the supplied screenshot in CSS; no invented font or reconstructed glyphs. */
+  background-image: url('/assets/abyss-runes/user-reference-20261102.png');
+  background-repeat: no-repeat;
+  background-position: -81px -106px;
+  background-size: 255px 178px;
+}

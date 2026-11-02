@@ -18,6 +18,8 @@ import {
 import { rulesetHeaders, verifyRulesetResponse } from './rulesetIdentity'
 import type { ConcreteItem, WorkbenchAction } from './workbenchApi'
 import type { Definition, Initial } from './craftingApi'
+import { UnrevealedRune } from './abyss-workbench/UnrevealedRune'
+import { abyssWorkbenchMessages } from './abyss-workbench/messages'
 
 type Modifier = ConcreteItem['explicits'][number]
 type Slot = {
@@ -193,7 +195,6 @@ export function AbyssPanel({
   embedded = false,
   observationOnly = false,
   localScenario = true,
-  allowAdd = true,
   directSelection = false,
   restoredState,
   onTransition,
@@ -215,20 +216,24 @@ export function AbyssPanel({
 }) {
   const { locale } = useI18n()
   const t = texts[locale]
-  const [open, setOpen] = useState(embedded || !!prepared)
+  // A bone-created/restored slot or an existing prepared route opens this panel.
+  // The legacy allowAdd prop stays accepted, but cannot create a currency-free slot.
+  const open =
+    !!prepared ||
+    !!restoredState?.slots.some((slot) => slot.desecrated) ||
+    !!source.desecrated?.length
+  const [revealingSlotId, setRevealingSlotId] = useState<string | null>(null)
   const [saveError, setSaveError] = useState(false)
   const focus = useRef<HTMLSelectElement>(null)
   const client = useQueryClient()
   const [useDraft] = useState(() =>
     create<{
-      side: 'PREFIX' | 'SUFFIX'
       slotId: string
       candidates: (Modifier | null)[]
       action: WorkbenchAction
       target: string
       edit: (
         patch: Partial<{
-          side: 'PREFIX' | 'SUFFIX'
           slotId: string
           candidates: (Modifier | null)[]
           action: WorkbenchAction
@@ -236,8 +241,8 @@ export function AbyssPanel({
         }>,
       ) => void
     }>((set) => ({
-      side: 'PREFIX',
-      slotId: prepared?.slots.find((s) => s.desecrated)?.id ?? '',
+      slotId:
+        (restoredState ?? prepared)?.slots.find((s) => s.desecrated)?.id ?? '',
       candidates: [null, null, null],
       action: initialAction,
       target: '',
@@ -395,7 +400,7 @@ export function AbyssPanel({
   })
   const plan = useQuery({
     queryKey: [...key, 'plan', state, draft.action, activeOmens],
-    enabled: !!state && !observationOnly,
+    enabled: open && !!state && !observationOnly && !directSelection,
     queryFn: ({ signal }) =>
       request<Plan>(
         'plan',
@@ -431,7 +436,12 @@ export function AbyssPanel({
   const eligible = useQuery({
     queryKey: [...key, 'eligible', state, draft.slotId],
     enabled:
-      directSelection && !!state && !!selected && selected.modifier === null,
+      open &&
+      directSelection &&
+      !!state &&
+      !!selected &&
+      selected.id === revealingSlotId &&
+      selected.modifier === null,
     retry: false,
     queryFn: ({ signal }) =>
       request<string[]>('eligible', { state, slotId: draft.slotId }, signal),
@@ -479,20 +489,12 @@ export function AbyssPanel({
   const busy = mutation.isPending || query.isFetching
   const submit = (operation: string, payload: Record<string, unknown>) =>
     mutation.mutate({ operation, payload })
+  if (!open) return null
   return (
     <section className="abyss-panel">
-      {!embedded && (
-        <button
-          type="button"
-          aria-expanded={open}
-          onClick={() => setOpen(!open)}
-        >
-          {t[0]}
-        </button>
-      )}
       {open && (
         <>
-          <p>{directSelection ? directCopy[0] : t[20]}</p>
+          {!directSelection && <p>{t[20]}</p>}
           {(query.isError ||
             mutation.isError ||
             plan.isError ||
@@ -520,12 +522,14 @@ export function AbyssPanel({
                     >
                       {slot.side === 'PREFIX' ? t[2] : t[3]}:{' '}
                       {slot.modifier &&
-                      initial.modifiers[slot.modifier.modifierId]
-                        ? label(
-                            initial.modifiers[slot.modifier.modifierId]!,
-                            slot.modifier.values,
-                          )
-                        : t[1]}
+                      initial.modifiers[slot.modifier.modifierId] ? (
+                        label(
+                          initial.modifiers[slot.modifier.modifierId]!,
+                          slot.modifier.values,
+                        )
+                      ) : (
+                        <UnrevealedRune />
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -536,6 +540,7 @@ export function AbyssPanel({
                   ref={focus}
                   value={draft.slotId}
                   onChange={(e) => {
+                    setRevealingSlotId(null)
                     draft.edit({
                       slotId: e.target.value,
                       candidates: [null, null, null],
@@ -552,142 +557,126 @@ export function AbyssPanel({
                     ))}
                 </select>
               </label>
-              {!observationOnly && allowAdd && (
-                <>
-                  <label>
-                    {t[4]}{' '}
-                    <select
-                      value={draft.side}
-                      onChange={(e) =>
-                        draft.edit({
-                          side: e.target.value as 'PREFIX' | 'SUFFIX',
-                        })
+              {directSelection && selected?.modifier === null && (
+                <button
+                  type="button"
+                  disabled={busy}
+                  aria-expanded={revealingSlotId === selected.id}
+                  onClick={() => setRevealingSlotId(selected.id)}
+                >
+                  {abyssWorkbenchMessages[locale].reveal}
+                </button>
+              )}
+              {selected &&
+                (!directSelection ||
+                  (selected.modifier === null &&
+                    revealingSlotId === selected.id)) && (
+                  <fieldset disabled={busy}>
+                    <legend>{directSelection ? directCopy[1] : t[6]}</legend>
+                    {directSelection && <p>{directCopy[0]}</p>}
+                    {directSelection && eligible.isError && (
+                      <p role="alert">{t[14]}</p>
+                    )}
+                    {(directSelection
+                      ? draft.candidates.slice(0, 1)
+                      : draft.candidates
+                    ).map((candidate, index) => (
+                      <div key={index}>
+                        <label>
+                          {t[17]} {index + 1}{' '}
+                          <select
+                            value={candidate?.modifierId ?? ''}
+                            onChange={(e) => {
+                              const d = initial.modifiers[e.target.value]
+                              const candidates = [...draft.candidates]
+                              candidates[index] = d
+                                ? {
+                                    modifierId: d.id,
+                                    values: Object.fromEntries(
+                                      (d.stats ?? []).map((s) => [s.id, s.min]),
+                                    ),
+                                    fractured: false,
+                                  }
+                                : null
+                              draft.edit({ candidates })
+                            }}
+                          >
+                            <option value="">—</option>
+                            {candidateDefinitions.map((d) => (
+                              <option key={d.id} value={d.id}>
+                                {label(d)}
+                              </option>
+                            ))}
+                          </select>
+                        </label>
+                        {candidate &&
+                          initial.modifiers[candidate.modifierId]?.stats?.map(
+                            (stat) => {
+                              const divisor = modifierRollDivisor(
+                                initial.modifiers[candidate.modifierId]!,
+                                stat.id,
+                              )
+                              return (
+                                <label key={stat.id}>
+                                  {label(
+                                    initial.modifiers[candidate.modifierId]!,
+                                  )}{' '}
+                                  ({stat.min}–{stat.max})
+                                  <input
+                                    type="number"
+                                    min={stat.min / divisor}
+                                    max={stat.max / divisor}
+                                    step={1 / divisor}
+                                    value={
+                                      (candidate.values[stat.id] ?? 0) / divisor
+                                    }
+                                    onChange={(e) => {
+                                      const candidates = [...draft.candidates]
+                                      candidates[index] = {
+                                        ...candidate,
+                                        values: {
+                                          ...candidate.values,
+                                          [stat.id]: storedModifierRoll(
+                                            e.target.valueAsNumber,
+                                            divisor,
+                                          ),
+                                        },
+                                      }
+                                      draft.edit({ candidates })
+                                    }}
+                                  />
+                                </label>
+                              )
+                            },
+                          )}
+                      </div>
+                    ))}
+                    <button
+                      disabled={
+                        directSelection
+                          ? !draft.candidates[0] ||
+                            !eligible.data?.includes(
+                              draft.candidates[0].modifierId,
+                            ) ||
+                            eligible.isFetching
+                          : draft.candidates.some((c) => !c)
+                      }
+                      onClick={() =>
+                        directSelection
+                          ? submit('select', {
+                              slotId: draft.slotId,
+                              candidate: draft.candidates[0],
+                            })
+                          : submit('observe', {
+                              slotId: draft.slotId,
+                              candidates: draft.candidates,
+                            })
                       }
                     >
-                      <option value="PREFIX">{t[2]}</option>
-                      <option value="SUFFIX">{t[3]}</option>
-                    </select>
-                  </label>
-                  <button
-                    disabled={busy || state.slots.length >= 6}
-                    onClick={() =>
-                      submit('add', {
-                        slotId: crypto.randomUUID(),
-                        side: draft.side,
-                      })
-                    }
-                  >
-                    {t[4]}
-                  </button>
-                </>
-              )}
-              {selected && (!directSelection || selected.modifier === null) && (
-                <fieldset disabled={busy}>
-                  <legend>{directSelection ? directCopy[1] : t[6]}</legend>
-                  {directSelection && <p>{directCopy[0]}</p>}
-                  {directSelection && eligible.isError && (
-                    <p role="alert">{t[14]}</p>
-                  )}
-                  {(directSelection
-                    ? draft.candidates.slice(0, 1)
-                    : draft.candidates
-                  ).map((candidate, index) => (
-                    <div key={index}>
-                      <label>
-                        {t[17]} {index + 1}{' '}
-                        <select
-                          value={candidate?.modifierId ?? ''}
-                          onChange={(e) => {
-                            const d = initial.modifiers[e.target.value]
-                            const candidates = [...draft.candidates]
-                            candidates[index] = d
-                              ? {
-                                  modifierId: d.id,
-                                  values: Object.fromEntries(
-                                    (d.stats ?? []).map((s) => [s.id, s.min]),
-                                  ),
-                                  fractured: false,
-                                }
-                              : null
-                            draft.edit({ candidates })
-                          }}
-                        >
-                          <option value="">—</option>
-                          {candidateDefinitions.map((d) => (
-                            <option key={d.id} value={d.id}>
-                              {label(d)}
-                            </option>
-                          ))}
-                        </select>
-                      </label>
-                      {candidate &&
-                        initial.modifiers[candidate.modifierId]?.stats?.map(
-                          (stat) => {
-                            const divisor = modifierRollDivisor(
-                              initial.modifiers[candidate.modifierId]!,
-                              stat.id,
-                            )
-                            return (
-                              <label key={stat.id}>
-                                {label(
-                                  initial.modifiers[candidate.modifierId]!,
-                                )}{' '}
-                                ({stat.min}–{stat.max})
-                                <input
-                                  type="number"
-                                  min={stat.min / divisor}
-                                  max={stat.max / divisor}
-                                  step={1 / divisor}
-                                  value={
-                                    (candidate.values[stat.id] ?? 0) / divisor
-                                  }
-                                  onChange={(e) => {
-                                    const candidates = [...draft.candidates]
-                                    candidates[index] = {
-                                      ...candidate,
-                                      values: {
-                                        ...candidate.values,
-                                        [stat.id]: storedModifierRoll(
-                                          e.target.valueAsNumber,
-                                          divisor,
-                                        ),
-                                      },
-                                    }
-                                    draft.edit({ candidates })
-                                  }}
-                                />
-                              </label>
-                            )
-                          },
-                        )}
-                    </div>
-                  ))}
-                  <button
-                    disabled={
-                      directSelection
-                        ? !draft.candidates[0] ||
-                          !eligible.data?.includes(
-                            draft.candidates[0].modifierId,
-                          ) ||
-                          eligible.isFetching
-                        : draft.candidates.some((c) => !c)
-                    }
-                    onClick={() =>
-                      directSelection
-                        ? submit('select', {
-                            slotId: draft.slotId,
-                            candidate: draft.candidates[0],
-                          })
-                        : submit('observe', {
-                            slotId: draft.slotId,
-                            candidates: draft.candidates,
-                          })
-                    }
-                  >
-                    {directSelection ? directCopy[2] : t[7]}
-                  </button>
-                </fieldset>
-              )}
+                      {directSelection ? directCopy[2] : t[7]}
+                    </button>
+                  </fieldset>
+                )}
               {state.offer && !directSelection && (
                 <ol>
                   {state.offer.candidates.map((candidate, index) => (
@@ -708,7 +697,7 @@ export function AbyssPanel({
                   ))}
                 </ol>
               )}
-              {!observationOnly && (
+              {!observationOnly && !directSelection && (
                 <>
                   {activeOmens.map((omen) => (
                     <p key={omen}>{gameName(omen, omen)}</p>

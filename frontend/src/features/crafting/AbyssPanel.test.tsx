@@ -2,7 +2,7 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { beforeEach, afterEach, expect, it, vi } from 'vitest'
 import { setLocale } from '../../shared/i18n/i18n'
-import { AbyssPanel } from './AbyssPanel'
+import { AbyssPanel, type AbyssState } from './AbyssPanel'
 import { validAbyssResponse } from './abyssResponse'
 import type { ConcreteItem } from './workbenchApi'
 import type { Initial } from './craftingApi'
@@ -79,7 +79,7 @@ beforeEach(() => {
   )
 })
 afterEach(() => vi.unstubAllGlobals())
-function panel() {
+function panel(prepared?: AbyssState) {
   return render(
     <QueryClientProvider
       client={
@@ -91,21 +91,35 @@ function panel() {
         })
       }
     >
-      <AbyssPanel source={source} initial={initial} />
+      <AbyssPanel
+        source={source}
+        initial={initial}
+        {...(prepared ? { prepared } : {})}
+      />
     </QueryClientProvider>,
   )
 }
-it('shows an unrevealed green slot and records three observed candidates without a currency action or probability', async () => {
+it('does not offer a separate Abyss start or a currency-free slot for an ordinary rare item', () => {
   panel()
-  fireEvent.click(screen.getByRole('button', { name: 'Abyss crafting' }))
-  fireEvent.click(
-    await screen.findByRole('button', { name: 'Add unrevealed slot' }),
-  )
+  expect(screen.queryByRole('button')).not.toBeInTheDocument()
+  expect(document.querySelector('.abyss-panel')).not.toBeInTheDocument()
+  expect(calls).toHaveLength(0)
+})
+
+it('renders a prepared rune slot and preserves legacy observed triples without a currency action or reveal probability', async () => {
+  panel({
+    ...empty,
+    slots: [{ id: 'hidden', side: 'PREFIX', modifier: null, desecrated: true }],
+  })
   await waitFor(() =>
-    expect(document.querySelector('.abyss-slot')).toHaveTextContent(
-      'Unrevealed desecrated modifier',
-    ),
+    expect(
+      screen.getByRole('img', { name: 'Unrevealed desecrated modifier' }),
+    ).toBeInTheDocument(),
   )
+  expect(screen.queryByText('Unrevealed desecrated modifier')).toBeNull()
+  expect(
+    screen.queryByRole('button', { name: 'Add unrevealed slot' }),
+  ).toBeNull()
   const selected = screen.getByLabelText('Desecrated slot') as HTMLSelectElement
   fireEvent.change(selected, { target: { value: selected.options[1]!.value } })
   for (const index of [1, 2, 3])
@@ -124,6 +138,7 @@ it('shows an unrevealed green slot and records three observed candidates without
   expect(observed.body).not.toHaveProperty('action')
   expect(observed.body.candidates).toHaveLength(3)
   expect(JSON.stringify(observed.body)).not.toContain('probability')
+  expect(calls.some((c) => c.url.endsWith('/add'))).toBe(false)
   expect(localStorage.length).toBeGreaterThan(0)
   expect(selected).toHaveFocus()
 })
@@ -275,7 +290,12 @@ it('direct selection lists eligible options, sends one chosen modifier and hides
     </QueryClientProvider>,
   )
   const select = await screen.findByLabelText('Desecrated slot')
+  expect(screen.queryByLabelText('Candidate 1')).not.toBeInTheDocument()
+  expect(fetch.mock.calls.some(([url]) => url.endsWith('/eligible'))).toBe(
+    false,
+  )
   fireEvent.change(select, { target: { value: 'hidden' } })
+  fireEvent.click(screen.getByRole('button', { name: 'Reveal' }))
   await screen.findByRole('option', { name: /maximum Life/ })
   fireEvent.change(screen.getByLabelText('Candidate 1'), {
     target: { value: 'life' },
@@ -307,5 +327,10 @@ it('direct selection lists eligible options, sends one chosen modifier and hides
   const call = fetch.mock.calls.find(([url]) => url.endsWith('/select'))!
   expect(JSON.parse(call[1].body as string)).not.toHaveProperty('candidates')
   expect(fetch.mock.calls.some(([url]) => url.endsWith('/observe'))).toBe(false)
+  expect(fetch.mock.calls.some(([url]) => url.endsWith('/add'))).toBe(false)
+  expect(fetch.mock.calls.some(([url]) => url.endsWith('/desecrate'))).toBe(
+    false,
+  )
+  expect(screen.queryByLabelText('Candidate 1')).not.toBeInTheDocument()
   client.clear()
 })

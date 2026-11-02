@@ -22,6 +22,35 @@ class DesecrationCurrencyTest {
   }
 
   @Test
+  void boneRemainsUnrevealedAcrossEligibilityLookupAndRestoreUntilExplicitSelection() {
+    var catalog = ManualRevealCatalog.enrich(f.catalog);
+    var original = f.rare(82, "", "amulet:prefix:hale");
+    var hidden =
+        DesecrationCurrency.apply(
+            original, "Preserved_Collarbone", AffixType.SUFFIX, null, Set.of(), catalog);
+    var slot = hidden.slots().getLast();
+    var stored = hidden.storedItem();
+    assertThat(hidden.offer()).isNull();
+    assertThat(slot.modifier()).isNull();
+    assertThat(stored.explicits()).isEqualTo(original.explicits());
+    assertThat(stored.desecrated()).hasSize(1);
+    assertThat(stored.desecrated().getFirst().modifierId()).isNull();
+    var restored = AbyssCraftingState.from(stored, catalog);
+    var eligible = restored.eligibleRevealIds(slot.id(), catalog);
+    assertThat(eligible).isNotEmpty();
+    assertThat(restored).isEqualTo(hidden);
+    assertThat(restored.storedItem()).isEqualTo(stored);
+    var selected =
+        restored.selectDirect(
+            slot.id(), minimum(catalog.find(eligible.getFirst()).orElseThrow()), catalog);
+    assertThat(selected.slots().getLast().id()).isEqualTo(slot.id());
+    assertThat(selected.slots().getLast().modifier()).isNotNull();
+    assertThat(selected.offer()).isNull();
+    assertThat(hidden.slots().getLast().modifier()).isNull();
+    assertThat(original.desecrated()).isEmpty();
+  }
+
+  @Test
   void jewelCraniumDirectChoiceAndRestoreAllEightBases() {
     for (String key :
         List.of(
