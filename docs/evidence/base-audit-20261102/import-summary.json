@@ -583,5 +583,95 @@
       "rarePrefixes": 3,
       "rareSuffixes": 3
     }
+  },
+  {
+    "key": "biostatic-ring",
+    "slug": "Biostatic_Ring",
+    "variantIndex": 0,
+    "template": "amethyst",
+    "name": "Biostatic Ring",
+    "korean": "생물정역학 반지",
+    "rareOnly": false,
+    "affixLimits": {
+      "magicPrefixes": 1,
+      "magicSuffixes": 1,
+      "rarePrefixes": 3,
+      "rareSuffixes": 3
+    }
+  },
+  {
+    "key": "oneiric-ring",
+    "slug": "Oneiric_Ring",
+    "variantIndex": 0,
+    "template": "amethyst",
+    "name": "Oneiric Ring",
+    "korean": "몽상 반지",
+    "rareOnly": false,
+    "affixLimits": {
+      "magicPrefixes": 1,
+      "magicSuffixes": 1,
+      "rarePrefixes": 3,
+      "rareSuffixes": 3
+    }
+  },
+  {
+    "key": "dusk-ring",
+    "slug": "Dusk_Ring",
+    "variantIndex": 0,
+    "template": "amethyst",
+    "name": "Dusk Ring",
+    "korean": "황혼 반지",
+    "rareOnly": false,
+    "affixLimits": {
+      "magicPrefixes": 2,
+      "magicSuffixes": 0,
+      "rarePrefixes": 4,
+      "rareSuffixes": 2
+    }
+  },
+  {
+    "key": "gloam-ring",
+    "slug": "Gloam_Ring",
+    "variantIndex": 0,
+    "template": "amethyst",
+    "name": "Gloam Ring",
+    "korean": "석양 반지",
+    "rareOnly": false,
+    "affixLimits": {
+      "magicPrefixes": 0,
+      "magicSuffixes": 2,
+      "rarePrefixes": 2,
+      "rareSuffixes": 4
+    }
+  },
+  {
+    "key": "penumbra-ring",
+    "slug": "Penumbra_Ring",
+    "variantIndex": 0,
+    "template": "amethyst",
+    "name": "Penumbra Ring",
+    "korean": "음영 반지",
+    "rareOnly": false,
+    "affixLimits": {
+      "magicPrefixes": 3,
+      "magicSuffixes": 0,
+      "rarePrefixes": 5,
+      "rareSuffixes": 1
+    }
+  },
+  {
+    "key": "tenebrous-ring",
+    "slug": "Tenebrous_Ring",
+    "variantIndex": 0,
+    "template": "amethyst",
+    "name": "Tenebrous Ring",
+    "korean": "어둑한 반지",
+    "rareOnly": false,
+    "affixLimits": {
+      "magicPrefixes": 0,
+      "magicSuffixes": 3,
+      "rarePrefixes": 1,
+      "rareSuffixes": 5
+    }
   }
 ]

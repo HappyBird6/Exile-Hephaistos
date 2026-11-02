@@ -12,7 +12,7 @@ const inventories = [
 const registrySlugs = new Set([...Object.values(bases).map((base) => base.sourceUrl.split('/').at(-1)), ...Object.values(legacy).map((base) => base.slug.replaceAll(' ','_'))])
 const inventoryRows = inventories.filter((page) => Array.isArray(page.cards)).map((page) => ({ page: page.page, source: page.url, retrievedAt: page.retrievedAt, sha256: page.sha256, rows: page.cards.map((row) => ({ ...row, status: registrySlugs.has(row.slug) ? 'REGISTERED_IDENTITY_OR_VARIANT' : /^Rune(forged|mastered)_/.test(row.slug) ? 'UNREGISTERED_RUNIC_WARD_ALLOY_VARIANT' : 'UNREGISTERED_PROGRESSION_OR_RELEASE_CANDIDATE' })) }))
 const pendingSlugs = ['Golden_Hoop','Abyssal_Signet','Biostatic_Ring','Oneiric_Ring','Grasping_Ring','Ring','Dusk_Ring','Gloam_Ring','Penumbra_Ring','Tenebrous_Ring','Breach_Ring','Refined_Breach_Ring','Veridical_Chain','Runemastered_Veridical_Chain','Golden_Obi','Runemastered_Heavy_Belt','Stalking_Belt']
-const pending = pendingSlugs.map((slug) => {
+const candidateRows = pendingSlugs.map((slug) => {
   const source = read(`${root}/${slug}.us.json`), korean = read(`${root}/${slug}.kr.json`)
   const reason = /Demigods|Unique/.test(source.variants.map((base) => base.fields.Type).join(' ')) ? 'Demigod/Unique identity or Runic Ward/Alloy variants: excluded from ordinary crafting release scope; rarity-enable flags are not drop provenance.'
     : /Breach/.test(slug) ? 'Sourced implicit maximum-quality bonus needs a dedicated 40/45 base cap and interaction review; current quality boundary assumes an ordinary base cap of 20.'
@@ -21,16 +21,18 @@ const pending = pendingSlugs.map((slug) => {
     : 'Additional exact source candidate found by the audit; ordinary acquisition/explicit-pool release review remains outside the explicitly requested accessory additions.'
   return { slug, source: source.url, sourceSha256: source.sha256, names: source.variants.map((base) => base.name), korean: korean.variants.map((base) => base.name), ids: source.variants.map((base) => base.fields.Type), engineRarityFlags: source.variants.map((base) => base.fields['Mods.enable_rarity']), effects: source.proofs.map((proof) => proof.text), reason }
 })
+const resolvedAdditionalCandidates = candidateRows.filter(row => registrySlugs.has(row.slug)).map(row => ({ ...row, status: 'SUPPORTED', reason: 'Official GGG item-filter identity and captured class/stat proof; existing reviewed class pool retained.' }))
+const pending = candidateRows.filter(row => !registrySlugs.has(row.slug))
 const images = read('frontend/src/features/crafting/base-picker/baseImageSources.json')
 const missingImages = Object.entries(images).filter(([,image]) => !image.file && !image.image.startsWith('/')).map(([id,source]) => {
   const base = Object.values(bases).find((base) => base.id === id)
-  return { id, name: base.name, korean: read('frontend/src/shared/i18n/gameTerms.json').ko[base.slug].name, url: source.image, status: source.cacheBlocked }
+  return { id, name: base.name, korean: read('frontend/src/shared/i18n/gameTerms.json').ko[base.slug].name, url: source.image, status: source.cacheBlocked ?? source.status }
 })
-const report = { baseline: '8524b6b781651379a6cff9108525282a0691df25', imported, excludedFromNewSelectionOnly: ['kinetic','mnemonic','vitalic','two-stone-fire-cold'], rareOnlyUserPolicy: ['dusk-amulet','gloam-amulet','penumbra-amulet','tenebrous-amulet','corona-amulet','sinew-belt','invoking-belt','forking-belt'], inventoryRows, additionalPendingCandidates: pending, missingImages }
+const report = { baseline: '8524b6b781651379a6cff9108525282a0691df25', imported, excludedFromNewSelectionOnly: ['kinetic','mnemonic','vitalic','two-stone-fire-cold'], rareOnlyUserPolicy: ['dusk-amulet','gloam-amulet','penumbra-amulet','tenebrous-amulet','corona-amulet','sinew-belt','invoking-belt','forking-belt'], inventoryRows, resolvedAdditionalCandidates, additionalPendingCandidates: pending, missingImages }
 fs.writeFileSync(`${root}/audit.json`,JSON.stringify(report,null,2)+'\n')
 const lines = [
   '# 베이스 감사 및 제작 정책', '',
-  '기준: 8524b6b781651379a6cff9108525282a0691df25. 기존 저장 기록·원문·카탈로그 identity를 삭제하지 않았다. 신규 39개 identity는 반지 6종, 목걸이 13종, 갑옷 고정 옵션별 20개이다. 현재 top registry 156개, legacy 포함 173개이며 새 작업대 선택은 165개이다.', '',
+  '기준: 8524b6b781651379a6cff9108525282a0691df25. 기존 저장 기록·원문·카탈로그 identity를 삭제하지 않았다. 신규 45개 identity는 반지 12종, 목걸이 13종, 갑옷 고정 옵션별 20개이다. 현재 top registry 162개, legacy 포함 179개이며 새 작업대 선택은 171개이다.', '',
   '## 신규 지원 목록', '', '| key | 한국어 | English | 희귀 전용 | P/S (Rare) |', '|---|---|---|---|---|',
   ...imported.map((row) => `| ${row.key} | ${row.korean} | ${row.name} | ${row.rareOnly ? '예' : '아니오'} | ${row.affixLimits.rarePrefixes}/${row.affixLimits.rareSuffixes} |`), '',
   '## 근거와 범위', '',
@@ -40,7 +42,7 @@ const lines = [
   '- 역학/기억/활력/쌍보석 반지 제외 및 목걸이 5종·허리띠 3종 Rare 전용은 사용자 제작 범위 정책이다. 추출 데이터의 Mods.enable_rarity에는 normal/magic/rare/unique가 함께 있으므로, 이 플래그만으로 일반 드롭 존재나 고유 전용 여부를 단정하지 않는다. 기존 베이스/currency 등록은 남기고 새 선택만 제외했다.',
   '- Rare 전용은 초기 API, 클라이언트 응답/상태 검증, 가져오기 서버 검증, 기록 복원 후 제작 경계에서 적용한다. 과거 Normal/Magic 기록의 저장 바이트를 지우거나 Rare로 자동 변환하지 않는다.',
   '- Lament/Portent/Absent는 원문 후보 중 첫 유효 스킬 하나를 사용자 허용 임시 예시로 표시한다. 6개 언어 표시 앞에 임시 정책 문구를 붙이며, 실제 확정된 roll/관측/확률로 저장하지 않는다. 대표값은 Arctic Armour 11, Wolf Pack 11, Cast on Elemental Ailment 12이다. 해당 스킬 효과의 전투 계산은 지원하지 않는다.',
-  '- 요청한 베이스 원문에는 특정 Notable 할당(Allocates) identity가 없다. Essence of Delirium 등으로 할당되는 Notable까지 임의로 확정하지 않았다. 이 부분은 스킬 후보 예시와 별개로, 실제 할당 후보 출처/규칙이 필요하다.', '',
+  '- 목걸이 생성/미리보기에는 사용자 허용 임시 패시브 예시 Heavy Ammunition을 별도 표기한다. 실제 베이스 고정 옵션이나 수치로 추가하지 않으며 계산·실제 패시브 할당·액체 감정 소비를 수행하지 않는다. Lament/Portent/Absent의 원문 스킬 예시와 구분한다.', '',
   '## 전체 목록 대조와 추가 보류', '',
   `기존 전체 장비 roster ${inventoryRows.length}개 페이지의 각 행을 현재 registry와 대조하여 audit.json에 남겼다. 낮은 진행 단계·같은 고정 옵션·Runeforged/Runemastered 변형도 누락시키지 않고 등록 여부를 기록했다. 아래는 추가로 6개 언어의 정확한 이름/ID/옵션을 수집했지만 이번 신규 선택에 넣지 않은 장신구 후보이다.`, '',
   '| 한국어 | English/source slug | 보류 사유 |', '|---|---|---|',

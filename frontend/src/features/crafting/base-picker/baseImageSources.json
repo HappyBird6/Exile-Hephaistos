@@ -1388,5 +1388,41 @@
     "file": "8f8175234b1a4854ad49.webp",
     "sha256": "8f8175234b1a4854ad493d42287d99b70f52ca02dd24496c63de4a5b92a974de",
     "size": 16034
+  },
+  "Metadata/Items/Rings/FourRingB1": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/BreachlordRing_Tul.webp",
+    "source": "docs/evidence/base-audit-20261102/Biostatic_Ring.us.json",
+    "sourceSha256": "452e074fd1abb9e020f9cb3b3f59f2ee8bc1c83367df2b3cbbeb75cae3cbdf5c",
+    "status": "Unavailable after one download attempt: HTTPError"
+  },
+  "Metadata/Items/Rings/FourRingB5": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/BreachlordRing_Chayula.webp",
+    "source": "docs/evidence/base-audit-20261102/Oneiric_Ring.us.json",
+    "sourceSha256": "206c3adbf1716093305f874613ca75140fc2134a0424949fa41babc8635d77a6",
+    "status": "Unavailable after one download attempt: HTTPError"
+  },
+  "Metadata/Items/Rings/FourRingLake1": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/LakeRing1.webp",
+    "source": "docs/evidence/base-audit-20261102/Dusk_Ring.us.json",
+    "sourceSha256": "6c1dbaa3979db048bc74f5573b3d8f718154d3e2860035cbb923c067616a16d9",
+    "status": "Unavailable after one download attempt: HTTPError"
+  },
+  "Metadata/Items/Rings/FourRingLake2": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/LakeRing2.webp",
+    "source": "docs/evidence/base-audit-20261102/Gloam_Ring.us.json",
+    "sourceSha256": "92622e5b88b0844f99b9dc52300d6bfdf33717f0c9fed27f7b5a3898ad4de415",
+    "status": "Unavailable after one download attempt: HTTPError"
+  },
+  "Metadata/Items/Rings/FourRingLake3": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/LakeRing3.webp",
+    "source": "docs/evidence/base-audit-20261102/Penumbra_Ring.us.json",
+    "sourceSha256": "a33ed7486c91c63262cd453e607c17dcc995ba2bc1935ff10b8c4dcd47cb5c50",
+    "status": "Unavailable after one download attempt: HTTPError"
+  },
+  "Metadata/Items/Rings/FourRingLake4": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/LakeRing4.webp",
+    "source": "docs/evidence/base-audit-20261102/Tenebrous_Ring.us.json",
+    "sourceSha256": "14c647cfabceb427e8f5debeb1cab9fd971a406421a9df3f2eee7c2d8b72d9a5",
+    "status": "Unavailable after one download attempt: HTTPError"
   }
 }

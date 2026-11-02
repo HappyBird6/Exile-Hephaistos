@@ -585,6 +585,96 @@
         "rarePrefixes": 3,
         "rareSuffixes": 3
       }
+    },
+    {
+      "key": "biostatic-ring",
+      "slug": "Biostatic_Ring",
+      "variantIndex": 0,
+      "template": "amethyst",
+      "name": "Biostatic Ring",
+      "korean": "생물정역학 반지",
+      "rareOnly": false,
+      "affixLimits": {
+        "magicPrefixes": 1,
+        "magicSuffixes": 1,
+        "rarePrefixes": 3,
+        "rareSuffixes": 3
+      }
+    },
+    {
+      "key": "oneiric-ring",
+      "slug": "Oneiric_Ring",
+      "variantIndex": 0,
+      "template": "amethyst",
+      "name": "Oneiric Ring",
+      "korean": "몽상 반지",
+      "rareOnly": false,
+      "affixLimits": {
+        "magicPrefixes": 1,
+        "magicSuffixes": 1,
+        "rarePrefixes": 3,
+        "rareSuffixes": 3
+      }
+    },
+    {
+      "key": "dusk-ring",
+      "slug": "Dusk_Ring",
+      "variantIndex": 0,
+      "template": "amethyst",
+      "name": "Dusk Ring",
+      "korean": "황혼 반지",
+      "rareOnly": false,
+      "affixLimits": {
+        "magicPrefixes": 2,
+        "magicSuffixes": 0,
+        "rarePrefixes": 4,
+        "rareSuffixes": 2
+      }
+    },
+    {
+      "key": "gloam-ring",
+      "slug": "Gloam_Ring",
+      "variantIndex": 0,
+      "template": "amethyst",
+      "name": "Gloam Ring",
+      "korean": "석양 반지",
+      "rareOnly": false,
+      "affixLimits": {
+        "magicPrefixes": 0,
+        "magicSuffixes": 2,
+        "rarePrefixes": 2,
+        "rareSuffixes": 4
+      }
+    },
+    {
+      "key": "penumbra-ring",
+      "slug": "Penumbra_Ring",
+      "variantIndex": 0,
+      "template": "amethyst",
+      "name": "Penumbra Ring",
+      "korean": "음영 반지",
+      "rareOnly": false,
+      "affixLimits": {
+        "magicPrefixes": 3,
+        "magicSuffixes": 0,
+        "rarePrefixes": 5,
+        "rareSuffixes": 1
+      }
+    },
+    {
+      "key": "tenebrous-ring",
+      "slug": "Tenebrous_Ring",
+      "variantIndex": 0,
+      "template": "amethyst",
+      "name": "Tenebrous Ring",
+      "korean": "어둑한 반지",
+      "rareOnly": false,
+      "affixLimits": {
+        "magicPrefixes": 0,
+        "magicSuffixes": 3,
+        "rarePrefixes": 1,
+        "rareSuffixes": 5
+      }
     }
   ],
   "excludedFromNewSelectionOnly": [
@@ -5869,7 +5959,7 @@
         {
           "slug": "Biostatic_Ring",
           "card": "Biostatic RingRequires:  Level 52+1% to all maximum Resistances",
-          "status": "UNREGISTERED_PROGRESSION_OR_RELEASE_CANDIDATE"
+          "status": "REGISTERED_IDENTITY_OR_VARIANT"
         },
         {
           "slug": "Vitalic_Ring",
@@ -5889,7 +5979,7 @@
         {
           "slug": "Oneiric_Ring",
           "card": "Oneiric RingRequires:  Level 47(11—23)% increased Chaos Damage",
-          "status": "UNREGISTERED_PROGRESSION_OR_RELEASE_CANDIDATE"
+          "status": "REGISTERED_IDENTITY_OR_VARIANT"
         },
         {
           "slug": "Grasping_Ring",
@@ -5904,22 +5994,22 @@
         {
           "slug": "Dusk_Ring",
           "card": "Dusk Ring+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed",
-          "status": "UNREGISTERED_PROGRESSION_OR_RELEASE_CANDIDATE"
+          "status": "REGISTERED_IDENTITY_OR_VARIANT"
         },
         {
           "slug": "Gloam_Ring",
           "card": "Gloam Ring-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed",
-          "status": "UNREGISTERED_PROGRESSION_OR_RELEASE_CANDIDATE"
+          "status": "REGISTERED_IDENTITY_OR_VARIANT"
         },
         {
           "slug": "Penumbra_Ring",
           "card": "Penumbra Ring+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed",
-          "status": "UNREGISTERED_PROGRESSION_OR_RELEASE_CANDIDATE"
+          "status": "REGISTERED_IDENTITY_OR_VARIANT"
         },
         {
           "slug": "Tenebrous_Ring",
           "card": "Tenebrous Ring-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed",
-          "status": "UNREGISTERED_PROGRESSION_OR_RELEASE_CANDIDATE"
+          "status": "REGISTERED_IDENTITY_OR_VARIANT"
         },
         {
           "slug": "Breach_Ring",
@@ -9434,6 +9524,140 @@
       ]
     }
   ],
+  "resolvedAdditionalCandidates": [
+    {
+      "slug": "Biostatic_Ring",
+      "source": "https://poe2db.tw/us/Biostatic_Ring",
+      "sourceSha256": "64d00884ccec6a10a0d878845bbc9c28f20af32f64f22c577adf92f38a15be34",
+      "names": [
+        "Biostatic Ring"
+      ],
+      "korean": [
+        "생물정역학 반지"
+      ],
+      "ids": [
+        "Metadata/Items/Rings/FourRingB1"
+      ],
+      "engineRarityFlags": [
+        "normal, magic, rare, unique"
+      ],
+      "effects": [
+        "+1% to all maximum Resistances"
+      ],
+      "reason": "Official GGG item-filter identity and captured class/stat proof; existing reviewed class pool retained.",
+      "status": "SUPPORTED"
+    },
+    {
+      "slug": "Oneiric_Ring",
+      "source": "https://poe2db.tw/us/Oneiric_Ring",
+      "sourceSha256": "eaa381a7de5f2bcce0823301fcdc56ada9c6da3242e0ed5618cfa0d23597433b",
+      "names": [
+        "Oneiric Ring"
+      ],
+      "korean": [
+        "몽상 반지"
+      ],
+      "ids": [
+        "Metadata/Items/Rings/FourRingB5"
+      ],
+      "engineRarityFlags": [
+        "normal, magic, rare, unique"
+      ],
+      "effects": [
+        "(11—23)% increased Chaos Damage"
+      ],
+      "reason": "Official GGG item-filter identity and captured class/stat proof; existing reviewed class pool retained.",
+      "status": "SUPPORTED"
+    },
+    {
+      "slug": "Dusk_Ring",
+      "source": "https://poe2db.tw/us/Dusk_Ring",
+      "sourceSha256": "a5ddfec7e44d1e3f6af30c31ca797985bf601c7eb334f505c9519839fca1bf87",
+      "names": [
+        "Dusk Ring"
+      ],
+      "korean": [
+        "황혼 반지"
+      ],
+      "ids": [
+        "Metadata/Items/Rings/FourRingLake1"
+      ],
+      "engineRarityFlags": [
+        "normal, magic, rare, unique"
+      ],
+      "effects": [
+        "+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed"
+      ],
+      "reason": "Official GGG item-filter identity and captured class/stat proof; existing reviewed class pool retained.",
+      "status": "SUPPORTED"
+    },
+    {
+      "slug": "Gloam_Ring",
+      "source": "https://poe2db.tw/us/Gloam_Ring",
+      "sourceSha256": "ed7a43b7341f8dd4c8402cf859ddcdedad6992546e549ed762769984a11dc696",
+      "names": [
+        "Gloam Ring"
+      ],
+      "korean": [
+        "석양 반지"
+      ],
+      "ids": [
+        "Metadata/Items/Rings/FourRingLake2"
+      ],
+      "engineRarityFlags": [
+        "normal, magic, rare, unique"
+      ],
+      "effects": [
+        "-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed"
+      ],
+      "reason": "Official GGG item-filter identity and captured class/stat proof; existing reviewed class pool retained.",
+      "status": "SUPPORTED"
+    },
+    {
+      "slug": "Penumbra_Ring",
+      "source": "https://poe2db.tw/us/Penumbra_Ring",
+      "sourceSha256": "f94f3797a1921bacd733cd15437cebb3b7b7b7e22ebf6dd94431cdeb764aace4",
+      "names": [
+        "Penumbra Ring"
+      ],
+      "korean": [
+        "음영 반지"
+      ],
+      "ids": [
+        "Metadata/Items/Rings/FourRingLake3"
+      ],
+      "engineRarityFlags": [
+        "normal, magic, rare, unique"
+      ],
+      "effects": [
+        "+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed"
+      ],
+      "reason": "Official GGG item-filter identity and captured class/stat proof; existing reviewed class pool retained.",
+      "status": "SUPPORTED"
+    },
+    {
+      "slug": "Tenebrous_Ring",
+      "source": "https://poe2db.tw/us/Tenebrous_Ring",
+      "sourceSha256": "2827be6cf197e3f60a4b1444fd57c64745ab3a368e744e49a04cf749ebc52867",
+      "names": [
+        "Tenebrous Ring"
+      ],
+      "korean": [
+        "어둑한 반지"
+      ],
+      "ids": [
+        "Metadata/Items/Rings/FourRingLake4"
+      ],
+      "engineRarityFlags": [
+        "normal, magic, rare, unique"
+      ],
+      "effects": [
+        "-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed"
+      ],
+      "reason": "Official GGG item-filter identity and captured class/stat proof; existing reviewed class pool retained.",
+      "status": "SUPPORTED"
+    }
+  ],
   "additionalPendingCandidates": [
     {
       "slug": "Golden_Hoop",
@@ -9478,48 +9702,6 @@
       "reason": "Generic/Unique provenance needs a non-Unique acquisition proof; do not infer craftability from engine rarity flags."
     },
     {
-      "slug": "Biostatic_Ring",
-      "source": "https://poe2db.tw/us/Biostatic_Ring",
-      "sourceSha256": "64d00884ccec6a10a0d878845bbc9c28f20af32f64f22c577adf92f38a15be34",
-      "names": [
-        "Biostatic Ring"
-      ],
-      "korean": [
-        "생물정역학 반지"
-      ],
-      "ids": [
-        "Metadata/Items/Rings/FourRingB1"
-      ],
-      "engineRarityFlags": [
-        "normal, magic, rare, unique"
-      ],
-      "effects": [
-        "+1% to all maximum Resistances"
-      ],
-      "reason": "Additional exact source candidate found by the audit; ordinary acquisition/explicit-pool release review remains outside the explicitly requested accessory additions."
-    },
-    {
-      "slug": "Oneiric_Ring",
-      "source": "https://poe2db.tw/us/Oneiric_Ring",
-      "sourceSha256": "eaa381a7de5f2bcce0823301fcdc56ada9c6da3242e0ed5618cfa0d23597433b",
-      "names": [
-        "Oneiric Ring"
-      ],
-      "korean": [
-        "몽상 반지"
-      ],
-      "ids": [
-        "Metadata/Items/Rings/FourRingB5"
-      ],
-      "engineRarityFlags": [
-        "normal, magic, rare, unique"
-      ],
-      "effects": [
-        "(11—23)% increased Chaos Damage"
-      ],
-      "reason": "Additional exact source candidate found by the audit; ordinary acquisition/explicit-pool release review remains outside the explicitly requested accessory additions."
-    },
-    {
       "slug": "Grasping_Ring",
       "source": "https://poe2db.tw/us/Grasping_Ring",
       "sourceSha256": "ba1f28e0c72acf4cf4be8ac7e988b77e7d893984ecfd6e626426c542612dc2f6",
@@ -9558,90 +9740,6 @@
       ],
       "effects": [],
       "reason": "Generic/Unique provenance needs a non-Unique acquisition proof; do not infer craftability from engine rarity flags."
-    },
-    {
-      "slug": "Dusk_Ring",
-      "source": "https://poe2db.tw/us/Dusk_Ring",
-      "sourceSha256": "a5ddfec7e44d1e3f6af30c31ca797985bf601c7eb334f505c9519839fca1bf87",
-      "names": [
-        "Dusk Ring"
-      ],
-      "korean": [
-        "황혼 반지"
-      ],
-      "ids": [
-        "Metadata/Items/Rings/FourRingLake1"
-      ],
-      "engineRarityFlags": [
-        "normal, magic, rare, unique"
-      ],
-      "effects": [
-        "+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed"
-      ],
-      "reason": "Additional exact source candidate found by the audit; ordinary acquisition/explicit-pool release review remains outside the explicitly requested accessory additions."
-    },
-    {
-      "slug": "Gloam_Ring",
-      "source": "https://poe2db.tw/us/Gloam_Ring",
-      "sourceSha256": "ed7a43b7341f8dd4c8402cf859ddcdedad6992546e549ed762769984a11dc696",
-      "names": [
-        "Gloam Ring"
-      ],
-      "korean": [
-        "석양 반지"
-      ],
-      "ids": [
-        "Metadata/Items/Rings/FourRingLake2"
-      ],
-      "engineRarityFlags": [
-        "normal, magic, rare, unique"
-      ],
-      "effects": [
-        "-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed"
-      ],
-      "reason": "Additional exact source candidate found by the audit; ordinary acquisition/explicit-pool release review remains outside the explicitly requested accessory additions."
-    },
-    {
-      "slug": "Penumbra_Ring",
-      "source": "https://poe2db.tw/us/Penumbra_Ring",
-      "sourceSha256": "f94f3797a1921bacd733cd15437cebb3b7b7b7e22ebf6dd94431cdeb764aace4",
-      "names": [
-        "Penumbra Ring"
-      ],
-      "korean": [
-        "음영 반지"
-      ],
-      "ids": [
-        "Metadata/Items/Rings/FourRingLake3"
-      ],
-      "engineRarityFlags": [
-        "normal, magic, rare, unique"
-      ],
-      "effects": [
-        "+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed"
-      ],
-      "reason": "Additional exact source candidate found by the audit; ordinary acquisition/explicit-pool release review remains outside the explicitly requested accessory additions."
-    },
-    {
-      "slug": "Tenebrous_Ring",
-      "source": "https://poe2db.tw/us/Tenebrous_Ring",
-      "sourceSha256": "2827be6cf197e3f60a4b1444fd57c64745ab3a368e744e49a04cf749ebc52867",
-      "names": [
-        "Tenebrous Ring"
-      ],
-      "korean": [
-        "어둑한 반지"
-      ],
-      "ids": [
-        "Metadata/Items/Rings/FourRingLake4"
-      ],
-      "engineRarityFlags": [
-        "normal, magic, rare, unique"
-      ],
-      "effects": [
-        "-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed"
-      ],
-      "reason": "Additional exact source candidate found by the audit; ordinary acquisition/explicit-pool release review remains outside the explicitly requested accessory additions."
     },
     {
       "slug": "Breach_Ring",
@@ -9844,6 +9942,48 @@
       "korean": "매 조련사의 재킷",
       "url": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDexInt06.webp",
       "status": "HTTP 403: source denied download; placeholder until supplied art is available."
+    },
+    {
+      "id": "Metadata/Items/Rings/FourRingB1",
+      "name": "Biostatic Ring",
+      "korean": "생물정역학 반지",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/BreachlordRing_Tul.webp",
+      "status": "Unavailable after one download attempt: HTTPError"
+    },
+    {
+      "id": "Metadata/Items/Rings/FourRingB5",
+      "name": "Oneiric Ring",
+      "korean": "몽상 반지",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/BreachlordRing_Chayula.webp",
+      "status": "Unavailable after one download attempt: HTTPError"
+    },
+    {
+      "id": "Metadata/Items/Rings/FourRingLake1",
+      "name": "Dusk Ring",
+      "korean": "황혼 반지",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/LakeRing1.webp",
+      "status": "Unavailable after one download attempt: HTTPError"
+    },
+    {
+      "id": "Metadata/Items/Rings/FourRingLake2",
+      "name": "Gloam Ring",
+      "korean": "석양 반지",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/LakeRing2.webp",
+      "status": "Unavailable after one download attempt: HTTPError"
+    },
+    {
+      "id": "Metadata/Items/Rings/FourRingLake3",
+      "name": "Penumbra Ring",
+      "korean": "음영 반지",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/LakeRing3.webp",
+      "status": "Unavailable after one download attempt: HTTPError"
+    },
+    {
+      "id": "Metadata/Items/Rings/FourRingLake4",
+      "name": "Tenebrous Ring",
+      "korean": "어둑한 반지",
+      "url": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/LakeRing4.webp",
+      "status": "Unavailable after one download attempt: HTTPError"
     }
   ]
 }

@@ -22,7 +22,7 @@ describe('central base registration', () => {
       )
     }
     expect(Object.keys(baseline.textMap)).toHaveLength(125)
-    expect(Object.keys(baseTexts)).toHaveLength(173)
+    expect(Object.keys(baseTexts)).toHaveLength(179)
     expect(reviewedArmourKeys).toEqual(
       Object.keys(data).filter((key) => !['soldier', 'imperial'].includes(key)),
     )

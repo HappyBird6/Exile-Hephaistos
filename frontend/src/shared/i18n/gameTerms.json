@@ -3321,6 +3321,42 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame",
       "sourceUrl": "https://poe2db.tw/us/Austere_Garb"
+    },
+    "Biostatic_Ring": {
+      "name": "Biostatic Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB1",
+      "sourceUrl": "https://poe2db.tw/us/Biostatic_Ring"
+    },
+    "Oneiric_Ring": {
+      "name": "Oneiric Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB5",
+      "sourceUrl": "https://poe2db.tw/us/Oneiric_Ring"
+    },
+    "Dusk_Ring": {
+      "name": "Dusk Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake1",
+      "sourceUrl": "https://poe2db.tw/us/Dusk_Ring"
+    },
+    "Gloam_Ring": {
+      "name": "Gloam Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake2",
+      "sourceUrl": "https://poe2db.tw/us/Gloam_Ring"
+    },
+    "Penumbra_Ring": {
+      "name": "Penumbra Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake3",
+      "sourceUrl": "https://poe2db.tw/us/Penumbra_Ring"
+    },
+    "Tenebrous_Ring": {
+      "name": "Tenebrous Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake4",
+      "sourceUrl": "https://poe2db.tw/us/Tenebrous_Ring"
     }
   },
   "ko": {
@@ -6619,6 +6655,42 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame",
       "sourceUrl": "https://poe2db.tw/kr/Austere_Garb"
+    },
+    "Biostatic_Ring": {
+      "name": "생물정역학 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB1",
+      "sourceUrl": "https://poe2db.tw/kr/Biostatic_Ring"
+    },
+    "Oneiric_Ring": {
+      "name": "몽상 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB5",
+      "sourceUrl": "https://poe2db.tw/kr/Oneiric_Ring"
+    },
+    "Dusk_Ring": {
+      "name": "황혼 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake1",
+      "sourceUrl": "https://poe2db.tw/kr/Dusk_Ring"
+    },
+    "Gloam_Ring": {
+      "name": "석양 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake2",
+      "sourceUrl": "https://poe2db.tw/kr/Gloam_Ring"
+    },
+    "Penumbra_Ring": {
+      "name": "음영 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake3",
+      "sourceUrl": "https://poe2db.tw/kr/Penumbra_Ring"
+    },
+    "Tenebrous_Ring": {
+      "name": "어둑한 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake4",
+      "sourceUrl": "https://poe2db.tw/kr/Tenebrous_Ring"
     }
   },
   "zh-CN": {
@@ -9806,6 +9878,42 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame",
       "sourceUrl": "https://poe2db.tw/cn/Austere_Garb"
+    },
+    "Biostatic_Ring": {
+      "name": "生息戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB1",
+      "sourceUrl": "https://poe2db.tw/cn/Biostatic_Ring"
+    },
+    "Oneiric_Ring": {
+      "name": "幻梦戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB5",
+      "sourceUrl": "https://poe2db.tw/cn/Oneiric_Ring"
+    },
+    "Dusk_Ring": {
+      "name": "暮色戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake1",
+      "sourceUrl": "https://poe2db.tw/cn/Dusk_Ring"
+    },
+    "Gloam_Ring": {
+      "name": "薄暮戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake2",
+      "sourceUrl": "https://poe2db.tw/cn/Gloam_Ring"
+    },
+    "Penumbra_Ring": {
+      "name": "半影戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake3",
+      "sourceUrl": "https://poe2db.tw/cn/Penumbra_Ring"
+    },
+    "Tenebrous_Ring": {
+      "name": "暗黑戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake4",
+      "sourceUrl": "https://poe2db.tw/cn/Tenebrous_Ring"
     }
   },
   "zh-TW": {
@@ -12983,6 +13091,42 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame",
       "sourceUrl": "https://poe2db.tw/tw/Austere_Garb"
+    },
+    "Biostatic_Ring": {
+      "name": "恆生之戒",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB1",
+      "sourceUrl": "https://poe2db.tw/tw/Biostatic_Ring"
+    },
+    "Oneiric_Ring": {
+      "name": "夢境之戒",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB5",
+      "sourceUrl": "https://poe2db.tw/tw/Oneiric_Ring"
+    },
+    "Dusk_Ring": {
+      "name": "幽暗戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake1",
+      "sourceUrl": "https://poe2db.tw/tw/Dusk_Ring"
+    },
+    "Gloam_Ring": {
+      "name": "黃昏戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake2",
+      "sourceUrl": "https://poe2db.tw/tw/Gloam_Ring"
+    },
+    "Penumbra_Ring": {
+      "name": "半影戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake3",
+      "sourceUrl": "https://poe2db.tw/tw/Penumbra_Ring"
+    },
+    "Tenebrous_Ring": {
+      "name": "黑暗戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake4",
+      "sourceUrl": "https://poe2db.tw/tw/Tenebrous_Ring"
     }
   },
   "ja": {
@@ -16283,6 +16427,42 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame",
       "sourceUrl": "https://poe2db.tw/jp/Austere_Garb"
+    },
+    "Biostatic_Ring": {
+      "name": "バイオスタティックリング",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB1",
+      "sourceUrl": "https://poe2db.tw/jp/Biostatic_Ring"
+    },
+    "Oneiric_Ring": {
+      "name": "オネイリックリング",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB5",
+      "sourceUrl": "https://poe2db.tw/jp/Oneiric_Ring"
+    },
+    "Dusk_Ring": {
+      "name": "黄昏の指輪",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake1",
+      "sourceUrl": "https://poe2db.tw/jp/Dusk_Ring"
+    },
+    "Gloam_Ring": {
+      "name": "薄明の指輪",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake2",
+      "sourceUrl": "https://poe2db.tw/jp/Gloam_Ring"
+    },
+    "Penumbra_Ring": {
+      "name": "半影の指輪",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake3",
+      "sourceUrl": "https://poe2db.tw/jp/Penumbra_Ring"
+    },
+    "Tenebrous_Ring": {
+      "name": "仄暗い指輪",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake4",
+      "sourceUrl": "https://poe2db.tw/jp/Tenebrous_Ring"
     }
   },
   "es": {
@@ -19513,6 +19693,42 @@
       "lines": [],
       "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame",
       "sourceUrl": "https://poe2db.tw/sp/Austere_Garb"
+    },
+    "Biostatic_Ring": {
+      "name": "Anillo biostático",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB1",
+      "sourceUrl": "https://poe2db.tw/sp/Biostatic_Ring"
+    },
+    "Oneiric_Ring": {
+      "name": "Anillo onírico",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingB5",
+      "sourceUrl": "https://poe2db.tw/sp/Oneiric_Ring"
+    },
+    "Dusk_Ring": {
+      "name": "Anillo de anochecer",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake1",
+      "sourceUrl": "https://poe2db.tw/sp/Dusk_Ring"
+    },
+    "Gloam_Ring": {
+      "name": "Anillo crepuscular",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake2",
+      "sourceUrl": "https://poe2db.tw/sp/Gloam_Ring"
+    },
+    "Penumbra_Ring": {
+      "name": "Anillo de penumbra",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake3",
+      "sourceUrl": "https://poe2db.tw/sp/Penumbra_Ring"
+    },
+    "Tenebrous_Ring": {
+      "name": "Anillo tenebroso",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRingLake4",
+      "sourceUrl": "https://poe2db.tw/sp/Tenebrous_Ring"
     }
   }
 }

@@ -8181,6 +8181,192 @@
           "locality": "Global"
         }
       ]
+    },
+    "biostatic-ring": {
+      "ruleVersion": "ring-workbench-perfect-essence-v1",
+      "ledgerVersion": "ring-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Biostatic_Ring",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "biostatic-ring:implicit:base",
+      "augmentSockets": null,
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ],
+      "baseItemId": "Metadata/Items/Rings/FourRingB1",
+      "sourceSha256": "64d00884ccec6a10a0d878845bbc9c28f20af32f64f22c577adf92f38a15be34",
+      "requiredCharacterLevel": 52,
+      "implicitLocalities": [
+        {
+          "id": "additional_maximum_all_resistances_%",
+          "min": 1,
+          "max": 1,
+          "locality": "Global"
+        }
+      ]
+    },
+    "oneiric-ring": {
+      "ruleVersion": "ring-workbench-perfect-essence-v1",
+      "ledgerVersion": "ring-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Oneiric_Ring",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "oneiric-ring:implicit:base",
+      "augmentSockets": null,
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ],
+      "baseItemId": "Metadata/Items/Rings/FourRingB5",
+      "sourceSha256": "eaa381a7de5f2bcce0823301fcdc56ada9c6da3242e0ed5618cfa0d23597433b",
+      "requiredCharacterLevel": 47,
+      "implicitLocalities": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 11,
+          "max": 23,
+          "locality": "Global"
+        }
+      ]
+    },
+    "dusk-ring": {
+      "ruleVersion": "ring-workbench-perfect-essence-v1",
+      "ledgerVersion": "ring-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Dusk_Ring",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "dusk-ring:implicit:base",
+      "augmentSockets": null,
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ],
+      "baseItemId": "Metadata/Items/Rings/FourRingLake1",
+      "sourceSha256": "a5ddfec7e44d1e3f6af30c31ca797985bf601c7eb334f505c9519839fca1bf87",
+      "requiredCharacterLevel": 0,
+      "implicitLocalities": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 1,
+          "max": 1,
+          "locality": "Local"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "Local"
+        }
+      ]
+    },
+    "gloam-ring": {
+      "ruleVersion": "ring-workbench-perfect-essence-v1",
+      "ledgerVersion": "ring-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Gloam_Ring",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "gloam-ring:implicit:base",
+      "augmentSockets": null,
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ],
+      "baseItemId": "Metadata/Items/Rings/FourRingLake2",
+      "sourceSha256": "ed7a43b7341f8dd4c8402cf859ddcdedad6992546e549ed762769984a11dc696",
+      "requiredCharacterLevel": 0,
+      "implicitLocalities": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "Local"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 1,
+          "max": 1,
+          "locality": "Local"
+        }
+      ]
+    },
+    "penumbra-ring": {
+      "ruleVersion": "ring-workbench-perfect-essence-v1",
+      "ledgerVersion": "ring-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Penumbra_Ring",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "penumbra-ring:implicit:base",
+      "augmentSockets": null,
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ],
+      "baseItemId": "Metadata/Items/Rings/FourRingLake3",
+      "sourceSha256": "f94f3797a1921bacd733cd15437cebb3b7b7b7e22ebf6dd94431cdeb764aace4",
+      "requiredCharacterLevel": 0,
+      "implicitLocalities": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 2,
+          "max": 2,
+          "locality": "Local"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -2,
+          "max": -2,
+          "locality": "Local"
+        }
+      ]
+    },
+    "tenebrous-ring": {
+      "ruleVersion": "ring-workbench-perfect-essence-v1",
+      "ledgerVersion": "ring-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Tenebrous_Ring",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "tenebrous-ring:implicit:base",
+      "augmentSockets": null,
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ],
+      "baseItemId": "Metadata/Items/Rings/FourRingLake4",
+      "sourceSha256": "2827be6cf197e3f60a4b1444fd57c64745ab3a368e744e49a04cf749ebc52867",
+      "requiredCharacterLevel": 0,
+      "implicitLocalities": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -2,
+          "max": -2,
+          "locality": "Local"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 2,
+          "max": 2,
+          "locality": "Local"
+        }
+      ]
     }
   },
   "serviceScope": {

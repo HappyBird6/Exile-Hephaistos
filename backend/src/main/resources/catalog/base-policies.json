@@ -583,6 +583,36 @@
     },
     "forking-belt": {
       "rareOnly": true
+    },
+    "biostatic-ring": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "oneiric-ring": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "dusk-ring": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "gloam-ring": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "penumbra-ring": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "tenebrous-ring": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
     }
   },
   "legacy": {

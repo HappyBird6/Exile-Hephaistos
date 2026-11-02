@@ -53855,6 +53855,156 @@
           "divisor": 1
         }
       ]
+    },
+    "biostatic-ring:implicit:base": {
+      "stats": [
+        {
+          "id": "additional_maximum_all_resistances_%",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "+1% to all maximum Resistances",
+      "values": ["+1"],
+      "template": "base-audit.biostatic-ring.implicit",
+      "sourceCode": "https://poe2db.tw/us/Biostatic_Ring",
+      "valueStats": [
+        {
+          "id": "additional_maximum_all_resistances_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "oneiric-ring:implicit:base": {
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 11,
+          "max": 23
+        }
+      ],
+      "englishText": "(11—23)% increased Chaos Damage",
+      "values": ["(11—23)"],
+      "template": "base-audit.oneiric-ring.implicit",
+      "sourceCode": "https://poe2db.tw/us/Oneiric_Ring",
+      "valueStats": [
+        {
+          "id": "chaos_damage_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "dusk-ring:implicit:base": {
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1
+        }
+      ],
+      "englishText": "+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed",
+      "values": ["+1", "-1"],
+      "template": "base-audit.dusk-ring.implicit",
+      "sourceCode": "https://poe2db.tw/us/Dusk_Ring",
+      "valueStats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": -1
+        }
+      ]
+    },
+    "gloam-ring:implicit:base": {
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed",
+      "values": ["-1", "+1"],
+      "template": "base-audit.gloam-ring.implicit",
+      "sourceCode": "https://poe2db.tw/us/Gloam_Ring",
+      "valueStats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": -1
+        }
+      ]
+    },
+    "penumbra-ring:implicit:base": {
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 2,
+          "max": 2
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -2,
+          "max": -2
+        }
+      ],
+      "englishText": "+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed",
+      "values": ["+2", "-2"],
+      "template": "base-audit.penumbra-ring.implicit",
+      "sourceCode": "https://poe2db.tw/us/Penumbra_Ring",
+      "valueStats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": -1
+        }
+      ]
+    },
+    "tenebrous-ring:implicit:base": {
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -2,
+          "max": -2
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "englishText": "-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed",
+      "values": ["-2", "+2"],
+      "template": "base-audit.tenebrous-ring.implicit",
+      "sourceCode": "https://poe2db.tw/us/Tenebrous_Ring",
+      "valueStats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": -1
+        }
+      ]
     }
   },
   "templates": {
@@ -64226,6 +64376,30 @@
       "base-audit.austere-garb.implicit": {
         "name": "Austere Garb",
         "template": "{v0}% reduced Elemental Ailment Duration on you"
+      },
+      "base-audit.biostatic-ring.implicit": {
+        "name": "Biostatic Ring",
+        "template": "{v0}% to all maximum Resistances"
+      },
+      "base-audit.oneiric-ring.implicit": {
+        "name": "Oneiric Ring",
+        "template": "{v0}% increased Chaos Damage"
+      },
+      "base-audit.dusk-ring.implicit": {
+        "name": "Dusk Ring",
+        "template": "{v0} Prefix Modifier allowed\n{v1} Suffix Modifier allowed"
+      },
+      "base-audit.gloam-ring.implicit": {
+        "name": "Gloam Ring",
+        "template": "{v0} Prefix Modifier allowed\n{v1} Suffix Modifier allowed"
+      },
+      "base-audit.penumbra-ring.implicit": {
+        "name": "Penumbra Ring",
+        "template": "{v0} Prefix Modifiers allowed\n{v1} Suffix Modifiers allowed"
+      },
+      "base-audit.tenebrous-ring.implicit": {
+        "name": "Tenebrous Ring",
+        "template": "{v0} Prefix Modifiers allowed\n{v1} Suffix Modifiers allowed"
       }
     },
     "ko": {
@@ -73488,6 +73662,30 @@
       "base-audit.austere-garb.implicit": {
         "name": "금욕적인 의복",
         "template": "플레이어에게 적용되는 원소 상태 이상 지속시간 {v0}% 감소"
+      },
+      "base-audit.biostatic-ring.implicit": {
+        "name": "생물정역학 반지",
+        "template": "모든 저항 최대치 {v0}%"
+      },
+      "base-audit.oneiric-ring.implicit": {
+        "name": "몽상 반지",
+        "template": "카오스 피해 {v0}% 증가"
+      },
+      "base-audit.dusk-ring.implicit": {
+        "name": "황혼 반지",
+        "template": "접두어 속성 부여의 최대 개수 {v0}개\n접미어 속성 부여의 최대 개수 {v1}개"
+      },
+      "base-audit.gloam-ring.implicit": {
+        "name": "석양 반지",
+        "template": "접두어 속성 부여의 최대 개수 {v0}개\n접미어 속성 부여의 최대 개수 {v1}개"
+      },
+      "base-audit.penumbra-ring.implicit": {
+        "name": "음영 반지",
+        "template": "접두어 속성 부여의 최대 개수 {v0}개\n접미어 속성 부여의 최대 개수 {v1}개"
+      },
+      "base-audit.tenebrous-ring.implicit": {
+        "name": "어둑한 반지",
+        "template": "접두어 속성 부여의 최대 개수 {v0}개\n접미어 속성 부여의 최대 개수 {v1}개"
       }
     },
     "zh-CN": {
@@ -82750,6 +82948,30 @@
       "base-audit.austere-garb.implicit": {
         "name": "简朴束衣",
         "template": "自身受到的元素异常状态时间降低 {v0}%"
+      },
+      "base-audit.biostatic-ring.implicit": {
+        "name": "生息戒指",
+        "template": "{v0}% 全部抗性上限"
+      },
+      "base-audit.oneiric-ring.implicit": {
+        "name": "幻梦戒指",
+        "template": "混沌伤害提高 {v0}%"
+      },
+      "base-audit.dusk-ring.implicit": {
+        "name": "暮色戒指",
+        "template": "允许的前缀 {v0}\n允许的后缀 {v1}"
+      },
+      "base-audit.gloam-ring.implicit": {
+        "name": "薄暮戒指",
+        "template": "允许的前缀 {v0}\n允许的后缀 {v1}"
+      },
+      "base-audit.penumbra-ring.implicit": {
+        "name": "半影戒指",
+        "template": "允许的前缀 {v0}\n允许的后缀 {v1}"
+      },
+      "base-audit.tenebrous-ring.implicit": {
+        "name": "暗黑戒指",
+        "template": "允许的前缀 {v0}\n允许的后缀 {v1}"
       }
     },
     "zh-TW": {
@@ -92012,6 +92234,30 @@
       "base-audit.austere-garb.implicit": {
         "name": "樸素裝束",
         "template": "減少{v0}%身上元素異常狀態時間"
+      },
+      "base-audit.biostatic-ring.implicit": {
+        "name": "恆生之戒",
+        "template": "{v0}%最大全部抗性"
+      },
+      "base-audit.oneiric-ring.implicit": {
+        "name": "夢境之戒",
+        "template": "增加{v0}%混沌傷害"
+      },
+      "base-audit.dusk-ring.implicit": {
+        "name": "幽暗戒指",
+        "template": "允許前綴{v0}\n允許後綴{v1}"
+      },
+      "base-audit.gloam-ring.implicit": {
+        "name": "黃昏戒指",
+        "template": "允許前綴{v0}\n允許後綴{v1}"
+      },
+      "base-audit.penumbra-ring.implicit": {
+        "name": "半影戒指",
+        "template": "允許前綴{v0}\n允許後綴{v1}"
+      },
+      "base-audit.tenebrous-ring.implicit": {
+        "name": "黑暗戒指",
+        "template": "允許前綴{v0}\n允許後綴{v1}"
       }
     },
     "ja": {
@@ -101274,6 +101520,30 @@
       "base-audit.austere-garb.implicit": {
         "name": "禁欲の衣",
         "template": "受ける元素系状態異常の持続時間が{v0}%減少する"
+      },
+      "base-audit.biostatic-ring.implicit": {
+        "name": "バイオスタティックリング",
+        "template": "全ての耐性の最大値 {v0}%"
+      },
+      "base-audit.oneiric-ring.implicit": {
+        "name": "オネイリックリング",
+        "template": "混沌ダメージが{v0}%増加する"
+      },
+      "base-audit.dusk-ring.implicit": {
+        "name": "黄昏の指輪",
+        "template": "プレフィックスモッド {v0}個\nサフィックスモッド {v1}個"
+      },
+      "base-audit.gloam-ring.implicit": {
+        "name": "薄明の指輪",
+        "template": "プレフィックスモッド {v0}個\nサフィックスモッド {v1}個"
+      },
+      "base-audit.penumbra-ring.implicit": {
+        "name": "半影の指輪",
+        "template": "プレフィックスモッド {v0}個\nサフィックスモッド {v1}個"
+      },
+      "base-audit.tenebrous-ring.implicit": {
+        "name": "仄暗い指輪",
+        "template": "プレフィックスモッド {v0}個\nサフィックスモッド {v1}個"
       }
     },
     "es": {
@@ -110536,6 +110806,30 @@
       "base-audit.austere-garb.implicit": {
         "name": "Traje austero",
         "template": "Duración de los estados alterados elementales sobre ti reducida un {v0}%"
+      },
+      "base-audit.biostatic-ring.implicit": {
+        "name": "Anillo biostático",
+        "template": "{v0}% a todas las resistencias máximas"
+      },
+      "base-audit.oneiric-ring.implicit": {
+        "name": "Anillo onírico",
+        "template": "Daño de caos aumentado un {v0}%"
+      },
+      "base-audit.dusk-ring.implicit": {
+        "name": "Anillo de anochecer",
+        "template": "{v0} modificador de prefijo permitido\n{v1} modificador de sufijo permitido"
+      },
+      "base-audit.gloam-ring.implicit": {
+        "name": "Anillo crepuscular",
+        "template": "{v0} modificador de prefijo permitido\n{v1} modificador de sufijo permitido"
+      },
+      "base-audit.penumbra-ring.implicit": {
+        "name": "Anillo de penumbra",
+        "template": "{v0} modificadores de prefijo permitidos\n{v1} modificadores de sufijo permitidos"
+      },
+      "base-audit.tenebrous-ring.implicit": {
+        "name": "Anillo tenebroso",
+        "template": "{v0} modificadores de prefijo permitidos\n{v1} modificadores de sufijo permitidos"
       }
     }
   }

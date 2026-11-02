@@ -1,0 +1,23 @@
+{
+  "confirmed": [
+    "Biostatic_Ring",
+    "Oneiric_Ring",
+    "Dusk_Ring",
+    "Gloam_Ring",
+    "Penumbra_Ring",
+    "Tenebrous_Ring"
+  ],
+  "sources": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3740346",
+      "publisher": "Grinding Gear Games",
+      "evidence": "Dawn of the Hunt item-filter announcement lists Dusk, Gloam, Penumbra and Tenebrous Rings as ring bases."
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3933291",
+      "publisher": "Grinding Gear Games",
+      "evidence": "Return of the Ancients item-filter announcement lists Biostatic and Oneiric Ring base names."
+    }
+  ],
+  "ruleEvidence": "Existing six-locale source captures provide exact metadata IDs and implicit stats. Explicit pools remain byte-identical to the reviewed Amethyst Ring class template. No acquisition rate, reveal probability or new numeric rule is inferred."
+}

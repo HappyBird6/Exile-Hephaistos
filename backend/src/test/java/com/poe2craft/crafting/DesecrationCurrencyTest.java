@@ -335,7 +335,7 @@ class DesecrationCurrencyTest {
           count++;
         }
     }
-    assertThat(count).isEqualTo(156 * 3 * 2);
+    assertThat(count).isEqualTo(162 * 3 * 2);
   }
 
   @Test

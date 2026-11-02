@@ -1,3 +1,4 @@
+import { temporaryAmuletPassive } from './base-picker/temporaryAmuletPassive'
 import {
   applyBone,
   isBone,
@@ -11,6 +12,7 @@ import { readSupport, saveSupport } from './method-search/supportStorage'
 import {
   baseSlugs,
   baseClass,
+  baseStartingRarity,
   sourcePropertyUnscaled,
   clipboardBase,
   supersededBases,
@@ -1091,6 +1093,15 @@ export function CraftingPage() {
                     },
                   ]
                 : []),
+              ...(baseClass(catalogBase) === 'Amulets' &&
+              draft.source === 'base'
+                ? [
+                    {
+                      id: 'temporary-passive-policy',
+                      text: temporaryAmuletPassive(locale),
+                    },
+                  ]
+                : []),
             ],
             requirements: topBase(catalogBase)
               ? [
@@ -1993,7 +2004,7 @@ export function CraftingPage() {
                   <ItemCard
                     baseItemId={baseSlugs[catalogBase]}
                     item={{
-                      rarity: 'NORMAL',
+                      rarity: baseStartingRarity(catalogBase),
                       name: baseName,
                       base: baseName,
                       itemClass: baseClass(catalogBase),

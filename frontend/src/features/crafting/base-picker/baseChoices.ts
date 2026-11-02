@@ -1,3 +1,4 @@
+import { temporaryAmuletPassive } from './temporaryAmuletPassive'
 import {
   baseClass,
   baseSlugs,
@@ -86,6 +87,11 @@ export function basePreview(
     if (value && !properties.some((line) => line.text.includes(label)))
       properties.push({ id, text: `${label}: ${value}` })
   }
+  if (choice.itemClass === 'Amulets')
+    properties.push({
+      id: 'temporary-passive-policy',
+      text: temporaryAmuletPassive(locale),
+    })
   const bindings = templates.definitions as Record<
     string,
     { englishText: string; template: string; values: string[] }

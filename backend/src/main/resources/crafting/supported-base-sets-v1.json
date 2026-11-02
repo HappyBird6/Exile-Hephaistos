@@ -174,7 +174,13 @@
       "seastorm-mantle",
       "rambler-jacket",
       "falconers-jacket",
-      "austere-garb"
+      "austere-garb",
+      "biostatic-ring",
+      "oneiric-ring",
+      "dusk-ring",
+      "gloam-ring",
+      "penumbra-ring",
+      "tenebrous-ring"
     ],
     "fracturing-orb": [
       "solar",
@@ -341,7 +347,13 @@
       "seastorm-mantle",
       "rambler-jacket",
       "falconers-jacket",
-      "austere-garb"
+      "austere-garb",
+      "biostatic-ring",
+      "oneiric-ring",
+      "dusk-ring",
+      "gloam-ring",
+      "penumbra-ring",
+      "tenebrous-ring"
     ],
     "divine-orb": [
       "solar",
@@ -515,7 +527,13 @@
       "seastorm-mantle",
       "rambler-jacket",
       "falconers-jacket",
-      "austere-garb"
+      "austere-garb",
+      "biostatic-ring",
+      "oneiric-ring",
+      "dusk-ring",
+      "gloam-ring",
+      "penumbra-ring",
+      "tenebrous-ring"
     ],
     "lesser-essence-of-the-body": [
       "solar",
@@ -609,7 +627,13 @@
       "seastorm-mantle",
       "rambler-jacket",
       "falconers-jacket",
-      "austere-garb"
+      "austere-garb",
+      "biostatic-ring",
+      "oneiric-ring",
+      "dusk-ring",
+      "gloam-ring",
+      "penumbra-ring",
+      "tenebrous-ring"
     ],
     "lesser-essence-of-the-mind": [
       "solar",
@@ -677,7 +701,13 @@
       "topaz-ring",
       "emerald-ring",
       "gold-ring",
-      "unset-ring"
+      "unset-ring",
+      "biostatic-ring",
+      "oneiric-ring",
+      "dusk-ring",
+      "gloam-ring",
+      "penumbra-ring",
+      "tenebrous-ring"
     ],
     "lesser-essence-of-enhancement": [
       "stocky",
@@ -848,7 +878,13 @@
       "seastorm-mantle",
       "rambler-jacket",
       "falconers-jacket",
-      "austere-garb"
+      "austere-garb",
+      "biostatic-ring",
+      "oneiric-ring",
+      "dusk-ring",
+      "gloam-ring",
+      "penumbra-ring",
+      "tenebrous-ring"
     ],
     "lesser-essence-of-sorcery": [
       "wand",
@@ -996,7 +1032,13 @@
       "seastorm-mantle",
       "rambler-jacket",
       "falconers-jacket",
-      "austere-garb"
+      "austere-garb",
+      "biostatic-ring",
+      "oneiric-ring",
+      "dusk-ring",
+      "gloam-ring",
+      "penumbra-ring",
+      "tenebrous-ring"
     ],
     "greater-essence-of-the-body": [
       "solar",
@@ -1169,7 +1211,13 @@
       "topaz-ring",
       "emerald-ring",
       "gold-ring",
-      "unset-ring"
+      "unset-ring",
+      "biostatic-ring",
+      "oneiric-ring",
+      "dusk-ring",
+      "gloam-ring",
+      "penumbra-ring",
+      "tenebrous-ring"
     ],
     "perfect-essence-of-enhancement": [
       "solar",
@@ -1359,7 +1407,13 @@
       "seastorm-mantle",
       "rambler-jacket",
       "falconers-jacket",
-      "austere-garb"
+      "austere-garb",
+      "biostatic-ring",
+      "oneiric-ring",
+      "dusk-ring",
+      "gloam-ring",
+      "penumbra-ring",
+      "tenebrous-ring"
     ],
     "essence-of-horror": [
       "stocky"
@@ -1497,7 +1551,13 @@
       "seastorm-mantle",
       "rambler-jacket",
       "falconers-jacket",
-      "austere-garb"
+      "austere-garb",
+      "biostatic-ring",
+      "oneiric-ring",
+      "dusk-ring",
+      "gloam-ring",
+      "penumbra-ring",
+      "tenebrous-ring"
     ],
     "essence-of-the-breach": [
       "solar",
@@ -1534,7 +1594,13 @@
       "topaz-ring",
       "emerald-ring",
       "gold-ring",
-      "unset-ring"
+      "unset-ring",
+      "biostatic-ring",
+      "oneiric-ring",
+      "dusk-ring",
+      "gloam-ring",
+      "penumbra-ring",
+      "tenebrous-ring"
     ],
     "perfect-essence-of-insulation": [
       "belt",
@@ -1623,7 +1689,13 @@
       "topaz-ring",
       "emerald-ring",
       "gold-ring",
-      "unset-ring"
+      "unset-ring",
+      "biostatic-ring",
+      "oneiric-ring",
+      "dusk-ring",
+      "gloam-ring",
+      "penumbra-ring",
+      "tenebrous-ring"
     ],
     "lesser-essence-of-command": [
       "sceptre",
@@ -1752,7 +1824,13 @@
       "seastorm-mantle",
       "rambler-jacket",
       "falconers-jacket",
-      "austere-garb"
+      "austere-garb",
+      "biostatic-ring",
+      "oneiric-ring",
+      "dusk-ring",
+      "gloam-ring",
+      "penumbra-ring",
+      "tenebrous-ring"
     ],
     "flesh-catalyst": [
       "solar",
@@ -1790,7 +1868,13 @@
       "topaz-ring",
       "emerald-ring",
       "gold-ring",
-      "unset-ring"
+      "unset-ring",
+      "biostatic-ring",
+      "oneiric-ring",
+      "dusk-ring",
+      "gloam-ring",
+      "penumbra-ring",
+      "tenebrous-ring"
     ],
     "refined-flesh-catalyst": [
       "ruby",

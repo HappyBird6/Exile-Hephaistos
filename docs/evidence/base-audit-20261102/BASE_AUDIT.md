@@ -1,6 +1,6 @@
 # 베이스 감사 및 제작 정책
 
-기준: 8524b6b781651379a6cff9108525282a0691df25. 기존 저장 기록·원문·카탈로그 identity를 삭제하지 않았다. 신규 39개 identity는 반지 6종, 목걸이 13종, 갑옷 고정 옵션별 20개이다. 현재 top registry 156개, legacy 포함 173개이며 새 작업대 선택은 165개이다.
+기준: 8524b6b781651379a6cff9108525282a0691df25. 기존 저장 기록·원문·카탈로그 identity를 삭제하지 않았다. 신규 45개 identity는 반지 12종, 목걸이 13종, 갑옷 고정 옵션별 20개이다. 현재 top registry 162개, legacy 포함 179개이며 새 작업대 선택은 171개이다.
 
 ## 신규 지원 목록
 
@@ -45,6 +45,12 @@
 | rambler-jacket | 뚜벅이 재킷 | Rambler Jacket | 아니오 | 3/3 |
 | falconers-jacket | 매 조련사의 재킷 | Falconer's Jacket | 아니오 | 3/3 |
 | austere-garb | 금욕적인 의복 | Austere Garb | 아니오 | 3/3 |
+| biostatic-ring | 생물정역학 반지 | Biostatic Ring | 아니오 | 3/3 |
+| oneiric-ring | 몽상 반지 | Oneiric Ring | 아니오 | 3/3 |
+| dusk-ring | 황혼 반지 | Dusk Ring | 아니오 | 4/2 |
+| gloam-ring | 석양 반지 | Gloam Ring | 아니오 | 2/4 |
+| penumbra-ring | 음영 반지 | Penumbra Ring | 아니오 | 5/1 |
+| tenebrous-ring | 어둑한 반지 | Tenebrous Ring | 아니오 | 1/5 |
 
 ## 근거와 범위
 
@@ -54,7 +60,7 @@
 - 역학/기억/활력/쌍보석 반지 제외 및 목걸이 5종·허리띠 3종 Rare 전용은 사용자 제작 범위 정책이다. 추출 데이터의 Mods.enable_rarity에는 normal/magic/rare/unique가 함께 있으므로, 이 플래그만으로 일반 드롭 존재나 고유 전용 여부를 단정하지 않는다. 기존 베이스/currency 등록은 남기고 새 선택만 제외했다.
 - Rare 전용은 초기 API, 클라이언트 응답/상태 검증, 가져오기 서버 검증, 기록 복원 후 제작 경계에서 적용한다. 과거 Normal/Magic 기록의 저장 바이트를 지우거나 Rare로 자동 변환하지 않는다.
 - Lament/Portent/Absent는 원문 후보 중 첫 유효 스킬 하나를 사용자 허용 임시 예시로 표시한다. 6개 언어 표시 앞에 임시 정책 문구를 붙이며, 실제 확정된 roll/관측/확률로 저장하지 않는다. 대표값은 Arctic Armour 11, Wolf Pack 11, Cast on Elemental Ailment 12이다. 해당 스킬 효과의 전투 계산은 지원하지 않는다.
-- 요청한 베이스 원문에는 특정 Notable 할당(Allocates) identity가 없다. Essence of Delirium 등으로 할당되는 Notable까지 임의로 확정하지 않았다. 이 부분은 스킬 후보 예시와 별개로, 실제 할당 후보 출처/규칙이 필요하다.
+- 목걸이 생성/미리보기에는 사용자 허용 임시 패시브 예시 Heavy Ammunition을 별도 표기한다. 실제 베이스 고정 옵션이나 수치로 추가하지 않으며 계산·실제 패시브 할당·액체 감정 소비를 수행하지 않는다. Lament/Portent/Absent의 원문 스킬 예시와 구분한다.
 
 ## 전체 목록 대조와 추가 보류
 
@@ -64,14 +70,8 @@
 |---|---|---|
 | 황금 고리 | Golden_Hoop | Demigod/Unique identity or Runic Ward/Alloy variants: excluded from ordinary crafting release scope; rarity-enable flags are not drop provenance. |
 | 심연의 인장 | Abyssal_Signet | Generic/Unique provenance needs a non-Unique acquisition proof; do not infer craftability from engine rarity flags. |
-| 생물정역학 반지 | Biostatic_Ring | Additional exact source candidate found by the audit; ordinary acquisition/explicit-pool release review remains outside the explicitly requested accessory additions. |
-| 몽상 반지 | Oneiric_Ring | Additional exact source candidate found by the audit; ordinary acquisition/explicit-pool release review remains outside the explicitly requested accessory additions. |
 | 거머쥐는 반지 | Grasping_Ring | Socketed-item bonus transfer is not modeled; only the explicitly requested Corona Amulet was added as a display-only source fact. |
 | 반지 | Ring | Generic/Unique provenance needs a non-Unique acquisition proof; do not infer craftability from engine rarity flags. |
-| 황혼 반지 | Dusk_Ring | Additional exact source candidate found by the audit; ordinary acquisition/explicit-pool release review remains outside the explicitly requested accessory additions. |
-| 석양 반지 | Gloam_Ring | Additional exact source candidate found by the audit; ordinary acquisition/explicit-pool release review remains outside the explicitly requested accessory additions. |
-| 음영 반지 | Penumbra_Ring | Additional exact source candidate found by the audit; ordinary acquisition/explicit-pool release review remains outside the explicitly requested accessory additions. |
-| 어둑한 반지 | Tenebrous_Ring | Additional exact source candidate found by the audit; ordinary acquisition/explicit-pool release review remains outside the explicitly requested accessory additions. |
 | 균열 반지 | Breach_Ring | Sourced implicit maximum-quality bonus needs a dedicated 40/45 base cap and interaction review; current quality boundary assumes an ordinary base cap of 20. |
 | 제련된 균열 반지 | Refined_Breach_Ring | Sourced implicit maximum-quality bonus needs a dedicated 40/45 base cap and interaction review; current quality boundary assumes an ordinary base cap of 20. |
 | 현실 합치 사슬 | Veridical_Chain | Demigod/Unique identity or Runic Ward/Alloy variants: excluded from ordinary crafting release scope; rarity-enable flags are not drop provenance. |
@@ -89,3 +89,9 @@
 - 왜곡된 목걸이 / Distorted Amulet (Metadata/Items/Amulets/FourAmuletDelirium2)
 - 흐르는 의복 / Flowing Raiment (Metadata/Items/Armours/BodyArmours/FourBodyInt6Endgame)
 - 매 조련사의 재킷 / Falconer's Jacket (Metadata/Items/Armours/BodyArmours/FourBodyDexInt6Endgame)
+- 생물정역학 반지 / Biostatic Ring (Metadata/Items/Rings/FourRingB1)
+- 몽상 반지 / Oneiric Ring (Metadata/Items/Rings/FourRingB5)
+- 황혼 반지 / Dusk Ring (Metadata/Items/Rings/FourRingLake1)
+- 석양 반지 / Gloam Ring (Metadata/Items/Rings/FourRingLake2)
+- 음영 반지 / Penumbra Ring (Metadata/Items/Rings/FourRingLake3)
+- 어둑한 반지 / Tenebrous Ring (Metadata/Items/Rings/FourRingLake4)

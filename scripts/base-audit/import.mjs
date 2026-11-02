@@ -20,6 +20,7 @@ const templates = { str: 'soldier', dex: 'slipstrike', int: 'vile', str_dex: 'de
 const rareOnly = new Set(['Dusk_Amulet','Gloam_Amulet','Penumbra_Amulet','Tenebrous_Amulet','Corona_Amulet'])
 const exampleLabels = { en: 'Temporary example (user policy)', ko: '임시 예시 (사용자 정책)', ja: '仮の例（ユーザー方針）', 'zh-CN': '临时示例（用户策略）', 'zh-TW': '暫時範例（使用者方針）', es: 'Ejemplo temporal (política del usuario)' }
 const sourceSkillPatterns = { en: /Grants Skill: Level \d+ [\s\S]+?(?= Grants Skill:|-1 Prefix|-1 Suffix|\n|$)/, ko: /스킬 부여: 레벨 \d+ [\s\S]+?(?= 스킬 부여:|접두어|접미어|\n|$)/, ja: /付与するスキル[^\n]+/, 'zh-CN': /获得技能[^\n]+/, 'zh-TW': /賦予技能[^\n]+/, es: /Otorga la habilidad[^\n]+/ }
+const previousRecords = fs.existsSync(`${root}/import-summary.json`) ? read(`${root}/import-summary.json`) : []
 const records = []
 const header = (proof) => proof.html.match(/^<h5[^]*?<\/h5>/)[0].replace(/<span class=['"]ndash['"]>([^]*?)<\/span>/g, '$1')
 const numericSpans = (proof) => [...header(proof).matchAll(/<span class=['"]mod-value['"]>([^]*?)<\/span>/g)].map((match) => clean(match[1]))
@@ -36,7 +37,7 @@ for (const slug of plan.collect) {
     assert(variant.fields['Mods.enable_rarity'].includes('rare'), `${slug}: craftable source rarity`)
     const suffix = source.variants.length > 1 ? ['fire','cold','lightning'][variantIndex] : null
     const key = slug.toLowerCase().replaceAll('_', '-') + (suffix ? `-${suffix}` : '')
-    if (bases[key]) { records.push({ key, alreadyImported: true }); continue }
+    if (bases[key]) { records.push(previousRecords.find((record) => record.key === key) ?? { key, alreadyImported: true }); continue }
     const termKey = slug + (suffix ? `_${suffix}` : '')
     const proof = source.proofs[variantIndex]
     const stats = proof.stats.map(({ locality, ...stat }) => stat)

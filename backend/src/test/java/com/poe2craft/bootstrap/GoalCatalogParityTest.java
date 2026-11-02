@@ -20,7 +20,7 @@ class GoalCatalogParityTest {
     var workbench =
         cfg.workbenchService(solar, cfg.workbenchSimulator(solar, cfg.craftingEngine(solar)));
     var catalogs = BundledGoalCatalogs.load(workbench);
-    assertThat(catalogs).hasSize(173);
+    assertThat(catalogs).hasSize(179);
     var index = new GoalCatalogIndex(catalogs, GoalDefinitionsLoader.load());
     for (var source : catalogs) {
       for (int level : new int[] {1, 82}) {

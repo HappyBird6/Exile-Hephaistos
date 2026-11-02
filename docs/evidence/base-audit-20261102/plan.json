@@ -916,6 +916,20 @@
     "Seastorm_Mantle",
     "Rambler_Jacket",
     "Falconers_Jacket",
-    "Austere_Garb"
+    "Austere_Garb",
+    "Biostatic_Ring",
+    "Oneiric_Ring",
+    "Dusk_Ring",
+    "Gloam_Ring",
+    "Penumbra_Ring",
+    "Tenebrous_Ring"
+  ],
+  "confirmedAdditionalCandidates": [
+    "Biostatic_Ring",
+    "Oneiric_Ring",
+    "Dusk_Ring",
+    "Gloam_Ring",
+    "Penumbra_Ring",
+    "Tenebrous_Ring"
   ]
 }

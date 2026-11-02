@@ -8209,5 +8209,349 @@
     },
     "archetype": "dex_int",
     "implicitText": "(10—15)% reduced Elemental Ailment Duration on you"
+  },
+  "biostatic-ring": {
+    "key": "biostatic-ring",
+    "slug": "Biostatic_Ring",
+    "pool": "biostatic-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRingB1",
+    "name": "Biostatic Ring",
+    "sourceUrl": "https://poe2db.tw/us/Biostatic_Ring",
+    "sourceSha256": "64d00884ccec6a10a0d878845bbc9c28f20af32f64f22c577adf92f38a15be34",
+    "sourceTags": ["ring"],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 52,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 52",
+      "ko": "요구 사항:  레벨 52",
+      "ja": "装備条件： レベル 52",
+      "zh-CN": "需求：  等级 52",
+      "zh-TW": "需求:  等級 52",
+      "es": "Requiere:  Nivel 52"
+    },
+    "implicitModifierId": "biostatic-ring:implicit:base",
+    "implicitStats": [
+      {
+        "id": "additional_maximum_all_resistances_%",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "additional_maximum_all_resistances_%",
+        "min": 1,
+        "max": 1,
+        "locality": "Global"
+      }
+    ],
+    "affixLimits": {
+      "magicPrefixes": 1,
+      "magicSuffixes": 1,
+      "rarePrefixes": 3,
+      "rareSuffixes": 3
+    },
+    "implicitText": "+1% to all maximum Resistances"
+  },
+  "oneiric-ring": {
+    "key": "oneiric-ring",
+    "slug": "Oneiric_Ring",
+    "pool": "oneiric-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRingB5",
+    "name": "Oneiric Ring",
+    "sourceUrl": "https://poe2db.tw/us/Oneiric_Ring",
+    "sourceSha256": "eaa381a7de5f2bcce0823301fcdc56ada9c6da3242e0ed5618cfa0d23597433b",
+    "sourceTags": ["ring"],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 47,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "Requires:  Level 47",
+      "ko": "요구 사항:  레벨 47",
+      "ja": "装備条件： レベル 47",
+      "zh-CN": "需求：  等级 47",
+      "zh-TW": "需求:  等級 47",
+      "es": "Requiere:  Nivel 47"
+    },
+    "implicitModifierId": "oneiric-ring:implicit:base",
+    "implicitStats": [
+      {
+        "id": "chaos_damage_+%",
+        "min": 11,
+        "max": 23
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "chaos_damage_+%",
+        "min": 11,
+        "max": 23,
+        "locality": "Global"
+      }
+    ],
+    "affixLimits": {
+      "magicPrefixes": 1,
+      "magicSuffixes": 1,
+      "rarePrefixes": 3,
+      "rareSuffixes": 3
+    },
+    "implicitText": "(11—23)% increased Chaos Damage"
+  },
+  "dusk-ring": {
+    "key": "dusk-ring",
+    "slug": "Dusk_Ring",
+    "pool": "dusk-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRingLake1",
+    "name": "Dusk Ring",
+    "sourceUrl": "https://poe2db.tw/us/Dusk_Ring",
+    "sourceSha256": "a5ddfec7e44d1e3f6af30c31ca797985bf601c7eb334f505c9519839fca1bf87",
+    "sourceTags": ["ring"],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitModifierId": "dusk-ring:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": 1,
+        "max": 1
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": -1,
+        "max": -1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": -1,
+        "max": -1,
+        "locality": "Local"
+      }
+    ],
+    "affixLimits": {
+      "magicPrefixes": 2,
+      "magicSuffixes": 0,
+      "rarePrefixes": 4,
+      "rareSuffixes": 2
+    },
+    "implicitText": "+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed"
+  },
+  "gloam-ring": {
+    "key": "gloam-ring",
+    "slug": "Gloam_Ring",
+    "pool": "gloam-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRingLake2",
+    "name": "Gloam Ring",
+    "sourceUrl": "https://poe2db.tw/us/Gloam_Ring",
+    "sourceSha256": "ed7a43b7341f8dd4c8402cf859ddcdedad6992546e549ed762769984a11dc696",
+    "sourceTags": ["ring"],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitModifierId": "gloam-ring:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": -1,
+        "max": -1
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": -1,
+        "max": -1,
+        "locality": "Local"
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      }
+    ],
+    "affixLimits": {
+      "magicPrefixes": 0,
+      "magicSuffixes": 2,
+      "rarePrefixes": 2,
+      "rareSuffixes": 4
+    },
+    "implicitText": "-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed"
+  },
+  "penumbra-ring": {
+    "key": "penumbra-ring",
+    "slug": "Penumbra_Ring",
+    "pool": "penumbra-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRingLake3",
+    "name": "Penumbra Ring",
+    "sourceUrl": "https://poe2db.tw/us/Penumbra_Ring",
+    "sourceSha256": "f94f3797a1921bacd733cd15437cebb3b7b7b7e22ebf6dd94431cdeb764aace4",
+    "sourceTags": ["ring"],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitModifierId": "penumbra-ring:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": 2,
+        "max": 2
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": -2,
+        "max": -2
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": 2,
+        "max": 2,
+        "locality": "Local"
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": -2,
+        "max": -2,
+        "locality": "Local"
+      }
+    ],
+    "affixLimits": {
+      "magicPrefixes": 3,
+      "magicSuffixes": 0,
+      "rarePrefixes": 5,
+      "rareSuffixes": 1
+    },
+    "implicitText": "+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed"
+  },
+  "tenebrous-ring": {
+    "key": "tenebrous-ring",
+    "slug": "Tenebrous_Ring",
+    "pool": "tenebrous-ring",
+    "family": "rings",
+    "id": "Metadata/Items/Rings/FourRingLake4",
+    "name": "Tenebrous Ring",
+    "sourceUrl": "https://poe2db.tw/us/Tenebrous_Ring",
+    "sourceSha256": "2827be6cf197e3f60a4b1444fd57c64745ab3a368e744e49a04cf749ebc52867",
+    "sourceTags": ["ring"],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitModifierId": "tenebrous-ring:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": -2,
+        "max": -2
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": 2,
+        "max": 2
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": -2,
+        "max": -2,
+        "locality": "Local"
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": 2,
+        "max": 2,
+        "locality": "Local"
+      }
+    ],
+    "affixLimits": {
+      "magicPrefixes": 0,
+      "magicSuffixes": 3,
+      "rarePrefixes": 1,
+      "rareSuffixes": 5
+    },
+    "implicitText": "-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed"
   }
 }
