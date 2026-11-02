@@ -527,3 +527,11 @@ Backend441+integration6, Frontend1820, API539, Browser719가 통과했고228 scr
 - 품질, omens, multi-stat, 미검토 수치 unit/effect, 다른 base의 numeric addition은 구현 범위 밖. 기존 opt-in ratio tick 모델을 Solar에 적용하지 않는다.
 - Annul/Chaos 제거 및 망친 경로에서 복구 경로로 이동하는 정책은 후속 구현. 복구 이후 확률은 정상 addition 경로에 포함하지 않는다.
 - full numeric 상태 공간은 커서 요청 예산에 따라 PARTIAL이 일반적이다. lower/upper/unresolved와 미탐색 순서 수, 미확정 순위를 유지한다.
+
+
+## WB-052 후속 — 훼손 관련 화폐 지원 누락 점검 (2026-11-02)
+
+- 사용자 요청: “추후에 훼손에 대한 화폐도 추가해줘”. 이번 가져오기·상태 보존 작업에서는 화폐 범위를 확대하지 않는다.
+- 먼저 기존 Abyss 수동 패널, WorkbenchCurrency, AbyssCurrencyPlan 및 관련 API의 지원 화폐·징조를 목록화한다. 이미 구현된 훼손 접두/접미 슬롯, 미공개 후보와 선택, 슬롯 제거·교체, 저장·복원 기능을 신규 기능으로 중복 등록하지 않는다.
+- 실제 시즌의 1차 자료와 대조해 누락된 화폐/징조와 사용 조건·결과만 식별하고 추가한다. 훼손(Desecrated)과 타락(Corrupted)을 구분하며 두 범위를 임의로 합치지 않는다.
+- 완료 조건: 누락 목록과 근거, 각 추가 전이의 비용·실패 시 상태 보존·분열 옵션 및 미공개 후보 보존·저장/복원 테스트. 확인되지 않은 확률이나 효과는 가정으로 넣지 않는다.

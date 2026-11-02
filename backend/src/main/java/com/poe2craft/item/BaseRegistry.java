@@ -76,6 +76,13 @@ public final class BaseRegistry {
                       });
             skills.put(b.path("id").asText(), Set.copyOf(lines));
           });
+      // Bundled legacy base-proof.json evidence; no skill-level progression is inferred.
+      skills.put(
+          rules.path("legacy").path("wand").path("id").asText(),
+          Set.of("Grants Skill: Mana Drain"));
+      skills.put(
+          rules.path("legacy").path("sceptre").path("id").asText(),
+          Set.of("Grants Skill: Skeletal Warrior"));
       GRANTED_SKILLS = Collections.unmodifiableMap(skills);
     } catch (IOException e) {
       throw new ExceptionInInitializerError(e);
@@ -286,7 +293,27 @@ public final class BaseRegistry {
   }
 
   public static boolean recognizesGrantedSkill(String id, String line) {
-    return GRANTED_SKILLS.getOrDefault(id, Set.of()).contains(line);
+    return observedGrantedSkill(id, line) != null;
+  }
+
+  public static ItemObservations.GrantedSkill observedGrantedSkill(String id, String line) {
+    var m =
+        java.util.regex.Pattern.compile("^Grants Skill: (?:Level ([0-9]+) )?(.+)$").matcher(line);
+    if (!m.matches()) return null;
+    String name = m.group(2);
+    boolean known =
+        GRANTED_SKILLS.getOrDefault(id, Set.of()).stream()
+            .map(
+                s ->
+                    s.replaceFirst("^Grants Skill: (?:Level (?:[0-9]+|\\([0-9]+-[0-9]+\\)) )?", ""))
+            .anyMatch(name::equals);
+    if (!known) return null;
+    try {
+      return new ItemObservations.GrantedSkill(
+          name, m.group(1) == null ? null : Integer.valueOf(m.group(1)));
+    } catch (IllegalArgumentException e) {
+      return null;
+    }
   }
 
   public static Integer socketExecutionMaximum(String id) {

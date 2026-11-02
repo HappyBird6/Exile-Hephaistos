@@ -19,6 +19,10 @@ public class CraftingConfiguration {
     @com.fasterxml.jackson.annotation.JsonInclude(
         com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
     abstract Integer equipmentQuality();
+
+    @com.fasterxml.jackson.annotation.JsonInclude(
+        com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+    abstract com.poe2craft.item.ItemObservations observations();
   }
 
   @Bean

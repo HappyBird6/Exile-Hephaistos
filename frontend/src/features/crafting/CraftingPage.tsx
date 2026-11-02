@@ -98,6 +98,7 @@ export function CraftingPage() {
     ? clipboardBase(
         imported.data.displayBase ?? imported.data.displayName,
         imported.data.itemClass,
+        imported.data.text.originalText,
       )
     : undefined
   const [filmState, setFilmState] = useState(() => {
@@ -692,7 +693,11 @@ export function CraftingPage() {
         )
       setAnnouncement(
         result.mapped
-          ? t('notice.import_ready')
+          ? t(
+              result.state?.observations?.augmentEffects.length
+                ? 'notice.resolve_augments'
+                : 'notice.import_ready',
+            )
           : 'Crafting mapping is blocked. The original text and unresolved lines are preserved.',
       )
     } catch (error) {
@@ -1604,6 +1609,9 @@ export function CraftingPage() {
                     )}
                   </p>
                 )}
+                {draft.source === 'text' && imported.data && !importedBase && (
+                  <p>{t('notice.resolve_base')}</p>
+                )}
                 {draft.source === 'text' && !mapping.data?.mapped && (
                   <button
                     type="button"
@@ -1618,7 +1626,12 @@ export function CraftingPage() {
                 {mapping.data && (
                   <p>
                     {mapping.data.mapped
-                      ? t('notice.import_ready')
+                      ? t(
+                          mapping.data.state?.observations?.augmentEffects
+                            .length
+                            ? 'notice.resolve_augments'
+                            : 'notice.import_ready',
+                        )
                       : t('notice.import_blocked')}
                   </p>
                 )}
@@ -1803,6 +1816,9 @@ export function CraftingPage() {
                       ))}
                     </select>
                   </label>
+                )}
+                {!!concrete?.observations?.augmentEffects.length && (
+                  <p>{t('notice.resolve_augments')}</p>
                 )}
                 {film?.sourceDocument !== undefined && (
                   <details>

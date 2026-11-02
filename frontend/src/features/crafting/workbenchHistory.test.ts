@@ -28,6 +28,41 @@ async function craft() {
   ).json()) as AppliedItem
 }
 describe('linear crafting films', () => {
+  it('round trips observed sockets, unresolved Augment effects and explicit skill levels without filling unknowns', async () => {
+    const observations = {
+      socketCount: 4,
+      augmentEffects: ['20% increased Armour (rune)'],
+      grantedSkills: [
+        { name: 'Malice', level: 17 },
+        { name: 'Other skill', level: null },
+      ],
+    }
+    const observed = { ...root, observations }
+    const films = startFilm(
+      emptyFilms(),
+      observed,
+      'observed',
+      'fixture-ruleset',
+      'original',
+    )
+    const repository = new LocalFilmRepository(localStorage)
+    repository.save(films)
+    expect(currentFrame(repository.load())?.state.observations).toEqual(
+      observations,
+    )
+    const result = await craft()
+    const blocked = recordCraft(
+      repository.load(),
+      observed,
+      { ...result, applied: false, state: observed },
+      'unused',
+    )
+    expect(blocked).toEqual(films)
+    expect(currentFrame(blocked)?.state.augmentSockets).toBe(
+      root.augmentSockets,
+    )
+  })
+
   it('retains exact pasted provenance across storage, crafting and a history branch', async () => {
     const source = 'Item Class: Amulets\r\nRarity: Normal\r\nSolar Amulet\r\n'
     const initial = startFilm(

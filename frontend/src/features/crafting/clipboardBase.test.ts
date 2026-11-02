@@ -33,3 +33,36 @@ it('keeps 134 compatible identities and selects only the 130 reviewed upper base
     expect(selectableBaseKeys).toContain(upper)
   }
 })
+
+it('resolves Shrine variants only from an exact consistent granted skill', () => {
+  for (const [element, key] of [
+    ['Fire', 'shrine-fire'],
+    ['Ice', 'shrine-ice'],
+    ['Lightning', 'shrine-lightning'],
+  ]) {
+    expect(
+      clipboardBase(
+        'Shrine Sceptre',
+        'Sceptres',
+        `Grants Skill: Level 17 Purity of ${element}`,
+      ),
+    ).toBe(key)
+  }
+  expect(
+    clipboardBase('Shrine Sceptre', 'Sceptres', 'Grants Skill: Unknown'),
+  ).toBeUndefined()
+  expect(
+    clipboardBase(
+      'Shrine Sceptre',
+      'Sceptres',
+      'Grants Skill: Purity of Fire\nGrants Skill: Purity of Ice',
+    ),
+  ).toBeUndefined()
+  expect(
+    clipboardBase(
+      'Shrine Sceptre',
+      'Sceptres',
+      'Grants Skill: Level 0 Purity of Fire',
+    ),
+  ).toBeUndefined()
+})

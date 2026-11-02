@@ -287,6 +287,10 @@ public final class MethodSearchController {
           if (object.hasNonNull("equipmentQuality"))
             throw new IllegalArgumentException("Equipment quality requires the manual workbench");
           if (!object.has("equipmentQuality")) object.putNull("equipmentQuality");
+          if (object.hasNonNull("observations"))
+            throw new IllegalArgumentException(
+                "Clipboard observations require the manual workbench");
+          if (!object.has("observations")) object.putNull("observations");
         }
       return json.treeToValue(body, type);
     } catch (Rejected e) {

@@ -64,18 +64,52 @@ export function sourcePropertyUnscaled(key: string): boolean {
 export function clipboardBase(
   name: string,
   itemClass: string,
+  sourceText?: string,
 ): WorkbenchBaseKey | undefined {
-  const matches = (Object.keys(baseTexts) as WorkbenchBaseKey[]).filter(
-    (key) => {
-      const expectedClass = baseClass(key)
-      return (
-        baseTexts[key].split('\n').at(-1) === name &&
-        (expectedClass === itemClass ||
-          (['Amulet', 'Amulets'].includes(expectedClass) &&
-            ['Amulet', 'Amulets'].includes(itemClass)))
-      )
-    },
-  )
+  let matches = (Object.keys(baseTexts) as WorkbenchBaseKey[]).filter((key) => {
+    const expectedClass = baseClass(key)
+    return (
+      baseTexts[key].split('\n').at(-1) === name &&
+      (expectedClass === itemClass ||
+        (['Amulet', 'Amulets'].includes(expectedClass) &&
+          ['Amulet', 'Amulets'].includes(itemClass)))
+    )
+  })
+  if (matches.length > 1 && sourceText) {
+    const skills = sourceText
+      .split(/\r?\n|\r/)
+      .map((line) => line.trim())
+      .filter((line) => line.startsWith('Grants Skill: '))
+    if (skills.length)
+      matches = matches.filter((key) => {
+        const base = bases[key as keyof typeof bases] as
+          | {
+              sourceProperties?: { en?: string[] }
+              skillLines?: { en?: string[] }
+            }
+          | undefined
+        const known = [
+          ...(base?.sourceProperties?.en ?? []),
+          ...(base?.skillLines?.en ?? []),
+        ]
+          .filter((line) => line.startsWith('Grants Skill: '))
+          .map((line) =>
+            line.replace(
+              /^Grants Skill: (?:Level (?:[0-9]+|\([0-9]+-[0-9]+\)) )?/,
+              '',
+            ),
+          )
+        return skills.every((line) => {
+          const match = /^Grants Skill: (?:Level ([0-9]+) )?(.+)$/.exec(line)
+          return (
+            !!match &&
+            (!match[1] ||
+              (Number(match[1]) >= 1 && Number(match[1]) <= 2147483647)) &&
+            known.includes(match[2]!)
+          )
+        })
+      })
+  }
   return matches.length === 1 ? matches[0] : undefined
 }
 

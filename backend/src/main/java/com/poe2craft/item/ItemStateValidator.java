@@ -17,6 +17,21 @@ public final class ItemStateValidator {
 
   public List<Violation> validate(ItemState state) {
     var errors = new ArrayList<Violation>();
+    if (state.observations() != null) {
+      var observed = state.observations();
+      if ((observed.socketCount() != null && BasicJewel.supportedCrafting(state.baseItemId()))
+          || (observed.socketCount() != null
+              && state.augmentSockets() != null
+              && !observed.socketCount().equals(state.augmentSockets()))
+          || observed.grantedSkills().stream()
+              .anyMatch(
+                  s ->
+                      !BaseRegistry.recognizesGrantedSkill(
+                          state.baseItemId(), "Grants Skill: " + s.name())))
+        errors.add(
+            new Violation(
+                Code.UNSUPPORTED_STATE, "", "Conflicting or unsupported clipboard observations"));
+    }
     if (!state.desecrated().isEmpty()) {
       if (state.rarity() != ItemState.Rarity.RARE
           || BasicJewel.supportedCrafting(state.baseItemId()))

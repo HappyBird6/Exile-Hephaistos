@@ -27,6 +27,19 @@ public final class SolarTextMapper {
   public Result map(ItemModels.Item item) {
     String name = item.displayBase() == null ? item.displayName() : item.displayBase();
     var candidates = catalogs.stream().filter(c -> c.base().name().equals(name)).toList();
+    if (candidates.size() > 1) {
+      var skills =
+          item.unparsedLines().stream().filter(l -> l.raw().startsWith("Grants Skill: ")).toList();
+      if (!skills.isEmpty())
+        candidates =
+            candidates.stream()
+                .filter(
+                    c ->
+                        skills.stream()
+                            .allMatch(
+                                l -> BaseRegistry.recognizesGrantedSkill(c.base().id(), l.raw())))
+                .toList();
+    }
     if (candidates.size() != 1)
       return new Result(
           false, null, List.of(new Issue(0, "An exact, unambiguous registered base is required.")));
@@ -45,7 +58,19 @@ public final class SolarTextMapper {
       issues.add(new Issue(0, "Item level 1 to 100 is required."));
     if (!Set.of(ItemModels.Rarity.NORMAL, ItemModels.Rarity.MAGIC, ItemModels.Rarity.RARE)
         .contains(item.rarity())) issues.add(new Issue(0, "Unsupported rarity."));
+    var skills = new ArrayList<ItemObservations.GrantedSkill>();
+    for (var line : item.unparsedLines()) {
+      var skill = BaseRegistry.observedGrantedSkill(catalog.base().id(), line.raw());
+      if (skill != null) skills.add(skill);
+    }
+    if (skills.stream().map(ItemObservations.GrantedSkill::name).distinct().count()
+        != skills.size())
+      issues.add(new Issue(0, "Duplicate or conflicting granted-skill observations."));
+    var augmentEffects = new ArrayList<String>();
     var attachedMetadata = new HashSet<Integer>();
+    for (var modifier : item.modifiers())
+      if (modifier.type() == ItemModels.ModifierType.RUNE && modifier.metadata() != null)
+        attachedMetadata.add(modifier.metadata().number());
     for (var modifier : item.modifiers())
       if (modifier.metadata() != null
           && modifier.affix() != null
@@ -76,6 +101,7 @@ public final class SolarTextMapper {
     Integer equipmentQuality = null;
     CatalystQuality catalystQuality = null;
     Integer sockets = null;
+    Integer observedSockets = null;
     var seenProperties = new HashSet<String>();
     for (var property : item.properties()) {
       if (!seenProperties.add(property.key())) {
@@ -111,20 +137,13 @@ public final class SolarTextMapper {
                   "[0-9]+(?:\\.[0-9]+)?(?:-[0-9]+(?:\\.[0-9]+)?)?(?:, [0-9]+(?:-[0-9]+)?)*%?(?: \\(augmented\\))?"))
         continue;
       if (BaseRegistry.catalystQuality(catalog.base().id())
-          && (property.key().equals("Quality (Life Modifiers)")
-              || property.key().equals("Quality (Caster Modifiers)"))
+          && catalystType(property.key()) != null
           && property.value().matches("\\+?[0-9]{1,3}%(?: \\(augmented\\))?")) {
         int amount = Integer.parseInt(property.value().replaceFirst("^\\+", "").split("%", 2)[0]);
         if (catalystQuality != null || amount > 100)
           issues.add(
               new Issue(property.source().number(), "Conflicting or invalid catalyst quality."));
-        else
-          catalystQuality =
-              new CatalystQuality(
-                  property.key().equals("Quality (Life Modifiers)")
-                      ? CatalystQuality.Type.FLESH
-                      : CatalystQuality.Type.SIBILANT,
-                  amount);
+        else catalystQuality = new CatalystQuality(catalystType(property.key()), amount);
       } else if (!BaseRegistry.catalystQuality(catalog.base().id())
           && BaseRegistry.policy(catalog.base().id()).qualityLimit()
           && !BasicJewel.supportedCrafting(catalog.base().id())
@@ -134,13 +153,11 @@ public final class SolarTextMapper {
             Integer.parseInt(property.value().replaceFirst("^\\+", "").split("%", 2)[0]);
         if (equipmentQuality > 100)
           issues.add(new Issue(property.source().number(), "Invalid quality amount."));
-      } else if (property.key().equals("Sockets")
-          && property.value().trim().matches("S(?: S)*")
-          && BaseRegistry.socketExecutionMaximum(catalog.base().id()) != null) {
-        sockets = property.value().trim().split(" ").length;
-        if (sockets > BaseRegistry.socketExecutionMaximum(catalog.base().id()))
-          issues.add(
-              new Issue(property.source().number(), "Socket count exceeds reviewed capacity."));
+      } else if (property.key().equals("Sockets") && property.value().trim().matches("S(?: S)*")) {
+        observedSockets = property.value().trim().split(" ").length;
+        // The observed count does not assert a crafting capacity or enable Artificer's Orb.
+      } else if (property.key().equals("Rune") && !property.value().isBlank()) {
+        augmentEffects.add(property.source().raw());
       } else
         issues.add(
             new Issue(
@@ -151,6 +168,11 @@ public final class SolarTextMapper {
     var explicits = new ArrayList<ModifierInstance>();
     var groups = new LinkedHashMap<Integer, List<ItemModels.Modifier>>();
     for (var line : item.modifiers()) {
+      if (line.type() == ItemModels.ModifierType.RUNE) {
+        augmentEffects.add(
+            (line.metadata() == null ? "" : line.metadata().raw() + "\n") + line.source().raw());
+        continue;
+      }
       int identity = line.metadata() == null ? line.source().number() : line.metadata().number();
       groups.computeIfAbsent(identity, ignored -> new ArrayList<>()).add(line);
     }
@@ -206,7 +228,9 @@ public final class SolarTextMapper {
             new Issue(
                 modifier.source().number(),
                 matches.isEmpty()
-                    ? "No exact catalog match and source-unit conversion was verified."
+                    ? (catalystQuality != null && catalystQuality.amount() > 0
+                        ? "No exact catalog match; catalyst-affected values need original unscaled rolls, tier and verified rounding."
+                        : "No exact catalog match and source-unit conversion was verified.")
                     : "Multiple catalog tiers match this value; provide verified affix/tier metadata."));
       else {
         var matched = matches.getFirst();
@@ -232,6 +256,10 @@ public final class SolarTextMapper {
       }
     }
     if (!issues.isEmpty()) return new Result(false, null, issues);
+    var observations =
+        observedSockets == null && augmentEffects.isEmpty() && skills.isEmpty()
+            ? null
+            : new ItemObservations(observedSockets, augmentEffects, skills);
     var state =
         new ItemState(
                 catalog.metadata().snapshotId(),
@@ -244,10 +272,31 @@ public final class SolarTextMapper {
                 sockets,
                 catalystQuality)
             .withDesecrated(desecrated)
-            .withEquipmentQuality(equipmentQuality);
+            .withEquipmentQuality(equipmentQuality)
+            .withObservations(observations);
     for (var violation : new ItemStateValidator(catalog).validate(state))
       issues.add(new Issue(0, violation.message()));
     return new Result(issues.isEmpty(), issues.isEmpty() ? state : null, issues);
+  }
+
+  private static CatalystQuality.Type catalystType(String label) {
+    return switch (label) {
+      case "Quality (Life Modifiers)" -> CatalystQuality.Type.FLESH;
+      case "Quality (Mana Modifiers)" -> CatalystQuality.Type.NEURAL;
+      case "Quality (Defence Modifiers)", "Quality (Defences Modifiers)" ->
+          CatalystQuality.Type.CARAPACE;
+      case "Quality (Physical Modifiers)" -> CatalystQuality.Type.UUL_NETOL;
+      case "Quality (Fire Modifiers)" -> CatalystQuality.Type.XOPH;
+      case "Quality (Cold Modifiers)" -> CatalystQuality.Type.TUL;
+      case "Quality (Lightning Modifiers)" -> CatalystQuality.Type.ESH;
+      case "Quality (Chaos Modifiers)" -> CatalystQuality.Type.CHAYULA;
+      case "Quality (Attack Modifiers)" -> CatalystQuality.Type.REAVER;
+      case "Quality (Caster Modifiers)" -> CatalystQuality.Type.SIBILANT;
+      case "Quality (Speed Modifiers)" -> CatalystQuality.Type.SKITTERING;
+      case "Quality (Attribute Modifiers)" -> CatalystQuality.Type.ADAPTIVE;
+      case "Quality (Minion Modifiers)" -> CatalystQuality.Type.NECROTIC;
+      default -> null;
+    };
   }
 
   private ModifierInstance match(ModifierDefinition definition, String text) {

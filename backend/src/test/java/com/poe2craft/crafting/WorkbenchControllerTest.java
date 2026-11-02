@@ -30,6 +30,57 @@ class WorkbenchControllerTest {
   @Autowired com.poe2craft.crafting.application.WorkbenchService service;
 
   @Test
+  void importedObservationsSurviveJsonRestorationAndManualCraftsWhileUnresolvedAugmentsStayOnHold()
+      throws Exception {
+    for (String source :
+        java.util.List.of(
+            "Item Class: Body Armours\nRarity: Normal\nSoldier Cuirass\n--------\nSockets: S S S S\nItem Level: 82",
+            "Item Class: Sceptres\nRarity: Normal\nOmen Sceptre\n--------\nGrants Skill: Level 17 Malice\nItem Level: 82",
+            "Item Class: Body Armours\nRarity: Normal\nSoldier Cuirass\n--------\nSockets: S S\nItem Level: 82\n--------\n20% increased Armour (rune)")) {
+      var mapped =
+          mapper.readTree(
+              mvc.perform(
+                      post("/api/v1/crafting/workbench/map-text")
+                          .header(
+                              "X-Crafting-Ruleset",
+                              com.poe2craft.crafting.presentation.RulesetBoundary.identity())
+                          .contentType(MediaType.APPLICATION_JSON)
+                          .content(mapper.writeValueAsBytes(Map.of("text", source))))
+                  .andExpect(status().isOk())
+                  .andExpect(jsonPath("$.mapped").value(true))
+                  .andReturn()
+                  .getResponse()
+                  .getContentAsString());
+      var state = mapped.get("state");
+      var observations = state.get("observations").deepCopy();
+      for (String action : java.util.List.of("TRANSMUTATION", "AUGMENTATION", "REGAL")) {
+        var result =
+            mapper.readTree(
+                mvc.perform(
+                        post("/api/v1/crafting/workbench/apply")
+                            .header(
+                                "X-Crafting-Ruleset",
+                                com.poe2craft.crafting.presentation.RulesetBoundary.identity())
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .content(
+                                mapper.writeValueAsBytes(Map.of("state", state, "action", action))))
+                    .andExpect(status().isOk())
+                    .andReturn()
+                    .getResponse()
+                    .getContentAsString());
+        org.assertj.core.api.Assertions.assertThat(result.get("state").get("observations"))
+            .isEqualTo(observations);
+        if (source.contains("(rune)")) {
+          org.assertj.core.api.Assertions.assertThat(result.path("applied").asBoolean()).isFalse();
+          org.assertj.core.api.Assertions.assertThat(result.get("state")).isEqualTo(state);
+        } else
+          org.assertj.core.api.Assertions.assertThat(result.path("applied").asBoolean()).isTrue();
+        state = mapper.readTree(mapper.writeValueAsBytes(result.get("state")));
+      }
+    }
+  }
+
+  @Test
   void rulesetBoundaryPreservesReadsAndRejectsOlderAndMismatchedClients() throws Exception {
     mvc.perform(get("/api/v1/crafting/workbench/initial"))
         .andExpect(status().isOk())

@@ -88,6 +88,9 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
   }
 
   public void validate(ItemCatalog catalog) {
+    if (item.observations() != null && item.observations().needsAugmentResolution())
+      throw new IllegalArgumentException(
+          "Installed Augment names and counts must be resolved before crafting; observations are preserved.");
     if (!new ItemStateValidator(catalog).validate(knownItem()).isEmpty())
       throw new IllegalArgumentException("Invalid known item state");
     if (slots.stream().anyMatch(Slot::desecrated)
@@ -205,6 +208,7 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
             s.conditions(),
             s.augmentSockets(),
             s.catalystQuality())
-        .withEquipmentQuality(s.equipmentQuality());
+        .withEquipmentQuality(s.equipmentQuality())
+        .withObservations(s.observations());
   }
 }

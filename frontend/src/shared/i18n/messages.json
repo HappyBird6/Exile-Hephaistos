@@ -446,7 +446,13 @@
     "notice.import_blocked": "This item could not be imported for crafting. Your original text is preserved.",
     "quality.equipment": "Quality: +{value}%",
     "notice.use_abyss": "Use Abyss crafting below to keep desecrated slots and observed candidates.",
-    "film.original_paste": "Original pasted item (before crafting)"
+    "film.original_paste": "Original pasted item (before crafting)",
+    "notice.resolve_augments": "Item saved. Crafting is on hold: confirm the names and counts of installed Augments. Their copied effects are preserved.",
+    "notice.resolve_base": "The base cannot be identified uniquely. Include the exact base name and its granted-skill line; Shrine Sceptre needs Purity of Fire, Ice or Lightning.",
+    "server.augment_observations_pending": "Installed Augment effects are preserved. Provide their names and counts before crafting; their crafting effects are not resolved.",
+    "server.catalyst_original_required": "Catalyst-affected values require original unscaled rolls and verified rounding; displayed values cannot be treated as raw rolls.",
+    "server.catalyst_match_required": "No exact catalog match; catalyst-affected values need original unscaled rolls, tier and verified rounding.",
+    "server.socket_observation_only": "The imported socket count is preserved, but its Artificer capacity has not been established."
   },
   "ko": {
     "language": "언어",
@@ -895,7 +901,13 @@
     "notice.import_blocked": "이 아이템을 제작용으로 가져올 수 없습니다. 원문은 보존됩니다.",
     "quality.equipment": "퀄리티: +{value}%",
     "notice.use_abyss": "아래 심연 제작에서 훼손 슬롯과 관찰한 후보를 유지하며 제작하세요.",
-    "film.original_paste": "처음 붙여넣은 아이템 (제작 전)"
+    "film.original_paste": "처음 붙여넣은 아이템 (제작 전)",
+    "notice.resolve_augments": "아이템을 저장했습니다. 장착된 증강의 이름과 개수를 확인할 때까지 제작을 보류합니다. 복사한 증강 효과는 보존됩니다.",
+    "notice.resolve_base": "베이스를 하나로 확인할 수 없습니다. 정확한 베이스 이름과 부여 스킬 줄을 포함해 주세요. Shrine Sceptre는 불·얼음·번개의 순수함 중 어떤 스킬인지 필요합니다.",
+    "server.augment_observations_pending": "장착 증강 효과는 보존됩니다. 제작 전에 증강의 이름과 개수를 확인해 주세요. 제작에 미치는 효과는 아직 확인되지 않았습니다.",
+    "server.catalyst_original_required": "촉매가 적용된 옵션은 적용 전 수치와 확인된 반올림 규칙이 필요합니다. 표시값을 원래 수치로 사용할 수 없습니다.",
+    "server.catalyst_match_required": "카탈로그와 정확히 일치하지 않습니다. 촉매가 적용됐다면 적용 전 수치·티어와 확인된 반올림 규칙이 필요합니다.",
+    "server.socket_observation_only": "가져온 소켓 개수는 보존됩니다. 이 아이템에 장인의 오브로 소켓을 추가할 수 있는지는 아직 확인되지 않았습니다."
   },
   "zh-CN": {
     "language": "语言",
@@ -1344,7 +1356,13 @@
     "notice.import_blocked": "无法导入此物品进行制作。原始文本已保留。",
     "quality.equipment": "品质：+{value}%",
     "notice.use_abyss": "请使用下方深渊制作，保留亵渎词缀槽与已观察候选。",
-    "film.original_paste": "最初粘贴的物品（制作前）"
+    "film.original_paste": "最初粘贴的物品（制作前）",
+    "notice.resolve_augments": "物品已保存。请确认已镶嵌增强物的名称和数量后再制作。复制的效果已保留。",
+    "notice.resolve_base": "无法唯一确定底材。请提供准确名称及赋予技能的文字；Shrine Sceptre 需要火焰、冰霜或闪电净化信息。",
+    "server.augment_observations_pending": "已保留镶嵌增强物效果。制作前请确认名称和数量，其制作影响尚未确定。",
+    "server.catalyst_original_required": "催化剂影响的数值需要原始数值与已确认的舍入规则，不能将显示值直接作为原始值。",
+    "server.catalyst_match_required": "无精确目录匹配。催化剂影响的数值需要原始数值、阶级和已确认的舍入规则。",
+    "server.socket_observation_only": "导入的插槽数量已保留，但尚未确认能否使用工匠石增加插槽。"
   },
   "zh-TW": {
     "language": "語言",
@@ -1793,7 +1811,13 @@
     "notice.import_blocked": "無法匯入此物品進行製作。原始文字已保留。",
     "quality.equipment": "品質：+{value}%",
     "notice.use_abyss": "請使用下方深淵製作，保留褻瀆詞綴槽與已觀察候選。",
-    "film.original_paste": "最初貼上的物品（製作前）"
+    "film.original_paste": "最初貼上的物品（製作前）",
+    "notice.resolve_augments": "物品已儲存。請確認已鑲嵌增強物的名稱與數量後再製作。複製的效果已保留。",
+    "notice.resolve_base": "無法唯一確定基底。請提供正確名稱與賦予技能文字；Shrine Sceptre 需要火焰、冰霜或閃電淨化資訊。",
+    "server.augment_observations_pending": "已保留鑲嵌增強物效果。製作前請確認名稱與數量，其製作影響尚未確定。",
+    "server.catalyst_original_required": "催化劑影響的數值需要原始數值與已確認的捨入規則，不能將顯示值直接當作原始值。",
+    "server.catalyst_match_required": "無精確目錄匹配。催化劑影響的數值需要原始數值、階級與已確認的捨入規則。",
+    "server.socket_observation_only": "匯入的插槽數量已保留，但尚未確認能否使用工匠石增加插槽。"
   },
   "ja": {
     "language": "言語",
@@ -2242,7 +2266,13 @@
     "notice.import_blocked": "このアイテムをクラフト用に取り込めません。元のテキストは保持されています。",
     "quality.equipment": "品質: +{value}%",
     "notice.use_abyss": "下のアビス製作で冒涜スロットと観測済み候補を保持して製作してください。",
-    "film.original_paste": "最初に貼り付けたアイテム（クラフト前）"
+    "film.original_paste": "最初に貼り付けたアイテム（クラフト前）",
+    "notice.resolve_augments": "アイテムを保存しました。装着したオーグメントの名前と数を確認するまでクラフトは保留です。コピーした効果は保持されています。",
+    "notice.resolve_base": "ベースを一意に特定できません。正確な名前と付与スキルの行が必要です。Shrine Sceptre は Fire・Ice・Lightning のどの Purity かを確認してください。",
+    "server.augment_observations_pending": "装着したオーグメントの効果を保持しています。クラフト前に名前と数を確認してください。クラフトへの影響は未確認です。",
+    "server.catalyst_original_required": "触媒の影響を受ける値には適用前の値と確認済みの丸め規則が必要です。表示値を元の値として扱えません。",
+    "server.catalyst_match_required": "カタログに完全一致しません。触媒適用前の値、ティア、確認済みの丸め規則が必要です。",
+    "server.socket_observation_only": "取り込んだソケット数を保持していますが、工匠のオーブで追加できるかは未確認です。"
   },
   "es": {
     "language": "Idioma",
@@ -2691,6 +2721,12 @@
     "notice.import_blocked": "No se pudo importar este objeto para fabricar. Se conserva el texto original.",
     "quality.equipment": "Calidad: +{value}%",
     "notice.use_abyss": "Usa la fabricación del Abismo para conservar las ranuras profanadas y los candidatos observados.",
-    "film.original_paste": "Objeto pegado original (antes de fabricar)"
+    "film.original_paste": "Objeto pegado original (antes de fabricar)",
+    "notice.resolve_augments": "Objeto guardado. La fabricación queda pendiente de confirmar los nombres y cantidades de los aumentos instalados. Sus efectos copiados se conservan.",
+    "notice.resolve_base": "No se puede identificar una base única. Incluye el nombre exacto y la habilidad otorgada; Shrine Sceptre requiere Purity of Fire, Ice o Lightning.",
+    "server.augment_observations_pending": "Los efectos instalados se conservan. Confirma sus nombres y cantidades antes de fabricar; sus efectos sobre la fabricación aún no están resueltos.",
+    "server.catalyst_original_required": "Los valores afectados por catalizadores requieren tiradas originales y redondeo verificado; los valores mostrados no son tiradas originales.",
+    "server.catalyst_match_required": "No hay coincidencia exacta. Los valores afectados por catalizadores requieren tiradas originales, grado y redondeo verificado.",
+    "server.socket_observation_only": "Se conserva el número importado de engarces, pero no se ha establecido si el orbe de artífice puede añadir otro."
   }
 }

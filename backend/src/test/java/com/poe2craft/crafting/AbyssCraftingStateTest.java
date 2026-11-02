@@ -21,6 +21,30 @@ class AbyssCraftingStateTest {
   }
 
   @Test
+  void observedSocketCountSurvivesSlotChoiceAndUnresolvedAugmentsCannotBeSilentlyCrafted() {
+    var original = fixture.rare(82, "", "amulet:prefix:hale");
+    var observations = new ItemObservations(2, List.of(), List.of());
+    var before = original.withObservations(observations);
+    var state =
+        AbyssCraftingState.from(before, catalog).addUnrevealed("abyss", AffixType.PREFIX, catalog);
+    var candidate = modifier("amulet:prefix:azure");
+    var chosen =
+        state
+            .observe("abyss", List.of(candidate, candidate, candidate), catalog)
+            .choose(0, catalog);
+    assertThat(chosen.storedItem().observations()).isEqualTo(observations);
+    assertThat(AbyssCraftingState.from(chosen.storedItem(), catalog).storedItem())
+        .isEqualTo(chosen.storedItem());
+    var unresolved =
+        original.withObservations(
+            new ItemObservations(2, List.of("Unknown installed effect (rune)"), List.of()));
+    assertThatThrownBy(() -> AbyssCraftingState.from(unresolved, catalog))
+        .isInstanceOf(IllegalArgumentException.class);
+    assertThat(unresolved.observations().augmentEffects())
+        .containsExactly("Unknown installed effect (rune)");
+  }
+
+  @Test
   void unrevealedCountsAsSlotAndRemovalTargetWithoutInventedStats() {
     var before = start("amulet:prefix:hale", "amulet:prefix:adept-s");
     var state = before.addUnrevealed("abyss", AffixType.PREFIX, catalog);

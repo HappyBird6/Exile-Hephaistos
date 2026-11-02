@@ -1,3 +1,4 @@
+import { sameObservations } from './itemObservations'
 import type { Initial } from './craftingApi'
 import type { ConcreteItem } from './workbenchApi'
 
@@ -82,6 +83,7 @@ export function validAbyssResponse(
     item.baseItemId !== source.baseItemId ||
     item.itemLevel !== source.itemLevel ||
     item.rarity !== source.rarity ||
+    !sameObservations(item.observations, source.observations) ||
     (item.equipmentQuality ?? null) !== (source.equipmentQuality ?? null) ||
     (item.augmentSockets ?? null) !== (source.augmentSockets ?? null) ||
     JSON.stringify(item.catalystQuality ?? null) !==

@@ -17,6 +17,8 @@ public final class AugmentSocketRules {
   }
 
   public static String refusal(ItemState state) {
+    if (state.observations() != null && state.observations().socketCount() != null)
+      return "The imported socket count is preserved, but its Artificer capacity has not been established.";
     if (com.poe2craft.item.BaseRegistry.socketExecutionMaximum(state.baseItemId()) == null)
       return "Artificer's Orb socket rules are not supported for this equipment base.";
     if (state.augmentSockets() == null)

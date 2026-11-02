@@ -87,6 +87,7 @@ public final class WorkbenchController {
             "augmentSockets",
             "catalystQuality",
             "equipmentQuality",
+            "observations",
             "desecrated",
             "modifierIds");
     if (input == null || !input.isObject())
@@ -111,6 +112,28 @@ public final class WorkbenchController {
             || !(slot.get("modifierId").isNull() || slot.get("modifierId").isTextual()))
           throw new UnsupportedItemProperties();
       }
+    }
+    var observations = input.get("observations");
+    if (observations != null && !observations.isNull()) {
+      if (!observations.isObject()
+          || observations.size() != 3
+          || !observations.has("socketCount")
+          || !observations.path("augmentEffects").isArray()
+          || !observations.path("grantedSkills").isArray()) throw new UnsupportedItemProperties();
+      var count = observations.get("socketCount");
+      if (!count.isNull() && (!count.isIntegralNumber() || !count.canConvertToInt()))
+        throw new UnsupportedItemProperties();
+      for (var effect : observations.path("augmentEffects"))
+        if (!effect.isTextual()) throw new UnsupportedItemProperties();
+      for (var skill : observations.path("grantedSkills"))
+        if (!skill.isObject()
+            || skill.size() != 2
+            || !skill.path("name").isTextual()
+            || !skill.has("level")
+            || (!skill.get("level").isNull()
+                && (!skill.get("level").isIntegralNumber()
+                    || !skill.get("level").canConvertToInt())))
+          throw new UnsupportedItemProperties();
     }
     var equipmentQuality = input.get("equipmentQuality");
     if (equipmentQuality != null

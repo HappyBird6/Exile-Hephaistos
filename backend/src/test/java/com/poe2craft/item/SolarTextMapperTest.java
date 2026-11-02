@@ -17,6 +17,43 @@ class SolarTextMapperTest {
   }
 
   @Test
+  void allKnownCatalystLabelsAtZeroPreserveRawValuesAndUnknownLabelsStayBlocked() {
+    for (String type :
+        java.util.List.of(
+            "Life",
+            "Mana",
+            "Defence",
+            "Physical",
+            "Fire",
+            "Cold",
+            "Lightning",
+            "Chaos",
+            "Attack",
+            "Caster",
+            "Speed",
+            "Attribute",
+            "Minion")) {
+      var source =
+          text("+17 to maximum Life")
+              .replace("Item Level: 82", "Quality (" + type + " Modifiers): +0%\nItem Level: 82");
+      var mapped = mapper.map(parser.parseText(source));
+      assertThat(mapped.issues()).as(type).isEmpty();
+      assertThat(mapped.state().catalystQuality().amount()).isZero();
+      assertThat(mapped.state().explicits().getFirst().values()).containsValue(17L);
+    }
+    assertThat(
+            mapper
+                .map(
+                    parser.parseText(
+                        text("+17 to maximum Life")
+                            .replace(
+                                "Item Level: 82",
+                                "Quality (Unknown Modifiers): +0%\nItem Level: 82")))
+                .state())
+        .isNull();
+  }
+
+  @Test
   void exactValuesMapToAValidatedStateWithoutKeepingTheTextInTheState() {
     var parsed = parser.parseText(text("+17 to maximum Life"));
     var result = mapper.map(parsed);

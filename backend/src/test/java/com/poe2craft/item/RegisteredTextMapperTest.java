@@ -11,6 +11,70 @@ class RegisteredTextMapperTest {
   private final ItemTextService parser = new ItemTextService();
 
   @Test
+  void legacySkillObservationsUseBundledProofAndRetainUnknownLevel() {
+    assertThat(
+            BaseRegistry.observedGrantedSkill(
+                "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+                "Grants Skill: Level 12 Mana Drain"))
+        .isEqualTo(new ItemObservations.GrantedSkill("Mana Drain", 12));
+    assertThat(
+            BaseRegistry.observedGrantedSkill(
+                "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1",
+                "Grants Skill: Skeletal Warrior"))
+        .isEqualTo(new ItemObservations.GrantedSkill("Skeletal Warrior", null));
+  }
+
+  @Test
+  void shrineSkillResolvesIdentityAndRetainsExplicitLevelWithoutInventingIt() {
+    var mapper =
+        new SolarTextMapper(
+            List.of(
+                ItemCatalogLoader.loadTopBase("shrine-fire"),
+                ItemCatalogLoader.loadTopBase("shrine-ice"),
+                ItemCatalogLoader.loadTopBase("shrine-lightning")));
+    for (var pair :
+        java.util.Map.of(
+                "Fire", "shrine-fire", "Ice", "shrine-ice", "Lightning", "shrine-lightning")
+            .entrySet()) {
+      String source =
+          "Item Class: Sceptres\nRarity: Normal\nShrine Sceptre\n--------\nGrants Skill: Level 17 Purity of "
+              + pair.getKey()
+              + "\nItem Level: 82";
+      var mapped = mapper.map(parser.parseText(source));
+      assertThat(mapped.issues()).isEmpty();
+      assertThat(mapped.state().baseItemId())
+          .isEqualTo(BaseRegistry.topBases().get(pair.getValue()).id());
+      assertThat(mapped.state().observations().grantedSkills())
+          .containsExactly(new ItemObservations.GrantedSkill("Purity of " + pair.getKey(), 17));
+      assertThat(
+              mapper
+                  .map(parser.parseText(source.replace("Level 17 ", "")))
+                  .state()
+                  .observations()
+                  .grantedSkills()
+                  .getFirst()
+                  .level())
+          .isNull();
+      assertThat(mapper.map(parser.parseText(source.replace("Level 17", "Level 0"))).state())
+          .isNull();
+    }
+  }
+
+  @Test
+  void socketObservationsDoNotPretendToBeArtificerCapacityAndRuneEffectsRemainSeparate() {
+    var catalog = ItemCatalogLoader.loadTopBase("soldier");
+    String source =
+        "Item Class: Body Armours\nRarity: Normal\nSoldier Cuirass\n--------\nSockets: S S S S\nItem Level: 82\n--------\n20% increased Armour (rune)";
+    var mapped = new SolarTextMapper(catalog).map(parser.parseText(source));
+    assertThat(mapped.issues()).isEmpty();
+    assertThat(mapped.state().augmentSockets()).isNull();
+    assertThat(mapped.state().observations().socketCount()).isEqualTo(4);
+    assertThat(mapped.state().observations().augmentEffects())
+        .containsExactly("20% increased Armour (rune)");
+    assertThat(mapped.state().explicits()).isEmpty();
+  }
+
+  @Test
   void everyRegisteredTopBaseWithoutImplicitAcceptsExactNormalIdentity() {
     int checked = 0;
     for (var base : BaseRegistry.topBases().values()) {

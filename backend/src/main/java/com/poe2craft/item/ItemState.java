@@ -17,7 +17,51 @@ public record ItemState(
     Integer augmentSockets,
     CatalystQuality catalystQuality,
     List<DesecratedSlot> desecrated,
-    Integer equipmentQuality) {
+    Integer equipmentQuality,
+    ItemObservations observations) {
+  public ItemState(
+      String snapshotId,
+      String baseItemId,
+      int itemLevel,
+      Rarity rarity,
+      List<ModifierInstance> implicits,
+      List<ModifierInstance> explicits,
+      Set<Condition> conditions,
+      Integer augmentSockets,
+      CatalystQuality catalystQuality,
+      List<DesecratedSlot> desecrated,
+      Integer equipmentQuality) {
+    this(
+        snapshotId,
+        baseItemId,
+        itemLevel,
+        rarity,
+        implicits,
+        explicits,
+        conditions,
+        augmentSockets,
+        catalystQuality,
+        desecrated,
+        equipmentQuality,
+        null);
+  }
+
+  public ItemState withObservations(ItemObservations value) {
+    return new ItemState(
+        snapshotId,
+        baseItemId,
+        itemLevel,
+        rarity,
+        implicits,
+        explicits,
+        conditions,
+        augmentSockets,
+        catalystQuality,
+        desecrated,
+        equipmentQuality,
+        value);
+  }
+
   public ItemState(
       String snapshotId,
       String baseItemId,
@@ -55,7 +99,8 @@ public record ItemState(
         augmentSockets,
         catalystQuality,
         desecrated,
-        quality);
+        quality,
+        observations);
   }
 
   /** Slot identity survives observation; a null modifier ID is an unrevealed explicit slot. */
@@ -101,7 +146,8 @@ public record ItemState(
         augmentSockets,
         catalystQuality,
         slots,
-        equipmentQuality);
+        equipmentQuality,
+        observations);
   }
 
   public int explicitSlotCount() {

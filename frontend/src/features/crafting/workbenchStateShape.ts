@@ -1,3 +1,4 @@
+import { observationsShape } from './itemObservations'
 import { basePolicy } from './baseRegistry'
 // Preserve future/unsupported item data instead of accepting a lossy affix-only projection.
 import { catalystBase, qualityShape } from './catalystQuality'
@@ -14,6 +15,7 @@ const itemFields = new Set([
   'catalystQuality',
   'desecrated',
   'equipmentQuality',
+  'observations',
 ])
 const modifierFields = new Set(['modifierId', 'values', 'fractured'])
 export function supportsConcreteStateShape(value: unknown): boolean {
@@ -25,6 +27,7 @@ export function supportsConcreteStateShape(value: unknown): boolean {
   )
     return false
   const item = value as Record<string, unknown>
+  if (!observationsShape(item.observations)) return false
   if (
     item.equipmentQuality != null &&
     (!Number.isInteger(item.equipmentQuality) ||

@@ -29,6 +29,7 @@ class BasicWorkbenchParityTest {
           var result = simulator.apply(input, action, Set.of(), new Random(seed));
           assertThat(result.state().desecrated()).isEmpty();
           assertThat(result.state().equipmentQuality()).isNull();
+          assertThat(result.state().observations()).isNull();
           text.append(action)
               .append('|')
               .append(result.applied())
@@ -39,6 +40,7 @@ class BasicWorkbenchParityTest {
                   result
                       .state()
                       .toString()
+                      .replace(", observations=null", "")
                       .replace(", equipmentQuality=null", "")
                       .replace(", desecrated=[]]", "]"))
               .append('|');

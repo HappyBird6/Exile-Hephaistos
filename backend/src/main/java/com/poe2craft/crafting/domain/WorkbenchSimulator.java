@@ -240,6 +240,10 @@ public final class WorkbenchSimulator {
 
   private Availability availability(
       ItemState state, WorkbenchCurrency action, List<WorkbenchOmen> omens) {
+    if (state.observations() != null && state.observations().needsAugmentResolution())
+      return blocked(
+          action,
+          "Installed Augment effects are preserved. Provide their names and counts before crafting; their crafting effects are not resolved.");
     if (action.catalystType() != null) {
       if (action.refinedCatalyst()) {
         if (!BaseRegistry.refinedCatalyst(state.baseItemId()))
@@ -893,15 +897,16 @@ public final class WorkbenchSimulator {
                   state, QualityLimitRules.describe(state, catalog).maximumQuality()));
       var next =
           new ItemState(
-              state.snapshotId(),
-              state.baseItemId(),
-              state.itemLevel(),
-              state.rarity(),
-              state.implicits(),
-              state.explicits(),
-              state.conditions(),
-              state.augmentSockets(),
-              quality);
+                  state.snapshotId(),
+                  state.baseItemId(),
+                  state.itemLevel(),
+                  state.rarity(),
+                  state.implicits(),
+                  state.explicits(),
+                  state.conditions(),
+                  state.augmentSockets(),
+                  quality)
+              .withObservations(state.observations());
       return new Result(
           ruleVersion(),
           ledgerVersion(),
@@ -928,7 +933,8 @@ public final class WorkbenchSimulator {
                   state.explicits(),
                   state.conditions(),
                   1)
-              .withEquipmentQuality(state.equipmentQuality());
+              .withEquipmentQuality(state.equipmentQuality())
+              .withObservations(state.observations());
       return new Result(
           ruleVersion(),
           ledgerVersion(),
@@ -1370,7 +1376,8 @@ public final class WorkbenchSimulator {
         s.augmentSockets(),
         s.catalystQuality(),
         s.desecrated(),
-        s.equipmentQuality());
+        s.equipmentQuality(),
+        s.observations());
   }
 
   public record Availability(WorkbenchCurrency action, boolean available, String reason) {}

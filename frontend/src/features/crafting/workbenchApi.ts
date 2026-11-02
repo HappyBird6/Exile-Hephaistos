@@ -1,3 +1,4 @@
+import { sameObservations, type ItemObservations } from './itemObservations'
 import { rulesetHeaders, verifyRulesetResponse } from './rulesetIdentity'
 import { translate } from '../../shared/i18n/i18n'
 import { topBase, topBaseKey } from './topBases'
@@ -754,6 +755,7 @@ export interface DesecratedSlot {
   modifierId: string | null
 }
 export interface ConcreteItem extends Omit<Bucket, 'modifierIds'> {
+  observations?: ItemObservations | null
   equipmentQuality?: number | null
   desecrated?: DesecratedSlot[]
   catalystQuality?: CatalystQuality | null | undefined
@@ -1078,6 +1080,7 @@ export async function applyCurrency(
   if (
     !next ||
     !supportsConcreteStateShape(next) ||
+    !sameObservations(next.observations, state.observations) ||
     (next.equipmentQuality ?? null) !== (state.equipmentQuality ?? null) ||
     !verifiedCatalystQuality(next, definitions) ||
     (isWorkbenchJewel(next.baseItemId) && !reviewedBasicJewel(next)) ||

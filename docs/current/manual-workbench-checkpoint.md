@@ -1,3 +1,5 @@
+> 최신 구현·검증 및 직접 테스트 절차: [입력 상태 보존 완료 기록](../evidence/manual-workbench-input-state-20261102.md). 아래 목록은 134종 기록 호환 / 130종 신규 선택 범위의 근거입니다. 브라우저 자동 검증은 사용자 요청으로 미뤘으며, 훼손 화폐 추가는 ISSUES.md WB-052의 후속 범위입니다.
+
 # Manual workbench checkpoint — 2026-11-02
 
 Base revision: `abfaffb504ab791e20882afda245bfc523a5128b` (remote master verified).

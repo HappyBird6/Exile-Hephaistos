@@ -146,3 +146,8 @@ Continuation verification:
 - Final frontend lint, typecheck, format check and build passed. Default-parallel full suite: 126 files / 2404 tests; 2396 passed, 8 failures in 6 files. Five are 5000ms timeouts; two are async UI readiness assertions; one SCENARIO_BUSY follows the expansion-bomb timeout. This run is not reported as green. An earlier all-suite single-worker run was stopped after no completed test results; only its verified Vitest PID was stopped, and unrelated processes were untouched.
 - The six failing frontend files plus original-document history coverage passed together unchanged with one worker: **7 files / 102 tests passed**. Evidence: state-observations-frontend-recheck.log. No test timeout, assertion or expected result was relaxed.
 - All task-created containers were removed automatically. Only the two pre-existing mini-redis containers remain. No push/deploy/production restart or user-data mutation was performed.
+
+
+## Subsequent input-state implementation
+
+The fcbb7d1 gaps above are superseded by [input-state completion](manual-workbench-input-state-20261102.md): observed socket/installed-effect state, explicit skill levels and Shrine disambiguation are implemented; all catalyst label categories support cases requiring no unverified inverse. Positive affected inverse and unresolved Augment identities remain explicit input/evidence limits, with preserved originals and hold behavior. Browser automation was explicitly deferred by the user and is no longer a completion blocker. See that document for final tests and manual checks. Desecration currency expansion is recorded separately as ISSUES.md WB-052.
