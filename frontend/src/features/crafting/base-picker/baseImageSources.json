@@ -901,7 +901,11 @@
     "image": "https://cdn.poe2db.tw/image/Art/2DItems/Quivers/Basetypes/QuiverFire.webp",
     "source": "docs/evidence/quivers-source-bundle-2026-10-05/Fire_Quiver.us.html",
     "sourceSha256": "d5ad43b19c0c545e0fd1eadaa654534c8c81efd8bf4a63592ec5bd17c88029e1",
-    "cacheBlocked": "HTTP 403: source denied download; placeholder until supplied art is available."
+    "cacheBlocked": "HTTP 403: remote download denied; user-provided local image is used instead.",
+    "file": "c8809e1438f9f231be94.webp",
+    "sha256": "c8809e1438f9f231be94c8d622f7f8c424298a25a9b27906b39bd9d50dfb97bf",
+    "size": 19006,
+    "localAssetSource": "User-provided QuiverFire.jpg (WEBP content), 2026-11-02"
   },
   "Metadata/Items/Quivers/FourQuiver1": {
     "image": "https://cdn.poe2db.tw/image/Art/2DItems/Quivers/Basetypes/QuiverBroadhead.webp",

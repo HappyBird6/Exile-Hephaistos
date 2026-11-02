@@ -6,12 +6,14 @@ import sources from './baseImageSources.json'
 import { baseImageSource } from './baseImageSources'
 import { workbenchBaseChoices } from './baseChoices'
 
-it('renders every selectable identity from local art or the explicitly denied Fire Quiver placeholder', () => {
+it('renders every selectable identity from verified local art including the user-provided Fire Quiver image', () => {
   const missing = workbenchBaseChoices('en').filter(
     (choice) => !baseImageSource(choice.baseItemId),
   )
-  expect(missing.map((choice) => choice.name)).toEqual(['Fire Quiver'])
-  expect(baseImageSource('Metadata/Items/Quivers/FourQuiver2')).toBeUndefined()
+  expect(missing).toEqual([])
+  expect(baseImageSource('Metadata/Items/Quivers/FourQuiver2')).toContain(
+    'c8809e1438f9f231be94.webp',
+  )
   for (const row of Object.values(sources) as {
     file?: string
     sha256?: string

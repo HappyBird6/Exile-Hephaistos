@@ -28,6 +28,14 @@
 ## 이미지/잔여 연결
 
 - 134개 기존/현재 베이스의 이미지 출처를 대응시켰고, 고유 WEBP 127개(약 1.43MB)를 전용 디렉터리에 캐시했다. WEBP magic과 SHA-256을 단위 테스트로 검증했다. Solar Amulet은 기존 자산을 재사용한다.
-- Fire Quiver(`Metadata/Items/Quivers/FourQuiver2`)의 `https://cdn.poe2db.tw/image/Art/2DItems/Quivers/Basetypes/QuiverFire.webp` 다운로드만 HTTP 403 거부 상태이다. 한 번 실패한 뒤 재시도/우회하지 않았다. 이 항목은 접근성 이름이 있는 대체 표시를 사용하고 런타임에서도 거부 URL을 요청하지 않는다. 이미지를 받으면 `imageForBase` 또는 전용 manifest의 승인된 로컬 자산으로 교체한다.
+- 최초 구현 시 Fire Quiver(`Metadata/Items/Quivers/FourQuiver2`)의 `https://cdn.poe2db.tw/image/Art/2DItems/Quivers/Basetypes/QuiverFire.webp` 다운로드는 HTTP 403으로 거부되어 재시도/우회하지 않았다. 아래 사용자 제공 이미지 후속 반영으로 대체 표시를 해소했다.
 - 브라우저 검증은 요청에 따라 수행하지 않았다. 백엔드/API는 변경하지 않았고 서버를 시작하거나 원격 push/공개 배포하지 않았다.
 - 남은 공통 화면 연결은 두 INTEGRATION.md에 있다. 특히 삭제 후 기존 restoreFilm의 이전 history closure를 호출하여 삭제 세션이 되살아나는 문제를 피하도록 명시했다.
+
+## 사용자 제공 불 화살통 이미지 후속 반영 — 2026-11-02
+
+- 사용자 요청으로 Downloads의 `QuiverFire.jpg`를 확인하고, 제공된 그림과 같은 이미지임을 시각적으로 확인했다. 실제 파일 시그니처는 WEBP이므로 원본 바이트를 변경하지 않고 `base-picker/images/c8809e1438f9f231be94.webp`로 복사했다. Downloads 원본은 수정하지 않았다.
+- 원본과 복사본 SHA-256: `c8809e1438f9f231be94c8d622f7f8c424298a25a9b27906b39bd9d50dfb97bf`, 19,006 bytes. 재인코딩·배경 제거 등 이미지 편집을 하지 않았다.
+- Fire Quiver identity의 전용 manifest에 로컬 WEBP를 연결했다. 기존 WEBP 시그니처·전체 해시 검증을 유지했으며 모든 선택 가능 베이스가 로컬 이미지로 해석되도록 기존 placeholder 기대값을 변경했다. 최초 JPG 시그니처 검사 실패로 확장자와 실제 형식의 차이를 발견했고, 테스트를 완화하지 않고 저장 확장자를 바로잡았다.
+- 이전 원격 HTTP 403 기록은 보존하며 해당 원격 다운로드는 재시도하지 않았다. 베이스 선택과 세션 카드는 공용 BaseImage를 통해 같은 로컬 이미지를 사용한다. 추가 사용자 이미지 대기는 해소됐다.
+- 후속 검증: 담당 C의 4개 파일/20개 테스트 모두 통과, lint·타입 검사 포함 build·변경 파일 Prettier·git diff --check 통과. 원본과 로컬 복사본의 SHA-256 일치를 확인했다. 브라우저 검증과 서버 변경은 수행하지 않았다.

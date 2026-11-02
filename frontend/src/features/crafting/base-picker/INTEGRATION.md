@@ -64,8 +64,8 @@ const currencyShelf = useRef<HTMLDivElement>(null)
 
 ## 이미지
 
-별도 `baseImageSources.json`과 `images/`는 **이 기능 전용**이다. 공통 카탈로그·manifest는 변경하지 않았다. 134개 기존/현재 베이스 identity를 출처와 연결했고 127개 고유 WEBP를 로컬 캐시했다. Solar Amulet은 기존 로컬 이미지를 재사용한다. 세션과 베이스 메뉴가 같은 `BaseImage`를 사용한다. 자산 실패 시 작은 접근성 이름이 있는 대체 표시를 사용하며 깨진 이미지 아이콘을 남기지 않는다.
+별도 `baseImageSources.json`과 `images/`는 **이 기능 전용**이다. 공통 카탈로그·manifest는 변경하지 않았다. 134개 기존/현재 베이스 identity를 출처와 연결했고 사용자 제공 불 화살통 이미지를 포함한 고유 WEBP 128개를 로컬에 저장했다. Solar Amulet은 기존 로컬 이미지를 재사용한다. 세션과 베이스 메뉴가 같은 `BaseImage`를 사용한다. 자산 실패 시 작은 접근성 이름이 있는 대체 표시를 사용하며 깨진 이미지 아이콘을 남기지 않는다.
 
-Fire Quiver(`Metadata/Items/Quivers/FourQuiver2`) 원본 이미지 다운로드는 HTTP 403으로 거부되어 **재시도하지 않았다**. 런타임에서도 해당 URL 요청을 반복하지 않는다. 이미지가 필요하면 이 작업 채팅 **‘베이스 선택·세션 History 메뉴’**에 Fire Quiver(불 화살통) 이미지를 첨부받거나, 승인된 로컬 이미지를 `imageForBase={(key) => ...}`로 주입한다. 정확한 key/id는 manifest와 registry를 대조한다. 다른 베이스는 추가 첨부 없이 표시된다. 저작권·출처는 `NOTICE.md`를 유지한다.
+Fire Quiver(`Metadata/Items/Quivers/FourQuiver2`) 원본 이미지 다운로드는 HTTP 403으로 거부되어 **재시도하지 않았다**. 이후 2026-11-02 사용자가 Downloads의 `QuiverFire.jpg`를 제공했다. 파일의 실제 내용이 WEBP이므로 원본 바이트 그대로 `images/c8809e1438f9f231be94.webp`에 저장하고 manifest에 연결했다. 베이스 선택·History 모두 이 로컬 이미지를 사용하며 추가 이미지 첨부나 부모의 별도 imageForBase 연결은 필요 없다. 원격 다운로드 거부 기록은 유지보수 스크립트용으로 남겼고 런타임에서 해당 URL 요청을 반복하지 않는다. 저작권·출처는 `NOTICE.md`를 유지한다.
 
 유지보수 스크립트는 앱/빌드에서 자동 실행하지 않는다. `collectBaseImageSources.mjs`는 기존 evidence와 캐시를 보존하여 manifest를 재생성하며, `--fetch-missing`일 때만 출처 페이지를 가져온다. `cacheBaseImages.mjs`는 기존 캐시와 거부 기록을 건너뛴다.
