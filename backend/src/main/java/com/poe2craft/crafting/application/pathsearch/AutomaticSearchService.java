@@ -483,7 +483,13 @@ public final class AutomaticSearchService implements AutoCloseable {
   public synchronized MethodSearchProtocol.Create original(String owner, String id) {
     var saved = read(id);
     if (!saved.owner().equals(ownerKey(owner))) throw new Rejected(404, "JOB_NOT_FOUND");
-    return saved.request();
+    try {
+      // Export the original document instead of reserializing it through a newer ItemState schema.
+      var document = json.readTree(repository.read(id)).path("request");
+      return saved.request().withOriginalDocument(document);
+    } catch (java.io.IOException invalid) {
+      throw new Rejected(409, "RECALCULATION_REQUIRED");
+    }
   }
 
   public synchronized Input originalInput(String owner, String id) {

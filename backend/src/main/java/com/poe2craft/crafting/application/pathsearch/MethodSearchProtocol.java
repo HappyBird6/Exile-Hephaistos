@@ -10,12 +10,91 @@ import java.util.*;
 public final class MethodSearchProtocol {
   private MethodSearchProtocol() {}
 
-  public record Create(
-      Integer version,
-      String clientRequestId,
-      BasicCurrencyState start,
-      GoalFilter goal,
-      List<String> activeOmens) {}
+  /** Typed execution input with optional immutable provenance for historical JSON export. */
+  public static final class Create {
+    private final Integer version;
+    private final String clientRequestId;
+    private final BasicCurrencyState start;
+    private final GoalFilter goal;
+    private final List<String> activeOmens;
+    private final com.fasterxml.jackson.databind.JsonNode originalDocument;
+
+    @com.fasterxml.jackson.annotation.JsonCreator
+    public Create(
+        @com.fasterxml.jackson.annotation.JsonProperty("version") Integer version,
+        @com.fasterxml.jackson.annotation.JsonProperty("clientRequestId") String clientRequestId,
+        @com.fasterxml.jackson.annotation.JsonProperty("start") BasicCurrencyState start,
+        @com.fasterxml.jackson.annotation.JsonProperty("goal") GoalFilter goal,
+        @com.fasterxml.jackson.annotation.JsonProperty("activeOmens") List<String> activeOmens) {
+      this(version, clientRequestId, start, goal, activeOmens, null);
+    }
+
+    private Create(
+        Integer version,
+        String clientRequestId,
+        BasicCurrencyState start,
+        GoalFilter goal,
+        List<String> activeOmens,
+        com.fasterxml.jackson.databind.JsonNode originalDocument) {
+      this.version = version;
+      this.clientRequestId = clientRequestId;
+      this.start = start;
+      this.goal = goal;
+      this.activeOmens = activeOmens;
+      this.originalDocument = originalDocument == null ? null : originalDocument.deepCopy();
+    }
+
+    public Integer version() {
+      return version;
+    }
+
+    public String clientRequestId() {
+      return clientRequestId;
+    }
+
+    public BasicCurrencyState start() {
+      return start;
+    }
+
+    public GoalFilter goal() {
+      return goal;
+    }
+
+    public List<String> activeOmens() {
+      return activeOmens;
+    }
+
+    public Create withOriginalDocument(com.fasterxml.jackson.databind.JsonNode document) {
+      return new Create(version, clientRequestId, start, goal, activeOmens, document);
+    }
+
+    @com.fasterxml.jackson.annotation.JsonValue
+    public Object serializedDocument() {
+      if (originalDocument != null) return originalDocument.deepCopy();
+      var fields = new LinkedHashMap<String, Object>();
+      fields.put("version", version);
+      fields.put("clientRequestId", clientRequestId);
+      fields.put("start", start);
+      fields.put("goal", goal);
+      fields.put("activeOmens", activeOmens);
+      return fields;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+      return other instanceof Create value
+          && Objects.equals(version, value.version)
+          && Objects.equals(clientRequestId, value.clientRequestId)
+          && Objects.equals(start, value.start)
+          && Objects.equals(goal, value.goal)
+          && Objects.equals(activeOmens, value.activeOmens);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(version, clientRequestId, start, goal, activeOmens);
+    }
+  }
 
   public record Mutation(
       Integer version,
