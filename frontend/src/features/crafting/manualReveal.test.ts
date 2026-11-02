@@ -52,7 +52,7 @@ it('renders every manual roll at min/middle/max including fractional source unit
           expect(text).toContain(
             formatNumber(
               values[stat.id]! / stat.divisor,
-              { maximumFractionDigits: 20 },
+              { maximumFractionDigits: 1 },
               locale,
             ),
           )

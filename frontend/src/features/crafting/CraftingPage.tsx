@@ -16,7 +16,9 @@ import {
   supersededBases,
 } from './baseRegistry'
 import type { WorkbenchBaseKey } from './baseRegistry'
-import { topBase, topBaseKey, reviewedArmourKeys } from './topBases'
+import { topBase, topBaseKey } from './topBases'
+import { WorkbenchBasePicker } from './base-picker/WorkbenchBasePicker'
+import { SessionLibrary } from './session-library/SessionLibrary'
 import { ServiceMessage } from './ServiceMessage'
 import { serviceText } from './serviceMessages'
 import {
@@ -43,11 +45,16 @@ import { MaterialTooltip } from './MaterialTooltip'
 import { useItemTextImport } from './useItemTextImport'
 import { CurrencyImage } from './CurrencyImage'
 import { currencies } from './currencies'
+import { abyssWorkbenchMessages } from './abyss-workbench/messages'
+import { excludedWorkbenchBoneIds } from './abyss-workbench/policy'
+import { WorkbenchStash } from './stash/WorkbenchStash'
+import type { WorkbenchResource } from './stash/stashTypes'
 import {
   materials,
   materialTabs,
   specialEssences,
   essenceRows,
+  isSelectableMaterial,
 } from './materials'
 import type { Material, MaterialTab } from './materials'
 import { useItemDraft } from './draft'
@@ -78,8 +85,11 @@ import {
   verifiedHistoryState,
   verifiedFrameEvidence,
   filmRulesetStatus,
+  updateFilmMetadata,
+  deleteFilm,
+  undoFilmDeletion,
 } from './workbenchHistory'
-import type { Films } from './workbenchHistory'
+import type { Films, FilmDeletion } from './workbenchHistory'
 import {
   basicJewelBases,
   jewelCapacity,
@@ -217,7 +227,12 @@ export function CraftingPage() {
         error = t('notice.history_save')
       }
     }
+    if (error && !filmState.blockedSaving) {
+      setFilmState({ ...filmState, error })
+      return false
+    }
     setFilmState({ ...filmState, history, revision, error })
+    return true
   }
   const [view, setView] = useState<(typeof workspaceTabs)[number]>(
     () =>
@@ -234,14 +249,29 @@ export function CraftingPage() {
   >({})
   const [tooltipsEnabled, setTooltipsEnabled] = useState(true)
   const [activeTab, setActiveTab] = useState<MaterialTab>('Currency')
+  const [stashTab, setStashTab] = useState<MaterialTab>('Currency')
+  // B supplies exclusions here when its policy module is integrated.
+  const excludedResourceIds: readonly string[] = excludedWorkbenchBoneIds
+  const stashResources: WorkbenchResource[] = [
+    ...currencies.map((currency) => ({
+      ...currency,
+      name: currencyNames[currency.id],
+      category: 'Currency' as const,
+    })),
+    ...materials,
+  ]
   const [showLegacyOmens, setShowLegacyOmens] = useState(false)
   const [selected, setSelected] = useState<Selection | null>(null)
-  const [held, setHeld] = useState<Material | null>(null)
-  const [favorites, setFavorites] = useState<(Material | null)[]>(
-    Array(15).fill(null),
+  const [held, setHeld] = useState<WorkbenchResource | null>(null)
+  const [favorites, setFavorites] = useState<(WorkbenchResource | null)[]>(
+    Array(10).fill(null),
   )
   const [pointer, setPointer] = useState<{ x: number; y: number } | null>(null)
-  const [inputMode, setInputMode] = useState<'base' | 'text'>('base')
+  const [leftMenu, setLeftMenu] = useState<'base' | 'history' | null>(null)
+  const baseAnchor = useRef<HTMLButtonElement>(null)
+  const historyAnchor = useRef<HTMLButtonElement>(null)
+  const currencyShelf = useRef<HTMLDivElement>(null)
+  const [lastDeletion, setLastDeletion] = useState<FilmDeletion | null>(null)
   const [inputOpen, setInputOpen] = useState(false)
   const inputOpener = useRef<HTMLElement | null>(null)
   const [announcement, setAnnouncement] = useState('')
@@ -387,13 +417,16 @@ export function CraftingPage() {
       if (request === placementRequest.current) placementPending.current = false
     }
   }
-  function restoreFilm(id: string) {
+  function restoreFilm(
+    id: string,
+    sourceHistory = filmState.history,
+    cursor?: number,
+  ) {
     if (applyingRequest.current || placementPending.current) return
-    const selectedFilm = filmState.history.films.find(
-      (entry) => entry.id === id,
-    )
+    const selectedFilm = sourceHistory.films.find((entry) => entry.id === id)
     if (!selectedFilm) return
-    const state = selectedFilm.frames.at(-1)!.state
+    const nextCursor = cursor ?? selectedFilm.frames.length - 1
+    const state = selectedFilm.frames[nextCursor]!.state
     const base =
       topBaseKey(state.baseItemId) ??
       (isWorkbenchJewel(state.baseItemId)
@@ -428,15 +461,54 @@ export function CraftingPage() {
     draft.setBase(state.itemLevel, base)
     saveFilms(
       {
-        ...filmState.history,
+        ...sourceHistory,
         active: selectedFilm.id,
-        cursor: selectedFilm.frames.length - 1,
+        cursor: nextCursor,
       },
       useItemDraft.getState().baseRevision,
     )
     setSelected(null)
     setHeld(null)
     setAnnouncement('')
+  }
+  function commitLibraryHistory(next: Films) {
+    if (
+      applyingRequest.current ||
+      placementPending.current ||
+      filmState.blockedSaving
+    )
+      return false
+    if (!saveFilms(next)) return false
+    const activeChanged =
+      next.active !== filmState.history.active ||
+      next.cursor !== filmState.history.cursor
+    if (activeChanged && next.active)
+      restoreFilm(next.active, next, next.cursor)
+    else if (activeChanged) {
+      draft.setBase(catalogLevel, catalogBase)
+      setFilmState({
+        ...filmState,
+        history: next,
+        revision: useItemDraft.getState().baseRevision,
+        error: '',
+      })
+      setSelected(null)
+      setHeld(null)
+      setPointer(null)
+    }
+    return true
+  }
+  function deleteSession(id: string) {
+    const result = deleteFilm(filmState.history, id)
+    if (result && commitLibraryHistory(result.history))
+      setLastDeletion(result.deletion)
+  }
+  function undoSessionDeletion() {
+    if (
+      lastDeletion &&
+      commitLibraryHistory(undoFilmDeletion(filmState.history, lastDeletion))
+    )
+      setLastDeletion(null)
   }
   function browse(cursor: number) {
     if (applyingRequest.current || placementPending.current) return
@@ -456,10 +528,6 @@ export function CraftingPage() {
     [draft.baseRevision, draft.source],
   )
   const [baseLevel, setBaseLevel] = useState('82')
-  const [qualityType, setQualityType] = useState<'' | CatalystQuality['type']>(
-    '',
-  )
-  const [qualityAmount, setQualityAmount] = useState('0')
   const [sapphireRarity, setSapphireRarity] = useState<
     'NORMAL' | 'MAGIC' | 'RARE'
   >('MAGIC')
@@ -512,6 +580,7 @@ export function CraftingPage() {
   }, [inputOpen])
 
   function choose(resource: Selection) {
+    if (excludedResourceIds.includes(resource.id)) return
     setBoneSide('')
     setBoneRemoved('')
     setSelected(resource)
@@ -808,8 +877,13 @@ export function CraftingPage() {
     setInputOpen(false)
     ;(inputOpener.current ?? inputToggle.current)?.focus()
   }
-  function placeFavorite(index: number) {
-    if (!held) {
+  function placeFavorite(
+    index: number,
+    resourceToPlace: WorkbenchResource | null = held,
+  ) {
+    if (resourceToPlace && excludedResourceIds.includes(resourceToPlace.id))
+      return
+    if (!resourceToPlace) {
       const resource = favorites[index]
       if (resource) choose(resource)
       else {
@@ -828,12 +902,12 @@ export function CraftingPage() {
       draft.setActiveOmens(draft.activeOmens.filter((id) => id !== replaced.id))
     setFavorites((current) =>
       current.map((resource, position) =>
-        position === index ? held : resource,
+        position === index ? resourceToPlace : resource,
       ),
     )
     setAnnouncement(
       t('material.registered', {
-        name: name(held.id, held.name),
+        name: name(resourceToPlace.id, resourceToPlace.name),
         index: index + 1,
       }),
     )
@@ -849,6 +923,8 @@ export function CraftingPage() {
   const currentMaterials = materials.filter(
     (m) =>
       inServiceScope(m.id) &&
+      isSelectableMaterial(m) &&
+      !excludedResourceIds.includes(m.id) &&
       m.category === activeTab &&
       (showLegacyOmens || !legacyOmenIds.includes(m.id)) &&
       matchesGameName(m.id, m.name, search),
@@ -1313,7 +1389,11 @@ export function CraftingPage() {
           </div>
           <div className="stash-board">
             <div className="stash-viewport">
-              <div className="stash-canvas" aria-label={t('ui.currency_stash')}>
+              <div
+                ref={currencyShelf}
+                className="stash-canvas"
+                aria-label={t('ui.currency_stash')}
+              >
                 <div
                   id="material-list"
                   role="tabpanel"
@@ -1326,7 +1406,13 @@ export function CraftingPage() {
                 >
                   {activeTab === 'Currency' ? (
                     currencies
-                      .filter((currency) => inServiceScope(currency.id))
+                      .filter(
+                        (currency) =>
+                          inServiceScope(currency.id) &&
+                          !isBone(currency.id) &&
+                          currency.id !== 'Artificers_Orb' &&
+                          !excludedResourceIds.includes(currency.id),
+                      )
                       .map((currency) => {
                         const currencyName = name(
                           currency.id,
@@ -1515,55 +1601,43 @@ export function CraftingPage() {
                     {t('ui.edit_item')}
                   </button>
                 </div>
-                <div
-                  role="group"
-                  aria-label={t('ui.shared_material_favorites')}
-                  className={`favorite-slots ${held ? 'is-placing' : ''}`}
-                >
-                  {favorites.map((resource, index) => (
-                    <button
-                      type="button"
-                      key={index}
-                      className={`currency-slot favorite-slot ${resource && selected?.id === resource.id ? 'is-selected' : ''} ${resource && draft.activeOmens.includes(resource.id) ? 'is-active-omen' : ''}`}
-                      style={{
-                        left: `${(652 + (index % 3) * 90) / 9.35}%`,
-                        top: `${(40 + Math.floor(index / 3) * 100) / 5.5}%`,
-                      }}
-                      aria-label={t('material.favorite', {
-                        index: index + 1,
-                        name: resource
-                          ? name(resource.id, resource.name)
-                          : t('material.empty'),
-                      })}
-                      aria-pressed={Boolean(
-                        resource &&
-                        (selected?.id === resource.id ||
-                          draft.activeOmens.includes(resource.id)),
-                      )}
-                      {...(resource ? tooltipEvents(resource.id) : {})}
-                      onClick={() => placeFavorite(index)}
-                      onContextMenu={(event) => {
-                        event.preventDefault()
-                        if (resource) {
-                          if (resource.category === 'Omen') {
-                            toggleOmen(resource.id)
-                            return
-                          }
-                          setPointer({ x: event.clientX, y: event.clientY })
-                          choose(resource)
-                        }
-                      }}
-                    >
-                      {resource ? (
-                        <CurrencyImage key={resource.id} {...resource} />
-                      ) : (
-                        <span className="favorite-empty" aria-hidden="true">
-                          +
-                        </span>
-                      )}
-                    </button>
-                  ))}
-                </div>
+                <WorkbenchStash
+                  resources={stashResources}
+                  excludedIds={excludedResourceIds}
+                  activeTab={stashTab}
+                  onTabChange={setStashTab}
+                  selectedId={selected?.id ?? null}
+                  activeOmenIds={draft.activeOmens}
+                  favorites={favorites}
+                  held={held}
+                  disabled={applying !== null}
+                  showLegacyOmens={showLegacyOmens}
+                  onShowLegacyOmensChange={setShowLegacyOmens}
+                  onSelect={(resource, pointer) => {
+                    setPointer(pointer ?? null)
+                    choose(resource)
+                  }}
+                  onPickUp={(resource, pointer) => {
+                    setPointer(pointer ?? null)
+                    setHeld(resource)
+                    setSelected(null)
+                    setAnnouncement(
+                      t('material.picked', {
+                        name: name(resource.id, resource.name),
+                      }),
+                    )
+                  }}
+                  onFavoriteActivate={(_, resource, pointer) => {
+                    if (pointer && resource?.category === 'Omen') {
+                      toggleOmen(resource.id)
+                      return
+                    }
+                    setPointer(pointer ?? null)
+                    if (resource) choose(resource)
+                    else setSelected(null)
+                  }}
+                  onFavoritePlace={placeFavorite}
+                />
               </div>
               <div
                 className="workbench-feedback-panel"
@@ -1922,12 +1996,12 @@ export function CraftingPage() {
                 <button
                   type="button"
                   disabled={applying !== null}
-                  onClick={(event) => {
-                    inputOpener.current = event.currentTarget
-                    imported.invalidate()
-                    setInputMode('base')
+                  ref={baseAnchor}
+                  aria-expanded={leftMenu === 'base'}
+                  aria-controls="workbench-base-picker"
+                  onClick={() => {
                     setBaseChoice(supersededBases[catalogBase] ?? catalogBase)
-                    setInputOpen(true)
+                    setLeftMenu(leftMenu === 'base' ? null : 'base')
                   }}
                 >
                   {t('ui.select_base')}
@@ -1978,33 +2052,18 @@ export function CraftingPage() {
                     ›
                   </button>
                 </div>
-                {filmState.history.films.length > 0 && (
-                  <label className="workbench-film-select">
-                    {t('ui.crafting_session')}
-                    <select
-                      aria-label={t('ui.crafting_session')}
-                      value={film?.id ?? ''}
-                      disabled={applying !== null}
-                      onChange={(event) => void restoreFilm(event.target.value)}
-                    >
-                      <option value="" disabled>
-                        {t('ui.new_craft')}
-                      </option>
-                      {filmState.history.films.map((entry, index) => (
-                        <option key={entry.id} value={entry.id}>
-                          {t('film.session', { index: index + 1 })} ·{' '}
-                          {t('crafts', {
-                            count: entry.frames.filter(
-                              (frame) =>
-                                frame.action &&
-                                !frame.action.startsWith('ABYSS_'),
-                            ).length,
-                          })}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-                )}
+                <button
+                  type="button"
+                  ref={historyAnchor}
+                  disabled={applying !== null}
+                  aria-expanded={leftMenu === 'history'}
+                  aria-controls="workbench-session-library"
+                  onClick={() =>
+                    setLeftMenu(leftMenu === 'history' ? null : 'history')
+                  }
+                >
+                  {t('ui.crafting_session')}
+                </button>
                 {!!concrete?.observations?.augmentEffects.length && (
                   <p>{t('notice.resolve_augments')}</p>
                 )}
@@ -2083,7 +2142,27 @@ export function CraftingPage() {
                   )}
                 {storedFrame && !restoredValid ? null : card ? (
                   <ItemCard
-                    item={card}
+                    item={{
+                      ...card,
+                      modifiers: [
+                        ...card.modifiers,
+                        ...(concrete?.desecrated ?? [])
+                          .filter(
+                            (slot) =>
+                              slot.modifierId === null &&
+                              !card.modifiers.some(
+                                (line) => line.id === slot.id,
+                              ),
+                          )
+                          .map((slot) => ({
+                            id: slot.id,
+                            text: abyssWorkbenchMessages[locale].hidden,
+                            kind: 'desecrated' as const,
+                            unrevealedDesecrated: true,
+                            affixLabel: slot.side === 'PREFIX' ? 'P' : 'S',
+                          })),
+                      ],
+                    }}
                     showOriginalOrder={altHeld}
                     {...(concrete
                       ? { baseItemId: baseSlugs[catalogBase] }
@@ -2117,6 +2196,138 @@ export function CraftingPage() {
               </div>
             </div>
           </div>
+          <WorkbenchBasePicker
+            id="workbench-base-picker"
+            anchor={baseAnchor}
+            shelf={currencyShelf}
+            open={leftMenu === 'base'}
+            onOpenChange={(open) => setLeftMenu(open ? 'base' : null)}
+            value={baseChoice}
+            onChange={setBaseChoice}
+            level={baseLevel}
+            onLevelChange={setBaseLevel}
+            disabled={applying !== null}
+            valid={
+              !(
+                baseChoice === 'sapphire' &&
+                sapphireAffix &&
+                sapphireRarity !== 'NORMAL' &&
+                (sapphireRoll.trim() === '' ||
+                  !Number.isInteger(Number(sapphireRoll)) ||
+                  Number(sapphireRoll) < 2 ||
+                  Number(sapphireRoll) > 4)
+              )
+            }
+            extraControls={
+              <>
+                {Object.hasOwn(workbenchJewelBases, baseChoice) && (
+                  <>
+                    <p>
+                      {t(
+                        catalogBase.startsWith('time-lost-')
+                          ? 'notice.time_lost_scope'
+                          : 'notice.sapphire_scope',
+                      )}
+                    </p>
+                    <label htmlFor="sapphire-rarity">{t('ui.rarity')}</label>
+                    <select
+                      id="sapphire-rarity"
+                      value={sapphireRarity}
+                      onChange={(e) =>
+                        setSapphireRarity(
+                          e.target.value as 'NORMAL' | 'MAGIC' | 'RARE',
+                        )
+                      }
+                    >
+                      <option value="NORMAL">{t('ui.normal')}</option>
+                      <option value="MAGIC">{t('ui.magic')}</option>
+                      <option value="RARE">{t('ui.rare')}</option>
+                    </select>
+                    <label hidden={baseChoice !== 'sapphire'}>
+                      <input
+                        type="checkbox"
+                        checked={
+                          baseChoice === 'sapphire' &&
+                          sapphireAffix &&
+                          sapphireRarity !== 'NORMAL'
+                        }
+                        disabled={sapphireRarity === 'NORMAL'}
+                        onChange={(e) => setSapphireAffix(e.target.checked)}
+                      />
+                      {t('ui.sapphire_existing_suffix')}
+                    </label>
+                    {baseChoice === 'sapphire' &&
+                      sapphireAffix &&
+                      sapphireRarity !== 'NORMAL' && (
+                        <>
+                          <label htmlFor="sapphire-roll">
+                            {t('ui.sapphire_cast_speed')}
+                          </label>
+                          <input
+                            id="sapphire-roll"
+                            type="number"
+                            min="2"
+                            max="4"
+                            step="1"
+                            value={sapphireRoll}
+                            onChange={(e) => setSapphireRoll(e.target.value)}
+                          />
+                        </>
+                      )}
+                  </>
+                )}
+              </>
+            }
+            onPlace={() => {
+              imported.invalidate()
+              void startBase(
+                Number(baseLevel),
+                baseChoice,
+                null,
+                sapphireRarity,
+                baseChoice === 'sapphire' &&
+                  sapphireAffix &&
+                  sapphireRarity !== 'NORMAL'
+                  ? Number(sapphireRoll)
+                  : null,
+              )
+              setPreviewRequest({ count: 0, action: null })
+              setSelected(null)
+              setLeftMenu(null)
+            }}
+          />
+          <SessionLibrary
+            id="workbench-session-library"
+            anchor={historyAnchor}
+            shelf={currencyShelf}
+            open={leftMenu === 'history'}
+            onOpenChange={(open) => setLeftMenu(open ? 'history' : null)}
+            history={filmState.history}
+            disabled={applying !== null || filmState.blockedSaving}
+            onSelect={(id) => {
+              restoreFilm(id)
+              setLeftMenu(null)
+            }}
+            onRename={(id, title) =>
+              commitLibraryHistory(
+                updateFilmMetadata(filmState.history, id, { title }),
+              )
+            }
+            onFavoriteChange={(id, favorite) =>
+              commitLibraryHistory(
+                updateFilmMetadata(filmState.history, id, { favorite }),
+              )
+            }
+            onDelete={deleteSession}
+            {...(lastDeletion
+              ? {
+                  undo: {
+                    title: lastDeletion.film.title || t('ui.crafting_session'),
+                    onUndo: undoSessionDeletion,
+                  },
+                }
+              : {})}
+          />
           <dialog
             ref={dialog}
             onCancel={(event) => {
@@ -2145,297 +2356,40 @@ export function CraftingPage() {
                 <h3>{t('ui.starting_item')}</h3>
                 <span>01</span>
               </div>
-              <div
-                className="input-tabs"
-                role="group"
-                aria-label={t('ui.item_input_method')}
-              >
-                <button
-                  type="button"
-                  aria-pressed={inputMode === 'base'}
-                  onClick={() => {
+              <div className="text-form">
+                <label htmlFor="item-text">
+                  {t('ui.item_text_copied_from_the_game')}
+                </label>
+                <textarea
+                  id="item-text"
+                  value={draft.text}
+                  onChange={(event) => {
                     imported.invalidate()
-                    setInputMode('base')
+                    draft.setText(event.target.value)
                   }}
-                >
-                  {t('ui.select_base')}
-                </button>
+                  placeholder={
+                    'Hover over an item and press Ctrl+C\nPaste the copied text here.'
+                  }
+                  aria-invalid={Boolean(imported.error)}
+                  aria-describedby={imported.error ? 'import-error' : undefined}
+                />
+                {imported.error && (
+                  <p id="import-error" role="alert">
+                    {imported.error}
+                  </p>
+                )}
                 <button
                   type="button"
-                  aria-pressed={inputMode === 'text'}
-                  onClick={() => setInputMode('text')}
+                  className="primary-action"
+                  onClick={importText}
+                  disabled={imported.pending}
                 >
-                  {t('ui.item_text')}
+                  {imported.pending
+                    ? t('ui.analyzing_item')
+                    : t('ui.analyze_item')}{' '}
+                  <span aria-hidden="true">↗</span>
                 </button>
               </div>
-              {inputMode === 'base' ? (
-                <div className="base-form">
-                  <label htmlFor="base-select">{t('ui.equipment_base')}</label>
-                  <select
-                    id="base-select"
-                    value={baseChoice}
-                    onChange={(e) =>
-                      setBaseChoice(e.target.value as WorkbenchBaseKey)
-                    }
-                  >
-                    <option value="time-lost-ruby">
-                      {name('Time_Lost_Ruby', 'Time-Lost Ruby')}
-                    </option>
-                    <option value="time-lost-emerald">
-                      {name('Time_Lost_Emerald', 'Time-Lost Emerald')}
-                    </option>
-                    <option value="time-lost-sapphire">
-                      {name('Time_Lost_Sapphire', 'Time-Lost Sapphire')}
-                    </option>
-                    <option value="time-lost-diamond">
-                      {name('Time_Lost_Diamond', 'Time-Lost Diamond')}
-                    </option>
-                    <option value="ruby">{name('Ruby', 'Ruby')}</option>
-                    <option value="emerald">
-                      {name('Emerald', 'Emerald')}
-                    </option>
-                    <option value="diamond">
-                      {name('Diamond', 'Diamond')}
-                    </option>
-                    <option value="sapphire">
-                      {name('Sapphire', 'Sapphire')}
-                    </option>
-                    <option value="solar">
-                      {name('Solar_Amulet', 'Solar Amulet')}
-                    </option>
-                    <option value="wand">
-                      {name('Attuned_Wand', 'Attuned Wand')}
-                    </option>
-                    {reviewedArmourKeys.map((key) => (
-                      <option key={key} value={key}>
-                        {name(topBase(key)!.slug, topBase(key)!.name)}
-                        {key.startsWith('shrine-')
-                          ? ` (${topBase(key)!.sourceProperties?.[locale][1]})`
-                          : ''}
-                      </option>
-                    ))}
-                    <option value="soldier">
-                      {name('Soldier_Cuirass', 'Soldier Cuirass')}
-                    </option>
-                    <option value="imperial">
-                      {name('Imperial_Greathelm', 'Imperial Greathelm')}
-                    </option>
-                    <option value="sceptre">
-                      {name('Rattling_Sceptre', 'Rattling Sceptre')}
-                    </option>
-                    <option value="belt">
-                      {name('Rawhide_Belt', 'Rawhide Belt')}
-                    </option>
-                    <option value="ring">
-                      {name('Iron_Ring', 'Iron Ring')}
-                    </option>
-                  </select>
-                  {Object.hasOwn(workbenchJewelBases, baseChoice) && (
-                    <>
-                      <p>
-                        {t(
-                          catalogBase.startsWith('time-lost-')
-                            ? 'notice.time_lost_scope'
-                            : 'notice.sapphire_scope',
-                        )}
-                      </p>
-                      <label htmlFor="sapphire-rarity">{t('ui.rarity')}</label>
-                      <select
-                        id="sapphire-rarity"
-                        value={sapphireRarity}
-                        onChange={(e) =>
-                          setSapphireRarity(
-                            e.target.value as 'NORMAL' | 'MAGIC' | 'RARE',
-                          )
-                        }
-                      >
-                        <option value="NORMAL">{t('ui.normal')}</option>
-                        <option value="MAGIC">{t('ui.magic')}</option>
-                        <option value="RARE">{t('ui.rare')}</option>
-                      </select>
-                      <label hidden={baseChoice !== 'sapphire'}>
-                        <input
-                          type="checkbox"
-                          checked={
-                            baseChoice === 'sapphire' &&
-                            sapphireAffix &&
-                            sapphireRarity !== 'NORMAL'
-                          }
-                          disabled={sapphireRarity === 'NORMAL'}
-                          onChange={(e) => setSapphireAffix(e.target.checked)}
-                        />
-                        {t('ui.sapphire_existing_suffix')}
-                      </label>
-                      {baseChoice === 'sapphire' &&
-                        sapphireAffix &&
-                        sapphireRarity !== 'NORMAL' && (
-                          <>
-                            <label htmlFor="sapphire-roll">
-                              {t('ui.sapphire_cast_speed')}
-                            </label>
-                            <input
-                              id="sapphire-roll"
-                              type="number"
-                              min="2"
-                              max="4"
-                              step="1"
-                              value={sapphireRoll}
-                              onChange={(e) => setSapphireRoll(e.target.value)}
-                            />
-                          </>
-                        )}
-                    </>
-                  )}
-                  <label htmlFor="base-level">{t('ui.item_level')}</label>
-                  <input
-                    id="base-level"
-                    type="number"
-                    min="1"
-                    max="100"
-                    step="1"
-                    value={baseLevel}
-                    onChange={(e) => setBaseLevel(e.target.value)}
-                  />
-                  {(baseChoice === 'solar' ||
-                    baseChoice === 'ring' ||
-                    Object.hasOwn(basicJewelBases, baseChoice)) && (
-                    <>
-                      <label htmlFor="starting-quality-type">
-                        {t('ui.existing_catalyst_quality')}
-                      </label>
-                      <select
-                        id="starting-quality-type"
-                        value={qualityType}
-                        onChange={(e) =>
-                          setQualityType(
-                            e.target.value as '' | CatalystQuality['type'],
-                          )
-                        }
-                      >
-                        <option value="">
-                          {t('ui.no_typed_quality_supplied')}
-                        </option>
-                        {Object.entries(catalystTypes).map(([type, info]) => (
-                          <option key={type} value={type}>
-                            {name(
-                              (Object.hasOwn(basicJewelBases, baseChoice)
-                                ? 'Refined_'
-                                : '') +
-                                catalystItemIds[
-                                  type as CatalystQuality['type']
-                                ],
-                              `${info.name} Catalyst`,
-                            )}
-                          </option>
-                        ))}
-                      </select>
-                      {qualityType !== '' && (
-                        <>
-                          <label htmlFor="starting-quality-amount">
-                            {t('ui.current_quality')}
-                          </label>
-                          <input
-                            id="starting-quality-amount"
-                            type="number"
-                            min="0"
-                            max="20"
-                            step="1"
-                            value={qualityAmount}
-                            onChange={(e) => setQualityAmount(e.target.value)}
-                          />
-                          <p>{t('notice.existing_quality')}</p>
-                        </>
-                      )}
-                    </>
-                  )}
-                  <button
-                    type="button"
-                    className="primary-action"
-                    disabled={
-                      (baseChoice === 'sapphire' &&
-                        sapphireAffix &&
-                        sapphireRarity !== 'NORMAL' &&
-                        (sapphireRoll.trim() === '' ||
-                          !Number.isInteger(Number(sapphireRoll)) ||
-                          Number(sapphireRoll) < 2 ||
-                          Number(sapphireRoll) > 4)) ||
-                      !Number.isInteger(Number(baseLevel)) ||
-                      Number(baseLevel) < 1 ||
-                      Number(baseLevel) > 100 ||
-                      ((baseChoice === 'solar' ||
-                        baseChoice === 'ring' ||
-                        Object.hasOwn(basicJewelBases, baseChoice)) &&
-                        qualityType !== '' &&
-                        (qualityAmount.trim() === '' ||
-                          !Number.isInteger(Number(qualityAmount)) ||
-                          Number(qualityAmount) < 0 ||
-                          Number(qualityAmount) > 20))
-                    }
-                    onClick={() => {
-                      imported.invalidate()
-                      void startBase(
-                        Number(baseLevel),
-                        baseChoice,
-                        (baseChoice === 'solar' ||
-                          baseChoice === 'ring' ||
-                          Object.hasOwn(basicJewelBases, baseChoice)) &&
-                          qualityType !== ''
-                          ? { type: qualityType, amount: Number(qualityAmount) }
-                          : null,
-                        sapphireRarity,
-                        baseChoice === 'sapphire' &&
-                          sapphireAffix &&
-                          sapphireRarity !== 'NORMAL'
-                          ? Number(sapphireRoll)
-                          : null,
-                      )
-                      setPreviewRequest({ count: 0, action: null })
-                      setSelected(null)
-                      closeInput()
-                    }}
-                  >
-                    {t('ui.place_base')}
-                    <span aria-hidden="true">↗</span>
-                  </button>
-                </div>
-              ) : (
-                <div className="text-form">
-                  <label htmlFor="item-text">
-                    {t('ui.item_text_copied_from_the_game')}
-                  </label>
-                  <textarea
-                    id="item-text"
-                    value={draft.text}
-                    onChange={(event) => {
-                      imported.invalidate()
-                      draft.setText(event.target.value)
-                    }}
-                    placeholder={
-                      'Hover over an item and press Ctrl+C\nPaste the copied text here.'
-                    }
-                    aria-invalid={Boolean(imported.error)}
-                    aria-describedby={
-                      imported.error ? 'import-error' : undefined
-                    }
-                  />
-                  {imported.error && (
-                    <p id="import-error" role="alert">
-                      {imported.error}
-                    </p>
-                  )}
-                  <button
-                    type="button"
-                    className="primary-action"
-                    onClick={importText}
-                    disabled={imported.pending}
-                  >
-                    {imported.pending
-                      ? t('ui.analyzing_item')
-                      : t('ui.analyze_item')}{' '}
-                    <span aria-hidden="true">↗</span>
-                  </button>
-                </div>
-              )}
             </div>
           </dialog>
         </div>

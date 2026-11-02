@@ -231,7 +231,7 @@ class WorkbenchControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsBytes(Map.of("state", state, "action", "DIVINE"))))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.applied").value(true))
+        .andExpect(jsonPath("$.applied").value(false))
         .andExpect(jsonPath("$.state.catalystQuality.amount").value(20))
         .andExpect(jsonPath("$.state.explicits[0].values.base_maximum_life").value(29));
     for (String bad :

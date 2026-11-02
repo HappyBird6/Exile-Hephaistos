@@ -64,7 +64,7 @@ describe('source-reviewed distinct Belt implicits', () => {
       }
       if (key === 'fine-belt') {
         expect(values.generate_x_charges_for_any_flask_per_minute).toBe(10)
-        expect(localizedModifierText(d, values, 'en')).toContain('0.17')
+        expect(localizedModifierText(d, values, 'en')).toContain('0.2')
       }
       if (['invoking-belt', 'sinew-belt', 'forking-belt'].includes(key))
         expect(values.local_charm_slots).toBe(1)

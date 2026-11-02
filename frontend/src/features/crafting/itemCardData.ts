@@ -7,6 +7,7 @@ import type {
 
 export type ModifierKind = Lowercase<ApiModifierType> | 'unknown'
 export interface ItemCardLine {
+  unrevealedDesecrated?: boolean
   numericLocale?: Locale
 
   junkSide?: 'PREFIX' | 'SUFFIX' | undefined

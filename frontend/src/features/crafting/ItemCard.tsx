@@ -1,3 +1,4 @@
+import { UnrevealedRune } from './abyss-workbench/UnrevealedRune'
 import { useI18n, formatNumber, uiText } from '../../shared/i18n/i18n'
 import { isTradePrice } from './itemCardData'
 import type { ItemCardData, ItemCardLine } from './itemCardData'
@@ -44,7 +45,9 @@ function Lines({
             {line.affixLabel && (
               <span className="item-card__affix">{line.affixLabel}</span>
             )}
-            {line.tierRows?.length ? (
+            {line.unrevealedDesecrated ? (
+              <UnrevealedRune />
+            ) : line.tierRows?.length ? (
               <details className="item-card__modifier-detail">
                 <summary>{line.text}</summary>
                 <table

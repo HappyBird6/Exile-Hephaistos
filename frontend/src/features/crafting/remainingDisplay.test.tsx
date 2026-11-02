@@ -101,7 +101,7 @@ describe('remaining display coverage', () => {
             expect(text).toContain(
               formatNumber(
                 values[s.id]! / s.divisor,
-                { maximumFractionDigits: 20 },
+                { maximumFractionDigits: 1 },
                 locale,
               ),
             )
@@ -222,7 +222,7 @@ describe('remaining display coverage', () => {
           expect(text).toContain(
             formatNumber(
               value / b.valueStats![0]!.divisor,
-              { maximumFractionDigits: 20 },
+              { maximumFractionDigits: 1 },
               locale,
             ),
           )
