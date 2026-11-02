@@ -1,0 +1,1082 @@
+{
+  "Metadata/Items/Amulets/FourAmulet9": {
+    "image": "/assets/currency/solar-amulet.webp",
+    "source": "frontend/public/assets/currency/sources.json",
+    "sourceSha256": "ac5eb8192379154a7d8ff00a43d8878f9458f1725dbd73b4ae98939f497a585a"
+  },
+  "Metadata/Items/Armours/Gloves/FourGlovesStr1": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Gloves/Basetypes/GlovesStr01.webp",
+    "source": "https://poe2db.tw/us/Stocky_Mitts",
+    "sourceSha256": "33cad345112ca804bd0b3ae017a994f09876158c221823958618d515c3b537ba",
+    "retrievedAt": "2026-11-02T05:42:49.771Z",
+    "file": "1d8c82cca31999686ce7.webp",
+    "sha256": "1d8c82cca31999686ce7c3b6dbc4c3c72511bc340ae92ed1caf023f836aa2999",
+    "size": 12316
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/Bows/Basetypes/Bow01.webp",
+    "source": "https://poe2db.tw/us/Crude_Bow",
+    "sourceSha256": "d3a151c069539ac57fc2b84230870c8c0eb4b7c72fc7f0c242fa69a764ec3ff6",
+    "retrievedAt": "2026-11-02T05:42:50.083Z",
+    "file": "eb36e102f0934337628e.webp",
+    "sha256": "eb36e102f0934337628e352cba0ecadcb9b75c070d1113594a812ea540e52f94",
+    "size": 13828
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand03.webp",
+    "source": "docs/evidence/amulets-source-bundle-2026-10-04/next-roster/Attuned_Wand.json",
+    "sourceSha256": "a2c3ecd19f676f31c767e5decab5b4e54987e25be425c5d76380d7ccfdaad141",
+    "file": "a00af91cdd79f3f8820c.webp",
+    "sha256": "a00af91cdd79f3f8820c40abaeec65fa938698860c7011e382a19350fbbde565",
+    "size": 5160
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStr1": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStr01.webp",
+    "source": "https://poe2db.tw/us/Rusted_Cuirass",
+    "sourceSha256": "743b5dcb06346688759b541ae880c6ca1af71075de1dde6b802baabfbefc3015",
+    "retrievedAt": "2026-11-02T05:42:50.404Z",
+    "file": "0036334b08ffda0e2bf2.webp",
+    "sha256": "0036334b08ffda0e2bf262db9c4d1ee82fbd1f489cc62e2e9b217e7b3e64195a",
+    "size": 15052
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre01.webp",
+    "source": "docs/evidence/amulets-source-bundle-2026-10-04/next-roster/Rattling_Sceptre.json",
+    "sourceSha256": "491969b06ee0115e37b994edae14b1c869c3cc00e55acdb2f535428123bc8070",
+    "file": "9a61d05d94f023326426.webp",
+    "sha256": "9a61d05d94f023326426182661e25c739262bf4240a8e9324693735731f2d597",
+    "size": 9950
+  },
+  "Metadata/Items/Belts/FourBelt1": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Belts/Basetypes/Belt01.webp",
+    "source": "docs/evidence/amulets-source-bundle-2026-10-04/next-roster/Rawhide_Belt.json",
+    "sourceSha256": "7e2471d21c217fd58dd3c9679341812bdfae769727fb7f7ade3c33e1c0993856",
+    "file": "91aeae421bfcc317a85f.webp",
+    "sha256": "91aeae421bfcc317a85f251db4768e3475dcc01d57e801b2e7b5904de894f351",
+    "size": 6562
+  },
+  "Metadata/Items/Armours/Helmets/FourHelmetStr1": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Helmets/Basetypes/HelmetStr01.webp",
+    "source": "https://poe2db.tw/us/Rusted_Greathelm",
+    "sourceSha256": "bcf1066312e8b99d703f930ba941e1af93c810906c56c11630bb298ebea17fa4",
+    "retrievedAt": "2026-11-02T05:42:50.743Z",
+    "file": "13e93d47f66e24f0eee8.webp",
+    "sha256": "13e93d47f66e24f0eee8257840184ec2626ca456f52b6283222dcf2316b66f77",
+    "size": 11236
+  },
+  "Metadata/Items/Rings/FourRing1": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/IronRing.webp",
+    "source": "https://poe2db.tw/us/Iron_Ring",
+    "sourceSha256": "8fe51133cbe7cbfe234f125cac29116921cb0cf24a40a1d91d9a242376cc53c1",
+    "retrievedAt": "2026-11-02T05:42:51.061Z",
+    "file": "aa2d0230233a09d85f7b.webp",
+    "sha256": "aa2d0230233a09d85f7b0dcc05847ce405e4c28646a0fb53f98012a57c9a0357",
+    "size": 4584
+  },
+  "Metadata/Items/Jewels/JewelStr": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Jewels/RubyJewel.webp",
+    "source": "https://poe2db.tw/us/Ruby",
+    "sourceSha256": "6d06da5d6c97372c12c5fc9a951d6a1dedc81292fb326c78c3e389a21a69348f",
+    "retrievedAt": "2026-11-02T05:42:51.526Z",
+    "file": "a8c2dbe37724fd0bc8d4.webp",
+    "sha256": "a8c2dbe37724fd0bc8d4025a93694874eea40f94be7e45dbe4559896f41e9f77",
+    "size": 4194
+  },
+  "Metadata/Items/Jewels/JewelDex": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Jewels/EmeraldJewel.webp",
+    "source": "https://poe2db.tw/us/Emerald",
+    "sourceSha256": "cdf6221116747fb6497be7ae7e27bb67bf54fc4b969fba12e890a1e4a45627d0",
+    "retrievedAt": "2026-11-02T05:42:51.861Z",
+    "file": "13da5bded0f9bb8b9e01.webp",
+    "sha256": "13da5bded0f9bb8b9e012077063c7a9a949e6344e5db3e2f5ade1c3967016c48",
+    "size": 3946
+  },
+  "Metadata/Items/Jewels/JewelInt": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Jewels/SapphireJewel.webp",
+    "source": "https://poe2db.tw/us/Sapphire",
+    "sourceSha256": "8bf5cdc842e771aa8ddf9947af5386e5254b4a98b57417a8af9225848b7dedc7",
+    "retrievedAt": "2026-11-02T05:42:52.202Z",
+    "file": "f7ed391074015d456f2b.webp",
+    "sha256": "f7ed391074015d456f2bb3615c72d235ac4e809405b4ee98b30d2f3bf3d6f18f",
+    "size": 4224
+  },
+  "Metadata/Items/Jewels/JewelDiamond": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Jewels/DiamondJewel.webp",
+    "source": "https://poe2db.tw/us/Diamond",
+    "sourceSha256": "09957116dc4b6c3766740ecf9ed97f60c730589fab09fee907779aff8d568c44",
+    "retrievedAt": "2026-11-02T05:42:52.639Z",
+    "file": "59bdae4987e9a5bb1c5d.webp",
+    "sha256": "59bdae4987e9a5bb1c5d0a7b740ca59fafef514c56462684cf2684808d62a5c0",
+    "size": 4880
+  },
+  "Metadata/Items/Jewels/JewelRadiusStr": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Jewels/SpecialRubyJewel.webp",
+    "source": "https://poe2db.tw/us/Time-Lost_Ruby",
+    "sourceSha256": "d1d5d731dd0c98b078f36ffeaefe0386e5d544f9d26f7f62afe4862171ebfa67",
+    "retrievedAt": "2026-11-02T05:42:53.098Z",
+    "file": "c743a6e50d68deecb578.webp",
+    "sha256": "c743a6e50d68deecb578f6ab0d622ca86d2c42c2f89fee4f3753f2bb6e2f7ee2",
+    "size": 4974
+  },
+  "Metadata/Items/Jewels/JewelRadiusDex": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Jewels/SpecialEmeraldJewel.webp",
+    "source": "https://poe2db.tw/us/Time-Lost_Emerald",
+    "sourceSha256": "641a5735d818ff95172ee91f3a0dbe2f6c0beb622110857aa5c61e68d88d6ae4",
+    "retrievedAt": "2026-11-02T05:42:53.545Z",
+    "file": "5ee3e1930d115541fb78.webp",
+    "sha256": "5ee3e1930d115541fb78ab57b3c922d35a6ae3a47b9bf7b5b3ac1595c4a50d0a",
+    "size": 4808
+  },
+  "Metadata/Items/Jewels/JewelRadiusInt": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Jewels/SpecialSapphireJewel.webp",
+    "source": "https://poe2db.tw/us/Time-Lost_Sapphire",
+    "sourceSha256": "b8a6ecc18b7330157f0fac4014593231723322604b7b85feb91b39f477a8c5cb",
+    "retrievedAt": "2026-11-02T05:42:54.007Z",
+    "file": "370494e44ee45f184c2f.webp",
+    "sha256": "370494e44ee45f184c2f4bbfbbbde8f1a4f319ff10226bee2a9ef3d1b48d6b2e",
+    "size": 5192
+  },
+  "Metadata/Items/Jewels/JewelRadiusDiamond": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Jewels/TimelostDiamondJewel.webp",
+    "source": "https://poe2db.tw/us/Time-Lost_Diamond",
+    "sourceSha256": "d0ed2e6b65a070ccc54d995e06039a0ba4131218c284b6a4598e6c1286a3c0ab",
+    "retrievedAt": "2026-11-02T05:42:54.469Z",
+    "file": "71014f9c12177a0f841c.webp",
+    "sha256": "71014f9c12177a0f841cb2de29cdf0f171ed1122ed2f1d4e8fd37632a75e72ad",
+    "size": 4680
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStr03.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Soldier_Cuirass.us.json",
+    "sourceSha256": "56f981818861af9cb6b4d4e371cf8e9237e92fd1fef6689e2f7340d0a1519554",
+    "file": "bf598939d8a4f9593cad.webp",
+    "sha256": "bf598939d8a4f9593cad645d7a46687d9257e2373fdc4da6007ab38c4ea29a41",
+    "size": 18304
+  },
+  "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Helmets/Basetypes/HelmetStr07.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Imperial_Greathelm.us.json",
+    "sourceSha256": "0e87dc818c8e49f085f92418bc7ebab10d43360e7ca3555911aea2547ec57ea8",
+    "file": "3f67214824e95d984f8f.webp",
+    "sha256": "3f67214824e95d984f8fdf2ec3fc7ee0e9c036ff2500cbef164ccd6fceaa1134",
+    "size": 7710
+  },
+  "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Gloves/Basetypes/GlovesStr06.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Massive_Mitts.us.json",
+    "sourceSha256": "03f675c6a95373914ac5c9b81d887f3bca9ce93774e2762f527163a7a4af8b18",
+    "file": "30ea30183dc8f1d40769.webp",
+    "sha256": "30ea30183dc8f1d40769cc784694e8a47c1416d895ea2cd539d014ab04790e5d",
+    "size": 13554
+  },
+  "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Gloves/Basetypes/GlovesInt06.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Sirenscale_Gloves.us.json",
+    "sourceSha256": "f6cf8107e23be79c9a0f985780b04beb5c0260d7529f40c055b377a1843517ab",
+    "file": "32843537d68570dc24ad.webp",
+    "sha256": "32843537d68570dc24ade501b86418897527336a3888a18648c7ea4d369b3a00",
+    "size": 11682
+  },
+  "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Gloves/Basetypes/GlovesIntStr04.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Adherent_Cuffs.us.json",
+    "sourceSha256": "dfb308b388caf4c9543a82112ae5de991a2dd85df5823f839879553bd5228f66",
+    "file": "2667d4bdc966a0c73f0b.webp",
+    "sha256": "2667d4bdc966a0c73f0ba3848019bb5d1ef51036058ec1425d9f9b87cd9eed67",
+    "size": 12914
+  },
+  "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Gloves/Basetypes/GlovesDex06.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Polished_Bracers.us.json",
+    "sourceSha256": "52c226614173426dfd88a9c270c74954c3c1d96a354f74459a88631345765c8a",
+    "file": "ece38daaf71ee17f25ed.webp",
+    "sha256": "ece38daaf71ee17f25ed35cf9a4c815d31d453b82f832669f80327dc6438e8df",
+    "size": 9768
+  },
+  "Metadata/Items/Armours/Gloves/FourGlovesStrDex4Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Gloves/Basetypes/GlovesStrDex04.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Blacksteel_Gauntlets.us.json",
+    "sourceSha256": "448374e51c9f37b611573900a18635d70f94df118ea7c7062f1fc201d6688446",
+    "file": "e35e894834578741b04a.webp",
+    "sha256": "e35e894834578741b04ae359776c0c3938830bd1c6145e6eccbd8a67ae818e30",
+    "size": 10638
+  },
+  "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Gloves/Basetypes/GlovesDexInt01.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/War_Wraps.us.json",
+    "sourceSha256": "0afa70f6b1a4454a8421d7ad6ced561fd6c4850c56f1b3d2292ae4ec46053aa6",
+    "file": "a4b322a21b44d86be3ef.webp",
+    "sha256": "a4b322a21b44d86be3effbd21b09ca0e1bf4e73b46e0a2f252533f377e8e203f",
+    "size": 8536
+  },
+  "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Helmets/Basetypes/HelmetDex07.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Freebooter_Cap.us.json",
+    "sourceSha256": "20f757708a5e7bae9e96777935d8e305b9a773e92d31211495e9734d47849cc6",
+    "file": "050439dec71bfa910f0d.webp",
+    "sha256": "050439dec71bfa910f0dd1f70cf17a0028c99746f941f38d8f754c199d5598e1",
+    "size": 9634
+  },
+  "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Helmets/Basetypes/HelmetStrDex06.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Gladiatorial_Helm.us.json",
+    "sourceSha256": "a30f9bd70e437f4aa71690a6414dd0547c66e83b42455a80c6bd53f22033d793",
+    "file": "e99ea62b3de0738d7c73.webp",
+    "sha256": "e99ea62b3de0738d7c73cd574a7d025e038e47a6f1f39cba23e12b17093bc997",
+    "size": 7658
+  },
+  "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Helmets/Basetypes/HelmetDexInt06.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Grinning_Mask.us.json",
+    "sourceSha256": "b4170e57550d24e8384276f4d3177ca23000599f8c878da5eaa870998364d932",
+    "file": "60320cb65605b3bec159.webp",
+    "sha256": "60320cb65605b3bec1598e9c72b844397810d75fc492277f11bc1bbf9cf254e1",
+    "size": 10568
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex06.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Slipstrike_Vest.us.json",
+    "sourceSha256": "5bf1f25614aea6172183676a9987231745761372ff3afffa4bfc6aa46aeaa3bc",
+    "file": "ec5feb729b7bd451fa17.webp",
+    "sha256": "ec5feb729b7bd451fa17071f2edd5c500d28a3708f934007e583e17af1076d6e",
+    "size": 22578
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrDex6Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex06.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Death_Mail.us.json",
+    "sourceSha256": "bce9970a6b2dbb16b5eb6442f81219cd5ed5f58015d12c30f4f16052b68a38f2",
+    "file": "44205246a1f74d1acdbb.webp",
+    "sha256": "44205246a1f74d1acdbbe2a7e3e0f73772b44d3157bb207d54d06955d1c7b4da",
+    "size": 20810
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDexInt02.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Sleek_Jacket.us.json",
+    "sourceSha256": "15d49848af680566e920c88fc97818874dcb96cad1230a49807f2eb5524d0ac9",
+    "file": "7480c1516f2912cd91d2.webp",
+    "sha256": "7480c1516f2912cd91d202bb55ae06d55fb2bc25d3ed67403ad2bcf894ee87d7",
+    "size": 13262
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyInt03.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Vile_Robe.us.json",
+    "sourceSha256": "42f1aecd0db7316d375dbb618a868fe7fad39e06ea4c972f80f9dcd480c360ce",
+    "file": "e7b2a91b1b0938a22968.webp",
+    "sha256": "e7b2a91b1b0938a22968be04709567e3f40c95d71770376f6bf79c1ec49469ab",
+    "size": 15000
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr02.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Wolfskin_Mantle.us.json",
+    "sourceSha256": "324e85468a9137d4f9858462ec2419e2e65ace251832f2faf6509835fac65c17",
+    "file": "3bbcd9e6864c3dd19e0d.webp",
+    "sha256": "3bbcd9e6864c3dd19e0d1233fc9af1b92a69d3e5edc880b313ba7da687bdbda7",
+    "size": 16790
+  },
+  "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Helmets/Basetypes/HelmetInt08.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Ancestral_Tiara.us.json",
+    "sourceSha256": "c12d011fe306b50b78e74f5c28870e3b6dee5ecf62ead96090f35b876a82112a",
+    "file": "57993f13239f48a6a937.webp",
+    "sha256": "57993f13239f48a6a93760da8e1ac3600be5e35c6a3138ac7adcb4875f426873",
+    "size": 15370
+  },
+  "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Helmets/Basetypes/HelmetIntStr06.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Cryptic_Crown.us.json",
+    "sourceSha256": "9a24aa9173e36579ba3ea4b96cf25b0544f5112e94e05fe2dbef9266d42f3d80",
+    "file": "ad65fa4e2931f5237dac.webp",
+    "sha256": "ad65fa4e2931f5237dac019f19d2aa1263e2571d2a33a3a1bf7cd18d08322a93",
+    "size": 10358
+  },
+  "Metadata/Items/Armours/Boots/FourBootsStr6Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Boots/Basetypes/BootsStr06.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Tasalian_Greaves.us.json",
+    "sourceSha256": "18cf3aa545dbdba312d8c2476a9674e4d321c296e44c282efe70479f6b165a1f",
+    "file": "2a6e09e327a4b052abfe.webp",
+    "sha256": "2a6e09e327a4b052abfe73e99a3010b491e1672fb48d06521a1e7af96a566cf2",
+    "size": 11082
+  },
+  "Metadata/Items/Armours/Boots/FourBootsDex6Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Boots/Basetypes/BootsDex06.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Drakeskin_Boots.us.json",
+    "sourceSha256": "482db89770dc454f9d04c3b9241f5c05416155b648fc631ce5f1717331b1aff6",
+    "file": "fc82d402393021f1eba9.webp",
+    "sha256": "fc82d402393021f1eba9b6a438efd8b5a9f0222bd071191655bf41af1465715b",
+    "size": 8278
+  },
+  "Metadata/Items/Armours/Boots/FourBootsInt6Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Boots/Basetypes/BootsInt06.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Sekhema_Sandals.us.json",
+    "sourceSha256": "67de4d73884ddfc22cf742007286d4f55fc15887674edc92ac4bce2898a16da5",
+    "file": "25ab595ac207cfef1776.webp",
+    "sha256": "25ab595ac207cfef1776b8e7ec2d11704e4139eea210bde46378a9b8478271fc",
+    "size": 11416
+  },
+  "Metadata/Items/Armours/Boots/FourBootsStrDex4Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Boots/Basetypes/BootsStrDex04.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Blacksteel_Sabatons.us.json",
+    "sourceSha256": "45495385ca65c24b177168691a4506ff1dd2c6ccae364f8b60a974e823f1f11c",
+    "file": "9208daa3723b91e76c99.webp",
+    "sha256": "9208daa3723b91e76c9962e3bab63d4457cedcd86cad12e8b0d511a58334f25e",
+    "size": 7368
+  },
+  "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Boots/Basetypes/BootsIntStr01.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Faithful_Leggings.us.json",
+    "sourceSha256": "a62da810f869b753fdc4761a41a74d83b934bf53321d84bda91ebac511a582ee",
+    "file": "9674f1fcb482dbec9330.webp",
+    "sha256": "9674f1fcb482dbec933014eccb0f57fe63f17b2b19f35ba3c3f9092c02dad734",
+    "size": 8416
+  },
+  "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/Boots/Basetypes/BootsDexInt04.webp",
+    "source": "docs/evidence/armour-source-bundle-2026-10-04/Daggerfoot_Shoes.us.json",
+    "sourceSha256": "3d9bae544180393df1334b600de0902fe23b5b5acf0416c873c866c49ac98988",
+    "file": "6b897270e42000cbfae0.webp",
+    "sha256": "6b897270e42000cbfae00b4be94bbffc3844d892c72971545d99d3fa5835f0c3",
+    "size": 10692
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow8Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/Bows/Basetypes/Bow08.webp",
+    "source": "docs/evidence/bows-source-bundle-2026-10-04/Warmonger_Bow.us.json",
+    "sourceSha256": "3ac4c023f9bb13b22b8faf83cfc3419958c28e4d3dc438e197f3b05972bafa9d",
+    "file": "a7aa145e2a1714809fbc.webp",
+    "sha256": "a7aa145e2a1714809fbcb0680d32acc308d94bfc99e002bdb9a4347b6c4c8e52",
+    "size": 14932
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow3Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/Bows/Basetypes/Bow03.webp",
+    "source": "docs/evidence/bows-source-bundle-2026-10-04/Guardian_Bow.us.json",
+    "sourceSha256": "eba55a7a50273b6820686060984b77205c395a4aca723c40d77a16135c52a857",
+    "file": "3749f31a8f9abd4868c7.webp",
+    "sha256": "3749f31a8f9abd4868c71dfc58eb2943178e873fa67f850e3467e1e81aacd5d2",
+    "size": 10682
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow6Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/Bows/Basetypes/Bow06.webp",
+    "source": "docs/evidence/bows-source-bundle-2026-10-04/Gemini_Bow.us.json",
+    "sourceSha256": "87f842c336b32ecc93c842a644e5acd3e32f6204385d2d857a81a5563e80ca75",
+    "file": "a698e322240d05f2b9e3.webp",
+    "sha256": "a698e322240d05f2b9e3522204eb0033776749f9c80c1a99db2e76580c4b76e6",
+    "size": 20650
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow7Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/Bows/Basetypes/Bow07.webp",
+    "source": "docs/evidence/bows-source-bundle-2026-10-04/Fanatic_Bow.us.json",
+    "sourceSha256": "d654888300cd152fd121314d66ea7296c94e3cc5e585513f8b15bb9619036280",
+    "file": "bd4b44a244986b593198.webp",
+    "sha256": "bd4b44a244986b59319801eb73eba9df55bbda60a6d6e98f00fc68dd252c7b5c",
+    "size": 15676
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/Bows/Basetypes/Bow09.webp",
+    "source": "docs/evidence/bows-source-bundle-2026-10-04/Obliterator_Bow.us.json",
+    "sourceSha256": "8bb8d3b4c1e5fb079acd509d85e6e74d01d768597e332c052f2aa633d0ec848a",
+    "file": "199061eeda61149dedfa.webp",
+    "sha256": "199061eeda61149dedfa0ed266c87173acb89480c0035b2e796453ad05639e27",
+    "size": 16308
+  },
+  "Metadata/Items/Rings/FourRingB4": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/BreachlordRing_UulNetol.webp",
+    "source": "docs/evidence/rings-source-bundle-2026-10-04/Kinetic_Ring.us.json",
+    "sourceSha256": "224448c62d66a970654b17b957362ea213e2918254e6135f9138be5f2630764e",
+    "file": "bd8b8afbef86114ced6a.webp",
+    "sha256": "bd8b8afbef86114ced6a81707378a1432bca6c39c8a9f24c6242f3f56a5b5490",
+    "size": 3028
+  },
+  "Metadata/Items/Rings/FourRingB2": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/BreachlordRing_Xoph.webp",
+    "source": "docs/evidence/rings-source-bundle-2026-10-04/Vitalic_Ring.us.json",
+    "sourceSha256": "6a6d8021d7735b922ec0f21053bc526d4ef7835d3e866900a935681dfa6f4516",
+    "file": "1f6b44607284f46d5d63.webp",
+    "sha256": "1f6b44607284f46d5d634b5665b539c281321e3314c40dec2f20e1b1ba5df059",
+    "size": 3104
+  },
+  "Metadata/Items/Rings/FourRingB3": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/BreachlordRing_Esh.webp",
+    "source": "docs/evidence/rings-source-bundle-2026-10-04/Mnemonic_Ring.us.json",
+    "sourceSha256": "bc9e353c077f5e8c2198443d415e4a0c3c0b96ec94c0e859aa85a82e598d8894",
+    "file": "38fd6ed9b27d00eabcf4.webp",
+    "sha256": "38fd6ed9b27d00eabcf4652bab2181660019f90b8c8f594f8f186e41a5c49b71",
+    "size": 3448
+  },
+  "Metadata/Items/Rings/FourRing8": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/PearlRing.webp",
+    "source": "docs/evidence/rings-source-bundle-2026-10-04/Pearl_Ring.us.json",
+    "sourceSha256": "5933753d625bba8a4277526bb9b485a3e90b6d9f37b8651a6a396639053614df",
+    "file": "0b2d0bb7480ad7a73950.webp",
+    "sha256": "0b2d0bb7480ad7a73950905fda4694332acc23f67dfb2444906b9c8e3f45afe2",
+    "size": 4756
+  },
+  "Metadata/Items/Rings/FourRing6": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/AmethystRing.webp",
+    "source": "docs/evidence/rings-source-bundle-2026-10-04/Amethyst_Ring.us.json",
+    "sourceSha256": "f213e695cf0b36b778649ca773a32454f1b6fc7bd6107a8f307e275b1a33131c",
+    "file": "f0e1477481c4c8007046.webp",
+    "sha256": "f0e1477481c4c80070462bd39d7344d7e9833498d48b3a486bca76dab9b38071",
+    "size": 5036
+  },
+  "Metadata/Items/Rings/FourRing9": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/PrismaticRing.webp",
+    "source": "docs/evidence/rings-source-bundle-2026-10-04/Prismatic_Ring.us.json",
+    "sourceSha256": "20fa7f5baa63e5d2ea5b2fe490e51663a334a0af6801bb78e92fa81b1a668b00",
+    "file": "f2b447b61d630b593e4d.webp",
+    "sha256": "f2b447b61d630b593e4d8defd4523f8a6cd44ac3e3bdc5e4aeabf51e41c812f9",
+    "size": 5384
+  },
+  "Metadata/Items/Rings/FourRing3": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/RubyRing.webp",
+    "source": "docs/evidence/rings-source-bundle-2026-10-04/Ruby_Ring.us.json",
+    "sourceSha256": "22ec19e277190b1ace73a3ddd288306593f44ef86f3a4ad332ce9f329b142179",
+    "file": "8ca56ac9cf1036f934d2.webp",
+    "sha256": "8ca56ac9cf1036f934d24085cbaedf28d3150ce4d3a0b0152b1728690c2c970b",
+    "size": 5354
+  },
+  "Metadata/Items/Rings/FourRing13a": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/IronRing.webp",
+    "source": "docs/evidence/rings-source-bundle-2026-10-04/Two-Stone_Ring.us.json",
+    "sourceSha256": "f80b74ea749e741f91f86e725424cd6760a1204fdb118099e1a6e66276647b33",
+    "file": "aa2d0230233a09d85f7b.webp",
+    "sha256": "aa2d0230233a09d85f7b0dcc05847ce405e4c28646a0fb53f98012a57c9a0357",
+    "size": 4584
+  },
+  "Metadata/Items/Amulets/FourAmulet8": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/StellarAmulet.webp",
+    "source": "docs/evidence/amulets-source-bundle-2026-10-04/Stellar_Amulet.us.json",
+    "sourceSha256": "a6fd4aeac9172f29ba40268a8cb51f0f99e571f768949db37b3dabecd8ebbea1",
+    "file": "d25e0f4b65483fe2b51a.webp",
+    "sha256": "d25e0f4b65483fe2b51a29a2fe93ce8f13118bb2263f408a10ed0fb5d446d574",
+    "size": 5382
+  },
+  "Metadata/Items/Amulets/FourAmulet3": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/AmberAmulet.webp",
+    "source": "docs/evidence/amulets-source-bundle-2026-10-04/Amber_Amulet.us.json",
+    "sourceSha256": "e0771a367df5c5209a2b48261ba8467db16347b62cdd725c5918d6f4362752a7",
+    "file": "38508e51577b17702aa6.webp",
+    "sha256": "38508e51577b17702aa692862d5cfcb4c69dec997c11ba8d7cd3949b6b567325",
+    "size": 4532
+  },
+  "Metadata/Items/Amulets/FourAmulet7": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/BloodstoneAmulet.webp",
+    "source": "docs/evidence/amulets-source-bundle-2026-10-04/Bloodstone_Amulet.us.json",
+    "sourceSha256": "86fc1aa3ec2f8433267a61909ecd5d9778611f2368c11a48e4aa131ebbe425a4",
+    "file": "846fc4f300f026f9d89c.webp",
+    "sha256": "846fc4f300f026f9d89c29bcb183ed052a7e7bb47909df56ab0b88ad358f7476",
+    "size": 3450
+  },
+  "Metadata/Items/Amulets/FourAmulet6": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/LunarAmulet.webp",
+    "source": "docs/evidence/amulets-source-bundle-2026-10-04/Lunar_Amulet.us.json",
+    "sourceSha256": "02415e7967b2f861c3868de43ec00ea4009ace90e280e82a970bcdb1d353db6d",
+    "file": "51c30ef1a1362e31e00a.webp",
+    "sha256": "51c30ef1a1362e31e00a9da7c1639697049563f151846dc609b5caec8df9e088",
+    "size": 4324
+  },
+  "Metadata/Items/Amulets/FourAmulet2": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/AzureAmulet.webp",
+    "source": "docs/evidence/amulets-source-bundle-2026-10-04/Azure_Amulet.us.json",
+    "sourceSha256": "5e2caf0c261f6bfdb168889120ec3a16031e0f193560101a3f48a3ff1cbf99c2",
+    "file": "1945241c0e142956d78c.webp",
+    "sha256": "1945241c0e142956d78c82487b0d37486a06769937640426fa7da7835674ece4",
+    "size": 4586
+  },
+  "Metadata/Items/Amulets/FourAmulet1": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/CrimsonAmulet.webp",
+    "source": "docs/evidence/amulets-source-bundle-2026-10-04/Crimson_Amulet.us.json",
+    "sourceSha256": "e9fff9b36a76ae5f1f575f9269d4c192af118c0bb2985e9177e796a28dd3414f",
+    "file": "b4e792f434706512846d.webp",
+    "sha256": "b4e792f434706512846d6151ef9b2a6021cf886ba12c27d0a4efc03a00cfafd6",
+    "size": 4428
+  },
+  "Metadata/Items/Amulets/FourAmulet11": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/PearlescentAmulet.webp",
+    "source": "docs/evidence/amulets-source-bundle-2026-10-04/Pearlescent_Amulet.us.json",
+    "sourceSha256": "dcf55d55b1bb95f2b3384e00da3f5ef3465b87cd309574bc2acd67c0ef4751ec",
+    "file": "5653ccc80dabe4fbc120.webp",
+    "sha256": "5653ccc80dabe4fbc120e81ad16818e1214d02ea104cbbce0c418fe95e0158ea",
+    "size": 3786
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre01.webp",
+    "source": "docs/evidence/hallowed-source-bundle-2026-10-04/Hallowed_Sceptre.us.json",
+    "sourceSha256": "3d1ac34e3f2975b232ad60ebb7b7729f6ec836b1dc90378c85b723a86592a7a3",
+    "file": "9a61d05d94f023326426.webp",
+    "sha256": "9a61d05d94f023326426182661e25c739262bf4240a8e9324693735731f2d597",
+    "size": 9950
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand02.webp",
+    "source": "docs/evidence/wands-source-bundle-2026-10-05/Bone_Wand.us.html",
+    "sourceSha256": "30da6543d6a88474bda2ce78de41ce6aad8395a90b5011c9f8f8f7c622fcd420",
+    "file": "e92f6e9282423169b46f.webp",
+    "sha256": "e92f6e9282423169b46fdffc71aa715fb99e908ec4e7dcc7bf970cf66852f2be",
+    "size": 7206
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand04.webp",
+    "source": "docs/evidence/wands-source-bundle-2026-10-05/Siphoning_Wand.us.html",
+    "sourceSha256": "779aff42d267923162b2fbea116298155572c459bdcda1c2ffa3ed6a89958fa9",
+    "file": "1ddcecb20540c5835c28.webp",
+    "sha256": "1ddcecb20540c5835c28fbf18795907698625e14dc8d9516802fc9bf98cc99a7",
+    "size": 6230
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand05.webp",
+    "source": "docs/evidence/wands-source-bundle-2026-10-05/Volatile_Wand.us.html",
+    "sourceSha256": "f5f57e091139d4b145fb3cd123c6ea5ef6c462604fb82c5d601c768489d230a8",
+    "file": "feaab1c028d65a4a40b6.webp",
+    "sha256": "feaab1c028d65a4a40b6a2d1b78cb53c65deea857952c527e0c17dacf73af999",
+    "size": 7452
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand06.webp",
+    "source": "docs/evidence/wands-source-bundle-2026-10-05/Galvanic_Wand.us.html",
+    "sourceSha256": "ce0d1eb4c96724d2676b136e38d73a9ba62447f0b5204691caaebc0a85795bcf",
+    "file": "968cc680003e1b3d18fd.webp",
+    "sha256": "968cc680003e1b3d18fdef3635414582101663c3bacbfe9790c8f00460f0b475",
+    "size": 8584
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand07.webp",
+    "source": "docs/evidence/wands-source-bundle-2026-10-05/Acrid_Wand.us.html",
+    "sourceSha256": "feda2ac8ca558c834776d204c35b392180ea906fa59e73ea5201bb22c7df9d00",
+    "file": "23ad925ef6b77098923f.webp",
+    "sha256": "23ad925ef6b77098923fbc7cd1ae77b1062fb6a7a336ec131c821d266f960131",
+    "size": 8380
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand08.webp",
+    "source": "docs/evidence/wands-source-bundle-2026-10-05/Offering_Wand.us.html",
+    "sourceSha256": "64e1c80bce2c33e099a490abe0d72f1bc377b8095066e4bcdcd00713b12af8ec",
+    "file": "8e5f225ade4f9c2dc2fd.webp",
+    "sha256": "8e5f225ade4f9c2dc2fd8a0af3d19e0af5d41e5ec572968e97f02d504cb355b2",
+    "size": 8038
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand11.webp",
+    "source": "docs/evidence/wands-source-bundle-2026-10-05/Critical_Wand.us.html",
+    "sourceSha256": "46f71d02e403ca56bc4f13d48418f7af7a28db50383949c9275b043f76e47239",
+    "file": "6a4dc9062fc6f1ff22a9.webp",
+    "sha256": "6a4dc9062fc6f1ff22a94dd69b97b1514c1952fa67d04634cc2e914d6fb3d32f",
+    "size": 9656
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand12.webp",
+    "source": "docs/evidence/wands-source-bundle-2026-10-05/Primordial_Wand.us.html",
+    "sourceSha256": "61d41e37925e794e5f5a2292b76625944684cf5ca9f8324ca35f88a53a5f3bba",
+    "file": "00512bd44afbb384caf9.webp",
+    "sha256": "00512bd44afbb384caf90ae63132320a9dd466862a73fa54c7d89b54cb07cd27",
+    "size": 9914
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand13.webp",
+    "source": "docs/evidence/wands-source-bundle-2026-10-05/Dueling_Wand.us.html",
+    "sourceSha256": "985411d49609b10e4c4ff821c9c5aa60e3c6ef036bbf38894590dd6c3e203af3",
+    "file": "096b42233c64aaf4af79.webp",
+    "sha256": "096b42233c64aaf4af797ba6c2fedf4a85f4975698ee283342c58a152c4cba54",
+    "size": 10896
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre02.webp",
+    "source": "docs/evidence/sceptres-source-bundle-2026-10-05/Stoic_Sceptre.us.html",
+    "sourceSha256": "783f535207b5d6f4e3950161f75c29bb695124c8c8190896232260ba23fb2003",
+    "file": "be72b9a25e26d6dfd139.webp",
+    "sha256": "be72b9a25e26d6dfd1390d6d378fc4722e519d3b8f4c27438ca6aee74b3594ab",
+    "size": 7726
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre04.webp",
+    "source": "docs/evidence/sceptres-source-bundle-2026-10-05/Omen_Sceptre.us.html",
+    "sourceSha256": "71f095ab3a79f75ba502a2df8cd1e69ad99fa6ee5f333f4a7afcc518ad0993c6",
+    "file": "75928f128c42dee9a589.webp",
+    "sha256": "75928f128c42dee9a5890f8269b62d4ba5a8af519a64dbc28212db9bedc6e96a",
+    "size": 8950
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06c.webp",
+    "source": "docs/evidence/sceptres-source-bundle-2026-10-05/Shrine_Sceptre.us.html",
+    "sourceSha256": "f6951ddcf71ee3440ce892beb3896cec48064c461acf14c4258ba96e5545c607",
+    "file": "f25aa03048ff8f34568f.webp",
+    "sha256": "f25aa03048ff8f34568f7c44017e4c0999e733a1e5b8dd8e463f3d5be71d364f",
+    "size": 12180
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06c.webp",
+    "source": "docs/evidence/sceptres-source-bundle-2026-10-05/Shrine_Sceptre.us.html",
+    "sourceSha256": "f6951ddcf71ee3440ce892beb3896cec48064c461acf14c4258ba96e5545c607",
+    "file": "f25aa03048ff8f34568f.webp",
+    "sha256": "f25aa03048ff8f34568f7c44017e4c0999e733a1e5b8dd8e463f3d5be71d364f",
+    "size": 12180
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06c.webp",
+    "source": "docs/evidence/sceptres-source-bundle-2026-10-05/Shrine_Sceptre.us.html",
+    "sourceSha256": "f6951ddcf71ee3440ce892beb3896cec48064c461acf14c4258ba96e5545c607",
+    "file": "f25aa03048ff8f34568f.webp",
+    "sha256": "f25aa03048ff8f34568f7c44017e4c0999e733a1e5b8dd8e463f3d5be71d364f",
+    "size": 12180
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre08.webp",
+    "source": "docs/evidence/sceptres-source-bundle-2026-10-05/Clasped_Sceptre.us.html",
+    "sourceSha256": "092e5532910d5ab3fcf8483d9b70d3630b318f11a5c71089e415524a20ed57d6",
+    "file": "217c7d9578008d7ba8a2.webp",
+    "sha256": "217c7d9578008d7ba8a2024544762f31257973c8947eb834224e34b97a90ed45",
+    "size": 10988
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre10.webp",
+    "source": "docs/evidence/sceptres-source-bundle-2026-10-05/Wrath_Sceptre.us.html",
+    "sourceSha256": "f86d1e72a8882bc7e74c7d35ecf4537ac3b7ef6896e4e6e6cf1ef8a7f09533c8",
+    "file": "f59b3d389071cc108459.webp",
+    "sha256": "f59b3d389071cc108459659357cf466979cc140640827bff226434f33cd8d027",
+    "size": 9906
+  },
+  "Metadata/Items/Belts/FourBelt2": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Belts/Basetypes/Belt02.webp",
+    "source": "docs/evidence/belts-source-bundle-2026-10-05/Linen_Belt.us.html",
+    "sourceSha256": "1f5834b2d03510ab99fd5c936ca6ae8a1404fdbfa83345a18ca5652e652ba9ff",
+    "file": "bda6069aab353664ab9e.webp",
+    "sha256": "bda6069aab353664ab9eb209128082a590503775cb603681e0bcb2c79b6ba1e2",
+    "size": 5726
+  },
+  "Metadata/Items/Belts/FourBelt3": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Belts/Basetypes/Belt03.webp",
+    "source": "docs/evidence/belts-source-bundle-2026-10-05/Wide_Belt.us.html",
+    "sourceSha256": "94f1859e2ffee841a7a6a4838c911d14110278908aef806704d6570b814d22ad",
+    "file": "68fa9a5c082552c3cae5.webp",
+    "sha256": "68fa9a5c082552c3cae526361ed0601e6de54515308bc1b77b32c3fe310fd117",
+    "size": 4042
+  },
+  "Metadata/Items/Belts/FourBelt4": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Belts/Basetypes/Belt04.webp",
+    "source": "docs/evidence/belts-source-bundle-2026-10-05/Long_Belt.us.html",
+    "sourceSha256": "2762a91fcae5ffcbbd2c72c885be22fc42d7b99f3a60dd42f01965862375ddbb",
+    "file": "e94e3a720abe5a50afe1.webp",
+    "sha256": "e94e3a720abe5a50afe130d2bce10365964fa7ecfb54ccdde1d8910586ce0c46",
+    "size": 6684
+  },
+  "Metadata/Items/Belts/FourBelt5": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Belts/Basetypes/Belt05.webp",
+    "source": "docs/evidence/belts-source-bundle-2026-10-05/Plate_Belt.us.html",
+    "sourceSha256": "f354c4dfed2bbe70475f78f027c615c30ed2714dffd05b7e49ef3ba57e89f668",
+    "file": "cc09de22ccb5a73cdf13.webp",
+    "sha256": "cc09de22ccb5a73cdf1347ddd54f950e8935859b0c28977cd8106cf7ba3262a5",
+    "size": 7124
+  },
+  "Metadata/Items/Belts/FourBelt6": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Belts/Basetypes/Belt06.webp",
+    "source": "docs/evidence/belts-source-bundle-2026-10-05/Ornate_Belt.us.html",
+    "sourceSha256": "a41aea8ff3ac7ec11476976c0bcd42090a0c606cfc9a1e783df94e212de76e79",
+    "file": "13aae6414d6c979f2332.webp",
+    "sha256": "13aae6414d6c979f23320b25cfb4c2a618532fcf451b6e7c8f4f6ae5b29d03f7",
+    "size": 6700
+  },
+  "Metadata/Items/Belts/FourBelt7": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Belts/Basetypes/Belt07.webp",
+    "source": "docs/evidence/belts-source-bundle-2026-10-05/Mail_Belt.us.html",
+    "sourceSha256": "1eb507ea2130285d96c1567eedafd0ab96647e5f7852d037afb3cddb70af0ff1",
+    "file": "27b5617c3827209dfbfe.webp",
+    "sha256": "27b5617c3827209dfbfe7751648b6bf21b9d3dbb8bfe685bf2c1e231cfef507a",
+    "size": 11018
+  },
+  "Metadata/Items/Belts/FourBelt8": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Belts/Basetypes/Belt08.webp",
+    "source": "docs/evidence/belts-source-bundle-2026-10-05/Double_Belt.us.html",
+    "sourceSha256": "e380035c9b3bf31e98fa48cb754de73883e272619c32312e6c852db264403136",
+    "file": "27300c0de5e4d6f80e6b.webp",
+    "sha256": "27300c0de5e4d6f80e6bded7465f9f74441dbf22d7493d770ccdd40b66ef076c",
+    "size": 7428
+  },
+  "Metadata/Items/Belts/FourBelt9": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Belts/Basetypes/Belt09.webp",
+    "source": "docs/evidence/belts-source-bundle-2026-10-05/Heavy_Belt.us.html",
+    "sourceSha256": "fca241a04a7e3f757fe4e5726364199daca03c88b4428f1a1b32643e4031a522",
+    "file": "88c4ff0c62cf3810290b.webp",
+    "sha256": "88c4ff0c62cf3810290bd3c471f455ca4cc3ef63f48c1be9efdbfb225e531a34",
+    "size": 5708
+  },
+  "Metadata/Items/Belts/FourBelt10": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Belts/Basetypes/Belt10.webp",
+    "source": "docs/evidence/belts-source-bundle-2026-10-05/Utility_Belt.us.html",
+    "sourceSha256": "b4efcaedb3e192219abf32b6e47db076ac6b3dc1ff21fea4c77f4a94d7e08eed",
+    "file": "6bffd8099759ded4fd66.webp",
+    "sha256": "6bffd8099759ded4fd6685b9f37c619a070b6b27baf980a72fa95b4ef1ddc0e3",
+    "size": 7096
+  },
+  "Metadata/Items/Belts/FourBelt11": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Belts/Basetypes/Belt11.webp",
+    "source": "docs/evidence/belts-source-bundle-2026-10-05/Fine_Belt.us.html",
+    "sourceSha256": "39e208bb3831b0b7164d281eb86f4a4b96695f88ec2f1f008063c4d6b66296c5",
+    "file": "9834f3bd051c0990c316.webp",
+    "sha256": "9834f3bd051c0990c31663ab7609e48e60a0f6f89d7f243144600282b43ceddb",
+    "size": 6922
+  },
+  "Metadata/Items/Belts/FourBeltB2": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Belts/Basetypes/InvokingBelt.webp",
+    "source": "docs/evidence/belts-source-bundle-2026-10-05/Invoking_Belt.us.html",
+    "sourceSha256": "68fab7e8ec84c98f1e7ca2f1d1ac04c9aa9722e838302711e492f7ecc7b4c8a6",
+    "file": "f1d5f128b37c296bc055.webp",
+    "sha256": "f1d5f128b37c296bc05545c835914c0e760335cdf19acfb0b88a985020b74e18",
+    "size": 10602
+  },
+  "Metadata/Items/Belts/FourBeltB3": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Belts/Basetypes/SinewBelt.webp",
+    "source": "docs/evidence/belts-source-bundle-2026-10-05/Sinew_Belt.us.html",
+    "sourceSha256": "619c4da87b8920c6ac53b66c319ff2f77effa0bc063faf6ddc8236fafc25b7a9",
+    "file": "0e9afbe9254a02b178d5.webp",
+    "sha256": "0e9afbe9254a02b178d5b5d49e3003cf6413dd6774a3077738f8a37055689d39",
+    "size": 9366
+  },
+  "Metadata/Items/Belts/FourBeltB4": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Belts/Basetypes/ForkingBelt.webp",
+    "source": "docs/evidence/belts-source-bundle-2026-10-05/Forking_Belt.us.html",
+    "sourceSha256": "a0a3872537bfdc3db46b044f410ffe5adc88b7e9dd92e6184b808fca755d2a2a",
+    "file": "bdb1e144adac6e65fdc7.webp",
+    "sha256": "bdb1e144adac6e65fdc74f6090ac89c9d1c6b7afbab08ecefe5e89af75d55ade",
+    "size": 12438
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow7Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/Crossbows/2HCrossbow07.webp",
+    "source": "docs/evidence/crossbows-source-bundle-2026-10-05/Siege_Crossbow.us.html",
+    "sourceSha256": "090ad9082d42a3547449f5f141c7f8f0655c5e616d860252c83cac6e27397dcc",
+    "file": "451babb6547f8a66ba4e.webp",
+    "sha256": "451babb6547f8a66ba4edec0b6b52399a443becbaa37901f85bd5efa4b8fcdb4",
+    "size": 23802
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow5Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/Crossbows/2HCrossbow05.webp",
+    "source": "docs/evidence/crossbows-source-bundle-2026-10-05/Gemini_Crossbow.us.html",
+    "sourceSha256": "54c6da52c1cbdbf2ddc15ab490c89e8c4253de4c216e7f37c6f7f5ba6e833b4b",
+    "file": "c3b68d53248aea875f49.webp",
+    "sha256": "c3b68d53248aea875f49bbb5cc901b83ea366d9177b09b5e44441c05135aa519",
+    "size": 21236
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow10Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/Crossbows/2HCrossbow10.webp",
+    "source": "docs/evidence/crossbows-source-bundle-2026-10-05/Elegant_Crossbow.us.html",
+    "sourceSha256": "1e5348b7a28fb5b30a0f6487a3b5985ef8f1e9b3fa10b5d764d5d41a6783f5e7",
+    "file": "96a14e177a4c8eae43fe.webp",
+    "sha256": "96a14e177a4c8eae43fe2a0d7cf59a4d2ecb89c8bd92b8441f649103399ad795",
+    "size": 19902
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow2Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/Crossbows/2HCrossbow02.webp",
+    "source": "docs/evidence/crossbows-source-bundle-2026-10-05/Flexed_Crossbow.us.html",
+    "sourceSha256": "47121233a06eed211155436f73c814f999a3ec4bbcb8f8d00c6e4f9afa7d3251",
+    "file": "8593bf8547a82b1c232e.webp",
+    "sha256": "8593bf8547a82b1c232ee0dfe335e7b606809a43d476b08f73a5949cc8cd4589",
+    "size": 20928
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow8Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/Crossbows/2HCrossbow08.webp",
+    "source": "docs/evidence/crossbows-source-bundle-2026-10-05/Desolate_Crossbow.us.html",
+    "sourceSha256": "48b7c0895494a5c57552c4bed46d05833c888db464dd15c2d4ca7da9385596fa",
+    "file": "c7b5b369f2a97c0a2a4f.webp",
+    "sha256": "c7b5b369f2a97c0a2a4fbde1482ad80d69ad4e13978349c98d97c89861e58235",
+    "size": 16596
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/Crossbows/2HCrossbow04.webp",
+    "source": "docs/evidence/crossbows-source-bundle-2026-10-05/Engraved_Crossbow.us.html",
+    "sourceSha256": "93f4d1e8645be76e8050ed07cc720393c3218cf69df843731204ace0820a4017",
+    "file": "ba8cf1f4f0658f5c5cbe.webp",
+    "sha256": "ba8cf1f4f0658f5c5cbee75b7aae44ceaa453022398fae9481d24ea51ddce841",
+    "size": 20238
+  },
+  "Metadata/Items/Armours/Shields/FourShieldStr10Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Offhand/Shields/Tower10.webp",
+    "source": "docs/evidence/offhands-source-bundle-2026-10-05/Tawhoan_Tower_Shield.us.html",
+    "sourceSha256": "47a6d569520839e58bf169ecedb60d0cfa77cabe3590a873a98c4d1060e0cfaf",
+    "file": "61a567a16d3e2d444ba6.webp",
+    "sha256": "61a567a16d3e2d444ba67ad61f7e1b65a0c86e086537c0bb55f0bc4e8055a2e4",
+    "size": 27884
+  },
+  "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Offhand/Shields/Shield10.webp",
+    "source": "docs/evidence/offhands-source-bundle-2026-10-05/Golden_Targe.us.html",
+    "sourceSha256": "ad5a20d37dddf50733c6101684f37f1c7f16ec9687d3f2c9461eabfa39b15609",
+    "file": "eaba9df0781eb2f9d1ad.webp",
+    "sha256": "eaba9df0781eb2f9d1ad8dba9899a3170f00ad9c0ecf2989235eccbc403e4273",
+    "size": 19426
+  },
+  "Metadata/Items/Armours/Shields/FourShieldStrInt7Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Offhand/Shields/Crest07.webp",
+    "source": "docs/evidence/offhands-source-bundle-2026-10-05/Blacksteel_Crest_Shield.us.html",
+    "sourceSha256": "8b49535e38ee89480ddfc988c0472ba79143010bb5a7f163044fcf1b34250d02",
+    "file": "7642209af4b31c6a074a.webp",
+    "sha256": "7642209af4b31c6a074a83efe7b632eb3a3279a0563b32fa01bb5d847a555427",
+    "size": 14204
+  },
+  "Metadata/Items/Armours/Shields/FourShieldDex9Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Offhand/Shields/Buckler09.webp",
+    "source": "docs/evidence/offhands-source-bundle-2026-10-05/Desert_Buckler.us.html",
+    "sourceSha256": "1d273f05eb8c38a3007b0146cee719d0911244e52b5c9fee6c510465832dc338",
+    "file": "bbb7f2d5a71265d24cc3.webp",
+    "sha256": "bbb7f2d5a71265d24cc3c7f649fa071fbcf758aa1f3c50856542b1b2ca1f436c",
+    "size": 13298
+  },
+  "Metadata/Items/Armours/Focii/FourFocus10Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Offhand/Foci/Basetypes/Focus10.webp",
+    "source": "docs/evidence/offhands-source-bundle-2026-10-05/Tasalian_Focus.us.html",
+    "sourceSha256": "c26d40aca986cd18dff19c1751b837810ada7f7881878d3a378290cb540fce06",
+    "file": "1faac30bbfa62e47097f.webp",
+    "sha256": "1faac30bbfa62e47097f37606168ffd08b23e518559ed66ee1c4b957ca90f3d2",
+    "size": 13890
+  },
+  "Metadata/Items/Quivers/FourQuiver11": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Quivers/Basetypes/QuiverVisceral.webp",
+    "source": "docs/evidence/quivers-source-bundle-2026-10-05/Visceral_Quiver.us.html",
+    "sourceSha256": "0018282ecafe114ae4d842155d8441e955892874a9d9c45b524e43ebd06e8ffe",
+    "file": "cd1318bd264401c0bb4f.webp",
+    "sha256": "cd1318bd264401c0bb4f416d69b8fa9cf421f1534674dd1dc75c502c2012b951",
+    "size": 20652
+  },
+  "Metadata/Items/Quivers/FourQuiver10": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Quivers/Basetypes/QuiverVolant.webp",
+    "source": "docs/evidence/quivers-source-bundle-2026-10-05/Volant_Quiver.us.html",
+    "sourceSha256": "1d805b58f11e99cf84692a5de3ca46ee5da1b5977b9d7c724a8e983de740e2e2",
+    "file": "f8d35a5f2a43f5f1b4b6.webp",
+    "sha256": "f8d35a5f2a43f5f1b4b69f46d36a2b5782789d5f4485a070cf584de0b9dfa0b2",
+    "size": 24180
+  },
+  "Metadata/Items/Quivers/FourQuiver9": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Quivers/Basetypes/QuiverPenetrating.webp",
+    "source": "docs/evidence/quivers-source-bundle-2026-10-05/Penetrating_Quiver.us.html",
+    "sourceSha256": "7a722e6674d0af24163757688b8bcff002bbf3d3ad502c2163da143dd0e0f89b",
+    "file": "44a067a0084805396daa.webp",
+    "sha256": "44a067a0084805396daadf63c29b826197324f30aee16874eacb9d925e0e63ce",
+    "size": 20980
+  },
+  "Metadata/Items/Quivers/FourQuiver8": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Quivers/Basetypes/QuiverPrimed.webp",
+    "source": "docs/evidence/quivers-source-bundle-2026-10-05/Primed_Quiver.us.html",
+    "sourceSha256": "81f0ceb5d0bf015a9ad25b74cfb7b6ac2fd5c4e8e2547f29fa4f7b88e7fc9f56",
+    "file": "6dd42a2b7ae04221a114.webp",
+    "sha256": "6dd42a2b7ae04221a1149f2bac331923545b948b4c14b8da3d5b9410a3f94da6",
+    "size": 24540
+  },
+  "Metadata/Items/Quivers/FourQuiver7": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Quivers/Basetypes/QuiverSerrated.webp",
+    "source": "docs/evidence/quivers-source-bundle-2026-10-05/Serrated_Quiver.us.html",
+    "sourceSha256": "6900f60bbf7b46fb00ef7867ffa0408b2637263e95aa5f3d8987d91d514e01d3",
+    "file": "a826754af602edc3296f.webp",
+    "sha256": "a826754af602edc3296f1044ac6aca2e331a0692eedb260bdedce0f3d907dd0e",
+    "size": 26250
+  },
+  "Metadata/Items/Quivers/FourQuiver6": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Quivers/Basetypes/QuiverToxic.webp",
+    "source": "docs/evidence/quivers-source-bundle-2026-10-05/Toxic_Quiver.us.html",
+    "sourceSha256": "cf5eb38813326a813e5f374923abdb0097e94bf25ef9ca0a70d5e392b21c4684",
+    "file": "7be72ecd871771f28011.webp",
+    "sha256": "7be72ecd871771f280113c0438120fba8d51c66a3d67c18b4cd8c0de83ee983f",
+    "size": 25378
+  },
+  "Metadata/Items/Quivers/FourQuiver5": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Quivers/Basetypes/QuiverBlunt.webp",
+    "source": "docs/evidence/quivers-source-bundle-2026-10-05/Blunt_Quiver.us.html",
+    "sourceSha256": "418e9093ca5464b00560ed9417a4597a5e60e23c6c1fa0315b0ce616055eb1fc",
+    "file": "0291e8874900b7ff7308.webp",
+    "sha256": "0291e8874900b7ff73089205f72cffe51558fdd6be9724caad973964e2cc6ae8",
+    "size": 19234
+  },
+  "Metadata/Items/Quivers/FourQuiver4": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Quivers/Basetypes/QuiverTwoPoint.webp",
+    "source": "docs/evidence/quivers-source-bundle-2026-10-05/Two-Point_Quiver.us.html",
+    "sourceSha256": "38973ef2c97a4657c3a16c3738387f280c3cdff3205a9d94ba4126e7039aedb3",
+    "file": "8cf8665843f7238a0874.webp",
+    "sha256": "8cf8665843f7238a0874a8462747d73623765686c1f9e3f70b2a0561abc7208a",
+    "size": 21246
+  },
+  "Metadata/Items/Quivers/FourQuiver3": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Quivers/Basetypes/QuiverSacral.webp",
+    "source": "docs/evidence/quivers-source-bundle-2026-10-05/Sacral_Quiver.us.html",
+    "sourceSha256": "274a0abc52388809b4d6a89700545291990b7758f3d4fa0c0186c29090dc9220",
+    "file": "c9034209ff71974d4d76.webp",
+    "sha256": "c9034209ff71974d4d768404609d713ac58bf1c4e6752917bf01fd8a0f52e624",
+    "size": 23824
+  },
+  "Metadata/Items/Quivers/FourQuiver2": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Quivers/Basetypes/QuiverFire.webp",
+    "source": "docs/evidence/quivers-source-bundle-2026-10-05/Fire_Quiver.us.html",
+    "sourceSha256": "d5ad43b19c0c545e0fd1eadaa654534c8c81efd8bf4a63592ec5bd17c88029e1",
+    "cacheBlocked": "HTTP 403: source denied download; placeholder until supplied art is available."
+  },
+  "Metadata/Items/Quivers/FourQuiver1": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Quivers/Basetypes/QuiverBroadhead.webp",
+    "source": "docs/evidence/quivers-source-bundle-2026-10-05/Broadhead_Quiver.us.html",
+    "sourceSha256": "be58842d27b7f029539e01228f65a9a78a23ed4169de1c7100d344a86af523ee",
+    "file": "1c56520e05d5321dae77.webp",
+    "sha256": "1c56520e05d5321dae776645058cb3d6b143621d98a463b27bafdf4f13d88ae8",
+    "size": 22516
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace8Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/OneHandMaces/Basetypes/1HMace08.webp",
+    "source": "docs/evidence/maces-source-bundle-2026-10-05/Fortified_Hammer.us.html",
+    "sourceSha256": "83bd5d4566393979c7ec4630ae257d3a24c048fdf95a28caad4b61dc60e3b5dc",
+    "file": "1a66a1b41035dd14d51d.webp",
+    "sha256": "1a66a1b41035dd14d51d58d228767fe5f5923b46d354d0245dc4fd3846750ad5",
+    "size": 11078
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace5Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/OneHandMaces/Basetypes/1HMace05.webp",
+    "source": "docs/evidence/maces-source-bundle-2026-10-05/Strife_Pick.us.html",
+    "sourceSha256": "43179c76c8a34fa4b3a334ea6ca1eda11f999b701b79a2fca4b58af78ddf802a",
+    "file": "eedf8a91d486ee1a7b35.webp",
+    "sha256": "eedf8a91d486ee1a7b353845a8f2f0fe97ea36cb62bf7c6658fb52bf559249f2",
+    "size": 8544
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace10Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/OneHandMaces/Basetypes/1HMace10.webp",
+    "source": "docs/evidence/maces-source-bundle-2026-10-05/Akoyan_Club.us.html",
+    "sourceSha256": "c14246a0e6f2caf954b1b9b2e347f01f534515dc2dbf7f21e0fcfc31ae339cad",
+    "file": "b637395de2ed3616c340.webp",
+    "sha256": "b637395de2ed3616c340e2562b96625b063a2f884ad820643094dee615d1ba5b",
+    "size": 7252
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace8Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/TwoHandMaces/Basetypes/2HMace08.webp",
+    "source": "docs/evidence/maces-source-bundle-2026-10-05/Ruination_Maul.us.html",
+    "sourceSha256": "b740168d3ab988692002e7534b287ab5d59637258553c84fc28504284051b5fa",
+    "file": "36ce4cb76e753ade4e35.webp",
+    "sha256": "36ce4cb76e753ade4e358398a71e2bfe04fb906be05175a8fbeaa912d86692ad",
+    "size": 13678
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace5Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/TwoHandMaces/Basetypes/2HMace05.webp",
+    "source": "docs/evidence/maces-source-bundle-2026-10-05/Fanatic_Greathammer.us.html",
+    "sourceSha256": "268926f0e4b692ec535be95453f83fc2aef376bdf5937a30c6b4a8c02455d062",
+    "file": "3d570fb9c52076a7a1fe.webp",
+    "sha256": "3d570fb9c52076a7a1fe04a6193f0b4a7928b6cd945acd2d9d6365faedab2281",
+    "size": 14650
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace10Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/TwoHandMaces/Basetypes/2HMace10.webp",
+    "source": "docs/evidence/maces-source-bundle-2026-10-05/Tawhoan_Greatclub.us.html",
+    "sourceSha256": "495f746d78392b9cdf21f77a3d34b575a616e6b8a703dfebfec5a49a90d1e602",
+    "file": "ac3685e703e4024d929b.webp",
+    "sha256": "ac3685e703e4024d929b49d7a64987751c1f7f5e9e9f2df66b72e394196d3390",
+    "size": 10664
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/WarStaves/Warstaff08.webp",
+    "source": "docs/evidence/quarterstaves-spears-source-bundle-2026-10-05/Aegis_Quarterstaff.us.html",
+    "sourceSha256": "3885efd4b725c3cee263a3d71ee544d4a4442ecbae7598f9c3b1a2060e9a48c6",
+    "file": "5db245255c8339b40b59.webp",
+    "sha256": "5db245255c8339b40b59b734450f76c294ca66e89dabd222e80c65f21a5d5bf3",
+    "size": 8814
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff4Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/WarStaves/Warstaff04.webp",
+    "source": "docs/evidence/quarterstaves-spears-source-bundle-2026-10-05/Bolting_Quarterstaff.us.html",
+    "sourceSha256": "752e3041a0613ccb882a94b6ad31af67d94a60d6fca78e91ca1a5398d5e50837",
+    "file": "af32cbf26732a7568c25.webp",
+    "sha256": "af32cbf26732a7568c25f714fc1597a40a11ba811d0fb809410ebdf7bd4f237d",
+    "size": 9062
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/WarStaves/Warstaff10.webp",
+    "source": "docs/evidence/quarterstaves-spears-source-bundle-2026-10-05/Dreaming_Quarterstaff.us.html",
+    "sourceSha256": "a376725ec4e4b2170b81fa4dd6a7b548cbfcbe2489a9e0c23b3182b5c6bd2984",
+    "file": "1842890b5b830082ff57.webp",
+    "sha256": "1842890b5b830082ff574b736a0be2257bcf45444ae3db60a8f9ed4e132a6503",
+    "size": 8176
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/OneHandSpears/1HSpear08.webp",
+    "source": "docs/evidence/quarterstaves-spears-source-bundle-2026-10-05/Grand_Spear.us.html",
+    "sourceSha256": "37c053bf3b1535bc0dcf9396c9a1c142486ed623bb3255329cffa0fd83c6151e",
+    "file": "818e39c91999def12870.webp",
+    "sha256": "818e39c91999def128708f668b56042204adbaa59b2e3d4b606fd46eaa616577",
+    "size": 6880
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/OneHandSpears/1HSpear05.webp",
+    "source": "docs/evidence/quarterstaves-spears-source-bundle-2026-10-05/Flying_Spear.us.html",
+    "sourceSha256": "ca6151f65ebcfc644d85f5df34eca05b62e0683ddb4c90d665f6d0f5fb7a5bba",
+    "file": "d377357915f7a57cd937.webp",
+    "sha256": "d377357915f7a57cd9372627e61e3408ea455d461f1d6fa5145ca10469963e27",
+    "size": 7008
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/OneHandWeapons/OneHandSpears/1HSpear10.webp",
+    "source": "docs/evidence/quarterstaves-spears-source-bundle-2026-10-05/Akoyan_Spear.us.html",
+    "sourceSha256": "f51097cf3dcdf074a419738a5f9a9e5ef3e9fc4cc91ecfebbd3002d4329e12f0",
+    "file": "ac3cc8281951bba6a5c5.webp",
+    "sha256": "ac3cc8281951bba6a5c5c5481cfb20666447621dc08a81dc9eb79ca82b71b950",
+    "size": 8724
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff02.webp",
+    "source": "docs/evidence/staves-talismans-source-bundle-2026-10-05/Permafrost_Staff.us.html",
+    "sourceSha256": "a1d2328c68d483147be25d6aa70ad7b4d4ce8064bd7ba044f7743f157973454d",
+    "file": "c0453690ed03939fe361.webp",
+    "sha256": "c0453690ed03939fe36118a5ac009837c8837fc8027bfea03fe26a12e97df56e",
+    "size": 10012
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff02.webp",
+    "source": "docs/evidence/staves-talismans-source-bundle-2026-10-05/Reflecting_Staff.us.html",
+    "sourceSha256": "dc8f57e708fc88f0596f385af06392cf136919990a8a833906709a04538eae9c",
+    "file": "c0453690ed03939fe361.webp",
+    "sha256": "c0453690ed03939fe36118a5ac009837c8837fc8027bfea03fe26a12e97df56e",
+    "size": 10012
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff13.webp",
+    "source": "docs/evidence/staves-talismans-source-bundle-2026-10-05/Dark_Staff.us.html",
+    "sourceSha256": "5037d548d17f43947ca2cc54b0a23daeefec3a2d2c460614b2689c33bb222d61",
+    "file": "02dbc8a9f8d3c265049c.webp",
+    "sha256": "02dbc8a9f8d3c265049c17164e75db73494f81ae6fb014b923e9e72ea8efce14",
+    "size": 10996
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff01.webp",
+    "source": "docs/evidence/staves-talismans-source-bundle-2026-10-05/Ravenous_Staff.us.html",
+    "sourceSha256": "22766176e361dfa42ecfaa350d135638d38222f5487618a386b0ffd56b63c317",
+    "file": "466be49dd93e2185c496.webp",
+    "sha256": "466be49dd93e2185c49601dc4e66286531d0dfef6b7bf4577cea0734db701613",
+    "size": 7704
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff07.webp",
+    "source": "docs/evidence/staves-talismans-source-bundle-2026-10-05/Perching_Staff.us.html",
+    "sourceSha256": "2039ad7d586371551b868d6a26c98e81363dfd4c10726a214596da429f522bea",
+    "file": "751985c706b834d6a349.webp",
+    "sha256": "751985c706b834d6a34960cb27d995a83923463df0c3c757f8ed7a8929ccd5d0",
+    "size": 10258
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Weapons/TwoHandWeapons/Staves/Basetypes/Staff12.webp",
+    "source": "docs/evidence/staves-talismans-source-bundle-2026-10-05/Sanctified_Staff.us.html",
+    "sourceSha256": "245eb86ba5d308dd4b513691bbff8bbd1c7e93de6205d724fcdd9e4d059391f8",
+    "file": "167bb01579f9f2fac5a6.webp",
+    "sha256": "167bb01579f9f2fac5a64b95c6528f11b6feeaf9d7cdfda5f1c0f83ac53abc24",
+    "size": 12708
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Offhand/Talismans/RabidTalisman.webp",
+    "source": "docs/evidence/staves-talismans-source-bundle-2026-10-05/Maji_Talisman.us.html",
+    "sourceSha256": "42990b0f29da53678e3da4fb0182f1231ae70de0fb12938e623c1a006864c3f5",
+    "file": "67371a1fe86eaf9cfea0.webp",
+    "sha256": "67371a1fe86eaf9cfea0939e2e95352c254daa89a0ddb1f74e7ceb12937cf764",
+    "size": 19746
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Offhand/Talismans/FrenziedTalisman.webp",
+    "source": "docs/evidence/staves-talismans-source-bundle-2026-10-05/Fungal_Talisman.us.html",
+    "sourceSha256": "7d3df2faa4c8c333888b9c9d33d8dc8b77a3f7d7d90bb4dae2dd5c21f34a19b9",
+    "file": "a84ca995ea885503dcab.webp",
+    "sha256": "a84ca995ea885503dcabf038cde5da4b394745d0ada3b470769fac3214a99aad",
+    "size": 11820
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman10Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Offhand/Talismans/LumberingTalisman.webp",
+    "source": "docs/evidence/staves-talismans-source-bundle-2026-10-05/Jade_Talisman.us.html",
+    "sourceSha256": "d17fa029d6af04281cfaf8b38393012c114a32f57ccee8959a139a2ce7eb586b",
+    "file": "eb66027411c50482cba1.webp",
+    "sha256": "eb66027411c50482cba1cecff3354b24ac586cf24f4625d229a945b9eb1abb25",
+    "size": 13850
+  }
+}

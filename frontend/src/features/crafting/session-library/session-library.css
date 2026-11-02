@@ -1,0 +1,99 @@
+.wb-session-library {
+  display: grid;
+  gap: 8px;
+}
+.wb-session-card {
+  border: 1px solid #4b4438;
+  border-radius: 4px;
+  background: #202022;
+  padding: 6px;
+  min-width: 0;
+}
+.wb-session-card[data-active='true'] {
+  border-color: #d1ae60;
+  box-shadow: inset 3px 0 #d1ae60;
+}
+.wb-session-card__main {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.wb-session-card .wb-session-card__select {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-color: transparent;
+  background: transparent;
+  text-align: left;
+}
+.wb-session-card__text {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.wb-session-card__text small {
+  display: block;
+  color: #b1aa9c;
+  margin-top: 4px;
+}
+.wb-session-card__number {
+  color: #a79c86;
+  font-variant-numeric: tabular-nums;
+  margin-right: 4px;
+}
+.wb-session-card .wb-session-card__star {
+  font-size: 23px;
+  color: #8b8b8b;
+  border-color: transparent;
+  background: transparent;
+}
+.wb-session-card .wb-session-card__star[aria-pressed='true'] {
+  color: #ffd34f;
+}
+.wb-session-card__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+.wb-session-card__edit {
+  display: flex;
+  gap: 5px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+.wb-session-card__edit label {
+  display: grid;
+  flex: 1;
+  gap: 3px;
+  min-width: 120px;
+}
+.wb-session-card__edit input {
+  width: 100%;
+  padding: 5px;
+}
+.wb-session-card__confirm {
+  margin-top: 6px;
+  padding: 7px;
+  border: 1px solid #936b53;
+}
+.wb-session-card__confirm p {
+  margin: 0 0 6px;
+  overflow-wrap: anywhere;
+}
+.wb-session-card__confirm button + button {
+  margin-left: 6px;
+}
+.wb-session-library__undo {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  padding: 6px;
+  background: #343126;
+}
+.wb-session-library__undo span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}

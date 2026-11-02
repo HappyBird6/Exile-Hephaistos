@@ -33,6 +33,10 @@ export type Frame = {
 export type Film = {
   id: string
   createdAt: string
+  /** Library metadata is optional so original v1 records remain untouched. */
+  title?: string
+  favorite?: boolean
+  sessionNumber?: number
   /** Exact clipboard provenance; never a recalculated current-item display. */
   sourceDocument?: string
   frames: Frame[]
@@ -71,6 +75,7 @@ export type Films = {
   films: Film[]
   active: string | null
   cursor: number
+  nextSessionNumber?: number
 }
 export const emptyFilms = (): Films => ({
   version: 1,
@@ -82,6 +87,106 @@ export const currentFilm = (films: Films) =>
   films.films.find((film) => film.id === films.active)
 export const currentFrame = (films: Films) =>
   currentFilm(films)?.frames[films.cursor]
+
+export function filmSessionNumber(film: Film, index: number): number {
+  return Number.isSafeInteger(film.sessionNumber) && film.sessionNumber! > 0
+    ? film.sessionNumber!
+    : index + 1
+}
+
+function nextFilmNumber(films: Films): number {
+  return Math.max(
+    Number.isSafeInteger(films.nextSessionNumber) &&
+      films.nextSessionNumber! > 0
+      ? films.nextSessionNumber!
+      : 1,
+    ...films.films.map((film, index) => filmSessionNumber(film, index) + 1),
+  )
+}
+
+/** Metadata edits never rebuild item frames, original text or ruleset evidence. */
+export function updateFilmMetadata(
+  films: Films,
+  id: string,
+  metadata: { title?: string; favorite?: boolean },
+): Films {
+  if (!films.films.some((film) => film.id === id)) return films
+  return {
+    ...films,
+    films: films.films.map((film) =>
+      film.id === id ? { ...film, ...metadata } : film,
+    ),
+  }
+}
+
+export type FilmDeletion = {
+  film: Film
+  index: number
+  active: string | null
+  cursor: number
+  nextActive: string | null
+  nextCursor: number
+}
+
+/** Deletes exactly one explicitly identified session; callers retain the undo token. */
+export function deleteFilm(
+  history: Films,
+  id: string,
+): { history: Films; deletion: FilmDeletion } | null {
+  const index = history.films.findIndex((film) => film.id === id)
+  if (index < 0) return null
+  // Stabilize legacy display numbers before removing an entry from the list.
+  const numbered = history.films.map((film, position) => ({
+    ...film,
+    sessionNumber: filmSessionNumber(film, position),
+  }))
+  const films = numbered.filter((film) => film.id !== id)
+  const replacement = films[Math.min(index, films.length - 1)]
+  const active =
+    history.active === id ? (replacement?.id ?? null) : history.active
+  const cursor =
+    history.active === id
+      ? replacement
+        ? replacement.frames.length - 1
+        : 0
+      : history.cursor
+  return {
+    history: {
+      ...history,
+      films,
+      active,
+      cursor,
+      nextSessionNumber: nextFilmNumber(history),
+    },
+    deletion: {
+      film: numbered[index]!,
+      index,
+      active: history.active,
+      cursor: history.cursor,
+      nextActive: active,
+      nextCursor: cursor,
+    },
+  }
+}
+
+/** Restores the exact record without discarding sessions or edits made after deletion. */
+export function undoFilmDeletion(
+  history: Films,
+  deletion: FilmDeletion,
+): Films {
+  if (history.films.some((film) => film.id === deletion.film.id)) return history
+  const films = [...history.films]
+  films.splice(Math.min(deletion.index, films.length), 0, deletion.film)
+  const restoreSelection =
+    history.active === deletion.nextActive &&
+    history.cursor === deletion.nextCursor
+  return {
+    ...history,
+    films,
+    active: restoreSelection ? deletion.active : history.active,
+    cursor: restoreSelection ? deletion.cursor : history.cursor,
+  }
+}
 
 // A future per-user DB repository can replace this boundary without changing film semantics.
 export interface FilmRepository {
@@ -146,11 +251,13 @@ export function startFilm(
   if (!isRulesetIdentity(rulesetIdentity))
     throw new Error('Ruleset identity is required.')
   return {
-    version: 1,
+    ...films,
+    nextSessionNumber: nextFilmNumber(films) + 1,
     films: [
       ...films.films,
       {
         id,
+        sessionNumber: nextFilmNumber(films),
         rulesetIdentity,
         createdAt: new Date().toISOString(),
         ...(sourceDocument !== undefined ? { sourceDocument } : {}),

@@ -17,9 +17,97 @@ import {
   historyStorageKey,
   historyStorageLimit,
   verifiedFrameEvidence,
+  filmSessionNumber,
+  updateFilmMetadata,
+  deleteFilm,
+  undoFilmDeletion,
 } from './workbenchHistory'
 
 const root = concreteInitial(initialFixture)
+
+describe('session library metadata and individual deletion', () => {
+  function sessions() {
+    return startFilm(
+      startFilm(emptyFilms(), root, 'one', 'fixture-ruleset', 'exact\r\nraw'),
+      root,
+      'two',
+      'fixture-ruleset',
+    )
+  }
+  it('round trips titles and favorites without altering legacy frames, raw text or ruleset evidence', () => {
+    const legacy = sessions()
+    delete legacy.films[0]!.sessionNumber
+    const original = legacy.films[0]!
+    const updated = updateFilmMetadata(legacy, 'one', {
+      title: ' My exact title\n',
+      favorite: true,
+    })
+    expect(updated.films[0]!.frames).toBe(original.frames)
+    expect(updated.films[0]!.sourceDocument).toBe(original.sourceDocument)
+    expect(updated.films[0]!.rulesetIdentity).toBe(original.rulesetIdentity)
+    expect(filmSessionNumber(original, 0)).toBe(1)
+    expect(original.title).toBeUndefined()
+    const repository = new LocalFilmRepository(localStorage)
+    repository.save(updated)
+    expect(repository.load()).toEqual(updated)
+    expect(updateFilmMetadata(updated, 'missing', { title: 'no' })).toBe(
+      updated,
+    )
+  })
+  it('deletes only the named session, safely selects an adjacent session and restores the exact record', () => {
+    const original = sessions()
+    const removed = deleteFilm(original, 'two')!
+    expect(removed.history.films.map((film) => film.id)).toEqual(['one'])
+    expect(removed.history.active).toBe('one')
+    expect(currentFrame(removed.history)?.state).toEqual(root)
+    expect(undoFilmDeletion(removed.history, removed.deletion)).toEqual(
+      original,
+    )
+    expect(deleteFilm(original, 'missing')).toBeNull()
+    const inactive = deleteFilm(original, 'one')!
+    expect(inactive.history.active).toBe('two')
+    expect(inactive.history.cursor).toBe(original.cursor)
+    const last = deleteFilm(removed.history, 'one')!
+    expect(last.history.active).toBeNull()
+    expect(last.history.cursor).toBe(0)
+    expect(last.history.films).toEqual([])
+  })
+  it('keeps legacy numbers stable across deletion and never reuses the deleted highest number', () => {
+    const legacy = sessions()
+    for (const film of legacy.films) delete film.sessionNumber
+    delete legacy.nextSessionNumber
+    const removedFirst = deleteFilm(legacy, 'one')!
+    expect(removedFirst.history.films[0]!.sessionNumber).toBe(2)
+    const removedLast = deleteFilm(legacy, 'two')!
+    const next = startFilm(
+      removedLast.history,
+      root,
+      'three',
+      'fixture-ruleset',
+    )
+    expect(next.films.at(-1)!.sessionNumber).toBe(3)
+    expect(next.nextSessionNumber).toBe(4)
+  })
+  it('undo preserves intervening edits, new sessions and an explicitly changed selection', () => {
+    const original = sessions()
+    const removed = deleteFilm(original, 'one')!
+    const continued = updateFilmMetadata(
+      startFilm(removed.history, root, 'three', 'fixture-ruleset'),
+      'two',
+      { title: 'kept' },
+    )
+    const restored = undoFilmDeletion(continued, removed.deletion)
+    expect(restored.films.map((film) => film.id)).toEqual([
+      'one',
+      'two',
+      'three',
+    ])
+    expect(restored.films[1]!.title).toBe('kept')
+    expect(restored.active).toBe('three')
+    expect(restored.films[0]!.sourceDocument).toBe('exact\r\nraw')
+    expect(undoFilmDeletion(restored, removed.deletion)).toBe(restored)
+  })
+})
 async function craft() {
   return (await (
     await fixtureFetch('/api/v1/crafting/workbench/apply', {
