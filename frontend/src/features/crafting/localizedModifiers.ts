@@ -1,8 +1,12 @@
 import catalog from '../../shared/i18n/modifierTemplates.json'
-import { getLocale, formatNumber } from '../../shared/i18n/i18n'
+import { getLocale } from '../../shared/i18n/i18n'
 import type { Locale } from '../../shared/i18n/i18n'
 import type { Definition } from './craftingApi'
 import { rolledText } from './workbenchApi'
+import {
+  formatAttributeNumber,
+  formatAttributeText,
+} from './numeric-display/attributeNumbers'
 
 type Binding = {
   stats: NonNullable<Definition['stats']>
@@ -48,9 +52,11 @@ export function localizedModifierText(
 ): string {
   const english = values ? rolledText(definition, values) : definition.text
   const verified = verifiedTemplate(definition, locale)
-  if (!verified) return english
+  if (!verified) return formatAttributeText(english, 'en')
   const { binding, translation } = verified
-  const numbers = [...binding.values]
+  const numbers = binding.values.map((value) =>
+    formatAttributeText(value, 'en', locale),
+  )
   if (values && binding.valueStats) {
     if (!binding.valueStats.every((stat) => Number.isFinite(values[stat.id])))
       return english
@@ -58,7 +64,7 @@ export function localizedModifierText(
       const value = values[stat.id]! / stat.divisor
       numbers[i] =
         (numbers[i]?.startsWith('+') && value >= 0 ? '+' : '') +
-        formatNumber(value, { maximumFractionDigits: 20 }, locale)
+        formatAttributeNumber(value, locale)
     })
     return translation.template.replace(
       /\{v(\d+)\}/g,
@@ -71,7 +77,7 @@ export function localizedModifierText(
       if (stat && Number.isSafeInteger(values[stat.id]))
         numbers[i] =
           (n.startsWith('+') ? '+' : '') +
-          formatNumber(values[stat.id]!, { maximumFractionDigits: 20 }, locale)
+          formatAttributeNumber(values[stat.id]!, locale)
     })
     return translation.template.replace(
       /\{v(\d+)\}/g,
@@ -93,9 +99,10 @@ export function localizedModifierText(
         Number(match[2]) === stat.max &&
         Number.isFinite(values[stat.id])
       ) {
-        numbers[0] = numbers[0]!.replace(
-          range,
-          formatNumber(values[stat.id]!, { maximumFractionDigits: 20 }, locale),
+        numbers[0] = formatAttributeText(
+          binding.values[0]!.replace(range, String(values[stat.id]!)),
+          'en',
+          locale,
         )
       } else {
         // Unknown multi-stat display conversions remain raw source units. Localize
@@ -128,6 +135,7 @@ export function localizedModifierValueLabel(
   valueLabel: string,
   locale = getLocale(),
 ): string {
+  valueLabel = formatAttributeText(valueLabel, locale)
   const verified = verifiedTemplate(definition, locale)
   const index = definition.stats?.findIndex((stat) => stat.id === statId) ?? -1
   if (verified) {
@@ -141,7 +149,11 @@ export function localizedModifierValueLabel(
       return translation.template.replace(/\{v(\d+)\}/g, (match, i: string) =>
         Number(i) === valueIndex
           ? `[${valueLabel}]`
-          : (binding.values[Number(i)] ?? match),
+          : formatAttributeText(
+              binding.values[Number(i)] ?? match,
+              'en',
+              locale,
+            ),
       )
   }
   const ranges = [

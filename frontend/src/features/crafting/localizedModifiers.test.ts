@@ -9,6 +9,7 @@ import { locales } from '../../shared/i18n/i18n'
 import type { Definition } from './craftingApi'
 import {
   localizedModifierText,
+  localizedModifierValueLabel,
   modifierTranslationStatus,
 } from './localizedModifiers'
 import { rolledText } from './workbenchApi'
@@ -30,6 +31,48 @@ function definition(id: keyof typeof catalog.definitions): Definition {
 }
 
 describe('verified modifier display templates', () => {
+  it('keeps canonical text exports precise while rounding their display projection', () => {
+    const d: Definition = {
+      id: 'synthetic:decimal',
+      name: 'Synthetic',
+      text: '(1—2)% increased',
+      stats: [{ id: 'value', min: 1, max: 2 }],
+      tier: 1,
+      affixType: 'PREFIX',
+      familyIds: ['synthetic'],
+    }
+    const values = { value: 1.234567 }
+    expect(rolledText(d, values)).toBe('1.234567% increased')
+    expect(localizedModifierText(d, values, 'en')).toBe('1.2% increased')
+    expect(values.value).toBe(1.234567)
+  })
+  it('rounds converted attribute values to one decimal and keeps stored rolls exact', () => {
+    const d = definition('amulet:suffix:of-convalescence')
+    const values = { base_life_regeneration_rate_per_minute: 791 }
+    const source = JSON.stringify({ d, values })
+    expect(localizedModifierText(d, values, 'en')).toBe(
+      '13.2 Life Regeneration per second',
+    )
+    expect(localizedModifierText(d, values, 'ko')).toContain('13.2')
+    expect(localizedModifierText(d, values, 'es')).toContain('13,2')
+    expect(
+      localizedModifierValueLabel(
+        d,
+        'base_life_regeneration_rate_per_minute',
+        '13.1833333',
+        'en',
+      ),
+    ).toContain('[13.2]')
+    expect(
+      localizedModifierValueLabel(
+        d,
+        'base_life_regeneration_rate_per_minute',
+        '13,1833333',
+        'es',
+      ),
+    ).toContain('[13,2]')
+    expect(JSON.stringify({ d, values })).toBe(source)
+  })
   it('covers every ordinary catalog definition in all six locales', () => {
     const allIds = Object.keys(catalog.definitions).filter(
       (id) => !id.startsWith('reveal:'),

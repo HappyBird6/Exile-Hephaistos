@@ -1,3 +1,4 @@
+import type { Locale } from '../../shared/i18n/i18n'
 import type {
   Item,
   TextLine,
@@ -6,6 +7,8 @@ import type {
 
 export type ModifierKind = Lowercase<ApiModifierType> | 'unknown'
 export interface ItemCardLine {
+  numericLocale?: Locale
+
   junkSide?: 'PREFIX' | 'SUFFIX' | undefined
   affixType?: 'NONE' | 'PREFIX' | 'SUFFIX' | undefined
 
@@ -44,7 +47,7 @@ export function isTradePrice(text: string): boolean {
   return /^\s*(?:[~-]\s*)?(?:b\/o|price)\s+\d+(?:[.,]\d+)?\s+\S/i.test(text)
 }
 function fromLine(line: TextLine): ItemCardLine {
-  return { id: `line-${line.number}`, text: line.raw }
+  return { id: `line-${line.number}`, text: line.raw, numericLocale: 'en' }
 }
 const kinds: Record<ApiModifierType, ModifierKind> = {
   IMPLICIT: 'implicit',
@@ -68,6 +71,7 @@ export function toItemCard(item: Item): ItemCardData {
       line: {
         id: `line-${mod.source.number}`,
         text: mod.text,
+        numericLocale: 'en' as const,
         kind: kinds[mod.type],
         detail: mod.metadata
           ? `${mod.metadata.raw}\n${mod.source.raw}`
@@ -83,7 +87,11 @@ export function toItemCard(item: Item): ItemCardData {
       .filter((line) => !metadataLines.has(line.number))
       .map((line) => ({
         number: line.number,
-        line: { ...fromLine(line), kind: 'unknown' as const },
+        line: {
+          id: `line-${line.number}`,
+          text: line.raw,
+          kind: 'unknown' as const,
+        },
       })),
   ].sort((a, b) => a.number - b.number)
   return {

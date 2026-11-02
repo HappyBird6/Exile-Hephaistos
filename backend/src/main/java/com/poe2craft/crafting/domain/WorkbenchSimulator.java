@@ -417,9 +417,12 @@ public final class WorkbenchSimulator {
       return new Availability(action, true, "");
     }
     if (action == WorkbenchCurrency.DIVINE) {
-      var targets = new ArrayList<>(state.implicits());
-      if (omen != WorkbenchOmen.BLESSED)
-        targets.addAll(state.explicits().stream().filter(m -> !m.fractured()).toList());
+      // Implicit (base) modifiers are distinct from Fractured explicit modifiers.
+      // Only the existing Blessed omen redirects Divine to implicit rolls.
+      var targets =
+          omen == WorkbenchOmen.BLESSED
+              ? state.implicits()
+              : state.explicits().stream().filter(m -> !m.fractured()).toList();
       if (targets.stream()
           .noneMatch(
               m ->
@@ -1081,15 +1084,16 @@ public final class WorkbenchSimulator {
             new Event("ADD", chosen.id(), rolled.values(), (double) chosen.weight() / total));
       }
     } else if (action == WorkbenchCurrency.DIVINE) {
-      for (int i = 0; i < implicits.size(); i++) {
-        var current = implicits.get(i);
-        var d = catalog.find(current.modifierId()).orElseThrow();
-        if (d.stats().getFirst().max() > d.stats().getFirst().min()) {
-          var roll = roll(d, random, assumptions);
-          implicits.set(i, roll);
-          events.add(new Event("REROLL_IMPLICIT", d.id(), roll.values(), 1));
+      if (omen == WorkbenchOmen.BLESSED)
+        for (int i = 0; i < implicits.size(); i++) {
+          var current = implicits.get(i);
+          var d = catalog.find(current.modifierId()).orElseThrow();
+          if (d.stats().stream().anyMatch(s -> s.max() > s.min())) {
+            var roll = roll(d, random, assumptions);
+            implicits.set(i, roll);
+            events.add(new Event("REROLL_IMPLICIT", d.id(), roll.values(), 1));
+          }
         }
-      }
       if (omen != WorkbenchOmen.BLESSED)
         for (int i = 0; i < explicits.size(); i++) {
           var current = explicits.get(i);

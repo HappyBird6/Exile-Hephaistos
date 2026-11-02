@@ -1234,7 +1234,8 @@ export async function applyCurrency(
     next.baseItemId !== state.baseItemId ||
     next.itemLevel !== state.itemLevel ||
     !['NORMAL', 'MAGIC', 'RARE'].includes(next.rarity) ||
-    (action !== 'DIVINE' && !sameModifiers(next.implicits, state.implicits)) ||
+    ((action !== 'DIVINE' || !activeOmens.includes('Omen_of_the_Blessed')) &&
+      !sameModifiers(next.implicits, state.implicits)) ||
     !Array.isArray(next.implicits) ||
     next.implicits.length !== state.implicits.length ||
     next.implicits.some((m) => m.fractured) ||
@@ -1420,8 +1421,13 @@ export async function applyCurrency(
     )
   if (
     action === 'DIVINE' &&
-    (next.explicits.map((m) => m.modifierId).join('|') !==
-      state.explicits.map((m) => m.modifierId).join('|') ||
+    (v.events.some((event) =>
+      activeOmens.includes('Omen_of_the_Blessed')
+        ? event.kind === 'REROLL_EXPLICIT'
+        : event.kind === 'REROLL_IMPLICIT',
+    ) ||
+      next.explicits.map((m) => m.modifierId).join('|') !==
+        state.explicits.map((m) => m.modifierId).join('|') ||
       (activeOmens.includes('Omen_of_the_Blessed') &&
         !sameModifiers(next.explicits, state.explicits)))
   )

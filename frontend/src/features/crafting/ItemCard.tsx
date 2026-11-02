@@ -2,6 +2,7 @@ import { useI18n, formatNumber, uiText } from '../../shared/i18n/i18n'
 import { isTradePrice } from './itemCardData'
 import type { ItemCardData, ItemCardLine } from './itemCardData'
 import './item-card.css'
+import { formatAttributeText } from './numeric-display/attributeNumbers'
 
 function Lines({
   lines,
@@ -12,59 +13,76 @@ function Lines({
   flags?: boolean
   changes?: Record<string, 'added' | 'changed'> | undefined
 }) {
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
   const visible = lines.filter((line) => !isTradePrice(line.text))
   if (!visible.length) return null
   return (
     <div className="item-card__section">
-      {visible.map((line) => (
-        <div
-          key={line.id}
-          className={`item-card__line item-card__line--${flags && /^(Corrupted|Twice Corrupted)$/.test(line.text.trim()) ? 'corrupted' : (line.kind ?? 'property')}${line.removalCandidate ? ' item-card__line--removal-candidate' : ''}${changes?.[line.id] ? ' item-card__line--' + changes[line.id] : ''}`}
-          data-removal-candidate={line.removalCandidate ? line.id : undefined}
-          data-fractured={
-            line.fractured || line.kind === 'fractured' ? true : undefined
-          }
-          title={line.removalCandidate ? t('omen.candidate_title') : undefined}
-        >
-          {line.affixLabel && (
-            <span className="item-card__affix">{line.affixLabel}</span>
-          )}
-          {line.tierRows?.length ? (
-            <details className="item-card__modifier-detail">
-              <summary>{line.text}</summary>
-              <table className="item-card__tier-values" aria-label={line.text}>
-                <tbody>
-                  {line.tierRows.map((row, index) => (
-                    <tr key={index}>
-                      <th scope="row">{row.label}</th>
-                      <td>{row.value}</td>
-                      {row.chance && <td>{row.chance}</td>}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </details>
-          ) : line.detail ? (
-            <details className="item-card__modifier-detail">
-              <summary>
+      {visible.map((sourceLine) => {
+        const line =
+          sourceLine.kind === 'unknown'
+            ? sourceLine
+            : {
+                ...sourceLine,
+                text: formatAttributeText(
+                  sourceLine.text,
+                  sourceLine.numericLocale ?? locale,
+                ),
+              }
+        return (
+          <div
+            key={line.id}
+            className={`item-card__line item-card__line--${flags && /^(Corrupted|Twice Corrupted)$/.test(line.text.trim()) ? 'corrupted' : (line.kind ?? 'property')}${line.removalCandidate ? ' item-card__line--removal-candidate' : ''}${changes?.[line.id] ? ' item-card__line--' + changes[line.id] : ''}`}
+            data-removal-candidate={line.removalCandidate ? line.id : undefined}
+            data-fractured={
+              line.fractured || line.kind === 'fractured' ? true : undefined
+            }
+            title={
+              line.removalCandidate ? t('omen.candidate_title') : undefined
+            }
+          >
+            {line.affixLabel && (
+              <span className="item-card__affix">{line.affixLabel}</span>
+            )}
+            {line.tierRows?.length ? (
+              <details className="item-card__modifier-detail">
+                <summary>{line.text}</summary>
+                <table
+                  className="item-card__tier-values"
+                  aria-label={line.text}
+                >
+                  <tbody>
+                    {line.tierRows.map((row, index) => (
+                      <tr key={index}>
+                        <th scope="row">{row.label}</th>
+                        <td>{formatAttributeText(row.value, locale)}</td>
+                        {row.chance && <td>{row.chance}</td>}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </details>
+            ) : line.detail ? (
+              <details className="item-card__modifier-detail">
+                <summary>
+                  {(line.fractured || line.kind === 'fractured') && (
+                    <span className="sr-only">{t('ui.fractured')}: </span>
+                  )}
+                  {line.text}
+                </summary>
+                <span>{line.detail}</span>
+              </details>
+            ) : (
+              <>
                 {(line.fractured || line.kind === 'fractured') && (
                   <span className="sr-only">{t('ui.fractured')}: </span>
                 )}
                 {line.text}
-              </summary>
-              <span>{line.detail}</span>
-            </details>
-          ) : (
-            <>
-              {(line.fractured || line.kind === 'fractured') && (
-                <span className="sr-only">{t('ui.fractured')}: </span>
-              )}
-              {line.text}
-            </>
-          )}
-        </div>
-      ))}
+              </>
+            )}
+          </div>
+        )
+      })}
     </div>
   )
 }
@@ -81,7 +99,7 @@ export function ItemCard({
   showOriginalOrder?: boolean
   modifierChanges?: Record<string, 'added' | 'changed'> | undefined
 }) {
-  const { t, name } = useI18n()
+  const { t, name, locale } = useI18n()
   const implicit = item.modifiers.filter((line) => line.kind === 'implicit')
   const other = item.modifiers.filter((line) => line.kind !== 'implicit')
   if (!showOriginalOrder)
@@ -127,7 +145,9 @@ export function ItemCard({
           {item.requirements
             .filter((line) => !isTradePrice(line.text))
             .map((line) => (
-              <div key={line.id}>{line.text}</div>
+              <div key={line.id}>
+                {formatAttributeText(line.text, line.numericLocale ?? locale)}
+              </div>
             ))}
         </div>
         <Lines lines={implicit} changes={modifierChanges} />

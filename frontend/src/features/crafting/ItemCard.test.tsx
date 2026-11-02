@@ -20,6 +20,28 @@ function card(item: ItemCardData) {
   return <ItemCard item={item} />
 }
 describe('ItemCard', () => {
+  it('rounds visible attribute spans while retaining details and unknown source lines', () => {
+    const data: ItemCardData = {
+      ...base,
+      properties: [{ id: 'speed', text: 'Attacks per Second: 1.234567' }],
+      modifiers: [
+        {
+          id: 'roll',
+          text: '(-1.25—2.35)%',
+          kind: 'explicit',
+          detail: 'Source: -1.25—2.35%',
+        },
+        { id: 'unknown', text: 'Unresolved 1.234567', kind: 'unknown' },
+      ],
+    }
+    const source = JSON.stringify(data)
+    render(card(data))
+    expect(screen.getByText('Attacks per Second: 1.2')).toBeVisible()
+    expect(screen.getByText('(-1.3—2.4)%')).toBeVisible()
+    expect(screen.getByText('Unresolved 1.234567')).toBeVisible()
+    expect(screen.getByText('Source: -1.25—2.35%')).toBeInTheDocument()
+    expect(JSON.stringify(data)).toBe(source)
+  })
   it('renders server metadata without guessing tiers from modifier sentences', () => {
     const source = {
       number: 10,
