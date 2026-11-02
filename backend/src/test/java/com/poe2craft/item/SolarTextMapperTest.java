@@ -28,7 +28,7 @@ class SolarTextMapperTest {
   }
 
   @Test
-  void fixedMaximumQualityModifierMapsButActualCatalystQualityStillBlocks() {
+  void fixedMaximumQualityModifierMapsButUntypedQualityStillBlocks() {
     var plain = text("+20% to Maximum Quality");
     var result = mapper.map(parser.parseText(plain));
     assertThat(result.mapped()).isTrue();
@@ -37,7 +37,7 @@ class SolarTextMapperTest {
             new ModifierInstance(
                 "amulet:prefix:essence-maximum-quality",
                 java.util.Map.of("local_maximum_quality_+", 20L)));
-    for (var property : java.util.List.of("Quality: +20%", "Quality (Life Modifiers): +20%")) {
+    for (var property : java.util.List.of("Quality: +20%")) {
       var imported = plain.replace("Item Level: 82", property + "\nItem Level: 82");
       var parsed = parser.parseText(imported);
       var blocked = mapper.map(parsed);
@@ -46,6 +46,34 @@ class SolarTextMapperTest {
       assertThat(blocked.issues()).anyMatch(i -> i.message().contains("property"));
       assertThat(parsed.text().originalText()).isEqualTo(imported);
     }
+  }
+
+  @Test
+  void typedQualityOnlyImportsWhenNoInverseScalingIsRequired() {
+    for (int amount : java.util.List.of(0, 20)) {
+      var source =
+          text("+20% to Maximum Quality")
+              .replace(
+                  "Item Level: 82", "Quality (Life Modifiers): +" + amount + "%\nItem Level: 82");
+      var result = mapper.map(parser.parseText(source));
+      assertThat(result.issues()).isEmpty();
+      assertThat(result.state().catalystQuality())
+          .isEqualTo(new CatalystQuality(CatalystQuality.Type.FLESH, amount));
+    }
+    var source =
+        text("+17 to maximum Life")
+            .replace("Item Level: 82", "Quality (Life Modifiers): +20%\nItem Level: 82");
+    var result = mapper.map(parser.parseText(source));
+    assertThat(result.state()).isNull();
+    assertThat(result.issues()).anyMatch(i -> i.message().contains("original unscaled rolls"));
+    var zero = mapper.map(parser.parseText(source.replace("+20%", "+0%")));
+    assertThat(zero.issues()).isEmpty();
+    assertThat(zero.state().explicits().getFirst().values()).containsValue(17L);
+    var unaffected =
+        mapper.map(parser.parseText(source.replace("Life Modifiers", "Caster Modifiers")));
+    assertThat(unaffected.issues()).isEmpty();
+    assertThat(unaffected.state().catalystQuality().type())
+        .isEqualTo(CatalystQuality.Type.SIBILANT);
   }
 
   @Test

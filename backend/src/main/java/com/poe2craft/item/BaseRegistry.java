@@ -38,6 +38,7 @@ public final class BaseRegistry {
   private static final Map<String, Policy> POLICIES;
   private static final Set<String> KEYS;
   private static final Map<String, String> CLASSES;
+  private static final Map<String, Set<String>> GRANTED_SKILLS;
 
   static {
     try (var bases = com.poe2craft.support.SealedResources.open("/catalog/top-bases.json");
@@ -61,6 +62,21 @@ public final class BaseRegistry {
                 classes.put(b.path("id").asText(), header.substring("Item Class: ".length()));
               });
       CLASSES = Collections.unmodifiableMap(classes);
+      var skills = new LinkedHashMap<String, Set<String>>();
+      source.forEach(
+          b -> {
+            var lines = new HashSet<String>();
+            for (String field : List.of("sourceProperties", "skillLines"))
+              b.path(field)
+                  .path("en")
+                  .forEach(
+                      line -> {
+                        if (line.isTextual() && line.asText().startsWith("Grants Skill: "))
+                          lines.add(line.asText());
+                      });
+            skills.put(b.path("id").asText(), Set.copyOf(lines));
+          });
+      GRANTED_SKILLS = Collections.unmodifiableMap(skills);
     } catch (IOException e) {
       throw new ExceptionInInitializerError(e);
     }
@@ -267,6 +283,10 @@ public final class BaseRegistry {
   public static boolean maximumQualityBreach(String id) {
     var p = policy(id);
     return p != null && p.maximumQualityBreach();
+  }
+
+  public static boolean recognizesGrantedSkill(String id, String line) {
+    return GRANTED_SKILLS.getOrDefault(id, Set.of()).contains(line);
   }
 
   public static Integer socketExecutionMaximum(String id) {

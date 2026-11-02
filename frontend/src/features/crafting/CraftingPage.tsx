@@ -686,6 +686,7 @@ export function CraftingPage() {
             result.state,
             filmId(),
             initial.data.rulesetIdentity,
+            imported.data.text.originalText,
           ),
           revision,
         )
@@ -1802,6 +1803,19 @@ export function CraftingPage() {
                       ))}
                     </select>
                   </label>
+                )}
+                {film?.sourceDocument !== undefined && (
+                  <details>
+                    <summary>{t('film.original_paste')}</summary>
+                    <pre
+                      style={{
+                        whiteSpace: 'pre-wrap',
+                        overflowWrap: 'anywhere',
+                      }}
+                    >
+                      {film.sourceDocument}
+                    </pre>
+                  </details>
                 )}
                 {filmState.error && (
                   <p role="alert">{uiText(filmState.error)}</p>

@@ -118,3 +118,31 @@ The first functional checkpoint is `e11377a` on `codex/manual-workbench-20261102
 A follow-up local commit records the compatibility/marker corrections and this final evidence.
 This remains a **partial workbench checkpoint**, with the implementation boundaries and actual UI
 policy block above still open. No push, deployment, release, master integration or production restart.
+
+
+## Original-document and observation continuation
+
+Implemented after d69ede1:
+
+- A successful clipboard import stores its exact original document once on the film. It survives JSON storage, subsequent crafts and a branch from a matching historical frame. A new unrelated root does not inherit the old document. Legacy films without this optional field remain readable. The original document is shown under a six-locale “before crafting” disclosure, never as recalculated current properties.
+- Numeric derived properties (armour, evasion, energy shield, Spirit, damage ranges, attack speed, critical/block chance, reload time and weapon range) are observations retained in that original document. They are not converted into raw explicit modifiers or used to infer rolls. Unknown numeric grammar still blocks mapping.
+- Granted-skill lines are accepted only when their complete text matches the base's bundled English sourceProperties/skillLines. Unknown skills and unverified level-bearing variants remain blocked. Shared-name Shrine Sceptre variants are still ambiguous in the frontend identity lookup.
+- Life/Caster typed quality (the two labels represented in current parser fixtures) is retained when quality is zero or no scalable matching modifier requires inverse recovery. Positive matching scalable values are refused with an explicit original-unscaled-roll/verified-rounding requirement. Other typed labels are not silently interpreted. This is partial typed-quality import, not general catalyst inversion.
+
+Remaining technical/data boundaries, with minimum required input:
+
+1. **All-base empty sockets and installed Augments remain unimplemented.** Current ItemState carries only augmentSockets (a count), and Artificer validation is tied to the Stocky execution maximum. Current PoB generated base files expose socketLimit=3 for wand/sceptre/focus/shield and 4 for staff/talisman (also inspected body=4, helmet/gloves=3, bow=4). These are not evidence that Artificer's ordinary creation maximum is the same. ModRunes.lua additionally contains per-slot restrictions, limits, canSocketInUniqueItems, canSocketInJewellery and canSocketInCorruptedSanctified. Copying its limits into the existing execution policy would change crafting rules incorrectly. A version-aligned imported-socket/installed-Augment model, with explicit distinction from execution limits, is still required; no automatic widening was committed.
+2. **Installed identity cannot always be recovered from an effect-only clipboard line.** The current parser exposes `(rune)` effects without guaranteed item identity, socket index, or count of merged sources. Exact Augment identity/slot input or an effects-only state with explicitly defined transitions is needed. General modifier IDs cannot stand in for these. The new original-document provenance prevents source loss but does not make these inputs craftable.
+3. **Catalyst inversion needs verified game quantization and original unscaled rolls when ambiguous.** QualityRoundingPolicy is explicitly labelled a user-selected simulator assumption. Using it backwards would manufacture facts. Provide original modifier IDs/raw rolls (plus quality type/amount) or verified game rounding/unit evidence before enabling the affected import path. Zero/unaffected cases are implemented independently.
+4. **Derived totals are original observations only.** Recalculation after crafting and variable granted-skill levels need a verified local-stat/quality/augment projection and actual skill-level evidence. No stale pasted total is presented as current. Exact bundled skill lines work; level variants and same-name identity resolution remain incomplete.
+
+Source inspection: PathOfBuildingCommunity/PathOfBuilding-PoE2, dev/src/Data/ModRunes.lua and dev/src/Data/Bases/{wand,sceptre,focus,staff,talisman,shield}.lua. These are community-generated game-data files, not official game-rule documentation. No external data/code was copied into runtime catalogs. Browser verification remains denied by the earlier Windows URL-policy check, without retry or alternate-tool workaround.
+
+
+Continuation verification:
+
+- Final affected backend run: 48 unit tests, 47 passed; only the pre-existing PathSearchHttpTest failure. Integration: 8/8 passed. spotlessCheck and bootJar passed. Evidence: task-root state-observations.log and state-observations-results.
+- Merging final rechecked suites with the preceding full run gives 974 unit tests, the same 40 failing identities, no new failing identity; this is not a fresh all-green full run. The four previously documented diagnostic signature changes remain, and the seeded behavior digest test still passes. Evidence: state-observations-validation-summary.json.
+- Final frontend lint, typecheck, format check and build passed. Default-parallel full suite: 126 files / 2404 tests; 2396 passed, 8 failures in 6 files. Five are 5000ms timeouts; two are async UI readiness assertions; one SCENARIO_BUSY follows the expansion-bomb timeout. This run is not reported as green. An earlier all-suite single-worker run was stopped after no completed test results; only its verified Vitest PID was stopped, and unrelated processes were untouched.
+- The six failing frontend files plus original-document history coverage passed together unchanged with one worker: **7 files / 102 tests passed**. Evidence: state-observations-frontend-recheck.log. No test timeout, assertion or expected result was relaxed.
+- All task-created containers were removed automatically. Only the two pre-existing mini-redis containers remain. No push/deploy/production restart or user-data mutation was performed.

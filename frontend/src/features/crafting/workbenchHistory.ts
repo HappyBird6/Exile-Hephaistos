@@ -30,6 +30,8 @@ export type Frame = {
 export type Film = {
   id: string
   createdAt: string
+  /** Exact clipboard provenance; never a recalculated current-item display. */
+  sourceDocument?: string
   frames: Frame[]
   rulesetIdentity?: string
 }
@@ -96,6 +98,8 @@ export class LocalFilmRepository implements FilmRepository {
         (film) =>
           typeof film.id === 'string' &&
           typeof film.createdAt === 'string' &&
+          (film.sourceDocument === undefined ||
+            typeof film.sourceDocument === 'string') &&
           Array.isArray(film.frames) &&
           film.frames.length > 0 &&
           film.frames.every(
@@ -130,6 +134,7 @@ export function startFilm(
   root: ConcreteItem,
   id: string,
   rulesetIdentity: string,
+  sourceDocument?: string,
 ): Films {
   if (!isRulesetIdentity(rulesetIdentity))
     throw new Error('Ruleset identity is required.')
@@ -141,6 +146,7 @@ export function startFilm(
         id,
         rulesetIdentity,
         createdAt: new Date().toISOString(),
+        ...(sourceDocument !== undefined ? { sourceDocument } : {}),
         frames: [
           { state: structuredClone(root), action: null, rulesetIdentity },
         ],
@@ -171,7 +177,15 @@ export function recordCraft(
     next.cursor !== film.frames.length - 1 ||
     JSON.stringify(currentFrame(next)?.state) !== JSON.stringify(before)
   )
-    next = startFilm(next, before, id, result.rulesetIdentity)
+    next = startFilm(
+      next,
+      before,
+      id,
+      result.rulesetIdentity,
+      JSON.stringify(currentFrame(next)?.state) === JSON.stringify(before)
+        ? film?.sourceDocument
+        : undefined,
+    )
   const active = currentFilm(next)!
   const frames = [
     ...active.frames,

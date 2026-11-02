@@ -57,7 +57,8 @@ public final class SolarTextMapper {
               .matches("^\\{ (?:(?:Fractured|Desecrated) )?(?:Prefix|Suffix) Modifier \".*"))
         attachedMetadata.add(modifier.metadata().number());
     for (var line : item.unparsedLines())
-      if (!attachedMetadata.contains(line.number()))
+      if (!attachedMetadata.contains(line.number())
+          && !BaseRegistry.recognizesGrantedSkill(catalog.base().id(), line.raw()))
         issues.add(
             new Issue(line.number(), "Unparsed line retained; crafting mapping is blocked."));
     var desecrated = new ArrayList<ItemState.DesecratedSlot>();
@@ -73,6 +74,7 @@ public final class SolarTextMapper {
       else issues.add(new Issue(line.number(), "Special item conditions are not supported."));
     }
     Integer equipmentQuality = null;
+    CatalystQuality catalystQuality = null;
     Integer sockets = null;
     var seenProperties = new HashSet<String>();
     for (var property : item.properties()) {
@@ -81,7 +83,49 @@ public final class SolarTextMapper {
         continue;
       }
       if (property.key().equals("Item Level")) continue;
-      if (!BaseRegistry.catalystQuality(catalog.base().id())
+      // These are clipboard observations, not raw modifier rolls or inputs to currency rules.
+      // ItemModels retains their exact lines; the workbench film retains the original document.
+      if (Set.of(
+                  "Armour",
+                  "Evasion Rating",
+                  "Evasion",
+                  "Energy Shield",
+                  "Spirit",
+                  "Physical Damage",
+                  "Elemental Damage",
+                  "Chaos Damage",
+                  "Fire Damage",
+                  "Cold Damage",
+                  "Lightning Damage",
+                  "Critical Hit Chance",
+                  "Attacks per Second",
+                  "Chance to Block",
+                  "Block Chance",
+                  "Block chance",
+                  "Reload Time",
+                  "Weapon Range")
+              .contains(property.key())
+          && property
+              .value()
+              .matches(
+                  "[0-9]+(?:\\.[0-9]+)?(?:-[0-9]+(?:\\.[0-9]+)?)?(?:, [0-9]+(?:-[0-9]+)?)*%?(?: \\(augmented\\))?"))
+        continue;
+      if (BaseRegistry.catalystQuality(catalog.base().id())
+          && (property.key().equals("Quality (Life Modifiers)")
+              || property.key().equals("Quality (Caster Modifiers)"))
+          && property.value().matches("\\+?[0-9]{1,3}%(?: \\(augmented\\))?")) {
+        int amount = Integer.parseInt(property.value().replaceFirst("^\\+", "").split("%", 2)[0]);
+        if (catalystQuality != null || amount > 100)
+          issues.add(
+              new Issue(property.source().number(), "Conflicting or invalid catalyst quality."));
+        else
+          catalystQuality =
+              new CatalystQuality(
+                  property.key().equals("Quality (Life Modifiers)")
+                      ? CatalystQuality.Type.FLESH
+                      : CatalystQuality.Type.SIBILANT,
+                  amount);
+      } else if (!BaseRegistry.catalystQuality(catalog.base().id())
           && BaseRegistry.policy(catalog.base().id()).qualityLimit()
           && !BasicJewel.supportedCrafting(catalog.base().id())
           && property.key().equals("Quality")
@@ -166,6 +210,18 @@ public final class SolarTextMapper {
                     : "Multiple catalog tiers match this value; provide verified affix/tier metadata."));
       else {
         var matched = matches.getFirst();
+        var definition = catalog.find(matched.modifierId()).orElseThrow();
+        if (catalystQuality != null
+            && catalystQuality.amount() > 0
+            && catalystQuality.type().matches(definition.tags())
+            && !definition.tags().contains("unscalable")
+            && !matched.values().containsKey("local_maximum_quality_+")) {
+          issues.add(
+              new Issue(
+                  modifier.source().number(),
+                  "Catalyst-affected values require original unscaled rolls and verified rounding; displayed values cannot be treated as raw rolls."));
+          continue;
+        }
         (layer == ModifierDefinition.Layer.IMPLICIT ? implicits : explicits).add(matched);
         if (modifier.type() == ItemModels.ModifierType.DESECRATED)
           desecrated.add(
@@ -185,7 +241,8 @@ public final class SolarTextMapper {
                 implicits,
                 explicits,
                 Set.of(),
-                sockets)
+                sockets,
+                catalystQuality)
             .withDesecrated(desecrated)
             .withEquipmentQuality(equipmentQuality);
     for (var violation : new ItemStateValidator(catalog).validate(state))

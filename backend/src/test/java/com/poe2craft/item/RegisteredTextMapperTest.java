@@ -33,6 +33,31 @@ class RegisteredTextMapperTest {
   }
 
   @Test
+  void derivedPropertiesRemainInOriginalDocumentAndDoNotBecomeRawModifiers() {
+    String source =
+        "Item Class: Body Armours\nRarity: Normal\nSoldier Cuirass\n--------\nArmour: 684 (augmented)\nQuality: +20%\nItem Level: 82";
+    var parsed = parser.parseText(source);
+    var result = new SolarTextMapper(ItemCatalogLoader.loadTopBase("soldier")).map(parsed);
+    assertThat(result.issues()).isEmpty();
+    assertThat(result.state().explicits()).isEmpty();
+    assertThat(parsed.text().originalText()).isEqualTo(source);
+    assertThat(
+            new SolarTextMapper(ItemCatalogLoader.loadTopBase("soldier"))
+                .map(parser.parseText(source.replace("684 (augmented)", "unknown")))
+                .state())
+        .isNull();
+  }
+
+  @Test
+  void onlyExactCatalogGrantedSkillLinesAreAccepted() {
+    String source =
+        "Item Class: Sceptres\nRarity: Normal\nOmen Sceptre\n--------\nSpirit: 100\nGrants Skill: Malice\nItem Level: 82";
+    var mapper = new SolarTextMapper(ItemCatalogLoader.loadTopBase("omen"));
+    assertThat(mapper.map(parser.parseText(source)).issues()).isEmpty();
+    assertThat(mapper.map(parser.parseText(source.replace("Malice", "Unknown"))).state()).isNull();
+  }
+
+  @Test
   void ambiguousNameNeverChoosesAnElementOrFirstCatalog() {
     var fire = ItemCatalogLoader.loadTopBase("shrine-fire");
     var ice = ItemCatalogLoader.loadTopBase("shrine-ice");

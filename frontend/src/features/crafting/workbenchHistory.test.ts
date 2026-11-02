@@ -28,6 +28,38 @@ async function craft() {
   ).json()) as AppliedItem
 }
 describe('linear crafting films', () => {
+  it('retains exact pasted provenance across storage, crafting and a history branch', async () => {
+    const source = 'Item Class: Amulets\r\nRarity: Normal\r\nSolar Amulet\r\n'
+    const initial = startFilm(
+      emptyFilms(),
+      root,
+      'import',
+      'fixture-ruleset',
+      source,
+    )
+    const result = await craft()
+    const crafted = recordCraft(initial, root, result, 'unused')
+    const branched = recordCraft(viewFrame(crafted, 0), root, result, 'branch')
+    const repository = new LocalFilmRepository(localStorage)
+    repository.save(branched)
+    const restored = repository.load()
+    expect(restored.films.map((film) => film.sourceDocument)).toEqual([
+      source,
+      source,
+    ])
+    expect(currentFrame(restored)?.state).toEqual(result.state)
+    expect(
+      currentFilm(
+        recordCraft(initial, root, { ...result, applied: false }, 'unused'),
+      )?.sourceDocument,
+    ).toBe(source)
+    const unrelated = { ...root, itemLevel: root.itemLevel - 1 }
+    expect(
+      currentFilm(recordCraft(initial, unrelated, result, 'other'))
+        ?.sourceDocument,
+    ).toBeUndefined()
+  })
+
   it('persists detached craft evidence while legacy films remain readable without invented provenance', async () => {
     const result = await craft()
     const films = recordCraft(
