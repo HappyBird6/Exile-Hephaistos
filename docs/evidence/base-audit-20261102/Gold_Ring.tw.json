@@ -1,0 +1,49 @@
+{
+  "url": "https://poe2db.tw/tw/Gold_Ring",
+  "retrievedAt": "2026-11-02T07:57:00.323Z",
+  "sha256": "00321b7785ad74baf12915caccfbbf2d1db81d53feac84f54bddf3156bd8d239",
+  "variants": [
+    {
+      "name": "金光戒指",
+      "card": "金光戒指\n        \n    \n    \n        \n            戒指需求:  等級 40增加(6—15)%找到的物品稀有度\n        \n\n\n\n        \n            Gold Ring",
+      "requirements": "需求:  等級 40",
+      "fields": {
+        "DropLevel": "40",
+        "BaseType": "金光戒指",
+        "Class": "戒指",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRing10",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/Basetypes/GoldRing",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "增加(6—15)%找到的物品稀有度",
+      "family": "ItemFoundRarityIncrease",
+      "tags": [
+        "drop"
+      ],
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 6,
+          "max": 15,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>增加<span class='mod-value'>(6<span class=\"ndash\">—</span>15)</span>%找到的<a data-keyword=\"ItemRarity\" href=\"Item_Rarity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/776d86ab86297ddccc2fbcb273ead59c10fe2308cb6ffc2a2e39df817a413b80\">物品稀有度</a></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>ItemFoundRarityIncrease\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>傳奇 (3)\n<tr><th>Req. level<td>50 (Effective: 40)\n<tr><th>Stats<td><li>base item found rarity +% <span class=\"badge bg-primary\">6 <span class=\"ndash\">—</span> 15</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>drop</i></span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/GoldRing.webp"
+}

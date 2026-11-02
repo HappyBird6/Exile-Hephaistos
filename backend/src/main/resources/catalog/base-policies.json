@@ -362,6 +362,227 @@
     },
     "imperial": {
       "legacyCatalog": "HELMET"
+    },
+    "jade-amulet": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "lapis-amulet": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "gold-amulet": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "twisted-amulet": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "distorted-amulet": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "absent-amulet": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "portent-amulet": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "lament-amulet": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "dusk-amulet": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE",
+      "rareOnly": true
+    },
+    "penumbra-amulet": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE",
+      "rareOnly": true
+    },
+    "gloam-amulet": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE",
+      "rareOnly": true
+    },
+    "corona-amulet": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE",
+      "rareOnly": true
+    },
+    "tenebrous-amulet": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE",
+      "rareOnly": true
+    },
+    "lazuli-ring": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "sapphire-ring": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "topaz-ring": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "emerald-ring": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "gold-ring": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "unset-ring": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "utzaal-cuirass": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "abyssal-cuirass": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "warlord-cuirass": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "mail-coat": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "wyrmscale-coat": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "corsair-coat": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "flowing-raiment": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "sacramental-robe": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "feathered-raiment": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "dastard-armour": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "shrouded-mail-fire": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "shrouded-mail-cold": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "shrouded-mail-lightning": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "thane-mail": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "death-mantle": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "conjurer-mantle": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "seastorm-mantle": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "rambler-jacket": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "falconers-jacket": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "austere-garb": {
+      "initializeImplicit": true,
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "kinetic": {
+      "newSelection": false
+    },
+    "mnemonic": {
+      "newSelection": false
+    },
+    "vitalic": {
+      "newSelection": false
+    },
+    "two-stone-fire-cold": {
+      "newSelection": false
+    },
+    "sinew-belt": {
+      "rareOnly": true
+    },
+    "invoking-belt": {
+      "rareOnly": true
+    },
+    "forking-belt": {
+      "rareOnly": true
     }
   },
   "legacy": {

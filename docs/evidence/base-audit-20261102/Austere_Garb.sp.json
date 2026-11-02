@@ -1,0 +1,49 @@
+{
+  "url": "https://poe2db.tw/sp/Austere_Garb",
+  "retrievedAt": "2026-11-02T07:57:06.374Z",
+  "sha256": "f5ac41f788c837e1855046df46b75a9b46cecdac3ac020f388ef440444dc8a79",
+  "variants": [
+    {
+      "name": "Traje austero",
+      "card": "Traje austero\n        \n    \n    \n        \n            Armaduras corporalesEvasión: 248Escudo de energía: 76Base Movement Speed: -0.03Requiere:  Nivel 80, 67 Des, 67 IntDuración de los estados alterados elementales sobre ti reducida un (10—15)%\n        \n\n\n\n        \n            Austere Garb",
+      "requirements": "Requiere:  Nivel 80, 67 Des, 67 Int",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "Traje austero",
+        "Class": "Armaduras corporales",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame",
+        "Tags": "dex_int_armour, karui_basetype, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDexInt08",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "Duración de los estados alterados elementales sobre ti reducida un (10—15)%",
+      "family": "SelfStatusAilmentDuration",
+      "tags": [
+        "elemental",
+        "estado alterado"
+      ],
+      "stats": [
+        {
+          "id": "self_elemental_status_duration_-%",
+          "min": 10,
+          "max": 15,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>Duración de los estados alterados elementales sobre ti reducida un <span class='mod-value'>(10<span class=\"ndash\">—</span>15)</span>%</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>SelfStatusAilmentDuration\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>único (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>self elemental status duration -% <span class=\"badge bg-primary\">10 <span class=\"ndash\">—</span> 15</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Estado alterado</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDexInt08.webp"
+}

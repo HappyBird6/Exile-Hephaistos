@@ -105,6 +105,7 @@ public final class SealedResources {
           "catalog/top-base-essences.json",
           "catalog/top-bases.json",
           "crafting/goalfilter/bases-v1.json",
+          "crafting/goalfilter/base-inventory-v5-readonly.json",
           "crafting/goalfilter/definitions-v1.json",
           "crafting/goalfilter/definitions-v3-readonly.json",
           "crafting/goalfilter/definitions-v4-readonly.json",

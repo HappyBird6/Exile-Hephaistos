@@ -1,0 +1,49 @@
+{
+  "url": "https://poe2db.tw/sp/Seastorm_Mantle",
+  "retrievedAt": "2026-11-02T07:57:05.321Z",
+  "sha256": "bc123d7b41ade142011c345b203ad19d995a7ecdd5d94f30c896124e08c2b565",
+  "variants": [
+    {
+      "name": "Manto de la tormenta marina",
+      "card": "Manto de la tormenta marina\n        \n    \n    \n        \n            Armaduras corporalesArmadura: 273Escudo de energía: 76Base Movement Speed: -0.04Requiere:  Nivel 80, 67 Fue, 67 IntEl (8—14)% del daño recibido se recobra como vida\n        \n\n\n\n        \n            Seastorm Mantle",
+      "requirements": "Requiere:  Nivel 80, 67 Fue, 67 Int",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "Manto de la tormenta marina",
+        "Class": "Armaduras corporales",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt8Endgame",
+        "Tags": "str_int_armour, karui_basetype, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr08",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "El (8—14)% del daño recibido se recobra como vida",
+      "family": "DamageTakenGainedAsLife",
+      "tags": [
+        "resource",
+        "vida"
+      ],
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 8,
+          "max": 14,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>El <span class='mod-value'>(8<span class=\"ndash\">—</span>14)</span>% del daño recibido se <a data-keyword=\"Recoup\" href=\"Recoup\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FRecoup\">recobra</a> como vida</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>DamageTakenGainedAsLife\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>único (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>damage taken goes to life over 4 seconds % <span class=\"badge bg-primary\">8 <span class=\"ndash\">—</span> 14</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Vida</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr08.webp"
+}

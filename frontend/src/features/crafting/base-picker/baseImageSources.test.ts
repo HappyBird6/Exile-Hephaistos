@@ -10,7 +10,14 @@ it('renders every selectable identity from verified local art including the user
   const missing = workbenchBaseChoices('en').filter(
     (choice) => !baseImageSource(choice.baseItemId),
   )
-  expect(missing).toEqual([])
+  expect(missing.map((base) => base.name).sort()).toEqual(
+    ['Distorted Amulet', "Falconer's Jacket", 'Flowing Raiment'].sort(),
+  )
+  for (const base of missing)
+    expect(
+      (sources as Record<string, { cacheBlocked?: string }>)[base.baseItemId]
+        ?.cacheBlocked,
+    ).toContain('HTTP 403')
   expect(baseImageSource('Metadata/Items/Quivers/FourQuiver2')).toContain(
     'c8809e1438f9f231be94.webp',
   )

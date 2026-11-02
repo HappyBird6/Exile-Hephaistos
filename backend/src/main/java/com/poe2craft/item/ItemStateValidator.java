@@ -17,6 +17,12 @@ public final class ItemStateValidator {
 
   public List<Violation> validate(ItemState state) {
     var errors = new ArrayList<Violation>();
+    if (BaseRegistry.rareOnly(state.baseItemId()) && state.rarity() != ItemState.Rarity.RARE)
+      errors.add(
+          new Violation(
+              Code.UNSUPPORTED_STATE,
+              "",
+              "This base requires Rare rarity under the selected crafting policy."));
     if (state.observations() != null) {
       var observed = state.observations();
       if ((observed.socketCount() != null && BasicJewel.supportedCrafting(state.baseItemId()))

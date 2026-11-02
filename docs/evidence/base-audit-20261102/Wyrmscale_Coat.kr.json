@@ -1,0 +1,48 @@
+{
+  "url": "https://poe2db.tw/kr/Wyrmscale_Coat",
+  "retrievedAt": "2026-11-02T07:57:01.820Z",
+  "sha256": "f191a3c16d8e9c8550ac4fa114f147b8e527dcba47c02c690ee0ffc75800c38f",
+  "variants": [
+    {
+      "name": "아룡 비늘 외투",
+      "card": "아룡 비늘 외투\n        \n    \n    \n        \n            갑옷회피: 451Base Movement Speed: -0.03요구 사항:  레벨 75, 121 민첩원소 상태 이상 한계치 (30—40)% 증가\n        \n\n\n\n        \n            Wyrmscale Coat",
+      "requirements": "요구 사항:  레벨 75, 121 민첩",
+      "fields": {
+        "DropLevel": "75",
+        "BaseType": "아룡 비늘 외투",
+        "Class": "갑옷",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDex8Endgame",
+        "Tags": "dex_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex08",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "원소 상태 이상 한계치 (30—40)% 증가",
+      "family": "AilmentThreshold",
+      "tags": [
+        "상태 이상"
+      ],
+      "stats": [
+        {
+          "id": "ailment_threshold_+%",
+          "min": 30,
+          "max": 40,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"AilmentThreshold\" href=\"Elemental_Ailment_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/d57d85f1eb9eb0f2a44a1d5b17ab8e881775ddae04ed76d4555471ceff9dd550\">원소 상태 이상 한계치</a> <span class='mod-value'>(30<span class=\"ndash\">—</span>40)</span>% 증가</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>AilmentThreshold\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>ailment threshold +% <span class=\"badge bg-primary\">30 <span class=\"ndash\">—</span> 40</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'>상태 이상</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex08.webp"
+}

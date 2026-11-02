@@ -1,0 +1,51 @@
+{
+  "url": "https://poe2db.tw/jp/Oneiric_Ring",
+  "retrievedAt": "2026-11-02T08:17:17.567Z",
+  "sha256": "58ca313a8461cffec3d5785ab189e2b5f37d8b16b9358aac20ff5acdd750a5d1",
+  "variants": [
+    {
+      "name": "オネイリックリング",
+      "card": "オネイリックリング\n        \n    \n    \n        \n            指輪装備条件： レベル 47混沌ダメージが(11—23)%増加する\n        \n\n        \n        \n            夢を喰え、必要に駆られて。\n        \n\n\n        \n            Oneiric Ring",
+      "requirements": "装備条件： レベル 47",
+      "fields": {
+        "DropLevel": "47",
+        "BaseType": "オネイリックリング",
+        "Class": "指輪",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRingB5",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/BreachlordRing_Chayula",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "混沌ダメージが(11—23)%増加する",
+      "family": "IncreasedChaosDamage",
+      "tags": [
+        "chaos_damage",
+        "ダメージ",
+        "混沌"
+      ],
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 11,
+          "max": 23,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Chaos\" href=\"Chaos_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/c92d06b9f7ca7792b4bd23fcdf96819da0e60323a38808011251158718583c7d\">混沌</a>ダメージが<span class='mod-value'>(11<span class=\"ndash\">—</span>23)</span>%増加する</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>IncreasedChaosDamage\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>ユニーク (3)\n<tr><th>Req. level<td>59 (Effective: 47)\n<tr><th>Stats<td><li>chaos damage +% <span class=\"badge bg-primary\">11 <span class=\"ndash\">—</span> 23</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>chaos_damage</i></span> <span class='badge bg-primary'>ダメージ</span> <span class='badge bg-primary'>混沌</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/BreachlordRing_Chayula.webp"
+}

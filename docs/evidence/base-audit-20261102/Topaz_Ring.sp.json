@@ -1,0 +1,53 @@
+{
+  "url": "https://poe2db.tw/sp/Topaz_Ring",
+  "retrievedAt": "2026-11-02T07:56:31.516Z",
+  "sha256": "4615ec9ce7fa4cb39921274fe32fb19270b5795a1c046b5b3c32b65cc67f43d7",
+  "variants": [
+    {
+      "name": "Anillo de topacio",
+      "card": "Anillo de topacio\n        \n    \n    \n        \n            AnillosRequiere:  Nivel 16+(20—30)% a la resistencia al rayo\n        \n\n\n\n        \n            Topaz Ring",
+      "requirements": "Requiere:  Nivel 16",
+      "fields": {
+        "DropLevel": "16",
+        "BaseType": "Anillo de topacio",
+        "Class": "Anillos",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRing5",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/Basetypes/TopazRing",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "+(20—30)% a la resistencia al rayo",
+      "family": "LightningResistance",
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "rayo",
+        "resistencia"
+      ],
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 20,
+          "max": 30,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(20<span class=\"ndash\">—</span>30)</span>% a la resistencia al <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FResistances\">rayo</a></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>LightningResistance\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>único (3)\n<tr><th>Req. level<td>20 (Effective: 16)\n<tr><th>Stats<td><li>base lightning damage resistance % <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 30</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>lightning_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Rayo</span> <span class='badge bg-primary'>Resistencia</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/TopazRing.webp"
+}

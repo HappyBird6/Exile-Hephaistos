@@ -3,7 +3,7 @@ import type { ConcreteItem } from '../workbenchApi'
 import { rolledText } from '../workbenchApi'
 import type { ItemCardData } from '../itemCardData'
 import { supportsConcreteStateShape } from '../workbenchStateShape'
-import { baseClass, baseSlugs } from '../baseRegistry'
+import { baseClass, baseSlugs, newBaseSelectionAllowed } from '../baseRegistry'
 import type { WorkbenchBaseKey } from '../baseRegistry'
 import { topBase } from '../topBases'
 import {
@@ -36,7 +36,11 @@ export type StartBase = readonly [WorkbenchBaseKey, string, string]
 export const startBases: readonly StartBase[] = [
   ...legacyStartBases,
   ...(Object.keys(baseSlugs) as WorkbenchBaseKey[])
-    .filter((key) => !legacyStartBases.some((base) => base[0] === key))
+    .filter(
+      (key) =>
+        !legacyStartBases.some((base) => base[0] === key) &&
+        newBaseSelectionAllowed(key),
+    )
     .flatMap((key): StartBase[] => {
       const base = topBase(key)
       return base ? [[key, baseClass(key), base.name]] : []

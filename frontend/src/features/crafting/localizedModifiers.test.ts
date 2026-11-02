@@ -111,7 +111,7 @@ describe('verified modifier display templates', () => {
             id,
           ) && !id.startsWith('time-lost-'),
       ),
-    ).toHaveLength(1812)
+    ).toHaveLength(1851)
     expect(
       ids.filter(
         (id) =>
@@ -119,15 +119,15 @@ describe('verified modifier display templates', () => {
             id,
           ) && !id.startsWith('time-lost-'),
       ),
-      // Preserve all 1,812 historical equipment bindings and add 71 Crossbow bindings.
-    ).toHaveLength(1883)
+      // Preserve all 1,812 historical equipment bindings and add 71 Crossbow and 39 source implicit bindings.
+    ).toHaveLength(1922)
     expect(
       ids.filter(
         (id) =>
           !/^(ruby|emerald|sapphire|diamond):/.test(id) &&
           !id.startsWith('time-lost-'),
       ),
-    ).toHaveLength(1989)
+    ).toHaveLength(2028)
     expect(
       ids
         .filter(

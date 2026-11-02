@@ -1,0 +1,56 @@
+{
+  "url": "https://poe2db.tw/sp/Death_Mantle",
+  "retrievedAt": "2026-11-02T07:57:04.699Z",
+  "sha256": "92c1c704e2deb7f7bcf6d9c4b7cf67903df9f3c80f0cccd7b79cc4bced0779bd",
+  "variants": [
+    {
+      "name": "Manto de muerte",
+      "card": "Manto de muerte\n        \n    \n    \n        \n            Armaduras corporalesArmadura: 273Escudo de energía: 76Base Movement Speed: -0.04Requiere:  Nivel 75, 67 Fue, 67 Int+1% a todas las resistencias elementales máximas\n        \n\n\n\n        \n            Death Mantle",
+      "requirements": "Requiere:  Nivel 75, 67 Fue, 67 Int",
+      "fields": {
+        "DropLevel": "75",
+        "BaseType": "Manto de muerte",
+        "Class": "Armaduras corporales",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt6Endgame",
+        "Tags": "str_int_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr06",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "+1% a todas las resistencias elementales máximas",
+      "family": "MaximumResistances",
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fuego",
+        "hielo",
+        "rayo",
+        "resistencia"
+      ],
+      "stats": [
+        {
+          "id": "additional_maximum_all_elemental_resistances_%",
+          "min": 1,
+          "max": 1,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+1</span>% a todas las <a data-keyword=\"MaximumResistances\" href=\"Maximum_Resistances\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FMaximumResistances\">resistencias elementales máximas</a></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>MaximumResistances\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>único (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>additional maximum all elemental resistances % <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 1</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>cold_resistance</i></span> <span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>fire_resistance</i></span> <span class='badge bg-primary'><i>lightning_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fuego</span> <span class='badge bg-primary'>Hielo</span> <span class='badge bg-primary'>Rayo</span> <span class='badge bg-primary'>Resistencia</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr06.webp"
+}

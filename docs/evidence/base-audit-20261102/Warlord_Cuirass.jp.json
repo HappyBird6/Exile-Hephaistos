@@ -1,0 +1,50 @@
+{
+  "url": "https://poe2db.tw/jp/Warlord_Cuirass",
+  "retrievedAt": "2026-11-02T07:56:31.771Z",
+  "sha256": "349c42bc8a05b133f2f9fc4a9eee9bd184ad70f7eefaa37e50e99b0ffb0b6dce",
+  "variants": [
+    {
+      "name": "ウォーロードの胴鎧",
+      "card": "ウォーロードの胴鎧\n        \n    \n    \n        \n            鎧アーマー: 496Base Movement Speed: -0.05装備条件： レベル 80, 121 筋力アーマーの+(15—25)%が元素ダメージにも適用される\n        \n\n\n\n        \n            Warlord Cuirass",
+      "requirements": "装備条件： レベル 80, 121 筋力",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "ウォーロードの胴鎧",
+        "Class": "鎧",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame",
+        "Tags": "str_armour, karui_basetype, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStr10",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "アーマーの+(15—25)%が元素ダメージにも適用される",
+      "family": "ArmourAppliesToElementalDamage",
+      "tags": [
+        "defences",
+        "アーマー",
+        "元素"
+      ],
+      "stats": [
+        {
+          "id": "armour_%_applies_to_fire_cold_lightning_damage",
+          "min": 15,
+          "max": 25,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/82a62a81f07c975f48b08deee312f33226ba1805294f112f4eeba7d977ce4c07\">アーマー</a>の<span class='mod-value'>+(15<span class=\"ndash\">—</span>25)</span>%が<a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/e0e12380a5bf5235f4928b63554c7fe76a30f01bf6b9cd71108299a89fd5c7e8\">元素ダメージ</a>にも適用される</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>ArmourAppliesToElementalDamage\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>ユニーク (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>armour % applies to fire cold lightning damage <span class=\"badge bg-primary\">15 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>アーマー</span> <span class='badge bg-primary'>元素</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStr10.webp"
+}

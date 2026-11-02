@@ -1,0 +1,50 @@
+{
+  "url": "https://poe2db.tw/tw/Lapis_Amulet",
+  "retrievedAt": "2026-11-02T07:56:56.754Z",
+  "sha256": "b04d08221ca5380599e519e92bdbf7fe4ba7135241b1b0a02874d066cc62e2ef",
+  "variants": [
+    {
+      "name": "海玉護身符",
+      "card": "海玉護身符\n        \n    \n    \n        \n            項鍊需求:  等級 8+(10—15)點智慧\n        \n\n\n\n        \n            Lapis Amulet",
+      "requirements": "需求:  等級 8",
+      "fields": {
+        "DropLevel": "8",
+        "BaseType": "海玉護身符",
+        "Class": "項鍊",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmulet5",
+        "Tags": "amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/LapisAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5",
+        "珠光項鍊": "1x 翠玉護身符 \n1x 琥珀護身符 \n1x 海玉護身符"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "+(10—15)點智慧",
+      "family": "Intelligence",
+      "tags": [
+        "能力"
+      ],
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 10,
+          "max": 15,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(10<span class=\"ndash\">—</span>15)</span>點<a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/f5fd23463836059c045ec3ddd03f6dcfb2a691c1987c5e725cc6ea3ceed914d2\">智慧</a></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>Intelligence\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>傳奇 (3)\n<tr><th>Req. level<td>10 (Effective: 8)\n<tr><th>Stats<td><li>additional intelligence <span class=\"badge bg-primary\">10 <span class=\"ndash\">—</span> 15</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'>能力</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/LapisAmulet.webp"
+}

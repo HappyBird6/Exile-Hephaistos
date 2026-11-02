@@ -1,0 +1,50 @@
+{
+  "url": "https://poe2db.tw/jp/Lapis_Amulet",
+  "retrievedAt": "2026-11-02T07:56:56.494Z",
+  "sha256": "42fe1453d2d4248a5644c62ba2f090394331dc8b52bcb5b8a096c9e5d95e5fee",
+  "variants": [
+    {
+      "name": "瑠璃のアミュレット",
+      "card": "瑠璃のアミュレット\n        \n    \n    \n        \n            アミュレット装備条件： レベル 8知性 +(10—15)\n        \n\n\n\n        \n            Lapis Amulet",
+      "requirements": "装備条件： レベル 8",
+      "fields": {
+        "DropLevel": "8",
+        "BaseType": "瑠璃のアミュレット",
+        "Class": "アミュレット",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmulet5",
+        "Tags": "amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/LapisAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5",
+        "真珠のアミュレット": "1x 翡翠のアミュレット \n1x 琥珀のアミュレット \n1x 瑠璃のアミュレット"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "知性 +(10—15)",
+      "family": "Intelligence",
+      "tags": [
+        "能力値"
+      ],
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 10,
+          "max": 15,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/61ddf942790e180f700507dfa415d3d3a7023826d0e0b4f13d479030e4c17085\">知性</a> <span class='mod-value'>+(10<span class=\"ndash\">—</span>15)</span></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>Intelligence\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>ユニーク (3)\n<tr><th>Req. level<td>10 (Effective: 8)\n<tr><th>Stats<td><li>additional intelligence <span class=\"badge bg-primary\">10 <span class=\"ndash\">—</span> 15</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'>能力値</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/LapisAmulet.webp"
+}

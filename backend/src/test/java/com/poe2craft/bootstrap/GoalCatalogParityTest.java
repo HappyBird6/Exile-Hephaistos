@@ -20,7 +20,7 @@ class GoalCatalogParityTest {
     var workbench =
         cfg.workbenchService(solar, cfg.workbenchSimulator(solar, cfg.craftingEngine(solar)));
     var catalogs = BundledGoalCatalogs.load(workbench);
-    assertThat(catalogs).hasSize(134);
+    assertThat(catalogs).hasSize(173);
     var index = new GoalCatalogIndex(catalogs, GoalDefinitionsLoader.load());
     for (var source : catalogs) {
       for (int level : new int[] {1, 82}) {
@@ -89,8 +89,15 @@ class GoalCatalogParityTest {
                               false)))));
       var roundTrip = json.readValue(json.writeValueAsBytes(goal), GoalFilter.class);
       assertThat(service.evaluate(item, roundTrip).status()).isEqualTo(Status.MATCH);
+      // A deliberately unreviewed definition set keeps this rejection contract independent
+      // of growing production coverage.
+      var unreviewedService =
+          new GoalFilterService(
+              new GoalCatalogIndex(
+                  catalogs, new GoalDefinitions(1, "unreviewed-contract", List.of(), List.of())));
+      var unreviewedCatalog = unreviewedService.catalog(context);
       var unsupported =
-          catalog.stats().stream()
+          unreviewedCatalog.stats().stream()
               .filter(
                   s ->
                       s.kind() == GoalCatalog.Kind.EXPLICIT
@@ -101,7 +108,7 @@ class GoalCatalogParityTest {
       var unreviewed =
           new GoalFilter(
               1,
-              catalog.catalogVersion(),
+              unreviewedCatalog.catalogVersion(),
               goal.general(),
               List.of(
                   new Group(
@@ -117,7 +124,8 @@ class GoalCatalogParityTest {
                               new Range(null, null),
                               null,
                               false)))));
-      assertThat(service.evaluate(item, unreviewed).status()).isEqualTo(Status.UNSUPPORTED);
+      assertThat(unreviewedService.evaluate(item, unreviewed).status())
+          .isEqualTo(Status.UNSUPPORTED);
     }
   }
 }

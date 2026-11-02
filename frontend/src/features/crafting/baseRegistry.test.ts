@@ -1,18 +1,28 @@
 import { describe, expect, it } from 'vitest'
 import baseline from './baseRegistry.baseline.json'
 import data from './topBases.json'
-import { baseTexts, baseSlugs, baseClass, basePolicy } from './baseRegistry'
+import {
+  baseTexts,
+  baseSlugs,
+  baseClass,
+  basePolicy,
+  baseStartingRarity,
+} from './baseRegistry'
 import { reviewedArmourKeys } from './topBases'
 describe('central base registration', () => {
   it('preserves every initial text and source slug across 125 bases', () => {
     for (const [key, text] of Object.entries(baseline.textMap)) {
-      expect(baseTexts[key as keyof typeof baseTexts]).toEqual(text)
+      expect(baseTexts[key as keyof typeof baseTexts]).toEqual(
+        baseStartingRarity(key) === 'RARE'
+          ? text.replace('Rarity: Normal', 'Rarity: Rare')
+          : text,
+      )
       expect(baseSlugs[key as keyof typeof baseSlugs]).toEqual(
         baseline.slugs[key as keyof typeof baseline.slugs],
       )
     }
     expect(Object.keys(baseline.textMap)).toHaveLength(125)
-    expect(Object.keys(baseTexts)).toHaveLength(134)
+    expect(Object.keys(baseTexts)).toHaveLength(173)
     expect(reviewedArmourKeys).toEqual(
       Object.keys(data).filter((key) => !['soldier', 'imperial'].includes(key)),
     )

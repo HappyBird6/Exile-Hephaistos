@@ -354,7 +354,9 @@ public final class WorkbenchService {
                 catalog.metadata().snapshotId(),
                 catalog.base().id(),
                 level,
-                base.equals("sapphire") ? ItemState.Rarity.MAGIC : ItemState.Rarity.NORMAL,
+                BaseRegistry.rareOnly(catalog.base().id())
+                    ? ItemState.Rarity.RARE
+                    : base.equals("sapphire") ? ItemState.Rarity.MAGIC : ItemState.Rarity.NORMAL,
                 BasicJewel.timeLost(catalog.base().id())
                     ? List.of(
                         new ModifierInstance(

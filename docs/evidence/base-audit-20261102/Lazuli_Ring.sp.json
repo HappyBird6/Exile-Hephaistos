@@ -1,0 +1,50 @@
+{
+  "url": "https://poe2db.tw/sp/Lazuli_Ring",
+  "retrievedAt": "2026-11-02T07:56:59.313Z",
+  "sha256": "de1f2f611841f183f1bddb9aac479b4b08b855b1ad294b5bf26b35f4ecfb1e99",
+  "variants": [
+    {
+      "name": "Anillo de lapislázuli",
+      "card": "Anillo de lapislázuli\n        \n    \n    \n        \n            Anillos+(20—30) al maná máximo\n        \n\n\n\n        \n            Lazuli Ring",
+      "requirements": "",
+      "fields": {
+        "DropLevel": "1",
+        "BaseType": "Anillo de lapislázuli",
+        "Class": "Anillos",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRing2",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/Basetypes/LazuliRing",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "+(20—30) al maná máximo",
+      "family": "IncreasedMana",
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 20,
+          "max": 30,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(20<span class=\"ndash\">—</span>30)</span> al maná máximo</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>IncreasedMana\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>único (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 30</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/LazuliRing.webp"
+}

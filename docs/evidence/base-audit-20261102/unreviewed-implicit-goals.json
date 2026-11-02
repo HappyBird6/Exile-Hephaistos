@@ -1,0 +1,172 @@
+[
+  {
+    "key": "twisted-amulet",
+    "name": "Twisted Amulet",
+    "unsupportedGoalStats": [
+      "local_maximum_prefixes_allowed_+",
+      "local_maximum_suffixes_allowed_+"
+    ]
+  },
+  {
+    "key": "distorted-amulet",
+    "name": "Distorted Amulet",
+    "unsupportedGoalStats": [
+      "local_maximum_prefixes_allowed_+",
+      "local_maximum_suffixes_allowed_+"
+    ]
+  },
+  {
+    "key": "absent-amulet",
+    "name": "Absent Amulet",
+    "unsupportedGoalStats": [
+      "local_maximum_prefixes_allowed_+",
+      "local_maximum_suffixes_allowed_+"
+    ]
+  },
+  {
+    "key": "portent-amulet",
+    "name": "Portent Amulet",
+    "unsupportedGoalStats": [
+      "local_maximum_prefixes_allowed_+",
+      "local_maximum_suffixes_allowed_+"
+    ]
+  },
+  {
+    "key": "lament-amulet",
+    "name": "Lament Amulet",
+    "unsupportedGoalStats": [
+      "local_maximum_prefixes_allowed_+",
+      "local_maximum_suffixes_allowed_+"
+    ]
+  },
+  {
+    "key": "dusk-amulet",
+    "name": "Dusk Amulet",
+    "unsupportedGoalStats": [
+      "local_maximum_prefixes_allowed_+",
+      "local_maximum_suffixes_allowed_+"
+    ]
+  },
+  {
+    "key": "penumbra-amulet",
+    "name": "Penumbra Amulet",
+    "unsupportedGoalStats": [
+      "local_maximum_prefixes_allowed_+",
+      "local_maximum_suffixes_allowed_+"
+    ]
+  },
+  {
+    "key": "gloam-amulet",
+    "name": "Gloam Amulet",
+    "unsupportedGoalStats": [
+      "local_maximum_prefixes_allowed_+",
+      "local_maximum_suffixes_allowed_+"
+    ]
+  },
+  {
+    "key": "corona-amulet",
+    "name": "Corona Amulet",
+    "unsupportedGoalStats": [
+      "local_item_benefit_socketable_as_if_helmet"
+    ]
+  },
+  {
+    "key": "tenebrous-amulet",
+    "name": "Tenebrous Amulet",
+    "unsupportedGoalStats": [
+      "local_maximum_prefixes_allowed_+",
+      "local_maximum_suffixes_allowed_+"
+    ]
+  },
+  {
+    "key": "unset-ring",
+    "name": "Unset Ring",
+    "unsupportedGoalStats": [
+      "local_item_additional_skill_slots"
+    ]
+  },
+  {
+    "key": "utzaal-cuirass",
+    "name": "Utzaal Cuirass",
+    "unsupportedGoalStats": [
+      "stun_threshold_+%"
+    ]
+  },
+  {
+    "key": "abyssal-cuirass",
+    "name": "Abyssal Cuirass",
+    "unsupportedGoalStats": [
+      "life_regeneration_rate_per_minute_%"
+    ]
+  },
+  {
+    "key": "warlord-cuirass",
+    "name": "Warlord Cuirass",
+    "unsupportedGoalStats": [
+      "armour_%_applies_to_fire_cold_lightning_damage"
+    ]
+  },
+  {
+    "key": "mail-coat",
+    "name": "Mail Coat",
+    "unsupportedGoalStats": [
+      "base_slow_potency_+%"
+    ]
+  },
+  {
+    "key": "wyrmscale-coat",
+    "name": "Wyrmscale Coat",
+    "unsupportedGoalStats": [
+      "ailment_threshold_+%"
+    ]
+  },
+  {
+    "key": "corsair-coat",
+    "name": "Corsair Coat",
+    "unsupportedGoalStats": [
+      "base_movement_velocity_+%"
+    ]
+  },
+  {
+    "key": "sacramental-robe",
+    "name": "Sacramental Robe",
+    "unsupportedGoalStats": [
+      "energy_shield_recharge_rate_+%"
+    ]
+  },
+  {
+    "key": "feathered-raiment",
+    "name": "Feathered Raiment",
+    "unsupportedGoalStats": [
+      "base_damage_removed_from_mana_before_life_%"
+    ]
+  },
+  {
+    "key": "thane-mail",
+    "name": "Thane Mail",
+    "unsupportedGoalStats": [
+      "base_self_critical_strike_multiplier_-%"
+    ]
+  },
+  {
+    "key": "death-mantle",
+    "name": "Death Mantle",
+    "unsupportedGoalStats": [
+      "additional_maximum_all_elemental_resistances_%"
+    ]
+  },
+  {
+    "key": "falconers-jacket",
+    "name": "Falconer's Jacket",
+    "unsupportedGoalStats": [
+      "base_movement_velocity_+%"
+    ]
+  },
+  {
+    "key": "austere-garb",
+    "name": "Austere Garb",
+    "unsupportedGoalStats": [
+      "self_elemental_status_duration_-%"
+    ]
+  }
+]

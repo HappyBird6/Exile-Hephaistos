@@ -1,0 +1,47 @@
+{
+  "url": "https://poe2db.tw/jp/Unset_Ring",
+  "retrievedAt": "2026-11-02T07:57:00.572Z",
+  "sha256": "a296ca10d9c5a9cfbb963c1a35b42838560cbddd620c7e5ed2a6546b83eda29f",
+  "variants": [
+    {
+      "name": "石無しの指輪",
+      "card": "石無しの指輪\n        \n    \n    \n        \n            指輪装備条件： レベル 44スキルスロットを追加で1個付与する\n        \n\n\n\n        \n            Unset Ring",
+      "requirements": "装備条件： レベル 44",
+      "fields": {
+        "DropLevel": "44",
+        "BaseType": "石無しの指輪",
+        "Class": "指輪",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRing11",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/Basetypes/UnsetRing",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "スキルスロットを追加で1個付与する",
+      "family": "AdditionalSkillSlots",
+      "tags": [],
+      "stats": [
+        {
+          "id": "local_item_additional_skill_slots",
+          "min": 1,
+          "max": 1,
+          "locality": "ローカル"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>スキルスロットを追加で<span class='mod-value'>1</span>個付与する</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>AdditionalSkillSlots\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>ユニーク (3)\n<tr><th>Req. level<td>56 (Effective: 44)\n<tr><th>Stats<td><li>local item additional skill slots <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 1</span> <span class=\"badge bg-secondary\">ローカル</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/UnsetRing.webp"
+}

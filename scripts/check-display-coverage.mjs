@@ -37,6 +37,11 @@ for(const base of Object.values(JSON.parse(fs.readFileSync('backend/src/main/res
    const captured=JSON.parse(fs.readFileSync(`docs/evidence/quivers-source-bundle-2026-10-05/${base.slug}.${sourceLocale}.json`,'utf8')).variants[0]
    assert.equal(captured.fields.Type,base.id)
    assert.equal(captured.requirements,'',`${l}:exact source absence:${base.id}`)
+  } else if(base.requiredLevel===0 && base.sourceUrl && fs.existsSync(`docs/evidence/base-audit-20261102/${base.sourceUrl.split('/').at(-1)}.${{en:'us',ko:'kr','zh-CN':'cn','zh-TW':'tw',ja:'jp',es:'sp'}[l]}.json`)) {
+   const source=JSON.parse(fs.readFileSync(`docs/evidence/base-audit-20261102/${base.sourceUrl.split('/').at(-1)}.${{en:'us',ko:'kr','zh-CN':'cn','zh-TW':'tw',ja:'jp',es:'sp'}[l]}.json`,'utf8')).variants.find(v=>v.fields.Type===base.id)
+   assert(source,`${l}:exact source base identity:${base.id}`)
+   assert.equal(source.requirements,'',`${l}:source has no character requirement:${base.id}`)
+   assert.equal(base.requirements[l],'',`${l}:no invented requirement:${base.id}`)
   } else assert(base.requirements[l],`${l}:top-base-requirements:${base.id}`)
  }
 }

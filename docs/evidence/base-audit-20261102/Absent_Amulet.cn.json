@@ -1,0 +1,53 @@
+{
+  "url": "https://poe2db.tw/cn/Absent_Amulet",
+  "retrievedAt": "2026-11-02T07:56:30.884Z",
+  "sha256": "0b461e44ba133e63226e7f0a956bb48fc169abcf4f77413941001bb64f178ee8",
+  "variants": [
+    {
+      "name": "失神项链",
+      "card": "失神项链\n        \n    \n    \n        \n            项链需求：  等级 50 获得技能: 等级 12 元素异常状态时施放 获得技能: 等级 12 暴击时施放 获得技能: 等级 12 躲闪时施放 获得技能: 等级 12 恐喙鸟坐骑 获得技能: 等级 12 大法师 获得技能: 等级 12 三位一体 获得技能: 等级 12 永恒狂怒允许的前缀 -1\n允许的后缀 -1\n        \n\n        \n        \n            我们握住永生的未诞者……\n        \n\n\n        \n            Absent Amulet",
+      "requirements": "需求：  等级 50",
+      "fields": {
+        "DropLevel": "50",
+        "BaseType": "失神项链",
+        "Class": "项链",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmuletB1c",
+        "Tags": "amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/AbsentAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "允许的前缀 -1\n允许的后缀 -1",
+      "family": "MaxPrefixMaxSuffix",
+      "tags": [],
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "区域"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "区域"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>允许的前缀 <span class='mod-value'>-1</span><br>允许的后缀 <span class='mod-value'>-1</span></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>MaxPrefixMaxSuffix\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>传奇 (3)\n<tr><th>Req. level<td>62 (Effective: 49)\n<tr><th>Stats<td><li>local maximum prefixes allowed + <span class=\"badge bg-primary\">-1 <span class=\"ndash\">—</span> -1</span> <span class=\"badge bg-secondary\">区域</span></li><li>local maximum suffixes allowed + <span class=\"badge bg-primary\">-1 <span class=\"ndash\">—</span> -1</span> <span class=\"badge bg-secondary\">区域</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/AbsentAmulet.webp"
+}

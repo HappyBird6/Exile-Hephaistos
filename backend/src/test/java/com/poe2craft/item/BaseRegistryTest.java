@@ -30,7 +30,7 @@ class BaseRegistryTest {
         .put("pool", "sourced-spear");
     source.set("sourced-spear", added);
     var snapshot = BaseRegistry.read(source, rules);
-    assertEquals(118, snapshot.top().size());
+    assertEquals(157, snapshot.top().size());
     assertEquals(
         BaseRegistry.require("grand-spear").policy(), snapshot.top().get("sourced-spear").policy());
     assertEquals("sourced-spear", snapshot.top().get("sourced-spear").pool());
@@ -79,10 +79,18 @@ class BaseRegistryTest {
     for (var entries = old.fields(); entries.hasNext(); ) {
       var entry = entries.next();
       var type = Class.forName("com.poe2craft.item." + entry.getKey().replace(".java", ""));
-      assertEquals(
-          entry.getValue(), M.valueToTree(type.getField("BASES").get(null)), entry.getKey());
+      var current = M.valueToTree(type.getField("BASES").get(null));
+      entry
+          .getValue()
+          .fields()
+          .forEachRemaining(
+              previous ->
+                  assertEquals(
+                      previous.getValue(),
+                      current.get(previous.getKey()),
+                      entry.getKey() + ":" + previous.getKey()));
     }
-    assertEquals(117, BaseRegistry.topBases().size());
+    assertEquals(156, BaseRegistry.topBases().size());
     assertNull(BaseRegistry.socketExecutionMaximum(BaseRegistry.require("grand-spear").id()));
     assertEquals(
         1, BaseRegistry.socketExecutionMaximum("Metadata/Items/Armours/Gloves/FourGlovesStr1"));

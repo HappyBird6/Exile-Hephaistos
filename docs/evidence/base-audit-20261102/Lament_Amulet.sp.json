@@ -1,0 +1,53 @@
+{
+  "url": "https://poe2db.tw/sp/Lament_Amulet",
+  "retrievedAt": "2026-11-02T07:56:30.628Z",
+  "sha256": "63a30624aea21a2afaebc149980d70cbbab75c49235079ded0184fd33d8e1335",
+  "variants": [
+    {
+      "name": "Amuleto de lamento",
+      "card": "Amuleto de lamento\n        \n    \n    \n        \n            AmuletosRequiere:  Nivel 42 Otorga la habilidad: Nivel 11 Armadura ártica Otorga la habilidad: Nivel 11 Heraldo de ceniza Otorga la habilidad: Nivel 11 Heraldo de hielo Otorga la habilidad: Nivel 11 Heraldo de trueno Otorga la habilidad: Nivel 11 Portador de plaga Otorga la habilidad: Nivel 11 Conjuración de barrera Otorga la habilidad: Nivel 11 Ilusión persistente Otorga la habilidad: Nivel 11 Baile de fantasmas Otorga la habilidad: Nivel 11 Remanentes de maná Otorga la habilidad: Nivel 11 Barrera de magma Otorga la habilidad: Nivel 11 Espíritus encolerizados Otorga la habilidad: Nivel 11 Bailarín del viento Otorga la habilidad: Nivel 11 Lanzar con muerte de esbirro Otorga la habilidad: Nivel 11 Placas saqueadas Otorga la habilidad: Nivel 11 Estandarte de guerra Otorga la habilidad: Nivel 11 Estandarte de desafío Otorga la habilidad: Nivel 11 Estandarte de pavor Otorga la habilidad: Nivel 11 Momento de necesidad Otorga la habilidad: Nivel 11 Atrición Otorga la habilidad: Nivel 11 Regulación de cargas Otorga la habilidad: Nivel 11 Recolector de esquirlas Otorga la habilidad: Nivel 11 Presencia abrumadora Otorga la habilidad: Nivel 11 Bendición del alquimista Otorga la habilidad: Nivel 11 Conjuración de la parca Otorga la habilidad: Nivel 11 Barbarie Otorga la habilidad: Nivel 11 Heraldo de plaga Otorga la habilidad: Nivel 11 Heraldo de sangre Otorga la habilidad: Nivel 11 Presencia marchitante Otorga la habilidad: Nivel 11 Enjambre voraz Otorga la habilidad: Nivel 11 Frenesí de combate Otorga la habilidad: Nivel 11 Rastro de abrojos Otorga la habilidad: Nivel 11 Convalecencia Otorga la habilidad: Nivel 11 Barrera de hierro Otorga la habilidad: Nivel 11 Drenaje de elementos Otorga la habilidad: Nivel 11 Zona espinosa Otorga la habilidad: Nivel 11 Furia salvaje Otorga la habilidad: Nivel 11 Piel de corteza-1 modificador de prefijo permitido\n        \n\n        \n        \n            Buscamos los recuerdos faltantes...\n        \n\n\n        \n            Lament Amulet",
+      "requirements": "Requiere:  Nivel 42",
+      "fields": {
+        "DropLevel": "42",
+        "BaseType": "Amuleto de lamento",
+        "Class": "Amuletos",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmuletB1a",
+        "Tags": "amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/LamentAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "-1 modificador de prefijo permitido",
+      "family": "MaxPrefixMaxSuffix",
+      "tags": [],
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "Local"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 0,
+          "max": 0,
+          "locality": "Local"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>-1</span> modificador de prefijo permitido</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>MaxPrefixMaxSuffix\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>único (3)\n<tr><th>Req. level<td>53 (Effective: 42)\n<tr><th>Stats<td><li>local maximum prefixes allowed + <span class=\"badge bg-primary\">-1 <span class=\"ndash\">—</span> -1</span> <span class=\"badge bg-secondary\">Local</span></li><li>local maximum suffixes allowed + <span class=\"badge bg-primary\">0 <span class=\"ndash\">—</span> 0</span> <span class=\"badge bg-secondary\">Local</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/LamentAmulet.webp"
+}

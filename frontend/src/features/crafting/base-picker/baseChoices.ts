@@ -3,6 +3,7 @@ import {
   baseSlugs,
   baseTexts,
   selectableBaseKeys,
+  baseStartingRarity,
 } from '../baseRegistry'
 import type { WorkbenchBaseKey } from '../baseRegistry'
 import { topBase } from '../topBases'
@@ -20,6 +21,7 @@ export type BaseChoice = {
   itemClass: string
   category: BaseCategory
   slug: string
+  variantLabel?: string
 }
 
 export function baseCategory(itemClass: string): BaseCategory {
@@ -31,7 +33,7 @@ export function baseCategory(itemClass: string): BaseCategory {
 }
 
 export function workbenchBaseChoices(locale: Locale): BaseChoice[] {
-  return selectableBaseKeys.map((key) => {
+  const choices: BaseChoice[] = selectableBaseKeys.map((key) => {
     const itemClass = baseClass(key) === 'Amulet' ? 'Amulets' : baseClass(key)
     const slug = baseSlugs[key].replaceAll(' ', '_')
     const term = slug.replaceAll('-', '_')
@@ -50,6 +52,19 @@ export function workbenchBaseChoices(locale: Locale): BaseChoice[] {
       ),
     }
   })
+  return choices.map((choice) =>
+    choices.filter(
+      (other) =>
+        other.name === choice.name && other.itemClass === choice.itemClass,
+    ).length > 1
+      ? {
+          ...choice,
+          variantLabel: basePreview(choice, null, locale)
+            .modifiers.map((line) => line.text)
+            .join(' · '),
+        }
+      : choice,
+  )
 }
 
 /** Display-only preview from existing reviewed source data; no API call or invented roll. */
@@ -95,7 +110,7 @@ export function basePreview(
       ) ?? binding.englishText)
     : undefined
   return {
-    rarity: 'NORMAL',
+    rarity: baseStartingRarity(choice.key),
     name: choice.name,
     base: choice.name,
     itemClass: choice.itemClass,

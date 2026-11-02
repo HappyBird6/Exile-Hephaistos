@@ -1,0 +1,53 @@
+{
+  "url": "https://poe2db.tw/jp/Lament_Amulet",
+  "retrievedAt": "2026-11-02T07:56:30.357Z",
+  "sha256": "31ae5886f586e61ea418a9f5303dbf3e1aac6098e72c749cd34cdf1af85f4a85",
+  "variants": [
+    {
+      "name": "悲嘆のアミュレット",
+      "card": "悲嘆のアミュレット\n        \n    \n    \n        \n            アミュレット装備条件： レベル 42 スキルを付与: レベル 11 アークティックアーマー スキルを付与: レベル 11 ヘラルドオブアッシュ スキルを付与: レベル 11 ヘラルドオブアイス スキルを付与: レベル 11 ヘラルドオブサンダー スキルを付与: レベル 11 プレイグベアラー スキルを付与: レベル 11 バリアーインボケーション スキルを付与: レベル 11 リンガーリングイリュージョン スキルを付与: レベル 11 ゴーストダンス スキルを付与: レベル 11 マナレムナント スキルを付与: レベル 11 マグマバリアー スキルを付与: レベル 11 レイジングスピリット スキルを付与: レベル 11 ウィンドダンサー スキルを付与: レベル 11 ミニオン死亡時キャスト スキルを付与: レベル 11 スカベンジドプレーティング スキルを付与: レベル 11 ウォーバナー スキルを付与: レベル 11 ディファイアンスバナー スキルを付与: レベル 11 ドレッドバナー スキルを付与: レベル 11 タイムオブニード スキルを付与: レベル 11 アトリション スキルを付与: レベル 11 チャージレギュレーション スキルを付与: レベル 11 シャードスカベンジャー スキルを付与: レベル 11 オーバーウェルミングプレゼンス スキルを付与: レベル 11 錬金術師の恩恵 スキルを付与: レベル 11 リーパーズインボケーション スキルを付与: レベル 11 バーサーク スキルを付与: レベル 11 ヘラルドオブプレイグ スキルを付与: レベル 11 ヘラルドオブブラッド スキルを付与: レベル 11 ウィザリングプレゼンス スキルを付与: レベル 11 ラヴェナススウォーム スキルを付与: レベル 11 コンバットフレンジー スキルを付与: レベル 11 トレイルオブカルトロップ スキルを付与: レベル 11 コンヴァレッセンス スキルを付与: レベル 11 アイアンワード スキルを付与: レベル 11 サイフォンエレメント スキルを付与: レベル 11 ブライアパッチ スキルを付与: レベル 11 サベージフューリー スキルを付与: レベル 11 バークスキンプレフィックスモッド -1個\n        \n\n        \n        \n            我らは欠けし記憶を探し求める……\n        \n\n\n        \n            Lament Amulet",
+      "requirements": "装備条件： レベル 42",
+      "fields": {
+        "DropLevel": "42",
+        "BaseType": "悲嘆のアミュレット",
+        "Class": "アミュレット",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmuletB1a",
+        "Tags": "amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/LamentAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "プレフィックスモッド -1個",
+      "family": "MaxPrefixMaxSuffix",
+      "tags": [],
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "ローカル"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 0,
+          "max": 0,
+          "locality": "ローカル"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>プレフィックスモッド <span class='mod-value'>-1</span>個</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>MaxPrefixMaxSuffix\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>ユニーク (3)\n<tr><th>Req. level<td>53 (Effective: 42)\n<tr><th>Stats<td><li>local maximum prefixes allowed + <span class=\"badge bg-primary\">-1 <span class=\"ndash\">—</span> -1</span> <span class=\"badge bg-secondary\">ローカル</span></li><li>local maximum suffixes allowed + <span class=\"badge bg-primary\">0 <span class=\"ndash\">—</span> 0</span> <span class=\"badge bg-secondary\">ローカル</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/LamentAmulet.webp"
+}

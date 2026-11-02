@@ -1,0 +1,46 @@
+{
+  "url": "https://poe2db.tw/kr/Conjurer_Mantle",
+  "retrievedAt": "2026-11-02T07:57:04.786Z",
+  "sha256": "f08d9a4993d3b579c3806ff242db16929bd0924661c642201600aee819990119",
+  "variants": [
+    {
+      "name": "요술사 외투",
+      "card": "요술사 외투\n        \n    \n    \n        \n            갑옷방어도: 273에너지 보호막: 76Base Movement Speed: -0.04요구 사항:  레벨 70, 67 힘, 67 지능정신력 +(20—30)\n        \n\n\n\n        \n            Conjurer Mantle",
+      "requirements": "요구 사항:  레벨 70, 67 힘, 67 지능",
+      "fields": {
+        "DropLevel": "70",
+        "BaseType": "요술사 외투",
+        "Class": "갑옷",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt4Endgame",
+        "Tags": "str_int_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr04",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "정신력 +(20—30)",
+      "family": "BaseSpirit",
+      "tags": [],
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 20,
+          "max": 30,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Spirit\" href=\"Spirit\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/e8b1264c70120635d624f7b0669fcb6cdb947b3b477e01d465f4aff664efd8f8\">정신력</a> <span class='mod-value'>+(20<span class=\"ndash\">—</span>30)</span></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>BaseSpirit\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base spirit from equipment <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 30</span> <span class=\"badge bg-secondary\">Global</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr04.webp"
+}

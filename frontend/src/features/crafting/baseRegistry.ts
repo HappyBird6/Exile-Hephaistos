@@ -2,6 +2,8 @@ import bases from './topBases.json'
 import policies from './basePolicies.json'
 export type WorkbenchBaseKey = keyof typeof bases | keyof typeof policies.legacy
 export type BasePolicy = {
+  rareOnly?: boolean
+  newSelection?: boolean
   qualityLimit: boolean
   ordinaryCatalyst: boolean
   refinedCatalyst: boolean
@@ -22,7 +24,19 @@ const topOverrides = policies.baseOverrides as Record<
 >
 const topEntries = bases as Record<
   string,
-  { id: string; name: string; slug: string; family: string }
+  {
+    id: string
+    name: string
+    slug: string
+    family: string
+    implicitText?: string
+    affixLimits?: {
+      magicPrefixes: number
+      magicSuffixes: number
+      rarePrefixes: number
+      rareSuffixes: number
+    }
+  }
 >
 const legacyEntries = policies.legacy as Record<
   string,
@@ -35,7 +49,7 @@ export const baseSlugs = Object.fromEntries([
 export const baseTexts = Object.fromEntries([
   ...Object.entries(topEntries).map(([key, base]) => [
     key,
-    `Item Class: ${familyPolicies[base.family]!.itemClass}\nRarity: Normal\n${base.name}`,
+    `Item Class: ${familyPolicies[base.family]!.itemClass}\nRarity: ${basePolicy(base.id)?.rareOnly ? 'Rare' : 'Normal'}\n${base.name}`,
   ]),
   ...Object.entries(legacyEntries).map(([key, base]) => [
     key,
@@ -58,6 +72,45 @@ export function baseClass(key: string): string {
 export function sourcePropertyUnscaled(key: string): boolean {
   const base = topEntries[key]
   return !!base && familyPolicies[base.family]?.sourcePropertyUnscaled === true
+}
+
+/** User crafting policy, distinct from the extracted base's engine rarity-enable flags. */
+export function baseRarityAllowed(id: string, rarity: string): boolean {
+  return basePolicy(id)?.rareOnly !== true || rarity === 'RARE'
+}
+
+export function baseStartingRarity(key: string): 'NORMAL' | 'MAGIC' | 'RARE' {
+  const id = topEntries[key]?.id ?? legacyEntries[key]?.id
+  return id && basePolicy(id)?.rareOnly
+    ? 'RARE'
+    : key === 'sapphire'
+      ? 'MAGIC'
+      : 'NORMAL'
+}
+
+export function newBaseSelectionAllowed(key: string): boolean {
+  const id = topEntries[key]?.id ?? legacyEntries[key]?.id
+  return !!id && basePolicy(id)?.newSelection !== false
+}
+
+/** Catalog capacities include the exact sourced prefix/suffix implicit adjustments. */
+export function baseAffixCapacity(
+  id: string,
+  rarity: string,
+): { prefixes: number; suffixes: number } {
+  if (rarity === 'NORMAL') return { prefixes: 0, suffixes: 0 }
+  const limits = Object.values(topEntries).find(
+    (base) => base.id === id,
+  )?.affixLimits
+  return rarity === 'MAGIC'
+    ? {
+        prefixes: limits?.magicPrefixes ?? 1,
+        suffixes: limits?.magicSuffixes ?? 1,
+      }
+    : {
+        prefixes: limits?.rarePrefixes ?? 3,
+        suffixes: limits?.rareSuffixes ?? 3,
+      }
 }
 
 // Exact identity only: shared display names (e.g. Shrine Sceptre) stay unresolved.
@@ -110,6 +163,28 @@ export function clipboardBase(
         })
       })
   }
+  if (
+    matches.length > 1 &&
+    sourceText &&
+    matches.every((key) => topEntries[key]?.implicitText)
+  ) {
+    const lines = sourceText
+      .split(/\r?\n|\r/)
+      .map((line) => line.trim().replace(/\s*\(implicit\)$/, ''))
+    const escape = (value: string) =>
+      value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    matches = matches.filter((key) =>
+      topEntries[key]!.implicitText!.split('\n').every((canonical) => {
+        const pattern = canonical
+          .split(/(\([+-]?\d+(?:\.\d+)?[—–-][+-]?\d+(?:\.\d+)?\))/g)
+          .map((part, index) =>
+            index % 2 ? '[+-]?\\d+(?:\\.\\d+)?' : escape(part),
+          )
+          .join('')
+        return lines.some((line) => new RegExp(`^${pattern}$`).test(line))
+      }),
+    )
+  }
   return matches.length === 1 ? matches[0] : undefined
 }
 
@@ -124,4 +199,6 @@ export const supersededBases: Partial<
 }
 export const selectableBaseKeys = (
   Object.keys(baseTexts) as WorkbenchBaseKey[]
-).filter((key) => !Object.hasOwn(supersededBases, key))
+).filter(
+  (key) => !Object.hasOwn(supersededBases, key) && newBaseSelectionAllowed(key),
+)

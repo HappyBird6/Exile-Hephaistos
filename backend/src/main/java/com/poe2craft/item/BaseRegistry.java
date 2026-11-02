@@ -22,7 +22,9 @@ public final class BaseRegistry {
       boolean sourcePropertyUnscaled,
       String snapshotDate,
       String snapshotRetrievedAt,
-      String legacyCatalog) {}
+      String legacyCatalog,
+      Boolean rareOnly,
+      Boolean newSelection) {}
 
   public record Base(
       String key,
@@ -193,6 +195,9 @@ public final class BaseRegistry {
     if (source == null || !source.isObject())
       throw new IllegalArgumentException("Invalid base policy object");
     var allowed = new HashSet<String>();
+    for (String field : List.of("rareOnly", "newSelection"))
+      if (source.has(field) && !source.get(field).isBoolean())
+        throw new IllegalArgumentException("Invalid optional base selection policy: " + field);
     if (legacy) allowed.addAll(List.of("id", "slug", "initialText"));
     for (var component : Policy.class.getRecordComponents()) allowed.add(component.getName());
     source
@@ -270,6 +275,11 @@ public final class BaseRegistry {
   public static boolean qualityLimit(String id) {
     var p = policy(id);
     return p != null && p.qualityLimit();
+  }
+
+  public static boolean rareOnly(String id) {
+    var policy = policy(id);
+    return policy != null && Boolean.TRUE.equals(policy.rareOnly());
   }
 
   public static boolean ordinaryCatalyst(String id) {

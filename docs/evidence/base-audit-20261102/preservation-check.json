@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "baseline": "8524b6b",
+  "existingCatalogFilesByteIdentical": 454,
+  "newExplicitPoolsExactTemplate": 39,
+  "canonicalMirrors": 4,
+  "sourceFixtureOnlyProvenanceChanged": true,
+  "sealedDigests": 585
+}

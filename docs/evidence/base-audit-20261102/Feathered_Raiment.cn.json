@@ -1,0 +1,50 @@
+{
+  "url": "https://poe2db.tw/cn/Feathered_Raiment",
+  "retrievedAt": "2026-11-02T07:57:03.209Z",
+  "sha256": "f738c3953e2c98216eae9f8225fbd06e4e12d7b5c3a034f47aeb96def5e95d16",
+  "variants": [
+    {
+      "name": "羽饰之衣",
+      "card": "羽饰之衣\n        \n    \n    \n        \n            护甲能量护盾: 153基础移动速度: -0.03需求：  等级 80, 121 智慧(5—10)% 的伤害优先从魔力扣除\n        \n\n\n\n        \n            Feathered Raiment",
+      "requirements": "需求：  等级 80, 121 智慧",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "羽饰之衣",
+        "Class": "护甲",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyInt10Endgame",
+        "Tags": "int_armour, karui_basetype, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyInt10",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "(5—10)% 的伤害优先从魔力扣除",
+      "family": "DamageRemovedFromManaBeforeLife",
+      "tags": [
+        "resource",
+        "生命",
+        "魔力"
+      ],
+      "stats": [
+        {
+          "id": "base_damage_removed_from_mana_before_life_%",
+          "min": 5,
+          "max": 10,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(5<span class=\"ndash\">—</span>10)</span>% 的伤害优先从魔力扣除</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>DamageRemovedFromManaBeforeLife\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>传奇 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base damage removed from mana before life % <span class=\"badge bg-primary\">5 <span class=\"ndash\">—</span> 10</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>生命</span> <span class='badge bg-primary'>魔力</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyInt10.webp"
+}

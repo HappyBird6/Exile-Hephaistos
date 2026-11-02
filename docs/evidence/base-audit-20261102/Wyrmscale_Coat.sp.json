@@ -1,0 +1,48 @@
+{
+  "url": "https://poe2db.tw/sp/Wyrmscale_Coat",
+  "retrievedAt": "2026-11-02T07:57:02.102Z",
+  "sha256": "1091163de8ea17a9c85a97fc72fcbe09c9ddd04171bf382ef71a554b75054ffb",
+  "variants": [
+    {
+      "name": "Coselete de escamas de wyrm",
+      "card": "Coselete de escamas de wyrm\n        \n    \n    \n        \n            Armaduras corporalesEvasión: 451Base Movement Speed: -0.03Requiere:  Nivel 75, 121 DesUmbral de los estados alterados elementales aumentado un (30—40)%\n        \n\n\n\n        \n            Wyrmscale Coat",
+      "requirements": "Requiere:  Nivel 75, 121 Des",
+      "fields": {
+        "DropLevel": "75",
+        "BaseType": "Coselete de escamas de wyrm",
+        "Class": "Armaduras corporales",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDex8Endgame",
+        "Tags": "dex_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex08",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "Umbral de los estados alterados elementales aumentado un (30—40)%",
+      "family": "AilmentThreshold",
+      "tags": [
+        "estado alterado"
+      ],
+      "stats": [
+        {
+          "id": "ailment_threshold_+%",
+          "min": 30,
+          "max": 40,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"AilmentThreshold\" href=\"Elemental_Ailment_Threshold\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FAilmentThreshold\">Umbral de los estados alterados elementales</a> aumentado un <span class='mod-value'>(30<span class=\"ndash\">—</span>40)</span>%</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>AilmentThreshold\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>único (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>ailment threshold +% <span class=\"badge bg-primary\">30 <span class=\"ndash\">—</span> 40</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'>Estado alterado</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex08.webp"
+}

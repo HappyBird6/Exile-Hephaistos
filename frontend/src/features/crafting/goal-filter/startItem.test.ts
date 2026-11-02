@@ -4,7 +4,7 @@ import { concreteInitial } from '../workbenchApi'
 import type { ConcreteItem } from '../workbenchApi'
 import type { Definition, Initial } from '../craftingApi'
 import jewelDefinitions from '../basicJewelDefinitions.json'
-import { baseClass, baseSlugs } from '../baseRegistry'
+import { baseClass, baseSlugs, newBaseSelectionAllowed } from '../baseRegistry'
 import { topBase } from '../topBases'
 import {
   eligibleStartModifiers,
@@ -16,10 +16,10 @@ import {
 } from './startItem'
 
 it('offers every reviewed registry base exactly once with its canonical class and name', () => {
-  expect(startBases).toHaveLength(134)
-  expect(new Set(startBases.map(([key]) => key)).size).toBe(134)
+  expect(startBases).toHaveLength(169)
+  expect(new Set(startBases.map(([key]) => key)).size).toBe(169)
   expect(startBases.map(([key]) => key).sort()).toEqual(
-    Object.keys(baseSlugs).sort(),
+    Object.keys(baseSlugs).filter(newBaseSelectionAllowed).sort(),
   )
   for (const [key, itemClass, name] of startBases) {
     const base = topBase(key)

@@ -1,0 +1,46 @@
+{
+  "url": "https://poe2db.tw/cn/Mail_Coat",
+  "retrievedAt": "2026-11-02T07:57:01.550Z",
+  "sha256": "4e19b7eec6b2113a9af87810180b5f50b3210ea8bbd608b5727c96ce19cf5845",
+  "variants": [
+    {
+      "name": "锁环外套",
+      "card": "锁环外套\n        \n    \n    \n        \n            护甲闪避值: 451基础移动速度: -0.03需求：  等级 68, 121 敏捷你受到的异常状态的减速强度降低 (20—30)%\n        \n\n\n\n        \n            Mail Coat",
+      "requirements": "需求：  等级 68, 121 敏捷",
+      "fields": {
+        "DropLevel": "68",
+        "BaseType": "锁环外套",
+        "Class": "护甲",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDex14",
+        "Tags": "dex_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex01",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "你受到的异常状态的减速强度降低 (20—30)%",
+      "family": "SlowPotency",
+      "tags": [],
+      "stats": [
+        {
+          "id": "base_slow_potency_+%",
+          "min": -30,
+          "max": -20,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>你受到的<a data-keyword=\"Debuff\" href=\"Debuffs\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/29a7b9d7731208bba83f0391bc380f6fd8f50d84b6b5d24cc8be561519e38cc5\">异常状态</a>的<a data-keyword=\"Slow\" href=\"Slow\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/5c40801c94b13199cd0911574940b23660587b164b2378ff06a64ee7d6ecc92a\">减速</a>强度降低 <span class='mod-value'>(20<span class=\"ndash\">—</span>30)</span>%</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>SlowPotency\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>传奇 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base slow potency +% <span class=\"badge bg-primary\">-30 <span class=\"ndash\">—</span> -20</span> <span class=\"badge bg-secondary\">Global</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex01.webp"
+}

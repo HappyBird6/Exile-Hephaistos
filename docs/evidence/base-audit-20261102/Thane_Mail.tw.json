@@ -1,0 +1,49 @@
+{
+  "url": "https://poe2db.tw/tw/Thane_Mail",
+  "retrievedAt": "2026-11-02T07:57:04.323Z",
+  "sha256": "6b00ec3e16515db4099770a2ebd8a51dfd57d8afab756aa36e512ea1ec6d65bb",
+  "variants": [
+    {
+      "name": "領主鎖甲",
+      "card": "領主鎖甲\n        \n    \n    \n        \n            胸甲護甲值: 273閃避值: 248基礎移動速度: -0.04需求:  等級 80, 67 力量, 67 敏捷對你的擊中減少(15—25)%暴擊傷害加成\n        \n\n\n\n        \n            Thane Mail",
+      "requirements": "需求:  等級 80, 67 力量, 67 敏捷",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "領主鎖甲",
+        "Class": "胸甲",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex8Endgame",
+        "Tags": "str_dex_armour, karui_basetype, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex08",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "對你的擊中減少(15—25)%暴擊傷害加成",
+      "family": "ReducedCriticalStrikeDamageTaken",
+      "tags": [
+        "傷害",
+        "暴擊"
+      ],
+      "stats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "min": 15,
+          "max": 25,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>對你的擊中減少<span class='mod-value'>(15<span class=\"ndash\">—</span>25)</span>%<a data-keyword=\"CriticalDamageBonus\" href=\"Critical_Damage_Bonus\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/0b59f0bab1a4c09ad5ecfa1ee0ea56597b9fc2d166c5313ddb241b7c6d9ad91a\">暴擊傷害加成</a></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>ReducedCriticalStrikeDamageTaken\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>傳奇 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base self critical strike multiplier -% <span class=\"badge bg-primary\">15 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'>傷害</span> <span class='badge bg-primary'>暴擊</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex08.webp"
+}

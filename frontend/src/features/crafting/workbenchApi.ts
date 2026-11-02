@@ -2,7 +2,7 @@ import { sameObservations, type ItemObservations } from './itemObservations'
 import { rulesetHeaders, verifyRulesetResponse } from './rulesetIdentity'
 import { translate } from '../../shared/i18n/i18n'
 import { topBase, topBaseKey } from './topBases'
-import { basePolicy } from './baseRegistry'
+import { basePolicy, baseAffixCapacity } from './baseRegistry'
 import reviewedEssenceTargets from './topBaseEssences.json'
 import { supportsConcreteStateShape } from './workbenchStateShape'
 import displayBindings from '../../shared/i18n/modifierTemplates.json'
@@ -1367,14 +1367,7 @@ export async function applyCurrency(
     if (d.affixType === 'PREFIX') prefixes++
     else suffixes++
   }
-  const capacity =
-    next.rarity === 'NORMAL'
-      ? 0
-      : next.rarity === 'MAGIC'
-        ? 1
-        : isWorkbenchJewel(next.baseItemId)
-          ? 2
-          : 3
+  const capacity = baseAffixCapacity(next.baseItemId, next.rarity)
   const expectedRarity =
     baseAction === 'TRANSMUTATION'
       ? 'MAGIC'
@@ -1405,7 +1398,7 @@ export async function applyCurrency(
   if (
     (isWorkbenchJewel(next.baseItemId)
       ? !reviewedBasicJewel(next)
-      : prefixes > capacity || suffixes > capacity) ||
+      : prefixes > capacity.prefixes || suffixes > capacity.suffixes) ||
     (v.applied &&
       (next.rarity !== expectedRarity ||
         next.explicits.length !== expectedCount)) ||

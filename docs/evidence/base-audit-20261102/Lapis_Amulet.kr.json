@@ -1,0 +1,50 @@
+{
+  "url": "https://poe2db.tw/kr/Lapis_Amulet",
+  "retrievedAt": "2026-11-02T07:56:56.481Z",
+  "sha256": "373f4dea97b12c82bfdd67265ecda796c153ed241fe1f7538dc53f721004acb1",
+  "variants": [
+    {
+      "name": "청금석 목걸이",
+      "card": "청금석 목걸이\n        \n    \n    \n        \n            목걸이요구 사항:  레벨 8지능 +(10—15)\n        \n\n\n\n        \n            Lapis Amulet",
+      "requirements": "요구 사항:  레벨 8",
+      "fields": {
+        "DropLevel": "8",
+        "BaseType": "청금석 목걸이",
+        "Class": "목걸이",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmulet5",
+        "Tags": "amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/LapisAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5",
+        "진줏빛 목걸이": "1x 비취 목걸이 \n1x 호박 목걸이 \n1x 청금석 목걸이"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "지능 +(10—15)",
+      "family": "Intelligence",
+      "tags": [
+        "능력치"
+      ],
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 10,
+          "max": 15,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Intelligence\" href=\"Intelligence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/8edc007123e3d8558df4d8b41bd853e3ca794ca60ae886f800626e057599a4a2\">지능</a> <span class='mod-value'>+(10<span class=\"ndash\">—</span>15)</span></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>Intelligence\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>10 (Effective: 8)\n<tr><th>Stats<td><li>additional intelligence <span class=\"badge bg-primary\">10 <span class=\"ndash\">—</span> 15</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'>능력치</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/LapisAmulet.webp"
+}

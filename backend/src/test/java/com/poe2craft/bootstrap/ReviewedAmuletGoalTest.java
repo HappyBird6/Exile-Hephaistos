@@ -63,6 +63,16 @@ class ReviewedAmuletGoalTest {
                             .isFalse();
                       }
                       for (var stat : catalog.stats()) {
+                        // New source-only implicits remain visible but grant no inferred goal math.
+                        if (stat.kind() == GoalCatalog.Kind.IMPLICIT
+                            && !GoalDefinitionsLoader.load()
+                                .directStats()
+                                .containsKey(stat.sourceStatIds().getFirst())) {
+                          assertThat(stat.support().evaluation()).isEqualTo(Capability.UNSUPPORTED);
+                          assertThat(stat.support().probability())
+                              .isEqualTo(Capability.UNSUPPORTED);
+                          continue;
+                        }
                         assertThat(stat.support().evaluation())
                             .as(key + ":" + stat.statId())
                             .isEqualTo(Capability.SUPPORTED);

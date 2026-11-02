@@ -1,4 +1,5 @@
 import type { AbyssState } from '../AbyssPanel'
+import { baseAffixCapacity } from '../baseRegistry'
 import { assertShape } from '../path-tree/validation'
 
 export type Ratio = { numerator: number; denominator: number }
@@ -80,7 +81,13 @@ export function validateAutomaticAbyss(
     )
       fail()
     for (const side of ['PREFIX', 'SUFFIX'])
-      if (slots.filter((v) => v.side === side).length > 3) fail()
+      if (
+        slots.filter((v) => v.side === side).length >
+        baseAffixCapacity(s.item.item.baseItemId, s.item.item.rarity)[
+          side === 'PREFIX' ? 'prefixes' : 'suffixes'
+        ]
+      )
+        fail()
     for (const slot of slots) {
       if (
         !slot.id ||

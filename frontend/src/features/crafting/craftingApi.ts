@@ -4,6 +4,7 @@ import {
   verifyRulesetResponse,
 } from './rulesetIdentity'
 import type { WorkbenchBaseKey } from './baseRegistry'
+import { baseRarityAllowed } from './baseRegistry'
 import { topBase } from './topBases'
 export const actions = [
   'TRANSMUTATION',
@@ -218,6 +219,7 @@ export async function loadInitial(
   if (
     !object(v) ||
     !bucket(v.state) ||
+    !baseRarityAllowed(v.state.baseItemId, v.state.rarity) ||
     (base !== 'solar'
       ? v.state.baseItemId !==
           (topBase(base)?.id ??

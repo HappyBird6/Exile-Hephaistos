@@ -12,7 +12,9 @@ describe('clipboard base identity', () => {
     for (const [key, text] of Object.entries(baseTexts)) {
       const name = text.split('\n').at(-1)!
       expect(clipboardBase(name, baseClass(key))).toBe(
-        key.startsWith('shrine-') ? undefined : key,
+        key.startsWith('shrine-') || key.startsWith('shrouded-mail-')
+          ? undefined
+          : key,
       )
     }
   })
@@ -25,9 +27,9 @@ describe('clipboard base identity', () => {
   })
 })
 
-it('keeps 134 compatible identities and selects only the 130 reviewed upper bases', () => {
-  expect(Object.keys(baseTexts)).toHaveLength(134)
-  expect(selectableBaseKeys).toHaveLength(130)
+it('keeps 173 compatible identities and excludes only superseded and user-excluded new selections', () => {
+  expect(Object.keys(baseTexts)).toHaveLength(173)
+  expect(selectableBaseKeys).toHaveLength(165)
   for (const [lower, upper] of Object.entries(supersededBases)) {
     expect(selectableBaseKeys).not.toContain(lower)
     expect(selectableBaseKeys).toContain(upper)

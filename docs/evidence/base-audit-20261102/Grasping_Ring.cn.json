@@ -1,0 +1,47 @@
+{
+  "url": "https://poe2db.tw/cn/Grasping_Ring",
+  "retrievedAt": "2026-11-02T08:17:17.861Z",
+  "sha256": "0f54d24c3d05b966114f446ca238e70c8b732d5a02cbc4234aef149e094c2c2a",
+  "variants": [
+    {
+      "name": "贪婪戒指",
+      "card": "贪婪戒指\n        \n    \n    \n        \n            戒指需求：  等级 40此物品可作为手套获得镶嵌物的加成\n        \n\n        \n        \n            求索万物，使其归于我有。\n        \n\n\n        \n            Grasping Ring",
+      "requirements": "需求：  等级 40",
+      "fields": {
+        "DropLevel": "40",
+        "BaseType": "贪婪戒指",
+        "Class": "戒指",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRingB6",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/BreachlordRing_Formless",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "此物品可作为手套获得镶嵌物的加成",
+      "family": "LocalItemBenefitSocketableAsIf",
+      "tags": [],
+      "stats": [
+        {
+          "id": "local_item_benefit_socketable_as_if_gloves",
+          "min": 1,
+          "max": 1,
+          "locality": "区域"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>此物品可作为手套获得镶嵌物的加成</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>LocalItemBenefitSocketableAsIf\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>传奇 (3)\n<tr><th>Req. level<td>50 (Effective: 40)\n<tr><th>Stats<td><li>local item benefit socketable as if gloves <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 1</span> <span class=\"badge bg-secondary\">区域</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/BreachlordRing_Formless.webp"
+}

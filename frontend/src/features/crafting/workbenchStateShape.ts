@@ -1,5 +1,5 @@
 import { observationsShape } from './itemObservations'
-import { basePolicy } from './baseRegistry'
+import { basePolicy, baseRarityAllowed } from './baseRegistry'
 // Preserve future/unsupported item data instead of accepting a lossy affix-only projection.
 import { catalystBase, qualityShape } from './catalystQuality'
 const itemFields = new Set([
@@ -27,6 +27,11 @@ export function supportsConcreteStateShape(value: unknown): boolean {
   )
     return false
   const item = value as Record<string, unknown>
+  if (
+    typeof item.baseItemId === 'string' &&
+    !baseRarityAllowed(item.baseItemId, String(item.rarity))
+  )
+    return false
   if (!observationsShape(item.observations)) return false
   if (
     item.equipmentQuality != null &&

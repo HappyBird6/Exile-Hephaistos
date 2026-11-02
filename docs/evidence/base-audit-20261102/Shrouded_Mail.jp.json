@@ -1,0 +1,136 @@
+{
+  "url": "https://poe2db.tw/jp/Shrouded_Mail",
+  "retrievedAt": "2026-11-02T07:57:03.885Z",
+  "sha256": "50c5d15adebe522bbb175e129385e1f8d5e218a37bb50358fa43350a3ad7a1e9",
+  "variants": [
+    {
+      "name": "シュラウドメイル",
+      "card": "シュラウドメイル\n        \n    \n    \n        \n            鎧アーマー: 273回避力: 248Base Movement Speed: -0.04装備条件： レベル 70, 67 筋力, 67 器用さ火耐性 +(20—25)%\n        \n\n\n\n        \n            Shrouded Mail",
+      "requirements": "装備条件： レベル 70, 67 筋力, 67 器用さ",
+      "fields": {
+        "DropLevel": "70",
+        "BaseType": "シュラウドメイル",
+        "Class": "鎧",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4aEndgame",
+        "Tags": "str_dex_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex04",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    },
+    {
+      "name": "シュラウドメイル",
+      "card": "シュラウドメイル\n        \n    \n    \n        \n            鎧アーマー: 273回避力: 248Base Movement Speed: -0.04装備条件： レベル 70, 67 筋力, 67 器用さ冷気耐性 +(20—25)%\n        \n\n\n\n        \n            Shrouded Mail",
+      "requirements": "装備条件： レベル 70, 67 筋力, 67 器用さ",
+      "fields": {
+        "DropLevel": "70",
+        "BaseType": "シュラウドメイル",
+        "Class": "鎧",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame",
+        "Tags": "str_dex_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex04",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    },
+    {
+      "name": "シュラウドメイル",
+      "card": "シュラウドメイル\n        \n    \n    \n        \n            鎧アーマー: 273回避力: 248Base Movement Speed: -0.04装備条件： レベル 70, 67 筋力, 67 器用さ雷耐性 +(20—25)%\n        \n\n\n\n        \n            Shrouded Mail",
+      "requirements": "装備条件： レベル 70, 67 筋力, 67 器用さ",
+      "fields": {
+        "DropLevel": "70",
+        "BaseType": "シュラウドメイル",
+        "Class": "鎧",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4cEndgame",
+        "Tags": "str_dex_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex04",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "火耐性 +(20—25)%",
+      "family": "FireResistance",
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "元素",
+        "火",
+        "耐性"
+      ],
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 20,
+          "max": 25,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/b60a4d7d0d8684f32a0007a6296c1de4c30766352b7e6646f0014d2e39b076d3\">火</a>耐性 <span class='mod-value'>+(20<span class=\"ndash\">—</span>25)</span>%</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>FireResistance\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>ユニーク (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base fire damage resistance % <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>fire_resistance</i></span> <span class='badge bg-primary'>元素</span> <span class='badge bg-primary'>火</span> <span class='badge bg-primary'>耐性</span> </table>"
+    },
+    {
+      "text": "冷気耐性 +(20—25)%",
+      "family": "ColdResistance",
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "元素",
+        "冷気",
+        "耐性"
+      ],
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 20,
+          "max": 25,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/b60a4d7d0d8684f32a0007a6296c1de4c30766352b7e6646f0014d2e39b076d3\">冷気</a>耐性 <span class='mod-value'>+(20<span class=\"ndash\">—</span>25)</span>%</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>ColdResistance\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>ユニーク (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base cold damage resistance % <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>cold_resistance</i></span> <span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'>元素</span> <span class='badge bg-primary'>冷気</span> <span class='badge bg-primary'>耐性</span> </table>"
+    },
+    {
+      "text": "雷耐性 +(20—25)%",
+      "family": "LightningResistance",
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "元素",
+        "雷",
+        "耐性"
+      ],
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 20,
+          "max": 25,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/b60a4d7d0d8684f32a0007a6296c1de4c30766352b7e6646f0014d2e39b076d3\">雷</a>耐性 <span class='mod-value'>+(20<span class=\"ndash\">—</span>25)</span>%</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>LightningResistance\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>ユニーク (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base lightning damage resistance % <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>lightning_resistance</i></span> <span class='badge bg-primary'>元素</span> <span class='badge bg-primary'>雷</span> <span class='badge bg-primary'>耐性</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex04.webp"
+}

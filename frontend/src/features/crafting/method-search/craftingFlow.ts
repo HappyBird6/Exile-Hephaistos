@@ -1,4 +1,5 @@
 import type { AbyssState } from '../AbyssPanel'
+import { baseAffixCapacity } from '../baseRegistry'
 import type { ConcreteItem, WorkbenchAction } from '../workbenchApi'
 import type { CreateRequest, Item } from '../path-tree/types'
 import { assertShape } from '../path-tree/validation'
@@ -282,7 +283,11 @@ export function validFlow(
         s.item.explicits.length !== 0 ||
         new Set(s.slots.map((x) => x.id)).size !== s.slots.length ||
         ['PREFIX', 'SUFFIX'].some(
-          (side) => s.slots.filter((x) => x.side === side).length > 3,
+          (side) =>
+            s.slots.filter((x) => x.side === side).length >
+            baseAffixCapacity(s.item.baseItemId, s.item.rarity)[
+              side === 'PREFIX' ? 'prefixes' : 'suffixes'
+            ],
         )
       )
         return false

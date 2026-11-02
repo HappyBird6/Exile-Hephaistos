@@ -1,0 +1,136 @@
+{
+  "url": "https://poe2db.tw/kr/Shrouded_Mail",
+  "retrievedAt": "2026-11-02T07:57:03.769Z",
+  "sha256": "8e9dabe3131fbe6bec08fd28807dc2b3af6b66eee6805c2138cf83f100ad663f",
+  "variants": [
+    {
+      "name": "연막의 사슬옷",
+      "card": "연막의 사슬옷\n        \n    \n    \n        \n            갑옷방어도: 273회피: 248Base Movement Speed: -0.04요구 사항:  레벨 70, 67 힘, 67 민첩화염 저항 +(20—25)%\n        \n\n\n\n        \n            Shrouded Mail",
+      "requirements": "요구 사항:  레벨 70, 67 힘, 67 민첩",
+      "fields": {
+        "DropLevel": "70",
+        "BaseType": "연막의 사슬옷",
+        "Class": "갑옷",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4aEndgame",
+        "Tags": "str_dex_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex04",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    },
+    {
+      "name": "연막의 사슬옷",
+      "card": "연막의 사슬옷\n        \n    \n    \n        \n            갑옷방어도: 273회피: 248Base Movement Speed: -0.04요구 사항:  레벨 70, 67 힘, 67 민첩냉기 저항 +(20—25)%\n        \n\n\n\n        \n            Shrouded Mail",
+      "requirements": "요구 사항:  레벨 70, 67 힘, 67 민첩",
+      "fields": {
+        "DropLevel": "70",
+        "BaseType": "연막의 사슬옷",
+        "Class": "갑옷",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame",
+        "Tags": "str_dex_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex04",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    },
+    {
+      "name": "연막의 사슬옷",
+      "card": "연막의 사슬옷\n        \n    \n    \n        \n            갑옷방어도: 273회피: 248Base Movement Speed: -0.04요구 사항:  레벨 70, 67 힘, 67 민첩번개 저항 +(20—25)%\n        \n\n\n\n        \n            Shrouded Mail",
+      "requirements": "요구 사항:  레벨 70, 67 힘, 67 민첩",
+      "fields": {
+        "DropLevel": "70",
+        "BaseType": "연막의 사슬옷",
+        "Class": "갑옷",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4cEndgame",
+        "Tags": "str_dex_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex04",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "화염 저항 +(20—25)%",
+      "family": "FireResistance",
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "원소",
+        "화염",
+        "저항"
+      ],
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 20,
+          "max": 25,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/d4935e398393f9ca891569d005a09b981f85e14023f0b8409a1462f7e001cbaa\">화염</a> 저항 <span class='mod-value'>+(20<span class=\"ndash\">—</span>25)</span>%</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>FireResistance\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base fire damage resistance % <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>fire_resistance</i></span> <span class='badge bg-primary'>원소</span> <span class='badge bg-primary'>화염</span> <span class='badge bg-primary'>저항</span> </table>"
+    },
+    {
+      "text": "냉기 저항 +(20—25)%",
+      "family": "ColdResistance",
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "원소",
+        "냉기",
+        "저항"
+      ],
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 20,
+          "max": 25,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/d4935e398393f9ca891569d005a09b981f85e14023f0b8409a1462f7e001cbaa\">냉기</a> 저항 <span class='mod-value'>+(20<span class=\"ndash\">—</span>25)</span>%</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>ColdResistance\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base cold damage resistance % <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>cold_resistance</i></span> <span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'>원소</span> <span class='badge bg-primary'>냉기</span> <span class='badge bg-primary'>저항</span> </table>"
+    },
+    {
+      "text": "번개 저항 +(20—25)%",
+      "family": "LightningResistance",
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "원소",
+        "번개",
+        "저항"
+      ],
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 20,
+          "max": 25,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/d4935e398393f9ca891569d005a09b981f85e14023f0b8409a1462f7e001cbaa\">번개</a> 저항 <span class='mod-value'>+(20<span class=\"ndash\">—</span>25)</span>%</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>LightningResistance\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base lightning damage resistance % <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>lightning_resistance</i></span> <span class='badge bg-primary'>원소</span> <span class='badge bg-primary'>번개</span> <span class='badge bg-primary'>저항</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex04.webp"
+}

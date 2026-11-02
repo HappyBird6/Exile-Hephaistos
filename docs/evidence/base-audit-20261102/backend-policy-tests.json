@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "command": "spotlessCheck test --tests com.poe2craft.bootstrap.BaseSelectionPolicyTest --tests com.poe2craft.item.BaseRegistryTest --tests com.poe2craft.crafting.ReviewedBeltsTest bootJar",
+  "suites": [
+    {
+      "name": "com.poe2craft.bootstrap.BaseSelectionPolicyTest",
+      "tests": "3",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "time": "10.077"
+    },
+    {
+      "name": "com.poe2craft.item.BaseRegistryTest",
+      "tests": "4",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "time": "0.397"
+    },
+    {
+      "name": "com.poe2craft.crafting.ReviewedBeltsTest",
+      "tests": "13",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "time": "1.518"
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "url": "https://poe2db.tw/cn/Runemastered_Veridical_Chain",
+  "retrievedAt": "2026-11-02T08:17:21.027Z",
+  "sha256": "c88c3512e976798f1d260388f11140cf29af27dff3a0ef15a3a2b35daaabb1af",
+  "variants": [
+    {
+      "name": "符文师匠真相之链",
+      "card": "符文师匠真相之链\n        \n    \n    \n        \n            项链需求：  等级 65+(30—40) 符文结界上限+(2—3)% 冰霜抗性上限\n        \n\n\n\n        \n            Runemastered Veridical Chain",
+      "requirements": "需求：  等级 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "符文师匠真相之链",
+        "Class": "项链",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmuletUnique1VerisiumUnique1",
+        "Tags": "runeforged, amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/BloodstoneAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    },
+    {
+      "name": "符文师匠真相之链",
+      "card": "符文师匠真相之链\n        \n    \n    \n        \n            项链需求：  等级 65+(30—40) 符文结界上限所有冰霜技能等级 +(1—2)\n        \n\n\n\n        \n            Runemastered Veridical Chain",
+      "requirements": "需求：  等级 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "符文师匠真相之链",
+        "Class": "项链",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmuletUnique1VerisiumUnique2",
+        "Tags": "runeforged, amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/BloodstoneAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    },
+    {
+      "name": "符文师匠真相之链",
+      "card": "符文师匠真相之链\n        \n    \n    \n        \n            项链需求：  等级 65符文结界上限提高 (15—20)%\n        \n\n\n\n        \n            Runemastered Veridical Chain",
+      "requirements": "需求：  等级 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "符文师匠真相之链",
+        "Class": "项链",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmuletUnique1VerisiumUnique3",
+        "Tags": "runeforged, amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/BloodstoneAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "+(30—40) 符文结界上限",
+      "family": "BaseRunicWard",
+      "tags": [
+        "runic_ward"
+      ],
+      "stats": [
+        {
+          "id": "base_maximum_ward",
+          "min": 30,
+          "max": 40,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(30<span class=\"ndash\">—</span>40)</span> <a data-keyword=\"Ward\" href=\"Runic_Ward\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/6eaf6d540460378e48a8cf82a110fee03a3c1fff03d57094d4afeb743bfaa017\">符文结界</a>上限</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>BaseRunicWard\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>传奇 (3)\n<tr><th>Req. level<td>23 (Effective: 18)\n<tr><th>Stats<td><li>base maximum ward <span class=\"badge bg-primary\">30 <span class=\"ndash\">—</span> 40</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>runic_ward</i></span> </table>"
+    },
+    {
+      "text": "+(2—3)% 冰霜抗性上限",
+      "family": "MaximumColdResist",
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "元素",
+        "冰霜",
+        "抗性"
+      ],
+      "stats": [
+        {
+          "id": "base_maximum_cold_damage_resistance_%",
+          "min": 2,
+          "max": 3,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(2<span class=\"ndash\">—</span>3)</span>% <a data-keyword=\"MaximumResistances\" href=\"Maximum_Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/e5b0348240cc8f29bb6d4346b7020eda93501fb712878f8a830fd96ff45b06b5\">冰霜抗性上限</a></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>MaximumColdResist\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>传奇 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base maximum cold damage resistance % <span class=\"badge bg-primary\">2 <span class=\"ndash\">—</span> 3</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>cold_resistance</i></span> <span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'>元素</span> <span class='badge bg-primary'>冰霜</span> <span class='badge bg-primary'>抗性</span> </table>"
+    },
+    {
+      "text": "+(30—40) 符文结界上限",
+      "family": "BaseRunicWard",
+      "tags": [
+        "runic_ward"
+      ],
+      "stats": [
+        {
+          "id": "base_maximum_ward",
+          "min": 30,
+          "max": 40,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(30<span class=\"ndash\">—</span>40)</span> <a data-keyword=\"Ward\" href=\"Runic_Ward\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/6eaf6d540460378e48a8cf82a110fee03a3c1fff03d57094d4afeb743bfaa017\">符文结界</a>上限</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>BaseRunicWard\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>传奇 (3)\n<tr><th>Req. level<td>23 (Effective: 18)\n<tr><th>Stats<td><li>base maximum ward <span class=\"badge bg-primary\">30 <span class=\"ndash\">—</span> 40</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>runic_ward</i></span> </table>"
+    },
+    {
+      "text": "所有冰霜技能等级 +(1—2)",
+      "family": "GlobalDamageTypeGemLevel",
+      "tags": [
+        "元素",
+        "冰霜",
+        "宝石"
+      ],
+      "stats": [
+        {
+          "id": "cold_skill_gem_level_+",
+          "min": 1,
+          "max": 2,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>所有<a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/cba30353966d6ebf894f2c26945dd30b798583eb7aa55dd69113564a145b034e\">冰霜</a>技能等级 <span class='mod-value'>+(1<span class=\"ndash\">—</span>2)</span></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>GlobalDamageTypeGemLevel\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>传奇 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>cold skill gem level + <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 2</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'>元素</span> <span class='badge bg-primary'>冰霜</span> <span class='badge bg-primary'>宝石</span> </table>"
+    },
+    {
+      "text": "符文结界上限提高 (15—20)%",
+      "family": "RunicWardPercent",
+      "tags": [
+        "runic_ward"
+      ],
+      "stats": [
+        {
+          "id": "maximum_ward_+%",
+          "min": 15,
+          "max": 20,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Ward\" href=\"Runic_Ward\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/6eaf6d540460378e48a8cf82a110fee03a3c1fff03d57094d4afeb743bfaa017\">符文结界</a>上限提高 <span class='mod-value'>(15<span class=\"ndash\">—</span>20)</span>%</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>RunicWardPercent\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>传奇 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>maximum ward +% <span class=\"badge bg-primary\">15 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>runic_ward</i></span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/BloodstoneAmulet.webp"
+}

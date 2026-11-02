@@ -46,7 +46,7 @@ class ReviewedBeltsTest {
             c.metadata().snapshotId(),
             c.base().id(),
             82,
-            ItemState.Rarity.NORMAL,
+            BaseRegistry.rareOnly(c.base().id()) ? ItemState.Rarity.RARE : ItemState.Rarity.NORMAL,
             List.of(new ModifierInstance(d.id(), values)),
             List.of(),
             Set.of());

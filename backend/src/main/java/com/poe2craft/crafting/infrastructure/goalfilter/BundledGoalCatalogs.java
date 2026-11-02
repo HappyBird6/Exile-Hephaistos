@@ -37,4 +37,23 @@ public final class BundledGoalCatalogs {
   public static List<ItemCatalog> load(WorkbenchService workbench) {
     return workbench.reviewedCatalogs();
   }
+
+  /** Frozen membership reproduces saved catalog signatures before the base-picker expansion. */
+  public static List<ItemCatalog> loadHistoricalV5(WorkbenchService workbench) {
+    try (var stream =
+        com.poe2craft.support.SealedResources.open(
+            "/crafting/goalfilter/base-inventory-v5-readonly.json")) {
+      var ids =
+          new com.fasterxml.jackson.databind.ObjectMapper()
+              .readValue(
+                  stream,
+                  new com.fasterxml.jackson.core.type.TypeReference<java.util.Set<String>>() {});
+      var catalogs = load(workbench).stream().filter(c -> ids.contains(c.base().id())).toList();
+      if (catalogs.size() != ids.size())
+        throw new IllegalStateException("Historical base inventory changed");
+      return catalogs;
+    } catch (IOException error) {
+      throw new IllegalStateException("Cannot read historical base inventory", error);
+    }
+  }
 }

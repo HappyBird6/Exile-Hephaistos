@@ -1,0 +1,46 @@
+{
+  "url": "https://poe2db.tw/us/Conjurer_Mantle",
+  "retrievedAt": "2026-11-02T07:57:04.737Z",
+  "sha256": "a9248abe4d1cd233cc631af227b1e150265140c3886b321012b6eddc69e1d1a8",
+  "variants": [
+    {
+      "name": "Conjurer Mantle",
+      "card": "Conjurer Mantle\n        \n    \n    \n        \n            Body ArmoursArmour: 273Energy Shield: 76Base Movement Speed: -0.04Requires:  Level 70, 67 Str, 67 Int+(20—30) to Spirit",
+      "requirements": "Requires:  Level 70, 67 Str, 67 Int",
+      "fields": {
+        "DropLevel": "70",
+        "BaseType": "Conjurer Mantle",
+        "Class": "Body Armours",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt4Endgame",
+        "Tags": "str_int_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr04",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "+(20—30) to Spirit",
+      "family": "BaseSpirit",
+      "tags": [],
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 20,
+          "max": 30,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(20<span class=\"ndash\">—</span>30)</span> to <a data-keyword=\"Spirit\" href=\"Spirit\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/0ba37aeec43462498eae858db9ba1aa919fe6a53037cbccf734926e8ff09492c\">Spirit</a></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>BaseSpirit\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Unique (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base spirit from equipment <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 30</span> <span class=\"badge bg-secondary\">Global</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr04.webp"
+}

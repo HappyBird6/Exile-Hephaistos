@@ -40,6 +40,10 @@ public final class SolarTextMapper {
                                 l -> BaseRegistry.recognizesGrantedSkill(c.base().id(), l.raw())))
                 .toList();
     }
+    if (candidates.size() > 1) {
+      var resolved = candidates.stream().map(c -> map(item, c)).filter(Result::mapped).toList();
+      if (resolved.size() == 1) return resolved.getFirst();
+    }
     if (candidates.size() != 1)
       return new Result(
           false, null, List.of(new Issue(0, "An exact, unambiguous registered base is required.")));

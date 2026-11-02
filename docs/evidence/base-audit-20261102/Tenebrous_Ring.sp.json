@@ -1,0 +1,53 @@
+{
+  "url": "https://poe2db.tw/sp/Tenebrous_Ring",
+  "retrievedAt": "2026-11-02T08:17:19.663Z",
+  "sha256": "a903b76e97445add18fc6323e249ca601287e44f1c0b417119ef5b9b8a2f3b74",
+  "variants": [
+    {
+      "name": "Anillo tenebroso",
+      "card": "Anillo tenebroso\n        \n    \n    \n        \n            Anillos-2 modificadores de prefijo permitidos\n+2 modificadores de sufijo permitidos\n        \n\n\n\n        \n            Tenebrous Ring",
+      "requirements": "",
+      "fields": {
+        "DropLevel": "1",
+        "BaseType": "Anillo tenebroso",
+        "Class": "Anillos",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRingLake4",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/LakeRing4",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "-2 modificadores de prefijo permitidos\n+2 modificadores de sufijo permitidos",
+      "family": "MaxPrefixMaxSuffix",
+      "tags": [],
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -2,
+          "max": -2,
+          "locality": "Local"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 2,
+          "max": 2,
+          "locality": "Local"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>-2</span> modificadores de prefijo permitidos<br><span class='mod-value'>+2</span> modificadores de sufijo permitidos</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>MaxPrefixMaxSuffix\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>único (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>local maximum prefixes allowed + <span class=\"badge bg-primary\">-2 <span class=\"ndash\">—</span> -2</span> <span class=\"badge bg-secondary\">Local</span></li><li>local maximum suffixes allowed + <span class=\"badge bg-primary\">2 <span class=\"ndash\">—</span> 2</span> <span class=\"badge bg-secondary\">Local</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/LakeRing4.webp"
+}

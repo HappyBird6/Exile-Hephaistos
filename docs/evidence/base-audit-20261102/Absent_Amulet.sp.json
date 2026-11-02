@@ -1,0 +1,53 @@
+{
+  "url": "https://poe2db.tw/sp/Absent_Amulet",
+  "retrievedAt": "2026-11-02T07:56:30.920Z",
+  "sha256": "d15c162b0d0d46fc3e508424c725f561a72793824c067022d27facf3c87343ef",
+  "variants": [
+    {
+      "name": "Amuleto ausente",
+      "card": "Amuleto ausente\n        \n    \n    \n        \n            AmuletosRequiere:  Nivel 50 Otorga la habilidad: Nivel 12 Lanzar al infligir estado alterado elemental Otorga la habilidad: Nivel 12 Lanzar al infligir impactos críticos Otorga la habilidad: Nivel 12 Lanzar al esquivar rodando Otorga la habilidad: Nivel 12 Montura de rhoa Otorga la habilidad: Nivel 12 Archimago Otorga la habilidad: Nivel 12 Trinidad Otorga la habilidad: Nivel 12 Furia eterna-1 modificador de prefijo permitido\n-1 modificador de sufijo permitido\n        \n\n        \n        \n            Nos aferramos a los nonatos eternos...\n        \n\n\n        \n            Absent Amulet",
+      "requirements": "Requiere:  Nivel 50",
+      "fields": {
+        "DropLevel": "50",
+        "BaseType": "Amuleto ausente",
+        "Class": "Amuletos",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmuletB1c",
+        "Tags": "amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/AbsentAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "-1 modificador de prefijo permitido\n-1 modificador de sufijo permitido",
+      "family": "MaxPrefixMaxSuffix",
+      "tags": [],
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "Local"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "Local"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>-1</span> modificador de prefijo permitido<br><span class='mod-value'>-1</span> modificador de sufijo permitido</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>MaxPrefixMaxSuffix\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>único (3)\n<tr><th>Req. level<td>62 (Effective: 49)\n<tr><th>Stats<td><li>local maximum prefixes allowed + <span class=\"badge bg-primary\">-1 <span class=\"ndash\">—</span> -1</span> <span class=\"badge bg-secondary\">Local</span></li><li>local maximum suffixes allowed + <span class=\"badge bg-primary\">-1 <span class=\"ndash\">—</span> -1</span> <span class=\"badge bg-secondary\">Local</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/AbsentAmulet.webp"
+}

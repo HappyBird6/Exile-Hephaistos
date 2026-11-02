@@ -1082,5 +1082,311 @@
     "file": "eb66027411c50482cba1.webp",
     "sha256": "eb66027411c50482cba1cecff3354b24ac586cf24f4625d229a945b9eb1abb25",
     "size": 13850
+  },
+  "Metadata/Items/Amulets/FourAmulet4": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/JadeAmulet.webp",
+    "source": "docs/evidence/base-audit-20261102/Jade_Amulet.us.json",
+    "sourceSha256": "88630d50debbcca61ce1779588d338a83a40513e535534ce09bbabb31a08d5de",
+    "file": "47b0e2ecbe0905d161df.webp",
+    "sha256": "47b0e2ecbe0905d161dfea4fafed174150288daf969cd1ef24f2991617e28da8",
+    "size": 3948
+  },
+  "Metadata/Items/Amulets/FourAmulet5": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/LapisAmulet.webp",
+    "source": "docs/evidence/base-audit-20261102/Lapis_Amulet.us.json",
+    "sourceSha256": "62c4241346e607ed1370e601c805386ace3dfe2c5f6bd1273692631e855f85d1",
+    "file": "133380b968752a6069f7.webp",
+    "sha256": "133380b968752a6069f795f1dbd45ed5669488310bdd069bda76ab8506c057c2",
+    "size": 4986
+  },
+  "Metadata/Items/Amulets/FourAmulet10": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/GoldAmulet.webp",
+    "source": "docs/evidence/base-audit-20261102/Gold_Amulet.us.json",
+    "sourceSha256": "58e025a723985058a6fe0f8a1f32027360cde51eddd8b9cc5120684daf73caaf",
+    "file": "417e1e6ce7f820c39457.webp",
+    "sha256": "417e1e6ce7f820c39457fbb576adaad4ede226d7a277da951c95a3c6b99d6c06",
+    "size": 6676
+  },
+  "Metadata/Items/Amulets/FourAmuletDelirium1": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/TwistedAmulet.webp",
+    "source": "docs/evidence/base-audit-20261102/Twisted_Amulet.us.json",
+    "sourceSha256": "0110f960c08a65467a8cf40dc24fa2716b6b4e6cb15a59465fbc4bdbae81723f",
+    "file": "950157750a092b91998c.webp",
+    "sha256": "950157750a092b91998cc81fe6beed62bce2d3cc300376b6770ee58dd8c7870e",
+    "size": 2834
+  },
+  "Metadata/Items/Amulets/FourAmuletDelirium2": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/DistortedAmulet.webp",
+    "source": "docs/evidence/base-audit-20261102/Distorted_Amulet.us.json",
+    "sourceSha256": "5d59b885f2edd7f3e23b7f2c6c7472ddd9b70473d650f9ad146892dcda23f6d2",
+    "cacheBlocked": "HTTP 403: source denied download; placeholder until supplied art is available."
+  },
+  "Metadata/Items/Amulets/FourAmuletB1c": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/AbsentAmulet.webp",
+    "source": "docs/evidence/base-audit-20261102/Absent_Amulet.us.json",
+    "sourceSha256": "ec6af41a30af538d8f28744074046e972273777297f8d512bafb1ce3ab43e336",
+    "file": "be633cc71bffa3e991f8.webp",
+    "sha256": "be633cc71bffa3e991f8e77ee8ca0fe7df697ee653fc9d31ccfd47a4c8184654",
+    "size": 4696
+  },
+  "Metadata/Items/Amulets/FourAmuletB1b": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/PortentAmulet.webp",
+    "source": "docs/evidence/base-audit-20261102/Portent_Amulet.us.json",
+    "sourceSha256": "1dc911205b6f29075a103df592d38e7bcc514d168270493da20c7e3baef5e91e",
+    "file": "20efbfe01b711c6f18e4.webp",
+    "sha256": "20efbfe01b711c6f18e47a2664ef0080b8d2005d9e45574a4c77425787242b3e",
+    "size": 4484
+  },
+  "Metadata/Items/Amulets/FourAmuletB1a": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/LamentAmulet.webp",
+    "source": "docs/evidence/base-audit-20261102/Lament_Amulet.us.json",
+    "sourceSha256": "8bba2517d9236de6544de8dec658823020e977d9a4393fedaef22c9c23347639",
+    "file": "7082b29a3348c7e139c7.webp",
+    "sha256": "7082b29a3348c7e139c7a18a3f459c3ff0bafbf3806121a49a186ad9b9b61498",
+    "size": 4494
+  },
+  "Metadata/Items/Amulets/FourAmuletLake1": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/HeistAmulet1.webp",
+    "source": "docs/evidence/base-audit-20261102/Dusk_Amulet.us.json",
+    "sourceSha256": "d7b94afd11608c7b5d2d4551e4d3b0a2a0aeb1a0d8cca88a0c8819ed3704deb7",
+    "file": "fa51ddda033bfc6a5a70.webp",
+    "sha256": "fa51ddda033bfc6a5a70566ef49ae6511f28cab8c164a6c260fdd9583cadada3",
+    "size": 2360
+  },
+  "Metadata/Items/Amulets/FourAmuletLake3": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/HeistAmulet2.webp",
+    "source": "docs/evidence/base-audit-20261102/Penumbra_Amulet.us.json",
+    "sourceSha256": "f96c3be344be61bcff4be42243d76eedb43c9045a52ae873ab3eb0d5673f45cb",
+    "file": "eab659de46f66449f800.webp",
+    "sha256": "eab659de46f66449f80047623572698492be4a963b8880b19db7d9ef45ae9f03",
+    "size": 2878
+  },
+  "Metadata/Items/Amulets/FourAmuletLake2": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/HeistAmulet1.webp",
+    "source": "docs/evidence/base-audit-20261102/Gloam_Amulet.us.json",
+    "sourceSha256": "b084f5699ac35203ebd1786dee23621367d400313cd4b3ab557bf4c16844379a",
+    "file": "fa51ddda033bfc6a5a70.webp",
+    "sha256": "fa51ddda033bfc6a5a70566ef49ae6511f28cab8c164a6c260fdd9583cadada3",
+    "size": 2360
+  },
+  "Metadata/Items/Amulets/FourAmuletB2": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/CoronaAmulet.webp",
+    "source": "docs/evidence/base-audit-20261102/Corona_Amulet.us.json",
+    "sourceSha256": "54953a286d299b0ecb7b695d61668e5113ebf32d6616745eddd8d50794a715c1",
+    "file": "b33a5e27384d8a006724.webp",
+    "sha256": "b33a5e27384d8a00672466a9ad450a8dcf57d8c51a34d29dc736c5eac6deddc0",
+    "size": 5006
+  },
+  "Metadata/Items/Amulets/FourAmuletLake4": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/HeistAmulet2.webp",
+    "source": "docs/evidence/base-audit-20261102/Tenebrous_Amulet.us.json",
+    "sourceSha256": "0a92dc7a241a0782254513e6e84bc87e16a06f68b27e4ccefc06cdc74d7c2dcd",
+    "file": "eab659de46f66449f800.webp",
+    "sha256": "eab659de46f66449f80047623572698492be4a963b8880b19db7d9ef45ae9f03",
+    "size": 2878
+  },
+  "Metadata/Items/Rings/FourRing2": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/LazuliRing.webp",
+    "source": "docs/evidence/base-audit-20261102/Lazuli_Ring.us.json",
+    "sourceSha256": "1a5f02b3a4644323829808ccd68123c16a0c2d80e68b6b78ecdd08d3fa7857a7",
+    "file": "73ba1f7eecd8008c590b.webp",
+    "sha256": "73ba1f7eecd8008c590b07d6e121e1afaedc052dc839a52946d10cdbcf3f9673",
+    "size": 4500
+  },
+  "Metadata/Items/Rings/FourRing4": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/SapphireRing.webp",
+    "source": "docs/evidence/base-audit-20261102/Sapphire_Ring.us.json",
+    "sourceSha256": "324f3915cb579bd87c3c17c51c61b0e5fbc60ef08a8b298cdbd55c241290775f",
+    "file": "cf1ffd86e75fe2b15866.webp",
+    "sha256": "cf1ffd86e75fe2b1586675abb9011d0da968d4f9d688064bc75883e8917afa52",
+    "size": 5076
+  },
+  "Metadata/Items/Rings/FourRing5": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/TopazRing.webp",
+    "source": "docs/evidence/base-audit-20261102/Topaz_Ring.us.json",
+    "sourceSha256": "36f3a66fc0f6eda4ec170404967714a9076085eaadb0c8ebad077f1bfdbfa8a4",
+    "file": "2c145d56f770c1818fd6.webp",
+    "sha256": "2c145d56f770c1818fd6bc80c2121d0c47b9226d772c3a25118d853fd1d4f71b",
+    "size": 5422
+  },
+  "Metadata/Items/Rings/FourRing7": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/EmeraldRing.webp",
+    "source": "docs/evidence/base-audit-20261102/Emerald_Ring.us.json",
+    "sourceSha256": "efa7bbd54c63c05dd4c1220905d933a90e33b0057fbd02bf9e74550b59da934a",
+    "file": "ff6f6c02f108719064a4.webp",
+    "sha256": "ff6f6c02f108719064a4cda40a14a155f9ca5d0f395cf1234cce504aa3ab143e",
+    "size": 5472
+  },
+  "Metadata/Items/Rings/FourRing10": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/GoldRing.webp",
+    "source": "docs/evidence/base-audit-20261102/Gold_Ring.us.json",
+    "sourceSha256": "05a6b4b6fba4013b088f1bcdccfab7d136f5a79021a23c8a9be8232fd6c11bc4",
+    "file": "0afadf78b49817e92d9b.webp",
+    "sha256": "0afadf78b49817e92d9baaafdf69783749a4c12fe8e886048dd37cdf6721cf61",
+    "size": 4846
+  },
+  "Metadata/Items/Rings/FourRing11": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/UnsetRing.webp",
+    "source": "docs/evidence/base-audit-20261102/Unset_Ring.us.json",
+    "sourceSha256": "fdfd4967da06895027af381e98d9aaf63ad2960528253ecaeae1b878261f0cff",
+    "file": "00ff78b170c6ef736e25.webp",
+    "sha256": "00ff78b170c6ef736e25a0c6b9b5dac54306fc58c8af3c90d5b464ad2e0a041d",
+    "size": 4736
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStr8Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStr08.webp",
+    "source": "docs/evidence/base-audit-20261102/Utzaal_Cuirass.us.json",
+    "sourceSha256": "66838511ad270a6b76c672d1f5e2801d4a68f102b031d5c16afce5101562afc7",
+    "file": "5e90514aa6f28fe024cd.webp",
+    "sha256": "5e90514aa6f28fe024cd8d449bf8d5aa08fa5a2f2f68622872279d6b94bc624d",
+    "size": 20516
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStr15": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStr01.webp",
+    "source": "docs/evidence/base-audit-20261102/Abyssal_Cuirass.us.json",
+    "sourceSha256": "ad683e66746e80b58cb64159c1a2ca322147c1f99994006c97be4abdd6125ff2",
+    "file": "0036334b08ffda0e2bf2.webp",
+    "sha256": "0036334b08ffda0e2bf262db9c4d1ee82fbd1f489cc62e2e9b217e7b3e64195a",
+    "size": 15052
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStr10.webp",
+    "source": "docs/evidence/base-audit-20261102/Warlord_Cuirass.us.json",
+    "sourceSha256": "0027f680304597b7abf426b98d86c68d531d561b247c2f75eb936146692f404d",
+    "file": "00c5974ddb4346ef616d.webp",
+    "sha256": "00c5974ddb4346ef616deb1469a6f7838d0c799ab66b6fd890dfc70506b6aa51",
+    "size": 21998
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyDex14": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex01.webp",
+    "source": "docs/evidence/base-audit-20261102/Mail_Coat.us.json",
+    "sourceSha256": "366f970b100478ef0012814699e089cc7e8d0a848ab8300177a4649ac9a080fc",
+    "file": "850b9d91fb64c997b4a2.webp",
+    "sha256": "850b9d91fb64c997b4a2c9adb3c1c13e89b7f6867e6ddc49df7c16c56c5dfbd7",
+    "size": 14354
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyDex8Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex08.webp",
+    "source": "docs/evidence/base-audit-20261102/Wyrmscale_Coat.us.json",
+    "sourceSha256": "30e6bc773790ff82e8d97a86580b4cd7ce9b4ba35f21fc72ddcacf3aa5b4da90",
+    "file": "ef62fdccf7ffabd5bd90.webp",
+    "sha256": "ef62fdccf7ffabd5bd905a4578eef96ec123d91c20512f91d3f96d3cf98c8e33",
+    "size": 21986
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyDex10Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex10.webp",
+    "source": "docs/evidence/base-audit-20261102/Corsair_Coat.us.json",
+    "sourceSha256": "352e3fc9fb7dbee6a92962c9c4a97590be95c32b9e9b706bd69a5922881b5890",
+    "file": "befcd98b777d4150a605.webp",
+    "sha256": "befcd98b777d4150a6058b30c93429237791874c92e4756b01dbb6378d896cee",
+    "size": 20058
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyInt6Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyInt06.webp",
+    "source": "docs/evidence/base-audit-20261102/Flowing_Raiment.us.json",
+    "sourceSha256": "3738f0069c5c35554d6d4eb83fbb99c0f10a7b72e8f1363c6827cc7984bdc318",
+    "cacheBlocked": "HTTP 403: source denied download; placeholder until supplied art is available."
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyInt8Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyInt08.webp",
+    "source": "docs/evidence/base-audit-20261102/Sacramental_Robe.us.json",
+    "sourceSha256": "a4c84c467cbbb08d6c904966369cc4a84e7607ad76f0aec060f6e701ded1b917",
+    "file": "d86319d82218e330561b.webp",
+    "sha256": "d86319d82218e330561bb70cb5fc8b447fe2db1a371fc9b0d1b2209a987d342e",
+    "size": 12212
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyInt10Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyInt10.webp",
+    "source": "docs/evidence/base-audit-20261102/Feathered_Raiment.us.json",
+    "sourceSha256": "ebf09f229d6bada3ce611f18975eb791132a5d6cbeaf6dc1178c199114a4c931",
+    "file": "8262ef502d75c4ffc0f9.webp",
+    "sha256": "8262ef502d75c4ffc0f9200c3af4bb521cd4cf1a2e5d504492a1aaf3db61e417",
+    "size": 18718
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrDex2Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex02.webp",
+    "source": "docs/evidence/base-audit-20261102/Dastard_Armour.us.json",
+    "sourceSha256": "facf25521048a24397a3450c84aa2cca059edf1a61ecb4540194da4f50b0943c",
+    "file": "929c11d0b874f08e2e56.webp",
+    "sha256": "929c11d0b874f08e2e564f89ddb6246bc9e3ff655c40031e2becbd15751122ed",
+    "size": 19302
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4aEndgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex04.webp",
+    "source": "docs/evidence/base-audit-20261102/Shrouded_Mail.us.json",
+    "sourceSha256": "0fce220aff1d040738816b78494d3d6b22b83b7d6bb6ac39cdb84e335119733a",
+    "file": "97dd5bfd5b6805176d6c.webp",
+    "sha256": "97dd5bfd5b6805176d6cf6a6df8f556b402f0ee7f2d09c25673b4b0569bab752",
+    "size": 16096
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex04.webp",
+    "source": "docs/evidence/base-audit-20261102/Shrouded_Mail.us.json",
+    "sourceSha256": "0fce220aff1d040738816b78494d3d6b22b83b7d6bb6ac39cdb84e335119733a",
+    "file": "97dd5bfd5b6805176d6c.webp",
+    "sha256": "97dd5bfd5b6805176d6cf6a6df8f556b402f0ee7f2d09c25673b4b0569bab752",
+    "size": 16096
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4cEndgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex04.webp",
+    "source": "docs/evidence/base-audit-20261102/Shrouded_Mail.us.json",
+    "sourceSha256": "0fce220aff1d040738816b78494d3d6b22b83b7d6bb6ac39cdb84e335119733a",
+    "file": "97dd5bfd5b6805176d6c.webp",
+    "sha256": "97dd5bfd5b6805176d6cf6a6df8f556b402f0ee7f2d09c25673b4b0569bab752",
+    "size": 16096
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrDex8Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex08.webp",
+    "source": "docs/evidence/base-audit-20261102/Thane_Mail.us.json",
+    "sourceSha256": "0ffcbb2d5525ec1851b1cfa6831337e88cde829e4cbd7562f30341b39ec86e83",
+    "file": "d1b51cec880b17cb9eff.webp",
+    "sha256": "d1b51cec880b17cb9eff1f39ffd5a8f7c14ff2c8d3d42046c6f7cca97ded04d4",
+    "size": 22208
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrInt6Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr06.webp",
+    "source": "docs/evidence/base-audit-20261102/Death_Mantle.us.json",
+    "sourceSha256": "42e8f085e47f2a09168ad9225674e0e1386f4c732110d46118198eba4e7f25c1",
+    "file": "be5435470d82dfae2e42.webp",
+    "sha256": "be5435470d82dfae2e425d98973505fa35e261e7ebfc6acf9d8ef50c5891d330",
+    "size": 20488
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrInt4Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr04.webp",
+    "source": "docs/evidence/base-audit-20261102/Conjurer_Mantle.us.json",
+    "sourceSha256": "27e25f7cd6f991c71e215c0ae22251e64b45bda5f697c8abbee46a18fc133280",
+    "file": "09be42ad5cd84b424e69.webp",
+    "sha256": "09be42ad5cd84b424e69be2807e35c9da482f56273fdb884e1e9bebaeffd785d",
+    "size": 14142
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrInt8Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr08.webp",
+    "source": "docs/evidence/base-audit-20261102/Seastorm_Mantle.us.json",
+    "sourceSha256": "fd02dce2be052f1c48de1dc3652f969d4a8c1dafcc7b957e267eb02a9d4656dc",
+    "file": "625ff7dcba5148aa4aa4.webp",
+    "sha256": "625ff7dcba5148aa4aa46920b4af96ec0f677e04e6552201e930b5da887244b3",
+    "size": 22158
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyDexInt4Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDexInt04.webp",
+    "source": "docs/evidence/base-audit-20261102/Rambler_Jacket.us.json",
+    "sourceSha256": "3e3bc3c85c1af315206109921f0a3a89ac24ded3b2887d0565862b906c5ee358",
+    "file": "491c5b130c69eeabc011.webp",
+    "sha256": "491c5b130c69eeabc011909088612deba95e159a2b19c8643aed71865a04e247",
+    "size": 12750
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyDexInt6Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDexInt06.webp",
+    "source": "docs/evidence/base-audit-20261102/Falconers_Jacket.us.json",
+    "sourceSha256": "36734649267af7e4398b8026ecdf0fb74b082b1f931a561891705881be274bfa",
+    "cacheBlocked": "HTTP 403: source denied download; placeholder until supplied art is available."
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame": {
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDexInt08.webp",
+    "source": "docs/evidence/base-audit-20261102/Austere_Garb.us.json",
+    "sourceSha256": "2f113f512befd1121ca7d5bb225e79d16383db37a7026ddbc0200363ad9e3ae0",
+    "file": "8f8175234b1a4854ad49.webp",
+    "sha256": "8f8175234b1a4854ad493d42287d99b70f52ca02dd24496c63de4a5b92a974de",
+    "size": 16034
   }
 }

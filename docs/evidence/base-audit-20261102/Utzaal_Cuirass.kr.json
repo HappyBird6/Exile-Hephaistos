@@ -1,0 +1,46 @@
+{
+  "url": "https://poe2db.tw/kr/Utzaal_Cuirass",
+  "retrievedAt": "2026-11-02T07:57:00.839Z",
+  "sha256": "660e9b07156f55f9b052fce5f987323e8a1db099990a4892467aa2de7ad6d703",
+  "variants": [
+    {
+      "name": "웃자알 흉갑",
+      "card": "웃자알 흉갑\n        \n    \n    \n        \n            갑옷방어도: 496Base Movement Speed: -0.05요구 사항:  레벨 75, 121 힘기절 한계치 (30—40)% 증가\n        \n\n\n\n        \n            Utzaal Cuirass",
+      "requirements": "요구 사항:  레벨 75, 121 힘",
+      "fields": {
+        "DropLevel": "75",
+        "BaseType": "웃자알 흉갑",
+        "Class": "갑옷",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStr8Endgame",
+        "Tags": "str_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStr08",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "기절 한계치 (30—40)% 증가",
+      "family": "IncreasedStunThreshold",
+      "tags": [],
+      "stats": [
+        {
+          "id": "stun_threshold_+%",
+          "min": 30,
+          "max": 40,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"StunThreshold\" href=\"Player_Stun_Threshold\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/2addc49d0ec8196cb1ddf65384438b1a9aeda51cda4b2af0750ba3899baa0e95\">기절 한계치</a> <span class='mod-value'>(30<span class=\"ndash\">—</span>40)</span>% 증가</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>IncreasedStunThreshold\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>stun threshold +% <span class=\"badge bg-primary\">30 <span class=\"ndash\">—</span> 40</span> <span class=\"badge bg-secondary\">Global</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStr08.webp"
+}

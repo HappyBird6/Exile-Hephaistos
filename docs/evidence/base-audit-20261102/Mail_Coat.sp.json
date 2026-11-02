@@ -1,0 +1,46 @@
+{
+  "url": "https://poe2db.tw/sp/Mail_Coat",
+  "retrievedAt": "2026-11-02T07:57:01.716Z",
+  "sha256": "e47843f032dcbc98778d39dd87b26d42d4296e6fe3ea0a8312f5ac85a2ce6d76",
+  "variants": [
+    {
+      "name": "Coselete de malla",
+      "card": "Coselete de malla\n        \n    \n    \n        \n            Armaduras corporalesEvasión: 451Base Movement Speed: -0.03Requiere:  Nivel 68, 121 DesLa potencia ralentizadora de los efectos nocivos está reducida un (20—30)% sobre ti\n        \n\n\n\n        \n            Mail Coat",
+      "requirements": "Requiere:  Nivel 68, 121 Des",
+      "fields": {
+        "DropLevel": "68",
+        "BaseType": "Coselete de malla",
+        "Class": "Armaduras corporales",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDex14",
+        "Tags": "dex_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex01",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "La potencia ralentizadora de los efectos nocivos está reducida un (20—30)% sobre ti",
+      "family": "SlowPotency",
+      "tags": [],
+      "stats": [
+        {
+          "id": "base_slow_potency_+%",
+          "min": -30,
+          "max": -20,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>La potencia <a data-keyword=\"Slow\" href=\"Slow\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FSlow\">ralentizadora</a> de los <a data-keyword=\"Debuff\" href=\"Debuffs\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FDebuff\">efectos nocivos</a> está reducida un <span class='mod-value'>(20<span class=\"ndash\">—</span>30)</span>% sobre ti</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>SlowPotency\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>único (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base slow potency +% <span class=\"badge bg-primary\">-30 <span class=\"ndash\">—</span> -20</span> <span class=\"badge bg-secondary\">Global</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex01.webp"
+}

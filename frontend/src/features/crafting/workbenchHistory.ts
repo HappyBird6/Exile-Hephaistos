@@ -1,4 +1,5 @@
 import type { AbyssState } from './AbyssPanel'
+import { baseAffixCapacity } from './baseRegistry'
 import { supportsConcreteStateShape } from './workbenchStateShape'
 import { isWorkbenchJewel, reviewedBasicJewel } from './basicJewel'
 import { verifiedCatalystQuality } from './catalystQuality'
@@ -609,17 +610,10 @@ export function verifiedHistoryState(
       )
     )
       return false
-    const capacity =
-      state.rarity === 'NORMAL'
-        ? 0
-        : state.rarity === 'MAGIC'
-          ? 1
-          : isWorkbenchJewel(state.baseItemId)
-            ? 2
-            : 3
+    const capacity = baseAffixCapacity(state.baseItemId, state.rarity)
     return isWorkbenchJewel(state.baseItemId)
       ? reviewedBasicJewel(state)
-      : p <= capacity && s <= capacity
+      : p <= capacity.prefixes && s <= capacity.suffixes
   } catch {
     return false
   }

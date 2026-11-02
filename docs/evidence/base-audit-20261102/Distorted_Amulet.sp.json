@@ -1,0 +1,53 @@
+{
+  "url": "https://poe2db.tw/sp/Distorted_Amulet",
+  "retrievedAt": "2026-11-02T07:56:57.338Z",
+  "sha256": "51d9b23d32703ca2e948243905154d53eea4e4172c9989b54871b1a2704bba0d",
+  "variants": [
+    {
+      "name": "Amuleto distorsionado",
+      "card": "Amuleto distorsionado\n        \n    \n    \n        \n            Amuletos-1 modificador de sufijo permitido\n        \n\n\n\n        \n            Distorted Amulet",
+      "requirements": "",
+      "fields": {
+        "DropLevel": "1",
+        "BaseType": "Amuleto distorsionado",
+        "Class": "Amuletos",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmuletDelirium2",
+        "Tags": "amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/DistortedAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "-1 modificador de sufijo permitido",
+      "family": "MaxPrefixMaxSuffix",
+      "tags": [],
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 0,
+          "max": 0,
+          "locality": "Local"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "Local"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>-1</span> modificador de sufijo permitido</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>MaxPrefixMaxSuffix\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>único (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>local maximum prefixes allowed + <span class=\"badge bg-primary\">0 <span class=\"ndash\">—</span> 0</span> <span class=\"badge bg-secondary\">Local</span></li><li>local maximum suffixes allowed + <span class=\"badge bg-primary\">-1 <span class=\"ndash\">—</span> -1</span> <span class=\"badge bg-secondary\">Local</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/DistortedAmulet.webp"
+}

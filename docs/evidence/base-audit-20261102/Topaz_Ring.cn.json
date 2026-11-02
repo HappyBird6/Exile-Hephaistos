@@ -1,0 +1,53 @@
+{
+  "url": "https://poe2db.tw/cn/Topaz_Ring",
+  "retrievedAt": "2026-11-02T07:56:31.495Z",
+  "sha256": "af2946daa323123a60174cd484610e4c0633e8e7bc67e5ff60ba40916415880c",
+  "variants": [
+    {
+      "name": "黄玉戒指",
+      "card": "黄玉戒指\n        \n    \n    \n        \n            戒指需求：  等级 16闪电抗性 +(20—30)%\n        \n\n\n\n        \n            Topaz Ring",
+      "requirements": "需求：  等级 16",
+      "fields": {
+        "DropLevel": "16",
+        "BaseType": "黄玉戒指",
+        "Class": "戒指",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRing5",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/Basetypes/TopazRing",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "闪电抗性 +(20—30)%",
+      "family": "LightningResistance",
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "元素",
+        "闪电",
+        "抗性"
+      ],
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 20,
+          "max": 30,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/9997ca5c41143a86acd9ebc3254b4d3a2c37dc4de7d30d9524388eaf4c75eec8\">闪电抗性</a> <span class='mod-value'>+(20<span class=\"ndash\">—</span>30)</span>%</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>LightningResistance\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>传奇 (3)\n<tr><th>Req. level<td>20 (Effective: 16)\n<tr><th>Stats<td><li>base lightning damage resistance % <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 30</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>lightning_resistance</i></span> <span class='badge bg-primary'>元素</span> <span class='badge bg-primary'>闪电</span> <span class='badge bg-primary'>抗性</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/TopazRing.webp"
+}

@@ -1,0 +1,49 @@
+{
+  "url": "https://poe2db.tw/tw/Abyssal_Cuirass",
+  "retrievedAt": "2026-11-02T07:57:01.276Z",
+  "sha256": "fc5365edf50ffcac1d3eed776124ff23169bfb64bf250e7aafb5d7bcc987d9c3",
+  "variants": [
+    {
+      "name": "深淵胸甲",
+      "card": "深淵胸甲\n        \n    \n    \n        \n            胸甲護甲值: 496基礎移動速度: -0.05需求:  等級 73, 121 力量每秒回復(1.5—2.5)%生命\n        \n\n\n\n        \n            Abyssal Cuirass",
+      "requirements": "需求:  等級 73, 121 力量",
+      "fields": {
+        "DropLevel": "73",
+        "BaseType": "深淵胸甲",
+        "Class": "胸甲",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStr15",
+        "Tags": "str_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStr01",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "每秒回復(1.5—2.5)%生命",
+      "family": "LifeRegenerationRatePercentage",
+      "tags": [
+        "resource",
+        "生命"
+      ],
+      "stats": [
+        {
+          "id": "life_regeneration_rate_per_minute_%",
+          "min": 90,
+          "max": 150,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>每秒回復<span class='mod-value'>(1.5<span class=\"ndash\">—</span>2.5)</span>%生命</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>LifeRegenerationRatePercentage\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>傳奇 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>life regeneration rate per minute % <span class=\"badge bg-primary\">90 <span class=\"ndash\">—</span> 150</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>生命</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStr01.webp"
+}

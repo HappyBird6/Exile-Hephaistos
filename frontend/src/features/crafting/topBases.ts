@@ -2,11 +2,20 @@ import data from './topBases.json'
 
 export type TopBaseKey = keyof typeof data
 type TopBase = {
+  affixLimits?: {
+    magicPrefixes: number
+    magicSuffixes: number
+    rarePrefixes: number
+    rareSuffixes: number
+  }
+  temporaryBaseOption?: { kind: string; source: string; rationale: string }
+  pool: string
   id: string
   name: string
   slug: string
   family: string
   implicitModifierId?: string
+  implicitText?: string
   implicitStats?: { id: string; min: number; max: number }[]
   armour: number
   evasion?: number

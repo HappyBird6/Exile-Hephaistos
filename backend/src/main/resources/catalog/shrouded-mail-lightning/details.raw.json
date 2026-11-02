@@ -1,0 +1,147 @@
+{
+  "explicitPoolProvenance": {
+    "template": "death-mail",
+    "pool": "death-mail",
+    "snapshotId": "poe2db-death-mail-uniform-20261004-18e8fb4473e0c06c",
+    "rawSha256": "49722459c2dc49daab2a5627c3d7d7dd594a18355d65f86e69f10e6124fdcc21",
+    "detailsSha256": "c5d072f169682a74b66e4b04c1bd58e6059ef9652dd8964f022f540114a2c2b6",
+    "note": "Existing reviewed class/archetype explicit pool; no new game weights inferred."
+  },
+  "sourceBase": {
+    "url": "https://poe2db.tw/us/Shrouded_Mail",
+    "retrievedAt": "2026-11-02T07:57:03.784Z",
+    "sha256": "f242f64b5dff7696ffe89f1c0373685e5e8b378ebaa31199e25dfc3bb04975ae",
+    "variants": [
+      {
+        "name": "Shrouded Mail",
+        "card": "Shrouded Mail\n        \n    \n    \n        \n            Body ArmoursArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 70, 67 Str, 67 Dex+(20—25)% to Fire Resistance",
+        "requirements": "Requires:  Level 70, 67 Str, 67 Dex",
+        "fields": {
+          "DropLevel": "70",
+          "BaseType": "Shrouded Mail",
+          "Class": "Body Armours",
+          "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+          "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4aEndgame",
+          "Tags": "str_dex_armour, body_armour, armour",
+          "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex04",
+          "Base.base_level": "1",
+          "Base.tag": "default, armour, body_armour",
+          "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+          "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+          "Mods.enable_rarity": "normal, magic, rare, unique",
+          "Mods.inventory_type": "BodyArmour",
+          "Quality.max_quality": "20",
+          "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+        }
+      },
+      {
+        "name": "Shrouded Mail",
+        "card": "Shrouded Mail\n        \n    \n    \n        \n            Body ArmoursArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 70, 67 Str, 67 Dex+(20—25)% to Cold Resistance",
+        "requirements": "Requires:  Level 70, 67 Str, 67 Dex",
+        "fields": {
+          "DropLevel": "70",
+          "BaseType": "Shrouded Mail",
+          "Class": "Body Armours",
+          "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+          "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame",
+          "Tags": "str_dex_armour, body_armour, armour",
+          "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex04",
+          "Base.base_level": "1",
+          "Base.tag": "default, armour, body_armour",
+          "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+          "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+          "Mods.enable_rarity": "normal, magic, rare, unique",
+          "Mods.inventory_type": "BodyArmour",
+          "Quality.max_quality": "20",
+          "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+        }
+      },
+      {
+        "name": "Shrouded Mail",
+        "card": "Shrouded Mail\n        \n    \n    \n        \n            Body ArmoursArmour: 273Evasion Rating: 248Base Movement Speed: -0.04Requires:  Level 70, 67 Str, 67 Dex+(20—25)% to Lightning Resistance",
+        "requirements": "Requires:  Level 70, 67 Str, 67 Dex",
+        "fields": {
+          "DropLevel": "70",
+          "BaseType": "Shrouded Mail",
+          "Class": "Body Armours",
+          "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+          "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4cEndgame",
+          "Tags": "str_dex_armour, body_armour, armour",
+          "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex04",
+          "Base.base_level": "1",
+          "Base.tag": "default, armour, body_armour",
+          "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+          "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+          "Mods.enable_rarity": "normal, magic, rare, unique",
+          "Mods.inventory_type": "BodyArmour",
+          "Quality.max_quality": "20",
+          "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+        }
+      }
+    ],
+    "proofs": [
+      {
+        "text": "+(20—25)% to Fire Resistance",
+        "family": "FireResistance",
+        "tags": [
+          "elemental_resistance",
+          "fire_resistance",
+          "elemental",
+          "fire",
+          "resistance"
+        ],
+        "stats": [
+          {
+            "id": "base_fire_damage_resistance_%",
+            "min": 20,
+            "max": 25,
+            "locality": "Global"
+          }
+        ],
+        "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(20<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>FireResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Unique (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base fire damage resistance % <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>fire_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fire</span> <span class='badge bg-primary'>Resistance</span> </table>"
+      },
+      {
+        "text": "+(20—25)% to Cold Resistance",
+        "family": "ColdResistance",
+        "tags": [
+          "cold_resistance",
+          "elemental_resistance",
+          "elemental",
+          "cold",
+          "resistance"
+        ],
+        "stats": [
+          {
+            "id": "base_cold_damage_resistance_%",
+            "min": 20,
+            "max": 25,
+            "locality": "Global"
+          }
+        ],
+        "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(20<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>ColdResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Unique (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base cold damage resistance % <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>cold_resistance</i></span> <span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Resistance</span> </table>"
+      },
+      {
+        "text": "+(20—25)% to Lightning Resistance",
+        "family": "LightningResistance",
+        "tags": [
+          "elemental_resistance",
+          "lightning_resistance",
+          "elemental",
+          "lightning",
+          "resistance"
+        ],
+        "stats": [
+          {
+            "id": "base_lightning_damage_resistance_%",
+            "min": 20,
+            "max": 25,
+            "locality": "Global"
+          }
+        ],
+        "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(20<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>LightningResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Unique (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base lightning damage resistance % <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>lightning_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Lightning</span> <span class='badge bg-primary'>Resistance</span> </table>"
+      }
+    ],
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex04.webp"
+  },
+  "variantIndex": 2
+}

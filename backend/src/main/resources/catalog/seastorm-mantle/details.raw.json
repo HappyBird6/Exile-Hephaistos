@@ -1,0 +1,60 @@
+{
+  "explicitPoolProvenance": {
+    "template": "wolfskin",
+    "pool": "wolfskin-mantle",
+    "snapshotId": "poe2db-wolfskin-mantle-uniform-20261004-5ad5ff89b4680a6a",
+    "rawSha256": "66b5fb02e6e03881a91fde56e596e0d81d39267825cb486c3a8f1e9a96b6a7c1",
+    "detailsSha256": "91c032c292a5a288c7ee3c59c6ce460ccc0f044270fe1b036356018166a72d5e",
+    "note": "Existing reviewed class/archetype explicit pool; no new game weights inferred."
+  },
+  "sourceBase": {
+    "url": "https://poe2db.tw/us/Seastorm_Mantle",
+    "retrievedAt": "2026-11-02T07:57:05.055Z",
+    "sha256": "5b315b1299656918a4ca12d39656bb4f9be5e7e81c0ddc8fe4eee09760a9df7c",
+    "variants": [
+      {
+        "name": "Seastorm Mantle",
+        "card": "Seastorm Mantle\n        \n    \n    \n        \n            Body ArmoursArmour: 273Energy Shield: 76Base Movement Speed: -0.04Requires:  Level 80, 67 Str, 67 Int(8—14)% of Damage taken Recouped as Life",
+        "requirements": "Requires:  Level 80, 67 Str, 67 Int",
+        "fields": {
+          "DropLevel": "80",
+          "BaseType": "Seastorm Mantle",
+          "Class": "Body Armours",
+          "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+          "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt8Endgame",
+          "Tags": "str_int_armour, karui_basetype, body_armour, armour",
+          "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr08",
+          "Base.base_level": "1",
+          "Base.tag": "default, armour, body_armour",
+          "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+          "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+          "Mods.enable_rarity": "normal, magic, rare, unique",
+          "Mods.inventory_type": "BodyArmour",
+          "Quality.max_quality": "20",
+          "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+        }
+      }
+    ],
+    "proofs": [
+      {
+        "text": "(8—14)% of Damage taken Recouped as Life",
+        "family": "DamageTakenGainedAsLife",
+        "tags": [
+          "resource",
+          "life"
+        ],
+        "stats": [
+          {
+            "id": "damage_taken_goes_to_life_over_4_seconds_%",
+            "min": 8,
+            "max": 14,
+            "locality": "Global"
+          }
+        ],
+        "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(8<span class=\"ndash\">—</span>14)</span>% of Damage taken <a data-keyword=\"Recoup\" href=\"Recoup\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3c83824668de5af953edb328359ea3c64e3076d5589052471bb7d5ce14727322\">Recouped</a> as Life</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>DamageTakenGainedAsLife\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Unique (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>damage taken goes to life over 4 seconds % <span class=\"badge bg-primary\">8 <span class=\"ndash\">—</span> 14</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> </table>"
+      }
+    ],
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr08.webp"
+  },
+  "variantIndex": 0
+}

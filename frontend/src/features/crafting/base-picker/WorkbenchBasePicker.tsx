@@ -176,14 +176,19 @@ function BasePickerContent({
                 }
               }}
             >
-              <BaseImage
-                baseItemId={choice.baseItemId}
-                label={choice.name}
-                image={imageForBase?.(choice.key)}
-              />
-              <span>
+              <span className="wb-base-picker__art" aria-hidden="true">
+                <BaseImage
+                  baseItemId={choice.baseItemId}
+                  label={choice.name}
+                  image={imageForBase?.(choice.key)}
+                />
+              </span>
+              <span className="wb-base-picker__label">
                 {choice.name}
-                <small>{uiText(choice.itemClass, locale)}</small>
+                <small>
+                  {uiText(choice.itemClass, locale)}
+                  {choice.variantLabel ? ` · ${choice.variantLabel}` : ''}
+                </small>
               </span>
             </button>
           ))}

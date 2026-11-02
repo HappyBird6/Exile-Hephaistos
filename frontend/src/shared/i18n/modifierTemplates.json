@@ -53055,6 +53055,806 @@
           "divisor": 1
         }
       ]
+    },
+    "jade-amulet:implicit:base": {
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "englishText": "+(10—15) to Dexterity",
+      "values": ["+(10—15)"],
+      "template": "base-audit.jade-amulet.implicit",
+      "sourceCode": "https://poe2db.tw/us/Jade_Amulet",
+      "valueStats": [
+        {
+          "id": "additional_dexterity",
+          "divisor": 1
+        }
+      ]
+    },
+    "lapis-amulet:implicit:base": {
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "englishText": "+(10—15) to Intelligence",
+      "values": ["+(10—15)"],
+      "template": "base-audit.lapis-amulet.implicit",
+      "sourceCode": "https://poe2db.tw/us/Lapis_Amulet",
+      "valueStats": [
+        {
+          "id": "additional_intelligence",
+          "divisor": 1
+        }
+      ]
+    },
+    "gold-amulet:implicit:base": {
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 12,
+          "max": 20
+        }
+      ],
+      "englishText": "(12—20)% increased Rarity of Items found",
+      "values": ["(12—20)"],
+      "template": "base-audit.gold-amulet.implicit",
+      "sourceCode": "https://poe2db.tw/us/Gold_Amulet",
+      "valueStats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "twisted-amulet:implicit:base": {
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "englishText": "-1 Prefix Modifier allowed",
+      "values": ["-1"],
+      "template": "base-audit.twisted-amulet.implicit",
+      "sourceCode": "https://poe2db.tw/us/Twisted_Amulet",
+      "valueStats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "distorted-amulet:implicit:base": {
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 0,
+          "max": 0
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1
+        }
+      ],
+      "englishText": "-1 Suffix Modifier allowed",
+      "values": ["-1"],
+      "template": "base-audit.distorted-amulet.implicit",
+      "sourceCode": "https://poe2db.tw/us/Distorted_Amulet",
+      "valueStats": [
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "absent-amulet:implicit:base": {
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1
+        }
+      ],
+      "englishText": "-1 Prefix Modifier allowed\n-1 Suffix Modifier allowed",
+      "values": ["-1", "-1"],
+      "template": "base-audit.absent-amulet.implicit",
+      "sourceCode": "https://poe2db.tw/us/Absent_Amulet",
+      "valueStats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "portent-amulet:implicit:base": {
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 0,
+          "max": 0
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1
+        }
+      ],
+      "englishText": "-1 Suffix Modifier allowed",
+      "values": ["-1"],
+      "template": "base-audit.portent-amulet.implicit",
+      "sourceCode": "https://poe2db.tw/us/Portent_Amulet",
+      "valueStats": [
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "lament-amulet:implicit:base": {
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "englishText": "-1 Prefix Modifier allowed",
+      "values": ["-1"],
+      "template": "base-audit.lament-amulet.implicit",
+      "sourceCode": "https://poe2db.tw/us/Lament_Amulet",
+      "valueStats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "dusk-amulet:implicit:base": {
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1
+        }
+      ],
+      "englishText": "+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed",
+      "values": ["+1", "-1"],
+      "template": "base-audit.dusk-amulet.implicit",
+      "sourceCode": "https://poe2db.tw/us/Dusk_Amulet",
+      "valueStats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": -1
+        }
+      ]
+    },
+    "penumbra-amulet:implicit:base": {
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 2,
+          "max": 2
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -2,
+          "max": -2
+        }
+      ],
+      "englishText": "+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed",
+      "values": ["+2", "-2"],
+      "template": "base-audit.penumbra-amulet.implicit",
+      "sourceCode": "https://poe2db.tw/us/Penumbra_Amulet",
+      "valueStats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": -1
+        }
+      ]
+    },
+    "gloam-amulet:implicit:base": {
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed",
+      "values": ["-1", "+1"],
+      "template": "base-audit.gloam-amulet.implicit",
+      "sourceCode": "https://poe2db.tw/us/Gloam_Amulet",
+      "valueStats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": -1
+        }
+      ]
+    },
+    "corona-amulet:implicit:base": {
+      "stats": [
+        {
+          "id": "local_item_benefit_socketable_as_if_helmet",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "This item gains bonuses from Socketed Items as though it was a Helmet",
+      "values": [],
+      "template": "base-audit.corona-amulet.implicit",
+      "sourceCode": "https://poe2db.tw/us/Corona_Amulet"
+    },
+    "tenebrous-amulet:implicit:base": {
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -2,
+          "max": -2
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "englishText": "-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed",
+      "values": ["-2", "+2"],
+      "template": "base-audit.tenebrous-amulet.implicit",
+      "sourceCode": "https://poe2db.tw/us/Tenebrous_Amulet",
+      "valueStats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": 1
+        },
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "divisor": -1
+        }
+      ]
+    },
+    "lazuli-ring:implicit:base": {
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "+(20—30) to maximum Mana",
+      "values": ["+(20—30)"],
+      "template": "base-audit.lazuli-ring.implicit",
+      "sourceCode": "https://poe2db.tw/us/Lazuli_Ring",
+      "valueStats": [
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        }
+      ]
+    },
+    "sapphire-ring:implicit:base": {
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "+(20—30)% to Cold Resistance",
+      "values": ["+(20—30)"],
+      "template": "base-audit.sapphire-ring.implicit",
+      "sourceCode": "https://poe2db.tw/us/Sapphire_Ring",
+      "valueStats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "topaz-ring:implicit:base": {
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "+(20—30)% to Lightning Resistance",
+      "values": ["+(20—30)"],
+      "template": "base-audit.topaz-ring.implicit",
+      "sourceCode": "https://poe2db.tw/us/Topaz_Ring",
+      "valueStats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "emerald-ring:implicit:base": {
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 120,
+          "max": 160
+        }
+      ],
+      "englishText": "+(120—160) to Accuracy Rating",
+      "values": ["+(120—160)"],
+      "template": "base-audit.emerald-ring.implicit",
+      "sourceCode": "https://poe2db.tw/us/Emerald_Ring",
+      "valueStats": [
+        {
+          "id": "accuracy_rating",
+          "divisor": 1
+        }
+      ]
+    },
+    "gold-ring:implicit:base": {
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 6,
+          "max": 15
+        }
+      ],
+      "englishText": "(6—15)% increased Rarity of Items found",
+      "values": ["(6—15)"],
+      "template": "base-audit.gold-ring.implicit",
+      "sourceCode": "https://poe2db.tw/us/Gold_Ring",
+      "valueStats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "unset-ring:implicit:base": {
+      "stats": [
+        {
+          "id": "local_item_additional_skill_slots",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "Grants 1 additional Skill Slots",
+      "values": ["1"],
+      "template": "base-audit.unset-ring.implicit",
+      "sourceCode": "https://poe2db.tw/us/Unset_Ring",
+      "valueStats": [
+        {
+          "id": "local_item_additional_skill_slots",
+          "divisor": 1
+        }
+      ]
+    },
+    "utzaal-cuirass:implicit:base": {
+      "stats": [
+        {
+          "id": "stun_threshold_+%",
+          "min": 30,
+          "max": 40
+        }
+      ],
+      "englishText": "(30—40)% increased Stun Threshold",
+      "values": ["(30—40)"],
+      "template": "base-audit.utzaal-cuirass.implicit",
+      "sourceCode": "https://poe2db.tw/us/Utzaal_Cuirass",
+      "valueStats": [
+        {
+          "id": "stun_threshold_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "abyssal-cuirass:implicit:base": {
+      "stats": [
+        {
+          "id": "life_regeneration_rate_per_minute_%",
+          "min": 90,
+          "max": 150
+        }
+      ],
+      "englishText": "Regenerate (1.5—2.5)% of maximum Life per second",
+      "values": ["(1.5—2.5)"],
+      "template": "base-audit.abyssal-cuirass.implicit",
+      "sourceCode": "https://poe2db.tw/us/Abyssal_Cuirass",
+      "valueStats": [
+        {
+          "id": "life_regeneration_rate_per_minute_%",
+          "divisor": 60
+        }
+      ]
+    },
+    "warlord-cuirass:implicit:base": {
+      "stats": [
+        {
+          "id": "armour_%_applies_to_fire_cold_lightning_damage",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "englishText": "+(15—25)% of Armour also applies to Elemental Damage",
+      "values": ["+(15—25)"],
+      "template": "base-audit.warlord-cuirass.implicit",
+      "sourceCode": "https://poe2db.tw/us/Warlord_Cuirass",
+      "valueStats": [
+        {
+          "id": "armour_%_applies_to_fire_cold_lightning_damage",
+          "divisor": 1
+        }
+      ]
+    },
+    "mail-coat:implicit:base": {
+      "stats": [
+        {
+          "id": "base_slow_potency_+%",
+          "min": -30,
+          "max": -20
+        }
+      ],
+      "englishText": "(20—30)% reduced Slowing Potency of Debuffs on You",
+      "values": ["(20—30)"],
+      "template": "base-audit.mail-coat.implicit",
+      "sourceCode": "https://poe2db.tw/us/Mail_Coat",
+      "valueStats": [
+        {
+          "id": "base_slow_potency_+%",
+          "divisor": -1
+        }
+      ]
+    },
+    "wyrmscale-coat:implicit:base": {
+      "stats": [
+        {
+          "id": "ailment_threshold_+%",
+          "min": 30,
+          "max": 40
+        }
+      ],
+      "englishText": "(30—40)% increased Elemental Ailment Threshold",
+      "values": ["(30—40)"],
+      "template": "base-audit.wyrmscale-coat.implicit",
+      "sourceCode": "https://poe2db.tw/us/Wyrmscale_Coat",
+      "valueStats": [
+        {
+          "id": "ailment_threshold_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "corsair-coat:implicit:base": {
+      "stats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 5,
+          "max": 5
+        }
+      ],
+      "englishText": "5% increased Movement Speed",
+      "values": ["5"],
+      "template": "base-audit.corsair-coat.implicit",
+      "sourceCode": "https://poe2db.tw/us/Corsair_Coat",
+      "valueStats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "flowing-raiment:implicit:base": {
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 40,
+          "max": 50
+        }
+      ],
+      "englishText": "(40—50)% increased Mana Regeneration Rate",
+      "values": ["(40—50)"],
+      "template": "base-audit.flowing-raiment.implicit",
+      "sourceCode": "https://poe2db.tw/us/Flowing_Raiment",
+      "valueStats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "sacramental-robe:implicit:base": {
+      "stats": [
+        {
+          "id": "energy_shield_recharge_rate_+%",
+          "min": 20,
+          "max": 25
+        }
+      ],
+      "englishText": "(20—25)% increased Energy Shield Recharge Rate",
+      "values": ["(20—25)"],
+      "template": "base-audit.sacramental-robe.implicit",
+      "sourceCode": "https://poe2db.tw/us/Sacramental_Robe",
+      "valueStats": [
+        {
+          "id": "energy_shield_recharge_rate_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "feathered-raiment:implicit:base": {
+      "stats": [
+        {
+          "id": "base_damage_removed_from_mana_before_life_%",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "englishText": "(5—10)% of Damage is taken from Mana before Life",
+      "values": ["(5—10)"],
+      "template": "base-audit.feathered-raiment.implicit",
+      "sourceCode": "https://poe2db.tw/us/Feathered_Raiment",
+      "valueStats": [
+        {
+          "id": "base_damage_removed_from_mana_before_life_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "dastard-armour:implicit:base": {
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 60,
+          "max": 80
+        }
+      ],
+      "englishText": "+(60—80) to maximum Life",
+      "values": ["+(60—80)"],
+      "template": "base-audit.dastard-armour.implicit",
+      "sourceCode": "https://poe2db.tw/us/Dastard_Armour",
+      "valueStats": [
+        {
+          "id": "base_maximum_life",
+          "divisor": 1
+        }
+      ]
+    },
+    "shrouded-mail-fire:implicit:base": {
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 20,
+          "max": 25
+        }
+      ],
+      "englishText": "+(20—25)% to Fire Resistance",
+      "values": ["+(20—25)"],
+      "template": "base-audit.shrouded-mail-fire.implicit",
+      "sourceCode": "https://poe2db.tw/us/Shrouded_Mail",
+      "valueStats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "shrouded-mail-cold:implicit:base": {
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 20,
+          "max": 25
+        }
+      ],
+      "englishText": "+(20—25)% to Cold Resistance",
+      "values": ["+(20—25)"],
+      "template": "base-audit.shrouded-mail-cold.implicit",
+      "sourceCode": "https://poe2db.tw/us/Shrouded_Mail",
+      "valueStats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "shrouded-mail-lightning:implicit:base": {
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 20,
+          "max": 25
+        }
+      ],
+      "englishText": "+(20—25)% to Lightning Resistance",
+      "values": ["+(20—25)"],
+      "template": "base-audit.shrouded-mail-lightning.implicit",
+      "sourceCode": "https://poe2db.tw/us/Shrouded_Mail",
+      "valueStats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "thane-mail:implicit:base": {
+      "stats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "englishText": "Hits against you have (15—25)% reduced Critical Damage Bonus",
+      "values": ["(15—25)"],
+      "template": "base-audit.thane-mail.implicit",
+      "sourceCode": "https://poe2db.tw/us/Thane_Mail",
+      "valueStats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "divisor": 1
+        }
+      ]
+    },
+    "death-mantle:implicit:base": {
+      "stats": [
+        {
+          "id": "additional_maximum_all_elemental_resistances_%",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "+1% to all Maximum Elemental Resistances",
+      "values": ["+1"],
+      "template": "base-audit.death-mantle.implicit",
+      "sourceCode": "https://poe2db.tw/us/Death_Mantle",
+      "valueStats": [
+        {
+          "id": "additional_maximum_all_elemental_resistances_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "conjurer-mantle:implicit:base": {
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "+(20—30) to Spirit",
+      "values": ["+(20—30)"],
+      "template": "base-audit.conjurer-mantle.implicit",
+      "sourceCode": "https://poe2db.tw/us/Conjurer_Mantle",
+      "valueStats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "divisor": 1
+        }
+      ]
+    },
+    "seastorm-mantle:implicit:base": {
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 8,
+          "max": 14
+        }
+      ],
+      "englishText": "(8—14)% of Damage taken Recouped as Life",
+      "values": ["(8—14)"],
+      "template": "base-audit.seastorm-mantle.implicit",
+      "sourceCode": "https://poe2db.tw/us/Seastorm_Mantle",
+      "valueStats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "rambler-jacket:implicit:base": {
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 7,
+          "max": 13
+        }
+      ],
+      "englishText": "+(7—13)% to Chaos Resistance",
+      "values": ["+(7—13)"],
+      "template": "base-audit.rambler-jacket.implicit",
+      "sourceCode": "https://poe2db.tw/us/Rambler_Jacket",
+      "valueStats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "falconers-jacket:implicit:base": {
+      "stats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 5,
+          "max": 5
+        }
+      ],
+      "englishText": "5% increased Movement Speed",
+      "values": ["5"],
+      "template": "base-audit.falconers-jacket.implicit",
+      "sourceCode": "https://poe2db.tw/us/Falconers_Jacket",
+      "valueStats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "austere-garb:implicit:base": {
+      "stats": [
+        {
+          "id": "self_elemental_status_duration_-%",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "englishText": "(10—15)% reduced Elemental Ailment Duration on you",
+      "values": ["(10—15)"],
+      "template": "base-audit.austere-garb.implicit",
+      "sourceCode": "https://poe2db.tw/us/Austere_Garb",
+      "valueStats": [
+        {
+          "id": "self_elemental_status_duration_-%",
+          "divisor": 1
+        }
+      ]
     }
   },
   "templates": {
@@ -63270,6 +64070,162 @@
       "manual-reveal.reveal:GenesisTreeBeltMinionDuration": {
         "template": "{v0}% increased Minion Duration",
         "name": "of Binding"
+      },
+      "base-audit.jade-amulet.implicit": {
+        "name": "Jade Amulet",
+        "template": "{v0} to Dexterity"
+      },
+      "base-audit.lapis-amulet.implicit": {
+        "name": "Lapis Amulet",
+        "template": "{v0} to Intelligence"
+      },
+      "base-audit.gold-amulet.implicit": {
+        "name": "Gold Amulet",
+        "template": "{v0}% increased Rarity of Items found"
+      },
+      "base-audit.twisted-amulet.implicit": {
+        "name": "Twisted Amulet",
+        "template": "{v0} Prefix Modifier allowed"
+      },
+      "base-audit.distorted-amulet.implicit": {
+        "name": "Distorted Amulet",
+        "template": "{v0} Suffix Modifier allowed"
+      },
+      "base-audit.absent-amulet.implicit": {
+        "name": "Absent Amulet",
+        "template": "{v0} Prefix Modifier allowed\n{v1} Suffix Modifier allowed"
+      },
+      "base-audit.portent-amulet.implicit": {
+        "name": "Portent Amulet",
+        "template": "{v0} Suffix Modifier allowed"
+      },
+      "base-audit.lament-amulet.implicit": {
+        "name": "Lament Amulet",
+        "template": "{v0} Prefix Modifier allowed"
+      },
+      "base-audit.dusk-amulet.implicit": {
+        "name": "Dusk Amulet",
+        "template": "{v0} Prefix Modifier allowed\n{v1} Suffix Modifier allowed"
+      },
+      "base-audit.penumbra-amulet.implicit": {
+        "name": "Penumbra Amulet",
+        "template": "{v0} Prefix Modifiers allowed\n{v1} Suffix Modifiers allowed"
+      },
+      "base-audit.gloam-amulet.implicit": {
+        "name": "Gloam Amulet",
+        "template": "{v0} Prefix Modifier allowed\n{v1} Suffix Modifier allowed"
+      },
+      "base-audit.corona-amulet.implicit": {
+        "name": "Corona Amulet",
+        "template": "This item gains bonuses from Socketed Items as though it was a Helmet"
+      },
+      "base-audit.tenebrous-amulet.implicit": {
+        "name": "Tenebrous Amulet",
+        "template": "{v0} Prefix Modifiers allowed\n{v1} Suffix Modifiers allowed"
+      },
+      "base-audit.lazuli-ring.implicit": {
+        "name": "Lazuli Ring",
+        "template": "{v0} to maximum Mana"
+      },
+      "base-audit.sapphire-ring.implicit": {
+        "name": "Sapphire Ring",
+        "template": "{v0}% to Cold Resistance"
+      },
+      "base-audit.topaz-ring.implicit": {
+        "name": "Topaz Ring",
+        "template": "{v0}% to Lightning Resistance"
+      },
+      "base-audit.emerald-ring.implicit": {
+        "name": "Emerald Ring",
+        "template": "{v0} to Accuracy Rating"
+      },
+      "base-audit.gold-ring.implicit": {
+        "name": "Gold Ring",
+        "template": "{v0}% increased Rarity of Items found"
+      },
+      "base-audit.unset-ring.implicit": {
+        "name": "Unset Ring",
+        "template": "Grants {v0} additional Skill Slots"
+      },
+      "base-audit.utzaal-cuirass.implicit": {
+        "name": "Utzaal Cuirass",
+        "template": "{v0}% increased Stun Threshold"
+      },
+      "base-audit.abyssal-cuirass.implicit": {
+        "name": "Abyssal Cuirass",
+        "template": "Regenerate {v0}% of maximum Life per second"
+      },
+      "base-audit.warlord-cuirass.implicit": {
+        "name": "Warlord Cuirass",
+        "template": "{v0}% of Armour also applies to Elemental Damage"
+      },
+      "base-audit.mail-coat.implicit": {
+        "name": "Mail Coat",
+        "template": "{v0}% reduced Slowing Potency of Debuffs on You"
+      },
+      "base-audit.wyrmscale-coat.implicit": {
+        "name": "Wyrmscale Coat",
+        "template": "{v0}% increased Elemental Ailment Threshold"
+      },
+      "base-audit.corsair-coat.implicit": {
+        "name": "Corsair Coat",
+        "template": "{v0}% increased Movement Speed"
+      },
+      "base-audit.flowing-raiment.implicit": {
+        "name": "Flowing Raiment",
+        "template": "{v0}% increased Mana Regeneration Rate"
+      },
+      "base-audit.sacramental-robe.implicit": {
+        "name": "Sacramental Robe",
+        "template": "{v0}% increased Energy Shield Recharge Rate"
+      },
+      "base-audit.feathered-raiment.implicit": {
+        "name": "Feathered Raiment",
+        "template": "{v0}% of Damage is taken from Mana before Life"
+      },
+      "base-audit.dastard-armour.implicit": {
+        "name": "Dastard Armour",
+        "template": "{v0} to maximum Life"
+      },
+      "base-audit.shrouded-mail-fire.implicit": {
+        "name": "Shrouded Mail",
+        "template": "{v0}% to Fire Resistance"
+      },
+      "base-audit.shrouded-mail-cold.implicit": {
+        "name": "Shrouded Mail",
+        "template": "{v0}% to Cold Resistance"
+      },
+      "base-audit.shrouded-mail-lightning.implicit": {
+        "name": "Shrouded Mail",
+        "template": "{v0}% to Lightning Resistance"
+      },
+      "base-audit.thane-mail.implicit": {
+        "name": "Thane Mail",
+        "template": "Hits against you have {v0}% reduced Critical Damage Bonus"
+      },
+      "base-audit.death-mantle.implicit": {
+        "name": "Death Mantle",
+        "template": "{v0}% to all Maximum Elemental Resistances"
+      },
+      "base-audit.conjurer-mantle.implicit": {
+        "name": "Conjurer Mantle",
+        "template": "{v0} to Spirit"
+      },
+      "base-audit.seastorm-mantle.implicit": {
+        "name": "Seastorm Mantle",
+        "template": "{v0}% of Damage taken Recouped as Life"
+      },
+      "base-audit.rambler-jacket.implicit": {
+        "name": "Rambler Jacket",
+        "template": "{v0}% to Chaos Resistance"
+      },
+      "base-audit.falconers-jacket.implicit": {
+        "name": "Falconer's Jacket",
+        "template": "{v0}% increased Movement Speed"
+      },
+      "base-audit.austere-garb.implicit": {
+        "name": "Austere Garb",
+        "template": "{v0}% reduced Elemental Ailment Duration on you"
       }
     },
     "ko": {
@@ -72376,6 +73332,162 @@
       "staves-talismans.maji-talisman:implicit:base": {
         "name": "Maji Talisman",
         "template": "격노 최대치 {v0}"
+      },
+      "base-audit.jade-amulet.implicit": {
+        "name": "비취 목걸이",
+        "template": "민첩 {v0}"
+      },
+      "base-audit.lapis-amulet.implicit": {
+        "name": "청금석 목걸이",
+        "template": "지능 {v0}"
+      },
+      "base-audit.gold-amulet.implicit": {
+        "name": "황금 목걸이",
+        "template": "발견하는 아이템 희귀도 {v0}% 증가"
+      },
+      "base-audit.twisted-amulet.implicit": {
+        "name": "뒤틀린 목걸이",
+        "template": "접두어 속성 부여의 최대 개수 {v0}개"
+      },
+      "base-audit.distorted-amulet.implicit": {
+        "name": "왜곡된 목걸이",
+        "template": "접미어 속성 부여의 최대 개수 {v0}개"
+      },
+      "base-audit.absent-amulet.implicit": {
+        "name": "부재 목걸이",
+        "template": "접두어 속성 부여의 최대 개수 {v0}개\n접미어 속성 부여의 최대 개수 {v1}개"
+      },
+      "base-audit.portent-amulet.implicit": {
+        "name": "전조 목걸이",
+        "template": "접미어 속성 부여의 최대 개수 {v0}개"
+      },
+      "base-audit.lament-amulet.implicit": {
+        "name": "한탄 목걸이",
+        "template": "접두어 속성 부여의 최대 개수 {v0}개"
+      },
+      "base-audit.dusk-amulet.implicit": {
+        "name": "황혼 목걸이",
+        "template": "접두어 속성 부여의 최대 개수 {v0}개\n접미어 속성 부여의 최대 개수 {v1}개"
+      },
+      "base-audit.penumbra-amulet.implicit": {
+        "name": "음영 목걸이",
+        "template": "접두어 속성 부여의 최대 개수 {v0}개\n접미어 속성 부여의 최대 개수 {v1}개"
+      },
+      "base-audit.gloam-amulet.implicit": {
+        "name": "석양 목걸이",
+        "template": "접두어 속성 부여의 최대 개수 {v0}개\n접미어 속성 부여의 최대 개수 {v1}개"
+      },
+      "base-audit.corona-amulet.implicit": {
+        "name": "광환 목걸이",
+        "template": "이 아이템은 투구인 것처럼 장착된 아이템의 보너스를 받음"
+      },
+      "base-audit.tenebrous-amulet.implicit": {
+        "name": "어둑한 목걸이",
+        "template": "접두어 속성 부여의 최대 개수 {v0}개\n접미어 속성 부여의 최대 개수 {v1}개"
+      },
+      "base-audit.lazuli-ring.implicit": {
+        "name": "청금석 반지",
+        "template": "마나 최대치 {v0}"
+      },
+      "base-audit.sapphire-ring.implicit": {
+        "name": "사파이어 반지",
+        "template": "냉기 저항 {v0}%"
+      },
+      "base-audit.topaz-ring.implicit": {
+        "name": "토파즈 반지",
+        "template": "번개 저항 {v0}%"
+      },
+      "base-audit.emerald-ring.implicit": {
+        "name": "에메랄드 반지",
+        "template": "정확도 {v0}"
+      },
+      "base-audit.gold-ring.implicit": {
+        "name": "황금 반지",
+        "template": "발견하는 아이템 희귀도 {v0}% 증가"
+      },
+      "base-audit.unset-ring.implicit": {
+        "name": "무보석 반지",
+        "template": "스킬 슬롯 {v0}개 추가"
+      },
+      "base-audit.utzaal-cuirass.implicit": {
+        "name": "웃자알 흉갑",
+        "template": "기절 한계치 {v0}% 증가"
+      },
+      "base-audit.abyssal-cuirass.implicit": {
+        "name": "심연의 흉갑",
+        "template": "1초마다 생명력의 {v0}% 재생"
+      },
+      "base-audit.warlord-cuirass.implicit": {
+        "name": "전쟁군주 흉갑",
+        "template": "방어도의 {v0}%가 원소 피해에도 적용"
+      },
+      "base-audit.mail-coat.implicit": {
+        "name": "사슬 외투",
+        "template": "디버프의 감속 효력 {v0}% 감소"
+      },
+      "base-audit.wyrmscale-coat.implicit": {
+        "name": "아룡 비늘 외투",
+        "template": "원소 상태 이상 한계치 {v0}% 증가"
+      },
+      "base-audit.corsair-coat.implicit": {
+        "name": "해적 외투",
+        "template": "이동 속도 {v0}% 증가"
+      },
+      "base-audit.flowing-raiment.implicit": {
+        "name": "흐르는 의복",
+        "template": "마나 재생 속도 {v0}% 증가"
+      },
+      "base-audit.sacramental-robe.implicit": {
+        "name": "성찬의 로브",
+        "template": "에너지 보호막 재충전 속도 {v0}% 증가"
+      },
+      "base-audit.feathered-raiment.implicit": {
+        "name": "깃털 의복",
+        "template": "받는 피해의 {v0}%를 생명력 대신 마나로 소모"
+      },
+      "base-audit.dastard-armour.implicit": {
+        "name": "비겁자 방어구",
+        "template": "생명력 최대치 {v0}"
+      },
+      "base-audit.shrouded-mail-fire.implicit": {
+        "name": "연막의 사슬옷",
+        "template": "화염 저항 {v0}%"
+      },
+      "base-audit.shrouded-mail-cold.implicit": {
+        "name": "연막의 사슬옷",
+        "template": "냉기 저항 {v0}%"
+      },
+      "base-audit.shrouded-mail-lightning.implicit": {
+        "name": "연막의 사슬옷",
+        "template": "번개 저항 {v0}%"
+      },
+      "base-audit.thane-mail.implicit": {
+        "name": "테인 사슬옷",
+        "template": "플레이어에 대한 명중의 치명타 피해 보너스 {v0}% 감소"
+      },
+      "base-audit.death-mantle.implicit": {
+        "name": "죽음의 외투",
+        "template": "모든 원소 저항 최대치 {v0}%"
+      },
+      "base-audit.conjurer-mantle.implicit": {
+        "name": "요술사 외투",
+        "template": "정신력 {v0}"
+      },
+      "base-audit.seastorm-mantle.implicit": {
+        "name": "바다폭풍 외투",
+        "template": "받은 피해의 {v0}%를 생명력으로 회생"
+      },
+      "base-audit.rambler-jacket.implicit": {
+        "name": "뚜벅이 재킷",
+        "template": "카오스 저항 {v0}%"
+      },
+      "base-audit.falconers-jacket.implicit": {
+        "name": "매 조련사의 재킷",
+        "template": "이동 속도 {v0}% 증가"
+      },
+      "base-audit.austere-garb.implicit": {
+        "name": "금욕적인 의복",
+        "template": "플레이어에게 적용되는 원소 상태 이상 지속시간 {v0}% 감소"
       }
     },
     "zh-CN": {
@@ -81482,6 +82594,162 @@
       "staves-talismans.maji-talisman:implicit:base": {
         "name": "Maji Talisman",
         "template": "{v0} 怒火上限"
+      },
+      "base-audit.jade-amulet.implicit": {
+        "name": "翠玉项链",
+        "template": "{v0} 敏捷"
+      },
+      "base-audit.lapis-amulet.implicit": {
+        "name": "海玉项链",
+        "template": "{v0} 智慧"
+      },
+      "base-audit.gold-amulet.implicit": {
+        "name": "帝金项链",
+        "template": "物品稀有度提高 {v0}%"
+      },
+      "base-audit.twisted-amulet.implicit": {
+        "name": "畸变项链",
+        "template": "允许的前缀 {v0}"
+      },
+      "base-audit.distorted-amulet.implicit": {
+        "name": "扭曲项链",
+        "template": "允许的后缀 {v0}"
+      },
+      "base-audit.absent-amulet.implicit": {
+        "name": "失神项链",
+        "template": "允许的前缀 {v0}\n允许的后缀 {v1}"
+      },
+      "base-audit.portent-amulet.implicit": {
+        "name": "预兆项链",
+        "template": "允许的后缀 {v0}"
+      },
+      "base-audit.lament-amulet.implicit": {
+        "name": "哀悼项链",
+        "template": "允许的前缀 {v0}"
+      },
+      "base-audit.dusk-amulet.implicit": {
+        "name": "暮色项链",
+        "template": "允许的前缀 {v0}\n允许的后缀 {v1}"
+      },
+      "base-audit.penumbra-amulet.implicit": {
+        "name": "半影项链",
+        "template": "允许的前缀 {v0}\n允许的后缀 {v1}"
+      },
+      "base-audit.gloam-amulet.implicit": {
+        "name": "薄暮项链",
+        "template": "允许的前缀 {v0}\n允许的后缀 {v1}"
+      },
+      "base-audit.corona-amulet.implicit": {
+        "name": "日冕项链",
+        "template": "此物品可作为头盔获得镶嵌物的加成"
+      },
+      "base-audit.tenebrous-amulet.implicit": {
+        "name": "暗黑项链",
+        "template": "允许的前缀 {v0}\n允许的后缀 {v1}"
+      },
+      "base-audit.lazuli-ring.implicit": {
+        "name": "青金戒指",
+        "template": "{v0} 魔力上限"
+      },
+      "base-audit.sapphire-ring.implicit": {
+        "name": "蓝玉戒指",
+        "template": "冰霜抗性 {v0}%"
+      },
+      "base-audit.topaz-ring.implicit": {
+        "name": "黄玉戒指",
+        "template": "闪电抗性 {v0}%"
+      },
+      "base-audit.emerald-ring.implicit": {
+        "name": "翡翠戒指",
+        "template": "{v0} 命中值"
+      },
+      "base-audit.gold-ring.implicit": {
+        "name": "金光戒指",
+        "template": "物品稀有度提高 {v0}%"
+      },
+      "base-audit.unset-ring.implicit": {
+        "name": "潜能之戒",
+        "template": "获得 {v0} 个额外技能栏位"
+      },
+      "base-audit.utzaal-cuirass.implicit": {
+        "name": "乌扎尔胸甲",
+        "template": "晕眩阈值提高 {v0}%"
+      },
+      "base-audit.abyssal-cuirass.implicit": {
+        "name": "深渊胸甲",
+        "template": "生命每秒再生 {v0}%"
+      },
+      "base-audit.warlord-cuirass.implicit": {
+        "name": "督军胸甲",
+        "template": "{v0}% 的护甲同样作用于元素伤害"
+      },
+      "base-audit.mail-coat.implicit": {
+        "name": "锁环外套",
+        "template": "你受到的异常状态的减速强度降低 {v0}%"
+      },
+      "base-audit.wyrmscale-coat.implicit": {
+        "name": "巨龙鳞外套",
+        "template": "元素异常状态阈值提高 {v0}%"
+      },
+      "base-audit.corsair-coat.implicit": {
+        "name": "海盗外套",
+        "template": "移动速度提高 {v0}%"
+      },
+      "base-audit.flowing-raiment.implicit": {
+        "name": "飘逸之衣",
+        "template": "魔力再生率提高 {v0}%"
+      },
+      "base-audit.sacramental-robe.implicit": {
+        "name": "圣礼束衣",
+        "template": "能量护盾充能率提高 {v0}%"
+      },
+      "base-audit.feathered-raiment.implicit": {
+        "name": "羽饰之衣",
+        "template": "{v0}% 的伤害优先从魔力扣除"
+      },
+      "base-audit.dastard-armour.implicit": {
+        "name": "懦夫护甲",
+        "template": "{v0} 生命上限"
+      },
+      "base-audit.shrouded-mail-fire.implicit": {
+        "name": "蔽影锁甲",
+        "template": "火焰抗性 {v0}%"
+      },
+      "base-audit.shrouded-mail-cold.implicit": {
+        "name": "蔽影锁甲",
+        "template": "冰霜抗性 {v0}%"
+      },
+      "base-audit.shrouded-mail-lightning.implicit": {
+        "name": "蔽影锁甲",
+        "template": "闪电抗性 {v0}%"
+      },
+      "base-audit.thane-mail.implicit": {
+        "name": "领主锁甲",
+        "template": "对你的击中的暴击伤害加成降低 {v0}%"
+      },
+      "base-audit.death-mantle.implicit": {
+        "name": "死亡斗篷",
+        "template": "{v0}% 元素抗性上限"
+      },
+      "base-audit.conjurer-mantle.implicit": {
+        "name": "咒者斗篷",
+        "template": "{v0} 精魂"
+      },
+      "base-audit.seastorm-mantle.implicit": {
+        "name": "海洋风暴斗篷",
+        "template": "将所受伤害的{v0}%吸纳为生命"
+      },
+      "base-audit.rambler-jacket.implicit": {
+        "name": "漫步者外衣",
+        "template": "混沌抗性 {v0}%"
+      },
+      "base-audit.falconers-jacket.implicit": {
+        "name": "猎鹰师外衣",
+        "template": "移动速度提高 {v0}%"
+      },
+      "base-audit.austere-garb.implicit": {
+        "name": "简朴束衣",
+        "template": "自身受到的元素异常状态时间降低 {v0}%"
       }
     },
     "zh-TW": {
@@ -90588,6 +91856,162 @@
       "staves-talismans.maji-talisman:implicit:base": {
         "name": "Maji Talisman",
         "template": "{v0}層最大盛怒"
+      },
+      "base-audit.jade-amulet.implicit": {
+        "name": "翠玉護身符",
+        "template": "{v0}點敏捷"
+      },
+      "base-audit.lapis-amulet.implicit": {
+        "name": "海玉護身符",
+        "template": "{v0}點智慧"
+      },
+      "base-audit.gold-amulet.implicit": {
+        "name": "帝金護身符",
+        "template": "增加{v0}%找到的物品稀有度"
+      },
+      "base-audit.twisted-amulet.implicit": {
+        "name": "扭曲項鍊",
+        "template": "允許前綴{v0}"
+      },
+      "base-audit.distorted-amulet.implicit": {
+        "name": "歪曲護身符",
+        "template": "允許後綴{v0}"
+      },
+      "base-audit.absent-amulet.implicit": {
+        "name": "虛無護身符",
+        "template": "允許前綴{v0}\n允許後綴{v1}"
+      },
+      "base-audit.portent-amulet.implicit": {
+        "name": "惡兆護身符",
+        "template": "允許後綴{v0}"
+      },
+      "base-audit.lament-amulet.implicit": {
+        "name": "悼亡護身符",
+        "template": "允許前綴{v0}"
+      },
+      "base-audit.dusk-amulet.implicit": {
+        "name": "幽暗項鍊",
+        "template": "允許前綴{v0}\n允許後綴{v1}"
+      },
+      "base-audit.penumbra-amulet.implicit": {
+        "name": "半影項鍊",
+        "template": "允許前綴{v0}\n允許後綴{v1}"
+      },
+      "base-audit.gloam-amulet.implicit": {
+        "name": "黃昏項鍊",
+        "template": "允許前綴{v0}\n允許後綴{v1}"
+      },
+      "base-audit.corona-amulet.implicit": {
+        "name": "日冕護身符",
+        "template": "此物品會被視為頭盔，自插槽中的物品獲得加成"
+      },
+      "base-audit.tenebrous-amulet.implicit": {
+        "name": "黑暗項鍊",
+        "template": "允許前綴{v0}\n允許後綴{v1}"
+      },
+      "base-audit.lazuli-ring.implicit": {
+        "name": "青金石戒指",
+        "template": "{v0}最大魔力"
+      },
+      "base-audit.sapphire-ring.implicit": {
+        "name": "藍玉戒指",
+        "template": "{v0}%冰冷抗性"
+      },
+      "base-audit.topaz-ring.implicit": {
+        "name": "黃玉戒指",
+        "template": "{v0}%閃電抗性"
+      },
+      "base-audit.emerald-ring.implicit": {
+        "name": "綠寶石戒指",
+        "template": "{v0}命中值"
+      },
+      "base-audit.gold-ring.implicit": {
+        "name": "金光戒指",
+        "template": "增加{v0}%找到的物品稀有度"
+      },
+      "base-audit.unset-ring.implicit": {
+        "name": "潛能之戒",
+        "template": "賦予{v0}個額外技能槽"
+      },
+      "base-audit.utzaal-cuirass.implicit": {
+        "name": "奧札爾胸甲",
+        "template": "增加{v0}%暈眩門檻"
+      },
+      "base-audit.abyssal-cuirass.implicit": {
+        "name": "深淵胸甲",
+        "template": "每秒回復{v0}%生命"
+      },
+      "base-audit.warlord-cuirass.implicit": {
+        "name": "總督胸甲",
+        "template": "{v0}%的護甲值也會套用至元素傷害"
+      },
+      "base-audit.mail-coat.implicit": {
+        "name": "鎖甲外套",
+        "template": "減少{v0}%你身上的減益效果緩速程度"
+      },
+      "base-audit.wyrmscale-coat.implicit": {
+        "name": "龍鱗外套",
+        "template": "增加{v0}%元素異常狀態門檻"
+      },
+      "base-audit.corsair-coat.implicit": {
+        "name": "海盜外套",
+        "template": "增加{v0}%移動速度"
+      },
+      "base-audit.flowing-raiment.implicit": {
+        "name": "奔流之衣",
+        "template": "增加{v0}%魔力回復率"
+      },
+      "base-audit.sacramental-robe.implicit": {
+        "name": "聖禮長袍",
+        "template": "增加{v0}%能量護盾充能率"
+      },
+      "base-audit.feathered-raiment.implicit": {
+        "name": "羽絨之衣",
+        "template": "生命值所受的{v0}%傷害由魔力扣除"
+      },
+      "base-audit.dastard-armour.implicit": {
+        "name": "惡徒護甲",
+        "template": "{v0}最大生命"
+      },
+      "base-audit.shrouded-mail-fire.implicit": {
+        "name": "遮蔽鎖甲",
+        "template": "{v0}%火焰抗性"
+      },
+      "base-audit.shrouded-mail-cold.implicit": {
+        "name": "遮蔽鎖甲",
+        "template": "{v0}%冰冷抗性"
+      },
+      "base-audit.shrouded-mail-lightning.implicit": {
+        "name": "遮蔽鎖甲",
+        "template": "{v0}%閃電抗性"
+      },
+      "base-audit.thane-mail.implicit": {
+        "name": "領主鎖甲",
+        "template": "對你的擊中減少{v0}%暴擊傷害加成"
+      },
+      "base-audit.death-mantle.implicit": {
+        "name": "死亡披肩",
+        "template": "{v0}%最大全元素抗性"
+      },
+      "base-audit.conjurer-mantle.implicit": {
+        "name": "巫術師披肩",
+        "template": "{v0}精魂"
+      },
+      "base-audit.seastorm-mantle.implicit": {
+        "name": "海洋風暴披肩",
+        "template": "承受的{v0}%傷害補償為生命"
+      },
+      "base-audit.rambler-jacket.implicit": {
+        "name": "漫步者外衣",
+        "template": "{v0}%混沌抗性"
+      },
+      "base-audit.falconers-jacket.implicit": {
+        "name": "訓鷹者外衣",
+        "template": "增加{v0}%移動速度"
+      },
+      "base-audit.austere-garb.implicit": {
+        "name": "樸素裝束",
+        "template": "減少{v0}%身上元素異常狀態時間"
       }
     },
     "ja": {
@@ -99694,6 +101118,162 @@
       "staves-talismans.maji-talisman:implicit:base": {
         "name": "Maji Talisman",
         "template": "憤怒の最大数 {v0}"
+      },
+      "base-audit.jade-amulet.implicit": {
+        "name": "翡翠のアミュレット",
+        "template": "器用さ {v0}"
+      },
+      "base-audit.lapis-amulet.implicit": {
+        "name": "瑠璃のアミュレット",
+        "template": "知性 {v0}"
+      },
+      "base-audit.gold-amulet.implicit": {
+        "name": "金のアミュレット",
+        "template": "見つかるアイテムのレアリティが{v0}%増加する"
+      },
+      "base-audit.twisted-amulet.implicit": {
+        "name": "捻じれたアミュレット",
+        "template": "プレフィックスモッド {v0}個"
+      },
+      "base-audit.distorted-amulet.implicit": {
+        "name": "歪んだアミュレット",
+        "template": "サフィックスモッド {v0}個"
+      },
+      "base-audit.absent-amulet.implicit": {
+        "name": "不在のアミュレット",
+        "template": "プレフィックスモッド {v0}個\nサフィックスモッド {v1}個"
+      },
+      "base-audit.portent-amulet.implicit": {
+        "name": "前兆のアミュレット",
+        "template": "サフィックスモッド {v0}個"
+      },
+      "base-audit.lament-amulet.implicit": {
+        "name": "悲嘆のアミュレット",
+        "template": "プレフィックスモッド {v0}個"
+      },
+      "base-audit.dusk-amulet.implicit": {
+        "name": "黄昏のアミュレット",
+        "template": "プレフィックスモッド {v0}個\nサフィックスモッド {v1}個"
+      },
+      "base-audit.penumbra-amulet.implicit": {
+        "name": "半影のアミュレット",
+        "template": "プレフィックスモッド {v0}個\nサフィックスモッド {v1}個"
+      },
+      "base-audit.gloam-amulet.implicit": {
+        "name": "薄明のアミュレット",
+        "template": "プレフィックスモッド {v0}個\nサフィックスモッド {v1}個"
+      },
+      "base-audit.corona-amulet.implicit": {
+        "name": "コロナアミュレット",
+        "template": "このアイテムはソケットされたアイテムからそれが兜にソケットされているかのように仮定してボーナスを獲得する"
+      },
+      "base-audit.tenebrous-amulet.implicit": {
+        "name": "仄暗いアミュレット",
+        "template": "プレフィックスモッド {v0}個\nサフィックスモッド {v1}個"
+      },
+      "base-audit.lazuli-ring.implicit": {
+        "name": "青金石の指輪",
+        "template": "最大マナ {v0}"
+      },
+      "base-audit.sapphire-ring.implicit": {
+        "name": "サファイアの指輪",
+        "template": "冷気耐性 {v0}%"
+      },
+      "base-audit.topaz-ring.implicit": {
+        "name": "トパーズの指輪",
+        "template": "雷耐性 {v0}%"
+      },
+      "base-audit.emerald-ring.implicit": {
+        "name": "エメラルドの指輪",
+        "template": "命中力 {v0}"
+      },
+      "base-audit.gold-ring.implicit": {
+        "name": "金の指輪",
+        "template": "見つかるアイテムのレアリティが{v0}%増加する"
+      },
+      "base-audit.unset-ring.implicit": {
+        "name": "石無しの指輪",
+        "template": "スキルスロットを追加で{v0}個付与する"
+      },
+      "base-audit.utzaal-cuirass.implicit": {
+        "name": "ウトザールの胴鎧",
+        "template": "スタン閾値が{v0}%増加する"
+      },
+      "base-audit.abyssal-cuirass.implicit": {
+        "name": "深淵の胴鎧",
+        "template": "毎秒ライフの{v0}%を自動回復する"
+      },
+      "base-audit.warlord-cuirass.implicit": {
+        "name": "ウォーロードの胴鎧",
+        "template": "アーマーの{v0}%が元素ダメージにも適用される"
+      },
+      "base-audit.mail-coat.implicit": {
+        "name": "メイルコート",
+        "template": "プレイヤーに対する減速のデバフのポテンシャルが{v0}%減少する"
+      },
+      "base-audit.wyrmscale-coat.implicit": {
+        "name": "ワームスケイルコート",
+        "template": "元素系状態異常閾値が{v0}%増加する"
+      },
+      "base-audit.corsair-coat.implicit": {
+        "name": "海賊のコート",
+        "template": "移動スピードが{v0}%増加する"
+      },
+      "base-audit.flowing-raiment.implicit": {
+        "name": "緩やかな装束",
+        "template": "マナ自動回復レートが{v0}%増加する"
+      },
+      "base-audit.sacramental-robe.implicit": {
+        "name": "聖餐のローブ",
+        "template": "エナジーシールドリチャージレートが{v0}%増加する"
+      },
+      "base-audit.feathered-raiment.implicit": {
+        "name": "羽付きの装束",
+        "template": "ダメージの{v0}%をライフより先にマナで受ける"
+      },
+      "base-audit.dastard-armour.implicit": {
+        "name": "卑怯者の鎧",
+        "template": "最大ライフ {v0}"
+      },
+      "base-audit.shrouded-mail-fire.implicit": {
+        "name": "シュラウドメイル",
+        "template": "火耐性 {v0}%"
+      },
+      "base-audit.shrouded-mail-cold.implicit": {
+        "name": "シュラウドメイル",
+        "template": "冷気耐性 {v0}%"
+      },
+      "base-audit.shrouded-mail-lightning.implicit": {
+        "name": "シュラウドメイル",
+        "template": "雷耐性 {v0}%"
+      },
+      "base-audit.thane-mail.implicit": {
+        "name": "族長のメイル",
+        "template": "プレイヤーに対するヒットはクリティカルダメージボーナスが{v0}%減少する"
+      },
+      "base-audit.death-mantle.implicit": {
+        "name": "死の外套",
+        "template": "全ての元素耐性の最大値 {v0}%"
+      },
+      "base-audit.conjurer-mantle.implicit": {
+        "name": "祈祷師の外套",
+        "template": "スピリット {v0}"
+      },
+      "base-audit.seastorm-mantle.implicit": {
+        "name": "シーストームの外套",
+        "template": "受けたダメージの{v0}%をライフとして回収する"
+      },
+      "base-audit.rambler-jacket.implicit": {
+        "name": "散策者のジャケット",
+        "template": "混沌耐性 {v0}%"
+      },
+      "base-audit.falconers-jacket.implicit": {
+        "name": "鷹匠のジャケット",
+        "template": "移動スピードが{v0}%増加する"
+      },
+      "base-audit.austere-garb.implicit": {
+        "name": "禁欲の衣",
+        "template": "受ける元素系状態異常の持続時間が{v0}%減少する"
       }
     },
     "es": {
@@ -108800,6 +110380,162 @@
       "staves-talismans.maji-talisman:implicit:base": {
         "name": "Maji Talisman",
         "template": "{v0} al máximo de furia"
+      },
+      "base-audit.jade-amulet.implicit": {
+        "name": "Amuleto de jade",
+        "template": "{v0} a la destreza"
+      },
+      "base-audit.lapis-amulet.implicit": {
+        "name": "Amuleto de lapislázuli",
+        "template": "{v0} a la inteligencia"
+      },
+      "base-audit.gold-amulet.implicit": {
+        "name": "Amuleto de oro",
+        "template": "Rareza de los objetos encontrados aumentada un {v0}%"
+      },
+      "base-audit.twisted-amulet.implicit": {
+        "name": "Amuleto retorcido",
+        "template": "{v0} modificador de prefijo permitido"
+      },
+      "base-audit.distorted-amulet.implicit": {
+        "name": "Amuleto distorsionado",
+        "template": "{v0} modificador de sufijo permitido"
+      },
+      "base-audit.absent-amulet.implicit": {
+        "name": "Amuleto ausente",
+        "template": "{v0} modificador de prefijo permitido\n{v1} modificador de sufijo permitido"
+      },
+      "base-audit.portent-amulet.implicit": {
+        "name": "Amuleto de presagio",
+        "template": "{v0} modificador de sufijo permitido"
+      },
+      "base-audit.lament-amulet.implicit": {
+        "name": "Amuleto de lamento",
+        "template": "{v0} modificador de prefijo permitido"
+      },
+      "base-audit.dusk-amulet.implicit": {
+        "name": "Amuleto de anochecer",
+        "template": "{v0} modificador de prefijo permitido\n{v1} modificador de sufijo permitido"
+      },
+      "base-audit.penumbra-amulet.implicit": {
+        "name": "Amuleto de penumbra",
+        "template": "{v0} modificadores de prefijo permitidos\n{v1} modificadores de sufijo permitidos"
+      },
+      "base-audit.gloam-amulet.implicit": {
+        "name": "Amuleto crepuscular",
+        "template": "{v0} modificador de prefijo permitido\n{v1} modificador de sufijo permitido"
+      },
+      "base-audit.corona-amulet.implicit": {
+        "name": "Amuleto de corona",
+        "template": "Este objeto gana bonificaciones de los objetos engarzados como si fuera un casco"
+      },
+      "base-audit.tenebrous-amulet.implicit": {
+        "name": "Amuleto tenebroso",
+        "template": "{v0} modificadores de prefijo permitidos\n{v1} modificadores de sufijo permitidos"
+      },
+      "base-audit.lazuli-ring.implicit": {
+        "name": "Anillo de lapislázuli",
+        "template": "{v0} al maná máximo"
+      },
+      "base-audit.sapphire-ring.implicit": {
+        "name": "Anillo de zafiro",
+        "template": "{v0}% a la resistencia al hielo"
+      },
+      "base-audit.topaz-ring.implicit": {
+        "name": "Anillo de topacio",
+        "template": "{v0}% a la resistencia al rayo"
+      },
+      "base-audit.emerald-ring.implicit": {
+        "name": "Anillo de esmeralda",
+        "template": "{v0} a la precisión"
+      },
+      "base-audit.gold-ring.implicit": {
+        "name": "Anillo de oro",
+        "template": "Rareza de los objetos encontrados aumentada un {v0}%"
+      },
+      "base-audit.unset-ring.implicit": {
+        "name": "Anillo inconcluso",
+        "template": "Otorga {v0} espacios de habilidad adicionales"
+      },
+      "base-audit.utzaal-cuirass.implicit": {
+        "name": "Coraza de Utzaal",
+        "template": "Umbral de aturdimiento aumentado un {v0}%"
+      },
+      "base-audit.abyssal-cuirass.implicit": {
+        "name": "Coraza abisal",
+        "template": "Regeneras un {v0}% de vida por segundo"
+      },
+      "base-audit.warlord-cuirass.implicit": {
+        "name": "Coraza del jefe de guerra",
+        "template": "El {v0}% de la armadura también se aplica al daño elemental"
+      },
+      "base-audit.mail-coat.implicit": {
+        "name": "Coselete de malla",
+        "template": "La potencia ralentizadora de los efectos nocivos está reducida un {v0}% sobre ti"
+      },
+      "base-audit.wyrmscale-coat.implicit": {
+        "name": "Coselete de escamas de wyrm",
+        "template": "Umbral de los estados alterados elementales aumentado un {v0}%"
+      },
+      "base-audit.corsair-coat.implicit": {
+        "name": "Coselete de corsario",
+        "template": "Velocidad de movimiento aumentada un {v0}%"
+      },
+      "base-audit.flowing-raiment.implicit": {
+        "name": "Atuendo fluido",
+        "template": "Velocidad de regeneración de maná aumentada un {v0}%"
+      },
+      "base-audit.sacramental-robe.implicit": {
+        "name": "Túnica de sacramento",
+        "template": "Velocidad de recarga del escudo de energía aumentada un {v0}%"
+      },
+      "base-audit.feathered-raiment.implicit": {
+        "name": "Atuendo emplumado",
+        "template": "El {v0}% daño lo recibe el maná antes que la vida"
+      },
+      "base-audit.dastard-armour.implicit": {
+        "name": "Armadura de cobarde",
+        "template": "{v0} a la vida máxima"
+      },
+      "base-audit.shrouded-mail-fire.implicit": {
+        "name": "Cota de malla envuelta",
+        "template": "{v0}% a la resistencia al fuego"
+      },
+      "base-audit.shrouded-mail-cold.implicit": {
+        "name": "Cota de malla envuelta",
+        "template": "{v0}% a la resistencia al hielo"
+      },
+      "base-audit.shrouded-mail-lightning.implicit": {
+        "name": "Cota de malla envuelta",
+        "template": "{v0}% a la resistencia al rayo"
+      },
+      "base-audit.thane-mail.implicit": {
+        "name": "Cota de malla del thane",
+        "template": "Los impactos contra ti tienen la bonificación de daño crítico reducida un {v0}%"
+      },
+      "base-audit.death-mantle.implicit": {
+        "name": "Manto de muerte",
+        "template": "{v0}% a todas las resistencias elementales máximas"
+      },
+      "base-audit.conjurer-mantle.implicit": {
+        "name": "Manto de conjurador",
+        "template": "{v0} al espíritu"
+      },
+      "base-audit.seastorm-mantle.implicit": {
+        "name": "Manto de la tormenta marina",
+        "template": "El {v0}% del daño recibido se recobra como vida"
+      },
+      "base-audit.rambler-jacket.implicit": {
+        "name": "Chaqueta de trotamundos",
+        "template": "{v0}% a la resistencia al caos"
+      },
+      "base-audit.falconers-jacket.implicit": {
+        "name": "Chaqueta de halconero",
+        "template": "Velocidad de movimiento aumentada un {v0}%"
+      },
+      "base-audit.austere-garb.implicit": {
+        "name": "Traje austero",
+        "template": "Duración de los estados alterados elementales sobre ti reducida un {v0}%"
       }
     }
   }

@@ -72,10 +72,10 @@ public final class ItemCatalogLoader {
             name,
             "https://poe2db.tw/us/" + name.replace(' ', '_'),
             pool.base().implicitModifierId(),
-            1,
-            1,
-            3,
-            3),
+            pool.base().magicPrefixes(),
+            pool.base().magicSuffixes(),
+            pool.base().rarePrefixes(),
+            pool.base().rareSuffixes()),
         new ArrayList<>(pool.modifiers().values()));
   }
 

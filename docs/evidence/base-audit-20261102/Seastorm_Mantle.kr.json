@@ -1,0 +1,49 @@
+{
+  "url": "https://poe2db.tw/kr/Seastorm_Mantle",
+  "retrievedAt": "2026-11-02T07:57:05.218Z",
+  "sha256": "e361fae033999b238459a2ef57f760aee2af79f005cb3c36ec342465cbdb92ea",
+  "variants": [
+    {
+      "name": "바다폭풍 외투",
+      "card": "바다폭풍 외투\n        \n    \n    \n        \n            갑옷방어도: 273에너지 보호막: 76Base Movement Speed: -0.04요구 사항:  레벨 80, 67 힘, 67 지능받은 피해의 (8—14)%를 생명력으로 회생\n        \n\n\n\n        \n            Seastorm Mantle",
+      "requirements": "요구 사항:  레벨 80, 67 힘, 67 지능",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "바다폭풍 외투",
+        "Class": "갑옷",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt8Endgame",
+        "Tags": "str_int_armour, karui_basetype, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr08",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "받은 피해의 (8—14)%를 생명력으로 회생",
+      "family": "DamageTakenGainedAsLife",
+      "tags": [
+        "resource",
+        "생명력"
+      ],
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 8,
+          "max": 14,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>받은 피해의 <span class='mod-value'>(8<span class=\"ndash\">—</span>14)</span>%를 생명력으로 <a data-keyword=\"Recoup\" href=\"Recoup\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/69a502df38a0c49d49817974909999eb50c16ba62f5a1a41b5db1c99bf7c2e61\">회생</a></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>DamageTakenGainedAsLife\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>damage taken goes to life over 4 seconds % <span class=\"badge bg-primary\">8 <span class=\"ndash\">—</span> 14</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>생명력</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr08.webp"
+}

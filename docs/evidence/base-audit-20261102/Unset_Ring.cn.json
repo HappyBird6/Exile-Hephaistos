@@ -1,0 +1,47 @@
+{
+  "url": "https://poe2db.tw/cn/Unset_Ring",
+  "retrievedAt": "2026-11-02T07:57:00.602Z",
+  "sha256": "34948a65506c67ced25826749e6c30d1065cb12739f6adc69841db637ac2e689",
+  "variants": [
+    {
+      "name": "潜能之戒",
+      "card": "潜能之戒\n        \n    \n    \n        \n            戒指需求：  等级 44获得 1 个额外技能栏位\n        \n\n\n\n        \n            Unset Ring",
+      "requirements": "需求：  等级 44",
+      "fields": {
+        "DropLevel": "44",
+        "BaseType": "潜能之戒",
+        "Class": "戒指",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRing11",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/Basetypes/UnsetRing",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "获得 1 个额外技能栏位",
+      "family": "AdditionalSkillSlots",
+      "tags": [],
+      "stats": [
+        {
+          "id": "local_item_additional_skill_slots",
+          "min": 1,
+          "max": 1,
+          "locality": "区域"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>获得 <span class='mod-value'>1</span> 个额外技能栏位</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>AdditionalSkillSlots\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>传奇 (3)\n<tr><th>Req. level<td>56 (Effective: 44)\n<tr><th>Stats<td><li>local item additional skill slots <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 1</span> <span class=\"badge bg-secondary\">区域</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/UnsetRing.webp"
+}

@@ -7095,6 +7095,1092 @@
       "requiredIntelligence": 65,
       "augmentSockets": null,
       "ordinarySocketMaximum": 2
+    },
+    "jade-amulet": {
+      "ruleVersion": "distinct-amulets-workbench-v1",
+      "ledgerVersion": "amulet-unverified-numeric-assumptions-v1",
+      "baseItemId": "Metadata/Items/Amulets/FourAmulet4",
+      "source": "https://poe2db.tw/us/Jade_Amulet",
+      "sourceSha256": "d21ffddffcbdaaf710baf6feb16e5bb77bdb40490e8aa43aea80ffa1e7347b0b",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "jade-amulet:implicit:base",
+      "requiredCharacterLevel": 8,
+      "implicitLocalities": [
+        {
+          "id": "additional_dexterity",
+          "min": 10,
+          "max": 15,
+          "locality": "Global"
+        }
+      ],
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ]
+    },
+    "lapis-amulet": {
+      "ruleVersion": "distinct-amulets-workbench-v1",
+      "ledgerVersion": "amulet-unverified-numeric-assumptions-v1",
+      "baseItemId": "Metadata/Items/Amulets/FourAmulet5",
+      "source": "https://poe2db.tw/us/Lapis_Amulet",
+      "sourceSha256": "f3c0501dd3e553b17f532bcc190e9797dfd4edb1502e6dd0e0a5b22a31e07acf",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "lapis-amulet:implicit:base",
+      "requiredCharacterLevel": 8,
+      "implicitLocalities": [
+        {
+          "id": "additional_intelligence",
+          "min": 10,
+          "max": 15,
+          "locality": "Global"
+        }
+      ],
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ]
+    },
+    "gold-amulet": {
+      "ruleVersion": "distinct-amulets-workbench-v1",
+      "ledgerVersion": "amulet-unverified-numeric-assumptions-v1",
+      "baseItemId": "Metadata/Items/Amulets/FourAmulet10",
+      "source": "https://poe2db.tw/us/Gold_Amulet",
+      "sourceSha256": "78385b3bf926dd240da4541b28752b1c060150beee47d4d838e7127c5b7632e4",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "gold-amulet:implicit:base",
+      "requiredCharacterLevel": 35,
+      "implicitLocalities": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 12,
+          "max": 20,
+          "locality": "Global"
+        }
+      ],
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ]
+    },
+    "twisted-amulet": {
+      "ruleVersion": "distinct-amulets-workbench-v1",
+      "ledgerVersion": "amulet-unverified-numeric-assumptions-v1",
+      "baseItemId": "Metadata/Items/Amulets/FourAmuletDelirium1",
+      "source": "https://poe2db.tw/us/Twisted_Amulet",
+      "sourceSha256": "f1b06197643c29fd7ebd685ef2ac21756e300b5453991f5d59a67756db887fee",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "twisted-amulet:implicit:base",
+      "requiredCharacterLevel": 0,
+      "implicitLocalities": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "Local"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 0,
+          "max": 0,
+          "locality": "Local"
+        }
+      ],
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ]
+    },
+    "distorted-amulet": {
+      "ruleVersion": "distinct-amulets-workbench-v1",
+      "ledgerVersion": "amulet-unverified-numeric-assumptions-v1",
+      "baseItemId": "Metadata/Items/Amulets/FourAmuletDelirium2",
+      "source": "https://poe2db.tw/us/Distorted_Amulet",
+      "sourceSha256": "85aebe1aaaf9b20739789b86593a6c40da137d3a545b66ba47336827df6777a5",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "distorted-amulet:implicit:base",
+      "requiredCharacterLevel": 0,
+      "implicitLocalities": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 0,
+          "max": 0,
+          "locality": "Local"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "Local"
+        }
+      ],
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ]
+    },
+    "absent-amulet": {
+      "ruleVersion": "distinct-amulets-workbench-v1",
+      "ledgerVersion": "amulet-unverified-numeric-assumptions-v1",
+      "baseItemId": "Metadata/Items/Amulets/FourAmuletB1c",
+      "source": "https://poe2db.tw/us/Absent_Amulet",
+      "sourceSha256": "64824c9d3565c2dd02bc3aa115068d134b4a3b35b2d6efbb964c7bfc54e409ed",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "absent-amulet:implicit:base",
+      "requiredCharacterLevel": 50,
+      "implicitLocalities": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "Local"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "Local"
+        }
+      ],
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ]
+    },
+    "portent-amulet": {
+      "ruleVersion": "distinct-amulets-workbench-v1",
+      "ledgerVersion": "amulet-unverified-numeric-assumptions-v1",
+      "baseItemId": "Metadata/Items/Amulets/FourAmuletB1b",
+      "source": "https://poe2db.tw/us/Portent_Amulet",
+      "sourceSha256": "f57253ed604d0f06091221fe5eee2d4c7cb3326380eb9c2d8e0be639a8c4bc76",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "portent-amulet:implicit:base",
+      "requiredCharacterLevel": 42,
+      "implicitLocalities": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 0,
+          "max": 0,
+          "locality": "Local"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "Local"
+        }
+      ],
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ]
+    },
+    "lament-amulet": {
+      "ruleVersion": "distinct-amulets-workbench-v1",
+      "ledgerVersion": "amulet-unverified-numeric-assumptions-v1",
+      "baseItemId": "Metadata/Items/Amulets/FourAmuletB1a",
+      "source": "https://poe2db.tw/us/Lament_Amulet",
+      "sourceSha256": "91d69395850bd30fd03974c2ee618c61a301c59b42fc61eab26e7ebd6cd5bc25",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "lament-amulet:implicit:base",
+      "requiredCharacterLevel": 42,
+      "implicitLocalities": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "Local"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 0,
+          "max": 0,
+          "locality": "Local"
+        }
+      ],
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ]
+    },
+    "dusk-amulet": {
+      "ruleVersion": "distinct-amulets-workbench-v1",
+      "ledgerVersion": "amulet-unverified-numeric-assumptions-v1",
+      "baseItemId": "Metadata/Items/Amulets/FourAmuletLake1",
+      "source": "https://poe2db.tw/us/Dusk_Amulet",
+      "sourceSha256": "a49ec846228abf4e0cf3ef899bbb116d9a19e1ab0dc32f327afd48d3a8b05970",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "dusk-amulet:implicit:base",
+      "requiredCharacterLevel": 0,
+      "implicitLocalities": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 1,
+          "max": 1,
+          "locality": "Local"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "Local"
+        }
+      ],
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ]
+    },
+    "penumbra-amulet": {
+      "ruleVersion": "distinct-amulets-workbench-v1",
+      "ledgerVersion": "amulet-unverified-numeric-assumptions-v1",
+      "baseItemId": "Metadata/Items/Amulets/FourAmuletLake3",
+      "source": "https://poe2db.tw/us/Penumbra_Amulet",
+      "sourceSha256": "a8f0b24bf54ddc01bbd1e2915977533f7e069703db10ab68eae818fe42dc0914",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "penumbra-amulet:implicit:base",
+      "requiredCharacterLevel": 0,
+      "implicitLocalities": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 2,
+          "max": 2,
+          "locality": "Local"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -2,
+          "max": -2,
+          "locality": "Local"
+        }
+      ],
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ]
+    },
+    "gloam-amulet": {
+      "ruleVersion": "distinct-amulets-workbench-v1",
+      "ledgerVersion": "amulet-unverified-numeric-assumptions-v1",
+      "baseItemId": "Metadata/Items/Amulets/FourAmuletLake2",
+      "source": "https://poe2db.tw/us/Gloam_Amulet",
+      "sourceSha256": "c3b7177e177110a9e8ff786a4b6907bc38646b308c9e1f077590fe3fb79314ee",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "gloam-amulet:implicit:base",
+      "requiredCharacterLevel": 0,
+      "implicitLocalities": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "Local"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 1,
+          "max": 1,
+          "locality": "Local"
+        }
+      ],
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ]
+    },
+    "corona-amulet": {
+      "ruleVersion": "distinct-amulets-workbench-v1",
+      "ledgerVersion": "amulet-unverified-numeric-assumptions-v1",
+      "baseItemId": "Metadata/Items/Amulets/FourAmuletB2",
+      "source": "https://poe2db.tw/us/Corona_Amulet",
+      "sourceSha256": "4b2a7015d9956c183926cc90d5ba6e2c3ba9b7680d81f6ca8fdba714d061c216",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "corona-amulet:implicit:base",
+      "requiredCharacterLevel": 40,
+      "implicitLocalities": [
+        {
+          "id": "local_item_benefit_socketable_as_if_helmet",
+          "min": 1,
+          "max": 1,
+          "locality": "Local"
+        }
+      ],
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ]
+    },
+    "tenebrous-amulet": {
+      "ruleVersion": "distinct-amulets-workbench-v1",
+      "ledgerVersion": "amulet-unverified-numeric-assumptions-v1",
+      "baseItemId": "Metadata/Items/Amulets/FourAmuletLake4",
+      "source": "https://poe2db.tw/us/Tenebrous_Amulet",
+      "sourceSha256": "5a97dc2d26d13566ac621ed3860b3879959a08e753d866f09cda8bd3f1ba9d3d",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "tenebrous-amulet:implicit:base",
+      "requiredCharacterLevel": 0,
+      "implicitLocalities": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -2,
+          "max": -2,
+          "locality": "Local"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 2,
+          "max": 2,
+          "locality": "Local"
+        }
+      ],
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ]
+    },
+    "lazuli-ring": {
+      "ruleVersion": "ring-workbench-perfect-essence-v1",
+      "ledgerVersion": "ring-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Lazuli_Ring",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "lazuli-ring:implicit:base",
+      "augmentSockets": null,
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ],
+      "baseItemId": "Metadata/Items/Rings/FourRing2",
+      "sourceSha256": "cb9bc60bccda997b4617756aaa01288d518055129618e9d2720b728d2318b277",
+      "requiredCharacterLevel": 0,
+      "implicitLocalities": [
+        {
+          "id": "base_maximum_mana",
+          "min": 20,
+          "max": 30,
+          "locality": "Global"
+        }
+      ]
+    },
+    "sapphire-ring": {
+      "ruleVersion": "ring-workbench-perfect-essence-v1",
+      "ledgerVersion": "ring-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Sapphire_Ring",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "sapphire-ring:implicit:base",
+      "augmentSockets": null,
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ],
+      "baseItemId": "Metadata/Items/Rings/FourRing4",
+      "sourceSha256": "a7fe3560671e6b74b2d19be981ca6218a41089debdc1c559347e81a802cbb73a",
+      "requiredCharacterLevel": 12,
+      "implicitLocalities": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 20,
+          "max": 30,
+          "locality": "Global"
+        }
+      ]
+    },
+    "topaz-ring": {
+      "ruleVersion": "ring-workbench-perfect-essence-v1",
+      "ledgerVersion": "ring-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Topaz_Ring",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "topaz-ring:implicit:base",
+      "augmentSockets": null,
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ],
+      "baseItemId": "Metadata/Items/Rings/FourRing5",
+      "sourceSha256": "5dd8b2c4041b9159f6105a0ec79a5688acc144849271bbafce57e8d5111ebc2a",
+      "requiredCharacterLevel": 16,
+      "implicitLocalities": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 20,
+          "max": 30,
+          "locality": "Global"
+        }
+      ]
+    },
+    "emerald-ring": {
+      "ruleVersion": "ring-workbench-perfect-essence-v1",
+      "ledgerVersion": "ring-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Emerald_Ring",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "emerald-ring:implicit:base",
+      "augmentSockets": null,
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ],
+      "baseItemId": "Metadata/Items/Rings/FourRing7",
+      "sourceSha256": "af202a5fc840fe17afdc2033e5b8e1f74937142f2b8ca597d997dd12e467dcef",
+      "requiredCharacterLevel": 26,
+      "implicitLocalities": [
+        {
+          "id": "accuracy_rating",
+          "min": 120,
+          "max": 160,
+          "locality": "Global"
+        }
+      ]
+    },
+    "gold-ring": {
+      "ruleVersion": "ring-workbench-perfect-essence-v1",
+      "ledgerVersion": "ring-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Gold_Ring",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "gold-ring:implicit:base",
+      "augmentSockets": null,
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ],
+      "baseItemId": "Metadata/Items/Rings/FourRing10",
+      "sourceSha256": "11a320c8fb231c8645c44e7ab441e9101ab52a3eb4cda1adf46a4590d35b75ac",
+      "requiredCharacterLevel": 40,
+      "implicitLocalities": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 6,
+          "max": 15,
+          "locality": "Global"
+        }
+      ]
+    },
+    "unset-ring": {
+      "ruleVersion": "ring-workbench-perfect-essence-v1",
+      "ledgerVersion": "ring-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Unset_Ring",
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicit": "unset-ring:implicit:base",
+      "augmentSockets": null,
+      "qualityMaximum": 20,
+      "unsupported": [
+        "ARTIFICER",
+        "PASTED_MAPPING",
+        "COMBAT",
+        "DEFERRED_ALLOYS"
+      ],
+      "baseItemId": "Metadata/Items/Rings/FourRing11",
+      "sourceSha256": "f9e1fd9a0719e8f705dc3cf58a6bf23a2dd009ae1eee1586dda17be3aa1ec333",
+      "requiredCharacterLevel": 44,
+      "implicitLocalities": [
+        {
+          "id": "local_item_additional_skill_slots",
+          "min": 1,
+          "max": 1,
+          "locality": "Local"
+        }
+      ]
+    },
+    "utzaal-cuirass": {
+      "ruleVersion": "body-workbench-perfect-essence-v1",
+      "ledgerVersion": "body-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Utzaal_Cuirass",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyStr8Endgame",
+      "sourceSha256": "05aa8aabfec705b11df7a7bc80a71ca44bd5cec4a9b1b58785829e877eabbef2",
+      "baseArmour": 570,
+      "requiredCharacterLevel": 75,
+      "requiredStrength": 121,
+      "qualityMaximum": 20,
+      "implicit": "utzaal-cuirass:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicitLocalities": [
+        {
+          "id": "stun_threshold_+%",
+          "min": 30,
+          "max": 40,
+          "locality": "Global"
+        }
+      ]
+    },
+    "abyssal-cuirass": {
+      "ruleVersion": "body-workbench-perfect-essence-v1",
+      "ledgerVersion": "body-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Abyssal_Cuirass",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyStr15",
+      "sourceSha256": "535b675fcee5c75b27b1d410ec201ebb65ed2970d16db8aa0f0ae0beae6e1109",
+      "baseArmour": 570,
+      "requiredCharacterLevel": 73,
+      "requiredStrength": 121,
+      "qualityMaximum": 20,
+      "implicit": "abyssal-cuirass:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicitLocalities": [
+        {
+          "id": "life_regeneration_rate_per_minute_%",
+          "min": 90,
+          "max": 150,
+          "locality": "Global"
+        }
+      ]
+    },
+    "warlord-cuirass": {
+      "ruleVersion": "body-workbench-perfect-essence-v1",
+      "ledgerVersion": "body-unverified-numeric-assumptions-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Warlord_Cuirass",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame",
+      "sourceSha256": "c3ceebada164edb64d19ef0bac41f1ec619cdd4f67d24ee82b74268f98614bfa",
+      "baseArmour": 570,
+      "requiredCharacterLevel": 80,
+      "requiredStrength": 121,
+      "qualityMaximum": 20,
+      "implicit": "warlord-cuirass:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "implicitLocalities": [
+        {
+          "id": "armour_%_applies_to_fire_cold_lightning_damage",
+          "min": 15,
+          "max": 25,
+          "locality": "Global"
+        }
+      ]
+    },
+    "mail-coat": {
+      "ruleVersion": "body-workbench-uniform-v1",
+      "ledgerVersion": "body-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Mail_Coat",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyDex14",
+      "sourceSha256": "c04306e1a0a690d8fd792d037b601493c643454b6559cdfbad8f02b994b08e5e",
+      "baseArmour": 0,
+      "requiredCharacterLevel": 68,
+      "requiredStrength": 0,
+      "qualityMaximum": 20,
+      "implicit": "mail-coat:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+      "baseEvasion": 519,
+      "baseEnergyShield": 0,
+      "requiredDexterity": 121,
+      "requiredIntelligence": 0,
+      "implicitLocalities": [
+        {
+          "id": "base_slow_potency_+%",
+          "min": -30,
+          "max": -20,
+          "locality": "Global"
+        }
+      ]
+    },
+    "wyrmscale-coat": {
+      "ruleVersion": "body-workbench-uniform-v1",
+      "ledgerVersion": "body-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Wyrmscale_Coat",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyDex8Endgame",
+      "sourceSha256": "e7f81230131d70286ca3d8445379e4bb9863210ba4adbd919af8141bed4cdca6",
+      "baseArmour": 0,
+      "requiredCharacterLevel": 75,
+      "requiredStrength": 0,
+      "qualityMaximum": 20,
+      "implicit": "wyrmscale-coat:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+      "baseEvasion": 519,
+      "baseEnergyShield": 0,
+      "requiredDexterity": 121,
+      "requiredIntelligence": 0,
+      "implicitLocalities": [
+        {
+          "id": "ailment_threshold_+%",
+          "min": 30,
+          "max": 40,
+          "locality": "Global"
+        }
+      ]
+    },
+    "corsair-coat": {
+      "ruleVersion": "body-workbench-uniform-v1",
+      "ledgerVersion": "body-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Corsair_Coat",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyDex10Endgame",
+      "sourceSha256": "75dcf901909c3b5433c6e0da115d3fcc28a9d62d04809d91e65c5f9cb720d2d3",
+      "baseArmour": 0,
+      "requiredCharacterLevel": 80,
+      "requiredStrength": 0,
+      "qualityMaximum": 20,
+      "implicit": "corsair-coat:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+      "baseEvasion": 519,
+      "baseEnergyShield": 0,
+      "requiredDexterity": 121,
+      "requiredIntelligence": 0,
+      "implicitLocalities": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 5,
+          "max": 5,
+          "locality": "Global"
+        }
+      ]
+    },
+    "flowing-raiment": {
+      "ruleVersion": "body-workbench-uniform-v1",
+      "ledgerVersion": "body-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Flowing_Raiment",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyInt6Endgame",
+      "sourceSha256": "e0f1f53b36412e2b52c59086684951111c165b5821364a5143976bb29c84ae0f",
+      "baseArmour": 0,
+      "requiredCharacterLevel": 70,
+      "requiredStrength": 0,
+      "qualityMaximum": 20,
+      "implicit": "flowing-raiment:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+      "baseEvasion": 0,
+      "baseEnergyShield": 171,
+      "requiredDexterity": 0,
+      "requiredIntelligence": 121,
+      "implicitLocalities": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 40,
+          "max": 50,
+          "locality": "Global"
+        }
+      ]
+    },
+    "sacramental-robe": {
+      "ruleVersion": "body-workbench-uniform-v1",
+      "ledgerVersion": "body-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Sacramental_Robe",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyInt8Endgame",
+      "sourceSha256": "75f669a195e11ca645a4b449bd1bf40cd075225edf9d65a0205fd414d2c6e7e7",
+      "baseArmour": 0,
+      "requiredCharacterLevel": 75,
+      "requiredStrength": 0,
+      "qualityMaximum": 20,
+      "implicit": "sacramental-robe:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+      "baseEvasion": 0,
+      "baseEnergyShield": 171,
+      "requiredDexterity": 0,
+      "requiredIntelligence": 121,
+      "implicitLocalities": [
+        {
+          "id": "energy_shield_recharge_rate_+%",
+          "min": 20,
+          "max": 25,
+          "locality": "Global"
+        }
+      ]
+    },
+    "feathered-raiment": {
+      "ruleVersion": "body-workbench-uniform-v1",
+      "ledgerVersion": "body-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Feathered_Raiment",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyInt10Endgame",
+      "sourceSha256": "8bdf44cc609e8c834b5413c5f9522d974bffffc77de198c07d72e723e47eca0d",
+      "baseArmour": 0,
+      "requiredCharacterLevel": 80,
+      "requiredStrength": 0,
+      "qualityMaximum": 20,
+      "implicit": "feathered-raiment:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+      "baseEvasion": 0,
+      "baseEnergyShield": 171,
+      "requiredDexterity": 0,
+      "requiredIntelligence": 121,
+      "implicitLocalities": [
+        {
+          "id": "base_damage_removed_from_mana_before_life_%",
+          "min": 5,
+          "max": 10,
+          "locality": "Global"
+        }
+      ]
+    },
+    "dastard-armour": {
+      "ruleVersion": "body-workbench-uniform-v1",
+      "ledgerVersion": "body-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Dastard_Armour",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex2Endgame",
+      "sourceSha256": "f6cb5376ba73b27c85077921c17d704b11e0e7c8967df52ea58896e9e2bb0b88",
+      "baseArmour": 313,
+      "requiredCharacterLevel": 65,
+      "requiredStrength": 67,
+      "qualityMaximum": 20,
+      "implicit": "dastard-armour:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+      "baseEvasion": 285,
+      "baseEnergyShield": 0,
+      "requiredDexterity": 67,
+      "requiredIntelligence": 0,
+      "implicitLocalities": [
+        {
+          "id": "base_maximum_life",
+          "min": 60,
+          "max": 80,
+          "locality": "Global"
+        }
+      ]
+    },
+    "shrouded-mail-fire": {
+      "ruleVersion": "body-workbench-uniform-v1",
+      "ledgerVersion": "body-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Shrouded_Mail",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4aEndgame",
+      "sourceSha256": "f242f64b5dff7696ffe89f1c0373685e5e8b378ebaa31199e25dfc3bb04975ae",
+      "baseArmour": 313,
+      "requiredCharacterLevel": 70,
+      "requiredStrength": 67,
+      "qualityMaximum": 20,
+      "implicit": "shrouded-mail-fire:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+      "baseEvasion": 285,
+      "baseEnergyShield": 0,
+      "requiredDexterity": 67,
+      "requiredIntelligence": 0,
+      "implicitLocalities": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 20,
+          "max": 25,
+          "locality": "Global"
+        }
+      ]
+    },
+    "shrouded-mail-cold": {
+      "ruleVersion": "body-workbench-uniform-v1",
+      "ledgerVersion": "body-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Shrouded_Mail",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame",
+      "sourceSha256": "f242f64b5dff7696ffe89f1c0373685e5e8b378ebaa31199e25dfc3bb04975ae",
+      "baseArmour": 313,
+      "requiredCharacterLevel": 70,
+      "requiredStrength": 67,
+      "qualityMaximum": 20,
+      "implicit": "shrouded-mail-cold:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+      "baseEvasion": 285,
+      "baseEnergyShield": 0,
+      "requiredDexterity": 67,
+      "requiredIntelligence": 0,
+      "implicitLocalities": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 20,
+          "max": 25,
+          "locality": "Global"
+        }
+      ]
+    },
+    "shrouded-mail-lightning": {
+      "ruleVersion": "body-workbench-uniform-v1",
+      "ledgerVersion": "body-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Shrouded_Mail",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4cEndgame",
+      "sourceSha256": "f242f64b5dff7696ffe89f1c0373685e5e8b378ebaa31199e25dfc3bb04975ae",
+      "baseArmour": 313,
+      "requiredCharacterLevel": 70,
+      "requiredStrength": 67,
+      "qualityMaximum": 20,
+      "implicit": "shrouded-mail-lightning:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+      "baseEvasion": 285,
+      "baseEnergyShield": 0,
+      "requiredDexterity": 67,
+      "requiredIntelligence": 0,
+      "implicitLocalities": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 20,
+          "max": 25,
+          "locality": "Global"
+        }
+      ]
+    },
+    "thane-mail": {
+      "ruleVersion": "body-workbench-uniform-v1",
+      "ledgerVersion": "body-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Thane_Mail",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex8Endgame",
+      "sourceSha256": "cbf8328e885885c2c9fdaf80afa3d5635a14e7490a47666bf2df9fac8a98de43",
+      "baseArmour": 313,
+      "requiredCharacterLevel": 80,
+      "requiredStrength": 67,
+      "qualityMaximum": 20,
+      "implicit": "thane-mail:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+      "baseEvasion": 285,
+      "baseEnergyShield": 0,
+      "requiredDexterity": 67,
+      "requiredIntelligence": 0,
+      "implicitLocalities": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "min": 15,
+          "max": 25,
+          "locality": "Global"
+        }
+      ]
+    },
+    "death-mantle": {
+      "ruleVersion": "body-workbench-uniform-v1",
+      "ledgerVersion": "body-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Death_Mantle",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt6Endgame",
+      "sourceSha256": "4f3aa48357cd43bcb2ee20c42378d63de5da67f67935afa0c333fec3474dbf0f",
+      "baseArmour": 313,
+      "requiredCharacterLevel": 75,
+      "requiredStrength": 67,
+      "qualityMaximum": 20,
+      "implicit": "death-mantle:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+      "baseEvasion": 0,
+      "baseEnergyShield": 87,
+      "requiredDexterity": 0,
+      "requiredIntelligence": 67,
+      "implicitLocalities": [
+        {
+          "id": "additional_maximum_all_elemental_resistances_%",
+          "min": 1,
+          "max": 1,
+          "locality": "Global"
+        }
+      ]
+    },
+    "conjurer-mantle": {
+      "ruleVersion": "body-workbench-uniform-v1",
+      "ledgerVersion": "body-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Conjurer_Mantle",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt4Endgame",
+      "sourceSha256": "a9248abe4d1cd233cc631af227b1e150265140c3886b321012b6eddc69e1d1a8",
+      "baseArmour": 313,
+      "requiredCharacterLevel": 70,
+      "requiredStrength": 67,
+      "qualityMaximum": 20,
+      "implicit": "conjurer-mantle:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+      "baseEvasion": 0,
+      "baseEnergyShield": 87,
+      "requiredDexterity": 0,
+      "requiredIntelligence": 67,
+      "implicitLocalities": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 20,
+          "max": 30,
+          "locality": "Global"
+        }
+      ]
+    },
+    "seastorm-mantle": {
+      "ruleVersion": "body-workbench-uniform-v1",
+      "ledgerVersion": "body-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Seastorm_Mantle",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt8Endgame",
+      "sourceSha256": "5b315b1299656918a4ca12d39656bb4f9be5e7e81c0ddc8fe4eee09760a9df7c",
+      "baseArmour": 313,
+      "requiredCharacterLevel": 80,
+      "requiredStrength": 67,
+      "qualityMaximum": 20,
+      "implicit": "seastorm-mantle:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+      "baseEvasion": 0,
+      "baseEnergyShield": 87,
+      "requiredDexterity": 0,
+      "requiredIntelligence": 67,
+      "implicitLocalities": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 8,
+          "max": 14,
+          "locality": "Global"
+        }
+      ]
+    },
+    "rambler-jacket": {
+      "ruleVersion": "body-workbench-uniform-v1",
+      "ledgerVersion": "body-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Rambler_Jacket",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt4Endgame",
+      "sourceSha256": "df9958de2f94d7e2ac9221dd9ae9e6db6897781e14df29458ec5dbe740d6a759",
+      "baseArmour": 0,
+      "requiredCharacterLevel": 70,
+      "requiredStrength": 0,
+      "qualityMaximum": 20,
+      "implicit": "rambler-jacket:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+      "baseEvasion": 285,
+      "baseEnergyShield": 87,
+      "requiredDexterity": 67,
+      "requiredIntelligence": 67,
+      "implicitLocalities": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 7,
+          "max": 13,
+          "locality": "Global"
+        }
+      ]
+    },
+    "falconers-jacket": {
+      "ruleVersion": "body-workbench-uniform-v1",
+      "ledgerVersion": "body-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Falconers_Jacket",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt6Endgame",
+      "sourceSha256": "f16b752db1d1bf9fbd79feb8b1562e8a6fe4229a4206ccee6f138508c8dfb147",
+      "baseArmour": 0,
+      "requiredCharacterLevel": 75,
+      "requiredStrength": 0,
+      "qualityMaximum": 20,
+      "implicit": "falconers-jacket:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+      "baseEvasion": 285,
+      "baseEnergyShield": 87,
+      "requiredDexterity": 67,
+      "requiredIntelligence": 67,
+      "implicitLocalities": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 5,
+          "max": 5,
+          "locality": "Global"
+        }
+      ]
+    },
+    "austere-garb": {
+      "ruleVersion": "body-workbench-uniform-v1",
+      "ledgerVersion": "body-uniform-candidates-unverified-rolls-v1",
+      "numericModelStatus": "UNVERIFIED",
+      "source": "https://poe2db.tw/us/Austere_Garb",
+      "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame",
+      "sourceSha256": "f3b64f078acae113da260a60afe6492675eabb0afeb572f56d66ea561810a33b",
+      "baseArmour": 0,
+      "requiredCharacterLevel": 80,
+      "requiredStrength": 0,
+      "qualityMaximum": 20,
+      "implicit": "austere-garb:implicit:base",
+      "augmentSockets": null,
+      "projection": "EXPLICIT_AFFIX_WITH_SOURCE_VARIABLE_IMPLICIT",
+      "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+      "baseEvasion": 285,
+      "baseEnergyShield": 87,
+      "requiredDexterity": 67,
+      "requiredIntelligence": 67,
+      "implicitLocalities": [
+        {
+          "id": "self_elemental_status_duration_-%",
+          "min": 10,
+          "max": 15,
+          "locality": "Global"
+        }
+      ]
     }
   },
   "serviceScope": {

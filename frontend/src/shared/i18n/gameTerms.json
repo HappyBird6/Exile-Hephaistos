@@ -3087,6 +3087,240 @@
       ],
       "sourceUrl": "https://poe2db.tw/us/Altered_Collarbone",
       "itemKey": "AbyssalBenchTicketBreach"
+    },
+    "Jade_Amulet": {
+      "name": "Jade Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet4",
+      "sourceUrl": "https://poe2db.tw/us/Jade_Amulet"
+    },
+    "Lapis_Amulet": {
+      "name": "Lapis Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet5",
+      "sourceUrl": "https://poe2db.tw/us/Lapis_Amulet"
+    },
+    "Gold_Amulet": {
+      "name": "Gold Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet10",
+      "sourceUrl": "https://poe2db.tw/us/Gold_Amulet"
+    },
+    "Twisted_Amulet": {
+      "name": "Twisted Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletDelirium1",
+      "sourceUrl": "https://poe2db.tw/us/Twisted_Amulet"
+    },
+    "Distorted_Amulet": {
+      "name": "Distorted Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletDelirium2",
+      "sourceUrl": "https://poe2db.tw/us/Distorted_Amulet"
+    },
+    "Absent_Amulet": {
+      "name": "Absent Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB1c",
+      "sourceUrl": "https://poe2db.tw/us/Absent_Amulet"
+    },
+    "Portent_Amulet": {
+      "name": "Portent Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB1b",
+      "sourceUrl": "https://poe2db.tw/us/Portent_Amulet"
+    },
+    "Lament_Amulet": {
+      "name": "Lament Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB1a",
+      "sourceUrl": "https://poe2db.tw/us/Lament_Amulet"
+    },
+    "Dusk_Amulet": {
+      "name": "Dusk Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake1",
+      "sourceUrl": "https://poe2db.tw/us/Dusk_Amulet"
+    },
+    "Penumbra_Amulet": {
+      "name": "Penumbra Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake3",
+      "sourceUrl": "https://poe2db.tw/us/Penumbra_Amulet"
+    },
+    "Gloam_Amulet": {
+      "name": "Gloam Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake2",
+      "sourceUrl": "https://poe2db.tw/us/Gloam_Amulet"
+    },
+    "Corona_Amulet": {
+      "name": "Corona Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB2",
+      "sourceUrl": "https://poe2db.tw/us/Corona_Amulet"
+    },
+    "Tenebrous_Amulet": {
+      "name": "Tenebrous Amulet",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake4",
+      "sourceUrl": "https://poe2db.tw/us/Tenebrous_Amulet"
+    },
+    "Lazuli_Ring": {
+      "name": "Lazuli Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing2",
+      "sourceUrl": "https://poe2db.tw/us/Lazuli_Ring"
+    },
+    "Sapphire_Ring": {
+      "name": "Sapphire Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing4",
+      "sourceUrl": "https://poe2db.tw/us/Sapphire_Ring"
+    },
+    "Topaz_Ring": {
+      "name": "Topaz Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing5",
+      "sourceUrl": "https://poe2db.tw/us/Topaz_Ring"
+    },
+    "Emerald_Ring": {
+      "name": "Emerald Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing7",
+      "sourceUrl": "https://poe2db.tw/us/Emerald_Ring"
+    },
+    "Gold_Ring": {
+      "name": "Gold Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing10",
+      "sourceUrl": "https://poe2db.tw/us/Gold_Ring"
+    },
+    "Unset_Ring": {
+      "name": "Unset Ring",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing11",
+      "sourceUrl": "https://poe2db.tw/us/Unset_Ring"
+    },
+    "Utzaal_Cuirass": {
+      "name": "Utzaal Cuirass",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr8Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Utzaal_Cuirass"
+    },
+    "Abyssal_Cuirass": {
+      "name": "Abyssal Cuirass",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr15",
+      "sourceUrl": "https://poe2db.tw/us/Abyssal_Cuirass"
+    },
+    "Warlord_Cuirass": {
+      "name": "Warlord Cuirass",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Warlord_Cuirass"
+    },
+    "Mail_Coat": {
+      "name": "Mail Coat",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex14",
+      "sourceUrl": "https://poe2db.tw/us/Mail_Coat"
+    },
+    "Wyrmscale_Coat": {
+      "name": "Wyrmscale Coat",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex8Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Wyrmscale_Coat"
+    },
+    "Corsair_Coat": {
+      "name": "Corsair Coat",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex10Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Corsair_Coat"
+    },
+    "Flowing_Raiment": {
+      "name": "Flowing Raiment",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Flowing_Raiment"
+    },
+    "Sacramental_Robe": {
+      "name": "Sacramental Robe",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Sacramental_Robe"
+    },
+    "Feathered_Raiment": {
+      "name": "Feathered Raiment",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt10Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Feathered_Raiment"
+    },
+    "Dastard_Armour": {
+      "name": "Dastard Armour",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex2Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Dastard_Armour"
+    },
+    "Shrouded_Mail_fire": {
+      "name": "Shrouded Mail",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4aEndgame",
+      "sourceUrl": "https://poe2db.tw/us/Shrouded_Mail"
+    },
+    "Shrouded_Mail_cold": {
+      "name": "Shrouded Mail",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame",
+      "sourceUrl": "https://poe2db.tw/us/Shrouded_Mail"
+    },
+    "Shrouded_Mail_lightning": {
+      "name": "Shrouded Mail",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4cEndgame",
+      "sourceUrl": "https://poe2db.tw/us/Shrouded_Mail"
+    },
+    "Thane_Mail": {
+      "name": "Thane Mail",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex8Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Thane_Mail"
+    },
+    "Death_Mantle": {
+      "name": "Death Mantle",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Death_Mantle"
+    },
+    "Conjurer_Mantle": {
+      "name": "Conjurer Mantle",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Conjurer_Mantle"
+    },
+    "Seastorm_Mantle": {
+      "name": "Seastorm Mantle",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Seastorm_Mantle"
+    },
+    "Rambler_Jacket": {
+      "name": "Rambler Jacket",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Rambler_Jacket"
+    },
+    "Falconers_Jacket": {
+      "name": "Falconer's Jacket",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Falconers_Jacket"
+    },
+    "Austere_Garb": {
+      "name": "Austere Garb",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/us/Austere_Garb"
     }
   },
   "ko": {
@@ -6151,6 +6385,240 @@
       "lines": ["희귀 장신구를 훼손하며 적용 가능한 이계 옵션을 포함합니다."],
       "sourceUrl": "https://poe2db.tw/kr/Altered_Collarbone",
       "itemKey": "AbyssalBenchTicketBreach"
+    },
+    "Jade_Amulet": {
+      "name": "비취 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet4",
+      "sourceUrl": "https://poe2db.tw/kr/Jade_Amulet"
+    },
+    "Lapis_Amulet": {
+      "name": "청금석 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet5",
+      "sourceUrl": "https://poe2db.tw/kr/Lapis_Amulet"
+    },
+    "Gold_Amulet": {
+      "name": "황금 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet10",
+      "sourceUrl": "https://poe2db.tw/kr/Gold_Amulet"
+    },
+    "Twisted_Amulet": {
+      "name": "뒤틀린 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletDelirium1",
+      "sourceUrl": "https://poe2db.tw/kr/Twisted_Amulet"
+    },
+    "Distorted_Amulet": {
+      "name": "왜곡된 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletDelirium2",
+      "sourceUrl": "https://poe2db.tw/kr/Distorted_Amulet"
+    },
+    "Absent_Amulet": {
+      "name": "부재 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB1c",
+      "sourceUrl": "https://poe2db.tw/kr/Absent_Amulet"
+    },
+    "Portent_Amulet": {
+      "name": "전조 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB1b",
+      "sourceUrl": "https://poe2db.tw/kr/Portent_Amulet"
+    },
+    "Lament_Amulet": {
+      "name": "한탄 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB1a",
+      "sourceUrl": "https://poe2db.tw/kr/Lament_Amulet"
+    },
+    "Dusk_Amulet": {
+      "name": "황혼 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake1",
+      "sourceUrl": "https://poe2db.tw/kr/Dusk_Amulet"
+    },
+    "Penumbra_Amulet": {
+      "name": "음영 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake3",
+      "sourceUrl": "https://poe2db.tw/kr/Penumbra_Amulet"
+    },
+    "Gloam_Amulet": {
+      "name": "석양 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake2",
+      "sourceUrl": "https://poe2db.tw/kr/Gloam_Amulet"
+    },
+    "Corona_Amulet": {
+      "name": "광환 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB2",
+      "sourceUrl": "https://poe2db.tw/kr/Corona_Amulet"
+    },
+    "Tenebrous_Amulet": {
+      "name": "어둑한 목걸이",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake4",
+      "sourceUrl": "https://poe2db.tw/kr/Tenebrous_Amulet"
+    },
+    "Lazuli_Ring": {
+      "name": "청금석 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing2",
+      "sourceUrl": "https://poe2db.tw/kr/Lazuli_Ring"
+    },
+    "Sapphire_Ring": {
+      "name": "사파이어 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing4",
+      "sourceUrl": "https://poe2db.tw/kr/Sapphire_Ring"
+    },
+    "Topaz_Ring": {
+      "name": "토파즈 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing5",
+      "sourceUrl": "https://poe2db.tw/kr/Topaz_Ring"
+    },
+    "Emerald_Ring": {
+      "name": "에메랄드 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing7",
+      "sourceUrl": "https://poe2db.tw/kr/Emerald_Ring"
+    },
+    "Gold_Ring": {
+      "name": "황금 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing10",
+      "sourceUrl": "https://poe2db.tw/kr/Gold_Ring"
+    },
+    "Unset_Ring": {
+      "name": "무보석 반지",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing11",
+      "sourceUrl": "https://poe2db.tw/kr/Unset_Ring"
+    },
+    "Utzaal_Cuirass": {
+      "name": "웃자알 흉갑",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr8Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Utzaal_Cuirass"
+    },
+    "Abyssal_Cuirass": {
+      "name": "심연의 흉갑",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr15",
+      "sourceUrl": "https://poe2db.tw/kr/Abyssal_Cuirass"
+    },
+    "Warlord_Cuirass": {
+      "name": "전쟁군주 흉갑",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Warlord_Cuirass"
+    },
+    "Mail_Coat": {
+      "name": "사슬 외투",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex14",
+      "sourceUrl": "https://poe2db.tw/kr/Mail_Coat"
+    },
+    "Wyrmscale_Coat": {
+      "name": "아룡 비늘 외투",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex8Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Wyrmscale_Coat"
+    },
+    "Corsair_Coat": {
+      "name": "해적 외투",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex10Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Corsair_Coat"
+    },
+    "Flowing_Raiment": {
+      "name": "흐르는 의복",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Flowing_Raiment"
+    },
+    "Sacramental_Robe": {
+      "name": "성찬의 로브",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Sacramental_Robe"
+    },
+    "Feathered_Raiment": {
+      "name": "깃털 의복",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt10Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Feathered_Raiment"
+    },
+    "Dastard_Armour": {
+      "name": "비겁자 방어구",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex2Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Dastard_Armour"
+    },
+    "Shrouded_Mail_fire": {
+      "name": "연막의 사슬옷",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4aEndgame",
+      "sourceUrl": "https://poe2db.tw/kr/Shrouded_Mail"
+    },
+    "Shrouded_Mail_cold": {
+      "name": "연막의 사슬옷",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame",
+      "sourceUrl": "https://poe2db.tw/kr/Shrouded_Mail"
+    },
+    "Shrouded_Mail_lightning": {
+      "name": "연막의 사슬옷",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4cEndgame",
+      "sourceUrl": "https://poe2db.tw/kr/Shrouded_Mail"
+    },
+    "Thane_Mail": {
+      "name": "테인 사슬옷",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex8Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Thane_Mail"
+    },
+    "Death_Mantle": {
+      "name": "죽음의 외투",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Death_Mantle"
+    },
+    "Conjurer_Mantle": {
+      "name": "요술사 외투",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Conjurer_Mantle"
+    },
+    "Seastorm_Mantle": {
+      "name": "바다폭풍 외투",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Seastorm_Mantle"
+    },
+    "Rambler_Jacket": {
+      "name": "뚜벅이 재킷",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Rambler_Jacket"
+    },
+    "Falconers_Jacket": {
+      "name": "매 조련사의 재킷",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Falconers_Jacket"
+    },
+    "Austere_Garb": {
+      "name": "금욕적인 의복",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/kr/Austere_Garb"
     }
   },
   "zh-CN": {
@@ -9104,6 +9572,240 @@
       "lines": ["亵渎稀有首饰，包含可用的异界词缀。"],
       "sourceUrl": "https://poe2db.tw/cn/Altered_Collarbone",
       "itemKey": "AbyssalBenchTicketBreach"
+    },
+    "Jade_Amulet": {
+      "name": "翠玉项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet4",
+      "sourceUrl": "https://poe2db.tw/cn/Jade_Amulet"
+    },
+    "Lapis_Amulet": {
+      "name": "海玉项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet5",
+      "sourceUrl": "https://poe2db.tw/cn/Lapis_Amulet"
+    },
+    "Gold_Amulet": {
+      "name": "帝金项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet10",
+      "sourceUrl": "https://poe2db.tw/cn/Gold_Amulet"
+    },
+    "Twisted_Amulet": {
+      "name": "畸变项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletDelirium1",
+      "sourceUrl": "https://poe2db.tw/cn/Twisted_Amulet"
+    },
+    "Distorted_Amulet": {
+      "name": "扭曲项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletDelirium2",
+      "sourceUrl": "https://poe2db.tw/cn/Distorted_Amulet"
+    },
+    "Absent_Amulet": {
+      "name": "失神项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB1c",
+      "sourceUrl": "https://poe2db.tw/cn/Absent_Amulet"
+    },
+    "Portent_Amulet": {
+      "name": "预兆项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB1b",
+      "sourceUrl": "https://poe2db.tw/cn/Portent_Amulet"
+    },
+    "Lament_Amulet": {
+      "name": "哀悼项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB1a",
+      "sourceUrl": "https://poe2db.tw/cn/Lament_Amulet"
+    },
+    "Dusk_Amulet": {
+      "name": "暮色项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake1",
+      "sourceUrl": "https://poe2db.tw/cn/Dusk_Amulet"
+    },
+    "Penumbra_Amulet": {
+      "name": "半影项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake3",
+      "sourceUrl": "https://poe2db.tw/cn/Penumbra_Amulet"
+    },
+    "Gloam_Amulet": {
+      "name": "薄暮项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake2",
+      "sourceUrl": "https://poe2db.tw/cn/Gloam_Amulet"
+    },
+    "Corona_Amulet": {
+      "name": "日冕项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB2",
+      "sourceUrl": "https://poe2db.tw/cn/Corona_Amulet"
+    },
+    "Tenebrous_Amulet": {
+      "name": "暗黑项链",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake4",
+      "sourceUrl": "https://poe2db.tw/cn/Tenebrous_Amulet"
+    },
+    "Lazuli_Ring": {
+      "name": "青金戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing2",
+      "sourceUrl": "https://poe2db.tw/cn/Lazuli_Ring"
+    },
+    "Sapphire_Ring": {
+      "name": "蓝玉戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing4",
+      "sourceUrl": "https://poe2db.tw/cn/Sapphire_Ring"
+    },
+    "Topaz_Ring": {
+      "name": "黄玉戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing5",
+      "sourceUrl": "https://poe2db.tw/cn/Topaz_Ring"
+    },
+    "Emerald_Ring": {
+      "name": "翡翠戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing7",
+      "sourceUrl": "https://poe2db.tw/cn/Emerald_Ring"
+    },
+    "Gold_Ring": {
+      "name": "金光戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing10",
+      "sourceUrl": "https://poe2db.tw/cn/Gold_Ring"
+    },
+    "Unset_Ring": {
+      "name": "潜能之戒",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing11",
+      "sourceUrl": "https://poe2db.tw/cn/Unset_Ring"
+    },
+    "Utzaal_Cuirass": {
+      "name": "乌扎尔胸甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr8Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Utzaal_Cuirass"
+    },
+    "Abyssal_Cuirass": {
+      "name": "深渊胸甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr15",
+      "sourceUrl": "https://poe2db.tw/cn/Abyssal_Cuirass"
+    },
+    "Warlord_Cuirass": {
+      "name": "督军胸甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Warlord_Cuirass"
+    },
+    "Mail_Coat": {
+      "name": "锁环外套",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex14",
+      "sourceUrl": "https://poe2db.tw/cn/Mail_Coat"
+    },
+    "Wyrmscale_Coat": {
+      "name": "巨龙鳞外套",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex8Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Wyrmscale_Coat"
+    },
+    "Corsair_Coat": {
+      "name": "海盗外套",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex10Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Corsair_Coat"
+    },
+    "Flowing_Raiment": {
+      "name": "飘逸之衣",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Flowing_Raiment"
+    },
+    "Sacramental_Robe": {
+      "name": "圣礼束衣",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Sacramental_Robe"
+    },
+    "Feathered_Raiment": {
+      "name": "羽饰之衣",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt10Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Feathered_Raiment"
+    },
+    "Dastard_Armour": {
+      "name": "懦夫护甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex2Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Dastard_Armour"
+    },
+    "Shrouded_Mail_fire": {
+      "name": "蔽影锁甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4aEndgame",
+      "sourceUrl": "https://poe2db.tw/cn/Shrouded_Mail"
+    },
+    "Shrouded_Mail_cold": {
+      "name": "蔽影锁甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame",
+      "sourceUrl": "https://poe2db.tw/cn/Shrouded_Mail"
+    },
+    "Shrouded_Mail_lightning": {
+      "name": "蔽影锁甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4cEndgame",
+      "sourceUrl": "https://poe2db.tw/cn/Shrouded_Mail"
+    },
+    "Thane_Mail": {
+      "name": "领主锁甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex8Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Thane_Mail"
+    },
+    "Death_Mantle": {
+      "name": "死亡斗篷",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Death_Mantle"
+    },
+    "Conjurer_Mantle": {
+      "name": "咒者斗篷",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Conjurer_Mantle"
+    },
+    "Seastorm_Mantle": {
+      "name": "海洋风暴斗篷",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Seastorm_Mantle"
+    },
+    "Rambler_Jacket": {
+      "name": "漫步者外衣",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Rambler_Jacket"
+    },
+    "Falconers_Jacket": {
+      "name": "猎鹰师外衣",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Falconers_Jacket"
+    },
+    "Austere_Garb": {
+      "name": "简朴束衣",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/cn/Austere_Garb"
     }
   },
   "zh-TW": {
@@ -12047,6 +12749,240 @@
       "lines": ["褻瀆稀有飾品，包含可用的異界詞綴。"],
       "sourceUrl": "https://poe2db.tw/tw/Altered_Collarbone",
       "itemKey": "AbyssalBenchTicketBreach"
+    },
+    "Jade_Amulet": {
+      "name": "翠玉護身符",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet4",
+      "sourceUrl": "https://poe2db.tw/tw/Jade_Amulet"
+    },
+    "Lapis_Amulet": {
+      "name": "海玉護身符",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet5",
+      "sourceUrl": "https://poe2db.tw/tw/Lapis_Amulet"
+    },
+    "Gold_Amulet": {
+      "name": "帝金護身符",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet10",
+      "sourceUrl": "https://poe2db.tw/tw/Gold_Amulet"
+    },
+    "Twisted_Amulet": {
+      "name": "扭曲項鍊",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletDelirium1",
+      "sourceUrl": "https://poe2db.tw/tw/Twisted_Amulet"
+    },
+    "Distorted_Amulet": {
+      "name": "歪曲護身符",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletDelirium2",
+      "sourceUrl": "https://poe2db.tw/tw/Distorted_Amulet"
+    },
+    "Absent_Amulet": {
+      "name": "虛無護身符",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB1c",
+      "sourceUrl": "https://poe2db.tw/tw/Absent_Amulet"
+    },
+    "Portent_Amulet": {
+      "name": "惡兆護身符",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB1b",
+      "sourceUrl": "https://poe2db.tw/tw/Portent_Amulet"
+    },
+    "Lament_Amulet": {
+      "name": "悼亡護身符",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB1a",
+      "sourceUrl": "https://poe2db.tw/tw/Lament_Amulet"
+    },
+    "Dusk_Amulet": {
+      "name": "幽暗項鍊",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake1",
+      "sourceUrl": "https://poe2db.tw/tw/Dusk_Amulet"
+    },
+    "Penumbra_Amulet": {
+      "name": "半影項鍊",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake3",
+      "sourceUrl": "https://poe2db.tw/tw/Penumbra_Amulet"
+    },
+    "Gloam_Amulet": {
+      "name": "黃昏項鍊",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake2",
+      "sourceUrl": "https://poe2db.tw/tw/Gloam_Amulet"
+    },
+    "Corona_Amulet": {
+      "name": "日冕護身符",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB2",
+      "sourceUrl": "https://poe2db.tw/tw/Corona_Amulet"
+    },
+    "Tenebrous_Amulet": {
+      "name": "黑暗項鍊",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake4",
+      "sourceUrl": "https://poe2db.tw/tw/Tenebrous_Amulet"
+    },
+    "Lazuli_Ring": {
+      "name": "青金石戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing2",
+      "sourceUrl": "https://poe2db.tw/tw/Lazuli_Ring"
+    },
+    "Sapphire_Ring": {
+      "name": "藍玉戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing4",
+      "sourceUrl": "https://poe2db.tw/tw/Sapphire_Ring"
+    },
+    "Topaz_Ring": {
+      "name": "黃玉戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing5",
+      "sourceUrl": "https://poe2db.tw/tw/Topaz_Ring"
+    },
+    "Emerald_Ring": {
+      "name": "綠寶石戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing7",
+      "sourceUrl": "https://poe2db.tw/tw/Emerald_Ring"
+    },
+    "Gold_Ring": {
+      "name": "金光戒指",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing10",
+      "sourceUrl": "https://poe2db.tw/tw/Gold_Ring"
+    },
+    "Unset_Ring": {
+      "name": "潛能之戒",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing11",
+      "sourceUrl": "https://poe2db.tw/tw/Unset_Ring"
+    },
+    "Utzaal_Cuirass": {
+      "name": "奧札爾胸甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr8Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Utzaal_Cuirass"
+    },
+    "Abyssal_Cuirass": {
+      "name": "深淵胸甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr15",
+      "sourceUrl": "https://poe2db.tw/tw/Abyssal_Cuirass"
+    },
+    "Warlord_Cuirass": {
+      "name": "總督胸甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Warlord_Cuirass"
+    },
+    "Mail_Coat": {
+      "name": "鎖甲外套",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex14",
+      "sourceUrl": "https://poe2db.tw/tw/Mail_Coat"
+    },
+    "Wyrmscale_Coat": {
+      "name": "龍鱗外套",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex8Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Wyrmscale_Coat"
+    },
+    "Corsair_Coat": {
+      "name": "海盜外套",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex10Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Corsair_Coat"
+    },
+    "Flowing_Raiment": {
+      "name": "奔流之衣",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Flowing_Raiment"
+    },
+    "Sacramental_Robe": {
+      "name": "聖禮長袍",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Sacramental_Robe"
+    },
+    "Feathered_Raiment": {
+      "name": "羽絨之衣",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt10Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Feathered_Raiment"
+    },
+    "Dastard_Armour": {
+      "name": "惡徒護甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex2Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Dastard_Armour"
+    },
+    "Shrouded_Mail_fire": {
+      "name": "遮蔽鎖甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4aEndgame",
+      "sourceUrl": "https://poe2db.tw/tw/Shrouded_Mail"
+    },
+    "Shrouded_Mail_cold": {
+      "name": "遮蔽鎖甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame",
+      "sourceUrl": "https://poe2db.tw/tw/Shrouded_Mail"
+    },
+    "Shrouded_Mail_lightning": {
+      "name": "遮蔽鎖甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4cEndgame",
+      "sourceUrl": "https://poe2db.tw/tw/Shrouded_Mail"
+    },
+    "Thane_Mail": {
+      "name": "領主鎖甲",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex8Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Thane_Mail"
+    },
+    "Death_Mantle": {
+      "name": "死亡披肩",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Death_Mantle"
+    },
+    "Conjurer_Mantle": {
+      "name": "巫術師披肩",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Conjurer_Mantle"
+    },
+    "Seastorm_Mantle": {
+      "name": "海洋風暴披肩",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Seastorm_Mantle"
+    },
+    "Rambler_Jacket": {
+      "name": "漫步者外衣",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Rambler_Jacket"
+    },
+    "Falconers_Jacket": {
+      "name": "訓鷹者外衣",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Falconers_Jacket"
+    },
+    "Austere_Garb": {
+      "name": "樸素裝束",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/tw/Austere_Garb"
     }
   },
   "ja": {
@@ -15113,6 +16049,240 @@
       "lines": ["レアの装飾品を冒涜し、適用可能な異界モッドを含みます。"],
       "sourceUrl": "https://poe2db.tw/jp/Altered_Collarbone",
       "itemKey": "AbyssalBenchTicketBreach"
+    },
+    "Jade_Amulet": {
+      "name": "翡翠のアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet4",
+      "sourceUrl": "https://poe2db.tw/jp/Jade_Amulet"
+    },
+    "Lapis_Amulet": {
+      "name": "瑠璃のアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet5",
+      "sourceUrl": "https://poe2db.tw/jp/Lapis_Amulet"
+    },
+    "Gold_Amulet": {
+      "name": "金のアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet10",
+      "sourceUrl": "https://poe2db.tw/jp/Gold_Amulet"
+    },
+    "Twisted_Amulet": {
+      "name": "捻じれたアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletDelirium1",
+      "sourceUrl": "https://poe2db.tw/jp/Twisted_Amulet"
+    },
+    "Distorted_Amulet": {
+      "name": "歪んだアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletDelirium2",
+      "sourceUrl": "https://poe2db.tw/jp/Distorted_Amulet"
+    },
+    "Absent_Amulet": {
+      "name": "不在のアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB1c",
+      "sourceUrl": "https://poe2db.tw/jp/Absent_Amulet"
+    },
+    "Portent_Amulet": {
+      "name": "前兆のアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB1b",
+      "sourceUrl": "https://poe2db.tw/jp/Portent_Amulet"
+    },
+    "Lament_Amulet": {
+      "name": "悲嘆のアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB1a",
+      "sourceUrl": "https://poe2db.tw/jp/Lament_Amulet"
+    },
+    "Dusk_Amulet": {
+      "name": "黄昏のアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake1",
+      "sourceUrl": "https://poe2db.tw/jp/Dusk_Amulet"
+    },
+    "Penumbra_Amulet": {
+      "name": "半影のアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake3",
+      "sourceUrl": "https://poe2db.tw/jp/Penumbra_Amulet"
+    },
+    "Gloam_Amulet": {
+      "name": "薄明のアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake2",
+      "sourceUrl": "https://poe2db.tw/jp/Gloam_Amulet"
+    },
+    "Corona_Amulet": {
+      "name": "コロナアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB2",
+      "sourceUrl": "https://poe2db.tw/jp/Corona_Amulet"
+    },
+    "Tenebrous_Amulet": {
+      "name": "仄暗いアミュレット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake4",
+      "sourceUrl": "https://poe2db.tw/jp/Tenebrous_Amulet"
+    },
+    "Lazuli_Ring": {
+      "name": "青金石の指輪",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing2",
+      "sourceUrl": "https://poe2db.tw/jp/Lazuli_Ring"
+    },
+    "Sapphire_Ring": {
+      "name": "サファイアの指輪",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing4",
+      "sourceUrl": "https://poe2db.tw/jp/Sapphire_Ring"
+    },
+    "Topaz_Ring": {
+      "name": "トパーズの指輪",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing5",
+      "sourceUrl": "https://poe2db.tw/jp/Topaz_Ring"
+    },
+    "Emerald_Ring": {
+      "name": "エメラルドの指輪",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing7",
+      "sourceUrl": "https://poe2db.tw/jp/Emerald_Ring"
+    },
+    "Gold_Ring": {
+      "name": "金の指輪",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing10",
+      "sourceUrl": "https://poe2db.tw/jp/Gold_Ring"
+    },
+    "Unset_Ring": {
+      "name": "石無しの指輪",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing11",
+      "sourceUrl": "https://poe2db.tw/jp/Unset_Ring"
+    },
+    "Utzaal_Cuirass": {
+      "name": "ウトザールの胴鎧",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr8Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Utzaal_Cuirass"
+    },
+    "Abyssal_Cuirass": {
+      "name": "深淵の胴鎧",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr15",
+      "sourceUrl": "https://poe2db.tw/jp/Abyssal_Cuirass"
+    },
+    "Warlord_Cuirass": {
+      "name": "ウォーロードの胴鎧",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Warlord_Cuirass"
+    },
+    "Mail_Coat": {
+      "name": "メイルコート",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex14",
+      "sourceUrl": "https://poe2db.tw/jp/Mail_Coat"
+    },
+    "Wyrmscale_Coat": {
+      "name": "ワームスケイルコート",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex8Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Wyrmscale_Coat"
+    },
+    "Corsair_Coat": {
+      "name": "海賊のコート",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex10Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Corsair_Coat"
+    },
+    "Flowing_Raiment": {
+      "name": "緩やかな装束",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Flowing_Raiment"
+    },
+    "Sacramental_Robe": {
+      "name": "聖餐のローブ",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Sacramental_Robe"
+    },
+    "Feathered_Raiment": {
+      "name": "羽付きの装束",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt10Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Feathered_Raiment"
+    },
+    "Dastard_Armour": {
+      "name": "卑怯者の鎧",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex2Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Dastard_Armour"
+    },
+    "Shrouded_Mail_fire": {
+      "name": "シュラウドメイル",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4aEndgame",
+      "sourceUrl": "https://poe2db.tw/jp/Shrouded_Mail"
+    },
+    "Shrouded_Mail_cold": {
+      "name": "シュラウドメイル",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame",
+      "sourceUrl": "https://poe2db.tw/jp/Shrouded_Mail"
+    },
+    "Shrouded_Mail_lightning": {
+      "name": "シュラウドメイル",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4cEndgame",
+      "sourceUrl": "https://poe2db.tw/jp/Shrouded_Mail"
+    },
+    "Thane_Mail": {
+      "name": "族長のメイル",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex8Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Thane_Mail"
+    },
+    "Death_Mantle": {
+      "name": "死の外套",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Death_Mantle"
+    },
+    "Conjurer_Mantle": {
+      "name": "祈祷師の外套",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Conjurer_Mantle"
+    },
+    "Seastorm_Mantle": {
+      "name": "シーストームの外套",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Seastorm_Mantle"
+    },
+    "Rambler_Jacket": {
+      "name": "散策者のジャケット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Rambler_Jacket"
+    },
+    "Falconers_Jacket": {
+      "name": "鷹匠のジャケット",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Falconers_Jacket"
+    },
+    "Austere_Garb": {
+      "name": "禁欲の衣",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/jp/Austere_Garb"
     }
   },
   "es": {
@@ -18109,6 +19279,240 @@
       ],
       "sourceUrl": "https://poe2db.tw/sp/Altered_Collarbone",
       "itemKey": "AbyssalBenchTicketBreach"
+    },
+    "Jade_Amulet": {
+      "name": "Amuleto de jade",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet4",
+      "sourceUrl": "https://poe2db.tw/sp/Jade_Amulet"
+    },
+    "Lapis_Amulet": {
+      "name": "Amuleto de lapislázuli",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet5",
+      "sourceUrl": "https://poe2db.tw/sp/Lapis_Amulet"
+    },
+    "Gold_Amulet": {
+      "name": "Amuleto de oro",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmulet10",
+      "sourceUrl": "https://poe2db.tw/sp/Gold_Amulet"
+    },
+    "Twisted_Amulet": {
+      "name": "Amuleto retorcido",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletDelirium1",
+      "sourceUrl": "https://poe2db.tw/sp/Twisted_Amulet"
+    },
+    "Distorted_Amulet": {
+      "name": "Amuleto distorsionado",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletDelirium2",
+      "sourceUrl": "https://poe2db.tw/sp/Distorted_Amulet"
+    },
+    "Absent_Amulet": {
+      "name": "Amuleto ausente",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB1c",
+      "sourceUrl": "https://poe2db.tw/sp/Absent_Amulet"
+    },
+    "Portent_Amulet": {
+      "name": "Amuleto de presagio",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB1b",
+      "sourceUrl": "https://poe2db.tw/sp/Portent_Amulet"
+    },
+    "Lament_Amulet": {
+      "name": "Amuleto de lamento",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB1a",
+      "sourceUrl": "https://poe2db.tw/sp/Lament_Amulet"
+    },
+    "Dusk_Amulet": {
+      "name": "Amuleto de anochecer",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake1",
+      "sourceUrl": "https://poe2db.tw/sp/Dusk_Amulet"
+    },
+    "Penumbra_Amulet": {
+      "name": "Amuleto de penumbra",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake3",
+      "sourceUrl": "https://poe2db.tw/sp/Penumbra_Amulet"
+    },
+    "Gloam_Amulet": {
+      "name": "Amuleto crepuscular",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake2",
+      "sourceUrl": "https://poe2db.tw/sp/Gloam_Amulet"
+    },
+    "Corona_Amulet": {
+      "name": "Amuleto de corona",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletB2",
+      "sourceUrl": "https://poe2db.tw/sp/Corona_Amulet"
+    },
+    "Tenebrous_Amulet": {
+      "name": "Amuleto tenebroso",
+      "lines": [],
+      "itemKey": "Metadata/Items/Amulets/FourAmuletLake4",
+      "sourceUrl": "https://poe2db.tw/sp/Tenebrous_Amulet"
+    },
+    "Lazuli_Ring": {
+      "name": "Anillo de lapislázuli",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing2",
+      "sourceUrl": "https://poe2db.tw/sp/Lazuli_Ring"
+    },
+    "Sapphire_Ring": {
+      "name": "Anillo de zafiro",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing4",
+      "sourceUrl": "https://poe2db.tw/sp/Sapphire_Ring"
+    },
+    "Topaz_Ring": {
+      "name": "Anillo de topacio",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing5",
+      "sourceUrl": "https://poe2db.tw/sp/Topaz_Ring"
+    },
+    "Emerald_Ring": {
+      "name": "Anillo de esmeralda",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing7",
+      "sourceUrl": "https://poe2db.tw/sp/Emerald_Ring"
+    },
+    "Gold_Ring": {
+      "name": "Anillo de oro",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing10",
+      "sourceUrl": "https://poe2db.tw/sp/Gold_Ring"
+    },
+    "Unset_Ring": {
+      "name": "Anillo inconcluso",
+      "lines": [],
+      "itemKey": "Metadata/Items/Rings/FourRing11",
+      "sourceUrl": "https://poe2db.tw/sp/Unset_Ring"
+    },
+    "Utzaal_Cuirass": {
+      "name": "Coraza de Utzaal",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr8Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Utzaal_Cuirass"
+    },
+    "Abyssal_Cuirass": {
+      "name": "Coraza abisal",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr15",
+      "sourceUrl": "https://poe2db.tw/sp/Abyssal_Cuirass"
+    },
+    "Warlord_Cuirass": {
+      "name": "Coraza del jefe de guerra",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Warlord_Cuirass"
+    },
+    "Mail_Coat": {
+      "name": "Coselete de malla",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex14",
+      "sourceUrl": "https://poe2db.tw/sp/Mail_Coat"
+    },
+    "Wyrmscale_Coat": {
+      "name": "Coselete de escamas de wyrm",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex8Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Wyrmscale_Coat"
+    },
+    "Corsair_Coat": {
+      "name": "Coselete de corsario",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex10Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Corsair_Coat"
+    },
+    "Flowing_Raiment": {
+      "name": "Atuendo fluido",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Flowing_Raiment"
+    },
+    "Sacramental_Robe": {
+      "name": "Túnica de sacramento",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Sacramental_Robe"
+    },
+    "Feathered_Raiment": {
+      "name": "Atuendo emplumado",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt10Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Feathered_Raiment"
+    },
+    "Dastard_Armour": {
+      "name": "Armadura de cobarde",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex2Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Dastard_Armour"
+    },
+    "Shrouded_Mail_fire": {
+      "name": "Cota de malla envuelta",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4aEndgame",
+      "sourceUrl": "https://poe2db.tw/sp/Shrouded_Mail"
+    },
+    "Shrouded_Mail_cold": {
+      "name": "Cota de malla envuelta",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame",
+      "sourceUrl": "https://poe2db.tw/sp/Shrouded_Mail"
+    },
+    "Shrouded_Mail_lightning": {
+      "name": "Cota de malla envuelta",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4cEndgame",
+      "sourceUrl": "https://poe2db.tw/sp/Shrouded_Mail"
+    },
+    "Thane_Mail": {
+      "name": "Cota de malla del thane",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex8Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Thane_Mail"
+    },
+    "Death_Mantle": {
+      "name": "Manto de muerte",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Death_Mantle"
+    },
+    "Conjurer_Mantle": {
+      "name": "Manto de conjurador",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Conjurer_Mantle"
+    },
+    "Seastorm_Mantle": {
+      "name": "Manto de la tormenta marina",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Seastorm_Mantle"
+    },
+    "Rambler_Jacket": {
+      "name": "Chaqueta de trotamundos",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt4Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Rambler_Jacket"
+    },
+    "Falconers_Jacket": {
+      "name": "Chaqueta de halconero",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt6Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Falconers_Jacket"
+    },
+    "Austere_Garb": {
+      "name": "Traje austero",
+      "lines": [],
+      "itemKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame",
+      "sourceUrl": "https://poe2db.tw/sp/Austere_Garb"
     }
   }
 }

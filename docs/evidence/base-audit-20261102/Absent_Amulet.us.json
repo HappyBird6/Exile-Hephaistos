@@ -1,0 +1,53 @@
+{
+  "url": "https://poe2db.tw/us/Absent_Amulet",
+  "retrievedAt": "2026-11-02T07:56:30.621Z",
+  "sha256": "64824c9d3565c2dd02bc3aa115068d134b4a3b35b2d6efbb964c7bfc54e409ed",
+  "variants": [
+    {
+      "name": "Absent Amulet",
+      "card": "Absent Amulet\n        \n    \n    \n        \n            AmuletsRequires:  Level 50 Grants Skill: Level 12 Cast on Elemental Ailment Grants Skill: Level 12 Cast on Critical Grants Skill: Level 12 Cast on Dodge Grants Skill: Level 12 Rhoa Mount Grants Skill: Level 12 Archmage Grants Skill: Level 12 Trinity Grants Skill: Level 12 Eternal Rage-1 Prefix Modifier allowed\n-1 Suffix Modifier allowed\n        \n\n        \n        \n            We grasp the eternal unborn...",
+      "requirements": "Requires:  Level 50",
+      "fields": {
+        "DropLevel": "50",
+        "BaseType": "Absent Amulet",
+        "Class": "Amulets",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmuletB1c",
+        "Tags": "amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/AbsentAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "-1 Prefix Modifier allowed\n-1 Suffix Modifier allowed",
+      "family": "MaxPrefixMaxSuffix",
+      "tags": [],
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "Local"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "Local"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>-1</span> Prefix Modifier allowed<br><span class='mod-value'>-1</span> Suffix Modifier allowed</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>MaxPrefixMaxSuffix\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Unique (3)\n<tr><th>Req. level<td>62 (Effective: 49)\n<tr><th>Stats<td><li>local maximum prefixes allowed + <span class=\"badge bg-primary\">-1 <span class=\"ndash\">—</span> -1</span> <span class=\"badge bg-secondary\">Local</span></li><li>local maximum suffixes allowed + <span class=\"badge bg-primary\">-1 <span class=\"ndash\">—</span> -1</span> <span class=\"badge bg-secondary\">Local</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/AbsentAmulet.webp"
+}

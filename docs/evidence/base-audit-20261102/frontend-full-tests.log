@@ -1,0 +1,63 @@
+
+> exile-hephaistos-frontend@0.1.0 pretest
+> node ../scripts/check-display-coverage.mjs
+
+{
+  "locales": {
+    "en": {
+      "names": 220,
+      "total": 220,
+      "exceptions": [],
+      "liquidNamesAndDescriptions": 26
+    },
+    "ko": {
+      "names": 220,
+      "total": 220,
+      "exceptions": [],
+      "liquidNamesAndDescriptions": 26
+    },
+    "zh-CN": {
+      "names": 220,
+      "total": 220,
+      "exceptions": [],
+      "liquidNamesAndDescriptions": 26
+    },
+    "zh-TW": {
+      "names": 220,
+      "total": 220,
+      "exceptions": [],
+      "liquidNamesAndDescriptions": 26
+    },
+    "ja": {
+      "names": 220,
+      "total": 220,
+      "exceptions": [],
+      "liquidNamesAndDescriptions": 26
+    },
+    "es": {
+      "names": 220,
+      "total": 220,
+      "exceptions": [],
+      "liquidNamesAndDescriptions": 26
+    }
+  },
+  "catalogDefinitions": 2954,
+  "compoundBindings": 447
+}
+
+> exile-hephaistos-frontend@0.1.0 test
+> vitest --run --no-cache --maxWorkers=1
+
+
+ RUN  v5.0.1 C:/Users/SSAFY/Documents/Codex/2026-11-02/task-5/base-audit/frontend
+
+
+ Test Files  138 passed (138)
+      Tests  2475 passed (2475)
+   Start at  17:39:52
+   Duration  434.25s (environment 51%, tests 23%, setup 14%, import 9%, transform 3%)
+
+Environment  jsdom was created 138 times 쨌 208.78s total, 51% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments
+

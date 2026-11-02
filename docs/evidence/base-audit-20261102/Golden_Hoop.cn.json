@@ -1,0 +1,49 @@
+{
+  "url": "https://poe2db.tw/cn/Golden_Hoop",
+  "retrievedAt": "2026-11-02T08:17:16.475Z",
+  "sha256": "871ff22bea0da74d9f2d899f2013aa0054ab0c7da578430a0a4f5d0643e19cfa",
+  "variants": [
+    {
+      "name": "金环",
+      "card": "金环\n        \n    \n    \n        \n            戒指需求：  等级 12+(8—12) 全属性\n        \n\n\n\n        \n            Golden Hoop",
+      "requirements": "需求：  等级 12",
+      "fields": {
+        "DropLevel": "12",
+        "BaseType": "金环",
+        "Class": "戒指",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/RingDemigods1",
+        "Tags": "not_for_sale, demigods, ring",
+        "Icon": "Art/2DItems/Rings/DemigodsBand",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "+(8—12) 全属性",
+      "family": "AllAttributes",
+      "tags": [
+        "属性"
+      ],
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 8,
+          "max": 12,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(8<span class=\"ndash\">—</span>12)</span> 全<a data-keyword=\"Attributes\" href=\"Attributes\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/ec092a539b1cd8ec19d809850210820b5a641a764edcbf2990e14c9ed40c7854\">属性</a></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>AllAttributes\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>传奇 (3)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Stats<td><li>additional all attributes <span class=\"badge bg-primary\">8 <span class=\"ndash\">—</span> 12</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'>属性</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/DemigodsBand.webp"
+}
