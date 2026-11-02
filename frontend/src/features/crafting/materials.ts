@@ -1111,11 +1111,25 @@ export const specialEssences = materials.filter(
       'Essence_of_the_Abyss',
     ].includes(m.id),
 )
+
+// Selection policy only. Keep every catalog entry/ID available to saved records.
+export function isSelectableMaterial(material: {
+  id: string
+  category: MaterialTab
+}): boolean {
+  return (
+    material.category !== 'Essence' ||
+    /^(Greater_|Perfect_)Essence_/.test(material.id) ||
+    specialEssences.some((essence) => essence.id === material.id)
+  )
+}
+
 export function essenceRows(query: string): (Material | null)[][] {
   const regular = materials.filter(
     (m) =>
       inServiceScope(m.id) &&
       m.category === 'Essence' &&
+      isSelectableMaterial(m) &&
       !specialEssences.includes(m),
   )
   const families = [
@@ -1125,7 +1139,7 @@ export function essenceRows(query: string): (Material | null)[][] {
   ]
   return families
     .map((family) =>
-      ['Lesser_', '', 'Greater_', 'Perfect_'].map((prefix) => {
+      ['Greater_', 'Perfect_'].map((prefix) => {
         return regular.find((m) => m.id === prefix + family) ?? null
       }),
     )

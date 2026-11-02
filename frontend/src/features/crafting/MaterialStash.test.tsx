@@ -38,7 +38,7 @@ describe('Material stash and shared favorites', () => {
       )
     }
   })
-  it('keeps search above scrolling rows and groups the four essence tiers', () => {
+  it('keeps search above scrolling rows and groups only the greater and perfect essence tiers', () => {
     show()
     fireEvent.click(tab('Essence'))
     const search = screen.getByRole('searchbox', { name: 'Search Essence' })
@@ -52,12 +52,13 @@ describe('Material stash and shared favorites', () => {
       [...row!.querySelectorAll('button')].map((b) =>
         b.getAttribute('aria-label'),
       ),
-    ).toEqual([
-      'Lesser Essence of the Body',
-      'Essence of the Body',
-      'Greater Essence of the Body',
-      'Perfect Essence of the Body',
-    ])
+    ).toEqual(['Greater Essence of the Body', 'Perfect Essence of the Body'])
+    expect(
+      screen.queryByRole('button', { name: 'Lesser Essence of the Body' }),
+    ).not.toBeInTheDocument()
+    expect(
+      screen.queryByRole('button', { name: 'Essence of the Body' }),
+    ).not.toBeInTheDocument()
     fireEvent.click(tab('Alloy'))
     expect(screen.getByRole('button', { name: 'Runic Alloy' })).toBeVisible()
     fireEvent.click(tab('Essence'))
@@ -96,7 +97,7 @@ describe('Material stash and shared favorites', () => {
   })
 
   it.each([
-    ['Essence', 'Lesser Essence of the Body'],
+    ['Essence', 'Greater Essence of the Body'],
     ['Essence', 'Essence of Hysteria'],
     ['Alloy', 'Runic Alloy'],
     ['Omen', 'Omen of Whittling'],
@@ -107,7 +108,7 @@ describe('Material stash and shared favorites', () => {
     (label, name) => {
       show()
       fireEvent.click(tab('Essence'))
-      pick('Lesser Essence of the Mind')
+      pick('Greater Essence of the Mind')
       fireEvent.click(tab(label))
       const material = screen.getByRole('button', { name })
       fireEvent.pointerOver(material)
@@ -147,13 +148,13 @@ describe('Material stash and shared favorites', () => {
     show()
     expect(favorite(1)).not.toHaveAttribute('title')
     fireEvent.click(tab('Essence'))
-    pick('Lesser Essence of the Body')
+    pick('Greater Essence of the Body')
     expect(favorite(1)).not.toHaveAttribute('title')
     fireEvent.click(favorite(1))
     expect(favorite(1)).not.toHaveAttribute('title')
     fireEvent.pointerOver(favorite(1))
     expect(screen.getByRole('tooltip')).toHaveTextContent(
-      'Lesser Essence of the Body',
+      'Greater Essence of the Body',
     )
   })
 
@@ -217,7 +218,7 @@ describe('Material stash and shared favorites', () => {
     expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
     fireEvent.click(tab('Essence'))
     const essence = screen.getByRole('button', {
-      name: 'Lesser Essence of the Body',
+      name: 'Greater Essence of the Body',
     })
     fireEvent.focus(essence)
     expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
@@ -316,7 +317,7 @@ describe('Material stash and shared favorites', () => {
     show()
     const card = screen.getByRole('article')
     for (const [label, count] of [
-      ['Essence', 76], // 19 ordinary families × four tiers; special group is separate.
+      ['Essence', 38], // 19 ordinary families × two selectable tiers; special group is separate.
       ['Alloy', 13],
       ['Omen', 24],
       ['Catalysts', 26],
@@ -394,11 +395,11 @@ describe('Material stash and shared favorites', () => {
   it('carries materials across tabs, places and overwrites favorites without consuming source entries', () => {
     show()
     fireEvent.click(tab('Essence'))
-    pick('Lesser Essence of the Body')
+    pick('Greater Essence of the Body')
     fireEvent.click(tab('Currency'))
     fireEvent.click(favorite(1))
     expect(favorite(1)).toHaveAccessibleName(
-      'Favorite slot 1: Lesser Essence of the Body',
+      'Favorite slot 1: Greater Essence of the Body',
     )
     expect(screen.getByRole('status')).toHaveTextContent(
       'registered in favorite slot 1',
@@ -408,27 +409,27 @@ describe('Material stash and shared favorites', () => {
     expect(favorite(1)).toHaveAttribute('aria-pressed', 'false')
     fireEvent.click(tab('Essence'))
     expect(
-      screen.getByRole('button', { name: 'Lesser Essence of the Body' }),
+      screen.getByRole('button', { name: 'Greater Essence of the Body' }),
     ).toBeVisible()
-    pick('Lesser Essence of the Mind')
+    pick('Greater Essence of the Mind')
     fireEvent.click(favorite(1))
     expect(favorite(1)).toHaveAccessibleName(
-      'Favorite slot 1: Lesser Essence of the Mind',
+      'Favorite slot 1: Greater Essence of the Mind',
     )
     fireEvent.click(tab('Omen'))
     expect(favorite(1)).toHaveAccessibleName(
-      'Favorite slot 1: Lesser Essence of the Mind',
+      'Favorite slot 1: Greater Essence of the Mind',
     )
   })
 
   it('Escape cancels pickup, and selecting a favorite for use cannot overwrite another slot', () => {
     show()
     fireEvent.click(tab('Essence'))
-    pick('Lesser Essence of the Body')
+    pick('Greater Essence of the Body')
     fireEvent.keyDown(window, { key: 'Escape' })
     fireEvent.click(favorite(1))
     expect(favorite(1)).toHaveAccessibleName('Favorite slot 1: empty')
-    pick('Lesser Essence of the Body')
+    pick('Greater Essence of the Body')
     fireEvent.click(favorite(1))
     fireEvent.contextMenu(favorite(1))
     expect(favorite(1)).toHaveAttribute('aria-pressed', 'true')
@@ -474,11 +475,11 @@ describe('Material stash and shared favorites', () => {
     if (!missing) throw new Error('Expected favorite image')
     fireEvent.error(missing)
     expect(favorite(1)).toHaveTextContent('Image unavailable')
-    pick('Lesser Essence of the Body')
+    pick('Greater Essence of the Body')
     fireEvent.click(favorite(1))
     expect(favorite(1).querySelector('img')).toHaveAttribute(
       'src',
-      '/assets/materials/Lesser_Essence_of_the_Body.webp',
+      '/assets/materials/Greater_Essence_of_the_Body.webp',
     )
     expect(favorite(1)).not.toHaveTextContent('Image unavailable')
   })
@@ -486,7 +487,7 @@ describe('Material stash and shared favorites', () => {
   it('does not persist favorites after leaving the page and remounting', () => {
     const view = show()
     fireEvent.click(tab('Essence'))
-    pick('Lesser Essence of the Body')
+    pick('Greater Essence of the Body')
     fireEvent.click(favorite(15))
     view.unmount()
     show()
