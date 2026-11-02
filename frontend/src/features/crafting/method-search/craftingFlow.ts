@@ -8,7 +8,8 @@ import type { Locale } from '../../../shared/i18n/i18n'
 import { localizedAction } from '../localizedCrafting'
 
 export type FlowTransition = {
-  operation: 'prepare' | 'observe' | 'choose' | 'add' | 'apply' | 'restore'
+  operation:
+    'prepare' | 'observe' | 'choose' | 'add' | 'apply' | 'restore' | 'select'
   action?: WorkbenchAction
   removal?: { slotId: string; probability: number }[]
 }
@@ -142,7 +143,12 @@ export const flowMessages: Record<
 export function materializeAbyss(
   state: AbyssState,
 ): (Item & ConcreteItem) | null {
-  if (state.slots.some((slot) => slot.minimumModifierLevel != null)) return null
+  if (
+    state.slots.some(
+      (slot) => slot.minimumModifierLevel != null || slot.revealPool != null,
+    )
+  )
+    return null
   if (state.offer || state.item.catalystQuality != null) return null
   return {
     ...state.item,

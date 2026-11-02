@@ -341,7 +341,12 @@ public final class WorkbenchService {
   }
 
   public Initial initial(String base, int level) {
+    return initial(base, level, false);
+  }
+
+  public Initial initial(String base, int level, boolean manualReveal) {
     var catalog = catalog(base);
+    var displayCatalog = manualReveal ? ManualRevealCatalog.enrich(catalog) : catalog;
     var state =
         base.equals("solar")
             ? SolarAmulet.initial(catalog, level, 15)
@@ -388,10 +393,10 @@ public final class WorkbenchService {
     engine.validate(bucket);
     return new Initial(
         simulator(state).ruleVersion(),
-        catalog.metadata(),
+        displayCatalog.metadata(),
         bucket.id(),
         bucket,
-        catalog.modifiers(),
+        displayCatalog.modifiers(),
         engine.actions(bucket),
         catalog.compatibleSnapshotIds(),
         QualityLimitRules.describe(state, catalog),
@@ -406,6 +411,7 @@ public final class WorkbenchService {
                 c.base().id().equals(state.baseItemId())
                     && c.metadata().snapshotId().equals(state.snapshotId()))
         .findFirst()
+        .map(ManualRevealCatalog::enrich)
         .orElseThrow(() -> new IllegalArgumentException("Unsupported Abyss catalog"));
   }
 

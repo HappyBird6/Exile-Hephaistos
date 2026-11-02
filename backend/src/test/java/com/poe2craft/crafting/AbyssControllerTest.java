@@ -30,6 +30,91 @@ class AbyssControllerTest {
   final HysteriaEssenceTest fixture = new HysteriaEssenceTest();
 
   @Test
+  void directChoiceUsesEligiblePoolAndRestoresWithoutThreeCandidates() throws Exception {
+    var catalog = com.poe2craft.item.ManualRevealCatalog.enrich(fixture.catalog);
+    var hidden =
+        com.poe2craft.crafting.domain.DesecrationCurrency.apply(
+            fixture.rare(82, ""),
+            "Preserved_Collarbone",
+            AffixType.PREFIX,
+            null,
+            Set.of(),
+            catalog);
+    var slot = hidden.slots().getFirst().id();
+    var eligibleResponse =
+        mvc.perform(
+                post("/api/v1/crafting/workbench/abyss/eligible")
+                    .header(RulesetBoundary.HEADER, RulesetBoundary.identity())
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(json.writeValueAsBytes(Map.of("state", hidden, "slotId", slot))))
+            .andExpect(status().isOk())
+            .andReturn();
+    var ids = json.readTree(eligibleResponse.getResponse().getContentAsString());
+    assertThat(ids.size()).isPositive();
+    var manual =
+        mvc.perform(
+                get("/api/v1/crafting/workbench/initial")
+                    .param("base", "solar")
+                    .param("manualReveal", "true"))
+            .andExpect(status().isOk())
+            .andReturn();
+    var extraId =
+        catalog.modifiers().values().stream()
+            .filter(d -> d.tags().contains("reveal_only"))
+            .findFirst()
+            .orElseThrow()
+            .id();
+    assertThat(
+            json.readTree(manual.getResponse().getContentAsString()).path("modifiers").has(extraId))
+        .isTrue();
+    var ordinary =
+        mvc.perform(get("/api/v1/crafting/workbench/initial").param("base", "solar"))
+            .andExpect(status().isOk())
+            .andReturn();
+    assertThat(
+            json.readTree(ordinary.getResponse().getContentAsString())
+                .path("modifiers")
+                .has(extraId))
+        .isFalse();
+    var definition = catalog.find(ids.get(0).asText()).orElseThrow();
+    var values = new HashMap<String, Long>();
+    definition.stats().forEach(stat -> values.put(stat.id(), stat.min()));
+    var body =
+        json.valueToTree(
+            Map.of(
+                "state",
+                hidden,
+                "slotId",
+                slot,
+                "candidate",
+                new com.poe2craft.item.ModifierInstance(definition.id(), values)));
+    var response =
+        mvc.perform(
+                post("/api/v1/crafting/workbench/abyss/select")
+                    .header(RulesetBoundary.HEADER, RulesetBoundary.identity())
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(json.writeValueAsBytes(body)))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.offer").isEmpty())
+            .andExpect(jsonPath("$.slots[0].modifier.modifierId").value(definition.id()))
+            .andReturn();
+    var restored = json.readTree(response.getResponse().getContentAsString());
+    mvc.perform(
+            post("/api/v1/crafting/workbench/abyss/validate")
+                .header(RulesetBoundary.HEADER, RulesetBoundary.identity())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(json.writeValueAsBytes(Map.of("state", restored))))
+        .andExpect(status().isOk());
+    ((ObjectNode) body.get("candidate")).put("fractured", true);
+    mvc.perform(
+            post("/api/v1/crafting/workbench/abyss/select")
+                .header(RulesetBoundary.HEADER, RulesetBoundary.identity())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(json.writeValueAsBytes(body)))
+        .andExpect(status().isUnprocessableEntity());
+  }
+
+  @Test
   void boneApplicationRequiresIdentityAndRestoresCurrencyConstraint() throws Exception {
     var body =
         json.valueToTree(

@@ -19,6 +19,7 @@ import {
   recordAbyss,
   storedAbyssItem,
   filmRulesetStatus,
+  verifiedHistoryState,
   viewFrame,
   historyStorageKey,
 } from './workbenchHistory'
@@ -323,4 +324,100 @@ it('removes the selected modifier when a restored full item has noncanonical obs
     ),
   ).toEqual(['a', 'b', 'c', 'd', 'e'])
   expect(source.explicits.map((modifier) => modifier.modifierId)).toEqual(ids)
+})
+
+it('records Putrefaction corruption and every observed slot, rejects loss, and restores history', async () => {
+  const result: AbyssState = {
+    ...abyss,
+    item: { ...abyss.item, conditions: ['CORRUPTED'] },
+    slots: [
+      { ...abyss.slots[0]!, revealPool: 'ALTERED' },
+      {
+        id: 'second',
+        side: 'SUFFIX',
+        modifier: null,
+        desecrated: true,
+        revealPool: 'ALTERED',
+      },
+    ],
+  }
+  const fetch = vi.fn(() => Promise.resolve(jsonResponse(result)))
+  vi.stubGlobal('fetch', fetch)
+  const next = await applyBone(
+    root,
+    'Altered_Collarbone',
+    '',
+    '',
+    ['Omen_of_Putrefaction'],
+    initialFixture,
+    new AbortController().signal,
+    'unchanged',
+    ['PREFIX', 'SUFFIX'],
+  )
+  const history = recordAbyss(
+    startFilm(emptyFilms(), root, 'seed', initialFixture.rulesetIdentity),
+    root,
+    next,
+    'Altered_Collarbone',
+    'unused',
+    initialFixture.rulesetIdentity,
+    ['Omen_of_Putrefaction'],
+  )
+  const repo = new LocalFilmRepository(localStorage)
+  repo.save(history)
+  expect(repo.load()).toEqual(history)
+  expect(currentFrame(repo.load())?.state.conditions).toEqual(['CORRUPTED'])
+  expect(currentFrame(repo.load())?.state.desecrated).toHaveLength(2)
+  expect(
+    currentFrame(repo.load())?.state.desecrated?.every(
+      (s) => s.revealPool === 'ALTERED',
+    ),
+  ).toBe(true)
+  expect(currentFrame(repo.load())?.manual?.consumedOmens).toEqual([
+    'Omen_of_Putrefaction',
+  ])
+  vi.stubGlobal('fetch', () =>
+    Promise.resolve(
+      jsonResponse({ ...result, slots: result.slots.slice(0, 1) }),
+    ),
+  )
+  await expect(
+    applyBone(
+      root,
+      'Altered_Collarbone',
+      '',
+      '',
+      ['Omen_of_Putrefaction'],
+      initialFixture,
+      new AbortController().signal,
+      'unchanged',
+      ['PREFIX', 'SUFFIX'],
+    ),
+  ).rejects.toThrow('unchanged')
+  expect(root.conditions).toEqual([])
+})
+
+it('rejects a forged Lich pool paired with an ordinary saved modifier', () => {
+  const state = {
+    ...root,
+    explicits: [{ modifierId: 'p', values: { life: 10 } }],
+    desecrated: [
+      {
+        id: 'lich',
+        side: 'PREFIX' as const,
+        modifierId: 'p',
+        revealPool: 'AMANAMU' as const,
+      },
+    ],
+  }
+  expect(
+    verifiedHistoryState(
+      {
+        ...state,
+        desecrated: state.desecrated.map((s) => ({ ...s, revealPool: null })),
+      },
+      initialFixture,
+    ),
+  ).toBe(true)
+  expect(verifiedHistoryState(state, initialFixture)).toBe(false)
 })

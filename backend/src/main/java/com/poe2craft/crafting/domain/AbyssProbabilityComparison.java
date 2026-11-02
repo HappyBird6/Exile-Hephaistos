@@ -83,7 +83,8 @@ public final class AbyssProbabilityComparison {
                               s.side(),
                               new ModifierInstance(blocker.id(), values),
                               true,
-                              s.minimumModifierLevel())
+                              s.minimumModifierLevel(),
+                              s.revealPool())
                           : s)
               .toList();
       var scenario = new AbyssCraftingState(state.item(), slots, null);

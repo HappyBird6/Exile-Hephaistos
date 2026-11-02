@@ -31,7 +31,11 @@ function verifiedTemplate(definition: Definition, locale: Locale) {
     })
   )
     return undefined
-  const translation = templates[locale][binding.template]
+  const translation =
+    templates[locale][binding.template] ??
+    (definition.id.startsWith('reveal:')
+      ? templates.en[binding.template]
+      : undefined)
   return translation ? { binding, translation } : undefined
 }
 
@@ -162,4 +166,22 @@ export function localizedModifierValueLabel(
     )
   }
   return `${localizedModifierText(definition, undefined, locale)} — ${valueLabel}`
+}
+
+export function modifierRollDivisor(
+  definition: Definition,
+  statId: string,
+): number {
+  return (
+    verifiedTemplate(definition, 'en')?.binding.valueStats?.find(
+      (s) => s.id === statId,
+    )?.divisor ?? 1
+  )
+}
+
+// Correct binary floating-point noise only; do not coerce an unsupported fractional roll.
+export function storedModifierRoll(value: number, divisor: number): number {
+  const scaled = value * divisor
+  const integer = Math.round(scaled)
+  return Math.abs(scaled - integer) < 1e-9 ? integer : scaled
 }

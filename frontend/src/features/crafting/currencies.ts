@@ -1,5 +1,7 @@
 /* Display-only catalog; positions from the approved Currency page. No game rules. */
 export const currencies = [
+  { id: 'Preserved_Cranium', x: 669, y: 340, image: '' },
+  { id: 'Altered_Collarbone', x: 759, y: 340, image: '' },
   { id: 'Gnawed_Rib', x: 669, y: 40, image: '' },
   { id: 'Preserved_Rib', x: 759, y: 40, image: '' },
   { id: 'Ancient_Rib', x: 849, y: 40, image: '' },

@@ -286,6 +286,7 @@ export function storedAbyssItem(state: AbyssState): ConcreteItem {
         id: slot.id,
         side: slot.side,
         modifierId: slot.modifier?.modifierId ?? null,
+        ...(slot.revealPool ? { revealPool: slot.revealPool } : {}),
         ...(slot.minimumModifierLevel != null
           ? { minimumModifierLevel: slot.minimumModifierLevel }
           : {}),
@@ -411,7 +412,12 @@ export function verifiedHistoryState(
       state.itemLevel > 100 ||
       !['NORMAL', 'MAGIC', 'RARE'].includes(state.rarity) ||
       !Array.isArray(state.conditions) ||
-      state.conditions.length ||
+      (state.conditions.length !== 0 &&
+        !(
+          state.conditions.length === 1 &&
+          state.conditions[0] === 'CORRUPTED' &&
+          state.desecrated?.length
+        )) ||
       !Array.isArray(state.implicits) ||
       state.implicits.length !== initial.state.implicits.length ||
       state.implicits.some((m) => m.fractured) ||
@@ -459,8 +465,7 @@ export function verifiedHistoryState(
     }
     const marked = new Set<string>()
     for (const slot of state.desecrated ?? []) {
-      if (state.rarity !== 'RARE' || isWorkbenchJewel(state.baseItemId))
-        return false
+      if (state.rarity !== 'RARE') return false
       if (slot.modifierId === null) {
         if (slot.side === 'PREFIX') p++
         else s++
@@ -477,9 +482,26 @@ export function verifiedHistoryState(
             (slot.minimumModifierLevel ?? 0)
         )
           return false
+        const definition = initial.modifiers[slot.modifierId]!
+        if (
+          (definition.tags?.includes('otherworldly') &&
+            slot.revealPool !== 'ALTERED') ||
+          (slot.revealPool &&
+            slot.revealPool !== 'ALTERED' &&
+            !definition.tags?.includes(`${slot.revealPool.toLowerCase()}_mod`))
+        )
+          return false
         marked.add(slot.modifierId)
       }
     }
+    if (
+      state.explicits.some(
+        (m) =>
+          initial.modifiers[m.modifierId]?.tags?.includes('reveal_only') &&
+          !marked.has(m.modifierId),
+      )
+    )
+      return false
     const capacity =
       state.rarity === 'NORMAL'
         ? 0

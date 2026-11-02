@@ -628,6 +628,16 @@ for (const [id, base] of Object.entries(currencyActions)) {
 }
 export const workbenchOmens = [
   {
+    id: 'Omen_of_Putrefaction',
+    trigger: 'DESECRATE_ALL',
+    effect: 'Record all observed desecrated slots and corruption',
+  },
+  ...['Sovereign', 'Liege', 'Blackblooded'].map((name) => ({
+    id: `Omen_of_the_${name}`,
+    trigger: 'DESECRATE_LICH',
+    effect: 'Restrict the reveal pool',
+  })),
+  {
     id: 'Omen_of_Sinistral_Necromancy',
     trigger: 'DESECRATE',
     effect: 'Add only a prefix on desecration',
@@ -760,6 +770,7 @@ export const baseWorkbenchAction = (action: WorkbenchAction) =>
     Action | 'DIVINE' | 'ALCHEMY' | 'FRACTURING'
 
 export interface DesecratedSlot {
+  revealPool?: string | null
   minimumModifierLevel?: 40 | null
   id: string
   side: 'PREFIX' | 'SUFFIX'

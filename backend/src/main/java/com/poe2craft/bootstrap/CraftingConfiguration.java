@@ -29,6 +29,10 @@ public class CraftingConfiguration {
     @com.fasterxml.jackson.annotation.JsonInclude(
         com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
     abstract Integer minimumModifierLevel();
+
+    @com.fasterxml.jackson.annotation.JsonInclude(
+        com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+    abstract String revealPool();
   }
 
   @Bean

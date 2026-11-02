@@ -544,3 +544,7 @@ Backend441+integration6, Frontend1820, API539, Browser719가 통과했고228 scr
 ### WB-052 Necromancy 연결 및 잔여 분류 — 2026-11-02
 
 Sinistral/Dextral Necromancy의 강제 접두·접미, 성공 시 소비 및 film 저장·복원, 실패 보존을 추가했다. 기존 베이스에 해당하는 Cranium·Altered·특수 징조의 미완료는 사용자 승인 대기가 아니라 데이터 검증/모델 구현 잔여다. Waystone만 별도 범위 확장이다. 표식 상위 등급과 무작위 후보 분포는 근거 미확인이다. [항목별 근거·필요 작업·최소 결정](docs/evidence/desecration-scope-followup-20261102.md)을 참조한다. WB-052 전체 완료로 닫지 않는다.
+
+### WB-052 직접 선택 및 기존 베이스 잔여 구현 — 2026-11-02
+
+최신 사용자 결정에 따라 후보 3개 입력을 적격 옵션 직접 선택으로 대체했다. Cranium 8종 주얼, Altered 클래스별 풀, Lich 3종 제한, Putrefaction 관측 다중 슬롯·타락 보존을 구현했다. Echoes 재추첨/소비는 직접 선택 방식으로 대체되어 추가하지 않는다. 범위 밖 경로석과 검증 자료가 없는 Mark 고등급/특수 조합은 완료로 표시하지 않는다. 자세한 범위·자료·직접 확인 순서는 [최신 구현 기록](docs/evidence/manual-reveal-20261102.md)을 참조한다. 이전 미완료 표의 후속 상태는 이 기록이 우선한다.

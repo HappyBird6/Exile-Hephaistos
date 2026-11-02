@@ -27,6 +27,20 @@ class CraftingControllerTest {
   @Autowired ItemCatalog catalog;
 
   @Test
+  void manualRevealBootstrapIsExplicitAndKeepsOrdinaryBootstrapUnchanged() throws Exception {
+    var enriched = com.poe2craft.item.ManualRevealCatalog.enrich(catalog);
+    mvc.perform(
+            get("/api/v1/crafting/initial").param("itemLevel", "70").param("manualReveal", "true"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.state.itemLevel").value(70))
+        .andExpect(jsonPath("$.metadata.prefixCount").value(enriched.metadata().prefixCount()))
+        .andExpect(jsonPath("$.metadata.prefixWeight").value(catalog.metadata().prefixWeight()));
+    mvc.perform(get("/api/v1/crafting/initial").param("itemLevel", "70"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.metadata.prefixCount").value(catalog.metadata().prefixCount()));
+  }
+
+  @Test
   void initialAndTransitionsUseTheBundledCatalog() throws Exception {
     mvc.perform(get("/api/v1/crafting/initial").param("itemLevel", "70"))
         .andExpect(status().isOk())

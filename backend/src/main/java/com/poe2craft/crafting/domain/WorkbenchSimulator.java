@@ -57,7 +57,7 @@ public final class WorkbenchSimulator {
       Map<WorkbenchCurrency, List<String>> essenceTargetOverrides,
       Map<WorkbenchCurrency, List<String>> replacementTargetOverrides,
       QualityCapChangePolicy qualityCapChangePolicy) {
-    this.catalog = Objects.requireNonNull(catalog);
+    this.catalog = ManualRevealCatalog.enrich(Objects.requireNonNull(catalog));
     this.qualityCapChangePolicy = Objects.requireNonNull(qualityCapChangePolicy);
     var replacements = new EnumMap<WorkbenchCurrency, List<String>>(WorkbenchCurrency.class);
     replacementTargetOverrides.forEach(
@@ -606,6 +606,7 @@ public final class WorkbenchSimulator {
   /** Manual Abyss scenarios preserve slots without inventing reveal probabilities. */
   public AbyssCraftingPlan abyssPlan(
       AbyssCraftingState state, WorkbenchCurrency action, Set<String> activeOmens) {
+    if (!state.item().conditions().isEmpty()) return AbyssCraftingPlan.blocked("ITEM_CONDITION");
     state.validate(catalog);
     validate(state.knownItem());
     if (state.offer() != null || state.item().catalystQuality() != null)

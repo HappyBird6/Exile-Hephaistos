@@ -1,4 +1,5 @@
 import definitions from './basicJewelDefinitions.json'
+import reveal from './manualRevealDefinitions.json'
 import type { ConcreteItem } from './workbenchApi'
 
 export const basicJewelBases = {
@@ -73,7 +74,25 @@ export function reviewedBasicJewel(state: ConcreteItem): boolean {
     s = 0,
     crafted = 0
   for (const m of state.explicits) {
-    const d = rows[m.modifierId]
+    const manual = (reveal.bases as Record<string, string[]>)[
+      state.baseItemId
+    ]?.includes(m.modifierId)
+      ? (
+          reveal.definitions as Record<
+            string,
+            {
+              affixType: string
+              familyIds: string[]
+              stats: { id: string; min: number; max: number }[]
+            }
+          >
+        )[m.modifierId]
+      : undefined
+    const d =
+      rows[m.modifierId] ??
+      (manual
+        ? { ...manual, baseItemId: state.baseItemId, crafted: false }
+        : undefined)
     if (
       !d ||
       d.baseItemId !== state.baseItemId ||
@@ -92,6 +111,13 @@ export function reviewedBasicJewel(state: ConcreteItem): boolean {
     if (d.affixType === 'PREFIX') p++
     else s++
     if (d.crafted) crafted++
+  }
+  for (const slot of state.desecrated ?? []) {
+    if (state.rarity !== 'RARE') return false
+    if (slot.modifierId === null) {
+      if (slot.side === 'PREFIX') p++
+      else s++
+    }
   }
   if (crafted > 1) return false
   return state.rarity === 'RARE' &&

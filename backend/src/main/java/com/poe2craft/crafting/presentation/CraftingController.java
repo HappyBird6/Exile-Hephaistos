@@ -31,15 +31,23 @@ public final class CraftingController {
     this.explorer = explorer;
   }
 
+  public Initial initial(int itemLevel) {
+    return initial(itemLevel, false);
+  }
+
   @GetMapping("/initial")
-  public Initial initial(@RequestParam(defaultValue = "82") int itemLevel) {
+  public Initial initial(
+      @RequestParam(defaultValue = "82") int itemLevel,
+      @RequestParam(defaultValue = "false") boolean manualReveal) {
+    var displayCatalog =
+        manualReveal ? com.poe2craft.item.ManualRevealCatalog.enrich(catalog) : catalog;
     var bucket = StateBucket.from(SolarAmulet.initial(catalog, itemLevel, 15));
     return new Initial(
         CraftingEngine.RULE_VERSION,
-        catalog.metadata(),
+        displayCatalog.metadata(),
         bucket.id(),
         bucket,
-        catalog.modifiers(),
+        displayCatalog.modifiers(),
         engine.actions(bucket),
         catalog.compatibleSnapshotIds(),
         catalog.base());

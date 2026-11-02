@@ -2160,5 +2160,17 @@
       "Revealed modifier level at least 40."
     ],
     "sourceUrl": "https://poe2db.tw/us/Ancient_Collarbone"
+  },
+  "Preserved_Cranium": {
+    "name": "Preserved Cranium",
+    "lines": ["Desecrates a Rare Jewel."],
+    "sourceUrl": "https://poe2db.tw/us/Preserved_Cranium"
+  },
+  "Altered_Collarbone": {
+    "name": "Altered Collarbone",
+    "lines": [
+      "Desecrates Rare jewellery; includes eligible otherworldly modifiers."
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Altered_Collarbone"
   }
 }

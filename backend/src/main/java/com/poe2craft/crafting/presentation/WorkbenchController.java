@@ -43,8 +43,9 @@ public final class WorkbenchController {
   @GetMapping("/initial")
   public WorkbenchService.Initial initial(
       @RequestParam(defaultValue = "solar") String base,
-      @RequestParam(defaultValue = "82") int itemLevel) {
-    return simulator.initial(base, itemLevel);
+      @RequestParam(defaultValue = "82") int itemLevel,
+      @RequestParam(defaultValue = "false") boolean manualReveal) {
+    return simulator.initial(base, itemLevel, manualReveal);
   }
 
   @PostMapping("/apply")
@@ -105,7 +106,8 @@ public final class WorkbenchController {
         throw new UnsupportedItemProperties();
       for (var slot : desecrated) {
         if (!slot.isObject()
-            || slot.size() != (slot.has("minimumModifierLevel") ? 4 : 3)
+            || slot.size()
+                != 3 + (slot.has("minimumModifierLevel") ? 1 : 0) + (slot.has("revealPool") ? 1 : 0)
             || (slot.has("minimumModifierLevel")
                 && !slot.path("minimumModifierLevel").isNull()
                 && !(slot.path("minimumModifierLevel").isIntegralNumber()
@@ -259,7 +261,24 @@ public final class WorkbenchController {
       @RequestBody ActionRequest request) {
     var item = concreteState(request.state(), true);
     var catalog = simulator.abyssCatalog(item);
-    if (!new com.poe2craft.item.ItemStateValidator(catalog).validate(item).isEmpty())
+    var validationItem = item;
+    if (item.conditions().equals(Set.of(ItemState.Condition.CORRUPTED))
+        && !item.desecrated().isEmpty())
+      validationItem =
+          new ItemState(
+              item.snapshotId(),
+              item.baseItemId(),
+              item.itemLevel(),
+              item.rarity(),
+              item.implicits(),
+              item.explicits(),
+              Set.of(),
+              item.augmentSockets(),
+              item.catalystQuality(),
+              item.desecrated(),
+              item.equipmentQuality(),
+              item.observations());
+    if (!new com.poe2craft.item.ItemStateValidator(catalog).validate(validationItem).isEmpty())
       throw new IllegalArgumentException("Invalid slot-aware item state");
     return com.poe2craft.crafting.domain.AbyssCraftingState.from(item, catalog);
   }
@@ -269,13 +288,19 @@ public final class WorkbenchController {
       String currency,
       com.poe2craft.item.ModifierDefinition.AffixType side,
       String removedSlotId,
-      Set<String> activeOmens) {}
+      Set<String> activeOmens,
+      List<com.poe2craft.item.ModifierDefinition.AffixType> observedSides) {}
 
   @PostMapping("/abyss/desecrate")
   public com.poe2craft.crafting.domain.AbyssCraftingState desecrate(
       @RequestBody DesecrateRequest request) {
     var item = concreteState(request.state(), true);
     var catalog = simulator.abyssCatalog(item);
+    if (request.activeOmens() != null && request.activeOmens().contains("Omen_of_Putrefaction"))
+      return com.poe2craft.crafting.domain.DesecrationCurrency.putrefy(
+          item, request.currency(), request.observedSides(), request.activeOmens(), catalog);
+    if (request.observedSides() != null && !request.observedSides().isEmpty())
+      throw new IllegalArgumentException("Unexpected observed slots");
     return com.poe2craft.crafting.domain.DesecrationCurrency.apply(
         item,
         request.currency(),
@@ -300,6 +325,31 @@ public final class WorkbenchController {
     return state.observe(
         request.slotId(),
         abyssCandidates(request.candidates()),
+        simulator.abyssCatalog(state.item()));
+  }
+
+  public record RevealRequest(JsonNode state, String slotId, JsonNode candidate) {}
+
+  @PostMapping("/abyss/eligible")
+  public List<String> eligibleReveal(@RequestBody RevealRequest request) {
+    var state = abyssState(request.state());
+    return state.eligibleRevealIds(request.slotId(), simulator.abyssCatalog(state.item()));
+  }
+
+  @PostMapping("/abyss/select")
+  public com.poe2craft.crafting.domain.AbyssCraftingState selectReveal(
+      @RequestBody RevealRequest request) throws java.io.IOException {
+    var state = abyssState(request.state());
+    if (request.candidate() == null) throw new IllegalArgumentException("Candidate required");
+    validateAbyssNumbers(request.candidate());
+    var candidate =
+        json.readerFor(com.poe2craft.item.ModifierInstance.class)
+            .with(com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+            .without(com.fasterxml.jackson.databind.DeserializationFeature.ACCEPT_FLOAT_AS_INT)
+            .readValue(request.candidate().traverse(json));
+    return state.selectDirect(
+        request.slotId(),
+        (com.poe2craft.item.ModifierInstance) candidate,
         simulator.abyssCatalog(state.item()));
   }
 

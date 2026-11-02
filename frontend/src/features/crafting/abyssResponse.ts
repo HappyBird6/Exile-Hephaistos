@@ -1,3 +1,4 @@
+import { isWorkbenchJewel, reviewedBasicJewel } from './basicJewel'
 import { sameObservations } from './itemObservations'
 import type { Initial } from './craftingApi'
 import type { ConcreteItem } from './workbenchApi'
@@ -108,6 +109,11 @@ export function validAbyssResponse(
         s.id.length > 0 &&
         (s.side === 'PREFIX' || s.side === 'SUFFIX') &&
         typeof s.desecrated === 'boolean' &&
+        (s.revealPool == null ||
+          (s.desecrated &&
+            ['ALTERED', 'AMANAMU', 'KURGAL', 'ULAMAN'].includes(
+              String(s.revealPool),
+            ))) &&
         (s.minimumModifierLevel == null ||
           (s.desecrated && s.minimumModifierLevel === 40)) &&
         (s.modifier === null
@@ -120,10 +126,30 @@ export function validAbyssResponse(
   )
     return false
   if (
-    slots.filter((s) => s.side === 'PREFIX').length >
+    !isWorkbenchJewel(source.baseItemId) &&
+    (slots.filter((s) => s.side === 'PREFIX').length >
       (initial.baseRules?.rarePrefixes ?? 3) ||
-    slots.filter((s) => s.side === 'SUFFIX').length >
-      (initial.baseRules?.rareSuffixes ?? 3)
+      slots.filter((s) => s.side === 'SUFFIX').length >
+        (initial.baseRules?.rareSuffixes ?? 3))
+  )
+    return false
+  if (
+    isWorkbenchJewel(source.baseItemId) &&
+    !reviewedBasicJewel({
+      ...source,
+      explicits: slots.flatMap((s) =>
+        s.modifier ? [s.modifier as ConcreteItem['explicits'][number]] : [],
+      ),
+      desecrated: slots
+        .filter((s) => s.desecrated)
+        .map((s) => ({
+          id: String(s.id),
+          side: s.side as 'PREFIX' | 'SUFFIX',
+          modifierId: s.modifier
+            ? String((s.modifier as Record<string, unknown>).modifierId)
+            : null,
+        })),
+    })
   )
     return false
   if (value.offer === null) return true

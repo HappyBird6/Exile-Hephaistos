@@ -10,13 +10,18 @@ import { create } from 'zustand'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { gameName, useI18n } from '../../shared/i18n/i18n'
 import { localizedAction } from './localizedCrafting'
-import { localizedModifierText } from './localizedModifiers'
+import {
+  localizedModifierText,
+  modifierRollDivisor,
+  storedModifierRoll,
+} from './localizedModifiers'
 import { rulesetHeaders, verifyRulesetResponse } from './rulesetIdentity'
 import type { ConcreteItem, WorkbenchAction } from './workbenchApi'
 import type { Definition, Initial } from './craftingApi'
 
 type Modifier = ConcreteItem['explicits'][number]
 type Slot = {
+  revealPool?: string | null
   minimumModifierLevel?: 40 | null
   id: string
   side: 'PREFIX' | 'SUFFIX'
@@ -189,6 +194,7 @@ export function AbyssPanel({
   observationOnly = false,
   localScenario = true,
   allowAdd = true,
+  directSelection = false,
   restoredState,
   onTransition,
   onContinue,
@@ -203,6 +209,7 @@ export function AbyssPanel({
   observationOnly?: boolean
   localScenario?: boolean
   allowAdd?: boolean
+  directSelection?: boolean
   onTransition?: (state: AbyssState, transition: FlowTransition) => void
   onContinue?: (state: AbyssState, item: Item) => void
 }) {
@@ -265,6 +272,14 @@ export function AbyssPanel({
     const value: unknown = await response.json()
     if (value && typeof value === 'object' && 'rulesetIdentity' in value)
       delete value.rulesetIdentity
+    if (operation === 'eligible') {
+      if (
+        !Array.isArray(value) ||
+        !value.every((id) => typeof id === 'string' && !!initial.modifiers[id])
+      )
+        throw new Error(t[14])
+      return value as T
+    }
     if (!validAbyssResponse(operation, value, source, initial))
       throw new Error(t[14])
     return value as T
@@ -317,7 +332,38 @@ export function AbyssPanel({
     }: {
       operation: string
       payload: Record<string, unknown>
-    }) => request<AbyssState>(operation, { state, ...payload }),
+    }) => {
+      return request<AbyssState>(operation, { state, ...payload }).then(
+        (next) => {
+          if (operation === 'select' && state) {
+            const expected = {
+              ...state,
+              offer: null,
+              slots: state.slots.map((slot) =>
+                slot.id === payload.slotId
+                  ? { ...slot, modifier: payload.candidate }
+                  : slot,
+              ),
+            }
+            const canonical = (value: unknown): string =>
+              JSON.stringify(value, (_key, v: unknown) =>
+                v && typeof v === 'object' && !Array.isArray(v)
+                  ? Object.fromEntries(
+                      Object.entries(v)
+                        .sort(([a], [b]) => a.localeCompare(b))
+                        .filter(
+                          ([, n]) =>
+                            n !== null && n !== undefined && n !== false,
+                        ),
+                    )
+                  : v,
+              )
+            if (canonical(next) !== canonical(expected)) throw new Error(t[14])
+          }
+          return next
+        },
+      )
+    },
     onSuccess: (next, variables) => {
       if (!mounted.current) return
       const operation = variables.operation as FlowTransition['operation']
@@ -382,8 +428,49 @@ export function AbyssPanel({
       (d.requiredItemLevel ?? 1) <= source.itemLevel,
   )
   const selected = state?.slots.find((s) => s.id === draft.slotId)
+  const eligible = useQuery({
+    queryKey: [...key, 'eligible', state, draft.slotId],
+    enabled:
+      directSelection && !!state && !!selected && selected.modifier === null,
+    retry: false,
+    queryFn: ({ signal }) =>
+      request<string[]>('eligible', { state, slotId: draft.slotId }, signal),
+  })
+  const directCopy = {
+    en: [
+      'Choose an eligible modifier. This is a manual choice, not a guaranteed in-game outcome.',
+      'Choose modifier',
+      'Apply chosen modifier',
+    ],
+    ko: [
+      '적용 가능한 옵션을 직접 선택하세요. 실제 게임에서 확정 획득한다는 뜻은 아닙니다.',
+      '옵션 선택',
+      '선택한 옵션 적용',
+    ],
+    'zh-CN': [
+      '选择可用词缀。这是手动选择，并不保证游戏中的结果。',
+      '选择词缀',
+      '应用所选词缀',
+    ],
+    'zh-TW': [
+      '選擇可用詞綴。這是手動選擇，不保證遊戲中的結果。',
+      '選擇詞綴',
+      '套用所選詞綴',
+    ],
+    ja: [
+      '適用可能なモッドを選択します。ゲーム内での確定獲得を保証するものではありません。',
+      'モッドを選択',
+      '選択したモッドを適用',
+    ],
+    es: [
+      'Elige un modificador válido. Es una elección manual, no un resultado garantizado en el juego.',
+      'Elegir modificador',
+      'Aplicar modificador elegido',
+    ],
+  }[locale]
   const candidateDefinitions = definitions.filter(
     (d) =>
+      (!directSelection || eligible.data?.includes(d.id)) &&
       d.affixType === selected?.side &&
       (d.requiredItemLevel ?? 1) >= (selected?.minimumModifierLevel ?? 0),
   )
@@ -405,7 +492,7 @@ export function AbyssPanel({
       )}
       {open && (
         <>
-          <p>{t[20]}</p>
+          <p>{directSelection ? directCopy[0] : t[20]}</p>
           {(query.isError ||
             mutation.isError ||
             plan.isError ||
@@ -494,10 +581,17 @@ export function AbyssPanel({
                   </button>
                 </>
               )}
-              {selected && (
+              {selected && (!directSelection || selected.modifier === null) && (
                 <fieldset disabled={busy}>
-                  <legend>{t[6]}</legend>
-                  {draft.candidates.map((candidate, index) => (
+                  <legend>{directSelection ? directCopy[1] : t[6]}</legend>
+                  {directSelection && <p>{directCopy[0]}</p>}
+                  {directSelection && eligible.isError && (
+                    <p role="alert">{t[14]}</p>
+                  )}
+                  {(directSelection
+                    ? draft.candidates.slice(0, 1)
+                    : draft.candidates
+                  ).map((candidate, index) => (
                     <div key={index}>
                       <label>
                         {t[17]} {index + 1}{' '}
@@ -528,47 +622,73 @@ export function AbyssPanel({
                       </label>
                       {candidate &&
                         initial.modifiers[candidate.modifierId]?.stats?.map(
-                          (stat) => (
-                            <label key={stat.id}>
-                              {label(initial.modifiers[candidate.modifierId]!)}{' '}
-                              ({stat.min}–{stat.max})
-                              <input
-                                type="number"
-                                min={stat.min}
-                                max={stat.max}
-                                step={1}
-                                value={candidate.values[stat.id]}
-                                onChange={(e) => {
-                                  const candidates = [...draft.candidates]
-                                  candidates[index] = {
-                                    ...candidate,
-                                    values: {
-                                      ...candidate.values,
-                                      [stat.id]: e.target.valueAsNumber,
-                                    },
+                          (stat) => {
+                            const divisor = modifierRollDivisor(
+                              initial.modifiers[candidate.modifierId]!,
+                              stat.id,
+                            )
+                            return (
+                              <label key={stat.id}>
+                                {label(
+                                  initial.modifiers[candidate.modifierId]!,
+                                )}{' '}
+                                ({stat.min}–{stat.max})
+                                <input
+                                  type="number"
+                                  min={stat.min / divisor}
+                                  max={stat.max / divisor}
+                                  step={1 / divisor}
+                                  value={
+                                    (candidate.values[stat.id] ?? 0) / divisor
                                   }
-                                  draft.edit({ candidates })
-                                }}
-                              />
-                            </label>
-                          ),
+                                  onChange={(e) => {
+                                    const candidates = [...draft.candidates]
+                                    candidates[index] = {
+                                      ...candidate,
+                                      values: {
+                                        ...candidate.values,
+                                        [stat.id]: storedModifierRoll(
+                                          e.target.valueAsNumber,
+                                          divisor,
+                                        ),
+                                      },
+                                    }
+                                    draft.edit({ candidates })
+                                  }}
+                                />
+                              </label>
+                            )
+                          },
                         )}
                     </div>
                   ))}
                   <button
-                    disabled={draft.candidates.some((c) => !c)}
+                    disabled={
+                      directSelection
+                        ? !draft.candidates[0] ||
+                          !eligible.data?.includes(
+                            draft.candidates[0].modifierId,
+                          ) ||
+                          eligible.isFetching
+                        : draft.candidates.some((c) => !c)
+                    }
                     onClick={() =>
-                      submit('observe', {
-                        slotId: draft.slotId,
-                        candidates: draft.candidates,
-                      })
+                      directSelection
+                        ? submit('select', {
+                            slotId: draft.slotId,
+                            candidate: draft.candidates[0],
+                          })
+                        : submit('observe', {
+                            slotId: draft.slotId,
+                            candidates: draft.candidates,
+                          })
                     }
                   >
-                    {t[7]}
+                    {directSelection ? directCopy[2] : t[7]}
                   </button>
                 </fieldset>
               )}
-              {state.offer && (
+              {state.offer && !directSelection && (
                 <ol>
                   {state.offer.candidates.map((candidate, index) => (
                     <li key={index} className="abyss-slot">
@@ -638,7 +758,7 @@ export function AbyssPanel({
                   >
                     {t[10]}
                   </button>
-                  {plan.data?.available && (
+                  {plan.data?.available && !directSelection && (
                     <ul>
                       {plan.data.branches
                         .filter((b) => b.removedSlotId)
@@ -663,7 +783,7 @@ export function AbyssPanel({
                   )}
                 </>
               )}
-              {selected?.modifier === null && (
+              {selected?.modifier === null && !directSelection && (
                 <>
                   <label>
                     {t[11]}{' '}

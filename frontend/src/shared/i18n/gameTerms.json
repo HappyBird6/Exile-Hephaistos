@@ -3073,6 +3073,20 @@
       ],
       "itemKey": "AbyssalBenchTicketJewelleryHigh",
       "sourceUrl": "https://poe2db.tw/us/Desecrated_Modifiers"
+    },
+    "Preserved_Cranium": {
+      "name": "Preserved Cranium",
+      "lines": ["Desecrates a Rare Jewel."],
+      "sourceUrl": "https://poe2db.tw/us/Preserved_Cranium",
+      "itemKey": "AbyssalBenchTicketJewel"
+    },
+    "Altered_Collarbone": {
+      "name": "Altered Collarbone",
+      "lines": [
+        "Desecrates Rare jewellery; includes eligible otherworldly modifiers."
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Altered_Collarbone",
+      "itemKey": "AbyssalBenchTicketBreach"
     }
   },
   "ko": {
@@ -6125,6 +6139,18 @@
       ],
       "itemKey": "AbyssalBenchTicketJewelleryHigh",
       "sourceUrl": "https://poe2db.tw/kr/Desecrated_Modifiers"
+    },
+    "Preserved_Cranium": {
+      "name": "보존된 두개골",
+      "lines": ["희귀 주얼을 훼손합니다."],
+      "sourceUrl": "https://poe2db.tw/kr/Preserved_Cranium",
+      "itemKey": "AbyssalBenchTicketJewel"
+    },
+    "Altered_Collarbone": {
+      "name": "뒤바뀐 빗장뼈",
+      "lines": ["희귀 장신구를 훼손하며 적용 가능한 이계 옵션을 포함합니다."],
+      "sourceUrl": "https://poe2db.tw/kr/Altered_Collarbone",
+      "itemKey": "AbyssalBenchTicketBreach"
     }
   },
   "zh-CN": {
@@ -9066,6 +9092,18 @@
       ],
       "itemKey": "AbyssalBenchTicketJewelleryHigh",
       "sourceUrl": "https://poe2db.tw/cn/Desecrated_Modifiers"
+    },
+    "Preserved_Cranium": {
+      "name": "遗存头骨",
+      "lines": ["亵渎稀有珠宝。"],
+      "sourceUrl": "https://poe2db.tw/cn/Preserved_Cranium",
+      "itemKey": "AbyssalBenchTicketJewel"
+    },
+    "Altered_Collarbone": {
+      "name": "变形锁骨",
+      "lines": ["亵渎稀有首饰，包含可用的异界词缀。"],
+      "sourceUrl": "https://poe2db.tw/cn/Altered_Collarbone",
+      "itemKey": "AbyssalBenchTicketBreach"
     }
   },
   "zh-TW": {
@@ -11997,6 +12035,18 @@
       ],
       "itemKey": "AbyssalBenchTicketJewelleryHigh",
       "sourceUrl": "https://poe2db.tw/tw/Desecrated_Modifiers"
+    },
+    "Preserved_Cranium": {
+      "name": "保存良好的顱骨",
+      "lines": ["褻瀆稀有珠寶。"],
+      "sourceUrl": "https://poe2db.tw/tw/Preserved_Cranium",
+      "itemKey": "AbyssalBenchTicketJewel"
+    },
+    "Altered_Collarbone": {
+      "name": "畸變的鎖骨",
+      "lines": ["褻瀆稀有飾品，包含可用的異界詞綴。"],
+      "sourceUrl": "https://poe2db.tw/tw/Altered_Collarbone",
+      "itemKey": "AbyssalBenchTicketBreach"
     }
   },
   "ja": {
@@ -15051,6 +15101,18 @@
       ],
       "itemKey": "AbyssalBenchTicketJewelleryHigh",
       "sourceUrl": "https://poe2db.tw/jp/Desecrated_Modifiers"
+    },
+    "Preserved_Cranium": {
+      "name": "保存された頭蓋骨",
+      "lines": ["レアジュエルを冒涜します。"],
+      "sourceUrl": "https://poe2db.tw/jp/Preserved_Cranium",
+      "itemKey": "AbyssalBenchTicketJewel"
+    },
+    "Altered_Collarbone": {
+      "name": "変質した鎖骨",
+      "lines": ["レアの装飾品を冒涜し、適用可能な異界モッドを含みます。"],
+      "sourceUrl": "https://poe2db.tw/jp/Altered_Collarbone",
+      "itemKey": "AbyssalBenchTicketBreach"
     }
   },
   "es": {
@@ -18033,6 +18095,20 @@
       ],
       "itemKey": "AbyssalBenchTicketJewelleryHigh",
       "sourceUrl": "https://poe2db.tw/sp/Desecrated_Modifiers"
+    },
+    "Preserved_Cranium": {
+      "name": "Cráneo preservado",
+      "lines": ["Profana una joya rara."],
+      "sourceUrl": "https://poe2db.tw/sp/Preserved_Cranium",
+      "itemKey": "AbyssalBenchTicketJewel"
+    },
+    "Altered_Collarbone": {
+      "name": "Clavícula alterada",
+      "lines": [
+        "Profana joyería rara e incluye modificadores válidos de otro mundo."
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/Altered_Collarbone",
+      "itemKey": "AbyssalBenchTicketBreach"
     }
   }
 }

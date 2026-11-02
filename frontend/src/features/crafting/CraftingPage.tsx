@@ -2,6 +2,7 @@ import {
   applyBone,
   isBone,
   boneText,
+  putrefactionText,
   necromancySide,
 } from './desecrationCurrency'
 import { validAbyssResponse } from './abyssResponse'
@@ -81,8 +82,9 @@ import {
 import type { Films } from './workbenchHistory'
 import {
   basicJewelBases,
-  workbenchJewelBases,
+  jewelCapacity,
   isWorkbenchJewel,
+  workbenchJewelBases,
 } from './basicJewel'
 import { sapphireCastSpeed } from './sapphireJewel'
 import './crafting.css'
@@ -101,6 +103,7 @@ function filmId() {
 
 export function CraftingPage() {
   const { t, name, locale } = useI18n()
+  const [boneCounts, setBoneCounts] = useState([0, 0])
   const [boneSide, setBoneSide] = useState('')
   const [boneRemoved, setBoneRemoved] = useState('')
   const client = useQueryClient()
@@ -277,8 +280,9 @@ export function CraftingPage() {
   const placementRequest = useRef(0)
   const placementPending = useRef(false)
   const initial = useQuery({
-    queryKey: ['crafting', 'initial', catalogBase, catalogLevel],
-    queryFn: ({ signal }) => loadInitial(catalogLevel, signal, catalogBase),
+    queryKey: ['crafting', 'initial', catalogBase, catalogLevel, 'manual'],
+    queryFn: ({ signal }) =>
+      loadInitial(catalogLevel, signal, catalogBase, true),
     staleTime: 60_000,
     retry: false,
   })
@@ -340,8 +344,8 @@ export function CraftingPage() {
     setApplying(null)
     try {
       const data = await client.fetchQuery({
-        queryKey: ['crafting', 'initial', base, level],
-        queryFn: ({ signal }) => loadInitial(level, signal, base),
+        queryKey: ['crafting', 'initial', base, level, 'manual'],
+        queryFn: ({ signal }) => loadInitial(level, signal, base, true),
         staleTime: 60_000,
       })
       if (
@@ -610,6 +614,12 @@ export function CraftingPage() {
           initial.data,
           controller.signal,
           boneText[locale][6],
+          draft.activeOmens.includes('Omen_of_Putrefaction')
+            ? [
+                ...Array(boneCounts[0]).fill('PREFIX'),
+                ...Array(boneCounts[1]).fill('SUFFIX'),
+              ]
+            : undefined,
         )
         if (
           controller.signal.aborted ||
@@ -647,6 +657,7 @@ export function CraftingPage() {
             .filter(Boolean)
             .join(' '),
         )
+        setBoneCounts([0, 0])
         setBoneSide('')
         setBoneRemoved('')
         if (!repeat) {
@@ -1106,7 +1117,7 @@ export function CraftingPage() {
                   affixLabel:
                     d.affixType === 'NONE'
                       ? undefined
-                      : `${d.affixType === 'PREFIX' ? 'P' : 'S'}${Object.hasOwn(workbenchJewelBases, catalogBase) ? '' : d.tier}`,
+                      : `${d.affixType === 'PREFIX' ? 'P' : 'S'}${Object.hasOwn(workbenchJewelBases, catalogBase) || d.tier === 0 ? '' : d.tier}`,
                 }
               })
               .concat(
@@ -1566,49 +1577,89 @@ export function CraftingPage() {
                     {gameTerm(selected.id, locale).data?.lines.map((line) => (
                       <p key={line}>{line}</p>
                     ))}
-                    <p>{boneText[locale][0]}</p>
-                    <label>
-                      {boneText[locale][1]}
-                      <select
-                        value={necromancySide(draft.activeOmens) ?? boneSide}
-                        disabled={!!necromancySide(draft.activeOmens)}
-                        onChange={(event) => setBoneSide(event.target.value)}
-                      >
-                        <option value="">{boneText[locale][2]}</option>
-                        <option value="PREFIX">{boneText[locale][3]}</option>
-                        <option value="SUFFIX">{boneText[locale][4]}</option>
-                      </select>
-                    </label>
-                    {concrete?.explicits.length === 6 && (
+                    <p>
+                      {draft.activeOmens.includes('Omen_of_Putrefaction')
+                        ? putrefactionText[locale][0]
+                        : boneText[locale][0]}
+                    </p>
+                    {draft.activeOmens.includes('Omen_of_Putrefaction') ? (
+                      <div>
+                        {(['PREFIX', 'SUFFIX'] as const).map((side, index) => (
+                          <label key={side}>
+                            {putrefactionText[locale][index + 1]}{' '}
+                            <input
+                              type="number"
+                              min={0}
+                              max={3}
+                              step={1}
+                              value={boneCounts[index]}
+                              onChange={(event) => {
+                                const value = event.target.valueAsNumber
+                                if (
+                                  Number.isInteger(value) &&
+                                  value >= 0 &&
+                                  value <= 3
+                                )
+                                  setBoneCounts((current) =>
+                                    current.map((n, i) =>
+                                      i === index ? value : n,
+                                    ),
+                                  )
+                              }}
+                            />
+                          </label>
+                        ))}
+                      </div>
+                    ) : (
                       <label>
-                        {boneText[locale][5]}
+                        {boneText[locale][1]}
                         <select
-                          value={boneRemoved}
-                          onChange={(event) =>
-                            setBoneRemoved(event.target.value)
-                          }
+                          value={necromancySide(draft.activeOmens) ?? boneSide}
+                          disabled={!!necromancySide(draft.activeOmens)}
+                          onChange={(event) => setBoneSide(event.target.value)}
                         >
                           <option value="">{boneText[locale][2]}</option>
-                          {concrete.explicits.map((modifier, index) =>
-                            modifier.fractured ? null : (
-                              <option
-                                key={modifier.modifierId}
-                                value={`explicit-${index}`}
-                              >
-                                {initial.data?.modifiers[modifier.modifierId]
-                                  ? localizedModifierText(
-                                      initial.data.modifiers[
-                                        modifier.modifierId
-                                      ]!,
-                                      modifier.values,
-                                    )
-                                  : modifier.modifierId}
-                              </option>
-                            ),
-                          )}
+                          <option value="PREFIX">{boneText[locale][3]}</option>
+                          <option value="SUFFIX">{boneText[locale][4]}</option>
                         </select>
                       </label>
                     )}
+                    {!draft.activeOmens.includes('Omen_of_Putrefaction') &&
+                      concrete &&
+                      concrete.explicits.length >=
+                        (isWorkbenchJewel(concrete.baseItemId)
+                          ? jewelCapacity(concrete, 'PREFIX') +
+                            jewelCapacity(concrete, 'SUFFIX')
+                          : 6) && (
+                        <label>
+                          {boneText[locale][5]}
+                          <select
+                            value={boneRemoved}
+                            onChange={(event) =>
+                              setBoneRemoved(event.target.value)
+                            }
+                          >
+                            <option value="">{boneText[locale][2]}</option>
+                            {concrete.explicits.map((modifier, index) =>
+                              modifier.fractured ? null : (
+                                <option
+                                  key={modifier.modifierId}
+                                  value={`explicit-${index}`}
+                                >
+                                  {initial.data?.modifiers[modifier.modifierId]
+                                    ? localizedModifierText(
+                                        initial.data.modifiers[
+                                          modifier.modifierId
+                                        ]!,
+                                        modifier.values,
+                                      )
+                                    : modifier.modifierId}
+                                </option>
+                              ),
+                            )}
+                          </select>
+                        </label>
+                      )}
                   </fieldset>
                 )}
                 {draft.activeOmens.includes('Omen_of_Whittling') && (
@@ -2000,6 +2051,7 @@ export function CraftingPage() {
                       source={concrete}
                       localScenario={false}
                       allowAdd={false}
+                      directSelection
                       embedded={!!concrete.desecrated?.length}
                       initial={initial.data}
                       {...(storedFrame?.abyss

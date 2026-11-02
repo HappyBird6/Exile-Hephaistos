@@ -108,12 +108,24 @@ public record ItemState(
       String id,
       ModifierDefinition.AffixType side,
       String modifierId,
-      Integer minimumModifierLevel) {
+      Integer minimumModifierLevel,
+      String revealPool) {
+    public DesecratedSlot(
+        String id,
+        ModifierDefinition.AffixType side,
+        String modifierId,
+        Integer minimumModifierLevel) {
+      this(id, side, modifierId, minimumModifierLevel, null);
+    }
+
     public DesecratedSlot(String id, ModifierDefinition.AffixType side, String modifierId) {
       this(id, side, modifierId, null);
     }
 
     public DesecratedSlot {
+      if (revealPool != null
+          && !Set.of("ALTERED", "AMANAMU", "KURGAL", "ULAMAN").contains(revealPool))
+        throw new IllegalArgumentException("Unknown reveal pool");
       if (minimumModifierLevel != null && minimumModifierLevel != 40)
         throw new IllegalArgumentException("Unsupported desecration level constraint");
       if (id == null || id.isBlank() || side == null || side == ModifierDefinition.AffixType.NONE)

@@ -15,6 +15,182 @@ class DesecrationCurrencyTest {
     return DesecrationCurrency.apply(item, currency, side, removed, Set.of(), f.catalog);
   }
 
+  ModifierInstance minimum(ModifierDefinition definition) {
+    var values = new HashMap<String, Long>();
+    definition.stats().forEach(stat -> values.put(stat.id(), stat.min()));
+    return new ModifierInstance(definition.id(), values);
+  }
+
+  @Test
+  void jewelCraniumDirectChoiceAndRestoreAllEightBases() {
+    for (String key :
+        List.of(
+            "ruby",
+            "emerald",
+            "sapphire",
+            "diamond",
+            "time-lost-ruby",
+            "time-lost-emerald",
+            "time-lost-sapphire",
+            "time-lost-diamond")) {
+      var catalog =
+          ManualRevealCatalog.enrich(
+              (key.equals("sapphire")
+                  ? com.poe2craft.item.infrastructure.ItemCatalogLoader.loadSapphire()
+                  : com.poe2craft.item.infrastructure.ItemCatalogLoader.loadBasicJewel(key)));
+      var implicits =
+          catalog.base().hasImplicit()
+              ? List.of(minimum(catalog.find(catalog.base().implicitModifierId()).orElseThrow()))
+              : List.<ModifierInstance>of();
+      var item =
+          new ItemState(
+              catalog.metadata().snapshotId(),
+              catalog.base().id(),
+              82,
+              ItemState.Rarity.RARE,
+              implicits,
+              List.of(),
+              Set.of());
+      for (var side : List.of(AffixType.PREFIX, AffixType.SUFFIX)) {
+        var hidden =
+            DesecrationCurrency.apply(item, "Preserved_Cranium", side, null, Set.of(), catalog);
+        var slot = hidden.slots().getFirst();
+        var forgedPool =
+            new AbyssCraftingState(
+                hidden.item(),
+                List.of(new AbyssCraftingState.Slot(slot.id(), side, null, true, null, "ALTERED")),
+                null);
+        assertThatThrownBy(() -> forgedPool.validate(catalog))
+            .isInstanceOf(IllegalArgumentException.class);
+
+        var ids = hidden.eligibleRevealIds(slot.id(), catalog);
+        assertThat(ids).isNotEmpty();
+        var definition =
+            ids.stream()
+                .map(id -> catalog.find(id).orElseThrow())
+                .filter(d -> d.tags().contains("reveal_only"))
+                .findFirst()
+                .orElseThrow();
+        assertThat(definition.weight()).isZero();
+        var chosen = hidden.selectDirect(slot.id(), minimum(definition), catalog);
+        assertThat(chosen.offer()).isNull();
+        assertThat(chosen.storedItem().explicits()).contains(minimum(definition));
+        assertThat(AbyssCraftingState.from(chosen.storedItem(), catalog)).isEqualTo(chosen);
+        assertThatThrownBy(() -> chosen.selectDirect(slot.id(), minimum(definition), catalog))
+            .isInstanceOf(IllegalArgumentException.class);
+        assertThat(item.desecrated()).isEmpty();
+      }
+    }
+  }
+
+  @Test
+  void alteredAndLichPoolsAreExplicitAndSurviveStorage() {
+    var catalog = ManualRevealCatalog.enrich(f.catalog);
+    var item = f.rare(82, "");
+    var altered =
+        DesecrationCurrency.apply(
+            item, "Altered_Collarbone", AffixType.SUFFIX, null, Set.of(), catalog);
+    var slot = altered.slots().getFirst();
+    var extra =
+        altered.eligibleRevealIds(slot.id(), catalog).stream()
+            .map(id -> catalog.find(id).orElseThrow())
+            .filter(d -> d.tags().contains("otherworldly"))
+            .findFirst()
+            .orElseThrow();
+    var ordinary =
+        DesecrationCurrency.apply(
+            item, "Preserved_Collarbone", AffixType.SUFFIX, null, Set.of(), catalog);
+    assertThat(ordinary.eligibleRevealIds(ordinary.slots().getFirst().id(), catalog))
+        .doesNotContain(extra.id());
+    var chosen = altered.selectDirect(slot.id(), minimum(extra), catalog);
+    assertThat(chosen.storedItem().desecrated().getFirst().revealPool()).isEqualTo("ALTERED");
+    assertThat(AbyssCraftingState.from(chosen.storedItem(), catalog)).isEqualTo(chosen);
+    for (var entry :
+        Map.of(
+                "Omen_of_the_Liege",
+                "amanamu_mod",
+                "Omen_of_the_Sovereign",
+                "ulaman_mod",
+                "Omen_of_the_Blackblooded",
+                "kurgal_mod")
+            .entrySet()) {
+      int available = 0;
+      for (var side : List.of(AffixType.PREFIX, AffixType.SUFFIX)) {
+        if (catalog.modifiers().values().stream()
+            .noneMatch(d -> d.affixType() == side && d.tags().contains(entry.getValue()))) continue;
+        var hidden =
+            DesecrationCurrency.apply(
+                item, "Preserved_Collarbone", side, null, Set.of(entry.getKey()), catalog);
+        var ids = hidden.eligibleRevealIds(hidden.slots().getFirst().id(), catalog);
+        assertThat(ids)
+            .isNotEmpty()
+            .allSatisfy(
+                id -> assertThat(catalog.find(id).orElseThrow().tags()).contains(entry.getValue()));
+        assertThat(AbyssCraftingState.from(hidden.storedItem(), catalog)).isEqualTo(hidden);
+        var ordinaryDefinition =
+            f.catalog.modifiers().values().stream()
+                .filter(d -> d.affixType() == side && d.weight() > 0 && d.requiredItemLevel() <= 82)
+                .findFirst()
+                .orElseThrow();
+        var hiddenSlot = hidden.slots().getFirst();
+        var forged =
+            new AbyssCraftingState(
+                hidden.item(),
+                List.of(
+                    new AbyssCraftingState.Slot(
+                        hiddenSlot.id(),
+                        side,
+                        minimum(ordinaryDefinition),
+                        true,
+                        null,
+                        hiddenSlot.revealPool())),
+                null);
+        assertThatThrownBy(() -> forged.validate(catalog))
+            .isInstanceOf(IllegalArgumentException.class);
+
+        available++;
+      }
+      assertThat(available).isPositive();
+    }
+  }
+
+  @Test
+  void putrefactionRecordsSlotsCorruptionAndProtectionWithoutRandomness() {
+    var catalog = ManualRevealCatalog.enrich(f.catalog);
+    var item = f.rare(82, "", "amulet:prefix:hale");
+    var sides = List.of(AffixType.PREFIX, AffixType.SUFFIX, AffixType.SUFFIX);
+    var result =
+        DesecrationCurrency.putrefy(
+            item, "Preserved_Collarbone", sides, Set.of("Omen_of_Putrefaction"), catalog);
+    assertThat(result.storedItem().conditions()).containsExactly(ItemState.Condition.CORRUPTED);
+    assertThat(result.slots()).hasSize(3).allSatisfy(s -> assertThat(s.modifier()).isNull());
+    assertThat(result.storedItem().explicits()).isEmpty();
+    var slot = result.slots().getFirst();
+    var id = result.eligibleRevealIds(slot.id(), catalog).getFirst();
+    var chosen = result.selectDirect(slot.id(), minimum(catalog.find(id).orElseThrow()), catalog);
+    assertThat(AbyssCraftingState.from(chosen.storedItem(), catalog)).isEqualTo(chosen);
+    assertThatThrownBy(
+            () ->
+                DesecrationCurrency.putrefy(
+                    f.rare(82, "amulet:prefix:hale", "amulet:prefix:hale"),
+                    "Preserved_Collarbone",
+                    sides,
+                    Set.of("Omen_of_Putrefaction"),
+                    catalog))
+        .isInstanceOf(IllegalArgumentException.class);
+    assertThatThrownBy(
+            () ->
+                DesecrationCurrency.putrefy(
+                    item,
+                    "Preserved_Collarbone",
+                    Collections.nCopies(4, AffixType.PREFIX),
+                    Set.of("Omen_of_Putrefaction"),
+                    catalog))
+        .isInstanceOf(IllegalArgumentException.class);
+    assertThat(item.explicits()).hasSize(1);
+    assertThat(item.conditions()).isEmpty();
+  }
+
   @Test
   void necromancyForcesItsSideAndRejectsConflictsWithoutChangingInput() {
     var item = f.rare(82, "", "amulet:prefix:hale");
@@ -153,12 +329,7 @@ class DesecrationCurrencyTest {
   void validatesTierClassLevelAndObservedOutcomeWithoutMutatingInput() {
     var before = f.rare(82, "", "amulet:prefix:hale");
     for (String invalid :
-        List.of(
-            "Gnawed_Collarbone",
-            "Preserved_Rib",
-            "Preserved_Jawbone",
-            "Altered_Collarbone",
-            "unknown"))
+        List.of("Gnawed_Collarbone", "Preserved_Rib", "Preserved_Jawbone", "unknown"))
       assertThatThrownBy(() -> apply(before, invalid, AffixType.SUFFIX, null))
           .isInstanceOf(IllegalArgumentException.class);
     assertThat(apply(f.rare(64, ""), "Gnawed_Collarbone", AffixType.PREFIX, null).slots())

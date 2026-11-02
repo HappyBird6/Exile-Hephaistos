@@ -225,3 +225,87 @@ it('opens a prepared automatic route with its dummy and preserves the selected o
   )
   expect(calls.some((c) => c.url.endsWith('/import'))).toBe(false)
 })
+
+it('direct selection lists eligible options, sends one chosen modifier and hides observed triples and probabilities', async () => {
+  const hidden = {
+    ...empty,
+    slots: [
+      {
+        id: 'hidden',
+        side: 'PREFIX' as const,
+        modifier: null,
+        desecrated: true,
+      },
+    ],
+  }
+  const onTransition = vi.fn()
+  const fetch = vi.fn(async (url: string, options: RequestInit) => {
+    const body = JSON.parse(options.body as string)
+    let value: unknown = hidden
+    if (url.endsWith('/eligible')) value = ['life']
+    if (url.endsWith('/plan')) value = { available: false, branches: [] }
+    if (url.endsWith('/select'))
+      value = {
+        ...hidden,
+        slots: [{ ...hidden.slots[0], modifier: body.candidate }],
+      }
+    return new Response(JSON.stringify(value), {
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Crafting-Ruleset': 'rules',
+      },
+    })
+  })
+  vi.stubGlobal('fetch', fetch)
+  const client = new QueryClient({
+    defaultOptions: { queries: { retry: false } },
+  })
+  render(
+    <QueryClientProvider client={client}>
+      <AbyssPanel
+        source={source}
+        initial={initial}
+        restoredState={hidden}
+        directSelection
+        embedded
+        allowAdd={false}
+        localScenario={false}
+        onTransition={onTransition}
+      />
+    </QueryClientProvider>,
+  )
+  const select = await screen.findByLabelText('Desecrated slot')
+  fireEvent.change(select, { target: { value: 'hidden' } })
+  await screen.findByRole('option', { name: /maximum Life/ })
+  fireEvent.change(screen.getByLabelText('Candidate 1'), {
+    target: { value: 'life' },
+  })
+  expect(
+    screen.queryByText('Enter three observed candidates'),
+  ).not.toBeInTheDocument()
+  expect(screen.queryByText('Removal probability')).not.toBeInTheDocument()
+  expect(
+    screen.queryByRole('button', { name: 'Compare' }),
+  ).not.toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button', { name: 'Apply chosen modifier' }))
+  await waitFor(() =>
+    expect(onTransition).toHaveBeenCalledWith(
+      expect.objectContaining({
+        slots: [
+          expect.objectContaining({
+            modifier: {
+              modifierId: 'life',
+              values: { maximum_life: 1 },
+              fractured: false,
+            },
+          }),
+        ],
+      }),
+      { operation: 'select' },
+    ),
+  )
+  const call = fetch.mock.calls.find(([url]) => url.endsWith('/select'))!
+  expect(JSON.parse(call[1].body as string)).not.toHaveProperty('candidates')
+  expect(fetch.mock.calls.some(([url]) => url.endsWith('/observe'))).toBe(false)
+  client.clear()
+})

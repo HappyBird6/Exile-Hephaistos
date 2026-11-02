@@ -101,6 +101,7 @@ public final class SealedResources {
           "catalog/time-lost-sapphire/base.raw.json",
           "catalog/time-lost-sapphire/catalog.json",
           "catalog/time-lost-sapphire/details.raw.json",
+          "catalog/manual-reveal.json",
           "catalog/top-base-essences.json",
           "catalog/top-bases.json",
           "crafting/goalfilter/bases-v1.json",

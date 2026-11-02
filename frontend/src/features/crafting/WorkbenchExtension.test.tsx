@@ -72,7 +72,7 @@ describe('Workbench extensions', () => {
     new LocalFilmRepository(window.localStorage).save(
       startFilm(emptyFilms(), state, 'preview', 'fixture-ruleset'),
     )
-    client.setQueryData(['crafting', 'initial', 'solar', 82], {
+    client.setQueryData(['crafting', 'initial', 'solar', 82, 'manual'], {
       ...initialFixture,
       modifiers: definitions,
     })
@@ -260,7 +260,7 @@ describe('Workbench extensions', () => {
           implicits: key === 'solar' ? initialFixture.state.implicits : [],
         },
       }
-      client.setQueryData(['crafting', 'initial', key, 82], initial)
+      client.setQueryData(['crafting', 'initial', key, 82, 'manual'], initial)
       const parsed: Item = {
         text: { originalText: original, lines: [] },
         locale: 'en',

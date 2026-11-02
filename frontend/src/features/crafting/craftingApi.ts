@@ -206,11 +206,13 @@ export async function loadInitial(
   level: number,
   signal: AbortSignal,
   base: WorkbenchBaseKey = 'solar',
+  manualReveal = false,
 ): Promise<Initial> {
   const v = await request(
-    base === 'solar'
+    (base === 'solar'
       ? `initial?itemLevel=${level}`
-      : `workbench/initial?base=${base}&itemLevel=${level}`,
+      : `workbench/initial?base=${base}&itemLevel=${level}`) +
+      (manualReveal ? '&manualReveal=true' : ''),
     signal,
   )
   if (

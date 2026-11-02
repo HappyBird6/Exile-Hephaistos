@@ -44,7 +44,8 @@ public record ModifierDefinition(
     }
     if (layer == Layer.IMPLICIT
         ? affixType != AffixType.NONE || tier != 0 || weight != 0
-        : affixType == AffixType.NONE || tier < 1) {
+        : affixType == AffixType.NONE
+            || (tier < 1 && !(tier == 0 && tags.contains("reveal_only")))) {
       throw new IllegalArgumentException("Invalid modifier layer/tier/affix: " + id);
     }
   }

@@ -33,8 +33,7 @@ public final class ItemStateValidator {
                 Code.UNSUPPORTED_STATE, "", "Conflicting or unsupported clipboard observations"));
     }
     if (!state.desecrated().isEmpty()) {
-      if (state.rarity() != ItemState.Rarity.RARE
-          || BasicJewel.supportedCrafting(state.baseItemId()))
+      if (state.rarity() != ItemState.Rarity.RARE)
         errors.add(
             new Violation(Code.UNSUPPORTED_STATE, "", "Desecration requires Rare equipment"));
       var marked = new HashSet<String>();

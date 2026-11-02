@@ -20,7 +20,12 @@ type DisplayBinding = {
   template: string
   valueStats?: { id: string; divisor: number }[]
 }
-const bindings: Record<string, DisplayBinding> = catalog.definitions
+// Historical inventory assertions stay scoped to their original sources; manual reveal bindings have dedicated coverage.
+const bindings: Record<string, DisplayBinding> = Object.fromEntries(
+  Object.entries(catalog.definitions).filter(
+    ([id]) => !id.startsWith('reveal:'),
+  ),
+)
 describe('remaining display coverage', () => {
   it('preserves historical compounds and renders new Staff bindings at min/middle/max in all locales', () => {
     const allCompound = Object.entries(bindings).filter(
