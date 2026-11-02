@@ -5,6 +5,7 @@ import {
   baseClass,
   sourcePropertyUnscaled,
   clipboardBase,
+  supersededBases,
 } from './baseRegistry'
 import type { WorkbenchBaseKey } from './baseRegistry'
 import { topBase, topBaseKey, reviewedArmourKeys } from './topBases'
@@ -295,7 +296,9 @@ export function CraftingPage() {
     restoredValid && initial.data && storedFrame ? storedFrame.state : undefined
   const canCraft =
     (draft.source === 'base' || mapping.data?.mapped === true) &&
-    (!storedFrame || restoredValid)
+    (!storedFrame || restoredValid) &&
+    !(restoredState ?? workbench.data?.state ?? mapping.data?.state)?.desecrated
+      ?.length
   const film =
     filmState.revision === draft.baseRevision
       ? currentFilm(filmState.history)
@@ -534,6 +537,13 @@ export function CraftingPage() {
       return
     }
     if (!canCraft) {
+      if (
+        (restoredState ?? workbench.data?.state ?? mapping.data?.state)
+          ?.desecrated?.length
+      ) {
+        setAnnouncement(t('notice.use_abyss'))
+        return
+      }
       if (rulesetStatus && rulesetStatus !== 'current') {
         setAnnouncement(t(`ruleset.${rulesetStatus}`))
         return
@@ -919,6 +929,16 @@ export function CraftingPage() {
                       text: t('quality.maximum', { value: qualityMaximum }),
                     },
                   ]),
+              ...(concrete.equipmentQuality == null
+                ? []
+                : [
+                    {
+                      id: 'equipment-quality',
+                      text: t('quality.equipment', {
+                        value: concrete.equipmentQuality,
+                      }),
+                    },
+                  ]),
               ...(concrete.catalystQuality
                 ? [
                     {
@@ -990,9 +1010,13 @@ export function CraftingPage() {
                   kind:
                     i < concrete.implicits.length
                       ? ('implicit' as const)
-                      : d.tags?.includes('crafted')
-                        ? ('crafted' as const)
-                        : ('explicit' as const),
+                      : concrete.desecrated?.some(
+                            (slot) => slot.modifierId === m.modifierId,
+                          )
+                        ? ('desecrated' as const)
+                        : d.tags?.includes('crafted')
+                          ? ('crafted' as const)
+                          : ('explicit' as const),
                   affixLabel:
                     d.affixType === 'NONE'
                       ? undefined
@@ -1570,7 +1594,15 @@ export function CraftingPage() {
                       ))}
                     </details>
                   )}
-                {!canCraft && <p>{t('notice.pasted_display')}</p>}
+                {!canCraft && (
+                  <p>
+                    {t(
+                      concrete?.desecrated?.length
+                        ? 'notice.use_abyss'
+                        : 'notice.pasted_display',
+                    )}
+                  </p>
+                )}
                 {draft.source === 'text' && !mapping.data?.mapped && (
                   <button
                     type="button"
@@ -1698,7 +1730,7 @@ export function CraftingPage() {
                     inputOpener.current = event.currentTarget
                     imported.invalidate()
                     setInputMode('base')
-                    setBaseChoice(catalogBase)
+                    setBaseChoice(supersededBases[catalogBase] ?? catalogBase)
                     setInputOpen(true)
                   }}
                 >
@@ -1799,6 +1831,7 @@ export function CraftingPage() {
                     <AbyssPanel
                       key={JSON.stringify(concrete)}
                       source={concrete}
+                      embedded={!!concrete.desecrated?.length}
                       initial={initial.data}
                     />
                   )}
@@ -1924,12 +1957,6 @@ export function CraftingPage() {
                     <option value="solar">
                       {name('Solar_Amulet', 'Solar Amulet')}
                     </option>
-                    <option value="stocky">
-                      {name('Stocky_Mitts', 'Stocky Mitts')}
-                    </option>
-                    <option value="bow">
-                      {name('Crude_Bow', 'Crude Bow')}
-                    </option>
                     <option value="wand">
                       {name('Attuned_Wand', 'Attuned Wand')}
                     </option>
@@ -1947,19 +1974,11 @@ export function CraftingPage() {
                     <option value="imperial">
                       {name('Imperial_Greathelm', 'Imperial Greathelm')}
                     </option>
-                    <option value="body">
-                      {name('Rusted_Cuirass', 'Rusted Cuirass')} ·{' '}
-                      {t('base.legacy')}
-                    </option>
                     <option value="sceptre">
                       {name('Rattling_Sceptre', 'Rattling Sceptre')}
                     </option>
                     <option value="belt">
                       {name('Rawhide_Belt', 'Rawhide Belt')}
-                    </option>
-                    <option value="helmet">
-                      {name('Rusted_Greathelm', 'Rusted Greathelm')} ·{' '}
-                      {t('base.legacy')}
                     </option>
                     <option value="ring">
                       {name('Iron_Ring', 'Iron Ring')}

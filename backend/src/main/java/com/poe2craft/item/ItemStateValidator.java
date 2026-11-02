@@ -55,6 +55,14 @@ public final class ItemStateValidator {
                 .count()
             > 1)
       errors.add(new Violation(Code.UNSUPPORTED_STATE, "", "Only one Crafted modifier is allowed"));
+    if (state.equipmentQuality() != null
+        && (BaseRegistry.policy(state.baseItemId()) == null
+            || !BaseRegistry.policy(state.baseItemId()).qualityLimit()
+            || BaseRegistry.catalystQuality(state.baseItemId())
+            || BasicJewel.supportedCrafting(state.baseItemId())))
+      errors.add(
+          new Violation(
+              Code.UNSUPPORTED_STATE, "", "Equipment quality requires ordinary equipment"));
     if (state.catalystQuality() != null) {
       int cap =
           state.baseItemId().equals(SolarAmulet.BASE_ID)

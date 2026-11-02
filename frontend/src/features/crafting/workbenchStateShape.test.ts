@@ -80,3 +80,33 @@ describe('lossless unsupported state boundary', () => {
     ).rejects.toThrow()
   })
 })
+
+it('retains observed equipment quality and rejects invalid or jewellery assignments', () => {
+  const armour = {
+    ...root,
+    baseItemId: 'Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame',
+    implicits: [],
+  }
+  expect(supportsConcreteStateShape({ ...armour, equipmentQuality: 20 })).toBe(
+    true,
+  )
+  expect(
+    supportsConcreteStateShape({ ...armour, equipmentQuality: null }),
+  ).toBe(true)
+  for (const equipmentQuality of [-1, 1.5, 101, '20'])
+    expect(supportsConcreteStateShape({ ...armour, equipmentQuality })).toBe(
+      false,
+    )
+  expect(supportsConcreteStateShape({ ...root, equipmentQuality: 20 })).toBe(
+    false,
+  )
+  expect(supportsConcreteStateShape({ ...root, desecrated: [] })).toBe(true)
+  expect(
+    supportsConcreteStateShape({
+      ...root,
+      desecrated: [
+        { id: 'x', side: 'PREFIX', modifierId: null, ignored: true },
+      ],
+    }),
+  ).toBe(false)
+})

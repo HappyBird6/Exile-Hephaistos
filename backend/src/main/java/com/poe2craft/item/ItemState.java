@@ -16,7 +16,48 @@ public record ItemState(
     Set<Condition> conditions,
     Integer augmentSockets,
     CatalystQuality catalystQuality,
-    List<DesecratedSlot> desecrated) {
+    List<DesecratedSlot> desecrated,
+    Integer equipmentQuality) {
+  public ItemState(
+      String snapshotId,
+      String baseItemId,
+      int itemLevel,
+      Rarity rarity,
+      List<ModifierInstance> implicits,
+      List<ModifierInstance> explicits,
+      Set<Condition> conditions,
+      Integer augmentSockets,
+      CatalystQuality catalystQuality,
+      List<DesecratedSlot> desecrated) {
+    this(
+        snapshotId,
+        baseItemId,
+        itemLevel,
+        rarity,
+        implicits,
+        explicits,
+        conditions,
+        augmentSockets,
+        catalystQuality,
+        desecrated,
+        null);
+  }
+
+  public ItemState withEquipmentQuality(Integer quality) {
+    return new ItemState(
+        snapshotId,
+        baseItemId,
+        itemLevel,
+        rarity,
+        implicits,
+        explicits,
+        conditions,
+        augmentSockets,
+        catalystQuality,
+        desecrated,
+        quality);
+  }
+
   /** Slot identity survives observation; a null modifier ID is an unrevealed explicit slot. */
   public record DesecratedSlot(String id, ModifierDefinition.AffixType side, String modifierId) {
     public DesecratedSlot {
@@ -59,7 +100,8 @@ public record ItemState(
         conditions,
         augmentSockets,
         catalystQuality,
-        slots);
+        slots,
+        equipmentQuality);
   }
 
   public int explicitSlotCount() {
@@ -107,6 +149,8 @@ public record ItemState(
       throw new IllegalArgumentException("Item level must be between 1 and 100");
     }
     Objects.requireNonNull(rarity, "rarity");
+    if (equipmentQuality != null && (equipmentQuality < 0 || equipmentQuality > 100))
+      throw new IllegalArgumentException("Invalid observed equipment quality");
     implicits = canonical(implicits);
     explicits = canonical(explicits);
     conditions = Set.copyOf(conditions);

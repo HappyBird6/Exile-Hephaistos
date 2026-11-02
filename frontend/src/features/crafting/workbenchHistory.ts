@@ -364,6 +364,27 @@ export function verifiedHistoryState(
         else s++
       }
     }
+    const marked = new Set<string>()
+    for (const slot of state.desecrated ?? []) {
+      if (state.rarity !== 'RARE' || isWorkbenchJewel(state.baseItemId))
+        return false
+      if (slot.modifierId === null) {
+        if (slot.side === 'PREFIX') p++
+        else s++
+      } else {
+        const instance = state.explicits.find(
+          (m) => m.modifierId === slot.modifierId,
+        )
+        if (
+          !instance ||
+          instance.fractured ||
+          marked.has(slot.modifierId) ||
+          initial.modifiers[slot.modifierId]?.affixType !== slot.side
+        )
+          return false
+        marked.add(slot.modifierId)
+      }
+    }
     const capacity =
       state.rarity === 'NORMAL'
         ? 0

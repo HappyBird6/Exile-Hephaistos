@@ -288,6 +288,8 @@ describe('Workbench extensions', () => {
                 mapped: true,
                 state: {
                   ...concreteInitial(initial),
+                  ...(key === 'soldier' ? { equipmentQuality: 20 } : {}),
+                  desecrated: [],
                   rarity: 'RARE',
                   explicits: [{ modifierId: 'p', values: { life: 17 } }],
                 },
@@ -315,6 +317,10 @@ describe('Workbench extensions', () => {
       expect(saved.films.at(-1)?.frames[0]?.state.explicits).toEqual([
         { modifierId: 'p', values: { life: 17 } },
       ])
+      if (key === 'soldier') {
+        expect(saved.films.at(-1)?.frames[0]?.state.equipmentQuality).toBe(20)
+        expect(screen.getByRole('article')).toHaveTextContent('Quality: +20%')
+      }
       const whittling = favoriteOmen('Omen of Whittling', 1)
       expect(whittling).toHaveClass('is-active-omen')
     },

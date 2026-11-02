@@ -196,14 +196,15 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
 
   private static ItemState withExplicits(ItemState s, List<ModifierInstance> modifiers) {
     return new ItemState(
-        s.snapshotId(),
-        s.baseItemId(),
-        s.itemLevel(),
-        s.rarity(),
-        s.implicits(),
-        modifiers,
-        s.conditions(),
-        s.augmentSockets(),
-        s.catalystQuality());
+            s.snapshotId(),
+            s.baseItemId(),
+            s.itemLevel(),
+            s.rarity(),
+            s.implicits(),
+            modifiers,
+            s.conditions(),
+            s.augmentSockets(),
+            s.catalystQuality())
+        .withEquipmentQuality(s.equipmentQuality());
   }
 }

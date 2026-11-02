@@ -748,7 +748,14 @@ export const baseWorkbenchAction = (action: WorkbenchAction) =>
   action.replace(/^(GREATER|PERFECT)_/, '') as
     Action | 'DIVINE' | 'ALCHEMY' | 'FRACTURING'
 
+export interface DesecratedSlot {
+  id: string
+  side: 'PREFIX' | 'SUFFIX'
+  modifierId: string | null
+}
 export interface ConcreteItem extends Omit<Bucket, 'modifierIds'> {
+  equipmentQuality?: number | null
+  desecrated?: DesecratedSlot[]
   catalystQuality?: CatalystQuality | null | undefined
   augmentSockets?: number | null | undefined
   explicits: {
@@ -1071,6 +1078,7 @@ export async function applyCurrency(
   if (
     !next ||
     !supportsConcreteStateShape(next) ||
+    (next.equipmentQuality ?? null) !== (state.equipmentQuality ?? null) ||
     !verifiedCatalystQuality(next, definitions) ||
     (isWorkbenchJewel(next.baseItemId) && !reviewedBasicJewel(next)) ||
     (v.applied &&

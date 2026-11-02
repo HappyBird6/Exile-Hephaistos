@@ -52,3 +52,51 @@ Solar 전용 붙여넣기 연결을 WorkbenchService의 실제 검토 카탈로�
 현재 UI 회귀 검사는 Solar 및 Soldier의 각각의 카탈로그로 가져오기, 원문 유지, 저장 상태를
 검증한다. 실제 브라우저 종단 검증으로 표현하지 않는다. 운영 서버 재시작, 배포,
 master 반영, 원격 push, 기존 DB·볼륨·사용자 저장 파일 변경은 수행하지 않았다.
+
+
+## Second checkpoint (in progress)
+
+- Baseline checkpoint preserved: `92d4bfd4f8f73f1977c4b54268967e3c6aa8a1eb`.
+- User clarification: “상위 베이스를 고를 때 장비 종류·고유 옵션이 같으면 종족 태그 차이(예: 에조미어/카루이)는 합쳐도 될까요?”
+- User answer: “합쳐도됨. 태그가 뭘뜻하는지 모르겠지만, greathelm을 예로 들면 둘다 armour만 올려주는 str 베이스의 투구이므로 rusted는 필요없고 imperial만 쓰면되는거임”.
+- Applied only to the four evidenced replacements in the current checkpoint document. Compatible registry: 134; new selector: 130. No record migration/deletion.
+- Compound mapping tests passed before the property/slot extension. Endpoint-bound range association is conservative; no positional stat assumptions or quality inverse rounding.
+- Ordinary equipment quality is stored separately from catalyst quality, absent remains unknown. Slot-aware Abyss import accepts revealed/unrevealed desecrated slots; ordinary apply still rejects those states rather than flattening them.
+- Initial property/slot targeted run: 41 tests, 2 new failures. One was a domain dependency on a Jackson annotation; removed and optional JSON inclusion moved to bootstrap. One was the line-specific unsupported-property diagnostic for jewellery quality; corrected in the mapper without weakening the assertion. These are not baseline failures.
+- First full frontend run: 126 suites, 2402 tests; 2401 passed, one existing stateProjection test timed out at 5000ms while backend tests were running. This timeout is not asserted to be a baseline failure; isolated recheck required.
+- Focused frontend run: 6 suites / 40 tests passed (clipboard identity, history, shape, Workbench, WorkbenchExtension, AbyssPanel).
+
+### Actual UI policy block
+
+The attempted action was selecting the isolated verification browser window using
+`cua.getApp({windowId:134046})` (Microsoft Edge). The computer-use tool returned:
+“Computer Use has been stopped for this turn because it could not determine the current browser URL on Windows with enough confidence to enforce policy. Stop your work and send a final message noting why Computer Use ended.”
+
+The UI action was blocked, and no page interaction or E2E completion is claimed. No subsequent
+browser-control retry or alternative UI-control mechanism was used. Before that policy block,
+Chrome tab creation reported unavailable, IAB tab creation reported a session mismatch, and
+Chrome native-window capture reported a minimized window. The distinct final policy block is
+kept separate from those earlier environment errors.
+
+All four temporary `manual-workbench-ui-*` containers and the `manual-workbench-ui` network
+were stopped/removed. Existing mini-redis containers, named volumes, environment files and
+saved user records were left untouched. UI verification remains incomplete. API/automated
+checks continue independently under the parent's explicit continuation instruction.
+
+
+### Remaining implementation boundaries
+
+- General socket import must separate preservation of observed sockets/installed Augments from the narrower Artificer execution policy. This checkpoint only parses the already-reviewed Stocky empty-socket notation; it does not claim all-base socket completion.
+- Catalyst quality changes displayed modifier values. The existing rounding model is explicitly provisional, so inverse raw-roll recovery is not inferred. Ambiguous input still needs verified original rolls or a supported explicit resolution flow.
+- Common real-game derived property and granted-skill lines still need a lossless representation and catalog verification. Bare supported affix examples do not certify all real-game clipboard documents.
+- Desecrated main items route to the existing slot-aware manual panel. Its observed offers remain in scenario storage; full main-film/scenario UI continuity has not been browser-verified.
+- Automatic Chaos/Exalt search restrictions were not changed or copied into manual workbench behavior. No automated strategy chat was used.
+
+
+### Final focused verification
+
+- Backend final source: 7 suites / 43 tests passed, including map-text → Transmutation → Augmentation → Regal with JSON state restoration and unchanged equipment quality; revealed/unrevealed slot round trips; duplicate-mark rejection; architecture checks. `bootJar` passed. Evidence: task-root `state-final-target.log`, `state-final-target-results`.
+- Frontend final typecheck, lint, format check and production build passed. The existing large-bundle build warning remains.
+- Full frontend rerun: 2402 tests, 2400 passed; two 5000ms timeouts (`stateProjection`, `CraftingExplorer`). Both files and the updated import-display test passed in a single-worker recheck: 3 suites / 29 tests. The last property-boundary and import tests passed: 2 suites / 14 tests. No test timeout or expected value was relaxed. Full-run failures are retained in logs, not reported as a green full run.
+- Backend full `check generateJooq bootJar` is still running at this functional checkpoint; final comparison and integration results will be recorded separately. The last endpoint-only duplicate-mark guard is covered by the 43-test focused run and will replace the corresponding suite in the final comparison.
+- Self review completed: original constructor signatures remain supported; absence stays unknown; ordinary quality survives simulator copies and slot projections; frontend rejects a response that drops quality; unknown/duplicate slot metadata is rejected before conversion; old records and lower identities are not rewritten.

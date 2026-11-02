@@ -82,6 +82,10 @@ export function validAbyssResponse(
     item.baseItemId !== source.baseItemId ||
     item.itemLevel !== source.itemLevel ||
     item.rarity !== source.rarity ||
+    (item.equipmentQuality ?? null) !== (source.equipmentQuality ?? null) ||
+    (item.augmentSockets ?? null) !== (source.augmentSockets ?? null) ||
+    JSON.stringify(item.catalystQuality ?? null) !==
+      JSON.stringify(source.catalystQuality ?? null) ||
     !Array.isArray(item.explicits) ||
     item.explicits.length !== 0 ||
     !Array.isArray(item.implicits) ||

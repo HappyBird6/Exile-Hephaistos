@@ -443,7 +443,9 @@
     "paths.responseError": "Could not verify the probability response. No result is displayed. Inputs are preserved.",
     "paths.level": "level",
     "notice.import_ready": "Ready to craft. Your original item text is kept in Edit item.",
-    "notice.import_blocked": "This item could not be imported for crafting. Your original text is preserved."
+    "notice.import_blocked": "This item could not be imported for crafting. Your original text is preserved.",
+    "quality.equipment": "Quality: +{value}%",
+    "notice.use_abyss": "Use Abyss crafting below to keep desecrated slots and observed candidates."
   },
   "ko": {
     "language": "언어",
@@ -889,7 +891,9 @@
     "paths.responseError": "확률 응답을 검증하지 못했습니다. 결과를 표시하지 않으며 입력은 보존됩니다.",
     "paths.level": "레벨",
     "notice.import_ready": "제작할 준비가 되었습니다. 원문은 아이템 편집에 보관됩니다.",
-    "notice.import_blocked": "이 아이템을 제작용으로 가져올 수 없습니다. 원문은 보존됩니다."
+    "notice.import_blocked": "이 아이템을 제작용으로 가져올 수 없습니다. 원문은 보존됩니다.",
+    "quality.equipment": "퀄리티: +{value}%",
+    "notice.use_abyss": "아래 심연 제작에서 훼손 슬롯과 관찰한 후보를 유지하며 제작하세요."
   },
   "zh-CN": {
     "language": "语言",
@@ -1335,7 +1339,9 @@
     "paths.responseError": "无法验证概率响应。不显示结果，输入已保留。",
     "paths.level": "等级",
     "notice.import_ready": "可以开始制作。原始物品文本保留在编辑物品中。",
-    "notice.import_blocked": "无法导入此物品进行制作。原始文本已保留。"
+    "notice.import_blocked": "无法导入此物品进行制作。原始文本已保留。",
+    "quality.equipment": "品质：+{value}%",
+    "notice.use_abyss": "请使用下方深渊制作，保留亵渎词缀槽与已观察候选。"
   },
   "zh-TW": {
     "language": "語言",
@@ -1781,7 +1787,9 @@
     "paths.responseError": "無法驗證機率回應。不顯示結果，輸入已保留。",
     "paths.level": "等級",
     "notice.import_ready": "可以開始製作。原始物品文字保留在編輯物品中。",
-    "notice.import_blocked": "無法匯入此物品進行製作。原始文字已保留。"
+    "notice.import_blocked": "無法匯入此物品進行製作。原始文字已保留。",
+    "quality.equipment": "品質：+{value}%",
+    "notice.use_abyss": "請使用下方深淵製作，保留褻瀆詞綴槽與已觀察候選。"
   },
   "ja": {
     "language": "言語",
@@ -2227,7 +2235,9 @@
     "paths.responseError": "確率のレスポンスを検証できませんでした。結果は表示せず、入力は保持します。",
     "paths.level": "レベル",
     "notice.import_ready": "クラフトできます。元のテキストはアイテム編集に保存されています。",
-    "notice.import_blocked": "このアイテムをクラフト用に取り込めません。元のテキストは保持されています。"
+    "notice.import_blocked": "このアイテムをクラフト用に取り込めません。元のテキストは保持されています。",
+    "quality.equipment": "品質: +{value}%",
+    "notice.use_abyss": "下のアビス製作で冒涜スロットと観測済み候補を保持して製作してください。"
   },
   "es": {
     "language": "Idioma",
@@ -2673,6 +2683,8 @@
     "paths.responseError": "No se pudo verificar la respuesta de probabilidad. No se muestra ningún resultado y las entradas se conservan.",
     "paths.level": "nivel",
     "notice.import_ready": "Listo para fabricar. El texto original se conserva en Editar objeto.",
-    "notice.import_blocked": "No se pudo importar este objeto para fabricar. Se conserva el texto original."
+    "notice.import_blocked": "No se pudo importar este objeto para fabricar. Se conserva el texto original.",
+    "quality.equipment": "Calidad: +{value}%",
+    "notice.use_abyss": "Usa la fabricación del Abismo para conservar las ranuras profanadas y los candidatos observados."
   }
 }

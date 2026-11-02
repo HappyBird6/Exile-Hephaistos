@@ -78,3 +78,16 @@ export function clipboardBase(
   )
   return matches.length === 1 ? matches[0] : undefined
 }
+
+// New selections use the reviewed stronger base; saved/imported identities stay intact.
+export const supersededBases: Partial<
+  Record<WorkbenchBaseKey, WorkbenchBaseKey>
+> = {
+  stocky: 'massive',
+  bow: 'warmonger',
+  body: 'soldier',
+  helmet: 'imperial',
+}
+export const selectableBaseKeys = (
+  Object.keys(baseTexts) as WorkbenchBaseKey[]
+).filter((key) => !Object.hasOwn(supersededBases, key))

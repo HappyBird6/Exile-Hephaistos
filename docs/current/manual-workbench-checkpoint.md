@@ -7,14 +7,31 @@ The registry contains 117 reviewed top entries and 17 legacy identities (134 tot
 Evidence: `backend/src/main/resources/catalog/top-bases.json`, `base-policies.json`,
 individual `catalog/*/catalog.json` and `docs/evidence/top-base-inventory-2026-10-04/`.
 
-## Selection rules and unresolved exclusions
+## Selection rules and release selector
 
 Keep distinct implicit modifiers, granted skills, weapon behaviors and attribute archetypes.
 Do not collapse entries by required level or display name. `Endgame` is present in the
 source metadata identity for the entries marked below, not inferred from their name.
-The bundled registry has no explicit upgrade/predecessor relation connecting the legacy
-Stocky Mitts, Crude Bow, Rusted Cuirass or Rusted Greathelm to one specific endgame entry.
-Those four are pending lineage review, rather than silently removed or upgraded.
+The user confirmed on 2026-11-02 that ethnicity tags do not define separate families:
+STR armour-only helmets are one family, so Imperial replaces Rusted in new selection.
+The selector has **130 entries**; the compatible catalog keeps **134 entries**.
+The machine-readable list is [manual-workbench-roster-20261102.json](../evidence/manual-workbench-roster-20261102.json).
+
+| Excluded from new selection | Replacement | Same intrinsic behavior; reviewed base stat |
+| --- | --- | --- |
+| Stocky Mitts (`stocky`) | Massive Mitts (`massive`) | STR armour gloves, Armour 15 → 187 |
+| Crude Bow (`bow`) | Warmonger Bow (`warmonger`) | Bow, physical 6–9 → 56–84; same 5% crit / 1.2 APS |
+| Rusted Cuirass (`body`) | Soldier Cuirass (`soldier`) | STR armour body, Armour 45 → 570; same movement penalty |
+| Rusted Greathelm (`helmet`) | Imperial Greathelm (`imperial`) | STR armour helmet, Armour 29 → 374 |
+
+Evidence: archived class inventories under `docs/evidence/top-base-inventory-2026-10-04/`,
+`docs/evidence/armour-source-bundle-2026-10-04/reviewed-roster.json`, and
+`scripts/review-armour-roster.mjs`. Cross-checked against the corresponding `body.lua`,
+`helmet.lua`, `gloves.lua`, and `bow.lua` files in PathOfBuildingCommunity/PathOfBuilding-PoE2
+`dev/src/Data/Bases` on 2026-11-02. This corroborates base properties, not every live game rule.
+No other entries are grouped without matching intrinsic evidence. The table below remains the
+full compatibility inventory; all entries except these four are in the release selector.
+
 The 17 legacy identities remain readable and usable for old history. No saved data migration
 or deletion is performed. No claim is made that this inventory covers every current game base.
 
@@ -24,16 +41,22 @@ clipboard resolution refuses these ambiguous entries. Existing base selection re
 ## Clipboard checkpoint boundaries
 
 Exact unique registered names and matching classes dispatch to their own immutable catalog.
-Single-stat, source-unit verified values and fractured markers retain the existing strict checks.
-Unknown bases/classes, ambiguous tiers/names, scaled units, multi-stat text, extra properties,
-corruption and desecration/unrevealed markers still block the complete conversion; the original
-clipboard remains available. None of those states is flattened into an ordinary item.
-The frontend loads the matched catalog before validating and storing the imported state.
-Implicit-free bases are now accepted. No automatic search currency restriction is changed.
+Source-unit values, fixed multi-stat implicits, unambiguous compound ranges and attached
+advanced affix/tier metadata can map to catalog definitions. Multiline modifiers sharing one
+metadata header stay one affix. Numeric ranges bind only to a unique matching stat range;
+stat list order and unit conversion are never guessed. Fractured markers are retained.
 
-Remaining release work: verify upgrade lineage and finalize the selector; model lossless
-property/multi-stat and revealed/unrevealed desecration import; test all manual actions and
-history/abort/failure paths in an isolated browser session. This checkpoint does not certify these.
+Ordinary equipment quality now has an explicit nullable field; absence remains unknown.
+Revealed desecrated modifiers and unrevealed prefix/suffix slots retain their identities.
+Slot-aware manual Abyss import/validation handles these states; the ordinary endpoint still
+refuses to flatten them. Its existing scenario persistence retains observed candidate offers.
+Socket parsing is currently limited to the reviewed legacy Stocky socket policy.
+
+Still incomplete: general socket properties, catalyst-adjusted roll reconstruction, ordinary
+clipboard derived properties/skill lines, all-base action coverage and actual browser E2E.
+Unknown/ambiguous input stays preserved and blocked, and this is **not** counted as lossless
+import completion. UI automation was stopped by the computer-use tool's URL policy check;
+no retry or alternate browser-control mechanism was used after that block.
 
 ## Registered identities
 

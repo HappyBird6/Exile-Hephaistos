@@ -91,4 +91,51 @@ class AbyssControllerTest {
                 .content(json.writeValueAsBytes(request())))
         .andExpect(status().isUnprocessableEntity());
   }
+
+  @Test
+  void commonSlotsImportWithoutFlatteningAndOrdinaryEndpointStillRefuses() throws Exception {
+    var common =
+        fixture
+            .rare(82, "", "amulet:prefix:hale")
+            .withDesecrated(
+                List.of(
+                    new com.poe2craft.item.ItemState.DesecratedSlot(
+                        "hidden", AffixType.SUFFIX, null)));
+    var body =
+        json.writeValueAsBytes(
+            Map.of("state", common, "action", "EXALTED", "activeOmens", List.of()));
+    mvc.perform(
+            post("/api/v1/crafting/workbench/abyss/import")
+                .header(RulesetBoundary.HEADER, RulesetBoundary.identity())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.slots[1].id").value("hidden"))
+        .andExpect(jsonPath("$.slots[1].desecrated").value(true));
+    mvc.perform(
+            post("/api/v1/crafting/workbench/apply")
+                .header(RulesetBoundary.HEADER, RulesetBoundary.identity())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body))
+        .andExpect(status().isUnprocessableEntity());
+  }
+
+  @Test
+  void importDoesNotDiscardDuplicateMarksForOneRevealedModifier() throws Exception {
+    var state =
+        fixture
+            .rare(82, "", "amulet:prefix:hale")
+            .withDesecrated(
+                List.of(
+                    new com.poe2craft.item.ItemState.DesecratedSlot(
+                        "one", AffixType.PREFIX, "amulet:prefix:hale"),
+                    new com.poe2craft.item.ItemState.DesecratedSlot(
+                        "two", AffixType.PREFIX, "amulet:prefix:hale")));
+    mvc.perform(
+            post("/api/v1/crafting/workbench/abyss/import")
+                .header(RulesetBoundary.HEADER, RulesetBoundary.identity())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(json.writeValueAsBytes(Map.of("state", state))))
+        .andExpect(status().isUnprocessableEntity());
+  }
 }

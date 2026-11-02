@@ -451,4 +451,45 @@ class WorkbenchControllerTest {
           .andExpect(status().isUnprocessableEntity());
     }
   }
+
+  @Test
+  void importedEquipmentQualitySurvivesManualCurrencyAndJsonRestore() throws Exception {
+    var text =
+        "Item Class: Body Armours\nRarity: Normal\nSoldier Cuirass\n--------\nQuality: +20%\nItem Level: 82";
+    var mapped =
+        mvc.perform(
+                post("/api/v1/crafting/workbench/map-text")
+                    .header(
+                        "X-Crafting-Ruleset",
+                        com.poe2craft.crafting.presentation.RulesetBoundary.identity())
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(mapper.writeValueAsBytes(Map.of("text", text))))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.mapped").value(true))
+            .andReturn();
+    var state = mapper.readTree(mapped.getResponse().getContentAsString()).get("state");
+    for (String action : java.util.List.of("TRANSMUTATION", "AUGMENTATION", "REGAL")) {
+      var result =
+          mvc.perform(
+                  post("/api/v1/crafting/workbench/apply")
+                      .header(
+                          "X-Crafting-Ruleset",
+                          com.poe2craft.crafting.presentation.RulesetBoundary.identity())
+                      .contentType(MediaType.APPLICATION_JSON)
+                      .content(
+                          mapper.writeValueAsBytes(
+                              Map.of(
+                                  "state",
+                                  state,
+                                  "action",
+                                  action,
+                                  "activeOmens",
+                                  java.util.List.of()))))
+              .andExpect(status().isOk())
+              .andExpect(jsonPath("$.applied").value(true))
+              .andExpect(jsonPath("$.state.equipmentQuality").value(20))
+              .andReturn();
+      state = mapper.readTree(result.getResponse().getContentAsString()).get("state");
+    }
+  }
 }

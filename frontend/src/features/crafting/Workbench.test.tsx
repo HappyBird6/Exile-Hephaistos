@@ -76,7 +76,7 @@ describe('Workbench actual application', () => {
     )
     fireEvent.click(screen.getByRole('button', { name: 'Edit item' }))
     fireEvent.change(screen.getByLabelText('Equipment base'), {
-      target: { value: 'stocky' },
+      target: { value: 'massive' },
     })
     fireEvent.change(screen.getByRole('spinbutton', { name: 'Item level' }), {
       target: { value: '83' },
@@ -87,7 +87,8 @@ describe('Workbench actual application', () => {
     const bytes = localStorage.getItem(historyStorageKey)
     mounted.unmount()
     const response = structuredClone(initialFixture)
-    response.state.baseItemId = 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+    response.state.baseItemId =
+      'Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame'
     response.state.itemLevel = 83
     response.state.implicits = []
     await act(async () => {

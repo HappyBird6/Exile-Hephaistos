@@ -12,6 +12,8 @@ const itemFields = new Set([
   'modifierIds',
   'augmentSockets',
   'catalystQuality',
+  'desecrated',
+  'equipmentQuality',
 ])
 const modifierFields = new Set(['modifierId', 'values', 'fractured'])
 export function supportsConcreteStateShape(value: unknown): boolean {
@@ -23,6 +25,36 @@ export function supportsConcreteStateShape(value: unknown): boolean {
   )
     return false
   const item = value as Record<string, unknown>
+  if (
+    item.equipmentQuality != null &&
+    (!Number.isInteger(item.equipmentQuality) ||
+      Number(item.equipmentQuality) < 0 ||
+      Number(item.equipmentQuality) > 100 ||
+      typeof item.baseItemId !== 'string' ||
+      !basePolicy(item.baseItemId)?.qualityLimit ||
+      catalystBase(item.baseItemId))
+  )
+    return false
+  if (
+    item.desecrated !== undefined &&
+    (!Array.isArray(item.desecrated) ||
+      item.desecrated.length > 6 ||
+      !item.desecrated.every((slot: unknown) => {
+        if (!slot || typeof slot !== 'object' || Array.isArray(slot))
+          return false
+        const s = slot as Record<string, unknown>
+        return (
+          Object.keys(s).length === 3 &&
+          typeof s.id === 'string' &&
+          s.id.length > 0 &&
+          (s.side === 'PREFIX' || s.side === 'SUFFIX') &&
+          (s.modifierId === null || typeof s.modifierId === 'string')
+        )
+      }) ||
+      new Set(item.desecrated.map((s: { id: string }) => s.id)).size !==
+        item.desecrated.length)
+  )
+    return false
   if (
     !qualityShape(item.catalystQuality) ||
     (item.catalystQuality != null &&

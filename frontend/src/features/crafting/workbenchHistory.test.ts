@@ -286,3 +286,28 @@ describe('linear crafting films', () => {
     ).toBe(false)
   })
 })
+
+it('restores unrevealed slots without counting them as missing modifiers', () => {
+  const state = {
+    ...root,
+    rarity: 'RARE' as const,
+    desecrated: [{ id: 'hidden', side: 'PREFIX' as const, modifierId: null }],
+  }
+  expect(verifiedHistoryState(state, initialFixture)).toBe(true)
+  const repository = new LocalFilmRepository(localStorage)
+  repository.save(startFilm(emptyFilms(), state, 'hidden', 'fixture-ruleset'))
+  expect(currentFrame(repository.load())!.state).toEqual(state)
+  expect(
+    verifiedHistoryState(
+      {
+        ...state,
+        desecrated: Array.from({ length: 4 }, (_, i) => ({
+          id: String(i),
+          side: 'PREFIX' as const,
+          modifierId: null,
+        })),
+      },
+      initialFixture,
+    ),
+  ).toBe(false)
+})

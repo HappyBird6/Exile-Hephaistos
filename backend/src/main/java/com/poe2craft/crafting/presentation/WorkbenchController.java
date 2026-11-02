@@ -71,6 +71,10 @@ public final class WorkbenchController {
 
   /** Unknown item properties must never vanish during Jackson conversion or crafting. */
   private ItemState concreteState(JsonNode input) {
+    return concreteState(input, false);
+  }
+
+  private ItemState concreteState(JsonNode input, boolean allowDesecrated) {
     var fields =
         Set.of(
             "snapshotId",
@@ -82,6 +86,7 @@ public final class WorkbenchController {
             "conditions",
             "augmentSockets",
             "catalystQuality",
+            "equipmentQuality",
             "desecrated",
             "modifierIds");
     if (input == null || !input.isObject())
@@ -94,7 +99,23 @@ public final class WorkbenchController {
             });
     var desecrated = input.get("desecrated");
     // Common automatic states use the slot-aware simulator; this editor is concrete-only.
-    if (desecrated != null && (!desecrated.isArray() || !desecrated.isEmpty()))
+    if (desecrated != null) {
+      if (!desecrated.isArray() || (!allowDesecrated && !desecrated.isEmpty()))
+        throw new UnsupportedItemProperties();
+      for (var slot : desecrated) {
+        if (!slot.isObject()
+            || slot.size() != 3
+            || !slot.path("id").isTextual()
+            || !slot.path("side").isTextual()
+            || !slot.has("modifierId")
+            || !(slot.get("modifierId").isNull() || slot.get("modifierId").isTextual()))
+          throw new UnsupportedItemProperties();
+      }
+    }
+    var equipmentQuality = input.get("equipmentQuality");
+    if (equipmentQuality != null
+        && !equipmentQuality.isNull()
+        && (!equipmentQuality.isIntegralNumber() || !equipmentQuality.canConvertToInt()))
       throw new UnsupportedItemProperties();
     var sockets = input.get("augmentSockets");
     if (sockets != null
@@ -209,9 +230,11 @@ public final class WorkbenchController {
   @PostMapping("/abyss/import")
   public com.poe2craft.crafting.domain.AbyssCraftingState importAbyss(
       @RequestBody ActionRequest request) {
-    var item = concreteState(request.state());
-    return com.poe2craft.crafting.domain.AbyssCraftingState.from(
-        item, simulator.abyssCatalog(item));
+    var item = concreteState(request.state(), true);
+    var catalog = simulator.abyssCatalog(item);
+    if (!new com.poe2craft.item.ItemStateValidator(catalog).validate(item).isEmpty())
+      throw new IllegalArgumentException("Invalid slot-aware item state");
+    return com.poe2craft.crafting.domain.AbyssCraftingState.from(item, catalog);
   }
 
   @PostMapping("/abyss/add")

@@ -920,14 +920,15 @@ public final class WorkbenchSimulator {
     if (action == WorkbenchCurrency.ARTIFICER) {
       var next =
           new ItemState(
-              state.snapshotId(),
-              state.baseItemId(),
-              state.itemLevel(),
-              state.rarity(),
-              state.implicits(),
-              state.explicits(),
-              state.conditions(),
-              1);
+                  state.snapshotId(),
+                  state.baseItemId(),
+                  state.itemLevel(),
+                  state.rarity(),
+                  state.implicits(),
+                  state.explicits(),
+                  state.conditions(),
+                  1)
+              .withEquipmentQuality(state.equipmentQuality());
       return new Result(
           ruleVersion(),
           ledgerVersion(),
@@ -1368,7 +1369,8 @@ public final class WorkbenchSimulator {
         s.conditions(),
         s.augmentSockets(),
         s.catalystQuality(),
-        s.desecrated());
+        s.desecrated(),
+        s.equipmentQuality());
   }
 
   public record Availability(WorkbenchCurrency action, boolean available, String reason) {}

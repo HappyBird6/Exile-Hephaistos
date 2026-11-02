@@ -13,6 +13,20 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class CraftingConfiguration {
+  // Keep absent observation fields out of legacy protocol consumers; domain values stay
+  // Jackson-free.
+  abstract static class ItemStateJson {
+    @com.fasterxml.jackson.annotation.JsonInclude(
+        com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+    abstract Integer equipmentQuality();
+  }
+
+  @Bean
+  org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer
+      itemStateJson() {
+    return builder -> builder.mixIn(com.poe2craft.item.ItemState.class, ItemStateJson.class);
+  }
+
   @Bean
   com.poe2craft.crafting.application.BasicPathService basicPathService(ItemCatalog catalog) {
     return new com.poe2craft.crafting.application.BasicPathService(

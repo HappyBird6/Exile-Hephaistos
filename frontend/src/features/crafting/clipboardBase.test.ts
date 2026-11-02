@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest'
-import { baseTexts, baseClass, clipboardBase } from './baseRegistry'
+import {
+  baseTexts,
+  baseClass,
+  clipboardBase,
+  selectableBaseKeys,
+  supersededBases,
+} from './baseRegistry'
 
 describe('clipboard base identity', () => {
   it('resolves every unique registered name and preserves ambiguous variants', () => {
@@ -17,4 +23,13 @@ describe('clipboard base identity', () => {
     expect(clipboardBase('Healthy Solar Amulet', 'Amulets')).toBeUndefined()
     expect(clipboardBase('Solar Amulet', 'Amulets')).toBe('solar')
   })
+})
+
+it('keeps 134 compatible identities and selects only the 130 reviewed upper bases', () => {
+  expect(Object.keys(baseTexts)).toHaveLength(134)
+  expect(selectableBaseKeys).toHaveLength(130)
+  for (const [lower, upper] of Object.entries(supersededBases)) {
+    expect(selectableBaseKeys).not.toContain(lower)
+    expect(selectableBaseKeys).toContain(upper)
+  }
 })
