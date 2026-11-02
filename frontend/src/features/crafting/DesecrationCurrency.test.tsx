@@ -158,64 +158,119 @@ it('rejects failed or lossy responses, preserving input and passing cancellation
   ).rejects.toThrow('unchanged')
 })
 
-it('offers all nine bones in the first tab and applies into the main film; restore retains the unknown slot', async () => {
-  useItemDraft.getState().setBase()
-  new LocalFilmRepository(localStorage).save(
-    startFilm(emptyFilms(), root, 'seed', initialFixture.rulesetIdentity),
-  )
-  const fetch = vi.fn((input: RequestInfo | URL, init?: RequestInit) => {
-    const url = String(input)
-    if (url.endsWith('/abyss/desecrate') || url.endsWith('/abyss/validate'))
-      return Promise.resolve(jsonResponse(abyss))
-    if (url.endsWith('/abyss/plan'))
-      return Promise.resolve(jsonResponse({ available: false, branches: [] }))
-    return fixtureFetch(input, init)
-  })
-  vi.stubGlobal('fetch', fetch)
-  const client = new QueryClient({
-    defaultOptions: { queries: { retry: false } },
-  })
-  const show = () =>
-    render(
-      <QueryClientProvider client={client}>
-        <CraftingPage />
-      </QueryClientProvider>,
+it.each(['', 'Omen_of_Sinistral_Necromancy', 'Omen_of_Dextral_Necromancy'])(
+  'applies first-tab bones with %s and restores the slot and consumption',
+  async (omen) => {
+    const side = omen.includes('Dextral') ? 'SUFFIX' : 'PREFIX'
+    const outcome: AbyssState = {
+      ...abyss,
+      slots: [{ ...abyss.slots[0]!, side }],
+    }
+    useItemDraft.getState().setBase()
+    new LocalFilmRepository(localStorage).save(
+      startFilm(emptyFilms(), root, 'seed', initialFixture.rulesetIdentity),
     )
-  const mounted = show()
-  await waitFor(() =>
-    expect(screen.getByRole('article')).toHaveClass('item-card--rare'),
-  )
-  for (const name of Object.values(boneNames))
-    expect(screen.getByRole('button', { name })).toBeVisible()
-  fireEvent.click(screen.getByRole('button', { name: 'Preserved Collarbone' }))
-  fireEvent.change(screen.getByLabelText('Observed affix side'), {
-    target: { value: 'PREFIX' },
-  })
-  fireEvent.click(
-    screen.getByRole('button', {
-      name: 'Use selected currency on the central item',
-    }),
-  )
-  await waitFor(() =>
+    let rejectApplication = !!omen
+    const fetch = vi.fn((input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.endsWith('/abyss/desecrate') && rejectApplication)
+        return Promise.resolve(
+          new Response('{}', {
+            status: 422,
+            headers: { 'X-Crafting-Ruleset': initialFixture.rulesetIdentity },
+          }),
+        )
+      if (url.endsWith('/abyss/desecrate') || url.endsWith('/abyss/validate'))
+        return Promise.resolve(jsonResponse(outcome))
+      if (url.endsWith('/abyss/plan'))
+        return Promise.resolve(jsonResponse({ available: false, branches: [] }))
+      return fixtureFetch(input, init)
+    })
+    vi.stubGlobal('fetch', fetch)
+    const client = new QueryClient({
+      defaultOptions: { queries: { retry: false } },
+    })
+    const show = () =>
+      render(
+        <QueryClientProvider client={client}>
+          <CraftingPage />
+        </QueryClientProvider>,
+      )
+    const mounted = show()
+    await waitFor(() =>
+      expect(screen.getByRole('article')).toHaveClass('item-card--rare'),
+    )
+    for (const name of Object.values(boneNames))
+      expect(screen.getByRole('button', { name })).toBeVisible()
+    if (omen) {
+      fireEvent.click(screen.getByRole('tab', { name: 'Omen' }))
+      fireEvent.click(
+        screen.getByRole('button', { name: omen.replaceAll('_', ' ') }),
+      )
+      fireEvent.click(
+        screen.getByRole('button', { name: 'Favorite slot 1: empty' }),
+      )
+      fireEvent.contextMenu(
+        screen.getByRole('button', {
+          name: `Favorite slot 1: ${omen.replaceAll('_', ' ')}`,
+        }),
+      )
+      expect(useItemDraft.getState().activeOmens).toEqual([omen])
+      fireEvent.click(screen.getByRole('tab', { name: 'Currency' }))
+    }
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Preserved Collarbone' }),
+    )
+    if (omen)
+      expect(screen.getByLabelText('Observed affix side')).toBeDisabled()
+    else
+      fireEvent.change(screen.getByLabelText('Observed affix side'), {
+        target: { value: side },
+      })
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: 'Use selected currency on the central item',
+      }),
+    )
+    if (omen) {
+      await screen.findAllByText(/Only one Necromancy omen can be active/)
+      expect(useItemDraft.getState().activeOmens).toEqual([omen])
+      expect(
+        currentFilm(new LocalFilmRepository(localStorage).load())?.frames,
+      ).toHaveLength(1)
+      rejectApplication = false
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: 'Use selected currency on the central item',
+        }),
+      )
+    }
+    await waitFor(() =>
+      expect(
+        currentFrame(new LocalFilmRepository(localStorage).load())?.action,
+      ).toBe('Preserved_Collarbone'),
+    )
     expect(
-      currentFrame(new LocalFilmRepository(localStorage).load())?.action,
-    ).toBe('Preserved_Collarbone'),
-  )
-  expect(
-    currentFrame(new LocalFilmRepository(localStorage).load())?.state
-      .desecrated,
-  ).toEqual([{ id: 'bone-slot', side: 'PREFIX', modifierId: null }])
-  const saved = localStorage.getItem(historyStorageKey)
-  mounted.unmount()
-  client.clear()
-  const restored = show()
-  await waitFor(() =>
-    expect(screen.getByRole('article')).toHaveClass('item-card--rare'),
-  )
-  expect(localStorage.getItem(historyStorageKey)).toBe(saved)
-  restored.unmount()
-  client.clear()
-})
+      currentFrame(new LocalFilmRepository(localStorage).load())?.state
+        .desecrated,
+    ).toEqual([{ id: 'bone-slot', side, modifierId: null }])
+    expect(useItemDraft.getState().activeOmens).toEqual([])
+    expect(
+      currentFrame(new LocalFilmRepository(localStorage).load())?.manual
+        ?.consumedOmens ?? [],
+    ).toEqual(omen ? [omen] : [])
+    const saved = localStorage.getItem(historyStorageKey)
+    mounted.unmount()
+    client.clear()
+    const restored = show()
+    await waitFor(() =>
+      expect(screen.getByRole('article')).toHaveClass('item-card--rare'),
+    )
+    expect(localStorage.getItem(historyStorageKey)).toBe(saved)
+    restored.unmount()
+    client.clear()
+  },
+)
 
 it('removes the selected modifier when a restored full item has noncanonical observation order', async () => {
   const ids = ['z', 'a', 'b', 'c', 'd', 'e']

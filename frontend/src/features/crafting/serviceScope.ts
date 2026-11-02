@@ -9,8 +9,6 @@ export const deferredServiceIds = new Set([
   'Orb_of_Chance',
   'Orb_of_Extraction',
   'Omen_of_Catalysing_Exaltation',
-  'Omen_of_Sinistral_Necromancy',
-  'Omen_of_Dextral_Necromancy',
 ])
 
 export function inServiceScope(id: string): boolean {

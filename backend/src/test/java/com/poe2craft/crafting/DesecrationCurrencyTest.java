@@ -16,6 +16,47 @@ class DesecrationCurrencyTest {
   }
 
   @Test
+  void necromancyForcesItsSideAndRejectsConflictsWithoutChangingInput() {
+    var item = f.rare(82, "", "amulet:prefix:hale");
+    for (var entry :
+        Map.of(
+                "Omen_of_Sinistral_Necromancy",
+                AffixType.PREFIX,
+                "Omen_of_Dextral_Necromancy",
+                AffixType.SUFFIX)
+            .entrySet()) {
+      var result =
+          DesecrationCurrency.apply(
+              item, "Ancient_Collarbone", null, null, Set.of(entry.getKey()), f.catalog);
+      assertThat(result.slots().getLast().side()).isEqualTo(entry.getValue());
+      assertThat(result.slots().getLast().minimumModifierLevel()).isEqualTo(40);
+      assertThat(AbyssCraftingState.from(result.storedItem(), f.catalog)).isEqualTo(result);
+      var opposite = entry.getValue() == AffixType.PREFIX ? AffixType.SUFFIX : AffixType.PREFIX;
+      assertThatThrownBy(
+              () ->
+                  DesecrationCurrency.apply(
+                      item,
+                      "Ancient_Collarbone",
+                      opposite,
+                      null,
+                      Set.of(entry.getKey()),
+                      f.catalog))
+          .isInstanceOf(IllegalArgumentException.class);
+    }
+    for (var omens :
+        List.of(
+            Set.of("Omen_of_Sinistral_Necromancy", "Omen_of_Dextral_Necromancy"),
+            Set.of("Omen_of_Sinistral_Necromancy", "Omen_of_Putrefaction")))
+      assertThatThrownBy(
+              () ->
+                  DesecrationCurrency.apply(
+                      item, "Preserved_Collarbone", AffixType.PREFIX, null, omens, f.catalog))
+          .isInstanceOf(IllegalArgumentException.class);
+    assertThat(item.desecrated()).isEmpty();
+    assertThat(item.explicits()).hasSize(1);
+  }
+
+  @Test
   void markedItemRequiresSeparateHigherTierRuleRatherThanKeepingTheMark() {
     var base = BaseRegistry.require("adherent");
     var catalog = com.poe2craft.item.infrastructure.ItemCatalogLoader.loadTopBase(base.key());

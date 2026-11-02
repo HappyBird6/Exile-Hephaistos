@@ -1,5 +1,6 @@
 # WB-052 — 수동 작업대 뼈 화폐 적용
 
+후속: [Necromancy 연결과 잔여 범위 재분류](desecration-scope-followup-20261102.md). 최초 체크포인트의 모든 징조 거부 조건은 후속에서 Necromancy 2종 지원으로 변경되었다.
 기준: `24a4d5c6cd80392b8ee263af94d9bae08e67d0fb`, 작업 브랜치 `codex/manual-workbench-20261102`.
 
 ## 구현한 동작

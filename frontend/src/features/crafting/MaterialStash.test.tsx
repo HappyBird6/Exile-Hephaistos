@@ -318,7 +318,7 @@ describe('Material stash and shared favorites', () => {
     for (const [label, count] of [
       ['Essence', 76], // 19 ordinary families × four tiers; special group is separate.
       ['Alloy', 13],
-      ['Omen', 22],
+      ['Omen', 24],
       ['Catalysts', 26],
       ['Liquid Emotions', 27],
     ] as const) {
@@ -357,7 +357,7 @@ describe('Material stash and shared favorites', () => {
           within(document.getElementById('material-list')!).getAllByRole(
             'button',
           ),
-        ).toHaveLength(29)
+        ).toHaveLength(31)
         expect(
           screen.getByRole('button', {
             name: 'Omen of Homogenising Exaltation',
@@ -373,7 +373,7 @@ describe('Material stash and shared favorites', () => {
           within(document.getElementById('material-list')!).getAllByRole(
             'button',
           ),
-        ).toHaveLength(22)
+        ).toHaveLength(24)
       }
       expect(
         within(

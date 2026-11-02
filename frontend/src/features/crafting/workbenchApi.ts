@@ -628,6 +628,16 @@ for (const [id, base] of Object.entries(currencyActions)) {
 }
 export const workbenchOmens = [
   {
+    id: 'Omen_of_Sinistral_Necromancy',
+    trigger: 'DESECRATE',
+    effect: 'Add only a prefix on desecration',
+  },
+  {
+    id: 'Omen_of_Dextral_Necromancy',
+    trigger: 'DESECRATE',
+    effect: 'Add only a suffix on desecration',
+  },
+  {
     id: 'Omen_of_Sinistral_Alchemy',
     trigger: 'ALCHEMY',
     effect: 'Legacy: maximum prefixes on ordinary Alchemy',

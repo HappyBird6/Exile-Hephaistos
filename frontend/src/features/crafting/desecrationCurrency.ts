@@ -17,6 +17,14 @@ export const boneNames = {
 } as const
 export const isBone = (id: string): id is keyof typeof boneNames =>
   Object.hasOwn(boneNames, id)
+export const necromancySide = (
+  omens: readonly string[],
+): 'PREFIX' | 'SUFFIX' | undefined =>
+  omens.includes('Omen_of_Sinistral_Necromancy')
+    ? 'PREFIX'
+    : omens.includes('Omen_of_Dextral_Necromancy')
+      ? 'SUFFIX'
+      : undefined
 export const boneText = {
   en: [
     'Record the observed outcome: choose its prefix/suffix side and, at six modifiers, the removed modifier. No random outcome is generated. Reveal candidates separately.',
@@ -25,7 +33,7 @@ export const boneText = {
     'Prefix',
     'Suffix',
     'Removed modifier (full item only)',
-    'Check the currency, item class, level, slots and observed outcome. Deactivate omens first. The item has not changed.',
+    'Check the currency, item class, level, slots and observed outcome. Only one Necromancy omen can be active. The item has not changed.',
   ],
   ko: [
     '관측한 적용 결과를 기록합니다. 접두·접미를 선택하고, 6옵션이면 제거된 옵션도 선택하세요. 결과를 무작위로 생성하지 않습니다. 후보 드러내기는 별도 단계입니다.',
@@ -34,7 +42,7 @@ export const boneText = {
     '접두',
     '접미',
     '제거된 옵션 (6옵션 아이템만)',
-    '화폐·장비 종류·레벨·슬롯과 관측 결과를 확인하고 징조를 해제하세요. 아이템은 변경되지 않았습니다.',
+    '화폐·장비 종류·레벨·슬롯과 관측 결과를 확인하고 징조는 접두 또는 접미 Necromancy 하나만 활성화하세요. 아이템은 변경되지 않았습니다.',
   ],
   'zh-CN': [
     '记录观察结果：选择前缀或后缀；满六词缀时选择被移除的词缀。不生成随机结果。候选揭示为单独步骤。',
@@ -43,7 +51,7 @@ export const boneText = {
     '前缀',
     '后缀',
     '被移除的词缀（仅满词缀时）',
-    '请检查通货、装备类型、等级、槽位和观察结果，并停用预兆。物品未改变。',
+    '请检查通货、装备类型、等级、槽位和观察结果，仅可启用一个死灵预兆。物品未改变。',
   ],
   'zh-TW': [
     '記錄觀察結果：選擇前綴或後綴；滿六詞綴時選擇被移除的詞綴。不產生隨機結果。候選揭示為獨立步驟。',
@@ -52,7 +60,7 @@ export const boneText = {
     '前綴',
     '後綴',
     '被移除的詞綴（僅滿詞綴時）',
-    '請檢查通貨、裝備類型、等級、欄位及觀察結果，並停用預兆。物品未改變。',
+    '請檢查通貨、裝備類型、等級、欄位及觀察結果，僅可啟用一個死靈預兆。物品未改變。',
   ],
   ja: [
     '観測した結果を記録します。プレフィックスかサフィックスを選び、6モッドなら除去されたモッドも選択してください。ランダムな結果は生成しません。候補の開示は別の手順です。',
@@ -61,7 +69,7 @@ export const boneText = {
     'プレフィックス',
     'サフィックス',
     '除去されたモッド（6モッド時のみ）',
-    '通貨、装備の種類、レベル、枠、観測結果を確認し、オーメンを解除してください。アイテムは変更されていません。',
+    '通貨、装備の種類、レベル、枠、観測結果を確認し、ネクロマンシーのオーメンは1つだけ有効にしてください。アイテムは変更されていません。',
   ],
   es: [
     'Registra el resultado observado: elige prefijo o sufijo y, con seis modificadores, el modificador eliminado. No se genera un resultado aleatorio. Revela los candidatos por separado.',
@@ -70,7 +78,7 @@ export const boneText = {
     'Prefijo',
     'Sufijo',
     'Modificador eliminado (solo objeto lleno)',
-    'Comprueba moneda, clase, nivel, espacios y resultado observado. Desactiva los presagios. El objeto no ha cambiado.',
+    'Comprueba moneda, clase, nivel, espacios y resultado observado. Solo puede estar activo un presagio de nigromancia. El objeto no ha cambiado.',
   ],
 } as const
 
@@ -84,6 +92,14 @@ export async function applyBone(
   signal: AbortSignal,
   errorMessage: string,
 ): Promise<AbyssState> {
+  const forcedSide = necromancySide(activeOmens)
+  if (
+    activeOmens.length > 1 ||
+    (activeOmens.length === 1 && !forcedSide) ||
+    (forcedSide && side && forcedSide !== side)
+  )
+    throw new Error(errorMessage)
+  side = forcedSide ?? side
   // ItemState canonicalizes explicit IDs before Abyss import. Saved observation
   // order can differ, so map the user's chosen modifier to that wire slot.
   const removed = state.explicits.find(

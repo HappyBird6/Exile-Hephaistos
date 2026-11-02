@@ -1,4 +1,9 @@
-import { applyBone, isBone, boneText } from './desecrationCurrency'
+import {
+  applyBone,
+  isBone,
+  boneText,
+  necromancySide,
+} from './desecrationCurrency'
 import { validAbyssResponse } from './abyssResponse'
 import { AbyssPanel } from './AbyssPanel'
 import { readSupport, saveSupport } from './method-search/supportStorage'
@@ -599,7 +604,7 @@ export function CraftingPage() {
         const next = await applyBone(
           state,
           selected.id,
-          boneSide,
+          necromancySide(draft.activeOmens) ?? boneSide,
           boneRemoved,
           draft.activeOmens,
           initial.data,
@@ -623,11 +628,24 @@ export function CraftingPage() {
             selected.id,
             filmId(),
             initial.data.rulesetIdentity,
+            draft.activeOmens,
           ),
           revision,
         )
+        draft.setActiveOmens([])
         setAnnouncement(
-          t('craft.applied', { name: name(selected.id, selected.name) }),
+          [
+            t('craft.applied', { name: name(selected.id, selected.name) }),
+            draft.activeOmens.length
+              ? t('craft.consumed', {
+                  names: draft.activeOmens
+                    .map((id) => name(id, id.replaceAll('_', ' ')))
+                    .join(', '),
+                })
+              : '',
+          ]
+            .filter(Boolean)
+            .join(' '),
         )
         setBoneSide('')
         setBoneRemoved('')
@@ -1552,7 +1570,8 @@ export function CraftingPage() {
                     <label>
                       {boneText[locale][1]}
                       <select
-                        value={boneSide}
+                        value={necromancySide(draft.activeOmens) ?? boneSide}
+                        disabled={!!necromancySide(draft.activeOmens)}
                         onChange={(event) => setBoneSide(event.target.value)}
                       >
                         <option value="">{boneText[locale][2]}</option>

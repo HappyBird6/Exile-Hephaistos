@@ -41,7 +41,7 @@ class AbyssControllerTest {
                 "side",
                 "SUFFIX",
                 "activeOmens",
-                List.of()));
+                List.of("Omen_of_Dextral_Necromancy")));
     mvc.perform(
             post("/api/v1/crafting/workbench/abyss/desecrate")
                 .contentType(MediaType.APPLICATION_JSON)

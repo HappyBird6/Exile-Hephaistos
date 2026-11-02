@@ -45,8 +45,19 @@ public final class DesecrationCurrency {
     if (currency == null
         || !currency.matches("(Gnawed|Preserved|Ancient)_(Rib|Jawbone|Collarbone)"))
       throw new IllegalArgumentException("Unsupported desecration currency");
-    if (activeOmens != null && !activeOmens.isEmpty())
-      throw new IllegalArgumentException("Deactivate omens before recording a bone-only outcome");
+    var omens = activeOmens == null ? Set.<String>of() : activeOmens;
+    var sides =
+        Map.of(
+            "Omen_of_Sinistral_Necromancy", AffixType.PREFIX,
+            "Omen_of_Dextral_Necromancy", AffixType.SUFFIX);
+    if (omens.size() > 1 || !sides.keySet().containsAll(omens))
+      throw new IllegalArgumentException("Only one Necromancy omen is supported for this outcome");
+    if (!omens.isEmpty()) {
+      var forced = sides.get(omens.iterator().next());
+      if (side != null && side != forced)
+        throw new IllegalArgumentException("Observed side conflicts with the Necromancy omen");
+      side = forced;
+    }
     if (item.rarity() != ItemState.Rarity.RARE
         || !item.conditions().isEmpty()
         || !item.desecrated().isEmpty())

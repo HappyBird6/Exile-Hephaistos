@@ -28,7 +28,7 @@ export type Frame = {
   action: string | null
   evidence?: CraftEvidence
   abyss?: AbyssState
-  manual?: { rulesetIdentity: string; action: string }
+  manual?: { rulesetIdentity: string; action: string; consumedOmens?: string[] }
 }
 export type Film = {
   id: string
@@ -229,6 +229,7 @@ export function recordAbyss(
   action: string,
   id: string,
   rulesetIdentity: string,
+  consumedOmens: string[] = [],
 ): Films {
   if (!isRulesetIdentity(rulesetIdentity))
     throw new Error('Ruleset identity required')
@@ -253,7 +254,11 @@ export function recordAbyss(
     action,
     rulesetIdentity,
     abyss: structuredClone(abyss),
-    manual: { rulesetIdentity, action },
+    manual: {
+      rulesetIdentity,
+      action,
+      ...(consumedOmens.length ? { consumedOmens: [...consumedOmens] } : {}),
+    },
   }
   let previousFrames = active.frames
   const inherited = currentFrame(films)?.abyss
