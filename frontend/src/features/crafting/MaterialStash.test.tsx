@@ -373,7 +373,7 @@ describe('Material stash and shared favorites', () => {
           within(document.getElementById('material-list')!).getAllByRole(
             'button',
           ),
-        ).toHaveLength(22)
+        ).toHaveLength(31)
       }
       expect(
         within(

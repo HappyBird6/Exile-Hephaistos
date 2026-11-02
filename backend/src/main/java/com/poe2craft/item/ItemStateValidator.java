@@ -47,7 +47,14 @@ public final class ItemStateValidator {
         if (!marked.add(slot.modifierId())
             || m.isEmpty()
             || m.get().fractured()
-            || catalog.find(slot.modifierId()).map(d -> d.affixType() != slot.side()).orElse(true))
+            || catalog
+                .find(slot.modifierId())
+                .map(
+                    d ->
+                        d.affixType() != slot.side()
+                            || (slot.minimumModifierLevel() != null
+                                && d.requiredItemLevel() < slot.minimumModifierLevel()))
+                .orElse(true))
           errors.add(new Violation(Code.UNSUPPORTED_STATE, "", "Invalid desecrated modifier"));
       }
     }

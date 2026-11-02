@@ -104,8 +104,18 @@ public record ItemState(
   }
 
   /** Slot identity survives observation; a null modifier ID is an unrevealed explicit slot. */
-  public record DesecratedSlot(String id, ModifierDefinition.AffixType side, String modifierId) {
+  public record DesecratedSlot(
+      String id,
+      ModifierDefinition.AffixType side,
+      String modifierId,
+      Integer minimumModifierLevel) {
+    public DesecratedSlot(String id, ModifierDefinition.AffixType side, String modifierId) {
+      this(id, side, modifierId, null);
+    }
+
     public DesecratedSlot {
+      if (minimumModifierLevel != null && minimumModifierLevel != 40)
+        throw new IllegalArgumentException("Unsupported desecration level constraint");
       if (id == null || id.isBlank() || side == null || side == ModifierDefinition.AffixType.NONE)
         throw new IllegalArgumentException("Desecrated slot identity and side required");
     }

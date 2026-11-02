@@ -47,7 +47,10 @@ export function supportsConcreteStateShape(value: unknown): boolean {
           return false
         const s = slot as Record<string, unknown>
         return (
-          Object.keys(s).length === 3 &&
+          Object.keys(s).every((key) =>
+            ['id', 'side', 'modifierId', 'minimumModifierLevel'].includes(key),
+          ) &&
+          (s.minimumModifierLevel == null || s.minimumModifierLevel === 40) &&
           typeof s.id === 'string' &&
           s.id.length > 0 &&
           (s.side === 'PREFIX' || s.side === 'SUFFIX') &&

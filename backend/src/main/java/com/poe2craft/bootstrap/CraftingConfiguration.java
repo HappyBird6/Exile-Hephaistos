@@ -25,10 +25,21 @@ public class CraftingConfiguration {
     abstract com.poe2craft.item.ItemObservations observations();
   }
 
+  abstract static class DesecrationJson {
+    @com.fasterxml.jackson.annotation.JsonInclude(
+        com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+    abstract Integer minimumModifierLevel();
+  }
+
   @Bean
   org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer
       itemStateJson() {
-    return builder -> builder.mixIn(com.poe2craft.item.ItemState.class, ItemStateJson.class);
+    return builder ->
+        builder
+            .mixIn(com.poe2craft.item.ItemState.class, ItemStateJson.class)
+            .mixIn(com.poe2craft.item.ItemState.DesecratedSlot.class, DesecrationJson.class)
+            .mixIn(
+                com.poe2craft.crafting.domain.AbyssCraftingState.Slot.class, DesecrationJson.class);
   }
 
   @Bean

@@ -105,7 +105,11 @@ public final class WorkbenchController {
         throw new UnsupportedItemProperties();
       for (var slot : desecrated) {
         if (!slot.isObject()
-            || slot.size() != 3
+            || slot.size() != (slot.has("minimumModifierLevel") ? 4 : 3)
+            || (slot.has("minimumModifierLevel")
+                && !slot.path("minimumModifierLevel").isNull()
+                && !(slot.path("minimumModifierLevel").isIntegralNumber()
+                    && slot.path("minimumModifierLevel").intValue() == 40))
             || !slot.path("id").isTextual()
             || !slot.path("side").isTextual()
             || !slot.has("modifierId")
@@ -258,6 +262,27 @@ public final class WorkbenchController {
     if (!new com.poe2craft.item.ItemStateValidator(catalog).validate(item).isEmpty())
       throw new IllegalArgumentException("Invalid slot-aware item state");
     return com.poe2craft.crafting.domain.AbyssCraftingState.from(item, catalog);
+  }
+
+  public record DesecrateRequest(
+      JsonNode state,
+      String currency,
+      com.poe2craft.item.ModifierDefinition.AffixType side,
+      String removedSlotId,
+      Set<String> activeOmens) {}
+
+  @PostMapping("/abyss/desecrate")
+  public com.poe2craft.crafting.domain.AbyssCraftingState desecrate(
+      @RequestBody DesecrateRequest request) {
+    var item = concreteState(request.state(), true);
+    var catalog = simulator.abyssCatalog(item);
+    return com.poe2craft.crafting.domain.DesecrationCurrency.apply(
+        item,
+        request.currency(),
+        request.side(),
+        request.removedSlotId(),
+        request.activeOmens(),
+        catalog);
   }
 
   @PostMapping("/abyss/add")

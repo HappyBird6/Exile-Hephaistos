@@ -1,3 +1,4 @@
+import type { AbyssState } from './AbyssPanel'
 import { supportsConcreteStateShape } from './workbenchStateShape'
 import { isWorkbenchJewel, reviewedBasicJewel } from './basicJewel'
 import { verifiedCatalystQuality } from './catalystQuality'
@@ -26,6 +27,8 @@ export type Frame = {
   state: ConcreteItem
   action: string | null
   evidence?: CraftEvidence
+  abyss?: AbyssState
+  manual?: { rulesetIdentity: string; action: string }
 }
 export type Film = {
   id: string
@@ -46,7 +49,11 @@ export function filmRulesetStatus(
   for (const [index, frame] of film.frames.entries()) {
     identities.push(frame.rulesetIdentity)
     if (index > 0 || frame.evidence)
-      identities.push(frame.evidence?.rulesetIdentity)
+      identities.push(
+        frame.manual?.action === frame.action
+          ? frame.manual.rulesetIdentity
+          : frame.evidence?.rulesetIdentity,
+      )
   }
   const present = identities.filter((value) => value !== undefined)
   if (
@@ -214,6 +221,73 @@ export function recordCraft(
     cursor: frames.length - 1,
   }
 }
+/** Observations are steps, not invented currency rolls or probabilities. */
+export function recordAbyss(
+  films: Films,
+  before: ConcreteItem,
+  abyss: AbyssState,
+  action: string,
+  id: string,
+  rulesetIdentity: string,
+): Films {
+  if (!isRulesetIdentity(rulesetIdentity))
+    throw new Error('Ruleset identity required')
+  const film = currentFilm(films)
+  if (film && filmRulesetStatus(film, rulesetIdentity) !== 'current')
+    throw new Error('Saved ruleset is unverified')
+  const matches =
+    JSON.stringify(currentFrame(films)?.state) === JSON.stringify(before)
+  const next =
+    film && films.cursor === film.frames.length - 1 && matches
+      ? films
+      : startFilm(
+          films,
+          before,
+          id,
+          rulesetIdentity,
+          matches ? film?.sourceDocument : undefined,
+        )
+  const active = currentFilm(next)!
+  const frame: Frame = {
+    state: structuredClone(storedAbyssItem(abyss)),
+    action,
+    rulesetIdentity,
+    abyss: structuredClone(abyss),
+    manual: { rulesetIdentity, action },
+  }
+  let previousFrames = active.frames
+  const inherited = currentFrame(films)?.abyss
+  if (next !== films && matches && inherited)
+    previousFrames = [
+      { ...active.frames[0]!, abyss: structuredClone(inherited) },
+    ]
+  const frames = [...previousFrames, frame]
+  return {
+    ...next,
+    films: next.films.map((f) => (f.id === active.id ? { ...f, frames } : f)),
+    cursor: frames.length - 1,
+  }
+}
+
+export function storedAbyssItem(state: AbyssState): ConcreteItem {
+  return {
+    ...state.item,
+    explicits: state.slots.flatMap((slot) =>
+      slot.modifier ? [slot.modifier] : [],
+    ),
+    desecrated: state.slots
+      .filter((slot) => slot.desecrated)
+      .map((slot) => ({
+        id: slot.id,
+        side: slot.side,
+        modifierId: slot.modifier?.modifierId ?? null,
+        ...(slot.minimumModifierLevel != null
+          ? { minimumModifierLevel: slot.minimumModifierLevel }
+          : {}),
+      })),
+  }
+}
+
 export function viewFrame(films: Films, cursor: number): Films {
   const film = currentFilm(films)
   return film &&
@@ -393,7 +467,9 @@ export function verifiedHistoryState(
           !instance ||
           instance.fractured ||
           marked.has(slot.modifierId) ||
-          initial.modifiers[slot.modifierId]?.affixType !== slot.side
+          initial.modifiers[slot.modifierId]?.affixType !== slot.side ||
+          (initial.modifiers[slot.modifierId]?.requiredItemLevel ?? 1) <
+            (slot.minimumModifierLevel ?? 0)
         )
           return false
         marked.add(slot.modifierId)

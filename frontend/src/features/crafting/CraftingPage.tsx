@@ -1,3 +1,5 @@
+import { applyBone, isBone, boneText } from './desecrationCurrency'
+import { validAbyssResponse } from './abyssResponse'
 import { AbyssPanel } from './AbyssPanel'
 import { readSupport, saveSupport } from './method-search/supportStorage'
 import {
@@ -13,6 +15,7 @@ import { ServiceMessage } from './ServiceMessage'
 import { serviceText } from './serviceMessages'
 import {
   useI18n,
+  gameTerm,
   matchesGameName,
   uiText,
   translate,
@@ -63,6 +66,8 @@ import {
   currentFrame,
   startFilm,
   recordCraft,
+  recordAbyss,
+  storedAbyssItem,
   viewFrame,
   verifiedHistoryState,
   verifiedFrameEvidence,
@@ -91,6 +96,8 @@ function filmId() {
 
 export function CraftingPage() {
   const { t, name, locale } = useI18n()
+  const [boneSide, setBoneSide] = useState('')
+  const [boneRemoved, setBoneRemoved] = useState('')
   const client = useQueryClient()
   const draft = useItemDraft()
   const imported = useItemTextImport()
@@ -291,7 +298,16 @@ export function CraftingPage() {
   const restoredValid =
     storedFrame && initial.data
       ? rulesetStatus === 'current' &&
-        verifiedHistoryState(storedFrame.state, initial.data)
+        verifiedHistoryState(storedFrame.state, initial.data) &&
+        (!storedFrame.abyss ||
+          (validAbyssResponse(
+            'validate',
+            storedFrame.abyss,
+            storedFrame.state,
+            initial.data,
+          ) &&
+            JSON.stringify(storedAbyssItem(storedFrame.abyss)) ===
+              JSON.stringify(storedFrame.state)))
       : false
   const restoredState =
     restoredValid && initial.data && storedFrame ? storedFrame.state : undefined
@@ -487,6 +503,8 @@ export function CraftingPage() {
   }, [inputOpen])
 
   function choose(resource: Selection) {
+    setBoneSide('')
+    setBoneRemoved('')
     setSelected(resource)
     setHeld(null)
     setAnnouncement(
@@ -559,7 +577,7 @@ export function CraftingPage() {
       return
     }
     const action = workbenchCurrencyActions[selected.id]
-    if (!action) {
+    if (!action && !isBone(selected.id)) {
       setAnnouncement(t('notice.no_rule'))
       return
     }
@@ -577,6 +595,50 @@ export function CraftingPage() {
       mapping.data?.state ??
       concreteInitial(initial.data)
     try {
+      if (isBone(selected.id)) {
+        const next = await applyBone(
+          state,
+          selected.id,
+          boneSide,
+          boneRemoved,
+          draft.activeOmens,
+          initial.data,
+          controller.signal,
+          boneText[locale][6],
+        )
+        if (
+          controller.signal.aborted ||
+          useItemDraft.getState().baseRevision !== revision
+        )
+          return
+        const history =
+          filmState.revision === revision
+            ? filmState.history
+            : { ...filmState.history, active: null, cursor: 0 }
+        saveFilms(
+          recordAbyss(
+            history,
+            state,
+            next,
+            selected.id,
+            filmId(),
+            initial.data.rulesetIdentity,
+          ),
+          revision,
+        )
+        setAnnouncement(
+          t('craft.applied', { name: name(selected.id, selected.name) }),
+        )
+        setBoneSide('')
+        setBoneRemoved('')
+        if (!repeat) {
+          setSelected(null)
+          setHeld(null)
+          setPointer(null)
+        }
+        return
+      }
+      if (!action) throw new Error(t('notice.no_rule'))
       const result = await applyCurrency(
         state,
         action,
@@ -1480,6 +1542,56 @@ export function CraftingPage() {
                 role="region"
                 aria-label={t('ui.crafting_notes')}
               >
+                {selected && isBone(selected.id) && (
+                  <fieldset disabled={!!applying}>
+                    <legend>{name(selected.id, selected.name)}</legend>
+                    {gameTerm(selected.id, locale).data?.lines.map((line) => (
+                      <p key={line}>{line}</p>
+                    ))}
+                    <p>{boneText[locale][0]}</p>
+                    <label>
+                      {boneText[locale][1]}
+                      <select
+                        value={boneSide}
+                        onChange={(event) => setBoneSide(event.target.value)}
+                      >
+                        <option value="">{boneText[locale][2]}</option>
+                        <option value="PREFIX">{boneText[locale][3]}</option>
+                        <option value="SUFFIX">{boneText[locale][4]}</option>
+                      </select>
+                    </label>
+                    {concrete?.explicits.length === 6 && (
+                      <label>
+                        {boneText[locale][5]}
+                        <select
+                          value={boneRemoved}
+                          onChange={(event) =>
+                            setBoneRemoved(event.target.value)
+                          }
+                        >
+                          <option value="">{boneText[locale][2]}</option>
+                          {concrete.explicits.map((modifier, index) =>
+                            modifier.fractured ? null : (
+                              <option
+                                key={modifier.modifierId}
+                                value={`explicit-${index}`}
+                              >
+                                {initial.data?.modifiers[modifier.modifierId]
+                                  ? localizedModifierText(
+                                      initial.data.modifiers[
+                                        modifier.modifierId
+                                      ]!,
+                                      modifier.values,
+                                    )
+                                  : modifier.modifierId}
+                              </option>
+                            ),
+                          )}
+                        </select>
+                      </label>
+                    )}
+                  </fieldset>
+                )}
                 {draft.activeOmens.includes('Omen_of_Whittling') && (
                   <p className="workbench-feedback">
                     {removalCandidates.length > 0
@@ -1811,7 +1923,13 @@ export function CraftingPage() {
                       {filmState.history.films.map((entry, index) => (
                         <option key={entry.id} value={entry.id}>
                           {t('film.session', { index: index + 1 })} ·{' '}
-                          {t('crafts', { count: entry.frames.length - 1 })}
+                          {t('crafts', {
+                            count: entry.frames.filter(
+                              (frame) =>
+                                frame.action &&
+                                !frame.action.startsWith('ABYSS_'),
+                            ).length,
+                          })}
                         </option>
                       ))}
                     </select>
@@ -1859,10 +1977,37 @@ export function CraftingPage() {
                   initial.data &&
                   restoredValid && (
                     <AbyssPanel
-                      key={JSON.stringify(concrete)}
+                      key={JSON.stringify([concrete, storedFrame?.abyss])}
                       source={concrete}
+                      localScenario={false}
+                      allowAdd={false}
                       embedded={!!concrete.desecrated?.length}
                       initial={initial.data}
+                      {...(storedFrame?.abyss
+                        ? { restoredState: storedFrame.abyss }
+                        : {})}
+                      onTransition={(next, transition) => {
+                        if (transition.operation === 'restore') return
+                        if (
+                          useItemDraft.getState().baseRevision !==
+                            draft.baseRevision ||
+                          applyingRequest.current
+                        )
+                          return
+                        saveFilms(
+                          recordAbyss(
+                            filmState.history,
+                            concrete,
+                            next,
+                            transition.operation === 'apply'
+                              ? (transition.action ?? 'ABYSS_APPLY')
+                              : `ABYSS_${transition.operation.toUpperCase()}`,
+                            filmId(),
+                            initial.data!.rulesetIdentity,
+                          ),
+                          draft.baseRevision,
+                        )
+                      }}
                     />
                   )}
                 {storedFrame && !restoredValid ? null : card ? (

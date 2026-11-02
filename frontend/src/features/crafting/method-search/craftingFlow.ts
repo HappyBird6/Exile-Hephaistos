@@ -142,6 +142,7 @@ export const flowMessages: Record<
 export function materializeAbyss(
   state: AbyssState,
 ): (Item & ConcreteItem) | null {
+  if (state.slots.some((slot) => slot.minimumModifierLevel != null)) return null
   if (state.offer || state.item.catalystQuality != null) return null
   return {
     ...state.item,

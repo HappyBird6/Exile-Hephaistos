@@ -1,0 +1,35 @@
+{
+  "baseCommit": "24a4d5c6cd80392b8ee263af94d9bae08e67d0fb",
+  "status": "Final full checks running; not a completion report",
+  "supportedCurrencies": [
+    "Gnawed_Rib",
+    "Preserved_Rib",
+    "Ancient_Rib",
+    "Gnawed_Jawbone",
+    "Preserved_Jawbone",
+    "Ancient_Jawbone",
+    "Gnawed_Collarbone",
+    "Preserved_Collarbone",
+    "Ancient_Collarbone"
+  ],
+  "application": "Observed conditional outcome, not random generation",
+  "backendAffected": {
+    "tests": 73,
+    "failures": 0,
+    "integrationTests": 8,
+    "integrationFailures": 0,
+    "baseTierSideCases": 702,
+    "spotlessCheck": "passed",
+    "bootJar": "passed",
+    "evidence": "task/desecration-backend-results/test-results"
+  },
+  "frontendFirstFull": {
+    "tests": 2410,
+    "passed": 2408,
+    "failed": 2,
+    "reason": "Intentional nine-currency tab count and canonical tooltip URLs; corrected, final rerun running"
+  },
+  "browser": "Not attempted; deferred by user",
+  "deployment": "Not performed",
+  "remaining": "See desecration-currency-20261102.md"
+}

@@ -750,6 +750,7 @@ export const baseWorkbenchAction = (action: WorkbenchAction) =>
     Action | 'DIVINE' | 'ALCHEMY' | 'FRACTURING'
 
 export interface DesecratedSlot {
+  minimumModifierLevel?: 40 | null
   id: string
   side: 'PREFIX' | 'SUFFIX'
   modifierId: string | null

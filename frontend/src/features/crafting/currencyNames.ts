@@ -1,4 +1,6 @@
+import { boneNames } from './desecrationCurrency'
 export const currencyNames = {
+  ...boneNames,
   Orb_of_Transmutation: 'Orb of Transmutation',
   Orb_of_Augmentation: 'Orb of Augmentation',
   Orb_of_Chance: 'Orb of Chance',

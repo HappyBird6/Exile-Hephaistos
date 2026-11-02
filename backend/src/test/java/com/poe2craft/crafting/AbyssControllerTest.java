@@ -29,6 +29,43 @@ class AbyssControllerTest {
   @Autowired ObjectMapper json;
   final HysteriaEssenceTest fixture = new HysteriaEssenceTest();
 
+  @Test
+  void boneApplicationRequiresIdentityAndRestoresCurrencyConstraint() throws Exception {
+    var body =
+        json.valueToTree(
+            Map.of(
+                "state",
+                fixture.rare(82, "", "amulet:prefix:hale"),
+                "currency",
+                "Ancient_Collarbone",
+                "side",
+                "SUFFIX",
+                "activeOmens",
+                List.of()));
+    mvc.perform(
+            post("/api/v1/crafting/workbench/abyss/desecrate")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(json.writeValueAsBytes(body)))
+        .andExpect(status().isUnprocessableEntity());
+    var response =
+        mvc.perform(
+                post("/api/v1/crafting/workbench/abyss/desecrate")
+                    .header(RulesetBoundary.HEADER, RulesetBoundary.identity())
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(json.writeValueAsBytes(body)))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.slots[1].minimumModifierLevel").value(40))
+            .andExpect(jsonPath("$.slots[1].modifier").isEmpty())
+            .andReturn();
+    var next = json.readTree(response.getResponse().getContentAsString());
+    mvc.perform(
+            post("/api/v1/crafting/workbench/abyss/validate")
+                .header(RulesetBoundary.HEADER, RulesetBoundary.identity())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(json.writeValueAsBytes(Map.of("state", next))))
+        .andExpect(status().isOk());
+  }
+
   ObjectNode request() {
     var state =
         AbyssCraftingState.from(fixture.rare(82, "", "amulet:prefix:hale"), fixture.catalog)

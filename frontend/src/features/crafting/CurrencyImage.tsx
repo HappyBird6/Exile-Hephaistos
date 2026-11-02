@@ -9,7 +9,9 @@ export function CurrencyImage({
 }) {
   const { t } = useI18n()
   const [failed, setFailed] = useState(false)
-  return failed ? (
+  return !image ? (
+    <span className="currency-name-fallback">{name}</span>
+  ) : failed ? (
     <span
       className="currency-missing"
       title={`${name} · ${t('ui.image_unavailable')}`}

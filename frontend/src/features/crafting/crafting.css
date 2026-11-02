@@ -1302,3 +1302,11 @@ dialog.item-input-panel::backdrop {
 .abyss-panel .abyss-slot {
   color: #b5f36b;
 }
+
+.currency-name-fallback {
+  display: block;
+  font-size: 0.65rem;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+  text-align: center;
+}

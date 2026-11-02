@@ -17,6 +17,7 @@ import type { Definition, Initial } from './craftingApi'
 
 type Modifier = ConcreteItem['explicits'][number]
 type Slot = {
+  minimumModifierLevel?: 40 | null
   id: string
   side: 'PREFIX' | 'SUFFIX'
   modifier: Modifier | null
@@ -186,6 +187,8 @@ export function AbyssPanel({
   initialOmens = [],
   embedded = false,
   observationOnly = false,
+  localScenario = true,
+  allowAdd = true,
   restoredState,
   onTransition,
   onContinue,
@@ -198,6 +201,8 @@ export function AbyssPanel({
   restoredState?: AbyssState | undefined
   embedded?: boolean
   observationOnly?: boolean
+  localScenario?: boolean
+  allowAdd?: boolean
   onTransition?: (state: AbyssState, transition: FlowTransition) => void
   onContinue?: (state: AbyssState, item: Item) => void
 }) {
@@ -236,9 +241,10 @@ export function AbyssPanel({
   const activeOmens = draft.action === initialAction ? initialOmens : []
   const identity = initial.rulesetIdentity
   const seed = JSON.stringify(
-    prepared ? [prepared, initialAction, initialOmens] : source,
+    restoredState ??
+      (prepared ? [prepared, initialAction, initialOmens] : source),
   )
-  const key = ['abyss-v1', identity, seed]
+  const key = ['abyss-v1', identity, seed, localScenario]
   const storageKey = `hephaistos.abyss.v1:${identity}:${seed}`
   async function request<T>(
     operation: string,
@@ -269,7 +275,9 @@ export function AbyssPanel({
     staleTime: Infinity,
     retry: false,
     queryFn: async ({ signal }) => {
-      const saved = window.localStorage.getItem(storageKey)
+      const saved = localScenario
+        ? window.localStorage.getItem(storageKey)
+        : null
       if (restoredState)
         return request<AbyssState>('validate', { state: restoredState }, signal)
       return saved
@@ -295,6 +303,13 @@ export function AbyssPanel({
       transitionCallback.current?.(state, { operation: 'restore' })
     }
   }, [state])
+  const mounted = useRef(true)
+  useEffect(() => {
+    mounted.current = true
+    return () => {
+      mounted.current = false
+    }
+  }, [])
   const mutation = useMutation({
     mutationFn: ({
       operation,
@@ -304,6 +319,7 @@ export function AbyssPanel({
       payload: Record<string, unknown>
     }) => request<AbyssState>(operation, { state, ...payload }),
     onSuccess: (next, variables) => {
+      if (!mounted.current) return
       const operation = variables.operation as FlowTransition['operation']
       transitionCallback.current?.(next, {
         operation,
@@ -322,7 +338,8 @@ export function AbyssPanel({
       })
       client.setQueryData(key, next)
       try {
-        window.localStorage.setItem(storageKey, JSON.stringify(next))
+        if (localScenario)
+          window.localStorage.setItem(storageKey, JSON.stringify(next))
         setSaveError(false)
       } catch {
         setSaveError(true)
@@ -366,7 +383,9 @@ export function AbyssPanel({
   )
   const selected = state?.slots.find((s) => s.id === draft.slotId)
   const candidateDefinitions = definitions.filter(
-    (d) => d.affixType === selected?.side,
+    (d) =>
+      d.affixType === selected?.side &&
+      (d.requiredItemLevel ?? 1) >= (selected?.minimumModifierLevel ?? 0),
   )
   const label = (d: Definition, values?: Record<string, number>) =>
     localizedModifierText(d, values)
@@ -446,7 +465,7 @@ export function AbyssPanel({
                     ))}
                 </select>
               </label>
-              {!observationOnly && (
+              {!observationOnly && allowAdd && (
                 <>
                   <label>
                     {t[4]}{' '}

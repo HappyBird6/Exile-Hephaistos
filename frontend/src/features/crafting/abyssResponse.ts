@@ -108,6 +108,8 @@ export function validAbyssResponse(
         s.id.length > 0 &&
         (s.side === 'PREFIX' || s.side === 'SUFFIX') &&
         typeof s.desecrated === 'boolean' &&
+        (s.minimumModifierLevel == null ||
+          (s.desecrated && s.minimumModifierLevel === 40)) &&
         (s.modifier === null
           ? s.desecrated
           : modifier(s.modifier) &&

@@ -2095,5 +2095,70 @@
     ],
     "sourceUrl": "https://poe2db.tw/us/Liquid_Verisium",
     "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Gnawed_Jawbone": {
+    "name": "Gnawed Jawbone",
+    "lines": [
+      "Rare weapon or quiver: add an unrevealed desecrated modifier.",
+      "Item level at most 64."
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Gnawed_Jawbone"
+  },
+  "Preserved_Jawbone": {
+    "name": "Preserved Jawbone",
+    "lines": ["Rare weapon or quiver: add an unrevealed desecrated modifier."],
+    "sourceUrl": "https://poe2db.tw/us/Preserved_Jawbone"
+  },
+  "Ancient_Jawbone": {
+    "name": "Ancient Jawbone",
+    "lines": [
+      "Rare weapon or quiver: add an unrevealed desecrated modifier.",
+      "Revealed modifier level at least 40."
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Jawbone"
+  },
+  "Gnawed_Rib": {
+    "name": "Gnawed Rib",
+    "lines": [
+      "Rare armour: add an unrevealed desecrated modifier.",
+      "Item level at most 64."
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Gnawed_Rib"
+  },
+  "Preserved_Rib": {
+    "name": "Preserved Rib",
+    "lines": ["Rare armour: add an unrevealed desecrated modifier."],
+    "sourceUrl": "https://poe2db.tw/us/Preserved_Rib"
+  },
+  "Ancient_Rib": {
+    "name": "Ancient Rib",
+    "lines": [
+      "Rare armour: add an unrevealed desecrated modifier.",
+      "Revealed modifier level at least 40."
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Rib"
+  },
+  "Gnawed_Collarbone": {
+    "name": "Gnawed Collarbone",
+    "lines": [
+      "Rare amulet, ring or belt: add an unrevealed desecrated modifier.",
+      "Item level at most 64."
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Gnawed_Collarbone"
+  },
+  "Preserved_Collarbone": {
+    "name": "Preserved Collarbone",
+    "lines": [
+      "Rare amulet, ring or belt: add an unrevealed desecrated modifier."
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Preserved_Collarbone"
+  },
+  "Ancient_Collarbone": {
+    "name": "Ancient Collarbone",
+    "lines": [
+      "Rare amulet, ring or belt: add an unrevealed desecrated modifier.",
+      "Revealed modifier level at least 40."
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Collarbone"
   }
 }

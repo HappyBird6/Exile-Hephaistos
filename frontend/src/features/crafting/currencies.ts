@@ -1,5 +1,14 @@
 /* Display-only catalog; positions from the approved Currency page. No game rules. */
 export const currencies = [
+  { id: 'Gnawed_Rib', x: 669, y: 40, image: '' },
+  { id: 'Preserved_Rib', x: 759, y: 40, image: '' },
+  { id: 'Ancient_Rib', x: 849, y: 40, image: '' },
+  { id: 'Gnawed_Jawbone', x: 669, y: 140, image: '' },
+  { id: 'Preserved_Jawbone', x: 759, y: 140, image: '' },
+  { id: 'Ancient_Jawbone', x: 849, y: 140, image: '' },
+  { id: 'Gnawed_Collarbone', x: 669, y: 240, image: '' },
+  { id: 'Preserved_Collarbone', x: 759, y: 240, image: '' },
+  { id: 'Ancient_Collarbone', x: 849, y: 240, image: '' },
   {
     id: 'Artificers_Orb',
     x: 574,

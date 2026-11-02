@@ -79,7 +79,11 @@ public final class AbyssProbabilityComparison {
                   s ->
                       s.id().equals(slotId)
                           ? new AbyssCraftingState.Slot(
-                              s.id(), s.side(), new ModifierInstance(blocker.id(), values), true)
+                              s.id(),
+                              s.side(),
+                              new ModifierInstance(blocker.id(), values),
+                              true,
+                              s.minimumModifierLevel())
                           : s)
               .toList();
       var scenario = new AbyssCraftingState(state.item(), slots, null);

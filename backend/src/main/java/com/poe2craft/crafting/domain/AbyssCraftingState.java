@@ -18,8 +18,19 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
       throw new IllegalArgumentException("Offer must target a desecrated slot");
   }
 
-  public record Slot(String id, AffixType side, ModifierInstance modifier, boolean desecrated) {
+  public record Slot(
+      String id,
+      AffixType side,
+      ModifierInstance modifier,
+      boolean desecrated,
+      Integer minimumModifierLevel) {
+    public Slot(String id, AffixType side, ModifierInstance modifier, boolean desecrated) {
+      this(id, side, modifier, desecrated, null);
+    }
+
     public Slot {
+      if (minimumModifierLevel != null && (!desecrated || minimumModifierLevel != 40))
+        throw new IllegalArgumentException("Unsupported desecration level constraint");
       if (id == null || id.isBlank() || id.length() > 160 || side == null || side == AffixType.NONE)
         throw new IllegalArgumentException("Slot identity and affix side are required");
       if (modifier == null && !desecrated)
@@ -56,11 +67,12 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
               marked.map(ItemState.DesecratedSlot::id).orElse("explicit-" + i),
               d.affixType(),
               m,
-              marked.isPresent()));
+              marked.isPresent(),
+              marked.map(ItemState.DesecratedSlot::minimumModifierLevel).orElse(null)));
     }
     state.desecrated().stream()
         .filter(s -> s.modifierId() == null)
-        .forEach(s -> slots.add(new Slot(s.id(), s.side(), null, true)));
+        .forEach(s -> slots.add(new Slot(s.id(), s.side(), null, true, s.minimumModifierLevel())));
     var result = new AbyssCraftingState(withExplicits(state, List.of()), slots, null);
     result.validate(catalog);
     return result;
@@ -83,7 +95,8 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
                         new ItemState.DesecratedSlot(
                             s.id(),
                             s.side(),
-                            s.modifier() == null ? null : s.modifier().modifierId()))
+                            s.modifier() == null ? null : s.modifier().modifierId(),
+                            s.minimumModifierLevel()))
                 .toList());
   }
 
@@ -102,6 +115,11 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
         || count(AffixType.SUFFIX) > capacity.maxSuffixes())
       throw new IllegalArgumentException("Explicit affix capacity exceeded");
     for (var slot : slots) {
+      if (slot.minimumModifierLevel() != null
+          && slot.modifier() != null
+          && catalog.find(slot.modifier().modifierId()).orElseThrow().requiredItemLevel()
+              < slot.minimumModifierLevel())
+        throw new IllegalArgumentException("Candidate violates currency level limit");
       if (slot.modifier() != null
           && catalog
                   .find(slot.modifier().modifierId())
@@ -154,11 +172,17 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
         catalog
             .find(candidate.modifierId())
             .orElseThrow(() -> new IllegalArgumentException("Unknown slot or modifier"));
-    if (definition.requiredItemLevel() > item.itemLevel())
-      throw new IllegalArgumentException("Candidate exceeds item level");
+    if (definition.requiredItemLevel() > item.itemLevel()
+        || (target.minimumModifierLevel() != null
+            && definition.requiredItemLevel() < target.minimumModifierLevel()))
+      throw new IllegalArgumentException("Candidate violates item or currency level limits");
     var next =
         slots.stream()
-            .map(s -> s.id().equals(id) ? new Slot(id, s.side(), candidate, true) : s)
+            .map(
+                s ->
+                    s.id().equals(id)
+                        ? new Slot(id, s.side(), candidate, true, s.minimumModifierLevel())
+                        : s)
             .toList();
     var result = new AbyssCraftingState(item, next, null);
     result.validate(catalog);
