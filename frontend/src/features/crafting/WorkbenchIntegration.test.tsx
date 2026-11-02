@@ -30,7 +30,7 @@ function show() {
     </QueryClientProvider>,
   )
 }
-it('keeps outer tabs independent and registers a material in ten inner favorites', () => {
+it('uses one selector for right content and registers a material in ten bottom favorites', () => {
   show()
   const inner = within(
     document.querySelector('.workbench-stash') as HTMLElement,
@@ -40,10 +40,11 @@ it('keeps outer tabs independent and registers a material in ten inner favorites
     'aria-selected',
     'true',
   )
-  fireEvent.click(inner.getByRole('tab', { name: 'Essence' }))
+  expect(inner.queryByRole('tablist')).toBeNull()
+  fireEvent.click(outer.getByRole('tab', { name: 'Essence' }))
   expect(outer.getByRole('tab', { name: 'Currency' })).toHaveAttribute(
     'aria-selected',
-    'true',
+    'false',
   )
   expect(
     inner.queryByRole('button', { name: 'Lesser Essence of the Body' }),
@@ -51,7 +52,9 @@ it('keeps outer tabs independent and registers a material in ten inner favorites
   fireEvent.click(
     inner.getByRole('button', { name: 'Greater Essence of the Body' }),
   )
-  const favorites = inner.getByRole('group', {
+  const favorites = within(
+    document.querySelector('.workbench-favorites-region') as HTMLElement,
+  ).getByRole('group', {
     name: 'Shared material favorites',
   })
   expect(within(favorites).getAllByRole('button')).toHaveLength(10)

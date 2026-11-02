@@ -1,3 +1,10 @@
+## 2026-11-02 layout correction in integration (not yet served)
+
+A's correction uses one existing category selector for the right content and places favorites
+below the whole crafting surface. Focused 59/59 plus App 6/6 and lint/type/format/build pass.
+The existing server remains at 8524b6b; C's correction commit is awaited before replacement.
+See [the correction checkpoint](../evidence/workbench-layout-correction-20261102.md).
+
 ## 2026-11-02 integrated workbench
 
 A/B/C/D and the supplied Fire Quiver image are integrated on `codex/workbench-integration-20261102`.
