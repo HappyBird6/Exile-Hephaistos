@@ -59,3 +59,22 @@ export function sourcePropertyUnscaled(key: string): boolean {
   const base = topEntries[key]
   return !!base && familyPolicies[base.family]?.sourcePropertyUnscaled === true
 }
+
+// Exact identity only: shared display names (e.g. Shrine Sceptre) stay unresolved.
+export function clipboardBase(
+  name: string,
+  itemClass: string,
+): WorkbenchBaseKey | undefined {
+  const matches = (Object.keys(baseTexts) as WorkbenchBaseKey[]).filter(
+    (key) => {
+      const expectedClass = baseClass(key)
+      return (
+        baseTexts[key].split('\n').at(-1) === name &&
+        (expectedClass === itemClass ||
+          (['Amulet', 'Amulets'].includes(expectedClass) &&
+            ['Amulet', 'Amulets'].includes(itemClass)))
+      )
+    },
+  )
+  return matches.length === 1 ? matches[0] : undefined
+}

@@ -1,6 +1,11 @@
 import { AbyssPanel } from './AbyssPanel'
 import { readSupport, saveSupport } from './method-search/supportStorage'
-import { baseSlugs, baseClass, sourcePropertyUnscaled } from './baseRegistry'
+import {
+  baseSlugs,
+  baseClass,
+  sourcePropertyUnscaled,
+  clipboardBase,
+} from './baseRegistry'
 import type { WorkbenchBaseKey } from './baseRegistry'
 import { topBase, topBaseKey, reviewedArmourKeys } from './topBases'
 import { ServiceMessage } from './ServiceMessage'
@@ -87,6 +92,13 @@ export function CraftingPage() {
   const { t, name, locale } = useI18n()
   const client = useQueryClient()
   const draft = useItemDraft()
+  const imported = useItemTextImport()
+  const importedBase = imported.data
+    ? clipboardBase(
+        imported.data.displayBase ?? imported.data.displayName,
+        imported.data.itemClass,
+      )
+    : undefined
   const [filmState, setFilmState] = useState(() => {
     try {
       return {
@@ -111,7 +123,7 @@ export function CraftingPage() {
   const storedLevel = storedFrame?.state?.itemLevel
   const catalogBase =
     draft.source === 'text'
-      ? 'solar'
+      ? (importedBase ?? 'solar')
       : (topBaseKey(storedFrame?.state.baseItemId) ??
         (Object.values(workbenchJewelBases).some(
           (id) => id === storedFrame?.state.baseItemId,
@@ -175,7 +187,9 @@ export function CraftingPage() {
   const catalogLevel =
     Number.isInteger(storedLevel) && storedLevel! >= 1 && storedLevel! <= 100
       ? storedLevel!
-      : draft.baseItemLevel
+      : draft.source === 'text'
+        ? (imported.data?.itemLevel ?? draft.baseItemLevel)
+        : draft.baseItemLevel
   function saveFilms(history: Films, revision = draft.baseRevision) {
     let error = filmState.error
     if (!filmState.blockedSaving) {
@@ -197,7 +211,6 @@ export function CraftingPage() {
   useEffect(() => {
     saveSupport('workspace', view)
   }, [view])
-  const imported = useItemTextImport()
   const dialog = useRef<HTMLDialogElement>(null)
   const [searches, setSearches] = useState<
     Partial<Record<MaterialTab, string>>
@@ -622,7 +635,13 @@ export function CraftingPage() {
     setHeld(null)
   }
   async function enableCrafting() {
-    if (applyingRequest.current || !imported.data || !initial.data) return
+    if (
+      applyingRequest.current ||
+      !imported.data ||
+      !importedBase ||
+      !initial.data
+    )
+      return
     const controller = new AbortController()
     const revision = draft.baseRevision
     applyingRequest.current = controller
@@ -642,7 +661,9 @@ export function CraftingPage() {
       if (
         result.mapped &&
         (result.state?.snapshotId !== initial.data.metadata.snapshotId ||
-          result.state?.baseItemId !== initial.data.state.baseItemId)
+          result.state?.baseItemId !== initial.data.state.baseItemId ||
+          !result.state ||
+          !verifiedHistoryState(result.state, initial.data))
       )
         throw new Error(
           'The item uses another catalog snapshot or base. Please reload the catalog.',
@@ -660,7 +681,7 @@ export function CraftingPage() {
         )
       setAnnouncement(
         result.mapped
-          ? 'Solar Amulet catalog mapping verified. Crafting is enabled; original text remains in Edit item.'
+          ? t('notice.import_ready')
           : 'Crafting mapping is blocked. The original text and unresolved lines are preserved.',
       )
     } catch (error) {
@@ -1554,7 +1575,9 @@ export function CraftingPage() {
                   <button
                     type="button"
                     onClick={() => void enableCrafting()}
-                    disabled={applying !== null || !initial.data}
+                    disabled={
+                      applying !== null || !initial.data || !importedBase
+                    }
                   >
                     {t('ui.enable_solar_crafting')}
                   </button>
@@ -1562,8 +1585,8 @@ export function CraftingPage() {
                 {mapping.data && (
                   <p>
                     {mapping.data.mapped
-                      ? 'Catalog mapping verified. Original clipboard text is retained in Edit item.'
-                      : 'Catalog mapping blocked:'}
+                      ? t('notice.import_ready')
+                      : t('notice.import_blocked')}
                   </p>
                 )}
                 {mapping.data?.issues.map((issue, index) => (

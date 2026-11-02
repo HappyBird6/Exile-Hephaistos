@@ -70,7 +70,7 @@
     "ui.retry_catalog": "Retry catalog",
     "ui.loading_crafting_catalog": "Loading crafting catalog...",
     "ui.updating_item": "Updating item...",
-    "ui.enable_solar_crafting": "Enable Solar crafting",
+    "ui.enable_solar_crafting": "Enable crafting",
     "ui.official_homogenising_source": "Official Homogenising source",
     "ui.official_0_3_availability": "Official 0.3 availability",
     "ui.official_legacy_availability": "Official legacy availability",
@@ -441,7 +441,9 @@
     "paths.provenanceError": "Could not verify current probability provenance. Previously verified results remain available. Refresh to retry.",
     "paths.requestError": "Probability request failed ({status}). Inputs are preserved; no probability is available.",
     "paths.responseError": "Could not verify the probability response. No result is displayed. Inputs are preserved.",
-    "paths.level": "level"
+    "paths.level": "level",
+    "notice.import_ready": "Ready to craft. Your original item text is kept in Edit item.",
+    "notice.import_blocked": "This item could not be imported for crafting. Your original text is preserved."
   },
   "ko": {
     "language": "언어",
@@ -514,7 +516,7 @@
     "ui.retry_catalog": "카탈로그 다시 불러오기",
     "ui.loading_crafting_catalog": "제작 카탈로그 불러오는 중...",
     "ui.updating_item": "아이템 갱신 중...",
-    "ui.enable_solar_crafting": "태양의 목걸이 제작 활성화",
+    "ui.enable_solar_crafting": "제작 활성화",
     "ui.official_homogenising_source": "동질화 징조 공식 출처",
     "ui.official_0_3_availability": "공식 0.3 획득 여부",
     "ui.official_legacy_availability": "공식 레거시 획득 여부",
@@ -885,7 +887,9 @@
     "paths.provenanceError": "현재 확률 provenance를 검증하지 못했습니다. 이전에 검증한 결과는 유지됩니다. 다시 조회하여 재시도하세요.",
     "paths.requestError": "확률 요청 실패 ({status}). 입력은 보존되며 확률 결과는 제공되지 않습니다.",
     "paths.responseError": "확률 응답을 검증하지 못했습니다. 결과를 표시하지 않으며 입력은 보존됩니다.",
-    "paths.level": "레벨"
+    "paths.level": "레벨",
+    "notice.import_ready": "제작할 준비가 되었습니다. 원문은 아이템 편집에 보관됩니다.",
+    "notice.import_blocked": "이 아이템을 제작용으로 가져올 수 없습니다. 원문은 보존됩니다."
   },
   "zh-CN": {
     "language": "语言",
@@ -958,7 +962,7 @@
     "ui.retry_catalog": "重试加载目录",
     "ui.loading_crafting_catalog": "正在加载制作目录...",
     "ui.updating_item": "正在更新物品...",
-    "ui.enable_solar_crafting": "启用 Solar 制作",
+    "ui.enable_solar_crafting": "启用制作",
     "ui.official_homogenising_source": "Homogenising 官方来源",
     "ui.official_0_3_availability": "官方 0.3 获取说明",
     "ui.official_legacy_availability": "官方旧版获取说明",
@@ -1329,7 +1333,9 @@
     "paths.provenanceError": "无法验证当前概率来源信息。先前已验证的结果会保留。请重新获取以重试。",
     "paths.requestError": "概率请求失败（{status}）。输入已保留，无法提供概率结果。",
     "paths.responseError": "无法验证概率响应。不显示结果，输入已保留。",
-    "paths.level": "等级"
+    "paths.level": "等级",
+    "notice.import_ready": "可以开始制作。原始物品文本保留在编辑物品中。",
+    "notice.import_blocked": "无法导入此物品进行制作。原始文本已保留。"
   },
   "zh-TW": {
     "language": "語言",
@@ -1402,7 +1408,7 @@
     "ui.retry_catalog": "重試載入目錄",
     "ui.loading_crafting_catalog": "正在載入製作目錄...",
     "ui.updating_item": "正在更新物品...",
-    "ui.enable_solar_crafting": "啟用 Solar 製作",
+    "ui.enable_solar_crafting": "啟用製作",
     "ui.official_homogenising_source": "Homogenising 官方來源",
     "ui.official_0_3_availability": "官方 0.3 取得說明",
     "ui.official_legacy_availability": "官方舊版取得說明",
@@ -1773,7 +1779,9 @@
     "paths.provenanceError": "無法驗證目前機率來源資訊。先前已驗證的結果會保留。請重新取得以重試。",
     "paths.requestError": "機率請求失敗（{status}）。輸入已保留，無法提供機率結果。",
     "paths.responseError": "無法驗證機率回應。不顯示結果，輸入已保留。",
-    "paths.level": "等級"
+    "paths.level": "等級",
+    "notice.import_ready": "可以開始製作。原始物品文字保留在編輯物品中。",
+    "notice.import_blocked": "無法匯入此物品進行製作。原始文字已保留。"
   },
   "ja": {
     "language": "言語",
@@ -1846,7 +1854,7 @@
     "ui.retry_catalog": "カタログを再読込",
     "ui.loading_crafting_catalog": "クラフトカタログを読み込み中...",
     "ui.updating_item": "アイテムを更新中...",
-    "ui.enable_solar_crafting": "Solarクラフトを有効化",
+    "ui.enable_solar_crafting": "クラフトを有効化",
     "ui.official_homogenising_source": "Homogenisingの公式出典",
     "ui.official_0_3_availability": "公式0.3入手情報",
     "ui.official_legacy_availability": "公式レガシー入手情報",
@@ -2217,7 +2225,9 @@
     "paths.provenanceError": "現在の確率の出典情報を検証できませんでした。以前に検証した結果は保持されます。再取得してお試しください。",
     "paths.requestError": "確率のリクエストに失敗しました（{status}）。入力は保持され、確率の結果は利用できません。",
     "paths.responseError": "確率のレスポンスを検証できませんでした。結果は表示せず、入力は保持します。",
-    "paths.level": "レベル"
+    "paths.level": "レベル",
+    "notice.import_ready": "クラフトできます。元のテキストはアイテム編集に保存されています。",
+    "notice.import_blocked": "このアイテムをクラフト用に取り込めません。元のテキストは保持されています。"
   },
   "es": {
     "language": "Idioma",
@@ -2290,7 +2300,7 @@
     "ui.retry_catalog": "Recargar catálogo",
     "ui.loading_crafting_catalog": "Cargando catálogo de fabricación...",
     "ui.updating_item": "Actualizando objeto...",
-    "ui.enable_solar_crafting": "Activar fabricación Solar",
+    "ui.enable_solar_crafting": "Activar fabricación",
     "ui.official_homogenising_source": "Fuente oficial de Homogenising",
     "ui.official_0_3_availability": "Disponibilidad oficial en 0.3",
     "ui.official_legacy_availability": "Disponibilidad oficial del legado",
@@ -2661,6 +2671,8 @@
     "paths.provenanceError": "No se pudo verificar la procedencia actual de la probabilidad. Los resultados previamente verificados se conservan. Actualiza para volver a intentarlo.",
     "paths.requestError": "La solicitud de probabilidad falló ({status}). Las entradas se conservan; no hay probabilidad disponible.",
     "paths.responseError": "No se pudo verificar la respuesta de probabilidad. No se muestra ningún resultado y las entradas se conservan.",
-    "paths.level": "nivel"
+    "paths.level": "nivel",
+    "notice.import_ready": "Listo para fabricar. El texto original se conserva en Editar objeto.",
+    "notice.import_blocked": "No se pudo importar este objeto para fabricar. Se conserva el texto original."
   }
 }

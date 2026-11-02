@@ -803,7 +803,7 @@ export async function mapSolarText(
       v.state.itemLevel > 100 ||
       !['NORMAL', 'MAGIC', 'RARE'].includes(v.state.rarity) ||
       !Array.isArray(v.state.implicits) ||
-      v.state.implicits.length !== 1 ||
+      v.state.implicits.length > 1 ||
       !Array.isArray(v.state.conditions) ||
       v.state.conditions.length !== 0 ||
       v.state.explicits.length > 6 ||

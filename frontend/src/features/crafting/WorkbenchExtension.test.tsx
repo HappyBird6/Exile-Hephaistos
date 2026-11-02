@@ -240,62 +240,85 @@ describe('Workbench extensions', () => {
     ).toHaveAttribute('aria-selected', 'true')
   })
 
-  it('enables a server-validated Solar clipboard item without replacing the original text', async () => {
-    const original = 'original Solar clipboard document'
-    const parsed: Item = {
-      text: { originalText: original, lines: [] },
-      locale: 'en',
-      itemClass: 'Amulets',
-      rarity: 'RARE',
-      rarityText: 'Rare',
-      nameLines: [],
-      displayName: 'Imported Solar',
-      displayBase: 'Solar Amulet',
-      itemLevel: 82,
-      properties: [],
-      requirements: [],
-      markedModifiers: [],
-      modifiers: [],
-      flags: [],
-      unparsedLines: [],
-      warnings: [],
-    }
-    client.setQueryData(['workbench', 'current-item'], parsed)
-    useItemDraft.getState().acceptText(original)
-    vi.stubGlobal('fetch', (url: RequestInfo | URL, init?: RequestInit) =>
-      String(url).endsWith('/map-text')
-        ? Promise.resolve(
-            jsonResponse({
-              mapped: true,
-              state: {
-                ...concreteInitial(initialFixture),
-                rarity: 'RARE',
-                explicits: [{ modifierId: 'p', values: { life: 17 } }],
-              },
-              issues: [],
-            }),
-          )
-        : fixtureFetch(url, init),
-    )
-    show()
-    await waitFor(() =>
-      expect(
-        screen.getByRole('button', { name: 'Enable Solar crafting' }),
-      ).toBeEnabled(),
-    )
-    fireEvent.click(
-      screen.getByRole('button', { name: 'Enable Solar crafting' }),
-    )
-    await waitFor(() =>
-      expect(screen.getByRole('article')).toHaveTextContent(
-        '+17 to maximum Life',
-      ),
-    )
-    expect(useItemDraft.getState().currentText.text).toBe(original)
-    expect(useItemDraft.getState().source).toBe('text')
-    const whittling = favoriteOmen('Omen of Whittling', 1)
-    expect(whittling).toHaveClass('is-active-omen')
-  })
+  it.each([
+    ['solar', 'Solar Amulet', 'Amulets', 'solar'],
+    [
+      'soldier',
+      'Soldier Cuirass',
+      'Body Armours',
+      'Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame',
+    ],
+  ])(
+    'imports %s into its own catalog and preserves text and saved state',
+    async (key, baseName, itemClass, baseId) => {
+      const original = 'original clipboard document'
+      const initial = {
+        ...initialFixture,
+        state: {
+          ...initialFixture.state,
+          baseItemId: baseId,
+          implicits: key === 'solar' ? initialFixture.state.implicits : [],
+        },
+      }
+      client.setQueryData(['crafting', 'initial', key, 82], initial)
+      const parsed: Item = {
+        text: { originalText: original, lines: [] },
+        locale: 'en',
+        itemClass,
+        rarity: 'RARE',
+        rarityText: 'Rare',
+        nameLines: [],
+        displayName: 'Imported Solar',
+        displayBase: baseName,
+        itemLevel: 82,
+        properties: [],
+        requirements: [],
+        markedModifiers: [],
+        modifiers: [],
+        flags: [],
+        unparsedLines: [],
+        warnings: [],
+      }
+      client.setQueryData(['workbench', 'current-item'], parsed)
+      useItemDraft.getState().acceptText(original)
+      vi.stubGlobal('fetch', (url: RequestInfo | URL, init?: RequestInit) =>
+        String(url).endsWith('/map-text')
+          ? Promise.resolve(
+              jsonResponse({
+                mapped: true,
+                state: {
+                  ...concreteInitial(initial),
+                  rarity: 'RARE',
+                  explicits: [{ modifierId: 'p', values: { life: 17 } }],
+                },
+                issues: [],
+              }),
+            )
+          : fixtureFetch(url, init),
+      )
+      show()
+      await waitFor(() =>
+        expect(
+          screen.getByRole('button', { name: 'Enable crafting' }),
+        ).toBeEnabled(),
+      )
+      fireEvent.click(screen.getByRole('button', { name: 'Enable crafting' }))
+      await waitFor(() =>
+        expect(screen.getByRole('article')).toHaveTextContent(
+          '+17 to maximum Life',
+        ),
+      )
+      expect(useItemDraft.getState().currentText.text).toBe(original)
+      expect(useItemDraft.getState().source).toBe('text')
+      const saved = new LocalFilmRepository(window.localStorage).load()
+      expect(saved.films.at(-1)?.frames[0]?.state.baseItemId).toBe(baseId)
+      expect(saved.films.at(-1)?.frames[0]?.state.explicits).toEqual([
+        { modifierId: 'p', values: { life: 17 } },
+      ])
+      const whittling = favoriteOmen('Omen of Whittling', 1)
+      expect(whittling).toHaveClass('is-active-omen')
+    },
+  )
 
   it('rejects an unknown mapped modifier instead of rendering it as a validated item', async () => {
     vi.stubGlobal('fetch', () =>

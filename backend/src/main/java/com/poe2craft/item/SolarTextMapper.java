@@ -13,19 +13,33 @@ import java.util.regex.Pattern;
 public final class SolarTextMapper {
   private static final Pattern RANGE =
       Pattern.compile("\\((-?\\d+(?:\\.\\d+)?)\\s*[\u2014\u2013-]\\s*(-?\\d+(?:\\.\\d+)?)\\)");
-  private final ItemCatalog catalog;
+  private final List<ItemCatalog> catalogs;
 
   public SolarTextMapper(ItemCatalog catalog) {
-    this.catalog = catalog;
+    this(List.of(catalog));
+  }
+
+  public SolarTextMapper(List<ItemCatalog> catalogs) {
+    this.catalogs = List.copyOf(catalogs);
   }
 
   public Result map(ItemModels.Item item) {
+    String name = item.displayBase() == null ? item.displayName() : item.displayBase();
+    var candidates = catalogs.stream().filter(c -> c.base().name().equals(name)).toList();
+    if (candidates.size() != 1)
+      return new Result(
+          false, null, List.of(new Issue(0, "An exact, unambiguous registered base is required.")));
+    return map(item, candidates.getFirst());
+  }
+
+  private Result map(ItemModels.Item item, ItemCatalog catalog) {
     var issues = new ArrayList<Issue>();
-    String base = item.displayBase() == null ? item.displayName() : item.displayBase();
-    if (!"Solar Amulet".equals(base))
-      issues.add(new Issue(0, "Only an exact Solar Amulet base can be mapped."));
-    if (!Set.of("Amulet", "Amulets").contains(item.itemClass()))
-      issues.add(new Issue(0, "Unsupported item class."));
+    String expectedClass = BaseRegistry.itemClass(catalog.base().id());
+    if (expectedClass == null
+        || !(expectedClass.equals(item.itemClass())
+            || (expectedClass.equals("Amulet") && item.itemClass().equals("Amulets"))
+            || (expectedClass.equals("Amulets") && item.itemClass().equals("Amulet"))))
+      issues.add(new Issue(0, "Item class does not match the registered base."));
     if (item.itemLevel() == null || item.itemLevel() < 1 || item.itemLevel() > 100)
       issues.add(new Issue(0, "Item level 1 to 100 is required."));
     if (!Set.of(ItemModels.Rarity.NORMAL, ItemModels.Rarity.MAGIC, ItemModels.Rarity.RARE)

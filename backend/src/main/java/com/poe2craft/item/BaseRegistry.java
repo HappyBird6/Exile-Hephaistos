@@ -37,6 +37,7 @@ public final class BaseRegistry {
   private static final Map<String, Base> TOP;
   private static final Map<String, Policy> POLICIES;
   private static final Set<String> KEYS;
+  private static final Map<String, String> CLASSES;
 
   static {
     try (var bases = com.poe2craft.support.SealedResources.open("/catalog/top-bases.json");
@@ -50,6 +51,16 @@ public final class BaseRegistry {
       TOP = snapshot.top();
       POLICIES = snapshot.policies();
       KEYS = snapshot.keys();
+      var classes = new LinkedHashMap<String, String>();
+      TOP.values().forEach(b -> classes.put(b.id(), b.policy().itemClass()));
+      rules
+          .path("legacy")
+          .forEach(
+              b -> {
+                String header = b.path("initialText").asText().split("\\n")[0];
+                classes.put(b.path("id").asText(), header.substring("Item Class: ".length()));
+              });
+      CLASSES = Collections.unmodifiableMap(classes);
     } catch (IOException e) {
       throw new ExceptionInInitializerError(e);
     }
@@ -208,6 +219,10 @@ public final class BaseRegistry {
     var base = TOP.get(key);
     if (base == null) throw new IllegalArgumentException("Unreviewed endgame base");
     return base;
+  }
+
+  public static String itemClass(String id) {
+    return CLASSES.get(id);
   }
 
   public static Policy policy(String id) {

@@ -136,8 +136,8 @@ public class CraftingConfiguration {
   }
 
   @Bean
-  SolarTextMapper solarTextMapper(ItemCatalog catalog) {
-    return new SolarTextMapper(catalog);
+  SolarTextMapper solarTextMapper(WorkbenchService workbench) {
+    return new SolarTextMapper(workbench.reviewedCatalogs());
   }
 
   @Bean
