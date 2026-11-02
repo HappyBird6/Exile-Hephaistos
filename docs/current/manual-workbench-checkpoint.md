@@ -1,3 +1,12 @@
+## 2026-11-02 integrated workbench
+
+A/B/C/D and the supplied Fire Quiver image are integrated on `codex/workbench-integration-20261102`.
+The final frontend has 2,465 passing tests. Backend impact tests 75/75 and DB integration 8/8 pass;
+40 pre-existing backend failures remain, with no unresolved new failure. Local server: http://localhost:9001.
+See [integration and 18 checks](../evidence/workbench-integration-20261102.md) and
+[machine-readable validation](../evidence/workbench-integration-validation-20261102.json).
+Historical evidence below is preserved.
+
 > WB-052 최신 작업: [화폐 11종·징조 제한·직접 옵션 선택 및 저장/복원](../evidence/manual-reveal-20261102.md). 후보 3개 입력을 직접 선택으로 대체했습니다. 확률·무작위 결과를 만들지 않으며 Mark의 고등급 교체·검증되지 않은 조합·범위 밖 경로석은 별도 한계로 남습니다. 자동 브라우저·배포·push는 수행하지 않았습니다.
 
 > 최신 구현·검증 및 직접 테스트 절차: [입력 상태 보존 완료 기록](../evidence/manual-workbench-input-state-20261102.md). 아래 목록은 134종 기록 호환 / 130종 신규 선택 범위의 근거입니다. 브라우저 자동 검증은 사용자 요청으로 미뤘으며, 훼손 화폐의 최신 상태는 위 WB-052 기록을 참조합니다.
