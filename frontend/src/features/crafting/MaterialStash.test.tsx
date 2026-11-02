@@ -274,7 +274,7 @@ describe('Material stash and shared favorites', () => {
     )
     expect(
       within(document.getElementById('material-list')!).getAllByRole('button'),
-    ).toHaveLength(22)
+    ).toHaveLength(31)
     for (const name of [
       'Mirror of Kalandra',
       'Orb of Chance',
@@ -373,7 +373,7 @@ describe('Material stash and shared favorites', () => {
           within(document.getElementById('material-list')!).getAllByRole(
             'button',
           ),
-        ).toHaveLength(31)
+        ).toHaveLength(22)
       }
       expect(
         within(

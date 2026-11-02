@@ -216,3 +216,56 @@ it('offers all nine bones in the first tab and applies into the main film; resto
   restored.unmount()
   client.clear()
 })
+
+it('removes the selected modifier when a restored full item has noncanonical observation order', async () => {
+  const ids = ['z', 'a', 'b', 'c', 'd', 'e']
+  const initial = structuredClone(initialFixture)
+  const explicits = ids.map((id, index) => {
+    const template = initialFixture.modifiers[index < 3 ? 'p' : 's']!
+    initial.modifiers[id] = { ...template, id, familyIds: [id] }
+    return {
+      modifierId: id,
+      values: Object.fromEntries(
+        template.stats!.map((stat) => [stat.id, stat.min]),
+      ),
+    }
+  })
+  const source = { ...root, explicits }
+  const result: AbyssState = {
+    item: { ...root, explicits: [] },
+    offer: null,
+    slots: [
+      ...explicits.slice(1).map((modifier, index) => ({
+        id: `explicit-${index}`,
+        side: initial.modifiers[modifier.modifierId]!.affixType as
+          'PREFIX' | 'SUFFIX',
+        modifier,
+        desecrated: false,
+      })),
+      { id: 'new', side: 'PREFIX', modifier: null, desecrated: true },
+    ],
+  }
+  const fetch = vi.fn<
+    (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>
+  >(() => Promise.resolve(jsonResponse(result)))
+  vi.stubGlobal('fetch', fetch)
+  const next = await applyBone(
+    source,
+    'Preserved_Collarbone',
+    'PREFIX',
+    'explicit-0',
+    [],
+    initial,
+    new AbortController().signal,
+    'unchanged',
+  )
+  expect(
+    JSON.parse(fetch.mock.calls[0]![1]!.body as string).removedSlotId,
+  ).toBe('explicit-5')
+  expect(
+    next.slots.flatMap((slot) =>
+      slot.modifier ? [slot.modifier.modifierId] : [],
+    ),
+  ).toEqual(['a', 'b', 'c', 'd', 'e'])
+  expect(source.explicits.map((modifier) => modifier.modifierId)).toEqual(ids)
+})

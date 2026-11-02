@@ -84,6 +84,17 @@ export async function applyBone(
   signal: AbortSignal,
   errorMessage: string,
 ): Promise<AbyssState> {
+  // ItemState canonicalizes explicit IDs before Abyss import. Saved observation
+  // order can differ, so map the user's chosen modifier to that wire slot.
+  const removed = state.explicits.find(
+    (_, index) => `explicit-${index}` === removedSlotId,
+  )
+  const canonical = [...state.explicits].sort((a, b) =>
+    a.modifierId < b.modifierId ? -1 : a.modifierId > b.modifierId ? 1 : 0,
+  )
+  const wireRemoval = removed
+    ? `explicit-${canonical.findIndex((m) => m.modifierId === removed.modifierId)}`
+    : removedSlotId
   const response = await fetch('/api/v1/crafting/workbench/abyss/desecrate', {
     method: 'POST',
     headers: rulesetHeaders(initial.rulesetIdentity),
@@ -92,7 +103,7 @@ export async function applyBone(
       state,
       currency,
       side: side || null,
-      removedSlotId: removedSlotId || null,
+      removedSlotId: wireRemoval || null,
       activeOmens,
     }),
   })

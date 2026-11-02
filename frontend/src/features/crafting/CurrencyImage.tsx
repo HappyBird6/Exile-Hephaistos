@@ -1,16 +1,20 @@
 import { useState } from 'react'
 import { useI18n } from '../../shared/i18n/i18n'
 export function CurrencyImage({
+  id,
   image,
   name,
 }: {
+  id?: string
   image: string
   name: string
 }) {
-  const { t } = useI18n()
+  const { t, name: localizedName } = useI18n()
   const [failed, setFailed] = useState(false)
   return !image ? (
-    <span className="currency-name-fallback">{name}</span>
+    <span className="currency-name-fallback">
+      {id ? localizedName(id, name) : name}
+    </span>
   ) : failed ? (
     <span
       className="currency-missing"
