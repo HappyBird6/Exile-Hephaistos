@@ -338,7 +338,7 @@ class WorkbenchControllerTest {
         .andExpect(
             jsonPath("$.ruleVersion")
                 .value(
-                    "solar-workbench-abyss-essence-v16-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-plus-one-v1"));
+                    "solar-workbench-abyss-essence-v16-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2"));
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
                 .header(

@@ -60,6 +60,9 @@ it('persists unknown slots, ancient limits and observed offers without charging 
     'unused',
     initialFixture.rulesetIdentity,
   )
+  // New receipts distinguish an observed empty consumption set from missing legacy data.
+  expect(currentFrame(applied)?.manual?.consumedOmens).toEqual([])
+  expect(currentFrame(before)?.manual).toBeUndefined()
   const modifier = { modifierId: 'p', values: { maximum_life: 10 } }
   const observed = {
     ...state,

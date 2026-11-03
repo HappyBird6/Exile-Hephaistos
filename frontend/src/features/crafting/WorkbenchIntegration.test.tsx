@@ -59,11 +59,12 @@ it('uses one selector for right content and registers a material in ten bottom f
   fireEvent.click(
     inner.getByRole('button', { name: 'Greater Essence of the Body' }),
   )
-  const favorites = within(
-    document.querySelector('.workbench-favorites-region') as HTMLElement,
-  ).getByRole('group', {
+  const favorites = screen.getByRole('group', {
     name: 'Shared material favorites',
   })
+  expect(document.querySelector('.stash-canvas__content')).toContainElement(
+    favorites,
+  )
   expect(within(favorites).getAllByRole('button')).toHaveLength(10)
   fireEvent.click(within(favorites).getAllByRole('button')[0]!)
   expect(within(favorites).getAllByRole('button')[0]).toHaveAccessibleName(
@@ -161,8 +162,10 @@ it('places material controls inside the canvas and history controls below the ba
   expect(canvas).toContainElement(
     screen.getByRole('checkbox', { name: 'Show tooltips' }),
   )
-  expect(canvas).toContainElement(
-    document.querySelector('.workbench-favorites-region'),
+  expect(document.querySelector('.workbench-favorites-region')).toBeNull()
+  const plane = canvas.querySelector('.stash-canvas__content')!
+  expect(plane).toContainElement(
+    document.querySelector('.workbench-stash__favorites'),
   )
   const buttons = document.querySelector('.wb-session-library-buttons')!
   expect(buttons.previousElementSibling).toHaveClass('workbench-session-entry')

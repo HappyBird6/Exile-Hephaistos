@@ -1501,8 +1501,6 @@ export function CraftingPage() {
                       )
                     }}
                   />
-                </div>
-                <div className="workbench-favorites-region">
                   <WorkbenchFavorites
                     excludedIds={excludedResourceIds}
                     selectedId={selected?.id ?? null}
@@ -1571,18 +1569,6 @@ export function CraftingPage() {
                   </button>
                 )}
               </div>
-              {applicationFailure && (
-                <div
-                  className="workbench-feedback-panel"
-                  tabIndex={0}
-                  role="alert"
-                  aria-label={t('ui.crafting_notes')}
-                >
-                  <p className="workbench-feedback">
-                    {serviceText(applicationFailure)}
-                  </p>
-                </div>
-              )}
               <div className="workbench-input-status">
                 {mapping.data?.issues.map((issue, index) => (
                   <p key={index}>
@@ -1821,6 +1807,18 @@ export function CraftingPage() {
                   />
                 )}
               </div>
+              {applicationFailure && (
+                <div
+                  className="workbench-feedback-panel"
+                  tabIndex={0}
+                  role="alert"
+                  aria-label={t('ui.crafting_notes')}
+                >
+                  <p className="workbench-feedback">
+                    {serviceText(applicationFailure)}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
           <WorkbenchBasePicker

@@ -99,6 +99,22 @@ class AutomaticSearchServiceTest {
   }
 
   @Test
+  void previousPlusOneManualPolicyRemainsAnImmutableObservation() throws Exception {
+    var repository = new Repository(); var json = new ObjectMapper(); String id;
+    try (var service = service(repository)) { id = service.create("owner", request("previous-quality-policy")).id(); }
+    var document = (com.fasterxml.jackson.databind.node.ObjectNode) json.readTree(repository.read(id));
+    var model = (com.fasterxml.jackson.databind.node.ObjectNode) document.path("graph").path("identity").path("model");
+    model.put("ruleVersion", model.path("ruleVersion").asText().replace("user-selected-equipment-quality-maximum-v2", "user-selected-equipment-quality-plus-one-v1"));
+    repository.save(id, json.writeValueAsBytes(document)); var before = repository.read(id);
+    try (var service = service(repository)) {
+      var view = service.get("owner", id);
+      assertThat(view.reason()).isEqualTo("LEGACY_READ_ONLY"); assertThat(view.canResume()).isFalse();
+      assertThatThrownBy(() -> service.control("owner", id, new AutomaticSearchService.Control("resume-old-policy",view.revision(),view.generation(),"RESUME"))).hasMessage("RECALCULATION_REQUIRED");
+      assertThat(repository.read(id)).isEqualTo(before);
+    }
+  }
+
+  @Test
   void currentGraphWithOldManualModelIsImmutableReadOnly() throws Exception {
     var repository = new Repository();
     var json = new ObjectMapper();

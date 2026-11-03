@@ -33,7 +33,8 @@ function show() {
     </QueryClientProvider>,
   )
 }
-const panel = () => document.querySelector('.workbench-feedback-panel')
+const panel = () =>
+  document.querySelector<HTMLElement>('.workbench-feedback-panel')
 function apply(name: string) {
   fireEvent.click(currencyButton(name))
   fireEvent.click(
@@ -63,6 +64,10 @@ it('shows only a failed-use reason, preserves history and clears it on a new sel
   apply('Orb of Annulment')
   await waitFor(() => expect(panel()).toHaveAttribute('role', 'alert'))
   expect(panel()?.textContent?.trim()).not.toBe('')
+  expect(document.querySelector('.bench-lower')).toContainElement(panel())
+  expect(
+    document.querySelector('.stash-viewport .workbench-feedback-panel'),
+  ).toBeNull()
   expect(localStorage.getItem(historyStorageKey)).toBe(before)
   fireEvent.click(currencyButton('Orb of Transmutation'))
   expect(panel()).toBeNull()

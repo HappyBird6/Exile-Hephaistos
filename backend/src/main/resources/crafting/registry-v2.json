@@ -4220,9 +4220,9 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED_SIMULATOR_POLICY",
       "action": "BLACKSMITHS_WHETSTONE",
-      "reason": "User-selected simulator policy: +1 percentage point per use regardless of rarity; ordinary cap 20. Unknown current quality and unsupported conditions refuse without changes.",
+      "reason": "User-selected simulator policy: one use sets supported equipment quality to its ordinary cap of 20 regardless of rarity. Quality already at or above the cap, unknown current quality and unsupported conditions refuse without changes. This is not an actual-game per-use amount.",
       "serviceScope": "ACTIVE",
-      "qualityPolicy": "user-selected-equipment-quality-plus-one-v1",
+      "qualityPolicy": "user-selected-equipment-quality-maximum-v2",
       "supportedBases": [
         "bow",
         "warmonger",
@@ -4278,9 +4278,9 @@
       "effectStatus": "IMPLEMENTED",
       "solarStatus": "VALIDATED_SIMULATOR_POLICY",
       "action": "ARMOURERS_SCRAP",
-      "reason": "User-selected simulator policy: +1 percentage point per use regardless of rarity; ordinary cap 20. Unknown current quality and unsupported conditions refuse without changes.",
+      "reason": "User-selected simulator policy: one use sets supported equipment quality to its ordinary cap of 20 regardless of rarity. Quality already at or above the cap, unknown current quality and unsupported conditions refuse without changes. This is not an actual-game per-use amount.",
       "serviceScope": "ACTIVE",
-      "qualityPolicy": "user-selected-equipment-quality-plus-one-v1",
+      "qualityPolicy": "user-selected-equipment-quality-maximum-v2",
       "supportedBases": [
         "stocky",
         "body",

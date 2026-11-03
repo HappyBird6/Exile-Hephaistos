@@ -366,7 +366,7 @@ export function recordAbyss(
     manual: {
       rulesetIdentity,
       action,
-      ...(consumedOmens.length ? { consumedOmens: [...consumedOmens] } : {}),
+      consumedOmens: [...consumedOmens],
     },
   }
   let previousFrames = active.frames
