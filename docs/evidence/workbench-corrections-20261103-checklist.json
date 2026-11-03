@@ -1,0 +1,206 @@
+{
+  "baseline": "4fb6b89d0f2319444742aac336f9b1a1832b515c",
+  "requirements": [
+    {
+      "number": 1,
+      "owner": "A",
+      "requirement": "Essence four-column layout and one special row",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 2,
+      "owner": "A",
+      "requirement": "Block legacy omens including Corruption; remove checkbox",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 3,
+      "owner": "A",
+      "requirement": "Hide five requested omens for new selection",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 4,
+      "owner": "B",
+      "requirement": "Random affix side unless Necromancy omen constrains",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 5,
+      "owner": "B",
+      "requirement": "Bone currency images",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 6,
+      "owner": "B",
+      "requirement": "Continue crafting with preserved Abyss slots",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 7,
+      "owner": "A",
+      "requirement": "Navigation inside canvas above right work area; tooltip relocation",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 8,
+      "owner": "A",
+      "requirement": "Favorites inside canvas, two rows of five",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 9,
+      "owner": "A",
+      "requirement": "Right currencies exclude fixed left shelf duplicates",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 10,
+      "owner": "Integration",
+      "requirement": "Only failed use in feedback panel",
+      "status": "IMPLEMENTED_TARGETED_PASS",
+      "integrated": true,
+      "verified": "TARGETED_ONLY",
+      "evidence": "WorkbenchFailureFeedback(2) + Workbench(12) = 14 pass; type/lint pass; final integration regression pending"
+    },
+    {
+      "number": 11,
+      "owner": "D",
+      "requirement": "Remove preview badge",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 12,
+      "owner": "C",
+      "requirement": "Compute armour/evasion/energy shield",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 13,
+      "owner": "C",
+      "requirement": "Reviewed flat/increased/quality formula",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 14,
+      "owner": "D",
+      "requirement": "Remove maximum-quality text from card",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 15,
+      "owner": "D",
+      "requirement": "Exact base image in item slot",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 16,
+      "owner": "C",
+      "requirement": "Functional armour/weapon quality currencies",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 17,
+      "owner": "C",
+      "requirement": "Sanctification factors, state, restrictions, persistence",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 18,
+      "owner": "B",
+      "requirement": "Right-click omen activation",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 19,
+      "owner": "D",
+      "requirement": "History emoji button",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 20,
+      "owner": "D",
+      "requirement": "Favorites-only history button",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 21,
+      "owner": "D",
+      "requirement": "Site styling for history controls",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 22,
+      "owner": "D",
+      "requirement": "History controls below base-selection row",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 23,
+      "owner": "D",
+      "requirement": "Larger site-colour step arrows",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 24,
+      "owner": "D",
+      "requirement": "Remove current-item placement label",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    },
+    {
+      "number": 25,
+      "owner": "D",
+      "requirement": "Locale disclosure at footer",
+      "status": "IN_PROGRESS",
+      "integrated": false,
+      "verified": false
+    }
+  ]
+}

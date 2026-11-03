@@ -23,7 +23,7 @@ import { WorkbenchBasePicker } from './base-picker/WorkbenchBasePicker'
 import { SessionLibrary } from './session-library/SessionLibrary'
 import { ServiceMessage } from './ServiceMessage'
 import { serviceText } from './serviceMessages'
-import { useI18n, gameTerm, uiText, translate } from '../../shared/i18n/i18n'
+import { useI18n, uiText, translate } from '../../shared/i18n/i18n'
 import { LocaleSelector } from '../../shared/i18n/LocaleSelector'
 import { localizedAction, catalystItemIds } from './localizedCrafting'
 import { localizedModifierText } from './localizedModifiers'
@@ -264,6 +264,14 @@ export function CraftingPage() {
   const [inputOpen, setInputOpen] = useState(false)
   const inputOpener = useRef<HTMLElement | null>(null)
   const [announcement, setAnnouncement] = useState('')
+  const [failedApplication, setFailedApplication] = useState<{
+    revision: number
+    message: string
+  } | null>(null)
+  const applicationFailure =
+    failedApplication?.revision === draft.baseRevision
+      ? failedApplication.message
+      : ''
   const [altHeld, setAltHeld] = useState(false)
   const [stashSpace, setStashSpace] = useState(0)
   useEffect(() => {
@@ -502,6 +510,7 @@ export function CraftingPage() {
   function browse(cursor: number) {
     if (applyingRequest.current || placementPending.current) return
     saveFilms(viewFrame(filmState.history, cursor))
+    setFailedApplication(null)
     setSelected(null)
     setHeld(null)
     setPointer(null)
@@ -540,6 +549,7 @@ export function CraftingPage() {
     const cancel = (event: KeyboardEvent) => {
       if (event.key === 'Alt') setAltHeld(true)
       if (event.key === 'Escape') {
+        setFailedApplication(null)
         setSelected(null)
         setHeld(null)
         setPointer(null)
@@ -570,6 +580,7 @@ export function CraftingPage() {
 
   function choose(resource: Selection) {
     if (excludedResourceIds.includes(resource.id)) return
+    setFailedApplication(null)
     setBoneSide('')
     setBoneRemoved('')
     setSelected(resource)
@@ -618,8 +629,13 @@ export function CraftingPage() {
   }
   async function apply(repeat = false) {
     if (applyingRequest.current || placementPending.current) return
+    setFailedApplication(null)
+    const failApply = (message: string) => {
+      setFailedApplication({ revision: draft.baseRevision, message })
+      setAnnouncement(message)
+    }
     if (!selected) {
-      setAnnouncement(t('notice.select_currency'))
+      failApply(t('notice.select_currency'))
       return
     }
     if (!canCraft) {
@@ -627,29 +643,29 @@ export function CraftingPage() {
         (restoredState ?? workbench.data?.state ?? mapping.data?.state)
           ?.desecrated?.length
       ) {
-        setAnnouncement(t('notice.use_abyss'))
+        failApply(t('notice.use_abyss'))
         return
       }
       if (rulesetStatus && rulesetStatus !== 'current') {
-        setAnnouncement(t(`ruleset.${rulesetStatus}`))
+        failApply(t(`ruleset.${rulesetStatus}`))
         return
       }
-      setAnnouncement(
+      failApply(
         'The item has not changed. Pasted items are display-only. Select the Solar Amulet base to explore probabilities.',
       )
       return
     }
     if (workbenchOmens.some((omen) => omen.id === selected.id)) {
-      setAnnouncement(t('notice.omen_favorite'))
+      failApply(t('notice.omen_favorite'))
       return
     }
     const action = workbenchCurrencyActions[selected.id]
     if (!action && !isBone(selected.id)) {
-      setAnnouncement(t('notice.no_rule'))
+      failApply(t('notice.no_rule'))
       return
     }
     if (!initial.data) {
-      setAnnouncement(t('notice.wait_catalog'))
+      failApply(t('notice.wait_catalog'))
       return
     }
     const controller = new AbortController()
@@ -768,12 +784,12 @@ export function CraftingPage() {
           setPointer(null)
         }
       } else
-        setAnnouncement(
+        failApply(
           translate('craft.blocked', { reason: result.reason ?? '' }, 'en'),
         )
     } catch (error) {
       if (!controller.signal.aborted)
-        setAnnouncement(
+        failApply(
           error instanceof Error ? error.message : t('notice.apply_error'),
         )
     } finally {
@@ -1471,23 +1487,10 @@ export function CraftingPage() {
                   }}
                 />
               </div>
-              <div
-                className="workbench-feedback-panel"
-                tabIndex={0}
-                role="region"
-                aria-label={t('ui.crafting_notes')}
-              >
+              <div className="workbench-currency-controls">
                 {selected && isBone(selected.id) && (
                   <fieldset disabled={!!applying}>
                     <legend>{name(selected.id, selected.name)}</legend>
-                    {gameTerm(selected.id, locale).data?.lines.map((line) => (
-                      <p key={line}>{line}</p>
-                    ))}
-                    <p>
-                      {draft.activeOmens.includes('Omen_of_Putrefaction')
-                        ? putrefactionText[locale][0]
-                        : boneText[locale][0]}
-                    </p>
                     {draft.activeOmens.includes('Omen_of_Putrefaction') ? (
                       <div>
                         {(['PREFIX', 'SUFFIX'] as const).map((side, index) => (
@@ -1568,138 +1571,6 @@ export function CraftingPage() {
                       )}
                   </fieldset>
                 )}
-                {draft.activeOmens.includes('Omen_of_Whittling') && (
-                  <p className="workbench-feedback">
-                    {removalCandidates.length > 0
-                      ? t('omen.preview', { count: removalCandidates.length })
-                      : t('omen.preview_unavailable')}
-                  </p>
-                )}
-                {(selected?.id === 'Essence_of_the_Breach' ||
-                  concrete?.explicits.some(
-                    (m) =>
-                      m.modifierId === 'amulet:prefix:essence-maximum-quality',
-                  )) && (
-                  <p className="workbench-feedback">
-                    {t('notice.maximum_quality')}
-                  </p>
-                )}
-                {(selected?.id === 'Essence_of_the_Abyss' ||
-                  concrete?.explicits.some((m) =>
-                    m.modifierId.endsWith(':essence-abyssal-mark'),
-                  )) && (
-                  <p className="workbench-feedback">{t('notice.mark')}</p>
-                )}
-                {((selected?.id === 'Essence_of_Horror' &&
-                  concrete?.baseItemId ===
-                    'Metadata/Items/Armours/Gloves/FourGlovesStr1') ||
-                  concrete?.explicits.some((m) =>
-                    m.modifierId.endsWith(':essence-socketed-augment-effect'),
-                  )) && (
-                  <p className="workbench-feedback">
-                    {t('notice.augment_effect')}
-                  </p>
-                )}
-                {(([
-                  'Perfect_Essence_of_Grounding',
-                  'Perfect_Essence_of_Opulence',
-                ].includes(selected?.id ?? '') &&
-                  concrete?.baseItemId ===
-                    'Metadata/Items/Armours/Gloves/FourGlovesStr1') ||
-                  concrete?.explicits.some(
-                    (m) =>
-                      m.modifierId.endsWith(':essence-lightning-recoup') ||
-                      m.modifierId.endsWith(':essence-gold-quantity'),
-                  )) && (
-                  <p className="workbench-feedback">
-                    {t('notice.glove_recoup')}
-                  </p>
-                )}
-                {(([
-                  'Expansive_Alloy',
-                  'Cyclonic_Alloy',
-                  'Mystic_Alloy',
-                ].includes(selected?.id ?? '') &&
-                  concrete?.baseItemId ===
-                    'Metadata/Items/Armours/Gloves/FourGlovesStr1') ||
-                  concrete?.explicits.some((m) =>
-                    [
-                      ':alloy-remnant-pickup-range',
-                      ':alloy-damaging-ailment-duration',
-                      ':alloy-attack-area-of-effect',
-                    ].some((id) => m.modifierId.endsWith(id)),
-                  )) && (
-                  <p className="workbench-feedback">
-                    {t('notice.glove_alloy_area')}
-                  </p>
-                )}
-                {(([
-                  'Adaptive_Alloy',
-                  'Swift_Alloy',
-                  'Sovereign_Alloy',
-                ].includes(selected?.id ?? '') &&
-                  concrete?.baseItemId ===
-                    'Metadata/Items/Armours/Gloves/FourGlovesStr1') ||
-                  concrete?.explicits.some((m) =>
-                    [
-                      ':alloy-attack-speed-missing-ward',
-                      ':alloy-cast-speed',
-                      ':alloy-local-runic-ward',
-                    ].some((id) => m.modifierId.endsWith(id)),
-                  )) && (
-                  <p className="workbench-feedback">
-                    {t('notice.glove_alloy_ward')}
-                  </p>
-                )}
-                {((selected?.id === 'Prismatic_Alloy' &&
-                  concrete?.baseItemId ===
-                    'Metadata/Items/Armours/Gloves/FourGlovesStr1') ||
-                  concrete?.explicits.some((m) =>
-                    m.modifierId.endsWith(':alloy-elemental-penetration'),
-                  )) && (
-                  <p className="workbench-feedback">
-                    {t('notice.glove_alloy_penetration')}
-                  </p>
-                )}
-                {Object.hasOwn(workbenchJewelBases, catalogBase) &&
-                  craftEvidence && (
-                    <details className="sapphire-craft-evidence">
-                      <summary>{t('ui.sapphire_craft_evidence')}</summary>
-                      <p>
-                        {t(
-                          catalogBase.startsWith('time-lost-')
-                            ? 'notice.time_lost_scope'
-                            : 'notice.sapphire_scope',
-                        )}
-                      </p>
-                      {craftEvidence.events.map((event, index) => (
-                        <p key={index}>
-                          {event.kind === 'REMOVE' ? '−' : '+'}{' '}
-                          {initial.data?.modifiers[event.modifierId]
-                            ? localizedModifierText(
-                                initial.data.modifiers[event.modifierId]!,
-                                event.kind === 'REMOVE'
-                                  ? undefined
-                                  : event.values,
-                              )
-                            : event.modifierId}{' '}
-                          ({(event.selectionProbability * 100).toFixed(2)}%)
-                        </p>
-                      ))}
-                    </details>
-                  )}
-                {!canCraft && (
-                  <p>
-                    {t(
-                      concrete?.desecrated?.length
-                        ? 'notice.use_abyss'
-                        : 'notice.pasted_display',
-                    )}
-                  </p>
-                )}
-                {draft.source === 'text' && imported.data && !importedBase && (
-                  <p>{t('notice.resolve_base')}</p>
-                )}
                 {draft.source === 'text' && !mapping.data?.mapped && (
                   <button
                     type="button"
@@ -1711,18 +1582,20 @@ export function CraftingPage() {
                     {t('ui.enable_solar_crafting')}
                   </button>
                 )}
-                {mapping.data && (
-                  <p>
-                    {mapping.data.mapped
-                      ? t(
-                          mapping.data.state?.observations?.augmentEffects
-                            .length
-                            ? 'notice.resolve_augments'
-                            : 'notice.import_ready',
-                        )
-                      : t('notice.import_blocked')}
+              </div>
+              {applicationFailure && (
+                <div
+                  className="workbench-feedback-panel"
+                  tabIndex={0}
+                  role="alert"
+                  aria-label={t('ui.crafting_notes')}
+                >
+                  <p className="workbench-feedback">
+                    {serviceText(applicationFailure)}
                   </p>
-                )}
+                </div>
+              )}
+              <div className="workbench-input-status">
                 {mapping.data?.issues.map((issue, index) => (
                   <p key={index}>
                     {' '}
@@ -1730,7 +1603,6 @@ export function CraftingPage() {
                     <ServiceMessage text={issue.message} />
                   </p>
                 ))}
-                {initial.isPending && <p>{t('ui.loading_crafting_catalog')}</p>}
                 {initial.isError && (
                   <p role="alert">
                     {' '}
@@ -1743,83 +1615,8 @@ export function CraftingPage() {
                     </button>
                   </p>
                 )}
-                {applying && <p>{t('ui.updating_item')}</p>}
-                {announcement && (
-                  <p className="workbench-feedback">
-                    {serviceText(announcement)}
-                  </p>
-                )}
                 {evidenceInvalid && (
                   <p role="alert">{t('notice.saved_evidence')}</p>
-                )}
-                {catalogBase === 'ring' && (
-                  <p className="workbench-feedback">{t('notice.ring_scope')}</p>
-                )}
-                {(concrete?.catalystQuality ||
-                  selected?.id.endsWith('_Catalyst')) && (
-                  <p className="workbench-feedback">
-                    {t('notice.catalyst_policy')}
-                  </p>
-                )}
-                {Object.hasOwn(workbenchJewelBases, catalogBase) && (
-                  <p className="workbench-feedback">
-                    {t(
-                      catalogBase.startsWith('time-lost-')
-                        ? 'notice.time_lost_scope'
-                        : 'notice.sapphire_scope',
-                    )}
-                  </p>
-                )}
-                {catalogBase === 'solar' && concrete?.catalystQuality && (
-                  <p className="workbench-feedback">
-                    {t('notice.quality_cap_change')}
-                  </p>
-                )}
-                {concrete?.catalystQuality &&
-                  ![...concrete.implicits, ...concrete.explicits].some((m) =>
-                    catalystTypes[concrete.catalystQuality!.type].tags.some(
-                      (tag) =>
-                        initial.data?.modifiers[m.modifierId]?.tags?.includes(
-                          tag,
-                        ),
-                    ),
-                  ) && (
-                    <p className="workbench-feedback">
-                      {t('notice.catalyst_no_match')}
-                    </p>
-                  )}
-                {catalogBase === 'helmet' && (
-                  <p className="workbench-feedback">
-                    {t('notice.helmet_scope')}
-                  </p>
-                )}
-                {catalogBase === 'belt' && (
-                  <p className="workbench-feedback">{t('notice.belt_scope')}</p>
-                )}
-                {(catalogBase === 'sceptre' ||
-                  topBase(catalogBase)?.family === 'sceptres') && (
-                  <p className="workbench-feedback">
-                    {t(
-                      catalogBase === 'sceptre' || catalogBase === 'hallowed'
-                        ? 'notice.sceptre_scope'
-                        : 'notice.sceptre_skill_scope',
-                    )}
-                  </p>
-                )}
-                {catalogBase === 'body' && (
-                  <p className="workbench-feedback">{t('notice.body_scope')}</p>
-                )}
-                {catalogBase === 'wand' && (
-                  <p className="workbench-feedback">{t('notice.wand_scope')}</p>
-                )}
-                {(catalogBase === 'bow' ||
-                  topBase(catalogBase)?.family === 'bows') && (
-                  <p className="workbench-feedback">{t('notice.bow_scope')}</p>
-                )}
-                {catalogBase === 'stocky' && (
-                  <p className="workbench-feedback">
-                    {t('notice.glove_scope')}
-                  </p>
                 )}
               </div>
             </div>

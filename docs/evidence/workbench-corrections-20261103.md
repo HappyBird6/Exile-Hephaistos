@@ -32,7 +32,7 @@ Separate local project worktrees were created from the explicitly requested base
 - A: `01a19f10-baca-7f62-ba60-407670caa08b`, local worktree `2721`.
 - B: `01a19f11-e072-7c60-876e-2a51b8fd9807`, local worktree `fdcc`.
 - C: `01a19f12-02b7-76d2-a552-5b57ed48f231`, local worktree `df9a`.
-- D: create request accepted; actual thread/worktree setup still pending at this checkpoint.
+- D: `01a19f12-cad1-7b90-831c-6d31761445ca`, local worktree `0ebd`.
 
 ## Meaning and verification
 
@@ -41,7 +41,7 @@ Reveal remains explicit user selection; no unpublished probabilities are fabrica
 Legacy/excluded resources are blocked for new selection, never deleted from historical records.
 Defences use `(base + flat) * (1 + increased / 100) * (1 + quality / 100)` after matching
 actual source stat locality/tags; stored precision is preserved and display uses one decimal.
-Sanctification requires independent per-value factors in 78–122%; any simulator distribution,
+Sanctification requires independent per-value factors in 78-122%; any simulator distribution,
 rounding and target policy must be labelled as policy rather than claimed game facts.
 
 Each item remains pending until both its worker implementation and common-page/API wiring
@@ -50,3 +50,12 @@ Known prior whole-backend failures, denied DB/codegen validation and deferred br
 remain separate from new regressions. No host socket is mounted inside containers.
 Before final server replacement, retain rollback JAR/assets and data backups; reuse container IDs,
 DB/Redis volumes and settings; compare all original saved-file hashes after startup.
+
+## Integration checkpoint: failed-use feedback
+
+Request 10 implemented on the integration branch: passive currency/scope explanations removed.
+Necessary currency controls and import failure details remain separate. Only a failed currency
+application opens the feedback panel; successful/selection announcements remain in the live
+region. Failure state is bound to the current revision and cleared on selection/history changes.
+New failure/success history-preservation tests plus existing Workbench regression: **14/14 pass**.
+Typecheck and lint pass. This is targeted verification, not final whole integration verification.
