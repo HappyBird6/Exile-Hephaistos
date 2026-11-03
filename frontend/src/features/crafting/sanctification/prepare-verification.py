@@ -10,12 +10,12 @@ after = before.replace('!supportsConcreteStateShape(state) ||', '!supportsConcre
     "state.conditions[0] === 'CORRUPTED' &&\n          state.desecrated?.length",
     "(state.conditions[0] === 'SANCTIFIED' ||\n            (state.conditions[0] === 'CORRUPTED' && state.desecrated?.length))")
 after = "import { validSanctification } from './sanctification/sanctification'\n" + after
-(module/'history.patch').write_text(''.join(difflib.unified_diff(before.splitlines(True), after.splitlines(True), fromfile='a/frontend/src/features/crafting/workbenchHistory.ts', tofile='b/frontend/src/features/crafting/workbenchHistory.ts')), encoding='utf-8')
+(module/'history.patch').write_text(''.join(difflib.unified_diff(before.splitlines(True), after.splitlines(True), fromfile='a/frontend/src/features/crafting/workbenchHistory.ts', tofile='b/frontend/src/features/crafting/workbenchHistory.ts')), encoding='utf-8', newline='\n')
 overlays={}
 def patch(name, after, target):
     before=(root/name).read_text(encoding='utf-8')
     overlays[name]=after
-    (module/target).write_text(''.join(difflib.unified_diff(before.splitlines(True),after.splitlines(True),fromfile='a/'+name,tofile='b/'+name)),encoding='utf-8')
+    (module/target).write_text(''.join(difflib.unified_diff(before.splitlines(True),after.splitlines(True),fromfile='a/'+name,tofile='b/'+name)),encoding='utf-8',newline='\n')
 name='backend/src/main/java/com/poe2craft/bootstrap/CraftingConfiguration.java'
 before=(root/name).read_text(encoding='utf-8')
 after=before.replace('  abstract static class ItemStateJson {', '''  abstract static class ItemStateJson {
