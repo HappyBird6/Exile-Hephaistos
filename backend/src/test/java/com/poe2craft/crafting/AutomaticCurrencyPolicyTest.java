@@ -25,7 +25,7 @@ class AutomaticCurrencyPolicyTest {
   }
 
   @Test
-  void approvedRosterIncludesEveryCurrencyAndOmenWithoutClaimingExecutionSupport() {
+  void approvedRosterKeepsFrozenCoverageWhenManualOnlyEnumsAreAdded() {
     assertThat(policy.document().entries()).hasSize(187);
     var counts = new EnumMap<Decision, Long>(Decision.class);
     for (var entry : policy.document().entries()) counts.merge(entry.decision(), 1L, Long::sum);
@@ -48,10 +48,37 @@ class AutomaticCurrencyPolicyTest {
             "ESSENCE_HORROR",
             "OMEN:SINISTRAL_CRYSTALLISATION",
             "OMEN:DEXTRAL_CRYSTALLISATION");
-    for (var currency : WorkbenchCurrency.values())
-      assertThat(policy.document().entries()).anyMatch(e -> e.id().equals(currency.name()));
-    for (var omen : WorkbenchOmen.values())
-      assertThat(policy.document().entries()).anyMatch(e -> e.id().equals("OMEN:" + omen.name()));
+    for (var currency : WorkbenchCurrency.values()) {
+      String sourceId =
+          switch (currency) {
+            case ARMOURERS_SCRAP -> "EXTRA:Armourers_Scrap";
+            case BLACKSMITHS_WHETSTONE -> "EXTRA:Blacksmiths_Whetstone";
+            default -> currency.name();
+          };
+      assertThat(policy.document().entries()).anyMatch(e -> e.id().equals(sourceId));
+    }
+    for (var omen : WorkbenchOmen.values()) {
+      if (omen == WorkbenchOmen.SANCTIFICATION) {
+        assertThat(
+                policy.evaluate(
+                    "OMEN:SANCTIFICATION",
+                    new Context("amulets", Purpose.ORDINARY, WorkbenchCurrency.DIVINE)))
+            .isEqualTo(Verdict.UNREVIEWED);
+      } else {
+        assertThat(policy.document().entries()).anyMatch(e -> e.id().equals("OMEN:" + omen.name()));
+      }
+    }
+  }
+
+  @Test
+  void manualQualityEnumsUseAlreadyExcludedSupplementaryEntries() {
+    for (var currency :
+        List.of(WorkbenchCurrency.ARMOURERS_SCRAP, WorkbenchCurrency.BLACKSMITHS_WHETSTONE)) {
+      assertThat(policy.evaluate(currency.name(), new Context("body", Purpose.ORDINARY, currency)))
+          .isEqualTo(Verdict.EXCLUDED);
+      assertThat(policy.candidates()).noneMatch(e -> e.id().equals(currency.name()));
+    }
+    assertThat(policy.candidates()).noneMatch(e -> e.id().equals("OMEN:SANCTIFICATION"));
   }
 
   @Test

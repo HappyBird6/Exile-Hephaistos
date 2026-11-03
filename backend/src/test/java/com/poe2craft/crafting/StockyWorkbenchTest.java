@@ -91,7 +91,7 @@ class StockyWorkbenchTest {
       assertThat(rare.state().explicits()).hasSize(4);
       assertThat(rare.ruleVersion())
           .isEqualTo(
-              "stocky-workbench-artificer-v26-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2");
+              "stocky-workbench-artificer-v26-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-equipment-quality-user-step1-v1");
       var locked =
           service.apply(rare.state(), WorkbenchCurrency.FRACTURING, Set.of(), random).state();
       var fracture =
@@ -266,7 +266,7 @@ class StockyWorkbenchTest {
         }
       }
     }
-    assertThat(service.actions(root, Set.of())).hasSize(83);
+    assertThat(service.actions(root, Set.of())).hasSize(85);
     assertThat(
             service.actions(
                 new ItemState(

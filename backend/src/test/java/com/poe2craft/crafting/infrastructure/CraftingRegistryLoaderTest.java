@@ -92,6 +92,17 @@ class CraftingRegistryLoaderTest {
         RulesetManifestLoader.load().identity(),
         registry.path("ruleset").path("identity").asText());
     ((ObjectNode) registry).remove("ruleset");
+    // These three public metadata records intentionally change for the new manual feature.
+    // Restore only their frozen fragments before checking every other value/order below.
+    var originalFragments =
+        M.readTree(
+            getClass().getResourceAsStream("/crafting-registry-v25-original-fragments.json"));
+    var entries = (ArrayNode) registry.path("entries");
+    for (int index = 0; index < entries.size(); index++) {
+      var original = originalFragments.path("entries").get(entries.get(index).path("id").asText());
+      if (original != null) entries.set(index, original.deepCopy());
+    }
+    ((ObjectNode) registry).set("serviceScope", originalFragments.path("serviceScope").deepCopy());
     // The sole intentional data correction removes two adjacent duplicate base keys.
     // Reconstruct the former array before comparing all fields to the pre-refactor digest.
     var blessed =
@@ -168,6 +179,28 @@ class CraftingRegistryLoaderTest {
   }
 
   @Test
+  void newManualPolicyMetadataLabelsTheUserSelectedQualityIncrement() {
+    var registry = CraftingRegistryLoader.load();
+    var byId = new HashMap<String, JsonNode>();
+    registry.path("entries").forEach(entry -> byId.put(entry.path("id").asText(), entry));
+    var sanctification = byId.get("Omen_of_Sanctification");
+    assertEquals("ACTIVE", sanctification.path("serviceScope").asText());
+    assertEquals("SANCTIFICATION", sanctification.path("action").asText());
+    assertEquals("IMPLEMENTED", sanctification.path("effectStatus").asText());
+    assertEquals(
+        byId.get("Divine_Orb").path("supportedBases"), sanctification.path("supportedBases"));
+    assertTrue(sanctification.path("reason").asText().contains("simulator policy"));
+    for (String id : List.of("Armourers_Scrap", "Blacksmiths_Whetstone")) {
+      var currency = byId.get(id);
+      assertEquals("ACTIVE", currency.path("serviceScope").asText());
+      assertEquals("IMPLEMENTED", currency.path("effectStatus").asText());
+      assertEquals("equipment-quality-user-step1-v1", currency.path("qualityPolicy").asText());
+      assertTrue(currency.path("sourceSha256").asText().matches("[0-9a-f]{64}"));
+      assertTrue(currency.path("reason").asText().contains("User-selected simulator policy"));
+    }
+  }
+
+  @Test
   void invalidIdScopeReferenceVersionAndCountsFailBeforeApiExposure() throws Exception {
     var registry = data("registry-v2");
     var scopes = data("supported-base-sets-v1");
@@ -185,7 +218,8 @@ class CraftingRegistryLoaderTest {
     ((ArrayNode) invalidScopes.get("sets").elements().next()).add("unknown-base");
     assertThrows(IllegalArgumentException.class, () -> read(data("registry-v2"), invalidScopes));
     var counts = data("registry-v2");
-    ((ObjectNode) counts.get("serviceScope")).put("active", 171);
+    ((ObjectNode) counts.get("serviceScope"))
+        .put("active", counts.path("serviceScope").path("active").intValue() + 1);
     assertThrows(IllegalArgumentException.class, () -> read(counts, scopes));
     var action = data("registry-v2");
     ((ObjectNode) action.get("entries").get(0)).put("action", "UNIMPLEMENTED_ACTION");

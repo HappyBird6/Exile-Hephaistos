@@ -40,6 +40,7 @@ class BasicWorkbenchParityTest {
                   result
                       .state()
                       .toString()
+                      .replace(", sanctification=null", "")
                       .replace(", observations=null", "")
                       .replace(", equipmentQuality=null", "")
                       .replace(", desecrated=[]]", "]"))

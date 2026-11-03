@@ -38,7 +38,7 @@ public final class BasicCurrencyTransitions {
             rulesetIdentity,
             BasicCurrencyState.catalogDigest(catalog),
             reviewedCatalog ? "reviewed-basic-transition-v2" : MODEL_VERSION,
-            simulator.ruleVersion(),
+            simulator.ruleVersion().replaceFirst("-sanctification-independent-stat-percent-v1-equipment-quality-.*$", ""),
             simulator.ledgerVersion(),
             m.weightPolicy(),
             m.sourceUrl(),

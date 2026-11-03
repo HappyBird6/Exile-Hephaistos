@@ -23,7 +23,7 @@ final class SavedAutomaticResultReader {
             || "goal-directed-milestone-graph-v11-tier-laws".equals(graph.version())
             || "goal-directed-milestone-graph-v10-quality-goal".equals(graph.version());
     if (!graph.identity().catalogDigest().equals(runtime.kernel().identity().catalogDigest())
-        || !graph.identity().model().equals(runtime.kernel().identity().model())
+        || !HistoricalWorkbenchModel.matchesReadOnly(graph.identity().model(), runtime.kernel().identity().model())
         || !LegacyAutomaticResultReader.sameGoal(graph.objective(), runtime.objective()))
       throw new PathSearchProtocol.Rejected(409, "RECALCULATION_REQUIRED");
     if (!AutomaticSearchService.VERSION.equals(disk.version())

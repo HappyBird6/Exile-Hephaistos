@@ -181,7 +181,7 @@ class RattlingSceptreEssenceTest {
               m -> assertThat(catalog.find(m.modifierId()).orElseThrow().weight()).isPositive());
       assertThat(new ItemStateValidator(catalog).validate(r.state())).isEmpty();
     }
-    assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL), Set.of())).hasSize(49);
+    assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL), Set.of())).hasSize(51);
     assertThat(
             simulator
                 .apply(
@@ -211,7 +211,7 @@ class RattlingSceptreEssenceTest {
     assertThat(service.initial("sceptre", 82).qualityLimit().maximumQuality()).isEqualTo(20);
     assertThat(service.initial("sceptre", 82).ruleVersion())
         .isEqualTo(
-            "sceptre-workbench-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2");
+            "sceptre-workbench-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-equipment-quality-user-step1-v1");
     assertThat(service.initial("bow", 82).modifiers()).hasSize(146);
     assertThat(service.initial("wand", 82).modifiers()).hasSize(187);
     assertThat(service.initial("body", 82).modifiers()).hasSize(147);

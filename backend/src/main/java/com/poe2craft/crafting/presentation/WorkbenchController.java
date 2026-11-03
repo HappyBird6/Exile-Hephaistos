@@ -51,12 +51,19 @@ public final class WorkbenchController {
   @PostMapping("/apply")
   public WorkbenchSimulator.Result apply(@RequestBody ApplyRequest request) {
     return simulator.apply(
-        concreteState(request.state()), request.action(), request.activeOmens(), random);
+        concreteState(
+            request.state(),
+            request.action() == WorkbenchCurrency.DIVINE
+                && request.activeOmens() != null
+                && request.activeOmens().contains("Omen_of_Sanctification")),
+        request.action(),
+        request.activeOmens(),
+        random);
   }
 
   @PostMapping("/actions")
   public List<WorkbenchSimulator.Availability> actions(@RequestBody ActionRequest request) {
-    return simulator.actions(concreteState(request.state()), request.activeOmens());
+    return simulator.actions(concreteState(request.state(), true), request.activeOmens());
   }
 
   public record ApplyRequest(JsonNode state, WorkbenchCurrency action, Set<String> activeOmens) {}
@@ -65,7 +72,7 @@ public final class WorkbenchController {
 
   @PostMapping("/quality-display")
   public WorkbenchService.QualityDisplay qualityDisplay(@RequestBody ActionRequest request) {
-    return simulator.qualityDisplay(concreteState(request.state()));
+    return simulator.qualityDisplay(concreteState(request.state(), true));
   }
 
   public static final class UnsupportedItemProperties extends IllegalArgumentException {}
@@ -89,6 +96,7 @@ public final class WorkbenchController {
             "catalystQuality",
             "equipmentQuality",
             "observations",
+            "sanctification",
             "desecrated",
             "modifierIds");
     if (input == null || !input.isObject())
@@ -140,6 +148,25 @@ public final class WorkbenchController {
                 && (!skill.get("level").isIntegralNumber()
                     || !skill.get("level").canConvertToInt())))
           throw new UnsupportedItemProperties();
+    }
+    var sanctification = input.get("sanctification");
+    if (sanctification != null && !sanctification.isNull()) {
+      if (!sanctification.isObject()
+          || sanctification.size() != 3
+          || !sanctification.path("policy").isTextual()) throw new UnsupportedItemProperties();
+      for (String layer : List.of("implicits", "explicits")) {
+        var factors = sanctification.path(layer);
+        if (!factors.isObject()) throw new UnsupportedItemProperties();
+        for (var modifier : factors) {
+          if (!modifier.isObject()) throw new UnsupportedItemProperties();
+          for (var factor : modifier) {
+            if (!factor.isIntegralNumber()
+                || !factor.canConvertToInt()
+                || factor.intValue() < 78
+                || factor.intValue() > 122) throw new UnsupportedItemProperties();
+          }
+        }
+      }
     }
     var equipmentQuality = input.get("equipmentQuality");
     if (equipmentQuality != null

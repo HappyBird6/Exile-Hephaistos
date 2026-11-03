@@ -464,7 +464,8 @@ public final class AutomaticSearchService implements AutoCloseable {
                 || "automatic-scalar-kernel-v5-goal-acquisition"
                     .equals(saved.graph().identity().kernelVersion())
                 || "automatic-finite-kernel-v6-declared-coupled-rolls"
-                    .equals(saved.graph().identity().kernelVersion()))))
+                    .equals(saved.graph().identity().kernelVersion())
+                || HistoricalWorkbenchModel.predatesManualFeatures(saved.graph().identity().model()))))
       try {
         return SavedAutomaticResultReader.read(saved, historicalFactory.apply(saved.request()));
       } catch (RuntimeException error) {

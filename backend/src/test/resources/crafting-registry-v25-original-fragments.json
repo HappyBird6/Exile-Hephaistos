@@ -1,0 +1,73 @@
+{
+  "entries": {
+    "Omen_of_Sanctification": {
+      "id": "Omen_of_Sanctification",
+      "name": "Omen of Sanctification",
+      "category": "OMEN",
+      "sourceUrl": "https://poe2db.tw/us/Omen_of_Sanctification",
+      "sourcePage": "https://poe2db.tw/us/Omen",
+      "sourceRetrievedAt": "2026-09-23T07:20:33.142964+00:00",
+      "sourceSha256": "745b50723b8e64b3ebf6cecaef7cbb585566402066869482c4d870d3d6d5d5b9",
+      "registrationStatus": "REGISTERED",
+      "effectStatus": "PENDING_RULE_VERIFICATION",
+      "solarStatus": "NOT_VALIDATED",
+      "action": null,
+      "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
+      "serviceScope": "DEFERRED"
+    },
+    "Blacksmiths_Whetstone": {
+      "id": "Blacksmiths_Whetstone",
+      "name": "Blacksmith's Whetstone",
+      "category": "CURRENCY",
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
+      "sourceRetrievedAt": null,
+      "sourceSha256": null,
+      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
+      "effectStatus": "PENDING_RULE_VERIFICATION",
+      "solarStatus": "NOT_VALIDATED",
+      "action": null,
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED",
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
+    },
+    "Armourers_Scrap": {
+      "id": "Armourers_Scrap",
+      "name": "Armourer's Scrap",
+      "category": "CURRENCY",
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
+      "sourceRetrievedAt": null,
+      "sourceSha256": null,
+      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
+      "effectStatus": "PENDING_RULE_VERIFICATION",
+      "solarStatus": "NOT_VALIDATED",
+      "action": null,
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED",
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
+    }
+  },
+  "serviceScope": {
+    "date": "2026-10-04",
+    "registered": 220,
+    "active": 170,
+    "implementedActive": 170,
+    "defaultImplemented": 163,
+    "optInLegacyImplemented": 7,
+    "pending": 0,
+    "deferred": 50,
+    "previousDeferred": 65,
+    "newDeferred": 11,
+    "catalystService": "VERIFIED_RESTRICTED_BASE_APPLICATION",
+    "qualityArchive": "RETAINED_WITH_EXISTING_REVIEWED_DISPLAY",
+    "pendingIds": [],
+    "completedLegacyFiveIds": [
+      "Omen_of_Sinistral_Alchemy",
+      "Omen_of_Dextral_Alchemy",
+      "Omen_of_Sinistral_Coronation",
+      "Omen_of_Dextral_Coronation",
+      "Omen_of_Greater_Annulment"
+    ]
+  }
+}

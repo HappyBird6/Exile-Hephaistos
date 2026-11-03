@@ -342,6 +342,7 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
             s.augmentSockets(),
             s.catalystQuality())
         .withEquipmentQuality(s.equipmentQuality())
-        .withObservations(s.observations());
+        .withObservations(s.observations())
+        .withSanctification(s.sanctification());
   }
 }

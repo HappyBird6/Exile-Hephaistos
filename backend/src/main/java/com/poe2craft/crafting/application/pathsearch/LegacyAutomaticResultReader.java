@@ -39,7 +39,7 @@ final class LegacyAutomaticResultReader {
         AutomaticSearchService.VERSION.equals(disk.version()) && VERSION.equals(graph.version()));
     require(
         graph.identity().catalogDigest().equals(runtime.kernel().identity().catalogDigest())
-            && graph.identity().model().equals(runtime.kernel().identity().model())
+            && HistoricalWorkbenchModel.matchesReadOnly(graph.identity().model(), runtime.kernel().identity().model())
             && sameGoal(graph.objective(), runtime.objective()));
     require(
         disk.revision() > 0

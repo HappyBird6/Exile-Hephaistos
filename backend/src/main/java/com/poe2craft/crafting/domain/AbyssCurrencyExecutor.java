@@ -42,6 +42,8 @@ public final class AbyssCurrencyExecutor {
     boolean hidden = state.slots().stream().anyMatch(s -> s.modifier() == null);
     boolean valuesOnly =
         action == WorkbenchCurrency.DIVINE
+            || action == WorkbenchCurrency.ARMOURERS_SCRAP
+            || action == WorkbenchCurrency.BLACKSMITHS_WHETSTONE
             || action == WorkbenchCurrency.ARTIFICER
             || action.catalystType() != null;
     try {

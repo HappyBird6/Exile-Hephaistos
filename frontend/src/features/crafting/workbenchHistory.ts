@@ -1,3 +1,4 @@
+import { validSanctification } from './sanctification/sanctification'
 import type { AbyssState } from './AbyssPanel'
 import { baseAffixCapacity } from './baseRegistry'
 import { supportsConcreteStateShape } from './workbenchStateShape'
@@ -510,6 +511,7 @@ export function verifiedHistoryState(
   try {
     if (
       !supportsConcreteStateShape(state) ||
+      !validSanctification(state, initial.modifiers) ||
       (isWorkbenchJewel(state.baseItemId) && !reviewedBasicJewel(state)) ||
       !verifiedCatalystQuality(state, initial.modifiers) ||
       (state.snapshotId !== initial.metadata.snapshotId &&
@@ -523,8 +525,8 @@ export function verifiedHistoryState(
       (state.conditions.length !== 0 &&
         !(
           state.conditions.length === 1 &&
-          state.conditions[0] === 'CORRUPTED' &&
-          state.desecrated?.length
+          (state.conditions[0] === 'SANCTIFIED' ||
+            (state.conditions[0] === 'CORRUPTED' && state.desecrated?.length))
         )) ||
       !Array.isArray(state.implicits) ||
       state.implicits.length !== initial.state.implicits.length ||

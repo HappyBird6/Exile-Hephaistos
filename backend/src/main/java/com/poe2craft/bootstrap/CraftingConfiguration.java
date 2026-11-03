@@ -18,6 +18,10 @@ public class CraftingConfiguration {
   abstract static class ItemStateJson {
     @com.fasterxml.jackson.annotation.JsonInclude(
         com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+    abstract com.poe2craft.item.ItemState.Sanctification sanctification();
+
+    @com.fasterxml.jackson.annotation.JsonInclude(
+        com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
     abstract Integer equipmentQuality();
 
     @com.fasterxml.jackson.annotation.JsonInclude(

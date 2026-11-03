@@ -99,6 +99,33 @@ class AutomaticSearchServiceTest {
   }
 
   @Test
+  void currentGraphWithOldManualModelIsImmutableReadOnly() throws Exception {
+    var repository = new Repository();
+    var json = new ObjectMapper();
+    String id;
+    try (var service = service(repository)) { id = service.create("owner", request("pre-manual-additions")).id(); }
+    var document = (com.fasterxml.jackson.databind.node.ObjectNode) json.readTree(repository.read(id));
+    var model = (com.fasterxml.jackson.databind.node.ObjectNode) document.path("graph").path("identity").path("model");
+    model.put("ruleVersion", model.path("ruleVersion").asText().replaceFirst("-sanctification-independent-stat-percent-v1-equipment-quality-.*$", ""));
+    var defs = (com.fasterxml.jackson.databind.node.ObjectNode) model.path("definitions");
+    var currencies = defs.putArray("currencies");
+    for (var currency : kernel.identity().model().definitions().currencies())
+      if (currency.id() != WorkbenchCurrency.ARMOURERS_SCRAP && currency.id() != WorkbenchCurrency.BLACKSMITHS_WHETSTONE) currencies.add(json.valueToTree(currency));
+    var omens = defs.putArray("omens");
+    for (var omen : kernel.identity().model().definitions().omens())
+      if (omen.key() != WorkbenchOmen.SANCTIFICATION) omens.add(json.valueToTree(omen));
+    repository.save(id, json.writeValueAsBytes(document));
+    var before = repository.read(id);
+    try (var service = service(repository)) {
+      var view = service.get("owner", id);
+      assertThat(view.reason()).isEqualTo("LEGACY_READ_ONLY");
+      assertThat(view.canResume()).isFalse();
+      assertThatThrownBy(() -> service.control("owner", id, new AutomaticSearchService.Control("resume-old", view.revision(), view.generation(), "RESUME"))).isInstanceOf(PathSearchProtocol.Rejected.class);
+      assertThat(repository.read(id)).isEqualTo(before);
+    }
+  }
+
+  @Test
   void incompatibleHistoricalTemplateDoesNotBlockNewRequestsOrAdmission() throws Exception {
     var repository = new Repository();
     var json = new ObjectMapper();

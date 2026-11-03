@@ -432,7 +432,9 @@ public final class WorkbenchService {
   }
 
   public AbyssCurrencyExecutor.Result applyAbyssCurrency(
-      AbyssCraftingState state, WorkbenchCurrency action, Set<String> omens,
+      AbyssCraftingState state,
+      WorkbenchCurrency action,
+      Set<String> omens,
       RandomGenerator random) {
     return new AbyssCurrencyExecutor(abyssCatalog(state.item()), simulator(state.item()))
         .apply(state, action, omens, random);

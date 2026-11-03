@@ -113,6 +113,9 @@ public final class PathSearchController {
             throw new IllegalArgumentException(
                 "Clipboard observations require the manual workbench");
           if (!object.has("observations")) object.putNull("observations");
+          if (object.hasNonNull("sanctification"))
+            throw new IllegalArgumentException("Sanctification requires the manual workbench");
+          if (!object.has("sanctification")) object.putNull("sanctification");
         }
       return json.treeToValue(body, type);
     } catch (Rejected e) {

@@ -1,3 +1,5 @@
+import { defenceDisplay } from './defenceDisplay'
+import { preciseModifierProjection } from './sanctification/preciseModifierProjection'
 import { temporaryAmuletPassive } from './base-picker/temporaryAmuletPassive'
 import {
   applyBone,
@@ -1021,6 +1023,10 @@ export function CraftingPage() {
     concrete && initial.data
       ? whittlingCandidates(concrete, initial.data.modifiers, draft.activeOmens)
       : []
+  const defences =
+    concrete && initial.data
+      ? defenceDisplay(concrete, initial.data.modifiers, locale)
+      : { properties: [], replacedSourceIndexes: new Set<number>() }
   const card =
     item && !concrete
       ? toItemCard(item)
@@ -1034,7 +1040,8 @@ export function CraftingPage() {
             properties: [
               ...(topBase(catalogBase)?.sourceProperties?.[locale] ?? [])
                 .filter(
-                  (text) =>
+                  (text, index) =>
+                    !defences.replacedSourceIndexes.has(index) &&
                     !topBase(catalogBase)?.skillLines?.[locale].includes(text),
                 )
                 .map((text, i) => ({
@@ -1043,52 +1050,7 @@ export function CraftingPage() {
                     ? t('base.weapon_property', { property: text })
                     : text,
                 })),
-              ...(['gloves', 'helmets', 'body', 'boots'].includes(
-                topBase(catalogBase)?.family ?? '',
-              ) && catalogBase !== 'soldier'
-                ? [
-                    ...(topBase(catalogBase)!.armour > 0
-                      ? [
-                          {
-                            id: 'base-armour',
-                            text: t('base.armour', {
-                              value: topBase(catalogBase)!.armour,
-                            }),
-                          },
-                        ]
-                      : []),
-                    ...((topBase(catalogBase)!.evasion ?? 0) > 0
-                      ? [
-                          {
-                            id: 'base-evasion',
-                            text: t('base.evasion', {
-                              value: topBase(catalogBase)!.evasion!,
-                            }),
-                          },
-                        ]
-                      : []),
-                    ...((topBase(catalogBase)!.energyShield ?? 0) > 0
-                      ? [
-                          {
-                            id: 'base-energy-shield',
-                            text: t('base.energy_shield', {
-                              value: topBase(catalogBase)!.energyShield!,
-                            }),
-                          },
-                        ]
-                      : []),
-                  ]
-                : []),
-              ...(catalogBase === 'helmet' || catalogBase === 'imperial'
-                ? [
-                    {
-                      id: 'base-armour',
-                      text: t('base.armour', {
-                        value: topBase(catalogBase)?.armour ?? 29,
-                      }),
-                    },
-                  ]
-                : []),
+              ...defences.properties,
               ...(catalogBase === 'belt'
                 ? [
                     {
@@ -1110,16 +1072,6 @@ export function CraftingPage() {
                     {
                       id: 'innate-skill',
                       text: t('base.skeletal_warrior'),
-                    },
-                  ]
-                : []),
-              ...(catalogBase === 'body' || catalogBase === 'soldier'
-                ? [
-                    {
-                      id: 'base-armour',
-                      text: t('base.armour', {
-                        value: topBase(catalogBase)?.armour ?? 45,
-                      }),
                     },
                   ]
                 : []),
@@ -1207,7 +1159,17 @@ export function CraftingPage() {
                   concrete.catalystQuality,
                   concrete,
                 )
-                const displayText = localizedModifierText(d, projection.values)
+                const displayedValues = concrete.conditions.includes(
+                  'SANCTIFIED',
+                )
+                  ? preciseModifierProjection(
+                      concrete,
+                      d,
+                      m,
+                      i < concrete.implicits.length ? 'implicits' : 'explicits',
+                    ).values
+                  : projection.values
+                const displayText = localizedModifierText(d, displayedValues)
                 return {
                   id: m.modifierId,
                   removalCandidate:

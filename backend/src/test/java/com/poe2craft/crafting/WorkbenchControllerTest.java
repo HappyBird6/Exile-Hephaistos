@@ -338,7 +338,7 @@ class WorkbenchControllerTest {
         .andExpect(
             jsonPath("$.ruleVersion")
                 .value(
-                    "solar-workbench-abyss-essence-v16-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2"));
+                    "solar-workbench-abyss-essence-v16-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-equipment-quality-user-step1-v1"));
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
                 .header(
@@ -391,7 +391,7 @@ class WorkbenchControllerTest {
                             "activeOmens",
                             java.util.List.of()))))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.length()").value(75));
+        .andExpect(jsonPath("$.length()").value(77));
   }
 
   @org.junit.jupiter.params.ParameterizedTest

@@ -21,7 +21,15 @@ class WorkbenchDefinitionsLoaderTest {
   }
 
   private ObjectNode data() throws IOException {
-    return (ObjectNode) M.readTree(fixture());
+    var old = (ObjectNode) M.readTree(fixture());
+    try (var in = getClass().getResourceAsStream("/crafting/workbench-definitions-v1.json")) {
+      var active = M.readTree(in);
+      for (var c : active.get("currencies"))
+        if (Set.of("ARMOURERS_SCRAP", "BLACKSMITHS_WHETSTONE").contains(c.path("id").asText())) ((ArrayNode) old.get("currencies")).add(c.deepCopy());
+      for (var o : active.get("omens"))
+        if ("SANCTIFICATION".equals(o.path("key").asText())) ((ArrayNode) old.get("omens")).add(o.deepCopy());
+    }
+    return old;
   }
 
   private WorkbenchDefinitions read(JsonNode data) throws IOException {
@@ -33,11 +41,11 @@ class WorkbenchDefinitionsLoaderTest {
     assertEquals(
         "8d050b94aeb67a475c24eb767a0700f1c6441d169d6d697c290013cfc5b15d93",
         HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(fixture())));
-    var expected = WorkbenchDefinitionsLoader.read(new ByteArrayInputStream(fixture()));
+    var expected = read(data());
     var actual = WorkbenchDefinitionsLoader.initialize();
     assertEquals(expected.document(), actual.document());
-    assertEquals(160, actual.document().currencies().size());
-    assertEquals(18, actual.document().omens().size());
+    assertEquals(162, actual.document().currencies().size());
+    assertEquals(19, actual.document().omens().size());
     for (var row : expected.document().currencies()) {
       var c = row.id();
       assertEquals(row.baseAction(), c.baseAction());

@@ -140,7 +140,7 @@ public final class WorkbenchDefinitions {
                 DEXTRAL_EXALTATION ->
                 WorkbenchCurrency.EXALTED;
             case SINISTRAL_ERASURE, DEXTRAL_ERASURE, WHITTLING -> WorkbenchCurrency.CHAOS;
-            case BLESSED -> WorkbenchCurrency.DIVINE;
+            case BLESSED, SANCTIFICATION -> WorkbenchCurrency.DIVINE;
           };
       if (o.trigger() != implementedTrigger)
         throw new IllegalArgumentException(

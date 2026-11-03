@@ -1974,6 +1974,28 @@
       "replacementModifiers": [],
       "replacementEssenceSource": null,
       "replacementSource": null
+    },
+    {
+      "id": "ARMOURERS_SCRAP",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "BLACKSMITHS_WHETSTONE",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
     }
   ],
   "omens": [
@@ -2099,6 +2121,13 @@
     {
       "key": "BLESSED",
       "id": "Omen_of_the_Blessed",
+      "trigger": "DIVINE",
+      "affix": null,
+      "supportsTieredCurrency": false
+    },
+    {
+      "key": "SANCTIFICATION",
+      "id": "Omen_of_Sanctification",
       "trigger": "DIVINE",
       "affix": null,
       "supportsTieredCurrency": false

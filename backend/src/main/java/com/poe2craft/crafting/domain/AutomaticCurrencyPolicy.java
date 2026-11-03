@@ -6,6 +6,12 @@ import java.util.*;
 public final class AutomaticCurrencyPolicy {
   public static final String VERSION = "approved-187-2026-10-30-strict-exalted-v8";
   public static final int MAXIMUM_EXPLORED_EXPLICITS = 6;
+  // The frozen 187-entry policy already excludes these as supplementary resources.
+  // Their new manual enum names must not expand the approved automatic search inventory.
+  private static final Map<String, String> MANUAL_CURRENCY_POLICY_IDS =
+      Map.of(
+          WorkbenchCurrency.ARMOURERS_SCRAP.name(), "EXTRA:Armourers_Scrap",
+          WorkbenchCurrency.BLACKSMITHS_WHETSTONE.name(), "EXTRA:Blacksmiths_Whetstone");
 
   public enum Decision {
     USE,
@@ -112,7 +118,15 @@ public final class AutomaticCurrencyPolicy {
         throw new IllegalArgumentException("Supplementary ID required");
     }
     if (indexed.keySet().stream().filter(id -> !id.contains(":")).count()
-        != WorkbenchCurrency.values().length)
+                + MANUAL_CURRENCY_POLICY_IDS.size()
+            != WorkbenchCurrency.values().length
+        || Arrays.stream(WorkbenchCurrency.values())
+            .anyMatch(
+                currency ->
+                    !indexed.containsKey(
+                        MANUAL_CURRENCY_POLICY_IDS.getOrDefault(currency.name(), currency.name())))
+        || MANUAL_CURRENCY_POLICY_IDS.values().stream()
+            .anyMatch(id -> indexed.get(id).decision() != Decision.EXCLUDED))
       throw new IllegalArgumentException("Policy must cover every defined currency");
     this.document = document;
     this.entries = Collections.unmodifiableMap(indexed);
@@ -130,7 +144,7 @@ public final class AutomaticCurrencyPolicy {
 
   public Verdict evaluate(String id, Context context) {
     Objects.requireNonNull(context);
-    var entry = entries.get(id);
+    var entry = entries.get(MANUAL_CURRENCY_POLICY_IDS.getOrDefault(id, id));
     if (entry == null) return Verdict.UNREVIEWED;
     if (entry.decision() == Decision.EXCLUDED) return Verdict.EXCLUDED;
     if (entry.decision() == Decision.DEFERRED) return Verdict.DEFERRED;
