@@ -5,25 +5,25 @@
       "number": 1,
       "owner": "A",
       "requirement": "Essence four-column layout and one special row",
-      "status": "IN_PROGRESS",
-      "integrated": false,
-      "verified": false
+      "status": "INTEGRATED_TARGETED_PASS",
+      "integrated": true,
+      "verified": "TARGETED_ONLY"
     },
     {
       "number": 2,
       "owner": "A",
       "requirement": "Block legacy omens including Corruption; remove checkbox",
-      "status": "IN_PROGRESS",
-      "integrated": false,
-      "verified": false
+      "status": "INTEGRATED_TARGETED_PASS",
+      "integrated": true,
+      "verified": "TARGETED_ONLY"
     },
     {
       "number": 3,
       "owner": "A",
       "requirement": "Hide five requested omens for new selection",
-      "status": "IN_PROGRESS",
-      "integrated": false,
-      "verified": false
+      "status": "INTEGRATED_TARGETED_PASS",
+      "integrated": true,
+      "verified": "TARGETED_ONLY"
     },
     {
       "number": 4,
@@ -53,25 +53,25 @@
       "number": 7,
       "owner": "A",
       "requirement": "Navigation inside canvas above right work area; tooltip relocation",
-      "status": "IN_PROGRESS",
-      "integrated": false,
-      "verified": false
+      "status": "INTEGRATED_TARGETED_PASS",
+      "integrated": true,
+      "verified": "TARGETED_ONLY"
     },
     {
       "number": 8,
       "owner": "A",
       "requirement": "Favorites inside canvas, two rows of five",
-      "status": "IN_PROGRESS",
-      "integrated": false,
-      "verified": false
+      "status": "INTEGRATED_TARGETED_PASS",
+      "integrated": true,
+      "verified": "TARGETED_ONLY"
     },
     {
       "number": 9,
       "owner": "A",
       "requirement": "Right currencies exclude fixed left shelf duplicates",
-      "status": "IN_PROGRESS",
-      "integrated": false,
-      "verified": false
+      "status": "INTEGRATED_TARGETED_PASS",
+      "integrated": true,
+      "verified": "TARGETED_ONLY"
     },
     {
       "number": 10,
@@ -86,9 +86,9 @@
       "number": 11,
       "owner": "D",
       "requirement": "Remove preview badge",
-      "status": "IN_PROGRESS",
-      "integrated": false,
-      "verified": false
+      "status": "INTEGRATED_TARGETED_PASS",
+      "integrated": true,
+      "verified": "TARGETED_ONLY"
     },
     {
       "number": 12,
@@ -110,17 +110,17 @@
       "number": 14,
       "owner": "D",
       "requirement": "Remove maximum-quality text from card",
-      "status": "IN_PROGRESS",
-      "integrated": false,
-      "verified": false
+      "status": "INTEGRATED_TARGETED_PASS",
+      "integrated": true,
+      "verified": "TARGETED_ONLY"
     },
     {
       "number": 15,
       "owner": "D",
       "requirement": "Exact base image in item slot",
-      "status": "IN_PROGRESS",
-      "integrated": false,
-      "verified": false
+      "status": "INTEGRATED_TARGETED_PASS",
+      "integrated": true,
+      "verified": "TARGETED_ONLY"
     },
     {
       "number": 16,
@@ -150,57 +150,57 @@
       "number": 19,
       "owner": "D",
       "requirement": "History emoji button",
-      "status": "IN_PROGRESS",
-      "integrated": false,
-      "verified": false
+      "status": "INTEGRATED_TARGETED_PASS",
+      "integrated": true,
+      "verified": "TARGETED_ONLY"
     },
     {
       "number": 20,
       "owner": "D",
       "requirement": "Favorites-only history button",
-      "status": "IN_PROGRESS",
-      "integrated": false,
-      "verified": false
+      "status": "INTEGRATED_TARGETED_PASS",
+      "integrated": true,
+      "verified": "TARGETED_ONLY"
     },
     {
       "number": 21,
       "owner": "D",
       "requirement": "Site styling for history controls",
-      "status": "IN_PROGRESS",
-      "integrated": false,
-      "verified": false
+      "status": "INTEGRATED_TARGETED_PASS",
+      "integrated": true,
+      "verified": "TARGETED_ONLY"
     },
     {
       "number": 22,
       "owner": "D",
       "requirement": "History controls below base-selection row",
-      "status": "IN_PROGRESS",
-      "integrated": false,
-      "verified": false
+      "status": "INTEGRATED_TARGETED_PASS",
+      "integrated": true,
+      "verified": "TARGETED_ONLY"
     },
     {
       "number": 23,
       "owner": "D",
       "requirement": "Larger site-colour step arrows",
-      "status": "IN_PROGRESS",
-      "integrated": false,
-      "verified": false
+      "status": "INTEGRATED_TARGETED_PASS",
+      "integrated": true,
+      "verified": "TARGETED_ONLY"
     },
     {
       "number": 24,
       "owner": "D",
       "requirement": "Remove current-item placement label",
-      "status": "IN_PROGRESS",
-      "integrated": false,
-      "verified": false
+      "status": "INTEGRATED_TARGETED_PASS",
+      "integrated": true,
+      "verified": "TARGETED_ONLY"
     },
     {
       "number": 25,
       "owner": "D",
       "requirement": "Locale disclosure at footer",
-      "status": "IN_PROGRESS",
-      "integrated": false,
-      "verified": false
+      "status": "INTEGRATED_TARGETED_PASS",
+      "integrated": true,
+      "verified": "TARGETED_ONLY"
     }
   ]
 }

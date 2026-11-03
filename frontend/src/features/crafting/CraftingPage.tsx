@@ -21,6 +21,8 @@ import type { WorkbenchBaseKey } from './baseRegistry'
 import { topBase, topBaseKey } from './topBases'
 import { WorkbenchBasePicker } from './base-picker/WorkbenchBasePicker'
 import { SessionLibrary } from './session-library/SessionLibrary'
+import { SessionLibraryButtons } from './session-library/SessionLibraryButtons'
+import { ItemSlotImage } from './item-slot/ItemSlotImage'
 import { ServiceMessage } from './ServiceMessage'
 import { serviceText } from './serviceMessages'
 import { useI18n, uiText, translate } from '../../shared/i18n/i18n'
@@ -28,7 +30,6 @@ import { LocaleSelector } from '../../shared/i18n/LocaleSelector'
 import { localizedAction, catalystItemIds } from './localizedCrafting'
 import { localizedModifierText } from './localizedModifiers'
 import { inServiceScope } from './serviceScope'
-import { maximumQuality } from './qualityLimit'
 import { catalystTypes, catalystProjection } from './catalystQuality'
 import type { CatalystQuality } from './catalystQuality'
 import { currencyNames } from './currencyNames'
@@ -44,6 +45,8 @@ import { currencies } from './currencies'
 import { abyssWorkbenchMessages } from './abyss-workbench/messages'
 import { excludedWorkbenchBoneIds } from './abyss-workbench/policy'
 import { WorkbenchStash } from './stash/WorkbenchStash'
+import { visibilityPolicy } from './stash/visibilityPolicy'
+import { additionalStashCurrencies } from './materials'
 import { WorkbenchFavorites } from './stash/WorkbenchFavorites'
 import type { WorkbenchResource } from './stash/stashTypes'
 import { materials, materialTabs } from './materials'
@@ -241,6 +244,13 @@ export function CraftingPage() {
   const [tooltipsEnabled, setTooltipsEnabled] = useState(true)
   const [activeTab, setActiveTab] = useState<MaterialTab>('Currency')
   const excludedResourceIds: readonly string[] = excludedWorkbenchBoneIds
+  const fixedCurrencies = currencies.filter(
+    (currency) =>
+      inServiceScope(currency.id) &&
+      !isBone(currency.id) &&
+      currency.id !== 'Artificers_Orb' &&
+      !excludedResourceIds.includes(currency.id),
+  )
   const stashResources: WorkbenchResource[] = [
     ...currencies.map((currency) => ({
       ...currency,
@@ -248,17 +258,20 @@ export function CraftingPage() {
       category: 'Currency' as const,
     })),
     ...materials,
+    ...additionalStashCurrencies,
   ]
-  const [showLegacyOmens, setShowLegacyOmens] = useState(false)
   const [selected, setSelected] = useState<Selection | null>(null)
   const [held, setHeld] = useState<WorkbenchResource | null>(null)
   const [favorites, setFavorites] = useState<(WorkbenchResource | null)[]>(
     Array(10).fill(null),
   )
   const [pointer, setPointer] = useState<{ x: number; y: number } | null>(null)
-  const [leftMenu, setLeftMenu] = useState<'base' | 'history' | null>(null)
+  const [leftMenu, setLeftMenu] = useState<
+    'base' | 'history' | 'favorites' | null
+  >(null)
   const baseAnchor = useRef<HTMLButtonElement>(null)
   const historyAnchor = useRef<HTMLButtonElement>(null)
+  const favoritesAnchor = useRef<HTMLButtonElement>(null)
   const currencyShelf = useRef<HTMLDivElement>(null)
   const [lastDeletion, setLastDeletion] = useState<FilmDeletion | null>(null)
   const [inputOpen, setInputOpen] = useState(false)
@@ -579,7 +592,11 @@ export function CraftingPage() {
   }, [inputOpen])
 
   function choose(resource: Selection) {
-    if (excludedResourceIds.includes(resource.id)) return
+    if (
+      excludedResourceIds.includes(resource.id) ||
+      !visibilityPolicy(resource)
+    )
+      return
     setFailedApplication(null)
     setBoneSide('')
     setBoneRemoved('')
@@ -591,6 +608,11 @@ export function CraftingPage() {
   }
   function toggleOmen(id: string) {
     if (applyingRequest.current) return
+    if (
+      !draft.activeOmens.includes(id) &&
+      !visibilityPolicy({ id, category: 'Omen' })
+    )
+      return
     const omen = workbenchOmens.find((entry) => entry.id === id)
     if (!omen) {
       setAnnouncement(t('notice.omen_rule'))
@@ -886,7 +908,11 @@ export function CraftingPage() {
     index: number,
     resourceToPlace: WorkbenchResource | null = held,
   ) {
-    if (resourceToPlace && excludedResourceIds.includes(resourceToPlace.id))
+    if (
+      resourceToPlace &&
+      (excludedResourceIds.includes(resourceToPlace.id) ||
+        !visibilityPolicy(resourceToPlace))
+    )
       return
     if (!resourceToPlace) {
       const resource = favorites[index]
@@ -937,10 +963,11 @@ export function CraftingPage() {
         : undefined
   const evidenceInvalid =
     storedFrame?.evidence !== undefined && restoredValid && !craftEvidence
-  const qualityMaximum =
-    concrete && initial.data
-      ? maximumQuality(concrete, initial.data.modifiers)
-      : null
+  const slotBaseItemId =
+    concrete?.baseItemId ??
+    (draft.source === 'base' || importedBase
+      ? initial.data?.state.baseItemId
+      : undefined)
   const removalCandidates =
     concrete && initial.data
       ? whittlingCandidates(concrete, initial.data.modifiers, draft.activeOmens)
@@ -1055,14 +1082,6 @@ export function CraftingPage() {
                     },
                   ]
                 : []),
-              ...(qualityMaximum === null
-                ? []
-                : [
-                    {
-                      id: 'maximum-quality',
-                      text: t('quality.maximum', { value: qualityMaximum }),
-                    },
-                  ]),
               ...(concrete.equipmentQuality == null
                 ? []
                 : [
@@ -1127,7 +1146,9 @@ export function CraftingPage() {
                   },
                 ]
               : [],
-            flags: [],
+            flags: concrete.conditions.includes('SANCTIFIED')
+              ? [{ id: 'sanctified', text: 'SANCTIFIED' }]
+              : [],
             modifiers: [...concrete.implicits, ...concrete.explicits]
               .map((m, i) => {
                 const d = initial.data!.modifiers[m.modifierId]!
@@ -1287,19 +1308,7 @@ export function CraftingPage() {
               : t(`workspace.${view}`)}
           </h1>
         </div>
-        {view !== 'support' && (
-          <span className="preview-badge">
-            <i />
-            {name(baseSlugs[catalogBase], baseName)} · {t('ui.base')}
-          </span>
-        )}
       </div>
-      {view !== 'support' && (
-        <aside className="locale-disclosure">
-          <p>{t('probability.disclaimer')}</p>
-          <small>{t('translation.coverage')}</small>
-        </aside>
-      )}
       <div
         className="workbench-layout"
         id="panel-workbench"
@@ -1309,71 +1318,15 @@ export function CraftingPage() {
         onContextMenu={(event) => event.preventDefault()}
       >
         <div className="stash-panel" style={{ marginBottom: stashSpace }}>
-          <div className="panel-heading stash-heading">
-            <div
-              role="tablist"
-              aria-label={t('ui.material_stash_tabs')}
-              className="material-tabs"
-            >
-              {materialTabs.map((tab, index) => (
-                <button
-                  key={tab.id}
-                  type="button"
-                  role="tab"
-                  id={`tab-${tab.id}`}
-                  aria-selected={activeTab === tab.id}
-                  aria-controls="material-list"
-                  tabIndex={activeTab === tab.id ? 0 : -1}
-                  onClick={() => setActiveTab(tab.id)}
-                  onKeyDown={(event) => {
-                    const next =
-                      event.key === 'ArrowRight'
-                        ? (index + 1) % materialTabs.length
-                        : event.key === 'ArrowLeft'
-                          ? (index + materialTabs.length - 1) %
-                            materialTabs.length
-                          : event.key === 'Home'
-                            ? 0
-                            : event.key === 'End'
-                              ? materialTabs.length - 1
-                              : null
-                    if (next === null) return
-                    event.preventDefault()
-                    const target = materialTabs[next]!
-                    setActiveTab(target.id)
-                    document.getElementById(`tab-${target.id}`)?.focus()
-                  }}
-                >
-                  {t(`stash.${tab.id}`)}
-                </button>
-              ))}
-            </div>
-            <label className="tooltip-toggle">
-              <input
-                type="checkbox"
-                checked={tooltipsEnabled}
-                onChange={(event) => setTooltipsEnabled(event.target.checked)}
-              />
-              {t('ui.show_tooltips')}
-            </label>
-          </div>
           <div className="stash-board">
             <div className="stash-viewport">
               <div
-                ref={currencyShelf}
-                className="stash-canvas"
+                className="stash-canvas stash-canvas--with-favorites"
                 aria-label={t('ui.currency_stash')}
               >
-                <div className="currency-catalog">
-                  {currencies
-                    .filter(
-                      (currency) =>
-                        inServiceScope(currency.id) &&
-                        !isBone(currency.id) &&
-                        currency.id !== 'Artificers_Orb' &&
-                        !excludedResourceIds.includes(currency.id),
-                    )
-                    .map((currency) => {
+                <div className="stash-canvas__content" ref={currencyShelf}>
+                  <div className="currency-catalog">
+                    {fixedCurrencies.map((currency) => {
                       const currencyName = name(
                         currency.id,
                         currencyNames[currency.id],
@@ -1420,72 +1373,141 @@ export function CraftingPage() {
                         </button>
                       )
                     })}
-                </div>
-                <div className="item-placement">
-                  <span className="placement-label">
-                    {t('ui.current_item')}
-                  </span>
-                  <button
-                    className={`item-slot ${selected ? 'is-ready' : ''}`}
-                    type="button"
-                    aria-label={t(
-                      'ui.use_selected_currency_on_the_central_item',
-                    )}
-                    disabled={applying !== null}
-                    onClick={(event) => void apply(event.shiftKey)}
-                  >
-                    {draft.source === 'base' && catalogBase === 'solar' ? (
-                      <img
-                        src="/assets/currency/solar-amulet.webp"
-                        alt={name('Solar_Amulet', 'Solar Amulet')}
-                        draggable="false"
+                  </div>
+                  <div className="item-placement">
+                    <button
+                      className={`item-slot ${selected ? 'is-ready' : ''}`}
+                      type="button"
+                      aria-label={t(
+                        'ui.use_selected_currency_on_the_central_item',
+                      )}
+                      disabled={applying !== null}
+                      onClick={(event) => void apply(event.shiftKey)}
+                    >
+                      <ItemSlotImage
+                        baseItemId={slotBaseItemId ?? ''}
+                        label={
+                          slotBaseItemId
+                            ? name(baseSlugs[catalogBase], baseName)
+                            : displayedName
+                        }
                       />
-                    ) : (
-                      <span className="text-item-symbol" aria-hidden="true">
-                        ≡
-                      </span>
+                      <span>{displayedName}</span>
+                    </button>
+                    <button
+                      type="button"
+                      ref={inputToggle}
+                      className="item-input-toggle"
+                      aria-expanded={inputOpen}
+                      aria-controls="item-input-panel"
+                      onClick={(event) => {
+                        inputOpener.current = event.currentTarget
+                        setInputOpen((open) => !open)
+                      }}
+                    >
+                      {t('ui.edit_item')}
+                    </button>
+                  </div>
+                  <WorkbenchStash
+                    tabs={
+                      <>
+                        <label className="tooltip-toggle">
+                          <input
+                            type="checkbox"
+                            checked={tooltipsEnabled}
+                            onChange={(event) =>
+                              setTooltipsEnabled(event.target.checked)
+                            }
+                          />
+                          {t('ui.show_tooltips')}
+                        </label>
+                        <div
+                          role="tablist"
+                          aria-label={t('ui.material_stash_tabs')}
+                          className="material-tabs"
+                        >
+                          {materialTabs.map((tab, index) => (
+                            <button
+                              key={tab.id}
+                              type="button"
+                              role="tab"
+                              id={`tab-${tab.id}`}
+                              aria-selected={activeTab === tab.id}
+                              aria-controls="material-list"
+                              tabIndex={activeTab === tab.id ? 0 : -1}
+                              onClick={() => setActiveTab(tab.id)}
+                              onKeyDown={(event) => {
+                                const next =
+                                  event.key === 'ArrowRight'
+                                    ? (index + 1) % materialTabs.length
+                                    : event.key === 'ArrowLeft'
+                                      ? (index + materialTabs.length - 1) %
+                                        materialTabs.length
+                                      : event.key === 'Home'
+                                        ? 0
+                                        : event.key === 'End'
+                                          ? materialTabs.length - 1
+                                          : null
+                                if (next === null) return
+                                event.preventDefault()
+                                const target = materialTabs[next]!
+                                setActiveTab(target.id)
+                                document
+                                  .getElementById(`tab-${target.id}`)
+                                  ?.focus()
+                              }}
+                            >
+                              {t(`stash.${tab.id}`)}
+                            </button>
+                          ))}
+                        </div>
+                      </>
+                    }
+                    fixedCurrencyIds={fixedCurrencies.map(
+                      (currency) => currency.id,
                     )}
-                    <span>{displayedName}</span>
-                  </button>
-                  <button
-                    type="button"
-                    ref={inputToggle}
-                    className="item-input-toggle"
-                    aria-expanded={inputOpen}
-                    aria-controls="item-input-panel"
-                    onClick={(event) => {
-                      inputOpener.current = event.currentTarget
-                      setInputOpen((open) => !open)
+                    resources={stashResources}
+                    excludedIds={excludedResourceIds}
+                    activeTab={activeTab}
+                    selectedId={selected?.id ?? null}
+                    activeOmenIds={draft.activeOmens}
+                    held={held}
+                    disabled={applying !== null}
+                    onActivateOmen={(resource) => toggleOmen(resource.id)}
+                    onSelect={(resource, pointer) => {
+                      setPointer(pointer ?? null)
+                      choose(resource)
                     }}
-                  >
-                    {t('ui.edit_item')}
-                  </button>
+                    onPickUp={(resource, pointer) => {
+                      setFailedApplication(null)
+                      setPointer(pointer ?? null)
+                      setHeld(resource)
+                      setSelected(null)
+                      setAnnouncement(
+                        t('material.picked', {
+                          name: name(resource.id, resource.name),
+                        }),
+                      )
+                    }}
+                  />
                 </div>
-                <WorkbenchStash
-                  resources={stashResources}
-                  excludedIds={excludedResourceIds}
-                  activeTab={activeTab}
-                  selectedId={selected?.id ?? null}
-                  activeOmenIds={draft.activeOmens}
-                  held={held}
-                  disabled={applying !== null}
-                  showLegacyOmens={showLegacyOmens}
-                  onShowLegacyOmensChange={setShowLegacyOmens}
-                  onSelect={(resource, pointer) => {
-                    setPointer(pointer ?? null)
-                    choose(resource)
-                  }}
-                  onPickUp={(resource, pointer) => {
-                    setPointer(pointer ?? null)
-                    setHeld(resource)
-                    setSelected(null)
-                    setAnnouncement(
-                      t('material.picked', {
-                        name: name(resource.id, resource.name),
-                      }),
-                    )
-                  }}
-                />
+                <div className="workbench-favorites-region">
+                  <WorkbenchFavorites
+                    excludedIds={excludedResourceIds}
+                    selectedId={selected?.id ?? null}
+                    activeOmenIds={draft.activeOmens}
+                    favorites={favorites}
+                    held={held}
+                    disabled={applying !== null}
+                    onFavoriteActivate={(_, resource, pointer) => {
+                      setPointer(pointer ?? null)
+                      if (resource) choose(resource)
+                      else setSelected(null)
+                    }}
+                    onActivateOmen={(resource) => toggleOmen(resource.id)}
+                    onFavoritePlace={placeFavorite}
+                  />
+                </div>
               </div>
               <div className="workbench-currency-controls">
                 {selected && isBone(selected.id) && (
@@ -1646,6 +1668,18 @@ export function CraftingPage() {
                   {t('ui.new_craft')}
                 </button>
               </div>
+              <SessionLibraryButtons
+                libraryId="workbench-session-library"
+                historyAnchor={historyAnchor}
+                favoritesAnchor={favoritesAnchor}
+                disabled={applying !== null}
+                openView={
+                  leftMenu === 'history' || leftMenu === 'favorites'
+                    ? leftMenu
+                    : null
+                }
+                onOpenChange={setLeftMenu}
+              />
               <div className="bench-item-card">
                 <div className="workbench-film-controls">
                   <button
@@ -1658,7 +1692,12 @@ export function CraftingPage() {
                     }
                     onClick={() => browse(filmState.history.cursor - 1)}
                   >
-                    ‹
+                    <span
+                      className="workbench-film-controls__arrow"
+                      aria-hidden="true"
+                    >
+                      ‹
+                    </span>
                   </button>
                   <span>
                     {film
@@ -1678,21 +1717,14 @@ export function CraftingPage() {
                     }
                     onClick={() => browse(filmState.history.cursor + 1)}
                   >
-                    ›
+                    <span
+                      className="workbench-film-controls__arrow"
+                      aria-hidden="true"
+                    >
+                      ›
+                    </span>
                   </button>
                 </div>
-                <button
-                  type="button"
-                  ref={historyAnchor}
-                  disabled={applying !== null}
-                  aria-expanded={leftMenu === 'history'}
-                  aria-controls="workbench-session-library"
-                  onClick={() =>
-                    setLeftMenu(leftMenu === 'history' ? null : 'history')
-                  }
-                >
-                  {t('ui.crafting_session')}
-                </button>
                 {!!concrete?.observations?.augmentEffects.length && (
                   <p>{t('notice.resolve_augments')}</p>
                 )}
@@ -1825,26 +1857,6 @@ export function CraftingPage() {
               </div>
             </div>
           </div>
-          <div className="workbench-favorites-region">
-            <WorkbenchFavorites
-              excludedIds={excludedResourceIds}
-              selectedId={selected?.id ?? null}
-              activeOmenIds={draft.activeOmens}
-              favorites={favorites}
-              held={held}
-              disabled={applying !== null}
-              onFavoriteActivate={(_, resource, pointer) => {
-                if (pointer && resource?.category === 'Omen') {
-                  toggleOmen(resource.id)
-                  return
-                }
-                setPointer(pointer ?? null)
-                if (resource) choose(resource)
-                else setSelected(null)
-              }}
-              onFavoritePlace={placeFavorite}
-            />
-          </div>
           <WorkbenchBasePicker
             id="workbench-base-picker"
             anchor={baseAnchor}
@@ -1947,10 +1959,13 @@ export function CraftingPage() {
           />
           <SessionLibrary
             id="workbench-session-library"
-            anchor={historyAnchor}
+            anchor={leftMenu === 'favorites' ? favoritesAnchor : historyAnchor}
             shelf={currencyShelf}
-            open={leftMenu === 'history'}
-            onOpenChange={(open) => setLeftMenu(open ? 'history' : null)}
+            open={leftMenu === 'history' || leftMenu === 'favorites'}
+            favoritesOnly={leftMenu === 'favorites'}
+            onOpenChange={(open) => {
+              if (!open) setLeftMenu(null)
+            }}
             history={filmState.history}
             disabled={applying !== null || filmState.blockedSaving}
             onSelect={(id) => {
@@ -2101,6 +2116,12 @@ export function CraftingPage() {
         {imported.pending ? 'Analyzing item…' : announcement}
       </span>
       <footer className="craft-footer">
+        {view !== 'support' && (
+          <aside className="locale-disclosure">
+            <p>{t('probability.disclaimer')}</p>
+            <small>{t('translation.coverage')}</small>
+          </aside>
+        )}
         <span>
           EXILE HEPHAISTOS <span aria-hidden="true">/</span>
           {t('ui.your_personal_crafting_workbench')}

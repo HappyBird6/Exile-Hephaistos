@@ -79,7 +79,7 @@ it('selects a typed Ring film from an active Solar film without losing either ro
       <CraftingPage />
     </QueryClientProvider>,
   )
-  fireEvent.click(screen.getByRole('button', { name: 'Crafting session' }))
+  fireEvent.click(screen.getByRole('button', { name: 'History' }))
   fireEvent.click(screen.getByRole('button', { name: /Select session:.*1/ }))
   await screen.findByText('Quality (Reaver): +20%')
   expect(repo.load().active).toBe('typed-ring')

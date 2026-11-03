@@ -44,8 +44,9 @@ describe('single canvas category selector and canvas bottom favorite strip', () 
     expect(document.querySelector('.stash-canvas')).toContainElement(selector)
     const right = document.querySelector<HTMLElement>('.workbench-stash')!
     expect(right).toContainElement(selector)
-    expect(document.querySelector('.stash-heading')).not.toContainElement(
-      selector,
+    expect(document.querySelector('.stash-heading')).toBeNull()
+    expect(right).toContainElement(
+      screen.getByRole('checkbox', { name: 'Show tooltips' }),
     )
     const fixedShelf = document.querySelector<HTMLElement>('.currency-catalog')!
     const fixedIds = new Set(
@@ -162,9 +163,7 @@ describe('single canvas category selector and canvas bottom favorite strip', () 
       expect(region).toContainElement(favorites)
       expect(content).not.toContainElement(favorites)
       expect(right).not.toContainElement(favorites)
-      expect(
-        document.querySelector('.workbench-feedback-panel'),
-      ).not.toContainElement(favorites)
+      expect(document.querySelector('.workbench-feedback-panel')).toBeNull()
       expect(within(favorites).getAllByRole('button')).toHaveLength(10)
       expect(compact(getComputedStyle(favorites).gridTemplateColumns)).toBe(
         'repeat(5,minmax(0,1fr))',

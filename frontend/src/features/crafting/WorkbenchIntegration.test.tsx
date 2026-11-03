@@ -14,7 +14,12 @@ import {
   initialFixture,
 } from '../../shared/test/craftingFixtures'
 import { concreteInitial } from './workbenchApi'
-import { startFilm, emptyFilms, historyStorageKey } from './workbenchHistory'
+import {
+  startFilm,
+  emptyFilms,
+  historyStorageKey,
+  updateFilmMetadata,
+} from './workbenchHistory'
 let client: QueryClient
 beforeEach(() => {
   localStorage.clear()
@@ -35,12 +40,14 @@ it('uses one selector for right content and registers a material in ten bottom f
   const inner = within(
     document.querySelector('.workbench-stash') as HTMLElement,
   )
-  const outer = within(document.querySelector('.stash-heading') as HTMLElement)
+  const outer = within(
+    screen.getByRole('tablist', { name: 'Material stash tabs' }),
+  )
   expect(outer.getByRole('tab', { name: 'Currency' })).toHaveAttribute(
     'aria-selected',
     'true',
   )
-  expect(inner.queryByRole('tablist')).toBeNull()
+  expect(inner.getAllByRole('tablist')).toHaveLength(1)
   fireEvent.click(outer.getByRole('tab', { name: 'Essence' }))
   expect(outer.getByRole('tab', { name: 'Currency' })).toHaveAttribute(
     'aria-selected',
@@ -89,7 +96,7 @@ it('renames, favorites, deletes and restores the exact saved session', async () 
     ),
   )
   show()
-  fireEvent.click(screen.getByRole('button', { name: 'Crafting session' }))
+  fireEvent.click(screen.getByRole('button', { name: 'History' }))
   fireEvent.click(screen.getByRole('button', { name: /^Rename:/ }))
   fireEvent.change(screen.getByRole('textbox', { name: /^Session title:/ }), {
     target: { value: 'My craft' },
@@ -127,7 +134,7 @@ it('preserves saved sessions when a metadata write fails', () => {
   )
   localStorage.setItem(historyStorageKey, original)
   show()
-  fireEvent.click(screen.getByRole('button', { name: 'Crafting session' }))
+  fireEvent.click(screen.getByRole('button', { name: 'History' }))
   const write = vi
     .spyOn(Storage.prototype, 'setItem')
     .mockImplementation(() => {
@@ -143,4 +150,67 @@ it('preserves saved sessions when a metadata write fails', () => {
   } finally {
     write.mockRestore()
   }
+})
+
+it('places material controls inside the canvas and history controls below the base row', () => {
+  show()
+  const canvas = document.querySelector('.stash-canvas')!
+  expect(canvas).toContainElement(
+    screen.getByRole('tablist', { name: 'Material stash tabs' }),
+  )
+  expect(canvas).toContainElement(
+    screen.getByRole('checkbox', { name: 'Show tooltips' }),
+  )
+  expect(canvas).toContainElement(
+    document.querySelector('.workbench-favorites-region'),
+  )
+  const buttons = document.querySelector('.wb-session-library-buttons')!
+  expect(buttons.previousElementSibling).toHaveClass('workbench-session-entry')
+  expect(
+    within(buttons as HTMLElement).getByRole('button', { name: 'History' }),
+  ).toBeVisible()
+  expect(
+    within(buttons as HTMLElement).getByRole('button', { name: 'Favorites' }),
+  ).toBeVisible()
+  expect(document.querySelector('.preview-badge')).toBeNull()
+  expect(document.querySelector('.placement-label')).toBeNull()
+  expect(document.querySelector('.craft-footer')).toContainElement(
+    document.querySelector('.locale-disclosure'),
+  )
+  expect(
+    document.querySelectorAll('.workbench-film-controls__arrow'),
+  ).toHaveLength(2)
+})
+it('opens the favorites-only session view without rewriting the full saved history', () => {
+  const state = concreteInitial(initialFixture)
+  let history = startFilm(
+    emptyFilms(),
+    state,
+    'favorite-one',
+    initialFixture.rulesetIdentity,
+  )
+  history = startFilm(
+    history,
+    state,
+    'ordinary-two',
+    initialFixture.rulesetIdentity,
+  )
+  history = updateFilmMetadata(history, 'favorite-one', {
+    title: 'Saved favorite',
+    favorite: true,
+  })
+  localStorage.setItem(historyStorageKey, JSON.stringify(history))
+  show()
+  const before = localStorage.getItem(historyStorageKey)
+  fireEvent.click(screen.getByRole('button', { name: 'Favorites' }))
+  const panel = document.getElementById('workbench-session-library')!
+  expect(
+    within(panel).getAllByRole('button', { name: /^Select session:/ }),
+  ).toHaveLength(1)
+  expect(
+    within(panel).getByRole('button', {
+      name: /Select session: Saved favorite/,
+    }),
+  ).toBeVisible()
+  expect(localStorage.getItem(historyStorageKey)).toBe(before)
 })

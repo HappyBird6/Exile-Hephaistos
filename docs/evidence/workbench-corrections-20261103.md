@@ -59,3 +59,25 @@ application opens the feedback panel; successful/selection announcements remain 
 region. Failure state is bound to the current revision and cleared on selection/history changes.
 New failure/success history-preservation tests plus existing Workbench regression: **14/14 pass**.
 Typecheck and lint pass. This is targeted verification, not final whole integration verification.
+
+## A/D local integration checkpoint
+
+A source commits `ad282129` and `f7b3652e` merged as `61b878aa`; D `29c1c0f4` merged as
+`5dc15070`. Exclusive file sets were reviewed; their working trees were complete before merging.
+Common-page patches were reconstructed against the frozen baseline and merged with the
+integration changes. Conflicts in selection failure clearing and moved item placement were
+resolved by retaining both access policy and revision-bound failure clearing, plus exact-ID art.
+No historical JSON or live service data was edited.
+
+Tabs, tooltip checkbox and 2x5 favorites are now inside the canvas. History/Favorite controls
+are below the base row; disclosure is in the footer. Stale header/always-present feedback
+expectations were updated to the new requests, without dropping meaningful assertions.
+Initial related run: 56 tests / 52 pass / 4 stale UI failures. Corrected three-file run: 11/11 pass.
+Additional page wiring/favorite-filter preservation run: 6/6 pass. Typecheck/lint pass.
+The two added page tests check the real component connection and unchanged persisted Films.
+Final whole-suite validation is pending B/C integration.
+
+Quality increment question is pending: no verified source or existing reviewed definition
+establishes 5/2/1 increments. Those inferred values are removed from C's implementation.
+Only a new explicit user policy or source evidence can enable this behavior; request 16 is
+not marked complete. Current unsupported quality actions must not be labelled game-verified.
