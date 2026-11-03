@@ -154,7 +154,7 @@ it('preserves saved sessions when a metadata write fails', () => {
   }
 })
 
-it('places item controls beside favorites while keeping History below its reserved row', () => {
+it('places item controls beside favorites with History first in the lower work area', () => {
   show()
   const canvas = document.querySelector('.stash-canvas')!
   expect(canvas).toContainElement(
@@ -172,8 +172,9 @@ it('places item controls beside favorites while keeping History below its reserv
   for (const name of ['Select base', 'Edit item', 'New craft'])
     expect(controls).toContainElement(screen.getByRole('button', { name }))
   const buttons = document.querySelector('.wb-session-library-buttons')!
-  expect(buttons.previousElementSibling).toHaveClass('workbench-session-entry')
-  expect(buttons.previousElementSibling).toBeEmptyDOMElement()
+  expect(buttons.previousElementSibling).toBeNull()
+  expect(document.querySelector('.workbench-session-entry')).toBeNull()
+  expect(buttons.nextElementSibling).toHaveClass('bench-item-card')
   expect(
     within(buttons as HTMLElement).getByRole('button', { name: 'History' }),
   ).toBeVisible()

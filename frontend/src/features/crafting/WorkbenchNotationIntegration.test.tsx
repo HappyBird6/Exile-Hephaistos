@@ -49,7 +49,7 @@ function useCurrency(name: string) {
     }),
   )
 }
-it('places actual successful notation after lower feedback and retains its tooltip with a selected currency', async () => {
+it('places actual successful notation between the item card and feedback and retains its tooltip with a selected currency', async () => {
   show()
   useCurrency('Orb of Transmutation')
   const icon = await within(notation()).findByRole('img', {
@@ -71,7 +71,9 @@ it('places actual successful notation after lower feedback and retains its toolt
   )
   const panel = document.querySelector('.workbench-feedback-panel')!
   expect(panel.parentElement).toHaveClass('workbench-feedback-region')
-  expect(panel.parentElement?.nextElementSibling).toBe(notation())
+  expect(notation().previousElementSibling).toHaveClass('bench-item-card')
+  expect(notation().nextElementSibling).toBe(panel.parentElement)
+  expect(panel.parentElement?.nextElementSibling).toBeNull()
   expect(localStorage.getItem(historyStorageKey)).toBe(before)
   expect(within(notation()).getAllByRole('listitem')).toHaveLength(1)
   fireEvent.mouseOver(icon.querySelector('img') ?? icon)

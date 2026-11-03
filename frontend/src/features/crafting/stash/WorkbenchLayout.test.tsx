@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fireEvent, render, screen, within } from '@testing-library/react'
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { CraftingPage } from '../CraftingPage'
 import { useItemDraft } from '../draft'
 import { locales, setLocale, translate } from '../../../shared/i18n/i18n'
@@ -24,6 +24,8 @@ beforeEach(() => {
 })
 afterEach(() => {
   styles.remove()
+  vi.restoreAllMocks()
+  vi.unstubAllGlobals()
 })
 function show() {
   return render(
@@ -174,7 +176,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
   })
 
   it.each(locales)(
-    'shares the edit style across four ordered %s controls and reserves the original History row',
+    'shares the edit style across four ordered %s controls without reserving the former row',
     (locale) => {
       setLocale(locale)
       show()
@@ -210,17 +212,83 @@ describe('single canvas category selector and favorites inside the coordinate pl
       expect(compact(getComputedStyle(controls).gridTemplateRows)).toBe(
         'repeat(4,minmax(0,1fr))',
       )
-      const reserved = document.querySelector('.workbench-session-entry')!
-      expect(reserved).toHaveAttribute('aria-hidden', 'true')
-      expect(reserved).toBeEmptyDOMElement()
-      expect(reserved.nextElementSibling).toHaveClass(
-        'wb-session-library-buttons',
-      )
-      expect(compact(ruleStyle('.workbench-session-entry').height)).toBe(
-        'calc(1lh+34px)',
-      )
+      expect(document.querySelector('.workbench-session-entry')).toBeNull()
+      expect(
+        document.querySelector('.bench-lower')?.firstElementChild,
+      ).toHaveClass('wb-session-library-buttons')
+      expect(pageStyles).not.toContain('.workbench-session-entry')
     },
   )
+
+  it('positions only the base picker from the former upper work area and keeps interaction on the moved opener', () => {
+    vi.stubGlobal('innerWidth', 1400)
+    vi.stubGlobal('innerHeight', 900)
+    const rects = new Map([
+      ['bench-lower', new DOMRect(900, 100, 374, 800)],
+      ['stash-canvas__content', new DOMRect(100, 100, 800, 600)],
+    ])
+    vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockImplementation(
+      function (this: HTMLElement) {
+        return this.className === 'bench-lower' ? 374 : 0
+      },
+    )
+    vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(
+      function (this: HTMLElement) {
+        if (this.textContent === 'Select base' && this.tagName === 'BUTTON')
+          return new DOMRect(600, 650, 140, 40)
+        if (this.getAttribute('aria-label') === 'History')
+          return new DOMRect(917, 132, 44, 40)
+        if (this.getAttribute('aria-label') === 'Favorites')
+          return new DOMRect(969, 132, 44, 40)
+        return rects.get(this.className) ?? new DOMRect()
+      },
+    )
+    show()
+    const opener = screen.getByRole('button', { name: 'Select base' })
+    fireEvent.click(opener)
+    const picker = screen.getByRole('dialog', { name: 'Select base' })
+    expect(picker).toHaveStyle({
+      left: '391px',
+      top: '124px',
+      width: '520px',
+      maxHeight: '560px',
+    })
+    expect(
+      within(picker).getByRole('button', { name: 'Close item input' }),
+    ).toHaveFocus()
+    fireEvent.pointerDown(opener)
+    expect(picker).toBeInTheDocument()
+    rects.set('bench-lower', new DOMRect(850, 90, 374, 800))
+    fireEvent.scroll(window)
+    expect(picker).toHaveStyle({ left: '341px', top: '114px' })
+    rects.set('bench-lower', new DOMRect(900, 100, 374, 800))
+    fireEvent.resize(window)
+    expect(picker).toHaveStyle({ left: '391px', top: '124px' })
+    rects.set('bench-lower', new DOMRect(900, 100, 374 * 0.75, 800 * 0.75))
+    fireEvent.resize(window)
+    expect(picker).toHaveStyle({ left: '386.75px', top: '118px' })
+    fireEvent.keyDown(picker, { key: 'Escape' })
+    expect(screen.queryByRole('dialog')).toBeNull()
+    expect(opener).toHaveFocus()
+    fireEvent.click(opener)
+    fireEvent.click(screen.getByRole('button', { name: 'Close item input' }))
+    expect(opener).toHaveFocus()
+    fireEvent.click(opener)
+    fireEvent.pointerDown(document.body)
+    expect(screen.queryByRole('dialog')).toBeNull()
+    expect(opener).toHaveFocus()
+    for (const [name, left] of [
+      ['History', '391px'],
+      ['Favorites', '443px'],
+    ] as const) {
+      const trigger = screen.getByRole('button', { name })
+      fireEvent.click(trigger)
+      const library = screen.getByRole('dialog')
+      expect(library).toHaveStyle({ left, top: '132px' })
+      fireEvent.keyDown(library, { key: 'Escape' })
+      expect(trigger).toHaveFocus()
+    }
+  })
 
   it('keeps percentage control bounds between favorites and stash and expands only the narrow canvas bottom', () => {
     show()

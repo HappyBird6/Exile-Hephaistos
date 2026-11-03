@@ -278,6 +278,7 @@ export function CraftingPage() {
     'base' | 'history' | 'favorites' | null
   >(null)
   const baseAnchor = useRef<HTMLButtonElement>(null)
+  const basePlacementRegion = useRef<HTMLDivElement>(null)
   const historyAnchor = useRef<HTMLButtonElement>(null)
   const favoritesAnchor = useRef<HTMLButtonElement>(null)
   const currencyShelf = useRef<HTMLDivElement>(null)
@@ -1623,8 +1624,7 @@ export function CraftingPage() {
                 )}
               </div>
             </div>
-            <div className="bench-lower">
-              <div className="workbench-session-entry" aria-hidden="true" />
+            <div className="bench-lower" ref={basePlacementRegion}>
               <SessionLibraryButtons
                 libraryId="workbench-session-library"
                 historyAnchor={historyAnchor}
@@ -1812,6 +1812,13 @@ export function CraftingPage() {
                   />
                 )}
               </div>
+              <SessionNotation
+                film={film}
+                cursor={filmState.history.cursor}
+                resources={stashResources}
+                onNavigate={browse}
+                disabled={applying !== null}
+              />
               <div className="workbench-feedback-region">
                 {applicationFailure && (
                   <div
@@ -1826,18 +1833,12 @@ export function CraftingPage() {
                   </div>
                 )}
               </div>
-              <SessionNotation
-                film={film}
-                cursor={filmState.history.cursor}
-                resources={stashResources}
-                onNavigate={browse}
-                disabled={applying !== null}
-              />
             </div>
           </div>
           <WorkbenchBasePicker
             id="workbench-base-picker"
             anchor={baseAnchor}
+            placementRegion={basePlacementRegion}
             shelf={currencyShelf}
             open={leftMenu === 'base'}
             onOpenChange={(open) => setLeftMenu(open ? 'base' : null)}

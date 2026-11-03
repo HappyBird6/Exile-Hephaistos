@@ -1218,10 +1218,6 @@ dialog.item-input-panel::backdrop {
   margin-top: 0;
 }
 
-.workbench-session-entry {
-  /* Keep History and the card at their existing positions after moving controls. */
-  height: calc(1lh + 34px);
-}
 .workbench-feedback-panel {
   padding: 0 16px 12px;
   height: 84px;
@@ -1287,7 +1283,7 @@ dialog.item-input-panel::backdrop {
   text-align: center;
 }
 
-/* Keep session library spacing below the reserved former control row. */
+/* Keep spacing between the session library buttons and item card. */
 .bench-lower > .wb-session-library-buttons {
   margin-bottom: 12px;
 }

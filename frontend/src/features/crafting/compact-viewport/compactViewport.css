@@ -61,7 +61,7 @@
   }
 }
 
-/* Reserve space for feedback before History so failures never move its rows. */
+/* Keep a fixed feedback area after History, including when no failure is shown. */
 .workbench-feedback-region {
   box-sizing: border-box;
   height: 96px;

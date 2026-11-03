@@ -7,6 +7,8 @@ import './left-shelf-overlay.css'
 export type ShelfOverlayProps = {
   id: string
   anchor: RefObject<HTMLElement | null>
+  /** Place from this region's content origin, while anchor remains the opener. */
+  placementRegion?: RefObject<HTMLElement | null>
   shelf?: RefObject<HTMLElement | null>
   onClose: () => void
 }
@@ -15,6 +17,7 @@ export type ShelfOverlayProps = {
 export function LeftShelfOverlay({
   id,
   anchor,
+  placementRegion,
   shelf,
   onClose,
   title,
@@ -33,8 +36,30 @@ export function LeftShelfOverlay({
   useLayoutEffect(() => {
     function position() {
       if (!anchor.current || !panel.current) return
+      const region = placementRegion?.current
+      const bounds = (region ?? anchor.current).getBoundingClientRect()
+      const style = region ? getComputedStyle(region) : null
+      // Bounds are viewport pixels; padding/borders precede the workbench zoom.
+      const scale = region?.offsetWidth ? bounds.width / region.offsetWidth : 1
       const placement = overlayPlacement(
-        anchor.current.getBoundingClientRect(),
+        {
+          left:
+            bounds.left +
+            scale *
+              (style
+                ? (parseFloat(style.borderLeftWidth) || 0) +
+                  (parseFloat(style.paddingLeft) || 0)
+                : 0),
+          top:
+            bounds.top +
+            scale *
+              (style
+                ? (parseFloat(style.borderTopWidth) || 0) +
+                  (parseFloat(style.paddingTop) || 0)
+                : 0),
+          right: bounds.right,
+          bottom: bounds.bottom,
+        },
         {
           width: window.innerWidth,
           height: window.innerHeight,
@@ -56,7 +81,7 @@ export function LeftShelfOverlay({
       window.removeEventListener('resize', position)
       window.removeEventListener('scroll', position, true)
     }
-  }, [anchor, shelf])
+  }, [anchor, placementRegion, shelf])
   useEffect(() => {
     const trigger = anchor.current
     const element = panel.current

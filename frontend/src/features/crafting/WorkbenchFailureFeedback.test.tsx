@@ -74,7 +74,9 @@ it('shows only a failed-use reason, preserves history and clears it on a new sel
   const region = document.querySelector<HTMLElement>(
     '.workbench-feedback-region',
   )!
-  const history = region.nextElementSibling
+  const history = region.previousElementSibling
+  expect(history).toHaveClass('wb-session-notation')
+  expect(region.nextElementSibling).toBeNull()
   expect(getComputedStyle(region).height).toBe('96px')
   style.remove()
   const before = localStorage.getItem(historyStorageKey)
@@ -93,11 +95,11 @@ it('shows only a failed-use reason, preserves history and clears it on a new sel
     /unchanged|preserved/,
   )
   expect(panel()?.parentElement).toBe(region)
-  expect(region.nextElementSibling).toBe(history)
+  expect(region.previousElementSibling).toBe(history)
   fireEvent.click(currencyButton('Orb of Transmutation'))
   expect(panel()).toBeNull()
   expect(document.querySelector('.workbench-feedback-region')).toBe(region)
-  expect(region.nextElementSibling).toBe(history)
+  expect(region.previousElementSibling).toBe(history)
 })
 
 it.each(locales)(

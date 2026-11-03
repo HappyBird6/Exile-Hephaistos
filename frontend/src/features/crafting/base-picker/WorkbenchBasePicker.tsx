@@ -34,6 +34,7 @@ export function WorkbenchBasePicker(props: WorkbenchBasePickerProps) {
 function BasePickerContent({
   id,
   anchor,
+  placementRegion,
   shelf,
   onOpenChange,
   value,
@@ -84,6 +85,7 @@ function BasePickerContent({
     <LeftShelfOverlay
       id={id}
       anchor={anchor}
+      {...(placementRegion ? { placementRegion } : {})}
       {...(shelf ? { shelf } : {})}
       onClose={() => onOpenChange(false)}
       title={t('ui.select_base')}
