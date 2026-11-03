@@ -4,6 +4,8 @@ import com.poe2craft.item.ItemState;
 
 /** Ordinary quality currencies; source rolls and inherited exceptional quality are preserved. */
 public final class QualityCurrencyRules {
+  public static final String VERSION = "user-selected-equipment-quality-plus-one-v1";
+
   private QualityCurrencyRules() {}
 
   public static boolean equipment(String baseItemId) {
@@ -23,7 +25,10 @@ public final class QualityCurrencyRules {
   }
 
   public static String refusal(ItemState state, WorkbenchCurrency action) {
+    if (!isQuality(action)) return "A supported equipment quality currency is required.";
     if (!state.conditions().isEmpty()) return "This item cannot be modified.";
+    if (state.rarity() == ItemState.Rarity.UNIQUE)
+      return "Unique equipment remains outside the supported quality scope.";
     boolean armour = state.baseItemId().startsWith("Metadata/Items/Armours/");
     boolean martial = martial(state.baseItemId());
     if ((action == WorkbenchCurrency.ARMOURERS_SCRAP && !armour)
@@ -32,6 +37,13 @@ public final class QualityCurrencyRules {
     if (state.equipmentQuality() == null) return "The item's current equipment quality is unknown.";
     if (state.equipmentQuality() >= 20)
       return "This item has reached the ordinary quality currency limit.";
-    return "The per-use equipment quality increment has not been verified.";
+    return "";
+  }
+
+  /** User-selected simulator policy, not a verified actual-game per-use increment. */
+  public static int nextQuality(ItemState state) {
+    if (state.equipmentQuality() == null || state.equipmentQuality() >= 20)
+      throw new IllegalArgumentException("Known equipment quality below 20 is required");
+    return state.equipmentQuality() + 1;
   }
 }

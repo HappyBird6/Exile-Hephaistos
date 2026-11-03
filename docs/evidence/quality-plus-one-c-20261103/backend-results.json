@@ -1,0 +1,48 @@
+{
+  "candidate": true,
+  "tests": 20,
+  "suites": [
+    {
+      "name": "com.poe2craft.ArchitectureTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "com.poe2craft.crafting.QualityCapChangeTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "com.poe2craft.crafting.QualityLimitTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "com.poe2craft.crafting.QualityPlusOneTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "com.poe2craft.crafting.QualitySanctificationTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "com.poe2craft.crafting.WorkbenchSimulatorTest",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ]
+}

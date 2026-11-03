@@ -15,7 +15,7 @@ WorkbenchService.Initial에 `equipmentQuality`를 추가했다. 새로 생성한
 
 가져온 원문의 Armour/ES/Evasion 합계는 관측이다. 이를 base/flat 입력으로 재사용하면 중복 계산된다. `defenceObservation(computed, observed)`는 양쪽 숫자를 그대로 반환하며 일치/충돌/품질미관측을 구분한다. 원문·기존 관측 줄은 저장·내보내기에서 보존하고, 재계산값으로 원문을 덮어쓰지 않는다. 최대 품질 문구 제거는 D/root 카드 소유 변경이며 cap 검증은 그대로 유지했다.
 
-## 요구 16: 증분 근거 미확인 — 미완료
+## 요구 16: 사용자 선택 +1%p 정책 — 추가 결정 반영
 
 명칭/ID/action:
 
@@ -26,9 +26,15 @@ WorkbenchService.Initial에 `equipmentQuality`를 추가했다. 새로 생성한
 
 정확한 이름은 Armourer's Scrap / Blacksmith's Whetstone이다. 기존 6개 언어 `gameTerms.json`에 이미 있다. wand/staff/sceptre의 품질 화폐는 Arcanist's Etcher이므로 Whetstone으로 변경하지 않는다. ordinary 최대 품질 20과 이미 보유한 20 초과 품질 보존은 기존 정책을 따른다.
 
-**공개 게임 설명·기존 코드에서 Normal/Magic/Rare의 1회 증분을 확정하지 못했다. 5/2/1을 게임 규칙으로 추정하지 않았으며 해당 적용 코드는 제거했다.** 두 enum/action의 명칭·대상·거부/보존 경계만 준비되어 있고 성공 적용은 차단한다. registry/serviceScope의 DEFERRED를 제거하거나 실행 가능으로 표시하면 안 된다. 기존 `.env`나 설정에 추정값을 넣지 않았다.
+사용자가 직접 선택한 **희귀도와 무관하게 1회 +1%p**를 구현했다. 정책 버전은 Java `QualityCurrencyRules.VERSION` / TypeScript `equipmentQualityPolicy`의 `user-selected-equipment-quality-plus-one-v1`이다. Normal/Magic/Rare 모두 0→1, 19→20으로 적용한다. 20 이상에서는 거부하며 기존 20 초과 품질을 낮추지 않는다. null 품질은 추정하지 않고 거부한다. SANCTIFIED 등 수정 불가 condition·다른 대상 class도 거부한다. UNIQUE는 기존 전체 Workbench 범위 밖이다.
 
-필요한 최소 결정은 사용자가 각 rarity의 1회 증분을 simulator 정책으로 명시하거나 현재 게임 동작을 보여주는 근거를 제공하는 것이다. UNIQUE는 기존 전체 Workbench 범위 밖이다. 이 항목은 요구 12/13/17 완료 여부와 별도로 보고해야 한다.
+성공 응답은 `events: []`, `consumedOmens: []`, 기존 `remainingOmens` 전체 보존 및 위 정책 ID의 `assumptions` 1개를 반환한다. assumption의 n/min/max는 모두 1이며, **사용자 선택 simulator 정책임을 명시한다**. 장착 관측·분열·미공개 훼손 슬롯·implicit/explicit·socket·기타 상태는 바꾸지 않는다. 클라이언트는 +1과 이 불변을 다시 검증한다.
+
+공개 게임 자료에서 실제 rarity별 1회 증분은 여전히 확정하지 못했다. 이 구현을 실제 게임 증분 VERIFIED로 표기하지 않는다. 기존 5/2/1 추정값·`.env`·운영 설정을 사용하지 않는다. root는 품질 2종 registry/serviceScope의 DEFERRED를 **사용자 선택 정책 실행 지원**으로 변경하고, B의 Abyss passthrough 및 카드 연결을 최종 검증해야 한다. C는 root 소유 registry/자동 policy/B 소스를 수정하지 않았다. 기존 네 공통 패치는 추가 변경 없이 유지된다.
+
+미공개 훼손 슬롯을 가진 상태의 일반 `/apply` 연결에서는 root가 기존 `controller.patch`의 `allowDesecrated` 조건에 `QualityCurrencyRules.isQuality(request.action()) || 기존 축성 trigger 조건`을 추가해야 한다. C 엔진의 +1 경로는 슬롯을 수정하지 않으며 이 경우도 검증했다. 다른 action에 슬롯 실행을 허용하는 변경은 필요 없다. B의 Abyss wrapper를 통과할 때도 item의 품질만 +1하고 기존 slot/offer/active omen을 보존하는 연결은 root가 구현·검증한다. root의 현재 dirty Controller/B 파일은 C가 수정하지 않았다.
+
+WorkbenchSimulator의 수동 정책 suffix는 `-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-plus-one-v1`로 바뀐다. `automaticIdentity()` 및 legacy reader는 이번 후속 작업에서 수정하지 않았다. root가 진행 중인 read-only legacy 호환성 처리에서 이전 `equipment-quality-deferred-v1` suffix와 이 사용자 정책 suffix를 구분해 검토해야 한다.
 
 ## 요구 17: 축성 계약
 
@@ -79,10 +85,10 @@ const displayText = localizedModifierText(d, exact?.values ?? legacy.values)
 
 원본 common resource seal/registry/manifest는 root 소유다. `node scripts/update-ruleset-manifest.mjs`로 최종 **실제 바이트**의 digest를 갱신하고, `RulesetManifestLoaderTest`, registry 검사 및 UI/API 초기 상태를 최종 통합 검증한다. C의 임시 후보는 common patch의 resource 한 개에 대해서만 실제 SHA256으로 seal 값을 맞췄으며 seal 검증을 끄지 않았다. 원본 catalog 숫자나 기대값을 완화하지 않았다. WorkbenchSimulator ruleVersion에는 새 축성 정책/품질 보류 suffix가 추가된다.
 
-품질 2종 registry는 DEFERRED 유지다. Sanctification registry 활성화에는 위 전체 연결이 필요하다. sourceSha256은 `docs/evidence/quality-sanctification-c-20261103/source-captures.json`의 실제 개별 페이지 캡처값을 사용한다. 이 값은 원문 캡처의 hash이고 규칙이 모두 검증되었다는 표시는 아니다. Raw HTML은 `data-pipeline/captures/quality-sanctification-c-20261103`에 ignored 상태로 보존했다.
+품질 2종 registry는 위 사용자 결정에 따라 root에서 정책 지원 상태로 변경한다. Sanctification registry 활성화에는 위 전체 연결이 필요하다. sourceSha256은 `docs/evidence/quality-sanctification-c-20261103/source-captures.json`의 실제 개별 페이지 캡처값을 사용한다. 이 값은 원문 캡처의 hash이고 실제 게임 증분이 검증되었다는 표시는 아니다. Raw HTML은 `data-pipeline/captures/quality-sanctification-c-20261103`에 ignored 상태로 보존했다. 추가 이미지 수집은 하지 않았다.
 
 ## 검증과 범위
 
-Frontend 관련 테스트·typecheck·lint·format·build와 no-socket Java 21 unit/ArchUnit/format/bootJar를 실행했다. 최종 명령/결과는 동일 evidence 폴더의 `verification.json`에 기록한다. 후보 조립 스크립트는 `prepare-verification.py`, Java 격리 명령은 `verify-no-socket.sh`다. 후보 검증은 root의 최종 통합 전체 검사와 다르다.
+Frontend 관련 테스트·typecheck·lint·format·build와 no-socket Java 21 unit/ArchUnit/format/bootJar를 실행했다. 최초 축성 검사는 `docs/evidence/quality-sanctification-c-20261103/verification.json`, 사용자 +1 정책 후속 검사는 `docs/evidence/quality-plus-one-c-20261103/verification.json`에 기록한다. 후보 조립 스크립트는 `prepare-verification.py`, Java 격리 명령은 `verify-no-socket.sh`다. 후보 검증은 root의 최종 통합 전체 검사와 다르다.
 
 브라우저 자동 QA, 서버 시작/변경, remote push, DB/Redis/volume/54개 저장파일/운영 설정 수정은 하지 않았다. Docker host socket은 연결하지 않았다. DB integration 및 generateJooq는 이전 소켓 승인 차단과 이번 명시적 no-socket 범위 때문에 미실행이다. Frontend 전체 테스트는 root가 통합 후 실행한다. 자체 리뷰이며 독립 리뷰로 표현하지 않는다.
