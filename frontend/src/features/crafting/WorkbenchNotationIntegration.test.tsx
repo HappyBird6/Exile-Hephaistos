@@ -70,16 +70,28 @@ it('places actual successful notation after lower feedback and retains its toolt
     ),
   )
   const panel = document.querySelector('.workbench-feedback-panel')!
-  expect(panel.parentElement).toHaveClass('bench-lower')
-  expect(panel.nextElementSibling).toBe(notation())
+  expect(panel.parentElement).toHaveClass('workbench-feedback-region')
+  expect(panel.parentElement?.nextElementSibling).toBe(notation())
   expect(localStorage.getItem(historyStorageKey)).toBe(before)
   expect(within(notation()).getAllByRole('listitem')).toHaveLength(1)
-  fireEvent.pointerOver(icon)
+  fireEvent.mouseOver(icon.querySelector('img') ?? icon)
   expect(await screen.findByRole('tooltip')).toHaveTextContent(
     'Orb of Transmutation',
   )
   fireEvent.keyDown(document, { key: 'Escape' })
   expect(screen.queryByRole('tooltip')).toBeNull()
+  const toggle = screen.getByRole('checkbox', { name: 'Show tooltips' })
+  expect(document.querySelector('.workbench-stash')).not.toContainElement(
+    toggle,
+  )
+  fireEvent.click(toggle)
+  fireEvent.mouseOver(icon)
+  expect(screen.queryByRole('tooltip')).toBeNull()
+  fireEvent.click(toggle)
+  fireEvent.focusIn(icon)
+  expect(await screen.findByRole('tooltip')).toHaveTextContent(
+    'Orb of Transmutation',
+  )
 })
 it('uses the active cursor and branch on undo and restores notation without editing the original film', async () => {
   const mounted = show()

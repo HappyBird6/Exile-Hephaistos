@@ -1419,19 +1419,19 @@ export function CraftingPage() {
                       {t('ui.edit_item')}
                     </button>
                   </div>
+                  <label className="tooltip-toggle">
+                    <input
+                      type="checkbox"
+                      checked={tooltipsEnabled}
+                      onChange={(event) =>
+                        setTooltipsEnabled(event.target.checked)
+                      }
+                    />
+                    {t('ui.show_tooltips')}
+                  </label>
                   <WorkbenchStash
                     tabs={
                       <>
-                        <label className="tooltip-toggle">
-                          <input
-                            type="checkbox"
-                            checked={tooltipsEnabled}
-                            onChange={(event) =>
-                              setTooltipsEnabled(event.target.checked)
-                            }
-                          />
-                          {t('ui.show_tooltips')}
-                        </label>
                         <div
                           role="tablist"
                           aria-label={t('ui.material_stash_tabs')}
@@ -1807,18 +1807,20 @@ export function CraftingPage() {
                   />
                 )}
               </div>
-              {applicationFailure && (
-                <div
-                  className="workbench-feedback-panel"
-                  tabIndex={0}
-                  role="alert"
-                  aria-label={t('ui.crafting_notes')}
-                >
-                  <p className="workbench-feedback">
-                    {serviceText(applicationFailure)}
-                  </p>
-                </div>
-              )}
+              <div className="workbench-feedback-region">
+                {applicationFailure && (
+                  <div
+                    className="workbench-feedback-panel"
+                    tabIndex={0}
+                    role="alert"
+                    aria-label={t('ui.crafting_notes')}
+                  >
+                    <p className="workbench-feedback">
+                      {serviceText(applicationFailure)}
+                    </p>
+                  </div>
+                )}
+              </div>
               <SessionNotation
                 film={film}
                 cursor={filmState.history.cursor}

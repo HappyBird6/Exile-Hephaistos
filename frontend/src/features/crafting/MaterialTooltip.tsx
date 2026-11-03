@@ -49,6 +49,7 @@ export function MaterialTooltip({ onlyWithin }: { onlyWithin?: string } = {}) {
       if (event.key === 'Escape') hide()
     }
     document.addEventListener('pointerover', inspect)
+    document.addEventListener('mouseover', inspect)
     document.addEventListener('focusin', inspect)
     document.addEventListener('keydown', escape)
     window.addEventListener('blur', hide)
@@ -64,6 +65,7 @@ export function MaterialTooltip({ onlyWithin }: { onlyWithin?: string } = {}) {
     return () => {
       clearTimeout(timer)
       document.removeEventListener('pointerover', inspect)
+      document.removeEventListener('mouseover', inspect)
       document.removeEventListener('focusin', inspect)
       document.removeEventListener('keydown', escape)
       window.removeEventListener('blur', hide)

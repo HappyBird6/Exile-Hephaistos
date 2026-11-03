@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import { act, fireEvent, render, screen, within } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import { gameName, locales, setLocale } from '../../../shared/i18n/i18n'
@@ -41,10 +42,10 @@ describe('icon-based session notation', () => {
       expect(
         screen.getByRole('region', { name: text.title }),
       ).toBeInTheDocument()
-      expect(screen.getByText(text.scope)).toBeInTheDocument()
+      expect(document.querySelector('.wb-session-notation__scope')).toBeNull()
       expect(screen.getByText(text.omitted)).toBeInTheDocument()
       expect(screen.getByText(text.omensMissing)).toBeInTheDocument()
-      expect(screen.getByText(text.current)).toBeInTheDocument()
+      expect(document.querySelector('.wb-session-notation__current')).toBeNull()
       expect(screen.getByLabelText(text.incomplete)).toBeInTheDocument()
       const label = gameName(
         'Orb_of_Augmentation',
@@ -92,7 +93,7 @@ describe('icon-based session notation', () => {
         icon.getAttribute('data-material-tooltip'),
       ),
     ).toEqual([...consumed, 'Exalted_Orb'])
-    expect(row.textContent).toBe('1.+Current currency step')
+    expect(row.textContent).toBe('1.+')
     expect(
       container.querySelector('[data-material-tooltip="Omen_of_Whittling"]'),
     ).toBeNull()
@@ -248,4 +249,44 @@ describe('icon-based session notation', () => {
     expect(JSON.stringify(history)).toBe(original)
     write.mockRestore()
   })
+})
+
+it('lays out six steps in two columns in row order and retains only the current highlight', async () => {
+  const { history } = await twoSteps()
+  const film = currentFilm(history)!
+  const repeated = {
+    ...film,
+    frames: [
+      film.frames[0]!,
+      ...Array.from({ length: 6 }, () => film.frames[1]!),
+    ],
+  }
+  const style = document.createElement('style')
+  style.textContent = readFileSync(
+    'src/features/crafting/session-notation/session-notation.css',
+    'utf8',
+  )
+  document.head.append(style)
+  try {
+    render(<SessionNotation film={repeated} cursor={6} resources={resources} />)
+    expect(screen.getByRole('heading', { name: 'History' })).toBeInTheDocument()
+    const rows = screen.getAllByRole('listitem')
+    expect(rows.map((row) => row.getAttribute('data-frame-index'))).toEqual([
+      '1',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+    ])
+    const layout = getComputedStyle(rows[0]!.parentElement!)
+    expect(layout.gridTemplateColumns).toBe('repeat(2, minmax(0, 1fr))')
+    expect(layout.gridAutoFlow).toBe('row')
+    expect(rows.filter((row) => row.hasAttribute('aria-current'))).toEqual([
+      rows[5],
+    ])
+    expect(document.querySelector('.wb-session-notation__current')).toBeNull()
+  } finally {
+    style.remove()
+  }
 })

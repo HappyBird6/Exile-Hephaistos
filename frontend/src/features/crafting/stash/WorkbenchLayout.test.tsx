@@ -44,8 +44,12 @@ describe('single canvas category selector and favorites inside the coordinate pl
     const right = document.querySelector<HTMLElement>('.workbench-stash')!
     expect(right).toContainElement(selector)
     expect(document.querySelector('.stash-heading')).toBeNull()
-    expect(right).toContainElement(
-      screen.getByRole('checkbox', { name: 'Show tooltips' }),
+    const tooltipToggle = screen.getByRole('checkbox', {
+      name: 'Show tooltips',
+    })
+    expect(right).not.toContainElement(tooltipToggle)
+    expect(tooltipToggle.closest('label')?.parentElement).toHaveClass(
+      'stash-canvas__content',
     )
     const fixedShelf = document.querySelector<HTMLElement>('.currency-catalog')!
     const fixedIds = new Set(

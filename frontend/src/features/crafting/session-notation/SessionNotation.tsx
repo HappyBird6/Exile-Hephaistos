@@ -63,19 +63,11 @@ export function SessionNotation({
   const { locale } = useI18n()
   const text = sessionNotationMessages[locale]
   const headingId = useId()
-  const scopeId = useId()
   const notation = extractSessionNotation(film, cursor)
   const registry = new Map(resources.map((resource) => [resource.id, resource]))
   return (
-    <section
-      className="wb-session-notation"
-      aria-labelledby={headingId}
-      aria-describedby={scopeId}
-    >
+    <section className="wb-session-notation" aria-labelledby={headingId}>
       <h3 id={headingId}>{text.title}</h3>
-      <p id={scopeId} className="wb-session-notation__scope">
-        {text.scope}
-      </p>
       {notation.steps.length === 0 ? (
         <p className="wb-session-notation__empty">{text.empty}</p>
       ) : (
@@ -120,11 +112,6 @@ export function SessionNotation({
                   >
                     ?
                   </span>
-                )}
-                {current && (
-                  <small className="wb-session-notation__current">
-                    {text.current}
-                  </small>
                 )}
               </li>
             )

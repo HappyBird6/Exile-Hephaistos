@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
@@ -60,6 +61,18 @@ it('keeps currency explanations out of selection and successful crafting while s
 })
 it('shows only a failed-use reason, preserves history and clears it on a new selection', async () => {
   show()
+  const style = document.createElement('style')
+  style.textContent = readFileSync(
+    'src/features/crafting/compact-viewport/compactViewport.css',
+    'utf8',
+  )
+  document.head.append(style)
+  const region = document.querySelector<HTMLElement>(
+    '.workbench-feedback-region',
+  )!
+  const history = region.nextElementSibling
+  expect(getComputedStyle(region).height).toBe('96px')
+  style.remove()
   const before = localStorage.getItem(historyStorageKey)
   apply('Orb of Annulment')
   await waitFor(() => expect(panel()).toHaveAttribute('role', 'alert'))
@@ -69,6 +82,10 @@ it('shows only a failed-use reason, preserves history and clears it on a new sel
     document.querySelector('.stash-viewport .workbench-feedback-panel'),
   ).toBeNull()
   expect(localStorage.getItem(historyStorageKey)).toBe(before)
+  expect(panel()?.parentElement).toBe(region)
+  expect(region.nextElementSibling).toBe(history)
   fireEvent.click(currencyButton('Orb of Transmutation'))
   expect(panel()).toBeNull()
+  expect(document.querySelector('.workbench-feedback-region')).toBe(region)
+  expect(region.nextElementSibling).toBe(history)
 })

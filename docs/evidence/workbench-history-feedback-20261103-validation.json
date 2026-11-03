@@ -1,0 +1,36 @@
+{
+  "baseRevision": "69e5e07612d20e18914f6131019121df7f8486e4",
+  "frontend": {
+    "files": 155,
+    "tests": 2561,
+    "passed": 2561,
+    "failed": 0,
+    "singleWorker": true,
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "format": "PASS",
+    "build": "PASS",
+    "targetedFiles": 7,
+    "targetedTests": 58
+  },
+  "inputEquivalenceNotes": [
+    "An unused Spanish scope property was removed during the full run; this property is no longer read or rendered. Final typecheck, lint and build used the final source."
+  ],
+  "sourceDigests": {
+    "frontend/src/features/crafting/CraftingPage.tsx": "301880c530d86b5a3268e8bb3279d3ad340769a860effc6472af80658ef14fe4",
+    "frontend/src/features/crafting/MaterialTooltip.tsx": "db3e308418505c8dd4a0e097b3448b1cd47b95b6478637b52f5a0db6017fa57e",
+    "frontend/src/features/crafting/WorkbenchFailureFeedback.test.tsx": "db606cf0dc425b07cc6887b5c21ce2d28cfd9b1007021fea13646cdbebef5341",
+    "frontend/src/features/crafting/WorkbenchNotationIntegration.test.tsx": "3948db478a1c568db1fffc30c621676690cdc33148277762234265a34aa1b9cc",
+    "frontend/src/features/crafting/compact-viewport/compactViewport.css": "b0636740d465ac7270574e45514e1370cb0f2d5dc40c5c3e4530abcd00023f3b",
+    "frontend/src/features/crafting/session-notation/SessionNotation.test.tsx": "cdf06459f5da7237d8ee9b7798ab49cc4fe0fb8179e2aed486acfb9fd8a6185c",
+    "frontend/src/features/crafting/session-notation/SessionNotation.tsx": "1a61c798e9658b6f9e12129e2360f0f92298ee81d76edf31f150f55cdc864279",
+    "frontend/src/features/crafting/session-notation/messages.ts": "be8e23b958944c6a13b5c9bc83c3b884bc4654db14617e3c7fc60ea1b0dccfd3",
+    "frontend/src/features/crafting/session-notation/session-notation.css": "1e051a4363522e3b9aade3499693413f8344e1129dda76c30aac271ef5c436ae",
+    "frontend/src/features/crafting/stash/WorkbenchLayout.test.tsx": "734b8a8ef8ce585427073c6a9f5e91bdb553927d854a0d2e30e540a3634eeae7"
+  },
+  "backend": "NOT RUN: frontend-only changes; deployed JAR is unchanged",
+  "browser": "NOT RUN: explicitly deferred by user",
+  "dbIntegrationCodegen": "NOT RUN: no backend changes; Docker socket exposure remains prohibited",
+  "remotePush": false,
+  "buildWarning": "Existing bundle exceeds 500 kB"
+}
