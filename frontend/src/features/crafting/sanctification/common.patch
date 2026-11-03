@@ -1,0 +1,56 @@
+--- a/backend/src/main/java/com/poe2craft/crafting/domain/WorkbenchDefinitions.java
++++ b/backend/src/main/java/com/poe2craft/crafting/domain/WorkbenchDefinitions.java
+@@ -140,7 +140,7 @@
+                 DEXTRAL_EXALTATION ->
+                 WorkbenchCurrency.EXALTED;
+             case SINISTRAL_ERASURE, DEXTRAL_ERASURE, WHITTLING -> WorkbenchCurrency.CHAOS;
+-            case BLESSED -> WorkbenchCurrency.DIVINE;
++            case BLESSED, SANCTIFICATION -> WorkbenchCurrency.DIVINE;
+           };
+       if (o.trigger() != implementedTrigger)
+         throw new IllegalArgumentException(
+--- a/backend/src/main/resources/crafting/workbench-definitions-v1.json
++++ b/backend/src/main/resources/crafting/workbench-definitions-v1.json
+@@ -1971,6 +1971,28 @@
+         "amulet:suffix:of-the-sage"
+       ],
+       "essenceChoiceSource": "https://poe2db.tw/us/Greater_Essence_of_the_Infinite",
++      "replacementModifiers": [],
++      "replacementEssenceSource": null,
++      "replacementSource": null
++    },
++    {
++      "id": "ARMOURERS_SCRAP",
++      "baseAction": null,
++      "minimumModifierLevel": 0,
++      "fixedModifierId": null,
++      "essenceModifierIds": [],
++      "essenceChoiceSource": null,
++      "replacementModifiers": [],
++      "replacementEssenceSource": null,
++      "replacementSource": null
++    },
++    {
++      "id": "BLACKSMITHS_WHETSTONE",
++      "baseAction": null,
++      "minimumModifierLevel": 0,
++      "fixedModifierId": null,
++      "essenceModifierIds": [],
++      "essenceChoiceSource": null,
+       "replacementModifiers": [],
+       "replacementEssenceSource": null,
+       "replacementSource": null
+@@ -2099,6 +2121,13 @@
+     {
+       "key": "BLESSED",
+       "id": "Omen_of_the_Blessed",
++      "trigger": "DIVINE",
++      "affix": null,
++      "supportsTieredCurrency": false
++    },
++    {
++      "key": "SANCTIFICATION",
++      "id": "Omen_of_Sanctification",
+       "trigger": "DIVINE",
+       "affix": null,
+       "supportsTieredCurrency": false

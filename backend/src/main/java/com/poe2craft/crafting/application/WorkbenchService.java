@@ -403,7 +403,8 @@ public final class WorkbenchService {
         catalog.compatibleSnapshotIds(),
         QualityLimitRules.describe(state, catalog),
         base.equals("stocky") ? 0 : null,
-        catalog.base());
+        catalog.base(),
+        QualityCurrencyRules.equipment(state.baseItemId()) ? 0 : null);
   }
 
   public ItemCatalog abyssCatalog(ItemState state) {
@@ -633,5 +634,6 @@ public final class WorkbenchService {
       List<String> compatibleSnapshotIds,
       QualityLimitRules.Limit qualityLimit,
       Integer augmentSockets,
-      ItemCatalog.BaseItem baseRules) {}
+      ItemCatalog.BaseItem baseRules,
+      Integer equipmentQuality) {}
 }

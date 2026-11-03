@@ -1,0 +1,13 @@
+--- a/backend/src/main/java/com/poe2craft/bootstrap/CraftingConfiguration.java
++++ b/backend/src/main/java/com/poe2craft/bootstrap/CraftingConfiguration.java
+@@ -16,6 +16,10 @@
+   // Keep absent observation fields out of legacy protocol consumers; domain values stay
+   // Jackson-free.
+   abstract static class ItemStateJson {
++    @com.fasterxml.jackson.annotation.JsonInclude(
++        com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
++    abstract com.poe2craft.item.ItemState.Sanctification sanctification();
++
+     @com.fasterxml.jackson.annotation.JsonInclude(
+         com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+     abstract Integer equipmentQuality();

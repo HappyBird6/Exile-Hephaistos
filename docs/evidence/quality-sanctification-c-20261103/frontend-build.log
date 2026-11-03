@@ -1,0 +1,167 @@
+
+> exile-hephaistos-frontend@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 420 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                     0.48 kB │ gzip:     0.33 kB
+dist/assets/a8c2dbe37724fd0bc8d4-BCrvfsTU.webp      4.19 kB
+dist/assets/f7ed391074015d456f2b-CiZ8oUAh.webp      4.22 kB
+dist/assets/51c30ef1a1362e31e00a-DJF0mmgy.webp      4.32 kB
+dist/assets/b4e792f434706512846d-DUJhSWfC.webp      4.42 kB
+dist/assets/20efbfe01b711c6f18e4-Bc9ji6EL.webp      4.48 kB
+dist/assets/7082b29a3348c7e139c7-LsUBCwTp.webp      4.49 kB
+dist/assets/73ba1f7eecd8008c590b-GT7M7Ise.webp      4.50 kB
+dist/assets/38508e51577b17702aa6-C239JWNc.webp      4.53 kB
+dist/assets/aa2d0230233a09d85f7b-CRXa-wgM.webp      4.58 kB
+dist/assets/1945241c0e142956d78c-BxbV1z1E.webp      4.58 kB
+dist/assets/71014f9c12177a0f841c-DphPX0lx.webp      4.68 kB
+dist/assets/be633cc71bffa3e991f8-C7jgV4Hr.webp      4.69 kB
+dist/assets/00ff78b170c6ef736e25-BQ_-nqYR.webp      4.73 kB
+dist/assets/0b2d0bb7480ad7a73950-D317YwMS.webp      4.75 kB
+dist/assets/5ee3e1930d115541fb78-BCsGhkS0.webp      4.80 kB
+dist/assets/0afadf78b49817e92d9b-K2uWFq3y.webp      4.84 kB
+dist/assets/59bdae4987e9a5bb1c5d-B6HyF6kB.webp      4.88 kB
+dist/assets/c743a6e50d68deecb578-CcTQN5Ve.webp      4.97 kB
+dist/assets/133380b968752a6069f7-EWbskePO.webp      4.98 kB
+dist/assets/b33a5e27384d8a006724-DumnKYwp.webp      5.00 kB
+dist/assets/f0e1477481c4c8007046-KgZcljz8.webp      5.03 kB
+dist/assets/cf1ffd86e75fe2b15866-DkvvUG0S.webp      5.07 kB
+dist/assets/a00af91cdd79f3f8820c-DBYy67B-.webp      5.16 kB
+dist/assets/370494e44ee45f184c2f-QzNrVVw3.webp      5.19 kB
+dist/assets/8ca56ac9cf1036f934d2-BNUJqnaW.webp      5.35 kB
+dist/assets/d25e0f4b65483fe2b51a-BQUP-rM7.webp      5.38 kB
+dist/assets/f2b447b61d630b593e4d-cXNQ1iQa.webp      5.38 kB
+dist/assets/2c145d56f770c1818fd6-CzjxqIvG.webp      5.42 kB
+dist/assets/ff6f6c02f108719064a4-DKsc1L-T.webp      5.47 kB
+dist/assets/88c4ff0c62cf3810290b-R6T77xSt.webp      5.70 kB
+dist/assets/bda6069aab353664ab9e-CIfFS1li.webp      5.72 kB
+dist/assets/1ddcecb20540c5835c28-B_gClYF9.webp      6.23 kB
+dist/assets/91aeae421bfcc317a85f-knk54mz5.webp      6.56 kB
+dist/assets/417e1e6ce7f820c39457-DeCx3oXw.webp      6.67 kB
+dist/assets/e94e3a720abe5a50afe1-oi8_YZlW.webp      6.68 kB
+dist/assets/13aae6414d6c979f2332-BO9mKNOh.webp      6.70 kB
+dist/assets/818e39c91999def12870-ByUIWV5t.webp      6.88 kB
+dist/assets/9834f3bd051c0990c316-Cy8SyVkx.webp      6.92 kB
+dist/assets/d377357915f7a57cd937-DgV2APbU.webp      7.00 kB
+dist/assets/6bffd8099759ded4fd66-BF8tULk_.webp      7.09 kB
+dist/assets/cc09de22ccb5a73cdf13-CQ0a52sN.webp      7.12 kB
+dist/assets/e92f6e9282423169b46f-DZPOvodl.webp      7.20 kB
+dist/assets/b637395de2ed3616c340-Dxws6Nby.webp      7.25 kB
+dist/assets/9208daa3723b91e76c99-CaZsxNK7.webp      7.36 kB
+dist/assets/27300c0de5e4d6f80e6b-Ce66I2sF.webp      7.42 kB
+dist/assets/feaab1c028d65a4a40b6-B5xl5n0D.webp      7.45 kB
+dist/assets/e99ea62b3de0738d7c73-DKM_hIGz.webp      7.65 kB
+dist/assets/466be49dd93e2185c496-CAQzQCgp.webp      7.70 kB
+dist/assets/3f67214824e95d984f8f-DuEfz77G.webp      7.71 kB
+dist/assets/be72b9a25e26d6dfd139-385aCF0s.webp      7.72 kB
+dist/assets/8e5f225ade4f9c2dc2fd-DKFhlso_.webp      8.03 kB
+dist/assets/1842890b5b830082ff57-D3B77O33.webp      8.17 kB
+dist/assets/fc82d402393021f1eba9-D9h7qzYk.webp      8.27 kB
+dist/assets/23ad925ef6b77098923f-B6PG6FaQ.webp      8.38 kB
+dist/assets/9674f1fcb482dbec9330-DKxqXuc-.webp      8.41 kB
+dist/assets/a4b322a21b44d86be3ef-DBKAwXjZ.webp      8.53 kB
+dist/assets/eedf8a91d486ee1a7b35-BQH8GJ0C.webp      8.54 kB
+dist/assets/968cc680003e1b3d18fd-CzhoY5Ea.webp      8.58 kB
+dist/assets/ac3cc8281951bba6a5c5-nGRfg3Aj.webp      8.72 kB
+dist/assets/5db245255c8339b40b59-BEJDtLeZ.webp      8.81 kB
+dist/assets/75928f128c42dee9a589-CBvxAGDZ.webp      8.95 kB
+dist/assets/af32cbf26732a7568c25-DxB7f0Wi.webp      9.06 kB
+dist/assets/0e9afbe9254a02b178d5-kpkvJIcd.webp      9.36 kB
+dist/assets/050439dec71bfa910f0d-Dl-KSkLu.webp      9.63 kB
+dist/assets/6a4dc9062fc6f1ff22a9-BpGu-dmK.webp      9.65 kB
+dist/assets/ece38daaf71ee17f25ed-CMcFqxJD.webp      9.76 kB
+dist/assets/f59b3d389071cc108459-CR9-93HT.webp      9.90 kB
+dist/assets/00512bd44afbb384caf9-CitANEvh.webp      9.91 kB
+dist/assets/9a61d05d94f023326426-C99oxozV.webp      9.95 kB
+dist/assets/c0453690ed03939fe361-T3m4DqhA.webp     10.01 kB
+dist/assets/751985c706b834d6a349-D_LASuZw.webp     10.25 kB
+dist/assets/ad65fa4e2931f5237dac-CyeHzdyr.webp     10.35 kB
+dist/assets/60320cb65605b3bec159-D55ZlZZU.webp     10.56 kB
+dist/assets/f1d5f128b37c296bc055-C7pRLYBC.webp     10.60 kB
+dist/assets/e35e894834578741b04a-CklBXIFF.webp     10.63 kB
+dist/assets/ac3685e703e4024d929b-C8bxVbRe.webp     10.66 kB
+dist/assets/3749f31a8f9abd4868c7-DOeDGg4Y.webp     10.68 kB
+dist/assets/6b897270e42000cbfae0-DdLJMD7e.webp     10.69 kB
+dist/assets/096b42233c64aaf4af79-Buhxzosx.webp     10.89 kB
+dist/assets/217c7d9578008d7ba8a2-BlRQMiDP.webp     10.98 kB
+dist/assets/02dbc8a9f8d3c265049c-vAdv6giE.webp     10.99 kB
+dist/assets/27b5617c3827209dfbfe-DxU3ylbE.webp     11.01 kB
+dist/assets/1a66a1b41035dd14d51d-6lUmGw9n.webp     11.07 kB
+dist/assets/2a6e09e327a4b052abfe-D64ke5iO.webp     11.08 kB
+dist/assets/13e93d47f66e24f0eee8-DDolO1AN.webp     11.23 kB
+dist/assets/25ab595ac207cfef1776-CNAocXF6.webp     11.41 kB
+dist/assets/32843537d68570dc24ad-CP5jhn8b.webp     11.68 kB
+dist/assets/a84ca995ea885503dcab-BjNz6DkU.webp     11.82 kB
+dist/assets/f25aa03048ff8f34568f-DbTydWpo.webp     12.18 kB
+dist/assets/d86319d82218e330561b-DYNtx68o.webp     12.21 kB
+dist/assets/1d8c82cca31999686ce7-BZ381TJ7.webp     12.31 kB
+dist/assets/bdb1e144adac6e65fdc7-2lgtn_g5.webp     12.43 kB
+dist/assets/167bb01579f9f2fac5a6-Cnko_ieK.webp     12.70 kB
+dist/assets/491c5b130c69eeabc011-tF55ujeq.webp     12.75 kB
+dist/assets/2667d4bdc966a0c73f0b-CO7jYakW.webp     12.91 kB
+dist/assets/7480c1516f2912cd91d2-D-_ndY4j.webp     13.26 kB
+dist/assets/bbb7f2d5a71265d24cc3-CEnm4Blh.webp     13.29 kB
+dist/assets/30ea30183dc8f1d40769-DieoAPBd.webp     13.55 kB
+dist/assets/36ce4cb76e753ade4e35-DBoq2Arl.webp     13.67 kB
+dist/assets/eb36e102f0934337628e-B8M5n6gs.webp     13.82 kB
+dist/assets/eb66027411c50482cba1-BrIfTbqM.webp     13.85 kB
+dist/assets/1faac30bbfa62e47097f-BFO7ZDNZ.webp     13.89 kB
+dist/assets/09be42ad5cd84b424e69-PE0mjTYs.webp     14.14 kB
+dist/assets/7642209af4b31c6a074a-zrS-9x3D.webp     14.20 kB
+dist/assets/850b9d91fb64c997b4a2-Cw_mq1ZL.webp     14.35 kB
+dist/assets/3d570fb9c52076a7a1fe-BPftbE4I.webp     14.65 kB
+dist/assets/a7aa145e2a1714809fbc-Dhh3clFg.webp     14.93 kB
+dist/assets/e7b2a91b1b0938a22968-DskRr-tp.webp     15.00 kB
+dist/assets/0036334b08ffda0e2bf2-CLXPuwmt.webp     15.05 kB
+dist/assets/57993f13239f48a6a937-BpcmJJG7.webp     15.37 kB
+dist/assets/bd4b44a244986b593198-I1dr33UI.webp     15.67 kB
+dist/assets/8f8175234b1a4854ad49-6sMZEp9t.webp     16.03 kB
+dist/assets/97dd5bfd5b6805176d6c-C0wBMerP.webp     16.09 kB
+dist/assets/199061eeda61149dedfa-BPOED75G.webp     16.30 kB
+dist/assets/c7b5b369f2a97c0a2a4f-Oq0BcHFg.webp     16.59 kB
+dist/assets/3bbcd9e6864c3dd19e0d-CtRYCgm8.webp     16.79 kB
+dist/assets/bf598939d8a4f9593cad-DMBNwRJz.webp     18.30 kB
+dist/assets/8262ef502d75c4ffc0f9-BA5kofop.webp     18.71 kB
+dist/assets/c8809e1438f9f231be94-C4Iy8Xtg.webp     19.00 kB
+dist/assets/0291e8874900b7ff7308-DY3WRZzh.webp     19.23 kB
+dist/assets/929c11d0b874f08e2e56-FPKNXmvO.webp     19.30 kB
+dist/assets/eaba9df0781eb2f9d1ad-Cn9OYkpX.webp     19.42 kB
+dist/assets/67371a1fe86eaf9cfea0-D8XBWA9b.webp     19.74 kB
+dist/assets/96a14e177a4c8eae43fe-h59iC6xc.webp     19.90 kB
+dist/assets/befcd98b777d4150a605-CSLA6GUh.webp     20.05 kB
+dist/assets/ba8cf1f4f0658f5c5cbe-APZZyd7U.webp     20.23 kB
+dist/assets/be5435470d82dfae2e42-K9WXcInb.webp     20.48 kB
+dist/assets/5e90514aa6f28fe024cd-D53xHUti.webp     20.51 kB
+dist/assets/a698e322240d05f2b9e3-B8s-XM_D.webp     20.65 kB
+dist/assets/cd1318bd264401c0bb4f-Dl_MrEU-.webp     20.65 kB
+dist/assets/44205246a1f74d1acdbb-CVMtk0iC.webp     20.81 kB
+dist/assets/8593bf8547a82b1c232e-CoUH4wp7.webp     20.92 kB
+dist/assets/44a067a0084805396daa-DTJI1f-t.webp     20.98 kB
+dist/assets/c3b68d53248aea875f49-CpnHJmIq.webp     21.23 kB
+dist/assets/8cf8665843f7238a0874-Cl_A1Vyx.webp     21.24 kB
+dist/assets/ef62fdccf7ffabd5bd90-BuMdhdfG.webp     21.98 kB
+dist/assets/00c5974ddb4346ef616d-DBbTg-Th.webp     21.99 kB
+dist/assets/625ff7dcba5148aa4aa4-B0i2t9vr.webp     22.15 kB
+dist/assets/d1b51cec880b17cb9eff-DyLZMJWB.webp     22.20 kB
+dist/assets/1c56520e05d5321dae77-BtGyMkN4.webp     22.51 kB
+dist/assets/ec5feb729b7bd451fa17-Dy2KQP2B.webp     22.57 kB
+dist/assets/451babb6547f8a66ba4e-CaSFhYme.webp     23.80 kB
+dist/assets/c9034209ff71974d4d76-BnSyWUSr.webp     23.82 kB
+dist/assets/f8d35a5f2a43f5f1b4b6-BNuOOTUB.webp     24.18 kB
+dist/assets/6dd42a2b7ae04221a114-DfbctmJ5.webp     24.54 kB
+dist/assets/7be72ecd871771f28011-BKRQhxZq.webp     25.37 kB
+dist/assets/a826754af602edc3296f-wpIAbGyv.webp     26.25 kB
+dist/assets/61a567a16d3e2d444ba6-EVmmV2SW.webp     27.88 kB
+dist/assets/index-B_XtTTlM.css                     69.05 kB │ gzip:    14.93 kB
+dist/assets/index-qqfK9NIs.js                   5,751.20 kB │ gzip: 1,001.77 kB
+
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 1.21s

@@ -18,7 +18,91 @@ public record ItemState(
     CatalystQuality catalystQuality,
     List<DesecratedSlot> desecrated,
     Integer equipmentQuality,
-    ItemObservations observations) {
+    ItemObservations observations,
+    Sanctification sanctification) {
+  public ItemState(
+      String snapshotId,
+      String baseItemId,
+      int itemLevel,
+      Rarity rarity,
+      List<ModifierInstance> implicits,
+      List<ModifierInstance> explicits,
+      Set<Condition> conditions,
+      Integer augmentSockets,
+      CatalystQuality catalystQuality,
+      List<DesecratedSlot> desecrated,
+      Integer equipmentQuality,
+      ItemObservations observations) {
+    this(
+        snapshotId,
+        baseItemId,
+        itemLevel,
+        rarity,
+        implicits,
+        explicits,
+        conditions,
+        augmentSockets,
+        catalystQuality,
+        desecrated,
+        equipmentQuality,
+        observations,
+        null);
+  }
+
+  /** Original integer rolls remain untouched; these exact percentages are display projections. */
+  public record Sanctification(
+      String policy,
+      java.util.Map<String, java.util.Map<String, Integer>> implicits,
+      java.util.Map<String, java.util.Map<String, Integer>> explicits) {
+    public Sanctification {
+      if (!"independent-stat-percent-v1".equals(policy))
+        throw new IllegalArgumentException("Unknown sanctification policy");
+      implicits = immutableFactors(implicits);
+      explicits = immutableFactors(explicits);
+    }
+
+    private static java.util.Map<String, java.util.Map<String, Integer>> immutableFactors(
+        java.util.Map<String, java.util.Map<String, Integer>> factors) {
+      var copy = new java.util.TreeMap<String, java.util.Map<String, Integer>>();
+      factors.forEach(
+          (id, values) -> {
+            if (id == null
+                || id.isBlank()
+                || values.isEmpty()
+                || values.entrySet().stream()
+                    .anyMatch(
+                        e ->
+                            e.getKey() == null
+                                || e.getKey().isBlank()
+                                || e.getValue() == null
+                                || e.getValue() < 78
+                                || e.getValue() > 122))
+              throw new IllegalArgumentException("Invalid sanctification factors");
+            copy.put(id, java.util.Map.copyOf(values));
+          });
+      return java.util.Collections.unmodifiableMap(copy);
+    }
+  }
+
+  public ItemState withSanctification(Sanctification value) {
+    var flags = new java.util.HashSet<>(conditions);
+    if (value != null) flags.add(Condition.SANCTIFIED);
+    return new ItemState(
+        snapshotId,
+        baseItemId,
+        itemLevel,
+        rarity,
+        implicits,
+        explicits,
+        flags,
+        augmentSockets,
+        catalystQuality,
+        desecrated,
+        equipmentQuality,
+        observations,
+        value);
+  }
+
   public ItemState(
       String snapshotId,
       String baseItemId,
@@ -59,7 +143,8 @@ public record ItemState(
         catalystQuality,
         desecrated,
         equipmentQuality,
-        value);
+        value,
+        sanctification);
   }
 
   public ItemState(
@@ -100,7 +185,8 @@ public record ItemState(
         catalystQuality,
         desecrated,
         quality,
-        observations);
+        observations,
+        sanctification);
   }
 
   /** Slot identity survives observation; a null modifier ID is an unrevealed explicit slot. */
@@ -169,7 +255,8 @@ public record ItemState(
         catalystQuality,
         slots,
         equipmentQuality,
-        observations);
+        observations,
+        sanctification);
   }
 
   public int explicitSlotCount() {
@@ -222,6 +309,9 @@ public record ItemState(
     implicits = canonical(implicits);
     explicits = canonical(explicits);
     conditions = Set.copyOf(conditions);
+    if (sanctification != null
+        && (!conditions.contains(Condition.SANCTIFIED) || rarity != Rarity.RARE))
+      throw new IllegalArgumentException("Sanctification requires a Sanctified Rare item");
     desecrated = desecrated == null ? List.of() : List.copyOf(desecrated);
     if (desecrated.stream().map(DesecratedSlot::id).distinct().count() != desecrated.size())
       throw new IllegalArgumentException("Duplicate desecrated slot");

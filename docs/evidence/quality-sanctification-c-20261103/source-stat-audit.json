@@ -1,0 +1,549 @@
+{
+  "baseMirrorsAgree": true,
+  "sourceStats": {
+    "local_base_physical_damage_reduction_rating": {
+      "definitions": 287,
+      "pools": [
+        "abyssal-cuirass",
+        "adherent-cuffs",
+        "blacksteel-crest-shield",
+        "blacksteel-gauntlets",
+        "blacksteel-sabatons",
+        "conjurer-mantle",
+        "cryptic-crown",
+        "dastard-armour",
+        "death-mail",
+        "death-mantle",
+        "faithful-leggings",
+        "gladiatorial-helm",
+        "golden-targe",
+        "massive-mitts",
+        "rusted-cuirass",
+        "rusted-greathelm",
+        "seastorm-mantle",
+        "shrouded-mail-cold",
+        "shrouded-mail-fire",
+        "shrouded-mail-lightning",
+        "stocky-mitts",
+        "tasalian-greaves",
+        "tawhoan-tower-shield",
+        "thane-mail",
+        "utzaal-cuirass",
+        "warlord-cuirass",
+        "wolfskin-mantle"
+      ]
+    },
+    "local_base_evasion_rating": {
+      "definitions": 273,
+      "pools": [
+        "austere-garb",
+        "blacksteel-gauntlets",
+        "blacksteel-sabatons",
+        "corsair-coat",
+        "daggerfoot-shoes",
+        "dastard-armour",
+        "death-mail",
+        "desert-buckler",
+        "drakeskin-boots",
+        "falconers-jacket",
+        "freebooter-cap",
+        "gladiatorial-helm",
+        "golden-targe",
+        "grinning-mask",
+        "mail-coat",
+        "polished-bracers",
+        "rambler-jacket",
+        "shrouded-mail-cold",
+        "shrouded-mail-fire",
+        "shrouded-mail-lightning",
+        "sleek-jacket",
+        "slipstrike-vest",
+        "thane-mail",
+        "war-wraps",
+        "wyrmscale-coat"
+      ]
+    },
+    "local_energy_shield": {
+      "definitions": 245,
+      "pools": [
+        "adherent-cuffs",
+        "ancestral-tiara",
+        "austere-garb",
+        "blacksteel-crest-shield",
+        "conjurer-mantle",
+        "cryptic-crown",
+        "daggerfoot-shoes",
+        "death-mantle",
+        "faithful-leggings",
+        "falconers-jacket",
+        "feathered-raiment",
+        "flowing-raiment",
+        "grinning-mask",
+        "rambler-jacket",
+        "sacramental-robe",
+        "seastorm-mantle",
+        "sekhema-sandals",
+        "sirenscale-gloves",
+        "sleek-jacket",
+        "tasalian-focus",
+        "vile-robe",
+        "war-wraps",
+        "wolfskin-mantle"
+      ]
+    },
+    "local_physical_damage_reduction_rating_+%": {
+      "definitions": 152,
+      "pools": [
+        "abyssal-cuirass",
+        "massive-mitts",
+        "rusted-cuirass",
+        "rusted-greathelm",
+        "stocky-mitts",
+        "tasalian-greaves",
+        "tawhoan-tower-shield",
+        "utzaal-cuirass",
+        "warlord-cuirass"
+      ]
+    },
+    "local_evasion_rating_+%": {
+      "definitions": 139,
+      "pools": [
+        "corsair-coat",
+        "desert-buckler",
+        "drakeskin-boots",
+        "freebooter-cap",
+        "mail-coat",
+        "polished-bracers",
+        "slipstrike-vest",
+        "wyrmscale-coat"
+      ]
+    },
+    "local_energy_shield_+%": {
+      "definitions": 138,
+      "pools": [
+        "ancestral-tiara",
+        "feathered-raiment",
+        "flowing-raiment",
+        "sacramental-robe",
+        "sekhema-sandals",
+        "sirenscale-gloves",
+        "tasalian-focus",
+        "vile-robe"
+      ]
+    },
+    "local_armour_and_evasion_+%": {
+      "definitions": 179,
+      "pools": [
+        "blacksteel-gauntlets",
+        "blacksteel-sabatons",
+        "dastard-armour",
+        "death-mail",
+        "gladiatorial-helm",
+        "golden-targe",
+        "shrouded-mail-cold",
+        "shrouded-mail-fire",
+        "shrouded-mail-lightning",
+        "thane-mail"
+      ]
+    },
+    "local_armour_and_energy_shield_+%": {
+      "definitions": 139,
+      "pools": [
+        "adherent-cuffs",
+        "blacksteel-crest-shield",
+        "conjurer-mantle",
+        "cryptic-crown",
+        "death-mantle",
+        "faithful-leggings",
+        "seastorm-mantle",
+        "wolfskin-mantle"
+      ]
+    },
+    "local_evasion_and_energy_shield_+%": {
+      "definitions": 125,
+      "pools": [
+        "austere-garb",
+        "daggerfoot-shoes",
+        "falconers-jacket",
+        "grinning-mask",
+        "rambler-jacket",
+        "sleek-jacket",
+        "war-wraps"
+      ]
+    }
+  },
+  "missingModifierTags": [
+    {
+      "pool": "blacksteel-crest-shield",
+      "modifier": "faithful-leggings:prefix:defender-s",
+      "stat": "local_armour_and_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "blacksteel-crest-shield",
+      "modifier": "faithful-leggings:prefix:protector-s",
+      "stat": "local_armour_and_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "blacksteel-crest-shield",
+      "modifier": "faithful-leggings:prefix:keeper-s",
+      "stat": "local_armour_and_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "blacksteel-crest-shield",
+      "modifier": "faithful-leggings:prefix:guardian-s",
+      "stat": "local_armour_and_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "blacksteel-crest-shield",
+      "modifier": "faithful-leggings:prefix:warden-s",
+      "stat": "local_armour_and_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "blacksteel-crest-shield",
+      "modifier": "faithful-leggings:prefix:sentinel-s",
+      "stat": "local_armour_and_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "blacksteel-sabatons",
+      "modifier": "blacksteel-sabatons:prefix:captain-s",
+      "stat": "local_armour_and_evasion_+%",
+      "tags": []
+    },
+    {
+      "pool": "blacksteel-sabatons",
+      "modifier": "blacksteel-sabatons:prefix:commander-s",
+      "stat": "local_armour_and_evasion_+%",
+      "tags": []
+    },
+    {
+      "pool": "blacksteel-sabatons",
+      "modifier": "blacksteel-sabatons:prefix:magnate-s",
+      "stat": "local_armour_and_evasion_+%",
+      "tags": []
+    },
+    {
+      "pool": "blacksteel-sabatons",
+      "modifier": "blacksteel-sabatons:prefix:marshal-s",
+      "stat": "local_armour_and_evasion_+%",
+      "tags": []
+    },
+    {
+      "pool": "blacksteel-sabatons",
+      "modifier": "blacksteel-sabatons:prefix:general-s",
+      "stat": "local_armour_and_evasion_+%",
+      "tags": []
+    },
+    {
+      "pool": "blacksteel-sabatons",
+      "modifier": "blacksteel-sabatons:prefix:warlord-s",
+      "stat": "local_armour_and_evasion_+%",
+      "tags": []
+    },
+    {
+      "pool": "daggerfoot-shoes",
+      "modifier": "daggerfoot-shoes:prefix:intuitive",
+      "stat": "local_evasion_and_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "daggerfoot-shoes",
+      "modifier": "daggerfoot-shoes:prefix:psychic",
+      "stat": "local_evasion_and_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "daggerfoot-shoes",
+      "modifier": "daggerfoot-shoes:prefix:telepath-s",
+      "stat": "local_evasion_and_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "daggerfoot-shoes",
+      "modifier": "daggerfoot-shoes:prefix:illusionist-s",
+      "stat": "local_evasion_and_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "daggerfoot-shoes",
+      "modifier": "daggerfoot-shoes:prefix:mentalist-s",
+      "stat": "local_evasion_and_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "daggerfoot-shoes",
+      "modifier": "daggerfoot-shoes:prefix:trickster-s",
+      "stat": "local_evasion_and_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "desert-buckler",
+      "modifier": "drakeskin-boots:prefix:mosquito-s",
+      "stat": "local_evasion_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "desert-buckler",
+      "modifier": "drakeskin-boots:prefix:moth-s",
+      "stat": "local_evasion_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "desert-buckler",
+      "modifier": "drakeskin-boots:prefix:butterfly-s",
+      "stat": "local_evasion_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "desert-buckler",
+      "modifier": "drakeskin-boots:prefix:wasp-s",
+      "stat": "local_evasion_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "desert-buckler",
+      "modifier": "drakeskin-boots:prefix:dragonfly-s",
+      "stat": "local_evasion_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "desert-buckler",
+      "modifier": "drakeskin-boots:prefix:hummingbird-s",
+      "stat": "local_evasion_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "drakeskin-boots",
+      "modifier": "drakeskin-boots:prefix:mosquito-s",
+      "stat": "local_evasion_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "drakeskin-boots",
+      "modifier": "drakeskin-boots:prefix:moth-s",
+      "stat": "local_evasion_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "drakeskin-boots",
+      "modifier": "drakeskin-boots:prefix:butterfly-s",
+      "stat": "local_evasion_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "drakeskin-boots",
+      "modifier": "drakeskin-boots:prefix:wasp-s",
+      "stat": "local_evasion_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "drakeskin-boots",
+      "modifier": "drakeskin-boots:prefix:dragonfly-s",
+      "stat": "local_evasion_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "drakeskin-boots",
+      "modifier": "drakeskin-boots:prefix:hummingbird-s",
+      "stat": "local_evasion_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "faithful-leggings",
+      "modifier": "faithful-leggings:prefix:defender-s",
+      "stat": "local_armour_and_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "faithful-leggings",
+      "modifier": "faithful-leggings:prefix:protector-s",
+      "stat": "local_armour_and_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "faithful-leggings",
+      "modifier": "faithful-leggings:prefix:keeper-s",
+      "stat": "local_armour_and_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "faithful-leggings",
+      "modifier": "faithful-leggings:prefix:guardian-s",
+      "stat": "local_armour_and_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "faithful-leggings",
+      "modifier": "faithful-leggings:prefix:warden-s",
+      "stat": "local_armour_and_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "faithful-leggings",
+      "modifier": "faithful-leggings:prefix:sentinel-s",
+      "stat": "local_armour_and_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "golden-targe",
+      "modifier": "blacksteel-sabatons:prefix:captain-s",
+      "stat": "local_armour_and_evasion_+%",
+      "tags": []
+    },
+    {
+      "pool": "golden-targe",
+      "modifier": "blacksteel-sabatons:prefix:commander-s",
+      "stat": "local_armour_and_evasion_+%",
+      "tags": []
+    },
+    {
+      "pool": "golden-targe",
+      "modifier": "blacksteel-sabatons:prefix:magnate-s",
+      "stat": "local_armour_and_evasion_+%",
+      "tags": []
+    },
+    {
+      "pool": "golden-targe",
+      "modifier": "blacksteel-sabatons:prefix:marshal-s",
+      "stat": "local_armour_and_evasion_+%",
+      "tags": []
+    },
+    {
+      "pool": "golden-targe",
+      "modifier": "blacksteel-sabatons:prefix:general-s",
+      "stat": "local_armour_and_evasion_+%",
+      "tags": []
+    },
+    {
+      "pool": "golden-targe",
+      "modifier": "blacksteel-sabatons:prefix:warlord-s",
+      "stat": "local_armour_and_evasion_+%",
+      "tags": []
+    },
+    {
+      "pool": "sekhema-sandals",
+      "modifier": "sekhema-sandals:prefix:pixie-s",
+      "stat": "local_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "sekhema-sandals",
+      "modifier": "sekhema-sandals:prefix:gremlin-s",
+      "stat": "local_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "sekhema-sandals",
+      "modifier": "sekhema-sandals:prefix:boggart-s",
+      "stat": "local_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "sekhema-sandals",
+      "modifier": "sekhema-sandals:prefix:naga-s",
+      "stat": "local_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "sekhema-sandals",
+      "modifier": "sekhema-sandals:prefix:djinn-s",
+      "stat": "local_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "sekhema-sandals",
+      "modifier": "sekhema-sandals:prefix:seraphim-s",
+      "stat": "local_energy_shield_+%",
+      "tags": []
+    },
+    {
+      "pool": "tasalian-greaves",
+      "modifier": "tasalian-greaves:prefix:beetle-s",
+      "stat": "local_physical_damage_reduction_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "tasalian-greaves",
+      "modifier": "tasalian-greaves:prefix:crab-s",
+      "stat": "local_physical_damage_reduction_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "tasalian-greaves",
+      "modifier": "tasalian-greaves:prefix:armadillo-s",
+      "stat": "local_physical_damage_reduction_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "tasalian-greaves",
+      "modifier": "tasalian-greaves:prefix:rhino-s",
+      "stat": "local_physical_damage_reduction_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "tasalian-greaves",
+      "modifier": "tasalian-greaves:prefix:elephant-s",
+      "stat": "local_physical_damage_reduction_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "tasalian-greaves",
+      "modifier": "tasalian-greaves:prefix:mammoth-s",
+      "stat": "local_physical_damage_reduction_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "tawhoan-tower-shield",
+      "modifier": "tasalian-greaves:prefix:beetle-s",
+      "stat": "local_physical_damage_reduction_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "tawhoan-tower-shield",
+      "modifier": "tasalian-greaves:prefix:crab-s",
+      "stat": "local_physical_damage_reduction_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "tawhoan-tower-shield",
+      "modifier": "tasalian-greaves:prefix:armadillo-s",
+      "stat": "local_physical_damage_reduction_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "tawhoan-tower-shield",
+      "modifier": "tasalian-greaves:prefix:rhino-s",
+      "stat": "local_physical_damage_reduction_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "tawhoan-tower-shield",
+      "modifier": "tasalian-greaves:prefix:elephant-s",
+      "stat": "local_physical_damage_reduction_rating_+%",
+      "tags": []
+    },
+    {
+      "pool": "tawhoan-tower-shield",
+      "modifier": "tasalian-greaves:prefix:mammoth-s",
+      "stat": "local_physical_damage_reduction_rating_+%",
+      "tags": []
+    }
+  ],
+  "interpretation": "Exact local stat IDs determine local defence semantics. Some reviewed modifier rows omit broad modifier tags; their numeric stat IDs are preserved and used without inventing tags.",
+  "formula": "(base + local flat) * (1 + local increased / 100) * (1 + quality / 100)",
+  "rounding": "No intermediate rounding. Formatting belongs to the card.",
+  "excludedGlobalStats": [
+    "base_physical_damage_reduction_rating",
+    "base_evasion_rating",
+    "base_maximum_energy_shield",
+    "physical_damage_reduction_rating_+%",
+    "evasion_rating_+%",
+    "maximum_energy_shield_+%",
+    "global_armour_evasion_energy_shield_+%"
+  ]
+}

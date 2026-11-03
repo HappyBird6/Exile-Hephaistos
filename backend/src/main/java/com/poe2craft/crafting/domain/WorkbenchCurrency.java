@@ -164,7 +164,9 @@ public enum WorkbenchCurrency {
   GREATER_ESSENCE_OPULENCE,
   LESSER_ESSENCE_INFINITE,
   ESSENCE_INFINITE,
-  GREATER_ESSENCE_INFINITE;
+  GREATER_ESSENCE_INFINITE,
+  ARMOURERS_SCRAP,
+  BLACKSMITHS_WHETSTONE;
 
   private WorkbenchDefinitions.Currency definition() {
     return WorkbenchDefinitions.active().currency(this);

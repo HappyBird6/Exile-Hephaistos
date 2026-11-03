@@ -22,7 +22,8 @@ public enum WorkbenchOmen {
   SINISTRAL_ERASURE,
   DEXTRAL_ERASURE,
   WHITTLING,
-  BLESSED;
+  BLESSED,
+  SANCTIFICATION;
 
   private WorkbenchDefinitions.Omen definition() {
     return WorkbenchDefinitions.active().omen(this);

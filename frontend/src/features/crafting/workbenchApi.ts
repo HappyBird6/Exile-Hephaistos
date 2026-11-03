@@ -1,3 +1,10 @@
+import type { Sanctification } from './sanctification/sanctification'
+import { equivalent } from './sanctification/equivalence'
+import { sanctificationTransitionMatches } from './sanctification/sanctification'
+import {
+  isEquipmentQualityAction,
+  qualityTransitionMatches,
+} from './qualityCurrency'
 import { sameObservations, type ItemObservations } from './itemObservations'
 import { rulesetHeaders, verifyRulesetResponse } from './rulesetIdentity'
 import { translate } from '../../shared/i18n/i18n'
@@ -91,6 +98,8 @@ export type WorkbenchAction =
   | 'ESSENCE_SEEKING'
   | 'GREATER_ESSENCE_SEEKING'
   | 'ARTIFICER'
+  | 'ARMOURERS_SCRAP'
+  | 'BLACKSMITHS_WHETSTONE'
   | Action
   | `GREATER_${Exclude<Action, 'ANNULMENT'>}`
   | `PERFECT_${Exclude<Action, 'ANNULMENT'>}`
@@ -321,6 +330,8 @@ const replacementEssenceModifiers: Partial<
   ],
 }
 export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
+  Armourers_Scrap: 'ARMOURERS_SCRAP',
+  Blacksmiths_Whetstone: 'BLACKSMITHS_WHETSTONE',
   Ancient_Diluted_Liquid_Ire: 'ANCIENT_DILUTED_LIQUID_IRE',
   Ancient_Diluted_Liquid_Guilt: 'ANCIENT_DILUTED_LIQUID_GUILT',
   Ancient_Diluted_Liquid_Greed: 'ANCIENT_DILUTED_LIQUID_GREED',
@@ -470,6 +481,8 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Greater_Essence_of_Opulence: 'GREATER_ESSENCE_OPULENCE',
 }
 export const workbenchActionNames: Record<WorkbenchAction, string> = {
+  ARMOURERS_SCRAP: "Armourer's Scrap",
+  BLACKSMITHS_WHETSTONE: "Blacksmith's Whetstone",
   ANCIENT_DILUTED_LIQUID_IRE: 'Ancient Diluted Liquid Ire',
   ANCIENT_DILUTED_LIQUID_GUILT: 'Ancient Diluted Liquid Guilt',
   ANCIENT_DILUTED_LIQUID_GREED: 'Ancient Diluted Liquid Greed',
@@ -628,6 +641,11 @@ for (const [id, base] of Object.entries(currencyActions)) {
 }
 export const workbenchOmens = [
   {
+    id: 'Omen_of_Sanctification',
+    effect: 'Sanctify a Rare item',
+    trigger: 'DIVINE',
+  },
+  {
     id: 'Omen_of_Putrefaction',
     trigger: 'DESECRATE_ALL',
     effect: 'Record all observed desecrated slots and corruption',
@@ -777,6 +795,7 @@ export interface DesecratedSlot {
   modifierId: string | null
 }
 export interface ConcreteItem extends Omit<Bucket, 'modifierIds'> {
+  sanctification?: Sanctification | null
   observations?: ItemObservations | null
   equipmentQuality?: number | null
   desecrated?: DesecratedSlot[]
@@ -965,6 +984,9 @@ export function concreteInitial(initial: Initial): ConcreteItem {
     implicits: initial.state.implicits,
     conditions: initial.state.conditions,
     explicits: [],
+    ...(initial.equipmentQuality == null
+      ? {}
+      : { equipmentQuality: initial.equipmentQuality }),
     ...(initial.augmentSockets === undefined
       ? {}
       : { augmentSockets: initial.augmentSockets }),
@@ -1103,7 +1125,15 @@ export async function applyCurrency(
     !next ||
     !supportsConcreteStateShape(next) ||
     !sameObservations(next.observations, state.observations) ||
-    (next.equipmentQuality ?? null) !== (state.equipmentQuality ?? null) ||
+    !equivalent(next.desecrated ?? [], state.desecrated ?? []) ||
+    !qualityTransitionMatches(state, v, action) ||
+    !sanctificationTransitionMatches(
+      state,
+      v,
+      action,
+      activeOmens,
+      definitions,
+    ) ||
     !verifiedCatalystQuality(next, definitions) ||
     (isWorkbenchJewel(next.baseItemId) && !reviewedBasicJewel(next)) ||
     (v.applied &&
@@ -1249,7 +1279,12 @@ export async function applyCurrency(
       ),
     ) ||
     !Array.isArray(next.conditions) ||
-    next.conditions.length !== 0 ||
+    (v.applied &&
+    action === 'DIVINE' &&
+    activeOmens.includes('Omen_of_Sanctification')
+      ? next.conditions.length !== 1 || next.conditions[0] !== 'SANCTIFIED'
+      : JSON.stringify([...next.conditions].sort()) !==
+        JSON.stringify([...state.conditions].sort())) ||
     !Array.isArray(next.explicits) ||
     next.explicits.length > 6 ||
     !next.explicits.every(
@@ -1387,6 +1422,7 @@ export async function applyCurrency(
           : baseAction === 'CHAOS' ||
               action === 'DIVINE' ||
               action === 'ARTIFICER' ||
+              isEquipmentQualityAction(action) ||
               action === 'FRACTURING' ||
               catalystActionType(action) !== null ||
               replacementTargets.length > 0
