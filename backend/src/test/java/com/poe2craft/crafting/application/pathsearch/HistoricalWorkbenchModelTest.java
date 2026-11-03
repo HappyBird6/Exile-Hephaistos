@@ -81,16 +81,34 @@ class HistoricalWorkbenchModelTest {
                 current))
         .isFalse();
   }
-  @Test void previousPlusOnePolicyRemainsStrictlyReadOnlyWithAllDefinitionsUnchanged() {
-    String oldVersion = current.ruleVersion().replace("user-selected-equipment-quality-maximum-v2", "user-selected-equipment-quality-plus-one-v1");
-    var previous = new WorkbenchSimulator.AutomaticIdentity(oldVersion, current.ledgerVersion(),
-        current.definitions(), current.fixedTargets(), current.replacementTargets(), current.qualityPolicy());
+
+  @Test
+  void previousPlusOnePolicyRemainsStrictlyReadOnlyWithAllDefinitionsUnchanged() {
+    String oldVersion =
+        current
+            .ruleVersion()
+            .replace(
+                "user-selected-equipment-quality-maximum-v2",
+                "user-selected-equipment-quality-plus-one-v1");
+    var previous =
+        new WorkbenchSimulator.AutomaticIdentity(
+            oldVersion,
+            current.ledgerVersion(),
+            current.definitions(),
+            current.fixedTargets(),
+            current.replacementTargets(),
+            current.qualityPolicy());
     assertThat(HistoricalWorkbenchModel.requiresReadOnly(previous)).isTrue();
     assertThat(HistoricalWorkbenchModel.requiresReadOnly(current)).isFalse();
     assertThat(HistoricalWorkbenchModel.matchesReadOnly(previous, current)).isTrue();
-    var tampered = new WorkbenchSimulator.AutomaticIdentity(oldVersion, "different-ledger",
-        previous.definitions(), previous.fixedTargets(), previous.replacementTargets(), previous.qualityPolicy());
+    var tampered =
+        new WorkbenchSimulator.AutomaticIdentity(
+            oldVersion,
+            "different-ledger",
+            previous.definitions(),
+            previous.fixedTargets(),
+            previous.replacementTargets(),
+            previous.qualityPolicy());
     assertThat(HistoricalWorkbenchModel.matchesReadOnly(tampered, current)).isFalse();
   }
-
 }

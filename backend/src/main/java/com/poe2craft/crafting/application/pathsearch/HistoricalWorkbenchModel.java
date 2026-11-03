@@ -16,9 +16,11 @@ final class HistoricalWorkbenchModel {
       "-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2";
 
   static boolean requiresReadOnly(WorkbenchSimulator.AutomaticIdentity model) {
-    return predatesManualFeatures(model) || (model != null && MANUAL_SUFFIXES.stream()
-        .filter(suffix -> !suffix.equals(CURRENT_MANUAL_SUFFIX))
-        .anyMatch(suffix -> model.ruleVersion().endsWith(suffix)));
+    return predatesManualFeatures(model)
+        || (model != null
+            && MANUAL_SUFFIXES.stream()
+                .filter(suffix -> !suffix.equals(CURRENT_MANUAL_SUFFIX))
+                .anyMatch(suffix -> model.ruleVersion().endsWith(suffix)));
   }
 
   static boolean predatesManualFeatures(WorkbenchSimulator.AutomaticIdentity model) {
@@ -37,13 +39,27 @@ final class HistoricalWorkbenchModel {
     // Only a known manual policy changed; the frozen automatic policy excludes both quality
     // currencies. Require every definition, override, ledger and numerical policy to match.
     if (current.ruleVersion().endsWith(CURRENT_MANUAL_SUFFIX)
-        && MANUAL_SUFFIXES.stream().filter(suffix -> !suffix.equals(CURRENT_MANUAL_SUFFIX))
-            .anyMatch(suffix -> saved.ruleVersion().endsWith(suffix)
-                && current.ruleVersion().equals(saved.ruleVersion().substring(
-                    0, saved.ruleVersion().length() - suffix.length()) + CURRENT_MANUAL_SUFFIX))) {
-      return saved.equals(new WorkbenchSimulator.AutomaticIdentity(saved.ruleVersion(),
-          current.ledgerVersion(), current.definitions(), current.fixedTargets(),
-          current.replacementTargets(), current.qualityPolicy()));
+        && MANUAL_SUFFIXES.stream()
+            .filter(suffix -> !suffix.equals(CURRENT_MANUAL_SUFFIX))
+            .anyMatch(
+                suffix ->
+                    saved.ruleVersion().endsWith(suffix)
+                        && current
+                            .ruleVersion()
+                            .equals(
+                                saved
+                                        .ruleVersion()
+                                        .substring(
+                                            0, saved.ruleVersion().length() - suffix.length())
+                                    + CURRENT_MANUAL_SUFFIX))) {
+      return saved.equals(
+          new WorkbenchSimulator.AutomaticIdentity(
+              saved.ruleVersion(),
+              current.ledgerVersion(),
+              current.definitions(),
+              current.fixedTargets(),
+              current.replacementTargets(),
+              current.qualityPolicy()));
     }
     if (!predatesManualFeatures(saved) || current.definitions() == null) return false;
     boolean knownSuffix =

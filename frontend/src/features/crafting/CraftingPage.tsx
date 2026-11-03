@@ -98,7 +98,9 @@ import {
   workbenchJewelBases,
 } from './basicJewel'
 import { sapphireCastSpeed } from './sapphireJewel'
+import { compactCurrencyPositions } from './compact-viewport/coordinates'
 import './crafting.css'
+import './compact-viewport/compactViewport.css'
 
 function tooltipEvents(id: string) {
   return { 'data-material-tooltip': id }
@@ -1332,13 +1334,12 @@ export function CraftingPage() {
         <div className="stash-panel" style={{ marginBottom: stashSpace }}>
           <div className="stash-board">
             <div className="stash-viewport">
-              <div
-                className="stash-canvas stash-canvas--with-favorites"
-                aria-label={t('ui.currency_stash')}
-              >
+              <div className="stash-canvas" aria-label={t('ui.currency_stash')}>
                 <div className="stash-canvas__content" ref={currencyShelf}>
                   <div className="currency-catalog">
                     {fixedCurrencies.map((currency) => {
+                      const position =
+                        compactCurrencyPositions[currency.id] ?? currency
                       const currencyName = name(
                         currency.id,
                         currencyNames[currency.id],
@@ -1349,8 +1350,8 @@ export function CraftingPage() {
                           type="button"
                           className={`currency-slot ${selected?.id === currency.id ? 'is-selected' : ''}`}
                           style={{
-                            left: `${currency.x / 9.35}%`,
-                            top: `${currency.y / 5.5}%`,
+                            left: `${position.x / 9.35}%`,
+                            top: `${position.y / 5.5}%`,
                           }}
                           aria-label={currencyName}
                           aria-pressed={selected?.id === currency.id}
