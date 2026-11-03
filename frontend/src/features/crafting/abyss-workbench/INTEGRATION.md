@@ -1,5 +1,7 @@
 # B: 심연 작업대 연결
 
+> 2026-11-03의 요청 4·5·6·18 정정은 [INTEGRATION-25.md](./INTEGRATION-25.md)를 따른다. 아래 2026-11-02 기록은 보존된 이전 작업 명세다.
+
 기준 커밋: `6040357faf4e39cc989991d44ef8d04c7119dbd0`.
 공통 파일은 수정하지 않았다. 전용 기존 파일과 `abyss-workbench/`, `public/assets/abyss-runes/`만 변경했다.
 

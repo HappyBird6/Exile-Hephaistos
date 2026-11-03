@@ -189,6 +189,7 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
   }
 
   public AbyssCraftingState addUnrevealed(String id, AffixType side, ItemCatalog catalog) {
+    requireMutable();
     validate(catalog);
     var next = new ArrayList<>(slots);
     next.add(new Slot(id, side, null, true));
@@ -199,6 +200,7 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
 
   public AbyssCraftingState observe(
       String slotId, List<ModifierInstance> candidates, ItemCatalog catalog) {
+    requireMutable();
     validate(catalog);
     var result = new AbyssCraftingState(item, slots, new Offer(slotId, candidates));
     result.validate(catalog);
@@ -242,12 +244,14 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
 
   public AbyssCraftingState selectDirect(
       String id, ModifierInstance candidate, ItemCatalog catalog) {
+    requireMutable();
     if (!eligibleRevealIds(id, catalog).contains(candidate.modifierId()))
       throw new IllegalArgumentException("Ineligible reveal option");
     return selected(id, candidate, catalog);
   }
 
   public AbyssCraftingState choose(int candidateIndex, ItemCatalog catalog) {
+    requireMutable();
     validate(catalog);
     if (offer == null || candidateIndex < 0 || candidateIndex >= 3)
       throw new IllegalArgumentException("Observed candidate required");
@@ -287,6 +291,7 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
   }
 
   public AbyssCraftingState append(String slotId, ModifierInstance modifier, ItemCatalog catalog) {
+    requireMutable();
     var definition =
         catalog
             .find(modifier.modifierId())
@@ -309,6 +314,7 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
   }
 
   public AbyssCraftingState remove(String slotId, AffixType side, ItemCatalog catalog) {
+    requireMutable();
     validate(catalog);
     if (removalCandidates(side).stream().noneMatch(s -> s.id().equals(slotId)))
       throw new IllegalArgumentException("Ineligible removal slot");
@@ -318,7 +324,13 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
         offer != null && offer.slotId().equals(slotId) ? null : offer);
   }
 
-  private static ItemState withExplicits(ItemState s, List<ModifierInstance> modifiers) {
+  /** Sanctified states may be read/restored, but no Abyss operation may modify them. */
+  public void requireMutable() {
+    if (item.conditions().contains(ItemState.Condition.SANCTIFIED))
+      throw new IllegalArgumentException("Sanctified items cannot be modified");
+  }
+
+  static ItemState withExplicits(ItemState s, List<ModifierInstance> modifiers) {
     return new ItemState(
             s.snapshotId(),
             s.baseItemId(),

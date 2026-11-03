@@ -216,6 +216,7 @@ export function AbyssPanel({
 }) {
   const { locale } = useI18n()
   const t = texts[locale]
+  const immutable = source.conditions.includes('SANCTIFIED')
   // A bone-created/restored slot or an existing prepared route opens this panel.
   // The legacy allowAdd prop stays accepted, but cannot create a currency-free slot.
   const open =
@@ -400,7 +401,8 @@ export function AbyssPanel({
   })
   const plan = useQuery({
     queryKey: [...key, 'plan', state, draft.action, activeOmens],
-    enabled: open && !!state && !observationOnly && !directSelection,
+    enabled:
+      open && !!state && !immutable && !observationOnly && !directSelection,
     queryFn: ({ signal }) =>
       request<Plan>(
         'plan',
@@ -486,9 +488,10 @@ export function AbyssPanel({
   )
   const label = (d: Definition, values?: Record<string, number>) =>
     localizedModifierText(d, values)
-  const busy = mutation.isPending || query.isFetching
-  const submit = (operation: string, payload: Record<string, unknown>) =>
-    mutation.mutate({ operation, payload })
+  const busy = mutation.isPending || query.isFetching || immutable
+  const submit = (operation: string, payload: Record<string, unknown>) => {
+    if (!immutable) mutation.mutate({ operation, payload })
+  }
   if (!open) return null
   return (
     <section className="abyss-panel">
@@ -504,7 +507,11 @@ export function AbyssPanel({
             <>
               {onContinue && (
                 <button
-                  disabled={busy || !materializeAbyss(state)}
+                  disabled={
+                    mutation.isPending ||
+                    query.isFetching ||
+                    !materializeAbyss(state)
+                  }
                   onClick={() => {
                     const item = materializeAbyss(state)
                     if (item) onContinue(state, item)

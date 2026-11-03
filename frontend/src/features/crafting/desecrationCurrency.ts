@@ -3,6 +3,21 @@ import type { Initial } from './craftingApi'
 import type { ConcreteItem } from './workbenchApi'
 import { validAbyssResponse } from './abyssResponse'
 import { rulesetHeaders, verifyRulesetResponse } from './rulesetIdentity'
+import { baseAffixCapacity } from './baseRegistry'
+import { isWorkbenchJewel, jewelCapacity } from './basicJewel'
+
+export const desecrationOmenIds = [
+  'Omen_of_Sinistral_Necromancy',
+  'Omen_of_Dextral_Necromancy',
+  'Omen_of_the_Liege',
+  'Omen_of_the_Sovereign',
+  'Omen_of_the_Blackblooded',
+  'Omen_of_Putrefaction',
+] as const
+export const boneConsumedOmens = (activeOmens: readonly string[]) =>
+  activeOmens.filter((id) => desecrationOmenIds.some((omen) => omen === id))
+export const boneRemainingOmens = (activeOmens: readonly string[]) =>
+  activeOmens.filter((id) => !desecrationOmenIds.some((omen) => omen === id))
 
 export const boneNames = {
   Preserved_Cranium: 'Preserved Cranium',
@@ -29,7 +44,7 @@ export const necromancySide = (
       : undefined
 export const boneText = {
   en: [
-    'Record the observed outcome: choose its prefix/suffix side and, when full, the removed modifier. No random outcome is generated. Choose the reveal modifier separately.',
+    'Without a Necromancy omen, the simulator randomly chooses an available prefix or suffix. On a full item it randomly removes an eligible modifier. These are simulator policies; game probabilities are unverified. Choose the reveal modifier separately.',
     'Observed affix side',
     'Choose…',
     'Prefix',
@@ -38,7 +53,7 @@ export const boneText = {
     'Check the currency, item class, level, slots and observed outcome. Only one Necromancy omen can be active. The item has not changed.',
   ],
   ko: [
-    '관측한 적용 결과를 기록합니다. 접두·접미를 선택하고, 슬롯이 가득 차면 제거된 옵션도 선택하세요. 결과를 무작위로 생성하지 않습니다. 드러낼 옵션은 별도로 선택합니다.',
+    'Necromancy 징조가 없으면 가능한 접두·접미 중 무작위로 결정합니다. 슬롯이 가득 차면 제거 가능한 옵션을 무작위로 제거합니다. 시뮬레이터 정책이며 실제 게임 확률은 미확인입니다. 드러낼 옵션은 직접 선택하세요.',
     '관측한 옵션 종류',
     '선택…',
     '접두',
@@ -47,7 +62,7 @@ export const boneText = {
     '화폐·장비 종류·레벨·슬롯과 관측 결과를 확인하고 징조 조합을 확인하세요. Necromancy는 접두 또는 접미 하나만 활성화할 수 있습니다. 아이템은 변경되지 않았습니다.',
   ],
   'zh-CN': [
-    '记录观察结果：选择前缀或后缀；词缀已满时选择被移除的词缀。不生成随机结果。候选揭示为单独步骤。',
+    '没有死灵预兆时，模拟器随机选择可用的前缀或后缀。槽位已满时随机移除可移除词缀。这是模拟器策略，游戏概率未经验证。揭示词缀仍需手动选择。',
     '观察到的词缀类型',
     '选择…',
     '前缀',
@@ -56,7 +71,7 @@ export const boneText = {
     '请检查通货、装备类型、等级、槽位和观察结果，仅可启用一个死灵预兆。物品未改变。',
   ],
   'zh-TW': [
-    '記錄觀察結果：選擇前綴或後綴；詞綴已滿時選擇被移除的詞綴。不產生隨機結果。候選揭示為獨立步驟。',
+    '沒有死靈預兆時，模擬器隨機選擇可用的前綴或後綴。欄位已滿時隨機移除可移除詞綴。這是模擬器策略，遊戲機率未經驗證。揭示詞綴仍需手動選擇。',
     '觀察到的詞綴類型',
     '選擇…',
     '前綴',
@@ -65,7 +80,7 @@ export const boneText = {
     '請檢查通貨、裝備類型、等級、欄位及觀察結果，僅可啟用一個死靈預兆。物品未改變。',
   ],
   ja: [
-    '観測した結果を記録します。プレフィックスかサフィックスを選び、モッド枠が埋まっている場合は除去されたモッドも選択してください。ランダムな結果は生成しません。候補の開示は別の手順です。',
+    'ネクロマンシーのオーメンがなければ、使用可能なプレフィックスかサフィックスをランダムに選びます。枠が埋まっている場合は除去可能なモッドをランダムに除去します。シミュレーターの方針であり、実際のゲーム確率は未確認です。開示するモッドは手動で選択してください。',
     '観測したモッドの種類',
     '選択…',
     'プレフィックス',
@@ -74,7 +89,7 @@ export const boneText = {
     '通貨、装備の種類、レベル、枠、観測結果を確認し、ネクロマンシーのオーメンは1つだけ有効にしてください。アイテムは変更されていません。',
   ],
   es: [
-    'Registra el resultado observado: elige prefijo o sufijo y, con los espacios llenos, el modificador eliminado. No se genera un resultado aleatorio. Revela los candidatos por separado.',
+    'Sin un presagio de nigromancia, el simulador elige al azar un prefijo o sufijo disponible. Con los espacios llenos elimina al azar un modificador elegible. Son reglas del simulador; las probabilidades del juego no están verificadas. Elige manualmente el modificador que se revela.',
     'Tipo de modificador observado',
     'Elegir…',
     'Prefijo',
@@ -95,6 +110,9 @@ export async function applyBone(
   errorMessage: string,
   observedSides?: ('PREFIX' | 'SUFFIX')[],
 ): Promise<AbyssState> {
+  // Only the currency's triggered omens are sent/consumed. Other active omens,
+  // including Omen_of_Sanctification, remain active for their own currency.
+  activeOmens = boneConsumedOmens(activeOmens)
   const putrefaction = activeOmens.includes('Omen_of_Putrefaction')
   if (
     putrefaction &&
@@ -151,8 +169,10 @@ export async function applyBone(
     }),
   })
   verifyRulesetResponse(response, initial.rulesetIdentity)
+  if (signal.aborted) throw new DOMException('Aborted', 'AbortError')
   if (!response.ok) throw new Error(errorMessage)
   const value: unknown = await response.json()
+  if (signal.aborted) throw new DOMException('Aborted', 'AbortError')
   if (
     !validAbyssResponse(
       'desecrate',
@@ -173,9 +193,20 @@ export async function applyBone(
   const result = value as AbyssState
   const fresh = result.slots.filter((s) => s.desecrated)
   const retained = result.slots.filter((s) => !s.desecrated)
+  const capacity = baseAffixCapacity(state.baseItemId, state.rarity)
+  const full =
+    state.explicits.length ===
+    (isWorkbenchJewel(state.baseItemId)
+      ? jewelCapacity(state, 'PREFIX') + jewelCapacity(state, 'SUFFIX')
+      : capacity.prefixes + capacity.suffixes)
   const expected = putrefaction
     ? []
-    : state.explicits.filter((_, i) => `explicit-${i}` !== removedSlotId)
+    : state.explicits.filter((m) =>
+        retained.some(
+          (s) => s.modifier !== null && sameModifier(m, s.modifier),
+        ),
+      )
+  const removedModifiers = state.explicits.filter((m) => !expected.includes(m))
   if (
     !state.implicits.every((m) =>
       result.item.implicits.some((n) => sameModifier(m, n)),
@@ -190,7 +221,9 @@ export async function applyBone(
     fresh.some(
       (slot, i) =>
         slot.modifier !== null ||
-        slot.side !== (putrefaction ? observedSides![i] : side) ||
+        (putrefaction
+          ? slot.side !== observedSides![i]
+          : !!side && slot.side !== side) ||
         (slot.revealPool ?? null) !== (fresh[0]?.revealPool ?? null) ||
         (slot.minimumModifierLevel ?? null) !==
           (currency.startsWith('Ancient_') ? 40 : null),
@@ -199,6 +232,12 @@ export async function applyBone(
     (fresh[0]!.minimumModifierLevel ?? null) !==
       (currency.startsWith('Ancient_') ? 40 : null) ||
     retained.length !== expected.length ||
+    (!putrefaction &&
+      (removedModifiers.length !== (full ? 1 : 0) ||
+        removedModifiers.some((m) => m.fractured) ||
+        (!!removedSlotId &&
+          (!removed ||
+            !removedModifiers.some((m) => sameModifier(m, removed)))))) ||
     !expected.every((m) =>
       retained.some((s) => s.modifier !== null && sameModifier(m, s.modifier)),
     )

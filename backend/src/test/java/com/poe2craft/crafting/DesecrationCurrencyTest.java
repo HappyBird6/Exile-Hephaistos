@@ -363,8 +363,7 @@ class DesecrationCurrencyTest {
           .isInstanceOf(IllegalArgumentException.class);
     assertThat(apply(f.rare(64, ""), "Gnawed_Collarbone", AffixType.PREFIX, null).slots())
         .hasSize(1);
-    assertThatThrownBy(() -> apply(before, "Preserved_Collarbone", null, null))
-        .isInstanceOf(IllegalArgumentException.class);
+    assertThat(apply(before, "Preserved_Collarbone", null, null).slots()).hasSize(2);
     assertThatThrownBy(() -> apply(before, "Preserved_Collarbone", AffixType.SUFFIX, "explicit-0"))
         .isInstanceOf(IllegalArgumentException.class);
     assertThatThrownBy(
@@ -438,8 +437,7 @@ class DesecrationCurrencyTest {
             .findFirst()
             .orElseThrow();
     String free = "explicit-" + freeIndex;
-    assertThatThrownBy(() -> apply(before, "Preserved_Collarbone", AffixType.PREFIX, null))
-        .isInstanceOf(IllegalArgumentException.class);
+    assertThat(apply(before, "Preserved_Collarbone", AffixType.PREFIX, null).slots()).hasSize(6);
     assertThatThrownBy(() -> apply(before, "Preserved_Collarbone", AffixType.PREFIX, locked))
         .isInstanceOf(IllegalArgumentException.class);
     assertThatThrownBy(() -> apply(before, "Preserved_Collarbone", AffixType.SUFFIX, free))

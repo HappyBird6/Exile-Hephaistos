@@ -1,0 +1,35 @@
+--- a/backend/src/test/java/com/poe2craft/crafting/AbyssContinuousCurrencyTest.java
++++ b/backend/src/test/java/com/poe2craft/crafting/AbyssContinuousCurrencyTest.java
+@@ -219,4 +219,32 @@
+     assertThat(result.state().storedItem().desecrated()).isEmpty();
+     assertThat(revealed.storedItem().desecrated()).hasSize(1);
+   }
++
++  @Test
++  void integratedSanctificationMetadataSurvivesRestoreAndRejectedCraft() {
++    var source = hidden().storedItem();
++    var implicitFactors = new HashMap<String, Map<String, Integer>>();
++    var explicitFactors = new HashMap<String, Map<String, Integer>>();
++    for (var modifier : source.implicits()) {
++      var factors = new HashMap<String, Integer>();
++      modifier.values().keySet().forEach(id -> factors.put(id, 100));
++      implicitFactors.put(modifier.modifierId(), factors);
++    }
++    for (var modifier : source.explicits()) {
++      var factors = new HashMap<String, Integer>();
++      modifier.values().keySet().forEach(id -> factors.put(id, 100));
++      explicitFactors.put(modifier.modifierId(), factors);
++    }
++    var sanctified = source.withSanctification(new ItemState.Sanctification(
++        "independent-stat-percent-v1", implicitFactors, explicitFactors));
++    var restored = AbyssCraftingState.from(sanctified, catalog);
++    assertThat(restored.storedItem()).isEqualTo(sanctified);
++    assertThat(restored.item().sanctification()).isEqualTo(sanctified.sanctification());
++    var omens = Set.of("Omen_of_Sanctification");
++    var result = executor.apply(restored, WorkbenchCurrency.DIVINE, omens, new Random(1));
++    assertThat(result.applied()).isFalse();
++    assertThat(result.state()).isSameAs(restored);
++    assertThat(result.consumedOmens()).isEmpty();
++    assertThat(result.remainingOmens()).containsExactlyElementsOf(omens);
++  }
+ }

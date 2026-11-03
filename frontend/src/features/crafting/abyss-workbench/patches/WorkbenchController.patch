@@ -1,0 +1,27 @@
+--- a/backend/src/main/java/com/poe2craft/crafting/presentation/WorkbenchController.java
++++ b/backend/src/main/java/com/poe2craft/crafting/presentation/WorkbenchController.java
+@@ -307,7 +307,8 @@
+         request.side(),
+         request.removedSlotId(),
+         request.activeOmens(),
+-        catalog);
++        catalog,
++        random);
+   }
+
+   @PostMapping("/abyss/add")
+@@ -372,7 +373,14 @@
+   public com.poe2craft.crafting.domain.AbyssCraftingState applyAbyss(
+       @RequestBody AbyssRequest request) {
+     return simulator.applyAbyss(
++        abyssState(request.state()), request.action(), request.activeOmens(), random);
++  }
++
++  @PostMapping("/abyss/currency")
++  public com.poe2craft.crafting.domain.AbyssCurrencyExecutor.Result applyAbyssCurrency(
++      @RequestBody AbyssRequest request) {
++    return simulator.applyAbyssCurrency(
+         abyssState(request.state()), request.action(), request.activeOmens(), random);
+   }
+
+   @PostMapping("/abyss/compare")

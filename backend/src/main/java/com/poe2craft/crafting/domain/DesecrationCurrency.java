@@ -3,9 +3,11 @@ package com.poe2craft.crafting.domain;
 import com.poe2craft.item.*;
 import com.poe2craft.item.ModifierDefinition.AffixType;
 import java.util.*;
+import java.util.random.RandomGenerator;
 
 /**
- * Conditional manual outcome. Side/removal are observed inputs, never a fabricated distribution.
+ * Reveal choices remain manual. Automatic side/removal uses an explicit simulator policy, not
+ * published game probabilities; explicit observed inputs remain supported.
  */
 public final class DesecrationCurrency {
   private DesecrationCurrency() {}
@@ -127,8 +129,50 @@ public final class DesecrationCurrency {
       String removedSlotId,
       Set<String> activeOmens,
       ItemCatalog catalog) {
-    return applyEnriched(
-        item, currency, side, removedSlotId, activeOmens, ManualRevealCatalog.enrich(catalog));
+    return apply(
+        item, currency, side, removedSlotId, activeOmens, catalog, RandomGenerator.getDefault());
+  }
+
+  /** Uniform eligible removal, then uniform eligible side; never samples a reveal modifier. */
+  public static AbyssCraftingState apply(
+      ItemState item,
+      String currency,
+      AffixType side,
+      String removedSlotId,
+      Set<String> activeOmens,
+      ItemCatalog catalog,
+      RandomGenerator random) {
+    Objects.requireNonNull(random);
+    catalog = ManualRevealCatalog.enrich(catalog);
+    if (side != null && removedSlotId != null)
+      return applyEnriched(item, currency, side, removedSlotId, activeOmens, catalog);
+    var before = AbyssCraftingState.from(item, catalog);
+    var cap = new ItemStateValidator(catalog).slots(item);
+    boolean full = before.slots().size() == cap.maxPrefixes() + cap.maxSuffixes();
+    if (side != null && !full)
+      return applyEnriched(item, currency, side, removedSlotId, activeOmens, catalog);
+    List<String> removals = new ArrayList<>();
+    if (removedSlotId != null && !removedSlotId.isBlank()) removals.add(removedSlotId);
+    else if (full) before.removalCandidates(null).forEach(s -> removals.add(s.id()));
+    else removals.add(null);
+    var outcomes = new ArrayList<List<AbyssCraftingState>>();
+    for (var removed : removals) {
+      var availableSides = new ArrayList<AbyssCraftingState>();
+      for (var candidateSide :
+          side == null ? List.of(AffixType.PREFIX, AffixType.SUFFIX) : List.of(side)) {
+        try {
+          availableSides.add(
+              applyEnriched(item, currency, candidateSide, removed, activeOmens, catalog));
+        } catch (IllegalArgumentException unavailable) {
+          // Probe complete validated outcomes: capacity, fractures, pool, level and omen
+          // restrictions.
+        }
+      }
+      if (!availableSides.isEmpty()) outcomes.add(availableSides);
+    }
+    if (outcomes.isEmpty()) throw new IllegalArgumentException("No eligible desecration outcome");
+    var selectedRemoval = outcomes.get(random.nextInt(outcomes.size()));
+    return selectedRemoval.get(random.nextInt(selectedRemoval.size()));
   }
 
   private static AbyssCraftingState applyEnriched(

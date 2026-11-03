@@ -1,0 +1,11 @@
+--- a/backend/src/main/java/com/poe2craft/crafting/domain/AbyssCraftingState.java
++++ b/backend/src/main/java/com/poe2craft/crafting/domain/AbyssCraftingState.java
+@@ -342,6 +342,7 @@
+             s.augmentSockets(),
+             s.catalystQuality())
+         .withEquipmentQuality(s.equipmentQuality())
+-        .withObservations(s.observations());
++        .withObservations(s.observations())
++        .withSanctification(s.sanctification());
+   }
+ }

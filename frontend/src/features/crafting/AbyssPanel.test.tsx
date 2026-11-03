@@ -39,6 +39,38 @@ const initial: Initial = {
 }
 const empty = { item: source, slots: [], offer: null }
 const calls: { url: string; body: Record<string, unknown> }[] = []
+
+it('restores a Sanctified hidden slot for reading and disables revealing it', async () => {
+  const item: ConcreteItem = { ...source, conditions: ['SANCTIFIED'] }
+  const state: AbyssState = {
+    item,
+    slots: [{ id: 'locked', side: 'PREFIX', modifier: null, desecrated: true }],
+    offer: null,
+  }
+  const client = new QueryClient({
+    defaultOptions: { queries: { retry: false } },
+  })
+  render(
+    <QueryClientProvider client={client}>
+      <AbyssPanel
+        source={item}
+        initial={initial}
+        restoredState={state}
+        directSelection
+        localScenario={false}
+      />
+    </QueryClientProvider>,
+  )
+  const reveal = await screen.findByRole('button', { name: 'Reveal' })
+  expect(reveal).toBeDisabled()
+  expect(calls.some((call) => call.url.endsWith('/validate'))).toBe(true)
+  expect(
+    calls.some(
+      (call) => call.url.endsWith('/eligible') || call.url.endsWith('/select'),
+    ),
+  ).toBe(false)
+})
+
 beforeEach(() => {
   localStorage.clear()
   setLocale('en')
