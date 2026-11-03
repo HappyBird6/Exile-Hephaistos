@@ -17,7 +17,7 @@ class QualitySanctificationTest {
   }
 
   @Test
-  void qualityUsesUserSelectedPlusOneForEveryRarityAndNeverDropsOtherState() {
+  void qualityUsesUserSelectedMaximumForEveryRarityAndNeverDropsOtherState() {
     var fixture = new StockyHysteriaTest();
     for (var rarity :
         List.of(ItemState.Rarity.NORMAL, ItemState.Rarity.MAGIC, ItemState.Rarity.RARE)) {
@@ -39,12 +39,18 @@ class QualitySanctificationTest {
           fixture.simulator.apply(
               state, WorkbenchCurrency.ARMOURERS_SCRAP, Set.of(), new Random(1));
       assertThat(result.applied()).isTrue();
-      assertThat(result.state()).isEqualTo(state.withEquipmentQuality(1));
+      assertThat(result.state()).isEqualTo(state.withEquipmentQuality(20));
+      assertThat(result.qualityLimit())
+          .isEqualTo(QualityLimitRules.describe(state, fixture.catalog));
       assertThat(result.assumptions())
           .singleElement()
           .satisfies(
               a -> {
                 assertThat(a.id()).isEqualTo(QualityCurrencyRules.VERSION);
+                assertThat(a.candidateUnit()).isEqualTo("equipment quality target percentage");
+                assertThat(a.n()).isEqualTo(1);
+                assertThat(a.min()).isEqualTo(20L);
+                assertThat(a.max()).isEqualTo(20L);
                 assertThat(a.reason()).contains("User-selected simulator policy");
               });
       assertThat(result.state().observations()).isEqualTo(state.observations());

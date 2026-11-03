@@ -1,9 +1,16 @@
 import type { ConcreteItem, WorkbenchAction, AppliedItem } from './workbenchApi'
 import { equivalent, sameRolls } from './sanctification/equivalence'
 import { sameObservations } from './itemObservations'
+import { maximumQuality } from './qualityLimit'
 
 export const equipmentQualityPolicy =
-  'user-selected-equipment-quality-plus-one-v1'
+  'user-selected-equipment-quality-maximum-v2'
+
+// Only the reviewed ordinary equipment cap applies; Amulet catalyst caps do not.
+function equipmentQualityMaximum(state: ConcreteItem): number | null {
+  const maximum = maximumQuality(state, {})
+  return maximum === 20 ? maximum : null
+}
 
 export function isEquipmentQualityAction(action: WorkbenchAction) {
   return action === 'ARMOURERS_SCRAP' || action === 'BLACKSMITHS_WHETSTONE'
@@ -25,7 +32,9 @@ export function equipmentQualityRefusal(
   )
     return 'class'
   if (state.equipmentQuality == null) return 'unknown'
-  return state.equipmentQuality >= 20 ? 'maximum' : null
+  const maximum = equipmentQualityMaximum(state)
+  if (maximum === null) return 'class'
+  return state.equipmentQuality >= maximum ? 'maximum' : null
 }
 
 export function qualityTransitionMatches(
@@ -38,7 +47,7 @@ export function qualityTransitionMatches(
     return (next.equipmentQuality ?? null) === (state.equipmentQuality ?? null)
   return (
     equipmentQualityRefusal(state, action) === null &&
-    next.equipmentQuality === state.equipmentQuality! + 1 &&
+    next.equipmentQuality === equipmentQualityMaximum(state) &&
     next.snapshotId === state.snapshotId &&
     next.baseItemId === state.baseItemId &&
     next.itemLevel === state.itemLevel &&
@@ -56,7 +65,10 @@ export function qualityTransitionMatches(
     result.assumptions.length === 1 &&
     result.assumptions[0]?.id === equipmentQualityPolicy &&
     result.assumptions[0]?.n === 1 &&
-    result.assumptions[0]?.min === 1 &&
-    result.assumptions[0]?.max === 1
+    result.assumptions[0]?.candidateUnit ===
+      'equipment quality target percentage' &&
+    result.assumptions[0]?.candidates.length === 0 &&
+    result.assumptions[0]?.min === next.equipmentQuality &&
+    result.assumptions[0]?.max === next.equipmentQuality
   )
 }
