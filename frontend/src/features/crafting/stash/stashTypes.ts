@@ -40,6 +40,7 @@ export type WorkbenchFavoritesProps = Pick<
   | 'disabled'
   | 'onActivateOmen'
 > & {
+  /** Mount directly in stash-canvas__content; no separate favorite region. */
   /** Zero-based slots; caller owns storage and preserves any retained entries. */
   favorites: readonly (WorkbenchResource | null)[]
   /** Empty slots also activate, allowing the caller to cancel use selection. */

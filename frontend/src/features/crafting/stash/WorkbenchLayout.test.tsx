@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { act, fireEvent, render, screen, within } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { CraftingPage } from '../CraftingPage'
 import { useItemDraft } from '../draft'
@@ -9,21 +9,20 @@ const stashStyles = readFileSync(
   'utf8',
 )
 const pageStyles = readFileSync('src/features/crafting/crafting.css', 'utf8')
+const compactStyles = readFileSync(
+  'src/features/crafting/compact-viewport/compactViewport.css',
+  'utf8',
+)
 
 let styles: HTMLStyleElement
-const originalWidth = window.innerWidth
 beforeEach(() => {
   useItemDraft.getState().setBase()
   styles = document.createElement('style')
-  styles.textContent = pageStyles + stashStyles
+  styles.textContent = pageStyles + stashStyles + compactStyles
   document.head.append(styles)
 })
 afterEach(() => {
   styles.remove()
-  Object.defineProperty(window, 'innerWidth', {
-    configurable: true,
-    value: originalWidth,
-  })
 })
 function show() {
   return render(
@@ -34,7 +33,7 @@ function show() {
 }
 const compact = (value: string) => value.replace(/\s/g, '')
 
-describe('single canvas category selector and canvas bottom favorite strip', () => {
+describe('single canvas category selector and favorites inside the coordinate plane', () => {
   it('connects the preserved category selector to the right content only', () => {
     show()
     const selector = screen.getByRole('tablist', {
@@ -93,7 +92,7 @@ describe('single canvas category selector and canvas bottom favorite strip', () 
       expect(within(right).queryByRole('button', { name })).toBeNull()
   })
 
-  it('picks across categories, drags into the canvas bottom strip and preserves Omen activation', () => {
+  it('picks across categories, drags into the coordinate plane and preserves Omen activation', () => {
     show()
     const right = document.querySelector<HTMLElement>('.workbench-stash')!
     const selector = screen.getByRole('tablist', {
@@ -136,57 +135,30 @@ describe('single canvas category selector and canvas bottom favorite strip', () 
     expect(slots[0]).toHaveClass('is-active-omen')
   })
 
-  it.each([1280, 800, 375])(
-    'keeps right content and canvas 2×5 favorites below the fixed coordinate plane at %ipx',
-    (width) => {
-      Object.defineProperty(window, 'innerWidth', {
-        configurable: true,
-        value: width,
-      })
-      show()
-      act(() => window.dispatchEvent(new Event('resize')))
-      const board = document.querySelector<HTMLElement>('.stash-board')!
-      const region = document.querySelector<HTMLElement>(
-        '.workbench-favorites-region',
-      )!
-      const right = document.querySelector<HTMLElement>('.workbench-stash')!
-      const favorites = screen.getByRole('group', {
-        name: 'Shared material favorites',
-      })
-      const canvas = document.querySelector<HTMLElement>('.stash-canvas')!
-      const content = document.querySelector<HTMLElement>(
-        '.stash-canvas__content',
-      )!
-      expect(board).toContainElement(canvas)
-      expect(content.nextElementSibling).toBe(region)
-      expect(region.parentElement).toBe(canvas)
-      expect(region).toContainElement(favorites)
-      expect(content).not.toContainElement(favorites)
-      expect(right).not.toContainElement(favorites)
-      expect(document.querySelector('.workbench-feedback-panel')).toBeNull()
-      expect(within(favorites).getAllByRole('button')).toHaveLength(10)
-      expect(compact(getComputedStyle(favorites).gridTemplateColumns)).toBe(
-        'repeat(5,minmax(0,1fr))',
-      )
-      expect(compact(getComputedStyle(favorites).gridTemplateRows)).toBe(
-        'repeat(2,auto)',
-      )
-      expect(getComputedStyle(favorites).position).not.toBe('absolute')
-      expect(getComputedStyle(region).width).toBe('100%')
-      expect(getComputedStyle(content).aspectRatio.replace(/\s/g, '')).toBe(
-        '935/550',
-      )
-      const resources = right.querySelector<HTMLElement>(
-        '.workbench-stash__resources',
-      )!
-      expect(compact(getComputedStyle(resources).gridTemplateColumns)).toBe(
-        'repeat(4,minmax(0,1fr))',
-      )
-      expect(getComputedStyle(resources).overflowY).toBe('auto')
-      expect(getComputedStyle(right).position).toBe('absolute')
-      expect(
-        getComputedStyle(document.querySelector('.stash-viewport')!).overflowX,
-      ).toBe('auto')
-    },
-  )
+  it('mounts all ten favorite slots directly inside the unchanged coordinate plane', () => {
+    show()
+    const favorites = screen.getByRole('group', {
+      name: 'Shared material favorites',
+    })
+    const content = document.querySelector<HTMLElement>(
+      '.stash-canvas__content',
+    )!
+    const right = document.querySelector<HTMLElement>('.workbench-stash')!
+    expect(favorites.parentElement).toBe(content)
+    expect(document.querySelector('.workbench-favorites-region')).toBeNull()
+    expect(right).not.toContainElement(favorites)
+    expect(within(favorites).getAllByRole('button')).toHaveLength(10)
+    expect(compact(getComputedStyle(favorites).gridTemplateColumns)).toBe(
+      'repeat(5,minmax(0,1fr))',
+    )
+    expect(compact(getComputedStyle(favorites).gridTemplateRows)).toBe(
+      'repeat(2,minmax(0,1fr))',
+    )
+    expect(getComputedStyle(favorites).position).toBe('absolute')
+    expect(compact(getComputedStyle(content).aspectRatio)).toBe('935/550')
+    expect(getComputedStyle(right).position).toBe('absolute')
+    expect(
+      getComputedStyle(document.querySelector('.stash-viewport')!).overflowX,
+    ).toBe('clip')
+  })
 })

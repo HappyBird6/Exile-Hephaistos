@@ -33,7 +33,7 @@ function StashSurface(props: SurfaceProps) {
         {props.activeTab.replaceAll('_', ' ')}
       </span>
       <WorkbenchStash {...props} />
-      <div className="workbench-favorites-region">
+      <div className="stash-canvas__content">
         <WorkbenchFavorites {...props} />
       </div>
     </>

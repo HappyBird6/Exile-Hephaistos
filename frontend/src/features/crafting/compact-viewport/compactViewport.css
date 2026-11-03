@@ -1,0 +1,179 @@
+/* Import after crafting.css. Layout widths change; viewport coordinates do not. */
+.craft-page {
+  box-sizing: border-box;
+  width: min(100%, max(1000px, 75vw));
+  max-width: 1350px;
+  min-width: 0;
+  margin-inline: auto;
+}
+.workbench-layout {
+  container: workbench / inline-size;
+}
+.stash-board {
+  grid-template-columns: minmax(0, 1fr) 374px;
+}
+.stash-viewport {
+  container: stash / inline-size;
+  overflow-x: clip;
+}
+.stash-viewport .stash-canvas {
+  min-width: 0;
+  aspect-ratio: 935 / 550;
+}
+.stash-canvas__content {
+  --stash-slot-size: calc(74 / 935 * 100%);
+  min-width: 0;
+}
+.stash-canvas__content .currency-slot {
+  box-sizing: border-box;
+  width: var(--stash-slot-size);
+  height: auto;
+  aspect-ratio: 1;
+}
+.stash-canvas__content .item-placement {
+  left: calc(489 / 935 * 100%);
+  top: calc(340 / 550 * 100%);
+  width: calc(154 / 935 * 100%);
+  height: calc(174 / 550 * 100%);
+}
+.stash-canvas__content .item-slot {
+  padding: 2px;
+  gap: 4px;
+}
+.stash-canvas__content .item-slot > span:last-child {
+  font-size: 11px;
+  line-height: 1.25;
+}
+.stash-canvas__content .item-input-toggle {
+  top: calc(100% + 4px);
+  max-width: 100%;
+  padding: 2px 8px;
+  font-size: 12px !important;
+  white-space: normal;
+  line-height: 1.2;
+}
+.bench-lower {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+  min-height: 0;
+  padding: 20px 16px;
+}
+.bench-lower > * {
+  grid-column: 1 / -1;
+  min-width: 0;
+  max-width: 100%;
+}
+.bench-lower > .workbench-feedback-panel {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  overflow: visible;
+  padding: 0;
+  text-align: start;
+  font-size: 13px;
+}
+.bench-lower .workbench-session-entry,
+.bench-lower > .wb-session-library-buttons {
+  margin: 0;
+  padding: 0;
+}
+.bench-lower .workbench-film-controls {
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.bench-lower .workbench-session-entry button,
+.bench-lower .workbench-film-controls button {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+}
+.bench-lower .workbench-film-select {
+  font-size: 13px;
+}
+.craft-page .workspace-nav,
+.craft-page .craft-footer {
+  min-width: 0;
+  flex-wrap: wrap;
+}
+.craft-page .workspace-nav [role='tablist'] {
+  min-width: 0;
+}
+.craft-page .workspace-nav button,
+.craft-page .workspace-nav a {
+  min-width: 0;
+  max-width: 100%;
+  padding: 12px;
+  overflow-wrap: anywhere;
+}
+/* 740px canvas + 374px card: stack before slots or the card become cramped. */
+@container workbench (max-width: 1114px) {
+  .stash-board {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .bench-lower {
+    border-left: 0;
+    border-top: 1px solid #494737;
+  }
+  .bench-item-card {
+    width: min(100%, 374px);
+    justify-self: center;
+  }
+}
+/* Small screens reflow controls instead of shrinking a 935px interaction plane. */
+@container stash (max-width: 739px) {
+  .stash-viewport .stash-canvas {
+    aspect-ratio: auto;
+  }
+  .stash-canvas__content {
+    display: grid;
+    gap: 16px;
+    padding: 16px;
+    aspect-ratio: auto;
+  }
+  .stash-canvas__content .currency-catalog {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .stash-canvas__content .currency-slot {
+    position: relative;
+    /* The page owns inline desktop coordinates. Reset those during reflow. */
+    left: auto !important;
+    top: auto !important;
+    width: 100%;
+    height: auto;
+  }
+  .stash-canvas__content .workbench-stash__favorites {
+    position: static;
+    width: 100%;
+    height: auto;
+    gap: 8px;
+  }
+  .stash-canvas__content .item-placement {
+    position: static;
+    width: min(193px, 100%);
+    height: auto;
+    justify-self: center;
+  }
+  .stash-canvas__content .item-slot {
+    height: 274px;
+  }
+  .stash-canvas__content .item-input-toggle {
+    position: static;
+    margin-top: 8px;
+    min-height: 32px;
+  }
+  .stash-canvas__content .workbench-stash {
+    position: static;
+    min-height: 320px;
+    max-height: 480px;
+  }
+  .stash-canvas__content .workbench-stash__image {
+    max-width: 74px;
+  }
+}
