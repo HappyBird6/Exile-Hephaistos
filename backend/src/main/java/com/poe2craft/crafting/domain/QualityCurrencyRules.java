@@ -2,9 +2,10 @@ package com.poe2craft.crafting.domain;
 
 import com.poe2craft.item.ItemState;
 
-/** Ordinary quality currencies; source rolls and inherited exceptional quality are preserved. */
+/** User-selected ordinary equipment quality policy; inherited exceptional quality is preserved. */
 public final class QualityCurrencyRules {
-  public static final String VERSION = "user-selected-equipment-quality-plus-one-v1";
+  public static final String VERSION = "user-selected-equipment-quality-maximum-v2";
+  public static final int ORDINARY_MAXIMUM = 20;
 
   private QualityCurrencyRules() {}
 
@@ -35,15 +36,18 @@ public final class QualityCurrencyRules {
         || (action == WorkbenchCurrency.BLACKSMITHS_WHETSTONE && !martial))
       return "This quality currency does not support this item class.";
     if (state.equipmentQuality() == null) return "The item's current equipment quality is unknown.";
-    if (state.equipmentQuality() >= 20)
+    if (state.equipmentQuality() >= ORDINARY_MAXIMUM)
       return "This item has reached the ordinary quality currency limit.";
     return "";
   }
 
-  /** User-selected simulator policy, not a verified actual-game per-use increment. */
+  /**
+   * One simulator use reaches the ordinary equipment cap, not an actual-game usage rule. The
+   * source-reviewed 40 cap belongs to maximum-quality Amulets and does not extend this scope.
+   */
   public static int nextQuality(ItemState state) {
-    if (state.equipmentQuality() == null || state.equipmentQuality() >= 20)
+    if (state.equipmentQuality() == null || state.equipmentQuality() >= ORDINARY_MAXIMUM)
       throw new IllegalArgumentException("Known equipment quality below 20 is required");
-    return state.equipmentQuality() + 1;
+    return ORDINARY_MAXIMUM;
   }
 }

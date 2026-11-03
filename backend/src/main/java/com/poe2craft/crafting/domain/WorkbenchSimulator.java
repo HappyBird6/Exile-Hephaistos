@@ -913,13 +913,13 @@ public final class WorkbenchSimulator {
       var assumption =
           new Assumption(
               QualityCurrencyRules.VERSION,
-              "equipment quality percentage point",
+              "equipment quality target percentage",
               1,
               List.of(),
-              1L,
-              1L,
+              (long) next.equipmentQuality(),
+              (long) next.equipmentQuality(),
               "https://poe2db.tw/us/Quality",
-              "User-selected simulator policy: one use adds 1 percentage point for Normal, Magic and Rare equipment, capped at 20. The referenced source supports the quality type and default cap, not this per-use increment.");
+              "User-selected simulator policy: one use sets Normal, Magic and Rare equipment quality to the ordinary cap of 20; items already at or above the cap refuse unchanged. The referenced source supports the quality type and ordinary cap, but does not establish this simulator's one-use amount as an actual-game rule.");
       return new Result(
           ruleVersion(),
           ledgerVersion(),

@@ -1,0 +1,99 @@
+--- a/backend/src/test/java/com/poe2craft/crafting/infrastructure/CraftingRegistryLoaderTest.java
++++ b/backend/src/test/java/com/poe2craft/crafting/infrastructure/CraftingRegistryLoaderTest.java
+@@ -195,7 +195,7 @@
+       assertEquals("ACTIVE", currency.path("serviceScope").asText());
+       assertEquals("IMPLEMENTED", currency.path("effectStatus").asText());
+       assertEquals(
+-          "user-selected-equipment-quality-plus-one-v1", currency.path("qualityPolicy").asText());
++          "user-selected-equipment-quality-maximum-v2", currency.path("qualityPolicy").asText());
+       assertTrue(currency.path("sourceSha256").asText().matches("[0-9a-f]{64}"));
+       assertTrue(currency.path("reason").asText().contains("User-selected simulator policy"));
+     }
+--- a/backend/src/test/java/com/poe2craft/crafting/IronRingEssenceTest.java
++++ b/backend/src/test/java/com/poe2craft/crafting/IronRingEssenceTest.java
+@@ -219,7 +219,7 @@
+     assertThat(service.initial("ring", 82).qualityLimit().maximumQuality()).isEqualTo(20);
+     assertThat(service.initial("ring", 82).ruleVersion())
+         .isEqualTo(
+-            "ring-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-plus-one-v1");
++            "ring-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2");
+     assertThat(service.initial("bow", 82).modifiers()).hasSize(146);
+     assertThat(service.initial("wand", 82).modifiers()).hasSize(187);
+     assertThat(service.initial("stocky", 82).modifiers()).hasSize(194);
+--- a/backend/src/test/java/com/poe2craft/crafting/RattlingSceptreEssenceTest.java
++++ b/backend/src/test/java/com/poe2craft/crafting/RattlingSceptreEssenceTest.java
+@@ -211,7 +211,7 @@
+     assertThat(service.initial("sceptre", 82).qualityLimit().maximumQuality()).isEqualTo(20);
+     assertThat(service.initial("sceptre", 82).ruleVersion())
+         .isEqualTo(
+-            "sceptre-workbench-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-plus-one-v1");
++            "sceptre-workbench-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2");
+     assertThat(service.initial("bow", 82).modifiers()).hasSize(146);
+     assertThat(service.initial("wand", 82).modifiers()).hasSize(187);
+     assertThat(service.initial("body", 82).modifiers()).hasSize(147);
+--- a/backend/src/test/java/com/poe2craft/crafting/RawhideBeltEssenceTest.java
++++ b/backend/src/test/java/com/poe2craft/crafting/RawhideBeltEssenceTest.java
+@@ -210,7 +210,7 @@
+     assertThat(service.initial("belt", 82).qualityLimit()).isNull();
+     assertThat(service.initial("belt", 82).ruleVersion())
+         .isEqualTo(
+-            "belt-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-plus-one-v1");
++            "belt-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2");
+     assertThat(service.initial("bow", 82).modifiers()).hasSize(146);
+     assertThat(service.initial("wand", 82).modifiers()).hasSize(187);
+     assertThat(service.initial("stocky", 82).modifiers()).hasSize(194);
+--- a/backend/src/test/java/com/poe2craft/crafting/RustedCuirassEssenceTest.java
++++ b/backend/src/test/java/com/poe2craft/crafting/RustedCuirassEssenceTest.java
+@@ -212,7 +212,7 @@
+     assertThat(service.initial("body", 82).qualityLimit().maximumQuality()).isEqualTo(20);
+     assertThat(service.initial("body", 82).ruleVersion())
+         .isEqualTo(
+-            "body-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-plus-one-v1");
++            "body-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2");
+     assertThat(service.initial("bow", 82).modifiers()).hasSize(146);
+     assertThat(service.initial("wand", 82).modifiers()).hasSize(187);
+     assertThat(service.initial("stocky", 82).modifiers()).hasSize(194);
+--- a/backend/src/test/java/com/poe2craft/crafting/RustedGreathelmEssenceTest.java
++++ b/backend/src/test/java/com/poe2craft/crafting/RustedGreathelmEssenceTest.java
+@@ -211,7 +211,7 @@
+     assertThat(service.initial("helmet", 82).qualityLimit().maximumQuality()).isEqualTo(20);
+     assertThat(service.initial("helmet", 82).ruleVersion())
+         .isEqualTo(
+-            "helmet-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-plus-one-v1");
++            "helmet-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2");
+     assertThat(service.initial("bow", 82).modifiers()).hasSize(146);
+     assertThat(service.initial("wand", 82).modifiers()).hasSize(187);
+     assertThat(service.initial("stocky", 82).modifiers()).hasSize(194);
+--- a/backend/src/test/java/com/poe2craft/crafting/StockyWorkbenchTest.java
++++ b/backend/src/test/java/com/poe2craft/crafting/StockyWorkbenchTest.java
+@@ -91,7 +91,7 @@
+       assertThat(rare.state().explicits()).hasSize(4);
+       assertThat(rare.ruleVersion())
+           .isEqualTo(
+-              "stocky-workbench-artificer-v26-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-plus-one-v1");
++              "stocky-workbench-artificer-v26-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2");
+       var locked =
+           service.apply(rare.state(), WorkbenchCurrency.FRACTURING, Set.of(), random).state();
+       var fracture =
+--- a/backend/src/test/java/com/poe2craft/crafting/WandEssenceTest.java
++++ b/backend/src/test/java/com/poe2craft/crafting/WandEssenceTest.java
+@@ -208,7 +208,7 @@
+     assertThat(service.initial("wand", 82).qualityLimit().maximumQuality()).isEqualTo(20);
+     assertThat(service.initial("wand", 82).ruleVersion())
+         .isEqualTo(
+-            "wand-workbench-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-plus-one-v1");
++            "wand-workbench-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2");
+     assertThat(service.initial("bow", 82).modifiers()).hasSize(146);
+     assertThat(service.initial("solar", 82).modifiers()).hasSize(218);
+     assertThat(
+--- a/backend/src/test/java/com/poe2craft/crafting/WorkbenchControllerTest.java
++++ b/backend/src/test/java/com/poe2craft/crafting/WorkbenchControllerTest.java
+@@ -338,7 +338,7 @@
+         .andExpect(
+             jsonPath("$.ruleVersion")
+                 .value(
+-                    "solar-workbench-abyss-essence-v16-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-plus-one-v1"));
++                    "solar-workbench-abyss-essence-v16-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2"));
+     mvc.perform(
+             post("/api/v1/crafting/workbench/apply")
+                 .header(

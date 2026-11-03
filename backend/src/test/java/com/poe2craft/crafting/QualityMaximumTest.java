@@ -8,14 +8,14 @@ import com.poe2craft.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
-class QualityPlusOneTest {
+class QualityMaximumTest {
   @Test
-  void whetstoneUsesExactlyOnePointForEverySupportedRarityAndStopsAtTwenty() {
+  void whetstoneReachesReviewedOrdinaryCapForEverySupportedRarityAndRefusesRepeatedUse() {
     var catalog = ItemCatalogLoader.loadBow();
     var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
     for (var rarity :
         List.of(ItemState.Rarity.NORMAL, ItemState.Rarity.MAGIC, ItemState.Rarity.RARE)) {
-      for (int quality : List.of(0, 19, 20, 30)) {
+      for (int quality : List.of(0, 7, 19, 20, 30, 40, 100)) {
         var state =
             new ItemState(
                     catalog.metadata().snapshotId(),
@@ -33,8 +33,21 @@ class QualityPlusOneTest {
                 Set.of("Omen_of_Sanctification"),
                 new Random(1));
         assertThat(result.applied()).isEqualTo(quality < 20);
-        assertThat(result.state())
-            .isEqualTo(quality < 20 ? state.withEquipmentQuality(quality + 1) : state);
+        assertThat(result.state()).isEqualTo(quality < 20 ? state.withEquipmentQuality(20) : state);
+        assertThat(result.qualityLimit()).isEqualTo(QualityLimitRules.describe(state, catalog));
+        assertThat(result.qualityLimit().maximumQuality()).isEqualTo(20);
+        var repeated =
+            simulator.apply(
+                result.state(),
+                WorkbenchCurrency.BLACKSMITHS_WHETSTONE,
+                Set.of("Omen_of_Sanctification"),
+                new Random(1));
+        assertThat(repeated.applied()).isFalse();
+        assertThat(repeated.state()).isEqualTo(result.state());
+        assertThat(repeated.events()).isEmpty();
+        assertThat(repeated.assumptions()).isEmpty();
+        assertThat(repeated.consumedOmens()).isEmpty();
+        assertThat(repeated.remainingOmens()).containsExactly("Omen_of_Sanctification");
         assertThat(result.consumedOmens()).isEmpty();
         assertThat(result.remainingOmens()).containsExactly("Omen_of_Sanctification");
         assertThat(result.events()).isEmpty();
@@ -92,7 +105,7 @@ class QualityPlusOneTest {
     var result =
         fixture.simulator.apply(state, WorkbenchCurrency.ARMOURERS_SCRAP, omens, new Random(1));
     assertThat(result.applied()).isTrue();
-    assertThat(result.state()).isEqualTo(state.withEquipmentQuality(8));
+    assertThat(result.state()).isEqualTo(state.withEquipmentQuality(20));
     assertThatThrownBy(() -> AbyssCraftingState.from(state, fixture.catalog))
         .isInstanceOf(IllegalArgumentException.class)
         .hasMessageContaining("Augment");
@@ -105,7 +118,14 @@ class QualityPlusOneTest {
                 omens,
                 new Random(1));
     assertThat(slotAware.applied()).isTrue();
-    assertThat(slotAware.state().storedItem()).isEqualTo(resolvedSlots.withEquipmentQuality(8));
+    assertThat(slotAware.state().storedItem()).isEqualTo(resolvedSlots.withEquipmentQuality(20));
+    var repeated =
+        new AbyssCurrencyExecutor(fixture.catalog, fixture.simulator)
+            .apply(slotAware.state(), WorkbenchCurrency.ARMOURERS_SCRAP, omens, new Random(1));
+    assertThat(repeated.applied()).isFalse();
+    assertThat(repeated.state()).isEqualTo(slotAware.state());
+    assertThat(repeated.consumedOmens()).isEmpty();
+    assertThat(repeated.remainingOmens()).containsExactlyInAnyOrderElementsOf(omens);
     assertThat(slotAware.consumedOmens()).isEmpty();
     assertThat(slotAware.remainingOmens()).containsExactlyInAnyOrderElementsOf(omens);
     assertThat(result.consumedOmens()).isEmpty();
@@ -118,6 +138,78 @@ class QualityPlusOneTest {
     assertThat(blocked.applied()).isFalse();
     assertThat(blocked.state()).isEqualTo(sanctified);
     assertThat(blocked.consumedOmens()).isEmpty();
+  }
+
+  @Test
+  void ordinaryPolicyNeverExtendsToExceptionalAmuletCatalystCaps() {
+    var catalog = ItemCatalogLoader.loadDefault();
+    var root = SolarAmulet.initial(catalog);
+    var state =
+        new ItemState(
+            root.snapshotId(),
+            root.baseItemId(),
+            82,
+            ItemState.Rarity.RARE,
+            root.implicits(),
+            List.of(
+                new ModifierInstance(
+                    QualityLimitRules.BREACH_ID, Map.of(QualityLimitRules.STAT_ID, 20L))),
+            Set.of());
+    assertThat(QualityLimitRules.describe(state, catalog).maximumQuality()).isEqualTo(40);
+    for (var action :
+        List.of(WorkbenchCurrency.ARMOURERS_SCRAP, WorkbenchCurrency.BLACKSMITHS_WHETSTONE)) {
+      var result =
+          new WorkbenchSimulator(catalog, new CraftingEngine(catalog))
+              .apply(state, action, Set.of("Omen_of_Sanctification"), new Random(1));
+      assertThat(result.applied()).isFalse();
+      assertThat(result.state()).isEqualTo(state);
+      assertThat(result.consumedOmens()).isEmpty();
+      assertThat(result.remainingOmens()).containsExactly("Omen_of_Sanctification");
+    }
+  }
+
+  @Test
+  void ordinaryPolicyRejectsConditionsUnknownQualityAndRepeatedDirectTargetRequests() {
+    var state =
+        new ItemState(
+                "fixture",
+                "Metadata/Items/Armours/Gloves/FourGlovesStr1",
+                82,
+                ItemState.Rarity.RARE,
+                List.of(),
+                List.of(),
+                Set.of())
+            .withEquipmentQuality(7);
+    for (var condition : ItemState.Condition.values()) {
+      var special =
+          new ItemState(
+                  state.snapshotId(),
+                  state.baseItemId(),
+                  state.itemLevel(),
+                  state.rarity(),
+                  state.implicits(),
+                  state.explicits(),
+                  Set.of(condition))
+              .withEquipmentQuality(7);
+      assertThat(QualityCurrencyRules.refusal(special, WorkbenchCurrency.ARMOURERS_SCRAP))
+          .isNotEmpty();
+    }
+    for (Integer amount : Arrays.asList(null, 20, 30, 40, 100))
+      assertThatThrownBy(() -> QualityCurrencyRules.nextQuality(state.withEquipmentQuality(amount)))
+          .isInstanceOf(IllegalArgumentException.class);
+    var unique =
+        new ItemState(
+                state.snapshotId(),
+                state.baseItemId(),
+                state.itemLevel(),
+                ItemState.Rarity.UNIQUE,
+                List.of(),
+                List.of(),
+                Set.of())
+            .withEquipmentQuality(7);
+    assertThat(QualityCurrencyRules.refusal(unique, WorkbenchCurrency.ARMOURERS_SCRAP))
+        .isNotEmpty();
+    assertThat(QualityCurrencyRules.refusal(state, WorkbenchCurrency.DIVINE)).isNotEmpty();
   }
 
   @Test
