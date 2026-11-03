@@ -1,29 +1,25 @@
 import { useState } from 'react'
 import { matchesGameName, useI18n } from '../../../shared/i18n/i18n'
 import { CurrencyImage } from '../CurrencyImage'
-import {
-  essenceRows,
-  isSelectableMaterial,
-  specialEssences,
-} from '../materials'
+import { essenceGridRows, specialEssences } from '../materials'
 import type { MaterialTab } from '../materials'
-import { inServiceScope } from '../serviceScope'
-import { legacyOmenIds } from '../workbenchApi'
+import { visibilityPolicy } from './visibilityPolicy'
 import type { WorkbenchResource, WorkbenchStashProps } from './stashTypes'
 import { stashDragType } from './stashDragType'
 import './workbenchStash.css'
 
-/** Category content only: the existing page-level tabs own activeTab. */
+/** Controlled right panel; the page owns the single category state/tablist. */
 export function WorkbenchStash({
   resources,
   excludedIds = [],
   activeTab,
+  tabs,
+  fixedCurrencyIds = [],
   selectedId,
   activeOmenIds,
   held,
   disabled = false,
-  showLegacyOmens = false,
-  onShowLegacyOmensChange,
+  onActivateOmen,
   onSelect,
   onPickUp,
 }: WorkbenchStashProps) {
@@ -32,19 +28,18 @@ export function WorkbenchStash({
     Partial<Record<MaterialTab, string>>
   >({})
   const excluded = new Set(excludedIds)
+  const fixedCurrencies = new Set(fixedCurrencyIds)
   const search = searches[activeTab] ?? ''
   const available = (resource: WorkbenchResource) =>
-    !excluded.has(resource.id) &&
-    inServiceScope(resource.id) &&
-    isSelectableMaterial(resource)
+    !excluded.has(resource.id) && visibilityPolicy(resource)
   const visible = resources.filter(
     (resource) =>
       resource.category === activeTab &&
       available(resource) &&
-      (showLegacyOmens || !legacyOmenIds.includes(resource.id)) &&
+      !(resource.category === 'Currency' && fixedCurrencies.has(resource.id)) &&
       matchesGameName(resource.id, resource.name, search),
   )
-  const rows = essenceRows(search)
+  const rows = essenceGridRows(search)
     .map((row) =>
       row.map((entry) =>
         entry
@@ -87,7 +82,10 @@ export function WorkbenchStash({
         }}
         onContextMenu={(event) => {
           event.preventDefault()
-          if (!disabled) onSelect(resource, pointer(event))
+          if (disabled) return
+          if (resource.category === 'Omen' && onActivateOmen)
+            onActivateOmen(resource, pointer(event))
+          else onSelect(resource, pointer(event))
         }}
         onDragStart={(event) => {
           event.dataTransfer.setData(stashDragType, resource.id)
@@ -100,13 +98,13 @@ export function WorkbenchStash({
         </span>
         <span className="workbench-stash__name">
           {name(resource.id, resource.name)}
-          {legacyOmenIds.includes(resource.id) ? t('legacy.suffix') : ''}
         </span>
       </button>
     )
   }
   return (
     <section className="workbench-stash" aria-label={t('ui.currency_stash')}>
+      {tabs && <div className="workbench-stash__tabs">{tabs}</div>}
       <div
         className="workbench-stash__panel"
         id="material-list"
@@ -129,47 +127,6 @@ export function WorkbenchStash({
             }))
           }
         />
-        {activeTab === 'Omen' && onShowLegacyOmensChange && (
-          <label className="workbench-stash__legacy">
-            <input
-              type="checkbox"
-              checked={showLegacyOmens}
-              disabled={disabled}
-              onChange={(event) =>
-                onShowLegacyOmensChange(event.target.checked)
-              }
-            />
-            {t('ui.show_legacy_omens')}
-          </label>
-        )}
-        {activeTab === 'Omen' && showLegacyOmens && (
-          <p className="workbench-stash__legacy-note">
-            Homogenising: drops disabled in 0.4; existing items work. Alchemy,
-            Coronation and Greater Annulment: no longer obtainable in 0.3.
-            Legacy effects are modeled within the supported scope; current
-            acquisition is not asserted. Coronation and Homogenising support
-            matching ordinary, Greater and Perfect currency. Tiered composition
-            is an unverified model. Alchemy and Annulment use ordinary currency.
-            Greater Exaltation with Homogenising uses pre-craft tags for both
-            additions. Only reviewed combinations are enabled; Catalysing
-            Exaltation remains unsupported. Failed requests preserve resources
-            here; actual game failure consumption is unverified.{' '}
-            <a
-              href="https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {t('ui.official_homogenising_source')}
-            </a>{' '}
-            <a
-              href="https://www.pathofexile.com/forum/view-thread/3826682"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {t('ui.official_0_3_availability')}
-            </a>
-          </p>
-        )}
         <div className="workbench-stash__resources">
           {activeTab === 'Essence'
             ? rows.map((row, index) => (

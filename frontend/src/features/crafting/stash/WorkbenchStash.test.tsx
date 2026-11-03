@@ -4,11 +4,21 @@ import { describe, expect, it, vi } from 'vitest'
 import { setLocale } from '../../../shared/i18n/i18n'
 import { currencies } from '../currencies'
 import { currencyNames } from '../currencyNames'
-import { essenceRows, isSelectableMaterial, materials } from '../materials'
+import {
+  essenceRows,
+  essenceGridRows,
+  isSelectableMaterial,
+  materials,
+} from '../materials'
 import type { MaterialTab } from '../materials'
 import { MaterialTooltip } from '../MaterialTooltip'
 import { WorkbenchStash } from './WorkbenchStash'
 import { WorkbenchFavorites } from './WorkbenchFavorites'
+import {
+  visibilityPolicy,
+  legacyStashOmenIds,
+  excludedStashOmenIds,
+} from './visibilityPolicy'
 import type {
   WorkbenchResource,
   WorkbenchStashProps,
@@ -58,6 +68,7 @@ function props(overrides: Partial<SurfaceProps> = {}): SurfaceProps {
     onPickUp: vi.fn(),
     onFavoriteActivate: vi.fn(),
     onFavoritePlace: vi.fn(),
+    onActivateOmen: vi.fn(),
     ...overrides,
   }
 }
@@ -312,8 +323,7 @@ describe('right-hand controlled workbench stash', () => {
     )
     expect(favorite(0)).toHaveClass('is-active-omen')
     fireEvent.contextMenu(favorite(0), { clientX: 5, clientY: 10 })
-    expect(callbacks.onFavoriteActivate).toHaveBeenCalledWith(
-      0,
+    expect(callbacks.onActivateOmen).toHaveBeenCalledWith(
       resource('Omen_of_Whittling'),
       { x: 5, y: 10 },
     )
@@ -333,36 +343,121 @@ describe('right-hand controlled workbench stash', () => {
     )
   })
 
-  it('respects disabled controls and the existing opt-in legacy Omen filter', () => {
+  it('permanently excludes legacy and the five requested Omen IDs without deleting retained favorites', () => {
+    const hiddenIds = [...legacyStashOmenIds, ...excludedStashOmenIds]
+    for (const id of hiddenIds) {
+      const retained = resource(id)
+      expect(retained).toBeDefined()
+      expect(visibilityPolicy(retained)).toBe(false)
+      const callbacks = props({
+        activeTab: 'Omen',
+        favorites: [retained],
+        showLegacyOmens: true,
+      })
+      const view = render(<StashSurface {...callbacks} />)
+      expect(
+        screen.queryByRole('checkbox', { name: 'Show legacy Omens' }),
+      ).toBeNull()
+      expect(
+        within(screen.getByRole('tabpanel')).queryByRole('button', {
+          name: retained.name,
+        }),
+      ).toBeNull()
+      expect(favorite(0)).toHaveAccessibleName(
+        `Favorite slot 1: ${retained.name}`,
+      )
+      expect(favorite(0)).toHaveAttribute('aria-disabled', 'true')
+      fireEvent.click(favorite(0))
+      fireEvent.contextMenu(favorite(0))
+      expect(callbacks.onFavoriteActivate).not.toHaveBeenCalled()
+      expect(callbacks.onActivateOmen).not.toHaveBeenCalled()
+      view.unmount()
+    }
+  })
+
+  it('activates an Omen directly on right-click while left-click still picks it up', () => {
     const callbacks = props({
       activeTab: 'Omen',
-      onShowLegacyOmensChange: vi.fn(),
       favorites: [resource('Omen_of_Whittling')],
     })
     const view = render(<StashSurface {...callbacks} />)
-    expect(
-      screen.queryByRole('button', { name: 'Omen of Homogenising Exaltation' }),
-    ).toBeNull()
-    fireEvent.click(screen.getByRole('checkbox', { name: 'Show legacy Omens' }))
-    expect(callbacks.onShowLegacyOmensChange).toHaveBeenCalledWith(true)
-    view.rerender(<StashSurface {...callbacks} showLegacyOmens disabled />)
-    expect(
-      screen.getByRole('button', { name: 'Omen of Homogenising Exaltation' }),
-    ).toHaveTextContent('(Legacy)')
-    fireEvent.click(screen.getByRole('button', { name: 'Omen of Whittling' }))
-    fireEvent.contextMenu(
-      screen.getByRole('button', { name: 'Omen of Whittling' }),
+    const omen = within(screen.getByRole('tabpanel')).getByRole('button', {
+      name: 'Omen of Whittling',
+    })
+    fireEvent.click(omen)
+    expect(callbacks.onPickUp).toHaveBeenCalledWith(
+      resource('Omen_of_Whittling'),
+      undefined,
     )
-    fireEvent.contextMenu(favorite(0))
+    fireEvent.contextMenu(omen, { clientX: 5, clientY: 10 })
+    fireEvent.contextMenu(favorite(0), { clientX: 15, clientY: 20 })
+    expect(callbacks.onActivateOmen).toHaveBeenNthCalledWith(
+      1,
+      resource('Omen_of_Whittling'),
+      { x: 5, y: 10 },
+    )
+    expect(callbacks.onActivateOmen).toHaveBeenNthCalledWith(
+      2,
+      resource('Omen_of_Whittling'),
+      { x: 15, y: 20 },
+    )
     expect(callbacks.onSelect).not.toHaveBeenCalled()
-    expect(callbacks.onPickUp).not.toHaveBeenCalled()
-    expect(callbacks.onFavoriteActivate).not.toHaveBeenCalled()
+    view.rerender(<StashSurface {...callbacks} disabled />)
+    fireEvent.contextMenu(screen.getByRole('tabpanel').querySelector('button')!)
+    fireEvent.contextMenu(favorite(0))
+    expect(callbacks.onActivateOmen).toHaveBeenCalledTimes(2)
     expect(screen.getByRole('searchbox')).toBeDisabled()
-    view.rerender(
-      <StashSurface {...callbacks} activeTab="Alloy" showLegacyOmens />,
-    )
+  })
+
+  it('excludes only actual fixed shelf Currency IDs from the right tab, leaving favorites selectable', () => {
+    const callbacks = props({
+      fixedCurrencyIds: ['Chaos_Orb', 'Runic_Alloy'],
+      favorites: [resource('Chaos_Orb')],
+    })
+    const view = render(<StashSurface {...callbacks} />)
+    const panel = screen.getByRole('tabpanel')
     expect(
-      screen.queryByText(/actual game failure consumption is unverified/),
+      within(panel).queryByRole('button', { name: 'Chaos Orb' }),
     ).toBeNull()
+    expect(
+      within(panel).getByRole('button', { name: "Artificer's Orb" }),
+    ).toBeVisible()
+    expect(
+      within(panel).getByRole('button', { name: 'Preserved Rib' }),
+    ).toBeVisible()
+    expect(favorite(0)).toHaveAttribute('aria-disabled', 'false')
+    fireEvent.click(favorite(0))
+    expect(callbacks.onFavoriteActivate).toHaveBeenCalledWith(
+      0,
+      resource('Chaos_Orb'),
+    )
+    view.rerender(<StashSurface {...callbacks} activeTab="Alloy" />)
+    expect(screen.getByRole('button', { name: 'Runic Alloy' })).toBeVisible()
+  })
+
+  it('packs two tier pairs into four-column rows and keeps special essences separate', () => {
+    render(<StashSurface {...props({ activeTab: 'Essence' })} />)
+    expect(essenceGridRows('')).toHaveLength(10)
+    expect(essenceGridRows('').flat().filter(Boolean)).toHaveLength(38)
+    expect(essenceGridRows('')[9]?.slice(2)).toEqual([null, null])
+    expect(document.querySelectorAll('.essence-row')).toHaveLength(10)
+    expect(
+      document.querySelector('.essence-row')?.querySelectorAll('button'),
+    ).toHaveLength(4)
+    expect(
+      essenceGridRows('greater essence of the body')[0]?.map(
+        (entry) => entry?.id ?? null,
+      ),
+    ).toEqual([
+      'Greater_Essence_of_the_Body',
+      'Perfect_Essence_of_the_Body',
+      null,
+      null,
+    ])
+    expect(
+      within(
+        screen.getByRole('group', { name: 'Special essences' }),
+      ).getAllByRole('button'),
+    ).toHaveLength(4)
   })
 })
