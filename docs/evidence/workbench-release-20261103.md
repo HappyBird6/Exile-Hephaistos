@@ -2,7 +2,7 @@
 
 ## Integration
 
-- Preserved running release: `8524b6b`; A checkpoint: `a031403`.
+- Preserved previous release: `8524b6b`; A checkpoint: `a031403`.
 - C source `c57f6220f1ef870444ff3a37c925c7d5c7dd4e8f` integrated as `0286e6ff`.
 - Original request JSON preservation: `eb37d631`.
 - Confirmed accessory additions and temporary examples: `1e1ac7b3`.
@@ -87,4 +87,29 @@ No new database-backed verification route was introduced. Browser automation rem
 Confirmed remote: `https://github.com/HappyBird6/Exile-Hephaistos.git`.
 Fetched master: `abfaffb504ab791e20882afda245bfc523a5128b`, an ancestor of integration.
 Other worktree changes are preserved. Ordinary fast-forward push only; no protection bypass.
-Push, final remote SHA/CI observation and server-artifact/data verification: pending.
+Normal fast-forward push completed and `ls-remote` confirmed
+`c5dcb7cb282f3e0369a0e3d7873d80717f0a7729`. At 00:24 UTC, combined statuses,
+check runs and Actions runs for that SHA were all empty; no CI pass is claimed.
+This repository has no checked-in GitHub Actions workflow.
+
+The final JAR is 94,263,575 bytes, SHA-256
+`11ff4fc1a6c7215e7f832e54aec9807eb36173f4acad3d1138ad02b7a0d8b7d8`.
+Its sealed resources match current source and all three existing migration SQL files
+are byte-identical to the previous server JAR. Frontend production assets are built.
+Cold backups contain the previous JAR/static assets, PostgreSQL data and all 54 saved
+app files with recorded per-file hashes. Actual DB/Redis volumes and configuration
+were not changed or recreated; no saved record was used for QA.
+
+**Server application/start is blocked and not executed.** Automatic approval rejected
+`docker ps --format "{{.Names}} {{.Status}}"`, saying even this read-only host command
+connects to the Docker socket and falls under the user's earlier socket retry restriction.
+The command did not execute. No alternate daemon route or server-start workaround was
+attempted. The already approved no-socket build process completed independently.
+The prior server containers had been stopped when initially inspected; a subsequent
+sandbox HTTP probe could not determine current health because network access was denied.
+Host Docker authorization clarification is pending. Expected local URL remains
+`http://localhost:9001`; it is **not reported as running**.
+
+See [artifact evidence](workbench-release-20261103-artifact.json). The server JAR, served
+asset hashes, live health/API and post-start saved-file comparison remain unverified
+until the explicit host-command authorization boundary is resolved.

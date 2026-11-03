@@ -1,0 +1,15 @@
+{
+  "runtimeSourceCommit": "1e1ac7b33c9e743e382575dd5305eab36a10f9fb",
+  "validatedCommit": "c5dcb7cb282f3e0369a0e3d7873d80717f0a7729",
+  "runtimeSourceUnchangedAfterBuild": true,
+  "jarSha256": "11ff4fc1a6c7215e7f832e54aec9807eb36173f4acad3d1138ad02b7a0d8b7d8",
+  "jarBytes": 94263575,
+  "sealedResourcesMatched": [
+    "catalog/manual-reveal.json",
+    "crafting/ruleset-v1.json",
+    "catalog/top-bases.json",
+    "catalog/base-policies.json"
+  ],
+  "userFilesInColdBackup": 54,
+  "serverArtifactApplied": false
+}
