@@ -134,8 +134,9 @@ describe('Material stash and shared favorites', () => {
         }),
       )
       expect(screen.getByRole('status')).toHaveTextContent(
-        'The item has not changed',
+        'Wait for the crafting catalog or retry loading it.',
       )
+      expect(useItemDraft.getState().source).toBe('base')
       fireEvent.click(material)
       expect(material).toHaveClass('is-held')
       expect(material).not.toHaveClass('is-selected')

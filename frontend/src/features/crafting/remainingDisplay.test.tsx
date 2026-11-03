@@ -291,5 +291,6 @@ describe('remaining display coverage', () => {
     expect(screen.getByText(raw)).toHaveAttribute('lang', 'en')
     expect(screen.getByText(/서버·출처 원문/)).toBeVisible()
     expect(serviceText(raw, 'ja')).toBe(raw)
+    expect(serviceText(`\n  ${raw}  \n`, 'ja')).toBe(`\n  ${raw}  \n`)
   })
 })

@@ -18,9 +18,10 @@ export function serviceText(
   text: string,
   locale: Locale = getLocale(),
 ): string {
-  const blocked = text.match(
-    /^Craft blocked by rule: (.*) Your item is unchanged; active omens are preserved\.$/,
-  )
+  const blocked =
+    text.match(
+      /^Craft blocked by rule: (.*) Your item is unchanged; active omens are preserved\.$/,
+    ) ?? text.match(/^Craft blocked by rule: (.*)$/)
   if (blocked) {
     const original = blocked[1]!
     const reason = serviceText(original, locale)
@@ -40,8 +41,13 @@ export function serviceText(
     return `${translate('ui.line', {}, locale)} ${line[1]}: ${serviceText(line[2]!, locale)}`
   const code = serverCodes.get(text)
   if (code) return translate(code, {}, locale)
-  const known = uiText(text, locale)
-  if (known !== text) return known
+  // Keep older API error contracts intact while removing their redundant notice.
+  const withoutNotice = text
+    .replace(/Your item is unchanged\.\s*/g, '')
+    .replace(/^The item has not changed\.\s*/, '')
+  const displayText = withoutNotice === text ? text : withoutNotice.trim()
+  const known = uiText(displayText, locale)
+  if (known !== displayText) return known
   const match = text.match(/^Could not (verify|load) (.+?)\.(.*)$/)
   const subject = match && subjects.get(match[2]!)
   if (match && subject) {
@@ -55,5 +61,5 @@ export function serviceText(
             : 'error.verify'
     return translate(key, { subject: translate(subject, {}, locale) }, locale)
   }
-  return text
+  return displayText
 }

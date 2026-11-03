@@ -695,9 +695,8 @@
   height: 100%;
 }
 .item-input-toggle {
-  position: absolute;
-  top: calc(100% + 8px);
   border: 1px solid #756643;
+  border-radius: 0;
   background: #1b211b;
   color: #d4c399;
   padding: 4px 14px;
@@ -1053,14 +1052,6 @@ dialog.item-input-panel::backdrop {
 }
 
 .tooltip-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-left: auto;
-  padding: 8px 0;
-  color: #c8c7b7;
-  font-size: 12px;
-  white-space: nowrap;
   cursor: pointer;
 }
 .tooltip-toggle input {
@@ -1228,22 +1219,8 @@ dialog.item-input-panel::backdrop {
 }
 
 .workbench-session-entry {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 0 0 16px;
-}
-.workbench-session-entry button {
-  flex: 1;
-  padding: 8px 10px;
-  border: 1px solid #b39860;
-  border-radius: 4px;
-  background: #303629;
-  color: #f0dfb5;
-}
-.workbench-session-entry button:focus-visible {
-  outline: 2px solid #f0dfb5;
-  outline-offset: 3px;
+  /* Keep History and the card at their existing positions after moving controls. */
+  height: calc(1lh + 34px);
 }
 .workbench-feedback-panel {
   padding: 0 16px 12px;
@@ -1310,7 +1287,7 @@ dialog.item-input-panel::backdrop {
   text-align: center;
 }
 
-/* Session library buttons follow the base-selection row. */
+/* Keep session library spacing below the reserved former control row. */
 .bench-lower > .wb-session-library-buttons {
   margin-bottom: 12px;
 }

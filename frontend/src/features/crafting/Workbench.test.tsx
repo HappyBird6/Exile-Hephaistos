@@ -318,7 +318,7 @@ describe('Workbench actual application', () => {
     await selectAndApply()
     await waitFor(() =>
       expect(screen.getByRole('status')).toHaveTextContent(
-        'Your item is unchanged',
+        'Could not apply currency. Please retry.',
       ),
     )
     expect(screen.getByRole('article')).toHaveClass('item-card--normal')

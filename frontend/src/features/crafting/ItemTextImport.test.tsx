@@ -195,8 +195,10 @@ describe('Item text import', () => {
       }),
     )
     expect(screen.getByRole('status')).toHaveTextContent(
-      'The item has not changed',
+      'Pasted items are display-only.',
     )
+    expect(useItemDraft.getState().text).toBe(raw)
+    expect(useItemDraft.getState().currentText.text).toBe(raw)
   })
   it('rejects blank and oversized UTF-8 input before requests', () => {
     show()

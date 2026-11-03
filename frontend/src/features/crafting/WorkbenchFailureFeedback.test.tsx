@@ -10,6 +10,10 @@ import {
 } from '../../shared/test/craftingFixtures'
 import { currencyButton } from '../../shared/test/workbenchQueries'
 import { historyStorageKey } from './workbenchHistory'
+import { setLocale, locales, translate } from '../../shared/i18n/i18n'
+import { serviceText } from './serviceMessages'
+import { abyssCurrencyReason } from './abyss-workbench/currencyMessages'
+import { boneText } from './desecrationCurrency'
 
 let client: QueryClient
 beforeEach(() => {
@@ -74,6 +78,7 @@ it('shows only a failed-use reason, preserves history and clears it on a new sel
   expect(getComputedStyle(region).height).toBe('96px')
   style.remove()
   const before = localStorage.getItem(historyStorageKey)
+  useItemDraft.getState().setActiveOmens(['Omen_of_Whittling'])
   apply('Orb of Annulment')
   await waitFor(() => expect(panel()).toHaveAttribute('role', 'alert'))
   expect(panel()?.textContent?.trim()).not.toBe('')
@@ -82,10 +87,72 @@ it('shows only a failed-use reason, preserves history and clears it on a new sel
     document.querySelector('.stash-viewport .workbench-feedback-panel'),
   ).toBeNull()
   expect(localStorage.getItem(historyStorageKey)).toBe(before)
+  expect(useItemDraft.getState().activeOmens).toEqual(['Omen_of_Whittling'])
+  expect(panel()).not.toHaveTextContent(/unchanged|preserved/)
+  expect(screen.getByRole('status')).not.toHaveTextContent(
+    /unchanged|preserved/,
+  )
   expect(panel()?.parentElement).toBe(region)
   expect(region.nextElementSibling).toBe(history)
   fireEvent.click(currencyButton('Orb of Transmutation'))
   expect(panel()).toBeNull()
   expect(document.querySelector('.workbench-feedback-region')).toBe(region)
   expect(region.nextElementSibling).toBe(history)
+})
+
+it.each(locales)(
+  'removes only preservation notices from %s failure paths and keeps their reasons',
+  (locale) => {
+    const reason = 'This currency cannot be used on this rarity.'
+    const legacy = `Craft blocked by rule: ${reason} Your item is unchanged; active omens are preserved.`
+    const current = `Craft blocked by rule: ${reason}`
+    expect(serviceText(legacy, locale)).toBe(serviceText(current, locale))
+    expect(serviceText(current, locale)).toContain(serviceText(reason, locale))
+    const notices = [
+      ...(
+        [
+          'notice.no_rule',
+          'notice.wait_catalog',
+          'notice.apply_error',
+          'error.apply_retry',
+        ] as const
+      ).map((key) => translate(key, {}, locale)),
+      serviceText(legacy, locale),
+      serviceText(
+        'Could not verify the applied item. Your item is unchanged. Please retry.',
+        locale,
+      ),
+      abyssCurrencyReason('UNSUPPORTED_CURRENCY', locale),
+      boneText[locale][6],
+    ]
+    for (const notice of notices) {
+      expect(notice).not.toMatch(
+        /unchanged|has not changed|no ha cambiado|no cambia|未更改|未改变|未變更|未改變|保持不变|保持不變|変更され|保持され|변경되지|그대로|유지됩니다|se conservan|no cambian/,
+      )
+      expect(notice).not.toBe('')
+    }
+    expect(
+      serviceText(
+        'Could not apply currency. Your item is unchanged. Please retry.',
+        locale,
+      ),
+    ).toBe(translate('error.apply_retry', {}, locale))
+  },
+)
+
+it('shows the Korean rule failure without redundant preservation text in feedback or the live announcement', async () => {
+  setLocale('ko')
+  show()
+  fireEvent.click(
+    document.querySelector('[data-material-tooltip="Orb_of_Annulment"]')!,
+  )
+  fireEvent.click(
+    screen.getByRole('button', { name: '선택한 화폐를 중앙 아이템에 사용' }),
+  )
+  await waitFor(() => expect(panel()).toHaveAttribute('role', 'alert'))
+  expect(panel()).toHaveTextContent('규칙에 의해 제작 차단:')
+  expect(panel()).not.toHaveTextContent(/아이템은 변경되지|활성 징조는 유지/)
+  expect(screen.getByRole('status')).not.toHaveTextContent(
+    /아이템은 변경되지|활성 징조는 유지/,
+  )
 })

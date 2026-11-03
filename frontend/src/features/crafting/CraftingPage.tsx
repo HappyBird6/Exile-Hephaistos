@@ -658,7 +658,7 @@ export function CraftingPage() {
     setFailedApplication(null)
     const failApply = (message: string) => {
       setFailedApplication({ revision: draft.baseRevision, message })
-      setAnnouncement(message)
+      setAnnouncement(serviceText(message))
     }
     if (!selected) {
       failApply(t('notice.select_currency'))
@@ -1405,6 +1405,24 @@ export function CraftingPage() {
                       />
                       <span>{displayedName}</span>
                     </button>
+                  </div>
+                  <div className="workbench-item-controls">
+                    <button
+                      type="button"
+                      className="item-input-toggle"
+                      disabled={applying !== null}
+                      ref={baseAnchor}
+                      aria-expanded={leftMenu === 'base'}
+                      aria-controls="workbench-base-picker"
+                      onClick={() => {
+                        setBaseChoice(
+                          supersededBases[catalogBase] ?? catalogBase,
+                        )
+                        setLeftMenu(leftMenu === 'base' ? null : 'base')
+                      }}
+                    >
+                      {t('ui.select_base')}
+                    </button>
                     <button
                       type="button"
                       ref={inputToggle}
@@ -1418,17 +1436,28 @@ export function CraftingPage() {
                     >
                       {t('ui.edit_item')}
                     </button>
+                    <button
+                      type="button"
+                      className="item-input-toggle"
+                      disabled={applying !== null}
+                      onClick={() => {
+                        imported.invalidate()
+                        void startBase(catalogLevel, catalogBase)
+                      }}
+                    >
+                      {t('ui.new_craft')}
+                    </button>
+                    <label className="item-input-toggle tooltip-toggle">
+                      <input
+                        type="checkbox"
+                        checked={tooltipsEnabled}
+                        onChange={(event) =>
+                          setTooltipsEnabled(event.target.checked)
+                        }
+                      />
+                      <span>{t('ui.show_tooltips')}</span>
+                    </label>
                   </div>
-                  <label className="tooltip-toggle">
-                    <input
-                      type="checkbox"
-                      checked={tooltipsEnabled}
-                      onChange={(event) =>
-                        setTooltipsEnabled(event.target.checked)
-                      }
-                    />
-                    {t('ui.show_tooltips')}
-                  </label>
                   <WorkbenchStash
                     tabs={
                       <>
@@ -1595,31 +1624,7 @@ export function CraftingPage() {
               </div>
             </div>
             <div className="bench-lower">
-              <div className="workbench-session-entry">
-                <button
-                  type="button"
-                  disabled={applying !== null}
-                  ref={baseAnchor}
-                  aria-expanded={leftMenu === 'base'}
-                  aria-controls="workbench-base-picker"
-                  onClick={() => {
-                    setBaseChoice(supersededBases[catalogBase] ?? catalogBase)
-                    setLeftMenu(leftMenu === 'base' ? null : 'base')
-                  }}
-                >
-                  {t('ui.select_base')}
-                </button>
-                <button
-                  type="button"
-                  disabled={applying !== null}
-                  onClick={() => {
-                    imported.invalidate()
-                    void startBase(catalogLevel, catalogBase)
-                  }}
-                >
-                  {t('ui.new_craft')}
-                </button>
-              </div>
+              <div className="workbench-session-entry" aria-hidden="true" />
               <SessionLibraryButtons
                 libraryId="workbench-session-library"
                 historyAnchor={historyAnchor}

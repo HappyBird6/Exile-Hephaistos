@@ -12,6 +12,7 @@ import { useItemDraft } from './draft'
 import {
   fixtureFetch,
   initialFixture,
+  jsonResponse,
 } from '../../shared/test/craftingFixtures'
 import { concreteInitial } from './workbenchApi'
 import {
@@ -153,7 +154,7 @@ it('preserves saved sessions when a metadata write fails', () => {
   }
 })
 
-it('places material controls inside the canvas and history controls below the base row', () => {
+it('places item controls beside favorites while keeping History below its reserved row', () => {
   show()
   const canvas = document.querySelector('.stash-canvas')!
   expect(canvas).toContainElement(
@@ -167,8 +168,12 @@ it('places material controls inside the canvas and history controls below the ba
   expect(plane).toContainElement(
     document.querySelector('.workbench-stash__favorites'),
   )
+  const controls = plane.querySelector('.workbench-item-controls')!
+  for (const name of ['Select base', 'Edit item', 'New craft'])
+    expect(controls).toContainElement(screen.getByRole('button', { name }))
   const buttons = document.querySelector('.wb-session-library-buttons')!
   expect(buttons.previousElementSibling).toHaveClass('workbench-session-entry')
+  expect(buttons.previousElementSibling).toBeEmptyDOMElement()
   expect(
     within(buttons as HTMLElement).getByRole('button', { name: 'History' }),
   ).toBeVisible()
@@ -230,4 +235,71 @@ it('renders original shelf positions and an unscaled viewport cursor', () => {
   expect(cursor.style.left).toBe('254px')
   expect(cursor.style.top).toBe('194px')
   expect(document.querySelector('main')).toHaveClass('craft-page--workbench')
+})
+
+it('returns focus to the relocated base and edit buttons after overlay close and input cancellation', () => {
+  show()
+  const base = screen.getByRole('button', { name: 'Select base' })
+  base.focus()
+  fireEvent.click(base)
+  const picker = screen.getByRole('dialog', { name: 'Select base' })
+  expect(base).toHaveAttribute('aria-expanded', 'true')
+  expect(base).toHaveAttribute('aria-controls', picker.id)
+  fireEvent.keyDown(picker, { key: 'Escape' })
+  expect(base).toHaveFocus()
+  expect(base).toHaveAttribute('aria-expanded', 'false')
+  const edit = screen.getByRole('button', { name: 'Edit item' })
+  edit.focus()
+  fireEvent.click(edit)
+  const input = screen.getByRole('dialog', { name: 'Starting item' })
+  expect(edit).toHaveAttribute('aria-controls', input.id)
+  expect(edit).toHaveAttribute('aria-expanded', 'true')
+  expect(screen.getByRole('button', { name: 'Close item input' })).toHaveFocus()
+  fireEvent.change(screen.getByRole('textbox'), {
+    target: { value: 'Draft to keep' },
+  })
+  fireEvent.keyDown(window, { key: 'Escape' })
+  expect(edit).toHaveFocus()
+  expect(edit).toHaveAttribute('aria-expanded', 'false')
+  expect(useItemDraft.getState().text).toBe('Draft to keep')
+  fireEvent.click(edit)
+  fireEvent.click(screen.getByRole('button', { name: 'Close item input' }))
+  expect(edit).toHaveFocus()
+})
+
+it('starts a new craft from the relocated control and preserves the existing film on a failed request', async () => {
+  const history = startFilm(
+    emptyFilms(),
+    concreteInitial(initialFixture),
+    'existing',
+    initialFixture.rulesetIdentity,
+  )
+  localStorage.setItem(historyStorageKey, JSON.stringify(history))
+  show()
+  const key = ['crafting', 'initial', 'solar', 82, 'manual']
+  await waitFor(() => expect(client.getQueryData(key)).toBeDefined())
+  const newCraft = screen.getByRole('button', { name: 'New craft' })
+  const bytes = localStorage.getItem(historyStorageKey)
+  const revision = useItemDraft.getState().baseRevision
+  await client.invalidateQueries({ queryKey: key, refetchType: 'none' })
+  vi.stubGlobal('fetch', () => Promise.resolve(jsonResponse({}, 500)))
+  fireEvent.click(newCraft)
+  await waitFor(() =>
+    expect(screen.getByRole('status')).toHaveTextContent(
+      'Could not load the selected base.',
+    ),
+  )
+  expect(useItemDraft.getState().baseRevision).toBe(revision)
+  expect(localStorage.getItem(historyStorageKey)).toBe(bytes)
+  vi.stubGlobal('fetch', fixtureFetch)
+  fireEvent.click(newCraft)
+  await waitFor(() =>
+    expect(useItemDraft.getState().baseRevision).toBeGreaterThan(revision),
+  )
+  const saved = JSON.parse(localStorage.getItem(historyStorageKey)!)
+  expect(saved.films).toHaveLength(2)
+  expect(saved.films[0]).toEqual(history.films[0])
+  expect(saved.films[1].frames[0].state).toEqual(
+    concreteInitial(initialFixture),
+  )
 })

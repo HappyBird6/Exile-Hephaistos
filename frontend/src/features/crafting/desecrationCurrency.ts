@@ -50,7 +50,7 @@ export const boneText = {
     'Prefix',
     'Suffix',
     'Removed modifier (full item only)',
-    'Check the currency, item class, level, slots and observed outcome. Only one Necromancy omen can be active. The item has not changed.',
+    'Check the currency, item class, level, slots and observed outcome. Only one Necromancy omen can be active.',
   ],
   ko: [
     'Necromancy 징조가 없으면 가능한 접두·접미 중 무작위로 결정합니다. 슬롯이 가득 차면 제거 가능한 옵션을 무작위로 제거합니다. 시뮬레이터 정책이며 실제 게임 확률은 미확인입니다. 드러낼 옵션은 직접 선택하세요.',
@@ -59,7 +59,7 @@ export const boneText = {
     '접두',
     '접미',
     '제거된 옵션 (슬롯이 가득 찬 경우)',
-    '화폐·장비 종류·레벨·슬롯과 관측 결과를 확인하고 징조 조합을 확인하세요. Necromancy는 접두 또는 접미 하나만 활성화할 수 있습니다. 아이템은 변경되지 않았습니다.',
+    '화폐·장비 종류·레벨·슬롯과 관측 결과를 확인하고 징조 조합을 확인하세요. Necromancy는 접두 또는 접미 하나만 활성화할 수 있습니다.',
   ],
   'zh-CN': [
     '没有死灵预兆时，模拟器随机选择可用的前缀或后缀。槽位已满时随机移除可移除词缀。这是模拟器策略，游戏概率未经验证。揭示词缀仍需手动选择。',
@@ -68,7 +68,7 @@ export const boneText = {
     '前缀',
     '后缀',
     '被移除的词缀（仅满词缀时）',
-    '请检查通货、装备类型、等级、槽位和观察结果，仅可启用一个死灵预兆。物品未改变。',
+    '请检查通货、装备类型、等级、槽位和观察结果，仅可启用一个死灵预兆。',
   ],
   'zh-TW': [
     '沒有死靈預兆時，模擬器隨機選擇可用的前綴或後綴。欄位已滿時隨機移除可移除詞綴。這是模擬器策略，遊戲機率未經驗證。揭示詞綴仍需手動選擇。',
@@ -77,7 +77,7 @@ export const boneText = {
     '前綴',
     '後綴',
     '被移除的詞綴（僅滿詞綴時）',
-    '請檢查通貨、裝備類型、等級、欄位及觀察結果，僅可啟用一個死靈預兆。物品未改變。',
+    '請檢查通貨、裝備類型、等級、欄位及觀察結果，僅可啟用一個死靈預兆。',
   ],
   ja: [
     'ネクロマンシーのオーメンがなければ、使用可能なプレフィックスかサフィックスをランダムに選びます。枠が埋まっている場合は除去可能なモッドをランダムに除去します。シミュレーターの方針であり、実際のゲーム確率は未確認です。開示するモッドは手動で選択してください。',
@@ -86,7 +86,7 @@ export const boneText = {
     'プレフィックス',
     'サフィックス',
     '除去されたモッド（モッド枠が埋まっている時のみ）',
-    '通貨、装備の種類、レベル、枠、観測結果を確認し、ネクロマンシーのオーメンは1つだけ有効にしてください。アイテムは変更されていません。',
+    '通貨、装備の種類、レベル、枠、観測結果を確認し、ネクロマンシーのオーメンは1つだけ有効にしてください。',
   ],
   es: [
     'Sin un presagio de nigromancia, el simulador elige al azar un prefijo o sufijo disponible. Con los espacios llenos elimina al azar un modificador elegible. Son reglas del simulador; las probabilidades del juego no están verificadas. Elige manualmente el modificador que se revela.',
@@ -95,7 +95,7 @@ export const boneText = {
     'Prefijo',
     'Sufijo',
     'Modificador eliminado (solo objeto lleno)',
-    'Comprueba moneda, clase, nivel, espacios y resultado observado. Solo puede estar activo un presagio de nigromancia. El objeto no ha cambiado.',
+    'Comprueba moneda, clase, nivel, espacios y resultado observado. Solo puede estar activo un presagio de nigromancia.',
   ],
 } as const
 
