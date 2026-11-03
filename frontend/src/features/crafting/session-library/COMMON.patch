@@ -1,0 +1,251 @@
+--- a/frontend/src/features/crafting/CraftingPage.tsx
++++ b/frontend/src/features/crafting/CraftingPage.tsx
+@@ -21,6 +21,8 @@
+ import { topBase, topBaseKey } from './topBases'
+ import { WorkbenchBasePicker } from './base-picker/WorkbenchBasePicker'
+ import { SessionLibrary } from './session-library/SessionLibrary'
++import { SessionLibraryButtons } from './session-library/SessionLibraryButtons'
++import { ItemSlotImage } from './item-slot/ItemSlotImage'
+ import { ServiceMessage } from './ServiceMessage'
+ import { serviceText } from './serviceMessages'
+ import { useI18n, gameTerm, uiText, translate } from '../../shared/i18n/i18n'
+@@ -28,7 +30,6 @@
+ import { localizedAction, catalystItemIds } from './localizedCrafting'
+ import { localizedModifierText } from './localizedModifiers'
+ import { inServiceScope } from './serviceScope'
+-import { maximumQuality } from './qualityLimit'
+ import { catalystTypes, catalystProjection } from './catalystQuality'
+ import type { CatalystQuality } from './catalystQuality'
+ import { currencyNames } from './currencyNames'
+@@ -256,9 +257,12 @@
+     Array(10).fill(null),
+   )
+   const [pointer, setPointer] = useState<{ x: number; y: number } | null>(null)
+-  const [leftMenu, setLeftMenu] = useState<'base' | 'history' | null>(null)
++  const [leftMenu, setLeftMenu] = useState<
++    'base' | 'history' | 'favorites' | null
++  >(null)
+   const baseAnchor = useRef<HTMLButtonElement>(null)
+   const historyAnchor = useRef<HTMLButtonElement>(null)
++  const favoritesAnchor = useRef<HTMLButtonElement>(null)
+   const currencyShelf = useRef<HTMLDivElement>(null)
+   const [lastDeletion, setLastDeletion] = useState<FilmDeletion | null>(null)
+   const [inputOpen, setInputOpen] = useState(false)
+@@ -921,10 +925,11 @@
+         : undefined
+   const evidenceInvalid =
+     storedFrame?.evidence !== undefined && restoredValid && !craftEvidence
+-  const qualityMaximum =
+-    concrete && initial.data
+-      ? maximumQuality(concrete, initial.data.modifiers)
+-      : null
++  const slotBaseItemId =
++    concrete?.baseItemId ??
++    (draft.source === 'base' || importedBase
++      ? initial.data?.state.baseItemId
++      : undefined)
+   const removalCandidates =
+     concrete && initial.data
+       ? whittlingCandidates(concrete, initial.data.modifiers, draft.activeOmens)
+@@ -1039,14 +1044,6 @@
+                     },
+                   ]
+                 : []),
+-              ...(qualityMaximum === null
+-                ? []
+-                : [
+-                    {
+-                      id: 'maximum-quality',
+-                      text: t('quality.maximum', { value: qualityMaximum }),
+-                    },
+-                  ]),
+               ...(concrete.equipmentQuality == null
+                 ? []
+                 : [
+@@ -1111,7 +1108,9 @@
+                   },
+                 ]
+               : [],
+-            flags: [],
++            flags: concrete.conditions.includes('SANCTIFIED')
++              ? [{ id: 'sanctified', text: 'SANCTIFIED' }]
++              : [],
+             modifiers: [...concrete.implicits, ...concrete.explicits]
+               .map((m, i) => {
+                 const d = initial.data!.modifiers[m.modifierId]!
+@@ -1271,19 +1270,7 @@
+               : t(`workspace.${view}`)}
+           </h1>
+         </div>
+-        {view !== 'support' && (
+-          <span className="preview-badge">
+-            <i />
+-            {name(baseSlugs[catalogBase], baseName)} · {t('ui.base')}
+-          </span>
+-        )}
+       </div>
+-      {view !== 'support' && (
+-        <aside className="locale-disclosure">
+-          <p>{t('probability.disclaimer')}</p>
+-          <small>{t('translation.coverage')}</small>
+-        </aside>
+-      )}
+       <div
+         className="workbench-layout"
+         id="panel-workbench"
+@@ -1406,9 +1393,6 @@
+                     })}
+                 </div>
+                 <div className="item-placement">
+-                  <span className="placement-label">
+-                    {t('ui.current_item')}
+-                  </span>
+                   <button
+                     className={`item-slot ${selected ? 'is-ready' : ''}`}
+                     type="button"
+@@ -1418,17 +1402,14 @@
+                     disabled={applying !== null}
+                     onClick={(event) => void apply(event.shiftKey)}
+                   >
+-                    {draft.source === 'base' && catalogBase === 'solar' ? (
+-                      <img
+-                        src="/assets/currency/solar-amulet.webp"
+-                        alt={name('Solar_Amulet', 'Solar Amulet')}
+-                        draggable="false"
+-                      />
+-                    ) : (
+-                      <span className="text-item-symbol" aria-hidden="true">
+-                        ≡
+-                      </span>
+-                    )}
++                    <ItemSlotImage
++                      baseItemId={slotBaseItemId ?? ''}
++                      label={
++                        slotBaseItemId
++                          ? name(baseSlugs[catalogBase], baseName)
++                          : displayedName
++                      }
++                    />
+                     <span>{displayedName}</span>
+                   </button>
+                   <button
+@@ -1849,6 +1830,18 @@
+                   {t('ui.new_craft')}
+                 </button>
+               </div>
++              <SessionLibraryButtons
++                libraryId="workbench-session-library"
++                historyAnchor={historyAnchor}
++                favoritesAnchor={favoritesAnchor}
++                disabled={applying !== null}
++                openView={
++                  leftMenu === 'history' || leftMenu === 'favorites'
++                    ? leftMenu
++                    : null
++                }
++                onOpenChange={setLeftMenu}
++              />
+               <div className="bench-item-card">
+                 <div className="workbench-film-controls">
+                   <button
+@@ -1861,7 +1854,12 @@
+                     }
+                     onClick={() => browse(filmState.history.cursor - 1)}
+                   >
+-                    ‹
++                    <span
++                      className="workbench-film-controls__arrow"
++                      aria-hidden="true"
++                    >
++                      ‹
++                    </span>
+                   </button>
+                   <span>
+                     {film
+@@ -1881,21 +1879,14 @@
+                     }
+                     onClick={() => browse(filmState.history.cursor + 1)}
+                   >
+-                    ›
++                    <span
++                      className="workbench-film-controls__arrow"
++                      aria-hidden="true"
++                    >
++                      ›
++                    </span>
+                   </button>
+                 </div>
+-                <button
+-                  type="button"
+-                  ref={historyAnchor}
+-                  disabled={applying !== null}
+-                  aria-expanded={leftMenu === 'history'}
+-                  aria-controls="workbench-session-library"
+-                  onClick={() =>
+-                    setLeftMenu(leftMenu === 'history' ? null : 'history')
+-                  }
+-                >
+-                  {t('ui.crafting_session')}
+-                </button>
+                 {!!concrete?.observations?.augmentEffects.length && (
+                   <p>{t('notice.resolve_augments')}</p>
+                 )}
+@@ -2150,10 +2141,13 @@
+           />
+           <SessionLibrary
+             id="workbench-session-library"
+-            anchor={historyAnchor}
++            anchor={leftMenu === 'favorites' ? favoritesAnchor : historyAnchor}
+             shelf={currencyShelf}
+-            open={leftMenu === 'history'}
+-            onOpenChange={(open) => setLeftMenu(open ? 'history' : null)}
++            open={leftMenu === 'history' || leftMenu === 'favorites'}
++            favoritesOnly={leftMenu === 'favorites'}
++            onOpenChange={(open) => {
++              if (!open) setLeftMenu(null)
++            }}
+             history={filmState.history}
+             disabled={applying !== null || filmState.blockedSaving}
+             onSelect={(id) => {
+@@ -2304,6 +2298,12 @@
+         {imported.pending ? 'Analyzing item…' : announcement}
+       </span>
+       <footer className="craft-footer">
++        {view !== 'support' && (
++          <aside className="locale-disclosure">
++            <p>{t('probability.disclaimer')}</p>
++            <small>{t('translation.coverage')}</small>
++          </aside>
++        )}
+         <span>
+           EXILE HEPHAISTOS <span aria-hidden="true">/</span>
+           {t('ui.your_personal_crafting_workbench')}
+--- a/frontend/src/features/crafting/crafting.css
++++ b/frontend/src/features/crafting/crafting.css
+@@ -1324,3 +1324,26 @@
+     padding: 10px 8px;
+   }
+ }
++
++/* Session library buttons follow the base-selection row. */
++.bench-lower > .wb-session-library-buttons {
++  margin-bottom: 12px;
++}
++.workbench-film-controls__arrow {
++  display: inline-block;
++  color: #e7d477;
++  font-size: 30px;
++  line-height: 1;
++}
++.workbench-film-controls button:disabled .workbench-film-controls__arrow {
++  color: #8c8269;
++}
++.craft-footer {
++  flex-wrap: wrap;
++}
++.craft-footer .locale-disclosure {
++  flex: 0 0 100%;
++  min-width: 0;
++  margin: 0 0 12px;
++  font-size: 12px;
++}

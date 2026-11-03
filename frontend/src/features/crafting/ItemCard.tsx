@@ -4,6 +4,7 @@ import { isTradePrice } from './itemCardData'
 import type { ItemCardData, ItemCardLine } from './itemCardData'
 import './item-card.css'
 import { formatAttributeText } from './numeric-display/attributeNumbers'
+import { itemCardMessages } from './itemCardMessages'
 
 function Lines({
   lines,
@@ -20,8 +21,11 @@ function Lines({
   return (
     <div className="item-card__section">
       {visible.map((sourceLine) => {
-        const line =
-          sourceLine.kind === 'unknown'
+        const sanctified =
+          flags && /^(SANCTIFIED|Sanctified)$/.test(sourceLine.text.trim())
+        const line = sanctified
+          ? { ...sourceLine, text: itemCardMessages[locale].sanctified }
+          : sourceLine.kind === 'unknown'
             ? sourceLine
             : {
                 ...sourceLine,
@@ -33,7 +37,7 @@ function Lines({
         return (
           <div
             key={line.id}
-            className={`item-card__line item-card__line--${flags && /^(Corrupted|Twice Corrupted)$/.test(line.text.trim()) ? 'corrupted' : (line.kind ?? 'property')}${line.removalCandidate ? ' item-card__line--removal-candidate' : ''}${changes?.[line.id] ? ' item-card__line--' + changes[line.id] : ''}`}
+            className={`item-card__line item-card__line--${sanctified ? 'sanctified' : flags && /^(Corrupted|Twice Corrupted)$/.test(line.text.trim()) ? 'corrupted' : (line.kind ?? 'property')}${line.removalCandidate ? ' item-card__line--removal-candidate' : ''}${changes?.[line.id] ? ' item-card__line--' + changes[line.id] : ''}`}
             data-removal-candidate={line.removalCandidate ? line.id : undefined}
             data-fractured={
               line.fractured || line.kind === 'fractured' ? true : undefined

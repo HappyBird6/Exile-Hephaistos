@@ -2,6 +2,9 @@ import type { Locale } from '../../../shared/i18n/i18n'
 
 type Messages = {
   history: string
+  favorites: string
+  closeFavorites: string
+  emptyFavorites: string
   close: string
   empty: string
   favorite: string
@@ -20,6 +23,9 @@ type Messages = {
 export const sessionLibraryMessages: Record<Locale, Messages> = {
   en: {
     history: 'History',
+    favorites: 'Favorites',
+    closeFavorites: 'Close favorites',
+    emptyFavorites: 'No favorite crafting sessions yet.',
     close: 'Close history',
     empty: 'No crafting sessions yet.',
     favorite: 'Favorite',
@@ -38,6 +44,9 @@ export const sessionLibraryMessages: Record<Locale, Messages> = {
   },
   ko: {
     history: 'History',
+    favorites: '즐겨찾기',
+    closeFavorites: '즐겨찾기 닫기',
+    emptyFavorites: '즐겨찾기한 제작 세션이 없습니다.',
     close: '기록 닫기',
     empty: '제작 세션이 없습니다.',
     favorite: '즐겨찾기',
@@ -55,6 +64,9 @@ export const sessionLibraryMessages: Record<Locale, Messages> = {
   },
   'zh-CN': {
     history: '历史',
+    favorites: '收藏',
+    closeFavorites: '关闭收藏',
+    emptyFavorites: '暂无收藏的制作会话。',
     close: '关闭历史',
     empty: '暂无制作会话。',
     favorite: '收藏',
@@ -72,6 +84,9 @@ export const sessionLibraryMessages: Record<Locale, Messages> = {
   },
   'zh-TW': {
     history: '歷史',
+    favorites: '收藏',
+    closeFavorites: '關閉收藏',
+    emptyFavorites: '尚無收藏的製作工作階段。',
     close: '關閉歷史',
     empty: '尚無製作工作階段。',
     favorite: '收藏',
@@ -89,6 +104,9 @@ export const sessionLibraryMessages: Record<Locale, Messages> = {
   },
   ja: {
     history: '履歴',
+    favorites: 'お気に入り',
+    closeFavorites: 'お気に入りを閉じる',
+    emptyFavorites: 'お気に入りのクラフトセッションはありません。',
     close: '履歴を閉じる',
     empty: 'クラフトセッションはありません。',
     favorite: 'お気に入り',
@@ -106,6 +124,9 @@ export const sessionLibraryMessages: Record<Locale, Messages> = {
   },
   es: {
     history: 'Historial',
+    favorites: 'Favoritos',
+    closeFavorites: 'Cerrar favoritos',
+    emptyFavorites: 'Aún no hay sesiones de fabricación favoritas.',
     close: 'Cerrar historial',
     empty: 'Aún no hay sesiones de fabricación.',
     favorite: 'Favorito',
