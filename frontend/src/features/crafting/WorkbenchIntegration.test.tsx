@@ -217,3 +217,17 @@ it('opens the favorites-only session view without rewriting the full saved histo
   ).toBeVisible()
   expect(localStorage.getItem(historyStorageKey)).toBe(before)
 })
+
+it('renders original shelf positions and an unscaled viewport cursor', () => {
+  show()
+  const shelf = document.querySelector<HTMLElement>('.currency-catalog')!
+  const chaos = within(shelf).getByRole('button', { name: 'Chaos Orb' })
+  expect(chaos.style.left).toBe(`${29 / 9.35}%`)
+  expect(chaos.style.top).toBe(`${440 / 5.5}%`)
+  fireEvent.contextMenu(chaos, { clientX: 240, clientY: 180 })
+  const cursor = document.querySelector<HTMLElement>('.currency-cursor')!
+  expect(cursor.parentElement).toBe(document.body)
+  expect(cursor.style.left).toBe('254px')
+  expect(cursor.style.top).toBe('194px')
+  expect(document.querySelector('main')).toHaveClass('craft-page--workbench')
+})

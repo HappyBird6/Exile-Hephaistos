@@ -93,7 +93,7 @@
 .workbench-stash__favorites {
   position: absolute;
   left: calc(29 / 935 * 100%);
-  top: calc(340 / 550 * 100%);
+  top: calc(570 / 550 * 100%);
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr));
@@ -154,7 +154,7 @@
   font-size: 11px;
 }
 
-/* Favorites are direct children of this same 935 × 550 coordinate plane. */
+/* Preserve the original upper plane; favorites extend into the same canvas below it. */
 .stash-canvas__content {
   position: relative;
   width: 100%;

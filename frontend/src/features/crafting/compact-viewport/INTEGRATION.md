@@ -1,3 +1,5 @@
+> Superseded layout: the original proposal below rearranged currencies and is retained as history. The design restoration uses the original catalog coordinates, CSS zoom 0.75 on the workbench, original 1000px stacking breakpoint, and a lower extension inside the same canvas for favorites. See docs/evidence/workbench-design-restoration-20261103.md. Do not apply the historical COMMON patches again.
+
 # 화면·캔버스 배치 A — 요구 1·2·3·5·6·10
 
 기준: `e82e246de18df1688e0eaba8a858b57a3c5b60ff`.

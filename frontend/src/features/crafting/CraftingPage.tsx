@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom'
 import { defenceDisplay } from './defenceDisplay'
 import { preciseModifierProjection } from './sanctification/preciseModifierProjection'
 import { temporaryAmuletPassive } from './base-picker/temporaryAmuletPassive'
@@ -98,7 +99,6 @@ import {
   workbenchJewelBases,
 } from './basicJewel'
 import { sapphireCastSpeed } from './sapphireJewel'
-import { compactCurrencyPositions } from './compact-viewport/coordinates'
 import './crafting.css'
 import './compact-viewport/compactViewport.css'
 
@@ -1230,7 +1230,7 @@ export function CraftingPage() {
 
   return (
     <main
-      className="craft-page"
+      className={`craft-page${view === 'workbench' ? ' craft-page--workbench' : ''}`}
       onClick={(event) => {
         const target = event.target as HTMLElement
         if (!target.closest('button, input, label, dialog, a')) {
@@ -1338,8 +1338,6 @@ export function CraftingPage() {
                 <div className="stash-canvas__content" ref={currencyShelf}>
                   <div className="currency-catalog">
                     {fixedCurrencies.map((currency) => {
-                      const position =
-                        compactCurrencyPositions[currency.id] ?? currency
                       const currencyName = name(
                         currency.id,
                         currencyNames[currency.id],
@@ -1350,8 +1348,8 @@ export function CraftingPage() {
                           type="button"
                           className={`currency-slot ${selected?.id === currency.id ? 'is-selected' : ''}`}
                           style={{
-                            left: `${position.x / 9.35}%`,
-                            top: `${position.y / 5.5}%`,
+                            left: `${currency.x / 9.35}%`,
+                            top: `${currency.y / 5.5}%`,
                           }}
                           aria-label={currencyName}
                           aria-pressed={selected?.id === currency.id}
@@ -2110,15 +2108,18 @@ export function CraftingPage() {
           {...(selected ? { onlyWithin: '.wb-session-notation' } : {})}
         />
       )}
-      {cursor && pointer && (
-        <span
-          className="currency-cursor"
-          aria-hidden="true"
-          style={{ left: pointer.x + 14, top: pointer.y + 14 }}
-        >
-          <CurrencyImage key={cursor.id} {...cursor} />
-        </span>
-      )}
+      {cursor &&
+        pointer &&
+        createPortal(
+          <span
+            className="currency-cursor"
+            aria-hidden="true"
+            style={{ left: pointer.x + 14, top: pointer.y + 14 }}
+          >
+            <CurrencyImage key={cursor.id} {...cursor} />
+          </span>,
+          document.body,
+        )}
     </main>
   )
 }
