@@ -17,7 +17,39 @@ const overlaps = (a: Rect, b: Rect) =>
   a.y < b.y + b.height &&
   a.y + a.height > b.y
 
+// Read the production coordinates so a shortened/clipped panel fails this check.
+function coordinate(selector: string, property: string, extent: number) {
+  const rule = stashCss.slice(stashCss.indexOf(selector))
+  const declaration = rule.slice(0, rule.indexOf('}'))
+  const match = declaration.match(
+    new RegExp(`${property}: calc\\((\\d+) / (\\d+) \\* 100%\\)`),
+  )
+  if (!match) throw new Error(`Missing ${selector} ${property} coordinate`)
+  return (Number(match[1]) / Number(match[2])) * extent
+}
+const stashLeft = coordinate('.workbench-stash {', 'left', 935)
+const stashRight = coordinate('.workbench-stash {', 'right', 935)
+const stashTop = coordinate('.workbench-stash {', 'top', 550)
+const stashHeight = coordinate('.workbench-stash {', 'height', 550)
+
 describe('original composition at 75 percent', () => {
+  it('matches the mockup margins, aligned top, equal gaps and full-height stash', () => {
+    const first = currencies.find((c) => c.id === 'Orb_of_Transmutation')!
+    const third = currencies.find(
+      (c) => c.id === 'Perfect_Orb_of_Transmutation',
+    )!
+    const alchemy = currencies.find((c) => c.id === 'Orb_of_Alchemy')!
+    const annulment = currencies.find((c) => c.id === 'Orb_of_Annulment')!
+    expect(stashRight).toBeCloseTo(first.x)
+    expect(stashTop).toBeCloseTo(annulment.y)
+    expect(stashLeft - (annulment.x + 74)).toBeCloseTo(
+      alchemy.x - (third.x + 74),
+    )
+    const favoritesBottom =
+      coordinate('.workbench-stash__favorites {', 'top', 550) +
+      coordinate('.workbench-stash__favorites {', 'height', 550)
+    expect(stashTop + stashHeight).toBeCloseTo(favoritesBottom)
+  })
   it('preserves the original tier columns and five family rows', () => {
     for (const [family, y] of [
       ['Orb_of_Transmutation', 40],
@@ -39,7 +71,12 @@ describe('original composition at 75 percent', () => {
       .map((c) => ({ ...c, width: 74, height: 74 }))
     rects.push(
       { x: 371, y: 240, width: 193, height: 274 },
-      { x: 652, y: 12, width: 271, height: 524 },
+      {
+        x: stashLeft,
+        y: stashTop,
+        width: 935 - stashLeft - stashRight,
+        height: stashHeight,
+      },
     )
     for (let i = 0; i < 10; i++)
       rects.push({
