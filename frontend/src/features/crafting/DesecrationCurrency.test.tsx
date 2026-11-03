@@ -226,12 +226,9 @@ it.each(['', 'Omen_of_Sinistral_Necromancy', 'Omen_of_Dextral_Necromancy'])(
     fireEvent.click(
       screen.getByRole('button', { name: 'Preserved Collarbone' }),
     )
-    if (omen)
-      expect(screen.getByLabelText('Observed affix side')).toBeDisabled()
-    else
-      fireEvent.change(screen.getByLabelText('Observed affix side'), {
-        target: { value: side },
-      })
+    expect(
+      screen.queryByLabelText('Observed affix side'),
+    ).not.toBeInTheDocument()
     fireEvent.click(
       screen.getByRole('button', {
         name: 'Use selected currency on the central item',

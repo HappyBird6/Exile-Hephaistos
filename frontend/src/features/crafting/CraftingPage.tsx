@@ -4,8 +4,14 @@ import {
   isBone,
   boneText,
   putrefactionText,
-  necromancySide,
+  boneConsumedOmens,
+  boneRemainingOmens,
 } from './desecrationCurrency'
+import {
+  applyAbyssCurrency,
+  abyssFromConcrete,
+} from './abyss-workbench/applyAbyssCurrency'
+import { abyssCurrencyReason } from './abyss-workbench/currencyMessages'
 import { validAbyssResponse } from './abyssResponse'
 import { AbyssPanel } from './AbyssPanel'
 import { readSupport, saveSupport } from './method-search/supportStorage'
@@ -85,7 +91,6 @@ import {
 import type { Films, FilmDeletion } from './workbenchHistory'
 import {
   basicJewelBases,
-  jewelCapacity,
   isWorkbenchJewel,
   workbenchJewelBases,
 } from './basicJewel'
@@ -107,8 +112,6 @@ function filmId() {
 export function CraftingPage() {
   const { t, name, locale } = useI18n()
   const [boneCounts, setBoneCounts] = useState([0, 0])
-  const [boneSide, setBoneSide] = useState('')
-  const [boneRemoved, setBoneRemoved] = useState('')
   const client = useQueryClient()
   const draft = useItemDraft()
   const imported = useItemTextImport()
@@ -362,9 +365,7 @@ export function CraftingPage() {
     restoredValid && initial.data && storedFrame ? storedFrame.state : undefined
   const canCraft =
     (draft.source === 'base' || mapping.data?.mapped === true) &&
-    (!storedFrame || restoredValid) &&
-    !(restoredState ?? workbench.data?.state ?? mapping.data?.state)?.desecrated
-      ?.length
+    (!storedFrame || restoredValid)
   const film =
     filmState.revision === draft.baseRevision
       ? currentFilm(filmState.history)
@@ -598,8 +599,6 @@ export function CraftingPage() {
     )
       return
     setFailedApplication(null)
-    setBoneSide('')
-    setBoneRemoved('')
     setSelected(resource)
     setHeld(null)
     setAnnouncement(
@@ -661,13 +660,6 @@ export function CraftingPage() {
       return
     }
     if (!canCraft) {
-      if (
-        (restoredState ?? workbench.data?.state ?? mapping.data?.state)
-          ?.desecrated?.length
-      ) {
-        failApply(t('notice.use_abyss'))
-        return
-      }
       if (rulesetStatus && rulesetStatus !== 'current') {
         failApply(t(`ruleset.${rulesetStatus}`))
         return
@@ -704,8 +696,8 @@ export function CraftingPage() {
         const next = await applyBone(
           state,
           selected.id,
-          necromancySide(draft.activeOmens) ?? boneSide,
-          boneRemoved,
+          '',
+          '',
           draft.activeOmens,
           initial.data,
           controller.signal,
@@ -734,17 +726,17 @@ export function CraftingPage() {
             selected.id,
             filmId(),
             initial.data.rulesetIdentity,
-            draft.activeOmens,
+            boneConsumedOmens(draft.activeOmens),
           ),
           revision,
         )
-        draft.setActiveOmens([])
+        draft.setActiveOmens(boneRemainingOmens(draft.activeOmens))
         setAnnouncement(
           [
             t('craft.applied', { name: name(selected.id, selected.name) }),
-            draft.activeOmens.length
+            boneConsumedOmens(draft.activeOmens).length
               ? t('craft.consumed', {
-                  names: draft.activeOmens
+                  names: boneConsumedOmens(draft.activeOmens)
                     .map((id) => name(id, id.replaceAll('_', ' ')))
                     .join(', '),
                 })
@@ -754,8 +746,6 @@ export function CraftingPage() {
             .join(' '),
         )
         setBoneCounts([0, 0])
-        setBoneSide('')
-        setBoneRemoved('')
         if (!repeat) {
           setSelected(null)
           setHeld(null)
@@ -764,6 +754,65 @@ export function CraftingPage() {
         return
       }
       if (!action) throw new Error(t('notice.no_rule'))
+      if (state.desecrated?.length || storedFrame?.abyss) {
+        const source =
+          storedFrame?.abyss ?? abyssFromConcrete(state, initial.data)
+        const result = await applyAbyssCurrency(
+          source,
+          action,
+          draft.activeOmens,
+          initial.data,
+          controller.signal,
+          t('notice.apply_error'),
+        )
+        if (
+          controller.signal.aborted ||
+          useItemDraft.getState().baseRevision !== revision ||
+          useItemDraft.getState().source !== draft.source
+        )
+          return
+        if (!result.applied) {
+          failApply(abyssCurrencyReason(result.reason, locale))
+          return
+        }
+        const history =
+          filmState.revision === revision
+            ? filmState.history
+            : { ...filmState.history, active: null, cursor: 0 }
+        saveFilms(
+          recordAbyss(
+            history,
+            state,
+            result.state,
+            action,
+            filmId(),
+            initial.data.rulesetIdentity,
+            result.consumedOmens,
+          ),
+          revision,
+        )
+        draft.setActiveOmens(result.remainingOmens)
+        setAnnouncement(
+          [
+            t('craft.applied', { name: localizedAction(action) }),
+            result.consumedOmens.length
+              ? t('craft.consumed', {
+                  names: result.consumedOmens
+                    .map((id) => name(id, id.replaceAll('_', ' ')))
+                    .join(', '),
+                })
+              : '',
+          ]
+            .filter(Boolean)
+            .join(' '),
+        )
+        if (!repeat) {
+          setSelected(null)
+          setHeld(null)
+          setPointer(null)
+        }
+        return
+      }
       const result = await applyCurrency(
         state,
         action,
@@ -1510,89 +1559,44 @@ export function CraftingPage() {
                 </div>
               </div>
               <div className="workbench-currency-controls">
-                {selected && isBone(selected.id) && (
-                  <fieldset disabled={!!applying}>
-                    <legend>{name(selected.id, selected.name)}</legend>
-                    {draft.activeOmens.includes('Omen_of_Putrefaction') ? (
-                      <div>
-                        {(['PREFIX', 'SUFFIX'] as const).map((side, index) => (
-                          <label key={side}>
-                            {putrefactionText[locale][index + 1]}{' '}
-                            <input
-                              type="number"
-                              min={0}
-                              max={3}
-                              step={1}
-                              value={boneCounts[index]}
-                              onChange={(event) => {
-                                const value = event.target.valueAsNumber
-                                if (
-                                  Number.isInteger(value) &&
-                                  value >= 0 &&
-                                  value <= 3
-                                )
-                                  setBoneCounts((current) =>
-                                    current.map((n, i) =>
-                                      i === index ? value : n,
-                                    ),
-                                  )
-                              }}
-                            />
-                          </label>
-                        ))}
-                      </div>
-                    ) : (
-                      <label>
-                        {boneText[locale][1]}
-                        <select
-                          value={necromancySide(draft.activeOmens) ?? boneSide}
-                          disabled={!!necromancySide(draft.activeOmens)}
-                          onChange={(event) => setBoneSide(event.target.value)}
-                        >
-                          <option value="">{boneText[locale][2]}</option>
-                          <option value="PREFIX">{boneText[locale][3]}</option>
-                          <option value="SUFFIX">{boneText[locale][4]}</option>
-                        </select>
-                      </label>
-                    )}
-                    {!draft.activeOmens.includes('Omen_of_Putrefaction') &&
-                      concrete &&
-                      concrete.explicits.length >=
-                        (isWorkbenchJewel(concrete.baseItemId)
-                          ? jewelCapacity(concrete, 'PREFIX') +
-                            jewelCapacity(concrete, 'SUFFIX')
-                          : 6) && (
-                        <label>
-                          {boneText[locale][5]}
-                          <select
-                            value={boneRemoved}
-                            onChange={(event) =>
-                              setBoneRemoved(event.target.value)
-                            }
-                          >
-                            <option value="">{boneText[locale][2]}</option>
-                            {concrete.explicits.map((modifier, index) =>
-                              modifier.fractured ? null : (
-                                <option
-                                  key={modifier.modifierId}
-                                  value={`explicit-${index}`}
-                                >
-                                  {initial.data?.modifiers[modifier.modifierId]
-                                    ? localizedModifierText(
-                                        initial.data.modifiers[
-                                          modifier.modifierId
-                                        ]!,
-                                        modifier.values,
+                {selected &&
+                  isBone(selected.id) &&
+                  draft.activeOmens.includes('Omen_of_Putrefaction') && (
+                    <fieldset disabled={!!applying}>
+                      <legend>{name(selected.id, selected.name)}</legend>
+                      {draft.activeOmens.includes('Omen_of_Putrefaction') ? (
+                        <div>
+                          {(['PREFIX', 'SUFFIX'] as const).map(
+                            (side, index) => (
+                              <label key={side}>
+                                {putrefactionText[locale][index + 1]}{' '}
+                                <input
+                                  type="number"
+                                  min={0}
+                                  max={3}
+                                  step={1}
+                                  value={boneCounts[index]}
+                                  onChange={(event) => {
+                                    const value = event.target.valueAsNumber
+                                    if (
+                                      Number.isInteger(value) &&
+                                      value >= 0 &&
+                                      value <= 3
+                                    )
+                                      setBoneCounts((current) =>
+                                        current.map((n, i) =>
+                                          i === index ? value : n,
+                                        ),
                                       )
-                                    : modifier.modifierId}
-                                </option>
-                              ),
-                            )}
-                          </select>
-                        </label>
-                      )}
-                  </fieldset>
-                )}
+                                  }}
+                                />
+                              </label>
+                            ),
+                          )}
+                        </div>
+                      ) : null}
+                    </fieldset>
+                  )}
                 {draft.source === 'text' && !mapping.data?.mapped && (
                   <button
                     type="button"

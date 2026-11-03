@@ -1,6 +1,12 @@
+import { abyssCurrencyImages } from './abyss-workbench/currencyImages'
 /* Display-only catalog; positions from the approved Currency page. No game rules. */
 export const currencies = [
-  { id: 'Preserved_Cranium', x: 669, y: 340, image: '' },
+  {
+    id: 'Preserved_Cranium',
+    x: 669,
+    y: 340,
+    image: abyssCurrencyImages.Preserved_Cranium!,
+  },
   { id: 'Altered_Collarbone', x: 759, y: 340, image: '' },
   { id: 'Gnawed_Rib', x: 669, y: 40, image: '' },
   { id: 'Preserved_Rib', x: 759, y: 40, image: '' },

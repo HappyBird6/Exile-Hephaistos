@@ -307,7 +307,8 @@ public final class WorkbenchController {
         request.side(),
         request.removedSlotId(),
         request.activeOmens(),
-        catalog);
+        catalog,
+        random);
   }
 
   @PostMapping("/abyss/add")
@@ -372,6 +373,13 @@ public final class WorkbenchController {
   public com.poe2craft.crafting.domain.AbyssCraftingState applyAbyss(
       @RequestBody AbyssRequest request) {
     return simulator.applyAbyss(
+        abyssState(request.state()), request.action(), request.activeOmens(), random);
+  }
+
+  @PostMapping("/abyss/currency")
+  public com.poe2craft.crafting.domain.AbyssCurrencyExecutor.Result applyAbyssCurrency(
+      @RequestBody AbyssRequest request) {
+    return simulator.applyAbyssCurrency(
         abyssState(request.state()), request.action(), request.activeOmens(), random);
   }
 

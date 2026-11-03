@@ -430,6 +430,13 @@ public final class WorkbenchService {
     return simulator(state.item()).applyAbyss(state, action, omens, random);
   }
 
+  public AbyssCurrencyExecutor.Result applyAbyssCurrency(
+      AbyssCraftingState state, WorkbenchCurrency action, Set<String> omens,
+      RandomGenerator random) {
+    return new AbyssCurrencyExecutor(abyssCatalog(state.item()), simulator(state.item()))
+        .apply(state, action, omens, random);
+  }
+
   private ItemCatalog catalog(String base) {
     if (topBases.containsKey(base)) return topBases.get(base);
     if (basicJewels.containsKey(base)) return basicJewels.get(base);
