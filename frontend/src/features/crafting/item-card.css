@@ -72,6 +72,9 @@
 .item-card__line--corrupted {
   color: #ff6868;
 }
+.item-card__line--sanctified {
+  color: #e7d477;
+}
 .item-card__modifier-detail summary {
   cursor: pointer;
 }

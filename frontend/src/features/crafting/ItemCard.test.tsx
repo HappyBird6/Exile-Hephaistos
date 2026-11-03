@@ -4,6 +4,8 @@ import { ItemCard } from './ItemCard'
 import type { ItemCardData } from './itemCardData'
 import { toItemCard } from './itemCardData'
 import type { Item } from './itemModels'
+import { setLocale } from '../../shared/i18n/i18n'
+import { itemCardMessages } from './itemCardMessages'
 
 const base: ItemCardData = {
   rarity: 'NORMAL',
@@ -20,6 +22,28 @@ function card(item: ItemCardData) {
   return <ItemCard item={item} />
 }
 describe('ItemCard', () => {
+  it.each(Object.entries(itemCardMessages))(
+    'renders a bottom sanctified flag in %s without changing item values',
+    (locale, messages) => {
+      setLocale(locale as keyof typeof itemCardMessages)
+      const item: ItemCardData = {
+        ...base,
+        modifiers: [{ id: 'roll', text: '+13', kind: 'explicit' }],
+        flags: [{ id: 'sanctified', text: 'SANCTIFIED' }],
+      }
+      const original = JSON.stringify(item)
+      const view = render(card(item))
+      const flag = screen.getByText(messages.sanctified)
+      expect(flag).toHaveClass('item-card__line--sanctified')
+      expect(flag.closest('.item-card__section')).toBe(
+        view.container.querySelector('.item-card__content')?.lastElementChild,
+      )
+      expect(screen.getByText('+13')).toBeVisible()
+      expect(JSON.stringify(item)).toBe(original)
+      view.rerender(card(base))
+      expect(screen.queryByText(messages.sanctified)).not.toBeInTheDocument()
+    },
+  )
   it('rounds visible attribute spans while retaining details and unknown source lines', () => {
     const data: ItemCardData = {
       ...base,

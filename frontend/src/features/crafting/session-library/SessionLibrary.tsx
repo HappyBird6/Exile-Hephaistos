@@ -19,12 +19,18 @@ export type SessionLibraryProps = Omit<ShelfOverlayProps, 'onClose'> & {
   disabled?: boolean
   undo?: { title: string; onUndo: () => void }
   imageForBase?: (baseItemId: string) => string | undefined
+  favoritesOnly?: boolean
 }
 
 /** Session data and durable mutations belong to the parent; ephemeral confirmations stay here. */
 export function SessionLibrary(props: SessionLibraryProps) {
   if (!props.open) return null
-  return <SessionLibraryContent {...props} />
+  return (
+    <SessionLibraryContent
+      key={String(props.favoritesOnly === true)}
+      {...props}
+    />
+  )
 }
 
 function SessionLibraryContent({
@@ -40,6 +46,7 @@ function SessionLibraryContent({
   disabled = false,
   undo,
   imageForBase,
+  favoritesOnly = false,
 }: SessionLibraryProps) {
   const { locale, t } = useI18n()
   const messages = sessionLibraryMessages[locale]
@@ -57,8 +64,8 @@ function SessionLibraryContent({
       anchor={anchor}
       {...(shelf ? { shelf } : {})}
       onClose={() => onOpenChange(false)}
-      title={messages.history}
-      closeLabel={messages.close}
+      title={favoritesOnly ? messages.favorites : messages.history}
+      closeLabel={favoritesOnly ? messages.closeFavorites : messages.close}
     >
       <div className="wb-session-library">
         {undo && (
@@ -71,8 +78,14 @@ function SessionLibraryContent({
             </button>
           </div>
         )}
-        {!history.films.length && <p>{messages.empty}</p>}
+        {!(favoritesOnly
+          ? history.films.some((film) => film.favorite === true)
+          : history.films.length > 0) && (
+          <p>{favoritesOnly ? messages.emptyFavorites : messages.empty}</p>
+        )}
         {history.films.map((film, index) => {
+          // Keep the original index for legacy records without a sessionNumber.
+          if (favoritesOnly && film.favorite !== true) return null
           const state = film.frames.at(-1)?.state
           const number = filmSessionNumber(film, index)
           const displayTitle = label(film, index)
