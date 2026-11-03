@@ -6,15 +6,19 @@ import { legacyHomogenisingIds, legacyFiveIds } from './workbenchApi'
 
 type TooltipData = { name: string; lines: string[]; sourceUrl: string }
 const catalog: Record<string, TooltipData> = descriptions
-export function MaterialTooltip() {
+export function MaterialTooltip({ onlyWithin }: { onlyWithin?: string } = {}) {
   const { t, locale, name } = useI18n()
   const tooltip = useRef<HTMLElement>(null)
-  const [target, setTarget] = useState<{
+  const [anchorTarget, setTarget] = useState<{
     id: string
     x: number
     y: number
     element: HTMLElement
   } | null>(null)
+  const target =
+    anchorTarget && (!onlyWithin || anchorTarget.element.closest(onlyWithin))
+      ? anchorTarget
+      : null
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout> | undefined
     const hide = () => setTarget(null)
@@ -24,7 +28,12 @@ export function MaterialTooltip() {
       if (element?.closest('.material-tooltip')) return
       const button = element?.closest<HTMLElement>('[data-material-tooltip]')
       const id = button?.dataset.materialTooltip
-      if (!button || !id || !catalog[id]) {
+      if (
+        !button ||
+        !id ||
+        !catalog[id] ||
+        (onlyWithin && !button.closest(onlyWithin))
+      ) {
         timer = setTimeout(hide, 150)
         return
       }
@@ -61,7 +70,7 @@ export function MaterialTooltip() {
       window.removeEventListener('resize', hide)
       document.removeEventListener('scroll', scroll, true)
     }
-  }, [])
+  }, [onlyWithin])
   useEffect(() => {
     if (!target) return
     target.element.setAttribute('aria-describedby', 'material-description')

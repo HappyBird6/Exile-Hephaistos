@@ -47,6 +47,7 @@ import { ItemCard } from './ItemCard'
 import { whittlingCandidates } from './omenRemovalCandidates'
 import { toItemCard } from './itemCardData'
 import { MaterialTooltip } from './MaterialTooltip'
+import { SessionNotation } from './session-notation/SessionNotation'
 import { useItemTextImport } from './useItemTextImport'
 import { CurrencyImage } from './CurrencyImage'
 import { currencies } from './currencies'
@@ -1819,6 +1820,11 @@ export function CraftingPage() {
                   </p>
                 </div>
               )}
+              <SessionNotation
+                film={film}
+                cursor={filmState.history.cursor}
+                resources={stashResources}
+              />
             </div>
           </div>
           <WorkbenchBasePicker
@@ -2098,7 +2104,11 @@ export function CraftingPage() {
           {t('ui.currency_images_poe2db')}
         </a>
       </footer>
-      {tooltipsEnabled && !selected && <MaterialTooltip />}
+      {tooltipsEnabled && (
+        <MaterialTooltip
+          {...(selected ? { onlyWithin: '.wb-session-notation' } : {})}
+        />
+      )}
       {cursor && pointer && (
         <span
           className="currency-cursor"
