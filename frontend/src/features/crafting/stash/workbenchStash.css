@@ -1,6 +1,12 @@
 .workbench-stash {
   position: absolute;
-  inset: 12px calc(12 / 935 * 100%) 14px calc(652 / 935 * 100%);
+  /* Mockup: equal outer margins (29), aligned tops (40), equal gaps (46).
+     The panel ends at y744, level with the second row of favorites. */
+  box-sizing: border-box;
+  left: calc(649 / 935 * 100%);
+  right: calc(29 / 935 * 100%);
+  top: calc(40 / 550 * 100%);
+  height: calc(704 / 550 * 100%);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -31,6 +37,7 @@
   font-size: 12px;
 }
 .workbench-stash__resources {
+  flex: 1;
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
