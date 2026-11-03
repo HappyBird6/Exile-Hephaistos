@@ -144,4 +144,39 @@ the final full run above has no failures. No production behavior was relaxed for
 Affected Java/API/domain + historical compatibility preflight: **157 tests / 0 failures**;
 Spotless and bootJar pass in Java21 without a Docker socket mount. Every one of the **805**
 compiled production source/resource files is byte-identical to the integration checkout.
-The final whole Java run is still being recorded separately from these passing affected tests.
+Final whole Java: **1036 tests / 1024 pass / 12 failures**, exactly the 12 effective baseline
+failure identities; **0 new failures**. The historical 40-failure checkpoint predates the prior
+release and is not the current baseline. Two retained failure messages changed: frozen base
+fingerprints reflect intentional manual enum/initial metadata additions, and the raw-mapper
+wire assertion includes the new nullable field. Production null omission and actual historical
+original-document/strict HTTP regressions pass. No probability or result oracle was weakened.
+See `workbench-corrections-20261103-validation.json` for identities and difference context.
+
+DB integration and generateJooq are NOT EXECUTED: the earlier denied Docker socket connection
+remains forbidden. No alternate socket path or security setting was used. This does not turn
+unit/API tests into a database integration pass. Browser automation remains user-deferred.
+
+
+## Local release completed
+
+Runtime code revision: `7e0bc96c7db030e7d55d00b0a0c9699aab9202d2`.
+Server: **http://localhost:9001**, health **UP**. Subsequent commit only records verification;
+production sources and the served artifact are unchanged. JAR SHA256:
+`99640ca543dd07ebadd77db02923feb10f03f799b34d731fc8ccced8926d8d3d`.
+
+All 612 JAR resources match the checkout. The served index/JS/CSS, both quality currency icons,
+secured Cranium and existing Fire Quiver image match the final distribution bytes. Read-only
+health and fresh stateless API checks passed: all three rarities +1pp, 19->20 and cap refusal,
+wrong classes, retained pending omen, ordinary Divine implicit preservation, default bone side,
+unrevealed slot plus Exalted, explicit direct selection, Sanctification with hidden slot, retained
+original rolls/factors, and refused subsequent edit. The registry serves all three new ACTIVE rules.
+
+**54 before / 54 after / 0 changed or missing/added** user files. Container IDs, mount volumes,
+ports and configuration fingerprints are unchanged. DB/Redis volumes were not recreated or
+initialized. Prior JAR/static files/user files and a successful PostgreSQL custom-format dump are
+retained privately for rollback; backup folders are Git-ignored. No persisted-user QA write,
+browser action, remote push, public deployment or unrelated service change occurred.
+
+The checklist maps all25 requests: 24 implemented and verified in code/local serving; request5
+remaining images is user-deferred, with secured assets retained. Visual browser QA is deferred.
+The full backend suite still has the explicitly listed12 baseline failures; it is not reported green.
