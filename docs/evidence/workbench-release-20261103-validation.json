@@ -1,0 +1,107 @@
+{
+  "tests": 1018,
+  "failures": 15,
+  "priorCheckpointFailures": 40,
+  "newFailures": {
+    "com.poe2craft.crafting.CatalystRegistryTest::verifiedCatalystActionsHaveExactBaseRestrictionsAndNeverRemainPending()": {
+      "type": "org.opentest4j.AssertionFailedError",
+      "message": "org.opentest4j.AssertionFailedError: \nexpected: \n  [\"two-stone-fire-cold\",\n      \"amber\",\n      \"vitalic\",\n      \"prismatic\",\n      \"ruby-ring\",\n      \"pearlescent\",\n      \"azure\",\n      \"solar\",\n      \"crimson\",\n      \"lunar\",\n      \"pearl\",\n      \"amethyst\",\n      \"mnemonic\",\n      \"ring\",\n      \"stellar\",\n      \"kinetic\",\n      \"bloodstone\"]\n but was: \n  [\"unset-ring\",\n      \"lazuli-ring\",\n      \"dusk-ring\",\n      \"absent-amulet\",\n      \"ring\",\n      \"sapphire-ring\",\n      \"solar\",\n      \"eme"
+    },
+    "com.poe2craft.crafting.domain.ReviewedMethodPoliciesTest::everyDeclaredUniformOrdinaryCatalogReachesRuleEvaluationWithoutWeightRejection()": {
+      "type": "org.opentest4j.AssertionFailedError",
+      "message": "org.opentest4j.AssertionFailedError: \nexpected: 30\n but was: 47"
+    },
+    "com.poe2craft.crafting.infrastructure.CraftingRegistryLoaderTest::publicRegistryRetainsEveryValueAndArrayOrder()": {
+      "type": "org.opentest4j.AssertionFailedError",
+      "message": "org.opentest4j.AssertionFailedError: expected: <74> but was: <119>"
+    }
+  },
+  "resolvedFailures": [
+    "com.poe2craft.bootstrap.GoalCatalogParityTest::everyStartingCatalogSourceIsDiscoverableWithoutRarityOrFamilyPruning()",
+    "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest::actualV10V3QualityAndChaosObservationsRemainUnchangedAndReadOnly()",
+    "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest::readsActualV8CompletedResultAndOriginalRequestWithoutChangingAnyBytes()",
+    "com.poe2craft.crafting.application.pathsearch.CertifiedJobRestartTest::readRenewedLeaseSurvivesRestartWithoutRewritingTheGraph(Path)",
+    "com.poe2craft.crafting.application.pathsearch.CertifiedJobRestartTest::continuedRunnerMatchesUninterruptedExitMassAndCurrencyUses()",
+    "com.poe2craft.crafting.application.pathsearch.CertifiedJobRestartTest::jobReopensGraphAndPartialConditionalTransportWithNewGeneration(Path)",
+    "com.poe2craft.crafting.application.pathsearch.CertifiedMethodProductionTest::realSolarRenewalKeepsExactTruthInsideEveryRequestedHorizon()",
+    "com.poe2craft.crafting.application.pathsearch.CertifiedSearchJobsTest::completedGoalPublishesStrategyAndStillHonorsEntryCancellation()",
+    "com.poe2craft.crafting.application.pathsearch.CertifiedSearchJobsTest::realCatalogBoundsKeepExactConditionalLawAndGenerationControls()",
+    "com.poe2craft.crafting.application.pathsearch.CertifiedSearchJobsTest::boundedCommandReplayDoesNotLimitTheNumberOfResumptions()",
+    "com.poe2craft.crafting.application.pathsearch.CertifiedSearchJobsTest::expiryEvictionAndShutdownInvalidateQueuedWorkWithoutRunningClosedStores()",
+    "com.poe2craft.crafting.application.pathsearch.CertifiedSearchJobsTest::activeRequestsRenewTheIdleLeaseButAbandonedJobsStillExpire()",
+    "com.poe2craft.crafting.application.pathsearch.IndexedMethodSearchServiceTest::actualLowLevelSolarPreservesConcreteEntryLawAndCancelledGeneration()",
+    "com.poe2craft.crafting.application.pathsearch.IndexedMethodSearchServiceTest::completedIndexedEnumerationCanCancelAndResumeEntryWorkWithoutStrategy()",
+    "com.poe2craft.crafting.application.pathsearch.MethodSearchLifecycleTest::shrinkingResumeBudgetIsARequestErrorWithoutChangingTheJob()",
+    "com.poe2craft.crafting.application.pathsearch.MethodSearchLifecycleTest::staleQueuedGenerationCannotPublishAfterCancelAndResume()",
+    "com.poe2craft.crafting.application.pathsearch.MethodSearchLifecycleTest::expiredQueuedJobCannotPublishIntoANewJobWithTheSameRequestId()",
+    "com.poe2craft.crafting.application.pathsearch.MethodSearchLifecycleTest::reconnectReadsCurrentRevisionAndRejectsExpiredPagesAndCrossRevisionCursors()",
+    "com.poe2craft.crafting.application.pathsearch.MethodSearchServiceTest::cancellationGenerationIdempotencyAndResumePreservePartialWork()",
+    "com.poe2craft.crafting.application.pathsearch.MethodTransitionTest::emptyIntermediateGoalStopsAfterOneUseAndZeroSuccessHasNoHitEdges()",
+    "com.poe2craft.crafting.application.pathsearch.MethodTransitionTest::lateSuccessSurvivesDisplayLimitAndHasStateSpecificAbsorption()",
+    "com.poe2craft.crafting.application.pathsearch.MethodTransitionTest::countExclusionMethodExitsRetainRealExecutionsAndRecoverToRoot()",
+    "com.poe2craft.crafting.application.pathsearch.MethodTransitionTest::omittedSuccessUnknownMassAndOddTwoActionObservationRemainDistinct()",
+    "com.poe2craft.crafting.application.pathsearch.PathSearchHttpTest::strictInputRulesetAndDeletedReferencesKeepOriginalInput()",
+    "com.poe2craft.crafting.application.pathsearch.PathSearchLifecycleTest::cancellationRacesWithActualExecutorAndInvalidatesQueuedGeneration()",
+    "com.poe2craft.crafting.application.pathsearch.PathSearchLifecycleTest::ttlAndBoundedCapacityDoNotRecomputeOrMixOwners()",
+    "com.poe2craft.crafting.application.pathsearch.PathSearchServiceTest::solarOracleAndRealContinuationMatchWithoutLosingPhaseOrMass()",
+    "com.poe2craft.crafting.application.pathsearch.PathSearchServiceTest::idempotencyIsolationConflictsAndExpiredRevisions()"
+  ],
+  "changedFailureSignatures": {},
+  "failureIdentities": [
+    "com.poe2craft.bootstrap.BaseRegistryParityTest::allExistingInitialsActionsAndSeededTracesRemainExact()",
+    "com.poe2craft.bootstrap.EmptyRareApiRegressionTest::completedApiRetainsPreparationRetryProbabilityAndOnlyConcreteGoalTargets()",
+    "com.poe2craft.bootstrap.TerminalContinuationApiTest::cancelsResumesAndReloadsSharedConcreteOutcomesWithMeasuredRequestLatency()",
+    "com.poe2craft.crafting.CatalystRegistryTest::verifiedCatalystActionsHaveExactBaseRestrictionsAndNeverRemainPending()",
+    "com.poe2craft.crafting.application.pathsearch.JointAttributeLawTest::correlatedWeightedCheckpointIsOneRealStateAndNextTransitionRetainsItsJointSource()",
+    "com.poe2craft.crafting.application.pathsearch.PathSearchContractTest::sharedWireFixturesRoundTripAndExactOracleAreConsumed()",
+    "com.poe2craft.crafting.domain.AutomaticEquipmentTierLawTest::ringTiersWithDifferentCreationEligibilityShareOneAttributeAndOneFutureState()",
+    "com.poe2craft.crafting.domain.AutomaticPreparationRulesTest::chaosPreparationUsesExactlyOnePlainExaltOrRegalWithoutAssumingEqualProbabilities()",
+    "com.poe2craft.crafting.domain.AutomaticRefinementsTest::changingChaosFailuresUseTheirOwnLawFor100Attempts()",
+    "com.poe2craft.crafting.domain.AutomaticRefinementsTest::routeStrategyUsesTheSameFinite100ChaosProbabilityWithoutAnUnlimitedRetryLoop()",
+    "com.poe2craft.crafting.domain.AutomaticTierRenewalTest::oneHundredFirstHitLawMatchesIndependentChangingStateMarkovOracle()",
+    "com.poe2craft.crafting.domain.ReviewedMethodPoliciesTest::everyDeclaredUniformOrdinaryCatalogReachesRuleEvaluationWithoutWeightRejection()",
+    "com.poe2craft.crafting.domain.TerminalAdditionClassesTest::restoresBudgetPauseThenEnlargesWithoutChangingAnyOutcome()",
+    "com.poe2craft.crafting.domain.TerminalAdditionClassesTest::restoresRunningRepresentativeAndAliasesWithoutDuplicatingExecution()",
+    "com.poe2craft.crafting.infrastructure.CraftingRegistryLoaderTest::publicRegistryRetainsEveryValueAndArrayOrder()"
+  ],
+  "targetedTestsFromFinalRun": 88,
+  "targetedFailuresFromFinalRun": 0,
+  "targetedClasses": [
+    "com.poe2craft.ArchitectureTest",
+    "com.poe2craft.bootstrap.AutomaticAbyssSearchTest",
+    "com.poe2craft.bootstrap.CatalogLoadOrderTest",
+    "com.poe2craft.crafting.AbyssControllerTest",
+    "com.poe2craft.crafting.AbyssCraftingStateTest",
+    "com.poe2craft.crafting.AbyssCurrencyPlanTest",
+    "com.poe2craft.crafting.AbyssEssenceTest",
+    "com.poe2craft.crafting.AbyssProbabilityComparisonTest",
+    "com.poe2craft.crafting.AbyssStrategyPlannerTest",
+    "com.poe2craft.crafting.BasicWorkbenchParityTest",
+    "com.poe2craft.crafting.CraftingControllerTest",
+    "com.poe2craft.crafting.DesecrationCurrencyTest",
+    "com.poe2craft.crafting.StockyAbyssTest",
+    "com.poe2craft.crafting.WorkbenchControllerTest",
+    "com.poe2craft.crafting.infrastructure.RulesetManifestLoaderTest",
+    "com.poe2craft.item.ItemStateTest"
+  ],
+  "integrationTests": 0,
+  "integrationFailures": 0,
+  "finalImpactTests": 72,
+  "finalImpactFailures": 0,
+  "newFailuresResolvedByFinalImpactRun": [
+    "com.poe2craft.crafting.CatalystRegistryTest::verifiedCatalystActionsHaveExactBaseRestrictionsAndNeverRemainPending()",
+    "com.poe2craft.crafting.domain.ReviewedMethodPoliciesTest::everyDeclaredUniformOrdinaryCatalogReachesRuleEvaluationWithoutWeightRejection()",
+    "com.poe2craft.crafting.infrastructure.CraftingRegistryLoaderTest::publicRegistryRetainsEveryValueAndArrayOrder()"
+  ],
+  "remainingPriorFailures": 12,
+  "finalProductionSourceChangedAfterFullRun": false,
+  "frontendFinal": {
+    "total": 2483,
+    "passed": 2483,
+    "failed": 0,
+    "workers": 1
+  },
+  "dbIntegration": "NOT_EXECUTED_SOCKET_MOUNT_DENIED",
+  "generateJooq": "NOT_EXECUTED",
+  "browserAutomation": "DEFERRED_BY_USER"
+}

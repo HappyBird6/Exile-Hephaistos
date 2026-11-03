@@ -27,9 +27,9 @@ describe('clipboard base identity', () => {
   })
 })
 
-it('keeps 173 compatible identities and excludes only superseded and user-excluded new selections', () => {
-  expect(Object.keys(baseTexts)).toHaveLength(173)
-  expect(selectableBaseKeys).toHaveLength(165)
+it('keeps 179 compatible identities and excludes only superseded and user-excluded new selections', () => {
+  expect(Object.keys(baseTexts)).toHaveLength(179)
+  expect(selectableBaseKeys).toHaveLength(171)
   for (const [lower, upper] of Object.entries(supersededBases)) {
     expect(selectableBaseKeys).not.toContain(lower)
     expect(selectableBaseKeys).toContain(upper)

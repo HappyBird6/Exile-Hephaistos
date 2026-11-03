@@ -1,7 +1,7 @@
 {
   "status": "completed_with_documented_limits",
   "baseCommit": "b00932bcab27ed5455452a48d5912b7f927cfc3d",
-  "worktree": "C:/Users/SSAFY/Documents/Codex/2026-11-02/task/manual-workbench",
+  "worktree": "<local-user>/Documents/Codex/2026-11-02/task/manual-workbench",
   "implemented": [
     "manual eligible/select API and UI",
     "Cranium 8 jewels",

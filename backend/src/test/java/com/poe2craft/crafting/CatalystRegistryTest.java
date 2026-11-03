@@ -62,7 +62,32 @@ class CatalystRegistryTest {
                   "lunar",
                   "azure",
                   "crimson",
-                  "pearlescent");
+                  "pearlescent",
+                  "jade-amulet",
+                  "lapis-amulet",
+                  "gold-amulet",
+                  "twisted-amulet",
+                  "distorted-amulet",
+                  "absent-amulet",
+                  "portent-amulet",
+                  "lament-amulet",
+                  "dusk-amulet",
+                  "penumbra-amulet",
+                  "gloam-amulet",
+                  "corona-amulet",
+                  "tenebrous-amulet",
+                  "lazuli-ring",
+                  "sapphire-ring",
+                  "topaz-ring",
+                  "emerald-ring",
+                  "gold-ring",
+                  "unset-ring",
+                  "biostatic-ring",
+                  "oneiric-ring",
+                  "dusk-ring",
+                  "gloam-ring",
+                  "penumbra-ring",
+                  "tenebrous-ring");
       var declared = new HashSet<String>();
       entry.path("supportedBases").forEach(b -> declared.add(b.asText()));
       assertThat(declared).isEqualTo(expected);

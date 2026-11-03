@@ -145,7 +145,7 @@ describe('remaining display coverage', () => {
             id,
           ),
       ),
-    ).toHaveLength(263)
+    ).toHaveLength(265)
     expect(
       single.filter(([id]) => /^(crossbow|.+-crossbow):/.test(id)),
     ).toHaveLength(18)
@@ -167,7 +167,7 @@ describe('remaining display coverage', () => {
         ),
       ),
     ).toHaveLength(1)
-    expect(single).toHaveLength(371)
+    expect(single).toHaveLength(373)
     expect(
       single
         .filter(([id]) =>

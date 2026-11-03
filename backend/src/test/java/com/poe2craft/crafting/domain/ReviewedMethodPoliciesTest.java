@@ -60,6 +60,6 @@ class ReviewedMethodPoliciesTest {
         count++;
       }
     }
-    assertThat(count).isEqualTo(30);
+    assertThat(count).isEqualTo(47);
   }
 }

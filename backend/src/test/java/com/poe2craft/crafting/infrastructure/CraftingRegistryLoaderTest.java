@@ -100,6 +100,46 @@ class CraftingRegistryLoaderTest {
             .findFirst()
             .orElseThrow();
     var members = (ArrayNode) blessed.get("supportedBases");
+    assertEquals(119, members.size());
+    // Newly reviewed bases are additive. Compare the frozen original membership's
+    // entire registry document, including every old value and array order.
+    var frozenIds = new HashSet<String>();
+    M.readTree(
+            getClass().getResourceAsStream("/crafting/goalfilter/base-inventory-v5-readonly.json"))
+        .forEach(id -> frozenIds.add(id.asText()));
+    var frozenKeys = new HashSet<String>();
+    for (String resource : List.of("/catalog/top-bases.json", "/catalog/base-policies.json")) {
+      var source = M.readTree(getClass().getResourceAsStream(resource));
+      if (resource.endsWith("base-policies.json")) source = source.path("legacy");
+      source
+          .fields()
+          .forEachRemaining(
+              entry -> {
+                if (frozenIds.contains(entry.getValue().path("id").asText()))
+                  frozenKeys.add(entry.getKey());
+              });
+    }
+    var workbenchBases = (ObjectNode) registry.path("workbenchBases");
+    var addedKeys = new ArrayList<String>();
+    workbenchBases
+        .fieldNames()
+        .forEachRemaining(
+            key -> {
+              if (!frozenKeys.contains(key)) addedKeys.add(key);
+            });
+    workbenchBases.remove(addedKeys);
+    for (var entry : registry.path("entries")) {
+      if (!entry.path("supportedBases").isArray()) continue;
+      var originalMembers = M.createArrayNode();
+      entry
+          .path("supportedBases")
+          .forEach(
+              key -> {
+                if (frozenKeys.contains(key.asText())) originalMembers.add(key);
+              });
+      ((ObjectNode) entry).set("supportedBases", originalMembers);
+    }
+    members = (ArrayNode) blessed.get("supportedBases");
     assertEquals(74, members.size());
     assertEquals("elegant-crossbow", members.get(58).asText());
     assertEquals("flexed-crossbow", members.get(59).asText());

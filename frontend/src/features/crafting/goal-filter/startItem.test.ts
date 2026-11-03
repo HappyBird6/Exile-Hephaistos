@@ -16,8 +16,8 @@ import {
 } from './startItem'
 
 it('offers every reviewed registry base exactly once with its canonical class and name', () => {
-  expect(startBases).toHaveLength(169)
-  expect(new Set(startBases.map(([key]) => key)).size).toBe(169)
+  expect(startBases).toHaveLength(175)
+  expect(new Set(startBases.map(([key]) => key)).size).toBe(175)
   expect(startBases.map(([key]) => key).sort()).toEqual(
     Object.keys(baseSlugs).filter(newBaseSelectionAllowed).sort(),
   )

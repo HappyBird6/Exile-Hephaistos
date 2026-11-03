@@ -11,7 +11,7 @@ Node `24.21.0`, npm `11.19.0` (package.json 지원 범위).
 
 | 검사                                                                                                                                                                       | 결과                                                                             |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `npm ci --cache C:\Users\SSAFY\AppData\Local\npm-cache --offline --no-audit --no-fund`                                                                                     | 239 packages 설치, 성공                                                          |
+| `npm ci --cache <local-user>\AppData\Local\npm-cache --offline --no-audit --no-fund`                                                                                       | 239 packages 설치, 성공                                                          |
 | `npm run typecheck`                                                                                                                                                        | 최종 소스 성공                                                                   |
 | `npm run lint`                                                                                                                                                             | 최종 소스 성공                                                                   |
 | `npm run format:check`                                                                                                                                                     | 성공                                                                             |
@@ -19,7 +19,7 @@ Node `24.21.0`, npm `11.19.0` (package.json 지원 범위).
 | `npm run test -- --run src/features/crafting/AbyssPanel.test.tsx src/features/crafting/DesecrationCurrency.test.tsx src/features/crafting/abyss-workbench/policy.test.tsx` | 관련 20 tests 통과                                                               |
 | `npm run test -- --run`                                                                                                                                                    | 130 files 중 128 통과, 2 실패; 2,427 tests 중 2,425 통과, 2건은 기존 5초 timeout |
 
-Vitest 실행 시 `TEMP`와 `TMP`를 모두 `C:\Users\SSAFY\AppData\Local\Temp\abyss-b-tests`로 지정했다. sandbox 고유 임시 경로에서 초기 IPC 파일 ENOENT가 발생했으므로 임시 경로만 맞췄으며 테스트 기대값/시간 제한은 바꾸지 않았다.
+Vitest 실행 시 `TEMP`와 `TMP`를 모두 `<local-user>\AppData\Local\Temp\abyss-b-tests`로 지정했다. sandbox 고유 임시 경로에서 초기 IPC 파일 ENOENT가 발생했으므로 임시 경로만 맞췄으며 테스트 기대값/시간 제한은 바꾸지 않았다.
 
 전체 검사 timeout 후 `--maxWorkers=1`로 관련 3파일과 실패한 2파일을 재실행했다. 관련 20개를 포함해 39개 통과, 동일 2건 timeout이었다.
 

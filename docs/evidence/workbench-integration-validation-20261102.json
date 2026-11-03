@@ -74,7 +74,7 @@
     "checkedAt": "2026-11-02T06:35:03.650962+00:00",
     "persistedFilesUnchanged": 54,
     "containerIdsMountsPortsUnchanged": true,
-    "backupDirectory": "C:\\Users\\SSAFY\\Documents\\Codex\\2026-11-02\\task\\server-integration-backup",
+    "backupDirectory": "<local-user>\\Documents\\Codex\\2026-11-02\\task\\server-integration-backup",
     "databaseBackupValidated": true,
     "codeCommit": "faca546b1d7badc3263dda8e004dc8d54b567569"
   },

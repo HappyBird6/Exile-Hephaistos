@@ -168,5 +168,44 @@
     "unsupportedGoalStats": [
       "self_elemental_status_duration_-%"
     ]
+  },
+  {
+    "key": "biostatic-ring",
+    "name": "Biostatic Ring",
+    "unsupportedGoalStats": [
+      "additional_maximum_all_resistances_%"
+    ]
+  },
+  {
+    "key": "dusk-ring",
+    "name": "Dusk Ring",
+    "unsupportedGoalStats": [
+      "local_maximum_prefixes_allowed_+",
+      "local_maximum_suffixes_allowed_+"
+    ]
+  },
+  {
+    "key": "gloam-ring",
+    "name": "Gloam Ring",
+    "unsupportedGoalStats": [
+      "local_maximum_prefixes_allowed_+",
+      "local_maximum_suffixes_allowed_+"
+    ]
+  },
+  {
+    "key": "penumbra-ring",
+    "name": "Penumbra Ring",
+    "unsupportedGoalStats": [
+      "local_maximum_prefixes_allowed_+",
+      "local_maximum_suffixes_allowed_+"
+    ]
+  },
+  {
+    "key": "tenebrous-ring",
+    "name": "Tenebrous Ring",
+    "unsupportedGoalStats": [
+      "local_maximum_prefixes_allowed_+",
+      "local_maximum_suffixes_allowed_+"
+    ]
   }
 ]

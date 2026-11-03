@@ -18,7 +18,7 @@ it('keeps manual definitions identical to the sealed backend catalog with no sam
     ),
   )
   expect(reveal.bases).toEqual(backend.bases)
-  expect(Object.keys(reveal.bases)).toHaveLength(173)
+  expect(Object.keys(reveal.bases)).toHaveLength(179)
   expect(Object.values(reveal.definitions)).toEqual(backend.definitions)
   expect(backend.definitions).toHaveLength(277)
   for (const definition of backend.definitions) {

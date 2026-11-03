@@ -49,7 +49,7 @@ sessions retain their recorded identity and are never silently relabeled.
 
 Other worktrees were read only. No source worker branch was modified.
 No browser automation, remote push, or public deployment.
-The validated final artifacts were applied to the existing local app/frontend containers. PostgreSQL and Redis were not restarted. All four container IDs, volume mounts and port settings are unchanged. A logical PostgreSQL dump, previous JAR, previous frontend files and saved-file archive are preserved at `C:\Users\SSAFY\Documents\Codex\2026-11-02\task\server-integration-backup`. All 54 persisted app files have identical pre/post SHA-256 values. No persisted user record was used for QA. The three DB migrations are byte-for-byte unchanged; startup confirmed no migration was necessary.
+The validated final artifacts were applied to the existing local app/frontend containers. PostgreSQL and Redis were not restarted. All four container IDs, volume mounts and port settings are unchanged. A logical PostgreSQL dump, previous JAR, previous frontend files and saved-file archive are preserved at `<local-user>\Documents\Codex\2026-11-02\task\server-integration-backup`. All 54 persisted app files have identical pre/post SHA-256 values. No persisted user record was used for QA. The three DB migrations are byte-for-byte unchanged; startup confirmed no migration was necessary.
 The original Fire Quiver download returned HTTP 403. The subsequently supplied image was connected by C and is included in the final build (`c8809e1438f9f231be94-C4Iy8Xtg.webp`, 19,006 bytes). No blocked URL was retried by integration.
 
 ## Validation

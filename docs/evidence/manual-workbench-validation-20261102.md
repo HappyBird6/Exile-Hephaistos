@@ -114,7 +114,7 @@ checks continue independently under the parent's explicit continuation instructi
 - Confirmed cleanup: no task-created containers remain. Only the user's two pre-existing mini-redis containers were running at the final inventory. No existing volume, DB, environment file, or saved record was removed.
 
 The first functional checkpoint is `e11377a` on `codex/manual-workbench-20261102` at
-`C:\Users\SSAFY\Documents\Codex\2026-11-02\task\manual-workbench`.
+`<local-user>\Documents\Codex\2026-11-02\task\manual-workbench`.
 A follow-up local commit records the compatibility/marker corrections and this final evidence.
 This remains a **partial workbench checkpoint**, with the implementation boundaries and actual UI
 policy block above still open. No push, deployment, release, master integration or production restart.

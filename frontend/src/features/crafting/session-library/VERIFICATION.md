@@ -2,7 +2,7 @@
 
 기준 커밋: `6040357faf4e39cc989991d44ef8d04c7119dbd0`.
 브랜치: `workbench/base-session-c`.
-작업 폴더: `C:\Users\SSAFY\Documents\Codex\2026-11-02\task-5\base-session`.
+작업 폴더: `<local-user>\Documents\Codex\2026-11-02\task-5\base-session`.
 
 ## 구현/자체 리뷰
 
