@@ -5,7 +5,7 @@ import type { WorkbenchFavoritesProps, WorkbenchResource } from './stashTypes'
 import { stashDragType } from './stashDragType'
 import './workbenchStash.css'
 
-/** Two-row favorite strip mounted in the canvas bottom slot. */
+/** Two rows of five slots inside the shared currency coordinate plane. */
 export function WorkbenchFavorites({
   excludedIds = [],
   selectedId,

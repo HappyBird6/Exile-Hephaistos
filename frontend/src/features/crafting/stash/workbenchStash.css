@@ -28,7 +28,7 @@
   border: 1px solid #5c563b;
   padding: 5px 6px;
   font: inherit;
-  font-size: 11px;
+  font-size: 12px;
 }
 .workbench-stash__resources {
   min-height: 0;
@@ -53,7 +53,7 @@
   border: 1px solid transparent;
   background: transparent;
   color: inherit;
-  font-size: 9px;
+  font-size: 12px;
   line-height: 1.2;
   overflow-wrap: anywhere;
 }
@@ -91,16 +91,22 @@
   color: #b9bea9;
 }
 .workbench-stash__favorites {
+  position: absolute;
+  left: calc(29 / 935 * 100%);
+  top: calc(340 / 550 * 100%);
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  grid-template-rows: repeat(2, auto);
-  gap: 4px;
-  width: 100%;
-  max-width: 480px;
-  margin: 0 auto;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  column-gap: calc(16 / 434 * 100%);
+  row-gap: calc(26 / 174 * 100%);
+  width: calc(434 / 935 * 100%);
+  height: calc(174 / 550 * 100%);
+  margin: 0;
 }
 .workbench-stash__favorites .workbench-stash__favorite {
   width: 100%;
+  min-height: 0;
+  border-width: 3px;
   padding: 2px;
   overflow: hidden;
   color: #9f8a53;
@@ -145,24 +151,14 @@
   flex: none;
 }
 .workbench-stash__favorites .currency-name-fallback {
-  font-size: 10px;
+  font-size: 11px;
 }
 
-/* The original coordinate plane stays 935 × 550 above the canvas bottom slot. */
-.stash-canvas.stash-canvas--with-favorites {
-  aspect-ratio: auto;
-}
+/* Favorites are direct children of this same 935 × 550 coordinate plane. */
 .stash-canvas__content {
   position: relative;
   width: 100%;
   aspect-ratio: 935 / 550;
-}
-.stash-canvas > .workbench-favorites-region {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 12px 16px;
-  border-top: 1px solid #655738;
-  background: #141a15;
 }
 .workbench-stash__tabs .material-tabs {
   display: grid;
@@ -172,6 +168,6 @@
 .workbench-stash__tabs .material-tabs button {
   min-width: 0;
   padding: 5px 2px;
-  font-size: 10px;
+  font-size: 12px;
   overflow-wrap: anywhere;
 }

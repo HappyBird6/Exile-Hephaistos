@@ -1,0 +1,35 @@
+--- a/frontend/src/features/crafting/crafting.css
++++ b/frontend/src/features/crafting/crafting.css
+@@ -826,11 +826,6 @@
+     linear-gradient(#11150f55, #080c08aa),
+     url('/assets/currency/stash-background.webp') center/cover;
+ }
+-@media (max-width: 600px) {
+-  .stash-viewport .stash-canvas {
+-    min-width: 600px;
+-  }
+-}
+ .workbench-film-controls button {
+   padding: 6px 14px;
+ }
+@@ -1311,20 +1306,6 @@
+   text-align: center;
+ }
+
+-/* Shared favorite strip spans the whole crafting surface, below both columns. */
+-.workbench-favorites-region {
+-  width: 100%;
+-  box-sizing: border-box;
+-  padding: 12px 16px;
+-  border-top: 1px solid #655738;
+-  background: #141a15;
+-}
+-@media (max-width: 600px) {
+-  .workbench-favorites-region {
+-    padding: 10px 8px;
+-  }
+-}
+-
+ /* Session library buttons follow the base-selection row. */
+ .bench-lower > .wb-session-library-buttons {
+   margin-bottom: 12px;
