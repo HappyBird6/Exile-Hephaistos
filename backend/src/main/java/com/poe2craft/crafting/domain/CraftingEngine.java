@@ -26,6 +26,8 @@ public final class CraftingEngine {
 
   public void validate(StateBucket state) {
     if (state == null) throw new IllegalArgumentException("State is required");
+    if (!state.conditions().isEmpty())
+      throw new IllegalArgumentException("Special item conditions cannot be modified");
     // Reuse concrete validation for the real implicit; no invented explicit rolls.
     var shell =
         new ItemState(

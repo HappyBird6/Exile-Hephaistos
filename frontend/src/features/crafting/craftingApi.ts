@@ -63,6 +63,7 @@ export interface Availability {
   reason: string
 }
 export interface Initial {
+  equipmentQuality?: number | null
   baseRules?: {
     magicPrefixes: number
     magicSuffixes: number
@@ -218,6 +219,13 @@ export async function loadInitial(
   )
   if (
     !object(v) ||
+    (v.equipmentQuality != null &&
+      (v.equipmentQuality !== 0 ||
+        !object(v.state) ||
+        typeof v.state.baseItemId !== 'string' ||
+        (!v.state.baseItemId.startsWith('Metadata/Items/Armours/') &&
+          (!v.state.baseItemId.startsWith('Metadata/Items/Weapons/') ||
+            /\/(Wands|Staves|Sceptres)\//.test(v.state.baseItemId))))) ||
     !bucket(v.state) ||
     !baseRarityAllowed(v.state.baseItemId, v.state.rarity) ||
     (base !== 'solar'

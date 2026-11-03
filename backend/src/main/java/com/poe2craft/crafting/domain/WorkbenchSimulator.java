@@ -132,7 +132,8 @@ public final class WorkbenchSimulator {
         + "-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1"
         + (qualityCapChangePolicy == QualityCapChangePolicy.PRESERVE_EXISTING
             ? "-quality-cap-preserve-v2"
-            : "-quality-cap-reject-v1");
+            : "-quality-cap-reject-v1")
+        + "-sanctification-independent-stat-percent-v1-equipment-quality-deferred-v1";
   }
 
   private String baseRuleVersion() {
@@ -240,7 +241,15 @@ public final class WorkbenchSimulator {
 
   private Availability availability(
       ItemState state, WorkbenchCurrency action, List<WorkbenchOmen> omens) {
-    if (state.observations() != null && state.observations().needsAugmentResolution())
+    if (state.conditions().contains(ItemState.Condition.SANCTIFIED))
+      return blocked(action, "No supported modification is available for this Sanctified item.");
+    if (QualityCurrencyRules.isQuality(action)) {
+      var refusal = QualityCurrencyRules.refusal(state, action);
+      return refusal.isEmpty() ? new Availability(action, true, "") : blocked(action, refusal);
+    }
+    if (state.observations() != null
+        && state.observations().needsAugmentResolution()
+        && !(action == WorkbenchCurrency.DIVINE && omens.contains(WorkbenchOmen.SANCTIFICATION)))
       return blocked(
           action,
           "Installed Augment effects are preserved. Provide their names and counts before crafting; their crafting effects are not resolved.");
@@ -417,6 +426,11 @@ public final class WorkbenchSimulator {
       return new Availability(action, true, "");
     }
     if (action == WorkbenchCurrency.DIVINE) {
+      if (omen == WorkbenchOmen.SANCTIFICATION) {
+        if (state.rarity() != ItemState.Rarity.RARE)
+          return blocked(action, "Sanctification requires a Rare item.");
+        return new Availability(action, true, "");
+      }
       // Implicit (base) modifiers are distinct from Fractured explicit modifiers.
       // Only the existing Blessed omen redirects Divine to implicit rolls.
       var targets =
@@ -893,6 +907,33 @@ public final class WorkbenchSimulator {
           List.of(),
           allIds,
           QualityLimitRules.describe(state, catalog));
+    if (action == WorkbenchCurrency.DIVINE && omens.contains(WorkbenchOmen.SANCTIFICATION)) {
+      var next = state.withSanctification(QualitySanctification.roll(state, catalog, random));
+      var consumed = List.of(WorkbenchOmen.SANCTIFICATION.id());
+      var assumption =
+          new Assumption(
+              "sanctification-independent-stat-percent-v1",
+              "numeric modifier stat",
+              45,
+              List.of(),
+              78L,
+              122L,
+              "https://poe2db.tw/us/Sanctified_Items",
+              "Simulator policy: independent uniform integer percentages per eligible modifier stat; original rolls and exact factors are retained without intermediate rounding. Structural metadata is excluded. Distribution, stat grouping and rounding are not established game facts.");
+      return new Result(
+          ruleVersion(),
+          ledgerVersion(),
+          state.snapshotId(),
+          next,
+          action,
+          true,
+          "",
+          List.of(),
+          List.of(assumption),
+          consumed,
+          allIds.stream().filter(id -> !consumed.contains(id)).toList(),
+          QualityLimitRules.describe(next, catalog));
+    }
     if (action.catalystType() != null) {
       var quality =
           new CatalystQuality(
@@ -909,7 +950,11 @@ public final class WorkbenchSimulator {
                   state.explicits(),
                   state.conditions(),
                   state.augmentSockets(),
-                  quality)
+                  quality,
+                  state.desecrated(),
+                  state.equipmentQuality(),
+                  state.observations(),
+                  state.sanctification())
               .withObservations(state.observations());
       return new Result(
           ruleVersion(),
@@ -936,7 +981,12 @@ public final class WorkbenchSimulator {
                   state.implicits(),
                   state.explicits(),
                   state.conditions(),
-                  1)
+                  1,
+                  state.catalystQuality(),
+                  state.desecrated(),
+                  state.equipmentQuality(),
+                  state.observations(),
+                  state.sanctification())
               .withEquipmentQuality(state.equipmentQuality())
               .withObservations(state.observations());
       return new Result(
@@ -1382,7 +1432,8 @@ public final class WorkbenchSimulator {
         s.catalystQuality(),
         s.desecrated(),
         s.equipmentQuality(),
-        s.observations());
+        s.observations(),
+        s.sanctification());
   }
 
   public record Availability(WorkbenchCurrency action, boolean available, String reason) {}

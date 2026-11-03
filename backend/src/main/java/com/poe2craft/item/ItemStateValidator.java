@@ -112,7 +112,8 @@ public final class ItemStateValidator {
       errors.add(
           new Violation(Code.UNSUPPORTED_BASE, "", "Only this snapshot's base is supported"));
     }
-    if (state.rarity() == ItemState.Rarity.UNIQUE || !state.conditions().isEmpty()) {
+    if (state.rarity() == ItemState.Rarity.UNIQUE
+        || state.conditions().stream().anyMatch(c -> c != ItemState.Condition.SANCTIFIED)) {
       errors.add(
           new Violation(
               Code.UNSUPPORTED_STATE, "", "Unique or special item conditions are not supported"));
@@ -153,6 +154,8 @@ public final class ItemStateValidator {
             new Violation(Code.AFFIX_CAPACITY_EXCEEDED, "", "Explicit affix capacity exceeded"));
       }
     }
+    if (state.sanctification() != null && !QualitySanctification.valid(state, catalog))
+      errors.add(new Violation(Code.UNSUPPORTED_STATE, "", "Invalid sanctification projection"));
     return List.copyOf(errors);
   }
 
@@ -212,6 +215,8 @@ public final class ItemStateValidator {
                 }
               });
     }
+    if (state.sanctification() != null && !QualitySanctification.valid(state, catalog))
+      errors.add(new Violation(Code.UNSUPPORTED_STATE, "", "Invalid sanctification projection"));
     return List.copyOf(errors);
   }
 

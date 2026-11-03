@@ -1,3 +1,4 @@
+import { sanctificationShape } from './sanctification/sanctification'
 import { observationsShape } from './itemObservations'
 import { basePolicy, baseRarityAllowed } from './baseRegistry'
 // Preserve future/unsupported item data instead of accepting a lossy affix-only projection.
@@ -16,6 +17,7 @@ const itemFields = new Set([
   'desecrated',
   'equipmentQuality',
   'observations',
+  'sanctification',
 ])
 const modifierFields = new Set(['modifierId', 'values', 'fractured'])
 export function supportsConcreteStateShape(value: unknown): boolean {
@@ -32,7 +34,8 @@ export function supportsConcreteStateShape(value: unknown): boolean {
     !baseRarityAllowed(item.baseItemId, String(item.rarity))
   )
     return false
-  if (!observationsShape(item.observations)) return false
+  if (!observationsShape(item.observations) || !sanctificationShape(item))
+    return false
   if (
     item.equipmentQuality != null &&
     (!Number.isInteger(item.equipmentQuality) ||
