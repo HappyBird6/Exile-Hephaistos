@@ -61,6 +61,40 @@ git apply --ignore-space-change frontend/src/features/crafting/stash/TEST_EXPECT
 
 ## 신규 접근 제외와 데이터 보존
 
+`stash/visibilityPolicy.ts`의 실제 export 계약은 다음과 같다.
+
+```ts
+export function visibilityPolicy(resource: {
+  id: string
+  category?: MaterialTab
+}): boolean
+
+// 기준 SHA에서 펼친 전체 8개
+export const legacyStashOmenIds: readonly string[] = [
+  'Omen_of_Homogenising_Exaltation',
+  'Omen_of_Homogenising_Coronation',
+  'Omen_of_Sinistral_Alchemy',
+  'Omen_of_Dextral_Alchemy',
+  'Omen_of_Sinistral_Coronation',
+  'Omen_of_Dextral_Coronation',
+  'Omen_of_Greater_Annulment',
+  'Omen_of_Corruption',
+]
+
+// 추가 제외 전체 5개
+export const excludedStashOmenIds: readonly string[] = [
+  'Omen_of_Answered_Prayers',
+  'Omen_of_the_Hunt',
+  'Omen_of_Secret_Compartments',
+  'Omen_of_Reinforcements',
+  'Omen_of_Putrefaction',
+]
+```
+
+두 배열은 중복 없이 총 13개 ID다. **Corruption은 legacyStashOmenIds에 포함**된다.
+실제 구현은 기존 `legacyOmenIds` 7개를 펼친 뒤 Corruption을 추가하며,
+추가 제외 배열에는 Corruption 대신 별개의 Putrefaction이 포함된다.
+
 `visibilityPolicy`는 UI 표시/신규 접근 정책으로 export한다.
 기존 legacyOmenIds 7개에 `Omen_of_Corruption`을 더해 legacy 신규 접근을 차단한다.
 legacy checkbox와 안내 영역은 제거했다. deprecated showLegacyOmens props를 전달해도
@@ -81,6 +115,9 @@ legacy checkbox와 안내 영역은 제거했다. deprecated showLegacyOmens pro
 materials의 기존 180개 ID와 모든 이미지/출처/설명은 그대로 유지한다.
 숨겨진 재료가 들어 있는 기존 즐겨찾기는 이름·이미지·값을 보존하고 신규 사용만 막으며,
 사용자가 다른 허용 재료로 교체할 수 있다. 저장 기록·activeOmens를 자동 정리하지 않는다.
+root는 공통 `choose`·`toggleOmen`·즐겨찾기의 신규 접근에 같은 정책을 적용한다.
+기존 history의 소비 기록과 stored ID는 삭제·재작성하지 않는다.
+기존 활성 징조의 해제는 신규 활성화와 구분하며, 제공한 toggleOmen 패치도 이를 허용한다.
 
 ## C 품질 화폐 계약
 
@@ -93,6 +130,8 @@ materials의 기존 180개 ID와 모든 이미지/출처/설명은 그대로 유
 
 이미지 파일과 currency/sources.json의 출처·해시 기록이 이미 존재함을 확인했다.
 visibilityPolicy는 이 두 ID만 기존 deferredServiceIds보다 우선 허용한다.
+root는 공통 소유 `serviceScope.ts`의 deferredServiceIds에서 이 두 ID를 제거하기로 했다.
+이 변경 후에도 A의 우선 허용 결과는 같으며, A는 해당 공통 원본을 수정하지 않았다.
 현재 currencies.ts의 왼쪽 고정 목록에 없으므로 우측에만 추가된다.
 기준 페이지의 우측 Currency는 중복 21개를 제외한 9개+품질 2개, 총 11개다.
 C의 workbenchCurrencyActions 및 backend 구현과 최종 통합해야 실제 사용을 검증할 수 있다.
