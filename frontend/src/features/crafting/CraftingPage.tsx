@@ -1825,6 +1825,8 @@ export function CraftingPage() {
                 film={film}
                 cursor={filmState.history.cursor}
                 resources={stashResources}
+                onNavigate={browse}
+                disabled={applying !== null}
               />
             </div>
           </div>

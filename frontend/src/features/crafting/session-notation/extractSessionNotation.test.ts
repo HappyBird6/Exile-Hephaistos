@@ -24,11 +24,10 @@ import {
 const abyss: AbyssState = { item: root, slots: [], offer: null }
 
 describe('session notation from persisted successful applications', () => {
-  it('keeps root, imported/base state and future frames out of the visible prefix', async () => {
+  it('retains the whole Film while excluding root and non-currency observations', async () => {
     const { history } = await twoSteps()
     const film = currentFilm(history)!
-    expect(extractSessionNotation(film, 0).steps).toEqual([])
-    expect(extractSessionNotation(film, 1).steps).toEqual([
+    const complete = [
       {
         number: 1,
         frameIndex: 1,
@@ -36,10 +35,16 @@ describe('session notation from persisted successful applications', () => {
         consumedOmenIds: [],
         omensKnown: true,
       },
-    ])
-    expect(
-      extractSessionNotation(film, 2).steps.map((step) => step.currencyId),
-    ).toEqual(['Orb_of_Transmutation', 'Orb_of_Augmentation'])
+      {
+        number: 2,
+        frameIndex: 2,
+        currencyId: 'Orb_of_Augmentation',
+        consumedOmenIds: [],
+        omensKnown: true,
+      },
+    ]
+    for (const cursor of [0, 1, 2])
+      expect(extractSessionNotation(film, cursor).steps).toEqual(complete)
     for (const cursor of [-1, 0.5, Number.NaN, 3])
       expect(extractSessionNotation(film, cursor).steps).toEqual([])
     expect(extractSessionNotation(undefined, 0).steps).toEqual([])
@@ -287,7 +292,7 @@ describe('session notation from persisted successful applications', () => {
     }
   })
 
-  it('keeps branch numbering local and restores the same cursor prefix from saved history', async () => {
+  it('keeps branch numbering local and restores the complete Film from saved history', async () => {
     const { history, second } = await twoSteps()
     const browsed = viewFrame(history, 1)
     const branched = recordCraft(

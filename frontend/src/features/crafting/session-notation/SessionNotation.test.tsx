@@ -132,7 +132,7 @@ describe('icon-based session notation', () => {
     expect(screen.getByRole('tooltip')).toBeInTheDocument()
   })
 
-  it('shows only the cursor prefix after undo, redo, restoring saved history and changing Film', async () => {
+  it('retains all rows and moves only the highlight after undo, redo and restoring saved history', async () => {
     const { history, second } = await twoSteps()
     const repository = new LocalFilmRepository(localStorage)
     repository.save(viewFrame(history, 1))
@@ -144,8 +144,14 @@ describe('icon-based session notation', () => {
         resources={resources}
       />,
     )
-    expect(screen.getAllByRole('listitem')).toHaveLength(1)
-    expect(screen.getByRole('listitem')).toHaveAttribute('aria-current', 'step')
+    expect(screen.getAllByRole('listitem')).toHaveLength(2)
+    expect(screen.getByRole('listitem', { name: 'Step 1' })).toHaveAttribute(
+      'aria-current',
+      'step',
+    )
+    expect(
+      screen.getByRole('listitem', { name: 'Step 2' }),
+    ).not.toHaveAttribute('aria-current')
     rerender(
       <SessionNotation
         film={currentFilm(history)}
@@ -184,7 +190,10 @@ describe('icon-based session notation', () => {
 
   it('uses neutral missing-image glyphs and never creates tooltip IDs outside the supplied registry', async () => {
     const { history } = await twoSteps()
-    const film = currentFilm(history)!
+    const film = {
+      ...currentFilm(history)!,
+      frames: currentFilm(history)!.frames.slice(0, 2),
+    }
     const { container, rerender } = render(
       <SessionNotation film={film} cursor={1} resources={resources} />,
     )
@@ -244,7 +253,7 @@ describe('icon-based session notation', () => {
         resources={resources}
       />,
     )
-    fireEvent.focusIn(screen.getByRole('img'))
+    fireEvent.focusIn(screen.getAllByRole('img')[0]!)
     expect(write).not.toHaveBeenCalled()
     expect(JSON.stringify(history)).toBe(original)
     write.mockRestore()
@@ -289,4 +298,76 @@ it('lays out six steps in two columns in row order and retains only the current 
   } finally {
     style.remove()
   }
+})
+
+it('offers native keyboard buttons for every frame without nesting focusable icons', async () => {
+  const { history } = await twoSteps()
+  const onNavigate = vi.fn()
+  const { rerender } = render(
+    <SessionNotation
+      film={currentFilm(history)}
+      cursor={0}
+      resources={resources}
+      onNavigate={onNavigate}
+    />,
+  )
+  const future = screen.getByRole('button', { name: 'Step 2' })
+  future.focus()
+  expect(future).toHaveFocus()
+  expect(future).toHaveAttribute('type', 'button')
+  expect(future.querySelector('[tabindex]')).toBeNull()
+  fireEvent.click(future, { detail: 0 })
+  expect(onNavigate).toHaveBeenCalledWith(2)
+  expect(screen.getAllByRole('listitem')).toHaveLength(2)
+  expect(document.querySelector('li[aria-current]')).toBeNull()
+  rerender(
+    <SessionNotation
+      film={currentFilm(history)}
+      cursor={2}
+      resources={resources}
+      onNavigate={onNavigate}
+      disabled
+    />,
+  )
+  expect(screen.getByRole('button', { name: 'Step 2' })).toBeDisabled()
+  onNavigate.mockClear()
+  fireEvent.click(screen.getByRole('button', { name: 'Step 1' }))
+  expect(onNavigate).not.toHaveBeenCalled()
+})
+
+it('retains separate omen and currency hover tooltips inside a clickable step', async () => {
+  const result = await craft()
+  const history = recordCraft(
+    start(),
+    root,
+    {
+      ...result,
+      action: 'EXALTED',
+      consumedOmens: ['Omen_of_Greater_Exaltation'],
+    },
+    'unused',
+  )
+  const onNavigate = vi.fn()
+  render(
+    <>
+      <SessionNotation
+        film={currentFilm(history)}
+        cursor={1}
+        resources={resources}
+        onNavigate={onNavigate}
+      />
+      <MaterialTooltip onlyWithin=".wb-session-notation" />
+    </>,
+  )
+  fireEvent.mouseOver(
+    screen.getByRole('img', { name: 'Omen of Greater Exaltation' }),
+  )
+  expect(screen.getByRole('tooltip')).toHaveTextContent(
+    'Omen of Greater Exaltation',
+  )
+  expect(onNavigate).not.toHaveBeenCalled()
+  fireEvent.mouseOver(screen.getByRole('img', { name: 'Exalted Orb' }))
+  expect(screen.getByRole('tooltip')).toHaveTextContent('Exalted Orb')
+  fireEvent.click(screen.getByRole('button', { name: 'Step 1' }))
+  expect(onNavigate).toHaveBeenCalledWith(1)
 })

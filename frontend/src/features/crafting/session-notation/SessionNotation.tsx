@@ -11,16 +11,20 @@ export type SessionNotationProps = {
   cursor: number
   /** Full display registry, including retained legacy resources and omens. */
   resources: readonly WorkbenchResource[]
+  onNavigate?: (frameIndex: number) => void
+  disabled?: boolean
 }
 
 function ResourceIcon({
   id,
   resource,
   omen = false,
+  focusable = true,
 }: {
   id: string
   resource: WorkbenchResource | undefined
   omen?: boolean
+  focusable?: boolean
 }) {
   const { locale, name } = useI18n()
   const text = sessionNotationMessages[locale]
@@ -36,7 +40,7 @@ function ResourceIcon({
     <span
       className="wb-session-notation__icon"
       role="img"
-      tabIndex={0}
+      tabIndex={focusable ? 0 : undefined}
       aria-label={`${label}${missing ? ` · ${text.imageUnavailable}` : ''}`}
       {...(resource ? { 'data-material-tooltip': id } : {})}
     >
@@ -59,12 +63,18 @@ export function SessionNotation({
   film,
   cursor,
   resources,
+  onNavigate,
+  disabled = false,
 }: SessionNotationProps) {
   const { locale } = useI18n()
   const text = sessionNotationMessages[locale]
   const headingId = useId()
   const notation = extractSessionNotation(film, cursor)
   const registry = new Map(resources.map((resource) => [resource.id, resource]))
+  const currentFrameIndex = notation.steps.reduce(
+    (current, step) => (step.frameIndex <= cursor ? step.frameIndex : current),
+    -1,
+  )
   return (
     <section className="wb-session-notation" aria-labelledby={headingId}>
       <h3 id={headingId}>{text.title}</h3>
@@ -72,16 +82,10 @@ export function SessionNotation({
         <p className="wb-session-notation__empty">{text.empty}</p>
       ) : (
         <ol className="wb-session-notation__steps">
-          {notation.steps.map((step, index) => {
-            const current = index === notation.steps.length - 1
-            return (
-              <li
-                key={step.frameIndex}
-                className="wb-session-notation__step"
-                data-frame-index={step.frameIndex}
-                aria-label={`${text.step} ${step.number}`}
-                aria-current={current ? 'step' : undefined}
-              >
+          {notation.steps.map((step) => {
+            const current = step.frameIndex === currentFrameIndex
+            const content = (
+              <>
                 <span
                   className="wb-session-notation__number"
                   aria-hidden="true"
@@ -95,6 +99,7 @@ export function SessionNotation({
                       id={id}
                       resource={registry.get(id)}
                       omen
+                      focusable={!onNavigate}
                     />
                   ))}
                   {step.consumedOmenIds.length > 0 && (
@@ -103,6 +108,7 @@ export function SessionNotation({
                   <ResourceIcon
                     id={step.currencyId}
                     resource={registry.get(step.currencyId)}
+                    focusable={!onNavigate}
                   />
                 </span>
                 {!step.omensKnown && (
@@ -112,6 +118,35 @@ export function SessionNotation({
                   >
                     ?
                   </span>
+                )}
+              </>
+            )
+            return (
+              <li
+                key={step.frameIndex}
+                className="wb-session-notation__step"
+                data-frame-index={step.frameIndex}
+                aria-label={`${text.step} ${step.number}`}
+                aria-current={current ? 'step' : undefined}
+              >
+                {onNavigate ? (
+                  <button
+                    type="button"
+                    className="wb-session-notation__jump"
+                    aria-label={`${text.step} ${step.number}`}
+                    aria-current={current ? 'step' : undefined}
+                    data-material-tooltip={
+                      registry.has(step.currencyId)
+                        ? step.currencyId
+                        : undefined
+                    }
+                    disabled={disabled}
+                    onClick={() => onNavigate(step.frameIndex)}
+                  >
+                    {content}
+                  </button>
+                ) : (
+                  content
                 )}
               </li>
             )

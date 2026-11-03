@@ -101,7 +101,8 @@ it('uses the active cursor and branch on undo and restores notation without edit
   fireEvent.click(
     screen.getByRole('button', { name: 'Previous crafting step' }),
   )
-  expect(within(notation()).queryByRole('listitem')).toBeNull()
+  expect(within(notation()).getAllByRole('listitem')).toHaveLength(1)
+  expect(notation().querySelector('li[aria-current]')).toBeNull()
   fireEvent.click(screen.getByRole('button', { name: 'Next crafting step' }))
   expect(within(notation()).getAllByRole('listitem')).toHaveLength(1)
   fireEvent.click(
@@ -121,4 +122,59 @@ it('uses the active cursor and branch on undo and restores notation without edit
   show()
   await within(notation()).findByRole('img', { name: 'Orb of Transmutation' })
   expect(JSON.parse(localStorage.getItem(historyStorageKey)!)).toEqual(branched)
+})
+
+it('jumps directly backward and forward without dropping future records, including keyboard-style activation', async () => {
+  const { twoSteps } = await import('./session-notation/fixtures.test-support')
+  const { LocalFilmRepository } = await import('./workbenchHistory')
+  const { history } = await twoSteps()
+  new LocalFilmRepository(localStorage).save(history)
+  const mounted = show()
+  const second = await within(notation()).findByRole('button', {
+    name: 'Step 2',
+  })
+  const originalFilms = JSON.parse(
+    localStorage.getItem(historyStorageKey)!,
+  ).films
+  fireEvent.click(within(notation()).getByRole('button', { name: 'Step 1' }))
+  expect(JSON.parse(localStorage.getItem(historyStorageKey)!).cursor).toBe(1)
+  expect(within(notation()).getAllByRole('listitem')).toHaveLength(2)
+  expect(
+    within(notation()).getByRole('listitem', { name: 'Step 1' }),
+  ).toHaveAttribute('aria-current', 'step')
+  second.focus()
+  fireEvent.focusIn(second)
+  expect(second).toHaveFocus()
+  expect(await screen.findByRole('tooltip')).toHaveTextContent(
+    'Orb of Augmentation',
+  )
+  fireEvent.click(second, { detail: 0 })
+  expect(JSON.parse(localStorage.getItem(historyStorageKey)!).cursor).toBe(2)
+  expect(
+    within(notation()).getByRole('listitem', { name: 'Step 2' }),
+  ).toHaveAttribute('aria-current', 'step')
+  expect(JSON.parse(localStorage.getItem(historyStorageKey)!).films).toEqual(
+    originalFilms,
+  )
+  fireEvent.click(
+    screen.getByRole('button', { name: 'Previous crafting step' }),
+  )
+  expect(within(notation()).getAllByRole('listitem')).toHaveLength(2)
+  expect(
+    within(notation()).getByRole('listitem', { name: 'Step 1' }),
+  ).toHaveAttribute('aria-current', 'step')
+  mounted.unmount()
+  client.clear()
+  show()
+  expect(
+    await within(notation()).findByRole('listitem', { name: 'Step 1' }),
+  ).toHaveAttribute('aria-current', 'step')
+  expect(within(notation()).getAllByRole('listitem')).toHaveLength(2)
+  fireEvent.click(screen.getByRole('button', { name: 'Next crafting step' }))
+  expect(
+    within(notation()).getByRole('listitem', { name: 'Step 2' }),
+  ).toHaveAttribute('aria-current', 'step')
+  expect(JSON.parse(localStorage.getItem(historyStorageKey)!).films).toEqual(
+    originalFilms,
+  )
 })

@@ -48,6 +48,25 @@
   background: #302a1d;
 }
 
+.wb-session-notation__jump {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+}
+.wb-session-notation__jump:focus-visible {
+  outline: 2px solid #e0c687;
+  outline-offset: 2px;
+}
+
 .wb-session-notation__number {
   min-width: 2ch;
   color: #d9c395;

@@ -45,7 +45,7 @@ function receipt(frame: Frame) {
 }
 
 /**
- * Read-only projection of the active Film prefix. Writers record only completed
+ * Read-only projection of the complete active Film. Writers record only completed
  * applications; observations carry no inferred currency or omen consumption.
  * A branch is a separate Film and deliberately starts its own numbering.
  */
@@ -66,7 +66,7 @@ export function extractSessionNotation(
   )
     return result
 
-  for (let frameIndex = 1; frameIndex <= cursor; frameIndex++) {
+  for (let frameIndex = 1; frameIndex < film.frames.length; frameIndex++) {
     const frame = film.frames[frameIndex]!
     if (frame.action === null || isObservation(frame.action)) continue
     const id = currencyId(frame.action)
