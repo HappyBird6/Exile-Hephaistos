@@ -131,3 +131,17 @@ normalizes only the added null record field, preserving its old digest and rando
 No browser automation is performed. Unresolved installed-Augment observations still require
 resolution before slot-aware crafting; preserved source data is not guessed into modeled effects.
 Final counts, preserved-file comparison and runtime hashes are recorded in the release evidence.
+
+
+## Final frontend and affected-backend verification
+
+Final frontend: **151 files / 2534 tests, all pass**, single worker. Lint, typecheck, Prettier
+and production build pass. The first sandbox run started no tests because of temporary IPC
+ENOENT; the native run exposed exactly three stale expectations (removed legacy opt-in UI and
+two newly enabled quality identities). Those assertions were updated to the explicit requests;
+the final full run above has no failures. No production behavior was relaxed for tests.
+
+Affected Java/API/domain + historical compatibility preflight: **157 tests / 0 failures**;
+Spotless and bootJar pass in Java21 without a Docker socket mount. Every one of the **805**
+compiled production source/resource files is byte-identical to the integration checkout.
+The final whole Java run is still being recorded separately from these passing affected tests.

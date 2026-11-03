@@ -180,7 +180,7 @@ it('accepts ordinary tagless fallback and Coronation consuming only its own trig
   ])
 })
 
-it('default stash hides legacy; explicit opt-in names availability and unverified boundaries', async () => {
+it('legacy omens remain inaccessible without an opt-in checkbox', async () => {
   vi.stubGlobal('fetch', fixtureFetch)
   const client = new QueryClient({
     defaultOptions: { queries: { retry: false } },
@@ -192,22 +192,13 @@ it('default stash hides legacy; explicit opt-in names availability and unverifie
   )
   fireEvent.click(outerMaterialTab('Omen'))
   expect(
-    screen.queryByRole('button', { name: 'Omen of Homogenising Exaltation' }),
+    screen.queryByRole('checkbox', { name: 'Show legacy Omens' }),
   ).toBeNull()
-  fireEvent.click(screen.getByRole('checkbox', { name: 'Show legacy Omens' }))
-  expect(
-    screen.getByRole('button', { name: 'Omen of Homogenising Exaltation' }),
-  ).toHaveTextContent('(Legacy)')
-  expect(
-    screen.getByText(/actual game failure consumption is unverified/),
-  ).toBeVisible()
-  expect(
-    screen.getByRole('link', {
-      name: 'Official Homogenising source',
-    }),
-  ).toHaveAttribute(
-    'href',
-    'https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff',
-  )
+  for (const name of [
+    'Omen of Homogenising Exaltation',
+    'Omen of Homogenising Coronation',
+    'Omen of Corruption',
+  ])
+    expect(screen.queryByRole('button', { name })).toBeNull()
   client.clear()
 })
