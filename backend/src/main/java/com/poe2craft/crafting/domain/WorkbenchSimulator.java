@@ -133,7 +133,8 @@ public final class WorkbenchSimulator {
         + (qualityCapChangePolicy == QualityCapChangePolicy.PRESERVE_EXISTING
             ? "-quality-cap-preserve-v2"
             : "-quality-cap-reject-v1")
-        + "-sanctification-independent-stat-percent-v1-equipment-quality-deferred-v1";
+        + "-sanctification-independent-stat-percent-v1-"
+        + QualityCurrencyRules.VERSION;
   }
 
   private String baseRuleVersion() {
@@ -907,6 +908,32 @@ public final class WorkbenchSimulator {
           List.of(),
           allIds,
           QualityLimitRules.describe(state, catalog));
+    if (QualityCurrencyRules.isQuality(action)) {
+      var next = state.withEquipmentQuality(QualityCurrencyRules.nextQuality(state));
+      var assumption =
+          new Assumption(
+              QualityCurrencyRules.VERSION,
+              "equipment quality percentage point",
+              1,
+              List.of(),
+              1L,
+              1L,
+              "https://poe2db.tw/us/Quality",
+              "User-selected simulator policy: one use adds 1 percentage point for Normal, Magic and Rare equipment, capped at 20. The referenced source supports the quality type and default cap, not this per-use increment.");
+      return new Result(
+          ruleVersion(),
+          ledgerVersion(),
+          state.snapshotId(),
+          next,
+          action,
+          true,
+          "",
+          List.of(),
+          List.of(assumption),
+          List.of(),
+          allIds,
+          QualityLimitRules.describe(next, catalog));
+    }
     if (action == WorkbenchCurrency.DIVINE && omens.contains(WorkbenchOmen.SANCTIFICATION)) {
       var next = state.withSanctification(QualitySanctification.roll(state, catalog, random));
       var consumed = List.of(WorkbenchOmen.SANCTIFICATION.id());

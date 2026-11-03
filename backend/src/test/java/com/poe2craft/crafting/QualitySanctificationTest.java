@@ -17,7 +17,7 @@ class QualitySanctificationTest {
   }
 
   @Test
-  void qualityNeedsVerifiedIncrementAndNeverDropsOtherState() {
+  void qualityUsesUserSelectedPlusOneForEveryRarityAndNeverDropsOtherState() {
     var fixture = new StockyHysteriaTest();
     for (var rarity :
         List.of(ItemState.Rarity.NORMAL, ItemState.Rarity.MAGIC, ItemState.Rarity.RARE)) {
@@ -38,9 +38,15 @@ class QualitySanctificationTest {
       var result =
           fixture.simulator.apply(
               state, WorkbenchCurrency.ARMOURERS_SCRAP, Set.of(), new Random(1));
-      assertThat(result.applied()).isFalse();
-      assertThat(result.state()).isEqualTo(state);
-      assertThat(result.reason()).contains("increment");
+      assertThat(result.applied()).isTrue();
+      assertThat(result.state()).isEqualTo(state.withEquipmentQuality(1));
+      assertThat(result.assumptions())
+          .singleElement()
+          .satisfies(
+              a -> {
+                assertThat(a.id()).isEqualTo(QualityCurrencyRules.VERSION);
+                assertThat(a.reason()).contains("User-selected simulator policy");
+              });
       assertThat(result.state().observations()).isEqualTo(state.observations());
       assertThat(result.state().augmentSockets()).isZero();
       assertThat(result.state().explicits()).isEqualTo(state.explicits());
@@ -54,7 +60,7 @@ class QualitySanctificationTest {
                       new Random(1))
                   .state()
                   .equipmentQuality())
-          .isEqualTo(19);
+          .isEqualTo(20);
       for (int quality : List.of(20, 30)) {
         var inherited = state.withEquipmentQuality(quality);
         var blocked =
