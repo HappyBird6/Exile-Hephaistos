@@ -77,7 +77,57 @@ Additional page wiring/favorite-filter preservation run: 6/6 pass. Typecheck/lin
 The two added page tests check the real component connection and unchanged persisted Films.
 Final whole-suite validation is pending B/C integration.
 
-Quality increment question is pending: no verified source or existing reviewed definition
-establishes 5/2/1 increments. Those inferred values are removed from C's implementation.
-Only a new explicit user policy or source evidence can enable this behavior; request 16 is
-not marked complete. Current unsupported quality actions must not be labelled game-verified.
+The user resolved the quality increment explicitly: **+1 percentage point per use for every
+rarity**. C follow-up `40ec6084` implements `user-selected-equipment-quality-plus-one-v1`;
+no 5/2/1 game rule is inferred. Both quality currencies are ACTIVE in the manual registry,
+ordinary cap20, unknown-quality/type/condition refusal and pending-omen preservation retained.
+They remain excluded from the frozen automatic candidate policy using its existing EXTRA IDs.
+
+
+## B/C connection and compatibility
+
+B `afbbacc6` and C `d9294b77`, `b49b0e40`, `40ec6084` are merged locally. Common patches
+were reviewed before application. C history validation is applied once (D supplied the same
+connection), and B's item copies retain the sanctification metadata. The right stash excludes
+Gnawed bones; omitted bone side uses the constrained random-side adapter. A hidden-slot
+item uses `/abyss/currency`, preserving its opaque slots through value-only changes and additions.
+Reveal is a separate explicit user action followed by eligible-option selection.
+
+Cranium and existing rune assets are connected. The user postponed the remaining image work;
+seven missing bone images keep the existing fallback. No further attachment requests or blocked
+image URL retries are part of this release.
+
+The card uses exact source integers for catalyst eligibility and an exact rational composition
+for sanctification/catalyst/reviewed Jewel effect. Only final display rounds to one decimal.
+BigInt ratios are never persisted. Defence fields use the matched local base/flat/increased/quality
+inputs, not observed header totals; imported source lines remain unchanged in stored observations.
+Unknown current quality is not silently inferred.
+
+New manual definitions previously invalidated historical automatic model equality. Read-only
+compatibility now allows exactly these two added manual currencies and one omen plus the known
+manual version suffix, requiring equality of every old definition/order, ledger, overrides and
+numeric policy. It never restores an old execution cursor under a changed model. Basic transition
+provenance excludes the manual-only suffix; supported automatic actions are unchanged. Actual
+v8-v13 fixture original bytes and read-only results, current-schema old-model records, malformed
+references/probability mass rejection and modern cancellation/resume are regression tested.
+Null sanctification is normalized at the existing strict automatic HTTP boundaries; non-null
+manual sanctification is refused there. Domain records remain free of Jackson annotations.
+
+Stale API action counts increase by exactly two and full manual versions include the new policy.
+Frozen catalog/golden oracles are retained: the definitions test appends only the three intentional
+new definitions to its old fixture; registry parity restores only the three explicitly changed
+metadata fragments for comparison against the unchanged original digest. Basic seeded parity
+normalizes only the added null record field, preserving its old digest and random-draw checks.
+
+## Direct user check after release
+
+1. Change a base and check its slot image, computed defences and compact controls.
+2. Check tabs/tooltips in the canvas, 4-column Essence/special row, and lower 2x5 favorites.
+3. Use armour/weapon quality repeatedly; verify +1 each use and refusal at20 without history changes.
+4. Apply a bone without selecting a side, add another modifier, reveal explicitly and choose an option.
+5. Right-click Sanctification, use Divine on Rare, check the bottom condition and subsequent refusal.
+6. Reload saved history; verify original rolls/factors, favorites/title/delete/Undo and Favorite-only view.
+
+No browser automation is performed. Unresolved installed-Augment observations still require
+resolution before slot-aware crafting; preserved source data is not guessed into modeled effects.
+Final counts, preserved-file comparison and runtime hashes are recorded in the release evidence.

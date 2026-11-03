@@ -4222,7 +4222,7 @@
       "action": "BLACKSMITHS_WHETSTONE",
       "reason": "User-selected simulator policy: +1 percentage point per use regardless of rarity; ordinary cap 20. Unknown current quality and unsupported conditions refuse without changes.",
       "serviceScope": "ACTIVE",
-      "qualityPolicy": "equipment-quality-user-step1-v1",
+      "qualityPolicy": "user-selected-equipment-quality-plus-one-v1",
       "supportedBases": [
         "bow",
         "warmonger",
@@ -4280,7 +4280,7 @@
       "action": "ARMOURERS_SCRAP",
       "reason": "User-selected simulator policy: +1 percentage point per use regardless of rarity; ordinary cap 20. Unknown current quality and unsupported conditions refuse without changes.",
       "serviceScope": "ACTIVE",
-      "qualityPolicy": "equipment-quality-user-step1-v1",
+      "qualityPolicy": "user-selected-equipment-quality-plus-one-v1",
       "supportedBases": [
         "stocky",
         "body",

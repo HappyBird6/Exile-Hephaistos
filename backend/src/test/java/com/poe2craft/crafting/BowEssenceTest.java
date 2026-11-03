@@ -129,7 +129,7 @@ class BowEssenceTest {
         .hasSize(74);
     var solar = ItemCatalogLoader.loadDefault();
     var old = new WorkbenchSimulator(solar, new CraftingEngine(solar));
-    assertThat(old.actions(SolarAmulet.initial(solar, 82, 15), Set.of())).hasSize(75);
+    assertThat(old.actions(SolarAmulet.initial(solar, 82, 15), Set.of())).hasSize(77);
     assertThat(
             old.apply(
                     SolarAmulet.initial(solar, 82, 15),

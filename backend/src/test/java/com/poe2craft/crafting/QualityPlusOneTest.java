@@ -93,6 +93,21 @@ class QualityPlusOneTest {
         fixture.simulator.apply(state, WorkbenchCurrency.ARMOURERS_SCRAP, omens, new Random(1));
     assertThat(result.applied()).isTrue();
     assertThat(result.state()).isEqualTo(state.withEquipmentQuality(8));
+    assertThatThrownBy(() -> AbyssCraftingState.from(state, fixture.catalog))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessageContaining("Augment");
+    var resolvedSlots = state.withObservations(new ItemObservations(0, List.of(), List.of()));
+    var slotAware =
+        new AbyssCurrencyExecutor(fixture.catalog, fixture.simulator)
+            .apply(
+                AbyssCraftingState.from(resolvedSlots, fixture.catalog),
+                WorkbenchCurrency.ARMOURERS_SCRAP,
+                omens,
+                new Random(1));
+    assertThat(slotAware.applied()).isTrue();
+    assertThat(slotAware.state().storedItem()).isEqualTo(resolvedSlots.withEquipmentQuality(8));
+    assertThat(slotAware.consumedOmens()).isEmpty();
+    assertThat(slotAware.remainingOmens()).containsExactlyInAnyOrderElementsOf(omens);
     assertThat(result.consumedOmens()).isEmpty();
     assertThat(result.remainingOmens()).containsExactlyInAnyOrderElementsOf(omens);
     var sanctified =

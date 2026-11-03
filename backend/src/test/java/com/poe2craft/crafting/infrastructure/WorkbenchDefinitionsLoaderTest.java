@@ -25,9 +25,11 @@ class WorkbenchDefinitionsLoaderTest {
     try (var in = getClass().getResourceAsStream("/crafting/workbench-definitions-v1.json")) {
       var active = M.readTree(in);
       for (var c : active.get("currencies"))
-        if (Set.of("ARMOURERS_SCRAP", "BLACKSMITHS_WHETSTONE").contains(c.path("id").asText())) ((ArrayNode) old.get("currencies")).add(c.deepCopy());
+        if (Set.of("ARMOURERS_SCRAP", "BLACKSMITHS_WHETSTONE").contains(c.path("id").asText()))
+          ((ArrayNode) old.get("currencies")).add(c.deepCopy());
       for (var o : active.get("omens"))
-        if ("SANCTIFICATION".equals(o.path("key").asText())) ((ArrayNode) old.get("omens")).add(o.deepCopy());
+        if ("SANCTIFICATION".equals(o.path("key").asText()))
+          ((ArrayNode) old.get("omens")).add(o.deepCopy());
     }
     return old;
   }

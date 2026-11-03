@@ -194,7 +194,8 @@ class CraftingRegistryLoaderTest {
       var currency = byId.get(id);
       assertEquals("ACTIVE", currency.path("serviceScope").asText());
       assertEquals("IMPLEMENTED", currency.path("effectStatus").asText());
-      assertEquals("equipment-quality-user-step1-v1", currency.path("qualityPolicy").asText());
+      assertEquals(
+          "user-selected-equipment-quality-plus-one-v1", currency.path("qualityPolicy").asText());
       assertTrue(currency.path("sourceSha256").asText().matches("[0-9a-f]{64}"));
       assertTrue(currency.path("reason").asText().contains("User-selected simulator policy"));
     }
