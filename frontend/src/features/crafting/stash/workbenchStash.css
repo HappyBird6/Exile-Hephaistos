@@ -30,12 +30,6 @@
   font: inherit;
   font-size: 11px;
 }
-.workbench-stash__legacy {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 10px;
-}
 .workbench-stash__resources {
   min-height: 0;
   overflow-y: auto;
@@ -139,7 +133,9 @@
 
 .workbench-stash__resources .essence-row {
   grid-column: 1 / -1;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 5px 3px;
   margin: 0;
 }
 .workbench-stash__specials {
@@ -152,11 +148,30 @@
   font-size: 10px;
 }
 
-.workbench-stash__legacy-note {
-  max-height: 90px;
-  flex: none;
-  overflow-y: auto;
-  margin: 0;
-  font-size: 9px;
-  line-height: 1.35;
+/* The original coordinate plane stays 935 × 550 above the canvas bottom slot. */
+.stash-canvas.stash-canvas--with-favorites {
+  aspect-ratio: auto;
+}
+.stash-canvas__content {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 935 / 550;
+}
+.stash-canvas > .workbench-favorites-region {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 16px;
+  border-top: 1px solid #655738;
+  background: #141a15;
+}
+.workbench-stash__tabs .material-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2px;
+}
+.workbench-stash__tabs .material-tabs button {
+  min-width: 0;
+  padding: 5px 2px;
+  font-size: 10px;
+  overflow-wrap: anywhere;
 }

@@ -16,6 +16,21 @@ export type Material = {
   category: Exclude<MaterialTab, 'Currency'>
   image: string
 }
+// Existing sourced quality currencies, offered only in the right stash.
+export const additionalStashCurrencies = [
+  {
+    id: 'Armourers_Scrap',
+    name: "Armourer's Scrap",
+    category: 'Currency',
+    image: '/assets/currency/CurrencyArmourQuality.webp',
+  },
+  {
+    id: 'Blacksmiths_Whetstone',
+    name: "Blacksmith's Whetstone",
+    category: 'Currency',
+    image: '/assets/currency/CurrencyWeaponQuality.webp',
+  },
+] as const
 export const materials: readonly Material[] = [
   {
     id: 'Lesser_Essence_of_the_Body',
@@ -1144,4 +1159,14 @@ export function essenceRows(query: string): (Material | null)[][] {
       }),
     )
     .filter((row) => row.some((m) => m && matchesGameName(m.id, m.name, query)))
+}
+
+// Two adjacent family pairs per row: Greater/Perfect, Greater/Perfect.
+// Family matching still keeps both supported tiers together.
+export function essenceGridRows(query: string): (Material | null)[][] {
+  const pairs = essenceRows(query)
+  return Array.from({ length: Math.ceil(pairs.length / 2) }, (_, index) => [
+    ...pairs[index * 2]!,
+    ...(pairs[index * 2 + 1] ?? [null, null]),
+  ])
 }

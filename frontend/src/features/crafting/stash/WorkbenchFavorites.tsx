@@ -1,12 +1,11 @@
 import { useI18n } from '../../../shared/i18n/i18n'
 import { CurrencyImage } from '../CurrencyImage'
-import { isSelectableMaterial } from '../materials'
-import { inServiceScope } from '../serviceScope'
+import { visibilityPolicy } from './visibilityPolicy'
 import type { WorkbenchFavoritesProps, WorkbenchResource } from './stashTypes'
 import { stashDragType } from './stashDragType'
 import './workbenchStash.css'
 
-/** Independent two-row favorite strip, mounted after the entire stash board. */
+/** Two-row favorite strip mounted in the canvas bottom slot. */
 export function WorkbenchFavorites({
   excludedIds = [],
   selectedId,
@@ -14,15 +13,14 @@ export function WorkbenchFavorites({
   favorites,
   held,
   disabled = false,
+  onActivateOmen,
   onFavoriteActivate,
   onFavoritePlace,
 }: WorkbenchFavoritesProps) {
   const { t, name } = useI18n()
   const excluded = new Set(excludedIds)
   const available = (resource: WorkbenchResource) =>
-    !excluded.has(resource.id) &&
-    inServiceScope(resource.id) &&
-    isSelectableMaterial(resource)
+    !excluded.has(resource.id) && visibilityPolicy(resource)
   const pointer = (event: { clientX: number; clientY: number }) => ({
     x: event.clientX,
     y: event.clientY,
@@ -61,8 +59,10 @@ export function WorkbenchFavorites({
             }}
             onContextMenu={(event) => {
               event.preventDefault()
-              if (!disabled && !unavailable)
-                onFavoriteActivate(index, resource, pointer(event))
+              if (disabled || unavailable) return
+              if (resource?.category === 'Omen' && onActivateOmen)
+                onActivateOmen(resource, pointer(event))
+              else onFavoriteActivate(index, resource, pointer(event))
             }}
             onDragOver={(event) => {
               if (!disabled && held && available(held)) {

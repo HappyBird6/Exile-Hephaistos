@@ -1,0 +1,18 @@
+--- a/frontend/src/features/crafting/materialTooltips.json
++++ b/frontend/src/features/crafting/materialTooltips.json
+@@ -2172,5 +2172,15 @@
+       "Desecrates Rare jewellery; includes eligible otherworldly modifiers."
+     ],
+     "sourceUrl": "https://poe2db.tw/us/Altered_Collarbone"
++  },
++  "Armourers_Scrap": {
++    "name": "Armourer's Scrap",
++    "lines": ["Improves the quality of an armour"],
++    "sourceUrl": "https://poe2db.tw/us/Armourers_Scrap"
++  },
++  "Blacksmiths_Whetstone": {
++    "name": "Blacksmith's Whetstone",
++    "lines": ["Improves the quality of a martial weapon"],
++    "sourceUrl": "https://poe2db.tw/us/Blacksmiths_Whetstone"
+   }
+ }

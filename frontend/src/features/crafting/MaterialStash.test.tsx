@@ -9,7 +9,7 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import { CraftingPage } from './CraftingPage'
 import { useItemDraft } from './draft'
 import { currencies } from './currencies'
-import { materials } from './materials'
+import { additionalStashCurrencies, materials } from './materials'
 import tooltips from './materialTooltips.json'
 
 function show() {
@@ -36,7 +36,11 @@ describe('Material stash and shared favorites', () => {
       string,
       { name: string; lines: string[]; sourceUrl: string }
     > = tooltips
-    for (const entry of [...currencies, ...materials]) {
+    for (const entry of [
+      ...currencies,
+      ...materials,
+      ...additionalStashCurrencies,
+    ]) {
       expect(descriptions[entry.id]?.lines.length).toBeGreaterThan(0)
       expect(descriptions[entry.id]?.sourceUrl).toBe(
         `https://poe2db.tw/us/${entry.id}`,
@@ -103,7 +107,6 @@ describe('Material stash and shared favorites', () => {
     ['Essence', 'Greater Essence of the Body'],
     ['Essence', 'Essence of Hysteria'],
     ['Alloy', 'Runic Alloy'],
-    ['Omen', 'Omen of Whittling'],
     ['Catalysts', 'Flesh Catalyst'],
     ['Liquid Emotions', 'Diluted Liquid Ire'],
   ])(
@@ -130,15 +133,9 @@ describe('Material stash and shared favorites', () => {
           name: 'Use selected currency on the central item',
         }),
       )
-      if (label === 'Omen') {
-        expect(screen.getByRole('status')).toHaveTextContent('favorite slot')
-        expect(useItemDraft.getState().activeOmens).not.toContain(
-          'Omen_of_Whittling',
-        )
-      } else
-        expect(screen.getByRole('status')).toHaveTextContent(
-          'The item has not changed',
-        )
+      expect(screen.getByRole('status')).toHaveTextContent(
+        'The item has not changed',
+      )
       fireEvent.click(material)
       expect(material).toHaveClass('is-held')
       expect(material).not.toHaveClass('is-selected')
@@ -146,6 +143,45 @@ describe('Material stash and shared favorites', () => {
       expect(favorite(1)).toHaveAccessibleName(`Favorite slot 1: ${name}`)
     },
   )
+
+  it('activates and deactivates a stash Omen directly while left-click registers it in favorites', () => {
+    show()
+    fireEvent.click(tab('Omen'))
+    const omen = within(document.getElementById('material-list')!).getByRole(
+      'button',
+      { name: 'Omen of Whittling' },
+    )
+    fireEvent.contextMenu(omen)
+    expect(useItemDraft.getState().activeOmens).toContain('Omen_of_Whittling')
+    expect(omen).toHaveClass('is-active-omen')
+    fireEvent.contextMenu(omen)
+    expect(useItemDraft.getState().activeOmens).not.toContain(
+      'Omen_of_Whittling',
+    )
+    fireEvent.click(omen)
+    fireEvent.click(favorite(1))
+    expect(favorite(1)).toHaveAccessibleName(
+      'Favorite slot 1: Omen of Whittling',
+    )
+    fireEvent.contextMenu(favorite(1))
+    expect(useItemDraft.getState().activeOmens).toContain('Omen_of_Whittling')
+  })
+
+  it('offers sourced quality currencies only on the right without repeating a fixed currency', () => {
+    show()
+    const right = within(document.getElementById('material-list')!)
+    for (const resource of additionalStashCurrencies) {
+      const button = right.getByRole('button', { name: resource.name })
+      expect(button.querySelector('img')).toHaveAttribute('src', resource.image)
+      expect(
+        within(
+          document.querySelector('.currency-catalog') as HTMLElement,
+        ).queryByRole('button', { name: resource.name }),
+      ).toBeNull()
+    }
+    expect(right.queryByRole('button', { name: 'Chaos Orb' })).toBeNull()
+    expect(currencyButton('Chaos Orb')).toBeVisible()
+  })
 
   it('does not display native hover titles on empty or occupied favorites', () => {
     show()
@@ -278,13 +314,11 @@ describe('Material stash and shared favorites', () => {
     )
     expect(
       within(document.getElementById('material-list')!).getAllByRole('button'),
-    ).toHaveLength(30)
+    ).toHaveLength(11)
     for (const name of [
       'Mirror of Kalandra',
       'Orb of Chance',
       "Arcanist's Etcher",
-      "Armourer's Scrap",
-      "Blacksmith's Whetstone",
       "Glassblower's Bauble",
       "Gemcutter's Prism",
       "Lesser Jeweller's Orb",
@@ -322,7 +356,7 @@ describe('Material stash and shared favorites', () => {
     for (const [label, count] of [
       ['Essence', 38], // 19 ordinary families × two selectable tiers; special group is separate.
       ['Alloy', 13],
-      ['Omen', 24],
+      ['Omen', 18],
       ['Catalysts', 26],
       ['Liquid Emotions', 27],
     ] as const) {
@@ -352,32 +386,19 @@ describe('Material stash and shared favorites', () => {
         ])
       }
       if (label === 'Omen') {
-        const legacy = screen.getByRole('checkbox', {
-          name: 'Show legacy Omens',
-        })
-        expect(legacy).not.toBeChecked()
-        fireEvent.click(legacy)
         expect(
-          within(document.getElementById('material-list')!).getAllByRole(
-            'button',
-          ),
-        ).toHaveLength(31)
-        expect(
-          screen.getByRole('button', {
-            name: 'Omen of Homogenising Exaltation',
-          }),
-        ).toHaveTextContent('(Legacy)')
-        expect(
-          screen.getByRole('button', {
-            name: 'Omen of Homogenising Coronation',
-          }),
-        ).toHaveTextContent('(Legacy)')
-        fireEvent.click(legacy)
-        expect(
-          within(document.getElementById('material-list')!).getAllByRole(
-            'button',
-          ),
-        ).toHaveLength(24)
+          screen.queryByRole('checkbox', { name: 'Show legacy Omens' }),
+        ).toBeNull()
+        for (const name of [
+          'Omen of Corruption',
+          'Omen of Putrefaction',
+          'Omen of Answered Prayers',
+          'Omen of the Hunt',
+          'Omen of Secret Compartments',
+          'Omen of Reinforcements',
+          'Omen of Homogenising Exaltation',
+        ])
+          expect(screen.queryByRole('button', { name })).not.toBeInTheDocument()
       }
       expect(
         within(

@@ -34,17 +34,29 @@ function show() {
 }
 const compact = (value: string) => value.replace(/\s/g, '')
 
-describe('single category selector and whole-surface favorite strip', () => {
+describe('single canvas category selector and canvas bottom favorite strip', () => {
   it('connects the preserved category selector to the right content only', () => {
     show()
     const selector = screen.getByRole('tablist', {
       name: 'Material stash tabs',
     })
     expect(within(selector).getAllByRole('tab')).toHaveLength(6)
-    expect(document.querySelector('.workbench-stash__tabs')).toBeNull()
+    expect(document.querySelector('.stash-canvas')).toContainElement(selector)
     const right = document.querySelector<HTMLElement>('.workbench-stash')!
-    expect(within(right).queryByRole('tablist')).toBeNull()
+    expect(right).toContainElement(selector)
+    expect(document.querySelector('.stash-heading')).not.toContainElement(
+      selector,
+    )
     const fixedShelf = document.querySelector<HTMLElement>('.currency-catalog')!
+    const fixedIds = new Set(
+      [...fixedShelf.querySelectorAll('[data-material-tooltip]')].map(
+        (button) => button.getAttribute('data-material-tooltip'),
+      ),
+    )
+    for (const button of right.querySelectorAll('[data-material-tooltip]'))
+      expect(fixedIds.has(button.getAttribute('data-material-tooltip'))).toBe(
+        false,
+      )
     const originalChaos = within(fixedShelf).getByRole('button', {
       name: 'Chaos Orb',
     })
@@ -80,7 +92,7 @@ describe('single category selector and whole-surface favorite strip', () => {
       expect(within(right).queryByRole('button', { name })).toBeNull()
   })
 
-  it('picks across categories, drags into the separate bottom strip and preserves Omen activation', () => {
+  it('picks across categories, drags into the canvas bottom strip and preserves Omen activation', () => {
     show()
     const right = document.querySelector<HTMLElement>('.workbench-stash')!
     const selector = screen.getByRole('tablist', {
@@ -107,9 +119,16 @@ describe('single category selector and whole-surface favorite strip', () => {
     fireEvent.drop(slots[9]!, { dataTransfer })
     expect(slots[9]).toHaveAccessibleName('Favorite slot 10: Runic Alloy')
     fireEvent.click(within(selector).getByRole('tab', { name: 'Omen' }))
-    fireEvent.click(
-      within(right).getByRole('button', { name: 'Omen of Whittling' }),
+    const omen = within(right).getByRole('button', {
+      name: 'Omen of Whittling',
+    })
+    fireEvent.contextMenu(omen)
+    expect(useItemDraft.getState().activeOmens).toContain('Omen_of_Whittling')
+    fireEvent.contextMenu(omen)
+    expect(useItemDraft.getState().activeOmens).not.toContain(
+      'Omen_of_Whittling',
     )
+    fireEvent.click(omen)
     fireEvent.click(slots[0]!)
     fireEvent.contextMenu(slots[0]!)
     expect(useItemDraft.getState().activeOmens).toContain('Omen_of_Whittling')
@@ -117,7 +136,7 @@ describe('single category selector and whole-surface favorite strip', () => {
   })
 
   it.each([1280, 800, 375])(
-    'keeps right content and global 2×5 favorites in distinct DOM/style boundaries at %ipx',
+    'keeps right content and canvas 2×5 favorites below the fixed coordinate plane at %ipx',
     (width) => {
       Object.defineProperty(window, 'innerWidth', {
         configurable: true,
@@ -133,16 +152,19 @@ describe('single category selector and whole-surface favorite strip', () => {
       const favorites = screen.getByRole('group', {
         name: 'Shared material favorites',
       })
-      expect(board.nextElementSibling).toBe(region)
-      expect(region.parentElement).toBe(board.parentElement)
+      const canvas = document.querySelector<HTMLElement>('.stash-canvas')!
+      const content = document.querySelector<HTMLElement>(
+        '.stash-canvas__content',
+      )!
+      expect(board).toContainElement(canvas)
+      expect(content.nextElementSibling).toBe(region)
+      expect(region.parentElement).toBe(canvas)
       expect(region).toContainElement(favorites)
-      for (const container of [
-        board,
-        right,
-        document.querySelector('.stash-viewport')!,
-        document.querySelector('.bench-lower')!,
-      ])
-        expect(container).not.toContainElement(favorites)
+      expect(content).not.toContainElement(favorites)
+      expect(right).not.toContainElement(favorites)
+      expect(
+        document.querySelector('.workbench-feedback-panel'),
+      ).not.toContainElement(favorites)
       expect(within(favorites).getAllByRole('button')).toHaveLength(10)
       expect(compact(getComputedStyle(favorites).gridTemplateColumns)).toBe(
         'repeat(5,minmax(0,1fr))',
@@ -152,6 +174,9 @@ describe('single category selector and whole-surface favorite strip', () => {
       )
       expect(getComputedStyle(favorites).position).not.toBe('absolute')
       expect(getComputedStyle(region).width).toBe('100%')
+      expect(getComputedStyle(content).aspectRatio.replace(/\s/g, '')).toBe(
+        '935/550',
+      )
       const resources = right.querySelector<HTMLElement>(
         '.workbench-stash__resources',
       )!
