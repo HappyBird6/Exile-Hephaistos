@@ -5,64 +5,80 @@
       "number": 1,
       "owner": "A",
       "description": "Desktop 75 percent footprint with side space; no ads",
-      "status": "IN_PROGRESS"
+      "status": "VERIFIED_CODE_AND_LOCAL_SERVER",
+      "verification": "155-file/2559-test full frontend;163 affected Java/API tests; matching served artifacts. Browser visual QA remains deferred."
     },
     {
       "number": 2,
       "owner": "A",
       "description": "Card approximately 10 percent larger relative to compact baseline",
-      "status": "IN_PROGRESS"
+      "status": "VERIFIED_CODE_AND_LOCAL_SERVER",
+      "verification": "155-file/2559-test full frontend;163 affected Java/API tests; matching served artifacts. Browser visual QA remains deferred."
     },
     {
       "number": 3,
       "owner": "A",
       "description": "Readable font compensation",
-      "status": "IN_PROGRESS"
+      "status": "VERIFIED_CODE_AND_LOCAL_SERVER",
+      "verification": "155-file/2559-test full frontend;163 affected Java/API tests; matching served artifacts. Browser visual QA remains deferred."
     },
     {
       "number": 4,
       "owner": "B",
       "description": "One quality use reaches existing applicable cap; no repeated or above-cap success",
-      "status": "IN_PROGRESS"
+      "status": "VERIFIED_CODE_AND_LOCAL_SERVER",
+      "verification": "155-file/2559-test full frontend;163 affected Java/API tests; matching served artifacts. Browser visual QA remains deferred."
     },
     {
       "number": 5,
       "owner": "A/root",
       "description": "Favorites inside coordinate canvas; no region wrapper",
-      "status": "IN_PROGRESS"
+      "status": "VERIFIED_CODE_AND_LOCAL_SERVER",
+      "verification": "155-file/2559-test full frontend;163 affected Java/API tests; matching served artifacts. Browser visual QA remains deferred."
     },
     {
       "number": 6,
       "owner": "A",
       "description": "Favorite and upper currency slot dimensions match",
-      "status": "IN_PROGRESS"
+      "status": "VERIFIED_CODE_AND_LOCAL_SERVER",
+      "verification": "155-file/2559-test full frontend;163 affected Java/API tests; matching served artifacts. Browser visual QA remains deferred."
     },
     {
       "number": 7,
       "owner": "root",
       "description": "Failure-only feedback moves to bottom of bench-lower",
-      "status": "IN_PROGRESS"
+      "status": "VERIFIED_CODE_AND_LOCAL_SERVER",
+      "verification": "155-file/2559-test full frontend;163 affected Java/API tests; matching served artifacts. Browser visual QA remains deferred."
     },
     {
       "number": 8,
       "owner": "C/root",
       "description": "Actual successful currency plus consumed-omen session notation below feedback",
-      "status": "IN_PROGRESS"
+      "status": "VERIFIED_CODE_AND_LOCAL_SERVER",
+      "verification": "155-file/2559-test full frontend;163 affected Java/API tests; matching served artifacts. Browser visual QA remains deferred."
     },
     {
       "number": 9,
       "owner": "C/root",
       "description": "Existing material tooltips on notation images",
-      "status": "IN_PROGRESS"
+      "status": "VERIFIED_CODE_AND_LOCAL_SERVER",
+      "verification": "155-file/2559-test full frontend;163 affected Java/API tests; matching served artifacts. Browser visual QA remains deferred."
     },
     {
       "number": 10,
       "owner": "A",
       "description": "Stash aligned to shared UI geometry",
-      "status": "IN_PROGRESS"
+      "status": "VERIFIED_CODE_AND_LOCAL_SERVER",
+      "verification": "155-file/2559-test full frontend;163 affected Java/API tests; matching served artifacts. Browser visual QA remains deferred."
     }
   ],
   "browserAutomation": "USER_DEFERRED",
   "imageCollection": "USER_DEFERRED",
-  "push": "NOT_REQUESTED"
+  "push": "LATEST_USER_AUTHORIZED_MASTER_NONFORCE_AFTER_VALIDATION",
+  "cleanup": "USER_AUTHORIZED_OWNED_AUXILIARY_ARTIFACTS_AFTER_REMOTE_SERVER_VERIFICATION",
+  "runtimeCodeRevision": "180045150b04ca9dec9b1f806ab73b8dd3b994db",
+  "serverUrl": "http://localhost:9001",
+  "userFilesBefore": 54,
+  "userFilesAfter": 54,
+  "userFilesChanged": 0
 }
