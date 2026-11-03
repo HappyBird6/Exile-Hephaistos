@@ -85,17 +85,24 @@ export function validAbyssResponse(
     item.itemLevel !== source.itemLevel ||
     item.rarity !== source.rarity ||
     !sameObservations(item.observations, source.observations) ||
-    (item.equipmentQuality ?? null) !== (source.equipmentQuality ?? null) ||
-    (item.augmentSockets ?? null) !== (source.augmentSockets ?? null) ||
-    JSON.stringify(item.catalystQuality ?? null) !==
-      JSON.stringify(source.catalystQuality ?? null) ||
+    (operation !== 'currency' &&
+      ((item.equipmentQuality ?? null) !== (source.equipmentQuality ?? null) ||
+        (item.augmentSockets ?? null) !== (source.augmentSockets ?? null) ||
+        JSON.stringify(item.catalystQuality ?? null) !==
+          JSON.stringify(source.catalystQuality ?? null) ||
+        JSON.stringify(item.sanctification ?? null) !==
+          JSON.stringify(
+            (source as unknown as Record<string, unknown>).sanctification ??
+              null,
+          ))) ||
     !Array.isArray(item.explicits) ||
     item.explicits.length !== 0 ||
     !Array.isArray(item.implicits) ||
     !item.implicits.every(modifier) ||
     item.implicits.length !== source.implicits.length ||
     !Array.isArray(item.conditions) ||
-    JSON.stringify(item.conditions) !== JSON.stringify(source.conditions)
+    (operation !== 'currency' &&
+      JSON.stringify(item.conditions) !== JSON.stringify(source.conditions))
   )
     return false
   if (value.slots.length > 6 || value.slots.some((s) => !object(s)))

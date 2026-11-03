@@ -1,0 +1,35 @@
+{
+  "retrievedAt": "2026-11-03",
+  "rights": "Original game artwork belongs to Grinding Gear Games. Source attribution is not a grant of redistribution rights. Existing third-party notices remain applicable.",
+  "assets": [
+    {
+      "id": "Preserved_Cranium",
+      "sourceUrl": "https://poe2db.tw/us/Preserved_Cranium",
+      "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Abyss/PreservedCranium.webp",
+      "image": "/assets/abyss-currency/Preserved_Cranium.webp",
+      "sha256": "078d4d8d98a7c838fafc66cb4b1bfb94eefb0142c09e506e94363fee9a01ce17"
+    }
+  ],
+  "unavailable": [
+    {
+      "ids": [
+        "Gnawed_Rib",
+        "Preserved_Rib",
+        "Ancient_Rib",
+        "Gnawed_Jawbone",
+        "Preserved_Jawbone",
+        "Ancient_Jawbone",
+        "Gnawed_Collarbone",
+        "Preserved_Collarbone",
+        "Ancient_Collarbone"
+      ],
+      "reason": "Prior HTTP 403 evidence in docs/evidence/desecration-assets-20261102.json; URLs were not retried or bypassed. User attachment required."
+    },
+    {
+      "ids": ["Altered_Collarbone"],
+      "sourceUrl": "https://poe2db.tw/us/Altered_Collarbone",
+      "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Breach/BreachDesecration.webp",
+      "reason": "One source image fetch failed on 2026-11-03. No retry or alternate route attempted. User attachment required."
+    }
+  ]
+}

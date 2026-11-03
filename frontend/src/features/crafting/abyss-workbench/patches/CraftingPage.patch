@@ -1,0 +1,210 @@
+--- a/frontend/src/features/crafting/CraftingPage.tsx
++++ b/frontend/src/features/crafting/CraftingPage.tsx
+@@ -4,8 +4,11 @@
+   isBone,
+   boneText,
+   putrefactionText,
+-  necromancySide,
++  boneConsumedOmens,
++  boneRemainingOmens,
+ } from './desecrationCurrency'
++import { applyAbyssCurrency, abyssFromConcrete } from './abyss-workbench/applyAbyssCurrency'
++import { abyssCurrencyReason } from './abyss-workbench/currencyMessages'
+ import { validAbyssResponse } from './abyssResponse'
+ import { AbyssPanel } from './AbyssPanel'
+ import { readSupport, saveSupport } from './method-search/supportStorage'
+@@ -82,7 +85,6 @@
+ import type { Films, FilmDeletion } from './workbenchHistory'
+ import {
+   basicJewelBases,
+-  jewelCapacity,
+   isWorkbenchJewel,
+   workbenchJewelBases,
+ } from './basicJewel'
+@@ -104,8 +106,6 @@
+ export function CraftingPage() {
+   const { t, name, locale } = useI18n()
+   const [boneCounts, setBoneCounts] = useState([0, 0])
+-  const [boneSide, setBoneSide] = useState('')
+-  const [boneRemoved, setBoneRemoved] = useState('')
+   const client = useQueryClient()
+   const draft = useItemDraft()
+   const imported = useItemTextImport()
+@@ -341,9 +341,7 @@
+     restoredValid && initial.data && storedFrame ? storedFrame.state : undefined
+   const canCraft =
+     (draft.source === 'base' || mapping.data?.mapped === true) &&
+-    (!storedFrame || restoredValid) &&
+-    !(restoredState ?? workbench.data?.state ?? mapping.data?.state)?.desecrated
+-      ?.length
++    (!storedFrame || restoredValid)
+   const film =
+     filmState.revision === draft.baseRevision
+       ? currentFilm(filmState.history)
+@@ -570,8 +568,6 @@
+
+   function choose(resource: Selection) {
+     if (excludedResourceIds.includes(resource.id)) return
+-    setBoneSide('')
+-    setBoneRemoved('')
+     setSelected(resource)
+     setHeld(null)
+     setAnnouncement(
+@@ -623,13 +619,6 @@
+       return
+     }
+     if (!canCraft) {
+-      if (
+-        (restoredState ?? workbench.data?.state ?? mapping.data?.state)
+-          ?.desecrated?.length
+-      ) {
+-        setAnnouncement(t('notice.use_abyss'))
+-        return
+-      }
+       if (rulesetStatus && rulesetStatus !== 'current') {
+         setAnnouncement(t(`ruleset.${rulesetStatus}`))
+         return
+@@ -666,8 +655,8 @@
+         const next = await applyBone(
+           state,
+           selected.id,
+-          necromancySide(draft.activeOmens) ?? boneSide,
+-          boneRemoved,
++          '',
++          '',
+           draft.activeOmens,
+           initial.data,
+           controller.signal,
+@@ -696,17 +685,17 @@
+             selected.id,
+             filmId(),
+             initial.data.rulesetIdentity,
+-            draft.activeOmens,
++            boneConsumedOmens(draft.activeOmens),
+           ),
+           revision,
+         )
+-        draft.setActiveOmens([])
++        draft.setActiveOmens(boneRemainingOmens(draft.activeOmens))
+         setAnnouncement(
+           [
+             t('craft.applied', { name: name(selected.id, selected.name) }),
+-            draft.activeOmens.length
++            boneConsumedOmens(draft.activeOmens).length
+               ? t('craft.consumed', {
+-                  names: draft.activeOmens
++                  names: boneConsumedOmens(draft.activeOmens)
+                     .map((id) => name(id, id.replaceAll('_', ' ')))
+                     .join(', '),
+                 })
+@@ -716,8 +705,6 @@
+             .join(' '),
+         )
+         setBoneCounts([0, 0])
+-        setBoneSide('')
+-        setBoneRemoved('')
+         if (!repeat) {
+           setSelected(null)
+           setHeld(null)
+@@ -726,6 +713,30 @@
+         return
+       }
+       if (!action) throw new Error(t('notice.no_rule'))
++      if (state.desecrated?.length || storedFrame?.abyss) {
++        const source = storedFrame?.abyss ?? abyssFromConcrete(state, initial.data)
++        const result = await applyAbyssCurrency(source, action, draft.activeOmens,
++          initial.data, controller.signal, t('notice.apply_error'))
++        if (controller.signal.aborted || useItemDraft.getState().baseRevision !== revision ||
++            useItemDraft.getState().source !== draft.source) return
++        if (!result.applied) {
++          setAnnouncement(abyssCurrencyReason(result.reason, locale))
++          return
++        }
++        const history = filmState.revision === revision ? filmState.history
++          : { ...filmState.history, active: null, cursor: 0 }
++        saveFilms(recordAbyss(history, state, result.state, action, filmId(),
++          initial.data.rulesetIdentity, result.consumedOmens), revision)
++        draft.setActiveOmens(result.remainingOmens)
++        setAnnouncement([
++          t('craft.applied', { name: localizedAction(action) }),
++          result.consumedOmens.length ? t('craft.consumed', {
++            names: result.consumedOmens.map((id) => name(id, id.replaceAll('_', ' '))).join(', '),
++          }) : '',
++        ].filter(Boolean).join(' '))
++        if (!repeat) { setSelected(null); setHeld(null); setPointer(null) }
++        return
++      }
+       const result = await applyCurrency(
+         state,
+         action,
+@@ -1516,56 +1527,7 @@
+                           </label>
+                         ))}
+                       </div>
+-                    ) : (
+-                      <label>
+-                        {boneText[locale][1]}
+-                        <select
+-                          value={necromancySide(draft.activeOmens) ?? boneSide}
+-                          disabled={!!necromancySide(draft.activeOmens)}
+-                          onChange={(event) => setBoneSide(event.target.value)}
+-                        >
+-                          <option value="">{boneText[locale][2]}</option>
+-                          <option value="PREFIX">{boneText[locale][3]}</option>
+-                          <option value="SUFFIX">{boneText[locale][4]}</option>
+-                        </select>
+-                      </label>
+-                    )}
+-                    {!draft.activeOmens.includes('Omen_of_Putrefaction') &&
+-                      concrete &&
+-                      concrete.explicits.length >=
+-                        (isWorkbenchJewel(concrete.baseItemId)
+-                          ? jewelCapacity(concrete, 'PREFIX') +
+-                            jewelCapacity(concrete, 'SUFFIX')
+-                          : 6) && (
+-                        <label>
+-                          {boneText[locale][5]}
+-                          <select
+-                            value={boneRemoved}
+-                            onChange={(event) =>
+-                              setBoneRemoved(event.target.value)
+-                            }
+-                          >
+-                            <option value="">{boneText[locale][2]}</option>
+-                            {concrete.explicits.map((modifier, index) =>
+-                              modifier.fractured ? null : (
+-                                <option
+-                                  key={modifier.modifierId}
+-                                  value={`explicit-${index}`}
+-                                >
+-                                  {initial.data?.modifiers[modifier.modifierId]
+-                                    ? localizedModifierText(
+-                                        initial.data.modifiers[
+-                                          modifier.modifierId
+-                                        ]!,
+-                                        modifier.values,
+-                                      )
+-                                    : modifier.modifierId}
+-                                </option>
+-                              ),
+-                            )}
+-                          </select>
+-                        </label>
+-                      )}
++                    ) : null}
+                   </fieldset>
+                 )}
+                 {draft.activeOmens.includes('Omen_of_Whittling') && (
+@@ -1690,11 +1652,7 @@
+                   )}
+                 {!canCraft && (
+                   <p>
+-                    {t(
+-                      concrete?.desecrated?.length
+-                        ? 'notice.use_abyss'
+-                        : 'notice.pasted_display',
+-                    )}
++                    {t('notice.pasted_display')}
+                   </p>
+                 )}
+                 {draft.source === 'text' && imported.data && !importedBase && (

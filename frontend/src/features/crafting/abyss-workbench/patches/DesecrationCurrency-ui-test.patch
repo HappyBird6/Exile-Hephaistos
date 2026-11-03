@@ -1,0 +1,16 @@
+--- a/frontend/src/features/crafting/DesecrationCurrency.test.tsx
++++ b/frontend/src/features/crafting/DesecrationCurrency.test.tsx
+@@ -226,12 +226,7 @@
+     fireEvent.click(
+       screen.getByRole('button', { name: 'Preserved Collarbone' }),
+     )
+-    if (omen)
+-      expect(screen.getByLabelText('Observed affix side')).toBeDisabled()
+-    else
+-      fireEvent.change(screen.getByLabelText('Observed affix side'), {
+-        target: { value: side },
+-      })
++    expect(screen.queryByLabelText('Observed affix side')).not.toBeInTheDocument()
+     fireEvent.click(
+       screen.getByRole('button', {
+         name: 'Use selected currency on the central item',
