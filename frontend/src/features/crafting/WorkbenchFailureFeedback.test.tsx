@@ -91,9 +91,9 @@ it('shows only a failed-use reason, preserves history and clears it on a new sel
   expect(localStorage.getItem(historyStorageKey)).toBe(before)
   expect(useItemDraft.getState().activeOmens).toEqual(['Omen_of_Whittling'])
   expect(panel()).not.toHaveTextContent(/unchanged|preserved/)
-  expect(screen.getByRole('status')).not.toHaveTextContent(
-    /unchanged|preserved/,
-  )
+  expect(
+    document.querySelector('.craft-page > .sr-only[role="status"]'),
+  ).not.toHaveTextContent(/unchanged|preserved/)
   expect(panel()?.parentElement).toBe(region)
   expect(region.previousElementSibling).toBe(history)
   fireEvent.click(currencyButton('Orb of Transmutation'))
@@ -154,7 +154,7 @@ it('shows the Korean rule failure without redundant preservation text in feedbac
   await waitFor(() => expect(panel()).toHaveAttribute('role', 'alert'))
   expect(panel()).toHaveTextContent('규칙에 의해 제작 차단:')
   expect(panel()).not.toHaveTextContent(/아이템은 변경되지|활성 징조는 유지/)
-  expect(screen.getByRole('status')).not.toHaveTextContent(
-    /아이템은 변경되지|활성 징조는 유지/,
-  )
+  expect(
+    document.querySelector('.craft-page > .sr-only[role="status"]'),
+  ).not.toHaveTextContent(/아이템은 변경되지|활성 징조는 유지/)
 })

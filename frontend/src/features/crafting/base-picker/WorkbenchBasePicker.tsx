@@ -99,7 +99,9 @@ function BasePickerContent({
               aria-label={messages.category}
               id={`${fieldId}-category`}
               value={category}
+              disabled={disabled}
               onChange={(event) => {
+                if (disabled) return
                 setCategory(event.target.value as BaseCategory | 'all')
                 setSubtype('all')
                 setHovered(null)
@@ -118,7 +120,9 @@ function BasePickerContent({
               aria-label={messages.subtype}
               id={`${fieldId}-subtype`}
               value={subtype}
+              disabled={disabled}
               onChange={(event) => {
+                if (disabled) return
                 setSubtype(event.target.value)
                 setHovered(null)
               }}
@@ -137,7 +141,9 @@ function BasePickerContent({
             aria-label={t('ui.search')}
             placeholder={t('ui.search')}
             value={search}
+            disabled={disabled}
             onChange={(event) => {
+              if (disabled) return
               setSearch(event.target.value)
               setHovered(null)
             }}
@@ -155,7 +161,10 @@ function BasePickerContent({
                 max="100"
                 step="1"
                 value={level}
-                onChange={(event) => onLevelChange(event.target.value)}
+                disabled={disabled}
+                onChange={(event) => {
+                  if (!disabled) onLevelChange(event.target.value)
+                }}
                 aria-invalid={!levelValid}
                 aria-describedby={
                   !levelValid ? `${fieldId}-level-error` : undefined

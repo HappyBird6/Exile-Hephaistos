@@ -329,9 +329,9 @@ describe('Workbench actual application', () => {
     show()
     await selectAndApply()
     await waitFor(() =>
-      expect(screen.getByRole('status')).toHaveTextContent(
-        'Could not apply currency. Please retry.',
-      ),
+      expect(
+        document.querySelector('.craft-page > .sr-only[role="status"]'),
+      ).toHaveTextContent('Could not apply currency. Please retry.'),
     )
     expect(screen.getByRole('article')).toHaveClass('item-card--normal')
     expect(

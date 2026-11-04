@@ -199,6 +199,9 @@ export function AbyssPanel({
   restoredState,
   onTransition,
   onContinue,
+  externalBusy = false,
+  canMutate,
+  onBusyChange,
 }: {
   source: ConcreteItem
   initial: Initial
@@ -213,6 +216,9 @@ export function AbyssPanel({
   directSelection?: boolean
   onTransition?: (state: AbyssState, transition: FlowTransition) => void
   onContinue?: (state: AbyssState, item: Item) => void
+  externalBusy?: boolean
+  canMutate?: () => boolean
+  onBusyChange?: (busy: boolean) => void
 }) {
   const { locale } = useI18n()
   const t = texts[locale]
@@ -398,7 +404,21 @@ export function AbyssPanel({
       }
       focus.current?.focus()
     },
+    onSettled: () => {
+      mutationPending.current = false
+      onBusyChange?.(false)
+    },
   })
+  const mutationPending = useRef(false)
+  useEffect(() => {
+    onBusyChange?.(query.isFetching || mutation.isPending)
+  }, [query.isFetching, mutation.isPending, onBusyChange])
+  useEffect(
+    () => () => {
+      onBusyChange?.(false)
+    },
+    [onBusyChange],
+  )
   const plan = useQuery({
     queryKey: [...key, 'plan', state, draft.action, activeOmens],
     enabled:
@@ -488,13 +508,40 @@ export function AbyssPanel({
   )
   const label = (d: Definition, values?: Record<string, number>) =>
     localizedModifierText(d, values)
-  const busy = mutation.isPending || query.isFetching || immutable
+  const busy =
+    externalBusy || mutation.isPending || query.isFetching || immutable
   const submit = (operation: string, payload: Record<string, unknown>) => {
-    if (!immutable) mutation.mutate({ operation, payload })
+    if (busy || mutationPending.current || canMutate?.() === false) return
+    mutationPending.current = true
+    onBusyChange?.(true)
+    mutation.mutate({ operation, payload })
   }
   if (!open) return null
   return (
-    <section className="abyss-panel">
+    <section
+      className="abyss-panel"
+      aria-busy={busy}
+      onClickCapture={(event) => {
+        if (
+          externalBusy ||
+          mutationPending.current ||
+          canMutate?.() === false
+        ) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+      }}
+      onChangeCapture={(event) => {
+        if (
+          externalBusy ||
+          mutationPending.current ||
+          canMutate?.() === false
+        ) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+      }}
+    >
       {open && (
         <>
           {!directSelection && <p>{t[20]}</p>}
@@ -508,9 +555,7 @@ export function AbyssPanel({
               {onContinue && (
                 <button
                   disabled={
-                    mutation.isPending ||
-                    query.isFetching ||
-                    !materializeAbyss(state)
+                    busy || query.isFetching || !materializeAbyss(state)
                   }
                   onClick={() => {
                     const item = materializeAbyss(state)
@@ -544,6 +589,7 @@ export function AbyssPanel({
               <label>
                 {t[5]}{' '}
                 <select
+                  disabled={busy}
                   ref={focus}
                   value={draft.slotId}
                   onChange={(e) => {

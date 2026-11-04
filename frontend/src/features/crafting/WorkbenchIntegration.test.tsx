@@ -263,7 +263,7 @@ it('returns focus to the relocated base and edit buttons after overlay close and
   expect(edit).toHaveAttribute('aria-controls', input.id)
   expect(edit).toHaveAttribute('aria-expanded', 'true')
   expect(screen.getByRole('button', { name: 'Close item input' })).toHaveFocus()
-  fireEvent.change(screen.getByRole('textbox'), {
+  fireEvent.change(within(input).getByRole('textbox'), {
     target: { value: 'Draft to keep' },
   })
   fireEvent.keyDown(window, { key: 'Escape' })
@@ -293,9 +293,9 @@ it('starts a new craft from the relocated control and preserves the existing fil
   vi.stubGlobal('fetch', () => Promise.resolve(jsonResponse({}, 500)))
   fireEvent.click(newCraft)
   await waitFor(() =>
-    expect(screen.getByRole('status')).toHaveTextContent(
-      'Could not load the selected base.',
-    ),
+    expect(
+      document.querySelector('.craft-page > .sr-only[role="status"]'),
+    ).toHaveTextContent('Could not load the selected base.'),
   )
   expect(useItemDraft.getState().baseRevision).toBe(revision)
   expect(localStorage.getItem(historyStorageKey)).toBe(bytes)
