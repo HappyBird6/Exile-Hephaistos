@@ -21,6 +21,7 @@ public final class WorkbenchController {
   private final SolarTextMapper mapper;
   private final ItemTextService parser;
   private final ObjectMapper json;
+  private final WorkbenchStateReader stateReader;
   private final SecureRandom random = new SecureRandom();
   private final JsonNode registry = CraftingRegistryLoader.load();
 
@@ -33,6 +34,7 @@ public final class WorkbenchController {
     this.mapper = mapper;
     this.parser = parser;
     this.json = json;
+    this.stateReader = new WorkbenchStateReader(simulator, json);
   }
 
   @GetMapping("/registry")
@@ -79,141 +81,11 @@ public final class WorkbenchController {
 
   /** Unknown item properties must never vanish during Jackson conversion or crafting. */
   private ItemState concreteState(JsonNode input) {
-    return concreteState(input, false);
+    return stateReader.concreteState(input);
   }
 
   private ItemState concreteState(JsonNode input, boolean allowDesecrated) {
-    var fields =
-        Set.of(
-            "snapshotId",
-            "baseItemId",
-            "itemLevel",
-            "rarity",
-            "implicits",
-            "explicits",
-            "conditions",
-            "augmentSockets",
-            "catalystQuality",
-            "equipmentQuality",
-            "observations",
-            "sanctification",
-            "desecrated",
-            "modifierIds");
-    if (input == null || !input.isObject())
-      throw new IllegalArgumentException("Concrete item state required");
-    input
-        .fieldNames()
-        .forEachRemaining(
-            name -> {
-              if (!fields.contains(name)) throw new UnsupportedItemProperties();
-            });
-    var desecrated = input.get("desecrated");
-    // Common automatic states use the slot-aware simulator; this editor is concrete-only.
-    if (desecrated != null) {
-      if (!desecrated.isArray() || (!allowDesecrated && !desecrated.isEmpty()))
-        throw new UnsupportedItemProperties();
-      for (var slot : desecrated) {
-        if (!slot.isObject()
-            || slot.size()
-                != 3 + (slot.has("minimumModifierLevel") ? 1 : 0) + (slot.has("revealPool") ? 1 : 0)
-            || (slot.has("minimumModifierLevel")
-                && !slot.path("minimumModifierLevel").isNull()
-                && !(slot.path("minimumModifierLevel").isIntegralNumber()
-                    && slot.path("minimumModifierLevel").intValue() == 40))
-            || !slot.path("id").isTextual()
-            || !slot.path("side").isTextual()
-            || !slot.has("modifierId")
-            || !(slot.get("modifierId").isNull() || slot.get("modifierId").isTextual()))
-          throw new UnsupportedItemProperties();
-      }
-    }
-    var observations = input.get("observations");
-    if (observations != null && !observations.isNull()) {
-      if (!observations.isObject()
-          || observations.size() != 3
-          || !observations.has("socketCount")
-          || !observations.path("augmentEffects").isArray()
-          || !observations.path("grantedSkills").isArray()) throw new UnsupportedItemProperties();
-      var count = observations.get("socketCount");
-      if (!count.isNull() && (!count.isIntegralNumber() || !count.canConvertToInt()))
-        throw new UnsupportedItemProperties();
-      for (var effect : observations.path("augmentEffects"))
-        if (!effect.isTextual()) throw new UnsupportedItemProperties();
-      for (var skill : observations.path("grantedSkills"))
-        if (!skill.isObject()
-            || skill.size() != 2
-            || !skill.path("name").isTextual()
-            || !skill.has("level")
-            || (!skill.get("level").isNull()
-                && (!skill.get("level").isIntegralNumber()
-                    || !skill.get("level").canConvertToInt())))
-          throw new UnsupportedItemProperties();
-    }
-    var sanctification = input.get("sanctification");
-    if (sanctification != null && !sanctification.isNull()) {
-      if (!sanctification.isObject()
-          || sanctification.size() != 3
-          || !sanctification.path("policy").isTextual()) throw new UnsupportedItemProperties();
-      for (String layer : List.of("implicits", "explicits")) {
-        var factors = sanctification.path(layer);
-        if (!factors.isObject()) throw new UnsupportedItemProperties();
-        for (var modifier : factors) {
-          if (!modifier.isObject()) throw new UnsupportedItemProperties();
-          for (var factor : modifier) {
-            if (!factor.isIntegralNumber()
-                || !factor.canConvertToInt()
-                || factor.intValue() < 78
-                || factor.intValue() > 122) throw new UnsupportedItemProperties();
-          }
-        }
-      }
-    }
-    var equipmentQuality = input.get("equipmentQuality");
-    if (equipmentQuality != null
-        && !equipmentQuality.isNull()
-        && (!equipmentQuality.isIntegralNumber() || !equipmentQuality.canConvertToInt()))
-      throw new UnsupportedItemProperties();
-    var sockets = input.get("augmentSockets");
-    if (sockets != null
-        && !sockets.isNull()
-        && (!sockets.isIntegralNumber() || !sockets.canConvertToInt()))
-      throw new IllegalArgumentException("Integral socket count required");
-    var modifierFields = Set.of("modifierId", "values", "fractured");
-    var quality = input.get("catalystQuality");
-    if (quality != null && !quality.isNull()) {
-      if (!quality.isObject()
-          || quality.size() != 2
-          || !quality.has("type")
-          || !quality.has("amount")
-          || !quality.get("type").isTextual()
-          || !quality.get("amount").isIntegralNumber()
-          || !quality.get("amount").canConvertToInt()) throw new UnsupportedItemProperties();
-    }
-    for (String layer : List.of("implicits", "explicits")) {
-      var modifiers = input.get(layer);
-      if (modifiers == null || !modifiers.isArray())
-        throw new IllegalArgumentException("Concrete modifiers required");
-      for (var instance : modifiers) {
-        if (!instance.isObject()) throw new IllegalArgumentException("Concrete modifier required");
-        instance
-            .fieldNames()
-            .forEachRemaining(
-                name -> {
-                  if (!modifierFields.contains(name)) throw new UnsupportedItemProperties();
-                });
-        var values = instance.get("values");
-        if (values == null || !values.isObject()) throw new UnsupportedItemProperties();
-        values
-            .elements()
-            .forEachRemaining(
-                value -> {
-                  if (!value.isIntegralNumber() || !value.canConvertToLong())
-                    throw new UnsupportedItemProperties();
-                });
-      }
-    }
-    // modifierIds is legacy derived bucket metadata, never an authoritative item property.
-    return json.convertValue(input, ItemState.class);
+    return stateReader.concreteState(input, allowDesecrated);
   }
 
   public record AbyssRequest(
@@ -227,23 +99,7 @@ public final class WorkbenchController {
       Set<String> targetIds) {}
 
   private com.poe2craft.crafting.domain.AbyssCraftingState abyssState(JsonNode input) {
-    try {
-      if (input == null || !input.isObject())
-        throw new IllegalArgumentException("Abyss state required");
-      validateAbyssNumbers(input);
-      concreteState(input.get("item"));
-      var state =
-          json.readerFor(com.poe2craft.crafting.domain.AbyssCraftingState.class)
-              .with(
-                  com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-              .without(com.fasterxml.jackson.databind.DeserializationFeature.ACCEPT_FLOAT_AS_INT)
-              .readValue(input.traverse(json));
-      var result = (com.poe2craft.crafting.domain.AbyssCraftingState) state;
-      result.validate(simulator.abyssCatalog(result.item()));
-      return result;
-    } catch (java.io.IOException invalid) {
-      throw new IllegalArgumentException("Invalid Abyss state");
-    }
+    return stateReader.abyssState(input);
   }
 
   private List<com.poe2craft.item.ModifierInstance> abyssCandidates(JsonNode input) {

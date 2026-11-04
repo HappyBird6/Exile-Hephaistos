@@ -26,6 +26,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.flywaydb:flyway-core")
+    implementation("com.google.re2j:re2j:1.8")
     runtimeOnly("org.flywaydb:flyway-database-postgresql")
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("org.xerial:sqlite-jdbc:3.53.4.0")
@@ -63,3 +64,11 @@ tasks.register<JavaExec>("generateJooq") {
 }
 spotless { java { target("src/**/*.java"); googleJavaFormat("1.28.0") } }
 tasks.bootJar { archiveFileName = "poe2craft.jar" }
+
+// Copy the exact shared frontend asset; no reserialization or second maintained template copy.
+val chaosDisplayResources by tasks.registering(Copy::class) {
+    from(layout.projectDirectory.file("../frontend/src/shared/i18n/modifierTemplates.json"))
+    into(layout.buildDirectory.dir("generated-resources/chaosrepeat/chaosrepeat"))
+}
+sourceSets.main { resources.srcDir(layout.buildDirectory.dir("generated-resources/chaosrepeat")) }
+tasks.processResources { dependsOn(chaosDisplayResources) }
