@@ -217,6 +217,219 @@ it.each(locales)(
   },
 )
 
+it.each([
+  ['Chaos_Orb', 'CHAOS', 'Omen_of_Sinistral_Necromancy'],
+  ['Greater_Chaos_Orb', 'GREATER_CHAOS', 'Omen_of_Dextral_Necromancy'],
+  ['Perfect_Chaos_Orb', 'PERFECT_CHAOS', 'Omen_of_Putrefaction'],
+  ['Chaos_Orb', 'CHAOS', 'Omen_of_the_Liege'],
+  ['Greater_Chaos_Orb', 'GREATER_CHAOS', 'Omen_of_the_Sovereign'],
+  ['Perfect_Chaos_Orb', 'PERFECT_CHAOS', 'Omen_of_the_Blackblooded'],
+] as const)(
+  'sends only the engine omen for %s %s and preserves dormant %s on Abyss',
+  async (id, action, dormant) => {
+    seed('ABYSS')
+    useItemDraft
+      .getState()
+      .setActiveOmens([dormant, 'Omen_of_Sinistral_Erasure'])
+    reply = (request, body) =>
+      request.activeOmens.length === 1 &&
+      request.activeOmens[0] === 'Omen_of_Sinistral_Erasure'
+        ? batchResponse(positive(request, body))
+        : batchResponse({ code: 'INVALID_CHAOS_REPEAT_REQUEST' }, 422)
+    show()
+    await waitFor(() =>
+      expect(screen.getByRole('button', { name: 'Reveal' })).toBeEnabled(),
+    )
+    configure(id)
+    fireEvent.click(slot())
+    await finished()
+    expect(requests).toHaveLength(1)
+    expect(requests[0]).toMatchObject({
+      action,
+      state: { kind: 'ABYSS' },
+      activeOmens: ['Omen_of_Sinistral_Erasure'],
+    })
+    expect(useItemDraft.getState().activeOmens).toEqual([dormant])
+    const frame = currentFrame(stored())!
+    expect(currentFilm(stored())!.frames).toHaveLength(2)
+    expect(frame.chaosRepeat).toEqual({ version: 1, action, uses: 3 })
+    expect(frame.manual?.consumedOmens).toEqual(['Omen_of_Sinistral_Erasure'])
+    expect(frame.chaosRepeatWitness).toMatchObject({
+      kind: 'ABYSS',
+      consumedOmens: [],
+      remainingOmens: [],
+    })
+    expect(frame.chaosRepeatWitness).not.toHaveProperty('events')
+    expect(frame.chaosRepeatWitness).not.toHaveProperty('assumptions')
+    expect(frame.evidence).toBeUndefined()
+    expect(frame.abyss?.slots[1]!.modifier).toBeNull()
+  },
+)
+
+it.each(['LIMIT', 'INAPPLICABLE', 'ERROR'] as const)(
+  'restores dormant bone omens after a verified positive Abyss %s result',
+  async (termination) => {
+    seed('ABYSS')
+    useItemDraft
+      .getState()
+      .setActiveOmens(['Omen_of_Putrefaction', 'Omen_of_Sinistral_Erasure'])
+    const uses = termination === 'LIMIT' ? 3 : 2
+    reply = (request, body) => {
+      const value = positive(request, body, uses)
+      value.termination = termination
+      if (termination === 'INAPPLICABLE')
+        value.lastRejection = {
+          code: 'CURRENCY_INAPPLICABLE',
+          reason: 'Synthetic boundary',
+        }
+      if (termination === 'ERROR')
+        value.failure = { code: 'REPEAT_EXECUTION_FAILED', stage: 'APPLY' }
+      return batchResponse(
+        termination === 'ERROR'
+          ? { status: 500, partialOutcome: value }
+          : value,
+        termination === 'ERROR' ? 500 : 200,
+      )
+    }
+    show()
+    await waitFor(() =>
+      expect(screen.getByRole('button', { name: 'Reveal' })).toBeEnabled(),
+    )
+    configure('Perfect_Chaos_Orb', '3')
+    fireEvent.click(slot())
+    await finished(uses)
+    expect(requests[0]!.activeOmens).toEqual(['Omen_of_Sinistral_Erasure'])
+    expect(useItemDraft.getState().activeOmens).toEqual([
+      'Omen_of_Putrefaction',
+    ])
+    expect(currentFrame(stored())!.manual?.consumedOmens).toEqual([
+      'Omen_of_Sinistral_Erasure',
+    ])
+    expect(currentFrame(stored())!.chaosRepeat?.uses).toBe(uses)
+    expect(currentFilm(stored())!.frames).toHaveLength(2)
+  },
+)
+
+it.each([
+  'no-use',
+  'zero-error',
+  'uncertain',
+  'invalid-response',
+  'rejected',
+] as const)(
+  'preserves the full Abyss omen context and bytes on %s',
+  async (kind) => {
+    seed('ABYSS')
+    const omens = ['Omen_of_Putrefaction', 'Omen_of_Sinistral_Erasure']
+    useItemDraft.getState().setActiveOmens(omens)
+    reply = (request, body) => {
+      if (kind === 'uncertain')
+        return Promise.reject(new Error('Synthetic network failure'))
+      if (kind === 'rejected')
+        return batchResponse({ code: 'INVALID_CHAOS_REPEAT_REQUEST' }, 422)
+      const value = positive(request, body)
+      if (kind === 'invalid-response') {
+        value.requestBinding.requestSha256 = 'wrong'
+        return batchResponse(value)
+      }
+      value.actualUses = 0
+      value.finalState = structuredClone(request.state)
+      value.consumedOmens = {}
+      value.remainingOmens = [...request.activeOmens]
+      value.lastAppliedWitness = null
+      if (kind === 'zero-error') {
+        value.termination = 'ERROR'
+        value.failure = { code: 'REPEAT_EXECUTION_FAILED', stage: 'APPLY' }
+        return batchResponse({ status: 500, partialOutcome: value }, 500)
+      }
+      value.termination = 'INAPPLICABLE'
+      value.lastRejection = {
+        code: 'CURRENCY_INAPPLICABLE',
+        reason: 'Synthetic boundary',
+      }
+      return batchResponse(value)
+    }
+    const before = localStorage.getItem(historyStorageKey)
+    show()
+    await waitFor(() =>
+      expect(screen.getByRole('button', { name: 'Reveal' })).toBeEnabled(),
+    )
+    configure('Greater_Chaos_Orb')
+    fireEvent.click(slot())
+    const resultKind =
+      kind === 'no-use' || kind === 'zero-error'
+        ? 'noUse'
+        : kind === 'invalid-response'
+          ? 'invalid'
+          : kind
+    await waitFor(() =>
+      expect(
+        document.querySelector('.workbench-feedback-panel'),
+      ).toHaveTextContent(chaosRepeatResultMessage('en', resultKind)),
+    )
+    expect(requests).toHaveLength(1)
+    expect(requests[0]!.activeOmens).toEqual(['Omen_of_Sinistral_Erasure'])
+    expect(useItemDraft.getState().activeOmens).toEqual(omens)
+    expect(localStorage.getItem(historyStorageKey)).toBe(before)
+    expect(currentFilm(stored())!.frames).toHaveLength(1)
+  },
+)
+
+it('rejects a late Abyss result when only the dormant part of the captured omen context changed', async () => {
+  seed('ABYSS')
+  let complete!: (response: Response) => void
+  let captured!: { request: ChaosRepeatRequest; body: string }
+  reply = (request, body) => {
+    captured = { request, body }
+    return new Promise<Response>((resolve) => {
+      complete = resolve
+    })
+  }
+  const before = localStorage.getItem(historyStorageKey)
+  show()
+  await waitFor(() =>
+    expect(screen.getByRole('button', { name: 'Reveal' })).toBeEnabled(),
+  )
+  configure()
+  fireEvent.click(slot())
+  await waitFor(() => expect(requests).toHaveLength(1))
+  expect(requests[0]!.activeOmens).toEqual(['Omen_of_Sinistral_Erasure'])
+  const newer = ['Omen_of_Sinistral_Erasure', 'Omen_of_Dextral_Necromancy']
+  act(() => useItemDraft.getState().setActiveOmens(newer))
+  await act(async () => {
+    complete(batchResponse(positive(captured.request, captured.body)))
+    await new Promise((resolve) => setTimeout(resolve, 0))
+  })
+  await waitFor(() => expect(slot()).toBeEnabled())
+  expect(useItemDraft.getState().activeOmens).toEqual(newer)
+  expect(localStorage.getItem(historyStorageKey)).toBe(before)
+})
+
+it('retains unknown omen IDs for rejection instead of silently filtering them with dormant bones', async () => {
+  seed('ABYSS')
+  const omens = [
+    'Omen_of_Putrefaction',
+    'Omen_of_Sinistral_Erasure',
+    'Unsupported_Omen',
+  ]
+  useItemDraft.getState().setActiveOmens(omens)
+  const before = localStorage.getItem(historyStorageKey)
+  show()
+  await waitFor(() =>
+    expect(screen.getByRole('button', { name: 'Reveal' })).toBeEnabled(),
+  )
+  configure()
+  fireEvent.click(slot())
+  await waitFor(() =>
+    expect(
+      document.querySelector('.workbench-feedback-panel'),
+    ).toHaveTextContent(chaosRepeatResultMessage('en', 'rejected')),
+  )
+  expect(requests).toHaveLength(0)
+  expect(useItemDraft.getState().activeOmens).toEqual(omens)
+  expect(localStorage.getItem(historyStorageKey)).toBe(before)
+})
+
 it('treats the limit as a normal final result with the exact confirmed count', async () => {
   reply = (request, body) =>
     batchResponse({ ...positive(request, body), termination: 'LIMIT' })

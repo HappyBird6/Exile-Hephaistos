@@ -394,7 +394,28 @@ export function CraftingPage() {
   const applyingRequest = useRef<AbortController | null>(null)
   const placementRequest = useRef(0)
   const placementPending = useRef(false)
+  const inputRequestGeneration = useRef(0)
+  const inputFilm = useRef(filmState)
+  useLayoutEffect(() => {
+    inputFilm.current = filmState
+  }, [filmState])
+  useEffect(
+    () => () => {
+      inputRequestGeneration.current++
+    },
+    [],
+  )
   const workbenchBusy = applying !== null || abyssBusy || imported.pending
+  const inputBusy = applying !== null || abyssBusy
+  const inputMutationLocked = useCallback(
+    () =>
+      Boolean(
+        applyingRequest.current ||
+        placementPending.current ||
+        abyssBusyRef.current,
+      ),
+    [],
+  )
   const mutationLocked = useCallback(
     () =>
       Boolean(
@@ -670,7 +691,12 @@ export function CraftingPage() {
   }, [inputOpen])
   useEffect(() => {
     const cancel = (event: KeyboardEvent) => {
-      if (mutationLocked()) return
+      if (
+        inputOpen && event.key === 'Escape'
+          ? inputMutationLocked()
+          : mutationLocked()
+      )
+        return
       if (event.key === 'Alt') setAltHeld(true)
       if (event.key === 'Escape') {
         setFailedApplication(null)
@@ -701,7 +727,7 @@ export function CraftingPage() {
       window.removeEventListener('keyup', release)
       window.removeEventListener('blur', hide)
     }
-  }, [inputOpen, mutationLocked])
+  }, [inputOpen, mutationLocked, inputMutationLocked])
 
   function choose(resource: Selection) {
     if (mutationLocked()) return
@@ -845,19 +871,23 @@ export function CraftingPage() {
     try {
       if (repeatingChaos) {
         setRepeatErrors({})
+        const abyssRepeat = Boolean(
+          state.desecrated?.length || storedFrame?.abyss,
+        )
+        const dormant = abyssRepeat ? boneConsumedOmens(draft.activeOmens) : []
         const request: ChaosRepeatRequest = {
           requestId: crypto.randomUUID(),
-          state:
-            state.desecrated?.length || storedFrame?.abyss
-              ? {
-                  kind: 'ABYSS',
-                  abyss:
-                    storedFrame?.abyss ??
-                    abyssFromConcrete(state, initial.data),
-                }
-              : { kind: 'CONCRETE', item: state },
+          state: abyssRepeat
+            ? {
+                kind: 'ABYSS',
+                abyss:
+                  storedFrame?.abyss ?? abyssFromConcrete(state, initial.data),
+              }
+            : { kind: 'CONCRETE', item: state },
           action,
-          activeOmens: [...draft.activeOmens],
+          activeOmens: abyssRepeat
+            ? boneRemainingOmens(draft.activeOmens)
+            : [...draft.activeOmens],
           pattern: repeatPattern,
           locale,
           maximumUses: maximumUses!,
@@ -896,7 +926,7 @@ export function CraftingPage() {
           appliedRepeatRequests.current.add(request.requestId)
           client.setQueryData(['crafting', 'chaos-repeat', revision], result)
           saveFilms(next, revision)
-          draft.setActiveOmens(result.remainingOmens)
+          draft.setActiveOmens([...result.remainingOmens, ...dormant])
           const message = chaosRepeatResultMessage(
             locale,
             result.kind === 'partial'
@@ -1126,11 +1156,34 @@ export function CraftingPage() {
   }
   async function importText() {
     if (mutationLocked()) return
-    if (await imported.submit(draft.text)) {
-      saveFilms(
-        { ...filmState.history, active: null, cursor: 0 },
-        useItemDraft.getState().baseRevision,
-      )
+    const generation = ++inputRequestGeneration.current
+    const original = useItemDraft.getState()
+    const originalLocale = getLocale()
+    const history = filmState.history
+    const filmRevision = filmState.revision
+    const accepted = await imported.submit(original.text)
+    const current = useItemDraft.getState()
+    const sameItemContext = accepted
+      ? current.baseRevision === original.baseRevision + 1 &&
+        current.source === 'text' &&
+        current.currentText.text === original.text
+      : current.baseRevision === original.baseRevision &&
+        current.source === original.source &&
+        current.currentText === original.currentText
+    // The hook rejects stale server data; the Page must also discard its own
+    // cancelled continuation before it can clear a newer currency selection.
+    if (
+      generation !== inputRequestGeneration.current ||
+      inputMutationLocked() ||
+      !sameItemContext ||
+      current.text !== original.text ||
+      getLocale() !== originalLocale ||
+      inputFilm.current.history !== history ||
+      inputFilm.current.revision !== filmRevision
+    )
+      return
+    if (accepted) {
+      saveFilms({ ...history, active: null, cursor: 0 }, current.baseRevision)
       closeInput()
     }
     setSelected(null)
@@ -1198,9 +1251,13 @@ export function CraftingPage() {
       }
     }
   }
-  function closeInput() {
-    if (mutationLocked()) return
+  function invalidateInput() {
+    inputRequestGeneration.current++
     imported.invalidate()
+  }
+  function closeInput() {
+    if (inputMutationLocked()) return
+    invalidateInput()
     setInputOpen(false)
     ;(inputOpener.current ?? inputToggle.current)?.focus()
   }
@@ -1793,7 +1850,7 @@ export function CraftingPage() {
                       disabled={workbenchBusy}
                       onClick={() => {
                         if (mutationLocked()) return
-                        imported.invalidate()
+                        invalidateInput()
                         void startBase(catalogLevel, catalogBase)
                       }}
                     >
@@ -2293,7 +2350,7 @@ export function CraftingPage() {
             }
             onPlace={() => {
               if (mutationLocked()) return
-              imported.invalidate()
+              invalidateInput()
               void startBase(
                 Number(baseLevel),
                 baseChoice,
@@ -2367,7 +2424,7 @@ export function CraftingPage() {
                 type="button"
                 className="input-close"
                 aria-label={t('ui.close_item_input')}
-                disabled={workbenchBusy}
+                disabled={inputBusy}
                 onClick={closeInput}
               >
                 ×
@@ -2383,10 +2440,10 @@ export function CraftingPage() {
                 <textarea
                   id="item-text"
                   value={draft.text}
-                  disabled={workbenchBusy}
+                  disabled={inputBusy}
                   onChange={(event) => {
-                    if (mutationLocked()) return
-                    imported.invalidate()
+                    if (inputMutationLocked()) return
+                    invalidateInput()
                     draft.setText(event.target.value)
                   }}
                   placeholder={
