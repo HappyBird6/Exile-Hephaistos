@@ -83,12 +83,6 @@
   object-fit: contain;
   pointer-events: none;
 }
-.workbench-stash__name {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-}
 .workbench-stash__empty {
   grid-column: 1 / -1;
   margin: 8px 0;
