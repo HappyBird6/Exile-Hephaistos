@@ -61,7 +61,8 @@ class ChaosRepeatRunnerTest {
           }
           var actual = runner.run(start, action, omens, 17, new Random(seed), s -> false);
           assertThat(actual)
-              .isEqualTo(new Outcome(state, 17, consumed, remaining, last, LIMIT, null));
+              .isEqualTo(new Outcome(state, 17, consumed, remaining, last, last, LIMIT, null));
+          assertCompletedWitness(actual);
           assertThat(start).isEqualTo(rare(level));
         }
       }
@@ -167,6 +168,7 @@ class ChaosRepeatRunnerTest {
     assertThat(actual.completedUses()).isEqualTo(1);
     assertThat(actual.termination()).isEqualTo(MATCH);
     assertThat(actual.lastResult()).isSameAs(fixed);
+    assertThat(actual.lastAppliedResult()).isSameAs(fixed);
     assertThat(matcherCalls).hasValue(1);
   }
 
@@ -210,6 +212,7 @@ class ChaosRepeatRunnerTest {
     assertThat(calls).hasValue(501);
     assertThat(actual.state()).isSameAs(start);
     assertThat(actual.lastResult()).isSameAs(fixed);
+    assertCompletedWitness(actual);
     assertThat(actual.termination()).isEqualTo(LIMIT);
   }
 
@@ -233,23 +236,43 @@ class ChaosRepeatRunnerTest {
     assertThat(actual.consumedOmens()).isEmpty();
     assertThat(actual.remainingOmens()).isEqualTo(omens);
     assertThat(actual.lastResult().applied()).isFalse();
+    assertCompletedWitness(actual);
   }
 
   @Test
   void laterUnavailableResultPreservesCompletedUsesAndFinalAttempt() {
     var start = rare(82);
+    var success = simulator.apply(start, WorkbenchCurrency.CHAOS, Set.of(), new Random(42));
     var rejected =
-        simulator.apply(
-            SolarAmulet.initial(catalog), WorkbenchCurrency.CHAOS, Set.of(), new Random(1));
+        new WorkbenchSimulator.Result(
+            success.ruleVersion(),
+            success.ledgerVersion(),
+            success.snapshotId(),
+            success.state(),
+            success.action(),
+            false,
+            "Unavailable final attempt",
+            List.of(),
+            List.of(),
+            List.of(),
+            success.remainingOmens(),
+            success.qualityLimit());
     var calls = new AtomicInteger();
     var actual =
         new ChaosRepeatRunner(
-                (s, a, o, r) -> calls.incrementAndGet() == 1 ? unchanged(start) : rejected)
-            .run(start, WorkbenchCurrency.CHAOS, Set.of(), 10, new Random(1), s -> false);
+                (s, a, o, r) ->
+                    calls.incrementAndGet() == 1 ? simulator.apply(s, a, o, r) : rejected)
+            .run(start, WorkbenchCurrency.CHAOS, Set.of(), 10, new Random(42), s -> false);
     assertThat(actual.termination()).isEqualTo(INAPPLICABLE);
     assertThat(actual.completedUses()).isEqualTo(1);
-    assertThat(actual.state()).isSameAs(start);
+    assertThat(actual.state()).isEqualTo(success.state());
     assertThat(actual.lastResult()).isSameAs(rejected);
+    assertThat(actual.lastResult().events()).isEmpty();
+    assertThat(actual.lastResult().assumptions()).isEmpty();
+    assertThat(actual.lastAppliedResult()).isEqualTo(success);
+    assertThat(actual.lastAppliedResult().events()).isNotEmpty();
+    assertThat(actual.lastAppliedResult().assumptions()).isNotEmpty();
+    assertCompletedWitness(actual);
     assertThat(calls).hasValue(2);
   }
 
@@ -291,7 +314,8 @@ class ChaosRepeatRunnerTest {
             .run(
                 start, WorkbenchCurrency.CHAOS, Set.of(), 5, new Random(1), s -> false, () -> true);
     assertThat(actual)
-        .isEqualTo(new Outcome(start, 0, Map.of(), Set.of(), null, STOP_REQUESTED, null));
+        .isEqualTo(new Outcome(start, 0, Map.of(), Set.of(), null, null, STOP_REQUESTED, null));
+    assertCompletedWitness(actual);
   }
 
   @Test
@@ -389,6 +413,7 @@ class ChaosRepeatRunnerTest {
     assertThat(actual.state()).isSameAs(start);
     assertThat(actual.completedUses()).isZero();
     assertThat(actual.lastResult()).isNull();
+    assertCompletedWitness(actual);
     assertThat(actual.consumedOmens()).isEmpty();
     assertThat(actual.remainingOmens()).containsExactly("unknown-omen");
   }
@@ -469,5 +494,19 @@ class ChaosRepeatRunnerTest {
     assertThat(actual.consumedOmens()).isEqualTo(expected.consumedOmens());
     assertThat(actual.remainingOmens()).isEqualTo(expected.remainingOmens());
     assertThat(actual.lastResult()).isEqualTo(expected.lastResult());
+    assertThat(actual.lastAppliedResult()).isEqualTo(expected.lastAppliedResult());
+    assertCompletedWitness(actual);
+  }
+
+  private static void assertCompletedWitness(Outcome actual) {
+    if (actual.completedUses() == 0) {
+      assertThat(actual.lastAppliedResult()).isNull();
+    } else {
+      assertThat(actual.lastAppliedResult()).isNotNull();
+      assertThat(actual.lastAppliedResult().applied()).isTrue();
+      assertThat(actual.lastAppliedResult().state()).isEqualTo(actual.state());
+      assertThat(actual.lastAppliedResult().remainingOmens())
+          .containsExactlyInAnyOrderElementsOf(actual.remainingOmens());
+    }
   }
 }
