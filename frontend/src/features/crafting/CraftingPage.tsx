@@ -1562,6 +1562,61 @@ export function CraftingPage() {
             <small>{t('ui.path_of_exile_2_crafting_workbench')}</small>
           </span>
         </a>
+        <nav className="workspace-nav" aria-label={t('ui.main_navigation')}>
+          <div role="tablist" aria-label={t('ui.crafting_workspace')}>
+            {workspaceTabs.map((tab, index) => (
+              <button
+                key={tab}
+                type="button"
+                role="tab"
+                id={`workspace-${tab}`}
+                aria-selected={view === tab}
+                aria-controls={`panel-${tab}`}
+                tabIndex={view === tab ? 0 : -1}
+                disabled={workbenchBusy}
+                onClick={() => {
+                  if (mutationLocked()) return
+                  setView(tab)
+                  setHeld(null)
+                  setSelected(null)
+                  setPointer(null)
+                }}
+                onKeyDown={(event) => {
+                  if (mutationLocked()) return
+                  if (
+                    !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(
+                      event.key,
+                    )
+                  )
+                    return
+                  event.preventDefault()
+                  const next =
+                    event.key === 'Home'
+                      ? 'workbench'
+                      : event.key === 'End'
+                        ? 'explorer'
+                        : workspaceTabs[
+                            (index +
+                              (event.key === 'ArrowRight' ? 1 : -1) +
+                              workspaceTabs.length) %
+                              workspaceTabs.length
+                          ]!
+                  setView(next)
+                  setHeld(null)
+                  setSelected(null)
+                  setPointer(null)
+                  document.getElementById(`workspace-${next}`)?.focus()
+                }}
+              >
+                <span aria-hidden="true">0{index + 1}</span>
+                {t(`workspace.${tab}`)}
+              </button>
+            ))}
+          </div>
+          <a className="workspace-admin" href="/admin">
+            {t('ui.admin')}
+          </a>
+        </nav>
         <fieldset
           className="chaos-repeat-language-lock"
           disabled={workbenchBusy}
@@ -1581,61 +1636,7 @@ export function CraftingPage() {
           <LocaleSelector />
         </fieldset>
       </header>
-      <nav className="workspace-nav" aria-label={t('ui.main_navigation')}>
-        <div role="tablist" aria-label={t('ui.crafting_workspace')}>
-          {workspaceTabs.map((tab, index) => (
-            <button
-              key={tab}
-              type="button"
-              role="tab"
-              id={`workspace-${tab}`}
-              aria-selected={view === tab}
-              aria-controls={`panel-${tab}`}
-              tabIndex={view === tab ? 0 : -1}
-              disabled={workbenchBusy}
-              onClick={() => {
-                if (mutationLocked()) return
-                setView(tab)
-                setHeld(null)
-                setSelected(null)
-                setPointer(null)
-              }}
-              onKeyDown={(event) => {
-                if (mutationLocked()) return
-                if (
-                  !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(
-                    event.key,
-                  )
-                )
-                  return
-                event.preventDefault()
-                const next =
-                  event.key === 'Home'
-                    ? 'workbench'
-                    : event.key === 'End'
-                      ? 'explorer'
-                      : workspaceTabs[
-                          (index +
-                            (event.key === 'ArrowRight' ? 1 : -1) +
-                            workspaceTabs.length) %
-                            workspaceTabs.length
-                        ]!
-                setView(next)
-                setHeld(null)
-                setSelected(null)
-                setPointer(null)
-                document.getElementById(`workspace-${next}`)?.focus()
-              }}
-            >
-              <span aria-hidden="true">0{index + 1}</span>
-              {t(`workspace.${tab}`)}
-            </button>
-          ))}
-        </div>
-        <a className="workspace-admin" href="/admin">
-          {t('ui.admin')}
-        </a>
-      </nav>
+
       <div className="craft-title">
         <div>
           <p className="craft-kicker">{t('ui.the_crafting_bench')}</p>

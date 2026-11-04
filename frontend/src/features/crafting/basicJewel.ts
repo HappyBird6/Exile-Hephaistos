@@ -122,7 +122,7 @@ export function reviewedBasicJewel(state: ConcreteItem): boolean {
   if (crafted > 1) return false
   return state.rarity === 'RARE' &&
     jewelExtra(state, 'PREFIX') + jewelExtra(state, 'SUFFIX') === 0
-    ? p <= 3 && s <= 3 && p + s <= 4
+    ? p <= 3 && s <= 3 && p + s <= 5
     : p <= jewelCapacity(state, 'PREFIX') && s <= jewelCapacity(state, 'SUFFIX')
 }
 export function jewelEffect(

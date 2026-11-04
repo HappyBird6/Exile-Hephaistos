@@ -93,6 +93,7 @@
   min-width: 0;
 }
 .workbench-item-controls > .item-input-toggle {
+  font-size: clamp(18px, 1.3vw, 20px) !important;
   box-sizing: border-box;
   display: flex;
   align-items: center;

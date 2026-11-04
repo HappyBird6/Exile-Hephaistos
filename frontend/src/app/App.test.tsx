@@ -46,6 +46,10 @@ describe('Crafting workbench', () => {
   })
   it('shows the reduced Currency tab', () => {
     show()
+    expect(document.querySelector('.craft-header .workspace-nav')).toBe(
+      document.querySelector('.workspace-nav'),
+    )
+    expect(document.querySelector('.craft-page > .workspace-nav')).toBeNull()
     expect(
       screen.getByRole('heading', { level: 1, name: 'Crafting workbench' }),
     ).toBeVisible()

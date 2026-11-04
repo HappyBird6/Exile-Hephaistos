@@ -20,18 +20,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   padding: 26px 0;
   border-bottom: 1px solid #34372f;
   gap: 20px;
 }
 .craft-brand {
   display: flex;
-  gap: 14px;
+  gap: 16.8px;
   align-items: center;
   color: #bfbcae;
   text-decoration: none;
   letter-spacing: 0.17em;
-  font-size: 13px;
+  font-size: 15.6px;
 }
 .craft-brand b {
   color: #e5d8b6;
@@ -40,18 +41,18 @@
 .brand-mark {
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 42px;
+  width: 45.6px;
+  height: 50.4px;
   border: 1px solid #867348;
   color: #c8aa6d;
   font:
-    26px Georgia,
+    31.2px Georgia,
     serif;
 }
 .craft-brand small {
   display: block;
   color: #818575;
-  font-size: 8px;
+  font-size: 9.6px;
   letter-spacing: 0.19em;
   margin-top: 3px;
 }
@@ -547,15 +548,15 @@
     padding: 18px 0;
   }
   .craft-brand {
-    font-size: 10px;
-    gap: 9px;
+    font-size: 12px;
+    gap: 10.8px;
   }
   .craft-brand small {
-    font-size: 6px;
+    font-size: 7.2px;
   }
   .brand-mark {
-    width: 28px;
-    height: 34px;
+    width: 33.6px;
+    height: 40.8px;
   }
   .craft-header nav {
     gap: 12px;
@@ -1363,4 +1364,25 @@ dialog.item-input-panel::backdrop {
 .material-description a:focus-visible {
   outline: 2px solid #d4c399;
   outline-offset: -2px;
+}
+
+.craft-header .workspace-nav {
+  flex: 1 1 40rem;
+  min-width: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 0;
+  gap: 8px;
+  white-space: normal;
+  font: inherit;
+}
+.craft-header .workspace-nav [role='tablist'] {
+  min-width: 0;
+}
+.craft-header .workspace-nav a {
+  color: #b6b7a9;
+}
+.craft-header .workspace-nav button span {
+  display: inline;
+  color: #9e8960;
 }

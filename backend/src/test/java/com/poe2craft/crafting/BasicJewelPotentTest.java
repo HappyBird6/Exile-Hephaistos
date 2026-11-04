@@ -120,9 +120,13 @@ class BasicJewelPotentTest {
         assertThat(new ItemStateValidator(c).validate(overflow)).isEmpty();
         assertThat(sim.pool(overflow, WorkbenchCurrency.EXALTED, null))
             .noneMatch(d -> d.affixType() == side);
-        var refused = sim.apply(overflow, WorkbenchCurrency.EXALTED, Set.of(), new Random(1));
+        var filled = sim.apply(overflow, WorkbenchCurrency.EXALTED, Set.of(), new Random(1));
+        assertThat(filled.applied()).isTrue();
+        assertThat(filled.state().explicits()).hasSize(5).containsAll(overflow.explicits());
+        assertThat(new ItemStateValidator(c).validate(filled.state())).isEmpty();
+        var refused = sim.apply(filled.state(), WorkbenchCurrency.EXALTED, Set.of(), new Random(1));
         assertThat(refused.applied()).isFalse();
-        assertThat(refused.state()).isEqualTo(overflow);
+        assertThat(refused.state()).isEqualTo(filled.state());
       }
   }
 

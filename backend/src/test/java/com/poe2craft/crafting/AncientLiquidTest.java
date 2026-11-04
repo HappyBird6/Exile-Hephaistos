@@ -235,7 +235,7 @@ class AncientLiquidTest {
         var overflow = item(c, mods.stream().filter(m -> !m.modifierId().equals(id)).toList());
         assertThat(new ItemStateValidator(c).validate(overflow)).isEmpty();
         assertThat(sim.apply(overflow, WorkbenchCurrency.EXALTED, Set.of(), new Random()).applied())
-            .isFalse();
+            .isTrue();
         assertThat(sim.apply(overflow, WorkbenchCurrency.DIVINE, Set.of(), new Random()).applied())
             .isTrue();
         assertThat(

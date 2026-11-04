@@ -142,8 +142,8 @@ public final class WorkbenchSimulator {
       return BaseRegistry.policy(catalog.base().id()).ruleVersion();
     if (BasicJewel.supportedCrafting(catalog.base().id()))
       return BasicJewel.timeLost(catalog.base().id())
-          ? "time-lost-ancient-v1"
-          : "basic-jewel-potent-v3";
+          ? "time-lost-ancient-v2-five-affix"
+          : "basic-jewel-potent-v4-five-affix";
     if (catalog.base().id().equals(RingEssenceTargets.BASE_ID))
       return "ring-workbench-perfect-essence-v1";
     if (HelmetEssenceTargets.supports(catalog.base().id()))
@@ -1272,14 +1272,14 @@ public final class WorkbenchSimulator {
       if (slots.usedPrefixes() > slots.maxPrefixes() || slots.usedSuffixes() > slots.maxSuffixes())
         assumptions.add(
             new Assumption(
-                "jewel-cap-loss-preserve-v1",
+                "jewel-cap-loss-preserve-v2-five-affix",
                 "existing affix overflow",
                 1,
                 result.explicits().stream().map(ModifierInstance::modifierId).toList(),
                 null,
                 null,
                 "https://mobalytics.gg/poe-2/profile/paintmaster/guides/recoup-chronomancer-gear-crafting-guide",
-                "Secondary-evidence simulator policy: removing Contempt preserves existing excess affixes. Future insertion obeys current side and total capacity. No primary proof of cap-loss behavior."));
+                "Secondary-evidence simulator policy: removing Contempt preserves existing excess affixes up to five total. Future insertion obeys current side capacity; removing the excess does not leave a permanent expansion. No primary proof of cap-loss behavior."));
     }
     if (action.minimumModifierLevel() > 0 && !matched.isEmpty())
       assumptions.add(

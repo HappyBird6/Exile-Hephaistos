@@ -47,6 +47,10 @@
 .chaos-repeat-controls__use[aria-pressed='true'] .chaos-repeat-controls__image {
   filter: none;
 }
+.chaos-repeat-controls__use[aria-pressed='true'] {
+  border-color: #edce87;
+  box-shadow: inset 0 0 0 1px #edce87;
+}
 .chaos-repeat-controls__image {
   display: grid;
   place-items: center;

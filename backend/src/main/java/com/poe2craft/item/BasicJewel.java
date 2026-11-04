@@ -41,7 +41,12 @@ public final class BasicJewel {
 
   /** Cap loss preserves reachable existing overflow, while insertion still uses current caps. */
   public static boolean existingCapacity(int p, int s, int maxP, int maxS) {
-    return maxP + maxS > 4 ? p <= maxP && s <= maxS : p <= 3 && s <= 3 && p + s <= 4;
+    return p + s <= 5 && (maxP + maxS > 4 ? p <= maxP && s <= maxS : p <= 3 && s <= 3);
+  }
+
+  /** Existing overflow occupies its own slots; it never increases the other side's cap. */
+  public static int insertionCapacity(int p, int s, int maxP, int maxS) {
+    return Math.min(5, maxP + maxS + Math.max(0, p - maxP) + Math.max(0, s - maxS));
   }
 
   public static long effect(ItemState state, ModifierDefinition.AffixType side) {
