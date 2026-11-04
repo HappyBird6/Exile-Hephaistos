@@ -10,6 +10,7 @@ type Messages = {
   unknownCurrency: string
   unknownOmen: string
   imageUnavailable: string
+  repeatUses: (count: string) => string
 }
 
 export const sessionNotationMessages: Record<Locale, Messages> = {
@@ -25,6 +26,7 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     unknownCurrency: 'Unidentified currency',
     unknownOmen: 'Unidentified omen',
     imageUnavailable: 'Image unavailable',
+    repeatUses: (count) => `${count} ${count === '1' ? 'use' : 'uses'}`,
   },
   ko: {
     title: 'History',
@@ -38,6 +40,7 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     unknownCurrency: '식별되지 않은 화폐',
     unknownOmen: '식별되지 않은 징조',
     imageUnavailable: '이미지 없음',
+    repeatUses: (count) => `${count}회`,
   },
   'zh-CN': {
     title: 'History',
@@ -49,6 +52,7 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     unknownCurrency: '无法识别的通货',
     unknownOmen: '无法识别的预兆',
     imageUnavailable: '无可用图片',
+    repeatUses: (count) => `${count}次`,
   },
   'zh-TW': {
     title: 'History',
@@ -60,6 +64,7 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     unknownCurrency: '無法識別的通貨',
     unknownOmen: '無法識別的預兆',
     imageUnavailable: '無可用圖片',
+    repeatUses: (count) => `${count}次`,
   },
   ja: {
     title: 'History',
@@ -72,6 +77,7 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     unknownCurrency: '識別できない通貨',
     unknownOmen: '識別できないオーメン',
     imageUnavailable: '画像なし',
+    repeatUses: (count) => `${count}回`,
   },
   es: {
     title: 'History',
@@ -86,5 +92,6 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     unknownCurrency: 'Objeto monetario sin identificar',
     unknownOmen: 'Presagio sin identificar',
     imageUnavailable: 'Imagen no disponible',
+    repeatUses: (count) => `${count} ${count === '1' ? 'uso' : 'usos'}`,
   },
 }

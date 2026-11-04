@@ -1,6 +1,7 @@
 import { isBone } from '../desecrationCurrency'
 import { workbenchCurrencyActions, workbenchOmens } from '../workbenchApi'
 import type { Film, Frame } from '../workbenchHistory'
+import { validChaosRepeatFrame } from '../chaos-repeat/chaosRepeatReceipt'
 
 export type NotationStep = {
   number: number
@@ -8,6 +9,8 @@ export type NotationStep = {
   currencyId: string
   consumedOmenIds: string[]
   omensKnown: boolean
+  uses: number
+  repeated: boolean
 }
 
 export type SessionNotationData = {
@@ -68,6 +71,10 @@ export function extractSessionNotation(
 
   for (let frameIndex = 1; frameIndex < film.frames.length; frameIndex++) {
     const frame = film.frames[frameIndex]!
+    if (!validChaosRepeatFrame(frame)) {
+      result.omittedFrames++
+      continue
+    }
     if (frame.action === null || isObservation(frame.action)) continue
     const id = currencyId(frame.action)
     const recorded = receipt(frame)
@@ -79,7 +86,8 @@ export function extractSessionNotation(
     const validArray =
       Array.isArray(consumed) &&
       consumed.every((id): id is string => typeof id === 'string') &&
-      new Set(consumed).size === consumed.length
+      (frame.chaosRepeat !== undefined ||
+        new Set(consumed).size === consumed.length)
     const consumedOmenIds = validArray ? [...consumed] : []
     const omensKnown =
       validArray && consumedOmenIds.every((id) => omenIds.has(id))
@@ -90,6 +98,8 @@ export function extractSessionNotation(
       currencyId: id,
       consumedOmenIds,
       omensKnown,
+      uses: frame.chaosRepeat?.uses ?? 1,
+      repeated: frame.chaosRepeat !== undefined,
     })
   }
   return result

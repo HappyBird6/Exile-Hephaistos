@@ -67,7 +67,7 @@ export function SessionNotation({
   onNavigate,
   disabled = false,
 }: SessionNotationProps) {
-  const { locale } = useI18n()
+  const { locale, name } = useI18n()
   const text = sessionNotationMessages[locale]
   const headingId = useId()
   const notation = extractSessionNotation(film, cursor)
@@ -85,6 +85,14 @@ export function SessionNotation({
         <ol className="wb-session-notation__steps wb-scrollbar">
           {notation.steps.map((step) => {
             const current = step.frameIndex === currentFrameIndex
+            const uses = text.repeatUses(
+              new Intl.NumberFormat(locale).format(step.uses),
+            )
+            const label = `${text.step} ${step.number}${
+              step.repeated
+                ? ` · ${name(step.currencyId, registry.get(step.currencyId)?.name ?? text.unknownCurrency)} · ${uses}`
+                : ''
+            }`
             const content = (
               <>
                 <span
@@ -94,9 +102,9 @@ export function SessionNotation({
                   {step.number}.
                 </span>
                 <span className="wb-session-notation__resources">
-                  {step.consumedOmenIds.map((id) => (
+                  {step.consumedOmenIds.map((id, index) => (
                     <ResourceIcon
-                      key={id}
+                      key={`${id}-${index}`}
                       id={id}
                       resource={registry.get(id)}
                       omen
@@ -111,6 +119,9 @@ export function SessionNotation({
                     resource={registry.get(step.currencyId)}
                     focusable={!onNavigate}
                   />
+                  {step.repeated && (
+                    <span className="wb-session-notation__uses">{uses}</span>
+                  )}
                 </span>
                 {!step.omensKnown && (
                   <span
@@ -127,14 +138,14 @@ export function SessionNotation({
                 key={step.frameIndex}
                 className="wb-session-notation__step"
                 data-frame-index={step.frameIndex}
-                aria-label={`${text.step} ${step.number}`}
+                aria-label={label}
                 aria-current={current ? 'step' : undefined}
               >
                 {onNavigate ? (
                   <button
                     type="button"
                     className="wb-session-notation__jump"
-                    aria-label={`${text.step} ${step.number}`}
+                    aria-label={label}
                     aria-current={current ? 'step' : undefined}
                     data-material-tooltip={
                       registry.has(step.currencyId)

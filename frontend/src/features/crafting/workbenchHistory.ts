@@ -9,6 +9,14 @@ import type { Initial } from './craftingApi'
 import type { AppliedItem, ConcreteItem } from './workbenchApi'
 import { coupledModelsMatch, workbenchActionNames } from './workbenchApi'
 import { isRulesetIdentity } from './rulesetIdentity'
+import {
+  readChaosRepeatReceipt,
+  validChaosRepeatFrame,
+} from './chaos-repeat/chaosRepeatReceipt'
+import type {
+  ChaosRepeatMetadata,
+  ChaosRepeatReceipt,
+} from './chaos-repeat/chaosRepeatReceipt'
 
 export const historyStorageKey = 'hephaistos.workbench.films.v1'
 export const historyStorageLimit = 2_000_000
@@ -31,6 +39,7 @@ export type Frame = {
   evidence?: CraftEvidence
   abyss?: AbyssState
   manual?: { rulesetIdentity: string; action: string; consumedOmens?: string[] }
+  chaosRepeat?: ChaosRepeatMetadata
 }
 export type Film = {
   id: string
@@ -53,6 +62,11 @@ export function filmRulesetStatus(
 ): FilmRulesetStatus {
   const identities: unknown[] = [film.rulesetIdentity]
   for (const [index, frame] of film.frames.entries()) {
+    if (
+      !validChaosRepeatFrame(frame) ||
+      (index === 0 && Object.hasOwn(frame, 'chaosRepeat'))
+    )
+      return 'inconsistent'
     identities.push(frame.rulesetIdentity)
     if (index > 0 || frame.evidence)
       identities.push(
@@ -217,11 +231,13 @@ export class LocalFilmRepository implements FilmRepository {
           Array.isArray(film.frames) &&
           film.frames.length > 0 &&
           film.frames.every(
-            (frame) =>
+            (frame, index) =>
               frame &&
               typeof frame.state === 'object' &&
               frame.state !== null &&
-              (frame.action === null || typeof frame.action === 'string'),
+              (frame.action === null || typeof frame.action === 'string') &&
+              validChaosRepeatFrame(frame) &&
+              (index > 0 || !Object.hasOwn(frame, 'chaosRepeat')),
           ),
       ) ||
       new Set(value.films.map((film) => film.id)).size !== value.films.length ||
@@ -231,6 +247,16 @@ export class LocalFilmRepository implements FilmRepository {
     return value
   }
   save(films: Films) {
+    if (
+      !films.films.every((film) =>
+        film.frames.every(
+          (frame, index) =>
+            validChaosRepeatFrame(frame) &&
+            (index > 0 || !Object.hasOwn(frame, 'chaosRepeat')),
+        ),
+      )
+    )
+      throw new Error('Invalid repeat history. Existing storage is preserved.')
     const raw = JSON.stringify(films)
     if (raw.length * 2 > historyStorageLimit)
       throw new Error('History storage limit reached.')
@@ -330,6 +356,52 @@ export function recordCraft(
     cursor: frames.length - 1,
   }
 }
+
+/** Records one batch frame after dedicated response validation, never N fake rolls. */
+export function recordChaosRepeat(
+  films: Films,
+  receipt: ChaosRepeatReceipt | null,
+  id: string,
+  initial: Initial,
+): Films {
+  const input = readChaosRepeatReceipt(receipt)
+  if (!input) return films
+  const { before, action, uses, finalWitness, consumedOmens } = input
+  const result = { ...finalWitness, consumedOmens }
+  const metadata: ChaosRepeatMetadata = { version: 1, action, uses }
+  const candidate: Frame = {
+    state: result.state,
+    rulesetIdentity: result.rulesetIdentity,
+    action,
+    evidence: result,
+    chaosRepeat: metadata,
+  }
+  if (
+    !verifiedHistoryState(before, initial) ||
+    !verifiedFrameEvidence(candidate, initial)
+  )
+    throw new Error(
+      'Could not verify repeat history. The original is preserved.',
+    )
+  // recordCraft only appends evidence; it does not run the one-application API validator.
+  const next = recordCraft(films, before, result, id)
+  const active = currentFilm(next)!
+  return {
+    ...next,
+    films: next.films.map((film) =>
+      film === active
+        ? {
+            ...film,
+            frames: film.frames.map((frame, index) =>
+              index === next.cursor
+                ? { ...frame, chaosRepeat: metadata }
+                : frame,
+            ),
+          }
+        : film,
+    ),
+  }
+}
 /** Observations are steps, not invented currency rolls or probabilities. */
 export function recordAbyss(
   films: Films,
@@ -422,6 +494,7 @@ export function verifiedFrameEvidence(
     const e = frame.evidence
     if (
       !e ||
+      !validChaosRepeatFrame(frame) ||
       frame.rulesetIdentity !== initial.rulesetIdentity ||
       e.rulesetIdentity !== initial.rulesetIdentity ||
       (e.qualityLimit !== undefined &&

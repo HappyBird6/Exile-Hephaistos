@@ -11,6 +11,7 @@ import {
   viewFrame,
 } from '../workbenchHistory'
 import type { Film } from '../workbenchHistory'
+import type { ChaosRepeatAction } from '../chaos-repeat/chaosRepeatReceipt'
 import { extractSessionNotation } from './extractSessionNotation'
 import {
   craft,
@@ -23,6 +24,80 @@ import {
 
 const abyss: AbyssState = { item: root, slots: [], offer: null }
 
+describe('repeat notation receipts', () => {
+  it.each([
+    ['CHAOS', 'Chaos_Orb'],
+    ['GREATER_CHAOS', 'Greater_Chaos_Orb'],
+    ['PERFECT_CHAOS', 'Perfect_Chaos_Orb'],
+  ] as const)(
+    'projects exact %s uses without merging adjacent manual records',
+    async (action, currencyId) => {
+      const applied = { ...(await craft()), action }
+      const history = recordCraft(
+        recordCraft(start(), root, applied, 'unused'),
+        applied.state,
+        applied,
+        'unused',
+      )
+      const film = structuredClone(currentFilm(history)!)
+      const legacy = JSON.stringify(film.frames[1])
+      film.frames[2]!.chaosRepeat = {
+        version: 1,
+        action,
+        uses: Number.MAX_SAFE_INTEGER,
+      }
+      film.frames[2]!.evidence!.consumedOmens = [
+        'Omen_of_Whittling',
+        'Omen_of_Whittling',
+      ]
+      const result = extractSessionNotation(film, 0)
+      expect(result.steps).toHaveLength(2)
+      expect(result.steps[0]).toMatchObject({
+        currencyId,
+        uses: 1,
+        repeated: false,
+      })
+      expect(result.steps[1]).toMatchObject({
+        currencyId,
+        uses: Number.MAX_SAFE_INTEGER,
+        repeated: true,
+        consumedOmenIds: ['Omen_of_Whittling', 'Omen_of_Whittling'],
+        omensKnown: true,
+      })
+      expect(result.omittedFrames).toBe(0)
+      expect(JSON.stringify(film.frames[1])).toBe(legacy)
+      film.frames[2]!.chaosRepeat.uses = 1
+      expect(extractSessionNotation(film, 2).steps[1]).toMatchObject({
+        uses: 1,
+        repeated: true,
+      })
+    },
+  )
+
+  it('omits damaged repeat records rather than treating them as single uses', async () => {
+    const applied = { ...(await craft()), action: 'CHAOS' as ChaosRepeatAction }
+    const history = recordCraft(start(), root, applied, 'unused')
+    for (const metadata of [
+      undefined,
+      null,
+      { version: 1, action: 'CHAOS', uses: 0 },
+      { version: 1, action: 'GREATER_CHAOS', uses: 2 },
+      { version: 2, action: 'CHAOS', uses: 2 },
+    ]) {
+      const film = structuredClone(currentFilm(history)!)
+      Object.assign(film.frames[1]!, { chaosRepeat: metadata })
+      expect(extractSessionNotation(film, 1)).toMatchObject({
+        steps: [],
+        omittedFrames: 1,
+      })
+    }
+    const film = structuredClone(currentFilm(history)!)
+    film.frames[1]!.chaosRepeat = { version: 1, action: 'CHAOS', uses: 2 }
+    delete film.frames[1]!.evidence
+    expect(extractSessionNotation(film, 1).omittedFrames).toBe(1)
+  })
+})
+
 describe('session notation from persisted successful applications', () => {
   it('retains the whole Film while excluding root and non-currency observations', async () => {
     const { history } = await twoSteps()
@@ -34,6 +109,8 @@ describe('session notation from persisted successful applications', () => {
         currencyId: 'Orb_of_Transmutation',
         consumedOmenIds: [],
         omensKnown: true,
+        uses: 1,
+        repeated: false,
       },
       {
         number: 2,
@@ -41,6 +118,8 @@ describe('session notation from persisted successful applications', () => {
         currencyId: 'Orb_of_Augmentation',
         consumedOmenIds: [],
         omensKnown: true,
+        uses: 1,
+        repeated: false,
       },
     ]
     for (const cursor of [0, 1, 2])
@@ -145,6 +224,8 @@ describe('session notation from persisted successful applications', () => {
           currencyId: 'Exalted_Orb',
           consumedOmenIds: consumed,
           omensKnown: true,
+          uses: 1,
+          repeated: false,
         },
       ],
       omittedFrames: 0,
