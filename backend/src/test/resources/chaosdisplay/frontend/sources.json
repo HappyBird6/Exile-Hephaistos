@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "3f4495e664d8112011cc5dcd9f17330446167a97",
+  "runtime": {
+    "node": "24.21.0",
+    "icu": "78.3",
+    "cldr": "48.0",
+    "unicode": "17.0"
+  },
+  "files": {
+    "backend/src/main/resources/catalog/abyssal-cuirass/catalog.json": "7c8d94be8e2d3d58642739d3ebed53d7af0f6f802a64ae170deef118f872e897",
+    "backend/src/main/resources/catalog/adherent-cuffs/catalog.json": "34aea0e8c097e1d2acd2f68131478249fe66364c45f9884059ebf7f32c036168",
+    "backend/src/main/resources/catalog/solar-amulet/catalog.json": "5562c61495b012e67566417aaa60e0e2cb569ca28515a74e970ca0fd9a16dfe8",
+    "frontend/package-lock.json": "113c8fd64f9b834e57cfdf84830c652df0166d3c2b69e3b6a7654eaa8042a8e8",
+    "frontend/src/features/crafting/CraftingPage.tsx": "943e2bbfea086b1ea08bef0c432f98ec1302c3ff563f762416f21ca1124960db",
+    "frontend/src/features/crafting/ItemCard.tsx": "443ad38d3618cfb0bdce35d00ce2f96903aaea01933fc1d6533d927f30b77181",
+    "frontend/src/features/crafting/basicJewel.ts": "6cc2f48c3bbcc9e3940c5c333710cdf8ebc94e61f10cbd352dd4af8984da4716",
+    "frontend/src/features/crafting/catalystQuality.ts": "5bd676392b939bb00a9d8d630a5edacf225fb4e50cc10a951a46121f10a0f221",
+    "frontend/src/features/crafting/chaos-repeat/display/goldens/inputs.json": "b65c6089d3f5e189d3a91889d61094bf8c990fa6cdddc5050b15a0127a98fd27",
+    "frontend/src/features/crafting/chaos-repeat/display/projectExplicitOptionGroups.ts": "75c6b2e7d9b67c1f7b222fae3747906c6d26f4d5dcf5dc62c39098686fd4d90b",
+    "frontend/src/features/crafting/chaos-repeat/display/types.ts": "60505edd64c6fa7ec6306cb3d3e09ce3aaf695818ff1696ffafb289a69f06ad4",
+    "frontend/src/features/crafting/localizedModifiers.ts": "0f88f12039f8332f2bb4e98f44542a4b40ce24e9a427888fb39cebe11f4f2f9d",
+    "frontend/src/features/crafting/manualRevealDefinitions.json": "9fab6d2d20d88a76eb4b38a2e89c643d7255a498e0e4c13a73b85ef30a65ec97",
+    "frontend/src/features/crafting/numeric-display/attributeNumbers.ts": "733c2e5cda17538309049d835cecbaf530649b264019a3775f1f1844dd57fa5b",
+    "frontend/src/features/crafting/qualityRoundingPolicy.ts": "74ee47941b453a112dae2cd722e9e00458422eb0a5d57d0cdce251ef21ea9928",
+    "frontend/src/features/crafting/sanctification/preciseModifierProjection.ts": "769980bfa835526d1bd522cb6f6b4af0d2992bda0aee5804ebd7e66885793923",
+    "frontend/src/shared/i18n/i18n.ts": "7645c9fd1692c9e4990c8f4d7ac09ff11bf6b4a3be561b901695e7259d74b2d8",
+    "frontend/src/shared/i18n/modifierTemplates.json": "a36cc5aaea06170a685ca2d8a322affb82e65a8c880732e7a9b63fd55ce09665",
+    "frontend/src/shared/test/sapphire-catalog.json": "476c290e82b13b190d940656164550b30294455eff598ac74bf8ff37ea00270d"
+  }
+}
