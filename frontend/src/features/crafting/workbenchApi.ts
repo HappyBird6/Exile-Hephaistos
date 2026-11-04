@@ -22,6 +22,7 @@ import {
 } from './basicJewel'
 import { qualityCapChangeMatches } from './qualityCapChangePolicy'
 import { whittlingCandidates } from './omenRemovalCandidates'
+import { preservesChaosJewelOverflow } from './jewelChaos'
 import { catalystTypes, verifiedCatalystQuality } from './catalystQuality'
 import type { CatalystQuality } from './catalystQuality'
 import { maximumQuality, qualityLimitMatches } from './qualityLimit'
@@ -1464,6 +1465,14 @@ export async function applyCurrency(
       'Could not verify the applied item. Your item is unchanged. Please retry.',
     )
   const locks = next.explicits.filter((m) => m.fractured)
+  if (
+    v.applied &&
+    baseAction === 'CHAOS' &&
+    !preservesChaosJewelOverflow(state, next, definitions)
+  )
+    throw new Error(
+      'Could not verify the preserved Jewel modifiers. Your item is unchanged. Please retry.',
+    )
   if (v.applied && replacementTargets.length > 0) {
     const matching = workbenchOmens.filter(
       (o) =>

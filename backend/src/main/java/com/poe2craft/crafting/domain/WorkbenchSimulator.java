@@ -142,8 +142,8 @@ public final class WorkbenchSimulator {
       return BaseRegistry.policy(catalog.base().id()).ruleVersion();
     if (BasicJewel.supportedCrafting(catalog.base().id()))
       return BasicJewel.timeLost(catalog.base().id())
-          ? "time-lost-ancient-v2-five-affix"
-          : "basic-jewel-potent-v4-five-affix";
+          ? "time-lost-ancient-v3-five-affix-chaos-overflow"
+          : "basic-jewel-potent-v5-five-affix-chaos-overflow";
     if (catalog.base().id().equals(RingEssenceTargets.BASE_ID))
       return "ring-workbench-perfect-essence-v1";
     if (HelmetEssenceTargets.supports(catalog.base().id()))
@@ -287,7 +287,7 @@ public final class WorkbenchSimulator {
         && (action.baseAction() == CraftingAction.ANNULMENT
             || action.baseAction() == CraftingAction.CHAOS
             || !replacementTargets(action).isEmpty())
-        && removalCandidates(state, matching(action, omens)).stream()
+        && removalCandidates(state, action, matching(action, omens)).stream()
             .anyMatch(m -> lowersCapBelowQuality(state, m)))
       return blocked(
           action,
@@ -450,7 +450,7 @@ public final class WorkbenchSimulator {
     boolean rarity = basicRarityAllows(state.rarity(), kind);
     if (!rarity) return blocked(action, "This currency cannot be used on this rarity.");
     if (kind == CraftingAction.ANNULMENT || kind == CraftingAction.CHAOS) {
-      var removals = removalCandidates(state, matches);
+      var removals = removalCandidates(state, action, matches);
       if (removals.isEmpty())
         return blocked(action, "No eligible explicit modifier can be removed with this omen.");
       if (matches.contains(WorkbenchOmen.GREATER_ANNULMENT) && removals.size() < 2)
@@ -574,7 +574,19 @@ public final class WorkbenchSimulator {
   }
 
   private List<ModifierInstance> removalCandidates(ItemState state, List<WorkbenchOmen> omens) {
+    return removalCandidates(state, null, omens);
+  }
+
+  private List<ModifierInstance> removalCandidates(
+      ItemState state, WorkbenchCurrency action, List<WorkbenchOmen> omens) {
     var eligible = state.explicits().stream().filter(m -> !m.fractured()).toList();
+    if (action != null && action.baseAction() == CraftingAction.CHAOS) {
+      var locked = BasicJewel.chaosLockedSides(state, catalog);
+      eligible =
+          eligible.stream()
+              .filter(m -> !locked.contains(catalog.find(m.modifierId()).orElseThrow().affixType()))
+              .toList();
+    }
     var omen = omens.stream().filter(o -> o.affix() != null).findFirst().orElse(null);
     if (omen != null && omen.affix() != null)
       eligible =
@@ -785,7 +797,7 @@ public final class WorkbenchSimulator {
     var branches = new ArrayList<AutomaticCraftingPlan.Branch>();
     var omen = omens.isEmpty() ? null : omens.getFirst();
     if (action == WorkbenchCurrency.CHAOS) {
-      for (var removed : removalCandidates(state, omens)) {
+      for (var removed : removalCandidates(state, action, omens)) {
         var rest = new ArrayList<>(state.explicits());
         rest.remove(removed);
         var remaining = copy(state, state.rarity(), state.implicits(), rest);
@@ -842,7 +854,7 @@ public final class WorkbenchSimulator {
     var branches = new ArrayList<BasicCurrencyPlan.Branch>();
     if (action.baseAction() == CraftingAction.ANNULMENT
         || action.baseAction() == CraftingAction.CHAOS) {
-      for (var removed : removalCandidates(state, List.of())) {
+      for (var removed : removalCandidates(state, action, List.of())) {
         var explicits = new ArrayList<>(state.explicits());
         explicits.remove(removed);
         var remaining = copy(state, state.rarity(), state.implicits(), explicits);
@@ -1189,7 +1201,7 @@ public final class WorkbenchSimulator {
         for (int removal = 0; removal < removals; removal++) {
           var candidates =
               basicPlan == null
-                  ? removalCandidates(copy(state, rarity, implicits, explicits), matched)
+                  ? removalCandidates(copy(state, rarity, implicits, explicits), action, matched)
                   : basicPlan.removals();
           var removed = candidates.get(random.nextInt(candidates.size()));
           explicits.remove(removed);

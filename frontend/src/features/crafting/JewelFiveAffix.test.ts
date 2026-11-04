@@ -4,6 +4,11 @@ import { reviewedBasicJewel, jewelCapacity } from './basicJewel'
 import type { ConcreteItem } from './workbenchApi'
 import type { Definition, Initial } from './craftingApi'
 import {
+  chaosLockedJewelSides,
+  preservesChaosJewelOverflow,
+} from './jewelChaos'
+import { whittlingCandidates } from './omenRemovalCandidates'
+import {
   emptyFilms,
   LocalFilmRepository,
   startFilm,
@@ -132,3 +137,109 @@ it.each(bases)(
     ).toBe(false)
   },
 )
+
+it.each(bases)(
+  'protects over-cap rolls on either side of %s during Chaos',
+  (base) => {
+    for (const side of ['PREFIX', 'SUFFIX']) {
+      const { item, initial } = fixture(
+        base,
+        side === 'PREFIX' ? 3 : 2,
+        side === 'SUFFIX' ? 3 : 2,
+      )
+      expect(chaosLockedJewelSides(item, initial.modifiers)).toEqual([side])
+      const reversed = {
+        ...item,
+        explicits: [...item.explicits]
+          .reverse()
+          .map((m) => ({ ...m, fractured: false })),
+      }
+      expect(
+        preservesChaosJewelOverflow(item, reversed, initial.modifiers),
+      ).toBe(true)
+      const locked = item.explicits.find(
+        (m) => initial.modifiers[m.modifierId]!.affixType === side,
+      )!
+      expect(
+        preservesChaosJewelOverflow(
+          item,
+          { ...item, explicits: item.explicits.filter((m) => m !== locked) },
+          initial.modifiers,
+        ),
+      ).toBe(false)
+      const changed = {
+        ...locked,
+        values: Object.fromEntries(
+          Object.entries(locked.values).map(([k, v]) => [k, v + 1]),
+        ),
+      }
+      expect(
+        preservesChaosJewelOverflow(
+          item,
+          {
+            ...item,
+            explicits: item.explicits.map((m) => (m === locked ? changed : m)),
+          },
+          initial.modifiers,
+        ),
+      ).toBe(false)
+      const candidates = whittlingCandidates(item, initial.modifiers, [
+        'Omen_of_Whittling',
+      ])
+      expect(candidates.length).toBeGreaterThan(0)
+      expect(
+        candidates.every((id) => initial.modifiers[id]!.affixType !== side),
+      ).toBe(true)
+      expect(
+        whittlingCandidates(item, initial.modifiers, [
+          'Omen_of_Whittling',
+          side === 'PREFIX'
+            ? 'Omen_of_Sinistral_Erasure'
+            : 'Omen_of_Dextral_Erasure',
+        ]),
+      ).toEqual([])
+    }
+  },
+)
+
+it('preserves opaque overflow slots and does not lock a still-expanded side', () => {
+  const { item, initial } = fixture('sapphire', 2, 2)
+  for (const side of ['PREFIX', 'SUFFIX'] as const) {
+    const hidden = {
+      ...item,
+      desecrated: [{ id: 'third', side, modifierId: null }],
+    }
+    expect(chaosLockedJewelSides(hidden, initial.modifiers)).toEqual([side])
+    expect(
+      preservesChaosJewelOverflow(
+        hidden,
+        { ...hidden, desecrated: [] },
+        initial.modifiers,
+      ),
+    ).toBe(false)
+    expect(
+      preservesChaosJewelOverflow(
+        hidden,
+        structuredClone(hidden),
+        initial.modifiers,
+      ),
+    ).toBe(true)
+  }
+  const expanded = fixture('sapphire', 3, 1)
+  const id = 'sapphire:crafted:CraftedJewelAdditionalPrefixAllowed'
+  const definition = JSON.parse(
+    readFileSync(
+      '../backend/src/main/resources/catalog/sapphire/catalog.json',
+      'utf8',
+    ),
+  ) as Catalog
+  const extra = definition.modifiers.find((m) => m.id === id)!
+  expanded.item.explicits.push({
+    modifierId: id,
+    values: Object.fromEntries(extra.stats!.map((s) => [s.id, s.min])),
+  })
+  expect(reviewedBasicJewel(expanded.item)).toBe(true)
+  expect(
+    chaosLockedJewelSides(expanded.item, expanded.initial.modifiers),
+  ).toEqual([])
+})

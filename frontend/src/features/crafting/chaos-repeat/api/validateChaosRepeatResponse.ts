@@ -2,6 +2,7 @@ import type { Initial } from '../../craftingApi'
 import { equivalent } from '../../sanctification/equivalence'
 import { verifiedFrameEvidence } from '../../workbenchHistory'
 import { workbenchOmens } from '../../workbenchApi'
+import { preservesChaosJewelOverflow } from '../../jewelChaos'
 import {
   createChaosRepeatReceipt,
   createAbyssChaosRepeatReceipt,
@@ -84,6 +85,11 @@ export function validateChaosRepeatResponse(
       binding.matcherVersion !== chaosRepeatMatcherVersion ||
       !validRepeatState(raw.finalState, initial) ||
       !chaosInvariants(request.state, raw.finalState) ||
+      !preservesChaosJewelOverflow(
+        repeatItem(request.state),
+        repeatItem(raw.finalState),
+        initial.modifiers,
+      ) ||
       typeof raw.actualUses !== 'number' ||
       !Number.isSafeInteger(raw.actualUses) ||
       raw.actualUses < 0 ||

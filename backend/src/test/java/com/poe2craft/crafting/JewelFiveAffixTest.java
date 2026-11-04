@@ -141,8 +141,10 @@ class JewelFiveAffixTest {
         .isTrue();
     var suffixes = revealed.slots().stream().filter(s -> s.side() == AffixType.SUFFIX).toList();
     var bareChaos = executor.apply(revealed, WorkbenchCurrency.CHAOS, Set.of(), new Random());
-    assertThat(bareChaos.applied()).isFalse();
-    assertThat(bareChaos.state()).isEqualTo(revealed);
+    assertThat(bareChaos.applied()).isTrue();
+    assertThat(bareChaos.state().slots()).hasSize(5);
+    assertThat(bareChaos.state().slots().stream().filter(s -> s.side() == AffixType.SUFFIX))
+        .containsExactlyInAnyOrderElementsOf(suffixes);
     assertThat(bareChaos.consumedOmens()).isEmpty();
     var prefixChaos =
         executor.apply(

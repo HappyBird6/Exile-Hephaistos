@@ -1,5 +1,6 @@
 import type { Definition } from './craftingApi'
 import type { ConcreteItem } from './workbenchApi'
+import { chaosLockedJewelSides } from './jewelChaos'
 
 /** Local preview uses the same unlocked -> prefix -> minimum-level order as the simulator. */
 export function whittlingCandidates(
@@ -19,6 +20,10 @@ export function whittlingCandidates(
   let eligible = state.explicits.filter((m) => !m.fractured)
   // Unknown affix metadata must not silently remove a possible candidate.
   if (eligible.some((m) => !definitions[m.modifierId])) return []
+  const locked = chaosLockedJewelSides(state, definitions)
+  eligible = eligible.filter(
+    (m) => !locked.includes(definitions[m.modifierId]!.affixType),
+  )
   if (activeOmens.includes('Omen_of_Sinistral_Erasure'))
     eligible = eligible.filter(
       (m) => definitions[m.modifierId]!.affixType === 'PREFIX',

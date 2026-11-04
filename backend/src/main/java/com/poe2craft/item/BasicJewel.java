@@ -49,6 +49,18 @@ public final class BasicJewel {
     return Math.min(5, maxP + maxS + Math.max(0, p - maxP) + Math.max(0, s - maxS));
   }
 
+  /** User-specified Chaos rule: an existing over-cap side is immutable during replacement. */
+  public static Set<ModifierDefinition.AffixType> chaosLockedSides(
+      ItemState state, ItemCatalog catalog) {
+    if (!supportedCrafting(state.baseItemId()) || state.rarity() != ItemState.Rarity.RARE)
+      return Set.of();
+    var slots = new ItemStateValidator(catalog).slots(state);
+    var locked = java.util.EnumSet.noneOf(ModifierDefinition.AffixType.class);
+    if (slots.usedPrefixes() > slots.maxPrefixes()) locked.add(ModifierDefinition.AffixType.PREFIX);
+    if (slots.usedSuffixes() > slots.maxSuffixes()) locked.add(ModifierDefinition.AffixType.SUFFIX);
+    return Set.copyOf(locked);
+  }
+
   public static long effect(ItemState state, ModifierDefinition.AffixType side) {
     String code =
         side == ModifierDefinition.AffixType.PREFIX

@@ -124,7 +124,11 @@ public final class AbyssCurrencyExecutor {
         if (state.offer() != null)
           return blocked(state, action, omens, "RESOLVE_OFFER_BEFORE_CURRENCY");
         var side = effects.isEmpty() ? null : effects.getFirst().affix();
-        var removals = state.removalCandidates(side);
+        var locked = BasicJewel.chaosLockedSides(state.storedItem(), catalog);
+        var removals =
+            state.removalCandidates(side).stream()
+                .filter(slot -> !locked.contains(slot.side()))
+                .toList();
         if (removals.isEmpty()) return blocked(state, action, omens, "NO_ELIGIBLE_REMOVAL");
         var addition =
             action == WorkbenchCurrency.GREATER_CHAOS

@@ -6,6 +6,7 @@ import { boneConsumedOmens } from '../desecrationCurrency'
 import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
 import { supportsConcreteStateShape } from '../workbenchStateShape'
 import { storedAbyssItem } from '../workbenchHistory'
+import { preservesChaosJewelOverflow } from '../jewelChaos'
 
 export type AbyssCurrencyResult = {
   state: AbyssState
@@ -128,6 +129,13 @@ export async function applyAbyssCurrency(
     next.rarity !== state.item.rarity ||
     !validAbyssResponse('currency', value.state, state.item, initial) ||
     !supportsConcreteStateShape(storedAbyssItem(value.state)) ||
+    (value.applied &&
+      ['CHAOS', 'GREATER_CHAOS', 'PERFECT_CHAOS'].includes(action) &&
+      !preservesChaosJewelOverflow(
+        storedAbyssItem(state),
+        storedAbyssItem(value.state),
+        initial.modifiers,
+      )) ||
     (value.applied && state.item.conditions.length > 0) ||
     (value.applied &&
       next.conditions.some(
