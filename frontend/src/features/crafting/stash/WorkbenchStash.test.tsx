@@ -1,7 +1,12 @@
 import { useState } from 'react'
 import { act, fireEvent, render, screen, within } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
-import { setLocale } from '../../../shared/i18n/i18n'
+import {
+  gameName,
+  locales,
+  setLocale,
+  translate,
+} from '../../../shared/i18n/i18n'
 import { currencies } from '../currencies'
 import { currencyNames } from '../currencyNames'
 import {
@@ -160,8 +165,66 @@ describe('right-hand controlled workbench stash', () => {
     expect(document.querySelector('.workbench-stash')).not.toContainElement(
       screen.getByRole('group'),
     )
+    expect(document.querySelector('.workbench-stash__name')).toBeNull()
+    for (const locale of locales) {
+      act(() => setLocale(locale))
+      const localized = gameName('Chaos_Orb', 'Chaos Orb', locale)
+      const chaos = screen.getByRole('button', { name: localized })
+      expect(chaos.querySelector('img')).toHaveAttribute(
+        'src',
+        resource('Chaos_Orb').image,
+      )
+      expect(chaos).not.toHaveTextContent(localized)
+      expect(chaos).toHaveAttribute('data-material-tooltip', 'Chaos_Orb')
+    }
     act(() => setLocale('ko'))
     expect(screen.getByRole('button', { name: '숙련공의 오브' })).toBeVisible()
+  })
+
+  it('shows a generic missing-image notice instead of the item name while retaining its accessible identity', () => {
+    const callbacks = props({
+      resources: [{ ...resource('Chaos_Orb'), image: '' }],
+    })
+    const view = render(<StashSurface {...callbacks} />)
+    const chaos = screen.getByRole('button', { name: 'Chaos Orb' })
+    expect(chaos.querySelector('.currency-name-fallback')).toBeNull()
+    expect(chaos.querySelector('.currency-missing')).toHaveTextContent(
+      'Image unavailable',
+    )
+    expect(chaos).not.toHaveTextContent('Chaos Orb')
+    expect(chaos).toHaveAccessibleName('Chaos Orb')
+    expect(chaos).toHaveAttribute('data-material-tooltip', 'Chaos_Orb')
+    expect(chaos.querySelector('.workbench-stash__image')).toContainElement(
+      chaos.querySelector('.currency-missing'),
+    )
+    expect(chaos.querySelector('.workbench-stash__name')).toBeNull()
+    for (const locale of locales) {
+      act(() => setLocale(locale))
+      const localized = gameName('Chaos_Orb', 'Chaos Orb', locale)
+      expect(chaos).toHaveAccessibleName(localized)
+      expect(chaos).not.toHaveTextContent(localized)
+      expect(chaos.querySelector('.currency-missing')).toHaveTextContent(
+        translate('ui.image_unavailable', {}, locale),
+      )
+    }
+    act(() => setLocale('en'))
+    view.rerender(
+      <StashSurface {...callbacks} resources={[resource('Chaos_Orb')]} />,
+    )
+    expect(chaos.querySelector('img')).toHaveAttribute(
+      'src',
+      resource('Chaos_Orb').image,
+    )
+    fireEvent.error(chaos.querySelector('img')!)
+    expect(chaos.querySelector('.currency-missing')).toHaveTextContent(
+      'Image unavailable',
+    )
+    expect(chaos.querySelector('.currency-missing')).toHaveAttribute(
+      'title',
+      'Chaos Orb · Image unavailable',
+    )
+    expect(chaos).toHaveAccessibleName('Chaos Orb')
+    expect(chaos).not.toHaveTextContent('Chaos Orb')
   })
 
   it('limits new ordinary essence choices to greater/perfect while retaining every source ID', () => {
@@ -214,7 +277,11 @@ describe('right-hand controlled workbench stash', () => {
   it('preserves currency click selection and material pickup versus right-click selection', () => {
     const callbacks = props()
     const view = render(<StashSurface {...callbacks} />)
-    fireEvent.click(screen.getByRole('button', { name: 'Chaos Orb' }))
+    const chaos = screen.getByRole('button', { name: 'Chaos Orb' })
+    expect(chaos).toHaveAttribute('type', 'button')
+    act(() => chaos.focus())
+    expect(chaos).toHaveFocus()
+    fireEvent.click(chaos, { detail: 0 })
     expect(callbacks.onSelect).toHaveBeenCalledWith(
       resource('Chaos_Orb'),
       undefined,

@@ -95,10 +95,13 @@ export function WorkbenchStash({
         }}
       >
         <span className="workbench-stash__image">
-          <CurrencyImage key={resource.id} {...resource} />
-        </span>
-        <span className="workbench-stash__name">
-          {name(resource.id, resource.name)}
+          {resource.image ? (
+            <CurrencyImage key={resource.id} {...resource} />
+          ) : (
+            <span className="currency-missing">
+              {t('ui.image_unavailable')}
+            </span>
+          )}
         </span>
       </button>
     )
