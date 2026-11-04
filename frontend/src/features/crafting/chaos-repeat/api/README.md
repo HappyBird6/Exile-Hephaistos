@@ -1,6 +1,5 @@
 # Chaos batch frontend adapter
 
-기준 `9ee4ee2b851ede1c014a31a01a44311caa5c94ab`, branch `codex/chaos-repeat-client-20261104`.
 이 폴더는 실제 전용 HTTP 응답 검증과 receipt 발급을 구현한다. 기존 단일
 `applyCurrency` 검증, Page, controls, feedback, stash, 표시 formatter는 수정하지 않는다.
 
@@ -102,34 +101,4 @@ undo/redo는 batch 전체를 한 단계로 이동하고, 과거 cursor에서 기
 
 ## 검증 범위
 
-합성 fixture와 메모리 storage만 사용한다. 초기 관련 검사 6 files / 141 tests는 통과했다.
-이는 이번 API 검사이며 이전 foundation 검사와 별도다. 개발 중 첫 typecheck는
-unknown 값 narrowing와 미사용 import 2건으로 실패했고 수정 후 통과했다.
-
-전체 Vitest와 실제 Page/서버 연결은 root 최종 통합에서 수행한다. 이 Worker는
-브라우저·서버·Docker·실제 저장 기록·DB·Redis·볼륨·원격 push를 조작하지 않는다.
-
-## 최종 자체 검증 · 2026-11-04
-
-실행 경로: `C:\Users\SSAFY\.codex\worktrees\def7\Exile-Hephaistos\frontend`.
-기준과 package/lockfile이 같아 기존 설치된 node_modules를 재사용했다.
-
-```text
-npm run test -- --run src/features/crafting/chaos-repeat/api src/features/crafting/chaos-repeat/chaosRepeatReceipt.test.ts src/features/crafting/workbenchHistory.test.ts src/features/crafting/session-notation src/features/crafting/session-library src/features/crafting/rulesetBoundary.test.tsx src/features/crafting/workbenchStateShape.test.ts src/features/crafting/WorkbenchNotationIntegration.test.tsx src/features/crafting/WorkbenchIntegration.test.tsx src/features/crafting/Workbench.test.tsx src/features/crafting/feedback-tooltip/FeedbackPersistence.test.tsx src/features/crafting/abyss-workbench/continuousCurrency.test.ts --maxWorkers=1
-```
-
-- PASS: 최종 관련 **15 files / 213 tests**, 58.22초, 실패·skip 0. pretest locale coverage 통과.
-- PASS: `npm run lint`, `npm run typecheck`, `npm run format:check`, `npm run build`, `git diff --check`.
-  build에는 기존 500KB chunk 경고가 있다. 단일 workbenchApi.ts blob은 기준과 동일하다.
-- 자체 리뷰: immutable body/digest와 request binding, count/termination 경계,
-  actual concrete/Abyss witness, 집계와 남은 징조, 새 metadata 거부,
-  ABYSS/common state 일치·hidden/revealed/offer 보존, old v1 무변환,
-  한 Frame·undo/redo·원래 Film/미래 분기, 원래 기보·tooltip 흐름을 대조했다.
-- 최종 검사 시작 후 실행 소스/테스트/설정/의존성 변경은 없다. 결과를 적는 이 문서만
-  이후 추가했고 해당 문서 formatter를 다시 확인한다.
-- 새 API 로그: 이 worktree의 `frontend/node_modules/.chaos-repeat-api-verification/`에
-  `targeted-first.log`, `related-final.log`, `lint.log`, `typecheck.log`, `format.log`,
-  `build.log`를 보존한다. 이전 foundation 로그와 구분한다. node_modules/dist도 보존한다.
-- 미실행: 전체 Vitest(root 합본), 실제 Page/HTTP 연결, 실제 backend 계약/빌드 검증,
-  브라우저 QA. Backend WIP 실행을 기다리거나 미검증 결과를 완료로 표현하지 않았다.
-  이 작업은 확정 wire를 따른 독립 fixture/mock 검사이며 실제 엔드포인트 검증이 아니다.
+합성 fixture와 메모리 storage로 요청 원문·응답 필드·receipt·원본 상태 보존을 검사한다. 현재 Page 연결은 [통합 유지보수 문서](../../../../../../docs/development.md#chaos-repeat)를 따른다. 실제 서버/브라우저·전체 앱 검사는 단위 adapter 검사와 구별하며, 과거 Worker의 명령·결과는 정리 전 Git 원문에서 조회한다.

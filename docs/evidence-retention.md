@@ -5,7 +5,7 @@
 ## 남긴 자료
 
 - 옵션 수치·가중치·번역·단위 환산의 JSON/HTML 원문, 출처 URL·해시·카탈로그 검증 자료.
-- 당시 verification README와 source SHA, 최신 [6옵션 검증 요약](automatic-six-affix-2026-10-28.md), [현행 그래프 설명](current/graph-ui.md).
+- 당시 verification README와 source SHA, 최신 [6옵션 검증 요약](development.md#validation), [현행 그래프 설명](current/graph-ui.md).
 - 재현에 필요한 benchmark 8개와 probe 코드, importer/검증 스크립트가 입력으로 읽는 자료.
 - 라이선스, 승인 원문, 미완료 계약, 현재 명세와 통합 전 원문 스냅샷.
 

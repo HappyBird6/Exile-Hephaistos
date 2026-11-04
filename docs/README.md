@@ -22,7 +22,7 @@
 - [Catalog 수정·봉인·규칙 identity](catalog-data-maintenance.md), [파싱 OpenAPI](openapi-item.yaml).
 - [187개 재료 승인 정책](crafting-currency-policy-approved-20261015.md), [품질 보존 정책](workbench-quality-preserve-2026-10-04.md).
 - [미해결 이슈](../ISSUES.md), [감정·숨겨진 상태의 미해결 근거](workbench-wisdom-evidence-2026-10-03.md).
-- [6옵션 검증과 남은 실패](automatic-six-affix-2026-10-28.md). 기록된 결과는 해당 소스·시점의 결과다.
+- [기능 연결과 유지보수](development.md): 베이스·입력·창고·기록·훼손·품질·반복 Chaos의 통합 계약과 검증 한계.
 - [원자료](evidence/), [보존된 검증 자료](verification/), [재현 프로브](benchmarks/), [라이선스](third-party/PathOfBuilding-LICENSE.txt).
 - [기존 QA 백업·복원 안내](evidence-retention.md), [백업 자료 목록](evidence-archive-manifest.json).
 
@@ -40,10 +40,8 @@
 
 ## 문서 정리 기준
 
-완료 보고서·중단 기록·중복 안내·통합 전 사본과 일회성 문서 작성 스크립트는 작업트리에서 제거했다. 삭제 전 문서는 Git commit `48aff53`에서 조회·복원할 수 있다. 예: `git show 48aff53:docs/README.md`.
+2026-11-04에 작업별 계획·통합·완료·검증 Markdown 47개를 정리했다. 유지보수에 필요한 현재 계약은 [기능 연결과 유지보수](development.md)에 모았다. 과거 패치 적용 순서·담당자·실행 환경·중복 완료 보고는 반복 보관하지 않는다.
 
-현재 실행·유지보수에 쓰는 계약, 미해결 규칙, 승인 정책, 원자료·프로브·라이선스를 유지한다. 과거 보고서 삭제는 이슈 종결이나 게임 확률 검증을 뜻하지 않는다.
+삭제 전 원문은 commit `be48f2eb6e71f3d9f018df9d4b641119bb007ba5`에서 `git show <commit>:<path>`로 조회할 수 있다. 그 이전 정리 원문은 `48aff53`에 있다. 상세 [조회 방법과 추가 기준](development.md#document-history)을 따른다.
 
-## 검토 중인 구현 계획
-
-- [심연 훼손·드러내기 구현 계획](abyss-crafting-implementation-plan.md): 사용자 확정 규칙과 미확정 데이터, 상태 모델·선택·확률·검증 순서. 현재 구현 완료 문서가 아니다.
+현재 사용하는 API·저장 계약, 사용자 승인 원장, 미해결 규칙, 원자료·검증 JSON·프로브·라이선스를 유지한다. 과거 보고서 삭제는 결함 종결이나 게임 확률 검증을 뜻하지 않는다.

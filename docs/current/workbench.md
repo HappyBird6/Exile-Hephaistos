@@ -26,6 +26,10 @@ registered base 수는 [지원 범위](support.md), 상태 검증은 [아이템 
 
 표시는 기보에서 계산하는 파생값이다. 실패·화폐 선택만으로 기존 표시를 지우지 않으며, 단계 이동·세션 복원에 맞춰 갱신한다. 미공개 훼손 슬롯을 수동으로 드러낸 경우에는 슬롯 연결을 유지한다. 옵션 문구·수치와 저장 계약은 바꾸지 않는다.
 
+## 기능 연결과 유지보수
+
+베이스·입력 관측·창고·기록·훼손·주얼 overflow·품질/축성·반복 Chaos의 현재 연결과 보존 조건은 [통합 문서](../development.md)를 따른다. 초기 계획·담당자별 patch 안내·작업별 검증 이력은 해당 문서의 Git 조회 방법으로 확인한다.
+
 ## 구현 근거
 
 [WorkbenchService.java](../../backend/src/main/java/com/poe2craft/crafting/application/WorkbenchService.java) · [WorkbenchController.java](../../backend/src/main/java/com/poe2craft/crafting/presentation/WorkbenchController.java)

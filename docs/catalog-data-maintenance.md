@@ -29,11 +29,11 @@ Omen 정적 정의를 편집할 때는 key별 구현된 trigger 효과 경계를
 
 ## 데이터 출처와 경계
 
-- `backend/src/main/resources/catalog/top-bases.json`: 117개 확장 base의 key/ID/pool/원문 property/출처. 기존 17개 base는 `base-policies.json`의 `legacy`에 있다. 총 Workbench 134개다.
+- `backend/src/main/resources/catalog/top-bases.json`: 162개 확장 base의 key/ID/pool/원문 property/출처. 기존 17개 base는 `base-policies.json`의 `legacy`에 있다. legacy 포함 등록 identity는 총 179개다.
 - `catalog/base-policies.json`: family의 검증된 capability와 개별 override. 알 수 없는 base/class에 capability를 상속하지 않는다. `BaseRegistry`가 key 불일치·중복 ID·누락 capability·정책 오타·orphan override를 거부한다.
 - `catalog/<pool>/catalog.json` 및 special snapshot: modifier ID, stat range, tier, tag, weight, source. 이미 JSON이며 이번 작업에서 이동하거나 게임 값을 바꾸지 않았다. `ItemCatalogLoader`와 `ItemCatalog`가 출처 digest, implicit 일치, modifier 중복, prefix/suffix 개수·weight 합을 검증한다.
 - `crafting/goalfilter/definitions-v1.json`: 14개 검토된 직접 stat의 label/unit, 6개 pseudo의 직접 source 참조. `GoalDefinitions`는 불변 타입이며 `GoalDefinitionsLoader`가 strict JSON으로 읽는다. 미검토 raw stat은 계속 `source` 단위·미지원이다.
-- `crafting/goalfilter/bases-v1.json`: goal catalog의 명시적인 17개 key/pool 범위. Workbench 134개 지원과 별개다. pool의 base ID와 실제 Workbench 초기 상태 ID가 같아야 한다. 여기 등록해도 Solar 외 numeric probability나 임의 텍스트 매핑을 지원하지 않는다.
+- `crafting/goalfilter/bases-v1.json`: goal catalog의 명시적인 17개 key/pool 범위. Workbench 등록 179개과 별개다. pool의 base ID와 실제 Workbench 초기 상태 ID가 같아야 한다. 여기 등록해도 Solar 외 numeric probability나 임의 텍스트 매핑을 지원하지 않는다.
 - `crafting/registry-v2.json`: 220개 재료 inventory와 ACTIVE/DEFERRED 상태. 반복되는 base whitelist는 `crafting/supported-base-sets-v1.json`의 34개 set을 참조한다. group 이름은 최초 재료 ID에서 파생한 안정적인 식별자이며 재료의 실행 조건을 뜻하지 않는다. set은 명시적인 key 목록이고 새 family/base를 자동 등록하지 않는다.
 
 `CraftingRegistryLoader`는 set 참조를 기존 `supportedBases` 배열로 펼쳐 API에 반환한다. 기존 Blessed 목록에 두 번 들어 있던 Elegant/Flexed Crossbow key만 제거했다. 테스트가 이 두 중복을 명시적으로 재구성한 뒤 과거 SHA-256 fixture와 비교하므로 그 외 모든 기존 값과 배열 순서를 검증한다. registry에 추가되는 `ruleset`은 형식 버전·내부 검토 bundle version·내용 identity·게임 시즌/패치 확인 상태·provenance를 제공한다. 등록은 실행 구현의 증거가 아니다. ACTIVE/DEFERRED 수치, base 참조, 중복 ID, global rule/ledger version, currency action/active omen ID를 검증한다. DEFERRED의 출처 미확인 `sourceSha256:null`은 유지하며 ACTIVE에는 검증된 digest가 필요하다.

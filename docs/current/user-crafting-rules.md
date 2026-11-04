@@ -74,7 +74,7 @@
 - 정책/전이: [AutomaticCurrencyPolicy](../../backend/src/main/java/com/poe2craft/crafting/domain/AutomaticCurrencyPolicy.java), [AutomaticCraftingAction](../../backend/src/main/java/com/poe2craft/crafting/domain/AutomaticCraftingAction.java), [AutomaticCraftingKernel](../../backend/src/main/java/com/poe2craft/crafting/domain/AutomaticCraftingKernel.java), [GoalDirectedPlanner](../../backend/src/main/java/com/poe2craft/crafting/domain/pathsearch/GoalDirectedPlanner.java), [AutomaticMethodExecution](../../backend/src/main/java/com/poe2craft/crafting/domain/pathsearch/AutomaticMethodExecution.java).
 - 상태/표시: [AutomaticMethodSearch](../../frontend/src/features/crafting/method-search/AutomaticMethodSearch.tsx), [GroupedMethodGraph](../../frontend/src/features/crafting/method-search/GroupedMethodGraph.tsx), [automaticTierLaws](../../frontend/src/features/crafting/method-search/automaticTierLaws.ts), [attemptLabel](../../frontend/src/features/crafting/method-search/attemptLabel.ts), [Java 품질 반올림](../../backend/src/main/java/com/poe2craft/item/QualityRoundingPolicy.java), [TS 품질 반올림](../../frontend/src/features/crafting/qualityRoundingPolicy.ts).
 - 회귀 근거: [정책 테스트](../../backend/src/test/java/com/poe2craft/crafting/AutomaticCurrencyPolicyTest.java), [planner 시나리오](../../backend/src/test/java/com/poe2craft/bootstrap/GoalDirectedPlannerScenariosTest.java), [6옵션](../../backend/src/test/java/com/poe2craft/bootstrap/SixAffixScenariosTest.java), [티어 묶음](../../frontend/src/features/crafting/method-search/automaticTierLaws.test.ts), [횟수 표시](../../frontend/src/features/crafting/method-search/attemptLabel.test.ts), [implicit 선택 제외](../../frontend/src/features/crafting/goal-filter/catalogPickerParity.test.tsx).
-- 상세 계약: [자동 탐색](automatic-planning.md), [목표](goals.md), [Workbench](workbench.md), [품질 보존](../workbench-quality-preserve-2026-10-04.md), [6옵션 검증과 미해결 한계](../automatic-six-affix-2026-10-28.md). 이 자료의 과거 테스트 결과를 이번 재검증으로 표시하지 않는다.
+- 상세 계약: [자동 탐색](automatic-planning.md), [목표](goals.md), [Workbench](workbench.md), [품질 보존](../workbench-quality-preserve-2026-10-04.md), [6옵션 검증과 미해결 한계](../development.md#validation). 이 자료의 과거 테스트 결과를 이번 재검증으로 표시하지 않는다.
 
 ## 대화 근거 색인
 
@@ -179,7 +179,7 @@
 
 기존 카오스 첫 단계 정책은 유지한다. 심연 재작업은 별도 경로이며 옵션 감소·리롤을 이유로 첫 1옵션 카오스 단계로 돌아가지 않는다. 목표 판정 지원·목표 선택 자격·제작 전이 구현은 각각 따로 검증한다.
 
-현재 구현과 누락, 데이터 확인 항목, 단계별 수정·검증 순서는 [심연 제작 구현 계획](../abyss-crafting-implementation-plan.md)에 기록한다. 이번 작업에서는 문서만 변경했고 제품 코드·서버는 변경하지 않았다.
+현재 구현과 누락, 데이터 확인 항목, 단계별 수정·검증 순서는 [심연 제작 구현 계획](../development.md#abyss)에 기록한다. 이번 작업에서는 문서만 변경했고 제품 코드·서버는 변경하지 않았다.
 
 
 ### 2026-10-29 최신 사용자 확정과 구현 경계
@@ -228,7 +228,7 @@
 
 후보가 확정되면 같은 목표로 일반 탐색을 계속할 수 있고, 이전 심연 단계와 새 탐색을 같은 화면에 연결한다. 훼손 슬롯의 정체성은 별도로 보존하여 6옵션에서도 재관측·선택할 수 있다. 화폐 적용은 기존 검증된 API의 실제 시뮬레이션 결과이며, 수동 선택 간선은 미정 확률로 구분한다. 자동 탐색의 확률·추천은 확정한 아이템 이후 구간에만 적용하며 전체 경로의 최적성·성공률·기대비용을 주장하지 않는다.
 
-진행 상태는 기존 저장을 삭제하지 않는 별도 브라우저 키로 복원한다. 기존 시나리오 공유 코드는 현재 일반 탐색 구간만 담으며 심연 이력은 이 브라우저에서 복원된다는 제한을 6개 언어로 표시한다. 과거 읽기 전용 시나리오에는 새 심연 작업을 실행하지 않는다. 검증·배포 기록은 [심연 흐름 검증](../abyss-flow-verification-20261029.md)을 따른다.
+진행 상태는 기존 저장을 삭제하지 않는 별도 브라우저 키로 복원한다. 기존 시나리오 공유 코드는 현재 일반 탐색 구간만 담으며 심연 이력은 이 브라우저에서 복원된다는 제한을 6개 언어로 표시한다. 과거 읽기 전용 시나리오에는 새 심연 작업을 실행하지 않는다. 검증·배포 기록은 [심연 흐름 검증](../development.md#abyss)을 따른다.
 
 
 ## 최신 정정: 자동 훼손 상태와 분열 제외 카오스 — 2026-10-29
@@ -269,7 +269,7 @@
 - 과거 저장 결과는 당시 버전으로 읽고 새 엔진으로 재계산한다. 생략된 desecrated 필드는 빈 목록으로 읽는다. 구체 옵션 편집기로 미공개 슬롯을 넘겨 조용히 삭제하지 않는다.
 
 현재 변경의 테스트·배포 완료 여부는 별도 검증 기록을 따른다.
-넓은 빈 Rare 시작에서 힘% 목표처럼 후속 공통 상태가 많은 경우 최대 계산 예산(128 상태 / 256 실행)에서도 부분 결과가 남을 수 있다. 발견된 목표 경로를 보존하며 전체 최적화 완료로 표시하지 않는다. 검증 기록: [공통 훼손 전이 검증](../common-desecration-verification-20261030.md).
+넓은 빈 Rare 시작에서 힘% 목표처럼 후속 공통 상태가 많은 경우 최대 계산 예산(128 상태 / 256 실행)에서도 부분 결과가 남을 수 있다. 발견된 목표 경로를 보존하며 전체 최적화 완료로 표시하지 않는다. 검증 기록: [공통 훼손 전이 검증](../development.md#abyss).
 
 
 ## 2026-10-30 최신 정정: Exalted 엄격 제한과 미완성 경로
@@ -281,4 +281,4 @@
 
 목표 도달이 불가능하더라도 적법한 중간 상태와 전이는 보존한다. 정책상 허용 후속 작업이 없는 상태와 예산 제한·미확정 후보 때문에 판단을 끝내지 못한 상태를 구분한다. 미공개 훼손의 드러내기 확률은 계속 만들지 않는다. 과거 시나리오/저장 결과는 읽기 전용 원본으로 유지하며 새 정책으로 자동 재해석하지 않는다.
 
-첨부 에센스 사례 확인: 미공개 훼손을 제거한 완벽한 강화의 에센스는 일반 방어도·회피·에너지 보호막 속성을 추가하며 카오스 저항을 생성하지 않는다. 첨부의 카오스 저항은 별도 Exalted 전이에서 생겼다. 서로 다른 경로가 합류한 결과를 최초 발견 깊이에 그리던 화면을 수정해 선행 상태 아래에 배치하고 출발/도착 상태 번호를 표시한다. 세부 검증은 `docs/strict-exalted-verification-20261030.md`에 기록한다.
+첨부 에센스 사례 확인: 미공개 훼손을 제거한 완벽한 강화의 에센스는 일반 방어도·회피·에너지 보호막 속성을 추가하며 카오스 저항을 생성하지 않는다. 첨부의 카오스 저항은 별도 Exalted 전이에서 생겼다. 서로 다른 경로가 합류한 결과를 최초 발견 깊이에 그리던 화면을 수정해 선행 상태 아래에 배치하고 출발/도착 상태 번호를 표시한다. 세부 검증은 [통합 유지보수 문서](../development.md#abyss)에 기록한다.
