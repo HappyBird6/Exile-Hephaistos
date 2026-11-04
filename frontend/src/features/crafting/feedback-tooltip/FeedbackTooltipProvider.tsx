@@ -1,4 +1,11 @@
-import { useContext, useEffect, useMemo, useRef, useState } from 'react'
+import {
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import type { ReactNode } from 'react'
 import { MaterialDescription } from '../MaterialTooltip'
 import descriptions from '../materialTooltips.json'
@@ -9,12 +16,18 @@ export function FeedbackTooltipProvider({
   enabled,
   priorityMaterialId = null,
   priorityAnchor = null,
+  priorityMaterialHint = null,
+  interactionLocked = false,
+  isInteractionLocked,
   contextKey = '',
   children,
 }: {
   enabled: boolean
   priorityMaterialId?: string | null
   priorityAnchor?: HTMLElement | null
+  priorityMaterialHint?: { materialId: string; text: string } | null
+  interactionLocked?: boolean
+  isInteractionLocked?: () => boolean
   contextKey?: string
   children: ReactNode
 }) {
@@ -23,6 +36,14 @@ export function FeedbackTooltipProvider({
   )
   const priority = useRef<string | null>(null)
   const current = useRef<FeedbackDescription | null>(null)
+  const locked = useRef<() => boolean>(() => false)
+  useLayoutEffect(() => {
+    locked.current = () => interactionLocked || Boolean(isInteractionLocked?.())
+  }, [interactionLocked, isInteractionLocked])
+  const hintText =
+    priorityMaterialHint?.materialId === priorityMaterialId
+      ? priorityMaterialHint.text
+      : undefined
   const api = useMemo(() => {
     const publish = (next: FeedbackDescription) => {
       current.current = next
@@ -39,6 +60,7 @@ export function FeedbackTooltipProvider({
     const reset = (
       materialId: string | null,
       source: HTMLElement | null = null,
+      hint?: string,
     ) => {
       const previous = current.current
       priority.current = materialId
@@ -53,20 +75,28 @@ export function FeedbackTooltipProvider({
           !element.closest('[hidden]') &&
           !element.matches(':disabled'),
         )
-      const anchor = valid(source)
-        ? source
-        : valid(previous?.anchor)
-          ? previous.anchor
-          : ([
-              ...document.querySelectorAll<HTMLElement>(
-                '[data-material-tooltip]',
-              ),
-            ].find((element) => valid(element)) ?? null)
+      const anchor =
+        source?.isConnected &&
+        source.dataset.materialTooltip === materialId &&
+        !source.closest('[hidden]')
+          ? source
+          : valid(previous?.anchor)
+            ? previous.anchor
+            : ([
+                ...document.querySelectorAll<HTMLElement>(
+                  '[data-material-tooltip]',
+                ),
+              ].find((element) => valid(element)) ?? null)
       publish({
         anchor,
         materialId,
         id: 'material-description',
-        content: <MaterialDescription materialId={materialId} />,
+        content: (
+          <>
+            <MaterialDescription materialId={materialId} />
+            {hint && <p className="chaos-repeat-priority-hint">{hint}</p>}
+          </>
+        ),
       })
     }
     return { show, dismiss, reset, current: () => current.current }
@@ -74,7 +104,7 @@ export function FeedbackTooltipProvider({
 
   useEffect(() => {
     if (!enabled) return
-    api.reset(priorityMaterialId, priorityAnchor)
+    api.reset(priorityMaterialId, priorityAnchor, hintText)
     function inspect(event: Event) {
       const element = event.target instanceof Element ? event.target : null
       // A floating base ItemCard has its own hover/focus lifetime. It never
@@ -122,6 +152,7 @@ export function FeedbackTooltipProvider({
       }
     }
     function escape(event: KeyboardEvent) {
+      if (locked.current()) return
       if (event.key !== 'Escape' || !api.current()) return
       if (
         event.target instanceof Element &&
@@ -161,7 +192,7 @@ export function FeedbackTooltipProvider({
         document.removeEventListener(type, inspect)
       document.removeEventListener('keydown', escape, true)
     }
-  }, [enabled, priorityMaterialId, priorityAnchor, contextKey, api])
+  }, [enabled, priorityMaterialId, priorityAnchor, hintText, contextKey, api])
 
   useEffect(() => {
     const anchor = description?.anchor

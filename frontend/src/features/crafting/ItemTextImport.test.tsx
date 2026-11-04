@@ -1,4 +1,8 @@
-import { currencyButton } from '../../shared/test/workbenchQueries'
+import {
+  currencyButton,
+  outerMaterialTab,
+} from '../../shared/test/workbenchQueries'
+import { webcrypto } from 'node:crypto'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import {
   act,
@@ -13,6 +17,22 @@ import { CraftingPage } from './CraftingPage'
 import { useItemDraft } from './draft'
 import { fixtureFetch } from '../../shared/test/craftingFixtures'
 import type { Item, TextLine } from './itemModels'
+import {
+  currentFilm,
+  currentFrame,
+  emptyFilms,
+  historyStorageKey,
+  LocalFilmRepository,
+  startFilm,
+} from './workbenchHistory'
+import {
+  batchResponse,
+  envelopeFor,
+  repeatInitial,
+  requestFor,
+} from './chaos-repeat/api/fixtures.test-support'
+import { repeatItem } from './chaos-repeat/api/stateValidation'
+import type { ChaosRepeatRequest } from './chaos-repeat/api'
 
 const raw =
   'Item Class: Synthetic Amulets\nRarity: Rare\nSynthetic Name\nSynthetic Base\n--------\nItem Level: 42\n<script>alert(1)</script>\n'
@@ -99,10 +119,34 @@ function enter(text = raw) {
   ) {
     fireEvent.click(screen.getByRole('button', { name: 'Edit item' }))
   }
-  fireEvent.change(screen.getByRole('textbox'), { target: { value: text } })
+  fireEvent.change(
+    screen.getByRole('textbox', { name: 'Item text copied from the game' }),
+    { target: { value: text } },
+  )
 }
 function submit() {
   fireEvent.click(screen.getByRole('button', { name: /Analyze item/ }))
+}
+
+function deferParse() {
+  let resolve!: (response: Response) => void
+  let reject!: (error: Error) => void
+  fetchMock.mockImplementationOnce(
+    () =>
+      new Promise<Response>((done, fail) => {
+        resolve = done
+        reject = fail
+      }),
+  )
+  return {
+    finish: async (outcome: 'success' | 'error') => {
+      await act(async () => {
+        if (outcome === 'success') resolve(json(result()))
+        else reject(new Error('old parse failed'))
+        await new Promise((done) => setTimeout(done, 0))
+      })
+    },
+  }
 }
 
 describe('Item text import', () => {
@@ -138,7 +182,9 @@ describe('Item text import', () => {
     enter()
     submit()
     await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1))
-    expect(screen.getByRole('status')).toHaveTextContent('Analyzing item')
+    expect(
+      document.querySelector('.craft-page > .sr-only[role="status"]'),
+    ).toHaveTextContent('Analyzing item')
     await act(async () => {
       reject(new TypeError('offline'))
     })
@@ -146,17 +192,20 @@ describe('Item text import', () => {
       'Could not connect',
     )
     expect(screen.getByRole('alert')).toHaveTextContent('Could not connect')
-    fireEvent.change(screen.getByRole('textbox'), {
-      target: { value: raw + 'changed' },
-    })
+    fireEvent.change(
+      screen.getByRole('textbox', { name: 'Item text copied from the game' }),
+      {
+        target: { value: raw + 'changed' },
+      },
+    )
     fireEvent.click(currencyButton('Orb of Transmutation'))
-    expect(screen.getByRole('status')).toHaveTextContent(
-      'Orb of Transmutation selected',
-    )
+    expect(
+      document.querySelector('.craft-page > .sr-only[role="status"]'),
+    ).toHaveTextContent('Orb of Transmutation selected')
     fireEvent.keyDown(window, { key: 'Escape' })
-    expect(screen.getByRole('status')).toHaveTextContent(
-      'Currency selection cleared',
-    )
+    expect(
+      document.querySelector('.craft-page > .sr-only[role="status"]'),
+    ).toHaveTextContent('Currency selection cleared')
   })
   it('shows API data and preserves evidence without executing HTML', async () => {
     show()
@@ -194,9 +243,9 @@ describe('Item text import', () => {
         name: 'Use selected currency on the central item',
       }),
     )
-    expect(screen.getByRole('status')).toHaveTextContent(
-      'Pasted items are display-only.',
-    )
+    expect(
+      document.querySelector('.craft-page > .sr-only[role="status"]'),
+    ).toHaveTextContent('Pasted items are display-only.')
     expect(useItemDraft.getState().text).toBe(raw)
     expect(useItemDraft.getState().currentText.text).toBe(raw)
   })
@@ -205,9 +254,12 @@ describe('Item text import', () => {
     enter(' ')
     submit()
     expect(screen.getByRole('alert')).toHaveTextContent('Enter item text')
-    fireEvent.change(screen.getByRole('textbox'), {
-      target: { value: '가'.repeat(5500) },
-    })
+    fireEvent.change(
+      screen.getByRole('textbox', { name: 'Item text copied from the game' }),
+      {
+        target: { value: '가'.repeat(5500) },
+      },
+    )
     submit()
     expect(screen.getByRole('alert')).toHaveTextContent('16 KiB')
     expect(fetchMock).not.toHaveBeenCalled()
@@ -265,10 +317,15 @@ describe('Item text import', () => {
     enter()
     submit()
     await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1))
-    expect(screen.getByRole('status')).toHaveTextContent('Analyzing item')
+    expect(
+      document.querySelector('.craft-page > .sr-only[role="status"]'),
+    ).toHaveTextContent('Analyzing item')
     const signal = fetchMock.mock.calls[0]?.[1]?.signal
     const next = raw + 'new input'
-    fireEvent.change(screen.getByRole('textbox'), { target: { value: next } })
+    fireEvent.change(
+      screen.getByRole('textbox', { name: 'Item text copied from the game' }),
+      { target: { value: next } },
+    )
     expect(signal?.aborted).toBe(true)
     fetchMock.mockResolvedValueOnce(
       json({ ...result(next), displayName: 'Latest Name' }),
@@ -309,11 +366,15 @@ describe('Item text import', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Close item input' }))
     fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
     expect(first?.aborted).toBe(true)
+    const revision = useItemDraft.getState().baseRevision
     fireEvent.click(
       within(screen.getByRole('dialog', { name: 'Select base' })).getByRole(
         'button',
         { name: 'Select base' },
       ),
+    )
+    await waitFor(() =>
+      expect(useItemDraft.getState().baseRevision).toBe(revision + 1),
     )
     expect(useItemDraft.getState().source).toBe('base')
     enter()
@@ -323,6 +384,227 @@ describe('Item text import', () => {
     view.unmount()
     expect(second?.aborted).toBe(true)
   })
+  it.each([
+    ['button', 'success'],
+    ['button', 'error'],
+    ['escape', 'success'],
+    ['escape', 'error'],
+    ['cancel', 'success'],
+    ['cancel', 'error'],
+    ['backdrop', 'success'],
+    ['backdrop', 'error'],
+  ] as const)(
+    'allows %s cancellation while parsing and discards the old %s outcome',
+    async (method, outcome) => {
+      const pending = deferParse()
+      show()
+      enter()
+      const original = useItemDraft.getState().currentText
+      const bytes = localStorage.getItem(historyStorageKey)
+      submit()
+      await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1))
+      const signal = fetchMock.mock.calls[0]![1]!.signal
+      const modal = screen.getByRole('dialog', { name: 'Starting item' })
+      const close = within(modal).getByRole('button', {
+        name: 'Close item input',
+      })
+      expect(close).toBeEnabled()
+      expect(
+        screen.getByRole('textbox', { name: 'Item text copied from the game' }),
+      ).toBeEnabled()
+      expect(
+        within(modal).getByRole('button', { name: /Analyzing item/ }),
+      ).toBeDisabled()
+      expect(
+        screen.getByRole('button', {
+          name: 'Use selected currency on the central item',
+        }),
+      ).toBeDisabled()
+      if (method === 'button') fireEvent.click(close)
+      if (method === 'escape') fireEvent.keyDown(window, { key: 'Escape' })
+      if (method === 'cancel')
+        fireEvent(modal, new Event('cancel', { cancelable: true }))
+      if (method === 'backdrop') fireEvent.click(modal)
+      expect(signal?.aborted).toBe(true)
+      expect(screen.queryByRole('dialog', { name: 'Starting item' })).toBeNull()
+      expect(screen.getByRole('button', { name: 'Edit item' })).toHaveFocus()
+      await pending.finish(outcome)
+      expect(useItemDraft.getState().currentText).toBe(original)
+      expect(useItemDraft.getState().text).toBe(raw)
+      expect(useItemDraft.getState().source).toBe('base')
+      expect(localStorage.getItem(historyStorageKey)).toBe(bytes)
+      expect(client.getQueryData(['workbench', 'current-item'])).toBeUndefined()
+      expect(screen.queryByRole('alert')).toBeNull()
+    },
+  )
+
+  it.each(['selected', 'held'] as const)(
+    'keeps a newer %s material when a cancelled parse finishes in the same original item context',
+    async (kind) => {
+      const pending = deferParse()
+      show()
+      enter()
+      submit()
+      await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1))
+      fireEvent.click(screen.getByRole('button', { name: 'Close item input' }))
+      // Reopen the same raw input: source/text/session equality alone cannot
+      // distinguish this cancelled request from its replacement editor lifetime.
+      fireEvent.click(screen.getByRole('button', { name: 'Edit item' }))
+      let material: HTMLElement
+      if (kind === 'held') {
+        fireEvent.click(outerMaterialTab('Essence'))
+        material = currencyButton('Greater Essence of the Body')
+        fireEvent.click(material)
+        expect(material).toHaveClass('is-held')
+      } else {
+        material = currencyButton('Divine Orb')
+        fireEvent.contextMenu(material)
+        expect(material).toHaveAttribute('aria-pressed', 'true')
+      }
+      const before = document.querySelector(
+        '.workbench-feedback-tooltip',
+      )!.textContent
+      await pending.finish('success')
+      expect(
+        document.querySelector('.workbench-feedback-tooltip'),
+      ).toHaveTextContent(before!)
+      if (kind === 'held') expect(material).toHaveClass('is-held')
+      else expect(material).toHaveAttribute('aria-pressed', 'true')
+      expect(
+        screen.getByRole('dialog', { name: 'Starting item' }),
+      ).toBeVisible()
+      expect(
+        screen.getByRole('textbox', { name: 'Item text copied from the game' }),
+      ).toHaveValue(raw)
+      expect(
+        screen.queryByRole('heading', { name: 'Synthetic Name' }),
+      ).toBeNull()
+    },
+  )
+
+  it.each([
+    ['during', 'success'],
+    ['during', 'error'],
+    ['after', 'success'],
+    ['after', 'error'],
+  ] as const)(
+    'preserves Chaos state when a cancelled parse returns %s the batch with %s',
+    async (when, outcome) => {
+      const root = requestFor()
+      const history = startFilm(
+        emptyFilms(),
+        repeatItem(root.state),
+        'parse-cancel-root',
+        repeatInitial.rulesetIdentity,
+      )
+      new LocalFilmRepository(localStorage).save(history)
+      useItemDraft.getState().setActiveOmens(root.activeOmens)
+      client.setQueryData(
+        ['crafting', 'initial', 'solar', 82, 'manual'],
+        repeatInitial,
+      )
+      vi.stubGlobal('crypto', webcrypto)
+      const pending = deferParse()
+      let batch!: {
+        request: ChaosRepeatRequest
+        body: string
+        signal: AbortSignal
+      }
+      let complete!: (response: Response) => void
+      let batchCalls = 0
+      const originalFetch = globalThis.fetch
+      vi.stubGlobal('fetch', (input: RequestInfo | URL, init?: RequestInit) => {
+        if (!String(input).endsWith('/chaos-repeat'))
+          return originalFetch(input, init)
+        batchCalls++
+        const body = init!.body as string
+        batch = {
+          body,
+          request: JSON.parse(body) as ChaosRepeatRequest,
+          signal: init!.signal as AbortSignal,
+        }
+        return new Promise<Response>((resolve) => {
+          complete = resolve
+        })
+      })
+      show()
+      enter()
+      submit()
+      await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1))
+      const parseSignal = fetchMock.mock.calls[0]![1]!.signal
+      fireEvent.click(screen.getByRole('button', { name: 'Close item input' }))
+      expect(parseSignal?.aborted).toBe(true)
+      fireEvent.click(screen.getByRole('button', { name: 'Edit item' }))
+      fireEvent.click(
+        screen.getByRole('button', { name: /OFF.*Continue using/ }),
+      )
+      fireEvent.change(screen.getByRole('textbox', { name: 'Pattern' }), {
+        target: { value: '.' },
+      })
+      const chaos = currencyButton('Chaos Orb')
+      fireEvent.contextMenu(chaos)
+      const bytes = localStorage.getItem(historyStorageKey)
+      const original = useItemDraft.getState().currentText
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: 'Use selected currency on the central item',
+        }),
+        { shiftKey: true },
+      )
+      await waitFor(() => expect(batchCalls).toBe(1))
+      const modal = screen.getByRole('dialog', { name: 'Starting item' })
+      const text = within(modal).getByRole('textbox', {
+        name: 'Item text copied from the game',
+      })
+      const close = within(modal).getByRole('button', {
+        name: 'Close item input',
+      })
+      expect(text).toBeDisabled()
+      expect(close).toBeDisabled()
+      fireEvent.change(text, { target: { value: 'blocked edit' } })
+      fireEvent.click(close)
+      fireEvent(modal, new Event('cancel', { cancelable: true }))
+      fireEvent.keyDown(window, { key: 'Escape' })
+      expect(modal).toHaveAttribute('open')
+      expect(text).toHaveValue(raw)
+      expect(batch.signal.aborted).toBe(false)
+      if (when === 'during') {
+        await pending.finish(outcome)
+        expect(chaos).toHaveAttribute('aria-pressed', 'true')
+        expect(
+          document.querySelector('.workbench-feedback-tooltip'),
+        ).toHaveTextContent('Chaos Orb')
+        expect(localStorage.getItem(historyStorageKey)).toBe(bytes)
+        expect(useItemDraft.getState().activeOmens).toEqual(root.activeOmens)
+      }
+      complete(batchResponse(envelopeFor(batch.request, batch.body)))
+      await waitFor(() =>
+        expect(
+          currentFrame(new LocalFilmRepository(localStorage).load())
+            ?.chaosRepeat?.uses,
+        ).toBe(3),
+      )
+      await waitFor(() => expect(text).toBeEnabled())
+      const completed = localStorage.getItem(historyStorageKey)
+      if (when === 'after') await pending.finish(outcome)
+      expect(localStorage.getItem(historyStorageKey)).toBe(completed)
+      expect(
+        currentFilm(new LocalFilmRepository(localStorage).load())!.frames,
+      ).toHaveLength(2)
+      expect(chaos).toHaveAttribute('aria-pressed', 'true')
+      expect(
+        document.querySelector('.workbench-feedback-tooltip'),
+      ).toHaveTextContent('Chaos Orb')
+      expect(useItemDraft.getState().currentText).toBe(original)
+      expect(useItemDraft.getState().activeOmens).toEqual([
+        'Omen_of_Sinistral_Necromancy',
+      ])
+      expect(modal).toHaveAttribute('open')
+      expect(text).toHaveValue(raw)
+      expect(batchCalls).toBe(1)
+      expect(client.getQueryData(['workbench', 'current-item'])).toBeUndefined()
+    },
+  )
   it('uses English after a previous Korean locale was saved', async () => {
     localStorage.setItem('exile-hephaistos.locale', 'ko')
     show()

@@ -40,6 +40,111 @@ const initial: Initial = {
 const empty = { item: source, slots: [], offer: null }
 const calls: { url: string; body: Record<string, unknown> }[] = []
 
+it('blocks direct selection with the external busy prop and the synchronous owner guard', async () => {
+  const hidden: AbyssState = {
+    ...empty,
+    slots: [{ id: 'hidden', side: 'PREFIX', modifier: null, desecrated: true }],
+  }
+  const client = new QueryClient({
+    defaultOptions: { queries: { retry: false } },
+  })
+  let allowed = true
+  const content = (externalBusy: boolean) => (
+    <QueryClientProvider client={client}>
+      <AbyssPanel
+        source={source}
+        initial={initial}
+        prepared={hidden}
+        directSelection
+        externalBusy={externalBusy}
+        canMutate={() => allowed}
+      />
+    </QueryClientProvider>
+  )
+  const mounted = render(content(true))
+  const reveal = await screen.findByRole('button', { name: 'Reveal' })
+  expect(reveal).toBeDisabled()
+  fireEvent.click(reveal)
+  expect(screen.queryByText('Choose modifier')).toBeNull()
+  mounted.rerender(content(false))
+  allowed = false
+  fireEvent.click(reveal)
+  expect(screen.queryByText('Choose modifier')).toBeNull()
+  allowed = true
+  fireEvent.click(reveal)
+  expect(await screen.findByText('Choose modifier')).toBeVisible()
+  expect(calls.some((call) => call.url.endsWith('/select'))).toBe(false)
+  client.clear()
+})
+
+it('notifies the owner synchronously and prevents a duplicate mutation before pending renders', async () => {
+  const hidden: AbyssState = {
+    ...empty,
+    slots: [{ id: 'hidden', side: 'PREFIX', modifier: null, desecrated: true }],
+  }
+  const onBusyChange = vi.fn()
+  let complete!: (response: Response) => void
+  const originalFetch = globalThis.fetch
+  const observe = vi.fn(
+    () =>
+      new Promise<Response>((resolve) => {
+        complete = resolve
+      }),
+  )
+  vi.stubGlobal('fetch', (url: string, options: RequestInit) =>
+    url.endsWith('/observe') ? observe() : originalFetch(url, options),
+  )
+  const client = new QueryClient({
+    defaultOptions: { queries: { retry: false } },
+  })
+  render(
+    <QueryClientProvider client={client}>
+      <AbyssPanel
+        source={source}
+        initial={initial}
+        prepared={hidden}
+        onBusyChange={onBusyChange}
+      />
+    </QueryClientProvider>,
+  )
+  await screen.findByRole('combobox', { name: 'Desecrated slot' })
+  for (const index of [1, 2, 3])
+    fireEvent.change(screen.getByLabelText(`Candidate ${index}`), {
+      target: { value: 'life' },
+    })
+  onBusyChange.mockClear()
+  const button = screen.getByRole('button', {
+    name: 'Reveal / replace observed candidates',
+  })
+  fireEvent.click(button)
+  expect(onBusyChange).toHaveBeenCalledWith(true)
+  fireEvent.click(button)
+  await waitFor(() => expect(observe).toHaveBeenCalledTimes(1))
+  complete(
+    new Response(
+      JSON.stringify({
+        ...hidden,
+        offer: {
+          slotId: 'hidden',
+          candidates: Array.from({ length: 3 }, () => ({
+            modifierId: 'life',
+            values: { maximum_life: 1 },
+            fractured: false,
+          })),
+        },
+      }),
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Crafting-Ruleset': 'rules',
+        },
+      },
+    ),
+  )
+  await waitFor(() => expect(onBusyChange).toHaveBeenLastCalledWith(false))
+  client.clear()
+})
+
 it('restores a Sanctified hidden slot for reading and disables revealing it', async () => {
   const item: ConcreteItem = { ...source, conditions: ['SANCTIFIED'] }
   const state: AbyssState = {

@@ -134,9 +134,9 @@ describe('Workbench extensions', () => {
     const dextral = favoriteOmen('Omen of Dextral Exaltation', 2)
     expect(sinistral).toHaveClass('is-active-omen')
     expect(dextral).not.toHaveClass('is-active-omen')
-    expect(screen.getByRole('status')).toHaveTextContent(
-      'combination has not been verified',
-    )
+    expect(
+      document.querySelector('.craft-page > .sr-only[role="status"]'),
+    ).toHaveTextContent('combination has not been verified')
     fireEvent.contextMenu(sinistral)
     fireEvent.contextMenu(dextral)
     expect(dextral).toHaveClass('is-active-omen')

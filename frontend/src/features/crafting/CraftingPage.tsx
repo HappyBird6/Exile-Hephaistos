@@ -34,7 +34,7 @@ import { SessionLibraryButtons } from './session-library/SessionLibraryButtons'
 import { ItemSlotImage } from './item-slot/ItemSlotImage'
 import { ServiceMessage } from './ServiceMessage'
 import { serviceText } from './serviceMessages'
-import { useI18n, uiText, translate } from '../../shared/i18n/i18n'
+import { getLocale, useI18n, uiText, translate } from '../../shared/i18n/i18n'
 import { LocaleSelector } from '../../shared/i18n/LocaleSelector'
 import { localizedAction, catalystItemIds } from './localizedCrafting'
 import { localizedModifierText } from './localizedModifiers'
@@ -43,7 +43,13 @@ import { catalystTypes, catalystProjection } from './catalystQuality'
 import type { CatalystQuality } from './catalystQuality'
 import { currencyNames } from './currencyNames'
 import { skipToken, useQuery, useQueryClient } from '@tanstack/react-query'
-import { useEffect, useRef, useState } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react'
 import { ItemCard } from './ItemCard'
 import { whittlingCandidates } from './omenRemovalCandidates'
 import { toItemCard } from './itemCardData'
@@ -52,6 +58,22 @@ import {
   FeedbackTooltipOutlet,
 } from './feedback-tooltip/FeedbackTooltipProvider'
 import { MaterialTooltip } from './MaterialTooltip'
+import {
+  ChaosRepeatControls,
+  chaosRepeatCurrencyIds,
+  defaultChaosRepeatMaximumUses,
+  chaosRepeatMaximumUsesLimit,
+  parseChaosRepeatMaximumUses,
+  chaosRepeatControlMessages,
+} from './chaos-repeat/controls'
+import type {
+  ChaosRepeatControlErrors,
+  ChaosRepeatCurrencyId,
+} from './chaos-repeat/controls'
+import './chaos-repeat/integration/chaos-repeat-integration.css'
+import { chaosRepeatResultMessage } from './chaos-repeat/integration/messages'
+import { applyChaosRepeat } from './chaos-repeat/api'
+import type { ChaosRepeatRequest } from './chaos-repeat/api'
 import { SessionNotation } from './session-notation/SessionNotation'
 import { useItemTextImport } from './useItemTextImport'
 import { CurrencyImage } from './CurrencyImage'
@@ -86,6 +108,7 @@ import {
   currentFrame,
   startFilm,
   recordCraft,
+  recordChaosRepeat,
   recordAbyss,
   storedAbyssItem,
   viewFrame,
@@ -273,8 +296,25 @@ export function CraftingPage() {
   ]
   const [selected, setSelected] = useState<Selection | null>(null)
   const [held, setHeld] = useState<WorkbenchResource | null>(null)
+  const [repeatEnabled, setRepeatEnabled] = useState(false)
+  const [repeatPattern, setRepeatPattern] = useState('')
+  const [repeatMaximumUses, setRepeatMaximumUses] = useState(
+    defaultChaosRepeatMaximumUses,
+  )
+  const [repeatErrors, setRepeatErrors] = useState<ChaosRepeatControlErrors>({})
+  const [repeatHintRequest, setRepeatHintRequest] = useState<{
+    materialId: ChaosRepeatCurrencyId
+    context: string
+  } | null>(null)
+  const [abyssBusy, setAbyssBusy] = useState(false)
+  const abyssBusyRef = useRef(false)
+  const handleAbyssBusy = useCallback((value: boolean) => {
+    abyssBusyRef.current = value
+    setAbyssBusy(value)
+  }, [])
   const [feedbackAnchor, setFeedbackAnchor] = useState<HTMLElement | null>(null)
   function rememberFeedbackAnchor(event: { target: EventTarget | null }) {
+    if (mutationLocked()) return
     const anchor =
       event.target instanceof Element
         ? event.target.closest<HTMLElement>('[data-material-tooltip]')
@@ -305,6 +345,19 @@ export function CraftingPage() {
     failedApplication?.revision === draft.baseRevision
       ? failedApplication.message
       : ''
+  const [repeatNotice, setRepeatNotice] = useState<{
+    revision: number
+    film: string | null
+    cursor: number
+    kind: 'match' | 'limit'
+    uses: number
+  } | null>(null)
+  const repeatSuccess =
+    repeatNotice?.revision === draft.baseRevision &&
+    repeatNotice.film === filmState.history.active &&
+    repeatNotice.cursor === filmState.history.cursor
+      ? chaosRepeatResultMessage(locale, repeatNotice.kind, repeatNotice.uses)
+      : ''
   const [altHeld, setAltHeld] = useState(false)
   const [stashSpace, setStashSpace] = useState(0)
   useEffect(() => {
@@ -331,16 +384,64 @@ export function CraftingPage() {
   const [pendingApplication, setApplying] = useState<{
     controller: AbortController
     revision: number
+    repeat?: boolean
   } | null>(null)
   const applying =
     pendingApplication?.revision === draft.baseRevision
       ? pendingApplication.controller
       : null
+  const repeatRunning = applying !== null && pendingApplication?.repeat === true
   const applyingRequest = useRef<AbortController | null>(null)
   const placementRequest = useRef(0)
   const placementPending = useRef(false)
+  const inputRequestGeneration = useRef(0)
+  const inputFilm = useRef(filmState)
+  useLayoutEffect(() => {
+    inputFilm.current = filmState
+  }, [filmState])
+  useEffect(
+    () => () => {
+      inputRequestGeneration.current++
+    },
+    [],
+  )
+  const workbenchBusy = applying !== null || abyssBusy || imported.pending
+  const inputBusy = applying !== null || abyssBusy
+  const inputMutationLocked = useCallback(
+    () =>
+      Boolean(
+        applyingRequest.current ||
+        placementPending.current ||
+        abyssBusyRef.current,
+      ),
+    [],
+  )
+  const mutationLocked = useCallback(
+    () =>
+      Boolean(
+        applyingRequest.current ||
+        placementPending.current ||
+        abyssBusyRef.current ||
+        imported.pending,
+      ),
+    [imported.pending],
+  )
+  const canMutateAbyss = useCallback(
+    () =>
+      !applyingRequest.current &&
+      !placementPending.current &&
+      !imported.pending,
+    [imported.pending],
+  )
+  const initialKey = [
+    'crafting',
+    'initial',
+    catalogBase,
+    catalogLevel,
+    'manual',
+  ] as const
   const initial = useQuery({
-    queryKey: ['crafting', 'initial', catalogBase, catalogLevel, 'manual'],
+    queryKey: initialKey,
     queryFn: ({ signal }) =>
       loadInitial(catalogLevel, signal, catalogBase, true),
     staleTime: 60_000,
@@ -387,6 +488,21 @@ export function CraftingPage() {
     filmState.revision === draft.baseRevision
       ? currentFilm(filmState.history)
       : undefined
+  const repeatContext = JSON.stringify([
+    draft.baseRevision,
+    draft.source,
+    filmState.revision,
+    filmState.history,
+    restoredState ?? workbench.data?.state ?? mapping.data?.state,
+    draft.activeOmens,
+    locale,
+    initial.data?.rulesetIdentity,
+  ])
+  const latestRepeatContext = useRef(repeatContext)
+  const appliedRepeatRequests = useRef(new Set<string>())
+  useLayoutEffect(() => {
+    latestRepeatContext.current = repeatContext
+  }, [repeatContext])
   async function startBase(
     level: number,
     base: WorkbenchBaseKey = 'solar',
@@ -394,6 +510,7 @@ export function CraftingPage() {
     sapphireRarity: 'NORMAL' | 'MAGIC' | 'RARE' = 'MAGIC',
     castSpeed: number | null = null,
   ) {
+    if (mutationLocked()) return
     const request = ++placementRequest.current
     const revision = useItemDraft.getState().baseRevision
     placementPending.current = true
@@ -450,7 +567,7 @@ export function CraftingPage() {
     sourceHistory = filmState.history,
     cursor?: number,
   ) {
-    if (applyingRequest.current || placementPending.current) return
+    if (mutationLocked()) return
     const selectedFilm = sourceHistory.films.find((entry) => entry.id === id)
     if (!selectedFilm) return
     const nextCursor = cursor ?? selectedFilm.frames.length - 1
@@ -500,12 +617,7 @@ export function CraftingPage() {
     setAnnouncement('')
   }
   function commitLibraryHistory(next: Films) {
-    if (
-      applyingRequest.current ||
-      placementPending.current ||
-      filmState.blockedSaving
-    )
-      return false
+    if (mutationLocked() || filmState.blockedSaving) return false
     if (!saveFilms(next, draft.baseRevision, true)) return false
     const activeChanged =
       next.active !== filmState.history.active ||
@@ -539,9 +651,10 @@ export function CraftingPage() {
       setLastDeletion(null)
   }
   function browse(cursor: number) {
-    if (applyingRequest.current || placementPending.current) return
+    if (mutationLocked()) return
     saveFilms(viewFrame(filmState.history, cursor))
     setFailedApplication(null)
+    setRepeatNotice(null)
     setSelected(null)
     setHeld(null)
     setPointer(null)
@@ -578,9 +691,16 @@ export function CraftingPage() {
   }, [inputOpen])
   useEffect(() => {
     const cancel = (event: KeyboardEvent) => {
+      if (
+        inputOpen && event.key === 'Escape'
+          ? inputMutationLocked()
+          : mutationLocked()
+      )
+        return
       if (event.key === 'Alt') setAltHeld(true)
       if (event.key === 'Escape') {
         setFailedApplication(null)
+        setRepeatNotice(null)
         setSelected(null)
         setHeld(null)
         setPointer(null)
@@ -607,15 +727,17 @@ export function CraftingPage() {
       window.removeEventListener('keyup', release)
       window.removeEventListener('blur', hide)
     }
-  }, [inputOpen])
+  }, [inputOpen, mutationLocked, inputMutationLocked])
 
   function choose(resource: Selection) {
+    if (mutationLocked()) return
     if (
       excludedResourceIds.includes(resource.id) ||
       !visibilityPolicy(resource)
     )
       return
     setFailedApplication(null)
+    setRepeatNotice(null)
     setSelected(resource)
     setHeld(null)
     setAnnouncement(
@@ -623,7 +745,7 @@ export function CraftingPage() {
     )
   }
   function toggleOmen(id: string) {
-    if (applyingRequest.current) return
+    if (mutationLocked()) return
     if (
       !draft.activeOmens.includes(id) &&
       !visibilityPolicy({ id, category: 'Omen' })
@@ -666,8 +788,9 @@ export function CraftingPage() {
     )
   }
   async function apply(repeat = false) {
-    if (applyingRequest.current || placementPending.current) return
+    if (mutationLocked()) return
     setFailedApplication(null)
+    setRepeatNotice(null)
     const failApply = (message: string) => {
       setFailedApplication({ revision: draft.baseRevision, message })
       setAnnouncement(serviceText(message))
@@ -699,16 +822,153 @@ export function CraftingPage() {
       failApply(t('notice.wait_catalog'))
       return
     }
+    const repeatingChaos =
+      repeatEnabled &&
+      (action === 'CHAOS' ||
+        action === 'GREATER_CHAOS' ||
+        action === 'PERFECT_CHAOS')
+    const maximumUses = parseChaosRepeatMaximumUses(repeatMaximumUses)
+    if (repeatingChaos && maximumUses === null) {
+      setRepeatErrors({
+        maximumUses: chaosRepeatControlMessages[
+          locale
+        ].invalidMaximumUses.replace(
+          '{maximum}',
+          String(chaosRepeatMaximumUsesLimit),
+        ),
+      })
+      return
+    }
     const controller = new AbortController()
     applyingRequest.current = controller
-    setApplying({ controller, revision: draft.baseRevision })
+    setApplying({
+      controller,
+      revision: draft.baseRevision,
+      repeat: repeatingChaos,
+    })
     const revision = draft.baseRevision
     const state =
       restoredState ??
       workbench.data?.state ??
       mapping.data?.state ??
       concreteInitial(initial.data)
+    const repeatContextCurrent = () =>
+      !controller.signal.aborted &&
+      applyingRequest.current === controller &&
+      useItemDraft.getState().baseRevision === revision &&
+      useItemDraft.getState().source === draft.source &&
+      JSON.stringify(useItemDraft.getState().activeOmens) ===
+        JSON.stringify(draft.activeOmens) &&
+      getLocale() === locale &&
+      client.getQueryData(initialKey) === initial.data &&
+      latestRepeatContext.current === repeatContext &&
+      (restoredState !== undefined ||
+        JSON.stringify(
+          client.getQueryData<AppliedItem>(workbenchKey)?.state ??
+            client.getQueryData<MappingResult>(mappingKey)?.state ??
+            concreteInitial(initial.data!),
+        ) === JSON.stringify(state))
     try {
+      if (repeatingChaos) {
+        setRepeatErrors({})
+        const abyssRepeat = Boolean(
+          state.desecrated?.length || storedFrame?.abyss,
+        )
+        const dormant = abyssRepeat ? boneConsumedOmens(draft.activeOmens) : []
+        const request: ChaosRepeatRequest = {
+          requestId: crypto.randomUUID(),
+          state: abyssRepeat
+            ? {
+                kind: 'ABYSS',
+                abyss:
+                  storedFrame?.abyss ?? abyssFromConcrete(state, initial.data),
+              }
+            : { kind: 'CONCRETE', item: state },
+          action,
+          activeOmens: abyssRepeat
+            ? boneRemainingOmens(draft.activeOmens)
+            : [...draft.activeOmens],
+          pattern: repeatPattern,
+          locale,
+          maximumUses: maximumUses!,
+        }
+        const history =
+          filmState.revision === revision
+            ? filmState.history
+            : { ...filmState.history, active: null, cursor: 0 }
+        const result = await applyChaosRepeat(
+          request,
+          initial.data,
+          controller.signal,
+        )
+        if (
+          !repeatContextCurrent() ||
+          result.requestId !== request.requestId ||
+          appliedRepeatRequests.current.has(request.requestId)
+        )
+          return
+        if (result.kind === 'completed' || result.kind === 'partial') {
+          let next: Films
+          try {
+            next = recordChaosRepeat(
+              history,
+              result.receipt,
+              filmId(),
+              initial.data,
+            )
+            if (next === history) throw new Error('Unverified receipt')
+          } catch {
+            const message = chaosRepeatResultMessage(locale, 'invalid')
+            setRepeatErrors({ request: message })
+            failApply(message)
+            return
+          }
+          appliedRepeatRequests.current.add(request.requestId)
+          client.setQueryData(['crafting', 'chaos-repeat', revision], result)
+          saveFilms(next, revision)
+          draft.setActiveOmens([...result.remainingOmens, ...dormant])
+          const message = chaosRepeatResultMessage(
+            locale,
+            result.kind === 'partial'
+              ? 'partial'
+              : result.termination === 'MATCH'
+                ? 'match'
+                : 'limit',
+            result.actualUses,
+          )
+          if (result.kind === 'partial') {
+            setRepeatErrors({ request: message })
+            failApply(message)
+          } else {
+            setRepeatNotice({
+              revision,
+              film: next.active,
+              cursor: next.cursor,
+              kind: result.termination === 'MATCH' ? 'match' : 'limit',
+              uses: result.actualUses,
+            })
+            setAnnouncement(message)
+          }
+          if (!repeat) {
+            setSelected(null)
+            setHeld(null)
+            setPointer(null)
+          }
+        } else {
+          const kind =
+            result.kind === 'no-use'
+              ? 'noUse'
+              : result.kind === 'rejected'
+                ? 'rejected'
+                : result.kind === 'uncertain'
+                  ? 'uncertain'
+                  : 'invalid'
+          const message = chaosRepeatResultMessage(locale, kind)
+          setRepeatErrors({ request: message })
+          failApply(message)
+        }
+        return
+      }
       if (isBone(selected.id)) {
         const next = await applyBone(
           state,
@@ -876,9 +1136,16 @@ export function CraftingPage() {
           translate('craft.blocked', { reason: result.reason ?? '' }, 'en'),
         )
     } catch (error) {
-      if (!controller.signal.aborted)
+      if (
+        !controller.signal.aborted &&
+        (!repeatingChaos || repeatContextCurrent())
+      )
         failApply(
-          error instanceof Error ? error.message : t('notice.apply_error'),
+          repeatingChaos
+            ? chaosRepeatResultMessage(locale, 'uncertain')
+            : error instanceof Error
+              ? error.message
+              : t('notice.apply_error'),
         )
     } finally {
       if (applyingRequest.current === controller) {
@@ -888,23 +1155,42 @@ export function CraftingPage() {
     }
   }
   async function importText() {
-    if (await imported.submit(draft.text)) {
-      saveFilms(
-        { ...filmState.history, active: null, cursor: 0 },
-        useItemDraft.getState().baseRevision,
-      )
+    if (mutationLocked()) return
+    const generation = ++inputRequestGeneration.current
+    const original = useItemDraft.getState()
+    const originalLocale = getLocale()
+    const history = filmState.history
+    const filmRevision = filmState.revision
+    const accepted = await imported.submit(original.text)
+    const current = useItemDraft.getState()
+    const sameItemContext = accepted
+      ? current.baseRevision === original.baseRevision + 1 &&
+        current.source === 'text' &&
+        current.currentText.text === original.text
+      : current.baseRevision === original.baseRevision &&
+        current.source === original.source &&
+        current.currentText === original.currentText
+    // The hook rejects stale server data; the Page must also discard its own
+    // cancelled continuation before it can clear a newer currency selection.
+    if (
+      generation !== inputRequestGeneration.current ||
+      inputMutationLocked() ||
+      !sameItemContext ||
+      current.text !== original.text ||
+      getLocale() !== originalLocale ||
+      inputFilm.current.history !== history ||
+      inputFilm.current.revision !== filmRevision
+    )
+      return
+    if (accepted) {
+      saveFilms({ ...history, active: null, cursor: 0 }, current.baseRevision)
       closeInput()
     }
     setSelected(null)
     setHeld(null)
   }
   async function enableCrafting() {
-    if (
-      applyingRequest.current ||
-      !imported.data ||
-      !importedBase ||
-      !initial.data
-    )
+    if (mutationLocked() || !imported.data || !importedBase || !initial.data)
       return
     const controller = new AbortController()
     const revision = draft.baseRevision
@@ -965,8 +1251,13 @@ export function CraftingPage() {
       }
     }
   }
-  function closeInput() {
+  function invalidateInput() {
+    inputRequestGeneration.current++
     imported.invalidate()
+  }
+  function closeInput() {
+    if (inputMutationLocked()) return
+    invalidateInput()
     setInputOpen(false)
     ;(inputOpener.current ?? inputToggle.current)?.focus()
   }
@@ -974,6 +1265,7 @@ export function CraftingPage() {
     index: number,
     resourceToPlace: WorkbenchResource | null = held,
   ) {
+    if (mutationLocked()) return
     if (
       resourceToPlace &&
       (excludedResourceIds.includes(resourceToPlace.id) ||
@@ -1240,6 +1532,24 @@ export function CraftingPage() {
           }
         : null
 
+  const feedbackContextKey = JSON.stringify([
+    view,
+    locale,
+    draft.baseRevision,
+    filmState.history.active,
+    filmState.history.cursor,
+    activeTab,
+    draft.activeOmens,
+    inputOpen,
+  ])
+  const repeatHint =
+    repeatHintRequest?.context === feedbackContextKey &&
+    repeatHintRequest.materialId === cursor?.id
+      ? {
+          materialId: repeatHintRequest.materialId,
+          text: chaosRepeatControlMessages[locale].hint,
+        }
+      : null
   const page = (
     <main
       className={`craft-page${view === 'workbench' ? ' craft-page--workbench' : ''}`}
@@ -1247,10 +1557,11 @@ export function CraftingPage() {
       onContextMenuCapture={rememberFeedbackAnchor}
       onDragStartCapture={rememberFeedbackAnchor}
       onClick={(event) => {
+        if (mutationLocked()) return
         const target = event.target as HTMLElement
         if (
           !target.closest(
-            'button, input, label, dialog, a, .workbench-feedback-region',
+            'button, input, label, dialog, a, .workbench-feedback-region, .chaos-repeat-controls',
           )
         ) {
           setSelected(null)
@@ -1278,7 +1589,24 @@ export function CraftingPage() {
             <small>{t('ui.path_of_exile_2_crafting_workbench')}</small>
           </span>
         </a>
-        <LocaleSelector />
+        <fieldset
+          className="chaos-repeat-language-lock"
+          disabled={workbenchBusy}
+          onClickCapture={(event) => {
+            if (mutationLocked()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+          }}
+          onKeyDownCapture={(event) => {
+            if (mutationLocked()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+          }}
+        >
+          <LocaleSelector />
+        </fieldset>
       </header>
       <nav className="workspace-nav" aria-label={t('ui.main_navigation')}>
         <div role="tablist" aria-label={t('ui.crafting_workspace')}>
@@ -1291,13 +1619,16 @@ export function CraftingPage() {
               aria-selected={view === tab}
               aria-controls={`panel-${tab}`}
               tabIndex={view === tab ? 0 : -1}
+              disabled={workbenchBusy}
               onClick={() => {
+                if (mutationLocked()) return
                 setView(tab)
                 setHeld(null)
                 setSelected(null)
                 setPointer(null)
               }}
               onKeyDown={(event) => {
+                if (mutationLocked()) return
                 if (
                   !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(
                     event.key,
@@ -1374,8 +1705,10 @@ export function CraftingPage() {
                             aria-label={currencyName}
                             aria-pressed={selected?.id === currency.id}
                             {...tooltipEvents(currency.id)}
+                            disabled={workbenchBusy}
                             onContextMenu={(event) => {
                               event.preventDefault()
+                              if (mutationLocked()) return
                               setPointer({ x: event.clientX, y: event.clientY })
                               choose({
                                 ...currency,
@@ -1383,6 +1716,7 @@ export function CraftingPage() {
                               })
                             }}
                             onClick={(event) => {
+                              if (mutationLocked()) return
                               if (event.detail === 0) setPointer(null)
                               choose({
                                 ...currency,
@@ -1418,7 +1752,7 @@ export function CraftingPage() {
                         aria-label={t(
                           'ui.use_selected_currency_on_the_central_item',
                         )}
-                        disabled={applying !== null}
+                        disabled={workbenchBusy}
                         onClick={(event) => void apply(event.shiftKey)}
                       >
                         <ItemSlotImage
@@ -1433,15 +1767,60 @@ export function CraftingPage() {
                       </button>
                     </div>
                   </div>
+                  <div className="chaos-repeat-integration">
+                    <ChaosRepeatControls
+                      enabled={repeatEnabled}
+                      pattern={repeatPattern}
+                      maximumUses={repeatMaximumUses}
+                      running={repeatRunning}
+                      disabled={workbenchBusy}
+                      errors={repeatErrors}
+                      serverMaximumUses={chaosRepeatMaximumUsesLimit}
+                      currencyId={
+                        chaosRepeatCurrencyIds.includes(
+                          cursor?.id as ChaosRepeatCurrencyId,
+                        )
+                          ? (cursor!.id as ChaosRepeatCurrencyId)
+                          : 'Chaos_Orb'
+                      }
+                      onEnabledChange={(value) => {
+                        if (!mutationLocked()) {
+                          setRepeatEnabled(value)
+                          setRepeatErrors({})
+                        }
+                      }}
+                      onPatternChange={(value) => {
+                        if (!mutationLocked()) {
+                          setRepeatPattern(value)
+                          setRepeatErrors({})
+                        }
+                      }}
+                      onMaximumUsesChange={(value) => {
+                        if (!mutationLocked()) {
+                          setRepeatMaximumUses(value)
+                          setRepeatErrors({})
+                        }
+                      }}
+                      onHintInteraction={(materialId) =>
+                        setRepeatHintRequest((current) =>
+                          current?.materialId === materialId &&
+                          current.context === feedbackContextKey
+                            ? current
+                            : { materialId, context: feedbackContextKey },
+                        )
+                      }
+                    />
+                  </div>
                   <div className="workbench-item-controls">
                     <button
                       type="button"
                       className="item-input-toggle"
-                      disabled={applying !== null}
+                      disabled={workbenchBusy}
                       ref={baseAnchor}
                       aria-expanded={leftMenu === 'base'}
                       aria-controls="workbench-base-picker"
                       onClick={() => {
+                        if (mutationLocked()) return
                         setBaseChoice(
                           supersededBases[catalogBase] ?? catalogBase,
                         )
@@ -1454,9 +1833,11 @@ export function CraftingPage() {
                       type="button"
                       ref={inputToggle}
                       className="item-input-toggle"
+                      disabled={workbenchBusy}
                       aria-expanded={inputOpen}
                       aria-controls="item-input-panel"
                       onClick={(event) => {
+                        if (mutationLocked()) return
                         inputOpener.current = event.currentTarget
                         setInputOpen((open) => !open)
                       }}
@@ -1466,9 +1847,10 @@ export function CraftingPage() {
                     <button
                       type="button"
                       className="item-input-toggle"
-                      disabled={applying !== null}
+                      disabled={workbenchBusy}
                       onClick={() => {
-                        imported.invalidate()
+                        if (mutationLocked()) return
+                        invalidateInput()
                         void startBase(catalogLevel, catalogBase)
                       }}
                     >
@@ -1492,8 +1874,12 @@ export function CraftingPage() {
                               aria-selected={activeTab === tab.id}
                               aria-controls="material-list"
                               tabIndex={activeTab === tab.id ? 0 : -1}
-                              onClick={() => setActiveTab(tab.id)}
+                              disabled={workbenchBusy}
+                              onClick={() => {
+                                if (!mutationLocked()) setActiveTab(tab.id)
+                              }}
                               onKeyDown={(event) => {
+                                if (mutationLocked()) return
                                 const next =
                                   event.key === 'ArrowRight'
                                     ? (index + 1) % materialTabs.length
@@ -1529,14 +1915,17 @@ export function CraftingPage() {
                     selectedId={selected?.id ?? null}
                     activeOmenIds={draft.activeOmens}
                     held={held}
-                    disabled={applying !== null}
+                    disabled={workbenchBusy}
                     onActivateOmen={(resource) => toggleOmen(resource.id)}
                     onSelect={(resource, pointer) => {
+                      if (mutationLocked()) return
                       setPointer(pointer ?? null)
                       choose(resource)
                     }}
                     onPickUp={(resource, pointer) => {
+                      if (mutationLocked()) return
                       setFailedApplication(null)
+                      setRepeatNotice(null)
                       setPointer(pointer ?? null)
                       setHeld(resource)
                       setSelected(null)
@@ -1553,8 +1942,9 @@ export function CraftingPage() {
                     activeOmenIds={draft.activeOmens}
                     favorites={favorites}
                     held={held}
-                    disabled={applying !== null}
+                    disabled={workbenchBusy}
                     onFavoriteActivate={(_, resource, pointer) => {
+                      if (mutationLocked()) return
                       setPointer(pointer ?? null)
                       if (resource) choose(resource)
                       else setSelected(null)
@@ -1568,7 +1958,7 @@ export function CraftingPage() {
                 {selected &&
                   isBone(selected.id) &&
                   draft.activeOmens.includes('Omen_of_Putrefaction') && (
-                    <fieldset disabled={!!applying}>
+                    <fieldset disabled={workbenchBusy}>
                       <legend>{name(selected.id, selected.name)}</legend>
                       {draft.activeOmens.includes('Omen_of_Putrefaction') ? (
                         <div>
@@ -1583,6 +1973,7 @@ export function CraftingPage() {
                                   step={1}
                                   value={boneCounts[index]}
                                   onChange={(event) => {
+                                    if (mutationLocked()) return
                                     const value = event.target.valueAsNumber
                                     if (
                                       Number.isInteger(value) &&
@@ -1607,9 +1998,7 @@ export function CraftingPage() {
                   <button
                     type="button"
                     onClick={() => void enableCrafting()}
-                    disabled={
-                      applying !== null || !initial.data || !importedBase
-                    }
+                    disabled={workbenchBusy || !initial.data || !importedBase}
                   >
                     {t('ui.enable_solar_crafting')}
                   </button>
@@ -1629,7 +2018,10 @@ export function CraftingPage() {
                     {t('ui.catalog_load_error')}{' '}
                     <button
                       type="button"
-                      onClick={() => void initial.refetch()}
+                      disabled={workbenchBusy}
+                      onClick={() => {
+                        if (!mutationLocked()) void initial.refetch()
+                      }}
                     >
                       {t('ui.retry_catalog')}
                     </button>
@@ -1645,22 +2037,22 @@ export function CraftingPage() {
                 libraryId="workbench-session-library"
                 historyAnchor={historyAnchor}
                 favoritesAnchor={favoritesAnchor}
-                disabled={applying !== null}
+                disabled={workbenchBusy}
                 openView={
                   leftMenu === 'history' || leftMenu === 'favorites'
                     ? leftMenu
                     : null
                 }
-                onOpenChange={setLeftMenu}
+                onOpenChange={(menu) => {
+                  if (!mutationLocked()) setLeftMenu(menu)
+                }}
               >
                 <div className="workbench-film-controls">
                   <button
                     type="button"
                     aria-label={t('ui.previous_crafting_step')}
                     disabled={
-                      !film ||
-                      filmState.history.cursor === 0 ||
-                      applying !== null
+                      !film || filmState.history.cursor === 0 || workbenchBusy
                     }
                     onClick={() => browse(filmState.history.cursor - 1)}
                   >
@@ -1685,7 +2077,7 @@ export function CraftingPage() {
                     disabled={
                       !film ||
                       filmState.history.cursor === film.frames.length - 1 ||
-                      applying !== null
+                      workbenchBusy
                     }
                     onClick={() => browse(filmState.history.cursor + 1)}
                   >
@@ -1751,6 +2143,9 @@ export function CraftingPage() {
                       {...(storedFrame?.abyss
                         ? { restoredState: storedFrame.abyss }
                         : {})}
+                      externalBusy={applying !== null || imported.pending}
+                      canMutate={canMutateAbyss}
+                      onBusyChange={handleAbyssBusy}
                       onTransition={(next, transition) => {
                         if (transition.operation === 'restore') return
                         if (
@@ -1834,18 +2229,20 @@ export function CraftingPage() {
                 cursor={filmState.history.cursor}
                 resources={stashResources}
                 onNavigate={browse}
-                disabled={applying !== null}
+                disabled={workbenchBusy}
               />
               <div className="workbench-feedback-region wb-scrollbar">
-                {applicationFailure && (
+                {(applicationFailure || repeatSuccess) && (
                   <div
                     className="workbench-feedback-panel wb-scrollbar"
                     tabIndex={0}
-                    role="alert"
+                    role={applicationFailure ? 'alert' : 'status'}
                     aria-label={t('ui.crafting_notes')}
                   >
                     <p className="workbench-feedback">
-                      {serviceText(applicationFailure)}
+                      {applicationFailure
+                        ? serviceText(applicationFailure)
+                        : repeatSuccess}
                     </p>
                   </div>
                 )}
@@ -1859,12 +2256,18 @@ export function CraftingPage() {
             placementRegion={basePlacementRegion}
             shelf={currencyShelf}
             open={leftMenu === 'base'}
-            onOpenChange={(open) => setLeftMenu(open ? 'base' : null)}
+            onOpenChange={(open) => {
+              if (!mutationLocked()) setLeftMenu(open ? 'base' : null)
+            }}
             value={baseChoice}
-            onChange={setBaseChoice}
+            onChange={(value) => {
+              if (!mutationLocked()) setBaseChoice(value)
+            }}
             level={baseLevel}
-            onLevelChange={setBaseLevel}
-            disabled={applying !== null}
+            onLevelChange={(value) => {
+              if (!mutationLocked()) setBaseLevel(value)
+            }}
+            disabled={workbenchBusy}
             valid={
               !(
                 baseChoice === 'sapphire' &&
@@ -1891,11 +2294,13 @@ export function CraftingPage() {
                     <select
                       id="sapphire-rarity"
                       value={sapphireRarity}
-                      onChange={(e) =>
-                        setSapphireRarity(
-                          e.target.value as 'NORMAL' | 'MAGIC' | 'RARE',
-                        )
-                      }
+                      disabled={workbenchBusy}
+                      onChange={(e) => {
+                        if (!mutationLocked())
+                          setSapphireRarity(
+                            e.target.value as 'NORMAL' | 'MAGIC' | 'RARE',
+                          )
+                      }}
                     >
                       <option value="NORMAL">{t('ui.normal')}</option>
                       <option value="MAGIC">{t('ui.magic')}</option>
@@ -1909,8 +2314,11 @@ export function CraftingPage() {
                           sapphireAffix &&
                           sapphireRarity !== 'NORMAL'
                         }
-                        disabled={sapphireRarity === 'NORMAL'}
-                        onChange={(e) => setSapphireAffix(e.target.checked)}
+                        disabled={workbenchBusy || sapphireRarity === 'NORMAL'}
+                        onChange={(e) => {
+                          if (!mutationLocked())
+                            setSapphireAffix(e.target.checked)
+                        }}
                       />
                       {t('ui.sapphire_existing_suffix')}
                     </label>
@@ -1928,7 +2336,11 @@ export function CraftingPage() {
                             max="4"
                             step="1"
                             value={sapphireRoll}
-                            onChange={(e) => setSapphireRoll(e.target.value)}
+                            disabled={workbenchBusy}
+                            onChange={(e) => {
+                              if (!mutationLocked())
+                                setSapphireRoll(e.target.value)
+                            }}
                           />
                         </>
                       )}
@@ -1937,7 +2349,8 @@ export function CraftingPage() {
               </>
             }
             onPlace={() => {
-              imported.invalidate()
+              if (mutationLocked()) return
+              invalidateInput()
               void startBase(
                 Number(baseLevel),
                 baseChoice,
@@ -1962,11 +2375,12 @@ export function CraftingPage() {
             open={leftMenu === 'history' || leftMenu === 'favorites'}
             favoritesOnly={leftMenu === 'favorites'}
             onOpenChange={(open) => {
-              if (!open) setLeftMenu(null)
+              if (!mutationLocked() && !open) setLeftMenu(null)
             }}
             history={filmState.history}
-            disabled={applying !== null || filmState.blockedSaving}
+            disabled={workbenchBusy || filmState.blockedSaving}
             onSelect={(id) => {
+              if (mutationLocked()) return
               restoreFilm(id)
               setLeftMenu(null)
             }}
@@ -2010,6 +2424,7 @@ export function CraftingPage() {
                 type="button"
                 className="input-close"
                 aria-label={t('ui.close_item_input')}
+                disabled={inputBusy}
                 onClick={closeInput}
               >
                 ×
@@ -2025,8 +2440,10 @@ export function CraftingPage() {
                 <textarea
                   id="item-text"
                   value={draft.text}
+                  disabled={inputBusy}
                   onChange={(event) => {
-                    imported.invalidate()
+                    if (inputMutationLocked()) return
+                    invalidateInput()
                     draft.setText(event.target.value)
                   }}
                   placeholder={
@@ -2044,7 +2461,7 @@ export function CraftingPage() {
                   type="button"
                   className="primary-action"
                   onClick={importText}
-                  disabled={imported.pending}
+                  disabled={workbenchBusy}
                 >
                   {imported.pending
                     ? t('ui.analyzing_item')
@@ -2070,17 +2487,22 @@ export function CraftingPage() {
               min="1"
               max="100"
               value={baseLevel}
-              onChange={(event) => setBaseLevel(event.target.value)}
+              disabled={workbenchBusy}
+              onChange={(event) => {
+                if (!mutationLocked()) setBaseLevel(event.target.value)
+              }}
             />
           </label>
           <button
             type="button"
             disabled={
+              workbenchBusy ||
               !Number.isInteger(Number(baseLevel)) ||
               Number(baseLevel) < 1 ||
               Number(baseLevel) > 100
             }
             onClick={() => {
+              if (mutationLocked()) return
               void startBase(Number(baseLevel))
               setPreviewRequest({ count: 0, action: null })
             }}
@@ -2152,16 +2574,10 @@ export function CraftingPage() {
       enabled={view === 'workbench'}
       priorityMaterialId={cursor?.id ?? null}
       priorityAnchor={feedbackAnchor}
-      contextKey={JSON.stringify([
-        view,
-        locale,
-        draft.baseRevision,
-        filmState.history.active,
-        filmState.history.cursor,
-        activeTab,
-        draft.activeOmens,
-        inputOpen,
-      ])}
+      contextKey={feedbackContextKey}
+      priorityMaterialHint={repeatHint}
+      interactionLocked={workbenchBusy}
+      isInteractionLocked={mutationLocked}
     >
       {page}
     </FeedbackTooltipProvider>
