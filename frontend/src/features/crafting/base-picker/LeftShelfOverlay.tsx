@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef } from 'react'
 import type { ReactNode, RefObject } from 'react'
 import { createPortal } from 'react-dom'
 import { overlayPlacement } from './overlayPlacement'
+import '../workbench-scrollbar.css'
 import './left-shelf-overlay.css'
 
 export type ShelfOverlayProps = {
@@ -22,10 +23,12 @@ export function LeftShelfOverlay({
   onClose,
   title,
   closeLabel,
+  bodyClassName = '',
   children,
 }: ShelfOverlayProps & {
   title: string
   closeLabel: string
+  bodyClassName?: string
   children: ReactNode
 }) {
   const panel = useRef<HTMLDivElement>(null)
@@ -126,7 +129,9 @@ export function LeftShelfOverlay({
           ×
         </button>
       </header>
-      <div className="wb-shelf-overlay__body">{children}</div>
+      <div className={`wb-shelf-overlay__body wb-scrollbar ${bodyClassName}`}>
+        {children}
+      </div>
     </div>,
     document.body,
   )

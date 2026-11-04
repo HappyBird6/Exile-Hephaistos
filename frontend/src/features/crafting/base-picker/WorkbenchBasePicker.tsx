@@ -90,12 +90,13 @@ function BasePickerContent({
       onClose={() => onOpenChange(false)}
       title={t('ui.select_base')}
       closeLabel={t('ui.close_item_input')}
+      bodyClassName="wb-base-picker-body"
     >
       <div className="wb-base-picker">
-        <div className="wb-base-picker__filters">
-          <label htmlFor={`${fieldId}-category`}>
-            {messages.category}
+        <div className="wb-base-picker__controls wb-scrollbar">
+          <div className="wb-base-picker__filters">
             <select
+              aria-label={messages.category}
               id={`${fieldId}-category`}
               value={category}
               onChange={(event) => {
@@ -113,10 +114,8 @@ function BasePickerContent({
                 ),
               )}
             </select>
-          </label>
-          <label htmlFor={`${fieldId}-subtype`}>
-            {messages.subtype}
             <select
+              aria-label={messages.subtype}
               id={`${fieldId}-subtype`}
               value={subtype}
               onChange={(event) => {
@@ -131,21 +130,55 @@ function BasePickerContent({
                 </option>
               ))}
             </select>
-          </label>
+          </div>
+          <input
+            className="wb-base-picker__search"
+            type="search"
+            aria-label={t('ui.search')}
+            placeholder={t('ui.search')}
+            value={search}
+            onChange={(event) => {
+              setSearch(event.target.value)
+              setHovered(null)
+            }}
+          />
+          <div className="wb-base-picker__footer">
+            <label
+              className="wb-base-picker__level"
+              htmlFor={`${fieldId}-level`}
+            >
+              {t('ui.item_level')}
+              <input
+                id={`${fieldId}-level`}
+                type="number"
+                min="1"
+                max="100"
+                step="1"
+                value={level}
+                onChange={(event) => onLevelChange(event.target.value)}
+                aria-invalid={!levelValid}
+                aria-describedby={
+                  !levelValid ? `${fieldId}-level-error` : undefined
+                }
+              />
+            </label>
+            {extraControls}
+            <button
+              type="button"
+              disabled={disabled || !valid || !levelValid}
+              onClick={onPlace}
+            >
+              {t('ui.place_base')}
+            </button>
+          </div>
+          {!levelValid && (
+            <p id={`${fieldId}-level-error`} role="alert">
+              {t('ui.item_level_must_be_an_integer_from_1_to_100')}
+            </p>
+          )}
         </div>
-        <input
-          className="wb-base-picker__search"
-          type="search"
-          aria-label={t('ui.search')}
-          placeholder={t('ui.search')}
-          value={search}
-          onChange={(event) => {
-            setSearch(event.target.value)
-            setHovered(null)
-          }}
-        />
         <div
-          className="wb-base-picker__options"
+          className="wb-base-picker__options wb-scrollbar"
           role="group"
           aria-label={t('ui.equipment_base')}
           onMouseLeave={() => setHovered(null)}
@@ -208,37 +241,6 @@ function BasePickerContent({
             )}
             slug={preview.slug}
           />
-        )}
-        {extraControls}
-        <div className="wb-base-picker__footer">
-          <label htmlFor={`${fieldId}-level`}>
-            {t('ui.item_level')}
-            <input
-              id={`${fieldId}-level`}
-              type="number"
-              min="1"
-              max="100"
-              step="1"
-              value={level}
-              onChange={(event) => onLevelChange(event.target.value)}
-              aria-invalid={!levelValid}
-              aria-describedby={
-                !levelValid ? `${fieldId}-level-error` : undefined
-              }
-            />
-          </label>
-          <button
-            type="button"
-            disabled={disabled || !valid || !levelValid}
-            onClick={onPlace}
-          >
-            {t('ui.place_base')}
-          </button>
-        </div>
-        {!levelValid && (
-          <p id={`${fieldId}-level-error`} role="alert">
-            {t('ui.item_level_must_be_an_integer_from_1_to_100')}
-          </p>
         )}
       </div>
     </LeftShelfOverlay>

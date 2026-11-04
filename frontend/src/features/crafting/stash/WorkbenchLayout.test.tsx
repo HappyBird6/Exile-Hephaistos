@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { fireEvent, render, screen, within } from '@testing-library/react'
+import { act, fireEvent, render, screen, within } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { CraftingPage } from '../CraftingPage'
 import { useItemDraft } from '../draft'
@@ -14,12 +14,19 @@ const compactStyles = readFileSync(
   'src/features/crafting/compact-viewport/compactViewport.css',
   'utf8',
 )
+const menuStyles = [
+  'base-picker/left-shelf-overlay.css',
+  'base-picker/base-picker.css',
+  'workbench-scrollbar.css',
+]
+  .map((path) => readFileSync(`src/features/crafting/${path}`, 'utf8'))
+  .join('\n')
 
 let styles: HTMLStyleElement
 beforeEach(() => {
   useItemDraft.getState().setBase()
   styles = document.createElement('style')
-  styles.textContent = pageStyles + stashStyles + compactStyles
+  styles.textContent = pageStyles + stashStyles + compactStyles + menuStyles
   document.head.append(styles)
 })
 afterEach(() => {
@@ -43,6 +50,134 @@ function ruleStyle(selector: string) {
 }
 
 describe('single canvas category selector and favorites inside the coordinate plane', () => {
+  it('shares stash scroll styling with the actual base, History and Favorites scroll surfaces', () => {
+    show()
+    expect(ruleStyle('.wb-scrollbar').getPropertyValue('scrollbar-color')).toBe(
+      '#867347 #141a15',
+    )
+    const stash = document.querySelector('.workbench-stash__resources')!
+    const stashColor =
+      getComputedStyle(stash).getPropertyValue('scrollbar-color')
+    function scrollSurface(element: Element, overflowProperty = 'overflow-y') {
+      expect(element).toHaveClass('wb-scrollbar')
+      const style = getComputedStyle(element)
+      expect(style.getPropertyValue('scrollbar-gutter')).toBe('stable')
+      expect(style.getPropertyValue('scrollbar-width')).toBe('thin')
+      expect(style.getPropertyValue('scrollbar-color')).toBe(stashColor)
+      expect(style.getPropertyValue(overflowProperty)).toBe('auto')
+    }
+    scrollSurface(stash)
+    fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
+    const picker = screen.getByRole('dialog')
+    const body = picker.querySelector('.wb-shelf-overlay__body')!
+    const layout = picker.querySelector('.wb-base-picker')!
+    const controls = picker.querySelector('.wb-base-picker__controls')!
+    const options = picker.querySelector('.wb-base-picker__options')!
+    expect(getComputedStyle(body).overflow).toBe('hidden')
+    expect(getComputedStyle(body).getPropertyValue('scrollbar-gutter')).toBe(
+      'auto',
+    )
+    expect(compact(getComputedStyle(layout).gridTemplateColumns)).toBe(
+      'minmax(0,1fr)minmax(0,1.4fr)',
+    )
+    expect(compact(getComputedStyle(options).gridTemplateColumns)).toBe(
+      'minmax(0,1fr)',
+    )
+    scrollSurface(controls)
+    scrollSurface(options)
+    for (const element of [body, layout, controls, options])
+      expect(Number.parseFloat(getComputedStyle(element).minHeight)).toBe(0)
+    expect(controls).toContainElement(within(picker).getByRole('searchbox'))
+    expect(controls).toContainElement(
+      screen.getByRole('spinbutton', { name: 'Item level' }),
+    )
+    expect(controls).toContainElement(
+      screen.getByRole('button', { name: 'Place base' }),
+    )
+    expect(
+      getComputedStyle(picker.querySelector('.wb-base-picker__footer')!)
+        .flexDirection,
+    ).toBe('column')
+    // The narrow fallback follows the actual overlay body width, even on a wide viewport.
+    const narrow = [...styles.sheet!.cssRules].find((rule) =>
+      rule.cssText.startsWith('@container'),
+    ) as CSSGroupingRule
+    expect(narrow.cssText).toContain('(max-width: 340px)')
+    const narrowLayout = narrow.cssRules[0] as CSSStyleRule
+    expect(compact(narrowLayout.style.gridTemplateColumns)).toBe(
+      'minmax(0,1fr)',
+    )
+    expect(compact(narrowLayout.style.gridTemplateRows)).toBe(
+      'minmax(0,1fr)minmax(0,1fr)',
+    )
+    fireEvent.keyDown(picker, { key: 'Escape' })
+    for (const name of ['History', 'Favorites']) {
+      fireEvent.click(screen.getByRole('button', { name }))
+      const library = screen.getByRole('dialog')
+      scrollSurface(
+        library.querySelector('.wb-shelf-overlay__body')!,
+        'overflow',
+      )
+      expect(library.querySelector('.wb-session-library')).not.toHaveClass(
+        'wb-scrollbar',
+      )
+      fireEvent.keyDown(library, { key: 'Escape' })
+      expect(screen.getByRole('button', { name })).toHaveFocus()
+    }
+  })
+
+  it('keeps jewel rarity, observed suffix and all validation in the scrollable left column', () => {
+    show()
+    fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
+    const picker = screen.getByRole('dialog')
+    const controls = picker.querySelector('.wb-base-picker__controls')!
+    fireEvent.change(within(picker).getByRole('searchbox'), {
+      target: { value: 'Sapphire' },
+    })
+    const sapphire = within(picker).getByRole('button', {
+      name: 'Sapphire Jewels',
+    })
+    act(() => sapphire.focus())
+    expect(screen.getByRole('tooltip')).toBeInTheDocument()
+    fireEvent.keyDown(sapphire, { key: 'Escape' })
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
+    expect(picker).toBeInTheDocument()
+    expect(sapphire).toHaveFocus()
+    fireEvent.click(sapphire)
+    expect(sapphire).toHaveAttribute('aria-pressed', 'true')
+    const rarity = screen.getByLabelText('Rarity')
+    expect(controls).toContainElement(rarity)
+    fireEvent.change(rarity, { target: { value: 'RARE' } })
+    const suffix = screen.getByRole('checkbox', {
+      name: translate('ui.sapphire_existing_suffix'),
+    })
+    expect(controls).toContainElement(suffix)
+    expect(getComputedStyle(suffix).width).not.toBe('76px')
+    expect(getComputedStyle(suffix).maxWidth).not.toBe('76px')
+    fireEvent.click(suffix)
+    const roll = screen.getByLabelText(translate('ui.sapphire_cast_speed'))
+    expect(controls).toContainElement(roll)
+    const place = screen.getByRole('button', { name: 'Place base' })
+    fireEvent.change(roll, { target: { value: '1' } })
+    expect(place).toBeDisabled()
+    fireEvent.change(roll, { target: { value: '3' } })
+    expect(place).toBeEnabled()
+    const level = screen.getByRole('spinbutton', { name: 'Item level' })
+    for (const value of ['', '0', '1.5', '101']) {
+      fireEvent.change(level, { target: { value } })
+      expect(place).toBeDisabled()
+      expect(level).toHaveAttribute('aria-invalid', 'true')
+      expect(controls).toContainElement(within(picker).getByRole('alert'))
+    }
+    for (const value of ['1', '100']) {
+      fireEvent.change(level, { target: { value } })
+      expect(place).toBeEnabled()
+      expect(within(picker).queryByRole('alert')).not.toBeInTheDocument()
+    }
+    expect(
+      picker.querySelector('.wb-base-picker__options'),
+    ).not.toContainElement(place)
+  })
   it('connects the preserved category selector to the right content only', () => {
     show()
     const selector = screen.getByRole('tablist', {

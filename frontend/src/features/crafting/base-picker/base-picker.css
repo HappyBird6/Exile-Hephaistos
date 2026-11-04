@@ -1,10 +1,30 @@
+.wb-shelf-overlay__body.wb-base-picker-body {
+  display: flex;
+  overflow: hidden;
+  scrollbar-gutter: auto;
+  container-type: inline-size;
+}
 .wb-base-picker {
   display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  max-height: 460px;
   gap: 10px;
+}
+.wb-base-picker__controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 .wb-base-picker__filters {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 8px;
 }
 .wb-base-picker label {
@@ -15,17 +35,19 @@
 }
 .wb-base-picker select,
 .wb-base-picker__search {
+  min-width: 0;
   width: 100%;
   padding: 5px 7px;
 }
 .wb-base-picker__options {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 5px;
   grid-auto-rows: minmax(56px, max-content);
   align-content: start;
   min-width: 0;
-  max-height: 268px;
+  min-height: 0;
+  max-height: 460px;
   overflow-y: auto;
   overscroll-behavior: contain;
 }
@@ -94,17 +116,27 @@
 }
 .wb-base-picker__footer {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 10px;
 }
-.wb-base-picker .wb-base-picker__footer input {
+.wb-base-picker__controls > *,
+.wb-base-picker__footer > * {
+  flex-shrink: 0;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.wb-base-picker__footer > button {
+  white-space: normal;
+}
+.wb-base-picker .wb-base-picker__level input {
   width: 76px;
   max-width: 76px;
   padding: 4px 5px;
 }
-@media (max-width: 420px) {
-  .wb-base-picker__options {
-    grid-template-columns: 1fr;
+@container (max-width: 340px) {
+  .wb-base-picker {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
   }
 }

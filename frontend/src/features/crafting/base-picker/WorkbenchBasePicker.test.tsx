@@ -5,7 +5,38 @@ import { WorkbenchBasePicker } from './WorkbenchBasePicker'
 import { basePreview, workbenchBaseChoices } from './baseChoices'
 import { overlayPlacement } from './overlayPlacement'
 import { baseImageSource } from './baseImageSources'
+import { locales, setLocale } from '../../../shared/i18n/i18n'
+import { basePickerMessages } from './basePickerMessages'
 import type { WorkbenchBaseKey } from '../baseRegistry'
+
+it.each(locales)(
+  'keeps both filter names accessible without visible labels in %s',
+  (locale) => {
+    setLocale(locale)
+    const messages = basePickerMessages[locale]
+    function Example() {
+      const anchor = useRef<HTMLButtonElement>(null)
+      return (
+        <WorkbenchBasePicker
+          id="labels"
+          anchor={anchor}
+          open
+          onOpenChange={vi.fn()}
+          value="solar"
+          onChange={vi.fn()}
+          level="80"
+          onLevelChange={vi.fn()}
+          onPlace={vi.fn()}
+        />
+      )
+    }
+    render(<Example />)
+    for (const name of [messages.category, messages.subtype]) {
+      expect(screen.getByLabelText(name)).toHaveAccessibleName(name)
+      expect(screen.queryByText(name)).not.toBeInTheDocument()
+    }
+  },
+)
 
 it('opens left over the shelf, clamps narrow screens and keeps the rest of the shelf unobscured', () => {
   const placement = overlayPlacement(

@@ -46,9 +46,6 @@
   align-content: start;
   gap: 5px 3px;
   padding-right: 3px;
-  scrollbar-gutter: stable;
-  scrollbar-width: thin;
-  scrollbar-color: #867347 #141a15;
 }
 .workbench-stash .workbench-stash__resource {
   display: flex;

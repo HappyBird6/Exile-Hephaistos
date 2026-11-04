@@ -7,6 +7,7 @@ import { visibilityPolicy } from './visibilityPolicy'
 import type { WorkbenchResource, WorkbenchStashProps } from './stashTypes'
 import { stashDragType } from './stashDragType'
 import './workbenchStash.css'
+import '../workbench-scrollbar.css'
 
 /** Controlled right panel; the page owns the single category state/tablist. */
 export function WorkbenchStash({
@@ -127,7 +128,7 @@ export function WorkbenchStash({
             }))
           }
         />
-        <div className="workbench-stash__resources">
+        <div className="workbench-stash__resources wb-scrollbar">
           {activeTab === 'Essence'
             ? rows.map((row, index) => (
                 <div className="essence-row" key={index}>

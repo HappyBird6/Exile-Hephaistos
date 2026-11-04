@@ -1,0 +1,5 @@
+.wb-scrollbar {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: #867347 #141a15;
+}
