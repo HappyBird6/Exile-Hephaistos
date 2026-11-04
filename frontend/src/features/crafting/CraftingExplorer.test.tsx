@@ -302,9 +302,9 @@ describe('Crafting probability explorer', () => {
       }),
     )
     await waitFor(() =>
-      expect(screen.getByRole('status')).toHaveTextContent(
-        'cannot be used on this rarity',
-      ),
+      expect(
+        document.querySelector('.craft-page > .sr-only[role="status"]'),
+      ).toHaveTextContent('cannot be used on this rarity'),
     )
     expect(screen.getByRole('article')).toHaveTextContent('+17 to maximum Life')
     fireEvent.click(screen.getByRole('tab', { name: 'State explorer' }))

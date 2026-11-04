@@ -78,9 +78,9 @@ describe('Crafting workbench', () => {
         name: 'Use selected currency on the central item',
       }),
     )
-    expect(screen.getByRole('status')).toHaveTextContent(
-      'Wait for the crafting catalog or retry loading it.',
-    )
+    expect(
+      document.querySelector('.craft-page > .sr-only[role="status"]'),
+    ).toHaveTextContent('Wait for the crafting catalog or retry loading it.')
     expect(useItemDraft.getState().source).toBe('base')
     fireEvent.keyDown(window, { key: 'Escape' })
     expect(currency).toHaveAttribute('aria-pressed', 'false')
@@ -90,9 +90,9 @@ describe('Crafting workbench', () => {
         name: 'Use selected currency on the central item',
       }),
     )
-    expect(screen.getByRole('status')).toHaveTextContent(
-      'Select a currency from the stash first',
-    )
+    expect(
+      document.querySelector('.craft-page > .sr-only[role="status"]'),
+    ).toHaveTextContent('Select a currency from the stash first')
   })
   it('renders currency images and toggles selection', () => {
     show()

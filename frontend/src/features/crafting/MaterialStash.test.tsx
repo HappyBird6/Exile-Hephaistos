@@ -122,7 +122,9 @@ describe('Material stash and shared favorites', () => {
       expect(fireEvent.contextMenu(material)).toBe(false)
       expect(material).toHaveAttribute('aria-pressed', 'true')
       expect(material).toHaveClass('is-selected')
-      expect(screen.getByRole('status')).toHaveTextContent(`${name} selected`)
+      expect(
+        document.querySelector('.craft-page > .sr-only[role="status"]'),
+      ).toHaveTextContent(`${name} selected`)
       expect(
         document.querySelector('.workbench-feedback-region'),
       ).toContainElement(screen.getByRole('tooltip'))
@@ -136,9 +138,9 @@ describe('Material stash and shared favorites', () => {
           name: 'Use selected currency on the central item',
         }),
       )
-      expect(screen.getByRole('status')).toHaveTextContent(
-        'Wait for the crafting catalog or retry loading it.',
-      )
+      expect(
+        document.querySelector('.craft-page > .sr-only[role="status"]'),
+      ).toHaveTextContent('Wait for the crafting catalog or retry loading it.')
       expect(useItemDraft.getState().source).toBe('base')
       fireEvent.click(material)
       expect(material).toHaveClass('is-held')
@@ -407,9 +409,9 @@ describe('Material stash and shared favorites', () => {
     expect(favorite(1)).toHaveAccessibleName(
       'Favorite slot 1: Greater Essence of the Body',
     )
-    expect(screen.getByRole('status')).toHaveTextContent(
-      'registered in favorite slot 1',
-    )
+    expect(
+      document.querySelector('.craft-page > .sr-only[role="status"]'),
+    ).toHaveTextContent('registered in favorite slot 1')
     fireEvent.click(favorite(2))
     expect(favorite(2)).toHaveAccessibleName('Favorite slot 2: empty')
     expect(favorite(1)).toHaveAttribute('aria-pressed', 'false')
@@ -448,9 +450,9 @@ describe('Material stash and shared favorites', () => {
       }),
     )
     expect(screen.getByRole('article').textContent).toBe(original)
-    expect(screen.getByRole('status')).toHaveTextContent(
-      'Select a currency from the stash first.',
-    )
+    expect(
+      document.querySelector('.craft-page > .sr-only[role="status"]'),
+    ).toHaveTextContent('Select a currency from the stash first.')
   })
 
   it('navigates tabs by keyboard and closes input with focus returned to its trigger', () => {
