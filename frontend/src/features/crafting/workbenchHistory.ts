@@ -9,8 +9,12 @@ import type { Initial } from './craftingApi'
 import type { AppliedItem, ConcreteItem } from './workbenchApi'
 import { coupledModelsMatch, workbenchActionNames } from './workbenchApi'
 import { isRulesetIdentity } from './rulesetIdentity'
+import { validAbyssResponse } from './abyssResponse'
+import { equivalent } from './sanctification/equivalence'
+import type { ChaosRepeatWitness } from './chaos-repeat/api/types'
 import {
   readChaosRepeatReceipt,
+  readAbyssChaosRepeatReceipt,
   validChaosRepeatFrame,
 } from './chaos-repeat/chaosRepeatReceipt'
 import type {
@@ -40,6 +44,7 @@ export type Frame = {
   abyss?: AbyssState
   manual?: { rulesetIdentity: string; action: string; consumedOmens?: string[] }
   chaosRepeat?: ChaosRepeatMetadata
+  chaosRepeatWitness?: ChaosRepeatWitness
 }
 export type Film = {
   id: string
@@ -56,6 +61,21 @@ export type Film = {
 export type FilmRulesetStatus =
   'current' | 'mismatch' | 'legacy-unverified' | 'inconsistent'
 
+function validRepeatFrame(frame: Frame): boolean {
+  if (!validChaosRepeatFrame(frame)) return false
+  if (frame.chaosRepeatWitness?.kind !== 'ABYSS') return true
+  try {
+    return (
+      !!frame.abyss &&
+      supportsConcreteStateShape(frame.abyss.item) &&
+      Array.isArray(frame.abyss.slots) &&
+      equivalent(frame.state, storedAbyssItem(frame.abyss))
+    )
+  } catch {
+    return false
+  }
+}
+
 export function filmRulesetStatus(
   film: Film,
   identity: string,
@@ -63,7 +83,7 @@ export function filmRulesetStatus(
   const identities: unknown[] = [film.rulesetIdentity]
   for (const [index, frame] of film.frames.entries()) {
     if (
-      !validChaosRepeatFrame(frame) ||
+      !validRepeatFrame(frame) ||
       (index === 0 && Object.hasOwn(frame, 'chaosRepeat'))
     )
       return 'inconsistent'
@@ -236,7 +256,7 @@ export class LocalFilmRepository implements FilmRepository {
               typeof frame.state === 'object' &&
               frame.state !== null &&
               (frame.action === null || typeof frame.action === 'string') &&
-              validChaosRepeatFrame(frame) &&
+              validRepeatFrame(frame) &&
               (index > 0 || !Object.hasOwn(frame, 'chaosRepeat')),
           ),
       ) ||
@@ -251,7 +271,7 @@ export class LocalFilmRepository implements FilmRepository {
       !films.films.every((film) =>
         film.frames.every(
           (frame, index) =>
-            validChaosRepeatFrame(frame) &&
+            validRepeatFrame(frame) &&
             (index > 0 || !Object.hasOwn(frame, 'chaosRepeat')),
         ),
       )
@@ -364,6 +384,61 @@ export function recordChaosRepeat(
   id: string,
   initial: Initial,
 ): Films {
+  const abyssInput = readAbyssChaosRepeatReceipt(receipt)
+  if (abyssInput) {
+    const {
+      before,
+      finalState,
+      finalWitness,
+      rulesetIdentity,
+      action,
+      uses,
+      consumedOmens,
+    } = abyssInput
+    const beforeItem = storedAbyssItem(before)
+    const finalItem = storedAbyssItem(finalState)
+    if (
+      rulesetIdentity !== initial.rulesetIdentity ||
+      !verifiedHistoryState(beforeItem, initial) ||
+      !verifiedHistoryState(finalItem, initial) ||
+      !validAbyssResponse('validate', before, before.item, initial) ||
+      !validAbyssResponse('validate', finalState, before.item, initial)
+    )
+      throw new Error(
+        'Could not verify repeat history. The original is preserved.',
+      )
+    const next = recordAbyss(
+      films,
+      beforeItem,
+      finalState,
+      action,
+      id,
+      rulesetIdentity,
+      consumedOmens,
+    )
+    const active = currentFilm(next)!
+    const frames = active.frames.map((frame, index): Frame =>
+      index === next.cursor
+        ? {
+            ...frame,
+            chaosRepeat: { version: 1, action, uses },
+            chaosRepeatWitness: finalWitness,
+          }
+        : index === 0 && active.id !== films.active
+          ? { ...frame, abyss: structuredClone(before) }
+          : frame,
+    )
+    if (!validRepeatFrame(frames[next.cursor]!))
+      throw new Error(
+        'Could not verify repeat history. The original is preserved.',
+      )
+    return {
+      ...next,
+      films: next.films.map((film) =>
+        film === active ? { ...film, frames } : film,
+      ),
+    }
+  }
   const input = readChaosRepeatReceipt(receipt)
   if (!input) return films
   const { before, action, uses, finalWitness, consumedOmens } = input
@@ -375,6 +450,7 @@ export function recordChaosRepeat(
     action,
     evidence: result,
     chaosRepeat: metadata,
+    ...(input.witness ? { chaosRepeatWitness: input.witness } : {}),
   }
   if (
     !verifiedHistoryState(before, initial) ||
@@ -394,7 +470,13 @@ export function recordChaosRepeat(
             ...film,
             frames: film.frames.map((frame, index) =>
               index === next.cursor
-                ? { ...frame, chaosRepeat: metadata }
+                ? {
+                    ...frame,
+                    chaosRepeat: metadata,
+                    ...(input.witness
+                      ? { chaosRepeatWitness: input.witness }
+                      : {}),
+                  }
                 : frame,
             ),
           }
@@ -494,7 +576,7 @@ export function verifiedFrameEvidence(
     const e = frame.evidence
     if (
       !e ||
-      !validChaosRepeatFrame(frame) ||
+      !validRepeatFrame(frame) ||
       frame.rulesetIdentity !== initial.rulesetIdentity ||
       e.rulesetIdentity !== initial.rulesetIdentity ||
       (e.qualityLimit !== undefined &&
