@@ -100,8 +100,8 @@
 .wb-base-picker__preview {
   position: fixed;
   z-index: 1110;
-  overflow: hidden;
-  pointer-events: none;
+  overflow-y: auto;
+  pointer-events: auto;
 }
 .wb-base-picker__preview .item-card {
   width: 100%;

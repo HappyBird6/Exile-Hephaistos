@@ -1,20 +1,58 @@
-# 수동 Workbench 공유 설명
+# 수동 Workbench 설명과 배치
 
-`FeedbackTooltipProvider`는 수동 Workbench에서만 활성화한다. 재료의 원문·번역·fallback 고지·PoE2DB와 공식 출처 링크는 `MaterialDescription`을 재사용하며, 게임 규칙이나 저장 형식은 변경하지 않는다.
+현재 작업 기준은 `1def96cd9dbc26fadb9e9819409b888e4855132a`다. 수동 Workbench의 게임 규칙·저장 형식·활성 징조·요청 의미는 변경하지 않는다. 이전 commit의 검증 결과는 아래에 별도 보존한다.
 
-- 고정 화폐, 재료 창, 즐겨찾기, 활성 징조, 기보: 기존 `data-material-tooltip`을 공통 패널로 위임한다. 선택 중에도 패널은 화폐 적용 클릭을 가리지 않으므로 설명을 계속 제공한다.
-- 베이스 메뉴: `BasePreviewTooltip`의 ItemCard를 공통 패널에 표시한다. 메뉴에서 포커스가 빠져 producer가 해제되어도 패널에 있는 설명은 유지한다. Escape에서는 producer의 hover 상태도 닫아 focus 복귀로 재생성되지 않게 한다. 실제 재hover·focus·터치에서는 다시 연다.
-- ItemCard의 제거 후보 설명, CurrencyImage의 누락 이미지 설명, History/Favorites 버튼: 수동 Workbench에서 `title` 대신 `data-feedback-tooltip`을 사용한다. ItemCard 제거 후보는 키보드로도 접근할 수 있다. 패널 내부 설명은 다시 producer로 해석하지 않는다.
+## 200px 피드백과 양쪽 하단
 
-실패 경고는 기존 `applicationFailure`의 수명과 `role=alert`를 유지한다. hover·focus·Escape는 실패 상태, 아이템, 활성 징조, film 또는 저장 보호 상태를 변경하지 않는다. 설명이 있으면 경고를 상단 최대 절반에 남기고 설명은 나머지 영역에서 따로 스크롤한다. 설명을 닫아도 경고는 그대로 남는다. 기존 새 선택·성공·base revision 변경에 따른 실패 해제 정책은 유지한다. hover 내용은 live alert로 알리지 않고 원래 trigger의 `aria-describedby`에 연결하며, 다른 기존 설명 ID는 보존한다.
+피드백 높이는 기존과 같은 CSS 좌표계에서 200px로 고정한다. 전체 zoom 0.75에서는 화면상 약 150px이며, 기존 카드 열 340→374px 확대와 1000px 반응형 전환은 유지한다.
 
-trigger 또는 패널을 벗어나면 200ms 후 설명을 닫는다. 패널 hover·focus와 출처 링크 포커스는 닫힘을 보류하며, 내부 스크롤은 설명을 지우지 않는다. 패널에서 Escape를 누르면 trigger로 포커스를 돌리고 설명을 닫는다. 원래 trigger의 Escape와 메뉴의 닫기·밖 클릭은 기존 경로를 유지한다. 설명 패널 클릭은 base 메뉴의 밖 클릭으로 취급하지 않는다. touch pointerdown도 재료·베이스 설명을 연다.
+왼쪽은 하나의 늘어나는 grid canvas다. `.stash-viewport`의 `align-self: stretch`가 기존 `stash-board align-items: start`를 덮고, 내부 flex canvas가 오른쪽 열 높이를 전달받는다. 열 비율은 원래 x 좌표를 분해한 `29 / 434 / 23 / 140 / 23 / 257 / 29`(합 935)다. 상단 `.stash-canvas__upper`는 935×550 비율과 화폐·아이템의 기존 좌표를 그대로 유지한다. 메뉴의 `currencyShelf` ref도 이 상단 평면에 연결한다.
 
-이전/다음/현재 단계는 `SessionLibraryButtons`의 남은 폭에 배치하며 좁은 폭에서는 줄바꿈한다. 원래 단계 행을 회수해 피드백 높이를 96px에서 144px로 늘렸다. Base/History/Favorites는 기존 `basePlacementRegion`과 기존 위치 계산을 공유하되 실제 opener ref는 focus·닫기에 유지한다.
+즐겨찾기와 3개 컨트롤은 grid 3행의 2·4열을 공유하고, 보관함은 6열에서 1–3행을 가로질러 늘어난다. 보관함 상단 margin은 해당 257열 폭의 40/257로 계산하여 원래 y40을 유지한다. 가운데 행은 원래 20/935의 간격과 피드백 증가량 56px를 최소로 확보하고, 실제 오른쪽이 더 길어지면 `1fr`가 추가 여유를 흡수한다. 따라서 고정 좌표에 56px만 더하는 방식과 달리 긴 아이템·History 상태에도 하단 위치가 함께 내려간다.
 
-CraftSupport·Explorer는 이 공유 패널의 범위 밖이다. 탭 전환 시 Provider를 remount하지 않아 화면 내부 입력·focus를 보존하고, 비활성화 시 설명을 해제한다. Provider가 없거나 비활성인 MaterialTooltip·BasePreviewTooltip은 기존 body portal을 사용하고 `useFeedbackTitle`은 기존 native title을 유지한다. goal-filter·method-search의 기존 title은 해당 화면에 그대로 남는다. 브라우저의 실제 배치·터치 장치·스크린리더 확인은 자동 UI 테스트의 범위를 넘는다.
+canvas 하단 36px는 오른쪽 기존 padding 24px + 피드백 아래 margin 12px와 같다. 일반 상태에서 즐겨찾기·컨트롤·보관함의 끝은 피드백 아래 끝과 일치한다. 왼쪽 상태/오류/뼈 입력이 추가로 표시되는 경우에는 해당 내용도 왼쪽 열에 포함한다. 좁은 화면에서는 두 열이 세로로 쌓이고, 컨트롤의 최소 208px를 공유 하단 행이 수용한다. 즐겨찾기는 같은 74/935 폭의 정사각형 슬롯을 유지하며 남는 높이는 두 슬롯 행 사이 간격이 흡수한다. History는 기존 12rem 스크롤 한도, 실패 경고는 설명이 있을 때 최대 절반과 독립 스크롤을 유지한다.
 
-## 검증 기록 · 2026-11-04
+## 공유 설명의 수명과 우선순위
+
+고정 화폐·재료·즐겨찾기·징조·기보, ItemCard 제거 후보, 이미지 누락, History/Favorites 보조 설명은 공유 feedback에 표시한다. hover/focus가 끝나거나 일반 영역으로 이동해도 마지막 유효 설명을 유지한다. 새 유효 대상의 hover/focus/터치 또는 클릭이 설명을 대체하며, 패널 내부 링크와 스크롤은 다시 producer로 해석하지 않는다. checkbox는 복구하지 않는다.
+
+`CraftingPage`의 실제 `held ?? selected`가 있는 동안 해당 재료 설명을 우선 고정한다. DOM hover로 들고 있는 상태를 추정하지 않는다. 고정 중에는 같은 재료의 다른 슬롯을 포함해 일반 hover가 내용·anchor를 바꾸지 못한다. 클릭·contextmenu·dragstart에서 실제 trigger를 기록하며, 해당 버튼이 연결되고 보이는 동안 `aria-describedby`와 패널 Escape 후 focus 복귀에 사용한다. trigger가 탭 변경으로 사라졌으면 같은 재료의 연결된 visible·enabled 버튼으로만 대체하고, 없으면 설명을 표시하되 숨겨진 버튼으로 focus를 보내지 않는다.
+
+놓기·해제·취소로 우선 재료가 없어지면 고정 설명을 지우고 이후 정상 hover 교체를 허용한다. workspace·locale, base revision, 활성 film·cursor, 재료 탭, 활성 징조, 아이템 입력 열기/닫기가 바뀌면 일반 설명을 초기화한다. 실제로 계속 들고 있는 재료가 있으면 새 context에서 그 재료 설명을 다시 고정한다. 성공 후 선택 해제·History/세션 복원 등은 Page의 기존 상태 전이를 따른다. hover는 실패 경고·아이템·활성 징조·저장 데이터를 변경하지 않는다. 실패 경고는 `applicationFailure`의 기존 수명과 `role=alert`로 설명과 공존한다.
+
+공유 패널 Escape는 설명을 해제하고, 필요한 경우 실제 source로 focus를 복귀한다. 이벤트 전파를 막지 않아 Page의 기존 selected/held 취소와 실패 해제도 실행된다. Provider는 탭 전환 때 remount하지 않는다. CraftSupport·Explorer 및 Provider가 없는 독립 사용은 기존 body portal/native title 경로를 유지한다.
+
+## 독립 베이스 미리보기
+
+`BasePreviewTooltip`은 항상 기존 fixed body portal, 좌/우 공간 검사, viewport clamp 계산과 ItemCard 표현을 사용한다. 공유 feedback에는 베이스 ItemCard를 중복 등록하지 않는다. 이전 일반 설명이나 집은 재료 설명은 베이스 hover가 시작됐다는 이유로 지우지 않는다.
+
+베이스 옵션의 hover/focus/touch가 floating preview를 연다. 일반 hover leave는 닫고, preview 자체로 pointer/focus를 옮기면 유지해 긴 내용을 스크롤할 수 있다. 실제 floating node를 `aria-describedby`가 참조한다. preview의 Escape는 source에 focus를 돌린 뒤 hover 상태를 닫아 다시 열리지 않게 한다. 옵션의 첫 Escape는 미리보기, 다음 Escape는 메뉴를 닫는 기존 경로다. 메뉴의 실제 opener·닫기·밖 클릭 복귀는 유지한다. 존재하지 않던 베이스 외부 URL은 만들지 않았다.
+
+## 재료 header와 요청 색상
+
+기존 PoE2DB URL을 재료 이름과 같은 `.material-description__header`의 오른쪽 끝에 배치한다. 이름은 줄바꿈·단어 분리를 허용하며 링크는 줄을 옮길 수 있고 오른쪽 정렬을 유지한다. 번역/fallback 고지·원문 lang·공식 legacy 링크·6 locale은 유지한다.
+
+이름은 정확히 `#aa9e82`, 설명은 `#9999ff`이며 `.material-description` 전용 class로 한정한다. 일반 ItemCard·실패 alert 색은 바꾸지 않는다. 상대 휘도 `(L밝음+0.05)/(L어두움+0.05)`로 계산한 대비는 다음과 같다.
+
+| 배경                                                | 이름        | 설명        |
+| --------------------------------------------------- | ----------- | ----------- |
+| 오른쪽 gradient 밝은 끝 #252a23                     | 5.52:1      | 5.83:1      |
+| 오른쪽 gradient 어두운 끝 #151b19                   | 6.59:1      | 6.95:1      |
+| stash-board #191d1b                                 | 6.43:1      | 6.78:1      |
+| 독립 재료 tooltip #100f0ff5를 위 gradient 위에 합성 | 7.17–7.20:1 | 7.56–7.59:1 |
+
+합성 수치는 기존 CSS 색의 계산값이며 브라우저 pixel 측정은 아니다. 출처 링크 focus는 기존 밝은 outline, preview focus는 전역 `:focus-visible`을 사용한다. 자동 브라우저 QA·실제 장치·스크린리더 확인은 사용자 보류 범위다.
+
+## 이번 UI 조정 검증 기록 · 2026-11-04
+
+- `1def96cd`와 동일한 package/lockfile 및 이전 `npm ci` 성공의 node_modules를 재사용했다. 의존성·설정은 수정하지 않았다.
+- 초기 영향 검사 8 files / 76 tests에서는 74 통과·2 실패였다. 변경된 집기 우선순위 기대값과 CSS 열 비율 파서 문제를 보정했다. 이어 9 files / 84 tests에서는 83 통과·1 파서 실패였으며, 중복 CSS selector를 정확히 읽도록 고친 단독 배치 검사 3 tests가 통과했다. 중간 lint의 가변 상태와 테스트 DOM 타입·CSS format 지적도 수정했다. 실패를 skip·기대값 완화로 숨기지 않았다.
+- 고정 소스에서 전체 `npm run test -- --run --maxWorkers=1 --reporter=dot --reporter=json --outputFile.json=node_modules/.cache/ui-a/height-preview-full-vitest.json` **159 files / 2614 tests 모두 통과**(394.00s)했다. 전체 실행의 제품 fingerprint는 `57B4E705CFCFF58CD2607A4172C7F485C77D874E630F0121B339460386ED4DF7`이다.
+- 전체 실행 뒤 읽기 리뷰에서 확인한 locale 수명만 최소 보정했다. 제품 차이는 Page `contextKey`에 `locale` 한 항목 추가이며, 일반 UI 문자열은 해제하고 실제 집은 재료는 새 언어로 유지한다. 이를 포함한 `FeedbackPersistence.test.tsx` 최종 **1 file / 8 tests 통과**. 결과는 `node_modules/.cache/ui-a/height-preview-locale-final.json`이다. 부모 지시에 따라 전체 검사를 반복하지 않았다. 따라서 전체 2614 통과와 최종 locale 영향 8 통과는 서로 다른 소스의 결과로 구분한다.
+- locale 보정 뒤 `npm run lint`, `npm run typecheck`, `npm run format:check`, `npm run build`를 확인했다. 최종 제품 fingerprint는 `D52EF90E2E635AC5495F4BCA1083DA926D4D257E8D9F421855B796626138F51F`이며 알고리즘은 아래 이전 기록과 같다. 최종 build의 dist 파일별 해시는 `node_modules/.cache/ui-a/height-preview-dist-sha256.json`에 보존한다.
+- build의 500 kB 초과 chunk 경고와 기존 drag 테스트의 jsdom `NaN` style 경고는 남는다. 브라우저 자동 QA는 사용자 보류이며 실제 layout·터치 장치·스크린리더 확인을 자동 테스트 통과로 대체하지 않는다. 서버·Docker·원격 push·Backend/Compose 검사는 수행하지 않았고, DB·Redis·볼륨·설정·54개 실제 저장 기록은 변경하지 않았다. worktree·node_modules·dist와 검증 로그를 부모 리뷰까지 보존한다. 카오스 기능은 이 변경에 포함하지 않는다.
+
+## 이전 commit 1def96cd 검증 기록 · 2026-11-04
 
 기준 `61692dbb2c56ef06334c1245aaf08486d315ef1a`에서 B의 `7651aaedd40a6babe2b9e99cc40a7823b47934c1`을 fast-forward한 합본이다. 검증 경로는 이 격리 worktree의 `frontend`다.
 

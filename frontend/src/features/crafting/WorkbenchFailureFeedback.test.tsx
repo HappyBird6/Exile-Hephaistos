@@ -77,7 +77,7 @@ it('shows only a failed-use reason, preserves history and clears it on a new sel
   const history = region.previousElementSibling
   expect(history).toHaveClass('wb-session-notation')
   expect(region.nextElementSibling).toBeNull()
-  expect(getComputedStyle(region).height).toBe('144px')
+  expect(getComputedStyle(region).height).toBe('200px')
   style.remove()
   const before = localStorage.getItem(historyStorageKey)
   useItemDraft.getState().setActiveOmens(['Omen_of_Whittling'])

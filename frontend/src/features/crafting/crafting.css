@@ -1336,3 +1336,31 @@ dialog.item-input-panel::backdrop {
   outline: 1px solid #d4c399;
   outline-offset: -1px;
 }
+
+/* Requested material-only palette: ItemCard and failure alerts keep their colors. */
+.material-description {
+  color: #9999ff;
+  white-space: pre-line;
+}
+.material-description__header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  width: 100%;
+}
+.material-description .material-description__name {
+  flex: 1 1 12ch;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: #aa9e82;
+}
+.material-description .material-description__source {
+  flex: 0 0 auto;
+  margin-inline-start: auto;
+  white-space: nowrap;
+}
+.material-description a:focus-visible {
+  outline: 2px solid #d4c399;
+  outline-offset: -2px;
+}

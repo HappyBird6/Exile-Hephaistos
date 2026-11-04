@@ -299,11 +299,16 @@ describe('single canvas category selector and favorites inside the coordinate pl
       'repeat(5,minmax(0,1fr))',
     )
     expect(compact(getComputedStyle(favorites).gridTemplateRows)).toBe(
-      'repeat(2,minmax(0,1fr))',
+      'repeat(2,auto)',
     )
-    expect(getComputedStyle(favorites).position).toBe('absolute')
-    expect(compact(getComputedStyle(content).aspectRatio)).toBe('935/550')
-    expect(getComputedStyle(right).position).toBe('absolute')
+    expect(getComputedStyle(favorites).position).toBe('relative')
+    expect(
+      compact(
+        getComputedStyle(content.querySelector('.stash-canvas__upper')!)
+          .aspectRatio,
+      ),
+    ).toBe('935/550')
+    expect(getComputedStyle(right).position).toBe('relative')
     expect(
       getComputedStyle(document.querySelector('.stash-viewport')!).overflowX,
     ).toBe('clip')
@@ -368,7 +373,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
     vi.stubGlobal('innerHeight', 900)
     const rects = new Map([
       ['bench-lower', new DOMRect(900, 100, 374, 800)],
-      ['stash-canvas__content', new DOMRect(100, 100, 800, 600)],
+      ['stash-canvas__upper', new DOMRect(100, 100, 800, 600)],
     ])
     vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockImplementation(
       function (this: HTMLElement) {
@@ -433,85 +438,51 @@ describe('single canvas category selector and favorites inside the coordinate pl
     }
   })
 
-  it('keeps percentage control bounds between favorites and stash and expands only the narrow canvas bottom', () => {
+  it('stretches the canvas with the right column while keeping the lower controls on one track', () => {
     show()
-    function bounds(selector: string, width: number) {
-      const style = ruleStyle(selector)
-      function dimension(property: 'left' | 'top' | 'width' | 'height') {
-        const percentage = Number(
-          compact(style[property]).match(/^calc\(([\d.]+)%\)$/)![1],
-        )
-        const extent =
-          property === 'left' || property === 'width'
-            ? width
-            : (width * 550) / 935
-        return (percentage / 100) * extent
-      }
-      return {
-        left: dimension('left'),
-        top: dimension('top'),
-        width: selector === '.workbench-stash' ? 0 : dimension('width'),
-        height: dimension('height'),
-      }
-    }
-    for (const width of [224, 330, 424, 640, 935]) {
-      const favorites = bounds('.workbench-stash__favorites', width)
-      const controls = bounds('.workbench-item-controls', width)
-      const stash = bounds('.workbench-stash', width)
-      expect(controls.left).toBeGreaterThan(favorites.left + favorites.width)
-      expect(controls.left + controls.width).toBeLessThan(stash.left)
-      expect(controls.top).toBeCloseTo(favorites.top)
-      expect(controls.top + controls.height).toBeCloseTo(
-        favorites.top + favorites.height,
-      )
-    }
+    const viewport = document.querySelector('.stash-viewport')!
+    const content = document.querySelector('.stash-canvas__content')!
+    const favorites = document.querySelector('.workbench-stash__favorites')!
+    const controls = document.querySelector('.workbench-item-controls')!
+    const stash = document.querySelector('.workbench-stash')!
+    expect(getComputedStyle(viewport).alignSelf).toBe('stretch')
+    expect(getComputedStyle(viewport).display).toBe('flex')
+    expect(getComputedStyle(content).display).toBe('grid')
+    expect(getComputedStyle(favorites).gridRow).toBe('3')
+    expect(getComputedStyle(controls).gridRow).toBe('3')
+    expect(getComputedStyle(stash).gridRow).toBe('1 / 4')
+    expect(getComputedStyle(favorites).gridColumn).toBe('2')
+    expect(getComputedStyle(controls).gridColumn).toBe('4')
+    expect(getComputedStyle(stash).gridColumn).toBe('6')
+    expect(
+      compact(
+        ruleStyle('.stash-viewport .stash-canvas').getPropertyValue(
+          'padding-bottom',
+        ),
+      ),
+    ).toBe('36px')
+    expect(
+      compact(
+        ruleStyle(
+          '.workbench-item-controls > .item-input-toggle',
+        ).getPropertyValue('overflow-wrap'),
+      ),
+    ).toBe('anywhere')
     const narrow = [...styles.sheet!.cssRules].find(
       (rule) =>
         rule.type === CSSRule.MEDIA_RULE &&
+        (rule as CSSMediaRule).conditionText === '(max-width: 1200px)' &&
         [...(rule as CSSMediaRule).cssRules].some(
           (child) =>
-            child.type === CSSRule.STYLE_RULE &&
             (child as CSSStyleRule).selectorText === '.workbench-item-controls',
         ),
     ) as CSSMediaRule
-    const rules = [...narrow.cssRules] as CSSStyleRule[]
-    expect(narrow.conditionText).toBe('(max-width: 1200px)')
-    const height = compact(rules[0]!.style.height)
-    expect(height).toMatch(/^max\([\d.]+%,208px\)$/)
-    expect(Number(height.match(/[\d.]+/)![0])).toBeCloseTo((174 / 550) * 100, 3)
-    const padding = compact(rules[1]!.style.getPropertyValue('padding-bottom'))
-    const percentages = [...padding.matchAll(/([\d.]+)%/g)].map((match) =>
-      Number(match[1]),
-    )
-    expect(percentages).toHaveLength(2)
-    expect(percentages[0]).toBeCloseTo((214 / 935) * 100, 3)
-    expect(percentages[1]).toBeCloseTo((20 / 935) * 100, 3)
-    expect(padding).toMatch(/\+208px\)$/)
-    for (const width of [320, 375, 390, 600, 1001, 1200]) {
-      const canvas =
-        width <= 1000
-          ? Math.min(width / 0.75 - (width <= 480 ? 24 : 48), 1100)
-          : Math.min(width - 96, 1100) - 374
-      const controls = bounds('.workbench-item-controls', canvas)
-      const expandedHeight = Math.max(controls.height, 208)
-      const bottomPadding = Math.max(
-        (percentages[0]! / 100) * canvas,
-        (percentages[1]! / 100) * canvas + 208,
-      )
-      expect(controls.top + expandedHeight).toBeLessThanOrEqual(
-        (canvas * 550) / 935 + bottomPadding + 0.01,
-      )
-    }
-    expect(compact(ruleStyle('.workbench-item-controls input').width)).toBe(
-      'max(12%,12px)',
-    )
     expect(
-      ruleStyle(
-        '.workbench-item-controls > .item-input-toggle',
-      ).getPropertyValue('overflow-wrap'),
-    ).toBe('anywhere')
+      (narrow.cssRules[0] as CSSStyleRule).style.getPropertyValue('min-height'),
+    ).toBe('208px')
     expect(
-      Number(ruleStyle('.item-placement').left.match(/[\d.]+/)![0]),
-    ).toBeCloseTo((371 / 935) * 100, 3)
+      getComputedStyle(document.querySelector('.workbench-feedback-region')!)
+        .height,
+    ).toBe('200px')
   })
 })

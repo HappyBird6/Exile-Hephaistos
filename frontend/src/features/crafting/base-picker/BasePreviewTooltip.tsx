@@ -2,7 +2,6 @@ import { useEffect, useLayoutEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { ItemCard } from '../ItemCard'
 import type { ItemCardData } from '../itemCardData'
-import { useFeedbackTooltip } from '../feedback-tooltip/feedbackContext'
 
 export function BasePreviewTooltip({
   id,
@@ -20,21 +19,19 @@ export function BasePreviewTooltip({
   onDismiss?: () => void
 }) {
   const tooltip = useRef<HTMLDivElement>(null)
-  const feedback = useFeedbackTooltip()
   useEffect(() => {
-    if (!feedback) return
-    feedback.show({
-      anchor,
-      id,
-      onDismiss,
-      content: (
-        <section aria-label={label}>
-          <ItemCard item={item} baseItemId={slug} />
-        </section>
-      ),
-    })
-    return () => feedback.release(anchor)
-  }, [feedback, anchor, id, item, slug, label, onDismiss])
+    const previous =
+      anchor
+        .getAttribute('aria-describedby')
+        ?.split(/\s+/)
+        .filter((value) => value !== id) ?? []
+    anchor.setAttribute('aria-describedby', [...previous, id].join(' '))
+    return () => {
+      if (previous.length)
+        anchor.setAttribute('aria-describedby', previous.join(' '))
+      else anchor.removeAttribute('aria-describedby')
+    }
+  }, [anchor, id])
   useLayoutEffect(() => {
     function position() {
       const element = tooltip.current
@@ -61,14 +58,38 @@ export function BasePreviewTooltip({
       window.removeEventListener('scroll', position, true)
     }
   }, [anchor, item])
-  if (feedback) return null
   return createPortal(
     <div
       id={id}
       ref={tooltip}
       role="tooltip"
       aria-label={label}
-      className="wb-base-picker__preview"
+      className="wb-base-picker__preview wb-scrollbar"
+      tabIndex={0}
+      onKeyDown={(event) => {
+        if (event.key !== 'Escape') return
+        event.stopPropagation()
+        anchor.focus()
+        onDismiss?.()
+      }}
+      onMouseLeave={(event) => {
+        if (
+          !(
+            event.relatedTarget instanceof Node &&
+            anchor.contains(event.relatedTarget)
+          ) &&
+          !event.currentTarget.contains(document.activeElement)
+        )
+          onDismiss?.()
+      }}
+      onBlur={(event) => {
+        if (!(
+          event.relatedTarget instanceof Node &&
+          (event.currentTarget.contains(event.relatedTarget) ||
+            anchor.contains(event.relatedTarget))
+        ))
+          onDismiss?.()
+      }}
     >
       <ItemCard item={item} baseItemId={slug} />
     </div>,

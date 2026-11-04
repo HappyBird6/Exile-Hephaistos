@@ -181,9 +181,27 @@ function BasePickerContent({
           className="wb-base-picker__options wb-scrollbar"
           role="group"
           aria-label={t('ui.equipment_base')}
-          onMouseLeave={() => setHovered(null)}
+          onMouseLeave={(event) => {
+            const next = event.relatedTarget
+            if (
+              !(
+                next instanceof Element &&
+                next.closest('.wb-base-picker__preview')?.id ===
+                  `${fieldId}-preview`
+              ) &&
+              !event.currentTarget.contains(document.activeElement)
+            )
+              setHovered(null)
+          }}
           onBlur={(event) => {
-            if (!event.currentTarget.contains(event.relatedTarget))
+            if (
+              !event.currentTarget.contains(event.relatedTarget) &&
+              !(
+                event.relatedTarget instanceof Element &&
+                event.relatedTarget.closest('.wb-base-picker__preview')?.id ===
+                  `${fieldId}-preview`
+              )
+            )
               setHovered(null)
           }}
         >

@@ -120,7 +120,11 @@ it('keeps failures, descriptions, source links and existing aria descriptions to
   act(() => anchor.blur())
   fireEvent.pointerOut(anchor, { relatedTarget: document.body })
   act(() => vi.advanceTimersByTime(250))
-  expect(screen.queryByRole('tooltip')).toBeNull()
+  expect(screen.getByRole('tooltip')).toHaveTextContent('Chaos Orb')
+  fireEvent.pointerOver(screen.getByText('Candidate modifier'))
+  expect(screen.getByRole('tooltip')).toHaveTextContent(
+    translate('omen.candidate_title'),
+  )
 })
 
 it('shows touch descriptions and routes missing-image and removal-candidate titles without native tooltips', () => {
@@ -152,24 +156,21 @@ it('shows touch descriptions and routes missing-image and removal-candidate titl
   )
 })
 
-it('retains a base preview snapshot when focus moves from its menu to the shared panel', () => {
-  vi.useFakeTimers()
+it('keeps the base ItemCard independent and closes it on hover leave', () => {
   render(<Fixture />)
   const anchor = screen.getByRole('button', { name: 'Preview' })
   fireEvent.mouseEnter(anchor)
   const tooltip = screen.getByRole('tooltip')
   expect(tooltip).toHaveAttribute('id', 'preview')
+  expect(tooltip).toHaveClass('wb-base-picker__preview')
   expect(within(tooltip).getByRole('article')).toBeVisible()
-  expect(document.querySelector('.wb-base-picker__preview')).toBeNull()
-  fireEvent.mouseLeave(anchor, { relatedTarget: tooltip })
-  act(() => tooltip.focus())
-  act(() => vi.advanceTimersByTime(250))
-  expect(tooltip).toHaveFocus()
-  fireEvent.mouseOver(within(tooltip).getByRole('article'))
-  expect(screen.getAllByRole('tooltip')).toHaveLength(1)
-  fireEvent.keyDown(tooltip, { key: 'Escape' })
+  expect(
+    document.querySelector('.workbench-feedback-region'),
+  ).not.toContainElement(tooltip)
+  expect(anchor).toHaveAttribute('aria-describedby', 'preview')
+  fireEvent.mouseLeave(anchor, { relatedTarget: document.body })
   expect(screen.queryByRole('tooltip')).toBeNull()
-  expect(anchor).toHaveFocus()
+  expect(anchor).not.toHaveAttribute('aria-describedby')
 })
 
 it.each(locales)('retains sourced material explanations in %s', (locale) => {
@@ -227,19 +228,21 @@ it('preserves workspace inputs and keyboard focus without routing descriptions i
   expect(outerMaterialSearch()).toBe(manualSearch)
   expect(outerMaterialSearch()).toHaveValue('Essence')
   expect(screen.queryByRole('tooltip')).toBeNull()
-  // Opening the real base menu uses the shared panel and preserves its close path.
+  // The real base menu uses an independent, scrollable preview.
   const opener = screen.getByRole('button', { name: 'Select base' })
   fireEvent.click(opener)
   const menu = screen.getByRole('dialog', { name: 'Select base' })
   const base = within(menu).getByRole('button', { name: /Massive Mitts/ })
   fireEvent.pointerDown(base, { pointerType: 'touch' })
   const tooltip = screen.getByRole('tooltip')
-  expect(document.querySelector('.workbench-feedback-region')).toContainElement(
-    tooltip,
-  )
+  expect(
+    document.querySelector('.workbench-feedback-region'),
+  ).not.toContainElement(tooltip)
+  expect(tooltip).toHaveClass('wb-base-picker__preview')
+  expect(base).toHaveAttribute('aria-describedby', tooltip.id)
   expect(menu.querySelector('[title]')).toBeNull()
   expect(
-    document.querySelector('.material-tooltip, .wb-base-picker__preview'),
+    document.querySelector('.material-tooltip, .workbench-feedback-tooltip'),
   ).toBeNull()
   act(() => tooltip.focus())
   fireEvent.keyDown(tooltip, { key: 'Escape' })

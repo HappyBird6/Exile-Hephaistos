@@ -49,7 +49,7 @@ function useCurrency(name: string) {
     }),
   )
 }
-it('places actual successful notation between the item card and feedback and retains its tooltip with a selected currency', async () => {
+it('places notation between the card and feedback and prioritizes the selected currency until Escape', async () => {
   show()
   useCurrency('Orb of Transmutation')
   const icon = await within(notation()).findByRole('img', {
@@ -77,15 +77,13 @@ it('places actual successful notation between the item card and feedback and ret
   expect(localStorage.getItem(historyStorageKey)).toBe(before)
   expect(within(notation()).getAllByRole('listitem')).toHaveLength(1)
   fireEvent.mouseOver(icon.querySelector('img') ?? icon)
-  expect(await screen.findByRole('tooltip')).toHaveTextContent(
-    'Orb of Transmutation',
-  )
+  expect(await screen.findByRole('tooltip')).toHaveTextContent('Exalted Orb')
   expect(panel.parentElement).toContainElement(screen.getByRole('tooltip'))
   expect(panel).toHaveAttribute('role', 'alert')
   fireEvent.keyDown(document, { key: 'Escape' })
   expect(screen.queryByRole('tooltip')).toBeNull()
   expect(screen.queryByRole('checkbox', { name: 'Show tooltips' })).toBeNull()
-  expect(panel).toHaveAttribute('role', 'alert')
+  expect(document.querySelector('.workbench-feedback-panel')).toBeNull()
   fireEvent.focusIn(icon)
   expect(await screen.findByRole('tooltip')).toHaveTextContent(
     'Orb of Transmutation',

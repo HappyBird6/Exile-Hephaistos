@@ -132,8 +132,20 @@ export function MaterialDescription({ materialId }: { materialId: string }) {
   const hasDescription = Boolean(translated.data?.lines.length)
   const lines = hasDescription ? translated.data!.lines : data.lines
   return (
-    <>
-      <strong>{name(materialId, data.name)}</strong>
+    <div className="material-description">
+      <div className="material-description__header">
+        <strong className="material-description__name">
+          {name(materialId, data.name)}
+        </strong>
+        <a
+          className="material-description__source"
+          href={translated.data?.sourceUrl ?? data.sourceUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          PoE2DB
+        </a>
+      </div>
       {translated.data?.nameProvenance && (
         <small className="translation-fallback">{t('translation.own')}</small>
       )}
@@ -172,13 +184,6 @@ export function MaterialDescription({ materialId }: { materialId: string }) {
             {line}
           </p>
         ))}
-      <a
-        href={translated.data?.sourceUrl ?? data.sourceUrl}
-        target="_blank"
-        rel="noreferrer"
-      >
-        PoE2DB
-      </a>
       {legacyHomogenisingIds.includes(materialId) && (
         <a
           href="https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff"
@@ -188,6 +193,6 @@ export function MaterialDescription({ materialId }: { materialId: string }) {
           {t('ui.official_legacy_availability')}
         </a>
       )}
-    </>
+    </div>
   )
 }

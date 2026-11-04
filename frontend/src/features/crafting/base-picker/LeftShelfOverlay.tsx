@@ -95,7 +95,7 @@ export function LeftShelfOverlay({
         target instanceof Node &&
         !(
           target instanceof Element &&
-          target.closest('.workbench-feedback-region')
+          target.closest('.workbench-feedback-region, .wb-base-picker__preview')
         ) &&
         !element?.contains(target) &&
         !trigger?.contains(target)

@@ -273,6 +273,14 @@ export function CraftingPage() {
   ]
   const [selected, setSelected] = useState<Selection | null>(null)
   const [held, setHeld] = useState<WorkbenchResource | null>(null)
+  const [feedbackAnchor, setFeedbackAnchor] = useState<HTMLElement | null>(null)
+  function rememberFeedbackAnchor(event: { target: EventTarget | null }) {
+    const anchor =
+      event.target instanceof Element
+        ? event.target.closest<HTMLElement>('[data-material-tooltip]')
+        : null
+    if (anchor) setFeedbackAnchor(anchor)
+  }
   const [favorites, setFavorites] = useState<(WorkbenchResource | null)[]>(
     Array(10).fill(null),
   )
@@ -1235,6 +1243,9 @@ export function CraftingPage() {
   const page = (
     <main
       className={`craft-page${view === 'workbench' ? ' craft-page--workbench' : ''}`}
+      onClickCapture={rememberFeedbackAnchor}
+      onContextMenuCapture={rememberFeedbackAnchor}
+      onDragStartCapture={rememberFeedbackAnchor}
       onClick={(event) => {
         const target = event.target as HTMLElement
         if (
@@ -1343,76 +1354,84 @@ export function CraftingPage() {
           <div className="stash-board">
             <div className="stash-viewport">
               <div className="stash-canvas" aria-label={t('ui.currency_stash')}>
-                <div className="stash-canvas__content" ref={currencyShelf}>
-                  <div className="currency-catalog">
-                    {fixedCurrencies.map((currency) => {
-                      const currencyName = name(
-                        currency.id,
-                        currencyNames[currency.id],
-                      )
-                      return (
-                        <button
-                          key={currency.id}
-                          type="button"
-                          className={`currency-slot ${selected?.id === currency.id ? 'is-selected' : ''}`}
-                          style={{
-                            left: `${currency.x / 9.35}%`,
-                            top: `${currency.y / 5.5}%`,
-                          }}
-                          aria-label={currencyName}
-                          aria-pressed={selected?.id === currency.id}
-                          {...tooltipEvents(currency.id)}
-                          onContextMenu={(event) => {
-                            event.preventDefault()
-                            setPointer({ x: event.clientX, y: event.clientY })
-                            choose({
-                              ...currency,
-                              name: currencyNames[currency.id],
-                            })
-                          }}
-                          onClick={(event) => {
-                            if (event.detail === 0) setPointer(null)
-                            choose({
-                              ...currency,
-                              name: currencyNames[currency.id],
-                            })
-                          }}
-                        >
-                          <CurrencyImage {...currency} name={currencyName} />
-                          {currency.id.startsWith('Greater') && (
-                            <span className="currency-tier" aria-hidden="true">
-                              II
-                            </span>
-                          )}
-                          {currency.id.startsWith('Perfect') && (
-                            <span className="currency-tier" aria-hidden="true">
-                              III
-                            </span>
-                          )}
-                        </button>
-                      )
-                    })}
-                  </div>
-                  <div className="item-placement">
-                    <button
-                      className={`item-slot ${selected ? 'is-ready' : ''}`}
-                      type="button"
-                      aria-label={t(
-                        'ui.use_selected_currency_on_the_central_item',
-                      )}
-                      disabled={applying !== null}
-                      onClick={(event) => void apply(event.shiftKey)}
-                    >
-                      <ItemSlotImage
-                        baseItemId={slotBaseItemId ?? ''}
-                        label={
-                          slotBaseItemId
-                            ? name(baseSlugs[catalogBase], baseName)
-                            : displayedName
-                        }
-                      />
-                      <span>{displayedName}</span>
-                    </button>
+                <div className="stash-canvas__content">
+                  <div className="stash-canvas__upper" ref={currencyShelf}>
+                    <div className="currency-catalog">
+                      {fixedCurrencies.map((currency) => {
+                        const currencyName = name(
+                          currency.id,
+                          currencyNames[currency.id],
+                        )
+                        return (
+                          <button
+                            key={currency.id}
+                            type="button"
+                            className={`currency-slot ${selected?.id === currency.id ? 'is-selected' : ''}`}
+                            style={{
+                              left: `${currency.x / 9.35}%`,
+                              top: `${currency.y / 5.5}%`,
+                            }}
+                            aria-label={currencyName}
+                            aria-pressed={selected?.id === currency.id}
+                            {...tooltipEvents(currency.id)}
+                            onContextMenu={(event) => {
+                              event.preventDefault()
+                              setPointer({ x: event.clientX, y: event.clientY })
+                              choose({
+                                ...currency,
+                                name: currencyNames[currency.id],
+                              })
+                            }}
+                            onClick={(event) => {
+                              if (event.detail === 0) setPointer(null)
+                              choose({
+                                ...currency,
+                                name: currencyNames[currency.id],
+                              })
+                            }}
+                          >
+                            <CurrencyImage {...currency} name={currencyName} />
+                            {currency.id.startsWith('Greater') && (
+                              <span
+                                className="currency-tier"
+                                aria-hidden="true"
+                              >
+                                II
+                              </span>
+                            )}
+                            {currency.id.startsWith('Perfect') && (
+                              <span
+                                className="currency-tier"
+                                aria-hidden="true"
+                              >
+                                III
+                              </span>
+                            )}
+                          </button>
+                        )
+                      })}
+                    </div>
+                    <div className="item-placement">
+                      <button
+                        className={`item-slot ${selected ? 'is-ready' : ''}`}
+                        type="button"
+                        aria-label={t(
+                          'ui.use_selected_currency_on_the_central_item',
+                        )}
+                        disabled={applying !== null}
+                        onClick={(event) => void apply(event.shiftKey)}
+                      >
+                        <ItemSlotImage
+                          baseItemId={slotBaseItemId ?? ''}
+                          label={
+                            slotBaseItemId
+                              ? name(baseSlugs[catalogBase], baseName)
+                              : displayedName
+                          }
+                        />
+                        <span>{displayedName}</span>
+                      </button>
+                    </div>
                   </div>
                   <div className="workbench-item-controls">
                     <button
@@ -2129,7 +2148,21 @@ export function CraftingPage() {
     </main>
   )
   return (
-    <FeedbackTooltipProvider enabled={view === 'workbench'}>
+    <FeedbackTooltipProvider
+      enabled={view === 'workbench'}
+      priorityMaterialId={cursor?.id ?? null}
+      priorityAnchor={feedbackAnchor}
+      contextKey={JSON.stringify([
+        view,
+        locale,
+        draft.baseRevision,
+        filmState.history.active,
+        filmState.history.cursor,
+        activeTab,
+        draft.activeOmens,
+        inputOpen,
+      ])}
+    >
       {page}
     </FeedbackTooltipProvider>
   )

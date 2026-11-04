@@ -2,16 +2,13 @@ import { createContext, useContext } from 'react'
 import type { ReactNode } from 'react'
 
 export type FeedbackDescription = {
-  anchor: HTMLElement
+  anchor: HTMLElement | null
   id: string
   content: ReactNode
-  onDismiss?: (() => void) | undefined
+  materialId?: string | undefined
 }
 
-export const FeedbackContext = createContext<{
-  show: (description: FeedbackDescription) => void
-  release: (anchor: HTMLElement) => void
-} | null>(null)
+export const FeedbackContext = createContext(false)
 export const FeedbackDescriptionContext =
   createContext<FeedbackDescription | null>(null)
 

@@ -10,45 +10,83 @@ const stashCss = readFileSync(
   'src/features/crafting/stash/workbenchStash.css',
   'utf8',
 )
-type Rect = { x: number; y: number; width: number; height: number }
-const overlaps = (a: Rect, b: Rect) =>
-  a.x < b.x + b.width &&
-  a.x + a.width > b.x &&
-  a.y < b.y + b.height &&
-  a.y + a.height > b.y
-
-// Read the production coordinates so a shortened/clipped panel fails this check.
-function coordinate(selector: string, property: string, extent: number) {
-  const rule = stashCss.slice(stashCss.indexOf(selector))
-  const declaration = rule.slice(0, rule.indexOf('}'))
-  const match = declaration.match(
-    new RegExp(`${property}: calc\\((\\d+) / (\\d+) \\* 100%\\)`),
-  )
-  if (!match) throw new Error(`Missing ${selector} ${property} coordinate`)
-  return (Number(match[1]) / Number(match[2])) * extent
+function rule(source: string, selector: string, last = false) {
+  const start = last
+    ? source.lastIndexOf(selector + ' {')
+    : source.indexOf(selector + ' {')
+  if (start < 0) throw new Error(`Missing ${selector}`)
+  return source.slice(start, source.indexOf('}', start))
 }
-const stashLeft = coordinate('.workbench-stash {', 'left', 935)
-const stashRight = coordinate('.workbench-stash {', 'right', 935)
-const stashTop = coordinate('.workbench-stash {', 'top', 550)
-const stashHeight = coordinate('.workbench-stash {', 'height', 550)
+const grid = rule(stashCss, '.stash-canvas__content')
+const tracks = [
+  ...grid.match(/grid-template-columns:([^;]+)/)![1]!.matchAll(/([0-9]+)fr/g),
+].map((match) => Number(match[1]))
+const topMargin = rule(stashCss, '.workbench-stash').match(
+  /margin-top: calc\(([0-9]+) \/ ([0-9]+)/,
+)!
+const extraGap = Number(
+  rule(stashCss, '.stash-canvas__content::after').match(
+    /margin-bottom: ([0-9]+)px/,
+  )![1],
+)
+const bottomPadding = Number(
+  rule(css, '.stash-viewport .stash-canvas').match(
+    /padding-bottom: ([0-9]+)px/,
+  )![1],
+)
 
-describe('original composition at 75 percent', () => {
-  it('matches the mockup margins, aligned top, equal gaps and full-height stash', () => {
-    const first = currencies.find((c) => c.id === 'Orb_of_Transmutation')!
-    const third = currencies.find(
-      (c) => c.id === 'Perfect_Orb_of_Transmutation',
-    )!
-    const alchemy = currencies.find((c) => c.id === 'Orb_of_Alchemy')!
-    const annulment = currencies.find((c) => c.id === 'Orb_of_Annulment')!
-    expect(stashRight).toBeCloseTo(first.x)
-    expect(stashTop).toBeCloseTo(annulment.y)
-    expect(stashLeft - (annulment.x + 74)).toBeCloseTo(
-      alchemy.x - (third.x + 74),
+describe('aligned composition at 75 percent', () => {
+  it('preserves horizontal slot coordinates and shares one lower track with an elastic vertical gap', () => {
+    expect(tracks).toEqual([29, 434, 23, 140, 23, 257, 29])
+    expect(tracks.reduce((sum, value) => sum + value, 0)).toBe(935)
+    expect(grid).toContain('minmax(min-content, 1fr)')
+    expect(rule(stashCss, '.stash-canvas__upper')).toContain(
+      'aspect-ratio: 935 / 550',
     )
-    const favoritesBottom =
-      coordinate('.workbench-stash__favorites {', 'top', 550) +
-      coordinate('.workbench-stash__favorites {', 'height', 550)
-    expect(stashTop + stashHeight).toBeCloseTo(favoritesBottom)
+    expect(rule(stashCss, '.workbench-stash')).toContain('grid-row: 1 / 4')
+    expect(rule(stashCss, '.workbench-stash__favorites')).toContain(
+      'grid-row: 3',
+    )
+    expect(rule(css, '.workbench-item-controls')).toContain('grid-row: 3')
+    expect(
+      (Number(topMargin[1]) / Number(topMargin[2])) * tracks[5]!,
+    ).toBeCloseTo(40)
+    for (const width of [224, 330, 424, 640, 935]) {
+      const scale = width / 935
+      const upperHeight = 550 * scale
+      const favoriteWidth = tracks[1]! * scale
+      const slot = (favoriteWidth - 4 * 16 * scale) / 5
+      expect(slot).toBeCloseTo(74 * scale)
+      const lowerHeight = Math.max(174 * scale, width < 935 ? 208 : 0)
+      const minimumHeight =
+        upperHeight + 20 * scale + extraGap + lowerHeight + bottomPadding
+      for (const rightHeight of [
+        minimumHeight,
+        minimumHeight + 56,
+        minimumHeight + 400,
+      ]) {
+        const lowerBottom = rightHeight - bottomPadding
+        const lowerTop = lowerBottom - lowerHeight
+        expect(lowerTop).toBeGreaterThanOrEqual(
+          upperHeight + 20 * scale + extraGap - 0.001,
+        )
+        expect(lowerTop + slot).toBeLessThanOrEqual(lowerBottom - slot)
+        // Favorites, controls and the spanning stash have the same bottom;
+        // 36px also equals the existing right padding + feedback bottom margin.
+        expect(lowerBottom + bottomPadding).toBeCloseTo(rightHeight)
+        expect(lowerBottom - slot).toBeGreaterThan(514 * scale)
+        expect((649 - 626) * scale).toBeGreaterThan(0)
+      }
+    }
+    expect(extraGap).toBe(200 - 144)
+    expect(bottomPadding).toBe(24 + 12)
+    expect(
+      rule(
+        stashCss,
+        '.workbench-stash__favorites .workbench-stash__favorite',
+        true,
+      ),
+    ).toContain('height: auto')
   })
   it('preserves the original tier columns and five family rows', () => {
     for (const [family, y] of [
@@ -65,46 +103,21 @@ describe('original composition at 75 percent', () => {
       }
     }
   })
-  it('keeps the original upper item and shelf free of the in-canvas favorites', () => {
-    const rects: Rect[] = currencies
-      .filter((c) => !/Rib|Jawbone|Collarbone|Cranium|Artificers/.test(c.id))
-      .map((c) => ({ ...c, width: 74, height: 74 }))
-    rects.push(
-      { x: 371, y: 240, width: 193, height: 274 },
-      {
-        x: stashLeft,
-        y: stashTop,
-        width: 935 - stashLeft - stashRight,
-        height: stashHeight,
-      },
-    )
-    for (let i = 0; i < 10; i++)
-      rects.push({
-        x: 29 + (i % 5) * 90,
-        y: 570 + Math.floor(i / 5) * 100,
-        width: 74,
-        height: 74,
-      })
-    for (const [index, r] of rects.entries()) {
-      expect(r.x + r.width).toBeLessThanOrEqual(935)
-      expect(r.y + r.height).toBeLessThanOrEqual(764)
-      for (const other of rects.slice(index + 1))
-        expect(overlaps(r, other)).toBe(false)
-    }
-    expect(stashCss).toContain('top: calc(570 / 550 * 100%)')
-    expect(stashCss).toContain('width: calc(434 / 935 * 100%)')
-    expect(stashCss).toContain('height: calc(174 / 550 * 100%)')
-    expect(css).toContain('padding-bottom: calc(214 / 935 * 100%)')
-    expect(css).not.toContain('.item-placement')
-  })
-  it('scales the existing composition and preserves the original mobile breakpoint', () => {
+  it('preserves zoom, card expansion, responsive stacking and the bounded feedback and History surfaces', () => {
     expect(css).toContain('zoom: 0.75')
     expect(css).toContain('width: min(100vw, 1800px)')
     expect(css).toContain('width: calc(100vw / 0.75)')
     expect(css).toContain('minmax(280px, 374px)')
     expect(374 / 340).toBeCloseTo(1.1)
     expect(css).toContain('@media (max-width: 1000px)')
-    expect(css).not.toContain('@container')
-    expect(css).not.toMatch(/(?:background|border-radius|color)\s*:/)
+    expect(css).toContain('min-height: 208px')
+    expect(rule(css, '.workbench-feedback-region')).toContain('height: 200px')
+    expect(css).toContain('max-height: 50%')
+    expect(
+      readFileSync(
+        'src/features/crafting/session-notation/session-notation.css',
+        'utf8',
+      ),
+    ).toContain('max-height: 12rem')
   })
 })

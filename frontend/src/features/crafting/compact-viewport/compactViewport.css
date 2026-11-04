@@ -12,13 +12,17 @@
   grid-template-columns: minmax(0, 1fr) minmax(280px, 374px);
 }
 .stash-viewport {
+  display: flex;
+  flex-direction: column;
   overflow-x: clip;
 }
 .stash-viewport .stash-canvas {
   min-width: 0;
   aspect-ratio: auto;
-  /* Extra space inside the canvas, without moving the original upper slots. */
-  padding-bottom: calc(214 / 935 * 100%);
+  flex: 1 0 auto;
+  display: flex;
+  /* Match the right column: 24px padding + 12px feedback bottom margin. */
+  padding-bottom: 36px;
 }
 .stash-canvas__content .currency-slot {
   box-sizing: border-box;
@@ -65,9 +69,9 @@
 /* Keep a fixed feedback area after History, including when no failure is shown. */
 .workbench-feedback-region {
   box-sizing: border-box;
-  height: 144px;
-  min-height: 144px;
-  max-height: 144px;
+  height: 200px;
+  min-height: 200px;
+  max-height: 200px;
   margin-block: 12px;
   display: flex;
   flex-direction: column;
@@ -79,14 +83,13 @@
   max-height: 50%;
 }
 .workbench-item-controls {
-  position: absolute;
-  left: calc(486 / 935 * 100%);
-  top: calc(570 / 550 * 100%);
-  width: calc(140 / 935 * 100%);
-  height: calc(174 / 550 * 100%);
+  position: relative;
+  grid-column: 4;
+  grid-row: 3;
+  align-self: stretch;
   display: grid;
   grid-template-rows: repeat(3, minmax(0, 1fr));
-  row-gap: calc(10 / 174 * 100%);
+  row-gap: 10px;
   min-width: 0;
 }
 .workbench-item-controls > .item-input-toggle {
@@ -120,10 +123,7 @@
 
 @media (max-width: 1200px) {
   .workbench-item-controls {
-    /* Let translated labels wrap without compressing three rows into the slots. */
-    height: max(calc(174 / 550 * 100%), 208px);
-  }
-  .stash-viewport .stash-canvas {
-    padding-bottom: max(calc(214 / 935 * 100%), calc(20 / 935 * 100% + 208px));
+    /* The shared lower track grows; favorite slots retain their square shape. */
+    min-height: 208px;
   }
 }

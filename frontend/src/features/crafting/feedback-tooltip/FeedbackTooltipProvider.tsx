@@ -7,61 +7,84 @@ import type { FeedbackDescription } from './feedbackContext'
 
 export function FeedbackTooltipProvider({
   enabled,
+  priorityMaterialId = null,
+  priorityAnchor = null,
+  contextKey = '',
   children,
 }: {
   enabled: boolean
+  priorityMaterialId?: string | null
+  priorityAnchor?: HTMLElement | null
+  contextKey?: string
   children: ReactNode
 }) {
   const [description, setDescription] = useState<FeedbackDescription | null>(
     null,
   )
-  const active = useRef<FeedbackDescription | null>(null)
-  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
+  const priority = useRef<string | null>(null)
+  const current = useRef<FeedbackDescription | null>(null)
   const api = useMemo(() => {
-    const cancel = () => clearTimeout(timer.current)
-    const show = (next: FeedbackDescription) => {
-      cancel()
-      active.current = next
+    const publish = (next: FeedbackDescription) => {
+      current.current = next
       setDescription(next)
     }
+    const show = (next: FeedbackDescription) => {
+      if (priority.current) return
+      publish(next)
+    }
     const dismiss = () => {
-      cancel()
-      active.current = null
+      current.current = null
       setDescription(null)
     }
-    const release = (anchor: HTMLElement) => {
-      cancel()
-      const current = active.current
-      if (current?.anchor === anchor) {
-        const descriptions = new Set(
-          anchor.getAttribute('aria-describedby')?.split(/\s+/) ?? [],
+    const reset = (
+      materialId: string | null,
+      source: HTMLElement | null = null,
+    ) => {
+      const previous = current.current
+      priority.current = materialId
+      dismiss()
+      if (!materialId || !Object.hasOwn(descriptions, materialId)) return
+      const valid = (
+        element: HTMLElement | null | undefined,
+      ): element is HTMLElement =>
+        Boolean(
+          element?.isConnected &&
+          element.dataset.materialTooltip === materialId &&
+          !element.closest('[hidden]') &&
+          !element.matches(':disabled'),
         )
-        descriptions.add(current.id)
-        anchor.setAttribute('aria-describedby', [...descriptions].join(' '))
-      }
-      timer.current = setTimeout(() => {
-        if (active.current?.anchor !== anchor) return
-        const panel = document.querySelector('.workbench-feedback-tooltip')
-        if (
-          panel?.contains(document.activeElement) ||
-          panel?.matches(':hover') ||
-          anchor.contains(document.activeElement)
-        )
-          return
-        dismiss()
-      }, 200)
+      const anchor = valid(source)
+        ? source
+        : valid(previous?.anchor)
+          ? previous.anchor
+          : ([
+              ...document.querySelectorAll<HTMLElement>(
+                '[data-material-tooltip]',
+              ),
+            ].find((element) => valid(element)) ?? null)
+      publish({
+        anchor,
+        materialId,
+        id: 'material-description',
+        content: <MaterialDescription materialId={materialId} />,
+      })
     }
-    return { show, release, dismiss, cancel }
+    return { show, dismiss, reset, current: () => current.current }
   }, [])
 
   useEffect(() => {
     if (!enabled) return
+    api.reset(priorityMaterialId, priorityAnchor)
     function inspect(event: Event) {
       const element = event.target instanceof Element ? event.target : null
-      if (element?.closest('.workbench-feedback-region')) {
-        api.cancel()
+      // A floating base ItemCard has its own hover/focus lifetime. It never
+      // produces a second copy in the shared feedback area.
+      if (
+        element?.closest(
+          '.workbench-feedback-region, .wb-base-picker__option, .wb-base-picker__preview',
+        )
+      )
         return
-      }
       const materialAnchor = element?.closest<HTMLElement>(
         '[data-material-tooltip]',
       )
@@ -70,76 +93,80 @@ export function FeedbackTooltipProvider({
         materialAnchor?.querySelector<HTMLElement>(
           '.currency-missing[data-feedback-tooltip]',
         )
-      const material = materialAnchor?.dataset.materialTooltip
+      const materialId = materialAnchor?.dataset.materialTooltip
       if (textAnchor?.dataset.feedbackTooltip) {
         api.show({
           anchor: materialAnchor ?? textAnchor,
+          materialId,
           id: materialAnchor ? 'material-description' : 'workbench-description',
           content: (
             <>
               <p>{textAnchor.dataset.feedbackTooltip}</p>
-              {material && Object.hasOwn(descriptions, material) && (
-                <MaterialDescription materialId={material} />
+              {materialId && Object.hasOwn(descriptions, materialId) && (
+                <MaterialDescription materialId={materialId} />
               )}
             </>
           ),
         })
       } else if (
         materialAnchor &&
-        material &&
-        Object.hasOwn(descriptions, material)
+        materialId &&
+        Object.hasOwn(descriptions, materialId)
       ) {
         api.show({
           anchor: materialAnchor,
+          materialId,
           id: 'material-description',
-          content: <MaterialDescription materialId={material} />,
+          content: <MaterialDescription materialId={materialId} />,
         })
-      } else if (active.current?.anchor.contains(element)) {
-        api.cancel()
-      } else if (active.current) api.release(active.current.anchor)
-    }
-    function leave(event: Event) {
-      const related = (event as MouseEvent | FocusEvent).relatedTarget
-      const next = related instanceof Element ? related : null
-      if (
-        next?.closest('.workbench-feedback-region') ||
-        active.current?.anchor.contains(next)
-      ) {
-        api.cancel()
-      } else if (active.current) api.release(active.current.anchor)
+      }
     }
     function escape(event: KeyboardEvent) {
-      if (event.key !== 'Escape' || !active.current) return
-      const anchor = active.current.anchor
-      const onDismiss = active.current.onDismiss
+      if (event.key !== 'Escape' || !api.current()) return
+      if (
+        event.target instanceof Element &&
+        event.target.closest(
+          '.wb-base-picker__option, .wb-base-picker__preview',
+        )
+      )
+        return
+      const anchor = api.current()?.anchor
       const fromPanel = document
         .querySelector('.workbench-feedback-tooltip')
         ?.contains(document.activeElement)
-      if (fromPanel && anchor.isConnected) anchor.focus()
-      onDismiss?.()
+      if (fromPanel && anchor?.isConnected) anchor.focus()
       api.dismiss()
-      if (fromPanel) event.stopPropagation()
+      // Page's window listener must still cancel held/selected state.
     }
-    for (const type of ['pointerover', 'mouseover', 'focusin', 'pointerdown'])
+    for (const type of [
+      'pointerover',
+      'mouseover',
+      'focusin',
+      'pointerdown',
+      'click',
+      'contextmenu',
+    ])
       document.addEventListener(type, inspect)
-    for (const type of ['pointerout', 'mouseout', 'focusout'])
-      document.addEventListener(type, leave)
     document.addEventListener('keydown', escape, true)
-    window.addEventListener('blur', api.dismiss)
     return () => {
-      api.dismiss()
-      for (const type of ['pointerover', 'mouseover', 'focusin', 'pointerdown'])
+      api.reset(null)
+      for (const type of [
+        'pointerover',
+        'mouseover',
+        'focusin',
+        'pointerdown',
+        'click',
+        'contextmenu',
+      ])
         document.removeEventListener(type, inspect)
-      for (const type of ['pointerout', 'mouseout', 'focusout'])
-        document.removeEventListener(type, leave)
       document.removeEventListener('keydown', escape, true)
-      window.removeEventListener('blur', api.dismiss)
     }
-  }, [enabled, api])
+  }, [enabled, priorityMaterialId, priorityAnchor, contextKey, api])
 
   useEffect(() => {
-    if (!description || !enabled) return
-    const { anchor, id } = description
+    const anchor = description?.anchor
+    if (!description || !anchor || !enabled) return
+    const { id } = description
     const previous = anchor
       .getAttribute('aria-describedby')
       ?.split(/\s+/)
@@ -158,7 +185,7 @@ export function FeedbackTooltipProvider({
   }, [description, enabled])
 
   return (
-    <FeedbackContext.Provider value={enabled ? api : null}>
+    <FeedbackContext.Provider value={enabled}>
       <FeedbackDescriptionContext.Provider value={enabled ? description : null}>
         {children}
       </FeedbackDescriptionContext.Provider>
