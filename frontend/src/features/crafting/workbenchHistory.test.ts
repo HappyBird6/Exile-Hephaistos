@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import {
   initialFixture,
   fixtureFetch,
@@ -21,7 +21,17 @@ import {
   updateFilmMetadata,
   deleteFilm,
   undoFilmDeletion,
+  recordChaosRepeat,
+  filmRulesetStatus,
 } from './workbenchHistory'
+import {
+  createChaosRepeatReceipt,
+  validChaosRepeatFrame,
+} from './chaos-repeat/chaosRepeatReceipt'
+import type {
+  ChaosRepeatAction,
+  ChaosRepeatReceipt,
+} from './chaos-repeat/chaosRepeatReceipt'
 
 const root = concreteInitial(initialFixture)
 
@@ -115,6 +125,263 @@ async function craft() {
     })
   ).json()) as AppliedItem
 }
+
+describe('one-frame Chaos repeat history', () => {
+  async function batch(action: ChaosRepeatAction = 'CHAOS', uses = 3) {
+    const applied = await craft()
+    const before = { ...applied.state, rarity: 'RARE' as const }
+    const finalWitness = { ...applied, action, state: before }
+    const history = startFilm(
+      emptyFilms(),
+      before,
+      'repeat',
+      initialFixture.rulesetIdentity,
+      'exact\r\nsource',
+    )
+    const input = {
+      before,
+      action,
+      uses,
+      finalWitness,
+      consumedOmens: ['Omen_of_Whittling'],
+    }
+    // The adapter's batch verifier is a fixture, not the single-use API validator.
+    const receipt = createChaosRepeatReceipt(input, () => true)!
+    return { history, before, finalWitness, input, receipt }
+  }
+
+  it.each(['CHAOS', 'GREATER_CHAOS', 'PERFECT_CHAOS'] as const)(
+    'stores exactly one detached %s frame, final witness and confirmed aggregate',
+    async (action) => {
+      for (const uses of [1, 500, Number.MAX_SAFE_INTEGER]) {
+        const { history, receipt, finalWitness } = await batch(action, uses)
+        const saved = recordChaosRepeat(
+          history,
+          receipt,
+          'unused',
+          initialFixture,
+        )
+        const frame = currentFrame(saved)!
+        expect(currentFilm(saved)!.frames).toHaveLength(2)
+        expect(frame.chaosRepeat).toEqual({ version: 1, action, uses })
+        expect(frame.evidence?.events).toEqual(finalWitness.events)
+        expect(frame.evidence?.assumptions).toEqual(finalWitness.assumptions)
+        expect(frame.evidence?.consumedOmens).toEqual(['Omen_of_Whittling'])
+        expect(frame.evidence?.consumedOmens).not.toEqual(
+          finalWitness.consumedOmens,
+        )
+        expect(verifiedFrameEvidence(frame, initialFixture)).toEqual(
+          frame.evidence,
+        )
+        expect(
+          filmRulesetStatus(
+            currentFilm(saved)!,
+            initialFixture.rulesetIdentity,
+          ),
+        ).toBe('current')
+        expect(currentFilm(history)!.frames).toHaveLength(1)
+        finalWitness.events.length = 0
+        expect(frame.evidence?.events).toHaveLength(1)
+      }
+    },
+  )
+
+  it('undo returns to before the whole batch and redo restores it, retaining future and provenance on branching', async () => {
+    const { history, receipt, before, input } = await batch()
+    const first = recordChaosRepeat(history, receipt, 'unused', initialFixture)
+    const two = recordChaosRepeat(first, receipt, 'unused', initialFixture)
+    const original = currentFilm(two)!
+    const bytes = JSON.stringify(original)
+    const undo = viewFrame(two, 0)
+    expect(currentFrame(undo)?.state).toEqual(before)
+    expect(currentFrame(undo)?.chaosRepeat).toBeUndefined()
+    expect(currentFrame(viewFrame(undo, 2))?.chaosRepeat?.uses).toBe(3)
+    const branchReceipt = createChaosRepeatReceipt(
+      { ...input, uses: 7 },
+      () => true,
+    )!
+    const branched = recordChaosRepeat(
+      undo,
+      branchReceipt,
+      'branch',
+      initialFixture,
+    )
+    expect(branched.films).toHaveLength(2)
+    expect(branched.films[0]).toBe(original)
+    expect(JSON.stringify(original)).toBe(bytes)
+    expect(currentFilm(branched)?.frames).toHaveLength(2)
+    expect(currentFilm(branched)?.sourceDocument).toBe('exact\r\nsource')
+    expect(currentFrame(branched)?.chaosRepeat?.uses).toBe(7)
+    expect(original.frames[1]?.chaosRepeat?.uses).toBe(3)
+    expect(original.frames[2]?.chaosRepeat?.uses).toBe(3)
+  })
+
+  it('keeps failed, zero-use, cancelled/unreceived and counterfeit receipts from creating frames', async () => {
+    const { history, input } = await batch()
+    for (const failed of [
+      { ...input, uses: 0 },
+      { ...input, finalWitness: { ...input.finalWitness, applied: false } },
+    ]) {
+      const receipt = createChaosRepeatReceipt(failed, () => true)
+      expect(receipt).toBeNull()
+      expect(
+        recordChaosRepeat(history, receipt, 'unused', initialFixture),
+      ).toBe(history)
+    }
+    expect(recordChaosRepeat(history, null, 'cancelled', initialFixture)).toBe(
+      history,
+    )
+    expect(
+      recordChaosRepeat(
+        history,
+        {} as ChaosRepeatReceipt,
+        'forged',
+        initialFixture,
+      ),
+    ).toBe(history)
+  })
+
+  it('retains state, evidence and ruleset checks even with a branded receipt', async () => {
+    const { history, input, receipt } = await batch()
+    const original = JSON.stringify(history)
+    for (const invalid of [
+      { ...input, before: { ...input.before, itemLevel: 101 } },
+      {
+        ...input,
+        finalWitness: {
+          ...input.finalWitness,
+          state: { ...input.finalWitness.state, itemLevel: 0 },
+        },
+      },
+      {
+        ...input,
+        finalWitness: {
+          ...input.finalWitness,
+          events: [{ ...input.finalWitness.events[0]!, values: { life: 999 } }],
+        },
+      },
+    ]) {
+      const invalidReceipt = createChaosRepeatReceipt(invalid, () => true)!
+      expect(() =>
+        recordChaosRepeat(history, invalidReceipt, 'invalid', initialFixture),
+      ).toThrow('Could not verify repeat history')
+    }
+    const legacy = structuredClone(history)
+    delete legacy.films[0]!.rulesetIdentity
+    expect(() =>
+      recordChaosRepeat(legacy, receipt, 'invalid', initialFixture),
+    ).toThrow('Saved ruleset is unverified')
+    expect(JSON.stringify(history)).toBe(original)
+  })
+
+  it('round trips new v1 extensions and leaves original legacy records and bytes untouched on read', async () => {
+    const { history, receipt, before, finalWitness } = await batch()
+    const legacy = recordCraft(history, before, finalWitness, 'unused')
+    const storageBytes = new Map<string, string>()
+    const storage = {
+      getItem: (key: string) => storageBytes.get(key) ?? null,
+      setItem: vi.fn((key: string, value: string) =>
+        storageBytes.set(key, value),
+      ),
+    }
+    const raw = JSON.stringify(legacy, null, 2)
+    storageBytes.set(historyStorageKey, raw)
+    const repository = new LocalFilmRepository(storage)
+    const loaded = repository.load()
+    expect(storage.setItem).not.toHaveBeenCalled()
+    expect(storage.getItem(historyStorageKey)).toBe(raw)
+    expect(currentFrame(loaded)).not.toHaveProperty('chaosRepeat')
+    const saved = recordChaosRepeat(loaded, receipt, 'unused', initialFixture)
+    repository.save(saved)
+    expect(storage.getItem(historyStorageKey + '.preserved')).toBe(raw)
+    expect(repository.load()).toEqual(saved)
+    expect(currentFilm(repository.load())!.frames[1]).not.toHaveProperty(
+      'chaosRepeat',
+    )
+    expect(currentFilm(repository.load())!.frames[2]?.chaosRepeat?.uses).toBe(3)
+  })
+
+  it('rejects damaged extensions without falling back to one use or overwriting saved bytes', async () => {
+    const { history, receipt } = await batch()
+    const valid = recordChaosRepeat(history, receipt, 'unused', initialFixture)
+    const metadata = currentFrame(valid)!.chaosRepeat!
+    const damaged = [
+      null,
+      undefined,
+      {},
+      { ...metadata, version: 2 },
+      { ...metadata, action: 'EXALTED' },
+      { ...metadata, action: 'GREATER_CHAOS' },
+      ...[0, -1, 0.5, NaN, Infinity, 2 ** 53].map((uses) => ({
+        ...metadata,
+        uses,
+      })),
+    ]
+    for (const extension of damaged) {
+      const malformed = structuredClone(valid)
+      Object.assign(currentFrame(malformed)!, { chaosRepeat: extension })
+      expect(validChaosRepeatFrame(currentFrame(malformed)!)).toBe(false)
+      expect(
+        verifiedFrameEvidence(currentFrame(malformed)!, initialFixture),
+      ).toBeUndefined()
+      expect(
+        filmRulesetStatus(
+          currentFilm(malformed)!,
+          initialFixture.rulesetIdentity,
+        ),
+      ).toBe('inconsistent')
+      // JSON drops undefined properties; persist an empty damaged extension for that case.
+      const raw = JSON.stringify(malformed, (key, value: unknown) =>
+        key === 'chaosRepeat' && value === undefined ? {} : value,
+      )
+      const storage = { getItem: () => raw, setItem: vi.fn() }
+      const repository = new LocalFilmRepository(storage)
+      expect(() => repository.load()).toThrow('Saved history is invalid')
+      expect(() => repository.save(malformed)).toThrow('Invalid repeat history')
+      expect(storage.setItem).not.toHaveBeenCalled()
+      expect(storage.getItem()).toBe(raw)
+    }
+    for (const damage of [
+      'evidence',
+      'consumedOmens',
+      'ruleVersion',
+      'evidenceAction',
+      'manual',
+      'root',
+    ] as const) {
+      const malformed = structuredClone(valid)
+      if (damage === 'evidence') delete currentFrame(malformed)!.evidence
+      else if (damage === 'consumedOmens')
+        Object.assign(currentFrame(malformed)!.evidence!, {
+          consumedOmens: undefined,
+        })
+      else if (damage === 'ruleVersion')
+        currentFrame(malformed)!.evidence!.ruleVersion = ''
+      else if (damage === 'evidenceAction')
+        currentFrame(malformed)!.evidence!.action = 'PERFECT_CHAOS'
+      else if (damage === 'manual')
+        currentFrame(malformed)!.manual = {
+          rulesetIdentity: initialFixture.rulesetIdentity,
+          action: 'CHAOS',
+          consumedOmens: [],
+        }
+      else
+        malformed.films[0]!.frames[0] = structuredClone(
+          currentFrame(malformed)!,
+        )
+      expect(
+        filmRulesetStatus(
+          currentFilm(malformed)!,
+          initialFixture.rulesetIdentity,
+        ),
+      ).toBe('inconsistent')
+      const raw = JSON.stringify(malformed)
+      const storage = { getItem: () => raw, setItem: vi.fn() }
+      expect(() => new LocalFilmRepository(storage).load()).toThrow()
+      expect(storage.setItem).not.toHaveBeenCalled()
+    }
+  })
+})
 describe('linear crafting films', () => {
   it('round trips observed sockets, unresolved Augment effects and explicit skill levels without filling unknowns', async () => {
     const observations = {

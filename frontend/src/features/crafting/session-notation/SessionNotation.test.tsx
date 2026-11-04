@@ -7,6 +7,7 @@ import { currencyNames } from '../currencyNames'
 import { materials, additionalStashCurrencies } from '../materials'
 import { MaterialTooltip } from '../MaterialTooltip'
 import type { WorkbenchResource } from '../stash/stashTypes'
+import type { ChaosRepeatAction } from '../chaos-repeat/chaosRepeatReceipt'
 import {
   currentFilm,
   LocalFilmRepository,
@@ -26,6 +27,128 @@ const resources: WorkbenchResource[] = [
   ...materials,
   ...additionalStashCurrencies,
 ]
+
+async function repeatedFilm(action: ChaosRepeatAction, uses: number) {
+  const applied = { ...(await craft()), action }
+  const history = recordCraft(start(), root, applied, 'unused')
+  const film = currentFilm(history)!
+  film.frames[1]!.chaosRepeat = { version: 1, action, uses }
+  film.frames[1]!.evidence!.consumedOmens = ['Omen_of_Whittling']
+  return film
+}
+
+describe('counted Chaos notation', () => {
+  it.each(locales)(
+    'shows an explicit one-use count and localized screen reader name in %s',
+    async (locale) => {
+      setLocale(locale)
+      const film = await repeatedFilm('CHAOS', 1)
+      const onNavigate = vi.fn()
+      render(
+        <SessionNotation
+          film={film}
+          cursor={1}
+          resources={resources}
+          onNavigate={onNavigate}
+        />,
+      )
+      const text = sessionNotationMessages[locale]
+      const count = text.repeatUses(new Intl.NumberFormat(locale).format(1))
+      const currency = gameName('Chaos_Orb', 'Chaos Orb', locale)
+      const label = `${text.step} 1 · ${currency} · ${count}`
+      const row = screen.getByRole('listitem', { name: label })
+      expect(within(row).getByText(count)).toBeInTheDocument()
+      const button = within(row).getByRole('button', { name: label })
+      expect(button).toHaveAttribute('data-material-tooltip', 'Chaos_Orb')
+      expect(button).toHaveAttribute('aria-current', 'step')
+      button.focus()
+      expect(button).toHaveFocus()
+      expect(button.querySelector('[tabindex]')).toBeNull()
+      fireEvent.click(button, { detail: 0 })
+      expect(onNavigate).toHaveBeenCalledExactlyOnceWith(1)
+    },
+  )
+
+  it.each([
+    ['CHAOS', 'Chaos_Orb'],
+    ['GREATER_CHAOS', 'Greater_Chaos_Orb'],
+    ['PERFECT_CHAOS', 'Perfect_Chaos_Orb'],
+  ] as const)(
+    'shows the exact %s icon, long count and confirmed omen without expanding N rows',
+    async (action, id) => {
+      const film = await repeatedFilm(action, Number.MAX_SAFE_INTEGER)
+      const { rerender } = render(
+        <>
+          <style>
+            {readFileSync(
+              'src/features/crafting/session-notation/session-notation.css',
+              'utf8',
+            )}
+          </style>
+          <SessionNotation film={film} cursor={1} resources={resources} />
+        </>,
+      )
+      const row = screen.getByRole('listitem')
+      expect(screen.getAllByRole('listitem')).toHaveLength(1)
+      expect(within(row).getAllByRole('img')).toHaveLength(2)
+      expect(
+        row.querySelector(`[data-material-tooltip="${id}"] img`),
+      ).toHaveAttribute(
+        'src',
+        resources.find((resource) => resource.id === id)!.image,
+      )
+      expect(
+        row.querySelector('[data-material-tooltip="Omen_of_Whittling"]'),
+      ).not.toBeNull()
+      expect(row).toHaveTextContent('9,007,199,254,740,991 uses')
+      expect(row).toHaveAttribute('aria-current', 'step')
+      expect(
+        getComputedStyle(screen.getByRole('list')).gridTemplateColumns,
+      ).toBe('repeat(2, minmax(0, 1fr))')
+      expect(
+        getComputedStyle(row.querySelector('.wb-session-notation__resources')!)
+          .flexWrap,
+      ).toBe('wrap')
+      const countStyle = getComputedStyle(
+        row.querySelector('.wb-session-notation__uses')!,
+      )
+      expect(countStyle.minWidth).toBe('0px')
+      expect(countStyle.maxWidth).toBe('100%')
+      expect(countStyle.overflowWrap).toBe('anywhere')
+      rerender(<SessionNotation film={film} cursor={0} resources={resources} />)
+      expect(screen.getAllByRole('listitem')).toHaveLength(1)
+      expect(screen.getByRole('listitem')).not.toHaveAttribute('aria-current')
+    },
+  )
+
+  it('retains separate omen and Chaos tooltips plus the counted keyboard step target', async () => {
+    const film = await repeatedFilm('GREATER_CHAOS', 500)
+    const onNavigate = vi.fn()
+    render(
+      <>
+        <SessionNotation
+          film={film}
+          cursor={1}
+          resources={resources}
+          onNavigate={onNavigate}
+        />
+        <MaterialTooltip onlyWithin=".wb-session-notation" />
+      </>,
+    )
+    fireEvent.mouseOver(screen.getByRole('img', { name: 'Omen of Whittling' }))
+    expect(screen.getByRole('tooltip')).toHaveTextContent('Omen of Whittling')
+    fireEvent.mouseOver(screen.getByRole('img', { name: 'Greater Chaos Orb' }))
+    expect(screen.getByRole('tooltip')).toHaveTextContent('Greater Chaos Orb')
+    fireEvent.keyDown(document, { key: 'Escape' })
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
+    const step = screen.getByRole('button', {
+      name: 'Step 1 · Greater Chaos Orb · 500 uses',
+    })
+    fireEvent.focusIn(step)
+    expect(screen.getByRole('tooltip')).toHaveTextContent('Greater Chaos Orb')
+    expect(onNavigate).not.toHaveBeenCalled()
+  })
+})
 
 describe('icon-based session notation', () => {
   it.each(locales)(

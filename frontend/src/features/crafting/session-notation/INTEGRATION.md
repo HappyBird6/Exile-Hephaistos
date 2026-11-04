@@ -1,43 +1,76 @@
 # 세션 기보 연결 계약
 
-기준 HEAD: `e82e246de18df1688e0eaba8a858b57a3c5b60ff`. 소유 범위는 이 디렉터리뿐이다.
+현행 기준 `3f4495e664d8112011cc5dcd9f17330446167a97`와 이번 Chaos 반복 기록 준비 변경.
 
-## 공통 Page 연결
-
-```tsx
-import { SessionNotation } from './session-notation/SessionNotation'
-```
-
-root가 배치하는 `.bench-lower`의 피드백 아래에 다음을 추가한다. 기존 `film`은 `filmState.revision === draft.baseRevision`인 활성 Film으로 이미 제한되어 있다.
+## Page 연결
 
 ```tsx
 <SessionNotation
   film={film}
   cursor={filmState.history.cursor}
   resources={stashResources}
+  onNavigate={onNavigate}
+  disabled={busy}
 />
 ```
 
-`resources`는 필터링 전 전체 `WorkbenchResource[]`이다. 과거 징조와 현재 선택 불가능한 재료도 표시하므로 현재 stash 탭/노출 정책으로 걸러서 전달하지 않는다. CSS는 컴포넌트가 직접 import하며 `.wb-session-notation` 아래에만 적용된다. 추가 callback, 저장, tooltip 인스턴스는 필요 없다.
+`resources`는 필터링 전 전체 표시 registry다. 옛 화폐·징조도 ID를 표시하므로
+현재 선택 가능 자원만 전달하지 않는다. 부모는 catalog 검증과 실제 cursor·저장을 소유한다.
+기보는 읽기 전용 투영이며 데이터나 storage를 수정하지 않는다.
 
-## 표시 범위·증거
+## 범위와 증거
 
-- 활성 Film의 frame 1부터 cursor까지 포함한다. cursor 이후 기록은 표시하지 않는다. undo에서 기보가 짧아지고 redo/복원에서 다시 나타난다. 마지막으로 표시된 화폐 행에 `aria-current="step"`과 현재 단계 표시가 붙는다. cursor가 관측 frame이면 그 이전 마지막 화폐 행이 현재 화폐 단계다. 루트는 단계 0이다.
-- 분기 시 `recordCraft`/`recordAbyss`가 만든 새 Film만 표시한다. 새 Film의 루트 이전 기록을 원래 Film에서 이어 붙이지 않는다. 번호는 확인된 화폐 적용 행에만 1부터 부여한다.
-- `recordCraft`의 `evidence.action` 또는 `recordAbyss`의 `manual.action`이 frame action과 일치할 때만 화폐 후보로 취급한다. 기존 `workbenchCurrencyActions` 역방향 resolver와 `isBone`으로 화폐 ID를 찾는다. `ABYSS_*` 관측, IMPORT, 루트, base 선택은 화폐 행이 아니다. `ABYSS_APPLY`처럼 화폐 ID를 확인할 수 없는 기록은 한계로 알린다.
-- 기준 저장 형식에는 `receipt`가 없다. 성공 기록은 `recordCraft`가 applied 응답만 저장하고, Page가 성공·취소/늦은 응답 검사 후 `recordAbyss`를 호출한다는 기존 계약을 따른다. 이 표시를 현재 catalog의 재검증 또는 실제 게임 사용 영수증으로 표현하지 않는다.
-- 징조는 저장된 `consumedOmens`만 같은 행에 표시한다. 활성/남은 징조 또는 trigger로 추정하지 않는다. 기준 작성기는 `manual.consumedOmens`의 빈 배열을 생략한다. root는 신규 기록에만 배열을 항상 저장하도록 변경할 예정이며, 명시 `[]`는 확인된 미소비, 없는 배열은 정보 미기록으로 구분한다. 기존 기록은 다시 쓰지 않는다. action-only legacy 기록은 화폐 행으로 복원하지 않는다.
-- modifier 정의는 읽지 않는다. 아이템 수치/성공 여부를 재계산하지 않으며 기존 catalog 검증 경계는 root가 유지한다. tooltip은 resource ID로 기존 `MaterialTooltip`이 설명·출처를 제공한다.
+- 활성 Film의 전체 화폐 기록을 cursor 이후까지 보존한다. cursor는 현재 강조만 바꾼다.
+  2열, 행 순서, 실제 steps 요소의 `wb-scrollbar`를 유지한다.
+- `recordCraft`의 evidence 또는 `recordAbyss`의 manual action이 Frame action과
+  일치할 때만 화폐 후보로 취급한다. 두 evidence가 충돌하면 생략한다.
+  currency ID는 기존 역방향 resolver와 `isBone`으로 찾는다.
+- 루트·IMPORT·BASE_SELECTION·ABYSS 관측은 화폐가 아니다. 성공 evidence 또는
+  화폐 ID가 없는 기록은 생략하고 한계 문구를 표시한다.
+- 징조는 저장된 consumedOmens만 표시한다. 명시 `[]`는 확인된 미소비이고,
+  누락 배열은 미기록이다. 활성/남은 징조를 통해 소모를 추정하지 않는다.
+- 새 분기는 새 Film의 단계 1부터 시작한다. 기존 Film이나 미래를 이어 붙이거나 삭제하지 않는다.
 
-## Tooltip·접근성
+## Chaos 반복 확장
 
-`resources`에서 찾은 ID에만 `data-material-tooltip`을 준다. 기존 Page의 document-level `MaterialTooltip` pointerover/focusin/Escape 처리를 그대로 쓴다. 새 popover나 이름만 있는 title은 만들지 않는다. 작은 아이콘은 focus 가능하며 localized aria-label을 갖는다. 이미지 누락·실패는 이름 목록 대신 중립 기호를 표시한다. locale은 기존 `useI18n`을 구독하며 독립 문구는 6개 언어로 제공한다.
+writer와 adapter의 정확한 계약은 [Chaos 반복 기록 준비](../chaos-repeat/README.md)를 따른다.
+반복 실행 UI/API·regex·상한·취소 정책은 여기서 정하지 않는다.
 
-## 통합자가 확인할 항목
+- `Frame.chaosRepeat`가 없으면 `NotationStep { uses: 1, repeated: false }`다.
+  일반 1회의 기존 화면은 그대로이고 인접 Chaos 기록도 합치지 않는다.
+- 유효한 확장이면 `uses`를 그대로 투영하고 `repeated: true`다. `uses: 1`도
+  count를 명시한다. 해당 일반/Greater/Perfect Chaos 아이콘과 현재 언어 숫자의
+  count 문구를 한 행에 표시한다. N개 이미지·Frame·행으로 펼치지 않는다.
+- 명시된 확장이 손상됐거나 Frame/evidence action과 맞지 않으면 화폐 행을 생략한다.
+  단일 1회로 복원하지 않는다. repository도 손상 새 확장을 거부하고 저장 bytes를 보존한다.
+- evidence의 consumedOmens는 API 검증기가 확인한 batch 전체 소모 집계다.
+  count로 징조 소모를 곱하거나 마지막 witness에서 누적분을 추정하지 않는다.
+  확인된 중복 ID도 소모 건수대로 아이콘을 보존한다.
+- 최종 witness events/assumptions는 마지막 성공 회차의 증거다. 기보 count를
+  전체 전이 trace 또는 실제 게임 화폐 사용 증명으로 표현하지 않는다.
 
-Page에서 실제 적용 성공 → 기보 증가, 실패/취소 → 불변, undo/redo, 새 분기, 보관함 복원, 기존 tooltip 포커스/포인터 동작, 전체 Frontend 검증을 수행한다. 이 Worker는 공통 Page/history/CurrencyImage/전역 번역을 수정하지 않는다.
+## Tooltip·접근성과 레이아웃
 
-## Worker 검증·자체 리뷰
+registry에 있는 ID에만 `data-material-tooltip`을 준다. 기존 MaterialTooltip/feedback
+provider 연결을 유지하며 새 tooltip 인스턴스나 title을 만들지 않는다. 독립 컴포넌트의
+fallback tooltip 검사와 실제 Page provider 흐름의 검사는 서로 다른 경계다.
+
+반복 행과 native jump button의 SR 이름에는 localized 화폐 이름과 count가 포함된다.
+일반 행의 기존 SR 이름은 그대로다. `onNavigate`가 있으면 아이콘은 중첩 focus를
+만들지 않고 button 하나가 keyboard target이다. 없으면 아이콘을 직접 focus할 수 있다.
+이미지 누락·실패는 기존 중립 기호와 접근성 이름을 유지한다.
+
+count·징조 아이콘은 flex wrap을 유지하고 count에 min-width 0, max-width 100%,
+overflow-wrap anywhere를 적용한다. jsdom 검사는 선언·계산 style을 확인하며 실제
+브라우저의 픽셀 clipping/overflow 검증을 대신하지 않는다. 브라우저 QA는 사용자 보류다.
+
+## 통합 시 확인
+
+전용 반복 API 검증 후 최종 state와 count 저장 → batch 한 단계 이동 → 저장 복원,
+실패/취소/늦은 응답 보호, 남은 징조, 동시 적용 차단, tooltip feedback와 전체 Frontend
+검증을 root가 연결한다. 이 Worker는 CraftingPage/workbenchApi/공통 번역/provider를 수정하지 않는다.
+
+## 이전 Worker 검증 기록 (2026-11-03, 이번 변경 전)
 
 실행 경로: 현재 Worker worktree의 `frontend`, 2026-11-03. 검증 범위는 공통 Page에 연결하기 전 독립 모듈이다.
 

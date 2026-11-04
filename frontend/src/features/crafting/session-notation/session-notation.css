@@ -82,6 +82,14 @@
   min-width: 0;
 }
 
+.wb-session-notation__uses {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
 .wb-session-notation__icon {
   display: inline-grid;
   place-items: center;
