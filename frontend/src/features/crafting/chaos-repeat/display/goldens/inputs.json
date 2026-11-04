@@ -1,0 +1,792 @@
+{
+  "schemaVersion": 1,
+  "scope": "Only display equivalence. These synthetic states are not server item-validation fixtures and carry no probabilities.",
+  "definitionOrigins": {
+    "amulet:prefix:adept-s": "backend/src/main/resources/catalog/solar-amulet/catalog.json",
+    "amulet:suffix:of-convalescence": "backend/src/main/resources/catalog/solar-amulet/catalog.json",
+    "amulet:prefix:athlete-s": "backend/src/main/resources/catalog/solar-amulet/catalog.json",
+    "solar-amulet:implicit:spirit": "backend/src/main/resources/catalog/solar-amulet/catalog.json",
+    "adherent-cuffs:prefix:blessed": "backend/src/main/resources/catalog/adherent-cuffs/catalog.json",
+    "rusted-cuirass:prefix:oyster-s": "backend/src/main/resources/catalog/abyssal-cuirass/catalog.json",
+    "sapphire:crafted:JewelSpellDamage": "frontend/src/shared/test/sapphire-catalog.json",
+    "sapphire:suffix:of-enchanting": "frontend/src/shared/test/sapphire-catalog.json",
+    "sapphire:crafted:CraftedJewelPrefixEffect": "frontend/src/shared/test/sapphire-catalog.json",
+    "reveal:AbyssModJewelPrefixSpellDamageArmour": "frontend/src/features/crafting/manualRevealDefinitions.json",
+    "synthetic-unbound:adherent-cuffs-blessed": "synthetic identity only, copied from adherent-cuffs:prefix:blessed"
+  },
+  "definitions": {
+    "amulet:prefix:adept-s": {
+      "id": "amulet:prefix:adept-s",
+      "name": "Adept's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["SpellDamage"],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(8—12)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "tags": ["caster_damage", "damage", "caster"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6443062ca0d6a21a37b0bbe2b2488e887943433cb18e0376104c11ca718225c7"
+    },
+    "amulet:suffix:of-convalescence": {
+      "id": "amulet:suffix:of-convalescence",
+      "name": "of Convalescence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["LifeRegeneration"],
+      "requiredItemLevel": 47,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(13.1—18) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 786,
+          "max": 1080
+        }
+      ],
+      "tags": ["flat_life_regen", "resource", "life"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ac83f08dfe4308d856621084a4ca51519416a8a519ec52b28f0e6eb40be5bffd"
+    },
+    "amulet:prefix:athlete-s": {
+      "id": "amulet:prefix:athlete-s",
+      "name": "Athlete's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["IncreasedLife"],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(120—149) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 120,
+          "max": 149
+        }
+      ],
+      "tags": ["resource", "life"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/dd7a7f3839381bb31ea44197b01e1739aae2884cafc205d98bc3107b8243f170"
+    },
+    "solar-amulet:implicit:spirit": {
+      "id": "solar-amulet:implicit:spirit",
+      "name": "Solar Amulet Spirit",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": ["BaseSpirit"],
+      "requiredItemLevel": 38,
+      "weight": 0,
+      "tier": 0,
+      "text": "+(10—15) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/Solar_Amulet"
+    },
+    "adherent-cuffs:prefix:blessed": {
+      "id": "adherent-cuffs:prefix:blessed",
+      "name": "Blessed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["BaseLocalDefences"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 4,
+      "text": "+(9—16) to Armour\n+(5—8) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 9,
+          "max": 16
+        },
+        {
+          "id": "local_energy_shield",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": ["defences", "armour", "energy_shield"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/585f905517b8b650b2e4d55bd781c500aeb36504b51ddc84b9dfb0a84357db58"
+    },
+    "rusted-cuirass:prefix:oyster-s": {
+      "id": "rusted-cuirass:prefix:oyster-s",
+      "name": "Oyster's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["BaseLocalDefencesAndLife"],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(6—13)% increased Armour+(7—10) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 7,
+          "max": 10
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "tags": ["defences", "resource", "life", "armour"],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndLife1"
+    },
+    "sapphire:crafted:JewelSpellDamage": {
+      "id": "sapphire:crafted:JewelSpellDamage",
+      "name": "Liquid Envy (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["WeaponCasterDamagePrefix"],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "(5—15)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": ["caster_damage", "damage", "caster", "crafted"],
+      "sourceUrl": "https://poe2db.tw/us/Liquid_Envy"
+    },
+    "sapphire:suffix:of-enchanting": {
+      "id": "sapphire:suffix:of-enchanting",
+      "name": "of Enchanting",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["IncreasedCastSpeed"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(2—4)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "display_cast_speed_percent",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": ["caster_speed", "caster", "speed"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e4ea5426c228f5cb0c1474726fbc38c23e7bb1138dbf13a4a49647c562ecc3cf"
+    },
+    "sapphire:crafted:CraftedJewelPrefixEffect": {
+      "id": "sapphire:crafted:CraftedJewelPrefixEffect",
+      "name": "Potent Liquid Ferocity (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": ["LocalPrefixSuffixEffect"],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "(40—60)% increased Effect of Prefixes",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 40,
+          "max": 60
+        }
+      ],
+      "tags": ["crafted", "unscalable"],
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Ferocity"
+    },
+    "reveal:AbyssModJewelPrefixSpellDamageArmour": {
+      "id": "reveal:AbyssModJewelPrefixSpellDamageArmour",
+      "name": "Lightless",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["HybridAbyssModJewelSpellDamageArmour"],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "text": "(4-8)% increased Spell Damage\n(5-10)% increased Armour",
+      "stats": [
+        {
+          "id": "display_reveal_value_0",
+          "min": 4,
+          "max": 8
+        },
+        {
+          "id": "display_reveal_value_1",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "defences",
+        "unveiled_mod",
+        "armour",
+        "damage",
+        "caster",
+        "reveal_only",
+        "tier_unknown"
+      ],
+      "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
+    },
+    "synthetic-unbound:adherent-cuffs-blessed": {
+      "id": "synthetic-unbound:adherent-cuffs-blessed",
+      "name": "Blessed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": ["BaseLocalDefences"],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 4,
+      "text": "+(9—16) to Armour\n+(5—8) to maximum Energy Shield",
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 9,
+          "max": 16
+        },
+        {
+          "id": "local_energy_shield",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": ["defences", "armour", "energy_shield"],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/585f905517b8b650b2e4d55bd781c500aeb36504b51ddc84b9dfb0a84357db58"
+    }
+  },
+  "cases": [
+    {
+      "id": "protected-order-divisor",
+      "scope": "source-backed rolls in a display-only synthetic state",
+      "oracle": true,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": [],
+        "implicits": [
+          {
+            "modifierId": "solar-amulet:implicit:spirit",
+            "values": {
+              "base_spirit_from_equipment": 15
+            }
+          }
+        ],
+        "explicits": [
+          {
+            "modifierId": "amulet:suffix:of-convalescence",
+            "values": {
+              "base_life_regeneration_rate_per_minute": 791
+            },
+            "fractured": true
+          },
+          {
+            "modifierId": "amulet:prefix:adept-s",
+            "values": {
+              "spell_damage_+%": 10
+            }
+          },
+          {
+            "modifierId": "amulet:prefix:athlete-s",
+            "values": {
+              "base_maximum_life": 121
+            },
+            "fractured": true
+          }
+        ],
+        "observations": {
+          "socketCount": 1,
+          "augmentEffects": ["EXCLUDED augment effect"],
+          "grantedSkills": [
+            {
+              "name": "EXCLUDED skill",
+              "level": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "compound-newline",
+      "scope": "source-backed rolls in a display-only synthetic state",
+      "oracle": true,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Armours/Gloves/FourGlovesDexInt6Endgame",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": [],
+        "implicits": [],
+        "explicits": [
+          {
+            "modifierId": "adherent-cuffs:prefix:blessed",
+            "values": {
+              "local_base_physical_damage_reduction_rating": 12,
+              "local_energy_shield": 7
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "compound-template-newline",
+      "scope": "source-backed rolls in a display-only synthetic state",
+      "oracle": true,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": [],
+        "implicits": [],
+        "explicits": [
+          {
+            "modifierId": "rusted-cuirass:prefix:oyster-s",
+            "values": {
+              "base_maximum_life": 9,
+              "local_physical_damage_reduction_rating_+%": 11
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "revealed-and-hidden",
+      "scope": "source-backed rolls in a display-only synthetic state",
+      "oracle": true,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Jewels/JewelInt",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": [],
+        "implicits": [],
+        "explicits": [
+          {
+            "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
+            "values": {
+              "display_reveal_value_0": 6,
+              "display_reveal_value_1": 8
+            }
+          }
+        ],
+        "desecrated": [
+          {
+            "id": "public-slot",
+            "side": "PREFIX",
+            "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour"
+          },
+          {
+            "id": "hidden-slot",
+            "side": "SUFFIX",
+            "modifierId": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "catalyst-known-and-unreviewed",
+      "scope": "source-backed rolls in a display-only synthetic state",
+      "oracle": true,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": [],
+        "implicits": [
+          {
+            "modifierId": "solar-amulet:implicit:spirit",
+            "values": {
+              "base_spirit_from_equipment": 15
+            }
+          }
+        ],
+        "explicits": [
+          {
+            "modifierId": "amulet:prefix:athlete-s",
+            "values": {
+              "base_maximum_life": 121
+            }
+          },
+          {
+            "modifierId": "amulet:suffix:of-convalescence",
+            "values": {
+              "base_life_regeneration_rate_per_minute": 791
+            }
+          }
+        ],
+        "catalystQuality": {
+          "type": "FLESH",
+          "amount": 20
+        }
+      }
+    },
+    {
+      "id": "sanctified-catalyst",
+      "scope": "source-backed rolls in a display-only synthetic state",
+      "oracle": true,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": ["SANCTIFIED"],
+        "implicits": [
+          {
+            "modifierId": "solar-amulet:implicit:spirit",
+            "values": {
+              "base_spirit_from_equipment": 15
+            }
+          }
+        ],
+        "explicits": [
+          {
+            "modifierId": "amulet:prefix:athlete-s",
+            "values": {
+              "base_maximum_life": 121
+            }
+          }
+        ],
+        "catalystQuality": {
+          "type": "FLESH",
+          "amount": 20
+        },
+        "sanctification": {
+          "policy": "independent-stat-percent-v1",
+          "implicits": {},
+          "explicits": {
+            "amulet:prefix:athlete-s": {
+              "base_maximum_life": 79
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "jewel-effect-quality",
+      "scope": "source-backed rolls in a display-only synthetic state",
+      "oracle": true,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Jewels/JewelInt",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": [],
+        "implicits": [],
+        "explicits": [
+          {
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "values": {
+              "display_source_value": 11
+            }
+          },
+          {
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "values": {
+              "display_cast_speed_percent": 3
+            }
+          },
+          {
+            "modifierId": "sapphire:crafted:CraftedJewelPrefixEffect",
+            "values": {
+              "display_source_value": 40
+            }
+          }
+        ],
+        "catalystQuality": {
+          "type": "SIBILANT",
+          "amount": 20
+        }
+      }
+    },
+    {
+      "id": "jewel-sanctified-fraction",
+      "scope": "source-backed rolls in a display-only synthetic state",
+      "oracle": true,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Jewels/JewelInt",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": ["SANCTIFIED"],
+        "implicits": [],
+        "explicits": [
+          {
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "values": {
+              "display_source_value": 11
+            }
+          },
+          {
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "values": {
+              "display_cast_speed_percent": 3
+            }
+          },
+          {
+            "modifierId": "sapphire:crafted:CraftedJewelPrefixEffect",
+            "values": {
+              "display_source_value": 40
+            }
+          }
+        ],
+        "catalystQuality": {
+          "type": "SIBILANT",
+          "amount": 20
+        },
+        "sanctification": {
+          "policy": "independent-stat-percent-v1",
+          "implicits": {},
+          "explicits": {
+            "sapphire:crafted:JewelSpellDamage": {
+              "display_source_value": 79
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "unbound-source-units",
+      "scope": "negative contract: source definition with only its id changed; not a game definition",
+      "oracle": true,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": [],
+        "implicits": [],
+        "explicits": [
+          {
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "values": {
+              "local_base_physical_damage_reduction_rating": 12,
+              "local_energy_shield": 7
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "synthetic-negative-tie",
+      "scope": "synthetic formatter boundary outside catalog integer/range validity; no game claim",
+      "oracle": true,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": [],
+        "implicits": [],
+        "explicits": [
+          {
+            "modifierId": "amulet:prefix:adept-s",
+            "values": {
+              "spell_damage_+%": -1.25
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "synthetic-negative-near-zero",
+      "scope": "synthetic formatter boundary outside catalog integer/range validity; no game claim",
+      "oracle": true,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": [],
+        "implicits": [],
+        "explicits": [
+          {
+            "modifierId": "amulet:prefix:adept-s",
+            "values": {
+              "spell_damage_+%": -0.0499
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "synthetic-negative-zero",
+      "scope": "synthetic formatter boundary outside catalog integer/range validity; no game claim",
+      "oracle": true,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": [],
+        "implicits": [],
+        "explicits": [
+          {
+            "modifierId": "amulet:prefix:adept-s",
+            "values": {
+              "spell_damage_+%": -0.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "synthetic-positive-near-zero",
+      "scope": "synthetic formatter boundary outside catalog integer/range validity; no game claim",
+      "oracle": true,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": [],
+        "implicits": [],
+        "explicits": [
+          {
+            "modifierId": "amulet:prefix:adept-s",
+            "values": {
+              "spell_damage_+%": 0.0499
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "synthetic-positive-tie",
+      "scope": "synthetic formatter boundary outside catalog integer/range validity; no game claim",
+      "oracle": true,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": [],
+        "implicits": [],
+        "explicits": [
+          {
+            "modifierId": "amulet:prefix:adept-s",
+            "values": {
+              "spell_damage_+%": 1.25
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "synthetic-es-grouping-four-digit",
+      "scope": "synthetic display grouping boundary outside catalog roll range; no game claim",
+      "oracle": true,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": [],
+        "implicits": [],
+        "explicits": [
+          {
+            "modifierId": "amulet:suffix:of-convalescence",
+            "values": {
+              "base_life_regeneration_rate_per_minute": 74074
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "synthetic-es-grouping-five-digit",
+      "scope": "synthetic display grouping boundary outside catalog roll range; no game claim",
+      "oracle": true,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": [],
+        "implicits": [],
+        "explicits": [
+          {
+            "modifierId": "amulet:suffix:of-convalescence",
+            "values": {
+              "base_life_regeneration_rate_per_minute": 740740
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "missing-definition",
+      "scope": "invalid input contract; no display sentence can be projected",
+      "oracle": false,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": [],
+        "implicits": [],
+        "explicits": [
+          {
+            "modifierId": "missing:definition",
+            "values": {
+              "unchanged": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "missing-stat-value",
+      "scope": "invalid input contract; no display sentence can be projected",
+      "oracle": false,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": [],
+        "implicits": [],
+        "explicits": [
+          {
+            "modifierId": "amulet:prefix:adept-s",
+            "values": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "non-affix-explicit",
+      "scope": "invalid explicit layer placement; excluded by explicit affix contract",
+      "oracle": false,
+      "state": {
+        "snapshotId": "display-golden-not-game-state",
+        "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+        "itemLevel": 82,
+        "rarity": "RARE",
+        "conditions": [],
+        "implicits": [],
+        "explicits": [
+          {
+            "modifierId": "solar-amulet:implicit:spirit",
+            "values": {
+              "base_spirit_from_equipment": 15
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
