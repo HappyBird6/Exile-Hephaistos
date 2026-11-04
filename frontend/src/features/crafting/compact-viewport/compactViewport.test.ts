@@ -36,6 +36,26 @@ const bottomPadding = Number(
 )
 
 describe('aligned composition at 75 percent', () => {
+  it('keeps catalog content out of external track sizing without a fixed panel height at any breakpoint', () => {
+    const panel = rule(stashCss, '.workbench-stash')
+    expect(panel).toContain('contain: size')
+    expect(panel).toContain('align-self: stretch')
+    expect(panel).toContain('grid-row: 1 / 4')
+    expect(panel).not.toMatch(/(?:^|\n)\s*(?:height|max-height|block-size):/)
+    expect(rule(stashCss, '.workbench-stash__panel')).toContain('min-height: 0')
+    const resources = rule(stashCss, '.workbench-stash__resources')
+    expect(resources).toContain('min-height: 0')
+    expect(resources).toContain('overflow-y: auto')
+    // Size containment applies outside media rules; the same elastic canvas
+    // and lower track continue to determine the panel area on narrow screens.
+    expect(stashCss.indexOf('contain: size')).toBeLessThan(
+      stashCss.indexOf('.workbench-stash__panel'),
+    )
+    expect(rule(css, '.stash-viewport .stash-canvas')).toContain(
+      'flex: 1 0 auto',
+    )
+    expect(grid).toContain('auto minmax(min-content, 1fr) auto')
+  })
   it('preserves horizontal slot coordinates and shares one lower track with an elastic vertical gap', () => {
     expect(tracks).toEqual([29, 434, 23, 140, 23, 257, 29])
     expect(tracks.reduce((sum, value) => sum + value, 0)).toBe(935)

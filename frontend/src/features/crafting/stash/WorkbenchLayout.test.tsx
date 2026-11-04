@@ -50,6 +50,75 @@ function ruleStyle(selector: string) {
 }
 
 describe('single canvas category selector and favorites inside the coordinate plane', () => {
+  it('retains the size-containment and internal overflow contract across real large catalogs, filtering and tab changes', () => {
+    show()
+    const stash = document.querySelector('.workbench-stash')!
+    const list = stash.querySelector('.workbench-stash__resources')!
+    const panel = stash.querySelector('.workbench-stash__panel')!
+    const canvas = document.querySelector('.stash-canvas__content')!
+    const tabs = screen.getByRole('tablist', { name: 'Material stash tabs' })
+    function contract() {
+      const declarations = (element: Element, names: string[]) => {
+        const computed = getComputedStyle(element)
+        return names.map((name) => [name, computed.getPropertyValue(name)])
+      }
+      return {
+        stash: declarations(stash, [
+          'contain',
+          'grid-row',
+          'grid-column',
+          'align-self',
+          'min-height',
+        ]),
+        canvas: declarations(canvas, [
+          'grid-template-rows',
+          'grid-template-columns',
+        ]),
+        panel: declarations(panel, ['flex', 'min-height']),
+        list: declarations(list, [
+          'flex',
+          'min-height',
+          'overflow-y',
+          'scrollbar-width',
+          'scrollbar-gutter',
+          'scrollbar-color',
+        ]),
+      }
+    }
+    expect(getComputedStyle(stash).getPropertyValue('contain')).toBe('size')
+    expect(getComputedStyle(stash).alignSelf).toBe('stretch')
+    expect(getComputedStyle(list).overflowY).toBe('auto')
+    expect(list).toHaveClass('wb-scrollbar')
+    const baseline = contract()
+    for (const label of ['Essence', 'Omen', 'Catalysts', 'Liquid Emotions']) {
+      fireEvent.click(within(tabs).getByRole('tab', { name: label }))
+      expect(stash.querySelector('.workbench-stash__resources')).toBe(list)
+      const count = list.querySelectorAll('button').length
+      expect(count).toBeGreaterThan(8)
+      expect(contract()).toEqual(baseline)
+      const search = within(stash as HTMLElement).getByRole('searchbox')
+      fireEvent.change(search, {
+        target: { value: '__no_matching_catalog_entry__' },
+      })
+      expect(list.querySelectorAll('button')).toHaveLength(0)
+      expect(
+        within(list as HTMLElement).getByText('No materials found'),
+      ).toBeVisible()
+      expect(contract()).toEqual(baseline)
+      fireEvent.change(search, { target: { value: '' } })
+      expect(list.querySelectorAll('button')).toHaveLength(count)
+      expect(contract()).toEqual(baseline)
+    }
+    // jsdom has no layout engine. These are sizing/scroll contracts and actual
+    // catalog mutations, not fabricated scrollHeight/clientHeight measurements.
+    expect(
+      getComputedStyle(document.querySelector('.workbench-feedback-region')!)
+        .height,
+    ).toBe('200px')
+    expect(canvas.querySelectorAll('.workbench-stash__favorite')).toHaveLength(
+      10,
+    )
+  })
   it('shares stash scroll styling with the actual base, History and Favorites scroll surfaces', () => {
     show()
     expect(ruleStyle('.wb-scrollbar').getPropertyValue('scrollbar-color')).toBe(
@@ -319,6 +388,17 @@ describe('single canvas category selector and favorites inside the coordinate pl
     (locale) => {
       setLocale(locale)
       show()
+      const stash = document.querySelector('.workbench-stash')!
+      expect(getComputedStyle(stash).getPropertyValue('contain')).toBe('size')
+      expect(
+        within(stash as HTMLElement).getByRole('searchbox'),
+      ).toHaveAccessibleName(
+        translate(
+          'material.search',
+          { category: translate('stash.Currency', {}, locale) },
+          locale,
+        ),
+      )
       const controls = document.querySelector<HTMLElement>(
         '.workbench-item-controls',
       )!

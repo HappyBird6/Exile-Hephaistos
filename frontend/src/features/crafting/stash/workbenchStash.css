@@ -3,6 +3,8 @@
   grid-column: 6;
   grid-row: 1 / 4;
   align-self: stretch;
+  /* The canvas tracks size this panel; catalog contents must not grow them. */
+  contain: size;
   /* 40 of the original 935-wide upper plane, resolved from this 257-wide track. */
   margin-top: calc(40 / 257 * 100%);
   box-sizing: border-box;
