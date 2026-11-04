@@ -309,7 +309,12 @@ describe('Item text import', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Close item input' }))
     fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
     expect(first?.aborted).toBe(true)
-    fireEvent.click(screen.getByRole('button', { name: /Place base/ }))
+    fireEvent.click(
+      within(screen.getByRole('dialog', { name: 'Select base' })).getByRole(
+        'button',
+        { name: 'Select base' },
+      ),
+    )
     expect(useItemDraft.getState().source).toBe('base')
     enter()
     submit()

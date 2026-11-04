@@ -47,6 +47,10 @@ import { useEffect, useRef, useState } from 'react'
 import { ItemCard } from './ItemCard'
 import { whittlingCandidates } from './omenRemovalCandidates'
 import { toItemCard } from './itemCardData'
+import {
+  FeedbackTooltipProvider,
+  FeedbackTooltipOutlet,
+} from './feedback-tooltip/FeedbackTooltipProvider'
 import { MaterialTooltip } from './MaterialTooltip'
 import { SessionNotation } from './session-notation/SessionNotation'
 import { useItemTextImport } from './useItemTextImport'
@@ -249,7 +253,6 @@ export function CraftingPage() {
     saveSupport('workspace', view)
   }, [view])
   const dialog = useRef<HTMLDialogElement>(null)
-  const [tooltipsEnabled, setTooltipsEnabled] = useState(true)
   const [activeTab, setActiveTab] = useState<MaterialTab>('Currency')
   const excludedResourceIds: readonly string[] = excludedWorkbenchBoneIds
   const fixedCurrencies = currencies.filter(
@@ -1229,12 +1232,16 @@ export function CraftingPage() {
           }
         : null
 
-  return (
+  const page = (
     <main
       className={`craft-page${view === 'workbench' ? ' craft-page--workbench' : ''}`}
       onClick={(event) => {
         const target = event.target as HTMLElement
-        if (!target.closest('button, input, label, dialog, a')) {
+        if (
+          !target.closest(
+            'button, input, label, dialog, a, .workbench-feedback-region',
+          )
+        ) {
           setSelected(null)
           setHeld(null)
           setPointer(null)
@@ -1448,16 +1455,6 @@ export function CraftingPage() {
                     >
                       {t('ui.new_craft')}
                     </button>
-                    <label className="item-input-toggle tooltip-toggle">
-                      <input
-                        type="checkbox"
-                        checked={tooltipsEnabled}
-                        onChange={(event) =>
-                          setTooltipsEnabled(event.target.checked)
-                        }
-                      />
-                      <span>{t('ui.show_tooltips')}</span>
-                    </label>
                   </div>
                   <WorkbenchStash
                     tabs={
@@ -1636,8 +1633,7 @@ export function CraftingPage() {
                     : null
                 }
                 onOpenChange={setLeftMenu}
-              />
-              <div className="bench-item-card">
+              >
                 <div className="workbench-film-controls">
                   <button
                     type="button"
@@ -1682,6 +1678,8 @@ export function CraftingPage() {
                     </span>
                   </button>
                 </div>
+              </SessionLibraryButtons>
+              <div className="bench-item-card">
                 {!!concrete?.observations?.augmentEffects.length && (
                   <p>{t('notice.resolve_augments')}</p>
                 )}
@@ -1819,10 +1817,10 @@ export function CraftingPage() {
                 onNavigate={browse}
                 disabled={applying !== null}
               />
-              <div className="workbench-feedback-region">
+              <div className="workbench-feedback-region wb-scrollbar">
                 {applicationFailure && (
                   <div
-                    className="workbench-feedback-panel"
+                    className="workbench-feedback-panel wb-scrollbar"
                     tabIndex={0}
                     role="alert"
                     aria-label={t('ui.crafting_notes')}
@@ -1832,6 +1830,7 @@ export function CraftingPage() {
                     </p>
                   </div>
                 )}
+                <FeedbackTooltipOutlet />
               </div>
             </div>
           </div>
@@ -1939,6 +1938,7 @@ export function CraftingPage() {
           <SessionLibrary
             id="workbench-session-library"
             anchor={leftMenu === 'favorites' ? favoritesAnchor : historyAnchor}
+            placementRegion={basePlacementRegion}
             shelf={currencyShelf}
             open={leftMenu === 'history' || leftMenu === 'favorites'}
             favoritesOnly={leftMenu === 'favorites'}
@@ -2113,11 +2113,7 @@ export function CraftingPage() {
           {t('ui.currency_images_poe2db')}
         </a>
       </footer>
-      {tooltipsEnabled && (
-        <MaterialTooltip
-          {...(selected ? { onlyWithin: '.wb-session-notation' } : {})}
-        />
-      )}
+      <MaterialTooltip />
       {cursor &&
         pointer &&
         createPortal(
@@ -2131,5 +2127,10 @@ export function CraftingPage() {
           document.body,
         )}
     </main>
+  )
+  return (
+    <FeedbackTooltipProvider enabled={view === 'workbench'}>
+      {page}
+    </FeedbackTooltipProvider>
   )
 }

@@ -3,7 +3,14 @@ import {
   selectSavedSession,
 } from '../../shared/test/workbenchQueries'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within,
+} from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { CraftingPage } from './CraftingPage'
 import { useItemDraft } from './draft'
@@ -83,7 +90,12 @@ describe('Workbench actual application', () => {
     fireEvent.change(screen.getByRole('spinbutton', { name: 'Item level' }), {
       target: { value: '83' },
     })
-    fireEvent.click(screen.getByRole('button', { name: /Place base/ }))
+    fireEvent.click(
+      within(screen.getByRole('dialog', { name: 'Select base' })).getByRole(
+        'button',
+        { name: 'Select base' },
+      ),
+    )
     await waitFor(() => expect(release).toBeDefined())
     const revision = useItemDraft.getState().baseRevision
     const bytes = localStorage.getItem(historyStorageKey)

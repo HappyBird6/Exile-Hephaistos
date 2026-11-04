@@ -29,8 +29,9 @@
   width: 100%;
   height: auto;
   min-height: 0;
-  max-height: none;
-  overflow: visible;
+  max-height: 100%;
+  overflow-y: auto;
+  flex: 0 0 auto;
   padding: 0;
   text-align: start;
   font-size: 16px;
@@ -64,12 +65,18 @@
 /* Keep a fixed feedback area after History, including when no failure is shown. */
 .workbench-feedback-region {
   box-sizing: border-box;
-  height: 96px;
-  min-height: 96px;
-  max-height: 96px;
+  height: 144px;
+  min-height: 144px;
+  max-height: 144px;
   margin-block: 12px;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   scrollbar-gutter: stable;
+}
+.workbench-feedback-region:has(.workbench-feedback-tooltip)
+  .workbench-feedback-panel {
+  max-height: 50%;
 }
 .workbench-item-controls {
   position: absolute;
@@ -78,7 +85,7 @@
   width: calc(140 / 935 * 100%);
   height: calc(174 / 550 * 100%);
   display: grid;
-  grid-template-rows: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
   row-gap: calc(10 / 174 * 100%);
   min-width: 0;
 }
@@ -105,9 +112,6 @@
   min-width: 0;
   margin: 0;
 }
-.workbench-item-controls .tooltip-toggle span {
-  min-width: 0;
-}
 .workbench-item-controls > .item-input-toggle:focus-visible,
 .workbench-item-controls > .item-input-toggle:focus-within {
   outline: 2px solid #d4c399;
@@ -116,7 +120,7 @@
 
 @media (max-width: 1200px) {
   .workbench-item-controls {
-    /* Let translated labels wrap without compressing four rows into the slots. */
+    /* Let translated labels wrap without compressing three rows into the slots. */
     height: max(calc(174 / 550 * 100%), 208px);
   }
   .stash-viewport .stash-canvas {

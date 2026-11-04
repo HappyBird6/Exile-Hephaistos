@@ -92,7 +92,10 @@ describe('single canvas category selector and favorites inside the coordinate pl
       screen.getByRole('spinbutton', { name: 'Item level' }),
     )
     expect(controls).toContainElement(
-      screen.getByRole('button', { name: 'Place base' }),
+      within(screen.getByRole('dialog', { name: 'Select base' })).getByRole(
+        'button',
+        { name: 'Select base' },
+      ),
     )
     expect(
       getComputedStyle(picker.querySelector('.wb-base-picker__footer')!)
@@ -157,7 +160,9 @@ describe('single canvas category selector and favorites inside the coordinate pl
     fireEvent.click(suffix)
     const roll = screen.getByLabelText(translate('ui.sapphire_cast_speed'))
     expect(controls).toContainElement(roll)
-    const place = screen.getByRole('button', { name: 'Place base' })
+    const place = within(
+      screen.getByRole('dialog', { name: 'Select base' }),
+    ).getByRole('button', { name: 'Select base' })
     fireEvent.change(roll, { target: { value: '1' } })
     expect(place).toBeDisabled()
     fireEvent.change(roll, { target: { value: '3' } })
@@ -188,13 +193,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
     const right = document.querySelector<HTMLElement>('.workbench-stash')!
     expect(right).toContainElement(selector)
     expect(document.querySelector('.stash-heading')).toBeNull()
-    const tooltipToggle = screen.getByRole('checkbox', {
-      name: 'Show tooltips',
-    })
-    expect(right).not.toContainElement(tooltipToggle)
-    expect(tooltipToggle.closest('label')?.parentElement).toHaveClass(
-      'workbench-item-controls',
-    )
+    expect(screen.queryByRole('checkbox', { name: 'Show tooltips' })).toBeNull()
     const fixedShelf = document.querySelector<HTMLElement>('.currency-catalog')!
     const fixedIds = new Set(
       [...fixedShelf.querySelectorAll('[data-material-tooltip]')].map(
@@ -311,7 +310,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
   })
 
   it.each(locales)(
-    'shares the edit style across four ordered %s controls without reserving the former row',
+    'shares the edit style across three ordered %s controls without reserving the former row',
     (locale) => {
       setLocale(locale)
       show()
@@ -323,7 +322,6 @@ describe('single canvas category selector and favorites inside the coordinate pl
         translate('ui.select_base', {}, locale),
         translate('ui.edit_item', {}, locale),
         translate('ui.new_craft', {}, locale),
-        translate('ui.show_tooltips', {}, locale),
       ])
       const edit = screen.getByRole('button', {
         name: translate('ui.edit_item', {}, locale),
@@ -345,17 +343,27 @@ describe('single canvas category selector and favorites inside the coordinate pl
           expect(style[property]).toBe(editStyle[property])
       }
       expect(compact(getComputedStyle(controls).gridTemplateRows)).toBe(
-        'repeat(4,minmax(0,1fr))',
+        'repeat(3,minmax(0,1fr))',
       )
       expect(document.querySelector('.workbench-session-entry')).toBeNull()
       expect(
         document.querySelector('.bench-lower')?.firstElementChild,
       ).toHaveClass('wb-session-library-buttons')
+      expect(
+        document.querySelector('.wb-session-library-buttons'),
+      ).toContainElement(
+        screen.getByRole('button', {
+          name: translate('ui.previous_crafting_step', {}, locale),
+        }),
+      )
+      expect(
+        document.querySelector('.bench-item-card .workbench-film-controls'),
+      ).toBeNull()
       expect(pageStyles).not.toContain('.workbench-session-entry')
     },
   )
 
-  it('positions only the base picker from the former upper work area and keeps interaction on the moved opener', () => {
+  it('positions all three menus from the former upper work area and keeps interaction on the moved opener', () => {
     vi.stubGlobal('innerWidth', 1400)
     vi.stubGlobal('innerHeight', 900)
     const rects = new Map([
@@ -413,13 +421,13 @@ describe('single canvas category selector and favorites inside the coordinate pl
     expect(screen.queryByRole('dialog')).toBeNull()
     expect(opener).toHaveFocus()
     for (const [name, left] of [
-      ['History', '391px'],
-      ['Favorites', '443px'],
+      ['History', '386.75px'],
+      ['Favorites', '386.75px'],
     ] as const) {
       const trigger = screen.getByRole('button', { name })
       fireEvent.click(trigger)
       const library = screen.getByRole('dialog')
-      expect(library).toHaveStyle({ left, top: '132px' })
+      expect(library).toHaveStyle({ left, top: '118px' })
       fireEvent.keyDown(library, { key: 'Escape' })
       expect(trigger).toHaveFocus()
     }
@@ -497,13 +505,6 @@ describe('single canvas category selector and favorites inside the coordinate pl
     expect(compact(ruleStyle('.workbench-item-controls input').width)).toBe(
       'max(12%,12px)',
     )
-    expect(
-      Number.parseFloat(
-        ruleStyle(
-          '.workbench-item-controls .tooltip-toggle span',
-        ).getPropertyValue('min-width'),
-      ),
-    ).toBe(0)
     expect(
       ruleStyle(
         '.workbench-item-controls > .item-input-toggle',

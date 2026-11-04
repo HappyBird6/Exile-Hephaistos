@@ -1,6 +1,7 @@
-import type { RefObject } from 'react'
+import type { ReactNode, RefObject } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { sessionLibraryMessages } from './sessionLibraryMessages'
+import { useFeedbackTitle } from '../feedback-tooltip/feedbackContext'
 import './session-library.css'
 
 export type SessionLibraryView = 'history' | 'favorites'
@@ -12,6 +13,7 @@ export function SessionLibraryButtons({
   favoritesAnchor,
   disabled = false,
   libraryId,
+  children,
 }: {
   openView: SessionLibraryView | null
   onOpenChange: (view: SessionLibraryView | null) => void
@@ -19,9 +21,12 @@ export function SessionLibraryButtons({
   favoritesAnchor: RefObject<HTMLButtonElement | null>
   disabled?: boolean
   libraryId: string
+  children?: ReactNode
 }) {
   const { locale } = useI18n()
   const messages = sessionLibraryMessages[locale]
+  const historyTitle = useFeedbackTitle(messages.history)
+  const favoritesTitle = useFeedbackTitle(messages.favorites)
   return (
     <div className="wb-session-library-buttons">
       {(['history', 'favorites'] as const).map((view) => (
@@ -32,7 +37,7 @@ export function SessionLibraryButtons({
           type="button"
           disabled={disabled}
           aria-label={messages[view]}
-          title={messages[view]}
+          {...(view === 'history' ? historyTitle : favoritesTitle)}
           aria-haspopup="dialog"
           aria-expanded={openView === view}
           aria-controls={libraryId}
@@ -41,6 +46,7 @@ export function SessionLibraryButtons({
           <span aria-hidden="true">{view === 'history' ? '🕘' : '⭐'}</span>
         </button>
       ))}
+      {children}
     </div>
   )
 }

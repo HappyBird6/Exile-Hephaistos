@@ -80,16 +80,12 @@ it('places actual successful notation between the item card and feedback and ret
   expect(await screen.findByRole('tooltip')).toHaveTextContent(
     'Orb of Transmutation',
   )
+  expect(panel.parentElement).toContainElement(screen.getByRole('tooltip'))
+  expect(panel).toHaveAttribute('role', 'alert')
   fireEvent.keyDown(document, { key: 'Escape' })
   expect(screen.queryByRole('tooltip')).toBeNull()
-  const toggle = screen.getByRole('checkbox', { name: 'Show tooltips' })
-  expect(document.querySelector('.workbench-stash')).not.toContainElement(
-    toggle,
-  )
-  fireEvent.click(toggle)
-  fireEvent.mouseOver(icon)
-  expect(screen.queryByRole('tooltip')).toBeNull()
-  fireEvent.click(toggle)
+  expect(screen.queryByRole('checkbox', { name: 'Show tooltips' })).toBeNull()
+  expect(panel).toHaveAttribute('role', 'alert')
   fireEvent.focusIn(icon)
   expect(await screen.findByRole('tooltip')).toHaveTextContent(
     'Orb of Transmutation',

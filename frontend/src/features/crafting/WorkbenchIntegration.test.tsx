@@ -160,9 +160,7 @@ it('places item controls beside favorites with History first in the lower work a
   expect(canvas).toContainElement(
     screen.getByRole('tablist', { name: 'Material stash tabs' }),
   )
-  expect(canvas).toContainElement(
-    screen.getByRole('checkbox', { name: 'Show tooltips' }),
-  )
+  expect(screen.queryByRole('checkbox', { name: 'Show tooltips' })).toBeNull()
   expect(document.querySelector('.workbench-favorites-region')).toBeNull()
   const plane = canvas.querySelector('.stash-canvas__content')!
   expect(plane).toContainElement(
@@ -173,6 +171,15 @@ it('places item controls beside favorites with History first in the lower work a
     expect(controls).toContainElement(screen.getByRole('button', { name }))
   const buttons = document.querySelector('.wb-session-library-buttons')!
   expect(buttons.previousElementSibling).toBeNull()
+  expect(buttons).toContainElement(
+    screen.getByRole('button', { name: 'Previous crafting step' }),
+  )
+  expect(buttons).toContainElement(
+    screen.getByRole('button', { name: 'Next crafting step' }),
+  )
+  expect(
+    document.querySelector('.bench-item-card .workbench-film-controls'),
+  ).toBeNull()
   expect(document.querySelector('.workbench-session-entry')).toBeNull()
   expect(buttons.nextElementSibling).toHaveClass('bench-item-card')
   expect(

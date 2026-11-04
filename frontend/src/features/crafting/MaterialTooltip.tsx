@@ -1,13 +1,19 @@
 import { useI18n, gameTerm } from '../../shared/i18n/i18n'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { useFeedbackTooltip } from './feedback-tooltip/feedbackContext'
 import descriptions from './materialTooltips.json'
 import { legacyHomogenisingIds, legacyFiveIds } from './workbenchApi'
 
 type TooltipData = { name: string; lines: string[]; sourceUrl: string }
 const catalog: Record<string, TooltipData> = descriptions
-export function MaterialTooltip({ onlyWithin }: { onlyWithin?: string } = {}) {
-  const { t, locale, name } = useI18n()
+export function MaterialTooltip(props: { onlyWithin?: string } = {}) {
+  const feedback = useFeedbackTooltip()
+  return feedback ? null : <FloatingMaterialTooltip {...props} />
+}
+
+function FloatingMaterialTooltip({ onlyWithin }: { onlyWithin?: string } = {}) {
+  const { locale } = useI18n()
   const tooltip = useRef<HTMLElement>(null)
   const [anchorTarget, setTarget] = useState<{
     id: string
@@ -103,11 +109,7 @@ export function MaterialTooltip({ onlyWithin }: { onlyWithin?: string } = {}) {
       element.style.top = `${useBelow ? anchor.bottom + 8 : Math.max(8, anchor.top - height - 8)}px`
     }
   }, [target, locale])
-  const data = target && catalog[target.id]
-  if (!data || !target) return null
-  const translated = gameTerm(target.id, locale)
-  const hasDescription = Boolean(translated.data?.lines.length)
-  const lines = hasDescription ? translated.data!.lines : data.lines
+  if (!target || !catalog[target.id]) return null
   return createPortal(
     <aside
       ref={tooltip}
@@ -116,7 +118,22 @@ export function MaterialTooltip({ onlyWithin }: { onlyWithin?: string } = {}) {
       id="material-description"
       style={{ left: target.x, top: target.y }}
     >
-      <strong>{name(target.id, data.name)}</strong>
+      <MaterialDescription materialId={target.id} />
+    </aside>,
+    document.body,
+  )
+}
+
+export function MaterialDescription({ materialId }: { materialId: string }) {
+  const { t, locale, name } = useI18n()
+  const data = catalog[materialId]
+  if (!data) return null
+  const translated = gameTerm(materialId, locale)
+  const hasDescription = Boolean(translated.data?.lines.length)
+  const lines = hasDescription ? translated.data!.lines : data.lines
+  return (
+    <>
+      <strong>{name(materialId, data.name)}</strong>
       {translated.data?.nameProvenance && (
         <small className="translation-fallback">{t('translation.own')}</small>
       )}
@@ -128,8 +145,8 @@ export function MaterialTooltip({ onlyWithin }: { onlyWithin?: string } = {}) {
             {t('translation.english')}
           </small>
         )}
-      {legacyFiveIds.includes(target.id) && <p>{t('notice.legacy_five')}</p>}
-      {legacyFiveIds.includes(target.id) && (
+      {legacyFiveIds.includes(materialId) && <p>{t('notice.legacy_five')}</p>}
+      {legacyFiveIds.includes(materialId) && (
         <a
           href="https://www.pathofexile.com/forum/view-thread/3826682"
           target="_blank"
@@ -138,7 +155,7 @@ export function MaterialTooltip({ onlyWithin }: { onlyWithin?: string } = {}) {
           {t('ui.official_legacy_availability')}
         </a>
       )}
-      {legacyHomogenisingIds.includes(target.id) && (
+      {legacyHomogenisingIds.includes(materialId) && (
         <p>{t('notice.legacy_homogenising')}</p>
       )}
       {lines
@@ -162,7 +179,7 @@ export function MaterialTooltip({ onlyWithin }: { onlyWithin?: string } = {}) {
       >
         PoE2DB
       </a>
-      {legacyHomogenisingIds.includes(target.id) && (
+      {legacyHomogenisingIds.includes(materialId) && (
         <a
           href="https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff"
           target="_blank"
@@ -171,7 +188,6 @@ export function MaterialTooltip({ onlyWithin }: { onlyWithin?: string } = {}) {
           {t('ui.official_legacy_availability')}
         </a>
       )}
-    </aside>,
-    document.body,
+    </>
   )
 }

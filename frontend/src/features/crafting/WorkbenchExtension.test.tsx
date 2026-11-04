@@ -85,15 +85,27 @@ describe('Workbench extensions', () => {
     show()
     const whittling = favoriteOmen('Omen of Whittling', 1)
     expect(
-      screen.getAllByTitle('Eligible Whittling removal candidate'),
+      screen.getByRole('article').querySelectorAll('[data-removal-candidate]'),
     ).toHaveLength(1)
     const sinistral = favoriteOmen('Omen of Sinistral Erasure', 2)
     expect(whittling).toHaveClass('is-active-omen')
     expect(sinistral).toHaveClass('is-active-omen')
     expect(
-      screen.getAllByTitle('Eligible Whittling removal candidate'),
+      screen.getByRole('article').querySelectorAll('[data-removal-candidate]'),
     ).toHaveLength(2)
     const requests = fetch.mock.calls.length
+    const candidate = screen
+      .getByRole('article')
+      .querySelector<HTMLElement>('[data-removal-candidate]')!
+    expect(candidate).not.toHaveAttribute('title')
+    fireEvent.focusIn(candidate)
+    expect(screen.getByRole('tooltip')).toHaveTextContent(
+      'Eligible Whittling removal candidate',
+    )
+    expect(
+      document.querySelector('.workbench-feedback-region'),
+    ).toContainElement(screen.getByRole('tooltip'))
+    fireEvent.keyDown(document, { key: 'Escape' })
     fireEvent.pointerMove(screen.getByRole('article'), {
       clientX: 30,
       clientY: 40,
@@ -105,12 +117,12 @@ describe('Workbench extensions', () => {
     expect(fetch.mock.calls).toHaveLength(requests)
     fireEvent.contextMenu(sinistral)
     expect(
-      screen.getAllByTitle('Eligible Whittling removal candidate'),
+      screen.getByRole('article').querySelectorAll('[data-removal-candidate]'),
     ).toHaveLength(1)
     fireEvent.contextMenu(whittling)
     expect(
-      screen.queryByTitle('Eligible Whittling removal candidate'),
-    ).not.toBeInTheDocument()
+      screen.getByRole('article').querySelectorAll('[data-removal-candidate]'),
+    ).toHaveLength(0)
   })
   it('prevents unverified matching omen combinations and removes activation when the last favorite is replaced', async () => {
     vi.stubGlobal('fetch', fixtureFetch)

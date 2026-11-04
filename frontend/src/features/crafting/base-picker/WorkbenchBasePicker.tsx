@@ -201,6 +201,10 @@ function BasePickerContent({
               onMouseEnter={(event) =>
                 setHovered({ key: choice.key, anchor: event.currentTarget })
               }
+              onPointerDown={(event) => {
+                if (event.pointerType === 'touch')
+                  setHovered({ key: choice.key, anchor: event.currentTarget })
+              }}
               onFocus={(event) =>
                 setHovered({ key: choice.key, anchor: event.currentTarget })
               }
@@ -231,6 +235,7 @@ function BasePickerContent({
         </div>
         {preview && hovered && (
           <BasePreviewTooltip
+            onDismiss={() => setHovered(null)}
             id={`${fieldId}-preview`}
             label={messages.preview}
             anchor={hovered.anchor}

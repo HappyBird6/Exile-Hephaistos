@@ -1,3 +1,4 @@
+import { useFeedbackTitle } from './feedback-tooltip/feedbackContext'
 import { useState } from 'react'
 import { useI18n } from '../../shared/i18n/i18n'
 export function CurrencyImage({
@@ -10,16 +11,16 @@ export function CurrencyImage({
   name: string
 }) {
   const { t, name: localizedName } = useI18n()
+  const missingTitle = useFeedbackTitle(
+    `${id ? localizedName(id, name) : name} · ${t('ui.image_unavailable')}`,
+  )
   const [failed, setFailed] = useState(false)
   return !image ? (
     <span className="currency-name-fallback">
       {id ? localizedName(id, name) : name}
     </span>
   ) : failed ? (
-    <span
-      className="currency-missing"
-      title={`${name} · ${t('ui.image_unavailable')}`}
-    >
+    <span className="currency-missing" {...missingTitle}>
       {t('ui.image_unavailable')}
     </span>
   ) : (

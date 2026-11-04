@@ -50,8 +50,13 @@ describe('Crafting workbench', () => {
       screen.getByRole('heading', { level: 1, name: 'Crafting workbench' }),
     ).toBeVisible()
     expect(
-      screen.getByRole('checkbox', { name: 'Show tooltips' }),
-    ).toBeChecked()
+      screen.queryByRole('checkbox', { name: 'Show tooltips' }),
+    ).not.toBeInTheDocument()
+    fireEvent.pointerOver(currencyButton('Chaos Orb'))
+    expect(
+      document.querySelector('.workbench-feedback-region'),
+    ).toContainElement(screen.getByRole('tooltip'))
+    expect(screen.getByRole('tooltip')).toHaveTextContent('Chaos Orb')
     expect(
       screen.queryByRole('button', { name: 'Scroll of Wisdom' }),
     ).not.toBeInTheDocument()

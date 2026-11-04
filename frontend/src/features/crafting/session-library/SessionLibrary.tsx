@@ -36,6 +36,7 @@ export function SessionLibrary(props: SessionLibraryProps) {
 function SessionLibraryContent({
   id,
   anchor,
+  placementRegion,
   shelf,
   onOpenChange,
   history,
@@ -62,6 +63,7 @@ function SessionLibraryContent({
     <LeftShelfOverlay
       id={id}
       anchor={anchor}
+      {...(placementRegion ? { placementRegion } : {})}
       {...(shelf ? { shelf } : {})}
       onClose={() => onOpenChange(false)}
       title={favoritesOnly ? messages.favorites : messages.history}

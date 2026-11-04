@@ -1,3 +1,4 @@
+import { useFeedbackTitle } from './feedback-tooltip/feedbackContext'
 import { UnrevealedRune } from './abyss-workbench/UnrevealedRune'
 import { useI18n, formatNumber, uiText } from '../../shared/i18n/i18n'
 import { isTradePrice } from './itemCardData'
@@ -16,6 +17,7 @@ function Lines({
   changes?: Record<string, 'added' | 'changed'> | undefined
 }) {
   const { t, locale } = useI18n()
+  const candidateTitle = useFeedbackTitle(t('omen.candidate_title'))
   const visible = lines.filter((line) => !isTradePrice(line.text))
   if (!visible.length) return null
   return (
@@ -42,9 +44,9 @@ function Lines({
             data-fractured={
               line.fractured || line.kind === 'fractured' ? true : undefined
             }
-            title={
-              line.removalCandidate ? t('omen.candidate_title') : undefined
-            }
+            {...(line.removalCandidate
+              ? { ...candidateTitle, tabIndex: 0 }
+              : {})}
           >
             {line.affixLabel && (
               <span className="item-card__affix">{line.affixLabel}</span>

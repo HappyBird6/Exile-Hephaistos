@@ -252,7 +252,12 @@ describe('Crafting probability explorer', () => {
     fireEvent.change(screen.getByRole('spinbutton', { name: 'Item level' }), {
       target: { value: '70' },
     })
-    fireEvent.click(screen.getByRole('button', { name: /Place base/ }))
+    fireEvent.click(
+      within(screen.getByRole('dialog', { name: 'Select base' })).getByRole(
+        'button',
+        { name: 'Select base' },
+      ),
+    )
     await waitFor(() =>
       expect(screen.getByRole('article')).toHaveTextContent('70'),
     )

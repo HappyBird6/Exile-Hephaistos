@@ -1,7 +1,8 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { ItemCard } from '../ItemCard'
 import type { ItemCardData } from '../itemCardData'
+import { useFeedbackTooltip } from '../feedback-tooltip/feedbackContext'
 
 export function BasePreviewTooltip({
   id,
@@ -9,14 +10,31 @@ export function BasePreviewTooltip({
   anchor,
   item,
   slug,
+  onDismiss,
 }: {
   id: string
   label: string
   anchor: HTMLElement
   item: ItemCardData
   slug: string
+  onDismiss?: () => void
 }) {
   const tooltip = useRef<HTMLDivElement>(null)
+  const feedback = useFeedbackTooltip()
+  useEffect(() => {
+    if (!feedback) return
+    feedback.show({
+      anchor,
+      id,
+      onDismiss,
+      content: (
+        <section aria-label={label}>
+          <ItemCard item={item} baseItemId={slug} />
+        </section>
+      ),
+    })
+    return () => feedback.release(anchor)
+  }, [feedback, anchor, id, item, slug, label, onDismiss])
   useLayoutEffect(() => {
     function position() {
       const element = tooltip.current
@@ -43,6 +61,7 @@ export function BasePreviewTooltip({
       window.removeEventListener('scroll', position, true)
     }
   }, [anchor, item])
+  if (feedback) return null
   return createPortal(
     <div
       id={id}

@@ -93,6 +93,10 @@ export function LeftShelfOverlay({
       const target = event.target
       if (
         target instanceof Node &&
+        !(
+          target instanceof Element &&
+          target.closest('.workbench-feedback-region')
+        ) &&
         !element?.contains(target) &&
         !trigger?.contains(target)
       )
