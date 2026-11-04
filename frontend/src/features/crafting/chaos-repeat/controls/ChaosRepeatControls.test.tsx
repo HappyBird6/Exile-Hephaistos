@@ -10,6 +10,7 @@ import { ChaosRepeatControls } from './ChaosRepeatControls'
 import { chaosRepeatControlMessages } from './messages'
 import { chaosRepeatCurrencyIds, defaultChaosRepeatMaximumUses } from './types'
 import type { ChaosRepeatControlsProps } from './types'
+import { parseChaosRepeatMaximumUses } from './maximumUses'
 
 const css = readFileSync(
   'src/features/crafting/chaos-repeat/controls/chaos-repeat-controls.css',
@@ -67,12 +68,12 @@ it('edits controlled mode only, leaves execution to the caller and supports a ke
   expect(fetch).not.toHaveBeenCalled()
 })
 
-it('forwards regex-like pattern and raw maximum strings without compiling, trimming or enforcing 500', () => {
+it('forwards regex-like pattern and raw maximum strings without compiling, trimming or clamping the controlled value', () => {
   const input = props()
   const view = render(<ChaosRepeatControls {...input} />)
   const pattern = screen.getByLabelText('Pattern')
   const maximum = screen.getByLabelText('Maximum uses')
-  expect(maximum).toHaveValue('500')
+  expect(maximum).toHaveValue('100')
   expect(maximum).not.toHaveAttribute('max')
   expect(pattern).not.toHaveAttribute('pattern')
   for (const value of ['[(', '  +12 Fire  ', '(?i)test', '']) {
@@ -87,6 +88,12 @@ it('forwards regex-like pattern and raw maximum strings without compiling, trimm
     view.rerender(<ChaosRepeatControls {...input} maximumUses={value} />)
     expect(maximum).toHaveValue(value)
   }
+  expect(maximum).toHaveAttribute('aria-invalid', 'true')
+  expect(screen.getByRole('alert')).toHaveTextContent(
+    'Enter a whole number from 1 to 1000.',
+  )
+  view.rerender(<ChaosRepeatControls {...input} maximumUses="1000" />)
+  expect(maximum).toHaveAttribute('aria-invalid', 'false')
   expect(screen.queryByRole('alert')).not.toBeInTheDocument()
   expect(screen.getByRole('status')).toBeEmptyDOMElement()
 })
@@ -117,10 +124,56 @@ it.each(chaosRepeatCurrencyIds)(
   },
 )
 
-it('shows externally supplied errors and cap without fabricating local validation or success', () => {
+it.each(['0', '-1', '1.5', '1001', ''])(
+  'marks count %j invalid and exposes null to the caller without executing or clamping',
+  (maximumUses) => {
+    const input = props({ maximumUses, enabled: true })
+    const fetch = vi.spyOn(globalThis, 'fetch')
+    render(<ChaosRepeatControls {...input} />)
+    const maximum = screen.getByLabelText('Maximum uses')
+    expect(maximum).toHaveValue(maximumUses)
+    expect(maximum).toHaveAttribute('aria-invalid', 'true')
+    expect(maximum).toHaveAccessibleDescription(
+      expect.stringContaining('Enter a whole number from 1 to 1000.'),
+    )
+    expect(parseChaosRepeatMaximumUses(maximumUses)).toBeNull()
+    const toggle = screen.getByRole('button')
+    expect(toggle).toBeEnabled()
+    fireEvent.click(toggle)
+    expect(input.onEnabledChange).toHaveBeenCalledExactlyOnceWith(false)
+    expect(input.onMaximumUsesChange).not.toHaveBeenCalled()
+    expect(fetch).not.toHaveBeenCalled()
+    expect(screen.getByRole('status')).toBeEmptyDOMElement()
+  },
+)
+
+it('retains a lower server cap as display-only and prioritizes its supplied error', () => {
+  const input = props({ maximumUses: '900', serverMaximumUses: 25 })
+  const view = render(<ChaosRepeatControls {...input} />)
+  expect(screen.getByLabelText('Maximum uses')).toHaveValue('900')
+  expect(screen.getByLabelText('Maximum uses')).toHaveAttribute(
+    'aria-invalid',
+    'false',
+  )
+  expect(screen.getByText('Server limit: 25')).toBeVisible()
+  expect(parseChaosRepeatMaximumUses('900')).toBe(900)
+  view.rerender(
+    <ChaosRepeatControls
+      {...input}
+      maximumUses="1001"
+      errors={{ maximumUses: 'Server cap is 25' }}
+    />,
+  )
+  expect(screen.getByRole('alert')).toHaveTextContent('Server cap is 25')
+  expect(
+    screen.queryByText('Enter a whole number from 1 to 1000.'),
+  ).not.toBeInTheDocument()
+})
+
+it('keeps external errors and reported cap independent from UI count validation and success', () => {
   const input = props({
     pattern: '[',
-    maximumUses: '2000',
+    maximumUses: '900',
     serverMaximumUses: null,
   })
   const view = render(<ChaosRepeatControls {...input} />)
@@ -148,9 +201,9 @@ it('shows externally supplied errors and cap without fabricating local validatio
     expect.stringContaining('Pattern rejected by server'),
   )
   expect(maximum).toHaveAccessibleDescription(
-    'Server limit: 1200 Maximum rejected by server',
+    '1–1000 uses (default: 100). Server limit: 1200 Maximum rejected by server',
   )
-  expect(maximum).toHaveValue('2000')
+  expect(maximum).toHaveValue('900')
   expect(maximum).not.toHaveAttribute('max')
   expect(
     screen.getAllByRole('alert').map((element) => element.textContent),
@@ -210,17 +263,34 @@ it.each(locales)(
   (locale) => {
     setLocale(locale)
     const messages = chaosRepeatControlMessages[locale]
-    render(<ChaosRepeatControls {...props({ running: true })} />)
+    const view = render(<ChaosRepeatControls {...props({ running: true })} />)
     expect(screen.getByRole('region', { name: messages.mode })).toHaveAttribute(
       'data-feedback-tooltip',
       messages.hint,
     )
     expect(screen.getByLabelText(messages.pattern)).toBeInTheDocument()
-    expect(screen.getByLabelText(messages.maximumUses)).toHaveValue('500')
+    expect(screen.getByLabelText(messages.maximumUses)).toHaveValue('100')
     expect(screen.getByRole('button')).toHaveAccessibleDescription(
       messages.hint,
     )
     expect(screen.getByRole('status')).toHaveTextContent(messages.running)
+    expect(screen.getByLabelText(messages.pattern)).toHaveAccessibleDescription(
+      `${messages.hint} ${messages.patternHelp}`,
+    )
+    const help = messages.maximumUsesHelp
+      .replace('{maximum}', '1000')
+      .replace('{default}', '100')
+    expect(
+      screen.getByLabelText(messages.maximumUses),
+    ).toHaveAccessibleDescription(help)
+    view.rerender(<ChaosRepeatControls {...props({ maximumUses: '1001' })} />)
+    expect(screen.getByRole('alert')).toHaveTextContent(
+      messages.invalidMaximumUses.replace('{maximum}', '1000'),
+    )
+    expect(screen.getByLabelText(messages.maximumUses)).toHaveAttribute(
+      'aria-invalid',
+      'true',
+    )
     if (locale === 'ko')
       expect(messages.hint).toBe('옵션에 패턴이 등장할때까지 카오스 사용')
   },
