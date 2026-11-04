@@ -7,7 +7,10 @@ export const chaosRepeatCurrencyIds = [
 export type ChaosRepeatCurrencyId = (typeof chaosRepeatCurrencyIds)[number]
 
 /** Initial editor value, not a server cap or an enforced UI limit. */
-export const defaultChaosRepeatMaximumUses = '500'
+export const defaultChaosRepeatMaximumUses = '100'
+
+/** User-approved UI request limit; independent of the server's reported cap. */
+export const chaosRepeatMaximumUsesLimit = 1000
 
 export type ChaosRepeatControlErrors = {
   pattern?: string

@@ -4,6 +4,11 @@ import { currencies } from '../../currencies'
 import { currencyNames } from '../../currencyNames'
 import { CurrencyImage } from '../../CurrencyImage'
 import { chaosRepeatControlMessages } from './messages'
+import { parseChaosRepeatMaximumUses } from './maximumUses'
+import {
+  chaosRepeatMaximumUsesLimit,
+  defaultChaosRepeatMaximumUses,
+} from './types'
 import type { ChaosRepeatControlsProps } from './types'
 import './chaos-repeat-controls.css'
 
@@ -32,9 +37,19 @@ export function ChaosRepeatControls({
   const locked = disabled || running
   const hintId = `${id}-hint`
   const patternErrorId = `${id}-pattern-error`
+  const patternHelpId = `${id}-pattern-help`
   const maximumErrorId = `${id}-maximum-error`
+  const maximumHelpId = `${id}-maximum-help`
   const limitId = `${id}-limit`
   const hasLimit = serverMaximumUses !== null && serverMaximumUses !== undefined
+  const maximumError =
+    errors?.maximumUses ||
+    (parseChaosRepeatMaximumUses(maximumUses) === null
+      ? messages.invalidMaximumUses.replace(
+          '{maximum}',
+          String(chaosRepeatMaximumUsesLimit),
+        )
+      : '')
   const explain = () => onHintInteraction?.(currencyId)
 
   return (
@@ -87,7 +102,11 @@ export function ChaosRepeatControls({
             autoComplete="off"
             spellCheck={false}
             aria-invalid={Boolean(errors?.pattern)}
-            aria-describedby={[hintId, errors?.pattern ? patternErrorId : '']
+            aria-describedby={[
+              hintId,
+              patternHelpId,
+              errors?.pattern ? patternErrorId : '',
+            ]
               .filter(Boolean)
               .join(' ')}
             onChange={(event) => {
@@ -96,6 +115,7 @@ export function ChaosRepeatControls({
           />
         </label>
       </div>
+      <p id={patternHelpId}>{messages.patternHelp}</p>
       {errors?.pattern && (
         <p id={patternErrorId} role="alert">
           {errors.pattern}
@@ -111,11 +131,12 @@ export function ChaosRepeatControls({
             value={maximumUses}
             disabled={locked}
             autoComplete="off"
-            aria-invalid={Boolean(errors?.maximumUses)}
+            aria-invalid={Boolean(maximumError)}
             aria-describedby={
               [
+                maximumHelpId,
                 hasLimit ? limitId : '',
-                errors?.maximumUses ? maximumErrorId : '',
+                maximumError ? maximumErrorId : '',
               ]
                 .filter(Boolean)
                 .join(' ') || undefined
@@ -134,9 +155,14 @@ export function ChaosRepeatControls({
           </span>
         )}
       </div>
-      {errors?.maximumUses && (
+      <p id={maximumHelpId}>
+        {messages.maximumUsesHelp
+          .replace('{maximum}', String(chaosRepeatMaximumUsesLimit))
+          .replace('{default}', defaultChaosRepeatMaximumUses)}
+      </p>
+      {maximumError && (
         <p id={maximumErrorId} role="alert">
-          {errors.maximumUses}
+          {maximumError}
         </p>
       )}
       {errors?.request && <p role="alert">{errors.request}</p>}
