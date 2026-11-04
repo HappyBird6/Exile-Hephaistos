@@ -288,7 +288,10 @@ it('lays out six steps in two columns in row order and retains only the current 
       '5',
       '6',
     ])
-    const layout = getComputedStyle(rows[0]!.parentElement!)
+    const steps = screen.getByRole('list')
+    expect(steps).toHaveClass('wb-scrollbar')
+    const layout = getComputedStyle(steps)
+    expect(layout.overflowY).toBe('auto')
     expect(layout.gridTemplateColumns).toBe('repeat(2, minmax(0, 1fr))')
     expect(layout.gridAutoFlow).toBe('row')
     expect(rows.filter((row) => row.hasAttribute('aria-current'))).toEqual([

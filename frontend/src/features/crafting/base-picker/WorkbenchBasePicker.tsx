@@ -168,7 +168,7 @@ function BasePickerContent({
               disabled={disabled || !valid || !levelValid}
               onClick={onPlace}
             >
-              {t('ui.place_base')}
+              {t('ui.select_base')}
             </button>
           </div>
           {!levelValid && (

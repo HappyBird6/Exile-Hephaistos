@@ -22,6 +22,9 @@
   overflow-y: auto;
   overscroll-behavior: contain;
 }
+.wb-base-picker .wb-base-picker__controls :focus-visible {
+  outline-offset: -2px;
+}
 .wb-base-picker__filters {
   display: grid;
   grid-template-columns: minmax(0, 1fr);

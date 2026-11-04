@@ -4,6 +4,7 @@ import type { WorkbenchResource } from '../stash/stashTypes'
 import type { Film } from '../workbenchHistory'
 import { sessionNotationMessages } from './messages'
 import { extractSessionNotation } from './extractSessionNotation'
+import '../workbench-scrollbar.css'
 import './session-notation.css'
 
 export type SessionNotationProps = {
@@ -81,7 +82,7 @@ export function SessionNotation({
       {notation.steps.length === 0 ? (
         <p className="wb-session-notation__empty">{text.empty}</p>
       ) : (
-        <ol className="wb-session-notation__steps">
+        <ol className="wb-session-notation__steps wb-scrollbar">
           {notation.steps.map((step) => {
             const current = step.frameIndex === currentFrameIndex
             const content = (

@@ -1,11 +1,11 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import { useRef, useState } from 'react'
 import { expect, it, vi } from 'vitest'
 import { WorkbenchBasePicker } from './WorkbenchBasePicker'
 import { basePreview, workbenchBaseChoices } from './baseChoices'
 import { overlayPlacement } from './overlayPlacement'
 import { baseImageSource } from './baseImageSources'
-import { locales, setLocale } from '../../../shared/i18n/i18n'
+import { locales, setLocale, translate } from '../../../shared/i18n/i18n'
 import { basePickerMessages } from './basePickerMessages'
 import type { WorkbenchBaseKey } from '../baseRegistry'
 
@@ -35,6 +35,11 @@ it.each(locales)(
       expect(screen.getByLabelText(name)).toHaveAccessibleName(name)
       expect(screen.queryByText(name)).not.toBeInTheDocument()
     }
+    expect(
+      within(screen.getByRole('dialog')).getByRole('button', {
+        name: translate('ui.select_base', {}, locale),
+      }),
+    ).toBeEnabled()
   },
 )
 
@@ -65,7 +70,7 @@ it('filters equipment subcategories, previews on hover/focus and validates compa
     return (
       <>
         <button ref={anchor} onClick={() => setOpen(true)}>
-          Base
+          Select base
         </button>
         <WorkbenchBasePicker
           id="bases"
@@ -82,11 +87,10 @@ it('filters equipment subcategories, previews on hover/focus and validates compa
     )
   }
   render(<Example />)
-  const trigger = screen.getByRole('button', { name: 'Base' })
+  const trigger = screen.getByRole('button', { name: 'Select base' })
   fireEvent.click(trigger)
-  expect(
-    screen.getByRole('dialog', { name: 'Select base' }),
-  ).toBeInTheDocument()
+  const dialog = screen.getByRole('dialog', { name: 'Select base' })
+  const select = within(dialog).getByRole('button', { name: 'Select base' })
   fireEvent.change(screen.getByLabelText('Equipment category'), {
     target: { value: 'armour' },
   })
@@ -107,11 +111,11 @@ it('filters equipment subcategories, previews on hover/focus and validates compa
   fireEvent.change(screen.getByLabelText('Item level'), {
     target: { value: '101' },
   })
-  expect(screen.getByRole('button', { name: 'Place base' })).toBeDisabled()
+  expect(select).toBeDisabled()
   fireEvent.change(screen.getByLabelText('Item level'), {
     target: { value: '70' },
   })
-  fireEvent.click(screen.getByRole('button', { name: 'Place base' }))
+  fireEvent.click(select)
   expect(place).toHaveBeenCalledOnce()
   fireEvent.keyDown(screen.getByRole('dialog'), { key: 'Escape' })
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
