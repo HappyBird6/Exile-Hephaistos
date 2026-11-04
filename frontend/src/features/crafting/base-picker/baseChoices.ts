@@ -1,4 +1,3 @@
-import { temporaryAmuletPassive } from './temporaryAmuletPassive'
 import {
   baseClass,
   baseSlugs,
@@ -7,7 +6,7 @@ import {
   baseStartingRarity,
 } from '../baseRegistry'
 import type { WorkbenchBaseKey } from '../baseRegistry'
-import { topBase } from '../topBases'
+import { basePropertyLines, topBase } from '../topBases'
 import type { ItemCardData } from '../itemCardData'
 import { gameName, gameTerm } from '../../../shared/i18n/i18n'
 import type { Locale } from '../../../shared/i18n/i18n'
@@ -76,7 +75,7 @@ export function basePreview(
 ): ItemCardData {
   const base = topBase(choice.key)
   const text = basePickerMessages[locale]
-  const properties = [...(base?.sourceProperties?.[locale] ?? [])].map(
+  const properties = basePropertyLines(choice.key, locale).map(
     (line, index) => ({ id: `source-${index}`, text: line }),
   )
   for (const [id, label, value] of [
@@ -87,11 +86,6 @@ export function basePreview(
     if (value && !properties.some((line) => line.text.includes(label)))
       properties.push({ id, text: `${label}: ${value}` })
   }
-  if (choice.itemClass === 'Amulets')
-    properties.push({
-      id: 'temporary-passive-policy',
-      text: temporaryAmuletPassive(locale),
-    })
   const bindings = templates.definitions as Record<
     string,
     { englishText: string; template: string; values: string[] }

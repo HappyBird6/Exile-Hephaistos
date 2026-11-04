@@ -47,9 +47,9 @@ function show() {
     </QueryClientProvider>,
   )
 }
-const controls = () => screen.getByRole('region', { name: 'Chaos repeat mode' })
+const controls = () => screen.getByRole('group', { name: 'Chaos repeat mode' })
 const toggle = () =>
-  within(controls()).getByRole('button', { name: /Continue using/ })
+  within(controls()).getByRole('button', { name: /1000 x.*Use/ })
 const slot = () =>
   screen.getByRole('button', {
     name: 'Use selected currency on the central item',
@@ -59,49 +59,24 @@ const shared = () =>
 const craftingCalls = () =>
   fetchMock.mock.calls.filter(([url]) => String(url).includes('/workbench/'))
 
-it('only edits repeat mode and preserves raw inputs without applying a currency', () => {
+it('edits the pattern and toggles mode without using currency or exposing a count editor', () => {
   show()
-  fireEvent.contextMenu(currencyButton('Chaos Orb'))
   const before = localStorage.getItem(historyStorageKey)
-  fireEvent.click(toggle())
   fireEvent.change(screen.getByRole('textbox', { name: 'Pattern' }), {
     target: { value: '^.+Life$' },
   })
-  fireEvent.change(screen.getByRole('textbox', { name: 'Maximum uses' }), {
-    target: { value: '0010' },
-  })
+  expect(within(controls()).getAllByRole('textbox')).toHaveLength(1)
+  expect(toggle()).toHaveAttribute('aria-pressed', 'false')
+  expect(toggle()).toHaveTextContent('1000 x')
+  fireEvent.click(toggle())
   expect(toggle()).toHaveAttribute('aria-pressed', 'true')
-  expect(screen.getByRole('textbox', { name: 'Maximum uses' })).toHaveValue(
-    '0010',
-  )
+  fireEvent.click(toggle())
+  expect(toggle()).toHaveAttribute('aria-pressed', 'false')
   expect(localStorage.getItem(historyStorageKey)).toBe(before)
   expect(craftingCalls()).toHaveLength(0)
-  expect(controls()).toHaveAttribute('aria-busy', 'false')
-  expect(screen.queryByText('Applying Chaos…')).toBeNull()
 })
 
-it.each(['', '0', '1001', '1e2', '-1', '1.5'])(
-  'blocks invalid maximum %s without a batch or single fallback',
-  (value) => {
-    show()
-    fireEvent.contextMenu(currencyButton('Chaos Orb'))
-    fireEvent.click(toggle())
-    fireEvent.change(screen.getByRole('textbox', { name: 'Maximum uses' }), {
-      target: { value },
-    })
-    fireEvent.click(slot())
-    expect(craftingCalls()).toHaveLength(0)
-    expect(screen.getByRole('textbox', { name: 'Maximum uses' })).toHaveValue(
-      value,
-    )
-    expect(screen.getByRole('alert')).toHaveTextContent(
-      'Enter a whole number from 1 to 1000.',
-    )
-    expect(localStorage.getItem(historyStorageKey)).toBeNull()
-  },
-)
-
-it('keeps other currencies on their existing single-application path while repeat mode is on', async () => {
+it('keeps the central item on its existing single-application path', async () => {
   show()
   fireEvent.click(toggle())
   fireEvent.contextMenu(currencyButton('Orb of Transmutation'))

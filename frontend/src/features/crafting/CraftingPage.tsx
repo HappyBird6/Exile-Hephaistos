@@ -1,7 +1,6 @@
 import { createPortal } from 'react-dom'
 import { defenceDisplay } from './defenceDisplay'
 import { preciseModifierProjection } from './sanctification/preciseModifierProjection'
-import { temporaryAmuletPassive } from './base-picker/temporaryAmuletPassive'
 import {
   applyBone,
   isBone,
@@ -27,7 +26,7 @@ import {
   supersededBases,
 } from './baseRegistry'
 import type { WorkbenchBaseKey } from './baseRegistry'
-import { topBase, topBaseKey } from './topBases'
+import { basePropertyLines, topBase, topBaseKey } from './topBases'
 import { WorkbenchBasePicker } from './base-picker/WorkbenchBasePicker'
 import { SessionLibrary } from './session-library/SessionLibrary'
 import { SessionLibraryButtons } from './session-library/SessionLibraryButtons'
@@ -61,9 +60,7 @@ import { MaterialTooltip } from './MaterialTooltip'
 import {
   ChaosRepeatControls,
   chaosRepeatCurrencyIds,
-  defaultChaosRepeatMaximumUses,
   chaosRepeatMaximumUsesLimit,
-  parseChaosRepeatMaximumUses,
   chaosRepeatControlMessages,
 } from './chaos-repeat/controls'
 import type {
@@ -298,9 +295,6 @@ export function CraftingPage() {
   const [held, setHeld] = useState<WorkbenchResource | null>(null)
   const [repeatEnabled, setRepeatEnabled] = useState(false)
   const [repeatPattern, setRepeatPattern] = useState('')
-  const [repeatMaximumUses, setRepeatMaximumUses] = useState(
-    defaultChaosRepeatMaximumUses,
-  )
   const [repeatErrors, setRepeatErrors] = useState<ChaosRepeatControlErrors>({})
   const [repeatHintRequest, setRepeatHintRequest] = useState<{
     materialId: ChaosRepeatCurrencyId
@@ -827,18 +821,6 @@ export function CraftingPage() {
       (action === 'CHAOS' ||
         action === 'GREATER_CHAOS' ||
         action === 'PERFECT_CHAOS')
-    const maximumUses = parseChaosRepeatMaximumUses(repeatMaximumUses)
-    if (repeatingChaos && maximumUses === null) {
-      setRepeatErrors({
-        maximumUses: chaosRepeatControlMessages[
-          locale
-        ].invalidMaximumUses.replace(
-          '{maximum}',
-          String(chaosRepeatMaximumUsesLimit),
-        ),
-      })
-      return
-    }
     const controller = new AbortController()
     applyingRequest.current = controller
     setApplying({
@@ -890,7 +872,7 @@ export function CraftingPage() {
             : [...draft.activeOmens],
           pattern: repeatPattern,
           locale,
-          maximumUses: maximumUses!,
+          maximumUses: chaosRepeatMaximumUsesLimit,
         }
         const history =
           filmState.revision === revision
@@ -1345,7 +1327,7 @@ export function CraftingPage() {
             itemClass: baseClass(catalogBase),
             itemLevel: concrete.itemLevel,
             properties: [
-              ...(topBase(catalogBase)?.sourceProperties?.[locale] ?? [])
+              ...basePropertyLines(catalogBase, locale)
                 .filter(
                   (text, index) =>
                     !defences.replacedSourceIndexes.has(index) &&
@@ -1433,15 +1415,6 @@ export function CraftingPage() {
                           : t('base.sockets', {
                               value: concrete.augmentSockets,
                             }),
-                    },
-                  ]
-                : []),
-              ...(baseClass(catalogBase) === 'Amulets' &&
-              draft.source === 'base'
-                ? [
-                    {
-                      id: 'temporary-passive-policy',
-                      text: temporaryAmuletPassive(locale),
                     },
                   ]
                 : []),
@@ -1771,11 +1744,9 @@ export function CraftingPage() {
                     <ChaosRepeatControls
                       enabled={repeatEnabled}
                       pattern={repeatPattern}
-                      maximumUses={repeatMaximumUses}
                       running={repeatRunning}
                       disabled={workbenchBusy}
                       errors={repeatErrors}
-                      serverMaximumUses={chaosRepeatMaximumUsesLimit}
                       currencyId={
                         chaosRepeatCurrencyIds.includes(
                           cursor?.id as ChaosRepeatCurrencyId,
@@ -1792,12 +1763,6 @@ export function CraftingPage() {
                       onPatternChange={(value) => {
                         if (!mutationLocked()) {
                           setRepeatPattern(value)
-                          setRepeatErrors({})
-                        }
-                      }}
-                      onMaximumUsesChange={(value) => {
-                        if (!mutationLocked()) {
-                          setRepeatMaximumUses(value)
                           setRepeatErrors({})
                         }
                       }}

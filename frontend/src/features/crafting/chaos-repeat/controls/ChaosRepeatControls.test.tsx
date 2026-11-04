@@ -1,385 +1,125 @@
 import { readFileSync } from 'node:fs'
-import { act, fireEvent, render, screen, within } from '@testing-library/react'
-import { afterEach, beforeEach, expect, it, vi } from 'vitest'
+import { act, fireEvent, render, screen } from '@testing-library/react'
+import { afterEach, expect, it, vi } from 'vitest'
 import { locales, setLocale } from '../../../../shared/i18n/i18n'
-import {
-  FeedbackTooltipOutlet,
-  FeedbackTooltipProvider,
-} from '../../feedback-tooltip/FeedbackTooltipProvider'
 import { ChaosRepeatControls } from './ChaosRepeatControls'
 import { chaosRepeatControlMessages } from './messages'
-import { chaosRepeatCurrencyIds, defaultChaosRepeatMaximumUses } from './types'
+import { chaosRepeatCurrencyIds } from './types'
 import type { ChaosRepeatControlsProps } from './types'
-import { parseChaosRepeatMaximumUses } from './maximumUses'
-
-const css = readFileSync(
-  'src/features/crafting/chaos-repeat/controls/chaos-repeat-controls.css',
-  'utf8',
-)
-let style: HTMLStyleElement
-beforeEach(() => {
-  style = document.createElement('style')
-  style.textContent = css
-  document.head.append(style)
-})
-afterEach(() => {
-  style.remove()
-  vi.restoreAllMocks()
-})
-
 function props(
   overrides: Partial<ChaosRepeatControlsProps> = {},
 ): ChaosRepeatControlsProps {
   return {
     enabled: false,
     pattern: '',
-    maximumUses: defaultChaosRepeatMaximumUses,
     running: false,
     onEnabledChange: vi.fn(),
     onPatternChange: vi.fn(),
-    onMaximumUsesChange: vi.fn(),
     ...overrides,
   }
 }
-
-it('edits controlled mode only, leaves execution to the caller and supports a keyboard-generated click', () => {
-  const input = props()
-  const fetch = vi.spyOn(globalThis, 'fetch')
-  const view = render(<ChaosRepeatControls {...input} />)
-  const toggle = screen.getByRole('button', {
-    name: /OFF.*Chaos Orb.*Continue using/,
-  })
-  expect(toggle).toHaveAttribute('type', 'button')
-  expect(toggle).toHaveAttribute('aria-pressed', 'false')
-  expect(toggle).toHaveAccessibleDescription(chaosRepeatControlMessages.en.hint)
-  act(() => toggle.focus())
-  expect(toggle).toHaveFocus()
-  fireEvent.click(toggle, { detail: 0 })
-  expect(input.onEnabledChange).toHaveBeenCalledExactlyOnceWith(true)
-  expect(toggle).toHaveAttribute('aria-pressed', 'false')
-  expect(input.onPatternChange).not.toHaveBeenCalled()
-  expect(input.onMaximumUsesChange).not.toHaveBeenCalled()
-  expect(fetch).not.toHaveBeenCalled()
-  view.rerender(<ChaosRepeatControls {...input} enabled />)
-  expect(toggle).toHaveAttribute('aria-pressed', 'true')
-  expect(toggle).toHaveAccessibleName(/ON.*Chaos Orb/)
-  fireEvent.click(toggle)
-  expect(input.onEnabledChange).toHaveBeenLastCalledWith(false)
-  expect(fetch).not.toHaveBeenCalled()
+afterEach(() => {
+  setLocale('en')
+  vi.restoreAllMocks()
 })
-
-it('forwards regex-like pattern and raw maximum strings without compiling, trimming or clamping the controlled value', () => {
+it.each(locales)(
+  'renders only the fixed-use button and pattern input in %s',
+  (locale) => {
+    act(() => setLocale(locale))
+    render(<ChaosRepeatControls {...props()} />)
+    expect(screen.getByRole('group').children).toHaveLength(2)
+    expect(screen.getAllByRole('button')).toHaveLength(1)
+    expect(screen.getAllByRole('textbox')).toHaveLength(1)
+    expect(screen.getByRole('button')).toHaveTextContent('1000 x')
+    expect(screen.getByRole('button')).toHaveAttribute('aria-pressed', 'false')
+    expect(screen.getByRole('textbox')).toHaveAttribute(
+      'placeholder',
+      chaosRepeatControlMessages[locale].patternPlaceholder,
+    )
+    expect(screen.queryByRole('spinbutton')).toBeNull()
+    expect(screen.queryByRole('switch')).toBeNull()
+    expect(screen.queryByRole('alert')).toBeNull()
+    expect(screen.queryByText('ON')).toBeNull()
+    expect(screen.queryByText('OFF')).toBeNull()
+  },
+)
+it('uses the exact Korean placeholder and toggles through a keyboard-generated click without changing input', () => {
+  act(() => setLocale('ko'))
   const input = props()
-  const view = render(<ChaosRepeatControls {...input} />)
-  const pattern = screen.getByLabelText('Pattern')
-  const maximum = screen.getByLabelText('Maximum uses')
-  expect(maximum).toHaveValue('100')
-  expect(maximum).not.toHaveAttribute('max')
-  expect(pattern).not.toHaveAttribute('pattern')
-  for (const value of ['[(', '  +12 Fire  ', '(?i)test', '']) {
-    fireEvent.change(pattern, { target: { value } })
-    expect(input.onPatternChange).toHaveBeenLastCalledWith(value)
-    view.rerender(<ChaosRepeatControls {...input} pattern={value} />)
-    expect(pattern).toHaveValue(value)
-  }
-  for (const value of ['00501', '500000', '-2', '1e', '']) {
-    fireEvent.change(maximum, { target: { value } })
-    expect(input.onMaximumUsesChange).toHaveBeenLastCalledWith(value)
-    view.rerender(<ChaosRepeatControls {...input} maximumUses={value} />)
-    expect(maximum).toHaveValue(value)
-  }
-  expect(maximum).toHaveAttribute('aria-invalid', 'true')
-  expect(screen.getByRole('alert')).toHaveTextContent(
-    'Enter a whole number from 1 to 1000.',
+  const network = vi.spyOn(globalThis, 'fetch')
+  render(<ChaosRepeatControls {...input} />)
+  expect(screen.getByRole('textbox')).toHaveAttribute(
+    'placeholder',
+    '정규식 패턴을 입력해주세요',
   )
-  view.rerender(<ChaosRepeatControls {...input} maximumUses="1000" />)
-  expect(maximum).toHaveAttribute('aria-invalid', 'false')
-  expect(screen.queryByRole('alert')).not.toBeInTheDocument()
-  expect(screen.getByRole('status')).toBeEmptyDOMElement()
+  const button = screen.getByRole('button')
+  act(() => button.focus())
+  expect(button).toHaveFocus()
+  fireEvent.click(button, { detail: 0 })
+  expect(input.onEnabledChange).toHaveBeenCalledExactlyOnceWith(true)
+  expect(input.onPatternChange).not.toHaveBeenCalled()
+  expect(network).not.toHaveBeenCalled()
 })
-
 it.each(chaosRepeatCurrencyIds)(
-  'represents %s with the existing Chaos asset and ON/OFF color',
+  'keeps the selected %s variant on the use button',
   (currencyId) => {
     const input = props({ currencyId })
-    const view = render(<ChaosRepeatControls {...input} />)
-    const region = screen.getByRole('region')
-    expect(region).toHaveAttribute('data-chaos-repeat-currency', currencyId)
-    const image = region.querySelector('img')!
-    expect(image).toHaveAttribute(
-      'src',
-      '/assets/currency/CurrencyRerollRare.webp',
-    )
-    expect(image).toHaveAttribute('alt', '')
-    expect(getComputedStyle(image.parentElement!).filter).toBe('grayscale(1)')
-    view.rerender(<ChaosRepeatControls {...input} enabled />)
-    expect(getComputedStyle(image.parentElement!).filter).toBe('none')
-    expect(screen.getByRole('button')).toHaveAccessibleName(
-      currencyId === 'Chaos_Orb'
-        ? /ON.*Chaos Orb/
-        : currencyId === 'Greater_Chaos_Orb'
-          ? /ON.*Greater Chaos Orb/
-          : /ON.*Perfect Chaos Orb/,
-    )
-  },
-)
-
-it.each(['0', '-1', '1.5', '1001', ''])(
-  'marks count %j invalid and exposes null to the caller without executing or clamping',
-  (maximumUses) => {
-    const input = props({ maximumUses, enabled: true })
-    const fetch = vi.spyOn(globalThis, 'fetch')
     render(<ChaosRepeatControls {...input} />)
-    const maximum = screen.getByLabelText('Maximum uses')
-    expect(maximum).toHaveValue(maximumUses)
-    expect(maximum).toHaveAttribute('aria-invalid', 'true')
-    expect(maximum).toHaveAccessibleDescription(
-      expect.stringContaining('Enter a whole number from 1 to 1000.'),
+    expect(screen.getByRole('group')).toHaveAttribute(
+      'data-chaos-repeat-currency',
+      currencyId,
     )
-    expect(parseChaosRepeatMaximumUses(maximumUses)).toBeNull()
-    const toggle = screen.getByRole('button')
-    expect(toggle).toBeEnabled()
-    fireEvent.click(toggle)
-    expect(input.onEnabledChange).toHaveBeenCalledExactlyOnceWith(false)
-    expect(input.onMaximumUsesChange).not.toHaveBeenCalled()
-    expect(fetch).not.toHaveBeenCalled()
-    expect(screen.getByRole('status')).toBeEmptyDOMElement()
+    expect(screen.getByRole('group').querySelector('img')).toHaveAttribute(
+      'alt',
+      '',
+    )
+    fireEvent.click(screen.getByRole('button'))
+    expect(input.onEnabledChange).toHaveBeenCalledExactlyOnceWith(true)
   },
 )
-
-it('retains a lower server cap as display-only and prioritizes its supplied error', () => {
-  const input = props({ maximumUses: '900', serverMaximumUses: 25 })
+it('forwards regex source unchanged and leaves rejection text in the shared feedback area', () => {
+  const input = props()
   const view = render(<ChaosRepeatControls {...input} />)
-  expect(screen.getByLabelText('Maximum uses')).toHaveValue('900')
-  expect(screen.getByLabelText('Maximum uses')).toHaveAttribute(
-    'aria-invalid',
-    'false',
-  )
-  expect(screen.getByText('Server limit: 25')).toBeVisible()
-  expect(parseChaosRepeatMaximumUses('900')).toBe(900)
+  for (const value of ['[(', '  +12 Fire  ', '(?i)test', '']) {
+    fireEvent.change(screen.getByRole('textbox'), { target: { value } })
+    expect(input.onPatternChange).toHaveBeenLastCalledWith(value)
+    view.rerender(<ChaosRepeatControls {...input} pattern={value} />)
+    expect(screen.getByRole('textbox')).toHaveValue(value)
+  }
   view.rerender(
-    <ChaosRepeatControls
-      {...input}
-      maximumUses="1001"
-      errors={{ maximumUses: 'Server cap is 25' }}
-    />,
+    <ChaosRepeatControls {...input} errors={{ pattern: 'Rejected' }} />,
   )
-  expect(screen.getByRole('alert')).toHaveTextContent('Server cap is 25')
-  expect(
-    screen.queryByText('Enter a whole number from 1 to 1000.'),
-  ).not.toBeInTheDocument()
+  expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid', 'true')
+  expect(screen.queryByText('Rejected')).toBeNull()
 })
-
-it('keeps external errors and reported cap independent from UI count validation and success', () => {
-  const input = props({
-    pattern: '[',
-    maximumUses: '900',
-    serverMaximumUses: null,
-  })
-  const view = render(<ChaosRepeatControls {...input} />)
-  expect(screen.queryByText(/Server limit:/)).not.toBeInTheDocument()
-  expect(screen.getByLabelText('Pattern')).toHaveAttribute(
-    'aria-invalid',
-    'false',
-  )
-  expect(screen.getByRole('status')).toBeEmptyDOMElement()
-  view.rerender(
-    <ChaosRepeatControls
-      {...input}
-      serverMaximumUses={1200}
-      errors={{
-        pattern: 'Pattern rejected by server',
-        maximumUses: 'Maximum rejected by server',
-        request: 'Request failed',
-      }}
-    />,
-  )
-  const pattern = screen.getByLabelText('Pattern')
-  const maximum = screen.getByLabelText('Maximum uses')
-  expect(pattern).toHaveAttribute('aria-invalid', 'true')
-  expect(pattern).toHaveAccessibleDescription(
-    expect.stringContaining('Pattern rejected by server'),
-  )
-  expect(maximum).toHaveAccessibleDescription(
-    '1–1000 uses (default: 100). Server limit: 1200 Maximum rejected by server',
-  )
-  expect(maximum).toHaveValue('900')
-  expect(maximum).not.toHaveAttribute('max')
-  expect(
-    screen.getAllByRole('alert').map((element) => element.textContent),
-  ).toEqual([
-    'Pattern rejected by server',
-    'Maximum rejected by server',
-    'Request failed',
-  ])
-  view.rerender(<ChaosRepeatControls {...input} />)
-  expect(screen.queryByRole('alert')).not.toBeInTheDocument()
-  expect(screen.getByRole('status')).toBeEmptyDOMElement()
-})
-
 it.each([
   { running: true, disabled: false },
   { running: false, disabled: true },
-])(
-  'locks callbacks and inputs only for external running=$running / disabled=$disabled',
-  ({ running, disabled }) => {
-    const input = props({ running, disabled, enabled: true })
-    const view = render(<ChaosRepeatControls {...input} />)
-    expect(screen.getByRole('region')).toHaveAttribute(
-      'aria-busy',
-      String(running),
-    )
-    for (const field of screen.getAllByRole('textbox')) {
-      expect(field).toBeDisabled()
-      fireEvent.change(field, { target: { value: 'changed' } })
-    }
-    const toggle = screen.getByRole('button')
-    expect(toggle).toBeDisabled()
-    fireEvent.click(toggle)
-    expect(input.onEnabledChange).not.toHaveBeenCalled()
-    expect(input.onPatternChange).not.toHaveBeenCalled()
-    expect(input.onMaximumUsesChange).not.toHaveBeenCalled()
-    const status = screen.getByRole('status')
-    expect(status).toHaveAttribute('aria-live', 'polite')
-    if (running) {
-      expect(status).toHaveTextContent('Applying Chaos…')
-      expect(
-        status.querySelector('.chaos-repeat-controls__spinner'),
-      ).toHaveAttribute('aria-hidden', 'true')
-    } else {
-      expect(status).toBeEmptyDOMElement()
-    }
-    expect(screen.queryByRole('progressbar')).not.toBeInTheDocument()
-    view.rerender(
-      <ChaosRepeatControls {...input} running={false} disabled={false} />,
-    )
-    expect(status).toBeEmptyDOMElement()
-    expect(toggle).toBeEnabled()
-  },
-)
-
-it.each(locales)(
-  'labels inputs, busy state and shared explanation in %s',
-  (locale) => {
-    setLocale(locale)
-    const messages = chaosRepeatControlMessages[locale]
-    const view = render(<ChaosRepeatControls {...props({ running: true })} />)
-    expect(screen.getByRole('region', { name: messages.mode })).toHaveAttribute(
-      'data-feedback-tooltip',
-      messages.hint,
-    )
-    expect(screen.getByLabelText(messages.pattern)).toBeInTheDocument()
-    expect(screen.getByLabelText(messages.maximumUses)).toHaveValue('100')
-    expect(screen.getByRole('button')).toHaveAccessibleDescription(
-      messages.hint,
-    )
-    expect(screen.getByRole('status')).toHaveTextContent(messages.running)
-    expect(screen.getByLabelText(messages.pattern)).toHaveAccessibleDescription(
-      `${messages.hint} ${messages.patternHelp}`,
-    )
-    const help = messages.maximumUsesHelp
-      .replace('{maximum}', '1000')
-      .replace('{default}', '100')
-    expect(
-      screen.getByLabelText(messages.maximumUses),
-    ).toHaveAccessibleDescription(help)
-    view.rerender(<ChaosRepeatControls {...props({ maximumUses: '1001' })} />)
-    expect(screen.getByRole('alert')).toHaveTextContent(
-      messages.invalidMaximumUses.replace('{maximum}', '1000'),
-    )
-    expect(screen.getByLabelText(messages.maximumUses)).toHaveAttribute(
-      'aria-invalid',
-      'true',
-    )
-    if (locale === 'ko')
-      expect(messages.hint).toBe('옵션에 패턴이 등장할때까지 카오스 사용')
-  },
-)
-
-it.each(['hover', 'focus', 'touch', 'click'] as const)(
-  'uses shared feedback for %s without a second tooltip',
-  (interaction) => {
-    const input = props({ onHintInteraction: vi.fn() })
-    render(
-      <FeedbackTooltipProvider enabled>
-        <ChaosRepeatControls {...input} />
-        <FeedbackTooltipOutlet />
-      </FeedbackTooltipProvider>,
-    )
-    const toggle = screen.getByRole('button')
-    if (interaction === 'hover') fireEvent.pointerOver(toggle)
-    if (interaction === 'focus') fireEvent.focus(toggle)
-    if (interaction === 'touch')
-      fireEvent.pointerDown(toggle, { pointerType: 'touch' })
-    if (interaction === 'click') fireEvent.click(toggle)
-    expect(screen.getAllByRole('tooltip')).toHaveLength(1)
-    expect(screen.getByRole('tooltip')).toHaveTextContent(
-      chaosRepeatControlMessages.en.hint,
-    )
-    expect(input.onHintInteraction).toHaveBeenCalledWith('Chaos_Orb')
-    expect(toggle).not.toHaveAttribute('title')
-  },
-)
-
-it.each(['Chaos_Orb', 'Exalted_Orb'])(
-  'preserves the existing %s priority while reporting the hint for future composition',
-  (priorityMaterialId) => {
-    const input = props({ onHintInteraction: vi.fn() })
-    render(
-      <FeedbackTooltipProvider enabled priorityMaterialId={priorityMaterialId}>
-        <ChaosRepeatControls {...input} />
-        <FeedbackTooltipOutlet />
-      </FeedbackTooltipProvider>,
-    )
-    const tooltip = screen.getByRole('tooltip')
-    const previous = tooltip.textContent
-    fireEvent.pointerOver(screen.getByRole('button'))
-    fireEvent.pointerDown(screen.getByRole('button'), { pointerType: 'touch' })
-    expect(tooltip.textContent).toBe(previous)
-    expect(
-      within(tooltip).queryByText(chaosRepeatControlMessages.en.hint),
-    ).not.toBeInTheDocument()
-    expect(input.onHintInteraction).toHaveBeenCalledWith('Chaos_Orb')
-  },
-)
-
-it('wraps controls within a narrow host and provides static reduced-motion busy feedback', () => {
-  render(
-    <div style={{ width: 120 }}>
-      <ChaosRepeatControls
-        {...props({
-          running: true,
-          serverMaximumUses: 10000,
-          errors: { request: 'VeryLongUnbrokenExternalErrorMessage' },
-        })}
-      />
-    </div>,
+])('locks both assets with $running / $disabled', (state) => {
+  const input = props(state)
+  const view = render(<ChaosRepeatControls {...input} />)
+  expect(screen.getByRole('button')).toBeDisabled()
+  expect(screen.getByRole('textbox')).toBeDisabled()
+  fireEvent.click(screen.getByRole('button'))
+  fireEvent.change(screen.getByRole('textbox'), { target: { value: 'x' } })
+  expect(input.onEnabledChange).not.toHaveBeenCalled()
+  expect(input.onPatternChange).not.toHaveBeenCalled()
+  expect(
+    Boolean(document.querySelector('.chaos-repeat-controls__spinner')),
+  ).toBe(state.running)
+  view.rerender(
+    <ChaosRepeatControls {...input} running={false} disabled={false} />,
   )
-  const root = screen.getByRole('region')
-  expect(getComputedStyle(root).maxWidth).toBe('100%')
-  expect(getComputedStyle(root).overflowWrap).toBe('anywhere')
-  expect(Number.parseFloat(getComputedStyle(root).minWidth)).toBe(0)
-  for (const selector of [
-    '.chaos-repeat-controls__main',
-    '.chaos-repeat-controls__limit-row',
-    '.chaos-repeat-controls__toggle',
-  ]) {
-    expect(getComputedStyle(root.querySelector(selector)!).flexWrap).toBe(
-      'wrap',
-    )
-  }
-  for (const input of screen.getAllByRole('textbox')) {
-    expect(getComputedStyle(input).maxWidth).toBe('100%')
-    expect(Number.parseFloat(getComputedStyle(input).minWidth)).toBe(0)
-  }
-  const spinner = root.querySelector('.chaos-repeat-controls__spinner')!
-  expect(getComputedStyle(spinner).animation).toContain('infinite')
-  const reducedMotion = [...style.sheet!.cssRules].find(
-    (rule) => rule.type === CSSRule.MEDIA_RULE,
-  ) as CSSMediaRule
-  expect(reducedMotion.conditionText).toBe('(prefers-reduced-motion: reduce)')
-  expect((reducedMotion.cssRules[0] as CSSStyleRule).style.animation).toBe(
-    'none',
+  expect(screen.getByRole('button')).toBeEnabled()
+  expect(screen.getByRole('textbox')).toBeEnabled()
+})
+it('keeps a responsive undecorated wrapper and reduced-motion calculating indicator', () => {
+  const css = readFileSync(
+    'src/features/crafting/chaos-repeat/controls/chaos-repeat-controls.css',
+    'utf8',
   )
-  expect(screen.getByRole('status')).toHaveTextContent('Applying Chaos…')
+  expect(css).toContain('flex-wrap: wrap')
+  expect(css).toContain('border: 0')
+  expect(css).toContain('background: none')
+  expect(css).toContain('prefers-reduced-motion')
 })

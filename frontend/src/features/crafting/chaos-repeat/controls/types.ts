@@ -6,7 +6,7 @@ export const chaosRepeatCurrencyIds = [
 
 export type ChaosRepeatCurrencyId = (typeof chaosRepeatCurrencyIds)[number]
 
-/** Initial editor value, not a server cap or an enforced UI limit. */
+/** API fallback for omitted maximumUses; the workbench button explicitly requests 1000. */
 export const defaultChaosRepeatMaximumUses = '100'
 
 /** User-approved UI request limit; independent of the server's reported cap. */
@@ -21,18 +21,13 @@ export type ChaosRepeatControlErrors = {
 export type ChaosRepeatControlsProps = {
   enabled: boolean
   pattern: string
-  /** Preserve raw input, including empty/incomplete values, for parent validation. */
-  maximumUses: string
   /** True only for an actual in-flight request owned by the caller. */
   running: boolean
   disabled?: boolean
   currencyId?: ChaosRepeatCurrencyId
   errors?: ChaosRepeatControlErrors
-  /** Display-only, externally validated cap. null/undefined means unknown. */
-  serverMaximumUses?: number | null
   onEnabledChange: (enabled: boolean) => void
   onPatternChange: (pattern: string) => void
-  onMaximumUsesChange: (maximumUses: string) => void
   /** Optional hook for adding a hint to the same selected/held Chaos description. */
   onHintInteraction?: (currencyId: ChaosRepeatCurrencyId) => void
 }

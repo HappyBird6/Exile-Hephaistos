@@ -536,7 +536,7 @@ describe('Item text import', () => {
       expect(parseSignal?.aborted).toBe(true)
       fireEvent.click(screen.getByRole('button', { name: 'Edit item' }))
       fireEvent.click(
-        screen.getByRole('button', { name: /OFF.*Continue using/ }),
+        screen.getByRole('button', { name: '1000 x Chaos Orb Use' }),
       )
       fireEvent.change(screen.getByRole('textbox', { name: 'Pattern' }), {
         target: { value: '.' },

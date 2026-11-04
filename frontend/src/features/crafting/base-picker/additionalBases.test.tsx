@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { render, screen } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
@@ -5,7 +6,17 @@ import { CraftingPage } from '../CraftingPage'
 import { useItemDraft } from '../draft'
 import { baseStartingRarity, selectableBaseKeys } from '../baseRegistry'
 import { topBase } from '../topBases'
-import { temporaryAmuletPassive } from './temporaryAmuletPassive'
+import { ItemCard } from '../ItemCard'
+import { basePreview, workbenchBaseChoices } from './baseChoices'
+import { concreteInitial } from '../workbenchApi'
+import type { Definition, Initial } from '../craftingApi'
+import {
+  emptyFilms,
+  historyStorageKey,
+  LocalFilmRepository,
+  startFilm,
+} from '../workbenchHistory'
+import { locales, setLocale } from '../../../shared/i18n/i18n'
 
 it('supports confirmed rings with sourced affix capacities', () => {
   for (const [key, prefixes, suffixes] of [
@@ -26,10 +37,111 @@ it('supports confirmed rings with sourced affix capacities', () => {
     expect(base.implicitStats?.length).toBeGreaterThan(0)
   }
 })
-it('labels the temporary passive example in every locale without inventing effects', () => {
-  for (const locale of ['en', 'ko', 'ja', 'zh-CN', 'zh-TW', 'es'] as const)
-    expect(temporaryAmuletPassive(locale)).toContain('Heavy Ammunition')
+it('shows amulet previews without internal policy notes and keeps their existing skills in every locale', () => {
+  for (const locale of locales)
+    for (const choice of workbenchBaseChoices(locale).filter(
+      (choice) => choice.itemClass === 'Amulets',
+    )) {
+      const base = topBase(choice.key)
+      const original = JSON.stringify(base)
+      const card = basePreview(choice, 82, locale)
+      expect(
+        card.properties.some((line) => line.id === 'temporary-passive-policy'),
+      ).toBe(false)
+      if (
+        base?.temporaryBaseOption?.kind === 'SOURCE_FIRST_GRANTED_SKILL_EXAMPLE'
+      ) {
+        expect(card.properties.map((line) => line.text)).toEqual(
+          base.skillLines![locale],
+        )
+        const view = render(<ItemCard item={card} />)
+        for (const skill of base.skillLines![locale])
+          expect(screen.getByRole('article')).toHaveTextContent(skill)
+        expect(screen.getByRole('article')).not.toHaveTextContent(
+          /user policy|사용자 정책|ユーザー方針|用户策略|使用者方針|política del usuario/i,
+        )
+        view.unmount()
+      }
+      expect(JSON.stringify(base)).toBe(original)
+    }
 })
+it.each(['lament-amulet', 'portent-amulet', 'absent-amulet'] as const)(
+  'keeps the %s item and saved skill display without temporary notes or duplicate skill lines',
+  (key) => {
+    localStorage.clear()
+    setLocale('ko')
+    useItemDraft.getState().setBase(82, key)
+    const base = topBase(key)!
+    const catalog = JSON.parse(
+      readFileSync(
+        `../backend/src/main/resources/catalog/${base.pool}/catalog.json`,
+        'utf8',
+      ),
+    )
+    const initial: Initial = {
+      ruleVersion: 'fixture',
+      rulesetIdentity: 'fixture-ruleset',
+      metadata: catalog.metadata,
+      id: 'fixture',
+      actions: [],
+      baseRules: catalog.base,
+      state: {
+        snapshotId: catalog.metadata.snapshotId,
+        baseItemId: base.id,
+        itemLevel: 82,
+        rarity: baseStartingRarity(key),
+        conditions: [],
+        modifierIds: [],
+        implicits: [
+          {
+            modifierId: base.implicitModifierId!,
+            values: Object.fromEntries(
+              base.implicitStats!.map((stat) => [stat.id, stat.max]),
+            ),
+          },
+        ],
+      },
+      modifiers: Object.fromEntries(
+        catalog.modifiers.map((definition: Definition) => [
+          definition.id,
+          definition,
+        ]),
+      ),
+    }
+    const state = concreteInitial(initial)
+    const original = JSON.stringify(state)
+    const history = startFilm(
+      emptyFilms(),
+      state,
+      'amulet-display',
+      initial.rulesetIdentity,
+    )
+    new LocalFilmRepository(localStorage).save(history)
+    const stored = localStorage.getItem(historyStorageKey)
+    vi.stubGlobal('fetch', () => new Promise(() => {}))
+    const client = new QueryClient({
+      defaultOptions: { queries: { retry: false } },
+    })
+    client.setQueryData(['crafting', 'initial', key, 82, 'manual'], initial)
+    const view = render(
+      <QueryClientProvider client={client}>
+        <CraftingPage />
+      </QueryClientProvider>,
+    )
+    const article = screen.getByRole('article')
+    expect(article).not.toHaveTextContent('임시')
+    expect(article).not.toHaveTextContent('사용자 정책')
+    expect(article).not.toHaveTextContent('Heavy Ammunition')
+    for (const skill of base.skillLines!.ko) {
+      expect(article).toHaveTextContent(skill)
+      expect(article.textContent!.split(skill)).toHaveLength(2)
+    }
+    expect(JSON.stringify(state)).toBe(original)
+    expect(localStorage.getItem(historyStorageKey)).toBe(stored)
+    view.unmount()
+    client.clear()
+  },
+)
 it('renders a Rare fallback while the Rare-only base catalog loads', () => {
   localStorage.clear()
   useItemDraft.getState().setBase(82, 'dusk-amulet')
@@ -50,4 +162,6 @@ it('renders a Rare fallback while the Rare-only base catalog loads', () => {
 afterEach(() => {
   vi.unstubAllGlobals()
   useItemDraft.getState().setBase()
+  setLocale('en')
+  localStorage.clear()
 })

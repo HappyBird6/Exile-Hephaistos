@@ -1,4 +1,5 @@
 import data from './topBases.json'
+import type { Locale } from '../../shared/i18n/i18n'
 
 export type TopBaseKey = keyof typeof data
 type TopBase = {
@@ -35,6 +36,16 @@ type TopBase = {
 }
 export function topBase(key: string): TopBase | undefined {
   return Object.hasOwn(data, key) ? data[key as TopBaseKey] : undefined
+}
+export function basePropertyLines(key: string, locale: Locale): string[] {
+  const base = topBase(key)
+  const properties = base?.sourceProperties?.[locale] ?? []
+  if (base?.temporaryBaseOption?.kind !== 'SOURCE_FIRST_GRANTED_SKILL_EXAMPLE')
+    return [...properties]
+  const skills = base.skillLines?.[locale] ?? []
+  return properties.map(
+    (text) => skills.find((skill) => text.includes(skill)) ?? text,
+  )
 }
 export const reviewedGloveKeys = (Object.keys(data) as TopBaseKey[]).filter(
   (key) => data[key].family === 'gloves',

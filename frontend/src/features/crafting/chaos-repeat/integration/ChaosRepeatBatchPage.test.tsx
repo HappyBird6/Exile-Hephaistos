@@ -129,12 +129,12 @@ const notation = () =>
   document.querySelector<HTMLElement>('.wb-session-notation')!
 const shared = () =>
   document.querySelector<HTMLElement>('.workbench-feedback-tooltip')!
-function configure(id: ChaosRepeatCurrencyId = 'Chaos_Orb', maximum = '100') {
+function configure(id: ChaosRepeatCurrencyId = 'Chaos_Orb') {
   const toggle = controlRegion().querySelector<HTMLButtonElement>('button')!
   if (toggle.getAttribute('aria-pressed') === 'false') fireEvent.click(toggle)
-  const inputs = controlRegion().querySelectorAll('input')
-  fireEvent.change(inputs[0]!, { target: { value: '.' } })
-  fireEvent.change(inputs[1]!, { target: { value: maximum } })
+  fireEvent.change(controlRegion().querySelector('input')!, {
+    target: { value: '.' },
+  })
   fireEvent.contextMenu(
     document.querySelector(
       `.currency-catalog [data-material-tooltip="${id}"]`,
@@ -171,7 +171,7 @@ it.each([
     expect(requests[0]).toMatchObject({
       action,
       state: { kind },
-      maximumUses: 100,
+      maximumUses: 1000,
       pattern: '.',
       locale: 'en',
     })
@@ -273,7 +273,7 @@ it.each(['LIMIT', 'INAPPLICABLE', 'ERROR'] as const)(
     useItemDraft
       .getState()
       .setActiveOmens(['Omen_of_Putrefaction', 'Omen_of_Sinistral_Erasure'])
-    const uses = termination === 'LIMIT' ? 3 : 2
+    const uses = termination === 'LIMIT' ? 1000 : 2
     reply = (request, body) => {
       const value = positive(request, body, uses)
       value.termination = termination
@@ -295,7 +295,7 @@ it.each(['LIMIT', 'INAPPLICABLE', 'ERROR'] as const)(
     await waitFor(() =>
       expect(screen.getByRole('button', { name: 'Reveal' })).toBeEnabled(),
     )
-    configure('Perfect_Chaos_Orb', '3')
+    configure('Perfect_Chaos_Orb')
     fireEvent.click(slot())
     await finished(uses)
     expect(requests[0]!.activeOmens).toEqual(['Omen_of_Sinistral_Erasure'])
@@ -432,17 +432,17 @@ it('retains unknown omen IDs for rejection instead of silently filtering them wi
 
 it('treats the limit as a normal final result with the exact confirmed count', async () => {
   reply = (request, body) =>
-    batchResponse({ ...positive(request, body), termination: 'LIMIT' })
+    batchResponse({ ...positive(request, body, 1000), termination: 'LIMIT' })
   show()
-  configure('Chaos_Orb', '3')
+  configure('Chaos_Orb')
   fireEvent.click(slot())
-  await finished()
+  await finished(1000)
   expect(document.querySelector('.workbench-feedback-panel')).toHaveAttribute(
     'role',
     'status',
   )
   expect(document.querySelector('.workbench-feedback-panel')).toHaveTextContent(
-    'Reached the limit after 3 Chaos uses.',
+    'Reached the limit after 1,000 Chaos uses.',
   )
 })
 

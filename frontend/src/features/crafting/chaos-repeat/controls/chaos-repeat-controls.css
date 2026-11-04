@@ -1,30 +1,17 @@
 .chaos-repeat-controls {
   box-sizing: border-box;
-  display: grid;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 6px;
   min-width: 0;
   max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
   font: inherit;
   color: inherit;
-  overflow-wrap: anywhere;
-}
-.chaos-repeat-controls__main,
-.chaos-repeat-controls__limit-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 6px;
-  min-width: 0;
-}
-.chaos-repeat-controls label {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  min-width: 0;
-  max-width: 100%;
-}
-.chaos-repeat-controls__pattern {
-  flex: 1 1 10rem;
 }
 .chaos-repeat-controls input,
 .chaos-repeat-controls button {
@@ -38,23 +25,27 @@
   color: inherit;
   font: inherit;
 }
-.chaos-repeat-controls input {
-  width: 100%;
+.chaos-repeat-controls__pattern {
+  flex: 1 1 12rem;
 }
-.chaos-repeat-controls__limit-row label {
-  flex: 0 1 9rem;
+.chaos-repeat-controls__pattern::placeholder {
+  color: #a49c87;
+  opacity: 0.7;
 }
-.chaos-repeat-controls__limit-row input {
-  width: 6rem;
-}
-.chaos-repeat-controls__toggle {
+.chaos-repeat-controls__use {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   gap: 4px;
-  white-space: normal;
   cursor: pointer;
+}
+.chaos-repeat-controls__use[aria-pressed='false']
+  .chaos-repeat-controls__image {
+  filter: grayscale(1);
+}
+.chaos-repeat-controls__use[aria-pressed='true'] .chaos-repeat-controls__image {
+  filter: none;
 }
 .chaos-repeat-controls__image {
   display: grid;
@@ -62,16 +53,11 @@
   flex: 0 0 24px;
   width: 24px;
   height: 24px;
-  filter: grayscale(1);
 }
 .chaos-repeat-controls__image img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-}
-.chaos-repeat-controls__toggle[aria-pressed='true']
-  .chaos-repeat-controls__image {
-  filter: none;
 }
 .chaos-repeat-controls :disabled {
   cursor: default;
@@ -80,14 +66,6 @@
 .chaos-repeat-controls :focus-visible {
   outline: 2px solid #edce87;
   outline-offset: -2px;
-}
-.chaos-repeat-controls p {
-  margin: 0;
-}
-.chaos-repeat-controls__status {
-  display: flex;
-  align-items: center;
-  gap: 6px;
 }
 .chaos-repeat-controls__spinner {
   display: inline-block;
@@ -108,14 +86,4 @@
   .chaos-repeat-controls__spinner {
     animation: none;
   }
-}
-.chaos-repeat-controls__sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
 }
