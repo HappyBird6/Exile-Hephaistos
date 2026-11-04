@@ -30,6 +30,7 @@ export interface ItemCardLine {
   affixLabel?: string | undefined
   removalCandidate?: boolean | undefined
   fractured?: boolean | undefined
+  lastCurrencyAffected?: boolean | undefined
 }
 export interface ItemCardData {
   rarity: Item['rarity']

@@ -44,10 +44,20 @@ function Lines({
             data-fractured={
               line.fractured || line.kind === 'fractured' ? true : undefined
             }
+            data-last-currency-affected={
+              line.lastCurrencyAffected ? line.id : undefined
+            }
             {...(line.removalCandidate
               ? { ...candidateTitle, tabIndex: 0 }
               : {})}
           >
+            {line.lastCurrencyAffected && (
+              <span
+                className="item-card__last-currency-mark"
+                role="img"
+                aria-label={itemCardMessages[locale].lastCurrencyAffected}
+              />
+            )}
             {line.affixLabel && (
               <span className="item-card__affix">{line.affixLabel}</span>
             )}

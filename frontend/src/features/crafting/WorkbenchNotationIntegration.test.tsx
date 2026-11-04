@@ -89,6 +89,49 @@ it('places notation between the card and feedback and prioritizes the selected c
     'Orb of Transmutation',
   )
 })
+
+it('shows the last currency marker on the selected history step and preserves it after failure', async () => {
+  const mounted = show()
+  useCurrency('Orb of Transmutation')
+  await waitFor(() =>
+    expect(
+      document.querySelector('[data-last-currency-affected="p"]'),
+    ).toBeInTheDocument(),
+  )
+  const bytes = localStorage.getItem(historyStorageKey)
+  vi.stubGlobal('fetch', (input: RequestInfo | URL, init?: RequestInit) =>
+    String(input).endsWith('/workbench/apply')
+      ? Promise.reject(new Error('offline'))
+      : fixtureFetch(input, init),
+  )
+  useCurrency('Exalted Orb')
+  await waitFor(() =>
+    expect(document.querySelector('.workbench-feedback-panel')).toHaveAttribute(
+      'role',
+      'alert',
+    ),
+  )
+  expect(
+    document.querySelectorAll('.item-card__last-currency-mark'),
+  ).toHaveLength(1)
+  expect(localStorage.getItem(historyStorageKey)).toBe(bytes)
+  fireEvent.click(
+    screen.getByRole('button', { name: 'Previous crafting step' }),
+  )
+  expect(document.querySelector('.item-card__last-currency-mark')).toBeNull()
+  fireEvent.click(screen.getByRole('button', { name: 'Next crafting step' }))
+  expect(
+    document.querySelector('[data-last-currency-affected="p"]'),
+  ).toBeInTheDocument()
+  mounted.unmount()
+  client.clear()
+  show()
+  expect(
+    await screen.findByRole('img', {
+      name: 'Affected by the last currency application',
+    }),
+  ).toBeInTheDocument()
+})
 it('uses the active cursor and branch on undo and restores notation without editing the original film', async () => {
   const mounted = show()
   useCurrency('Orb of Transmutation')

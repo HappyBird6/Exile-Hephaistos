@@ -23,6 +23,49 @@ function card(item: ItemCardData) {
 }
 describe('ItemCard', () => {
   it.each(Object.entries(itemCardMessages))(
+    'marks affected options with one accessible red-circle element in %s without changing text',
+    (locale, messages) => {
+      setLocale(locale as keyof typeof itemCardMessages)
+      const item: ItemCardData = {
+        ...base,
+        modifiers: [
+          {
+            id: 'changed',
+            text: '+17 Life',
+            kind: 'explicit',
+            lastCurrencyAffected: true,
+            affixLabel: 'P1',
+            detail: 'Original roll',
+          },
+          { id: 'kept', text: '+6 Strength', kind: 'explicit' },
+        ],
+      }
+      const view = render(card(item))
+      const mark = screen.getByRole('img', {
+        name: messages.lastCurrencyAffected,
+      })
+      expect(mark).toHaveClass('item-card__last-currency-mark')
+      expect(mark.closest('.item-card__line')).toHaveAttribute(
+        'data-last-currency-affected',
+        'changed',
+      )
+      expect(mark).toBeEmptyDOMElement()
+      expect(screen.getByText('+17 Life')).toHaveTextContent('+17 Life')
+      expect(
+        screen.getByText('+6 Strength').closest('.item-card__line'),
+      ).not.toHaveAttribute('data-last-currency-affected')
+      view.rerender(
+        card({
+          ...base,
+          modifiers: [{ id: 'kept', text: '+6 Strength', kind: 'explicit' }],
+        }),
+      )
+      expect(
+        screen.queryByRole('img', { name: messages.lastCurrencyAffected }),
+      ).toBeNull()
+    },
+  )
+  it.each(Object.entries(itemCardMessages))(
     'renders a bottom sanctified flag in %s without changing item values',
     (locale, messages) => {
       setLocale(locale as keyof typeof itemCardMessages)

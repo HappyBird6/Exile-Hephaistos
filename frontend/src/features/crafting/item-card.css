@@ -94,6 +94,19 @@
 .item-card__line {
   position: relative;
 }
+.item-card__line[data-last-currency-affected] {
+  padding-inline-start: 0.85em;
+}
+.item-card__last-currency-mark {
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.6em;
+  width: 0.45em;
+  height: 0.45em;
+  border-radius: 50%;
+  background: #e34b4b;
+  pointer-events: none;
+}
 .item-card__affix {
   float: left;
   margin-right: 8px;

@@ -50,6 +50,7 @@ import {
   useState,
 } from 'react'
 import { ItemCard } from './ItemCard'
+import { lastCurrencyAffectedOptions } from './lastCurrencyAffectedOptions'
 import { whittlingCandidates } from './omenRemovalCandidates'
 import { toItemCard } from './itemCardData'
 import {
@@ -1312,6 +1313,14 @@ export function CraftingPage() {
     concrete && initial.data
       ? whittlingCandidates(concrete, initial.data.modifiers, draft.activeOmens)
       : []
+  const lastAffected =
+    restoredValid && initial.data
+      ? lastCurrencyAffectedOptions(
+          film,
+          filmState.history.cursor,
+          initial.data,
+        )
+      : new Set<string>()
   const defences =
     concrete && initial.data
       ? defenceDisplay(concrete, initial.data.modifiers, locale)
@@ -1452,6 +1461,7 @@ export function CraftingPage() {
                 const displayText = localizedModifierText(d, displayedValues)
                 return {
                   id: m.modifierId,
+                  lastCurrencyAffected: lastAffected.has(m.modifierId),
                   removalCandidate:
                     i >= concrete.implicits.length &&
                     removalCandidates.includes(m.modifierId),
@@ -1482,6 +1492,7 @@ export function CraftingPage() {
                 (topBase(catalogBase)?.skillLines?.[locale] ?? []).map(
                   (text, i) => ({
                     id: 'source-skill-' + i,
+                    lastCurrencyAffected: false,
                     removalCandidate: false,
                     text,
                     fractured: false,
@@ -2152,6 +2163,7 @@ export function CraftingPage() {
                           )
                           .map((slot) => ({
                             id: slot.id,
+                            lastCurrencyAffected: lastAffected.has(slot.id),
                             text: abyssWorkbenchMessages[locale].hidden,
                             kind: 'desecrated' as const,
                             unrevealedDesecrated: true,
