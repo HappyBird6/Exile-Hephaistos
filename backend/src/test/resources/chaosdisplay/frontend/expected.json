@@ -1,0 +1,2954 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "inputId": "protected-order-divisor",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": true,
+            "text": "13.2 Life Regeneration per second",
+            "lines": ["13.2 Life Regeneration per second"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": true,
+            "text": "+121 to maximum Life",
+            "lines": ["+121 to maximum Life"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "10% increased Spell Damage",
+            "lines": ["10% increased Spell Damage"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "protected-order-divisor",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": true,
+            "text": "1초마다 생명력 13.2 재생",
+            "lines": ["1초마다 생명력 13.2 재생"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": true,
+            "text": "생명력 최대치 +121",
+            "lines": ["생명력 최대치 +121"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "주문 피해 10% 증가",
+            "lines": ["주문 피해 10% 증가"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "protected-order-divisor",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": true,
+            "text": "生命每秒再生 13.2",
+            "lines": ["生命每秒再生 13.2"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": true,
+            "text": "+121 生命上限",
+            "lines": ["+121 生命上限"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "法术伤害提高 10%",
+            "lines": ["法术伤害提高 10%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "protected-order-divisor",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": true,
+            "text": "13.2每秒生命回復",
+            "lines": ["13.2每秒生命回復"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": true,
+            "text": "+121最大生命",
+            "lines": ["+121最大生命"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "增加10%法術傷害",
+            "lines": ["增加10%法術傷害"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "protected-order-divisor",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": true,
+            "text": "毎秒13.2のライフを自動回復する",
+            "lines": ["毎秒13.2のライフを自動回復する"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": true,
+            "text": "最大ライフ +121",
+            "lines": ["最大ライフ +121"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "スペルダメージが10%増加する",
+            "lines": ["スペルダメージが10%増加する"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "protected-order-divisor",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": true,
+            "text": "Regeneras 13,2 de vida por segundo",
+            "lines": ["Regeneras 13,2 de vida por segundo"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": true,
+            "text": "+121 a la vida máxima",
+            "lines": ["+121 a la vida máxima"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "Daño de hechizos aumentado un 10%",
+            "lines": ["Daño de hechizos aumentado un 10%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "compound-newline",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "adherent-cuffs:prefix:blessed",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "+12 to Armour\n+7 to maximum Energy Shield",
+            "lines": ["+12 to Armour", "+7 to maximum Energy Shield"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "compound-newline",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "adherent-cuffs:prefix:blessed",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "방어도 +12\n에너지 보호막 최대치 +7",
+            "lines": ["방어도 +12", "에너지 보호막 최대치 +7"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "compound-newline",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "adherent-cuffs:prefix:blessed",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "+12 护甲\n+7 能量护盾上限",
+            "lines": ["+12 护甲", "+7 能量护盾上限"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "compound-newline",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "adherent-cuffs:prefix:blessed",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "+12護甲值\n+7最大能量護盾",
+            "lines": ["+12護甲值", "+7最大能量護盾"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "compound-newline",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "adherent-cuffs:prefix:blessed",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "アーマー +12\n最大エナジーシールド +7",
+            "lines": ["アーマー +12", "最大エナジーシールド +7"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "compound-newline",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "adherent-cuffs:prefix:blessed",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "+12 a la armadura\n+7 al escudo de energía máximo",
+            "lines": ["+12 a la armadura", "+7 al escudo de energía máximo"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "compound-template-newline",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "rusted-cuirass:prefix:oyster-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "11% increased Armour\n+9 to maximum Life",
+            "lines": ["11% increased Armour", "+9 to maximum Life"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "compound-template-newline",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "rusted-cuirass:prefix:oyster-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "방어도 11% 증가\n생명력 최대치 +9",
+            "lines": ["방어도 11% 증가", "생명력 최대치 +9"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "compound-template-newline",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "rusted-cuirass:prefix:oyster-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "护甲提高 11%\n+9 生命上限",
+            "lines": ["护甲提高 11%", "+9 生命上限"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "compound-template-newline",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "rusted-cuirass:prefix:oyster-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "增加11%護甲值\n+9最大生命",
+            "lines": ["增加11%護甲值", "+9最大生命"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "compound-template-newline",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "rusted-cuirass:prefix:oyster-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "アーマーが11%増加する\n最大ライフ +9",
+            "lines": ["アーマーが11%増加する", "最大ライフ +9"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "compound-template-newline",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "rusted-cuirass:prefix:oyster-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "Armadura aumentada un 11%\n+9 a la vida máxima",
+            "lines": ["Armadura aumentada un 11%", "+9 a la vida máxima"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "revealed-and-hidden",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "6% increased Spell Damage\n8% increased Armour",
+            "lines": ["6% increased Spell Damage", "8% increased Armour"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "UNREVEALED_DESECRATED_SLOT",
+            "slotId": "hidden-slot"
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "revealed-and-hidden",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "6% increased Spell Damage\n8% increased Armour",
+            "lines": ["6% increased Spell Damage", "8% increased Armour"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "ENGLISH_REVEAL_TEMPLATE_FALLBACK",
+            "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNREVEALED_DESECRATED_SLOT",
+            "slotId": "hidden-slot"
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "revealed-and-hidden",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "6% increased Spell Damage\n8% increased Armour",
+            "lines": ["6% increased Spell Damage", "8% increased Armour"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "ENGLISH_REVEAL_TEMPLATE_FALLBACK",
+            "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNREVEALED_DESECRATED_SLOT",
+            "slotId": "hidden-slot"
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "revealed-and-hidden",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "6% increased Spell Damage\n8% increased Armour",
+            "lines": ["6% increased Spell Damage", "8% increased Armour"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "ENGLISH_REVEAL_TEMPLATE_FALLBACK",
+            "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNREVEALED_DESECRATED_SLOT",
+            "slotId": "hidden-slot"
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "revealed-and-hidden",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "6% increased Spell Damage\n8% increased Armour",
+            "lines": ["6% increased Spell Damage", "8% increased Armour"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "ENGLISH_REVEAL_TEMPLATE_FALLBACK",
+            "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNREVEALED_DESECRATED_SLOT",
+            "slotId": "hidden-slot"
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "revealed-and-hidden",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "6% increased Spell Damage\n8% increased Armour",
+            "lines": ["6% increased Spell Damage", "8% increased Armour"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "ENGLISH_REVEAL_TEMPLATE_FALLBACK",
+            "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNREVEALED_DESECRATED_SLOT",
+            "slotId": "hidden-slot"
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "catalyst-known-and-unreviewed",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "+145 to maximum Life",
+            "lines": ["+145 to maximum Life"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "13.2 Life Regeneration per second",
+            "lines": ["13.2 Life Regeneration per second"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "UNREVIEWED_NUMERIC_SEMANTICS",
+            "modifierId": "amulet:suffix:of-convalescence",
+            "explicitIndex": 1
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "catalyst-known-and-unreviewed",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "생명력 최대치 +145",
+            "lines": ["생명력 최대치 +145"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "1초마다 생명력 13.2 재생",
+            "lines": ["1초마다 생명력 13.2 재생"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "UNREVIEWED_NUMERIC_SEMANTICS",
+            "modifierId": "amulet:suffix:of-convalescence",
+            "explicitIndex": 1
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "catalyst-known-and-unreviewed",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "+145 生命上限",
+            "lines": ["+145 生命上限"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "生命每秒再生 13.2",
+            "lines": ["生命每秒再生 13.2"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "UNREVIEWED_NUMERIC_SEMANTICS",
+            "modifierId": "amulet:suffix:of-convalescence",
+            "explicitIndex": 1
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "catalyst-known-and-unreviewed",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "+145最大生命",
+            "lines": ["+145最大生命"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "13.2每秒生命回復",
+            "lines": ["13.2每秒生命回復"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "UNREVIEWED_NUMERIC_SEMANTICS",
+            "modifierId": "amulet:suffix:of-convalescence",
+            "explicitIndex": 1
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "catalyst-known-and-unreviewed",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "最大ライフ +145",
+            "lines": ["最大ライフ +145"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "毎秒13.2のライフを自動回復する",
+            "lines": ["毎秒13.2のライフを自動回復する"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "UNREVIEWED_NUMERIC_SEMANTICS",
+            "modifierId": "amulet:suffix:of-convalescence",
+            "explicitIndex": 1
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "catalyst-known-and-unreviewed",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "+145 a la vida máxima",
+            "lines": ["+145 a la vida máxima"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "Regeneras 13,2 de vida por segundo",
+            "lines": ["Regeneras 13,2 de vida por segundo"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "UNREVIEWED_NUMERIC_SEMANTICS",
+            "modifierId": "amulet:suffix:of-convalescence",
+            "explicitIndex": 1
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "sanctified-catalyst",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "+114.7 to maximum Life",
+            "lines": ["+114.7 to maximum Life"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "sanctified-catalyst",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "생명력 최대치 +114.7",
+            "lines": ["생명력 최대치 +114.7"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "sanctified-catalyst",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "+114.7 生命上限",
+            "lines": ["+114.7 生命上限"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "sanctified-catalyst",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "+114.7最大生命",
+            "lines": ["+114.7最大生命"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "sanctified-catalyst",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "最大ライフ +114.7",
+            "lines": ["最大ライフ +114.7"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "sanctified-catalyst",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "+114,7 a la vida máxima",
+            "lines": ["+114,7 a la vida máxima"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "jewel-effect-quality",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "18% increased Spell Damage",
+            "lines": ["18% increased Spell Damage"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "4% increased Cast Speed",
+            "lines": ["4% increased Cast Speed"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "sapphire:crafted:CraftedJewelPrefixEffect",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "40% increased Effect of Prefixes",
+            "lines": ["40% increased Effect of Prefixes"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "JEWEL_EFFECT_AND_QUALITY_PROVISIONAL",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "jewel-effect-quality",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "주문 피해 18% 증가",
+            "lines": ["주문 피해 18% 증가"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "시전 속도 4% 증가",
+            "lines": ["시전 속도 4% 증가"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "sapphire:crafted:CraftedJewelPrefixEffect",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "접두어 효과 40% 증가",
+            "lines": ["접두어 효과 40% 증가"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "JEWEL_EFFECT_AND_QUALITY_PROVISIONAL",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "jewel-effect-quality",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "法术伤害提高 18%",
+            "lines": ["法术伤害提高 18%"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "施法速度提高 4%",
+            "lines": ["施法速度提高 4%"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "sapphire:crafted:CraftedJewelPrefixEffect",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "前缀效果提高 40%",
+            "lines": ["前缀效果提高 40%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "JEWEL_EFFECT_AND_QUALITY_PROVISIONAL",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "jewel-effect-quality",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "增加18%法術傷害",
+            "lines": ["增加18%法術傷害"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "增加4%施法速度",
+            "lines": ["增加4%施法速度"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "sapphire:crafted:CraftedJewelPrefixEffect",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "增加40%前綴效果",
+            "lines": ["增加40%前綴效果"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "JEWEL_EFFECT_AND_QUALITY_PROVISIONAL",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "jewel-effect-quality",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "スペルダメージが18%増加する",
+            "lines": ["スペルダメージが18%増加する"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "キャストスピードが4%増加する",
+            "lines": ["キャストスピードが4%増加する"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "sapphire:crafted:CraftedJewelPrefixEffect",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "プレフィックスの効果が40%増加する",
+            "lines": ["プレフィックスの効果が40%増加する"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "JEWEL_EFFECT_AND_QUALITY_PROVISIONAL",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "jewel-effect-quality",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "Daño de hechizos aumentado un 18%",
+            "lines": ["Daño de hechizos aumentado un 18%"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "Velocidad de lanzamiento de hechizos aumentada un 4%",
+            "lines": ["Velocidad de lanzamiento de hechizos aumentada un 4%"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "sapphire:crafted:CraftedJewelPrefixEffect",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "40% de aumento del efecto de los prefijos",
+            "lines": ["40% de aumento del efecto de los prefijos"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "JEWEL_EFFECT_AND_QUALITY_PROVISIONAL",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "jewel-sanctified-fraction",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "(5—15)% increased Spell Damage",
+            "lines": ["(5—15)% increased Spell Damage"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "(2—4)% increased Cast Speed",
+            "lines": ["(2—4)% increased Cast Speed"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "sapphire:crafted:CraftedJewelPrefixEffect",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "40% increased Effect of Prefixes",
+            "lines": ["40% increased Effect of Prefixes"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "JEWEL_EFFECT_AND_QUALITY_PROVISIONAL",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNRESOLVED_ROLL_TEXT",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNRESOLVED_ROLL_TEXT",
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "explicitIndex": 1
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "jewel-sanctified-fraction",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "주문 피해 (5—15)% 증가",
+            "lines": ["주문 피해 (5—15)% 증가"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "시전 속도 (2—4)% 증가",
+            "lines": ["시전 속도 (2—4)% 증가"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "sapphire:crafted:CraftedJewelPrefixEffect",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "접두어 효과 40% 증가",
+            "lines": ["접두어 효과 40% 증가"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "JEWEL_EFFECT_AND_QUALITY_PROVISIONAL",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNRESOLVED_ROLL_TEXT",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNRESOLVED_ROLL_TEXT",
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "explicitIndex": 1
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "jewel-sanctified-fraction",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "法术伤害提高 (5—15)%",
+            "lines": ["法术伤害提高 (5—15)%"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "施法速度提高 (2—4)%",
+            "lines": ["施法速度提高 (2—4)%"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "sapphire:crafted:CraftedJewelPrefixEffect",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "前缀效果提高 40%",
+            "lines": ["前缀效果提高 40%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "JEWEL_EFFECT_AND_QUALITY_PROVISIONAL",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNRESOLVED_ROLL_TEXT",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNRESOLVED_ROLL_TEXT",
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "explicitIndex": 1
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "jewel-sanctified-fraction",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "增加(5—15)%法術傷害",
+            "lines": ["增加(5—15)%法術傷害"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "增加(2—4)%施法速度",
+            "lines": ["增加(2—4)%施法速度"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "sapphire:crafted:CraftedJewelPrefixEffect",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "增加40%前綴效果",
+            "lines": ["增加40%前綴效果"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "JEWEL_EFFECT_AND_QUALITY_PROVISIONAL",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNRESOLVED_ROLL_TEXT",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNRESOLVED_ROLL_TEXT",
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "explicitIndex": 1
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "jewel-sanctified-fraction",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "スペルダメージが(5—15)%増加する",
+            "lines": ["スペルダメージが(5—15)%増加する"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "キャストスピードが(2—4)%増加する",
+            "lines": ["キャストスピードが(2—4)%増加する"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "sapphire:crafted:CraftedJewelPrefixEffect",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "プレフィックスの効果が40%増加する",
+            "lines": ["プレフィックスの効果が40%増加する"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "JEWEL_EFFECT_AND_QUALITY_PROVISIONAL",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNRESOLVED_ROLL_TEXT",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNRESOLVED_ROLL_TEXT",
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "explicitIndex": 1
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "jewel-sanctified-fraction",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "Daño de hechizos aumentado un (5—15)%",
+            "lines": ["Daño de hechizos aumentado un (5—15)%"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "Velocidad de lanzamiento de hechizos aumentada un (2—4)%",
+            "lines": [
+              "Velocidad de lanzamiento de hechizos aumentada un (2—4)%"
+            ],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "sapphire:crafted:CraftedJewelPrefixEffect",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "40% de aumento del efecto de los prefijos",
+            "lines": ["40% de aumento del efecto de los prefijos"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "JEWEL_EFFECT_AND_QUALITY_PROVISIONAL",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNRESOLVED_ROLL_TEXT",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNRESOLVED_ROLL_TEXT",
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "explicitIndex": 1
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "unbound-source-units",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "Blessed: local base physical damage reduction rating = 12 (source units), local energy shield = 7 (source units)",
+            "lines": [
+              "Blessed: local base physical damage reduction rating = 12 (source units), local energy shield = 7 (source units)"
+            ],
+            "textKind": "source-units"
+          }
+        ],
+        "issues": [
+          {
+            "code": "UNVERIFIED_TEMPLATE_BINDING",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          },
+          {
+            "code": "ENGLISH_TEXT_FALLBACK",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          },
+          {
+            "code": "SOURCE_UNIT_FALLBACK",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "unbound-source-units",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "Blessed: local base physical damage reduction rating = 12 (source units), local energy shield = 7 (source units)",
+            "lines": [
+              "Blessed: local base physical damage reduction rating = 12 (source units), local energy shield = 7 (source units)"
+            ],
+            "textKind": "source-units"
+          }
+        ],
+        "issues": [
+          {
+            "code": "UNVERIFIED_TEMPLATE_BINDING",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          },
+          {
+            "code": "ENGLISH_TEXT_FALLBACK",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          },
+          {
+            "code": "SOURCE_UNIT_FALLBACK",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "unbound-source-units",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "Blessed: local base physical damage reduction rating = 12 (source units), local energy shield = 7 (source units)",
+            "lines": [
+              "Blessed: local base physical damage reduction rating = 12 (source units), local energy shield = 7 (source units)"
+            ],
+            "textKind": "source-units"
+          }
+        ],
+        "issues": [
+          {
+            "code": "UNVERIFIED_TEMPLATE_BINDING",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          },
+          {
+            "code": "ENGLISH_TEXT_FALLBACK",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          },
+          {
+            "code": "SOURCE_UNIT_FALLBACK",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "unbound-source-units",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "Blessed: local base physical damage reduction rating = 12 (source units), local energy shield = 7 (source units)",
+            "lines": [
+              "Blessed: local base physical damage reduction rating = 12 (source units), local energy shield = 7 (source units)"
+            ],
+            "textKind": "source-units"
+          }
+        ],
+        "issues": [
+          {
+            "code": "UNVERIFIED_TEMPLATE_BINDING",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          },
+          {
+            "code": "ENGLISH_TEXT_FALLBACK",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          },
+          {
+            "code": "SOURCE_UNIT_FALLBACK",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "unbound-source-units",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "Blessed: local base physical damage reduction rating = 12 (source units), local energy shield = 7 (source units)",
+            "lines": [
+              "Blessed: local base physical damage reduction rating = 12 (source units), local energy shield = 7 (source units)"
+            ],
+            "textKind": "source-units"
+          }
+        ],
+        "issues": [
+          {
+            "code": "UNVERIFIED_TEMPLATE_BINDING",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          },
+          {
+            "code": "ENGLISH_TEXT_FALLBACK",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          },
+          {
+            "code": "SOURCE_UNIT_FALLBACK",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "unbound-source-units",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "Blessed: local base physical damage reduction rating = 12 (source units), local energy shield = 7 (source units)",
+            "lines": [
+              "Blessed: local base physical damage reduction rating = 12 (source units), local energy shield = 7 (source units)"
+            ],
+            "textKind": "source-units"
+          }
+        ],
+        "issues": [
+          {
+            "code": "UNVERIFIED_TEMPLATE_BINDING",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          },
+          {
+            "code": "ENGLISH_TEXT_FALLBACK",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          },
+          {
+            "code": "SOURCE_UNIT_FALLBACK",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-negative-tie",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "-1.3% increased Spell Damage",
+            "lines": ["-1.3% increased Spell Damage"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-negative-tie",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "주문 피해 -1.3% 증가",
+            "lines": ["주문 피해 -1.3% 증가"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-negative-tie",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "法术伤害提高 -1.3%",
+            "lines": ["法术伤害提高 -1.3%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-negative-tie",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "增加-1.3%法術傷害",
+            "lines": ["增加-1.3%法術傷害"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-negative-tie",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "スペルダメージが-1.3%増加する",
+            "lines": ["スペルダメージが-1.3%増加する"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-negative-tie",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "Daño de hechizos aumentado un -1,3%",
+            "lines": ["Daño de hechizos aumentado un -1,3%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-negative-near-zero",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "0% increased Spell Damage",
+            "lines": ["0% increased Spell Damage"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-negative-near-zero",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "주문 피해 0% 증가",
+            "lines": ["주문 피해 0% 증가"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-negative-near-zero",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "法术伤害提高 0%",
+            "lines": ["法术伤害提高 0%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-negative-near-zero",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "增加0%法術傷害",
+            "lines": ["增加0%法術傷害"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-negative-near-zero",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "スペルダメージが0%増加する",
+            "lines": ["スペルダメージが0%増加する"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-negative-near-zero",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "Daño de hechizos aumentado un 0%",
+            "lines": ["Daño de hechizos aumentado un 0%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-negative-zero",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "0% increased Spell Damage",
+            "lines": ["0% increased Spell Damage"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-negative-zero",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "주문 피해 0% 증가",
+            "lines": ["주문 피해 0% 증가"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-negative-zero",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "法术伤害提高 0%",
+            "lines": ["法术伤害提高 0%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-negative-zero",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "增加0%法術傷害",
+            "lines": ["增加0%法術傷害"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-negative-zero",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "スペルダメージが0%増加する",
+            "lines": ["スペルダメージが0%増加する"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-negative-zero",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "Daño de hechizos aumentado un 0%",
+            "lines": ["Daño de hechizos aumentado un 0%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-positive-near-zero",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "0% increased Spell Damage",
+            "lines": ["0% increased Spell Damage"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-positive-near-zero",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "주문 피해 0% 증가",
+            "lines": ["주문 피해 0% 증가"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-positive-near-zero",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "法术伤害提高 0%",
+            "lines": ["法术伤害提高 0%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-positive-near-zero",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "增加0%法術傷害",
+            "lines": ["增加0%法術傷害"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-positive-near-zero",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "スペルダメージが0%増加する",
+            "lines": ["スペルダメージが0%増加する"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-positive-near-zero",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "Daño de hechizos aumentado un 0%",
+            "lines": ["Daño de hechizos aumentado un 0%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-positive-tie",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "1.3% increased Spell Damage",
+            "lines": ["1.3% increased Spell Damage"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-positive-tie",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "주문 피해 1.3% 증가",
+            "lines": ["주문 피해 1.3% 증가"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-positive-tie",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "法术伤害提高 1.3%",
+            "lines": ["法术伤害提高 1.3%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-positive-tie",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "增加1.3%法術傷害",
+            "lines": ["增加1.3%法術傷害"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-positive-tie",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "スペルダメージが1.3%増加する",
+            "lines": ["スペルダメージが1.3%増加する"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-positive-tie",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "Daño de hechizos aumentado un 1,3%",
+            "lines": ["Daño de hechizos aumentado un 1,3%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-es-grouping-four-digit",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "1,234.6 Life Regeneration per second",
+            "lines": ["1,234.6 Life Regeneration per second"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-es-grouping-four-digit",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "1초마다 생명력 1,234.6 재생",
+            "lines": ["1초마다 생명력 1,234.6 재생"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-es-grouping-four-digit",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "生命每秒再生 1,234.6",
+            "lines": ["生命每秒再生 1,234.6"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-es-grouping-four-digit",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "1,234.6每秒生命回復",
+            "lines": ["1,234.6每秒生命回復"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-es-grouping-four-digit",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "毎秒1,234.6のライフを自動回復する",
+            "lines": ["毎秒1,234.6のライフを自動回復する"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-es-grouping-four-digit",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "Regeneras 1234,6 de vida por segundo",
+            "lines": ["Regeneras 1234,6 de vida por segundo"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-es-grouping-five-digit",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "12,345.7 Life Regeneration per second",
+            "lines": ["12,345.7 Life Regeneration per second"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-es-grouping-five-digit",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "1초마다 생명력 12,345.7 재생",
+            "lines": ["1초마다 생명력 12,345.7 재생"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-es-grouping-five-digit",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "生命每秒再生 12,345.7",
+            "lines": ["生命每秒再生 12,345.7"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-es-grouping-five-digit",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "12,345.7每秒生命回復",
+            "lines": ["12,345.7每秒生命回復"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-es-grouping-five-digit",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "毎秒12,345.7のライフを自動回復する",
+            "lines": ["毎秒12,345.7のライフを自動回復する"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-es-grouping-five-digit",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "Regeneras 12.345,7 de vida por segundo",
+            "lines": ["Regeneras 12.345,7 de vida por segundo"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "missing-definition",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [],
+        "issues": [
+          {
+            "code": "MISSING_DEFINITION",
+            "modifierId": "missing:definition",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "missing-definition",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [],
+        "issues": [
+          {
+            "code": "MISSING_DEFINITION",
+            "modifierId": "missing:definition",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "missing-definition",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [],
+        "issues": [
+          {
+            "code": "MISSING_DEFINITION",
+            "modifierId": "missing:definition",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "missing-definition",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [],
+        "issues": [
+          {
+            "code": "MISSING_DEFINITION",
+            "modifierId": "missing:definition",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "missing-definition",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [],
+        "issues": [
+          {
+            "code": "MISSING_DEFINITION",
+            "modifierId": "missing:definition",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "missing-definition",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [],
+        "issues": [
+          {
+            "code": "MISSING_DEFINITION",
+            "modifierId": "missing:definition",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "missing-stat-value",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [],
+        "issues": [
+          {
+            "code": "MISSING_OR_NONFINITE_STAT_VALUE",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "missing-stat-value",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [],
+        "issues": [
+          {
+            "code": "MISSING_OR_NONFINITE_STAT_VALUE",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "missing-stat-value",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [],
+        "issues": [
+          {
+            "code": "MISSING_OR_NONFINITE_STAT_VALUE",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "missing-stat-value",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [],
+        "issues": [
+          {
+            "code": "MISSING_OR_NONFINITE_STAT_VALUE",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "missing-stat-value",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [],
+        "issues": [
+          {
+            "code": "MISSING_OR_NONFINITE_STAT_VALUE",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "missing-stat-value",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [],
+        "issues": [
+          {
+            "code": "MISSING_OR_NONFINITE_STAT_VALUE",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "non-affix-explicit",
+      "locale": "en",
+      "result": {
+        "locale": "en",
+        "groups": [],
+        "issues": [
+          {
+            "code": "EXPLICIT_WITHOUT_AFFIX",
+            "modifierId": "solar-amulet:implicit:spirit",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "non-affix-explicit",
+      "locale": "ko",
+      "result": {
+        "locale": "ko",
+        "groups": [],
+        "issues": [
+          {
+            "code": "EXPLICIT_WITHOUT_AFFIX",
+            "modifierId": "solar-amulet:implicit:spirit",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "non-affix-explicit",
+      "locale": "zh-CN",
+      "result": {
+        "locale": "zh-CN",
+        "groups": [],
+        "issues": [
+          {
+            "code": "EXPLICIT_WITHOUT_AFFIX",
+            "modifierId": "solar-amulet:implicit:spirit",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "non-affix-explicit",
+      "locale": "zh-TW",
+      "result": {
+        "locale": "zh-TW",
+        "groups": [],
+        "issues": [
+          {
+            "code": "EXPLICIT_WITHOUT_AFFIX",
+            "modifierId": "solar-amulet:implicit:spirit",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "non-affix-explicit",
+      "locale": "ja",
+      "result": {
+        "locale": "ja",
+        "groups": [],
+        "issues": [
+          {
+            "code": "EXPLICIT_WITHOUT_AFFIX",
+            "modifierId": "solar-amulet:implicit:spirit",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "non-affix-explicit",
+      "locale": "es",
+      "result": {
+        "locale": "es",
+        "groups": [],
+        "issues": [
+          {
+            "code": "EXPLICIT_WITHOUT_AFFIX",
+            "modifierId": "solar-amulet:implicit:spirit",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    }
+  ]
+}
