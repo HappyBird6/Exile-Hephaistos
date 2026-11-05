@@ -1,4 +1,6 @@
 spring:
+  config:
+    import: classpath:backend-settings.yaml
   application:
     name: poe2craft
   datasource:

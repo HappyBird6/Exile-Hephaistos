@@ -4,6 +4,8 @@ PoE2 아이템 텍스트 파싱, 검토된 카탈로그 기반 Workbench와 최�
 
 등록 베이스 179개와 한국어 기본 6개 UI 언어를 지원합니다. 등록 수가 모든 화폐·목표의 계산 완료를 보장하지는 않습니다. 확률은 출처 스냅샷과 명시된 모델 가정에 따릅니다.
 
+백엔드 코드 위치·API 담당 기능·설정 변경 방법은 [백엔드 안내](backend/README.md)를 확인하세요.
+
 ## Docker 실행
 
 Docker Desktop의 Linux container 모드를 켜고 Windows PowerShell 5.1에서 실행합니다.

@@ -1,0 +1,122 @@
+package com.poe2craft.shared.crafting.domain;
+
+import com.poe2craft.shared.item.ModifierDefinition;
+import java.util.*;
+
+/** Execution identity is separate from ItemState; an omen here is consumed by this action. */
+public record AutomaticCraftingAction(
+    WorkbenchCurrency currency,
+    Set<WorkbenchOmen> omens,
+    AutomaticCurrencyPolicy.Purpose purpose,
+    @com.fasterxml.jackson.annotation.JsonInclude(
+            com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+        Operation operation,
+    @com.fasterxml.jackson.annotation.JsonInclude(
+            com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+        ModifierDefinition.AffixType side,
+    @com.fasterxml.jackson.annotation.JsonInclude(
+            com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+        AbyssProbabilityComparison.Comparison comparison) {
+  public enum Operation {
+    DESECRATE
+  }
+
+  public AutomaticCraftingAction(
+      WorkbenchCurrency currency,
+      Set<WorkbenchOmen> omens,
+      AutomaticCurrencyPolicy.Purpose purpose) {
+    this(currency, omens, purpose, null, null, null);
+  }
+
+  public static AutomaticCraftingAction desecrate(ModifierDefinition.AffixType side) {
+    return new AutomaticCraftingAction(
+        null, Set.of(), AutomaticCurrencyPolicy.Purpose.ORDINARY, Operation.DESECRATE, side, null);
+  }
+
+  public AutomaticCraftingAction {
+    if (operation == null) Objects.requireNonNull(currency);
+    else if (currency != null
+        || side == null
+        || side == ModifierDefinition.AffixType.NONE
+        || !omens.isEmpty()) throw new IllegalArgumentException("Invalid non-currency operation");
+    Objects.requireNonNull(purpose);
+    omens = Collections.unmodifiableSet(new TreeSet<>(omens));
+  }
+
+  /** Every approved currency is considered, even when its execution kernel is unsupported. */
+  public static List<AutomaticCraftingAction> candidates(AutomaticCurrencyPolicy policy) {
+    var result = new ArrayList<AutomaticCraftingAction>();
+    for (var entry : policy.candidates()) {
+      if (entry.id().contains(":")) continue;
+      var currency = WorkbenchCurrency.valueOf(entry.id());
+      var temporary = currency == WorkbenchCurrency.REGAL || currency == WorkbenchCurrency.EXALTED;
+      var purpose =
+          currency == WorkbenchCurrency.TRANSMUTATION
+              ? AutomaticCurrencyPolicy.Purpose.RARITY_UPGRADE
+              : temporary
+                  ? AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL
+                  : AutomaticCurrencyPolicy.Purpose.ORDINARY;
+      result.add(new AutomaticCraftingAction(currency, Set.of(), purpose));
+      if (temporary || currency == WorkbenchCurrency.CHAOS) {
+        result.add(
+            new AutomaticCraftingAction(
+                currency, Set.of(), AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION));
+      }
+      if (currency == WorkbenchCurrency.CHAOS) {
+        result.add(
+            new AutomaticCraftingAction(
+                currency, Set.of(), AutomaticCurrencyPolicy.Purpose.TARGET_PREPARATION));
+        for (var omens :
+            List.of(
+                Set.of(WorkbenchOmen.WHITTLING),
+                Set.of(WorkbenchOmen.SINISTRAL_ERASURE),
+                Set.of(WorkbenchOmen.DEXTRAL_ERASURE),
+                Set.of(WorkbenchOmen.WHITTLING, WorkbenchOmen.SINISTRAL_ERASURE),
+                Set.of(WorkbenchOmen.WHITTLING, WorkbenchOmen.DEXTRAL_ERASURE))) {
+          result.add(
+              new AutomaticCraftingAction(
+                  currency, omens, AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION));
+        }
+      }
+      if (currency == WorkbenchCurrency.ESSENCE_BREACH)
+        result.add(
+            new AutomaticCraftingAction(
+                currency, Set.of(), AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT));
+      var variants =
+          currency == WorkbenchCurrency.REGAL
+              ? List.of(WorkbenchOmen.SINISTRAL_CORONATION, WorkbenchOmen.DEXTRAL_CORONATION)
+              : currency == WorkbenchCurrency.EXALTED
+                  ? List.of(WorkbenchOmen.SINISTRAL_EXALTATION, WorkbenchOmen.DEXTRAL_EXALTATION)
+                  : !currency.replacementEssenceModifiers().isEmpty()
+                      ? List.of(
+                          WorkbenchOmen.SINISTRAL_CRYSTALLISATION,
+                          WorkbenchOmen.DEXTRAL_CRYSTALLISATION)
+                      : List.<WorkbenchOmen>of();
+      for (var omen : variants) {
+        result.add(new AutomaticCraftingAction(currency, Set.of(omen), purpose));
+        if (temporary)
+          result.add(
+              new AutomaticCraftingAction(
+                  currency, Set.of(omen), AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION));
+      }
+    }
+    return result.stream()
+        .filter(
+            a ->
+                a.omens().stream()
+                    .allMatch(
+                        o ->
+                            policy.evaluate(
+                                    "OMEN:" + o.name(),
+                                    new AutomaticCurrencyPolicy.Context(
+                                        "amulets", a.purpose(), a.currency()))
+                                == AutomaticCurrencyPolicy.Verdict.PERMITTED))
+        .toList();
+  }
+
+  public Set<String> omenIds() {
+    return omens.stream()
+        .map(WorkbenchOmen::id)
+        .collect(java.util.stream.Collectors.toUnmodifiableSet());
+  }
+}

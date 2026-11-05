@@ -27,18 +27,21 @@ Exile-Hephaistos는 PoE2 복사 텍스트를 해석하고, 검토된 카탈로�
 | [Support](../support-transition-design.md), [목표 v1](../support-goal-filter-v1.md) | 구형 Support 계약·검증. 현재 목표는 goals 문서를 먼저 읽는다. |
 | [path v1](../crafting-path-search-v1.md) | 구형 경로 탐색 설계와 연결 기록. 현행 자동 탐색 완료 범위로 읽지 않는다. |
 | [bucket](../crafting-bucket-method-v2.md), [certified](../crafting-certified-map-ui.md), [lazy](../crafting-lazy-laws.md) | 구형 엔진의 설계·실험·미완료 경계가 섞여 있다. CertifiedMethodSearchEngine의 TemporaryWorkingLaws 등 실제 연결은 존재하나 모든 목표·순환의 계산 완료를 보장하지 않는다. |
-| [store](../crafting-local-method-store.md), [strategy job](../crafting-strategy-job.md) | SupportConfiguration의 구형 methodSearchService는 LocalCertifiedJobRepository와 SqliteMethodGraphStore에 연결된다. 초기 문서의 미연결 설명은 당시 상태다. 현대 자동 작업의 JSON 저장과 구분한다. |
+| [store](../crafting-local-method-store.md), [strategy job](../crafting-strategy-job.md) | CraftingSupportConfiguration의 구형 methodSearchService는 LocalCertifiedJobRepository와 SqliteMethodGraphStore에 연결된다. 초기 문서의 미연결 설명은 당시 상태다. 현대 자동 작업의 JSON 저장과 구분한다. |
 
 사용 중인 API·저장 계약과 미완료 이슈를 유지한다. 문서 통합으로 알고리즘을 재설계하거나 이슈를 종결하지 않는다.
 
 
 ## 코드와 API 구성
 
+기능별 디렉토리, 프론트 요청 대응표와 설정은 [백엔드 코드 안내](../../backend/README.md)를 따른다.
+
 | 위치 | 책임 |
 |---|---|
-| `item` / `item.testparser` | 계산용 상태·catalog·검증과 표시용 영어 텍스트 분석 |
-| `crafting.presentation` / `crafting.application` | HTTP 입력·응답, Workbench·Support·계산 job 조정 |
-| `crafting.domain` / `crafting.infrastructure` | 제작 규칙·목표·확률 계산, 봉인 리소스와 저장소 연결 |
+| `shared.item` / `shared.item.text` | 계산용 상태·catalog·검증과 표시용 영어 텍스트 분석 |
+| `workbench` | 제작작업대 HTTP·수동 제작·카오스 반복 |
+| `craftingsupport` | 목표 판정·추천·경로 탐색·계산 job 저장과 제어 |
+| `shared.crafting` / `shared.ruleset` / `shared.probability` | 공용 제작 규칙·카탈로그·정확한 확률 연산·봉인 리소스 |
 | `frontend/src/features/crafting/goal-filter` | 시작 아이템·목표 입력과 catalog 복구 |
 | `frontend/src/features/crafting/method-search` | 자동 계산 제어·그래프·시나리오 |
 
@@ -50,6 +53,6 @@ Workbench film은 브라우저에, 자동 job은 로컬 JSON에 저장한다. �
 
 ## 구현 근거
 
-[SupportConfiguration.java](../../backend/src/main/java/com/poe2craft/bootstrap/SupportConfiguration.java) · [CraftingConfiguration.java](../../backend/src/main/java/com/poe2craft/bootstrap/CraftingConfiguration.java) · [LocalCertifiedJobRepository.java](../../backend/src/main/java/com/poe2craft/crafting/infrastructure/LocalCertifiedJobRepository.java)
+[CraftingSupportConfiguration.java](../../backend/src/main/java/com/poe2craft/bootstrap/CraftingSupportConfiguration.java) · [CatalogConfiguration.java](../../backend/src/main/java/com/poe2craft/bootstrap/CatalogConfiguration.java) · [LocalCertifiedJobRepository.java](../../backend/src/main/java/com/poe2craft/craftingsupport/search/infrastructure/LocalCertifiedJobRepository.java)
 
 [문서 지도](../README.md)

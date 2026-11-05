@@ -3,10 +3,22 @@ package com.poe2craft.bootstrap;
 import static org.assertj.core.api.Assertions.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.poe2craft.crafting.domain.*;
-import com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction;
-import com.poe2craft.crafting.domain.pathsearch.*;
-import com.poe2craft.item.*;
+import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
+import com.poe2craft.craftingsupport.search.domain.AutomaticAbyssSearch;
+import com.poe2craft.craftingsupport.search.domain.AutomaticCraftingKernel;
+import com.poe2craft.craftingsupport.search.domain.AutomaticMethodExecution;
+import com.poe2craft.craftingsupport.search.domain.AutomaticMethodGraph;
+import com.poe2craft.craftingsupport.search.domain.CertifiedInterval;
+import com.poe2craft.craftingsupport.search.domain.ExactMethodRunner;
+import com.poe2craft.craftingsupport.search.domain.GoalDirectedPlanner;
+import com.poe2craft.shared.crafting.domain.AbyssCraftingState;
+import com.poe2craft.shared.crafting.domain.AutomaticCraftingAction;
+import com.poe2craft.shared.crafting.domain.AutomaticCraftingPlan;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ModifierDefinition;
+import com.poe2craft.shared.item.ModifierInstance;
+import com.poe2craft.shared.probability.Fraction;
 import java.math.BigInteger;
 import java.util.*;
 import org.junit.jupiter.api.*;
@@ -142,18 +154,12 @@ class AutomaticAbyssSearchTest {
     var law = kernel.expand(root, f.action(WorkbenchCurrency.CHAOS), 20000);
     var p =
         law.outcomes().stream()
-            .filter(
-                o ->
-                    evaluate.apply(o.item()).goal()
-                        == com.poe2craft.crafting.domain.goalfilter.GoalFilter.Status.MATCH)
+            .filter(o -> evaluate.apply(o.item()).goal() == GoalFilter.Status.MATCH)
             .map(AutomaticCraftingKernel.Outcome::probability)
             .reduce(Fraction.ZERO, Fraction::add);
     var retry =
         law.outcomes().stream()
-            .filter(
-                o ->
-                    evaluate.apply(o.item()).goal()
-                        != com.poe2craft.crafting.domain.goalfilter.GoalFilter.Status.MATCH)
+            .filter(o -> evaluate.apply(o.item()).goal() != GoalFilter.Status.MATCH)
             .map(AutomaticCraftingKernel.Outcome::probability)
             .reduce(Fraction.ZERO, Fraction::add);
     var expected = Fraction.ZERO;
@@ -170,8 +176,7 @@ class AutomaticAbyssSearchTest {
             kernel,
             state ->
                 Optional.ofNullable(
-                    evaluate.apply(state).goal()
-                            == com.poe2craft.crafting.domain.goalfilter.GoalFilter.Status.MATCH
+                    evaluate.apply(state).goal() == GoalFilter.Status.MATCH
                         ? ExactMethodRunner.Exit.GOAL
                         : null),
             CertifiedInterval.Precision.standard(),

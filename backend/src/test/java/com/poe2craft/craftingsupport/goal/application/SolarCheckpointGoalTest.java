@@ -1,0 +1,166 @@
+package com.poe2craft.craftingsupport.goal.application;
+
+import static org.assertj.core.api.Assertions.*;
+
+import com.poe2craft.craftingsupport.goal.domain.GoalCatalogIndex;
+import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
+import com.poe2craft.craftingsupport.goal.domain.GoalFilter.*;
+import com.poe2craft.craftingsupport.goal.infrastructure.GoalDefinitionsLoader;
+import com.poe2craft.shared.crafting.domain.BasicCurrencyState;
+import com.poe2craft.shared.crafting.domain.BasicCurrencyTransitions;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.item.ItemCatalog;
+import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ModifierDefinition;
+import com.poe2craft.shared.item.ModifierInstance;
+import com.poe2craft.shared.item.SolarAmulet;
+import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
+import com.poe2craft.shared.probability.Fraction;
+import java.math.BigDecimal;
+import java.util.*;
+import org.junit.jupiter.api.Test;
+
+class SolarCheckpointGoalTest {
+  private static final String SPIRIT = "base_spirit_from_equipment";
+  private static final String PROJECTILE = "projectile_skill_gem_level_+";
+  private final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
+  private final GoalCatalogIndex index =
+      new GoalCatalogIndex(List.of(catalog), GoalDefinitionsLoader.load());
+  private final GoalFilterService service = new GoalFilterService(index);
+
+  private ItemState item(ModifierInstance... modifiers) {
+    var initial = SolarAmulet.initial(catalog, 82, 15);
+    return new ItemState(
+        initial.snapshotId(),
+        initial.baseItemId(),
+        82,
+        ItemState.Rarity.RARE,
+        initial.implicits(),
+        List.of(modifiers),
+        Set.of());
+  }
+
+  private ModifierInstance modifier(String stat, long value) {
+    var definition =
+        catalog.modifiers().values().stream()
+            .filter(
+                d ->
+                    d.layer() == ModifierDefinition.Layer.EXPLICIT
+                        && d.requiredItemLevel() <= 82
+                        && d.stats().size() == 1
+                        && d.stats().getFirst().id().equals(stat)
+                        && d.stats().getFirst().contains(value))
+            .findFirst()
+            .orElseThrow();
+    return new ModifierInstance(definition.id(), Map.of(stat, value));
+  }
+
+  private Entry target(String stat, long minimum) {
+    return new Entry(
+        stat,
+        GoalCatalogIndex.id("explicit", stat),
+        "flat",
+        new Range(BigDecimal.valueOf(minimum), null),
+        null,
+        false);
+  }
+
+  private GoalFilter goal(Entry... entries) {
+    return new GoalFilter(
+        1,
+        index.version(),
+        new General(catalog.base().id(), new Range(null, null), List.of(ItemState.Rarity.RARE)),
+        List.of(new Group("targets", Type.AND, false, null, List.of(entries))));
+  }
+
+  @Test
+  void spirit47ExcludesImplicitEvenWhenImplicitAndExplicitSumExceeds47() {
+    var goal = goal(target(SPIRIT, 47));
+    assertThat(service.evaluate(item(), goal).status()).isEqualTo(Status.NO_MATCH);
+    assertThat(service.evaluate(item(modifier(SPIRIT, 46)), goal).status())
+        .isEqualTo(Status.NO_MATCH);
+    assertThat(service.evaluate(item(modifier(SPIRIT, 47)), goal).status()).isEqualTo(Status.MATCH);
+  }
+
+  @Test
+  void actualSolarEligiblePoolsReachBothDiamondArmsAndUseExistingLife() {
+    var transitions = new BasicCurrencyTransitions(catalog, "solar-production-probe");
+    var a = modifier(PROJECTILE, 3);
+    var b = modifier(SPIRIT, 47);
+    var both = goal(target(PROJECTILE, 3), target(SPIRIT, 47));
+    var match = service.compileEvaluation(item(), both);
+    for (var start : List.of(item(), item(a), item(b))) {
+      var result =
+          transitions.expand(
+              new BasicCurrencyState(start, transitions.provenance()),
+              WorkbenchCurrency.EXALTED,
+              Set.of(),
+              200000);
+      assertThat(result.status()).isEqualTo(BasicCurrencyTransitions.Status.COMPLETE);
+      assertThat(
+              result.outcomes().stream()
+                  .map(BasicCurrencyTransitions.Outcome::probability)
+                  .reduce(Fraction.ZERO, Fraction::add))
+          .isEqualTo(Fraction.ONE);
+      if (start.explicits().isEmpty()) {
+        assertThat(result.outcomes())
+            .anyMatch(
+                o ->
+                    match.apply(o.state().item()).groups().getFirst().entries().getFirst().status()
+                        == Status.MATCH);
+        assertThat(result.outcomes())
+            .anyMatch(
+                o ->
+                    match.apply(o.state().item()).groups().getFirst().entries().getLast().status()
+                        == Status.MATCH);
+      } else
+        assertThat(result.outcomes())
+            .anyMatch(o -> match.apply(o.state().item()).status() == Status.MATCH);
+    }
+    var life = modifier("base_maximum_life", 50);
+    var goal =
+        goal(
+            target("base_maximum_life", 50),
+            new Entry(
+                "chaos",
+                GoalCatalogIndex.id("explicit", "base_chaos_damage_resistance_%"),
+                "percent",
+                new Range(BigDecimal.ONE, null),
+                null,
+                false));
+    var evaluator = service.compileEvaluation(item(life), goal);
+    assertThat(evaluator.apply(item(life)).groups().getFirst().entries().getFirst().status())
+        .isEqualTo(Status.MATCH);
+    var result =
+        transitions.expand(
+            new BasicCurrencyState(item(life), transitions.provenance()),
+            WorkbenchCurrency.EXALTED,
+            Set.of(),
+            200000);
+    assertThat(result.status()).isEqualTo(BasicCurrencyTransitions.Status.COMPLETE);
+    assertThat(result.outcomes())
+        .anyMatch(o -> evaluator.apply(o.state().item()).status() == Status.MATCH);
+    assertThat(evaluator.apply(item()).groups().getFirst().entries().getFirst().status())
+        .isEqualTo(Status.NO_MATCH);
+  }
+
+  @Test
+  void solarRootABCDiamondUsesReviewedNumericGoalsAndReevaluatesLossAndReacquisition() {
+    var a = modifier(PROJECTILE, 3);
+    var b = modifier(SPIRIT, 47);
+    var projectile = goal(target(PROJECTILE, 3));
+    var spirit = goal(target(SPIRIT, 47));
+    var both = goal(target(PROJECTILE, 3), target(SPIRIT, 47));
+    assertThat(service.evaluate(item(), both).status()).isEqualTo(Status.NO_MATCH);
+    assertThat(service.evaluate(item(a), projectile).status()).isEqualTo(Status.MATCH);
+    assertThat(service.evaluate(item(b), spirit).status()).isEqualTo(Status.MATCH);
+    assertThat(service.evaluate(item(a), both).status()).isEqualTo(Status.NO_MATCH);
+    assertThat(service.evaluate(item(b), both).status()).isEqualTo(Status.NO_MATCH);
+    assertThat(service.evaluate(item(a, b), both).status()).isEqualTo(Status.MATCH);
+    assertThat(service.evaluate(item(modifier(PROJECTILE, 2), b), both).status())
+        .isEqualTo(Status.NO_MATCH);
+    var compiled = service.compile(item(a, b), both);
+    assertThat(compiled.apply(item(b))).isEqualTo(Status.NO_MATCH);
+    assertThat(compiled.apply(item(a, b))).isEqualTo(Status.MATCH);
+  }
+}

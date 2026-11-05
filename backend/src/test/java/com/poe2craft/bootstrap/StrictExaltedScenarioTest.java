@@ -2,10 +2,19 @@ package com.poe2craft.bootstrap;
 
 import static org.assertj.core.api.Assertions.*;
 
-import com.poe2craft.crafting.domain.*;
-import com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction;
-import com.poe2craft.crafting.domain.pathsearch.*;
-import com.poe2craft.item.*;
+import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
+import com.poe2craft.craftingsupport.search.domain.AutomaticCraftingKernel;
+import com.poe2craft.craftingsupport.search.domain.AutomaticMethodGraph;
+import com.poe2craft.craftingsupport.search.domain.GoalDirectedPlanner;
+import com.poe2craft.shared.crafting.domain.AutomaticCraftingAction;
+import com.poe2craft.shared.crafting.domain.AutomaticCraftingPlan;
+import com.poe2craft.shared.crafting.domain.AutomaticCurrencyPolicy;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
+import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ModifierDefinition;
+import com.poe2craft.shared.item.ModifierInstance;
+import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.*;
 
@@ -61,11 +70,7 @@ class StrictExaltedScenarioTest {
     try (var graph = f.graph(source, goal)) {
       f.exhaust(graph);
       assertThat(graph.nodes()).anyMatch(n -> n.item().rarity() == ItemState.Rarity.MAGIC);
-      assertThat(graph.nodes())
-          .noneMatch(
-              n ->
-                  n.progress().goal()
-                      == com.poe2craft.crafting.domain.goalfilter.GoalFilter.Status.MATCH);
+      assertThat(graph.nodes()).noneMatch(n -> n.progress().goal() == GoalFilter.Status.MATCH);
       assertThat(graph.methods())
           .anyMatch(
               m ->
@@ -162,9 +167,7 @@ class StrictExaltedScenarioTest {
     assertThat(law.outcomes()).isNotEmpty().allMatch(o -> o.item().explicits().contains(fracture));
     assertThat(law.outcomes())
         .anyMatch(
-            o ->
-                f.evaluation(alone, aloneGoal).apply(o.item()).goal()
-                    == com.poe2craft.crafting.domain.goalfilter.GoalFilter.Status.MATCH);
+            o -> f.evaluation(alone, aloneGoal).apply(o.item()).goal() == GoalFilter.Status.MATCH);
     assertThat(
             new GoalDirectedPlanner(
                     first,

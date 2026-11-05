@@ -24,6 +24,6 @@
 
 ## 구현 근거
 
-[ItemStateValidator.java](../../backend/src/main/java/com/poe2craft/item/ItemStateValidator.java)
+[ItemStateValidator.java](../../backend/src/main/java/com/poe2craft/shared/item/ItemStateValidator.java)
 
 [문서 지도](../README.md)

@@ -3,11 +3,17 @@ package com.poe2craft.bootstrap;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.poe2craft.crafting.application.goalfilter.GoalFilterService;
-import com.poe2craft.crafting.domain.goalfilter.*;
-import com.poe2craft.crafting.domain.goalfilter.GoalFilter.*;
-import com.poe2craft.crafting.infrastructure.goalfilter.*;
-import com.poe2craft.item.*;
+import com.poe2craft.craftingsupport.goal.application.GoalFilterService;
+import com.poe2craft.craftingsupport.goal.domain.GoalCatalog;
+import com.poe2craft.craftingsupport.goal.domain.GoalCatalogIndex;
+import com.poe2craft.craftingsupport.goal.domain.GoalDefinitions;
+import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
+import com.poe2craft.craftingsupport.goal.domain.GoalFilter.*;
+import com.poe2craft.craftingsupport.goal.infrastructure.BundledGoalCatalogs;
+import com.poe2craft.craftingsupport.goal.infrastructure.GoalDefinitionsLoader;
+import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ModifierDefinition;
+import com.poe2craft.shared.item.ModifierInstance;
 import java.math.BigDecimal;
 import java.util.*;
 import org.junit.jupiter.api.Test;
@@ -15,7 +21,7 @@ import org.junit.jupiter.api.Test;
 class GoalCatalogParityTest {
   @Test
   void everyStartingCatalogSourceIsDiscoverableWithoutRarityOrFamilyPruning() throws Exception {
-    var cfg = new CraftingConfiguration();
+    var cfg = new CatalogConfiguration();
     var solar = cfg.itemCatalog(cfg.workbenchDefinitions());
     var workbench =
         cfg.workbenchService(solar, cfg.workbenchSimulator(solar, cfg.craftingEngine(solar)));

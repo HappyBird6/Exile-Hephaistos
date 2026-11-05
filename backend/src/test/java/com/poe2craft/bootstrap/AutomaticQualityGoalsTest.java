@@ -3,11 +3,19 @@ package com.poe2craft.bootstrap;
 import static org.assertj.core.api.Assertions.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.poe2craft.crafting.domain.*;
-import com.poe2craft.crafting.domain.goalfilter.GoalFilter;
-import com.poe2craft.crafting.domain.pathsearch.*;
-import com.poe2craft.crafting.domain.pathsearch.ExactMethodRunner.Exit;
-import com.poe2craft.item.*;
+import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
+import com.poe2craft.craftingsupport.search.domain.AutomaticCraftingKernel;
+import com.poe2craft.craftingsupport.search.domain.AutomaticMethodExecution;
+import com.poe2craft.craftingsupport.search.domain.AutomaticMethodGraph;
+import com.poe2craft.craftingsupport.search.domain.CertifiedInterval;
+import com.poe2craft.craftingsupport.search.domain.ExactMethodRunner.Exit;
+import com.poe2craft.shared.crafting.domain.AutomaticCraftingAction;
+import com.poe2craft.shared.crafting.domain.AutomaticCurrencyPolicy;
+import com.poe2craft.shared.crafting.domain.QualityLimitRules;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.item.CatalystQuality;
+import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ModifierInstance;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 

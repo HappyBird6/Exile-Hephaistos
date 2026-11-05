@@ -18,6 +18,6 @@ AND는 함께 만족해야 할 조건, OR는 가능한 대안이다. OR의 모�
 
 ## 구현 근거
 
-[BundledGoalCatalogs.java](../../backend/src/main/java/com/poe2craft/crafting/infrastructure/goalfilter/BundledGoalCatalogs.java) · [SixAffixScenariosTest.java](../../backend/src/test/java/com/poe2craft/bootstrap/SixAffixScenariosTest.java)
+[BundledGoalCatalogs.java](../../backend/src/main/java/com/poe2craft/craftingsupport/goal/infrastructure/BundledGoalCatalogs.java) · [SixAffixScenariosTest.java](../../backend/src/test/java/com/poe2craft/bootstrap/SixAffixScenariosTest.java)
 
 [문서 지도](../README.md)

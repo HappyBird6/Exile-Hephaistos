@@ -4,9 +4,19 @@ import static com.poe2craft.bootstrap.GoalDirectedPlannerScenariosTest.*;
 import static org.assertj.core.api.Assertions.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.poe2craft.crafting.application.pathsearch.*;
-import com.poe2craft.crafting.domain.BasicCurrencyState;
-import com.poe2craft.item.*;
+import com.poe2craft.craftingsupport.goal.domain.GoalCatalogIndex;
+import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
+import com.poe2craft.craftingsupport.goal.infrastructure.BundledGoalCatalogs;
+import com.poe2craft.craftingsupport.goal.infrastructure.GoalDefinitionsLoader;
+import com.poe2craft.craftingsupport.search.api.AutomaticSearchController;
+import com.poe2craft.craftingsupport.search.api.PathSearchErrors;
+import com.poe2craft.craftingsupport.search.application.AutomaticSearchService;
+import com.poe2craft.craftingsupport.search.application.MethodSearchProtocol;
+import com.poe2craft.craftingsupport.search.application.MethodSearchService;
+import com.poe2craft.shared.crafting.domain.BasicCurrencyState;
+import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ItemStateValidator;
+import com.poe2craft.shared.item.ModifierInstance;
 import java.nio.file.Path;
 import java.util.*;
 import org.junit.jupiter.api.*;
@@ -49,14 +59,12 @@ class SixAffixScenariosTest {
     try (var legacy =
             new MethodSearchService(workbench.reviewedCatalogs(), goals, "six-affix", json);
         var service =
-            new SupportConfiguration()
+            new CraftingSupportConfiguration()
                 .automaticSearchService(workbench, goals, legacy, json, directory.toString())) {
       var mvc =
           org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup(
-                  new com.poe2craft.crafting.presentation.pathsearch.AutomaticSearchController(
-                      service, json))
-              .setControllerAdvice(
-                  new com.poe2craft.crafting.presentation.pathsearch.PathSearchErrors())
+                  new AutomaticSearchController(service, json))
+              .setControllerAdvice(new PathSearchErrors())
               .build();
       var owner = "11111111-1111-4111-8111-111111111111";
       for (int count : List.of(5, 6)) {
@@ -126,16 +134,14 @@ class SixAffixScenariosTest {
     var previous =
         "reviewed-equipment-20261009-v2-c303fc1ea724ddf2ccca61f7c9512e6c9fdcd997cb9d4348fe5a5f8766f07d5a";
     var oldCatalog =
-        new com.poe2craft.crafting.domain.goalfilter.GoalCatalogIndex(
-            com.poe2craft.crafting.infrastructure.goalfilter.BundledGoalCatalogs.load(workbench),
-            com.poe2craft.crafting.infrastructure.goalfilter.GoalDefinitionsLoader.load(),
-            previous);
-    var productionGoals = new SupportConfiguration().goalFilterService(workbench);
+        new GoalCatalogIndex(
+            BundledGoalCatalogs.load(workbench), GoalDefinitionsLoader.load(), previous);
+    var productionGoals = new CraftingSupportConfiguration().goalFilterService(workbench);
     String id;
     try (var legacy =
             new MethodSearchService(workbench.reviewedCatalogs(), goals, "six-affix", json);
         var service =
-            new SupportConfiguration()
+            new CraftingSupportConfiguration()
                 .automaticSearchService(workbench, goals, legacy, json, directory.toString())) {
       var item = root(4);
       var request =
@@ -161,7 +167,7 @@ class SixAffixScenariosTest {
             new MethodSearchService(
                 workbench.reviewedCatalogs(), productionGoals, "six-affix", json);
         var service =
-            new SupportConfiguration()
+            new CraftingSupportConfiguration()
                 .automaticSearchService(
                     workbench, productionGoals, legacy, json, directory.toString())) {
       var view = service.get("legacy", id);
@@ -223,7 +229,7 @@ class SixAffixScenariosTest {
     try (var legacy =
             new MethodSearchService(workbench.reviewedCatalogs(), goals, "six-affix", json);
         var service =
-            new SupportConfiguration()
+            new CraftingSupportConfiguration()
                 .automaticSearchService(workbench, goals, legacy, json, directory.toString())) {
       request =
           new MethodSearchProtocol.Create(
@@ -258,11 +264,7 @@ class SixAffixScenariosTest {
         maxMillis = Math.max(maxMillis, (System.nanoTime() - started) / 1000000);
       }
       assertThat(view.nodes().size()).isGreaterThan(1);
-      assertThat(view.nodes())
-          .noneMatch(
-              n ->
-                  n.progress().goal()
-                      == com.poe2craft.crafting.domain.goalfilter.GoalFilter.Status.MATCH);
+      assertThat(view.nodes()).noneMatch(n -> n.progress().goal() == GoalFilter.Status.MATCH);
       assertThat(view.nodes()).allMatch(n -> n.item().explicitSlotCount() <= 6);
       result = view;
       System.out.println(
@@ -276,7 +278,7 @@ class SixAffixScenariosTest {
     try (var legacy =
             new MethodSearchService(workbench.reviewedCatalogs(), goals, "six-affix", json);
         var service =
-            new SupportConfiguration()
+            new CraftingSupportConfiguration()
                 .automaticSearchService(workbench, goals, legacy, json, directory.toString())) {
       var restored = service.get("resume", result.id());
       assertThat(restored.nodes()).isEqualTo(result.nodes());
@@ -313,20 +315,19 @@ class SixAffixScenariosTest {
     }
     var group = goal.groups().getFirst();
     var alternative =
-        new com.poe2craft.crafting.domain.goalfilter.GoalFilter(
+        new GoalFilter(
             goal.version(),
             goal.catalogVersion(),
             goal.general(),
             List.of(
-                new com.poe2craft.crafting.domain.goalfilter.GoalFilter.Group(
+                new GoalFilter.Group(
                     group.id(),
-                    com.poe2craft.crafting.domain.goalfilter.GoalFilter.Type.COUNT,
+                    GoalFilter.Type.COUNT,
                     false,
-                    new com.poe2craft.crafting.domain.goalfilter.GoalFilter.Range(
-                        java.math.BigDecimal.ONE, null),
+                    new GoalFilter.Range(java.math.BigDecimal.ONE, null),
                     group.entries())));
     assertThat(goals.minimumExplicitModifiers(item, alternative)).isZero();
     assertThat(f.evaluation(item, alternative).apply(root(5)).goal())
-        .isEqualTo(com.poe2craft.crafting.domain.goalfilter.GoalFilter.Status.MATCH);
+        .isEqualTo(GoalFilter.Status.MATCH);
   }
 }

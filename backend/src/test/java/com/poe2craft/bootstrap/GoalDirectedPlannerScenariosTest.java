@@ -2,14 +2,32 @@ package com.poe2craft.bootstrap;
 
 import static org.assertj.core.api.Assertions.*;
 
-import com.poe2craft.crafting.application.*;
-import com.poe2craft.crafting.application.goalfilter.*;
-import com.poe2craft.crafting.domain.*;
-import com.poe2craft.crafting.domain.goalfilter.*;
-import com.poe2craft.crafting.domain.pathsearch.*;
-import com.poe2craft.crafting.infrastructure.*;
-import com.poe2craft.crafting.infrastructure.goalfilter.*;
-import com.poe2craft.item.*;
+import com.poe2craft.craftingsupport.goal.application.GoalFilterService;
+import com.poe2craft.craftingsupport.goal.domain.GoalCatalog;
+import com.poe2craft.craftingsupport.goal.domain.GoalCatalogIndex;
+import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
+import com.poe2craft.craftingsupport.goal.infrastructure.BundledGoalCatalogs;
+import com.poe2craft.craftingsupport.goal.infrastructure.GoalDefinitionsLoader;
+import com.poe2craft.craftingsupport.search.application.AutomaticKernelFactory;
+import com.poe2craft.craftingsupport.search.domain.AutomaticCraftingKernel;
+import com.poe2craft.craftingsupport.search.domain.AutomaticMethodExecution;
+import com.poe2craft.craftingsupport.search.domain.AutomaticMethodGraph;
+import com.poe2craft.craftingsupport.search.domain.CertifiedInterval;
+import com.poe2craft.craftingsupport.search.domain.ExactMethodRunner;
+import com.poe2craft.craftingsupport.search.domain.GoalDirectedPlanner;
+import com.poe2craft.craftingsupport.search.infrastructure.AutomaticCurrencyPolicyLoader;
+import com.poe2craft.shared.crafting.application.CatalogCraftingService;
+import com.poe2craft.shared.crafting.domain.AutomaticCraftingAction;
+import com.poe2craft.shared.crafting.domain.AutomaticCraftingPlan;
+import com.poe2craft.shared.crafting.domain.AutomaticCurrencyPolicy;
+import com.poe2craft.shared.crafting.domain.HistoricalAutomaticPolicy;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
+import com.poe2craft.shared.item.ItemCatalog;
+import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ModifierDefinition;
+import com.poe2craft.shared.item.ModifierInstance;
+import com.poe2craft.shared.probability.Fraction;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.function.Function;
@@ -18,9 +36,9 @@ import org.junit.jupiter.api.*;
 /** Real catalog and the complete production policy, never a reduced currency test inventory. */
 @Timeout(90)
 class GoalDirectedPlannerScenariosTest {
-  static final CraftingConfiguration cfg = new CraftingConfiguration();
+  static final CatalogConfiguration cfg = new CatalogConfiguration();
   static final ItemCatalog catalog = cfg.itemCatalog(cfg.workbenchDefinitions());
-  static final WorkbenchService workbench =
+  static final CatalogCraftingService workbench =
       cfg.workbenchService(catalog, cfg.workbenchSimulator(catalog, cfg.craftingEngine(catalog)));
   static final GoalFilterService goals =
       new GoalFilterService(
@@ -94,8 +112,8 @@ class GoalDirectedPlannerScenariosTest {
   }
 
   AutomaticCraftingKernel kernel(ItemState root, GoalFilter goal) {
-    return workbench
-        .automaticKernel(root, policy)
+    return new AutomaticKernelFactory(workbench)
+        .create(root, policy)
         .withRollPartition(goals.rollPartition(root, goal), goal.toString());
   }
 
@@ -105,8 +123,8 @@ class GoalDirectedPlannerScenariosTest {
   }
 
   AutomaticCraftingKernel historicalKernel(ItemState root, GoalFilter goal) {
-    return workbench
-        .automaticKernel(root, com.poe2craft.crafting.HistoricalAutomaticPolicy.beforeDeferrals())
+    return new AutomaticKernelFactory(workbench)
+        .create(root, HistoricalAutomaticPolicy.beforeDeferrals())
         .withRollPartition(goals.rollPartition(root, goal), goal.toString());
   }
 
@@ -187,7 +205,7 @@ class GoalDirectedPlannerScenariosTest {
                     Set.of(),
                     AutomaticCurrencyPolicy.Purpose.ORDINARY),
                 5000);
-    assertThat(law.unresolved()).isEqualTo(ExactNumericDistribution.Fraction.ZERO);
+    assertThat(law.unresolved()).isEqualTo(Fraction.ZERO);
     assertThat(law.outcomes())
         .allMatch(o -> evaluation(root, goal).apply(o.item()).goal() == GoalFilter.Status.MATCH);
     try (var graph = graph(root, goal)) {
@@ -316,9 +334,7 @@ class GoalDirectedPlannerScenariosTest {
               m -> {
                 assertThat(m.points().get(100).exits().get(ExactMethodRunner.Exit.GOAL))
                     .isNotEmpty();
-                assertThat(
-                        m.points().get(100).mass().contains(ExactNumericDistribution.Fraction.ONE))
-                    .isTrue();
+                assertThat(m.points().get(100).mass().contains(Fraction.ONE)).isTrue();
                 System.out.println(
                     "EMPTY_RARE_CHAOS "
                         + m.template()
@@ -378,8 +394,7 @@ class GoalDirectedPlannerScenariosTest {
         new GoalDirectedPlanner(
                 k,
                 evaluate,
-                AutomaticCraftingAction.candidates(
-                    com.poe2craft.crafting.HistoricalAutomaticPolicy.beforeDeferrals()))
+                AutomaticCraftingAction.candidates(HistoricalAutomaticPolicy.beforeDeferrals()))
             .choices(root);
     assertThat(choices)
         .anyMatch(
@@ -424,8 +439,7 @@ class GoalDirectedPlannerScenariosTest {
         new GoalDirectedPlanner(
                 k,
                 evaluate,
-                AutomaticCraftingAction.candidates(
-                    com.poe2craft.crafting.HistoricalAutomaticPolicy.beforeDeferrals()))
+                AutomaticCraftingAction.candidates(HistoricalAutomaticPolicy.beforeDeferrals()))
             .choices(root).stream()
                 .filter(
                     c ->
@@ -464,12 +478,11 @@ class GoalDirectedPlannerScenariosTest {
       }
       var point = execution.observation();
       assertThat(execution.absorbed()).isTrue();
-      assertThat(point.mass().contains(ExactNumericDistribution.Fraction.ONE)).isTrue();
+      assertThat(point.mass().contains(Fraction.ONE)).isTrue();
       assertThat(point.exits().get(ExactMethodRunner.Exit.GOAL)).isNotEmpty();
       assertThat(point.exits().get(ExactMethodRunner.Exit.DEAD)).isNotEmpty();
       assertThat(execution.retainedStates()).isLessThan(2000);
-      assertThat(point.initialUses().values())
-          .allMatch(v -> v.contains(ExactNumericDistribution.Fraction.ONE));
+      assertThat(point.initialUses().values()).allMatch(v -> v.contains(Fraction.ONE));
       assertThat(point.cycleUses().values())
           .allMatch(v -> v.upperUnits().compareTo(CertifiedInterval.one(64).upperUnits()) < 0);
     }
@@ -556,7 +569,7 @@ class GoalDirectedPlannerScenariosTest {
                     AutomaticCurrencyPolicy.Purpose.ORDINARY),
                 5000);
     assertThat(law.outcomes()).isEmpty();
-    assertThat(law.unresolved()).isEqualTo(ExactNumericDistribution.Fraction.ONE);
+    assertThat(law.unresolved()).isEqualTo(Fraction.ONE);
   }
 
   @Test
@@ -593,7 +606,7 @@ class GoalDirectedPlannerScenariosTest {
     assertThat(law.outcomes()).anyMatch(o -> !o.item().explicits().contains(life()));
     var sum = law.unresolved().add(law.boundary());
     for (var o : law.outcomes()) sum = sum.add(o.probability());
-    assertThat(sum).isEqualTo(ExactNumericDistribution.Fraction.ONE);
+    assertThat(sum).isEqualTo(Fraction.ONE);
   }
 
   @Test
@@ -624,8 +637,8 @@ class GoalDirectedPlannerScenariosTest {
               5000);
       var mass = law.boundary().add(law.unresolved());
       for (var outcome : law.outcomes()) mass = mass.add(outcome.probability());
-      assertThat(mass).isEqualTo(ExactNumericDistribution.Fraction.ONE);
-      assertThat(law.boundary()).isEqualTo(ExactNumericDistribution.Fraction.ZERO);
+      assertThat(mass).isEqualTo(Fraction.ONE);
+      assertThat(law.boundary()).isEqualTo(Fraction.ZERO);
       final int expected = count;
       assertThat(law.outcomes())
           .isNotEmpty()
@@ -667,7 +680,7 @@ class GoalDirectedPlannerScenariosTest {
         historicalKernel(root, goal)
             .expand(root, action(WorkbenchCurrency.CHAOS, WorkbenchOmen.WHITTLING), 5000);
     assertThat(law.status()).isEqualTo(AutomaticCraftingKernel.Status.UNSUPPORTED);
-    assertThat(law.unresolved()).isEqualTo(ExactNumericDistribution.Fraction.ONE);
+    assertThat(law.unresolved()).isEqualTo(Fraction.ONE);
   }
 
   @Test
@@ -691,8 +704,8 @@ class GoalDirectedPlannerScenariosTest {
     assertThat(law.reason()).isEqualTo("OUTCOME_BUDGET");
     var sum = law.unresolved().add(law.boundary());
     for (var o : law.outcomes()) sum = sum.add(o.probability());
-    assertThat(sum).isEqualTo(ExactNumericDistribution.Fraction.ONE);
-    assertThat(law.unresolved()).isNotEqualTo(ExactNumericDistribution.Fraction.ZERO);
+    assertThat(sum).isEqualTo(Fraction.ONE);
+    assertThat(law.unresolved()).isNotEqualTo(Fraction.ZERO);
   }
 
   @Test
@@ -708,15 +721,15 @@ class GoalDirectedPlannerScenariosTest {
     var k = kernel(root, goal);
     var evaluate = evaluation(root, goal);
     var law = k.expand(root, action(WorkbenchCurrency.CHAOS), 5000);
-    var p = ExactNumericDistribution.Fraction.ZERO;
-    var retry = ExactNumericDistribution.Fraction.ZERO;
+    var p = Fraction.ZERO;
+    var retry = Fraction.ZERO;
     for (var outcome : law.outcomes()) {
       if (evaluate.apply(outcome.item()).goal() == GoalFilter.Status.MATCH)
         p = p.add(outcome.probability());
       else retry = retry.add(outcome.probability());
     }
-    var expected = ExactNumericDistribution.Fraction.ZERO;
-    var survival = ExactNumericDistribution.Fraction.ONE;
+    var expected = Fraction.ZERO;
+    var survival = Fraction.ONE;
     for (int i = 0; i < 100; i++) {
       expected = expected.add(survival.multiply(p));
       survival = survival.multiply(retry);
@@ -742,8 +755,7 @@ class GoalDirectedPlannerScenariosTest {
       for (var mass : execution.observation().exits().get(ExactMethodRunner.Exit.GOAL).values())
         probability = probability.add(mass);
       assertThat(probability.contains(expected)).isTrue();
-      assertThat(execution.observation().mass().contains(ExactNumericDistribution.Fraction.ONE))
-          .isTrue();
+      assertThat(execution.observation().mass().contains(Fraction.ONE)).isTrue();
     }
     // The production graph supplies its own progress classifier. Verify that its
     // terminal no-progress classification also reaches the proven retry law.

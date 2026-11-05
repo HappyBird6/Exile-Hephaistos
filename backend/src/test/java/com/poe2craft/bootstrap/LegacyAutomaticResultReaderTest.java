@@ -4,8 +4,16 @@ import static org.assertj.core.api.Assertions.*;
 
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.poe2craft.crafting.application.pathsearch.*;
-import com.poe2craft.crafting.infrastructure.LocalAutomaticJobRepository;
+import com.poe2craft.craftingsupport.goal.domain.GoalCatalogIndex;
+import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
+import com.poe2craft.craftingsupport.goal.infrastructure.BundledGoalCatalogs;
+import com.poe2craft.craftingsupport.goal.infrastructure.GoalDefinitionsLoader;
+import com.poe2craft.craftingsupport.search.application.AutomaticSearchService;
+import com.poe2craft.craftingsupport.search.application.MethodSearchProtocol;
+import com.poe2craft.craftingsupport.search.application.MethodSearchService;
+import com.poe2craft.craftingsupport.search.application.PathSearchProtocol;
+import com.poe2craft.craftingsupport.search.infrastructure.LocalAutomaticJobRepository;
+import com.poe2craft.shared.item.ItemState;
 import java.nio.file.*;
 import java.util.*;
 import org.junit.jupiter.api.*;
@@ -22,7 +30,7 @@ class LegacyAutomaticResultReaderTest {
   AutomaticSearchService open(boolean productionCatalog) {
     var goals =
         productionCatalog
-            ? new SupportConfiguration()
+            ? new CraftingSupportConfiguration()
                 .goalFilterService(GoalDirectedPlannerScenariosTest.workbench)
             : GoalDirectedPlannerScenariosTest.goals;
     var legacy =
@@ -32,7 +40,7 @@ class LegacyAutomaticResultReaderTest {
             "legacy-read-fixture",
             json);
     var service =
-        new SupportConfiguration()
+        new CraftingSupportConfiguration()
             .automaticSearchService(
                 GoalDirectedPlannerScenariosTest.workbench,
                 goals,
@@ -65,14 +73,10 @@ class LegacyAutomaticResultReaderTest {
   @Test
   void previousSixAffixCatalogAndV12CursorRemainReadableWithoutMutation() throws Exception {
     var workbench = GoalDirectedPlannerScenariosTest.workbench;
-    var goals = new SupportConfiguration().goalFilterService(workbench);
+    var goals = new CraftingSupportConfiguration().goalFilterService(workbench);
     var requestNode = (ObjectNode) fixture("complete").path("request").deepCopy();
-    var item =
-        json.treeToValue(
-            requestNode.path("start").path("item"), com.poe2craft.item.ItemState.class);
-    var context =
-        new com.poe2craft.crafting.domain.goalfilter.GoalFilter.Context(
-            item.snapshotId(), item.baseItemId(), item.itemLevel());
+    var item = json.treeToValue(requestNode.path("start").path("item"), ItemState.class);
+    var context = new GoalFilter.Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
     ((ObjectNode) requestNode.path("goal"))
         .put("catalogVersion", goals.catalog(context).catalogVersion());
     requestNode.put("clientRequestId", "previous-six-affix");
@@ -86,9 +90,9 @@ class LegacyAutomaticResultReaderTest {
     }
     var node = (ObjectNode) json.readTree(bytes(id));
     var oldIndex =
-        new com.poe2craft.crafting.domain.goalfilter.GoalCatalogIndex(
-            com.poe2craft.crafting.infrastructure.goalfilter.BundledGoalCatalogs.load(workbench),
-            com.poe2craft.crafting.infrastructure.goalfilter.GoalDefinitionsLoader.load(),
+        new GoalCatalogIndex(
+            BundledGoalCatalogs.load(workbench),
+            GoalDefinitionsLoader.load(),
             "reviewed-equipment-20261028-v3-d8fc1817187354306f0db443768486e8e15ea3f4e4904447300104750421bb7a");
     ((ObjectNode) node.path("request").path("goal")).put("catalogVersion", oldIndex.version());
     var graph = (ObjectNode) node.path("graph");
@@ -119,14 +123,10 @@ class LegacyAutomaticResultReaderTest {
   @Test
   void previousAmuletV5CatalogAndV13CursorRemainReadableWithoutMutation() throws Exception {
     var workbench = GoalDirectedPlannerScenariosTest.workbench;
-    var goals = new SupportConfiguration().goalFilterService(workbench);
+    var goals = new CraftingSupportConfiguration().goalFilterService(workbench);
     var requestNode = (ObjectNode) fixture("complete").path("request").deepCopy();
-    var item =
-        json.treeToValue(
-            requestNode.path("start").path("item"), com.poe2craft.item.ItemState.class);
-    var context =
-        new com.poe2craft.crafting.domain.goalfilter.GoalFilter.Context(
-            item.snapshotId(), item.baseItemId(), item.itemLevel());
+    var item = json.treeToValue(requestNode.path("start").path("item"), ItemState.class);
+    var context = new GoalFilter.Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
     ((ObjectNode) requestNode.path("goal"))
         .put("catalogVersion", goals.catalog(context).catalogVersion());
     requestNode.put("clientRequestId", "previous-six-affix");
@@ -140,10 +140,9 @@ class LegacyAutomaticResultReaderTest {
     }
     var node = (ObjectNode) json.readTree(bytes(id));
     var oldIndex =
-        new com.poe2craft.crafting.domain.goalfilter.GoalCatalogIndex(
-            com.poe2craft.crafting.infrastructure.goalfilter.BundledGoalCatalogs.load(workbench),
-            com.poe2craft.crafting.infrastructure.goalfilter.GoalDefinitionsLoader
-                .loadHistoricalV5(),
+        new GoalCatalogIndex(
+            BundledGoalCatalogs.load(workbench),
+            GoalDefinitionsLoader.loadHistoricalV5(),
             "reviewed-equipment-20261028-v4-81ceaf5378ae88a6b874c0b8c04d729d35bd0f87a40c7b59a93ae16df03a6736");
     ((ObjectNode) node.path("request").path("goal")).put("catalogVersion", oldIndex.version());
     var graph = (ObjectNode) node.path("graph");
@@ -335,11 +334,11 @@ class LegacyAutomaticResultReaderTest {
             old.version(),
             "new-v9",
             old.start(),
-            new com.poe2craft.crafting.domain.goalfilter.GoalFilter(
+            new GoalFilter(
                 old.goal().version(),
                 GoalDirectedPlannerScenariosTest.goals
                     .catalog(
-                        new com.poe2craft.crafting.domain.goalfilter.GoalFilter.Context(
+                        new GoalFilter.Context(
                             old.start().item().snapshotId(),
                             old.start().item().baseItemId(),
                             old.start().item().itemLevel()))

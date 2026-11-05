@@ -2,11 +2,24 @@ package com.poe2craft.bootstrap;
 
 import static org.assertj.core.api.Assertions.*;
 
-import com.poe2craft.crafting.application.goalfilter.GoalFilterService;
-import com.poe2craft.crafting.domain.goalfilter.*;
-import com.poe2craft.crafting.domain.goalfilter.GoalFilter.*;
-import com.poe2craft.crafting.infrastructure.goalfilter.*;
-import com.poe2craft.item.*;
+import com.poe2craft.craftingsupport.goal.application.GoalFilterService;
+import com.poe2craft.craftingsupport.goal.domain.GoalCatalog;
+import com.poe2craft.craftingsupport.goal.domain.GoalCatalogIndex;
+import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
+import com.poe2craft.craftingsupport.goal.domain.GoalFilter.*;
+import com.poe2craft.craftingsupport.goal.infrastructure.BundledGoalCatalogs;
+import com.poe2craft.craftingsupport.goal.infrastructure.GoalDefinitionsLoader;
+import com.poe2craft.craftingsupport.search.application.AutomaticKernelFactory;
+import com.poe2craft.craftingsupport.search.domain.AutomaticCraftingKernel;
+import com.poe2craft.craftingsupport.search.infrastructure.AutomaticCurrencyPolicyLoader;
+import com.poe2craft.shared.crafting.domain.AutomaticCraftingAction;
+import com.poe2craft.shared.crafting.domain.AutomaticCurrencyPolicy;
+import com.poe2craft.shared.crafting.domain.CoupledStatRollModel;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ModifierDefinition;
+import com.poe2craft.shared.item.ModifierInstance;
+import com.poe2craft.shared.probability.Fraction;
 import java.math.BigDecimal;
 import java.util.*;
 import org.junit.jupiter.api.Test;
@@ -14,7 +27,7 @@ import org.junit.jupiter.api.Test;
 class ReviewedRingGoalTest {
   @Test
   void reviewedRingUsesItsExistingDeclaredJointModelAndConservesTheFullEligibleDenominator() {
-    var cfg = new CraftingConfiguration();
+    var cfg = new CatalogConfiguration();
     var solar = cfg.itemCatalog(cfg.workbenchDefinitions());
     var workbench =
         cfg.workbenchService(solar, cfg.workbenchSimulator(solar, cfg.craftingEngine(solar)));
@@ -29,35 +42,31 @@ class ReviewedRingGoalTest {
             List.of(),
             Set.of());
     var kernel =
-        workbench.automaticKernel(
-            item, com.poe2craft.crafting.infrastructure.AutomaticCurrencyPolicyLoader.load());
+        new AutomaticKernelFactory(workbench).create(item, AutomaticCurrencyPolicyLoader.load());
     var result =
         kernel.expandDeferred(
             item,
             Map.of(),
-            new com.poe2craft.crafting.domain.AutomaticCraftingAction(
-                com.poe2craft.crafting.domain.WorkbenchCurrency.EXALTED,
+            new AutomaticCraftingAction(
+                WorkbenchCurrency.EXALTED,
                 Set.of(),
-                com.poe2craft.crafting.domain.AutomaticCurrencyPolicy.Purpose
-                    .TEMPORARY_AFFIX_FOR_REMOVAL),
+                AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL),
             5000);
-    assertThat(result.status())
-        .isEqualTo(com.poe2craft.crafting.domain.AutomaticCraftingKernel.Status.COMPLETE);
-    assertThat(result.unresolved())
-        .isEqualTo(com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction.ZERO);
+    assertThat(result.status()).isEqualTo(AutomaticCraftingKernel.Status.COMPLETE);
+    assertThat(result.unresolved()).isEqualTo(Fraction.ZERO);
     assertThat(result.outcomes())
         .anySatisfy(o -> assertThat(o.item().explicits().getFirst().values()).hasSize(2));
     assertThat(result.assumptions())
         .anySatisfy(
             a -> {
-              assertThat(a.id()).isEqualTo(com.poe2craft.crafting.domain.CoupledStatRollModel.ID);
+              assertThat(a.id()).isEqualTo(CoupledStatRollModel.ID);
               assertThat(a.reason()).contains("Unverified user conjecture");
             });
   }
 
   @Test
   void reviewedDirectRingStatsEvaluateTheirActualSourceValuesWithoutDroppingHybridComponents() {
-    var cfg = new CraftingConfiguration();
+    var cfg = new CatalogConfiguration();
     var solar = cfg.itemCatalog(cfg.workbenchDefinitions());
     var workbench =
         cfg.workbenchService(solar, cfg.workbenchSimulator(solar, cfg.craftingEngine(solar)));

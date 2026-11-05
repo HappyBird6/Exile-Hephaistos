@@ -32,6 +32,6 @@ registered base 수는 [지원 범위](support.md), 상태 검증은 [아이템 
 
 ## 구현 근거
 
-[WorkbenchService.java](../../backend/src/main/java/com/poe2craft/crafting/application/WorkbenchService.java) · [WorkbenchController.java](../../backend/src/main/java/com/poe2craft/crafting/presentation/WorkbenchController.java)
+[WorkbenchService.java](../../backend/src/main/java/com/poe2craft/shared/crafting/application/CatalogCraftingService.java) · [WorkbenchController.java](../../backend/src/main/java/com/poe2craft/workbench/api/WorkbenchController.java)
 
 [문서 지도](../README.md)

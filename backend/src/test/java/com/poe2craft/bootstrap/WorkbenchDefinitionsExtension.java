@@ -1,5 +1,6 @@
 package com.poe2craft.bootstrap;
 
+import com.poe2craft.shared.crafting.infrastructure.WorkbenchDefinitionsLoader;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
@@ -7,6 +8,6 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 public final class WorkbenchDefinitionsExtension implements BeforeAllCallback {
   @Override
   public void beforeAll(ExtensionContext context) {
-    com.poe2craft.crafting.infrastructure.WorkbenchDefinitionsLoader.initialize();
+    WorkbenchDefinitionsLoader.initialize();
   }
 }

@@ -274,7 +274,7 @@ changed in this unit, and no new browser verification is claimed.
 
 ## Actual job checkpoints and process recovery
 
-`SupportConfiguration` now supplies `LocalCertifiedJobRepository` to the existing
+`CraftingSupportConfiguration` now supplies `LocalCertifiedJobRepository` to the existing
 `MethodSearchService`; the certified job scheduler writes through
 `MethodCursorStore`. The default local directory is `./data/method-jobs`,
 configurable with `crafting.method-job-directory`. No external database service

@@ -2,10 +2,15 @@ package com.poe2craft.bootstrap;
 
 import static org.assertj.core.api.Assertions.*;
 
-import com.poe2craft.crafting.domain.*;
-import com.poe2craft.crafting.domain.goalfilter.*;
-import com.poe2craft.crafting.domain.pathsearch.*;
-import com.poe2craft.item.*;
+import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
+import com.poe2craft.craftingsupport.search.application.AutomaticKernelFactory;
+import com.poe2craft.craftingsupport.search.domain.AutomaticCraftingKernel;
+import com.poe2craft.craftingsupport.search.domain.CertifiedInterval;
+import com.poe2craft.craftingsupport.search.domain.ExactMethodRunner;
+import com.poe2craft.shared.crafting.domain.AutomaticCraftingPlan;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -51,8 +56,8 @@ class PreparedAcquisitionGeneralityTest {
     var goal = f.goal(root, Map.of(stat, threshold));
     var k = f.kernel(root, goal);
     var exact =
-        f.workbench
-            .automaticKernel(root, f.policy)
+        new AutomaticKernelFactory(f.workbench)
+            .create(root, f.policy)
             .expand(root, f.action(WorkbenchCurrency.EXALTED), 5000);
     var partitioned = k.expand(root, f.action(WorkbenchCurrency.EXALTED), 5000);
     var evaluate = f.evaluation(root, goal);
@@ -60,12 +65,12 @@ class PreparedAcquisitionGeneralityTest {
         exact.outcomes().stream()
             .filter(o -> evaluate.apply(o.item()).goal() == GoalFilter.Status.MATCH)
             .map(AutomaticCraftingKernel.Outcome::probability)
-            .reduce(ExactNumericDistribution.Fraction.ZERO, ExactNumericDistribution.Fraction::add);
+            .reduce(Fraction.ZERO, Fraction::add);
     var partitionedHit =
         partitioned.outcomes().stream()
             .filter(o -> evaluate.apply(o.item()).goal() == GoalFilter.Status.MATCH)
             .map(AutomaticCraftingKernel.Outcome::probability)
-            .reduce(ExactNumericDistribution.Fraction.ZERO, ExactNumericDistribution.Fraction::add);
+            .reduce(Fraction.ZERO, Fraction::add);
     assertThat(partitionedHit).isEqualTo(exactHit);
     assertThat(partitioned.unresolved()).isEqualTo(exact.unresolved());
     assertThat(partitioned.boundary()).isEqualTo(exact.boundary());
@@ -111,14 +116,7 @@ class PreparedAcquisitionGeneralityTest {
               .toList();
       assertThat(prepared).isNotEmpty().allMatch(m -> m.executionMode().equals("REPEATABLE"));
       assertThat(prepared)
-          .allSatisfy(
-              m ->
-                  assertThat(
-                          m.points()
-                              .get(100)
-                              .mass()
-                              .contains(ExactNumericDistribution.Fraction.ONE))
-                      .isTrue());
+          .allSatisfy(m -> assertThat(m.points().get(100).mass().contains(Fraction.ONE)).isTrue());
       var plain =
           prepared.stream()
               .filter(m -> m.template().initial().getFirst().omens().isEmpty())

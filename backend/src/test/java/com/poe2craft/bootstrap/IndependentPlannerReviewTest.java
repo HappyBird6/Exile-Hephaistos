@@ -2,10 +2,18 @@ package com.poe2craft.bootstrap;
 
 import static org.assertj.core.api.Assertions.*;
 
-import com.poe2craft.crafting.domain.WorkbenchCurrency;
-import com.poe2craft.crafting.domain.goalfilter.*;
-import com.poe2craft.crafting.domain.pathsearch.*;
-import com.poe2craft.item.*;
+import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
+import com.poe2craft.craftingsupport.search.domain.CertifiedInterval;
+import com.poe2craft.craftingsupport.search.domain.ExactMethodRunner;
+import com.poe2craft.craftingsupport.search.domain.GoalDirectedPlanner;
+import com.poe2craft.shared.crafting.domain.AutomaticCraftingAction;
+import com.poe2craft.shared.crafting.domain.AutomaticCurrencyPolicy;
+import com.poe2craft.shared.crafting.domain.HistoricalAutomaticPolicy;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
+import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ModifierInstance;
+import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import java.util.stream.*;
 import org.junit.jupiter.api.*;
@@ -148,8 +156,7 @@ class IndependentPlannerReviewTest extends GoalDirectedPlannerScenariosTest {
                                     + p.lower()
                                     + ".."
                                     + p.upper());
-                            assertThat(point.mass().contains(ExactNumericDistribution.Fraction.ONE))
-                                .isTrue();
+                            assertThat(point.mass().contains(Fraction.ONE)).isTrue();
                           }
                         var strategy = graph.strategy(100);
                         for (int iteration = 0; iteration < 128; iteration++) strategy.refine();
@@ -190,14 +197,12 @@ class IndependentPlannerReviewTest extends GoalDirectedPlannerScenariosTest {
                               .allMatch(
                                   m ->
                                       m.template().cycle().getFirst().operation()
-                                          == com.poe2craft.crafting.domain.AutomaticCraftingAction
-                                              .Operation.DESECRATE);
+                                          == com.poe2craft.shared.crafting.domain
+                                              .AutomaticCraftingAction.Operation.DESECRATE);
                           assertThat(goalCount).isZero();
                           assertThat(reachability.status()).isEqualTo("PENDING");
-                          assertThat(reachability.value().lower())
-                              .isEqualTo(ExactNumericDistribution.Fraction.ZERO);
-                          assertThat(reachability.value().upper())
-                              .isEqualTo(ExactNumericDistribution.Fraction.ONE);
+                          assertThat(reachability.value().lower()).isEqualTo(Fraction.ZERO);
+                          assertThat(reachability.value().upper()).isEqualTo(Fraction.ONE);
                         } else if (rejected) {
                           // These unchanged goals previously depended on now-forbidden multi-affix
                           // Chaos.
@@ -208,10 +213,8 @@ class IndependentPlannerReviewTest extends GoalDirectedPlannerScenariosTest {
                               .isEmpty();
                           assertThat(graph.nodes()).hasSize(1);
                           assertThat(goalCount).isZero();
-                          assertThat(reachability.value().lower())
-                              .isEqualTo(ExactNumericDistribution.Fraction.ZERO);
-                          assertThat(reachability.value().upper())
-                              .isEqualTo(ExactNumericDistribution.Fraction.ZERO);
+                          assertThat(reachability.value().lower()).isEqualTo(Fraction.ZERO);
+                          assertThat(reachability.value().upper()).isEqualTo(Fraction.ZERO);
                           assertThat(reachability.status()).isEqualTo("PROVEN_ZERO");
                         } else if (Set.of(
                                 "02-original-three",
@@ -248,12 +251,7 @@ class IndependentPlannerReviewTest extends GoalDirectedPlannerScenariosTest {
                 new ModifierInstance("amulet:suffix:of-the-seal", Map.of(COLD, 6L))));
     var target = goal(root, Map.of(LIFE, 1L, CHAOS, 1L));
     var k = historicalKernel(root, target);
-    var direct =
-        k.plan(
-            root,
-            action(
-                com.poe2craft.crafting.domain.WorkbenchCurrency.CHAOS,
-                com.poe2craft.crafting.domain.WorkbenchOmen.WHITTLING));
+    var direct = k.plan(root, action(WorkbenchCurrency.CHAOS, WorkbenchOmen.WHITTLING));
     assertThat(direct.branches())
         .anyMatch(
             b -> b.remaining().explicits().stream().noneMatch(m -> m.values().containsKey(LIFE)));
@@ -264,21 +262,14 @@ class IndependentPlannerReviewTest extends GoalDirectedPlannerScenariosTest {
         new GoalDirectedPlanner(
                 k,
                 evaluation(root, target),
-                com.poe2craft.crafting.domain.AutomaticCraftingAction.candidates(
-                    com.poe2craft.crafting.HistoricalAutomaticPolicy.beforeDeferrals()))
+                AutomaticCraftingAction.candidates(HistoricalAutomaticPolicy.beforeDeferrals()))
             .choices(root);
     assertThat(choices)
         .anyMatch(
             c ->
                 c.initial().stream()
                         .anyMatch(
-                            a ->
-                                a.purpose()
-                                    == com.poe2craft.crafting.domain.AutomaticCurrencyPolicy.Purpose
-                                        .TARGET_PREPARATION)
-                    && c.cycle()
-                        .getFirst()
-                        .omens()
-                        .equals(Set.of(com.poe2craft.crafting.domain.WorkbenchOmen.WHITTLING)));
+                            a -> a.purpose() == AutomaticCurrencyPolicy.Purpose.TARGET_PREPARATION)
+                    && c.cycle().getFirst().omens().equals(Set.of(WorkbenchOmen.WHITTLING)));
   }
 }

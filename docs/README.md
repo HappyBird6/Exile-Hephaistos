@@ -9,6 +9,7 @@
 | 문서 | 내용 |
 |---|---|
 | [프로젝트 개요](current/overview.md) | 구조·API·저장소·출처 |
+| [백엔드 코드 안내](../backend/README.md) | 제작작업대·제작지원 경계, 프론트 API 대응표, 설정과 변경 방법 |
 | [지원 범위](current/support.md) | 베이스·언어·자동 정책과 제한 |
 | [아이템 상태](current/item-state.md) | 옵션·희귀도·후보 검증 |
 | [텍스트 파싱과 매핑](current/text-parsing.md) | 표시용 파서·계산 상태·참조 라이선스 |

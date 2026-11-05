@@ -2,9 +2,15 @@ package com.poe2craft.bootstrap;
 
 import static org.assertj.core.api.Assertions.*;
 
-import com.poe2craft.crafting.domain.*;
-import com.poe2craft.item.*;
-import com.poe2craft.item.infrastructure.ItemCatalogLoader;
+import com.poe2craft.shared.crafting.domain.CraftingEngine;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
+import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
+import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ItemStateValidator;
+import com.poe2craft.shared.item.ModifierInstance;
+import com.poe2craft.shared.item.ReviewedBodies;
+import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -32,7 +38,7 @@ class ReviewedBodyHelmetBundleTest {
         .allSatisfy(d -> assertThat(d.weight()).isEqualTo(1));
     var solar = ItemCatalogLoader.loadDefault();
     var service =
-        new CraftingConfiguration()
+        new CatalogConfiguration()
             .workbenchService(solar, new WorkbenchSimulator(solar, new CraftingEngine(solar)));
     var initial = service.initial(key, 82);
     assertThat(initial.state().baseItemId()).isEqualTo(c.base().id());
