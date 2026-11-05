@@ -222,9 +222,10 @@ public final class BaseRegistry {
     if (!source.has("socketExecutionMaximum")
         || (!source.get("socketExecutionMaximum").isNull()
             && (!source.get("socketExecutionMaximum").isInt()
-                || source.get("socketExecutionMaximum").asInt() != 1)))
+                || source.get("socketExecutionMaximum").asInt() < 1
+                || source.get("socketExecutionMaximum").asInt() > 3)))
       throw new IllegalArgumentException(
-          "Only the reviewed one-socket execution policy is supported");
+          "Only reviewed socket execution maxima 1 through 3 are supported");
     try {
       return mapper
           .readerFor(Policy.class)

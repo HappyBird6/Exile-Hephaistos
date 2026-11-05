@@ -98,6 +98,7 @@ export type WorkbenchAction =
   | 'LESSER_ESSENCE_SEEKING'
   | 'ESSENCE_SEEKING'
   | 'GREATER_ESSENCE_SEEKING'
+  | 'INSTALL_AUGMENT'
   | 'ARTIFICER'
   | 'ARMOURERS_SCRAP'
   | 'BLACKSMITHS_WHETSTONE'
@@ -568,6 +569,7 @@ export const workbenchActionNames: Record<WorkbenchAction, string> = {
   LESSER_ESSENCE_SEEKING: 'Lesser Essence of Seeking',
   ESSENCE_SEEKING: 'Essence of Seeking',
   GREATER_ESSENCE_SEEKING: 'Greater Essence of Seeking',
+  INSTALL_AUGMENT: 'Install Augment',
   ARTIFICER: "Artificer's Orb",
   ...actionNames,
   LESSER_ESSENCE_ENHANCEMENT: 'Lesser Essence of Enhancement',
@@ -796,6 +798,7 @@ export interface DesecratedSlot {
   modifierId: string | null
 }
 export interface ConcreteItem extends Omit<Bucket, 'modifierIds'> {
+  installedAugments?: { slotIndex: number; augmentId: string }[]
   sanctification?: Sanctification | null
   observations?: ItemObservations | null
   equipmentQuality?: number | null
@@ -1371,14 +1374,20 @@ export async function applyCurrency(
     throw new Error(
       'Could not verify the coupled roll model. Your item is unchanged. Please retry.',
     )
+  if (
+    JSON.stringify(next.installedAugments ?? []) !==
+    JSON.stringify(state.installedAugments ?? [])
+  )
+    throw new Error('Unverified installed Augments')
   const oldSockets = state.augmentSockets ?? null
   const newSockets = next.augmentSockets ?? null
   if (
     (action === 'ARTIFICER' &&
       v.applied &&
-      (basePolicy(state.baseItemId)?.socketExecutionMaximum !== 1 ||
-        oldSockets !== 0 ||
-        newSockets !== 1 ||
+      (basePolicy(state.baseItemId)?.socketExecutionMaximum == null ||
+        oldSockets == null ||
+        newSockets !== oldSockets + 1 ||
+        newSockets > basePolicy(state.baseItemId)!.socketExecutionMaximum! ||
         next.rarity !== state.rarity ||
         !sameModifiers(next.explicits, state.explicits) ||
         !sameModifiers(next.implicits, state.implicits) ||

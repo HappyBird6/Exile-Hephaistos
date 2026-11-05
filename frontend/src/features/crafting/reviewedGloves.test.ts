@@ -95,7 +95,7 @@ describe('reviewed endgame armour source and restoration', () => {
       }
       expect(supportsConcreteStateShape(state)).toBe(true)
       expect(supportsConcreteStateShape({ ...state, augmentSockets: 1 })).toBe(
-        false,
+        true,
       )
     },
   )

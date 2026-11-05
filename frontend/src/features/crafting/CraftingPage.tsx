@@ -1,3 +1,10 @@
+import {
+  augments,
+  augmentName,
+  augmentEffect,
+  socketText,
+  installAugment,
+} from './socketAugments'
 import { createPortal } from 'react-dom'
 import { defenceDisplay } from './defenceDisplay'
 import { preciseModifierProjection } from './sanctification/preciseModifierProjection'
@@ -782,7 +789,7 @@ export function CraftingPage() {
       }),
     )
   }
-  async function apply(repeat = false) {
+  async function apply(repeat = false, socketSlot?: number) {
     if (mutationLocked()) return
     setFailedApplication(null)
     setRepeatNotice(null)
@@ -808,8 +815,9 @@ export function CraftingPage() {
       failApply(t('notice.omen_favorite'))
       return
     }
+    const isAugment = augments.some((a) => a.id === selected.id)
     const action = workbenchCurrencyActions[selected.id]
-    if (!action && !isBone(selected.id)) {
+    if (!action && !isBone(selected.id) && !isAugment) {
       failApply(t('notice.no_rule'))
       return
     }
@@ -1011,6 +1019,42 @@ export function CraftingPage() {
           setHeld(null)
           setPointer(null)
         }
+        return
+      }
+      if (isAugment) {
+        const slot =
+          socketSlot ??
+          Array.from({ length: state.augmentSockets ?? 0 }, (_, i) => i).find(
+            (i) =>
+              !(state.installedAugments ?? []).some((a) => a.slotIndex === i),
+          )
+        if (slot === undefined) throw new Error(socketText().unsupported)
+        const result = await installAugment(
+          state,
+          slot,
+          selected.id,
+          initial.data.rulesetIdentity,
+          controller.signal,
+        )
+        if (!repeatContextCurrent()) return
+        result.remainingOmens = [...draft.activeOmens]
+        client.setQueryData(workbenchKey, result)
+        const history =
+          filmState.revision === revision
+            ? filmState.history
+            : { ...filmState.history, active: null, cursor: 0 }
+        saveFilms(recordCraft(history, state, result, filmId()), revision)
+        setAnnouncement(augmentName(selected.id))
+        setSelected(null)
+        setHeld(null)
+        setPointer(null)
+        requestAnimationFrame(() => {
+          if (
+            useItemDraft.getState().baseRevision === revision &&
+            document.activeElement === document.body
+          )
+            document.querySelector<HTMLButtonElement>('.item-slot')?.focus()
+        })
         return
       }
       if (!action) throw new Error(t('notice.no_rule'))
@@ -1322,7 +1366,7 @@ export function CraftingPage() {
         )
       : new Set<string>()
   const defences =
-    concrete && initial.data
+    concrete && initial.data && !concrete.installedAugments?.length
       ? defenceDisplay(concrete, initial.data.modifiers, locale)
       : { properties: [], replacedSourceIndexes: new Set<number>() }
   const card =
@@ -1349,6 +1393,21 @@ export function CraftingPage() {
                     : text,
                 })),
               ...defences.properties,
+              ...(concrete.augmentSockets != null
+                ? [{ id: 'socket-policy', text: socketText().policy }]
+                : []),
+              ...(concrete.installedAugments?.length
+                ? [
+                    { id: 'socket-effect-note', text: socketText().effects },
+                    ...concrete.installedAugments.map((a) => ({
+                      id: 'socket-effect-' + a.slotIndex,
+                      text:
+                        augmentName(a.augmentId) +
+                        ': ' +
+                        augmentEffect(a.augmentId, concrete.baseItemId),
+                    })),
+                  ]
+                : []),
               ...(catalogBase === 'belt'
                 ? [
                     {
@@ -1750,6 +1809,76 @@ export function CraftingPage() {
                         />
                         <span>{displayedName}</span>
                       </button>
+                      {concrete?.augmentSockets != null &&
+                        concrete.augmentSockets > 0 && (
+                          <div
+                            className="wb-sockets"
+                            aria-label={socketText().tab}
+                          >
+                            {Array.from(
+                              { length: concrete.augmentSockets },
+                              (_, slot) => {
+                                const installed =
+                                  concrete.installedAugments?.find(
+                                    (a) => a.slotIndex === slot,
+                                  )
+                                return (
+                                  <button
+                                    key={slot}
+                                    type="button"
+                                    className={
+                                      'wb-socket ' +
+                                      (installed ? 'is-filled' : '')
+                                    }
+                                    disabled={
+                                      workbenchBusy ||
+                                      !selected ||
+                                      !augments.some(
+                                        (a) => a.id === selected.id,
+                                      )
+                                    }
+                                    title={
+                                      socketText().policy +
+                                      ' ' +
+                                      (installed
+                                        ? augmentName(installed.augmentId) +
+                                          ': ' +
+                                          augmentEffect(
+                                            installed.augmentId,
+                                            concrete.baseItemId,
+                                          )
+                                        : socketText().empty)
+                                    }
+                                    aria-label={
+                                      socketText().socket +
+                                      ' ' +
+                                      (slot + 1) +
+                                      ': ' +
+                                      (installed
+                                        ? augmentName(installed.augmentId)
+                                        : socketText().empty)
+                                    }
+                                    onClick={() => void apply(false, slot)}
+                                  >
+                                    {installed ? (
+                                      <img
+                                        src={
+                                          augments.find(
+                                            (a) => a.id === installed.augmentId,
+                                          )?.image ??
+                                          '/assets/augments/rune.svg'
+                                        }
+                                        alt={augmentName(installed.augmentId)}
+                                      />
+                                    ) : (
+                                      <span aria-hidden="true">○</span>
+                                    )}
+                                  </button>
+                                )
+                              },
+                            )}
+                          </div>
+                        )}
                     </div>
                   </div>
                   <div className="chaos-repeat-integration">
@@ -1878,7 +2007,9 @@ export function CraftingPage() {
                                     ?.focus()
                                 }}
                               >
-                                {t(`stash.${tab.id}`)}
+                                {tab.id === 'Augments'
+                                  ? socketText().tab
+                                  : t(`stash.${tab.id}`)}
                               </button>
                             ))}
                           </div>

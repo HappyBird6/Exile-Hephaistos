@@ -136,9 +136,7 @@ it('rejects a valid glove response delivered for Bow selection', async () => {
 it('preserves the affix boundary instead of accepting unimplemented Bow sockets or computed damage', () => {
   const state = concreteInitial(initial)
   expect(supportsConcreteStateShape(state)).toBe(true)
-  expect(supportsConcreteStateShape({ ...state, augmentSockets: 0 })).toBe(
-    false,
-  )
+  expect(supportsConcreteStateShape({ ...state, augmentSockets: 0 })).toBe(true)
   expect(
     supportsConcreteStateShape({ ...state, physicalDamage: [5, 10] }),
   ).toBe(false)

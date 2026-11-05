@@ -488,7 +488,7 @@ class WorkbenchControllerTest {
             mapper.valueToTree(1.5),
             mapper.valueToTree("1"),
             mapper.valueToTree(-1),
-            mapper.valueToTree(2),
+            mapper.valueToTree(3),
             mapper.valueToTree(2147483648L))) {
       var state = (com.fasterxml.jackson.databind.node.ObjectNode) mapper.valueToTree(f.root);
       state.set("augmentSockets", value);

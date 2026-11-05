@@ -4,7 +4,7 @@ import {
   verifyRulesetResponse,
 } from './rulesetIdentity'
 import type { WorkbenchBaseKey } from './baseRegistry'
-import { baseRarityAllowed } from './baseRegistry'
+import { basePolicy, baseRarityAllowed } from './baseRegistry'
 import { topBase } from './topBases'
 export const actions = [
   'TRANSMUTATION',
@@ -301,7 +301,8 @@ export async function loadInitial(
     !isRulesetIdentity(v.rulesetIdentity) ||
     (v.augmentSockets !== undefined &&
       v.augmentSockets !== null &&
-      (base !== 'stocky' || v.augmentSockets !== 0)) ||
+      (basePolicy(String(v.state.baseItemId))?.socketExecutionMaximum == null ||
+        v.augmentSockets !== 0)) ||
     (v.baseRules !== undefined &&
       (!object(v.baseRules) ||
         ![

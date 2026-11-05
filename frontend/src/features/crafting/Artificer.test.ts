@@ -71,7 +71,7 @@ describe('ordinary Stocky Artificer boundary', () => {
     },
   )
   it('rejects forged changes and extra or exceptional socket state', async () => {
-    for (const n of [-1, 2, 1.5, '1'])
+    for (const n of [-1, 3, 1.5, '1'])
       expect(supportsConcreteStateShape({ ...root, augmentSockets: n })).toBe(
         false,
       )

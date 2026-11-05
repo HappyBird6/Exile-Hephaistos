@@ -101,15 +101,16 @@ public final class BasicTransitionClasses {
     var context =
         new BasicCurrencyState(
             new ItemState(
-                item.snapshotId(),
-                item.baseItemId(),
-                item.itemLevel(),
-                item.rarity(),
-                item.implicits(),
-                List.of(),
-                item.conditions(),
-                item.augmentSockets(),
-                item.catalystQuality()),
+                    item.snapshotId(),
+                    item.baseItemId(),
+                    item.itemLevel(),
+                    item.rarity(),
+                    item.implicits(),
+                    List.of(),
+                    item.conditions(),
+                    item.augmentSockets(),
+                    item.catalystQuality())
+                .withAugments(item.installedAugments()),
             state.provenance());
     var observation = evaluate.apply(item);
     var statuses = new ArrayList<Status>();

@@ -1,0 +1,261 @@
+{
+  "frontend": {
+    "total": 2996,
+    "passed": 2986,
+    "failed": 10,
+    "knownBaselineFailures": 9,
+    "additionalFullRunFailure": "ChaosRepeatBatchPage same-event request assertion",
+    "isolatedRerun": {
+      "passed": 50,
+      "failed": 0
+    },
+    "finalFocused": {
+      "passed": 168,
+      "failed": 0
+    },
+    "staticChecks": [
+      "npm ci",
+      "lint",
+      "typecheck",
+      "format:check",
+      "build"
+    ],
+    "finalFullRun": {
+      "command": "npm run test -- --run --maxWorkers=1",
+      "total": 2996,
+      "passed": 2987,
+      "failed": 9,
+      "failureTests": [
+        "Item text import allows button cancellation while parsing and discards the old success outcome",
+        "Item text import allows button cancellation while parsing and discards the old error outcome",
+        "Item text import allows escape cancellation while parsing and discards the old success outcome",
+        "Item text import allows escape cancellation while parsing and discards the old error outcome",
+        "Item text import allows cancel cancellation while parsing and discards the old success outcome",
+        "Item text import allows cancel cancellation while parsing and discards the old error outcome",
+        "Item text import allows backdrop cancellation while parsing and discards the old success outcome",
+        "Item text import allows backdrop cancellation while parsing and discards the old error outcome",
+        "preserves valid four-slot Sapphire films and rejects fifth slots, shared families and two Crafted results"
+      ]
+    }
+  },
+  "baselineUnitAudit": {
+    "head": "fbd0b9a50c454bd46aaafa557c06f9964701b263",
+    "method": "Compile HEAD versions of changed production Java files into build/socket-baseline; use original sealed resources; keep checkout unchanged",
+    "failures": [
+      "BaseRegistryParityTest historical digest mismatch",
+      "EmptyRareApiRegressionTest expected COMPLETE, actual PARTIAL"
+    ],
+    "reproducedFailures": [
+      {
+        "class": "com.poe2craft.bootstrap.BaseRegistryParityTest",
+        "test": "allExistingInitialsActionsAndSeededTracesRemainExact()"
+      },
+      {
+        "class": "com.poe2craft.bootstrap.EmptyRareApiRegressionTest",
+        "test": "completedApiRetainsPreparationRetryProbabilityAndOnlyConcreteGoalTargets()"
+      },
+      {
+        "class": "com.poe2craft.bootstrap.TerminalContinuationApiTest",
+        "test": "cancelsResumesAndReloadsSharedConcreteOutcomesWithMeasuredRequestLatency()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.CertifiedJobRestartTest",
+        "test": "readRenewedLeaseSurvivesRestartWithoutRewritingTheGraph(Path)"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.CertifiedJobRestartTest",
+        "test": "continuedRunnerMatchesUninterruptedExitMassAndCurrencyUses()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.CertifiedJobRestartTest",
+        "test": "jobReopensGraphAndPartialConditionalTransportWithNewGeneration(Path)"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.CertifiedMethodProductionTest",
+        "test": "realSolarRenewalKeepsExactTruthInsideEveryRequestedHorizon()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.CertifiedSearchJobsTest",
+        "test": "completedGoalPublishesStrategyAndStillHonorsEntryCancellation()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.CertifiedSearchJobsTest",
+        "test": "realCatalogBoundsKeepExactConditionalLawAndGenerationControls()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.CertifiedSearchJobsTest",
+        "test": "boundedCommandReplayDoesNotLimitTheNumberOfResumptions()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.CertifiedSearchJobsTest",
+        "test": "expiryEvictionAndShutdownInvalidateQueuedWorkWithoutRunningClosedStores()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.CertifiedSearchJobsTest",
+        "test": "activeRequestsRenewTheIdleLeaseButAbandonedJobsStillExpire()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.IndexedMethodSearchServiceTest",
+        "test": "actualLowLevelSolarPreservesConcreteEntryLawAndCancelledGeneration()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.IndexedMethodSearchServiceTest",
+        "test": "completedIndexedEnumerationCanCancelAndResumeEntryWorkWithoutStrategy()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.JointAttributeLawTest",
+        "test": "correlatedWeightedCheckpointIsOneRealStateAndNextTransitionRetainsItsJointSource()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.MethodSearchLifecycleTest",
+        "test": "shrinkingResumeBudgetIsARequestErrorWithoutChangingTheJob()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.MethodSearchLifecycleTest",
+        "test": "staleQueuedGenerationCannotPublishAfterCancelAndResume()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.MethodSearchLifecycleTest",
+        "test": "expiredQueuedJobCannotPublishIntoANewJobWithTheSameRequestId()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.MethodSearchLifecycleTest",
+        "test": "reconnectReadsCurrentRevisionAndRejectsExpiredPagesAndCrossRevisionCursors()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.MethodSearchServiceTest",
+        "test": "cancellationGenerationIdempotencyAndResumePreservePartialWork()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.MethodTransitionTest",
+        "test": "emptyIntermediateGoalStopsAfterOneUseAndZeroSuccessHasNoHitEdges()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.MethodTransitionTest",
+        "test": "lateSuccessSurvivesDisplayLimitAndHasStateSpecificAbsorption()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.MethodTransitionTest",
+        "test": "countExclusionMethodExitsRetainRealExecutionsAndRecoverToRoot()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.MethodTransitionTest",
+        "test": "omittedSuccessUnknownMassAndOddTwoActionObservationRemainDistinct()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.PathSearchContractTest",
+        "test": "sharedWireFixturesRoundTripAndExactOracleAreConsumed()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.PathSearchHttpTest",
+        "test": "strictInputRulesetAndDeletedReferencesKeepOriginalInput()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.PathSearchLifecycleTest",
+        "test": "cancellationRacesWithActualExecutorAndInvalidatesQueuedGeneration()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.PathSearchLifecycleTest",
+        "test": "ttlAndBoundedCapacityDoNotRecomputeOrMixOwners()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.PathSearchServiceTest",
+        "test": "solarOracleAndRealContinuationMatchWithoutLosingPhaseOrMass()"
+      },
+      {
+        "class": "com.poe2craft.crafting.application.pathsearch.PathSearchServiceTest",
+        "test": "idempotencyIsolationConflictsAndExpiredRevisions()"
+      },
+      {
+        "class": "com.poe2craft.crafting.domain.AutomaticEquipmentTierLawTest",
+        "test": "ringTiersWithDifferentCreationEligibilityShareOneAttributeAndOneFutureState()"
+      },
+      {
+        "class": "com.poe2craft.crafting.domain.AutomaticPreparationRulesTest",
+        "test": "chaosPreparationUsesExactlyOnePlainExaltOrRegalWithoutAssumingEqualProbabilities()"
+      },
+      {
+        "class": "com.poe2craft.crafting.domain.AutomaticRefinementsTest",
+        "test": "changingChaosFailuresUseTheirOwnLawFor100Attempts()"
+      },
+      {
+        "class": "com.poe2craft.crafting.domain.AutomaticRefinementsTest",
+        "test": "routeStrategyUsesTheSameFinite100ChaosProbabilityWithoutAnUnlimitedRetryLoop()"
+      },
+      {
+        "class": "com.poe2craft.crafting.domain.AutomaticTierRenewalTest",
+        "test": "oneHundredFirstHitLawMatchesIndependentChangingStateMarkovOracle()"
+      },
+      {
+        "class": "com.poe2craft.crafting.domain.TerminalAdditionClassesTest",
+        "test": "restoresBudgetPauseThenEnlargesWithoutChangingAnyOutcome()"
+      },
+      {
+        "class": "com.poe2craft.crafting.domain.TerminalAdditionClassesTest",
+        "test": "restoresRunningRepresentativeAndAliasesWithoutDuplicatingExecution()"
+      }
+    ]
+  },
+  "screen": {
+    "desktop": "desktop.png",
+    "narrow": "narrow.png",
+    "steps": [
+      "Tasalian Greaves 0 -> 1 -> 2",
+      "Desert Rune +14 Fire Resistance",
+      "Perfect Glacial Rune +22 Cold Resistance",
+      "Replace socket 1 with Storm Rune; socket 2 preserved",
+      "Reload restores both Augments",
+      "Third Artificer refused without changing state"
+    ],
+    "narrowViewport": {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 375
+    },
+    "temporaryServersAndContainersRemoved": true,
+    "originalServices": [
+      "9000",
+      "9001",
+      "5432",
+      "6379"
+    ]
+  },
+  "backendFullRun": {
+    "command": "gradlew.bat check generateJooq bootJar --continue --max-workers=2",
+    "unitTotal": 1423,
+    "unitFailuresBeforeFinalPolicyAndProvenanceExpectations": 55,
+    "integrationTests": 8,
+    "integrationFailures": 0,
+    "elapsed": "16m55s",
+    "note": "Policy/added-field/source-provenance expectation changes are checked in the final affected rerun. Historical failures are audited against HEAD separately.",
+    "remainingFailuresReproducedAtBaseline": 37,
+    "policyAndProvenanceFailuresResolvedInFinalAffectedRuns": 18
+  },
+  "backendAffected": {
+    "tests": 134,
+    "failures": 0,
+    "formatter": "passed"
+  },
+  "backendIntegration": {
+    "tests": 8,
+    "failures": 0,
+    "generateJooq": "passed using isolated temporary PostgreSQL",
+    "bootJar": "passed"
+  },
+  "backendProvenanceFinal": {
+    "tests": 124,
+    "failures": 0,
+    "spotlessCheck": "passed"
+  },
+  "sealedCheckout": {
+    "stagedResourceDigests": 604,
+    "exactLfCatalogRegeneration": true,
+    "finalSealUnitTests": 124,
+    "finalSealUnitFailures": 0,
+    "finalDockerIntegrationTests": 8,
+    "finalDockerIntegrationFailures": 0,
+    "generateJooq": "passed",
+    "bootJar": "passed",
+    "spotlessCheck": "passed"
+  }
+}

@@ -88,6 +88,11 @@ public final class AutomaticSearchController {
               node.path("start").path("item"), node.path("request").path("start").path("item")))
         if (item instanceof com.fasterxml.jackson.databind.node.ObjectNode object) {
           if (!object.has("desecrated")) object.putArray("desecrated");
+          if (object.hasNonNull("installedAugments")
+              && (!object.path("installedAugments").isArray()
+                  || !object.path("installedAugments").isEmpty()))
+            throw new IllegalArgumentException("Installed Augments require the manual workbench");
+          if (!object.has("installedAugments")) object.putArray("installedAugments");
           // Ordinary quality belongs to the manual workbench until automatic copies retain it.
           if (object.hasNonNull("equipmentQuality"))
             throw new IllegalArgumentException("Equipment quality requires the manual workbench");

@@ -179,7 +179,7 @@ class RustedGreathelmEssenceTest {
               m -> assertThat(catalog.find(m.modifierId()).orElseThrow().weight()).isPositive());
       assertThat(new ItemStateValidator(catalog).validate(r.state())).isEmpty();
     }
-    assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL), Set.of())).hasSize(48);
+    assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL), Set.of())).hasSize(49);
     assertThat(
             simulator
                 .apply(
@@ -207,7 +207,7 @@ class RustedGreathelmEssenceTest {
             catalog);
     assertThat(service.initial("helmet", 82).state().baseItemId())
         .isEqualTo(HelmetEssenceTargets.BASE_ID);
-    assertThat(service.initial("helmet", 82).augmentSockets()).isNull();
+    assertThat(service.initial("helmet", 82).augmentSockets()).isZero();
     assertThat(service.initial("helmet", 82).qualityLimit().maximumQuality()).isEqualTo(20);
     assertThat(service.initial("helmet", 82).ruleVersion())
         .isEqualTo(

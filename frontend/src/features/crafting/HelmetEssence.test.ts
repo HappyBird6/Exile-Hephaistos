@@ -135,7 +135,7 @@ it('keeps the source cap separate from unmodeled quality, Armour and sockets', (
   expect(maximumQuality(state, definitions)).toBe(20)
   expect(supportsConcreteStateShape(state)).toBe(true)
   for (const extension of [
-    { augmentSockets: 0 },
+    { augmentSockets: 4 },
     { quality: 20 },
     { armour: 29 },
   ])

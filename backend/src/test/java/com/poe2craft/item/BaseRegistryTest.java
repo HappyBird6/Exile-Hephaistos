@@ -52,7 +52,7 @@ class BaseRegistryTest {
     ((ObjectNode) rules.get("families").get("spears")).remove("ordinaryCatalyst");
     assertThrows(IllegalArgumentException.class, () -> BaseRegistry.read(source, rules));
     var completeRules = rules();
-    ((ObjectNode) completeRules.get("families").get("spears")).put("socketExecutionMaximum", 2);
+    ((ObjectNode) completeRules.get("families").get("spears")).put("socketExecutionMaximum", 4);
     assertThrows(IllegalArgumentException.class, () -> BaseRegistry.read(source, completeRules));
     assertThrows(UnsupportedOperationException.class, () -> BaseRegistry.topBases().clear());
     assertThrows(IllegalArgumentException.class, () -> BaseRegistry.require("unknown"));
@@ -91,9 +91,9 @@ class BaseRegistryTest {
                       entry.getKey() + ":" + previous.getKey()));
     }
     assertEquals(162, BaseRegistry.topBases().size());
-    assertNull(BaseRegistry.socketExecutionMaximum(BaseRegistry.require("grand-spear").id()));
+    assertEquals(2, BaseRegistry.socketExecutionMaximum(BaseRegistry.require("grand-spear").id()));
     assertEquals(
-        1, BaseRegistry.socketExecutionMaximum("Metadata/Items/Armours/Gloves/FourGlovesStr1"));
+        2, BaseRegistry.socketExecutionMaximum("Metadata/Items/Armours/Gloves/FourGlovesStr1"));
     assertFalse(BaseRegistry.ordinaryCatalyst(BaseRegistry.require("grand-spear").id()));
     assertTrue(BaseRegistry.ordinaryCatalyst(BaseRegistry.require("kinetic").id()));
     assertFalse(BaseRegistry.qualityLimit(BaseRegistry.require("linen-belt").id()));

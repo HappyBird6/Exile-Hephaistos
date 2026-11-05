@@ -994,6 +994,7 @@ public final class WorkbenchSimulator {
                   state.equipmentQuality(),
                   state.observations(),
                   state.sanctification())
+              .withAugments(state.installedAugments())
               .withObservations(state.observations());
       return new Result(
           ruleVersion(),
@@ -1020,12 +1021,13 @@ public final class WorkbenchSimulator {
                   state.implicits(),
                   state.explicits(),
                   state.conditions(),
-                  1,
+                  state.augmentSockets() + 1,
                   state.catalystQuality(),
                   state.desecrated(),
                   state.equipmentQuality(),
                   state.observations(),
                   state.sanctification())
+              .withAugments(state.installedAugments())
               .withEquipmentQuality(state.equipmentQuality())
               .withObservations(state.observations());
       return new Result(
@@ -1428,15 +1430,16 @@ public final class WorkbenchSimulator {
     var remaining = state.explicits().stream().filter(m -> !m.equals(removed)).toList();
     var without =
         new ItemState(
-            state.snapshotId(),
-            state.baseItemId(),
-            state.itemLevel(),
-            state.rarity(),
-            state.implicits(),
-            remaining,
-            state.conditions(),
-            state.augmentSockets(),
-            null);
+                state.snapshotId(),
+                state.baseItemId(),
+                state.itemLevel(),
+                state.rarity(),
+                state.implicits(),
+                remaining,
+                state.conditions(),
+                state.augmentSockets(),
+                null)
+            .withAugments(state.installedAugments());
     var limit = QualityLimitRules.describe(without, catalog);
     return limit == null || state.catalystQuality().amount() > limit.maximumQuality();
   }
@@ -1460,19 +1463,20 @@ public final class WorkbenchSimulator {
       List<ModifierInstance> implicits,
       List<ModifierInstance> explicits) {
     return new ItemState(
-        s.snapshotId(),
-        s.baseItemId(),
-        s.itemLevel(),
-        rarity,
-        implicits,
-        explicits,
-        s.conditions(),
-        s.augmentSockets(),
-        s.catalystQuality(),
-        s.desecrated(),
-        s.equipmentQuality(),
-        s.observations(),
-        s.sanctification());
+            s.snapshotId(),
+            s.baseItemId(),
+            s.itemLevel(),
+            rarity,
+            implicits,
+            explicits,
+            s.conditions(),
+            s.augmentSockets(),
+            s.catalystQuality(),
+            s.desecrated(),
+            s.equipmentQuality(),
+            s.observations(),
+            s.sanctification())
+        .withAugments(s.installedAugments());
   }
 
   public record Availability(WorkbenchCurrency action, boolean available, String reason) {}

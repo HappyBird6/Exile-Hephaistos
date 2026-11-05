@@ -1,3 +1,4 @@
+import { augments } from '../socketAugments'
 import { isBone } from '../desecrationCurrency'
 import { workbenchCurrencyActions, workbenchOmens } from '../workbenchApi'
 import type { Film, Frame } from '../workbenchHistory'
@@ -76,7 +77,20 @@ export function extractSessionNotation(
       continue
     }
     if (frame.action === null || isObservation(frame.action)) continue
-    const id = currencyId(frame.action)
+    const previous = film.frames[frameIndex - 1]?.state.installedAugments ?? []
+    const changed = (frame.state.installedAugments ?? []).filter(
+      (a) =>
+        !previous.some(
+          (p) => p.slotIndex === a.slotIndex && p.augmentId === a.augmentId,
+        ),
+    )
+    const id =
+      frame.action === 'INSTALL_AUGMENT' &&
+      frame.evidence?.ruleVersion === 'socket-augments-v1' &&
+      changed.length === 1 &&
+      augments.some((a) => a.id === changed[0]!.augmentId)
+        ? changed[0]!.augmentId
+        : currencyId(frame.action)
     const recorded = receipt(frame)
     if (!id || !recorded) {
       result.omittedFrames++

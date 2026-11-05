@@ -39,9 +39,7 @@ describe('central base registration', () => {
       expect(basePolicy(base.id)).toBeDefined()
     }
     expect(basePolicy(data['grand-spear'].id)?.ordinaryCatalyst).toBe(false)
-    expect(
-      basePolicy(data['grand-spear'].id)?.socketExecutionMaximum,
-    ).toBeNull()
+    expect(basePolicy(data['grand-spear'].id)?.socketExecutionMaximum).toBe(2)
     expect(basePolicy(data.kinetic.id)?.ordinaryCatalyst).toBe(true)
     expect(basePolicy(data['linen-belt'].id)?.qualityLimit).toBe(false)
     expect(basePolicy('Metadata/Items/Unknown')).toBeUndefined()
@@ -61,7 +59,7 @@ describe('central base registration', () => {
           `Item Class: ${itemClass}\nRarity: Normal\n${base.name}`,
         )
         expect(baseSlugs[key as keyof typeof baseSlugs]).toBe(base.slug)
-        expect(basePolicy(base.id)?.socketExecutionMaximum).toBeNull()
+        expect(basePolicy(base.id)?.socketExecutionMaximum).toBe(3)
         expect(basePolicy(base.id)?.ordinaryCatalyst).toBe(false)
       }
     }

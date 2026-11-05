@@ -57,7 +57,7 @@ class ReviewedGlovesWorkbenchTest {
         .allSatisfy(d -> assertThat(d.weight()).isEqualTo(1));
     assertThat(initial.qualityLimit().maximumQuality()).isEqualTo(20);
     assertThat(initial.state().implicits()).isEmpty();
-    assertThat(initial.augmentSockets()).isNull();
+    assertThat(initial.augmentSockets()).isZero();
     assertThat(c.compatibleSnapshotIds()).isEmpty();
     var state = normal(c, 82);
     var first = service.apply(state, WorkbenchCurrency.TRANSMUTATION, Set.of(), new Random(77));

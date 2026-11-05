@@ -19,7 +19,39 @@ public record ItemState(
     List<DesecratedSlot> desecrated,
     Integer equipmentQuality,
     ItemObservations observations,
-    Sanctification sanctification) {
+    Sanctification sanctification,
+    List<InstalledAugment> installedAugments) {
+  public ItemState(
+      String snapshotId,
+      String baseItemId,
+      int itemLevel,
+      Rarity rarity,
+      List<ModifierInstance> implicits,
+      List<ModifierInstance> explicits,
+      Set<Condition> conditions,
+      Integer augmentSockets,
+      CatalystQuality catalystQuality,
+      List<DesecratedSlot> desecrated,
+      Integer equipmentQuality,
+      ItemObservations observations,
+      Sanctification sanctification) {
+    this(
+        snapshotId,
+        baseItemId,
+        itemLevel,
+        rarity,
+        implicits,
+        explicits,
+        conditions,
+        augmentSockets,
+        catalystQuality,
+        desecrated,
+        equipmentQuality,
+        observations,
+        sanctification,
+        List.of());
+  }
+
   public ItemState(
       String snapshotId,
       String baseItemId,
@@ -100,7 +132,8 @@ public record ItemState(
         desecrated,
         equipmentQuality,
         observations,
-        value);
+        value,
+        installedAugments);
   }
 
   public ItemState(
@@ -144,7 +177,8 @@ public record ItemState(
         desecrated,
         equipmentQuality,
         value,
-        sanctification);
+        sanctification,
+        installedAugments);
   }
 
   public ItemState(
@@ -186,7 +220,8 @@ public record ItemState(
         desecrated,
         quality,
         observations,
-        sanctification);
+        sanctification,
+        installedAugments);
   }
 
   /** Slot identity survives observation; a null modifier ID is an unrevealed explicit slot. */
@@ -256,7 +291,8 @@ public record ItemState(
         slots,
         equipmentQuality,
         observations,
-        sanctification);
+        sanctification,
+        installedAugments);
   }
 
   public int explicitSlotCount() {
@@ -296,7 +332,47 @@ public record ItemState(
     this(snapshotId, baseItemId, itemLevel, rarity, implicits, explicits, conditions, null);
   }
 
+  public record InstalledAugment(int slotIndex, String augmentId) {}
+
+  /** Preserve legacy empty-item hashing used by bounded search iteration and saved state keys. */
+  @Override
+  public int hashCode() {
+    int hash = Objects.hashCode(snapshotId);
+    hash = 31 * hash + Objects.hashCode(baseItemId);
+    hash = 31 * hash + itemLevel;
+    hash = 31 * hash + Objects.hashCode(rarity);
+    hash = 31 * hash + Objects.hashCode(implicits);
+    hash = 31 * hash + Objects.hashCode(explicits);
+    hash = 31 * hash + Objects.hashCode(conditions);
+    hash = 31 * hash + Objects.hashCode(augmentSockets);
+    hash = 31 * hash + Objects.hashCode(catalystQuality);
+    hash = 31 * hash + Objects.hashCode(desecrated);
+    hash = 31 * hash + Objects.hashCode(equipmentQuality);
+    hash = 31 * hash + Objects.hashCode(observations);
+    hash = 31 * hash + Objects.hashCode(sanctification);
+    return installedAugments.isEmpty() ? hash : 31 * hash + installedAugments.hashCode();
+  }
+
+  public ItemState withAugments(List<InstalledAugment> value) {
+    return new ItemState(
+        snapshotId,
+        baseItemId,
+        itemLevel,
+        rarity,
+        implicits,
+        explicits,
+        conditions,
+        augmentSockets,
+        catalystQuality,
+        desecrated,
+        equipmentQuality,
+        observations,
+        sanctification,
+        value);
+  }
+
   public ItemState {
+    installedAugments = installedAugments == null ? List.of() : List.copyOf(installedAugments);
     if (snapshotId == null || snapshotId.isBlank() || baseItemId == null || baseItemId.isBlank()) {
       throw new IllegalArgumentException("Snapshot and base item IDs are required");
     }
@@ -304,6 +380,7 @@ public record ItemState(
       throw new IllegalArgumentException("Item level must be between 1 and 100");
     }
     Objects.requireNonNull(rarity, "rarity");
+    SocketAugments.validate(baseItemId, augmentSockets, installedAugments);
     if (equipmentQuality != null && (equipmentQuality < 0 || equipmentQuality > 100))
       throw new IllegalArgumentException("Invalid observed equipment quality");
     implicits = canonical(implicits);

@@ -35,3 +35,7 @@ registered base 수는 [지원 범위](support.md), 상태 검증은 [아이템 
 [WorkbenchService.java](../../backend/src/main/java/com/poe2craft/crafting/application/WorkbenchService.java) · [WorkbenchController.java](../../backend/src/main/java/com/poe2craft/crafting/presentation/WorkbenchController.java)
 
 [문서 지도](../README.md)
+
+## 소켓과 Augment
+
+장비별 추가 1개를 허용하는 Workbench 정책과 79종 일반 Rune/Soul Core의 장착·표시·미지원 경계는 [소켓과 Augment](socket-augments.md)를 따른다.

@@ -37,7 +37,7 @@ class ReviewedBodyHelmetBundleTest {
     var initial = service.initial(key, 82);
     assertThat(initial.state().baseItemId()).isEqualTo(c.base().id());
     assertThat(initial.state().implicits()).isEmpty();
-    assertThat(initial.augmentSockets()).isNull();
+    assertThat(initial.augmentSockets()).isZero();
     assertThat(initial.qualityLimit().maximumQuality()).isEqualTo(20);
     var start =
         new ItemState(

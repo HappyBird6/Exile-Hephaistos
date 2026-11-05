@@ -77,7 +77,7 @@ class ReviewedCrossbowsTest {
             List.of(),
             Set.of(),
             1);
-    assertThat(AugmentSocketRules.supportedState(socketed)).isFalse();
+    assertThat(AugmentSocketRules.supportedState(socketed)).isTrue();
     assertThat(c.base().hasImplicit())
         .isEqualTo(!Set.of("desolate-crossbow", "engraved-crossbow").contains(key));
     if (key.equals("gemini-crossbow"))

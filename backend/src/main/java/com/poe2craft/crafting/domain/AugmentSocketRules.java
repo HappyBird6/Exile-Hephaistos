@@ -2,7 +2,7 @@ package com.poe2craft.crafting.domain;
 
 import com.poe2craft.item.ItemState;
 
-/** Reviewed ordinary empty sockets only. Exceptional/socketed-Augment states remain unsupported. */
+/** Workbench policy: ordinary capacity plus one; not an in-game Artificer guarantee. */
 public final class AugmentSocketRules {
   public static final String STOCKY_BASE_ID = "Metadata/Items/Armours/Gloves/FourGlovesStr1";
 
@@ -22,10 +22,10 @@ public final class AugmentSocketRules {
     if (com.poe2craft.item.BaseRegistry.socketExecutionMaximum(state.baseItemId()) == null)
       return "Artificer's Orb socket rules are not supported for this equipment base.";
     if (state.augmentSockets() == null)
-      return "This saved item's socket count is unknown. Place a new Stocky Mitts base.";
+      return "This saved item's socket count is unknown. Place a new supported equipment base.";
     if (state.augmentSockets()
         >= com.poe2craft.item.BaseRegistry.socketExecutionMaximum(state.baseItemId()))
-      return "This base already has its ordinary maximum of one Augment Socket.";
+      return "This base has reached the workbench socket maximum (ordinary capacity plus one).";
     return "";
   }
 }

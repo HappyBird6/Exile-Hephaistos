@@ -30,6 +30,7 @@ class BasicWorkbenchParityTest {
           assertThat(result.state().desecrated()).isEmpty();
           assertThat(result.state().equipmentQuality()).isNull();
           assertThat(result.state().observations()).isNull();
+          assertThat(result.state().installedAugments()).isEmpty();
           text.append(action)
               .append('|')
               .append(result.applied())
@@ -40,6 +41,7 @@ class BasicWorkbenchParityTest {
                   result
                       .state()
                       .toString()
+                      .replace(", installedAugments=[]", "")
                       .replace(", sanctification=null", "")
                       .replace(", observations=null", "")
                       .replace(", equipmentQuality=null", "")

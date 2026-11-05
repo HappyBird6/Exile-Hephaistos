@@ -1,3 +1,4 @@
+import { augmentShape } from './socketAugments'
 import { sanctificationShape } from './sanctification/sanctification'
 import { observationsShape } from './itemObservations'
 import { basePolicy, baseRarityAllowed } from './baseRegistry'
@@ -13,6 +14,7 @@ const itemFields = new Set([
   'conditions',
   'modifierIds',
   'augmentSockets',
+  'installedAugments',
   'catalystQuality',
   'desecrated',
   'equipmentQuality',
@@ -34,6 +36,7 @@ export function supportsConcreteStateShape(value: unknown): boolean {
     !baseRarityAllowed(item.baseItemId, String(item.rarity))
   )
     return false
+  if (!augmentShape(item)) return false
   if (!observationsShape(item.observations) || !sanctificationShape(item))
     return false
   if (

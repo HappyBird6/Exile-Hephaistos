@@ -1,0 +1,393 @@
+{
+  "Lesser_Desert_Rune": {
+    "page": "https://poe2db.tw/us/Lesser_Desert_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRuneTier1.webp",
+    "sha256": "135756ebf13a2675a96d54de7dd4c1d1eca07dd3f9bda06002be6cfc0c6b58c9"
+  },
+  "Desert_Rune": {
+    "page": "https://poe2db.tw/us/Desert_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRune.webp",
+    "sha256": "6ec618d6272c0aebaa233d9b8ea58c0b53a3e057193fbb8d6d0abb0d302eca20"
+  },
+  "Greater_Desert_Rune": {
+    "page": "https://poe2db.tw/us/Greater_Desert_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRuneTier2.webp",
+    "sha256": "7abd94bfb44ff2e34c3fe11470a186e15feb37274c5e620c6e3255b9a95e4734"
+  },
+  "Perfect_Desert_Rune": {
+    "page": "https://poe2db.tw/us/Perfect_Desert_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneFire.webp",
+    "sha256": "c022b389700221b260059c9a9fcb91f05f34928e4960ebd4bbd706a97751c3ad"
+  },
+  "Lesser_Glacial_Rune": {
+    "page": "https://poe2db.tw/us/Lesser_Glacial_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ColdRuneTier1.webp",
+    "sha256": "b64842c1cf227130fec8be67b184f84aec13d1504466776e79f52752d71d59ff"
+  },
+  "Glacial_Rune": {
+    "page": "https://poe2db.tw/us/Glacial_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ColdRune.webp",
+    "sha256": "f067f77afb06bd4d16116070837f60004ba81e2250976fb8c77b743a5e623f72"
+  },
+  "Greater_Glacial_Rune": {
+    "page": "https://poe2db.tw/us/Greater_Glacial_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ColdRuneTier2.webp",
+    "sha256": "c7bd5e3fa3cbe36faa5a3996f3b5593febfe5015e1bf971e9a88fe3e63e564fa"
+  },
+  "Perfect_Glacial_Rune": {
+    "page": "https://poe2db.tw/us/Perfect_Glacial_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneCold.webp",
+    "sha256": "56eeb5f4932a1839a6161e0063769c1ecc1fd74734f928986b15e122a353ddf8"
+  },
+  "Lesser_Storm_Rune": {
+    "page": "https://poe2db.tw/us/Lesser_Storm_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneTier1.webp",
+    "sha256": "be076baa2f3f412d5b24f7f2bfc9eac3c0692eea95ea3577d8d193232a7ec3b5"
+  },
+  "Storm_Rune": {
+    "page": "https://poe2db.tw/us/Storm_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRune.webp",
+    "sha256": "d4ea0bbde1ed0560807005a2fa89197e2e50c200af0e4db4d4e3eca52d58622b"
+  },
+  "Greater_Storm_Rune": {
+    "page": "https://poe2db.tw/us/Greater_Storm_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneTier2.webp",
+    "sha256": "0fbe242d66d9052c2dc0e766d774116f17ccd9b3c803ee8440761032fa45a1ad"
+  },
+  "Perfect_Storm_Rune": {
+    "page": "https://poe2db.tw/us/Perfect_Storm_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneLightning.webp",
+    "sha256": "f3702b24f100c231adf21b92d6d718828ff8ef42fce232b6625103ab1b2923fd"
+  },
+  "Lesser_Iron_Rune": {
+    "page": "https://poe2db.tw/us/Lesser_Iron_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/EnhanceRuneTier1.webp",
+    "sha256": "d908bfc23cfd5ba95a94b66b6dc9e4a887dedb28cfae1a6c620fc656925f54f6"
+  },
+  "Iron_Rune": {
+    "page": "https://poe2db.tw/us/Iron_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/EnhanceRune.webp",
+    "sha256": "bb85b25499aae46902e69570f6a704a38c8453b0e7f02fd47721b9a17cffd6f0"
+  },
+  "Greater_Iron_Rune": {
+    "page": "https://poe2db.tw/us/Greater_Iron_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/EnhanceRuneTier2.webp",
+    "sha256": "abc883171ee48eb3b5e457202a579b157fa1719af1ab2ee14accd0f88927ea69"
+  },
+  "Perfect_Iron_Rune": {
+    "page": "https://poe2db.tw/us/Perfect_Iron_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneEnhance.webp",
+    "sha256": "0a09b46bf605391db8888399438e0481adb0633d739f611239d6656fa5ca7dee"
+  },
+  "Lesser_Body_Rune": {
+    "page": "https://poe2db.tw/us/Lesser_Body_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRuneTier1.webp",
+    "sha256": "b3db8ed6b85fd748f87e9174f08c38b6a2c86191a3a3b3b6d0eb7de0be0fb992"
+  },
+  "Body_Rune": {
+    "page": "https://poe2db.tw/us/Body_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRune.webp",
+    "sha256": "ac8255a2d4a9cc17eb97d5169d09877c841302c5051de9f85b7ff36ebee6cec9"
+  },
+  "Greater_Body_Rune": {
+    "page": "https://poe2db.tw/us/Greater_Body_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRuneTier2.webp",
+    "sha256": "6917044b749e4e72d6db4ed0b2ff7ec1108648e2b03cb6f636a231133d4e4b52"
+  },
+  "Perfect_Body_Rune": {
+    "page": "https://poe2db.tw/us/Perfect_Body_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneLife.webp",
+    "sha256": "7055a17710c1f63e863cbf5a9df0656822c3b37255a61f7b62cee3bc2a1f1873"
+  },
+  "Lesser_Mind_Rune": {
+    "page": "https://poe2db.tw/us/Lesser_Mind_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRuneTier1.webp",
+    "sha256": "d5757a4cd840f0e552a95262d9535b8090e53630961e3deffbcdffde8dd1c128"
+  },
+  "Mind_Rune": {
+    "page": "https://poe2db.tw/us/Mind_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRune.webp",
+    "sha256": "771901bf41718a0172cd8d9bc4032c6b23f5b9dcc0b4a41c4c62c3f20478cd2b"
+  },
+  "Greater_Mind_Rune": {
+    "page": "https://poe2db.tw/us/Greater_Mind_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRuneTier2.webp",
+    "sha256": "4c93df9ea3e1eab2b4549f63bed8846ded128d4c1d1c1df60d04d778a516c3c9"
+  },
+  "Perfect_Mind_Rune": {
+    "page": "https://poe2db.tw/us/Perfect_Mind_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneMana.webp",
+    "sha256": "31e2be22184a141ce3e9fc9a4a16ef7ecb5fc6d4b7445be827bd91a74abcce50"
+  },
+  "Lesser_Rebirth_Rune": {
+    "page": "https://poe2db.tw/us/Lesser_Rebirth_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRecoveryRuneTier1.webp",
+    "sha256": "9e3ae07cb53d5b6036a6e4a5afc3de9a9990f70cb999cffc6587120af030c526"
+  },
+  "Rebirth_Rune": {
+    "page": "https://poe2db.tw/us/Rebirth_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRecoveryRune.webp",
+    "sha256": "a9fc95d770918468aa0c95bfa432ee9d25429bcd08fb227754ed3e1e9632e6b6"
+  },
+  "Greater_Rebirth_Rune": {
+    "page": "https://poe2db.tw/us/Greater_Rebirth_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRecoveryRuneTier2.webp",
+    "sha256": "86bb05c113523b5cbb723d60f44eed4ac0f4ae2627715e88fd5535b851de04ab"
+  },
+  "Perfect_Rebirth_Rune": {
+    "page": "https://poe2db.tw/us/Perfect_Rebirth_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneLifeRecovery.webp",
+    "sha256": "cdfae7d53f5b2eda2fb6c37d9da7fd02c5054b731fc8f291d80c1b6bfe6359e4"
+  },
+  "Lesser_Inspiration_Rune": {
+    "page": "https://poe2db.tw/us/Lesser_Inspiration_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRecoveryRuneTier1.webp",
+    "sha256": "442f5a242ebdb3db7cf2598edbe39ffe73b6c0bf528dd7f0b7b67812f36e299f"
+  },
+  "Inspiration_Rune": {
+    "page": "https://poe2db.tw/us/Inspiration_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRecoveryRune.webp",
+    "sha256": "13a2cb3b95cdf4f5e2d90ca09661059669099665ae2727100d242fb8da261b94"
+  },
+  "Greater_Inspiration_Rune": {
+    "page": "https://poe2db.tw/us/Greater_Inspiration_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRecoveryRuneTier2.webp",
+    "sha256": "3e146ad5ab560480432a3f565222f7a3c382178880a0292ad6a39c46724a2ede"
+  },
+  "Perfect_Inspiration_Rune": {
+    "page": "https://poe2db.tw/us/Perfect_Inspiration_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneManaRecovery.webp",
+    "sha256": "404c891fa304feade1dd8824e5ec6e6279cc4a4457a5d66ede152aca2c25e80c"
+  },
+  "Lesser_Stone_Rune": {
+    "page": "https://poe2db.tw/us/Lesser_Stone_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StunRuneTier1.webp",
+    "sha256": "ba74927d79d82b309ae28e2611be234e27e59e1547e62257bbe0877021971805"
+  },
+  "Stone_Rune": {
+    "page": "https://poe2db.tw/us/Stone_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StunRune.webp",
+    "sha256": "1e1b3a220cdb092c89e5a185bafd2bdfded153b3a24e0a6ee5e61b0d4d767657"
+  },
+  "Greater_Stone_Rune": {
+    "page": "https://poe2db.tw/us/Greater_Stone_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StunRuneTier2.webp",
+    "sha256": "36109ac2a0afc61a9d532b63b040df5b5cf24dab330325e41479e09039e0dc60"
+  },
+  "Perfect_Stone_Rune": {
+    "page": "https://poe2db.tw/us/Perfect_Stone_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneStun.webp",
+    "sha256": "8958336bbdbe058fc8eecb1df000f07ddbefe70e97586ff81928e5a8ea896cf3"
+  },
+  "Lesser_Vision_Rune": {
+    "page": "https://poe2db.tw/us/Lesser_Vision_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/AccuracyRuneTier1.webp",
+    "sha256": "49ecbccce1e3993b763cc0fc9af1b726768a06ba8bdc956e9e244438fc8ab184"
+  },
+  "Vision_Rune": {
+    "page": "https://poe2db.tw/us/Vision_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/AccuracyRune.webp",
+    "sha256": "29bbbb10974bb622f1bf9f8124531bd76d977fee57ab1d81fe6039ca6886483e"
+  },
+  "Greater_Vision_Rune": {
+    "page": "https://poe2db.tw/us/Greater_Vision_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/AccuracyRuneTier2.webp",
+    "sha256": "405c2d342540652bd3e684c895468ce6f4d572b206e6428df2bad9849379792e"
+  },
+  "Perfect_Vision_Rune": {
+    "page": "https://poe2db.tw/us/Perfect_Vision_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneAccuracy.webp",
+    "sha256": "33cbf03e866d77f8f5eeb397e45220cfb4e9e18d81afa20a21325581795cb102"
+  },
+  "Soul_Core_of_Tacati": {
+    "page": "https://poe2db.tw/us/Soul_Core_of_Tacati",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreChaos.webp",
+    "sha256": "0114da9642ceec4e639b17a4fe9bdc1fbd5a202732d1dd215419b5f3b13feb40"
+  },
+  "Soul_Core_of_Citaqualotl": {
+    "page": "https://poe2db.tw/us/Soul_Core_of_Citaqualotl",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreElementalResist.webp",
+    "sha256": "c17de52634a410f9cbc3d08d7f4127d06d8ab6fa14930fafe410c4ae47e4a943"
+  },
+  "Soul_Core_of_Puhuarte": {
+    "page": "https://poe2db.tw/us/Soul_Core_of_Puhuarte",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreFire.webp",
+    "sha256": "9aeb4ebe565c7210b044eafa68c59bd929ffdf5add29db8c284dae038258cb52"
+  },
+  "Soul_Core_of_Azcapa": {
+    "page": "https://poe2db.tw/us/Soul_Core_of_Azcapa",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreWealthRarity.webp",
+    "sha256": "91adfaaf3c3d9c1c8eb82ee6c0b797eaf33d5630f1c9dff8aa71153c833006d0"
+  },
+  "Soul_Core_of_Atmohua": {
+    "page": "https://poe2db.tw/us/Soul_Core_of_Atmohua",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreStrength.webp",
+    "sha256": "e36ed8d507c852da6e096ef9bb6cbff13baf86d983a710113314a1f1276574b8"
+  },
+  "Soul_Core_of_Cholotl": {
+    "page": "https://poe2db.tw/us/Soul_Core_of_Cholotl",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreDex.webp",
+    "sha256": "8d909907e52d54896e11780cbbab7163755c96e1ffaf6edd47844773db03c704"
+  },
+  "Soul_Core_of_Zantipi": {
+    "page": "https://poe2db.tw/us/Soul_Core_of_Zantipi",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreint.webp",
+    "sha256": "9b55f6acdbb0757d6678a33b4e3c2ff51f54705642cdad22fb12cb766b9b7e92"
+  },
+  "Lesser_Robust_Rune": {
+    "page": "https://poe2db.tw/us/Lesser_Robust_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StrengthRuneTier1.webp",
+    "sha256": "27ad70928e34eb63a0c1d685a20b0545be025023cf33522fe82ee4b2a69d8f9c"
+  },
+  "Robust_Rune": {
+    "page": "https://poe2db.tw/us/Robust_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StrengthRune.webp",
+    "sha256": "7d4fbe5c96f553cda91096403050802dc87f38c4686e7c2576bba2f0d2bb7cc3"
+  },
+  "Greater_Robust_Rune": {
+    "page": "https://poe2db.tw/us/Greater_Robust_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StrengthRuneTier3.webp",
+    "sha256": "e12599856072189fcc516a0d8c493e0771c7dede1c93036d0db7b6cf418c0b52"
+  },
+  "Perfect_Robust_Rune": {
+    "page": "https://poe2db.tw/us/Perfect_Robust_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneStrength.webp",
+    "sha256": "157d7e28fb16ab621e17845076899259357445432cccee7142ae812a8424f165"
+  },
+  "Lesser_Adept_Rune": {
+    "page": "https://poe2db.tw/us/Lesser_Adept_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/DexRuneTier1.webp",
+    "sha256": "11152404e77eee7e8e981347379951faddbdb2031e526dfa821a0450af31947e"
+  },
+  "Adept_Rune": {
+    "page": "https://poe2db.tw/us/Adept_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/DexRune.webp",
+    "sha256": "f2887304ca64b5be0e87bc96245275c1b604b79af73ea9ee5ea85ca0e15a0d0d"
+  },
+  "Greater_Adept_Rune": {
+    "page": "https://poe2db.tw/us/Greater_Adept_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/DexRuneTier3.webp",
+    "sha256": "03e48c74f40ea93a3a7a45da5294d86f353b00912bd81425901161ce11556bd9"
+  },
+  "Perfect_Adept_Rune": {
+    "page": "https://poe2db.tw/us/Perfect_Adept_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneDexterity.webp",
+    "sha256": "faf05c00ebb98d6f6674288a4438e2a295efe0df4ee5383b60679ec49b5ac371"
+  },
+  "Lesser_Resolve_Rune": {
+    "page": "https://poe2db.tw/us/Lesser_Resolve_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/IntRuneTier1.webp",
+    "sha256": "57420e6ffae307ecac64b45ced3b33f3a503034ebb971f699614ee84466fcc64"
+  },
+  "Resolve_Rune": {
+    "page": "https://poe2db.tw/us/Resolve_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/IntRune.webp",
+    "sha256": "c8199a06eb771e05c0a0506b194da3d2ef4a914ac9550b5b65c3dea91e4c7740"
+  },
+  "Greater_Resolve_Rune": {
+    "page": "https://poe2db.tw/us/Greater_Resolve_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/IntRuneTier3.webp",
+    "sha256": "52c2b34be43d77fc942d5a2c4dbc23ca3a72103b749f6d99822813e870fa119f"
+  },
+  "Perfect_Resolve_Rune": {
+    "page": "https://poe2db.tw/us/Perfect_Resolve_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneIntelligence.webp",
+    "sha256": "34e564c40278225dcfe057d7bde020d66e6a93b919bb6626ec027fe49a42452a"
+  },
+  "Lesser_Tempered_Rune": {
+    "page": "https://poe2db.tw/us/Lesser_Tempered_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PhyDmgRuneTier1.webp",
+    "sha256": "dee3cdc8418863b11c9fcb73a360fa61e7d5620a5b8b82684e2752bc216663fb"
+  },
+  "Tempered_Rune": {
+    "page": "https://poe2db.tw/us/Tempered_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PhyDmgRune.webp",
+    "sha256": "f745d82a73d8e30b95190eb4020fa234519d9a0fe4634bd74f361c17c2ca0c4b"
+  },
+  "Greater_Tempered_Rune": {
+    "page": "https://poe2db.tw/us/Greater_Tempered_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PhyDmgRuneTier3.webp",
+    "sha256": "7d9ce568a7fffbe9f3d86c84083cb1d9d44bbdb55cde91a5a64bba13eab5bdd4"
+  },
+  "Lesser_Ward_Rune": {
+    "page": "https://poe2db.tw/us/Lesser_Ward_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardLesser.webp",
+    "sha256": "0096779975e7c68b22a9a3c72e1b1ce105a0f983d0c264375c74fa1417304ec4"
+  },
+  "Ward_Rune": {
+    "page": "https://poe2db.tw/us/Ward_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardNormal.webp",
+    "sha256": "ab473d5d79c00a7476e98f1f922123cd18dca6dfefa06224eac7a124cfb59685"
+  },
+  "Greater_Ward_Rune": {
+    "page": "https://poe2db.tw/us/Greater_Ward_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardGreater.webp",
+    "sha256": "f418bd6a9aa32bcbde7c194cea7d9a891b0314cfdbdad5189ec41abd4808f53c"
+  },
+  "Perfect_Ward_Rune": {
+    "page": "https://poe2db.tw/us/Perfect_Ward_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardPerfect.webp",
+    "sha256": "3a178cd5e7f0871b489e913dd2242ca2ed1b3f1013a2693ddcaa417117a5c9a4"
+  },
+  "Lesser_Charging_Rune": null,
+  "Charging_Rune": {
+    "page": "https://poe2db.tw/us/Charging_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationNormal.webp",
+    "sha256": "3a12eb69b542c0aa9bd78752dd87dd4e0d6e75878677e56050f507d833fe4424"
+  },
+  "Greater_Charging_Rune": {
+    "page": "https://poe2db.tw/us/Greater_Charging_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationGreater.webp",
+    "sha256": "69087e18596da799aa5ff1a5fa41a3e640f35516af0a465a14e730b972499058"
+  },
+  "Perfect_Charging_Rune": {
+    "page": "https://poe2db.tw/us/Perfect_Charging_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationPerfect.webp",
+    "sha256": "409ff83a8e847cc6a59fd73764c9fb8eb4c63c6c16a324d4c6b36c10cbf93602"
+  },
+  "Soul_Core_of_Xopec": {
+    "page": "https://poe2db.tw/us/Soul_Core_of_Xopec",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreLightning.webp",
+    "sha256": "4872795d64d435df1bd0582f09f2a1552c1e8939c3e669828da38518ac14fa4f"
+  },
+  "Soul_Core_of_Topotante": {
+    "page": "https://poe2db.tw/us/Soul_Core_of_Topotante",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreTriElement.webp",
+    "sha256": "7def75311b622cb6745568337f506729c9ab03b4dae81d00a6a4d07da290ec3f"
+  },
+  "Soul_Core_of_Quipolatl": {
+    "page": "https://poe2db.tw/us/Soul_Core_of_Quipolatl",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreSpeed.webp",
+    "sha256": "619931e84822429d74b2823cd55e442fcc3ef2ff502de96f0588571c416b2540"
+  },
+  "Soul_Core_of_Opiloti": {
+    "page": "https://poe2db.tw/us/Soul_Core_of_Opiloti",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCorePhysical.webp",
+    "sha256": "ec4ed92310e8c4603d03053d6b741ab172845eef5c1717b517e3177e7855ed8b"
+  },
+  "Soul_Core_of_Zalatl": {
+    "page": "https://poe2db.tw/us/Soul_Core_of_Zalatl",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreMana.webp",
+    "sha256": "53adc33e710d2447f8817f09559dfcb76b338dcb6a82e2b207bb829d8328f103"
+  },
+  "Soul_Core_of_Tzamoto": {
+    "page": "https://poe2db.tw/us/Soul_Core_of_Tzamoto",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreCold.webp",
+    "sha256": "79f3e89b2dc829de20814d8cda49b8f7a7d394c1701d432112e6afc0e61c8c25"
+  },
+  "Soul_Core_of_Jiquani": {
+    "page": "https://poe2db.tw/us/Soul_Core_of_Jiquani",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreLife.webp",
+    "sha256": "0a70c5e62e801d18ee2b7097659573798ca3123a3cdf3630d46814b8f5ae7b0d"
+  },
+  "Soul_Core_of_Ticaba": {
+    "page": "https://poe2db.tw/us/Soul_Core_of_Ticaba",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreCrit.webp",
+    "sha256": "a7aa00d530d9c29869d65504edc784a03fd8ae4bd04bd0fabc705237f24a8a83"
+  },
+  "Soul_Core_of_Vizoma": {
+    "page": "https://poe2db.tw/us/Soul_Core_of_Vizoma",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreVision.webp",
+    "sha256": "e2a36591a853be203102fd9bc4e47739f983503b6b9194f4ac2aaa95ba6b717e"
+  }
+}

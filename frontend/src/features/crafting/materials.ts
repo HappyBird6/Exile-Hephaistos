@@ -1,3 +1,4 @@
+import { augmentMaterials } from './socketAugments'
 import { inServiceScope } from './serviceScope'
 import { matchesGameName } from '../../shared/i18n/i18n'
 // Display catalog only. Source pages, retrieval date and hashes: public/assets/materials/sources.json.
@@ -8,6 +9,7 @@ export const materialTabs = [
   { id: 'Omen', label: 'Omen' },
   { id: 'Catalysts', label: 'Catalysts' },
   { id: 'Liquid_Emotions', label: 'Liquid Emotions' },
+  { id: 'Augments', label: 'Augments' },
 ] as const
 export type MaterialTab = (typeof materialTabs)[number]['id']
 export type Material = {
@@ -32,6 +34,7 @@ export const additionalStashCurrencies = [
   },
 ] as const
 export const materials: readonly Material[] = [
+  ...augmentMaterials,
   {
     id: 'Lesser_Essence_of_the_Body',
     name: 'Lesser Essence of the Body',

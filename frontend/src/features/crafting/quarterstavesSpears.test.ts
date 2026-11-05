@@ -47,7 +47,7 @@ describe('ordinary Quarterstaff and Spear representatives', () => {
       expect(maximumQuality(state, {})).toBe(20)
       expect(supportsConcreteStateShape(state)).toBe(true)
       expect(supportsConcreteStateShape({ ...state, augmentSockets: 1 })).toBe(
-        false,
+        true,
       )
       expect(
         supportsConcreteStateShape({

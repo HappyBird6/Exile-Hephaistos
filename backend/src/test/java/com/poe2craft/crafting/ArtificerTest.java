@@ -48,8 +48,13 @@ class ArtificerTest {
     assertThat(r.remainingOmens()).containsExactly("Omen_of_the_Blessed");
     assertThat(s.augmentSockets()).isZero();
     var again = f.simulator.apply(r.state(), WorkbenchCurrency.ARTIFICER, Set.of(), new Random(1));
-    assertThat(again.applied()).isFalse();
-    assertThat(again.state()).isEqualTo(r.state());
+    assertThat(again.applied()).isTrue();
+    assertThat(again.state().augmentSockets()).isEqualTo(2);
+    assertThat(
+            f.simulator
+                .apply(again.state(), WorkbenchCurrency.ARTIFICER, Set.of(), new Random(1))
+                .applied())
+        .isFalse();
   }
 
   @Test
@@ -83,7 +88,7 @@ class ArtificerTest {
                 82, null, "stocky-mitts:prefix:layered", "stocky-mitts:suffix:of-the-salamander"),
             1);
     for (var a : f.simulator.actions(s, Set.of()))
-      if (a.available()) {
+      if (a.available() && a.action() != WorkbenchCurrency.ARTIFICER) {
         var r = f.simulator.apply(s, a.action(), Set.of(), new Random(42));
         assertThat(r.state().augmentSockets()).as(a.action().name()).isEqualTo(1);
       }
@@ -98,7 +103,7 @@ class ArtificerTest {
 
   @Test
   void exceptionalAndSpecialStatesStayUnsupported() {
-    for (int n : new int[] {-1, 2, 3})
+    for (int n : new int[] {-1, 3, 4})
       assertThatThrownBy(
               () ->
                   f.simulator.apply(

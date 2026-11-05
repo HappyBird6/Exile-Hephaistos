@@ -472,15 +472,16 @@ public final class DeferredMixtures {
     var i = state.item();
     return new BasicCurrencyState(
         new ItemState(
-            i.snapshotId(),
-            i.baseItemId(),
-            i.itemLevel(),
-            i.rarity(),
-            i.implicits(),
-            explicits,
-            i.conditions(),
-            i.augmentSockets(),
-            i.catalystQuality()),
+                i.snapshotId(),
+                i.baseItemId(),
+                i.itemLevel(),
+                i.rarity(),
+                i.implicits(),
+                explicits,
+                i.conditions(),
+                i.augmentSockets(),
+                i.catalystQuality())
+            .withAugments(i.installedAugments()),
         state.provenance());
   }
 

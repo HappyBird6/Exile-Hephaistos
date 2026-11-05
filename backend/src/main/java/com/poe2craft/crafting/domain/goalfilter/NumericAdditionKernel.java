@@ -55,15 +55,16 @@ public final class NumericAdditionKernel {
         explicit.add(new ModifierInstance(definition.id(), Map.of(range.id(), value)));
         var next =
             new ItemState(
-                item.snapshotId(),
-                item.baseItemId(),
-                item.itemLevel(),
-                candidate.state().rarity(),
-                item.implicits(),
-                explicit,
-                item.conditions(),
-                item.augmentSockets(),
-                item.catalystQuality());
+                    item.snapshotId(),
+                    item.baseItemId(),
+                    item.itemLevel(),
+                    candidate.state().rarity(),
+                    item.implicits(),
+                    explicit,
+                    item.conditions(),
+                    item.augmentSockets(),
+                    item.catalystQuality())
+                .withAugments(item.installedAugments());
         outcomes.add(new Outcome(next, mass));
         emitted = emitted.add(mass);
         if (value == range.max()) break;

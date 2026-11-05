@@ -23,7 +23,8 @@ public final class RulesetResponse implements ResponseBodyAdvice<Object> {
   public boolean supports(
       MethodParameter method, Class<? extends HttpMessageConverter<?>> converter) {
     return "initial".equals(method.getMethod().getName())
-        || "apply".equals(method.getMethod().getName());
+        || "apply".equals(method.getMethod().getName())
+        || "installAugment".equals(method.getMethod().getName());
   }
 
   @Override

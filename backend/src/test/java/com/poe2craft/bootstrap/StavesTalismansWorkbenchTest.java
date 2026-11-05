@@ -21,7 +21,7 @@ class StavesTalismansWorkbenchTest {
       var base = BaseRegistry.require(entry.getKey());
       assertThat(base.policy().itemClass())
           .isEqualTo(base.family().equals("staves") ? "Staves" : "Talismans");
-      assertThat(base.policy().socketExecutionMaximum()).isNull();
+      assertThat(base.policy().socketExecutionMaximum()).isEqualTo(3);
       assertThat(base.policy().ordinaryCatalyst()).isFalse();
       for (int level : new int[] {1, 20, 82}) {
         var initial = service.initial(entry.getKey(), level);

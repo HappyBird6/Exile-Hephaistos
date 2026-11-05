@@ -394,7 +394,7 @@ describe('Material stash and shared favorites', () => {
         ),
       ).not.toBeInTheDocument()
     }
-    expect(materials).toHaveLength(180)
+    expect(materials).toHaveLength(259)
     expect(new Set(materials.map((item) => item.id)).size).toBe(
       materials.length,
     )
@@ -461,8 +461,8 @@ describe('Material stash and shared favorites', () => {
     fireEvent.keyDown(tab('Currency'), { key: 'ArrowRight' })
     expect(tab('Essence')).toHaveFocus()
     fireEvent.keyDown(tab('Essence'), { key: 'End' })
-    expect(tab('Liquid Emotions')).toHaveFocus()
-    fireEvent.keyDown(tab('Liquid Emotions'), { key: 'ArrowRight' })
+    expect(tab('Augments')).toHaveFocus()
+    fireEvent.keyDown(tab('Augments'), { key: 'ArrowRight' })
     expect(tab('Currency')).toHaveFocus()
     const edit = screen.getByRole('button', { name: 'Edit item' })
     fireEvent.click(edit)

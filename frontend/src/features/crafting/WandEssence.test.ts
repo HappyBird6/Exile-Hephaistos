@@ -106,9 +106,7 @@ it('preserves the known cap and refuses unimplemented sockets or innate-skill pr
   const state = actual.captures[0]!.before as ConcreteItem
   expect(maximumQuality(state, definitions)).toBe(20)
   expect(supportsConcreteStateShape(state)).toBe(true)
-  expect(supportsConcreteStateShape({ ...state, augmentSockets: 0 })).toBe(
-    false,
-  )
+  expect(supportsConcreteStateShape({ ...state, augmentSockets: 0 })).toBe(true)
   expect(
     supportsConcreteStateShape({
       ...state,

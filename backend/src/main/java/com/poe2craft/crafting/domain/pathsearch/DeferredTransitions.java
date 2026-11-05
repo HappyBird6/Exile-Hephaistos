@@ -172,15 +172,16 @@ public final class DeferredTransitions {
             state =
                 new BasicCurrencyState(
                     new ItemState(
-                        item.snapshotId(),
-                        item.baseItemId(),
-                        item.itemLevel(),
-                        item.rarity(),
-                        item.implicits(),
-                        explicits,
-                        item.conditions(),
-                        item.augmentSockets(),
-                        item.catalystQuality()),
+                            item.snapshotId(),
+                            item.baseItemId(),
+                            item.itemLevel(),
+                            item.rarity(),
+                            item.implicits(),
+                            explicits,
+                            item.conditions(),
+                            item.augmentSockets(),
+                            item.catalystQuality())
+                        .withAugments(item.installedAugments()),
                     state.provenance());
             tiers.put(first.modifierId(), law.cell());
             probability =

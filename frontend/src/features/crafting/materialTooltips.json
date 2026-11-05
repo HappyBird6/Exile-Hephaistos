@@ -2182,5 +2182,1502 @@
     "name": "Blacksmith's Whetstone",
     "lines": ["Improves the quality of a martial weapon"],
     "sourceUrl": "https://poe2db.tw/us/Blacksmiths_Whetstone"
+  },
+  "Lesser_Desert_Rune": {
+    "name": "Lesser Desert Rune",
+    "lines": [
+      "Gloves: +10% to Fire Resistance",
+      "Boots: +10% to Fire Resistance",
+      "Helmets: +10% to Fire Resistance",
+      "Body Armours: +10% to Fire Resistance",
+      "Wands: Gain 6% of Damage as Extra Fire Damage",
+      "Bows: Adds 4 to 6 Fire Damage",
+      "Crossbows: Adds 4 to 6 Fire Damage",
+      "One Hand Maces: Adds 4 to 6 Fire Damage",
+      "Two Hand Maces: Adds 4 to 6 Fire Damage",
+      "Quarterstaves: Adds 4 to 6 Fire Damage",
+      "Spears: Adds 4 to 6 Fire Damage",
+      "Staves: Gain 6% of Damage as Extra Fire Damage",
+      "Talismans: Adds 4 to 6 Fire Damage",
+      "Shields: +10% to Fire Resistance",
+      "Bucklers: +10% to Fire Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Desert_Rune"
+  },
+  "Desert_Rune": {
+    "name": "Desert Rune",
+    "lines": [
+      "Gloves: +14% to Fire Resistance",
+      "Boots: +14% to Fire Resistance",
+      "Helmets: +14% to Fire Resistance",
+      "Body Armours: +14% to Fire Resistance",
+      "Wands: Gain 8% of Damage as Extra Fire Damage",
+      "Bows: Adds 7 to 11 Fire Damage",
+      "Crossbows: Adds 7 to 11 Fire Damage",
+      "One Hand Maces: Adds 7 to 11 Fire Damage",
+      "Two Hand Maces: Adds 7 to 11 Fire Damage",
+      "Quarterstaves: Adds 7 to 11 Fire Damage",
+      "Spears: Adds 7 to 11 Fire Damage",
+      "Staves: Gain 8% of Damage as Extra Fire Damage",
+      "Talismans: Adds 7 to 11 Fire Damage",
+      "Shields: +14% to Fire Resistance",
+      "Bucklers: +14% to Fire Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Desert_Rune"
+  },
+  "Greater_Desert_Rune": {
+    "name": "Greater Desert Rune",
+    "lines": [
+      "Gloves: +18% to Fire Resistance",
+      "Boots: +18% to Fire Resistance",
+      "Helmets: +18% to Fire Resistance",
+      "Body Armours: +18% to Fire Resistance",
+      "Wands: Gain 10% of Damage as Extra Fire Damage",
+      "Bows: Adds 13 to 16 Fire Damage",
+      "Crossbows: Adds 13 to 16 Fire Damage",
+      "One Hand Maces: Adds 13 to 16 Fire Damage",
+      "Two Hand Maces: Adds 13 to 16 Fire Damage",
+      "Quarterstaves: Adds 13 to 16 Fire Damage",
+      "Spears: Adds 13 to 16 Fire Damage",
+      "Staves: Gain 10% of Damage as Extra Fire Damage",
+      "Talismans: Adds 13 to 16 Fire Damage",
+      "Shields: +18% to Fire Resistance",
+      "Bucklers: +18% to Fire Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Desert_Rune"
+  },
+  "Perfect_Desert_Rune": {
+    "name": "Perfect Desert Rune",
+    "lines": [
+      "Gloves: +22% to Fire Resistance",
+      "Boots: +22% to Fire Resistance",
+      "Helmets: +22% to Fire Resistance",
+      "Body Armours: +22% to Fire Resistance",
+      "Wands: Gain 12% of Damage as Extra Fire Damage",
+      "Bows: Adds 17 to 20 Fire Damage",
+      "Crossbows: Adds 17 to 20 Fire Damage",
+      "One Hand Maces: Adds 17 to 20 Fire Damage",
+      "Two Hand Maces: Adds 17 to 20 Fire Damage",
+      "Quarterstaves: Adds 17 to 20 Fire Damage",
+      "Spears: Adds 17 to 20 Fire Damage",
+      "Staves: Gain 12% of Damage as Extra Fire Damage",
+      "Talismans: Adds 17 to 20 Fire Damage",
+      "Shields: +22% to Fire Resistance",
+      "Bucklers: +22% to Fire Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Desert_Rune"
+  },
+  "Lesser_Glacial_Rune": {
+    "name": "Lesser Glacial Rune",
+    "lines": [
+      "Gloves: +10% to Cold Resistance",
+      "Boots: +10% to Cold Resistance",
+      "Helmets: +10% to Cold Resistance",
+      "Body Armours: +10% to Cold Resistance",
+      "Wands: Gain 6% of Damage as Extra Cold Damage",
+      "Bows: Adds 3 to 5 Cold Damage",
+      "Crossbows: Adds 3 to 5 Cold Damage",
+      "One Hand Maces: Adds 3 to 5 Cold Damage",
+      "Two Hand Maces: Adds 3 to 5 Cold Damage",
+      "Quarterstaves: Adds 3 to 5 Cold Damage",
+      "Spears: Adds 3 to 5 Cold Damage",
+      "Staves: Gain 6% of Damage as Extra Cold Damage",
+      "Talismans: Adds 3 to 5 Cold Damage",
+      "Shields: +10% to Cold Resistance",
+      "Bucklers: +10% to Cold Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Glacial_Rune"
+  },
+  "Glacial_Rune": {
+    "name": "Glacial Rune",
+    "lines": [
+      "Gloves: +14% to Cold Resistance",
+      "Boots: +14% to Cold Resistance",
+      "Helmets: +14% to Cold Resistance",
+      "Body Armours: +14% to Cold Resistance",
+      "Wands: Gain 8% of Damage as Extra Cold Damage",
+      "Bows: Adds 6 to 10 Cold Damage",
+      "Crossbows: Adds 6 to 10 Cold Damage",
+      "One Hand Maces: Adds 6 to 10 Cold Damage",
+      "Two Hand Maces: Adds 6 to 10 Cold Damage",
+      "Quarterstaves: Adds 6 to 10 Cold Damage",
+      "Spears: Adds 6 to 10 Cold Damage",
+      "Staves: Gain 8% of Damage as Extra Cold Damage",
+      "Talismans: Adds 6 to 10 Cold Damage",
+      "Shields: +14% to Cold Resistance",
+      "Bucklers: +14% to Cold Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Glacial_Rune"
+  },
+  "Greater_Glacial_Rune": {
+    "name": "Greater Glacial Rune",
+    "lines": [
+      "Gloves: +18% to Cold Resistance",
+      "Boots: +18% to Cold Resistance",
+      "Helmets: +18% to Cold Resistance",
+      "Body Armours: +18% to Cold Resistance",
+      "Wands: Gain 10% of Damage as Extra Cold Damage",
+      "Bows: Adds 9 to 15 Cold Damage",
+      "Crossbows: Adds 9 to 15 Cold Damage",
+      "One Hand Maces: Adds 9 to 15 Cold Damage",
+      "Two Hand Maces: Adds 9 to 15 Cold Damage",
+      "Quarterstaves: Adds 9 to 15 Cold Damage",
+      "Spears: Adds 9 to 15 Cold Damage",
+      "Staves: Gain 10% of Damage as Extra Cold Damage",
+      "Talismans: Adds 9 to 15 Cold Damage",
+      "Shields: +18% to Cold Resistance",
+      "Bucklers: +18% to Cold Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Glacial_Rune"
+  },
+  "Perfect_Glacial_Rune": {
+    "name": "Perfect Glacial Rune",
+    "lines": [
+      "Gloves: +22% to Cold Resistance",
+      "Boots: +22% to Cold Resistance",
+      "Helmets: +22% to Cold Resistance",
+      "Body Armours: +22% to Cold Resistance",
+      "Wands: Gain 12% of Damage as Extra Cold Damage",
+      "Bows: Adds 16 to 20 Cold Damage",
+      "Crossbows: Adds 16 to 20 Cold Damage",
+      "One Hand Maces: Adds 16 to 20 Cold Damage",
+      "Two Hand Maces: Adds 16 to 20 Cold Damage",
+      "Quarterstaves: Adds 16 to 20 Cold Damage",
+      "Spears: Adds 16 to 20 Cold Damage",
+      "Staves: Gain 12% of Damage as Extra Cold Damage",
+      "Talismans: Adds 16 to 20 Cold Damage",
+      "Shields: +22% to Cold Resistance",
+      "Bucklers: +22% to Cold Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Glacial_Rune"
+  },
+  "Lesser_Storm_Rune": {
+    "name": "Lesser Storm Rune",
+    "lines": [
+      "Gloves: +10% to Lightning Resistance",
+      "Boots: +10% to Lightning Resistance",
+      "Helmets: +10% to Lightning Resistance",
+      "Body Armours: +10% to Lightning Resistance",
+      "Wands: Gain 6% of Damage as Extra Lightning Damage",
+      "Bows: Adds 1 to 10 Lightning Damage",
+      "Crossbows: Adds 1 to 10 Lightning Damage",
+      "One Hand Maces: Adds 1 to 10 Lightning Damage",
+      "Two Hand Maces: Adds 1 to 10 Lightning Damage",
+      "Quarterstaves: Adds 1 to 10 Lightning Damage",
+      "Spears: Adds 1 to 10 Lightning Damage",
+      "Staves: Gain 6% of Damage as Extra Lightning Damage",
+      "Talismans: Adds 1 to 10 Lightning Damage",
+      "Shields: +10% to Lightning Resistance",
+      "Bucklers: +10% to Lightning Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Storm_Rune"
+  },
+  "Storm_Rune": {
+    "name": "Storm Rune",
+    "lines": [
+      "Gloves: +14% to Lightning Resistance",
+      "Boots: +14% to Lightning Resistance",
+      "Helmets: +14% to Lightning Resistance",
+      "Body Armours: +14% to Lightning Resistance",
+      "Wands: Gain 8% of Damage as Extra Lightning Damage",
+      "Bows: Adds 1 to 20 Lightning Damage",
+      "Crossbows: Adds 1 to 20 Lightning Damage",
+      "One Hand Maces: Adds 1 to 20 Lightning Damage",
+      "Two Hand Maces: Adds 1 to 20 Lightning Damage",
+      "Quarterstaves: Adds 1 to 20 Lightning Damage",
+      "Spears: Adds 1 to 20 Lightning Damage",
+      "Staves: Gain 8% of Damage as Extra Lightning Damage",
+      "Talismans: Adds 1 to 20 Lightning Damage",
+      "Shields: +14% to Lightning Resistance",
+      "Bucklers: +14% to Lightning Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Storm_Rune"
+  },
+  "Greater_Storm_Rune": {
+    "name": "Greater Storm Rune",
+    "lines": [
+      "Gloves: +18% to Lightning Resistance",
+      "Boots: +18% to Lightning Resistance",
+      "Helmets: +18% to Lightning Resistance",
+      "Body Armours: +18% to Lightning Resistance",
+      "Wands: Gain 10% of Damage as Extra Lightning Damage",
+      "Bows: Adds 1 to 30 Lightning Damage",
+      "Crossbows: Adds 1 to 30 Lightning Damage",
+      "One Hand Maces: Adds 1 to 30 Lightning Damage",
+      "Two Hand Maces: Adds 1 to 30 Lightning Damage",
+      "Quarterstaves: Adds 1 to 30 Lightning Damage",
+      "Spears: Adds 1 to 30 Lightning Damage",
+      "Staves: Gain 10% of Damage as Extra Lightning Damage",
+      "Talismans: Adds 1 to 30 Lightning Damage",
+      "Shields: +18% to Lightning Resistance",
+      "Bucklers: +18% to Lightning Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Storm_Rune"
+  },
+  "Perfect_Storm_Rune": {
+    "name": "Perfect Storm Rune",
+    "lines": [
+      "Gloves: +22% to Lightning Resistance",
+      "Boots: +22% to Lightning Resistance",
+      "Helmets: +22% to Lightning Resistance",
+      "Body Armours: +22% to Lightning Resistance",
+      "Wands: Gain 12% of Damage as Extra Lightning Damage",
+      "Bows: Adds 1 to 40 Lightning Damage",
+      "Crossbows: Adds 1 to 40 Lightning Damage",
+      "One Hand Maces: Adds 1 to 40 Lightning Damage",
+      "Two Hand Maces: Adds 1 to 40 Lightning Damage",
+      "Quarterstaves: Adds 1 to 40 Lightning Damage",
+      "Spears: Adds 1 to 40 Lightning Damage",
+      "Staves: Gain 12% of Damage as Extra Lightning Damage",
+      "Talismans: Adds 1 to 40 Lightning Damage",
+      "Shields: +22% to Lightning Resistance",
+      "Bucklers: +22% to Lightning Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Storm_Rune"
+  },
+  "Lesser_Iron_Rune": {
+    "name": "Lesser Iron Rune",
+    "lines": [
+      "Gloves: 14% increased Armour, Evasion and Energy Shield",
+      "Boots: 14% increased Armour, Evasion and Energy Shield",
+      "Helmets: 14% increased Armour, Evasion and Energy Shield",
+      "Body Armours: 14% increased Armour, Evasion and Energy Shield",
+      "Wands: 20% increased Spell Damage",
+      "Bows: 14% increased Physical Damage",
+      "Crossbows: 14% increased Physical Damage",
+      "One Hand Maces: 14% increased Physical Damage",
+      "Two Hand Maces: 14% increased Physical Damage",
+      "Quarterstaves: 14% increased Physical Damage",
+      "Spears: 14% increased Physical Damage",
+      "Staves: 20% increased Spell Damage",
+      "Talismans: 14% increased Physical Damage",
+      "Shields: 14% increased Armour, Evasion and Energy Shield",
+      "Bucklers: 14% increased Armour, Evasion and Energy Shield"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Iron_Rune"
+  },
+  "Iron_Rune": {
+    "name": "Iron Rune",
+    "lines": [
+      "Gloves: 16% increased Armour, Evasion and Energy Shield",
+      "Boots: 16% increased Armour, Evasion and Energy Shield",
+      "Helmets: 16% increased Armour, Evasion and Energy Shield",
+      "Body Armours: 16% increased Armour, Evasion and Energy Shield",
+      "Wands: 25% increased Spell Damage",
+      "Bows: 16% increased Physical Damage",
+      "Crossbows: 16% increased Physical Damage",
+      "One Hand Maces: 16% increased Physical Damage",
+      "Two Hand Maces: 16% increased Physical Damage",
+      "Quarterstaves: 16% increased Physical Damage",
+      "Spears: 16% increased Physical Damage",
+      "Staves: 25% increased Spell Damage",
+      "Talismans: 16% increased Physical Damage",
+      "Shields: 16% increased Armour, Evasion and Energy Shield",
+      "Bucklers: 16% increased Armour, Evasion and Energy Shield"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Iron_Rune"
+  },
+  "Greater_Iron_Rune": {
+    "name": "Greater Iron Rune",
+    "lines": [
+      "Gloves: 18% increased Armour, Evasion and Energy Shield",
+      "Boots: 18% increased Armour, Evasion and Energy Shield",
+      "Helmets: 18% increased Armour, Evasion and Energy Shield",
+      "Body Armours: 18% increased Armour, Evasion and Energy Shield",
+      "Wands: 30% increased Spell Damage",
+      "Bows: 18% increased Physical Damage",
+      "Crossbows: 18% increased Physical Damage",
+      "One Hand Maces: 18% increased Physical Damage",
+      "Two Hand Maces: 18% increased Physical Damage",
+      "Quarterstaves: 18% increased Physical Damage",
+      "Spears: 18% increased Physical Damage",
+      "Staves: 30% increased Spell Damage",
+      "Talismans: 18% increased Physical Damage",
+      "Shields: 18% increased Armour, Evasion and Energy Shield",
+      "Bucklers: 18% increased Armour, Evasion and Energy Shield"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Iron_Rune"
+  },
+  "Perfect_Iron_Rune": {
+    "name": "Perfect Iron Rune",
+    "lines": [
+      "Gloves: 20% increased Armour, Evasion and Energy Shield",
+      "Boots: 20% increased Armour, Evasion and Energy Shield",
+      "Helmets: 20% increased Armour, Evasion and Energy Shield",
+      "Body Armours: 20% increased Armour, Evasion and Energy Shield",
+      "Wands: 35% increased Spell Damage",
+      "Bows: 20% increased Physical Damage",
+      "Crossbows: 20% increased Physical Damage",
+      "One Hand Maces: 20% increased Physical Damage",
+      "Two Hand Maces: 20% increased Physical Damage",
+      "Quarterstaves: 20% increased Physical Damage",
+      "Spears: 20% increased Physical Damage",
+      "Staves: 35% increased Spell Damage",
+      "Talismans: 20% increased Physical Damage",
+      "Shields: 20% increased Armour, Evasion and Energy Shield",
+      "Bucklers: 20% increased Armour, Evasion and Energy Shield"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Iron_Rune"
+  },
+  "Lesser_Body_Rune": {
+    "name": "Lesser Body Rune",
+    "lines": [
+      "Gloves: +30 to maximum Life",
+      "Boots: +30 to maximum Life",
+      "Helmets: +30 to maximum Life",
+      "Body Armours: +30 to maximum Life",
+      "Wands: +30 to maximum Energy Shield",
+      "Bows: Leeches 3% of Physical Damage as Life",
+      "Crossbows: Leeches 3% of Physical Damage as Life",
+      "One Hand Maces: Leeches 3% of Physical Damage as Life",
+      "Two Hand Maces: Leeches 3% of Physical Damage as Life",
+      "Quarterstaves: Leeches 3% of Physical Damage as Life",
+      "Spears: Leeches 3% of Physical Damage as Life",
+      "Staves: +30 to maximum Energy Shield",
+      "Talismans: Leeches 3% of Physical Damage as Life",
+      "Shields: +30 to maximum Life",
+      "Bucklers: +30 to maximum Life"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Body_Rune"
+  },
+  "Body_Rune": {
+    "name": "Body Rune",
+    "lines": [
+      "Gloves: +45 to maximum Life",
+      "Boots: +45 to maximum Life",
+      "Helmets: +45 to maximum Life",
+      "Body Armours: +45 to maximum Life",
+      "Wands: +40 to maximum Energy Shield",
+      "Bows: Leeches 4% of Physical Damage as Life",
+      "Crossbows: Leeches 4% of Physical Damage as Life",
+      "One Hand Maces: Leeches 4% of Physical Damage as Life",
+      "Two Hand Maces: Leeches 4% of Physical Damage as Life",
+      "Quarterstaves: Leeches 4% of Physical Damage as Life",
+      "Spears: Leeches 4% of Physical Damage as Life",
+      "Staves: +40 to maximum Energy Shield",
+      "Talismans: Leeches 4% of Physical Damage as Life",
+      "Shields: +45 to maximum Life",
+      "Bucklers: +45 to maximum Life"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Body_Rune"
+  },
+  "Greater_Body_Rune": {
+    "name": "Greater Body Rune",
+    "lines": [
+      "Gloves: +60 to maximum Life",
+      "Boots: +60 to maximum Life",
+      "Helmets: +60 to maximum Life",
+      "Body Armours: +60 to maximum Life",
+      "Wands: +50 to maximum Energy Shield",
+      "Bows: Leeches 5% of Physical Damage as Life",
+      "Crossbows: Leeches 5% of Physical Damage as Life",
+      "One Hand Maces: Leeches 5% of Physical Damage as Life",
+      "Two Hand Maces: Leeches 5% of Physical Damage as Life",
+      "Quarterstaves: Leeches 5% of Physical Damage as Life",
+      "Spears: Leeches 5% of Physical Damage as Life",
+      "Staves: +50 to maximum Energy Shield",
+      "Talismans: Leeches 5% of Physical Damage as Life",
+      "Shields: +60 to maximum Life",
+      "Bucklers: +60 to maximum Life"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Body_Rune"
+  },
+  "Perfect_Body_Rune": {
+    "name": "Perfect Body Rune",
+    "lines": [
+      "Gloves: +75 to maximum Life",
+      "Boots: +75 to maximum Life",
+      "Helmets: +75 to maximum Life",
+      "Body Armours: +75 to maximum Life",
+      "Wands: +60 to maximum Energy Shield",
+      "Bows: Leeches 6% of Physical Damage as Life",
+      "Crossbows: Leeches 6% of Physical Damage as Life",
+      "One Hand Maces: Leeches 6% of Physical Damage as Life",
+      "Two Hand Maces: Leeches 6% of Physical Damage as Life",
+      "Quarterstaves: Leeches 6% of Physical Damage as Life",
+      "Spears: Leeches 6% of Physical Damage as Life",
+      "Staves: +60 to maximum Energy Shield",
+      "Talismans: Leeches 6% of Physical Damage as Life",
+      "Shields: +75 to maximum Life",
+      "Bucklers: +75 to maximum Life"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Body_Rune"
+  },
+  "Lesser_Mind_Rune": {
+    "name": "Lesser Mind Rune",
+    "lines": [
+      "Gloves: +20 to maximum Mana",
+      "Boots: +20 to maximum Mana",
+      "Helmets: +20 to maximum Mana",
+      "Body Armours: +20 to maximum Mana",
+      "Wands: +45 to maximum Mana",
+      "Bows: Leeches 2% of Physical Damage as Mana",
+      "Crossbows: Leeches 2% of Physical Damage as Mana",
+      "One Hand Maces: Leeches 2% of Physical Damage as Mana",
+      "Two Hand Maces: Leeches 2% of Physical Damage as Mana",
+      "Quarterstaves: Leeches 2% of Physical Damage as Mana",
+      "Spears: Leeches 2% of Physical Damage as Mana",
+      "Staves: +45 to maximum Mana",
+      "Talismans: Leeches 2% of Physical Damage as Mana",
+      "Shields: +20 to maximum Mana",
+      "Bucklers: +20 to maximum Mana"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Mind_Rune"
+  },
+  "Mind_Rune": {
+    "name": "Mind Rune",
+    "lines": [
+      "Gloves: +30 to maximum Mana",
+      "Boots: +30 to maximum Mana",
+      "Helmets: +30 to maximum Mana",
+      "Body Armours: +30 to maximum Mana",
+      "Wands: +60 to maximum Mana",
+      "Bows: Leeches 3% of Physical Damage as Mana",
+      "Crossbows: Leeches 3% of Physical Damage as Mana",
+      "One Hand Maces: Leeches 3% of Physical Damage as Mana",
+      "Two Hand Maces: Leeches 3% of Physical Damage as Mana",
+      "Quarterstaves: Leeches 3% of Physical Damage as Mana",
+      "Spears: Leeches 3% of Physical Damage as Mana",
+      "Staves: +60 to maximum Mana",
+      "Talismans: Leeches 3% of Physical Damage as Mana",
+      "Shields: +30 to maximum Mana",
+      "Bucklers: +30 to maximum Mana"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Mind_Rune"
+  },
+  "Greater_Mind_Rune": {
+    "name": "Greater Mind Rune",
+    "lines": [
+      "Gloves: +40 to maximum Mana",
+      "Boots: +40 to maximum Mana",
+      "Helmets: +40 to maximum Mana",
+      "Body Armours: +40 to maximum Mana",
+      "Wands: +75 to maximum Mana",
+      "Bows: Leeches 4% of Physical Damage as Mana",
+      "Crossbows: Leeches 4% of Physical Damage as Mana",
+      "One Hand Maces: Leeches 4% of Physical Damage as Mana",
+      "Two Hand Maces: Leeches 4% of Physical Damage as Mana",
+      "Quarterstaves: Leeches 4% of Physical Damage as Mana",
+      "Spears: Leeches 4% of Physical Damage as Mana",
+      "Staves: +75 to maximum Mana",
+      "Talismans: Leeches 4% of Physical Damage as Mana",
+      "Shields: +40 to maximum Mana",
+      "Bucklers: +40 to maximum Mana"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Mind_Rune"
+  },
+  "Perfect_Mind_Rune": {
+    "name": "Perfect Mind Rune",
+    "lines": [
+      "Gloves: +50 to maximum Mana",
+      "Boots: +50 to maximum Mana",
+      "Helmets: +50 to maximum Mana",
+      "Body Armours: +50 to maximum Mana",
+      "Wands: +90 to maximum Mana",
+      "Bows: Leeches 5% of Physical Damage as Mana",
+      "Crossbows: Leeches 5% of Physical Damage as Mana",
+      "One Hand Maces: Leeches 5% of Physical Damage as Mana",
+      "Two Hand Maces: Leeches 5% of Physical Damage as Mana",
+      "Quarterstaves: Leeches 5% of Physical Damage as Mana",
+      "Spears: Leeches 5% of Physical Damage as Mana",
+      "Staves: +90 to maximum Mana",
+      "Talismans: Leeches 5% of Physical Damage as Mana",
+      "Shields: +50 to maximum Mana",
+      "Bucklers: +50 to maximum Mana"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Mind_Rune"
+  },
+  "Lesser_Rebirth_Rune": {
+    "name": "Lesser Rebirth Rune",
+    "lines": [
+      "Gloves: Regenerate 0.35% of maximum Life per second",
+      "Boots: Regenerate 0.35% of maximum Life per second",
+      "Helmets: Regenerate 0.35% of maximum Life per second",
+      "Body Armours: Regenerate 0.35% of maximum Life per second",
+      "Wands: 6% increased Energy Shield Recharge Rate",
+      "Bows: Gain 15 Life per enemy killed",
+      "Crossbows: Gain 15 Life per enemy killed",
+      "One Hand Maces: Gain 15 Life per enemy killed",
+      "Two Hand Maces: Gain 15 Life per enemy killed",
+      "Quarterstaves: Gain 15 Life per enemy killed",
+      "Spears: Gain 15 Life per enemy killed",
+      "Staves: 6% increased Energy Shield Recharge Rate",
+      "Talismans: Gain 15 Life per enemy killed",
+      "Shields: Regenerate 0.35% of maximum Life per second",
+      "Bucklers: Regenerate 0.35% of maximum Life per second"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Rebirth_Rune"
+  },
+  "Rebirth_Rune": {
+    "name": "Rebirth Rune",
+    "lines": [
+      "Gloves: Regenerate 0.4% of maximum Life per second",
+      "Boots: Regenerate 0.4% of maximum Life per second",
+      "Helmets: Regenerate 0.4% of maximum Life per second",
+      "Body Armours: Regenerate 0.4% of maximum Life per second",
+      "Wands: 8% increased Energy Shield Recharge Rate",
+      "Bows: Gain 25 Life per enemy killed",
+      "Crossbows: Gain 25 Life per enemy killed",
+      "One Hand Maces: Gain 25 Life per enemy killed",
+      "Two Hand Maces: Gain 25 Life per enemy killed",
+      "Quarterstaves: Gain 25 Life per enemy killed",
+      "Spears: Gain 25 Life per enemy killed",
+      "Staves: 8% increased Energy Shield Recharge Rate",
+      "Talismans: Gain 25 Life per enemy killed",
+      "Shields: Regenerate 0.4% of maximum Life per second",
+      "Bucklers: Regenerate 0.4% of maximum Life per second"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Rebirth_Rune"
+  },
+  "Greater_Rebirth_Rune": {
+    "name": "Greater Rebirth Rune",
+    "lines": [
+      "Gloves: Regenerate 0.45% of maximum Life per second",
+      "Boots: Regenerate 0.45% of maximum Life per second",
+      "Helmets: Regenerate 0.45% of maximum Life per second",
+      "Body Armours: Regenerate 0.45% of maximum Life per second",
+      "Wands: 10% increased Energy Shield Recharge Rate",
+      "Bows: Gain 35 Life per enemy killed",
+      "Crossbows: Gain 35 Life per enemy killed",
+      "One Hand Maces: Gain 35 Life per enemy killed",
+      "Two Hand Maces: Gain 35 Life per enemy killed",
+      "Quarterstaves: Gain 35 Life per enemy killed",
+      "Spears: Gain 35 Life per enemy killed",
+      "Staves: 10% increased Energy Shield Recharge Rate",
+      "Talismans: Gain 35 Life per enemy killed",
+      "Shields: Regenerate 0.45% of maximum Life per second",
+      "Bucklers: Regenerate 0.45% of maximum Life per second"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Rebirth_Rune"
+  },
+  "Perfect_Rebirth_Rune": {
+    "name": "Perfect Rebirth Rune",
+    "lines": [
+      "Gloves: Regenerate 0.5% of maximum Life per second",
+      "Boots: Regenerate 0.5% of maximum Life per second",
+      "Helmets: Regenerate 0.5% of maximum Life per second",
+      "Body Armours: Regenerate 0.5% of maximum Life per second",
+      "Wands: 12% increased Energy Shield Recharge Rate",
+      "Bows: Gain 45 Life per enemy killed",
+      "Crossbows: Gain 45 Life per enemy killed",
+      "One Hand Maces: Gain 45 Life per enemy killed",
+      "Two Hand Maces: Gain 45 Life per enemy killed",
+      "Quarterstaves: Gain 45 Life per enemy killed",
+      "Spears: Gain 45 Life per enemy killed",
+      "Staves: 12% increased Energy Shield Recharge Rate",
+      "Talismans: Gain 45 Life per enemy killed",
+      "Shields: Regenerate 0.5% of maximum Life per second",
+      "Bucklers: Regenerate 0.5% of maximum Life per second"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Rebirth_Rune"
+  },
+  "Lesser_Inspiration_Rune": {
+    "name": "Lesser Inspiration Rune",
+    "lines": [
+      "Gloves: 12% increased Mana Regeneration Rate",
+      "Boots: 12% increased Mana Regeneration Rate",
+      "Helmets: 12% increased Mana Regeneration Rate",
+      "Body Armours: 12% increased Mana Regeneration Rate",
+      "Wands: 20% increased Mana Regeneration Rate",
+      "Bows: Gain 10 Mana per enemy killed",
+      "Crossbows: Gain 10 Mana per enemy killed",
+      "One Hand Maces: Gain 10 Mana per enemy killed",
+      "Two Hand Maces: Gain 10 Mana per enemy killed",
+      "Quarterstaves: Gain 10 Mana per enemy killed",
+      "Spears: Gain 10 Mana per enemy killed",
+      "Staves: 20% increased Mana Regeneration Rate",
+      "Talismans: Gain 10 Mana per enemy killed",
+      "Shields: 12% increased Mana Regeneration Rate",
+      "Bucklers: 12% increased Mana Regeneration Rate"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Inspiration_Rune"
+  },
+  "Inspiration_Rune": {
+    "name": "Inspiration Rune",
+    "lines": [
+      "Gloves: 15% increased Mana Regeneration Rate",
+      "Boots: 15% increased Mana Regeneration Rate",
+      "Helmets: 15% increased Mana Regeneration Rate",
+      "Body Armours: 15% increased Mana Regeneration Rate",
+      "Wands: 25% increased Mana Regeneration Rate",
+      "Bows: Gain 20 Mana per enemy killed",
+      "Crossbows: Gain 20 Mana per enemy killed",
+      "One Hand Maces: Gain 20 Mana per enemy killed",
+      "Two Hand Maces: Gain 20 Mana per enemy killed",
+      "Quarterstaves: Gain 20 Mana per enemy killed",
+      "Spears: Gain 20 Mana per enemy killed",
+      "Staves: 25% increased Mana Regeneration Rate",
+      "Talismans: Gain 20 Mana per enemy killed",
+      "Shields: 15% increased Mana Regeneration Rate",
+      "Bucklers: 15% increased Mana Regeneration Rate"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Inspiration_Rune"
+  },
+  "Greater_Inspiration_Rune": {
+    "name": "Greater Inspiration Rune",
+    "lines": [
+      "Gloves: 18% increased Mana Regeneration Rate",
+      "Boots: 18% increased Mana Regeneration Rate",
+      "Helmets: 18% increased Mana Regeneration Rate",
+      "Body Armours: 18% increased Mana Regeneration Rate",
+      "Wands: 30% increased Mana Regeneration Rate",
+      "Bows: Gain 30 Mana per enemy killed",
+      "Crossbows: Gain 30 Mana per enemy killed",
+      "One Hand Maces: Gain 30 Mana per enemy killed",
+      "Two Hand Maces: Gain 30 Mana per enemy killed",
+      "Quarterstaves: Gain 30 Mana per enemy killed",
+      "Spears: Gain 30 Mana per enemy killed",
+      "Staves: 30% increased Mana Regeneration Rate",
+      "Talismans: Gain 30 Mana per enemy killed",
+      "Shields: 18% increased Mana Regeneration Rate",
+      "Bucklers: 18% increased Mana Regeneration Rate"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Inspiration_Rune"
+  },
+  "Perfect_Inspiration_Rune": {
+    "name": "Perfect Inspiration Rune",
+    "lines": [
+      "Gloves: 21% increased Mana Regeneration Rate",
+      "Boots: 21% increased Mana Regeneration Rate",
+      "Helmets: 21% increased Mana Regeneration Rate",
+      "Body Armours: 21% increased Mana Regeneration Rate",
+      "Wands: 35% increased Mana Regeneration Rate",
+      "Bows: Gain 40 Mana per enemy killed",
+      "Crossbows: Gain 40 Mana per enemy killed",
+      "One Hand Maces: Gain 40 Mana per enemy killed",
+      "Two Hand Maces: Gain 40 Mana per enemy killed",
+      "Quarterstaves: Gain 40 Mana per enemy killed",
+      "Spears: Gain 40 Mana per enemy killed",
+      "Staves: 35% increased Mana Regeneration Rate",
+      "Talismans: Gain 40 Mana per enemy killed",
+      "Shields: 21% increased Mana Regeneration Rate",
+      "Bucklers: 21% increased Mana Regeneration Rate"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Inspiration_Rune"
+  },
+  "Lesser_Stone_Rune": {
+    "name": "Lesser Stone Rune",
+    "lines": [
+      "Gloves: +50 to Stun Threshold",
+      "Boots: +50 to Stun Threshold",
+      "Helmets: +50 to Stun Threshold",
+      "Body Armours: +50 to Stun Threshold",
+      "Wands: Gain additional Stun Threshold equal to 10% of maximum Energy Shield",
+      "Bows: Causes 20% increased Stun Buildup",
+      "Crossbows: Causes 20% increased Stun Buildup",
+      "One Hand Maces: Causes 20% increased Stun Buildup",
+      "Two Hand Maces: Causes 20% increased Stun Buildup",
+      "Quarterstaves: Causes 20% increased Stun Buildup",
+      "Spears: Causes 20% increased Stun Buildup",
+      "Staves: Gain additional Stun Threshold equal to 10% of maximum Energy Shield",
+      "Talismans: Causes 20% increased Stun Buildup",
+      "Shields: +50 to Stun Threshold",
+      "Bucklers: +50 to Stun Threshold"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Stone_Rune"
+  },
+  "Stone_Rune": {
+    "name": "Stone Rune",
+    "lines": [
+      "Gloves: +75 to Stun Threshold",
+      "Boots: +75 to Stun Threshold",
+      "Helmets: +75 to Stun Threshold",
+      "Body Armours: +75 to Stun Threshold",
+      "Wands: Gain additional Stun Threshold equal to 12% of maximum Energy Shield",
+      "Bows: Causes 30% increased Stun Buildup",
+      "Crossbows: Causes 30% increased Stun Buildup",
+      "One Hand Maces: Causes 30% increased Stun Buildup",
+      "Two Hand Maces: Causes 30% increased Stun Buildup",
+      "Quarterstaves: Causes 30% increased Stun Buildup",
+      "Spears: Causes 30% increased Stun Buildup",
+      "Staves: Gain additional Stun Threshold equal to 12% of maximum Energy Shield",
+      "Talismans: Causes 30% increased Stun Buildup",
+      "Shields: +75 to Stun Threshold",
+      "Bucklers: +75 to Stun Threshold"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Stone_Rune"
+  },
+  "Greater_Stone_Rune": {
+    "name": "Greater Stone Rune",
+    "lines": [
+      "Gloves: +100 to Stun Threshold",
+      "Boots: +100 to Stun Threshold",
+      "Helmets: +100 to Stun Threshold",
+      "Body Armours: +100 to Stun Threshold",
+      "Wands: Gain additional Stun Threshold equal to 14% of maximum Energy Shield",
+      "Bows: Causes 40% increased Stun Buildup",
+      "Crossbows: Causes 40% increased Stun Buildup",
+      "One Hand Maces: Causes 40% increased Stun Buildup",
+      "Two Hand Maces: Causes 40% increased Stun Buildup",
+      "Quarterstaves: Causes 40% increased Stun Buildup",
+      "Spears: Causes 40% increased Stun Buildup",
+      "Staves: Gain additional Stun Threshold equal to 14% of maximum Energy Shield",
+      "Talismans: Causes 40% increased Stun Buildup",
+      "Shields: +100 to Stun Threshold",
+      "Bucklers: +100 to Stun Threshold"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Stone_Rune"
+  },
+  "Perfect_Stone_Rune": {
+    "name": "Perfect Stone Rune",
+    "lines": [
+      "Gloves: +125 to Stun Threshold",
+      "Boots: +125 to Stun Threshold",
+      "Helmets: +125 to Stun Threshold",
+      "Body Armours: +125 to Stun Threshold",
+      "Wands: Gain additional Stun Threshold equal to 16% of maximum Energy Shield",
+      "Bows: Causes 50% increased Stun Buildup",
+      "Crossbows: Causes 50% increased Stun Buildup",
+      "One Hand Maces: Causes 50% increased Stun Buildup",
+      "Two Hand Maces: Causes 50% increased Stun Buildup",
+      "Quarterstaves: Causes 50% increased Stun Buildup",
+      "Spears: Causes 50% increased Stun Buildup",
+      "Staves: Gain additional Stun Threshold equal to 16% of maximum Energy Shield",
+      "Talismans: Causes 50% increased Stun Buildup",
+      "Shields: +125 to Stun Threshold",
+      "Bucklers: +125 to Stun Threshold"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Stone_Rune"
+  },
+  "Lesser_Vision_Rune": {
+    "name": "Lesser Vision Rune",
+    "lines": [
+      "Gloves: 8% increased Life and Mana Recovery from Flasks",
+      "Boots: 8% increased Life and Mana Recovery from Flasks",
+      "Helmets: 8% increased Life and Mana Recovery from Flasks",
+      "Body Armours: 8% increased Life and Mana Recovery from Flasks",
+      "Wands: 16% increased Critical Hit Chance for Spells",
+      "Bows: +60 to Accuracy Rating",
+      "Crossbows: +60 to Accuracy Rating",
+      "One Hand Maces: +60 to Accuracy Rating",
+      "Two Hand Maces: +60 to Accuracy Rating",
+      "Quarterstaves: +60 to Accuracy Rating",
+      "Spears: +60 to Accuracy Rating",
+      "Staves: 16% increased Critical Hit Chance for Spells",
+      "Talismans: +60 to Accuracy Rating",
+      "Shields: 8% increased Life and Mana Recovery from Flasks",
+      "Bucklers: 8% increased Life and Mana Recovery from Flasks"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Vision_Rune"
+  },
+  "Vision_Rune": {
+    "name": "Vision Rune",
+    "lines": [
+      "Gloves: 12% increased Life and Mana Recovery from Flasks",
+      "Boots: 12% increased Life and Mana Recovery from Flasks",
+      "Helmets: 12% increased Life and Mana Recovery from Flasks",
+      "Body Armours: 12% increased Life and Mana Recovery from Flasks",
+      "Wands: 20% increased Critical Hit Chance for Spells",
+      "Bows: +90 to Accuracy Rating",
+      "Crossbows: +90 to Accuracy Rating",
+      "One Hand Maces: +90 to Accuracy Rating",
+      "Two Hand Maces: +90 to Accuracy Rating",
+      "Quarterstaves: +90 to Accuracy Rating",
+      "Spears: +90 to Accuracy Rating",
+      "Staves: 20% increased Critical Hit Chance for Spells",
+      "Talismans: +90 to Accuracy Rating",
+      "Shields: 12% increased Life and Mana Recovery from Flasks",
+      "Bucklers: 12% increased Life and Mana Recovery from Flasks"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Vision_Rune"
+  },
+  "Greater_Vision_Rune": {
+    "name": "Greater Vision Rune",
+    "lines": [
+      "Gloves: 16% increased Life and Mana Recovery from Flasks",
+      "Boots: 16% increased Life and Mana Recovery from Flasks",
+      "Helmets: 16% increased Life and Mana Recovery from Flasks",
+      "Body Armours: 16% increased Life and Mana Recovery from Flasks",
+      "Wands: 24% increased Critical Hit Chance for Spells",
+      "Bows: +120 to Accuracy Rating",
+      "Crossbows: +120 to Accuracy Rating",
+      "One Hand Maces: +120 to Accuracy Rating",
+      "Two Hand Maces: +120 to Accuracy Rating",
+      "Quarterstaves: +120 to Accuracy Rating",
+      "Spears: +120 to Accuracy Rating",
+      "Staves: 24% increased Critical Hit Chance for Spells",
+      "Talismans: +120 to Accuracy Rating",
+      "Shields: 16% increased Life and Mana Recovery from Flasks",
+      "Bucklers: 16% increased Life and Mana Recovery from Flasks"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Vision_Rune"
+  },
+  "Perfect_Vision_Rune": {
+    "name": "Perfect Vision Rune",
+    "lines": [
+      "Gloves: 20% increased Life and Mana Recovery from Flasks",
+      "Boots: 20% increased Life and Mana Recovery from Flasks",
+      "Helmets: 20% increased Life and Mana Recovery from Flasks",
+      "Body Armours: 20% increased Life and Mana Recovery from Flasks",
+      "Wands: 28% increased Critical Hit Chance for Spells",
+      "Bows: +150 to Accuracy Rating",
+      "Crossbows: +150 to Accuracy Rating",
+      "One Hand Maces: +150 to Accuracy Rating",
+      "Two Hand Maces: +150 to Accuracy Rating",
+      "Quarterstaves: +150 to Accuracy Rating",
+      "Spears: +150 to Accuracy Rating",
+      "Staves: 28% increased Critical Hit Chance for Spells",
+      "Talismans: +150 to Accuracy Rating",
+      "Shields: 20% increased Life and Mana Recovery from Flasks",
+      "Bucklers: 20% increased Life and Mana Recovery from Flasks"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Vision_Rune"
+  },
+  "Soul_Core_of_Tacati": {
+    "name": "Soul Core of Tacati",
+    "lines": [
+      "Gloves: +13% to Chaos Resistance",
+      "Boots: +13% to Chaos Resistance",
+      "Helmets: +13% to Chaos Resistance",
+      "Body Armours: +13% to Chaos Resistance",
+      "Bows: 25% increased Magnitude of Poison you inflict",
+      "Crossbows: 25% increased Magnitude of Poison you inflict",
+      "One Hand Maces: 25% increased Magnitude of Poison you inflict",
+      "Two Hand Maces: 25% increased Magnitude of Poison you inflict",
+      "Quarterstaves: 25% increased Magnitude of Poison you inflict",
+      "Spears: 25% increased Magnitude of Poison you inflict",
+      "Talismans: 25% increased Magnitude of Poison you inflict",
+      "Shields: +13% to Chaos Resistance",
+      "Bucklers: +13% to Chaos Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Soul_Core_of_Tacati"
+  },
+  "Soul_Core_of_Citaqualotl": {
+    "name": "Soul Core of Citaqualotl",
+    "lines": [
+      "Gloves: +6% to all Elemental Resistances",
+      "Boots: +6% to all Elemental Resistances",
+      "Helmets: +6% to all Elemental Resistances",
+      "Body Armours: +6% to all Elemental Resistances",
+      "Bows: 40% increased Elemental Damage with Attacks",
+      "Crossbows: 40% increased Elemental Damage with Attacks",
+      "One Hand Maces: 40% increased Elemental Damage with Attacks",
+      "Two Hand Maces: 40% increased Elemental Damage with Attacks",
+      "Quarterstaves: 40% increased Elemental Damage with Attacks",
+      "Spears: 40% increased Elemental Damage with Attacks",
+      "Talismans: 40% increased Elemental Damage with Attacks",
+      "Shields: +6% to all Elemental Resistances",
+      "Bucklers: +6% to all Elemental Resistances"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Soul_Core_of_Citaqualotl"
+  },
+  "Soul_Core_of_Puhuarte": {
+    "name": "Soul Core of Puhuarte",
+    "lines": [
+      "Gloves: +2% to Maximum Fire Resistance",
+      "Bows: 40% increased Ignite Magnitude",
+      "Crossbows: 40% increased Ignite Magnitude",
+      "One Hand Maces: 40% increased Ignite Magnitude",
+      "Two Hand Maces: 40% increased Ignite Magnitude",
+      "Quarterstaves: 40% increased Ignite Magnitude",
+      "Spears: 40% increased Ignite Magnitude",
+      "Talismans: 40% increased Ignite Magnitude"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Soul_Core_of_Puhuarte"
+  },
+  "Soul_Core_of_Azcapa": {
+    "name": "Soul Core of Azcapa",
+    "lines": [
+      "Gloves: 10% increased Quantity of Gold Dropped by Slain Enemies",
+      "Bows: +15 to Spirit",
+      "Crossbows: +15 to Spirit",
+      "One Hand Maces: +15 to Spirit",
+      "Two Hand Maces: +15 to Spirit",
+      "Quarterstaves: +15 to Spirit",
+      "Spears: +15 to Spirit",
+      "Talismans: +15 to Spirit"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Soul_Core_of_Azcapa"
+  },
+  "Soul_Core_of_Atmohua": {
+    "name": "Soul Core of Atmohua",
+    "lines": [
+      "Gloves: Convert 40% of Requirements to Strength",
+      "Boots: Convert 40% of Requirements to Strength",
+      "Helmets: Convert 40% of Requirements to Strength",
+      "Body Armours: Convert 40% of Requirements to Strength",
+      "Bows: Convert 40% of Requirements to Strength",
+      "Crossbows: Convert 40% of Requirements to Strength",
+      "One Hand Maces: Convert 40% of Requirements to Strength",
+      "Two Hand Maces: Convert 40% of Requirements to Strength",
+      "Quarterstaves: Convert 40% of Requirements to Strength",
+      "Spears: Convert 40% of Requirements to Strength",
+      "Talismans: Convert 40% of Requirements to Strength",
+      "Shields: Convert 40% of Requirements to Strength",
+      "Bucklers: Convert 40% of Requirements to Strength"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Soul_Core_of_Atmohua"
+  },
+  "Soul_Core_of_Cholotl": {
+    "name": "Soul Core of Cholotl",
+    "lines": [
+      "Gloves: Convert 40% of Requirements to Dexterity",
+      "Boots: Convert 40% of Requirements to Dexterity",
+      "Helmets: Convert 40% of Requirements to Dexterity",
+      "Body Armours: Convert 40% of Requirements to Dexterity",
+      "Bows: Convert 40% of Requirements to Dexterity",
+      "Crossbows: Convert 40% of Requirements to Dexterity",
+      "One Hand Maces: Convert 40% of Requirements to Dexterity",
+      "Two Hand Maces: Convert 40% of Requirements to Dexterity",
+      "Quarterstaves: Convert 40% of Requirements to Dexterity",
+      "Spears: Convert 40% of Requirements to Dexterity",
+      "Talismans: Convert 40% of Requirements to Dexterity",
+      "Shields: Convert 40% of Requirements to Dexterity",
+      "Bucklers: Convert 40% of Requirements to Dexterity"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Soul_Core_of_Cholotl"
+  },
+  "Soul_Core_of_Zantipi": {
+    "name": "Soul Core of Zantipi",
+    "lines": [
+      "Gloves: Convert 40% of Requirements to Intelligence",
+      "Boots: Convert 40% of Requirements to Intelligence",
+      "Helmets: Convert 40% of Requirements to Intelligence",
+      "Body Armours: Convert 40% of Requirements to Intelligence",
+      "Bows: Convert 40% of Requirements to Intelligence",
+      "Crossbows: Convert 40% of Requirements to Intelligence",
+      "One Hand Maces: Convert 40% of Requirements to Intelligence",
+      "Two Hand Maces: Convert 40% of Requirements to Intelligence",
+      "Quarterstaves: Convert 40% of Requirements to Intelligence",
+      "Spears: Convert 40% of Requirements to Intelligence",
+      "Talismans: Convert 40% of Requirements to Intelligence",
+      "Shields: Convert 40% of Requirements to Intelligence",
+      "Bucklers: Convert 40% of Requirements to Intelligence"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Soul_Core_of_Zantipi"
+  },
+  "Lesser_Robust_Rune": {
+    "name": "Lesser Robust Rune",
+    "lines": [
+      "Gloves: +6 to Strength",
+      "Boots: +6 to Strength",
+      "Helmets: +6 to Strength",
+      "Body Armours: +6 to Strength",
+      "Wands: +6 to Strength",
+      "Bows: +6 to Strength",
+      "Crossbows: +6 to Strength",
+      "One Hand Maces: +6 to Strength",
+      "Two Hand Maces: +6 to Strength",
+      "Quarterstaves: +6 to Strength",
+      "Spears: +6 to Strength",
+      "Staves: +6 to Strength",
+      "Talismans: +6 to Strength",
+      "Shields: +6 to Strength",
+      "Bucklers: +6 to Strength"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Robust_Rune"
+  },
+  "Robust_Rune": {
+    "name": "Robust Rune",
+    "lines": [
+      "Gloves: +9 to Strength",
+      "Boots: +9 to Strength",
+      "Helmets: +9 to Strength",
+      "Body Armours: +9 to Strength",
+      "Wands: +9 to Strength",
+      "Bows: +9 to Strength",
+      "Crossbows: +9 to Strength",
+      "One Hand Maces: +9 to Strength",
+      "Two Hand Maces: +9 to Strength",
+      "Quarterstaves: +9 to Strength",
+      "Spears: +9 to Strength",
+      "Staves: +9 to Strength",
+      "Talismans: +9 to Strength",
+      "Shields: +9 to Strength",
+      "Bucklers: +9 to Strength"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Robust_Rune"
+  },
+  "Greater_Robust_Rune": {
+    "name": "Greater Robust Rune",
+    "lines": [
+      "Gloves: +12 to Strength",
+      "Boots: +12 to Strength",
+      "Helmets: +12 to Strength",
+      "Body Armours: +12 to Strength",
+      "Wands: +12 to Strength",
+      "Bows: +12 to Strength",
+      "Crossbows: +12 to Strength",
+      "One Hand Maces: +12 to Strength",
+      "Two Hand Maces: +12 to Strength",
+      "Quarterstaves: +12 to Strength",
+      "Spears: +12 to Strength",
+      "Staves: +12 to Strength",
+      "Talismans: +12 to Strength",
+      "Shields: +12 to Strength",
+      "Bucklers: +12 to Strength"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Robust_Rune"
+  },
+  "Perfect_Robust_Rune": {
+    "name": "Perfect Robust Rune",
+    "lines": [
+      "Gloves: +15 to Strength",
+      "Boots: +15 to Strength",
+      "Helmets: +15 to Strength",
+      "Body Armours: +15 to Strength",
+      "Wands: +15 to Strength",
+      "Bows: +15 to Strength",
+      "Crossbows: +15 to Strength",
+      "One Hand Maces: +15 to Strength",
+      "Two Hand Maces: +15 to Strength",
+      "Quarterstaves: +15 to Strength",
+      "Spears: +15 to Strength",
+      "Staves: +15 to Strength",
+      "Talismans: +15 to Strength",
+      "Shields: +15 to Strength",
+      "Bucklers: +15 to Strength"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Robust_Rune"
+  },
+  "Lesser_Adept_Rune": {
+    "name": "Lesser Adept Rune",
+    "lines": [
+      "Gloves: +6 to Dexterity",
+      "Boots: +6 to Dexterity",
+      "Helmets: +6 to Dexterity",
+      "Body Armours: +6 to Dexterity",
+      "Wands: +6 to Dexterity",
+      "Bows: +6 to Dexterity",
+      "Crossbows: +6 to Dexterity",
+      "One Hand Maces: +6 to Dexterity",
+      "Two Hand Maces: +6 to Dexterity",
+      "Quarterstaves: +6 to Dexterity",
+      "Spears: +6 to Dexterity",
+      "Staves: +6 to Dexterity",
+      "Talismans: +6 to Dexterity",
+      "Shields: +6 to Dexterity",
+      "Bucklers: +6 to Dexterity"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Adept_Rune"
+  },
+  "Adept_Rune": {
+    "name": "Adept Rune",
+    "lines": [
+      "Gloves: +9 to Dexterity",
+      "Boots: +9 to Dexterity",
+      "Helmets: +9 to Dexterity",
+      "Body Armours: +9 to Dexterity",
+      "Wands: +9 to Dexterity",
+      "Bows: +9 to Dexterity",
+      "Crossbows: +9 to Dexterity",
+      "One Hand Maces: +9 to Dexterity",
+      "Two Hand Maces: +9 to Dexterity",
+      "Quarterstaves: +9 to Dexterity",
+      "Spears: +9 to Dexterity",
+      "Staves: +9 to Dexterity",
+      "Talismans: +9 to Dexterity",
+      "Shields: +9 to Dexterity",
+      "Bucklers: +9 to Dexterity"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Adept_Rune"
+  },
+  "Greater_Adept_Rune": {
+    "name": "Greater Adept Rune",
+    "lines": [
+      "Gloves: +12 to Dexterity",
+      "Boots: +12 to Dexterity",
+      "Helmets: +12 to Dexterity",
+      "Body Armours: +12 to Dexterity",
+      "Wands: +12 to Dexterity",
+      "Bows: +12 to Dexterity",
+      "Crossbows: +12 to Dexterity",
+      "One Hand Maces: +12 to Dexterity",
+      "Two Hand Maces: +12 to Dexterity",
+      "Quarterstaves: +12 to Dexterity",
+      "Spears: +12 to Dexterity",
+      "Staves: +12 to Dexterity",
+      "Talismans: +12 to Dexterity",
+      "Shields: +12 to Dexterity",
+      "Bucklers: +12 to Dexterity"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Adept_Rune"
+  },
+  "Perfect_Adept_Rune": {
+    "name": "Perfect Adept Rune",
+    "lines": [
+      "Gloves: +15 to Dexterity",
+      "Boots: +15 to Dexterity",
+      "Helmets: +15 to Dexterity",
+      "Body Armours: +15 to Dexterity",
+      "Wands: +15 to Dexterity",
+      "Bows: +15 to Dexterity",
+      "Crossbows: +15 to Dexterity",
+      "One Hand Maces: +15 to Dexterity",
+      "Two Hand Maces: +15 to Dexterity",
+      "Quarterstaves: +15 to Dexterity",
+      "Spears: +15 to Dexterity",
+      "Staves: +15 to Dexterity",
+      "Talismans: +15 to Dexterity",
+      "Shields: +15 to Dexterity",
+      "Bucklers: +15 to Dexterity"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Adept_Rune"
+  },
+  "Lesser_Resolve_Rune": {
+    "name": "Lesser Resolve Rune",
+    "lines": [
+      "Gloves: +6 to Intelligence",
+      "Boots: +6 to Intelligence",
+      "Helmets: +6 to Intelligence",
+      "Body Armours: +6 to Intelligence",
+      "Wands: +6 to Intelligence",
+      "Bows: +6 to Intelligence",
+      "Crossbows: +6 to Intelligence",
+      "One Hand Maces: +6 to Intelligence",
+      "Two Hand Maces: +6 to Intelligence",
+      "Quarterstaves: +6 to Intelligence",
+      "Spears: +6 to Intelligence",
+      "Staves: +6 to Intelligence",
+      "Talismans: +6 to Intelligence",
+      "Shields: +6 to Intelligence",
+      "Bucklers: +6 to Intelligence"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Resolve_Rune"
+  },
+  "Resolve_Rune": {
+    "name": "Resolve Rune",
+    "lines": [
+      "Gloves: +9 to Intelligence",
+      "Boots: +9 to Intelligence",
+      "Helmets: +9 to Intelligence",
+      "Body Armours: +9 to Intelligence",
+      "Wands: +9 to Intelligence",
+      "Bows: +9 to Intelligence",
+      "Crossbows: +9 to Intelligence",
+      "One Hand Maces: +9 to Intelligence",
+      "Two Hand Maces: +9 to Intelligence",
+      "Quarterstaves: +9 to Intelligence",
+      "Spears: +9 to Intelligence",
+      "Staves: +9 to Intelligence",
+      "Talismans: +9 to Intelligence",
+      "Shields: +9 to Intelligence",
+      "Bucklers: +9 to Intelligence"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Resolve_Rune"
+  },
+  "Greater_Resolve_Rune": {
+    "name": "Greater Resolve Rune",
+    "lines": [
+      "Gloves: +12 to Intelligence",
+      "Boots: +12 to Intelligence",
+      "Helmets: +12 to Intelligence",
+      "Body Armours: +12 to Intelligence",
+      "Wands: +12 to Intelligence",
+      "Bows: +12 to Intelligence",
+      "Crossbows: +12 to Intelligence",
+      "One Hand Maces: +12 to Intelligence",
+      "Two Hand Maces: +12 to Intelligence",
+      "Quarterstaves: +12 to Intelligence",
+      "Spears: +12 to Intelligence",
+      "Staves: +12 to Intelligence",
+      "Talismans: +12 to Intelligence",
+      "Shields: +12 to Intelligence",
+      "Bucklers: +12 to Intelligence"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Resolve_Rune"
+  },
+  "Perfect_Resolve_Rune": {
+    "name": "Perfect Resolve Rune",
+    "lines": [
+      "Gloves: +15 to Intelligence",
+      "Boots: +15 to Intelligence",
+      "Helmets: +15 to Intelligence",
+      "Body Armours: +15 to Intelligence",
+      "Wands: +15 to Intelligence",
+      "Bows: +15 to Intelligence",
+      "Crossbows: +15 to Intelligence",
+      "One Hand Maces: +15 to Intelligence",
+      "Two Hand Maces: +15 to Intelligence",
+      "Quarterstaves: +15 to Intelligence",
+      "Spears: +15 to Intelligence",
+      "Staves: +15 to Intelligence",
+      "Talismans: +15 to Intelligence",
+      "Shields: +15 to Intelligence",
+      "Bucklers: +15 to Intelligence"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Resolve_Rune"
+  },
+  "Lesser_Tempered_Rune": {
+    "name": "Lesser Tempered Rune",
+    "lines": [
+      "Gloves: 6 to 9 Physical Thorns damage",
+      "Boots: 6 to 9 Physical Thorns damage",
+      "Helmets: 6 to 9 Physical Thorns damage",
+      "Body Armours: 6 to 9 Physical Thorns damage",
+      "Bows: Adds 3 to 4 Physical Damage",
+      "Crossbows: Adds 3 to 4 Physical Damage",
+      "One Hand Maces: Adds 3 to 4 Physical Damage",
+      "Two Hand Maces: Adds 3 to 4 Physical Damage",
+      "Quarterstaves: Adds 3 to 4 Physical Damage",
+      "Spears: Adds 3 to 4 Physical Damage",
+      "Talismans: Adds 3 to 4 Physical Damage",
+      "Shields: 6 to 9 Physical Thorns damage",
+      "Bucklers: 6 to 9 Physical Thorns damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Tempered_Rune"
+  },
+  "Tempered_Rune": {
+    "name": "Tempered Rune",
+    "lines": [
+      "Gloves: 14 to 21 Physical Thorns damage",
+      "Boots: 14 to 21 Physical Thorns damage",
+      "Helmets: 14 to 21 Physical Thorns damage",
+      "Body Armours: 14 to 21 Physical Thorns damage",
+      "Bows: Adds 6 to 9 Physical Damage",
+      "Crossbows: Adds 6 to 9 Physical Damage",
+      "One Hand Maces: Adds 6 to 9 Physical Damage",
+      "Two Hand Maces: Adds 6 to 9 Physical Damage",
+      "Quarterstaves: Adds 6 to 9 Physical Damage",
+      "Spears: Adds 6 to 9 Physical Damage",
+      "Talismans: Adds 6 to 9 Physical Damage",
+      "Shields: 14 to 21 Physical Thorns damage",
+      "Bucklers: 14 to 21 Physical Thorns damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Tempered_Rune"
+  },
+  "Greater_Tempered_Rune": {
+    "name": "Greater Tempered Rune",
+    "lines": [
+      "Gloves: 31 to 52 Physical Thorns damage",
+      "Boots: 31 to 52 Physical Thorns damage",
+      "Helmets: 31 to 52 Physical Thorns damage",
+      "Body Armours: 31 to 52 Physical Thorns damage",
+      "Bows: Adds 9 to 12 Physical Damage",
+      "Crossbows: Adds 9 to 12 Physical Damage",
+      "One Hand Maces: Adds 9 to 12 Physical Damage",
+      "Two Hand Maces: Adds 9 to 12 Physical Damage",
+      "Quarterstaves: Adds 9 to 12 Physical Damage",
+      "Spears: Adds 9 to 12 Physical Damage",
+      "Talismans: Adds 9 to 12 Physical Damage",
+      "Shields: 31 to 52 Physical Thorns damage",
+      "Bucklers: 31 to 52 Physical Thorns damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Tempered_Rune"
+  },
+  "Lesser_Ward_Rune": {
+    "name": "Lesser Ward Rune",
+    "lines": [
+      "Gloves: +15 to maximum Runic Ward",
+      "Boots: +15 to maximum Runic Ward",
+      "Helmets: +15 to maximum Runic Ward",
+      "Body Armours: +15 to maximum Runic Ward",
+      "Shields: +15 to maximum Runic Ward",
+      "Bucklers: +15 to maximum Runic Ward"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Ward_Rune"
+  },
+  "Ward_Rune": {
+    "name": "Ward Rune",
+    "lines": [
+      "Gloves: +20 to maximum Runic Ward",
+      "Boots: +20 to maximum Runic Ward",
+      "Helmets: +20 to maximum Runic Ward",
+      "Body Armours: +20 to maximum Runic Ward",
+      "Shields: +20 to maximum Runic Ward",
+      "Bucklers: +20 to maximum Runic Ward"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ward_Rune"
+  },
+  "Greater_Ward_Rune": {
+    "name": "Greater Ward Rune",
+    "lines": [
+      "Gloves: +25 to maximum Runic Ward",
+      "Boots: +25 to maximum Runic Ward",
+      "Helmets: +25 to maximum Runic Ward",
+      "Body Armours: +25 to maximum Runic Ward",
+      "Shields: +25 to maximum Runic Ward",
+      "Bucklers: +25 to maximum Runic Ward"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Ward_Rune"
+  },
+  "Perfect_Ward_Rune": {
+    "name": "Perfect Ward Rune",
+    "lines": [
+      "Gloves: +30 to maximum Runic Ward",
+      "Boots: +30 to maximum Runic Ward",
+      "Helmets: +30 to maximum Runic Ward",
+      "Body Armours: +30 to maximum Runic Ward",
+      "Shields: +30 to maximum Runic Ward",
+      "Bucklers: +30 to maximum Runic Ward"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Ward_Rune"
+  },
+  "Lesser_Charging_Rune": {
+    "name": "Lesser Charging Rune",
+    "lines": [
+      "Gloves: 8% increased Runic Ward Regeneration Rate",
+      "Boots: 8% increased Runic Ward Regeneration Rate",
+      "Helmets: 8% increased Runic Ward Regeneration Rate",
+      "Body Armours: 8% increased Runic Ward Regeneration Rate",
+      "Shields: 8% increased Runic Ward Regeneration Rate",
+      "Bucklers: 8% increased Runic Ward Regeneration Rate"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Charging_Rune"
+  },
+  "Charging_Rune": {
+    "name": "Charging Rune",
+    "lines": [
+      "Gloves: 12% increased Runic Ward Regeneration Rate",
+      "Boots: 12% increased Runic Ward Regeneration Rate",
+      "Helmets: 12% increased Runic Ward Regeneration Rate",
+      "Body Armours: 12% increased Runic Ward Regeneration Rate",
+      "Shields: 12% increased Runic Ward Regeneration Rate",
+      "Bucklers: 12% increased Runic Ward Regeneration Rate"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Charging_Rune"
+  },
+  "Greater_Charging_Rune": {
+    "name": "Greater Charging Rune",
+    "lines": [
+      "Gloves: 16% increased Runic Ward Regeneration Rate",
+      "Boots: 16% increased Runic Ward Regeneration Rate",
+      "Helmets: 16% increased Runic Ward Regeneration Rate",
+      "Body Armours: 16% increased Runic Ward Regeneration Rate",
+      "Shields: 16% increased Runic Ward Regeneration Rate",
+      "Bucklers: 16% increased Runic Ward Regeneration Rate"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Charging_Rune"
+  },
+  "Perfect_Charging_Rune": {
+    "name": "Perfect Charging Rune",
+    "lines": [
+      "Gloves: 20% increased Runic Ward Regeneration Rate",
+      "Boots: 20% increased Runic Ward Regeneration Rate",
+      "Helmets: 20% increased Runic Ward Regeneration Rate",
+      "Body Armours: 20% increased Runic Ward Regeneration Rate",
+      "Shields: 20% increased Runic Ward Regeneration Rate",
+      "Bucklers: 20% increased Runic Ward Regeneration Rate"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Perfect_Charging_Rune"
+  },
+  "Soul_Core_of_Xopec": {
+    "name": "Soul Core of Xopec",
+    "lines": [
+      "Boots: +2% to Maximum Lightning Resistance",
+      "Bows: 25% increased Magnitude of Shock you inflict",
+      "Crossbows: 25% increased Magnitude of Shock you inflict",
+      "One Hand Maces: 25% increased Magnitude of Shock you inflict",
+      "Two Hand Maces: 25% increased Magnitude of Shock you inflict",
+      "Quarterstaves: 25% increased Magnitude of Shock you inflict",
+      "Spears: 25% increased Magnitude of Shock you inflict",
+      "Talismans: 25% increased Magnitude of Shock you inflict"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Soul_Core_of_Xopec"
+  },
+  "Soul_Core_of_Topotante": {
+    "name": "Soul Core of Topotante",
+    "lines": [
+      "Boots: 25% reduced Effect of Non-Damaging Ailments on you",
+      "Bows: Attacks with this Weapon Penetrate 25% Elemental Resistances",
+      "Crossbows: Attacks with this Weapon Penetrate 25% Elemental Resistances",
+      "One Hand Maces: Attacks with this Weapon Penetrate 25% Elemental Resistances",
+      "Two Hand Maces: Attacks with this Weapon Penetrate 25% Elemental Resistances",
+      "Quarterstaves: Attacks with this Weapon Penetrate 25% Elemental Resistances",
+      "Spears: Attacks with this Weapon Penetrate 25% Elemental Resistances",
+      "Talismans: Attacks with this Weapon Penetrate 25% Elemental Resistances"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Soul_Core_of_Topotante"
+  },
+  "Soul_Core_of_Quipolatl": {
+    "name": "Soul Core of Quipolatl",
+    "lines": [
+      "Boots: 15% reduced Slowing Potency of Debuffs on You",
+      "Bows: 5% increased Attack Speed",
+      "Crossbows: 5% increased Attack Speed",
+      "One Hand Maces: 5% increased Attack Speed",
+      "Two Hand Maces: 5% increased Attack Speed",
+      "Quarterstaves: 5% increased Attack Speed",
+      "Spears: 5% increased Attack Speed",
+      "Talismans: 5% increased Attack Speed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Soul_Core_of_Quipolatl"
+  },
+  "Soul_Core_of_Opiloti": {
+    "name": "Soul Core of Opiloti",
+    "lines": [
+      "Helmets: 25% increased Pin duration",
+      "Bows: 40% increased Magnitude of Bleeding you inflict",
+      "Crossbows: 40% increased Magnitude of Bleeding you inflict",
+      "One Hand Maces: 40% increased Magnitude of Bleeding you inflict",
+      "Two Hand Maces: 40% increased Magnitude of Bleeding you inflict",
+      "Quarterstaves: 40% increased Magnitude of Bleeding you inflict",
+      "Spears: 40% increased Magnitude of Bleeding you inflict",
+      "Talismans: 40% increased Magnitude of Bleeding you inflict"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Soul_Core_of_Opiloti"
+  },
+  "Soul_Core_of_Zalatl": {
+    "name": "Soul Core of Zalatl",
+    "lines": [
+      "Helmets: 5% increased maximum Mana",
+      "Bows: Recover 4% of maximum Mana on Kill",
+      "Crossbows: Recover 4% of maximum Mana on Kill",
+      "One Hand Maces: Recover 4% of maximum Mana on Kill",
+      "Two Hand Maces: Recover 4% of maximum Mana on Kill",
+      "Quarterstaves: Recover 4% of maximum Mana on Kill",
+      "Spears: Recover 4% of maximum Mana on Kill",
+      "Talismans: Recover 4% of maximum Mana on Kill"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Soul_Core_of_Zalatl"
+  },
+  "Soul_Core_of_Tzamoto": {
+    "name": "Soul Core of Tzamoto",
+    "lines": [
+      "Helmets: +2% to Maximum Cold Resistance",
+      "Bows: 60% increased Freeze Buildup",
+      "Crossbows: 60% increased Freeze Buildup",
+      "One Hand Maces: 60% increased Freeze Buildup",
+      "Two Hand Maces: 60% increased Freeze Buildup",
+      "Quarterstaves: 60% increased Freeze Buildup",
+      "Spears: 60% increased Freeze Buildup",
+      "Talismans: 60% increased Freeze Buildup"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Soul_Core_of_Tzamoto"
+  },
+  "Soul_Core_of_Jiquani": {
+    "name": "Soul Core of Jiquani",
+    "lines": [
+      "Body Armours: 5% increased maximum Life",
+      "Bows: Recover 5% of maximum Life on Kill",
+      "Crossbows: Recover 5% of maximum Life on Kill",
+      "One Hand Maces: Recover 5% of maximum Life on Kill",
+      "Two Hand Maces: Recover 5% of maximum Life on Kill",
+      "Quarterstaves: Recover 5% of maximum Life on Kill",
+      "Spears: Recover 5% of maximum Life on Kill",
+      "Talismans: Recover 5% of maximum Life on Kill"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Soul_Core_of_Jiquani"
+  },
+  "Soul_Core_of_Ticaba": {
+    "name": "Soul Core of Ticaba",
+    "lines": [
+      "Body Armours: Hits against you have 50% reduced Critical Damage Bonus",
+      "Bows: +5% to Critical Damage Bonus",
+      "Crossbows: +5% to Critical Damage Bonus",
+      "One Hand Maces: +5% to Critical Damage Bonus",
+      "Two Hand Maces: +5% to Critical Damage Bonus",
+      "Quarterstaves: +5% to Critical Damage Bonus",
+      "Spears: +5% to Critical Damage Bonus",
+      "Talismans: +5% to Critical Damage Bonus",
+      "Shields: Hits against you have 50% reduced Critical Damage Bonus",
+      "Bucklers: Hits against you have 50% reduced Critical Damage Bonus"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Soul_Core_of_Ticaba"
+  },
+  "Soul_Core_of_Vizoma": {
+    "name": "Soul Core of Vizoma",
+    "lines": [
+      "Wands: 30% increased Critical Hit Chance for Spells",
+      "Bows: +150 to Accuracy Rating",
+      "Crossbows: +150 to Accuracy Rating",
+      "One Hand Maces: +150 to Accuracy Rating",
+      "Two Hand Maces: +150 to Accuracy Rating",
+      "Quarterstaves: +150 to Accuracy Rating",
+      "Spears: +150 to Accuracy Rating",
+      "Staves: 30% increased Critical Hit Chance for Spells",
+      "Talismans: +150 to Accuracy Rating"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Soul_Core_of_Vizoma"
   }
 }

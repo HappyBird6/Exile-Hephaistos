@@ -108,14 +108,15 @@ public final class TerminalAdditionClasses {
 
   private static ItemState withExplicits(ItemState item, List<ModifierInstance> modifiers) {
     return new ItemState(
-        item.snapshotId(),
-        item.baseItemId(),
-        item.itemLevel(),
-        item.rarity(),
-        item.implicits(),
-        modifiers,
-        item.conditions(),
-        item.augmentSockets(),
-        item.catalystQuality());
+            item.snapshotId(),
+            item.baseItemId(),
+            item.itemLevel(),
+            item.rarity(),
+            item.implicits(),
+            modifiers,
+            item.conditions(),
+            item.augmentSockets(),
+            item.catalystQuality())
+        .withAugments(item.installedAugments());
   }
 }

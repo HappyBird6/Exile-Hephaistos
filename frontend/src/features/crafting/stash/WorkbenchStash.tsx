@@ -1,3 +1,4 @@
+import { socketText } from '../socketAugments'
 import { useState } from 'react'
 import { matchesGameName, useI18n } from '../../../shared/i18n/i18n'
 import { CurrencyImage } from '../CurrencyImage'
@@ -78,7 +79,11 @@ export function WorkbenchStash({
         draggable={!disabled}
         onClick={(event) => {
           const position = event.detail === 0 ? undefined : pointer(event)
-          if (resource.category === 'Currency') onSelect(resource, position)
+          if (
+            resource.category === 'Currency' ||
+            resource.category === 'Augments'
+          )
+            onSelect(resource, position)
           else onPickUp(resource, position)
         }}
         onContextMenu={(event) => {
@@ -119,7 +124,10 @@ export function WorkbenchStash({
           type="search"
           className="workbench-stash__search"
           aria-label={t('material.search', {
-            category: t(`stash.${activeTab}`),
+            category:
+              activeTab === 'Augments'
+                ? socketText().tab
+                : t(`stash.${activeTab}`),
           })}
           placeholder={t('ui.search')}
           value={search}

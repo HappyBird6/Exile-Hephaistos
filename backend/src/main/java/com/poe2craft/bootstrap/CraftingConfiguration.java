@@ -17,6 +17,10 @@ public class CraftingConfiguration {
   // Jackson-free.
   abstract static class ItemStateJson {
     @com.fasterxml.jackson.annotation.JsonInclude(
+        com.fasterxml.jackson.annotation.JsonInclude.Include.NON_EMPTY)
+    abstract java.util.List<com.poe2craft.item.ItemState.InstalledAugment> installedAugments();
+
+    @com.fasterxml.jackson.annotation.JsonInclude(
         com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
     abstract com.poe2craft.item.ItemState.Sanctification sanctification();
 

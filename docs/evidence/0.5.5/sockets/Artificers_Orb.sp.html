@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="sp" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Orbe del artesano - PoE2DB, Path of Exile Wiki sp</title>
+    <meta name="description" content="path of exile is simply a tool to test your path of building creation">
+    <link rel="alternate" hreflang="en" href="https://poe2db.tw/us/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://poe2db.tw/tw/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://poe2db.tw/cn/" />
+        <link href="/favicon2.png" rel="shortcut icon" >
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/jquery.dataTables.min.css" integrity="sha512-1k7mWiTNoyx2XtmI96o+hdjP8nn0f3Z2N4oF/9ZZRgijyV4omsKOXEnqL1gKQNPy2MTSP9rIEWGcH/CInulptA==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-5-theme/1.3.0/select2-bootstrap-5-theme.min.css" integrity="sha512-z/90a5SWiu4MWVelb5+ny7sAayYUfMmdXKEAbpj27PfdkamNdyI3hcjxPxkOPbrXoKIm7r9V2mElt5f1OtVhqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.7/tippy.min.css" integrity="sha512-HbPh+j4V7pXprvQMt2dtmK/zCEsUeZWYXRln4sOwmoyHPQAPqy/k9lIquKUyKNpNbDGAY06UdiDHcEkBc72yCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.2.1/sweetalert2.min.css" integrity="sha512-OkYLbkJ4DB7ewvcpNLF9DSFmhdmxFXQ1Cs+XyjMsMMC94LynFJaA9cPXOokugkmZo6O6lwZg+V5dwQMH4S5/3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modal-video@2.4.6/css/modal-video.min.css" integrity="sha256-nd8IBqNn9uqwZKfZcLIXQcNxk5TjqrxiLx7PzN5PFW0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css" integrity="sha256-auPoJwk/+RK6KSkib92Dkq1Y5hEkZvKtvSwucs15Skg=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/video.js/8.19.1/video-js.min.css" integrity="sha512-J3tx4ssoARFr4U9VmZmQe2q672q0jUeYizJW3vglkOBTlQ/N6kF3eVqZZzaey/TdIXH69s3HYe2nQwyxK/Emzw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+        <link rel="stylesheet" href="https://cdn.poe2db.tw/css/stdtheme.40ed88163eea57ae.css" />
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js" integrity="sha512-HvOjJrdwNpDbkGJIG2ZNqDlVqMo77qbs4Me4cah0HoDrfhrbA+8SBlZn1KrvAQw7cILLPFJvdwIgphzQmMm+Pw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js" integrity="sha512-qzgd5cYSZcosqpzpn7zF2ZId8f/8CHmFKZ8j7mU4OUXTNRd5g+ZHBPsgKEwoqxCtdQvExE5LprwwPAgoicguNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js" integrity="sha256-Ikk5myJowmDQaYVCUD0Wr+vIDkN8hGI58SGWdE671A8=" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.full.min.js" integrity="sha512-RtZU3AyMVArmHLiW0suEZ9McadTdegwbgtiQl5Qqo9kunkVg1ofwueXD8/8wv3Af8jkME3DDe3yLfR8HSJfT2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js" integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.7/tippy-bundle.umd.min.js" integrity="sha512-gbruucq/Opx9jlHfqqZeAg2LNK3Y4BbpXHKDhRC88/tARL/izPOE4Zt2w6X9Sn1UeWaGbL38zW7nkL2jdn5JIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/3.0.1/marked.min.js" integrity="sha512-VUuO/d6MS7hXmiFGEj7HtUa2FCI6Ll+xPvX9yX3bxn7ZqDWwleqXa8dtW13brbZ1ld2jiTrv8hWbpfp4B5mi4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.2.1/sweetalert2.all.js" integrity="sha512-A7LzqKE/pm9ofgS0Lxu7qroQS5SkKJQaYJkJ/66nQiWZfEdeGlBq5zEXQ63VRmXZK8zPpCgFf2WQJIAljI0Vdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/modal-video@2.4.6/js/modal-video.min.js" integrity="sha256-VqINwNxkS4VEDMq5O52YTckX+Mx84X6bafO8NxF21Xw=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js" integrity="sha256-DiHJ7hbvMejsMyP76bpVWacb5HSHQ2sQlrJV8n7KEvA=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/6.0.0/echarts.min.js" integrity="sha512-4/g9GAdOdTpUP2mKClpKsEzaK7FQNgMjq+No0rX8XZlfrCGtbi4r+T/p5fnacsEC3zIAmHKLJUL7sh3/yVA4OQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/6.0.0/theme/dark.min.js" integrity="sha512-3Zm64ayK7DflnnyO2pKkLJX3v9Sb90mvahbwPUuMzEf42HI6k8tquIx5VsNBjEWAcYJWzvimbqnTkLl2QdCUmw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/8.19.1/video.min.js" integrity="sha512-48NkCweTzA9u2sP4GgKcEDm6IScPIMga142ipKFNcHfz7feUJXDJxO1jwc2l+5MvWfwMj4BDfQv8WIMhrPxZLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.2.1/mustache.min.js" integrity="sha512-Qjrukx28QnvFWISw9y4wCB0kTB/ISnWXPz5/RME5o8OlZqllWygc1AB64dOBlngeTeStmYmNTNcM6kfEjUdnnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" integrity="sha512-JRlcvSZAXT8+5SQQAvklXGJuxXTouyq8oIMaYERZQasB8SBDHZaUbeASsJWpk0UUrf89DP3/aefPPrlMR1h1yQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js" integrity="sha512-g2TeAWw5GPnX7z0Kn8nFbYfeHcvAu/tx6d6mrLe/90mkCxO+RcptyYpksUz35EO337F83bZwcmUyHiHamspkfg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+        <script src="https://cdn.poe2db.tw/js/ModsView.6d68ad906ceba146.js"></script>
+        <script src="https://cdn.poe2db.tw/js/poedb_header.0265e9378f858b1a.js"></script>
+    
+    <script data-cfasync="false">window.nitroAds=window.nitroAds||{createAd:function(){return new Promise(e=>{window.nitroAds.queue.push(["createAd",arguments,e])})},addUserToken:function(){window.nitroAds.queue.push(["addUserToken",arguments])},queue:[]};</script>
+    <script data-cfasync="false" async src="https://s.nitropay.com/ads-2013.js"></script>
+
+    <meta property="og:site_name" content="poe2db.tw">
+<meta property="og:title" content="Orbe del artesano" />
+<meta property="og:description" content="Agrega un engarce de aumento a un arma marcial o una armadura." />
+<meta property="og:image" content="https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyAddEquipmentSocket.webp" />
+
+  </head>
+
+  <body>
+
+    <div id="consent-box" style="display:none">
+      <button onclick="window.__cmp('showModal');">
+        Update cookie preferences
+      </button>
+    </div>
+    
+    <script>
+      if (window["nitroAds"] && window["nitroAds"].loaded) {
+        document.getElementById("consent-box").style.display = window["__tcfapi"]
+          ? ""
+          : "none";
+      } else {
+        document.addEventListener(
+          "nitroAds.loaded",
+          () =>
+            (document.getElementById("consent-box").style.display = window["__tcfapi"]
+              ? ""
+              : "none")
+        );
+      }
+    </script>
+
+
+    <div class="background-image item-popup--poe2"></div>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6598Z863E2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6598Z863E2');
+</script>
+
+
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div class="container">
+            <a class="navbar-brand fw-bold" href="/sp/">PoE2<span class='brand-suffix'>DB</span><sub></sub></a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"  aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span data-i18n="ClientStrings|UIOptionsSectionTitleItems|Name">Objeto</span> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="themes">
+                    <li><a class="dropdown-item" href="/sp/Items" data-i18n="ClientStrings|UIOptionsSectionTitleItems|Name">Objeto</a></li>
+                    <li><a class="dropdown-item" href="/sp/Unique_item" data-i18n="ClientStrings|ItemDisplayStringUnique|Name"></a></li>
+                    <li><a class="dropdown-item" href="/sp/Reforging_Bench" data-i18n="ClientStrings|RecipeBenchTitle|Name"></a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/sp/Gem" data-i18n="ClientStrings|ItemDisplayStringGem|Name">Gema</a></li>
+                    <li><a class="dropdown-item" href="/sp/Skill_Gems" data-i18n="ItemClasses|Active Skill Gem|Name">Gemas de habilidad</a></li>
+                    <li><a class="dropdown-item" href="/sp/Support_Gems" data-i18n="ItemClasses|Support Skill Gem|Name">Gemas de asistencia </a></li>
+                    <li><a class="dropdown-item" href="/sp/Spirit_Gems" data-i18n-tw="精神寶石">Spirit Gems</a></li>
+                    <li><a class="dropdown-item" href="/sp/Lineage_Supports" data-i18n="KeywordPopups|LineageSupports|Name">Lineage Supports</a></li>
+                  </ul>
+                </li>
+    
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span data-i18n="ClientStrings|ExpeditionModsTitle|Name">Modificadores</span> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="themes">
+                    <li><a class="dropdown-item" href="/sp/Modifiers" data-i18n="ClientStrings|ExpeditionModsTitle|Name">Modificadores</a></li>
+                    <li><a class="dropdown-item" href="/sp/Keywords" data-i18n-tw="提示字">Keywords</a></li>
+                    <li><a class="dropdown-item" href="/sp/Desecrated_Modifiers" data-i18n="KeywordPopups|Abyssalify|Name">Modificadores profanados</a></li>
+                    <li><a class="dropdown-item" href="/sp/Crafting" data-i18n="ClientStrings|CraftingWindowTitle|Name">Fabricación</a></li>
+                    <li><a class="dropdown-item" href="/sp/Liquid_Emotions" data-i18n="KeywordPopups|DistilledEmotion|Name"></a></li>
+                  </ul>
+                </li>
+    
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span data-i18n="ClientStrings|ItemDisplayStringQuest|Name">Misión</span> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a class="dropdown-item" href="/sp/Quest" data-i18n="ClientStrings|ItemDisplayStringQuest|Name">Misión</a></li>
+                    <li><a class="dropdown-item" href="/sp/Ascendancy_class" data-i18n="ClientStrings|TutorialPanelAscendancies|Name">Clases de Ascendencia</a></li>
+                    <li><a class="dropdown-item" href="/sp/passive-skill-tree/" data-i18n="ClientStrings|ActionOpenPassivePanel|Name">Árbol de habilidades pasivas</a></li>
+                    <li><a class="dropdown-item" href="/sp/Act" data-i18n-tw="章節">Act</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/sp/Waystones" data-i18n="ItemClasses|Map|Name">Piedras guía</a></li>
+                    <li><a class="dropdown-item" href="/sp/EndGame" data-i18n="Acts|Endgame|Name"></a></li>
+                    <li><a class="dropdown-item" href="/sp/atlas-skill-tree/" data-i18n="ClientStrings|ActionOpenAtlasPassivesScreen|Name"></a></li>
+                  </ul>
+                </li>
+    
+                <li class="nav-item"><a class="nav-link" href="Economy" data-i18n-tw="經濟" data-i18n-cn="经济">Economy</a></li>
+    
+                <li class="nav-item"><a class="ms-4 nav-link  bg-warning rounded-circle" style="color: white" href="/sp/patreon">Patreon</a></li>
+              </ul>
+    
+    
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link fw-bold" aria-current="page" href="https://poedb.tw/sp/">PoE<span class="brand-suffix">DB</span></a>
+                </li>
+    
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-language fa-lg"></i> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a class="dropdown-item" href="/tw/Artificers_Orb">TW 繁體中文</a></li>
+                    <li><a class="dropdown-item" href="/cn/Artificers_Orb">CN 简体中文</a></li>
+                    <li><a class="dropdown-item" href="/us/Artificers_Orb">US English</a></li>
+                    <li><a class="dropdown-item" href="/kr/Artificers_Orb">KR 한국어</a></li>
+                    <li><a class="dropdown-item" href="/ru/Artificers_Orb">RU Русский</a></li>
+                    <li><a class="dropdown-item" href="/jp/Artificers_Orb">JP Japanese</a></li>
+                    <li><a class="dropdown-item" href="/fr/Artificers_Orb">FR Français</a></li>
+                    <li><a class="dropdown-item" href="/de/Artificers_Orb">DE Deutsch</a></li>
+                    <li><a class="dropdown-item" href="/th/Artificers_Orb">TH ภาษาไทย</a></li>
+                    <li><a class="dropdown-item" href="/pt/Artificers_Orb">PO Português</a></li>
+                    <li><a class="dropdown-item" href="/sp/Artificers_Orb">ES Spanish</a></li>
+                  </ul>
+                </li>
+              </ul>
+    
+            <form class="form-inline my-2 my-lg-0" role="search" action="search">
+              <input type="hidden" name="token" value="095c29f546204f9ef58ade018c889a1e5b5b2b3aabffe9052a46b07e202f73defe1a66">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" id="navautosearch">
+            </form>
+    
+            </div><!--/.nav-collapse -->
+          </div><!--/.container-fluid -->
+        </nav>
+    </header>
+
+<script>sidebar160("leftside_banner", "left");</script>
+<script>sidebar160("rightside_banner", "right");</script>
+
+
+
+    <div class="page poe2">
+    <div class="page-content theme-showcase container" role="main">
+
+
+<div class="card mb-2" id="head_toolbar">
+  <div class="card-body p-1">
+    <div class="league_bar text-center">
+      <a href="Runes_of_Aldur_league" data-bs-toggle="tooltip" title="Runes of Aldur v0.5"  class="league_bar_icon"><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/Expedition2RemnantActive.webp" alt="Expedition2RemnantActive" class="league_minimap" /></span></a><a href="Atziris_Temple" data-bs-toggle="tooltip" title="Atziri v0.4"  class="league_bar_icon"><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/IncursionAtziriActive.webp" alt="IncursionAtziriActive" class="league_minimap" /></span></a><a href="Waystones" data-bs-toggle="tooltip" title="Piedras gu&iacute;a" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/d4f99ddd50879c7773d9fd8464b2a91229f100f3e9066943f10b0e9c32c60b1b" class="league_bar_icon"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/2ditems/maps/endgamemaps/endgamemap1.webp" class="league_minimap"/></a><a href="Shrine" data-bs-toggle="tooltip" title="Santuario" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/dcc452655185452bee9f3f0f46d412a5d661be4d5e8901ab3b9eb455b0474750" class="league_bar_icon"><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/ShrineActive.webp" alt="ShrineActive" class="league_minimap" /></span></a><a href="Strongbox" data-bs-toggle="tooltip" title="Caja fuerte" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/e99379e46c02644d4e95cdf03c3a112e445bc735337d75ca28c2c17927fc6a9d" class="league_bar_icon"><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/Strongbox.webp" alt="Strongbox" class="league_minimap" /></span></a><a href="Essence" data-bs-toggle="tooltip" title="Essence" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/f0d78f6995da433baaad76f51189b947a551f4d09c21265df255730d1bb79ed7" class="league_bar_icon"><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/Essence.webp" alt="Essence" class="league_minimap" /></span></a><a href="Archnemesis" data-bs-toggle="tooltip" title="Archnemesis"  class="league_bar_icon"><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/RareMonsterAlive.webp" alt="RareMonsterAlive" class="league_minimap" /></span></a><a href="Azmeri_Spirit" data-bs-toggle="tooltip" title="Esp&iacute;ritu azmeri v0.2" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/215723f413f956e705cc81404275ec7253eadfe8aa1e55e4414b257e85af0c64" class="league_bar_icon"><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/SpiritActivated.webp" alt="SpiritActivated" class="league_minimap" /></span></a><a href="Rogue_Exile" data-bs-toggle="tooltip" title="Exiliado renegado" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/71a648bb9ef0dc154e9f91b7d99b6ecdec258842738f2cb3b1399ea51065ec67" class="league_bar_icon"><span class="MinimapIcons"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/minimap/player/RogueExile.webp" alt="RogueExile" class="league_minimap" /></span></a><a href="Abyss" data-bs-toggle="tooltip" title="Abismo v0.3" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/2b9ca573e97535ece5c93ba4294d0c54c5bfabcab0f9f072d98aa22db6c78b94" class="league_bar_icon"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/textures/interface/2d/2dart/uiimages/ingame/worldmap/mapbuttonabysshub.webp" class="league_minimap"/></a><a href="Breach" data-bs-toggle="tooltip" title="Fisura" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/df22704aea00ec5621274b5b4a2027f8cdbf9f6c92f7e3d1ee99f1dcb5fdc5d2" class="league_bar_icon"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/2dart/uiimages/ingame/atlasscreen/atlasiconcontent/atlasiconcontentbreach.webp" class="league_minimap"/></a><a href="Ritual" data-bs-toggle="tooltip" title="Ritual" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/2743138d452cd103edabca208b082617051327db2c9732278241b30250c8f46c" class="league_bar_icon"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/2dart/uiimages/ingame/atlasscreen/atlasiconcontent/atlasiconcontentritual.webp" class="league_minimap"/></a><a href="Delirium" data-bs-toggle="tooltip" title="Delirium" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/0d086fc6fe53f49e21988f179cc140bc81aa6d6a282fecb039164469c7fb5b73" class="league_bar_icon"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/2dart/uiimages/ingame/atlasscreen/atlasiconcontent/atlasiconcontentdelirium.webp" class="league_minimap"/></a><a href="Expedition" data-bs-toggle="tooltip" title="Expedition" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/73dcba0c8b51e3bab842778933a470e0f2ad327a3b53296b7913d1fa52d1efe3" class="league_bar_icon"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/2dart/uiimages/ingame/atlasscreen/atlasiconcontent/atlasiconcontentexpedition.webp" class="league_minimap"/></a><a href="The_Burning_Monolith" data-bs-toggle="tooltip" title="El monolito ardiente" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/bbb6d10d510642f4288ce27fd5306f12301e7bd2bc1d1cc9945caf685f40c0f6" class="league_bar_icon"><img loading="lazy" src="https://cdn.poe2db.tw/image/art/2dart/uiimages/ingame/maplegend/monolith.webp" class="league_minimap"/></a><a href="Trial_of_the_Sekhemas" data-bs-toggle="tooltip" title="Prueba de las sekhemas" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/79a1050ec6e06eaf6da9afdfd6585ac314df07d81aee1fe26ae66dde65bdb12b" class="league_bar_icon"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/WorldMap/MapButtonSanctum.webp" class="league_minimap"/></a><a href="The_Trial_of_Chaos" data-bs-toggle="tooltip" title="La Prueba de Caos" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_KeywordPopups_hover/79a1050ec6e06eaf6da9afdfd6585ac314df07d81aee1fe26ae66dde65bdb12b" class="league_bar_icon"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/WorldMap/MapButtonUltimatum.webp" class="league_minimap"/></a>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="topbanner970"></div><script>topbanner970("topbanner970");</script>
+
+<ul class="nav nav-tabs d-flex flex-wrap" role="tablist"><li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" role="tab" aria-selected="true" href="#OrbedelartesanoCurrencyAddEquipmentSocket">Orbe del artesano CurrencyAddEquipmentSocket</a></li><li class="nav-item"><a class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false" href="#ArtificersOrbRef">ArtificersOrb Ref /1 </a></li><li class="nav-item"><a class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false" href="#Orbedelartesano">Orbe del artesano /1 </a></li><li class="nav-item"><a class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false" href="#Combinacionesdeformasrúnicas">Combinaciones de formas rúnicas /3 </a></li></ul><div class="tab-content"><div id="OrbedelartesanoCurrencyAddEquipmentSocket" class="tab-pane fade show active"><span data-tabname="Orbe del artesano <small>CurrencyAddEquipmentSocket</small>"></span><div class="py-2"><div class="d-flex flex-wrap">
+
+<div class="newItemPopup CurrencyPopup item-popup--poe2 "
+>
+    <div class="itemHeader singleLine">
+
+        <div class="itemName typeLine">
+            <span class="lc">Orbe del artesano</span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="Stats">
+            <div class="property">Objetos monetarios apilables</div><div class="property">Tamaño de la pila: <span class='colourDefault'>1 / 20</span></div><div class="separator"></div><div class="explicitMod">Agrega un engarce para <a data-keyword="Augment" href="Augment" class="KeywordPopups" data-hover="?s=Data%5CKeywordPopups%2FAugment">mejora</a> a un <a data-keyword="MartialWeapon" href="Martial_Weapons" class="KeywordPopups" data-hover="?s=Data%5CKeywordPopups%2FMartialWeapon">arma marcial</a>, una varita, un báculo o una armadura</div>
+        </div>
+
+
+        <div class="separator"></div>
+        <div class="default fst-italic">
+            Haz clic derecho en este objeto y luego clic izquierdo en un arma marcial, una varita, un báculo o una armadura para aplicarlo.
+Shift + clic para quitar de la pila.
+        </div>
+
+        <div>
+            Artificer's Orb
+        </div>
+    </div>
+</div>
+
+
+        <div class="itemboximage">
+
+                <img loading="lazy" class="" src="https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyAddEquipmentSocket.webp"/>
+
+        </div>
+
+
+
+</div>
+</div><div   class="card mb-2 ">
+   <h5 class="card-header">Orbe del artesano CurrencyAddEquipmentSocket /12 </h5>   <form><div class="input-group"><input name="card-reset" type="reset" class="btn btn-outline-secondary" value="Reset"><input name="card-query" placeholder="Search" class="form-control"></div></form><div class='table-responsive'><table class='table table-hover table-striped mb-0 filters bg-dark '><thead><tr><th>Nombre</th><th>Mostrar descripciones 
+completas</th></tr></thead><tbody>
+<tr><td>Currency Exchange</td><td>1000 Gold</td></tr>
+<tr><td>NoteCode</td><td>artificers</td></tr>
+<tr><td>DropLevel <span class='fas fa-info-circle' data-bs-toggle='tooltip' title='Item Filter'></span></td><td>5</td></tr>
+<tr><td>BaseType <span class='fas fa-info-circle' data-bs-toggle='tooltip' title='Item Filter'></span></td><td>Artificer's Orb</td></tr>
+<tr><td>BaseType <span class='fas fa-info-circle' data-bs-toggle='tooltip' title='Item Filter'></span></td><td>Orbe del artesano</td></tr>
+<tr><td>Class <span class='fas fa-info-circle' data-bs-toggle='tooltip' title='Item Filter'></span></td><td><a class="ItemClasses " href="Stackable_Currency">Objetos monetarios apilables</a></td></tr>
+<tr><td>Flags</td><td><span>AlwaysAllocate</span></td></tr>
+<tr><td>Type</td><td>Metadata/Items/Currency/CurrencyAddEquipmentSocket</td></tr>
+<tr><td>Sound</td><td>Audio/Sound Effects/ItemSounds/4.0/Currency/Orbs/OrbUse.ogg</td></tr>
+<tr><td>Tags</td><td>socket_currency, currency</td></tr>
+<tr><td>Icon</td><td>Art/2DItems/Currency/CurrencyAddEquipmentSocket</td></tr>
+<tr><td>MTX Tab Stacks</td><td>5000</td></tr></tbody></table></div>  </div><div class='clearfix row'></div><div   class="card mb-2 ">
+      <div class="table-responsive"><table class='table table-hover table-striped mb-0 filters bg-dark '><thead><tr><th>key</th><th>val</th></tr></thead><tbody id="RuMS5nQ1xW"><tr><td>Base.base_level</td><td>1</td></tr><tr><td>Base.tag</td><td>default, currency</td></tr><tr><td>Base.x_size</td><td>1</td></tr><tr><td>Base.y_size</td><td>1</td></tr></tbody></table></div>  </div></div><div id="ArtificersOrbRef" class="tab-pane fade"><div   class="card mb-2 ">
+   <h5 class="card-header">ArtificersOrb Ref /1 </h5> <div class="newItemPopup keywordPopups"><div   class="card mb-2 ">
+   <h5 class="card-header"><a href="Artificers_Orb">Orbe del artesano</a></h5>  <div class="card-body"><div class="keyword-body"><div class="ItemRareSeparator"></div>Agrega un engarce de <a data-keyword="Augment" href="Augment" class="KeywordPopups" data-hover="?s=Data%5CKeywordPopups%2FAugment">aumento</a> a un <a data-keyword="MartialWeapon" href="Martial_Weapons" class="KeywordPopups" data-hover="?s=Data%5CKeywordPopups%2FMartialWeapon">arma marcial</a> o una armadura.</div></div>   </div></div>  <div class="row row-cols-1 row-cols-lg-2 g-2 bg-dark"><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"><a class="item_currency StackableCurrency" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_BaseItemTypes_hover/731939d2a517afc728752c9ae16a48f07dc16d72ad1ed2c1717c7812e4b2d45b" href="Artificers_Shard"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyAddEquipmentSocketShard.webp" alt="CurrencyAddEquipmentSocketShard" class="w1" /></a></div><div class="flex-grow-1 ms-2"><a class="item_currency StackableCurrency" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_BaseItemTypes_hover/731939d2a517afc728752c9ae16a48f07dc16d72ad1ed2c1717c7812e4b2d45b" href="Artificers_Shard"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyAddEquipmentSocketShard.webp" alt="CurrencyAddEquipmentSocketShard" height="16" />Esquirla del artesano</a><div><div class="property">Tamaño de la pila: <span class='colourDefault'>1 / 10</span></div></div></div></div></div></div>  </div></div><div id="Orbedelartesano" class="tab-pane fade"><div   class="card mb-2 ">
+   <h5 class="card-header">Orbe del artesano /1 </h5> <div class="card-body"><a href="Economy">US Realm Economy</a> / <a href="Artificers_Orb" class="border p-1">Wiki</a></div>  <div class="table-responsive"><table class='table table-hover table-striped mb-0 filters bg-dark '><thead><tr><th>24h Value</th><th>24h volume traded</th></tr></thead><tbody id="p2LgUn3X7Y"><tr><td>1 <a href="Economy_exalted"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRNb2RUb1JhcmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ad7c366789/CurrencyAddModToRare.png"/>Orbe exaltado</a> <i class="fa-solid fa-left-right text-muted"></i> 4.13 <a href="Economy_artificers"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRFcXVpcG1lbnRTb2NrZXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5131fd4774/CurrencyAddEquipmentSocket.png"/>Orbe del artesano</a></td><td><div class="text-end">574 <a href="Economy_artificers"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRFcXVpcG1lbnRTb2NrZXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5131fd4774/CurrencyAddEquipmentSocket.png"/></a></div></td></tr></tbody></table></div>  </div><div id="mainJz5jKuIht1" class="echarts" style="height: 600px;"></div>
+
+<script>
+
+var chartDom = document.getElementById('mainJz5jKuIht1');
+var myChart = echarts.init(chartDom, 'dark');
+var option;
+
+const upColor = '#ec0000';
+const upBorderColor = '#8A0000';
+const downColor = '#00da3c';
+const downBorderColor = '#008F28';
+// Each item: open，close，lowest，highest
+const data0 = splitData([["2026-10-06",3.6,6.33,1.08,12],["2026-10-07",8.5,0.1,0.1,12],["2026-10-08",6.88,0.561,0.561,10],["2026-10-09",6.68,2.4,0.09,8],["2026-10-10",2.38,1,0.01,3],["2026-10-11",0.182,1,0.1,1],["2026-10-12",1,3.43,0.5,3.43],["2026-10-13",5.33,5,5,6],["2026-10-14",1,3,1,5],["2026-10-15",3.36,0.5,0.2,4],["2026-10-16",0.5,0.2,0.2,1],["2026-10-17",0.2,0.418,0.1,0.418],["2026-10-18",0.5,4,0.25,4],["2026-10-19",3,1.5,0.8,3],["2026-10-20",2,4,1.5,10],["2026-10-21",4,2,1,4],["2026-10-22",2,0.814,0.5,2],["2026-10-23",2,2,0.011,2],["2026-10-24",2,2,2,2],["2026-10-25",1,0.132,0.1,2],["2026-10-26",2,1,0.333,2],["2026-10-27",0.333,1,0.033,1],["2026-10-28",1,1.5,1,2],["2026-10-29",1.81,2,0.02,2],["2026-10-30",1,0.667,0.5,2],["2026-10-31",0.333,0.008,0.008,0.344],["2026-11-01",0.008,1.91,0.008,2],["2026-11-02",1.47,0.5,0.5,2],["2026-11-03",0.5,0.5,0.5,1],["2026-11-04",0.5,0.273,0.2,0.5],["2026-11-05",0.188,0.167,0.167,0.291]]);
+function splitData(rawData) {
+  const categoryData = [];
+  const values = [];
+  for (var i = 0; i < rawData.length; i++) {
+    categoryData.push(rawData[i].splice(0, 1)[0]);
+    values.push(rawData[i]);
+  }
+  return {
+    categoryData: categoryData,
+    values: values
+  };
+}
+function calculateMA(dayCount) {
+  var result = [];
+  for (var i = 0, len = data0.values.length; i < len; i++) {
+    if (i < dayCount) {
+      result.push('-');
+      continue;
+    }
+    var sum = 0;
+    for (var j = 0; j < dayCount; j++) {
+      sum += +data0.values[i - j][1];
+    }
+    result.push(sum / dayCount);
+  }
+  return result;
+}
+option = {
+  title: {
+    text: "Orbe del artesano <-> Orbe exaltado",
+    left: 0
+  },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross'
+    }
+  },
+  legend: {
+    data: ['MA1', 'MA5', 'MA10', 'MA20', 'MA30'],
+    top: 20
+  },
+  grid: {
+    left: '10%',
+    right: '10%',
+    bottom: '15%'
+  },
+  xAxis: {
+    type: 'category',
+    data: data0.categoryData,
+    boundaryGap: false,
+    axisLine: { onZero: false },
+    splitLine: { show: false },
+    min: 'dataMin',
+    max: 'dataMax'
+  },
+  yAxis: {
+    scale: true,
+    splitArea: {
+      show: true
+    }
+  },
+  dataZoom: [
+    {
+      type: 'slider',
+      start: 0,
+      end: 100
+    },
+    {
+      show: true,
+      type: 'slider',
+      top: '90%',
+      start: 0,
+      end: 100
+    }
+  ],
+  series: [
+    {
+      name: 'MA1',
+      type: 'candlestick',
+      data: data0.values,
+      itemStyle: {
+        color: upColor,
+        color0: downColor,
+        borderColor: upBorderColor,
+        borderColor0: downBorderColor
+      },
+      markPoint: {
+        label: {
+          formatter: function (param) {
+            return param != null ? Math.round(param.value) + '' : '';
+          }
+        },
+        data: [
+          {
+            name: 'Mark',
+            coord: ['2013/5/31', 2300],
+            value: 2300,
+            itemStyle: {
+              color: 'rgb(41,60,85)'
+            }
+          },
+          {
+            name: 'highest value',
+            type: 'max',
+            valueDim: 'highest'
+          },
+          {
+            name: 'lowest value',
+            type: 'min',
+            valueDim: 'lowest'
+          },
+          {
+            name: 'average value on close',
+            type: 'average',
+            valueDim: 'close'
+          }
+        ],
+        tooltip: {
+          formatter: function (param) {
+            return param.name + '<br>' + (param.data.coord || '');
+          }
+        }
+      },
+      markLine: {
+        symbol: ['none', 'none'],
+        data: [
+          [
+            {
+              name: 'from lowest to highest',
+              type: 'min',
+              valueDim: 'lowest',
+              symbol: 'circle',
+              symbolSize: 10,
+              label: {
+                show: false
+              },
+              emphasis: {
+                label: {
+                  show: false
+                }
+              }
+            },
+            {
+              type: 'max',
+              valueDim: 'highest',
+              symbol: 'circle',
+              symbolSize: 10,
+              label: {
+                show: false
+              },
+              emphasis: {
+                label: {
+                  show: false
+                }
+              }
+            }
+          ],
+          {
+            name: 'min line on close',
+            type: 'min',
+            valueDim: 'close'
+          },
+          {
+            name: 'max line on close',
+            type: 'max',
+            valueDim: 'close'
+          }
+        ]
+      }
+    },
+    {
+      name: 'MA5',
+      type: 'line',
+      data: calculateMA(5),
+      smooth: true,
+      lineStyle: {
+        opacity: 0.5
+      }
+    },
+    {
+      name: 'MA10',
+      type: 'line',
+      data: calculateMA(10),
+      smooth: true,
+      lineStyle: {
+        opacity: 0.5
+      }
+    },
+    {
+      name: 'MA20',
+      type: 'line',
+      data: calculateMA(20),
+      smooth: true,
+      lineStyle: {
+        opacity: 0.5
+      }
+    },
+    {
+      name: 'MA30',
+      type: 'line',
+      data: calculateMA(30),
+      smooth: true,
+      lineStyle: {
+        opacity: 0.5
+      }
+    }
+  ]
+};
+
+option && myChart.setOption(option);
+
+
+</script>
+
+<div id="Miu1p8jbkY" class="echarts echartCurrencyExchange"></div>
+<script>
+$(function() {
+    echarts.init(document.getElementById('Miu1p8jbkY'), 'dark').setOption({"title":{"text":"Orbe del artesano <-> Orbe exaltado day","left":0},"tooltip":{"trigger":"axis"},"axisPointer":{"link":{"xAxisIndex":"all"}},"dataZoom":[{"type":"slider","xAxisIndex":[0,1]},{"type":"slider","xAxisIndex":[0,1]}],"legend":{"data":["rate","volume traded"],"top":"20"},"grid":[{"left":"10%","height":"55%"},{"left":"10%","top":"75%","height":"15%"}],"xAxis":[{"name":"Date","data":["2026-10-06","2026-10-07","2026-10-08","2026-10-09","2026-10-10","2026-10-11","2026-10-12","2026-10-13","2026-10-14","2026-10-15","2026-10-16","2026-10-17","2026-10-18","2026-10-19","2026-10-20","2026-10-21","2026-10-22","2026-10-23","2026-10-24","2026-10-25","2026-10-26","2026-10-27","2026-10-28","2026-10-29","2026-10-30","2026-10-31","2026-11-01","2026-11-02","2026-11-03","2026-11-04","2026-11-05"]},{"name":"Date","data":["2026-10-06","2026-10-07","2026-10-08","2026-10-09","2026-10-10","2026-10-11","2026-10-12","2026-10-13","2026-10-14","2026-10-15","2026-10-16","2026-10-17","2026-10-18","2026-10-19","2026-10-20","2026-10-21","2026-10-22","2026-10-23","2026-10-24","2026-10-25","2026-10-26","2026-10-27","2026-10-28","2026-10-29","2026-10-30","2026-10-31","2026-11-01","2026-11-02","2026-11-03","2026-11-04","2026-11-05"],"gridIndex":1,"show":false}],"yAxis":[{"type":"value","name":"rate"},{"type":"value","name":"volume traded","gridIndex":1}],"series":[{"name":"rate","type":"line","markPoint":{"data":[{"type":"min","name":"Min"},{"type":"max","name":"Max"}]},"data":[11,7.77,1.89,1.27,0.551,0.266,1.22,5.72,3.06,0.756,0.286,0.234,1.11,2.26,3.81,2.08,0.735,1.11,2,0.449,1.03,0.334,1.06,1.34,1.76,0.078,0.302,1.2,0.502,0.365,0.211]},{"name":"volume traded","type":"bar","xAxisIndex":1,"yAxisIndex":1,"data":["1609","596","671","848","922","549","683","54","292","836","84","559","581","114","145","378","170","791","274","1283","397","755","229","174","275","823","776","224","247","353","407"]}]});
+});
+</script>
+
+<div id="IDpq39lDUq" class="echarts echartCurrencyExchange"></div>
+<script>
+$(function() {
+    echarts.init(document.getElementById('IDpq39lDUq'), 'dark').setOption({"title":{"text":"Orbe del artesano <-> Orbe exaltado hour","left":0},"tooltip":{"trigger":"axis"},"axisPointer":{"link":{"xAxisIndex":"all"}},"dataZoom":[{"type":"slider","xAxisIndex":[0,1]},{"type":"slider","xAxisIndex":[0,1]}],"legend":{"data":["rate","volume traded"],"top":"20"},"grid":[{"left":"10%","height":"55%"},{"left":"10%","top":"75%","height":"15%"}],"xAxis":[{"name":"Date","data":["10-05 17 UTC","10-05 19 UTC","10-05 20 UTC","10-05 21 UTC","10-05 23 UTC","10-06 02 UTC","10-06 07 UTC","10-06 09 UTC","10-06 10 UTC","10-06 11 UTC","10-06 12 UTC","10-06 13 UTC","10-06 15 UTC","10-06 16 UTC","10-06 17 UTC","10-06 18 UTC","10-06 19 UTC","10-06 20 UTC","10-06 21 UTC","10-06 22 UTC","10-06 23 UTC","10-07 01 UTC","10-07 02 UTC","10-07 04 UTC","10-07 07 UTC","10-07 08 UTC","10-07 09 UTC","10-07 10 UTC","10-07 12 UTC","10-07 13 UTC","10-07 14 UTC","10-07 17 UTC","10-07 18 UTC","10-07 20 UTC","10-07 21 UTC","10-08 01 UTC","10-08 03 UTC","10-08 04 UTC","10-08 07 UTC","10-08 09 UTC","10-08 10 UTC","10-08 12 UTC","10-08 13 UTC","10-08 14 UTC","10-08 15 UTC","10-08 16 UTC","10-08 17 UTC","10-08 20 UTC","10-08 21 UTC","10-08 22 UTC","10-08 23 UTC","10-09 00 UTC","10-09 01 UTC","10-09 02 UTC","10-09 03 UTC","10-09 04 UTC","10-09 05 UTC","10-09 06 UTC","10-09 07 UTC","10-09 08 UTC","10-09 09 UTC","10-09 10 UTC","10-09 14 UTC","10-09 16 UTC","10-09 17 UTC","10-09 18 UTC","10-09 19 UTC","10-09 20 UTC","10-09 21 UTC","10-09 23 UTC","10-10 00 UTC","10-10 01 UTC","10-10 02 UTC","10-10 03 UTC","10-10 04 UTC","10-10 05 UTC","10-10 06 UTC","10-10 07 UTC","10-10 09 UTC","10-10 10 UTC","10-10 12 UTC","10-10 13 UTC","10-10 14 UTC","10-10 15 UTC","10-10 16 UTC","10-10 17 UTC","10-10 18 UTC","10-10 19 UTC","10-10 22 UTC","10-10 23 UTC","10-11 00 UTC","10-11 03 UTC","10-11 04 UTC","10-11 06 UTC","10-11 07 UTC","10-11 09 UTC","10-11 10 UTC","10-11 11 UTC","10-11 12 UTC","10-11 13 UTC","10-11 16 UTC","10-11 18 UTC","10-11 19 UTC","10-11 20 UTC","10-11 21 UTC","10-11 22 UTC","10-12 00 UTC","10-12 01 UTC","10-12 05 UTC","10-12 06 UTC","10-12 12 UTC","10-12 13 UTC","10-12 15 UTC","10-12 16 UTC","10-12 17 UTC","10-12 18 UTC","10-12 19 UTC","10-12 20 UTC","10-12 23 UTC","10-13 00 UTC","10-13 03 UTC","10-13 08 UTC","10-13 09 UTC","10-13 11 UTC","10-13 12 UTC","10-13 15 UTC","10-13 16 UTC","10-13 17 UTC","10-13 18 UTC","10-13 19 UTC","10-13 20 UTC","10-13 21 UTC","10-14 01 UTC","10-14 02 UTC","10-14 03 UTC","10-14 06 UTC","10-14 10 UTC","10-14 11 UTC","10-14 12 UTC","10-14 14 UTC","10-14 15 UTC","10-14 16 UTC","10-14 17 UTC","10-14 21 UTC","10-14 22 UTC","10-15 00 UTC","10-15 04 UTC","10-15 07 UTC","10-15 08 UTC","10-15 09 UTC","10-15 10 UTC","10-15 11 UTC","10-15 12 UTC","10-15 13 UTC","10-15 14 UTC","10-15 15 UTC","10-15 19 UTC","10-15 20 UTC","10-16 02 UTC","10-16 05 UTC","10-16 09 UTC","10-16 11 UTC","10-16 12 UTC","10-16 15 UTC","10-16 16 UTC","10-16 17 UTC","10-16 18 UTC","10-16 19 UTC","10-16 21 UTC","10-16 22 UTC","10-17 00 UTC","10-17 05 UTC","10-17 07 UTC","10-17 08 UTC","10-17 10 UTC","10-17 12 UTC","10-17 13 UTC","10-17 14 UTC","10-17 15 UTC","10-17 16 UTC","10-17 17 UTC","10-17 18 UTC","10-17 20 UTC","10-17 21 UTC","10-17 23 UTC","10-18 00 UTC","10-18 01 UTC","10-18 05 UTC","10-18 06 UTC","10-18 07 UTC","10-18 08 UTC","10-18 10 UTC","10-18 11 UTC","10-18 12 UTC","10-18 13 UTC","10-18 14 UTC","10-18 15 UTC","10-18 17 UTC","10-18 18 UTC","10-18 19 UTC","10-18 20 UTC","10-18 23 UTC","10-19 00 UTC","10-19 02 UTC","10-19 03 UTC","10-19 04 UTC","10-19 12 UTC","10-19 15 UTC","10-19 17 UTC","10-19 18 UTC","10-19 19 UTC","10-19 23 UTC","10-20 00 UTC","10-20 01 UTC","10-20 02 UTC","10-20 03 UTC","10-20 04 UTC","10-20 07 UTC","10-20 10 UTC","10-20 12 UTC","10-20 14 UTC","10-20 15 UTC","10-20 16 UTC","10-20 19 UTC","10-20 21 UTC","10-20 22 UTC","10-21 01 UTC","10-21 02 UTC","10-21 04 UTC","10-21 05 UTC","10-21 06 UTC","10-21 11 UTC","10-21 12 UTC","10-21 13 UTC","10-21 15 UTC","10-21 18 UTC","10-21 21 UTC","10-22 00 UTC","10-22 01 UTC","10-22 02 UTC","10-22 03 UTC","10-22 07 UTC","10-22 10 UTC","10-22 11 UTC","10-22 13 UTC","10-22 16 UTC","10-22 17 UTC","10-22 18 UTC","10-22 19 UTC","10-22 21 UTC","10-22 23 UTC","10-23 00 UTC","10-23 03 UTC","10-23 04 UTC","10-23 05 UTC","10-23 06 UTC","10-23 09 UTC","10-23 10 UTC","10-23 11 UTC","10-23 12 UTC","10-23 14 UTC","10-23 15 UTC","10-23 16 UTC","10-23 17 UTC","10-23 18 UTC","10-23 19 UTC","10-23 20 UTC","10-23 21 UTC","10-23 22 UTC","10-23 23 UTC","10-24 00 UTC","10-24 01 UTC","10-24 02 UTC","10-24 03 UTC","10-24 04 UTC","10-24 05 UTC","10-24 08 UTC","10-24 09 UTC","10-24 10 UTC","10-24 11 UTC","10-24 14 UTC","10-24 15 UTC","10-24 16 UTC","10-24 17 UTC","10-24 18 UTC","10-24 19 UTC","10-24 20 UTC","10-24 21 UTC","10-24 22 UTC","10-24 23 UTC","10-25 00 UTC","10-25 01 UTC","10-25 02 UTC","10-25 04 UTC","10-25 05 UTC","10-25 07 UTC","10-25 08 UTC","10-25 09 UTC","10-25 13 UTC","10-25 14 UTC","10-25 15 UTC","10-25 16 UTC","10-25 17 UTC","10-25 18 UTC","10-25 19 UTC","10-25 20 UTC","10-25 21 UTC","10-26 01 UTC","10-26 03 UTC","10-26 04 UTC","10-26 06 UTC","10-26 08 UTC","10-26 09 UTC","10-26 10 UTC","10-26 12 UTC","10-26 13 UTC","10-26 17 UTC","10-26 18 UTC","10-26 20 UTC","10-26 21 UTC","10-26 22 UTC","10-27 00 UTC","10-27 01 UTC","10-27 02 UTC","10-27 03 UTC","10-27 04 UTC","10-27 06 UTC","10-27 10 UTC","10-27 11 UTC","10-27 12 UTC","10-27 13 UTC","10-27 14 UTC","10-27 15 UTC","10-27 16 UTC","10-27 17 UTC","10-27 19 UTC","10-27 20 UTC","10-27 21 UTC","10-27 22 UTC","10-28 00 UTC","10-28 02 UTC","10-28 06 UTC","10-28 08 UTC","10-28 09 UTC","10-28 10 UTC","10-28 14 UTC","10-28 15 UTC","10-28 17 UTC","10-28 18 UTC","10-28 19 UTC","10-28 20 UTC","10-28 21 UTC","10-28 22 UTC","10-29 01 UTC","10-29 02 UTC","10-29 03 UTC","10-29 04 UTC","10-29 05 UTC","10-29 06 UTC","10-29 07 UTC","10-29 10 UTC","10-29 12 UTC","10-29 13 UTC","10-29 14 UTC","10-29 15 UTC","10-29 17 UTC","10-29 18 UTC","10-29 19 UTC","10-29 20 UTC","10-29 21 UTC","10-29 22 UTC","10-30 02 UTC","10-30 06 UTC","10-30 07 UTC","10-30 08 UTC","10-30 10 UTC","10-30 11 UTC","10-30 12 UTC","10-30 13 UTC","10-30 17 UTC","10-30 18 UTC","10-30 20 UTC","10-30 22 UTC","10-30 23 UTC","10-31 00 UTC","10-31 02 UTC","10-31 06 UTC","10-31 08 UTC","10-31 10 UTC","10-31 11 UTC","10-31 12 UTC","10-31 15 UTC","10-31 16 UTC","10-31 17 UTC","10-31 18 UTC","10-31 20 UTC","10-31 21 UTC","10-31 22 UTC","10-31 23 UTC","11-01 01 UTC","11-01 02 UTC","11-01 03 UTC","11-01 04 UTC","11-01 06 UTC","11-01 08 UTC","11-01 09 UTC","11-01 11 UTC","11-01 13 UTC","11-01 14 UTC","11-01 16 UTC","11-01 18 UTC","11-01 19 UTC","11-01 20 UTC","11-01 21 UTC","11-01 22 UTC","11-02 02 UTC","11-02 03 UTC","11-02 04 UTC","11-02 05 UTC","11-02 07 UTC","11-02 08 UTC","11-02 09 UTC","11-02 11 UTC","11-02 12 UTC","11-02 15 UTC","11-02 21 UTC","11-02 22 UTC","11-03 01 UTC","11-03 02 UTC","11-03 04 UTC","11-03 05 UTC","11-03 09 UTC","11-03 11 UTC","11-03 15 UTC","11-03 16 UTC","11-03 17 UTC","11-03 18 UTC","11-03 21 UTC","11-04 00 UTC","11-04 01 UTC","11-04 03 UTC","11-04 04 UTC","11-04 09 UTC","11-04 14 UTC","11-04 15 UTC","11-04 16 UTC","11-04 17 UTC","11-04 18 UTC","11-04 19 UTC","11-04 21 UTC","11-04 23 UTC","11-05 00 UTC","11-05 01 UTC"]},{"name":"Date","data":["10-05 17 UTC","10-05 19 UTC","10-05 20 UTC","10-05 21 UTC","10-05 23 UTC","10-06 02 UTC","10-06 07 UTC","10-06 09 UTC","10-06 10 UTC","10-06 11 UTC","10-06 12 UTC","10-06 13 UTC","10-06 15 UTC","10-06 16 UTC","10-06 17 UTC","10-06 18 UTC","10-06 19 UTC","10-06 20 UTC","10-06 21 UTC","10-06 22 UTC","10-06 23 UTC","10-07 01 UTC","10-07 02 UTC","10-07 04 UTC","10-07 07 UTC","10-07 08 UTC","10-07 09 UTC","10-07 10 UTC","10-07 12 UTC","10-07 13 UTC","10-07 14 UTC","10-07 17 UTC","10-07 18 UTC","10-07 20 UTC","10-07 21 UTC","10-08 01 UTC","10-08 03 UTC","10-08 04 UTC","10-08 07 UTC","10-08 09 UTC","10-08 10 UTC","10-08 12 UTC","10-08 13 UTC","10-08 14 UTC","10-08 15 UTC","10-08 16 UTC","10-08 17 UTC","10-08 20 UTC","10-08 21 UTC","10-08 22 UTC","10-08 23 UTC","10-09 00 UTC","10-09 01 UTC","10-09 02 UTC","10-09 03 UTC","10-09 04 UTC","10-09 05 UTC","10-09 06 UTC","10-09 07 UTC","10-09 08 UTC","10-09 09 UTC","10-09 10 UTC","10-09 14 UTC","10-09 16 UTC","10-09 17 UTC","10-09 18 UTC","10-09 19 UTC","10-09 20 UTC","10-09 21 UTC","10-09 23 UTC","10-10 00 UTC","10-10 01 UTC","10-10 02 UTC","10-10 03 UTC","10-10 04 UTC","10-10 05 UTC","10-10 06 UTC","10-10 07 UTC","10-10 09 UTC","10-10 10 UTC","10-10 12 UTC","10-10 13 UTC","10-10 14 UTC","10-10 15 UTC","10-10 16 UTC","10-10 17 UTC","10-10 18 UTC","10-10 19 UTC","10-10 22 UTC","10-10 23 UTC","10-11 00 UTC","10-11 03 UTC","10-11 04 UTC","10-11 06 UTC","10-11 07 UTC","10-11 09 UTC","10-11 10 UTC","10-11 11 UTC","10-11 12 UTC","10-11 13 UTC","10-11 16 UTC","10-11 18 UTC","10-11 19 UTC","10-11 20 UTC","10-11 21 UTC","10-11 22 UTC","10-12 00 UTC","10-12 01 UTC","10-12 05 UTC","10-12 06 UTC","10-12 12 UTC","10-12 13 UTC","10-12 15 UTC","10-12 16 UTC","10-12 17 UTC","10-12 18 UTC","10-12 19 UTC","10-12 20 UTC","10-12 23 UTC","10-13 00 UTC","10-13 03 UTC","10-13 08 UTC","10-13 09 UTC","10-13 11 UTC","10-13 12 UTC","10-13 15 UTC","10-13 16 UTC","10-13 17 UTC","10-13 18 UTC","10-13 19 UTC","10-13 20 UTC","10-13 21 UTC","10-14 01 UTC","10-14 02 UTC","10-14 03 UTC","10-14 06 UTC","10-14 10 UTC","10-14 11 UTC","10-14 12 UTC","10-14 14 UTC","10-14 15 UTC","10-14 16 UTC","10-14 17 UTC","10-14 21 UTC","10-14 22 UTC","10-15 00 UTC","10-15 04 UTC","10-15 07 UTC","10-15 08 UTC","10-15 09 UTC","10-15 10 UTC","10-15 11 UTC","10-15 12 UTC","10-15 13 UTC","10-15 14 UTC","10-15 15 UTC","10-15 19 UTC","10-15 20 UTC","10-16 02 UTC","10-16 05 UTC","10-16 09 UTC","10-16 11 UTC","10-16 12 UTC","10-16 15 UTC","10-16 16 UTC","10-16 17 UTC","10-16 18 UTC","10-16 19 UTC","10-16 21 UTC","10-16 22 UTC","10-17 00 UTC","10-17 05 UTC","10-17 07 UTC","10-17 08 UTC","10-17 10 UTC","10-17 12 UTC","10-17 13 UTC","10-17 14 UTC","10-17 15 UTC","10-17 16 UTC","10-17 17 UTC","10-17 18 UTC","10-17 20 UTC","10-17 21 UTC","10-17 23 UTC","10-18 00 UTC","10-18 01 UTC","10-18 05 UTC","10-18 06 UTC","10-18 07 UTC","10-18 08 UTC","10-18 10 UTC","10-18 11 UTC","10-18 12 UTC","10-18 13 UTC","10-18 14 UTC","10-18 15 UTC","10-18 17 UTC","10-18 18 UTC","10-18 19 UTC","10-18 20 UTC","10-18 23 UTC","10-19 00 UTC","10-19 02 UTC","10-19 03 UTC","10-19 04 UTC","10-19 12 UTC","10-19 15 UTC","10-19 17 UTC","10-19 18 UTC","10-19 19 UTC","10-19 23 UTC","10-20 00 UTC","10-20 01 UTC","10-20 02 UTC","10-20 03 UTC","10-20 04 UTC","10-20 07 UTC","10-20 10 UTC","10-20 12 UTC","10-20 14 UTC","10-20 15 UTC","10-20 16 UTC","10-20 19 UTC","10-20 21 UTC","10-20 22 UTC","10-21 01 UTC","10-21 02 UTC","10-21 04 UTC","10-21 05 UTC","10-21 06 UTC","10-21 11 UTC","10-21 12 UTC","10-21 13 UTC","10-21 15 UTC","10-21 18 UTC","10-21 21 UTC","10-22 00 UTC","10-22 01 UTC","10-22 02 UTC","10-22 03 UTC","10-22 07 UTC","10-22 10 UTC","10-22 11 UTC","10-22 13 UTC","10-22 16 UTC","10-22 17 UTC","10-22 18 UTC","10-22 19 UTC","10-22 21 UTC","10-22 23 UTC","10-23 00 UTC","10-23 03 UTC","10-23 04 UTC","10-23 05 UTC","10-23 06 UTC","10-23 09 UTC","10-23 10 UTC","10-23 11 UTC","10-23 12 UTC","10-23 14 UTC","10-23 15 UTC","10-23 16 UTC","10-23 17 UTC","10-23 18 UTC","10-23 19 UTC","10-23 20 UTC","10-23 21 UTC","10-23 22 UTC","10-23 23 UTC","10-24 00 UTC","10-24 01 UTC","10-24 02 UTC","10-24 03 UTC","10-24 04 UTC","10-24 05 UTC","10-24 08 UTC","10-24 09 UTC","10-24 10 UTC","10-24 11 UTC","10-24 14 UTC","10-24 15 UTC","10-24 16 UTC","10-24 17 UTC","10-24 18 UTC","10-24 19 UTC","10-24 20 UTC","10-24 21 UTC","10-24 22 UTC","10-24 23 UTC","10-25 00 UTC","10-25 01 UTC","10-25 02 UTC","10-25 04 UTC","10-25 05 UTC","10-25 07 UTC","10-25 08 UTC","10-25 09 UTC","10-25 13 UTC","10-25 14 UTC","10-25 15 UTC","10-25 16 UTC","10-25 17 UTC","10-25 18 UTC","10-25 19 UTC","10-25 20 UTC","10-25 21 UTC","10-26 01 UTC","10-26 03 UTC","10-26 04 UTC","10-26 06 UTC","10-26 08 UTC","10-26 09 UTC","10-26 10 UTC","10-26 12 UTC","10-26 13 UTC","10-26 17 UTC","10-26 18 UTC","10-26 20 UTC","10-26 21 UTC","10-26 22 UTC","10-27 00 UTC","10-27 01 UTC","10-27 02 UTC","10-27 03 UTC","10-27 04 UTC","10-27 06 UTC","10-27 10 UTC","10-27 11 UTC","10-27 12 UTC","10-27 13 UTC","10-27 14 UTC","10-27 15 UTC","10-27 16 UTC","10-27 17 UTC","10-27 19 UTC","10-27 20 UTC","10-27 21 UTC","10-27 22 UTC","10-28 00 UTC","10-28 02 UTC","10-28 06 UTC","10-28 08 UTC","10-28 09 UTC","10-28 10 UTC","10-28 14 UTC","10-28 15 UTC","10-28 17 UTC","10-28 18 UTC","10-28 19 UTC","10-28 20 UTC","10-28 21 UTC","10-28 22 UTC","10-29 01 UTC","10-29 02 UTC","10-29 03 UTC","10-29 04 UTC","10-29 05 UTC","10-29 06 UTC","10-29 07 UTC","10-29 10 UTC","10-29 12 UTC","10-29 13 UTC","10-29 14 UTC","10-29 15 UTC","10-29 17 UTC","10-29 18 UTC","10-29 19 UTC","10-29 20 UTC","10-29 21 UTC","10-29 22 UTC","10-30 02 UTC","10-30 06 UTC","10-30 07 UTC","10-30 08 UTC","10-30 10 UTC","10-30 11 UTC","10-30 12 UTC","10-30 13 UTC","10-30 17 UTC","10-30 18 UTC","10-30 20 UTC","10-30 22 UTC","10-30 23 UTC","10-31 00 UTC","10-31 02 UTC","10-31 06 UTC","10-31 08 UTC","10-31 10 UTC","10-31 11 UTC","10-31 12 UTC","10-31 15 UTC","10-31 16 UTC","10-31 17 UTC","10-31 18 UTC","10-31 20 UTC","10-31 21 UTC","10-31 22 UTC","10-31 23 UTC","11-01 01 UTC","11-01 02 UTC","11-01 03 UTC","11-01 04 UTC","11-01 06 UTC","11-01 08 UTC","11-01 09 UTC","11-01 11 UTC","11-01 13 UTC","11-01 14 UTC","11-01 16 UTC","11-01 18 UTC","11-01 19 UTC","11-01 20 UTC","11-01 21 UTC","11-01 22 UTC","11-02 02 UTC","11-02 03 UTC","11-02 04 UTC","11-02 05 UTC","11-02 07 UTC","11-02 08 UTC","11-02 09 UTC","11-02 11 UTC","11-02 12 UTC","11-02 15 UTC","11-02 21 UTC","11-02 22 UTC","11-03 01 UTC","11-03 02 UTC","11-03 04 UTC","11-03 05 UTC","11-03 09 UTC","11-03 11 UTC","11-03 15 UTC","11-03 16 UTC","11-03 17 UTC","11-03 18 UTC","11-03 21 UTC","11-04 00 UTC","11-04 01 UTC","11-04 03 UTC","11-04 04 UTC","11-04 09 UTC","11-04 14 UTC","11-04 15 UTC","11-04 16 UTC","11-04 17 UTC","11-04 18 UTC","11-04 19 UTC","11-04 21 UTC","11-04 23 UTC","11-05 00 UTC","11-05 01 UTC"],"gridIndex":1,"show":false}],"yAxis":[{"type":"value","name":"rate"},{"type":"value","name":"volume traded","gridIndex":1}],"series":[{"name":"rate","type":"line","markPoint":{"data":[{"type":"min","name":"Min"},{"type":"max","name":"Max"}]},"data":[3.6,4,11.3,12,12,12,3,1.08,3,3,3,5,6.33,8.5,8,9.5,10.7,12,12,1,12,12,12,10,10.5,10,8.67,10,10.3,3.68,0.1,6.88,9.6,10,10,4,9,10,10,6,5,7,5.8,7,0.561,6.68,7,6.8,7,7,0.09,3.75,3.23,0.328,8,6.5,0.5,0.5,0.5,2,2,3,2.4,2.38,2.4,2.5,2.5,2.5,2.5,2.5,2.5,2.5,3,2.5,0.019,0.196,0.2,0.2,1.95,0.01,1,0.02,1,1,0.182,0.118,0.1,0.1,0.1,1,1,1,1,0.5,0.5,0.5,0.5,0.5,1,1,1,1,1,1,1,1,1,1,0.5,0.5,1,1,3.43,5.33,5.33,5.5,5.5,6,6,6,6,6,6,6,6,5,1,1,1,1,5,5,2,2,2,2,4,4,4,3,3,3.36,4,4,0.2,4,2,1.92,2,2,2,2,2,0.5,0.5,0.5,0.5,0.2,1,0.5,0.375,0.375,0.2,0.2,0.2,0.187,0.2,0.2,0.2,0.2,0.2,0.167,0.1,0.2,0.2,0.2,0.333,0.417,0.418,0.5,0.5,0.5,0.25,0.444,0.5,0.5,0.5,0.5,0.5,0.5,1,1,1.59,1.95,2,2.58,4,3,3,3,2,1,1,0.8,0.8,1.3,1.5,1.5,2,1.5,1.5,2.29,3,3.86,4,8.43,5.5,10,5,4,4,4,4,3,3,3,3,3,2,2,2,1,2,1.97,2,2,2,2,0.5,0.5,0.5,1,0.786,1,0.814,2,2,2,2,2,2,2,2,1,1,1,0.075,0.011,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1.06,2,2,1.5,1.5,2,1.6,1.5,2,2,2,2,2,0.1,0.1,1.67,0.132,2,1.5,1.5,1.5,1.5,1.5,1.25,1.22,1.25,1.25,0.568,0.5,1.25,0.333,1,0.333,0.333,0.333,0.333,0.333,0.333,0.033,0.5,0.333,0.333,0.333,0.333,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1.9,1.5,1.5,1.5,1.81,2,2,2,2,0.02,2,2,2,1,1,1.29,2,2,2,2,2,2,1,2,2,2,2,2,2,2,1.98,2,0.5,0.5,0.5,0.667,0.333,0.333,0.333,0.344,0.333,0.333,0.1,0.121,0.013,0.2,0.008,0.333,0.008,0.008,0.333,0.333,0.333,0.333,0.333,0.333,0.333,0.5,0.333,0.333,0.5,0.5,1.63,2,1.97,1.91,1.47,1.92,2,2,1.5,1.56,1.25,1,1,1,1,1,1,0.6,1,0.5,0.5,0.5,0.5,0.5,0.5,0.5,1,0.5,0.5,0.5,0.5,0.5,0.333,0.2,0.2,0.2,0.328,0.333,0.328,0.273,0.188,0.291,0.25,0.186,0.19,0.25,0.25,0.167]},{"name":"volume traded","type":"bar","xAxisIndex":1,"yAxisIndex":1,"data":["5","1","1525","5","15","3","2","26","10","10","1","3","3","12","2","4","211","68","10","31","10","1","11","10","10","2","15","19","20","60","100","16","25","1","5","9","1","2","13","2","1","1","30","23","542","25","12","10","1","14","277","12","31","259","3","10","2","10","46","9","111","1","15","8","10","2","2","4","6","20","4","2","1","16","105","56","15","30","58","300","50","101","121","11","11","51","230","100","30","10","23","10","3","2","22","20","4","2","10","21","122","2","20","25","1","400","20","3","2","2","2","21","63","3","3","8","4","3","1","1","2","10","2","2","10","5","1","10","3","6","2","3","4","10","10","54","103","20","3","61","2","11","5","1","10","9","1","25","1","50","3","3","7","200","110","400","10","20","1","2","8","8","20","15","15","75","10","15","5","15","65","18","20","10","105","100","3","12","91","32","2","2","16","36","22","2","30","2","10","114","1","100","44","127","15","24","2","61","2","4","1","5","5","5","5","10","14","2","1","10","2","21","21","14","5","7","4","1","20","20","5","14","7","10","12","2","10","12","2","1","12","20","2","254","34","1","1","1","2","16","32","2","70","2","43","4","30","40","45","100","3","5","1","1","1","347","93","90","10","10","10","1","14","1","4","6","20","3","10","30","4","4","1","3","5","1","116","1","10","29","2","10","4","3","35","12","9","2","2","1","5","2","1","10","52","100","10","270","240","3","522","1","38","36","22","18","10","4","9","8","4","132","2","4","3","106","150","63","27","15","198","51","30","4","3","45","3","153","2","1","2","1","7","2","3","36","3","10","50","3","100","5","1","10","2","2","2","32","1","6","2","5","50","11","12","2","4","1","7","3","1","11","15","1","10","5","100","5","10","40","1","1","2","40","30","34","2","2","3","99","3","3","32","3","3","10","33","383","5","120","9","120","360","3","18","6","6","3","33","177","10","12","69","20","4","8","1","35","11","30","12","6","3","40","9","12","1","4","15","18","31","2","25","2","14","2","8","2","2","2","218","1","2","10","84","36","4","12","10","5","35","61","9","64","33","32","79","4","156","84","4","24","24"]}]});
+});
+</script>
+<div   class="card mb-2 ">
+   <h5 class="card-header">Orbe del artesano /5 </h5> <div class="card-body"><a href="Economy">US Realm Economy</a> / <a href="Artificers_Orb" class="border p-1">Wiki</a></div>  <div class="table-responsive"><table class='table table-hover table-striped mb-0 filters bg-dark '><thead><tr><th>24h Value</th><th>24h volume traded</th></tr></thead><tbody id="vG4VK1G2xm"><tr><td>1 <a href="Economy_exalted"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRNb2RUb1JhcmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ad7c366789/CurrencyAddModToRare.png"/>Orbe exaltado</a> <i class="fa-solid fa-left-right text-muted"></i> 4.13 <a href="Economy_artificers"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRFcXVpcG1lbnRTb2NrZXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5131fd4774/CurrencyAddEquipmentSocket.png"/>Orbe del artesano</a></td><td><div class="text-end">574 <a href="Economy_artificers"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRFcXVpcG1lbnRTb2NrZXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5131fd4774/CurrencyAddEquipmentSocket.png"/></a></div></td></tr><tr><td>1 <a href="Economy_regal"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lVcGdyYWRlTWFnaWNUb1JhcmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/e8fb148e80/CurrencyUpgradeMagicToRare.png"/>Orbe regio</a> <i class="fa-solid fa-left-right text-muted"></i> 39 <a href="Economy_artificers"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRFcXVpcG1lbnRTb2NrZXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5131fd4774/CurrencyAddEquipmentSocket.png"/>Orbe del artesano</a></td><td><div class="text-end">39 <a href="Economy_artificers"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRFcXVpcG1lbnRTb2NrZXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5131fd4774/CurrencyAddEquipmentSocket.png"/></a></div></td></tr><tr><td>1 <a href="Economy_greater-exalted-orb"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRNb2RUb1JhcmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ad7c366789/CurrencyAddModToRare.png"/>Orbe exaltado superior</a> <i class="fa-solid fa-left-right text-muted"></i> 5 <a href="Economy_artificers"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRFcXVpcG1lbnRTb2NrZXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5131fd4774/CurrencyAddEquipmentSocket.png"/>Orbe del artesano</a></td><td><div class="text-end">10 <a href="Economy_artificers"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRFcXVpcG1lbnRTb2NrZXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5131fd4774/CurrencyAddEquipmentSocket.png"/></a></div></td></tr><tr><td>4 <a href="Economy_whetstone"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lXZWFwb25RdWFsaXR5Iiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/18715ea7be/CurrencyWeaponQuality.png"/>Piedra de afilar</a> <i class="fa-solid fa-left-right text-muted"></i> 1 <a href="Economy_artificers"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRFcXVpcG1lbnRTb2NrZXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5131fd4774/CurrencyAddEquipmentSocket.png"/>Orbe del artesano</a></td><td><div class="text-end">2 <a href="Economy_artificers"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRFcXVpcG1lbnRTb2NrZXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5131fd4774/CurrencyAddEquipmentSocket.png"/></a></div></td></tr><tr><td>1 <a href="Economy_alch"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lVcGdyYWRlVG9SYXJlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/9b80b44821/CurrencyUpgradeToRare.png"/>Orbe de alquimia</a> <i class="fa-solid fa-left-right text-muted"></i> 1 <a href="Economy_artificers"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRFcXVpcG1lbnRTb2NrZXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5131fd4774/CurrencyAddEquipmentSocket.png"/>Orbe del artesano</a></td><td><div class="text-end">1 <a href="Economy_artificers"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRFcXVpcG1lbnRTb2NrZXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5131fd4774/CurrencyAddEquipmentSocket.png"/></a></div></td></tr></tbody></table></div>  </div></div><div id="Combinacionesdeformasrúnicas" class="tab-pane fade"><div   class="card mb-2 ">
+   <h5 class="card-header">Combinaciones de formas rúnicas /3 </h5>   <div class="row row-cols-1 row-cols-lg-3 g-2 bg-dark"><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"></div><div class="flex-grow-1 ms-2"><div class="d-flex justify-content-between"><div><span><a class="item_currency StackableCurrency" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_BaseItemTypes_hover/06bb774befc71674dc678168c214516a5937c31a6f73da8fae05511553a72b96" href="Artificers_Orb"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyAddEquipmentSocket.webp" alt="CurrencyAddEquipmentSocket" height="16" />Orbe del artesano</a>  x3</span> <span class="default small">Lv30-74</span></div><div>0.152 <a href="Economy_divine"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lNb2RWYWx1ZXMiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/2986e220b3/CurrencyModValues.png"/></a></div></div><div><a href="Stone_Rune"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/Expedition/Remnant/RemnantRuneStone.webp" alt="RemnantRuneStone" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="Level 30 - 74 Runa de piedra" class="size32" /></a><a href="Vision_Rune"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/Expedition/Remnant/RemnantRuneVision.webp" alt="RemnantRuneVision" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="Level 30 - 77 Runa de visi&oacute;n" class="size32" /></a><a href="Prismatic_Rune"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/Expedition/Remnant/RemnantRunePrismatic.webp" alt="RemnantRunePrismatic" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="Level 15 - 74 Runa prism&aacute;tica" class="size32" /></a></div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"></div><div class="flex-grow-1 ms-2"><div class="d-flex justify-content-between"><div><span><a class="item_currency StackableCurrency" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_BaseItemTypes_hover/06bb774befc71674dc678168c214516a5937c31a6f73da8fae05511553a72b96" href="Artificers_Orb"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyAddEquipmentSocket.webp" alt="CurrencyAddEquipmentSocket" height="16" />Orbe del artesano</a>  x2</span> <span class="default small">Lv15-16</span></div><div>0.101 <a href="Economy_divine"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lNb2RWYWx1ZXMiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/2986e220b3/CurrencyModValues.png"/></a></div></div><div><a href="Volcanic_Rune"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/Expedition/Remnant/RemnantRuneGasp.webp" alt="RemnantRuneGasp" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="Level 1 - 16 Runa volc&aacute;nica" class="size32" /></a><a href="Vision_Rune"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/Expedition/Remnant/RemnantRuneVision.webp" alt="RemnantRuneVision" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="Level 15 - 40 Runa de visi&oacute;n" class="size32" /></a></div></div></div></div><div class="col"><div class="d-flex border-top rounded"><div class="flex-shrink-0"></div><div class="flex-grow-1 ms-2"><div class="d-flex justify-content-between"><div><span><a class="item_currency StackableCurrency" data-hover="https://cdn.poe2db.tw/cache2/sp/Poe_Data_BaseItemTypes_hover/06bb774befc71674dc678168c214516a5937c31a6f73da8fae05511553a72b96" href="Artificers_Orb"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DItems/Currency/CurrencyAddEquipmentSocket.webp" alt="CurrencyAddEquipmentSocket" height="16" />Orbe del artesano</a>  </span> <span class="default small">Lv15-16</span></div><div>0.051 <a href="Economy_divine"><img class="size32" src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lNb2RWYWx1ZXMiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/2986e220b3/CurrencyModValues.png"/></a></div></div><div><a href="Arcane_Rune"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/Expedition/Remnant/RemnantRuneArcane.webp" alt="RemnantRuneArcane" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="Level 1 - 16 Runa arcana" class="size32" /></a><a href="Tempest_Rune"><img loading="lazy" src="https://cdn.poe2db.tw/image/Art/2DArt/UIImages/InGame/Expedition/Remnant/RemnantRuneTempest.webp" alt="RemnantRuneTempest" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="Level 15 - 40 Runa de tempestad" class="size32" /></a></div></div></div></div></div>  </div></div></div><div class="card mb-1">
+    <div class="card-body markdown-body">
+        <a class="btn btn-primary float-end" href='/sp/marked?id=Artificers_Orb' data-i18n="ClientStrings|HideoutEditControlEdit|Name">Edit</a>
+        
+        <div><hr style='border-top: 1px solid white'>Wikis Content is available under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">CC BY-NC-SA 3.0</a> unless otherwise noted.</div>
+    </div>
+</div>
+
+
+<footer class="ccontainer text-center text-lg-left">
+  <div class="card p-4">
+    <div class="row">
+
+      <div class="col-lg-3 col-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Sites</h5>
+        <ul class="list-unstyled mb-0">
+          <li> <a target="_blank" href="https://poedb.tw/">poedb.tw</a> </li>
+          <li> <a target="_blank" href="https://tlidb.com/">tlidb.com</a> </li>
+          <li> <a target="_blank" href="https://poe2db.tw/">poe2db.tw</a> </li>
+              <li> <a target="_blank" href="https://paldb.cc/">paldb.cc</a> </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">News</h5>
+        <ul class="list-unstyled mb-0">
+          <li> <a href="news">GGG Tracker</a> </li>
+          <li> <a href="League#ConcurrentPlayers">Concurrent Players</a> </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">About Site</h5>
+        <ul class="list-unstyled mb-0">
+          <li> <a href="privacy">Privacy</a> </li>
+          <li> <a href="patreon">Patreon</a> </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Community</h5>
+        <ul class="list-unstyled mb-0">
+
+
+
+          <li><a target="_blank" href="https://www.reddit.com/user/chuanhsing">/u/chuanhsing</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    Copyright &copy; 2014-2026 PoE2DB.
+  </div>
+</footer>
+
+<div style=""></div>
+<div class="clearfix"></div><div id="bottom_banner"></div><script>topbanner970("bottom_banner");</script>
+    </div>
+    </div>
+
+    <a href="#top" id="toTop"><span class="fas fa-arrow-circle-up fa-3x"></span></a>
+<script>
+ $(document).ready(function()
+ {
+    if (window.location.hostname != "poedb.tw" && window.location.hostname != "poe2db.tw") {
+        window.location.href="https://poedb.tw/";
+    }
+ });
+</script>
+    <script src="https://cdn.poe2db.tw/js/poedb_footer.fed37e57d91aa1eb.js"></script>
+
+  </body>
+</html>

@@ -180,7 +180,7 @@ class WandEssenceTest {
               m -> assertThat(catalog.find(m.modifierId()).orElseThrow().weight()).isPositive());
       assertThat(new ItemStateValidator(catalog).validate(r.state())).isEmpty();
     }
-    assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL), Set.of())).hasSize(58);
+    assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL), Set.of())).hasSize(59);
     assertThat(
             simulator
                 .apply(
@@ -204,7 +204,7 @@ class WandEssenceTest {
             catalog);
     assertThat(service.initial("wand", 82).state().baseItemId())
         .isEqualTo(WandEssenceTargets.BASE_ID);
-    assertThat(service.initial("wand", 82).augmentSockets()).isNull();
+    assertThat(service.initial("wand", 82).augmentSockets()).isZero();
     assertThat(service.initial("wand", 82).qualityLimit().maximumQuality()).isEqualTo(20);
     assertThat(service.initial("wand", 82).ruleVersion())
         .isEqualTo(

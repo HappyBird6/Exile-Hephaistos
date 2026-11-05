@@ -88,7 +88,8 @@ class ReviewedOffhandsTest {
             List.of(),
             Set.of(),
             1);
-    assertThat(AugmentSocketRules.supportedState(suppliedSocket)).isFalse();
+    assertThat(AugmentSocketRules.supportedState(suppliedSocket))
+        .isEqualTo(!key.equals("tasalian-focus"));
     assertThat(catalog.modifiers().values())
         .noneMatch(d -> d.id().contains("alloy") || d.id().equals(QualityLimitRules.BREACH_ID));
     if (classId == 81)

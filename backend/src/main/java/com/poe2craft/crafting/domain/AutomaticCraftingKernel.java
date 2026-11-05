@@ -145,16 +145,17 @@ public final class AutomaticCraftingKernel {
             .toList();
     var context =
         new ItemState(
-            item.snapshotId(),
-            item.baseItemId(),
-            item.itemLevel(),
-            item.rarity(),
-            item.implicits(),
-            List.of(),
-            item.conditions(),
-            item.augmentSockets(),
-            item.catalystQuality(),
-            item.desecrated());
+                item.snapshotId(),
+                item.baseItemId(),
+                item.itemLevel(),
+                item.rarity(),
+                item.implicits(),
+                List.of(),
+                item.conditions(),
+                item.augmentSockets(),
+                item.catalystQuality(),
+                item.desecrated())
+            .withAugments(item.installedAugments());
     return new Behavior(context, roles);
   }
 
@@ -166,16 +167,17 @@ public final class AutomaticCraftingKernel {
             .toList();
     var context =
         new ItemState(
-            item.snapshotId(),
-            item.baseItemId(),
-            item.itemLevel(),
-            item.rarity(),
-            item.implicits(),
-            List.of(),
-            item.conditions(),
-            item.augmentSockets(),
-            item.catalystQuality(),
-            item.desecrated());
+                item.snapshotId(),
+                item.baseItemId(),
+                item.itemLevel(),
+                item.rarity(),
+                item.implicits(),
+                List.of(),
+                item.conditions(),
+                item.augmentSockets(),
+                item.catalystQuality(),
+                item.desecrated())
+            .withAugments(item.installedAugments());
     return List.of(context, roles);
   }
 

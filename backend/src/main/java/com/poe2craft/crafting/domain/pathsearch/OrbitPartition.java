@@ -210,15 +210,16 @@ public final class OrbitPartition {
     var representative =
         new BasicCurrencyState(
             new ItemState(
-                item.snapshotId(),
-                item.baseItemId(),
-                item.itemLevel(),
-                item.rarity(),
-                item.implicits(),
-                explicits,
-                item.conditions(),
-                item.augmentSockets(),
-                item.catalystQuality()),
+                    item.snapshotId(),
+                    item.baseItemId(),
+                    item.itemLevel(),
+                    item.rarity(),
+                    item.implicits(),
+                    explicits,
+                    item.conditions(),
+                    item.augmentSockets(),
+                    item.catalystQuality())
+                .withAugments(item.installedAugments()),
             state.provenance());
     return new DeferredItem(representative, keptRolls, keptTiers, orbitLaws);
   }

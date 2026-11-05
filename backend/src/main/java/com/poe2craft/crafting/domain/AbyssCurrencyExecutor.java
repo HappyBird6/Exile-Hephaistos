@@ -186,18 +186,19 @@ public final class AbyssCurrencyExecutor {
               ? state
               : new AbyssCraftingState(
                   new ItemState(
-                      i.snapshotId(),
-                      i.baseItemId(),
-                      i.itemLevel(),
-                      i.rarity(),
-                      i.implicits(),
-                      i.explicits(),
-                      i.conditions(),
-                      i.augmentSockets(),
-                      null,
-                      i.desecrated(),
-                      i.equipmentQuality(),
-                      i.observations()),
+                          i.snapshotId(),
+                          i.baseItemId(),
+                          i.itemLevel(),
+                          i.rarity(),
+                          i.implicits(),
+                          i.explicits(),
+                          i.conditions(),
+                          i.augmentSockets(),
+                          null,
+                          i.desecrated(),
+                          i.equipmentQuality(),
+                          i.observations())
+                      .withAugments(i.installedAugments()),
                   state.slots(),
                   state.offer());
       var plan = simulator.abyssPlan(sampling, action, matching);

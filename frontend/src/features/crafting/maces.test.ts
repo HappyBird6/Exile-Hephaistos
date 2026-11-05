@@ -38,7 +38,7 @@ describe('independent ordinary Mace representatives', () => {
       expect(maximumQuality(state, {})).toBe(20)
       expect(supportsConcreteStateShape(state)).toBe(true)
       expect(supportsConcreteStateShape({ ...state, augmentSockets: 1 })).toBe(
-        false,
+        true,
       )
       expect(
         supportsConcreteStateShape({

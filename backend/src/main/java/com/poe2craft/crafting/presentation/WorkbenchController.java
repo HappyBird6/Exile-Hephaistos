@@ -42,6 +42,49 @@ public final class WorkbenchController {
     return registry.deepCopy();
   }
 
+  public record AugmentResult(
+      String ruleVersion,
+      String ledgerVersion,
+      String snapshotId,
+      ItemState state,
+      String action,
+      boolean applied,
+      String reason,
+      List<WorkbenchSimulator.Event> events,
+      List<WorkbenchSimulator.Assumption> assumptions,
+      List<String> consumedOmens,
+      List<String> remainingOmens,
+      com.poe2craft.crafting.domain.QualityLimitRules.Limit qualityLimit) {}
+
+  public record AugmentRequest(JsonNode state, JsonNode slotIndex, String augmentId) {}
+
+  @PostMapping("/augments/install")
+  public AugmentResult installAugment(@RequestBody AugmentRequest request) {
+    if (request.slotIndex() == null
+        || !request.slotIndex().isIntegralNumber()
+        || !request.slotIndex().canConvertToInt())
+      throw new IllegalArgumentException("Integral socket index required");
+    var state = concreteState(request.state());
+    simulator.actions(state, Set.of());
+    var next =
+        com.poe2craft.item.SocketAugments.install(
+            state, request.slotIndex().intValue(), request.augmentId());
+    return new AugmentResult(
+        "socket-augments-v1",
+        "ordinary-socket-effects-v1",
+        next.snapshotId(),
+        next,
+        "INSTALL_AUGMENT",
+        true,
+        "",
+        List.of(),
+        List.of(),
+        List.of(),
+        List.of(),
+        com.poe2craft.crafting.domain.QualityLimitRules.describe(
+            next, simulator.abyssCatalog(next)));
+  }
+
   @GetMapping("/initial")
   public WorkbenchService.Initial initial(
       @RequestParam(defaultValue = "solar") String base,
@@ -149,18 +192,19 @@ public final class WorkbenchController {
         && !item.desecrated().isEmpty())
       validationItem =
           new ItemState(
-              item.snapshotId(),
-              item.baseItemId(),
-              item.itemLevel(),
-              item.rarity(),
-              item.implicits(),
-              item.explicits(),
-              Set.of(),
-              item.augmentSockets(),
-              item.catalystQuality(),
-              item.desecrated(),
-              item.equipmentQuality(),
-              item.observations());
+                  item.snapshotId(),
+                  item.baseItemId(),
+                  item.itemLevel(),
+                  item.rarity(),
+                  item.implicits(),
+                  item.explicits(),
+                  Set.of(),
+                  item.augmentSockets(),
+                  item.catalystQuality(),
+                  item.desecrated(),
+                  item.equipmentQuality(),
+                  item.observations())
+              .withAugments(item.installedAugments());
     if (!new com.poe2craft.item.ItemStateValidator(catalog).validate(validationItem).isEmpty())
       throw new IllegalArgumentException("Invalid slot-aware item state");
     return com.poe2craft.crafting.domain.AbyssCraftingState.from(item, catalog);

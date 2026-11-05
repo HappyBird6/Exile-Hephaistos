@@ -32,6 +32,7 @@ public final class WorkbenchStateReader {
             "explicits",
             "conditions",
             "augmentSockets",
+            "installedAugments",
             "catalystQuality",
             "equipmentQuality",
             "observations",
@@ -46,6 +47,18 @@ public final class WorkbenchStateReader {
             name -> {
               if (!fields.contains(name)) throw new WorkbenchController.UnsupportedItemProperties();
             });
+    var installed = input.get("installedAugments");
+    if (installed != null && !installed.isNull()) {
+      if (!installed.isArray() || installed.size() > 3)
+        throw new WorkbenchController.UnsupportedItemProperties();
+      for (var a : installed)
+        if (!a.isObject()
+            || a.size() != 2
+            || !a.path("slotIndex").isIntegralNumber()
+            || !a.path("slotIndex").canConvertToInt()
+            || !a.path("augmentId").isTextual())
+          throw new WorkbenchController.UnsupportedItemProperties();
+    }
     var desecrated = input.get("desecrated");
     // Common automatic states use the slot-aware simulator; this editor is concrete-only.
     if (desecrated != null) {

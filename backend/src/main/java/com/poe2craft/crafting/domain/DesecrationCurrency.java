@@ -72,18 +72,19 @@ public final class DesecrationCurrency {
     AbyssCraftingState.from(item, catalog);
     var empty =
         new ItemState(
-            item.snapshotId(),
-            item.baseItemId(),
-            item.itemLevel(),
-            item.rarity(),
-            item.implicits(),
-            List.of(),
-            item.conditions(),
-            item.augmentSockets(),
-            item.catalystQuality(),
-            item.desecrated(),
-            item.equipmentQuality(),
-            item.observations());
+                item.snapshotId(),
+                item.baseItemId(),
+                item.itemLevel(),
+                item.rarity(),
+                item.implicits(),
+                List.of(),
+                item.conditions(),
+                item.augmentSockets(),
+                item.catalystQuality(),
+                item.desecrated(),
+                item.equipmentQuality(),
+                item.observations())
+            .withAugments(item.installedAugments());
     var seed = apply(empty, currency, observedSides.getFirst(), null, Set.of(), catalog);
     var slots = new ArrayList<AbyssCraftingState.Slot>();
     var model = seed.slots().getFirst();
@@ -98,18 +99,19 @@ public final class DesecrationCurrency {
               model.revealPool()));
     var corrupt =
         new ItemState(
-            empty.snapshotId(),
-            empty.baseItemId(),
-            empty.itemLevel(),
-            empty.rarity(),
-            empty.implicits(),
-            List.of(),
-            Set.of(ItemState.Condition.CORRUPTED),
-            empty.augmentSockets(),
-            empty.catalystQuality(),
-            List.of(),
-            empty.equipmentQuality(),
-            empty.observations());
+                empty.snapshotId(),
+                empty.baseItemId(),
+                empty.itemLevel(),
+                empty.rarity(),
+                empty.implicits(),
+                List.of(),
+                Set.of(ItemState.Condition.CORRUPTED),
+                empty.augmentSockets(),
+                empty.catalystQuality(),
+                List.of(),
+                empty.equipmentQuality(),
+                empty.observations())
+            .withAugments(empty.installedAugments());
     var result = new AbyssCraftingState(corrupt, slots, null);
     var cap = new ItemStateValidator(catalog).slots(empty);
     if (result.count(AffixType.PREFIX) > cap.maxPrefixes()

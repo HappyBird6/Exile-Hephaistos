@@ -257,7 +257,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
     const selector = screen.getByRole('tablist', {
       name: 'Material stash tabs',
     })
-    expect(within(selector).getAllByRole('tab')).toHaveLength(6)
+    expect(within(selector).getAllByRole('tab')).toHaveLength(7)
     expect(document.querySelector('.stash-canvas')).toContainElement(selector)
     const right = document.querySelector<HTMLElement>('.workbench-stash')!
     expect(right).toContainElement(selector)
@@ -295,7 +295,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
     essence.focus()
     fireEvent.keyDown(essence, { key: 'End' })
     expect(
-      within(selector).getByRole('tab', { name: 'Liquid Emotions' }),
+      within(selector).getByRole('tab', { name: 'Augments' }),
     ).toHaveFocus()
     fireEvent.keyDown(document.activeElement!, { key: 'ArrowRight' })
     expect(

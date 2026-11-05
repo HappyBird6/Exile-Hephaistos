@@ -242,7 +242,7 @@ describe('right-hand controlled workbench stash', () => {
     expect(
       screen.getByRole('button', { name: 'Essence of Hysteria' }),
     ).toBeVisible()
-    expect(materials).toHaveLength(180)
+    expect(materials).toHaveLength(259)
     expect(isSelectableMaterial(lower)).toBe(false)
     expect(isSelectableMaterial(base)).toBe(false)
     expect(essenceRows('')).toHaveLength(19)

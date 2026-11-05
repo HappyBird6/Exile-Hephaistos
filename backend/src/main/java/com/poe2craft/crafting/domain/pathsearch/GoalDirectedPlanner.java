@@ -185,15 +185,16 @@ public final class GoalDirectedPlanner {
     var progress = evaluate.apply(source);
     var withoutAffixes =
         new ItemState(
-            source.snapshotId(),
-            source.baseItemId(),
-            source.itemLevel(),
-            source.rarity(),
-            source.implicits(),
-            source.explicits().stream().filter(m -> m.fractured()).toList(),
-            source.conditions(),
-            source.augmentSockets(),
-            source.catalystQuality());
+                source.snapshotId(),
+                source.baseItemId(),
+                source.itemLevel(),
+                source.rarity(),
+                source.implicits(),
+                source.explicits().stream().filter(m -> m.fractured()).toList(),
+                source.conditions(),
+                source.augmentSockets(),
+                source.catalystQuality())
+            .withAugments(source.installedAugments());
     var emptyProgress = evaluate.apply(withoutAffixes);
     boolean acquired = false;
     for (int i = 0; i < Math.min(progress.entries().size(), emptyProgress.entries().size()); i++)

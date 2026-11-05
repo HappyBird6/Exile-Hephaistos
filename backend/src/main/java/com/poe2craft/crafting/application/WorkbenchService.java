@@ -402,7 +402,7 @@ public final class WorkbenchService {
         engine.actions(bucket),
         catalog.compatibleSnapshotIds(),
         QualityLimitRules.describe(state, catalog),
-        base.equals("stocky") ? 0 : null,
+        BaseRegistry.socketExecutionMaximum(catalog.base().id()) != null ? 0 : null,
         catalog.base(),
         QualityCurrencyRules.equipment(state.baseItemId()) ? 0 : null);
   }
