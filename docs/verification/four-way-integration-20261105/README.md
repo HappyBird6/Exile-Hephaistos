@@ -61,3 +61,18 @@ Codex in-app browser의 새 검증 탭과 합성 공개 아이템만 사용했�
 [320px 작업대](workbench-mobile.jpg) · [데스크톱 히스토리](history-desktop.jpg) · [320px 히스토리](history-mobile.jpg)
 
 운영 갱신은 원본 checkout에서만 수행하며 `.env`·DB·Redis·app-data·사용자 기록을 보존한다. 외부 push나 공개 배포는 수행하지 않는다.
+
+## 원본 반영과 최종 서버
+
+원본 `C:\SSAFY\PYJ\PROJECT\Exile-Hephaistos\Exile-Hephaistos`가 `0d3fe1d9`에서 clean임을 재확인하고 전용 `codex/local-integrated-20261105` branch를 만들었다. 검증된 구현 commit `e4c65af06684be65a51f8c06de311b82b9625e9d`까지 fast-forward한 원본에서 Compose config의 quiet 검사와 app/frontend 빌드를 완료했다. `up -d --no-deps app frontend`로 두 서비스만 교체했다.
+
+- 9000 readiness `UP`, 9001 HTML/production bundle 응답, 실제 작업대와 공유 페이지를 확인했다. 최종 bundle은 `/assets/index-EwDVAe6D.js`다.
+- 배포된 API에서 새 Augment를 포함한 텍스트 편집과 소켓 보존을 다시 확인했다. 신규 아이콘의 HTTP 바이트도 원본과 일치했다.
+- 기존 PostgreSQL `0c5febf25519`, Redis `ac679c135efc`는 동일 컨테이너다. 모든 mount와 `.env` 해시가 동일하고 모든 포트의 `127.0.0.1` 바인딩을 유지했다. 최초 보존 검사에서 PowerShell의 단일 배열 unwrap으로 형식 비교가 실패한 것은 양쪽을 배열로 정규화해 전체 mount를 다시 비교했다. 실제 volume 차이는 없었다.
+- 갱신된 app만 한 번 재시작하고 readiness와 공유 snapshot의 정확한 바이트 존속을 확인했다. 재시작 전후 모든 컨테이너 ID가 동일했다. 실제 공유 화면은 8개 카드·catalog 경고 0개·PNG 2장·console 경고/오류 0개였다.
+- 운영 검증으로 공개 합성 snapshot 2건을 추가했다. 기존 사용자 파일·세션·DB 데이터는 삭제하지 않았다. 원본 브라우저 저장소에는 합성 세션을 가져오지 않았다.
+- 614e에서 생성한 검증 API/미리보기 PID와 DB/Redis owner label을 확인한 뒤 자신의 검증 자원만 정리했다. 19410/19411/19432/19479 포트가 모두 해제됐고 운영 네 컨테이너는 실행 중이다.
+
+[최종 서버 식별 정보와 확인 목록](server.json) · [실제 9001 작업대](server-home.jpg) · [app 재시작 후 공유 히스토리](server-history.jpg)
+
+이 마지막 서버 증거 추가는 문서·이미지만 변경하며 실행 코드는 `e4c65af0`과 동일하다.

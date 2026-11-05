@@ -1,0 +1,139 @@
+{
+  "commit": "e4c65af06684be65a51f8c06de311b82b9625e9d",
+  "checks": [
+    "same PostgreSQL and Redis IDs, exact volume mounts and env hash; localhost bindings retained",
+    "9000 readiness UP",
+    "9001 entry and production bundle respond",
+    "deployed ruleset matches verified integrated catalog",
+    "deployed text editing retains expanded Augment and sockets",
+    "new Augment HTTP icon matches source bytes",
+    "deployed snapshot write and exact read",
+    "app-only restart returns readiness UP and retains exact shared snapshot bytes",
+    "all container IDs remain unchanged across app-only restart"
+  ],
+  "frontendAsset": "/assets/index-EwDVAe6D.js",
+  "frontendBundleSha256": "3bcd2b3357de9008401bc9d90cb8e76e300b52fe6d74cf1e8272a0fcd2c06d80",
+  "rulesetIdentity": "reviewed-equipment-20261028-v5-51861cb7a365d028a46c6910b39a5527f0df5298533db640ce5d1cf471fa7b9d",
+  "sharedId": "f4a82a107a941ac16867c475ea8c877931be30eb92a13ab8",
+  "snapshotSha256": "2e15bfbe57ec8b85b304d49ac0e20525bb045a39d7de231a352c0e5a503b21ce",
+  "containers": [
+    {
+      "name": "exile-hephaistos-app-1",
+      "id": "c5d190a772a3a3130cf6c143944f01f803bce653c2af01797f22973616e553ec",
+      "image": "sha256:c4db143710afc89b058d143fb20507becb9bd5619471b610a907d61cd39d3449",
+      "mounts": [
+        {
+          "Destination": "/app/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "exile-hephaistos_app-data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/exile-hephaistos_app-data/_data",
+          "Type": "volume"
+        }
+      ],
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "9000"
+          }
+        ]
+      }
+    },
+    {
+      "name": "exile-hephaistos-frontend-1",
+      "id": "0cff39ec9a89d88772bfafc18c9ac4db8b0945236d3ebd096fe743dbc903137f",
+      "image": "sha256:c25f24a743c0c4d962919d91c14d141e9bd074d145fb6b0772571c6647417c30",
+      "mounts": [],
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "9001"
+          }
+        ]
+      }
+    },
+    {
+      "name": "exile-hephaistos-postgres-1",
+      "id": "0c5febf25519e70667658bc0ff15452f074a04b4a19dadf00b1a062c31b628be",
+      "image": "sha256:ef257d85f76e48da1c64832459b59fcaba1a4dac97bf5d7450c77753542eee94",
+      "mounts": [
+        {
+          "Destination": "/var/lib/postgresql/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "exile-hephaistos_postgres-data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/exile-hephaistos_postgres-data/_data",
+          "Type": "volume"
+        }
+      ],
+      "ports": {
+        "5432/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "5432"
+          }
+        ]
+      }
+    },
+    {
+      "name": "exile-hephaistos-redis-1",
+      "id": "ac679c135efc5f46d5c470b05091b7d1dcffebbdf24abcfa1c952d9d9748282f",
+      "image": "sha256:bb186d083732f669da90be8b0f975a37812b15e913465bb14d845db72a4e3e08",
+      "mounts": [
+        {
+          "Destination": "/data",
+          "Driver": "local",
+          "Mode": "z",
+          "Name": "7b1c7972e679dbae5773a7237ca430bce8b7d9a2ed933bac264fccff6b07b5d2",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/7b1c7972e679dbae5773a7237ca430bce8b7d9a2ed933bac264fccff6b07b5d2/_data",
+          "Type": "volume"
+        }
+      ],
+      "ports": {
+        "6379/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "6379"
+          }
+        ]
+      }
+    }
+  ],
+  "snapshotSurvivesRestart": true,
+  "checkedAt": "2026-11-05T07:12:53.287Z",
+  "browser": {
+    "origin": "http://127.0.0.1:9001",
+    "sharedCards": 8,
+    "catalogWarnings": 0,
+    "pngPages": 2,
+    "consoleWarningsAndErrors": [],
+    "homeEditorAndTypeFilterVisible": true,
+    "screenshots": [
+      "server-home.jpg",
+      "server-history.jpg"
+    ]
+  },
+  "productionSyntheticSnapshotWrites": 2,
+  "verificationCleanup": {
+    "ownedProcessesStopped": true,
+    "ownedContainersRemoved": [
+      "integration614e-postgres",
+      "integration614e-redis"
+    ],
+    "releasedPorts": [
+      19410,
+      19411,
+      19432,
+      19479
+    ],
+    "productionServicesRetained": true
+  }
+}
