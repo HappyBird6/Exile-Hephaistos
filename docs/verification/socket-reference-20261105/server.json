@@ -1,0 +1,25 @@
+{
+  "deployedAt": "2026-11-05T14:20:49+09:00",
+  "api": "http://127.0.0.1:9000",
+  "ui": "http://127.0.0.1:9001",
+  "health": "UP",
+  "browserAndApiChecks": 100,
+  "assetSha256": "5f7646ee4386eeb3a9d5811808c99bdfa7377254fc42c80e537a36e466a10f73",
+  "images": {
+    "app": "sha256:8ff06e9ccf1777e6fa1d3a1e26e630af97c229bb10632265d418eedd0665819f",
+    "frontend": "sha256:bb18cbf00149cb2b90591017426695853e0a54a74502eb2a897a1f4ec6333d4c"
+  },
+  "preservedContainers": {
+    "postgres": {
+      "beforeAndAfterId": "0c5febf25519e70667658bc0ff15452f074a04b4a19dadf00b1a062c31b628be",
+      "beforeAndAfterStartedAt": "2026-11-05T00:50:53.765454432Z"
+    },
+    "redis": {
+      "beforeAndAfterId": "ac679c135efc5f46d5c470b05091b7d1dcffebbdf24abcfa1c952d9d9748282f",
+      "beforeAndAfterStartedAt": "2026-11-05T00:50:53.452913894Z"
+    }
+  },
+  "existingVolumesPreserved": true,
+  "externalDeployment": false,
+  "push": false
+}

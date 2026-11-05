@@ -1,0 +1,15 @@
+{
+  "source": "User-provided reference screenshot",
+  "sourceFilename": "codex-clipboard-d0a6d6e6-d035-416e-8760-a0fdbff1e8aa.png",
+  "created": "2026-11-05",
+  "method": "Built-in imagegen; reference extraction and black-center refinement",
+  "prompt": "Use case: precise-object-edit / background-extraction\nAsset type: transparent game UI socket asset\nEdit target: the previously extracted metallic circular socket ring, second image. Original screenshot is the first reference. Preserve the extracted ring texture and silhouette exactly. Fill ONLY the central opening enclosed by the ring with solid very dark black (#080806), matching the empty black socket interior in the original screenshot. The user explicitly wants the metallic rim AND the black center together as one asset. Outside the outer rim remains fully transparent. Single centered socket, no helmet, no text, no symbols, no glow, no shadow outside the rim, no additional elements. Keep the framing and dimensions.",
+  "rights": "Reference game artwork belongs to Grinding Gear Games and other respective rights holders. User-provided reference is not a separate redistribution licence.",
+  "asset": "socket-frame.png",
+  "sha256": "5f7646ee4386eeb3a9d5811808c99bdfa7377254fc42c80e537a36e466a10f73",
+  "sourceSha256": "257c4b32461fcc68ca5b832528141bddc5d2d33a130511b40e4b10719de54d7e",
+  "sourceSize": {
+    "width": 107,
+    "height": 107
+  }
+}

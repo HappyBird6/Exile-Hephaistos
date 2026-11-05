@@ -1,0 +1,43 @@
+{
+  "total": 3008,
+  "passed": 2999,
+  "failed": 9,
+  "failures": [
+    {
+      "file": "ItemTextImport.test.tsx",
+      "test": "Item text import allows button cancellation while parsing and discards the old success outcome"
+    },
+    {
+      "file": "ItemTextImport.test.tsx",
+      "test": "Item text import allows button cancellation while parsing and discards the old error outcome"
+    },
+    {
+      "file": "ItemTextImport.test.tsx",
+      "test": "Item text import allows escape cancellation while parsing and discards the old success outcome"
+    },
+    {
+      "file": "ItemTextImport.test.tsx",
+      "test": "Item text import allows escape cancellation while parsing and discards the old error outcome"
+    },
+    {
+      "file": "ItemTextImport.test.tsx",
+      "test": "Item text import allows cancel cancellation while parsing and discards the old success outcome"
+    },
+    {
+      "file": "ItemTextImport.test.tsx",
+      "test": "Item text import allows cancel cancellation while parsing and discards the old error outcome"
+    },
+    {
+      "file": "ItemTextImport.test.tsx",
+      "test": "Item text import allows backdrop cancellation while parsing and discards the old success outcome"
+    },
+    {
+      "file": "ItemTextImport.test.tsx",
+      "test": "Item text import allows backdrop cancellation while parsing and discards the old error outcome"
+    },
+    {
+      "file": "sapphireGeneration.test.ts",
+      "test": "preserves valid four-slot Sapphire films and rejects fifth slots, shared families and two Crafted results"
+    }
+  ]
+}

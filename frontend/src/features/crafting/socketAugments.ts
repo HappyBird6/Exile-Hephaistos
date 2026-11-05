@@ -9,8 +9,12 @@ type Entry = {
   names: Record<string, string>
   effects: Record<string, Record<string, string>>
   image: string
+  selectionEnabled: boolean
 }
 export const augments: readonly Entry[] = data
+export const selectableAugments = augments.filter((a) => a.selectionEnabled)
+export const isSelectableAugment = (id: string) =>
+  selectableAugments.some((a) => a.id === id)
 export const augmentMaterials = augments.map((a) => ({
   id: a.id,
   name: a.names.en!,
@@ -61,6 +65,7 @@ export async function installAugment(
   signal: AbortSignal,
 ): Promise<AppliedItem> {
   if (
+    !isSelectableAugment(id) ||
     !augmentEffect(id, state.baseItemId) ||
     state.augmentSockets == null ||
     slot < 0 ||

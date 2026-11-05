@@ -1,4 +1,4 @@
-import { augmentMaterials } from './socketAugments'
+import { augmentMaterials, isSelectableAugment } from './socketAugments'
 import { inServiceScope } from './serviceScope'
 import { matchesGameName } from '../../shared/i18n/i18n'
 // Display catalog only. Source pages, retrieval date and hashes: public/assets/materials/sources.json.
@@ -1135,6 +1135,7 @@ export function isSelectableMaterial(material: {
   id: string
   category: MaterialTab
 }): boolean {
+  if (material.category === 'Augments') return isSelectableAugment(material.id)
   return (
     material.category !== 'Essence' ||
     /^(Greater_|Perfect_)Essence_/.test(material.id) ||

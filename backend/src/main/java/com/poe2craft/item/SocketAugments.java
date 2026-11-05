@@ -53,6 +53,15 @@ public final class SocketAugments {
   }
 
   public static ItemState install(ItemState state, int slot, String id) {
+    boolean selectable = false;
+    for (var entry : CATALOG) {
+      if (entry.path("id").asText().equals(id)) {
+        selectable = entry.path("selectionEnabled").asBoolean(false);
+        break;
+      }
+    }
+    if (!selectable)
+      throw new IllegalArgumentException("Augment is unavailable for new installation");
     if (!state.conditions().isEmpty()
         || state.observations() != null
         || !state.desecrated().isEmpty())

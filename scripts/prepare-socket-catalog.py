@@ -50,6 +50,12 @@ for locale, code in LOCALES.items():
             entry['sources'].setdefault(group, {})[locale] = source
 
 catalog = list(entries.values())
+# Restrict only families with a reviewed Perfect ordinary effect. Keep other
+# reviewed compositions (Tempered/Soul Core), and every old tier for saved states.
+perfect_families = {entry['id'].removeprefix('Perfect_') for entry in catalog if entry['id'].startswith('Perfect_')}
+for entry in catalog:
+    family = re.sub(r'^(Lesser_|Greater_|Perfect_)', '', entry['id'])
+    entry['selectionEnabled'] = family not in perfect_families or entry['id'].startswith('Perfect_')
 icon_sources = ROOT / 'frontend/public/assets/augments/sources.json'
 if icon_sources.exists():
     icons = json.loads(icon_sources.read_text(encoding='utf-8'))

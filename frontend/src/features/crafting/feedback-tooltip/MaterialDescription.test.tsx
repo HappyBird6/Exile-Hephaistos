@@ -4,6 +4,8 @@ import { afterEach, beforeEach, expect, it } from 'vitest'
 import { MaterialDescription } from '../MaterialTooltip'
 import { ItemCard } from '../ItemCard'
 import { locales, setLocale } from '../../../shared/i18n/i18n'
+import { augments } from '../socketAugments'
+import { augmentFeedbackLines } from '../augmentFeedback'
 
 let style: HTMLStyleElement
 beforeEach(() => {
@@ -14,6 +16,41 @@ beforeEach(() => {
   document.head.append(style)
 })
 afterEach(() => style.remove())
+
+it('groups Rune feedback into sourced equipment categories without invented jewellery effects', () => {
+  setLocale('ko')
+  const { container } = render(
+    <MaterialDescription materialId="Perfect_Desert_Rune" />,
+  )
+  const lines = [...container.querySelectorAll('p')].map((p) => p.textContent)
+  expect(lines).toEqual([
+    '무도 무기: 화염 피해 17~20 추가',
+    '마법봉 또는 지팡이: 피해의 12%를 추가 화염 피해로 획득',
+    '방어구: 화염 저항 +22%',
+  ])
+  expect(container).not.toHaveTextContent('Gloves:')
+  expect(container).not.toHaveTextContent('장신구')
+})
+
+it.each(locales)(
+  'retains every reviewed effect when grouping %s, including differing translations',
+  (locale) => {
+    for (const entry of augments) {
+      const lines = augmentFeedbackLines(entry.id, locale)!
+      expect(lines.length).toBeGreaterThan(0)
+      for (const effect of Object.values(entry.effects)) {
+        const text = effect[locale] ?? effect.en
+        expect(lines.some((line) => line.endsWith(`: ${text}`))).toBe(true)
+      }
+    }
+  },
+)
+
+it('keeps the reviewed part qualifier when a grouped Soul Core effect only applies to Boots', () => {
+  const lines = augmentFeedbackLines('Soul_Core_of_Xopec', 'en')!
+  expect(lines.some((line) => line.startsWith('Armour (Boots):'))).toBe(true)
+  expect(lines.some((line) => line.startsWith('Armour:'))).toBe(false)
+})
 
 it.each(locales)(
   'puts the existing material source in the name header without losing %s descriptions',

@@ -251,7 +251,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Lesser_Desert_Rune.webp"
+    "image": "/assets/augments/Lesser_Desert_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Desert_Rune",
@@ -505,7 +506,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Desert_Rune.webp"
+    "image": "/assets/augments/Desert_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Greater_Desert_Rune",
@@ -759,7 +761,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Greater_Desert_Rune.webp"
+    "image": "/assets/augments/Greater_Desert_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Perfect_Desert_Rune",
@@ -1013,7 +1016,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Perfect_Desert_Rune.webp"
+    "image": "/assets/augments/Perfect_Desert_Rune.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Lesser_Glacial_Rune",
@@ -1267,7 +1271,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Lesser_Glacial_Rune.webp"
+    "image": "/assets/augments/Lesser_Glacial_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Glacial_Rune",
@@ -1521,7 +1526,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Glacial_Rune.webp"
+    "image": "/assets/augments/Glacial_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Greater_Glacial_Rune",
@@ -1775,7 +1781,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Greater_Glacial_Rune.webp"
+    "image": "/assets/augments/Greater_Glacial_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Perfect_Glacial_Rune",
@@ -2029,7 +2036,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Perfect_Glacial_Rune.webp"
+    "image": "/assets/augments/Perfect_Glacial_Rune.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Lesser_Storm_Rune",
@@ -2283,7 +2291,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Lesser_Storm_Rune.webp"
+    "image": "/assets/augments/Lesser_Storm_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Storm_Rune",
@@ -2537,7 +2546,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Storm_Rune.webp"
+    "image": "/assets/augments/Storm_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Greater_Storm_Rune",
@@ -2791,7 +2801,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Greater_Storm_Rune.webp"
+    "image": "/assets/augments/Greater_Storm_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Perfect_Storm_Rune",
@@ -3045,7 +3056,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Perfect_Storm_Rune.webp"
+    "image": "/assets/augments/Perfect_Storm_Rune.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Lesser_Iron_Rune",
@@ -3299,7 +3311,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Lesser_Iron_Rune.webp"
+    "image": "/assets/augments/Lesser_Iron_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Iron_Rune",
@@ -3553,7 +3566,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Iron_Rune.webp"
+    "image": "/assets/augments/Iron_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Greater_Iron_Rune",
@@ -3807,7 +3821,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Greater_Iron_Rune.webp"
+    "image": "/assets/augments/Greater_Iron_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Perfect_Iron_Rune",
@@ -4061,7 +4076,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Perfect_Iron_Rune.webp"
+    "image": "/assets/augments/Perfect_Iron_Rune.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Lesser_Body_Rune",
@@ -4315,7 +4331,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Lesser_Body_Rune.webp"
+    "image": "/assets/augments/Lesser_Body_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Body_Rune",
@@ -4569,7 +4586,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Body_Rune.webp"
+    "image": "/assets/augments/Body_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Greater_Body_Rune",
@@ -4823,7 +4841,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Greater_Body_Rune.webp"
+    "image": "/assets/augments/Greater_Body_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Perfect_Body_Rune",
@@ -5077,7 +5096,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Perfect_Body_Rune.webp"
+    "image": "/assets/augments/Perfect_Body_Rune.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Lesser_Mind_Rune",
@@ -5331,7 +5351,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Lesser_Mind_Rune.webp"
+    "image": "/assets/augments/Lesser_Mind_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Mind_Rune",
@@ -5585,7 +5606,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Mind_Rune.webp"
+    "image": "/assets/augments/Mind_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Greater_Mind_Rune",
@@ -5839,7 +5861,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Greater_Mind_Rune.webp"
+    "image": "/assets/augments/Greater_Mind_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Perfect_Mind_Rune",
@@ -6093,7 +6116,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Perfect_Mind_Rune.webp"
+    "image": "/assets/augments/Perfect_Mind_Rune.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Lesser_Rebirth_Rune",
@@ -6347,7 +6371,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Lesser_Rebirth_Rune.webp"
+    "image": "/assets/augments/Lesser_Rebirth_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Rebirth_Rune",
@@ -6601,7 +6626,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Rebirth_Rune.webp"
+    "image": "/assets/augments/Rebirth_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Greater_Rebirth_Rune",
@@ -6855,7 +6881,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Greater_Rebirth_Rune.webp"
+    "image": "/assets/augments/Greater_Rebirth_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Perfect_Rebirth_Rune",
@@ -7109,7 +7136,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Perfect_Rebirth_Rune.webp"
+    "image": "/assets/augments/Perfect_Rebirth_Rune.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Lesser_Inspiration_Rune",
@@ -7363,7 +7391,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Lesser_Inspiration_Rune.webp"
+    "image": "/assets/augments/Lesser_Inspiration_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Inspiration_Rune",
@@ -7617,7 +7646,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Inspiration_Rune.webp"
+    "image": "/assets/augments/Inspiration_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Greater_Inspiration_Rune",
@@ -7871,7 +7901,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Greater_Inspiration_Rune.webp"
+    "image": "/assets/augments/Greater_Inspiration_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Perfect_Inspiration_Rune",
@@ -8125,7 +8156,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Perfect_Inspiration_Rune.webp"
+    "image": "/assets/augments/Perfect_Inspiration_Rune.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Lesser_Stone_Rune",
@@ -8379,7 +8411,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Lesser_Stone_Rune.webp"
+    "image": "/assets/augments/Lesser_Stone_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Stone_Rune",
@@ -8633,7 +8666,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Stone_Rune.webp"
+    "image": "/assets/augments/Stone_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Greater_Stone_Rune",
@@ -8887,7 +8921,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Greater_Stone_Rune.webp"
+    "image": "/assets/augments/Greater_Stone_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Perfect_Stone_Rune",
@@ -9141,7 +9176,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Perfect_Stone_Rune.webp"
+    "image": "/assets/augments/Perfect_Stone_Rune.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Lesser_Vision_Rune",
@@ -9395,7 +9431,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Lesser_Vision_Rune.webp"
+    "image": "/assets/augments/Lesser_Vision_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Vision_Rune",
@@ -9649,7 +9686,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Vision_Rune.webp"
+    "image": "/assets/augments/Vision_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Greater_Vision_Rune",
@@ -9903,7 +9941,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Greater_Vision_Rune.webp"
+    "image": "/assets/augments/Greater_Vision_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Perfect_Vision_Rune",
@@ -10157,7 +10196,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Perfect_Vision_Rune.webp"
+    "image": "/assets/augments/Perfect_Vision_Rune.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Soul_Core_of_Tacati",
@@ -10377,7 +10417,8 @@
         "ja": "docs/evidence/0.5.5/i18n/sources/ja/offhands-bucklers.ja.html"
       }
     },
-    "image": "/assets/augments/Soul_Core_of_Tacati.webp"
+    "image": "/assets/augments/Soul_Core_of_Tacati.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Soul_Core_of_Citaqualotl",
@@ -10597,7 +10638,8 @@
         "ja": "docs/evidence/0.5.5/i18n/sources/ja/offhands-bucklers.ja.html"
       }
     },
-    "image": "/assets/augments/Soul_Core_of_Citaqualotl.webp"
+    "image": "/assets/augments/Soul_Core_of_Citaqualotl.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Soul_Core_of_Puhuarte",
@@ -10741,7 +10783,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/staves-talismans-talismans.es.html"
       }
     },
-    "image": "/assets/augments/Soul_Core_of_Puhuarte.webp"
+    "image": "/assets/augments/Soul_Core_of_Puhuarte.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Soul_Core_of_Azcapa",
@@ -10885,7 +10928,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/staves-talismans-talismans.es.html"
       }
     },
-    "image": "/assets/augments/Soul_Core_of_Azcapa.webp"
+    "image": "/assets/augments/Soul_Core_of_Azcapa.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Soul_Core_of_Atmohua",
@@ -11105,7 +11149,8 @@
         "ja": "docs/evidence/0.5.5/i18n/sources/ja/offhands-bucklers.ja.html"
       }
     },
-    "image": "/assets/augments/Soul_Core_of_Atmohua.webp"
+    "image": "/assets/augments/Soul_Core_of_Atmohua.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Soul_Core_of_Cholotl",
@@ -11325,7 +11370,8 @@
         "ja": "docs/evidence/0.5.5/i18n/sources/ja/offhands-bucklers.ja.html"
       }
     },
-    "image": "/assets/augments/Soul_Core_of_Cholotl.webp"
+    "image": "/assets/augments/Soul_Core_of_Cholotl.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Soul_Core_of_Zantipi",
@@ -11545,7 +11591,8 @@
         "ja": "docs/evidence/0.5.5/i18n/sources/ja/offhands-bucklers.ja.html"
       }
     },
-    "image": "/assets/augments/Soul_Core_of_Zantipi.webp"
+    "image": "/assets/augments/Soul_Core_of_Zantipi.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Lesser_Robust_Rune",
@@ -11801,7 +11848,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Lesser_Robust_Rune.webp"
+    "image": "/assets/augments/Lesser_Robust_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Robust_Rune",
@@ -12057,7 +12105,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Robust_Rune.webp"
+    "image": "/assets/augments/Robust_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Greater_Robust_Rune",
@@ -12313,7 +12362,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Greater_Robust_Rune.webp"
+    "image": "/assets/augments/Greater_Robust_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Perfect_Robust_Rune",
@@ -12569,7 +12619,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Perfect_Robust_Rune.webp"
+    "image": "/assets/augments/Perfect_Robust_Rune.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Lesser_Adept_Rune",
@@ -12825,7 +12876,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Lesser_Adept_Rune.webp"
+    "image": "/assets/augments/Lesser_Adept_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Adept_Rune",
@@ -13081,7 +13133,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Adept_Rune.webp"
+    "image": "/assets/augments/Adept_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Greater_Adept_Rune",
@@ -13337,7 +13390,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Greater_Adept_Rune.webp"
+    "image": "/assets/augments/Greater_Adept_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Perfect_Adept_Rune",
@@ -13593,7 +13647,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Perfect_Adept_Rune.webp"
+    "image": "/assets/augments/Perfect_Adept_Rune.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Lesser_Resolve_Rune",
@@ -13849,7 +13904,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Lesser_Resolve_Rune.webp"
+    "image": "/assets/augments/Lesser_Resolve_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Resolve_Rune",
@@ -14105,7 +14161,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Resolve_Rune.webp"
+    "image": "/assets/augments/Resolve_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Greater_Resolve_Rune",
@@ -14361,7 +14418,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Greater_Resolve_Rune.webp"
+    "image": "/assets/augments/Greater_Resolve_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Perfect_Resolve_Rune",
@@ -14617,7 +14675,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Perfect_Resolve_Rune.webp"
+    "image": "/assets/augments/Perfect_Resolve_Rune.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Lesser_Tempered_Rune",
@@ -14837,7 +14896,8 @@
         "ja": "docs/evidence/0.5.5/i18n/sources/ja/offhands-bucklers.ja.html"
       }
     },
-    "image": "/assets/augments/Lesser_Tempered_Rune.webp"
+    "image": "/assets/augments/Lesser_Tempered_Rune.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Tempered_Rune",
@@ -15057,7 +15117,8 @@
         "ja": "docs/evidence/0.5.5/i18n/sources/ja/offhands-bucklers.ja.html"
       }
     },
-    "image": "/assets/augments/Tempered_Rune.webp"
+    "image": "/assets/augments/Tempered_Rune.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Greater_Tempered_Rune",
@@ -15277,7 +15338,8 @@
         "ja": "docs/evidence/0.5.5/i18n/sources/ja/offhands-bucklers.ja.html"
       }
     },
-    "image": "/assets/augments/Greater_Tempered_Rune.webp"
+    "image": "/assets/augments/Greater_Tempered_Rune.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Lesser_Ward_Rune",
@@ -15385,7 +15447,8 @@
         "ja": "docs/evidence/0.5.5/i18n/sources/ja/offhands-bucklers.ja.html"
       }
     },
-    "image": "/assets/augments/Lesser_Ward_Rune.webp"
+    "image": "/assets/augments/Lesser_Ward_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Ward_Rune",
@@ -15493,7 +15556,8 @@
         "ja": "docs/evidence/0.5.5/i18n/sources/ja/offhands-bucklers.ja.html"
       }
     },
-    "image": "/assets/augments/Ward_Rune.webp"
+    "image": "/assets/augments/Ward_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Greater_Ward_Rune",
@@ -15601,7 +15665,8 @@
         "ja": "docs/evidence/0.5.5/i18n/sources/ja/offhands-bucklers.ja.html"
       }
     },
-    "image": "/assets/augments/Greater_Ward_Rune.webp"
+    "image": "/assets/augments/Greater_Ward_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Perfect_Ward_Rune",
@@ -15709,7 +15774,8 @@
         "ja": "docs/evidence/0.5.5/i18n/sources/ja/offhands-bucklers.ja.html"
       }
     },
-    "image": "/assets/augments/Perfect_Ward_Rune.webp"
+    "image": "/assets/augments/Perfect_Ward_Rune.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Lesser_Charging_Rune",
@@ -15817,7 +15883,8 @@
         "ja": "docs/evidence/0.5.5/i18n/sources/ja/offhands-bucklers.ja.html"
       }
     },
-    "image": "/assets/augments/rune.svg"
+    "image": "/assets/augments/rune.svg",
+    "selectionEnabled": false
   },
   {
     "id": "Charging_Rune",
@@ -15925,7 +15992,8 @@
         "ja": "docs/evidence/0.5.5/i18n/sources/ja/offhands-bucklers.ja.html"
       }
     },
-    "image": "/assets/augments/Charging_Rune.webp"
+    "image": "/assets/augments/Charging_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Greater_Charging_Rune",
@@ -16033,7 +16101,8 @@
         "ja": "docs/evidence/0.5.5/i18n/sources/ja/offhands-bucklers.ja.html"
       }
     },
-    "image": "/assets/augments/Greater_Charging_Rune.webp"
+    "image": "/assets/augments/Greater_Charging_Rune.webp",
+    "selectionEnabled": false
   },
   {
     "id": "Perfect_Charging_Rune",
@@ -16141,7 +16210,8 @@
         "ja": "docs/evidence/0.5.5/i18n/sources/ja/offhands-bucklers.ja.html"
       }
     },
-    "image": "/assets/augments/Perfect_Charging_Rune.webp"
+    "image": "/assets/augments/Perfect_Charging_Rune.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Soul_Core_of_Xopec",
@@ -16285,7 +16355,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/staves-talismans-talismans.es.html"
       }
     },
-    "image": "/assets/augments/Soul_Core_of_Xopec.webp"
+    "image": "/assets/augments/Soul_Core_of_Xopec.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Soul_Core_of_Topotante",
@@ -16429,7 +16500,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/staves-talismans-talismans.es.html"
       }
     },
-    "image": "/assets/augments/Soul_Core_of_Topotante.webp"
+    "image": "/assets/augments/Soul_Core_of_Topotante.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Soul_Core_of_Quipolatl",
@@ -16573,7 +16645,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/staves-talismans-talismans.es.html"
       }
     },
-    "image": "/assets/augments/Soul_Core_of_Quipolatl.webp"
+    "image": "/assets/augments/Soul_Core_of_Quipolatl.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Soul_Core_of_Opiloti",
@@ -16717,7 +16790,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/staves-talismans-talismans.es.html"
       }
     },
-    "image": "/assets/augments/Soul_Core_of_Opiloti.webp"
+    "image": "/assets/augments/Soul_Core_of_Opiloti.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Soul_Core_of_Zalatl",
@@ -16861,7 +16935,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/staves-talismans-talismans.es.html"
       }
     },
-    "image": "/assets/augments/Soul_Core_of_Zalatl.webp"
+    "image": "/assets/augments/Soul_Core_of_Zalatl.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Soul_Core_of_Tzamoto",
@@ -17005,7 +17080,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/staves-talismans-talismans.es.html"
       }
     },
-    "image": "/assets/augments/Soul_Core_of_Tzamoto.webp"
+    "image": "/assets/augments/Soul_Core_of_Tzamoto.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Soul_Core_of_Jiquani",
@@ -17149,7 +17225,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/staves-talismans-talismans.es.html"
       }
     },
-    "image": "/assets/augments/Soul_Core_of_Jiquani.webp"
+    "image": "/assets/augments/Soul_Core_of_Jiquani.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Soul_Core_of_Ticaba",
@@ -17325,7 +17402,8 @@
         "es": "docs/evidence/0.5.5/i18n/sources/es/offhands-bucklers.es.html"
       }
     },
-    "image": "/assets/augments/Soul_Core_of_Ticaba.webp"
+    "image": "/assets/augments/Soul_Core_of_Ticaba.webp",
+    "selectionEnabled": true
   },
   {
     "id": "Soul_Core_of_Vizoma",
@@ -17471,6 +17549,7 @@
         "ja": "docs/evidence/0.5.5/i18n/sources/ja/staves-talismans-talismans.ja.html"
       }
     },
-    "image": "/assets/augments/Soul_Core_of_Vizoma.webp"
+    "image": "/assets/augments/Soul_Core_of_Vizoma.webp",
+    "selectionEnabled": true
   }
 ]

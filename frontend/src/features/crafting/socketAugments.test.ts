@@ -4,6 +4,8 @@ import {
   augmentEffect,
   augmentShape,
   installAugment,
+  selectableAugments,
+  isSelectableAugment,
 } from './socketAugments'
 import {
   initialFixture,
@@ -57,6 +59,48 @@ it('rejects malformed, duplicate, unknown and excess installed slots without era
     supportsConcreteStateShape({ ...state, augmentSockets: undefined }),
   ).toBe(true)
 })
+it('limits reviewed four-tier families to Perfect while retaining Tempered, Soul Cores and old installed tiers', async () => {
+  expect(selectableAugments).toHaveLength(34)
+  expect(
+    selectableAugments.filter((a) => a.id.startsWith('Perfect_')),
+  ).toHaveLength(15)
+  for (const id of [
+    'Lesser_Desert_Rune',
+    'Desert_Rune',
+    'Greater_Desert_Rune',
+  ]) {
+    expect(isSelectableAugment(id)).toBe(false)
+    expect(
+      augmentShape({
+        ...state,
+        installedAugments: [{ slotIndex: 0, augmentId: id }],
+      }),
+    ).toBe(true)
+    const fetch = vi.fn()
+    vi.stubGlobal('fetch', fetch)
+    await expect(
+      installAugment(
+        state,
+        0,
+        id,
+        initial.rulesetIdentity,
+        new AbortController().signal,
+      ),
+    ).rejects.toThrow()
+    expect(fetch).not.toHaveBeenCalled()
+  }
+  for (const id of [
+    'Lesser_Tempered_Rune',
+    'Tempered_Rune',
+    'Greater_Tempered_Rune',
+    'Perfect_Desert_Rune',
+  ])
+    expect(isSelectableAugment(id)).toBe(true)
+  expect(
+    selectableAugments.filter((a) => a.id.startsWith('Soul_Core_of_')),
+  ).toHaveLength(16)
+  expect(isSelectableAugment('Perfect_Tempered_Rune')).toBe(false)
+})
 it('accepts only the requested slot transition and rejects a forged unrelated change', async () => {
   const response = {
     rulesetIdentity: initial.rulesetIdentity,
@@ -65,7 +109,7 @@ it('accepts only the requested slot transition and rejects a forged unrelated ch
     state: {
       ...state,
       desecrated: [],
-      installedAugments: [{ slotIndex: 1, augmentId: 'Desert_Rune' }],
+      installedAugments: [{ slotIndex: 1, augmentId: 'Perfect_Desert_Rune' }],
     },
     events: [],
     assumptions: [],
@@ -77,7 +121,7 @@ it('accepts only the requested slot transition and rejects a forged unrelated ch
       await installAugment(
         state,
         1,
-        'Desert_Rune',
+        'Perfect_Desert_Rune',
         initial.rulesetIdentity,
         new AbortController().signal,
       )
@@ -96,7 +140,7 @@ it('accepts only the requested slot transition and rejects a forged unrelated ch
     installAugment(
       state,
       1,
-      'Desert_Rune',
+      'Perfect_Desert_Rune',
       initial.rulesetIdentity,
       new AbortController().signal,
     ),

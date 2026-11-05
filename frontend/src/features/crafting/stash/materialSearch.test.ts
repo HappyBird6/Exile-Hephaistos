@@ -50,3 +50,12 @@ it('includes socket Augment effect descriptions', () => {
     ),
   ).toBe(true)
 })
+
+it('searches the grouped Rune feedback labels in the selected language', () => {
+  const rune = { id: 'Perfect_Desert_Rune', name: 'Perfect Desert Rune' }
+  expect(matchesMaterial(rune, '무도 무기', 'ko')).toBe(true)
+  expect(matchesMaterial(rune, '마법봉 또는 지팡이', 'ko')).toBe(true)
+  expect(matchesMaterial(rune, '방어구', 'ko')).toBe(true)
+  expect(matchesMaterial(rune, 'Martial Weapons', 'en')).toBe(true)
+  expect(matchesMaterial(rune, '장신구', 'ko')).toBe(false)
+})

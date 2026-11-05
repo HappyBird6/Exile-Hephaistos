@@ -4,6 +4,7 @@ import {
   augmentEffect,
   socketText,
   installAugment,
+  isSelectableAugment,
 } from './socketAugments'
 import { createPortal } from 'react-dom'
 import { defenceDisplay } from './defenceDisplay'
@@ -809,7 +810,7 @@ export function CraftingPage() {
       failApply(t('notice.omen_favorite'))
       return
     }
-    const isAugment = augments.some((a) => a.id === selected.id)
+    const isAugment = isSelectableAugment(selected.id)
     const action = workbenchCurrencyActions[selected.id]
     if (!action && !isBone(selected.id) && !isAugment) {
       failApply(t('notice.no_rule'))
@@ -1045,7 +1046,8 @@ export function CraftingPage() {
         requestAnimationFrame(() => {
           if (
             useItemDraft.getState().baseRevision === revision &&
-            document.activeElement === document.body
+            (document.activeElement === document.body ||
+              document.activeElement?.matches('.wb-socket:disabled'))
           )
             document.querySelector<HTMLButtonElement>('.item-slot')?.focus()
         })
@@ -1826,8 +1828,10 @@ export function CraftingPage() {
                                     disabled={
                                       workbenchBusy ||
                                       !selected ||
-                                      !augments.some(
-                                        (a) => a.id === selected.id,
+                                      !isSelectableAugment(selected.id) ||
+                                      !augmentEffect(
+                                        selected.id,
+                                        concrete.baseItemId,
                                       )
                                     }
                                     title={
@@ -1853,7 +1857,7 @@ export function CraftingPage() {
                                     }
                                     onClick={() => void apply(false, slot)}
                                   >
-                                    {installed ? (
+                                    {installed && (
                                       <img
                                         src={
                                           augments.find(
@@ -1863,8 +1867,6 @@ export function CraftingPage() {
                                         }
                                         alt={augmentName(installed.augmentId)}
                                       />
-                                    ) : (
-                                      <span aria-hidden="true">○</span>
                                     )}
                                   </button>
                                 )

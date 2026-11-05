@@ -31,6 +31,37 @@ const pick = (name: string) =>
 beforeEach(() => useItemDraft.getState().setBase())
 
 describe('Material stash and shared favorites', () => {
+  it('offers Perfect-only reviewed rune families in search and favorites while retaining Tempered and Soul Cores', () => {
+    show()
+    fireEvent.click(tab('Augments'))
+    const list = within(document.getElementById('material-list')!)
+    expect(list.getAllByRole('button')).toHaveLength(34)
+    for (const name of [
+      'Lesser Desert Rune',
+      'Desert Rune',
+      'Greater Desert Rune',
+    ])
+      expect(list.queryByRole('button', { name })).not.toBeInTheDocument()
+    for (const name of [
+      'Lesser Tempered Rune',
+      'Tempered Rune',
+      'Greater Tempered Rune',
+    ])
+      expect(list.getByRole('button', { name })).toBeInTheDocument()
+    const search = screen.getByRole('searchbox', { name: 'Search Augments' })
+    fireEvent.change(search, { target: { value: 'Greater Desert Rune' } })
+    expect(list.queryAllByRole('button')).toHaveLength(0)
+    fireEvent.change(search, { target: { value: 'Perfect Desert Rune' } })
+    expect(list.getAllByRole('button')).toHaveLength(1)
+    fireEvent.dragStart(
+      list.getByRole('button', { name: 'Perfect Desert Rune' }),
+      {
+        dataTransfer: { setData() {} },
+      },
+    )
+    fireEvent.click(favorite(1))
+    expect(favorite(1)).toHaveAccessibleName(/Perfect Desert Rune/)
+  })
   it('has a sourced description for every visible currency and material', () => {
     const descriptions: Record<
       string,

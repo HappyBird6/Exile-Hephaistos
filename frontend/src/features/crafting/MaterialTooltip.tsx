@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom'
 import { useFeedbackTooltip } from './feedback-tooltip/feedbackContext'
 import descriptions from './materialTooltips.json'
 import { legacyHomogenisingIds, legacyFiveIds } from './workbenchApi'
+import { augmentFeedbackLines } from './augmentFeedback'
 
 type TooltipData = { name: string; lines: string[]; sourceUrl: string }
 const catalog: Record<string, TooltipData> = descriptions
@@ -130,7 +131,9 @@ export function MaterialDescription({ materialId }: { materialId: string }) {
   if (!data) return null
   const translated = gameTerm(materialId, locale)
   const hasDescription = Boolean(translated.data?.lines.length)
-  const lines = hasDescription ? translated.data!.lines : data.lines
+  const lines =
+    augmentFeedbackLines(materialId, locale) ??
+    (hasDescription ? translated.data!.lines : data.lines)
   return (
     <div className="material-description">
       <div className="material-description__header">
