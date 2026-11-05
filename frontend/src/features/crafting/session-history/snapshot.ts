@@ -92,15 +92,14 @@ export async function snapshotPages(root: HTMLElement): Promise<Blob[]> {
       source instanceof HTMLImageElement &&
       target instanceof HTMLImageElement
     ) {
-      const response = await fetch(source.currentSrc || source.src)
-      if (!response.ok) throw Error('snapshot-image')
-      const blob = await response.blob()
-      target.src = await new Promise<string>((resolve, reject) => {
-        const reader = new FileReader()
-        reader.onload = () => resolve(String(reader.result))
-        reader.onerror = reject
-        reader.readAsDataURL(blob)
-      })
+      const raster = document.createElement('canvas')
+      raster.width = source.naturalWidth
+      raster.height = source.naturalHeight
+      const brush = raster.getContext('2d')
+      if (!brush || !raster.width || !raster.height)
+        throw Error('snapshot-image')
+      brush.drawImage(source, 0, 0)
+      target.src = raster.toDataURL('image/png')
       target.removeAttribute('srcset')
       target.removeAttribute('loading')
     }
