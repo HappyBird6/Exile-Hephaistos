@@ -1,3 +1,4 @@
+import { historyMessages } from './session-history/messages'
 import {
   augments,
   augmentName,
@@ -2169,6 +2170,14 @@ export function CraftingPage() {
                   if (!mutationLocked()) setLeftMenu(menu)
                 }}
               >
+                {film && (
+                  <a
+                    className="session-history-entry"
+                    href={`/history/${encodeURIComponent(film.id)}`}
+                  >
+                    {historyMessages[locale].title}
+                  </a>
+                )}
                 <div className="workbench-film-controls">
                   <button
                     type="button"
