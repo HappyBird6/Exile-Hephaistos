@@ -1,12 +1,12 @@
 {
   "version": "0.5.5",
   "checks": {
-    "json_values_preserved": 4716,
+    "json_values_preserved": 4715,
     "policy_documents": 1,
     "html_bytes_preserved": 520
   },
-  "indexedInputs": 5237,
-  "removedCollectionHistoryFiles": 257,
+  "indexedInputs": 5236,
+  "removedCollectionHistoryFiles": 258,
   "allPathsExist": true,
   "datedFileNames": 0,
   "sourceValuesPreserved": true,
