@@ -40,13 +40,11 @@ export function SocketAugmentSlots({
             className={`wb-socket ${installed ? 'is-filled' : ''} ${slotReady ? 'is-available' : ''} ${canDrop && dropTarget === slot ? 'is-drop-target' : ''}`}
             disabled={!slotReady}
             title={
-              socketText().policy +
-              ' ' +
-              (installed
+              installed
                 ? augmentName(installed.augmentId) +
                   ': ' +
                   augmentEffect(installed.augmentId, item.baseItemId)
-                : socketText().empty)
+                : socketText().empty
             }
             aria-label={`${socketText().socket} ${slot + 1}: ${installed ? augmentName(installed.augmentId) : socketText().empty}`}
             onClick={() => {

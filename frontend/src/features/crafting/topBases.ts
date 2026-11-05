@@ -42,10 +42,14 @@ export function basePropertyLines(key: string, locale: Locale): string[] {
   const properties = base?.sourceProperties?.[locale] ?? []
   if (base?.temporaryBaseOption?.kind !== 'SOURCE_FIRST_GRANTED_SKILL_EXAMPLE')
     return [...properties]
-  const skills = base.skillLines?.[locale] ?? []
-  return properties.map(
-    (text) => skills.find((skill) => text.includes(skill)) ?? text,
-  )
+  return []
+}
+export function baseSkillLines(key: string, locale: Locale): string[] {
+  const base = topBase(key)
+  return base?.temporaryBaseOption?.kind ===
+    'SOURCE_FIRST_GRANTED_SKILL_EXAMPLE'
+    ? []
+    : [...(base?.skillLines?.[locale] ?? [])]
 }
 export const reviewedGloveKeys = (Object.keys(data) as TopBaseKey[]).filter(
   (key) => data[key].family === 'gloves',

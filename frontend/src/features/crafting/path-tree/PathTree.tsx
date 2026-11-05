@@ -155,7 +155,6 @@ function Run({
           )}
         </section>
       )}
-      <p className="path-tree__note">{copy.model}</p>
     </section>
   )
 }

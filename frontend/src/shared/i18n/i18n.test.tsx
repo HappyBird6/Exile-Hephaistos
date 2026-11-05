@@ -123,25 +123,27 @@ describe('locale infrastructure', () => {
     expect(window.localStorage.getItem('i18n-test-film')).toBe(saved)
     window.localStorage.removeItem('i18n-test-film')
   })
-  it('keeps probability disclosure on calculation tabs and omits it from setup-only Support', () => {
-    render(
-      <AppProviders>
-        <CraftingPage />
-      </AppProviders>,
-    )
-    const disclaimer =
-      'Model probability uses published PoE2DB table weights, not verified game odds.'
-    for (const tab of ['Crafting Workbench']) {
-      fireEvent.click(screen.getByRole('tab', { name: new RegExp(tab) }))
-      expect(screen.getByText(disclaimer)).toBeVisible()
-    }
-    fireEvent.click(screen.getByRole('tab', { name: 'Craft Support' }))
-    expect(screen.queryByText(disclaimer)).not.toBeInTheDocument()
-    fireEvent.click(screen.getByRole('tab', { name: 'Crafting Workbench' }))
-    fireEvent.click(screen.getByRole('button', { name: /Language/ }))
-    fireEvent.click(screen.getByRole('menuitemradio', { name: '한국어' }))
-    expect(
-      screen.getByText(messages.ko['probability.disclaimer']),
-    ).toBeVisible()
-  })
+  it.each(locales)(
+    'omits internal footer disclosures in %s while retaining source credits',
+    (locale) => {
+      setLocale(locale)
+      const view = render(
+        <AppProviders>
+          <CraftingPage />
+        </AppProviders>,
+      )
+      expect(document.querySelector('.locale-disclosure')).toBeNull()
+      expect(
+        screen.queryByText(messages[locale]['probability.disclaimer']),
+      ).not.toBeInTheDocument()
+      expect(
+        screen.queryByText(messages[locale]['translation.coverage']),
+      ).not.toBeInTheDocument()
+      expect(document.querySelector('.craft-footer a')).toHaveAttribute(
+        'href',
+        'https://poe2db.tw/us/Currency',
+      )
+      view.unmount()
+    },
+  )
 })

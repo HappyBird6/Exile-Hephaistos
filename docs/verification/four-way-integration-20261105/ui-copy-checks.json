@@ -1,0 +1,87 @@
+{
+  "sourceBase": "96ab1ec438b1a0b6779dbca005b258c2b7bc1305",
+  "branch": "codex/remove-internal-ui-notes",
+  "scope": "UI copy/temporary skill display only. No history design or PNG changes.",
+  "instructions": "Root AGENTS.md rule updated; no ancestor/nested AGENTS.md found. Individual development limitations remain in development docs.",
+  "removed": [
+    "Absent/Portent/Lament temporary example skills in previews, active/restored cards and history base properties",
+    "Socket policy and uncalculated-effects notes; character-wide Augment check caveat",
+    "Translation provenance labels; quality projection status and calculation/simulation qualifiers",
+    "Static Jewel, Basic Paths, numeric filter, currency guide implementation/planning notes",
+    "Footer probability/translation verification disclosure; empty Admin implementation notice",
+    "History summary Ruleset identity hash"
+  ],
+  "retained": [
+    "Original catalog/topBases/temporaryBaseOption/skillLines and old sessions",
+    "Real skills on other bases, effects, original rolls and actual Limited to rules",
+    "Sources/licenses and official legacy availability",
+    "Actual input/storage errors and data-preservation warnings",
+    "Original text, raw data, identity, export/import/share/PNG and sharing read-scope warning"
+  ],
+  "checks": {
+    "npmCi": "passed, lock unchanged",
+    "lintTypecheckFormatBuild": "passed; final history files lint/format rechecked and final Docker production build passed",
+    "focused": {
+      "files": 10,
+      "passed": 108
+    },
+    "craftingHistoryRegression": {
+      "files": 6,
+      "passed": 168
+    },
+    "qualityNumericRegression": {
+      "files": 4,
+      "passed": 131
+    },
+    "historyUi": {
+      "files": 1,
+      "passed": 6
+    },
+    "overlap": "Display golden suite overlaps between regression runs; no combined total claimed",
+    "displaySourceHashes": 19,
+    "displayGoldenOutputs": "unchanged",
+    "initialEnvironment": "Sandbox temp client ENOENT collected zero tests; same focused run passed in normal environment",
+    "fullSuites": "Not repeated for this UI-only change. Previous integration baseline is separate. Production Java/catalog/schema unchanged; only mirrored display test source hash updated."
+  },
+  "browser": "6 locales: amulet, Augment tooltip, currency guide, shared history. Final 320px home has no overflow. Existing stale-record warning and Idol of Sirrius installation/effect verified.",
+  "evidence": "ui-copy-screens.json",
+  "server": {
+    "Preservation": [
+      {
+        "Name": "exile-hephaistos-app-1",
+        "ID": "c5d190a772a3a3130cf6c143944f01f803bce653c2af01797f22973616e553ec",
+        "SameID": true,
+        "SameMounts": true,
+        "SamePorts": true
+      },
+      {
+        "Name": "exile-hephaistos-frontend-1",
+        "ID": "4053c8fb7eae1be0e5aca11762bb472a52d64178f542327392a7d495e8482c7d",
+        "SameID": false,
+        "SameMounts": true,
+        "SamePorts": true
+      },
+      {
+        "Name": "exile-hephaistos-postgres-1",
+        "ID": "0c5febf25519e70667658bc0ff15452f074a04b4a19dadf00b1a062c31b628be",
+        "SameID": true,
+        "SameMounts": true,
+        "SamePorts": true
+      },
+      {
+        "Name": "exile-hephaistos-redis-1",
+        "ID": "ac679c135efc5f46d5c470b05091b7d1dcffebbdf24abcfa1c952d9d9748282f",
+        "SameID": true,
+        "SameMounts": true,
+        "SamePorts": true
+      }
+    ],
+    "EnvUnchanged": true,
+    "SnapshotUnchanged": true,
+    "Readiness": "UP",
+    "Frontend": 200,
+    "Asset": "/assets/index-CyDBYOHW.js",
+    "BundleStatus": 200
+  },
+  "cleanup": "Owned QA container removed. No DB/cache/volume reset; no push."
+}

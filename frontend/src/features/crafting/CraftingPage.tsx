@@ -34,12 +34,16 @@ import {
   baseSlugs,
   baseClass,
   baseStartingRarity,
-  sourcePropertyUnscaled,
   clipboardBase,
   supersededBases,
 } from './baseRegistry'
 import type { WorkbenchBaseKey } from './baseRegistry'
-import { basePropertyLines, topBase, topBaseKey } from './topBases'
+import {
+  basePropertyLines,
+  baseSkillLines,
+  topBase,
+  topBaseKey,
+} from './topBases'
 import { WorkbenchBasePicker } from './base-picker/WorkbenchBasePicker'
 import { SessionLibrary } from './session-library/SessionLibrary'
 import { SessionLibraryButtons } from './session-library/SessionLibraryButtons'
@@ -1559,17 +1563,11 @@ export function CraftingPage() {
                 )
                 .map((text, i) => ({
                   id: 'source-property-' + i,
-                  text: sourcePropertyUnscaled(catalogBase)
-                    ? t('base.weapon_property', { property: text })
-                    : text,
+                  text,
                 })),
               ...defences.properties,
-              ...(concrete.augmentSockets != null
-                ? [{ id: 'socket-policy', text: socketText().policy }]
-                : []),
               ...(concrete.installedAugments?.length
                 ? [
-                    { id: 'socket-effect-note', text: socketText().effects },
                     ...concrete.installedAugments.map((a) => ({
                       id: 'socket-effect-' + a.slotIndex,
                       text:
@@ -1700,7 +1698,9 @@ export function CraftingPage() {
                   detail:
                     concrete.catalystQuality ||
                     projection.status === 'JEWEL_EFFECT_AND_QUALITY_PROVISIONAL'
-                      ? `${t('quality.original_roll', { roll: localizedModifierText(d, m.values) })}\n${t('quality.display_model', { status: projection.status })}`
+                      ? t('quality.original_roll', {
+                          roll: localizedModifierText(d, m.values),
+                        })
                       : undefined,
                   kind:
                     i < concrete.implicits.length
@@ -1719,18 +1719,16 @@ export function CraftingPage() {
                 }
               })
               .concat(
-                (topBase(catalogBase)?.skillLines?.[locale] ?? []).map(
-                  (text, i) => ({
-                    id: 'source-skill-' + i,
-                    lastCurrencyAffected: false,
-                    removalCandidate: false,
-                    text,
-                    fractured: false,
-                    detail: undefined,
-                    kind: 'implicit' as const,
-                    affixLabel: undefined,
-                  }),
-                ),
+                baseSkillLines(catalogBase, locale).map((text, i) => ({
+                  id: 'source-skill-' + i,
+                  lastCurrencyAffected: false,
+                  removalCandidate: false,
+                  text,
+                  fractured: false,
+                  detail: undefined,
+                  kind: 'implicit' as const,
+                  affixLabel: undefined,
+                })),
               )
               .sort((a, b) => {
                 const rank = (line: typeof a) =>
@@ -2533,13 +2531,6 @@ export function CraftingPage() {
               <>
                 {Object.hasOwn(workbenchJewelBases, baseChoice) && (
                   <>
-                    <p>
-                      {t(
-                        catalogBase.startsWith('time-lost-')
-                          ? 'notice.time_lost_scope'
-                          : 'notice.sapphire_scope',
-                      )}
-                    </p>
                     <label htmlFor="sapphire-rarity">{t('ui.rarity')}</label>
                     <select
                       id="sapphire-rarity"
@@ -2772,12 +2763,6 @@ export function CraftingPage() {
         {imported.pending ? 'Analyzing item…' : announcement}
       </span>
       <footer className="craft-footer">
-        {view !== 'support' && (
-          <aside className="locale-disclosure">
-            <p>{t('probability.disclaimer')}</p>
-            <small>{t('translation.coverage')}</small>
-          </aside>
-        )}
         <span>
           EXILE HEPHAISTOS <span aria-hidden="true">/</span>
           {t('ui.your_personal_crafting_workbench')}

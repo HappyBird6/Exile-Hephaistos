@@ -48,6 +48,11 @@
 
 헤더는 Workbench와 Craft Support 두 작업 공간을 제공한다. State Explorer 전용 UI는 제거했으며 공유 Backend 전이·계산 엔진은 유지한다. 보관함 검색은 기존 이름·ID와 실제 표시 툴팁 설명(현지화 또는 영어 fallback)을 함께 검색한다. Essence의 특수 재료 4개는 같은 4행 스크롤 그리드의 첫 행이다.
 
+사용자용 UI 문구는 [AGENTS.md](../AGENTS.md)의 작성 규칙을 따른다. 임시 스킬 예시를 가진 Absent/Portent/Lament Amulet은 베이스 선택 미리보기·현재 카드·복원 카드에서 예시 스킬을 표시하지 않는다. 원본 `temporaryBaseOption`·`skillLines`·catalog와 기존 Film/세션 데이터는 보존하며, 다른 베이스의 실제 스킬은 그대로 표시한다.
+
+소켓 상한 정책·결속/최종 합계 계산 한계, Augment의 캐릭터 전체 검사 한계, 품질 projection의 내부 상태, 정적 지원 범위·미구현 안내·하단 확률/번역 검증 설명은 UI에서 제거했다. 수치와 원본 roll, 출처·라이선스, 실제 Limited to 규칙, 입력/저장 오류와 데이터 보존 경고, 공유/내보내기의 원문 포함·읽기 범위 안내는 유지한다. 히스토리 요약의 Ruleset hash는 숨기되 저장·내보내는 원본 identity와 원시 데이터는 바꾸지 않는다.
+
+
 `CraftingPage`가 창고·중앙 카드·베이스/세션 선택·기보·피드백과 요청 수명주기를 연결한다. 원래 상단 935×550 좌표계를 유지하며 75% zoom과 실제 표시 크기를 혼동하지 않는다. 기존 세 화폐 등급 열·다섯 계열 행과 중앙 카드의 원래 좌표를 다시 배치하는 초기 compact override는 폐기된 설계다.
 
 - 기존 category selector 하나가 오른쪽 창고 내용을 정한다. 별도의 오른쪽 tab selector를 중복 생성하지 않는다.

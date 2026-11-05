@@ -170,63 +170,29 @@ export async function installAugment(
   return result
 }
 const messages = {
-  en: [
-    'Augments',
-    'Socket',
-    'Empty',
-    'Base socket effects; Bonded and final scaled totals are not calculated.',
-    'Unsupported Augment or item state.',
-    'Workbench socket limit: ordinary maximum +1.',
-  ],
+  en: ['Augments', 'Socket', 'Empty', 'Unsupported Augment or item state.'],
   ko: [
     '증강물',
     '소켓',
     '비어 있음',
-    '기본 소켓 효과입니다. 결속 효과와 최종 배율 합계는 계산하지 않습니다.',
     '지원하지 않는 증강물 또는 아이템 상태입니다.',
-    '작업대 소켓 상한: 일반 최대 +1.',
   ],
-  'zh-CN': [
-    '增强物',
-    '插槽',
-    '空',
-    '基础插槽效果；不计算绑定效果或最终倍率。',
-    '不支持的增强物或物品状态。',
-    '工作台插槽上限：通常上限 +1。',
-  ],
-  'zh-TW': [
-    '增幅物',
-    '插槽',
-    '空',
-    '基礎插槽效果；不計算綁定效果或最終倍率。',
-    '不支援的增幅物或物品狀態。',
-    '工作台插槽上限：通常上限 +1。',
-  ],
+  'zh-CN': ['增强物', '插槽', '空', '不支持的增强物或物品状态。'],
+  'zh-TW': ['增幅物', '插槽', '空', '不支援的增幅物或物品狀態。'],
   ja: [
     '増強アイテム',
     'ソケット',
     '空',
-    '基本ソケット効果。結合効果と最終倍率は計算しません。',
     '未対応の増強アイテムまたは状態です。',
-    '作業台のソケット上限：通常上限 +1。',
   ],
   es: [
     'Aumentos',
     'Engarce',
     'Vacío',
-    'Efectos básicos; no se calculan efectos vinculados ni totales escalados.',
     'Aumento o estado de objeto no compatible.',
-    'Límite de engarces: máximo normal +1.',
   ],
 } as const
 export function socketText() {
   const m = messages[getLocale()]
-  return {
-    tab: m[0],
-    socket: m[1],
-    empty: m[2],
-    effects: m[3],
-    unsupported: m[4],
-    policy: m[5],
-  }
+  return { tab: m[0], socket: m[1], empty: m[2], unsupported: m[3] }
 }

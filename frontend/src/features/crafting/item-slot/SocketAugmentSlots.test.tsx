@@ -3,7 +3,12 @@ import { expect, it, vi } from 'vitest'
 import { locales, setLocale } from '../../../shared/i18n/i18n'
 import { initialFixture } from '../../../shared/test/craftingFixtures'
 import { concreteInitial } from '../workbenchApi'
-import { canInstallAugment, socketText } from '../socketAugments'
+import {
+  augmentEffect,
+  augmentName,
+  canInstallAugment,
+  socketText,
+} from '../socketAugments'
 import { stashDragType } from '../stash/stashDragType'
 import { SocketAugmentSlots } from './SocketAugmentSlots'
 
@@ -46,6 +51,11 @@ it.each(locales)(
       `${socketText().socket} 1: ${socketText().empty}`,
     )
     expect(slots[1]!.querySelector('img')).not.toBeNull()
+    expect(slots[0]).toHaveAttribute('title', socketText().empty)
+    expect(slots[1]).toHaveAttribute(
+      'title',
+      `${augmentName('Desert_Rune')}: ${augmentEffect('Desert_Rune', item.baseItemId)}`,
+    )
     expect(slots[0]!.closest('button button')).toBeNull()
     fireEvent.click(slots[1]!)
     expect(install).toHaveBeenCalledExactlyOnceWith(1, id)

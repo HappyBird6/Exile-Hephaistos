@@ -51,16 +51,6 @@ export function augmentFeedbackLines(
       entry.properties[locale]?.[propertyIndex] ??
       entry.properties.en![propertyIndex]
     if (property) lines.push(property)
-    lines.push(limitScope[locale])
   }
   return lines
-}
-
-const limitScope: Record<Locale, string> = {
-  en: 'Limits are checked within this item. Character-wide equipped limits are not checked.',
-  ko: '이 아이템 안의 장착 제한을 검사합니다. 캐릭터 전체 장비의 제한은 확인하지 않습니다.',
-  'zh-CN': '仅检查此物品内的镶嵌限制，不检查角色全部装备的限制。',
-  'zh-TW': '僅檢查此物品內的鑲嵌限制，不檢查角色全部裝備的限制。',
-  ja: 'このアイテム内の装着制限を確認します。キャラクターの全装備の制限は確認しません。',
-  es: 'Se comprueban los límites de este objeto, no los de todo el equipo del personaje.',
 }

@@ -544,7 +544,6 @@ export function AbyssPanel({
     >
       {open && (
         <>
-          {!directSelection && <p>{t[20]}</p>}
           {(query.isError ||
             mutation.isError ||
             plan.isError ||

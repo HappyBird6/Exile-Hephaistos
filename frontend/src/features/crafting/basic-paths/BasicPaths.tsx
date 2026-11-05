@@ -297,7 +297,6 @@ function Calculator({
   }
   return (
     <div>
-      <p>{t('paths.scope')}</p>
       <p>{t('paths.observations')}</p>
       <p>{t('paths.model')}</p>
       {!ready && <p role="status">{t('paths.notReady')}</p>}
@@ -574,7 +573,6 @@ function Results({ result }: { result: PathResult }) {
       {result.blockersTruncated && <p>{t('paths.truncated')}</p>}
       <details>
         <summary>{t('paths.evidence')}</summary>
-        <p>{t('paths.evidenceNotice')}</p>
         <a href={result.provenance.sourceUrl} target="_blank" rel="noreferrer">
           {result.provenance.sourceUrl}
         </a>

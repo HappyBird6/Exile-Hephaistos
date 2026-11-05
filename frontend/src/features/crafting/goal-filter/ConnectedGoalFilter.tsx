@@ -24,6 +24,14 @@ import { startBases } from './startItem'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { goalFilterMessages } from './i18n'
 
+const numericInputMessages = {
+  en: 'Select a starting item to evaluate its values.',
+  ko: '수치를 판정할 시작 아이템을 선택하세요.',
+  'zh-CN': '请选择起始物品以判定其数值。',
+  'zh-TW': '請選擇起始物品以判定其數值。',
+  ja: '数値を評価する開始アイテムを選択してください。',
+  es: 'Selecciona un objeto inicial para evaluar sus valores.',
+}
 const adapter = httpGoalFilterAdapter
 export type SearchGoalSnapshot = {
   sourceStatIds?: string[] | undefined
@@ -292,35 +300,7 @@ function ConnectedEditor({
   const ko = language === 'ko'
   return (
     <div className="goal-filter-connected">
-      {!compact && (
-        <details open className="goal-filter-support-notes">
-          <summary>Evaluation support and limitations</summary>
-          <p>
-            {ko
-              ? '수치 필터는 아래 family/tier 목표와 별도로 판정합니다. 화폐를 적용하거나 기존 추천 목표를 변경하지 않습니다.'
-              : 'Numeric filters evaluate separately from the family/tier goal below.'}
-          </p>
-          {!item && (
-            <p role="status">
-              {ko
-                ? '실제 수치가 없습니다. 수동 tier 입력은 roll 값을 보존하지 않으므로 수치 판정할 수 없습니다. 서버 base 또는 검증된 아이템 텍스트를 선택하세요.'
-                : 'Actual rolls are unavailable. Manual tiers cannot be evaluated numerically. Select a server base or verified item text.'}
-            </p>
-          )}
-          <p>
-            {ko
-              ? '품질·특수 조건의 수치 효과는 미지원입니다. 수치 판정과 확률 지원 상태를 따로 확인하세요.'
-              : 'Quality and special numeric effects are unsupported. Evaluation and probability support are reported separately.'}
-          </p>
-          {item?.catalystQuality && (
-            <p role="status">
-              {ko
-                ? '품질 효과의 수치 판정은 미지원입니다. 입력 품질을 보존하며 적용된 것으로 표시하지 않습니다.'
-                : 'Quality projection is unsupported; input quality is preserved.'}
-            </p>
-          )}
-        </details>
-      )}
+      {!compact && !item && <p role="status">{numericInputMessages[locale]}</p>}
       {!compact && goal.general.baseItemId !== context.baseItemId && (
         <p role="alert">
           {ko

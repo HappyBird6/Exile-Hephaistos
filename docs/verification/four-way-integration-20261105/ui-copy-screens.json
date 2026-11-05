@@ -1,0 +1,190 @@
+{
+  "workbench": [
+    {
+      "card": "Absent AmuletAmuletsItem level: 82Requires:  Level 50-1 Prefix Modifier allowed\n-1 Suffix Modifier allowed",
+      "internalFooter": false,
+      "locale": "en",
+      "overflow": false
+    },
+    {
+      "card": "부재 목걸이Amulets아이템 레벨: 82요구 사항:  레벨 50접두어 속성 부여의 최대 개수 -1개\n접미어 속성 부여의 최대 개수 -1개",
+      "internalFooter": false,
+      "locale": "ko",
+      "overflow": false
+    },
+    {
+      "card": "失神项链Amulets物品等级： 82需求：  等级 50允许的前缀 -1\n允许的后缀 -1",
+      "internalFooter": false,
+      "locale": "zh-CN",
+      "overflow": false
+    },
+    {
+      "card": "虛無護身符Amulets物品等級： 82需求:  等級 50允許前綴-1\n允許後綴-1",
+      "internalFooter": false,
+      "locale": "zh-TW",
+      "overflow": false
+    },
+    {
+      "card": "不在のアミュレットAmuletsアイテムレベル: 82装備条件： レベル 50プレフィックスモッド -1個\nサフィックスモッド -1個",
+      "internalFooter": false,
+      "locale": "ja",
+      "overflow": false
+    },
+    {
+      "card": "Amuleto ausenteAmuletsNivel del objeto: 82Requiere:  Nivel 50-1 modificador de prefijo permitido\n-1 modificador de sufijo permitido",
+      "internalFooter": false,
+      "locale": "es",
+      "overflow": false
+    }
+  ],
+  "tooltips": [
+    {
+      "card": "Massive MittsGlovesIdol of Sirrius: 8% increased Attack SpeedQuality: +0%Item level: 82Requires:  Level 80, 101 Str",
+      "locale": "en",
+      "slotTitle": "Idol of Sirrius: 8% increased Attack Speed",
+      "tooltip": "Idol of SirriusPoE2DBArmour (Gloves): 8% increased Attack SpeedLimited to: 1"
+    },
+    {
+      "card": "거대한 미트장갑시리우스의 우상: 공격 속도 8% 증가퀄리티: +0%아이템 레벨: 82요구 사항:  레벨 80, 101 힘",
+      "locale": "ko",
+      "slotTitle": "시리우스의 우상: 공격 속도 8% 증가",
+      "tooltip": "시리우스의 우상PoE2DB방어구 (장갑): 공격 속도 8% 증가중복 사용 제한: 1"
+    },
+    {
+      "card": "巨型护手手套西里乌斯之雕像: 攻击速度提高 8%品质：+0%物品等级： 82需求：  等级 80, 101 力量",
+      "locale": "zh-CN",
+      "slotTitle": "西里乌斯之雕像: 攻击速度提高 8%",
+      "tooltip": "西里乌斯之雕像PoE2DB护甲 (手套): 攻击速度提高 8%仅限: 1"
+    },
+    {
+      "card": "巨型長手套手套席里斯魔偶: 增加8%攻擊速度品質：+0%物品等級： 82需求:  等級 80, 101 力量",
+      "locale": "zh-TW",
+      "slotTitle": "席里斯魔偶: 增加8%攻擊速度",
+      "tooltip": "席里斯魔偶PoE2DB護甲 (手套): 增加8%攻擊速度僅限: 1"
+    },
+    {
+      "card": "巨大なミットグローブシリウスのアイドル: アタックスピードが8%増加する品質: +0%アイテムレベル: 82装備条件： レベル 80, 101 筋力",
+      "locale": "ja",
+      "slotTitle": "シリウスのアイドル: アタックスピードが8%増加する",
+      "tooltip": "シリウスのアイドルPoE2DB防具 (グローブ): アタックスピードが8%増加する個数制限: 1"
+    },
+    {
+      "card": "Manoplas masivasGuantesÍdolo de Sirrius: Velocidad de ataque aumentada un 8%Calidad: +0%Nivel del objeto: 82Requiere:  Nivel 80, 101 Fue",
+      "locale": "es",
+      "slotTitle": "Ídolo de Sirrius: Velocidad de ataque aumentada un 8%",
+      "tooltip": "Ídolo de SirriusPoE2DBArmadura (Guantes): Velocidad de ataque aumentada un 8%Limitado a: 1"
+    }
+  ],
+  "support": [
+    {
+      "currencies": 187,
+      "headings": 1,
+      "internalIntro": 0,
+      "locale": "en",
+      "title": "Available currencies"
+    },
+    {
+      "currencies": 187,
+      "headings": 1,
+      "internalIntro": 0,
+      "locale": "ko",
+      "title": "사용 가능한 화폐"
+    },
+    {
+      "currencies": 187,
+      "headings": 1,
+      "internalIntro": 0,
+      "locale": "zh-CN",
+      "title": "可用通货"
+    },
+    {
+      "currencies": 187,
+      "headings": 1,
+      "internalIntro": 0,
+      "locale": "zh-TW",
+      "title": "可用通貨"
+    },
+    {
+      "currencies": 187,
+      "headings": 1,
+      "internalIntro": 0,
+      "locale": "ja",
+      "title": "使用可能な通貨"
+    },
+    {
+      "currencies": 187,
+      "headings": 1,
+      "internalIntro": 0,
+      "locale": "es",
+      "title": "Monedas disponibles"
+    }
+  ],
+  "history": [
+    {
+      "buttons": 4,
+      "cards": 8,
+      "locale": "en",
+      "summary": [
+        "Local links need this browser’s storage. Sharing links read a saved server snapshot. This localhost server is accessible only from this computer.",
+        "Exports and sharing snapshots include the complete session and original pasted text. A sharing link allows anyone holding it to read this snapshot on this server.",
+        "8 states"
+      ],
+      "visibleRulesHash": false
+    },
+    {
+      "buttons": 4,
+      "cards": 8,
+      "locale": "ko",
+      "summary": [
+        "로컬 링크에는 이 브라우저의 저장 데이터가 필요합니다. 공유 링크는 서버에 저장된 스냅샷을 엽니다. localhost 서버에는 이 컴퓨터에서만 접근할 수 있습니다.",
+        "내보내기와 공유 스냅샷에는 전체 세션과 처음 붙여넣은 원문이 포함됩니다. 공유 링크를 가진 사람은 이 서버에서 스냅샷을 읽을 수 있습니다.",
+        "8 개 상태"
+      ],
+      "visibleRulesHash": false
+    },
+    {
+      "buttons": 4,
+      "cards": 8,
+      "locale": "zh-CN",
+      "summary": [
+        "本地链接需要此浏览器的数据。分享链接读取服务器快照。localhost 仅可从此计算机访问。",
+        "导出和分享快照包含完整会话及原始粘贴文本。持有链接的人可在此服务器上读取快照。",
+        "8 个状态"
+      ],
+      "visibleRulesHash": false
+    },
+    {
+      "buttons": 4,
+      "cards": 8,
+      "locale": "zh-TW",
+      "summary": [
+        "本機連結需要此瀏覽器資料。分享連結讀取伺服器快照。localhost 僅可從此電腦存取。",
+        "匯出及分享快照包含完整工作階段與原始貼上文字。持有連結的人可在此伺服器讀取快照。",
+        "8 個狀態"
+      ],
+      "visibleRulesHash": false
+    },
+    {
+      "buttons": 4,
+      "cards": 8,
+      "locale": "ja",
+      "summary": [
+        "ローカルリンクにはこのブラウザーのデータが必要です。共有リンクはサーバーの記録を開きます。localhost はこのコンピューターからのみ利用できます。",
+        "書き出しと共有にはセッション全体と元の貼り付けテキストが含まれます。リンクを持つ人はこのサーバーで閲覧できます。",
+        "8 状態"
+      ],
+      "visibleRulesHash": false
+    },
+    {
+      "buttons": 4,
+      "cards": 8,
+      "locale": "es",
+      "summary": [
+        "Los enlaces locales requieren datos de este navegador. Los compartidos abren una copia del servidor. localhost solo es accesible desde este equipo.",
+        "La exportación y las copias compartidas incluyen la sesión completa y el texto original. Quien tenga el enlace puede leer la copia en este servidor.",
+        "8 estados"
+      ],
+      "visibleRulesHash": false
+    }
+  ]
+}

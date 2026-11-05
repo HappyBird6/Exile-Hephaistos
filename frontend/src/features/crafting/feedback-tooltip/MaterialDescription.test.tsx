@@ -112,3 +112,24 @@ it('preserves official availability links and limits the requested palette to ma
   )
   expect(screen.getByRole('alert').closest('.material-description')).toBeNull()
 })
+
+it.each(locales)(
+  'keeps actual Augment limits and source without internal scope notes in %s',
+  (locale) => {
+    setLocale(locale)
+    const entry = augments.find((a) => a.selectionEnabled && a.limit)!
+    const index = entry.properties.en!.findIndex((line) =>
+      line.startsWith('Limited to:'),
+    )
+    const limit =
+      entry.properties[locale]?.[index] ?? entry.properties.en![index]!
+    const view = render(<MaterialDescription materialId={entry.id} />)
+    expect(screen.getByText(limit)).toBeVisible()
+    expect(screen.getByRole('link', { name: 'PoE2DB' })).toBeVisible()
+    expect(view.container.querySelector('.translation-fallback')).toBeNull()
+    expect(view.container).not.toHaveTextContent(
+      /character-wide|캐릭터 전체|角色全部|全装備|todo el equipo/,
+    )
+    view.unmount()
+  },
+)

@@ -41,7 +41,6 @@ export function App() {
           <LocaleSelector />
         </header>
         <h1>{t('ui.admin')}</h1>
-        <p>{t('ui.no_admin_tools_are_available_yet')}</p>
       </main>
     )
   }

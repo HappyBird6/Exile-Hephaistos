@@ -37,7 +37,7 @@ it('supports confirmed rings with sourced affix capacities', () => {
     expect(base.implicitStats?.length).toBeGreaterThan(0)
   }
 })
-it('shows amulet previews without internal policy notes and keeps their existing skills in every locale', () => {
+it('shows amulet previews without internal policy notes or temporary skill examples in every locale', () => {
   for (const locale of locales)
     for (const choice of workbenchBaseChoices(locale).filter(
       (choice) => choice.itemClass === 'Amulets',
@@ -51,12 +51,10 @@ it('shows amulet previews without internal policy notes and keeps their existing
       if (
         base?.temporaryBaseOption?.kind === 'SOURCE_FIRST_GRANTED_SKILL_EXAMPLE'
       ) {
-        expect(card.properties.map((line) => line.text)).toEqual(
-          base.skillLines![locale],
-        )
+        expect(card.properties.map((line) => line.text)).toEqual([])
         const view = render(<ItemCard item={card} />)
         for (const skill of base.skillLines![locale])
-          expect(screen.getByRole('article')).toHaveTextContent(skill)
+          expect(screen.getByRole('article')).not.toHaveTextContent(skill)
         expect(screen.getByRole('article')).not.toHaveTextContent(
           /user policy|사용자 정책|ユーザー方針|用户策略|使用者方針|política del usuario/i,
         )
@@ -65,11 +63,15 @@ it('shows amulet previews without internal policy notes and keeps their existing
       expect(JSON.stringify(base)).toBe(original)
     }
 })
-it.each(['lament-amulet', 'portent-amulet', 'absent-amulet'] as const)(
-  'keeps the %s item and saved skill display without temporary notes or duplicate skill lines',
-  (key) => {
+it.each(
+  (['lament-amulet', 'portent-amulet', 'absent-amulet'] as const).flatMap(
+    (key) => locales.map((locale) => [key, locale] as const),
+  ),
+)(
+  'hides temporary skill examples for restored %s in %s without changing saved data',
+  (key, locale) => {
     localStorage.clear()
-    setLocale('ko')
+    setLocale(locale)
     useItemDraft.getState().setBase(82, key)
     const base = topBase(key)!
     const catalog = JSON.parse(
@@ -132,10 +134,8 @@ it.each(['lament-amulet', 'portent-amulet', 'absent-amulet'] as const)(
     expect(article).not.toHaveTextContent('임시')
     expect(article).not.toHaveTextContent('사용자 정책')
     expect(article).not.toHaveTextContent('Heavy Ammunition')
-    for (const skill of base.skillLines!.ko) {
-      expect(article).toHaveTextContent(skill)
-      expect(article.textContent!.split(skill)).toHaveLength(2)
-    }
+    for (const skill of base.skillLines![locale])
+      expect(article).not.toHaveTextContent(skill)
     expect(JSON.stringify(state)).toBe(original)
     expect(localStorage.getItem(historyStorageKey)).toBe(stored)
     view.unmount()

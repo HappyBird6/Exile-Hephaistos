@@ -1,6 +1,4 @@
 import { guideMessages } from './guideMessages'
-import { workspaceMessages } from './workspaceMessages'
-import { planningNotes } from './planningNotes'
 import { useId, useRef } from 'react'
 import policy from '../../../../../backend/src/main/resources/crafting/automatic-currency-policy-v1.json'
 import { useI18n } from '../../../shared/i18n/i18n'
@@ -39,7 +37,7 @@ export function CurrencyPolicy() {
         ref={button}
         onClick={() => dialog.current?.showModal()}
       >
-        {copy[0]}
+        {guideMessages[locale].supported}
       </button>
       <dialog
         className="currency-policy"
@@ -47,22 +45,11 @@ export function CurrencyPolicy() {
         aria-labelledby={title}
         onClose={() => button.current?.focus()}
       >
-        <h2 id={title}>{copy[0]}</h2>
+        <h2 id={title}>{guideMessages[locale].supported}</h2>
         <form method="dialog">
           <button>{copy[1]}</button>
         </form>
-        <h3>{guideMessages[locale].scope}</h3>
-        <p>
-          {planningNotes[locale][0]} {planningNotes[locale][1]}
-        </p>
-        <h3>{guideMessages[locale].calculations}</h3>
-        <p>{planningNotes[locale][2]}</p>
-        <h3>{guideMessages[locale].records}</h3>
-        <p>{workspaceMessages[locale].hint}</p>
-        <p>{workspaceMessages[locale].unknown}</p>
         <h3>{guideMessages[locale].supported}</h3>
-        <p>{copy[6]}</p>
-        <p>{copy[21]}</p>
         <ol>
           {policy.entries.map((entry) => {
             const slug = entry.sourceUrl.split('/').at(-1)!
@@ -89,8 +76,6 @@ export function CurrencyPolicy() {
                   <p>{chaosFirstAffixHints[locale]}</p>
                 )}
                 {entry.condition === 'BREACH_QUALITY' && <p>{copy[18]}</p>}
-                {entry.number === 100 && <p>{copy[19]}</p>}
-                {entry.decision === 'DEFERRED' && <p>{copy[20]}</p>}
               </li>
             )
           })}

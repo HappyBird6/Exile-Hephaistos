@@ -286,8 +286,7 @@ export function SessionHistoryPage({
         <>
           <h2>{shown.title ?? shown.id}</h2>
           <p>
-            {shown.frames.length} {text.count} · {text.rules}:{' '}
-            {shown.rulesetIdentity ?? '?'}
+            {shown.frames.length} {text.count}
           </p>
           {!notation.failed && (
             <SessionNotation

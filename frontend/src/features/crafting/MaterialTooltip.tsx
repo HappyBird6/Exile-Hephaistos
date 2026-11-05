@@ -149,17 +149,6 @@ export function MaterialDescription({ materialId }: { materialId: string }) {
           PoE2DB
         </a>
       </div>
-      {translated.data?.nameProvenance && (
-        <small className="translation-fallback">{t('translation.own')}</small>
-      )}
-      {locale !== 'en' &&
-        (!hasDescription ||
-          translated.fallback ||
-          translated.data?.linesLanguage === 'en') && (
-          <small className="translation-fallback">
-            {t('translation.english')}
-          </small>
-        )}
       {legacyFiveIds.includes(materialId) && <p>{t('notice.legacy_five')}</p>}
       {legacyFiveIds.includes(materialId) && (
         <a
