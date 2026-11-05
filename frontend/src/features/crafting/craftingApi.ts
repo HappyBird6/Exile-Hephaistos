@@ -63,6 +63,8 @@ export interface Availability {
   reason: string
 }
 export interface Initial {
+  /** Base/catalog support only, independent of the current item state. */
+  baseMaterialActions?: string[]
   equipmentQuality?: number | null
   baseRules?: {
     magicPrefixes: number
@@ -219,6 +221,13 @@ export async function loadInitial(
   )
   if (
     !object(v) ||
+    (v.baseMaterialActions !== undefined &&
+      (!Array.isArray(v.baseMaterialActions) ||
+        !v.baseMaterialActions.every(
+          (action: unknown) => typeof action === 'string',
+        ) ||
+        new Set(v.baseMaterialActions).size !==
+          v.baseMaterialActions.length)) ||
     (v.equipmentQuality != null &&
       (v.equipmentQuality !== 0 ||
         !object(v.state) ||

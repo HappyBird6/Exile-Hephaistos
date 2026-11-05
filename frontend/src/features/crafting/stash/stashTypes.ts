@@ -12,6 +12,9 @@ export type StashPointer = { x: number; y: number }
 
 export type WorkbenchStashProps = {
   resources: readonly WorkbenchResource[]
+  /** Undefined until an actual base/item is selected; favorites retain their entries. */
+  baseItemId?: string | undefined
+  baseMaterialActions?: readonly string[] | undefined
   excludedIds?: readonly string[] | ReadonlySet<string>
   /** Existing page tablist, moved into the upper-right stash panel. */
   tabs?: ReactNode

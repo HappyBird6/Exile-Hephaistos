@@ -39,3 +39,14 @@ registered base 수는 [지원 범위](support.md), 상태 검증은 [아이템 
 ## 소켓과 Augment
 
 장비별 추가 1개를 허용하는 Workbench 정책과 79종 일반 Rune/Soul Core의 장착·표시·미지원 경계는 [소켓과 Augment](socket-augments.md)를 따른다.
+
+
+## 선택한 베이스의 보관함 · 2026-11-05
+
+기본 Solar Amulet 그림만 있는 첫 화면은 실제 선택 완료로 취급하지 않는다. 선택·새 제작·복원으로 구조화된 아이템/기록이 생기거나, 가져온 텍스트의 등록 베이스가 확인되면 그 베이스의 지원 부위로 보관함을 필터한다. 새 제작은 같은 베이스를 유지하고, 활성 아이템이 없는 초기 상태에서는 전체 기본 목록을 보여준다.
+
+`initial.baseMaterialActions`는 실행 가능 목록이 아닌 **베이스·검토 catalog 자격**이다. Backend `WorkbenchSimulator`가 실제 실행과 같은 Essence/Alloy 대상 override와 catalog 포함 여부, Catalyst의 ordinary/refined 베이스 정책, Jewel Liquid의 검토 출처를 재사용한다. 희귀도·레벨·현재 옵션·소켓 개수·활성 징조·Crafted 존재 여부 등 일시적인 실행 조건은 포함하지 않는다. 실제 적용 시의 기존 검증은 그대로 수행한다.
+
+Frontend는 이 메타데이터를 현재 베이스와 일치하는 응답에서만 사용한다. Augment는 기존 등록 소켓 지원 상한과 해당 itemClass의 검토된 효과를 사용하며 빈 소켓이 없거나 아직 0개여도 표시한다. Perfect-only/Tempered/Soul Core 선택 정책은 먼저 유지한다. Omen과 일반 Currency는 부위 필터 대상이 아니다. 지원하지 않는/검토되지 않은 재료는 선택된 부위 목록에 나타나지 않으며 게임 전체 지원 범위로 추정하지 않는다.
+
+검색과 Essence 특수 재료 첫 행·4행 스크롤은 유지한다. 필터로 숨은 재료도 기존 즐겨찾기·장착·저장 기록에서 삭제하지 않는다. 알려진 베이스의 자격 메타데이터를 받기 전에는 목록을 임의로 줄이지 않는다.

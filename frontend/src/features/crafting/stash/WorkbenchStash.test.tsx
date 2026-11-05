@@ -531,3 +531,64 @@ describe('right-hand controlled workbench stash', () => {
     ).toHaveLength(4)
   })
 })
+
+it('filters a selected base, preserves search and restores the all-material list when cleared', () => {
+  const callbacks = props({ activeTab: 'Essence' })
+  const view = render(<StashSurface {...callbacks} />)
+  const list = document.querySelector('.workbench-stash__resources')!
+  expect(list.querySelectorAll('button')).toHaveLength(42)
+  view.rerender(
+    <StashSurface
+      {...callbacks}
+      baseItemId="Metadata/Items/Amulets/FourAmulet9"
+      baseMaterialActions={['GREATER_ESSENCE_BODY']}
+    />,
+  )
+  expect(list.querySelectorAll('button')).toHaveLength(1)
+  expect(
+    screen.getByRole('button', { name: 'Greater Essence of the Body' }),
+  ).toBeVisible()
+  expect(screen.queryByRole('group', { name: 'Special essences' })).toBeNull()
+  fireEvent.change(screen.getByRole('searchbox'), {
+    target: { value: 'nonexistent' },
+  })
+  expect(screen.getByText('No materials found')).toBeVisible()
+  view.rerender(
+    <StashSurface
+      {...callbacks}
+      baseItemId="Metadata/Items/Jewels/JewelStr"
+      baseMaterialActions={[]}
+    />,
+  )
+  expect(screen.getByRole('searchbox')).toHaveValue('nonexistent')
+  fireEvent.change(screen.getByRole('searchbox'), { target: { value: '' } })
+  expect(list.querySelectorAll('button')).toHaveLength(0)
+  view.rerender(<StashSurface {...callbacks} />)
+  expect(list.querySelectorAll('button')).toHaveLength(42)
+  expect(screen.getAllByRole('button', { name: /Favorite slot/ })).toHaveLength(
+    10,
+  )
+})
+
+it('keeps an existing favorite while its material is hidden for the selected base', () => {
+  const callbacks = props({
+    activeTab: 'Augments',
+    baseItemId: 'Metadata/Items/Amulets/FourAmulet9',
+    baseMaterialActions: [],
+    favorites: [resource('Perfect_Desert_Rune')],
+  })
+  render(<StashSurface {...callbacks} />)
+  expect(
+    document
+      .querySelector('.workbench-stash__resources')!
+      .querySelectorAll('button'),
+  ).toHaveLength(0)
+  expect(favorite(0)).toHaveAccessibleName(
+    'Favorite slot 1: Perfect Desert Rune',
+  )
+  fireEvent.click(favorite(0))
+  expect(callbacks.onFavoriteActivate).toHaveBeenCalledWith(
+    0,
+    resource('Perfect_Desert_Rune'),
+  )
+})

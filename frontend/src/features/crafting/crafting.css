@@ -1334,21 +1334,29 @@ dialog.item-input-panel::backdrop {
   outline-offset: -2px;
 }
 
-/* Shared header: brand, workspace navigation and language selector. */
+/* Navigation sits directly on the shared header border. */
 .craft-header {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 20px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px 14px;
+  padding-bottom: 0;
 }
 .craft-brand,
 .craft-brand > span:last-child {
   min-width: 0;
 }
+.craft-header .chaos-repeat-language-lock,
+.craft-header > .locale-selector {
+  grid-column: 2;
+  grid-row: 1;
+}
 .craft-header .workspace-nav {
+  grid-column: 1 / -1;
+  grid-row: 2;
   min-width: 0;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-wrap: nowrap;
   padding: 0;
   border: 0;
   gap: 12px;
@@ -1358,42 +1366,35 @@ dialog.item-input-panel::backdrop {
 .craft-header .workspace-nav [role='tablist'] {
   min-width: 0;
   flex-wrap: nowrap;
-  gap: 4px;
+  gap: 6px;
 }
 .craft-header .workspace-nav button,
 .craft-header .workspace-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-width: 0;
-  padding: 10px 14px;
-  border-radius: 6px;
+  padding: 16px 24px;
+  font-size: 18px;
+  border-radius: 7px 7px 0 0;
   text-align: center;
   overflow-wrap: anywhere;
 }
 .craft-header .workspace-admin {
-  margin-left: 0;
-  background: transparent;
+  margin-left: auto;
+  flex: none;
 }
 @media (max-width: 800px) {
   .craft-header {
-    grid-template-columns: minmax(0, 1fr) auto;
     gap: 14px 10px;
   }
   .craft-header .workspace-nav {
-    grid-row: 2;
-    grid-column: 1 / -1;
-    justify-content: space-between;
     gap: 6px;
   }
-  .craft-header .workspace-nav [role='tablist'] {
-    flex: 1;
-  }
-  .craft-header .workspace-nav button {
-    flex: 1;
-    padding: 10px 8px;
-  }
-  .craft-header .chaos-repeat-language-lock,
-  .craft-header > .locale-selector {
-    grid-column: 2;
-    grid-row: 1;
+  .craft-header .workspace-nav button,
+  .craft-header .workspace-nav a {
+    padding: 14px 10px;
+    font-size: 16px;
   }
   .craft-brand {
     gap: 10px;

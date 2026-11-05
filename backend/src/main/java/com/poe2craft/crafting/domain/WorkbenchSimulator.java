@@ -192,6 +192,32 @@ public final class WorkbenchSimulator {
     return apply(state, WorkbenchCurrency.valueOf(action.name()), Set.of(), random);
   }
 
+  /** Base/catalog eligibility only: no rarity, rolls, socket count, or active omens. */
+  public List<WorkbenchCurrency> baseMaterialActions() {
+    String base = catalog.base().id();
+    return Arrays.stream(WorkbenchCurrency.values())
+        .filter(
+            action -> {
+              if (action.catalystType() != null) {
+                return action.refinedCatalyst()
+                    ? BaseRegistry.refinedCatalyst(base)
+                    : BaseRegistry.ordinaryCatalyst(base);
+              }
+              if (action.isLiquid()) {
+                return BasicJewel.supportedCrafting(base) && !replacementTargets(action).isEmpty();
+              }
+              if (BasicJewel.supportedCrafting(base)
+                  || (!action.name().contains("ESSENCE_") && !action.isAlloy())) return false;
+              var targets =
+                  java.util.stream.Stream.concat(
+                          essenceTargets(action).stream(), replacementTargets(action).stream())
+                      .toList();
+              return !targets.isEmpty()
+                  && targets.stream().allMatch(id -> catalog.find(id).isPresent());
+            })
+        .toList();
+  }
+
   public List<Availability> actions(ItemState state, Set<String> activeOmens) {
     validate(state);
     var omens = parseOmens(activeOmens);

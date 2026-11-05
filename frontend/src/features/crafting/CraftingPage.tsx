@@ -1335,6 +1335,16 @@ export function CraftingPage() {
   const concrete = storedFrame
     ? restoredState
     : (workbench.data?.state ?? mapping.data?.state)
+  const stashBaseId =
+    storedFrame?.state.baseItemId ??
+    concrete?.baseItemId ??
+    (draft.source === 'text' && importedBase
+      ? initial.data?.state.baseItemId
+      : undefined)
+  const stashBaseActions =
+    initial.data?.state.baseItemId === stashBaseId
+      ? initial.data?.baseMaterialActions
+      : undefined
   const craftEvidence =
     storedFrame && initial.data
       ? verifiedFrameEvidence(storedFrame, initial.data)
@@ -2013,6 +2023,8 @@ export function CraftingPage() {
                       fixedCurrencyIds={fixedCurrencies.map(
                         (currency) => currency.id,
                       )}
+                      baseItemId={stashBaseId}
+                      baseMaterialActions={stashBaseActions}
                       resources={stashResources}
                       excludedIds={excludedResourceIds}
                       activeTab={activeTab}

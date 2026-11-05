@@ -404,7 +404,8 @@ public final class WorkbenchService {
         QualityLimitRules.describe(state, catalog),
         BaseRegistry.socketExecutionMaximum(catalog.base().id()) != null ? 0 : null,
         catalog.base(),
-        QualityCurrencyRules.equipment(state.baseItemId()) ? 0 : null);
+        QualityCurrencyRules.equipment(state.baseItemId()) ? 0 : null,
+        simulator(state).baseMaterialActions());
   }
 
   public ItemCatalog abyssCatalog(ItemState state) {
@@ -637,5 +638,6 @@ public final class WorkbenchService {
       QualityLimitRules.Limit qualityLimit,
       Integer augmentSockets,
       ItemCatalog.BaseItem baseRules,
-      Integer equipmentQuality) {}
+      Integer equipmentQuality,
+      List<WorkbenchCurrency> baseMaterialActions) {}
 }

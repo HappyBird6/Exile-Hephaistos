@@ -8,12 +8,15 @@ import { visibilityPolicy } from './visibilityPolicy'
 import type { WorkbenchResource, WorkbenchStashProps } from './stashTypes'
 import { stashDragType } from './stashDragType'
 import { matchesMaterial } from './materialSearch'
+import { supportsBaseMaterial } from './baseMaterialPolicy'
 import './workbenchStash.css'
 import '../workbench-scrollbar.css'
 
 /** Controlled right panel; the page owns the single category state/tablist. */
 export function WorkbenchStash({
   resources,
+  baseItemId,
+  baseMaterialActions,
   excludedIds = [],
   activeTab,
   tabs,
@@ -34,7 +37,9 @@ export function WorkbenchStash({
   const fixedCurrencies = new Set(fixedCurrencyIds)
   const search = searches[activeTab] ?? ''
   const available = (resource: WorkbenchResource) =>
-    !excluded.has(resource.id) && visibilityPolicy(resource)
+    !excluded.has(resource.id) &&
+    visibilityPolicy(resource) &&
+    supportsBaseMaterial(resource, baseItemId, baseMaterialActions)
   const matches = (resource: WorkbenchResource) =>
     available(resource) && matchesMaterial(resource, search, locale)
   const visible = resources.filter(

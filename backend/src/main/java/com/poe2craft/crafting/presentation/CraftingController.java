@@ -2,9 +2,11 @@ package com.poe2craft.crafting.presentation;
 
 import com.poe2craft.crafting.application.GraphExplorer;
 import com.poe2craft.crafting.application.TransitionCache;
+import com.poe2craft.crafting.application.WorkbenchService;
 import com.poe2craft.crafting.domain.CraftingAction;
 import com.poe2craft.crafting.domain.CraftingEngine;
 import com.poe2craft.crafting.domain.StateBucket;
+import com.poe2craft.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.item.ItemCatalog;
 import com.poe2craft.item.ModifierDefinition;
 import com.poe2craft.item.SolarAmulet;
@@ -19,16 +21,19 @@ public final class CraftingController {
   private final CraftingEngine engine;
   private final TransitionCache transitions;
   private final GraphExplorer explorer;
+  private final WorkbenchService workbench;
 
   public CraftingController(
       ItemCatalog catalog,
       CraftingEngine engine,
       TransitionCache transitions,
-      GraphExplorer explorer) {
+      GraphExplorer explorer,
+      WorkbenchService workbench) {
     this.catalog = catalog;
     this.engine = engine;
     this.transitions = transitions;
     this.explorer = explorer;
+    this.workbench = workbench;
   }
 
   public Initial initial(int itemLevel) {
@@ -50,7 +55,8 @@ public final class CraftingController {
         displayCatalog.modifiers(),
         engine.actions(bucket),
         catalog.compatibleSnapshotIds(),
-        catalog.base());
+        catalog.base(),
+        workbench.initial("solar", itemLevel, manualReveal).baseMaterialActions());
   }
 
   @PostMapping("/actions")
@@ -87,7 +93,8 @@ public final class CraftingController {
       Map<String, ModifierDefinition> modifiers,
       List<CraftingEngine.Availability> actions,
       List<String> compatibleSnapshotIds,
-      ItemCatalog.BaseItem baseRules) {}
+      ItemCatalog.BaseItem baseRules,
+      List<WorkbenchCurrency> baseMaterialActions) {}
 
   public record TransitionRequest(StateBucket state, CraftingAction action) {}
 

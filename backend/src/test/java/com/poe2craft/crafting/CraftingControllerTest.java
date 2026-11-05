@@ -51,7 +51,11 @@ class CraftingControllerTest {
         .andExpect(jsonPath("$.baseRules.rarePrefixes").value(catalog.base().rarePrefixes()))
         .andExpect(jsonPath("$.baseRules.rareSuffixes").value(catalog.base().rareSuffixes()))
         .andExpect(jsonPath("$.metadata.prefixCount").value(85))
-        .andExpect(jsonPath("$.actions.length()").value(6));
+        .andExpect(jsonPath("$.actions.length()").value(6))
+        .andExpect(jsonPath("$.baseMaterialActions").isArray())
+        .andExpect(
+            jsonPath("$.baseMaterialActions")
+                .value(org.hamcrest.Matchers.hasItem("CATALYST_FLESH")));
     var root = StateBucket.from(SolarAmulet.initial(catalog));
     mvc.perform(
             post("/api/v1/crafting/transitions")
