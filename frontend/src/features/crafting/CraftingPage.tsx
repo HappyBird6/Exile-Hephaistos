@@ -1834,85 +1834,104 @@ export function CraftingPage() {
                       {t('ui.new_craft')}
                     </button>
                   </div>
-                  <WorkbenchStash
-                    tabs={
-                      <>
+                  <div className="workbench-stash-column">
+                    <WorkbenchStash
+                      tabs={
+                        <>
+                          <div
+                            role="tablist"
+                            aria-label={t('ui.material_stash_tabs')}
+                            className="material-tabs"
+                          >
+                            {materialTabs.map((tab, index) => (
+                              <button
+                                key={tab.id}
+                                type="button"
+                                role="tab"
+                                id={`tab-${tab.id}`}
+                                aria-selected={activeTab === tab.id}
+                                aria-controls="material-list"
+                                tabIndex={activeTab === tab.id ? 0 : -1}
+                                disabled={workbenchBusy}
+                                onClick={() => {
+                                  if (!mutationLocked()) setActiveTab(tab.id)
+                                }}
+                                onKeyDown={(event) => {
+                                  if (mutationLocked()) return
+                                  const next =
+                                    event.key === 'ArrowRight'
+                                      ? (index + 1) % materialTabs.length
+                                      : event.key === 'ArrowLeft'
+                                        ? (index + materialTabs.length - 1) %
+                                          materialTabs.length
+                                        : event.key === 'Home'
+                                          ? 0
+                                          : event.key === 'End'
+                                            ? materialTabs.length - 1
+                                            : null
+                                  if (next === null) return
+                                  event.preventDefault()
+                                  const target = materialTabs[next]!
+                                  setActiveTab(target.id)
+                                  document
+                                    .getElementById(`tab-${target.id}`)
+                                    ?.focus()
+                                }}
+                              >
+                                {t(`stash.${tab.id}`)}
+                              </button>
+                            ))}
+                          </div>
+                        </>
+                      }
+                      fixedCurrencyIds={fixedCurrencies.map(
+                        (currency) => currency.id,
+                      )}
+                      resources={stashResources}
+                      excludedIds={excludedResourceIds}
+                      activeTab={activeTab}
+                      selectedId={selected?.id ?? null}
+                      activeOmenIds={draft.activeOmens}
+                      held={held}
+                      disabled={workbenchBusy}
+                      onActivateOmen={(resource) => toggleOmen(resource.id)}
+                      onSelect={(resource, pointer) => {
+                        if (mutationLocked()) return
+                        setPointer(pointer ?? null)
+                        choose(resource)
+                      }}
+                      onPickUp={(resource, pointer) => {
+                        if (mutationLocked()) return
+                        setFailedApplication(null)
+                        setRepeatNotice(null)
+                        setPointer(pointer ?? null)
+                        setHeld(resource)
+                        setSelected(null)
+                        setAnnouncement(
+                          t('material.picked', {
+                            name: name(resource.id, resource.name),
+                          }),
+                        )
+                      }}
+                    />
+                    <div className="workbench-feedback-region wb-scrollbar">
+                      {(applicationFailure || repeatSuccess) && (
                         <div
-                          role="tablist"
-                          aria-label={t('ui.material_stash_tabs')}
-                          className="material-tabs"
+                          className="workbench-feedback-panel wb-scrollbar"
+                          tabIndex={0}
+                          role={applicationFailure ? 'alert' : 'status'}
+                          aria-label={t('ui.crafting_notes')}
                         >
-                          {materialTabs.map((tab, index) => (
-                            <button
-                              key={tab.id}
-                              type="button"
-                              role="tab"
-                              id={`tab-${tab.id}`}
-                              aria-selected={activeTab === tab.id}
-                              aria-controls="material-list"
-                              tabIndex={activeTab === tab.id ? 0 : -1}
-                              disabled={workbenchBusy}
-                              onClick={() => {
-                                if (!mutationLocked()) setActiveTab(tab.id)
-                              }}
-                              onKeyDown={(event) => {
-                                if (mutationLocked()) return
-                                const next =
-                                  event.key === 'ArrowRight'
-                                    ? (index + 1) % materialTabs.length
-                                    : event.key === 'ArrowLeft'
-                                      ? (index + materialTabs.length - 1) %
-                                        materialTabs.length
-                                      : event.key === 'Home'
-                                        ? 0
-                                        : event.key === 'End'
-                                          ? materialTabs.length - 1
-                                          : null
-                                if (next === null) return
-                                event.preventDefault()
-                                const target = materialTabs[next]!
-                                setActiveTab(target.id)
-                                document
-                                  .getElementById(`tab-${target.id}`)
-                                  ?.focus()
-                              }}
-                            >
-                              {t(`stash.${tab.id}`)}
-                            </button>
-                          ))}
+                          <p className="workbench-feedback">
+                            {applicationFailure
+                              ? serviceText(applicationFailure)
+                              : repeatSuccess}
+                          </p>
                         </div>
-                      </>
-                    }
-                    fixedCurrencyIds={fixedCurrencies.map(
-                      (currency) => currency.id,
-                    )}
-                    resources={stashResources}
-                    excludedIds={excludedResourceIds}
-                    activeTab={activeTab}
-                    selectedId={selected?.id ?? null}
-                    activeOmenIds={draft.activeOmens}
-                    held={held}
-                    disabled={workbenchBusy}
-                    onActivateOmen={(resource) => toggleOmen(resource.id)}
-                    onSelect={(resource, pointer) => {
-                      if (mutationLocked()) return
-                      setPointer(pointer ?? null)
-                      choose(resource)
-                    }}
-                    onPickUp={(resource, pointer) => {
-                      if (mutationLocked()) return
-                      setFailedApplication(null)
-                      setRepeatNotice(null)
-                      setPointer(pointer ?? null)
-                      setHeld(resource)
-                      setSelected(null)
-                      setAnnouncement(
-                        t('material.picked', {
-                          name: name(resource.id, resource.name),
-                        }),
-                      )
-                    }}
-                  />
+                      )}
+                      <FeedbackTooltipOutlet />
+                    </div>
+                  </div>
                   <WorkbenchFavorites
                     excludedIds={excludedResourceIds}
                     selectedId={selected?.id ?? null}
@@ -2209,23 +2228,6 @@ export function CraftingPage() {
                 onNavigate={browse}
                 disabled={workbenchBusy}
               />
-              <div className="workbench-feedback-region wb-scrollbar">
-                {(applicationFailure || repeatSuccess) && (
-                  <div
-                    className="workbench-feedback-panel wb-scrollbar"
-                    tabIndex={0}
-                    role={applicationFailure ? 'alert' : 'status'}
-                    aria-label={t('ui.crafting_notes')}
-                  >
-                    <p className="workbench-feedback">
-                      {applicationFailure
-                        ? serviceText(applicationFailure)
-                        : repeatSuccess}
-                    </p>
-                  </div>
-                )}
-                <FeedbackTooltipOutlet />
-              </div>
             </div>
           </div>
           <WorkbenchBasePicker

@@ -49,7 +49,7 @@ function useCurrency(name: string) {
     }),
   )
 }
-it('places notation between the card and feedback and prioritizes the selected currency until Escape', async () => {
+it('places notation below the card and feedback below the stash and prioritizes the selected currency until Escape', async () => {
   show()
   useCurrency('Orb of Transmutation')
   const icon = await within(notation()).findByRole('img', {
@@ -72,7 +72,10 @@ it('places notation between the card and feedback and prioritizes the selected c
   const panel = document.querySelector('.workbench-feedback-panel')!
   expect(panel.parentElement).toHaveClass('workbench-feedback-region')
   expect(notation().previousElementSibling).toHaveClass('bench-item-card')
-  expect(notation().nextElementSibling).toBe(panel.parentElement)
+  expect(notation().nextElementSibling).toBeNull()
+  expect(panel.parentElement?.previousElementSibling).toHaveClass(
+    'workbench-stash',
+  )
   expect(panel.parentElement?.nextElementSibling).toBeNull()
   expect(localStorage.getItem(historyStorageKey)).toBe(before)
   expect(within(notation()).getAllByRole('listitem')).toHaveLength(1)

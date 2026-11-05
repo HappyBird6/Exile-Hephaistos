@@ -26,7 +26,8 @@
   font: inherit;
 }
 .chaos-repeat-controls__pattern {
-  flex: 1 1 12rem;
+  flex: 1 1 0;
+  height: 37.275px;
 }
 .chaos-repeat-controls__pattern::placeholder {
   color: #a49c87;
@@ -39,6 +40,8 @@
   flex-wrap: wrap;
   gap: 4px;
   cursor: pointer;
+  height: 41.6px;
+  flex: none;
 }
 .chaos-repeat-controls__use[aria-pressed='false']
   .chaos-repeat-controls__image {

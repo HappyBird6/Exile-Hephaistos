@@ -21,12 +21,12 @@ const grid = rule(stashCss, '.stash-canvas__content')
 const tracks = [
   ...grid.match(/grid-template-columns:([^;]+)/)![1]!.matchAll(/([0-9]+)fr/g),
 ].map((match) => Number(match[1]))
-const topMargin = rule(stashCss, '.workbench-stash').match(
+const topMargin = rule(stashCss, '.workbench-stash-column').match(
   /margin-top: calc\(([0-9]+) \/ ([0-9]+)/,
 )!
 const extraGap = Number(
   rule(stashCss, '.stash-canvas__content::after').match(
-    /margin-bottom: ([0-9]+)px/,
+    /margin-bottom: ([0-9]+)(?:px)?/,
   )![1],
 )
 const bottomPadding = Number(
@@ -37,7 +37,7 @@ const bottomPadding = Number(
 
 describe('aligned composition at 75 percent', () => {
   it('keeps catalog content out of external track sizing without a fixed panel height at any breakpoint', () => {
-    const panel = rule(stashCss, '.workbench-stash')
+    const panel = rule(stashCss, '.workbench-stash-column')
     expect(panel).toContain('contain: size')
     expect(panel).toContain('align-self: stretch')
     expect(panel).toContain('grid-row: 1 / 4')
@@ -63,7 +63,9 @@ describe('aligned composition at 75 percent', () => {
     expect(rule(stashCss, '.stash-canvas__upper')).toContain(
       'aspect-ratio: 935 / 550',
     )
-    expect(rule(stashCss, '.workbench-stash')).toContain('grid-row: 1 / 4')
+    expect(rule(stashCss, '.workbench-stash-column')).toContain(
+      'grid-row: 1 / 4',
+    )
     expect(rule(stashCss, '.workbench-stash__favorites')).toContain(
       'grid-row: 3',
     )
@@ -92,14 +94,14 @@ describe('aligned composition at 75 percent', () => {
         )
         expect(lowerTop + slot).toBeLessThanOrEqual(lowerBottom - slot)
         // Favorites, controls and the spanning stash have the same bottom;
-        // 36px also equals the existing right padding + feedback bottom margin.
+        // 24px also equals the right column padding.
         expect(lowerBottom + bottomPadding).toBeCloseTo(rightHeight)
         expect(lowerBottom - slot).toBeGreaterThan(514 * scale)
         expect((649 - 626) * scale).toBeGreaterThan(0)
       }
     }
-    expect(extraGap).toBe(200 - 144)
-    expect(bottomPadding).toBe(24 + 12)
+    expect(extraGap).toBe(0)
+    expect(bottomPadding).toBe(24)
     expect(
       rule(
         stashCss,
@@ -126,12 +128,21 @@ describe('aligned composition at 75 percent', () => {
   it('preserves zoom, card expansion, responsive stacking and the bounded feedback and History surfaces', () => {
     expect(css).toContain('zoom: 0.75')
     expect(css).toContain('width: min(100vw, 1800px)')
-    expect(css).toContain('width: calc(100vw / 0.75)')
+    expect(css).toContain('width: auto')
     expect(css).toContain('minmax(280px, 374px)')
     expect(374 / 340).toBeCloseTo(1.1)
     expect(css).toContain('@media (max-width: 1000px)')
     expect(css).toContain('min-height: 208px')
-    expect(rule(css, '.workbench-feedback-region')).toContain('height: 200px')
+    expect(rule(css, '.workbench-feedback-region')).toContain('flex: 1')
+    expect(rule(stashCss, '.workbench-stash__resources')).toContain(
+      '4 * var(--stash-row-height) + 15px',
+    )
+    expect(rule(css, '.craft-page--workbench .wb-session-notation')).toContain(
+      'flex: 1',
+    )
+    expect(
+      rule(css, '.craft-page--workbench .wb-session-notation__steps'),
+    ).toContain('max-height: none')
     expect(css).toContain('max-height: 50%')
     expect(
       readFileSync(

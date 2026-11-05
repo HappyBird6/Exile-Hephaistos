@@ -75,19 +75,19 @@ it('shows only a failed-use reason, preserves history and clears it on a new sel
     '.workbench-feedback-region',
   )!
   const history = region.previousElementSibling
-  expect(history).toHaveClass('wb-session-notation')
+  expect(history).toHaveClass('workbench-stash')
   expect(region.nextElementSibling).toBeNull()
-  expect(getComputedStyle(region).height).toBe('200px')
+  expect(getComputedStyle(region).flex).toBe('1 1 0%')
   style.remove()
   const before = localStorage.getItem(historyStorageKey)
   useItemDraft.getState().setActiveOmens(['Omen_of_Whittling'])
   apply('Orb of Annulment')
   await waitFor(() => expect(panel()).toHaveAttribute('role', 'alert'))
   expect(panel()?.textContent?.trim()).not.toBe('')
-  expect(document.querySelector('.bench-lower')).toContainElement(panel())
+  expect(document.querySelector('.bench-lower')).not.toContainElement(panel())
   expect(
     document.querySelector('.stash-viewport .workbench-feedback-panel'),
-  ).toBeNull()
+  ).toBe(panel())
   expect(localStorage.getItem(historyStorageKey)).toBe(before)
   expect(useItemDraft.getState().activeOmens).toEqual(['Omen_of_Whittling'])
   expect(panel()).not.toHaveTextContent(/unchanged|preserved/)

@@ -4,15 +4,29 @@
   align-self: start;
   position: relative;
   min-width: 0;
-  padding-block: 8px;
+  /* End at x283: the right edge of the Perfect Chaos slot. */
+  width: calc(254 / 597 * 100%);
+  margin-top: calc(-24 / 597 * 100%);
+  padding-block: 2px 8px;
   z-index: 1;
 }
 .chaos-repeat-integration .chaos-repeat-controls {
   font-size: 12px;
+  gap: 4px;
+  flex-wrap: nowrap;
 }
 .chaos-repeat-language-lock {
   border: 0;
   padding: 0;
   margin: 0;
   min-width: 0;
+}
+
+@media (max-width: 600px) {
+  .chaos-repeat-integration .chaos-repeat-controls {
+    flex-wrap: wrap;
+  }
+  .chaos-repeat-integration .chaos-repeat-controls__pattern {
+    flex-basis: 100%;
+  }
 }

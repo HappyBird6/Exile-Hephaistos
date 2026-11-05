@@ -31,6 +31,9 @@ it.each(locales)(
     expect(screen.getAllByRole('button')).toHaveLength(1)
     expect(screen.getAllByRole('textbox')).toHaveLength(1)
     expect(screen.getByRole('button')).toHaveTextContent('1000 x')
+    expect(
+      screen.getByText(chaosRepeatControlMessages[locale].use),
+    ).toHaveClass('sr-only')
     expect(screen.getByRole('button')).toHaveAttribute('aria-pressed', 'false')
     expect(screen.getByRole('textbox')).toHaveAttribute(
       'placeholder',

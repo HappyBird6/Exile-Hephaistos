@@ -21,8 +21,7 @@
   aspect-ratio: auto;
   flex: 1 0 auto;
   display: flex;
-  /* Match the right column: 24px padding + 12px feedback bottom margin. */
-  padding-bottom: 36px;
+  padding-bottom: 24px;
 }
 .stash-canvas__content .currency-slot {
   box-sizing: border-box;
@@ -55,7 +54,7 @@
    of already-reduced content width. On phones use the available width. */
 @media (max-width: 1000px) {
   .craft-page--workbench {
-    width: calc(100vw / 0.75);
+    width: auto;
   }
   .craft-page--workbench .stash-board {
     grid-template-columns: minmax(0, 1fr);
@@ -66,13 +65,12 @@
   }
 }
 
-/* Keep a fixed feedback area after History, including when no failure is shown. */
+/* Feedback occupies the space below the four-row material stash. */
 .workbench-feedback-region {
   box-sizing: border-box;
-  height: 200px;
-  min-height: 200px;
-  max-height: 200px;
-  margin-block: 12px;
+  flex: 1;
+  min-height: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -127,4 +125,26 @@
     /* The shared lower track grows; favorite slots retain their square shape. */
     min-height: 208px;
   }
+}
+
+.craft-page--workbench .bench-lower {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+.craft-page--workbench .bench-item-card {
+  flex: none;
+}
+.craft-page--workbench .wb-session-notation {
+  flex: 1;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+.craft-page--workbench .wb-session-notation__steps {
+  flex: 1 1 0;
+  min-height: 0;
+  max-height: none;
+  align-content: start;
+  grid-auto-rows: max-content;
 }

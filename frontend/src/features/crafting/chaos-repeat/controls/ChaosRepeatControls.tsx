@@ -59,7 +59,7 @@ export function ChaosRepeatControls({
         {running && (
           <span className="chaos-repeat-controls__spinner" aria-hidden="true" />
         )}
-        <span aria-live="polite">
+        <span className="sr-only" aria-live="polite">
           {running ? messages.running : messages.use}
         </span>
       </button>

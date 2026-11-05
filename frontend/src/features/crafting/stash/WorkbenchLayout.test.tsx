@@ -52,7 +52,7 @@ function ruleStyle(selector: string) {
 describe('single canvas category selector and favorites inside the coordinate plane', () => {
   it('retains the size-containment and internal overflow contract across real large catalogs, filtering and tab changes', () => {
     show()
-    const stash = document.querySelector('.workbench-stash')!
+    const stash = document.querySelector('.workbench-stash-column')!
     const list = stash.querySelector('.workbench-stash__resources')!
     const panel = stash.querySelector('.workbench-stash__panel')!
     const canvas = document.querySelector('.stash-canvas__content')!
@@ -113,8 +113,8 @@ describe('single canvas category selector and favorites inside the coordinate pl
     // catalog mutations, not fabricated scrollHeight/clientHeight measurements.
     expect(
       getComputedStyle(document.querySelector('.workbench-feedback-region')!)
-        .height,
-    ).toBe('200px')
+        .flex,
+    ).toBe('1 1 0%')
     expect(canvas.querySelectorAll('.workbench-stash__favorite')).toHaveLength(
       10,
     )
@@ -377,7 +377,8 @@ describe('single canvas category selector and favorites inside the coordinate pl
           .aspectRatio,
       ),
     ).toBe('935/550')
-    expect(getComputedStyle(right).position).toBe('relative')
+    expect(getComputedStyle(right.parentElement!).position).toBe('relative')
+    expect(right.parentElement).toHaveClass('workbench-stash-column')
     expect(
       getComputedStyle(document.querySelector('.stash-viewport')!).overflowX,
     ).toBe('clip')
@@ -388,7 +389,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
     (locale) => {
       setLocale(locale)
       show()
-      const stash = document.querySelector('.workbench-stash')!
+      const stash = document.querySelector('.workbench-stash-column')!
       expect(getComputedStyle(stash).getPropertyValue('contain')).toBe('size')
       expect(
         within(stash as HTMLElement).getByRole('searchbox'),
@@ -524,7 +525,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
     const content = document.querySelector('.stash-canvas__content')!
     const favorites = document.querySelector('.workbench-stash__favorites')!
     const controls = document.querySelector('.workbench-item-controls')!
-    const stash = document.querySelector('.workbench-stash')!
+    const stash = document.querySelector('.workbench-stash-column')!
     expect(getComputedStyle(viewport).alignSelf).toBe('stretch')
     expect(getComputedStyle(viewport).display).toBe('flex')
     expect(getComputedStyle(content).display).toBe('grid')
@@ -540,7 +541,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
           'padding-bottom',
         ),
       ),
-    ).toBe('36px')
+    ).toBe('24px')
     expect(
       compact(
         ruleStyle(
@@ -562,7 +563,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
     ).toBe('208px')
     expect(
       getComputedStyle(document.querySelector('.workbench-feedback-region')!)
-        .height,
-    ).toBe('200px')
+        .flex,
+    ).toBe('1 1 0%')
   })
 })

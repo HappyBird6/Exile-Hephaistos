@@ -1,13 +1,21 @@
-.workbench-stash {
+.workbench-stash-column {
   position: relative;
   grid-column: 6;
   grid-row: 1 / 4;
   align-self: stretch;
-  /* The canvas tracks size this panel; catalog contents must not grow them. */
+  /* Catalog and feedback share the space beside the fixed currency plane. */
   contain: size;
   /* 40 of the original 935-wide upper plane, resolved from this 257-wide track. */
   margin-top: calc(40 / 257 * 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  min-height: 0;
+}
+.workbench-stash {
   box-sizing: border-box;
+  flex: none;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -19,7 +27,7 @@
   padding: 7px;
 }
 .workbench-stash__panel {
-  flex: 1;
+  container-type: inline-size;
   min-height: 0;
   display: flex;
   flex-direction: column;
@@ -38,7 +46,11 @@
   font-size: 12px;
 }
 .workbench-stash__resources {
-  flex: 1;
+  /* Four rows, including three 5px gaps; later rows remain scrollable. */
+  --stash-row-height: calc((100cqi - 12px) / 4);
+  height: calc(4 * var(--stash-row-height) + 15px);
+  flex: none;
+  grid-auto-rows: var(--stash-row-height);
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -74,6 +86,8 @@
 }
 .workbench-stash__image {
   width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
 }
 .workbench-stash img,
 .workbench-stash__favorites img {
@@ -91,6 +105,8 @@
 }
 .workbench-stash__favorites {
   position: relative;
+  width: 100%;
+  min-width: 0;
   grid-column: 2;
   grid-row: 3;
   align-self: stretch;
@@ -183,8 +199,7 @@
   grid-row: 2;
   width: 100%;
   aspect-ratio: 935 / 20;
-  /* Feedback grows from 144 to 200 in the same pre-zoom CSS coordinates. */
-  margin-bottom: 56px;
+  margin-bottom: 0;
 }
 .workbench-stash__tabs .material-tabs {
   display: grid;
