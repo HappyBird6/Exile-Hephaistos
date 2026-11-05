@@ -12,7 +12,7 @@
     "backend/src/main/resources/catalog/adherent-cuffs/catalog.json": "34aea0e8c097e1d2acd2f68131478249fe66364c45f9884059ebf7f32c036168",
     "backend/src/main/resources/catalog/solar-amulet/catalog.json": "5562c61495b012e67566417aaa60e0e2cb569ca28515a74e970ca0fd9a16dfe8",
     "frontend/package-lock.json": "113c8fd64f9b834e57cfdf84830c652df0166d3c2b69e3b6a7654eaa8042a8e8",
-    "frontend/src/features/crafting/CraftingPage.tsx": "c7323a4a3e2483c6365f889247d3870c499b10ebfbfeb88c4b8cb055e02630d8",
+    "frontend/src/features/crafting/CraftingPage.tsx": "749127f7da2fd6138c01579703a2d994ec49f4708c3a110dacd6ff578c4f301e",
     "frontend/src/features/crafting/ItemCard.tsx": "8561efc45204eb9f669bcfaada304c6bce67be54245585164a2ad27add2aa7e4",
     "frontend/src/features/crafting/basicJewel.ts": "de00f2b81af5ddaa15d99faf38ffbabc3fdd4aea96e02fedc5e8130ddd939c29",
     "frontend/src/features/crafting/catalystQuality.ts": "5bd676392b939bb00a9d8d630a5edacf225fb4e50cc10a951a46121f10a0f221",

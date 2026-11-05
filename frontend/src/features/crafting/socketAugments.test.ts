@@ -6,6 +6,7 @@ import {
   installAugment,
   selectableAugments,
   isSelectableAugment,
+  canInstallAugment,
 } from './socketAugments'
 import {
   initialFixture,
@@ -24,8 +25,66 @@ const initial = {
   },
 }
 const state = { ...concreteInitial(initial), augmentSockets: 2 }
+it('enforces ordinary limited Idols and shared Ancient limits for the actual replacement slot', async () => {
+  const limited = {
+    ...state,
+    installedAugments: [{ slotIndex: 0, augmentId: 'Idol_of_Sirrius' }],
+  }
+  expect(canInstallAugment(limited, 'Idol_of_Sirrius', 0)).toBe(true)
+  expect(canInstallAugment(limited, 'Idol_of_Sirrius')).toBe(true)
+  expect(canInstallAugment(limited)).toBe(false)
+  expect(canInstallAugment(limited, 'Idol_of_Sirrius', 1)).toBe(false)
+  const eye = {
+    ...state,
+    installedAugments: [{ slotIndex: 0, augmentId: 'Tecrods_Gaze' }],
+  }
+  expect(canInstallAugment(eye, 'Kurgals_Gaze', 0)).toBe(true)
+  expect(canInstallAugment(eye, 'Kurgals_Gaze', 1)).toBe(false)
+  expect(
+    augmentShape({
+      ...eye,
+      installedAugments: [
+        ...eye.installedAugments,
+        { slotIndex: 1, augmentId: 'Kurgals_Gaze' },
+      ],
+    }),
+  ).toBe(false)
+  expect(
+    augmentShape({
+      ...eye,
+      installedAugments: [...eye.installedAugments, null],
+    }),
+  ).toBe(false)
+  const fetch = vi.fn()
+  vi.stubGlobal('fetch', fetch)
+  await expect(
+    installAugment(
+      eye,
+      1,
+      'Kurgals_Gaze',
+      initial.rulesetIdentity,
+      new AbortController().signal,
+    ),
+  ).rejects.toThrow()
+  expect(fetch).not.toHaveBeenCalled()
+  const unlimited = {
+    ...state,
+    installedAugments: [{ slotIndex: 0, augmentId: 'Snake_Idol' }],
+  }
+  expect(canInstallAugment(unlimited, 'Snake_Idol', 1)).toBe(true)
+  const old = {
+    ...state,
+    baseItemId: 'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2',
+    installedAugments: [0, 1].map((slotIndex) => ({
+      slotIndex,
+      augmentId: 'Soul_Core_of_Vizoma',
+    })),
+  }
+  expect(augmentShape(old)).toBe(true)
+  expect(canInstallAugment(old, 'Soul_Core_of_Vizoma', 0)).toBe(false)
+})
 it('registers all ordinary tiers and Soul Cores with sourced effects and six names', () => {
-  expect(augments).toHaveLength(79)
+  expect(augments).toHaveLength(277)
   expect(augments.filter((a) => a.id.startsWith('Soul_Core_of_'))).toHaveLength(
     16,
   )
@@ -36,6 +95,35 @@ it('registers all ordinary tiers and Soul Cores with sourced effects and six nam
   }
   expect(augmentEffect('Desert_Rune', state.baseItemId)).toContain('14')
   expect(augmentEffect('Perfect_Desert_Rune', state.baseItemId)).toContain('22')
+})
+it('preserves all original limited Soul Core states and enforces their limits on new installations', () => {
+  const bow = {
+    ...state,
+    baseItemId: 'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow8Endgame',
+  }
+  const legacyLimited = augments.filter((entry) => entry.legacyLimitExempt)
+  expect(legacyLimited).toHaveLength(9)
+  for (const entry of legacyLimited) {
+    const installedAugments = [0, 1].map((slotIndex) => ({
+      slotIndex,
+      augmentId: entry.id,
+    }))
+    expect(augmentShape({ ...bow, installedAugments })).toBe(true)
+    expect(
+      canInstallAugment(
+        { ...bow, installedAugments: installedAugments.slice(0, 1) },
+        entry.id,
+        1,
+      ),
+    ).toBe(false)
+    expect(
+      canInstallAugment(
+        { ...bow, installedAugments: installedAugments.slice(0, 1) },
+        entry.id,
+        0,
+      ),
+    ).toBe(true)
+  }
 })
 it('rejects malformed, duplicate, unknown and excess installed slots without erasing legacy unknown counts', () => {
   expect(
@@ -60,7 +148,7 @@ it('rejects malformed, duplicate, unknown and excess installed slots without era
   ).toBe(true)
 })
 it('limits reviewed four-tier families to Perfect while retaining Tempered, Soul Cores and old installed tiers', async () => {
-  expect(selectableAugments).toHaveLength(34)
+  expect(selectableAugments).toHaveLength(232)
   expect(
     selectableAugments.filter((a) => a.id.startsWith('Perfect_')),
   ).toHaveLength(15)

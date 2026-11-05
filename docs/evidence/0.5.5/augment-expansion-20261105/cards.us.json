@@ -1,0 +1,5518 @@
+[
+  {
+    "id": "Desert_Rune",
+    "name": "Desert Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 7 to 11 Fire Damage",
+      "Wand or Staff: Gain 8% of Damage as Extra Fire Damage",
+      "Armour: +14% to Fire Resistance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 30% increased Ignite Magnitude",
+      "Wand or Staff: 30% increased Ignite Magnitude",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRune.webp"
+  },
+  {
+    "id": "Glacial_Rune",
+    "name": "Glacial Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 6 to 10 Cold Damage",
+      "Wand or Staff: Gain 8% of Damage as Extra Cold Damage",
+      "Armour: +14% to Cold Resistance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 30% increased Freeze Buildup",
+      "Wand or Staff: 30% increased Freeze Buildup",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ColdRune.webp"
+  },
+  {
+    "id": "Storm_Rune",
+    "name": "Storm Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 1 to 20 Lightning Damage",
+      "Wand or Staff: Gain 8% of Damage as Extra Lightning Damage",
+      "Armour: +14% to Lightning Resistance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 30% increased Magnitude of Shock you inflict",
+      "Wand or Staff: 30% increased Magnitude of Shock you inflict",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRune.webp"
+  },
+  {
+    "id": "Iron_Rune",
+    "name": "Iron Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Martial Weapon: 16% increased Physical Damage",
+      "Wand or Staff: 25% increased Spell Damage",
+      "Armour: 16% increased Armour, Evasion and Energy Shield"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 20% increased effect of Fully Broken Armour",
+      "Wand or Staff: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/EnhanceRune.webp"
+  },
+  {
+    "id": "Body_Rune",
+    "name": "Body Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Martial Weapon: Leeches 4% of Physical Damage as Life",
+      "Wand or Staff: +40 to maximum Energy Shield",
+      "Armour: +45 to maximum Life"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 5% increased maximum Life",
+      "Wand or Staff: 5% increased maximum Life",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRune.webp"
+  },
+  {
+    "id": "Mind_Rune",
+    "name": "Mind Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Martial Weapon: Leeches 3% of Physical Damage as Mana",
+      "Wand or Staff: +60 to maximum Mana",
+      "Armour: +30 to maximum Mana"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 5% increased maximum Mana",
+      "Wand or Staff: 5% increased maximum Mana",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRune.webp"
+  },
+  {
+    "id": "Rebirth_Rune",
+    "name": "Rebirth Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Martial Weapon: Gain 25 Life per enemy killed",
+      "Wand or Staff: 8% increased Energy Shield Recharge Rate",
+      "Armour: Regenerate 0.4% of maximum Life per second"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Regenerate 0.4% of maximum Life per second",
+      "Wand or Staff: 8% of Damage taken Recouped as Life",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRecoveryRune.webp"
+  },
+  {
+    "id": "Inspiration_Rune",
+    "name": "Inspiration Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Martial Weapon: Gain 20 Mana per enemy killed",
+      "Wand or Staff: 25% increased Mana Regeneration Rate",
+      "Armour: 15% increased Mana Regeneration Rate"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 12% of Skill Mana Costs Converted to Life Costs",
+      "Wand or Staff: 16% increased Mana Cost Efficiency",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRecoveryRune.webp"
+  },
+  {
+    "id": "Stone_Rune",
+    "name": "Stone Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Martial Weapon: Causes 30% increased Stun Buildup",
+      "Wand or Staff: Gain additional Stun Threshold equal to 12% of maximum Energy Shield",
+      "Armour: +75 to Stun Threshold"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 40% increased Damage against Immobilised Enemies",
+      "Wand or Staff: 30% increased Immobilisation buildup",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StunRune.webp"
+  },
+  {
+    "id": "Vision_Rune",
+    "name": "Vision Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Martial Weapon: +90 to Accuracy Rating",
+      "Wand or Staff: 20% increased Critical Hit Chance for Spells",
+      "Armour: 12% increased Life and Mana Recovery from Flasks"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Attacks have +1% to Critical Hit Chance",
+      "Wand or Staff: 25% increased Critical Damage Bonus",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/AccuracyRune.webp"
+  },
+  {
+    "id": "Lesser_Desert_Rune",
+    "name": "Lesser Desert Rune",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 4 to 6 Fire Damage",
+      "Wand or Staff: Gain 6% of Damage as Extra Fire Damage",
+      "Armour: +10% to Fire Resistance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 30% increased Ignite Magnitude",
+      "Wand or Staff: 30% increased Ignite Magnitude",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Glacial_Rune",
+    "name": "Lesser Glacial Rune",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 3 to 5 Cold Damage",
+      "Wand or Staff: Gain 6% of Damage as Extra Cold Damage",
+      "Armour: +10% to Cold Resistance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 30% increased Freeze Buildup",
+      "Wand or Staff: 30% increased Freeze Buildup",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ColdRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Storm_Rune",
+    "name": "Lesser Storm Rune",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 1 to 10 Lightning Damage",
+      "Wand or Staff: Gain 6% of Damage as Extra Lightning Damage",
+      "Armour: +10% to Lightning Resistance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 30% increased Magnitude of Shock you inflict",
+      "Wand or Staff: 30% increased Magnitude of Shock you inflict",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Iron_Rune",
+    "name": "Lesser Iron Rune",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: 14% increased Physical Damage",
+      "Wand or Staff: 20% increased Spell Damage",
+      "Armour: 14% increased Armour, Evasion and Energy Shield"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 20% increased effect of Fully Broken Armour",
+      "Wand or Staff: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/EnhanceRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Body_Rune",
+    "name": "Lesser Body Rune",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: Leeches 3% of Physical Damage as Life",
+      "Wand or Staff: +30 to maximum Energy Shield",
+      "Armour: +30 to maximum Life"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 5% increased maximum Life",
+      "Wand or Staff: 5% increased maximum Life",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Mind_Rune",
+    "name": "Lesser Mind Rune",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: Leeches 2% of Physical Damage as Mana",
+      "Wand or Staff: +45 to maximum Mana",
+      "Armour: +20 to maximum Mana"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 5% increased maximum Mana",
+      "Wand or Staff: 5% increased maximum Mana",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Rebirth_Rune",
+    "name": "Lesser Rebirth Rune",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: Gain 15 Life per enemy killed",
+      "Wand or Staff: 6% increased Energy Shield Recharge Rate",
+      "Armour: Regenerate 0.35% of maximum Life per second"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Regenerate 0.4% of maximum Life per second",
+      "Wand or Staff: 8% of Damage taken Recouped as Life",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRecoveryRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Inspiration_Rune",
+    "name": "Lesser Inspiration Rune",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: Gain 10 Mana per enemy killed",
+      "Wand or Staff: 20% increased Mana Regeneration Rate",
+      "Armour: 12% increased Mana Regeneration Rate"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 12% of Skill Mana Costs Converted to Life Costs",
+      "Wand or Staff: 16% increased Mana Cost Efficiency",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRecoveryRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Stone_Rune",
+    "name": "Lesser Stone Rune",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: Causes 20% increased Stun Buildup",
+      "Wand or Staff: Gain additional Stun Threshold equal to 10% of maximum Energy Shield",
+      "Armour: +50 to Stun Threshold"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 40% increased Damage against Immobilised Enemies",
+      "Wand or Staff: 30% increased Immobilisation buildup",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StunRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Vision_Rune",
+    "name": "Lesser Vision Rune",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: +60 to Accuracy Rating",
+      "Wand or Staff: 16% increased Critical Hit Chance for Spells",
+      "Armour: 8% increased Life and Mana Recovery from Flasks"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Attacks have +1% to Critical Hit Chance",
+      "Wand or Staff: 25% increased Critical Damage Bonus",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/AccuracyRuneTier1.webp"
+  },
+  {
+    "id": "Greater_Desert_Rune",
+    "name": "Greater Desert Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 13 to 16 Fire Damage",
+      "Wand or Staff: Gain 10% of Damage as Extra Fire Damage",
+      "Armour: +18% to Fire Resistance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 30% increased Ignite Magnitude",
+      "Wand or Staff: 30% increased Ignite Magnitude",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Glacial_Rune",
+    "name": "Greater Glacial Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 9 to 15 Cold Damage",
+      "Wand or Staff: Gain 10% of Damage as Extra Cold Damage",
+      "Armour: +18% to Cold Resistance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 30% increased Freeze Buildup",
+      "Wand or Staff: 30% increased Freeze Buildup",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ColdRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Storm_Rune",
+    "name": "Greater Storm Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 1 to 30 Lightning Damage",
+      "Wand or Staff: Gain 10% of Damage as Extra Lightning Damage",
+      "Armour: +18% to Lightning Resistance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 30% increased Magnitude of Shock you inflict",
+      "Wand or Staff: 30% increased Magnitude of Shock you inflict",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Iron_Rune",
+    "name": "Greater Iron Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Martial Weapon: 18% increased Physical Damage",
+      "Wand or Staff: 30% increased Spell Damage",
+      "Armour: 18% increased Armour, Evasion and Energy Shield"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 20% increased effect of Fully Broken Armour",
+      "Wand or Staff: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/EnhanceRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Body_Rune",
+    "name": "Greater Body Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Martial Weapon: Leeches 5% of Physical Damage as Life",
+      "Wand or Staff: +50 to maximum Energy Shield",
+      "Armour: +60 to maximum Life"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 5% increased maximum Life",
+      "Wand or Staff: 5% increased maximum Life",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Mind_Rune",
+    "name": "Greater Mind Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Martial Weapon: Leeches 4% of Physical Damage as Mana",
+      "Wand or Staff: +75 to maximum Mana",
+      "Armour: +40 to maximum Mana"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 5% increased maximum Mana",
+      "Wand or Staff: 5% increased maximum Mana",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Rebirth_Rune",
+    "name": "Greater Rebirth Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Martial Weapon: Gain 35 Life per enemy killed",
+      "Wand or Staff: 10% increased Energy Shield Recharge Rate",
+      "Armour: Regenerate 0.45% of maximum Life per second"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Regenerate 0.4% of maximum Life per second",
+      "Wand or Staff: 8% of Damage taken Recouped as Life",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRecoveryRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Inspiration_Rune",
+    "name": "Greater Inspiration Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Martial Weapon: Gain 30 Mana per enemy killed",
+      "Wand or Staff: 30% increased Mana Regeneration Rate",
+      "Armour: 18% increased Mana Regeneration Rate"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 12% of Skill Mana Costs Converted to Life Costs",
+      "Wand or Staff: 16% increased Mana Cost Efficiency",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRecoveryRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Stone_Rune",
+    "name": "Greater Stone Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Martial Weapon: Causes 40% increased Stun Buildup",
+      "Wand or Staff: Gain additional Stun Threshold equal to 14% of maximum Energy Shield",
+      "Armour: +100 to Stun Threshold"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 40% increased Damage against Immobilised Enemies",
+      "Wand or Staff: 30% increased Immobilisation buildup",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StunRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Vision_Rune",
+    "name": "Greater Vision Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Martial Weapon: +120 to Accuracy Rating",
+      "Wand or Staff: 24% increased Critical Hit Chance for Spells",
+      "Armour: 16% increased Life and Mana Recovery from Flasks"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Attacks have +1% to Critical Hit Chance",
+      "Wand or Staff: 25% increased Critical Damage Bonus",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/AccuracyRuneTier2.webp"
+  },
+  {
+    "id": "Perfect_Desert_Rune",
+    "name": "Perfect Desert Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 17 to 20 Fire Damage",
+      "Wand or Staff: Gain 12% of Damage as Extra Fire Damage",
+      "Armour: +22% to Fire Resistance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 30% increased Ignite Magnitude",
+      "Wand or Staff: 30% increased Ignite Magnitude",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneFire.webp"
+  },
+  {
+    "id": "Perfect_Glacial_Rune",
+    "name": "Perfect Glacial Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 16 to 20 Cold Damage",
+      "Wand or Staff: Gain 12% of Damage as Extra Cold Damage",
+      "Armour: +22% to Cold Resistance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 30% increased Freeze Buildup",
+      "Wand or Staff: 30% increased Freeze Buildup",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneCold.webp"
+  },
+  {
+    "id": "Perfect_Storm_Rune",
+    "name": "Perfect Storm Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 1 to 40 Lightning Damage",
+      "Wand or Staff: Gain 12% of Damage as Extra Lightning Damage",
+      "Armour: +22% to Lightning Resistance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 30% increased Magnitude of Shock you inflict",
+      "Wand or Staff: 30% increased Magnitude of Shock you inflict",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneLightning.webp"
+  },
+  {
+    "id": "Perfect_Iron_Rune",
+    "name": "Perfect Iron Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: 20% increased Physical Damage",
+      "Wand or Staff: 35% increased Spell Damage",
+      "Armour: 20% increased Armour, Evasion and Energy Shield"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 20% increased effect of Fully Broken Armour",
+      "Wand or Staff: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneEnhance.webp"
+  },
+  {
+    "id": "Perfect_Body_Rune",
+    "name": "Perfect Body Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: Leeches 6% of Physical Damage as Life",
+      "Wand or Staff: +60 to maximum Energy Shield",
+      "Armour: +75 to maximum Life"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 5% increased maximum Life",
+      "Wand or Staff: 5% increased maximum Life",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneLife.webp"
+  },
+  {
+    "id": "Perfect_Mind_Rune",
+    "name": "Perfect Mind Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: Leeches 5% of Physical Damage as Mana",
+      "Wand or Staff: +90 to maximum Mana",
+      "Armour: +50 to maximum Mana"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 5% increased maximum Mana",
+      "Wand or Staff: 5% increased maximum Mana",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneMana.webp"
+  },
+  {
+    "id": "Perfect_Rebirth_Rune",
+    "name": "Perfect Rebirth Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: Gain 45 Life per enemy killed",
+      "Wand or Staff: 12% increased Energy Shield Recharge Rate",
+      "Armour: Regenerate 0.5% of maximum Life per second"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Regenerate 0.4% of maximum Life per second",
+      "Wand or Staff: 8% of Damage taken Recouped as Life",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneLifeRecovery.webp"
+  },
+  {
+    "id": "Perfect_Inspiration_Rune",
+    "name": "Perfect Inspiration Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: Gain 40 Mana per enemy killed",
+      "Wand or Staff: 35% increased Mana Regeneration Rate",
+      "Armour: 21% increased Mana Regeneration Rate"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 12% of Skill Mana Costs Converted to Life Costs",
+      "Wand or Staff: 16% increased Mana Cost Efficiency",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneManaRecovery.webp"
+  },
+  {
+    "id": "Perfect_Stone_Rune",
+    "name": "Perfect Stone Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: Causes 50% increased Stun Buildup",
+      "Wand or Staff: Gain additional Stun Threshold equal to 16% of maximum Energy Shield",
+      "Armour: +125 to Stun Threshold"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 40% increased Damage against Immobilised Enemies",
+      "Wand or Staff: 30% increased Immobilisation buildup",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneStun.webp"
+  },
+  {
+    "id": "Perfect_Vision_Rune",
+    "name": "Perfect Vision Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: +150 to Accuracy Rating",
+      "Wand or Staff: 28% increased Critical Hit Chance for Spells",
+      "Armour: 20% increased Life and Mana Recovery from Flasks"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Attacks have +1% to Critical Hit Chance",
+      "Wand or Staff: 25% increased Critical Damage Bonus",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneAccuracy.webp"
+  },
+  {
+    "id": "Lesser_Robust_Rune",
+    "name": "Lesser Robust Rune",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "All Equipment: +6 to Strength"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Adds 6 to 10 Physical Damage to Attacks, Adds 6 to 10 Fire damage to Attacks",
+      "Wand or Staff: +100 to Armour",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StrengthRuneTier1.webp"
+  },
+  {
+    "id": "Robust_Rune",
+    "name": "Robust Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "All Equipment: +9 to Strength"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Adds 6 to 10 Physical Damage to Attacks, Adds 6 to 10 Fire damage to Attacks",
+      "Wand or Staff: +100 to Armour",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StrengthRune.webp"
+  },
+  {
+    "id": "Greater_Robust_Rune",
+    "name": "Greater Robust Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "All Equipment: +12 to Strength"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Adds 6 to 10 Physical Damage to Attacks, Adds 6 to 10 Fire damage to Attacks",
+      "Wand or Staff: +100 to Armour",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StrengthRuneTier3.webp"
+  },
+  {
+    "id": "Perfect_Robust_Rune",
+    "name": "Perfect Robust Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "All Equipment: +15 to Strength"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Adds 6 to 10 Physical Damage to Attacks, Adds 6 to 10 Fire damage to Attacks",
+      "Wand or Staff: +100 to Armour",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneStrength.webp"
+  },
+  {
+    "id": "Lesser_Adept_Rune",
+    "name": "Lesser Adept Rune",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "All Equipment: +6 to Dexterity"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Adds 6 to 10 Physical Damage to Attacks, Adds 1 to 16 Lightning damage to Attacks",
+      "Wand or Staff: +80 to Evasion Rating",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/DexRuneTier1.webp"
+  },
+  {
+    "id": "Adept_Rune",
+    "name": "Adept Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "All Equipment: +9 to Dexterity"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Adds 6 to 10 Physical Damage to Attacks, Adds 1 to 16 Lightning damage to Attacks",
+      "Wand or Staff: +80 to Evasion Rating",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/DexRune.webp"
+  },
+  {
+    "id": "Greater_Adept_Rune",
+    "name": "Greater Adept Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "All Equipment: +12 to Dexterity"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Adds 6 to 10 Physical Damage to Attacks, Adds 1 to 16 Lightning damage to Attacks",
+      "Wand or Staff: +80 to Evasion Rating",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/DexRuneTier3.webp"
+  },
+  {
+    "id": "Perfect_Adept_Rune",
+    "name": "Perfect Adept Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "All Equipment: +15 to Dexterity"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Adds 6 to 10 Physical Damage to Attacks, Adds 1 to 16 Lightning damage to Attacks",
+      "Wand or Staff: +80 to Evasion Rating",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneDexterity.webp"
+  },
+  {
+    "id": "Lesser_Resolve_Rune",
+    "name": "Lesser Resolve Rune",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "All Equipment: +6 to Intelligence"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Adds 6 to 10 Physical Damage to Attacks, Adds 5 to 8 Cold damage to Attacks",
+      "Wand or Staff: +50 to maximum Energy Shield",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/IntRuneTier1.webp"
+  },
+  {
+    "id": "Resolve_Rune",
+    "name": "Resolve Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "All Equipment: +9 to Intelligence"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Adds 6 to 10 Physical Damage to Attacks, Adds 5 to 8 Cold damage to Attacks",
+      "Wand or Staff: +50 to maximum Energy Shield",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/IntRune.webp"
+  },
+  {
+    "id": "Greater_Resolve_Rune",
+    "name": "Greater Resolve Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "All Equipment: +12 to Intelligence"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Adds 6 to 10 Physical Damage to Attacks, Adds 5 to 8 Cold damage to Attacks",
+      "Wand or Staff: +50 to maximum Energy Shield",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/IntRuneTier3.webp"
+  },
+  {
+    "id": "Perfect_Resolve_Rune",
+    "name": "Perfect Resolve Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "All Equipment: +15 to Intelligence"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Adds 6 to 10 Physical Damage to Attacks, Adds 5 to 8 Cold damage to Attacks",
+      "Wand or Staff: +50 to maximum Energy Shield",
+      "Armour: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneIntelligence.webp"
+  },
+  {
+    "id": "Lesser_Tempered_Rune",
+    "name": "Lesser Tempered Rune",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 3 to 4 Physical Damage",
+      "Armour: 6 to 9 Physical Thorns damage"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PhyDmgRuneTier1.webp"
+  },
+  {
+    "id": "Tempered_Rune",
+    "name": "Tempered Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 6 to 9 Physical Damage",
+      "Armour: 14 to 21 Physical Thorns damage"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PhyDmgRune.webp"
+  },
+  {
+    "id": "Greater_Tempered_Rune",
+    "name": "Greater Tempered Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 9 to 12 Physical Damage",
+      "Armour: 31 to 52 Physical Thorns damage"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PhyDmgRuneTier3.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Leadership",
+    "name": "Greater Rune of Leadership",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: Minions gain 10% of their Physical Damage as Extra Lightning Damage",
+      "Armour: Minions take 10% of Physical Damage as Lightning Damage"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Minions deal 20% increased Damage",
+      "Armour: Minions have +10% to all Elemental Resistances"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial1.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Tithing",
+    "name": "Greater Rune of Tithing",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: Meta Skills gain 10% increased Energy",
+      "Armour: 1 to 100 Lightning Thorns damage"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Invocated Spells have 25% chance to consume half as much Energy",
+      "Armour: 15% increased Thorns damage"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial2.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Alacrity",
+    "name": "Greater Rune of Alacrity",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: 8% increased Skill Speed",
+      "Armour: Debuffs on you expire 8% faster"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 15% increased Reservation Efficiency of Herald Skills",
+      "Armour: 15% increased Elemental Ailment Threshold"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial3.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Nobility",
+    "name": "Greater Rune of Nobility",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: Attacks with this Weapon have 10% chance to inflict Exposure",
+      "Armour: 10% reduced effect of Shock on you"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 20% increased Exposure Effect",
+      "Armour: 10% reduced Shock duration on you"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial4.webp"
+  },
+  {
+    "id": "Hedgewitch_Assandras_Rune_of_Wisdom",
+    "name": "Hedgewitch Assandra's Rune of Wisdom",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Wand or Staff: +1 to Level of all Spell Skills"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Wand or Staff: Archon recovery period expires 30% faster"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune1.webp"
+  },
+  {
+    "id": "Saqawals_Rune_of_the_Sky",
+    "name": "Saqawal's Rune of the Sky",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: Gain 5% of Damage as Extra Damage of all Elements",
+      "Wand or Staff: Gain 5% of Damage as Extra Damage of all Elements"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 8% chance to gain an additional random Charge when you gain a Charge",
+      "Wand or Staff: 12% chance when collecting an Elemental Infusion to gain an\nadditional Elemental Infusion of the same type"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune2.webp"
+  },
+  {
+    "id": "Fenumus_Rune_of_Agony",
+    "name": "Fenumus' Rune of Agony",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: Gain 13% of Damage as Extra Chaos Damage",
+      "Wand or Staff: Gain 13% of Damage as Extra Chaos Damage"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Gain 8% of Damage as Extra Physical Damage",
+      "Wand or Staff: Gain 8% of Damage as Extra Physical Damage"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune3.webp"
+  },
+  {
+    "id": "Farruls_Rune_of_Grace",
+    "name": "Farrul's Rune of Grace",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Boots: 8% increased Deflection Rating while moving"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Boots: Prevent +3% of Damage from Deflected Hits"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune4.webp"
+  },
+  {
+    "id": "Farruls_Rune_of_the_Chase",
+    "name": "Farrul's Rune of the Chase",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Boots: 5% increased Movement Speed"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Boots: 10% increased Cooldown Recovery Rate"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune5.webp"
+  },
+  {
+    "id": "Craiceanns_Rune_of_Warding",
+    "name": "Craiceann's Rune of Warding",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Body Armours: 50% reduced effect of Curses on you"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: 8% increased Curse Magnitudes"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune6.webp"
+  },
+  {
+    "id": "Saqawals_Rune_of_Memory",
+    "name": "Saqawal's Rune of Memory",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Helmets: 2% increased Experience gain"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: +10% to all Elemental Resistances"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune7.webp"
+  },
+  {
+    "id": "Saqawals_Rune_of_Erosion",
+    "name": "Saqawal's Rune of Erosion",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Helmets: 25% increased Exposure Effect"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: 15% increased Magnitude of Non-Damaging Ailments you inflict"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune8.webp"
+  },
+  {
+    "id": "Farruls_Rune_of_the_Hunt",
+    "name": "Farrul's Rune of the Hunt",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: 50% increased Attack Damage against Rare or Unique Enemies"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: +1 to Level of all Attack Skills"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune9.webp"
+  },
+  {
+    "id": "Craiceanns_Rune_of_Recovery",
+    "name": "Craiceann's Rune of Recovery",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Body Armours: 30% increased Energy Shield Recharge Rate"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: Gain additional Ailment Threshold equal to 50% of maximum Energy Shield, Gain additional Stun Threshold equal to 50% of maximum Energy Shield"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune10.webp"
+  },
+  {
+    "id": "Courtesan_Mannans_Rune_of_Cruelty",
+    "name": "Courtesan Mannan's Rune of Cruelty",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Gloves: 20% increased Magnitude of Damaging Ailments you inflict"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: 15% increased Duration of Damaging Ailments on Enemies"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune11.webp"
+  },
+  {
+    "id": "Thane_Grannells_Rune_of_Mastery",
+    "name": "Thane Grannell's Rune of Mastery",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Gloves: 30% increased Magnitude of Non-Damaging Ailments you inflict"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: 15% increased Duration of Elemental Ailments on Enemies"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune12.webp"
+  },
+  {
+    "id": "Fenumus_Rune_of_Spinning",
+    "name": "Fenumus' Rune of Spinning",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Gloves: 8% increased Cast Speed"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: 20% increased Mana Cost Efficiency while on Low Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune13.webp"
+  },
+  {
+    "id": "Countess_Seskes_Rune_of_Archery",
+    "name": "Countess Seske's Rune of Archery",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Bows: Bow Attacks fire 1 additional Arrows"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Bows: 20% increased Projectile Speed"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune14.webp"
+  },
+  {
+    "id": "Thane_Girts_Rune_of_Wildness",
+    "name": "Thane Girt's Rune of Wildness",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Wand or Staff: 25% chance for Spell Skills to fire 2 additional Projectiles"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Wand or Staff: Every Rage also grants 1% increased Spell Damage"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune15.webp"
+  },
+  {
+    "id": "Fenumus_Rune_of_Draining",
+    "name": "Fenumus' Rune of Draining",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Gloves: 20% increased Withered Magnitude"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: +7% to Chaos Resistance"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune16.webp"
+  },
+  {
+    "id": "Thane_Myrks_Rune_of_Summer",
+    "name": "Thane Myrk's Rune of Summer",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 23 to 34 Fire Damage to Attacks against Ignited Enemies"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: +2% to Maximum Fire Resistance"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune17.webp"
+  },
+  {
+    "id": "Lady_Hestras_Rune_of_Winter",
+    "name": "Lady Hestra's Rune of Winter",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 19 to 28 Cold Damage against Chilled Enemies"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: +2% to Maximum Cold Resistance"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune18.webp"
+  },
+  {
+    "id": "Thane_Lelds_Rune_of_Spring",
+    "name": "Thane Leld's Rune of Spring",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 1 to 60 Lightning Damage against Shocked Enemies"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: +2% to Maximum Lightning Resistance"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune19.webp"
+  },
+  {
+    "id": "The_Greatwolfs_Rune_of_Claws",
+    "name": "The Greatwolf's Rune of Claws",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Gloves: Adds 5 to 12 Physical Damage to Attacks"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: Fissure Skills have +2 to Limit"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune20.webp"
+  },
+  {
+    "id": "The_Greatwolfs_Rune_of_Willpower",
+    "name": "The Greatwolf's Rune of Willpower",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Body Armours: 15% of Damage is taken from Mana before Life"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: 8% of Maximum Life Converted to Energy Shield"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune21.webp"
+  },
+  {
+    "id": "Masterwork_Rune",
+    "name": "Masterwork Rune",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "All Equipment: Upgrades a socketed Rune"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/UpgradeRune.webp"
+  },
+  {
+    "id": "Idol_of_Sirrius",
+    "name": "Idol of Sirrius",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Gloves: 8% increased Attack Speed",
+      "Sceptres: Allies in your Presence have 8% increased Movement Speed"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: 20% reduced Slowing Potency of Debuffs on You",
+      "Sceptres: 4% increased Movement Speed"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableWolfSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Thruldana",
+    "name": "Idol of Thruldana",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: 25% reduced Poison Duration, Targets can be affected by +1 of your Poisons at the same time",
+      "Sceptres: Allies in your Presence deal 13 to 27 added Attack Chaos Damage"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Gain 13% of Physical Damage as extra Chaos Damage",
+      "Sceptres: 15% increased Withered Magnitude"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableSnakeSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Grold",
+    "name": "Idol of Grold",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Boots: 50% increased total Power counted by Warcries",
+      "Sceptres: 15% increased Damage per each different Companion in your Presence"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Boots: 30% increased Glory generation",
+      "Sceptres: 15% increased Reservation Efficiency of Companion Skills"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableBearSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Eeshta",
+    "name": "Idol of Eeshta",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Helmets: 15% increased Cost Efficiency",
+      "Sceptres: 15% increased Mana Recovery rate while your Companion is in your Presence"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: Meta Skills have 15% increased Reservation Efficiency",
+      "Sceptres: 8% increased Life Recovery Rate while your Companion is in your Presence"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableOwlSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Egrin",
+    "name": "Idol of Egrin",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Helmets: Enemies you Curse take 6% increased Damage",
+      "Sceptres: 20% increased Curse Duration"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: 20% increased Area of Effect of Curses",
+      "Sceptres: Curse zones erupt after 20% reduced delay"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableCatSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Maxarius",
+    "name": "Idol of Maxarius",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Body Armours: +1 Charm Slots",
+      "Sceptres: Flasks gain 0.2 charges per Second"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: Storm Skills have +1 to Limit",
+      "Sceptres: 20% increased Life and Mana Recovery from Flasks"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableStagSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Ralakesh",
+    "name": "Idol of Ralakesh",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Helmets: 8% increased Reservation Efficiency of Minion Skills",
+      "Sceptres: 40% increased Armour, Evasion and Energy Shield while your Companion is in your Presence"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: Minions Revive 8% faster",
+      "Sceptres: Companions have 25% increased maximum Life"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableMonkeySpecial.webp"
+  },
+  {
+    "id": "Idol_of_Greust",
+    "name": "Idol of Greust",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Shields: +25% of Armour also applies to Elemental Damage",
+      "Bucklers: Gain Deflection Rating equal to 20% of Evasion Rating",
+      "Sceptres: Companions deal 10% more Damage for each different type of dead Companion you have"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Shields: 12% increased Damage for each type of Elemental Ailment on Enemy",
+      "Bucklers: 12% increased Damage for each type of Elemental Ailment on Enemy",
+      "Sceptres: Recover 3% of maximum Life when one of your Minions is Revived"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofGreust.webp"
+  },
+  {
+    "id": "Idol_of_Yeena",
+    "name": "Idol of Yeena",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Boots: 30% increased Skill Effect Duration with Plant Skills",
+      "Sceptres: Plants have a 25% chance to immediately Overgrow when they enter your Presence for the first time"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Boots: Plants have a 25% chance to immediately Overgrow when they enter your Presence for the first time",
+      "Sceptres: 30% increased Skill Effect Duration with Plant Skills"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofYeena.webp"
+  },
+  {
+    "id": "Idol_of_Eramir",
+    "name": "Idol of Eramir",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Body Armours: Skills have 10% chance to not remove Charges but still count as consuming them",
+      "Sceptres: Allies in your Presence share Charges with you"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: 15% chance for Charms you use to not consume Charges",
+      "Sceptres: 25% increased Endurance, Frenzy and Power Charge Duration"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofEramir.webp"
+  },
+  {
+    "id": "Idol_of_Oak",
+    "name": "Idol of Oak",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Boots: 15% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
+      "Sceptres: If you would gain an Endurance Charge, Allies in your Presence gain that Charge instead"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Boots: +1 to Maximum Endurance Charges",
+      "Sceptres: 40% increased Armour if you've consumed an Endurance Charge Recently"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofOak.webp"
+  },
+  {
+    "id": "Idol_of_Alira",
+    "name": "Idol of Alira",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Helmets: 15% chance when you gain a Power Charge to gain an additional Power Charge",
+      "Sceptres: If you would gain a Power Charge, Allies in your Presence gain that Charge instead"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: +1 to Maximum Power Charges",
+      "Sceptres: 40% increased maximum Energy Shield if you've consumed a Power Charge Recently"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdoloAlira.webp"
+  },
+  {
+    "id": "Idol_of_Kraityn",
+    "name": "Idol of Kraityn",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Gloves: 15% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
+      "Sceptres: If you would gain a Frenzy Charge, Allies in your Presence gain that Charge instead"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: +1 to Maximum Frenzy Charges",
+      "Sceptres: 40% increased Evasion Rating if you've consumed a Frenzy Charge Recently"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdoloKraityn.webp"
+  },
+  {
+    "id": "Idol_of_Silk",
+    "name": "Idol of Silk",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Shields: 15% increased Block chance while your Companion is in your Presence",
+      "Bucklers: companions gain onslaught when you parry [1]",
+      "Sceptres: Companions in your Presence gain 1 Rage on hit"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Shields: +3% to maximum Block chance",
+      "Bucklers: 30% increased Parry Range",
+      "Sceptres: Companions have 30% increased Area of Effect"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofSilk.webp"
+  },
+  {
+    "id": "Idol_of_the_Sycophant",
+    "name": "Idol of the Sycophant",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon, Wand or Staff: -20% to all Elemental Resistances, Gain 20% of Damage as Extra Damage of a random Element",
+      "Sceptres: Companions in your Presence have -20% to all Elemental Resistances, Companions in your Presence Gain 20% of Damage as Extra Damage of a random Element"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon, Wand or Staff: -20% to Chaos Resistance, Gain 20% of Damage as Extra Chaos Damage",
+      "Sceptres: Allies in your Presence Gain 20% of Damage as Extra Chaos Damage, Companions in your Presence have -20% to Chaos Resistance"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/RitualCorruptedIdol1.webp"
+  },
+  {
+    "id": "Idol_of_the_Martyr",
+    "name": "Idol of the Martyr",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon, Wand or Staff: 25% reduced Spirit, Meta Skills gain 40% increased Energy",
+      "Sceptres: 40% reduced Presence Area of Effect, Aura Skills have 25% increased Magnitudes"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon, Wand or Staff: Invocated skills have 25% increased Maximum Energy, Meta Skills have 25% reduced Reservation Efficiency",
+      "Sceptres: Allies in your Presence Regenerate 3% of your Maximum Life per second, 25% reduced Life Regeneration rate"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/RitualCorruptedIdol2.webp"
+  },
+  {
+    "id": "Idol_of_the_Pharisee",
+    "name": "Idol of the Pharisee",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon, Wand or Staff: 30% reduced maximum Mana, Gain 2% of Damage as Extra Physical Damage per ten percent missing Mana",
+      "Sceptres: 30% reduced Mana Cost Efficiency of Command Skills, Minions deal 60% increased Damage with Command Skills"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon, Wand or Staff: 30% reduced Mana Cost Efficiency, 12% increased Skill Speed while on Low Mana",
+      "Sceptres: 25% reduced Reservation Efficiency of Minion Skills, Temporary Minion Skills have +2 to Limit of Minions summoned"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/RitualCorruptedIdol3.webp"
+  },
+  {
+    "id": "Panther_Idol",
+    "name": "Panther Idol",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Body Armours: +10% of Armour also applies to Chaos Damage",
+      "Sceptres: Minions have +20% to Chaos Resistance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: +8% to Chaos Resistance",
+      "Sceptres: Minions have 20% additional Physical Damage Reduction"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketablePanther.webp"
+  },
+  {
+    "id": "Hawk_Idol",
+    "name": "Hawk Idol",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Body Armours: 10% increased Deflection Rating",
+      "Sceptres: Companions have 12% increased Attack Speed"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: +12% to Cold Resistance",
+      "Sceptres: 8% increased Attack Speed while your Companion is in your Presence"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableHawk.webp"
+  },
+  {
+    "id": "Stoat_Idol",
+    "name": "Stoat Idol",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Body Armours: 5% of Damage taken bypasses Energy Shield",
+      "Sceptres: Companions have 25% increased maximum Life"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: +12% to Lightning Resistance",
+      "Sceptres: 25% increased Damage while your Companion is in your Presence"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableStoat.webp"
+  },
+  {
+    "id": "Hayoxis_Soul_Core_of_Heatproofing",
+    "name": "Hayoxi's Soul Core of Heatproofing",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Helmets: +40% of Armour also applies to Cold Damage"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreIce.webp"
+  },
+  {
+    "id": "Zalatls_Soul_Core_of_Insulation",
+    "name": "Zalatl's Soul Core of Insulation",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Boots: +40% of Armour also applies to Lightning Damage"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreLightning.webp"
+  },
+  {
+    "id": "Topotantes_Soul_Core_of_Dampening",
+    "name": "Topotante's Soul Core of Dampening",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Gloves: +40% of Armour also applies to Fire Damage"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreFire.webp"
+  },
+  {
+    "id": "Atmohuas_Soul_Core_of_Retreat",
+    "name": "Atmohua's Soul Core of Retreat",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Body Armours: 40% increased Energy Shield from Equipped Focus",
+      "Foci: 30% increased Energy Shield from Equipped Body Armour"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreEnergyShield.webp"
+  },
+  {
+    "id": "Quipolatls_Soul_Core_of_Flow",
+    "name": "Quipolatl's Soul Core of Flow",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Helmets: 8% increased Skill Effect Duration, 8% increased Cooldown Recovery Rate"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreTimeCooldown.webp"
+  },
+  {
+    "id": "Tzamotos_Soul_Core_of_Ferocity",
+    "name": "Tzamoto's Soul Core of Ferocity",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Helmets: +4 to Maximum Rage"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreRage.webp"
+  },
+  {
+    "id": "Uromotis_Soul_Core_of_Attenuation",
+    "name": "Uromoti's Soul Core of Attenuation",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Boots: 20% increased Curse Duration, 20% increased Poison Duration"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreCurses2.webp"
+  },
+  {
+    "id": "Opilotis_Soul_Core_of_Assault",
+    "name": "Opiloti's Soul Core of Assault",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: 50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
+      "Wand or Staff: 50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreFrenzyCharge.webp"
+  },
+  {
+    "id": "Guatelitzis_Soul_Core_of_Endurance",
+    "name": "Guatelitzi's Soul Core of Endurance",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: 50% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
+      "Wand or Staff: 50% chance when you gain an Endurance Charge to gain an additional Endurance Charge"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreEnduranceCharge.webp"
+  },
+  {
+    "id": "Xopecs_Soul_Core_of_Power",
+    "name": "Xopec's Soul Core of Power",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: 50% chance when you gain a Power Charge to gain an additional Power Charge",
+      "Wand or Staff: 50% chance when you gain a Power Charge to gain an additional Power Charge"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCorePowerCharge.webp"
+  },
+  {
+    "id": "Estazuntis_Soul_Core_of_Convalescence",
+    "name": "Estazunti's Soul Core of Convalescence",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Boots: 15% increased speed of Recoup Effects",
+      "Helmets: 10% of Damage taken Recouped as Life"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreTimeSlow.webp"
+  },
+  {
+    "id": "Tacatis_Soul_Core_of_Affliction",
+    "name": "Tacati's Soul Core of Affliction",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Helmets: Enemies you Curse have -5% to Chaos Resistance"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreChaos1.webp"
+  },
+  {
+    "id": "Cholotls_Soul_Core_of_War",
+    "name": "Cholotl's Soul Core of War",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Bows: Projectiles have 20% chance to Chain an additional time from terrain"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreProjectile.webp"
+  },
+  {
+    "id": "Citaqualotls_Soul_Core_of_Foulness",
+    "name": "Citaqualotl's Soul Core of Foulness",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Martial Weapon: Adds 19 to 29 Chaos damage"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreChaos2.webp"
+  },
+  {
+    "id": "Xipocados_Soul_Core_of_Dominion",
+    "name": "Xipocado's Soul Core of Dominion",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Wand or Staff: Minions deal 40% increased Damage with Command Skills",
+      "Sceptres: Minions deal 40% increased Damage with Command Skills"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreMinion.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Automation",
+    "name": "Jiquani's Soul Core of Automation",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Weapon: +1 to Level of all Totem Skill Gems"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreTotems.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Malediction",
+    "name": "Jiquani's Soul Core of Malediction",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Weapon: +1 to Level of all Curse Skills"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreCurses.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Targeting",
+    "name": "Jiquani's Soul Core of Targeting",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Weapon: +1 to Level of all Mark Skills"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreMarks.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Rallying",
+    "name": "Jiquani's Soul Core of Rallying",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Weapon: +1 to Level of all Warcry Skill Gems"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreWarcries.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Radiance",
+    "name": "Jiquani's Soul Core of Radiance",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Weapon: +1 to Level of all Herald Skill Gems"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreHeralds.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Severing",
+    "name": "Jiquani's Soul Core of Severing",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Weapon: +1 to Level of all Strike Skill Gems"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreStrikes.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Rippling",
+    "name": "Jiquani's Soul Core of Rippling",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Weapon: +1 to Level of all Nova Skill Gems"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreNovas.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Quaking",
+    "name": "Jiquani's Soul Core of Quaking",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Weapon: +1 to Level of all Slam Skill Gems"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreSlams.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Munitions",
+    "name": "Jiquani's Soul Core of Munitions",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Weapon: +1 to Level of all Grenade Skill Gems"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreGrenades.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Snares",
+    "name": "Jiquani's Soul Core of Snares",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Weapon: +1 to Level of all Hazard Skill Gems"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreHazards.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Abundance",
+    "name": "Jiquani's Soul Core of Abundance",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Weapon: +1 to Level of all Plant Skill Gems"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCorePlants.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Squalls",
+    "name": "Jiquani's Soul Core of Squalls",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Weapon: +1 to Level of all Wind Skill Gems"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreWind.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Thundering",
+    "name": "Jiquani's Soul Core of Thundering",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Weapon: +1 to Level of all Storm Skill Gems"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreStorms.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Devotion",
+    "name": "Atziri's Soul Core of Devotion",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Helmets: 1% increased Spirit for each Corrupted Item Equipped, Corrupting will always result in change"
+    ],
+    "bonded": [],
+    "socketBound": true,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialHelmet.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Vitality",
+    "name": "Atziri's Soul Core of Vitality",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Body Armours: 1% increased Maximum Life for each Corrupted Item Equipped, Corrupting will always result in change"
+    ],
+    "bonded": [],
+    "socketBound": true,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialBodyArmour.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Alacrity",
+    "name": "Atziri's Soul Core of Alacrity",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Gloves: 1% increased Skill Speed for each Corrupted Item Equipped, Corrupting will always result in change"
+    ],
+    "bonded": [],
+    "socketBound": true,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialGloves.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Inoculation",
+    "name": "Atziri's Soul Core of Inoculation",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Boots: +2% to Chaos Resistance for each Corrupted Item Equipped, Corrupting will always result in change"
+    ],
+    "bonded": [],
+    "socketBound": true,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialBoots.webp"
+  },
+  {
+    "id": "Soul_Core_of_Vizoma",
+    "name": "Soul Core of Vizoma",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Martial Weapon: +150 to Accuracy Rating",
+      "Wand or Staff: 30% increased Critical Hit Chance for Spells"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreVision.webp"
+  },
+  {
+    "id": "Soul_Core_of_Tacati",
+    "name": "Soul Core of Tacati",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: 25% increased Magnitude of Poison you inflict",
+      "Armour: +13% to Chaos Resistance"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreChaos.webp"
+  },
+  {
+    "id": "Soul_Core_of_Opiloti",
+    "name": "Soul Core of Opiloti",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Martial Weapon: 40% increased Magnitude of Bleeding you inflict",
+      "Helmets: 25% increased Pin duration"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCorePhysical.webp"
+  },
+  {
+    "id": "Soul_Core_of_Jiquani",
+    "name": "Soul Core of Jiquani",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Martial Weapon: Recover 5% of maximum Life on Kill",
+      "Body Armours: 5% increased maximum Life"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreLife.webp"
+  },
+  {
+    "id": "Soul_Core_of_Zalatl",
+    "name": "Soul Core of Zalatl",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Martial Weapon: Recover 4% of maximum Mana on Kill",
+      "Helmets: 5% increased maximum Mana"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreMana.webp"
+  },
+  {
+    "id": "Soul_Core_of_Citaqualotl",
+    "name": "Soul Core of Citaqualotl",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: 40% increased Elemental Damage with Attacks",
+      "Armour: +6% to all Elemental Resistances"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreElementalResist.webp"
+  },
+  {
+    "id": "Soul_Core_of_Puhuarte",
+    "name": "Soul Core of Puhuarte",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Martial Weapon: 40% increased Ignite Magnitude",
+      "Gloves: +2% to Maximum Fire Resistance"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreFire.webp"
+  },
+  {
+    "id": "Soul_Core_of_Tzamoto",
+    "name": "Soul Core of Tzamoto",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Martial Weapon: 60% increased Freeze Buildup",
+      "Helmets: +2% to Maximum Cold Resistance"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreCold.webp"
+  },
+  {
+    "id": "Soul_Core_of_Xopec",
+    "name": "Soul Core of Xopec",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Martial Weapon: 25% increased Magnitude of Shock you inflict",
+      "Boots: +2% to Maximum Lightning Resistance"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreLightning.webp"
+  },
+  {
+    "id": "Soul_Core_of_Azcapa",
+    "name": "Soul Core of Azcapa",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: +15 to Spirit",
+      "Gloves: 10% increased Quantity of Gold Dropped by Slain Enemies"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreWealthRarity.webp"
+  },
+  {
+    "id": "Soul_Core_of_Topotante",
+    "name": "Soul Core of Topotante",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Martial Weapon: Attacks with this Weapon Penetrate 25% Elemental Resistances",
+      "Boots: 25% reduced Effect of Non-Damaging Ailments on you"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreTriElement.webp"
+  },
+  {
+    "id": "Soul_Core_of_Quipolatl",
+    "name": "Soul Core of Quipolatl",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: 5% increased Attack Speed",
+      "Boots: 15% reduced Slowing Potency of Debuffs on You"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreSpeed.webp"
+  },
+  {
+    "id": "Soul_Core_of_Ticaba",
+    "name": "Soul Core of Ticaba",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Martial Weapon: +5% to Critical Damage Bonus",
+      "Body Armours: Hits against you have 50% reduced Critical Damage Bonus",
+      "Shields and Bucklers: Hits against you have 50% reduced Critical Damage Bonus"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreCrit.webp"
+  },
+  {
+    "id": "Soul_Core_of_Atmohua",
+    "name": "Soul Core of Atmohua",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: Convert 40% of Requirements to Strength",
+      "Armour: Convert 40% of Requirements to Strength"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreStrength.webp"
+  },
+  {
+    "id": "Soul_Core_of_Cholotl",
+    "name": "Soul Core of Cholotl",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: Convert 40% of Requirements to Dexterity",
+      "Armour: Convert 40% of Requirements to Dexterity"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreDex.webp"
+  },
+  {
+    "id": "Soul_Core_of_Zantipi",
+    "name": "Soul Core of Zantipi",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Martial Weapon: Convert 40% of Requirements to Intelligence",
+      "Armour: Convert 40% of Requirements to Intelligence"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreint.webp"
+  },
+  {
+    "id": "Snake_Idol",
+    "name": "Snake Idol",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Gloves: 8% increased Curse Magnitudes",
+      "Sceptres: Allies in your Presence have 10% increased Attack Speed"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: Remnants you create have 15% increased effect",
+      "Sceptres: 10% increased Skill Speed while Shapeshifted"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableSnake.webp"
+  },
+  {
+    "id": "Primate_Idol",
+    "name": "Primate Idol",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Helmets: Minions have 15% increased maximum Life",
+      "Sceptres: Allies in your Presence deal 40% increased Damage"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: Remnants can be collected from 30% further away",
+      "Sceptres: 40% increased Damage while Shapeshifted"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableMonkey.webp"
+  },
+  {
+    "id": "Owl_Idol",
+    "name": "Owl Idol",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Foci: 12% increased Cooldown Recovery Rate",
+      "Sceptres: Allies in your Presence have 10% increased Cast Speed"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Foci: 20% increased effect of Archon Buffs on you",
+      "Sceptres: 10% increased Skill Speed while Shapeshifted"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableOwl.webp"
+  },
+  {
+    "id": "Cat_Idol",
+    "name": "Cat Idol",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Gloves: 25% increased Accuracy Rating",
+      "Sceptres: Allies in your Presence have 14% increased Critical Hit Chance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: 30% increased Charm Charges gained",
+      "Sceptres: 25% increased Critical Hit Chance while Shapeshifted"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableCat.webp"
+  },
+  {
+    "id": "Wolf_Idol",
+    "name": "Wolf Idol",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Gloves: 15% increased Magnitude of Bleeding you inflict",
+      "Sceptres: Allies in your Presence have 20% increased Critical Damage Bonus"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: 25% reduced Magnitude of Bleeding on You",
+      "Sceptres: 25% increased Critical Hit Chance while Shapeshifted"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableWolf.webp"
+  },
+  {
+    "id": "Stag_Idol",
+    "name": "Stag Idol",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Helmets: Projectiles have 15% chance to Fork",
+      "Sceptres: Allies in your Presence deal 1 to 40 added Attack Lightning Damage"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: Projectiles have 25% chance for an additional Projectile when Forking",
+      "Sceptres: 40% increased Attack Damage while Shapeshifted"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableStag.webp"
+  },
+  {
+    "id": "Boar_Idol",
+    "name": "Boar Idol",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Gloves: Gain 1 Rage on Melee Hit",
+      "Sceptres: Allies in your Presence Regenerate 0.5% of your Maximum Life per second"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: 25% increased Warcry Cooldown Recovery Rate",
+      "Sceptres: 25% increased Life Regeneration rate while Shapeshifted"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableBoar.webp"
+  },
+  {
+    "id": "Bear_Idol",
+    "name": "Bear Idol",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Helmets: 10% increased Area of Effect",
+      "Sceptres: Allies in your Presence deal 12 to 18 added Attack Physical Damage"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: 12% increased Reservation Efficiency of Companion Skills",
+      "Sceptres: 40% increased Attack Damage while Shapeshifted"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableBear.webp"
+  },
+  {
+    "id": "Ox_Idol",
+    "name": "Ox Idol",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Shields and Bucklers: 15% increased Block chance",
+      "Sceptres: Allies in your Presence have +12% to all Elemental Resistances"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Shields and Bucklers: 15% chance for Damage of Enemies Hitting you to be Unlucky",
+      "Sceptres: +20% of Armour also applies to Elemental Damage while Shapeshifted"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableOx.webp"
+  },
+  {
+    "id": "Rabbit_Idol",
+    "name": "Rabbit Idol",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Body Armours: 12% increased Rarity of Items found",
+      "Sceptres: 15% increased Spirit"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: 10% increased Quantity of Gold Dropped by Slain Enemies",
+      "Sceptres: Minions have 30% increased Cooldown Recovery Rate for Command Skills"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableRabbit.webp"
+  },
+  {
+    "id": "Fox_Idol",
+    "name": "Fox Idol",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Body Armours: Idols socketed in this item gain the benefits of their Bonded modifiers, display additional socketable mods for idols [1]",
+      "Sceptres: 50% increased Presence Area of Effect"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: +5% to Quality of all Skills",
+      "Sceptres: Minions have 30% increased Area of Effect"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableFox.webp"
+  },
+  {
+    "id": "Amanamus_Gaze",
+    "name": "Amanamu's Gaze",
+    "properties": [
+      "Limited to: 1 Ancient Augment",
+      "Requires:  Level 60"
+    ],
+    "ordinary": [
+      "Helmets: Remove a Damaging Ailment when you use a Command Skill",
+      "Body Armours: +2 to Armour per 1 Spirit",
+      "Boots: 1% increased Movement Speed per 15 Spirit, up to a maximum of 40%\nOther Modifiers to Movement Speed except for Sprinting do not apply"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/AmanamusGaze.webp"
+  },
+  {
+    "id": "Tecrods_Gaze",
+    "name": "Tecrod's Gaze",
+    "properties": [
+      "Limited to: 1 Ancient Augment",
+      "Requires:  Level 60"
+    ],
+    "ordinary": [
+      "Body Armours: Regenerate 1.5% of maximum Life per second",
+      "Gloves: 25% increased Life Cost Efficiency",
+      "Boots: 10% increased Movement Speed when on Low Life"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/TecrodsGaze.webp"
+  },
+  {
+    "id": "Kurgals_Gaze",
+    "name": "Kurgal's Gaze",
+    "properties": [
+      "Limited to: 1 Ancient Augment",
+      "Requires:  Level 60"
+    ],
+    "ordinary": [
+      "Helmets: Increases and Reductions to Life Regeneration Rate also apply to Mana Regeneration Rate",
+      "Gloves: 40% increased effect of Arcane Surge on you",
+      "Boots: 15% increased Mana Cost Efficiency if you haven't Dodge Rolled Recently"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/KurgalsGaze.webp"
+  },
+  {
+    "id": "Ulamans_Gaze",
+    "name": "Ulaman's Gaze",
+    "properties": [
+      "Limited to: 1 Ancient Augment",
+      "Requires:  Level 60"
+    ],
+    "ordinary": [
+      "Helmets: +1 to Accuracy Rating per 1 Item Evasion Rating on Equipped Helmet",
+      "Gloves: Critical Hit chance is Lucky against Parried enemies",
+      "Body Armours: Prevent +3% of Damage from Deflected Hits"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/UlamansGaze.webp"
+  },
+  {
+    "id": "Guatelitzis_Thesis",
+    "name": "Guatelitzi's Thesis",
+    "properties": [
+      "Limited to: 1 Ancient Augment",
+      "Requires:  Level 60"
+    ],
+    "ordinary": [
+      "Helmets: Gain Armour equal to 35% of Life Lost from Hits in the past 8 seconds",
+      "Body Armours: 10% of Physical Damage prevented Recouped as Life",
+      "Boots: Lose 5% of maximum Life per second while Sprinting, 25% increased Movement Speed while Sprinting"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreBlood.webp"
+  },
+  {
+    "id": "Citaqualotls_Thesis",
+    "name": "Citaqualotl's Thesis",
+    "properties": [
+      "Limited to: 1 Ancient Augment",
+      "Requires:  Level 60"
+    ],
+    "ordinary": [
+      "Body Armours: You Recoup 50% of Damage taken by your Offerings as Life",
+      "Gloves: One of your Persistent Minions revives when an Offering expires",
+      "Boots: Sacrifice 10% of maximum Life to gain that much Guard when you Dodge Roll"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreSacrifice.webp"
+  },
+  {
+    "id": "Jiquanis_Thesis",
+    "name": "Jiquani's Thesis",
+    "properties": [
+      "Limited to: 1 Ancient Augment",
+      "Requires:  Level 60"
+    ],
+    "ordinary": [
+      "Helmets: +1 to maximum Mana per 3 Item Armour on Equipped Helmet",
+      "Gloves: Energy Shield Recharge starts after spending a total of\n 2000 Mana, no more than once every 2 seconds",
+      "Boots: Increases and Reductions to Movement Speed also\n apply to Energy Shield Recharge Rate"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreSoul.webp"
+  },
+  {
+    "id": "Quipolatls_Thesis",
+    "name": "Quipolatl's Thesis",
+    "properties": [
+      "Limited to: 1 Ancient Augment",
+      "Requires:  Level 60"
+    ],
+    "ordinary": [
+      "Helmets: A random Skill that requires Glory generates 50% of its maximum Glory when your Marks Activate",
+      "Gloves: Your Energy Shield Recharge starts when your Minions are Reformed",
+      "Body Armours: +75% of Armour also applies to Chaos Damage while on full Energy Shield"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreScience.webp"
+  },
+  {
+    "id": "Emergent_Vigour",
+    "name": "Emergent Vigour",
+    "properties": [
+      "Limited to: 1 Ancient Augment",
+      "Requires:  Level 60"
+    ],
+    "ordinary": [
+      "Helmets: +1 to maximum Life per 8 Armour on Equipped Helmet",
+      "Body Armours: Gain Maximum Energy Shield equal to 50% of total\nStrength Requirements of Equipped Armour Items",
+      "Boots: Hits against you have no Critical Damage Bonus while on Consecrated Ground"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: +20 to Spirit",
+      "Body Armours: +20 to Strength",
+      "Boots: 20% increased Effect of Consecrated Ground you create"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionReligionAncientAugment.webp"
+  },
+  {
+    "id": "Emergent_Possibility",
+    "name": "Emergent Possibility",
+    "properties": [
+      "Limited to: 1 Ancient Augment",
+      "Requires:  Level 60"
+    ],
+    "ordinary": [
+      "Body Armours: 15% of Chaos Damage from Hits taken as Damage of a random Element",
+      "Gloves: Gain 1% of Damage as Extra Damage of a random Element per\nRune Socketed in Equipped Items",
+      "Boots: 50% increased Runic Ward Regeneration Rate while Sprinting"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: +13% to Chaos Resistance",
+      "Gloves: 20% increased Elemental Damage",
+      "Boots: 15% increased Runic Ward Cost Efficiency"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionScienceAncientAugment.webp"
+  },
+  {
+    "id": "Emergent_Protection",
+    "name": "Emergent Protection",
+    "properties": [
+      "Limited to: 1 Ancient Augment",
+      "Requires:  Level 60"
+    ],
+    "ordinary": [
+      "Helmets: Gain 1 Endurance Charge on reaching Low Life, only once every 2 seconds",
+      "Gloves: Banners also grant 2% of Life Regenerated per second to affected targets",
+      "Boots: When you stop Sprinting, gain Guard equal to 4% of maximum Life per second spent Sprinting, up to a maximum of 20%, for 4 seconds"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: 40% increased Endurance Charge Duration",
+      "Gloves: Regenerate 0.5% of maximum Life per second",
+      "Boots: 20% increased Guard gained"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionValorAncientAugment.webp"
+  },
+  {
+    "id": "Emergent_Instinct",
+    "name": "Emergent Instinct",
+    "properties": [
+      "Limited to: 1 Ancient Augment",
+      "Requires:  Level 60"
+    ],
+    "ordinary": [
+      "Helmets: Targets that are Blinded, Maimed, and Bleeding cannot Evade your Hits",
+      "Gloves: Regenerate 5% of maximum Life per Second if you have used a Command Skill Recently",
+      "Body Armours: Thorns Damage is Lucky against targets with Fully Broken Armour"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: 30% increased Immobilisation buildup",
+      "Gloves: 20% increased Life Regeneration rate",
+      "Body Armours: 30% increased Thorns damage"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionWarAncientAugment.webp"
+  },
+  {
+    "id": "Carved_Cunning",
+    "name": "Carved Cunning",
+    "properties": [
+      "Limited to: 1 Ancient Augment",
+      "Requires:  Level 60"
+    ],
+    "ordinary": [
+      "Helmets: Enemies which are on Full Life cannot Evade your Hits",
+      "Body Armours: Prevent +5% of Damage from Deflected Hits if you've\nDeflected no Hits Recently",
+      "Boots: Gain Onslaught for 4 seconds when your Marks Activate"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: 30% increased Accuracy Rating",
+      "Body Armours: 8% increased Deflection Rating",
+      "Boots: Buffs on you expire 10% slower"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualAmbushPredators.webp"
+  },
+  {
+    "id": "Carved_Majesty",
+    "name": "Carved Majesty",
+    "properties": [
+      "Limited to: 1 Ancient Augment",
+      "Requires:  Level 60"
+    ],
+    "ordinary": [
+      "Body Armours: +3 to Spirit per Idol socketed in your Equipment",
+      "Gloves: Companions gain Onslaught for 4 seconds on Hitting your Marked targets",
+      "Boots: 1% increased Movement Speed while Sprinting per Persistent Minion"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: 5% increased Spirit",
+      "Gloves: Companions deal 30% increased Damage",
+      "Boots: Minions have 12% increased maximum Life"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualMajesticBeasts.webp"
+  },
+  {
+    "id": "Carved_Mischief",
+    "name": "Carved Mischief",
+    "properties": [
+      "Limited to: 1 Ancient Augment",
+      "Requires:  Level 60"
+    ],
+    "ordinary": [
+      "Helmets: Gain Guard equal to 10% of maximum Life for 4 seconds on taking Savage Hit",
+      "Gloves: +5% to maximum Block chance if you've Blocked with a raised Shield Recently",
+      "Body Armours: 200% increased Stun Threshold if you've been Stunned Recently"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: Buffs on you expire 10% slower",
+      "Gloves: 20% increased Block chance",
+      "Body Armours: 25% increased Stun Threshold"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualMischievousCreatures.webp"
+  },
+  {
+    "id": "Carved_Tenacity",
+    "name": "Carved Tenacity",
+    "properties": [
+      "Limited to: 1 Ancient Augment",
+      "Requires:  Level 60"
+    ],
+    "ordinary": [
+      "Helmets: Enemies have no Critical Damage Bonus for 4 seconds after you Blind them",
+      "Gloves: Enemies you Critically Hit get 100% reduced Life Regeneration Rate for 4 seconds",
+      "Boots: Your speed is Unaffected by Slows while Sprinting"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: 20% increased Blind Effect",
+      "Gloves: 15% increased Critical Hit Chance",
+      "Boots: 8% increased Movement Speed while Sprinting"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualTenaciousBeasts.webp"
+  },
+  {
+    "id": "Raven-Touched_Shard",
+    "name": "Raven-Touched Shard",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 60"
+    ],
+    "ordinary": [
+      "Helmets: Raven-Touched"
+    ],
+    "bonded": [],
+    "socketBound": true,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Delirium/DeliriumEndgameSocketable.webp"
+  },
+  {
+    "id": "Lesser_Ward_Rune",
+    "name": "Lesser Ward Rune",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Armour: +15 to maximum Runic Ward"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Armour: 15% increased Global Armour, Evasion and Energy Shield"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardLesser.webp"
+  },
+  {
+    "id": "Ward_Rune",
+    "name": "Ward Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Armour: +20 to maximum Runic Ward"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Armour: 15% increased Global Armour, Evasion and Energy Shield"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardNormal.webp"
+  },
+  {
+    "id": "Greater_Ward_Rune",
+    "name": "Greater Ward Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Armour: +25 to maximum Runic Ward"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Armour: 15% increased Global Armour, Evasion and Energy Shield"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardGreater.webp"
+  },
+  {
+    "id": "Perfect_Ward_Rune",
+    "name": "Perfect Ward Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Armour: +30 to maximum Runic Ward"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Armour: 15% increased Global Armour, Evasion and Energy Shield"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardPerfect.webp"
+  },
+  {
+    "id": "Lesser_Charging_Rune",
+    "name": "Lesser Charging Rune",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Armour: 8% increased Runic Ward Regeneration Rate"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Armour: Regenerate 10 Runic Ward per second"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationLesser.webp"
+  },
+  {
+    "id": "Charging_Rune",
+    "name": "Charging Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Armour: 12% increased Runic Ward Regeneration Rate"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Armour: Regenerate 15 Runic Ward per second"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationNormal.webp"
+  },
+  {
+    "id": "Greater_Charging_Rune",
+    "name": "Greater Charging Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Armour: 16% increased Runic Ward Regeneration Rate"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Armour: Regenerate 20 Runic Ward per second"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationGreater.webp"
+  },
+  {
+    "id": "Perfect_Charging_Rune",
+    "name": "Perfect Charging Rune",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 50"
+    ],
+    "ordinary": [
+      "Armour: 20% increased Runic Ward Regeneration Rate"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Armour: Regenerate 25 Runic Ward per second"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationPerfect.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Reinforcement",
+    "name": "Warding Rune of Reinforcement",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Armour: 20% increased Runic Ward"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Armour: Gain 2% of maximum Life as Extra maximum Runic Ward"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard1.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Protection",
+    "name": "Warding Rune of Protection",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Armour: Every 4 seconds, gain Guard equal to 20% of maximum Runic Ward for 2 seconds"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Armour: 8% increased Guard gained"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard2.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Disintegration",
+    "name": "Warding Rune of Disintegration",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Martial Weapon: Attacks Break Armour equal to 15% of maximum Runic Ward"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: Break 10% increased Armour"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard3.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Desperation",
+    "name": "Warding Rune of Desperation",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Wand or Staff: Spell damage Penetrates 25% of enemy Elemental Resistances while on Low Runic Ward"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Wand or Staff: 12% increased Elemental Damage"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard4.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Symbiosis",
+    "name": "Warding Rune of Symbiosis",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Boots: 1% increased Energy Shield Recharge Rate per 30 maximum Runic Ward"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Boots: Regenerate 1% of maximum Energy Shield per second"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard8.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Courage",
+    "name": "Warding Rune of Courage",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Helmets: 25% increased Armour and Evasion Rating while on Low Runic Ward"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: 20% increased Armour and Evasion Rating when on Low Life"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard9.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Stability",
+    "name": "Warding Rune of Stability",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Shields and Bucklers: +4 to Stun Threshold per 10 maximum Runic Ward"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Shields and Bucklers: 15% increased Stun buildup while Shapeshifted"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard10.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Glancing",
+    "name": "Warding Rune of Glancing",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Body Armours: +3 to Deflection Rating per 10 maximum Runic Ward"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: Prevent +1% of Damage from Deflected Hits"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard13.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Heart",
+    "name": "Warding Rune of Heart",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Body Armours: Gain 5% of maximum Life as Extra maximum Runic Ward"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: 1% more Runic Ward Regeneration rate per 2% of maximum Runic Ward lost from Hits Recently, up to 100% more"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard14.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Nourishment",
+    "name": "Warding Rune of Nourishment",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Armour: 15% Life Recovery from Flasks also applies to Runic Ward"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Armour: 15% increased Life Recovery from Flasks"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard15.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Annihilation",
+    "name": "Warding Rune of Annihilation",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Martial Weapon: Attacks spend 5% of your maximum Runic Ward if possible to gain that much added Physical damage"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 10% reduced Runic Ward Cost Efficiency"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard16.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Armature",
+    "name": "Warding Rune of Armature",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 45"
+    ],
+    "ordinary": [
+      "Martial Weapon: Gain maximum Runic Ward equal to 15% of this Weapon's maximum damage"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Martial Weapon: 5% increased Attack Speed while missing Runic Ward"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard18.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Obsession",
+    "name": "Warding Rune of Obsession",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 45"
+    ],
+    "ordinary": [
+      "Wands: All damage taken bypasses Runic Ward, Runic Ward Regeneration Rate is doubled"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Wands: 12% increased maximum Runic Ward"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard19.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Equinox",
+    "name": "Warding Rune of Equinox",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 45"
+    ],
+    "ordinary": [
+      "Caster Weapon: 40% less Mana Regeneration Rate, Mana Recovery from Regeneration is also applied to Runic Ward"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Caster Weapon: 20% increased Runic Ward Regeneration Rate if you've dealt a Critical Hit Recently"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard20.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Salvaging",
+    "name": "Warding Rune of Salvaging",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Sceptres: Recover 3% of maximum Runic Ward when one of your Reviving Minions is Killed"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Sceptres: Recover 3% of maximum Life when one of your Minions is Revived"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard21.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Bodyguards",
+    "name": "Warding Rune of Bodyguards",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 45"
+    ],
+    "ordinary": [
+      "Sceptres: Minions in your Presence have Onslaught while you are on Low Runic Ward"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Sceptres: Damage of Enemies Hitting you is Unlucky if\nyour Runic Ward has been damaged Recently"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard23.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Hollowing",
+    "name": "Warding Rune of Hollowing",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 45"
+    ],
+    "ordinary": [
+      "Caster Weapon: Gain 15% of maximum Life as Extra maximum Runic Ward, 15% less maximum Life"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Caster Weapon: +1% to all Maximum Elemental Resistances while on full Runic Ward"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard24.webp"
+  },
+  {
+    "id": "Passion_of_Aldur",
+    "name": "Passion of Aldur",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Weapon: Transforms all Cold and Lightning modifiers on the item into equivalent Fire modifiers"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Weapon: 25% increased Fire Damage"
+    ],
+    "socketBound": true,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneFire.webp"
+  },
+  {
+    "id": "Breath_of_Aldur",
+    "name": "Breath of Aldur",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Weapon: When socketed, transforms all Fire and Lightning modifiers to equivalent Cold modifiers"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Weapon: 25% increased Cold Damage"
+    ],
+    "socketBound": true,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneCold.webp"
+  },
+  {
+    "id": "Ire_of_Aldur",
+    "name": "Ire of Aldur",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Weapon: Transforms all Fire and Cold modifiers on the item into equivalent Lightning modifiers"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Weapon: 25% increased Lightning Damage"
+    ],
+    "socketBound": true,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneLightning.webp"
+  },
+  {
+    "id": "Betrayal_of_Aldur",
+    "name": "Betrayal of Aldur",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "Weapon: Transforms all Fire, Cold and Lightning modifiers on the item into equivalent Chaos modifiers"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Weapon: 25% increased Chaos Damage"
+    ],
+    "socketBound": true,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneChaos.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Splinters",
+    "name": "Ancient Rune of Splinters",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Bows: +50% Surpassing chance to fire an additional Arrow"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Bows: 30% increased Projectile Speed"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune1.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Dueling",
+    "name": "Ancient Rune of Dueling",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Bucklers: 30% increased Parried Debuff Magnitude"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Bucklers: 15% increased Block chance"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune2.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_the_Titan",
+    "name": "Ancient Rune of the Titan",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Two Hand Maces: 10% chance for Slam Skills you use yourself to cause an additional Aftershock"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Two Hand Maces: 15% increased Area of Effect for Attacks"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune3.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Shattering",
+    "name": "Ancient Rune of Shattering",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "One Hand Maces: 40% increased effect of Fully Broken Armour"
+    ],
+    "bonded": [
+      "Bonded:",
+      "One Hand Maces: Break 50% increased Armour"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune4.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Prowess",
+    "name": "Ancient Rune of Prowess",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Spears: 30% chance when you gain a Charge to gain an additional Charge"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Spears: 30% increased Endurance, Frenzy and Power Charge Duration"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune5.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Control",
+    "name": "Ancient Rune of Control",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Quarterstaves: 50% increased Immobilisation buildup"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Quarterstaves: 30% increased Damage against Immobilised Enemies"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune6.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Discovery",
+    "name": "Ancient Rune of Discovery",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Staves: 30% chance to create an additional Remnant"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Staves: +1 to maximum number of Elemental Infusions"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune7.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Decay",
+    "name": "Ancient Rune of Decay",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Wands: 25% increased Withered Magnitude"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Wands: 15% chance that when Volatility on you explodes, you regain an equivalent amount of Volatility"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune8.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Witchcraft",
+    "name": "Ancient Rune of Witchcraft",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Foci: 40% increased Area of Effect of Curses"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Foci: 15% faster Curse Activation"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune9.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_the_Horde",
+    "name": "Ancient Rune of the Horde",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Sceptres: Minions have 8% increased Attack and Cast Speed"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Sceptres: Minions have 10% increased Movement Speed"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune10.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Animosity",
+    "name": "Ancient Rune of Animosity",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Talismans: Gain 2 Druidic Prowess when you Heavy Stun a Rare or Unique Enemy"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Talismans: 40% increased Stun Buildup"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune11.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Detonation",
+    "name": "Ancient Rune of Detonation",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Crossbows: Grenades have 10% chance to activate a second time"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Crossbows: 40% increased Crossbow Reload Speed"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune12.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Retaliation",
+    "name": "Ancient Rune of Retaliation",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 30"
+    ],
+    "ordinary": [
+      "Shields: 8% increased Attack Speed if you have Blocked Recently"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Shields: +3% to maximum Block chance"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune13.webp"
+  },
+  {
+    "id": "Rune_of_Vitality",
+    "name": "Rune of Vitality",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Weapon: +80 to maximum Life",
+      "Shields and Bucklers: Recover 15 Life when you Block"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Weapon: 15% increased amount of Life Leeched",
+      "Shields and Bucklers: 5% increased maximum Life"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune1.webp"
+  },
+  {
+    "id": "Rune_of_the_Hunt",
+    "name": "Rune of the Hunt",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Boots: 8% increased Movement Speed while Sprinting",
+      "Sceptres: Companions deal 30% increased Damage"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Boots: 50% increased Stun Recovery",
+      "Sceptres: 8% increased Mana Recovery rate while your Companion is in your Presence"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune2.webp"
+  },
+  {
+    "id": "Rune_of_Acrobatics",
+    "name": "Rune of Acrobatics",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Weapon: Flasks gain 0.2 charges per Second",
+      "Boots: +0.3 metres to Dodge Roll distance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Weapon: Charms gain 0.25 charges per Second",
+      "Boots: 30% increased Armour if you haven't Dodge Rolled Recently"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune3.webp"
+  },
+  {
+    "id": "Rune_of_Culmination",
+    "name": "Rune of Culmination",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Gloves: 50% chance to build an additional Combo on Hit",
+      "One Hand Mace or Quarterstaff: Rolls only the minimum or maximum Damage value for Physical Damage"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: 5% increased Attack Speed",
+      "One Hand Mace or Quarterstaff: 20% increased Bleeding Duration"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune4.webp"
+  },
+  {
+    "id": "Rune_of_Renown",
+    "name": "Rune of Renown",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Gloves: 50% increased Glory generation",
+      "Caster Weapon: Archon recovery period expires 30% faster"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: Banner Skills have 20% increased Aura Magnitudes",
+      "Caster Weapon: 30% increased Archon Buff duration"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune5.webp"
+  },
+  {
+    "id": "Rune_of_Accumulation",
+    "name": "Rune of Accumulation",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Gloves: Gain 3 Life per Enemy Hit with Attacks, Gain 1 Mana per Enemy Hit with Attacks",
+      "Crossbow, Bow or Spear: On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: +30 to maximum Life, +30 to maximum Mana",
+      "Crossbow, Bow or Spear: 30% increased Freeze Buildup"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune6.webp"
+  },
+  {
+    "id": "Rune_of_Foundations",
+    "name": "Rune of Foundations",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Body Armours: +30 to Armour, +30 to Evasion Rating, +10 to maximum Energy Shield"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: +20 to maximum Life, +20 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune7.webp"
+  },
+  {
+    "id": "Rune_of_the_Prism",
+    "name": "Rune of the Prism",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Body Armours: -10% to all Maximum Elemental Resistances, +20% to all Elemental Resistances"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: 20% of Damage is taken from Mana before Life"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune8.webp"
+  },
+  {
+    "id": "Rune_of_the_Blossom",
+    "name": "Rune of the Blossom",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Body Armours: +50 to Spirit, -1 to Spirit per 2 Levels"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: 5% increased Spirit Reservation Efficiency of Skills"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune9.webp"
+  },
+  {
+    "id": "Rune_of_Consistency",
+    "name": "Rune of Consistency",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Helmets: 200% increased Critical Hit Chance, You have no Critical Damage Bonus",
+      "Caster Weapon: 50% increased Spell Damage while your Companion is in your Presence"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: Hits against you have 25% reduced Critical Damage Bonus",
+      "Caster Weapon: 8% increased Mana Recovery rate while your Companion is in your Presence"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune10.webp"
+  },
+  {
+    "id": "Rune_of_Reach",
+    "name": "Rune of Reach",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Helmets: Remnants you create have 15% increased effect",
+      "Wand or Staff: Remnants can be collected from 50% further away, Remnants you create have 25% reduced effect"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: Recover 3% of Maximum Mana when you collect a Remnant",
+      "Wand or Staff: 20% increased Exposure Effect"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune11.webp"
+  },
+  {
+    "id": "Rune_of_Vital_Flame",
+    "name": "Rune of Vital Flame",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "One Hand Mace, Two Hand Mace or Talisman: Adds 13 to 16 Fire Damage, 15% of Skill Mana Costs Converted to Life Costs"
+    ],
+    "bonded": [
+      "Bonded:",
+      "One Hand Mace, Two Hand Mace or Talisman: 30% increased Ignite Magnitude"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune12.webp"
+  },
+  {
+    "id": "Rune_of_Confrontation",
+    "name": "Rune of Confrontation",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [
+      "Quarterstaff or Spear: Gain 4 Rage on Melee Hit, -10 to Maximum Rage"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Quarterstaff or Spear: rage effect +% [10]"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune13.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Wild_Ferocity",
+    "name": "[DNT-Unused] Rune of Wild Ferocity",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune14.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Partnership",
+    "name": "[DNT-Unused] Rune of Partnership",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune15.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Reverberation",
+    "name": "[DNT-Unused] Rune of Reverberation",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune16.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Vital_Flame",
+    "name": "[DNT-Unused] Rune of Vital Flame",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune17.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Confrontation",
+    "name": "[DNT-Unused] Rune of Confrontation",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune18.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Chance",
+    "name": "[DNT-Unused] Rune of Chance",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune19.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Confidence",
+    "name": "[DNT-Unused] Rune of Confidence",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune12.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Duplication",
+    "name": "[DNT-Unused] Rune of Duplication",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1",
+      "Requires:  Level 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune16.webp"
+  },
+  {
+    "id": "Serles_Triumph",
+    "name": "Serle's Triumph",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "All Equipment: +1 Suffix Modifier allowed, local maximum mods allowed + [1]"
+    ],
+    "bonded": [],
+    "socketBound": true,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRune2.webp"
+  },
+  {
+    "id": "Cadigans_Epiphany",
+    "name": "Cadigan's Epiphany",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Gloves: Destroys all Augment Sockets on the item to create a Jewel Socket"
+    ],
+    "bonded": [],
+    "socketBound": true,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRune3.webp"
+  },
+  {
+    "id": "Astrids_Creativity",
+    "name": "Astrid's Creativity",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "All Equipment: Can have 1 additional Crafted Modifiers"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRune1.webp"
+  },
+  {
+    "id": "Uhtreds_Sidereus",
+    "name": "Uhtred's Sidereus",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Boots: Can roll Chronomancy modifiers"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Boots: 10% increased Cooldown Recovery Rate"
+    ],
+    "socketBound": true,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneTime.webp"
+  },
+  {
+    "id": "Kolrs_Hunt",
+    "name": "Kolr's Hunt",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Gloves: Can roll Marksman modifiers"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: 20% increased Projectile Damage"
+    ],
+    "socketBound": true,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneDex.webp"
+  },
+  {
+    "id": "Voranas_Carnage",
+    "name": "Vorana's Carnage",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Helmets: Can roll Berserking modifiers"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: Gain 2 Rage on Melee Hit"
+    ],
+    "socketBound": true,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRunePhysical.webp"
+  },
+  {
+    "id": "Thruds_Might",
+    "name": "Thrud's Might",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Weapon: Can roll Destruction modifiers"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Weapon: +5% to all Elemental Resistances"
+    ],
+    "socketBound": true,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneFire.webp"
+  },
+  {
+    "id": "Medveds_Tending",
+    "name": "Medved's Tending",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Body Armours: Can roll Soul modifiers"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: 3% increased maximum Life, 3% increased maximum Mana"
+    ],
+    "socketBound": true,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneCold.webp"
+  },
+  {
+    "id": "Katlas_Gloom",
+    "name": "Katla's Gloom",
+    "properties": [
+      "Stack Size: 1 / 10",
+      "Limited to: 1"
+    ],
+    "ordinary": [
+      "Gloves: Can roll Decay modifiers"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: 25% reduced Effect of Non-Damaging Ailments on you"
+    ],
+    "socketBound": true,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneChaos.webp"
+  },
+  {
+    "id": "Aldurs_Legacy",
+    "name": "Aldur's Legacy",
+    "properties": [
+      "Stack Size: 1 / 10"
+    ],
+    "ordinary": [
+      "All Equipment: When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUnique.webp"
+  },
+  {
+    "id": "Legacy_of_Bramblejack",
+    "name": "Legacy of Bramblejack",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Body Armours: 250% of Melee Physical Damage taken reflected to Attacker"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: Regenerate 3% of maximum Life per second while Surrounded"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Blackbraid",
+    "name": "Legacy of Blackbraid",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Body Armours: +50% of Armour also applies to Elemental Damage"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: +15% to all Elemental Resistances"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Edyrns_Tusks",
+    "name": "Legacy of Edyrn's Tusks",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Body Armours: 50% chance to inflict Bleeding on Hit, 50% reduced Slowing Potency of Debuffs on You"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: 35% increased Thorns damage"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Kingsguard",
+    "name": "Legacy of Kingsguard",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Body Armours: Recover 5% of maximum Life for each Endurance Charge consumed"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: +30 to maximum Life"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Bristleboar",
+    "name": "Legacy of Bristleboar",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Body Armours: Gain 10 Rage when Critically Hit by an Enemy, Gain 5 Rage when Hit by an Enemy"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: +3 to Maximum Rage"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Foxshade",
+    "name": "Legacy of Foxshade",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Body Armours: 10% increased Movement Speed when on Full Life, 100% increased Evasion Rating when on Full Life"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: 20% increased Evasion Rating"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Ashrend",
+    "name": "Legacy of Ashrend",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Body Armours: Cannot be Ignited, -10 Physical Damage taken from Attack Hits"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: +35% to Fire Resistance"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Briskwrap",
+    "name": "Legacy of Briskwrap",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Body Armours: Gain Deflection Rating equal to 30% of Evasion Rating"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: 35% increased Flask Mana Recovery rate"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Unleashed",
+    "name": "Legacy of The Unleashed",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Body Armours: 25% of Damage taken from Hits bypasses Energy Shield if Energy Shield is below half"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Body Armours: 20% increased Armour while Shapeshifted"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Horns_of_Bynden",
+    "name": "Legacy of Horns of Bynden",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Helmets: Every Rage also grants 1% increased Armour, Gain 1 Rage on Melee Hit"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: +3 to Maximum Rage"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Wings_of_Caelyn",
+    "name": "Legacy of Wings of Caelyn",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Helmets: Gain 1 Rage on Melee Hit, Every Rage also grants 1% increased Stun Threshold"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: Every five Rage also grants you 1% increased Movement Speed"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Ezomyte_Peak",
+    "name": "Legacy of Ezomyte Peak",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Helmets: 15% increased Area of Effect, Unwavering Stance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: 50% reduced Slowing Potency of Debuffs on You"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Deidbell",
+    "name": "Legacy of Deidbell",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Helmets: Warcries Explode Corpses dealing 10% of their Life as Physical Damage"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: Warcry Skills have 20% increased Area of Effect"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Elevore",
+    "name": "Legacy of Elevore",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Helmets: Charms gain 1 charge per Second, +1 Charm Slots"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: Charms gain 0.5 charges per Second"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Starkonjas_Head",
+    "name": "Legacy of Starkonja's Head",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Helmets: 100% increased Global Evasion Rating when on Low Life, 5% of Damage from Hits is taken from your Damageable Companion's Life before you"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: 5% of Damage from Hits is taken from your Damageable Companion's Life before you"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Crown_of_Thorns",
+    "name": "Legacy of Crown of Thorns",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Helmets: Pain Attunement"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: 17 to 26 Physical Thorns damage"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Greymake",
+    "name": "Legacy of Greymake",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Helmets: +50 to all Attributes"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: +1 Maximum Life per Level"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Erians_Cobble",
+    "name": "Legacy of Erian's Cobble",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Helmets: +30 to Accuracy Rating, +10 to maximum Life, +10 to maximum Mana, 10% increased Rarity of Items found, 10% increased Critical Hit Chance, +5 to all Attributes, +5% to all Elemental Resistances, 3 Life Regeneration per second"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: +20 to Armour, +20 to Evasion Rating, +20 to maximum Energy Shield"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Smiling_Knight",
+    "name": "Legacy of The Smiling Knight",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Helmets: Aggravate Bleeding on targets you Critically Hit with Attacks"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: 20% increased Critical Hit Chance"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Vile_Knight",
+    "name": "Legacy of The Vile Knight",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Helmets: Deal 4% increased Damage with Hits to Rare or Unique Enemies for each second they've ever been in your Presence, up to a maximum of 200%"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: 20% increased Presence Area of Effect"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Northpaw",
+    "name": "Legacy of Northpaw",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Gloves: Base Critical Hit Chance for Attacks with Weapons is 7%"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: 15% increased Critical Damage Bonus"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Candlemaker",
+    "name": "Legacy of Candlemaker",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Gloves: 40% increased Fire Damage, Flammability Magnitude is doubled"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: 20% increased Ignite Duration on Enemies"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Deathblow",
+    "name": "Legacy of Deathblow",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Gloves: Culling Strike"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: Gain 30 Life per enemy killed"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Legionstride",
+    "name": "Legacy of Legionstride",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Boots: +10% to Block chance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Boots: 10% reduced Damage taken from Projectile Hits"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Trampletoe",
+    "name": "Legacy of Trampletoe",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Boots: Deal 10% of Overkill damage to enemies within 2 metres of the enemy killed"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Boots: 15% increased Global Physical Damage"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Briarpatch",
+    "name": "Legacy of Briarpatch",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Boots: +15% to Thorns Critical Hit Chance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Boots: 15% increased Thorns Critical Damage Bonus"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Bushwhack",
+    "name": "Legacy of Bushwhack",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Boots: Physical Damage is Pinning"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Boots: +20 to Dexterity"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Wanderlust",
+    "name": "Legacy of Wanderlust",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Boots: Your speed is unaffected by Slows"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Boots: 5% increased Movement Speed"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Knight-errant",
+    "name": "Legacy of The Knight-errant",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Boots: Iron Reflexes"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Boots: 25% increased Elemental Ailment Threshold"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Oberns_Bastion",
+    "name": "Legacy of Obern's Bastion",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Boots: 200% increased Stun Recovery"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Boots: 40% reduced Chill Duration on you, 40% reduced Freeze Duration on you"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Dionadair",
+    "name": "Legacy of Dionadair",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Shields: Double Stun Threshold while Shield is Raised"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Shields: 15% increased Stun Threshold"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Wulfsbane",
+    "name": "Legacy of Wulfsbane",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Shields: Intimidate Enemies on Block for 8 seconds"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Shields: +25 to Strength"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Chernobogs_Pillar",
+    "name": "Legacy of Chernobog's Pillar",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Shields: Gain 1% of damage as Fire damage per 2% Chance to Block"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Shields: +30% to Chaos Resistance"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Alkem_Eira",
+    "name": "Legacy of Alkem Eira",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Shields: 30% of damage Blocked is Recouped as Mana"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Shields: 20% of damage Blocked is Recouped as Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Oaksworn",
+    "name": "Legacy of Oaksworn",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Shields: 50% increased Life Regeneration rate"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Shields: 50 Life Regeneration per second"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Dunkelhalt",
+    "name": "Legacy of Dunkelhalt",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Bucklers: 50% increased Parried Debuff Magnitude"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Bucklers: 50% increased Parry Damage"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Rondel_de_Ezo",
+    "name": "Legacy of Rondel de Ezo",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Bucklers: Curse Enemies with Enfeeble on Block"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Bucklers: 100% increased Block chance against Projectiles"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Brynhands_Mark",
+    "name": "Legacy of Brynhand's Mark",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "One Hand Maces: Causes Double Stun Buildup"
+    ],
+    "bonded": [
+      "Bonded:",
+      "One Hand Maces: Adds 14 to 20 Physical Damage"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Trenchtimbre",
+    "name": "Legacy of Trenchtimbre",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "One Hand Maces: Increases and Reductions to Minion Attack Speed also affect you"
+    ],
+    "bonded": [
+      "Bonded:",
+      "One Hand Maces: +1 to Level of all Minion Skills"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Mj%C3%B6lner",
+    "name": "Legacy of Mjölner",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "One Hand Maces: +200 Intelligence Requirement, +3 to Level of all Lightning Skills"
+    ],
+    "bonded": [
+      "Bonded:",
+      "One Hand Maces: +1 to Level of all Lightning Skills"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Twisted_Empyrean",
+    "name": "Legacy of Twisted Empyrean",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Two Hand Maces: Attacks with this Weapon have Added Cold Damage equal to 6% to 10% of maximum Mana"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Two Hand Maces: 15% of Damage is taken from Mana before Life"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Hoghunt",
+    "name": "Legacy of Hoghunt",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Two Hand Maces: +5% to Critical Hit Chance, Maim on Critical Hit"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Two Hand Maces: 25% increased Attack Damage against Maimed Enemies"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Hrimnors_Hymn",
+    "name": "Legacy of Hrimnor's Hymn",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Two Hand Maces: 25% chance for Slam Skills you use yourself to cause an additional Aftershock"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Two Hand Maces: 15% chance for Slam Skills you use yourself to cause an additional Aftershock"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Brain_Rattler",
+    "name": "Legacy of Brain Rattler",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Two Hand Maces: All damage with this Weapon causes Electrocution buildup"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Two Hand Maces: Damage Penetrates 10% Lightning Resistance"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Lifesprig",
+    "name": "Legacy of Lifesprig",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Wands: +2 to Level of all Spell Skills"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Wands: Leeches 1% of maximum Life when you Cast a Spell"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Duality",
+    "name": "Legacy of Duality",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Quarterstaves: Gain 250 Guard for 0.5 seconds per Combo expended when using Skills"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Quarterstaves: Gain Finality for 0.2 seconds per Combo expended when using Skills"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Tyrannys_Grip",
+    "name": "Legacy of Tyranny's Grip",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Spears: Strikes deal Splash Damage"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Spears: Knocks Enemies Back on Hit"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Sentry",
+    "name": "Legacy of The Sentry",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Quarterstaves: Adds 23 to 34 Fire damage to Attacks, 100% increased Flammability Magnitude"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Quarterstaves: +2% to Maximum Fire Resistance"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Adonias_Ego",
+    "name": "Legacy of Adonia's Ego",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Wands: +1 to Maximum Power Charges"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Wands: +65 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Cursecarver",
+    "name": "Legacy of Cursecarver",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Wands: +3 to Level of all Curse Skills"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Wands: 35% increased Mana Regeneration Rate"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Dusk_Vigil",
+    "name": "Legacy of Dusk Vigil",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Staves: Gain 30% of Physical Damage as Extra Fire Damage"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Staves: Triggered Spells deal 20% increased Spell Damage"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Blood_Thorn",
+    "name": "Legacy of The Blood Thorn",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Quarterstaves: Adds 4 to 8 Physical Damage, Causes Bleeding on Hit"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Quarterstaves: 10% increased Magnitude of Bleeding you inflict"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Quill_Rain",
+    "name": "Legacy of Quill Rain",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Bows: 50% increased Attack Speed, 20% less Attack Damage"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Bows: 70% increased Arrow Speed"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Ironbound",
+    "name": "Legacy of Ironbound",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Bows: Hits with this weapon have 1 to 3 Added Physical Damage per 1% Block Chance"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Bows: 3% increased Block chance per 100 total Item Armour on Equipped Armour Items"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Amor_Mandragora",
+    "name": "Legacy of Amor Mandragora",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Talismans: Gain 1 Druidic Prowess for every 20 total Rage spent"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Talismans: Enemies in your Presence are Hindered"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Spiteful_Floret",
+    "name": "Legacy of Spiteful Floret",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Talismans: Every 5 Rage also grants 5% of Damage taken Recouped as Life"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Talismans: Attacks have 20% chance to cause Bleeding"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Svalinn",
+    "name": "Legacy of Svalinn",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Shields: Chance to Block Damage is Lucky, You take 20% of damage from Blocked Hits"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Shields: +50 to maximum Runic Ward"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Keeper_of_the_Arc",
+    "name": "Legacy of Keeper of the Arc",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Helmets: Alternating every 5 seconds:\nTake 20% less Damage from Hits\nTake 20% less Damage over time"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Helmets: 25% increased Mana Regeneration Rate"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Olrovasara",
+    "name": "Legacy of Olrovasara",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "One Hand Maces: On Hitting an enemy, gains maximum added Lightning damage equal to\nthe enemy's Power for 20 seconds, up to a total of 120"
+    ],
+    "bonded": [
+      "Bonded:",
+      "One Hand Maces: 15% increased Attack Speed"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_A_Worthy_Foe",
+    "name": "Legacy of A Worthy Foe",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Shields: Off-hand Hits inflict Runefather's Challenge"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Shields: +45% to Cold Resistance"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Serles_Grit",
+    "name": "Legacy of Serle's Grit",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "One Hand Maces: Maximum Quality is 40%"
+    ],
+    "bonded": [
+      "Bonded:",
+      "One Hand Maces: Skills which Empower an Attack have 20% chance to not count that Attack"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Runeseekers_Call",
+    "name": "Legacy of Runeseeker's Call",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Wands: 75% increased effect of Socketed Runes"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Wands: +100 to maximum Mana"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Facebreaker",
+    "name": "Legacy of Facebreaker",
+    "properties": [
+      "Limited to: 1 Aldur's Legacy",
+      "Requires:  Level 65"
+    ],
+    "ordinary": [
+      "Gloves: +1 to Armour per Strength"
+    ],
+    "bonded": [
+      "Bonded:",
+      "Gloves: 1% increased Damage per 15 Strength"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  }
+]

@@ -1,0 +1,165 @@
+{
+  "workspace": "C:\\Users\\SSAFY\\.codex\\worktrees\\augment-catalog-expansion\\Exile-Hephaistos",
+  "branch": "codex/augment-catalog-expansion",
+  "baseline": "ceab37535c2ae8fcb3b3432b65bbb822b7a35ace",
+  "scope": {
+    "source": 313,
+    "legacy": 79,
+    "added": 198,
+    "registered": 277,
+    "selectable": 232,
+    "deferredSpecial": 23,
+    "unsupportedTarget": 5,
+    "unused": 8
+  },
+  "backend": {
+    "focusedCommand": "gradlew.bat spotlessApply spotlessCheck test --tests *SocketAugmentsTest --tests *RulesetManifestLoaderTest --tests *ArchitectureTest integrationTest generateJooq bootJar",
+    "focused": [
+      {
+        "name": "com.poe2craft.ArchitectureTest",
+        "tests": "2",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "com.poe2craft.crafting.infrastructure.RulesetManifestLoaderTest",
+        "tests": "4",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "com.poe2craft.crafting.SocketAugmentsTest",
+        "tests": "7",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0"
+      }
+    ],
+    "unitPassed": 13,
+    "integrationPassed": 8,
+    "spotlessCheck": "passed",
+    "generateJooq": "passed; isolated migrated PostgreSQL container",
+    "bootJar": "passed",
+    "fullCheck": {
+      "status": "incomplete",
+      "command": "gradlew.bat spotlessApply check generateJooq bootJar --continue",
+      "elapsed": "17m14s",
+      "reportedCompleted": 763,
+      "reportedFailed": 12,
+      "reportedSkipped": 1,
+      "interruption": "Only this worktree test worker was stopped during DeferredCalculationTest.internalOrbitMixturesMatchEveryConcreteMethodAndRestoreOriginalGraphCells after over 15 minutes; no test expectations or production search logic changed.",
+      "observedFailures": [
+        {
+          "class": "BaseRegistryParityTest",
+          "test": "allExistingInitialsActionsAndSeededTracesRemainExact()"
+        },
+        {
+          "class": "EmptyRareApiRegressionTest",
+          "test": "completedApiRetainsPreparationRetryProbabilityAndOnlyConcreteGoalTargets()"
+        },
+        {
+          "class": "TerminalContinuationApiTest",
+          "test": "cancelsResumesAndReloadsSharedConcreteOutcomesWithMeasuredRequestLatency()"
+        },
+        {
+          "class": "CertifiedJobRestartTest",
+          "test": "readRenewedLeaseSurvivesRestartWithoutRewritingTheGraph(Path)"
+        },
+        {
+          "class": "CertifiedJobRestartTest",
+          "test": "continuedRunnerMatchesUninterruptedExitMassAndCurrencyUses()"
+        },
+        {
+          "class": "CertifiedJobRestartTest",
+          "test": "jobReopensGraphAndPartialConditionalTransportWithNewGeneration(Path)"
+        },
+        {
+          "class": "CertifiedMethodProductionTest",
+          "test": "realSolarRenewalKeepsExactTruthInsideEveryRequestedHorizon()"
+        },
+        {
+          "class": "CertifiedSearchJobsTest",
+          "test": "completedGoalPublishesStrategyAndStillHonorsEntryCancellation()"
+        },
+        {
+          "class": "CertifiedSearchJobsTest",
+          "test": "realCatalogBoundsKeepExactConditionalLawAndGenerationControls()"
+        },
+        {
+          "class": "CertifiedSearchJobsTest",
+          "test": "boundedCommandReplayDoesNotLimitTheNumberOfResumptions()"
+        },
+        {
+          "class": "CertifiedSearchJobsTest",
+          "test": "expiryEvictionAndShutdownInvalidateQueuedWorkWithoutRunningClosedStores()"
+        },
+        {
+          "class": "CertifiedSearchJobsTest",
+          "test": "activeRequestsRenewTheIdleLeaseButAbandonedJobsStillExpire()"
+        }
+      ],
+      "priorBaselineEvidence": "../socket-augments-20261105/checks.json:baselineUnitAudit.reproducedFailures; all 12 observed names match prior reproduced failures. This run did not repeat those Backend baseline tests."
+    }
+  },
+  "frontend": {
+    "npmCi": "passed",
+    "lint": "passed",
+    "typecheck": "passed",
+    "formatCheck": "passed",
+    "build": "passed",
+    "focusedPassed": 189,
+    "finalSocketHelperPassed": 6,
+    "firstFullRun": {
+      "total": 3009,
+      "passed": 2995,
+      "failed": 14,
+      "resolvedByCatalogCountAndSourceHashUpdates": 4,
+      "isolatedLayoutRerun": "passed",
+      "knownRemaining": 9
+    },
+    "baselineComparison": {
+      "commit": "ceab37535c2ae8fcb3b3432b65bbb822b7a35ace",
+      "method": "git archive source under backend/build/augment-baseline with frontend, contracts and backend/src/main/resources/crafting; same installed locked dependencies.",
+      "itemTextImport": "8 focus failures reproduced; 22 other import tests passed",
+      "workbenchLayout": "14 passed",
+      "sapphireGeneration": "1 failure reproduced; 1 passed",
+      "incompleteCopyAttempts": "Initial missing contracts/policy imports produced collection failures and were not counted as baseline reproduction."
+    }
+  },
+  "scripts": {
+    "command": "python -m unittest discover -s scripts/tests -v",
+    "passed": 13,
+    "catalogI18nAuditReproduction": "byte-identical after regeneration with existing formatter",
+    "sourceCount": 313,
+    "locales": 6
+  },
+  "ui": "ui.json and six ordinary-idol screenshots plus ancient-limit-ko.png; CUA browser verification on dedicated 19510/19511 ports",
+  "integrationNotes": [
+    "No ItemState schema changes. Preserve existing installedAugments and ruleset identity boundaries.",
+    "CraftingPage.tsx imports canInstallAugment and checks the actual slot; reconcile this guard with the UI branch socket component. Socket art and placement were not edited.",
+    "socketAugments.ts exports canInstallAugment(state, id?, slot?); omitted slot means any valid socket.",
+    "Merge gameTerms.json by locale and ID; all pre-existing entries are semantically unchanged.",
+    "Regenerate ruleset-v1.json digests and CraftingPage source digest in chaos-repeat/display/goldens/sources.json after all branches are merged."
+  ],
+  "gitDelivery": "feature commit only; no merge, push, deployment or 9000/9001 changes",
+  "sealedIndex": {
+    "resources": 604,
+    "rawHtml": 18,
+    "icons": 277,
+    "allDigestsMatchStagedGitBlobs": true,
+    "finalJarCatalogAndManifestMatch": true
+  },
+  "cleanup": {
+    "ports": [
+      19510,
+      19511,
+      19532,
+      19579
+    ],
+    "ownedApiAndVite": "stopped after checking listening PID and command line",
+    "ownedPostgresAndRedis": "removed after checking task label, including only their anonymous test volume",
+    "otherServices": "not modified"
+  }
+}

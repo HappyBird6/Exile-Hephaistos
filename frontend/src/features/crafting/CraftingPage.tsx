@@ -5,6 +5,7 @@ import {
   socketText,
   installAugment,
   isSelectableAugment,
+  canInstallAugment,
 } from './socketAugments'
 import { createPortal } from 'react-dom'
 import { defenceDisplay } from './defenceDisplay'
@@ -1828,10 +1829,10 @@ export function CraftingPage() {
                                     disabled={
                                       workbenchBusy ||
                                       !selected ||
-                                      !isSelectableAugment(selected.id) ||
-                                      !augmentEffect(
+                                      !canInstallAugment(
+                                        concrete,
                                         selected.id,
-                                        concrete.baseItemId,
+                                        slot,
                                       )
                                     }
                                     title={

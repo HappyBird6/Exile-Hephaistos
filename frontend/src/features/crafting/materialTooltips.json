@@ -3679,5 +3679,1340 @@
       "Talismans: +150 to Accuracy Rating"
     ],
     "sourceUrl": "https://poe2db.tw/us/Soul_Core_of_Vizoma"
+  },
+  "Amanamus_Gaze": {
+    "name": "Amanamu's Gaze",
+    "lines": [
+      "Helmets: Remove a Damaging Ailment when you use a Command Skill",
+      "Body Armours: +2 to Armour per 1 Spirit",
+      "Boots: 1% increased Movement Speed per 15 Spirit, up to a maximum of 40%\nOther Modifiers to Movement Speed except for Sprinting do not apply"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Amanamus_Gaze"
+  },
+  "Ancient_Rune_of_Animosity": {
+    "name": "Ancient Rune of Animosity",
+    "lines": [
+      "Talismans: Gain 2 Druidic Prowess when you Heavy Stun a Rare or Unique Enemy"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Rune_of_Animosity"
+  },
+  "Ancient_Rune_of_Control": {
+    "name": "Ancient Rune of Control",
+    "lines": ["Quarterstaves: 50% increased Immobilisation buildup"],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Rune_of_Control"
+  },
+  "Ancient_Rune_of_Decay": {
+    "name": "Ancient Rune of Decay",
+    "lines": ["Wands: 25% increased Withered Magnitude"],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Rune_of_Decay"
+  },
+  "Ancient_Rune_of_Detonation": {
+    "name": "Ancient Rune of Detonation",
+    "lines": ["Crossbows: Grenades have 10% chance to activate a second time"],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Rune_of_Detonation"
+  },
+  "Ancient_Rune_of_Discovery": {
+    "name": "Ancient Rune of Discovery",
+    "lines": ["Staves: 30% chance to create an additional Remnant"],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Rune_of_Discovery"
+  },
+  "Ancient_Rune_of_Dueling": {
+    "name": "Ancient Rune of Dueling",
+    "lines": ["Bucklers: 30% increased Parried Debuff Magnitude"],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Rune_of_Dueling"
+  },
+  "Ancient_Rune_of_Prowess": {
+    "name": "Ancient Rune of Prowess",
+    "lines": [
+      "Spears: 30% chance when you gain a Charge to gain an additional Charge"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Rune_of_Prowess"
+  },
+  "Ancient_Rune_of_Retaliation": {
+    "name": "Ancient Rune of Retaliation",
+    "lines": [
+      "Shields: 8% increased Attack Speed if you have Blocked Recently"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Rune_of_Retaliation"
+  },
+  "Ancient_Rune_of_Shattering": {
+    "name": "Ancient Rune of Shattering",
+    "lines": ["One Hand Maces: 40% increased effect of Fully Broken Armour"],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Rune_of_Shattering"
+  },
+  "Ancient_Rune_of_Splinters": {
+    "name": "Ancient Rune of Splinters",
+    "lines": ["Bows: +50% Surpassing chance to fire an additional Arrow"],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Rune_of_Splinters"
+  },
+  "Ancient_Rune_of_the_Titan": {
+    "name": "Ancient Rune of the Titan",
+    "lines": [
+      "Two Hand Maces: 10% chance for Slam Skills you use yourself to cause an additional Aftershock"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ancient_Rune_of_the_Titan"
+  },
+  "Atmohuas_Soul_Core_of_Retreat": {
+    "name": "Atmohua's Soul Core of Retreat",
+    "lines": [
+      "Body Armours: 40% increased Energy Shield from Equipped Focus",
+      "Foci: 30% increased Energy Shield from Equipped Body Armour"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Atmohuas_Soul_Core_of_Retreat"
+  },
+  "Bear_Idol": {
+    "name": "Bear Idol",
+    "lines": [
+      "Helmets: 10% increased Area of Effect",
+      "Sceptres: Allies in your Presence deal 12 to 18 added Attack Physical Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Bear_Idol"
+  },
+  "Boar_Idol": {
+    "name": "Boar Idol",
+    "lines": [
+      "Gloves: Gain 1 Rage on Melee Hit",
+      "Sceptres: Allies in your Presence Regenerate 0.5% of your Maximum Life per second"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Boar_Idol"
+  },
+  "Carved_Cunning": {
+    "name": "Carved Cunning",
+    "lines": [
+      "Helmets: Enemies which are on Full Life cannot Evade your Hits",
+      "Body Armours: Prevent +5% of Damage from Deflected Hits if you've\nDeflected no Hits Recently",
+      "Boots: Gain Onslaught for 4 seconds when your Marks Activate"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Carved_Cunning"
+  },
+  "Carved_Majesty": {
+    "name": "Carved Majesty",
+    "lines": [
+      "Body Armours: +3 to Spirit per Idol socketed in your Equipment",
+      "Gloves: Companions gain Onslaught for 4 seconds on Hitting your Marked targets",
+      "Boots: 1% increased Movement Speed while Sprinting per Persistent Minion"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Carved_Majesty"
+  },
+  "Carved_Mischief": {
+    "name": "Carved Mischief",
+    "lines": [
+      "Helmets: Gain Guard equal to 10% of maximum Life for 4 seconds on taking Savage Hit",
+      "Gloves: +5% to maximum Block chance if you've Blocked with a raised Shield Recently",
+      "Body Armours: 200% increased Stun Threshold if you've been Stunned Recently"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Carved_Mischief"
+  },
+  "Carved_Tenacity": {
+    "name": "Carved Tenacity",
+    "lines": [
+      "Helmets: Enemies have no Critical Damage Bonus for 4 seconds after you Blind them",
+      "Gloves: Enemies you Critically Hit get 100% reduced Life Regeneration Rate for 4 seconds",
+      "Boots: Your speed is Unaffected by Slows while Sprinting"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Carved_Tenacity"
+  },
+  "Cat_Idol": {
+    "name": "Cat Idol",
+    "lines": [
+      "Gloves: 25% increased Accuracy Rating",
+      "Sceptres: Allies in your Presence have 14% increased Critical Hit Chance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Cat_Idol"
+  },
+  "Cholotls_Soul_Core_of_War": {
+    "name": "Cholotl's Soul Core of War",
+    "lines": [
+      "Bows: Projectiles have 20% chance to Chain an additional time from terrain"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Cholotls_Soul_Core_of_War"
+  },
+  "Citaqualotls_Soul_Core_of_Foulness": {
+    "name": "Citaqualotl's Soul Core of Foulness",
+    "lines": ["Martial Weapon: Adds 19 to 29 Chaos damage"],
+    "sourceUrl": "https://poe2db.tw/us/Citaqualotls_Soul_Core_of_Foulness"
+  },
+  "Citaqualotls_Thesis": {
+    "name": "Citaqualotl's Thesis",
+    "lines": [
+      "Body Armours: You Recoup 50% of Damage taken by your Offerings as Life",
+      "Gloves: One of your Persistent Minions revives when an Offering expires",
+      "Boots: Sacrifice 10% of maximum Life to gain that much Guard when you Dodge Roll"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Citaqualotls_Thesis"
+  },
+  "Countess_Seskes_Rune_of_Archery": {
+    "name": "Countess Seske's Rune of Archery",
+    "lines": ["Bows: Bow Attacks fire 1 additional Arrows"],
+    "sourceUrl": "https://poe2db.tw/us/Countess_Seskes_Rune_of_Archery"
+  },
+  "Courtesan_Mannans_Rune_of_Cruelty": {
+    "name": "Courtesan Mannan's Rune of Cruelty",
+    "lines": [
+      "Gloves: 20% increased Magnitude of Damaging Ailments you inflict"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Courtesan_Mannans_Rune_of_Cruelty"
+  },
+  "Craiceanns_Rune_of_Recovery": {
+    "name": "Craiceann's Rune of Recovery",
+    "lines": ["Body Armours: 30% increased Energy Shield Recharge Rate"],
+    "sourceUrl": "https://poe2db.tw/us/Craiceanns_Rune_of_Recovery"
+  },
+  "Craiceanns_Rune_of_Warding": {
+    "name": "Craiceann's Rune of Warding",
+    "lines": ["Body Armours: 50% reduced effect of Curses on you"],
+    "sourceUrl": "https://poe2db.tw/us/Craiceanns_Rune_of_Warding"
+  },
+  "Emergent_Instinct": {
+    "name": "Emergent Instinct",
+    "lines": [
+      "Helmets: Targets that are Blinded, Maimed, and Bleeding cannot Evade your Hits",
+      "Gloves: Regenerate 5% of maximum Life per Second if you have used a Command Skill Recently",
+      "Body Armours: Thorns Damage is Lucky against targets with Fully Broken Armour"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Emergent_Instinct"
+  },
+  "Emergent_Possibility": {
+    "name": "Emergent Possibility",
+    "lines": [
+      "Body Armours: 15% of Chaos Damage from Hits taken as Damage of a random Element",
+      "Gloves: Gain 1% of Damage as Extra Damage of a random Element per\nRune Socketed in Equipped Items",
+      "Boots: 50% increased Runic Ward Regeneration Rate while Sprinting"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Emergent_Possibility"
+  },
+  "Emergent_Protection": {
+    "name": "Emergent Protection",
+    "lines": [
+      "Helmets: Gain 1 Endurance Charge on reaching Low Life, only once every 2 seconds",
+      "Gloves: Banners also grant 2% of Life Regenerated per second to affected targets",
+      "Boots: When you stop Sprinting, gain Guard equal to 4% of maximum Life per second spent Sprinting, up to a maximum of 20%, for 4 seconds"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Emergent_Protection"
+  },
+  "Emergent_Vigour": {
+    "name": "Emergent Vigour",
+    "lines": [
+      "Helmets: +1 to maximum Life per 8 Armour on Equipped Helmet",
+      "Body Armours: Gain Maximum Energy Shield equal to 50% of total\nStrength Requirements of Equipped Armour Items",
+      "Boots: Hits against you have no Critical Damage Bonus while on Consecrated Ground"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Emergent_Vigour"
+  },
+  "Estazuntis_Soul_Core_of_Convalescence": {
+    "name": "Estazunti's Soul Core of Convalescence",
+    "lines": [
+      "Boots: 15% increased speed of Recoup Effects",
+      "Helmets: 10% of Damage taken Recouped as Life"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Estazuntis_Soul_Core_of_Convalescence"
+  },
+  "Farruls_Rune_of_Grace": {
+    "name": "Farrul's Rune of Grace",
+    "lines": ["Boots: 8% increased Deflection Rating while moving"],
+    "sourceUrl": "https://poe2db.tw/us/Farruls_Rune_of_Grace"
+  },
+  "Farruls_Rune_of_the_Chase": {
+    "name": "Farrul's Rune of the Chase",
+    "lines": ["Boots: 5% increased Movement Speed"],
+    "sourceUrl": "https://poe2db.tw/us/Farruls_Rune_of_the_Chase"
+  },
+  "Farruls_Rune_of_the_Hunt": {
+    "name": "Farrul's Rune of the Hunt",
+    "lines": [
+      "Martial Weapon: 50% increased Attack Damage against Rare or Unique Enemies"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Farruls_Rune_of_the_Hunt"
+  },
+  "Fenumus_Rune_of_Agony": {
+    "name": "Fenumus' Rune of Agony",
+    "lines": [
+      "Martial Weapon: Gain 13% of Damage as Extra Chaos Damage",
+      "Wand or Staff: Gain 13% of Damage as Extra Chaos Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Fenumus_Rune_of_Agony"
+  },
+  "Fenumus_Rune_of_Draining": {
+    "name": "Fenumus' Rune of Draining",
+    "lines": ["Gloves: 20% increased Withered Magnitude"],
+    "sourceUrl": "https://poe2db.tw/us/Fenumus_Rune_of_Draining"
+  },
+  "Fenumus_Rune_of_Spinning": {
+    "name": "Fenumus' Rune of Spinning",
+    "lines": ["Gloves: 8% increased Cast Speed"],
+    "sourceUrl": "https://poe2db.tw/us/Fenumus_Rune_of_Spinning"
+  },
+  "Greater_Rune_of_Alacrity": {
+    "name": "Greater Rune of Alacrity",
+    "lines": [
+      "Martial Weapon: 8% increased Skill Speed",
+      "Armour: Debuffs on you expire 8% faster"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Rune_of_Alacrity"
+  },
+  "Greater_Rune_of_Leadership": {
+    "name": "Greater Rune of Leadership",
+    "lines": [
+      "Martial Weapon: Minions gain 10% of their Physical Damage as Extra Lightning Damage",
+      "Armour: Minions take 10% of Physical Damage as Lightning Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Rune_of_Leadership"
+  },
+  "Greater_Rune_of_Nobility": {
+    "name": "Greater Rune of Nobility",
+    "lines": [
+      "Martial Weapon: Attacks with this Weapon have 10% chance to inflict Exposure",
+      "Armour: 10% reduced effect of Shock on you"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Rune_of_Nobility"
+  },
+  "Greater_Rune_of_Tithing": {
+    "name": "Greater Rune of Tithing",
+    "lines": [
+      "Martial Weapon: Meta Skills gain 10% increased Energy",
+      "Armour: 1 to 100 Lightning Thorns damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Greater_Rune_of_Tithing"
+  },
+  "Guatelitzis_Soul_Core_of_Endurance": {
+    "name": "Guatelitzi's Soul Core of Endurance",
+    "lines": [
+      "Martial Weapon: 50% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
+      "Wand or Staff: 50% chance when you gain an Endurance Charge to gain an additional Endurance Charge"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Guatelitzis_Soul_Core_of_Endurance"
+  },
+  "Guatelitzis_Thesis": {
+    "name": "Guatelitzi's Thesis",
+    "lines": [
+      "Helmets: Gain Armour equal to 35% of Life Lost from Hits in the past 8 seconds",
+      "Body Armours: 10% of Physical Damage prevented Recouped as Life",
+      "Boots: Lose 5% of maximum Life per second while Sprinting, 25% increased Movement Speed while Sprinting"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Guatelitzis_Thesis"
+  },
+  "Hawk_Idol": {
+    "name": "Hawk Idol",
+    "lines": [
+      "Body Armours: 10% increased Deflection Rating",
+      "Sceptres: Companions have 12% increased Attack Speed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Hawk_Idol"
+  },
+  "Hayoxis_Soul_Core_of_Heatproofing": {
+    "name": "Hayoxi's Soul Core of Heatproofing",
+    "lines": ["Helmets: +40% of Armour also applies to Cold Damage"],
+    "sourceUrl": "https://poe2db.tw/us/Hayoxis_Soul_Core_of_Heatproofing"
+  },
+  "Hedgewitch_Assandras_Rune_of_Wisdom": {
+    "name": "Hedgewitch Assandra's Rune of Wisdom",
+    "lines": ["Wand or Staff: +1 to Level of all Spell Skills"],
+    "sourceUrl": "https://poe2db.tw/us/Hedgewitch_Assandras_Rune_of_Wisdom"
+  },
+  "Idol_of_Alira": {
+    "name": "Idol of Alira",
+    "lines": [
+      "Helmets: 15% chance when you gain a Power Charge to gain an additional Power Charge",
+      "Sceptres: If you would gain a Power Charge, Allies in your Presence gain that Charge instead"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Idol_of_Alira"
+  },
+  "Idol_of_Eeshta": {
+    "name": "Idol of Eeshta",
+    "lines": [
+      "Helmets: 15% increased Cost Efficiency",
+      "Sceptres: 15% increased Mana Recovery rate while your Companion is in your Presence"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Idol_of_Eeshta"
+  },
+  "Idol_of_Egrin": {
+    "name": "Idol of Egrin",
+    "lines": [
+      "Helmets: Enemies you Curse take 6% increased Damage",
+      "Sceptres: 20% increased Curse Duration"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Idol_of_Egrin"
+  },
+  "Idol_of_Eramir": {
+    "name": "Idol of Eramir",
+    "lines": [
+      "Body Armours: Skills have 10% chance to not remove Charges but still count as consuming them",
+      "Sceptres: Allies in your Presence share Charges with you"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Idol_of_Eramir"
+  },
+  "Idol_of_Greust": {
+    "name": "Idol of Greust",
+    "lines": [
+      "Shields: +25% of Armour also applies to Elemental Damage",
+      "Bucklers: Gain Deflection Rating equal to 20% of Evasion Rating",
+      "Sceptres: Companions deal 10% more Damage for each different type of dead Companion you have"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Idol_of_Greust"
+  },
+  "Idol_of_Grold": {
+    "name": "Idol of Grold",
+    "lines": [
+      "Boots: 50% increased total Power counted by Warcries",
+      "Sceptres: 15% increased Damage per each different Companion in your Presence"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Idol_of_Grold"
+  },
+  "Idol_of_Kraityn": {
+    "name": "Idol of Kraityn",
+    "lines": [
+      "Gloves: 15% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
+      "Sceptres: If you would gain a Frenzy Charge, Allies in your Presence gain that Charge instead"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Idol_of_Kraityn"
+  },
+  "Idol_of_Maxarius": {
+    "name": "Idol of Maxarius",
+    "lines": [
+      "Body Armours: +1 Charm Slots",
+      "Sceptres: Flasks gain 0.2 charges per Second"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Idol_of_Maxarius"
+  },
+  "Idol_of_Oak": {
+    "name": "Idol of Oak",
+    "lines": [
+      "Boots: 15% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
+      "Sceptres: If you would gain an Endurance Charge, Allies in your Presence gain that Charge instead"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Idol_of_Oak"
+  },
+  "Idol_of_Ralakesh": {
+    "name": "Idol of Ralakesh",
+    "lines": [
+      "Helmets: 8% increased Reservation Efficiency of Minion Skills",
+      "Sceptres: 40% increased Armour, Evasion and Energy Shield while your Companion is in your Presence"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Idol_of_Ralakesh"
+  },
+  "Idol_of_Silk": {
+    "name": "Idol of Silk",
+    "lines": [
+      "Shields: 15% increased Block chance while your Companion is in your Presence",
+      "Bucklers: companions gain onslaught when you parry [1]",
+      "Sceptres: Companions in your Presence gain 1 Rage on hit"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Idol_of_Silk"
+  },
+  "Idol_of_Sirrius": {
+    "name": "Idol of Sirrius",
+    "lines": [
+      "Gloves: 8% increased Attack Speed",
+      "Sceptres: Allies in your Presence have 8% increased Movement Speed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Idol_of_Sirrius"
+  },
+  "Idol_of_Thruldana": {
+    "name": "Idol of Thruldana",
+    "lines": [
+      "Martial Weapon: 25% reduced Poison Duration, Targets can be affected by +1 of your Poisons at the same time",
+      "Sceptres: Allies in your Presence deal 13 to 27 added Attack Chaos Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Idol_of_Thruldana"
+  },
+  "Idol_of_Yeena": {
+    "name": "Idol of Yeena",
+    "lines": [
+      "Boots: 30% increased Skill Effect Duration with Plant Skills",
+      "Sceptres: Plants have a 25% chance to immediately Overgrow when they enter your Presence for the first time"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Idol_of_Yeena"
+  },
+  "Idol_of_the_Martyr": {
+    "name": "Idol of the Martyr",
+    "lines": [
+      "Martial Weapon, Wand or Staff: 25% reduced Spirit, Meta Skills gain 40% increased Energy",
+      "Sceptres: 40% reduced Presence Area of Effect, Aura Skills have 25% increased Magnitudes"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Idol_of_the_Martyr"
+  },
+  "Idol_of_the_Pharisee": {
+    "name": "Idol of the Pharisee",
+    "lines": [
+      "Martial Weapon, Wand or Staff: 30% reduced maximum Mana, Gain 2% of Damage as Extra Physical Damage per ten percent missing Mana",
+      "Sceptres: 30% reduced Mana Cost Efficiency of Command Skills, Minions deal 60% increased Damage with Command Skills"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Idol_of_the_Pharisee"
+  },
+  "Idol_of_the_Sycophant": {
+    "name": "Idol of the Sycophant",
+    "lines": [
+      "Martial Weapon, Wand or Staff: -20% to all Elemental Resistances, Gain 20% of Damage as Extra Damage of a random Element",
+      "Sceptres: Companions in your Presence have -20% to all Elemental Resistances, Companions in your Presence Gain 20% of Damage as Extra Damage of a random Element"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Idol_of_the_Sycophant"
+  },
+  "Jiquanis_Soul_Core_of_Abundance": {
+    "name": "Jiquani's Soul Core of Abundance",
+    "lines": ["Weapon: +1 to Level of all Plant Skill Gems"],
+    "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Abundance"
+  },
+  "Jiquanis_Soul_Core_of_Automation": {
+    "name": "Jiquani's Soul Core of Automation",
+    "lines": ["Weapon: +1 to Level of all Totem Skill Gems"],
+    "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Automation"
+  },
+  "Jiquanis_Soul_Core_of_Malediction": {
+    "name": "Jiquani's Soul Core of Malediction",
+    "lines": ["Weapon: +1 to Level of all Curse Skills"],
+    "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Malediction"
+  },
+  "Jiquanis_Soul_Core_of_Munitions": {
+    "name": "Jiquani's Soul Core of Munitions",
+    "lines": ["Weapon: +1 to Level of all Grenade Skill Gems"],
+    "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Munitions"
+  },
+  "Jiquanis_Soul_Core_of_Quaking": {
+    "name": "Jiquani's Soul Core of Quaking",
+    "lines": ["Weapon: +1 to Level of all Slam Skill Gems"],
+    "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Quaking"
+  },
+  "Jiquanis_Soul_Core_of_Radiance": {
+    "name": "Jiquani's Soul Core of Radiance",
+    "lines": ["Weapon: +1 to Level of all Herald Skill Gems"],
+    "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Radiance"
+  },
+  "Jiquanis_Soul_Core_of_Rallying": {
+    "name": "Jiquani's Soul Core of Rallying",
+    "lines": ["Weapon: +1 to Level of all Warcry Skill Gems"],
+    "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Rallying"
+  },
+  "Jiquanis_Soul_Core_of_Rippling": {
+    "name": "Jiquani's Soul Core of Rippling",
+    "lines": ["Weapon: +1 to Level of all Nova Skill Gems"],
+    "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Rippling"
+  },
+  "Jiquanis_Soul_Core_of_Severing": {
+    "name": "Jiquani's Soul Core of Severing",
+    "lines": ["Weapon: +1 to Level of all Strike Skill Gems"],
+    "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Severing"
+  },
+  "Jiquanis_Soul_Core_of_Snares": {
+    "name": "Jiquani's Soul Core of Snares",
+    "lines": ["Weapon: +1 to Level of all Hazard Skill Gems"],
+    "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Snares"
+  },
+  "Jiquanis_Soul_Core_of_Squalls": {
+    "name": "Jiquani's Soul Core of Squalls",
+    "lines": ["Weapon: +1 to Level of all Wind Skill Gems"],
+    "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Squalls"
+  },
+  "Jiquanis_Soul_Core_of_Targeting": {
+    "name": "Jiquani's Soul Core of Targeting",
+    "lines": ["Weapon: +1 to Level of all Mark Skills"],
+    "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Targeting"
+  },
+  "Jiquanis_Soul_Core_of_Thundering": {
+    "name": "Jiquani's Soul Core of Thundering",
+    "lines": ["Weapon: +1 to Level of all Storm Skill Gems"],
+    "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Thundering"
+  },
+  "Jiquanis_Thesis": {
+    "name": "Jiquani's Thesis",
+    "lines": [
+      "Helmets: +1 to maximum Mana per 3 Item Armour on Equipped Helmet",
+      "Gloves: Energy Shield Recharge starts after spending a total of\n 2000 Mana, no more than once every 2 seconds",
+      "Boots: Increases and Reductions to Movement Speed also\n apply to Energy Shield Recharge Rate"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Jiquanis_Thesis"
+  },
+  "Kurgals_Gaze": {
+    "name": "Kurgal's Gaze",
+    "lines": [
+      "Helmets: Increases and Reductions to Life Regeneration Rate also apply to Mana Regeneration Rate",
+      "Gloves: 40% increased effect of Arcane Surge on you",
+      "Boots: 15% increased Mana Cost Efficiency if you haven't Dodge Rolled Recently"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Kurgals_Gaze"
+  },
+  "Lady_Hestras_Rune_of_Winter": {
+    "name": "Lady Hestra's Rune of Winter",
+    "lines": [
+      "Martial Weapon: Adds 19 to 28 Cold Damage against Chilled Enemies"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Lady_Hestras_Rune_of_Winter"
+  },
+  "Legacy_of_A_Worthy_Foe": {
+    "name": "Legacy of A Worthy Foe",
+    "lines": ["Shields: Off-hand Hits inflict Runefather's Challenge"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_A_Worthy_Foe"
+  },
+  "Legacy_of_Adonias_Ego": {
+    "name": "Legacy of Adonia's Ego",
+    "lines": ["Wands: +1 to Maximum Power Charges"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Adonias_Ego"
+  },
+  "Legacy_of_Alkem_Eira": {
+    "name": "Legacy of Alkem Eira",
+    "lines": ["Shields: 30% of damage Blocked is Recouped as Mana"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Alkem_Eira"
+  },
+  "Legacy_of_Amor_Mandragora": {
+    "name": "Legacy of Amor Mandragora",
+    "lines": [
+      "Talismans: Gain 1 Druidic Prowess for every 20 total Rage spent"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Amor_Mandragora"
+  },
+  "Legacy_of_Ashrend": {
+    "name": "Legacy of Ashrend",
+    "lines": [
+      "Body Armours: Cannot be Ignited, -10 Physical Damage taken from Attack Hits"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Ashrend"
+  },
+  "Legacy_of_Blackbraid": {
+    "name": "Legacy of Blackbraid",
+    "lines": ["Body Armours: +50% of Armour also applies to Elemental Damage"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Blackbraid"
+  },
+  "Legacy_of_Brain_Rattler": {
+    "name": "Legacy of Brain Rattler",
+    "lines": [
+      "Two Hand Maces: All damage with this Weapon causes Electrocution buildup"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Brain_Rattler"
+  },
+  "Legacy_of_Bramblejack": {
+    "name": "Legacy of Bramblejack",
+    "lines": [
+      "Body Armours: 250% of Melee Physical Damage taken reflected to Attacker"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Bramblejack"
+  },
+  "Legacy_of_Briarpatch": {
+    "name": "Legacy of Briarpatch",
+    "lines": ["Boots: +15% to Thorns Critical Hit Chance"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Briarpatch"
+  },
+  "Legacy_of_Briskwrap": {
+    "name": "Legacy of Briskwrap",
+    "lines": [
+      "Body Armours: Gain Deflection Rating equal to 30% of Evasion Rating"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Briskwrap"
+  },
+  "Legacy_of_Bristleboar": {
+    "name": "Legacy of Bristleboar",
+    "lines": [
+      "Body Armours: Gain 10 Rage when Critically Hit by an Enemy, Gain 5 Rage when Hit by an Enemy"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Bristleboar"
+  },
+  "Legacy_of_Brynhands_Mark": {
+    "name": "Legacy of Brynhand's Mark",
+    "lines": ["One Hand Maces: Causes Double Stun Buildup"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Brynhands_Mark"
+  },
+  "Legacy_of_Bushwhack": {
+    "name": "Legacy of Bushwhack",
+    "lines": ["Boots: Physical Damage is Pinning"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Bushwhack"
+  },
+  "Legacy_of_Candlemaker": {
+    "name": "Legacy of Candlemaker",
+    "lines": [
+      "Gloves: 40% increased Fire Damage, Flammability Magnitude is doubled"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Candlemaker"
+  },
+  "Legacy_of_Chernobogs_Pillar": {
+    "name": "Legacy of Chernobog's Pillar",
+    "lines": [
+      "Shields: Gain 1% of damage as Fire damage per 2% Chance to Block"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Chernobogs_Pillar"
+  },
+  "Legacy_of_Crown_of_Thorns": {
+    "name": "Legacy of Crown of Thorns",
+    "lines": ["Helmets: Pain Attunement"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Crown_of_Thorns"
+  },
+  "Legacy_of_Cursecarver": {
+    "name": "Legacy of Cursecarver",
+    "lines": ["Wands: +3 to Level of all Curse Skills"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Cursecarver"
+  },
+  "Legacy_of_Deathblow": {
+    "name": "Legacy of Deathblow",
+    "lines": ["Gloves: Culling Strike"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Deathblow"
+  },
+  "Legacy_of_Deidbell": {
+    "name": "Legacy of Deidbell",
+    "lines": [
+      "Helmets: Warcries Explode Corpses dealing 10% of their Life as Physical Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Deidbell"
+  },
+  "Legacy_of_Dionadair": {
+    "name": "Legacy of Dionadair",
+    "lines": ["Shields: Double Stun Threshold while Shield is Raised"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Dionadair"
+  },
+  "Legacy_of_Duality": {
+    "name": "Legacy of Duality",
+    "lines": [
+      "Quarterstaves: Gain 250 Guard for 0.5 seconds per Combo expended when using Skills"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Duality"
+  },
+  "Legacy_of_Dunkelhalt": {
+    "name": "Legacy of Dunkelhalt",
+    "lines": ["Bucklers: 50% increased Parried Debuff Magnitude"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Dunkelhalt"
+  },
+  "Legacy_of_Dusk_Vigil": {
+    "name": "Legacy of Dusk Vigil",
+    "lines": ["Staves: Gain 30% of Physical Damage as Extra Fire Damage"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Dusk_Vigil"
+  },
+  "Legacy_of_Edyrns_Tusks": {
+    "name": "Legacy of Edyrn's Tusks",
+    "lines": [
+      "Body Armours: 50% chance to inflict Bleeding on Hit, 50% reduced Slowing Potency of Debuffs on You"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Edyrns_Tusks"
+  },
+  "Legacy_of_Elevore": {
+    "name": "Legacy of Elevore",
+    "lines": ["Helmets: Charms gain 1 charge per Second, +1 Charm Slots"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Elevore"
+  },
+  "Legacy_of_Erians_Cobble": {
+    "name": "Legacy of Erian's Cobble",
+    "lines": [
+      "Helmets: +30 to Accuracy Rating, +10 to maximum Life, +10 to maximum Mana, 10% increased Rarity of Items found, 10% increased Critical Hit Chance, +5 to all Attributes, +5% to all Elemental Resistances, 3 Life Regeneration per second"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Erians_Cobble"
+  },
+  "Legacy_of_Ezomyte_Peak": {
+    "name": "Legacy of Ezomyte Peak",
+    "lines": ["Helmets: 15% increased Area of Effect, Unwavering Stance"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Ezomyte_Peak"
+  },
+  "Legacy_of_Facebreaker": {
+    "name": "Legacy of Facebreaker",
+    "lines": ["Gloves: +1 to Armour per Strength"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Facebreaker"
+  },
+  "Legacy_of_Foxshade": {
+    "name": "Legacy of Foxshade",
+    "lines": [
+      "Body Armours: 10% increased Movement Speed when on Full Life, 100% increased Evasion Rating when on Full Life"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Foxshade"
+  },
+  "Legacy_of_Greymake": {
+    "name": "Legacy of Greymake",
+    "lines": ["Helmets: +50 to all Attributes"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Greymake"
+  },
+  "Legacy_of_Hoghunt": {
+    "name": "Legacy of Hoghunt",
+    "lines": [
+      "Two Hand Maces: +5% to Critical Hit Chance, Maim on Critical Hit"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Hoghunt"
+  },
+  "Legacy_of_Horns_of_Bynden": {
+    "name": "Legacy of Horns of Bynden",
+    "lines": [
+      "Helmets: Every Rage also grants 1% increased Armour, Gain 1 Rage on Melee Hit"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Horns_of_Bynden"
+  },
+  "Legacy_of_Hrimnors_Hymn": {
+    "name": "Legacy of Hrimnor's Hymn",
+    "lines": [
+      "Two Hand Maces: 25% chance for Slam Skills you use yourself to cause an additional Aftershock"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Hrimnors_Hymn"
+  },
+  "Legacy_of_Ironbound": {
+    "name": "Legacy of Ironbound",
+    "lines": [
+      "Bows: Hits with this weapon have 1 to 3 Added Physical Damage per 1% Block Chance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Ironbound"
+  },
+  "Legacy_of_Keeper_of_the_Arc": {
+    "name": "Legacy of Keeper of the Arc",
+    "lines": [
+      "Helmets: Alternating every 5 seconds:\nTake 20% less Damage from Hits\nTake 20% less Damage over time"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Keeper_of_the_Arc"
+  },
+  "Legacy_of_Kingsguard": {
+    "name": "Legacy of Kingsguard",
+    "lines": [
+      "Body Armours: Recover 5% of maximum Life for each Endurance Charge consumed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Kingsguard"
+  },
+  "Legacy_of_Legionstride": {
+    "name": "Legacy of Legionstride",
+    "lines": ["Boots: +10% to Block chance"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Legionstride"
+  },
+  "Legacy_of_Lifesprig": {
+    "name": "Legacy of Lifesprig",
+    "lines": ["Wands: +2 to Level of all Spell Skills"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Lifesprig"
+  },
+  "Legacy_of_Mj%C3%B6lner": {
+    "name": "Legacy of Mjölner",
+    "lines": [
+      "One Hand Maces: +200 Intelligence Requirement, +3 to Level of all Lightning Skills"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Mj%C3%B6lner"
+  },
+  "Legacy_of_Northpaw": {
+    "name": "Legacy of Northpaw",
+    "lines": [
+      "Gloves: Base Critical Hit Chance for Attacks with Weapons is 7%"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Northpaw"
+  },
+  "Legacy_of_Oaksworn": {
+    "name": "Legacy of Oaksworn",
+    "lines": ["Shields: 50% increased Life Regeneration rate"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Oaksworn"
+  },
+  "Legacy_of_Oberns_Bastion": {
+    "name": "Legacy of Obern's Bastion",
+    "lines": ["Boots: 200% increased Stun Recovery"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Oberns_Bastion"
+  },
+  "Legacy_of_Olrovasara": {
+    "name": "Legacy of Olrovasara",
+    "lines": [
+      "One Hand Maces: On Hitting an enemy, gains maximum added Lightning damage equal to\nthe enemy's Power for 20 seconds, up to a total of 120"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Olrovasara"
+  },
+  "Legacy_of_Quill_Rain": {
+    "name": "Legacy of Quill Rain",
+    "lines": ["Bows: 50% increased Attack Speed, 20% less Attack Damage"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Quill_Rain"
+  },
+  "Legacy_of_Rondel_de_Ezo": {
+    "name": "Legacy of Rondel de Ezo",
+    "lines": ["Bucklers: Curse Enemies with Enfeeble on Block"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Rondel_de_Ezo"
+  },
+  "Legacy_of_Spiteful_Floret": {
+    "name": "Legacy of Spiteful Floret",
+    "lines": [
+      "Talismans: Every 5 Rage also grants 5% of Damage taken Recouped as Life"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Spiteful_Floret"
+  },
+  "Legacy_of_Starkonjas_Head": {
+    "name": "Legacy of Starkonja's Head",
+    "lines": [
+      "Helmets: 100% increased Global Evasion Rating when on Low Life, 5% of Damage from Hits is taken from your Damageable Companion's Life before you"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Starkonjas_Head"
+  },
+  "Legacy_of_Svalinn": {
+    "name": "Legacy of Svalinn",
+    "lines": [
+      "Shields: Chance to Block Damage is Lucky, You take 20% of damage from Blocked Hits"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Svalinn"
+  },
+  "Legacy_of_The_Blood_Thorn": {
+    "name": "Legacy of The Blood Thorn",
+    "lines": [
+      "Quarterstaves: Adds 4 to 8 Physical Damage, Causes Bleeding on Hit"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_The_Blood_Thorn"
+  },
+  "Legacy_of_The_Knight-errant": {
+    "name": "Legacy of The Knight-errant",
+    "lines": ["Boots: Iron Reflexes"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_The_Knight-errant"
+  },
+  "Legacy_of_The_Sentry": {
+    "name": "Legacy of The Sentry",
+    "lines": [
+      "Quarterstaves: Adds 23 to 34 Fire damage to Attacks, 100% increased Flammability Magnitude"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_The_Sentry"
+  },
+  "Legacy_of_The_Smiling_Knight": {
+    "name": "Legacy of The Smiling Knight",
+    "lines": [
+      "Helmets: Aggravate Bleeding on targets you Critically Hit with Attacks"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_The_Smiling_Knight"
+  },
+  "Legacy_of_The_Unleashed": {
+    "name": "Legacy of The Unleashed",
+    "lines": [
+      "Body Armours: 25% of Damage taken from Hits bypasses Energy Shield if Energy Shield is below half"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_The_Unleashed"
+  },
+  "Legacy_of_The_Vile_Knight": {
+    "name": "Legacy of The Vile Knight",
+    "lines": [
+      "Helmets: Deal 4% increased Damage with Hits to Rare or Unique Enemies for each second they've ever been in your Presence, up to a maximum of 200%"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_The_Vile_Knight"
+  },
+  "Legacy_of_Trampletoe": {
+    "name": "Legacy of Trampletoe",
+    "lines": [
+      "Boots: Deal 10% of Overkill damage to enemies within 2 metres of the enemy killed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Trampletoe"
+  },
+  "Legacy_of_Trenchtimbre": {
+    "name": "Legacy of Trenchtimbre",
+    "lines": [
+      "One Hand Maces: Increases and Reductions to Minion Attack Speed also affect you"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Trenchtimbre"
+  },
+  "Legacy_of_Twisted_Empyrean": {
+    "name": "Legacy of Twisted Empyrean",
+    "lines": [
+      "Two Hand Maces: Attacks with this Weapon have Added Cold Damage equal to 6% to 10% of maximum Mana"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Twisted_Empyrean"
+  },
+  "Legacy_of_Tyrannys_Grip": {
+    "name": "Legacy of Tyranny's Grip",
+    "lines": ["Spears: Strikes deal Splash Damage"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Tyrannys_Grip"
+  },
+  "Legacy_of_Wanderlust": {
+    "name": "Legacy of Wanderlust",
+    "lines": ["Boots: Your speed is unaffected by Slows"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Wanderlust"
+  },
+  "Legacy_of_Wings_of_Caelyn": {
+    "name": "Legacy of Wings of Caelyn",
+    "lines": [
+      "Helmets: Gain 1 Rage on Melee Hit, Every Rage also grants 1% increased Stun Threshold"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Wings_of_Caelyn"
+  },
+  "Legacy_of_Wulfsbane": {
+    "name": "Legacy of Wulfsbane",
+    "lines": ["Shields: Intimidate Enemies on Block for 8 seconds"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Wulfsbane"
+  },
+  "Opilotis_Soul_Core_of_Assault": {
+    "name": "Opiloti's Soul Core of Assault",
+    "lines": [
+      "Martial Weapon: 50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
+      "Wand or Staff: 50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Opilotis_Soul_Core_of_Assault"
+  },
+  "Ox_Idol": {
+    "name": "Ox Idol",
+    "lines": [
+      "Shields and Bucklers: 15% increased Block chance",
+      "Sceptres: Allies in your Presence have +12% to all Elemental Resistances"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ox_Idol"
+  },
+  "Panther_Idol": {
+    "name": "Panther Idol",
+    "lines": [
+      "Body Armours: +10% of Armour also applies to Chaos Damage",
+      "Sceptres: Minions have +20% to Chaos Resistance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Panther_Idol"
+  },
+  "Primate_Idol": {
+    "name": "Primate Idol",
+    "lines": [
+      "Helmets: Minions have 15% increased maximum Life",
+      "Sceptres: Allies in your Presence deal 40% increased Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Primate_Idol"
+  },
+  "Quipolatls_Soul_Core_of_Flow": {
+    "name": "Quipolatl's Soul Core of Flow",
+    "lines": [
+      "Helmets: 8% increased Skill Effect Duration, 8% increased Cooldown Recovery Rate"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Quipolatls_Soul_Core_of_Flow"
+  },
+  "Quipolatls_Thesis": {
+    "name": "Quipolatl's Thesis",
+    "lines": [
+      "Helmets: A random Skill that requires Glory generates 50% of its maximum Glory when your Marks Activate",
+      "Gloves: Your Energy Shield Recharge starts when your Minions are Reformed",
+      "Body Armours: +75% of Armour also applies to Chaos Damage while on full Energy Shield"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Quipolatls_Thesis"
+  },
+  "Rabbit_Idol": {
+    "name": "Rabbit Idol",
+    "lines": [
+      "Body Armours: 12% increased Rarity of Items found",
+      "Sceptres: 15% increased Spirit"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Rabbit_Idol"
+  },
+  "Rune_of_Accumulation": {
+    "name": "Rune of Accumulation",
+    "lines": [
+      "Gloves: Gain 3 Life per Enemy Hit with Attacks, Gain 1 Mana per Enemy Hit with Attacks",
+      "Crossbow, Bow or Spear: On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Rune_of_Accumulation"
+  },
+  "Rune_of_Acrobatics": {
+    "name": "Rune of Acrobatics",
+    "lines": [
+      "Weapon: Flasks gain 0.2 charges per Second",
+      "Boots: +0.3 metres to Dodge Roll distance"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Rune_of_Acrobatics"
+  },
+  "Rune_of_Confrontation": {
+    "name": "Rune of Confrontation",
+    "lines": [
+      "Quarterstaff or Spear: Gain 4 Rage on Melee Hit, -10 to Maximum Rage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Rune_of_Confrontation"
+  },
+  "Rune_of_Consistency": {
+    "name": "Rune of Consistency",
+    "lines": [
+      "Helmets: 200% increased Critical Hit Chance, You have no Critical Damage Bonus",
+      "Caster Weapon: 50% increased Spell Damage while your Companion is in your Presence"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Rune_of_Consistency"
+  },
+  "Rune_of_Culmination": {
+    "name": "Rune of Culmination",
+    "lines": [
+      "Gloves: 50% chance to build an additional Combo on Hit",
+      "One Hand Mace or Quarterstaff: Rolls only the minimum or maximum Damage value for Physical Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Rune_of_Culmination"
+  },
+  "Rune_of_Foundations": {
+    "name": "Rune of Foundations",
+    "lines": [
+      "Body Armours: +30 to Armour, +30 to Evasion Rating, +10 to maximum Energy Shield"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Rune_of_Foundations"
+  },
+  "Rune_of_Reach": {
+    "name": "Rune of Reach",
+    "lines": [
+      "Helmets: Remnants you create have 15% increased effect",
+      "Wand or Staff: Remnants can be collected from 50% further away, Remnants you create have 25% reduced effect"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Rune_of_Reach"
+  },
+  "Rune_of_Renown": {
+    "name": "Rune of Renown",
+    "lines": [
+      "Gloves: 50% increased Glory generation",
+      "Caster Weapon: Archon recovery period expires 30% faster"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Rune_of_Renown"
+  },
+  "Rune_of_Vital_Flame": {
+    "name": "Rune of Vital Flame",
+    "lines": [
+      "One Hand Mace, Two Hand Mace or Talisman: Adds 13 to 16 Fire Damage, 15% of Skill Mana Costs Converted to Life Costs"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Rune_of_Vital_Flame"
+  },
+  "Rune_of_Vitality": {
+    "name": "Rune of Vitality",
+    "lines": [
+      "Weapon: +80 to maximum Life",
+      "Shields and Bucklers: Recover 15 Life when you Block"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Rune_of_Vitality"
+  },
+  "Rune_of_the_Blossom": {
+    "name": "Rune of the Blossom",
+    "lines": ["Body Armours: +50 to Spirit, -1 to Spirit per 2 Levels"],
+    "sourceUrl": "https://poe2db.tw/us/Rune_of_the_Blossom"
+  },
+  "Rune_of_the_Hunt": {
+    "name": "Rune of the Hunt",
+    "lines": [
+      "Boots: 8% increased Movement Speed while Sprinting",
+      "Sceptres: Companions deal 30% increased Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Rune_of_the_Hunt"
+  },
+  "Rune_of_the_Prism": {
+    "name": "Rune of the Prism",
+    "lines": [
+      "Body Armours: -10% to all Maximum Elemental Resistances, +20% to all Elemental Resistances"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Rune_of_the_Prism"
+  },
+  "Saqawals_Rune_of_Erosion": {
+    "name": "Saqawal's Rune of Erosion",
+    "lines": ["Helmets: 25% increased Exposure Effect"],
+    "sourceUrl": "https://poe2db.tw/us/Saqawals_Rune_of_Erosion"
+  },
+  "Saqawals_Rune_of_Memory": {
+    "name": "Saqawal's Rune of Memory",
+    "lines": ["Helmets: 2% increased Experience gain"],
+    "sourceUrl": "https://poe2db.tw/us/Saqawals_Rune_of_Memory"
+  },
+  "Saqawals_Rune_of_the_Sky": {
+    "name": "Saqawal's Rune of the Sky",
+    "lines": [
+      "Martial Weapon: Gain 5% of Damage as Extra Damage of all Elements",
+      "Wand or Staff: Gain 5% of Damage as Extra Damage of all Elements"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Saqawals_Rune_of_the_Sky"
+  },
+  "Snake_Idol": {
+    "name": "Snake Idol",
+    "lines": [
+      "Gloves: 8% increased Curse Magnitudes",
+      "Sceptres: Allies in your Presence have 10% increased Attack Speed"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Snake_Idol"
+  },
+  "Stag_Idol": {
+    "name": "Stag Idol",
+    "lines": [
+      "Helmets: Projectiles have 15% chance to Fork",
+      "Sceptres: Allies in your Presence deal 1 to 40 added Attack Lightning Damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Stag_Idol"
+  },
+  "Stoat_Idol": {
+    "name": "Stoat Idol",
+    "lines": [
+      "Body Armours: 5% of Damage taken bypasses Energy Shield",
+      "Sceptres: Companions have 25% increased maximum Life"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Stoat_Idol"
+  },
+  "Tacatis_Soul_Core_of_Affliction": {
+    "name": "Tacati's Soul Core of Affliction",
+    "lines": ["Helmets: Enemies you Curse have -5% to Chaos Resistance"],
+    "sourceUrl": "https://poe2db.tw/us/Tacatis_Soul_Core_of_Affliction"
+  },
+  "Tecrods_Gaze": {
+    "name": "Tecrod's Gaze",
+    "lines": [
+      "Body Armours: Regenerate 1.5% of maximum Life per second",
+      "Gloves: 25% increased Life Cost Efficiency",
+      "Boots: 10% increased Movement Speed when on Low Life"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Tecrods_Gaze"
+  },
+  "Thane_Girts_Rune_of_Wildness": {
+    "name": "Thane Girt's Rune of Wildness",
+    "lines": [
+      "Wand or Staff: 25% chance for Spell Skills to fire 2 additional Projectiles"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Thane_Girts_Rune_of_Wildness"
+  },
+  "Thane_Grannells_Rune_of_Mastery": {
+    "name": "Thane Grannell's Rune of Mastery",
+    "lines": [
+      "Gloves: 30% increased Magnitude of Non-Damaging Ailments you inflict"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Thane_Grannells_Rune_of_Mastery"
+  },
+  "Thane_Lelds_Rune_of_Spring": {
+    "name": "Thane Leld's Rune of Spring",
+    "lines": [
+      "Martial Weapon: Adds 1 to 60 Lightning Damage against Shocked Enemies"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Thane_Lelds_Rune_of_Spring"
+  },
+  "Thane_Myrks_Rune_of_Summer": {
+    "name": "Thane Myrk's Rune of Summer",
+    "lines": [
+      "Martial Weapon: Adds 23 to 34 Fire Damage to Attacks against Ignited Enemies"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Thane_Myrks_Rune_of_Summer"
+  },
+  "The_Greatwolfs_Rune_of_Claws": {
+    "name": "The Greatwolf's Rune of Claws",
+    "lines": ["Gloves: Adds 5 to 12 Physical Damage to Attacks"],
+    "sourceUrl": "https://poe2db.tw/us/The_Greatwolfs_Rune_of_Claws"
+  },
+  "The_Greatwolfs_Rune_of_Willpower": {
+    "name": "The Greatwolf's Rune of Willpower",
+    "lines": ["Body Armours: 15% of Damage is taken from Mana before Life"],
+    "sourceUrl": "https://poe2db.tw/us/The_Greatwolfs_Rune_of_Willpower"
+  },
+  "Topotantes_Soul_Core_of_Dampening": {
+    "name": "Topotante's Soul Core of Dampening",
+    "lines": ["Gloves: +40% of Armour also applies to Fire Damage"],
+    "sourceUrl": "https://poe2db.tw/us/Topotantes_Soul_Core_of_Dampening"
+  },
+  "Tzamotos_Soul_Core_of_Ferocity": {
+    "name": "Tzamoto's Soul Core of Ferocity",
+    "lines": ["Helmets: +4 to Maximum Rage"],
+    "sourceUrl": "https://poe2db.tw/us/Tzamotos_Soul_Core_of_Ferocity"
+  },
+  "Ulamans_Gaze": {
+    "name": "Ulaman's Gaze",
+    "lines": [
+      "Helmets: +1 to Accuracy Rating per 1 Item Evasion Rating on Equipped Helmet",
+      "Gloves: Critical Hit chance is Lucky against Parried enemies",
+      "Body Armours: Prevent +3% of Damage from Deflected Hits"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Ulamans_Gaze"
+  },
+  "Uromotis_Soul_Core_of_Attenuation": {
+    "name": "Uromoti's Soul Core of Attenuation",
+    "lines": [
+      "Boots: 20% increased Curse Duration, 20% increased Poison Duration"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Uromotis_Soul_Core_of_Attenuation"
+  },
+  "Warding_Rune_of_Annihilation": {
+    "name": "Warding Rune of Annihilation",
+    "lines": [
+      "Martial Weapon: Attacks spend 5% of your maximum Runic Ward if possible to gain that much added Physical damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Warding_Rune_of_Annihilation"
+  },
+  "Warding_Rune_of_Armature": {
+    "name": "Warding Rune of Armature",
+    "lines": [
+      "Martial Weapon: Gain maximum Runic Ward equal to 15% of this Weapon's maximum damage"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Warding_Rune_of_Armature"
+  },
+  "Warding_Rune_of_Courage": {
+    "name": "Warding Rune of Courage",
+    "lines": [
+      "Helmets: 25% increased Armour and Evasion Rating while on Low Runic Ward"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Warding_Rune_of_Courage"
+  },
+  "Warding_Rune_of_Desperation": {
+    "name": "Warding Rune of Desperation",
+    "lines": [
+      "Wand or Staff: Spell damage Penetrates 25% of enemy Elemental Resistances while on Low Runic Ward"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Warding_Rune_of_Desperation"
+  },
+  "Warding_Rune_of_Disintegration": {
+    "name": "Warding Rune of Disintegration",
+    "lines": [
+      "Martial Weapon: Attacks Break Armour equal to 15% of maximum Runic Ward"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Warding_Rune_of_Disintegration"
+  },
+  "Warding_Rune_of_Equinox": {
+    "name": "Warding Rune of Equinox",
+    "lines": [
+      "Caster Weapon: 40% less Mana Regeneration Rate, Mana Recovery from Regeneration is also applied to Runic Ward"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Warding_Rune_of_Equinox"
+  },
+  "Warding_Rune_of_Glancing": {
+    "name": "Warding Rune of Glancing",
+    "lines": [
+      "Body Armours: +3 to Deflection Rating per 10 maximum Runic Ward"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Warding_Rune_of_Glancing"
+  },
+  "Warding_Rune_of_Heart": {
+    "name": "Warding Rune of Heart",
+    "lines": [
+      "Body Armours: Gain 5% of maximum Life as Extra maximum Runic Ward"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Warding_Rune_of_Heart"
+  },
+  "Warding_Rune_of_Hollowing": {
+    "name": "Warding Rune of Hollowing",
+    "lines": [
+      "Caster Weapon: Gain 15% of maximum Life as Extra maximum Runic Ward, 15% less maximum Life"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Warding_Rune_of_Hollowing"
+  },
+  "Warding_Rune_of_Nourishment": {
+    "name": "Warding Rune of Nourishment",
+    "lines": [
+      "Armour: 15% Life Recovery from Flasks also applies to Runic Ward"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Warding_Rune_of_Nourishment"
+  },
+  "Warding_Rune_of_Obsession": {
+    "name": "Warding Rune of Obsession",
+    "lines": [
+      "Wands: All damage taken bypasses Runic Ward, Runic Ward Regeneration Rate is doubled"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Warding_Rune_of_Obsession"
+  },
+  "Warding_Rune_of_Protection": {
+    "name": "Warding Rune of Protection",
+    "lines": [
+      "Armour: Every 4 seconds, gain Guard equal to 20% of maximum Runic Ward for 2 seconds"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Warding_Rune_of_Protection"
+  },
+  "Warding_Rune_of_Reinforcement": {
+    "name": "Warding Rune of Reinforcement",
+    "lines": ["Armour: 20% increased Runic Ward"],
+    "sourceUrl": "https://poe2db.tw/us/Warding_Rune_of_Reinforcement"
+  },
+  "Warding_Rune_of_Stability": {
+    "name": "Warding Rune of Stability",
+    "lines": [
+      "Shields and Bucklers: +4 to Stun Threshold per 10 maximum Runic Ward"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Warding_Rune_of_Stability"
+  },
+  "Warding_Rune_of_Symbiosis": {
+    "name": "Warding Rune of Symbiosis",
+    "lines": [
+      "Boots: 1% increased Energy Shield Recharge Rate per 30 maximum Runic Ward"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Warding_Rune_of_Symbiosis"
+  },
+  "Wolf_Idol": {
+    "name": "Wolf Idol",
+    "lines": [
+      "Gloves: 15% increased Magnitude of Bleeding you inflict",
+      "Sceptres: Allies in your Presence have 20% increased Critical Damage Bonus"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Wolf_Idol"
+  },
+  "Xipocados_Soul_Core_of_Dominion": {
+    "name": "Xipocado's Soul Core of Dominion",
+    "lines": [
+      "Wand or Staff: Minions deal 40% increased Damage with Command Skills",
+      "Sceptres: Minions deal 40% increased Damage with Command Skills"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Xipocados_Soul_Core_of_Dominion"
+  },
+  "Xopecs_Soul_Core_of_Power": {
+    "name": "Xopec's Soul Core of Power",
+    "lines": [
+      "Martial Weapon: 50% chance when you gain a Power Charge to gain an additional Power Charge",
+      "Wand or Staff: 50% chance when you gain a Power Charge to gain an additional Power Charge"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Xopecs_Soul_Core_of_Power"
+  },
+  "Zalatls_Soul_Core_of_Insulation": {
+    "name": "Zalatl's Soul Core of Insulation",
+    "lines": ["Boots: +40% of Armour also applies to Lightning Damage"],
+    "sourceUrl": "https://poe2db.tw/us/Zalatls_Soul_Core_of_Insulation"
   }
 }

@@ -95,7 +95,7 @@ class SocketAugmentsTest {
                             new ItemState.InstalledAugment(0, "Storm_Rune"))))
         .isInstanceOf(IllegalArgumentException.class);
     assertThat(empty(2).installedAugments()).isEmpty();
-    assertThat(SocketAugments.catalog()).hasSize(79);
+    assertThat(SocketAugments.catalog()).hasSize(277);
   }
 
   @Test
@@ -121,9 +121,89 @@ class SocketAugmentsTest {
             .isEqualTo(old.installedAugments().get(0));
       }
     }
-    assertThat(selectable).isEqualTo(34);
+    assertThat(selectable).isEqualTo(232);
     assertThat(SocketAugments.catalog().findValuesAsText("id"))
         .contains("Lesser_Tempered_Rune", "Tempered_Rune", "Greater_Tempered_Rune")
         .doesNotContain("Perfect_Tempered_Rune");
+  }
+
+  @Test
+  void ordinaryIdolsAndEyesEnforcePerIdentityAndSharedLimitsButAllowReplacement() {
+    var idol = SocketAugments.install(empty(2), 0, "Snake_Idol");
+    assertThat(SocketAugments.install(idol, 1, "Snake_Idol").installedAugments()).hasSize(2);
+    var limited = SocketAugments.install(empty(2), 0, "Idol_of_Sirrius");
+    assertThatThrownBy(() -> SocketAugments.install(limited, 1, "Idol_of_Sirrius"))
+        .isInstanceOf(IllegalArgumentException.class);
+    assertThat(SocketAugments.install(limited, 0, "Idol_of_Sirrius")).isEqualTo(limited);
+    var eye = SocketAugments.install(empty(2), 0, "Tecrods_Gaze");
+    assertThatThrownBy(() -> SocketAugments.install(eye, 1, "Kurgals_Gaze"))
+        .isInstanceOf(IllegalArgumentException.class);
+    assertThat(SocketAugments.install(eye, 0, "Kurgals_Gaze").installedAugments())
+        .containsExactly(new ItemState.InstalledAugment(0, "Kurgals_Gaze"));
+    assertThatThrownBy(
+            () ->
+                empty(2)
+                    .withAugments(
+                        List.of(
+                            new ItemState.InstalledAugment(0, "Tecrods_Gaze"),
+                            new ItemState.InstalledAugment(1, "Kurgals_Gaze"))))
+        .isInstanceOf(IllegalArgumentException.class);
+  }
+
+  @Test
+  void retainsLegacyVizomaDuplicatesButRejectsNewDuplicatesAndDeferredSpecialOperations() {
+    var weapon =
+        new ItemState(
+            f.root.snapshotId(),
+            "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2",
+            82,
+            ItemState.Rarity.NORMAL,
+            List.of(),
+            List.of(),
+            Set.of(),
+            2);
+    var legacy =
+        weapon.withAugments(
+            List.of(
+                new ItemState.InstalledAugment(0, "Soul_Core_of_Vizoma"),
+                new ItemState.InstalledAugment(1, "Soul_Core_of_Vizoma")));
+    assertThat(legacy.withEquipmentQuality(10).installedAugments()).hasSize(2);
+    var single = SocketAugments.install(weapon, 0, "Soul_Core_of_Vizoma");
+    assertThatThrownBy(() -> SocketAugments.install(single, 1, "Soul_Core_of_Vizoma"))
+        .isInstanceOf(IllegalArgumentException.class);
+    for (var id :
+        List.of("Cadigans_Epiphany", "Serles_Triumph", "Masterwork_Rune", "Fox_Idol", "Owl_Idol")) {
+      assertThatThrownBy(() -> SocketAugments.install(empty(2), 0, id))
+          .isInstanceOf(IllegalArgumentException.class);
+    }
+  }
+
+  @Test
+  void preservesAllNineOriginalLimitedSoulCoreStatesWithoutAllowingNewDuplicates() {
+    var bow =
+        new ItemState(
+            f.root.snapshotId(),
+            "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow8Endgame",
+            82,
+            ItemState.Rarity.NORMAL,
+            List.of(),
+            List.of(),
+            Set.of(),
+            2);
+    int checked = 0;
+    for (var entry : SocketAugments.catalog()) {
+      if (!entry.path("legacyLimitExempt").asBoolean(false)) continue;
+      var id = entry.path("id").asText();
+      var old =
+          bow.withAugments(
+              List.of(
+                  new ItemState.InstalledAugment(0, id), new ItemState.InstalledAugment(1, id)));
+      assertThat(old.withEquipmentQuality(10).installedAugments()).hasSize(2);
+      var single = SocketAugments.install(bow, 0, id);
+      assertThatThrownBy(() -> SocketAugments.install(single, 1, id))
+          .isInstanceOf(IllegalArgumentException.class);
+      checked++;
+    }
+    assertThat(checked).isEqualTo(9);
   }
 }
