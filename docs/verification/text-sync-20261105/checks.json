@@ -1,0 +1,135 @@
+{
+  "baseline": "ceab37535c2ae8fcb3b3432b65bbb822b7a35ace",
+  "branch": "codex/item-text-bidirectional",
+  "date": "2026-11-05",
+  "frontend": {
+    "text-sync-frontend": {
+      "total": 3012,
+      "passed": 3005,
+      "failed": 7,
+      "failures": [
+        {
+          "name": "preserves valid four-slot Sapphire films and rejects fifth slots, shared families and two Crafted results",
+          "reason": "AssertionError: expected true to be false // Object.is equality"
+        },
+        {
+          "name": "activates sanctification, displays its factor once and restores the original rolls and factors",
+          "reason": "Error: Found multiple elements with the text: /17.*maximum Life/"
+        },
+        {
+          "name": "keeps terminal cards and bundle count stable through details, candidate selection and zoom",
+          "reason": "Error: Test timed out in 5000ms."
+        },
+        {
+          "name": "single canvas category selector and favorites inside the coordinate plane retains the size-containment and internal overflow contract across real large catalogs, filtering and tab changes",
+          "reason": "Error: Test timed out in 5000ms."
+        },
+        {
+          "name": "single canvas category selector and favorites inside the coordinate plane shares stash scroll styling with the actual base, History and Favorites scroll surfaces",
+          "reason": "Error: Test timed out in 5000ms."
+        },
+        {
+          "name": "records or verifies the machine-readable output and exact display source hashes",
+          "reason": "AssertionError: expected { …(19) } to deeply equal { …(19) }"
+        },
+        {
+          "name": "applies one Perfect_Chaos_Orb PERFECT_CHAOS batch to ABYSS and saves one final frame with confirmed omens",
+          "reason": "Error: Unable to find role=\"button\" and name \"Reveal\""
+        }
+      ]
+    },
+    "text-sync-focused": {
+      "total": 111,
+      "passed": 108,
+      "failed": 3,
+      "failures": [
+        {
+          "name": "single canvas category selector and favorites inside the coordinate plane shares stash scroll styling with the actual base, History and Favorites scroll surfaces",
+          "reason": "Error: Test timed out in 5000ms."
+        },
+        {
+          "name": "single canvas category selector and favorites inside the coordinate plane positions all three menus from the former upper work area and keeps interaction on the moved opener",
+          "reason": "Error: Test timed out in 5000ms."
+        },
+        {
+          "name": "keeps terminal cards and bundle count stable through details, candidate selection and zoom",
+          "reason": "Error: Test timed out in 5000ms."
+        }
+      ]
+    },
+    "text-sync-final-focused": {
+      "total": 154,
+      "passed": 154,
+      "failed": 0,
+      "failures": []
+    },
+    "text-sync-timeout-recheck": {
+      "total": 29,
+      "passed": 27,
+      "failed": 2,
+      "failures": [
+        {
+          "name": "keeps terminal cards and bundle count stable through details, candidate selection and zoom",
+          "reason": "Error: Test timed out in 5000ms."
+        },
+        {
+          "name": "single canvas category selector and favorites inside the coordinate plane positions all three menus from the former upper work area and keeps interaction on the moved opener",
+          "reason": "Error: Test timed out in 5000ms."
+        }
+      ]
+    },
+    "text-sync-postreview": {
+      "total": 124,
+      "passed": 124,
+      "failed": 0,
+      "failures": []
+    },
+    "static_checks": "npm ci, lint, typecheck, format:check and final production build passed"
+  },
+  "backend": {
+    "focused_with_mapper": "129 tests passed; generateJooq (disposable migrated PostgreSQL), bootJar passed",
+    "final_postreview": "spotlessCheck, editor/socket preservation, ArchUnit and display source hash checks passed",
+    "full": "check generateJooq bootJar --continue attempted; full test worker stopped after prolonged automatic search. BaseRegistryParityTest and EmptyRareApiRegressionTest failures match recorded baseline. Full check is not passed; interim formatting failure corrected and final spotlessCheck passed.",
+    "integration": {
+      "tests": 8,
+      "failed": 0
+    }
+  },
+  "browser": {
+    "status": "not_verified",
+    "reason": "Independent IAB unavailable; existing Chrome Windows computer-use approval timed out. No repeated request or alternate UI automation. Integration owner must verify desktop/mobile and keyboard selection."
+  },
+  "isolation": {
+    "backend": 19210,
+    "frontend": 19211,
+    "postgres": 19232,
+    "redis": 19279,
+    "containers": [
+      "text-sync-postgres-137f",
+      "text-sync-redis-137f"
+    ],
+    "cleanup": "Owned API/Vite processes stopped; both named temporary containers and their anonymous volume removed."
+  },
+  "api": {
+    "checks": [
+      "solar: serializer to real parser/editor, level edit, exact socket identity preserved",
+      "solar: unresolved input rejected without replacement",
+      "stocky: serializer to real parser/editor, level edit, exact socket identity preserved",
+      "stocky: unresolved input rejected without replacement",
+      "installed Rune/socket line deletion rejected",
+      "bow: serializer to real parser/editor, level edit, exact socket identity preserved",
+      "bow: unresolved input rejected without replacement",
+      "ring: serializer to real parser/editor, level edit, exact socket identity preserved",
+      "ring: unresolved input rejected without replacement",
+      "helmet: serializer to real parser/editor, level edit, exact socket identity preserved",
+      "helmet: unresolved input rejected without replacement"
+    ]
+  },
+  "limitations": [
+    "Generated English text uses raw rolls, not scaled game-display values. Original text stays in prior sessions.",
+    "Changing base requires new import; unidentified conversions and unresolved lines block editing.",
+    "Sanctification/desecrated modifier edits are rejected when slot/factor identity cannot be preserved.",
+    "Socket and installed Rune lines are protected. Catalyst quality, observations and hidden metadata stay in state, not inferred from text.",
+    "Existing Sapphire failure and remaining large UI timeouts remain reported; no skips, expectation or timeout relaxation."
+  ]
+}

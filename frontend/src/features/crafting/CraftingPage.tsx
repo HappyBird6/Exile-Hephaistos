@@ -1,3 +1,5 @@
+import { currentItemText } from './currentItemText'
+import { textEditMessages } from './textEditMessages'
 import {
   augmentMaterials,
   augmentName,
@@ -384,6 +386,8 @@ export function CraftingPage() {
       window.removeEventListener('resize', measure)
     }
   }, [stashSpace, view])
+  const editRequest = useRef<AbortController | null>(null)
+  const [editPending, setEditPending] = useState(false)
   const [pendingApplication, setApplying] = useState<{
     controller: AbortController
     revision: number
@@ -409,7 +413,8 @@ export function CraftingPage() {
     },
     [],
   )
-  const workbenchBusy = applying !== null || abyssBusy || imported.pending
+  const workbenchBusy =
+    applying !== null || abyssBusy || imported.pending || editPending
   useLayoutEffect(() => {
     const revision = augmentFocusRevision.current
     if (revision === null || workbenchBusy) return
@@ -437,6 +442,7 @@ export function CraftingPage() {
         applyingRequest.current ||
         placementPending.current ||
         abyssBusyRef.current ||
+        editRequest.current ||
         imported.pending,
       ),
     [imported.pending],
@@ -445,6 +451,7 @@ export function CraftingPage() {
     () =>
       !applyingRequest.current &&
       !placementPending.current &&
+      !editRequest.current &&
       !imported.pending,
     [imported.pending],
   )
@@ -693,12 +700,19 @@ export function CraftingPage() {
   const [baseChoice, setBaseChoice] = useState<WorkbenchBaseKey>('solar')
   const inputToggle = useRef<HTMLButtonElement>(null)
   const inputClose = useRef<HTMLButtonElement>(null)
+  const restoreInputFocus = useRef(false)
 
   useEffect(() => {
     if (inputOpen) {
       dialog.current?.showModal()
       inputClose.current?.focus()
-    } else dialog.current?.close()
+    } else {
+      dialog.current?.close()
+      if (restoreInputFocus.current) {
+        restoreInputFocus.current = false
+        ;(inputOpener.current ?? inputToggle.current)?.focus()
+      }
+    }
   }, [inputOpen])
   useEffect(() => {
     const cancel = (event: KeyboardEvent) => {
@@ -1191,6 +1205,104 @@ export function CraftingPage() {
       }
     }
   }
+  const [editError, setEditError] = useState('')
+  const [editContext, setEditContext] = useState<string | null>(null)
+  const composing = useRef(false)
+  useEffect(() => () => editRequest.current?.abort(), [])
+  async function applyTextEdit() {
+    if (
+      mutationLocked() ||
+      editRequest.current ||
+      composing.current ||
+      !concrete ||
+      !initial.data
+    )
+      return
+    const context = JSON.stringify([
+      draft.baseRevision,
+      filmState.history.active,
+      filmState.history.cursor,
+      concrete,
+      initial.data.rulesetIdentity,
+    ])
+    if (editContext !== context) {
+      setEditError(textEditMessages[locale].stale)
+      return
+    }
+    const request = new AbortController()
+    editRequest.current = request
+    setEditPending(true)
+    setEditError('')
+    const text = draft.text
+    const generation = inputRequestGeneration.current
+    const requestLocale = getLocale()
+    const history = filmState.history
+    const revision = draft.baseRevision
+    const initialData = initial.data
+    try {
+      if (!text.trim() || new TextEncoder().encode(text).length > 16 * 1024)
+        throw new Error('Invalid item text')
+      // Unchanged documents preserve every opaque field, even when mapping is lossy.
+      const result =
+        text === generatedText
+          ? { mapped: true, state: concrete, issues: [] }
+          : await mapSolarText(
+              text,
+              request.signal,
+              initialData.modifiers,
+              initialData.rulesetIdentity,
+              concrete,
+            )
+      if (
+        request.signal.aborted ||
+        getLocale() !== requestLocale ||
+        generation !== inputRequestGeneration.current ||
+        useItemDraft.getState().baseRevision !== revision ||
+        useItemDraft.getState().text !== text ||
+        inputFilm.current.history !== history
+      )
+        return
+      if (
+        !result.mapped ||
+        !result.state ||
+        !verifiedHistoryState(result.state, initialData)
+      ) {
+        setEditError(
+          textEditMessages[locale].blocked +
+            ' ' +
+            result.issues.map((i) => i.message).join(' '),
+        )
+        return
+      }
+      if (
+        !saveFilms(
+          startFilm(
+            history,
+            result.state,
+            filmId(),
+            initialData.rulesetIdentity,
+            text,
+          ),
+          revision,
+          true,
+        )
+      )
+        return
+      draft.resetText(text)
+      setSelected(null)
+      setHeld(null)
+      setInputOpen(false)
+      ;(inputOpener.current ?? inputToggle.current)?.focus()
+    } catch {
+      if (!request.signal.aborted)
+        setEditError(textEditMessages[locale].blocked)
+    } finally {
+      if (editRequest.current === request) {
+        editRequest.current = null
+        setEditPending(false)
+      }
+    }
+  }
   async function importText() {
     if (mutationLocked()) return
     const generation = ++inputRequestGeneration.current
@@ -1198,7 +1310,15 @@ export function CraftingPage() {
     const originalLocale = getLocale()
     const history = filmState.history
     const filmRevision = filmState.revision
-    const accepted = await imported.submit(original.text)
+    const accepted = await imported.submit(
+      original.text,
+      () =>
+        generation === inputRequestGeneration.current &&
+        !inputMutationLocked() &&
+        getLocale() === originalLocale &&
+        inputFilm.current.history === history &&
+        inputFilm.current.revision === filmRevision,
+    )
     const current = useItemDraft.getState()
     const sameItemContext = accepted
       ? current.baseRevision === original.baseRevision + 1 &&
@@ -1290,11 +1410,15 @@ export function CraftingPage() {
   }
   function invalidateInput() {
     inputRequestGeneration.current++
+    editRequest.current?.abort()
+    editRequest.current = null
+    setEditPending(false)
     imported.invalidate()
   }
   function closeInput() {
     if (inputMutationLocked()) return
     invalidateInput()
+    restoreInputFocus.current = true
     setInputOpen(false)
     ;(inputOpener.current ?? inputToggle.current)?.focus()
   }
@@ -1365,6 +1489,26 @@ export function CraftingPage() {
     initial.data?.state.baseItemId === stashBaseId
       ? initial.data?.baseMaterialActions
       : undefined
+  const generatedText =
+    concrete && initial.data
+      ? currentItemText(
+          concrete,
+          initial.data.modifiers,
+          baseName,
+          baseClass(catalogBase),
+        )
+      : null
+  const textContext = JSON.stringify([
+    draft.baseRevision,
+    filmState.history.active,
+    filmState.history.cursor,
+    concrete,
+    initial.data?.rulesetIdentity,
+  ])
+  useEffect(() => {
+    if (inputOpen || draft.textDirty || generatedText === null) return
+    draft.syncText(generatedText)
+  }, [inputOpen, draft, generatedText, textContext])
   const craftEvidence =
     storedFrame && initial.data
       ? verifiedFrameEvidence(storedFrame, initial.data)
@@ -1927,6 +2071,8 @@ export function CraftingPage() {
                       onClick={(event) => {
                         if (mutationLocked()) return
                         inputOpener.current = event.currentTarget
+                        if (!draft.textDirty) setEditContext(textContext)
+                        setEditError('')
                         setInputOpen((open) => !open)
                       }}
                     >
@@ -2531,21 +2677,59 @@ export function CraftingPage() {
                 <label htmlFor="item-text">
                   {t('ui.item_text_copied_from_the_game')}
                 </label>
-                <textarea
-                  id="item-text"
-                  value={draft.text}
-                  disabled={inputBusy}
-                  onChange={(event) => {
-                    if (inputMutationLocked()) return
-                    invalidateInput()
-                    draft.setText(event.target.value)
-                  }}
-                  placeholder={
-                    'Hover over an item and press Ctrl+C\nPaste the copied text here.'
-                  }
-                  aria-invalid={Boolean(imported.error)}
-                  aria-describedby={imported.error ? 'import-error' : undefined}
-                />
+                {inputOpen && (
+                  <textarea
+                    id="item-text"
+                    value={draft.text}
+                    disabled={inputBusy}
+                    onCompositionStart={() => {
+                      composing.current = true
+                    }}
+                    onCompositionEnd={() => {
+                      composing.current = false
+                    }}
+                    onChange={(event) => {
+                      if (inputMutationLocked()) return
+                      invalidateInput()
+                      draft.setText(event.target.value)
+                    }}
+                    placeholder={
+                      'Hover over an item and press Ctrl+C\nPaste the copied text here.'
+                    }
+                    aria-invalid={Boolean(imported.error)}
+                    aria-describedby={
+                      imported.error ? 'import-error' : undefined
+                    }
+                  />
+                )}
+                {generatedText !== null && (
+                  <>
+                    <p>{textEditMessages[locale].note}</p>
+                    {draft.textDirty && editContext !== textContext && (
+                      <p role="alert">{textEditMessages[locale].stale}</p>
+                    )}
+                    {editError && <p role="alert">{editError}</p>}
+                    <button
+                      type="button"
+                      disabled={workbenchBusy || editPending}
+                      onClick={applyTextEdit}
+                    >
+                      {textEditMessages[locale].apply}
+                    </button>
+                    <button
+                      type="button"
+                      disabled={workbenchBusy || editPending}
+                      onClick={() => {
+                        invalidateInput()
+                        draft.resetText(generatedText)
+                        setEditContext(textContext)
+                        setEditError('')
+                      }}
+                    >
+                      {textEditMessages[locale].reload}
+                    </button>
+                  </>
+                )}
                 {imported.error && (
                   <p id="import-error" role="alert">
                     {imported.error}
@@ -2555,7 +2739,7 @@ export function CraftingPage() {
                   type="button"
                   className="primary-action"
                   onClick={importText}
-                  disabled={workbenchBusy}
+                  disabled={workbenchBusy || editPending}
                 >
                   {imported.pending
                     ? t('ui.analyzing_item')
