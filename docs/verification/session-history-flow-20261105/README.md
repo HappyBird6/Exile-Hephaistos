@@ -32,3 +32,23 @@
 ## 실제 9001 변경 전 확인
 
 동일 공개 세션의 [변경 전 실제 화면](deployed-before.png)과 [문구·펼침 조사](before-notes.json)를 기록했다. 상시 로컬 저장/localhost 안내·원문 공유 설명·상태 개수, 별도 History 목록 1개, ‘저장된 데이터’ 8개와 원문 펼침 1개를 실제 확인했다. 9개 펼침을 열어 원시 데이터가 보이는 것도 확인했다. 반영 후 결과는 후속 서버 검증 기록에 남긴다.
+
+
+## 최종 실제 서버 반영과 직접 비교
+
+구현 commit `04fa118cbe3a4bf7cceb529b0766136e22a4de4d`를 원본의 별도 `codex/local-session-history-flow-20261105` branch에 fast-forward했다. 실제 9001의 소켓 3개 사례에서 WebP 재임베딩 시 아이템 이미지가 누락되는 것을 추가 확인하여, 화면에 디코딩된 이미지를 PNG로 포함하는 수정 `b22946c390228070e0a35a422d162d4cd9fe6288`도 반영했다. 필요한 lint·typecheck를 통과했고 원본에서 Frontend image를 다시 빌드·갱신했다. App·DB·Redis는 재생성하지 않았다.
+
+최종 확인은 19311 미리보기나 import한 debug 함수가 아니라 **9001의 실제 PNG 버튼 다운로드 파일**로 수행했다. 같은 기존 8개 상태 공개 세션을 Desktop 1700px·Mobile 390px에서 열고 아래 파일쌍을 직접 비교했다.
+
+| 구분 | 실제 9001 페이지 흐름 | 실제 버튼 다운로드 PNG |
+|---|---|---|
+| Desktop | [페이지](deployed-page-flow.png) | [PNG](deployed-snapshot.png) |
+| Mobile | [페이지](deployed-mobile-page-flow.png) | [PNG](deployed-mobile-snapshot.png) |
+
+[전체 UI](deployed-after.png) · [공유 시점 안내](deployed-share-warning.png) · [표시 조사](after-notes.json) · [실제 서비스 검사](deployment-checks.json) · [개별 카드·이미지·화살표 비교 수치](deployed-comparison.json).
+
+상시 설명 문단·원시 pre·원시 펼침·별도 History 목록은 모두 0이다. 내부 ID·Ruleset·로컬 저장/localhost 안내가 정상 화면과 tooltip에 노출되지 않는다. 원문 포함·링크 읽기 범위 안내만 공유 버튼을 누른 시점에 짧게 나타나고 취소 후 focus가 돌아간다. 실제 오류·가져오기 검증·보존 경고는 유지했다.
+
+16개 카드의 외곽 픽셀 좌표는 모두 완전히 일치했다. Desktop 8개 아이템 이미지도 외곽이 전부 일치했다. Mobile 8개 이미지 중 7개는 완전히 일치하고 1개의 반투명 하단만 1px 차이가 있었다. 폭·시작 위치와 카드 간 여백은 일치하며 이미지·화살표·라벨 누락이나 겹침이 없다. 엄격한 RGB 진단 기준 3/255는 Mobile 이미지 한 영역에서 **3.0565/255**로 초과한 채 기록했다. 기준을 올리거나 실패 출력을 숨기지 않았으며, 독립적인 외곽 비교로 이를 실질적 layout 오류와 구분했다. pixel-identical 렌더링이라고 주장하지 않는다.
+
+[보존 확인](preservation.json): App·PostgreSQL·Redis ID, 모든 mount·localhost 바인딩, `.env`, 확인 대상 공개 snapshot의 정확한 bytes를 보존했다. 검증 중 snapshot 1건이 추가되어 전체 집합 해시는 달라졌지만, 시작 시점 2개 파일의 정렬된 경로·SHA-256 집합을 현재의 기존 파일 집합으로 재구성해 원래 digest와 완전히 일치함을 확인했다. 추가 파일도 삭제하지 않았다. 임시 API·Frontend와 본인 소유 `session-history-flow-postgres`·`session-history-flow-redis` 및 임시 저장소만 정리했다. 무거운 전수 검사를 반복하거나 skip·timeout·기대값을 완화하지 않았으며 외부 push는 하지 않았다.

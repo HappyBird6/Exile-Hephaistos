@@ -1,0 +1,95 @@
+{
+  "implementationCommit": "b22946c390228070e0a35a422d162d4cd9fe6288",
+  "releaseBranch": "codex/local-session-history-flow-20261105",
+  "uiStatus": 200,
+  "apiReadiness": "UP",
+  "frontendAsset": "/assets/index-Be5Ngu-L.js",
+  "frontendBundleSha256": "10f1ff505c63c183279d6570cb01fccb9d98b7c07d3bc094fc0a7e5ed4609e2d",
+  "containers": [
+    {
+      "name": "/exile-hephaistos-app-1",
+      "id": "c5d190a772a3a3130cf6c143944f01f803bce653c2af01797f22973616e553ec",
+      "mounts": [
+        {
+          "Type": "volume",
+          "Name": "exile-hephaistos_app-data",
+          "Source": "/var/lib/docker/volumes/exile-hephaistos_app-data/_data",
+          "Destination": "/app/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": ""
+        }
+      ],
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "9000"
+          }
+        ]
+      }
+    },
+    {
+      "name": "/exile-hephaistos-frontend-1",
+      "id": "0de58baf4506a273da311cef4852d38ff384883c9901c5d0c054e680ce2e4165",
+      "mounts": [],
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "9001"
+          }
+        ]
+      }
+    },
+    {
+      "name": "/exile-hephaistos-postgres-1",
+      "id": "0c5febf25519e70667658bc0ff15452f074a04b4a19dadf00b1a062c31b628be",
+      "mounts": [
+        {
+          "Type": "volume",
+          "Name": "exile-hephaistos_postgres-data",
+          "Source": "/var/lib/docker/volumes/exile-hephaistos_postgres-data/_data",
+          "Destination": "/var/lib/postgresql/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": ""
+        }
+      ],
+      "ports": {
+        "5432/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "5432"
+          }
+        ]
+      }
+    },
+    {
+      "name": "/exile-hephaistos-redis-1",
+      "id": "ac679c135efc5f46d5c470b05091b7d1dcffebbdf24abcfa1c952d9d9748282f",
+      "mounts": [
+        {
+          "Type": "volume",
+          "Name": "7b1c7972e679dbae5773a7237ca430bce8b7d9a2ed933bac264fccff6b07b5d2",
+          "Source": "/var/lib/docker/volumes/7b1c7972e679dbae5773a7237ca430bce8b7d9a2ed933bac264fccff6b07b5d2/_data",
+          "Destination": "/data",
+          "Driver": "local",
+          "Mode": "z",
+          "RW": true,
+          "Propagation": ""
+        }
+      ],
+      "ports": {
+        "6379/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "6379"
+          }
+        ]
+      }
+    }
+  ]
+}

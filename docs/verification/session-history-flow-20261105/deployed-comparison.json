@@ -1,0 +1,807 @@
+{
+  "desktop": {
+    "source": [
+      1604,
+      1020
+    ],
+    "snapshot": [
+      1604,
+      1020
+    ],
+    "regions": [
+      {
+        "type": "image",
+        "mean": 0,
+        "goldSource": 5,
+        "goldSnapshot": 5
+      },
+      {
+        "type": "card",
+        "mean": 0.9282901346192486,
+        "goldSource": 309,
+        "goldSnapshot": 0
+      },
+      {
+        "type": "arrow",
+        "mean": 0.2698321891685736,
+        "goldSource": 232,
+        "goldSnapshot": 235
+      },
+      {
+        "type": "image",
+        "mean": 0,
+        "goldSource": 5,
+        "goldSnapshot": 5
+      },
+      {
+        "type": "card",
+        "mean": 1.1075882392338088,
+        "goldSource": 250,
+        "goldSnapshot": 0
+      },
+      {
+        "type": "arrow",
+        "mean": 0.2698321891685736,
+        "goldSource": 232,
+        "goldSnapshot": 235
+      },
+      {
+        "type": "image",
+        "mean": 0,
+        "goldSource": 5,
+        "goldSnapshot": 5
+      },
+      {
+        "type": "card",
+        "mean": 1.3591822382961622,
+        "goldSource": 250,
+        "goldSnapshot": 0
+      },
+      {
+        "type": "arrow",
+        "mean": 0.2698321891685736,
+        "goldSource": 232,
+        "goldSnapshot": 235
+      },
+      {
+        "type": "image",
+        "mean": 0,
+        "goldSource": 5,
+        "goldSnapshot": 5
+      },
+      {
+        "type": "card",
+        "mean": 1.4897595606456366,
+        "goldSource": 2038,
+        "goldSnapshot": 1832
+      },
+      {
+        "type": "arrow",
+        "mean": 0.9310553738034654,
+        "goldSource": 169,
+        "goldSnapshot": 170
+      },
+      {
+        "type": "image",
+        "mean": 0,
+        "goldSource": 7,
+        "goldSnapshot": 7
+      },
+      {
+        "type": "card",
+        "mean": 1.3242977072310405,
+        "goldSource": 2156,
+        "goldSnapshot": 1950
+      },
+      {
+        "type": "arrow",
+        "mean": 0.299580472921434,
+        "goldSource": 234,
+        "goldSnapshot": 235
+      },
+      {
+        "type": "image",
+        "mean": 0,
+        "goldSource": 7,
+        "goldSnapshot": 7
+      },
+      {
+        "type": "card",
+        "mean": 1.4222391534391534,
+        "goldSource": 2156,
+        "goldSnapshot": 1950
+      },
+      {
+        "type": "arrow",
+        "mean": 0.299580472921434,
+        "goldSource": 234,
+        "goldSnapshot": 235
+      },
+      {
+        "type": "image",
+        "mean": 0,
+        "goldSource": 7,
+        "goldSnapshot": 7
+      },
+      {
+        "type": "card",
+        "mean": 1.518679365079365,
+        "goldSource": 2156,
+        "goldSnapshot": 1950
+      },
+      {
+        "type": "arrow",
+        "mean": 0.299580472921434,
+        "goldSource": 234,
+        "goldSnapshot": 235
+      },
+      {
+        "type": "image",
+        "mean": 0,
+        "goldSource": 7,
+        "goldSnapshot": 7
+      },
+      {
+        "type": "card",
+        "mean": 1.5088169312169313,
+        "goldSource": 2156,
+        "goldSnapshot": 1950
+      }
+    ]
+  },
+  "mobile": {
+    "source": [
+      366,
+      4233
+    ],
+    "snapshot": [
+      366,
+      4233
+    ],
+    "regions": [
+      {
+        "type": "image",
+        "mean": 0.2774358974358974,
+        "goldSource": 5,
+        "goldSnapshot": 5
+      },
+      {
+        "type": "card",
+        "mean": 1.1409219047619048,
+        "goldSource": 365,
+        "goldSnapshot": 0
+      },
+      {
+        "type": "arrow",
+        "mean": 1.835142118863049,
+        "goldSource": 151,
+        "goldSnapshot": 149
+      },
+      {
+        "type": "image",
+        "mean": 0.2774358974358974,
+        "goldSource": 5,
+        "goldSnapshot": 5
+      },
+      {
+        "type": "card",
+        "mean": 1.1957931034482758,
+        "goldSource": 284,
+        "goldSnapshot": 2
+      },
+      {
+        "type": "arrow",
+        "mean": 1.8007751937984495,
+        "goldSource": 148,
+        "goldSnapshot": 149
+      },
+      {
+        "type": "image",
+        "mean": 0.2774358974358974,
+        "goldSource": 5,
+        "goldSnapshot": 5
+      },
+      {
+        "type": "card",
+        "mean": 1.3784546850998465,
+        "goldSource": 282,
+        "goldSnapshot": 0
+      },
+      {
+        "type": "arrow",
+        "mean": 2.0364341085271316,
+        "goldSource": 150,
+        "goldSnapshot": 149
+      },
+      {
+        "type": "image",
+        "mean": 0.2774358974358974,
+        "goldSource": 5,
+        "goldSnapshot": 5
+      },
+      {
+        "type": "card",
+        "mean": 1.3934505934505934,
+        "goldSource": 2205,
+        "goldSnapshot": 1988
+      },
+      {
+        "type": "arrow",
+        "mean": 1.9245478036175712,
+        "goldSource": 148,
+        "goldSnapshot": 149
+      },
+      {
+        "type": "image",
+        "mean": 0.2774358974358974,
+        "goldSource": 5,
+        "goldSnapshot": 5
+      },
+      {
+        "type": "card",
+        "mean": 1.882250101173614,
+        "goldSource": 2247,
+        "goldSnapshot": 2030
+      },
+      {
+        "type": "arrow",
+        "mean": 1.9409560723514212,
+        "goldSource": 168,
+        "goldSnapshot": 169
+      },
+      {
+        "type": "image",
+        "mean": 3.0565384615384614,
+        "goldSource": 5,
+        "goldSnapshot": 7
+      },
+      {
+        "type": "card",
+        "mean": 2.4492901587301588,
+        "goldSource": 2289,
+        "goldSnapshot": 2072
+      },
+      {
+        "type": "arrow",
+        "mean": 1.9409560723514212,
+        "goldSource": 168,
+        "goldSnapshot": 169
+      },
+      {
+        "type": "image",
+        "mean": 0.2774358974358974,
+        "goldSource": 5,
+        "goldSnapshot": 5
+      },
+      {
+        "type": "card",
+        "mean": 1.41424013434089,
+        "goldSource": 2333,
+        "goldSnapshot": 2116
+      },
+      {
+        "type": "arrow",
+        "mean": 1.57984496124031,
+        "goldSource": 148,
+        "goldSnapshot": 149
+      },
+      {
+        "type": "image",
+        "mean": 0.2774358974358974,
+        "goldSource": 5,
+        "goldSnapshot": 5
+      },
+      {
+        "type": "card",
+        "mean": 1.7586507936507936,
+        "goldSource": 2333,
+        "goldSnapshot": 2116
+      }
+    ]
+  },
+  "paintBounds": {
+    "desktop": [
+      {
+        "type": "image",
+        "source": {
+          "left": 144,
+          "top": 29,
+          "right": 178,
+          "bottom": 84
+        },
+        "snapshot": {
+          "left": 144,
+          "top": 29,
+          "right": 178,
+          "bottom": 84
+        }
+      },
+      {
+        "type": "card",
+        "source": {
+          "left": 4,
+          "top": 101,
+          "right": 318,
+          "bottom": 415
+        },
+        "snapshot": {
+          "left": 4,
+          "top": 101,
+          "right": 318,
+          "bottom": 415
+        }
+      },
+      {
+        "type": "image",
+        "source": {
+          "left": 571,
+          "top": 29,
+          "right": 605,
+          "bottom": 84
+        },
+        "snapshot": {
+          "left": 571,
+          "top": 29,
+          "right": 605,
+          "bottom": 84
+        }
+      },
+      {
+        "type": "card",
+        "source": {
+          "left": 431,
+          "top": 101,
+          "right": 745,
+          "bottom": 415
+        },
+        "snapshot": {
+          "left": 431,
+          "top": 101,
+          "right": 745,
+          "bottom": 415
+        }
+      },
+      {
+        "type": "image",
+        "source": {
+          "left": 998,
+          "top": 29,
+          "right": 1032,
+          "bottom": 84
+        },
+        "snapshot": {
+          "left": 998,
+          "top": 29,
+          "right": 1032,
+          "bottom": 84
+        }
+      },
+      {
+        "type": "card",
+        "source": {
+          "left": 858,
+          "top": 101,
+          "right": 1172,
+          "bottom": 415
+        },
+        "snapshot": {
+          "left": 858,
+          "top": 101,
+          "right": 1172,
+          "bottom": 415
+        }
+      },
+      {
+        "type": "image",
+        "source": {
+          "left": 1425,
+          "top": 29,
+          "right": 1459,
+          "bottom": 84
+        },
+        "snapshot": {
+          "left": 1425,
+          "top": 29,
+          "right": 1459,
+          "bottom": 84
+        }
+      },
+      {
+        "type": "card",
+        "source": {
+          "left": 1285,
+          "top": 101,
+          "right": 1599,
+          "bottom": 415
+        },
+        "snapshot": {
+          "left": 1285,
+          "top": 101,
+          "right": 1599,
+          "bottom": 415
+        }
+      },
+      {
+        "type": "image",
+        "source": {
+          "left": 1425,
+          "top": 550,
+          "right": 1459,
+          "bottom": 604
+        },
+        "snapshot": {
+          "left": 1425,
+          "top": 550,
+          "right": 1459,
+          "bottom": 604
+        }
+      },
+      {
+        "type": "card",
+        "source": {
+          "left": 1285,
+          "top": 622,
+          "right": 1599,
+          "bottom": 995
+        },
+        "snapshot": {
+          "left": 1285,
+          "top": 622,
+          "right": 1599,
+          "bottom": 995
+        }
+      },
+      {
+        "type": "image",
+        "source": {
+          "left": 998,
+          "top": 550,
+          "right": 1032,
+          "bottom": 604
+        },
+        "snapshot": {
+          "left": 998,
+          "top": 550,
+          "right": 1032,
+          "bottom": 604
+        }
+      },
+      {
+        "type": "card",
+        "source": {
+          "left": 858,
+          "top": 622,
+          "right": 1172,
+          "bottom": 995
+        },
+        "snapshot": {
+          "left": 858,
+          "top": 622,
+          "right": 1172,
+          "bottom": 995
+        }
+      },
+      {
+        "type": "image",
+        "source": {
+          "left": 571,
+          "top": 550,
+          "right": 605,
+          "bottom": 604
+        },
+        "snapshot": {
+          "left": 571,
+          "top": 550,
+          "right": 605,
+          "bottom": 604
+        }
+      },
+      {
+        "type": "card",
+        "source": {
+          "left": 431,
+          "top": 622,
+          "right": 745,
+          "bottom": 995
+        },
+        "snapshot": {
+          "left": 431,
+          "top": 622,
+          "right": 745,
+          "bottom": 995
+        }
+      },
+      {
+        "type": "image",
+        "source": {
+          "left": 144,
+          "top": 550,
+          "right": 178,
+          "bottom": 604
+        },
+        "snapshot": {
+          "left": 144,
+          "top": 550,
+          "right": 178,
+          "bottom": 604
+        }
+      },
+      {
+        "type": "card",
+        "source": {
+          "left": 4,
+          "top": 622,
+          "right": 318,
+          "bottom": 995
+        },
+        "snapshot": {
+          "left": 4,
+          "top": 622,
+          "right": 318,
+          "bottom": 995
+        }
+      }
+    ],
+    "mobile": [
+      {
+        "type": "image",
+        "source": {
+          "left": 165,
+          "top": 20,
+          "right": 199,
+          "bottom": 75
+        },
+        "snapshot": {
+          "left": 165,
+          "top": 20,
+          "right": 199,
+          "bottom": 75
+        }
+      },
+      {
+        "type": "card",
+        "source": {
+          "left": 8,
+          "top": 92,
+          "right": 357,
+          "bottom": 341
+        },
+        "snapshot": {
+          "left": 8,
+          "top": 92,
+          "right": 357,
+          "bottom": 341
+        }
+      },
+      {
+        "type": "image",
+        "source": {
+          "left": 165,
+          "top": 474,
+          "right": 199,
+          "bottom": 529
+        },
+        "snapshot": {
+          "left": 165,
+          "top": 474,
+          "right": 199,
+          "bottom": 529
+        }
+      },
+      {
+        "type": "card",
+        "source": {
+          "left": 8,
+          "top": 546,
+          "right": 357,
+          "bottom": 834
+        },
+        "snapshot": {
+          "left": 8,
+          "top": 546,
+          "right": 357,
+          "bottom": 834
+        }
+      },
+      {
+        "type": "image",
+        "source": {
+          "left": 165,
+          "top": 966,
+          "right": 199,
+          "bottom": 1021
+        },
+        "snapshot": {
+          "left": 165,
+          "top": 966,
+          "right": 199,
+          "bottom": 1021
+        }
+      },
+      {
+        "type": "card",
+        "source": {
+          "left": 8,
+          "top": 1038,
+          "right": 357,
+          "bottom": 1347
+        },
+        "snapshot": {
+          "left": 8,
+          "top": 1038,
+          "right": 357,
+          "bottom": 1347
+        }
+      },
+      {
+        "type": "image",
+        "source": {
+          "left": 165,
+          "top": 1480,
+          "right": 199,
+          "bottom": 1535
+        },
+        "snapshot": {
+          "left": 165,
+          "top": 1480,
+          "right": 199,
+          "bottom": 1535
+        }
+      },
+      {
+        "type": "card",
+        "source": {
+          "left": 8,
+          "top": 1552,
+          "right": 357,
+          "bottom": 1883
+        },
+        "snapshot": {
+          "left": 8,
+          "top": 1552,
+          "right": 357,
+          "bottom": 1883
+        }
+      },
+      {
+        "type": "image",
+        "source": {
+          "left": 165,
+          "top": 2015,
+          "right": 199,
+          "bottom": 2070
+        },
+        "snapshot": {
+          "left": 165,
+          "top": 2015,
+          "right": 199,
+          "bottom": 2070
+        }
+      },
+      {
+        "type": "card",
+        "source": {
+          "left": 8,
+          "top": 2087,
+          "right": 357,
+          "bottom": 2439
+        },
+        "snapshot": {
+          "left": 8,
+          "top": 2087,
+          "right": 357,
+          "bottom": 2439
+        }
+      },
+      {
+        "type": "image",
+        "source": {
+          "left": 165,
+          "top": 2572,
+          "right": 199,
+          "bottom": 2627
+        },
+        "snapshot": {
+          "left": 165,
+          "top": 2572,
+          "right": 199,
+          "bottom": 2626
+        }
+      },
+      {
+        "type": "card",
+        "source": {
+          "left": 8,
+          "top": 2644,
+          "right": 357,
+          "bottom": 3017
+        },
+        "snapshot": {
+          "left": 8,
+          "top": 2644,
+          "right": 357,
+          "bottom": 3017
+        }
+      },
+      {
+        "type": "image",
+        "source": {
+          "left": 165,
+          "top": 3150,
+          "right": 199,
+          "bottom": 3205
+        },
+        "snapshot": {
+          "left": 165,
+          "top": 3150,
+          "right": 199,
+          "bottom": 3205
+        }
+      },
+      {
+        "type": "card",
+        "source": {
+          "left": 8,
+          "top": 3222,
+          "right": 357,
+          "bottom": 3617
+        },
+        "snapshot": {
+          "left": 8,
+          "top": 3222,
+          "right": 357,
+          "bottom": 3617
+        }
+      },
+      {
+        "type": "image",
+        "source": {
+          "left": 165,
+          "top": 3749,
+          "right": 199,
+          "bottom": 3804
+        },
+        "snapshot": {
+          "left": 165,
+          "top": 3749,
+          "right": 199,
+          "bottom": 3804
+        }
+      },
+      {
+        "type": "card",
+        "source": {
+          "left": 8,
+          "top": 3821,
+          "right": 357,
+          "bottom": 4216
+        },
+        "snapshot": {
+          "left": 8,
+          "top": 3821,
+          "right": 357,
+          "bottom": 4216
+        }
+      }
+    ]
+  },
+  "diagnostic": {
+    "meanPixelGuide": 3,
+    "aboveGuide": [
+      {
+        "viewport": "mobile",
+        "type": "image",
+        "mean": 3.0565384615384614,
+        "goldSource": 5,
+        "goldSnapshot": 7
+      }
+    ],
+    "note": "Strict RGB guide remains exceeded for one Mobile artwork region: 3.0565/255. Outer-box comparison is independent; no threshold was raised and pixel-identical rendering is not claimed."
+  },
+  "geometrySummary": {
+    "desktop card maxPixelBoundaryDifference": 0,
+    "desktop image maxPixelBoundaryDifference": 0,
+    "mobile card maxPixelBoundaryDifference": 0,
+    "mobile image maxPixelBoundaryDifference": 1
+  }
+}

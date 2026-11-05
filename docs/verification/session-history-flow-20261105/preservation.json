@@ -1,0 +1,18 @@
+{
+  "envUnchanged": true,
+  "publicSnapshotUnchanged": true,
+  "allPreExistingSnapshotsUnchanged": true,
+  "baselineCount": 2,
+  "addedSnapshotCount": 1,
+  "/exile-hephaistos-app-1 mounts": true,
+  "/exile-hephaistos-app-1 bindings": true,
+  "/exile-hephaistos-app-1 container": true,
+  "/exile-hephaistos-frontend-1 mounts": true,
+  "/exile-hephaistos-frontend-1 bindings": true,
+  "/exile-hephaistos-postgres-1 mounts": true,
+  "/exile-hephaistos-postgres-1 bindings": true,
+  "/exile-hephaistos-postgres-1 container": true,
+  "/exile-hephaistos-redis-1 mounts": true,
+  "/exile-hephaistos-redis-1 bindings": true,
+  "/exile-hephaistos-redis-1 container": true
+}

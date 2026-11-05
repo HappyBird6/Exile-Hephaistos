@@ -1,0 +1,14 @@
+{
+  "url": "http://localhost:9001/history/shared/f4a82a107a941ac16867c475ea8c877931be30eb92a13ab8",
+  "checks": [
+    "no standing notes or raw panels",
+    "no internal identifiers and storage text",
+    "minimal notice appears only for sharing",
+    "cancel returns focus",
+    "8 states and 7 connectors remain",
+    "mobile fits viewport",
+    "9000 readiness UP",
+    "no browser errors"
+  ],
+  "errors": []
+}
