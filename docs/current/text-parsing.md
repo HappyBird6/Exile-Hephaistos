@@ -35,3 +35,13 @@ The display parsing approach is adapted from Path of Building Community PoE2 `It
 [ItemTextService.java](../../backend/src/main/java/com/poe2craft/item/testparser/ItemTextService.java) · [WorkbenchController.java](../../backend/src/main/java/com/poe2craft/crafting/presentation/WorkbenchController.java)
 
 [문서 지도](../README.md)
+
+## 현재 아이템 텍스트 편집
+
+Workbench의 검증된 현재 상태에서 영문 원래 roll 문서를 생성한다. 제작·단계 이동·소켓 변경 후 편집 중이 아닌 입력을 갱신한다. 기존 파서 원문과 Film.sourceDocument는 생성 텍스트로 덮어쓰지 않는다. Rare의 생성 이름은 Workbench Item이며 게임의 무작위 이름을 추정하지 않는다.
+
+텍스트 수정 적용은 `POST /api/v1/crafting/workbench/edit-text`에 기존 state와 text를 보내 기존 표시 파서·catalog mapper·ItemStateValidator로 검증한다. 유효한 결과만 기존 Film을 보존한 새 시작 상태로 반영한다. Analyze item은 별도 새 아이템 분석 경로다. 입력은 영어, UI 안내는 기존 6개 언어다. UTF-8 16 KiB 한도는 동일하다.
+
+문서는 원래 roll을 사용하며 Catalyst/Sanctification 보정 표시를 역산하지 않는다. 소켓·장착 Rune 행은 현재 상태를 표시하며 편집으로 교체하지 않는다. 소켓 실행 용량·장착 ID·Catalyst 품질·관측값·미공개 Desecrated 슬롯·배율은 기존 상태에서 보존하고 합친 결과를 검증한다. 관측 소켓 수로 실행 용량을 추정하지 않는다. 베이스 변경은 새 가져오기를 사용한다. Desecrated/축성 상태의 옵션 변경, 모호한 tier·단위 변환·미해석 행 등 안전하게 매핑할 수 없는 편집은 구체적인 사유와 함께 거절한다. 원문 관측 방어 합계는 현재 계산 합계로 재사용하지 않는다.
+
+편집 중 초안·선택·IME 입력은 자동 갱신으로 덮어쓰지 않는다. 입력 닫기·Escape는 요청을 취소하고 초안을 보존한다. 상태/Film/cursor가 바뀐 초안은 적용을 차단하며 사용자가 현재 텍스트를 불러올 때 교체한다. 입력 revision·취소 신호·현재 상태·Film 및 locale을 검사해 늦은 응답을 폐기한다. 저장 실패도 기존 아이템과 초안을 보존한다.

@@ -336,5 +336,19 @@ public final class WorkbenchController {
     return mapper.map(parser.parseText(request.text()));
   }
 
+  public record EditTextRequest(JsonNode state, String text) {}
+
+  @PostMapping("/edit-text")
+  public SolarTextMapper.Result editText(@RequestBody EditTextRequest request) {
+    var before = stateReader.concreteState(request.state(), true);
+    var catalog =
+        simulator.reviewedCatalogs().stream()
+            .filter(c -> c.base().id().equals(before.baseItemId()))
+            .findFirst()
+            .orElseThrow();
+    return com.poe2craft.item.ItemTextEditor.merge(
+        before, mapper.map(parser.parseText(request.text())), catalog);
+  }
+
   public record TextRequest(String text) {}
 }

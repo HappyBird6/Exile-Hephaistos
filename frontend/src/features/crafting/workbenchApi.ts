@@ -821,13 +821,17 @@ export async function mapSolarText(
   signal: AbortSignal,
   definitions: Record<string, Definition>,
   rulesetIdentity: string,
+  before?: ConcreteItem,
 ): Promise<MappingResult> {
-  const response = await fetch('/api/v1/crafting/workbench/map-text', {
-    method: 'POST',
-    signal,
-    headers: rulesetHeaders(rulesetIdentity),
-    body: JSON.stringify({ text }),
-  })
+  const response = await fetch(
+    `/api/v1/crafting/workbench/${before ? 'edit-text' : 'map-text'}`,
+    {
+      method: 'POST',
+      signal,
+      headers: rulesetHeaders(rulesetIdentity),
+      body: JSON.stringify({ text, ...(before ? { state: before } : {}) }),
+    },
+  )
   if (!response.ok)
     throw new Error(
       'Could not validate this item for crafting. The displayed text is preserved.',
@@ -859,7 +863,7 @@ export async function mapSolarText(
       !Array.isArray(v.state.implicits) ||
       v.state.implicits.length > 1 ||
       !Array.isArray(v.state.conditions) ||
-      v.state.conditions.length !== 0 ||
+      (!before && v.state.conditions.length !== 0) ||
       v.state.explicits.length > 6 ||
       ![...v.state.implicits, ...v.state.explicits].every(
         (m) =>

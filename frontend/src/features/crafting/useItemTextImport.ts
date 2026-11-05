@@ -65,7 +65,8 @@ export function useItemTextImport() {
     setValidation(null)
     return currentRevision.current
   }
-  async function submit(text: string) {
+  async function submit(text: string, canAccept: () => boolean = () => true) {
+    const original = useItemDraft.getState()
     const nextRevision = invalidate()
     if (!text.trim()) {
       setValidation('Enter item text copied from the game.')
@@ -83,7 +84,13 @@ export function useItemTextImport() {
         revision: nextRevision,
         signal: request.signal,
       })
-      if (currentRevision.current !== nextRevision || request.signal.aborted)
+      if (
+        !canAccept() ||
+        currentRevision.current !== nextRevision ||
+        request.signal.aborted ||
+        useItemDraft.getState().baseRevision !== original.baseRevision ||
+        useItemDraft.getState().text !== text
+      )
         return false
       // Every accepted server replacement updates the card and its text together.
       client.setQueryData(currentKey, result.item)

@@ -39,3 +39,7 @@ registered base 수는 [지원 범위](support.md), 상태 검증은 [아이템 
 ## 소켓과 Augment
 
 장비별 추가 1개를 허용하는 Workbench 정책과 79종 일반 Rune/Soul Core의 장착·표시·미지원 경계는 [소켓과 Augment](socket-augments.md)를 따른다.
+
+## 텍스트와 현재 상태
+
+현재 아이템 편집은 [텍스트 편집 계약](text-parsing.md#현재-아이템-텍스트-편집)을 따른다. 제작 상태가 단일 기준이고, 생성 문서는 원문 보존과 별개다. 수정 적용은 새 시작 상태를 만들며 과거 Film·기보·원문과 ruleset identity를 보존한다. 별도 세션 페이지·export/import는 이 경로의 책임이 아니다.

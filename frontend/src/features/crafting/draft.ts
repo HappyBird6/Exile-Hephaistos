@@ -7,6 +7,9 @@ const baseText = 'Item Class: Amulets\nRarity: Normal\nSolar Amulet'
 type Draft = {
   source: 'base' | 'text'
   text: string
+  textDirty: boolean
+  syncText: (text: string) => void
+  resetText: (text: string) => void
   currentText: ItemTextDocument
   base: WorkbenchBaseKey
   baseItemLevel: number
@@ -21,6 +24,10 @@ type Draft = {
 // Structured server items are owned only by TanStack Query.
 export const useItemDraft = create<Draft>((set) => ({
   source: 'base',
+  textDirty: false,
+  syncText: (text) =>
+    set((old) => (old.textDirty || old.text === text ? old : { text })),
+  resetText: (text) => set({ text, textDirty: false }),
   text: baseText,
   currentText: { id: 'current', text: baseText },
   base: 'solar',
@@ -32,16 +39,17 @@ export const useItemDraft = create<Draft>((set) => ({
     set((old) => ({
       source: 'base',
       base,
-      text: baseTexts[base],
+      text: old.textDirty ? old.text : baseTexts[base],
       currentText: { id: 'current', text: baseTexts[base] },
       baseItemLevel: itemLevel,
       baseRevision: old.baseRevision + 1,
       activeOmens: [],
     })),
-  setText: (text) => set({ text }),
+  setText: (text) => set({ text, textDirty: true }),
   acceptText: (text) =>
     set((old) => ({
       source: 'text',
+      textDirty: false,
       text,
       currentText: { id: 'current', text },
       activeOmens: [],
