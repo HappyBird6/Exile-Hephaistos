@@ -4,6 +4,7 @@ import type { WorkbenchResource } from '../stash/stashTypes'
 import type { Film } from '../workbenchHistory'
 import { sessionNotationMessages } from './messages'
 import { extractSessionNotation } from './extractSessionNotation'
+import type { NotationStep } from './extractSessionNotation'
 import '../workbench-scrollbar.css'
 import './session-notation.css'
 
@@ -94,44 +95,11 @@ export function SessionNotation({
                 : ''
             }`
             const content = (
-              <>
-                <span
-                  className="wb-session-notation__number"
-                  aria-hidden="true"
-                >
-                  {step.number}.
-                </span>
-                <span className="wb-session-notation__resources">
-                  {step.consumedOmenIds.map((id, index) => (
-                    <ResourceIcon
-                      key={`${id}-${index}`}
-                      id={id}
-                      resource={registry.get(id)}
-                      omen
-                      focusable={!onNavigate}
-                    />
-                  ))}
-                  {step.consumedOmenIds.length > 0 && (
-                    <span aria-hidden="true">+</span>
-                  )}
-                  <ResourceIcon
-                    id={step.currencyId}
-                    resource={registry.get(step.currencyId)}
-                    focusable={!onNavigate}
-                  />
-                  {step.repeated && (
-                    <span className="wb-session-notation__uses">{uses}</span>
-                  )}
-                </span>
-                {!step.omensKnown && (
-                  <span
-                    className="wb-session-notation__incomplete"
-                    aria-label={text.incomplete}
-                  >
-                    ?
-                  </span>
-                )}
-              </>
+              <NotationResources
+                step={step}
+                resources={resources}
+                focusable={!onNavigate}
+              />
             )
             return (
               <li
@@ -172,5 +140,55 @@ export function SessionNotation({
         <p className="wb-session-notation__limitation">{text.omensMissing}</p>
       )}
     </section>
+  )
+}
+
+export function NotationResources({
+  step,
+  resources,
+  focusable = true,
+}: {
+  step: NotationStep
+  focusable?: boolean
+  resources: readonly WorkbenchResource[]
+}) {
+  const { locale } = useI18n()
+  const text = sessionNotationMessages[locale]
+  const registry = new Map(resources.map((r) => [r.id, r]))
+  const uses = text.repeatUses(new Intl.NumberFormat(locale).format(step.uses))
+  return (
+    <>
+      <span className="wb-session-notation__number" aria-hidden="true">
+        {step.number}.
+      </span>
+      <span className="wb-session-notation__resources">
+        {step.consumedOmenIds.map((id, index) => (
+          <ResourceIcon
+            key={`${id}-${index}`}
+            id={id}
+            resource={registry.get(id)}
+            omen
+            focusable={focusable}
+          />
+        ))}
+        {step.consumedOmenIds.length > 0 && <span aria-hidden="true">+</span>}
+        <ResourceIcon
+          id={step.currencyId}
+          resource={registry.get(step.currencyId)}
+          focusable={focusable}
+        />
+        {step.repeated && (
+          <span className="wb-session-notation__uses">{uses}</span>
+        )}
+      </span>
+      {!step.omensKnown && (
+        <span
+          className="wb-session-notation__incomplete"
+          aria-label={text.incomplete}
+        >
+          ?
+        </span>
+      )}
+    </>
   )
 }

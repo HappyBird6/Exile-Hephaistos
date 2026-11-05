@@ -109,6 +109,8 @@ export function filmRulesetStatus(
 export type Films = {
   version: 1
   films: Film[]
+  /** Local ID remapping only; never overwrite fields inside an imported Film. */
+  importSources?: Record<string, string>
   active: string | null
   cursor: number
   nextSessionNumber?: number

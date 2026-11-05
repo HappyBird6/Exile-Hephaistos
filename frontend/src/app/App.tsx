@@ -1,3 +1,4 @@
+import { SessionHistoryPage } from '../features/crafting/session-history/SessionHistoryPage'
 import { useI18n } from '../shared/i18n/i18n'
 import { useEffect } from 'react'
 import { CraftingPage } from '../features/crafting/CraftingPage'
@@ -43,6 +44,17 @@ export function App() {
         <p>{t('ui.no_admin_tools_are_available_yet')}</p>
       </main>
     )
+  }
+  const shared = window.location.pathname.match(/^\/history\/shared\/([^/]+)$/)
+  const local = window.location.pathname.match(/^\/history\/([^/]+)$/)
+  if (shared || local) {
+    let id = ''
+    try {
+      id = decodeURIComponent((shared ?? local)![1]!)
+    } catch {
+      /* Invalid URL stays unavailable. */
+    }
+    return <SessionHistoryPage id={id} shared={!!shared} />
   }
   return <CraftingPage />
 }

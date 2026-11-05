@@ -1,3 +1,4 @@
+import { historyMessages } from '../session-history/messages'
 import { useState } from 'react'
 import { useI18n, gameName } from '../../../shared/i18n/i18n'
 import { BaseImage } from '../base-picker/BaseImage'
@@ -135,6 +136,9 @@ function SessionLibraryContent({
                   ★
                 </button>
               </div>
+              <a href={`/history/${encodeURIComponent(film.id)}`}>
+                {historyMessages[locale].title}
+              </a>
               {editing === film.id ? (
                 <form
                   className="wb-session-card__edit"
