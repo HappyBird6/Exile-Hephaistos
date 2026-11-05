@@ -130,3 +130,30 @@ it('ties eligibility to selectable IDs, sockets, base class and verified ordinar
     ),
   ).toBe(false)
 })
+
+it('allows Ancient replacement only in its existing slot and rejects a restricted drop elsewhere', () => {
+  const install = vi.fn()
+  const id = 'Carved_Mischief'
+  render(
+    <SocketAugmentSlots
+      item={{
+        ...item,
+        installedAugments: [{ slotIndex: 1, augmentId: 'Carved_Majesty' }],
+      }}
+      augmentId={id}
+      draggedAugmentId={id}
+      ready
+      onInstall={install}
+    />,
+  )
+  const slots = screen.getAllByRole('button')
+  expect(slots[0]).toBeDisabled()
+  expect(slots[0]).not.toHaveClass('is-available')
+  expect(slots[1]).toBeEnabled()
+  expect(slots[1]).toHaveClass('is-available')
+  expect(fireEvent.dragOver(slots[0]!, { dataTransfer: transfer(id) })).toBe(true)
+  fireEvent.drop(slots[0]!, { dataTransfer: transfer(id) })
+  expect(install).not.toHaveBeenCalled()
+  fireEvent.click(slots[1]!)
+  expect(install).toHaveBeenCalledExactlyOnceWith(1, id)
+})

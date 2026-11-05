@@ -1,0 +1,62 @@
+{
+  "Idol": {
+    "url": "https://poe2db.tw/us/Idol",
+    "retrievedAt": "2026-11-05",
+    "sha256": "e7ab93831aa626350edacc73bbe43894b5965177a42a0e5d1ca6c882b2a7df5c"
+  },
+  "Rune": {
+    "url": "https://poe2db.tw/us/Rune",
+    "retrievedAt": "2026-11-05",
+    "sha256": "f61acf34a28ee0c5aa3780e7452c5e1b4eb5cc9a30edff126564477291e3a3ff"
+  },
+  "Soul_Core": {
+    "url": "https://poe2db.tw/us/Soul_Core",
+    "retrievedAt": "2026-11-05",
+    "sha256": "b6704a6f987c9808c1a43df1a9a8c64d17241fbaa6b1dcc297c781993e777a77"
+  },
+  "Abyssal_Eye": {
+    "url": "https://poe2db.tw/us/Abyssal_Eye",
+    "retrievedAt": "2026-11-05",
+    "sha256": "3bf5b341991361d2dbd49ea0e46f64f0284ce2d42c3aefd66bcf520e53eed537"
+  },
+  "Congealed_Mist": {
+    "url": "https://poe2db.tw/us/Congealed_Mist",
+    "retrievedAt": "2026-11-05",
+    "sha256": "3db9013794b9470beca96f09660fb617deed009a6f0fb9877c57bc09d979faff"
+  },
+  "Cadigans_Epiphany": {
+    "url": "https://poe2db.tw/us/Cadigans_Epiphany",
+    "retrievedAt": "2026-11-05",
+    "sha256": "f49f0fcc9f6801744052df1ab2caf6c75784e117e0fbfd3d7e2d64e043af1e9e"
+  },
+  "Fox_Idol": {
+    "url": "https://poe2db.tw/us/Fox_Idol",
+    "retrievedAt": "2026-11-05",
+    "sha256": "780e371fafe1393cebaec4d2678473f2d9b6723b9cd676fdd0870fb551c57a69"
+  },
+  "Masterwork_Rune": {
+    "url": "https://poe2db.tw/us/Masterwork_Rune",
+    "retrievedAt": "2026-11-05",
+    "sha256": "9d2d2e83fe3205aba69524dc9ad50014f71f349e9593b736ab00a85fc35672b7"
+  },
+  "Legacy_of_Serles_Grit": {
+    "url": "https://poe2db.tw/us/Legacy_of_Serles_Grit",
+    "retrievedAt": "2026-11-05",
+    "sha256": "8432bcc6b110680a958e4d4868b770d8d0006587daaa53b4570eb39f7fb37d68"
+  },
+  "Serles_Triumph": {
+    "url": "https://poe2db.tw/us/Serles_Triumph",
+    "retrievedAt": "2026-11-05",
+    "sha256": "799c05d664e595de3a6bd53a7a19222fc77d15bd6e95dbec640390728f783daa"
+  },
+  "Sceptres": {
+    "url": "https://poe2db.tw/us/Sceptres",
+    "retrievedAt": "2026-11-05",
+    "sha256": "93d792e62ad6ca3c8c082676fc27f91d4120a9e9612086477be206a9c45af82c"
+  },
+  "Foci": {
+    "url": "https://poe2db.tw/us/Foci",
+    "retrievedAt": "2026-11-05",
+    "sha256": "95b6ce881b5950a3bde34489a202d794df9662a32d6edf8203fae9b169ffbe11"
+  }
+}

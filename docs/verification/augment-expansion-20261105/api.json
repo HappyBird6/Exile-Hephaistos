@@ -1,0 +1,11 @@
+{
+  "assetChecks": 277,
+  "legacyLimitedChecks": 9,
+  "limitedChecks": 190,
+  "registeredBases": 179,
+  "supportedBases": 94,
+  "augments": 277,
+  "combinations": 961,
+  "calls": 2911,
+  "passed": true
+}

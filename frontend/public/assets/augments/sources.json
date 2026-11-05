@@ -329,7 +329,12 @@
     "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardPerfect.webp",
     "sha256": "3a178cd5e7f0871b489e913dd2242ca2ed1b3f1013a2693ddcaa417117a5c9a4"
   },
-  "Lesser_Charging_Rune": null,
+  "Lesser_Charging_Rune": {
+    "page": "https://poe2db.tw/us/Lesser_Charging_Rune",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationLesser.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "8131e0decc598995d0875f49c45fa3dbd8c455e75de03523af7187acf799b179"
+  },
   "Charging_Rune": {
     "page": "https://poe2db.tw/us/Charging_Rune",
     "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationNormal.webp",
@@ -389,5 +394,1193 @@
     "page": "https://poe2db.tw/us/Soul_Core_of_Vizoma",
     "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreVision.webp",
     "sha256": "e2a36591a853be203102fd9bc4e47739f983503b6b9194f4ac2aaa95ba6b717e"
+  },
+  "Amanamus_Gaze": {
+    "page": "https://poe2db.tw/us/Amanamus_Gaze",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/AmanamusGaze.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "2114dcdaf1c055de72bbb8035fe1c738714dda1f2e6b1b7f4e9af1449a2ec229"
+  },
+  "Ancient_Rune_of_Animosity": {
+    "page": "https://poe2db.tw/us/Ancient_Rune_of_Animosity",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune11.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "cf2cb6c57320a1fdfbfb019a48254868ef230ad3d3ace66b3f5e94c5277f1b30"
+  },
+  "Ancient_Rune_of_Control": {
+    "page": "https://poe2db.tw/us/Ancient_Rune_of_Control",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune6.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "6dd5a1eddc2779b3a01b81fe890743633bbd60a33e8fc55adce68763998f214d"
+  },
+  "Ancient_Rune_of_Decay": {
+    "page": "https://poe2db.tw/us/Ancient_Rune_of_Decay",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune8.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "8ece87f1f0447755d5b012b36c9065d764926084ecf7d0d48155d697fe011579"
+  },
+  "Ancient_Rune_of_Detonation": {
+    "page": "https://poe2db.tw/us/Ancient_Rune_of_Detonation",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune12.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "714c652f3302df16d95aa7c1888cf114902a2d47f059f95b0f42b2f8948f2852"
+  },
+  "Ancient_Rune_of_Discovery": {
+    "page": "https://poe2db.tw/us/Ancient_Rune_of_Discovery",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune7.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "acb48b293924c1a8d2cb39bb765af6c4343d2b7ad47e42afe03ae5b1eeee8aed"
+  },
+  "Ancient_Rune_of_Dueling": {
+    "page": "https://poe2db.tw/us/Ancient_Rune_of_Dueling",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune2.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "305206afa4464419b9f8fd54f5a049221a70c217c864881193c38fd86c8dd430"
+  },
+  "Ancient_Rune_of_Prowess": {
+    "page": "https://poe2db.tw/us/Ancient_Rune_of_Prowess",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune5.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "4a42275cf55f0da9b6e4e194f038344693acdc73f9e5913f5dfabae6bd4931c3"
+  },
+  "Ancient_Rune_of_Retaliation": {
+    "page": "https://poe2db.tw/us/Ancient_Rune_of_Retaliation",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune13.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "bc4e17f329c77a3881a1692c72d4bd1ad020b056ac246cc0869e486dfc3be82b"
+  },
+  "Ancient_Rune_of_Shattering": {
+    "page": "https://poe2db.tw/us/Ancient_Rune_of_Shattering",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune4.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "d24007a93e92aec2968761e4805364073875a130ec17d1f6d32a9d4f6f355873"
+  },
+  "Ancient_Rune_of_Splinters": {
+    "page": "https://poe2db.tw/us/Ancient_Rune_of_Splinters",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune1.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "0da50b8fa1d3c54427fe5146a70b3eae5f849d8017ecb87133f0924a24f93280"
+  },
+  "Ancient_Rune_of_the_Titan": {
+    "page": "https://poe2db.tw/us/Ancient_Rune_of_the_Titan",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune3.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "73c3a8f292d79d946dfee95a50b477b8ec65e541a25f5394b328448c55094fa6"
+  },
+  "Atmohuas_Soul_Core_of_Retreat": {
+    "page": "https://poe2db.tw/us/Atmohuas_Soul_Core_of_Retreat",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreEnergyShield.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "c4f7646936502092c2deb1596d80f4bf370b3d2acd91f904abce1db205a29da2"
+  },
+  "Bear_Idol": {
+    "page": "https://poe2db.tw/us/Bear_Idol",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableBear.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "d56e8b024cc47e38bb281184bf8a5895d38acf9f6b88d7a565ac7179f29ad27e"
+  },
+  "Boar_Idol": {
+    "page": "https://poe2db.tw/us/Boar_Idol",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableBoar.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "be3064fcbaabd005f2d7fee54e5080070a14416c48e60654fa0782ca9348bd09"
+  },
+  "Carved_Cunning": {
+    "page": "https://poe2db.tw/us/Carved_Cunning",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualAmbushPredators.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "4b2718628415f0664fe35f26314322f8c4a71c2e6fb3617dc0b654668bce7498"
+  },
+  "Carved_Majesty": {
+    "page": "https://poe2db.tw/us/Carved_Majesty",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualMajesticBeasts.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "293d8a1c942b651b3c3f0894887dd4213bb680cd429b8918b6054ae3c0ae49bf"
+  },
+  "Carved_Mischief": {
+    "page": "https://poe2db.tw/us/Carved_Mischief",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualMischievousCreatures.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "212f54d06a101e7bdfe24d47cda487e9e8a125587456e113d942f53ed50ab3c7"
+  },
+  "Carved_Tenacity": {
+    "page": "https://poe2db.tw/us/Carved_Tenacity",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualTenaciousBeasts.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "ffb87aebc3341e4f16999bde73c1042bacb6659cc95d9844bb606d5c3b0f10f4"
+  },
+  "Cat_Idol": {
+    "page": "https://poe2db.tw/us/Cat_Idol",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableCat.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "6196273c423594e4db6e5fa4d076911f518eac76796aa2bcf5e56367bc8574ed"
+  },
+  "Cholotls_Soul_Core_of_War": {
+    "page": "https://poe2db.tw/us/Cholotls_Soul_Core_of_War",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreProjectile.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "8854749f3679f5bf82aa0b9171871b1c3d65a4f0f0b36950b9c861cfdabb9a22"
+  },
+  "Citaqualotls_Soul_Core_of_Foulness": {
+    "page": "https://poe2db.tw/us/Citaqualotls_Soul_Core_of_Foulness",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreChaos2.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "97400256ae72db9e03227b4b725f1fa2f68f0a46960c9b28bbf07904683acfeb"
+  },
+  "Citaqualotls_Thesis": {
+    "page": "https://poe2db.tw/us/Citaqualotls_Thesis",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreSacrifice.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "a380f39be9d2a2ba4a46f8328dfc885f5cef242c92b607ad2356c8adf04ff121"
+  },
+  "Countess_Seskes_Rune_of_Archery": {
+    "page": "https://poe2db.tw/us/Countess_Seskes_Rune_of_Archery",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune14.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "7433d851b90bbb97fc83a3a46b8886240e8516af44488ef50db34b70e2189000"
+  },
+  "Courtesan_Mannans_Rune_of_Cruelty": {
+    "page": "https://poe2db.tw/us/Courtesan_Mannans_Rune_of_Cruelty",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune11.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "c85481f0b74a82dd7f4f215608e0288462c93043c47eb73ee5694f77b929edc1"
+  },
+  "Craiceanns_Rune_of_Recovery": {
+    "page": "https://poe2db.tw/us/Craiceanns_Rune_of_Recovery",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune10.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "14cef20dbb03daac2da6e7cc04b2fecd204845fa294a25760baeee185d34db67"
+  },
+  "Craiceanns_Rune_of_Warding": {
+    "page": "https://poe2db.tw/us/Craiceanns_Rune_of_Warding",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune6.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "04bbfd74309b9e162d13aaecc5cf872a849d0f424ca006f09d4e3cc530a7dc23"
+  },
+  "Emergent_Instinct": {
+    "page": "https://poe2db.tw/us/Emergent_Instinct",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionWarAncientAugment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "fa203fb8b5d9cfa5653f04401a5cb32f9a75a7d867ab61eba5aee3abf52a80c1"
+  },
+  "Emergent_Possibility": {
+    "page": "https://poe2db.tw/us/Emergent_Possibility",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionScienceAncientAugment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "f5923ece3c09d344f18d4fda4e78f79721c64558ff75be0e17f6b6ba829a969e"
+  },
+  "Emergent_Protection": {
+    "page": "https://poe2db.tw/us/Emergent_Protection",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionValorAncientAugment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "a98510cf2a3ad44fc44196955de5f9859b3eee24b5dedd5b11e09bfea97b973d"
+  },
+  "Emergent_Vigour": {
+    "page": "https://poe2db.tw/us/Emergent_Vigour",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionReligionAncientAugment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "5aac466b928c78049ac386c9b70d5563a3e8f186a8366d8471cd7a832056c896"
+  },
+  "Estazuntis_Soul_Core_of_Convalescence": {
+    "page": "https://poe2db.tw/us/Estazuntis_Soul_Core_of_Convalescence",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreTimeSlow.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "4a1e8dc3379e29da6dcf5ed893ea9e49f4c99bb4e3615eae6d60c3d2080c8f99"
+  },
+  "Farruls_Rune_of_Grace": {
+    "page": "https://poe2db.tw/us/Farruls_Rune_of_Grace",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune4.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "e3b098c596e47f8fe51fcb731c77256350f7234a7d2e6787c52d37f663cf0170"
+  },
+  "Farruls_Rune_of_the_Chase": {
+    "page": "https://poe2db.tw/us/Farruls_Rune_of_the_Chase",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune5.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "3326e11e253bab2f0e734e9384a4a36caaf5b14f4c2e2a9a117125ccb5f294cb"
+  },
+  "Farruls_Rune_of_the_Hunt": {
+    "page": "https://poe2db.tw/us/Farruls_Rune_of_the_Hunt",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune9.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "e99f55c79f68f3e1d8367f3f2b0602faa332e3f1123903c81eed0f5cc40816c6"
+  },
+  "Fenumus_Rune_of_Agony": {
+    "page": "https://poe2db.tw/us/Fenumus_Rune_of_Agony",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune3.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "c81c014825409655e9fb28ba2e1b777142cfe03477f1bcafd3d351337783cb0c"
+  },
+  "Fenumus_Rune_of_Draining": {
+    "page": "https://poe2db.tw/us/Fenumus_Rune_of_Draining",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune16.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "2fdadcbf9d4af5bf7e03ef438a680eabf75b1154468475b840b7b3d7e74775ab"
+  },
+  "Fenumus_Rune_of_Spinning": {
+    "page": "https://poe2db.tw/us/Fenumus_Rune_of_Spinning",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune13.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "83c9a011e5c4eb02ea1e2c72ce9644f96d31da9dc997c31e916fb21908b2c4b9"
+  },
+  "Greater_Rune_of_Alacrity": {
+    "page": "https://poe2db.tw/us/Greater_Rune_of_Alacrity",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial3.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "a99a9c3a8dbdcddca59217485d412e882fa87c99b82697862389d4b84d43ebff"
+  },
+  "Greater_Rune_of_Leadership": {
+    "page": "https://poe2db.tw/us/Greater_Rune_of_Leadership",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial1.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "55ae55bebb785b300648acac2ea907321163bc4d7b269fb4216580b039959cdf"
+  },
+  "Greater_Rune_of_Nobility": {
+    "page": "https://poe2db.tw/us/Greater_Rune_of_Nobility",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial4.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "40e51dd1b0b96ac670b1bcf00e773c3dc7d45ff9ef4572df188a63d4308de6b9"
+  },
+  "Greater_Rune_of_Tithing": {
+    "page": "https://poe2db.tw/us/Greater_Rune_of_Tithing",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial2.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "811b6c29b7b0e9404cdc8e7fb784bacb69ff4e8be5528130bebcc035bf9bbdd6"
+  },
+  "Guatelitzis_Soul_Core_of_Endurance": {
+    "page": "https://poe2db.tw/us/Guatelitzis_Soul_Core_of_Endurance",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreEnduranceCharge.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "07c8a5edd738278aa42f4c9e0d5b9c7ec106dfce7fa4221d204eec592da02436"
+  },
+  "Guatelitzis_Thesis": {
+    "page": "https://poe2db.tw/us/Guatelitzis_Thesis",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreBlood.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "9ef5a491d7bfb6394763f935598dc4700562c9b80c41712a6728d814a289105e"
+  },
+  "Hawk_Idol": {
+    "page": "https://poe2db.tw/us/Hawk_Idol",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableHawk.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "883672772399917d5327da34153a70382e56746dab60d67dcfd4969f3151d17b"
+  },
+  "Hayoxis_Soul_Core_of_Heatproofing": {
+    "page": "https://poe2db.tw/us/Hayoxis_Soul_Core_of_Heatproofing",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreIce.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "0af4a434ea3c2f56752e6e2bcb95d2779974cfaebcf22ffb60a368c5af1a27de"
+  },
+  "Hedgewitch_Assandras_Rune_of_Wisdom": {
+    "page": "https://poe2db.tw/us/Hedgewitch_Assandras_Rune_of_Wisdom",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune1.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "4a817e8950a986aa2d7614b8bc7979e077578ca9ccda0d0ed4fd68a20b1840c8"
+  },
+  "Idol_of_Alira": {
+    "page": "https://poe2db.tw/us/Idol_of_Alira",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdoloAlira.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "78eb0568e1af27a12733c43da5e5feb5defea2bb0f9d6a46dca5bf246dce1c70"
+  },
+  "Idol_of_Eeshta": {
+    "page": "https://poe2db.tw/us/Idol_of_Eeshta",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableOwlSpecial.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "a1b724d25216c889da0b701d4537e9372c93224aa5ee0ca2b1c3f42302871be6"
+  },
+  "Idol_of_Egrin": {
+    "page": "https://poe2db.tw/us/Idol_of_Egrin",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableCatSpecial.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "87cd7d59db6308953a5d62cf31a93aada312048cfb8fb1458ab1d02a7019fd93"
+  },
+  "Idol_of_Eramir": {
+    "page": "https://poe2db.tw/us/Idol_of_Eramir",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofEramir.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "2b1eeb94b8bd1b6ac785dbd116b0c2bbfb893750f8971c92c765bb76fc709dd7"
+  },
+  "Idol_of_Greust": {
+    "page": "https://poe2db.tw/us/Idol_of_Greust",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofGreust.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "fff91a6464d07862c271bcf8ac49c9204c6eda3aa0199831811cab5471928377"
+  },
+  "Idol_of_Grold": {
+    "page": "https://poe2db.tw/us/Idol_of_Grold",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableBearSpecial.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "31bdf5afff1afbeb084b1c5a972641ab62fb329502a71d6cd9cd7c8736462e7e"
+  },
+  "Idol_of_Kraityn": {
+    "page": "https://poe2db.tw/us/Idol_of_Kraityn",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdoloKraityn.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "0cbb806f4f55f342e81299487287d13dd52b9601e41fa13a6b4c0f69e6466d93"
+  },
+  "Idol_of_Maxarius": {
+    "page": "https://poe2db.tw/us/Idol_of_Maxarius",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableStagSpecial.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "5ab4b955486b40c045d25fdcc62deb41ff9c1c5a3da3bb6b7401af422f8bf4ed"
+  },
+  "Idol_of_Oak": {
+    "page": "https://poe2db.tw/us/Idol_of_Oak",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofOak.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "f0baabebe78fc327ef42b914b7d21b093e7327d4a982c89e773fcf5a3ad94fb3"
+  },
+  "Idol_of_Ralakesh": {
+    "page": "https://poe2db.tw/us/Idol_of_Ralakesh",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableMonkeySpecial.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "20d16501a8c3bc43aeca14b98284881b847602181a2b5586fe0123ff5319033a"
+  },
+  "Idol_of_Silk": {
+    "page": "https://poe2db.tw/us/Idol_of_Silk",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofSilk.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "e41e84d3a5f702c2cc92d1575bbc53856d150792984ebebc7c09fa56de37f519"
+  },
+  "Idol_of_Sirrius": {
+    "page": "https://poe2db.tw/us/Idol_of_Sirrius",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableWolfSpecial.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "7154c61c1f81b69c4d9b923c6dde2c1a4089f1f4f9956da4a8be529de59bdfa1"
+  },
+  "Idol_of_Thruldana": {
+    "page": "https://poe2db.tw/us/Idol_of_Thruldana",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableSnakeSpecial.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "baad85d877bcbc928d8d556876e5692930b81ddf765dfb78072ed2c2e30c699f"
+  },
+  "Idol_of_Yeena": {
+    "page": "https://poe2db.tw/us/Idol_of_Yeena",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofYeena.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "9c0e20663f5624c4612ae9b1ce4b85965a5773df00a0a8d0389d2e3dc479618c"
+  },
+  "Idol_of_the_Martyr": {
+    "page": "https://poe2db.tw/us/Idol_of_the_Martyr",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/RitualCorruptedIdol2.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "547e5fafe401a504a29b5e7d0e77ad1c440083a715616a09c9a4c6e98df15be8"
+  },
+  "Idol_of_the_Pharisee": {
+    "page": "https://poe2db.tw/us/Idol_of_the_Pharisee",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/RitualCorruptedIdol3.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "9b87be93e0e7faa074df82584d5d9733f1ee0e6dd3843efebf264e99d0b4a8bb"
+  },
+  "Idol_of_the_Sycophant": {
+    "page": "https://poe2db.tw/us/Idol_of_the_Sycophant",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/RitualCorruptedIdol1.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "48e07ba162bf480289c3d0f1bced2ce6ab00bceaa74016405c8a1bd17114a088"
+  },
+  "Jiquanis_Soul_Core_of_Abundance": {
+    "page": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Abundance",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCorePlants.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "e0e5a2ebd30b4d47dfdc98b6a1fcb29e3f5afbb8e840f63d8c8fb8efa7491b87"
+  },
+  "Jiquanis_Soul_Core_of_Automation": {
+    "page": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Automation",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreTotems.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "93015fd65fccedad6985007ee98b234159670e9cba7ac0a02489065046063ddd"
+  },
+  "Jiquanis_Soul_Core_of_Malediction": {
+    "page": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Malediction",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreCurses.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "145982b7da3cf3927012f07fa477214161487fbb43b94efa1649d6a9a2f04080"
+  },
+  "Jiquanis_Soul_Core_of_Munitions": {
+    "page": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Munitions",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreGrenades.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "4f3846891c95f0499cab64aaf7f4156fbaf5bba2918e6b8bddaf79a7a53d7c62"
+  },
+  "Jiquanis_Soul_Core_of_Quaking": {
+    "page": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Quaking",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreSlams.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "750cc1881cf6c0970e2d7e0f9d3f25b06669b4bb0f76a80fffe72e8ad9cea09d"
+  },
+  "Jiquanis_Soul_Core_of_Radiance": {
+    "page": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Radiance",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreHeralds.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "f33217afe22df19adc572bec04c4ab09ab2bd97254730bd1d2b49c2f73ea01da"
+  },
+  "Jiquanis_Soul_Core_of_Rallying": {
+    "page": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Rallying",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreWarcries.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "714007362f0b22ff0ef1a8bf506d6dfaf7118b4b403a7d2c4f56e73703ecd899"
+  },
+  "Jiquanis_Soul_Core_of_Rippling": {
+    "page": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Rippling",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreNovas.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "c97cbc820c442efb9f4735090208e47f62636d4315aed4c4df1fc623f0a71a8b"
+  },
+  "Jiquanis_Soul_Core_of_Severing": {
+    "page": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Severing",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreStrikes.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "ec90d81d107d8793fddae8841a11afcddc3ae9d67aaece4d86b4f125deec819f"
+  },
+  "Jiquanis_Soul_Core_of_Snares": {
+    "page": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Snares",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreHazards.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "17ca93169f20ef3d246d4b43630495af061ba1d4c7be0f5516b9e168f46d0620"
+  },
+  "Jiquanis_Soul_Core_of_Squalls": {
+    "page": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Squalls",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreWind.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "464828e19b1733fa111c12a5ddfc2a91adce2e9f4acb23850694634960bde735"
+  },
+  "Jiquanis_Soul_Core_of_Targeting": {
+    "page": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Targeting",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreMarks.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "2cd9748fcc65d3d60d00ce7361a262aaf23cb7650bd1cb93bf5732efc03ce91e"
+  },
+  "Jiquanis_Soul_Core_of_Thundering": {
+    "page": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Thundering",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreStorms.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "37cbff5fe900f14fdbd20adeed40d1fe15c963d8f5281df0dbc9a083fcce2c39"
+  },
+  "Jiquanis_Thesis": {
+    "page": "https://poe2db.tw/us/Jiquanis_Thesis",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreSoul.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "0775cf73275f4c7d403906d68fef8571f5a7bcb335deab249d691a88e2284d5c"
+  },
+  "Kurgals_Gaze": {
+    "page": "https://poe2db.tw/us/Kurgals_Gaze",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/KurgalsGaze.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "a3d398c7f5a084ddb919a6399b046afaa5dd6d5e86359a5c9a4129e3c8288168"
+  },
+  "Lady_Hestras_Rune_of_Winter": {
+    "page": "https://poe2db.tw/us/Lady_Hestras_Rune_of_Winter",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune18.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "17013582a9f7d9e1f3e7928b2b4f32c8d71c910c8f0f364117062c1c763af34e"
+  },
+  "Legacy_of_A_Worthy_Foe": {
+    "page": "https://poe2db.tw/us/Legacy_of_A_Worthy_Foe",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Adonias_Ego": {
+    "page": "https://poe2db.tw/us/Legacy_of_Adonias_Ego",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Alkem_Eira": {
+    "page": "https://poe2db.tw/us/Legacy_of_Alkem_Eira",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Amor_Mandragora": {
+    "page": "https://poe2db.tw/us/Legacy_of_Amor_Mandragora",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Ashrend": {
+    "page": "https://poe2db.tw/us/Legacy_of_Ashrend",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Blackbraid": {
+    "page": "https://poe2db.tw/us/Legacy_of_Blackbraid",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Brain_Rattler": {
+    "page": "https://poe2db.tw/us/Legacy_of_Brain_Rattler",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Bramblejack": {
+    "page": "https://poe2db.tw/us/Legacy_of_Bramblejack",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Briarpatch": {
+    "page": "https://poe2db.tw/us/Legacy_of_Briarpatch",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Briskwrap": {
+    "page": "https://poe2db.tw/us/Legacy_of_Briskwrap",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Bristleboar": {
+    "page": "https://poe2db.tw/us/Legacy_of_Bristleboar",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Brynhands_Mark": {
+    "page": "https://poe2db.tw/us/Legacy_of_Brynhands_Mark",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Bushwhack": {
+    "page": "https://poe2db.tw/us/Legacy_of_Bushwhack",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Candlemaker": {
+    "page": "https://poe2db.tw/us/Legacy_of_Candlemaker",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Chernobogs_Pillar": {
+    "page": "https://poe2db.tw/us/Legacy_of_Chernobogs_Pillar",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Crown_of_Thorns": {
+    "page": "https://poe2db.tw/us/Legacy_of_Crown_of_Thorns",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Cursecarver": {
+    "page": "https://poe2db.tw/us/Legacy_of_Cursecarver",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Deathblow": {
+    "page": "https://poe2db.tw/us/Legacy_of_Deathblow",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Deidbell": {
+    "page": "https://poe2db.tw/us/Legacy_of_Deidbell",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Dionadair": {
+    "page": "https://poe2db.tw/us/Legacy_of_Dionadair",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Duality": {
+    "page": "https://poe2db.tw/us/Legacy_of_Duality",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Dunkelhalt": {
+    "page": "https://poe2db.tw/us/Legacy_of_Dunkelhalt",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Dusk_Vigil": {
+    "page": "https://poe2db.tw/us/Legacy_of_Dusk_Vigil",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Edyrns_Tusks": {
+    "page": "https://poe2db.tw/us/Legacy_of_Edyrns_Tusks",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Elevore": {
+    "page": "https://poe2db.tw/us/Legacy_of_Elevore",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Erians_Cobble": {
+    "page": "https://poe2db.tw/us/Legacy_of_Erians_Cobble",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Ezomyte_Peak": {
+    "page": "https://poe2db.tw/us/Legacy_of_Ezomyte_Peak",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Facebreaker": {
+    "page": "https://poe2db.tw/us/Legacy_of_Facebreaker",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Foxshade": {
+    "page": "https://poe2db.tw/us/Legacy_of_Foxshade",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Greymake": {
+    "page": "https://poe2db.tw/us/Legacy_of_Greymake",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Hoghunt": {
+    "page": "https://poe2db.tw/us/Legacy_of_Hoghunt",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Horns_of_Bynden": {
+    "page": "https://poe2db.tw/us/Legacy_of_Horns_of_Bynden",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Hrimnors_Hymn": {
+    "page": "https://poe2db.tw/us/Legacy_of_Hrimnors_Hymn",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Ironbound": {
+    "page": "https://poe2db.tw/us/Legacy_of_Ironbound",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Keeper_of_the_Arc": {
+    "page": "https://poe2db.tw/us/Legacy_of_Keeper_of_the_Arc",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Kingsguard": {
+    "page": "https://poe2db.tw/us/Legacy_of_Kingsguard",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Legionstride": {
+    "page": "https://poe2db.tw/us/Legacy_of_Legionstride",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Lifesprig": {
+    "page": "https://poe2db.tw/us/Legacy_of_Lifesprig",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Mj%C3%B6lner": {
+    "page": "https://poe2db.tw/us/Legacy_of_Mj%C3%B6lner",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Northpaw": {
+    "page": "https://poe2db.tw/us/Legacy_of_Northpaw",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Oaksworn": {
+    "page": "https://poe2db.tw/us/Legacy_of_Oaksworn",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Oberns_Bastion": {
+    "page": "https://poe2db.tw/us/Legacy_of_Oberns_Bastion",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Olrovasara": {
+    "page": "https://poe2db.tw/us/Legacy_of_Olrovasara",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Quill_Rain": {
+    "page": "https://poe2db.tw/us/Legacy_of_Quill_Rain",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Rondel_de_Ezo": {
+    "page": "https://poe2db.tw/us/Legacy_of_Rondel_de_Ezo",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Spiteful_Floret": {
+    "page": "https://poe2db.tw/us/Legacy_of_Spiteful_Floret",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Starkonjas_Head": {
+    "page": "https://poe2db.tw/us/Legacy_of_Starkonjas_Head",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Svalinn": {
+    "page": "https://poe2db.tw/us/Legacy_of_Svalinn",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_The_Blood_Thorn": {
+    "page": "https://poe2db.tw/us/Legacy_of_The_Blood_Thorn",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_The_Knight-errant": {
+    "page": "https://poe2db.tw/us/Legacy_of_The_Knight-errant",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_The_Sentry": {
+    "page": "https://poe2db.tw/us/Legacy_of_The_Sentry",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_The_Smiling_Knight": {
+    "page": "https://poe2db.tw/us/Legacy_of_The_Smiling_Knight",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_The_Unleashed": {
+    "page": "https://poe2db.tw/us/Legacy_of_The_Unleashed",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_The_Vile_Knight": {
+    "page": "https://poe2db.tw/us/Legacy_of_The_Vile_Knight",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Trampletoe": {
+    "page": "https://poe2db.tw/us/Legacy_of_Trampletoe",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Trenchtimbre": {
+    "page": "https://poe2db.tw/us/Legacy_of_Trenchtimbre",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Twisted_Empyrean": {
+    "page": "https://poe2db.tw/us/Legacy_of_Twisted_Empyrean",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Tyrannys_Grip": {
+    "page": "https://poe2db.tw/us/Legacy_of_Tyrannys_Grip",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Wanderlust": {
+    "page": "https://poe2db.tw/us/Legacy_of_Wanderlust",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Wings_of_Caelyn": {
+    "page": "https://poe2db.tw/us/Legacy_of_Wings_of_Caelyn",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Wulfsbane": {
+    "page": "https://poe2db.tw/us/Legacy_of_Wulfsbane",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Opilotis_Soul_Core_of_Assault": {
+    "page": "https://poe2db.tw/us/Opilotis_Soul_Core_of_Assault",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreFrenzyCharge.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "322a48608ab222b40f1c567f4c66b0fa0e42101986d17ec8c3738ab404c4df09"
+  },
+  "Ox_Idol": {
+    "page": "https://poe2db.tw/us/Ox_Idol",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableOx.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "82a4f6beb03bee14da30941cb21594a836f9e903e85169515155c5675045e374"
+  },
+  "Panther_Idol": {
+    "page": "https://poe2db.tw/us/Panther_Idol",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketablePanther.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "140788811cda4d170c07c09fa60f4796ef706af16957a8d14c54aec7d301b8b4"
+  },
+  "Primate_Idol": {
+    "page": "https://poe2db.tw/us/Primate_Idol",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableMonkey.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "3e5b110ad285628c9f859f2528d768734135062f60dc6bb0e51af509f91cc7ee"
+  },
+  "Quipolatls_Soul_Core_of_Flow": {
+    "page": "https://poe2db.tw/us/Quipolatls_Soul_Core_of_Flow",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreTimeCooldown.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "caa6e5e66d1e056eb4ab3c420bc01abb200c73b1d7a73800d61d41a651fa4f31"
+  },
+  "Quipolatls_Thesis": {
+    "page": "https://poe2db.tw/us/Quipolatls_Thesis",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreScience.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "f957c6fe4fa14933890abb0ef6e4b2c970cd1e74675f14c2e203f2befba71a55"
+  },
+  "Rabbit_Idol": {
+    "page": "https://poe2db.tw/us/Rabbit_Idol",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableRabbit.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "f335889687577624864dc245c2385312bb75ff4fbfdfc4178989b6e541b1afc0"
+  },
+  "Rune_of_Accumulation": {
+    "page": "https://poe2db.tw/us/Rune_of_Accumulation",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune6.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "891f1166fb760d729505ca1aeb759473a5b6cb4664126623c2d86dc9c306e6c6"
+  },
+  "Rune_of_Acrobatics": {
+    "page": "https://poe2db.tw/us/Rune_of_Acrobatics",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune3.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "f11f87abca5592e876021c3359476be8573c18a32a1942bfbf371b9450b0f475"
+  },
+  "Rune_of_Confrontation": {
+    "page": "https://poe2db.tw/us/Rune_of_Confrontation",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune13.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "4a7875ec53753520a542577eb5f3df7df7134bafc46d02a9b45c613212014730"
+  },
+  "Rune_of_Consistency": {
+    "page": "https://poe2db.tw/us/Rune_of_Consistency",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune10.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "81089db9d6bac1237badce9d53978346559e9ae77b0f132411997013c62e953f"
+  },
+  "Rune_of_Culmination": {
+    "page": "https://poe2db.tw/us/Rune_of_Culmination",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune4.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "e4ad3397e6a5fb6e6e9d47cfa674838dedc5d668d93871470b85809e98a4e947"
+  },
+  "Rune_of_Foundations": {
+    "page": "https://poe2db.tw/us/Rune_of_Foundations",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune7.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "2122e17f96d9b786662b450e1262b7ef8bcd13d2d3b289da5bf02eebb6138942"
+  },
+  "Rune_of_Reach": {
+    "page": "https://poe2db.tw/us/Rune_of_Reach",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune11.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "2ba4e4e0c9d1ffbfb46a332209a38f18b252e1ee6644714be06bc23062cc0dd6"
+  },
+  "Rune_of_Renown": {
+    "page": "https://poe2db.tw/us/Rune_of_Renown",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune5.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "fa7e62a84ee1c47e0db3687f4f72bf2887b52b85dcd61d7eec8a4519a220297e"
+  },
+  "Rune_of_Vital_Flame": {
+    "page": "https://poe2db.tw/us/Rune_of_Vital_Flame",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune12.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "7091cd9a5483b0cffe016a4845b0679f9e65a19080dc03d4c77e83d12077bdee"
+  },
+  "Rune_of_Vitality": {
+    "page": "https://poe2db.tw/us/Rune_of_Vitality",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune1.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "40e07f05445a49f883f31cadf555c726dc38281bf457ed930e5b52ede892aff1"
+  },
+  "Rune_of_the_Blossom": {
+    "page": "https://poe2db.tw/us/Rune_of_the_Blossom",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune9.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "04c278d0f645bb8225a12f67ca881e6acddec9fcaf2b3ba381f3887e03de5053"
+  },
+  "Rune_of_the_Hunt": {
+    "page": "https://poe2db.tw/us/Rune_of_the_Hunt",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune2.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "a2549b165b2e3e10f00d7bcab078c3b56e2a3d93b0ee70d8f9d172519af46b8c"
+  },
+  "Rune_of_the_Prism": {
+    "page": "https://poe2db.tw/us/Rune_of_the_Prism",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune8.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "f50321e453549554e7c6e02ee0d13f5c97abf3eca75ef03ae0c9f36ed30d9c35"
+  },
+  "Saqawals_Rune_of_Erosion": {
+    "page": "https://poe2db.tw/us/Saqawals_Rune_of_Erosion",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune8.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "491edf4ad0df004a71b6901b1283a86a4b1a97d5671450338ef97575202d23c8"
+  },
+  "Saqawals_Rune_of_Memory": {
+    "page": "https://poe2db.tw/us/Saqawals_Rune_of_Memory",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune7.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "5d1aa40e54be1267bfd86a79f53c266c3f4bf905d46f186fbb5fda5b7dd2d5dc"
+  },
+  "Saqawals_Rune_of_the_Sky": {
+    "page": "https://poe2db.tw/us/Saqawals_Rune_of_the_Sky",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune2.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "99807ff527fdbf633d9ca7b2ac6327f5a43893ecd4cad99ab1dc8bc7e0789589"
+  },
+  "Snake_Idol": {
+    "page": "https://poe2db.tw/us/Snake_Idol",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableSnake.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "400061ff43ef1b479f4a15f0f78f75f8183d9d4244321d4be59e6a659bfe09d4"
+  },
+  "Stag_Idol": {
+    "page": "https://poe2db.tw/us/Stag_Idol",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableStag.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "467b7a4bd61670f08636b5dbd4bb06f7b5c98491c315aef85896625248b0b177"
+  },
+  "Stoat_Idol": {
+    "page": "https://poe2db.tw/us/Stoat_Idol",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableStoat.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "85789a7f9878470a056387b5d87a3f9fc20c1cd2fbd72c055cfe5f0c16bc31b4"
+  },
+  "Tacatis_Soul_Core_of_Affliction": {
+    "page": "https://poe2db.tw/us/Tacatis_Soul_Core_of_Affliction",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreChaos1.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "bc17adb3217b20459e1b9177958b3f5eeeecd7a050f908ba8bec59545e08c2c0"
+  },
+  "Tecrods_Gaze": {
+    "page": "https://poe2db.tw/us/Tecrods_Gaze",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/TecrodsGaze.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "51f9293ac30973c36e957dda82c3ebe16f38cea6e1207482411fe658b9e47b61"
+  },
+  "Thane_Girts_Rune_of_Wildness": {
+    "page": "https://poe2db.tw/us/Thane_Girts_Rune_of_Wildness",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune15.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "a2187e294038f3f61080636a474e95eb3a6250a163a49581932ed9bb5ffa8de7"
+  },
+  "Thane_Grannells_Rune_of_Mastery": {
+    "page": "https://poe2db.tw/us/Thane_Grannells_Rune_of_Mastery",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune12.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "b4db7ff8fcd9f3f61cf26741e531eb8494573ba47428324935ac924a560e3d3c"
+  },
+  "Thane_Lelds_Rune_of_Spring": {
+    "page": "https://poe2db.tw/us/Thane_Lelds_Rune_of_Spring",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune19.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "aa5899853aae81d60d73fd1fd9c10ee8fbc9c2ab5722f465ccdf5b49acb12819"
+  },
+  "Thane_Myrks_Rune_of_Summer": {
+    "page": "https://poe2db.tw/us/Thane_Myrks_Rune_of_Summer",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune17.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "f31336cbfbe36c2377e2531a53ad139848023324fed7ffecbdd6ebff38b3b5a2"
+  },
+  "The_Greatwolfs_Rune_of_Claws": {
+    "page": "https://poe2db.tw/us/The_Greatwolfs_Rune_of_Claws",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune20.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "7dd8511105afe06849a335169ed09335c6e06134ba4201e937d38d6ecd8095c3"
+  },
+  "The_Greatwolfs_Rune_of_Willpower": {
+    "page": "https://poe2db.tw/us/The_Greatwolfs_Rune_of_Willpower",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune21.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "5862ed87eceffd64d31947a8aaf8f98fdd95416b105ea538c444acd097b1c314"
+  },
+  "Topotantes_Soul_Core_of_Dampening": {
+    "page": "https://poe2db.tw/us/Topotantes_Soul_Core_of_Dampening",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreFire.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "9767175bd05b458d635bab5d5cda4644d18311f5a85fefdfd056817bd31e1868"
+  },
+  "Tzamotos_Soul_Core_of_Ferocity": {
+    "page": "https://poe2db.tw/us/Tzamotos_Soul_Core_of_Ferocity",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreRage.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "8a59f6b0f425c75b51d25fec18df6094d2c635fa5f91c911b48c861bee0dd5c6"
+  },
+  "Ulamans_Gaze": {
+    "page": "https://poe2db.tw/us/Ulamans_Gaze",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/UlamansGaze.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "107fe652fedb2291a448e3d2b9968e858b95abc40c2fbb94b0f85bba007d90f4"
+  },
+  "Uromotis_Soul_Core_of_Attenuation": {
+    "page": "https://poe2db.tw/us/Uromotis_Soul_Core_of_Attenuation",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreCurses2.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "cb6eab019a44b9b4b09e9604b3a21f46c24e1d09e147937bc434cf29613a08d8"
+  },
+  "Warding_Rune_of_Annihilation": {
+    "page": "https://poe2db.tw/us/Warding_Rune_of_Annihilation",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard16.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "7fdb72f6347d4950bdfd6edd6d0385385d600b3237d3f2471123d849df9a8040"
+  },
+  "Warding_Rune_of_Armature": {
+    "page": "https://poe2db.tw/us/Warding_Rune_of_Armature",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard18.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "ce924511516efc3312a43f9e4b6b1430ba2aea45cdf5857732311c631d346d25"
+  },
+  "Warding_Rune_of_Courage": {
+    "page": "https://poe2db.tw/us/Warding_Rune_of_Courage",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard9.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "1f6489d62b40b95755fb550e7b28d8e0948a73463144b699dc32c0f90b2956c9"
+  },
+  "Warding_Rune_of_Desperation": {
+    "page": "https://poe2db.tw/us/Warding_Rune_of_Desperation",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard4.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "87939996230795e6c758cadbd14d082196f641beb7af6f574d2ee12c3dbd55b1"
+  },
+  "Warding_Rune_of_Disintegration": {
+    "page": "https://poe2db.tw/us/Warding_Rune_of_Disintegration",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard3.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "1ce1f43ed110c6daec56f997b785f81762b546eceb4feef10ce22b896f8423f1"
+  },
+  "Warding_Rune_of_Equinox": {
+    "page": "https://poe2db.tw/us/Warding_Rune_of_Equinox",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard20.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "82bb5dce369b328681ac7ad0f18f583d312ea105021ac2dcd60899a9c47795b1"
+  },
+  "Warding_Rune_of_Glancing": {
+    "page": "https://poe2db.tw/us/Warding_Rune_of_Glancing",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard13.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "9c1d94207bd36ef596cb5c569282355357be68e2f20b0c5cb7480b9bd81e7b7e"
+  },
+  "Warding_Rune_of_Heart": {
+    "page": "https://poe2db.tw/us/Warding_Rune_of_Heart",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard14.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "2b0c0ec2872300274a6e9efccbf5ddec7241e354e911d21721528eae2b14c300"
+  },
+  "Warding_Rune_of_Hollowing": {
+    "page": "https://poe2db.tw/us/Warding_Rune_of_Hollowing",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard24.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "a9209c57758680218a87076c9c12b21fcdcfd0f08d4fc098efc8a81c4fc3d097"
+  },
+  "Warding_Rune_of_Nourishment": {
+    "page": "https://poe2db.tw/us/Warding_Rune_of_Nourishment",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard15.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "cc658b770026db7a2f8c2c907f5e1bac154b9be704500428410ea021ff131eb7"
+  },
+  "Warding_Rune_of_Obsession": {
+    "page": "https://poe2db.tw/us/Warding_Rune_of_Obsession",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard19.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "4520c15a3cebe5fc71cb01c73eb0e900361261383d95af87b6d8c80dc1f402e7"
+  },
+  "Warding_Rune_of_Protection": {
+    "page": "https://poe2db.tw/us/Warding_Rune_of_Protection",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard2.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "688816507f7281dbc533dbd385fe723d4edd04e815471f650d43d13d2b670bac"
+  },
+  "Warding_Rune_of_Reinforcement": {
+    "page": "https://poe2db.tw/us/Warding_Rune_of_Reinforcement",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard1.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "8364016993340610f70d99fdcd90cee373ea05a0a460700a96aff8ad951a76b2"
+  },
+  "Warding_Rune_of_Stability": {
+    "page": "https://poe2db.tw/us/Warding_Rune_of_Stability",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard10.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "00a62d28856b7ac75959832c945508e0a5aadfceec3c1f90ad941d935abc162d"
+  },
+  "Warding_Rune_of_Symbiosis": {
+    "page": "https://poe2db.tw/us/Warding_Rune_of_Symbiosis",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard8.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "111207dd09f019795a763773f4e5cf185c9cd3749f1c193401a6bb2a191d2bee"
+  },
+  "Wolf_Idol": {
+    "page": "https://poe2db.tw/us/Wolf_Idol",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableWolf.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "6bdee6fef542eb4a3b2fac0e9645c7867dd431444e6cafc86b545a5610f3a6b0"
+  },
+  "Xipocados_Soul_Core_of_Dominion": {
+    "page": "https://poe2db.tw/us/Xipocados_Soul_Core_of_Dominion",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreMinion.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "ef1d07fe481e165cc391061ed6be6296742a5cb8913a275ca3487306b007066c"
+  },
+  "Xopecs_Soul_Core_of_Power": {
+    "page": "https://poe2db.tw/us/Xopecs_Soul_Core_of_Power",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCorePowerCharge.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "d19e536db4059d63bd86a6929aba9819ed49f86281c9226530d32e5bcc8b47c0"
+  },
+  "Zalatls_Soul_Core_of_Insulation": {
+    "page": "https://poe2db.tw/us/Zalatls_Soul_Core_of_Insulation",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreLightning.webp",
+    "retrievedAt": "2026-11-05",
+    "sha256": "fc90d2f5e0c101415cbbd0dc7ddd9850d8dc51bacf4ae9b3ebe67019964de99a"
   }
 }

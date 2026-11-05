@@ -1,0 +1,5518 @@
+[
+  {
+    "id": "Desert_Rune",
+    "name": "Runa desértica",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 7 a 11 de daño de fuego",
+      "Varita o báculo: Ganas el 8% del daño como daño de fuego extra",
+      "Armadura: +14% a la resistencia al fuego"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Magnitud de la quemadura aumentada un 30%",
+      "Varita o báculo: Magnitud de la quemadura aumentada un 30%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRune.webp"
+  },
+  {
+    "id": "Glacial_Rune",
+    "name": "Runa glacial",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 6 a 10 de daño de hielo",
+      "Varita o báculo: Ganas el 8% del daño como daño de hielo extra",
+      "Armadura: +14% a la resistencia al hielo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Acumulación de congelamiento aumentada un 30%",
+      "Varita o báculo: Acumulación de congelamiento aumentada un 30%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ColdRune.webp"
+  },
+  {
+    "id": "Storm_Rune",
+    "name": "Runa de tormenta",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 1 a 20 de daño de rayo",
+      "Varita o báculo: Ganas el 8% del daño como daño de rayo extra",
+      "Armadura: +14% a la resistencia al rayo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Magnitud de la electrocución que aplicas aumentada un 30%",
+      "Varita o báculo: Magnitud de la electrocución que aplicas aumentada un 30%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRune.webp"
+  },
+  {
+    "id": "Iron_Rune",
+    "name": "Runa de hierro",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Arma marcial: Daño físico aumentado un 16%",
+      "Varita o báculo: Daño de hechizos aumentado un 25%",
+      "Armadura: Armadura, evasión y escudo de energía aumentados un 16%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Efecto de la armadura completamente rota aumentado un 20%",
+      "Varita o báculo: Rompes una cantidad de armadura equivalente al 12% del daño físico infligido al asestar un impacto crítico con hechizos",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/EnhanceRune.webp"
+  },
+  {
+    "id": "Body_Rune",
+    "name": "Runa del cuerpo",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Arma marcial: El 4% del daño físico se absorbe como vida",
+      "Varita o báculo: +40 al escudo de energía máximo",
+      "Armadura: +45 a la vida máxima"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Vida máxima aumentada un 5%",
+      "Varita o báculo: Vida máxima aumentada un 5%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRune.webp"
+  },
+  {
+    "id": "Mind_Rune",
+    "name": "Runa de la mente",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Arma marcial: El 3% del daño físico se absorbe como maná",
+      "Varita o báculo: +60 al maná máximo",
+      "Armadura: +30 al maná máximo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Maná máximo aumentado un 5%",
+      "Varita o báculo: Maná máximo aumentado un 5%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRune.webp"
+  },
+  {
+    "id": "Rebirth_Rune",
+    "name": "Runa de renacimiento",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Arma marcial: Ganas 25 de vida por cada enemigo asesinado",
+      "Varita o báculo: Velocidad de recarga del escudo de energía aumentada un 8%",
+      "Armadura: Regeneras un 0.4% de vida por segundo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Regeneras un 0.4% de vida por segundo",
+      "Varita o báculo: El 8% del daño recibido se recobra como vida",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRecoveryRune.webp"
+  },
+  {
+    "id": "Inspiration_Rune",
+    "name": "Runa de inspiración",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Arma marcial: Ganas 20 de maná por cada enemigo asesinado",
+      "Varita o báculo: Velocidad de regeneración de maná aumentada un 25%",
+      "Armadura: Velocidad de regeneración de maná aumentada un 15%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: El 12% de los costos de maná de las habilidades se convierte en costos de vida",
+      "Varita o báculo: Eficiencia del costo de maná aumentada un 16%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRecoveryRune.webp"
+  },
+  {
+    "id": "Stone_Rune",
+    "name": "Runa de piedra",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Arma marcial: Acumulación de aturdimiento aumentada un 30%",
+      "Varita o báculo: Ganas umbral de aturdimiento adicional equivalente al 12% de tu escudo de energía máximo",
+      "Armadura: +75 al umbral de aturdimiento"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Daño aumentado un 40% contra los enemigos inmovilizados",
+      "Varita o báculo: Acumulación de inmovilización aumentada un 30%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StunRune.webp"
+  },
+  {
+    "id": "Vision_Rune",
+    "name": "Runa de visión",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Arma marcial: +90 a la precisión",
+      "Varita o báculo: Probabilidad de impacto crítico de los hechizos aumentada un 20%",
+      "Armadura: Recuperación de vida y maná de los frascos aumentada un 12%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Los ataques tienen +1% a la probabilidad de impacto crítico",
+      "Varita o báculo: Bonificación de daño crítico aumentada un 25%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/AccuracyRune.webp"
+  },
+  {
+    "id": "Lesser_Desert_Rune",
+    "name": "Runa desértica menor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 4 a 6 de daño de fuego",
+      "Varita o báculo: Ganas el 6% del daño como daño de fuego extra",
+      "Armadura: +10% a la resistencia al fuego"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Magnitud de la quemadura aumentada un 30%",
+      "Varita o báculo: Magnitud de la quemadura aumentada un 30%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Glacial_Rune",
+    "name": "Runa glacial menor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 3 a 5 de daño de hielo",
+      "Varita o báculo: Ganas el 6% del daño como daño de hielo extra",
+      "Armadura: +10% a la resistencia al hielo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Acumulación de congelamiento aumentada un 30%",
+      "Varita o báculo: Acumulación de congelamiento aumentada un 30%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ColdRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Storm_Rune",
+    "name": "Runa de tormenta menor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 1 a 10 de daño de rayo",
+      "Varita o báculo: Ganas el 6% del daño como daño de rayo extra",
+      "Armadura: +10% a la resistencia al rayo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Magnitud de la electrocución que aplicas aumentada un 30%",
+      "Varita o báculo: Magnitud de la electrocución que aplicas aumentada un 30%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Iron_Rune",
+    "name": "Runa de hierro menor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: Daño físico aumentado un 14%",
+      "Varita o báculo: Daño de hechizos aumentado un 20%",
+      "Armadura: Armadura, evasión y escudo de energía aumentados un 14%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Efecto de la armadura completamente rota aumentado un 20%",
+      "Varita o báculo: Rompes una cantidad de armadura equivalente al 12% del daño físico infligido al asestar un impacto crítico con hechizos",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/EnhanceRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Body_Rune",
+    "name": "Runa del cuerpo menor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: El 3% del daño físico se absorbe como vida",
+      "Varita o báculo: +30 al escudo de energía máximo",
+      "Armadura: +30 a la vida máxima"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Vida máxima aumentada un 5%",
+      "Varita o báculo: Vida máxima aumentada un 5%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Mind_Rune",
+    "name": "Runa de la mente menor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: El 2% del daño físico se absorbe como maná",
+      "Varita o báculo: +45 al maná máximo",
+      "Armadura: +20 al maná máximo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Maná máximo aumentado un 5%",
+      "Varita o báculo: Maná máximo aumentado un 5%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Rebirth_Rune",
+    "name": "Runa de renacimiento menor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: Ganas 15 de vida por cada enemigo asesinado",
+      "Varita o báculo: Velocidad de recarga del escudo de energía aumentada un 6%",
+      "Armadura: Regeneras un 0.35% de vida por segundo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Regeneras un 0.4% de vida por segundo",
+      "Varita o báculo: El 8% del daño recibido se recobra como vida",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRecoveryRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Inspiration_Rune",
+    "name": "Runa de inspiración menor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: Ganas 10 de maná por cada enemigo asesinado",
+      "Varita o báculo: Velocidad de regeneración de maná aumentada un 20%",
+      "Armadura: Velocidad de regeneración de maná aumentada un 12%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: El 12% de los costos de maná de las habilidades se convierte en costos de vida",
+      "Varita o báculo: Eficiencia del costo de maná aumentada un 16%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRecoveryRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Stone_Rune",
+    "name": "Runa de piedra menor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: Acumulación de aturdimiento aumentada un 20%",
+      "Varita o báculo: Ganas umbral de aturdimiento adicional equivalente al 10% de tu escudo de energía máximo",
+      "Armadura: +50 al umbral de aturdimiento"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Daño aumentado un 40% contra los enemigos inmovilizados",
+      "Varita o báculo: Acumulación de inmovilización aumentada un 30%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StunRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Vision_Rune",
+    "name": "Runa de visión menor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: +60 a la precisión",
+      "Varita o báculo: Probabilidad de impacto crítico de los hechizos aumentada un 16%",
+      "Armadura: Recuperación de vida y maná de los frascos aumentada un 8%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Los ataques tienen +1% a la probabilidad de impacto crítico",
+      "Varita o báculo: Bonificación de daño crítico aumentada un 25%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/AccuracyRuneTier1.webp"
+  },
+  {
+    "id": "Greater_Desert_Rune",
+    "name": "Runa desértica mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 13 a 16 de daño de fuego",
+      "Varita o báculo: Ganas el 10% del daño como daño de fuego extra",
+      "Armadura: +18% a la resistencia al fuego"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Magnitud de la quemadura aumentada un 30%",
+      "Varita o báculo: Magnitud de la quemadura aumentada un 30%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Glacial_Rune",
+    "name": "Runa glacial mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 9 a 15 de daño de hielo",
+      "Varita o báculo: Ganas el 10% del daño como daño de hielo extra",
+      "Armadura: +18% a la resistencia al hielo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Acumulación de congelamiento aumentada un 30%",
+      "Varita o báculo: Acumulación de congelamiento aumentada un 30%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ColdRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Storm_Rune",
+    "name": "Runa de tormenta mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 1 a 30 de daño de rayo",
+      "Varita o báculo: Ganas el 10% del daño como daño de rayo extra",
+      "Armadura: +18% a la resistencia al rayo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Magnitud de la electrocución que aplicas aumentada un 30%",
+      "Varita o báculo: Magnitud de la electrocución que aplicas aumentada un 30%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Iron_Rune",
+    "name": "Runa de hierro mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Arma marcial: Daño físico aumentado un 18%",
+      "Varita o báculo: Daño de hechizos aumentado un 30%",
+      "Armadura: Armadura, evasión y escudo de energía aumentados un 18%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Efecto de la armadura completamente rota aumentado un 20%",
+      "Varita o báculo: Rompes una cantidad de armadura equivalente al 12% del daño físico infligido al asestar un impacto crítico con hechizos",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/EnhanceRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Body_Rune",
+    "name": "Runa del cuerpo mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Arma marcial: El 5% del daño físico se absorbe como vida",
+      "Varita o báculo: +50 al escudo de energía máximo",
+      "Armadura: +60 a la vida máxima"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Vida máxima aumentada un 5%",
+      "Varita o báculo: Vida máxima aumentada un 5%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Mind_Rune",
+    "name": "Runa de la mente mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Arma marcial: El 4% del daño físico se absorbe como maná",
+      "Varita o báculo: +75 al maná máximo",
+      "Armadura: +40 al maná máximo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Maná máximo aumentado un 5%",
+      "Varita o báculo: Maná máximo aumentado un 5%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Rebirth_Rune",
+    "name": "Runa de renacimiento mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Arma marcial: Ganas 35 de vida por cada enemigo asesinado",
+      "Varita o báculo: Velocidad de recarga del escudo de energía aumentada un 10%",
+      "Armadura: Regeneras un 0.45% de vida por segundo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Regeneras un 0.4% de vida por segundo",
+      "Varita o báculo: El 8% del daño recibido se recobra como vida",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRecoveryRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Inspiration_Rune",
+    "name": "Runa de inspiración mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Arma marcial: Ganas 30 de maná por cada enemigo asesinado",
+      "Varita o báculo: Velocidad de regeneración de maná aumentada un 30%",
+      "Armadura: Velocidad de regeneración de maná aumentada un 18%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: El 12% de los costos de maná de las habilidades se convierte en costos de vida",
+      "Varita o báculo: Eficiencia del costo de maná aumentada un 16%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRecoveryRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Stone_Rune",
+    "name": "Runa de piedra mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Arma marcial: Acumulación de aturdimiento aumentada un 40%",
+      "Varita o báculo: Ganas umbral de aturdimiento adicional equivalente al 14% de tu escudo de energía máximo",
+      "Armadura: +100 al umbral de aturdimiento"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Daño aumentado un 40% contra los enemigos inmovilizados",
+      "Varita o báculo: Acumulación de inmovilización aumentada un 30%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StunRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Vision_Rune",
+    "name": "Runa de visión mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Arma marcial: +120 a la precisión",
+      "Varita o báculo: Probabilidad de impacto crítico de los hechizos aumentada un 24%",
+      "Armadura: Recuperación de vida y maná de los frascos aumentada un 16%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Los ataques tienen +1% a la probabilidad de impacto crítico",
+      "Varita o báculo: Bonificación de daño crítico aumentada un 25%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/AccuracyRuneTier2.webp"
+  },
+  {
+    "id": "Perfect_Desert_Rune",
+    "name": "Runa desértica perfecta",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 17 a 20 de daño de fuego",
+      "Varita o báculo: Ganas el 12% del daño como daño de fuego extra",
+      "Armadura: +22% a la resistencia al fuego"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Magnitud de la quemadura aumentada un 30%",
+      "Varita o báculo: Magnitud de la quemadura aumentada un 30%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneFire.webp"
+  },
+  {
+    "id": "Perfect_Glacial_Rune",
+    "name": "Runa glacial perfecta",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 16 a 20 de daño de hielo",
+      "Varita o báculo: Ganas el 12% del daño como daño de hielo extra",
+      "Armadura: +22% a la resistencia al hielo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Acumulación de congelamiento aumentada un 30%",
+      "Varita o báculo: Acumulación de congelamiento aumentada un 30%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneCold.webp"
+  },
+  {
+    "id": "Perfect_Storm_Rune",
+    "name": "Runa de tormenta perfecta",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 1 a 40 de daño de rayo",
+      "Varita o báculo: Ganas el 12% del daño como daño de rayo extra",
+      "Armadura: +22% a la resistencia al rayo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Magnitud de la electrocución que aplicas aumentada un 30%",
+      "Varita o báculo: Magnitud de la electrocución que aplicas aumentada un 30%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneLightning.webp"
+  },
+  {
+    "id": "Perfect_Iron_Rune",
+    "name": "Runa de hierro perfecto",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: Daño físico aumentado un 20%",
+      "Varita o báculo: Daño de hechizos aumentado un 35%",
+      "Armadura: Armadura, evasión y escudo de energía aumentados un 20%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Efecto de la armadura completamente rota aumentado un 20%",
+      "Varita o báculo: Rompes una cantidad de armadura equivalente al 12% del daño físico infligido al asestar un impacto crítico con hechizos",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneEnhance.webp"
+  },
+  {
+    "id": "Perfect_Body_Rune",
+    "name": "Runa del cuerpo perfecta",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: El 6% del daño físico se absorbe como vida",
+      "Varita o báculo: +60 al escudo de energía máximo",
+      "Armadura: +75 a la vida máxima"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Vida máxima aumentada un 5%",
+      "Varita o báculo: Vida máxima aumentada un 5%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneLife.webp"
+  },
+  {
+    "id": "Perfect_Mind_Rune",
+    "name": "Runa de la mente perfecta",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: El 5% del daño físico se absorbe como maná",
+      "Varita o báculo: +90 al maná máximo",
+      "Armadura: +50 al maná máximo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Maná máximo aumentado un 5%",
+      "Varita o báculo: Maná máximo aumentado un 5%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneMana.webp"
+  },
+  {
+    "id": "Perfect_Rebirth_Rune",
+    "name": "Runa de renacimiento perfecta",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: Ganas 45 de vida por cada enemigo asesinado",
+      "Varita o báculo: Velocidad de recarga del escudo de energía aumentada un 12%",
+      "Armadura: Regeneras un 0.5% de vida por segundo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Regeneras un 0.4% de vida por segundo",
+      "Varita o báculo: El 8% del daño recibido se recobra como vida",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneLifeRecovery.webp"
+  },
+  {
+    "id": "Perfect_Inspiration_Rune",
+    "name": "Runa de inspiración perfecta",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: Ganas 40 de maná por cada enemigo asesinado",
+      "Varita o báculo: Velocidad de regeneración de maná aumentada un 35%",
+      "Armadura: Velocidad de regeneración de maná aumentada un 21%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: El 12% de los costos de maná de las habilidades se convierte en costos de vida",
+      "Varita o báculo: Eficiencia del costo de maná aumentada un 16%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneManaRecovery.webp"
+  },
+  {
+    "id": "Perfect_Stone_Rune",
+    "name": "Runa de piedra perfecta",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: Acumulación de aturdimiento aumentada un 50%",
+      "Varita o báculo: Ganas umbral de aturdimiento adicional equivalente al 16% de tu escudo de energía máximo",
+      "Armadura: +125 al umbral de aturdimiento"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Daño aumentado un 40% contra los enemigos inmovilizados",
+      "Varita o báculo: Acumulación de inmovilización aumentada un 30%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneStun.webp"
+  },
+  {
+    "id": "Perfect_Vision_Rune",
+    "name": "Runa de visión perfecta",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: +150 a la precisión",
+      "Varita o báculo: Probabilidad de impacto crítico de los hechizos aumentada un 28%",
+      "Armadura: Recuperación de vida y maná de los frascos aumentada un 20%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Los ataques tienen +1% a la probabilidad de impacto crítico",
+      "Varita o báculo: Bonificación de daño crítico aumentada un 25%",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneAccuracy.webp"
+  },
+  {
+    "id": "Lesser_Robust_Rune",
+    "name": "Runa robusta menor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Todo el equipamiento: +6 a la fuerza"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Agrega de 6 a 10 de daño físico a los ataques, Agrega de 6 a 10 de daño de fuego a los ataques",
+      "Varita o báculo: +100 a la armadura",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StrengthRuneTier1.webp"
+  },
+  {
+    "id": "Robust_Rune",
+    "name": "Runa robusta",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Todo el equipamiento: +9 a la fuerza"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Agrega de 6 a 10 de daño físico a los ataques, Agrega de 6 a 10 de daño de fuego a los ataques",
+      "Varita o báculo: +100 a la armadura",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StrengthRune.webp"
+  },
+  {
+    "id": "Greater_Robust_Rune",
+    "name": "Runa robusta mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Todo el equipamiento: +12 a la fuerza"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Agrega de 6 a 10 de daño físico a los ataques, Agrega de 6 a 10 de daño de fuego a los ataques",
+      "Varita o báculo: +100 a la armadura",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StrengthRuneTier3.webp"
+  },
+  {
+    "id": "Perfect_Robust_Rune",
+    "name": "Runa robusta perfecta",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Todo el equipamiento: +15 a la fuerza"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Agrega de 6 a 10 de daño físico a los ataques, Agrega de 6 a 10 de daño de fuego a los ataques",
+      "Varita o báculo: +100 a la armadura",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneStrength.webp"
+  },
+  {
+    "id": "Lesser_Adept_Rune",
+    "name": "Runa de habilidad menor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Todo el equipamiento: +6 a la destreza"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Agrega de 6 a 10 de daño físico a los ataques, Agrega de 1 a 16 de daño de rayo a los ataques",
+      "Varita o báculo: +80 a la evasión",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/DexRuneTier1.webp"
+  },
+  {
+    "id": "Adept_Rune",
+    "name": "Runa de habilidad",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Todo el equipamiento: +9 a la destreza"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Agrega de 6 a 10 de daño físico a los ataques, Agrega de 1 a 16 de daño de rayo a los ataques",
+      "Varita o báculo: +80 a la evasión",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/DexRune.webp"
+  },
+  {
+    "id": "Greater_Adept_Rune",
+    "name": "Runa de habilidad mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Todo el equipamiento: +12 a la destreza"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Agrega de 6 a 10 de daño físico a los ataques, Agrega de 1 a 16 de daño de rayo a los ataques",
+      "Varita o báculo: +80 a la evasión",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/DexRuneTier3.webp"
+  },
+  {
+    "id": "Perfect_Adept_Rune",
+    "name": "Runa de habilidad perfecta",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Todo el equipamiento: +15 a la destreza"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Agrega de 6 a 10 de daño físico a los ataques, Agrega de 1 a 16 de daño de rayo a los ataques",
+      "Varita o báculo: +80 a la evasión",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneDexterity.webp"
+  },
+  {
+    "id": "Lesser_Resolve_Rune",
+    "name": "Runa de resolución menor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Todo el equipamiento: +6 a la inteligencia"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Agrega de 6 a 10 de daño físico a los ataques, Agrega de 5 a 8 de daño de hielo a los ataques",
+      "Varita o báculo: +50 al escudo de energía máximo",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/IntRuneTier1.webp"
+  },
+  {
+    "id": "Resolve_Rune",
+    "name": "Runa de resolución",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Todo el equipamiento: +9 a la inteligencia"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Agrega de 6 a 10 de daño físico a los ataques, Agrega de 5 a 8 de daño de hielo a los ataques",
+      "Varita o báculo: +50 al escudo de energía máximo",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/IntRune.webp"
+  },
+  {
+    "id": "Greater_Resolve_Rune",
+    "name": "Runa de resolución mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Todo el equipamiento: +12 a la inteligencia"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Agrega de 6 a 10 de daño físico a los ataques, Agrega de 5 a 8 de daño de hielo a los ataques",
+      "Varita o báculo: +50 al escudo de energía máximo",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/IntRuneTier3.webp"
+  },
+  {
+    "id": "Perfect_Resolve_Rune",
+    "name": "Runa de resolución perfecta",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Todo el equipamiento: +15 a la inteligencia"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Agrega de 6 a 10 de daño físico a los ataques, Agrega de 5 a 8 de daño de hielo a los ataques",
+      "Varita o báculo: +50 al escudo de energía máximo",
+      "Armadura: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneIntelligence.webp"
+  },
+  {
+    "id": "Lesser_Tempered_Rune",
+    "name": "Runa templada menor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 3 a 4 de daño físico",
+      "Armadura: De 6 a 9 de daño físico de las espinas"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PhyDmgRuneTier1.webp"
+  },
+  {
+    "id": "Tempered_Rune",
+    "name": "Runa templada",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 6 a 9 de daño físico",
+      "Armadura: De 14 a 21 de daño físico de las espinas"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PhyDmgRune.webp"
+  },
+  {
+    "id": "Greater_Tempered_Rune",
+    "name": "Runa templada mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 9 a 12 de daño físico",
+      "Armadura: De 31 a 52 de daño físico de las espinas"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PhyDmgRuneTier3.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Leadership",
+    "name": "Runa de liderazgo mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: Los esbirros ganan el 10% de su daño físico como daño de rayo extra",
+      "Armadura: Los esbirros reciben el 10% del daño físico como daño de rayo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Los esbirros infligen el daño aumentado un 20%",
+      "Armadura: Los esbirros tienen +10% a todas las resistencias elementales"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial1.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Tithing",
+    "name": "Runa de diezmo mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: Las metahabilidades ganan energía aumentada un 10%",
+      "Armadura: De 1 a 100 de daño de rayo de las espinas"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Los hechizos conjurados tienen un 25% de probabilidad de consumir la mitad de energía",
+      "Armadura: Daño de las espinas aumentado un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial2.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Alacrity",
+    "name": "Runa de celeridad mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: Velocidad de habilidades aumentada un 8%",
+      "Armadura: Los efectos nocivos expiran un 8% más rápido sobre ti"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Eficiencia de la reserva de las habilidades de heraldos aumentada un 15%",
+      "Armadura: Umbral de los estados alterados elementales aumentado un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial3.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Nobility",
+    "name": "Runa de nobleza mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: Los ataques de esta arma tienen un 10% de probabilidad de aplicar exposición",
+      "Armadura: Efecto de la electrocución reducido un 10% sobre ti"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Efecto de la exposición aumentado un 20%",
+      "Armadura: Duración de la electrocución reducida un 10% sobre ti"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial4.webp"
+  },
+  {
+    "id": "Hedgewitch_Assandras_Rune_of_Wisdom",
+    "name": "Runa de sabiduría de Assandra, la bruja herbolaria",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Varita o báculo: +1 al nivel de todas las habilidades de hechizos"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Varita o báculo: El período de recuperación del arconte expira un 30% más rápido"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune1.webp"
+  },
+  {
+    "id": "Saqawals_Rune_of_the_Sky",
+    "name": "Runa del cielo de Saqawal",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: Ganas el 5% del daño como daño extra de todos los elementos",
+      "Varita o báculo: Ganas el 5% del daño como daño extra de todos los elementos"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: 8% de probabilidad de ganar una carga aleatoria adicional cuando ganas una carga",
+      "Varita o báculo: 12% de probabilidad al recolectar una infusión elemental de ganar\nuna infusión elemental adicional del mismo tipo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune2.webp"
+  },
+  {
+    "id": "Fenumus_Rune_of_Agony",
+    "name": "Runa de agonía de Fenumus",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: Ganas el 13% del daño como daño de caos extra",
+      "Varita o báculo: Ganas el 13% del daño como daño de caos extra"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Ganas el 8% del daño como daño físico extra",
+      "Varita o báculo: Ganas el 8% del daño como daño físico extra"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune3.webp"
+  },
+  {
+    "id": "Farruls_Rune_of_Grace",
+    "name": "Runa de gracia de Farrul",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Botas: Desvío aumentado un 8% mientras te mueves"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Botas: Impide +3% del daño de los impactos desviados"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune4.webp"
+  },
+  {
+    "id": "Farruls_Rune_of_the_Chase",
+    "name": "Runa de la persecución de Farrul",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Botas: Velocidad de movimiento aumentada un 5%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Botas: Velocidad de recuperación del enfriamiento aumentada un 10%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune5.webp"
+  },
+  {
+    "id": "Craiceanns_Rune_of_Warding",
+    "name": "Runa de protección de Craiceann",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Armaduras corporales: Efecto de las maldiciones reducido un 50% sobre ti"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: Magnitudes de las maldiciones aumentadas un 8%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune6.webp"
+  },
+  {
+    "id": "Saqawals_Rune_of_Memory",
+    "name": "Runa de recuerdos de Saqawal",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Cascos: Ganancia de experiencia aumentada un 2%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: +10% a todas las resistencias elementales"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune7.webp"
+  },
+  {
+    "id": "Saqawals_Rune_of_Erosion",
+    "name": "Runa de erosión de Saqawal",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Cascos: Efecto de la exposición aumentado un 25%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Magnitud de los estados alterados no dañinos que aplicas aumentada un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune8.webp"
+  },
+  {
+    "id": "Farruls_Rune_of_the_Hunt",
+    "name": "Runa de la cacería de Farrul",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: Daño de ataques aumentado un 50% contra los enemigos raros o únicos"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: +1 al nivel de todas las habilidades de ataque"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune9.webp"
+  },
+  {
+    "id": "Craiceanns_Rune_of_Recovery",
+    "name": "Runa de recuperación de Craiceann",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Armaduras corporales: Velocidad de recarga del escudo de energía aumentada un 30%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: Ganas umbral de estados alterados adicional equivalente al 50% de tu escudo de energía máximo, Ganas umbral de aturdimiento adicional equivalente al 50% de tu escudo de energía máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune10.webp"
+  },
+  {
+    "id": "Courtesan_Mannans_Rune_of_Cruelty",
+    "name": "Runa de crueldad de Mannan, la cortesana",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Guantes: Magnitud de los estados alterados dañinos que aplicas aumentada un 20%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: Duración de los estados alterados en los enemigos aumentada un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune11.webp"
+  },
+  {
+    "id": "Thane_Grannells_Rune_of_Mastery",
+    "name": "Runa de maestría del thane Grannell",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Guantes: Magnitud de los estados alterados no dañinos que aplicas aumentada un 30%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: Duración de los estados alterados elementales en los enemigos aumentada un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune12.webp"
+  },
+  {
+    "id": "Fenumus_Rune_of_Spinning",
+    "name": "Runa de rotación de Fenumus",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Guantes: Velocidad de lanzamiento de hechizos aumentada un 8%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: Eficiencia del costo de maná aumentada un 20% mientras tengas el maná bajo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune13.webp"
+  },
+  {
+    "id": "Countess_Seskes_Rune_of_Archery",
+    "name": "Runa de arquería de la condesa Seske",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arcos: Los ataques con arco disparan 1 flechas adicionales"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arcos: Velocidad de proyectiles aumentada un 20%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune14.webp"
+  },
+  {
+    "id": "Thane_Girts_Rune_of_Wildness",
+    "name": "Runa de salvajismo del thane Girt",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Varita o báculo: 25% de probabilidad de que las habilidades de hechizos disparen 2 proyectiles adicionales"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Varita o báculo: Cada acumulación de furia también otorga el daño de hechizos aumentado un 1%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune15.webp"
+  },
+  {
+    "id": "Fenumus_Rune_of_Draining",
+    "name": "Runa de agotamiento de Fenumus",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Guantes: Magnitud de marchito aumentada un 20%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: +7% a la resistencia al caos"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune16.webp"
+  },
+  {
+    "id": "Thane_Myrks_Rune_of_Summer",
+    "name": "Runa de verano del thane Myrk",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 23 a 34 de daño de fuego a los ataques contra los enemigos quemados"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: +2% a la resistencia al fuego máxima"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune17.webp"
+  },
+  {
+    "id": "Lady_Hestras_Rune_of_Winter",
+    "name": "Runa de invierno de lady Hestra",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 19 a 28 de daño de hielo contra los enemigos escarchados"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: +2% a la resistencia al hielo máxima"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune18.webp"
+  },
+  {
+    "id": "Thane_Lelds_Rune_of_Spring",
+    "name": "Runa de primavera del thane Leld",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 1 a 60 de daño de rayo contra los enemigos electrocutados"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: +2% a la resistencia al rayo máxima"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune19.webp"
+  },
+  {
+    "id": "The_Greatwolfs_Rune_of_Claws",
+    "name": "Runa de garras del Gran lobo",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Guantes: Agrega de 5 a 12 de daño físico a los ataques"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: Las habilidades de fisura tienen +2 al límite"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune20.webp"
+  },
+  {
+    "id": "The_Greatwolfs_Rune_of_Willpower",
+    "name": "Runa de voluntad del Gran lobo",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Armaduras corporales: El 15% daño lo recibe el maná antes que la vida"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: El 8% de la vida máxima se convierte en escudo de energía"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune21.webp"
+  },
+  {
+    "id": "Masterwork_Rune",
+    "name": "Runa maestra",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Todo el equipamiento: Mejora una runa engarzada"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/UpgradeRune.webp"
+  },
+  {
+    "id": "Idol_of_Sirrius",
+    "name": "Ídolo de Sirrius",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Guantes: Velocidad de ataque aumentada un 8%",
+      "Cetros: Los aliados que están en tu presencia tienen la velocidad de movimiento aumentada un 8%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: La potencia ralentizadora de los efectos nocivos está reducida un 20% sobre ti",
+      "Cetros: Velocidad de movimiento aumentada un 4%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableWolfSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Thruldana",
+    "name": "Ídolo de Thruldana",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: Duración del veneno reducida un 25%, Los objetivos pueden estar afectados por +1 de tus venenos a la vez",
+      "Cetros: Los aliados que están en tu presencia infligen de 13 a 27 de daño de caos agregado con los ataques"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Ganas el 13% del daño físico como daño de caos extra",
+      "Cetros: Magnitud de marchito aumentada un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableSnakeSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Grold",
+    "name": "Ídolo de Grold",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Botas: Poder total contado por los gritos de guerra aumentado un 50%",
+      "Cetros: Daño aumentado un 15% por cada compañero diferente que esté en tu presencia"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Botas: Generación de gloria aumentada un 30%",
+      "Cetros: Eficiencia de la reserva de las habilidades de compañeros aumentada un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableBearSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Eeshta",
+    "name": "Ídolo de Eeshta",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Cascos: Eficiencia del coste aumentada un 15%",
+      "Cetros: Velocidad de recuperación de maná aumentada un 15% mientras tu compañero esté en tu presencia"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Las metahabilidades tienen la eficiencia de la reserva aumentada un 15%",
+      "Cetros: Velocidad de recuperación de vida aumentada un 8% mientras tu compañero esté en tu presencia"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableOwlSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Egrin",
+    "name": "Ídolo de Egrin",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Cascos: Los enemigos que maldices tú reciben el daño aumentado un 6%",
+      "Cetros: Duración de la maldición aumentada un 20%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Área de efecto de las maldiciones aumentada un 20%",
+      "Cetros: Las zonas malditas erupcionan después de una demora reducida un 20%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableCatSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Maxarius",
+    "name": "Ídolo de Maxarius",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Armaduras corporales: +1 espacios para viales",
+      "Cetros: Los frascos ganan 0.2 cargas por segundo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: Las habilidades tienen +1 al límite",
+      "Cetros: Recuperación de vida y maná de los frascos aumentada un 20%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableStagSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Ralakesh",
+    "name": "Ídolo de Ralakesh",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Cascos: Eficiencia de la reserva de las habilidades de los esbirros aumentada un 8%",
+      "Cetros: Armadura, evasión y escudo de energía aumentados un 40% mientras tu compañero esté en tu presencia"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Los esbirros reviven un 8% más rápido",
+      "Cetros: Los compañeros tienen la vida máxima aumentada un 25%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableMonkeySpecial.webp"
+  },
+  {
+    "id": "Idol_of_Greust",
+    "name": "Ídolo de Greust",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Escudos: El +25% de la armadura también se aplica al daño elemental",
+      "Thrown One Hand Axe: Ganas desvío equivalente al 20% de la evasión",
+      "Cetros: Los compañeros infligen un 10% más de daño por cada tipo diferente de compañero muerto que tengas"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Escudos: Daño aumentado un 12% por cada tipo de estado alterado elemental que tenga el enemigo",
+      "Thrown One Hand Axe: Daño aumentado un 12% por cada tipo de estado alterado elemental que tenga el enemigo",
+      "Cetros: Recuperas el 3% de tu vida máxima cuando revive uno de tus esbirros"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofGreust.webp"
+  },
+  {
+    "id": "Idol_of_Yeena",
+    "name": "Ídolo de Yeena",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Botas: Duración de los efectos de las habilidades aumentada un 30% con las habilidades de planta",
+      "Cetros: Las plantas tienen un 25% de probabilidad de volverse frondosas inmediatamente cuando entran en tu presencia por primera vez"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Botas: Las plantas tienen un 25% de probabilidad de volverse frondosas inmediatamente cuando entran en tu presencia por primera vez",
+      "Cetros: Duración de los efectos de las habilidades aumentada un 30% con las habilidades de planta"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofYeena.webp"
+  },
+  {
+    "id": "Idol_of_Eramir",
+    "name": "Ídolo de Eramir",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Armaduras corporales: Las habilidades tienen un 10% de probabilidad de no eliminar cargas, pero que sigan contando como cargas consumidas",
+      "Cetros: Los aliados que están en tu presencia comparten las cargas contigo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: 15% de probabilidad de que los viales que uses no consuman cargas",
+      "Cetros: Duración de las cargas de aguante, frenesí y poder aumentada un 25%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofEramir.webp"
+  },
+  {
+    "id": "Idol_of_Oak",
+    "name": "Ídolo de Oak",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Botas: 15% de probabilidad cuando ganas una carga de aguante de ganar una carga de aguante adicional",
+      "Cetros: Si fueses a ganar una carga de aguante, los aliados que están en tu presencia ganan esa carga en tu lugar"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Botas: +1 al máximo de cargas de aguante",
+      "Cetros: Armadura aumentada un 40% si has consumido una carga de aguante recientemente"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofOak.webp"
+  },
+  {
+    "id": "Idol_of_Alira",
+    "name": "Ídolo de Alira",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Cascos: 15% de probabilidad cuando ganas una carga de poder de ganar una carga de poder adicional",
+      "Cetros: Si fueses a ganar una carga de poder, los aliados que están en tu presencia ganan esa carga en tu lugar"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: +1 al máximo de cargas de poder",
+      "Cetros: Escudo de energía máximo aumentado un 40% si has consumido una carga de poder recientemente"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdoloAlira.webp"
+  },
+  {
+    "id": "Idol_of_Kraityn",
+    "name": "Ídolo de Kraityn",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Guantes: 15% de probabilidad cuando ganas una carga de frenesí de ganar una carga de frenesí adicional",
+      "Cetros: Si fueses a ganar una carga de frenesí, los aliados que están en tu presencia ganan esa carga en tu lugar"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: +1 al máximo de cargas de frenesí",
+      "Cetros: Evasión aumentada un 40% si has consumido una carga de frenesí recientemente"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdoloKraityn.webp"
+  },
+  {
+    "id": "Idol_of_Silk",
+    "name": "Ídolo de Silk",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Escudos: Probabilidad de bloqueo aumentada un 15% mientras tu compañero esté en tu presencia",
+      "Thrown One Hand Axe: companions gain onslaught when you parry [1]",
+      "Cetros: Los compañeros que están en tu presencia ganan 1 de furia al impactar"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Escudos: +3% a la probabilidad de bloqueo máxima",
+      "Thrown One Hand Axe: Alcance de la parada aumentado un 30%",
+      "Cetros: Los compañeros tienen el área de efecto aumentada un 30%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofSilk.webp"
+  },
+  {
+    "id": "Idol_of_the_Sycophant",
+    "name": "ídolo del adulador",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial, varita o báculo: -20% a todas las resistencias elementales, Ganas el 20% del daño como daño extra de un elemento aleatorio",
+      "Cetros: Los compañeros que están en tu presencia tienen -20% a todas las resistencias elementales, Los compañeros que están en tu presencia ganan el 20% del daño como daño extra de un elemento aleatorio"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial, varita o báculo: -20% a la resistencia al caos, Ganas el 20% del daño como daño de caos extra",
+      "Cetros: Los aliados que están en tu presencia ganan el 20% del daño como daño de caos extra, Los compañeros que están en tu presencia tienen -20% a la resistencia al caos"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/RitualCorruptedIdol1.webp"
+  },
+  {
+    "id": "Idol_of_the_Martyr",
+    "name": "Ídolo del mártir",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial, varita o báculo: Espíritu reducido un 25%, Las metahabilidades ganan energía aumentada un 40%",
+      "Cetros: Área de efecto de la presencia reducida un 40%, Las habilidades de aura tienen las magnitudes aumentadas un 25%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial, varita o báculo: Las habilidades conjuradas tienen la energía máxima aumentada un 25%, Las metahabilidades tienen la eficiencia de la reserva reducida un 25%",
+      "Cetros: Los aliados que están en tu presencia regeneran el 3% de tu vida máxima por segundo, Velocidad de regeneración de vida reducida un 25%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/RitualCorruptedIdol2.webp"
+  },
+  {
+    "id": "Idol_of_the_Pharisee",
+    "name": "Ídolo del fariseo",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial, varita o báculo: Maná máximo reducido un 30%, Ganas el 2% del daño como daño físico extra por cada diez por ciento de maná faltante",
+      "Cetros: Eficiencia del costo de maná de las habilidades de órdenes reducida un 30%, Los esbirros infligen el daño aumentado un 60% con las habilidades de órdenes"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial, varita o báculo: Eficiencia del costo de maná reducida un 30%, Velocidad de las habilidades aumentada un 12% mientras tengas el maná bajo",
+      "Cetros: Eficiencia de la reserva de las habilidades de los esbirros reducida un 25%, Las habilidades de esbirros temporales tienen +2 al límite de esbirros invocados"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/RitualCorruptedIdol3.webp"
+  },
+  {
+    "id": "Panther_Idol",
+    "name": "Ídolo de la pantera",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Armaduras corporales: +10% de la armadura también se aplica al daño de caos",
+      "Cetros: Los esbirros tienen +20% a la resistencia al caos"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: +8% a la resistencia al caos",
+      "Cetros: Los esbirros tienen un 20% de reducción de daño físico adicional"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketablePanther.webp"
+  },
+  {
+    "id": "Hawk_Idol",
+    "name": "Ídolo del halcón",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Armaduras corporales: Desvío aumentado un 10%",
+      "Cetros: Los compañeros tienen la velocidad de ataque aumentada un 12%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: +12% a la resistencia al hielo",
+      "Cetros: Velocidad de ataque aumentada un 8% mientras tu compañero esté en tu presencia"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableHawk.webp"
+  },
+  {
+    "id": "Stoat_Idol",
+    "name": "Ídolo del armiño",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Armaduras corporales: El 5% del daño recibido atraviesa el escudo de energía",
+      "Cetros: Los compañeros tienen la vida máxima aumentada un 25%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: +12% a la resistencia al rayo",
+      "Cetros: Daño aumentado un 25% mientras tu compañero esté en tu presencia"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableStoat.webp"
+  },
+  {
+    "id": "Hayoxis_Soul_Core_of_Heatproofing",
+    "name": "Núcleo de alma de resistencia al calor de Hayoxi",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Cascos: +40% de la armadura también se aplica al daño de hielo"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreIce.webp"
+  },
+  {
+    "id": "Zalatls_Soul_Core_of_Insulation",
+    "name": "Núcleo de alma de aislamiento de Zalatl",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Botas: +40% de la armadura también se aplica al daño de rayo"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreLightning.webp"
+  },
+  {
+    "id": "Topotantes_Soul_Core_of_Dampening",
+    "name": "Núcleo de alma de enfriamiento de Topotante",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Guantes: +40% de la armadura también se aplica al daño de fuego"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreFire.webp"
+  },
+  {
+    "id": "Atmohuas_Soul_Core_of_Retreat",
+    "name": "Núcleo de alma de retirada de Atmohua",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Armaduras corporales: Escudo de energía del foco equipado aumentado un 40%",
+      "Objetos locales de instancia: Escudo de energía de la armadura equipada aumentado un 30%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreEnergyShield.webp"
+  },
+  {
+    "id": "Quipolatls_Soul_Core_of_Flow",
+    "name": "Núcleo de alma de flujo de Quipolatl",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Cascos: Duración de los efectos de las habilidades aumentada un 8%, Velocidad de recuperación del enfriamiento aumentada un 8%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreTimeCooldown.webp"
+  },
+  {
+    "id": "Tzamotos_Soul_Core_of_Ferocity",
+    "name": "Núcleo de alma de ferocidad de Tzamoto",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Cascos: +4 al máximo de furia"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreRage.webp"
+  },
+  {
+    "id": "Uromotis_Soul_Core_of_Attenuation",
+    "name": "Núcleo de alma de atenuación de Uromoti",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Botas: Duración de la maldición aumentada un 20%, Duración del veneno aumentada un 20%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreCurses2.webp"
+  },
+  {
+    "id": "Opilotis_Soul_Core_of_Assault",
+    "name": "Núcleo de alma de asalto de Opiloti",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: 50% de probabilidad cuando ganas una carga de frenesí de ganar una carga de frenesí adicional",
+      "Varita o báculo: 50% de probabilidad cuando ganas una carga de frenesí de ganar una carga de frenesí adicional"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreFrenzyCharge.webp"
+  },
+  {
+    "id": "Guatelitzis_Soul_Core_of_Endurance",
+    "name": "Núcleo de alma de aguante de Guatelitzi",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: 50% de probabilidad cuando ganas una carga de aguante de ganar una carga de aguante adicional",
+      "Varita o báculo: 50% de probabilidad cuando ganas una carga de aguante de ganar una carga de aguante adicional"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreEnduranceCharge.webp"
+  },
+  {
+    "id": "Xopecs_Soul_Core_of_Power",
+    "name": "Núcleo de alma de poder de Xopec",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: 50% de probabilidad cuando ganas una carga de poder de ganar una carga de poder adicional",
+      "Varita o báculo: 50% de probabilidad cuando ganas una carga de poder de ganar una carga de poder adicional"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCorePowerCharge.webp"
+  },
+  {
+    "id": "Estazuntis_Soul_Core_of_Convalescence",
+    "name": "Núcleo de alma de convalecencia de Estazunti",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Botas: Velocidad de los efectos de recobro aumentada un 15%",
+      "Cascos: El 10% del daño recibido se recobra como vida"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreTimeSlow.webp"
+  },
+  {
+    "id": "Tacatis_Soul_Core_of_Affliction",
+    "name": "Núcleo de alma de aflicción de Tacati",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Cascos: Los enemigos que tú maldices tienen -5% a la resistencia al caos"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreChaos1.webp"
+  },
+  {
+    "id": "Cholotls_Soul_Core_of_War",
+    "name": "Núcleo de alma de guerra de Cholotl",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arcos: Los proyectiles tienen un 20% de probabilidad de encadenarse una vez adicional desde el terreno"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreProjectile.webp"
+  },
+  {
+    "id": "Citaqualotls_Soul_Core_of_Foulness",
+    "name": "Núcleo de alma de vileza de Citaqualotl",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma marcial: Agrega de 19 a 29 de daño de caos"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreChaos2.webp"
+  },
+  {
+    "id": "Xipocados_Soul_Core_of_Dominion",
+    "name": "Núcleo de alma de dominio de Xipocado",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Varita o báculo: Los esbirros infligen el daño aumentado un 40% con las habilidades de órdenes",
+      "Cetros: Los esbirros infligen el daño aumentado un 40% con las habilidades de órdenes"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreMinion.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Automation",
+    "name": "Núcleo de alma de automatización de Jiquani",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma: +1 al nivel de todas las gemas de habilidad de tótems"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreTotems.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Malediction",
+    "name": "Núcleo de alma de maldición de Jiquani",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma: +1 al nivel de todas las habilidades de maldición"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreCurses.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Targeting",
+    "name": "Núcleo de alma de objetivos de Jiquani",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma: +1 al nivel de todas las habilidades de señales"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreMarks.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Rallying",
+    "name": "Núcleo de alma de inspiración de Jiquani",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma: +1 al nivel de todas las gemas de habilidad de gritos de guerra"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreWarcries.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Radiance",
+    "name": "Núcleo de alma de resplandor de Jiquani",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma: +1 al nivel de todas las gemas de habilidad de heraldo"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreHeralds.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Severing",
+    "name": "Núcleo de alma de amputación de Jiquani",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma: +1 al nivel de todas las gemas de habilidad de golpe"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreStrikes.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Rippling",
+    "name": "Núcleo de alma de oleadas de Jiquani",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma: +1 al nivel de todas las gemas de habilidad de nova"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreNovas.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Quaking",
+    "name": "Núcleo de alma de terremotos de Jiquani",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma: +1 al nivel de todas las gemas de habilidad de embate"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreSlams.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Munitions",
+    "name": "Núcleo de alma de munición de Jiquani",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma: +1 al nivel de todas las gemas de habilidad de granadas"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreGrenades.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Snares",
+    "name": "Núcleo de alma de trampas de Jiquani",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma: +1 al nivel de todas las gemas de habilidad de peligro"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreHazards.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Abundance",
+    "name": "Núcleo de alma de abundancia de Jiquani",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma: +1 al nivel de todas las gemas de habilidad de planta"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCorePlants.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Squalls",
+    "name": "Núcleo de alma de aguaceros de Jiquani",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma: +1 al nivel de todas las gemas de habilidad de viento"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreWind.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Thundering",
+    "name": "Núcleo de alma de truenos de Jiquani",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Arma: +1 al nivel de todas las gemas de habilidad de tormenta"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreStorms.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Devotion",
+    "name": "Núcleo de alma de devoción de Atziri",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Cascos: Espíritu aumentado un 1% por cada objeto corrupto equipado, La corrupción siempre provocará un cambio"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialHelmet.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Vitality",
+    "name": "Núcleo de alma de vitalidad de Atziri",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Armaduras corporales: Vida máxima aumentada un 1% por cada objeto corrupto equipado, La corrupción siempre provocará un cambio"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialBodyArmour.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Alacrity",
+    "name": "Núcleo de alma de celeridad de Atziri",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Guantes: Velocidad de las habilidades aumentada un 1% por cada objeto corrupto equipado, La corrupción siempre provocará un cambio"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialGloves.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Inoculation",
+    "name": "Núcleo de alma de inoculación de Atziri",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Botas: +2% a la resistencia al caos por cada objeto corrupto equipado, La corrupción siempre provocará un cambio"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialBoots.webp"
+  },
+  {
+    "id": "Soul_Core_of_Vizoma",
+    "name": "Núcleo de alma de Vizoma",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Arma marcial: +150 a la precisión",
+      "Varita o báculo: Probabilidad de impacto crítico de los hechizos aumentada un 30%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreVision.webp"
+  },
+  {
+    "id": "Soul_Core_of_Tacati",
+    "name": "Núcleo de alma de Tacati",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: Magnitud del veneno que aplicas aumentada un 25%",
+      "Armadura: +13% a la resistencia al caos"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreChaos.webp"
+  },
+  {
+    "id": "Soul_Core_of_Opiloti",
+    "name": "Núcleo de alma de Opiloti",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Arma marcial: Magnitud del sangrado que aplicas aumentada un 40%",
+      "Cascos: Duración de la retención aumentada un 25%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCorePhysical.webp"
+  },
+  {
+    "id": "Soul_Core_of_Jiquani",
+    "name": "Núcleo de alma de Jiquani",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Arma marcial: Recuperas un 5% de vida al matar",
+      "Armaduras corporales: Vida máxima aumentada un 5%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreLife.webp"
+  },
+  {
+    "id": "Soul_Core_of_Zalatl",
+    "name": "Núcleo de alma de Zalatl",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Arma marcial: Recuperas un 4% de maná al matar",
+      "Cascos: Maná máximo aumentado un 5%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreMana.webp"
+  },
+  {
+    "id": "Soul_Core_of_Citaqualotl",
+    "name": "Núcleo de alma de Citaqualotl",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: Daño elemental aumentado un 40% con habilidades de ataque",
+      "Armadura: +6% a todas las resistencias elementales"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreElementalResist.webp"
+  },
+  {
+    "id": "Soul_Core_of_Puhuarte",
+    "name": "Núcleo de alma de Puhuarte",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Arma marcial: Magnitud de la quemadura aumentada un 40%",
+      "Guantes: +2% a la resistencia al fuego máxima"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreFire.webp"
+  },
+  {
+    "id": "Soul_Core_of_Tzamoto",
+    "name": "Núcleo de alma de Tzamoto",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Arma marcial: Acumulación de congelamiento aumentada un 60%",
+      "Cascos: +2% a la resistencia al hielo máxima"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreCold.webp"
+  },
+  {
+    "id": "Soul_Core_of_Xopec",
+    "name": "Núcleo de alma de Xopec",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Arma marcial: Magnitud de la electrocución que aplicas aumentada un 25%",
+      "Botas: +2% a la resistencia al rayo máxima"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreLightning.webp"
+  },
+  {
+    "id": "Soul_Core_of_Azcapa",
+    "name": "Núcleo de alma de Azcapa",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: +15 al espíritu",
+      "Guantes: Cantidad de oro arrojado por los enemigos derrotados aumentada un 10%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreWealthRarity.webp"
+  },
+  {
+    "id": "Soul_Core_of_Topotante",
+    "name": "Núcleo de alma de Topotante",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Arma marcial: Los ataques con esta arma penetran el 25% de las resistencias elementales",
+      "Botas: Efecto de los estados alterados no dañinos reducido un 25% sobre ti"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreTriElement.webp"
+  },
+  {
+    "id": "Soul_Core_of_Quipolatl",
+    "name": "Núcleo de alma de Quipolatl",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: Velocidad de ataque aumentada un 5%",
+      "Botas: La potencia ralentizadora de los efectos nocivos está reducida un 15% sobre ti"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreSpeed.webp"
+  },
+  {
+    "id": "Soul_Core_of_Ticaba",
+    "name": "Núcleo de alma de Ticaba",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Arma marcial: +5% a la bonificación de daño crítico",
+      "Armaduras corporales: Los impactos contra ti tienen la bonificación de daño crítico reducida un 50%",
+      "Escudos y broqueles: Los impactos contra ti tienen la bonificación de daño crítico reducida un 50%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreCrit.webp"
+  },
+  {
+    "id": "Soul_Core_of_Atmohua",
+    "name": "Núcleo de alma de Atmohua",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: El 40% de los requisitos se convierte en fuerza",
+      "Armadura: El 40% de los requisitos se convierte en fuerza"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreStrength.webp"
+  },
+  {
+    "id": "Soul_Core_of_Cholotl",
+    "name": "Núcleo de alma de Cholotl",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: El 40% de los requisitos se convierte en destreza",
+      "Armadura: El 40% de los requisitos se convierte en destreza"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreDex.webp"
+  },
+  {
+    "id": "Soul_Core_of_Zantipi",
+    "name": "Núcleo de alma de Zantipi",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma marcial: El 40% de los requisitos se convierte en inteligencia",
+      "Armadura: El 40% de los requisitos se convierte en inteligencia"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreint.webp"
+  },
+  {
+    "id": "Snake_Idol",
+    "name": "Ídolo de la serpiente",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Guantes: Magnitudes de las maldiciones aumentadas un 8%",
+      "Cetros: Los aliados que están en tu presencia tienen la velocidad de ataque aumentada un 10%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: Los remanentes que creas tienen su efecto aumentado un 15%",
+      "Cetros: Velocidad de las habilidades aumentada un 10% mientras estés transformado"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableSnake.webp"
+  },
+  {
+    "id": "Primate_Idol",
+    "name": "Ídolo del primate",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Cascos: Los esbirros tienen su vida máxima aumentada un 15%",
+      "Cetros: Los aliados que están en tu presencia infligen el daño aumentado un 40%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Los remanentes se pueden recolectar desde un 30% más lejos",
+      "Cetros: Daño aumentado un 40% mientras estés transformado"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableMonkey.webp"
+  },
+  {
+    "id": "Owl_Idol",
+    "name": "Ídolo del búho",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Objetos locales de instancia: Velocidad de recuperación del enfriamiento aumentada un 12%",
+      "Cetros: Los aliados que están en tu presencia tienen la velocidad de lanzamiento de hechizos aumentada un 10%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Objetos locales de instancia: Los efectos beneficiosos de los arcontes sobre ti están aumentados un 20%",
+      "Cetros: Velocidad de las habilidades aumentada un 10% mientras estés transformado"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableOwl.webp"
+  },
+  {
+    "id": "Cat_Idol",
+    "name": "Ídolo del gato",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Guantes: Precisión global aumentada un 25%",
+      "Cetros: Los aliados que están en tu presencia tienen la probabilidad de impacto crítico aumentada un 14%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: Cargas de viales ganadas aumentadas un 30%",
+      "Cetros: Probabilidad de impacto crítico aumentada un 25% mientras estés transformado"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableCat.webp"
+  },
+  {
+    "id": "Wolf_Idol",
+    "name": "Ídolo del lobo",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Guantes: Magnitud del sangrado que aplicas aumentada un 15%",
+      "Cetros: Los aliados que están en tu presencia tienen la bonificación de daño crítico aumentada un 20%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: Magnitud del sangrado reducida un 25% sobre ti",
+      "Cetros: Probabilidad de impacto crítico aumentada un 25% mientras estés transformado"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableWolf.webp"
+  },
+  {
+    "id": "Stag_Idol",
+    "name": "Ídolo del ciervo",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Cascos: Los proyectiles tienen un 15% de probabilidad de bifurcarse",
+      "Cetros: Los aliados que están en tu presencia infligen de 1 a 40 de daño de rayo agregado con los ataques"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Los proyectiles tienen un 25% de probabilidad de generar un proyectil adicional cuando se bifurcan",
+      "Cetros: Daño de ataques aumentado un 40% mientras estés transformado"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableStag.webp"
+  },
+  {
+    "id": "Boar_Idol",
+    "name": "Ídolo del jabalí",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Guantes: Ganas 1 de furia al impactar cuerpo a cuerpo",
+      "Cetros: Los aliados que están en tu presencia regeneran el 0.5% de tu vida máxima por segundo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: Velocidad de recuperación del enfriamiento de los gritos de guerra aumentada un 25%",
+      "Cetros: Regeneración de vida aumentada un 25% mientras estés transformado"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableBoar.webp"
+  },
+  {
+    "id": "Bear_Idol",
+    "name": "Ídolo del oso",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Cascos: Área de efecto aumentada un 10%",
+      "Cetros: Los aliados que están en tu presencia infligen de 12 a 18 de daño físico agregado con los ataques"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Eficiencia de la reserva de las habilidades de compañeros aumentada un 12%",
+      "Cetros: Daño de ataques aumentado un 40% mientras estés transformado"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableBear.webp"
+  },
+  {
+    "id": "Ox_Idol",
+    "name": "Ídolo del buey",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Escudos y broqueles: Probabilidad de bloqueo aumentada un 15%",
+      "Cetros: Los aliados que están en tu presencia tienen +12% a todas las resistencias elementales"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Escudos y broqueles: 15% de probabilidad de que el daño de los enemigos que te golpean sea desafortunado",
+      "Cetros: +20% de la armadura también se aplica al daño elemental mientras estés transformado"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableOx.webp"
+  },
+  {
+    "id": "Rabbit_Idol",
+    "name": "Ídolo del conejo",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Armaduras corporales: Rareza de los objetos encontrados aumentada un 12%",
+      "Cetros: Espíritu aumentado un 15%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: Cantidad de oro arrojado por los enemigos derrotados aumentada un 10%",
+      "Cetros: Los esbirros tienen la velocidad de recuperación del enfriamiento de las habilidades de orden aumentada un 30%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableRabbit.webp"
+  },
+  {
+    "id": "Fox_Idol",
+    "name": "Ídolo del zorro",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Armaduras corporales: Los ídolos engarzados en este objeto ganan los beneficios de sus modificadores chamánicos, display additional socketable mods for idols [1]",
+      "Cetros: Área de efecto de la presencia aumentada un 50%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: +5% a la calidad de todas las habilidades",
+      "Cetros: Los esbirros tienen el área de efecto aumentada un 30%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableFox.webp"
+  },
+  {
+    "id": "Amanamus_Gaze",
+    "name": "Mirada de Amanamu",
+    "properties": [
+      "Limitado a: 1 mejora antigua",
+      "Requiere:  Nivel 60"
+    ],
+    "ordinary": [
+      "Cascos: Elimina un estado alterado dañino cuando usas una habilidad de orden",
+      "Armaduras corporales: +2 a la armadura por cada 1 de espíritu",
+      "Botas: Velocidad de movimiento aumentada un 1% por cada 15 de espíritu, hasta un máximo de 40%\nOtros modificadores de velocidad de movimiento no se aplican, excepto el sprint"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/AmanamusGaze.webp"
+  },
+  {
+    "id": "Tecrods_Gaze",
+    "name": "Mirada de Tecrod",
+    "properties": [
+      "Limitado a: 1 mejora antigua",
+      "Requiere:  Nivel 60"
+    ],
+    "ordinary": [
+      "Armaduras corporales: Regeneras un 1.5% de vida por segundo",
+      "Guantes: Eficiencia del costo de vida aumentada un 25%",
+      "Botas: Velocidad de movimiento aumentada un 10% cuando tienes la vida baja"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/TecrodsGaze.webp"
+  },
+  {
+    "id": "Kurgals_Gaze",
+    "name": "Mirada de Kurgal",
+    "properties": [
+      "Limitado a: 1 mejora antigua",
+      "Requiere:  Nivel 60"
+    ],
+    "ordinary": [
+      "Cascos: Los aumentos y las reducciones a la velocidad de regeneración de vida también se aplican a la velocidad de regeneración de maná",
+      "Guantes: Efecto de Sobrecarga arcana aumentado un 40% sobre ti",
+      "Botas: Eficiencia del costo de maná aumentada un 15% si no has esquivado rodando recientemente"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/KurgalsGaze.webp"
+  },
+  {
+    "id": "Ulamans_Gaze",
+    "name": "Mirada de Ulaman",
+    "properties": [
+      "Limitado a: 1 mejora antigua",
+      "Requiere:  Nivel 60"
+    ],
+    "ordinary": [
+      "Cascos: +1 a la precisión por cada 1 de evasión de objetos en el casco equipado",
+      "Guantes: La probabilidad de impacto crítico es afortunada contra los enemigos parados",
+      "Armaduras corporales: Impide +3% del daño de los impactos desviados"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/UlamansGaze.webp"
+  },
+  {
+    "id": "Guatelitzis_Thesis",
+    "name": "Tesis de Guatelitzi",
+    "properties": [
+      "Limitado a: 1 mejora antigua",
+      "Requiere:  Nivel 60"
+    ],
+    "ordinary": [
+      "Cascos: Ganas armadura equivalente al 35% de la vida perdida por los impactos en los últimos 8 segundos",
+      "Armaduras corporales: El 10% del daño físico neutralizado se recobra como vida",
+      "Botas: Pierdes un 5% de tu vida máxima por segundo mientras esprintas, Velocidad de movimiento aumentada un 25% durante el sprint"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreBlood.webp"
+  },
+  {
+    "id": "Citaqualotls_Thesis",
+    "name": "Tesis de Citaqualotl",
+    "properties": [
+      "Limitado a: 1 mejora antigua",
+      "Requiere:  Nivel 60"
+    ],
+    "ordinary": [
+      "Armaduras corporales: Recobras el 50% del daño recibido por tus ofrendas como vida",
+      "Guantes: Uno de tus esbirros persistentes revive cuando expira una ofrenda",
+      "Botas: Sacrificas el 10% de tu vida máxima para ganar esa misma cantidad de protección cuando esquivas rodando"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreSacrifice.webp"
+  },
+  {
+    "id": "Jiquanis_Thesis",
+    "name": "Tesis de Jiquani",
+    "properties": [
+      "Limitado a: 1 mejora antigua",
+      "Requiere:  Nivel 60"
+    ],
+    "ordinary": [
+      "Cascos: +1 al maná máximo por cada 3 de armadura de objeto del casco equipado",
+      "Guantes: La recarga del escudo de energía se inicia tras gastar un total de\n2000 de maná, con un máximo de una vez cada 2 segundos",
+      "Botas: Los aumentos y las reducciones a la velocidad de movimiento también\nse aplican a la velocidad de recarga del escudo de energía"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreSoul.webp"
+  },
+  {
+    "id": "Quipolatls_Thesis",
+    "name": "Tesis de Quipolatl",
+    "properties": [
+      "Limitado a: 1 mejora antigua",
+      "Requiere:  Nivel 60"
+    ],
+    "ordinary": [
+      "Cascos: Una habilidad aleatoria que requiera gloria genera el 50% de su gloria máxima cuando se desencadena tu señal",
+      "Guantes: La recarga de tu escudo de energía comienza cuando tus esbirros se reforman",
+      "Armaduras corporales: +75% de tu armadura también se aplica al daño de caos mientras tengas el escudo de energía lleno"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreScience.webp"
+  },
+  {
+    "id": "Emergent_Vigour",
+    "name": "Vigor emergente",
+    "properties": [
+      "Limitado a: 1 mejora antigua",
+      "Requiere:  Nivel 60"
+    ],
+    "ordinary": [
+      "Cascos: +1 a la vida máxima por cada 8 de armadura del casco equipado",
+      "Armaduras corporales: Ganas escudo de energía máximo equivalente al 50% de los requisitos totales de fuerza de tus objetos de armadura equipados",
+      "Botas: Los impactos contra ti no tienen bonificación de daño crítico mientras estés sobre suelo consagrado"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: +20 al espíritu",
+      "Armaduras corporales: +20 a la fuerza",
+      "Botas: Efecto del suelo consagrado que creas aumentado un 20%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionReligionAncientAugment.webp"
+  },
+  {
+    "id": "Emergent_Possibility",
+    "name": "Posibilidad emergente",
+    "properties": [
+      "Limitado a: 1 mejora antigua",
+      "Requiere:  Nivel 60"
+    ],
+    "ordinary": [
+      "Armaduras corporales: El 15% del daño de caos de los impactos se recibe como daño de un elemento aleatorio",
+      "Guantes: Ganas el 1% del daño como daño extra de un elemento aleatorio por cada\nruna engarzada en los objetos equipados",
+      "Botas: Velocidad de regeneración de la barrera rúnica aumentada un 50% mientras esprintas"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: +13% a la resistencia al caos",
+      "Guantes: Daño elemental aumentado un 20%",
+      "Botas: Eficiencia del costo de la barrera rúnica aumentada un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionScienceAncientAugment.webp"
+  },
+  {
+    "id": "Emergent_Protection",
+    "name": "Protección emergente",
+    "properties": [
+      "Limitado a: 1 mejora antigua",
+      "Requiere:  Nivel 60"
+    ],
+    "ordinary": [
+      "Cascos: Ganas 1 carga de aguante al alcanzar el umbral de vida baja, con un máximo de una vez cada 2 segundos",
+      "Guantes: Los estandartes también otorgan un 2% de vida regenerada por segundo a los objetivos afectados",
+      "Botas: Cuando dejas de esprintar, ganas protección equivalente al 4% de tu vida máxima por cada segundo que hayas estado esprintando, hasta un máximo de 20%, durante 4 segundos"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Duración de las cargas de aguante aumentada un 40%",
+      "Guantes: Regeneras un 0.5% de vida por segundo",
+      "Botas: Protección ganada aumentada un 20%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionValorAncientAugment.webp"
+  },
+  {
+    "id": "Emergent_Instinct",
+    "name": "Instinto emergente",
+    "properties": [
+      "Limitado a: 1 mejora antigua",
+      "Requiere:  Nivel 60"
+    ],
+    "ordinary": [
+      "Cascos: Los objetivos que están cegados, lisiados y con sangrado no pueden evadir tus impactos",
+      "Guantes: Regeneras un 5% de tu vida máxima por segundo si has usado una habilidad de orden recientemente",
+      "Armaduras corporales: El daño de las espinas es afortunado contra los objetivos que tienen la armadura completamente rota"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Acumulación de inmovilización aumentada un 30%",
+      "Guantes: Velocidad de regeneración de vida aumentada un 20%",
+      "Armaduras corporales: Daño de las espinas aumentado un 30%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionWarAncientAugment.webp"
+  },
+  {
+    "id": "Carved_Cunning",
+    "name": "Astucia grabada",
+    "properties": [
+      "Limitado a: 1 mejora antigua",
+      "Requiere:  Nivel 60"
+    ],
+    "ordinary": [
+      "Cascos: Los enemigos que tienen la vida llena no pueden evadir tus impactos",
+      "Armaduras corporales: Neutraliza +5% del daño de los impactos desviados si\nno has desviado ningún impacto recientemente",
+      "Botas: Ganas Fervor durante 4 segundos cuando tus señales se desencadenan"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Precisión global aumentada un 30%",
+      "Armaduras corporales: Desvío aumentado un 8%",
+      "Botas: Los efectos beneficiosos expiran un 10% más despacio sobre ti"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualAmbushPredators.webp"
+  },
+  {
+    "id": "Carved_Majesty",
+    "name": "Majestad grabada",
+    "properties": [
+      "Limitado a: 1 mejora antigua",
+      "Requiere:  Nivel 60"
+    ],
+    "ordinary": [
+      "Armaduras corporales: +3 al espíritu por cada ídolo engarzado en tu equipamiento",
+      "Guantes: Los compañeros ganan Fervor durante 4 segundos al impactar a tus objetivos señalados",
+      "Botas: Velocidad de movimiento aumentada un 1% mientras esprintas por cada esbirro persistente"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: Espíritu aumentado un 5%",
+      "Guantes: Los compañeros infligen el daño aumentado un 30%",
+      "Botas: Los esbirros tienen su vida máxima aumentada un 12%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualMajesticBeasts.webp"
+  },
+  {
+    "id": "Carved_Mischief",
+    "name": "Travesura grabada",
+    "properties": [
+      "Limitado a: 1 mejora antigua",
+      "Requiere:  Nivel 60"
+    ],
+    "ordinary": [
+      "Cascos: Ganas Protección equivalente al 10% de tu vida máxima durante 4 segundos al recibir un impacto salvaje",
+      "Guantes: +5% a la probabilidad de bloqueo máxima si has bloqueado con un escudo levantado recientemente",
+      "Armaduras corporales: Umbral de aturdimiento aumentado un 200% si te han aturdido recientemente"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Los efectos beneficiosos expiran un 10% más despacio sobre ti",
+      "Guantes: Probabilidad de bloquear aumentada un 20%",
+      "Armaduras corporales: Umbral de aturdimiento aumentado un 25%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualMischievousCreatures.webp"
+  },
+  {
+    "id": "Carved_Tenacity",
+    "name": "Tenacidad grabada",
+    "properties": [
+      "Limitado a: 1 mejora antigua",
+      "Requiere:  Nivel 60"
+    ],
+    "ordinary": [
+      "Cascos: Los enemigos no tienen bonificación de daño crítico durante 4 segundos después de que los ciegues",
+      "Guantes: Los enemigos a los que impactas críticamente tienen la velocidad de regeneración de vida reducida un 100% durante 4 segundos",
+      "Botas: Tu velocidad no se ve afectada por las ralentizaciones mientras esprintas"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Efecto de la ceguera aumentado un 20%",
+      "Guantes: Probabilidad de impacto crítico aumentada un 15%",
+      "Botas: Velocidad de movimiento aumentada un 8% durante el sprint"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualTenaciousBeasts.webp"
+  },
+  {
+    "id": "Raven-Touched_Shard",
+    "name": "Esquirla tocada por el cuervo",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 60"
+    ],
+    "ordinary": [
+      "Cascos: Tocado por el cuervo"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Delirium/DeliriumEndgameSocketable.webp"
+  },
+  {
+    "id": "Lesser_Ward_Rune",
+    "name": "Runa de barrera menor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Armadura: +15 a la barrera rúnica máxima"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armadura: Armadura, evasión y escudo de energía globales aumentados un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardLesser.webp"
+  },
+  {
+    "id": "Ward_Rune",
+    "name": "Runa de barrera",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Armadura: +20 a la barrera rúnica máxima"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armadura: Armadura, evasión y escudo de energía globales aumentados un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardNormal.webp"
+  },
+  {
+    "id": "Greater_Ward_Rune",
+    "name": "Runa de barrera mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Armadura: +25 a la barrera rúnica máxima"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armadura: Armadura, evasión y escudo de energía globales aumentados un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardGreater.webp"
+  },
+  {
+    "id": "Perfect_Ward_Rune",
+    "name": "Runa de barrera perfecta",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Armadura: +30 a la barrera rúnica máxima"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armadura: Armadura, evasión y escudo de energía globales aumentados un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardPerfect.webp"
+  },
+  {
+    "id": "Lesser_Charging_Rune",
+    "name": "Runa de carga menor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Armadura: Velocidad de regeneración de la barrera rúnica aumentada un 8%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armadura: Regeneras 10 de barrera rúnica por segundo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationLesser.webp"
+  },
+  {
+    "id": "Charging_Rune",
+    "name": "Runa de carga",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Armadura: Velocidad de regeneración de la barrera rúnica aumentada un 12%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armadura: Regeneras 15 de barrera rúnica por segundo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationNormal.webp"
+  },
+  {
+    "id": "Greater_Charging_Rune",
+    "name": "Runa de carga mayor",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Armadura: Velocidad de regeneración de la barrera rúnica aumentada un 16%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armadura: Regeneras 20 de barrera rúnica por segundo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationGreater.webp"
+  },
+  {
+    "id": "Perfect_Charging_Rune",
+    "name": "Runa de carga perfecta",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 50"
+    ],
+    "ordinary": [
+      "Armadura: Velocidad de regeneración de la barrera rúnica aumentada un 20%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armadura: Regeneras 25 de barrera rúnica por segundo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationPerfect.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Reinforcement",
+    "name": "Runa protectora de refuerzo",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Armadura: Barrera rúnica aumentada un 20%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armadura: Ganas el 2% de tu vida máxima como barrera rúnica máxima extra"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard1.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Protection",
+    "name": "Runa protectora de defensa",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Armadura: Cada 4 segundos, ganas protección equivalente al 20% de tu barrera rúnica máxima durante 2 segundos"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armadura: Protección ganada aumentada un 8%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard2.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Disintegration",
+    "name": "Runa protectora de desintegración",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Arma marcial: Los ataques rompen una cantidad de armadura equivalente al 15% de la barrera rúnica máxima"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Cantidad de armadura que rompes aumentada un 10%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard3.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Desperation",
+    "name": "Runa protectora de desesperación",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Varita o báculo: El daño de hechizos penetra el 25% de las resistencias elementales de los enemigos mientras tengas la barrera rúnica baja"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Varita o báculo: Daño elemental aumentado un 12%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard4.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Symbiosis",
+    "name": "Runa protectora de simbiosis",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Botas: Velocidad de recarga del escudo de energía aumentada un 1% por cada 30 de barrera rúnica máxima"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Botas: Regeneras un 1% de escudo de energía por segundo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard8.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Courage",
+    "name": "Runa protectora de coraje",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Cascos: Armadura y evasión aumentadas un 25% mientras tengas la barrera rúnica baja"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Armadura y evasión aumentadas un 20% cuando tienes la vida baja"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard9.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Stability",
+    "name": "Runa protectora de estabilidad",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Escudos y broqueles: +4 al umbral de aturdimiento por cada 10 de barrera rúnica máxima"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Escudos y broqueles: Acumulación de aturdimiento aumentada un 15% mientras estés transformado"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard10.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Glancing",
+    "name": "Runa protectora de observación",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Armaduras corporales: +3 al desvío por cada 10 de barrera rúnica máxima"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: Impide +1% del daño de los impactos desviados"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard13.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Heart",
+    "name": "Runa protectora de corazón",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Armaduras corporales: Ganas el 5% de tu vida máxima como barrera rúnica máxima extra"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: 1% más de velocidad de regeneración de la barrera rúnica por cada 2% de barrera rúnica máxima que se haya perdido por impactos recientemente, hasta un 100% más"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard14.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Nourishment",
+    "name": "Runa protectora de nutrición",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Armadura: La recuperación de vida de los frascos también se aplica a la barrera rúnica"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armadura: Recuperación de vida con frascos aumentada un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard15.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Annihilation",
+    "name": "Runa protectora de Aniquilación",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Arma marcial: Los ataques gastan el 5% de tu barrera rúnica máxima si es posible para ganar esa misma cantidad de daño físico agregado"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Eficiencia del costo de la barrera rúnica reducida un 10%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard16.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Armature",
+    "name": "Runa protectora de armazón",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 45"
+    ],
+    "ordinary": [
+      "Arma marcial: Ganas barrera rúnica máxima equivalente al 15% del daño máximo de esta arma"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma marcial: Velocidad de ataque aumentada un 5% mientras no tengas barrera rúnica"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard18.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Obsession",
+    "name": "Runa protectora de obsesión",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 45"
+    ],
+    "ordinary": [
+      "Varitas: Todo el daño recibido atraviesa la barrera rúnica, La velocidad de regeneración de la barrera rúnica está duplicada"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Varitas: Barrera rúnica máxima aumentada un 12%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard19.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Equinox",
+    "name": "Runa protectora del equinoccio",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 45"
+    ],
+    "ordinary": [
+      "Arma de lanzador de hechizos: 40% menos de velocidad de regeneración de maná, La recuperación de maná de la regeneración también se aplica a la barrera rúnica"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma de lanzador de hechizos: Velocidad de regeneración de la barrera rúnica aumentada un 20% si has infligido un impacto crítico recientemente"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard20.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Salvaging",
+    "name": "Runa protectora de rescate",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Cetros: Recuperas un 3% de tu barrera rúnica máxima cuando matan a uno de tus esbirros que revive"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cetros: Recuperas el 3% de tu vida máxima cuando revive uno de tus esbirros"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard21.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Bodyguards",
+    "name": "Runa protectora de guardaespaldas",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 45"
+    ],
+    "ordinary": [
+      "Cetros: Los esbirros que están en tu presencia tienen Fervor mientras tengas la barrera rúnica baja"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cetros: El daño de los enemigos que te impactan es desafortunado si\ntu barrera rúnica se ha dañado recientemente"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard23.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Hollowing",
+    "name": "Runa protectora de ahuecamiento",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 45"
+    ],
+    "ordinary": [
+      "Arma de lanzador de hechizos: Ganas el 15% de tu vida máxima como barrera rúnica máxima extra, 15% menos de vida máxima"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma de lanzador de hechizos: +1% a todas las resistencias elementales máximas mientras tengas la barrera rúnica llena"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard24.webp"
+  },
+  {
+    "id": "Passion_of_Aldur",
+    "name": "Pasión de Aldur",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma: Transforma todos los modificadores de hielo y rayo del objeto en modificadores de fuego equivalentes"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma: Daño de fuego aumentado un 25%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneFire.webp"
+  },
+  {
+    "id": "Breath_of_Aldur",
+    "name": "Aliento de Aldur",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma: Cuando se engarza, transforma todos los modificadores de fuego y rayo en modificadores de hielo equivalentes"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma: Daño de hielo aumentado un 25%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneCold.webp"
+  },
+  {
+    "id": "Ire_of_Aldur",
+    "name": "Ira de Aldur",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma: Transforma todos los modificadores de fuego y hielo del objeto en modificadores de rayo equivalentes"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma: Daño de rayo aumentado un 25%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneLightning.webp"
+  },
+  {
+    "id": "Betrayal_of_Aldur",
+    "name": "Traición de Aldur",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Arma: Transforma todos los modificadores de fuego, hielo y rayo del objeto en modificadores de caos equivalentes"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma: Daño de caos aumentado un 25%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneChaos.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Splinters",
+    "name": "Runa antigua de astillas",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Arcos: +50% de probabilidad sobrepasante de disparar una flecha adicional"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arcos: Velocidad de proyectiles aumentada un 30%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune1.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Dueling",
+    "name": "Runa antigua de duelo",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Thrown One Hand Axe: Magnitud del efecto nocivo Parado aumentada un 30%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Thrown One Hand Axe: Probabilidad de bloquear aumentada un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune2.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_the_Titan",
+    "name": "Runa antigua del titán",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Mazas a dos manos: 10% de probabilidad de que las habilidades de embate que usas tú mismo creen una réplica adicional"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Mazas a dos manos: Área de efecto de los ataques aumentada un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune3.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Shattering",
+    "name": "Runa antigua de fragmentación",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Mazas a una mano: Efecto de la armadura completamente rota aumentado un 40%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Mazas a una mano: Cantidad de armadura que rompes aumentada un 50%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune4.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Prowess",
+    "name": "Runa antigua de bravura",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Ballestas: 30% de probabilidad de que cuando ganes una carga ganes una carga adicional"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Ballestas: Duración de las cargas de aguante, frenesí y poder aumentada un 30%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune5.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Control",
+    "name": "Runa antigua de control",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Objetos monetarios apilables y engarzables de Delve: Acumulación de inmovilización aumentada un 50%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Objetos monetarios apilables y engarzables de Delve: Daño aumentado un 30% contra los enemigos inmovilizados"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune6.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Discovery",
+    "name": "Runa antigua de descubrimiento",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Báculos: 30% de probabilidad de crea un remanente adicional"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Báculos: +1 a la cantidad máxima de infusiones elementales"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune7.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Decay",
+    "name": "Runa antigua de decaimiento",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Varitas: Magnitud de marchito aumentada un 25%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Varitas: 15% de probabilidad de que cuando la Volatilidad que tienes sobre ti detone, recuperes una cantidad equivalente de Volatilidad"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune8.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Witchcraft",
+    "name": "Runa antigua de brujería",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Objetos locales de instancia: Área de efecto de las maldiciones aumentada un 40%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Objetos locales de instancia: La activación de las maldiciones es un 15% más rápida"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune9.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_the_Horde",
+    "name": "Runa antigua de la horda",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Cetros: Los esbirros tienen las velocidades de ataque y lanzamiento de hechizos aumentadas un 8%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cetros: Los esbirros tienen la velocidad de movimiento aumentada un 10%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune10.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Animosity",
+    "name": "Runa antigua de animosidad",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Gemas de habilidad sin tallar: Ganas 2 de proeza druídica cuando aturdes totalmente a un enemigo raro o único"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Gemas de habilidad sin tallar: Acumulación de aturdimiento aumentada un 40%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune11.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Detonation",
+    "name": "Runa antigua de detonación",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Focos: Las granadas tienen un 10% de probabilidad de activarse una segunda vez"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Focos: Velocidad de recarga de las ballestas aumentada un 40%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune12.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Retaliation",
+    "name": "Runa antigua de represalia",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 30"
+    ],
+    "ordinary": [
+      "Escudos: Velocidad de ataque aumentada un 8% si has bloqueado recientemente"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Escudos: +3% a la probabilidad de bloqueo máxima"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune13.webp"
+  },
+  {
+    "id": "Rune_of_Vitality",
+    "name": "Runa de vitalidad",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Arma: +80 a la vida máxima",
+      "Escudos y broqueles: Recuperas 15 de vida cuando bloqueas"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma: Cantidad de vida absorbida aumentada un 15%",
+      "Escudos y broqueles: Vida máxima aumentada un 5%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune1.webp"
+  },
+  {
+    "id": "Rune_of_the_Hunt",
+    "name": "Runa de la cacería",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Botas: Velocidad de movimiento aumentada un 8% durante el sprint",
+      "Cetros: Los compañeros infligen el daño aumentado un 30%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Botas: Recuperación del aturdimiento aumentada un 50%",
+      "Cetros: Velocidad de recuperación de maná aumentada un 8% mientras tu compañero esté en tu presencia"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune2.webp"
+  },
+  {
+    "id": "Rune_of_Acrobatics",
+    "name": "Runa de acrobacia",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Arma: Los frascos ganan 0.2 cargas por segundo",
+      "Botas: +0.3 metros a la distancia de esquivar rodando"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma: Los viales ganan 0.25 cargas por segundo",
+      "Botas: Armadura aumentada un 30% si no has esquivado rodando recientemente"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune3.webp"
+  },
+  {
+    "id": "Rune_of_Culmination",
+    "name": "Runa de culminación",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Guantes: 50% de probabilidad de generar un combo adicional al impactar",
+      "Maza a una mano o bastón: Genera únicamente el valor de daño mínimo o máximo para el daño físico"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: Velocidad de ataque aumentada un 5%",
+      "Maza a una mano o bastón: Duración del sangrado aumentada un 20%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune4.webp"
+  },
+  {
+    "id": "Rune_of_Renown",
+    "name": "Runa de renombre",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Guantes: Generación de gloria aumentada un 50%",
+      "Arma de lanzador de hechizos: El período de recuperación del arconte expira un 30% más rápido"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: Las habilidades de estandarte tienen las magnitudes de aura aumentadas un 20%",
+      "Arma de lanzador de hechizos: Duración de los arcontes aumentada un 30%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune5.webp"
+  },
+  {
+    "id": "Rune_of_Accumulation",
+    "name": "Runa de acumulación",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Guantes: Ganas 3 de vida por cada enemigo impactado con ataques, Ganas 1 de maná por cada enemigo impactado con ataques",
+      "Ballesta, arco o lanza: Al impactar a un enemigo, gana daño de hielo agregado máximo equivalente al poder del enemigo durante 20 segundos, hasta un total de 32"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: +30 a la vida máxima, +30 al maná máximo",
+      "Ballesta, arco o lanza: Acumulación de congelamiento aumentada un 30%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune6.webp"
+  },
+  {
+    "id": "Rune_of_Foundations",
+    "name": "Runa de cimientos",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Armaduras corporales: +30 a la armadura, +30 a la evasión, +10 al escudo de energía máximo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: +20 a la vida máxima, +20 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune7.webp"
+  },
+  {
+    "id": "Rune_of_the_Prism",
+    "name": "Runa del prisma",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Armaduras corporales: -10% a todas las resistencias elementales máximas, +20% a todas las resistencias elementales"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: El 20% daño lo recibe el maná antes que la vida"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune8.webp"
+  },
+  {
+    "id": "Rune_of_the_Blossom",
+    "name": "Runa de la floración",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Armaduras corporales: +50 al espíritu, -1 al espíritu por cada 2 niveles"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: Eficiencia de la reserva de espíritu de las habilidades aumentada un 5%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune9.webp"
+  },
+  {
+    "id": "Rune_of_Consistency",
+    "name": "Runa de consistencia",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Cascos: Probabilidad de impacto crítico aumentada un 200%, No tienes bonificación de daño crítico",
+      "Arma de lanzador de hechizos: Daño de hechizos aumentado un 50% mientras tu compañero esté en tu presencia"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Los impactos contra ti tienen la bonificación de daño crítico reducida un 25%",
+      "Arma de lanzador de hechizos: Velocidad de recuperación de maná aumentada un 8% mientras tu compañero esté en tu presencia"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune10.webp"
+  },
+  {
+    "id": "Rune_of_Reach",
+    "name": "Runa de alcance",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Cascos: Los remanentes que creas tienen su efecto aumentado un 15%",
+      "Varita o báculo: Los remanentes se pueden recolectar desde un 50% más lejos, Los remanentes que creas tienen su efecto reducido un 25%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Recuperas el 3% del maná máximo cuando recolectas un remanente",
+      "Varita o báculo: Efecto de la exposición aumentado un 20%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune11.webp"
+  },
+  {
+    "id": "Rune_of_Vital_Flame",
+    "name": "Runa de llama vital",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Maza a una mano, maza a dos manos o talismán: Agrega de 13 a 16 de daño de fuego, El 15% de los costos de maná de las habilidades se convierte en costos de vida"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Maza a una mano, maza a dos manos o talismán: Magnitud de la quemadura aumentada un 30%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune12.webp"
+  },
+  {
+    "id": "Rune_of_Confrontation",
+    "name": "Runa de confrontación",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [
+      "Bastón o lanza: Ganas 4 de furia al impactar cuerpo a cuerpo, -10 al máximo de furia"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Bastón o lanza: rage effect +% [10]"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune13.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Wild_Ferocity",
+    "name": "[DNT-Unused] Rune of Wild Ferocity",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune14.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Partnership",
+    "name": "[DNT-Unused] Rune of Partnership",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune15.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Reverberation",
+    "name": "[DNT-Unused] Rune of Reverberation",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune16.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Vital_Flame",
+    "name": "[DNT-Unused] Rune of Vital Flame",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune17.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Confrontation",
+    "name": "[DNT-Unused] Rune of Confrontation",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune18.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Chance",
+    "name": "[DNT-Unused] Rune of Chance",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune19.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Confidence",
+    "name": "[DNT-Unused] Rune of Confidence",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune12.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Duplication",
+    "name": "[DNT-Unused] Rune of Duplication",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1",
+      "Requiere:  Nivel 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune16.webp"
+  },
+  {
+    "id": "Serles_Triumph",
+    "name": "Triunfo de Serle",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Todo el equipamiento: +1 modificador de sufijo permitido, local maximum mods allowed + [1]"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRune2.webp"
+  },
+  {
+    "id": "Cadigans_Epiphany",
+    "name": "Epifanía de Cadigan",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Guantes: Destruye todos los engarces de mejora del objeto para crear un engarce de joya"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRune3.webp"
+  },
+  {
+    "id": "Astrids_Creativity",
+    "name": "Creatividad de Astrid",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Todo el equipamiento: Puede tener 1 modificadores de fabricación adicionales"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRune1.webp"
+  },
+  {
+    "id": "Uhtreds_Sidereus",
+    "name": "Estrella de Uhtred",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Botas: Puede generar modificadores de cronomancia"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Botas: Velocidad de recuperación del enfriamiento aumentada un 10%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneTime.webp"
+  },
+  {
+    "id": "Kolrs_Hunt",
+    "name": "Cacería de Kolr",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Guantes: Puede generar modificadores de tirador"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: Daño de proyectiles aumentado un 20%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneDex.webp"
+  },
+  {
+    "id": "Voranas_Carnage",
+    "name": "Matanza de Vorana",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Cascos: Puede generar modificadores de arrebatado"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Ganas 2 de furia al impactar cuerpo a cuerpo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRunePhysical.webp"
+  },
+  {
+    "id": "Thruds_Might",
+    "name": "Poder de Thrud",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Arma: Puede generar modificadores de destrucción"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arma: +5% a todas las resistencias elementales"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneFire.webp"
+  },
+  {
+    "id": "Medveds_Tending",
+    "name": "Cuidado de Medved",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Armaduras corporales: Puede generar modificadores de alma"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: Vida máxima aumentada un 3%, Maná máximo aumentado un 3%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneCold.webp"
+  },
+  {
+    "id": "Katlas_Gloom",
+    "name": "Melancolía de Katla",
+    "properties": [
+      "Tamaño de la pila: 1 / 10",
+      "Limitado a: 1"
+    ],
+    "ordinary": [
+      "Guantes: Puede generar modificadores de decaimiento"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: Efecto de los estados alterados no dañinos reducido un 25% sobre ti"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneChaos.webp"
+  },
+  {
+    "id": "Aldurs_Legacy",
+    "name": "Legado de Aldur",
+    "properties": [
+      "Tamaño de la pila: 1 / 10"
+    ],
+    "ordinary": [
+      "Todo el equipamiento: Cuando se engarza en un objeto único kalgurano o ezomita, destruye el objeto para crear una runa infundida con el poder de ese objeto"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUnique.webp"
+  },
+  {
+    "id": "Legacy_of_Bramblejack",
+    "name": "Legado de Zarzacoraza",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Armaduras corporales: El 250% del daño físico cuerpo a cuerpo recibido se refleja al atacante"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: Regeneras un 3% de vida por segundo mientras estés rodeado"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Blackbraid",
+    "name": "Legado de Trenza negra",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Armaduras corporales: El +50% de la armadura también se aplica al daño elemental"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: +15% a todas las resistencias elementales"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Edyrns_Tusks",
+    "name": "Legado de Colmillos de Edyrn",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Armaduras corporales: 50% de probabilidad de aplicar sangrado al impactar, La potencia ralentizadora de los efectos nocivos está reducida un 50% sobre ti"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: Daño de las espinas aumentado un 35%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Kingsguard",
+    "name": "Legado de Guardia de reyes",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Armaduras corporales: Recuperas un 5% de la vida máxima por cada carga de aguante consumida"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: +30 a la vida máxima"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Bristleboar",
+    "name": "Legado de Cuero de jabalí",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Armaduras corporales: Ganas 10 de furia cuando recibes un impacto crítico de un enemigo, Ganas 5 de furia cuando recibes un impacto de un enemigo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: +3 al máximo de furia"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Foxshade",
+    "name": "Legado de Sombra de zorro",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Armaduras corporales: Velocidad de movimiento aumentada un 10% cuando tienes la vida llena, Evasión aumentada un 100% cuando tienes la vida llena"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: Evasión aumentada un 20%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Ashrend",
+    "name": "Legado de Desgarro de cenizas",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Armaduras corporales: No te pueden quemar, -10 de daño físico recibido de los impactos de ataques"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: +35% a la resistencia al fuego"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Briskwrap",
+    "name": "Legado de Peto brioso",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Armaduras corporales: Ganas desvío equivalente al 30% de la evasión"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: Velocidad de recuperación de maná de los frascos aumentada un 35%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Unleashed",
+    "name": "Legado de El desatado",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Armaduras corporales: El 25% del daño recibido de los impactos atraviesa el escudo de energía si el escudo de energía está por debajo de la mitad"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Armaduras corporales: Armadura aumentada un 20% mientras estés transformado"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Horns_of_Bynden",
+    "name": "Legado de Cuernos de Bynden",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Cascos: Cada acumulación de furia también otorga armadura aumentada un 1%, Ganas 1 de furia al impactar cuerpo a cuerpo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: +3 al máximo de furia"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Wings_of_Caelyn",
+    "name": "Legado de Alas de Caelyn",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Cascos: Ganas 1 de furia al impactar cuerpo a cuerpo, Cada punto de furia también otorga umbral de aturdimiento aumentado un 1%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Cada cinco de furia también te otorga velocidad de movimiento aumentada un 1%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Ezomyte_Peak",
+    "name": "Legado de Cresta ezomita",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Cascos: Área de efecto aumentada un 15%, Postura inquebrantable"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: La potencia ralentizadora de los efectos nocivos está reducida un 50% sobre ti"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Deidbell",
+    "name": "Legado de Campana de Deid",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Cascos: Los gritos de guerra hacen explotar los cadáveres para que inflijan el 10% de su vida como daño físico"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Área de efecto de las habilidades de gritos de guerra aumentada un 20%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Elevore",
+    "name": "Legado de Elevore",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Cascos: Los viales ganan 1 cargas por segundo, +1 espacios para viales"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Los viales ganan 0.5 cargas por segundo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Starkonjas_Head",
+    "name": "Legado de Cabeza de Starkonja",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Cascos: Evasión global aumentada un 100% cuando tienes la vida baja, El 5% del daño de los impactos lo recibe la vida de tu compañero que puede recibir daño antes que tú"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: El 5% del daño de los impactos lo recibe la vida de tu compañero que puede recibir daño antes que tú"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Crown_of_Thorns",
+    "name": "Legado de Corona de espinas",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Cascos: Ajuste al dolor"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: De 17 a 26 de daño físico de las espinas"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Greymake",
+    "name": "Legado de Marca gris",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Cascos: +50 a todos los atributos"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: +1 de vida máxima por cada nivel"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Erians_Cobble",
+    "name": "Legado de Yelmo de Erian",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Cascos: +30 a la precisión, +10 a la vida máxima, +10 al maná máximo, Rareza de los objetos encontrados aumentada un 10%, Probabilidad de impacto crítico aumentada un 10%, +5 a todos los atributos, +5% a todas las resistencias elementales, Regeneras 3 de vida por segundo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: +20 a la armadura, +20 a la evasión, +20 al escudo de energía máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Smiling_Knight",
+    "name": "Legado de El caballero sonriente",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Cascos: Agrava el sangrado de los objetivos a los que impactas críticamente con ataques"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Probabilidad de impacto crítico aumentada un 20%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Vile_Knight",
+    "name": "Legado de El caballero vil",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Cascos: Inflige el daño con impactos aumentado un 4% a los enemigos raros y únicos por cada segundo que hayan estado en tu presencia, hasta un máximo de 200%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Área de efecto de la presencia aumentada un 20%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Northpaw",
+    "name": "Legado de Garra del norte",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Guantes: La probabilidad de impacto crítico base de los ataques con esta arma es del 7%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: Bonificación de daño crítico aumentada un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Candlemaker",
+    "name": "Legado de Fabricante de velas",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Guantes: Daño de fuego aumentado un 40%, La magnitud de la inflamabilidad está duplicada"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: Duración de la quemadura en los enemigos aumentada un 20%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Deathblow",
+    "name": "Legado de Golpe mortal",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Guantes: Golpe de gracia"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: Ganas 30 de vida por cada enemigo asesinado"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Legionstride",
+    "name": "Legado de Avance de la legión",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Botas: +10% a la probabilidad de bloqueo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Botas: Daño recibido de los impactos de proyectiles reducido un 10%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Trampletoe",
+    "name": "Legado de Aplastadedos",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Botas: Inflige un 10% del daño excesivo a los enemigos que estén a menos de 2 metros del enemigo asesinado"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Botas: Daño físico global aumentado un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Briarpatch",
+    "name": "Legado de Remiendos de espino",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Botas: +15% a la probabilidad de impacto crítico de las espinas"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Botas: Bonificación de daño crítico de las espinas aumentada un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Bushwhack",
+    "name": "Legado de Zancada forestal",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Botas: El daño físico retiene"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Botas: +20 a la destreza"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Wanderlust",
+    "name": "Legado de Deseos del viajero",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Botas: A tu velocidad no le afectan las ralentizaciones"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Botas: Velocidad de movimiento aumentada un 5%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Knight-errant",
+    "name": "Legado de Pisadas del caballero",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Botas: Reflejos de hierro"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Botas: Umbral de los estados alterados elementales aumentado un 25%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Oberns_Bastion",
+    "name": "Legado de Bastión de Obern",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Botas: Recuperación del aturdimiento aumentada un 200%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Botas: Duración del escarchamiento reducida un 40% sobre ti, Duración del congelamiento reducida un 40% sobre ti"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Dionadair",
+    "name": "Legado de Defensor",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Escudos: Umbral de aturdimiento duplicado mientras tengas el escudo levantado"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Escudos: Umbral de aturdimiento aumentado un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Wulfsbane",
+    "name": "Legado de Azote de lobos",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Escudos: Intimidas a los enemigos al bloquear durante 8 segundos"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Escudos: +25 a la fuerza"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Chernobogs_Pillar",
+    "name": "Legado de Pilar de Chernobog",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Escudos: Ganas el 1% del daño como fuego por cada 2% de probabilidad de bloqueo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Escudos: +30% a la resistencia al caos"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Alkem_Eira",
+    "name": "Legado de Alkem Eira",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Escudos: El 30% del daño bloqueado se recobra como maná"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Escudos: El 20% del daño bloqueado se recobra como maná"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Oaksworn",
+    "name": "Legado de Juramento del roble",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Escudos: Velocidad de regeneración de vida aumentada un 50%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Escudos: Regeneras 50 de vida por segundo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Dunkelhalt",
+    "name": "Legado de Fin de la oscuridad",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Thrown One Hand Axe: Magnitud del efecto nocivo Parado aumentada un 50%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Thrown One Hand Axe: Parada tiene su daño aumentado un 50%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Rondel_de_Ezo",
+    "name": "Legado de Rondel de Ezo",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Thrown One Hand Axe: Maldices a los enemigos con Debilitar al bloquear"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Thrown One Hand Axe: Probabilidad de bloqueo aumentada un 100% contra los proyectiles"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Brynhands_Mark",
+    "name": "Legado de Marca de Brynhand",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Mazas a una mano: Causa doble acumulación de aturdimiento"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Mazas a una mano: Agrega de 14 a 20 de daño físico"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Trenchtimbre",
+    "name": "Legado de Timbre de trinchera",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Mazas a una mano: Los aumentos y las reducciones que afectan a la velocidad de ataque de los esbirros también te afectan a ti"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Mazas a una mano: +1 al nivel de todas las habilidades de esbirros"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Mj%C3%B6lner",
+    "name": "Legado de Mjölner",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Mazas a una mano: +200 al requisito de inteligencia, +3 al nivel de todas las habilidades de rayo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Mazas a una mano: +1 al nivel de todas las habilidades de rayo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Twisted_Empyrean",
+    "name": "Legado de Empíreo retorcido",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Mazas a dos manos: Los ataques con esta arma tienen daño de hielo agregado equivalente al 6% al 10% del maná máximo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Mazas a dos manos: El 15% daño lo recibe el maná antes que la vida"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Hoghunt",
+    "name": "Legado de La caza del puerco",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Mazas a dos manos: +5% a la probabilidad de impacto crítico, Lisias al infligir un impacto crítico"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Mazas a dos manos: Daño de ataques aumentado un 25% contra los enemigos lisiados"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Hrimnors_Hymn",
+    "name": "Legado de Himno de Hrimnor",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Mazas a dos manos: 25% de probabilidad de que las habilidades de embate que usas tú mismo creen una réplica adicional"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Mazas a dos manos: 15% de probabilidad de que las habilidades de embate que usas tú mismo creen una réplica adicional"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Brain_Rattler",
+    "name": "Legado de Devanador de cerebros",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Mazas a dos manos: Todo el daño de esta arma crea parálisis"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Mazas a dos manos: El daño penetra el 10% de la resistencia al rayo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Lifesprig",
+    "name": "Legado de Ramito de vida",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Varitas: +2 al nivel de todas las habilidades de hechizos"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Varitas: Absorbe el 1% de la vida máxima cuando lanzas un hechizo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Duality",
+    "name": "Legado de Dualidad",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Objetos monetarios apilables y engarzables de Delve: Ganas 250 de protección durante 0.5 segundos por cada combo gastado al usar habilidades"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Objetos monetarios apilables y engarzables de Delve: Ganas Finalidad durante 0.2 segundos por cada combo gastado al usar habilidades"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Tyrannys_Grip",
+    "name": "Legado de Garras de la tiranía",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Ballestas: Los golpes infligen daño colateral"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Ballestas: Empuja a los enemigos al impactar"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Sentry",
+    "name": "Legado de El centinela",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Objetos monetarios apilables y engarzables de Delve: Agrega de 23 a 34 de daño de fuego a los ataques, Magnitud de la inflamabilidad aumentada un 100%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Objetos monetarios apilables y engarzables de Delve: +2% a la resistencia al fuego máxima"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Adonias_Ego",
+    "name": "Legado de Ego de Adonia",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Varitas: +1 al máximo de cargas de poder"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Varitas: +65 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Cursecarver",
+    "name": "Legado de Talladora de maldiciones",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Varitas: +3 al nivel de todas las habilidades de maldición"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Varitas: Velocidad de regeneración de maná aumentada un 35%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Dusk_Vigil",
+    "name": "Legado de Vigilia crepuscular",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Báculos: Ganas el 30% del daño físico como daño de fuego extra"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Báculos: Los hechizos activados infligen el daño de hechizos aumentado un 20%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Blood_Thorn",
+    "name": "Legado de La espina de sangre",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Objetos monetarios apilables y engarzables de Delve: Agrega de 4 a 8 de daño físico, Aplica sangrado al impactar"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Objetos monetarios apilables y engarzables de Delve: Magnitud del sangrado que aplicas aumentada un 10%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Quill_Rain",
+    "name": "Legado de Lluvia de plumas",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Arcos: Velocidad de ataque aumentada un 50%, 20% menos de daño de ataques"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arcos: Velocidad de las flechas aumentada un 70%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Ironbound",
+    "name": "Legado de Unión de hierro",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Arcos: Los impactos de esta arma tienen de 1 a 3 de daño físico agregado por cada 1% de probabilidad de bloquear"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Arcos: Probabilidad de bloqueo aumentada un 3% por cada 100 de armadura de objeto total de los objetos de armadura equipados"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Amor_Mandragora",
+    "name": "Legado de Amor de mandrágora",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Gemas de habilidad sin tallar: Ganas 1 de proeza druídica por cada 20 de furia total gastada"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Gemas de habilidad sin tallar: Los enemigos que están en tu presencia están entumecidos"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Spiteful_Floret",
+    "name": "Legado de Brote malicioso",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Gemas de habilidad sin tallar: Cada 5 de furia también otorgan un 5% del daño recibido recobrado como vida"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Gemas de habilidad sin tallar: Los ataques tienen un 20% de probabilidad de aplicar sangrado"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Svalinn",
+    "name": "Legado de Svalinn",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Escudos: La probabilidad de bloquear el daño es afortunada, Recibes el 20% del daño de los impactos bloqueados"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Escudos: +50 a la barrera rúnica máxima"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Keeper_of_the_Arc",
+    "name": "Legado de Guardián del arco",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Cascos: Se alternan cada 5 segundos:\nRecibes un 20% menos de daño de los impactos\nRecibes un 20% menos de daño degenerativo"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Cascos: Velocidad de regeneración de maná aumentada un 25%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Olrovasara",
+    "name": "Legado de Olrovasara",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Mazas a una mano: Al impactar a un enemigo, gana daño de rayo agregado máximo equivalente al poder del enemigo durante 20 segundos, hasta un total de 120"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Mazas a una mano: Velocidad de ataque aumentada un 15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_A_Worthy_Foe",
+    "name": "Legado de Un oponente digno",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Escudos: Los impactos de la mano secundaria aplican Desafío del padre de las runas"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Escudos: +45% a la resistencia al hielo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Serles_Grit",
+    "name": "Legado de Determinación de Serle",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Mazas a una mano: La calidad máxima es 40%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Mazas a una mano: Las habilidades que potencian un ataque tienen un 20% de probabilidad de no contar ese ataque"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Runeseekers_Call",
+    "name": "Legado de Llamada del buscador de runas",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Varitas: Efecto de las runas engarzadas aumentado un 75%"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Varitas: +100 al maná máximo"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Facebreaker",
+    "name": "Legado de Rompecaras",
+    "properties": [
+      "Limitado a: 1 Legado de Aldur",
+      "Requiere:  Nivel 65"
+    ],
+    "ordinary": [
+      "Guantes: +1 a la armadura por cada punto de fuerza"
+    ],
+    "bonded": [
+      "Chamánico:",
+      "Guantes: Daño aumentado un 1% por cada 15 de fuerza"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "locales": [
+    {
+      "locale": "zh-CN",
+      "tooltip": "西里乌斯之雕像\nPoE2DB\n\n护甲 (手套): 攻击速度提高 8%\n\n仅限: 1\n\n仅检查此物品内的镶嵌限制，不检查角色全部装备的限制。"
+    },
+    {
+      "locale": "zh-TW",
+      "tooltip": "席里斯魔偶\nPoE2DB\n\n護甲 (手套): 增加8%攻擊速度\n\n僅限: 1\n\n僅檢查此物品內的鑲嵌限制，不檢查角色全部裝備的限制。"
+    },
+    {
+      "locale": "ja",
+      "tooltip": "シリウスのアイドル\nPoE2DB\n\n防具 (グローブ): アタックスピードが8%増加する\n\n個数制限: 1\n\nこのアイテム内の装着制限を確認します。キャラクターの全装備の制限は確認しません。"
+    },
+    {
+      "locale": "es",
+      "tooltip": "Ídolo de Sirrius\nPoE2DB\n\nArmadura (Guantes): Velocidad de ataque aumentada un 8%\n\nLimitado a: 1\n\nSe comprueban los límites de este objeto, no los de todo el equipo del personaje."
+    },
+    {
+      "locale": "ko",
+      "tooltip": "시리우스의 우상\nPoE2DB\n\n방어구 (장갑): 공격 속도 8% 증가\n\n중복 사용 제한: 1\n\n이 아이템 안의 장착 제한을 검사합니다. 캐릭터 전체 장비의 제한은 확인하지 않습니다."
+    }
+  ],
+  "idolInstalled": true,
+  "duplicateSecondSocketDisabled": true,
+  "sharedAncientFirstSocketDisabled": true,
+  "ancientReplacementEnabled": true,
+  "beforeHistory": [
+    "소켓 1: 시리우스의 우상",
+    "소켓 2: 쿠르갈의 응시"
+  ],
+  "previousHistory": [
+    "소켓 1: 시리우스의 우상",
+    "소켓 2: 비어 있음"
+  ],
+  "restoredHistory": [
+    "소켓 1: 시리우스의 우상",
+    "소켓 2: 쿠르갈의 응시"
+  ]
+}

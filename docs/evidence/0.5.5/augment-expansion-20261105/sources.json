@@ -1,0 +1,38 @@
+{
+  "us": {
+    "url": "https://poe2db.tw/us/Augment",
+    "retrievedAt": "2026-11-05",
+    "sha256": "254b9b59780e5651c07a87e9130806180f4a6870f115c015c77fe01a363bb906",
+    "bytes": 1772623
+  },
+  "kr": {
+    "url": "https://poe2db.tw/kr/Augment",
+    "retrievedAt": "2026-11-05",
+    "sha256": "6712b1c9b674d6be9163a183b0c30e623099fe3a55248d4b6757379b278f1387",
+    "bytes": 1775857
+  },
+  "cn": {
+    "url": "https://poe2db.tw/cn/Augment",
+    "retrievedAt": "2026-11-05",
+    "sha256": "f1e48626ba4827d2b8b3cd9a0a257e8815643335ecd90dee202c1db8fcefca54",
+    "bytes": 1757633
+  },
+  "tw": {
+    "url": "https://poe2db.tw/tw/Augment",
+    "retrievedAt": "2026-11-05",
+    "sha256": "68765acd4b8ab762b358af3f0b23e5c5cf485b542a004b292de3995db0939d5d",
+    "bytes": 1749162
+  },
+  "jp": {
+    "url": "https://poe2db.tw/jp/Augment",
+    "retrievedAt": "2026-11-05",
+    "sha256": "a6b365470e77e36a676d8abfdaf9073efab8ef05c18df3f66bce9b2df6754653",
+    "bytes": 1814648
+  },
+  "sp": {
+    "url": "https://poe2db.tw/sp/Augment",
+    "retrievedAt": "2026-11-05",
+    "sha256": "c5046d4ab4e78df12ccd31c98391f8b742e653345a9f18c380220d8978d472dc",
+    "bytes": 1752019
+  }
+}

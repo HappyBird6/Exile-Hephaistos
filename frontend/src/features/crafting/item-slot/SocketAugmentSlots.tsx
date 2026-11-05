@@ -3,6 +3,7 @@ import {
   augmentEffect,
   augmentName,
   augments,
+  canInstallAugment,
   socketText,
 } from '../socketAugments'
 import { stashDragType } from '../stash/stashDragType'
@@ -23,19 +24,21 @@ export function SocketAugmentSlots({
   onInstall: (slot: number, id: string) => void
 }) {
   const [dropTarget, setDropTarget] = useState<number | null>(null)
-  const canDrop = ready && draggedAugmentId === augmentId && Boolean(augmentId)
   return (
     <div className="wb-sockets" aria-label={socketText().tab}>
       {Array.from({ length: item.augmentSockets ?? 0 }, (_, slot) => {
         const installed = item.installedAugments?.find(
           (a) => a.slotIndex === slot,
         )
+        const slotReady = ready && canInstallAugment(item, augmentId, slot)
+        const canDrop =
+          slotReady && draggedAugmentId === augmentId && Boolean(augmentId)
         return (
           <button
             key={slot}
             type="button"
-            className={`wb-socket ${installed ? 'is-filled' : ''} ${ready ? 'is-available' : ''} ${canDrop && dropTarget === slot ? 'is-drop-target' : ''}`}
-            disabled={!ready}
+            className={`wb-socket ${installed ? 'is-filled' : ''} ${slotReady ? 'is-available' : ''} ${canDrop && dropTarget === slot ? 'is-drop-target' : ''}`}
+            disabled={!slotReady}
             title={
               socketText().policy +
               ' ' +
@@ -47,7 +50,7 @@ export function SocketAugmentSlots({
             }
             aria-label={`${socketText().socket} ${slot + 1}: ${installed ? augmentName(installed.augmentId) : socketText().empty}`}
             onClick={() => {
-              if (ready && augmentId) onInstall(slot, augmentId)
+              if (slotReady && augmentId) onInstall(slot, augmentId)
             }}
             onDragOver={(event) => {
               if (!canDrop || !event.dataTransfer.types.includes(stashDragType))

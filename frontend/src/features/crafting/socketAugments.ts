@@ -10,6 +10,10 @@ type Entry = {
   effects: Record<string, Record<string, string>>
   image: string
   selectionEnabled: boolean
+  kind: string
+  properties: Record<string, string[]>
+  limit?: { count: number; group: string }
+  legacyLimitExempt?: boolean
 }
 export const augments: readonly Entry[] = data
 export const selectableAugments = augments.filter((a) => a.selectionEnabled)
@@ -30,15 +34,47 @@ export function augmentEffect(id: string, base: string): string | undefined {
   const effects = a?.effects[basePolicy(base)?.itemClass ?? '']
   return effects?.[getLocale()] ?? effects?.en
 }
-export function canInstallAugment(state: ConcreteItem, id?: string): boolean {
-  return Boolean(
-    id &&
+export function withinAugmentLimit(
+  installed: NonNullable<ConcreteItem['installedAugments']>,
+  id: string,
+): boolean {
+  const limit = augments.find((a) => a.id === id)?.limit
+  return (
+    !limit ||
+    installed.filter(
+      (a) =>
+        augments.find((entry) => entry.id === a.augmentId)?.limit?.group ===
+        limit.group,
+    ).length <= limit.count
+  )
+}
+export function canInstallAugment(
+  state: ConcreteItem,
+  id?: string,
+  slot?: number,
+): boolean {
+  if (!id) return false
+  if (slot == null)
+    return Array.from(
+      { length: state.augmentSockets ?? 0 },
+      (_, index) => index,
+    ).some((index) => canInstallAugment(state, id, index))
+  return (
     isSelectableAugment(id) &&
-    augmentEffect(id, state.baseItemId) &&
-    (state.augmentSockets ?? 0) > 0 &&
+    Boolean(augmentEffect(id, state.baseItemId)) &&
+    Number.isInteger(slot) &&
+    slot >= 0 &&
+    slot < (state.augmentSockets ?? 0) &&
     !state.conditions.length &&
     !state.observations &&
-    !state.desecrated?.length,
+    !state.desecrated?.length &&
+    withinAugmentLimit(
+      [
+        ...(state.installedAugments ?? []).filter((a) => a.slotIndex !== slot),
+        { slotIndex: slot, augmentId: id },
+      ],
+      id,
+    )
   )
 }
 export function augmentShape(item: Record<string, unknown>): boolean {
@@ -49,7 +85,7 @@ export function augmentShape(item: Record<string, unknown>): boolean {
   )
     return false
   const slots = new Set<number>()
-  return item.installedAugments.every((a) => {
+  const valid = item.installedAugments.every((a) => {
     if (
       !a ||
       typeof a !== 'object' ||
@@ -67,6 +103,19 @@ export function augmentShape(item: Record<string, unknown>): boolean {
     slots.add(a.slotIndex)
     return true
   })
+  return (
+    valid &&
+    item.installedAugments.every(
+      (a) =>
+        augments.find((entry) => entry.id === a.augmentId)?.legacyLimitExempt ||
+        withinAugmentLimit(
+          item.installedAugments as NonNullable<
+            ConcreteItem['installedAugments']
+          >,
+          a.augmentId,
+        ),
+    )
+  )
 }
 export async function installAugment(
   state: ConcreteItem,
@@ -75,12 +124,7 @@ export async function installAugment(
   identity: string,
   signal: AbortSignal,
 ): Promise<AppliedItem> {
-  if (
-    !canInstallAugment(state, id) ||
-    state.augmentSockets == null ||
-    slot < 0 ||
-    slot >= state.augmentSockets
-  )
+  if (!canInstallAugment(state, id, slot))
     throw new Error(socketText().unsupported)
   const response = await fetch('/api/v1/crafting/workbench/augments/install', {
     method: 'POST',

@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.HashSet;
 import java.util.List;
 
-/** Reviewed ordinary socket effects; Bonded and special socket-changing resources are excluded. */
+/** Reviewed ordinary socket effects; special state-changing resources are deferred. */
 public final class SocketAugments {
   private SocketAugments() {}
 
@@ -40,6 +40,30 @@ public final class SocketAugments {
           || !supports(base, entry.augmentId()))
         throw new IllegalArgumentException("Invalid or unsupported installed Augment");
     }
+    // Preserve original catalog saved states; new installations enforce source limits.
+    for (var entry : installed) {
+      if (!definition(entry.augmentId()).path("legacyLimitExempt").asBoolean(false))
+        validateLimit(installed, entry.augmentId());
+    }
+  }
+
+  private static JsonNode definition(String id) {
+    for (var entry : CATALOG) if (entry.path("id").asText().equals(id)) return entry;
+    throw new IllegalArgumentException("Unknown Augment");
+  }
+
+  /** Only this item's sockets are available; character-wide equipment is not modeled. */
+  private static void validateLimit(List<ItemState.InstalledAugment> installed, String id) {
+    var limit = definition(id).path("limit");
+    if (limit.isMissingNode()) return;
+    var group = limit.path("group").asText();
+    long count =
+        installed.stream()
+            .filter(
+                a -> group.equals(definition(a.augmentId()).path("limit").path("group").asText()))
+            .count();
+    if (count > limit.path("count").asInt())
+      throw new IllegalArgumentException("Augment installation exceeds this item's socketed limit");
   }
 
   public static boolean supports(String base, String id) {
@@ -71,6 +95,7 @@ public final class SocketAugments {
     next.removeIf(a -> a.slotIndex() == slot);
     next.add(new ItemState.InstalledAugment(slot, id));
     next.sort(java.util.Comparator.comparingInt(ItemState.InstalledAugment::slotIndex));
+    validateLimit(next, id);
     return state.withAugments(next);
   }
 }

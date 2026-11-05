@@ -35,7 +35,7 @@ describe('Material stash and shared favorites', () => {
     show()
     fireEvent.click(tab('Augments'))
     const list = within(document.getElementById('material-list')!)
-    expect(list.getAllByRole('button')).toHaveLength(34)
+    expect(list.getAllByRole('button')).toHaveLength(232)
     for (const name of [
       'Lesser Desert Rune',
       'Desert Rune',
@@ -439,7 +439,7 @@ describe('Material stash and shared favorites', () => {
         ),
       ).not.toBeInTheDocument()
     }
-    expect(materials).toHaveLength(259)
+    expect(materials).toHaveLength(457)
     expect(new Set(materials.map((item) => item.id)).size).toBe(
       materials.length,
     )

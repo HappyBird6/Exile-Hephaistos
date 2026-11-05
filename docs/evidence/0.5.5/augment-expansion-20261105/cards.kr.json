@@ -1,0 +1,5518 @@
+[
+  {
+    "id": "Desert_Rune",
+    "name": "사막 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "무도 무기: 화염 피해 7~11 추가",
+      "마법봉 또는 지팡이: 피해의 8%를 추가 화염 피해로 획득",
+      "방어구: 화염 저항 +14%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 점화 강도 30% 증가",
+      "마법봉 또는 지팡이: 점화 강도 30% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRune.webp"
+  },
+  {
+    "id": "Glacial_Rune",
+    "name": "빙하 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "무도 무기: 냉기 피해 6~10 추가",
+      "마법봉 또는 지팡이: 피해의 8%를 추가 냉기 피해로 획득",
+      "방어구: 냉기 저항 +14%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 동결 축적 30% 증가",
+      "마법봉 또는 지팡이: 동결 축적 30% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ColdRune.webp"
+  },
+  {
+    "id": "Storm_Rune",
+    "name": "폭풍 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "무도 무기: 번개 피해 1~20 추가",
+      "마법봉 또는 지팡이: 피해의 8%를 추가 번개 피해로 획득",
+      "방어구: 번개 저항 +14%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 플레이어가 유발하는 감전의 강도 30% 증가",
+      "마법봉 또는 지팡이: 플레이어가 유발하는 감전의 강도 30% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRune.webp"
+  },
+  {
+    "id": "Iron_Rune",
+    "name": "철 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "무도 무기: 물리 피해 16% 증가",
+      "마법봉 또는 지팡이: 주문 피해 25% 증가",
+      "방어구: 방어도, 회피, 에너지 보호막 16% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 완전히 파괴된 방어구의 효과 20% 증가",
+      "마법봉 또는 지팡이: 주문 치명타 명중 시 준 물리 피해의 12%와 동일한 방어구 파괴",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/EnhanceRune.webp"
+  },
+  {
+    "id": "Body_Rune",
+    "name": "육신 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "무도 무기: 물리 공격 피해의 4%를 생명력으로 흡수",
+      "마법봉 또는 지팡이: 에너지 보호막 최대치 +40",
+      "방어구: 생명력 최대치 +45"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 최대 생명력 5% 증가",
+      "마법봉 또는 지팡이: 최대 생명력 5% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRune.webp"
+  },
+  {
+    "id": "Mind_Rune",
+    "name": "정신 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "무도 무기: 물리 공격 피해의 3%를 마나로 흡수",
+      "마법봉 또는 지팡이: 마나 최대치 +60",
+      "방어구: 마나 최대치 +30"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 최대 마나 5% 증가",
+      "마법봉 또는 지팡이: 최대 마나 5% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRune.webp"
+  },
+  {
+    "id": "Rebirth_Rune",
+    "name": "부활 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "무도 무기: 처치한 적 하나당 생명력 25 획득",
+      "마법봉 또는 지팡이: 에너지 보호막 재충전 속도 8% 증가",
+      "방어구: 1초마다 생명력의 0.4% 재생"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 1초마다 생명력의 0.4% 재생",
+      "마법봉 또는 지팡이: 받은 피해의 8%를 생명력으로 회생",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRecoveryRune.webp"
+  },
+  {
+    "id": "Inspiration_Rune",
+    "name": "영감 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "무도 무기: 처치한 적 하나당 마나 20 획득",
+      "마법봉 또는 지팡이: 마나 재생 속도 25% 증가",
+      "방어구: 마나 재생 속도 15% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 스킬의 마나 소모의 12%가 생명력 소모로 전환",
+      "마법봉 또는 지팡이: 마나 소모 효율 16% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRecoveryRune.webp"
+  },
+  {
+    "id": "Stone_Rune",
+    "name": "돌 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "무도 무기: 유발하는 기절 축적 30% 증가",
+      "마법봉 또는 지팡이: 최대 에너지 보호막의 12%와 동일한 추가 기절 한계치 획득",
+      "방어구: 기절 한계치 +75"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 이동 불가 상태의 적에게 주는 피해 40% 증가",
+      "마법봉 또는 지팡이: 이동 불가 축적 30% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StunRune.webp"
+  },
+  {
+    "id": "Vision_Rune",
+    "name": "환영 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "무도 무기: 정확도 +90",
+      "마법봉 또는 지팡이: 주문 치명타 명중 확률 20% 증가",
+      "방어구: 플라스크로 얻는 생명력과 마나 회복 12% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 공격의 치명타 명중 확률 +1%",
+      "마법봉 또는 지팡이: 치명타 피해 보너스 25% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/AccuracyRune.webp"
+  },
+  {
+    "id": "Lesser_Desert_Rune",
+    "name": "하위 사막 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 화염 피해 4~6 추가",
+      "마법봉 또는 지팡이: 피해의 6%를 추가 화염 피해로 획득",
+      "방어구: 화염 저항 +10%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 점화 강도 30% 증가",
+      "마법봉 또는 지팡이: 점화 강도 30% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Glacial_Rune",
+    "name": "하위 빙하 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 냉기 피해 3~5 추가",
+      "마법봉 또는 지팡이: 피해의 6%를 추가 냉기 피해로 획득",
+      "방어구: 냉기 저항 +10%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 동결 축적 30% 증가",
+      "마법봉 또는 지팡이: 동결 축적 30% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ColdRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Storm_Rune",
+    "name": "하위 폭풍 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 번개 피해 1~10 추가",
+      "마법봉 또는 지팡이: 피해의 6%를 추가 번개 피해로 획득",
+      "방어구: 번개 저항 +10%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 플레이어가 유발하는 감전의 강도 30% 증가",
+      "마법봉 또는 지팡이: 플레이어가 유발하는 감전의 강도 30% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Iron_Rune",
+    "name": "하위 철 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 물리 피해 14% 증가",
+      "마법봉 또는 지팡이: 주문 피해 20% 증가",
+      "방어구: 방어도, 회피, 에너지 보호막 14% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 완전히 파괴된 방어구의 효과 20% 증가",
+      "마법봉 또는 지팡이: 주문 치명타 명중 시 준 물리 피해의 12%와 동일한 방어구 파괴",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/EnhanceRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Body_Rune",
+    "name": "하위 육신 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 물리 공격 피해의 3%를 생명력으로 흡수",
+      "마법봉 또는 지팡이: 에너지 보호막 최대치 +30",
+      "방어구: 생명력 최대치 +30"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 최대 생명력 5% 증가",
+      "마법봉 또는 지팡이: 최대 생명력 5% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Mind_Rune",
+    "name": "하위 정신 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 물리 공격 피해의 2%를 마나로 흡수",
+      "마법봉 또는 지팡이: 마나 최대치 +45",
+      "방어구: 마나 최대치 +20"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 최대 마나 5% 증가",
+      "마법봉 또는 지팡이: 최대 마나 5% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Rebirth_Rune",
+    "name": "하위 부활 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 처치한 적 하나당 생명력 15 획득",
+      "마법봉 또는 지팡이: 에너지 보호막 재충전 속도 6% 증가",
+      "방어구: 1초마다 생명력의 0.35% 재생"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 1초마다 생명력의 0.4% 재생",
+      "마법봉 또는 지팡이: 받은 피해의 8%를 생명력으로 회생",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRecoveryRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Inspiration_Rune",
+    "name": "하위 영감 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 처치한 적 하나당 마나 10 획득",
+      "마법봉 또는 지팡이: 마나 재생 속도 20% 증가",
+      "방어구: 마나 재생 속도 12% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 스킬의 마나 소모의 12%가 생명력 소모로 전환",
+      "마법봉 또는 지팡이: 마나 소모 효율 16% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRecoveryRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Stone_Rune",
+    "name": "하위 돌 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 유발하는 기절 축적 20% 증가",
+      "마법봉 또는 지팡이: 최대 에너지 보호막의 10%와 동일한 추가 기절 한계치 획득",
+      "방어구: 기절 한계치 +50"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 이동 불가 상태의 적에게 주는 피해 40% 증가",
+      "마법봉 또는 지팡이: 이동 불가 축적 30% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StunRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Vision_Rune",
+    "name": "하위 환영 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 정확도 +60",
+      "마법봉 또는 지팡이: 주문 치명타 명중 확률 16% 증가",
+      "방어구: 플라스크로 얻는 생명력과 마나 회복 8% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 공격의 치명타 명중 확률 +1%",
+      "마법봉 또는 지팡이: 치명타 피해 보너스 25% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/AccuracyRuneTier1.webp"
+  },
+  {
+    "id": "Greater_Desert_Rune",
+    "name": "상위 사막 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "무도 무기: 화염 피해 13~16 추가",
+      "마법봉 또는 지팡이: 피해의 10%를 추가 화염 피해로 획득",
+      "방어구: 화염 저항 +18%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 점화 강도 30% 증가",
+      "마법봉 또는 지팡이: 점화 강도 30% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Glacial_Rune",
+    "name": "상위 빙하 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "무도 무기: 냉기 피해 9~15 추가",
+      "마법봉 또는 지팡이: 피해의 10%를 추가 냉기 피해로 획득",
+      "방어구: 냉기 저항 +18%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 동결 축적 30% 증가",
+      "마법봉 또는 지팡이: 동결 축적 30% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ColdRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Storm_Rune",
+    "name": "상위 폭풍 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "무도 무기: 번개 피해 1~30 추가",
+      "마법봉 또는 지팡이: 피해의 10%를 추가 번개 피해로 획득",
+      "방어구: 번개 저항 +18%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 플레이어가 유발하는 감전의 강도 30% 증가",
+      "마법봉 또는 지팡이: 플레이어가 유발하는 감전의 강도 30% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Iron_Rune",
+    "name": "상위 철 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "무도 무기: 물리 피해 18% 증가",
+      "마법봉 또는 지팡이: 주문 피해 30% 증가",
+      "방어구: 방어도, 회피, 에너지 보호막 18% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 완전히 파괴된 방어구의 효과 20% 증가",
+      "마법봉 또는 지팡이: 주문 치명타 명중 시 준 물리 피해의 12%와 동일한 방어구 파괴",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/EnhanceRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Body_Rune",
+    "name": "상위 육신 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "무도 무기: 물리 공격 피해의 5%를 생명력으로 흡수",
+      "마법봉 또는 지팡이: 에너지 보호막 최대치 +50",
+      "방어구: 생명력 최대치 +60"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 최대 생명력 5% 증가",
+      "마법봉 또는 지팡이: 최대 생명력 5% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Mind_Rune",
+    "name": "상위 정신 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "무도 무기: 물리 공격 피해의 4%를 마나로 흡수",
+      "마법봉 또는 지팡이: 마나 최대치 +75",
+      "방어구: 마나 최대치 +40"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 최대 마나 5% 증가",
+      "마법봉 또는 지팡이: 최대 마나 5% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Rebirth_Rune",
+    "name": "상위 부활 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "무도 무기: 처치한 적 하나당 생명력 35 획득",
+      "마법봉 또는 지팡이: 에너지 보호막 재충전 속도 10% 증가",
+      "방어구: 1초마다 생명력의 0.45% 재생"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 1초마다 생명력의 0.4% 재생",
+      "마법봉 또는 지팡이: 받은 피해의 8%를 생명력으로 회생",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRecoveryRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Inspiration_Rune",
+    "name": "상위 영감 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "무도 무기: 처치한 적 하나당 마나 30 획득",
+      "마법봉 또는 지팡이: 마나 재생 속도 30% 증가",
+      "방어구: 마나 재생 속도 18% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 스킬의 마나 소모의 12%가 생명력 소모로 전환",
+      "마법봉 또는 지팡이: 마나 소모 효율 16% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRecoveryRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Stone_Rune",
+    "name": "상위 돌 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "무도 무기: 유발하는 기절 축적 40% 증가",
+      "마법봉 또는 지팡이: 최대 에너지 보호막의 14%와 동일한 추가 기절 한계치 획득",
+      "방어구: 기절 한계치 +100"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 이동 불가 상태의 적에게 주는 피해 40% 증가",
+      "마법봉 또는 지팡이: 이동 불가 축적 30% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StunRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Vision_Rune",
+    "name": "상위 환영 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "무도 무기: 정확도 +120",
+      "마법봉 또는 지팡이: 주문 치명타 명중 확률 24% 증가",
+      "방어구: 플라스크로 얻는 생명력과 마나 회복 16% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 공격의 치명타 명중 확률 +1%",
+      "마법봉 또는 지팡이: 치명타 피해 보너스 25% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/AccuracyRuneTier2.webp"
+  },
+  {
+    "id": "Perfect_Desert_Rune",
+    "name": "완벽한 사막 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 화염 피해 17~20 추가",
+      "마법봉 또는 지팡이: 피해의 12%를 추가 화염 피해로 획득",
+      "방어구: 화염 저항 +22%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 점화 강도 30% 증가",
+      "마법봉 또는 지팡이: 점화 강도 30% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneFire.webp"
+  },
+  {
+    "id": "Perfect_Glacial_Rune",
+    "name": "완벽한 빙하 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 냉기 피해 16~20 추가",
+      "마법봉 또는 지팡이: 피해의 12%를 추가 냉기 피해로 획득",
+      "방어구: 냉기 저항 +22%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 동결 축적 30% 증가",
+      "마법봉 또는 지팡이: 동결 축적 30% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneCold.webp"
+  },
+  {
+    "id": "Perfect_Storm_Rune",
+    "name": "완벽한 폭풍 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 번개 피해 1~40 추가",
+      "마법봉 또는 지팡이: 피해의 12%를 추가 번개 피해로 획득",
+      "방어구: 번개 저항 +22%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 플레이어가 유발하는 감전의 강도 30% 증가",
+      "마법봉 또는 지팡이: 플레이어가 유발하는 감전의 강도 30% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneLightning.webp"
+  },
+  {
+    "id": "Perfect_Iron_Rune",
+    "name": "완벽한 철 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 물리 피해 20% 증가",
+      "마법봉 또는 지팡이: 주문 피해 35% 증가",
+      "방어구: 방어도, 회피, 에너지 보호막 20% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 완전히 파괴된 방어구의 효과 20% 증가",
+      "마법봉 또는 지팡이: 주문 치명타 명중 시 준 물리 피해의 12%와 동일한 방어구 파괴",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneEnhance.webp"
+  },
+  {
+    "id": "Perfect_Body_Rune",
+    "name": "완벽한 육신 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 물리 공격 피해의 6%를 생명력으로 흡수",
+      "마법봉 또는 지팡이: 에너지 보호막 최대치 +60",
+      "방어구: 생명력 최대치 +75"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 최대 생명력 5% 증가",
+      "마법봉 또는 지팡이: 최대 생명력 5% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneLife.webp"
+  },
+  {
+    "id": "Perfect_Mind_Rune",
+    "name": "완벽한 정신 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 물리 공격 피해의 5%를 마나로 흡수",
+      "마법봉 또는 지팡이: 마나 최대치 +90",
+      "방어구: 마나 최대치 +50"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 최대 마나 5% 증가",
+      "마법봉 또는 지팡이: 최대 마나 5% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneMana.webp"
+  },
+  {
+    "id": "Perfect_Rebirth_Rune",
+    "name": "완벽한 부활 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 처치한 적 하나당 생명력 45 획득",
+      "마법봉 또는 지팡이: 에너지 보호막 재충전 속도 12% 증가",
+      "방어구: 1초마다 생명력의 0.5% 재생"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 1초마다 생명력의 0.4% 재생",
+      "마법봉 또는 지팡이: 받은 피해의 8%를 생명력으로 회생",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneLifeRecovery.webp"
+  },
+  {
+    "id": "Perfect_Inspiration_Rune",
+    "name": "완벽한 영감 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 처치한 적 하나당 마나 40 획득",
+      "마법봉 또는 지팡이: 마나 재생 속도 35% 증가",
+      "방어구: 마나 재생 속도 21% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 스킬의 마나 소모의 12%가 생명력 소모로 전환",
+      "마법봉 또는 지팡이: 마나 소모 효율 16% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneManaRecovery.webp"
+  },
+  {
+    "id": "Perfect_Stone_Rune",
+    "name": "완벽한 돌 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 유발하는 기절 축적 50% 증가",
+      "마법봉 또는 지팡이: 최대 에너지 보호막의 16%와 동일한 추가 기절 한계치 획득",
+      "방어구: 기절 한계치 +125"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 이동 불가 상태의 적에게 주는 피해 40% 증가",
+      "마법봉 또는 지팡이: 이동 불가 축적 30% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneStun.webp"
+  },
+  {
+    "id": "Perfect_Vision_Rune",
+    "name": "완벽한 환영 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 정확도 +150",
+      "마법봉 또는 지팡이: 주문 치명타 명중 확률 28% 증가",
+      "방어구: 플라스크로 얻는 생명력과 마나 회복 20% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 공격의 치명타 명중 확률 +1%",
+      "마법봉 또는 지팡이: 치명타 피해 보너스 25% 증가",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneAccuracy.webp"
+  },
+  {
+    "id": "Lesser_Robust_Rune",
+    "name": "하위 왕성 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "모든 장비: 힘 +6"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 공격 시 물리 피해 6~10 추가, 공격 시 화염 피해 6~10 추가",
+      "마법봉 또는 지팡이: 방어도 +100",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StrengthRuneTier1.webp"
+  },
+  {
+    "id": "Robust_Rune",
+    "name": "왕성한 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "모든 장비: 힘 +9"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 공격 시 물리 피해 6~10 추가, 공격 시 화염 피해 6~10 추가",
+      "마법봉 또는 지팡이: 방어도 +100",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StrengthRune.webp"
+  },
+  {
+    "id": "Greater_Robust_Rune",
+    "name": "상위 왕성 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "모든 장비: 힘 +12"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 공격 시 물리 피해 6~10 추가, 공격 시 화염 피해 6~10 추가",
+      "마법봉 또는 지팡이: 방어도 +100",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StrengthRuneTier3.webp"
+  },
+  {
+    "id": "Perfect_Robust_Rune",
+    "name": "완벽한 왕성한 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "모든 장비: 힘 +15"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 공격 시 물리 피해 6~10 추가, 공격 시 화염 피해 6~10 추가",
+      "마법봉 또는 지팡이: 방어도 +100",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneStrength.webp"
+  },
+  {
+    "id": "Lesser_Adept_Rune",
+    "name": "하위 숙달 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "모든 장비: 민첩 +6"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 공격 시 물리 피해 6~10 추가, 공격 시 번개 피해 1~16 추가",
+      "마법봉 또는 지팡이: 회피 +80",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/DexRuneTier1.webp"
+  },
+  {
+    "id": "Adept_Rune",
+    "name": "숙달 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "모든 장비: 민첩 +9"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 공격 시 물리 피해 6~10 추가, 공격 시 번개 피해 1~16 추가",
+      "마법봉 또는 지팡이: 회피 +80",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/DexRune.webp"
+  },
+  {
+    "id": "Greater_Adept_Rune",
+    "name": "상위 숙달 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "모든 장비: 민첩 +12"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 공격 시 물리 피해 6~10 추가, 공격 시 번개 피해 1~16 추가",
+      "마법봉 또는 지팡이: 회피 +80",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/DexRuneTier3.webp"
+  },
+  {
+    "id": "Perfect_Adept_Rune",
+    "name": "완벽한 숙달 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "모든 장비: 민첩 +15"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 공격 시 물리 피해 6~10 추가, 공격 시 번개 피해 1~16 추가",
+      "마법봉 또는 지팡이: 회피 +80",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneDexterity.webp"
+  },
+  {
+    "id": "Lesser_Resolve_Rune",
+    "name": "하위 투지 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "모든 장비: 지능 +6"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 공격 시 물리 피해 6~10 추가, 공격 시 냉기 피해 5~8 추가",
+      "마법봉 또는 지팡이: 에너지 보호막 최대치 +50",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/IntRuneTier1.webp"
+  },
+  {
+    "id": "Resolve_Rune",
+    "name": "투지 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "모든 장비: 지능 +9"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 공격 시 물리 피해 6~10 추가, 공격 시 냉기 피해 5~8 추가",
+      "마법봉 또는 지팡이: 에너지 보호막 최대치 +50",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/IntRune.webp"
+  },
+  {
+    "id": "Greater_Resolve_Rune",
+    "name": "상위 투지 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "모든 장비: 지능 +12"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 공격 시 물리 피해 6~10 추가, 공격 시 냉기 피해 5~8 추가",
+      "마법봉 또는 지팡이: 에너지 보호막 최대치 +50",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/IntRuneTier3.webp"
+  },
+  {
+    "id": "Perfect_Resolve_Rune",
+    "name": "완벽한 투지 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "모든 장비: 지능 +15"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 공격 시 물리 피해 6~10 추가, 공격 시 냉기 피해 5~8 추가",
+      "마법봉 또는 지팡이: 에너지 보호막 최대치 +50",
+      "방어구: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneIntelligence.webp"
+  },
+  {
+    "id": "Lesser_Tempered_Rune",
+    "name": "하위 단조 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 물리 피해 3~4 추가",
+      "방어구: 6~9 물리 가시 피해"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PhyDmgRuneTier1.webp"
+  },
+  {
+    "id": "Tempered_Rune",
+    "name": "단조 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "무도 무기: 물리 피해 6~9 추가",
+      "방어구: 14~21 물리 가시 피해"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PhyDmgRune.webp"
+  },
+  {
+    "id": "Greater_Tempered_Rune",
+    "name": "상위 단조 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "무도 무기: 물리 피해 9~12 추가",
+      "방어구: 31~52 물리 가시 피해"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PhyDmgRuneTier3.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Leadership",
+    "name": "통솔의 상위 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 소환수가 자신의 물리 피해의 10%를 추가 번개 피해로 획득",
+      "방어구: 소환수가 물리 피해의 10%를 번개 피해로 받음"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 소환수가 주는 피해 20% 증가",
+      "방어구: 소환수 모든 원소 저항 +10%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial1.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Tithing",
+    "name": "십일조의 상위 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 메타 스킬의 에너지 획득 10% 증가",
+      "방어구: 1~100 번개 가시 피해"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 기원 주문이 25% 확률로 절반의 에너지 소모",
+      "방어구: 가시 피해 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial2.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Alacrity",
+    "name": "기민성의 상위 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 스킬 속도 8% 증가",
+      "방어구: 플레이어에게 적용되는 디버프가 8% 더 빠르게 만료됨"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 전령 스킬의 점유 효율 15% 증가",
+      "방어구: 원소 상태 이상 한계치 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial3.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Nobility",
+    "name": "고결성의 상위 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 이 무기로 공격 시 10%의 확률로 노출 유발",
+      "방어구: 플레이어에게 적용되는 감전 효과 10% 감소"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 노출 효과 20% 증가",
+      "방어구: 플레이어에게 적용되는 감전 지속시간 10% 감소"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial4.webp"
+  },
+  {
+    "id": "Hedgewitch_Assandras_Rune_of_Wisdom",
+    "name": "산울마녀 아산드라의 지혜의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "마법봉 또는 지팡이: 모든 주문 스킬 레벨 +1"
+    ],
+    "bonded": [
+      "결속됨:",
+      "마법봉 또는 지팡이: 집정관 회복 시간이 30% 빠르게 만료"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune1.webp"
+  },
+  {
+    "id": "Saqawals_Rune_of_the_Sky",
+    "name": "사카왈의 하늘의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 피해의 5%를 모든 원소의 추가 피해로 획득",
+      "마법봉 또는 지팡이: 피해의 5%를 모든 원소의 추가 피해로 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 충전 획득 시 8% 확률로 추가 무작위 충전 획득",
+      "마법봉 또는 지팡이: 원소 주입 획득 시 12% 확률로\n같은 유형의 원소 주입 1개를 추가로 획득"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune2.webp"
+  },
+  {
+    "id": "Fenumus_Rune_of_Agony",
+    "name": "페누무스의 괴로움의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 피해의 13%를 추가 카오스 피해로 획득",
+      "마법봉 또는 지팡이: 피해의 13%를 추가 카오스 피해로 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 피해의 8%를 추가 물리 피해로 획득",
+      "마법봉 또는 지팡이: 피해의 8%를 추가 물리 피해로 획득"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune3.webp"
+  },
+  {
+    "id": "Farruls_Rune_of_Grace",
+    "name": "페룰의 은총의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "장화: 이동 중 튕겨내기 평점 8% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장화: 튕겨낸 명중의 피해 중 방지하는 피해 +3%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune4.webp"
+  },
+  {
+    "id": "Farruls_Rune_of_the_Chase",
+    "name": "페룰의 추격의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "장화: 이동 속도 5% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장화: 재사용 대기시간 회복 속도 10% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune5.webp"
+  },
+  {
+    "id": "Craiceanns_Rune_of_Warding",
+    "name": "크라칸의 수호의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "갑옷: 플레이어에게 적용되는 저주 효과 50% 감소"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 저주 강도 8% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune6.webp"
+  },
+  {
+    "id": "Saqawals_Rune_of_Memory",
+    "name": "사카왈의 기억의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "투구: 경험치 획득 2% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 모든 원소 저항 +10%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune7.webp"
+  },
+  {
+    "id": "Saqawals_Rune_of_Erosion",
+    "name": "사카왈의 침식의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "투구: 노출 효과 25% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 플레이어가 유발하는 비-피해 상태 이상의 강도 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune8.webp"
+  },
+  {
+    "id": "Farruls_Rune_of_the_Hunt",
+    "name": "페룰의 사냥의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 희귀 또는 고유 적에게 주는 공격 피해 50% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 모든 공격 스킬 레벨 +1"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune9.webp"
+  },
+  {
+    "id": "Craiceanns_Rune_of_Recovery",
+    "name": "크라칸의 회복의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "갑옷: 에너지 보호막 재충전 속도 30% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 최대 에너지 보호막의 50%와 동일한 추가 상태 이상 한계치 획득, 최대 에너지 보호막의 50%와 동일한 추가 기절 한계치 획득"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune10.webp"
+  },
+  {
+    "id": "Courtesan_Mannans_Rune_of_Cruelty",
+    "name": "매춘부 마난의 잔혹의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "장갑: 플레이어가 유발하는 피해를 주는 상태 이상의 강도 20% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 적에게 적용되는 피해를 주는 상태 이상의 지속시간 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune11.webp"
+  },
+  {
+    "id": "Thane_Grannells_Rune_of_Mastery",
+    "name": "테인 그라넬의 숙련의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "장갑: 플레이어가 유발하는 비-피해 상태 이상의 강도 30% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 적에게 적용되는 원소 상태 이상 지속시간 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune12.webp"
+  },
+  {
+    "id": "Fenumus_Rune_of_Spinning",
+    "name": "페누무스의 회전의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "장갑: 시전 속도 8% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 낮은 마나 상태일 때 마나 소모 효율 20% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune13.webp"
+  },
+  {
+    "id": "Countess_Seskes_Rune_of_Archery",
+    "name": "세스케 백작 부인의 궁술의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "활: 활 공격 시 화살 1개 추가 발사"
+    ],
+    "bonded": [
+      "결속됨:",
+      "활: 투사체 속도 20% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune14.webp"
+  },
+  {
+    "id": "Thane_Girts_Rune_of_Wildness",
+    "name": "테인 거트의 야생의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "마법봉 또는 지팡이: 주문 스킬이 25%의 확률로 투사체 2개 추가 발사"
+    ],
+    "bonded": [
+      "결속됨:",
+      "마법봉 또는 지팡이: 격노마다 주문 피해도 1% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune15.webp"
+  },
+  {
+    "id": "Fenumus_Rune_of_Draining",
+    "name": "페누무스의 고갈의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "장갑: 위축 강도 20% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 카오스 저항 +7%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune16.webp"
+  },
+  {
+    "id": "Thane_Myrks_Rune_of_Summer",
+    "name": "테인 머크의 여름의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 점화된 적 공격에 대한 화염 피해 23~34 추가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 화염 저항 최대치 +2%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune17.webp"
+  },
+  {
+    "id": "Lady_Hestras_Rune_of_Winter",
+    "name": "헤스트라 부인의 겨울의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 냉각된 적에게 냉기 피해 19~28 추가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 냉기 저항 최대치 +2%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune18.webp"
+  },
+  {
+    "id": "Thane_Lelds_Rune_of_Spring",
+    "name": "테인 렐드의 봄의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 감전된 적에게 번개 피해 1~60 추가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 번개 저항 최대치 +2%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune19.webp"
+  },
+  {
+    "id": "The_Greatwolfs_Rune_of_Claws",
+    "name": "위대한 늑대의 발톱의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "장갑: 공격 시 물리 피해 5~12 추가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 균열 스킬의 제한 +2"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune20.webp"
+  },
+  {
+    "id": "The_Greatwolfs_Rune_of_Willpower",
+    "name": "위대한 늑대의 의지의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "갑옷: 받는 피해의 15%를 생명력 대신 마나로 소모"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 최대 생명력의 8%를 에너지 보호막으로 전환"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune21.webp"
+  },
+  {
+    "id": "Masterwork_Rune",
+    "name": "일품 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "모든 장비: 장착된 룬 업그레이드"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/UpgradeRune.webp"
+  },
+  {
+    "id": "Idol_of_Sirrius",
+    "name": "시리우스의 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "장갑: 공격 속도 8% 증가",
+      "셉터: 접근해 있는 동료들의 이동 속도 8% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 디버프의 감속 효력 20% 감소",
+      "셉터: 이동 속도 4% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableWolfSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Thruldana",
+    "name": "스룰다나의 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 중독 지속시간 25% 감소, 대상이 동시에 영향을 받을 수 있는 플레이어의 중독 효과 개수 +1",
+      "셉터: 접근해 있는 동료들이 주는 카오스 공격 피해 13~27 추가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 물리 피해의 13%를 카오스 피해로 획득",
+      "셉터: 위축 강도 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableSnakeSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Grold",
+    "name": "그롤드의 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "장화: 함성이 적용된 총 위세 50% 증가",
+      "셉터: 접근해 있는 각기 다른 반려수 하나당 피해 15% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장화: 영광 재생 30% 증가",
+      "셉터: 반려수 스킬의 점유 효율 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableBearSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Eeshta",
+    "name": "이쉬타의 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "투구: 소모 효율 15% 증가",
+      "셉터: 반려수가 접근해 있는 동안 마나 회복 속도 15% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 메타 스킬의 점유 효율 15% 증가",
+      "셉터: 반려수가 접근해 있는 동안 생명력 회복 속도 8% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableOwlSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Egrin",
+    "name": "에그린의 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "투구: 저주를 건 적이 받는 피해 6% 증가",
+      "셉터: 저주 지속시간 20% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 저주의 효과 범위 20% 증가",
+      "셉터: 저주 지대가 폭발하기 전의 지연시간 20% 감소"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableCatSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Maxarius",
+    "name": "막사리우스의 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "갑옷: 호신부 슬롯 +1개",
+      "셉터: 플라스크가 1초마다 충전 0.2 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 스킬의 제한 +1",
+      "셉터: 플라스크로 얻는 생명력과 마나 회복 20% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableStagSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Ralakesh",
+    "name": "랄라케쉬의 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "투구: 소환수 스킬의 점유 효율 8% 증가",
+      "셉터: 반려수가 접근해 있는 동안 방어도, 회피, 에너지 보호막 40% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 소환수의 부활 속도 8% 가속",
+      "셉터: 반려수의 최대 생명력 25% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableMonkeySpecial.webp"
+  },
+  {
+    "id": "Idol_of_Greust",
+    "name": "그루스트의 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "방패: 방어도의 +25%가 원소 피해에도 적용",
+      "버클러: 회피의 20%와 동일한 튕겨내기 평점 획득",
+      "셉터: 죽은 보유 반려수의 각기 다른 유형 하나당 반려수가 주는 피해 10% 증폭"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방패: 적에게 걸린 원소 상태 이상 유형 하나당 피해 12% 증가",
+      "버클러: 적에게 걸린 원소 상태 이상 유형 하나당 피해 12% 증가",
+      "셉터: 플레이어의 소환수가 부활하면 플레이어가 최대 생명력의 3% 회복"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofGreust.webp"
+  },
+  {
+    "id": "Idol_of_Yeena",
+    "name": "이이나의 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "장화: 식물 스킬의 스킬 효과 지속시간 30% 증가",
+      "셉터: 식물이 처음으로 플레이어의 접근거리에 들어오면 25% 확률로 즉시 과성장"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장화: 식물이 처음으로 플레이어의 접근거리에 들어오면 25% 확률로 즉시 과성장",
+      "셉터: 식물 스킬의 스킬 효과 지속시간 30% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofYeena.webp"
+  },
+  {
+    "id": "Idol_of_Eramir",
+    "name": "에라미어의 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "갑옷: 스킬이 10% 확률로 충전을 제거하지 않고도 소모한 것으로 간주",
+      "셉터: 플레이어에게 접근해 있는 동료들이 플레이어와 충전 공유"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 호신부 사용 시 15% 확률로 충전을 소모하지 않음",
+      "셉터: 인내, 격분, 권능 충전 지속시간 25% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofEramir.webp"
+  },
+  {
+    "id": "Idol_of_Oak",
+    "name": "오크의 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "장화: 인내 충전 획득 시 15% 확률로 인내 충전 1개 추가 획득",
+      "셉터: 플레이어가 인내 충전을 획득할 상황에서, 플레이어에게 접근해 있는 동료들이 그 충전을 대신 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장화: 인내 충전 최대치 +1",
+      "셉터: 최근 4초 이내 인내 충전을 소모한 경우 방어도 40% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofOak.webp"
+  },
+  {
+    "id": "Idol_of_Alira",
+    "name": "알리라의 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "투구: 권능 충전 획득 시 15% 확률로 권능 충전 1개 추가 획득",
+      "셉터: 플레이어가 권능 충전을 획득할 상황에서, 플레이어에게 접근해 있는 동료들이 그 충전을 대신 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 권능 충전 최대치 +1",
+      "셉터: 최근 4초 이내 권능 충전을 소모한 경우 에너지 보호막 최대치 40% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdoloAlira.webp"
+  },
+  {
+    "id": "Idol_of_Kraityn",
+    "name": "크레이틴의 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "장갑: 격분 충전 획득 시 15% 확률로 격분 충전 1개 추가 획득",
+      "셉터: 플레이어가 격분 충전을 획득할 상황에서, 플레이어에게 접근해 있는 동료들이 그 충전을 대신 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 격분 충전 최대치 +1",
+      "셉터: 최근 4초 이내 격분 충전을 소모한 경우 회피 40% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdoloKraityn.webp"
+  },
+  {
+    "id": "Idol_of_Silk",
+    "name": "실크의 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "방패: 반려수가 접근해 있는 동안 막기 확률 15% 증가",
+      "버클러: companions gain onslaught when you parry [1]",
+      "셉터: 플레이어에게 접근해 있는 반려수가 명중 시 격노 1 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방패: 최대 막기 확률 +3%",
+      "버클러: 흘려보내기 범위 30% 증가",
+      "셉터: 반려수의 효과 범위 30% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofSilk.webp"
+  },
+  {
+    "id": "Idol_of_the_Sycophant",
+    "name": "아첨꾼의 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기, 마법봉 또는 지팡이: 모든 원소 저항 -20%, 피해의 20%를 무작위 원소 추가 피해로 획득",
+      "셉터: 플레이어에게 접근해 있는 반려수들의 모든 원소 저항 -20%, 플레이어에게 접근해 있는 반려수들이 피해의 20%를 무작위 원소 추가 피해로 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기, 마법봉 또는 지팡이: 카오스 저항 -20%, 피해의 20%를 추가 카오스 피해로 획득",
+      "셉터: 플레이어에게 접근해 있는 동료들이 피해의 20%를 추가 카오스 피해로 획득, 플레이어에게 접근해 있는 반려수들의 카오스 저항 -20%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/RitualCorruptedIdol1.webp"
+  },
+  {
+    "id": "Idol_of_the_Martyr",
+    "name": "순교자의 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기, 마법봉 또는 지팡이: 정신력 25% 감소, 메타 스킬의 에너지 획득 40% 증가",
+      "셉터: 접근 효과 범위 40% 감소, 오라 스킬의 강도 25% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기, 마법봉 또는 지팡이: 기원 스킬의 에너지 최대치 25% 증가, 메타 스킬의 점유 효율 25% 감소",
+      "셉터: 접근해 있는 동료들이 1초마다 플레이어의 최대 생명력의 3% 재생, 생명력 재생 속도 25% 감소"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/RitualCorruptedIdol2.webp"
+  },
+  {
+    "id": "Idol_of_the_Pharisee",
+    "name": "바리새인의 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기, 마법봉 또는 지팡이: 최대 마나 30% 감소, 잃은 마나 10%당 피해의 2%를 추가 물리 피해로 획득",
+      "셉터: 명령 스킬의 마나 소모 효율 30% 감소, 소환수가 명령 스킬로 주는 피해 60% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기, 마법봉 또는 지팡이: 마나 소모 효율 30% 감소, 낮은 마나 상태일 때 스킬 속도 12% 증가",
+      "셉터: 소환수 스킬의 점유 효율 25% 감소, 소환한 소환수의 일시적 소환수 스킬 제한 +2"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/RitualCorruptedIdol3.webp"
+  },
+  {
+    "id": "Panther_Idol",
+    "name": "흑표 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "갑옷: 방어도의 +10%가 카오스 피해에도 적용",
+      "셉터: 소환수의 카오스 저항 +20%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 카오스 저항 +8%",
+      "셉터: 소환수가 받는 물리 피해 20% 추가 감소"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketablePanther.webp"
+  },
+  {
+    "id": "Hawk_Idol",
+    "name": "매 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "갑옷: 튕겨내기 평점 10% 증가",
+      "셉터: 반려수의 공격 속도 12% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 냉기 저항 +12%",
+      "셉터: 접근해 있는 반려수의 공격 속도 8% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableHawk.webp"
+  },
+  {
+    "id": "Stoat_Idol",
+    "name": "담비 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "갑옷: 받는 피해의 5%가 에너지 보호막에 막히지 않음",
+      "셉터: 반려수의 최대 생명력 25% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 번개 저항 +12%",
+      "셉터: 반려수가 접근해 있는 동안 피해 25% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableStoat.webp"
+  },
+  {
+    "id": "Hayoxis_Soul_Core_of_Heatproofing",
+    "name": "하욕시의 내열의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "투구: 방어도의 +40%가 냉기 피해에도 적용"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreIce.webp"
+  },
+  {
+    "id": "Zalatls_Soul_Core_of_Insulation",
+    "name": "잘라틀의 절연의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "장화: 방어도의 +40%가 번개 피해에도 적용"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreLightning.webp"
+  },
+  {
+    "id": "Topotantes_Soul_Core_of_Dampening",
+    "name": "토포탄테의 완화의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "장갑: 방어도의 +40%가 화염 피해에도 적용"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreFire.webp"
+  },
+  {
+    "id": "Atmohuas_Soul_Core_of_Retreat",
+    "name": "앗모후아의 후퇴의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "갑옷: 장착한 집중구로 얻는 에너지 보호막 40% 증가",
+      "집중구: 장착한 갑옷으로 얻는 에너지 보호막 30% 증가"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreEnergyShield.webp"
+  },
+  {
+    "id": "Quipolatls_Soul_Core_of_Flow",
+    "name": "퀴폴라틀의 흐름의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "투구: 스킬 효과 지속시간 8% 증가, 재사용 대기시간 회복 속도 8% 증가"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreTimeCooldown.webp"
+  },
+  {
+    "id": "Tzamotos_Soul_Core_of_Ferocity",
+    "name": "자모토의 흉포함의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "투구: 격노 최대치 +4"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreRage.webp"
+  },
+  {
+    "id": "Uromotis_Soul_Core_of_Attenuation",
+    "name": "우로모티의 감쇠의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "장화: 저주 지속시간 20% 증가, 중독 지속시간 20% 증가"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreCurses2.webp"
+  },
+  {
+    "id": "Opilotis_Soul_Core_of_Assault",
+    "name": "오필로티의 맹공의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 격분 충전 획득 시 50% 확률로 격분 충전 1개 추가 획득",
+      "마법봉 또는 지팡이: 격분 충전 획득 시 50% 확률로 격분 충전 1개 추가 획득"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreFrenzyCharge.webp"
+  },
+  {
+    "id": "Guatelitzis_Soul_Core_of_Endurance",
+    "name": "과텔리치의 인내의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 인내 충전 획득 시 50% 확률로 인내 충전 1개 추가 획득",
+      "마법봉 또는 지팡이: 인내 충전 획득 시 50% 확률로 인내 충전 1개 추가 획득"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreEnduranceCharge.webp"
+  },
+  {
+    "id": "Xopecs_Soul_Core_of_Power",
+    "name": "조펙의 힘의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 권능 충전 획득 시 50% 확률로 권능 충전 1개 추가 획득",
+      "마법봉 또는 지팡이: 권능 충전 획득 시 50% 확률로 권능 충전 1개 추가 획득"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCorePowerCharge.webp"
+  },
+  {
+    "id": "Estazuntis_Soul_Core_of_Convalescence",
+    "name": "에스타준티의 요양의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "장화: 회생 효과의 속도 15% 증가",
+      "투구: 받은 피해의 10%를 생명력으로 회생"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreTimeSlow.webp"
+  },
+  {
+    "id": "Tacatis_Soul_Core_of_Affliction",
+    "name": "타카티의 수난의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "투구: 저주를 건 적의 카오스 저항 -5%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreChaos1.webp"
+  },
+  {
+    "id": "Cholotls_Soul_Core_of_War",
+    "name": "촐로틀의 전쟁의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "활: 투사체가 20%의 확률로 지형으로 인해 1회 추가 연쇄"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreProjectile.webp"
+  },
+  {
+    "id": "Citaqualotls_Soul_Core_of_Foulness",
+    "name": "시타콰로틀의 부정의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무도 무기: 카오스 피해 19~29 추가"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreChaos2.webp"
+  },
+  {
+    "id": "Xipocados_Soul_Core_of_Dominion",
+    "name": "지포카도의 지배의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "마법봉 또는 지팡이: 소환수가 명령 스킬로 주는 피해 40% 증가",
+      "셉터: 소환수가 명령 스킬로 주는 피해 40% 증가"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreMinion.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Automation",
+    "name": "지콰니의 자동화 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무기: 모든 토템 스킬 젬 레벨 +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreTotems.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Malediction",
+    "name": "지콰니의 악담 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무기: 모든 저주 스킬 레벨 +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreCurses.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Targeting",
+    "name": "지콰니의 대상 지정 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무기: 모든 징표 스킬 레벨 +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreMarks.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Rallying",
+    "name": "지콰니의 재집결 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무기: 모든 함성 스킬 젬 레벨 +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreWarcries.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Radiance",
+    "name": "지콰니의 광휘 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무기: 모든 전령 스킬 젬 레벨 +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreHeralds.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Severing",
+    "name": "지콰니의 단절 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무기: 모든 타격 스킬 젬 레벨 +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreStrikes.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Rippling",
+    "name": "지콰니의 물결 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무기: 모든 폭발 스킬 젬 레벨 +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreNovas.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Quaking",
+    "name": "지콰니의 진동 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무기: 모든 강타 스킬 젬 레벨 +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreSlams.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Munitions",
+    "name": "지콰니의 군수품 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무기: 모든 유탄 스킬 젬 레벨 +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreGrenades.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Snares",
+    "name": "지콰니의 올가미 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무기: 모든 위해 요소 스킬 젬 레벨 +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreHazards.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Abundance",
+    "name": "지콰니의 풍부 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무기: 모든 식물 스킬 젬 레벨 +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCorePlants.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Squalls",
+    "name": "지콰니의 돌풍 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무기: 모든 바람 스킬 젬 레벨 +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreWind.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Thundering",
+    "name": "지콰니의 천둥 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "무기: 모든 폭풍 스킬 젬 레벨 +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreStorms.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Devotion",
+    "name": "앗지리의 헌신 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "투구: 장착한 타락한 아이템 하나당 정신력 1% 증가, 타락시킬 시 항상 변화 발생"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialHelmet.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Vitality",
+    "name": "앗지리의 활력 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "갑옷: 장착한 타락 아이템 하나당 최대 생명력 1% 증가, 타락시킬 시 항상 변화 발생"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialBodyArmour.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Alacrity",
+    "name": "앗지리의 기민성 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "장갑: 장착한 타락한 아이템 하나당 스킬 속도 1% 증가, 타락시킬 시 항상 변화 발생"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialGloves.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Inoculation",
+    "name": "앗지리의 접종 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "장화: 장착한 타락한 아이템 하나당 카오스 저항 +2%, 타락시킬 시 항상 변화 발생"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialBoots.webp"
+  },
+  {
+    "id": "Soul_Core_of_Vizoma",
+    "name": "비조마의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "무도 무기: 정확도 +150",
+      "마법봉 또는 지팡이: 주문 치명타 명중 확률 30% 증가"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreVision.webp"
+  },
+  {
+    "id": "Soul_Core_of_Tacati",
+    "name": "타카티의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 플레이어가 유발하는 중독의 강도 25% 증가",
+      "방어구: 카오스 저항 +13%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreChaos.webp"
+  },
+  {
+    "id": "Soul_Core_of_Opiloti",
+    "name": "오필로티의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "무도 무기: 플레이어가 유발하는 출혈의 강도 40% 증가",
+      "투구: 고정 지속시간 25% 증가"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCorePhysical.webp"
+  },
+  {
+    "id": "Soul_Core_of_Jiquani",
+    "name": "지콰니의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "무도 무기: 처치 시 생명력의 5% 회복",
+      "갑옷: 최대 생명력 5% 증가"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreLife.webp"
+  },
+  {
+    "id": "Soul_Core_of_Zalatl",
+    "name": "잘라틀의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "무도 무기: 처치 시 마나의 4% 회복",
+      "투구: 최대 마나 5% 증가"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreMana.webp"
+  },
+  {
+    "id": "Soul_Core_of_Citaqualotl",
+    "name": "시타콰로틀의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 공격 스킬의 원소 피해 40% 증가",
+      "방어구: 모든 원소 저항 +6%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreElementalResist.webp"
+  },
+  {
+    "id": "Soul_Core_of_Puhuarte",
+    "name": "푸후알테의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "무도 무기: 점화 강도 40% 증가",
+      "장갑: 화염 저항 최대치 +2%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreFire.webp"
+  },
+  {
+    "id": "Soul_Core_of_Tzamoto",
+    "name": "자모토의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "무도 무기: 동결 축적 60% 증가",
+      "투구: 냉기 저항 최대치 +2%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreCold.webp"
+  },
+  {
+    "id": "Soul_Core_of_Xopec",
+    "name": "조펙의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "무도 무기: 플레이어가 유발하는 감전의 강도 25% 증가",
+      "장화: 번개 저항 최대치 +2%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreLightning.webp"
+  },
+  {
+    "id": "Soul_Core_of_Azcapa",
+    "name": "아즈카파의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 정신력 +15",
+      "장갑: 처치한 적이 떨어뜨리는 골드 수량 10% 증가"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreWealthRarity.webp"
+  },
+  {
+    "id": "Soul_Core_of_Topotante",
+    "name": "토포탄테의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "무도 무기: 이 무기로 공격 시 25%의 원소 저항 관통",
+      "장화: 플레이어에게 적용되는 비-피해 상태 이상 효과 25% 감소"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreTriElement.webp"
+  },
+  {
+    "id": "Soul_Core_of_Quipolatl",
+    "name": "퀴폴라틀의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 공격 속도 5% 증가",
+      "장화: 디버프의 감속 효력 15% 감소"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreSpeed.webp"
+  },
+  {
+    "id": "Soul_Core_of_Ticaba",
+    "name": "티카바의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "무도 무기: 치명타 피해 보너스 +5%",
+      "갑옷: 플레이어에 대한 명중의 치명타 피해 보너스 50% 감소",
+      "방패와 버클러: 플레이어에 대한 명중의 치명타 피해 보너스 50% 감소"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreCrit.webp"
+  },
+  {
+    "id": "Soul_Core_of_Atmohua",
+    "name": "앗모후아의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 요구사항의 40%를 힘으로 전환",
+      "방어구: 요구사항의 40%를 힘으로 전환"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreStrength.webp"
+  },
+  {
+    "id": "Soul_Core_of_Cholotl",
+    "name": "촐로틀의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 요구사항의 40%를 민첩으로 전환",
+      "방어구: 요구사항의 40%를 민첩으로 전환"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreDex.webp"
+  },
+  {
+    "id": "Soul_Core_of_Zantipi",
+    "name": "잔티피의 영혼 핵",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무도 무기: 요구사항의 40%를 지능으로 전환",
+      "방어구: 요구사항의 40%를 지능으로 전환"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreint.webp"
+  },
+  {
+    "id": "Snake_Idol",
+    "name": "독사 우상",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "장갑: 저주 강도 8% 증가",
+      "셉터: 접근해 있는 동료들의 공격 속도 10% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 플레이어가 생성하는 잔류물의 효과 15% 증가",
+      "셉터: 형태 변환 상태일 때 스킬 속도 10% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableSnake.webp"
+  },
+  {
+    "id": "Primate_Idol",
+    "name": "영장류 우상",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "투구: 소환수 최대 생명력 15% 증가",
+      "셉터: 접근해 있는 동료가 주는 피해 40% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 잔류물을 30% 더 먼 곳에서 획득 가능",
+      "셉터: 형태 변환 상태일 때 피해 40% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableMonkey.webp"
+  },
+  {
+    "id": "Owl_Idol",
+    "name": "올빼미 우상",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "집중구: 재사용 대기시간 회복 속도 12% 증가",
+      "셉터: 접근해 있는 동료들의 시전 속도 10% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "집중구: 플레이어에게 적용되는 집정관 버프의 효과 20% 증가",
+      "셉터: 형태 변환 상태일 때 스킬 속도 10% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableOwl.webp"
+  },
+  {
+    "id": "Cat_Idol",
+    "name": "고양이 우상",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "장갑: 일반 정확도 25% 증가",
+      "셉터: 접근해 있는 동료들의 치명타 확률 14% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 호신부 충전량 30% 증가",
+      "셉터: 형태 변환 상태일 때 치명타 명중 확률 25% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableCat.webp"
+  },
+  {
+    "id": "Wolf_Idol",
+    "name": "늑대 우상",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "장갑: 플레이어가 유발하는 출혈의 강도 15% 증가",
+      "셉터: 접근해 있는 동료들의 치명타 피해 보너스 20% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 플레이어에게 적용되는 출혈 강도 25% 감소",
+      "셉터: 형태 변환 상태일 때 치명타 명중 확률 25% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableWolf.webp"
+  },
+  {
+    "id": "Stag_Idol",
+    "name": "수사슴 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "투구: 투사체가 15% 확률로 갈라짐",
+      "셉터: 접근해 있는 동료들이 주는 공격 번개 피해 1~40 추가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 투사체가 갈라질 때 25%의 확률로 투사체 1개 추가 생성",
+      "셉터: 형태 변환 상태일 때 공격 피해 40% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableStag.webp"
+  },
+  {
+    "id": "Boar_Idol",
+    "name": "멧돼지 우상",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "장갑: 근접 명중 시 격노 1 획득",
+      "셉터: 접근해 있는 동료들이 1초마다 플레이어의 최대 생명력의 0.5% 재생"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 함성 재사용 대기시간 회복 속도 25% 증가",
+      "셉터: 형태 변환 상태일 때 생명력 재생 속도 25% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableBoar.webp"
+  },
+  {
+    "id": "Bear_Idol",
+    "name": "곰 우상",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "투구: 효과 범위 10% 증가",
+      "셉터: 접근해 있는 동료들이 주는 공격 물리 피해 12~18 추가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 반려수 스킬의 점유 효율 12% 증가",
+      "셉터: 형태 변환 상태일 때 공격 피해 40% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableBear.webp"
+  },
+  {
+    "id": "Ox_Idol",
+    "name": "소 우상",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "방패와 버클러: 막기 확률 15% 증가",
+      "셉터: 접근해 있는 동료들의 모든 원소 저항 +12%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방패와 버클러: 15% 확률로 플레이어에게 공격을 명중시킨 적의 피해에 불운 적용",
+      "셉터: 형태 변환 상태일 때 방어도의 +20%가 원소 피해에도 적용"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableOx.webp"
+  },
+  {
+    "id": "Rabbit_Idol",
+    "name": "토끼 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "갑옷: 발견하는 아이템 희귀도 12% 증가",
+      "셉터: 정신력 15% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 처치한 적이 떨어뜨리는 골드 수량 10% 증가",
+      "셉터: 소환수의 명령 스킬 재사용 대기시간 회복 속도 30% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableRabbit.webp"
+  },
+  {
+    "id": "Fox_Idol",
+    "name": "여우 우상",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "갑옷: 이 아이템에 장착한 우상이 결속된 속성의 효과를 받음, display additional socketable mods for idols [1]",
+      "셉터: 접근 효과 범위 50% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 모든 스킬의 퀄리티 +5%",
+      "셉터: 소환수 효과 범위 30% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableFox.webp"
+  },
+  {
+    "id": "Amanamus_Gaze",
+    "name": "아마나무의 응시",
+    "properties": [
+      "중복 사용 제한: 고대 증강물 1개",
+      "요구 사항:  레벨 60"
+    ],
+    "ordinary": [
+      "투구: 명령 스킬 사용 시 피해를 주는 상태 이상 제거",
+      "갑옷: 정신력 1당 방어도 +2",
+      "장화: 정신력 15당 이동 속도 1% 증가, 최대 40% 증가\n달리기 속성을 제외한 이동 속도 속성이 적용되지 않음"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/AmanamusGaze.webp"
+  },
+  {
+    "id": "Tecrods_Gaze",
+    "name": "테크로드의 응시",
+    "properties": [
+      "중복 사용 제한: 고대 증강물 1개",
+      "요구 사항:  레벨 60"
+    ],
+    "ordinary": [
+      "갑옷: 1초마다 생명력의 1.5% 재생",
+      "장갑: 생명력 소모 효율 25% 증가",
+      "장화: 낮은 생명력 상태일 때 이동 속도 10% 증가"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/TecrodsGaze.webp"
+  },
+  {
+    "id": "Kurgals_Gaze",
+    "name": "쿠르갈의 응시",
+    "properties": [
+      "중복 사용 제한: 고대 증강물 1개",
+      "요구 사항:  레벨 60"
+    ],
+    "ordinary": [
+      "투구: 생명력 재생 속도 증가 및 감소 수치가 마나 재생 속도에도 적용",
+      "장갑: 플레이어에게 적용되는 비전 쇄도 효과 40% 증가",
+      "장화: 최근 4초 이내 회피 구르기를 사용하지 않은 경우 마나 소모 효율 15% 증가"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/KurgalsGaze.webp"
+  },
+  {
+    "id": "Ulamans_Gaze",
+    "name": "울라만의 응시",
+    "properties": [
+      "중복 사용 제한: 고대 증강물 1개",
+      "요구 사항:  레벨 60"
+    ],
+    "ordinary": [
+      "투구: 장착한 투구의 아이템 회피 1당 정확도 +1",
+      "장갑: 흘려보낸 적에 대한 치명타 명중 확률에 행운 적용",
+      "갑옷: 튕겨낸 명중의 피해 중 방지하는 피해 +3%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/UlamansGaze.webp"
+  },
+  {
+    "id": "Guatelitzis_Thesis",
+    "name": "과텔리치의 명제",
+    "properties": [
+      "중복 사용 제한: 고대 증강물 1개",
+      "요구 사항:  레벨 60"
+    ],
+    "ordinary": [
+      "투구: 지난 8초 이내 명중으로 상실한 생명력의 35%와 동일한 방어도 획득",
+      "갑옷: 방지한 물리 피해의 10%를 생명력으로 회생",
+      "장화: 달리는 동안 1초마다 생명력 최대치의 5% 상실, 달리는 동안 이동 속도 25% 증가"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreBlood.webp"
+  },
+  {
+    "id": "Citaqualotls_Thesis",
+    "name": "시타콰로틀의 명제",
+    "properties": [
+      "중복 사용 제한: 고대 증강물 1개",
+      "요구 사항:  레벨 60"
+    ],
+    "ordinary": [
+      "갑옷: 플레이어의 공물이 받은 피해의 50%를 생명력으로 회생",
+      "장갑: 공물이 만료되면 유지형 소환수 중 하나 부활",
+      "장화: 회피 구르기 시 생명력 최대치의 10%를 희생하여 같은 값의 가호 획득"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreSacrifice.webp"
+  },
+  {
+    "id": "Jiquanis_Thesis",
+    "name": "지콰니의 명제",
+    "properties": [
+      "중복 사용 제한: 고대 증강물 1개",
+      "요구 사항:  레벨 60"
+    ],
+    "ordinary": [
+      "투구: 장착한 투구의 아이템 방어도 3당 마나 최대치 +1",
+      "장갑: 에너지 보호막 재충전이 마나 총 2000 소모 후 시작\n2초에 한 번씩만 발동",
+      "장화: 이동 속도 증가 및 감소 수치를\n에너지 보호막 재충전 속도에도 적용"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreSoul.webp"
+  },
+  {
+    "id": "Quipolatls_Thesis",
+    "name": "퀴폴라틀의 명제",
+    "properties": [
+      "중복 사용 제한: 고대 증강물 1개",
+      "요구 사항:  레벨 60"
+    ],
+    "ordinary": [
+      "투구: 플레이어의 징표 활성화 시 영광이 필요한 스킬이 스킬의 최대 영광의 50% 생성",
+      "장갑: 소환수 재구성 시 에너지 보호막 재충전 시작",
+      "갑옷: 에너지 보호막이 최대일 때 방어도의 +75%가 카오스 피해에도 적용"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreScience.webp"
+  },
+  {
+    "id": "Emergent_Vigour",
+    "name": "발현된 활력",
+    "properties": [
+      "중복 사용 제한: 고대 증강물 1개",
+      "요구 사항:  레벨 60"
+    ],
+    "ordinary": [
+      "투구: 장착한 투구의 방어도 8당 생명력 최대치 +1",
+      "갑옷: 장착한 방어구 아이템의 힘 요구사항의 총합의 50%와 동일한 에너지 보호막 최대치 획득",
+      "장화: 신성화 지대에 있는 동안 플레이어에 대한 명중에 치명타 피해 보너스 없음"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 정신력 +20",
+      "갑옷: 힘 +20",
+      "장화: 자신이 생성한 신성화 지대의 효과 20% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionReligionAncientAugment.webp"
+  },
+  {
+    "id": "Emergent_Possibility",
+    "name": "발현된 가능성",
+    "properties": [
+      "중복 사용 제한: 고대 증강물 1개",
+      "요구 사항:  레벨 60"
+    ],
+    "ordinary": [
+      "갑옷: 명중당했을 때 받는 카오스 피해의 15%를 무작위 원소 피해로 받음",
+      "장갑: 장착한 아이템에 장착된 룬 하나당 피해의 1%를\n무작위 원소 추가 피해로 획득",
+      "장화: 달리는 동안 룬 수호 재생 속도 50% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 카오스 저항 +13%",
+      "장갑: 원소 피해 20% 증가",
+      "장화: 룬 수호 소모 효율 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionScienceAncientAugment.webp"
+  },
+  {
+    "id": "Emergent_Protection",
+    "name": "발현된 보호",
+    "properties": [
+      "중복 사용 제한: 고대 증강물 1개",
+      "요구 사항:  레벨 60"
+    ],
+    "ordinary": [
+      "투구: 낮은 생명력 상태에 도달 시 인내 충전 1개 획득, 2초에 한 번씩만 획득",
+      "장갑: 깃발의 영향을 받는 대상이 1초마다 생명력의 2% 재생",
+      "장화: 달리기를 중단하면 달린 시간 1초당 생명력 최대치의 4%와 동일한 가호를 4초 동안 획득, 최대 20%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 인내 충전 지속시간 40% 증가",
+      "장갑: 1초마다 생명력의 0.5% 재생",
+      "장화: 가호 획득 20% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionValorAncientAugment.webp"
+  },
+  {
+    "id": "Emergent_Instinct",
+    "name": "발현된 본능",
+    "properties": [
+      "중복 사용 제한: 고대 증강물 1개",
+      "요구 사항:  레벨 60"
+    ],
+    "ordinary": [
+      "투구: 실명, 힘줄 절단, 출혈 상태의 적들이 플레이어의 명중을 회피할 수 없음",
+      "장갑: 최근 4초 이내 명령 스킬을 사용한 경우 1초마다 생명력 최대치의 5% 재생",
+      "갑옷: 방어구가 완전히 파괴된 대상에 대한 가시 피해에 행운 적용"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 이동 불가 축적 30% 증가",
+      "장갑: 생명력 재생 속도 20% 증가",
+      "갑옷: 가시 피해 30% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionWarAncientAugment.webp"
+  },
+  {
+    "id": "Carved_Cunning",
+    "name": "조각된 교활함",
+    "properties": [
+      "중복 사용 제한: 고대 증강물 1개",
+      "요구 사항:  레벨 60"
+    ],
+    "ordinary": [
+      "투구: 최대 생명력 상태인 적이 플레이어의 명중을 회피할 수 없음",
+      "갑옷: 최근 4초 이내 명중을 튕겨내지 않은 경우\n튕겨낸 명중의 피해 중 방지하는 피해 +5%",
+      "장화: 징표가 활성화되면 4초 동안 맹공 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 일반 정확도 30% 증가",
+      "갑옷: 튕겨내기 평점 8% 증가",
+      "장화: 플레이어에게 적용되는 버프가 10% 더 느리게 만료됨"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualAmbushPredators.webp"
+  },
+  {
+    "id": "Carved_Majesty",
+    "name": "조각된 위엄",
+    "properties": [
+      "중복 사용 제한: 고대 증강물 1개",
+      "요구 사항:  레벨 60"
+    ],
+    "ordinary": [
+      "갑옷: 장비에 장착한 우상 하나당 정신력 +3",
+      "장갑: 반려수가 플레이어의 징표가 찍힌 대상을 명중시키면 4초 동안 맹공 획득",
+      "장화: 달리는 동안 유지형 소환수 하나당 이동 속도 1% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 정신력 5% 증가",
+      "장갑: 반려수가 주는 피해 30% 증가",
+      "장화: 소환수 최대 생명력 12% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualMajesticBeasts.webp"
+  },
+  {
+    "id": "Carved_Mischief",
+    "name": "조각된 장난기",
+    "properties": [
+      "중복 사용 제한: 고대 증강물 1개",
+      "요구 사항:  레벨 60"
+    ],
+    "ordinary": [
+      "투구: 야만적인 타격을 받을 시 4초 동안 생명력 최대치의 10%와 동일한 가호 획득",
+      "장갑: 최근 4초 이내 방패를 올려 막아낸 경우 막기 확률 최대치 +5%",
+      "갑옷: 최근 4초 이내 기절하지 않은 경우 기절 한계치 200% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 플레이어에게 적용되는 버프가 10% 더 느리게 만료됨",
+      "장갑: 막기 확률 20% 증가",
+      "갑옷: 기절 한계치 25% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualMischievousCreatures.webp"
+  },
+  {
+    "id": "Carved_Tenacity",
+    "name": "조각된 참을성",
+    "properties": [
+      "중복 사용 제한: 고대 증강물 1개",
+      "요구 사항:  레벨 60"
+    ],
+    "ordinary": [
+      "투구: 적이 플레이어에게 실명된 후 4초 동안 치명타 피해 보너스 없음",
+      "장갑: 플레이어가 치명타로 명중시키는 적이 4초 동안 생명력 재생 속도 100% 감소",
+      "장화: 달리는 동안 플레이어의 속도가 감속의 영향을 받지 않음"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 실명 효과 20% 증가",
+      "장갑: 치명타 확률 15% 증가",
+      "장화: 달리는 동안 이동 속도 8% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualTenaciousBeasts.webp"
+  },
+  {
+    "id": "Raven-Touched_Shard",
+    "name": "큰까마귀의 손길에 닿은 파편",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 60"
+    ],
+    "ordinary": [
+      "투구: 큰까마귀의 손길에 닿음"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Delirium/DeliriumEndgameSocketable.webp"
+  },
+  {
+    "id": "Lesser_Ward_Rune",
+    "name": "하위 수호 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "방어구: 최대 룬 수호 +15"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방어구: 일반 방어도, 회피, 에너지 보호막 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardLesser.webp"
+  },
+  {
+    "id": "Ward_Rune",
+    "name": "수호 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "방어구: 최대 룬 수호 +20"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방어구: 일반 방어도, 회피, 에너지 보호막 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardNormal.webp"
+  },
+  {
+    "id": "Greater_Ward_Rune",
+    "name": "상위 수호 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "방어구: 최대 룬 수호 +25"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방어구: 일반 방어도, 회피, 에너지 보호막 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardGreater.webp"
+  },
+  {
+    "id": "Perfect_Ward_Rune",
+    "name": "완벽한 수호 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "방어구: 최대 룬 수호 +30"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방어구: 일반 방어도, 회피, 에너지 보호막 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardPerfect.webp"
+  },
+  {
+    "id": "Lesser_Charging_Rune",
+    "name": "하위 충전 룬",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "방어구: 룬 수호 재생 속도 8% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방어구: 1초마다 룬 수호 10 재생"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationLesser.webp"
+  },
+  {
+    "id": "Charging_Rune",
+    "name": "충전 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "방어구: 룬 수호 재생 속도 12% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방어구: 1초마다 룬 수호 15 재생"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationNormal.webp"
+  },
+  {
+    "id": "Greater_Charging_Rune",
+    "name": "상위 충전 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "방어구: 룬 수호 재생 속도 16% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방어구: 1초마다 룬 수호 20 재생"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationGreater.webp"
+  },
+  {
+    "id": "Perfect_Charging_Rune",
+    "name": "완벽한 충전 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 50"
+    ],
+    "ordinary": [
+      "방어구: 룬 수호 재생 속도 20% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방어구: 1초마다 룬 수호 25 재생"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationPerfect.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Reinforcement",
+    "name": "보강의 수호하는 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "방어구: 룬 수호 20% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방어구: 생명력 최대치의 2%를 추가 룬 수호 최대치로 획득"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard1.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Protection",
+    "name": "보호의 수호하는 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "방어구: 4초마다 2초 동안 룬 수호 최대치의 20%와 동일한 가호 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방어구: 가호 획득 8% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard2.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Disintegration",
+    "name": "분해의 수호하는 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "무도 무기: 공격이 룬 수호 최대치의 15%와 동일한 방어구 파괴"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 파괴되는 방어구 10% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard3.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Desperation",
+    "name": "필사의 수호하는 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "마법봉 또는 지팡이: 낮은 룬 수호 상태일 때 주문 피해가 적 원소 저항의 25%를 관통"
+    ],
+    "bonded": [
+      "결속됨:",
+      "마법봉 또는 지팡이: 원소 피해 12% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard4.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Symbiosis",
+    "name": "공생의 수호하는 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "장화: 룬 수호 최대치 30당 에너지 보호막 재충전 속도 1% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장화: 1초마다 에너지 보호막 1% 재생"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard8.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Courage",
+    "name": "용기의 수호하는 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "투구: 낮은 룬 수호 상태일 때 방어도 및 회피 25% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 낮은 생명력 상태일 때 방어도 및 회피 20% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard9.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Stability",
+    "name": "안정성의 수호하는 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "방패와 버클러: 룬 수호 최대치 10당 기절 한계치 +4"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방패와 버클러: 형태 변환 상태일 때 기절 축적 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard10.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Glancing",
+    "name": "튕김의 수호하는 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "갑옷: 룬 수호 최대치 10당 튕겨내기 평점 +3"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 튕겨낸 명중의 피해 중 방지하는 피해 +1%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard13.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Heart",
+    "name": "심장의 수호하는 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "갑옷: 생명력 최대치의 5%를 추가 룬 수호 최대치로 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 최근 4초 이내 명중으로 잃은 룬 수호 최대치 2%당 룬 수호 재생 속도 1%씩, 최대 100% 증폭"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard14.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Nourishment",
+    "name": "자양분의 수호하는 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "방어구: 플라스크로 얻는 생명력 회복의 15%가 룬 수호에도 적용"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방어구: 플라스크로 회복하는 생명력 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard15.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Annihilation",
+    "name": "전멸의 수호하는 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "무도 무기: 공격이 가능한 경우 룬 수호 최대치의 5%를 사용하여 그와 동일한 수치의 추가 물리 피해 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 룬 수호 소모 효율 10% 감소"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard16.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Armature",
+    "name": "골조의 수호하는 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 45"
+    ],
+    "ordinary": [
+      "무도 무기: 이 무기의 최대 피해의 15%와 동일한 룬 수호 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무도 무기: 룬 수호가 없는 동안 공격 속도 5% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard18.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Obsession",
+    "name": "집착의 수호하는 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 45"
+    ],
+    "ordinary": [
+      "마법봉: 모든 피해가 룬 수호에 막히지 않음, 룬 수호 재생 속도 2배"
+    ],
+    "bonded": [
+      "결속됨:",
+      "마법봉: 최대 룬 수호 12% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard19.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Equinox",
+    "name": "지점의 수호하는 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 45"
+    ],
+    "ordinary": [
+      "시전자 무기: 마나 재생 속도 40% 감폭, 재생으로 인한 마나 회복이 룬 수호에도 적용됨"
+    ],
+    "bonded": [
+      "결속됨:",
+      "시전자 무기: 최근 4초 이내 치명타 명중 시 룬 수호 재생 속도 20% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard20.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Salvaging",
+    "name": "분해의 수호하는 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "셉터: 플레이어의 부활 소환수가 사망하면 플레이어가 룬 수호 최대치의 3% 회복"
+    ],
+    "bonded": [
+      "결속됨:",
+      "셉터: 플레이어의 소환수가 부활하면 플레이어가 최대 생명력의 3% 회복"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard21.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Bodyguards",
+    "name": "호위병의 수호하는 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 45"
+    ],
+    "ordinary": [
+      "셉터: 낮은 룬 수호 상태일 때 접근해 있는 소환수가 맹공 보유"
+    ],
+    "bonded": [
+      "결속됨:",
+      "셉터: 최근 4초 이내 룬 수호가 피해를 받은 경우\n적에게 명중되어 받는 피해에 불운 적용"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard23.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Hollowing",
+    "name": "공동화의 수호하는 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 45"
+    ],
+    "ordinary": [
+      "시전자 무기: 생명력 최대치의 15%를 추가 룬 수호 최대치로 획득, 생명력 최대치 15% 감폭"
+    ],
+    "bonded": [
+      "결속됨:",
+      "시전자 무기: 최대 룬 수호 상태일 때 모든 원소 저항 최대치 +1%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard24.webp"
+  },
+  {
+    "id": "Passion_of_Aldur",
+    "name": "알두르의 열정",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무기: 아이템의 모든 냉기 및 번개 속성을 그에 상당하는 화염 속성으로 변화"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무기: 화염 피해 25% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneFire.webp"
+  },
+  {
+    "id": "Breath_of_Aldur",
+    "name": "알두르의 숨결",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무기: 장착 시 모든 화염 및 번개 속성을 그에 상응하는 냉기 속성으로 변화"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무기: 냉기 피해 25% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneCold.webp"
+  },
+  {
+    "id": "Ire_of_Aldur",
+    "name": "알두르의 노여움",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무기: 아이템의 모든 화염 및 냉기 속성을 그에 상당하는 번개 속성으로 변화"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무기: 번개 피해 25% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneLightning.webp"
+  },
+  {
+    "id": "Betrayal_of_Aldur",
+    "name": "알두르의 배신",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "무기: 아이템의 모든 화염, 냉기, 번개 속성을 그에 상당하는 카오스 속성으로 변화"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무기: 카오스 피해 25% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneChaos.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Splinters",
+    "name": "파편의 고대 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "활: 추가 화살을 발사할 초과 확률 +50%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "활: 투사체 속도 30% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune1.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Dueling",
+    "name": "결투의 고대 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "버클러: 흘려보내기 디버프 강도 30% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "버클러: 막기 확률 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune2.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_the_Titan",
+    "name": "거신의 고대 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "양손 철퇴: 직접 사용하는 강타 스킬이 10%의 확률로 추가 여진 유발"
+    ],
+    "bonded": [
+      "결속됨:",
+      "양손 철퇴: 공격 효과 범위 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune3.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Shattering",
+    "name": "산산조각의 고대 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "한손 철퇴: 완전히 파괴된 방어구의 효과 40% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "한손 철퇴: 파괴되는 방어구 50% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune4.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Prowess",
+    "name": "기량의 고대 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "창: 충전 획득 시 30% 확률로 충전 1개 추가 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "창: 인내, 격분, 권능 충전 지속시간 30% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune5.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Control",
+    "name": "통제의 고대 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "육척봉: 이동 불가 축적 50% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "육척봉: 이동 불가 상태의 적에게 주는 피해 30% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune6.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Discovery",
+    "name": "발견의 고대 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "지팡이: 30% 확률로 잔류물 1개 추가 생성"
+    ],
+    "bonded": [
+      "결속됨:",
+      "지팡이: 원소 주입 수치 최대치 +1"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune7.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Decay",
+    "name": "부패의 고대 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "마법봉: 위축 강도 25% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "마법봉: 플레이어의 일촉즉발이 폭발하면 15%의 확률로 그와 동일한 양의 일촉즉발 재획득"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune8.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Witchcraft",
+    "name": "마술의 고대 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "집중구: 저주의 효과 범위 40% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "집중구: 저주 활성화 속도 15% 가속"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune9.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_the_Horde",
+    "name": "떼의 고대 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "셉터: 소환수의 공격 및 시전 속도 8% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "셉터: 소환수 이동 속도 10% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune10.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Animosity",
+    "name": "적대감의 고대 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "부적: 희귀 또는 고유 적 강력 기절 시 드루이드의 기량 2 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "부적: 기절 축적 40% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune11.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Detonation",
+    "name": "기폭의 고대 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "쇠뇌: 유탄이 10%의 확률로 한 번 더 작동"
+    ],
+    "bonded": [
+      "결속됨:",
+      "쇠뇌: 석궁 재장전 속도 40% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune12.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Retaliation",
+    "name": "보복의 고대 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 30"
+    ],
+    "ordinary": [
+      "방패: 최근 4초 이내 막아낸 경우 공격 속도 8% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방패: 최대 막기 확률 +3%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune13.webp"
+  },
+  {
+    "id": "Rune_of_Vitality",
+    "name": "활력의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "무기: 생명력 최대치 +80",
+      "방패와 버클러: 막아낼 시 생명력 15 회복"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무기: 생명력 흡수량 15% 증가",
+      "방패와 버클러: 최대 생명력 5% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune1.webp"
+  },
+  {
+    "id": "Rune_of_the_Hunt",
+    "name": "사냥의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "장화: 달리는 동안 이동 속도 8% 증가",
+      "셉터: 반려수가 주는 피해 30% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장화: 기절 회복 50% 증가",
+      "셉터: 반려수가 접근해 있는 동안 마나 회복 속도 8% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune2.webp"
+  },
+  {
+    "id": "Rune_of_Acrobatics",
+    "name": "곡예의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "무기: 플라스크가 1초마다 충전 0.2 획득",
+      "장화: 회피 구르기 거리 +0.3미터"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무기: 호신부가 1초마다 충전 0.25 획득",
+      "장화: 최근 4초 이내 회피 구르기를 사용하지 않은 경우 방어도 30% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune3.webp"
+  },
+  {
+    "id": "Rune_of_Culmination",
+    "name": "고조의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "장갑: 명중 시 50% 확률로 추가 연계 축적",
+      "한손 철퇴 또는 육척봉: 물리 피해가 최솟값과 최댓값 둘 중의 하나로만 판정"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 공격 속도 5% 증가",
+      "한손 철퇴 또는 육척봉: 출혈 지속시간 20% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune4.webp"
+  },
+  {
+    "id": "Rune_of_Renown",
+    "name": "명성의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "장갑: 영광 재생 50% 증가",
+      "시전자 무기: 집정관 회복 시간이 30% 빠르게 만료"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 깃발 스킬의 오라 강도 20% 증가",
+      "시전자 무기: 집정관 버프 지속시간 30% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune5.webp"
+  },
+  {
+    "id": "Rune_of_Accumulation",
+    "name": "축적의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "장갑: 플레이어의 공격으로 명중하는 적 하나당 획득하는 생명력 3, 공격으로 명중한 적 하나당 마나 1 획득",
+      "석궁, 활 또는 창: 적 명중 시 20초 동안 적의 위세와 동일한 추가 냉기 피해 최대치 획득, 최대 총 32"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 생명력 최대치 +30, 마나 최대치 +30",
+      "석궁, 활 또는 창: 동결 축적 30% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune6.webp"
+  },
+  {
+    "id": "Rune_of_Foundations",
+    "name": "기초의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "갑옷: 방어도 +30, 회피 +30, 에너지 보호막 최대치 +10"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 생명력 최대치 +20, 마나 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune7.webp"
+  },
+  {
+    "id": "Rune_of_the_Prism",
+    "name": "분광기의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "갑옷: 모든 원소 저항 최대치 -10%, 모든 원소 저항 +20%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 받는 피해의 20%를 생명력 대신 마나로 소모"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune8.webp"
+  },
+  {
+    "id": "Rune_of_the_Blossom",
+    "name": "만개의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "갑옷: 정신력 +50, 레벨 2당 정신력 -1"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 스킬의 정신력 점유 효율 5% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune9.webp"
+  },
+  {
+    "id": "Rune_of_Consistency",
+    "name": "일관성의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "투구: 치명타 확률 200% 증가, 치명타 피해 보너스 없음",
+      "시전자 무기: 반려수가 접근해 있는 동안 주문 피해 50% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 플레이어에 대한 명중의 치명타 피해 보너스 25% 감소",
+      "시전자 무기: 반려수가 접근해 있는 동안 마나 회복 속도 8% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune10.webp"
+  },
+  {
+    "id": "Rune_of_Reach",
+    "name": "범위의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "투구: 플레이어가 생성하는 잔류물의 효과 15% 증가",
+      "마법봉 또는 지팡이: 잔류물을 50% 더 먼 곳에서 획득 가능, 플레이어가 생성하는 잔류물의 효과 25% 감소"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 잔류물 획득 시 마나 최대치의 3% 회복",
+      "마법봉 또는 지팡이: 노출 효과 20% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune11.webp"
+  },
+  {
+    "id": "Rune_of_Vital_Flame",
+    "name": "활력 불길의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "한손 철퇴, 양손 철퇴 또는 부적: 화염 피해 13~16 추가, 스킬의 마나 소모의 15%가 생명력 소모로 전환"
+    ],
+    "bonded": [
+      "결속됨:",
+      "한손 철퇴, 양손 철퇴 또는 부적: 점화 강도 30% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune12.webp"
+  },
+  {
+    "id": "Rune_of_Confrontation",
+    "name": "대적의 룬",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [
+      "육척봉 또는 창: 근접 명중 시 격노 4 획득, 격노 최대치 -10"
+    ],
+    "bonded": [
+      "결속됨:",
+      "육척봉 또는 창: rage effect +% [10]"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune13.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Wild_Ferocity",
+    "name": "[DNT-Unused] Rune of Wild Ferocity",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune14.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Partnership",
+    "name": "[DNT-Unused] Rune of Partnership",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune15.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Reverberation",
+    "name": "[DNT-Unused] Rune of Reverberation",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune16.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Vital_Flame",
+    "name": "[DNT-Unused] Rune of Vital Flame",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune17.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Confrontation",
+    "name": "[DNT-Unused] Rune of Confrontation",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune18.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Chance",
+    "name": "[DNT-Unused] Rune of Chance",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune19.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Confidence",
+    "name": "[DNT-Unused] Rune of Confidence",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune12.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Duplication",
+    "name": "[DNT-Unused] Rune of Duplication",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1",
+      "요구 사항:  레벨 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune16.webp"
+  },
+  {
+    "id": "Serles_Triumph",
+    "name": "세를의 승리",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "모든 장비: 접미어 속성 부여의 최대 개수 +1개, local maximum mods allowed + [1]"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRune2.webp"
+  },
+  {
+    "id": "Cadigans_Epiphany",
+    "name": "캐디건의 통찰",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "장갑: 아이템의 증강물 홈을 모두 파괴하여 주얼 슬롯 1개 생성"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRune3.webp"
+  },
+  {
+    "id": "Astrids_Creativity",
+    "name": "아스트리드의 창의성",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "모든 장비: 제작 속성 부여 추가 1개 보유 가능"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRune1.webp"
+  },
+  {
+    "id": "Uhtreds_Sidereus",
+    "name": "우트레드의 성좌",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "장화: 시간술 속성 부여 가능"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장화: 재사용 대기시간 회복 속도 10% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneTime.webp"
+  },
+  {
+    "id": "Kolrs_Hunt",
+    "name": "콜르의 사냥",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "장갑: 지정사수 속성 부여 가능"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 투사체 피해 20% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneDex.webp"
+  },
+  {
+    "id": "Voranas_Carnage",
+    "name": "보라나의 학살",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "투구: 광폭화 속성 부여 가능"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 근접 명중 시 격노 2 획득"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRunePhysical.webp"
+  },
+  {
+    "id": "Thruds_Might",
+    "name": "스루드의 완력",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "무기: 파괴 속성 부여 가능"
+    ],
+    "bonded": [
+      "결속됨:",
+      "무기: 모든 원소 저항 +5%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneFire.webp"
+  },
+  {
+    "id": "Medveds_Tending",
+    "name": "메드베드의 보살핌",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "갑옷: 영혼 속성 부여 가능"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 최대 생명력 3% 증가, 최대 마나 3% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneCold.webp"
+  },
+  {
+    "id": "Katlas_Gloom",
+    "name": "카틀라의 순흑",
+    "properties": [
+      "중첩 개수: 1 / 10",
+      "중복 사용 제한: 1"
+    ],
+    "ordinary": [
+      "장갑: 부패 속성 부여 가능"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 플레이어에게 적용되는 비-피해 상태 이상 효과 25% 감소"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneChaos.webp"
+  },
+  {
+    "id": "Aldurs_Legacy",
+    "name": "알두르의 유산",
+    "properties": [
+      "중첩 개수: 1 / 10"
+    ],
+    "ordinary": [
+      "모든 장비: 고유 칼구르 또는 에조미어 아이템에 장착 시 아이템을 파괴하여 해당 아이템의 힘이 주입된 룬 생성"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUnique.webp"
+  },
+  {
+    "id": "Legacy_of_Bramblejack",
+    "name": "가시나무 갑옷의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "갑옷: 받은 근접 물리 피해의 250%를 공격자에게 반사"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 포위당한 동안 1초마다 생명력의 3% 재생"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Blackbraid",
+    "name": "검은끈의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "갑옷: 방어도의 +50%가 원소 피해에도 적용"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 모든 원소 저항 +15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Edyrns_Tusks",
+    "name": "에디른의 엄니의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "갑옷: 명중 시 50%의 확률로 출혈 유발, 디버프의 감속 효력 50% 감소"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 가시 피해 35% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Kingsguard",
+    "name": "왕의 보호구의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "갑옷: 소모한 인내 충전 하나당 생명력의 5% 회복"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 생명력 최대치 +30"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Bristleboar",
+    "name": "가시털멧돼지의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "갑옷: 적에게 치명타를 받으면 격노 10 획득, 적에게 명중당하면 격노 5 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 격노 최대치 +3"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Foxshade",
+    "name": "여우 그림자의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "갑옷: 생명력이 최대일 때 이동 속도 10% 증가, 생명력이 최대일 때 일반 회피 100% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 회피 20% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Ashrend",
+    "name": "부서진 잿더미의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "갑옷: 점화될 수 없음, 공격 명중 시 받는 물리 피해 -10"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 화염 저항 +35%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Briskwrap",
+    "name": "활력의 겉옷의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "갑옷: 회피의 30%와 동일한 튕겨내기 평점 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 플라스크로 얻는 마나 회복 속도 35% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Unleashed",
+    "name": "해방된 자의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "갑옷: 에너지 보호막이 절반 미만일 때 명중으로 받는 피해의 25%가 에너지 보호막에 막히지 않음"
+    ],
+    "bonded": [
+      "결속됨:",
+      "갑옷: 형태 변환 상태일 때 방어도 20% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Horns_of_Bynden",
+    "name": "빈덴의 뿔의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "투구: 격노마다 방어도 1% 증가, 근접 명중 시 격노 1 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 격노 최대치 +3"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Wings_of_Caelyn",
+    "name": "카일린의 날개의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "투구: 근접 명중 시 격노 1 획득, 격노마다 기절 한계치 1% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 격노 5당 이동 속도도 1% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Ezomyte_Peak",
+    "name": "에조미어의 면갑의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "투구: 효과 범위 15% 증가, 변함없는 자세"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 디버프의 감속 효력 50% 감소"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Deidbell",
+    "name": "죽음의 종의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "투구: 함성이 시신을 폭발시켜 시신의 생명력의 10%를 물리 피해로 줌"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 함성 스킬의 효과 범위 20% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Elevore",
+    "name": "원소포식의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "투구: 호신부가 1초마다 충전 1 획득, 호신부 슬롯 +1개"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 호신부가 1초마다 충전 0.5 획득"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Starkonjas_Head",
+    "name": "스타콘자의 머리의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "투구: 낮은 생명력 상태일 때 일반 회피 100% 증가, 명중 피해의 5%가 자신보다 피해를 받는 반려수의 생명력에 먼저 적용"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 명중 피해의 5%가 자신보다 피해를 받는 반려수의 생명력에 먼저 적용"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Crown_of_Thorns",
+    "name": "가시 왕관의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "투구: 고통의 조율"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 17~26 물리 가시 피해"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Greymake",
+    "name": "회색작품의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "투구: 모든 능력치 +50"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 1레벨당 최대 생명력 +1"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Erians_Cobble",
+    "name": "에리안의 수선의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "투구: 정확도 +30, 생명력 최대치 +10, 마나 최대치 +10, 발견하는 아이템 희귀도 10% 증가, 치명타 확률 10% 증가, 모든 능력치 +5, 모든 원소 저항 +5%, 1초마다 생명력 3 재생"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 방어도 +20, 회피 +20, 에너지 보호막 최대치 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Smiling_Knight",
+    "name": "미소 짓는 기사의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "투구: 공격 치명타 명중 시 대상의 출혈 가중"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 치명타 확률 20% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Vile_Knight",
+    "name": "끔찍한 기사의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "투구: 희귀 및 고유 적이 접근해 있던 시간 1초당 해당 적에게 주는 명중 피해 4% 증가, 최대 200% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 접근 효과 범위 20% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Northpaw",
+    "name": "북방발의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "장갑: 무기 공격의 기본 치명타 명중 확률 7%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 치명타 피해 보너스 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Candlemaker",
+    "name": "양초 제작자의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "장갑: 화염 피해 40% 증가, 인화성 강도 2배"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 적에게 적용되는 점화 지속시간 20% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Deathblow",
+    "name": "죽음의 일격의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "장갑: 마무리 타격"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 처치한 적 하나당 생명력 30 획득"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Legionstride",
+    "name": "군단의 보조의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "장화: 막기 확률 +10%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장화: 투사체 피격 시 받는 피해 10% 감소"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Trampletoe",
+    "name": "짓발가락의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "장화: 처치한 적의 2미터 내에 있는 적들에게 과잉살상 피해의 10%를 줌"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장화: 일반 물리 피해 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Briarpatch",
+    "name": "가시밭의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "장화: 가시 치명타 명중 확률 +15%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장화: 가시의 치명타 피해 보너스 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Bushwhack",
+    "name": "덤불 매복의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "장화: 물리 피해가 고정 유발"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장화: 민첩 +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Wanderlust",
+    "name": "방랑벽의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "장화: 플레이어의 속도가 감속의 영향을 받지 않음"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장화: 이동 속도 5% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Knight-errant",
+    "name": "무사 수행 기사의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "장화: 철의 반사신경"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장화: 원소 상태 이상 한계치 25% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Oberns_Bastion",
+    "name": "오베른의 보루의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "장화: 기절 회복 200% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장화: 플레이어에게 적용되는 냉각 지속시간 40% 감소, 플레이어에게 적용되는 동결 지속시간 40% 감소"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Dionadair",
+    "name": "다이오나데어의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "방패: 방패를 올린 동안 기절 한계치 2배"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방패: 기절 한계치 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Wulfsbane",
+    "name": "늑대의 천적의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "방패: 막아낼 시 8초 동안 적 위협"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방패: 힘 +25"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Chernobogs_Pillar",
+    "name": "체르노보그의 기둥의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "방패: 막기 확률 2%당 피해의 1%를 화염으로 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방패: 카오스 저항 +30%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Alkem_Eira",
+    "name": "알켐 에이라의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "방패: 막아낸 피해의 30%가 마나로 회생"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방패: 막아낸 피해의 20%가 마나로 회생"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Oaksworn",
+    "name": "참나무맹세의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "방패: 생명력 재생 속도 50% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방패: 1초마다 생명력 50 재생"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Dunkelhalt",
+    "name": "둥켈할트의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "버클러: 흘려보내기 디버프 강도 50% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "버클러: 흘려보내기 피해 50% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Rondel_de_Ezo",
+    "name": "론델 데 에소의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "버클러: 막아낼 시 적이 쇠약화 저주에 걸림"
+    ],
+    "bonded": [
+      "결속됨:",
+      "버클러: 투사체에 대한 막기 확률 100% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Brynhands_Mark",
+    "name": "브린핸드의 징표의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "한손 철퇴: 기절 축적 2배 유발"
+    ],
+    "bonded": [
+      "결속됨:",
+      "한손 철퇴: 물리 피해 14~20 추가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Trenchtimbre",
+    "name": "참호목의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "한손 철퇴: 소환수 공격 속도 증가 및 감소 효과가 자신에게도 적용"
+    ],
+    "bonded": [
+      "결속됨:",
+      "한손 철퇴: 모든 소환수 스킬 레벨 +1"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Mj%C3%B6lner",
+    "name": "묠니르의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "한손 철퇴: 지능 요구사항 +200, 모든 번개 스킬 레벨 +3"
+    ],
+    "bonded": [
+      "결속됨:",
+      "한손 철퇴: 모든 번개 스킬 레벨 +1"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Twisted_Empyrean",
+    "name": "뒤틀린 천공인의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "양손 철퇴: 이 무기로 공격 시 마나 최대치의 6%~10%와 동일한 냉기 피해 추가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "양손 철퇴: 받는 피해의 15%를 생명력 대신 마나로 소모"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Hoghunt",
+    "name": "돼지사냥의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "양손 철퇴: 치명타 확률 +5%, 치명타 명중 시 힘줄 절단 유발"
+    ],
+    "bonded": [
+      "결속됨:",
+      "양손 철퇴: 힘줄 절단된 적에 대한 공격 피해 25% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Hrimnors_Hymn",
+    "name": "흐림노르의 찬가의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "양손 철퇴: 직접 사용하는 강타 스킬이 25%의 확률로 추가 여진 유발"
+    ],
+    "bonded": [
+      "결속됨:",
+      "양손 철퇴: 직접 사용하는 강타 스킬이 15%의 확률로 추가 여진 유발"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Brain_Rattler",
+    "name": "요동치는 두뇌의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "양손 철퇴: 이 무기로 주는 모든 피해가 전기 처형 축적"
+    ],
+    "bonded": [
+      "결속됨:",
+      "양손 철퇴: 피해가 번개 저항 10% 관통"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Lifesprig",
+    "name": "생명의 가지의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "마법봉: 모든 주문 스킬 레벨 +2"
+    ],
+    "bonded": [
+      "결속됨:",
+      "마법봉: 주문 시전 시 최대 생명력의 1% 흡수"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Duality",
+    "name": "이중성의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "육척봉: 스킬 사용 시 소모한 연계 하나당 0.5초 동안 가호 250 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "육척봉: 스킬 사용 시 소모한 연계 하나당 0.2초 동안 최후 획득"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Tyrannys_Grip",
+    "name": "폭정의 손아귀의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "창: 타격이 방사 피해를 줌"
+    ],
+    "bonded": [
+      "결속됨:",
+      "창: 명중 시 적을 밀어냄"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Sentry",
+    "name": "보초의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "육척봉: 공격 시 화염 피해 23~34 추가, 인화성 강도 100% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "육척봉: 화염 저항 최대치 +2%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Adonias_Ego",
+    "name": "아도니아의 자아의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "마법봉: 권능 충전 최대치 +1"
+    ],
+    "bonded": [
+      "결속됨:",
+      "마법봉: 마나 최대치 +65"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Cursecarver",
+    "name": "저주난자의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "마법봉: 모든 저주 스킬 레벨 +3"
+    ],
+    "bonded": [
+      "결속됨:",
+      "마법봉: 마나 재생 속도 35% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Dusk_Vigil",
+    "name": "황혼의 불침번의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "지팡이: 물리 피해의 30%를 추가 화염 피해로 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "지팡이: 발동형 주문으로 주는 주문 피해 20% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Blood_Thorn",
+    "name": "피의 가시의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "육척봉: 물리 피해 4~8 추가, 명중 시 출혈 유발"
+    ],
+    "bonded": [
+      "결속됨:",
+      "육척봉: 플레이어가 유발하는 출혈의 강도 10% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Quill_Rain",
+    "name": "화살 비의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "활: 공격 속도 50% 증가, 공격 피해 20% 감폭"
+    ],
+    "bonded": [
+      "결속됨:",
+      "활: 화살 속도 70% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Ironbound",
+    "name": "철결속의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "활: 이 무기로 명중 시 막기 확률 1%당 물리 피해 1~3 추가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "활: 장착한 방어구 아이템의 총 아이템 방어도 100당 막기 확률 3% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Amor_Mandragora",
+    "name": "아모르 만드라고라의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "부적: 소모한 총 격노 20당 드루이드의 기량 1 획득"
+    ],
+    "bonded": [
+      "결속됨:",
+      "부적: 접근해 있는 적들이 이동 방해를 받음"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Spiteful_Floret",
+    "name": "악의에 찬 소화의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "부적: 격노 5당 받는 피해의 5%를 생명력으로 회생하는 효과도 부여"
+    ],
+    "bonded": [
+      "결속됨:",
+      "부적: 공격 시 20%의 확률로 출혈 유발"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Svalinn",
+    "name": "스발린의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "방패: 공격 피해 막기 확률에 행운 적용, 피격을 막아낼 시 피해의 20%를 받음"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방패: 최대 룬 수호 +50"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Keeper_of_the_Arc",
+    "name": "전호의 보관자의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "투구: 5초마다 번갈아 적용:\n명중으로 받는 피해 20% 감폭\n받는 지속 피해 20% 감폭"
+    ],
+    "bonded": [
+      "결속됨:",
+      "투구: 마나 재생 속도 25% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Olrovasara",
+    "name": "올로바사라의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "한손 철퇴: 적 명중 시 20초 동안 적의 위세와 동일한 최대 추가 번개 피해 획득, 최대 총 120"
+    ],
+    "bonded": [
+      "결속됨:",
+      "한손 철퇴: 공격 속도 15% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_A_Worthy_Foe",
+    "name": "호적수의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "방패: 보조 장비 명중 시 룬 아버지의 도전 유발"
+    ],
+    "bonded": [
+      "결속됨:",
+      "방패: 냉기 저항 +45%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Serles_Grit",
+    "name": "세를의 근성의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "한손 철퇴: 최대 퀄리티 40%"
+    ],
+    "bonded": [
+      "결속됨:",
+      "한손 철퇴: 공격을 강화하는 스킬이 20%의 확률로 해당 공격이 강화 횟수를 소모하지 않게 함"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Runeseekers_Call",
+    "name": "룬 탐구자의 소명의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "마법봉: 장착된 룬의 효과 75% 증가"
+    ],
+    "bonded": [
+      "결속됨:",
+      "마법봉: 마나 최대치 +100"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Facebreaker",
+    "name": "페이스브레이커의 유산",
+    "properties": [
+      "중복 사용 제한: 1 알두르의 유산",
+      "요구 사항:  레벨 65"
+    ],
+    "ordinary": [
+      "장갑: 힘 1당 방어도 +1"
+    ],
+    "bonded": [
+      "결속됨:",
+      "장갑: 힘 15당 피해 1% 증가"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  }
+]

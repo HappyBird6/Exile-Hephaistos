@@ -1,0 +1,5518 @@
+[
+  {
+    "id": "Desert_Rune",
+    "name": "沙漠符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "軍用武器: 附加7至11火焰傷害",
+      "法杖或長杖: 獲得等同於傷害8%的額外火焰傷害",
+      "護甲: +14%火焰抗性"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加30%點燃幅度",
+      "法杖或長杖: 增加30%點燃幅度",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRune.webp"
+  },
+  {
+    "id": "Glacial_Rune",
+    "name": "冰川符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "軍用武器: 附加6至10冰冷傷害",
+      "法杖或長杖: 獲得等同於傷害8%的額外冰冷傷害",
+      "護甲: +14%冰冷抗性"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加30%冰凍累積",
+      "法杖或長杖: 增加30%冰凍累積",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ColdRune.webp"
+  },
+  {
+    "id": "Storm_Rune",
+    "name": "暴風符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "軍用武器: 附加1至20閃電傷害",
+      "法杖或長杖: 獲得等同於傷害8%的額外閃電傷害",
+      "護甲: +14%閃電抗性"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加30%你所施加之感電的幅度",
+      "法杖或長杖: 增加30%你所施加之感電的幅度",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRune.webp"
+  },
+  {
+    "id": "Iron_Rune",
+    "name": "鍛鐵符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "軍用武器: 增加16%物理傷害",
+      "法杖或長杖: 增加25%法術傷害",
+      "護甲: 增加16%護甲值、閃避和能量護盾"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加20%完全破甲的效果",
+      "法杖或長杖: 法術暴擊時，破壞等同於12%造成的物理傷害的護甲",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/EnhanceRune.webp"
+  },
+  {
+    "id": "Body_Rune",
+    "name": "肉體符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "軍用武器: 以4%物理傷害偷取生命",
+      "法杖或長杖: +40最大能量護盾",
+      "護甲: +45最大生命"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加5%最大生命",
+      "法杖或長杖: 增加5%最大生命",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRune.webp"
+  },
+  {
+    "id": "Mind_Rune",
+    "name": "心靈符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "軍用武器: 以3%物理傷害偷取魔力",
+      "法杖或長杖: +60最大魔力",
+      "護甲: +30最大魔力"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加5%最大魔力",
+      "法杖或長杖: 增加5%最大魔力",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRune.webp"
+  },
+  {
+    "id": "Rebirth_Rune",
+    "name": "重生符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "軍用武器: 每個被擊殺的敵人，獲得25生命",
+      "法杖或長杖: 增加8%能量護盾充能率",
+      "護甲: 每秒回復0.4%生命"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 每秒回復0.4%生命",
+      "法杖或長杖: 承受的8%傷害補償為生命",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRecoveryRune.webp"
+  },
+  {
+    "id": "Inspiration_Rune",
+    "name": "啟發符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "軍用武器: 每個被擊殺的敵人，獲得20魔力",
+      "法杖或長杖: 增加25%魔力回復率",
+      "護甲: 增加15%魔力回復率"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 12%技能魔力消耗轉換為生命消耗",
+      "法杖或長杖: 增加16%魔力消耗效用",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRecoveryRune.webp"
+  },
+  {
+    "id": "Stone_Rune",
+    "name": "岩石符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "軍用武器: 增加30%暈眩累積",
+      "法杖或長杖: 獲得等同於最大能量護盾12%的額外暈眩門檻",
+      "護甲: 暈眩門檻+75"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加40%對受禁錮敵人的傷害",
+      "法杖或長杖: 增加30%禁錮累積",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StunRune.webp"
+  },
+  {
+    "id": "Vision_Rune",
+    "name": "遠見符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "軍用武器: +90命中值",
+      "法杖或長杖: 增加20%法術暴擊率",
+      "護甲: 增加12%藥劑的生命和魔力恢復"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: +1%攻擊的暴擊機率",
+      "法杖或長杖: 增加25%暴擊傷害加成",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/AccuracyRune.webp"
+  },
+  {
+    "id": "Lesser_Desert_Rune",
+    "name": "低階沙漠符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 附加4至6火焰傷害",
+      "法杖或長杖: 獲得等同於傷害6%的額外火焰傷害",
+      "護甲: +10%火焰抗性"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加30%點燃幅度",
+      "法杖或長杖: 增加30%點燃幅度",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Glacial_Rune",
+    "name": "低階冰川符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 附加3至5冰冷傷害",
+      "法杖或長杖: 獲得等同於傷害6%的額外冰冷傷害",
+      "護甲: +10%冰冷抗性"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加30%冰凍累積",
+      "法杖或長杖: 增加30%冰凍累積",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ColdRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Storm_Rune",
+    "name": "低階暴風符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 附加1至10閃電傷害",
+      "法杖或長杖: 獲得等同於傷害6%的額外閃電傷害",
+      "護甲: +10%閃電抗性"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加30%你所施加之感電的幅度",
+      "法杖或長杖: 增加30%你所施加之感電的幅度",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Iron_Rune",
+    "name": "低階鍛鐵符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 增加14%物理傷害",
+      "法杖或長杖: 增加20%法術傷害",
+      "護甲: 增加14%護甲值、閃避和能量護盾"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加20%完全破甲的效果",
+      "法杖或長杖: 法術暴擊時，破壞等同於12%造成的物理傷害的護甲",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/EnhanceRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Body_Rune",
+    "name": "低階肉體符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 以3%物理傷害偷取生命",
+      "法杖或長杖: +30最大能量護盾",
+      "護甲: +30最大生命"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加5%最大生命",
+      "法杖或長杖: 增加5%最大生命",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Mind_Rune",
+    "name": "低階心靈符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 以2%物理傷害偷取魔力",
+      "法杖或長杖: +45最大魔力",
+      "護甲: +20最大魔力"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加5%最大魔力",
+      "法杖或長杖: 增加5%最大魔力",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Rebirth_Rune",
+    "name": "低階重生符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 每個被擊殺的敵人，獲得15生命",
+      "法杖或長杖: 增加6%能量護盾充能率",
+      "護甲: 每秒回復0.35%生命"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 每秒回復0.4%生命",
+      "法杖或長杖: 承受的8%傷害補償為生命",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRecoveryRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Inspiration_Rune",
+    "name": "低階啟發符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 每個被擊殺的敵人，獲得10魔力",
+      "法杖或長杖: 增加20%魔力回復率",
+      "護甲: 增加12%魔力回復率"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 12%技能魔力消耗轉換為生命消耗",
+      "法杖或長杖: 增加16%魔力消耗效用",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRecoveryRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Stone_Rune",
+    "name": "低階岩石符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 增加20%暈眩累積",
+      "法杖或長杖: 獲得等同於最大能量護盾10%的額外暈眩門檻",
+      "護甲: 暈眩門檻+50"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加40%對受禁錮敵人的傷害",
+      "法杖或長杖: 增加30%禁錮累積",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StunRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Vision_Rune",
+    "name": "低階遠見符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: +60命中值",
+      "法杖或長杖: 增加16%法術暴擊率",
+      "護甲: 增加8%藥劑的生命和魔力恢復"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: +1%攻擊的暴擊機率",
+      "法杖或長杖: 增加25%暴擊傷害加成",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/AccuracyRuneTier1.webp"
+  },
+  {
+    "id": "Greater_Desert_Rune",
+    "name": "高階沙漠符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "軍用武器: 附加13至16火焰傷害",
+      "法杖或長杖: 獲得等同於傷害10%的額外火焰傷害",
+      "護甲: +18%火焰抗性"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加30%點燃幅度",
+      "法杖或長杖: 增加30%點燃幅度",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Glacial_Rune",
+    "name": "高階冰川符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "軍用武器: 附加9至15冰冷傷害",
+      "法杖或長杖: 獲得等同於傷害10%的額外冰冷傷害",
+      "護甲: +18%冰冷抗性"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加30%冰凍累積",
+      "法杖或長杖: 增加30%冰凍累積",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ColdRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Storm_Rune",
+    "name": "高階暴風符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "軍用武器: 附加1至30閃電傷害",
+      "法杖或長杖: 獲得等同於傷害10%的額外閃電傷害",
+      "護甲: +18%閃電抗性"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加30%你所施加之感電的幅度",
+      "法杖或長杖: 增加30%你所施加之感電的幅度",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Iron_Rune",
+    "name": "高階鍛鐵符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "軍用武器: 增加18%物理傷害",
+      "法杖或長杖: 增加30%法術傷害",
+      "護甲: 增加18%護甲值、閃避和能量護盾"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加20%完全破甲的效果",
+      "法杖或長杖: 法術暴擊時，破壞等同於12%造成的物理傷害的護甲",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/EnhanceRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Body_Rune",
+    "name": "高階肉體符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "軍用武器: 以5%物理傷害偷取生命",
+      "法杖或長杖: +50最大能量護盾",
+      "護甲: +60最大生命"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加5%最大生命",
+      "法杖或長杖: 增加5%最大生命",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Mind_Rune",
+    "name": "高階心靈符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "軍用武器: 以4%物理傷害偷取魔力",
+      "法杖或長杖: +75最大魔力",
+      "護甲: +40最大魔力"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加5%最大魔力",
+      "法杖或長杖: 增加5%最大魔力",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Rebirth_Rune",
+    "name": "高階重生符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "軍用武器: 每個被擊殺的敵人，獲得35生命",
+      "法杖或長杖: 增加10%能量護盾充能率",
+      "護甲: 每秒回復0.45%生命"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 每秒回復0.4%生命",
+      "法杖或長杖: 承受的8%傷害補償為生命",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRecoveryRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Inspiration_Rune",
+    "name": "高階啟發符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "軍用武器: 每個被擊殺的敵人，獲得30魔力",
+      "法杖或長杖: 增加30%魔力回復率",
+      "護甲: 增加18%魔力回復率"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 12%技能魔力消耗轉換為生命消耗",
+      "法杖或長杖: 增加16%魔力消耗效用",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRecoveryRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Stone_Rune",
+    "name": "高階岩石符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "軍用武器: 增加40%暈眩累積",
+      "法杖或長杖: 獲得等同於最大能量護盾14%的額外暈眩門檻",
+      "護甲: 暈眩門檻+100"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加40%對受禁錮敵人的傷害",
+      "法杖或長杖: 增加30%禁錮累積",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StunRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Vision_Rune",
+    "name": "高階遠見符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "軍用武器: +120命中值",
+      "法杖或長杖: 增加24%法術暴擊率",
+      "護甲: 增加16%藥劑的生命和魔力恢復"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: +1%攻擊的暴擊機率",
+      "法杖或長杖: 增加25%暴擊傷害加成",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/AccuracyRuneTier2.webp"
+  },
+  {
+    "id": "Perfect_Desert_Rune",
+    "name": "完美沙漠符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 附加17至20火焰傷害",
+      "法杖或長杖: 獲得等同於傷害12%的額外火焰傷害",
+      "護甲: +22%火焰抗性"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加30%點燃幅度",
+      "法杖或長杖: 增加30%點燃幅度",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneFire.webp"
+  },
+  {
+    "id": "Perfect_Glacial_Rune",
+    "name": "完美冰川符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 附加16至20冰冷傷害",
+      "法杖或長杖: 獲得等同於傷害12%的額外冰冷傷害",
+      "護甲: +22%冰冷抗性"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加30%冰凍累積",
+      "法杖或長杖: 增加30%冰凍累積",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneCold.webp"
+  },
+  {
+    "id": "Perfect_Storm_Rune",
+    "name": "完美暴風符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 附加1至40閃電傷害",
+      "法杖或長杖: 獲得等同於傷害12%的額外閃電傷害",
+      "護甲: +22%閃電抗性"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加30%你所施加之感電的幅度",
+      "法杖或長杖: 增加30%你所施加之感電的幅度",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneLightning.webp"
+  },
+  {
+    "id": "Perfect_Iron_Rune",
+    "name": "完美鍛鐵符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 增加20%物理傷害",
+      "法杖或長杖: 增加35%法術傷害",
+      "護甲: 增加20%護甲值、閃避和能量護盾"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加20%完全破甲的效果",
+      "法杖或長杖: 法術暴擊時，破壞等同於12%造成的物理傷害的護甲",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneEnhance.webp"
+  },
+  {
+    "id": "Perfect_Body_Rune",
+    "name": "完美肉體符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 以6%物理傷害偷取生命",
+      "法杖或長杖: +60最大能量護盾",
+      "護甲: +75最大生命"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加5%最大生命",
+      "法杖或長杖: 增加5%最大生命",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneLife.webp"
+  },
+  {
+    "id": "Perfect_Mind_Rune",
+    "name": "完美心靈符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 以5%物理傷害偷取魔力",
+      "法杖或長杖: +90最大魔力",
+      "護甲: +50最大魔力"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加5%最大魔力",
+      "法杖或長杖: 增加5%最大魔力",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneMana.webp"
+  },
+  {
+    "id": "Perfect_Rebirth_Rune",
+    "name": "完美重生符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 每個被擊殺的敵人，獲得45生命",
+      "法杖或長杖: 增加12%能量護盾充能率",
+      "護甲: 每秒回復0.5%生命"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 每秒回復0.4%生命",
+      "法杖或長杖: 承受的8%傷害補償為生命",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneLifeRecovery.webp"
+  },
+  {
+    "id": "Perfect_Inspiration_Rune",
+    "name": "完美啟發符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 每個被擊殺的敵人，獲得40魔力",
+      "法杖或長杖: 增加35%魔力回復率",
+      "護甲: 增加21%魔力回復率"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 12%技能魔力消耗轉換為生命消耗",
+      "法杖或長杖: 增加16%魔力消耗效用",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneManaRecovery.webp"
+  },
+  {
+    "id": "Perfect_Stone_Rune",
+    "name": "完美岩石符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 增加50%暈眩累積",
+      "法杖或長杖: 獲得等同於最大能量護盾16%的額外暈眩門檻",
+      "護甲: 暈眩門檻+125"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加40%對受禁錮敵人的傷害",
+      "法杖或長杖: 增加30%禁錮累積",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneStun.webp"
+  },
+  {
+    "id": "Perfect_Vision_Rune",
+    "name": "完美遠見符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: +150命中值",
+      "法杖或長杖: 增加28%法術暴擊率",
+      "護甲: 增加20%藥劑的生命和魔力恢復"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: +1%攻擊的暴擊機率",
+      "法杖或長杖: 增加25%暴擊傷害加成",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneAccuracy.webp"
+  },
+  {
+    "id": "Lesser_Robust_Rune",
+    "name": "低階堅實符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "所有裝備: +6點力量"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 攻擊附加6至10物理傷害, 攻擊附加6至10火焰傷害",
+      "法杖或長杖: +100護甲值",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StrengthRuneTier1.webp"
+  },
+  {
+    "id": "Robust_Rune",
+    "name": "堅實符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "所有裝備: +9點力量"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 攻擊附加6至10物理傷害, 攻擊附加6至10火焰傷害",
+      "法杖或長杖: +100護甲值",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StrengthRune.webp"
+  },
+  {
+    "id": "Greater_Robust_Rune",
+    "name": "高階堅實符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "所有裝備: +12點力量"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 攻擊附加6至10物理傷害, 攻擊附加6至10火焰傷害",
+      "法杖或長杖: +100護甲值",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StrengthRuneTier3.webp"
+  },
+  {
+    "id": "Perfect_Robust_Rune",
+    "name": "完美堅實符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "所有裝備: +15點力量"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 攻擊附加6至10物理傷害, 攻擊附加6至10火焰傷害",
+      "法杖或長杖: +100護甲值",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneStrength.webp"
+  },
+  {
+    "id": "Lesser_Adept_Rune",
+    "name": "低階嫻熟符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "所有裝備: +6點敏捷"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 攻擊附加6至10物理傷害, 攻擊附加1至16閃電傷害",
+      "法杖或長杖: +80閃避值",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/DexRuneTier1.webp"
+  },
+  {
+    "id": "Adept_Rune",
+    "name": "嫻熟符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "所有裝備: +9點敏捷"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 攻擊附加6至10物理傷害, 攻擊附加1至16閃電傷害",
+      "法杖或長杖: +80閃避值",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/DexRune.webp"
+  },
+  {
+    "id": "Greater_Adept_Rune",
+    "name": "高階嫻熟符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "所有裝備: +12點敏捷"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 攻擊附加6至10物理傷害, 攻擊附加1至16閃電傷害",
+      "法杖或長杖: +80閃避值",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/DexRuneTier3.webp"
+  },
+  {
+    "id": "Perfect_Adept_Rune",
+    "name": "完美嫻熟符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "所有裝備: +15點敏捷"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 攻擊附加6至10物理傷害, 攻擊附加1至16閃電傷害",
+      "法杖或長杖: +80閃避值",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneDexterity.webp"
+  },
+  {
+    "id": "Lesser_Resolve_Rune",
+    "name": "低階決心符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "所有裝備: +6點智慧"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 攻擊附加6至10物理傷害, 攻擊附加5至8冰冷傷害",
+      "法杖或長杖: +50最大能量護盾",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/IntRuneTier1.webp"
+  },
+  {
+    "id": "Resolve_Rune",
+    "name": "決心符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "所有裝備: +9點智慧"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 攻擊附加6至10物理傷害, 攻擊附加5至8冰冷傷害",
+      "法杖或長杖: +50最大能量護盾",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/IntRune.webp"
+  },
+  {
+    "id": "Greater_Resolve_Rune",
+    "name": "高階決心符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "所有裝備: +12點智慧"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 攻擊附加6至10物理傷害, 攻擊附加5至8冰冷傷害",
+      "法杖或長杖: +50最大能量護盾",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/IntRuneTier3.webp"
+  },
+  {
+    "id": "Perfect_Resolve_Rune",
+    "name": "完美決心符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "所有裝備: +15點智慧"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 攻擊附加6至10物理傷害, 攻擊附加5至8冰冷傷害",
+      "法杖或長杖: +50最大能量護盾",
+      "護甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneIntelligence.webp"
+  },
+  {
+    "id": "Lesser_Tempered_Rune",
+    "name": "低階鍛煉符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 附加3至4物理傷害",
+      "護甲: 6至9點物理荊棘傷害"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PhyDmgRuneTier1.webp"
+  },
+  {
+    "id": "Tempered_Rune",
+    "name": "鍛煉符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "軍用武器: 附加6至9物理傷害",
+      "護甲: 14至21點物理荊棘傷害"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PhyDmgRune.webp"
+  },
+  {
+    "id": "Greater_Tempered_Rune",
+    "name": "高階鍛煉符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "軍用武器: 附加9至12物理傷害",
+      "護甲: 31至52點物理荊棘傷害"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PhyDmgRuneTier3.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Leadership",
+    "name": "高階領導符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 召喚物獲得等同於其物理傷害10%的額外閃電傷害",
+      "護甲: 召喚物受到的10%物理傷害會承受為閃電傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加20%召喚物造成的傷害",
+      "護甲: 召喚物+10%全部元素抗性"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial1.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Tithing",
+    "name": "高階奉獻符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 增加10%主要技能獲得能量",
+      "護甲: 1至100點閃電荊棘傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 祈願法術有25%機率消耗一半的能量",
+      "護甲: 增加15%荊棘傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial2.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Alacrity",
+    "name": "高階迅捷符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 增加8%技能速度",
+      "護甲: 你身上的減益效果加快8%失效"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 捷光環技能增加15%保留效用",
+      "護甲: 增加15%元素異常狀態門檻"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial3.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Nobility",
+    "name": "高階崇高符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 此武器的攻擊有10%機率造成曝曬",
+      "護甲: 減少10%你身上的感電效果"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加20%曝曬效果",
+      "護甲: 減少10%你身上的感電持續時間"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial4.webp"
+  },
+  {
+    "id": "Hedgewitch_Assandras_Rune_of_Wisdom",
+    "name": "流浪女巫艾珊德菈的智慧符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "法杖或長杖: 全部法術技能等級+1"
+    ],
+    "bonded": [
+      "命定:",
+      "法杖或長杖: 統治者增益效果恢復期加快30%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune1.webp"
+  },
+  {
+    "id": "Saqawals_Rune_of_the_Sky",
+    "name": "斯卡沃的天空符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 獲得等同於5%傷害的全元素額外傷害",
+      "法杖或長杖: 獲得等同於5%傷害的全元素額外傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 當你獲得充能時，有8%機率獲得額外一顆隨機能量球",
+      "法杖或長杖: 拾取元素灌注時，有12%機率獲得額外一個同類型的元素灌注"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune2.webp"
+  },
+  {
+    "id": "Fenumus_Rune_of_Agony",
+    "name": "菲恩絲的苦痛符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 獲得等同於傷害13%的額外混沌傷害",
+      "法杖或長杖: 獲得等同於傷害13%的額外混沌傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 獲得等同於傷害8%的額外物理傷害",
+      "法杖或長杖: 獲得等同於傷害8%的額外物理傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune3.webp"
+  },
+  {
+    "id": "Farruls_Rune_of_Grace",
+    "name": "費爾羅的優雅符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "鞋子: 移動時增加8%偏斜率"
+    ],
+    "bonded": [
+      "命定:",
+      "鞋子: 抵禦偏斜擊中的+3%傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune4.webp"
+  },
+  {
+    "id": "Farruls_Rune_of_the_Chase",
+    "name": "費爾羅的追擊符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "鞋子: 增加5%移動速度"
+    ],
+    "bonded": [
+      "命定:",
+      "鞋子: 增加10%冷卻時間恢復率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune5.webp"
+  },
+  {
+    "id": "Craiceanns_Rune_of_Warding",
+    "name": "奎爾珊的守護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "胸甲: 減少50%你身上的詛咒效果"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: 增加8%詛咒幅度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune6.webp"
+  },
+  {
+    "id": "Saqawals_Rune_of_Memory",
+    "name": "斯卡沃的記憶符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "頭部: 增加2%獲得的經驗"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: +10%全元素抗性"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune7.webp"
+  },
+  {
+    "id": "Saqawals_Rune_of_Erosion",
+    "name": "斯卡沃的侵蝕符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "頭部: 增加25%曝曬效果"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 增加15%你所施加之非傷害型異常狀態的幅度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune8.webp"
+  },
+  {
+    "id": "Farruls_Rune_of_the_Hunt",
+    "name": "費爾羅的狩獵符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 增加50%對稀有或傳奇敵人的攻擊傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 全部攻擊技能等級+1"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune9.webp"
+  },
+  {
+    "id": "Craiceanns_Rune_of_Recovery",
+    "name": "奎爾珊的恢復符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "胸甲: 增加30%能量護盾充能率"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: 獲得等同於最大能量護盾50%的額外異常狀態門檻, 獲得等同於最大能量護盾50%的額外暈眩門檻"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune10.webp"
+  },
+  {
+    "id": "Courtesan_Mannans_Rune_of_Cruelty",
+    "name": "花魁蔓南的殘酷符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "手套: 增加20%你所施加之傷害型異常狀態的幅度"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: 增加15%敵人身上的傷害型異常狀態持續時間"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune11.webp"
+  },
+  {
+    "id": "Thane_Grannells_Rune_of_Mastery",
+    "name": "爵士格蘭內爾的專精符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "手套: 增加30%你所施加之非傷害型異常狀態的幅度"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: 增加15%敵人身上的元素異常狀態持續時間"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune12.webp"
+  },
+  {
+    "id": "Fenumus_Rune_of_Spinning",
+    "name": "菲恩絲的轉動符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "手套: 增加8%施法速度"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: 貧魔狀態時，增加20%魔力消耗效用"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune13.webp"
+  },
+  {
+    "id": "Countess_Seskes_Rune_of_Archery",
+    "name": "伯爵夫人瑟絲可的箭術符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "弓: 弓的攻擊額外發射1支箭矢"
+    ],
+    "bonded": [
+      "命定:",
+      "弓: 增加20%投射物速度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune14.webp"
+  },
+  {
+    "id": "Thane_Girts_Rune_of_Wildness",
+    "name": "爵士格特的野性符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "法杖或長杖: 法術技能有25%機率發射額外2個投射物"
+    ],
+    "bonded": [
+      "命定:",
+      "法杖或長杖: 每1盛怒同時增加1%法術傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune15.webp"
+  },
+  {
+    "id": "Fenumus_Rune_of_Draining",
+    "name": "菲恩絲的流失符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "手套: 增加20%凋零幅度"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: +7%混沌抗性"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune16.webp"
+  },
+  {
+    "id": "Thane_Myrks_Rune_of_Summer",
+    "name": "爵士邁爾克的盛夏符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 對點燃敵人的攻擊附加23至34火焰傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: +2%最大火焰抗性"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune17.webp"
+  },
+  {
+    "id": "Lady_Hestras_Rune_of_Winter",
+    "name": "赫絲緹菈女士的寒冬符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 對冰緩敵人附加19至28冰冷傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: +2%最大冰冷抗性"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune18.webp"
+  },
+  {
+    "id": "Thane_Lelds_Rune_of_Spring",
+    "name": "爵士勒爾德的暖春符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 對感電的敵人附加1至60閃電傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: +2%最大閃電抗性"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune19.webp"
+  },
+  {
+    "id": "The_Greatwolfs_Rune_of_Claws",
+    "name": "巨狼之爪符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "手套: 攻擊附加5至12物理傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: 裂縫技能+2上限"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune20.webp"
+  },
+  {
+    "id": "The_Greatwolfs_Rune_of_Willpower",
+    "name": "巨狼意志符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "胸甲: 生命值所受的15%傷害由魔力扣除"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: 8%最大生命轉換為能量護盾"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune21.webp"
+  },
+  {
+    "id": "Masterwork_Rune",
+    "name": "匠鍛符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "所有裝備: 升級插槽中的符文"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/UpgradeRune.webp"
+  },
+  {
+    "id": "Idol_of_Sirrius",
+    "name": "席里斯魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "手套: 增加8%攻擊速度",
+      "權杖: 你存在範圍內的友方增加8%移動速度"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: 減少20%你身上的減益效果緩速程度",
+      "權杖: 增加4%移動速度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableWolfSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Thruldana",
+    "name": "特盧達納魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 減少25%中毒持續時間, 目標可同時受到你的+1個中毒影響",
+      "權杖: 處於你存在範圍中的友方造成13至27附加攻擊混沌傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 獲得等同於13%物理傷害的額外混沌傷害",
+      "權杖: 增加15%凋零幅度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableSnakeSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Grold",
+    "name": "格羅德魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "鞋子: 增加50%戰吼計算的總強度",
+      "權杖: 你存在範圍中每有一種盟友即增加15%傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "鞋子: 增加30%生成的榮耀",
+      "權杖: 盟友技能增加15%保留效用"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableBearSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Eeshta",
+    "name": "義許塔魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "頭部: 增加15%消耗效用",
+      "權杖: 當你的盟友位於你的存在範圍內時，增加15%魔力回復速率"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 主要技能增加15%保留效用",
+      "權杖: 當你的盟友在你的存在範圍內時，增加8%生命回復率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableOwlSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Egrin",
+    "name": "埃格林魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "頭部: 增加6%你詛咒的敵人所承受傷害",
+      "權杖: 增加20%詛咒持續時間"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 增加20%詛咒範圍效果",
+      "權杖: 減少20%詛咒區域爆發前延遲"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableCatSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Maxarius",
+    "name": "瑪薩里歐斯魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "胸甲: +1護符欄位",
+      "權杖: 藥劑每秒獲得0.2充能"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: 技能上限+1",
+      "權杖: 增加20%藥劑的生命和魔力恢復"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableStagSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Ralakesh",
+    "name": "芮勒蓋許魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "頭部: 召喚物技能增加8%保留效用",
+      "權杖: 當你的盟友在你的存在範圍內時，增加40%護甲、閃避與能量護盾"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 召喚物的復甦速度加快8%",
+      "權杖: 增加25%盟友的最大生命"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableMonkeySpecial.webp"
+  },
+  {
+    "id": "Idol_of_Greust",
+    "name": "古斯特魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "盾牌: +25%的護甲值也會套用至元素傷害",
+      "輕盾: 獲得等同20%閃避值的偏斜值",
+      "權杖: 你每有一種已死亡的盟友，盟友即造成10%更多傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "盾牌: 每對敵人施加一種元素異常狀態，增加12%傷害",
+      "輕盾: 每對敵人施加一種元素異常狀態，增加12%傷害",
+      "權杖: 你的其中一個召喚物復甦時，恢復3%最大生命"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofGreust.webp"
+  },
+  {
+    "id": "Idol_of_Yeena",
+    "name": "伊娜魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "鞋子: 增加30%植物技能的持續時間",
+      "權杖: 植物在首次進入你的存在範圍時有25%機率立即過度生長"
+    ],
+    "bonded": [
+      "命定:",
+      "鞋子: 植物在首次進入你的存在範圍時有25%機率立即過度生長",
+      "權杖: 增加30%植物技能的持續時間"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofYeena.webp"
+  },
+  {
+    "id": "Idol_of_Eramir",
+    "name": "艾米爾魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "胸甲: 技能有10%的機率不會移除能量球，但依然會視為將其消耗",
+      "權杖: 你存在範圍中的友方會和你共享能量球"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: 當你使用護符時，有15%機率不消耗充能",
+      "權杖: 增加25%耐力球、狂怒球、以及暴擊球的持續時間"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofEramir.webp"
+  },
+  {
+    "id": "Idol_of_Oak",
+    "name": "歐克魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "鞋子: 當你獲得一顆耐力球時，有15%機率獲得一顆額外的耐力球",
+      "權杖: 如果你會獲得一顆耐力球，改為由你存在中的友方獲得該能量球"
+    ],
+    "bonded": [
+      "命定:",
+      "鞋子: +1最大耐力球數量",
+      "權杖: 若你近期有消耗一顆耐力球，增加40%護甲值"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofOak.webp"
+  },
+  {
+    "id": "Idol_of_Alira",
+    "name": "阿莉亞魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "頭部: 當你獲得一顆暴擊球時，有15%機率獲得一顆額外的暴擊球",
+      "權杖: 如果你會獲得一顆暴擊球，改為由你存在中的友方獲得該能量球"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: +1最大暴擊球數量",
+      "權杖: 如果你近期消耗了一顆暴擊球，增加40%最大能量護盾"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdoloAlira.webp"
+  },
+  {
+    "id": "Idol_of_Kraityn",
+    "name": "克雷頓魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "手套: 當你獲得一顆狂怒球時，有15%機率獲得一顆額外的狂怒球",
+      "權杖: 如果你會獲得一顆狂怒球，改為由你存在中的友方獲得該能量球"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: +1最大狂怒球數量",
+      "權杖: 若你近期有消耗一顆狂怒球，增加40%閃避值"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdoloKraityn.webp"
+  },
+  {
+    "id": "Idol_of_Silk",
+    "name": "斯克魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "盾牌: 當你的盟友位於你的存在範圍時增加15%格擋機率",
+      "輕盾: companions gain onslaught when you parry [1]",
+      "權杖: 你存在範圍中盟友擊中時獲得1盛怒"
+    ],
+    "bonded": [
+      "命定:",
+      "盾牌: +3%至最大格擋機率",
+      "輕盾: 增加30%招架距離",
+      "權杖: 增加30%盟友的範圍效果"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofSilk.webp"
+  },
+  {
+    "id": "Idol_of_the_Sycophant",
+    "name": "奉承魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器、法杖或長杖: -20%全元素抗性, 獲得20%傷害的額外隨機元素傷害",
+      "權杖: 你存在範圍中盟友-20%全元素抗性, 你存在範圍中盟友獲得等同於20%傷害的額外隨機一種元素傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器、法杖或長杖: -20%混沌抗性, 獲得等同於傷害20%的額外混沌傷害",
+      "權杖: 在你存在範圍內的友方獲得等同於20%傷害的額外混沌傷害, 你存在範圍中盟友-20%混沌抗性"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/RitualCorruptedIdol1.webp"
+  },
+  {
+    "id": "Idol_of_the_Martyr",
+    "name": "烈士魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器、法杖或長杖: 減少25%精魂, 增加40%主要技能獲得能量",
+      "權杖: 減少40%存在範圍的範圍效果, 光環技能增加25%幅度"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器、法杖或長杖: 增加25%祈願技能的最大能量, 主要技能減少25%保留效用",
+      "權杖: 處於你的存在範圍中的友方每秒回復3%最大生命, 減少25%生命回復率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/RitualCorruptedIdol2.webp"
+  },
+  {
+    "id": "Idol_of_the_Pharisee",
+    "name": "偽善魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器、法杖或長杖: 減少30%最大魔力, 每失去十分之一魔力，即獲得等同於2%傷害的額外物理傷害",
+      "權杖: 減少30%號令技能的魔力消耗效用, 增加60%召喚物的號令技能造成的傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器、法杖或長杖: 減少30%魔力消耗效用, 貧魔時增加12%技能速度",
+      "權杖: 召喚物技能減少25%保留效用, 暫時召喚物技能具有 +2 召出召喚物上限"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/RitualCorruptedIdol3.webp"
+  },
+  {
+    "id": "Panther_Idol",
+    "name": "花豹魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "胸甲: +10%的護甲值也會套用至混沌傷害",
+      "權杖: 召喚物+20%混沌抗性"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: +8%混沌抗性",
+      "權杖: 召喚物有20%額外物理傷害減免"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketablePanther.webp"
+  },
+  {
+    "id": "Hawk_Idol",
+    "name": "翔鷹魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "胸甲: 增加10%偏斜值",
+      "權杖: 增加12%盟友的攻擊速度"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: +12%冰冷抗性",
+      "權杖: 當你的盟友位於你的存在範圍內時，增加8%攻擊速度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableHawk.webp"
+  },
+  {
+    "id": "Stoat_Idol",
+    "name": "白鼬魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "胸甲: 所受傷害的5%會穿透能量護盾",
+      "權杖: 增加25%盟友的最大生命"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: +12%閃電抗性",
+      "權杖: 當你的盟友位於你的存在範圍內時，增加25%傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableStoat.webp"
+  },
+  {
+    "id": "Hayoxis_Soul_Core_of_Heatproofing",
+    "name": "荷霖蔡的隔熱靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "頭部: +40%的護甲值也會套用至冰冷傷害"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreIce.webp"
+  },
+  {
+    "id": "Zalatls_Soul_Core_of_Insulation",
+    "name": "札爾特的絕緣靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "鞋子: +40%的護甲值也會套用至閃電傷害"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreLightning.webp"
+  },
+  {
+    "id": "Topotantes_Soul_Core_of_Dampening",
+    "name": "托波譚提的阻挫靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "手套: +40%的護甲值也會套用至火焰傷害"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreFire.webp"
+  },
+  {
+    "id": "Atmohuas_Soul_Core_of_Retreat",
+    "name": "艾特瑪哈的撤退靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "胸甲: 增加40%來自已裝備法器的能量護盾",
+      "法器: 增加30%已裝備身體護甲的能量護盾"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreEnergyShield.webp"
+  },
+  {
+    "id": "Quipolatls_Soul_Core_of_Flow",
+    "name": "克特帕托的流動靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "頭部: 增加8%技能效果持續時間, 增加8%冷卻時間恢復率"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreTimeCooldown.webp"
+  },
+  {
+    "id": "Tzamotos_Soul_Core_of_Ferocity",
+    "name": "薩摩特的狂暴靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "頭部: +4層最大盛怒"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreRage.webp"
+  },
+  {
+    "id": "Uromotis_Soul_Core_of_Attenuation",
+    "name": "烏爾摩堤的消減靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "鞋子: 增加20%詛咒持續時間, 增加20%中毒持續時間"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreCurses2.webp"
+  },
+  {
+    "id": "Opilotis_Soul_Core_of_Assault",
+    "name": "歐派理堤的攻擊靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 當你獲得一顆狂怒球時，有50%機率獲得一顆額外的狂怒球",
+      "法杖或長杖: 當你獲得一顆狂怒球時，有50%機率獲得一顆額外的狂怒球"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreFrenzyCharge.webp"
+  },
+  {
+    "id": "Guatelitzis_Soul_Core_of_Endurance",
+    "name": "瓜特利斯的的耐久靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 當你獲得一顆耐力球時，有50%機率獲得一顆額外的耐力球",
+      "法杖或長杖: 當你獲得一顆耐力球時，有50%機率獲得一顆額外的耐力球"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreEnduranceCharge.webp"
+  },
+  {
+    "id": "Xopecs_Soul_Core_of_Power",
+    "name": "柔派克的力量靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 當你獲得一顆暴擊球時，有50%機率獲得一顆額外的暴擊球",
+      "法杖或長杖: 當你獲得一顆暴擊球時，有50%機率獲得一顆額外的暴擊球"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCorePowerCharge.webp"
+  },
+  {
+    "id": "Estazuntis_Soul_Core_of_Convalescence",
+    "name": "艾斯祖太的康復靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "鞋子: 增加15%補償效果速度",
+      "頭部: 承受的10%傷害補償為生命"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreTimeSlow.webp"
+  },
+  {
+    "id": "Tacatis_Soul_Core_of_Affliction",
+    "name": "特卡蒂的苦痛靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "頭部: 你所詛咒的敵人-5%混沌抗性"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreChaos1.webp"
+  },
+  {
+    "id": "Cholotls_Soul_Core_of_War",
+    "name": "斯拉托的戰爭靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "弓: 投射物有20%機率從地形額外連鎖一次"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreProjectile.webp"
+  },
+  {
+    "id": "Citaqualotls_Soul_Core_of_Foulness",
+    "name": "希特克拉多的腐壞靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "軍用武器: 附加19至29混沌傷害"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreChaos2.webp"
+  },
+  {
+    "id": "Xipocados_Soul_Core_of_Dominion",
+    "name": "賽匹卡托的支配靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "法杖或長杖: 增加40%召喚物的號令技能造成的傷害",
+      "權杖: 增加40%召喚物的號令技能造成的傷害"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreMinion.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Automation",
+    "name": "吉卡尼的自動化靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "武器: +1全部圖騰技能寶石的等級"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreTotems.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Malediction",
+    "name": "吉卡尼的惡語靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "武器: 全部詛咒技能等級+1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreCurses.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Targeting",
+    "name": "吉卡尼的索敵靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "武器: +1所有印記技能等級"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreMarks.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Rallying",
+    "name": "吉卡尼的號召靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "武器: +1全部戰吼技能寶石等級"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreWarcries.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Radiance",
+    "name": "吉卡尼的輝耀靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "武器: +1全部捷光環技能寶石等級"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreHeralds.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Severing",
+    "name": "吉卡尼的斷切靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "武器: +1全部風暴技能寶石等級"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreStrikes.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Rippling",
+    "name": "吉卡尼的漣漪靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "武器: +1全部新星技能寶石等級"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreNovas.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Quaking",
+    "name": "吉卡尼的震顫靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "武器: +1全部重擊技能寶石等級"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreSlams.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Munitions",
+    "name": "吉卡尼的彈藥靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "武器: +1全部擲彈技能寶石等級"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreGrenades.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Snares",
+    "name": "吉卡尼的陷阱靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "武器: +1全部危險技能寶石等級"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreHazards.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Abundance",
+    "name": "吉卡尼的豐饒靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "武器: +1全部植物技能寶石等級"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCorePlants.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Squalls",
+    "name": "吉卡尼的狂風靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "武器: +1全部疾風技能寶石等級"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreWind.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Thundering",
+    "name": "吉卡尼的雷鳴靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "武器: +1全部風暴技能寶石等級"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreStorms.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Devotion",
+    "name": "阿茲里的奉獻靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "頭部: 每裝備一件已汙染物品，即增加1%精魂, 汙染的結果總會是改變"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialHelmet.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Vitality",
+    "name": "阿茲里的活力靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "胸甲: 每一個已裝備的已汙染物品，增加1%最大生命, 汙染的結果總會是改變"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialBodyArmour.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Alacrity",
+    "name": "阿茲里的敏捷靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "手套: 每裝備一件已汙染物品，即增加1%技能速度, 汙染的結果總會是改變"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialGloves.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Inoculation",
+    "name": "阿茲里的免疫靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "鞋子: 每一裝備的已汙染物品+2%混沌抗性, 汙染的結果總會是改變"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialBoots.webp"
+  },
+  {
+    "id": "Soul_Core_of_Vizoma",
+    "name": "威索瑪靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "軍用武器: +150命中值",
+      "法杖或長杖: 增加30%法術暴擊率"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreVision.webp"
+  },
+  {
+    "id": "Soul_Core_of_Tacati",
+    "name": "特卡蒂靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 增加25%你所施加之中毒的幅度",
+      "護甲: +13%混沌抗性"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreChaos.webp"
+  },
+  {
+    "id": "Soul_Core_of_Opiloti",
+    "name": "歐派理堤靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "軍用武器: 增加40%你所施加之流血的幅度",
+      "頭部: 增加25%釘身持續時間"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCorePhysical.webp"
+  },
+  {
+    "id": "Soul_Core_of_Jiquani",
+    "name": "吉卡尼靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "軍用武器: 擊殺時恢復5%生命",
+      "胸甲: 增加5%最大生命"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreLife.webp"
+  },
+  {
+    "id": "Soul_Core_of_Zalatl",
+    "name": "札爾特靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "軍用武器: 擊殺時恢復4%魔力",
+      "頭部: 增加5%最大魔力"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreMana.webp"
+  },
+  {
+    "id": "Soul_Core_of_Citaqualotl",
+    "name": "希特克拉多靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 增加40%攻擊元素傷害",
+      "護甲: +6%全元素抗性"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreElementalResist.webp"
+  },
+  {
+    "id": "Soul_Core_of_Puhuarte",
+    "name": "普希瓦爾靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "軍用武器: 增加40%點燃幅度",
+      "手套: +2%最大火焰抗性"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreFire.webp"
+  },
+  {
+    "id": "Soul_Core_of_Tzamoto",
+    "name": "薩摩特靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "軍用武器: 增加60%冰凍累積",
+      "頭部: +2%最大冰冷抗性"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreCold.webp"
+  },
+  {
+    "id": "Soul_Core_of_Xopec",
+    "name": "柔派克靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "軍用武器: 增加25%你所施加之感電的幅度",
+      "鞋子: +2%最大閃電抗性"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreLightning.webp"
+  },
+  {
+    "id": "Soul_Core_of_Azcapa",
+    "name": "艾斯卡巴靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: +15精魂",
+      "手套: 增加10%殺死敵人時掉落的金幣數量"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreWealthRarity.webp"
+  },
+  {
+    "id": "Soul_Core_of_Topotante",
+    "name": "塔普塔特靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "軍用武器: 此武器的攻擊穿透25%的元素抗性",
+      "鞋子: 減少25%你身上的非傷害型異常狀態效果"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreTriElement.webp"
+  },
+  {
+    "id": "Soul_Core_of_Quipolatl",
+    "name": "克特帕托靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 增加5%攻擊速度",
+      "鞋子: 減少15%你身上的減益效果緩速程度"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreSpeed.webp"
+  },
+  {
+    "id": "Soul_Core_of_Ticaba",
+    "name": "堤卡巴靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "軍用武器: +5%的暴擊傷害加成",
+      "胸甲: 對你的擊中減少50%暴擊傷害加成",
+      "盾牌和輕盾: 對你的擊中減少50%暴擊傷害加成"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreCrit.webp"
+  },
+  {
+    "id": "Soul_Core_of_Atmohua",
+    "name": "艾特瑪哈靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 40%需求轉換為力量",
+      "護甲: 40%需求轉換為力量"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreStrength.webp"
+  },
+  {
+    "id": "Soul_Core_of_Cholotl",
+    "name": "斯拉托靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 40%需求轉換為敏捷",
+      "護甲: 40%需求轉換為敏捷"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreDex.webp"
+  },
+  {
+    "id": "Soul_Core_of_Zantipi",
+    "name": "善堤比靈魂核心",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "軍用武器: 40%需求轉換為智慧",
+      "護甲: 40%需求轉換為智慧"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreint.webp"
+  },
+  {
+    "id": "Snake_Idol",
+    "name": "蝮蛇魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "手套: 增加8%詛咒幅度",
+      "權杖: 處於你存在範圍中的友方增加10%攻擊速度"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: 增加15%你產生的痕跡效果",
+      "權杖: 你變形期間，增加10%技能速度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableSnake.webp"
+  },
+  {
+    "id": "Primate_Idol",
+    "name": "靈長魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "頭部: 召喚物增加15%最大生命",
+      "權杖: 增加40%處於你存在範圍中的友方所造成的傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 痕跡可從30%更遠距離撿拾",
+      "權杖: 變形期間增加40%傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableMonkey.webp"
+  },
+  {
+    "id": "Owl_Idol",
+    "name": "夜梟魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "法器: 增加12%冷卻時間恢復率",
+      "權杖: 處於你存在範圍中的友方增加10%施法速度"
+    ],
+    "bonded": [
+      "命定:",
+      "法器: 增加20%你的統治者增益效果",
+      "權杖: 你變形期間，增加10%技能速度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableOwl.webp"
+  },
+  {
+    "id": "Cat_Idol",
+    "name": "靈貓魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "手套: 增加25%命中值",
+      "權杖: 處於你存在範圍中的友方增加14%暴擊率"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: 增加30%護符充能獲取",
+      "權杖: 變形期間增加25%暴擊機率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableCat.webp"
+  },
+  {
+    "id": "Wolf_Idol",
+    "name": "野狼魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "手套: 增加15%你所施加之流血的幅度",
+      "權杖: 處於你存在範圍中的友方增加20%暴擊傷害加成"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: 減少25%你身上的流血幅度",
+      "權杖: 變形期間增加25%暴擊機率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableWolf.webp"
+  },
+  {
+    "id": "Stag_Idol",
+    "name": "雄鹿魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "頭部: 投射物有15%機率會分裂",
+      "權杖: 處於你存在範圍中的友方造成1至40額外攻擊閃電傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 投射物分裂時有25%機率發射1個額外投射物",
+      "權杖: 變形期間增加40%攻擊傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableStag.webp"
+  },
+  {
+    "id": "Boar_Idol",
+    "name": "野豬魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "手套: 近戰擊中時，獲得1層盛怒",
+      "權杖: 處於你的存在範圍中的友方每秒回復0.5%最大生命"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: 增加25%戰吼冷卻時間恢復率",
+      "權杖: 你變形期間，增加25%施加生命回復率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableBoar.webp"
+  },
+  {
+    "id": "Bear_Idol",
+    "name": "巨熊魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "頭部: 增加10%範圍效果",
+      "權杖: 處於你存在範圍中的友方造成12至18額外攻擊物理傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 盟友技能增加12%保留效用",
+      "權杖: 變形期間增加40%攻擊傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableBear.webp"
+  },
+  {
+    "id": "Ox_Idol",
+    "name": "公牛魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "盾牌和輕盾: 增加15%格擋率",
+      "權杖: +12%處於你存在範圍中的友方全元素抗性"
+    ],
+    "bonded": [
+      "命定:",
+      "盾牌和輕盾: 敵人擊中你的傷害有15%機率視為[UnLucky|帶來厄運]",
+      "權杖: 當你變形時，+20%的護甲同時套用至元素傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableOx.webp"
+  },
+  {
+    "id": "Rabbit_Idol",
+    "name": "狡兔魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "胸甲: 增加12%找到的物品稀有度",
+      "權杖: 增加15%精魂"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: 增加10%殺死敵人時掉落的金幣數量",
+      "權杖: 增加30%召喚物的號令技能冷卻時間恢復率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableRabbit.webp"
+  },
+  {
+    "id": "Fox_Idol",
+    "name": "狐狸魔偶",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "胸甲: 鑲嵌在此物品中的魔偶獲得其命定詞綴的加成效果, display additional socketable mods for idols [1]",
+      "權杖: 增加50%存在範圍的範圍效果"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: +5%至全部技能的品質",
+      "權杖: 增加30%召喚物的範圍效果"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableFox.webp"
+  },
+  {
+    "id": "Amanamus_Gaze",
+    "name": "阿姆那姆的邪眼",
+    "properties": [
+      "僅限: 1 遠古增幅",
+      "需求:  等級 60"
+    ],
+    "ordinary": [
+      "頭部: 當你使用號令技能時，移除一個傷害型異常狀態",
+      "胸甲: 每有1精魂+2護甲值",
+      "鞋子: 每15精魂增加1%移動速度，上限為40%。\n除套用至衝刺的外其他移動速度詞墜將失效"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/AmanamusGaze.webp"
+  },
+  {
+    "id": "Tecrods_Gaze",
+    "name": "特克羅德的邪眼",
+    "properties": [
+      "僅限: 1 遠古增幅",
+      "需求:  等級 60"
+    ],
+    "ordinary": [
+      "胸甲: 每秒回復1.5%生命",
+      "手套: 增加25%生命消耗效用",
+      "鞋子: 增加10%貧血狀態時，移動速度"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/TecrodsGaze.webp"
+  },
+  {
+    "id": "Kurgals_Gaze",
+    "name": "柯戈的邪眼",
+    "properties": [
+      "僅限: 1 遠古增幅",
+      "需求:  等級 60"
+    ],
+    "ordinary": [
+      "頭部: 生命回復率的增減也套用至魔力回復率",
+      "手套: 增加40%你身上的秘能波動效果",
+      "鞋子: 若你近期沒有閃避翻滾，增加15%魔力消耗效用"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/KurgalsGaze.webp"
+  },
+  {
+    "id": "Ulamans_Gaze",
+    "name": "烏拉曼的邪眼",
+    "properties": [
+      "僅限: 1 遠古增幅",
+      "需求:  等級 60"
+    ],
+    "ordinary": [
+      "頭部: 已裝備的頭盔每擁有1物品閃避值，+1命中值",
+      "手套: 對受招架敵人的暴擊率視為帶來幸運",
+      "胸甲: 抵禦偏斜擊中的+3%傷害"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/UlamansGaze.webp"
+  },
+  {
+    "id": "Guatelitzis_Thesis",
+    "name": "瓜特利斯的假說",
+    "properties": [
+      "僅限: 1 遠古增幅",
+      "需求:  等級 60"
+    ],
+    "ordinary": [
+      "頭部: 獲得等同於在過去8秒內由於擊中所損失生命35%的護甲",
+      "胸甲: 抵禦物理傷害時，其10%補償為生命",
+      "鞋子: 衝刺時每秒損失5%最大生命, 衝刺時增加25%移動速度"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreBlood.webp"
+  },
+  {
+    "id": "Citaqualotls_Thesis",
+    "name": "希特克拉多的假說",
+    "properties": [
+      "僅限: 1 遠古增幅",
+      "需求:  等級 60"
+    ],
+    "ordinary": [
+      "胸甲: 你補償50%你的奉獻召喚物所承受的傷害為生命",
+      "手套: 當一個奉獻效果持續時間結束時，復活你的一名永久召喚物",
+      "鞋子: 當你閃避翻滾時，犧牲10%最大生命來獲得等量的守護"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreSacrifice.webp"
+  },
+  {
+    "id": "Jiquanis_Thesis",
+    "name": "吉卡尼的假說",
+    "properties": [
+      "僅限: 1 遠古增幅",
+      "需求:  等級 60"
+    ],
+    "ordinary": [
+      "頭部: 裝備的頭盔每有3物品護甲即+1最大魔力",
+      "手套: 消耗2000魔力後開始充能能量護盾，\n效果每2秒只能觸發一次",
+      "鞋子: 移動速度的增減同時套用到\n能量護盾充能率"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreSoul.webp"
+  },
+  {
+    "id": "Quipolatls_Thesis",
+    "name": "克特帕托的假說",
+    "properties": [
+      "僅限: 1 遠古增幅",
+      "需求:  等級 60"
+    ],
+    "ordinary": [
+      "頭部: 當你的印記啟動時，一個隨機需要榮耀的技能會獲得50%最大榮耀",
+      "手套: 你的召喚物重塑時，你便會開始能量護盾充能",
+      "胸甲: 能量護盾全滿時，+75%的護甲同時套用到混沌傷害"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreScience.webp"
+  },
+  {
+    "id": "Emergent_Vigour",
+    "name": "活力湧現",
+    "properties": [
+      "僅限: 1 遠古增幅",
+      "需求:  等級 60"
+    ],
+    "ordinary": [
+      "頭部: 裝備的頭盔上每有8點護甲，+1最大生命",
+      "胸甲: 獲得等同於所裝備護甲物品總力量需求50%的最大能量護盾",
+      "鞋子: 當你身處奉獻地面時，以你為目標的擊中沒有暴擊傷害加成"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: +20精魂",
+      "胸甲: +20點力量",
+      "鞋子: 增加20%你製造奉獻地面的效果"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionReligionAncientAugment.webp"
+  },
+  {
+    "id": "Emergent_Possibility",
+    "name": "潛能湧現",
+    "properties": [
+      "僅限: 1 遠古增幅",
+      "需求:  等級 60"
+    ],
+    "ordinary": [
+      "胸甲: 承受擊中15%的混沌傷害會改為承受一種隨機元素傷害",
+      "手套: 裝備的物品中每鑲嵌一個符文，即獲得等同於1%傷害的額外隨機元素傷害",
+      "鞋子: 衝刺時增加50%符文保護回復率"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: +13%混沌抗性",
+      "手套: 增加20%元素傷害",
+      "鞋子: 增加15%符文保護效用"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionScienceAncientAugment.webp"
+  },
+  {
+    "id": "Emergent_Protection",
+    "name": "護佑湧現",
+    "properties": [
+      "僅限: 1 遠古增幅",
+      "需求:  等級 60"
+    ],
+    "ordinary": [
+      "頭部: 達到貧血時獲得1顆耐力球，最多每2秒一次",
+      "手套: 鬥旗同時賦予被其影響的目標2%每秒生命回復",
+      "鞋子: 當你停止衝刺時每已衝刺一秒，即獲得等同於4%最大生命的保護，最高20%，持續4秒"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 增加40%耐力球持續時間",
+      "手套: 每秒回復0.5%生命",
+      "鞋子: 增加20%獲得的守護"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionValorAncientAugment.webp"
+  },
+  {
+    "id": "Emergent_Instinct",
+    "name": "直覺湧現",
+    "properties": [
+      "僅限: 1 遠古增幅",
+      "需求:  等級 60"
+    ],
+    "ordinary": [
+      "頭部: 處於致盲、癱瘓且流血狀態的目標，無法閃避你的擊中",
+      "手套: 若你近期使用過一個號令技能，即每秒回復5%最大生命",
+      "胸甲: 你的荊棘傷害對護甲完全破壞的目標很幸運"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 增加30%禁錮累積",
+      "手套: 增加20%生命回復率",
+      "胸甲: 增加30%荊棘傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionWarAncientAugment.webp"
+  },
+  {
+    "id": "Carved_Cunning",
+    "name": "雕紋狡詰",
+    "properties": [
+      "僅限: 1 遠古增幅",
+      "需求:  等級 60"
+    ],
+    "ordinary": [
+      "頭部: 滿血的敵人無法閃避你的擊中",
+      "胸甲: 若你近期沒有偏斜擊中，\n避免+5%來自偏斜擊中的傷害",
+      "鞋子: 當你的印記觸發時，獲得持續4秒的猛攻"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 增加30%命中值",
+      "胸甲: 增加8%偏斜值",
+      "鞋子: 你身上的增益效果減緩10%失效"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualAmbushPredators.webp"
+  },
+  {
+    "id": "Carved_Majesty",
+    "name": "雕紋威嚴",
+    "properties": [
+      "僅限: 1 遠古增幅",
+      "需求:  等級 60"
+    ],
+    "ordinary": [
+      "胸甲: 你裝備中每鑲嵌一個魔偶即+3精魂",
+      "手套: 盟友擊中你標記的目標時獲得猛攻，持續4秒",
+      "鞋子: 每有一名常駐召喚物，增加1%衝刺時的移動速度"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: 增加5%精魂",
+      "手套: 增加30%盟友造成的傷害",
+      "鞋子: 召喚物增加12%最大生命"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualMajesticBeasts.webp"
+  },
+  {
+    "id": "Carved_Mischief",
+    "name": "雕紋惡戲",
+    "properties": [
+      "僅限: 1 遠古增幅",
+      "需求:  等級 60"
+    ],
+    "ordinary": [
+      "頭部: 承受殘暴打擊獲得等同於10%最大生命的守護",
+      "手套: 若你近期以一枚舉起的盾牌格擋，+5%最大格擋機率",
+      "胸甲: 若你近期內曾被暈眩，增加200%暈眩門檻"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 你身上的增益效果減緩10%失效",
+      "手套: 增加20%格擋機率",
+      "胸甲: 增加25%暈眩門檻"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualMischievousCreatures.webp"
+  },
+  {
+    "id": "Carved_Tenacity",
+    "name": "雕紋堅韌",
+    "properties": [
+      "僅限: 1 遠古增幅",
+      "需求:  等級 60"
+    ],
+    "ordinary": [
+      "頭部: 敵人在你致盲他們後4秒內沒有暴擊傷害加成",
+      "手套: 你暴擊擊中的敵人減少100%生命回復率，持續4秒",
+      "鞋子: 你的速度在衝刺時不受緩速影響"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 增加20%致盲效果",
+      "手套: 增加15%暴擊率",
+      "鞋子: 衝刺時增加8%移動速度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualTenaciousBeasts.webp"
+  },
+  {
+    "id": "Raven-Touched_Shard",
+    "name": "渡鴉碎片",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 60"
+    ],
+    "ordinary": [
+      "頭部: 渡鴉所觸"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Delirium/DeliriumEndgameSocketable.webp"
+  },
+  {
+    "id": "Lesser_Ward_Rune",
+    "name": "低階保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "護甲: +15最大符文保護"
+    ],
+    "bonded": [
+      "命定:",
+      "護甲: 增加15%全域護甲、閃避、和能量護盾"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardLesser.webp"
+  },
+  {
+    "id": "Ward_Rune",
+    "name": "保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "護甲: +20最大符文保護"
+    ],
+    "bonded": [
+      "命定:",
+      "護甲: 增加15%全域護甲、閃避、和能量護盾"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardNormal.webp"
+  },
+  {
+    "id": "Greater_Ward_Rune",
+    "name": "高階保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "護甲: +25最大符文保護"
+    ],
+    "bonded": [
+      "命定:",
+      "護甲: 增加15%全域護甲、閃避、和能量護盾"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardGreater.webp"
+  },
+  {
+    "id": "Perfect_Ward_Rune",
+    "name": "完美保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "護甲: +30最大符文保護"
+    ],
+    "bonded": [
+      "命定:",
+      "護甲: 增加15%全域護甲、閃避、和能量護盾"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardPerfect.webp"
+  },
+  {
+    "id": "Lesser_Charging_Rune",
+    "name": "低階充能符文",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "護甲: 增加8%符文保護回復率"
+    ],
+    "bonded": [
+      "命定:",
+      "護甲: 每秒回復10點符文保護"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationLesser.webp"
+  },
+  {
+    "id": "Charging_Rune",
+    "name": "充能符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "護甲: 增加12%符文保護回復率"
+    ],
+    "bonded": [
+      "命定:",
+      "護甲: 每秒回復15點符文保護"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationNormal.webp"
+  },
+  {
+    "id": "Greater_Charging_Rune",
+    "name": "高階充能符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "護甲: 增加16%符文保護回復率"
+    ],
+    "bonded": [
+      "命定:",
+      "護甲: 每秒回復20點符文保護"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationGreater.webp"
+  },
+  {
+    "id": "Perfect_Charging_Rune",
+    "name": "完美充能符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 50"
+    ],
+    "ordinary": [
+      "護甲: 增加20%符文保護回復率"
+    ],
+    "bonded": [
+      "命定:",
+      "護甲: 每秒回復25點符文保護"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationPerfect.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Reinforcement",
+    "name": "增援保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "護甲: 增加20%符文保護"
+    ],
+    "bonded": [
+      "命定:",
+      "護甲: 獲得等同於2%最大生命的額外最大符文保護"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard1.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Protection",
+    "name": "護佑保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "護甲: 每4秒獲得等同於20%最大符文保護的守護，持續2秒"
+    ],
+    "bonded": [
+      "命定:",
+      "護甲: 增加8%獲得的守護"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard2.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Disintegration",
+    "name": "崩解保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "軍用武器: 攻擊會破壞等同於15%最大符文保護的護甲"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 增加10%護甲值破壞"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard3.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Desperation",
+    "name": "絕望保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "法杖或長杖: 低符文保護時，法術傷害穿透敵人25%的元素抗性"
+    ],
+    "bonded": [
+      "命定:",
+      "法杖或長杖: 增加12%元素傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard4.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Symbiosis",
+    "name": "共生保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "鞋子: 每30最大符文保護增加1%能量護盾充能率"
+    ],
+    "bonded": [
+      "命定:",
+      "鞋子: 每秒回復1%最大能量護盾"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard8.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Courage",
+    "name": "勇氣保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "頭部: 低符文保護時，增加25%護甲和閃避值"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 貧血狀態時，增加20%護甲值和閃避值"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard9.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Stability",
+    "name": "穩定保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "盾牌和輕盾: 每10最大符文保護+4暈眩門檻"
+    ],
+    "bonded": [
+      "命定:",
+      "盾牌和輕盾: 你變形期間，增加15%施加暈眩累積"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard10.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Glancing",
+    "name": "斜擦保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "胸甲: 每10最大符文保護+3偏斜值"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: 抵禦偏斜擊中的+1%傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard13.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Heart",
+    "name": "心源保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "胸甲: 獲得等同於5%最大生命的額外最大符文保護"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: 近期每因為擊中損失2%最大符文保護，即獲得1%更多符文保護回復率，最多100%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard14.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Nourishment",
+    "name": "滋養保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "護甲: 來自藥劑的15%生命回復會套用至符文保護"
+    ],
+    "bonded": [
+      "命定:",
+      "護甲: 增加15%藥劑的生命恢復"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard15.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Annihilation",
+    "name": "殲滅保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "軍用武器: 若允許，攻擊會消耗5%你的最大符文保護以獲得同等數值的附加物理傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 減少10%符文保護效用"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard16.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Armature",
+    "name": "鎧甲保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 45"
+    ],
+    "ordinary": [
+      "軍用武器: 獲得等同於此武器最大傷害15%的最大符文保護"
+    ],
+    "bonded": [
+      "命定:",
+      "軍用武器: 當擁有失去的符文保護時增加5%攻擊速度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard18.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Obsession",
+    "name": "執念保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 45"
+    ],
+    "ordinary": [
+      "法杖: 所有受到的傷害穿透符文保護, 符文保護回復率翻倍"
+    ],
+    "bonded": [
+      "命定:",
+      "法杖: 增加12%最大符文保護"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard19.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Equinox",
+    "name": "均衡保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 45"
+    ],
+    "ordinary": [
+      "法術武器: 40%更少魔力回復率, 來自回復的魔力恢復也會套用於符文保護"
+    ],
+    "bonded": [
+      "命定:",
+      "法術武器: 若你近期有造成暴擊，增加20%符文保護回復率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard20.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Salvaging",
+    "name": "救援保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "權杖: 當你的復甦召喚物被擊殺時，恢復3%最大符文保護"
+    ],
+    "bonded": [
+      "命定:",
+      "權杖: 你的其中一個召喚物復甦時，恢復3%最大生命"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard21.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Bodyguards",
+    "name": "護衛保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 45"
+    ],
+    "ordinary": [
+      "權杖: 你處於貧符文保護狀態時，存在範圍內的召喚物獲得猛攻"
+    ],
+    "bonded": [
+      "命定:",
+      "權杖: 若你的符文保護近期被傷害\n敵人擊中你的傷害很不幸"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard23.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Hollowing",
+    "name": "空蝕保護符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 45"
+    ],
+    "ordinary": [
+      "法術武器: 獲得等同於15%最大生命的額外最大符文保護, 15%更少最大生命"
+    ],
+    "bonded": [
+      "命定:",
+      "法術武器: 符文保護全滿時，+1%最大全元素抗性"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard24.webp"
+  },
+  {
+    "id": "Passion_of_Aldur",
+    "name": "阿德爾的熱情",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "武器: 鑲嵌時，轉化所有冰冷和閃電詞綴為同階級的火焰詞綴"
+    ],
+    "bonded": [
+      "命定:",
+      "武器: 增加25%火焰傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneFire.webp"
+  },
+  {
+    "id": "Breath_of_Aldur",
+    "name": "阿德爾的吐息",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "武器: 鑲嵌時，轉化所有火焰和閃電詞綴為同階級的冰冷詞綴"
+    ],
+    "bonded": [
+      "命定:",
+      "武器: 增加25%冰冷傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneCold.webp"
+  },
+  {
+    "id": "Ire_of_Aldur",
+    "name": "阿德爾的聖怒",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "武器: 鑲嵌時，轉化所有火焰和冰冷詞綴為同階級的閃電詞綴"
+    ],
+    "bonded": [
+      "命定:",
+      "武器: 增加25%閃電傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneLightning.webp"
+  },
+  {
+    "id": "Betrayal_of_Aldur",
+    "name": "阿德爾的背叛",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "武器: 鑲嵌時，轉化所有火焰、冰冷、和閃電詞綴為同階級的混沌詞綴"
+    ],
+    "bonded": [
+      "命定:",
+      "武器: 增加25%混沌傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneChaos.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Splinters",
+    "name": "遠古分裂符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "弓: +50%滿溢機率發射額外一枚箭矢"
+    ],
+    "bonded": [
+      "命定:",
+      "弓: 增加30%投射物速度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune1.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Dueling",
+    "name": "遠古決鬥符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "輕盾: 增加30%受招架減益效果的幅度"
+    ],
+    "bonded": [
+      "命定:",
+      "輕盾: 增加15%格擋機率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune2.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_the_Titan",
+    "name": "遠古泰坦符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "雙手錘: 你自身使用的重擊技能有10%機率造成額外一次餘震"
+    ],
+    "bonded": [
+      "命定:",
+      "雙手錘: 攻擊增加15%範圍效果"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune3.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Shattering",
+    "name": "遠古粉碎符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "單手錘: 增加40%完全破甲的效果"
+    ],
+    "bonded": [
+      "命定:",
+      "單手錘: 增加50%護甲值破壞"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune4.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Prowess",
+    "name": "遠古卓越符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "長矛: 當你獲得一顆能量球時，有30%機率獲得一顆額外的能量球"
+    ],
+    "bonded": [
+      "命定:",
+      "長矛: 增加30%耐力球、狂怒球、以及暴擊球的持續時間"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune5.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Control",
+    "name": "遠古控制符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "細杖: 增加50%禁錮累積"
+    ],
+    "bonded": [
+      "命定:",
+      "細杖: 增加30%對受禁錮敵人的傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune6.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Discovery",
+    "name": "遠古探索符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "長杖: 有30%機率額外創造一道痕跡"
+    ],
+    "bonded": [
+      "命定:",
+      "長杖: +1最大元素灌注數量"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune7.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Decay",
+    "name": "遠古腐朽符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "法杖: 增加25%凋零幅度"
+    ],
+    "bonded": [
+      "命定:",
+      "法杖: 你身上的易爆引爆時，你有15%機率重新獲得等量的易爆"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune8.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Witchcraft",
+    "name": "遠古巫術符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "法器: 增加40%詛咒範圍效果"
+    ],
+    "bonded": [
+      "命定:",
+      "法器: 詛咒啟動速度加快15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune9.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_the_Horde",
+    "name": "遠古部族符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "權杖: 召喚物增加8%攻擊和施法速度"
+    ],
+    "bonded": [
+      "命定:",
+      "權杖: 增加10%召喚物移動速度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune10.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Animosity",
+    "name": "遠古敵意符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "魔符: 當你沉重暈眩一名稀有或傳奇敵人時，獲得2德魯伊之賦"
+    ],
+    "bonded": [
+      "命定:",
+      "魔符: 增加40%暈眩累積"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune11.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Detonation",
+    "name": "遠古引爆符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "十字弓: 擲彈有10%機率啟動第二次"
+    ],
+    "bonded": [
+      "命定:",
+      "十字弓: 增加40%十字弓裝填速度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune12.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Retaliation",
+    "name": "遠古復仇符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 30"
+    ],
+    "ordinary": [
+      "盾牌: 若你近期格擋過，增加8%攻擊速度"
+    ],
+    "bonded": [
+      "命定:",
+      "盾牌: +3%至最大格擋機率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune13.webp"
+  },
+  {
+    "id": "Rune_of_Vitality",
+    "name": "崇敬活力符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "武器: +80最大生命",
+      "盾牌和輕盾: 你格擋時恢復15生命"
+    ],
+    "bonded": [
+      "命定:",
+      "武器: 增加15%生命偷取量",
+      "盾牌和輕盾: 增加5%最大生命"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune1.webp"
+  },
+  {
+    "id": "Rune_of_the_Hunt",
+    "name": "崇敬狩獵符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "鞋子: 衝刺時增加8%移動速度",
+      "權杖: 增加30%盟友造成的傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "鞋子: 增加50%暈眩恢復",
+      "權杖: 當你的盟友位於你的存在範圍內時，增加8%魔力回復速率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune2.webp"
+  },
+  {
+    "id": "Rune_of_Acrobatics",
+    "name": "崇敬巧技符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "武器: 藥劑每秒獲得0.2充能",
+      "鞋子: 閃避翻滾距離+0.3公尺"
+    ],
+    "bonded": [
+      "命定:",
+      "武器: 護符每秒獲得0.25充能",
+      "鞋子: 若你近期未閃避翻滾，增加30%護甲值"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune3.webp"
+  },
+  {
+    "id": "Rune_of_Culmination",
+    "name": "崇敬終點符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "手套: 擊中時有50%機率額外累積一個連擊",
+      "單手錘或細杖: 物理傷害只會骰出最低或最高傷害數值"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: 增加5%攻擊速度",
+      "單手錘或細杖: 增加20%流血持續時間"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune4.webp"
+  },
+  {
+    "id": "Rune_of_Renown",
+    "name": "崇敬聲望符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "手套: 增加50%生成的榮耀",
+      "法術武器: 統治者增益效果恢復期加快30%"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: 鬥旗技能增加20%光環幅度",
+      "法術武器: 增加30%統治者持續時間"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune5.webp"
+  },
+  {
+    "id": "Rune_of_Accumulation",
+    "name": "崇敬積累符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "手套: 攻擊每擊中一名敵人，獲得3生命, 攻擊每擊中一名敵人，獲得1魔力",
+      "十字弓、弓或長矛: 擊中敵人時，在20秒內獲得等同於敵人強度的最大附加冰冷傷害，最高總計32"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: +30最大生命, +30最大魔力",
+      "十字弓、弓或長矛: 增加30%冰凍累積"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune6.webp"
+  },
+  {
+    "id": "Rune_of_Foundations",
+    "name": "崇敬基準符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "胸甲: +30護甲值, +30閃避值, +10最大能量護盾"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: +20最大生命, +20最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune7.webp"
+  },
+  {
+    "id": "Rune_of_the_Prism",
+    "name": "崇敬稜鏡符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "胸甲: -10%最大全元素抗性, +20%全元素抗性"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: 生命值所受的20%傷害由魔力扣除"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune8.webp"
+  },
+  {
+    "id": "Rune_of_the_Blossom",
+    "name": "崇敬精通符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "胸甲: +50精魂, 每2級-1精魂"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: 技能增加5%精魂保留效用"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune9.webp"
+  },
+  {
+    "id": "Rune_of_Consistency",
+    "name": "崇敬連貫符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "頭部: 增加200%暴擊率, 你沒有暴擊傷害加成",
+      "法術武器: 當你的盟友在你的存在範圍內時，增加50%法術傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 對你的擊中減少25%暴擊傷害加成",
+      "法術武器: 當你的盟友位於你的存在範圍內時，增加8%魔力回復速率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune10.webp"
+  },
+  {
+    "id": "Rune_of_Reach",
+    "name": "崇敬觸及符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "頭部: 增加15%你產生的痕跡效果",
+      "法杖或長杖: 痕跡可從50%更遠距離撿拾, 減少25%你產生的痕跡效果"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 當你拾取痕跡時，恢復3%最大魔力",
+      "法杖或長杖: 增加20%曝曬效果"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune11.webp"
+  },
+  {
+    "id": "Rune_of_Vital_Flame",
+    "name": "崇敬生命火焰符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "單手錘、雙手錘或魔符: 附加13至16火焰傷害, 15%技能魔力消耗轉換為生命消耗"
+    ],
+    "bonded": [
+      "命定:",
+      "單手錘、雙手錘或魔符: 增加30%點燃幅度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune12.webp"
+  },
+  {
+    "id": "Rune_of_Confrontation",
+    "name": "崇敬對峙符文",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [
+      "細杖或長矛: 近戰擊中時，獲得4層盛怒, -10層最大盛怒"
+    ],
+    "bonded": [
+      "命定:",
+      "細杖或長矛: rage effect +% [10]"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune13.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Wild_Ferocity",
+    "name": "[DNT-Unused] Rune of Wild Ferocity",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune14.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Partnership",
+    "name": "[DNT-Unused] Rune of Partnership",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune15.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Reverberation",
+    "name": "[DNT-Unused] Rune of Reverberation",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune16.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Vital_Flame",
+    "name": "[DNT-Unused] Rune of Vital Flame",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune17.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Confrontation",
+    "name": "[DNT-Unused] Rune of Confrontation",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune18.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Chance",
+    "name": "[DNT-Unused] Rune of Chance",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune19.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Confidence",
+    "name": "[DNT-Unused] Rune of Confidence",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune12.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Duplication",
+    "name": "[DNT-Unused] Rune of Duplication",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1",
+      "需求:  等級 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune16.webp"
+  },
+  {
+    "id": "Serles_Triumph",
+    "name": "瑟雷的凱旋",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "所有裝備: 允許後綴+1, local maximum mods allowed + [1]"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRune2.webp"
+  },
+  {
+    "id": "Cadigans_Epiphany",
+    "name": "卡迪根的頓悟",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "手套: 摧毀一件物品上所有的增幅插槽以創造一個珠寶插槽"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRune3.webp"
+  },
+  {
+    "id": "Astrids_Creativity",
+    "name": "阿斯垂德的創造",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "所有裝備: 可以有1個額外工藝詞綴"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRune1.webp"
+  },
+  {
+    "id": "Uhtreds_Sidereus",
+    "name": "烏特雷的星空",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "鞋子: 可以骰出時空術師詞綴"
+    ],
+    "bonded": [
+      "命定:",
+      "鞋子: 增加10%冷卻時間恢復率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneTime.webp"
+  },
+  {
+    "id": "Kolrs_Hunt",
+    "name": "克洛爾的狩獵",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "手套: 可以骰出射手詞綴"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: 增加20%投射物傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneDex.webp"
+  },
+  {
+    "id": "Voranas_Carnage",
+    "name": "沃拉娜的殘殺",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "頭部: 可以骰出狂戰詞綴"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 近戰擊中時，獲得2層盛怒"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRunePhysical.webp"
+  },
+  {
+    "id": "Thruds_Might",
+    "name": "索魯德的強權",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "武器: 可骰出毀滅詞綴"
+    ],
+    "bonded": [
+      "命定:",
+      "武器: +5%全元素抗性"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneFire.webp"
+  },
+  {
+    "id": "Medveds_Tending",
+    "name": "梅德偉的照料",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "胸甲: 可以骰出靈魂詞綴"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: 增加3%最大生命, 增加3%最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneCold.webp"
+  },
+  {
+    "id": "Katlas_Gloom",
+    "name": "卡特拉的愁悵",
+    "properties": [
+      "堆疊數量: 1 / 10",
+      "僅限: 1"
+    ],
+    "ordinary": [
+      "手套: 可以骰出衰敗詞綴"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: 減少25%你身上的非傷害型異常狀態效果"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneChaos.webp"
+  },
+  {
+    "id": "Aldurs_Legacy",
+    "name": "阿德爾的傳承",
+    "properties": [
+      "堆疊數量: 1 / 10"
+    ],
+    "ordinary": [
+      "所有裝備: 當鑲嵌至一件傳奇卡爾葛或艾茲麥物品時，摧毀該物品並創造一枚灌注該物品能力的符文"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUnique.webp"
+  },
+  {
+    "id": "Legacy_of_Bramblejack",
+    "name": "傳承．刺棘寶甲",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "胸甲: 反射250%受到的近戰物理傷害給攻擊者"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: 被包圍時，每秒回復3%生命"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Blackbraid",
+    "name": "傳承．黑辮",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "胸甲: +50%的護甲值也會套用至元素傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: +15%全元素抗性"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Edyrns_Tusks",
+    "name": "傳承．埃狄恩的曲牙",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "胸甲: 擊中時有50%機率造成流血, 減少50%你身上的減益效果緩速程度"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: 增加35%荊棘傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Kingsguard",
+    "name": "傳承．皇家衛甲",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "胸甲: 每消耗一顆耐力球，恢復5%生命"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: +30最大生命"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Bristleboar",
+    "name": "傳承．鬃豬",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "胸甲: 遭敵人暴擊時，獲得10層盛怒, 遭敵人擊中時，獲得5層盛怒"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: +3層最大盛怒"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Foxshade",
+    "name": "傳承．狐毛鎧",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "胸甲: 滿血時增加10%移動速度, 滿血時增加100%閃避值"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: 增加20%閃避值"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Ashrend",
+    "name": "傳承．拂燼",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "胸甲: 不會被點燃, -10受到的攻擊擊中物理傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: +35%火焰抗性"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Briskwrap",
+    "name": "傳承．荒途",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "胸甲: 獲得等同30%閃避值的偏斜值"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: 增加35%藥劑魔力恢復率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Unleashed",
+    "name": "傳承．束縛",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "胸甲: 若能量護盾低於一半，承受擊中傷害的25%會穿透能量護盾"
+    ],
+    "bonded": [
+      "命定:",
+      "胸甲: 變形時增加20%護甲"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Horns_of_Bynden",
+    "name": "傳承．賓登之角",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "頭部: 每層盛怒增加1%護甲, 近戰擊中時，獲得1層盛怒"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: +3層最大盛怒"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Wings_of_Caelyn",
+    "name": "傳承．凱林之翼",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "頭部: 近戰擊中時，獲得1層盛怒, 每一層盛怒也會增加1%暈眩門檻"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 每5盛怒同時使你增加1%移動速度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Ezomyte_Peak",
+    "name": "傳承．艾茲麥的榮光",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "頭部: 增加15%範圍效果, 烈士意志"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 減少50%你身上的減益效果緩速程度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Deidbell",
+    "name": "傳承．喪鐘",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "頭部: 戰吼引爆附近屍體，造成等同於其10%生命的物理傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 戰吼技能增加20%範圍效果"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Elevore",
+    "name": "傳承．愛勒弗",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "頭部: 護符每秒獲得1充能, +1護符欄位"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 護符每秒獲得0.5充能"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Starkonjas_Head",
+    "name": "傳承．斯塔空加之首",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "頭部: 貧血狀態時，增加100%全域閃避值, 擊中傷害的5%會先由你的可傷害盟友承受"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 擊中傷害的5%會先由你的可傷害盟友承受"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Crown_of_Thorns",
+    "name": "傳承．刺棘之冠",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "頭部: 苦痛靈曲"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 17至26點物理荊棘傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Greymake",
+    "name": "傳承．灰製",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "頭部: +50點全部能力值"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 每級+1最大生命"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Erians_Cobble",
+    "name": "傳承．埃里安的鵝卵石",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "頭部: +30命中值, +10最大生命, +10最大魔力, 增加10%找到的物品稀有度, 增加10%暴擊率, +5點全部能力值, +5%全元素抗性, 3每秒生命回復"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: +20護甲值, +20閃避值, +20最大能量護盾"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Smiling_Knight",
+    "name": "傳承．微笑騎士",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "頭部: 你的攻擊暴擊時，加劇目標身上的流血"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 增加20%暴擊率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Vile_Knight",
+    "name": "傳承．惡劣騎士",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "頭部: 當稀有和傳奇敵人處於你的存在範圍，每秒增加4%對其造成的擊中傷害，上限為200%"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 增加20%存在範圍的範圍效果"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Northpaw",
+    "name": "傳承．北方之爪",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "手套: 武器攻擊的基礎暴擊率為7%"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: 增加15%暴擊傷害加成"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Candlemaker",
+    "name": "傳承．製燭者",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "手套: 增加40%火焰傷害, 易燃幅度加倍"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: 增加20%敵人點燃持續時間"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Deathblow",
+    "name": "傳承．致命一擊",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "手套: 撲殺"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: 每個被擊殺的敵人，獲得30生命"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Legionstride",
+    "name": "傳承．帝國之靴",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "鞋子: +10%至格擋率"
+    ],
+    "bonded": [
+      "命定:",
+      "鞋子: 減少10%承受來自投射物擊中的傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Trampletoe",
+    "name": "傳承．踐踏之鞋",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "鞋子: 對被擊殺敵人2公尺內的敵人造成等同於溢出傷害10%的傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "鞋子: 增加15%全域物理傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Briarpatch",
+    "name": "傳承．薔薇眼罩",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "鞋子: +15%荊棘的暴擊率"
+    ],
+    "bonded": [
+      "命定:",
+      "鞋子: 增加15%荊棘暴擊傷害加成"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Bushwhack",
+    "name": "傳承．突襲",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "鞋子: 物理傷害造成釘身"
+    ],
+    "bonded": [
+      "命定:",
+      "鞋子: +20點敏捷"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Wanderlust",
+    "name": "傳承．苦行之履",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "鞋子: 你的速度不受緩速影響"
+    ],
+    "bonded": [
+      "命定:",
+      "鞋子: 增加5%移動速度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Knight-errant",
+    "name": "傳承．漂泊騎士",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "鞋子: 霸體"
+    ],
+    "bonded": [
+      "命定:",
+      "鞋子: 增加25%元素異常狀態門檻"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Oberns_Bastion",
+    "name": "傳承．歐伯恩的壁壘",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "鞋子: 增加200%暈眩恢復"
+    ],
+    "bonded": [
+      "命定:",
+      "鞋子: 減少40%你身上的冰緩持續時間, 減少40%你身上的冰凍持續時間"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Dionadair",
+    "name": "傳承．捍衛者",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "盾牌: 舉起盾牌時，暈眩門檻加倍"
+    ],
+    "bonded": [
+      "命定:",
+      "盾牌: 增加15%暈眩門檻"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Wulfsbane",
+    "name": "傳承．狼之禍",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "盾牌: 格擋時威嚇敵人，持續8秒"
+    ],
+    "bonded": [
+      "命定:",
+      "盾牌: +25點力量"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Chernobogs_Pillar",
+    "name": "傳承．五芒屏障",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "盾牌: 每擁有2%格擋率，獲得等同於1%傷害的火焰傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "盾牌: +30%混沌抗性"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Alkem_Eira",
+    "name": "傳承．神諭",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "盾牌: 格擋傷害的30%補償為魔力"
+    ],
+    "bonded": [
+      "命定:",
+      "盾牌: 格擋傷害的20%補償為魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Oaksworn",
+    "name": "傳承．橡誓者",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "盾牌: 增加50%生命回復率"
+    ],
+    "bonded": [
+      "命定:",
+      "盾牌: 50每秒生命回復"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Dunkelhalt",
+    "name": "傳承．唐克哈特",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "輕盾: 增加50%受招架減益效果的幅度"
+    ],
+    "bonded": [
+      "命定:",
+      "輕盾: 增加50%招架傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Rondel_de_Ezo",
+    "name": "傳承．隆德爾．德．艾佐",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "輕盾: 格擋時，會對敵人施加衰弱衰弱詛咒"
+    ],
+    "bonded": [
+      "命定:",
+      "輕盾: 增加100%投射物的格擋率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Brynhands_Mark",
+    "name": "傳承．布林漢的印記",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "單手錘: 造成雙倍暈眩累積"
+    ],
+    "bonded": [
+      "命定:",
+      "單手錘: 附加14至20物理傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Trenchtimbre",
+    "name": "傳承．壕溝之音",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "單手錘: 召喚物攻擊速度增減也會影響你"
+    ],
+    "bonded": [
+      "命定:",
+      "單手錘: 全部召喚物技能等級+1"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Mj%C3%B6lner",
+    "name": "傳承．沉默之雷",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "單手錘: +200點智慧需求, 全部閃電技能等級+3"
+    ],
+    "bonded": [
+      "命定:",
+      "單手錘: 全部閃電技能等級+1"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Twisted_Empyrean",
+    "name": "傳承．畸變星穹",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "雙手錘: 以此武器攻擊時會附加等同於6%至10%最大魔力的冰冷傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "雙手錘: 生命值所受的15%傷害由魔力扣除"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Hoghunt",
+    "name": "傳承．獵豬",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "雙手錘: +5%暴擊率, 暴擊時癱瘓"
+    ],
+    "bonded": [
+      "命定:",
+      "雙手錘: 對癱瘓的敵人增加25%攻擊傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Hrimnors_Hymn",
+    "name": "傳承．雷姆諾的奪命樂具",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "雙手錘: 你自身使用的重擊技能有25%機率造成額外一次餘震"
+    ],
+    "bonded": [
+      "命定:",
+      "雙手錘: 你自身使用的重擊技能有15%機率造成額外一次餘震"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Brain_Rattler",
+    "name": "傳承．腦亂者",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "雙手錘: 此武器造成的所有傷害都會累積觸電"
+    ],
+    "bonded": [
+      "命定:",
+      "雙手錘: 傷害穿透10%閃電抗性"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Lifesprig",
+    "name": "傳承．生機之記",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "法杖: 全部法術技能等級+2"
+    ],
+    "bonded": [
+      "命定:",
+      "法杖: 當你施放一個法術時，偷取1%最大生命"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Duality",
+    "name": "傳承．二元性",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "細杖: 使用技能時每消耗一個連擊可獲得250守護，持續0.5秒"
+    ],
+    "bonded": [
+      "命定:",
+      "細杖: 使用技能時每消耗一個連擊可獲得終極0.2秒"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Tyrannys_Grip",
+    "name": "傳承．暴政之握",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "長矛: 打擊造成擴散傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "長矛: 擊中時會擊退敵人"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Sentry",
+    "name": "傳承．哨兵",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "細杖: 攻擊附加23至34火焰傷害, 增加100%易燃幅度"
+    ],
+    "bonded": [
+      "命定:",
+      "細杖: +2%最大火焰抗性"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Adonias_Ego",
+    "name": "傳承．艾多尼亞的自負",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "法杖: +1最大暴擊球數量"
+    ],
+    "bonded": [
+      "命定:",
+      "法杖: +65最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Cursecarver",
+    "name": "傳承．咒刻者",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "法杖: 全部詛咒技能等級+3"
+    ],
+    "bonded": [
+      "命定:",
+      "法杖: 增加35%魔力回復率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Dusk_Vigil",
+    "name": "傳承．暗暮守夜",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "長杖: 獲得等同於30%物理傷害的額外火焰傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "長杖: 觸發法術增加20%造成的法術傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Blood_Thorn",
+    "name": "傳承．血棘",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "細杖: 附加4至8物理傷害, 擊中時會造成流血"
+    ],
+    "bonded": [
+      "命定:",
+      "細杖: 增加10%你所施加之流血的幅度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Quill_Rain",
+    "name": "傳承．驟雨之弦",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "弓: 增加50%攻擊速度, 20%更少攻擊傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "弓: 增加70%箭矢速度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Ironbound",
+    "name": "傳承．鐵縛者",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "弓: 每擁有1%格擋機率，以此武器造成的擊中即附加1至3物理傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "弓: 裝備護甲物品每擁有100總物品護甲值，即增加3%格擋機率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Amor_Mandragora",
+    "name": "傳承．阿莫爾．曼德拉戈拉",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "魔符: 每消耗20點盛怒，獲得1德魯伊之賦"
+    ],
+    "bonded": [
+      "命定:",
+      "魔符: 你存在中的敵人被阻礙"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Spiteful_Floret",
+    "name": "傳承．怨毒花蕊",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "魔符: 每5盛怒同時賦予承受傷害5%的生命補償"
+    ],
+    "bonded": [
+      "命定:",
+      "魔符: 攻擊有20%機率造成流血"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Svalinn",
+    "name": "傳承．史瓦林",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "盾牌: 傷害格擋率會帶來幸運, 你受到來自格擋擊中的20%傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "盾牌: +50最大符文保護"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Keeper_of_the_Arc",
+    "name": "傳承．電弧守護者",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "頭部: 每隔5秒替換：\n承受20%更少擊中傷害\n承受20%更少持續傷害"
+    ],
+    "bonded": [
+      "命定:",
+      "頭部: 增加25%魔力回復率"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Olrovasara",
+    "name": "傳承．歐洛瓦沙拉",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "單手錘: 擊中敵人時，在20秒內獲得等同於敵人強度的最大附加閃電傷害，最高總計120"
+    ],
+    "bonded": [
+      "命定:",
+      "單手錘: 增加15%攻擊速度"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_A_Worthy_Foe",
+    "name": "傳承．崇敬之敵",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "盾牌: 副手擊中施加符文之父的挑戰"
+    ],
+    "bonded": [
+      "命定:",
+      "盾牌: +45%冰冷抗性"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Serles_Grit",
+    "name": "傳承．瑟雷之握",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "單手錘: 最大品質為40%"
+    ],
+    "bonded": [
+      "命定:",
+      "單手錘: 強化攻擊的技能有20%機率不計該次攻擊"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Runeseekers_Call",
+    "name": "傳承．符文探求者之喚",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "法杖: 增加75%鑲嵌的符文效果"
+    ],
+    "bonded": [
+      "命定:",
+      "法杖: +100最大魔力"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Facebreaker",
+    "name": "傳承．毀面者",
+    "properties": [
+      "僅限: 1 阿德爾的傳承",
+      "需求:  等級 65"
+    ],
+    "ordinary": [
+      "手套: 每1力量+1護甲值"
+    ],
+    "bonded": [
+      "命定:",
+      "手套: 每15點力量增加1%傷害"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  }
+]

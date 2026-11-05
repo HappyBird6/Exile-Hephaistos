@@ -1,0 +1,5518 @@
+[
+  {
+    "id": "Desert_Rune",
+    "name": "砂漠のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "マーシャル武器: 7から11の火ダメージを追加する",
+      "ワンドまたはスタッフ: ダメージの8%を追加火ダメージとして獲得する",
+      "防具: 火耐性 +14%"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 発火の強度が30%増加する",
+      "ワンドまたはスタッフ: 発火の強度が30%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRune.webp"
+  },
+  {
+    "id": "Glacial_Rune",
+    "name": "氷河のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "マーシャル武器: 6から10の冷気ダメージを追加する",
+      "ワンドまたはスタッフ: ダメージの8%を追加冷気ダメージとして獲得する",
+      "防具: 冷気耐性 +14%"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 凍結蓄積が30%増加する",
+      "ワンドまたはスタッフ: 凍結蓄積が30%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ColdRune.webp"
+  },
+  {
+    "id": "Storm_Rune",
+    "name": "嵐のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "マーシャル武器: 1から20の雷ダメージを追加する",
+      "ワンドまたはスタッフ: ダメージの8%を追加雷ダメージとして獲得する",
+      "防具: 雷耐性 +14%"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: プレイヤーが付与した感電の強度が30%増加する",
+      "ワンドまたはスタッフ: プレイヤーが付与した感電の強度が30%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRune.webp"
+  },
+  {
+    "id": "Iron_Rune",
+    "name": "鉄のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "マーシャル武器: 物理ダメージが16%増加する",
+      "ワンドまたはスタッフ: スペルダメージが25%増加する",
+      "防具: アーマー、回避力およびエナジーシールドが16%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 完全アーマー破壊の効果が20%増加する",
+      "ワンドまたはスタッフ: スペルによるクリティカルヒット時に与えた物理ダメージの12%と同量のアーマーをアーマー破壊する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/EnhanceRune.webp"
+  },
+  {
+    "id": "Body_Rune",
+    "name": "肉体のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "マーシャル武器: 物理ダメージの4%をライフとしてリーチする",
+      "ワンドまたはスタッフ: 最大エナジーシールド +40",
+      "防具: 最大ライフ +45"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 最大ライフが5%増加する",
+      "ワンドまたはスタッフ: 最大ライフが5%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRune.webp"
+  },
+  {
+    "id": "Mind_Rune",
+    "name": "精神のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "マーシャル武器: 物理ダメージの3%をマナとしてリーチする",
+      "ワンドまたはスタッフ: 最大マナ +60",
+      "防具: 最大マナ +30"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 最大マナが5%増加する",
+      "ワンドまたはスタッフ: 最大マナが5%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRune.webp"
+  },
+  {
+    "id": "Rebirth_Rune",
+    "name": "復活のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "マーシャル武器: 倒した敵1体ごとに25のライフを獲得する",
+      "ワンドまたはスタッフ: エナジーシールドリチャージレートが8%増加する",
+      "防具: 毎秒ライフの0.4%を自動回復する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 毎秒ライフの0.4%を自動回復する",
+      "ワンドまたはスタッフ: 受けたダメージの8%をライフとして回収する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRecoveryRune.webp"
+  },
+  {
+    "id": "Inspiration_Rune",
+    "name": "鼓舞のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "マーシャル武器: 倒した敵1体ごとに20のマナを獲得する",
+      "ワンドまたはスタッフ: マナ自動回復レートが25%増加する",
+      "防具: マナ自動回復レートが15%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: スキルのマナコストの12%がライフコストに変換される",
+      "ワンドまたはスタッフ: マナコスト効率が16%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRecoveryRune.webp"
+  },
+  {
+    "id": "Stone_Rune",
+    "name": "石のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "マーシャル武器: 引き起こすスタン蓄積が30%増加する",
+      "ワンドまたはスタッフ: 最大エナジーシールドの12%と同量の追加スタン閾値を獲得する",
+      "防具: スタン閾値 +75"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 移動不可状態の敵に対するダメージが40%増加する",
+      "ワンドまたはスタッフ: 移動不可蓄積が30%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StunRune.webp"
+  },
+  {
+    "id": "Vision_Rune",
+    "name": "先見のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "マーシャル武器: 命中力 +90",
+      "ワンドまたはスタッフ: スペルのクリティカルヒット率が20%増加する",
+      "防具: フラスコによるライフおよびマナの回復量が12%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: アタックのクリティカルヒット率 +1%",
+      "ワンドまたはスタッフ: クリティカルダメージボーナスが25%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/AccuracyRune.webp"
+  },
+  {
+    "id": "Lesser_Desert_Rune",
+    "name": "砂漠のレッサールーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: 4から6の火ダメージを追加する",
+      "ワンドまたはスタッフ: ダメージの6%を追加火ダメージとして獲得する",
+      "防具: 火耐性 +10%"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 発火の強度が30%増加する",
+      "ワンドまたはスタッフ: 発火の強度が30%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Glacial_Rune",
+    "name": "氷河のレッサールーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: 3から5の冷気ダメージを追加する",
+      "ワンドまたはスタッフ: ダメージの6%を追加冷気ダメージとして獲得する",
+      "防具: 冷気耐性 +10%"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 凍結蓄積が30%増加する",
+      "ワンドまたはスタッフ: 凍結蓄積が30%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ColdRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Storm_Rune",
+    "name": "嵐のレッサールーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: 1から10の雷ダメージを追加する",
+      "ワンドまたはスタッフ: ダメージの6%を追加雷ダメージとして獲得する",
+      "防具: 雷耐性 +10%"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: プレイヤーが付与した感電の強度が30%増加する",
+      "ワンドまたはスタッフ: プレイヤーが付与した感電の強度が30%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Iron_Rune",
+    "name": "鉄のレッサールーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: 物理ダメージが14%増加する",
+      "ワンドまたはスタッフ: スペルダメージが20%増加する",
+      "防具: アーマー、回避力およびエナジーシールドが14%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 完全アーマー破壊の効果が20%増加する",
+      "ワンドまたはスタッフ: スペルによるクリティカルヒット時に与えた物理ダメージの12%と同量のアーマーをアーマー破壊する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/EnhanceRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Body_Rune",
+    "name": "肉体のレッサールーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: 物理ダメージの3%をライフとしてリーチする",
+      "ワンドまたはスタッフ: 最大エナジーシールド +30",
+      "防具: 最大ライフ +30"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 最大ライフが5%増加する",
+      "ワンドまたはスタッフ: 最大ライフが5%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Mind_Rune",
+    "name": "精神のレッサールーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: 物理ダメージの2%をマナとしてリーチする",
+      "ワンドまたはスタッフ: 最大マナ +45",
+      "防具: 最大マナ +20"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 最大マナが5%増加する",
+      "ワンドまたはスタッフ: 最大マナが5%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Rebirth_Rune",
+    "name": "復活のレッサールーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: 倒した敵1体ごとに15のライフを獲得する",
+      "ワンドまたはスタッフ: エナジーシールドリチャージレートが6%増加する",
+      "防具: 毎秒ライフの0.35%を自動回復する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 毎秒ライフの0.4%を自動回復する",
+      "ワンドまたはスタッフ: 受けたダメージの8%をライフとして回収する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRecoveryRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Inspiration_Rune",
+    "name": "鼓舞のレッサールーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: 倒した敵1体ごとに10のマナを獲得する",
+      "ワンドまたはスタッフ: マナ自動回復レートが20%増加する",
+      "防具: マナ自動回復レートが12%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: スキルのマナコストの12%がライフコストに変換される",
+      "ワンドまたはスタッフ: マナコスト効率が16%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRecoveryRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Stone_Rune",
+    "name": "石のレッサールーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: 引き起こすスタン蓄積が20%増加する",
+      "ワンドまたはスタッフ: 最大エナジーシールドの10%と同量の追加スタン閾値を獲得する",
+      "防具: スタン閾値 +50"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 移動不可状態の敵に対するダメージが40%増加する",
+      "ワンドまたはスタッフ: 移動不可蓄積が30%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StunRuneTier1.webp"
+  },
+  {
+    "id": "Lesser_Vision_Rune",
+    "name": "先見のレッサールーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: 命中力 +60",
+      "ワンドまたはスタッフ: スペルのクリティカルヒット率が16%増加する",
+      "防具: フラスコによるライフおよびマナの回復量が8%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: アタックのクリティカルヒット率 +1%",
+      "ワンドまたはスタッフ: クリティカルダメージボーナスが25%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/AccuracyRuneTier1.webp"
+  },
+  {
+    "id": "Greater_Desert_Rune",
+    "name": "砂漠のグレータールーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "マーシャル武器: 13から16の火ダメージを追加する",
+      "ワンドまたはスタッフ: ダメージの10%を追加火ダメージとして獲得する",
+      "防具: 火耐性 +18%"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 発火の強度が30%増加する",
+      "ワンドまたはスタッフ: 発火の強度が30%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/FireRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Glacial_Rune",
+    "name": "氷河のグレータールーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "マーシャル武器: 9から15の冷気ダメージを追加する",
+      "ワンドまたはスタッフ: ダメージの10%を追加冷気ダメージとして獲得する",
+      "防具: 冷気耐性 +18%"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 凍結蓄積が30%増加する",
+      "ワンドまたはスタッフ: 凍結蓄積が30%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ColdRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Storm_Rune",
+    "name": "嵐のグレータールーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "マーシャル武器: 1から30の雷ダメージを追加する",
+      "ワンドまたはスタッフ: ダメージの10%を追加雷ダメージとして獲得する",
+      "防具: 雷耐性 +18%"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: プレイヤーが付与した感電の強度が30%増加する",
+      "ワンドまたはスタッフ: プレイヤーが付与した感電の強度が30%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Iron_Rune",
+    "name": "鉄のグレータールーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "マーシャル武器: 物理ダメージが18%増加する",
+      "ワンドまたはスタッフ: スペルダメージが30%増加する",
+      "防具: アーマー、回避力およびエナジーシールドが18%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 完全アーマー破壊の効果が20%増加する",
+      "ワンドまたはスタッフ: スペルによるクリティカルヒット時に与えた物理ダメージの12%と同量のアーマーをアーマー破壊する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/EnhanceRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Body_Rune",
+    "name": "肉体のグレータールーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "マーシャル武器: 物理ダメージの5%をライフとしてリーチする",
+      "ワンドまたはスタッフ: 最大エナジーシールド +50",
+      "防具: 最大ライフ +60"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 最大ライフが5%増加する",
+      "ワンドまたはスタッフ: 最大ライフが5%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Mind_Rune",
+    "name": "精神のグレータールーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "マーシャル武器: 物理ダメージの4%をマナとしてリーチする",
+      "ワンドまたはスタッフ: 最大マナ +75",
+      "防具: 最大マナ +40"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 最大マナが5%増加する",
+      "ワンドまたはスタッフ: 最大マナが5%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Rebirth_Rune",
+    "name": "復活のグレータールーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "マーシャル武器: 倒した敵1体ごとに35のライフを獲得する",
+      "ワンドまたはスタッフ: エナジーシールドリチャージレートが10%増加する",
+      "防具: 毎秒ライフの0.45%を自動回復する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 毎秒ライフの0.4%を自動回復する",
+      "ワンドまたはスタッフ: 受けたダメージの8%をライフとして回収する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LifeRecoveryRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Inspiration_Rune",
+    "name": "鼓舞のグレータールーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "マーシャル武器: 倒した敵1体ごとに30のマナを獲得する",
+      "ワンドまたはスタッフ: マナ自動回復レートが30%増加する",
+      "防具: マナ自動回復レートが18%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: スキルのマナコストの12%がライフコストに変換される",
+      "ワンドまたはスタッフ: マナコスト効率が16%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/ManaRecoveryRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Stone_Rune",
+    "name": "石のグレータールーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "マーシャル武器: 引き起こすスタン蓄積が40%増加する",
+      "ワンドまたはスタッフ: 最大エナジーシールドの14%と同量の追加スタン閾値を獲得する",
+      "防具: スタン閾値 +100"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 移動不可状態の敵に対するダメージが40%増加する",
+      "ワンドまたはスタッフ: 移動不可蓄積が30%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StunRuneTier2.webp"
+  },
+  {
+    "id": "Greater_Vision_Rune",
+    "name": "先見のグレータールーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "マーシャル武器: 命中力 +120",
+      "ワンドまたはスタッフ: スペルのクリティカルヒット率が24%増加する",
+      "防具: フラスコによるライフおよびマナの回復量が16%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: アタックのクリティカルヒット率 +1%",
+      "ワンドまたはスタッフ: クリティカルダメージボーナスが25%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/AccuracyRuneTier2.webp"
+  },
+  {
+    "id": "Perfect_Desert_Rune",
+    "name": "砂漠のパーフェクトルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: 17から20の火ダメージを追加する",
+      "ワンドまたはスタッフ: ダメージの12%を追加火ダメージとして獲得する",
+      "防具: 火耐性 +22%"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 発火の強度が30%増加する",
+      "ワンドまたはスタッフ: 発火の強度が30%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneFire.webp"
+  },
+  {
+    "id": "Perfect_Glacial_Rune",
+    "name": "氷河のパーフェクトルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: 16から20の冷気ダメージを追加する",
+      "ワンドまたはスタッフ: ダメージの12%を追加冷気ダメージとして獲得する",
+      "防具: 冷気耐性 +22%"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 凍結蓄積が30%増加する",
+      "ワンドまたはスタッフ: 凍結蓄積が30%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneCold.webp"
+  },
+  {
+    "id": "Perfect_Storm_Rune",
+    "name": "嵐のパーフェクトルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: 1から40の雷ダメージを追加する",
+      "ワンドまたはスタッフ: ダメージの12%を追加雷ダメージとして獲得する",
+      "防具: 雷耐性 +22%"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: プレイヤーが付与した感電の強度が30%増加する",
+      "ワンドまたはスタッフ: プレイヤーが付与した感電の強度が30%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneLightning.webp"
+  },
+  {
+    "id": "Perfect_Iron_Rune",
+    "name": "鉄のパーフェクトルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: 物理ダメージが20%増加する",
+      "ワンドまたはスタッフ: スペルダメージが35%増加する",
+      "防具: アーマー、回避力およびエナジーシールドが20%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 完全アーマー破壊の効果が20%増加する",
+      "ワンドまたはスタッフ: スペルによるクリティカルヒット時に与えた物理ダメージの12%と同量のアーマーをアーマー破壊する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneEnhance.webp"
+  },
+  {
+    "id": "Perfect_Body_Rune",
+    "name": "肉体のパーフェクトルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: 物理ダメージの6%をライフとしてリーチする",
+      "ワンドまたはスタッフ: 最大エナジーシールド +60",
+      "防具: 最大ライフ +75"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 最大ライフが5%増加する",
+      "ワンドまたはスタッフ: 最大ライフが5%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneLife.webp"
+  },
+  {
+    "id": "Perfect_Mind_Rune",
+    "name": "精神のパーフェクトルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: 物理ダメージの5%をマナとしてリーチする",
+      "ワンドまたはスタッフ: 最大マナ +90",
+      "防具: 最大マナ +50"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 最大マナが5%増加する",
+      "ワンドまたはスタッフ: 最大マナが5%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneMana.webp"
+  },
+  {
+    "id": "Perfect_Rebirth_Rune",
+    "name": "復活のパーフェクトルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: 倒した敵1体ごとに45のライフを獲得する",
+      "ワンドまたはスタッフ: エナジーシールドリチャージレートが12%増加する",
+      "防具: 毎秒ライフの0.5%を自動回復する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 毎秒ライフの0.4%を自動回復する",
+      "ワンドまたはスタッフ: 受けたダメージの8%をライフとして回収する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneLifeRecovery.webp"
+  },
+  {
+    "id": "Perfect_Inspiration_Rune",
+    "name": "鼓舞のパーフェクトルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: 倒した敵1体ごとに40のマナを獲得する",
+      "ワンドまたはスタッフ: マナ自動回復レートが35%増加する",
+      "防具: マナ自動回復レートが21%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: スキルのマナコストの12%がライフコストに変換される",
+      "ワンドまたはスタッフ: マナコスト効率が16%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneManaRecovery.webp"
+  },
+  {
+    "id": "Perfect_Stone_Rune",
+    "name": "石のパーフェクトルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: 引き起こすスタン蓄積が50%増加する",
+      "ワンドまたはスタッフ: 最大エナジーシールドの16%と同量の追加スタン閾値を獲得する",
+      "防具: スタン閾値 +125"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 移動不可状態の敵に対するダメージが40%増加する",
+      "ワンドまたはスタッフ: 移動不可蓄積が30%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneStun.webp"
+  },
+  {
+    "id": "Perfect_Vision_Rune",
+    "name": "先見のパーフェクトルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: 命中力 +150",
+      "ワンドまたはスタッフ: スペルのクリティカルヒット率が28%増加する",
+      "防具: フラスコによるライフおよびマナの回復量が20%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: アタックのクリティカルヒット率 +1%",
+      "ワンドまたはスタッフ: クリティカルダメージボーナスが25%増加する",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneAccuracy.webp"
+  },
+  {
+    "id": "Lesser_Robust_Rune",
+    "name": "強固のレッサールーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "全ての装備品: 筋力 +6"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 6から10の物理ダメージをアタックに追加する, 6から10の火ダメージをアタックに追加する",
+      "ワンドまたはスタッフ: アーマー +100",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StrengthRuneTier1.webp"
+  },
+  {
+    "id": "Robust_Rune",
+    "name": "強固のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "全ての装備品: 筋力 +9"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 6から10の物理ダメージをアタックに追加する, 6から10の火ダメージをアタックに追加する",
+      "ワンドまたはスタッフ: アーマー +100",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StrengthRune.webp"
+  },
+  {
+    "id": "Greater_Robust_Rune",
+    "name": "強固のグレータールーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "全ての装備品: 筋力 +12"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 6から10の物理ダメージをアタックに追加する, 6から10の火ダメージをアタックに追加する",
+      "ワンドまたはスタッフ: アーマー +100",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/StrengthRuneTier3.webp"
+  },
+  {
+    "id": "Perfect_Robust_Rune",
+    "name": "強固のパーフェクトルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "全ての装備品: 筋力 +15"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 6から10の物理ダメージをアタックに追加する, 6から10の火ダメージをアタックに追加する",
+      "ワンドまたはスタッフ: アーマー +100",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneStrength.webp"
+  },
+  {
+    "id": "Lesser_Adept_Rune",
+    "name": "熟達のレッサールーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "全ての装備品: 器用さ +6"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 6から10の物理ダメージをアタックに追加する, 1から16の雷ダメージをアタックに追加する",
+      "ワンドまたはスタッフ: 回避力 +80",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/DexRuneTier1.webp"
+  },
+  {
+    "id": "Adept_Rune",
+    "name": "熟達のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "全ての装備品: 器用さ +9"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 6から10の物理ダメージをアタックに追加する, 1から16の雷ダメージをアタックに追加する",
+      "ワンドまたはスタッフ: 回避力 +80",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/DexRune.webp"
+  },
+  {
+    "id": "Greater_Adept_Rune",
+    "name": "熟達のグレータールーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "全ての装備品: 器用さ +12"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 6から10の物理ダメージをアタックに追加する, 1から16の雷ダメージをアタックに追加する",
+      "ワンドまたはスタッフ: 回避力 +80",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/DexRuneTier3.webp"
+  },
+  {
+    "id": "Perfect_Adept_Rune",
+    "name": "熟達のパーフェクトルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "全ての装備品: 器用さ +15"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 6から10の物理ダメージをアタックに追加する, 1から16の雷ダメージをアタックに追加する",
+      "ワンドまたはスタッフ: 回避力 +80",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneDexterity.webp"
+  },
+  {
+    "id": "Lesser_Resolve_Rune",
+    "name": "決意のレッサールーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "全ての装備品: 知性 +6"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 6から10の物理ダメージをアタックに追加する, 5から8の冷気ダメージをアタックに追加する",
+      "ワンドまたはスタッフ: 最大エナジーシールド +50",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/IntRuneTier1.webp"
+  },
+  {
+    "id": "Resolve_Rune",
+    "name": "決意のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "全ての装備品: 知性 +9"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 6から10の物理ダメージをアタックに追加する, 5から8の冷気ダメージをアタックに追加する",
+      "ワンドまたはスタッフ: 最大エナジーシールド +50",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/IntRune.webp"
+  },
+  {
+    "id": "Greater_Resolve_Rune",
+    "name": "決意のグレータールーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "全ての装備品: 知性 +12"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 6から10の物理ダメージをアタックに追加する, 5から8の冷気ダメージをアタックに追加する",
+      "ワンドまたはスタッフ: 最大エナジーシールド +50",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/IntRuneTier3.webp"
+  },
+  {
+    "id": "Perfect_Resolve_Rune",
+    "name": "決意のパーフェクトルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "全ての装備品: 知性 +15"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 6から10の物理ダメージをアタックに追加する, 5から8の冷気ダメージをアタックに追加する",
+      "ワンドまたはスタッフ: 最大エナジーシールド +50",
+      "防具: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PerfectRuneIntelligence.webp"
+  },
+  {
+    "id": "Lesser_Tempered_Rune",
+    "name": "鍛錬のレッサールーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: 3から4の物理ダメージを追加する",
+      "防具: 6から9の物理棘ダメージ"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PhyDmgRuneTier1.webp"
+  },
+  {
+    "id": "Tempered_Rune",
+    "name": "鍛錬のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "マーシャル武器: 6から9の物理ダメージを追加する",
+      "防具: 14から21の物理棘ダメージ"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PhyDmgRune.webp"
+  },
+  {
+    "id": "Greater_Tempered_Rune",
+    "name": "鍛錬のグレータールーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "マーシャル武器: 9から12の物理ダメージを追加する",
+      "防具: 31から52の物理棘ダメージ"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/PhyDmgRuneTier3.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Leadership",
+    "name": "統率力のグレータールーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: ミニオンはその物理ダメージの10%を追加雷ダメージとして獲得する",
+      "防具: ミニオンは物理ダメージの10%を雷ダメージとして受ける"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: ミニオンのダメージが20%増加する",
+      "防具: ミニオンの全ての元素耐性 +10%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial1.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Tithing",
+    "name": "十分の一税のグレータールーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: メタスキルの獲得エネルギーが10%増加する",
+      "防具: 1から100の雷棘ダメージ"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: インヴォケーションされるスペルの消費エネルギーが25%の確率で半分になる",
+      "防具: 棘ダメージが15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial2.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Alacrity",
+    "name": "積極性のグレータールーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: スキルスピードが8%増加する",
+      "防具: プレイヤーに対するデバフは8%速く消える"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: へラルドスキルのリザーブ効率が15%増加する",
+      "防具: 元素系状態異常閾値が15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial3.webp"
+  },
+  {
+    "id": "Greater_Rune_of_Nobility",
+    "name": "高潔なグレータールーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: この武器によるアタックは10%の確率で曝露を付与する",
+      "防具: プレイヤーに対する感電の効果が10%減少する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 曝露の効果が20%増加する",
+      "防具: 受ける感電の持続時間が10%減少する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/LightningRuneSpecial4.webp"
+  },
+  {
+    "id": "Hedgewitch_Assandras_Rune_of_Wisdom",
+    "name": "ヘッジウィッチ・アサンドラの知恵のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "ワンドまたはスタッフ: 全てのスペルスキルのレベル +1"
+    ],
+    "bonded": [
+      "絆",
+      "ワンドまたはスタッフ: アルコン待機時間の解消が30%速くなる"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune1.webp"
+  },
+  {
+    "id": "Saqawals_Rune_of_the_Sky",
+    "name": "サカワルの空のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: ダメ―ジの5%を全ての元素属性の追加ダメージとして獲得する",
+      "ワンドまたはスタッフ: ダメ―ジの5%を全ての元素属性の追加ダメージとして獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: チャージを1個獲得する時に8%の確率でランダムなチャージ1個を獲得する",
+      "ワンドまたはスタッフ: エレメンタルインフュージョンを拾った時に12%の確率で同じ属性のエレメンタルインフュージョンを追加で1個獲得する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune2.webp"
+  },
+  {
+    "id": "Fenumus_Rune_of_Agony",
+    "name": "フィヌムスの苦痛のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: ダメージの13%を追加混沌ダメージとして獲得する",
+      "ワンドまたはスタッフ: ダメージの13%を追加混沌ダメージとして獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: ダメージの8%を追加物理ダメージとして獲得する",
+      "ワンドまたはスタッフ: ダメージの8%を追加物理ダメージとして獲得する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune3.webp"
+  },
+  {
+    "id": "Farruls_Rune_of_Grace",
+    "name": "ファルウルの気品のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "靴: 移動中受け流し力が8%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "靴: 受け流したヒットのダメージから防ぐ量が+3%される"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune4.webp"
+  },
+  {
+    "id": "Farruls_Rune_of_the_Chase",
+    "name": "ファルウルの追跡のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "靴: 移動スピードが5%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "靴: クールダウン解消レートが10%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune5.webp"
+  },
+  {
+    "id": "Craiceanns_Rune_of_Warding",
+    "name": "クレイシアンの守りのルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "鎧: プレイヤーに対する呪いの効果が50%減少する"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 呪いの強度が8%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune6.webp"
+  },
+  {
+    "id": "Saqawals_Rune_of_Memory",
+    "name": "サカワルの記憶のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "兜: 獲得経験値が2%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "兜: 全ての元素耐性 +10%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune7.webp"
+  },
+  {
+    "id": "Saqawals_Rune_of_Erosion",
+    "name": "サカワルの浸食のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "兜: 曝露の効果が25%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "兜: プレイヤーが付与した非ダメージ性状態異常の強度が15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune8.webp"
+  },
+  {
+    "id": "Farruls_Rune_of_the_Hunt",
+    "name": "ファルウルの狩りのルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: レアまたはユニークの敵に対するアタックダメージが50%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 全てのアタックスキルのレベル +1"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune9.webp"
+  },
+  {
+    "id": "Craiceanns_Rune_of_Recovery",
+    "name": "クレイシアンの回復のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "鎧: エナジーシールドリチャージレートが30%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 最大エナジーシールドの50%と同量の追加状態異常閾値を獲得する, 最大エナジーシールドの50%と同量の追加スタン閾値を獲得する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune10.webp"
+  },
+  {
+    "id": "Courtesan_Mannans_Rune_of_Cruelty",
+    "name": "宮廷女官マンナンの残虐のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "手袋: プレイヤーが付与したダメージ性状態異常の強度が20%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: 敵に付与したダメージ性状態異常の持続時間が15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune11.webp"
+  },
+  {
+    "id": "Thane_Grannells_Rune_of_Mastery",
+    "name": "族長グラネルの熟達のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "手袋: プレイヤーが付与した非ダメージ性状態異常の強度が30%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: 敵に対する元素系状態異常の持続時間が15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune12.webp"
+  },
+  {
+    "id": "Fenumus_Rune_of_Spinning",
+    "name": "フィヌムスの紡績のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "手袋: キャストスピードが8%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: 低マナ時のマナコスト効率が20%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune13.webp"
+  },
+  {
+    "id": "Countess_Seskes_Rune_of_Archery",
+    "name": "セスケ女伯爵の弓のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "弓: 弓によるアタックは矢を追加で1本放つ"
+    ],
+    "bonded": [
+      "絆",
+      "弓: 投射物スピードが20%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune14.webp"
+  },
+  {
+    "id": "Thane_Girts_Rune_of_Wildness",
+    "name": "族長ガートの野生のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "ワンドまたはスタッフ: 25%の確率でスペルスキルは投射物を追加で2個放つ"
+    ],
+    "bonded": [
+      "絆",
+      "ワンドまたはスタッフ: 憤怒のそれぞれのスタックはスペルダメージ1%増加も付与する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune15.webp"
+  },
+  {
+    "id": "Fenumus_Rune_of_Draining",
+    "name": "フィヌムスの吸収のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "手袋: 衰弱の強度が20%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: 混沌耐性 +7%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune16.webp"
+  },
+  {
+    "id": "Thane_Myrks_Rune_of_Summer",
+    "name": "族長ミュルクの夏のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: 発火状態の敵に対するアタックに23から34の火ダメージを追加する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 火耐性の最大値 +2%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune17.webp"
+  },
+  {
+    "id": "Lady_Hestras_Rune_of_Winter",
+    "name": "ヘストラ婦人の冬のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: 冷却状態の敵に対して19から28の冷気ダメージを追加する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 冷気耐性の最大値 +2%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune18.webp"
+  },
+  {
+    "id": "Thane_Lelds_Rune_of_Spring",
+    "name": "族長レルドの春のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: 1から60の雷ダメージを感電状態の敵に対して追加する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 雷耐性の最大値 +2%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune19.webp"
+  },
+  {
+    "id": "The_Greatwolfs_Rune_of_Claws",
+    "name": "大狼の鉤爪のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "手袋: 5から12の物理ダメージをアタックに追加する"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: 亀裂スキルの上限 +2"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune20.webp"
+  },
+  {
+    "id": "The_Greatwolfs_Rune_of_Willpower",
+    "name": "大狼の意志力のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "鎧: ダメージの15%をライフより先にマナで受ける"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 最大ライフの8%をエナジーシールドに変換する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Runes/NewRune21.webp"
+  },
+  {
+    "id": "Masterwork_Rune",
+    "name": "傑作のルーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "全ての装備品: ソケットされたルーンをアップグレードする"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/UpgradeRune.webp"
+  },
+  {
+    "id": "Idol_of_Sirrius",
+    "name": "シリウスのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "手袋: アタックスピードが8%増加する",
+      "セプター: プレイヤーの存在下にいる味方は移動スピードが8%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: プレイヤーに対する減速のデバフのポテンシャルが20%減少する",
+      "セプター: 移動スピードが4%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableWolfSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Thruldana",
+    "name": "スルルダーナのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: 毒持続時間が25%減少する, 一度に対象に付与できる毒のスタック数 +1",
+      "セプター: プレイヤーの存在下にいる味方は13から27の追加アタック混沌ダメージを与える"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: 物理ダメージの13%を追加混沌ダメージとして獲得する",
+      "セプター: 衰弱の強度が15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableSnakeSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Grold",
+    "name": "グロルドのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "靴: ウォークライが計算する合計パワーが50%増加する",
+      "セプター: プレイヤーの存在下にいる種類の異なるコンパニオンごとにダメージが15%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "靴: グローリーの生成量が30%増加する",
+      "セプター: コンパニオンスキルのリザーブ効率が15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableBearSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Eeshta",
+    "name": "イーシュタのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "兜: コスト効率が15%増加する",
+      "セプター: コンパニオンがプレイヤーの存在下にいる間マナ回復レートが15%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "兜: メタスキルはリザーブ効率が15%増加する",
+      "セプター: コンパニオンがプレイヤーの存在下にいる時にライフ自動回復レートが8%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableOwlSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Egrin",
+    "name": "エグリンのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "兜: プレイヤーが呪いを付与した敵が受けるダメージが6%増加する",
+      "セプター: 呪いの持続時間が20%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "兜: 呪いの効果範囲が20%増加する",
+      "セプター: 呪い領域が噴出するまでの遅延が20%減少する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableCatSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Maxarius",
+    "name": "マクサリウスのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "鎧: チャームスロット +1",
+      "セプター: フラスコは毎秒0.2のチャージを獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: スキルの上限 +1",
+      "セプター: フラスコによるライフおよびマナの回復量が20%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableStagSpecial.webp"
+  },
+  {
+    "id": "Idol_of_Ralakesh",
+    "name": "ララケシュのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "兜: ミニオンスキルのリザーブ効率が8%増加する",
+      "セプター: コンパニオンがプレイヤーの存在下にいる間はアーマー、回避力およびエナジーシールドが40%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "兜: ミニオンは8%速く復活する",
+      "セプター: コンパニオンの最大ライフが25%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableMonkeySpecial.webp"
+  },
+  {
+    "id": "Idol_of_Greust",
+    "name": "グルーストのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "盾: アーマーの+25%が元素ダメージにも適用される",
+      "バックラー: 回避力の20%と同量の受け流し力を獲得する",
+      "セプター: コンパニオンはプレイヤーが使役している種類の異なる死亡中のコンパニオンの数ごとにダメージが10%上昇する"
+    ],
+    "bonded": [
+      "絆",
+      "盾: 敵に付与した元素系状態異常1種類ごとにダメージが12%増加する",
+      "バックラー: 敵に付与した元素系状態異常1種類ごとにダメージが12%増加する",
+      "セプター: ミニオンの1体が復活した時に最大ライフの3%を回復する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofGreust.webp"
+  },
+  {
+    "id": "Idol_of_Yeena",
+    "name": "イーナのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "靴: プラントスキルのスキル効果持続時間が30%増加する",
+      "セプター: プラントは初めてプレイヤーの存在下に入った時に25%の確率で即座に生い茂る"
+    ],
+    "bonded": [
+      "絆",
+      "靴: プラントは初めてプレイヤーの存在下に入った時に25%の確率で即座に生い茂る",
+      "セプター: プラントスキルのスキル効果持続時間が30%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofYeena.webp"
+  },
+  {
+    "id": "Idol_of_Eramir",
+    "name": "エラミアのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "鎧: スキルは10%の確率でチャージを取り除かないがそれを消費したと見なされる",
+      "セプター: プレイヤーの存在下の味方はプレイヤーとチャージを共有する"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 15%の確率でプレイヤーが使用したチャームはチャージを消費しない",
+      "セプター: エンデュランスチャージ、フレンジーチャージおよびパワーチャージの持続時間が25%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofEramir.webp"
+  },
+  {
+    "id": "Idol_of_Oak",
+    "name": "オークのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "靴: エンデュランスチャージを獲得する時に15%の確率でエンデュランスチャージを追加で1個獲得する",
+      "セプター: プレイヤーがエンデュランスチャージを1個獲得するはずの時に存在下の味方が代わりにそのチャージを獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "靴: エンデュランスチャージの最大数 +1",
+      "セプター: 直近プレイヤーがエンデュランスチャージを消費していればアーマーが40%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofOak.webp"
+  },
+  {
+    "id": "Idol_of_Alira",
+    "name": "アリラのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "兜: パワーチャージを獲得する時に15%の確率でパワーチャージを追加で1個獲得する",
+      "セプター: プレイヤーがパワーチャージを1個獲得するはずの時に存在下の味方が代わりにそのチャージを獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "兜: パワーチャージの最大数 +1",
+      "セプター: 直近パワーチャージを1個消費していれば最大エナジーシールドが40%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdoloAlira.webp"
+  },
+  {
+    "id": "Idol_of_Kraityn",
+    "name": "クライティンのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "手袋: フレンジーチャージを獲得する時に15%の確率でフレンジーチャージを追加で1個獲得する",
+      "セプター: プレイヤーがフレンジーチャージを1個獲得するはずの時に存在下の味方が代わりにそのチャージを獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: フレンジーチャージの最大数 +1",
+      "セプター: 直近プレイヤーがフレンジーチャージを消費していれば回避力が40%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdoloKraityn.webp"
+  },
+  {
+    "id": "Idol_of_Silk",
+    "name": "シルクのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "盾: プレイヤーの存在下にコンパニオンがいる間ブロック率が15%増加する",
+      "バックラー: companions gain onslaught when you parry [1]",
+      "セプター: プレイヤーの存在下のコンパニオンはヒット時に憤怒を1スタック獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "盾: ブロック率の最大値 +3%",
+      "バックラー: パリィの範囲が30%増加する",
+      "セプター: コンパニオンの効果範囲が30%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/IdolofSilk.webp"
+  },
+  {
+    "id": "Idol_of_the_Sycophant",
+    "name": "へつらう者のアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "キャスター武器、ワンドまたはスタッフ: 全ての元素耐性 -20%, ダメ―ジの20%をランダムな元素属性の追加ダメージとして獲得する",
+      "セプター: 存在下のコンパニオンの元素耐性 -20%, 存在下のコンパニオンはダメージの20%をランダムな元素属性の追加ダメージとして獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "キャスター武器、ワンドまたはスタッフ: 混沌耐性 -20%, ダメージの20%を追加混沌ダメージとして獲得する",
+      "セプター: プレイヤーの存在下にいる味方はダメージの20%を追加混沌ダメージとして獲得する, 存在下のコンパニオンの混沌耐性 -20%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/RitualCorruptedIdol1.webp"
+  },
+  {
+    "id": "Idol_of_the_Martyr",
+    "name": "殉教者のアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "キャスター武器、ワンドまたはスタッフ: スピリットが25%減少する, メタスキルの獲得エネルギーが40%増加する",
+      "セプター: 存在下の効果範囲が40%減少する, オーラスキルは強度が25%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "キャスター武器、ワンドまたはスタッフ: インヴォケーションされるスキルのエネルギーの最大値が25%増加する, メタスキルはリザーブ効率が25%減少する",
+      "セプター: プレイヤーの存在下にいる味方は毎秒プレイヤーの最大ライフの3%を自動回復する, ライフ自動回復レートが25%減少する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/RitualCorruptedIdol2.webp"
+  },
+  {
+    "id": "Idol_of_the_Pharisee",
+    "name": "パリサイ人のアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "キャスター武器、ワンドまたはスタッフ: 最大マナが30%減少する, 喪失マナ10%ごとにダメージの2%を追加物理ダメージとして獲得する",
+      "セプター: コマンドスキルのマナコスト効率が30%減少する, ミニオンはコマンドスキルのダメージが60%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "キャスター武器、ワンドまたはスタッフ: マナコスト効率が30%減少する, 低マナ状態の間スキルスピードが12%増加する",
+      "セプター: ミニオンスキルのリザーブ効率が25%減少する, 一時的ミニオンスキルは召喚できるミニオンの上限 +2"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/RitualCorruptedIdol3.webp"
+  },
+  {
+    "id": "Panther_Idol",
+    "name": "ヒョウのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "鎧: アーマーの+10%が混沌ダメージにも適用される",
+      "セプター: ミニオンの混沌耐性 +20%"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 混沌耐性 +8%",
+      "セプター: ミニオンは20%の追加物理ダメージ軽減率を持つ"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketablePanther.webp"
+  },
+  {
+    "id": "Hawk_Idol",
+    "name": "タカのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "鎧: 受け流し力が10%増加する",
+      "セプター: コンパニオンのアタックスピードが12%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 冷気耐性 +12%",
+      "セプター: プレイヤーのコンパニオンが存在下にいる間アタックスピードが8%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableHawk.webp"
+  },
+  {
+    "id": "Stoat_Idol",
+    "name": "オコジョのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "鎧: 受けたダメージの5%がエナジーシールドをバイパスする",
+      "セプター: コンパニオンの最大ライフが25%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 雷耐性 +12%",
+      "セプター: コンパニオンがプレイヤーの存在下にいる時にダメージが25%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableStoat.webp"
+  },
+  {
+    "id": "Hayoxis_Soul_Core_of_Heatproofing",
+    "name": "ハヨキの耐熱のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "兜: アーマーの+40%が冷気ダメージにも適用される"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreIce.webp"
+  },
+  {
+    "id": "Zalatls_Soul_Core_of_Insulation",
+    "name": "ザラトルの絶縁のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "靴: アーマーの+40%が雷ダメージにも適用される"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreLightning.webp"
+  },
+  {
+    "id": "Topotantes_Soul_Core_of_Dampening",
+    "name": "トポタンテの軽減のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "手袋: アーマーの+40%が火ダメージにも適用される"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreFire.webp"
+  },
+  {
+    "id": "Atmohuas_Soul_Core_of_Retreat",
+    "name": "アトモフアの退却のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "鎧: 装備中のフォーカスから得られるエナジーシールドが40%増加する",
+      "フォーカス: 装備中の鎧から得られるエナジーシールドが30%増加する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreEnergyShield.webp"
+  },
+  {
+    "id": "Quipolatls_Soul_Core_of_Flow",
+    "name": "キポラトルの流れのソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "兜: スキル効果持続時間が8%増加する, クールダウン解消レートが8%増加する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreTimeCooldown.webp"
+  },
+  {
+    "id": "Tzamotos_Soul_Core_of_Ferocity",
+    "name": "ザモトの凶暴性のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "兜: 憤怒の最大数 +4"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreRage.webp"
+  },
+  {
+    "id": "Uromotis_Soul_Core_of_Attenuation",
+    "name": "ウルモティの希薄化のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "靴: 呪いの持続時間が20%増加する, 毒持続時間が20%増加する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreCurses2.webp"
+  },
+  {
+    "id": "Opilotis_Soul_Core_of_Assault",
+    "name": "オピロティの強襲のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: フレンジーチャージを獲得する時に50%の確率でフレンジーチャージを追加で1個獲得する",
+      "ワンドまたはスタッフ: フレンジーチャージを獲得する時に50%の確率でフレンジーチャージを追加で1個獲得する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreFrenzyCharge.webp"
+  },
+  {
+    "id": "Guatelitzis_Soul_Core_of_Endurance",
+    "name": "グアテリッツィの忍耐のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: エンデュランスチャージを獲得する時に50%の確率でエンデュランスチャージを追加で1個獲得する",
+      "ワンドまたはスタッフ: エンデュランスチャージを獲得する時に50%の確率でエンデュランスチャージを追加で1個獲得する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreEnduranceCharge.webp"
+  },
+  {
+    "id": "Xopecs_Soul_Core_of_Power",
+    "name": "ゾペックの力のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: パワーチャージを獲得する時に50%の確率でパワーチャージを追加で1個獲得する",
+      "ワンドまたはスタッフ: パワーチャージを獲得する時に50%の確率でパワーチャージを追加で1個獲得する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCorePowerCharge.webp"
+  },
+  {
+    "id": "Estazuntis_Soul_Core_of_Convalescence",
+    "name": "エスタザンティの再起のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "靴: 回収効果のスピードが15%増加する",
+      "兜: 受けたダメージの10%をライフとして回収する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreTimeSlow.webp"
+  },
+  {
+    "id": "Tacatis_Soul_Core_of_Affliction",
+    "name": "タカティの病苦のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "兜: プレイヤーが呪いを付与した敵の混沌耐性 -5%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreChaos1.webp"
+  },
+  {
+    "id": "Cholotls_Soul_Core_of_War",
+    "name": "チョロトルの戦のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "弓: 投射物は20%の確率で地形から追加で1回連鎖する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreProjectile.webp"
+  },
+  {
+    "id": "Citaqualotls_Soul_Core_of_Foulness",
+    "name": "シタクアロトルの不快のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "マーシャル武器: 19から29の混沌ダメージを追加する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreChaos2.webp"
+  },
+  {
+    "id": "Xipocados_Soul_Core_of_Dominion",
+    "name": "ジポカドの支配のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "ワンドまたはスタッフ: ミニオンはコマンドスキルのダメージが40%増加する",
+      "セプター: ミニオンはコマンドスキルのダメージが40%増加する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreMinion.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Automation",
+    "name": "ジクアニの自動化のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "武器: 全てのトーテムスキルジェムのレベル +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreTotems.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Malediction",
+    "name": "ジクアニの呪詛のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "武器: 全ての呪いスキルのレベル +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreCurses.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Targeting",
+    "name": "ジクアニの照準のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "武器: 全ての呪印スキルのレベル +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreMarks.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Rallying",
+    "name": "ジクアニの決起のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "武器: 全てのウォークライスキルジェムのレベル +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreWarcries.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Radiance",
+    "name": "ジクアニの光輝のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "武器: 全てのヘラルドスキルジェムのレベル +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreHeralds.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Severing",
+    "name": "ジクアニの切断のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "武器: 全てのストライクスキルジェムのレベル +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreStrikes.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Rippling",
+    "name": "ジクアニの波動のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "武器: 全てのノヴァスキルジェムのレベル +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreNovas.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Quaking",
+    "name": "ジクアニの震動のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "武器: 全てのスラムスキルジェムのレベル +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreSlams.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Munitions",
+    "name": "ジクアニの弾薬のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "武器: 全てのグレネードスキルジェムのレベル +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreGrenades.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Snares",
+    "name": "ジクアニの罠のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "武器: 全てのハザードスキルジェムのレベル +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreHazards.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Abundance",
+    "name": "ジクアニの豊富さのソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "武器: 全てのプラントスキルジェムのレベル +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCorePlants.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Squalls",
+    "name": "ジクアニの突風のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "武器: 全てのウィンドスキルジェムのレベル +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreWind.webp"
+  },
+  {
+    "id": "Jiquanis_Soul_Core_of_Thundering",
+    "name": "ジクアニの雷鳴のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "武器: 全てのストームスキルジェムのレベル +1"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/RareSoulCoreStorms.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Devotion",
+    "name": "アッツィリの献身のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "兜: 装備中のコラプト状態のアイテム1個ごとにスピリットが1%増加する, アイテムのコラプト化は常に変化する結果になる"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialHelmet.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Vitality",
+    "name": "アッツィリの活力のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "鎧: 装備中のコラプト状態のアイテム1個ごとに最大ライフが1%増加する, アイテムのコラプト化は常に変化する結果になる"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialBodyArmour.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Alacrity",
+    "name": "アッツィリの俊敏のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "手袋: 装備中のコラプト状態のアイテム1個ごとにスキルスピードが1%増加する, アイテムのコラプト化は常に変化する結果になる"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialGloves.webp"
+  },
+  {
+    "id": "Atziris_Soul_Core_of_Inoculation",
+    "name": "アッツィリの接種のソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "靴: 装備中のコラプト状態のアイテムの数ごとに混沌耐性 +2%, アイテムのコラプト化は常に変化する結果になる"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/SoulCoreSpecialBoots.webp"
+  },
+  {
+    "id": "Soul_Core_of_Vizoma",
+    "name": "ヴィゾマのソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "マーシャル武器: 命中力 +150",
+      "ワンドまたはスタッフ: スペルのクリティカルヒット率が30%増加する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreVision.webp"
+  },
+  {
+    "id": "Soul_Core_of_Tacati",
+    "name": "タカティのソウルコア",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: プレイヤーが付与した毒の強度が25%増加する",
+      "防具: 混沌耐性 +13%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreChaos.webp"
+  },
+  {
+    "id": "Soul_Core_of_Opiloti",
+    "name": "オピロティのソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "マーシャル武器: プレイヤーが付与した出血の強度が40%増加する",
+      "兜: 足止め持続時間が25%増加する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCorePhysical.webp"
+  },
+  {
+    "id": "Soul_Core_of_Jiquani",
+    "name": "ジクアニのソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "マーシャル武器: 敵を倒した時にライフの5%を回復する",
+      "鎧: 最大ライフが5%増加する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreLife.webp"
+  },
+  {
+    "id": "Soul_Core_of_Zalatl",
+    "name": "ザラトルのソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "マーシャル武器: 敵を倒した時にマナの4%を回復する",
+      "兜: 最大マナが5%増加する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreMana.webp"
+  },
+  {
+    "id": "Soul_Core_of_Citaqualotl",
+    "name": "シアクラトルのソウルコア",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: アタックスキルによる元素ダメージが40%増加する",
+      "防具: 全ての元素耐性 +6%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreElementalResist.webp"
+  },
+  {
+    "id": "Soul_Core_of_Puhuarte",
+    "name": "プフアーテのソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "マーシャル武器: 発火の強度が40%増加する",
+      "手袋: 火耐性の最大値 +2%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreFire.webp"
+  },
+  {
+    "id": "Soul_Core_of_Tzamoto",
+    "name": "ザモトのソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "マーシャル武器: 凍結蓄積が60%増加する",
+      "兜: 冷気耐性の最大値 +2%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreCold.webp"
+  },
+  {
+    "id": "Soul_Core_of_Xopec",
+    "name": "ゾペックのソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "マーシャル武器: プレイヤーが付与した感電の強度が25%増加する",
+      "靴: 雷耐性の最大値 +2%"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreLightning.webp"
+  },
+  {
+    "id": "Soul_Core_of_Azcapa",
+    "name": "アズカパのソウルコア",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: スピリット +15",
+      "手袋: 倒した敵からドロップするゴールドの数量が10%増加する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreWealthRarity.webp"
+  },
+  {
+    "id": "Soul_Core_of_Topotante",
+    "name": "トポタンテのソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "マーシャル武器: この武器によるアタックは25%の元素耐性を貫通する",
+      "靴: プレイヤーに対する非ダメージ性状態異常の効果が25%減少する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreTriElement.webp"
+  },
+  {
+    "id": "Soul_Core_of_Quipolatl",
+    "name": "クイポラトルのソウルコア",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: アタックスピードが5%増加する",
+      "靴: プレイヤーに対する減速のデバフのポテンシャルが15%減少する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreSpeed.webp"
+  },
+  {
+    "id": "Soul_Core_of_Ticaba",
+    "name": "ティカバのソウルコア",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "マーシャル武器: クリティカルダメージボーナス +5%",
+      "鎧: プレイヤーに対するヒットはクリティカルダメージボーナスが50%減少する",
+      "盾またはバックラー: プレイヤーに対するヒットはクリティカルダメージボーナスが50%減少する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreCrit.webp"
+  },
+  {
+    "id": "Soul_Core_of_Atmohua",
+    "name": "アトモフアのソウルコア",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: 要求能力値の40%を筋力に変換する",
+      "防具: 要求能力値の40%を筋力に変換する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreStrength.webp"
+  },
+  {
+    "id": "Soul_Core_of_Cholotl",
+    "name": "チョロトルのソウルコア",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: 要求能力値の40%を器用さに変換する",
+      "防具: 要求能力値の40%を器用さに変換する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreDex.webp"
+  },
+  {
+    "id": "Soul_Core_of_Zantipi",
+    "name": "ザンティーピのソウルコア",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "マーシャル武器: 要求能力値の40%を知性に変換する",
+      "防具: 要求能力値の40%を知性に変換する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/GreaterSoulCoreint.webp"
+  },
+  {
+    "id": "Snake_Idol",
+    "name": "ヘビのアイドル",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "手袋: 呪いの強度が8%増加する",
+      "セプター: プレイヤーの存在下にいる味方はアタックスピードが10%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: プレイヤーが生成したレムナントは効果が15%増加する",
+      "セプター: シェープシフト状態の間スキルスピードが10%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableSnake.webp"
+  },
+  {
+    "id": "Primate_Idol",
+    "name": "サルのアイドル",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "兜: ミニオンの最大ライフが15%増加する",
+      "セプター: プレイヤーの存在下にいる味方はダメージが40%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "兜: レムナントは30%遠くからでも拾える",
+      "セプター: シェープシフト状態の間ダメージが40%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableMonkey.webp"
+  },
+  {
+    "id": "Owl_Idol",
+    "name": "フクロウのアイドル",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "フォーカス: クールダウン解消レートが12%増加する",
+      "セプター: プレイヤーの存在下にいる味方はキャストスピードが10%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "フォーカス: プレイヤーに対するアルコンバフの効果が20%増加する",
+      "セプター: シェープシフト状態の間スキルスピードが10%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableOwl.webp"
+  },
+  {
+    "id": "Cat_Idol",
+    "name": "ネコのアイドル",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "手袋: グローバル命中力が25%増加する",
+      "セプター: プレイヤーの存在下にいる味方はクリティカルヒット率が14%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: チャームの獲得チャージが30%増加する",
+      "セプター: シェープシフト状態の間クリティカルヒット率が25%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableCat.webp"
+  },
+  {
+    "id": "Wolf_Idol",
+    "name": "オオカミのアイドル",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "手袋: プレイヤーが付与した出血の強度が15%増加する",
+      "セプター: プレイヤーの存在下にいる味方はクリティカルダメージボーナスが20%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: プレイヤーに対する出血の強度が25%減少する",
+      "セプター: シェープシフト状態の間クリティカルヒット率が25%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableWolf.webp"
+  },
+  {
+    "id": "Stag_Idol",
+    "name": "シカのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "兜: 投射物は15%の確率で分岐する",
+      "セプター: プレイヤーの存在下にいる味方は1から40の追加アタック雷ダメージを与える"
+    ],
+    "bonded": [
+      "絆",
+      "兜: 投射物は分岐する時に25%の確率で追加の投射物を放つ",
+      "セプター: シェープシフト状態の間アタックダメージが40%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableStag.webp"
+  },
+  {
+    "id": "Boar_Idol",
+    "name": "イノシシのアイドル",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "手袋: 近接ヒット時に憤怒を1獲得する",
+      "セプター: プレイヤーの存在下にいる味方は毎秒プレイヤーの最大ライフの0.5%を自動回復する"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: ウォークライクールダウン解消レートが25%増加する",
+      "セプター: シェープシフト状態の間ライフ自動回復レートが25%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableBoar.webp"
+  },
+  {
+    "id": "Bear_Idol",
+    "name": "クマのアイドル",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "兜: 効果範囲が10%増加する",
+      "セプター: プレイヤーの存在下で味方は12から18の追加アタック物理ダメージ"
+    ],
+    "bonded": [
+      "絆",
+      "兜: コンパニオンスキルのリザーブ効率が12%増加する",
+      "セプター: シェープシフト状態の間アタックダメージが40%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableBear.webp"
+  },
+  {
+    "id": "Ox_Idol",
+    "name": "ウシのアイドル",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "盾またはバックラー: ブロック率が15%増加する",
+      "セプター: プレイヤーの存在下にいる味方は元素耐性 +12%"
+    ],
+    "bonded": [
+      "絆",
+      "盾またはバックラー: プレイヤーをヒットする敵のダメージが15%の確率で不幸になる",
+      "セプター: シェープシフト中アーマーの+20%が元素ダメージにも適用される"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableOx.webp"
+  },
+  {
+    "id": "Rabbit_Idol",
+    "name": "ウサギのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "鎧: 見つかるアイテムのレアリティが12%増加する",
+      "セプター: スピリットが15%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 倒した敵からドロップするゴールドの数量が10%増加する",
+      "セプター: ミニオンはコマンドスキルのクールダウンリカバリーレートが30%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableRabbit.webp"
+  },
+  {
+    "id": "Fox_Idol",
+    "name": "キツネのアイドル",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "鎧: このアイテムにソケットされたアイドルはその絆モッドの恩恵を獲得する, display additional socketable mods for idols [1]",
+      "セプター: 存在下の効果範囲が50%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 全てのスキルの品質 +5%",
+      "セプター: ミニオンの効果範囲が30%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableFox.webp"
+  },
+  {
+    "id": "Amanamus_Gaze",
+    "name": "アマナムの凝視",
+    "properties": [
+      "個数制限: 古代のオーグメント 1個",
+      "装備条件： レベル 60"
+    ],
+    "ordinary": [
+      "兜: コマンドスキルを使用した時にダメージ性状態異常を取り除く",
+      "鎧: スピリット1ごとにアーマー +2",
+      "靴: スピリット15ごとに移動スピードが1%増加する、最大40%まで\nスプリント以外の移動スピードの他のモッドは適用されない"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/AmanamusGaze.webp"
+  },
+  {
+    "id": "Tecrods_Gaze",
+    "name": "テクロッドの凝視",
+    "properties": [
+      "個数制限: 古代のオーグメント 1個",
+      "装備条件： レベル 60"
+    ],
+    "ordinary": [
+      "鎧: 毎秒ライフの1.5%を自動回復する",
+      "手袋: ライフコスト効率が25%増加する",
+      "靴: 低ライフ時に移動スピードが10%増加する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/TecrodsGaze.webp"
+  },
+  {
+    "id": "Kurgals_Gaze",
+    "name": "クルガルの凝視",
+    "properties": [
+      "個数制限: 古代のオーグメント 1個",
+      "装備条件： レベル 60"
+    ],
+    "ordinary": [
+      "兜: ライフ自動回復レートの増減のモッドはマナ自動回復レートにも適用される",
+      "手袋: プレイヤーに対するアーケインサージの効果が40%増加する",
+      "靴: 直近ドッジロールしていなければマナコスト効率が15%増加する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/KurgalsGaze.webp"
+  },
+  {
+    "id": "Ulamans_Gaze",
+    "name": "ウラマンの凝視",
+    "properties": [
+      "個数制限: 古代のオーグメント 1個",
+      "装備条件： レベル 60"
+    ],
+    "ordinary": [
+      "兜: 装備中のヘルメットのアイテム回避力1ごとに命中力 +1",
+      "手袋: パリィのデバフを受けている敵に対するクリティカルヒット率が幸運になる",
+      "鎧: 受け流したヒットのダメージから防ぐ量が+3%される"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/AbyssalEyeSocketables/UlamansGaze.webp"
+  },
+  {
+    "id": "Guatelitzis_Thesis",
+    "name": "グアテリッツィの命題",
+    "properties": [
+      "個数制限: 古代のオーグメント 1個",
+      "装備条件： レベル 60"
+    ],
+    "ordinary": [
+      "兜: 過去8秒間にヒットにより失ったライフの35%と同量のアーマーを獲得する",
+      "鎧: 防いだ物理ダメージの10%をライフとして回収する",
+      "靴: スプリント中に毎秒最大ライフの5%を失う, スプリント中に移動スピードが25%増加する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreBlood.webp"
+  },
+  {
+    "id": "Citaqualotls_Thesis",
+    "name": "シタクアロトルの命題",
+    "properties": [
+      "個数制限: 古代のオーグメント 1個",
+      "装備条件： レベル 60"
+    ],
+    "ordinary": [
+      "鎧: オファリングが受けたダメージの50%を最大ライフとして回収する",
+      "手袋: オファリングの効果が切れた時に永続ミニオンの一体が復活する",
+      "靴: ドッジロール時に最大ライフの10%を捧げ、同量のガードを獲得する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreSacrifice.webp"
+  },
+  {
+    "id": "Jiquanis_Thesis",
+    "name": "ジクアニの命題",
+    "properties": [
+      "個数制限: 古代のオーグメント 1個",
+      "装備条件： レベル 60"
+    ],
+    "ordinary": [
+      "兜: 装備中のヘルメットのアイテムアーマー3ごとに最大マナ +1",
+      "手袋: エナジーシールドリチャージはマナを合計2000使用した後に開始する。2秒に1度だけ起きる",
+      "靴: 移動スピードの増減のモッドは\nエナジーシールドリチャージレートにも適用される"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreSoul.webp"
+  },
+  {
+    "id": "Quipolatls_Thesis",
+    "name": "キポラトルの命題",
+    "properties": [
+      "個数制限: 古代のオーグメント 1個",
+      "装備条件： レベル 60"
+    ],
+    "ordinary": [
+      "兜: グローリーを必要とするランダムなスキルは呪印がアクティベートした時にそのグローリーの最大値の50%を生成する",
+      "手袋: ミニオンが再構成された時にエナジーシールドリチャージを開始する",
+      "鎧: エナジシールドがフルの間アーマーの+75%が混沌ダメージにも適用される"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/PerfectSoulCores/SoulCoreScience.webp"
+  },
+  {
+    "id": "Emergent_Vigour",
+    "name": "発現する活力",
+    "properties": [
+      "個数制限: 古代のオーグメント 1個",
+      "装備条件： レベル 60"
+    ],
+    "ordinary": [
+      "兜: 装備中のヘルメットのアーマー8ごとに最大ライフ +1",
+      "鎧: 装備中の防具アイテムの合計筋力装備要求の50%と同量の最大エナジーシールドを獲得する",
+      "靴: プレイヤーが神聖領域の上にいる間プレイヤーに対するヒットはクリティカルダメージボーナスが0になる"
+    ],
+    "bonded": [
+      "絆",
+      "兜: スピリット +20",
+      "鎧: 筋力 +20",
+      "靴: プレイヤーが生成した神聖領域の効果が20%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionReligionAncientAugment.webp"
+  },
+  {
+    "id": "Emergent_Possibility",
+    "name": "発現する可能性",
+    "properties": [
+      "個数制限: 古代のオーグメント 1個",
+      "装備条件： レベル 60"
+    ],
+    "ordinary": [
+      "鎧: ヒットから受ける混沌ダメージの15%をランダムな元素属性のダメージとして受ける",
+      "手袋: 装備中のアイテムにソケットしたルーンごとに\nダメ―ジの1%をランダムな元素属性の追加ダメージとして獲得する",
+      "靴: スプリント中のルーンワード自動回復レートが50%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 混沌耐性 +13%",
+      "手袋: 元素ダメージが20%増加する",
+      "靴: ルーンワードコスト効率が15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionScienceAncientAugment.webp"
+  },
+  {
+    "id": "Emergent_Protection",
+    "name": "発現する加護",
+    "properties": [
+      "個数制限: 古代のオーグメント 1個",
+      "装備条件： レベル 60"
+    ],
+    "ordinary": [
+      "兜: 低ライフ状態になった時にエンデュランスチャージを1獲得する、2秒に1回だけ起きる",
+      "手袋: バナーは影響を受けた対象に毎秒ライフの2%自動回復も付与する",
+      "靴: スプリントを止めた時にスプリントした秒数ごとに最大ライフの4%と同量のガードを4秒間獲得する、最大20%"
+    ],
+    "bonded": [
+      "絆",
+      "兜: エンデュランスチャージの持続時間が40%増加する",
+      "手袋: 毎秒ライフの0.5%を自動回復する",
+      "靴: 獲得ガードが20%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionValorAncientAugment.webp"
+  },
+  {
+    "id": "Emergent_Instinct",
+    "name": "発現する本能",
+    "properties": [
+      "個数制限: 古代のオーグメント 1個",
+      "装備条件： レベル 60"
+    ],
+    "ordinary": [
+      "兜: 盲目、重傷および出血状態の対象はプレイヤーのヒットを回避できない",
+      "手袋: 直近コマンドスキルを使用していれば毎秒最大ライフの5%を自動回復する",
+      "鎧: 完全アーマー破壊状態の対象に対する棘ダメージが幸運になる"
+    ],
+    "bonded": [
+      "絆",
+      "兜: 移動不可蓄積が30%増加する",
+      "手袋: ライフ自動回復レートが20%増加する",
+      "鎧: 棘ダメージが30%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ExpeditionWarAncientAugment.webp"
+  },
+  {
+    "id": "Carved_Cunning",
+    "name": "刻印された狡猾さ",
+    "properties": [
+      "個数制限: 古代のオーグメント 1個",
+      "装備条件： レベル 60"
+    ],
+    "ordinary": [
+      "兜: フルライフ状態の敵はプレイヤーのヒットを回避できない",
+      "鎧: 直近ヒットを受け流ししていなければ受け流したヒットから受けるダメージを防ぐ割合 +5%",
+      "靴: 呪印をアクティベートした時に猛攻を4秒間獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "兜: グローバル命中力が30%増加する",
+      "鎧: 受け流し力が8%増加する",
+      "靴: プレイヤーのバフは10%遅く消える"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualAmbushPredators.webp"
+  },
+  {
+    "id": "Carved_Majesty",
+    "name": "刻印された威厳",
+    "properties": [
+      "個数制限: 古代のオーグメント 1個",
+      "装備条件： レベル 60"
+    ],
+    "ordinary": [
+      "鎧: 装備品にソケットされたアイドルごとにSpirit +3",
+      "手袋: コンパニオンはプレイヤーが呪印を付与した対象にヒットを与えた時に猛攻を4秒間獲得する",
+      "靴: スプリント中は永続ミニオンごとに移動スピードが1%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: スピリットが5%増加する",
+      "手袋: コンパニオンのダメージが30%増加する",
+      "靴: ミニオンの最大ライフが12%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualMajesticBeasts.webp"
+  },
+  {
+    "id": "Carved_Mischief",
+    "name": "刻印された悪戯",
+    "properties": [
+      "個数制限: 古代のオーグメント 1個",
+      "装備条件： レベル 60"
+    ],
+    "ordinary": [
+      "兜: サベージヒットを受けた時に最大ライフの10%と同量のガードを4秒間獲得する",
+      "手袋: 直近盾を構えてブロックしてればブロック率の最大値 +5%",
+      "鎧: 直近スタンしていればスタン閾値が200%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "兜: プレイヤーのバフは10%遅く消える",
+      "手袋: ブロック率が20%増加する",
+      "鎧: スタン閾値が25%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualMischievousCreatures.webp"
+  },
+  {
+    "id": "Carved_Tenacity",
+    "name": "刻印された不屈",
+    "properties": [
+      "個数制限: 古代のオーグメント 1個",
+      "装備条件： レベル 60"
+    ],
+    "ordinary": [
+      "兜: 敵はプレイヤーに盲目を付与された後4秒間クリティカルダメージボーナスが0になる",
+      "手袋: プレイヤーからクリティカルヒットを受けた敵はライフ自動回復レートが4秒間100%減少する",
+      "靴: スプリント中はプレイヤーのスピードは減速の影響を受けない"
+    ],
+    "bonded": [
+      "絆",
+      "兜: 盲目の効果が20%増加する",
+      "手袋: クリティカルヒット率が15%増加する",
+      "靴: スプリント中に移動スピードが8%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Ritual/RitualTenaciousBeasts.webp"
+  },
+  {
+    "id": "Raven-Touched_Shard",
+    "name": "レイヴンタッチシャード",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 60"
+    ],
+    "ordinary": [
+      "兜: レイヴンタッチ"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Delirium/DeliriumEndgameSocketable.webp"
+  },
+  {
+    "id": "Lesser_Ward_Rune",
+    "name": "レッサーワードルーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "防具: 最大ルーンワード +15"
+    ],
+    "bonded": [
+      "絆",
+      "防具: グローバルアーマー、回避力およびエナジーシールドが15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardLesser.webp"
+  },
+  {
+    "id": "Ward_Rune",
+    "name": "ワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "防具: 最大ルーンワード +20"
+    ],
+    "bonded": [
+      "絆",
+      "防具: グローバルアーマー、回避力およびエナジーシールドが15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardNormal.webp"
+  },
+  {
+    "id": "Greater_Ward_Rune",
+    "name": "グレーターワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "防具: 最大ルーンワード +25"
+    ],
+    "bonded": [
+      "絆",
+      "防具: グローバルアーマー、回避力およびエナジーシールドが15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardGreater.webp"
+  },
+  {
+    "id": "Perfect_Ward_Rune",
+    "name": "パーフェクトワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "防具: 最大ルーンワード +30"
+    ],
+    "bonded": [
+      "絆",
+      "防具: グローバルアーマー、回避力およびエナジーシールドが15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/AddedWardPerfect.webp"
+  },
+  {
+    "id": "Lesser_Charging_Rune",
+    "name": "レッサーチャージルーン",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "防具: ルーンワードの自動回復レートが8%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "防具: 毎秒10のルーンワードを自動回復する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationLesser.webp"
+  },
+  {
+    "id": "Charging_Rune",
+    "name": "チャージルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "防具: ルーンワードの自動回復レートが12%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "防具: 毎秒15のルーンワードを自動回復する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationNormal.webp"
+  },
+  {
+    "id": "Greater_Charging_Rune",
+    "name": "グレーターチャージルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "防具: ルーンワードの自動回復レートが16%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "防具: 毎秒20のルーンワードを自動回復する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationGreater.webp"
+  },
+  {
+    "id": "Perfect_Charging_Rune",
+    "name": "パーフェクトチャージルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 50"
+    ],
+    "ordinary": [
+      "防具: ルーンワードの自動回復レートが20%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "防具: 毎秒25のルーンワードを自動回復する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/WardRegenerationPerfect.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Reinforcement",
+    "name": "補強のワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "防具: ルーンワードが20%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "防具: 最大ライフの2%を追加最大ルーンワードとして獲得する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard1.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Protection",
+    "name": "保護のワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "防具: 4秒ごとに最大ルーンワードの20%と同量のガードを2秒間獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "防具: 獲得ガードが8%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard2.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Disintegration",
+    "name": "分解のワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "マーシャル武器: アタックは最大ルーンワードの15%と同量のアーマーを破壊する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: アーマー破壊するアーマー量が10%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard3.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Desperation",
+    "name": "窮地のワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "ワンドまたはスタッフ: 低ルーンワード状態の間スペルダメージは敵の元素耐性の25%を貫通する"
+    ],
+    "bonded": [
+      "絆",
+      "ワンドまたはスタッフ: 元素ダメージが12%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard4.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Symbiosis",
+    "name": "共生のワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "靴: 最大ルーンワード30ごとにエナジーシールドリチャージレートが1%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "靴: 毎秒エナジーシールドの1%を自動回復する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard8.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Courage",
+    "name": "勇気のワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "兜: 低ルーンワード状態の間アーマーと回避力が25%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "兜: 低ライフ時にアーマーおよび回避力が20%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard9.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Stability",
+    "name": "安定のワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "盾またはバックラー: 最大ルーンワード10ごとにスタン閾値 +4"
+    ],
+    "bonded": [
+      "絆",
+      "盾またはバックラー: シェープシフト状態の間スタン蓄積が15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard10.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Glancing",
+    "name": "浅い傷のワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "鎧: 最大ルーンワード10ごとに受け流し力 +3"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 受け流したヒットのダメージから防ぐ量が+1%される"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard13.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Heart",
+    "name": "心臓のワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "鎧: 最大ライフの5%を追加最大ルーンワードとして獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 直近ヒットで失ったルーンワードの2%ごとにルーンワード自動回復レートが1%上昇する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard14.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Nourishment",
+    "name": "滋養のワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "防具: フラスコによるライフ回復の15%はルーンワードにも適用される"
+    ],
+    "bonded": [
+      "絆",
+      "防具: フラスコによるライフ回復量が15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard15.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Annihilation",
+    "name": "殲滅のワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "マーシャル武器: アタックはもし可能なら最大ルーンワードの5%を使用し同量の追加物理ダメージを獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: ルーンワードコスト効率が10%減少する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard16.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Armature",
+    "name": "骨組みのワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 45"
+    ],
+    "ordinary": [
+      "マーシャル武器: この武器の最大ダメージの15%と同量の最大ルーンワードを獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "マーシャル武器: ルーンワードが最大値未満の間アタックスピードが5%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard18.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Obsession",
+    "name": "執着のワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 45"
+    ],
+    "ordinary": [
+      "ワンド: 受ける全てのダメージはルーンワードをバイパスする, ルーンワード自動回復レートが2倍になる"
+    ],
+    "bonded": [
+      "絆",
+      "ワンド: 最大ルーンワードが12%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard19.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Equinox",
+    "name": "分点のワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 45"
+    ],
+    "ordinary": [
+      "キャスター武器: マナ自動回復レートが40%低下する, 自動回復によるマナ回復はルーンワードにも適用される"
+    ],
+    "bonded": [
+      "絆",
+      "キャスター武器: 直近クリティカルヒットを与えていればルーンワード自動回復レートが20%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard20.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Salvaging",
+    "name": "回収のワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "セプター: 復活するミニオンのうち1体が倒された時に最大ルーンワードの3%を回復する"
+    ],
+    "bonded": [
+      "絆",
+      "セプター: ミニオンの1体が復活した時に最大ライフの3%を回復する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard21.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Bodyguards",
+    "name": "護衛のワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 45"
+    ],
+    "ordinary": [
+      "セプター: 低ルーンワード状態の間プレイヤーの存在下のミニオンは猛攻状態になる"
+    ],
+    "bonded": [
+      "絆",
+      "セプター: 直近ルーンワードがダメージを受けていれば\nプレイヤーにヒットを与えるダメージは不幸になる"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard23.webp"
+  },
+  {
+    "id": "Warding_Rune_of_Hollowing",
+    "name": "空洞のワードルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 45"
+    ],
+    "ordinary": [
+      "キャスター武器: 最大ライフの15%を追加最大ルーンワードとして獲得する, 最大ライフが15%低下する"
+    ],
+    "bonded": [
+      "絆",
+      "キャスター武器: ルーンワードがフルの間全ての元素耐性の最大値 +1%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/RunicWard24.webp"
+  },
+  {
+    "id": "Passion_of_Aldur",
+    "name": "アルダーの情熱",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "武器: アイテム上の全ての冷気および雷モッドを同等の火モッドに変化させる"
+    ],
+    "bonded": [
+      "絆",
+      "武器: 火ダメージが25%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneFire.webp"
+  },
+  {
+    "id": "Breath_of_Aldur",
+    "name": "アルダーの息吹",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "武器: ソケットした時に全ての火および雷モッドを同等の冷気モッドに変化させる"
+    ],
+    "bonded": [
+      "絆",
+      "武器: 冷気ダメージが25%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneCold.webp"
+  },
+  {
+    "id": "Ire_of_Aldur",
+    "name": "アルダーの怒り",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "武器: アイテム上の全ての火および冷気モッドを同等の雷モッドに変化させる"
+    ],
+    "bonded": [
+      "絆",
+      "武器: 雷ダメージが25%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneLightning.webp"
+  },
+  {
+    "id": "Betrayal_of_Aldur",
+    "name": "アルダーの裏切り",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "武器: アイテム上の全ての火、冷気および雷モッドを同等の混沌モッドに変化させる"
+    ],
+    "bonded": [
+      "絆",
+      "武器: 混沌ダメージが25%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ElementalConversionRuneChaos.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Splinters",
+    "name": "破片の古代ルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "弓: 矢を追加で1個放つ超過可能確率 +50%"
+    ],
+    "bonded": [
+      "絆",
+      "弓: 投射物スピードが30%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune1.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Dueling",
+    "name": "決闘の古代ルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "バックラー: パリィのデバフの強度が30%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "バックラー: ブロック率が15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune2.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_the_Titan",
+    "name": "タイタンの古代ルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "両手メイス: プレイヤー自らが使用するスラムスキルは10%の確率で余震を追加で1回引き起こす"
+    ],
+    "bonded": [
+      "絆",
+      "両手メイス: アタックの効果範囲が15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune3.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Shattering",
+    "name": "破砕の古代ルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "片手メイス: 完全アーマー破壊の効果が40%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "片手メイス: アーマー破壊するアーマー量が50%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune4.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Prowess",
+    "name": "武勇の古代ルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "スピア: チャージを1個獲得する時に30%の確率でチャージを追加で1個獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "スピア: エンデュランスチャージ、フレンジーチャージおよびパワーチャージの持続時間が30%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune5.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Control",
+    "name": "制御の古代ルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "クォータースタッフ: 移動不可蓄積が50%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "クォータースタッフ: 移動不可状態の敵に対するダメージが30%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune6.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Discovery",
+    "name": "発見の古代ルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "スタッフ: 30%の確率でレムナントを追加で1個生成する"
+    ],
+    "bonded": [
+      "絆",
+      "スタッフ: エレメンタルインフュージョンの最大数 +1"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune7.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Decay",
+    "name": "腐敗の古代ルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "ワンド: 衰弱の強度が25%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "ワンド: プレイヤーが持っていたボラティリティが爆発した時に15%の確率で同量のボラティリティを再獲得する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune8.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Witchcraft",
+    "name": "妖術の古代ルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "フォーカス: 呪いの効果範囲が40%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "フォーカス: 呪いのアクティベーションが15%速くなる"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune9.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_the_Horde",
+    "name": "大群の古代ルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "セプター: ミニオンのアタックスピードおよびキャストスピードが8%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "セプター: ミニオンの移動スピードが10%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune10.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Animosity",
+    "name": "敵意の古代ルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "タリスマン: レアまたはユニークの敵をヘビースタンさせた時にドルイドの熟練を2スタック獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "タリスマン: スタン蓄積が40%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune11.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Detonation",
+    "name": "起爆の古代ルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "クロスボウ: グレネードは10%の確率で追加で1回アクティベートする"
+    ],
+    "bonded": [
+      "絆",
+      "クロスボウ: クロスボウのリロードスピードが40%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune12.webp"
+  },
+  {
+    "id": "Ancient_Rune_of_Retaliation",
+    "name": "報復の古代ルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 30"
+    ],
+    "ordinary": [
+      "盾: 直近ブロックをしていればアタックスピードが8%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "盾: ブロック率の最大値 +3%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EndgameRune13.webp"
+  },
+  {
+    "id": "Rune_of_Vitality",
+    "name": "生命力のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "武器: 最大ライフ +80",
+      "盾またはバックラー: ブロック時に15のライフを回復する"
+    ],
+    "bonded": [
+      "絆",
+      "武器: ライフリーチ量が15%増加する",
+      "盾またはバックラー: 最大ライフが5%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune1.webp"
+  },
+  {
+    "id": "Rune_of_the_Hunt",
+    "name": "狩猟のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "靴: スプリント中に移動スピードが8%増加する",
+      "セプター: コンパニオンのダメージが30%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "靴: スタン復帰が50%増加する",
+      "セプター: コンパニオンがプレイヤーの存在下にいる間マナ回復レートが8%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune2.webp"
+  },
+  {
+    "id": "Rune_of_Acrobatics",
+    "name": "軽業のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "武器: フラスコは毎秒0.2のチャージを獲得する",
+      "靴: ドッジロールの距離 +0.3m"
+    ],
+    "bonded": [
+      "絆",
+      "武器: チャームは毎秒0.25のチャージを獲得する",
+      "靴: 直近ドッジロールをしていなければアーマーが30%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune3.webp"
+  },
+  {
+    "id": "Rune_of_Culmination",
+    "name": "集大成のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "手袋: ヒット時に50%の確率でコンボを追加で1構築する",
+      "片手メイスまたはクォータースタッフ: 物理ダメージについて最小値と最大値のみをロールする"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: アタックスピードが5%増加する",
+      "片手メイスまたはクォータースタッフ: 出血持続時間が20%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune4.webp"
+  },
+  {
+    "id": "Rune_of_Renown",
+    "name": "名声のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "手袋: グローリーの生成量が50%増加する",
+      "キャスター武器: アルコン待機時間の解消が30%速くなる"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: バナースキルはオーラ強度が20%増加する",
+      "キャスター武器: アルコンの持続時間が30%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune5.webp"
+  },
+  {
+    "id": "Rune_of_Accumulation",
+    "name": "蓄積のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "手袋: アタックでヒットを与えた敵1体ごとに3のライフを獲得する, アタックでヒットを与えた敵1体ごとに1のマナを獲得する",
+      "クロスボウ、弓またはスピア: 敵へのヒット時に敵のパワーと同量の追加冷気ダメージの最大値を20秒間獲得する。合計最大32まで"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: 最大ライフ +30, 最大マナ +30",
+      "クロスボウ、弓またはスピア: 凍結蓄積が30%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune6.webp"
+  },
+  {
+    "id": "Rune_of_Foundations",
+    "name": "基礎のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "鎧: アーマー +30, 回避力 +30, 最大エナジーシールド +10"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 最大ライフ +20, 最大マナ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune7.webp"
+  },
+  {
+    "id": "Rune_of_the_Prism",
+    "name": "プリズムのルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "鎧: 全ての元素耐性の最大値 -10%, 全ての元素耐性 +20%"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: ダメージの20%をライフより先にマナで受ける"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune8.webp"
+  },
+  {
+    "id": "Rune_of_the_Blossom",
+    "name": "開花のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "鎧: スピリット +50, レベル2ごとにスピリット -1"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: スキルのスピリットリザーブ効率が5%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune9.webp"
+  },
+  {
+    "id": "Rune_of_Consistency",
+    "name": "一貫性のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "兜: クリティカルヒット率が200%増加する, クリティカルダメージボーナスがゼロになる",
+      "キャスター武器: コンパニオンがプレイヤーの存在下にいる間スペルダメージが50%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "兜: プレイヤーに対するヒットはクリティカルダメージボーナスが25%減少する",
+      "キャスター武器: コンパニオンがプレイヤーの存在下にいる間マナ回復レートが8%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune10.webp"
+  },
+  {
+    "id": "Rune_of_Reach",
+    "name": "射程のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "兜: プレイヤーが生成したレムナントは効果が15%増加する",
+      "ワンドまたはスタッフ: レムナントは50%遠くからでも拾える, プレイヤーが生成したレムナントは効果が25%減少する"
+    ],
+    "bonded": [
+      "絆",
+      "兜: レムナントを拾った時に最大マナの3%を回復する",
+      "ワンドまたはスタッフ: 曝露の効果が20%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune11.webp"
+  },
+  {
+    "id": "Rune_of_Vital_Flame",
+    "name": "生命の炎のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "片手メイス、両手メイスまたはタリスマン: 13から16の火ダメージを追加する, スキルのマナコストの15%がライフコストに変換される"
+    ],
+    "bonded": [
+      "絆",
+      "片手メイス、両手メイスまたはタリスマン: 発火の強度が30%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune12.webp"
+  },
+  {
+    "id": "Rune_of_Confrontation",
+    "name": "対峙のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [
+      "クォータースタッフまたはスピア: 近接ヒット時に憤怒を4獲得する, 憤怒の最大数 -10"
+    ],
+    "bonded": [
+      "絆",
+      "クォータースタッフまたはスピア: rage effect +% [10]"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune13.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Wild_Ferocity",
+    "name": "野生の獰猛さのルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune14.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Partnership",
+    "name": "連携のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune15.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Reverberation",
+    "name": "反響のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune16.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Vital_Flame",
+    "name": "生命の炎のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune17.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Confrontation",
+    "name": "対峙のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune18.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Chance",
+    "name": "偶然のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune19.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Confidence",
+    "name": "自信のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune12.webp"
+  },
+  {
+    "id": "DNT-Unused_Rune_of_Duplication",
+    "name": "複製のルーン",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1",
+      "装備条件： レベル 15"
+    ],
+    "ordinary": [],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/EarlyMythicRune16.webp"
+  },
+  {
+    "id": "Serles_Triumph",
+    "name": "セールの凱旋",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "全ての装備品: サフィックスモッド +1個, local maximum mods allowed + [1]"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRune2.webp"
+  },
+  {
+    "id": "Cadigans_Epiphany",
+    "name": "カディガンの啓示",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "手袋: アイテムの全てのオーグメントソケットを破壊しジュエルソケットを作成する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRune3.webp"
+  },
+  {
+    "id": "Astrids_Creativity",
+    "name": "アストリッドの創造性",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "全ての装備品: クラフトモッドを追加で1個持つことができる"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRune1.webp"
+  },
+  {
+    "id": "Uhtreds_Sidereus",
+    "name": "ウートレドの星読み",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "靴: クロノマンシーモッドをロールできるようになる"
+    ],
+    "bonded": [
+      "絆",
+      "靴: クールダウン解消レートが10%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneTime.webp"
+  },
+  {
+    "id": "Kolrs_Hunt",
+    "name": "コルの狩り",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "手袋: マークスマンモッドをロールできるようになる"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: 投射物ダメージが20%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneDex.webp"
+  },
+  {
+    "id": "Voranas_Carnage",
+    "name": "ヴォラナの虐殺",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "兜: バーサークモッドをロールできるようになる"
+    ],
+    "bonded": [
+      "絆",
+      "兜: 近接ヒット時に憤怒を2獲得する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRunePhysical.webp"
+  },
+  {
+    "id": "Thruds_Might",
+    "name": "スルードの力",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "武器: デストラクションモッドをロールできるようになる"
+    ],
+    "bonded": [
+      "絆",
+      "武器: 全ての元素耐性 +5%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneFire.webp"
+  },
+  {
+    "id": "Medveds_Tending",
+    "name": "メドヴェッドの世話",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "鎧: ソウルモッドをロールできるようになる"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 最大ライフが3%増加する, 最大マナが3%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneCold.webp"
+  },
+  {
+    "id": "Katlas_Gloom",
+    "name": "カトラの陰鬱",
+    "properties": [
+      "スタック数: 1 / 10",
+      "個数制限: 1"
+    ],
+    "ordinary": [
+      "手袋: 腐敗モッドをロールできるようになる"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: プレイヤーに対する非ダメージ性状態異常の効果が25%減少する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneChaos.webp"
+  },
+  {
+    "id": "Aldurs_Legacy",
+    "name": "アルダーの遺産",
+    "properties": [
+      "スタック数: 1 / 10"
+    ],
+    "ordinary": [
+      "全ての装備品: ユニークのカルグールまたはエゾマイトアイテムにソケットされた時にアイテムを破壊しそのアイテムの能力が注入されたルーンを生成する"
+    ],
+    "bonded": [],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUnique.webp"
+  },
+  {
+    "id": "Legacy_of_Bramblejack",
+    "name": "ブランブルジャックの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "鎧: 受けた近接物理ダメージの250%をアタックをしてきた敵に反射する"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 包囲されている間毎秒ライフの3%を自動回復する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Blackbraid",
+    "name": "黒い組紐の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "鎧: アーマーの+50%が元素ダメージにも適用される"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 全ての元素耐性 +15%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Edyrns_Tusks",
+    "name": "エディルンの牙の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "鎧: ヒット時に50%の確率で出血を付与する, プレイヤーに対する減速のデバフのポテンシャルが50%減少する"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 棘ダメージが35%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Kingsguard",
+    "name": "キングスガードの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "鎧: 消費したエンデュランスチャージ1個ごとに最大ライフの5%を回復する"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 最大ライフ +30"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Bristleboar",
+    "name": "毛深い猪の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "鎧: 敵からクリティカルを受けた時に憤怒を10獲得する, 敵によるヒットを受けた時に憤怒を5獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 憤怒の最大数 +3"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Foxshade",
+    "name": "フォックスシェードの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "鎧: フルライフ時に移動スピードが10%増加する, フルライフ状態の時に回避力が100%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 回避力が20%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Ashrend",
+    "name": "アッシュレンドの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "鎧: 発火を付与されることがなくなる, アタックのヒットにより受ける物理ダメージ -10"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: 火耐性 +35%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Briskwrap",
+    "name": "ブリスクラップのルーン",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "鎧: 回避力の30%と同量の受け流し力を獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: フラスコマナ回復レートが35%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Unleashed",
+    "name": "解き放たれし者の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "鎧: エナジーシールドが半分以下であればヒットから受けたダメージの25%がエナジーシールドをバイパスする"
+    ],
+    "bonded": [
+      "絆",
+      "鎧: シェープシフト状態の間アーマーが20%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Horns_of_Bynden",
+    "name": "ビンデンの角笛の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "兜: 憤怒のそれぞれのスタックはアーマーの1%増加も付与する, 近接ヒット時に憤怒を1獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "兜: 憤怒の最大数 +3"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Wings_of_Caelyn",
+    "name": "ケイリンの翼の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "兜: 近接ヒット時に憤怒を1獲得する, 憤怒のそれぞれのスタックはスタン閾値の1%増加も付与する"
+    ],
+    "bonded": [
+      "絆",
+      "兜: 憤怒5スタックごとに移動スピードの増加1%も付与する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Ezomyte_Peak",
+    "name": "エゾマイトピークの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "兜: 効果範囲が15%増加する, アンウェイバリングスタンス"
+    ],
+    "bonded": [
+      "絆",
+      "兜: プレイヤーに対する減速のデバフのポテンシャルが50%減少する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Deidbell",
+    "name": "ディードベルの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "兜: ウォークライは死体を爆破しそのライフの10%を物理ダメージとして与える"
+    ],
+    "bonded": [
+      "絆",
+      "兜: ウォークライスキルの効果範囲が20%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Elevore",
+    "name": "エレボアーの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "兜: チャームは毎秒1のチャージを獲得する, チャームスロット +1"
+    ],
+    "bonded": [
+      "絆",
+      "兜: チャームは毎秒0.5のチャージを獲得する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Starkonjas_Head",
+    "name": "スターコンジャの頭の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "兜: 低ライフ時にグローバル回避力が100%増加する, ヒットによるダメージの5%をプレイヤーの前にダメージを受けられるコンパニオンのライフから受ける"
+    ],
+    "bonded": [
+      "絆",
+      "兜: ヒットによるダメージの5%をプレイヤーの前にダメージを受けられるコンパニオンのライフから受ける"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Crown_of_Thorns",
+    "name": "茨の冠の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "兜: ペインアチューンメント"
+    ],
+    "bonded": [
+      "絆",
+      "兜: 17から26の物理棘ダメージ"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Greymake",
+    "name": "グレイメイクの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "兜: 全ての能力値 +50"
+    ],
+    "bonded": [
+      "絆",
+      "兜: 1レベルごとに最大ライフ +1"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Erians_Cobble",
+    "name": "エリアンの玉石の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "兜: 命中力 +30, 最大ライフ +10, 最大マナ +10, 見つかるアイテムのレアリティが10%増加する, クリティカルヒット率が10%増加する, 全ての能力値 +5, 全ての元素耐性 +5%, 毎秒3のライフを自動回復する"
+    ],
+    "bonded": [
+      "絆",
+      "兜: アーマー +20, 回避力 +20, 最大エナジーシールド +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Smiling_Knight",
+    "name": "微笑む騎士の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "兜: プレイヤーがアタックでクリティカルヒットを与えた対象に付与した出血を悪化させる"
+    ],
+    "bonded": [
+      "絆",
+      "兜: クリティカルヒット率が20%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Vile_Knight",
+    "name": "卑劣な騎士の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "兜: レアおよびユニークの敵がプレイヤーの存在下にいた秒数ごとにヒットダメージが4%、最大200%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "兜: 存在下の効果範囲が20%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Northpaw",
+    "name": "北の脚の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "手袋: 武器によるアタックの基礎クリティカルヒット率は7%になる"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: クリティカルダメージボーナスが15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Candlemaker",
+    "name": "キャンドルメーカーの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "手袋: 火ダメージが40%増加する, 可燃性の強度が2倍になる"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: 敵に対する発火の持続時間が20%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Deathblow",
+    "name": "デスブローの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "手袋: カリングストライク"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: 倒した敵1体ごとに30のライフを獲得する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Legionstride",
+    "name": "リージョンストライドの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "靴: ブロック率 +10%"
+    ],
+    "bonded": [
+      "絆",
+      "靴: 投射物のヒットから受けるダメージが10%減少する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Trampletoe",
+    "name": "踏みつぶす爪先の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "靴: オーバーキルダメージの10%を倒した敵の2m以内の敵に与える"
+    ],
+    "bonded": [
+      "絆",
+      "靴: グローバル物理ダメージが15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Briarpatch",
+    "name": "ブライアパッチの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "靴: 棘クリティカルヒット率 +15%"
+    ],
+    "bonded": [
+      "絆",
+      "靴: 棘クリティカルダメージボーナスが15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Bushwhack",
+    "name": "ブッシュワックの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "靴: 物理ダメージは足止めできる"
+    ],
+    "bonded": [
+      "絆",
+      "靴: 器用さ +20"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Wanderlust",
+    "name": "ワンダーラストの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "靴: プレイヤーのスピードは減速の影響を受けない"
+    ],
+    "bonded": [
+      "絆",
+      "靴: 移動スピードが5%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Knight-errant",
+    "name": "放浪騎士の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "靴: アイアンリフレックス"
+    ],
+    "bonded": [
+      "絆",
+      "靴: 元素系状態異常閾値が25%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Oberns_Bastion",
+    "name": "オバーンの砦の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "靴: スタン復帰が200%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "靴: 受ける冷却の持続時間が40%減少する, 受ける凍結の持続時間が40%減少する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Dionadair",
+    "name": "ディオナデアの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "盾: 盾を掲げている時にスタン閾値が二倍になる"
+    ],
+    "bonded": [
+      "絆",
+      "盾: スタン閾値が15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Wulfsbane",
+    "name": "ウルフスベインの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "盾: ブロック時に敵を8秒間威嚇する"
+    ],
+    "bonded": [
+      "絆",
+      "盾: 筋力 +25"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Chernobogs_Pillar",
+    "name": "チェルノボグの柱の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "盾: ブロック率2%ごとにダメージの1%を火ダメージとして獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "盾: 混沌耐性 +30%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Alkem_Eira",
+    "name": "アルケム・エイラの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "盾: ブロックしたダメージの30%はマナとして回収される"
+    ],
+    "bonded": [
+      "絆",
+      "盾: ブロックしたダメージの20%はマナとして回収される"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Oaksworn",
+    "name": "楢の誓いの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "盾: ライフ自動回復レートが50%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "盾: 毎秒50のライフを自動回復する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Dunkelhalt",
+    "name": "ダンケルハルトの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "バックラー: パリィのデバフの強度が50%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "バックラー: パリィダメージが50%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Rondel_de_Ezo",
+    "name": "ロンデル・デ・エゾの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "バックラー: ブロック時に敵をエンフィーブルで呪う"
+    ],
+    "bonded": [
+      "絆",
+      "バックラー: 投射物に対するブロック率が100%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Brynhands_Mark",
+    "name": "ブリンハンドの印の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "片手メイス: 二倍のスタン蓄積を引き起こす"
+    ],
+    "bonded": [
+      "絆",
+      "片手メイス: 14から20の物理ダメージを追加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Trenchtimbre",
+    "name": "トレンチティンバーの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "片手メイス: ミニオンアタックスピードの増減はプレイヤーにも影響する"
+    ],
+    "bonded": [
+      "絆",
+      "片手メイス: 全てのミニオンスキルのレベル +1"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Mj%C3%B6lner",
+    "name": "ミョルナーの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "片手メイス: 知性の装備条件 +200, 全ての雷スキルのレベル +3"
+    ],
+    "bonded": [
+      "絆",
+      "片手メイス: 全ての雷スキルのレベル +1"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Twisted_Empyrean",
+    "name": "歪んだ天空の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "両手メイス: この武器によるアタックは最大マナの6%から10%と同量の追加冷気ダメージを持つ"
+    ],
+    "bonded": [
+      "絆",
+      "両手メイス: ダメージの15%をライフより先にマナで受ける"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Hoghunt",
+    "name": "豚狩りの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "両手メイス: クリティカルヒット率 +5%, クリティカルヒット時に重傷を付与する"
+    ],
+    "bonded": [
+      "絆",
+      "両手メイス: 重傷状態の敵に対するアタックダメージが25%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Hrimnors_Hymn",
+    "name": "フリムノーの聖歌の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "両手メイス: プレイヤー自らが使用するスラムスキルは25%の確率で余震を追加で1回引き起こす"
+    ],
+    "bonded": [
+      "絆",
+      "両手メイス: プレイヤー自らが使用するスラムスキルは15%の確率で余震を追加で1回引き起こす"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Brain_Rattler",
+    "name": "脳揺らしの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "両手メイス: この武器による全てのダメージが麻痺を蓄積する"
+    ],
+    "bonded": [
+      "絆",
+      "両手メイス: ダメージは10%の雷耐性を貫通する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Lifesprig",
+    "name": "ライフスプリグの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "ワンド: 全てのスペルスキルのレベル +2"
+    ],
+    "bonded": [
+      "絆",
+      "ワンド: プレイヤーがスペルをキャストした時に最大ライフの1%をライフリーチする"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Duality",
+    "name": "二面性の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "クォータースタッフ: スキル使用時に使用したコンボごとに0.5秒間250のガードを獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "クォータースタッフ: スキル使用時に使用したコンボごとに0.2秒間決着を獲得する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Tyrannys_Grip",
+    "name": "圧政の手の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "スピア: ストライクはスプラッシュダメージを与える"
+    ],
+    "bonded": [
+      "絆",
+      "スピア: ヒット時に敵をノックバックする"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Sentry",
+    "name": "哨兵の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "クォータースタッフ: 23から34の火ダメージをアタックに追加する, 可燃性の強度が100%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "クォータースタッフ: 火耐性の最大値 +2%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Adonias_Ego",
+    "name": "アドニアのエゴの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "ワンド: パワーチャージの最大数 +1"
+    ],
+    "bonded": [
+      "絆",
+      "ワンド: 最大マナ +65"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Cursecarver",
+    "name": "呪い刻みの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "ワンド: 全ての呪いスキルのレベル +3"
+    ],
+    "bonded": [
+      "絆",
+      "ワンド: マナ自動回復レートが35%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Dusk_Vigil",
+    "name": "夕闇の番の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "スタッフ: 物理ダメージの30%を追加火ダメージとして獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "スタッフ: トリガーで発動したスペルのスペルダメージが20%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_The_Blood_Thorn",
+    "name": "血の棘の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "クォータースタッフ: 4から8の物理ダメージを追加する, ヒット時に出血を付与する"
+    ],
+    "bonded": [
+      "絆",
+      "クォータースタッフ: プレイヤーが付与した出血の強度が10%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Quill_Rain",
+    "name": "針の雨の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "弓: アタックスピードが50%増加する, アタックダメージが20%低下する"
+    ],
+    "bonded": [
+      "絆",
+      "弓: 矢のスピードが70%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Ironbound",
+    "name": "アイアンバウンドの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "弓: この武器によるヒットはブロック率1%ごとに1から3の追加物理ダメージを持つ"
+    ],
+    "bonded": [
+      "絆",
+      "弓: 装備中の防具アイテムのアイテムアーマー合計100ごとにブロック率が3%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Amor_Mandragora",
+    "name": "マンドラゴラの愛の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "タリスマン: 使用した合計憤怒20ごとにドルイドの熟練を1スタック獲得する"
+    ],
+    "bonded": [
+      "絆",
+      "タリスマン: プレイヤーの存在下にいる敵は阻害状態になる"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Spiteful_Floret",
+    "name": "悪意の小花の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "タリスマン: 憤怒5ごとにダメージの5%をライフとして回収するも付与する"
+    ],
+    "bonded": [
+      "絆",
+      "タリスマン: アタックは20%の確率で出血を付与する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Svalinn",
+    "name": "スヴァリンの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "盾: ダメージブロック率が幸運になる, ブロックしたヒットからダメージの20%を受ける"
+    ],
+    "bonded": [
+      "絆",
+      "盾: 最大ルーンワード +50"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Keeper_of_the_Arc",
+    "name": "アークの守り手の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "兜: 5秒ごとに変化する:\nヒットから受けるダメージが20%低下する\n受ける継続ダメージが20%低下する"
+    ],
+    "bonded": [
+      "絆",
+      "兜: マナ自動回復レートが25%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Olrovasara",
+    "name": "オルロヴァサラの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "片手メイス: 敵へのヒット時に敵のパワーと同量の追加雷ダメージの最大値を20秒間獲得する。合計最大120まで"
+    ],
+    "bonded": [
+      "絆",
+      "片手メイス: アタックスピードが15%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_A_Worthy_Foe",
+    "name": "ふさわしい相手の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "盾: オフハンドのヒットはルーンファザーの挑戦を付与する"
+    ],
+    "bonded": [
+      "絆",
+      "盾: 冷気耐性 +45%"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Serles_Grit",
+    "name": "サールの根性の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "片手メイス: 品質の最大値 40%"
+    ],
+    "bonded": [
+      "絆",
+      "片手メイス: アタックを強化するスキルは20%の確率でそのアタックをカウントしない"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Runeseekers_Call",
+    "name": "ルーンシーカーの呼び声の遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "ワンド: ソケットされているルーンの効果が75%増加する"
+    ],
+    "bonded": [
+      "絆",
+      "ワンド: 最大マナ +100"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  },
+  {
+    "id": "Legacy_of_Facebreaker",
+    "name": "フェースブレーカーの遺産",
+    "properties": [
+      "個数制限: アルダーの遺産 1個",
+      "装備条件： レベル 65"
+    ],
+    "ordinary": [
+      "手袋: 筋力ごとにアーマー +1"
+    ],
+    "bonded": [
+      "絆",
+      "手袋: 筋力15ごとにダメージが1%増加する"
+    ],
+    "socketBound": false,
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp"
+  }
+]
