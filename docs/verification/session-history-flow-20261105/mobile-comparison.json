@@ -1,0 +1,40 @@
+{
+  "sameSize": true,
+  "width": 366,
+  "height": 4447,
+  "meanChannelDifference": 0.9590444510799733,
+  "arrows": [
+    {
+      "source": 151,
+      "snapshot": 149
+    },
+    {
+      "source": 148,
+      "snapshot": 149
+    },
+    {
+      "source": 148,
+      "snapshot": 149
+    },
+    {
+      "source": 168,
+      "snapshot": 169
+    },
+    {
+      "source": 148,
+      "snapshot": 149
+    },
+    {
+      "source": 168,
+      "snapshot": 149
+    },
+    {
+      "source": 148,
+      "snapshot": 149
+    },
+    {
+      "source": 168,
+      "snapshot": 169
+    }
+  ]
+}

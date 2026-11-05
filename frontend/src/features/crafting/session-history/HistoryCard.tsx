@@ -48,7 +48,6 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
     return (
       <>
         <p>{text.unknown}</p>
-        <pre>{JSON.stringify(frame, null, 2)}</pre>
       </>
     )
   return (
@@ -75,6 +74,24 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
                   .map((text, i) => ({ id: `base-${i}`, text }))
               : []),
             ...defences.properties,
+            ...(state.observations?.augmentEffects ?? []).map((text, i) => ({
+              id: `observed-augment-${i}`,
+              text,
+            })),
+            ...(state.observations?.grantedSkills ?? []).map((skill, i) => ({
+              id: `observed-skill-${i}`,
+              text:
+                skill.name + (skill.level == null ? '' : ` (${skill.level})`),
+            })),
+            ...(state.augmentSockets == null &&
+            state.observations?.socketCount != null
+              ? [
+                  {
+                    id: 'observed-sockets',
+                    text: `${socketText().socket}: ${state.observations.socketCount}`,
+                  },
+                ]
+              : []),
             ...(state.equipmentQuality != null
               ? [
                   {
@@ -89,7 +106,7 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
               ? [
                   {
                     id: 'catalyst',
-                    text: JSON.stringify(state.catalystQuality),
+                    text: `${state.catalystQuality.type}: ${state.catalystQuality.amount}%`,
                   },
                 ]
               : []),
@@ -138,7 +155,9 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
                 id: `${i}`,
                 text: definition
                   ? localizedModifierText(definition, values, locale)
-                  : JSON.stringify(m),
+                  : `${m.modifierId}: ${Object.entries(m.values)
+                      .map(([key, value]) => `${key} ${value}`)
+                      .join(', ')}`,
                 fractured: m.fractured,
                 kind:
                   i < state.implicits.length
@@ -158,13 +177,6 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
             ),
         }}
       />
-      {state.observations && (
-        <pre>{JSON.stringify(state.observations, null, 2)}</pre>
-      )}
-      <details>
-        <summary>{text.raw}</summary>
-        <pre>{JSON.stringify(frame, null, 2)}</pre>
-      </details>
     </>
   )
 }

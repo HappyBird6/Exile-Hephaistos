@@ -13,7 +13,7 @@ const en = {
   error:
     'Could not complete this action. Existing sessions are preserved. Check the file, storage capacity and server connection.',
   privacy:
-    'Exports and sharing snapshots include the complete session and original pasted text. A sharing link allows anyone holding it to read this snapshot on this server.',
+    'Anyone with this link can view this session, including the original pasted text.',
   scope:
     'Local links need this browser’s storage. Sharing links read a saved server snapshot. This localhost server is accessible only from this computer.',
   preview: 'Import preview',
@@ -46,7 +46,7 @@ export const historyMessages: Record<Locale, Copy> = {
     error:
       '작업을 완료하지 못했습니다. 기존 세션은 보존됩니다. 파일·저장 용량·서버 연결을 확인하세요.',
     privacy:
-      '내보내기와 공유 스냅샷에는 전체 세션과 처음 붙여넣은 원문이 포함됩니다. 공유 링크를 가진 사람은 이 서버에서 스냅샷을 읽을 수 있습니다.',
+      '링크를 가진 사람은 처음 붙여넣은 원문을 포함한 이 세션을 볼 수 있습니다.',
     scope:
       '로컬 링크에는 이 브라우저의 저장 데이터가 필요합니다. 공유 링크는 서버에 저장된 스냅샷을 엽니다. localhost 서버에는 이 컴퓨터에서만 접근할 수 있습니다.',
     preview: '가져오기 미리보기',
@@ -73,8 +73,7 @@ export const historyMessages: Record<Locale, Copy> = {
     copy: '复制链接',
     missing: '会话不可用。请导入文件或检查分享链接。',
     error: '操作失败。现有会话已保留。请检查文件、存储空间和服务器连接。',
-    privacy:
-      '导出和分享快照包含完整会话及原始粘贴文本。持有链接的人可在此服务器上读取快照。',
+    privacy: '持有链接的人可查看此会话，包括原始粘贴文本。',
     scope:
       '本地链接需要此浏览器的数据。分享链接读取服务器快照。localhost 仅可从此计算机访问。',
     preview: '导入预览',
@@ -101,8 +100,7 @@ export const historyMessages: Record<Locale, Copy> = {
     copy: '複製連結',
     missing: '工作階段不可用。請匯入檔案或檢查分享連結。',
     error: '操作失敗。既有資料已保留。請檢查檔案、儲存空間及伺服器連線。',
-    privacy:
-      '匯出及分享快照包含完整工作階段與原始貼上文字。持有連結的人可在此伺服器讀取快照。',
+    privacy: '持有連結的人可檢視此工作階段，包括原始貼上文字。',
     scope:
       '本機連結需要此瀏覽器資料。分享連結讀取伺服器快照。localhost 僅可從此電腦存取。',
     preview: '匯入預覽',
@@ -132,7 +130,7 @@ export const historyMessages: Record<Locale, Copy> = {
     error:
       '操作できませんでした。既存のセッションは保持されています。ファイル、容量、サーバー接続を確認してください。',
     privacy:
-      '書き出しと共有にはセッション全体と元の貼り付けテキストが含まれます。リンクを持つ人はこのサーバーで閲覧できます。',
+      'リンクを持つ人は元の貼り付けテキストを含むこのセッションを閲覧できます。',
     scope:
       'ローカルリンクにはこのブラウザーのデータが必要です。共有リンクはサーバーの記録を開きます。localhost はこのコンピューターからのみ利用できます。',
     preview: '読み込みプレビュー',
@@ -161,7 +159,7 @@ export const historyMessages: Record<Locale, Copy> = {
     error:
       'No se pudo completar. Las sesiones existentes se conservan. Revisa el archivo, el espacio y la conexión.',
     privacy:
-      'La exportación y las copias compartidas incluyen la sesión completa y el texto original. Quien tenga el enlace puede leer la copia en este servidor.',
+      'Quien tenga el enlace podrá ver esta sesión, incluido el texto pegado original.',
     scope:
       'Los enlaces locales requieren datos de este navegador. Los compartidos abren una copia del servidor. localhost solo es accesible desde este equipo.',
     preview: 'Vista previa de importación',

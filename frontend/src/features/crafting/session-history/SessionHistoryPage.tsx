@@ -7,13 +7,8 @@ import type { Film } from '../workbenchHistory'
 import { currencies } from '../currencies'
 import { currencyNames } from '../currencyNames'
 import { materials, additionalStashCurrencies } from '../materials'
-import {
-  SessionNotation,
-  NotationResources,
-} from '../session-notation/SessionNotation'
-import { extractSessionNotation } from '../session-notation/extractSessionNotation'
+import { SessionFlow } from './SessionFlow'
 import { historyMessages } from './messages'
-import { HistoryCard } from './HistoryCard'
 import {
   appendDocument,
   decodeDocument,
@@ -42,13 +37,15 @@ export function SessionHistoryPage({
   id: string
   shared?: boolean
 }) {
-  const { locale, name, t } = useI18n()
+  const { locale, t } = useI18n()
   const text = historyMessages[locale]
   const catalogsLoading = useIsFetching({ queryKey: ['history-catalog'] })
   const [preview, setPreview] = useState<SessionDocument | null>(null)
   const [error, setError] = useState('')
   const [busy, setBusy] = useState(false)
   const [link, setLink] = useState('')
+  const [sharing, setSharing] = useState(false)
+  const shareTrigger = useRef<HTMLButtonElement>(null)
   const [pngs, setPngs] = useState<string[]>([])
   const pngRefs = useRef<string[]>([])
   useEffect(
@@ -58,7 +55,7 @@ export function SessionHistoryPage({
     [],
   )
   const fileInput = useRef<HTMLInputElement>(null)
-  const root = useRef<HTMLOListElement>(null)
+  const root = useRef<HTMLDivElement>(null)
   const data = useQuery({
     queryKey: ['session-history', id, shared],
     retry: false,
@@ -96,21 +93,6 @@ export function SessionHistoryPage({
   })
   const film = data.data
   const shown = preview?.film ?? film
-  const notation = (() => {
-    try {
-      return {
-        ...extractSessionNotation(shown, shown ? shown.frames.length - 1 : 0),
-        failed: false,
-      }
-    } catch {
-      return {
-        failed: true,
-        steps: [],
-        omittedFrames: shown?.frames.length ?? 0,
-        incompleteOmens: true,
-      }
-    }
-  })()
   async function action(run: () => Promise<void> | void) {
     setBusy(true)
     setError('')
@@ -138,90 +120,134 @@ export function SessionHistoryPage({
     setLink(new URL(`/history/shared/${shareId}`, location.origin).href)
   }
   return (
-    <main className="history-page">
-      <header>
-        <a href="/">{text.home}</a>
-        <h1>{text.title}</h1>
+    <main className="craft-page history-page">
+      <header className="craft-header">
+        <a
+          className="craft-brand"
+          href="/"
+          aria-label={t('ui.exile_hephaistos_home')}
+        >
+          <span className="brand-mark" aria-hidden="true">
+            H
+          </span>
+          <span>
+            EXILE <b>HEPHAISTOS</b>
+            <small>{t('ui.path_of_exile_2_crafting_workbench')}</small>
+          </span>
+        </a>
+        <nav className="workspace-nav" aria-label={t('ui.main_navigation')}>
+          <a href="/">{text.home}</a>
+          <a href={location.pathname} aria-current="page">
+            {text.title}
+          </a>
+          <a className="workspace-admin" href="/admin">
+            {t('ui.admin')}
+          </a>
+        </nav>
         <LocaleSelector />
       </header>
-      <p>{text.scope}</p>
-      <p>{text.privacy}</p>
-      <div className="history-actions">
-        <label>
-          {text.import}
-          <input
-            ref={fileInput}
-            type="file"
-            accept=".json,application/json"
-            disabled={busy}
-            onChange={(e) => {
-              const file = e.target.files?.[0]
-              e.target.value = ''
-              if (file)
+      <div className="history-heading">
+        <h1>{shown?.title || text.title}</h1>
+        <div className="history-actions">
+          <label>
+            {text.import}
+            <input
+              className="history-file-input"
+              ref={fileInput}
+              type="file"
+              accept=".json,application/json"
+              disabled={busy}
+              onChange={(e) => {
+                const file = e.target.files?.[0]
+                e.target.value = ''
+                if (file)
+                  void action(async () => {
+                    if (file.size > transferLimit) throw Error('size')
+                    setPreview(decodeDocument(await file.text()))
+                  })
+              }}
+            />
+          </label>
+          {film && !preview && (
+            <>
+              <button
+                disabled={busy}
+                onClick={() =>
+                  void action(() => {
+                    const raw = JSON.stringify(documentFor(film), null, 2)
+                    decodeDocument(raw)
+                    saveBlob(
+                      new Blob([raw], { type: 'application/json' }),
+                      'session.json',
+                    )
+                  })
+                }
+              >
+                {text.export}
+              </button>
+              <button
+                ref={shareTrigger}
+                disabled={busy}
+                onClick={() => setSharing(true)}
+              >
+                {text.share}
+              </button>
+            </>
+          )}
+          {shown && (
+            <button
+              disabled={busy || data.isFetching || catalogsLoading > 0}
+              onClick={() =>
                 void action(async () => {
-                  if (file.size > transferLimit) throw Error('size')
-                  setPreview(decodeDocument(await file.text()))
-                })
-            }}
-          />
-        </label>
-        {film && !preview && (
-          <>
-            <button
-              disabled={busy}
-              onClick={() =>
-                void action(() => {
-                  const raw = JSON.stringify(documentFor(film), null, 2)
-                  decodeDocument(raw)
-                  saveBlob(
-                    new Blob([raw], { type: 'application/json' }),
-                    'session.json',
-                  )
+                  if (!root.current) return
+                  const blobs = await snapshotPages(root.current)
+                  pngRefs.current.forEach(URL.revokeObjectURL)
+                  pngRefs.current = blobs.map((b) => URL.createObjectURL(b))
+                  setPngs(pngRefs.current)
+                  if (blobs.length === 1) saveBlob(blobs[0]!, 'session.png')
                 })
               }
             >
-              {text.export}
+              {text.snapshot}
             </button>
-            <button disabled={busy} onClick={() => void action(publish)}>
-              {text.share}
-            </button>
-            <button
-              disabled={busy}
-              onClick={() =>
-                void action(() =>
-                  setLink(
-                    new URL(
-                      shared ? `/history/shared/${id}` : localHistoryUrl(id),
-                      location.origin,
-                    ).href,
-                  ),
-                )
-              }
-            >
-              {shared ? text.shared : text.local}
-            </button>
-          </>
-        )}
-        {shown && (
+          )}
+        </div>
+      </div>
+      {sharing && (
+        <section
+          className="history-share-confirm"
+          aria-label={text.share}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape' && !busy) {
+              setSharing(false)
+              shareTrigger.current?.focus()
+            }
+          }}
+        >
+          <p>{text.privacy}</p>
           <button
-            disabled={busy || data.isFetching || catalogsLoading > 0}
+            disabled={busy}
             onClick={() =>
               void action(async () => {
-                if (!root.current) return
-                const blobs = await snapshotPages(
-                  root.current,
-                  shown.title ?? text.title,
-                )
-                pngRefs.current.forEach(URL.revokeObjectURL)
-                pngRefs.current = blobs.map((b) => URL.createObjectURL(b))
-                setPngs(pngRefs.current)
+                await publish()
+                setSharing(false)
+                shareTrigger.current?.focus()
               })
             }
           >
-            {text.snapshot}
+            {text.share}
           </button>
-        )}
-      </div>
+          <button
+            disabled={busy}
+            onClick={() => {
+              setSharing(false)
+              shareTrigger.current?.focus()
+            }}
+          >
+            {t('ui.cancel_preview')}
+          </button>
+        </section>
+      )}
       {link && (
         <div className="history-link">
           <input
@@ -240,6 +266,13 @@ export function SessionHistoryPage({
           <a href={link}>{text.shared}</a>
         </div>
       )}
+      <div className="history-pngs" role="status">
+        {pngs.map((url, i) => (
+          <a key={url} href={url} download={`session-${i + 1}.png`}>
+            {text.download} {i + 1}
+          </a>
+        ))}
+      </div>
       {error && <p role="alert">{error}</p>}
       {data.isError && <p role="alert">{text.error}</p>}
       {!shown && !data.isFetching && <p>{text.missing}</p>}
@@ -283,85 +316,10 @@ export function SessionHistoryPage({
         </section>
       )}
       {shown && (
-        <>
-          <h2>{shown.title ?? shown.id}</h2>
-          <p>
-            {shown.frames.length} {text.count}
-          </p>
-          {!notation.failed && (
-            <SessionNotation
-              film={shown}
-              cursor={shown.frames.length - 1}
-              resources={resources}
-            />
-          )}
-          <ol className="history-grid" ref={root}>
-            {shown.frames.map((frame, i) => {
-              const step = notation.steps.find((s) => s.frameIndex === i)
-              const resource =
-                step && resources.find((r) => r.id === step.currencyId)
-              return (
-                <li
-                  key={i}
-                  data-snapshot-card
-                  data-index={i}
-                  className="history-cell"
-                  style={
-                    {
-                      '--column4':
-                        Math.floor(i / 4) % 2 ? 4 - (i % 4) : (i % 4) + 1,
-                      '--row4': Math.floor(i / 4) + 1,
-                      '--column2':
-                        Math.floor(i / 2) % 2 ? 2 - (i % 2) : (i % 2) + 1,
-                      '--row2': Math.floor(i / 2) + 1,
-                    } as React.CSSProperties
-                  }
-                >
-                  <div className="history-edge">
-                    <span aria-hidden="true" className="history-arrow">
-                      ↓
-                    </span>
-                    {i === 0 ? (
-                      text.initial
-                    ) : step ? (
-                      <>
-                        <NotationResources step={step} resources={resources} />
-                        <span>
-                          {name(
-                            step.currencyId,
-                            resource?.name ?? step.currencyId,
-                          )}
-                          {step.repeated ? ` × ${step.uses}` : ''}
-                        </span>
-                      </>
-                    ) : (
-                      <span>
-                        {text.observation}: {frame.action ?? '?'}
-                      </span>
-                    )}
-                  </div>
-                  <span className="history-step">#{i}</span>
-                  <HistoryCard film={shown} frame={frame} />
-                </li>
-              )
-            })}
-          </ol>
-          {shown.sourceDocument !== undefined && (
-            <details>
-              <summary>{text.original}</summary>
-              <pre>{shown.sourceDocument}</pre>
-            </details>
-          )}
-        </>
+        <div className="session-flow" ref={root}>
+          <SessionFlow film={shown} resources={resources} />
+        </div>
       )}
-      <div className="history-pngs">
-        {pngs.map((url, i) => (
-          <a key={url} href={url} download={`session-${i + 1}.png`}>
-            {text.download} {i + 1}
-            <img src={url} alt={`${text.snapshot} ${i + 1}`} />
-          </a>
-        ))}
-      </div>
     </main>
   )
 }
