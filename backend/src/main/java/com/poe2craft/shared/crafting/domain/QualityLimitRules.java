@@ -1,0 +1,40 @@
+package com.poe2craft.shared.crafting.domain;
+
+import com.poe2craft.shared.item.BaseRegistry;
+import com.poe2craft.shared.item.ItemCatalog;
+import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ItemStateValidator;
+import com.poe2craft.shared.item.ModifierDefinition;
+
+/** Source-verified maximum only; applied quality and derived display use separate item models. */
+public final class QualityLimitRules {
+  public static final String VERSION = "quality-limit-v1";
+  public static final String BREACH_ID = "amulet:prefix:essence-maximum-quality";
+  public static final String STAT_ID = "local_maximum_quality_+";
+
+  private QualityLimitRules() {}
+
+  public static Limit describe(ItemState state, ItemCatalog catalog) {
+    if (state == null || !new ItemStateValidator(catalog).validate(state).isEmpty())
+      throw new IllegalArgumentException("Unsupported state for quality limit");
+    if (!BaseRegistry.qualityLimit(state.baseItemId())) return null;
+    int maximum = 20;
+    for (var instance : state.explicits()) {
+      if (!instance.values().containsKey(STAT_ID)) continue;
+      var definition = catalog.find(instance.modifierId()).orElseThrow();
+      if (!BaseRegistry.maximumQualityBreach(state.baseItemId())
+          || !instance.modifierId().equals(BREACH_ID)
+          || !definition.familyIds().equals(java.util.Set.of("LocalMaximumQuality"))
+          || definition.affixType() != ModifierDefinition.AffixType.PREFIX
+          || definition.stats().size() != 1
+          || definition.stats().getFirst().min() != 20
+          || definition.stats().getFirst().max() != 20
+          || instance.values().get(STAT_ID) != 20L)
+        throw new IllegalArgumentException("Unreviewed maximum-quality modifier");
+      maximum = 40;
+    }
+    return new Limit(VERSION, maximum);
+  }
+
+  public record Limit(String ruleVersion, int maximumQuality) {}
+}

@@ -2,11 +2,16 @@ package com.poe2craft.bootstrap;
 
 import static org.assertj.core.api.Assertions.*;
 
-import com.poe2craft.crafting.domain.CraftingEngine;
-import com.poe2craft.crafting.domain.StateBucket;
-import com.poe2craft.item.*;
-import com.poe2craft.item.infrastructure.ItemCatalogLoader;
-import com.poe2craft.item.testparser.ItemTextService;
+import com.poe2craft.shared.crafting.domain.CraftingEngine;
+import com.poe2craft.shared.crafting.domain.StateBucket;
+import com.poe2craft.shared.item.BaseRegistry;
+import com.poe2craft.shared.item.ItemCatalog;
+import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ItemStateValidator;
+import com.poe2craft.shared.item.ModifierInstance;
+import com.poe2craft.shared.item.SolarTextMapper;
+import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
+import com.poe2craft.shared.item.text.ItemTextService;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
@@ -27,7 +32,7 @@ class BaseSelectionPolicyTest {
 
   @Test
   void rareOnlyBasesInitializeRareAndRejectNormalOrMagicAtBothConcreteAndBucketBoundaries() {
-    var config = new CraftingConfiguration();
+    var config = new CatalogConfiguration();
     var solar = config.itemCatalog(config.workbenchDefinitions());
     var workbench =
         config.workbenchService(

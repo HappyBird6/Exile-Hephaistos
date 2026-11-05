@@ -3,8 +3,17 @@ package com.poe2craft.bootstrap;
 import static com.poe2craft.bootstrap.GoalDirectedPlannerScenariosTest.*;
 import static org.assertj.core.api.Assertions.*;
 
-import com.poe2craft.crafting.domain.pathsearch.*;
-import com.poe2craft.item.ItemState;
+import com.poe2craft.craftingsupport.goal.domain.ExplicitGoalScope;
+import com.poe2craft.craftingsupport.goal.domain.GoalCatalog;
+import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
+import com.poe2craft.craftingsupport.search.application.MethodSearchProtocol;
+import com.poe2craft.craftingsupport.search.application.MethodSearchService;
+import com.poe2craft.craftingsupport.search.application.PathSearchProtocol;
+import com.poe2craft.craftingsupport.search.domain.AutomaticMethodGraph;
+import com.poe2craft.shared.crafting.domain.BasicCurrencyState;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ModifierDefinition;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
@@ -25,8 +34,7 @@ class TerminalBranchingScenariosTest {
           .noneMatch(
               m ->
                   m.template().initial().isEmpty()
-                      && m.template().cycle().getFirst().currency()
-                          == com.poe2craft.crafting.domain.WorkbenchCurrency.EXALTED);
+                      && m.template().cycle().getFirst().currency() == WorkbenchCurrency.EXALTED);
       assertThat(graph.executionCount()).isEqualTo(graph.methods().size());
       assertThat(graph.nodes()).allMatch(n -> n.item().explicitSlotCount() <= 6);
       if (graph.resourceLimited() || graph.hasPendingObservation())
@@ -113,22 +121,19 @@ class TerminalBranchingScenariosTest {
     assertThat(goals.minimumExplicitModifiers(root, goal)).isEqualTo(7);
     var json = new com.fasterxml.jackson.databind.ObjectMapper();
     try (var legacy =
-            new com.poe2craft.crafting.application.pathsearch.MethodSearchService(
-                workbench.reviewedCatalogs(), goals, "scope-test", json);
+            new MethodSearchService(workbench.reviewedCatalogs(), goals, "scope-test", json);
         var service =
-            new SupportConfiguration()
+            new CraftingSupportConfiguration()
                 .automaticSearchService(workbench, goals, legacy, json, directory.toString())) {
       var request =
-          new com.poe2craft.crafting.application.pathsearch.MethodSearchProtocol.Create(
+          new MethodSearchProtocol.Create(
               2,
               "seven-scope",
-              new com.poe2craft.crafting.domain.BasicCurrencyState(
-                  root, legacy.provenance(root.baseItemId())),
+              new BasicCurrencyState(root, legacy.provenance(root.baseItemId())),
               goal,
               List.of());
       assertThatThrownBy(() -> service.create("scope", request))
-          .isInstanceOf(
-              com.poe2craft.crafting.application.pathsearch.PathSearchProtocol.Rejected.class)
+          .isInstanceOf(PathSearchProtocol.Rejected.class)
           .hasMessage("GOAL_EXCEEDS_SIX_EXPLICIT_SCOPE");
       try (var paths = java.nio.file.Files.walk(directory)) {
         assertThat(paths.filter(java.nio.file.Files::isRegularFile).count()).isZero();
@@ -153,18 +158,15 @@ class TerminalBranchingScenariosTest {
                 1L,
                 "minion_skill_gem_level_+",
                 3L));
-    var display =
-        goals.catalog(
-            new com.poe2craft.crafting.domain.goalfilter.GoalFilter.Context(
-                root.snapshotId(), root.baseItemId(), 82));
+    var display = goals.catalog(new GoalFilter.Context(root.snapshotId(), root.baseItemId(), 82));
     var source = catalog.modifiers().get(f.life().modifierId());
     var allStats =
         List.of(LIFE, CHAOS, COLD, "base_fire_damage_resistance_%", "minion_skill_gem_level_+")
             .stream()
-            .map(id -> new com.poe2craft.item.ModifierDefinition.StatRange(id, 1, 10))
+            .map(id -> new ModifierDefinition.StatRange(id, 1, 10))
             .toList();
     var multi =
-        new com.poe2craft.item.ModifierDefinition(
+        new ModifierDefinition(
             source.id(),
             source.name(),
             source.layer(),
@@ -178,7 +180,7 @@ class TerminalBranchingScenariosTest {
             source.tags(),
             source.sourceUrl());
     var catalogWithMulti =
-        new com.poe2craft.crafting.domain.goalfilter.GoalCatalog(
+        new GoalCatalog(
             display.version(),
             display.catalogVersion(),
             display.context(),
@@ -186,43 +188,27 @@ class TerminalBranchingScenariosTest {
             display.stats(),
             display.issues(),
             Map.of(multi.id(), multi));
-    assertThat(
-            com.poe2craft.crafting.domain.goalfilter.ExplicitGoalScope.minimumModifiers(
-                goal, catalogWithMulti))
-        .isEqualTo(1);
+    assertThat(ExplicitGoalScope.minimumModifiers(goal, catalogWithMulti)).isEqualTo(1);
     var entries = Collections.nCopies(5, goal.groups().getFirst().entries().getFirst());
     var duplicated =
-        new com.poe2craft.crafting.domain.goalfilter.GoalFilter(
+        new GoalFilter(
             goal.version(),
             goal.catalogVersion(),
             goal.general(),
-            List.of(
-                new com.poe2craft.crafting.domain.goalfilter.GoalFilter.Group(
-                    "duplicates",
-                    com.poe2craft.crafting.domain.goalfilter.GoalFilter.Type.AND,
-                    false,
-                    null,
-                    entries)));
-    assertThat(
-            com.poe2craft.crafting.domain.goalfilter.ExplicitGoalScope.minimumModifiers(
-                duplicated, display))
-        .isEqualTo(1);
+            List.of(new GoalFilter.Group("duplicates", GoalFilter.Type.AND, false, null, entries)));
+    assertThat(ExplicitGoalScope.minimumModifiers(duplicated, display)).isEqualTo(1);
     var count =
-        new com.poe2craft.crafting.domain.goalfilter.GoalFilter(
+        new GoalFilter(
             goal.version(),
             goal.catalogVersion(),
             goal.general(),
             List.of(
-                new com.poe2craft.crafting.domain.goalfilter.GoalFilter.Group(
+                new GoalFilter.Group(
                     "count",
-                    com.poe2craft.crafting.domain.goalfilter.GoalFilter.Type.COUNT,
+                    GoalFilter.Type.COUNT,
                     false,
-                    new com.poe2craft.crafting.domain.goalfilter.GoalFilter.Range(
-                        java.math.BigDecimal.ONE, null),
+                    new GoalFilter.Range(java.math.BigDecimal.ONE, null),
                     goal.groups().getFirst().entries())));
-    assertThat(
-            com.poe2craft.crafting.domain.goalfilter.ExplicitGoalScope.minimumModifiers(
-                count, display))
-        .isZero();
+    assertThat(ExplicitGoalScope.minimumModifiers(count, display)).isZero();
   }
 }

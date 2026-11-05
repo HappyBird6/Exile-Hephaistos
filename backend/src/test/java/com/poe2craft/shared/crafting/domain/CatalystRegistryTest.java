@@ -1,0 +1,146 @@
+package com.poe2craft.shared.crafting.domain;
+
+import static org.assertj.core.api.Assertions.*;
+
+import com.poe2craft.shared.crafting.infrastructure.CraftingRegistryLoader;
+import com.poe2craft.shared.item.ItemCatalog;
+import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ModifierDefinition;
+import com.poe2craft.shared.item.ModifierInstance;
+import com.poe2craft.shared.item.ReviewedAmulets;
+import com.poe2craft.shared.item.ReviewedRings;
+import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
+import java.util.*;
+import org.junit.jupiter.api.Test;
+
+class CatalystRegistryTest {
+  @Test
+  void verifiedCatalystActionsHaveExactBaseRestrictionsAndNeverRemainPending() {
+    var registry = CraftingRegistryLoader.load();
+    var catalogs = new LinkedHashMap<String, ItemCatalog>();
+    catalogs.put("solar", ItemCatalogLoader.loadDefault());
+    catalogs.put("ring", ItemCatalogLoader.loadRing());
+    ReviewedRings.BASES
+        .keySet()
+        .forEach(key -> catalogs.put(key, ItemCatalogLoader.loadTopBase(key)));
+    ReviewedAmulets.BASES
+        .keySet()
+        .forEach(key -> catalogs.put(key, ItemCatalogLoader.loadTopBase(key)));
+    for (var base :
+        List.of(
+            "ruby",
+            "emerald",
+            "sapphire",
+            "diamond",
+            "time-lost-ruby",
+            "time-lost-emerald",
+            "time-lost-sapphire",
+            "time-lost-diamond"))
+      catalogs.put(
+          base,
+          base.equals("sapphire")
+              ? ItemCatalogLoader.loadSapphire()
+              : ItemCatalogLoader.loadBasicJewel(base));
+    int count = 0;
+    for (var entry : registry.path("entries")) {
+      if (!entry.path("category").asText().equals("CATALYST")) continue;
+      count++;
+      var action = WorkbenchCurrency.valueOf(entry.path("action").asText());
+      var expected =
+          action.refinedCatalyst()
+              ? Set.of("ruby", "emerald", "sapphire", "diamond")
+              : Set.of(
+                  "solar",
+                  "ring",
+                  "kinetic",
+                  "vitalic",
+                  "mnemonic",
+                  "pearl",
+                  "amethyst",
+                  "prismatic",
+                  "ruby-ring",
+                  "two-stone-fire-cold",
+                  "stellar",
+                  "amber",
+                  "bloodstone",
+                  "lunar",
+                  "azure",
+                  "crimson",
+                  "pearlescent",
+                  "jade-amulet",
+                  "lapis-amulet",
+                  "gold-amulet",
+                  "twisted-amulet",
+                  "distorted-amulet",
+                  "absent-amulet",
+                  "portent-amulet",
+                  "lament-amulet",
+                  "dusk-amulet",
+                  "penumbra-amulet",
+                  "gloam-amulet",
+                  "corona-amulet",
+                  "tenebrous-amulet",
+                  "lazuli-ring",
+                  "sapphire-ring",
+                  "topaz-ring",
+                  "emerald-ring",
+                  "gold-ring",
+                  "unset-ring",
+                  "biostatic-ring",
+                  "oneiric-ring",
+                  "dusk-ring",
+                  "gloam-ring",
+                  "penumbra-ring",
+                  "tenebrous-ring");
+      var declared = new HashSet<String>();
+      entry.path("supportedBases").forEach(b -> declared.add(b.asText()));
+      assertThat(declared).isEqualTo(expected);
+      assertThat(entry.path("effectStatus").asText()).isEqualTo("IMPLEMENTED");
+      assertThat(entry.path("registrationHistory").path("effectStatus").asText())
+          .isEqualTo("PENDING_RULE_VERIFICATION");
+      for (var base : catalogs.entrySet()) {
+        var c = base.getValue();
+        var implicits =
+            c.modifiers().values().stream()
+                .filter(d -> d.layer() == ModifierDefinition.Layer.IMPLICIT)
+                .map(
+                    d -> {
+                      var values = new TreeMap<String, Long>();
+                      d.stats().forEach(s -> values.put(s.id(), s.min()));
+                      return new ModifierInstance(d.id(), values);
+                    })
+                .toList();
+        var before =
+            new ItemState(
+                c.metadata().snapshotId(),
+                c.base().id(),
+                82,
+                ItemState.Rarity.RARE,
+                implicits,
+                List.of(),
+                Set.of());
+        var result =
+            new WorkbenchSimulator(c, new CraftingEngine(c))
+                .apply(before, action, Set.of(), new Random(1));
+        assertThat(result.applied())
+            .as(entry.path("id").asText() + " on " + base.getKey())
+            .isEqualTo(expected.contains(base.getKey()));
+        if (!result.applied()) assertThat(result.state()).isEqualTo(before);
+      }
+    }
+    assertThat(count).isEqualTo(26);
+    long active = 0, implemented = 0, pending = 0, deferred = 0;
+    for (var e : registry.path("entries")) {
+      if (e.path("serviceScope").asText().equals("ACTIVE")) {
+        active++;
+        if (e.path("effectStatus").asText().equals("IMPLEMENTED")) implemented++;
+        else pending++;
+      } else deferred++;
+    }
+    assertThat(registry.path("serviceScope").path("active").asLong()).isEqualTo(active);
+    assertThat(registry.path("serviceScope").path("implementedActive").asLong())
+        .isEqualTo(implemented);
+    assertThat(registry.path("serviceScope").path("pending").asLong()).isEqualTo(pending);
+    assertThat(registry.path("serviceScope").path("deferred").asLong()).isEqualTo(deferred);
+  }
+}

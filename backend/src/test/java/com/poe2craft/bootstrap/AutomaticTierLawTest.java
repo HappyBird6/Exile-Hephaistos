@@ -2,10 +2,16 @@ package com.poe2craft.bootstrap;
 
 import static org.assertj.core.api.Assertions.*;
 
-import com.poe2craft.crafting.domain.*;
-import com.poe2craft.crafting.domain.goalfilter.ExactNumericDistribution.Fraction;
-import com.poe2craft.crafting.domain.pathsearch.*;
-import com.poe2craft.item.*;
+import com.poe2craft.craftingsupport.search.domain.AutomaticCraftingKernel;
+import com.poe2craft.craftingsupport.search.domain.AutomaticMethodGraph;
+import com.poe2craft.shared.crafting.domain.AutomaticCraftingAction;
+import com.poe2craft.shared.crafting.domain.AutomaticCurrencyPolicy;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
+import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ItemStateValidator;
+import com.poe2craft.shared.item.ModifierInstance;
+import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 

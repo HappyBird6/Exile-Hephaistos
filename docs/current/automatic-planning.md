@@ -26,7 +26,7 @@
 
 ## 구현 근거
 
-[AutomaticSearchService.java](../../backend/src/main/java/com/poe2craft/crafting/application/pathsearch/AutomaticSearchService.java) · [AutomaticCraftingKernel.java](../../backend/src/main/java/com/poe2craft/crafting/domain/AutomaticCraftingKernel.java) · [LocalAutomaticJobRepository.java](../../backend/src/main/java/com/poe2craft/crafting/infrastructure/LocalAutomaticJobRepository.java) · [SavedAutomaticResultReader.java](../../backend/src/main/java/com/poe2craft/crafting/application/pathsearch/SavedAutomaticResultReader.java) · [SixAffixScenariosTest.java](../../backend/src/test/java/com/poe2craft/bootstrap/SixAffixScenariosTest.java)
+[AutomaticSearchService.java](../../backend/src/main/java/com/poe2craft/craftingsupport/search/application/AutomaticSearchService.java) · [AutomaticCraftingKernel.java](../../backend/src/main/java/com/poe2craft/craftingsupport/search/domain/AutomaticCraftingKernel.java) · [LocalAutomaticJobRepository.java](../../backend/src/main/java/com/poe2craft/craftingsupport/search/infrastructure/LocalAutomaticJobRepository.java) · [SavedAutomaticResultReader.java](../../backend/src/main/java/com/poe2craft/craftingsupport/search/application/SavedAutomaticResultReader.java) · [SixAffixScenariosTest.java](../../backend/src/test/java/com/poe2craft/bootstrap/SixAffixScenariosTest.java)
 
 [문서 지도](../README.md)
 

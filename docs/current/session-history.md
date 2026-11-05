@@ -27,3 +27,5 @@
 화면에 렌더된 제작 흐름 DOM의 computed style·실제 이미지·폰트와 줄바꿈을 유지해 PNG로 캡처한다. 텍스트나 카드를 별도로 재작성하지 않는다. SVG 화살표는 화면의 같은 벡터를 측정 크기로 래스터화해 포함하므로 Chromium의 중첩 SVG 캡처 누락을 피한다. Desktop·Mobile 각각 현재 배치 그대로 저장한다. 소수점 좌표의 외곽 픽셀도 화면 캡처와 같은 경계로 포함한다.
 
 긴 흐름은 완료된 카드 행 경계에서만 분할하며, 행 사이 방향 전환은 다음 페이지에 온전히 포함한다. 한 장이면 바로 다운로드하고 여러 장이면 상단 다운로드 링크에서 각 장을 저장한다. 이미지를 본문에 중복 표시하지 않는다. 크기·pixel 예산을 초과하면 일부 기록을 자르지 않고 실패를 알린다. 원본 복원은 기존 JSON export/import를 사용한다. 공유 링크의 원문 포함·읽기 범위 안내는 사용자가 공유 동작을 시작할 때만 표시한다. 모든 UI 문구는 기존 6개 locale을 지원한다.
+
+백엔드 구현은 `workbench/history`에서 관리한다. API → `SessionSnapshotService` → `SessionSnapshotRepository` → `FileSessionSnapshotRepository`로 연결하며, 운영 설정과 각 소비 파일은 [backend-settings.yaml](../../backend/src/main/resources/backend-settings.yaml) 주석에 정리했다. 기존 `crafting.session-snapshot-directory`도 계속 지원한다.

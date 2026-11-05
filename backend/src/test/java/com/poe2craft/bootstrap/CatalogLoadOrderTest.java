@@ -2,8 +2,8 @@ package com.poe2craft.bootstrap;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.poe2craft.item.*;
-import com.poe2craft.item.infrastructure.ItemCatalogLoader;
+import com.poe2craft.shared.item.ItemCatalog;
+import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.io.*;
 import java.util.*;
 import org.junit.jupiter.api.Test;
@@ -53,7 +53,7 @@ class CatalogLoadOrderTest {
                 "prismatic-alloy",
                 "scalar-alloys",
                 "reviewed-alloys"));
-    var cfg = new CraftingConfiguration();
+    var cfg = new CatalogConfiguration();
     var initial =
         cfg.workbenchService(
                 actualSolar, cfg.workbenchSimulator(actualSolar, cfg.craftingEngine(actualSolar)))

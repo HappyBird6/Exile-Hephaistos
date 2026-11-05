@@ -2,9 +2,9 @@ package com.poe2craft.bootstrap;
 
 import static org.assertj.core.api.Assertions.*;
 
-import com.poe2craft.crafting.domain.*;
-import com.poe2craft.crafting.domain.goalfilter.GoalFilter;
-import com.poe2craft.item.*;
+import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.item.ItemState;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 

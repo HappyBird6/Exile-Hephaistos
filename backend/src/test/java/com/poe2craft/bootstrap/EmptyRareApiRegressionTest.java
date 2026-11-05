@@ -3,10 +3,13 @@ package com.poe2craft.bootstrap;
 import static org.assertj.core.api.Assertions.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.poe2craft.crafting.application.pathsearch.*;
-import com.poe2craft.crafting.domain.*;
-import com.poe2craft.crafting.infrastructure.LocalAutomaticJobRepository;
-import com.poe2craft.item.ItemState;
+import com.poe2craft.craftingsupport.search.application.AutomaticSearchService;
+import com.poe2craft.craftingsupport.search.application.MethodSearchProtocol;
+import com.poe2craft.craftingsupport.search.infrastructure.LocalAutomaticJobRepository;
+import com.poe2craft.shared.crafting.domain.BasicCurrencyState;
+import com.poe2craft.shared.crafting.domain.BasicCurrencyTransitions;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.item.ItemState;
 import java.nio.file.*;
 import java.time.Clock;
 import java.util.*;

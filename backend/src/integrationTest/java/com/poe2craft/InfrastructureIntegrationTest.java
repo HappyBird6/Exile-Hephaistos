@@ -5,6 +5,12 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import com.poe2craft.craftingsupport.recommendation.application.AdditionPoolCache;
+import com.poe2craft.craftingsupport.recommendation.application.AdditionPoolStore;
+import com.poe2craft.shared.crafting.domain.StateBucket;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.item.ItemCatalog;
+import com.poe2craft.shared.item.SolarAmulet;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.junit.jupiter.api.Test;
@@ -48,39 +54,28 @@ class InfrastructureIntegrationTest {
   @Autowired MockMvc mvc;
   @Autowired jakarta.persistence.EntityManager entityManager;
   @Autowired org.springframework.transaction.support.TransactionTemplate transaction;
-  @Autowired com.poe2craft.crafting.application.AdditionPoolStore supportPools;
-  @Autowired com.poe2craft.item.ItemCatalog itemCatalog;
+
+  @Autowired AdditionPoolStore supportPools;
+
+  @Autowired ItemCatalog itemCatalog;
 
   @Test
   void supportPoolSurvivesAColdCacheAndKeepsVersionNamespacesSeparate() {
-    var root =
-        com.poe2craft.crafting.domain.StateBucket.from(
-            com.poe2craft.item.SolarAmulet.initial(itemCatalog));
+    var root = StateBucket.from(SolarAmulet.initial(itemCatalog));
     var first =
-        new com.poe2craft.crafting.application.AdditionPoolCache(
+        new AdditionPoolCache(
             itemCatalog, supportPools, "integration-rule", "integration-ledger", 2);
-    var expected =
-        first.get(
-            root,
-            com.poe2craft.crafting.domain.WorkbenchCurrency.PERFECT_TRANSMUTATION,
-            java.util.Set.of());
+    var expected = first.get(root, WorkbenchCurrency.PERFECT_TRANSMUTATION, java.util.Set.of());
     var fresh =
-        new com.poe2craft.crafting.application.AdditionPoolCache(
+        new AdditionPoolCache(
             itemCatalog, supportPools, "integration-rule", "integration-ledger", 2);
-    assertThat(
-            fresh.get(
-                root,
-                com.poe2craft.crafting.domain.WorkbenchCurrency.PERFECT_TRANSMUTATION,
-                java.util.Set.of()))
+    assertThat(fresh.get(root, WorkbenchCurrency.PERFECT_TRANSMUTATION, java.util.Set.of()))
         .isEqualTo(expected);
     assertThat(fresh.stats().persistedHits()).isEqualTo(1);
     var changed =
-        new com.poe2craft.crafting.application.AdditionPoolCache(
+        new AdditionPoolCache(
             itemCatalog, supportPools, "integration-next-rule", "integration-ledger", 2);
-    changed.get(
-        root,
-        com.poe2craft.crafting.domain.WorkbenchCurrency.PERFECT_TRANSMUTATION,
-        java.util.Set.of());
+    changed.get(root, WorkbenchCurrency.PERFECT_TRANSMUTATION, java.util.Set.of());
     assertThat(changed.stats().persistedHits()).isZero();
     assertThat(changed.stats().computedPools()).isEqualTo(1);
     assertThat(

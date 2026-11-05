@@ -2,8 +2,11 @@ package com.poe2craft.bootstrap;
 
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.node.*;
-import com.poe2craft.crafting.domain.*;
-import com.poe2craft.item.*;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.item.BasicJewel;
+import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ModifierDefinition;
+import com.poe2craft.shared.item.ModifierInstance;
 import java.security.*;
 import java.util.*;
 import org.junit.jupiter.api.Test;
@@ -40,7 +43,7 @@ class BaseRegistryParityTest {
 
   @Test
   void allExistingInitialsActionsAndSeededTracesRemainExact() throws Exception {
-    var cfg = new CraftingConfiguration();
+    var cfg = new CatalogConfiguration();
     var catalog = cfg.itemCatalog(cfg.workbenchDefinitions());
     var engine = cfg.craftingEngine(catalog);
     var service = cfg.workbenchService(catalog, cfg.workbenchSimulator(catalog, engine));

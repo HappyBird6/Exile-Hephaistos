@@ -28,6 +28,6 @@ UI locale은 `en`, `ko`, `zh-CN`, `zh-TW`, `ja`, `es`이며 기본값은 `ko`다
 
 ## 구현 근거
 
-[BaseRegistry.java](../../backend/src/main/java/com/poe2craft/item/BaseRegistry.java) · [baseRegistry.ts](../../frontend/src/features/crafting/baseRegistry.ts) · [i18n.ts](../../frontend/src/shared/i18n/i18n.ts) · [AutomaticCurrencyPolicy.java](../../backend/src/main/java/com/poe2craft/crafting/domain/AutomaticCurrencyPolicy.java)
+[BaseRegistry.java](../../backend/src/main/java/com/poe2craft/shared/item/BaseRegistry.java) · [baseRegistry.ts](../../frontend/src/features/crafting/baseRegistry.ts) · [i18n.ts](../../frontend/src/shared/i18n/i18n.ts) · [AutomaticCurrencyPolicy.java](../../backend/src/main/java/com/poe2craft/shared/crafting/domain/AutomaticCurrencyPolicy.java)
 
 [문서 지도](../README.md)

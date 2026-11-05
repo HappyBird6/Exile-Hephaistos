@@ -32,7 +32,7 @@ The display parsing approach is adapted from Path of Building Community PoE2 `It
 
 ## 구현 근거
 
-[ItemTextService.java](../../backend/src/main/java/com/poe2craft/item/testparser/ItemTextService.java) · [WorkbenchController.java](../../backend/src/main/java/com/poe2craft/crafting/presentation/WorkbenchController.java)
+[ItemTextService.java](../../backend/src/main/java/com/poe2craft/shared/item/text/ItemTextService.java) · [WorkbenchController.java](../../backend/src/main/java/com/poe2craft/workbench/api/WorkbenchController.java)
 
 [문서 지도](../README.md)
 

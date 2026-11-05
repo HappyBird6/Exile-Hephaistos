@@ -2,15 +2,16 @@ package com.poe2craft.bootstrap;
 
 import static org.assertj.core.api.Assertions.*;
 
-import com.poe2craft.crafting.domain.*;
-import com.poe2craft.item.*;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.item.BaseRegistry;
+import com.poe2craft.shared.item.ItemState;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
 class StavesTalismansWorkbenchTest {
   @Test
   void newSourceClassesKeepTheirOwnPoolsAndValidateCraftingAtAllReviewedLevels() {
-    var config = new CraftingConfiguration();
+    var config = new CatalogConfiguration();
     var catalog = config.itemCatalog(config.workbenchDefinitions());
     var service =
         config.workbenchService(

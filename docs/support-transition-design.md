@@ -1,6 +1,6 @@
 # Solar Support transitions and calculation coverage
 
-2026-10-02 implementation status. `AdditionRules` and `AdditionTransitions` implement exact one-action distributions; `SupportGoals`, `AdditionPoolCache`, `SupportRecommendations` and the independent Craft Support UI implement finite-sequence comparisons. Quantitative counts and microbenchmarks below are the earlier catalog investigation, not fresh full-state enumeration.
+2026-10-02 implementation status. `AdditionRules` and `AdditionTransitions` implement exact one-action distributions; `SupportGoals`, `AdditionPoolCache`, `SupportRecommendationService` and the independent Craft Support UI implement finite-sequence comparisons. Quantitative counts and microbenchmarks below are the earlier catalog investigation, not fresh full-state enumeration.
 
 ## Implemented distribution
 

@@ -2,19 +2,19 @@ package com.poe2craft.bootstrap;
 
 import static org.assertj.core.api.Assertions.*;
 
-import com.poe2craft.crafting.application.WorkbenchService;
-import com.poe2craft.crafting.domain.*;
-import com.poe2craft.item.*;
-import com.poe2craft.item.infrastructure.ItemCatalogLoader;
+import com.poe2craft.shared.crafting.application.CatalogCraftingService;
+import com.poe2craft.shared.crafting.domain.*;
+import com.poe2craft.shared.item.*;
+import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import org.junit.jupiter.api.Test;
 
 class BaseMaterialEligibilityTest {
-  private final WorkbenchService service;
+  private final CatalogCraftingService service;
 
   BaseMaterialEligibilityTest() {
     var solar = ItemCatalogLoader.loadDefault();
     service =
-        new CraftingConfiguration()
+        new CatalogConfiguration()
             .workbenchService(solar, new WorkbenchSimulator(solar, new CraftingEngine(solar)));
   }
 

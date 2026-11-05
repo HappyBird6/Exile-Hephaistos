@@ -3,39 +3,74 @@ package com.poe2craft;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 import static com.tngtech.archunit.library.dependencies.SlicesRuleDefinition.slices;
 
+import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.core.importer.ImportOption;
 import org.junit.jupiter.api.Test;
 
 class ArchitectureTest {
+  private static final JavaClasses CLASSES =
+      new ClassFileImporter()
+          .withImportOption(new ImportOption.DoNotIncludeTests())
+          .importPackages("com.poe2craft");
+
   @Test
   void bundledConsumersCannotBypassRulesetSeals() {
-    var classes =
-        new ClassFileImporter()
-            .withImportOption(new ImportOption.DoNotIncludeTests())
-            .importPackages("com.poe2craft");
     noClasses()
         .that()
-        .resideInAnyPackage(
-            "com.poe2craft.item..", "com.poe2craft.crafting..", "com.poe2craft.bootstrap..")
+        .resideInAPackage("com.poe2craft..")
         .and()
-        .doNotHaveFullyQualifiedName("com.poe2craft.crafting.infrastructure.RulesetManifestLoader")
+        .doNotHaveFullyQualifiedName("com.poe2craft.shared.ruleset.RulesetManifestLoader")
+        .and()
+        .doNotHaveFullyQualifiedName("com.poe2craft.shared.ruleset.SealedResources")
+        .and()
+        .doNotHaveFullyQualifiedName("com.poe2craft.shared.ruleset.SealedResources$Bundle")
+        .and()
+        .doNotHaveFullyQualifiedName("com.poe2craft.shared.ruleset.SealedResources$Dependencies")
         .should()
         .callMethod(Class.class, "getResourceAsStream", String.class)
-        .check(classes);
+        .check(CLASSES);
   }
 
   @Test
-  void modulesHaveNoCyclesAndDomainsStayPure() {
-    var classes =
-        new ClassFileImporter()
-            .withImportOption(new ImportOption.DoNotIncludeTests())
-            .importPackages("com.poe2craft");
-    slices().matching("com.poe2craft.(*)..").should().beFreeOfCycles().check(classes);
+  void servicesAreIndependentAndCommonCodeCannotDependOnConsumers() {
+    slices().matching("com.poe2craft.(*)..").should().beFreeOfCycles().check(CLASSES);
+    for (String service : new String[] {"workbench", "craftingsupport"}) {
+      String other = service.equals("workbench") ? "craftingsupport" : "workbench";
+      noClasses()
+          .that()
+          .resideInAPackage("com.poe2craft." + service + "..")
+          .should()
+          .dependOnClassesThat()
+          .resideInAnyPackage("com.poe2craft." + other + "..", "com.poe2craft.bootstrap..")
+          .check(CLASSES);
+    }
+    noClasses()
+        .that()
+        .resideInAnyPackage("com.poe2craft.shared..", "com.poe2craft.configuration..")
+        .should()
+        .dependOnClassesThat()
+        .resideInAnyPackage(
+            "com.poe2craft.workbench..",
+            "com.poe2craft.craftingsupport..",
+            "com.poe2craft.bootstrap..")
+        .check(CLASSES);
+    noClasses()
+        .that()
+        .resideOutsideOfPackages(
+            "com.poe2craft.bootstrap..", "com.poe2craft.shared.crafting.application..")
+        .should()
+        .dependOnClassesThat()
+        .haveFullyQualifiedName("com.poe2craft.shared.crafting.application.CatalogCraftingService")
+        .check(CLASSES);
+  }
+
+  @Test
+  void domainModelsStayPureAndApplicationCodeDoesNotDependOnAdapters() {
     noClasses()
         .that()
         .haveNameMatching(
-            "com\\.poe2craft\\.item\\.(ItemState|ModifierInstance|ModifierDefinition|ItemCatalog|ItemStateValidator|SolarAmulet)(\\$.*)?")
+            "com\\.poe2craft\\.shared\\.item\\.(ItemState|ModifierInstance|ModifierDefinition|ItemCatalog|ItemStateValidator|SolarAmulet)(\\$.*)?")
         .should()
         .dependOnClassesThat()
         .resideInAnyPackage(
@@ -45,8 +80,8 @@ class ArchitectureTest {
             "org.jooq..",
             "java.net..",
             "java.sql..",
-            "com.poe2craft.item.infrastructure..")
-        .check(classes);
+            "com.poe2craft.shared.item.infrastructure..")
+        .check(CLASSES);
     noClasses()
         .that()
         .resideInAPackage("..domain..")
@@ -57,67 +92,18 @@ class ArchitectureTest {
             "jakarta.persistence..",
             "org.jooq..",
             "java.net..",
-            "java.sql..")
-        .allowEmptyShould(true)
-        .check(classes);
-    String[] modules = {
-      "season", "modifier", "item", "currency", "currencyrule", "price", "crafting", "preset"
-    };
-    var allowed =
-        java.util.Map.of(
-            "season", java.util.Set.<String>of(),
-            "modifier", java.util.Set.of("season"),
-            "item", java.util.Set.of("season", "modifier"),
-            "currency", java.util.Set.of("season"),
-            "currencyrule", java.util.Set.of("season", "currency", "modifier"),
-            "price", java.util.Set.of("season", "currency"),
-            "crafting",
-                java.util.Set.of("item", "modifier", "currency", "currencyrule", "season", "price"),
-            "preset", java.util.Set.of("item", "modifier", "season"));
-    for (String source : modules) {
-      for (String target : modules) {
-        if (!source.equals(target) && !allowed.get(source).contains(target)) {
-          noClasses()
-              .that()
-              .resideInAPackage("com.poe2craft." + source + "..")
-              .should()
-              .dependOnClassesThat()
-              .resideInAPackage("com.poe2craft." + target + "..")
-              .allowEmptyShould(true)
-              .check(classes);
-        }
-      }
-    }
-    noClasses()
-        .that()
-        .resideInAnyPackage("..domain..", "..api..")
-        .should()
-        .dependOnClassesThat()
-        .resideInAnyPackage("..application..", "..infrastructure..", "..presentation..")
-        .allowEmptyShould(true)
-        .check(classes);
+            "java.sql..",
+            "..application..",
+            "..infrastructure..",
+            "..api..",
+            "com.poe2craft.configuration..")
+        .check(CLASSES);
     noClasses()
         .that()
         .resideInAPackage("..application..")
         .should()
         .dependOnClassesThat()
-        .resideInAnyPackage("..infrastructure..", "..presentation..")
-        .allowEmptyShould(true)
-        .check(classes);
-    for (String module : modules) {
-      noClasses()
-          .that()
-          .resideOutsideOfPackage("com.poe2craft." + module + "..")
-          .and()
-          .resideOutsideOfPackage("com.poe2craft.bootstrap..")
-          .should()
-          .dependOnClassesThat()
-          .resideInAnyPackage(
-              "com.poe2craft." + module + ".domain..", "com.poe2craft." + module + ".application..",
-              "com.poe2craft." + module + ".infrastructure..",
-                  "com.poe2craft." + module + ".presentation..")
-          .allowEmptyShould(true)
-          .check(classes);
-    }
+        .resideInAnyPackage("..infrastructure..", "..api..")
+        .check(CLASSES);
   }
 }
