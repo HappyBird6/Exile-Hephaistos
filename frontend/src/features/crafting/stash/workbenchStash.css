@@ -60,6 +60,18 @@
   gap: 5px 3px;
   padding-right: 3px;
 }
+.workbench-stash__filter {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #d9d7cf;
+  font-size: 12px;
+  cursor: pointer;
+}
+.workbench-stash__filter input {
+  flex: none;
+  margin: 0;
+}
 .workbench-stash .workbench-stash__resource {
   display: flex;
   flex-direction: column;
@@ -156,11 +168,7 @@
 }
 
 .workbench-stash__resources .essence-row {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 5px 3px;
-  margin: 0;
+  display: contents;
 }
 .workbench-stash__favorites .currency-name-fallback {
   font-size: 11px;

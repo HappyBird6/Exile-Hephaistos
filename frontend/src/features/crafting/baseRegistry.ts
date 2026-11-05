@@ -59,7 +59,15 @@ export const baseTexts = Object.fromEntries([
 export function basePolicy(id: string): BasePolicy | undefined {
   const top = Object.entries(topEntries).find(([, base]) => base.id === id)
   if (top) return { ...familyPolicies[top[1].family]!, ...topOverrides[top[0]] }
-  return Object.values(legacyEntries).find((base) => base.id === id)
+  const legacy = Object.values(legacyEntries).find((base) => base.id === id)
+  const itemClass =
+    legacy?.itemClass ?? legacy?.initialText.match(/^Item Class: (.+)/)?.[1]
+  return legacy
+    ? {
+        ...legacy,
+        ...(itemClass ? { itemClass } : {}),
+      }
+    : undefined
 }
 export function baseClass(key: string): string {
   const top = topEntries[key]

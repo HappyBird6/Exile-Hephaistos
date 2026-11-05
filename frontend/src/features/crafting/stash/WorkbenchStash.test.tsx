@@ -544,11 +544,14 @@ it('filters a selected base, preserves search and restores the all-material list
       baseMaterialActions={['GREATER_ESSENCE_BODY']}
     />,
   )
-  expect(list.querySelectorAll('button')).toHaveLength(1)
+  expect(list.querySelectorAll('button').length).toBeGreaterThan(1)
   expect(
     screen.getByRole('button', { name: 'Greater Essence of the Body' }),
   ).toBeVisible()
-  expect(screen.queryByRole('group', { name: 'Special essences' })).toBeNull()
+  expect(
+    screen.queryByRole('button', { name: 'Perfect Essence of the Body' }),
+  ).toBeNull()
+  expect(list.querySelectorAll('.essence-row > span')).toHaveLength(0)
   fireEvent.change(screen.getByRole('searchbox'), {
     target: { value: 'nonexistent' },
   })
@@ -592,3 +595,37 @@ it('keeps an existing favorite while its material is hidden for the selected bas
     resource('Perfect_Desert_Rune'),
   )
 })
+
+it.each(locales)(
+  'toggles the type filter under search in %s without changing search or global policies',
+  (locale) => {
+    setLocale(locale)
+    const callbacks = props({
+      activeTab: 'Augments',
+      baseItemId: 'Metadata/Items/Amulets/FourAmulet9',
+      baseMaterialActions: [],
+    })
+    render(<StashSurface {...callbacks} />)
+    const search = screen.getByRole('searchbox')
+    const checkbox = screen.getByRole('checkbox', {
+      name: translate('material.filter_by_item_type', {}, locale),
+    })
+    expect(checkbox).toBeChecked()
+    expect(search.nextElementSibling).toContainElement(checkbox)
+    fireEvent.change(search, { target: { value: 'Perfect Desert Rune' } })
+    expect(
+      document.querySelectorAll('.workbench-stash__resources button'),
+    ).toHaveLength(0)
+    fireEvent.click(checkbox)
+    expect(search).toHaveValue('Perfect Desert Rune')
+    expect(
+      document.querySelectorAll('.workbench-stash__resources button'),
+    ).toHaveLength(1)
+    fireEvent.change(search, { target: { value: 'Lesser Desert Rune' } })
+    expect(
+      document.querySelectorAll('.workbench-stash__resources button'),
+    ).toHaveLength(0)
+    fireEvent.click(checkbox)
+    expect(search).toHaveValue('Lesser Desert Rune')
+  },
+)

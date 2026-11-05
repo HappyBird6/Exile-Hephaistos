@@ -22,11 +22,17 @@
   font-size: 2.5rem;
 }
 
+.item-placement > .item-slot {
+  border-color: #c3a568;
+}
+.item-placement > .item-slot.is-augment-ready {
+  outline: 2px solid #70d6c8;
+  outline-offset: 2px;
+}
 .wb-sockets {
   position: absolute;
-  right: calc(100% + 10px);
-  top: 50%;
-  transform: translateY(-50%);
+  left: 10px;
+  top: 10px;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -43,6 +49,7 @@
   background: url('/assets/augments/socket-frame.png') center / 122% no-repeat;
   padding: 9px;
   box-shadow: 0 1px 5px #000;
+  filter: brightness(1.25);
 }
 .wb-socket img {
   width: 100%;
@@ -50,8 +57,16 @@
   object-fit: contain;
   pointer-events: none;
 }
-.wb-socket:not(:disabled):hover {
-  filter: brightness(1.25);
+.wb-socket.is-available {
+  box-shadow:
+    0 0 0 2px #70d6c8,
+    0 0 10px #70d6c880;
+}
+.wb-socket.is-available:hover,
+.wb-socket.is-drop-target {
+  box-shadow:
+    0 0 0 3px #c2fff4,
+    0 0 14px #70d6c8;
 }
 .wb-socket:disabled {
   opacity: 1;
@@ -63,12 +78,13 @@
 
 @media (max-width: 600px) {
   .wb-sockets {
-    right: calc(100% + 6px);
+    left: 6px;
+    top: 6px;
     gap: 4px;
   }
   .wb-socket {
-    width: 32px;
-    height: 32px;
-    padding: 6px;
+    width: 28px;
+    height: 28px;
+    padding: 5px;
   }
 }

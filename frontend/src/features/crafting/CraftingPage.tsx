@@ -1,11 +1,13 @@
 import {
-  augments,
+  augmentMaterials,
   augmentName,
   augmentEffect,
   socketText,
   installAugment,
   isSelectableAugment,
+  canInstallAugment,
 } from './socketAugments'
+import { SocketAugmentSlots } from './item-slot/SocketAugmentSlots'
 import { createPortal } from 'react-dom'
 import { defenceDisplay } from './defenceDisplay'
 import { preciseModifierProjection } from './sanctification/preciseModifierProjection'
@@ -393,6 +395,7 @@ export function CraftingPage() {
       : null
   const repeatRunning = applying !== null && pendingApplication?.repeat === true
   const applyingRequest = useRef<AbortController | null>(null)
+  const augmentFocusRevision = useRef<number | null>(null)
   const placementRequest = useRef(0)
   const placementPending = useRef(false)
   const inputRequestGeneration = useRef(0)
@@ -407,6 +410,17 @@ export function CraftingPage() {
     [],
   )
   const workbenchBusy = applying !== null || abyssBusy || imported.pending
+  useLayoutEffect(() => {
+    const revision = augmentFocusRevision.current
+    if (revision === null || workbenchBusy) return
+    augmentFocusRevision.current = null
+    if (
+      useItemDraft.getState().baseRevision === revision &&
+      (document.activeElement === document.body ||
+        document.activeElement?.matches('.wb-socket:disabled'))
+    )
+      document.querySelector<HTMLButtonElement>('.item-slot')?.focus()
+  }, [workbenchBusy, draft.baseRevision])
   const inputBusy = applying !== null || abyssBusy
   const inputMutationLocked = useCallback(
     () =>
@@ -784,15 +798,22 @@ export function CraftingPage() {
       }),
     )
   }
-  async function apply(repeat = false, socketSlot?: number) {
+  async function apply(
+    repeat = false,
+    socketSlot?: number,
+    augmentId?: string,
+  ) {
     if (mutationLocked()) return
+    const selection = augmentId
+      ? augmentMaterials.find((entry) => entry.id === augmentId)
+      : selected
     setFailedApplication(null)
     setRepeatNotice(null)
     const failApply = (message: string) => {
       setFailedApplication({ revision: draft.baseRevision, message })
       setAnnouncement(serviceText(message))
     }
-    if (!selected) {
+    if (!selection) {
       failApply(t('notice.select_currency'))
       return
     }
@@ -806,13 +827,13 @@ export function CraftingPage() {
       )
       return
     }
-    if (workbenchOmens.some((omen) => omen.id === selected.id)) {
+    if (workbenchOmens.some((omen) => omen.id === selection.id)) {
       failApply(t('notice.omen_favorite'))
       return
     }
-    const isAugment = isSelectableAugment(selected.id)
-    const action = workbenchCurrencyActions[selected.id]
-    if (!action && !isBone(selected.id) && !isAugment) {
+    const isAugment = isSelectableAugment(selection.id)
+    const action = workbenchCurrencyActions[selection.id]
+    if (!action && !isBone(selection.id) && !isAugment) {
       failApply(t('notice.no_rule'))
       return
     }
@@ -955,10 +976,10 @@ export function CraftingPage() {
         }
         return
       }
-      if (isBone(selected.id)) {
+      if (isBone(selection.id)) {
         const next = await applyBone(
           state,
-          selected.id,
+          selection.id,
           '',
           '',
           draft.activeOmens,
@@ -986,7 +1007,7 @@ export function CraftingPage() {
             history,
             state,
             next,
-            selected.id,
+            selection.id,
             filmId(),
             initial.data.rulesetIdentity,
             boneConsumedOmens(draft.activeOmens),
@@ -996,7 +1017,7 @@ export function CraftingPage() {
         draft.setActiveOmens(boneRemainingOmens(draft.activeOmens))
         setAnnouncement(
           [
-            t('craft.applied', { name: name(selected.id, selected.name) }),
+            t('craft.applied', { name: name(selection.id, selection.name) }),
             boneConsumedOmens(draft.activeOmens).length
               ? t('craft.consumed', {
                   names: boneConsumedOmens(draft.activeOmens)
@@ -1027,7 +1048,7 @@ export function CraftingPage() {
         const result = await installAugment(
           state,
           slot,
-          selected.id,
+          selection.id,
           initial.data.rulesetIdentity,
           controller.signal,
         )
@@ -1039,18 +1060,11 @@ export function CraftingPage() {
             ? filmState.history
             : { ...filmState.history, active: null, cursor: 0 }
         saveFilms(recordCraft(history, state, result, filmId()), revision)
-        setAnnouncement(augmentName(selected.id))
+        setAnnouncement(augmentName(selection.id))
         setSelected(null)
         setHeld(null)
         setPointer(null)
-        requestAnimationFrame(() => {
-          if (
-            useItemDraft.getState().baseRevision === revision &&
-            (document.activeElement === document.body ||
-              document.activeElement?.matches('.wb-socket:disabled'))
-          )
-            document.querySelector<HTMLButtonElement>('.item-slot')?.focus()
-        })
+        augmentFocusRevision.current = revision
         return
       }
       if (!action) throw new Error(t('notice.no_rule'))
@@ -1335,6 +1349,12 @@ export function CraftingPage() {
   const concrete = storedFrame
     ? restoredState
     : (workbench.data?.state ?? mapping.data?.state)
+  const augmentReady = Boolean(
+    !workbenchBusy &&
+    canCraft &&
+    concrete &&
+    canInstallAugment(concrete, cursor?.id),
+  )
   const stashBaseId =
     storedFrame?.state.baseItemId ??
     concrete?.baseItemId ??
@@ -1605,6 +1625,12 @@ export function CraftingPage() {
       onClickCapture={rememberFeedbackAnchor}
       onContextMenuCapture={rememberFeedbackAnchor}
       onDragStartCapture={rememberFeedbackAnchor}
+      onDragEndCapture={() => {
+        if (held?.category === 'Augments') {
+          setHeld(null)
+          setPointer(null)
+        }
+      }}
       onClick={(event) => {
         if (mutationLocked()) return
         const target = event.target as HTMLElement
@@ -1796,7 +1822,7 @@ export function CraftingPage() {
                     </div>
                     <div className="item-placement">
                       <button
-                        className={`item-slot ${selected ? 'is-ready' : ''}`}
+                        className={`item-slot ${selected ? 'is-ready' : ''} ${augmentReady ? 'is-augment-ready' : ''}`}
                         type="button"
                         aria-label={t(
                           'ui.use_selected_currency_on_the_central_item',
@@ -1816,73 +1842,24 @@ export function CraftingPage() {
                       </button>
                       {concrete?.augmentSockets != null &&
                         concrete.augmentSockets > 0 && (
-                          <div
-                            className="wb-sockets"
-                            aria-label={socketText().tab}
-                          >
-                            {Array.from(
-                              { length: concrete.augmentSockets },
-                              (_, slot) => {
-                                const installed =
-                                  concrete.installedAugments?.find(
-                                    (a) => a.slotIndex === slot,
-                                  )
-                                return (
-                                  <button
-                                    key={slot}
-                                    type="button"
-                                    className={
-                                      'wb-socket ' +
-                                      (installed ? 'is-filled' : '')
-                                    }
-                                    disabled={
-                                      workbenchBusy ||
-                                      !selected ||
-                                      !isSelectableAugment(selected.id) ||
-                                      !augmentEffect(
-                                        selected.id,
-                                        concrete.baseItemId,
-                                      )
-                                    }
-                                    title={
-                                      socketText().policy +
-                                      ' ' +
-                                      (installed
-                                        ? augmentName(installed.augmentId) +
-                                          ': ' +
-                                          augmentEffect(
-                                            installed.augmentId,
-                                            concrete.baseItemId,
-                                          )
-                                        : socketText().empty)
-                                    }
-                                    aria-label={
-                                      socketText().socket +
-                                      ' ' +
-                                      (slot + 1) +
-                                      ': ' +
-                                      (installed
-                                        ? augmentName(installed.augmentId)
-                                        : socketText().empty)
-                                    }
-                                    onClick={() => void apply(false, slot)}
-                                  >
-                                    {installed && (
-                                      <img
-                                        src={
-                                          augments.find(
-                                            (a) => a.id === installed.augmentId,
-                                          )?.image ??
-                                          '/assets/augments/rune.svg'
-                                        }
-                                        alt={augmentName(installed.augmentId)}
-                                      />
-                                    )}
-                                  </button>
-                                )
-                              },
-                            )}
-                          </div>
+                          <SocketAugmentSlots
+                            key={
+                              held?.category === 'Augments'
+                                ? `drag:${held.id}`
+                                : 'selected'
+                            }
+                            item={concrete}
+                            augmentId={cursor?.id}
+                            draggedAugmentId={
+                              held?.category === 'Augments'
+                                ? held.id
+                                : undefined
+                            }
+                            ready={augmentReady}
+                            onInstall={(slot, id) =>
+                              void apply(false, slot, id)
+                            }
+                          />
                         )}
                     </div>
                   </div>

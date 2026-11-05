@@ -30,6 +30,17 @@ export function augmentEffect(id: string, base: string): string | undefined {
   const effects = a?.effects[basePolicy(base)?.itemClass ?? '']
   return effects?.[getLocale()] ?? effects?.en
 }
+export function canInstallAugment(state: ConcreteItem, id?: string): boolean {
+  return Boolean(
+    id &&
+    isSelectableAugment(id) &&
+    augmentEffect(id, state.baseItemId) &&
+    (state.augmentSockets ?? 0) > 0 &&
+    !state.conditions.length &&
+    !state.observations &&
+    !state.desecrated?.length,
+  )
+}
 export function augmentShape(item: Record<string, unknown>): boolean {
   if (item.installedAugments == null) return true
   if (
@@ -65,8 +76,7 @@ export async function installAugment(
   signal: AbortSignal,
 ): Promise<AppliedItem> {
   if (
-    !isSelectableAugment(id) ||
-    !augmentEffect(id, state.baseItemId) ||
+    !canInstallAugment(state, id) ||
     state.augmentSockets == null ||
     slot < 0 ||
     slot >= state.augmentSockets

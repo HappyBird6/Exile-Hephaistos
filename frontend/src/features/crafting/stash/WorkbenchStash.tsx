@@ -30,6 +30,7 @@ export function WorkbenchStash({
   onPickUp,
 }: WorkbenchStashProps) {
   const { t, name, locale } = useI18n()
+  const [filterEnabled, setFilterEnabled] = useState(true)
   const [searches, setSearches] = useState<
     Partial<Record<MaterialTab, string>>
   >({})
@@ -39,7 +40,8 @@ export function WorkbenchStash({
   const available = (resource: WorkbenchResource) =>
     !excluded.has(resource.id) &&
     visibilityPolicy(resource) &&
-    supportsBaseMaterial(resource, baseItemId, baseMaterialActions)
+    (!filterEnabled ||
+      supportsBaseMaterial(resource, baseItemId, baseMaterialActions))
   const matches = (resource: WorkbenchResource) =>
     available(resource) && matchesMaterial(resource, search, locale)
   const visible = resources.filter(
@@ -147,6 +149,15 @@ export function WorkbenchStash({
             }))
           }
         />
+        <label className="workbench-stash__filter">
+          <input
+            type="checkbox"
+            checked={filterEnabled}
+            disabled={disabled}
+            onChange={(event) => setFilterEnabled(event.target.checked)}
+          />
+          <span>{t('material.filter_by_item_type')}</span>
+        </label>
         <div className="workbench-stash__resources wb-scrollbar">
           {activeTab === 'Essence'
             ? [...(specials.length ? [specials] : []), ...rows].map(
@@ -161,9 +172,9 @@ export function WorkbenchStash({
                         : undefined
                     }
                   >
-                    {row.map((entry, slot) =>
-                      entry ? resourceButton(entry) : <span key={slot} />,
-                    )}
+                    {row
+                      .filter((entry) => entry !== undefined)
+                      .map(resourceButton)}
                   </div>
                 ),
               )

@@ -47,6 +47,10 @@ registered base 수는 [지원 범위](support.md), 상태 검증은 [아이템 
 
 `initial.baseMaterialActions`는 실행 가능 목록이 아닌 **베이스·검토 catalog 자격**이다. Backend `WorkbenchSimulator`가 실제 실행과 같은 Essence/Alloy 대상 override와 catalog 포함 여부, Catalyst의 ordinary/refined 베이스 정책, Jewel Liquid의 검토 출처를 재사용한다. 희귀도·레벨·현재 옵션·소켓 개수·활성 징조·Crafted 존재 여부 등 일시적인 실행 조건은 포함하지 않는다. 실제 적용 시의 기존 검증은 그대로 수행한다.
 
-Frontend는 이 메타데이터를 현재 베이스와 일치하는 응답에서만 사용한다. Augment는 기존 등록 소켓 지원 상한과 해당 itemClass의 검토된 효과를 사용하며 빈 소켓이 없거나 아직 0개여도 표시한다. Perfect-only/Tempered/Soul Core 선택 정책은 먼저 유지한다. Omen과 일반 Currency는 부위 필터 대상이 아니다. 지원하지 않는/검토되지 않은 재료는 선택된 부위 목록에 나타나지 않으며 게임 전체 지원 범위로 추정하지 않는다.
+Frontend는 이 메타데이터를 현재 베이스와 일치하는 응답에서만 사용한다. 2026-11-05 후속 요청에 따라 Essence/Alloy 표시에는 보존된 영어 툴팁의 대상 분류를 우선 사용한다. 갑옷·투구·장갑·장화·방패·Foci의 Armour 포함, 개별 무기·Martial/Caster/Melee Weapon 포함관계를 등록 itemClass와 아이템 ID 경로로 판정한다. 따라서 갑옷에서 Body Armour 전용과 Armour 공통 Essence를 함께 표시한다. 희귀도·현재 옵션·아이템 레벨·현재 품질·소켓 개수에 따라 이 목록을 줄이지 않는다. 표시용 분류가 현재 모델에서의 실행 성공이나 미검토 효과 계산 지원을 보장하지 않으며 실제 적용 검증은 유지한다. Catalyst/Liquid 등 대상 표기가 없는 경우 기존 베이스/catalog 메타데이터를 사용한다.
 
-검색과 Essence 특수 재료 첫 행·4행 스크롤은 유지한다. 필터로 숨은 재료도 기존 즐겨찾기·장착·저장 기록에서 삭제하지 않는다. 알려진 베이스의 자격 메타데이터를 받기 전에는 목록을 임의로 줄이지 않는다.
+Augment는 기존 등록 소켓 지원 상한과 해당 itemClass의 검토된 효과를 사용하며 빈 소켓이 없거나 아직 0개여도 표시한다. Perfect-only/Tempered/Soul Core 선택 정책은 먼저 유지한다. 화폐 탭의 Rib는 Armour, Jawbone은 무기·Quiver, Collarbone은 장신구, Cranium은 지원 Jewel로 구분하며 Armourer's Scrap과 Blacksmith's Whetstone은 Armour/Martial Weapon으로 구분한다. Omen과 그 밖의 일반 Currency 진열 정책은 유지한다.
+
+검색 입력 아래의 6언어 체크박스로 부위 필터를 켜거나 끈다. 기본은 켜짐이며, 실제 베이스를 고르기 전에는 전체 기본 목록을 표시한다. 끄더라도 검색어와 Omen 예외·전역 선택 정책은 유지한다. 검색은 기존 이름·툴팁·Essence 가족 매칭을 유지하고 특수 Essence는 먼저 배치한다. 제외된 재료의 빈 칸을 두지 않고 부모 4열 grid를 앞에서부터 채우며 4행 스크롤을 유지한다. 필터로 숨은 재료도 기존 즐겨찾기·장착·저장 기록에서 삭제하지 않는다.
+
+분류를 확인할 수 없는 구버전 베이스는 종류를 추측해 재료를 숨기지 않는다. Augment는 기존의 등록 부위·소켓 상한 확인을 유지한다. 구버전 상태를 새 베이스로 변환하거나 실제 적용 자격을 넓히지 않는다.

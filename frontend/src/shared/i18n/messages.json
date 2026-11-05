@@ -452,7 +452,8 @@
     "server.augment_observations_pending": "Installed Augment effects are preserved. Provide their names and counts before crafting; their crafting effects are not resolved.",
     "server.catalyst_original_required": "Catalyst-affected values require original unscaled rolls and verified rounding; displayed values cannot be treated as raw rolls.",
     "server.catalyst_match_required": "No exact catalog match; catalyst-affected values need original unscaled rolls, tier and verified rounding.",
-    "server.socket_observation_only": "The imported socket count is preserved, but its Artificer capacity has not been established."
+    "server.socket_observation_only": "The imported socket count is preserved, but its Artificer capacity has not been established.",
+    "material.filter_by_item_type": "Filter by item type"
   },
   "ko": {
     "language": "언어",
@@ -907,7 +908,8 @@
     "server.augment_observations_pending": "장착 증강 효과는 보존됩니다. 제작 전에 증강의 이름과 개수를 확인해 주세요. 제작에 미치는 효과는 아직 확인되지 않았습니다.",
     "server.catalyst_original_required": "촉매가 적용된 옵션은 적용 전 수치와 확인된 반올림 규칙이 필요합니다. 표시값을 원래 수치로 사용할 수 없습니다.",
     "server.catalyst_match_required": "카탈로그와 정확히 일치하지 않습니다. 촉매가 적용됐다면 적용 전 수치·티어와 확인된 반올림 규칙이 필요합니다.",
-    "server.socket_observation_only": "가져온 소켓 개수는 보존됩니다. 이 아이템에 장인의 오브로 소켓을 추가할 수 있는지는 아직 확인되지 않았습니다."
+    "server.socket_observation_only": "가져온 소켓 개수는 보존됩니다. 이 아이템에 장인의 오브로 소켓을 추가할 수 있는지는 아직 확인되지 않았습니다.",
+    "material.filter_by_item_type": "장비 부위별 필터"
   },
   "zh-CN": {
     "language": "语言",
@@ -1362,7 +1364,8 @@
     "server.augment_observations_pending": "已保留镶嵌增强物效果。制作前请确认名称和数量，其制作影响尚未确定。",
     "server.catalyst_original_required": "催化剂影响的数值需要原始数值与已确认的舍入规则，不能将显示值直接作为原始值。",
     "server.catalyst_match_required": "无精确目录匹配。催化剂影响的数值需要原始数值、阶级和已确认的舍入规则。",
-    "server.socket_observation_only": "导入的插槽数量已保留，但尚未确认能否使用工匠石增加插槽。"
+    "server.socket_observation_only": "导入的插槽数量已保留，但尚未确认能否使用工匠石增加插槽。",
+    "material.filter_by_item_type": "按装备类型筛选"
   },
   "zh-TW": {
     "language": "語言",
@@ -1817,7 +1820,8 @@
     "server.augment_observations_pending": "已保留鑲嵌增強物效果。製作前請確認名稱與數量，其製作影響尚未確定。",
     "server.catalyst_original_required": "催化劑影響的數值需要原始數值與已確認的捨入規則，不能將顯示值直接當作原始值。",
     "server.catalyst_match_required": "無精確目錄匹配。催化劑影響的數值需要原始數值、階級與已確認的捨入規則。",
-    "server.socket_observation_only": "匯入的插槽數量已保留，但尚未確認能否使用工匠石增加插槽。"
+    "server.socket_observation_only": "匯入的插槽數量已保留，但尚未確認能否使用工匠石增加插槽。",
+    "material.filter_by_item_type": "依裝備類型篩選"
   },
   "ja": {
     "language": "言語",
@@ -2272,7 +2276,8 @@
     "server.augment_observations_pending": "装着したオーグメントの効果を保持しています。クラフト前に名前と数を確認してください。クラフトへの影響は未確認です。",
     "server.catalyst_original_required": "触媒の影響を受ける値には適用前の値と確認済みの丸め規則が必要です。表示値を元の値として扱えません。",
     "server.catalyst_match_required": "カタログに完全一致しません。触媒適用前の値、ティア、確認済みの丸め規則が必要です。",
-    "server.socket_observation_only": "取り込んだソケット数を保持していますが、工匠のオーブで追加できるかは未確認です。"
+    "server.socket_observation_only": "取り込んだソケット数を保持していますが、工匠のオーブで追加できるかは未確認です。",
+    "material.filter_by_item_type": "装備の種類で絞り込む"
   },
   "es": {
     "language": "Idioma",
@@ -2727,6 +2732,7 @@
     "server.augment_observations_pending": "Los efectos instalados se conservan. Confirma sus nombres y cantidades antes de fabricar; sus efectos sobre la fabricación aún no están resueltos.",
     "server.catalyst_original_required": "Los valores afectados por catalizadores requieren tiradas originales y redondeo verificado; los valores mostrados no son tiradas originales.",
     "server.catalyst_match_required": "No hay coincidencia exacta. Los valores afectados por catalizadores requieren tiradas originales, grado y redondeo verificado.",
-    "server.socket_observation_only": "Se conserva el número importado de engarces, pero no se ha establecido si el orbe de artífice puede añadir otro."
+    "server.socket_observation_only": "Se conserva el número importado de engarces, pero no se ha establecido si el orbe de artífice puede añadir otro.",
+    "material.filter_by_item_type": "Filtrar por tipo de equipo"
   }
 }

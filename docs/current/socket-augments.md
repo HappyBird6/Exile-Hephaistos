@@ -38,4 +38,6 @@ Idol, Abyssal Eye, Congealed Mist, 특수 Rune, Socket-bound, Ancient Augment의
 
 이미지는 `frontend/public/assets/augments/sources.json`에 원본 페이지·이미지 URL·SHA-256을 기록한다. 원저작권은 Grinding Gear Games 등 각 권리자에게 있다. PoE2DB의 위키 본문 고지는 [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)이며, 출처 표기가 게임 이미지의 별도 재배포 허가를 의미하지 않는다. 수집하지 못한 아이콘은 프로젝트가 작성한 공통 SVG를 사용한다.
 
-소켓은 중앙 아이템 칸 왼쪽에 세로로 배치한다. 사용자 제공 스크린샷을 built-in imagegen으로 추출·정제한 `socket-frame.png`는 금속 테두리와 검은 내부를 포함하며 바깥만 투명하다. 생성 지시·출처·자산 해시는 같은 폴더의 `socket-frame.source.json`에 기록한다. 장착 아이콘은 검은 내부 위에 표시하며 기존 소켓 수·교체·키보드 이름·focus 복귀는 유지한다.
+소켓은 중앙 아이템 이미지 네모 **안쪽 왼쪽 위**에 세로로 배치한다. 사용자 제공 스크린샷을 built-in imagegen으로 추출·정제한 `socket-frame.png`는 금속 테두리와 검은 내부를 포함하며 바깥만 투명하다. 생성 지시·출처·자산 해시는 같은 폴더의 `socket-frame.source.json`에 기록한다. 장착 아이콘은 검은 내부 위에 표시하며 기존 소켓 수·교체·키보드 이름·focus 복귀는 유지한다.
+
+금색 아이템 테두리와 밝은 소켓 표시가 기본이다. 선택하거나 드래그한 Augment가 Perfect 선택 정책·현재 부위·소켓 수·일반 검증 상태를 만족하고 작업이 잠겨 있지 않을 때만 청록색 윤곽과 빛을 추가한다. 실제 드롭 대상은 한 단계 더 강조하며 깜빡임·반복 animation을 사용하지 않는다. 드래그 종료·취소·Escape·장착 요청 중에는 추가 강조를 해제한다. Rune 드롭은 해당 슬롯에만 적용하며, 소켓 버튼은 중앙 아이템 버튼과 형제 구조여서 클릭 타깃을 중첩하지 않는다. 중앙 아이템 버튼의 일반 화폐 적용, 기존 부위별 재료 필터·툴팁·검색·6개 언어 체계를 유지한다.
