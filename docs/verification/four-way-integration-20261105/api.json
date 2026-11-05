@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "export JSON and shared snapshot contain identical Film",
+    "8 frames retain Ancient ID and 3 sockets",
+    "invalid ID",
+    "invalid schema",
+    "oversize snapshot",
+    "exact snapshot bytes survive isolated API process restart"
+  ],
+  "snapshotSha256": "2e15bfbe57ec8b85b304d49ac0e20525bb045a39d7de231a352c0e5a503b21ce",
+  "frames": 8
+}

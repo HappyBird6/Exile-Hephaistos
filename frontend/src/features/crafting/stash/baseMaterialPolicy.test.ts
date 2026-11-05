@@ -16,7 +16,7 @@ describe('base material policy', () => {
       expect(supportsBaseMaterial(entry)).toBe(true)
     expect(
       materials.filter((m) => m.category === 'Augments' && visibilityPolicy(m)),
-    ).toHaveLength(34)
+    ).toHaveLength(232)
   })
   it('preserves an unclassified legacy base without guessing its target groups', () => {
     expect(

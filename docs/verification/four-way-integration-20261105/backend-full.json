@@ -1,0 +1,71 @@
+{
+  "summaryFromGradleLog": {
+    "completed": 770,
+    "failed": 12,
+    "skippedOrInterrupted": 1
+  },
+  "failures": [
+    {
+      "class": "BaseRegistryParityTest",
+      "test": "allExistingInitialsActionsAndSeededTracesRemainExact()",
+      "recordedBaseline": true
+    },
+    {
+      "class": "EmptyRareApiRegressionTest",
+      "test": "completedApiRetainsPreparationRetryProbabilityAndOnlyConcreteGoalTargets()",
+      "recordedBaseline": true
+    },
+    {
+      "class": "TerminalContinuationApiTest",
+      "test": "cancelsResumesAndReloadsSharedConcreteOutcomesWithMeasuredRequestLatency()",
+      "recordedBaseline": true
+    },
+    {
+      "class": "CertifiedJobRestartTest",
+      "test": "readRenewedLeaseSurvivesRestartWithoutRewritingTheGraph(Path)",
+      "recordedBaseline": true
+    },
+    {
+      "class": "CertifiedJobRestartTest",
+      "test": "continuedRunnerMatchesUninterruptedExitMassAndCurrencyUses()",
+      "recordedBaseline": true
+    },
+    {
+      "class": "CertifiedJobRestartTest",
+      "test": "jobReopensGraphAndPartialConditionalTransportWithNewGeneration(Path)",
+      "recordedBaseline": true
+    },
+    {
+      "class": "CertifiedMethodProductionTest",
+      "test": "realSolarRenewalKeepsExactTruthInsideEveryRequestedHorizon()",
+      "recordedBaseline": true
+    },
+    {
+      "class": "CertifiedSearchJobsTest",
+      "test": "completedGoalPublishesStrategyAndStillHonorsEntryCancellation()",
+      "recordedBaseline": true
+    },
+    {
+      "class": "CertifiedSearchJobsTest",
+      "test": "realCatalogBoundsKeepExactConditionalLawAndGenerationControls()",
+      "recordedBaseline": true
+    },
+    {
+      "class": "CertifiedSearchJobsTest",
+      "test": "boundedCommandReplayDoesNotLimitTheNumberOfResumptions()",
+      "recordedBaseline": true
+    },
+    {
+      "class": "CertifiedSearchJobsTest",
+      "test": "expiryEvictionAndShutdownInvalidateQueuedWorkWithoutRunningClosedStores()",
+      "recordedBaseline": true
+    },
+    {
+      "class": "CertifiedSearchJobsTest",
+      "test": "activeRequestsRenewTheIdleLeaseButAbandonedJobsStillExpire()",
+      "recordedBaseline": true
+    }
+  ],
+  "completion": "Owned worker interrupted after about 15 minutes in DeferredCalculationTest; full check incomplete. XML not finalized after interruption.",
+  "baselineRecord": "docs/verification/socket-augments-20261105/checks.json"
+}

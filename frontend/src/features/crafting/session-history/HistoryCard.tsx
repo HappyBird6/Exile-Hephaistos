@@ -13,7 +13,7 @@ import type { Film, Frame } from '../workbenchHistory'
 import { localizedModifierText } from '../localizedModifiers'
 import { catalystProjection } from '../catalystQuality'
 import { preciseModifierProjection } from '../sanctification/preciseModifierProjection'
-import { augmentName, augmentEffect } from '../socketAugments'
+import { augmentName, augmentEffect, socketText } from '../socketAugments'
 import { defenceDisplay } from '../defenceDisplay'
 import { BaseImage } from '../base-picker/BaseImage'
 import { historyMessages } from './messages'
@@ -97,7 +97,7 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
               ? [
                   {
                     id: 'sockets',
-                    text: t('base.sockets', { value: state.augmentSockets }),
+                    text: `${socketText().socket}: ${state.augmentSockets}`,
                   },
                 ]
               : []),

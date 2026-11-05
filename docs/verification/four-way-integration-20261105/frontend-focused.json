@@ -1,0 +1,48 @@
+{
+  "total": 63,
+  "passed": 63,
+  "failed": 0,
+  "files": [
+    "src/features/crafting/currentItemText.test.tsx",
+    "src/features/crafting/ItemTextImport.test.tsx",
+    "src/features/crafting/socketAugments.test.ts",
+    "src/features/crafting/item-slot/SocketAugmentSlots.test.tsx",
+    "src/features/crafting/session-history/transfer.test.ts",
+    "src/features/crafting/stash/baseMaterialPolicy.test.ts",
+    "src/features/crafting/stash/StashBaseSelection.test.tsx"
+  ],
+  "inputCancellation": [
+    {
+      "name": "Item text import allows button cancellation while parsing and discards the old success outcome",
+      "status": "passed"
+    },
+    {
+      "name": "Item text import allows button cancellation while parsing and discards the old error outcome",
+      "status": "passed"
+    },
+    {
+      "name": "Item text import allows escape cancellation while parsing and discards the old success outcome",
+      "status": "passed"
+    },
+    {
+      "name": "Item text import allows escape cancellation while parsing and discards the old error outcome",
+      "status": "passed"
+    },
+    {
+      "name": "Item text import allows cancel cancellation while parsing and discards the old success outcome",
+      "status": "passed"
+    },
+    {
+      "name": "Item text import allows cancel cancellation while parsing and discards the old error outcome",
+      "status": "passed"
+    },
+    {
+      "name": "Item text import allows backdrop cancellation while parsing and discards the old success outcome",
+      "status": "passed"
+    },
+    {
+      "name": "Item text import allows backdrop cancellation while parsing and discards the old error outcome",
+      "status": "passed"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "browser": "Codex in-app browser",
+  "syntheticDataOnly": true,
+  "checks": [
+    "text level edit updates current state",
+    "state socket and installed Augment changes update generated English text",
+    "text edit retains 3 sockets and Carved_Mischief identity",
+    "dirty draft survives close and reopen; focus returns to item editor",
+    "unresolved line blocks edit and retains draft and item",
+    "draft becomes stale after a crafting state change",
+    "Ancient replacement enables only the existing slot",
+    "keyboard Enter replaces only the requested Ancient slot",
+    "8-frame history uses 4-column snake order at desktop and 2-column snake at 900px",
+    "320px history has one column; imported session restores after reload",
+    "320px restored workbench keeps every socket inside the item image",
+    "item-type filter toggles and retains Armour currency eligibility",
+    "exported JSON imports with preview and retains 8 frames",
+    "shared snapshot opens from localhost origin before any local Film is imported",
+    "PNG generation produces 2 pages and first page downloads",
+    "no warning or error console messages observed in final shared reader"
+  ],
+  "workbenchLocales": [
+    {
+      "locale": "en",
+      "filter": "Filter by item type",
+      "sockets": 3
+    },
+    {
+      "locale": "zh-CN",
+      "filter": "按装备类型筛选",
+      "sockets": 3
+    },
+    {
+      "locale": "zh-TW",
+      "filter": "依裝備類型篩選",
+      "sockets": 3
+    },
+    {
+      "locale": "ja",
+      "filter": "装備の種類で絞り込む",
+      "sockets": 3
+    },
+    {
+      "locale": "es",
+      "filter": "Filtrar por tipo de equipo",
+      "sockets": 3
+    },
+    {
+      "locale": "ko",
+      "filter": "장비 부위별 필터",
+      "sockets": 3
+    }
+  ],
+  "historyLocales": [
+    {
+      "locale": "en",
+      "title": "Session history",
+      "cards": 8
+    },
+    {
+      "locale": "zh-CN",
+      "title": "会话历史",
+      "cards": 8
+    },
+    {
+      "locale": "zh-TW",
+      "title": "工作階段歷史",
+      "cards": 8
+    },
+    {
+      "locale": "ja",
+      "title": "セッション履歴",
+      "cards": 8
+    },
+    {
+      "locale": "es",
+      "title": "Historial de sesión",
+      "cards": 8
+    },
+    {
+      "locale": "ko",
+      "title": "세션 히스토리",
+      "cards": 8
+    }
+  ],
+  "screenshots": [
+    "history-desktop.jpg",
+    "history-mobile.jpg",
+    "workbench-desktop.jpg",
+    "workbench-mobile.jpg"
+  ],
+  "pngNote": "The first click in the initial page showed no output. Fresh loaded shared and imported pages produced two complete PNGs; no repeatable failure or console error remained."
+}

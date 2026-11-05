@@ -151,7 +151,9 @@ it('allows Ancient replacement only in its existing slot and rejects a restricte
   expect(slots[0]).not.toHaveClass('is-available')
   expect(slots[1]).toBeEnabled()
   expect(slots[1]).toHaveClass('is-available')
-  expect(fireEvent.dragOver(slots[0]!, { dataTransfer: transfer(id) })).toBe(true)
+  expect(fireEvent.dragOver(slots[0]!, { dataTransfer: transfer(id) })).toBe(
+    true,
+  )
   fireEvent.drop(slots[0]!, { dataTransfer: transfer(id) })
   expect(install).not.toHaveBeenCalled()
   fireEvent.click(slots[1]!)

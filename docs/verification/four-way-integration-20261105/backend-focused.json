@@ -1,0 +1,16 @@
+{
+  "test": {
+    "files": 15,
+    "tests": 231,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "integrationTest": {
+    "files": 2,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

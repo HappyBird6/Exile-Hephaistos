@@ -18,6 +18,10 @@ it('shows all before explicit selection and filters the selected/restored base w
   })
   client.setQueryData(['crafting', 'initial', 'solar', 82, 'manual'], {
     ...initialFixture,
+    state: {
+      ...initialFixture.state,
+      baseItemId: 'Metadata/Items/Amulets/FourAmulet9',
+    },
     baseMaterialActions: ['CATALYST_FLESH'],
   })
   const show = () =>

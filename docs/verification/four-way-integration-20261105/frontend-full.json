@@ -1,0 +1,24 @@
+{
+  "total": 3045,
+  "passed": 3042,
+  "failed": 3,
+  "files": 177,
+  "collectionFailures": [],
+  "failures": [
+    {
+      "file": "src/features/crafting/sapphireGeneration.test.ts",
+      "name": "preserves valid four-slot Sapphire films and rejects fifth slots, shared families and two Crafted results",
+      "message": "AssertionError: expected true to be false // Object.is equality\n    at C:/Users/SSAFY/.codex/worktrees/614e/Exile-Hephaistos/frontend/src/features/crafting/sapphireGeneration.test.ts:44:74\n    at file:///C:/Users/SSAFY/.codex/worktrees/614e/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.C5UmxDPh.js:1628:35\n    at file:///C:/Users/SSAFY/.codex/worktrees/614e/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.C5UmxDPh.js:2783:26\n    at file:///C:/Users/SSAFY/.codex/worktrees/614e/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.C5UmxDPh.js:3319:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/Users/SSAFY/.codex/worktrees/614e/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.C5UmxDPh.js:3314:10)\n    at file:///C:/Users/SSAFY/.codex/worktrees/614e/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.C5UmxDPh.js:3299:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/SSAFY/.codex/worktr"
+    },
+    {
+      "file": "src/features/crafting/stash/baseMaterialPolicy.test.ts",
+      "name": "base material policy keeps all globally selectable materials until a base is actually selected",
+      "message": "AssertionError: expected [ Array(232) ] to have a length of 34 but got 232\n    at Proxy.<anonymous> (file:///C:/Users/SSAFY/.codex/worktrees/614e/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/index.m3L2HgmY.js:2137:20)\n    at Proxy.<anonymous> (file:///C:/Users/SSAFY/.codex/worktrees/614e/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/index.m3L2HgmY.js:1934:14)\n    at Proxy.methodWrapper (file:///C:/Users/SSAFY/.codex/worktrees/614e/Exile-Hephaistos/frontend/node_modules/chai/index.js:1700:25)\n    at C:/Users/SSAFY/.codex/worktrees/614e/Exile-Hephaistos/frontend/src/features/crafting/stash/baseMaterialPolicy.test.ts:19:7\n    at file:///C:/Users/SSAFY/.codex/worktrees/614e/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.C5UmxDPh.js:1628:35\n    at file:///C:/Users/SSAFY/.codex/worktrees/614e/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.C5UmxDPh.js:2783:26\n    at file:///C:/Users/SSAFY/.codex/worktrees/614e/Exile-Hephaistos/frontend/no"
+    },
+    {
+      "file": "src/features/crafting/stash/StashBaseSelection.test.tsx",
+      "name": "shows all before explicit selection and filters the selected/restored base without erasing favorites",
+      "message": "AssertionError: expected …(26) to have a length of 1 but got 26\n\nIgnored nodes: comments, script, style\n\u001b[36m<html\u001b[39m\n  \u001b[33mlang\u001b[39m=\u001b[32m\"en\"\u001b[39m\n\u001b[36m>\u001b[39m\n  \u001b[36m<head>\u001b[39m\n    \u001b[0m\n    \u001b[0m\n    \u001b[36m<meta\u001b[39m\n      \u001b[33mcharset\u001b[39m=\u001b[32m\"UTF-8\"\u001b[39m\n    \u001b[36m/>\u001b[39m\n    \u001b[0m\n    \u001b[0m\n    \u001b[36m<meta\u001b[39m\n      \u001b[33mcontent\u001b[39m=\u001b[32m\"width=device-width, initial-scale=1.0\"\u001b[39m\n      \u001b[33mname\u001b[39m=\u001b[32m\"viewport\"\u001b[39m\n    \u001b[36m/>\u001b[39m\n    \u001b[0m\n    \u001b[0m\n    \u001b[36m<meta\u001b[39m\n      \u001b[33mcontent\u001b[39m=\u001b[32m\"PoE2 아이템 제작 의사결정 지원\"\u001b[39m\n      \u001b[33mname\u001b[39m=\u001b[32m\"description\"\u001b[39m\n    \u001b[36m/>\u001b[39m\n    \u001b[0m\n    \u001b[0m\n    \u001b[36m<title>\u001b[39m\n      \u001b[0mExile Hephaistos\u001b[0m\n    \u001b[36m</title>\u001b[39m\n    \u001b[0m\n  \u001b[0m\n  \u001b[36m</head>\u001b[39m\n  \u001b[0m\n  \u001b[0m\n  \u001b[36m<body>\u001b[39m\n    \u001b[0m\n    \u001b[0m\n    \u001b[36m<div\u001b[39m\n      \u001b[33mid\u001b[39m=\u001b[32m\"root\"\u001b[39m\n    \u001b[36m/>\u001b[39m\n    \u001b[0m\n    \u001b[0m\n    \u001b[0m\n  \n\n\u001b[0m\n    \u001b[36m<div>\u001b[39m\n      \u001b[36m<main\u001b[39m\n        \u001b[33mclass\u001b[39m=\u001b[32m\"craft-page craft-page--workbench"
+    }
+  ]
+}
