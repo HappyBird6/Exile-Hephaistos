@@ -1,6 +1,8 @@
 FROM eclipse-temurin:21-jdk-jammy@sha256:c7d5863b5dd8f26b90c64f1d80cc2b0e5a5e4642f8db9955a370d348edd8f438 AS build
 WORKDIR /workspace
 COPY backend/ ./
+# Gradle reads the shared display template from ../frontend relative to /workspace.
+COPY frontend/src/shared/i18n/modifierTemplates.json /frontend/src/shared/i18n/modifierTemplates.json
 RUN chmod +x gradlew && ./gradlew --no-daemon bootJar
 FROM eclipse-temurin:21-jre-jammy@sha256:e9aaf73145bbd1f9f6ec7f6867dd75a44f34b1a6c32a813504bf4129be2d09d7
 RUN groupadd --gid 10001 app && useradd --uid 10001 --gid app --no-create-home app
