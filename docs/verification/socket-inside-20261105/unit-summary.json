@@ -1,0 +1,12 @@
+{
+  "total": 282,
+  "passed": 281,
+  "failed": 1,
+  "failures": [
+    {
+      "file": "WorkbenchLayout.test.tsx",
+      "test": "single canvas category selector and favorites inside the coordinate plane positions all three menus from the former upper work area and keeps interaction on the moved opener",
+      "reason": "5s timeout; isolated rerun recorded separately"
+    }
+  ]
+}

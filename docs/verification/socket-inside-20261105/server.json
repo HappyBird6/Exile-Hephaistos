@@ -1,0 +1,61 @@
+{
+  "verifiedAt": "2026-11-05T06:41:44.358Z",
+  "implementationCommit": "7ee8a04c5716212af7b8e1485c4a004ed09d3073",
+  "ui": "http://127.0.0.1:9001",
+  "api": "http://127.0.0.1:9000",
+  "health": "UP",
+  "uiStatus": 200,
+  "script": "index-Dqg6dFvQ.js",
+  "assetHash": "5f7646ee4386eeb3a9d5811808c99bdfa7377254fc42c80e537a36e466a10f73",
+  "appDatabaseRedisIdsPreserved": true,
+  "frontendOnlyDeployment": true,
+  "services": [
+    {
+      "name": "exile-hephaistos-app-1",
+      "id": "2a781b17a5a7956fdce4e555f6dad74a78e0d5b2f474999ad4e19e5fdcfcfba6",
+      "image": "sha256:62ad6d7b1038e2db82d5e011c5d5646942c491321b1daccce3dfecc9a3cb7d33",
+      "status": "running",
+      "startedAt": "2026-11-05T06:19:28.36260907Z",
+      "volumes": [
+        {
+          "name": "exile-hephaistos_app-data",
+          "destination": "/app/data"
+        }
+      ]
+    },
+    {
+      "name": "exile-hephaistos-frontend-1",
+      "id": "a5454e57df46ab1664033b7c1b6a1885b5fb240c5f5b5c79675f34a317e1f7b3",
+      "image": "sha256:21e48d04c22fd6c6a885f0bcdcbf5a8a94794120de19034c252f3b77341efdfa",
+      "status": "running",
+      "startedAt": "2026-11-05T06:38:54.434662203Z",
+      "volumes": []
+    },
+    {
+      "name": "exile-hephaistos-postgres-1",
+      "id": "0c5febf25519e70667658bc0ff15452f074a04b4a19dadf00b1a062c31b628be",
+      "image": "sha256:ef257d85f76e48da1c64832459b59fcaba1a4dac97bf5d7450c77753542eee94",
+      "status": "running",
+      "startedAt": "2026-11-05T06:15:43.248365403Z",
+      "volumes": [
+        {
+          "name": "exile-hephaistos_postgres-data",
+          "destination": "/var/lib/postgresql/data"
+        }
+      ]
+    },
+    {
+      "name": "exile-hephaistos-redis-1",
+      "id": "ac679c135efc5f46d5c470b05091b7d1dcffebbdf24abcfa1c952d9d9748282f",
+      "image": "sha256:bb186d083732f669da90be8b0f975a37812b15e913465bb14d845db72a4e3e08",
+      "status": "running",
+      "startedAt": "2026-11-05T06:15:44.60783431Z",
+      "volumes": [
+        {
+          "name": "7b1c7972e679dbae5773a7237ca430bce8b7d9a2ed933bac264fccff6b07b5d2",
+          "destination": "/data"
+        }
+      ]
+    }
+  ]
+}

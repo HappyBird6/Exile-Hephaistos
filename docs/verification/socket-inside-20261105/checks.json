@@ -1,0 +1,543 @@
+{
+  "origin": "http://127.0.0.1:9001",
+  "checks": [
+    "seed socket count 1",
+    "seed socket count 2",
+    "seed socket count 3",
+    "en-1440: three sockets inside upper-left frame",
+    "en-1440: vertical sockets, separate buttons",
+    "en-1440: no horizontal overflow",
+    "en-1440: default disabled with bright rim",
+    "en-1440: default golden item frame",
+    "en-1440: base filter preserved",
+    "en-1440: selected eligible Rune gets extra highlight",
+    "en-1440: Escape restores default",
+    "en-1440: drag highlights actual slot, no animation",
+    "en-1440: native drag cancellation makes no request",
+    "en-1440: busy disables highlighting and central item",
+    "en-1440: drop performs one slot install",
+    "en-1440: installed icon retained, available highlight cleared",
+    "en-1440: keyboard focus remains distinct",
+    "en-1440: keyboard replacement only changes requested slot",
+    "en-1440: reload preserves replaced icon",
+    "en-320: three sockets inside upper-left frame",
+    "en-320: vertical sockets, separate buttons",
+    "en-320: no horizontal overflow",
+    "en-320: default disabled with bright rim",
+    "en-320: default golden item frame",
+    "en-320: base filter preserved",
+    "en-320: selected eligible Rune gets extra highlight",
+    "en-320: Escape restores default",
+    "en-320: drag highlights actual slot, no animation",
+    "en-320: native drag cancellation makes no request",
+    "en-320: busy disables highlighting and central item",
+    "en-320: drop performs one slot install",
+    "en-320: installed icon retained, available highlight cleared",
+    "en-320: keyboard focus remains distinct",
+    "en-320: keyboard replacement only changes requested slot",
+    "en-320: reload preserves replaced icon",
+    "ko-1440: three sockets inside upper-left frame",
+    "ko-1440: vertical sockets, separate buttons",
+    "ko-1440: no horizontal overflow",
+    "ko-1440: default disabled with bright rim",
+    "ko-1440: default golden item frame",
+    "ko-1440: base filter preserved",
+    "ko-1440: selected eligible Rune gets extra highlight",
+    "ko-1440: Escape restores default",
+    "ko-1440: drag highlights actual slot, no animation",
+    "ko-1440: native drag cancellation makes no request",
+    "ko-1440: busy disables highlighting and central item",
+    "ko-1440: drop performs one slot install",
+    "ko-1440: installed icon retained, available highlight cleared",
+    "ko-1440: keyboard focus remains distinct",
+    "ko-1440: keyboard replacement only changes requested slot",
+    "ko-1440: reload preserves replaced icon",
+    "ko-320: three sockets inside upper-left frame",
+    "ko-320: vertical sockets, separate buttons",
+    "ko-320: no horizontal overflow",
+    "ko-320: default disabled with bright rim",
+    "ko-320: default golden item frame",
+    "ko-320: base filter preserved",
+    "ko-320: selected eligible Rune gets extra highlight",
+    "ko-320: Escape restores default",
+    "ko-320: drag highlights actual slot, no animation",
+    "ko-320: native drag cancellation makes no request",
+    "ko-320: busy disables highlighting and central item",
+    "ko-320: drop performs one slot install",
+    "ko-320: installed icon retained, available highlight cleared",
+    "ko-320: keyboard focus remains distinct",
+    "ko-320: keyboard replacement only changes requested slot",
+    "ko-320: reload preserves replaced icon",
+    "zh-CN-1440: three sockets inside upper-left frame",
+    "zh-CN-1440: vertical sockets, separate buttons",
+    "zh-CN-1440: no horizontal overflow",
+    "zh-CN-1440: default disabled with bright rim",
+    "zh-CN-1440: default golden item frame",
+    "zh-CN-1440: base filter preserved",
+    "zh-CN-1440: selected eligible Rune gets extra highlight",
+    "zh-CN-1440: Escape restores default",
+    "zh-CN-1440: drag highlights actual slot, no animation",
+    "zh-CN-1440: native drag cancellation makes no request",
+    "zh-CN-1440: busy disables highlighting and central item",
+    "zh-CN-1440: drop performs one slot install",
+    "zh-CN-1440: installed icon retained, available highlight cleared",
+    "zh-CN-1440: keyboard focus remains distinct",
+    "zh-CN-1440: keyboard replacement only changes requested slot",
+    "zh-CN-1440: reload preserves replaced icon",
+    "zh-CN-320: three sockets inside upper-left frame",
+    "zh-CN-320: vertical sockets, separate buttons",
+    "zh-CN-320: no horizontal overflow",
+    "zh-CN-320: default disabled with bright rim",
+    "zh-CN-320: default golden item frame",
+    "zh-CN-320: base filter preserved",
+    "zh-CN-320: selected eligible Rune gets extra highlight",
+    "zh-CN-320: Escape restores default",
+    "zh-CN-320: drag highlights actual slot, no animation",
+    "zh-CN-320: native drag cancellation makes no request",
+    "zh-CN-320: busy disables highlighting and central item",
+    "zh-CN-320: drop performs one slot install",
+    "zh-CN-320: installed icon retained, available highlight cleared",
+    "zh-CN-320: keyboard focus remains distinct",
+    "zh-CN-320: keyboard replacement only changes requested slot",
+    "zh-CN-320: reload preserves replaced icon",
+    "zh-TW-1440: three sockets inside upper-left frame",
+    "zh-TW-1440: vertical sockets, separate buttons",
+    "zh-TW-1440: no horizontal overflow",
+    "zh-TW-1440: default disabled with bright rim",
+    "zh-TW-1440: default golden item frame",
+    "zh-TW-1440: base filter preserved",
+    "zh-TW-1440: selected eligible Rune gets extra highlight",
+    "zh-TW-1440: Escape restores default",
+    "zh-TW-1440: drag highlights actual slot, no animation",
+    "zh-TW-1440: native drag cancellation makes no request",
+    "zh-TW-1440: busy disables highlighting and central item",
+    "zh-TW-1440: drop performs one slot install",
+    "zh-TW-1440: installed icon retained, available highlight cleared",
+    "zh-TW-1440: keyboard focus remains distinct",
+    "zh-TW-1440: keyboard replacement only changes requested slot",
+    "zh-TW-1440: reload preserves replaced icon",
+    "zh-TW-320: three sockets inside upper-left frame",
+    "zh-TW-320: vertical sockets, separate buttons",
+    "zh-TW-320: no horizontal overflow",
+    "zh-TW-320: default disabled with bright rim",
+    "zh-TW-320: default golden item frame",
+    "zh-TW-320: base filter preserved",
+    "zh-TW-320: selected eligible Rune gets extra highlight",
+    "zh-TW-320: Escape restores default",
+    "zh-TW-320: drag highlights actual slot, no animation",
+    "zh-TW-320: native drag cancellation makes no request",
+    "zh-TW-320: busy disables highlighting and central item",
+    "zh-TW-320: drop performs one slot install",
+    "zh-TW-320: installed icon retained, available highlight cleared",
+    "zh-TW-320: keyboard focus remains distinct",
+    "zh-TW-320: keyboard replacement only changes requested slot",
+    "zh-TW-320: reload preserves replaced icon",
+    "ja-1440: three sockets inside upper-left frame",
+    "ja-1440: vertical sockets, separate buttons",
+    "ja-1440: no horizontal overflow",
+    "ja-1440: default disabled with bright rim",
+    "ja-1440: default golden item frame",
+    "ja-1440: base filter preserved",
+    "ja-1440: selected eligible Rune gets extra highlight",
+    "ja-1440: Escape restores default",
+    "ja-1440: drag highlights actual slot, no animation",
+    "ja-1440: native drag cancellation makes no request",
+    "ja-1440: busy disables highlighting and central item",
+    "ja-1440: drop performs one slot install",
+    "ja-1440: installed icon retained, available highlight cleared",
+    "ja-1440: keyboard focus remains distinct",
+    "ja-1440: keyboard replacement only changes requested slot",
+    "ja-1440: reload preserves replaced icon",
+    "ja-320: three sockets inside upper-left frame",
+    "ja-320: vertical sockets, separate buttons",
+    "ja-320: no horizontal overflow",
+    "ja-320: default disabled with bright rim",
+    "ja-320: default golden item frame",
+    "ja-320: base filter preserved",
+    "ja-320: selected eligible Rune gets extra highlight",
+    "ja-320: Escape restores default",
+    "ja-320: drag highlights actual slot, no animation",
+    "ja-320: native drag cancellation makes no request",
+    "ja-320: busy disables highlighting and central item",
+    "ja-320: drop performs one slot install",
+    "ja-320: installed icon retained, available highlight cleared",
+    "ja-320: keyboard focus remains distinct",
+    "ja-320: keyboard replacement only changes requested slot",
+    "ja-320: reload preserves replaced icon",
+    "es-1440: three sockets inside upper-left frame",
+    "es-1440: vertical sockets, separate buttons",
+    "es-1440: no horizontal overflow",
+    "es-1440: default disabled with bright rim",
+    "es-1440: default golden item frame",
+    "es-1440: base filter preserved",
+    "es-1440: selected eligible Rune gets extra highlight",
+    "es-1440: Escape restores default",
+    "es-1440: drag highlights actual slot, no animation",
+    "es-1440: native drag cancellation makes no request",
+    "es-1440: busy disables highlighting and central item",
+    "es-1440: drop performs one slot install",
+    "es-1440: installed icon retained, available highlight cleared",
+    "es-1440: keyboard focus remains distinct",
+    "es-1440: keyboard replacement only changes requested slot",
+    "es-1440: reload preserves replaced icon",
+    "es-320: three sockets inside upper-left frame",
+    "es-320: vertical sockets, separate buttons",
+    "es-320: no horizontal overflow",
+    "es-320: default disabled with bright rim",
+    "es-320: default golden item frame",
+    "es-320: base filter preserved",
+    "es-320: selected eligible Rune gets extra highlight",
+    "es-320: Escape restores default",
+    "es-320: drag highlights actual slot, no animation",
+    "es-320: native drag cancellation makes no request",
+    "es-320: busy disables highlighting and central item",
+    "es-320: drop performs one slot install",
+    "es-320: installed icon retained, available highlight cleared",
+    "es-320: keyboard focus remains distinct",
+    "es-320: keyboard replacement only changes requested slot",
+    "es-320: reload preserves replaced icon",
+    "touch selection highlights sockets",
+    "touch installs once",
+    "no browser exceptions"
+  ],
+  "geometries": [
+    {
+      "label": "en-1440",
+      "slots": [
+        {
+          "x": 512.359375,
+          "y": 415.5625,
+          "width": 33,
+          "height": 33,
+          "inside": true
+        },
+        {
+          "x": 512.359375,
+          "y": 453.0625,
+          "width": 33,
+          "height": 33,
+          "inside": true
+        },
+        {
+          "x": 512.359375,
+          "y": 490.5625,
+          "width": 33,
+          "height": 33,
+          "inside": true
+        }
+      ],
+      "upperLeft": true,
+      "nested": false
+    },
+    {
+      "label": "en-320",
+      "slots": [
+        {
+          "x": 133.53125,
+          "y": 267.546875,
+          "width": 21,
+          "height": 21,
+          "inside": true
+        },
+        {
+          "x": 133.53125,
+          "y": 291.546875,
+          "width": 21,
+          "height": 21,
+          "inside": true
+        },
+        {
+          "x": 133.53125,
+          "y": 315.546875,
+          "width": 21,
+          "height": 21,
+          "inside": true
+        }
+      ],
+      "upperLeft": true,
+      "nested": false
+    },
+    {
+      "label": "ko-1440",
+      "slots": [
+        {
+          "x": 512.359375,
+          "y": 415.5625,
+          "width": 33,
+          "height": 33,
+          "inside": true
+        },
+        {
+          "x": 512.359375,
+          "y": 453.0625,
+          "width": 33,
+          "height": 33,
+          "inside": true
+        },
+        {
+          "x": 512.359375,
+          "y": 490.5625,
+          "width": 33,
+          "height": 33,
+          "inside": true
+        }
+      ],
+      "upperLeft": true,
+      "nested": false
+    },
+    {
+      "label": "ko-320",
+      "slots": [
+        {
+          "x": 133.53125,
+          "y": 267.546875,
+          "width": 21,
+          "height": 21,
+          "inside": true
+        },
+        {
+          "x": 133.53125,
+          "y": 291.546875,
+          "width": 21,
+          "height": 21,
+          "inside": true
+        },
+        {
+          "x": 133.53125,
+          "y": 315.546875,
+          "width": 21,
+          "height": 21,
+          "inside": true
+        }
+      ],
+      "upperLeft": true,
+      "nested": false
+    },
+    {
+      "label": "zh-CN-1440",
+      "slots": [
+        {
+          "x": 512.359375,
+          "y": 415.5625,
+          "width": 33,
+          "height": 33,
+          "inside": true
+        },
+        {
+          "x": 512.359375,
+          "y": 453.0625,
+          "width": 33,
+          "height": 33,
+          "inside": true
+        },
+        {
+          "x": 512.359375,
+          "y": 490.5625,
+          "width": 33,
+          "height": 33,
+          "inside": true
+        }
+      ],
+      "upperLeft": true,
+      "nested": false
+    },
+    {
+      "label": "zh-CN-320",
+      "slots": [
+        {
+          "x": 133.53125,
+          "y": 267.546875,
+          "width": 21,
+          "height": 21,
+          "inside": true
+        },
+        {
+          "x": 133.53125,
+          "y": 291.546875,
+          "width": 21,
+          "height": 21,
+          "inside": true
+        },
+        {
+          "x": 133.53125,
+          "y": 315.546875,
+          "width": 21,
+          "height": 21,
+          "inside": true
+        }
+      ],
+      "upperLeft": true,
+      "nested": false
+    },
+    {
+      "label": "zh-TW-1440",
+      "slots": [
+        {
+          "x": 512.359375,
+          "y": 415.5625,
+          "width": 33,
+          "height": 33,
+          "inside": true
+        },
+        {
+          "x": 512.359375,
+          "y": 453.0625,
+          "width": 33,
+          "height": 33,
+          "inside": true
+        },
+        {
+          "x": 512.359375,
+          "y": 490.5625,
+          "width": 33,
+          "height": 33,
+          "inside": true
+        }
+      ],
+      "upperLeft": true,
+      "nested": false
+    },
+    {
+      "label": "zh-TW-320",
+      "slots": [
+        {
+          "x": 133.53125,
+          "y": 267.546875,
+          "width": 21,
+          "height": 21,
+          "inside": true
+        },
+        {
+          "x": 133.53125,
+          "y": 291.546875,
+          "width": 21,
+          "height": 21,
+          "inside": true
+        },
+        {
+          "x": 133.53125,
+          "y": 315.546875,
+          "width": 21,
+          "height": 21,
+          "inside": true
+        }
+      ],
+      "upperLeft": true,
+      "nested": false
+    },
+    {
+      "label": "ja-1440",
+      "slots": [
+        {
+          "x": 512.359375,
+          "y": 415.5625,
+          "width": 33,
+          "height": 33,
+          "inside": true
+        },
+        {
+          "x": 512.359375,
+          "y": 453.0625,
+          "width": 33,
+          "height": 33,
+          "inside": true
+        },
+        {
+          "x": 512.359375,
+          "y": 490.5625,
+          "width": 33,
+          "height": 33,
+          "inside": true
+        }
+      ],
+      "upperLeft": true,
+      "nested": false
+    },
+    {
+      "label": "ja-320",
+      "slots": [
+        {
+          "x": 133.53125,
+          "y": 267.546875,
+          "width": 21,
+          "height": 21,
+          "inside": true
+        },
+        {
+          "x": 133.53125,
+          "y": 291.546875,
+          "width": 21,
+          "height": 21,
+          "inside": true
+        },
+        {
+          "x": 133.53125,
+          "y": 315.546875,
+          "width": 21,
+          "height": 21,
+          "inside": true
+        }
+      ],
+      "upperLeft": true,
+      "nested": false
+    },
+    {
+      "label": "es-1440",
+      "slots": [
+        {
+          "x": 512.359375,
+          "y": 415.5625,
+          "width": 33,
+          "height": 33,
+          "inside": true
+        },
+        {
+          "x": 512.359375,
+          "y": 453.0625,
+          "width": 33,
+          "height": 33,
+          "inside": true
+        },
+        {
+          "x": 512.359375,
+          "y": 490.5625,
+          "width": 33,
+          "height": 33,
+          "inside": true
+        }
+      ],
+      "upperLeft": true,
+      "nested": false
+    },
+    {
+      "label": "es-320",
+      "slots": [
+        {
+          "x": 133.53125,
+          "y": 287.9375,
+          "width": 21,
+          "height": 21,
+          "inside": true
+        },
+        {
+          "x": 133.53125,
+          "y": 311.9375,
+          "width": 21,
+          "height": 21,
+          "inside": true
+        },
+        {
+          "x": 133.53125,
+          "y": 335.9375,
+          "width": 21,
+          "height": 21,
+          "inside": true
+        }
+      ],
+      "upperLeft": true,
+      "nested": false
+    }
+  ],
+  "errors": [],
+  "passed": true
+}
