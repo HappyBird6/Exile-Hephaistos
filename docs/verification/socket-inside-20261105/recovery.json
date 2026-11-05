@@ -1,0 +1,15 @@
+{
+  "detectedServices": {
+    "app": {"id":"2a781b17a5a7956fdce4e555f6dad74a78e0d5b2f474999ad4e19e5fdcfcfba6","state":"exited","exitCode":137,"oomKilled":false},
+    "frontend": {"id":"c8fcfe26d4e0678e02e1efebed51ce7a12f38240aca338ea6564edc0d949e1b5","state":"exited","exitCode":0,"oomKilled":false},
+    "postgres": {"id":"0c5febf25519e70667658bc0ff15452f074a04b4a19dadf00b1a062c31b628be","state":"exited","exitCode":137,"oomKilled":false},
+    "redis": {"id":"ac679c135efc5f46d5c470b05091b7d1dcffebbdf24abcfa1c952d9d9748282f","state":"exited","exitCode":0,"oomKilled":false}
+  },
+  "eventWindowUtc":"2026-11-05T06:06:00Z/2026-11-05T06:08:00Z",
+  "observedEvents":"kill/stop/die; app and postgres included signal 9; no actor identifying the requester",
+  "initiator":"unknown",
+  "recovery":"Started existing containers; restarted the same app after its database and Redis were ready",
+  "databaseRedisAppIdsPreserved":true,
+  "dataResetOrDeletion":false,
+  "otherWorktreeServicesChanged":false
+}
