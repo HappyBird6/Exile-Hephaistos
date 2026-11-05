@@ -44,6 +44,31 @@ describe('Crafting workbench', () => {
     useItemDraft.getState().setBase()
     window.history.replaceState({}, '', '/')
   })
+  it('falls back from a saved explorer workspace without mounting or requesting it', () => {
+    const fetch = vi.fn(globalThis.fetch)
+    vi.stubGlobal('fetch', fetch)
+    localStorage.setItem(
+      'hephaistos.support.v1:workspace',
+      JSON.stringify({
+        version: 1,
+        savedAt: Date.now(),
+        data: 'explorer',
+      }),
+    )
+    show()
+    expect(
+      screen.getByRole('tab', { name: 'Crafting Workbench' }),
+    ).toHaveAttribute('aria-selected', 'true')
+    expect(screen.queryByRole('tab', { name: 'State explorer' })).toBeNull()
+    expect(document.getElementById('panel-explorer')).toBeNull()
+    expect(
+      vi
+        .mocked(fetch)
+        .mock.calls.some(([url]) =>
+          /\/(explore|transitions)$/.test(String(url)),
+        ),
+    ).toBe(false)
+  })
   it('shows the reduced Currency tab', () => {
     show()
     expect(document.querySelector('.craft-header .workspace-nav')).toBe(
@@ -64,7 +89,7 @@ describe('Crafting workbench', () => {
     expect(
       screen.queryByRole('button', { name: 'Scroll of Wisdom' }),
     ).not.toBeInTheDocument()
-    expect(screen.getAllByRole('tab')).toHaveLength(10)
+    expect(screen.getAllByRole('tab')).toHaveLength(9)
     expect(
       screen.getByRole('tab', { name: 'Crafting Workbench' }),
     ).toHaveAttribute('aria-selected', 'true')

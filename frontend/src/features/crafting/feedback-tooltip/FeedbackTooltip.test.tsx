@@ -215,7 +215,7 @@ it('preserves workspace inputs and keyboard focus without routing descriptions i
     document.querySelector('[data-material-tooltip="Chaos_Orb"]')!,
   )
   expect(screen.getByRole('tooltip')).toHaveClass('workbench-feedback-tooltip')
-  const explorer = screen.getByRole('tab', { name: /State explorer/ })
+  const explorer = screen.getByRole('tab', { name: /Craft Support/ })
   fireEvent.click(explorer)
   // Outside the manual workspace the context is disabled; standalone tooltip
   // producers keep their body portal (covered above), never the hidden outlet.

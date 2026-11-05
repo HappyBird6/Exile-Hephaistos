@@ -1,12 +1,13 @@
 import { socketText } from '../socketAugments'
 import { useState } from 'react'
-import { matchesGameName, useI18n } from '../../../shared/i18n/i18n'
+import { useI18n } from '../../../shared/i18n/i18n'
 import { CurrencyImage } from '../CurrencyImage'
 import { essenceGridRows, specialEssences } from '../materials'
 import type { MaterialTab } from '../materials'
 import { visibilityPolicy } from './visibilityPolicy'
 import type { WorkbenchResource, WorkbenchStashProps } from './stashTypes'
 import { stashDragType } from './stashDragType'
+import { matchesMaterial } from './materialSearch'
 import './workbenchStash.css'
 import '../workbench-scrollbar.css'
 
@@ -25,7 +26,7 @@ export function WorkbenchStash({
   onSelect,
   onPickUp,
 }: WorkbenchStashProps) {
-  const { t, name } = useI18n()
+  const { t, name, locale } = useI18n()
   const [searches, setSearches] = useState<
     Partial<Record<MaterialTab, string>>
   >({})
@@ -34,14 +35,16 @@ export function WorkbenchStash({
   const search = searches[activeTab] ?? ''
   const available = (resource: WorkbenchResource) =>
     !excluded.has(resource.id) && visibilityPolicy(resource)
+  const matches = (resource: WorkbenchResource) =>
+    available(resource) && matchesMaterial(resource, search, locale)
   const visible = resources.filter(
     (resource) =>
       resource.category === activeTab &&
       available(resource) &&
       !(resource.category === 'Currency' && fixedCurrencies.has(resource.id)) &&
-      matchesGameName(resource.id, resource.name, search),
+      matches(resource),
   )
-  const rows = essenceGridRows(search)
+  const rows = essenceGridRows(search, matches)
     .map((row) =>
       row.map((entry) =>
         entry
@@ -54,7 +57,7 @@ export function WorkbenchStash({
     .filter((row) => row.some(Boolean))
   const specials = specialEssences.flatMap((entry) => {
     const resource = resources.find(
-      (resource) => resource.id === entry.id && available(resource),
+      (resource) => resource.id === entry.id && matches(resource),
     )
     return resource ? [resource] : []
   })
@@ -141,16 +144,27 @@ export function WorkbenchStash({
         />
         <div className="workbench-stash__resources wb-scrollbar">
           {activeTab === 'Essence'
-            ? rows.map((row, index) => (
-                <div className="essence-row" key={index}>
-                  {row.map((entry, slot) =>
-                    entry ? resourceButton(entry) : <span key={slot} />,
-                  )}
-                </div>
-              ))
+            ? [...(specials.length ? [specials] : []), ...rows].map(
+                (row, index) => (
+                  <div
+                    className="essence-row"
+                    key={index}
+                    role={index === 0 && specials.length ? 'group' : undefined}
+                    aria-label={
+                      index === 0 && specials.length
+                        ? t('ui.special_essences')
+                        : undefined
+                    }
+                  >
+                    {row.map((entry, slot) =>
+                      entry ? resourceButton(entry) : <span key={slot} />,
+                    )}
+                  </div>
+                ),
+              )
             : visible.map(resourceButton)}
           {(activeTab === 'Essence'
-            ? rows.length === 0
+            ? rows.length === 0 && specials.length === 0
             : visible.length === 0) && (
             <p className="workbench-stash__empty">
               {t('ui.no_materials_found')}
@@ -158,15 +172,6 @@ export function WorkbenchStash({
           )}
         </div>
       </div>
-      {activeTab === 'Essence' && (
-        <div
-          className="workbench-stash__specials"
-          role="group"
-          aria-label={t('ui.special_essences')}
-        >
-          {specials.map(resourceButton)}
-        </div>
-      )}
     </section>
   )
 }

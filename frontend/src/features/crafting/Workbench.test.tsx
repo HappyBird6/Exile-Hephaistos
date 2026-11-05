@@ -44,7 +44,9 @@ function show() {
 }
 async function selectAndApply() {
   await waitFor(() =>
-    expect(client.getQueryData(['crafting', 'initial', 82])).toBeDefined(),
+    expect(
+      client.getQueryData(['crafting', 'initial', 'solar', 82, 'manual']),
+    ).toBeDefined(),
   )
   fireEvent.click(currencyButton('Orb of Transmutation'))
   fireEvent.click(
@@ -273,7 +275,9 @@ describe('Workbench actual application', () => {
     vi.stubGlobal('fetch', fixtureFetch)
     show()
     await waitFor(() =>
-      expect(client.getQueryData(['crafting', 'initial', 82])).toBeDefined(),
+      expect(
+        client.getQueryData(['crafting', 'initial', 'solar', 82, 'manual']),
+      ).toBeDefined(),
     )
     const currency = currencyButton('Orb of Transmutation')
     fireEvent.contextMenu(currency)

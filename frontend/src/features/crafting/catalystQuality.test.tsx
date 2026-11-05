@@ -232,7 +232,9 @@ it('applies a selected catalyst currency and restores its recorded quality on re
     )
   const view = show()
   await waitFor(() =>
-    expect(client.getQueryData(['crafting', 'initial', 82])).toBeDefined(),
+    expect(
+      client.getQueryData(['crafting', 'initial', 'solar', 82, 'manual']),
+    ).toBeDefined(),
   )
   fireEvent.click(outerMaterialTab('Catalysts'))
   fireEvent.contextMenu(screen.getByRole('button', { name: 'Flesh Catalyst' }))

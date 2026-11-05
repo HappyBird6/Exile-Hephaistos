@@ -8,7 +8,7 @@
 
 왼쪽 canvas의 열 비율은 `29 / 434 / 23 / 140 / 23 / 257 / 29`다. 즐겨찾기와 3개 컨트롤은 grid 3행의 2·4열을 공유한다. 6열의 `.workbench-stash-column`은 1–3행을 가로지르며 크기 격리로 catalog 내용이 canvas를 늘리지 않게 한다. 상단 margin은 원래 y40을 유지한다.
 
-재료 보관함은 검색·탭 아래 아이템을 최대 4행 높이로 표시한다. 이후 행은 같은 resources 영역에서 스크롤하며 Essence의 별도 특수 재료도 유지한다. 행 높이는 보관함 내부 폭에 따른 container query 단위를 사용한다. 피드백은 보관함 아래 남은 공간을 채운다. 실패 경고는 설명이 있을 때 최대 절반과 독립 스크롤을 유지한다. 이전 오른쪽 200px 고정 피드백 영역은 사용하지 않는다.
+재료 보관함은 검색·탭 아래 아이템을 최대 4행 높이로 표시한다. 이후 행은 같은 resources 영역에서 스크롤하며 특수 Essence 4개도 같은 스크롤 그리드 첫 행에 포함한다. 행 높이는 보관함 내부 폭에 따른 container query 단위를 사용한다. 피드백은 보관함 아래 남은 공간을 채운다. 실패 경고는 설명이 있을 때 최대 절반과 독립 스크롤을 유지한다. 이전 오른쪽 200px 고정 피드백 영역은 사용하지 않는다.
 
 오른쪽은 카드 아래 History가 남은 높이를 채운다. History 항목은 내용 높이로 배치하며 긴 기록은 내부 스크롤한다. canvas 하단 24px는 오른쪽 padding과 맞춘다. 좁은 화면에서는 두 열이 세로로 쌓이고, 컨트롤의 최소 208px를 공유 하단 행이 수용한다.
 
@@ -22,7 +22,7 @@
 
 놓기·해제·취소로 우선 재료가 없어지면 고정 설명을 지우고 이후 정상 hover 교체를 허용한다. workspace·locale, base revision, 활성 film·cursor, 재료 탭, 활성 징조, 아이템 입력 열기/닫기가 바뀌면 일반 설명을 초기화한다. 실제로 계속 들고 있는 재료가 있으면 새 context에서 그 재료 설명을 다시 고정한다. 성공 후 선택 해제·History/세션 복원 등은 Page의 기존 상태 전이를 따른다. hover는 실패 경고·아이템·활성 징조·저장 데이터를 변경하지 않는다. 실패 경고는 `applicationFailure`의 기존 수명과 `role=alert`로 설명과 공존한다.
 
-공유 패널 Escape는 설명을 해제하고, 필요한 경우 실제 source로 focus를 복귀한다. 이벤트 전파를 막지 않아 Page의 기존 selected/held 취소와 실패 해제도 실행된다. Provider는 탭 전환 때 remount하지 않는다. CraftSupport·Explorer 및 Provider가 없는 독립 사용은 기존 body portal/native title 경로를 유지한다.
+공유 패널 Escape는 설명을 해제하고, 필요한 경우 실제 source로 focus를 복귀한다. 이벤트 전파를 막지 않아 Page의 기존 selected/held 취소와 실패 해제도 실행된다. Provider는 탭 전환 때 remount하지 않는다. CraftSupport 및 Provider가 없는 독립 사용은 기존 body portal/native title 경로를 유지한다.
 
 ## 독립 베이스 미리보기
 
@@ -44,6 +44,18 @@
 | 독립 재료 tooltip #100f0ff5를 위 gradient 위에 합성 | 7.17–7.20:1 | 7.56–7.59:1 |
 
 합성 수치는 기존 CSS 색의 계산값이며 브라우저 pixel 측정은 아니다. 출처 링크 focus는 기존 밝은 outline, preview focus는 전역 `:focus-visible`을 사용한다. 자동 브라우저 QA·실제 장치·스크린리더 확인은 사용자 보류 범위다.
+
+## 후속 보관함·내비게이션 검증 · 2026-11-05
+
+기준은 소켓 구현 `3e012140`이며 이전 배치 `fbd0b9a5`를 포함한다. 특수 Essence는 같은 스크롤 그리드 첫 행으로 이동하고 이름·ID 외에 표시 툴팁 설명도 검색한다. 현지화 설명이 없으면 feedback과 같은 영어 fallback을 사용한다. 일반 Essence는 한 등급이 일치해도 Greater/Perfect 쌍을 유지한다. 헤더는 Workbench·Craft Support 두 탭과 관리자·언어 선택으로 구성하며 State Explorer 전용 화면·스타일을 제거했다. Workbench 적용·공유 전이 검증은 별도 테스트로 보존했다.
+
+- `npm ci`, lint, typecheck, format 검사와 Frontend build를 통과했다. 검색·보관함·소켓 집중 5 files / 53 tests가 통과했다.
+- 전체 Vitest는 172 files / 2997 tests 중 167 files / 2977 tests 통과, 20 tests 실패였다. 탐색기가 만들던 미사용 `initial` 캐시를 기다리는 테스트 11건은 실제 Workbench의 `['crafting', 'initial', 'solar', 82, 'manual']`로 대상을 수정했다. 해당 3 files / 27 tests가 이후 모두 통과했다. 제품 소스는 전체 검사 이후 변경하지 않았으며, 전체 재실행 결과로 합산하지 않는다.
+- 기존 입력 취소 focus 8개와 Sapphire 검증 1개는 유지한다. 앞선 배치와 소켓 검증에서 기준 구현에도 재현한 실패이며 skip·기대값 완화를 추가하지 않았다.
+- Frontend/Backend의 display source manifest에서 Page hash만 동기화했고 golden 출력은 유지했다. JDK 21 임시 컨테이너의 FrontendOptionGoldenTest·SocketAugmentsTest·ArchitectureTest가 통과했다. Backend 생산 소스는 소켓 커밋과 동일하므로 전체 Backend 검사는 반복하지 않았다. 기존 Backend 실패 기록은 `docs/verification/socket-augments-20261105`에 있다.
+- 실제 브라우저에서 1440px와 390px, 320px의 6개 언어를 확인했다. 특수 재료 첫 행·4행 스크롤·한국어 설명 검색·Augment 효과 검색·헤더·Home/End·관리자·제거된 탐색기 앵커를 검사했다.
+- app/frontend 이미지를 빌드해 기존 localhost:9000/9001에 반영했다. readiness UP, Frontend HTTP 200을 확인했다. 별도 Frontend 검증 origin의 Tasalian Greaves에서 소켓 추가, 설명 검색으로 Desert Rune 장착(+14% Fire Resistance), 새로고침 보존과 모바일을 확인했다. PostgreSQL·Redis·기존 볼륨은 보존한다.
+- 큰 bundle 경고와 jsdom drag의 `NaN` style 경고는 남는다. 소켓의 지원·계산 제한은 기존 명세를 유지한다. 아이템 텍스트 양방향 업데이트 및 새 세션 export/import는 시작하지 않았다.
 
 ## UI 배치 검증 · 2026-11-05
 

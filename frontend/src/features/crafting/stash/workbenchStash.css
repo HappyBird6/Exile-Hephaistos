@@ -162,12 +162,6 @@
   gap: 5px 3px;
   margin: 0;
 }
-.workbench-stash__specials {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 3px;
-  flex: none;
-}
 .workbench-stash__favorites .currency-name-fallback {
   font-size: 11px;
 }

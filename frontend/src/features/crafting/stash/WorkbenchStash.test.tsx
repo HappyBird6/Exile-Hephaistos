@@ -502,12 +502,15 @@ describe('right-hand controlled workbench stash', () => {
     expect(screen.getByRole('button', { name: 'Runic Alloy' })).toBeVisible()
   })
 
-  it('packs two tier pairs into four-column rows and keeps special essences separate', () => {
+  it('packs special essences first and then two tier pairs per scroll row', () => {
     render(<StashSurface {...props({ activeTab: 'Essence' })} />)
     expect(essenceGridRows('')).toHaveLength(10)
     expect(essenceGridRows('').flat().filter(Boolean)).toHaveLength(38)
     expect(essenceGridRows('')[9]?.slice(2)).toEqual([null, null])
-    expect(document.querySelectorAll('.essence-row')).toHaveLength(10)
+    expect(document.querySelectorAll('.essence-row')).toHaveLength(11)
+    expect(
+      document.querySelector('.workbench-stash__resources')!.firstElementChild,
+    ).toBe(screen.getByRole('group', { name: 'Special essences' }))
     expect(
       document.querySelector('.essence-row')?.querySelectorAll('button'),
     ).toHaveLength(4)

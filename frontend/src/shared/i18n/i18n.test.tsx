@@ -131,13 +131,13 @@ describe('locale infrastructure', () => {
     )
     const disclaimer =
       'Model probability uses published PoE2DB table weights, not verified game odds.'
-    for (const tab of ['Crafting Workbench', 'State explorer']) {
+    for (const tab of ['Crafting Workbench']) {
       fireEvent.click(screen.getByRole('tab', { name: new RegExp(tab) }))
       expect(screen.getByText(disclaimer)).toBeVisible()
     }
     fireEvent.click(screen.getByRole('tab', { name: 'Craft Support' }))
     expect(screen.queryByText(disclaimer)).not.toBeInTheDocument()
-    fireEvent.click(screen.getByRole('tab', { name: 'State explorer' }))
+    fireEvent.click(screen.getByRole('tab', { name: 'Crafting Workbench' }))
     fireEvent.click(screen.getByRole('button', { name: /Language/ }))
     fireEvent.click(screen.getByRole('menuitemradio', { name: '한국어' }))
     expect(

@@ -128,7 +128,9 @@ describe('Workbench extensions', () => {
     vi.stubGlobal('fetch', fixtureFetch)
     show()
     await waitFor(() =>
-      expect(client.getQueryData(['crafting', 'initial', 82])).toBeDefined(),
+      expect(
+        client.getQueryData(['crafting', 'initial', 'solar', 82, 'manual']),
+      ).toBeDefined(),
     )
     const sinistral = favoriteOmen('Omen of Sinistral Exaltation', 1)
     const dextral = favoriteOmen('Omen of Dextral Exaltation', 2)
@@ -214,7 +216,9 @@ describe('Workbench extensions', () => {
     })
     show()
     await waitFor(() =>
-      expect(client.getQueryData(['crafting', 'initial', 82])).toBeDefined(),
+      expect(
+        client.getQueryData(['crafting', 'initial', 'solar', 82, 'manual']),
+      ).toBeDefined(),
     )
     act(() =>
       client.setQueryData(

@@ -31,14 +31,14 @@ export function App() {
               <small>{t('ui.path_of_exile_2_crafting_workbench')}</small>
             </span>
           </a>
+          <nav className="workspace-nav" aria-label={t('ui.main_navigation')}>
+            <a href="/">{t('ui.crafting_workbench')}</a>
+            <a className="workspace-admin" href="/admin" aria-current="page">
+              {t('ui.admin')}
+            </a>
+          </nav>
           <LocaleSelector />
         </header>
-        <nav className="workspace-nav" aria-label={t('ui.main_navigation')}>
-          <a href="/">{t('ui.crafting_workbench')}</a>
-          <a className="workspace-admin" href="/admin" aria-current="page">
-            {t('ui.admin')}
-          </a>
-        </nav>
         <h1>{t('ui.admin')}</h1>
         <p>{t('ui.no_admin_tools_are_available_yet')}</p>
       </main>

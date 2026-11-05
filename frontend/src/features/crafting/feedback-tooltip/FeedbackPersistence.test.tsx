@@ -231,7 +231,7 @@ it('clears stale descriptions on material/workspace context changes and successf
   expect(shared()).toBeNull()
   expect(fetch.mock.calls).toHaveLength(requests)
   fireEvent.pointerOver(currencyButton('Chaos Orb'))
-  fireEvent.click(screen.getByRole('tab', { name: /State explorer/ }))
+  fireEvent.click(screen.getByRole('tab', { name: /Craft Support/ }))
   expect(shared()).toBeNull()
   fireEvent.click(screen.getByRole('tab', { name: /Crafting Workbench/ }))
   expect(shared()).toBeNull()

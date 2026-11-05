@@ -83,24 +83,43 @@ describe('Material stash and shared favorites', () => {
     ).not.toBeInTheDocument()
   })
 
-  it('keeps all four in-scope special essences in place during matching and empty searches', () => {
+  it('places special essences in the first scroll row and filters them with the rest of the catalog', () => {
     show()
     fireEvent.click(tab('Essence'))
-    const special = within(
-      screen.getByRole('group', { name: 'Special essences' }),
-    )
-    const buttons = special.getAllByRole('button')
-    for (const query of [
-      'greater essence of the body',
-      'hysteria',
-      'nonexistent',
-    ]) {
-      fireEvent.change(outerMaterialSearch(), {
-        target: { value: query },
-      })
-      expect(special.getAllByRole('button')).toEqual(buttons)
-    }
+    const list = document.querySelector('.workbench-stash__resources')!
+    const special = screen.getByRole('group', { name: 'Special essences' })
+    expect(list.firstElementChild).toBe(special)
+    expect(special).toHaveClass('essence-row')
+    expect(
+      within(special)
+        .getAllByRole('button')
+        .map((button) => button.getAttribute('data-material-tooltip')),
+    ).toEqual([
+      'Essence_of_Hysteria',
+      'Essence_of_Horror',
+      'Essence_of_the_Abyss',
+      'Essence_of_the_Breach',
+    ])
+    expect(document.querySelector('.workbench-stash__specials')).toBeNull()
+    fireEvent.change(outerMaterialSearch(), { target: { value: 'hysteria' } })
+    expect(within(list as HTMLElement).getAllByRole('button')).toHaveLength(1)
+    expect(
+      screen.getByRole('button', { name: 'Essence of Hysteria' }),
+    ).toBeVisible()
+    fireEvent.change(outerMaterialSearch(), {
+      target: { value: 'nonexistent' },
+    })
+    expect(within(list as HTMLElement).queryAllByRole('button')).toHaveLength(0)
     expect(screen.getByText('No materials found')).toBeVisible()
+    fireEvent.change(outerMaterialSearch(), {
+      target: { value: 'maximum Life' },
+    })
+    const body = screen.getByRole('button', {
+      name: 'Greater Essence of the Body',
+    })
+    expect(body.closest('.essence-row')).toContainElement(
+      screen.getByRole('button', { name: 'Perfect Essence of the Body' }),
+    )
   })
 
   it.each([
@@ -322,20 +341,15 @@ describe('Material stash and shared favorites', () => {
     expect(
       screen.queryByRole('heading', { name: 'Next possible states' }),
     ).not.toBeInTheDocument()
-    fireEvent.click(screen.getByRole('tab', { name: 'State explorer' }))
-    expect(
-      screen.getByRole('region', { name: 'Crafting probability explorer' }),
-    ).toContainElement(screen.getByRole('article'))
-    expect(
-      screen.getByRole('heading', { name: 'Next possible states' }),
-    ).toBeVisible()
+    expect(screen.queryByRole('tab', { name: 'State explorer' })).toBeNull()
+    expect(document.getElementById('panel-explorer')).toBeNull()
   })
 
   it('shows only the selected catalog while keeping ten favorites and the current card', () => {
     show()
     const card = screen.getByRole('article')
     for (const [label, count] of [
-      ['Essence', 38], // 19 ordinary families × two selectable tiers; special group is separate.
+      ['Essence', 42], // 19 ordinary pairs plus the four special essences in the same list.
       ['Alloy', 13],
       ['Omen', 18],
       ['Catalysts', 26],

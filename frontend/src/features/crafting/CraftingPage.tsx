@@ -94,7 +94,6 @@ import { materials, materialTabs } from './materials'
 import type { MaterialTab } from './materials'
 import { useItemDraft } from './draft'
 import { CraftSupport } from './CraftSupport'
-import { CraftingExplorer } from './CraftingExplorer'
 import { loadInitial } from './craftingApi'
 import {
   applyCurrency,
@@ -105,7 +104,6 @@ import {
   mapSolarText,
 } from './workbenchApi'
 import type { AppliedItem, MappingResult } from './workbenchApi'
-import type { Action } from './craftingApi'
 import {
   LocalFilmRepository,
   emptyFilms,
@@ -138,7 +136,7 @@ function tooltipEvents(id: string) {
   return { 'data-material-tooltip': id }
 }
 
-const workspaceTabs = ['workbench', 'support', 'explorer'] as const
+const workspaceTabs = ['workbench', 'support'] as const
 
 type Selection = { id: string; name: string; image: string }
 
@@ -678,10 +676,6 @@ export function CraftingPage() {
   const [sapphireAffix, setSapphireAffix] = useState(false)
   const [sapphireRoll, setSapphireRoll] = useState('2')
   const [baseChoice, setBaseChoice] = useState<WorkbenchBaseKey>('solar')
-  const [previewRequest, setPreviewRequest] = useState<{
-    count: number
-    action: Action | null
-  }>({ count: 0, action: null })
   const inputToggle = useRef<HTMLButtonElement>(null)
   const inputClose = useRef<HTMLButtonElement>(null)
 
@@ -1664,7 +1658,7 @@ export function CraftingPage() {
                     event.key === 'Home'
                       ? 'workbench'
                       : event.key === 'End'
-                        ? 'explorer'
+                        ? 'support'
                         : workspaceTabs[
                             (index +
                               (event.key === 'ArrowRight' ? 1 : -1) +
@@ -1678,7 +1672,6 @@ export function CraftingPage() {
                   document.getElementById(`workspace-${next}`)?.focus()
                 }}
               >
-                <span aria-hidden="true">0{index + 1}</span>
                 {t(`workspace.${tab}`)}
               </button>
             ))}
@@ -2473,7 +2466,6 @@ export function CraftingPage() {
                   ? Number(sapphireRoll)
                   : null,
               )
-              setPreviewRequest({ count: 0, action: null })
               setSelected(null)
               setLeftMenu(null)
             }}
@@ -2583,57 +2575,6 @@ export function CraftingPage() {
             </div>
           </dialog>
         </div>
-      </div>
-      <div
-        id="panel-explorer"
-        role="tabpanel"
-        aria-labelledby="workspace-explorer"
-        hidden={view !== 'explorer'}
-      >
-        <div className="explorer-toolbar">
-          <label>
-            {t('ui.starting_item_level')}
-            <input
-              type="number"
-              min="1"
-              max="100"
-              value={baseLevel}
-              disabled={workbenchBusy}
-              onChange={(event) => {
-                if (!mutationLocked()) setBaseLevel(event.target.value)
-              }}
-            />
-          </label>
-          <button
-            type="button"
-            disabled={
-              workbenchBusy ||
-              !Number.isInteger(Number(baseLevel)) ||
-              Number(baseLevel) < 1 ||
-              Number(baseLevel) > 100
-            }
-            onClick={() => {
-              if (mutationLocked()) return
-              void startBase(Number(baseLevel))
-              setPreviewRequest({ count: 0, action: null })
-            }}
-          >
-            {t('ui.start_new_solar_amulet', {
-              name: name('Solar_Amulet', 'Solar Amulet'),
-            })}
-          </button>
-        </div>
-        {draft.source === 'base' && catalogBase === 'solar' ? (
-          <CraftingExplorer
-            key={draft.baseRevision}
-            level={draft.baseItemLevel}
-            revision={draft.baseRevision}
-            requestCount={previewRequest.count}
-            requestedAction={previewRequest.action}
-          />
-        ) : (
-          <p>{t('notice.pasted_explorer')}</p>
-        )}
       </div>
       <div
         id="panel-support"

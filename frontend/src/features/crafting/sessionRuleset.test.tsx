@@ -1,7 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
-import { CraftingExplorer } from './CraftingExplorer'
 import { CraftSupport } from './CraftSupport'
 import {
   fixtureFetch,
@@ -89,99 +88,6 @@ function setup() {
   }
 }
 
-it('preserves Explorer state/history identity across refetch and isolates a new session from old query cache', async () => {
-  const { client, requests, change } = setup()
-  const page = render(
-    <QueryClientProvider client={client}>
-      <CraftingExplorer
-        level={82}
-        revision={1}
-        requestCount={0}
-        requestedAction={null}
-      />
-    </QueryClientProvider>,
-  )
-  fireEvent.click(
-    await screen.findByRole('button', { name: 'Preview Orb of Transmutation' }),
-  )
-  fireEvent.click(
-    (await screen.findAllByRole('button', { name: 'Explore this state' }))[0]!,
-  )
-  await screen.findByRole('button', { name: 'Preview Orb of Augmentation' })
-  const saved = structuredClone(
-    client.getQueryData(['crafting', 'current', 1, 0]),
-  )
-  const count = requests.length
-  change()
-  await act(async () => {
-    await client.refetchQueries({ queryKey: ['crafting', 'initial', 82] })
-  })
-  await waitFor(() =>
-    expect(
-      client.getQueryData<{ rulesetIdentity: string }>([
-        'crafting',
-        'initial',
-        82,
-      ])?.rulesetIdentity,
-    ).toBe(newIdentity),
-  )
-  await act(async () => {
-    fireEvent.click(
-      screen.getByRole('button', { name: 'Preview Orb of Augmentation' }),
-    )
-  })
-  expect(requests.slice(count)).toEqual([])
-  expect(await screen.findByRole('alert')).toHaveTextContent('ruleset changed')
-  expect(
-    screen.queryByRole('button', { name: 'Explore this state' }),
-  ).not.toBeInTheDocument()
-  expect(client.getQueryData(['crafting', 'current', 1, 0])).toEqual(saved)
-  expect(requests).toHaveLength(count)
-  fireEvent.click(screen.getByRole('button', { name: 'Return to step 1' }))
-  const restored = client.getQueryData<{ rulesetIdentity: string }>([
-    'crafting',
-    'current',
-    1,
-    0,
-  ])!
-  expect(restored.rulesetIdentity).toBe(oldIdentity)
-  expect(requests).toHaveLength(count)
-  fireEvent.click(
-    screen.getByRole('button', {
-      name: 'Start a new session with current rules',
-    }),
-  )
-  fireEvent.click(
-    await screen.findByRole('button', { name: 'Preview Orb of Transmutation' }),
-  )
-  await screen.findAllByRole('button', { name: 'Explore this state' })
-  expect(requests.at(-1)?.identity).toBe(newIdentity)
-  expect(
-    client.getQueryCache().find({
-      queryKey: [
-        'crafting',
-        'transitions',
-        oldIdentity,
-        'root',
-        'TRANSMUTATION',
-      ],
-    }),
-  ).toBeDefined()
-  expect(
-    client.getQueryCache().find({
-      queryKey: [
-        'crafting',
-        'transitions',
-        newIdentity,
-        'root',
-        'TRANSMUTATION',
-      ],
-    }),
-  ).toBeDefined()
-  page.unmount()
-  client.clear()
-})
-
 it('preserves edited modifier rolls and blocks starting after a ruleset change', async () => {
   const { client, requests, change } = setup()
   const page = render(
@@ -250,57 +156,6 @@ it('preserves CraftStart editor provenance and disables the old numeric input af
     target: { value: 'solar' },
   })
   await waitFor(() => expect(start).toBeEnabled())
-  page.unmount()
-  client.clear()
-})
-
-it('does not expose an Explorer response arriving after the session rules change', async () => {
-  const { client, change } = setup()
-  const originalFetch = globalThis.fetch
-  let finish!: (response: Response) => void
-  vi.stubGlobal(
-    'fetch',
-    vi.fn((url: RequestInfo | URL, init?: RequestInit) =>
-      String(url).endsWith('/transitions')
-        ? new Promise<Response>((resolve) => {
-            finish = resolve
-          })
-        : originalFetch(url, init),
-    ),
-  )
-  const page = render(
-    <QueryClientProvider client={client}>
-      <CraftingExplorer
-        level={82}
-        revision={1}
-        requestCount={0}
-        requestedAction={null}
-      />
-    </QueryClientProvider>,
-  )
-  fireEvent.click(
-    await screen.findByRole('button', { name: 'Preview Orb of Transmutation' }),
-  )
-  await screen.findByRole('button', { name: 'Cancel preview' })
-  change()
-  await act(async () => {
-    await client.refetchQueries({ queryKey: ['crafting', 'initial', 82] })
-  })
-  await screen.findByRole('alert')
-  await act(async () => {
-    finish(
-      await fixtureFetch('/api/v1/crafting/transitions', {
-        body: JSON.stringify({
-          state: initialFixture.state,
-          action: 'TRANSMUTATION',
-        }),
-      }),
-    )
-  })
-  expect(
-    screen.queryByRole('button', { name: 'Explore this state' }),
-  ).not.toBeInTheDocument()
-  expect(screen.getByRole('alert')).toHaveTextContent('ruleset changed')
   page.unmount()
   client.clear()
 })

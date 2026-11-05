@@ -1142,7 +1142,11 @@ export function isSelectableMaterial(material: {
   )
 }
 
-export function essenceRows(query: string): (Material | null)[][] {
+export function essenceRows(
+  query: string,
+  matches: (material: Material) => boolean = (material) =>
+    matchesGameName(material.id, material.name, query),
+): (Material | null)[][] {
   const regular = materials.filter(
     (m) =>
       inServiceScope(m.id) &&
@@ -1161,13 +1165,16 @@ export function essenceRows(query: string): (Material | null)[][] {
         return regular.find((m) => m.id === prefix + family) ?? null
       }),
     )
-    .filter((row) => row.some((m) => m && matchesGameName(m.id, m.name, query)))
+    .filter((row) => row.some((m) => m && matches(m)))
 }
 
 // Two adjacent family pairs per row: Greater/Perfect, Greater/Perfect.
 // Family matching still keeps both supported tiers together.
-export function essenceGridRows(query: string): (Material | null)[][] {
-  const pairs = essenceRows(query)
+export function essenceGridRows(
+  query: string,
+  matches?: (material: Material) => boolean,
+): (Material | null)[][] {
+  const pairs = essenceRows(query, matches)
   return Array.from({ length: Math.ceil(pairs.length / 2) }, (_, index) => [
     ...pairs[index * 2]!,
     ...(pairs[index * 2 + 1] ?? [null, null]),

@@ -58,7 +58,7 @@ it('shows the starting workflow without developer policy, recovery or family com
       ),
   ).toBe(false)
 })
-it('uses keyboard navigation across all three services', () => {
+it('uses keyboard navigation between the two workspaces', () => {
   show()
   const bench = screen.getByRole('tab', { name: 'Crafting Workbench' })
   bench.focus()
@@ -67,5 +67,11 @@ it('uses keyboard navigation across all three services', () => {
   fireEvent.keyDown(screen.getByRole('tab', { name: 'Craft Support' }), {
     key: 'ArrowRight',
   })
-  expect(screen.getByRole('tab', { name: 'State explorer' })).toHaveFocus()
+  expect(bench).toHaveFocus()
+  fireEvent.keyDown(bench, { key: 'End' })
+  expect(screen.getByRole('tab', { name: 'Craft Support' })).toHaveFocus()
+  fireEvent.keyDown(screen.getByRole('tab', { name: 'Craft Support' }), {
+    key: 'Home',
+  })
+  expect(bench).toHaveFocus()
 })

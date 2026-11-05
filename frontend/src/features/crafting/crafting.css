@@ -1084,8 +1084,7 @@ dialog.item-input-panel::backdrop {
   flex-wrap: wrap;
 }
 .workspace-nav button,
-.workspace-nav a,
-.explorer-toolbar button {
+.workspace-nav a {
   background: #20251f;
   color: #b6b7a9;
   border: 1px solid #494737;
@@ -1103,18 +1102,13 @@ dialog.item-input-panel::backdrop {
   background: #34382a;
   border-bottom: 2px solid #d7bc82;
 }
-.workspace-nav button span {
-  margin-right: 12px;
-  color: #9e8960;
-}
 .workspace-nav button[aria-selected='true'] {
   color: #efdcad;
   background: #34382a;
   border-bottom: 2px solid #d7bc82;
 }
 .workspace-nav button:focus-visible,
-.workspace-nav a:focus-visible,
-.explorer-toolbar button:focus-visible {
+.workspace-nav a:focus-visible {
   outline: 2px solid #d7bc82;
   outline-offset: 3px;
 }
@@ -1123,29 +1117,6 @@ dialog.item-input-panel::backdrop {
 }
 [hidden] {
   display: none !important;
-}
-.explorer-toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: end;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-.explorer-toolbar label {
-  display: grid;
-  gap: 8px;
-  color: #b6b7a9;
-}
-.explorer-toolbar input {
-  background: #191d1b;
-  color: #efdcad;
-  padding: 10px;
-  border: 1px solid #655b43;
-  border-radius: 6px;
-  width: 120px;
-}
-.explorer-toolbar button {
-  border-radius: 6px;
 }
 @media (max-width: 600px) {
   .workspace-nav button {
@@ -1158,9 +1129,6 @@ dialog.item-input-panel::backdrop {
   }
   .workspace-nav {
     flex-wrap: wrap;
-  }
-  .workspace-nav button span {
-    margin-right: 6px;
   }
   .craft-title {
     flex-wrap: wrap;
@@ -1366,23 +1334,73 @@ dialog.item-input-panel::backdrop {
   outline-offset: -2px;
 }
 
+/* Shared header: brand, workspace navigation and language selector. */
+.craft-header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 20px;
+}
+.craft-brand,
+.craft-brand > span:last-child {
+  min-width: 0;
+}
 .craft-header .workspace-nav {
-  flex: 1 1 40rem;
   min-width: 0;
   align-items: center;
   flex-wrap: wrap;
-  padding-top: 0;
-  gap: 8px;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  gap: 12px;
   white-space: normal;
   font: inherit;
 }
 .craft-header .workspace-nav [role='tablist'] {
   min-width: 0;
+  flex-wrap: nowrap;
+  gap: 4px;
 }
+.craft-header .workspace-nav button,
 .craft-header .workspace-nav a {
-  color: #b6b7a9;
+  min-width: 0;
+  padding: 10px 14px;
+  border-radius: 6px;
+  text-align: center;
+  overflow-wrap: anywhere;
 }
-.craft-header .workspace-nav button span {
-  display: inline;
-  color: #9e8960;
+.craft-header .workspace-admin {
+  margin-left: 0;
+  background: transparent;
+}
+@media (max-width: 800px) {
+  .craft-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 14px 10px;
+  }
+  .craft-header .workspace-nav {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    gap: 6px;
+  }
+  .craft-header .workspace-nav [role='tablist'] {
+    flex: 1;
+  }
+  .craft-header .workspace-nav button {
+    flex: 1;
+    padding: 10px 8px;
+  }
+  .craft-header .chaos-repeat-language-lock,
+  .craft-header > .locale-selector {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .craft-brand {
+    gap: 10px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+  }
+  .craft-brand small {
+    letter-spacing: 0.08em;
+  }
 }
