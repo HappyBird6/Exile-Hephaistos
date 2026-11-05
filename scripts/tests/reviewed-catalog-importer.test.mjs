@@ -1,11 +1,11 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import fs from 'node:fs'
+import fs from '../evidence-files.cjs'
 import { createDisplayBinder, orderedSpawnEligible } from '../reviewed-catalog-importer.mjs'
 import { cleanSource } from '../armour-source.mjs'
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'))
-const old=read('docs/evidence/base-registry-refactor-2026-10-05/importer-baseline.json')
-const contexts=read('docs/evidence/base-registry-refactor-2026-10-05/importer-before-context.json')
+const old=read('docs/evidence/0.5.5/tooling/catalog-import/base-registry-refactor-importer-baseline.json')
+const contexts=read('docs/evidence/0.5.5/tooling/catalog-import/base-registry-refactor-importer-before-context.json')
 const locales={en:'us',ko:'kr',ja:'jp','zh-CN':'cn','zh-TW':'tw',es:'sp'}
 test('ordered spawn uses the first matched source tag, including explicit denial',()=>{
  assert.equal(orderedSpawnEligible({url:'source',spawn:[{tag:'staff',weight:0},{tag:'weapon',weight:100}]},['staff','weapon']),false)
@@ -22,7 +22,7 @@ for(const [namespace,pages]of Object.entries({maces:['One_Hand_Maces','Two_Hand_
  const shared=createDisplayBinder(newDisplay,Object.keys(locales),namespace)
  let count=0
  for(const [index,page]of pages.entries()) {
-  const root=`docs/evidence/${namespace}-source-bundle-2026-10-05`
+  const root=`evidence:${namespace}-source`
   const rows=read(`${root}/${page}.us.json`).data.normal
   for(let i=0;i<rows.length;i++) {
    const detail=read(`${root}/details/${page}/normal-${i}.json`)

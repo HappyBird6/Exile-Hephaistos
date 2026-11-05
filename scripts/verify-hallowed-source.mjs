@@ -1,9 +1,9 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { cleanSource as clean } from './armour-source.mjs'
 const read = p => JSON.parse(fs.readFileSync(p, 'utf8'))
-const root = 'docs/evidence/hallowed-source-bundle-2026-10-04'
+const root = 'evidence:hallowed-source'
 const c = read('backend/src/main/resources/catalog/hallowed-sceptre/catalog.json')
 for (const [file, digest] of [['base.raw.json', c.metadata.rawSha256], ['details.raw.json', c.metadata.detailsSha256]]) assert.equal(crypto.createHash('sha256').update(fs.readFileSync('backend/src/main/resources/catalog/hallowed-sceptre/' + file)).digest('hex'), digest)
 const display = read('frontend/src/shared/i18n/modifierTemplates.json')

@@ -1,7 +1,7 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import {cleanSource as clean} from './armour-source.mjs'
-const root='docs/evidence/quivers-source-bundle-2026-10-05'
+const root='evidence:quivers-source'
 const manifest=JSON.parse(fs.readFileSync('frontend/src/features/crafting/topBases.json','utf8'))
 const report=[]
 for(const b of Object.values(manifest).filter(b=>b.family==='quivers')) {

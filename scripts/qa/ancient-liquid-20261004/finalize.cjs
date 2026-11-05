@@ -1,4 +1,4 @@
-const fs=require('fs'),path=require('path'),crypto=require('crypto'),cp=require('child_process'),assert=require('assert/strict');
+const fs=require('../../evidence-files.cjs'),path=require('path'),crypto=require('crypto'),cp=require('child_process'),assert=require('assert/strict');
 const root=path.resolve('../ancient-liquid-20261004'),sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
 function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(dir+'/'+e.name):[dir+'/'+e.name])}
 const own=[...new Set([...cp.execFileSync('git',['diff','--name-only'],{encoding:'utf8'}).trim().split('\n'),...cp.execFileSync('git',['ls-files','--others','--exclude-standard'],{encoding:'utf8'}).trim().split('\n')])];
@@ -20,4 +20,4 @@ evidence.failureHistory.push(
  {log:'frontend-check-2.log',failure:'Historic ordinary translation inventory count included new Time-Lost bindings',resolution:'Kept ordinary1485/Basic392 assertions and added exact Time-Lost400 catalog identity and all-locale coverage'},
  {log:'ancient-api-failure-1.json',failure:'Harness omitted nullable catalystQuality but API returns explicit null',resolution:'Constructed fully canonical synthetic before state; retained exact no-spend equality'}
 );
-fs.writeFileSync('docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json',JSON.stringify(evidence,null,2)+'\n');console.log({tests,frontend:evidence.frontend,api:evidence.api,browser:evidence.browser.checks,compared:compared.length});
+fs.writeFileSync('evidence:general/workbench-ancient-liquid-validation.json',JSON.stringify(evidence,null,2)+'\n');console.log({tests,frontend:evidence.frontend,api:evidence.api,browser:evidence.browser.checks,compared:compared.length});

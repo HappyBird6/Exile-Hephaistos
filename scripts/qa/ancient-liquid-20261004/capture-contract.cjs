@@ -1,4 +1,4 @@
-const fs=require('fs');
+const fs=require('../../evidence-files.cjs');
 const root='../ancient-liquid-20261004/';
 const api=JSON.parse(fs.readFileSync(root+'api-results.json'));
 const seen=new Set(),captures=[];

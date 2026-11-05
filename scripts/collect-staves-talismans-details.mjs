@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { cleanSource as clean } from './armour-source.mjs'
-const root = 'docs/evidence/staves-talismans-source-bundle-2026-10-05'
+const root = 'evidence:staves-talismans-source'
 fs.mkdirSync(`${root}/details`, { recursive: true })
 for (const page of ['Staves', 'Talismans']) {
 const data = JSON.parse(fs.readFileSync(`${root}/${page}.us.json`, 'utf8')).data

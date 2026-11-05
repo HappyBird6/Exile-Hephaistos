@@ -1,7 +1,7 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import {execFileSync} from 'node:child_process'
-const q='E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004',out='docs/evidence/amulets-runtime-bundle-2026-10-04/qa-release.json'
+const q='E:/WORK/Exile-Hephaistos/codex/amulets-qa-20261004',out='evidence:amulets-runtime/qa-release.json'
 assert(!fs.existsSync(out),'Preserve prior output')
 const expected=['c8e74d399af207f171b43577a6106ebd341942ca00658a246dc8dfa55a9c83b4','c4bbebf6e190002f7536eaa9b60aac1df4d684a7287d7d75470a491fc2c4a408','747188687b03c214715c9ab66d6286fd890bba81d6247c618e5afd39d32c0eba','9f0962732bc25e1b9e06acbac0fe47fd43e33a835e304962081e7c09a9222a1f']
 const live=expected.map(id=>{

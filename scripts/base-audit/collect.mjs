@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from '../evidence-files.cjs'
 import { createHash } from 'node:crypto'
 import assert from 'node:assert/strict'
 import { cleanSource as clean } from '../armour-source.mjs'
-const root = 'docs/evidence/base-audit-20261102'
+const root = 'evidence:base-audit'
 const plan = JSON.parse(fs.readFileSync(`${root}/plan.json`))
 const slugs = process.argv.slice(2).length ? process.argv.slice(2) : plan.collect
 const jobs = slugs.flatMap((slug) => ['us','kr','jp','cn','tw','sp'].map((locale) => ({ slug, locale })))

@@ -1,0 +1,46 @@
+{
+  "url": "https://poe2db.tw/us/Grasping_Ring",
+  "sha256": "ba1f28e0c72acf4cf4be8ac7e988b77e7d893984ecfd6e626426c542612dc2f6",
+  "variants": [
+    {
+      "name": "Grasping Ring",
+      "card": "Grasping Ring\n        \n    \n    \n        \n            RingsRequires:  Level 40This item gains bonuses from Socketed Items as though it was Gloves\n        \n\n        \n        \n            Seek all that is, so it may become ours.",
+      "requirements": "Requires:  Level 40",
+      "fields": {
+        "DropLevel": "40",
+        "BaseType": "Grasping Ring",
+        "Class": "Rings",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRingB6",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/BreachlordRing_Formless",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "This item gains bonuses from Socketed Items as though it was Gloves",
+      "family": "LocalItemBenefitSocketableAsIf",
+      "tags": [],
+      "stats": [
+        {
+          "id": "local_item_benefit_socketable_as_if_gloves",
+          "min": 1,
+          "max": 1,
+          "locality": "Local"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>This item gains bonuses from Socketed Items as though it was Gloves</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>LocalItemBenefitSocketableAsIf\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Unique (3)\n<tr><th>Req. level<td>50 (Effective: 40)\n<tr><th>Stats<td><li>local item benefit socketable as if gloves <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 1</span> <span class=\"badge bg-secondary\">Local</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/BreachlordRing_Formless.webp"
+}

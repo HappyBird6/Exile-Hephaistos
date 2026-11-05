@@ -1,0 +1,50 @@
+{
+  "url": "https://poe2db.tw/cn/Oneiric_Ring",
+  "sha256": "020a3963d45784d88f5605296ac3d57d7837265ea1c1f125ca8caf6f6660d69f",
+  "variants": [
+    {
+      "name": "幻梦戒指",
+      "card": "幻梦戒指\n        \n    \n    \n        \n            戒指需求：  等级 47混沌伤害提高 (11—23)%\n        \n\n        \n        \n            吞噬梦境，因为我们必须。\n        \n\n\n        \n            Oneiric Ring",
+      "requirements": "需求：  等级 47",
+      "fields": {
+        "DropLevel": "47",
+        "BaseType": "幻梦戒指",
+        "Class": "戒指",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRingB5",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/BreachlordRing_Chayula",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "混沌伤害提高 (11—23)%",
+      "family": "IncreasedChaosDamage",
+      "tags": [
+        "chaos_damage",
+        "伤害",
+        "混沌"
+      ],
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 11,
+          "max": 23,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Chaos\" href=\"Chaos_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/9e5527e6c18af5d0d568ca874e35f6313dfdd8cd73d55c1cb6595a59ac6265dc\">混沌</a>伤害提高 <span class='mod-value'>(11<span class=\"ndash\">—</span>23)</span>%</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>IncreasedChaosDamage\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>传奇 (3)\n<tr><th>Req. level<td>59 (Effective: 47)\n<tr><th>Stats<td><li>chaos damage +% <span class=\"badge bg-primary\">11 <span class=\"ndash\">—</span> 23</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>chaos_damage</i></span> <span class='badge bg-primary'>伤害</span> <span class='badge bg-primary'>混沌</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/BreachlordRing_Chayula.webp"
+}

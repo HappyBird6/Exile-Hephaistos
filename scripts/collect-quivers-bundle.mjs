@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { cleanSource as clean } from './armour-source.mjs'
-const root = 'docs/evidence/quivers-source-bundle-2026-10-05'
+const root = 'evidence:quivers-source'
 fs.mkdirSync(root, { recursive: true })
 for (const locale of ['us', 'kr', 'jp', 'cn', 'tw', 'sp']) {
   for (const slug of ['Visceral_Quiver','Volant_Quiver','Penetrating_Quiver','Primed_Quiver','Serrated_Quiver','Toxic_Quiver','Blunt_Quiver','Two-Point_Quiver','Sacral_Quiver','Fire_Quiver','Broadhead_Quiver','Quivers']) {

@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import {execFileSync} from 'node:child_process'
 const root='/qa/importer-replay-1';assert(!fs.existsSync(root),'Preserve replay output');fs.mkdirSync(root)
-for(const p of ['backend/src/main/resources/catalog','backend/src/main/resources/crafting','frontend/src/shared/i18n','docs/evidence/amulets-source-bundle-2026-10-04'])fs.cpSync('/source/'+p,root+'/'+p,{recursive:true})
+for(const p of ['backend/src/main/resources/catalog','backend/src/main/resources/crafting','frontend/src/shared/i18n','evidence:amulets-source'])fs.cpSync('/source/'+p,root+'/'+p,{recursive:true})
 fs.mkdirSync(root+'/frontend/src/features/crafting',{recursive:true})
 const files=['backend/src/main/resources/catalog/top-bases.json','backend/src/main/resources/catalog/top-base-essences.json','backend/src/main/resources/crafting/registry-v2.json','frontend/src/shared/i18n/gameTerms.json','frontend/src/shared/i18n/modifierTemplates.json']
 const before=Object.fromEntries(files.map(p=>[p,JSON.parse(fs.readFileSync(root+'/'+p))]))

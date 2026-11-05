@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 const q='E:/WORK/Exile-Hephaistos/codex/base-registry-qa-20261005'
@@ -17,5 +17,5 @@ for(const path of files) {
  proof.push({path,sha256:hash(actual)})
 }
 assert.equal(hash(fs.readFileSync(`${q}/poe2craft.jar`)),hash(fs.readFileSync(`${q}/backend-check/build/libs/poe2craft.jar`)))
-fs.writeFileSync('docs/evidence/base-registry-refactor-2026-10-05/final-qa-inputs.json',JSON.stringify({passed:true,sourceInputs:proof.length,runtimeJar:hash(fs.readFileSync(`${q}/poe2craft.jar`)),files:proof},null,2)+'\n',{flag:'wx'})
+fs.writeFileSync('evidence:base-registry-refactor/final-qa-inputs.json',JSON.stringify({passed:true,sourceInputs:proof.length,runtimeJar:hash(fs.readFileSync(`${q}/poe2craft.jar`)),files:proof},null,2)+'\n',{flag:'wx'})
 console.log(proof.length,'source inputs exactly match checked/built source;runtime jar matches build')

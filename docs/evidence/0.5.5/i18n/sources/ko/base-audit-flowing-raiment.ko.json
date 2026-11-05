@@ -1,0 +1,48 @@
+{
+  "url": "https://poe2db.tw/kr/Flowing_Raiment",
+  "sha256": "0c452fc8b3774aaaacafffe358b018e18fbffba38de6a44f62bede6abbee23f3",
+  "variants": [
+    {
+      "name": "흐르는 의복",
+      "card": "흐르는 의복\n        \n    \n    \n        \n            갑옷에너지 보호막: 153Base Movement Speed: -0.03요구 사항:  레벨 70, 121 지능마나 재생 속도 (40—50)% 증가\n        \n\n\n\n        \n            Flowing Raiment",
+      "requirements": "요구 사항:  레벨 70, 121 지능",
+      "fields": {
+        "DropLevel": "70",
+        "BaseType": "흐르는 의복",
+        "Class": "갑옷",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyInt6Endgame",
+        "Tags": "int_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyInt06",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "마나 재생 속도 (40—50)% 증가",
+      "family": "ManaRegeneration",
+      "tags": [
+        "resource",
+        "마나"
+      ],
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 40,
+          "max": 50,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>마나 재생 속도 <span class='mod-value'>(40<span class=\"ndash\">—</span>50)</span>% 증가</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>ManaRegeneration\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>mana regeneration rate +% <span class=\"badge bg-primary\">40 <span class=\"ndash\">—</span> 50</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>마나</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyInt06.webp"
+}

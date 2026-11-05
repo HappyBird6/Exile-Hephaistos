@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { execFileSync } from 'node:child_process'
@@ -29,7 +29,7 @@ for(const entry of oldRegistry.entries) {
 }
 assert.equal(registry.entries.filter(e=>e.serviceScope==='DEFERRED').length,50)
 results.checks.push('Historical templates/names/registry entries/deferred50 identical except six supported-base additions')
-const root='docs/evidence/maces-source-bundle-2026-10-05'
+const root='evidence:maces-source'
 for(const file of fs.readdirSync(root).filter(f=>f.endsWith('.html'))) {
   const bytes=fs.readFileSync(`${root}/${file}`),digest=crypto.createHash('sha256').update(bytes).digest('hex')
   assert.equal(digest,read(`${root}/${file.replace('.html','.json')}`).sha256)

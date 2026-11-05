@@ -1,4 +1,4 @@
-const fs=require('fs'),assert=require('assert/strict');
+const fs=require('../../evidence-files.cjs'),assert=require('assert/strict');
 const p='backend/src/main/resources/crafting/registry-v2.json',r=JSON.parse(fs.readFileSync(p));
 const types=['FLESH','NEURAL','CARAPACE','UUL_NETOL','XOPH','TUL','ESH','CHAYULA','REAVER','SIBILANT','SKITTERING','ADAPTIVE','NECROTIC'];
 const rows=r.entries.filter(e=>e.category==='CATALYST');assert.equal(rows.length,26);
@@ -10,7 +10,7 @@ for(const [i,e] of rows.entries()){
  e.supportedBases=refined?['ruby','emerald','sapphire','diamond']:['solar','ring'];
  e.reason=refined?'Reviewed Basic Jewels only; Time-Lost source lacks jewel_catalyst. Ordinary Catalyst targets remain excluded.':'Reviewed Solar Amulet and Iron Ring only; other item classes and all Jewels remain excluded.';
  e.ruleSource=e.sourceUrl;e.ruleVerifiedAt='2026-10-04';
- e.verificationEvidence=['docs/evidence/workbench-quality-preserve-validation-2026-10-04.json','docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json'];
+ e.verificationEvidence=['evidence:general/workbench-quality-preserve-validation.json','evidence:general/workbench-ancient-liquid-validation.json'];
  e.qualityPolicy='Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.';
 }
 const s=r.serviceScope,active=r.entries.filter(e=>e.serviceScope==='ACTIVE'),implemented=active.filter(e=>e.effectStatus==='IMPLEMENTED');

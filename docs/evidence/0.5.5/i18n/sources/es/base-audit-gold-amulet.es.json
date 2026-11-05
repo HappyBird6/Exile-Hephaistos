@@ -1,0 +1,48 @@
+{
+  "url": "https://poe2db.tw/sp/Gold_Amulet",
+  "sha256": "857ecf1509a2e72d47a22b2a45df12af88124119db96757dd0c243152d68cece",
+  "variants": [
+    {
+      "name": "Amuleto de oro",
+      "card": "Amuleto de oro\n        \n    \n    \n        \n            AmuletosRequiere:  Nivel 35Rareza de los objetos encontrados aumentada un (12—20)%\n        \n\n\n\n        \n            Gold Amulet",
+      "requirements": "Requiere:  Nivel 35",
+      "fields": {
+        "DropLevel": "35",
+        "BaseType": "Amuleto de oro",
+        "Class": "Amuletos",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmulet10",
+        "Tags": "amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/GoldAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "Rareza de los objetos encontrados aumentada un (12—20)%",
+      "family": "ItemFoundRarityIncrease",
+      "tags": [
+        "drop"
+      ],
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 12,
+          "max": 20,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"ItemRarity\" href=\"Item_Rarity\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FItemRarity\">Rareza de los objetos</a> encontrados aumentada un <span class='mod-value'>(12<span class=\"ndash\">—</span>20)</span>%</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>ItemFoundRarityIncrease\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>único (3)\n<tr><th>Req. level<td>44 (Effective: 35)\n<tr><th>Stats<td><li>base item found rarity +% <span class=\"badge bg-primary\">12 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>drop</i></span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/GoldAmulet.webp"
+}

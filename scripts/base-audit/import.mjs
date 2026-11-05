@@ -1,9 +1,9 @@
 // Reviewed base identities/implicits from source; explicit pools remain the existing sealed snapshot.
-import fs from 'node:fs'
+import fs from '../evidence-files.cjs'
 import assert from 'node:assert/strict'
 import { createHash } from 'node:crypto'
 import { cleanSource as clean } from '../armour-source.mjs'
-const root = 'docs/evidence/base-audit-20261102'
+const root = 'evidence:base-audit'
 const read = (path) => JSON.parse(fs.readFileSync(path, 'utf8'))
 const json = (value) => JSON.stringify(value, null, 2) + '\n'
 const hash = (value) => createHash('sha256').update(value).digest('hex')

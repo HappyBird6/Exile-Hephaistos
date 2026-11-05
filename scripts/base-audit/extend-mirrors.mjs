@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from '../evidence-files.cjs'
 const read = (file) => JSON.parse(fs.readFileSync(file,'utf8'))
 const write = (file,value) => fs.writeFileSync(file,JSON.stringify(value,null,2)+'\n')
 const bases = read('backend/src/main/resources/catalog/top-bases.json')
-const summary = read('docs/evidence/base-audit-20261102/import-summary.json')
+const summary = read('evidence:base-audit/import-summary.json')
 const canonical = read('backend/src/main/resources/catalog/manual-reveal.json')
 const front = read('frontend/src/features/crafting/manualRevealDefinitions.json')
 const sets = read('backend/src/main/resources/crafting/supported-base-sets-v1.json')

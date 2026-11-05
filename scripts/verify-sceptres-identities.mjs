@@ -1,13 +1,13 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
-const root='docs/evidence/sceptres-source-bundle-2026-10-05'
+const root='evidence:sceptres-source'
 const identities=JSON.parse(fs.readFileSync(`${root}/skill-identities.json`))
 const expected={stoic:'Discipline',omen:'Malice','shrine-fire':'PurityOfFire','shrine-ice':'PurityOfIce','shrine-lightning':'PurityOfLightning',clasped:'HeartOfIce',wrath:'Fulmination'}
 const details=JSON.parse(fs.readFileSync('backend/src/main/resources/catalog/rattling-sceptre/details.raw.json'))
 const catalog=JSON.parse(fs.readFileSync('backend/src/main/resources/catalog/hallowed-sceptre/catalog.json'))
 for(const locale of ['us','kr','jp','cn','tw','sp']) {
  const current=JSON.parse(fs.readFileSync(`${root}/Sceptres.${locale}.json`)).data
- const prior=JSON.parse(fs.readFileSync(`docs/evidence/hallowed-source-bundle-2026-10-04/Sceptres.${locale}.json`)).data
+ const prior=JSON.parse(fs.readFileSync(`evidence:hallowed-source/Sceptres.${locale}.json`)).data
  assert.deepEqual(current.essence,prior.essence,`${locale}: reused fixed Essence source`)
  assert.deepEqual(current.perfect_essence,prior.perfect_essence,`${locale}: reused Perfect Essence source`)
 }

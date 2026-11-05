@@ -1,7 +1,7 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import { cleanSource as clean } from './armour-source.mjs'
-const root = 'docs/evidence/belts-source-bundle-2026-10-05/next-equipment'
+const root = 'evidence:belts-source/next-equipment'
 const inventory = JSON.parse(fs.readFileSync(`${root}/inventory.json`, 'utf8'))
 const reviewed = inventory.map(entry => {
   const html = fs.readFileSync(`${root}/${entry.page}.html`, 'utf8')

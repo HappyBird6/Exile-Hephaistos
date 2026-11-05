@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'))
-const proof='/source/docs/evidence/body-helmets-runtime-bundle-2026-10-04'
+const proof='/source/evidence:body-helmets-runtime'
 const save=(p,v)=>{assert(!fs.existsSync(p),'Preserve prior validation output');fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n')}
 function tests(kind) {
   let count=0

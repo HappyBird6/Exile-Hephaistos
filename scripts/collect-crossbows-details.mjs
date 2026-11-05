@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { cleanSource as clean } from './armour-source.mjs'
-const root = 'docs/evidence/crossbows-source-bundle-2026-10-05'
+const root = 'evidence:crossbows-source'
 const data = JSON.parse(fs.readFileSync(`${root}/Crossbows.us.json`, 'utf8')).data
 const known = new Map()
 const signature = r => JSON.stringify([clean(r.Name), r.Level, r.ModGenerationTypeID, r.ModFamilyList, clean(r.str)])

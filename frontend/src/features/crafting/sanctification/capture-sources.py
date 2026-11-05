@@ -1,7 +1,7 @@
 from pathlib import Path
 import urllib.request, hashlib, json, re, datetime
 root=Path(__file__).resolve().parents[5]
-dest=root/'data-pipeline/captures/quality-sanctification-c-20261103'
+dest=root/'data-pipeline/captures/0.5.5/sanctification'
 dest.mkdir(parents=True,exist_ok=True)
 results=[]
 for name in ['Currency','Quality','Omen','Sanctified_Items','Stocky_Mitts','Armourers_Scrap','Blacksmiths_Whetstone','Omen_of_Sanctification']:
@@ -21,6 +21,6 @@ for name in ['Currency','Quality','Omen','Sanctified_Items','Stocky_Mitts','Armo
                 print(name,pattern,len(matches))
                 if pattern in ['normal items','magic items']: print([re.sub('<[^>]*>','',text[max(0,m.start()-120):m.end()+200]) for m in matches[:2]])
     except Exception as error: results.append(dict(url=url,error=type(error).__name__))
-evidence=root/'docs/evidence/quality-sanctification-c-20261103/source-captures.json'
+evidence=root/'docs/evidence/0.5.5/crafting/sanctification/sources/source-captures.json'
 evidence.write_text(json.dumps(results,indent=2)+'\n',encoding='utf-8')
 print('Public capture digests recorded; raw HTML remains ignored.')

@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import {cleanSource as clean} from './armour-source.mjs'
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'))
-const root='docs/evidence/quivers-source-bundle-2026-10-05'
+const root='evidence:quivers-source'
 const bases=read('frontend/src/features/crafting/topBases.json'),terms=read('frontend/src/shared/i18n/gameTerms.json'),registry=read('backend/src/main/resources/crafting/registry-v2.json')
 for(const b of Object.values(bases).filter(b=>b.family==='quivers')) {
  for(const [l,r]of Object.entries({en:'us',ko:'kr',ja:'jp','zh-CN':'cn','zh-TW':'tw',es:'sp'})) {

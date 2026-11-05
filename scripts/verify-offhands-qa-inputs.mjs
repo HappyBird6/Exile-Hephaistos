@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import path from 'node:path'
 import crypto from 'node:crypto'
 import assert from 'node:assert/strict'
@@ -27,5 +27,5 @@ for (const [source, target] of [
   ['scripts/check-display-coverage.mjs', 'scripts/check-display-coverage.mjs'],
 ]) assert.equal(digest(source), digest(qa + '/' + target), source)
 const report = { verifiedAt: new Date().toISOString(), sourceFiles: files.length, jarSha256: digest(qa + '/poe2craft.jar'), files }
-fs.writeFileSync('docs/evidence/offhands-source-bundle-2026-10-05/final-qa-inputs.json', JSON.stringify(report, null, 2) + '\n', { flag: 'wx' })
+fs.writeFileSync('evidence:offhands-source/final-qa-inputs.json', JSON.stringify(report, null, 2) + '\n', { flag: 'wx' })
 console.log('Final runtime and test source equivalence:', files.length, 'files')

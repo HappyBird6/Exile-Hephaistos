@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { cleanSource as clean } from './armour-source.mjs'
-const root = 'docs/evidence/belts-source-bundle-2026-10-05/next-equipment'
+const root = 'evidence:belts-source/next-equipment'
 assert(!fs.existsSync(root), 'Preserve prior candidate evidence'); fs.mkdirSync(root)
 const inventory = []
 for (const page of ['Items', 'Crossbows', 'One_Hand_Maces', 'Two_Hand_Maces', 'Quarterstaves', 'Spears', 'Staves', 'Talismans', 'Shields', 'Bucklers', 'Foci', 'Quivers', 'Claws', 'Daggers', 'One_Hand_Swords', 'Two_Hand_Swords', 'One_Hand_Axes', 'Two_Hand_Axes', 'Flails', 'Traps']) {

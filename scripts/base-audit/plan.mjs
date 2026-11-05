@@ -1,8 +1,8 @@
-import fs from 'node:fs'
-const root = 'docs/evidence/base-audit-20261102'
+import fs from '../evidence-files.cjs'
+const root = 'evidence:base-audit'
 fs.mkdirSync(root, { recursive: true })
 const current = JSON.parse(fs.readFileSync('backend/src/main/resources/catalog/top-bases.json'))
-const inventory = JSON.parse(fs.readFileSync('docs/evidence/top-base-inventory-2026-10-04/inventory.json'))
+const inventory = JSON.parse(fs.readFileSync('evidence:top-base-inventory/inventory.json'))
 const selected = []
 const armourAudit = []
 for (const page of inventory.filter((entry) => /^(Body_Armours|Helmets|Gloves|Boots)_/.test(entry.page))) {

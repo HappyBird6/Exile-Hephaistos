@@ -1,0 +1,50 @@
+{
+  "url": "https://poe2db.tw/sp/Oneiric_Ring",
+  "sha256": "ab6b73cff45597847f5dd7254a63ab8bd6aabe1277f7dc08b82757d7c6ebb90b",
+  "variants": [
+    {
+      "name": "Anillo onírico",
+      "card": "Anillo onírico\n        \n    \n    \n        \n            AnillosRequiere:  Nivel 47Daño de caos aumentado un (11—23)%\n        \n\n        \n        \n            Devora el sueño, porque debemos hacerlo.\n        \n\n\n        \n            Oneiric Ring",
+      "requirements": "Requiere:  Nivel 47",
+      "fields": {
+        "DropLevel": "47",
+        "BaseType": "Anillo onírico",
+        "Class": "Anillos",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRingB5",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/BreachlordRing_Chayula",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "Daño de caos aumentado un (11—23)%",
+      "family": "IncreasedChaosDamage",
+      "tags": [
+        "chaos_damage",
+        "daño",
+        "caos"
+      ],
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 11,
+          "max": 23,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>Daño de <a data-keyword=\"Chaos\" href=\"Chaos_Damage\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FChaos\">caos</a> aumentado un <span class='mod-value'>(11<span class=\"ndash\">—</span>23)</span>%</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>IncreasedChaosDamage\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>único (3)\n<tr><th>Req. level<td>59 (Effective: 47)\n<tr><th>Stats<td><li>chaos damage +% <span class=\"badge bg-primary\">11 <span class=\"ndash\">—</span> 23</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>chaos_damage</i></span> <span class='badge bg-primary'>Daño</span> <span class='badge bg-primary'>Caos</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/BreachlordRing_Chayula.webp"
+}

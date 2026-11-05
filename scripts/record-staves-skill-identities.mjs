@@ -1,6 +1,6 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
-const root='docs/evidence/staves-talismans-source-bundle-2026-10-05'
+const root='evidence:staves-talismans-source'
 const roster=JSON.parse(fs.readFileSync(`${root}/roster-review.json`)),bases=JSON.parse(fs.readFileSync('backend/src/main/resources/catalog/top-bases.json'))
 const identities=roster.skills.map(skill=>{
  const field=name=>skill.fields.find(([key])=>key===name)?.[1]

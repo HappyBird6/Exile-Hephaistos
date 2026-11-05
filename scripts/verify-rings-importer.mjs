@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import {execFileSync} from 'node:child_process'
 const root='/qa/importer-replay-1';assert(!fs.existsSync(root),'Preserve earlier replay output');fs.mkdirSync(root)
-for(const p of ['backend/src/main/resources/catalog','backend/src/main/resources/crafting','frontend/src/shared/i18n','docs/evidence/rings-source-bundle-2026-10-04'])fs.cpSync('/source/'+p,root+'/'+p,{recursive:true})
+for(const p of ['backend/src/main/resources/catalog','backend/src/main/resources/crafting','frontend/src/shared/i18n','evidence:rings-source'])fs.cpSync('/source/'+p,root+'/'+p,{recursive:true})
 fs.mkdirSync(root+'/frontend/src/features/crafting',{recursive:true})
 const files=['backend/src/main/resources/catalog/top-bases.json','backend/src/main/resources/catalog/top-base-essences.json','backend/src/main/resources/crafting/registry-v2.json','frontend/src/shared/i18n/gameTerms.json','frontend/src/shared/i18n/modifierTemplates.json']
 const before=Object.fromEntries(files.map(p=>[p,JSON.parse(fs.readFileSync(root+'/'+p))]))
@@ -11,10 +11,10 @@ const checks=[]
 for(const p of files){assert.deepEqual(JSON.parse(fs.readFileSync(root+'/'+p)),before[p],p+' deterministic import');checks.push(p)}
 const manifest=before[files[0]],display=before[files[4]],priorDisplay=JSON.parse(fs.readFileSync('/qa/baseline-modifierTemplates.json'))
 const clean=s=>s.replace(/<br\s*\/?>/gi,'\n').replace(/<[^>]*>/g,'').replace(/&nbsp;/g,' ').replace(/&amp;/g,'&').trim()
-const sourceRows=JSON.parse(fs.readFileSync(root+'/docs/evidence/rings-source-bundle-2026-10-04/Rings.en.json')).data.normal
+const sourceRows=JSON.parse(fs.readFileSync(root+'/docs/evidence/0.5.5/i18n/sources/en/rings-rings.en.json')).data.normal
 const legacy=JSON.parse(fs.readFileSync(root+'/backend/src/main/resources/catalog/iron-ring/catalog.json'))
 for(const locale of ['en','ko','ja','zh-CN','zh-TW','es']){
- const rows=JSON.parse(fs.readFileSync(root+'/docs/evidence/rings-source-bundle-2026-10-04/Rings.'+locale+'.json')).data.normal
+ const rows=JSON.parse(fs.readFileSync(root+'/evidence:rings-source/Rings.'+locale+'.json')).data.normal
  assert.equal(rows.length,203)
  for(let i=0;i<sourceRows.length;i++){
   const row=sourceRows[i],d=legacy.modifiers.find(d=>d.name===row.Name && d.requiredItemLevel===+row.Level && d.familyIds.join(',')===row.ModFamilyList.join(','));assert(d)

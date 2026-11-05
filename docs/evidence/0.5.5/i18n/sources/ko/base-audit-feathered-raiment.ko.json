@@ -1,0 +1,49 @@
+{
+  "url": "https://poe2db.tw/kr/Feathered_Raiment",
+  "sha256": "a10b16bb85db0ac0ee1723c8438b099e979b26d85286e0955f9cf9bc30ed455e",
+  "variants": [
+    {
+      "name": "깃털 의복",
+      "card": "깃털 의복\n        \n    \n    \n        \n            갑옷에너지 보호막: 153Base Movement Speed: -0.03요구 사항:  레벨 80, 121 지능받는 피해의 (5—10)%를 생명력 대신 마나로 소모\n        \n\n\n\n        \n            Feathered Raiment",
+      "requirements": "요구 사항:  레벨 80, 121 지능",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "깃털 의복",
+        "Class": "갑옷",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyInt10Endgame",
+        "Tags": "int_armour, karui_basetype, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyInt10",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "받는 피해의 (5—10)%를 생명력 대신 마나로 소모",
+      "family": "DamageRemovedFromManaBeforeLife",
+      "tags": [
+        "resource",
+        "생명력",
+        "마나"
+      ],
+      "stats": [
+        {
+          "id": "base_damage_removed_from_mana_before_life_%",
+          "min": 5,
+          "max": 10,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>받는 피해의 <span class='mod-value'>(5<span class=\"ndash\">—</span>10)</span>%를 생명력 대신 마나로 소모</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>DamageRemovedFromManaBeforeLife\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base damage removed from mana before life % <span class=\"badge bg-primary\">5 <span class=\"ndash\">—</span> 10</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>생명력</span> <span class='badge bg-primary'>마나</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyInt10.webp"
+}

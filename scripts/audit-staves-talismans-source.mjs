@@ -1,9 +1,9 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { cleanSource as clean } from './armour-source.mjs'
 import { orderedSpawnEligible } from './reviewed-catalog-importer.mjs'
-const root='docs/evidence/staves-talismans-source-bundle-2026-10-05'
+const root='evidence:staves-talismans-source'
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'))
 const bases=read('backend/src/main/resources/catalog/top-bases.json')
 const report={passed:true,classes:[],bases:[],scope:'Complete eligible ordinary pool, source ranges/families/tags/weights and six-locale display; numeric model remains unverified'}

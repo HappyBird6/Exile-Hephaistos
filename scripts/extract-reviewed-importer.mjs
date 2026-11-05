@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 const paths=['scripts/import-maces-bundle.mjs','scripts/import-quarterstaves-spears-bundle.mjs']
 const source=fs.readFileSync(paths[1],'utf8')
@@ -18,4 +18,4 @@ for(const path of paths) {
  result=result.replace('const eligible=d=>{const first=d.spawn.find(s=>tags.includes(s.tag));assert(first,`${d.url}: ordered spawn missing`);return first.weight>0}','const eligible=d=>orderedSpawnEligible(d,tags)')
  fs.writeFileSync(path,result)
 }
-fs.writeFileSync('docs/evidence/base-registry-refactor-2026-10-05/importer-baseline.json',JSON.stringify(baselines,null,2)+'\n',{flag:'wx'})
+fs.writeFileSync('docs/evidence/0.5.5/tooling/catalog-import/base-registry-refactor-importer-baseline.json',JSON.stringify(baselines,null,2)+'\n',{flag:'wx'})

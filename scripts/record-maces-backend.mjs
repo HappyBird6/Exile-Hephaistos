@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 const q='E:/WORK/Exile-Hephaistos/codex/maces-qa-20261005'
 const results={command:'sh gradlew --no-daemon spotlessApply check generateJooq bootJar'}
@@ -13,5 +13,5 @@ for(const suite of ['test','integrationTest']) {
   assert.equal(counts.failures+counts.errors+counts.skipped,0)
   results[suite]=counts
 }
-fs.writeFileSync('docs/evidence/maces-source-bundle-2026-10-05/backend-results.json',JSON.stringify(results,null,2)+'\n',{flag:'wx'})
+fs.writeFileSync('evidence:maces-source/backend-results.json',JSON.stringify(results,null,2)+'\n',{flag:'wx'})
 console.log(results)

@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import {cleanSource as clean} from './armour-source.mjs'
-const root='docs/evidence/quivers-source-bundle-2026-10-05'
+const root='evidence:quivers-source'
 const previous=JSON.parse(fs.readFileSync(`${root}/details/Quivers/normal-57.json`,'utf8'))
 for(const locale of ['us','kr','jp','cn','tw','sp']) {
  const url=`https://poe2db.tw/${locale}/hover?s=${encodeURIComponent('Data\\Mods/IncreasedAttackSpeed1')}`

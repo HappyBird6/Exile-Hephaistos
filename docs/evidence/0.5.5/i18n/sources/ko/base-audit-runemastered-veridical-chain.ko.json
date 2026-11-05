@@ -1,0 +1,164 @@
+{
+  "url": "https://poe2db.tw/kr/Runemastered_Veridical_Chain",
+  "sha256": "30c50a39490822fa7b74feabcf41e6362ab9a937dc81d8c4efc58a58c978a135",
+  "variants": [
+    {
+      "name": "룬숙련 현실 합치 사슬",
+      "card": "룬숙련 현실 합치 사슬\n        \n    \n    \n        \n            목걸이요구 사항:  레벨 65최대 룬 수호 +(30—40)냉기 저항 최대치 +(2—3)%\n        \n\n\n\n        \n            Runemastered Veridical Chain",
+      "requirements": "요구 사항:  레벨 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "룬숙련 현실 합치 사슬",
+        "Class": "목걸이",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmuletUnique1VerisiumUnique1",
+        "Tags": "runeforged, amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/BloodstoneAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    },
+    {
+      "name": "룬숙련 현실 합치 사슬",
+      "card": "룬숙련 현실 합치 사슬\n        \n    \n    \n        \n            목걸이요구 사항:  레벨 65최대 룬 수호 +(30—40)모든 냉기 스킬 레벨 +(1—2)\n        \n\n\n\n        \n            Runemastered Veridical Chain",
+      "requirements": "요구 사항:  레벨 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "룬숙련 현실 합치 사슬",
+        "Class": "목걸이",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmuletUnique1VerisiumUnique2",
+        "Tags": "runeforged, amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/BloodstoneAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    },
+    {
+      "name": "룬숙련 현실 합치 사슬",
+      "card": "룬숙련 현실 합치 사슬\n        \n    \n    \n        \n            목걸이요구 사항:  레벨 65최대 룬 수호 (15—20)% 증가\n        \n\n\n\n        \n            Runemastered Veridical Chain",
+      "requirements": "요구 사항:  레벨 65",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "룬숙련 현실 합치 사슬",
+        "Class": "목걸이",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmuletUnique1VerisiumUnique3",
+        "Tags": "runeforged, amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/BloodstoneAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "최대 룬 수호 +(30—40)",
+      "family": "BaseRunicWard",
+      "tags": [
+        "runic_ward"
+      ],
+      "stats": [
+        {
+          "id": "base_maximum_ward",
+          "min": 30,
+          "max": 40,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>최대 <a data-keyword=\"Ward\" href=\"Runic_Ward\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/0a60396f0975fd715cd6897cf5cc4719dc23ffd0b0842a0c006907649bd845b5\">룬 수호</a> <span class='mod-value'>+(30<span class=\"ndash\">—</span>40)</span></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>BaseRunicWard\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>23 (Effective: 18)\n<tr><th>Stats<td><li>base maximum ward <span class=\"badge bg-primary\">30 <span class=\"ndash\">—</span> 40</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>runic_ward</i></span> </table>"
+    },
+    {
+      "text": "냉기 저항 최대치 +(2—3)%",
+      "family": "MaximumColdResist",
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "원소",
+        "냉기",
+        "저항"
+      ],
+      "stats": [
+        {
+          "id": "base_maximum_cold_damage_resistance_%",
+          "min": 2,
+          "max": 3,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"MaximumResistances\" href=\"Maximum_Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/18237c9882ebde062c52ba47e48fc7b377329871a04607e84646fccb948100a0\">냉기 저항 최대치</a> <span class='mod-value'>+(2<span class=\"ndash\">—</span>3)</span>%</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>MaximumColdResist\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base maximum cold damage resistance % <span class=\"badge bg-primary\">2 <span class=\"ndash\">—</span> 3</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>cold_resistance</i></span> <span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'>원소</span> <span class='badge bg-primary'>냉기</span> <span class='badge bg-primary'>저항</span> </table>"
+    },
+    {
+      "text": "최대 룬 수호 +(30—40)",
+      "family": "BaseRunicWard",
+      "tags": [
+        "runic_ward"
+      ],
+      "stats": [
+        {
+          "id": "base_maximum_ward",
+          "min": 30,
+          "max": 40,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>최대 <a data-keyword=\"Ward\" href=\"Runic_Ward\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/0a60396f0975fd715cd6897cf5cc4719dc23ffd0b0842a0c006907649bd845b5\">룬 수호</a> <span class='mod-value'>+(30<span class=\"ndash\">—</span>40)</span></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>BaseRunicWard\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>23 (Effective: 18)\n<tr><th>Stats<td><li>base maximum ward <span class=\"badge bg-primary\">30 <span class=\"ndash\">—</span> 40</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>runic_ward</i></span> </table>"
+    },
+    {
+      "text": "모든 냉기 스킬 레벨 +(1—2)",
+      "family": "GlobalDamageTypeGemLevel",
+      "tags": [
+        "원소",
+        "냉기",
+        "젬"
+      ],
+      "stats": [
+        {
+          "id": "cold_skill_gem_level_+",
+          "min": 1,
+          "max": 2,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>모든 <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/dcfdc43c44a9780863159db034853e1843fad3edc114ce79e5fc90b6f2ddb0a3\">냉기</a> 스킬 레벨 <span class='mod-value'>+(1<span class=\"ndash\">—</span>2)</span></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>GlobalDamageTypeGemLevel\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>cold skill gem level + <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 2</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'>원소</span> <span class='badge bg-primary'>냉기</span> <span class='badge bg-primary'>젬</span> </table>"
+    },
+    {
+      "text": "최대 룬 수호 (15—20)% 증가",
+      "family": "RunicWardPercent",
+      "tags": [
+        "runic_ward"
+      ],
+      "stats": [
+        {
+          "id": "maximum_ward_+%",
+          "min": 15,
+          "max": 20,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>최대 <a data-keyword=\"Ward\" href=\"Runic_Ward\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/0a60396f0975fd715cd6897cf5cc4719dc23ffd0b0842a0c006907649bd845b5\">룬 수호</a> <span class='mod-value'>(15<span class=\"ndash\">—</span>20)</span>% 증가</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>RunicWardPercent\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>maximum ward +% <span class=\"badge bg-primary\">15 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>runic_ward</i></span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/BloodstoneAmulet.webp"
+}

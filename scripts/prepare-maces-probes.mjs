@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 const q='E:/WORK/Exile-Hephaistos/codex/maces-qa-20261005',previous='E:/WORK/Exile-Hephaistos/codex/quivers-qa-20261005'
 const write=(p,s)=>fs.writeFileSync(`${q}/${p}`,s,{flag:'wx'})
 let api=fs.readFileSync(`${previous}/qa-api-10.mjs`,'utf8')
@@ -8,7 +8,7 @@ let api=fs.readFileSync(`${previous}/qa-api-10.mjs`,'utf8')
  .replace('quiver-workbench-v1','maces-workbench-v1')
  .replace("check(key+' no Quiver quality cap',(await apply(root,'TRANSMUTATION')).qualityLimit === null)","check(key+' source quality maximum20',(await apply(root,'TRANSMUTATION')).qualityLimit.maximumQuality === 20)")
  .replaceAll('Quiver class','Mace class').replaceAll('Quiver rule','Mace rule')
-api=api.replace("  const magic =",`  const raw=JSON.parse(fs.readFileSync('/source/docs/evidence/maces-source-bundle-2026-10-05/'+(base.family==='one-hand-maces'?'One_Hand_Maces':'Two_Hand_Maces')+'.us.json')).data.normal
+api=api.replace("  const magic =",`  const raw=JSON.parse(fs.readFileSync('/source/evidence:maces-source/'+(base.family==='one-hand-maces'?'One_Hand_Maces':'Two_Hand_Maces')+'.us.json')).data.normal
   const details=JSON.parse(fs.readFileSync('/source/backend/src/main/resources/catalog/'+base.pool+'/details.raw.json')).ordinary
   for(let index=0;index<raw.length;index++) {
     const row=raw[index],proof=details[index]

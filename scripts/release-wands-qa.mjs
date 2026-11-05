@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
 const q = 'E:/WORK/Exile-Hephaistos/codex/wands-qa-20261005'
-const out = 'docs/evidence/wands-runtime-bundle-2026-10-05/qa-release.json'
+const out = 'evidence:wands-runtime/qa-release.json'
 assert(!fs.existsSync(out),'Preserve previous release evidence')
 const remaining = execFileSync('docker',['ps','-a','--filter','label=com.docker.compose.project=exile-wands-20261005','--format','{{.ID}}'],{encoding:'utf8'}).trim()
 assert.equal(remaining,'','Only own QA normally stopped')

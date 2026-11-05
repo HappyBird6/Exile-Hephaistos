@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { execFileSync } from 'node:child_process'
-const baseline='5287663f383d5199b43ff963fc51c55d70859270',root='docs/evidence/staves-talismans-source-bundle-2026-10-05'
+const baseline='5287663f383d5199b43ff963fc51c55d70859270',root='evidence:staves-talismans-source'
 const read=p=>JSON.parse(fs.readFileSync(p)),old=p=>JSON.parse(execFileSync('git',['show',`${baseline}:${p}`],{maxBuffer:32*1024*1024}))
 const canonical='backend/src/main/resources/catalog/'
 const before=old(canonical+'top-bases.json'),after=read(canonical+'top-bases.json'),policies=read(canonical+'base-policies.json')

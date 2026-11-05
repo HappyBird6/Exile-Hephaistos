@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'))
 const write=(p,v)=>fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n',{flag:'wx'})
@@ -40,6 +40,6 @@ for(const name of fs.readdirSync('backend/src/main/java/com/poe2craft/item').fil
  proof.reviewed[name]=Object.fromEntries(pairs.map(m=>[m[1],m[2]]))
  assert(pairs.length>0,name)
 }
-fs.mkdirSync('docs/evidence/base-registry-refactor-2026-10-05',{recursive:true})
-write('docs/evidence/base-registry-refactor-2026-10-05/registration-baseline.json',proof)
+fs.mkdirSync('evidence:base-registry-refactor',{recursive:true})
+write('docs/evidence/0.5.5/tooling/catalog-import/base-registry-refactor-registration-baseline.json',proof)
 console.log('policy families',Object.keys(families).length,'top bases',Object.keys(bases).length,'legacy',legacyKeys.length)

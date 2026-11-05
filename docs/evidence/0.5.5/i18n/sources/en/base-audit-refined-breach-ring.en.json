@@ -1,0 +1,46 @@
+{
+  "url": "https://poe2db.tw/us/Refined_Breach_Ring",
+  "sha256": "e5f3b2165b268ae9c44b5604b08129d7a212818158ec24fe2dbbbb3843fa3d17",
+  "variants": [
+    {
+      "name": "Refined Breach Ring",
+      "card": "Refined Breach Ring\n        \n    \n    \n        \n            RingsRequires:  Level 40+25% to Maximum Quality",
+      "requirements": "Requires:  Level 40",
+      "fields": {
+        "DropLevel": "40",
+        "BaseType": "Refined Breach Ring",
+        "Class": "Rings",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRingBreach2",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/Basetypes/BreachRing",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "+25% to Maximum Quality",
+      "family": "LocalMaximumQuality",
+      "tags": [],
+      "stats": [
+        {
+          "id": "local_maximum_quality_+",
+          "min": 25,
+          "max": 25,
+          "locality": "Local  — Unscalable Value"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+25</span>% to Maximum <a data-keyword=\"Quality\" href=\"Quality\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/a8ee18c372988022e8f528113dc52847f58d183a00f6407f185dc4292c572b76\">Quality</a></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>LocalMaximumQuality\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Unique (3)\n<tr><th>Req. level<td>50 (Effective: 40)\n<tr><th>Stats<td><li>local maximum quality + <span class=\"badge bg-primary\">25 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Local</span> <span class=\"badge bg-warning\"><span class=\"italic\"><span style=\"color:rgb(170,170,170)\"> — Unscalable Value</span></span></span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/BreachRing.webp"
+}

@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
 import crypto from 'node:crypto'
@@ -28,7 +28,7 @@ for(const e of before.entries) {
   assert((e.supportedBases??[]).every(k=>n.supportedBases.includes(k)))
 }
 for(const [k,v]of Object.entries(before.workbenchBases))assert.deepEqual(after.workbenchBases[k],v)
-const root='docs/evidence/crossbows-source-bundle-2026-10-05'
+const root='evidence:crossbows-source'
 const bases=read('backend/src/main/resources/catalog/top-bases.json')
 for(const b of Object.values(bases).filter(b=>b.family==='crossbows')) {
   assert.equal(after.workbenchBases[b.key].ruleVersion,'crossbow-workbench-v1')

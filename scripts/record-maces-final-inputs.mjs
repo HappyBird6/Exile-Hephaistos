@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 const q='E:/WORK/Exile-Hephaistos/codex/maces-qa-20261005'
@@ -28,5 +28,5 @@ assert(/^[a-z0-9-]+\.json$/.test(output))
 const buildRoot=`${q}/frontend-check/dist`
 const buildFiles=[]
 walk(buildRoot,buildFiles)
-fs.writeFileSync(`docs/evidence/maces-source-bundle-2026-10-05/${output}`,JSON.stringify({passed:true,sourceInputs:proofs.length,runtimeJar:hash(fs.readFileSync(`${q}/poe2craft.jar`)),frontendBuild:buildFiles.map(path=>({path:path.slice(buildRoot.length+1),sha256:hash(fs.readFileSync(path))})),files:proofs},null,2)+'\n',{flag:'wx'})
+fs.writeFileSync(`evidence:maces-source/${output}`,JSON.stringify({passed:true,sourceInputs:proofs.length,runtimeJar:hash(fs.readFileSync(`${q}/poe2craft.jar`)),frontendBuild:buildFiles.map(path=>({path:path.slice(buildRoot.length+1),sha256:hash(fs.readFileSync(path))})),files:proofs},null,2)+'\n',{flag:'wx'})
 console.log(proofs.length,'exact tested source inputs match')

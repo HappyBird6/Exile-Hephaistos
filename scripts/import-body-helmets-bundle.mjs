@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { cleanSource as clean } from './armour-source.mjs'
@@ -6,9 +6,9 @@ import { cleanSource as clean } from './armour-source.mjs'
 const body = process.argv.includes('--body')
 const boots = process.argv.includes('--boots')
 const slot = boots ? 'Boots' : body ? 'Body_Armours' : 'Helmets'
-const proofRoot = boots ? 'docs/evidence/boots-runtime-bundle-2026-10-04' : 'docs/evidence/body-helmets-runtime-bundle-2026-10-04/' + (body ? 'body' : 'helmets')
+const proofRoot = boots ? 'evidence:boots-runtime' : 'evidence:body-helmets-runtime/' + (body ? 'body' : 'helmets')
 fs.mkdirSync(proofRoot, { recursive: true })
-const sourceRoot = 'docs/evidence/armour-source-bundle-2026-10-04'
+const sourceRoot = 'evidence:armour-source'
 const read = p => JSON.parse(fs.readFileSync(p, 'utf8'))
 const reviewedRoster = read(`${sourceRoot}/reviewed-roster.json`).preferred
 const hash = text => crypto.createHash('sha256').update(text).digest('hex')

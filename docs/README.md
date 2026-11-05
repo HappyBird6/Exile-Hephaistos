@@ -24,7 +24,7 @@
 - [미해결 이슈](../ISSUES.md), [감정·숨겨진 상태의 미해결 근거](workbench-wisdom-evidence-2026-10-03.md).
 - [기능 연결과 유지보수](development.md): 베이스·입력·창고·기록·훼손·품질·반복 Chaos의 통합 계약과 검증 한계.
 - [원자료](evidence/), [보존된 검증 자료](verification/), [재현 프로브](benchmarks/), [라이선스](third-party/PathOfBuilding-LICENSE.txt).
-- [기존 QA 백업·복원 안내](evidence-retention.md), [백업 자료 목록](evidence-archive-manifest.json).
+- [0.5.5 자료 분류](evidence/0.5.5/README.md), [자료 관리 기준](evidence-retention.md).
 
 ## 사용 중인 별도 API·저장 계약
 

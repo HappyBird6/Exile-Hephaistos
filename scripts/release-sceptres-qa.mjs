@@ -1,7 +1,7 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import {execFileSync} from 'node:child_process'
-const q='E:/WORK/Exile-Hephaistos/codex/sceptres-qa-20261005',out='docs/evidence/sceptres-runtime-bundle-2026-10-05/qa-release.json'
+const q='E:/WORK/Exile-Hephaistos/codex/sceptres-qa-20261005',out='evidence:sceptres-runtime/qa-release.json'
 assert(!fs.existsSync(out),'Preserve previous evidence')
 assert.equal(execFileSync('docker',['ps','-a','--filter','label=com.docker.compose.project=exile-sceptres-20261005','--format','{{.ID}}'],{encoding:'utf8'}).trim(),'')
 const before=JSON.parse(fs.readFileSync(`${q}/live-before.json`)),after=JSON.parse(fs.readFileSync(`${q}/live-after.json`))

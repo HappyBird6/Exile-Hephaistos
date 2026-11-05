@@ -1,0 +1,47 @@
+{
+  "url": "https://poe2db.tw/kr/Corsair_Coat",
+  "sha256": "7ef13e774e6662451b7bb9e25e69c3ae5ea3b3129683eb33c595350ea86690f6",
+  "variants": [
+    {
+      "name": "해적 외투",
+      "card": "해적 외투\n        \n    \n    \n        \n            갑옷회피: 451Base Movement Speed: -0.03요구 사항:  레벨 80, 121 민첩이동 속도 5% 증가\n        \n\n\n\n        \n            Corsair Coat",
+      "requirements": "요구 사항:  레벨 80, 121 민첩",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "해적 외투",
+        "Class": "갑옷",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDex10Endgame",
+        "Tags": "dex_armour, karui_basetype, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex10",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "이동 속도 5% 증가",
+      "family": "MovementVelocity",
+      "tags": [
+        "속도"
+      ],
+      "stats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 5,
+          "max": 5,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>이동 속도 <span class='mod-value'>5</span>% 증가</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>MovementVelocity\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base movement velocity +% <span class=\"badge bg-primary\">5 <span class=\"ndash\">—</span> 5</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'>속도</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex10.webp"
+}

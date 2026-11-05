@@ -1,0 +1,49 @@
+{
+  "url": "https://poe2db.tw/kr/Warlord_Cuirass",
+  "sha256": "279f3bd719faeecdb8b6b029a769b4c7bf8b9ca1f047307b5b10449edff888c0",
+  "variants": [
+    {
+      "name": "전쟁군주 흉갑",
+      "card": "전쟁군주 흉갑\n        \n    \n    \n        \n            갑옷방어도: 496Base Movement Speed: -0.05요구 사항:  레벨 80, 121 힘방어도의 +(15—25)%가 원소 피해에도 적용\n        \n\n\n\n        \n            Warlord Cuirass",
+      "requirements": "요구 사항:  레벨 80, 121 힘",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "전쟁군주 흉갑",
+        "Class": "갑옷",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame",
+        "Tags": "str_armour, karui_basetype, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStr10",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "방어도의 +(15—25)%가 원소 피해에도 적용",
+      "family": "ArmourAppliesToElementalDamage",
+      "tags": [
+        "defences",
+        "방어도",
+        "원소"
+      ],
+      "stats": [
+        {
+          "id": "armour_%_applies_to_fire_cold_lightning_damage",
+          "min": 15,
+          "max": 25,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Armour\" href=\"Armour\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/f1ab1c4f26afe32f35ba8c570de40a04dfb871a4472c4decf7c24ea41ad028a6\">방어도</a>의 <span class='mod-value'>+(15<span class=\"ndash\">—</span>25)</span>%가 <a data-keyword=\"ElementalDamage\" href=\"Elemental_Damage_Types\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/e6c6b465f6d74bfc4fe80f38d2dc8b7c33b2ed00db33cfb9dde7d4e9612b664a\">원소 피해</a>에도 적용</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>ArmourAppliesToElementalDamage\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>armour % applies to fire cold lightning damage <span class=\"badge bg-primary\">15 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>방어도</span> <span class='badge bg-primary'>원소</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStr10.webp"
+}

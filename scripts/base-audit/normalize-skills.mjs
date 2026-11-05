@@ -1,5 +1,5 @@
-import fs from 'node:fs'
-const root = 'docs/evidence/base-audit-20261102'
+import fs from '../evidence-files.cjs'
+const root = 'evidence:base-audit'
 const bases = JSON.parse(fs.readFileSync('backend/src/main/resources/catalog/top-bases.json'))
 for (const row of JSON.parse(fs.readFileSync(`${root}/import-summary.json`))) bases[row.key].implicitText = JSON.parse(fs.readFileSync(`${root}/${row.slug}.us.json`)).proofs[row.variantIndex].text
 const labels = { en: 'Grants Skill:', ko: '스킬 부여:', ja: 'スキルを付与:', 'zh-CN': '获得技能:', 'zh-TW': '賦予技能:', es: 'Otorga la habilidad:' }

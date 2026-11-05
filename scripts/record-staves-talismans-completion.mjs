@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 const q='E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005'
-const root='docs/evidence/staves-talismans-source-bundle-2026-10-05'
+const root='evidence:staves-talismans-source'
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8').replace(/^\uFEFF/,''))
 const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex')
 const save=(name,value)=>fs.writeFileSync(`${root}/${name}.json`,JSON.stringify(value,null,2)+'\n',{flag:'wx'})

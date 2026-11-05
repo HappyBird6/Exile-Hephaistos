@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/tw/Mail_Coat",
+  "sha256": "43be29a84121dce7c8fe3704d42851aec214a20d23989ea500da88c6d9760104",
+  "variants": [
+    {
+      "name": "鎖甲外套",
+      "card": "鎖甲外套\n        \n    \n    \n        \n            胸甲閃避值: 451基礎移動速度: -0.03需求:  等級 68, 121 敏捷減少(20—30)%你身上的減益效果緩速程度\n        \n\n\n\n        \n            Mail Coat",
+      "requirements": "需求:  等級 68, 121 敏捷",
+      "fields": {
+        "DropLevel": "68",
+        "BaseType": "鎖甲外套",
+        "Class": "胸甲",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDex14",
+        "Tags": "dex_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex01",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "減少(20—30)%你身上的減益效果緩速程度",
+      "family": "SlowPotency",
+      "tags": [],
+      "stats": [
+        {
+          "id": "base_slow_potency_+%",
+          "min": -30,
+          "max": -20,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>減少<span class='mod-value'>(20<span class=\"ndash\">—</span>30)</span>%你身上的<a data-keyword=\"Debuff\" href=\"Debuffs\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/1f575591ab77afbe9176b2efaa7d7ece7e1082f4aefcf73b4cd1cf19e44f6052\">減益效果</a><a data-keyword=\"Slow\" href=\"Slow\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/972d65a7c3aee84cf1f5134234f24a01415949e152c1393b6480ad12ff684284\">緩速</a>程度</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>SlowPotency\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>傳奇 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base slow potency +% <span class=\"badge bg-primary\">-30 <span class=\"ndash\">—</span> -20</span> <span class=\"badge bg-secondary\">Global</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex01.webp"
+}

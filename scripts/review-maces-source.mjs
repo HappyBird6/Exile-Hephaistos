@@ -1,6 +1,6 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import { cleanSource as clean } from './armour-source.mjs'
-const root='docs/evidence/maces-source-bundle-2026-10-05'
+const root='evidence:maces-source'
 for (const page of ['One_Hand_Maces','Two_Hand_Maces']) {
   const s=JSON.parse(fs.readFileSync(`${root}/${page}.us.json`))
   console.log(page,s.data.baseitem.name,s.data.normal.length)

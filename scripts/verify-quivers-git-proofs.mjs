@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { execFileSync } from 'node:child_process'
-const root = 'docs/evidence/quivers-source-bundle-2026-10-05'
+const root = 'evidence:quivers-source'
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex')
 const proofs = []
 for (const name of fs.readdirSync(root).filter(n => n.endsWith('.html')).sort()) {

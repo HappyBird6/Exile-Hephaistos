@@ -1,0 +1,14 @@
+{
+  "version": "0.5.5",
+  "checks": {
+    "json_values_preserved": 4716,
+    "policy_documents": 1,
+    "html_bytes_preserved": 520
+  },
+  "indexedInputs": 5237,
+  "removedCollectionHistoryFiles": 257,
+  "allPathsExist": true,
+  "datedFileNames": 0,
+  "sourceValuesPreserved": true,
+  "note": "JSON collection-time/freshness metadata removed; source links retargeted. No new game rule or probability verification is claimed."
+}

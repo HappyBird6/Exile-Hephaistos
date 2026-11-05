@@ -1,7 +1,7 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import { cleanSource as clean } from './armour-source.mjs'
-const root='docs/evidence/sceptres-source-bundle-2026-10-05'
+const root='evidence:sceptres-source'
 const roster=JSON.parse(fs.readFileSync(`${root}/verification.json`)).bases
 const identities=[]
 for(const b of roster) {

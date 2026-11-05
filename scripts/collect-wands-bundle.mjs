@@ -1,9 +1,9 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { collectArmourSource, cleanSource } from './armour-source.mjs'
 
-const root = 'docs/evidence/wands-source-bundle-2026-10-05'
+const root = 'evidence:wands-source'
 assert(!fs.existsSync(root), 'Preserve prior evidence output')
 fs.mkdirSync(root)
 const slugs = ['Bone', 'Siphoning', 'Volatile', 'Galvanic', 'Acrid', 'Offering', 'Critical', 'Primordial', 'Dueling'].map(s => `${s}_Wand`)

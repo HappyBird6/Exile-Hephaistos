@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 const q='E:/WORK/Exile-Hephaistos/codex/base-registry-qa-20261005'
 const log=fs.readFileSync(`${q}/frontend-check-1.log`,'utf8').replace(/\u001b\[[0-9;]*m/g,'')
@@ -17,5 +17,5 @@ function sync(path,relative='') {
  }
 }
 sync(`${q}/frontend-check/src`)
-fs.writeFileSync('docs/evidence/base-registry-refactor-2026-10-05/frontend-results.json',JSON.stringify(report,null,2)+'\n',{flag:'wx'})
+fs.writeFileSync('evidence:base-registry-refactor/frontend-results.json',JSON.stringify(report,null,2)+'\n',{flag:'wx'})
 console.log(report)

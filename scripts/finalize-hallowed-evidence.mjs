@@ -1,10 +1,10 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import path from 'node:path'
 import crypto from 'node:crypto'
 import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
 const q = 'E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004'
-const out = 'docs/evidence/hallowed-runtime-bundle-2026-10-04'
+const out = 'evidence:hallowed-runtime'
 assert(!fs.existsSync(out), 'Preserve prior evidence')
 const walk = root => fs.readdirSync(root, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(root, e.name)) : [path.join(root, e.name)])
 let sourceFiles = 0

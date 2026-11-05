@@ -2943,10 +2943,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Flesh_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "flesh-catalyst"
     },
@@ -2974,10 +2970,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Neural_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "flesh-catalyst"
     },
@@ -3005,10 +2997,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Carapace_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "flesh-catalyst"
     },
@@ -3036,10 +3024,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Uul-Netols_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "flesh-catalyst"
     },
@@ -3067,10 +3051,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Xophs_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "flesh-catalyst"
     },
@@ -3098,10 +3078,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Tuls_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "flesh-catalyst"
     },
@@ -3129,10 +3105,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Eshs_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "flesh-catalyst"
     },
@@ -3160,10 +3132,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Chayulas_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "flesh-catalyst"
     },
@@ -3191,10 +3159,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Reaver_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "flesh-catalyst"
     },
@@ -3222,10 +3186,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Sibilant_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "flesh-catalyst"
     },
@@ -3253,10 +3213,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Skittering_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "flesh-catalyst"
     },
@@ -3284,10 +3240,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Adaptive_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "flesh-catalyst"
     },
@@ -3315,10 +3267,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Necrotic_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "flesh-catalyst"
     },
@@ -3346,10 +3294,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Refined_Flesh_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "refined-flesh-catalyst"
     },
@@ -3377,10 +3321,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Refined_Neural_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "refined-flesh-catalyst"
     },
@@ -3408,10 +3348,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Refined_Carapace_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "refined-flesh-catalyst"
     },
@@ -3439,10 +3375,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Refined_Uul-Netols_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "refined-flesh-catalyst"
     },
@@ -3470,10 +3402,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Refined_Xophs_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "refined-flesh-catalyst"
     },
@@ -3501,10 +3429,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Refined_Tuls_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "refined-flesh-catalyst"
     },
@@ -3532,10 +3456,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Refined_Eshs_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "refined-flesh-catalyst"
     },
@@ -3563,10 +3483,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Refined_Chayulas_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "refined-flesh-catalyst"
     },
@@ -3594,10 +3510,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Refined_Reaver_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "refined-flesh-catalyst"
     },
@@ -3625,10 +3537,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Refined_Sibilant_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "refined-flesh-catalyst"
     },
@@ -3656,10 +3564,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Refined_Skittering_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "refined-flesh-catalyst"
     },
@@ -3687,10 +3591,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Refined_Adaptive_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "refined-flesh-catalyst"
     },
@@ -3718,10 +3618,6 @@
       },
       "ruleSource": "https://poe2db.tw/us/Refined_Necrotic_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
-      "verificationEvidence": [
-        "docs/evidence/workbench-quality-preserve-validation-2026-10-04.json",
-        "docs/evidence/workbench-ancient-liquid-validation-2026-10-04.json"
-      ],
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
       "supportedBaseSet": "refined-flesh-catalyst"
     },

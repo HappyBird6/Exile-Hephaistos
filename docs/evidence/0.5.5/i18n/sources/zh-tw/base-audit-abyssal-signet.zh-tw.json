@@ -1,0 +1,46 @@
+{
+  "url": "https://poe2db.tw/tw/Abyssal_Signet",
+  "sha256": "7a53ca9cfa67274c77ce32d2143b36208a3108dbcee23988310c79908f365904",
+  "variants": [
+    {
+      "name": "深淵之記",
+      "card": "深淵之記\n        \n    \n    \n        \n            戒指需求:  等級 40擊中時造成深淵耗損\n        \n\n\n\n        \n            Abyssal Signet",
+      "requirements": "需求:  等級 40",
+      "fields": {
+        "DropLevel": "40",
+        "BaseType": "深淵之記",
+        "Class": "戒指",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRing12",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/Basetypes/IronRing",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "擊中時造成深淵耗損",
+      "family": "AbyssalWasting",
+      "tags": [],
+      "stats": [
+        {
+          "id": "abyssal_wasting_on_hit",
+          "min": 1,
+          "max": 1,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Hit\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/9a0c3faadf137f9a5a1f997b8115081c1930c73bd79b04a47b73fd14f0fd22c7\">擊中</a>時造成<a data-keyword=\"AbyssalWasting\" href=\"Abyssal_Wasting\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/eeeae0dab42efa7a6f51164e56dd6f412224adb1b41cb8daa37ed0dbb2d15acd\">深淵耗損</a></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>AbyssalWasting\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>傳奇 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>abyssal wasting on hit <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 1</span> <span class=\"badge bg-secondary\">Global</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/IronRing.webp"
+}

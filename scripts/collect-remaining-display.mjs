@@ -1,5 +1,5 @@
 // Display source collection only. Canonical catalogs and films are read-only.
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import path from 'node:path'
 import { createHash } from 'node:crypto'
 
@@ -48,4 +48,4 @@ for (const locale of Object.keys(locales)) {
   console.log(locale, JSON.stringify(evidence.coverage[locale]))
 }
 fs.writeFileSync(termsPath, JSON.stringify(terms, null, 2) + '\n')
-fs.writeFileSync('docs/evidence/i18n-remaining-terms-2026-10-04.json', JSON.stringify(evidence, null, 2) + '\n')
+fs.writeFileSync('docs/evidence/0.5.5/i18n/sources/i18n-remaining-terms.json', JSON.stringify(evidence, null, 2) + '\n')
