@@ -1,0 +1,48 @@
+{
+  "url": "https://poe2db.tw/us/Dastard_Armour",
+  "sha256": "f6cb5376ba73b27c85077921c17d704b11e0e7c8967df52ea58896e9e2bb0b88",
+  "variants": [
+    {
+      "name": "Dastard Armour",
+      "card": "Dastard Armour\n        \n    \n    \n        \n            Body ArmoursArmour: 303Evasion Rating: 276Base Movement Speed: -0.04Requires:  Level 65, 67 Str, 67 Dex+(60—80) to maximum Life",
+      "requirements": "Requires:  Level 65, 67 Str, 67 Dex",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "Dastard Armour",
+        "Class": "Body Armours",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex2Endgame",
+        "Tags": "str_dex_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex02",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "+(60—80) to maximum Life",
+      "family": "IncreasedLife",
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 60,
+          "max": 80,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(60<span class=\"ndash\">—</span>80)</span> to maximum Life</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>IncreasedLife\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Unique (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base maximum life <span class=\"badge bg-primary\">60 <span class=\"ndash\">—</span> 80</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex02.webp"
+}

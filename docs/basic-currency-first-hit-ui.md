@@ -27,24 +27,8 @@ Solar 외 base와 활성 Omen, 검증 전 원문, ruleset 불일치는 계산을
 - native details/select/button, fieldset/legend, label, alert/status 및 닫기 후 summary focus 복귀를 사용한다. 700px 이하 한 열, 긴 분수·JSON wrapping과 스크롤을 적용한다. 실제 좁은 화면·키보드 브라우저 검증은 아래 미완료 경계에 해당한다.
 - 사용자 승인 정책에 따라 기존 6개 locale dictionary와 useI18n을 사용하고 신규 문구와 오류 표시를 각 언어로 번역한다. 기존 localizedAction과 검증된 modifier 번역 표시를 재사용한다. 원문 catalog ID와 확률근거는 그대로 보존한다. AGENTS.md의 오래된 영어 전용 문장은 승인된 6개 언어 정책으로 정정한다.
 
-## 검증 근거와 남은 작업
+## 검증
 
-Frontend npm ci와 Docker lint/typecheck/format/build PASS. 첫 전체 실행은 1977 PASS/2 FAIL로 기존 CraftSupport catalog 대기 assertion 두 개가 실패했다. 동일 assertion·timeout으로 `--maxWorkers=2`의 해당 CraftSupport 6개 재검사는 모두 통과했다. 최종 전체 `npm run test -- --run --maxWorkers=2`는 **78 files / 1984 tests PASS**였다. assertion·timeout·skip은 변경하지 않았다. 전체 검사 이후 자체 리뷰의 action 삭제 focus 복귀 보완을 포함한 추가 검사도 **lint/typecheck/format + 2 files / 15 tests PASS**다. 마지막 production build는 이 focus 보완을 포함한 소스로 통과했다.
+현재 `BasicPaths.test.tsx`와 `api.test.ts`로 입력·응답·취소·복구·stale 응답·정확한 분수 표시를 검증한다. `scripts/check-display-coverage.mjs`는 공통 표시 자료를 대조한다. 실행한 검사와 실제 브라우저·서버 검증은 구별한다. 이전 버전의 일회성 HTTP probe·실행 결과·수집 이력은 제거했다.
 
-자체 리뷰는 입력/provenance 변경 후 이전 실행이 재활성화되는 경계, main/recovery 분리, 오류 뒤 재시도/중복 클릭, request echo와 질량 보존, fractional truncation, markup과 focus 복귀를 확인하고 보완했다. 문서와 HTTP 결과는 구현 소스와 함께 commit한다. HTTP QA 컨테이너 3개와 신규 임시 DB volume·전용 네트워크는 제거했고 기존 서비스·DB volume은 사용하지 않았다.
-
-영향받은 Backend는 Java 21 Docker에서 `test --tests "*BasicPath*" --tests "*BasicCurrency*" --tests "*ChaosRenewal*" --tests "*FirstHit*" bootJar` PASS. Backend 소스는 기준 SHA와 동일하며 신규 전체 check/generateJooq/integration 실행을 주장하지 않는다. 기준 Backend의 592+7 근거는 기존 명세에 있다.
-
-[HTTP probe 결과](evidence/first-hit-ui-20261009/http-probe.json)는 전용 QA PostgreSQL·Redis·Java Backend와 production Frontend adapter를 호출했다. manufactured Solar catalog 상태만 사용하며 개인 원문을 저장하지 않았다. 100/300/500 single explicit Rare/plain Chaos와 Apprentice’s 목표는 COMPLETE/unresolved0이고 비율은 절삭하여 44.78751% / 83.16892% / 94.86918%다. 마지막 분자·분모는 각각 2163자리다. 두 explicit Rare는 PARTIAL, Omen은 UNKNOWN/UNSUPPORTED blocker, 별도 실패 아이템에서 full checkpoint로 SINGLE_PASS 복구는 PARTIAL로 구분했다. 복구가 본경로에 합산되지 않음을 검증했다.
-
-[재현 probe](evidence/first-hit-ui-20261009/http-probe.mjs)는 npm ci 이후 `node docs/evidence/first-hit-ui-20261009/http-probe.mjs`로 실행한다. 기준 Backend를 localhost:18089에서 실행해야 한다. production API adapter와 ruleset header 검증 코드를 TypeScript transpile로 로딩하며 UI translate 함수만 headless 오류 표시용으로 대체한다. 결과 JSON은 같은 경로를 갱신한다. 브라우저 테스트가 아니다.
-
-**미완료:** 이 실행 환경의 computer-use inventory는 browser 0개이며 in-app browser 생성은 `Browser is not available: iab`로 실패했다. 따라서 실제 브라우저 happy/partial/unsupported/recovery/대용량 분수/stale 응답, 좁은 화면과 keyboard 시각 검증을 수행하지 못했다. DOM 테스트와 HTTP 근거를 실제 브라우저 PASS로 간주하지 않는다. 독립 리뷰도 별도 완료 주장하지 않는다.
-
-## 독립 리뷰 안내
-
-독립 정적 리뷰의 P2 후속 수정으로 같은 provenance의 focus/reconnect/수동 재조회 및 재조회 실패 동안 완료 결과와 진행 중 요청을 유지한다. 실제 catalog/provenance 또는 ruleset 변경 시 취소·폐기하고 늦은 응답을 격리한다. 신규 `paths.*` 47개 문구는 승인된 6개 언어로 번역했으며 namespace 밖 번역 변경은 없다. Docker `node:24-bookworm`에서 lint/typecheck/format, 영향 범위 **5 files / 47 tests**, production build가 모두 PASS했다. Backend는 변경하지 않아 이번 후속 검사를 반복하지 않았다. 브라우저 미제공에 따른 실제 브라우저 QA 미완료 경계는 유지한다. 사용자 push 취소 지시에 따라 이번 결과는 로컬 commit만 하며 업로드·대체 전송하지 않는다. 상세 기록은 [verification.json](evidence/first-hit-ui-20261009/verification.json)의 `reviewFollowup`을 참고한다.
-
-`frontend/src/features/crafting/basic-paths/BasicPaths.tsx`의 query 실행/취소·입력 store·checkpoint 선택, `api.ts`의 lossless 요청/응답 검증과 BigInt 표시, `basic-paths.css`의 좁은 화면 처리를 확인한다. 접점은 `goal-filter/CraftStart.tsx`의 BasicPaths props 한 곳이다. tests는 동일 디렉터리의 BasicPaths.test.tsx 및 api.test.ts에 있다. API DTO 기준은 BasicPathController.Response와 BasicPathService.Request다.
-
-실제 브라우저에서는 Craft Support→실험 section을 열고 초기 아이템 미변경·미선택 목표를 확인한다. Solar Rare 단일 nonfractured explicit에서 Apprentice’s 주문피해 tier/CHAOS 반복을 선택해 100/300/500 COMPLETE를 확인한다. 복수 explicit 상태의 partial, 다른 base·Omen 미지원, 사용자가 저장한 실패/복구 checkpoint와 별도 확률을 확인한다. 긴 분수 disclosure, 375px 화면, Tab/Enter/Space/select 탐색, 닫기 focus 복귀를 확인한다. 응답을 지연하여 목표·원문·history·ruleset 변경/패널 닫기/중복 클릭 이후 stale 결과가 나타나지 않는지 확인한다.
+실제 화면 검증에서는 초기 아이템·목표 미변경, 100/300/500회 결과의 complete/partial/unsupported 구분, 별도 복구 확률, 긴 분수 표시·좁은 화면·키보드 조작, 입력/규칙 변경 후 늦은 응답 폐기를 확인한다. 현재의 source·규칙은 [자료 분류](evidence/0.5.5/README.md)와 [통합 유지보수](development.md)를 따른다.

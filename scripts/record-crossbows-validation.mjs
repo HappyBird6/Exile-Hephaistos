@@ -1,9 +1,9 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 
 const qa='E:/WORK/Exile-Hephaistos/codex/crossbows-qa-20261005'
-const root='docs/evidence/crossbows-source-bundle-2026-10-05'
+const root='evidence:crossbows-source'
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'))
 const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex')
 assert(fs.readFileSync(`${qa}/backend-check-3.log`,'utf8').includes('BUILD SUCCESSFUL'))

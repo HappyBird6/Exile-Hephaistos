@@ -1,5 +1,4 @@
 {
-  "retrievedAt": "2026-11-03",
   "rights": "Original game artwork belongs to Grinding Gear Games. Source attribution is not a grant of redistribution rights. Existing third-party notices remain applicable.",
   "assets": [
     {
@@ -23,13 +22,13 @@
         "Preserved_Collarbone",
         "Ancient_Collarbone"
       ],
-      "reason": "Prior HTTP 403 evidence in docs/evidence/desecration-assets-20261102.json; URLs were not retried or bypassed. User attachment required."
+      "reason": "Artwork is not bundled. Use the recorded source identity or a user-supplied original image."
     },
     {
       "ids": ["Altered_Collarbone"],
       "sourceUrl": "https://poe2db.tw/us/Altered_Collarbone",
       "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Breach/BreachDesecration.webp",
-      "reason": "One source image fetch failed on 2026-11-03. No retry or alternate route attempted. User attachment required."
+      "reason": "Artwork is not bundled. Use the recorded source identity or a user-supplied original image."
     }
   ]
 }

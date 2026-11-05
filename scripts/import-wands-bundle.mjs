@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { cleanSource as clean } from './armour-source.mjs'
-const root = 'docs/evidence/wands-source-bundle-2026-10-05'
+const root = 'evidence:wands-source'
 const read = p => JSON.parse(fs.readFileSync(p, 'utf8'))
 const write = (p, v) => fs.writeFileSync(p, JSON.stringify(v, null, 2) + '\n')
 const hash = s => crypto.createHash('sha256').update(s).digest('hex')

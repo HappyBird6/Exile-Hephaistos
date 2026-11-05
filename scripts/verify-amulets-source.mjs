@@ -1,7 +1,7 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import {cleanSource as clean} from './armour-source.mjs'
-const root='docs/evidence/amulets-source-bundle-2026-10-04'
+const root='evidence:amulets-source'
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'))
 const old=read('backend/src/main/resources/catalog/solar-amulet/catalog.json'),raw=read('backend/src/main/resources/catalog/solar-amulet/base.raw.json')
 const display=read('frontend/src/shared/i18n/modifierTemplates.json'),manifest=read('backend/src/main/resources/catalog/top-bases.json')

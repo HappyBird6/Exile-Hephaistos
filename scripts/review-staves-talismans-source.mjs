@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { cleanSource as clean } from './armour-source.mjs'
-const root='docs/evidence/staves-talismans-source-bundle-2026-10-05'
+const root='evidence:staves-talismans-source'
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'))
 const report={retrievedAt:new Date().toISOString(),classes:[],bases:[],skills:[],availability:'Current PoE2DB ordinary class listing plus source normal/magic/rare enable flags; no market drop-rate inference',combatSimulation:false}
 for(const page of ['Staves','Talismans']) {

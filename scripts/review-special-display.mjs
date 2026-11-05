@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 const file='frontend/src/shared/i18n/modifierTemplates.json',data=JSON.parse(fs.readFileSync(file,'utf8'))
 const terms=JSON.parse(fs.readFileSync('frontend/src/shared/i18n/gameTerms.json','utf8'))
 const changes={
@@ -18,4 +18,4 @@ for(const[id,[item,span]]of Object.entries(changes)) {
 const iron=data.definitions['iron-ring:implicit:added-physical-damage-to-attacks']
 iron.valueStats=[{id:'attack_minimum_added_physical_damage',divisor:1},{id:'attack_maximum_added_physical_damage',divisor:1}]
 fs.writeFileSync(file,JSON.stringify(data,null,2)+'\n')
-fs.writeFileSync('docs/evidence/i18n-special-review-2026-10-04.json',JSON.stringify({exceptions,review:'All 37 English/Korean/Spanish effect strings reviewed semantically; numeric placeholders reviewed in every locale'},null,2)+'\n')
+fs.writeFileSync('docs/evidence/0.5.5/i18n/sources/i18n-special-review.json',JSON.stringify({exceptions,review:'All 37 English/Korean/Spanish effect strings reviewed semantically; numeric placeholders reviewed in every locale'},null,2)+'\n')

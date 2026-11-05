@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import {execFileSync} from 'node:child_process'
 import crypto from 'node:crypto'
@@ -29,7 +29,7 @@ const bases=read(paths[0])
 assert.equal(Object.keys(bases).length,Object.keys(before(paths[0])).length+5)
 assert.deepEqual(read(paths[0]),read('frontend/src/features/crafting/topBases.json'))
 assert.deepEqual(read(paths[1]),read('frontend/src/features/crafting/topBaseEssences.json'))
-const root='docs/evidence/offhands-source-bundle-2026-10-05',roster=[['tawhoan-tower-shield','Shields_str'],['golden-targe','Shields_str_dex'],['blacksteel-crest-shield','Shields_str_int'],['desert-buckler','Bucklers'],['tasalian-focus','Foci']]
+const root='evidence:offhands-source',roster=[['tawhoan-tower-shield','Shields_str'],['golden-targe','Shields_str_dex'],['blacksteel-crest-shield','Shields_str_int'],['desert-buckler','Bucklers'],['tasalian-focus','Foci']]
 for(const [key,page]of roster) {
  const source=read(`${root}/${page}.us.json`).data,catalog=read(`backend/src/main/resources/catalog/${key}/catalog.json`)
  const actual=catalog.modifiers.filter(d=>d.weight>0)

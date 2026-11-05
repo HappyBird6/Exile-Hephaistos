@@ -1,7 +1,7 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
-const root = 'docs/evidence/belts-source-bundle-2026-10-05'
+const root = 'evidence:belts-source'
 for (const [name,url] of [['Golden_Obi','https://poe2db.tw/us/Golden_Obi'],['GGG-0.5.0','https://www.pathofexile.com/forum/view-thread/3932540'],['GGG-0.5.5','https://www.pathofexile.com/forum/view-forum/2212']]) {
   const response = await fetch(url); assert(response.ok, `${url}: ${response.status}`)
   const html = await response.text()

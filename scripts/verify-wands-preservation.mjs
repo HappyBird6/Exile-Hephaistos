@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
 const old = p => JSON.parse(execFileSync('git',['show',`25131b190fd242f90b51051bc87ae1e65936ae29:${p}`],{maxBuffer:32*1024*1024,encoding:'utf8'}))
@@ -20,8 +20,8 @@ for(let i=0;i<registry.entries.length;i++){
 for(const key of Object.keys(prior.workbenchBases))assert.deepEqual(registry.workbenchBases[key],prior.workbenchBases[key])
 assert.equal(registry.entries.filter(e=>e.serviceScope === 'DEFERRED').length,50)
 for(const name of ['Bone','Siphoning','Volatile','Galvanic','Acrid','Offering','Critical','Primordial','Dueling']){
- const source=read(`docs/evidence/wands-source-bundle-2026-10-05/${name}_Wand.us.json`)
- const priorSource=read(`docs/evidence/amulets-source-bundle-2026-10-04/next-roster/${name}_Wand.json`).variants
+ const source=read(`evidence:wands-source/${name}_Wand.us.json`)
+ const priorSource=read(`evidence:amulets-source/next-roster/${name}_Wand.json`).variants
  assert(priorSource.some(v=>v.fields.Type === source.fields.Type && v.fields.BaseType === source.name),name)
  assert.equal(source.fields['Quality.max_quality'],'20')
 }

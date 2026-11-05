@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import { cleanSource as clean } from './armour-source.mjs'
 
-const root = 'docs/evidence/wands-source-bundle-2026-10-05'
+const root = 'evidence:wands-source'
 const read = p => JSON.parse(fs.readFileSync(p, 'utf8'))
 const old = read('backend/src/main/resources/catalog/attuned-wand/catalog.json')
 const raw = read('backend/src/main/resources/catalog/attuned-wand/base.raw.json')

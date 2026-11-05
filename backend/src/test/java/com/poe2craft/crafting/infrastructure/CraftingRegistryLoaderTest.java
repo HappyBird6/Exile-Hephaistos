@@ -166,6 +166,9 @@ class CraftingRegistryLoaderTest {
             .formatHex(
                 MessageDigest.getInstance("SHA-256")
                     .digest(M.writeValueAsBytes(canonical(registry))));
+    // The frozen baseline digest excludes only the 26 retired verificationEvidence arrays.
+    // It was derived from the committed original registry after reproducing its former digest;
+    // game data, metadata other than those report paths, and array ordering remain covered.
     String expected =
         new String(
                 getClass()
@@ -176,6 +179,13 @@ class CraftingRegistryLoaderTest {
     assertEquals(expected, digest);
     assertEquals(220, registry.get("entries").size());
     assertFalse(registry.toString().contains("supportedBaseSet"));
+  }
+
+  @Test
+  void publicRegistryDoesNotExposeRetiredCollectionReports() {
+    for (var entry : CraftingRegistryLoader.load().path("entries")) {
+      assertFalse(entry.has("verificationEvidence"), entry.path("id").asText());
+    }
   }
 
   @Test

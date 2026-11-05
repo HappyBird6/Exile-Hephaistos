@@ -1,9 +1,9 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import crypto from 'node:crypto'
 import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
 const q='E:/WORK/Exile-Hephaistos/codex/quarterstaves-spears-qa-20261005'
-const root='docs/evidence/quarterstaves-spears-source-bundle-2026-10-05'
+const root='evidence:quarterstaves-spears-source'
 const digest=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex')
 const save=(n,v)=>fs.writeFileSync(`${root}/${n}`,JSON.stringify(v,null,2)+'\n',{flag:'wx'})
 for(const [from,to] of [['api-attempt-1/api-results.json','api-results.json'],['browser-attempt-1/browser-results.json','browser-results.json'],['browser-attempt-1/old-filled-results.json','old-filled-results.json'],['live-before.json','live-before.json'],['live-after.json','live-after.json']]){

@@ -1,9 +1,9 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 const base='e80d63fca33b9702b192cf23970b03fb8891eed5'
-const root='docs/evidence/base-registry-refactor-2026-10-05'
+const root='evidence:base-registry-refactor'
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex')
 const paths=execFileSync('git',['ls-tree','-r','--name-only',base,'backend/src/main/resources/catalog','backend/src/main/resources/crafting','frontend/src/shared/i18n','frontend/src/features/crafting/topBases.json','frontend/src/features/crafting/topBaseEssences.json'],{encoding:'utf8'}).trim().split('\n')
 const proof=[]

@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { cleanSource as clean } from './armour-source.mjs'
-const root = 'docs/evidence/quivers-source-bundle-2026-10-05'
+const root = 'evidence:quivers-source'
 const read = p => JSON.parse(fs.readFileSync(p, 'utf8'))
 const normalDetail = i => read(`${root}/details/Quivers/normal-${i}${i===57?'.corrected':''}.json`)
 const save = (p,text) => { if(fs.existsSync(p))assert.equal(fs.readFileSync(p,'utf8'),text,`${p}: preserve prior generated evidence`);else fs.writeFileSync(p,text,{flag:'wx'}) }

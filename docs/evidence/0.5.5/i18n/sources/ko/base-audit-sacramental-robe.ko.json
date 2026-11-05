@@ -1,0 +1,48 @@
+{
+  "url": "https://poe2db.tw/kr/Sacramental_Robe",
+  "sha256": "66c16f57ee9fccfd7b1865d1183436b0bbb58665b8823e6e88ceed0bcab2facd",
+  "variants": [
+    {
+      "name": "성찬의 로브",
+      "card": "성찬의 로브\n        \n    \n    \n        \n            갑옷에너지 보호막: 153Base Movement Speed: -0.03요구 사항:  레벨 75, 121 지능에너지 보호막 재충전 속도 (20—25)% 증가\n        \n\n\n\n        \n            Sacramental Robe",
+      "requirements": "요구 사항:  레벨 75, 121 지능",
+      "fields": {
+        "DropLevel": "75",
+        "BaseType": "성찬의 로브",
+        "Class": "갑옷",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyInt8Endgame",
+        "Tags": "int_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyInt08",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "에너지 보호막 재충전 속도 (20—25)% 증가",
+      "family": "EnergyShieldRegeneration",
+      "tags": [
+        "defences",
+        "에너지 보호막"
+      ],
+      "stats": [
+        {
+          "id": "energy_shield_recharge_rate_+%",
+          "min": 20,
+          "max": 25,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"ESRechargeRate\" href=\"Energy_Shield_Recharge_Rate\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/ac035fc6ea7661d616af9653ffa54645207c559bb3a7f989aa0ea9c18d3608a6\">에너지 보호막 재충전 속도</a> <span class='mod-value'>(20<span class=\"ndash\">—</span>25)</span>% 증가</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>EnergyShieldRegeneration\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>energy shield recharge rate +% <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>defences</i></span> <span class='badge bg-primary'>에너지 보호막</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyInt08.webp"
+}

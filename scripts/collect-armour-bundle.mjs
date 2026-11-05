@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import { collectArmourSource, sourceLocales, sourceProperties } from './armour-source.mjs'
 
@@ -25,7 +25,7 @@ const properties = sourceProperties
 const bundle = [], failures = []
 for (const [slot, slugs] of Object.entries(roster)) for (let i = 0; i < slugs.length; i++) {
   const page = `${slot}_${archetypes[i]}`
-  const inventory = JSON.parse(fs.readFileSync(`docs/evidence/top-base-inventory-2026-10-04/${page}.json`))
+  const inventory = JSON.parse(fs.readFileSync(`evidence:top-base-inventory/${page}.json`))
   const candidates = [slugs[i], ...(alternatives[page] ?? [])]
   const normalCards = inventory.cards.filter(c => !/^Runeforged_|^Runemastered_/.test(c.slug))
   const topProperties = Object.fromEntries(['Armour', 'Evasion Rating', 'Energy Shield'].map(label => [label, Math.max(...normalCards.map(c => properties(c.card)[label] ?? 0))]))

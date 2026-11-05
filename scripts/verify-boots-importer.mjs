@@ -1,9 +1,9 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import {execFileSync} from 'node:child_process'
 const root='/qa/boots-importer-replay-1'
 assert(!fs.existsSync(root),'Preserve earlier replay output')
-for(const dir of ['backend/src/main/resources/catalog','backend/src/main/resources/crafting','docs/evidence/armour-source-bundle-2026-10-04','docs/evidence/boots-runtime-bundle-2026-10-04','frontend/src/features/crafting','frontend/src/shared/i18n']) fs.cpSync('/source/'+dir,root+'/'+dir,{recursive:true,filter:p=>!p.endsWith('.png')})
+for(const dir of ['backend/src/main/resources/catalog','backend/src/main/resources/crafting','evidence:armour-source','evidence:boots-runtime','frontend/src/features/crafting','frontend/src/shared/i18n']) fs.cpSync('/source/'+dir,root+'/'+dir,{recursive:true,filter:p=>!p.endsWith('.png')})
 fs.writeFileSync('/qa/importer-replay-1.log',execFileSync(process.execPath,['/source/scripts/import-body-helmets-bundle.mjs','--boots'],{cwd:root,encoding:'utf8'}))
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'))
 const files=['backend/src/main/resources/catalog/top-bases.json','backend/src/main/resources/catalog/top-base-essences.json','backend/src/main/resources/crafting/registry-v2.json','frontend/src/features/crafting/topBases.json','frontend/src/features/crafting/topBaseEssences.json','frontend/src/shared/i18n/gameTerms.json','frontend/src/shared/i18n/modifierTemplates.json']

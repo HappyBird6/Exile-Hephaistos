@@ -1,6 +1,6 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
-const root='docs/evidence/staves-talismans-source-bundle-2026-10-05'
+const root='evidence:staves-talismans-source'
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'))
 const bases=read('backend/src/main/resources/catalog/top-bases.json'),policies=read('backend/src/main/resources/catalog/base-policies.json')
 const classes=[]

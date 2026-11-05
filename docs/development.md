@@ -20,7 +20,7 @@
 
 통합 기준의 `catalog/top-bases.json`은 162개, `base-policies.json`의 legacy는 17개로 등록 identity는 총 179개다. 등록·새 작업대 선택·특정 화폐 자격·자동 탐색 지원은 서로 다른 집합이다. 11/02 감사 당시 새 선택은 171개였으며 현재 선택은 `BaseSelectionPolicy`와 Frontend `baseSelectionPolicy`로 결정한다. 과거 문서의 134개를 현행 전체 수치로 사용하지 않는다.
 
-신규 45개 identity와 보류 후보의 출처·용량·희귀도 정책은 [베이스 감사](evidence/base-audit-20261102/BASE_AUDIT.md)에 보존한다. 서로 다른 implicit·granted skill·무기 동작·능력치 계열을 이름이나 레벨만으로 합치지 않는다. 동일 능력치 계열에서 대체된 낮은 베이스·Gnawed 화폐 등 신규 선택 제외는 과거 기록 삭제가 아니다. 제외된 identity를 읽거나 내보내는 경로는 유지한다.
+신규 45개 identity와 보류 후보의 출처·용량·희귀도 정책은 [베이스 감사](evidence/0.5.5/catalog/eligibility/base-selection-audit.md)에 보존한다. 서로 다른 implicit·granted skill·무기 동작·능력치 계열을 이름이나 레벨만으로 합치지 않는다. 동일 능력치 계열에서 대체된 낮은 베이스·Gnawed 화폐 등 신규 선택 제외는 과거 기록 삭제가 아니다. 제외된 identity를 읽거나 내보내는 경로는 유지한다.
 
 `WorkbenchBasePicker`는 부모가 `open/onOpenChange`, `value/onChange`, `level/onLevelChange`, `onPlace`를 제어한다. `baseStartingRarity`를 preview fallback과 초기 상태에 일관되게 사용한다. Rare 전용 베이스를 Normal로 임시 표시하지 않는다. 주얼 등 실제 지원되는 희귀도 선택만 제공한다.
 
@@ -175,7 +175,7 @@ Page는 requestId·item/base revision·Film/cursor·locale·전체 activeOmens·
 
 자동 탐색은 계산 예산·분기·순환·joint roll·미관측 후보의 제한을 가진다. 확률 질량을 버리거나 partial을 실패 0/완료로 표시하지 않는다. [현행 자동 명세](current/automatic-planning.md), [미해결 이슈](../ISSUES.md), 구형 certified/store/lazy 계약의 한계를 유지한다. Wisdom의 hidden payload·정확한 보존/자격 근거는 [미완료 조사](workbench-wisdom-evidence-2026-10-03.md)를 따른다.
 
-Frontend `npm test`의 pretest는 `docs/evidence`의 베이스 원문을 읽는다. `scripts/tests/reviewed-catalog-importer.test.mjs`도 원자료를 직접 소비한다. importer·원문 검증·이미지 출처 재생성은 동적 파일명을 사용하므로 evidence를 폴더명이나 동일 hash만으로 삭제하지 않는다. 원자료 JSON/HTML·검증 JSON·source SHA·probe·이미지/라이선스는 이번 통합에서 변경하지 않았다. 검증 JSON의 changedFiles 같은 역사적 목록에 남은 삭제 Markdown 경로도 당시 변경 목록으로 보존한다. 현재 입력 파일이나 링크로 재해석하지 말고 아래 Git 원문 조회를 사용한다.
+Frontend `npm test`의 pretest는 `docs/evidence`의 베이스 원문을 읽는다. `scripts/tests/reviewed-catalog-importer.test.mjs`도 원자료를 직접 소비한다. importer·원문 검증·이미지 출처 재생성은 동적 파일명을 사용하므로 evidence를 폴더명이나 동일 hash만으로 삭제하지 않는다. 현재 근거 자료는 [0.5.5 기능별 분류](evidence/0.5.5/README.md)를 따른다. 이전 버전의 수집·실행 이력은 제거했으며, 현재 입력과 새로 실행한 검사 결과를 구별한다.
 
 <a id="document-history"></a>
 

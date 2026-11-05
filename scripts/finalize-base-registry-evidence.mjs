@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import path from 'node:path'
 import crypto from 'node:crypto'
 const q = 'E:/WORK/Exile-Hephaistos/codex/base-registry-qa-20261005'
-const evidence = 'docs/evidence/base-registry-refactor-2026-10-05'
+const evidence = 'evidence:base-registry-refactor'
 const write = (p, s) => fs.writeFileSync(p, s, { flag: 'wx' })
 let negative = fs.readFileSync(`${q}/qa-crossclass-filled-1.cjs`, 'utf8')
 negative = negative.replace(/for\(const base of \[.*?\]\)/, 'for(const base of ["sapphire","time-lost-sapphire"])')

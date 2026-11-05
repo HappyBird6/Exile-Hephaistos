@@ -1,13 +1,13 @@
-import fs from 'node:fs'
+import fs from '../evidence-files.cjs'
 const read = (path) => JSON.parse(fs.readFileSync(path,'utf8'))
-const root = 'docs/evidence/base-audit-20261102'
+const root = 'evidence:base-audit'
 const bases = read('backend/src/main/resources/catalog/top-bases.json')
 const legacy = read('backend/src/main/resources/catalog/base-policies.json').legacy
 const imported = read(`${root}/import-summary.json`)
 const inventories = [
-  ...read('docs/evidence/top-base-inventory-2026-10-04/inventory.json'),
-  ...read('docs/evidence/belts-source-bundle-2026-10-05/next-equipment/inventory.json'),
-  ...read('docs/evidence/staves-talismans-source-bundle-2026-10-05/roster-review.json').inventory ?? [],
+  ...read('evidence:top-base-inventory/inventory.json'),
+  ...read('evidence:belts-source/next-equipment/inventory.json'),
+  ...read('docs/evidence/0.5.5/catalog/eligibility/staves-talismans-roster-review.json').inventory ?? [],
 ]
 const registrySlugs = new Set([...Object.values(bases).map((base) => base.sourceUrl.split('/').at(-1)), ...Object.values(legacy).map((base) => base.slug.replaceAll(' ','_'))])
 const inventoryRows = inventories.filter((page) => Array.isArray(page.cards)).map((page) => ({ page: page.page, source: page.url, retrievedAt: page.retrievedAt, sha256: page.sha256, rows: page.cards.map((row) => ({ ...row, status: registrySlugs.has(row.slug) ? 'REGISTERED_IDENTITY_OR_VARIANT' : /^Rune(forged|mastered)_/.test(row.slug) ? 'UNREGISTERED_RUNIC_WARD_ALLOY_VARIANT' : 'UNREGISTERED_PROGRESSION_OR_RELEASE_CANDIDATE' })) }))

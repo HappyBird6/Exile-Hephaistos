@@ -1,0 +1,52 @@
+{
+  "url": "https://poe2db.tw/kr/Twisted_Amulet",
+  "sha256": "e9715656b08b7555ed9d7368065b3f35cd2d590955d3c06d5edfa030a1a89922",
+  "variants": [
+    {
+      "name": "뒤틀린 목걸이",
+      "card": "뒤틀린 목걸이\n        \n    \n    \n        \n            목걸이접두어 속성 부여의 최대 개수 -1개\n        \n\n\n\n        \n            Twisted Amulet",
+      "requirements": "",
+      "fields": {
+        "DropLevel": "1",
+        "BaseType": "뒤틀린 목걸이",
+        "Class": "목걸이",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmuletDelirium1",
+        "Tags": "amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/TwistedAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "접두어 속성 부여의 최대 개수 -1개",
+      "family": "MaxPrefixMaxSuffix",
+      "tags": [],
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "지역"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 0,
+          "max": 0,
+          "locality": "지역"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>접두어 속성 부여의 최대 개수 <span class='mod-value'>-1</span>개</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>MaxPrefixMaxSuffix\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>local maximum prefixes allowed + <span class=\"badge bg-primary\">-1 <span class=\"ndash\">—</span> -1</span> <span class=\"badge bg-secondary\">지역</span></li><li>local maximum suffixes allowed + <span class=\"badge bg-primary\">0 <span class=\"ndash\">—</span> 0</span> <span class=\"badge bg-secondary\">지역</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/TwistedAmulet.webp"
+}

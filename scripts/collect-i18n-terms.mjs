@@ -5,7 +5,7 @@ import { createHash } from "node:crypto";
 
 const root = process.cwd();
 const output = path.join(root, "frontend/src/shared/i18n/gameTerms.json");
-const evidence = path.join(root, "docs/evidence/i18n-sources-2026-10-04.json");
+const evidence = path.join(root, "docs/evidence/0.5.5/i18n/sources/i18n-sources.json");
 const catalog = JSON.parse(
   fs.readFileSync(
     "frontend/src/features/crafting/materialTooltips.json",
@@ -27,7 +27,7 @@ const inventory = [
 ].map((m) => m[1]);
 const serviceScope = JSON.parse(
   fs.readFileSync(
-    "docs/evidence/workbench-service-scope-2026-10-04.json",
+    "evidence:general/workbench-service-scope.json",
     "utf8",
   ),
 );

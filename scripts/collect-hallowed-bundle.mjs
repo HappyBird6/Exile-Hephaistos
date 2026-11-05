@@ -1,9 +1,9 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { collectArmourSource } from './armour-source.mjs'
 
-const root = 'docs/evidence/hallowed-source-bundle-2026-10-04'
+const root = 'evidence:hallowed-source'
 fs.mkdirSync(root, { recursive: true })
 for (const locale of ['us', 'kr', 'jp', 'cn', 'tw', 'sp']) {
   for (const slug of ['Hallowed_Sceptre', 'Sceptres']) {

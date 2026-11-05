@@ -1,0 +1,48 @@
+{
+  "url": "https://poe2db.tw/kr/Dastard_Armour",
+  "sha256": "5e01a151e288846fc9b2336b59b622fc2ae5581a11a7f629b38122de004f32a9",
+  "variants": [
+    {
+      "name": "비겁자 방어구",
+      "card": "비겁자 방어구\n        \n    \n    \n        \n            갑옷방어도: 303회피: 276Base Movement Speed: -0.04요구 사항:  레벨 65, 67 힘, 67 민첩생명력 최대치 +(60—80)\n        \n\n\n\n        \n            Dastard Armour",
+      "requirements": "요구 사항:  레벨 65, 67 힘, 67 민첩",
+      "fields": {
+        "DropLevel": "65",
+        "BaseType": "비겁자 방어구",
+        "Class": "갑옷",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex2Endgame",
+        "Tags": "str_dex_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex02",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "생명력 최대치 +(60—80)",
+      "family": "IncreasedLife",
+      "tags": [
+        "resource",
+        "생명력"
+      ],
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 60,
+          "max": 80,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>생명력 최대치 <span class='mod-value'>+(60<span class=\"ndash\">—</span>80)</span></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>IncreasedLife\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base maximum life <span class=\"badge bg-primary\">60 <span class=\"ndash\">—</span> 80</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>생명력</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyStrDex02.webp"
+}

@@ -1,0 +1,48 @@
+{
+  "url": "https://poe2db.tw/jp/Golden_Hoop",
+  "sha256": "9a7a149f3429cf94bd40bca9bbde5467a51fde5e770b67b94575920e3df77176",
+  "variants": [
+    {
+      "name": "黄金の指輪",
+      "card": "黄金の指輪\n        \n    \n    \n        \n            指輪装備条件： レベル 12全ての能力値 +(8—12)\n        \n\n\n\n        \n            Golden Hoop",
+      "requirements": "装備条件： レベル 12",
+      "fields": {
+        "DropLevel": "12",
+        "BaseType": "黄金の指輪",
+        "Class": "指輪",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/RingDemigods1",
+        "Tags": "not_for_sale, demigods, ring",
+        "Icon": "Art/2DItems/Rings/DemigodsBand",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "全ての能力値 +(8—12)",
+      "family": "AllAttributes",
+      "tags": [
+        "能力値"
+      ],
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 8,
+          "max": 12,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>全ての<a data-keyword=\"Attributes\" href=\"Attributes\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/be2e5d37e24ea93afa1aeb4058180ef1d0375ee13768b185afe705050ca174a4\">能力値</a> <span class='mod-value'>+(8<span class=\"ndash\">—</span>12)</span></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>AllAttributes\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>ユニーク (3)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Stats<td><li>additional all attributes <span class=\"badge bg-primary\">8 <span class=\"ndash\">—</span> 12</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'>能力値</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/DemigodsBand.webp"
+}

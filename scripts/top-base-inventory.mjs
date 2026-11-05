@@ -1,7 +1,7 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import crypto from 'node:crypto'
 
-const output = 'docs/evidence/top-base-inventory-2026-10-04'
+const output = 'evidence:top-base-inventory'
 fs.mkdirSync(output, { recursive: true })
 const clean = (s) => s.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').trim()
 const pages = ['Body_Armours_str', 'Body_Armours_dex', 'Body_Armours_int', 'Body_Armours_str_dex', 'Body_Armours_str_int', 'Body_Armours_dex_int', 'Helmets_str', 'Helmets_dex', 'Helmets_int', 'Helmets_str_dex', 'Helmets_str_int', 'Helmets_dex_int', 'Gloves_str', 'Gloves_dex', 'Gloves_int', 'Gloves_str_dex', 'Gloves_str_int', 'Gloves_dex_int', 'Boots_str', 'Boots_dex', 'Boots_int', 'Boots_str_dex', 'Boots_str_int', 'Boots_dex_int', 'Bows', 'Wands', 'Sceptres', 'Rings', 'Amulets', 'Belts']

@@ -1,0 +1,45 @@
+{
+  "url": "https://poe2db.tw/sp/Conjurer_Mantle",
+  "sha256": "684c1bb744e09be67cb57a115beeeec20a67e75dbc4c69791a44fca7837eaf81",
+  "variants": [
+    {
+      "name": "Manto de conjurador",
+      "card": "Manto de conjurador\n        \n    \n    \n        \n            Armaduras corporalesArmadura: 273Escudo de energía: 76Base Movement Speed: -0.04Requiere:  Nivel 70, 67 Fue, 67 Int+(20—30) al espíritu\n        \n\n\n\n        \n            Conjurer Mantle",
+      "requirements": "Requiere:  Nivel 70, 67 Fue, 67 Int",
+      "fields": {
+        "DropLevel": "70",
+        "BaseType": "Manto de conjurador",
+        "Class": "Armaduras corporales",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt4Endgame",
+        "Tags": "str_int_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr04",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "+(20—30) al espíritu",
+      "family": "BaseSpirit",
+      "tags": [],
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 20,
+          "max": 30,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(20<span class=\"ndash\">—</span>30)</span> al <a data-keyword=\"Spirit\" href=\"Spirit\" class=\"KeywordPopups\" data-hover=\"?s=Data%5CKeywordPopups%2FSpirit\">espíritu</a></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>BaseSpirit\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>único (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base spirit from equipment <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 30</span> <span class=\"badge bg-secondary\">Global</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr04.webp"
+}

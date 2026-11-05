@@ -1,7 +1,7 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
-const root = 'docs/evidence/wands-source-bundle-2026-10-05'
+const root = 'evidence:wands-source'
 const roster = JSON.parse(fs.readFileSync(`${root}/applicability.json`))
 for (const base of roster.bases) {
   const path = `${root}/${base.name}_Wand.us.html`

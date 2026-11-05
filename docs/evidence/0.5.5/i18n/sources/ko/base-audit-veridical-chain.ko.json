@@ -1,0 +1,48 @@
+{
+  "url": "https://poe2db.tw/kr/Veridical_Chain",
+  "sha256": "dcf29d9cb3515e52dd124501f69bfb1e18995cb9b6d512e8f57e7c6f5eaf368b",
+  "variants": [
+    {
+      "name": "현실 합치 사슬",
+      "card": "현실 합치 사슬\n        \n    \n    \n        \n            목걸이요구 사항:  레벨 52최대 룬 수호 +(30—40)\n        \n\n\n\n        \n            Veridical Chain",
+      "requirements": "요구 사항:  레벨 52",
+      "fields": {
+        "DropLevel": "52",
+        "BaseType": "현실 합치 사슬",
+        "Class": "목걸이",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmuletUnique1",
+        "Tags": "amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/BloodstoneAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "최대 룬 수호 +(30—40)",
+      "family": "BaseRunicWard",
+      "tags": [
+        "runic_ward"
+      ],
+      "stats": [
+        {
+          "id": "base_maximum_ward",
+          "min": 30,
+          "max": 40,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>최대 <a data-keyword=\"Ward\" href=\"Runic_Ward\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/0a60396f0975fd715cd6897cf5cc4719dc23ffd0b0842a0c006907649bd845b5\">룬 수호</a> <span class='mod-value'>+(30<span class=\"ndash\">—</span>40)</span></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>BaseRunicWard\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>23 (Effective: 18)\n<tr><th>Stats<td><li>base maximum ward <span class=\"badge bg-primary\">30 <span class=\"ndash\">—</span> 40</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>runic_ward</i></span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/BloodstoneAmulet.webp"
+}

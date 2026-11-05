@@ -1,9 +1,9 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { cleanSource as clean } from './armour-source.mjs'
 
-const root = 'docs/evidence/sceptres-source-bundle-2026-10-05'
+const root = 'evidence:sceptres-source'
 assert(!fs.existsSync(root) || fs.readdirSync(root).length === 0, 'Preserve prior evidence')
 if (!fs.existsSync(root)) fs.mkdirSync(root)
 for (const locale of ['us', 'kr', 'jp', 'cn', 'tw', 'sp']) {

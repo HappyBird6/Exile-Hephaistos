@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import crypto from 'node:crypto'
 import assert from 'node:assert/strict'
 import {execFileSync} from 'node:child_process'
-const root='docs/evidence/sceptres-source-bundle-2026-10-05'
+const root='evidence:sceptres-source'
 const files=fs.readdirSync(root).filter(p=>p.endsWith('.html'))
 assert.equal(files.length,37)
 const manifest=files.map(name=>{
@@ -13,5 +13,5 @@ const manifest=files.map(name=>{
  if(fs.existsSync(sourceJson)) assert.equal(JSON.parse(fs.readFileSync(sourceJson)).sha256,sha256)
  return {file:p,bytes:bytes.length,sha256}
 })
-fs.writeFileSync('docs/evidence/sceptres-runtime-bundle-2026-10-05/staged-source-preservation.json',JSON.stringify({passed:true,exactHtmlFiles:37,files:manifest},null,2)+'\n',{flag:'wx'})
+fs.writeFileSync('evidence:sceptres-runtime/staged-source-preservation.json',JSON.stringify({passed:true,exactHtmlFiles:37,files:manifest},null,2)+'\n',{flag:'wx'})
 console.log('All37 captured source HTML files staged with exact original bytes')

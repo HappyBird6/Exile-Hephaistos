@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import { createHash } from 'node:crypto'
 const root=process.argv[2]
 const file='frontend/src/shared/i18n/gameTerms.json',terms=JSON.parse(fs.readFileSync(file,'utf8'))
@@ -16,5 +16,5 @@ for(const id of ['Refined_Necrotic_Catalyst','Necrotic_Catalyst','Liquid_Verisiu
  if(ownNames[id])evidence.ownTranslations.push({id,locale:'es',field:'name',text:name,reason:'Category omits the localized name and direct locale page title/name contains canonical slug; stable asset identity verified against English. Liquid Verisium description remains original English and is labeled as such.'})
 }
 fs.writeFileSync(file,JSON.stringify(terms,null,2)+'\n')
-fs.writeFileSync('docs/evidence/i18n-spanish-gaps-2026-10-04.json',JSON.stringify(evidence,null,2)+'\n')
+fs.writeFileSync('docs/evidence/0.5.5/i18n/sources/i18n-spanish-gaps.json',JSON.stringify(evidence,null,2)+'\n')
 console.log(JSON.stringify(evidence))

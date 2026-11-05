@@ -1,0 +1,47 @@
+{
+  "url": "https://poe2db.tw/jp/Breach_Ring",
+  "sha256": "96d24da6eb11d3863c7ed800edd0fbac1687b65260c1a0cea2c821713e98057c",
+  "variants": [
+    {
+      "name": "ブリーチの指輪",
+      "card": "ブリーチの指輪\n        \n    \n    \n        \n            指輪装備条件： レベル 40品質の最大値 +20%\n        \n\n\n\n        \n            Breach Ring",
+      "requirements": "装備条件： レベル 40",
+      "fields": {
+        "DropLevel": "40",
+        "BaseType": "ブリーチの指輪",
+        "Class": "指輪",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRingBreach",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/Basetypes/BreachRing",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5",
+        "グラスピングメイル Item (rare, unidentified)": "60x ブリーチの指輪 \nThe Genesis Tree"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "品質の最大値 +20%",
+      "family": "LocalMaximumQuality",
+      "tags": [],
+      "stats": [
+        {
+          "id": "local_maximum_quality_+",
+          "min": 20,
+          "max": 20,
+          "locality": "ローカル  — スケールできない値"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Quality\" href=\"Quality\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/jp/Poe_Data_KeywordPopups_hover/580518fcaeb325a9e9d4a34368b55e5b123dd97dbe097ae2b4cbeaccd94c5ff0\">品質</a>の最大値 <span class='mod-value'>+20</span>%</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>LocalMaximumQuality\n<tr><th>Domains<td>アイテム (1)\n<tr><th>GenerationType<td>ユニーク (3)\n<tr><th>Req. level<td>50 (Effective: 40)\n<tr><th>Stats<td><li>local maximum quality + <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">ローカル</span> <span class=\"badge bg-warning\"><span class=\"italic\"><span style=\"color:rgb(170,170,170)\"> — スケールできない値</span></span></span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/BreachRing.webp"
+}

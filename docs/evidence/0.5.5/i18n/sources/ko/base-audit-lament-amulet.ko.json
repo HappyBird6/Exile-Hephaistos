@@ -1,0 +1,52 @@
+{
+  "url": "https://poe2db.tw/kr/Lament_Amulet",
+  "sha256": "83d6878bda1ad775fcb4e0e45644c0da8f2870399e4b1ccf503a8a53a0e620e2",
+  "variants": [
+    {
+      "name": "한탄 목걸이",
+      "card": "한탄 목걸이\n        \n    \n    \n        \n            목걸이요구 사항:  레벨 42 스킬 부여: 레벨 11 한기의 방어구 스킬 부여: 레벨 11 재의 전령 스킬 부여: 레벨 11 얼음의 전령 스킬 부여: 레벨 11 천둥의 전령 스킬 부여: 레벨 11 독성 운반자 스킬 부여: 레벨 11 방어 기원 스킬 부여: 레벨 11 지속되는 환상 스킬 부여: 레벨 11 혼의 춤 스킬 부여: 레벨 11 마나 잔류물 스킬 부여: 레벨 11 마그마 장벽 스킬 부여: 레벨 11 격노의 유령 스킬 부여: 레벨 11 바람의 무희 스킬 부여: 레벨 11 소환수 사망 시 시전 스킬 부여: 레벨 11 주운 판금 스킬 부여: 레벨 11 전쟁 깃발 스킬 부여: 레벨 11 저항의 깃발 스킬 부여: 레벨 11 공포의 깃발 스킬 부여: 레벨 11 긴요한 시기 스킬 부여: 레벨 11 소모 스킬 부여: 레벨 11 충전 제어 스킬 부여: 레벨 11 파편 청소부 스킬 부여: 레벨 11 압도적인 존재감 스킬 부여: 레벨 11 연금술사의 은혜 스킬 부여: 레벨 11 수확자의 기원 스킬 부여: 레벨 11 광폭 스킬 부여: 레벨 11 역병의 전령 스킬 부여: 레벨 11 피의 전령 스킬 부여: 레벨 11 고사시키는 존재 스킬 부여: 레벨 11 굶주린 무리 스킬 부여: 레벨 11 전투 격분 스킬 부여: 레벨 11 마름쇠의 발자취 스킬 부여: 레벨 11 요양 스킬 부여: 레벨 11 철의 수호 스킬 부여: 레벨 11 원소 착취 스킬 부여: 레벨 11 가시밭 스킬 부여: 레벨 11 야만적인 광분 스킬 부여: 레벨 11 껍질피부접두어 속성 부여의 최대 개수 -1개\n        \n\n        \n        \n            우리는 사라진 기억을 찾아 헤맨다...\n        \n\n\n        \n            Lament Amulet",
+      "requirements": "요구 사항:  레벨 42",
+      "fields": {
+        "DropLevel": "42",
+        "BaseType": "한탄 목걸이",
+        "Class": "목걸이",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmuletB1a",
+        "Tags": "amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/LamentAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "접두어 속성 부여의 최대 개수 -1개",
+      "family": "MaxPrefixMaxSuffix",
+      "tags": [],
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "지역"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 0,
+          "max": 0,
+          "locality": "지역"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>접두어 속성 부여의 최대 개수 <span class='mod-value'>-1</span>개</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>MaxPrefixMaxSuffix\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>53 (Effective: 42)\n<tr><th>Stats<td><li>local maximum prefixes allowed + <span class=\"badge bg-primary\">-1 <span class=\"ndash\">—</span> -1</span> <span class=\"badge bg-secondary\">지역</span></li><li>local maximum suffixes allowed + <span class=\"badge bg-primary\">0 <span class=\"ndash\">—</span> 0</span> <span class=\"badge bg-secondary\">지역</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/LamentAmulet.webp"
+}

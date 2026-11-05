@@ -1,7 +1,7 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
-const root='docs/evidence/staves-talismans-source-bundle-2026-10-05'
+const root='evidence:staves-talismans-source'
 const url='https://www.pathofexile.com/api/trade2/data/items'
 const response=await fetch(url);assert(response.ok,String(response.status))
 const text=await response.text(),data=JSON.parse(text),entries=data.result.flatMap(g=>g.entries??[])

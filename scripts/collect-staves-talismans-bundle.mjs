@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { cleanSource as clean } from './armour-source.mjs'
-const root = 'docs/evidence/staves-talismans-source-bundle-2026-10-05'
+const root = 'evidence:staves-talismans-source'
 const pages = ['Staves', 'Talismans']
 const slugs = ['Permafrost_Staff', 'Reflecting_Staff', 'Dark_Staff', 'Ravenous_Staff', 'Perching_Staff', 'Sanctified_Staff', 'Maji_Talisman', 'Fungal_Talisman', 'Jade_Talisman']
 fs.mkdirSync(root, { recursive: true })

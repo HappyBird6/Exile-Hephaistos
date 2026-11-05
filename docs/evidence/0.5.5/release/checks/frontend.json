@@ -1,0 +1,29 @@
+{
+  "lint": "passed",
+  "typecheck": "passed",
+  "format": "passed",
+  "build": "passed",
+  "tests": {
+    "total": 2993,
+    "passed": 2984,
+    "failed": 9,
+    "files": 170,
+    "failedFiles": [
+      "src/features/crafting/ItemTextImport.test.tsx",
+      "src/features/crafting/sapphireGeneration.test.ts"
+    ]
+  },
+  "baselineComparison": {
+    "sourceCommit": "24e643e43173b5e074f5fb4a27bb184db2496508",
+    "testsExecuted": 32,
+    "failed": 9,
+    "passed": 23,
+    "sameFailureIdentities": true
+  },
+  "toolsTests": {
+    "tests": 8,
+    "passed": 8,
+    "failed": 0
+  },
+  "note": "The nine frontend failures reproduce without this evidence reorganization. Tests and assertions were not relaxed."
+}

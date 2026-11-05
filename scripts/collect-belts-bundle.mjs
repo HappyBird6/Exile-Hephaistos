@@ -1,9 +1,9 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { cleanSource as clean } from './armour-source.mjs'
 
-const root = 'docs/evidence/belts-source-bundle-2026-10-05'
+const root = 'evidence:belts-source'
 fs.mkdirSync(root, { recursive: true })
 const slugs = ['Linen', 'Wide', 'Long', 'Plate', 'Ornate', 'Mail', 'Double', 'Heavy', 'Utility', 'Fine', 'Invoking', 'Sinew', 'Forking', 'Stalking', 'Runemastered_Heavy'].map(s => `${s}_Belt`)
 for (const locale of ['us', 'kr', 'jp', 'cn', 'tw', 'sp']) {

@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import path from 'node:path'
 import { createHash } from 'node:crypto'
 const cache = process.argv[2]
@@ -54,5 +54,5 @@ for (const d of missing) {
   console.log(d.id,Object.keys(rows).length)
 }
 fs.writeFileSync(file,JSON.stringify(data,null,2)+'\n')
-fs.writeFileSync('docs/evidence/i18n-special-sources-2026-10-04.json',JSON.stringify(evidence,null,2)+'\n')
+fs.writeFileSync('docs/evidence/0.5.5/i18n/sources/i18n-special-sources.json',JSON.stringify(evidence,null,2)+'\n')
 console.log('bindings',evidence.bindings.length,'gaps',evidence.gaps)

@@ -1,0 +1,49 @@
+{
+  "url": "https://poe2db.tw/us/Lazuli_Ring",
+  "sha256": "cb9bc60bccda997b4617756aaa01288d518055129618e9d2720b728d2318b277",
+  "variants": [
+    {
+      "name": "Lazuli Ring",
+      "card": "Lazuli Ring\n        \n    \n    \n        \n            Rings+(20—30) to maximum Mana",
+      "requirements": "",
+      "fields": {
+        "DropLevel": "1",
+        "BaseType": "Lazuli Ring",
+        "Class": "Rings",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRing2",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/Basetypes/LazuliRing",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "+(20—30) to maximum Mana",
+      "family": "IncreasedMana",
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 20,
+          "max": 30,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(20<span class=\"ndash\">—</span>30)</span> to maximum Mana</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>IncreasedMana\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Unique (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 30</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/LazuliRing.webp"
+}

@@ -1,5 +1,5 @@
 // Completeness is based on active catalog identities, not matching UI key counts.
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import { fileURLToPath } from 'node:url'
 process.chdir(process.env.HEPHAISTOS_TRANSLATION_ROOT ?? fileURLToPath(new URL('..', import.meta.url)))
@@ -25,7 +25,7 @@ for(const base of Object.values(JSON.parse(fs.readFileSync('backend/src/main/res
    assert.equal(base.requiredLevel,0,`${l}:source has no character requirement:${base.id}`)
    assert.equal(base.requirements[l],'',`${l}:no invented requirement:${base.id}`)
    const sourceLocale={en:'us',ko:'kr','zh-CN':'cn','zh-TW':'tw',ja:'jp',es:'sp'}[l]
-   const captured=JSON.parse(fs.readFileSync(`docs/evidence/${base.id==='Metadata/Items/Belts/FourBelt2'?'belts-source-bundle-2026-10-05':'amulets-source-bundle-2026-10-04'}/${base.slug}.${sourceLocale}.json`,'utf8'))
+   const captured=JSON.parse(fs.readFileSync(`evidence:${base.id==='Metadata/Items/Belts/FourBelt2'?'belts-source':'amulets-source'}/${base.slug}.${sourceLocale}.json`,'utf8'))
    const source=base.id==='Metadata/Items/Belts/FourBelt2'?captured.variants[0]:captured
    assert.equal(source.fields.Type,base.id)
    assert.equal(source.requirements,base.requirements[l],`${l}:exact source absence:${base.id}`)
@@ -34,11 +34,11 @@ for(const base of Object.values(JSON.parse(fs.readFileSync('backend/src/main/res
    assert.equal(base.requiredLevel,0,`${l}:no character requirement:${base.id}`)
    assert.equal(base.requirements[l],'',`${l}:no invented requirement:${base.id}`)
    const sourceLocale={en:'us',ko:'kr','zh-CN':'cn','zh-TW':'tw',ja:'jp',es:'sp'}[l]
-   const captured=JSON.parse(fs.readFileSync(`docs/evidence/quivers-source-bundle-2026-10-05/${base.slug}.${sourceLocale}.json`,'utf8')).variants[0]
+   const captured=JSON.parse(fs.readFileSync(`evidence:quivers-source/${base.slug}.${sourceLocale}.json`,'utf8')).variants[0]
    assert.equal(captured.fields.Type,base.id)
    assert.equal(captured.requirements,'',`${l}:exact source absence:${base.id}`)
-  } else if(base.requiredLevel===0 && base.sourceUrl && fs.existsSync(`docs/evidence/base-audit-20261102/${base.sourceUrl.split('/').at(-1)}.${{en:'us',ko:'kr','zh-CN':'cn','zh-TW':'tw',ja:'jp',es:'sp'}[l]}.json`)) {
-   const source=JSON.parse(fs.readFileSync(`docs/evidence/base-audit-20261102/${base.sourceUrl.split('/').at(-1)}.${{en:'us',ko:'kr','zh-CN':'cn','zh-TW':'tw',ja:'jp',es:'sp'}[l]}.json`,'utf8')).variants.find(v=>v.fields.Type===base.id)
+  } else if(base.requiredLevel===0 && base.sourceUrl && fs.existsSync(`evidence:base-audit/${base.sourceUrl.split('/').at(-1)}.${{en:'us',ko:'kr','zh-CN':'cn','zh-TW':'tw',ja:'jp',es:'sp'}[l]}.json`)) {
+   const source=JSON.parse(fs.readFileSync(`evidence:base-audit/${base.sourceUrl.split('/').at(-1)}.${{en:'us',ko:'kr','zh-CN':'cn','zh-TW':'tw',ja:'jp',es:'sp'}[l]}.json`,'utf8')).variants.find(v=>v.fields.Type===base.id)
    assert(source,`${l}:exact source base identity:${base.id}`)
    assert.equal(source.requirements,'',`${l}:source has no character requirement:${base.id}`)
    assert.equal(base.requirements[l],'',`${l}:no invented requirement:${base.id}`)

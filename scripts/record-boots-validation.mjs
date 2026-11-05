@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 const qa='E:/WORK/Exile-Hephaistos/codex/boots-qa-20261004'
-const root='docs/evidence/boots-runtime-bundle-2026-10-04'
+const root='evidence:boots-runtime'
 assert(!fs.existsSync(root+'/validation.json'),'Preserve earlier validation output')
 assert(fs.readFileSync(qa+'/backend-check-3.log','utf8').includes('BUILD SUCCESSFUL'))
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'))

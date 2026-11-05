@@ -1,0 +1,52 @@
+{
+  "url": "https://poe2db.tw/tw/Gloam_Amulet",
+  "sha256": "6e7a3f0344ad302c18b4b73b4f2ec85263f05b7607b11e1f735cee6c7b899508",
+  "variants": [
+    {
+      "name": "黃昏項鍊",
+      "card": "黃昏項鍊\n        \n    \n    \n        \n            項鍊允許前綴-1\n允許後綴+1\n        \n\n\n\n        \n            Gloam Amulet",
+      "requirements": "",
+      "fields": {
+        "DropLevel": "1",
+        "BaseType": "黃昏項鍊",
+        "Class": "項鍊",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmuletLake2",
+        "Tags": "amulet",
+        "Icon": "Art/2DItems/Amulets/HeistAmulet1",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "允許前綴-1\n允許後綴+1",
+      "family": "MaxPrefixMaxSuffix",
+      "tags": [],
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1,
+          "locality": "區域"
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 1,
+          "max": 1,
+          "locality": "區域"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>允許前綴<span class='mod-value'>-1</span><br>允許後綴<span class='mod-value'>+1</span></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>MaxPrefixMaxSuffix\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>傳奇 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>local maximum prefixes allowed + <span class=\"badge bg-primary\">-1 <span class=\"ndash\">—</span> -1</span> <span class=\"badge bg-secondary\">區域</span></li><li>local maximum suffixes allowed + <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 1</span> <span class=\"badge bg-secondary\">區域</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/HeistAmulet1.webp"
+}

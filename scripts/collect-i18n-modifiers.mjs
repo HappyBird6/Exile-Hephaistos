@@ -284,7 +284,7 @@ fs.writeFileSync(
   JSON.stringify(result, null, 2) + "\n",
 );
 fs.writeFileSync(
-  "docs/evidence/i18n-modifier-sources-2026-10-04.json",
+  "docs/evidence/0.5.5/i18n/sources/i18n-modifier-sources.json",
   JSON.stringify(evidence, null, 2) + "\n",
 );
 console.log(JSON.stringify(evidence.counts));

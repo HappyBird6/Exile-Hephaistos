@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import {execFileSync} from 'node:child_process'
 const start='aa741d572e23067e74bb17aaf6daf3a3949fb87b'
@@ -22,7 +22,7 @@ for(const b of Object.values(read(paths[0])).filter(b=>b.family==='quivers')) {
  for(const [i,r]of raw.entries())assert.equal(ordinary[i].weight,+r.DropChance)
 }
 for(const locale of ['kr','jp','cn','tw','sp']) {
- const original=read('docs/evidence/quivers-source-bundle-2026-10-05/Quivers.us.json').data,local=read(`docs/evidence/quivers-source-bundle-2026-10-05/Quivers.${locale}.json`).data
+ const original=read('docs/evidence/0.5.5/i18n/sources/en/quivers-quivers.en.json').data,local=read(`evidence:quivers-source/Quivers.${locale}.json`).data
  for(const kind of ['normal']) {
   assert.equal(local[kind].length,original[kind].length)
   for(const [i,r]of original[kind].entries())for(const field of ['Level','ModGenerationTypeID','ModFamilyList','DropChance','Code'])assert.deepEqual(local[kind][i][field],r[field],`${locale}/${kind}/${i}/${field}`)
@@ -34,5 +34,5 @@ for(const locale of ['kr','jp','cn','tw','sp']) {
 }
 const report={passed:true,baseHead:start,previousBases:102,addedBases:11,totalBases:113,deferred:50,oldDefinitionsAndLocalesPreserved:true,ordinaryPerQuiver:100,sixLocaleRowIdentityVerified:true}
 const out=process.argv[2]??'preservation.json'
-fs.writeFileSync(`docs/evidence/quivers-source-bundle-2026-10-05/${out}`,JSON.stringify(report,null,2)+'\n',{flag:'wx'})
+fs.writeFileSync(`evidence:quivers-source/${out}`,JSON.stringify(report,null,2)+'\n',{flag:'wx'})
 console.log(report)

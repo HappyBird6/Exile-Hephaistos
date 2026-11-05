@@ -1,7 +1,7 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import crypto from 'node:crypto'
 import assert from 'node:assert/strict'
-const root = 'docs/evidence/top-base-bundle-2026-10-04'
+const root = 'evidence:top-base'
 fs.mkdirSync(root, { recursive: true })
 const clean = (s) => s.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').trim()
 const digest = (s) => crypto.createHash('sha256').update(s).digest('hex')

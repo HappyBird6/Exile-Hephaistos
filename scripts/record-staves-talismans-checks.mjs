@@ -1,6 +1,6 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
-const q='E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005',root='docs/evidence/staves-talismans-source-bundle-2026-10-05'
+const q='E:/WORK/Exile-Hephaistos/codex/staves-talismans-qa-20261005',root='evidence:staves-talismans-source'
 const phase=process.argv[2];assert(['backend','frontend'].includes(phase))
 function sync(path,relative='') { for(const entry of fs.readdirSync(path,{withFileTypes:true})) {const next=relative?relative+'/'+entry.name:entry.name;if(entry.isDirectory())sync(path+'/'+entry.name,next);else {const target=`${phase}/src/${next}`,tested=fs.readFileSync(path+'/'+entry.name);assert(fs.existsSync(target));if(!tested.equals(fs.readFileSync(target)))fs.writeFileSync(target,tested)}} }
 const log=fs.readFileSync(`${q}/${phase}-check-${phase==='backend'?1:3}.log`,'utf8').replace(/\u001b\[[0-9;]*m/g,'')

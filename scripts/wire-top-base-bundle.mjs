@@ -1,7 +1,7 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 const read = (p) => fs.readFileSync(p, 'utf8')
 const write = (p, t) => fs.writeFileSync(p, t)
-const root = 'docs/evidence/top-base-bundle-2026-10-04'
+const root = 'evidence:top-base'
 const bundle = JSON.parse(read(`${root}/bundle.json`))
 const localeIds = { us: 'en', kr: 'ko', jp: 'ja', cn: 'zh-CN', tw: 'zh-TW', sp: 'es' }
 const termsPath = 'frontend/src/shared/i18n/gameTerms.json'

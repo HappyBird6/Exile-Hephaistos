@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { cleanSource as clean } from './armour-source.mjs'
-const root = 'docs/evidence/maces-source-bundle-2026-10-05'
+const root = 'evidence:maces-source'
 const pages = ['One_Hand_Maces', 'Two_Hand_Maces']
 const slugs = ['Fortified_Hammer', 'Strife_Pick', 'Akoyan_Club', 'Ruination_Maul', 'Fanatic_Greathammer', 'Tawhoan_Greatclub']
 fs.mkdirSync(root, { recursive: true })

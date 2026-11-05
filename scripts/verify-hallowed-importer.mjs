@@ -1,11 +1,11 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
 const q = 'E:/WORK/Exile-Hephaistos/codex/hallowed-qa-20261004'
 const root = `${q}/importer-replay`
 assert(!fs.existsSync(root), 'Preserve previous replay')
 fs.mkdirSync(root)
-for (const p of ['backend/src/main/resources', 'frontend/src', 'docs/evidence/hallowed-source-bundle-2026-10-04']) fs.cpSync(p, `${root}/${p}`, { recursive: true })
+for (const p of ['backend/src/main/resources', 'frontend/src', 'evidence:hallowed-source']) fs.cpSync(p, `${root}/${p}`, { recursive: true })
 fs.mkdirSync(`${root}/scripts`)
 for (const p of ['import-hallowed-bundle.mjs', 'armour-source.mjs', 'verify-hallowed-source.mjs']) fs.copyFileSync(`scripts/${p}`, `${root}/scripts/${p}`)
 execFileSync(process.execPath, ['scripts/import-hallowed-bundle.mjs'], { cwd: root })

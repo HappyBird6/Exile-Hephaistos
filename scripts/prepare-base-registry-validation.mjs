@@ -1,11 +1,11 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 const q='E:/WORK/Exile-Hephaistos/codex/base-registry-qa-20261005'
 const baseline=JSON.parse(fs.readFileSync(`${q}/baseline125-runtime-digests.json`))
 assert.equal(Object.keys(baseline).length,125)
 fs.mkdirSync('backend/src/test/resources',{recursive:true})
 fs.copyFileSync(`${q}/baseline125-runtime-digests.json`,'backend/src/test/resources/base-registry-runtime-baseline.json',fs.constants.COPYFILE_EXCL)
-fs.copyFileSync(`${q}/baseline125-runtime-digests.json`,'docs/evidence/base-registry-refactor-2026-10-05/runtime-baseline.json',fs.constants.COPYFILE_EXCL)
+fs.copyFileSync(`${q}/baseline125-runtime-digests.json`,'docs/evidence/0.5.5/tooling/catalog-import/base-registry-refactor-runtime-baseline.json',fs.constants.COPYFILE_EXCL)
 let test=fs.readFileSync(`${q}/baseline-backend/src/test/java/com/poe2craft/bootstrap/BaseRegistryBaselineTest.java`,'utf8')
 test=test.replace('class BaseRegistryBaselineTest','class BaseRegistryParityTest').replace('void capture()','void allExistingInitialsActionsAndSeededTracesRemainExact()')
 test=test.replace(' var result=new TreeMap<String,Object>();',' var result=new TreeMap<String,Object>();\n var expected=M.readTree(getClass().getResourceAsStream("/base-registry-runtime-baseline.json"));\n org.junit.jupiter.api.Assertions.assertEquals(125,expected.size());')

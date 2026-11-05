@@ -1,0 +1,48 @@
+{
+  "url": "https://poe2db.tw/cn/Seastorm_Mantle",
+  "sha256": "8c18659f5c4c1eb8eb2d1e1f2cbb3c5a937eaecd6d069d4dc5e785934cdf65ad",
+  "variants": [
+    {
+      "name": "海洋风暴斗篷",
+      "card": "海洋风暴斗篷\n        \n    \n    \n        \n            护甲护甲: 273能量护盾: 76基础移动速度: -0.04需求：  等级 80, 67 力量, 67 智慧将所受伤害的(8—14)%吸纳为生命\n        \n\n\n\n        \n            Seastorm Mantle",
+      "requirements": "需求：  等级 80, 67 力量, 67 智慧",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "海洋风暴斗篷",
+        "Class": "护甲",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt8Endgame",
+        "Tags": "str_int_armour, karui_basetype, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr08",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "将所受伤害的(8—14)%吸纳为生命",
+      "family": "DamageTakenGainedAsLife",
+      "tags": [
+        "resource",
+        "生命"
+      ],
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 8,
+          "max": 14,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>将所受伤害的<span class='mod-value'>(8<span class=\"ndash\">—</span>14)</span>%<a data-keyword=\"Recoup\" href=\"Recoup\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/e271456e9a51dca751593a5e610dadde1799b2726ca18f76c708b2314f83740c\">吸纳</a>为生命</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>DamageTakenGainedAsLife\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>传奇 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>damage taken goes to life over 4 seconds % <span class=\"badge bg-primary\">8 <span class=\"ndash\">—</span> 14</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>生命</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr08.webp"
+}

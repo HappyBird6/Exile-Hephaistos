@@ -1,7 +1,7 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
-const root='docs/evidence/amulets-source-bundle-2026-10-04/full-details'
+const root='evidence:amulets-source/full-details'
 fs.mkdirSync(root,{recursive:true})
 const rows=JSON.parse(fs.readFileSync('backend/src/main/resources/catalog/solar-amulet/base.raw.json'))
 for(let i=0;i<rows.length;i++){

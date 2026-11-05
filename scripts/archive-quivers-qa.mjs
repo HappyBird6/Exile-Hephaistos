@@ -1,9 +1,9 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 
 const qa = 'E:/WORK/Exile-Hephaistos/codex/quivers-qa-20261005'
-const target = 'docs/evidence/quivers-source-bundle-2026-10-05'
+const target = 'evidence:quivers-source'
 const hash = p => crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex')
 const read = p => JSON.parse(fs.readFileSync(p, 'utf8'))
 const save = (name, value) => fs.writeFileSync(`${target}/${name}`, JSON.stringify(value, null, 2) + '\n', { flag: 'wx' })

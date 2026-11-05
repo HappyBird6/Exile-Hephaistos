@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import crypto from 'node:crypto'
 import assert from 'node:assert/strict'
 import { collectArmourSource, cleanSource as clean } from './armour-source.mjs'
-const root = 'docs/evidence/rings-source-bundle-2026-10-04'
+const root = 'evidence:rings-source'
 fs.mkdirSync(root, { recursive: true })
 const locales = { en: 'us', ko: 'kr', ja: 'jp', 'zh-CN': 'cn', 'zh-TW': 'tw', es: 'sp' }
 const write = (p,v) => fs.writeFileSync(p, JSON.stringify(v,null,2)+'\n')

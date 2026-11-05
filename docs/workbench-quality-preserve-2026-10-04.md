@@ -10,4 +10,4 @@ Catalyst 재사용·유형 변경의 실제 게임 결과는 이번 사용자 �
 
 Backend 검증, API 응답 수치 검증, 품질 projection, 여섯 언어 안내, 저장 film 검증·복원은 같은 보존 규칙을 적용한다. 기존 clamp로 이미 저장된20은 소실된 값을 추측하여40으로 되돌리지 않는다. 개인 item 원문·storage·기존 evidence는 수정하지 않는다.
 
-검증 결과는 [validation evidence](evidence/workbench-quality-preserve-validation-2026-10-04.json), 다음 범위는 Jewel/Liquid 계획 (이전 기록)에 기록한다. 이 작업은 local branch commit까지만 수행하며 사용자 서버18080/18081는 갱신하지 않는다.
+검증 결과는 [validation evidence](evidence/0.5.5/README.md), 다음 범위는 Jewel/Liquid 계획 (이전 기록)에 기록한다. 이 작업은 local branch commit까지만 수행하며 사용자 서버18080/18081는 갱신하지 않는다.

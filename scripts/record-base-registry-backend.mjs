@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 const q='E:/WORK/Exile-Hephaistos/codex/base-registry-qa-20261005'
 const report={command:'sh gradlew --no-daemon spotlessApply check generateJooq bootJar',attempt:2}
@@ -24,5 +24,5 @@ function sync(path,relative='') {
  }
 }
 sync(`${q}/backend-check/src`)
-fs.writeFileSync('docs/evidence/base-registry-refactor-2026-10-05/backend-results.json',JSON.stringify(report,null,2)+'\n',{flag:'wx'})
+fs.writeFileSync('evidence:base-registry-refactor/backend-results.json',JSON.stringify(report,null,2)+'\n',{flag:'wx'})
 console.log(report)

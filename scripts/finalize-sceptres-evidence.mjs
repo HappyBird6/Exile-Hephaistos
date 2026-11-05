@@ -1,10 +1,10 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import path from 'node:path'
 import crypto from 'node:crypto'
 import assert from 'node:assert/strict'
 import './verify-sceptres-preservation.mjs'
 import './verify-sceptres-identities.mjs'
-const q='E:/WORK/Exile-Hephaistos/codex/sceptres-qa-20261005',out='docs/evidence/sceptres-runtime-bundle-2026-10-05'
+const q='E:/WORK/Exile-Hephaistos/codex/sceptres-qa-20261005',out='evidence:sceptres-runtime'
 assert(!fs.existsSync(out),'Preserve previous evidence')
 const walk=root=>fs.readdirSync(root,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(root,e.name)):[path.join(root,e.name)])
 const hash=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex')

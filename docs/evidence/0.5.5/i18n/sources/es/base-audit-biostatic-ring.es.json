@@ -1,0 +1,48 @@
+{
+  "url": "https://poe2db.tw/sp/Biostatic_Ring",
+  "sha256": "1191fd594765ddb7c7496213fc61807dc28236740babbb1c36ecdc9dc9f732ed",
+  "variants": [
+    {
+      "name": "Anillo biostático",
+      "card": "Anillo biostático\n        \n    \n    \n        \n            AnillosRequiere:  Nivel 52+1% a todas las resistencias máximas\n        \n\n        \n        \n            Preserva la esencia, para que pueda evolucionar.\n        \n\n\n        \n            Biostatic Ring",
+      "requirements": "Requiere:  Nivel 52",
+      "fields": {
+        "DropLevel": "52",
+        "BaseType": "Anillo biostático",
+        "Class": "Anillos",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRingB1",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/BreachlordRing_Tul",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "+1% a todas las resistencias máximas",
+      "family": "MaximumResistances",
+      "tags": [
+        "resistencia"
+      ],
+      "stats": [
+        {
+          "id": "additional_maximum_all_resistances_%",
+          "min": 1,
+          "max": 1,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+1</span>% a todas las resistencias máximas</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>MaximumResistances\n<tr><th>Domains<td>Objeto (1)\n<tr><th>GenerationType<td>único (3)\n<tr><th>Req. level<td>65 (Effective: 52)\n<tr><th>Stats<td><li>additional maximum all resistances % <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 1</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'>Resistencia</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/BreachlordRing_Tul.webp"
+}

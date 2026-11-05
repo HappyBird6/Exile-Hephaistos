@@ -1,0 +1,46 @@
+{
+  "url": "https://poe2db.tw/tw/Refined_Breach_Ring",
+  "sha256": "e8b6bb4d3fdadfe43bf2ba96fcf54a467e8c7767c5e35a7f8cf315d03be8d2e4",
+  "variants": [
+    {
+      "name": "精製裂痕戒指",
+      "card": "精製裂痕戒指\n        \n    \n    \n        \n            戒指需求:  等級 40+25%最大品質\n        \n\n\n\n        \n            Refined Breach Ring",
+      "requirements": "需求:  等級 40",
+      "fields": {
+        "DropLevel": "40",
+        "BaseType": "精製裂痕戒指",
+        "Class": "戒指",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRingBreach2",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/Basetypes/BreachRing",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "+25%最大品質",
+      "family": "LocalMaximumQuality",
+      "tags": [],
+      "stats": [
+        {
+          "id": "local_maximum_quality_+",
+          "min": 25,
+          "max": 25,
+          "locality": "區域  — 無法變動的值"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+25</span>%最大<a data-keyword=\"Quality\" href=\"Quality\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/tw/Poe_Data_KeywordPopups_hover/a694af4c6d36296187c8e0efd26171915642c3cf0d416875f15a32b5bd612d80\">品質</a></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>LocalMaximumQuality\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>傳奇 (3)\n<tr><th>Req. level<td>50 (Effective: 40)\n<tr><th>Stats<td><li>local maximum quality + <span class=\"badge bg-primary\">25 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">區域</span> <span class=\"badge bg-warning\"><span class=\"italic\"><span style=\"color:rgb(170,170,170)\"> — 無法變動的值</span></span></span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/Basetypes/BreachRing.webp"
+}

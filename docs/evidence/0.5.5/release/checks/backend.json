@@ -1,0 +1,21 @@
+{
+  "test": {
+    "tests": 18,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "integrationTest": {
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "commands": [
+    "test --tests *RulesetManifestLoaderTest --tests *CraftingRegistryLoaderTest --tests *WorkbenchDefinitionsLoaderTest --tests *ArchitectureTest",
+    "integrationTest",
+    "generateJooq",
+    "bootJar"
+  ],
+  "scope": "Selected loader/metadata/architecture tests and isolated DB integration, not the entire backend suite."
+}

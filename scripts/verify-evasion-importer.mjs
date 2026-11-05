@@ -1,11 +1,11 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
 const attempt = process.argv[2] ?? '1'
 assert(/^[1-9][0-9]*$/.test(attempt))
 const root = `/qa/evasion-importer-replay-${attempt}`
 assert(!fs.existsSync(root), 'Preserve existing importer replay output')
-for (const dir of ['backend/src/main/resources/catalog', 'docs/evidence/armour-source-bundle-2026-10-04', 'docs/evidence/evasion-gloves-runtime-bundle-2026-10-04', 'docs/evidence/evasion-helmets-runtime-bundle-2026-10-04', 'frontend/src/features/crafting', 'frontend/src/shared/i18n']) fs.cpSync('/source/' + dir, root + '/' + dir, { recursive: true, filter: p => !p.endsWith('.png') })
+for (const dir of ['backend/src/main/resources/catalog', 'evidence:armour-source', 'evidence:evasion-gloves-runtime', 'evidence:evasion-helmets-runtime', 'frontend/src/features/crafting', 'frontend/src/shared/i18n']) fs.cpSync('/source/' + dir, root + '/' + dir, { recursive: true, filter: p => !p.endsWith('.png') })
 for (const flag of ['--evasion', '--helmets']) {
   const output = execFileSync(process.execPath, ['/source/scripts/import-gloves-bundle.mjs', flag], { cwd: root, encoding: 'utf8' })
   fs.appendFileSync(`/qa/importer-replay-${attempt}.log`, output)

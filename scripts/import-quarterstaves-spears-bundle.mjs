@@ -1,9 +1,9 @@
 import { createDisplayBinder, orderedSpawnEligible } from './reviewed-catalog-importer.mjs'
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { cleanSource as clean } from './armour-source.mjs'
-const root = 'docs/evidence/quarterstaves-spears-source-bundle-2026-10-05'
+const root = 'evidence:quarterstaves-spears-source'
 const read = p => JSON.parse(fs.readFileSync(p, 'utf8'))
 const write = (p,v) => fs.writeFileSync(p, JSON.stringify(v,null,2)+'\n')
 const hash = s => crypto.createHash('sha256').update(s).digest('hex')

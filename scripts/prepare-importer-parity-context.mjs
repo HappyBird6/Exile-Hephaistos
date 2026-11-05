@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import {execFileSync} from 'node:child_process'
 const specs={maces:{head:'3c40950098146be6b2b80fda3ec54c380f833927',pools:['fortified-hammer','ruination-maul']},'quarterstaves-spears':{head:'2fe3f86d101ef8f3f35636470a9e4789ae7c7edf',pools:['aegis-quarterstaff','grand-spear']}}
@@ -14,5 +14,5 @@ for(const [namespace,{head,pools}]of Object.entries(specs)) {
  assert(Object.keys(definitions).length>0)
  result[namespace]={baseHead:head,pools,display:{definitions,templates}}
 }
-fs.writeFileSync('docs/evidence/base-registry-refactor-2026-10-05/importer-before-context.json',JSON.stringify(result,null,2)+'\n',{flag:'wx'})
+fs.writeFileSync('docs/evidence/0.5.5/tooling/catalog-import/base-registry-refactor-importer-before-context.json',JSON.stringify(result,null,2)+'\n',{flag:'wx'})
 console.log(Object.fromEntries(Object.entries(result).map(([key,r])=>[key,Object.keys(r.display.definitions).length])))

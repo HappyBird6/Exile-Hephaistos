@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import crypto from 'node:crypto'
 import assert from 'node:assert/strict'
 import { collectArmourSource, cleanSource as clean } from './armour-source.mjs'
-const root = 'docs/evidence/amulets-source-bundle-2026-10-04'
+const root = 'evidence:amulets-source'
 fs.mkdirSync(root, { recursive: true })
 const write = (p, v) => { assert(!fs.existsSync(p), 'Preserve prior output'); fs.writeFileSync(p, JSON.stringify(v, null, 2) + '\n') }
 for (const slug of ['Stellar_Amulet', 'Amber_Amulet', 'Bloodstone_Amulet', 'Lunar_Amulet', 'Azure_Amulet', 'Crimson_Amulet', 'Pearlescent_Amulet']) {

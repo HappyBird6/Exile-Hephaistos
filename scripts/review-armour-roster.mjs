@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import { collectArmourSource, sourceLocales, sourceProperties } from './armour-source.mjs'
 
@@ -29,7 +29,7 @@ rejected.delete('Adherent_Cuffs')
 const preferred = [...raw.filter(b => !rejected.has(b.slug)), sleek]
 assert.equal(preferred.length, 24)
 for (const base of preferred) {
-  const inventory = JSON.parse(fs.readFileSync(`docs/evidence/top-base-inventory-2026-10-04/${base.page}.json`))
+  const inventory = JSON.parse(fs.readFileSync(`evidence:top-base-inventory/${base.page}.json`))
   const cards = inventory.cards.filter(c => !/^Runeforged_|^Runemastered_/.test(c.slug) && c.slug !== 'Ornate_Ringmail' && c.slug !== 'Tethering_Bands')
   for (const label of ['Armour', 'Evasion Rating', 'Energy Shield']) {
     const maximum = Math.max(...cards.map(c => sourceProperties(c.card)[label] ?? 0))

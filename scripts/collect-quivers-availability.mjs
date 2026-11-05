@@ -1,7 +1,7 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
-const root='docs/evidence/quivers-source-bundle-2026-10-05'
+const root='evidence:quivers-source'
 const url='https://www.pathofexile.com/api/trade2/data/items'
 const r=await fetch(url)
 assert(r.ok,`${r.status}`)

@@ -1,0 +1,48 @@
+{
+  "url": "https://poe2db.tw/cn/Gold_Amulet",
+  "sha256": "72211f6ed1ff75dd0ebe6f6aaf591b33f1950b0da59b823b11fc09f3f54a951d",
+  "variants": [
+    {
+      "name": "帝金项链",
+      "card": "帝金项链\n        \n    \n    \n        \n            项链需求：  等级 35物品稀有度提高 (12—20)%\n        \n\n\n\n        \n            Gold Amulet",
+      "requirements": "需求：  等级 35",
+      "fields": {
+        "DropLevel": "35",
+        "BaseType": "帝金项链",
+        "Class": "项链",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmulet10",
+        "Tags": "amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/GoldAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "物品稀有度提高 (12—20)%",
+      "family": "ItemFoundRarityIncrease",
+      "tags": [
+        "drop"
+      ],
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 12,
+          "max": 20,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"ItemRarity\" href=\"Item_Rarity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/cn/Poe_Data_KeywordPopups_hover/5e568bef0fb0932c09e0cc9bc2885cab19dacb1a0425dcce1f6da0da75fe3792\">物品稀有度</a>提高 <span class='mod-value'>(12<span class=\"ndash\">—</span>20)</span>%</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>ItemFoundRarityIncrease\n<tr><th>Domains<td>物品 (1)\n<tr><th>GenerationType<td>传奇 (3)\n<tr><th>Req. level<td>44 (Effective: 35)\n<tr><th>Stats<td><li>base item found rarity +% <span class=\"badge bg-primary\">12 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>drop</i></span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/GoldAmulet.webp"
+}

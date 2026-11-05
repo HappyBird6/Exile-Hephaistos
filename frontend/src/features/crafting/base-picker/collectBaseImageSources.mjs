@@ -12,7 +12,7 @@ const top = JSON.parse(
 const policies = JSON.parse(
   readFileSync(resolve(destination, '../basePolicies.json'), 'utf8'),
 )
-const evidence = resolve(root, 'docs/evidence')
+const evidence = resolve(root, 'docs/evidence/0.5.5')
 const files = readdirSync(evidence, { recursive: true }).map((file) =>
   resolve(evidence, file),
 )
@@ -28,16 +28,28 @@ for (const [key, base] of Object.entries({ ...policies.legacy, ...top })) {
     slug,
     (base.name ?? base.initialText.split('\n').at(-1)).replaceAll(' ', '_'),
   ]
-  const candidates = files.filter((path) =>
-    slugs.some(
+  const names = slugs.map((name) =>
+    name
+      .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-'),
+  )
+  const candidates = files.filter((file) =>
+    names.some(
       (name) =>
-        path.endsWith(`/${name}.us.html`) ||
-        path.endsWith(`\\${name}.us.html`) ||
-        path.endsWith(`/${name}.us.json`) ||
-        path.endsWith(`\\${name}.us.json`) ||
-        path.endsWith(`\\${name}.json`),
+        file.endsWith(`-${name}.en.html`) ||
+        file.endsWith(`-${name}.en.json`) ||
+        file.endsWith(`/${name}.en.json`),
     ),
   )
+  const priorSource = previous[base.id]?.source
+  if (
+    priorSource?.startsWith('docs/evidence/0.5.5/') &&
+    existsSync(resolve(root, priorSource))
+  ) {
+    candidates.unshift(resolve(root, priorSource))
+  }
+
   let found
   for (const path of candidates) {
     const bytes = readFileSync(path)
@@ -102,8 +114,17 @@ for (const [key, base] of Object.entries({ ...policies.legacy, ...top })) {
         : found
   else missing.push(key)
 }
-writeFileSync(
-  resolve(destination, 'baseImageSources.json'),
-  JSON.stringify(rows, null, 2) + '\n',
-)
+if (process.argv.includes('--check')) {
+  for (const [id, row] of Object.entries(rows)) {
+    if (JSON.stringify(row) !== JSON.stringify(previous[id]))
+      throw new Error(`Image source index is stale: ${id}`)
+  }
+  if (missing.length)
+    throw new Error(`Missing source identities: ${missing.join(', ')}`)
+} else {
+  writeFileSync(
+    resolve(destination, 'baseImageSources.json'),
+    JSON.stringify(rows, null, 2) + '\n',
+  )
+}
 console.log(JSON.stringify({ sourced: Object.keys(rows).length, missing }))

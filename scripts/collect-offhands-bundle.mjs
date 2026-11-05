@@ -1,9 +1,9 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { cleanSource as clean } from './armour-source.mjs'
 
-const root = 'docs/evidence/offhands-source-bundle-2026-10-05'
+const root = 'evidence:offhands-source'
 fs.mkdirSync(root, { recursive: true })
 for (const locale of ['us', 'kr', 'jp', 'cn', 'tw', 'sp']) {
   for (const slug of ['Tawhoan_Tower_Shield','Golden_Targe','Blacksteel_Crest_Shield','Desert_Buckler','Tasalian_Focus','Shields_str','Shields_str_dex','Shields_str_int','Bucklers','Foci']) {

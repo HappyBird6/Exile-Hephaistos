@@ -1,8 +1,8 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import { cleanSource as clean } from './armour-source.mjs'
-const root = 'docs/evidence/sceptres-source-bundle-2026-10-05'
+const root = 'evidence:sceptres-source'
 const read = p => JSON.parse(fs.readFileSync(p, 'utf8'))
 const write = (p, v) => fs.writeFileSync(p, JSON.stringify(v, null, 2) + '\n')
 const hash = s => crypto.createHash('sha256').update(s).digest('hex')
@@ -18,7 +18,7 @@ const templates = read('frontend/src/shared/i18n/modifierTemplates.json')
 assert.deepEqual(read(`${root}/Sceptres.us.json`).data.normal, raw, 'Review changed class pool')
 for(const locale of ['us','kr','jp','cn','tw','sp']) {
   const current=read(`${root}/Sceptres.${locale}.json`).data
-  const prior=read(`docs/evidence/hallowed-source-bundle-2026-10-04/Sceptres.${locale}.json`).data
+  const prior=read(`evidence:hallowed-source/Sceptres.${locale}.json`).data
   assert.deepEqual(current.essence,prior.essence,'Review changed fixed Essence source')
   assert.deepEqual(current.perfect_essence,prior.perfect_essence,'Review changed Perfect Essence source')
 }

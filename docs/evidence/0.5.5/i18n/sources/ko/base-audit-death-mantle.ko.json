@@ -1,0 +1,55 @@
+{
+  "url": "https://poe2db.tw/kr/Death_Mantle",
+  "sha256": "7f1617d4ac990b29dca3c20a0b1f757f882754a9553a9fc75917f150a6e2cae9",
+  "variants": [
+    {
+      "name": "죽음의 외투",
+      "card": "죽음의 외투\n        \n    \n    \n        \n            갑옷방어도: 273에너지 보호막: 76Base Movement Speed: -0.04요구 사항:  레벨 75, 67 힘, 67 지능모든 원소 저항 최대치 +1%\n        \n\n\n\n        \n            Death Mantle",
+      "requirements": "요구 사항:  레벨 75, 67 힘, 67 지능",
+      "fields": {
+        "DropLevel": "75",
+        "BaseType": "죽음의 외투",
+        "Class": "갑옷",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt6Endgame",
+        "Tags": "str_int_armour, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr06",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "모든 원소 저항 최대치 +1%",
+      "family": "MaximumResistances",
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "원소",
+        "화염",
+        "냉기",
+        "번개",
+        "저항"
+      ],
+      "stats": [
+        {
+          "id": "additional_maximum_all_elemental_resistances_%",
+          "min": 1,
+          "max": 1,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>모든 <a data-keyword=\"MaximumResistances\" href=\"Maximum_Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/18237c9882ebde062c52ba47e48fc7b377329871a04607e84646fccb948100a0\">원소 저항 최대치</a> <span class='mod-value'>+1</span>%</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>MaximumResistances\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>additional maximum all elemental resistances % <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 1</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>cold_resistance</i></span> <span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>fire_resistance</i></span> <span class='badge bg-primary'><i>lightning_resistance</i></span> <span class='badge bg-primary'>원소</span> <span class='badge bg-primary'>화염</span> <span class='badge bg-primary'>냉기</span> <span class='badge bg-primary'>번개</span> <span class='badge bg-primary'>저항</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr06.webp"
+}

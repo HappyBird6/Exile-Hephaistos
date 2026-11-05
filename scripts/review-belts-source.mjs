@@ -1,6 +1,6 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import { cleanSource as clean } from './armour-source.mjs'
-const root = 'docs/evidence/belts-source-bundle-2026-10-05'
+const root = 'evidence:belts-source'
 for (const slug of ['Linen', 'Wide', 'Long', 'Plate', 'Ornate', 'Mail', 'Double', 'Heavy', 'Utility', 'Fine', 'Invoking', 'Sinew', 'Forking']) {
   const html = fs.readFileSync(`${root}/${slug}_Belt.us.html`, 'utf8')
   const blocks = [...html.matchAll(/<h5 class="card-header">((?:(?!<\/h5>)[^])*?)<\/h5>\s*<table[^]*?<\/table>/g)].filter(m => m[0].includes('<tr><th>Family'))

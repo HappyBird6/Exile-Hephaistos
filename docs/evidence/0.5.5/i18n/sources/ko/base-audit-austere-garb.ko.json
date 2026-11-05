@@ -1,0 +1,48 @@
+{
+  "url": "https://poe2db.tw/kr/Austere_Garb",
+  "sha256": "6f1d80640baeec659fdb65d90c3b63768101a46b4ce52d8f67992c7d5cf71d2f",
+  "variants": [
+    {
+      "name": "금욕적인 의복",
+      "card": "금욕적인 의복\n        \n    \n    \n        \n            갑옷회피: 248에너지 보호막: 76Base Movement Speed: -0.03요구 사항:  레벨 80, 67 민첩, 67 지능플레이어에게 적용되는 원소 상태 이상 지속시간 (10—15)% 감소\n        \n\n\n\n        \n            Austere Garb",
+      "requirements": "요구 사항:  레벨 80, 67 민첩, 67 지능",
+      "fields": {
+        "DropLevel": "80",
+        "BaseType": "금욕적인 의복",
+        "Class": "갑옷",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame",
+        "Tags": "dex_int_armour, karui_basetype, body_armour, armour",
+        "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDexInt08",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, body_armour",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "BodyArmour",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "플레이어에게 적용되는 원소 상태 이상 지속시간 (10—15)% 감소",
+      "family": "SelfStatusAilmentDuration",
+      "tags": [
+        "원소",
+        "상태 이상"
+      ],
+      "stats": [
+        {
+          "id": "self_elemental_status_duration_-%",
+          "min": 10,
+          "max": 15,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>플레이어에게 적용되는 원소 상태 이상 지속시간 <span class='mod-value'>(10<span class=\"ndash\">—</span>15)</span>% 감소</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>SelfStatusAilmentDuration\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>self elemental status duration -% <span class=\"badge bg-primary\">10 <span class=\"ndash\">—</span> 15</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'>원소</span> <span class='badge bg-primary'>상태 이상</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDexInt08.webp"
+}

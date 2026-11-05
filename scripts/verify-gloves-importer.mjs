@@ -1,9 +1,9 @@
-import fs from 'node:fs'
+import fs from './evidence-files.cjs'
 import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
 const root = '/qa/importer-replay-1'
 assert(!fs.existsSync(root), 'Preserve previous importer evidence')
-const dirs = ['backend/src/main/resources/catalog/stocky-mitts', 'docs/evidence/armour-source-bundle-2026-10-04', 'docs/evidence/gloves-runtime-bundle-2026-10-04']
+const dirs = ['backend/src/main/resources/catalog/stocky-mitts', 'evidence:armour-source', 'evidence:gloves-runtime']
 for (const dir of dirs) fs.cpSync('/source/' + dir, root + '/' + dir, { recursive: true, filter: p => !p.endsWith('.png') })
 const files = ['backend/src/main/resources/catalog/top-bases.json', 'frontend/src/features/crafting/topBases.json', 'frontend/src/shared/i18n/gameTerms.json', 'frontend/src/shared/i18n/modifierTemplates.json']
 const pools = ['massive-mitts', 'sirenscale-gloves', 'adherent-cuffs']

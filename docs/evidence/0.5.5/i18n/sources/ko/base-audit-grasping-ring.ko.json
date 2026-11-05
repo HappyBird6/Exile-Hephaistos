@@ -1,0 +1,46 @@
+{
+  "url": "https://poe2db.tw/kr/Grasping_Ring",
+  "sha256": "973f8810410b1d39511b4459d556e2c815442e9a3eef512cd3c42cfb1586207e",
+  "variants": [
+    {
+      "name": "거머쥐는 반지",
+      "card": "거머쥐는 반지\n        \n    \n    \n        \n            반지요구 사항:  레벨 40이 아이템은 장갑인 것처럼 장착된 아이템의 보너스를 받음\n        \n\n        \n        \n            존재하는 모든 것을 추구하여, 우리 것이 되게 하여라.\n        \n\n\n        \n            Grasping Ring",
+      "requirements": "요구 사항:  레벨 40",
+      "fields": {
+        "DropLevel": "40",
+        "BaseType": "거머쥐는 반지",
+        "Class": "반지",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Rings/FourRingB6",
+        "Tags": "ring",
+        "Icon": "Art/2DItems/Rings/BreachlordRing_Formless",
+        "Base.base_level": "1",
+        "Base.tag": "default, ring",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Ring",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "이 아이템은 장갑인 것처럼 장착된 아이템의 보너스를 받음",
+      "family": "LocalItemBenefitSocketableAsIf",
+      "tags": [],
+      "stats": [
+        {
+          "id": "local_item_benefit_socketable_as_if_gloves",
+          "min": 1,
+          "max": 1,
+          "locality": "지역"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'>이 아이템은 장갑인 것처럼 장착된 아이템의 보너스를 받음</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>LocalItemBenefitSocketableAsIf\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>50 (Effective: 40)\n<tr><th>Stats<td><li>local item benefit socketable as if gloves <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 1</span> <span class=\"badge bg-secondary\">지역</span></li></table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/BreachlordRing_Formless.webp"
+}

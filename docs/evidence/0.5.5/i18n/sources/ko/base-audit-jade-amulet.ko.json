@@ -1,0 +1,49 @@
+{
+  "url": "https://poe2db.tw/kr/Jade_Amulet",
+  "sha256": "495468333d51af4db4b9f272feff5061ec82cf42c3e1d63e18edf09b5a24043e",
+  "variants": [
+    {
+      "name": "비취 목걸이",
+      "card": "비취 목걸이\n        \n    \n    \n        \n            목걸이요구 사항:  레벨 8민첩 +(10—15)\n        \n\n\n\n        \n            Jade Amulet",
+      "requirements": "요구 사항:  레벨 8",
+      "fields": {
+        "DropLevel": "8",
+        "BaseType": "비취 목걸이",
+        "Class": "목걸이",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Amulets/FourAmulet4",
+        "Tags": "amulet",
+        "Icon": "Art/2DItems/Amulets/Basetypes/JadeAmulet",
+        "Base.base_level": "1",
+        "Base.tag": "default, amulet",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Amulet",
+        "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5",
+        "진줏빛 목걸이": "1x 비취 목걸이 \n1x 호박 목걸이 \n1x 청금석 목걸이"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "text": "민첩 +(10—15)",
+      "family": "Dexterity",
+      "tags": [
+        "능력치"
+      ],
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 10,
+          "max": 15,
+          "locality": "Global"
+        }
+      ],
+      "html": "<h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Dexterity\" href=\"Dexterity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/kr/Poe_Data_KeywordPopups_hover/f5656fbf935f739ecb11a07744fa09d7bf0e954e2d6809c4a24476f0c00ea270\">민첩</a> <span class='mod-value'>+(10<span class=\"ndash\">—</span>15)</span></span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>Dexterity\n<tr><th>Domains<td>아이템 (1)\n<tr><th>GenerationType<td>고유 (3)\n<tr><th>Req. level<td>10 (Effective: 8)\n<tr><th>Stats<td><li>additional dexterity <span class=\"badge bg-primary\">10 <span class=\"ndash\">—</span> 15</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'>능력치</span> </table>"
+    }
+  ],
+  "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/JadeAmulet.webp"
+}

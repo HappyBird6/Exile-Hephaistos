@@ -31,7 +31,7 @@ report=dict(baseMirrorsAgree=frontend==backend,sourceStats=summary,missingModifi
     formula='(base + local flat) * (1 + local increased / 100) * (1 + quality / 100)',
     rounding='No intermediate rounding. Formatting belongs to the card.',
     excludedGlobalStats=['base_physical_damage_reduction_rating','base_evasion_rating','base_maximum_energy_shield','physical_damage_reduction_rating_+%','evasion_rating_+%','maximum_energy_shield_+%','global_armour_evasion_energy_shield_+%'])
-out=root/'docs/evidence/quality-sanctification-c-20261103/source-stat-audit.json'
+out=root/'docs/evidence/0.5.5/crafting/sanctification/sources/local-defence-stats.json'
 out.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
 assert all(entry['definitions'] for entry in summary.values()) and frontend==backend
 print('Nine local defence stat IDs audited; missing modifier tags are recorded, not invented. Base observations agree.')
