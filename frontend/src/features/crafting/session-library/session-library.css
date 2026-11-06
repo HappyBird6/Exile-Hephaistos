@@ -146,6 +146,7 @@
 .wb-history-workspace {
   display: grid;
   grid-template-columns: 210px minmax(0, 1fr);
+  min-height: 640px;
   gap: 0;
   min-width: 0;
   font-size: 18px;
@@ -455,4 +456,8 @@
   .wb-session-card__overview {
     margin-right: auto;
   }
+}
+
+.wb-history-columns.wb-history-columns--empty {
+  grid-template-columns: minmax(0, 1fr);
 }

@@ -131,15 +131,18 @@ it('filters favorites with legacy numbers and preserves rename, delete and Undo'
   fireEvent.keyDown(editor, { key: 'Enter' })
   fireEvent.click(screen.getByRole('button', { name: 'Delete: Renamed' }))
   expect(screen.getByText('No favorite crafting sessions yet.')).toBeVisible()
+  expect(document.querySelector('.wb-history-preview')).toBeNull()
   fireEvent.click(
     screen.getByRole('button', { name: 'Undo deletion: Renamed' }),
   )
   expect(screen.getByRole('article', { name: 'Renamed' })).toBeVisible()
+  expect(document.querySelector('.wb-history-preview')).toBeVisible()
   expect(screen.getByLabelText('active session')).toHaveTextContent('three:0')
   fireEvent.click(
     screen.getByRole('button', { name: 'Remove favorite: Renamed' }),
   )
   expect(screen.queryByRole('article')).not.toBeInTheDocument()
+  expect(document.querySelector('.wb-history-preview')).toBeNull()
   fireEvent.click(nav.getByRole('button', { name: 'Sessions' }))
   expect(screen.getAllByRole('article')).toHaveLength(3)
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument()

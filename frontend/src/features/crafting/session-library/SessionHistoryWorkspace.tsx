@@ -107,7 +107,9 @@ export function SessionHistoryWorkspace({
         </header>
         {error && <p role="alert">{error}</p>}
         <div className="wb-history-import-preview" ref={importPreview} />
-        <div className="wb-history-columns">
+        <div
+          className={`wb-history-columns${selected ? '' : ' wb-history-columns--empty'}`}
+        >
           <div className="wb-history-list wb-scrollbar">
             <SessionLibrary
               key={filter}
@@ -121,42 +123,42 @@ export function SessionHistoryWorkspace({
               }}
             />
           </div>
-          <section
-            ref={preview}
-            className="wb-history-preview"
-            aria-label={text.finalState}
-          >
-            <div className="wb-history-preview__heading">
-              {selected && (
+          {selected && (
+            <section
+              ref={preview}
+              className="wb-history-preview"
+              aria-label={text.finalState}
+            >
+              <div className="wb-history-preview__heading">
                 <SessionTitleEditor
                   key={selected.id}
                   title={title}
                   disabled={library.disabled ?? false}
                   onSave={(value) => onRename(selected.id, value)}
                 />
+              </div>
+              {active && finalFrame && (
+                <>
+                  <div className="wb-history-preview__item">
+                    <HistoryCard film={selected} frame={finalFrame} />
+                  </div>
+                  <div className="wb-history-preview__actions">
+                    <button
+                      type="button"
+                      disabled={library.disabled}
+                      onClick={() => onContinue(selected.id)}
+                    >
+                      {text.resume} <span aria-hidden="true">→</span>
+                    </button>
+                    <a href={localHistoryUrl(selected.id, 'history', filter)}>
+                      {historyMessages[locale].title}{' '}
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                  </div>
+                </>
               )}
-            </div>
-            {active && selected && finalFrame && (
-              <>
-                <div className="wb-history-preview__item">
-                  <HistoryCard film={selected} frame={finalFrame} />
-                </div>
-                <div className="wb-history-preview__actions">
-                  <button
-                    type="button"
-                    disabled={library.disabled}
-                    onClick={() => onContinue(selected.id)}
-                  >
-                    {text.resume} <span aria-hidden="true">→</span>
-                  </button>
-                  <a href={localHistoryUrl(selected.id, 'history', filter)}>
-                    {historyMessages[locale].title}{' '}
-                    <span aria-hidden="true">↗</span>
-                  </a>
-                </div>
-              </>
-            )}
-          </section>
+            </section>
+          )}
         </div>
       </div>
     </div>
