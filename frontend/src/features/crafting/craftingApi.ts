@@ -76,7 +76,13 @@ export interface Initial {
   augmentSockets?: number | null | undefined
   compatibleSnapshotIds?: string[]
   ruleVersion: string
-  metadata: { snapshotId: string; retrievedAt: string; sourceUrl: string }
+  metadata: {
+    snapshotId: string
+    retrievedAt: string
+    sourceUrl: string
+    /** Distinguishes published weights from uniform simulation assumptions. */
+    weightPolicy?: string
+  }
   id: string
   state: Bucket
   modifiers: Record<string, Definition>

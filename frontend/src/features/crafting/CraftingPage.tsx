@@ -143,6 +143,7 @@ import {
   isWorkbenchJewel,
   workbenchJewelBases,
 } from './basicJewel'
+import { ModifierPoolPanel } from './modifier-pool/ModifierPoolPanel'
 import './crafting.css'
 import './compact-viewport/compactViewport.css'
 
@@ -2645,6 +2646,22 @@ export function CraftingPage() {
             </div>
           </dialog>
         </div>
+        <ModifierPoolPanel
+          key={`${catalogBase}:${catalogLevel}:${initial.data?.rulesetIdentity ?? ''}`}
+          catalog={
+            !imported.pending &&
+            slotBaseItemId === initial.data?.state.baseItemId
+              ? initial.data
+              : undefined
+          }
+          baseName={
+            draft.source === 'base' || importedBase
+              ? name(baseSlugs[catalogBase], baseName)
+              : displayedName
+          }
+          itemLevel={catalogLevel}
+          loading={initial.isPending || imported.pending}
+        />
       </div>
       <div
         id="workbench-panel-history"
