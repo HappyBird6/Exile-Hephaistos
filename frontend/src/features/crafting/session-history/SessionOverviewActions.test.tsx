@@ -5,14 +5,13 @@ import {
   render,
   screen,
   waitFor,
-  within,
 } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 import { setLocale } from '../../../shared/i18n/i18n'
 import { initialFixture } from '../../../shared/test/craftingFixtures'
 import { twoSteps } from '../session-notation/fixtures.test-support'
 import { historyStorageKey, LocalFilmRepository } from '../workbenchHistory'
-import { SessionHistoryPage } from './SessionHistoryPage'
+import { SessionOverviewPage } from './SessionOverviewPage'
 import { snapshotPages } from './snapshot'
 import { saveBlob } from './transfer'
 
@@ -21,17 +20,10 @@ vi.mock('./transfer', async (original) => ({
   ...(await original<typeof import('./transfer')>()),
   saveBlob: vi.fn(),
 }))
-const originalClipboard = Object.getOwnPropertyDescriptor(
-  navigator,
-  'clipboard',
-)
 afterEach(() => {
   cleanup()
   vi.unstubAllGlobals()
   vi.clearAllMocks()
-  if (originalClipboard)
-    Object.defineProperty(navigator, 'clipboard', originalClipboard)
-  else Reflect.deleteProperty(navigator, 'clipboard')
 })
 async function example() {
   setLocale('en')
@@ -42,11 +34,11 @@ async function example() {
   const client = new QueryClient({
     defaultOptions: { queries: { retry: false, staleTime: Infinity } },
   })
-  client.setQueryData(['session-history', film.id, false], film)
+  client.setQueryData(['session-overview', film.id], film)
   client.setQueryData(['history-catalog', 'solar', 82], initialFixture)
   const view = render(
     <QueryClientProvider client={client}>
-      <SessionHistoryPage id={film.id} />
+      <SessionOverviewPage id={film.id} />
     </QueryClientProvider>,
   )
   return { film, saved, view }
@@ -81,43 +73,21 @@ it('keeps the single-page filename and restores the button when capture fails', 
   expect(await screen.findByRole('alert')).toBeVisible()
   expect(button).toBeEnabled()
 })
-it('copies a created sharing link and retries a blocked clipboard without publishing twice', async () => {
-  const { film, saved, view } = await example()
-  const post = vi
-    .fn()
-    .mockResolvedValue(
-      new Response(JSON.stringify({ id: 'a'.repeat(48) }), { status: 201 }),
-    )
-  vi.stubGlobal('fetch', post)
-  const copy = vi
-    .fn()
-    .mockRejectedValueOnce(Error('clipboard'))
-    .mockResolvedValue(undefined)
-  Object.defineProperty(navigator, 'clipboard', {
-    configurable: true,
-    value: { writeText: copy },
+it('does not request server snapshots for a missing local session', async () => {
+  setLocale('en')
+  const request = vi.fn()
+  vi.stubGlobal('fetch', request)
+  const client = new QueryClient({
+    defaultOptions: { queries: { retry: false } },
   })
-  fireEvent.click(
-    within(view.container.querySelector('header')!).getByRole('button', {
-      name: 'Create sharing link',
-    }),
+  render(
+    <QueryClientProvider client={client}>
+      <SessionOverviewPage id="missing" />
+    </QueryClientProvider>,
   )
-  expect(post).not.toHaveBeenCalled()
-  const confirm = within(
-    screen.getByRole('region', { name: 'Create sharing link' }),
-  ).getByRole('button', { name: 'Create sharing link' })
-  fireEvent.click(confirm)
-  expect(await screen.findByRole('alert')).toBeVisible()
-  expect(post).toHaveBeenCalledTimes(1)
-  expect(JSON.parse(post.mock.calls[0]![1].body).film).toEqual(film)
-  fireEvent.click(confirm)
-  const copied = await screen.findByRole('button', { name: 'Link copied' })
-  expect(copied.closest('header')).not.toBeNull()
-  expect(post).toHaveBeenCalledTimes(1)
-  expect(copy).toHaveBeenLastCalledWith(
-    new URL('/history/shared/' + 'a'.repeat(48), location.origin).href,
-  )
-  expect(view.container.querySelector('.history-link')).toBeNull()
-  expect(screen.queryByRole('textbox')).not.toBeInTheDocument()
-  expect(localStorage.getItem(historyStorageKey)).toBe(saved)
+  expect(await screen.findByText(/Session unavailable/)).toBeVisible()
+  expect(
+    screen.getByRole('button', { name: 'Save PNG snapshots' }),
+  ).toBeDisabled()
+  expect(request).not.toHaveBeenCalled()
 })

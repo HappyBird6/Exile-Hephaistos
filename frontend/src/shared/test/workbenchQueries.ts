@@ -24,9 +24,12 @@ export const textInputMethod = () =>
   screen.getByRole('dialog', { name: 'Starting item' })
 
 export function selectSavedSession(index: number) {
-  fireEvent.click(screen.getByRole('button', { name: 'History' }))
-  const panel = document.getElementById('workbench-session-library')!
+  fireEvent.click(screen.getByRole('tab', { name: 'History' }))
+  const panel = document.getElementById('workbench-panel-history')!
   fireEvent.click(
     within(panel).getAllByRole('button', { name: /^Select session:/ })[index]!,
+  )
+  fireEvent.click(
+    screen.getByRole('button', { name: 'Continue in simulation' }),
   )
 }

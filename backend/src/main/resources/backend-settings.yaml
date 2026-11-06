@@ -84,18 +84,6 @@ backend:
     # 자동 작업 저장 구현: craftingsupport/search/infrastructure/LocalAutomaticJobRepository.java
     # 기존 crafting.method-job-directory / CRAFTING_METHOD_JOB_DIRECTORY 설정을 계속 지원한다.
     method-job-directory: ${crafting.method-job-directory:./data/method-jobs}
-    # 세션 공유 문서 저장 디렉토리. 기존 자동 탐색 작업과 별도 저장한다.
-    # 사용: bootstrap/SessionHistoryConfiguration.java
-    # 저장 구현: workbench/history/infrastructure/FileSessionSnapshotRepository.java
-    # 기존 crafting.session-snapshot-directory 설정을 계속 지원한다.
-    session-snapshot-directory: ${crafting.session-snapshot-directory:./data/session-snapshots-v1}
-  session-history:
-    # 서버에 보관할 공유 문서 개수 상한. 기존 파일을 자동 삭제하지 않는다.
-    # 사용: workbench/history/infrastructure/FileSessionSnapshotRepository.java
-    max-documents: 500
-    # 공유 문서 파일의 합계 용량 상한(bytes). 초과 시 기존 503 응답을 유지한다.
-    # 사용: workbench/history/infrastructure/FileSessionSnapshotRepository.java
-    max-stored-bytes: 100000000
   workbench:
     # 동시에 실행할 카오스 반복 요청 수. 단일 제작 API와 별도 제한이다.
     # 사용: workbench/repeat/ChaosRepeatService.java, workbench/api/ChaosRepeatController.java

@@ -1,4 +1,4 @@
-import { Fragment, useSyncExternalStore } from 'react'
+import { Fragment, useLayoutEffect, useRef, useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
 import type { Film } from '../workbenchHistory'
 import type { WorkbenchResource } from '../stash/stashTypes'
@@ -7,10 +7,6 @@ import { NotationResources } from '../session-notation/SessionNotation'
 import { HistoryCard } from './HistoryCard'
 import { historyMessages } from './messages'
 
-function subscribe(listener: () => void) {
-  window.addEventListener('resize', listener)
-  return () => window.removeEventListener('resize', listener)
-}
 function flowPosition(index: number, columns: number) {
   const row = Math.floor(index / columns)
   return {
@@ -30,10 +26,24 @@ export function SessionFlow({
 }) {
   const { locale, name } = useI18n()
   const text = historyMessages[locale]
-  const responsiveColumns = useSyncExternalStore(subscribe, () =>
-    window.innerWidth <= 640 ? 1 : window.innerWidth <= 1100 ? 2 : 4,
-  )
-  const columns = columnCount ?? responsiveColumns
+  const grid = useRef<HTMLOListElement>(null)
+  const [width, setWidth] = useState(window.innerWidth)
+  useLayoutEffect(() => {
+    const element = grid.current
+    if (!element) return
+    const resize = () =>
+      setWidth(element.getBoundingClientRect().width || window.innerWidth)
+    resize()
+    const observer =
+      typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(resize)
+    observer?.observe(element)
+    window.addEventListener('resize', resize)
+    return () => {
+      observer?.disconnect()
+      window.removeEventListener('resize', resize)
+    }
+  }, [])
+  const columns = columnCount ?? (width <= 600 ? 1 : width <= 1100 ? 2 : 4)
   let steps: ReturnType<typeof extractSessionNotation>['steps'] = []
   try {
     steps = extractSessionNotation(film, film.frames.length - 1).steps
@@ -42,6 +52,7 @@ export function SessionFlow({
   }
   return (
     <ol
+      ref={grid}
       className="session-flow-grid"
       style={{
         gridTemplateColumns: Array.from({ length: columns * 2 - 1 }, (_, i) =>

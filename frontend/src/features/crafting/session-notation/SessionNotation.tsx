@@ -3,6 +3,8 @@ import { useI18n } from '../../../shared/i18n/i18n'
 import type { WorkbenchResource } from '../stash/stashTypes'
 import type { Film } from '../workbenchHistory'
 import { sessionNotationMessages } from './messages'
+import { historyMessages } from '../session-history/messages'
+import { localHistoryUrl } from '../session-history/transfer'
 import { extractSessionNotation } from './extractSessionNotation'
 import type { NotationStep } from './extractSessionNotation'
 import '../workbench-scrollbar.css'
@@ -79,7 +81,14 @@ export function SessionNotation({
   )
   return (
     <section className="wb-session-notation" aria-labelledby={headingId}>
-      <h3 id={headingId}>{text.title}</h3>
+      <div className="wb-session-notation__heading">
+        <h3 id={headingId}>{text.title}</h3>
+        {film && (
+          <a className="session-overview-entry" href={localHistoryUrl(film.id)}>
+            {historyMessages[locale].title} <span aria-hidden="true">↗</span>
+          </a>
+        )}
+      </div>
       {notation.steps.length === 0 ? (
         <p className="wb-session-notation__empty">{text.empty}</p>
       ) : (

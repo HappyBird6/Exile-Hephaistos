@@ -1,6 +1,12 @@
 import type { Locale } from '../../../shared/i18n/i18n'
 
 type Messages = {
+  simulation: string
+  library: string
+  finalState: string
+  resume: string
+  navigation: string
+  choose: string
   history: string
   favorites: string
   closeFavorites: string
@@ -22,6 +28,12 @@ type Messages = {
 }
 export const sessionLibraryMessages: Record<Locale, Messages> = {
   en: {
+    simulation: 'Simulation',
+    library: 'Session library',
+    finalState: 'Final item',
+    resume: 'Continue in simulation',
+    navigation: 'Session navigation',
+    choose: 'Select a session to preview its final item.',
     history: 'History',
     favorites: 'Favorites',
     closeFavorites: 'Close favorites',
@@ -43,7 +55,13 @@ export const sessionLibraryMessages: Record<Locale, Messages> = {
     select: 'Select session',
   },
   ko: {
-    history: 'History',
+    simulation: '시뮬레이션',
+    library: '세션 라이브러리',
+    finalState: '최종 아이템',
+    resume: '시뮬레이션에서 이어하기',
+    navigation: '세션 탐색',
+    choose: '세션을 선택하면 최종 아이템을 미리 볼 수 있습니다.',
+    history: '히스토리',
     favorites: '즐겨찾기',
     closeFavorites: '즐겨찾기 닫기',
     emptyFavorites: '즐겨찾기한 제작 세션이 없습니다.',
@@ -63,6 +81,12 @@ export const sessionLibraryMessages: Record<Locale, Messages> = {
     select: '세션 선택',
   },
   'zh-CN': {
+    simulation: '模拟',
+    library: '会话库',
+    finalState: '最终物品',
+    resume: '在模拟中继续',
+    navigation: '会话导航',
+    choose: '选择会话以预览最终物品。',
     history: '历史',
     favorites: '收藏',
     closeFavorites: '关闭收藏',
@@ -83,6 +107,12 @@ export const sessionLibraryMessages: Record<Locale, Messages> = {
     select: '选择会话',
   },
   'zh-TW': {
+    simulation: '模擬',
+    library: '工作階段庫',
+    finalState: '最終物品',
+    resume: '在模擬中繼續',
+    navigation: '工作階段導覽',
+    choose: '選擇工作階段以預覽最終物品。',
     history: '歷史',
     favorites: '收藏',
     closeFavorites: '關閉收藏',
@@ -103,6 +133,12 @@ export const sessionLibraryMessages: Record<Locale, Messages> = {
     select: '選擇工作階段',
   },
   ja: {
+    simulation: 'シミュレーション',
+    library: 'セッションライブラリ',
+    finalState: '最終アイテム',
+    resume: 'シミュレーションで続ける',
+    navigation: 'セッションの移動',
+    choose: 'セッションを選択して最終アイテムを確認できます。',
     history: '履歴',
     favorites: 'お気に入り',
     closeFavorites: 'お気に入りを閉じる',
@@ -123,6 +159,12 @@ export const sessionLibraryMessages: Record<Locale, Messages> = {
     select: 'セッションを選択',
   },
   es: {
+    simulation: 'Simulación',
+    library: 'Biblioteca de sesiones',
+    finalState: 'Objeto final',
+    resume: 'Continuar en simulación',
+    navigation: 'Navegación de sesiones',
+    choose: 'Selecciona una sesión para ver su objeto final.',
     history: 'Historial',
     favorites: 'Favoritos',
     closeFavorites: 'Cerrar favoritos',

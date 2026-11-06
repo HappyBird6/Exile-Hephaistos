@@ -18,6 +18,7 @@ const menuStyles = [
   'base-picker/left-shelf-overlay.css',
   'base-picker/base-picker.css',
   'workbench-scrollbar.css',
+  'session-library/session-library.css',
 ]
   .map((path) => readFileSync(`src/features/crafting/${path}`, 'utf8'))
   .join('\n')
@@ -183,19 +184,11 @@ describe('single canvas category selector and favorites inside the coordinate pl
       'minmax(0,1fr)minmax(0,1fr)',
     )
     fireEvent.keyDown(picker, { key: 'Escape' })
-    for (const name of ['History', 'Favorites']) {
-      fireEvent.click(screen.getByRole('button', { name }))
-      const library = screen.getByRole('dialog')
-      scrollSurface(
-        library.querySelector('.wb-shelf-overlay__body')!,
-        'overflow',
-      )
-      expect(library.querySelector('.wb-session-library')).not.toHaveClass(
-        'wb-scrollbar',
-      )
-      fireEvent.keyDown(library, { key: 'Escape' })
-      expect(screen.getByRole('button', { name })).toHaveFocus()
-    }
+    fireEvent.click(screen.getByRole('tab', { name: 'History' }))
+    scrollSurface(document.querySelector('.wb-history-list')!, 'overflow')
+    expect(screen.queryByRole('dialog')).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: 'Favorites' }))
+    expect(screen.queryByRole('dialog')).toBeNull()
   })
 
   it('keeps jewel rarity, observed suffix and all validation in the scrollable left column', () => {
@@ -434,9 +427,9 @@ describe('single canvas category selector and favorites inside the coordinate pl
       expect(document.querySelector('.workbench-session-entry')).toBeNull()
       expect(
         document.querySelector('.bench-lower')?.firstElementChild,
-      ).toHaveClass('wb-session-library-buttons')
+      ).toHaveClass('workbench-film-toolbar')
       expect(
-        document.querySelector('.wb-session-library-buttons'),
+        document.querySelector('.workbench-film-toolbar'),
       ).toContainElement(
         screen.getByRole('button', {
           name: translate('ui.previous_crafting_step', {}, locale),
@@ -449,7 +442,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
     },
   )
 
-  it('positions all three menus from the former upper work area and keeps interaction on the moved opener', () => {
+  it('positions the remaining base menu from the work area and restores focus to its opener', () => {
     vi.stubGlobal('innerWidth', 1400)
     vi.stubGlobal('innerHeight', 900)
     const rects = new Map([
@@ -506,17 +499,9 @@ describe('single canvas category selector and favorites inside the coordinate pl
     fireEvent.pointerDown(document.body)
     expect(screen.queryByRole('dialog')).toBeNull()
     expect(opener).toHaveFocus()
-    for (const [name, left] of [
-      ['History', '386.75px'],
-      ['Favorites', '386.75px'],
-    ] as const) {
-      const trigger = screen.getByRole('button', { name })
-      fireEvent.click(trigger)
-      const library = screen.getByRole('dialog')
-      expect(library).toHaveStyle({ left, top: '118px' })
-      fireEvent.keyDown(library, { key: 'Escape' })
-      expect(trigger).toHaveFocus()
-    }
+    fireEvent.click(screen.getByRole('tab', { name: 'History' }))
+    expect(screen.queryByRole('dialog')).toBeNull()
+    expect(document.querySelector('.wb-history-nav')).toBeVisible()
   })
 
   it('stretches the canvas with the right column while keeping the lower controls on one track', () => {

@@ -69,8 +69,11 @@ it('retains the last valid description after hover/focus leave and replaces it w
 
 it('clears captured UI text on locale change while keeping the picked material in the new language', () => {
   show()
-  fireEvent.focusIn(screen.getByRole('button', { name: 'History' }))
-  expect(shared()).toHaveTextContent('History')
+  const help = document.createElement('button')
+  help.dataset.feedbackTooltip = 'Session actions'
+  document.querySelector('main')!.append(help)
+  fireEvent.focusIn(help)
+  expect(shared()).toHaveTextContent('Session actions')
   act(() => setLocale('ko'))
   expect(shared()).toBeNull()
   const chaos = document.querySelector<HTMLElement>(
@@ -99,7 +102,7 @@ it('pins the actual left-click held material across other hover and tabs, then r
   expect(shared()).toHaveTextContent('Greater Essence of the Body')
   fireEvent.click(outerMaterialTab('Currency'))
   fireEvent.pointerDown(currencyButton('Divine Orb'), { pointerType: 'touch' })
-  fireEvent.focusIn(screen.getByRole('button', { name: 'History' }))
+  fireEvent.focusIn(screen.getByRole('tab', { name: 'History' }))
   expect(shared()).toHaveTextContent('Greater Essence of the Body')
   fireEvent.click(favorite())
   expect(

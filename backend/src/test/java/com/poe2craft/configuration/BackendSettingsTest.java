@@ -11,39 +11,6 @@ import org.springframework.boot.test.context.runner.ApplicationContextRunner;
 import org.springframework.core.io.ClassPathResource;
 
 class BackendSettingsTest {
-  @Test
-  void sessionHistorySettingsKeepTheOldDirectoryPropertyAndValidateQuotas() {
-    runner
-        .withPropertyValues(
-            "crafting.session-snapshot-directory=./old-snapshots",
-            "backend.session-history.max-documents=3",
-            "backend.session-history.max-stored-bytes=4096")
-        .run(
-            context -> {
-              assertThat(context).hasNotFailed();
-              var settings = context.getBean(BackendSettings.class);
-              assertThat(settings.storage().sessionSnapshotDirectory())
-                  .isEqualTo("./old-snapshots");
-              assertThat(settings.sessionHistory().maxDocuments()).isEqualTo(3);
-              assertThat(settings.sessionHistory().maxStoredBytes()).isEqualTo(4096);
-            });
-    runner
-        .withPropertyValues(
-            "crafting.session-snapshot-directory=./old-snapshots",
-            "backend.storage.session-snapshot-directory=./new-snapshots")
-        .run(
-            context ->
-                assertThat(
-                        context.getBean(BackendSettings.class).storage().sessionSnapshotDirectory())
-                    .isEqualTo("./new-snapshots"));
-    runner
-        .withPropertyValues("backend.session-history.max-documents=0")
-        .run(context -> assertThat(context).hasFailed());
-    runner
-        .withPropertyValues("backend.session-history.max-stored-bytes=0")
-        .run(context -> assertThat(context).hasFailed());
-  }
-
   private final ApplicationContextRunner runner =
       new ApplicationContextRunner()
           .withUserConfiguration(BackendConfiguration.class)

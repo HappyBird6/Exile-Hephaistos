@@ -11,7 +11,6 @@ workbench/
   api/                 수동 제작·심연 제작·카오스 반복 HTTP 요청
   repeat/              카오스 반복 실행과 요청/결과 모델
   display/             반복 판정에 필요한 옵션 문자열·숫자 표시
-  history/             세션 히스토리·공유 문서 검증·파일 저장
 craftingsupport/
   goal/                목표 조건 카탈로그·검증·평가
   recommendation/      제작 가능성 평가·추천·addition pool 캐시
@@ -45,7 +44,6 @@ bootstrap/             공용·제작지원·호환 API 구현 연결과 HTTP �
 | `workbenchApi.ts`, `CraftingPage.tsx` | `/api/v1/crafting/workbench/initial`, `/actions`, `/apply`, `/quality-display`, `/map-text`, `/edit-text` | 제작작업대 `WorkbenchController`: 시작 상태·한 번 제작·텍스트를 검증된 상태로 연결 |
 | `AbyssPanel.tsx`, `desecrationCurrency.ts`, `abyss-workbench/applyAbyssCurrency.ts` | `/api/v1/crafting/workbench/abyss/*` | 제작작업대 `WorkbenchController`: 수동 심연 제작·선택·적용 |
 | `item-slot/SocketAugmentSlots.tsx`, `socketAugments.ts` | `POST /api/v1/crafting/workbench/augments/install` | 제작작업대 API와 공용 `SocketAugments`: 장착·소켓 제한 검증 (프론트 카탈로그는 기존 JSON 사용) |
-| `session-history/SessionHistoryPage.tsx`, `session-history/transfer.ts` | `/api/v1/session-snapshots`, `/api/v1/session-snapshots/{id}` | 제작작업대 `history`: 과거 규칙의 읽기 전용 문서 공유·조회. 기존 제작 ruleset 실행 경계와 별도 |
 | `chaos-repeat/api/applyChaosRepeat.ts` | `POST /api/v1/crafting/workbench/chaos-repeat` | 제작작업대 `ChaosRepeatController` → `ChaosRepeatService`: 동기 반복 제작 |
 | `useItemTextImport.ts` → `itemTextApi.ts` | `POST /api/v1/items/parse` | 공용 `ItemTextController` → `ItemTextService`: 원문과 미해석 행을 보존하는 표시용 분석 |
 | `goal-filter/CraftStart.tsx`, `ConnectedGoalFilter.tsx` | `GET /api/v1/crafting/workbench/registry` | 제작작업대에 남긴 기존 조회 주소. 실제 재료 정의 로더·카탈로그는 공용이며 제작지원도 조회 |
@@ -65,7 +63,6 @@ HTTP 주소에 `workbench`가 있다고 해서 카탈로그 구현을 제작지�
 
 - `CraftingCatalogs`: 검토 카탈로그를 읽는 공용 인터페이스.
 - `CraftingOperations`: 동일한 제작 규칙으로 시작 상태·단일 제작·심연 제작·품질 표시를 실행하는 공용 인터페이스. 실제 구현은 `CatalogCraftingService`이며 `bootstrap`에서만 선택한다.
-- `SessionSnapshotRepository`: 제작작업대 공유 문서의 immutable bytes와 opaque ID를 저장·조회하는 인터페이스. `SessionSnapshotService`가 구조를 검증하고 `FileSessionSnapshotRepository`가 실제 파일을 보관한다.
 - `AutomaticRuntimeFactory`: 자동 작업이 현행·과거 목표 조건의 실행 환경을 복원하는 경계. 번들 데이터 선택은 `BundledSearchRuntimeFactory`가 담당한다.
 - `AutomaticJobRepository`, `CertifiedJobRepository`, `MethodGraphStore`, `MethodCursorStore`, `AdditionPoolStore`: 파일·SQLite·PostgreSQL 접근과 계산 흐름을 분리하는 기존 인터페이스.
 - `MethodSearchEngine`: 기존 탐색 엔진들의 공통 실행 계약. 알고리즘 의미나 지원 범위를 이번 작업에서 변경하지 않는다.
@@ -76,19 +73,19 @@ HTTP 주소에 `workbench`가 있다고 해서 카탈로그 구현을 제작지�
 
 ## 설정을 바꾸려면
 
-[src/main/resources/backend-settings.yaml](src/main/resources/backend-settings.yaml)을 수정한다. **각 값 바로 위에 의미와 사용하는 Java 파일을 적었다.** 작업 수·보관 시간·계산 실행 예산·캐시 크기·작업 저장 위치·카오스 반복 동시 실행 수, 세션 공유 저장 위치·문서 수·합계 용량을 기능별로 찾을 수 있다.
+[src/main/resources/backend-settings.yaml](src/main/resources/backend-settings.yaml)을 수정한다. **각 값 바로 위에 의미와 사용하는 Java 파일을 적었다.** 작업 수·보관 시간·계산 실행 예산·캐시 크기·작업 저장 위치·카오스 반복 동시 실행 수을 기능별로 찾을 수 있다.
 
 `application.yaml`이 이 파일을 가져오고 `configuration/BackendSettings.java`가 타입과 유효 범위를 검사한다. 잘못된 0 용량이나 음수 시간은 시작할 때 거부한다. 코드에서 직접 생성하는 테스트도 같은 YAML 기본값을 읽으므로 별도의 기본값 목록을 유지하지 않는다.
 
-설정 변경은 서버 재시작 후 적용된다. Spring의 외부 설정으로 덮어쓸 수도 있다. 예를 들어 `backend.path-search.max-jobs`의 환경변수 이름은 `BACKEND_PATHSEARCH_MAXJOBS`다. 기존 `crafting.method-job-directory` / `CRAFTING_METHOD_JOB_DIRECTORY`도 계속 지원하며, 새 `backend.storage.method-job-directory`를 지정하면 새 설정이 우선한다. 세션 공유도 기존 `crafting.session-snapshot-directory` 설정을 계속 지원하며 `backend.storage.session-snapshot-directory`가 우선한다. 저장 경로를 바꾼다고 기존 파일을 자동으로 옮기지 않는다.
+설정 변경은 서버 재시작 후 적용된다. Spring의 외부 설정으로 덮어쓸 수도 있다. 예를 들어 `backend.path-search.max-jobs`의 환경변수 이름은 `BACKEND_PATHSEARCH_MAXJOBS`다. 기존 `crafting.method-job-directory` / `CRAFTING_METHOD_JOB_DIRECTORY`도 계속 지원하며, 새 `backend.storage.method-job-directory`를 지정하면 새 설정이 우선한다. 저장 경로를 바꾼다고 기존 파일을 자동으로 옮기지 않는다.
 
-세션 파일의 2,000,000 bytes·2,000 Frames·깊이 32·노드 100,000 제한은 프론트와 공유하는 파일 형식 계약으로 유지한다. 서버의 문서 수·합계 저장 용량은 운영 설정이며 기본값 500개·100,000,000 bytes를 보존한다.
+세션 공유 API와 서버 파일 저장 기능은 제거했다. 세션 JSON import/export와 PNG 생성은 프론트에서 처리하며 [히스토리와 세션 오버뷰](../docs/current/session-history.md)를 따른다. 서버에 이미 존재하던 공유 파일을 자동으로 삭제하지 않는다.
 
 DB·Redis 연결과 비밀값은 기존 `application.yaml`·환경변수에서 관리한다. 게임 확률·weight·옵션 수는 `src/main/resources/catalog`·`crafting`의 봉인된 게임 데이터다. API의 허용 범위, 버전 문자열, 저장 스키마, 수학적 알고리즘 내부 상수도 운영 설정과 구분한다.
 
 ## 이후 변경을 합칠 때
 
-최초 리팩토링은 `9751cd7c`를 기준으로 한 `e5975df2`다. 최신 변경은 원격 master `0924ab00`을 기준으로 같은 구조에 추가 반영했다. 세션 히스토리·공유는 사용자 결정에 따라 `workbench/history`에 배치했다. `ItemTextEditor`는 사용자 결정에 따라 공용 `shared/item`에 유지한다. 이후 변경은 파일의 이름보다 역할을 먼저 확인하고 해당 기능으로 옮긴다.
+최초 리팩토링은 `9751cd7c`를 기준으로 한 `e5975df2`다. 최신 변경은 원격 master `0924ab00`을 기준으로 같은 구조에 추가 반영했다. 당시 `workbench/history`에 배치했던 세션 공유 기능은 이후 사용자 요청에 따라 제거했다. `ItemTextEditor`는 사용자 결정에 따라 공용 `shared/item`에 유지한다. 이후 변경은 파일의 이름보다 역할을 먼저 확인하고 해당 기능으로 옮긴다.
 
 | 기존 위치·이름 | 현재 위치·이름 |
 |---|---|
@@ -106,8 +103,6 @@ DB·Redis 연결과 비밀값은 기존 `application.yaml`·환경변수에서 �
 | `bootstrap.CraftingConfiguration`, `SupportConfiguration` | `CatalogConfiguration`, `CraftingSupportConfiguration`, `LegacyGraphConfiguration` |
 | `ExactNumericDistribution.Fraction` | `shared.probability.Fraction` |
 | `item.ItemTextEditor`, `item.SocketAugments` | `shared.item` |
-| `application.SessionSnapshots` | `workbench.history.application.SessionSnapshotValidator`와 `SessionSnapshotService` |
-| `LocalSessionSnapshots`, `SessionSnapshotController` | `workbench.history.infrastructure.FileSessionSnapshotRepository`, `workbench.history.api.SessionSnapshotController` |
 
 규칙 JSON·계약 fixture·DB migration·프론트 코드는 구조 변경을 위해 재작성하지 않는다. 새로운 운영 설정을 추가하면 YAML의 의미·소비 파일 주석, 타입 검증, 실제 소비 코드도 함께 추가한다.
 

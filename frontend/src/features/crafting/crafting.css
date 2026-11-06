@@ -1405,3 +1405,54 @@ dialog.item-input-panel::backdrop {
     letter-spacing: 0.08em;
   }
 }
+
+/* Match the workbench's visible frame while keeping other pages at native text size. */
+.craft-page.craft-page--framed {
+  width: min(75vw, 1350px);
+  max-width: 1350px;
+  min-width: 0;
+  margin-inline: auto;
+  padding: 0 36px 24px;
+}
+@media (max-width: 1000px) {
+  .craft-page.craft-page--framed {
+    width: 100%;
+    max-width: none;
+    padding-inline: 18px;
+  }
+}
+@media (max-width: 480px) {
+  .craft-page.craft-page--framed {
+    padding-inline: 9px;
+  }
+}
+.workbench-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+  padding: 5px;
+  width: fit-content;
+  border: 1px solid #494338;
+  border-radius: 6px;
+  background: #11151b;
+}
+.workbench-tabs > button {
+  min-height: 44px;
+  padding: 10px 24px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #b5b2a8;
+  background: transparent;
+}
+.workbench-tabs > button[aria-selected='true'] {
+  color: #edd6a3;
+  border-color: #74603e;
+  background: #312c23;
+}
+.workbench-film-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 8px;
+}

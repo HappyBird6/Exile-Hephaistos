@@ -11,13 +11,23 @@
   padding: 22px 0;
 }
 .history-page .craft-brand {
-  flex: 0 1 240px;
+  flex: 0 1 210px;
 }
 .history-page .brand-mark {
   flex-shrink: 0;
 }
-.history-title {
+.history-title-group {
   flex: 1;
+  min-width: 0;
+}
+.history-page-label {
+  display: block;
+  margin-bottom: 6px;
+  color: #a99a7b;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+.history-title {
   min-width: 0;
   margin: 0;
   font-size: 21px;
@@ -36,8 +46,7 @@
   gap: 8px;
   margin-left: auto;
 }
-.history-page .history-actions button,
-.history-share-confirm button {
+.history-page .history-actions button {
   font: inherit;
   font-size: 12px;
   padding: 9px 12px;
@@ -47,16 +56,9 @@
   border-radius: 3px;
   cursor: pointer;
 }
-.history-page .history-actions button:focus-visible,
-.history-share-confirm button:focus-visible {
+.history-page .history-actions button:focus-visible {
   outline: 2px solid #d7bc82;
   outline-offset: 3px;
-}
-.history-share-confirm {
-  margin: 16px 0;
-}
-.history-share-confirm button + button {
-  margin-left: 8px;
 }
 .history-page button:disabled {
   opacity: 0.45;
@@ -64,8 +66,10 @@
 }
 .session-flow {
   background: #151820;
-  padding: 24px 4px;
+  padding: 24px 12px;
   position: relative;
+  border: 1px solid #3b3b34;
+  border-radius: 8px;
 }
 .session-flow-grid {
   display: grid;
@@ -221,25 +225,6 @@
   }
 }
 
-.history-share-confirm {
-  padding: 14px 0;
-  background: transparent;
-  border: 0;
-  font-size: 12px;
-  color: #d9d7cf;
-}
-.history-share-confirm p {
-  margin: 0 0 10px;
-}
-.history-share-confirm button {
-  font: inherit;
-  background: #20251f;
-  border: 1px solid #615a43;
-  color: #e5d8b6;
-  padding: 8px 12px;
-  margin-right: 8px;
-}
-
 @media (max-width: 640px) {
   .history-page .craft-header {
     gap: 8px;
@@ -276,4 +261,30 @@
     font-size: 10px;
     line-height: 1.35;
   }
+}
+
+.history-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 0;
+}
+.history-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #d7c297;
+  text-decoration: none;
+}
+.history-back:hover {
+  color: #f5dfb0;
+}
+.history-state-count {
+  padding: 4px 12px;
+  border: 1px solid #494338;
+  border-radius: 20px;
+  color: #bbb5a7;
+  font-size: 12px;
+  white-space: nowrap;
 }

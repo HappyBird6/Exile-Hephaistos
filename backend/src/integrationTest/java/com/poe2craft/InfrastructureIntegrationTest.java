@@ -128,6 +128,14 @@ class InfrastructureIntegrationTest {
   }
 
   @Test
+  void removedSessionSharingEndpointsAreUnavailable() throws Exception {
+    mvc.perform(post("/api/v1/session-snapshots").contentType("application/json").content("{}"))
+        .andExpect(status().isNotFound());
+    mvc.perform(get("/api/v1/session-snapshots/" + "a".repeat(48)))
+        .andExpect(status().isNotFound());
+  }
+
+  @Test
   void removedAdminEndpointsDoNotCreateSessionsOrExposeData() throws Exception {
     for (String path :
         new String[] {

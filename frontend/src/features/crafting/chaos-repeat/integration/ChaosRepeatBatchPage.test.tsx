@@ -621,11 +621,11 @@ it('locks mutations synchronously, retains the selected tooltip and animates onl
     'Edit item',
     'New craft',
     'Select base',
-    'History',
     'Language: English',
   ])
     for (const button of screen.getAllByRole('button', { name }))
       expect(button).toBeDisabled()
+  expect(screen.getByRole('tab', { name: 'History' })).toBeDisabled()
   expect(level).toBeDisabled()
   expect(outerMaterialTab('Essence')).toBeDisabled()
   expect(
@@ -742,16 +742,20 @@ it('locks the saved-session editor and rejects forced submit while a batch is pe
     })
   }
   show()
-  fireEvent.click(screen.getByRole('button', { name: 'History' }))
+  fireEvent.click(screen.getByRole('tab', { name: 'History' }))
   fireEvent.click(screen.getByRole('button', { name: /^Rename:/ }))
   const title = screen.getByRole('textbox', { name: /^Session title:/ })
   fireEvent.change(title, { target: { value: 'Uncommitted title' } })
+  fireEvent.click(screen.getByRole('tab', { name: 'Simulation' }))
   configure()
   const before = localStorage.getItem(historyStorageKey)
   fireEvent.click(slot())
   await waitFor(() => expect(requests).toHaveLength(1))
   expect(title).toBeDisabled()
-  expect(screen.getByRole('button', { name: 'Save' })).toBeDisabled()
+  expect(
+    screen.getByRole('button', { name: 'Save', hidden: true }),
+  ).toBeDisabled()
+  expect(screen.getByRole('tab', { name: 'History' })).toBeDisabled()
   fireEvent.submit(title.closest('form')!)
   expect(localStorage.getItem(historyStorageKey)).toBe(before)
   complete(batchResponse(positive(captured.request, captured.body)))

@@ -116,3 +116,32 @@
 .wb-session-notation__limitation {
   color: #e0c687;
 }
+
+.wb-session-notation__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.wb-session-notation__heading h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+.session-overview-entry {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 1px solid #766240;
+  border-radius: 4px;
+  color: #e5cea0;
+  background: #29251e;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+.session-overview-entry:hover {
+  border-color: #c8a968;
+  background: #393024;
+}

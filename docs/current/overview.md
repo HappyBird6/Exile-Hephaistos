@@ -49,7 +49,7 @@ Exile-Hephaistos는 PoE2 복사 텍스트를 해석하고, 검토된 카탈로�
 
 제작 POST는 `X-Crafting-Ruleset`으로 입력의 규칙 출처를 명시하며 목표의 `catalogVersion`도 별도로 검사한다. 사용자 로그인·관리자 인증은 없고 method job 소유권은 `crafting_method_client` cookie로 구분한다. 소유권 cookie를 공개 운영용 사용자 인증으로 해석하지 않는다.
 
-Workbench film은 브라우저에, 자동 job은 로컬 JSON에 저장한다. 명시적으로 공유한 Film snapshot은 서버의 별도 JSON 저장소에 보관하며 [세션 히스토리·파일·공유](session-history.md)의 접근 경계를 따른다. 기존 Support addition pool은 PostgreSQL cache, 구형 certified 계산은 SQLite 기반 저장을 사용한다. Redis 연결 기반과 readiness는 제작 계산의 완결을 보장하지 않는다. [Frontend 구조와 검사](../../frontend/README.md), [자동 저장·재개](automatic-planning.md)를 함께 확인한다.
+Workbench film은 브라우저에, 자동 job은 로컬 JSON에 저장한다. 세션은 [히스토리·오버뷰·파일 전송](session-history.md)에서 미리 보고 JSON import/export로 전달한다. 세션 공유 서버 기능은 제거했다. 기존 Support addition pool은 PostgreSQL cache, 구형 certified 계산은 SQLite 기반 저장을 사용한다. Redis 연결 기반과 readiness는 제작 계산의 완결을 보장하지 않는다. [Frontend 구조와 검사](../../frontend/README.md), [자동 저장·재개](automatic-planning.md)를 함께 확인한다.
 
 ## 구현 근거
 

@@ -98,7 +98,7 @@ it('renames, favorites, deletes and restores the exact saved session', async () 
     ),
   )
   show()
-  fireEvent.click(screen.getByRole('button', { name: 'History' }))
+  fireEvent.click(screen.getByRole('tab', { name: 'History' }))
   fireEvent.click(screen.getByRole('button', { name: /^Rename:/ }))
   fireEvent.change(screen.getByRole('textbox', { name: /^Session title:/ }), {
     target: { value: 'My craft' },
@@ -136,7 +136,7 @@ it('preserves saved sessions when a metadata write fails', () => {
   )
   localStorage.setItem(historyStorageKey, original)
   show()
-  fireEvent.click(screen.getByRole('button', { name: 'History' }))
+  fireEvent.click(screen.getByRole('tab', { name: 'History' }))
   const write = vi
     .spyOn(Storage.prototype, 'setItem')
     .mockImplementation(() => {
@@ -154,7 +154,7 @@ it('preserves saved sessions when a metadata write fails', () => {
   }
 })
 
-it('places item controls beside favorites with History first in the lower work area', () => {
+it('keeps item controls in the simulation and exposes a separate History tab', () => {
   show()
   const canvas = document.querySelector('.stash-canvas')!
   expect(canvas).toContainElement(
@@ -169,7 +169,7 @@ it('places item controls beside favorites with History first in the lower work a
   const controls = plane.querySelector('.workbench-item-controls')!
   for (const name of ['Select base', 'Edit item', 'New craft'])
     expect(controls).toContainElement(screen.getByRole('button', { name }))
-  const buttons = document.querySelector('.wb-session-library-buttons')!
+  const buttons = document.querySelector('.workbench-film-toolbar')!
   expect(buttons.previousElementSibling).toBeNull()
   expect(buttons).toContainElement(
     screen.getByRole('button', { name: 'Previous crafting step' }),
@@ -182,12 +182,15 @@ it('places item controls beside favorites with History first in the lower work a
   ).toBeNull()
   expect(document.querySelector('.workbench-session-entry')).toBeNull()
   expect(buttons.nextElementSibling).toHaveClass('bench-item-card')
-  expect(
-    within(buttons as HTMLElement).getByRole('button', { name: 'History' }),
-  ).toBeVisible()
-  expect(
-    within(buttons as HTMLElement).getByRole('button', { name: 'Favorites' }),
-  ).toBeVisible()
+  expect(screen.getByRole('tab', { name: 'Simulation' })).toHaveAttribute(
+    'aria-selected',
+    'true',
+  )
+  expect(screen.getByRole('tab', { name: 'History' })).toHaveAttribute(
+    'aria-selected',
+    'false',
+  )
+  expect(document.querySelector('.wb-session-library-buttons')).toBeNull()
   expect(document.querySelector('.preview-badge')).toBeNull()
   expect(document.querySelector('.placement-label')).toBeNull()
   expect(document.querySelector('.craft-footer')).toContainElement(
@@ -218,8 +221,9 @@ it('opens the favorites-only session view without rewriting the full saved histo
   localStorage.setItem(historyStorageKey, JSON.stringify(history))
   show()
   const before = localStorage.getItem(historyStorageKey)
+  fireEvent.click(screen.getByRole('tab', { name: 'History' }))
   fireEvent.click(screen.getByRole('button', { name: 'Favorites' }))
-  const panel = document.getElementById('workbench-session-library')!
+  const panel = document.getElementById('workbench-panel-history')!
   expect(
     within(panel).getAllByRole('button', { name: /^Select session:/ }),
   ).toHaveLength(1)

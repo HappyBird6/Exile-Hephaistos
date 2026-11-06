@@ -1,5 +1,4 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { useRef } from 'react'
 import { expect, it, vi } from 'vitest'
 import { concreteInitial } from '../workbenchApi'
 import { initialFixture } from '../../../shared/test/craftingFixtures'
@@ -39,17 +38,11 @@ it('exports the selected row rather than the active session, including when stor
   const saved = localStorage.getItem(historyStorageKey)
   const select = vi.fn()
   function Example() {
-    const anchor = useRef<HTMLButtonElement>(null)
     return (
       <>
-        <button ref={anchor}>History</button>
         <SessionLibrary
-          id="transfer"
-          anchor={anchor}
-          open
           disabled
           history={history}
-          onOpenChange={vi.fn()}
           onSelect={select}
           onRename={vi.fn()}
           onFavoriteChange={vi.fn()}

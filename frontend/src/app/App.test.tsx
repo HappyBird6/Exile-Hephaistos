@@ -89,7 +89,15 @@ describe('Crafting workbench', () => {
     expect(
       screen.queryByRole('button', { name: 'Scroll of Wisdom' }),
     ).not.toBeInTheDocument()
-    expect(screen.getAllByRole('tab')).toHaveLength(9)
+    expect(screen.getAllByRole('tab')).toHaveLength(11)
+    expect(screen.getByRole('tab', { name: 'Simulation' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    )
+    expect(screen.getByRole('tab', { name: 'History' })).toHaveAttribute(
+      'aria-selected',
+      'false',
+    )
     expect(
       screen.getByRole('tab', { name: 'Crafting Workbench' }),
     ).toHaveAttribute('aria-selected', 'true')

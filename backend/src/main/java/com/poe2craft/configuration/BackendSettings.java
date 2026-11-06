@@ -23,8 +23,7 @@ public record BackendSettings(
     @Valid @NotNull AutomaticSearch automaticSearch,
     @Valid @NotNull Cache cache,
     @Valid @NotNull Storage storage,
-    @Valid @NotNull Workbench workbench,
-    @Valid @NotNull SessionHistory sessionHistory) {
+    @Valid @NotNull Workbench workbench) {
 
   public record PathSearch(
       @Min(1) int maxJobs,
@@ -71,10 +70,7 @@ public record BackendSettings(
   public record Cache(
       @Min(1) int transitionEntries, @Min(1) int transitionOutcomes, @Min(1) int additionEntries) {}
 
-  public record Storage(
-      @NotBlank String methodJobDirectory, @NotBlank String sessionSnapshotDirectory) {}
-
-  public record SessionHistory(@Min(1) int maxDocuments, @Min(1) long maxStoredBytes) {}
+  public record Storage(@NotBlank String methodJobDirectory) {}
 
   public record Workbench(@Min(1) int repeatConcurrency) {}
 

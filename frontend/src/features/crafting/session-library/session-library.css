@@ -2,41 +2,6 @@
   display: grid;
   gap: 8px;
 }
-.wb-session-library-buttons {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  min-width: 0;
-  margin-top: 8px;
-}
-.wb-session-library-buttons .wb-session-library-trigger {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 40px;
-  padding: 0;
-  border: 1px solid #6e5d3e;
-  border-radius: 4px;
-  background: linear-gradient(#343026, #211f1b);
-  color: #e7d477;
-  font-size: 23px;
-  line-height: 1;
-  cursor: pointer;
-}
-.wb-session-library-trigger:enabled:hover,
-.wb-session-library-trigger[aria-expanded='true'] {
-  border-color: #d1ae60;
-  box-shadow: inset 0 0 0 1px #8d7445;
-}
-.wb-session-library-trigger:focus-visible {
-  outline: 2px solid #e7d477;
-  outline-offset: 3px;
-}
-.wb-session-library-trigger:disabled {
-  opacity: 0.45;
-  cursor: default;
-}
 .wb-session-card {
   border: 1px solid #4b4438;
   border-radius: 4px;
@@ -180,4 +145,172 @@
 }
 .wb-session-card__actions {
   flex-wrap: wrap;
+}
+
+.wb-history-workspace {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  gap: 24px;
+  font-size: 18px;
+  min-width: 0;
+}
+.wb-history-nav {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  gap: 6px;
+  padding: 8px;
+  border: 1px solid #454034;
+  border-radius: 6px;
+  background: #171a1f;
+}
+.wb-history-nav button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #c1baaa;
+  background: transparent;
+}
+.wb-history-nav button[aria-current='page'] {
+  border-color: #6c5938;
+  background: #302a20;
+  color: #eed3a0;
+}
+.wb-history-nav__count {
+  margin-left: auto;
+  color: #a99d86;
+  font-size: 0.85em;
+}
+.wb-history-content,
+.wb-history-list {
+  min-width: 0;
+}
+.wb-history-heading h2 {
+  margin: 0;
+  color: #e2c68c;
+  font-size: 26px;
+}
+.wb-history-heading p {
+  margin: 6px 0 20px;
+  color: #a9a59c;
+}
+.wb-history-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+  gap: 24px;
+  align-items: start;
+}
+.wb-history-list {
+  max-height: 80vh;
+  overflow: auto;
+  padding: 2px 8px 8px 2px;
+}
+.wb-history-workspace .wb-session-card {
+  padding: 14px;
+  border-radius: 6px;
+  background: #1c2026;
+}
+.wb-history-workspace .wb-session-card button {
+  min-height: 38px;
+  padding: 6px 10px;
+  border: 1px solid #504838;
+  border-radius: 4px;
+  color: #dfcba3;
+  background: #2b2923;
+}
+.wb-history-workspace .wb-session-card .wb-session-card__select {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #e7e0d0;
+}
+.wb-history-workspace .wb-session-card .wb-session-card__star {
+  border: 0;
+  background: transparent;
+}
+.wb-session-card > a {
+  display: inline-block;
+  margin: 12px 0;
+  color: #c5b184;
+  text-decoration: none;
+}
+.wb-session-card > a:hover {
+  color: #f3d7a1;
+}
+.wb-history-preview {
+  min-width: 0;
+  margin: 0;
+  padding: 20px;
+  border: 1px solid #63543b;
+  border-radius: 6px;
+  background: #1b1e23;
+}
+.wb-history-preview__heading > span {
+  color: #a99d85;
+  font-size: 15px;
+}
+.wb-history-preview__heading h3 {
+  margin: 4px 0 18px;
+  color: #e9dbba;
+  font-size: 22px;
+  overflow-wrap: anywhere;
+}
+.wb-history-preview__item .item-card {
+  font-size: 17.33px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+.wb-history-preview__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+.wb-history-preview__actions > button,
+.wb-history-preview__actions > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 1px solid #82704b;
+  border-radius: 4px;
+  background: #393023;
+  color: #f1d69e;
+  text-decoration: none;
+  text-align: center;
+}
+.wb-history-preview__actions > a {
+  background: transparent;
+  border-color: #4b463a;
+  color: #ccbea0;
+}
+@media (max-width: 1100px) {
+  .wb-history-workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .wb-history-nav {
+    flex-direction: row;
+  }
+  .wb-history-nav button {
+    flex: 1;
+  }
+}
+@media (max-width: 760px) {
+  .wb-history-columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .wb-history-list {
+    max-height: 45vh;
+  }
+  .wb-history-preview {
+    padding: 16px;
+  }
 }

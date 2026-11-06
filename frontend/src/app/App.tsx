@@ -1,4 +1,4 @@
-import { SessionHistoryPage } from '../features/crafting/session-history/SessionHistoryPage'
+import { SessionOverviewPage } from '../features/crafting/session-history/SessionOverviewPage'
 import { useI18n } from '../shared/i18n/i18n'
 import { useEffect } from 'react'
 import { CraftingPage } from '../features/crafting/CraftingPage'
@@ -17,7 +17,7 @@ export function App() {
     window.location.pathname === '/admin/crawling'
   ) {
     return (
-      <main className="craft-page">
+      <main className="craft-page craft-page--framed">
         <header className="craft-header">
           <a
             className="craft-brand"
@@ -44,16 +44,15 @@ export function App() {
       </main>
     )
   }
-  const shared = window.location.pathname.match(/^\/history\/shared\/([^/]+)$/)
   const local = window.location.pathname.match(/^\/history\/([^/]+)$/)
-  if (shared || local) {
+  if (local) {
     let id = ''
     try {
-      id = decodeURIComponent((shared ?? local)![1]!)
+      id = decodeURIComponent(local[1]!)
     } catch {
       /* Invalid URL stays unavailable. */
     }
-    return <SessionHistoryPage id={id} shared={!!shared} />
+    return <SessionOverviewPage id={id} />
   }
   return <CraftingPage />
 }

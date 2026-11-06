@@ -1,5 +1,4 @@
 import { fireEvent, render, screen, within } from '@testing-library/react'
-import { useRef } from 'react'
 import { expect, it, vi } from 'vitest'
 import { concreteInitial } from '../workbenchApi'
 import { initialFixture } from '../../../shared/test/craftingFixtures'
@@ -27,15 +26,9 @@ it('renders small image cards, passes explicit metadata changes and confirms onl
     remove = vi.fn(),
     undo = vi.fn()
   function Example() {
-    const anchor = useRef<HTMLButtonElement>(null)
     return (
       <>
-        <button ref={anchor}>History</button>
         <SessionLibrary
-          id="sessions"
-          anchor={anchor}
-          open
-          onOpenChange={vi.fn()}
           history={history}
           onSelect={select}
           onRename={rename}
