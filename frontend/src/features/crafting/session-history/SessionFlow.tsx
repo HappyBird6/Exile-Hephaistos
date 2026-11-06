@@ -22,15 +22,18 @@ function flowPosition(index: number, columns: number) {
 export function SessionFlow({
   film,
   resources,
+  columnCount,
 }: {
   film: Film
   resources: readonly WorkbenchResource[]
+  columnCount?: 1 | 2 | 4
 }) {
   const { locale, name } = useI18n()
   const text = historyMessages[locale]
-  const columns = useSyncExternalStore(subscribe, () =>
+  const responsiveColumns = useSyncExternalStore(subscribe, () =>
     window.innerWidth <= 640 ? 1 : window.innerWidth <= 1100 ? 2 : 4,
   )
+  const columns = columnCount ?? responsiveColumns
   let steps: ReturnType<typeof extractSessionNotation>['steps'] = []
   try {
     steps = extractSessionNotation(film, film.frames.length - 1).steps

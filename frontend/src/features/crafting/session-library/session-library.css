@@ -132,3 +132,52 @@
   min-width: 0;
   overflow-wrap: anywhere;
 }
+.wb-session-import__file {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 4px 8px;
+  border: 1px solid #514b40;
+  border-radius: 3px;
+  background: #252527;
+  cursor: pointer;
+}
+.wb-session-import__file:focus-within {
+  outline: 2px solid #d9b55d;
+  outline-offset: 2px;
+}
+.wb-session-import__file input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.wb-session-import__file:has(input:disabled) {
+  opacity: 0.45;
+  cursor: default;
+}
+.wb-session-import__preview {
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px solid #867348;
+}
+.wb-session-import__preview h4,
+.wb-session-import__preview p {
+  margin: 0 0 8px;
+  overflow-wrap: anywhere;
+}
+.wb-session-import__actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.wb-session-import__flow {
+  margin-top: 8px;
+  max-height: 45vh;
+  overflow: auto;
+}
+.wb-session-card__actions {
+  flex-wrap: wrap;
+}

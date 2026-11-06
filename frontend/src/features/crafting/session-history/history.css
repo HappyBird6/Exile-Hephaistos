@@ -3,32 +3,41 @@
   min-height: 100vh;
   overflow-wrap: anywhere;
 }
-.history-page .history-heading {
+.history-page .craft-header {
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 28px 0 12px;
+  gap: 18px;
+  padding: 22px 0;
 }
-.history-heading h1 {
-  font-size: 25px;
-  font-weight: 500;
+.history-page .craft-brand {
+  flex: 0 1 240px;
+}
+.history-page .brand-mark {
+  flex-shrink: 0;
+}
+.history-title {
+  flex: 1;
+  min-width: 0;
   margin: 0;
+  font-size: 21px;
+  font-weight: 500;
   letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
-.history-actions,
-.history-link {
+.history-actions {
   display: flex;
+  flex: none;
   align-items: center;
   gap: 8px;
-  flex-wrap: wrap;
+  margin-left: auto;
 }
-.history-actions button,
-.history-actions label,
-.history-link button,
-.history-preview button,
-.history-pngs > a {
+.history-page .history-actions button,
+.history-share-confirm button {
   font: inherit;
   font-size: 12px;
   padding: 9px 12px;
@@ -36,49 +45,22 @@
   background: #20251f;
   color: #e5d8b6;
   border-radius: 3px;
-  text-decoration: none;
   cursor: pointer;
 }
-.history-actions label {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-}
-.history-file-input {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  opacity: 0;
-  cursor: pointer;
-}
-.history-actions label:focus-within {
+.history-page .history-actions button:focus-visible,
+.history-share-confirm button:focus-visible {
   outline: 2px solid #d7bc82;
   outline-offset: 3px;
+}
+.history-share-confirm {
+  margin: 16px 0;
+}
+.history-share-confirm button + button {
+  margin-left: 8px;
 }
 .history-page button:disabled {
   opacity: 0.45;
   cursor: default;
-}
-.history-share-notice {
-  font-size: 12px;
-  color: #a9aa9d;
-  margin: 0 0 20px;
-  max-width: 900px;
-}
-.history-link {
-  padding: 12px 0;
-}
-.history-link input {
-  flex: 1;
-  min-width: 160px;
-  background: #11150f;
-  border: 1px solid #615a43;
-  color: #d9d7cf;
-  padding: 8px;
-}
-.history-link a {
-  color: #d7bc82;
-  font-size: 12px;
 }
 .session-flow {
   background: #151820;
@@ -107,12 +89,6 @@
   margin: 0;
   height: auto;
   flex: 1;
-}
-.session-flow-state > .wb-base-image {
-  height: 64px;
-  max-width: 80px;
-  object-fit: contain;
-  margin: 0 auto;
 }
 .session-flow-state .item-card__header h2 {
   font-size: 17px;
@@ -204,31 +180,6 @@
   font-size: 12px;
   color: #dbb77c;
 }
-.history-preview {
-  background: #1b211b;
-  border: 1px solid #867348;
-  padding: 16px;
-  margin: 16px 0;
-}
-.history-preview h2 {
-  font-size: 16px;
-  margin: 0;
-}
-.history-preview button {
-  margin-right: 8px;
-}
-.history-pngs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  padding: 20px 0;
-}
-.history-pngs img {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin-top: 8px;
-}
 @media (max-width: 1100px) {
   .history-page {
     padding-left: 24px;
@@ -239,14 +190,10 @@
   .history-page {
     padding: 0 12px 20px;
   }
-  .history-heading {
-    gap: 12px;
-  }
   .history-actions {
     gap: 6px;
   }
-  .history-actions button,
-  .history-actions label {
+  .history-page .history-actions button {
     padding: 8px;
     font-size: 11px;
   }
@@ -287,6 +234,40 @@
   margin-right: 8px;
 }
 
-.history-pngs:empty {
-  display: none;
+@media (max-width: 640px) {
+  .history-page .craft-header {
+    gap: 8px;
+    padding: 16px 0;
+  }
+  .history-page .craft-brand {
+    flex: 0 0 96px;
+    gap: 6px;
+    font-size: 10px;
+    letter-spacing: 0.03em;
+  }
+  .history-page .craft-brand > span:last-child {
+    overflow-wrap: anywhere;
+  }
+  .history-page .craft-brand small {
+    font-size: 6px;
+    letter-spacing: 0;
+  }
+  .history-page .brand-mark {
+    width: 24px;
+    height: 32px;
+    font-size: 22px;
+  }
+  .history-title {
+    font-size: 14px;
+  }
+  .history-actions {
+    gap: 4px;
+  }
+  .history-page .history-actions button {
+    width: 66px;
+    max-width: 66px;
+    padding: 8px 6px;
+    font-size: 10px;
+    line-height: 1.35;
+  }
 }

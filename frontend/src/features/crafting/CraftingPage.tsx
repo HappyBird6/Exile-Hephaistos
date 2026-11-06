@@ -1,6 +1,7 @@
 import { currentItemText } from './currentItemText'
 import { textEditMessages } from './textEditMessages'
 import { historyMessages } from './session-history/messages'
+import { appendDocument, localHistoryUrl } from './session-history/transfer'
 import {
   augmentMaterials,
   augmentName,
@@ -2618,6 +2619,13 @@ export function CraftingPage() {
               if (!mutationLocked() && !open) setLeftMenu(null)
             }}
             history={filmState.history}
+            onImport={(document) => {
+              if (mutationLocked() || filmState.blockedSaving) return false
+              const added = appendDocument(filmState.history, document)
+              if (!commitLibraryHistory(added.history)) return false
+              location.assign(localHistoryUrl(added.id))
+              return true
+            }}
             disabled={workbenchBusy || filmState.blockedSaving}
             onSelect={(id) => {
               if (mutationLocked()) return

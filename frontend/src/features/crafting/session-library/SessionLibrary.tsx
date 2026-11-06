@@ -1,5 +1,12 @@
 import { historyMessages } from '../session-history/messages'
 import { useState } from 'react'
+import { SessionImport } from './SessionImport'
+import {
+  decodeDocument,
+  documentFor,
+  saveBlob,
+} from '../session-history/transfer'
+import type { SessionDocument } from '../session-history/transfer'
 import { useI18n, gameName } from '../../../shared/i18n/i18n'
 import { BaseImage } from '../base-picker/BaseImage'
 import { LeftShelfOverlay } from '../base-picker/LeftShelfOverlay'
@@ -21,6 +28,7 @@ export type SessionLibraryProps = Omit<ShelfOverlayProps, 'onClose'> & {
   undo?: { title: string; onUndo: () => void }
   imageForBase?: (baseItemId: string) => string | undefined
   favoritesOnly?: boolean
+  onImport?: (document: SessionDocument) => boolean
 }
 
 /** Session data and durable mutations belong to the parent; ephemeral confirmations stay here. */
@@ -49,12 +57,15 @@ function SessionLibraryContent({
   undo,
   imageForBase,
   favoritesOnly = false,
+  onImport,
 }: SessionLibraryProps) {
   const { locale, t } = useI18n()
   const messages = sessionLibraryMessages[locale]
   const [editing, setEditing] = useState<string | null>(null)
   const [title, setTitle] = useState('')
   const [confirming, setConfirming] = useState<string | null>(null)
+  const [transferError, setTransferError] = useState('')
+  const transferText = historyMessages[locale]
   function label(film: Film, index: number) {
     return typeof film.title === 'string' && film.title.trim()
       ? film.title
@@ -71,6 +82,10 @@ function SessionLibraryContent({
       closeLabel={favoritesOnly ? messages.closeFavorites : messages.close}
     >
       <div className="wb-session-library">
+        {!favoritesOnly && onImport && (
+          <SessionImport disabled={disabled} onImport={onImport} />
+        )}
+        {transferError && <p role="alert">{transferError}</p>}
         {undo && (
           <div className="wb-session-library__undo" role="status">
             <span>
@@ -171,6 +186,27 @@ function SessionLibraryContent({
                 </form>
               ) : (
                 <div className="wb-session-card__actions">
+                  {!favoritesOnly && (
+                    <button
+                      type="button"
+                      aria-label={`${transferText.export}: ${displayTitle}`}
+                      onClick={() => {
+                        setTransferError('')
+                        try {
+                          const raw = JSON.stringify(documentFor(film), null, 2)
+                          decodeDocument(raw)
+                          saveBlob(
+                            new Blob([raw], { type: 'application/json' }),
+                            'session.json',
+                          )
+                        } catch {
+                          setTransferError(transferText.error)
+                        }
+                      }}
+                    >
+                      {transferText.export}
+                    </button>
+                  )}
                   <button
                     type="button"
                     disabled={disabled}

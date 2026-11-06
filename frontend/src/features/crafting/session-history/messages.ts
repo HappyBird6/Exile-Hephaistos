@@ -8,6 +8,7 @@ const en = {
   snapshot: 'Save PNG snapshots',
   share: 'Create sharing link',
   copy: 'Copy link',
+  copied: 'Link copied',
   missing:
     'Session unavailable. Import its session file or check the sharing link.',
   error:
@@ -41,6 +42,7 @@ export const historyMessages: Record<Locale, Copy> = {
     snapshot: 'PNG 스냅샷 저장',
     share: '공유 링크 만들기',
     copy: '링크 복사',
+    copied: '링크 복사됨',
     missing:
       '세션을 찾을 수 없습니다. 세션 파일을 가져오거나 공유 링크를 확인하세요.',
     error:
@@ -71,6 +73,7 @@ export const historyMessages: Record<Locale, Copy> = {
     snapshot: '保存 PNG 快照',
     share: '创建分享链接',
     copy: '复制链接',
+    copied: '链接已复制',
     missing: '会话不可用。请导入文件或检查分享链接。',
     error: '操作失败。现有会话已保留。请检查文件、存储空间和服务器连接。',
     privacy: '持有链接的人可查看此会话，包括原始粘贴文本。',
@@ -98,6 +101,7 @@ export const historyMessages: Record<Locale, Copy> = {
     snapshot: '儲存 PNG 快照',
     share: '建立分享連結',
     copy: '複製連結',
+    copied: '連結已複製',
     missing: '工作階段不可用。請匯入檔案或檢查分享連結。',
     error: '操作失敗。既有資料已保留。請檢查檔案、儲存空間及伺服器連線。',
     privacy: '持有連結的人可檢視此工作階段，包括原始貼上文字。',
@@ -125,6 +129,7 @@ export const historyMessages: Record<Locale, Copy> = {
     snapshot: 'PNG スナップショットを保存',
     share: '共有リンクを作成',
     copy: 'リンクをコピー',
+    copied: 'リンクをコピーしました',
     missing:
       'セッションがありません。ファイルを読み込むか共有リンクを確認してください。',
     error:
@@ -155,6 +160,7 @@ export const historyMessages: Record<Locale, Copy> = {
     snapshot: 'Guardar capturas PNG',
     share: 'Crear enlace compartido',
     copy: 'Copiar enlace',
+    copied: 'Enlace copiado',
     missing: 'Sesión no disponible. Importa el archivo o revisa el enlace.',
     error:
       'No se pudo completar. Las sesiones existentes se conservan. Revisa el archivo, el espacio y la conexión.',

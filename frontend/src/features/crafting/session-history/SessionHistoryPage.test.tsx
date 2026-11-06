@@ -9,7 +9,7 @@ import { SessionHistoryPage } from './SessionHistoryPage'
 import { historyMessages } from './messages'
 
 it.each(locales)(
-  'keeps %s session actions and privacy guidance without showing internal identity in the summary',
+  'keeps %s history read-only with header actions and contextual privacy guidance',
   async (locale) => {
     setLocale(locale)
     const { history } = await twoSteps()
@@ -35,8 +35,8 @@ it.each(locales)(
     ).toHaveLength(0)
     expect(view.container.querySelectorAll('[data-flow-edge]')).toHaveLength(2)
     expect(
-      screen.getByRole('button', { name: historyMessages[locale].export }),
-    ).toBeVisible()
+      screen.queryByRole('button', { name: historyMessages[locale].export }),
+    ).not.toBeInTheDocument()
     expect(
       screen.getByRole('button', { name: historyMessages[locale].share }),
     ).toBeVisible()
@@ -44,6 +44,14 @@ it.each(locales)(
       screen.getByRole('button', { name: historyMessages[locale].snapshot }),
     ).toBeVisible()
     expect(screen.getAllByRole('article')).toHaveLength(3)
+    expect(
+      view.container.querySelector(
+        '.history-heading, .workspace-nav, .locale-selector, .wb-base-image',
+      ),
+    ).toBeNull()
+    expect(view.container.querySelector('header h1')).toHaveTextContent(
+      film.title || historyMessages[locale].title,
+    )
     for (const paragraph of view.container.querySelectorAll('main > p'))
       expect(paragraph).not.toHaveTextContent(film.rulesetIdentity!)
     fireEvent.click(

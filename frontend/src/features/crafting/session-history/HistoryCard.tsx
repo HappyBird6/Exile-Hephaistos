@@ -15,7 +15,6 @@ import { catalystProjection } from '../catalystQuality'
 import { preciseModifierProjection } from '../sanctification/preciseModifierProjection'
 import { augmentName, augmentEffect, socketText } from '../socketAugments'
 import { defenceDisplay } from '../defenceDisplay'
-import { BaseImage } from '../base-picker/BaseImage'
 import { historyMessages } from './messages'
 
 export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
@@ -52,7 +51,6 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
     )
   return (
     <>
-      <BaseImage baseItemId={state.baseItemId} label={state.baseItemId} />
       {!valid && <p className="history-warning">{text.unknown}</p>}
       <ItemCard
         baseItemId={state.baseItemId}
