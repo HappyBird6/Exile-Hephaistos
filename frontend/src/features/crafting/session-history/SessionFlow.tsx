@@ -81,24 +81,8 @@ export function SessionFlow({
                     : Math.min(previous.column, position.column) + 1,
                 }}
               >
-                <svg
-                  className="session-flow-arrow"
-                  aria-hidden="true"
-                  viewBox={down ? '0 0 20 100' : '0 0 100 20'}
-                  preserveAspectRatio="none"
-                >
-                  <path
-                    d={
-                      down
-                        ? 'M10 0 V94 M4 86 L10 96 L16 86'
-                        : reverse
-                          ? 'M100 10 H6 M14 4 L4 10 L14 16'
-                          : 'M0 10 H94 M86 4 L96 10 L86 16'
-                    }
-                  />
-                </svg>
                 <div
-                  className="session-flow-label"
+                  className="session-flow-resources"
                   title={
                     step?.consumedOmenIds
                       .map((id) =>
@@ -113,8 +97,24 @@ export function SessionFlow({
                   {step && (
                     <NotationResources step={step} resources={resources} />
                   )}
-                  <span>{label}</span>
                 </div>
+                <svg
+                  className="session-flow-arrow"
+                  aria-hidden="true"
+                  viewBox={down ? '0 0 20 40' : '0 0 100 20'}
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d={
+                      down
+                        ? 'M10 0 V34 M4 26 L10 36 L16 26'
+                        : reverse
+                          ? 'M100 10 H6 M14 4 L4 10 L14 16'
+                          : 'M0 10 H94 M86 4 L96 10 L86 16'
+                    }
+                  />
+                </svg>
+                <span className="session-flow-label">{label}</span>
               </li>
             )}
             <li
