@@ -84,7 +84,10 @@ export function SessionNotation({
       <div className="wb-session-notation__heading">
         <h3 id={headingId}>{text.title}</h3>
         {film && (
-          <a className="session-overview-entry" href={localHistoryUrl(film.id)}>
+          <a
+            className="session-overview-entry"
+            href={localHistoryUrl(film.id, 'simulation')}
+          >
             {historyMessages[locale].title} <span aria-hidden="true">↗</span>
           </a>
         )}

@@ -1,6 +1,8 @@
 import type { Locale } from '../../../shared/i18n/i18n'
 
 type Messages = {
+  saveError: string
+  seconds: string
   simulation: string
   library: string
   finalState: string
@@ -28,8 +30,10 @@ type Messages = {
 }
 export const sessionLibraryMessages: Record<Locale, Messages> = {
   en: {
+    saveError: 'Could not save the title. Your edit is still here.',
+    seconds: 's',
     simulation: 'Simulation',
-    library: 'Session library',
+    library: 'Sessions',
     finalState: 'Final item',
     resume: 'Continue in simulation',
     navigation: 'Session navigation',
@@ -55,8 +59,10 @@ export const sessionLibraryMessages: Record<Locale, Messages> = {
     select: 'Select session',
   },
   ko: {
+    saveError: '제목을 저장하지 못했습니다. 수정 내용은 유지됩니다.',
+    seconds: '초',
     simulation: '시뮬레이션',
-    library: '세션 라이브러리',
+    library: '세션',
     finalState: '최종 아이템',
     resume: '시뮬레이션에서 이어하기',
     navigation: '세션 탐색',
@@ -81,8 +87,10 @@ export const sessionLibraryMessages: Record<Locale, Messages> = {
     select: '세션 선택',
   },
   'zh-CN': {
+    saveError: '标题未能保存。修改内容已保留。',
+    seconds: '秒',
     simulation: '模拟',
-    library: '会话库',
+    library: '会话',
     finalState: '最终物品',
     resume: '在模拟中继续',
     navigation: '会话导航',
@@ -107,8 +115,10 @@ export const sessionLibraryMessages: Record<Locale, Messages> = {
     select: '选择会话',
   },
   'zh-TW': {
+    saveError: '無法儲存標題。修改內容已保留。',
+    seconds: '秒',
     simulation: '模擬',
-    library: '工作階段庫',
+    library: '工作階段',
     finalState: '最終物品',
     resume: '在模擬中繼續',
     navigation: '工作階段導覽',
@@ -133,8 +143,10 @@ export const sessionLibraryMessages: Record<Locale, Messages> = {
     select: '選擇工作階段',
   },
   ja: {
+    saveError: 'タイトルを保存できませんでした。編集内容は保持されています。',
+    seconds: '秒',
     simulation: 'シミュレーション',
-    library: 'セッションライブラリ',
+    library: 'セッション',
     finalState: '最終アイテム',
     resume: 'シミュレーションで続ける',
     navigation: 'セッションの移動',
@@ -159,8 +171,10 @@ export const sessionLibraryMessages: Record<Locale, Messages> = {
     select: 'セッションを選択',
   },
   es: {
+    saveError: 'No se pudo guardar el título. Se conserva tu edición.',
+    seconds: 's',
     simulation: 'Simulación',
-    library: 'Biblioteca de sesiones',
+    library: 'Sesiones',
     finalState: 'Objeto final',
     resume: 'Continuar en simulación',
     navigation: 'Navegación de sesiones',

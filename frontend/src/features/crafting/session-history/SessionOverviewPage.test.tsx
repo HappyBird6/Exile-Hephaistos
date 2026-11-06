@@ -7,6 +7,7 @@ import { twoSteps } from '../session-notation/fixtures.test-support'
 import { historyStorageKey, LocalFilmRepository } from '../workbenchHistory'
 import { SessionOverviewPage } from './SessionOverviewPage'
 import { historyMessages } from './messages'
+import { sessionTitle } from '../session-library/sessionTitle'
 
 it.each(locales)(
   'keeps %s history read-only with an overview header and no sharing actions',
@@ -44,7 +45,7 @@ it.each(locales)(
       ),
     ).toBeNull()
     expect(view.container.querySelector('header h1')).toHaveTextContent(
-      film.title || historyMessages[locale].title,
+      sessionTitle(film, locale),
     )
     for (const paragraph of view.container.querySelectorAll('main > p'))
       expect(paragraph).not.toHaveTextContent(film.rulesetIdentity!)
@@ -52,5 +53,34 @@ it.each(locales)(
     expect(localStorage.getItem(historyStorageKey)).toBe(saved)
     view.unmount()
     client.clear()
+  },
+)
+
+it.each(['simulation', 'history'] as const)(
+  'returns to its %s entry point',
+  async (origin) => {
+    window.history.replaceState({}, '', `/history/saved?from=${origin}`)
+    setLocale('en')
+    const client = new QueryClient({
+      defaultOptions: { queries: { retry: false } },
+    })
+    const view = render(
+      <QueryClientProvider client={client}>
+        <SessionOverviewPage id="saved" />
+      </QueryClientProvider>,
+    )
+    const href = screen
+      .getByRole('link', { name: 'Workbench' })
+      .getAttribute('href')!
+    expect(new URL(href, location.origin).searchParams.get('workbench')).toBe(
+      origin,
+    )
+    if (origin === 'history')
+      expect(new URL(href, location.origin).searchParams.get('session')).toBe(
+        'saved',
+      )
+    view.unmount()
+    client.clear()
+    window.history.replaceState({}, '', '/')
   },
 )

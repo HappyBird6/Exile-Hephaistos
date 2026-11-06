@@ -1,4 +1,6 @@
 import { useRef, useState } from 'react'
+import type { RefObject } from 'react'
+import { createPortal } from 'react-dom'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { historyMessages } from '../session-history/messages'
 import { decodeDocument, transferLimit } from '../session-history/transfer'
@@ -10,8 +12,10 @@ import '../session-history/history.css'
 export function SessionImport({
   disabled,
   onImport,
+  previewTarget,
 }: {
   disabled: boolean
+  previewTarget?: RefObject<HTMLDivElement | null>
   onImport: (document: SessionDocument) => boolean
 }) {
   const { locale, t } = useI18n()
@@ -40,6 +44,56 @@ export function SessionImport({
     }
   }
 
+  const content = preview ? (
+    <section
+      className="wb-session-import__preview"
+      aria-label={text.preview}
+      onKeyDown={(event) => {
+        if (event.key === 'Escape' && !reading) {
+          event.stopPropagation()
+          cancel()
+        }
+      }}
+    >
+      <h4>{text.preview}</h4>
+      <p>
+        {preview.film.title ?? preview.film.id} · {preview.film.frames.length}{' '}
+        {text.count}
+      </p>
+      <div className="wb-session-import__actions">
+        <button
+          type="button"
+          disabled={disabled || reading}
+          onClick={() => {
+            setError('')
+            try {
+              if (!onImport(preview)) throw Error('save')
+              setPreview(null)
+            } catch {
+              setError(text.error)
+            }
+          }}
+        >
+          {text.confirm}
+        </button>
+        <button type="button" disabled={reading} onClick={cancel}>
+          {t('ui.cancel_preview')}
+        </button>
+      </div>
+      <div
+        className="wb-session-import__flow"
+        tabIndex={0}
+        aria-label={text.preview}
+      >
+        <SessionFlow
+          film={preview.film}
+          resources={historyResources}
+          columnCount={1}
+        />
+      </div>
+    </section>
+  ) : null
+
   return (
     <div className="wb-session-import">
       <label className="wb-session-import__file">
@@ -57,55 +111,9 @@ export function SessionImport({
         />
       </label>
       {error && <p role="alert">{error}</p>}
-      {preview && (
-        <section
-          className="wb-session-import__preview"
-          aria-label={text.preview}
-          onKeyDown={(event) => {
-            if (event.key === 'Escape' && !reading) {
-              event.stopPropagation()
-              cancel()
-            }
-          }}
-        >
-          <h4>{text.preview}</h4>
-          <p>
-            {preview.film.title ?? preview.film.id} ·{' '}
-            {preview.film.frames.length} {text.count}
-          </p>
-          <div className="wb-session-import__actions">
-            <button
-              type="button"
-              disabled={disabled || reading}
-              onClick={() => {
-                setError('')
-                try {
-                  if (!onImport(preview)) throw Error('save')
-                  setPreview(null)
-                } catch {
-                  setError(text.error)
-                }
-              }}
-            >
-              {text.confirm}
-            </button>
-            <button type="button" disabled={reading} onClick={cancel}>
-              {t('ui.cancel_preview')}
-            </button>
-          </div>
-          <div
-            className="wb-session-import__flow"
-            tabIndex={0}
-            aria-label={text.preview}
-          >
-            <SessionFlow
-              film={preview.film}
-              resources={historyResources}
-              columnCount={1}
-            />
-          </div>
-        </section>
-      )}
+      {content && previewTarget?.current
+        ? createPortal(content, previewTarget.current)
+        : content}
     </div>
   )
 }

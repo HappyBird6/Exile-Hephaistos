@@ -7,6 +7,7 @@ import { historyResources } from './resources'
 import { historyMessages } from './messages'
 import { saveBlob } from './transfer'
 import { snapshotPages } from './snapshot'
+import { sessionTitle } from '../session-library/sessionTitle'
 import './history.css'
 
 export function SessionOverviewPage({ id }: { id: string }) {
@@ -25,6 +26,17 @@ export function SessionOverviewPage({ id }: { id: string }) {
         .films.find((film) => film.id === id) ?? null,
   })
   const film = data.data
+  const title = film ? sessionTitle(film, locale) : text.title
+  const origin =
+    new URLSearchParams(location.search).get('from') === 'simulation'
+      ? 'simulation'
+      : 'history'
+  const returnQuery = new URLSearchParams({ workbench: origin })
+  if (origin === 'history') {
+    returnQuery.set('session', id)
+    if (new URLSearchParams(location.search).get('section') === 'favorites')
+      returnQuery.set('section', 'favorites')
+  }
   async function action(run: () => Promise<void> | void) {
     setBusy(true)
     setError('')
@@ -54,8 +66,8 @@ export function SessionOverviewPage({ id }: { id: string }) {
         </a>
         <div className="history-title-group">
           <span className="history-page-label">{text.title}</span>
-          <h1 className="history-title" title={film?.title || text.title}>
-            {film?.title || text.title}
+          <h1 className="history-title" title={title}>
+            {title}
           </h1>
         </div>
         <div className="history-actions">
@@ -79,7 +91,7 @@ export function SessionOverviewPage({ id }: { id: string }) {
         </div>
       </header>
       <div className="history-toolbar">
-        <a className="history-back" href="/?workbench=history">
+        <a className="history-back" href={`/?${returnQuery}`}>
           <span aria-hidden="true">←</span> {text.home}
         </a>
         {film && (

@@ -120,5 +120,14 @@ export function saveBlob(blob: Blob, filename: string) {
   link.click()
   setTimeout(() => URL.revokeObjectURL(url), 1000)
 }
-export const localHistoryUrl = (id: string) =>
-  `/history/${encodeURIComponent(id)}`
+export type OverviewOrigin = 'simulation' | 'history'
+export function localHistoryUrl(
+  id: string,
+  from: OverviewOrigin = 'history',
+  section: 'library' | 'favorites' = 'library',
+) {
+  const query = new URLSearchParams({ from })
+  if (from === 'history' && section === 'favorites')
+    query.set('section', section)
+  return `/history/${encodeURIComponent(id)}?${query}`
+}

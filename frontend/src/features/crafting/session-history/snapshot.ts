@@ -12,6 +12,11 @@ export async function snapshotPages(root: HTMLElement): Promise<Blob[]> {
     height = Math.ceil(bounds.bottom) - Math.floor(bounds.top)
   if (!width || !height || width * height > 100_000_000)
     throw Error('snapshot-size')
+  let zoom = 1
+  for (let node: HTMLElement | null = root; node; node = node.parentElement) {
+    const factor = Number.parseFloat(getComputedStyle(node).zoom)
+    if (Number.isFinite(factor) && factor > 0) zoom *= factor
+  }
   const clone = root.cloneNode(true) as HTMLElement
   const sources = [root, ...root.querySelectorAll('*')],
     targets = [clone, ...clone.querySelectorAll('*')]
@@ -36,7 +41,7 @@ export async function snapshotPages(root: HTMLElement): Promise<Blob[]> {
         target.style.setProperty('flex-wrap', 'nowrap', 'important')
       target.style.setProperty(
         'min-width',
-        `${source.getBoundingClientRect().width}px`,
+        `${source.getBoundingClientRect().width / zoom}px`,
         'important',
       )
     }
@@ -44,7 +49,7 @@ export async function snapshotPages(root: HTMLElement): Promise<Blob[]> {
       target.style.setProperty('flex-shrink', '0', 'important')
       target.style.setProperty(
         'min-height',
-        `${source.getBoundingClientRect().height}px`,
+        `${source.getBoundingClientRect().height / zoom}px`,
         'important',
       )
     }
@@ -53,10 +58,12 @@ export async function snapshotPages(root: HTMLElement): Promise<Blob[]> {
       // Rasterize this exact on-screen vector at its measured size before embedding.
       const vector = source.cloneNode(true) as SVGSVGElement
       const rect = source.getBoundingClientRect()
+      const vectorWidth = rect.width / zoom,
+        vectorHeight = rect.height / zoom
       vector.removeAttribute('style')
       vector.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
-      vector.setAttribute('width', String(rect.width))
-      vector.setAttribute('height', String(rect.height))
+      vector.setAttribute('width', String(vectorWidth))
+      vector.setAttribute('height', String(vectorHeight))
       const originalPaths = source.querySelectorAll('path')
       vector.querySelectorAll('path').forEach((path, index) => {
         const style = getComputedStyle(originalPaths[index]!)
@@ -76,12 +83,12 @@ export async function snapshotPages(root: HTMLElement): Promise<Blob[]> {
         encodeURIComponent(new XMLSerializer().serializeToString(vector))
       await picture.decode()
       const raster = document.createElement('canvas')
-      raster.width = Math.ceil(rect.width * 2)
-      raster.height = Math.ceil(rect.height * 2)
+      raster.width = Math.ceil(vectorWidth * 2)
+      raster.height = Math.ceil(vectorHeight * 2)
       const brush = raster.getContext('2d')
       if (!brush) throw Error('canvas')
       brush.scale(2, 2)
-      brush.drawImage(picture, 0, 0, rect.width, rect.height)
+      brush.drawImage(picture, 0, 0, vectorWidth, vectorHeight)
       const replacement = document.createElement('img')
       replacement.style.cssText = target.style.cssText
       replacement.src = raster.toDataURL('image/png')
@@ -104,8 +111,9 @@ export async function snapshotPages(root: HTMLElement): Promise<Blob[]> {
       target.removeAttribute('loading')
     }
   }
-  clone.style.width = `${bounds.width}px`
-  clone.style.height = `${bounds.height}px`
+  clone.style.width = `${bounds.width / zoom}px`
+  clone.style.height = `${bounds.height / zoom}px`
+  clone.style.zoom = String(zoom)
   clone.style.margin = '0'
   clone.style.transform = 'none'
   clone.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml')

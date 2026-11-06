@@ -11,7 +11,7 @@
   padding: 22px 0;
 }
 .history-page .craft-brand {
-  flex: 0 1 210px;
+  flex: 0 0 auto;
 }
 .history-page .brand-mark {
   flex-shrink: 0;
@@ -48,8 +48,9 @@
 }
 .history-page .history-actions button {
   font: inherit;
-  font-size: 12px;
-  padding: 9px 12px;
+  font-size: 16px;
+  min-height: 44px;
+  padding: 10px 14px;
   border: 1px solid #615a43;
   background: #20251f;
   color: #e5d8b6;
@@ -95,10 +96,10 @@
   flex: 1;
 }
 .session-flow-state .item-card__header h2 {
-  font-size: 17px;
+  font-size: 24.93px;
 }
 .session-flow-state .item-card__content {
-  font-size: 12px;
+  font-size: 17.33px;
 }
 .session-flow-edge {
   position: relative;
@@ -218,7 +219,7 @@
     padding: 16px 8px;
   }
   .session-flow-state .item-card__content {
-    font-size: 13px;
+    font-size: 17.33px;
   }
   .session-flow-label {
     font-size: 13px;
@@ -230,24 +231,6 @@
     gap: 8px;
     padding: 16px 0;
   }
-  .history-page .craft-brand {
-    flex: 0 0 96px;
-    gap: 6px;
-    font-size: 10px;
-    letter-spacing: 0.03em;
-  }
-  .history-page .craft-brand > span:last-child {
-    overflow-wrap: anywhere;
-  }
-  .history-page .craft-brand small {
-    font-size: 6px;
-    letter-spacing: 0;
-  }
-  .history-page .brand-mark {
-    width: 24px;
-    height: 32px;
-    font-size: 22px;
-  }
   .history-title {
     font-size: 14px;
   }
@@ -255,10 +238,10 @@
     gap: 4px;
   }
   .history-page .history-actions button {
-    width: 66px;
-    max-width: 66px;
+    width: 104px;
+    max-width: 104px;
     padding: 8px 6px;
-    font-size: 10px;
+    font-size: 14px;
     line-height: 1.35;
   }
 }

@@ -100,10 +100,9 @@ it('renames, favorites, deletes and restores the exact saved session', async () 
   show()
   fireEvent.click(screen.getByRole('tab', { name: 'History' }))
   fireEvent.click(screen.getByRole('button', { name: /^Rename:/ }))
-  fireEvent.change(screen.getByRole('textbox', { name: /^Session title:/ }), {
-    target: { value: 'My craft' },
-  })
-  fireEvent.click(screen.getByRole('button', { name: 'Save' }))
+  const title = screen.getByRole('textbox', { name: 'Session title' })
+  title.textContent = 'My craft'
+  fireEvent.keyDown(title, { key: 'Enter' })
   fireEvent.click(screen.getByRole('button', { name: 'Favorite: My craft' }))
   let saved = JSON.parse(localStorage.getItem(historyStorageKey)!)
   expect(saved.films[0]).toMatchObject({
@@ -113,13 +112,14 @@ it('renames, favorites, deletes and restores the exact saved session', async () 
   })
   const frames = saved.films[0].frames
   fireEvent.click(screen.getByRole('button', { name: 'Delete: My craft' }))
-  fireEvent.click(screen.getByRole('button', { name: 'Delete this session' }))
   await waitFor(() =>
     expect(
       JSON.parse(localStorage.getItem(historyStorageKey)!).films,
     ).toHaveLength(0),
   )
-  fireEvent.click(screen.getByRole('button', { name: 'Undo deletion' }))
+  fireEvent.click(
+    screen.getByRole('button', { name: 'Undo deletion: My craft' }),
+  )
   saved = JSON.parse(localStorage.getItem(historyStorageKey)!)
   expect(saved.films[0].frames).toEqual(frames)
   expect(saved.films[0]).toMatchObject({

@@ -4,8 +4,9 @@ import { concreteInitial } from '../workbenchApi'
 import { initialFixture } from '../../../shared/test/craftingFixtures'
 import { emptyFilms, startFilm, updateFilmMetadata } from '../workbenchHistory'
 import { SessionLibrary } from './SessionLibrary'
+import { sessionTitle } from './sessionTitle'
 
-it('renders small image cards, passes explicit metadata changes and confirms only the selected deletion', () => {
+it('renders session actions with a styled overview and deletes only the requested card immediately', () => {
   const solar = {
     ...concreteInitial(initialFixture),
     baseItemId: 'Metadata/Items/Amulets/FourAmulet9',
@@ -21,20 +22,16 @@ it('renders small image cards, passes explicit metadata changes and confirms onl
     { title: 'My amulet', favorite: true },
   )
   const select = vi.fn(),
-    rename = vi.fn(),
     favorite = vi.fn(),
-    remove = vi.fn(),
-    undo = vi.fn()
+    remove = vi.fn()
   function Example() {
     return (
       <>
         <SessionLibrary
           history={history}
           onSelect={select}
-          onRename={rename}
           onFavoriteChange={favorite}
           onDelete={remove}
-          undo={{ title: 'Removed', onUndo: undo }}
         />
       </>
     )
@@ -56,19 +53,24 @@ it('renders small image cards, passes explicit metadata changes and confirms onl
     first.getByRole('button', { name: 'Select session: My amulet' }),
   )
   expect(select).toHaveBeenCalledWith('one')
-  fireEvent.click(first.getByRole('button', { name: 'Rename: My amulet' }))
-  fireEvent.change(first.getByRole('textbox'), {
-    target: { value: 'Untrimmed title ' },
-  })
-  fireEvent.click(first.getByRole('button', { name: 'Save' }))
-  expect(rename).toHaveBeenCalledWith('one', 'Untrimmed title ')
-  fireEvent.click(screen.getByRole('button', { name: 'Delete: Session 2' }))
-  expect(remove).not.toHaveBeenCalled()
-  fireEvent.click(screen.getByRole('button', { name: 'Cancel' }))
-  expect(remove).not.toHaveBeenCalled()
-  fireEvent.click(screen.getByRole('button', { name: 'Delete: Session 2' }))
-  fireEvent.click(screen.getByRole('button', { name: 'Delete this session' }))
+  fireEvent.click(screen.getByRole('article', { name: 'My amulet' }))
+  expect(select).toHaveBeenCalledTimes(2)
+  expect(first.queryByRole('button', { name: /Rename/ })).toBeNull()
+  const actions = screen
+    .getByRole('article', { name: 'My amulet' })
+    .querySelector('.wb-session-card__actions')!
+  expect(actions.firstElementChild).toHaveClass('wb-session-card__overview')
+  expect(first.getByRole('link', { name: 'Session overview' })).toHaveAttribute(
+    'href',
+    '/history/one?from=history',
+  )
+  fireEvent.click(
+    screen.getByRole('button', {
+      name: `Delete: ${sessionTitle(history.films[1]!, 'en')}`,
+    }),
+  )
   expect(remove).toHaveBeenCalledExactlyOnceWith('two')
-  fireEvent.click(screen.getByRole('button', { name: 'Undo deletion' }))
-  expect(undo).toHaveBeenCalledOnce()
+  expect(
+    screen.queryByRole('button', { name: 'Delete this session' }),
+  ).toBeNull()
 })

@@ -55,6 +55,7 @@ function fixtureHistory() {
 }
 function Example() {
   const [history, setHistory] = useState(fixtureHistory)
+  const [expiresAt] = useState(() => Date.now() + 60000)
   const [deletion, setDeletion] = useState<FilmDeletion | null>(null)
   return (
     <>
@@ -75,9 +76,10 @@ function Example() {
           setHistory(added.history)
           return added.id
         }}
-        onRename={(id, title) =>
+        onRename={(id, title) => {
           setHistory(updateFilmMetadata(history, id, { title }))
-        }
+          return true
+        }}
         onFavoriteChange={(id, favorite) =>
           setHistory(updateFilmMetadata(history, id, { favorite }))
         }
@@ -92,6 +94,7 @@ function Example() {
           ? {
               undo: {
                 title: deletion.film.title ?? '',
+                expiresAt,
                 onUndo: () => {
                   setHistory(undoFilmDeletion(history, deletion))
                   setDeletion(null)
@@ -122,27 +125,22 @@ it('filters favorites with legacy numbers and preserves rename, delete and Undo'
   const nav = within(screen.getByRole('navigation'))
   fireEvent.click(nav.getByRole('button', { name: 'Favorites' }))
   expect(screen.getAllByRole('article')).toHaveLength(1)
-  expect(
-    screen
-      .getByRole('article', { name: 'Loved' })
-      .querySelector('.wb-session-card__number'),
-  ).toHaveTextContent('2')
   fireEvent.click(screen.getByRole('button', { name: 'Rename: Loved' }))
-  fireEvent.change(screen.getByRole('textbox'), {
-    target: { value: 'Renamed' },
-  })
-  fireEvent.click(screen.getByRole('button', { name: 'Save' }))
+  const editor = screen.getByRole('textbox')
+  editor.textContent = 'Renamed'
+  fireEvent.keyDown(editor, { key: 'Enter' })
   fireEvent.click(screen.getByRole('button', { name: 'Delete: Renamed' }))
-  fireEvent.click(screen.getByRole('button', { name: 'Delete this session' }))
   expect(screen.getByText('No favorite crafting sessions yet.')).toBeVisible()
-  fireEvent.click(screen.getByRole('button', { name: 'Undo deletion' }))
+  fireEvent.click(
+    screen.getByRole('button', { name: 'Undo deletion: Renamed' }),
+  )
   expect(screen.getByRole('article', { name: 'Renamed' })).toBeVisible()
   expect(screen.getByLabelText('active session')).toHaveTextContent('three:0')
   fireEvent.click(
     screen.getByRole('button', { name: 'Remove favorite: Renamed' }),
   )
   expect(screen.queryByRole('article')).not.toBeInTheDocument()
-  fireEvent.click(nav.getByRole('button', { name: 'Session library' }))
+  fireEvent.click(nav.getByRole('button', { name: 'Sessions' }))
   expect(screen.getAllByRole('article')).toHaveLength(3)
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
 })

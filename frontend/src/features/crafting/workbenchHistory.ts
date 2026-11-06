@@ -114,6 +114,8 @@ export type Films = {
   active: string | null
   cursor: number
   nextSessionNumber?: number
+  /** Only the latest deletion remains recoverable until this absolute deadline. */
+  pendingDeletion?: { deletion: FilmDeletion; expiresAt: number }
 }
 export const emptyFilms = (): Films => ({
   version: 1,
@@ -226,6 +228,57 @@ export function undoFilmDeletion(
   }
 }
 
+function validStoredFilm(film: Film): boolean {
+  return Boolean(
+    film &&
+    typeof film.id === 'string' &&
+    typeof film.createdAt === 'string' &&
+    (film.sourceDocument === undefined ||
+      typeof film.sourceDocument === 'string') &&
+    Array.isArray(film.frames) &&
+    film.frames.length > 0 &&
+    film.frames.every(
+      (frame, index) =>
+        frame &&
+        typeof frame.state === 'object' &&
+        frame.state !== null &&
+        (frame.action === null || typeof frame.action === 'string') &&
+        validRepeatFrame(frame) &&
+        (index > 0 || !Object.hasOwn(frame, 'chaosRepeat')),
+    ),
+  )
+}
+function validPendingDeletion(
+  pending: NonNullable<Films['pendingDeletion']>,
+  films: Film[],
+): boolean {
+  const token = pending?.deletion
+  const original =
+    token?.active === token?.film?.id
+      ? token?.film
+      : films.find((film) => film.id === token?.active)
+  const next = films.find((film) => film.id === token?.nextActive)
+  return Boolean(
+    pending &&
+    Number.isFinite(pending.expiresAt) &&
+    pending.expiresAt > 0 &&
+    token &&
+    validStoredFilm(token.film) &&
+    Number.isInteger(token.index) &&
+    token.index >= 0 &&
+    Number.isInteger(token.cursor) &&
+    token.cursor >= 0 &&
+    Number.isInteger(token.nextCursor) &&
+    token.nextCursor >= 0 &&
+    (token.active === null || typeof token.active === 'string') &&
+    (token.nextActive === null || typeof token.nextActive === 'string') &&
+    (token.active === null ||
+      (original && token.cursor < original.frames.length)) &&
+    (token.nextActive === null ||
+      (next && token.nextCursor < next.frames.length)),
+  )
+}
+
 // A future per-user DB repository can replace this boundary without changing film semantics.
 export interface FilmRepository {
   load(): Films
@@ -244,24 +297,9 @@ export class LocalFilmRepository implements FilmRepository {
       !Array.isArray(value.films) ||
       !Number.isInteger(value.cursor) ||
       value.cursor < 0 ||
-      !value.films.every(
-        (film) =>
-          typeof film.id === 'string' &&
-          typeof film.createdAt === 'string' &&
-          (film.sourceDocument === undefined ||
-            typeof film.sourceDocument === 'string') &&
-          Array.isArray(film.frames) &&
-          film.frames.length > 0 &&
-          film.frames.every(
-            (frame, index) =>
-              frame &&
-              typeof frame.state === 'object' &&
-              frame.state !== null &&
-              (frame.action === null || typeof frame.action === 'string') &&
-              validRepeatFrame(frame) &&
-              (index > 0 || !Object.hasOwn(frame, 'chaosRepeat')),
-          ),
-      ) ||
+      !value.films.every(validStoredFilm) ||
+      (value.pendingDeletion !== undefined &&
+        !validPendingDeletion(value.pendingDeletion, value.films)) ||
       new Set(value.films.map((film) => film.id)).size !== value.films.length ||
       (value.active !== null && (!currentFilm(value) || !currentFrame(value)))
     )

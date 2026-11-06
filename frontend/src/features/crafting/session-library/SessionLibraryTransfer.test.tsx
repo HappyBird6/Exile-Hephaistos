@@ -44,7 +44,6 @@ it('exports the selected row rather than the active session, including when stor
           disabled
           history={history}
           onSelect={select}
-          onRename={vi.fn()}
           onFavoriteChange={vi.fn()}
           onDelete={vi.fn()}
         />

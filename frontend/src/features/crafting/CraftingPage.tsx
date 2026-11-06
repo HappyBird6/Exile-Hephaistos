@@ -47,6 +47,12 @@ import {
 import { WorkbenchBasePicker } from './base-picker/WorkbenchBasePicker'
 import { SessionHistoryWorkspace } from './session-library/SessionHistoryWorkspace'
 import { sessionLibraryMessages } from './session-library/sessionLibraryMessages'
+import { sessionTitle } from './session-library/sessionTitle'
+import {
+  queueSessionDeletion,
+  clearDeletionUndo,
+  restoreDeletedSession,
+} from './session-library/deletionUndo'
 import { ItemSlotImage } from './item-slot/ItemSlotImage'
 import { ServiceMessage } from './ServiceMessage'
 import { serviceText } from './serviceMessages'
@@ -62,6 +68,7 @@ import { skipToken, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   useCallback,
   useEffect,
+  useEffectEvent,
   useLayoutEffect,
   useRef,
   useState,
@@ -129,10 +136,8 @@ import {
   verifiedFrameEvidence,
   filmRulesetStatus,
   updateFilmMetadata,
-  deleteFilm,
-  undoFilmDeletion,
 } from './workbenchHistory'
-import type { Films, FilmDeletion } from './workbenchHistory'
+import type { Films } from './workbenchHistory'
 import {
   basicJewelBases,
   isWorkbenchJewel,
@@ -288,7 +293,9 @@ export function CraftingPage() {
       : 'simulation',
   )
   const [view, setView] = useState<(typeof workspaceTabs)[number]>(() =>
-    new URLSearchParams(location.search).get('workbench') === 'history'
+    ['history', 'simulation'].includes(
+      new URLSearchParams(location.search).get('workbench') ?? '',
+    )
       ? 'workbench'
       : (readSupport('workspace', (v): v is (typeof workspaceTabs)[number] =>
           workspaceTabs.includes(v as (typeof workspaceTabs)[number]),
@@ -348,7 +355,6 @@ export function CraftingPage() {
   const baseAnchor = useRef<HTMLButtonElement>(null)
   const basePlacementRegion = useRef<HTMLDivElement>(null)
   const currencyShelf = useRef<HTMLDivElement>(null)
-  const [lastDeletion, setLastDeletion] = useState<FilmDeletion | null>(null)
   const [inputOpen, setInputOpen] = useState(false)
   const inputOpener = useRef<HTMLElement | null>(null)
   const [announcement, setAnnouncement] = useState('')
@@ -671,17 +677,29 @@ export function CraftingPage() {
     return true
   }
   function deleteSession(id: string) {
-    const result = deleteFilm(filmState.history, id)
-    if (result && commitLibraryHistory(result.history))
-      setLastDeletion(result.deletion)
+    const next = queueSessionDeletion(filmState.history, id)
+    if (next) commitLibraryHistory(next)
   }
   function undoSessionDeletion() {
-    if (
-      lastDeletion &&
-      commitLibraryHistory(undoFilmDeletion(filmState.history, lastDeletion))
-    )
-      setLastDeletion(null)
+    commitLibraryHistory(restoreDeletedSession(filmState.history))
   }
+  const expireDeletionUndo = useEffectEvent(() => {
+    const pending = filmState.history.pendingDeletion
+    if (pending && pending.expiresAt <= Date.now())
+      return commitLibraryHistory(clearDeletionUndo(filmState.history))
+    return true
+  })
+  const undoDeadline = filmState.history.pendingDeletion?.expiresAt
+  useEffect(() => {
+    if (undoDeadline === undefined) return
+    let timer: number
+    const expire = () => {
+      if (!expireDeletionUndo()) timer = window.setTimeout(expire, 1000)
+    }
+    timer = window.setTimeout(expire, Math.max(0, undoDeadline - Date.now()))
+    return () => clearTimeout(timer)
+  }, [undoDeadline])
+  const lastDeletion = filmState.history.pendingDeletion ?? null
   function browse(cursor: number) {
     if (mutationLocked()) return
     saveFilms(viewFrame(filmState.history, cursor))
@@ -1895,6 +1913,58 @@ export function CraftingPage() {
               : t(`workspace.${view}`)}
           </h1>
         </div>
+        {view === 'workbench' && (
+          <div
+            className="workbench-tabs"
+            role="tablist"
+            aria-label={t('ui.crafting_workbench')}
+          >
+            {workbenchTabs.map((tab, index) => (
+              <button
+                key={tab}
+                type="button"
+                role="tab"
+                id={`workbench-tab-${tab}`}
+                aria-selected={workbenchTab === tab}
+                aria-controls={`workbench-panel-${tab}`}
+                tabIndex={workbenchTab === tab ? 0 : -1}
+                disabled={workbenchBusy}
+                onClick={() => {
+                  if (mutationLocked()) return
+                  setWorkbenchTab(tab)
+                  setLeftMenu(null)
+                  setHeld(null)
+                  setSelected(null)
+                  setPointer(null)
+                }}
+                onKeyDown={(event) => {
+                  if (
+                    mutationLocked() ||
+                    !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(
+                      event.key,
+                    )
+                  )
+                    return
+                  event.preventDefault()
+                  const next =
+                    event.key === 'Home'
+                      ? 'simulation'
+                      : event.key === 'End'
+                        ? 'history'
+                        : workbenchTabs[(index + 1) % workbenchTabs.length]!
+                  setWorkbenchTab(next)
+                  setLeftMenu(null)
+                  setHeld(null)
+                  setSelected(null)
+                  setPointer(null)
+                  document.getElementById(`workbench-tab-${next}`)?.focus()
+                }}
+              >
+                {sessionLibraryMessages[locale][tab]}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
       <div
         id="panel-workbench"
@@ -1902,56 +1972,6 @@ export function CraftingPage() {
         aria-labelledby="workspace-workbench"
         hidden={view !== 'workbench'}
       >
-        <div
-          className="workbench-tabs"
-          role="tablist"
-          aria-label={t('ui.crafting_workbench')}
-        >
-          {workbenchTabs.map((tab, index) => (
-            <button
-              key={tab}
-              type="button"
-              role="tab"
-              id={`workbench-tab-${tab}`}
-              aria-selected={workbenchTab === tab}
-              aria-controls={`workbench-panel-${tab}`}
-              tabIndex={workbenchTab === tab ? 0 : -1}
-              disabled={workbenchBusy}
-              onClick={() => {
-                if (mutationLocked()) return
-                setWorkbenchTab(tab)
-                setLeftMenu(null)
-                setHeld(null)
-                setSelected(null)
-                setPointer(null)
-              }}
-              onKeyDown={(event) => {
-                if (
-                  mutationLocked() ||
-                  !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(
-                    event.key,
-                  )
-                )
-                  return
-                event.preventDefault()
-                const next =
-                  event.key === 'Home'
-                    ? 'simulation'
-                    : event.key === 'End'
-                      ? 'history'
-                      : workbenchTabs[(index + 1) % workbenchTabs.length]!
-                setWorkbenchTab(next)
-                setLeftMenu(null)
-                setHeld(null)
-                setSelected(null)
-                setPointer(null)
-                document.getElementById(`workbench-tab-${next}`)?.focus()
-              }}
-            >
-              {sessionLibraryMessages[locale][tab]}
-            </button>
-          ))}
-        </div>
         <div
           className="workbench-layout"
           id="workbench-panel-simulation"
@@ -2802,7 +2822,8 @@ export function CraftingPage() {
             {...(lastDeletion
               ? {
                   undo: {
-                    title: lastDeletion.film.title || t('ui.crafting_session'),
+                    title: sessionTitle(lastDeletion.deletion.film, locale),
+                    expiresAt: lastDeletion.expiresAt,
                     onUndo: undoSessionDeletion,
                   },
                 }

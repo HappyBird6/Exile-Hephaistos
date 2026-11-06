@@ -1,18 +1,22 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { HistoryCard } from '../session-history/HistoryCard'
 import { historyMessages } from '../session-history/messages'
 import { localHistoryUrl } from '../session-history/transfer'
 import type { SessionDocument } from '../session-history/transfer'
-import { filmSessionNumber } from '../workbenchHistory'
+import { sessionTitle } from './sessionTitle'
+import { SessionTitleEditor } from './SessionTitleEditor'
+import { SessionImport } from './SessionImport'
 import { SessionLibrary } from './SessionLibrary'
 import type { SessionLibraryProps } from './SessionLibrary'
 import { sessionLibraryMessages } from './sessionLibraryMessages'
 
 export type SessionHistoryWorkspaceProps = Omit<
   SessionLibraryProps,
-  'onSelect' | 'selectedId' | 'favoritesOnly' | 'onImport'
+  'onSelect' | 'selectedId' | 'favoritesOnly'
 > & {
+  onRename: (id: string, title: string) => boolean
+  undo?: { title: string; expiresAt: number; onUndo: () => void }
   onContinue: (id: string) => void
   onImport: (document: SessionDocument) => string | null
   error?: string
@@ -23,15 +27,24 @@ export type SessionHistoryWorkspaceProps = Omit<
 export function SessionHistoryWorkspace({
   onContinue,
   onImport,
+  onRename,
+  undo,
   error,
   active = true,
   ...library
 }: SessionHistoryWorkspaceProps) {
-  const { locale, t } = useI18n()
+  const { locale } = useI18n()
   const text = sessionLibraryMessages[locale]
-  const [filter, setFilter] = useState<'library' | 'favorites'>('library')
-  const [selectedId, setSelectedId] = useState<string | null>(null)
+  const [filter, setFilter] = useState<'library' | 'favorites'>(() =>
+    new URLSearchParams(location.search).get('section') === 'favorites'
+      ? 'favorites'
+      : 'library',
+  )
+  const [selectedId, setSelectedId] = useState<string | null>(() =>
+    new URLSearchParams(location.search).get('session'),
+  )
   const preview = useRef<HTMLElement>(null)
+  const importPreview = useRef<HTMLDivElement>(null)
   const visible = library.history.films.filter(
     (film) => filter === 'library' || film.favorite === true,
   )
@@ -40,15 +53,7 @@ export function SessionHistoryWorkspace({
     visible.find((film) => film.id === library.history.active) ??
     visible[0]
   const finalFrame = selected?.frames.at(-1)
-  const title = selected
-    ? selected.title ||
-      t('film.session', {
-        index: filmSessionNumber(
-          selected,
-          library.history.films.indexOf(selected),
-        ),
-      })
-    : text.choose
+  const title = selected ? sessionTitle(selected, locale) : text.empty
   return (
     <div className="wb-history-workspace">
       <nav className="wb-history-nav" aria-label={text.navigation}>
@@ -59,7 +64,14 @@ export function SessionHistoryWorkspace({
             aria-current={filter === view ? 'page' : undefined}
             onClick={() => setFilter(view)}
           >
-            <span aria-hidden="true">{view === 'library' ? '🕘' : '⭐'}</span>
+            <span
+              className={
+                view === 'favorites' ? 'session-favorite-icon' : undefined
+              }
+              aria-hidden="true"
+            >
+              {view === 'library' ? '🕘' : '⭐'}
+            </span>
             <span>{text[view]}</span>
             <span className="wb-history-nav__count" aria-hidden="true">
               {view === 'library'
@@ -72,9 +84,29 @@ export function SessionHistoryWorkspace({
       <div className="wb-history-content">
         <header className="wb-history-heading">
           <h2>{text[filter]}</h2>
-          <p>{text.choose}</p>
+          <div className="wb-history-heading__actions">
+            <SessionImport
+              disabled={library.disabled ?? false}
+              previewTarget={importPreview}
+              onImport={(document) => {
+                const id = onImport(document)
+                if (!id) return false
+                setFilter('library')
+                setSelectedId(id)
+                return true
+              }}
+            />
+            {undo && (
+              <DeletionUndo
+                key={undo.expiresAt}
+                undo={undo}
+                disabled={library.disabled ?? false}
+              />
+            )}
+          </div>
         </header>
         {error && <p role="alert">{error}</p>}
+        <div className="wb-history-import-preview" ref={importPreview} />
         <div className="wb-history-columns">
           <div className="wb-history-list wb-scrollbar">
             <SessionLibrary
@@ -82,12 +114,6 @@ export function SessionHistoryWorkspace({
               {...library}
               selectedId={selected?.id ?? null}
               favoritesOnly={filter === 'favorites'}
-              onImport={(document) => {
-                const id = onImport(document)
-                if (!id) return false
-                setSelectedId(id)
-                return true
-              }}
               onSelect={(id) => {
                 setSelectedId(id)
                 if (window.innerWidth <= 760)
@@ -101,8 +127,14 @@ export function SessionHistoryWorkspace({
             aria-label={text.finalState}
           >
             <div className="wb-history-preview__heading">
-              <span>{text.finalState}</span>
-              <h3>{title}</h3>
+              {selected && (
+                <SessionTitleEditor
+                  key={selected.id}
+                  title={title}
+                  disabled={library.disabled ?? false}
+                  onSave={(value) => onRename(selected.id, value)}
+                />
+              )}
             </div>
             {active && selected && finalFrame && (
               <>
@@ -117,7 +149,7 @@ export function SessionHistoryWorkspace({
                   >
                     {text.resume} <span aria-hidden="true">→</span>
                   </button>
-                  <a href={localHistoryUrl(selected.id)}>
+                  <a href={localHistoryUrl(selected.id, 'history', filter)}>
                     {historyMessages[locale].title}{' '}
                     <span aria-hidden="true">↗</span>
                   </a>
@@ -128,5 +160,39 @@ export function SessionHistoryWorkspace({
         </div>
       </div>
     </div>
+  )
+}
+
+function DeletionUndo({
+  undo,
+  disabled,
+}: {
+  undo: NonNullable<SessionHistoryWorkspaceProps['undo']>
+  disabled: boolean
+}) {
+  const { locale } = useI18n()
+  const text = sessionLibraryMessages[locale]
+  const [now, setNow] = useState(Date.now)
+  useEffect(() => {
+    const timer = window.setInterval(() => setNow(Date.now()), 1000)
+    return () => clearInterval(timer)
+  }, [])
+  const seconds = Math.max(0, Math.ceil((undo.expiresAt - now) / 1000))
+  if (!seconds) return null
+  return (
+    <button
+      className="wb-history-undo"
+      type="button"
+      disabled={disabled}
+      title={undo.title}
+      aria-label={`${text.undo}: ${undo.title}`}
+      onClick={undo.onUndo}
+    >
+      <span aria-hidden="true">↶</span> {text.undo}
+      <span className="wb-history-undo__time" aria-hidden="true">
+        {seconds}
+        {text.seconds}
+      </span>
+    </button>
   )
 }

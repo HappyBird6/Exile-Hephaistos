@@ -1,169 +1,120 @@
-import { historyMessages } from '../session-history/messages'
 import { useState } from 'react'
-import { SessionImport } from './SessionImport'
+import { useI18n, gameName } from '../../../shared/i18n/i18n'
+import { BaseImage } from '../base-picker/BaseImage'
+import { historyMessages } from '../session-history/messages'
 import {
   decodeDocument,
   documentFor,
   saveBlob,
+  localHistoryUrl,
 } from '../session-history/transfer'
-import type { SessionDocument } from '../session-history/transfer'
-import { useI18n, gameName } from '../../../shared/i18n/i18n'
-import { BaseImage } from '../base-picker/BaseImage'
-import { filmSessionNumber } from '../workbenchHistory'
-import type { Film, Films } from '../workbenchHistory'
+import type { Films } from '../workbenchHistory'
 import { sessionLibraryMessages } from './sessionLibraryMessages'
+import { sessionTitle } from './sessionTitle'
 import './session-library.css'
 
 export type SessionLibraryProps = {
   history: Films
   selectedId?: string | null
   onSelect: (id: string) => void
-  onRename: (id: string, title: string) => void
   onFavoriteChange: (id: string, favorite: boolean) => void
   onDelete: (id: string) => void
   disabled?: boolean
-  undo?: { title: string; onUndo: () => void }
   imageForBase?: (baseItemId: string) => string | undefined
   favoritesOnly?: boolean
-  onImport?: (document: SessionDocument) => boolean
 }
 
-/** Session data and durable mutations belong to the parent; ephemeral confirmations stay here. */
 export function SessionLibrary({
   history,
   selectedId = history.active,
   onSelect,
-  onRename,
   onFavoriteChange,
   onDelete,
   disabled = false,
-  undo,
   imageForBase,
   favoritesOnly = false,
-  onImport,
 }: SessionLibraryProps) {
   const { locale, t } = useI18n()
-  const messages = sessionLibraryMessages[locale]
-  const [editing, setEditing] = useState<string | null>(null)
-  const [title, setTitle] = useState('')
-  const [confirming, setConfirming] = useState<string | null>(null)
-  const [transferError, setTransferError] = useState('')
-  const transferText = historyMessages[locale]
-  function label(film: Film, index: number) {
-    return typeof film.title === 'string' && film.title.trim()
-      ? film.title
-      : t('film.session', { index: filmSessionNumber(film, index) })
-  }
+  const text = sessionLibraryMessages[locale]
+  const transfer = historyMessages[locale]
+  const [error, setError] = useState('')
   return (
     <div className="wb-session-library">
-      {!favoritesOnly && onImport && (
-        <SessionImport disabled={disabled} onImport={onImport} />
+      {error && <p role="alert">{error}</p>}
+      {!history.films.some((film) => !favoritesOnly || film.favorite) && (
+        <p>{favoritesOnly ? text.emptyFavorites : text.empty}</p>
       )}
-      {transferError && <p role="alert">{transferError}</p>}
-      {undo && (
-        <div className="wb-session-library__undo" role="status">
-          <span>
-            {messages.deleted}: {undo.title}
-          </span>
-          <button type="button" disabled={disabled} onClick={undo.onUndo}>
-            {messages.undo}
-          </button>
-        </div>
-      )}
-      {!(favoritesOnly
-        ? history.films.some((film) => film.favorite === true)
-        : history.films.length > 0) && (
-        <p>{favoritesOnly ? messages.emptyFavorites : messages.empty}</p>
-      )}
-      {history.films.map((film, index) => {
-        // Keep the original index for legacy records without a sessionNumber.
-        if (favoritesOnly && film.favorite !== true) return null
-        const state = film.frames.at(-1)?.state
-        const number = filmSessionNumber(film, index)
-        const displayTitle = label(film, index)
-        const baseId = state?.baseItemId ?? ''
-        const baseName = gameName(baseId, t('ui.equipment_base'), locale)
-        return (
-          <article
-            key={film.id}
-            className="wb-session-card"
-            data-active={selectedId === film.id}
-            aria-label={displayTitle}
-          >
-            <div className="wb-session-card__main">
-              <button
-                type="button"
-                className="wb-session-card__select"
-                aria-label={`${messages.select}: ${displayTitle}`}
-                aria-pressed={selectedId === film.id}
-                onClick={() => onSelect(film.id)}
-              >
-                <BaseImage
-                  baseItemId={baseId}
-                  label={baseName}
-                  image={imageForBase?.(baseId)}
-                />
-                <span className="wb-session-card__text">
-                  <strong>
-                    <span className="wb-session-card__number">{number}</span>{' '}
-                    {displayTitle}
-                  </strong>
-                  <small>{baseName}</small>
-                </span>
-              </button>
-              <button
-                type="button"
-                className="wb-session-card__star"
-                aria-label={`${film.favorite === true ? messages.unfavorite : messages.favorite}: ${displayTitle}`}
-                aria-pressed={film.favorite === true}
-                disabled={disabled}
-                onClick={() =>
-                  onFavoriteChange(film.id, film.favorite !== true)
-                }
-              >
-                ★
-              </button>
-            </div>
-            <a href={`/history/${encodeURIComponent(film.id)}`}>
-              {historyMessages[locale].title}
-            </a>
-            {editing === film.id ? (
-              <form
-                className="wb-session-card__edit"
-                onSubmit={(event) => {
-                  event.preventDefault()
-                  if (disabled) return
-                  onRename(film.id, title)
-                  setEditing(null)
-                }}
-              >
-                <label>
-                  {messages.title}
-                  <input
-                    aria-label={`${messages.title}: ${displayTitle}`}
-                    value={title}
-                    disabled={disabled}
-                    onChange={(event) => setTitle(event.target.value)}
-                  />
-                </label>
-                <button type="submit" disabled={disabled}>
-                  {messages.save}
-                </button>
+      {history.films
+        .filter((film) => !favoritesOnly || film.favorite)
+        .map((film) => {
+          const title = sessionTitle(film, locale)
+          const baseId = film.frames.at(-1)?.state.baseItemId ?? ''
+          const baseName = gameName(baseId, t('ui.equipment_base'), locale)
+          return (
+            <article
+              key={film.id}
+              className="wb-session-card"
+              data-active={selectedId === film.id}
+              aria-label={title}
+              onClick={(event) => {
+                if (
+                  event.target instanceof Element &&
+                  !event.target.closest('button, a, input')
+                )
+                  onSelect(film.id)
+              }}
+            >
+              <div className="wb-session-card__main">
                 <button
                   type="button"
-                  disabled={disabled}
-                  onClick={() => setEditing(null)}
+                  className="wb-session-card__select"
+                  aria-label={`${text.select}: ${title}`}
+                  aria-pressed={selectedId === film.id}
+                  onClick={() => onSelect(film.id)}
                 >
-                  {messages.cancel}
+                  <BaseImage
+                    baseItemId={baseId}
+                    label={baseName}
+                    image={imageForBase?.(baseId)}
+                  />
+                  <span className="wb-session-card__text">
+                    <strong>{title}</strong>
+                    <small>{baseName}</small>
+                  </span>
                 </button>
-              </form>
-            ) : (
-              <div className="wb-session-card__actions">
                 <button
                   type="button"
-                  aria-label={`${transferText.export}: ${displayTitle}`}
+                  className="wb-session-card__star"
+                  aria-label={`${film.favorite ? text.unfavorite : text.favorite}: ${title}`}
+                  aria-pressed={film.favorite === true}
+                  disabled={disabled}
+                  onClick={() => onFavoriteChange(film.id, !film.favorite)}
+                >
+                  <span className="session-favorite-icon" aria-hidden="true">
+                    ⭐
+                  </span>
+                </button>
+              </div>
+              <div className="wb-session-card__actions">
+                <a
+                  className="wb-session-card__overview"
+                  href={localHistoryUrl(
+                    film.id,
+                    'history',
+                    favoritesOnly ? 'favorites' : 'library',
+                  )}
+                >
+                  <svg viewBox="0 0 20 20" aria-hidden="true">
+                    <rect x="2.5" y="3" width="15" height="14" rx="2" />
+                    <path d="M6 7h8M6 10h8M6 13h5" />
+                  </svg>
+                  {transfer.title}
+                </a>
+                <button
+                  type="button"
+                  aria-label={`${transfer.export}: ${title}`}
                   onClick={() => {
-                    setTransferError('')
+                    setError('')
                     try {
                       const raw = JSON.stringify(documentFor(film), null, 2)
                       decodeDocument(raw)
@@ -172,68 +123,25 @@ export function SessionLibrary({
                         'session.json',
                       )
                     } catch {
-                      setTransferError(transferText.error)
+                      setError(transfer.error)
                     }
                   }}
                 >
-                  {transferText.export}
+                  {transfer.export}
                 </button>
                 <button
                   type="button"
+                  className="wb-session-card__delete"
                   disabled={disabled}
-                  aria-label={`${messages.rename}: ${displayTitle}`}
-                  onClick={() => {
-                    setConfirming(null)
-                    setEditing(film.id)
-                    setTitle(typeof film.title === 'string' ? film.title : '')
-                  }}
+                  aria-label={`${text.remove}: ${title}`}
+                  onClick={() => onDelete(film.id)}
                 >
-                  {messages.rename}
-                </button>
-                <button
-                  type="button"
-                  disabled={disabled}
-                  aria-label={`${messages.remove}: ${displayTitle}`}
-                  onClick={() => {
-                    setEditing(null)
-                    setConfirming(film.id)
-                  }}
-                >
-                  {messages.remove}
+                  {text.remove}
                 </button>
               </div>
-            )}
-            {confirming === film.id && (
-              <div
-                className="wb-session-card__confirm"
-                role="group"
-                aria-label={`${messages.confirm}: ${displayTitle}`}
-              >
-                <p>
-                  {displayTitle} · {messages.confirmBody}
-                </p>
-                <button
-                  type="button"
-                  disabled={disabled}
-                  onClick={() => {
-                    onDelete(film.id)
-                    setConfirming(null)
-                  }}
-                >
-                  {messages.confirm}
-                </button>
-                <button
-                  type="button"
-                  disabled={disabled}
-                  onClick={() => setConfirming(null)}
-                >
-                  {messages.cancel}
-                </button>
-              </div>
-            )}
-          </article>
-        )
-      })}
+            </article>
+          )
+        })}
     </div>
   )
 }
