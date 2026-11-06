@@ -8,18 +8,16 @@ import './left-shelf-overlay.css'
 export type ShelfOverlayProps = {
   id: string
   anchor: RefObject<HTMLElement | null>
-  /** Place from this region's content origin, while anchor remains the opener. */
-  placementRegion?: RefObject<HTMLElement | null>
-  shelf?: RefObject<HTMLElement | null>
+  /** Cover this canvas down to the opener's bottom edge, with a shared inset. */
+  canvas?: RefObject<HTMLElement | null>
   onClose: () => void
 }
 
-/** Nonmodal: currency shelf remains visible and usable outside the covered area. */
+/** The base chooser covers the canvas; the current item remains outside it. */
 export function LeftShelfOverlay({
   id,
   anchor,
-  placementRegion,
-  shelf,
+  canvas,
   onClose,
   title,
   closeLabel,
@@ -39,36 +37,20 @@ export function LeftShelfOverlay({
   useLayoutEffect(() => {
     function position() {
       if (!anchor.current || !panel.current) return
-      const region = placementRegion?.current
-      const bounds = (region ?? anchor.current).getBoundingClientRect()
-      const style = region ? getComputedStyle(region) : null
-      // Bounds are viewport pixels; padding/borders precede the workbench zoom.
-      const scale = region?.offsetWidth ? bounds.width / region.offsetWidth : 1
+      const viewport = { width: window.innerWidth, height: window.innerHeight }
+      const bounds = canvas?.current?.getBoundingClientRect()
+      const opener = anchor.current.getBoundingClientRect()
       const placement = overlayPlacement(
-        {
-          left:
-            bounds.left +
-            scale *
-              (style
-                ? (parseFloat(style.borderLeftWidth) || 0) +
-                  (parseFloat(style.paddingLeft) || 0)
-                : 0),
-          top:
-            bounds.top +
-            scale *
-              (style
-                ? (parseFloat(style.borderTopWidth) || 0) +
-                  (parseFloat(style.paddingTop) || 0)
-                : 0),
-          right: bounds.right,
-          bottom: bounds.bottom,
+        bounds ?? {
+          left: 0,
+          top: 0,
+          right: viewport.width,
+          bottom: viewport.height,
         },
-        {
-          width: window.innerWidth,
-          height: window.innerHeight,
-        },
-        520,
-        shelf?.current?.getBoundingClientRect(),
+        bounds
+          ? opener
+          : { left: 0, top: 0, right: viewport.width, bottom: viewport.height },
+        viewport,
       )
       Object.assign(
         panel.current.style,
@@ -78,13 +60,20 @@ export function LeftShelfOverlay({
       )
     }
     position()
+    const observer =
+      typeof ResizeObserver === 'undefined'
+        ? null
+        : new ResizeObserver(position)
+    if (canvas?.current) observer?.observe(canvas.current)
+    if (anchor.current) observer?.observe(anchor.current)
     window.addEventListener('resize', position)
     window.addEventListener('scroll', position, true)
     return () => {
+      observer?.disconnect()
       window.removeEventListener('resize', position)
       window.removeEventListener('scroll', position, true)
     }
-  }, [anchor, placementRegion, shelf])
+  }, [anchor, canvas])
   useEffect(() => {
     const trigger = anchor.current
     const element = panel.current

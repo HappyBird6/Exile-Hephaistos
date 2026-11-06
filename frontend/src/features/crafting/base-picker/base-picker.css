@@ -6,11 +6,13 @@
 }
 .wb-base-picker {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  grid-template-columns: minmax(140px, 0.7fr) minmax(180px, 1fr) minmax(
+      200px,
+      0.95fr
+    );
   flex: 1;
   min-width: 0;
   min-height: 0;
-  max-height: 460px;
   gap: 10px;
 }
 .wb-base-picker__controls {
@@ -50,7 +52,6 @@
   align-content: start;
   min-width: 0;
   min-height: 0;
-  max-height: 460px;
   overflow-y: auto;
   overscroll-behavior: contain;
 }
@@ -98,10 +99,12 @@
   background: #413722;
 }
 .wb-base-picker__preview {
-  position: fixed;
-  z-index: 1110;
+  min-width: 0;
+  min-height: 0;
+  padding-left: 10px;
+  border-left: 1px solid #494033;
   overflow-y: auto;
-  pointer-events: auto;
+  overscroll-behavior: contain;
 }
 .wb-base-picker__preview .item-card {
   width: 100%;
@@ -137,9 +140,31 @@
   max-width: 76px;
   padding: 4px 5px;
 }
+@container (max-width: 620px) {
+  .wb-base-picker {
+    grid-template-columns: minmax(120px, 0.75fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) minmax(120px, 0.8fr);
+  }
+  .wb-base-picker__preview {
+    grid-column: 1 / -1;
+    padding-left: 0;
+    padding-top: 10px;
+    border-left: 0;
+    border-top: 1px solid #494033;
+  }
+}
 @container (max-width: 340px) {
   .wb-base-picker {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px;
+  }
+  .wb-base-picker__controls,
+  .wb-base-picker__options {
+    font-size: 12px;
+  }
+  .wb-base-picker__art {
+    flex-basis: 30px;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
   }
 }

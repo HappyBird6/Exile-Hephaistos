@@ -148,7 +148,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
       'auto',
     )
     expect(compact(getComputedStyle(layout).gridTemplateColumns)).toBe(
-      'minmax(0,1fr)minmax(0,1.4fr)',
+      'minmax(140px,0.7fr)minmax(180px,1fr)minmax(200px,0.95fr)',
     )
     expect(compact(getComputedStyle(options).gridTemplateColumns)).toBe(
       'minmax(0,1fr)',
@@ -175,13 +175,13 @@ describe('single canvas category selector and favorites inside the coordinate pl
     const narrow = [...styles.sheet!.cssRules].find((rule) =>
       rule.cssText.startsWith('@container'),
     ) as CSSGroupingRule
-    expect(narrow.cssText).toContain('(max-width: 340px)')
+    expect(narrow.cssText).toContain('(max-width: 620px)')
     const narrowLayout = narrow.cssRules[0] as CSSStyleRule
     expect(compact(narrowLayout.style.gridTemplateColumns)).toBe(
-      'minmax(0,1fr)',
+      'minmax(120px,0.75fr)minmax(0,1fr)',
     )
     expect(compact(narrowLayout.style.gridTemplateRows)).toBe(
-      'minmax(0,1fr)minmax(0,1fr)',
+      'minmax(0,1fr)minmax(120px,0.8fr)',
     )
     fireEvent.keyDown(picker, { key: 'Escape' })
     fireEvent.click(screen.getByRole('tab', { name: 'History' }))
@@ -191,7 +191,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
     expect(screen.queryByRole('dialog')).toBeNull()
   })
 
-  it('keeps jewel rarity, observed suffix and all validation in the scrollable left column', () => {
+  it('keeps manual jewel rarity and all validation in the scrollable left column', () => {
     show()
     fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
     const picker = screen.getByRole('dialog')
@@ -203,31 +203,25 @@ describe('single canvas category selector and favorites inside the coordinate pl
       name: 'Sapphire Jewels',
     })
     act(() => sapphire.focus())
-    expect(screen.getByRole('tooltip')).toBeInTheDocument()
-    fireEvent.keyDown(sapphire, { key: 'Escape' })
-    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
-    expect(picker).toBeInTheDocument()
-    expect(sapphire).toHaveFocus()
+    expect(
+      screen.getByRole('region', { name: 'Base information' }),
+    ).toBeInTheDocument()
     fireEvent.click(sapphire)
     expect(sapphire).toHaveAttribute('aria-pressed', 'true')
     const rarity = screen.getByLabelText('Rarity')
     expect(controls).toContainElement(rarity)
+    expect(rarity).toHaveValue('NORMAL')
     fireEvent.change(rarity, { target: { value: 'RARE' } })
-    const suffix = screen.getByRole('checkbox', {
-      name: translate('ui.sapphire_existing_suffix'),
-    })
-    expect(controls).toContainElement(suffix)
-    expect(getComputedStyle(suffix).width).not.toBe('76px')
-    expect(getComputedStyle(suffix).maxWidth).not.toBe('76px')
-    fireEvent.click(suffix)
-    const roll = screen.getByLabelText(translate('ui.sapphire_cast_speed'))
-    expect(controls).toContainElement(roll)
-    const place = within(
-      screen.getByRole('dialog', { name: 'Select base' }),
-    ).getByRole('button', { name: 'Select base' })
-    fireEvent.change(roll, { target: { value: '1' } })
-    expect(place).toBeDisabled()
-    fireEvent.change(roll, { target: { value: '3' } })
+    expect(rarity).toHaveValue('RARE')
+    expect(
+      screen.queryByRole('checkbox', {
+        name: translate('ui.sapphire_existing_suffix'),
+      }),
+    ).toBeNull()
+    expect(
+      screen.queryByLabelText(translate('ui.sapphire_cast_speed')),
+    ).toBeNull()
+    const place = within(picker).getByRole('button', { name: 'Select base' })
     expect(place).toBeEnabled()
     const level = screen.getByRole('spinbutton', { name: 'Item level' })
     for (const value of ['', '0', '1.5', '101']) {
@@ -447,7 +441,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
     vi.stubGlobal('innerHeight', 900)
     const rects = new Map([
       ['bench-lower', new DOMRect(900, 100, 374, 800)],
-      ['stash-canvas__upper', new DOMRect(100, 100, 800, 600)],
+      ['stash-canvas__content', new DOMRect(100, 100, 800, 600)],
     ])
     vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockImplementation(
       function (this: HTMLElement) {
@@ -470,25 +464,22 @@ describe('single canvas category selector and favorites inside the coordinate pl
     fireEvent.click(opener)
     const picker = screen.getByRole('dialog', { name: 'Select base' })
     expect(picker).toHaveStyle({
-      left: '391px',
-      top: '124px',
-      width: '520px',
-      maxHeight: '560px',
+      left: '108px',
+      top: '108px',
+      width: '784px',
+      height: '574px',
     })
     expect(
       within(picker).getByRole('button', { name: 'Close item input' }),
     ).toHaveFocus()
     fireEvent.pointerDown(opener)
     expect(picker).toBeInTheDocument()
-    rects.set('bench-lower', new DOMRect(850, 90, 374, 800))
+    rects.set('stash-canvas__content', new DOMRect(80, 90, 800, 600))
     fireEvent.scroll(window)
-    expect(picker).toHaveStyle({ left: '341px', top: '114px' })
-    rects.set('bench-lower', new DOMRect(900, 100, 374, 800))
+    expect(picker).toHaveStyle({ left: '88px', top: '98px', height: '584px' })
+    rects.set('stash-canvas__content', new DOMRect(100, 100, 600, 450))
     fireEvent.resize(window)
-    expect(picker).toHaveStyle({ left: '391px', top: '124px' })
-    rects.set('bench-lower', new DOMRect(900, 100, 374 * 0.75, 800 * 0.75))
-    fireEvent.resize(window)
-    expect(picker).toHaveStyle({ left: '386.75px', top: '118px' })
+    expect(picker).toHaveStyle({ left: '108px', top: '108px', width: '584px' })
     fireEvent.keyDown(picker, { key: 'Escape' })
     expect(screen.queryByRole('dialog')).toBeNull()
     expect(opener).toHaveFocus()

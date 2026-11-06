@@ -15,7 +15,9 @@ describe('central base registration', () => {
       expect(baseTexts[key as keyof typeof baseTexts]).toEqual(
         baseStartingRarity(key) === 'RARE'
           ? text.replace('Rarity: Normal', 'Rarity: Rare')
-          : text,
+          : key === 'sapphire'
+            ? 'Item Class: Jewels\nRarity: Normal\nSapphire'
+            : text,
       )
       expect(baseSlugs[key as keyof typeof baseSlugs]).toEqual(
         baseline.slugs[key as keyof typeof baseline.slugs],

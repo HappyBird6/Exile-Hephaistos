@@ -25,6 +25,7 @@
   font-size: 14px;
 }
 .wb-shelf-overlay__body {
+  flex: 1;
   min-height: 0;
   overflow: auto;
   padding: 10px;

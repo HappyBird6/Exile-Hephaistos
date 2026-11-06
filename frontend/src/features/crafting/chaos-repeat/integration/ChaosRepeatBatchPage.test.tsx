@@ -746,7 +746,7 @@ it('locks the saved-session editor and rejects forced submit while a batch is pe
   fireEvent.click(screen.getByRole('button', { name: /^Rename:/ }))
   const title = screen.getByRole('textbox', { name: 'Session title' })
   title.textContent = 'Uncommitted title'
-  fireEvent.click(screen.getByRole('tab', { name: 'Simulation' }))
+  fireEvent.click(screen.getByRole('tab', { name: 'Crafting Workbench' }))
   configure()
   const before = localStorage.getItem(historyStorageKey)
   fireEvent.click(slot())

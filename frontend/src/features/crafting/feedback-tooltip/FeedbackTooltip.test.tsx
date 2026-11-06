@@ -16,7 +16,7 @@ import {
 import { MaterialTooltip } from '../MaterialTooltip'
 import { CurrencyImage } from '../CurrencyImage'
 import { ItemCard } from '../ItemCard'
-import { BasePreviewTooltip } from '../base-picker/BasePreviewTooltip'
+import { BasePreviewPanel } from '../base-picker/BasePreviewPanel'
 import { CraftingPage } from '../CraftingPage'
 import { basePreview, workbenchBaseChoices } from '../base-picker/baseChoices'
 import { locales, setLocale, translate } from '../../../shared/i18n/i18n'
@@ -38,6 +38,7 @@ function Fixture({ enabled = true }: { enabled?: boolean }) {
       </button>
       <span id="existing-note">Existing note</span>
       <button
+        aria-describedby={preview ? 'preview' : undefined}
         onFocus={(event) => setPreview(event.currentTarget)}
         onMouseEnter={(event) => setPreview(event.currentTarget)}
         onMouseLeave={() => setPreview(null)}
@@ -46,11 +47,11 @@ function Fixture({ enabled = true }: { enabled?: boolean }) {
         Preview
       </button>
       {preview && (
-        <BasePreviewTooltip
-          onDismiss={() => setPreview(null)}
+        <BasePreviewPanel
+          onMouseLeave={() => setPreview(null)}
+          onBlur={() => setPreview(null)}
           id="preview"
           label="Base preview"
-          anchor={preview}
           item={basePreview(choice, 82, 'en')}
           slug={choice.slug}
         />
@@ -160,7 +161,7 @@ it('keeps the base ItemCard independent and closes it on hover leave', () => {
   render(<Fixture />)
   const anchor = screen.getByRole('button', { name: 'Preview' })
   fireEvent.mouseEnter(anchor)
-  const tooltip = screen.getByRole('tooltip')
+  const tooltip = screen.getByRole('region', { name: 'Base preview' })
   expect(tooltip).toHaveAttribute('id', 'preview')
   expect(tooltip).toHaveClass('wb-base-picker__preview')
   expect(within(tooltip).getByRole('article')).toBeVisible()
@@ -169,7 +170,7 @@ it('keeps the base ItemCard independent and closes it on hover leave', () => {
   ).not.toContainElement(tooltip)
   expect(anchor).toHaveAttribute('aria-describedby', 'preview')
   fireEvent.mouseLeave(anchor, { relatedTarget: document.body })
-  expect(screen.queryByRole('tooltip')).toBeNull()
+  expect(screen.queryByRole('region', { name: 'Base preview' })).toBeNull()
   expect(anchor).not.toHaveAttribute('aria-describedby')
 })
 
@@ -234,28 +235,16 @@ it('preserves workspace inputs and keyboard focus without routing descriptions i
   const menu = screen.getByRole('dialog', { name: 'Select base' })
   const base = within(menu).getByRole('button', { name: /Massive Mitts/ })
   fireEvent.pointerDown(base, { pointerType: 'touch' })
-  const tooltip = screen.getByRole('tooltip')
+  const preview = screen.getByRole('region', { name: 'Base information' })
   expect(
     document.querySelector('.workbench-feedback-region'),
-  ).not.toContainElement(tooltip)
-  expect(tooltip).toHaveClass('wb-base-picker__preview')
-  expect(base).toHaveAttribute('aria-describedby', tooltip.id)
+  ).not.toContainElement(preview)
+  expect(menu).toContainElement(preview)
+  expect(base).toHaveAttribute('aria-describedby', preview.id)
   expect(menu.querySelector('[title]')).toBeNull()
-  expect(
-    document.querySelector('.material-tooltip, .workbench-feedback-tooltip'),
-  ).toBeNull()
-  act(() => tooltip.focus())
-  fireEvent.keyDown(tooltip, { key: 'Escape' })
-  expect(base).toHaveFocus()
-  await waitFor(() => expect(screen.queryByRole('tooltip')).toBeNull())
-  expect(base).not.toHaveAttribute('aria-describedby')
-  expect(menu).toBeInTheDocument()
-  fireEvent.mouseEnter(base)
-  expect(screen.getByRole('tooltip')).toBeVisible()
-  fireEvent.keyDown(base, { key: 'Escape' })
-  expect(screen.queryByRole('tooltip')).toBeNull()
-  fireEvent.keyDown(base, { key: 'Escape' })
-  expect(screen.queryByRole('dialog')).toBeNull()
+  act(() => preview.focus())
+  fireEvent.keyDown(preview, { key: 'Escape' })
+  await waitFor(() => expect(screen.queryByRole('dialog')).toBeNull())
   expect(opener).toHaveFocus()
   mounted.unmount()
   client.clear()

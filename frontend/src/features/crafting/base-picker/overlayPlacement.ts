@@ -5,28 +5,22 @@ export type OverlayRect = {
   bottom: number
 }
 
-/** Covers only a compact slice to the left of its trigger; never changes shelf layout. */
+/** Viewport coordinates already include the workbench zoom. */
 export function overlayPlacement(
-  anchor: OverlayRect,
+  canvas: OverlayRect,
+  opener: OverlayRect,
   viewport: { width: number; height: number },
-  preferredWidth = 520,
-  shelf?: OverlayRect,
+  gap = 8,
 ) {
-  const width = Math.min(
-    preferredWidth,
-    Math.max(0, viewport.width - 16),
-    Math.max(240, anchor.left - 8),
+  const left = Math.max(gap, Math.min(canvas.left + gap, viewport.width - gap))
+  const right = Math.max(
+    left,
+    Math.min(canvas.right - gap, viewport.width - gap),
   )
-  const left = Math.max(
-    8,
-    Math.min(anchor.left - width - 6, viewport.width - width - 8),
+  const top = Math.max(gap, Math.min(canvas.top + gap, viewport.height - gap))
+  const bottom = Math.max(
+    top,
+    Math.min(opener.bottom - gap, viewport.height - gap),
   )
-  const ceiling = Math.max(8, shelf?.top ?? 8)
-  const floor = Math.min(
-    viewport.height - 8,
-    shelf?.bottom ?? viewport.height - 8,
-  )
-  const maxHeight = Math.max(0, Math.min(560, floor - ceiling))
-  const top = Math.max(ceiling, Math.min(anchor.top, floor - maxHeight))
-  return { left, top, width, maxHeight }
+  return { left, top, width: right - left, height: bottom - top }
 }

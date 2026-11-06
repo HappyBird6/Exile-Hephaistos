@@ -146,45 +146,49 @@
 .wb-history-workspace {
   display: grid;
   grid-template-columns: 210px minmax(0, 1fr);
-  gap: 24px;
-  font-size: 18px;
+  gap: 0;
   min-width: 0;
-  padding: 24px;
-  border: 1px solid #494737;
-  border-radius: 4px;
-  background: #191d1b;
+  font-size: 18px;
 }
 .wb-history-nav {
   display: flex;
   flex-direction: column;
-  align-self: start;
-  gap: 6px;
-  padding: 8px;
-  border: 1px solid #454034;
-  border-radius: 6px;
-  background: #171a1f;
+  align-self: stretch;
+  gap: 4px;
+  padding: 18px 10px;
+  border-right: 1px solid #494737;
+  background: #161b19;
 }
 .wb-history-nav button {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
   min-height: 52px;
-  padding: 10px;
+  padding: 12px 14px;
   text-align: left;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  color: #c1baaa;
+  border: 0;
+  border-left: 3px solid transparent;
+  border-radius: 0 4px 4px 0;
+  color: #bcb6a8;
   background: transparent;
 }
+.wb-history-nav button:hover {
+  background: #252a22;
+  color: #e7d7b3;
+}
 .wb-history-nav button[aria-current='page'] {
-  border-color: #6c5938;
-  background: #302a20;
-  color: #eed3a0;
+  border-left-color: #c7a465;
+  background: linear-gradient(90deg, #373122, #282b22);
+  color: #edd6a6;
 }
 .wb-history-nav__count {
   margin-left: auto;
   color: #a99d86;
   font-size: 0.85em;
+}
+.wb-history-content {
+  padding: 22px;
 }
 .wb-history-content,
 .wb-history-list {
@@ -350,13 +354,14 @@
 }
 @media (max-width: 1100px) {
   .wb-history-workspace {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: 170px minmax(0, 1fr);
   }
-  .wb-history-nav {
-    flex-direction: row;
+  .wb-history-columns {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+    gap: 16px;
   }
-  .wb-history-nav button {
-    flex: 1;
+  .wb-history-content {
+    padding: 16px;
   }
 }
 @media (max-width: 760px) {
@@ -366,9 +371,22 @@
   .wb-history-list {
     max-height: 45vh;
   }
-  .wb-history-preview,
-  .wb-history-workspace {
+  .wb-history-preview {
     padding: 16px;
+  }
+  .wb-history-workspace {
+    grid-template-columns: 138px minmax(0, 1fr);
+  }
+  .wb-history-nav {
+    padding: 10px 6px;
+  }
+  .wb-history-nav button {
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px 8px;
+  }
+  .wb-history-content {
+    padding: 12px;
   }
 }
 @media (max-width: 480px) {
@@ -396,4 +414,45 @@
 
 .wb-session-card:not([data-active='true']):hover {
   border-color: #7a6b48;
+}
+
+@media (max-width: 480px) {
+  .wb-history-workspace {
+    grid-template-columns: 108px minmax(0, 1fr);
+  }
+  .wb-history-nav {
+    padding: 8px 4px;
+  }
+  .wb-history-nav button {
+    font-size: 16px;
+    gap: 6px;
+  }
+  .wb-history-nav__count {
+    font-size: 12px;
+  }
+  .wb-history-content {
+    padding: 10px;
+  }
+  .wb-history-heading {
+    gap: 8px;
+  }
+  .wb-history-heading h2 {
+    font-size: 23px;
+  }
+  .wb-history-heading__actions {
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+  .wb-history-preview {
+    padding: 10px;
+  }
+  .wb-history-workspace .wb-session-card {
+    padding: 10px;
+  }
+  .wb-history-workspace .wb-session-card__actions {
+    display: flex;
+  }
+  .wb-session-card__overview {
+    margin-right: auto;
+  }
 }

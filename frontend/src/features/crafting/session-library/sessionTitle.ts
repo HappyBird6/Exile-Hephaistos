@@ -35,5 +35,9 @@ export function sessionTitle(film: Film, locale: Locale): string {
           .map((type) => parts.find((part) => part.type === type)?.value)
           .join('.')
       : formatter.format(date)
-  return `${item}(${formatted})`
+  const time = new Intl.DateTimeFormat(dateLocales[locale], {
+    hour: '2-digit',
+    minute: '2-digit',
+  }).format(date)
+  return `${item}(${formatted} ${time})`
 }

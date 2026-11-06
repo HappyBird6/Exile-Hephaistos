@@ -43,21 +43,20 @@ it.each(locales)(
   },
 )
 
-it('opens left over the shelf, clamps narrow screens and keeps the rest of the shelf unobscured', () => {
-  const placement = overlayPlacement(
-    { left: 900, right: 950, top: 150, bottom: 180 },
-    { width: 1400, height: 900 },
-    520,
-    { left: 100, right: 900, top: 100, bottom: 700 },
-  )
-  expect(placement).toEqual({ left: 374, top: 140, width: 520, maxHeight: 560 })
+it('covers the canvas through the base button with equal insets and clamps to the viewport', () => {
+  expect(
+    overlayPlacement(
+      { left: 100, right: 900, top: 100, bottom: 700 },
+      { left: 600, right: 740, top: 650, bottom: 690 },
+      { width: 1400, height: 900 },
+    ),
+  ).toEqual({ left: 108, top: 108, width: 784, height: 574 })
   const narrow = overlayPlacement(
-    { left: 20, right: 80, top: 700, bottom: 730 },
+    { left: -20, right: 500, top: -10, bottom: 800 },
+    { left: 100, right: 200, top: 760, bottom: 790 },
     { width: 320, height: 740 },
   )
-  expect(narrow.left).toBe(8)
-  expect(narrow.left + narrow.width).toBeLessThanOrEqual(312)
-  expect(narrow.top + narrow.maxHeight).toBeLessThanOrEqual(732)
+  expect(narrow).toEqual({ left: 8, top: 8, width: 304, height: 724 })
 })
 
 it('filters equipment subcategories, previews on hover/focus and validates compact item level before placing', () => {
@@ -90,6 +89,9 @@ it('filters equipment subcategories, previews on hover/focus and validates compa
   const trigger = screen.getByRole('button', { name: 'Select base' })
   fireEvent.click(trigger)
   const dialog = screen.getByRole('dialog', { name: 'Select base' })
+  expect(
+    screen.getByRole('region', { name: 'Base information' }),
+  ).toHaveTextContent('Solar Amulet')
   const select = within(dialog).getByRole('button', { name: 'Select base' })
   fireEvent.change(screen.getByLabelText('Equipment category'), {
     target: { value: 'armour' },
@@ -102,10 +104,21 @@ it('filters equipment subcategories, previews on hover/focus and validates compa
   ).not.toBeInTheDocument()
   const mitts = screen.getByRole('button', { name: /Massive Mitts/ })
   fireEvent.mouseEnter(mitts)
-  expect(screen.getByRole('tooltip')).toHaveTextContent('Armour: 187')
-  expect(screen.getByRole('tooltip')).toHaveTextContent(
-    'Requires: Level 80, 101 Str',
-  )
+  expect(
+    screen.getByRole('region', { name: 'Base information' }),
+  ).toHaveTextContent('Armour: 187')
+  expect(
+    screen.getByRole('region', { name: 'Base information' }),
+  ).toHaveTextContent('Requires: Level 80, 101 Str')
+  fireEvent.mouseLeave(mitts)
+  expect(
+    screen.getByRole('region', { name: 'Base information' }),
+  ).toHaveTextContent('Solar Amulet')
+  fireEvent.focus(mitts)
+  expect(
+    screen.getByRole('region', { name: 'Base information' }),
+  ).toHaveTextContent('Massive Mitts')
+  fireEvent.blur(mitts)
   fireEvent.click(mitts)
   expect(mitts).toHaveAttribute('aria-pressed', 'true')
   fireEvent.change(screen.getByLabelText('Item level'), {

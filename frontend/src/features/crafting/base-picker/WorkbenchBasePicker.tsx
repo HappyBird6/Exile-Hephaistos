@@ -2,7 +2,7 @@ import { useId, useState } from 'react'
 import type { ReactNode } from 'react'
 import { useI18n, uiText } from '../../../shared/i18n/i18n'
 import type { WorkbenchBaseKey } from '../baseRegistry'
-import { BasePreviewTooltip } from './BasePreviewTooltip'
+import { BasePreviewPanel } from './BasePreviewPanel'
 import { BaseImage } from './BaseImage'
 import { LeftShelfOverlay } from './LeftShelfOverlay'
 import type { ShelfOverlayProps } from './LeftShelfOverlay'
@@ -20,9 +20,10 @@ export type WorkbenchBasePickerProps = Omit<ShelfOverlayProps, 'onClose'> & {
   onLevelChange: (level: string) => void
   onPlace: () => void
   disabled?: boolean
-  /** Existing jewel rarity/observed suffix controls; never catalyst controls. */
+  /** Optional manual jewel rarity control; never observed item modifiers. */
   extraControls?: ReactNode
   valid?: boolean
+  selectedRarity?: 'NORMAL' | 'MAGIC' | 'RARE'
   imageForBase?: (key: WorkbenchBaseKey) => string | undefined
 }
 
@@ -34,8 +35,7 @@ export function WorkbenchBasePicker(props: WorkbenchBasePickerProps) {
 function BasePickerContent({
   id,
   anchor,
-  placementRegion,
-  shelf,
+  canvas,
   onOpenChange,
   value,
   onChange,
@@ -45,6 +45,7 @@ function BasePickerContent({
   disabled = false,
   extraControls,
   valid = true,
+  selectedRarity,
   imageForBase,
 }: WorkbenchBasePickerProps) {
   const { locale, t } = useI18n()
@@ -53,10 +54,8 @@ function BasePickerContent({
   const [category, setCategory] = useState<BaseCategory | 'all'>('all')
   const [subtype, setSubtype] = useState('all')
   const [search, setSearch] = useState('')
-  const [hovered, setHovered] = useState<{
-    key: WorkbenchBaseKey
-    anchor: HTMLElement
-  } | null>(null)
+  const [hovered, setHovered] = useState<WorkbenchBaseKey | null>(null)
+  const [focused, setFocused] = useState<WorkbenchBaseKey | null>(null)
   const choices = workbenchBaseChoices(locale)
   const subtypes = [
     ...new Set(
@@ -74,19 +73,25 @@ function BasePickerContent({
         text.toLocaleLowerCase(locale).includes(needle),
       ),
   )
-  const preview = choices.find((choice) => choice.key === hovered?.key)
+  const preview = choices.find(
+    (choice) => choice.key === (hovered ?? focused ?? value),
+  )
   const numericLevel = Number(level)
   const levelValid =
     level.trim() !== '' &&
     Number.isInteger(numericLevel) &&
     numericLevel >= 1 &&
     numericLevel <= 100
+  const previewItem = preview
+    ? basePreview(preview, levelValid ? numericLevel : null, locale)
+    : null
+  if (previewItem && preview?.key === value && selectedRarity)
+    previewItem.rarity = selectedRarity
   return (
     <LeftShelfOverlay
       id={id}
       anchor={anchor}
-      {...(placementRegion ? { placementRegion } : {})}
-      {...(shelf ? { shelf } : {})}
+      {...(canvas ? { canvas } : {})}
       onClose={() => onOpenChange(false)}
       title={t('ui.select_base')}
       closeLabel={t('ui.close_item_input')}
@@ -105,6 +110,7 @@ function BasePickerContent({
                 setCategory(event.target.value as BaseCategory | 'all')
                 setSubtype('all')
                 setHovered(null)
+                setFocused(null)
               }}
             >
               <option value="all">{messages.all}</option>
@@ -125,6 +131,7 @@ function BasePickerContent({
                 if (disabled) return
                 setSubtype(event.target.value)
                 setHovered(null)
+                setFocused(null)
               }}
             >
               <option value="all">{messages.all}</option>
@@ -146,6 +153,7 @@ function BasePickerContent({
               if (disabled) return
               setSearch(event.target.value)
               setHovered(null)
+              setFocused(null)
             }}
           />
           <div className="wb-base-picker__footer">
@@ -191,15 +199,11 @@ function BasePickerContent({
           role="group"
           aria-label={t('ui.equipment_base')}
           onMouseLeave={(event) => {
-            const next = event.relatedTarget
-            if (
-              !(
-                next instanceof Element &&
-                next.closest('.wb-base-picker__preview')?.id ===
-                  `${fieldId}-preview`
-              ) &&
-              !event.currentTarget.contains(document.activeElement)
-            )
+            if (!(
+              event.relatedTarget instanceof Element &&
+              event.relatedTarget.closest('.wb-base-picker__preview')?.id ===
+                `${fieldId}-preview`
+            ))
               setHovered(null)
           }}
           onBlur={(event) => {
@@ -211,7 +215,7 @@ function BasePickerContent({
                   `${fieldId}-preview`
               )
             )
-              setHovered(null)
+              setFocused(null)
           }}
         >
           {visible.map((choice) => (
@@ -221,26 +225,15 @@ function BasePickerContent({
               key={choice.key}
               aria-pressed={choice.key === value}
               aria-describedby={
-                hovered?.key === choice.key ? `${fieldId}-preview` : undefined
+                preview?.key === choice.key ? `${fieldId}-preview` : undefined
               }
               disabled={disabled}
               onClick={() => onChange(choice.key)}
-              onMouseEnter={(event) =>
-                setHovered({ key: choice.key, anchor: event.currentTarget })
-              }
+              onMouseEnter={() => setHovered(choice.key)}
               onPointerDown={(event) => {
-                if (event.pointerType === 'touch')
-                  setHovered({ key: choice.key, anchor: event.currentTarget })
+                if (event.pointerType === 'touch') setHovered(choice.key)
               }}
-              onFocus={(event) =>
-                setHovered({ key: choice.key, anchor: event.currentTarget })
-              }
-              onKeyDown={(event) => {
-                if (event.key === 'Escape' && hovered) {
-                  event.stopPropagation()
-                  setHovered(null)
-                }
-              }}
+              onFocus={() => setFocused(choice.key)}
             >
               <span className="wb-base-picker__art" aria-hidden="true">
                 <BaseImage
@@ -260,18 +253,23 @@ function BasePickerContent({
           ))}
           {!visible.length && <p>{messages.empty}</p>}
         </div>
-        {preview && hovered && (
-          <BasePreviewTooltip
-            onDismiss={() => setHovered(null)}
+        {preview && previewItem && (
+          <BasePreviewPanel
             id={`${fieldId}-preview`}
             label={messages.preview}
-            anchor={hovered.anchor}
-            item={basePreview(
-              preview,
-              levelValid ? numericLevel : null,
-              locale,
-            )}
+            item={previewItem}
             slug={preview.slug}
+            onMouseLeave={() => setHovered(null)}
+            onBlur={(event) => {
+              if (
+                !event.currentTarget.contains(event.relatedTarget) &&
+                !(
+                  event.relatedTarget instanceof Element &&
+                  event.relatedTarget.closest('.wb-base-picker__options')
+                )
+              )
+                setFocused(null)
+            }}
           />
         )}
       </div>

@@ -756,7 +756,7 @@
     "sapphire": {
       "id": "Metadata/Items/Jewels/JewelInt",
       "slug": "Sapphire",
-      "initialText": "Item Class: Jewels\nRarity: Magic\nSapphire",
+      "initialText": "Item Class: Jewels\nRarity: Normal\nSapphire",
       "qualityLimit": true,
       "ordinaryCatalyst": false,
       "refinedCatalyst": true,

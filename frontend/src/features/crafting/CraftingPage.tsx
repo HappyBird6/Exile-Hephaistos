@@ -143,7 +143,6 @@ import {
   isWorkbenchJewel,
   workbenchJewelBases,
 } from './basicJewel'
-import { sapphireCastSpeed } from './sapphireJewel'
 import './crafting.css'
 import './compact-viewport/compactViewport.css'
 
@@ -151,8 +150,12 @@ function tooltipEvents(id: string) {
   return { 'data-material-tooltip': id }
 }
 
-const workspaceTabs = ['workbench', 'support'] as const
-const workbenchTabs = ['simulation', 'history'] as const
+const workspaceTabs = ['workbench', 'support', 'history'] as const
+const workspacePanels = {
+  workbench: 'workbench-panel-simulation',
+  support: 'panel-support',
+  history: 'workbench-panel-history',
+} as const
 
 type Selection = { id: string; name: string; image: string }
 
@@ -285,22 +288,18 @@ export function CraftingPage() {
     setFilmState({ ...filmState, history, revision, error })
     return true
   }
-  const [workbenchTab, setWorkbenchTab] = useState<
-    (typeof workbenchTabs)[number]
-  >(() =>
-    new URLSearchParams(location.search).get('workbench') === 'history'
-      ? 'history'
-      : 'simulation',
-  )
-  const [view, setView] = useState<(typeof workspaceTabs)[number]>(() =>
-    ['history', 'simulation'].includes(
-      new URLSearchParams(location.search).get('workbench') ?? '',
+  const [view, setView] = useState<(typeof workspaceTabs)[number]>(() => {
+    const entry = new URLSearchParams(location.search).get('workbench')
+    if (entry === 'history') return 'history'
+    if (entry === 'simulation') return 'workbench'
+    return (
+      readSupport(
+        'workspace',
+        (value): value is (typeof workspaceTabs)[number] =>
+          workspaceTabs.includes(value as (typeof workspaceTabs)[number]),
+      ) ?? 'workbench'
     )
-      ? 'workbench'
-      : (readSupport('workspace', (v): v is (typeof workspaceTabs)[number] =>
-          workspaceTabs.includes(v as (typeof workspaceTabs)[number]),
-        ) ?? 'workbench'),
-  )
+  })
   useEffect(() => {
     saveSupport('workspace', view)
   }, [view])
@@ -353,8 +352,7 @@ export function CraftingPage() {
   const [pointer, setPointer] = useState<{ x: number; y: number } | null>(null)
   const [leftMenu, setLeftMenu] = useState<'base' | null>(null)
   const baseAnchor = useRef<HTMLButtonElement>(null)
-  const basePlacementRegion = useRef<HTMLDivElement>(null)
-  const currencyShelf = useRef<HTMLDivElement>(null)
+  const simulationCanvas = useRef<HTMLDivElement>(null)
   const [inputOpen, setInputOpen] = useState(false)
   const inputOpener = useRef<HTMLElement | null>(null)
   const [announcement, setAnnouncement] = useState('')
@@ -545,8 +543,7 @@ export function CraftingPage() {
     level: number,
     base: WorkbenchBaseKey = 'solar',
     catalystQuality: CatalystQuality | null = null,
-    sapphireRarity: 'NORMAL' | 'MAGIC' | 'RARE' = 'MAGIC',
-    castSpeed: number | null = null,
+    jewelRarity: 'NORMAL' | 'MAGIC' | 'RARE' = 'NORMAL',
   ) {
     if (mutationLocked()) return
     const request = ++placementRequest.current
@@ -570,16 +567,8 @@ export function CraftingPage() {
         ...concreteInitial(data),
         ...(Object.hasOwn(workbenchJewelBases, base)
           ? {
-              rarity: sapphireRarity,
-              explicits:
-                castSpeed === null || base !== 'sapphire'
-                  ? []
-                  : [
-                      {
-                        modifierId: sapphireCastSpeed,
-                        values: { display_cast_speed_percent: castSpeed },
-                      },
-                    ],
+              rarity: jewelRarity,
+              explicits: [],
             }
           : {}),
         ...(catalystQuality ? { catalystQuality } : {}),
@@ -720,11 +709,9 @@ export function CraftingPage() {
     [draft.baseRevision, draft.source],
   )
   const [baseLevel, setBaseLevel] = useState('82')
-  const [sapphireRarity, setSapphireRarity] = useState<
-    'NORMAL' | 'MAGIC' | 'RARE'
-  >('MAGIC')
-  const [sapphireAffix, setSapphireAffix] = useState(false)
-  const [sapphireRoll, setSapphireRoll] = useState('2')
+  const [jewelRarity, setJewelRarity] = useState<'NORMAL' | 'MAGIC' | 'RARE'>(
+    'NORMAL',
+  )
   const [baseChoice, setBaseChoice] = useState<WorkbenchBaseKey>('solar')
   const inputToggle = useRef<HTMLButtonElement>(null)
   const inputClose = useRef<HTMLButtonElement>(null)
@@ -1787,7 +1774,7 @@ export function CraftingPage() {
       : null
   const page = (
     <main
-      className={`craft-page${view === 'workbench' ? ' craft-page--workbench' : ' craft-page--framed'}`}
+      className={`craft-page${view === 'support' ? ' craft-page--framed' : ' craft-page--workbench'}`}
       onClickCapture={rememberFeedbackAnchor}
       onContextMenuCapture={rememberFeedbackAnchor}
       onDragStartCapture={rememberFeedbackAnchor}
@@ -1839,12 +1826,13 @@ export function CraftingPage() {
                 role="tab"
                 id={`workspace-${tab}`}
                 aria-selected={view === tab}
-                aria-controls={`panel-${tab}`}
+                aria-controls={workspacePanels[tab]}
                 tabIndex={view === tab ? 0 : -1}
                 disabled={workbenchBusy}
                 onClick={() => {
                   if (mutationLocked()) return
                   setView(tab)
+                  setLeftMenu(null)
                   setHeld(null)
                   setSelected(null)
                   setPointer(null)
@@ -1862,7 +1850,7 @@ export function CraftingPage() {
                     event.key === 'Home'
                       ? 'workbench'
                       : event.key === 'End'
-                        ? 'support'
+                        ? workspaceTabs.at(-1)!
                         : workspaceTabs[
                             (index +
                               (event.key === 'ArrowRight' ? 1 : -1) +
@@ -1870,13 +1858,16 @@ export function CraftingPage() {
                               workspaceTabs.length
                           ]!
                   setView(next)
+                  setLeftMenu(null)
                   setHeld(null)
                   setSelected(null)
                   setPointer(null)
                   document.getElementById(`workspace-${next}`)?.focus()
                 }}
               >
-                {t(`workspace.${tab}`)}
+                {tab === 'history'
+                  ? sessionLibraryMessages[locale].history
+                  : t(`workspace.${tab}`)}
               </button>
             ))}
           </div>
@@ -1904,935 +1895,806 @@ export function CraftingPage() {
         </fieldset>
       </header>
 
-      <div className="craft-title">
-        <div>
-          <p className="craft-kicker">{t('ui.the_crafting_bench')}</p>
-          <h1>
-            {view === 'workbench'
-              ? t('ui.crafting_workbench')
-              : t(`workspace.${view}`)}
-          </h1>
-        </div>
-        {view === 'workbench' && (
-          <div
-            className="workbench-tabs"
-            role="tablist"
-            aria-label={t('ui.crafting_workbench')}
-          >
-            {workbenchTabs.map((tab, index) => (
-              <button
-                key={tab}
-                type="button"
-                role="tab"
-                id={`workbench-tab-${tab}`}
-                aria-selected={workbenchTab === tab}
-                aria-controls={`workbench-panel-${tab}`}
-                tabIndex={workbenchTab === tab ? 0 : -1}
-                disabled={workbenchBusy}
-                onClick={() => {
-                  if (mutationLocked()) return
-                  setWorkbenchTab(tab)
-                  setLeftMenu(null)
-                  setHeld(null)
-                  setSelected(null)
-                  setPointer(null)
-                }}
-                onKeyDown={(event) => {
-                  if (
-                    mutationLocked() ||
-                    !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(
-                      event.key,
-                    )
-                  )
-                    return
-                  event.preventDefault()
-                  const next =
-                    event.key === 'Home'
-                      ? 'simulation'
-                      : event.key === 'End'
-                        ? 'history'
-                        : workbenchTabs[(index + 1) % workbenchTabs.length]!
-                  setWorkbenchTab(next)
-                  setLeftMenu(null)
-                  setHeld(null)
-                  setSelected(null)
-                  setPointer(null)
-                  document.getElementById(`workbench-tab-${next}`)?.focus()
-                }}
-              >
-                {sessionLibraryMessages[locale][tab]}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
       <div
-        id="panel-workbench"
+        className="workbench-layout workspace-panel"
+        id="workbench-panel-simulation"
         role="tabpanel"
         aria-labelledby="workspace-workbench"
         hidden={view !== 'workbench'}
+        onContextMenu={(event) => event.preventDefault()}
       >
-        <div
-          className="workbench-layout"
-          id="workbench-panel-simulation"
-          role="tabpanel"
-          aria-labelledby="workbench-tab-simulation"
-          hidden={workbenchTab !== 'simulation'}
-          onContextMenu={(event) => event.preventDefault()}
-        >
-          <div className="stash-panel" style={{ marginBottom: stashSpace }}>
-            <div className="stash-board">
-              <div className="stash-viewport">
-                <div
-                  className="stash-canvas"
-                  aria-label={t('ui.currency_stash')}
-                >
-                  <div className="stash-canvas__content">
-                    <div className="stash-canvas__upper" ref={currencyShelf}>
-                      <div className="currency-catalog">
-                        {fixedCurrencies.map((currency) => {
-                          const currencyName = name(
-                            currency.id,
-                            currencyNames[currency.id],
-                          )
-                          return (
-                            <button
-                              key={currency.id}
-                              type="button"
-                              className={`currency-slot ${selected?.id === currency.id ? 'is-selected' : ''}`}
-                              style={{
-                                left: `${currency.x / 9.35}%`,
-                                top: `${currency.y / 5.5}%`,
-                              }}
-                              aria-label={currencyName}
-                              aria-pressed={selected?.id === currency.id}
-                              {...tooltipEvents(currency.id)}
-                              disabled={workbenchBusy}
-                              onContextMenu={(event) => {
-                                event.preventDefault()
-                                if (mutationLocked()) return
-                                setPointer({
-                                  x: event.clientX,
-                                  y: event.clientY,
-                                })
-                                choose({
-                                  ...currency,
-                                  name: currencyNames[currency.id],
-                                })
-                              }}
-                              onClick={(event) => {
-                                if (mutationLocked()) return
-                                if (event.detail === 0) setPointer(null)
-                                choose({
-                                  ...currency,
-                                  name: currencyNames[currency.id],
-                                })
-                              }}
-                            >
-                              <CurrencyImage
-                                {...currency}
-                                name={currencyName}
-                              />
-                              {currency.id.startsWith('Greater') && (
-                                <span
-                                  className="currency-tier"
-                                  aria-hidden="true"
-                                >
-                                  II
-                                </span>
-                              )}
-                              {currency.id.startsWith('Perfect') && (
-                                <span
-                                  className="currency-tier"
-                                  aria-hidden="true"
-                                >
-                                  III
-                                </span>
-                              )}
-                            </button>
-                          )
-                        })}
-                      </div>
-                      <div className="item-placement">
-                        <button
-                          className={`item-slot ${selected ? 'is-ready' : ''} ${augmentReady ? 'is-augment-ready' : ''}`}
-                          type="button"
-                          aria-label={t(
-                            'ui.use_selected_currency_on_the_central_item',
-                          )}
-                          disabled={workbenchBusy}
-                          onClick={(event) => void apply(event.shiftKey)}
-                        >
-                          <ItemSlotImage
-                            baseItemId={slotBaseItemId ?? ''}
-                            label={
-                              slotBaseItemId
-                                ? name(baseSlugs[catalogBase], baseName)
-                                : displayedName
+        <div className="stash-panel" style={{ marginBottom: stashSpace }}>
+          <div className="stash-board">
+            <div className="stash-viewport">
+              <div className="stash-canvas" aria-label={t('ui.currency_stash')}>
+                <div className="stash-canvas__content" ref={simulationCanvas}>
+                  <div className="stash-canvas__upper">
+                    <div className="currency-catalog">
+                      {fixedCurrencies.map((currency) => {
+                        const currencyName = name(
+                          currency.id,
+                          currencyNames[currency.id],
+                        )
+                        return (
+                          <button
+                            key={currency.id}
+                            type="button"
+                            className={`currency-slot ${selected?.id === currency.id ? 'is-selected' : ''}`}
+                            style={{
+                              left: `${currency.x / 9.35}%`,
+                              top: `${currency.y / 5.5}%`,
+                            }}
+                            aria-label={currencyName}
+                            aria-pressed={selected?.id === currency.id}
+                            {...tooltipEvents(currency.id)}
+                            disabled={workbenchBusy}
+                            onContextMenu={(event) => {
+                              event.preventDefault()
+                              if (mutationLocked()) return
+                              setPointer({
+                                x: event.clientX,
+                                y: event.clientY,
+                              })
+                              choose({
+                                ...currency,
+                                name: currencyNames[currency.id],
+                              })
+                            }}
+                            onClick={(event) => {
+                              if (mutationLocked()) return
+                              if (event.detail === 0) setPointer(null)
+                              choose({
+                                ...currency,
+                                name: currencyNames[currency.id],
+                              })
+                            }}
+                          >
+                            <CurrencyImage {...currency} name={currencyName} />
+                            {currency.id.startsWith('Greater') && (
+                              <span
+                                className="currency-tier"
+                                aria-hidden="true"
+                              >
+                                II
+                              </span>
+                            )}
+                            {currency.id.startsWith('Perfect') && (
+                              <span
+                                className="currency-tier"
+                                aria-hidden="true"
+                              >
+                                III
+                              </span>
+                            )}
+                          </button>
+                        )
+                      })}
+                    </div>
+                    <div className="item-placement">
+                      <button
+                        className={`item-slot ${selected ? 'is-ready' : ''} ${augmentReady ? 'is-augment-ready' : ''}`}
+                        type="button"
+                        aria-label={t(
+                          'ui.use_selected_currency_on_the_central_item',
+                        )}
+                        disabled={workbenchBusy}
+                        onClick={(event) => void apply(event.shiftKey)}
+                      >
+                        <ItemSlotImage
+                          baseItemId={slotBaseItemId ?? ''}
+                          label={
+                            slotBaseItemId
+                              ? name(baseSlugs[catalogBase], baseName)
+                              : displayedName
+                          }
+                        />
+                        <span>{displayedName}</span>
+                      </button>
+                      {concrete?.augmentSockets != null &&
+                        concrete.augmentSockets > 0 && (
+                          <SocketAugmentSlots
+                            key={
+                              held?.category === 'Augments'
+                                ? `drag:${held.id}`
+                                : 'selected'
+                            }
+                            item={concrete}
+                            augmentId={cursor?.id}
+                            draggedAugmentId={
+                              held?.category === 'Augments'
+                                ? held.id
+                                : undefined
+                            }
+                            ready={augmentReady}
+                            onInstall={(slot, id) =>
+                              void apply(false, slot, id)
                             }
                           />
-                          <span>{displayedName}</span>
-                        </button>
-                        {concrete?.augmentSockets != null &&
-                          concrete.augmentSockets > 0 && (
-                            <SocketAugmentSlots
-                              key={
-                                held?.category === 'Augments'
-                                  ? `drag:${held.id}`
-                                  : 'selected'
-                              }
-                              item={concrete}
-                              augmentId={cursor?.id}
-                              draggedAugmentId={
-                                held?.category === 'Augments'
-                                  ? held.id
-                                  : undefined
-                              }
-                              ready={augmentReady}
-                              onInstall={(slot, id) =>
-                                void apply(false, slot, id)
-                              }
-                            />
-                          )}
-                      </div>
-                    </div>
-                    <div className="chaos-repeat-integration">
-                      <ChaosRepeatControls
-                        enabled={repeatEnabled}
-                        pattern={repeatPattern}
-                        running={repeatRunning}
-                        disabled={workbenchBusy}
-                        errors={repeatErrors}
-                        currencyId={
-                          chaosRepeatCurrencyIds.includes(
-                            cursor?.id as ChaosRepeatCurrencyId,
-                          )
-                            ? (cursor!.id as ChaosRepeatCurrencyId)
-                            : 'Chaos_Orb'
-                        }
-                        onEnabledChange={(value) => {
-                          if (!mutationLocked()) {
-                            setRepeatEnabled(value)
-                            setRepeatErrors({})
-                          }
-                        }}
-                        onPatternChange={(value) => {
-                          if (!mutationLocked()) {
-                            setRepeatPattern(value)
-                            setRepeatErrors({})
-                          }
-                        }}
-                        onHintInteraction={(materialId) =>
-                          setRepeatHintRequest((current) =>
-                            current?.materialId === materialId &&
-                            current.context === feedbackContextKey
-                              ? current
-                              : { materialId, context: feedbackContextKey },
-                          )
-                        }
-                      />
-                    </div>
-                    <div className="workbench-item-controls">
-                      <button
-                        type="button"
-                        className="item-input-toggle"
-                        disabled={workbenchBusy}
-                        ref={baseAnchor}
-                        aria-expanded={leftMenu === 'base'}
-                        aria-controls="workbench-base-picker"
-                        onClick={() => {
-                          if (mutationLocked()) return
-                          setBaseChoice(
-                            supersededBases[catalogBase] ?? catalogBase,
-                          )
-                          setLeftMenu(leftMenu === 'base' ? null : 'base')
-                        }}
-                      >
-                        {t('ui.select_base')}
-                      </button>
-                      <button
-                        type="button"
-                        ref={inputToggle}
-                        className="item-input-toggle"
-                        disabled={workbenchBusy}
-                        aria-expanded={inputOpen}
-                        aria-controls="item-input-panel"
-                        onClick={(event) => {
-                          if (mutationLocked()) return
-                          inputOpener.current = event.currentTarget
-                          if (!draft.textDirty) setEditContext(textContext)
-                          setEditError('')
-                          setInputOpen((open) => !open)
-                        }}
-                      >
-                        {t('ui.edit_item')}
-                      </button>
-                      <button
-                        type="button"
-                        className="item-input-toggle"
-                        disabled={workbenchBusy}
-                        onClick={() => {
-                          if (mutationLocked()) return
-                          invalidateInput()
-                          void startBase(catalogLevel, catalogBase)
-                        }}
-                      >
-                        {t('ui.new_craft')}
-                      </button>
-                    </div>
-                    <div className="workbench-stash-column">
-                      <WorkbenchStash
-                        tabs={
-                          <>
-                            <div
-                              role="tablist"
-                              aria-label={t('ui.material_stash_tabs')}
-                              className="material-tabs"
-                            >
-                              {materialTabs.map((tab, index) => (
-                                <button
-                                  key={tab.id}
-                                  type="button"
-                                  role="tab"
-                                  id={`tab-${tab.id}`}
-                                  aria-selected={activeTab === tab.id}
-                                  aria-controls="material-list"
-                                  tabIndex={activeTab === tab.id ? 0 : -1}
-                                  disabled={workbenchBusy}
-                                  onClick={() => {
-                                    if (!mutationLocked()) setActiveTab(tab.id)
-                                  }}
-                                  onKeyDown={(event) => {
-                                    if (mutationLocked()) return
-                                    const next =
-                                      event.key === 'ArrowRight'
-                                        ? (index + 1) % materialTabs.length
-                                        : event.key === 'ArrowLeft'
-                                          ? (index + materialTabs.length - 1) %
-                                            materialTabs.length
-                                          : event.key === 'Home'
-                                            ? 0
-                                            : event.key === 'End'
-                                              ? materialTabs.length - 1
-                                              : null
-                                    if (next === null) return
-                                    event.preventDefault()
-                                    const target = materialTabs[next]!
-                                    setActiveTab(target.id)
-                                    document
-                                      .getElementById(`tab-${target.id}`)
-                                      ?.focus()
-                                  }}
-                                >
-                                  {tab.id === 'Augments'
-                                    ? socketText().tab
-                                    : t(`stash.${tab.id}`)}
-                                </button>
-                              ))}
-                            </div>
-                          </>
-                        }
-                        fixedCurrencyIds={fixedCurrencies.map(
-                          (currency) => currency.id,
                         )}
-                        baseItemId={stashBaseId}
-                        baseMaterialActions={stashBaseActions}
-                        resources={stashResources}
-                        excludedIds={excludedResourceIds}
-                        activeTab={activeTab}
-                        selectedId={selected?.id ?? null}
-                        activeOmenIds={draft.activeOmens}
-                        held={held}
-                        disabled={workbenchBusy}
-                        onActivateOmen={(resource) => toggleOmen(resource.id)}
-                        onSelect={(resource, pointer) => {
-                          if (mutationLocked()) return
-                          setPointer(pointer ?? null)
-                          choose(resource)
-                        }}
-                        onPickUp={(resource, pointer) => {
-                          if (mutationLocked()) return
-                          setFailedApplication(null)
-                          setRepeatNotice(null)
-                          setPointer(pointer ?? null)
-                          setHeld(resource)
-                          setSelected(null)
-                          setAnnouncement(
-                            t('material.picked', {
-                              name: name(resource.id, resource.name),
-                            }),
-                          )
-                        }}
-                      />
-                      <div className="workbench-feedback-region wb-scrollbar">
-                        {(applicationFailure || repeatSuccess) && (
+                    </div>
+                  </div>
+                  <div className="chaos-repeat-integration">
+                    <ChaosRepeatControls
+                      enabled={repeatEnabled}
+                      pattern={repeatPattern}
+                      running={repeatRunning}
+                      disabled={workbenchBusy}
+                      errors={repeatErrors}
+                      currencyId={
+                        chaosRepeatCurrencyIds.includes(
+                          cursor?.id as ChaosRepeatCurrencyId,
+                        )
+                          ? (cursor!.id as ChaosRepeatCurrencyId)
+                          : 'Chaos_Orb'
+                      }
+                      onEnabledChange={(value) => {
+                        if (!mutationLocked()) {
+                          setRepeatEnabled(value)
+                          setRepeatErrors({})
+                        }
+                      }}
+                      onPatternChange={(value) => {
+                        if (!mutationLocked()) {
+                          setRepeatPattern(value)
+                          setRepeatErrors({})
+                        }
+                      }}
+                      onHintInteraction={(materialId) =>
+                        setRepeatHintRequest((current) =>
+                          current?.materialId === materialId &&
+                          current.context === feedbackContextKey
+                            ? current
+                            : { materialId, context: feedbackContextKey },
+                        )
+                      }
+                    />
+                  </div>
+                  <div className="workbench-item-controls">
+                    <button
+                      type="button"
+                      className="item-input-toggle"
+                      disabled={workbenchBusy}
+                      ref={baseAnchor}
+                      aria-expanded={leftMenu === 'base'}
+                      aria-controls="workbench-base-picker"
+                      onClick={() => {
+                        if (mutationLocked()) return
+                        setBaseChoice(
+                          supersededBases[catalogBase] ?? catalogBase,
+                        )
+                        setLeftMenu(leftMenu === 'base' ? null : 'base')
+                      }}
+                    >
+                      {t('ui.select_base')}
+                    </button>
+                    <button
+                      type="button"
+                      ref={inputToggle}
+                      className="item-input-toggle"
+                      disabled={workbenchBusy}
+                      aria-expanded={inputOpen}
+                      aria-controls="item-input-panel"
+                      onClick={(event) => {
+                        if (mutationLocked()) return
+                        inputOpener.current = event.currentTarget
+                        if (!draft.textDirty) setEditContext(textContext)
+                        setEditError('')
+                        setInputOpen((open) => !open)
+                      }}
+                    >
+                      {t('ui.edit_item')}
+                    </button>
+                    <button
+                      type="button"
+                      className="item-input-toggle"
+                      disabled={workbenchBusy}
+                      onClick={() => {
+                        if (mutationLocked()) return
+                        invalidateInput()
+                        void startBase(catalogLevel, catalogBase)
+                      }}
+                    >
+                      {t('ui.new_craft')}
+                    </button>
+                  </div>
+                  <div className="workbench-stash-column">
+                    <WorkbenchStash
+                      tabs={
+                        <>
                           <div
-                            className="workbench-feedback-panel wb-scrollbar"
-                            tabIndex={0}
-                            role={applicationFailure ? 'alert' : 'status'}
-                            aria-label={t('ui.crafting_notes')}
+                            role="tablist"
+                            aria-label={t('ui.material_stash_tabs')}
+                            className="material-tabs"
                           >
-                            <p className="workbench-feedback">
-                              {applicationFailure
-                                ? serviceText(applicationFailure)
-                                : repeatSuccess}
-                            </p>
+                            {materialTabs.map((tab, index) => (
+                              <button
+                                key={tab.id}
+                                type="button"
+                                role="tab"
+                                id={`tab-${tab.id}`}
+                                aria-selected={activeTab === tab.id}
+                                aria-controls="material-list"
+                                tabIndex={activeTab === tab.id ? 0 : -1}
+                                disabled={workbenchBusy}
+                                onClick={() => {
+                                  if (!mutationLocked()) setActiveTab(tab.id)
+                                }}
+                                onKeyDown={(event) => {
+                                  if (mutationLocked()) return
+                                  const next =
+                                    event.key === 'ArrowRight'
+                                      ? (index + 1) % materialTabs.length
+                                      : event.key === 'ArrowLeft'
+                                        ? (index + materialTabs.length - 1) %
+                                          materialTabs.length
+                                        : event.key === 'Home'
+                                          ? 0
+                                          : event.key === 'End'
+                                            ? materialTabs.length - 1
+                                            : null
+                                  if (next === null) return
+                                  event.preventDefault()
+                                  const target = materialTabs[next]!
+                                  setActiveTab(target.id)
+                                  document
+                                    .getElementById(`tab-${target.id}`)
+                                    ?.focus()
+                                }}
+                              >
+                                {tab.id === 'Augments'
+                                  ? socketText().tab
+                                  : t(`stash.${tab.id}`)}
+                              </button>
+                            ))}
                           </div>
-                        )}
-                        <FeedbackTooltipOutlet />
-                      </div>
-                    </div>
-                    <WorkbenchFavorites
+                        </>
+                      }
+                      fixedCurrencyIds={fixedCurrencies.map(
+                        (currency) => currency.id,
+                      )}
+                      baseItemId={stashBaseId}
+                      baseMaterialActions={stashBaseActions}
+                      resources={stashResources}
                       excludedIds={excludedResourceIds}
+                      activeTab={activeTab}
                       selectedId={selected?.id ?? null}
                       activeOmenIds={draft.activeOmens}
-                      favorites={favorites}
                       held={held}
                       disabled={workbenchBusy}
-                      onFavoriteActivate={(_, resource, pointer) => {
+                      onActivateOmen={(resource) => toggleOmen(resource.id)}
+                      onSelect={(resource, pointer) => {
                         if (mutationLocked()) return
                         setPointer(pointer ?? null)
-                        if (resource) choose(resource)
-                        else setSelected(null)
+                        choose(resource)
                       }}
-                      onActivateOmen={(resource) => toggleOmen(resource.id)}
-                      onFavoritePlace={placeFavorite}
-                    />
-                  </div>
-                </div>
-                <div className="workbench-currency-controls">
-                  {selected &&
-                    isBone(selected.id) &&
-                    draft.activeOmens.includes('Omen_of_Putrefaction') && (
-                      <fieldset disabled={workbenchBusy}>
-                        <legend>{name(selected.id, selected.name)}</legend>
-                        {draft.activeOmens.includes('Omen_of_Putrefaction') ? (
-                          <div>
-                            {(['PREFIX', 'SUFFIX'] as const).map(
-                              (side, index) => (
-                                <label key={side}>
-                                  {putrefactionText[locale][index + 1]}{' '}
-                                  <input
-                                    type="number"
-                                    min={0}
-                                    max={3}
-                                    step={1}
-                                    value={boneCounts[index]}
-                                    onChange={(event) => {
-                                      if (mutationLocked()) return
-                                      const value = event.target.valueAsNumber
-                                      if (
-                                        Number.isInteger(value) &&
-                                        value >= 0 &&
-                                        value <= 3
-                                      )
-                                        setBoneCounts((current) =>
-                                          current.map((n, i) =>
-                                            i === index ? value : n,
-                                          ),
-                                        )
-                                    }}
-                                  />
-                                </label>
-                              ),
-                            )}
-                          </div>
-                        ) : null}
-                      </fieldset>
-                    )}
-                  {draft.source === 'text' && !mapping.data?.mapped && (
-                    <button
-                      type="button"
-                      onClick={() => void enableCrafting()}
-                      disabled={workbenchBusy || !initial.data || !importedBase}
-                    >
-                      {t('ui.enable_solar_crafting')}
-                    </button>
-                  )}
-                </div>
-                <div className="workbench-input-status">
-                  {mapping.data?.issues.map((issue, index) => (
-                    <p key={index}>
-                      {' '}
-                      {t('ui.line')} {issue.lineNumber || 'item'}:{' '}
-                      <ServiceMessage text={issue.message} />
-                    </p>
-                  ))}
-                  {initial.isError && (
-                    <p role="alert">
-                      {' '}
-                      {t('ui.catalog_load_error')}{' '}
-                      <button
-                        type="button"
-                        disabled={workbenchBusy}
-                        onClick={() => {
-                          if (!mutationLocked()) void initial.refetch()
-                        }}
-                      >
-                        {t('ui.retry_catalog')}
-                      </button>
-                    </p>
-                  )}
-                  {evidenceInvalid && (
-                    <p role="alert">{t('notice.saved_evidence')}</p>
-                  )}
-                </div>
-              </div>
-              <div className="bench-lower" ref={basePlacementRegion}>
-                <div className="workbench-film-toolbar">
-                  <div className="workbench-film-controls">
-                    <button
-                      type="button"
-                      aria-label={t('ui.previous_crafting_step')}
-                      disabled={
-                        !film || filmState.history.cursor === 0 || workbenchBusy
-                      }
-                      onClick={() => browse(filmState.history.cursor - 1)}
-                    >
-                      <span
-                        className="workbench-film-controls__arrow"
-                        aria-hidden="true"
-                      >
-                        ‹
-                      </span>
-                    </button>
-                    <span>
-                      {film
-                        ? t('film.step', {
-                            step: filmState.history.cursor,
-                            total: film.frames.length - 1,
-                          })
-                        : t('ui.new_craft')}
-                    </span>
-                    <button
-                      type="button"
-                      aria-label={t('ui.next_crafting_step')}
-                      disabled={
-                        !film ||
-                        filmState.history.cursor === film.frames.length - 1 ||
-                        workbenchBusy
-                      }
-                      onClick={() => browse(filmState.history.cursor + 1)}
-                    >
-                      <span
-                        className="workbench-film-controls__arrow"
-                        aria-hidden="true"
-                      >
-                        ›
-                      </span>
-                    </button>
-                  </div>
-                </div>
-                <div className="bench-item-card">
-                  {!!concrete?.observations?.augmentEffects.length && (
-                    <p>{t('notice.resolve_augments')}</p>
-                  )}
-                  {film?.sourceDocument !== undefined && (
-                    <details>
-                      <summary>{t('film.original_paste')}</summary>
-                      <pre
-                        style={{
-                          whiteSpace: 'pre-wrap',
-                          overflowWrap: 'anywhere',
-                        }}
-                      >
-                        {film.sourceDocument}
-                      </pre>
-                    </details>
-                  )}
-                  {filmState.error && (
-                    <p role="alert">{uiText(filmState.error)}</p>
-                  )}
-                  {storedFrame &&
-                    rulesetStatus &&
-                    rulesetStatus !== 'current' && (
-                      <section aria-label={t('ruleset.saved_record')}>
-                        <p role="alert">{t(`ruleset.${rulesetStatus}`)}</p>
-                      </section>
-                    )}
-                  {storedFrame &&
-                    rulesetStatus === 'current' &&
-                    initial.data &&
-                    !restoredValid && (
-                      <p role="alert">{t('notice.saved_catalog')}</p>
-                    )}
-                  {storedFrame && !restoredValid && (
-                    <details>
-                      <summary>{t('ruleset.saved_record')}</summary>
-                      <pre>{JSON.stringify(storedFrame, null, 2)}</pre>
-                    </details>
-                  )}
-                  {concrete?.rarity === 'RARE' &&
-                    initial.data &&
-                    restoredValid && (
-                      <AbyssPanel
-                        key={JSON.stringify([concrete, storedFrame?.abyss])}
-                        source={concrete}
-                        localScenario={false}
-                        allowAdd={false}
-                        directSelection
-                        embedded={!!concrete.desecrated?.length}
-                        initial={initial.data}
-                        {...(storedFrame?.abyss
-                          ? { restoredState: storedFrame.abyss }
-                          : {})}
-                        externalBusy={applying !== null || imported.pending}
-                        canMutate={canMutateAbyss}
-                        onBusyChange={handleAbyssBusy}
-                        onTransition={(next, transition) => {
-                          if (transition.operation === 'restore') return
-                          if (
-                            useItemDraft.getState().baseRevision !==
-                              draft.baseRevision ||
-                            applyingRequest.current
-                          )
-                            return
-                          saveFilms(
-                            recordAbyss(
-                              filmState.history,
-                              concrete,
-                              next,
-                              transition.operation === 'apply'
-                                ? (transition.action ?? 'ABYSS_APPLY')
-                                : `ABYSS_${transition.operation.toUpperCase()}`,
-                              filmId(),
-                              initial.data!.rulesetIdentity,
-                            ),
-                            draft.baseRevision,
-                          )
-                        }}
-                      />
-                    )}
-                  {storedFrame && !restoredValid ? null : card ? (
-                    <ItemCard
-                      item={{
-                        ...card,
-                        modifiers: [
-                          ...card.modifiers,
-                          ...(concrete?.desecrated ?? [])
-                            .filter(
-                              (slot) =>
-                                slot.modifierId === null &&
-                                !card.modifiers.some(
-                                  (line) => line.id === slot.id,
-                                ),
-                            )
-                            .map((slot) => ({
-                              id: slot.id,
-                              lastCurrencyAffected: lastAffected.has(slot.id),
-                              text: abyssWorkbenchMessages[locale].hidden,
-                              kind: 'desecrated' as const,
-                              unrevealedDesecrated: true,
-                              affixLabel: slot.side === 'PREFIX' ? 'P' : 'S',
-                            })),
-                        ],
-                      }}
-                      showOriginalOrder={altHeld}
-                      {...(concrete
-                        ? { baseItemId: baseSlugs[catalogBase] }
-                        : {})}
-                    />
-                  ) : (
-                    <ItemCard
-                      baseItemId={baseSlugs[catalogBase]}
-                      item={{
-                        rarity: baseStartingRarity(catalogBase),
-                        name: baseName,
-                        base: baseName,
-                        itemClass: baseClass(catalogBase),
-                        itemLevel: draft.baseItemLevel,
-                        properties: [],
-                        requirements: [],
-                        modifiers:
-                          catalogBase !== 'solar'
-                            ? []
-                            : [
-                                {
-                                  id: 'spirit',
-                                  text: '+15 to Spirit',
-                                  kind: 'implicit',
-                                },
-                              ],
-                        flags: [],
+                      onPickUp={(resource, pointer) => {
+                        if (mutationLocked()) return
+                        setFailedApplication(null)
+                        setRepeatNotice(null)
+                        setPointer(pointer ?? null)
+                        setHeld(resource)
+                        setSelected(null)
+                        setAnnouncement(
+                          t('material.picked', {
+                            name: name(resource.id, resource.name),
+                          }),
+                        )
                       }}
                     />
-                  )}
-                </div>
-                <SessionNotation
-                  film={film}
-                  cursor={filmState.history.cursor}
-                  resources={stashResources}
-                  onNavigate={browse}
-                  disabled={workbenchBusy}
-                />
-              </div>
-            </div>
-            <WorkbenchBasePicker
-              id="workbench-base-picker"
-              anchor={baseAnchor}
-              placementRegion={basePlacementRegion}
-              shelf={currencyShelf}
-              open={leftMenu === 'base'}
-              onOpenChange={(open) => {
-                if (!mutationLocked()) setLeftMenu(open ? 'base' : null)
-              }}
-              value={baseChoice}
-              onChange={(value) => {
-                if (!mutationLocked()) setBaseChoice(value)
-              }}
-              level={baseLevel}
-              onLevelChange={(value) => {
-                if (!mutationLocked()) setBaseLevel(value)
-              }}
-              disabled={workbenchBusy}
-              valid={
-                !(
-                  baseChoice === 'sapphire' &&
-                  sapphireAffix &&
-                  sapphireRarity !== 'NORMAL' &&
-                  (sapphireRoll.trim() === '' ||
-                    !Number.isInteger(Number(sapphireRoll)) ||
-                    Number(sapphireRoll) < 2 ||
-                    Number(sapphireRoll) > 4)
-                )
-              }
-              extraControls={
-                <>
-                  {Object.hasOwn(workbenchJewelBases, baseChoice) && (
-                    <>
-                      <label htmlFor="sapphire-rarity">{t('ui.rarity')}</label>
-                      <select
-                        id="sapphire-rarity"
-                        value={sapphireRarity}
-                        disabled={workbenchBusy}
-                        onChange={(e) => {
-                          if (!mutationLocked())
-                            setSapphireRarity(
-                              e.target.value as 'NORMAL' | 'MAGIC' | 'RARE',
-                            )
-                        }}
-                      >
-                        <option value="NORMAL">{t('ui.normal')}</option>
-                        <option value="MAGIC">{t('ui.magic')}</option>
-                        <option value="RARE">{t('ui.rare')}</option>
-                      </select>
-                      <label hidden={baseChoice !== 'sapphire'}>
-                        <input
-                          type="checkbox"
-                          checked={
-                            baseChoice === 'sapphire' &&
-                            sapphireAffix &&
-                            sapphireRarity !== 'NORMAL'
-                          }
-                          disabled={
-                            workbenchBusy || sapphireRarity === 'NORMAL'
-                          }
-                          onChange={(e) => {
-                            if (!mutationLocked())
-                              setSapphireAffix(e.target.checked)
-                          }}
-                        />
-                        {t('ui.sapphire_existing_suffix')}
-                      </label>
-                      {baseChoice === 'sapphire' &&
-                        sapphireAffix &&
-                        sapphireRarity !== 'NORMAL' && (
-                          <>
-                            <label htmlFor="sapphire-roll">
-                              {t('ui.sapphire_cast_speed')}
-                            </label>
-                            <input
-                              id="sapphire-roll"
-                              type="number"
-                              min="2"
-                              max="4"
-                              step="1"
-                              value={sapphireRoll}
-                              disabled={workbenchBusy}
-                              onChange={(e) => {
-                                if (!mutationLocked())
-                                  setSapphireRoll(e.target.value)
-                              }}
-                            />
-                          </>
-                        )}
-                    </>
-                  )}
-                </>
-              }
-              onPlace={() => {
-                if (mutationLocked()) return
-                invalidateInput()
-                void startBase(
-                  Number(baseLevel),
-                  baseChoice,
-                  null,
-                  sapphireRarity,
-                  baseChoice === 'sapphire' &&
-                    sapphireAffix &&
-                    sapphireRarity !== 'NORMAL'
-                    ? Number(sapphireRoll)
-                    : null,
-                )
-                setSelected(null)
-                setLeftMenu(null)
-              }}
-            />
-            <dialog
-              ref={dialog}
-              onCancel={(event) => {
-                event.preventDefault()
-                closeInput()
-              }}
-              onClick={(event) => {
-                if (event.target === event.currentTarget) closeInput()
-              }}
-              id="item-input-panel"
-              className="item-input-panel detail-body"
-              aria-label={t('ui.starting_item')}
-              aria-busy={imported.pending}
-            >
-              <div className="item-input-content">
-                <button
-                  ref={inputClose}
-                  type="button"
-                  className="input-close"
-                  aria-label={t('ui.close_item_input')}
-                  disabled={inputBusy}
-                  onClick={closeInput}
-                >
-                  ×
-                </button>
-                <div className="input-heading">
-                  <h3>{t('ui.starting_item')}</h3>
-                  <span>01</span>
-                </div>
-                <div className="text-form">
-                  <label htmlFor="item-text">
-                    {t('ui.item_text_copied_from_the_game')}
-                  </label>
-                  {inputOpen && (
-                    <textarea
-                      id="item-text"
-                      value={draft.text}
-                      disabled={inputBusy}
-                      onCompositionStart={() => {
-                        composing.current = true
-                      }}
-                      onCompositionEnd={() => {
-                        composing.current = false
-                      }}
-                      onChange={(event) => {
-                        if (inputMutationLocked()) return
-                        invalidateInput()
-                        draft.setText(event.target.value)
-                      }}
-                      placeholder={
-                        'Hover over an item and press Ctrl+C\nPaste the copied text here.'
-                      }
-                      aria-invalid={Boolean(imported.error)}
-                      aria-describedby={
-                        imported.error ? 'import-error' : undefined
-                      }
-                    />
-                  )}
-                  {generatedText !== null && (
-                    <>
-                      <p>{textEditMessages[locale].note}</p>
-                      {draft.textDirty && editContext !== textContext && (
-                        <p role="alert">{textEditMessages[locale].stale}</p>
+                    <div className="workbench-feedback-region wb-scrollbar">
+                      {(applicationFailure || repeatSuccess) && (
+                        <div
+                          className="workbench-feedback-panel wb-scrollbar"
+                          tabIndex={0}
+                          role={applicationFailure ? 'alert' : 'status'}
+                          aria-label={t('ui.crafting_notes')}
+                        >
+                          <p className="workbench-feedback">
+                            {applicationFailure
+                              ? serviceText(applicationFailure)
+                              : repeatSuccess}
+                          </p>
+                        </div>
                       )}
-                      {editError && <p role="alert">{editError}</p>}
-                      <button
-                        type="button"
-                        disabled={workbenchBusy || editPending}
-                        onClick={applyTextEdit}
-                      >
-                        {textEditMessages[locale].apply}
-                      </button>
-                      <button
-                        type="button"
-                        disabled={workbenchBusy || editPending}
-                        onClick={() => {
-                          invalidateInput()
-                          draft.resetText(generatedText)
-                          setEditContext(textContext)
-                          setEditError('')
-                        }}
-                      >
-                        {textEditMessages[locale].reload}
-                      </button>
-                    </>
+                      <FeedbackTooltipOutlet />
+                    </div>
+                  </div>
+                  <WorkbenchFavorites
+                    excludedIds={excludedResourceIds}
+                    selectedId={selected?.id ?? null}
+                    activeOmenIds={draft.activeOmens}
+                    favorites={favorites}
+                    held={held}
+                    disabled={workbenchBusy}
+                    onFavoriteActivate={(_, resource, pointer) => {
+                      if (mutationLocked()) return
+                      setPointer(pointer ?? null)
+                      if (resource) choose(resource)
+                      else setSelected(null)
+                    }}
+                    onActivateOmen={(resource) => toggleOmen(resource.id)}
+                    onFavoritePlace={placeFavorite}
+                  />
+                </div>
+              </div>
+              <div className="workbench-currency-controls">
+                {selected &&
+                  isBone(selected.id) &&
+                  draft.activeOmens.includes('Omen_of_Putrefaction') && (
+                    <fieldset disabled={workbenchBusy}>
+                      <legend>{name(selected.id, selected.name)}</legend>
+                      {draft.activeOmens.includes('Omen_of_Putrefaction') ? (
+                        <div>
+                          {(['PREFIX', 'SUFFIX'] as const).map(
+                            (side, index) => (
+                              <label key={side}>
+                                {putrefactionText[locale][index + 1]}{' '}
+                                <input
+                                  type="number"
+                                  min={0}
+                                  max={3}
+                                  step={1}
+                                  value={boneCounts[index]}
+                                  onChange={(event) => {
+                                    if (mutationLocked()) return
+                                    const value = event.target.valueAsNumber
+                                    if (
+                                      Number.isInteger(value) &&
+                                      value >= 0 &&
+                                      value <= 3
+                                    )
+                                      setBoneCounts((current) =>
+                                        current.map((n, i) =>
+                                          i === index ? value : n,
+                                        ),
+                                      )
+                                  }}
+                                />
+                              </label>
+                            ),
+                          )}
+                        </div>
+                      ) : null}
+                    </fieldset>
                   )}
-                  {imported.error && (
-                    <p id="import-error" role="alert">
-                      {imported.error}
-                    </p>
-                  )}
+                {draft.source === 'text' && !mapping.data?.mapped && (
                   <button
                     type="button"
-                    className="primary-action"
-                    onClick={importText}
-                    disabled={workbenchBusy || editPending}
+                    onClick={() => void enableCrafting()}
+                    disabled={workbenchBusy || !initial.data || !importedBase}
                   >
-                    {imported.pending
-                      ? t('ui.analyzing_item')
-                      : t('ui.analyze_item')}{' '}
-                    <span aria-hidden="true">↗</span>
+                    {t('ui.enable_solar_crafting')}
+                  </button>
+                )}
+              </div>
+              <div className="workbench-input-status">
+                {mapping.data?.issues.map((issue, index) => (
+                  <p key={index}>
+                    {' '}
+                    {t('ui.line')} {issue.lineNumber || 'item'}:{' '}
+                    <ServiceMessage text={issue.message} />
+                  </p>
+                ))}
+                {initial.isError && (
+                  <p role="alert">
+                    {' '}
+                    {t('ui.catalog_load_error')}{' '}
+                    <button
+                      type="button"
+                      disabled={workbenchBusy}
+                      onClick={() => {
+                        if (!mutationLocked()) void initial.refetch()
+                      }}
+                    >
+                      {t('ui.retry_catalog')}
+                    </button>
+                  </p>
+                )}
+                {evidenceInvalid && (
+                  <p role="alert">{t('notice.saved_evidence')}</p>
+                )}
+              </div>
+            </div>
+            <div className="bench-lower">
+              <div className="workbench-film-toolbar">
+                <div className="workbench-film-controls">
+                  <button
+                    type="button"
+                    aria-label={t('ui.previous_crafting_step')}
+                    disabled={
+                      !film || filmState.history.cursor === 0 || workbenchBusy
+                    }
+                    onClick={() => browse(filmState.history.cursor - 1)}
+                  >
+                    <span
+                      className="workbench-film-controls__arrow"
+                      aria-hidden="true"
+                    >
+                      ‹
+                    </span>
+                  </button>
+                  <span>
+                    {film
+                      ? t('film.step', {
+                          step: filmState.history.cursor,
+                          total: film.frames.length - 1,
+                        })
+                      : t('ui.new_craft')}
+                  </span>
+                  <button
+                    type="button"
+                    aria-label={t('ui.next_crafting_step')}
+                    disabled={
+                      !film ||
+                      filmState.history.cursor === film.frames.length - 1 ||
+                      workbenchBusy
+                    }
+                    onClick={() => browse(filmState.history.cursor + 1)}
+                  >
+                    <span
+                      className="workbench-film-controls__arrow"
+                      aria-hidden="true"
+                    >
+                      ›
+                    </span>
                   </button>
                 </div>
               </div>
-            </dialog>
+              <div className="bench-item-card">
+                {!!concrete?.observations?.augmentEffects.length && (
+                  <p>{t('notice.resolve_augments')}</p>
+                )}
+                {film?.sourceDocument !== undefined && (
+                  <details>
+                    <summary>{t('film.original_paste')}</summary>
+                    <pre
+                      style={{
+                        whiteSpace: 'pre-wrap',
+                        overflowWrap: 'anywhere',
+                      }}
+                    >
+                      {film.sourceDocument}
+                    </pre>
+                  </details>
+                )}
+                {filmState.error && (
+                  <p role="alert">{uiText(filmState.error)}</p>
+                )}
+                {storedFrame &&
+                  rulesetStatus &&
+                  rulesetStatus !== 'current' && (
+                    <section aria-label={t('ruleset.saved_record')}>
+                      <p role="alert">{t(`ruleset.${rulesetStatus}`)}</p>
+                    </section>
+                  )}
+                {storedFrame &&
+                  rulesetStatus === 'current' &&
+                  initial.data &&
+                  !restoredValid && (
+                    <p role="alert">{t('notice.saved_catalog')}</p>
+                  )}
+                {storedFrame && !restoredValid && (
+                  <details>
+                    <summary>{t('ruleset.saved_record')}</summary>
+                    <pre>{JSON.stringify(storedFrame, null, 2)}</pre>
+                  </details>
+                )}
+                {concrete?.rarity === 'RARE' &&
+                  initial.data &&
+                  restoredValid && (
+                    <AbyssPanel
+                      key={JSON.stringify([concrete, storedFrame?.abyss])}
+                      source={concrete}
+                      localScenario={false}
+                      allowAdd={false}
+                      directSelection
+                      embedded={!!concrete.desecrated?.length}
+                      initial={initial.data}
+                      {...(storedFrame?.abyss
+                        ? { restoredState: storedFrame.abyss }
+                        : {})}
+                      externalBusy={applying !== null || imported.pending}
+                      canMutate={canMutateAbyss}
+                      onBusyChange={handleAbyssBusy}
+                      onTransition={(next, transition) => {
+                        if (transition.operation === 'restore') return
+                        if (
+                          useItemDraft.getState().baseRevision !==
+                            draft.baseRevision ||
+                          applyingRequest.current
+                        )
+                          return
+                        saveFilms(
+                          recordAbyss(
+                            filmState.history,
+                            concrete,
+                            next,
+                            transition.operation === 'apply'
+                              ? (transition.action ?? 'ABYSS_APPLY')
+                              : `ABYSS_${transition.operation.toUpperCase()}`,
+                            filmId(),
+                            initial.data!.rulesetIdentity,
+                          ),
+                          draft.baseRevision,
+                        )
+                      }}
+                    />
+                  )}
+                {storedFrame && !restoredValid ? null : card ? (
+                  <ItemCard
+                    item={{
+                      ...card,
+                      modifiers: [
+                        ...card.modifiers,
+                        ...(concrete?.desecrated ?? [])
+                          .filter(
+                            (slot) =>
+                              slot.modifierId === null &&
+                              !card.modifiers.some(
+                                (line) => line.id === slot.id,
+                              ),
+                          )
+                          .map((slot) => ({
+                            id: slot.id,
+                            lastCurrencyAffected: lastAffected.has(slot.id),
+                            text: abyssWorkbenchMessages[locale].hidden,
+                            kind: 'desecrated' as const,
+                            unrevealedDesecrated: true,
+                            affixLabel: slot.side === 'PREFIX' ? 'P' : 'S',
+                          })),
+                      ],
+                    }}
+                    showOriginalOrder={altHeld}
+                    {...(concrete
+                      ? { baseItemId: baseSlugs[catalogBase] }
+                      : {})}
+                  />
+                ) : (
+                  <ItemCard
+                    baseItemId={baseSlugs[catalogBase]}
+                    item={{
+                      rarity: baseStartingRarity(catalogBase),
+                      name: baseName,
+                      base: baseName,
+                      itemClass: baseClass(catalogBase),
+                      itemLevel: draft.baseItemLevel,
+                      properties: [],
+                      requirements: [],
+                      modifiers:
+                        catalogBase !== 'solar'
+                          ? []
+                          : [
+                              {
+                                id: 'spirit',
+                                text: '+15 to Spirit',
+                                kind: 'implicit',
+                              },
+                            ],
+                      flags: [],
+                    }}
+                  />
+                )}
+              </div>
+              <SessionNotation
+                film={film}
+                cursor={filmState.history.cursor}
+                resources={stashResources}
+                onNavigate={browse}
+                disabled={workbenchBusy}
+              />
+            </div>
           </div>
-        </div>
-        <div
-          id="workbench-panel-history"
-          role="tabpanel"
-          aria-labelledby="workbench-tab-history"
-          hidden={workbenchTab !== 'history'}
-        >
-          <SessionHistoryWorkspace
-            active={view === 'workbench' && workbenchTab === 'history'}
-            history={filmState.history}
-            onImport={(document) => {
-              if (mutationLocked() || filmState.blockedSaving) return null
-              const added = appendDocument(filmState.history, document)
-              if (!commitLibraryHistory(added.history)) return null
-              return added.id
+          <WorkbenchBasePicker
+            id="workbench-base-picker"
+            anchor={baseAnchor}
+            canvas={simulationCanvas}
+            open={leftMenu === 'base'}
+            onOpenChange={(open) => {
+              if (!mutationLocked()) setLeftMenu(open ? 'base' : null)
             }}
-            disabled={workbenchBusy || filmState.blockedSaving}
-            error={filmState.error ? uiText(filmState.error) : ''}
-            onContinue={(id) => {
-              if (mutationLocked()) return
-              restoreFilm(id)
-              setWorkbenchTab('simulation')
-              document.getElementById('workbench-tab-simulation')?.focus()
+            value={baseChoice}
+            onChange={(value) => {
+              if (!mutationLocked()) {
+                if (value !== baseChoice) setJewelRarity('NORMAL')
+                setBaseChoice(value)
+              }
             }}
-            onRename={(id, title) =>
-              commitLibraryHistory(
-                updateFilmMetadata(filmState.history, id, { title }),
-              )
-            }
-            onFavoriteChange={(id, favorite) =>
-              commitLibraryHistory(
-                updateFilmMetadata(filmState.history, id, { favorite }),
-              )
-            }
-            onDelete={deleteSession}
-            {...(lastDeletion
-              ? {
-                  undo: {
-                    title: sessionTitle(lastDeletion.deletion.film, locale),
-                    expiresAt: lastDeletion.expiresAt,
-                    onUndo: undoSessionDeletion,
-                  },
-                }
+            level={baseLevel}
+            onLevelChange={(value) => {
+              if (!mutationLocked()) setBaseLevel(value)
+            }}
+            disabled={workbenchBusy}
+            {...(Object.hasOwn(workbenchJewelBases, baseChoice)
+              ? { selectedRarity: jewelRarity }
               : {})}
+            extraControls={
+              <>
+                {Object.hasOwn(workbenchJewelBases, baseChoice) && (
+                  <>
+                    <label htmlFor="jewel-rarity">{t('ui.rarity')}</label>
+                    <select
+                      id="jewel-rarity"
+                      value={jewelRarity}
+                      disabled={workbenchBusy}
+                      onChange={(e) => {
+                        if (!mutationLocked())
+                          setJewelRarity(
+                            e.target.value as 'NORMAL' | 'MAGIC' | 'RARE',
+                          )
+                      }}
+                    >
+                      <option value="NORMAL">{t('ui.normal')}</option>
+                      <option value="MAGIC">{t('ui.magic')}</option>
+                      <option value="RARE">{t('ui.rare')}</option>
+                    </select>
+                  </>
+                )}
+              </>
+            }
+            onPlace={() => {
+              if (mutationLocked()) return
+              invalidateInput()
+              void startBase(Number(baseLevel), baseChoice, null, jewelRarity)
+              setSelected(null)
+              setLeftMenu(null)
+            }}
           />
+          <dialog
+            ref={dialog}
+            onCancel={(event) => {
+              event.preventDefault()
+              closeInput()
+            }}
+            onClick={(event) => {
+              if (event.target === event.currentTarget) closeInput()
+            }}
+            id="item-input-panel"
+            className="item-input-panel detail-body"
+            aria-label={t('ui.starting_item')}
+            aria-busy={imported.pending}
+          >
+            <div className="item-input-content">
+              <button
+                ref={inputClose}
+                type="button"
+                className="input-close"
+                aria-label={t('ui.close_item_input')}
+                disabled={inputBusy}
+                onClick={closeInput}
+              >
+                ×
+              </button>
+              <div className="input-heading">
+                <h3>{t('ui.starting_item')}</h3>
+                <span>01</span>
+              </div>
+              <div className="text-form">
+                <label htmlFor="item-text">
+                  {t('ui.item_text_copied_from_the_game')}
+                </label>
+                {inputOpen && (
+                  <textarea
+                    id="item-text"
+                    value={draft.text}
+                    disabled={inputBusy}
+                    onCompositionStart={() => {
+                      composing.current = true
+                    }}
+                    onCompositionEnd={() => {
+                      composing.current = false
+                    }}
+                    onChange={(event) => {
+                      if (inputMutationLocked()) return
+                      invalidateInput()
+                      draft.setText(event.target.value)
+                    }}
+                    placeholder={
+                      'Hover over an item and press Ctrl+C\nPaste the copied text here.'
+                    }
+                    aria-invalid={Boolean(imported.error)}
+                    aria-describedby={
+                      imported.error ? 'import-error' : undefined
+                    }
+                  />
+                )}
+                {generatedText !== null && (
+                  <>
+                    <p>{textEditMessages[locale].note}</p>
+                    {draft.textDirty && editContext !== textContext && (
+                      <p role="alert">{textEditMessages[locale].stale}</p>
+                    )}
+                    {editError && <p role="alert">{editError}</p>}
+                    <button
+                      type="button"
+                      disabled={workbenchBusy || editPending}
+                      onClick={applyTextEdit}
+                    >
+                      {textEditMessages[locale].apply}
+                    </button>
+                    <button
+                      type="button"
+                      disabled={workbenchBusy || editPending}
+                      onClick={() => {
+                        invalidateInput()
+                        draft.resetText(generatedText)
+                        setEditContext(textContext)
+                        setEditError('')
+                      }}
+                    >
+                      {textEditMessages[locale].reload}
+                    </button>
+                  </>
+                )}
+                {imported.error && (
+                  <p id="import-error" role="alert">
+                    {imported.error}
+                  </p>
+                )}
+                <button
+                  type="button"
+                  className="primary-action"
+                  onClick={importText}
+                  disabled={workbenchBusy || editPending}
+                >
+                  {imported.pending
+                    ? t('ui.analyzing_item')
+                    : t('ui.analyze_item')}{' '}
+                  <span aria-hidden="true">↗</span>
+                </button>
+              </div>
+            </div>
+          </dialog>
         </div>
       </div>
       <div
+        id="workbench-panel-history"
+        className="workspace-panel stash-panel wb-history-panel"
+        role="tabpanel"
+        aria-labelledby="workspace-history"
+        hidden={view !== 'history'}
+      >
+        <SessionHistoryWorkspace
+          active={view === 'history'}
+          history={filmState.history}
+          onImport={(document) => {
+            if (mutationLocked() || filmState.blockedSaving) return null
+            const added = appendDocument(filmState.history, document)
+            if (!commitLibraryHistory(added.history)) return null
+            return added.id
+          }}
+          disabled={workbenchBusy || filmState.blockedSaving}
+          error={filmState.error ? uiText(filmState.error) : ''}
+          onContinue={(id) => {
+            if (mutationLocked()) return
+            restoreFilm(id)
+            setView('workbench')
+            document.getElementById('workspace-workbench')?.focus()
+          }}
+          onRename={(id, title) =>
+            commitLibraryHistory(
+              updateFilmMetadata(filmState.history, id, { title }),
+            )
+          }
+          onFavoriteChange={(id, favorite) =>
+            commitLibraryHistory(
+              updateFilmMetadata(filmState.history, id, { favorite }),
+            )
+          }
+          onDelete={deleteSession}
+          {...(lastDeletion
+            ? {
+                undo: {
+                  title: sessionTitle(lastDeletion.deletion.film, locale),
+                  expiresAt: lastDeletion.expiresAt,
+                  onUndo: undoSessionDeletion,
+                },
+              }
+            : {})}
+        />
+      </div>
+      <div
         id="panel-support"
+        className="workspace-panel"
         role="tabpanel"
         aria-labelledby="workspace-support"
         hidden={view !== 'support'}

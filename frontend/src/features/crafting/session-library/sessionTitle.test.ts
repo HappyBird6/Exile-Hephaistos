@@ -31,7 +31,7 @@ it.each<[Locale, string]>([
     const record = film()
     const before = JSON.stringify(record)
     expect(sessionTitle(record, locale)).toMatch(
-      new RegExp('\\(' + date.replaceAll('.', '\\.') + '\\)$'),
+      new RegExp('\\(' + date.replaceAll('.', '\\.') + ' .+\\)$'),
     )
     expect(JSON.stringify(record)).toBe(before)
     expect(record.title).toBeUndefined()
@@ -39,7 +39,9 @@ it.each<[Locale, string]>([
 )
 it('uses the item name and preserves manually assigned titles', () => {
   const record = film()
-  expect(sessionTitle(record, 'en')).toBe('Solar Amulet(11/06/2026)')
+  expect(sessionTitle(record, 'en')).toBe(
+    `Solar Amulet(11/06/2026 ${new Intl.DateTimeFormat('en', { hour: '2-digit', minute: '2-digit' }).format(new Date(record.createdAt))})`,
+  )
   expect(sessionTitle({ ...record, title: 'My named craft' }, 'ko')).toBe(
     'My named craft',
   )

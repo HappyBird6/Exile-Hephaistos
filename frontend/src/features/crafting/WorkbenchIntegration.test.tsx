@@ -182,10 +182,9 @@ it('keeps item controls in the simulation and exposes a separate History tab', (
   ).toBeNull()
   expect(document.querySelector('.workbench-session-entry')).toBeNull()
   expect(buttons.nextElementSibling).toHaveClass('bench-item-card')
-  expect(screen.getByRole('tab', { name: 'Simulation' })).toHaveAttribute(
-    'aria-selected',
-    'true',
-  )
+  expect(
+    screen.getByRole('tab', { name: 'Crafting Workbench' }),
+  ).toHaveAttribute('aria-selected', 'true')
   expect(screen.getByRole('tab', { name: 'History' })).toHaveAttribute(
     'aria-selected',
     'false',

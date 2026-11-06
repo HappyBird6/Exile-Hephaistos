@@ -71,29 +71,11 @@
 .craft-header nav span {
   color: #d7bc82;
 }
-.craft-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 34px 0 28px;
-  gap: 16px;
-}
 .craft-kicker {
   color: #9e8960;
   font-size: 10px;
   letter-spacing: 0.18em;
   margin: 0;
-}
-.craft-title h1 {
-  font-size: 30px;
-  letter-spacing: -0.03em;
-  margin: 8px 0 10px;
-  font-weight: 500;
-}
-.craft-title p:last-child {
-  margin: 0;
-  color: #999d92;
-  font-size: 13px;
 }
 .preview-badge {
   display: flex;
@@ -530,9 +512,6 @@
   .workbench-layout {
     grid-template-columns: minmax(0, 1fr);
   }
-  .craft-title {
-    padding: 25px 0;
-  }
   .item-panel {
     width: 100%;
   }
@@ -564,13 +543,6 @@
   }
   .craft-header nav span {
     display: none;
-  }
-  .craft-title h1 {
-    font-size: 25px;
-  }
-  .craft-title p:last-child {
-    max-width: 190px;
-    font-size: 11px;
   }
   .preview-badge {
     font-size: 9px;
@@ -1130,9 +1102,6 @@ dialog.item-input-panel::backdrop {
   .workspace-nav {
     flex-wrap: wrap;
   }
-  .craft-title {
-    flex-wrap: wrap;
-  }
   .bench-bottom {
     grid-template-columns: 1fr;
   }
@@ -1427,30 +1396,6 @@ dialog.item-input-panel::backdrop {
     padding-inline: 12px;
   }
 }
-.workbench-tabs {
-  display: flex;
-  gap: 6px;
-  margin-left: auto;
-  padding: 5px;
-  width: fit-content;
-  flex: none;
-  border: 1px solid #494338;
-  border-radius: 6px;
-  background: #11151b;
-}
-.workbench-tabs > button {
-  min-height: 44px;
-  padding: 10px 24px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  color: #b5b2a8;
-  background: transparent;
-}
-.workbench-tabs > button[aria-selected='true'] {
-  color: #edd6a3;
-  border-color: #74603e;
-  background: #312c23;
-}
 .workbench-film-toolbar {
   display: flex;
   justify-content: flex-end;
@@ -1459,17 +1404,6 @@ dialog.item-input-panel::backdrop {
   margin-top: 8px;
 }
 
-.craft-title {
-  flex-wrap: nowrap;
-}
-@media (max-width: 480px) {
-  .craft-title {
-    gap: 10px;
-  }
-  .craft-title h1 {
-    font-size: 24px;
-  }
-  .workbench-tabs > button {
-    padding: 10px 12px;
-  }
+.workspace-panel {
+  margin-top: 8px;
 }

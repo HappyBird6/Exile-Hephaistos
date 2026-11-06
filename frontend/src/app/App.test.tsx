@@ -75,9 +75,8 @@ describe('Crafting workbench', () => {
       document.querySelector('.workspace-nav'),
     )
     expect(document.querySelector('.craft-page > .workspace-nav')).toBeNull()
-    expect(
-      screen.getByRole('heading', { level: 1, name: 'Crafting workbench' }),
-    ).toBeVisible()
+    expect(document.querySelector('.craft-title')).toBeNull()
+    expect(document.querySelector('.workbench-tabs')).toBeNull()
     expect(
       screen.queryByRole('checkbox', { name: 'Show tooltips' }),
     ).not.toBeInTheDocument()
@@ -89,11 +88,10 @@ describe('Crafting workbench', () => {
     expect(
       screen.queryByRole('button', { name: 'Scroll of Wisdom' }),
     ).not.toBeInTheDocument()
-    expect(screen.getAllByRole('tab')).toHaveLength(11)
-    expect(screen.getByRole('tab', { name: 'Simulation' })).toHaveAttribute(
-      'aria-selected',
-      'true',
-    )
+    expect(screen.getAllByRole('tab')).toHaveLength(10)
+    expect(
+      screen.getByRole('tab', { name: 'Crafting Workbench' }),
+    ).toHaveAttribute('aria-selected', 'true')
     expect(screen.getByRole('tab', { name: 'History' })).toHaveAttribute(
       'aria-selected',
       'false',
@@ -104,6 +102,30 @@ describe('Crafting workbench', () => {
     expect(
       screen.queryByRole('heading', { name: 'Current state' }),
     ).not.toBeInTheDocument()
+  })
+  it('navigates three top-level workspaces and closes the picker while preserving simulation input', () => {
+    show()
+    const nav = document.querySelector('.workspace-nav')!
+    const tabs = [...nav.querySelectorAll<HTMLButtonElement>('[role="tab"]')]
+    expect(tabs.map((tab) => tab.textContent)).toEqual([
+      'Crafting Workbench',
+      'Craft Support',
+      'History',
+    ])
+    const base = screen.getByRole('button', { name: 'Select base' })
+    fireEvent.click(base)
+    fireEvent.keyDown(tabs[0]!, { key: 'End' })
+    expect(tabs[2]).toHaveFocus()
+    expect(screen.queryByRole('dialog')).toBeNull()
+    expect(document.getElementById('workbench-panel-history')).toBeVisible()
+    fireEvent.keyDown(tabs[2]!, { key: 'ArrowRight' })
+    expect(tabs[0]).toHaveFocus()
+    expect(base).toBeVisible()
+    fireEvent.keyDown(tabs[0]!, { key: 'ArrowRight' })
+    expect(tabs[1]).toHaveFocus()
+    fireEvent.keyDown(tabs[1]!, { key: 'Home' })
+    expect(tabs[0]).toHaveFocus()
+    expect(useItemDraft.getState().baseItemLevel).toBe(82)
   })
   it('preserves the item after a use request and clears selection with Escape', () => {
     show()
