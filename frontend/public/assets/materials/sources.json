@@ -1560,13 +1560,11 @@
       "id": "Reaver_Catalyst",
       "name": "Reaver Catalyst",
       "category": "Catalysts",
-      "source": "https://poe2db.tw/us/Catalysts",
+      "source": "https://poe2db.tw/us/Reaver_Catalyst",
       "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Breach/BreachCatalystAttack.webp",
       "image": "/assets/materials/Reaver_Catalyst.webp",
-      "sha256": null,
-      "status": "unavailable",
-      "httpStatus": 403,
-      "failure": "Response status code does not indicate success: 403 (Forbidden)."
+      "sha256": "2238ccac1f25abb4a2b2f2fe9288ba3157a91629b94dee0d1314df6729974b01",
+      "status": "downloaded"
     },
     {
       "id": "Sibilant_Catalyst",

@@ -7,28 +7,77 @@
       "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Abyss/PreservedCranium.webp",
       "image": "/assets/abyss-currency/Preserved_Cranium.webp",
       "sha256": "078d4d8d98a7c838fafc66cb4b1bfb94eefb0142c09e506e94363fee9a01ce17"
-    }
-  ],
-  "unavailable": [
-    {
-      "ids": [
-        "Gnawed_Rib",
-        "Preserved_Rib",
-        "Ancient_Rib",
-        "Gnawed_Jawbone",
-        "Preserved_Jawbone",
-        "Ancient_Jawbone",
-        "Gnawed_Collarbone",
-        "Preserved_Collarbone",
-        "Ancient_Collarbone"
-      ],
-      "reason": "Artwork is not bundled. Use the recorded source identity or a user-supplied original image."
     },
     {
-      "ids": ["Altered_Collarbone"],
+      "id": "Altered_Collarbone",
       "sourceUrl": "https://poe2db.tw/us/Altered_Collarbone",
       "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Breach/BreachDesecration.webp",
-      "reason": "Artwork is not bundled. Use the recorded source identity or a user-supplied original image."
+      "image": "/assets/abyss-currency/Altered_Collarbone.webp",
+      "sha256": "22f4a604589b2357cfc0fac32fc7ac1f0436cd027fa41b5f6e42ad23c1817280"
+    },
+    {
+      "id": "Gnawed_Rib",
+      "sourceUrl": "https://poe2db.tw/us/Gnawed_Rib",
+      "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Abyss/GnawedRibs.webp",
+      "image": "/assets/abyss-currency/Gnawed_Rib.webp",
+      "sha256": "8730c78d9bde18825dfdc6e6533518abecc275772eae422be396df35fe101001"
+    },
+    {
+      "id": "Preserved_Rib",
+      "sourceUrl": "https://poe2db.tw/us/Preserved_Rib",
+      "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Abyss/PreservedRibs.webp",
+      "image": "/assets/abyss-currency/Preserved_Rib.webp",
+      "sha256": "110f68ef1412fdfd3668bc13bf78926cef0d7c14a9a81469fca9e825d34ecc51"
+    },
+    {
+      "id": "Ancient_Rib",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Rib",
+      "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Abyss/AncientRibs.webp",
+      "image": "/assets/abyss-currency/Ancient_Rib.webp",
+      "sha256": "429bdb586269ac7865e3b2201dff7831f73315c711677acc48ed4b07958f3b87"
+    },
+    {
+      "id": "Gnawed_Jawbone",
+      "sourceUrl": "https://poe2db.tw/us/Gnawed_Jawbone",
+      "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Abyss/GnawedJawbone.webp",
+      "image": "/assets/abyss-currency/Gnawed_Jawbone.webp",
+      "sha256": "66af671a5cc62509c3efdd5242625fac9a73436c26b3e54a471b4c68cc5bdbcd"
+    },
+    {
+      "id": "Preserved_Jawbone",
+      "sourceUrl": "https://poe2db.tw/us/Preserved_Jawbone",
+      "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Abyss/PreservedJawbone.webp",
+      "image": "/assets/abyss-currency/Preserved_Jawbone.webp",
+      "sha256": "a0f7bad11615136b968b6e30bc42225d5cc1eb1b236f9c99e899662e5b58870c"
+    },
+    {
+      "id": "Ancient_Jawbone",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Jawbone",
+      "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Abyss/AncientJawbone.webp",
+      "image": "/assets/abyss-currency/Ancient_Jawbone.webp",
+      "sha256": "43a15455db615c67096cd1c7cdfdce7e2e204342816c49fee9be76ddbadd6856"
+    },
+    {
+      "id": "Gnawed_Collarbone",
+      "sourceUrl": "https://poe2db.tw/us/Gnawed_Collarbone",
+      "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Abyss/GnawedClavicle.webp",
+      "image": "/assets/abyss-currency/Gnawed_Collarbone.webp",
+      "sha256": "01e397e032f4c86b02886a3271d56c2fd9aa4e02f1ffe478958b80d9beab6d20"
+    },
+    {
+      "id": "Preserved_Collarbone",
+      "sourceUrl": "https://poe2db.tw/us/Preserved_Collarbone",
+      "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Abyss/PreservedCalvicle.webp",
+      "image": "/assets/abyss-currency/Preserved_Collarbone.webp",
+      "sha256": "fa521b5125d1414a36d5a7331b2e1ff6ec6c81d2345c964926d72a955a8af79e"
+    },
+    {
+      "id": "Ancient_Collarbone",
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Collarbone",
+      "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Abyss/AncientClavicle.webp",
+      "image": "/assets/abyss-currency/Ancient_Collarbone.webp",
+      "sha256": "83e191d527083180c3c8914885c9e77d544606d764491e6dc82d0389f7634608"
     }
-  ]
+  ],
+  "unavailable": []
 }

@@ -13,7 +13,8 @@ import {
   FeedbackTooltipProvider,
   FeedbackTooltipOutlet,
 } from './FeedbackTooltipProvider'
-import { MaterialTooltip } from '../MaterialTooltip'
+import { MaterialTooltip, MaterialDescription } from '../MaterialTooltip'
+import { boneNames, desecrationOmenIds } from '../desecrationCurrency'
 import { CurrencyImage } from '../CurrencyImage'
 import { ItemCard } from '../ItemCard'
 import { BasePreviewPanel } from '../base-picker/BasePreviewPanel'
@@ -249,3 +250,30 @@ it('preserves workspace inputs and keyboard focus without routing descriptions i
   mounted.unmount()
   client.clear()
 })
+
+it.each(locales)(
+  'links every desecration currency and related omen to its own item page in %s',
+  (locale) => {
+    const prefixes = {
+      en: 'us',
+      ko: 'kr',
+      'zh-CN': 'cn',
+      'zh-TW': 'tw',
+      ja: 'jp',
+      es: 'sp',
+    }
+    setLocale(locale)
+    try {
+      for (const id of [...Object.keys(boneNames), ...desecrationOmenIds]) {
+        const page = render(<MaterialDescription materialId={id} />)
+        expect(screen.getByRole('link', { name: 'PoE2DB' })).toHaveAttribute(
+          'href',
+          `https://poe2db.tw/${prefixes[locale]}/${id}`,
+        )
+        page.unmount()
+      }
+    } finally {
+      setLocale('en')
+    }
+  },
+)

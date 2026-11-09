@@ -3005,7 +3005,7 @@
         "Item level at most 64."
       ],
       "itemKey": "AbyssalBenchTicketWeaponLow",
-      "sourceUrl": "https://poe2db.tw/us/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/us/Gnawed_Jawbone"
     },
     "Preserved_Jawbone": {
       "name": "Preserved Jawbone",
@@ -3013,7 +3013,7 @@
         "Rare weapon or quiver: add an unrevealed desecrated modifier."
       ],
       "itemKey": "AbyssalBenchTicketWeapon",
-      "sourceUrl": "https://poe2db.tw/us/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/us/Preserved_Jawbone"
     },
     "Ancient_Jawbone": {
       "name": "Ancient Jawbone",
@@ -3022,7 +3022,7 @@
         "Revealed modifier level at least 40."
       ],
       "itemKey": "AbyssalBenchTicketWeaponHigh",
-      "sourceUrl": "https://poe2db.tw/us/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Jawbone"
     },
     "Gnawed_Rib": {
       "name": "Gnawed Rib",
@@ -3031,13 +3031,13 @@
         "Item level at most 64."
       ],
       "itemKey": "AbyssalBenchTicketArmourLow",
-      "sourceUrl": "https://poe2db.tw/us/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/us/Gnawed_Rib"
     },
     "Preserved_Rib": {
       "name": "Preserved Rib",
       "lines": ["Rare armour: add an unrevealed desecrated modifier."],
       "itemKey": "AbyssalBenchTicketArmour",
-      "sourceUrl": "https://poe2db.tw/us/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/us/Preserved_Rib"
     },
     "Ancient_Rib": {
       "name": "Ancient Rib",
@@ -3046,7 +3046,7 @@
         "Revealed modifier level at least 40."
       ],
       "itemKey": "AbyssalBenchTicketArmourHigh",
-      "sourceUrl": "https://poe2db.tw/us/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Rib"
     },
     "Gnawed_Collarbone": {
       "name": "Gnawed Collarbone",
@@ -3055,7 +3055,7 @@
         "Item level at most 64."
       ],
       "itemKey": "AbyssalBenchTicketJewelleryLow",
-      "sourceUrl": "https://poe2db.tw/us/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/us/Gnawed_Collarbone"
     },
     "Preserved_Collarbone": {
       "name": "Preserved Collarbone",
@@ -3063,7 +3063,7 @@
         "Rare amulet, ring or belt: add an unrevealed desecrated modifier."
       ],
       "itemKey": "AbyssalBenchTicketJewellery",
-      "sourceUrl": "https://poe2db.tw/us/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/us/Preserved_Collarbone"
     },
     "Ancient_Collarbone": {
       "name": "Ancient Collarbone",
@@ -3072,7 +3072,7 @@
         "Revealed modifier level at least 40."
       ],
       "itemKey": "AbyssalBenchTicketJewelleryHigh",
-      "sourceUrl": "https://poe2db.tw/us/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/us/Ancient_Collarbone"
     },
     "Preserved_Cranium": {
       "name": "Preserved Cranium",
@@ -9458,13 +9458,13 @@
         "아이템 레벨 64 이하."
       ],
       "itemKey": "AbyssalBenchTicketWeaponLow",
-      "sourceUrl": "https://poe2db.tw/kr/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/kr/Gnawed_Jawbone"
     },
     "Preserved_Jawbone": {
       "name": "보존된 턱뼈",
       "lines": ["희귀 무기·화살통에 미공개 훼손 속성을 추가합니다."],
       "itemKey": "AbyssalBenchTicketWeapon",
-      "sourceUrl": "https://poe2db.tw/kr/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/kr/Preserved_Jawbone"
     },
     "Ancient_Jawbone": {
       "name": "고대 턱뼈",
@@ -9473,7 +9473,7 @@
         "드러낸 속성의 레벨 40 이상."
       ],
       "itemKey": "AbyssalBenchTicketWeaponHigh",
-      "sourceUrl": "https://poe2db.tw/kr/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Jawbone"
     },
     "Gnawed_Rib": {
       "name": "갉힌 갈비뼈",
@@ -9482,13 +9482,13 @@
         "아이템 레벨 64 이하."
       ],
       "itemKey": "AbyssalBenchTicketArmourLow",
-      "sourceUrl": "https://poe2db.tw/kr/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/kr/Gnawed_Rib"
     },
     "Preserved_Rib": {
       "name": "보존된 갈비뼈",
       "lines": ["희귀 방어구에 미공개 훼손 속성을 추가합니다."],
       "itemKey": "AbyssalBenchTicketArmour",
-      "sourceUrl": "https://poe2db.tw/kr/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/kr/Preserved_Rib"
     },
     "Ancient_Rib": {
       "name": "고대 갈비뼈",
@@ -9497,7 +9497,7 @@
         "드러낸 속성의 레벨 40 이상."
       ],
       "itemKey": "AbyssalBenchTicketArmourHigh",
-      "sourceUrl": "https://poe2db.tw/kr/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Rib"
     },
     "Gnawed_Collarbone": {
       "name": "갉힌 빗장뼈",
@@ -9506,13 +9506,13 @@
         "아이템 레벨 64 이하."
       ],
       "itemKey": "AbyssalBenchTicketJewelleryLow",
-      "sourceUrl": "https://poe2db.tw/kr/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/kr/Gnawed_Collarbone"
     },
     "Preserved_Collarbone": {
       "name": "보존된 빗장뼈",
       "lines": ["희귀 목걸이·반지·허리띠에 미공개 훼손 속성을 추가합니다."],
       "itemKey": "AbyssalBenchTicketJewellery",
-      "sourceUrl": "https://poe2db.tw/kr/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/kr/Preserved_Collarbone"
     },
     "Ancient_Collarbone": {
       "name": "고대 빗장뼈",
@@ -9521,7 +9521,7 @@
         "드러낸 속성의 레벨 40 이상."
       ],
       "itemKey": "AbyssalBenchTicketJewelleryHigh",
-      "sourceUrl": "https://poe2db.tw/kr/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/kr/Ancient_Collarbone"
     },
     "Preserved_Cranium": {
       "name": "보존된 두개골",
@@ -15720,13 +15720,13 @@
       "name": "啃噬颚骨",
       "lines": ["为稀有武器或箭袋添加未揭示的渎灵词缀。", "物品等级不超过64。"],
       "itemKey": "AbyssalBenchTicketWeaponLow",
-      "sourceUrl": "https://poe2db.tw/cn/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/cn/Gnawed_Jawbone"
     },
     "Preserved_Jawbone": {
       "name": "遗存颚骨",
       "lines": ["为稀有武器或箭袋添加未揭示的渎灵词缀。"],
       "itemKey": "AbyssalBenchTicketWeapon",
-      "sourceUrl": "https://poe2db.tw/cn/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/cn/Preserved_Jawbone"
     },
     "Ancient_Jawbone": {
       "name": "远古颚骨",
@@ -15735,25 +15735,25 @@
         "揭示的词缀等级至少40。"
       ],
       "itemKey": "AbyssalBenchTicketWeaponHigh",
-      "sourceUrl": "https://poe2db.tw/cn/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/cn/Ancient_Jawbone"
     },
     "Gnawed_Rib": {
       "name": "啃噬肋骨",
       "lines": ["为稀有护甲添加未揭示的渎灵词缀。", "物品等级不超过64。"],
       "itemKey": "AbyssalBenchTicketArmourLow",
-      "sourceUrl": "https://poe2db.tw/cn/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/cn/Gnawed_Rib"
     },
     "Preserved_Rib": {
       "name": "遗存肋骨",
       "lines": ["为稀有护甲添加未揭示的渎灵词缀。"],
       "itemKey": "AbyssalBenchTicketArmour",
-      "sourceUrl": "https://poe2db.tw/cn/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/cn/Preserved_Rib"
     },
     "Ancient_Rib": {
       "name": "远古肋骨",
       "lines": ["为稀有护甲添加未揭示的渎灵词缀。", "揭示的词缀等级至少40。"],
       "itemKey": "AbyssalBenchTicketArmourHigh",
-      "sourceUrl": "https://poe2db.tw/cn/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/cn/Ancient_Rib"
     },
     "Gnawed_Collarbone": {
       "name": "啃噬锁骨",
@@ -15762,13 +15762,13 @@
         "物品等级不超过64。"
       ],
       "itemKey": "AbyssalBenchTicketJewelleryLow",
-      "sourceUrl": "https://poe2db.tw/cn/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/cn/Gnawed_Collarbone"
     },
     "Preserved_Collarbone": {
       "name": "遗存锁骨",
       "lines": ["为稀有项链、戒指或腰带添加未揭示的渎灵词缀。"],
       "itemKey": "AbyssalBenchTicketJewellery",
-      "sourceUrl": "https://poe2db.tw/cn/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/cn/Preserved_Collarbone"
     },
     "Ancient_Collarbone": {
       "name": "远古锁骨",
@@ -15777,7 +15777,7 @@
         "揭示的词缀等级至少40。"
       ],
       "itemKey": "AbyssalBenchTicketJewelleryHigh",
-      "sourceUrl": "https://poe2db.tw/cn/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/cn/Ancient_Collarbone"
     },
     "Preserved_Cranium": {
       "name": "遗存头骨",
@@ -21916,13 +21916,13 @@
       "name": "破碎的顎骨",
       "lines": ["為稀有武器或箭袋增加未揭露的褻瀆詞綴。", "物品等級不超過64。"],
       "itemKey": "AbyssalBenchTicketWeaponLow",
-      "sourceUrl": "https://poe2db.tw/tw/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/tw/Gnawed_Jawbone"
     },
     "Preserved_Jawbone": {
       "name": "保存良好的顎骨",
       "lines": ["為稀有武器或箭袋增加未揭露的褻瀆詞綴。"],
       "itemKey": "AbyssalBenchTicketWeapon",
-      "sourceUrl": "https://poe2db.tw/tw/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/tw/Preserved_Jawbone"
     },
     "Ancient_Jawbone": {
       "name": "古老的顎骨",
@@ -21931,25 +21931,25 @@
         "揭露的詞綴等級至少40。"
       ],
       "itemKey": "AbyssalBenchTicketWeaponHigh",
-      "sourceUrl": "https://poe2db.tw/tw/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/tw/Ancient_Jawbone"
     },
     "Gnawed_Rib": {
       "name": "破碎的肋骨",
       "lines": ["為稀有護甲增加未揭露的褻瀆詞綴。", "物品等級不超過64。"],
       "itemKey": "AbyssalBenchTicketArmourLow",
-      "sourceUrl": "https://poe2db.tw/tw/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/tw/Gnawed_Rib"
     },
     "Preserved_Rib": {
       "name": "保存良好的肋骨",
       "lines": ["為稀有護甲增加未揭露的褻瀆詞綴。"],
       "itemKey": "AbyssalBenchTicketArmour",
-      "sourceUrl": "https://poe2db.tw/tw/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/tw/Preserved_Rib"
     },
     "Ancient_Rib": {
       "name": "古老的肋骨",
       "lines": ["為稀有護甲增加未揭露的褻瀆詞綴。", "揭露的詞綴等級至少40。"],
       "itemKey": "AbyssalBenchTicketArmourHigh",
-      "sourceUrl": "https://poe2db.tw/tw/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/tw/Ancient_Rib"
     },
     "Gnawed_Collarbone": {
       "name": "破碎的鎖骨",
@@ -21958,13 +21958,13 @@
         "物品等級不超過64。"
       ],
       "itemKey": "AbyssalBenchTicketJewelleryLow",
-      "sourceUrl": "https://poe2db.tw/tw/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/tw/Gnawed_Collarbone"
     },
     "Preserved_Collarbone": {
       "name": "保存良好的鎖骨",
       "lines": ["為稀有項鍊、戒指或腰帶增加未揭露的褻瀆詞綴。"],
       "itemKey": "AbyssalBenchTicketJewellery",
-      "sourceUrl": "https://poe2db.tw/tw/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/tw/Preserved_Collarbone"
     },
     "Ancient_Collarbone": {
       "name": "古老的鎖骨",
@@ -21973,7 +21973,7 @@
         "揭露的詞綴等級至少40。"
       ],
       "itemKey": "AbyssalBenchTicketJewelleryHigh",
-      "sourceUrl": "https://poe2db.tw/tw/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/tw/Ancient_Collarbone"
     },
     "Preserved_Cranium": {
       "name": "保存良好的顱骨",
@@ -28219,13 +28219,13 @@
         "アイテムレベル64以下。"
       ],
       "itemKey": "AbyssalBenchTicketWeaponLow",
-      "sourceUrl": "https://poe2db.tw/jp/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/jp/Gnawed_Jawbone"
     },
     "Preserved_Jawbone": {
       "name": "保存された顎骨",
       "lines": ["レアの武器か矢筒に未開示の冒涜モッドを追加。"],
       "itemKey": "AbyssalBenchTicketWeapon",
-      "sourceUrl": "https://poe2db.tw/jp/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/jp/Preserved_Jawbone"
     },
     "Ancient_Jawbone": {
       "name": "古代の顎骨",
@@ -28234,7 +28234,7 @@
         "開示するモッドのレベル40以上。"
       ],
       "itemKey": "AbyssalBenchTicketWeaponHigh",
-      "sourceUrl": "https://poe2db.tw/jp/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/jp/Ancient_Jawbone"
     },
     "Gnawed_Rib": {
       "name": "噛み切られた肋骨",
@@ -28243,13 +28243,13 @@
         "アイテムレベル64以下。"
       ],
       "itemKey": "AbyssalBenchTicketArmourLow",
-      "sourceUrl": "https://poe2db.tw/jp/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/jp/Gnawed_Rib"
     },
     "Preserved_Rib": {
       "name": "保存された肋骨",
       "lines": ["レアの防具に未開示の冒涜モッドを追加。"],
       "itemKey": "AbyssalBenchTicketArmour",
-      "sourceUrl": "https://poe2db.tw/jp/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/jp/Preserved_Rib"
     },
     "Ancient_Rib": {
       "name": "古代の肋骨",
@@ -28258,7 +28258,7 @@
         "開示するモッドのレベル40以上。"
       ],
       "itemKey": "AbyssalBenchTicketArmourHigh",
-      "sourceUrl": "https://poe2db.tw/jp/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/jp/Ancient_Rib"
     },
     "Gnawed_Collarbone": {
       "name": "噛み切られた鎖骨",
@@ -28267,13 +28267,13 @@
         "アイテムレベル64以下。"
       ],
       "itemKey": "AbyssalBenchTicketJewelleryLow",
-      "sourceUrl": "https://poe2db.tw/jp/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/jp/Gnawed_Collarbone"
     },
     "Preserved_Collarbone": {
       "name": "保存された鎖骨",
       "lines": ["レアのアミュレット、指輪かベルトに未開示の冒涜モッドを追加。"],
       "itemKey": "AbyssalBenchTicketJewellery",
-      "sourceUrl": "https://poe2db.tw/jp/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/jp/Preserved_Collarbone"
     },
     "Ancient_Collarbone": {
       "name": "古代の鎖骨",
@@ -28282,7 +28282,7 @@
         "開示するモッドのレベル40以上。"
       ],
       "itemKey": "AbyssalBenchTicketJewelleryHigh",
-      "sourceUrl": "https://poe2db.tw/jp/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/jp/Ancient_Collarbone"
     },
     "Preserved_Cranium": {
       "name": "保存された頭蓋骨",
@@ -34558,7 +34558,7 @@
         "Nivel del objeto: hasta 64."
       ],
       "itemKey": "AbyssalBenchTicketWeaponLow",
-      "sourceUrl": "https://poe2db.tw/sp/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/sp/Gnawed_Jawbone"
     },
     "Preserved_Jawbone": {
       "name": "Mandíbula preservada",
@@ -34566,7 +34566,7 @@
         "Añade un modificador profanado sin revelar a un arma o carcaj raro."
       ],
       "itemKey": "AbyssalBenchTicketWeapon",
-      "sourceUrl": "https://poe2db.tw/sp/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/sp/Preserved_Jawbone"
     },
     "Ancient_Jawbone": {
       "name": "Mandíbula antigua",
@@ -34575,7 +34575,7 @@
         "Nivel del modificador revelado: al menos 40."
       ],
       "itemKey": "AbyssalBenchTicketWeaponHigh",
-      "sourceUrl": "https://poe2db.tw/sp/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/sp/Ancient_Jawbone"
     },
     "Gnawed_Rib": {
       "name": "Costilla roída",
@@ -34584,7 +34584,7 @@
         "Nivel del objeto: hasta 64."
       ],
       "itemKey": "AbyssalBenchTicketArmourLow",
-      "sourceUrl": "https://poe2db.tw/sp/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/sp/Gnawed_Rib"
     },
     "Preserved_Rib": {
       "name": "Costilla preservada",
@@ -34592,7 +34592,7 @@
         "Añade un modificador profanado sin revelar a una armadura rara."
       ],
       "itemKey": "AbyssalBenchTicketArmour",
-      "sourceUrl": "https://poe2db.tw/sp/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/sp/Preserved_Rib"
     },
     "Ancient_Rib": {
       "name": "Costilla antigua",
@@ -34601,7 +34601,7 @@
         "Nivel del modificador revelado: al menos 40."
       ],
       "itemKey": "AbyssalBenchTicketArmourHigh",
-      "sourceUrl": "https://poe2db.tw/sp/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/sp/Ancient_Rib"
     },
     "Gnawed_Collarbone": {
       "name": "Clavícula roída",
@@ -34610,7 +34610,7 @@
         "Nivel del objeto: hasta 64."
       ],
       "itemKey": "AbyssalBenchTicketJewelleryLow",
-      "sourceUrl": "https://poe2db.tw/sp/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/sp/Gnawed_Collarbone"
     },
     "Preserved_Collarbone": {
       "name": "Clavícula preservada",
@@ -34618,7 +34618,7 @@
         "Añade un modificador profanado sin revelar a un amuleto, anillo o cinturón raro."
       ],
       "itemKey": "AbyssalBenchTicketJewellery",
-      "sourceUrl": "https://poe2db.tw/sp/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/sp/Preserved_Collarbone"
     },
     "Ancient_Collarbone": {
       "name": "Clavícula antigua",
@@ -34627,7 +34627,7 @@
         "Nivel del modificador revelado: al menos 40."
       ],
       "itemKey": "AbyssalBenchTicketJewelleryHigh",
-      "sourceUrl": "https://poe2db.tw/sp/Desecrated_Modifiers"
+      "sourceUrl": "https://poe2db.tw/sp/Ancient_Collarbone"
     },
     "Preserved_Cranium": {
       "name": "Cráneo preservado",
