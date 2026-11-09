@@ -14,7 +14,7 @@ export function SessionOverviewPage({ id }: { id: string }) {
   const { locale, t } = useI18n()
   const text = historyMessages[locale]
   const catalogsLoading = useIsFetching({ queryKey: ['history-catalog'] })
-  const [error, setError] = useState('')
+  const [error, setError] = useState(false)
   const [busy, setBusy] = useState(false)
   const root = useRef<HTMLDivElement>(null)
   const data = useQuery({
@@ -39,11 +39,11 @@ export function SessionOverviewPage({ id }: { id: string }) {
   }
   async function action(run: () => Promise<void> | void) {
     setBusy(true)
-    setError('')
+    setError(false)
     try {
       await run()
     } catch {
-      setError(text.error)
+      setError(true)
     } finally {
       setBusy(false)
     }
@@ -100,7 +100,7 @@ export function SessionOverviewPage({ id }: { id: string }) {
           </span>
         )}
       </div>
-      {error && <p role="alert">{error}</p>}
+      {error && <p role="alert">{text.error}</p>}
       {data.isError && <p role="alert">{text.error}</p>}
       {!film && !data.isFetching && <p>{text.missing}</p>}
       {film && (

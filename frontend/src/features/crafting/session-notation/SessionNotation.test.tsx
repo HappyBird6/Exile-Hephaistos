@@ -497,3 +497,17 @@ it('retains separate omen and currency hover tooltips inside a clickable step', 
   fireEvent.click(screen.getByRole('button', { name: 'Step 1' }))
   expect(onNavigate).toHaveBeenCalledWith(1)
 })
+
+it.each(locales)('localizes the crafting record heading in %s', (locale) => {
+  const headings = {
+    en: 'History',
+    ko: '제작 기록',
+    'zh-CN': '制作记录',
+    'zh-TW': '製作紀錄',
+    ja: '製作履歴',
+    es: 'Historial',
+  }
+  setLocale(locale)
+  render(<SessionNotation film={undefined} cursor={0} resources={resources} />)
+  expect(screen.getByRole('heading', { name: headings[locale] })).toBeVisible()
+})

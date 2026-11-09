@@ -1,11 +1,12 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { expect, it, vi } from 'vitest'
 import { setLocale } from '../../../shared/i18n/i18n'
 import { initialFixture } from '../../../shared/test/craftingFixtures'
 import { twoSteps } from '../session-notation/fixtures.test-support'
 import { historyStorageKey, LocalFilmRepository } from '../workbenchHistory'
 import { documentFor } from '../session-history/transfer'
+import { historyMessages } from '../session-history/messages'
 import { SessionImport } from './SessionImport'
 
 async function example(save = true) {
@@ -85,4 +86,17 @@ it('rejects an invalid file without modifying existing sessions', async () => {
   await waitFor(() => expect(screen.getByRole('alert')).toBeVisible())
   expect(onImport).not.toHaveBeenCalled()
   expect(localStorage.getItem(historyStorageKey)).toBe(saved)
+})
+
+it('updates an existing import error when the display language changes', async () => {
+  const { onImport } = await example()
+  choose('{"format":"invalid"}')
+  await waitFor(() =>
+    expect(screen.getByRole('alert')).toHaveTextContent(
+      historyMessages.en.error,
+    ),
+  )
+  act(() => setLocale('ko'))
+  expect(screen.getByRole('alert')).toHaveTextContent(historyMessages.ko.error)
+  expect(onImport).not.toHaveBeenCalled()
 })

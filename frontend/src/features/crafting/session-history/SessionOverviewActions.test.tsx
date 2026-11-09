@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import {
+  act,
   cleanup,
   fireEvent,
   render,
@@ -14,6 +15,7 @@ import { historyStorageKey, LocalFilmRepository } from '../workbenchHistory'
 import { SessionOverviewPage } from './SessionOverviewPage'
 import { snapshotPages } from './snapshot'
 import { saveBlob } from './transfer'
+import { historyMessages } from './messages'
 
 vi.mock('./snapshot', () => ({ snapshotPages: vi.fn() }))
 vi.mock('./transfer', async (original) => ({
@@ -90,4 +92,20 @@ it('does not request server snapshots for a missing local session', async () => 
     screen.getByRole('button', { name: 'Save PNG snapshots' }),
   ).toBeDisabled()
   expect(request).not.toHaveBeenCalled()
+})
+
+it('updates an existing snapshot error when the language changes', async () => {
+  const { saved } = await example()
+  vi.mocked(snapshotPages).mockRejectedValue(Error('capture failed'))
+  fireEvent.click(
+    screen.getByRole('button', { name: historyMessages.en.snapshot }),
+  )
+  await waitFor(() =>
+    expect(screen.getByRole('alert')).toHaveTextContent(
+      historyMessages.en.error,
+    ),
+  )
+  act(() => setLocale('ko'))
+  expect(screen.getByRole('alert')).toHaveTextContent(historyMessages.ko.error)
+  expect(localStorage.getItem(historyStorageKey)).toBe(saved)
 })

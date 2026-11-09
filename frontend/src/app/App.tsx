@@ -6,7 +6,10 @@ import { LocaleSelector } from '../shared/i18n/LocaleSelector'
 import '../features/crafting/crafting.css'
 
 export function App() {
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
+  useEffect(() => {
+    document.documentElement.lang = locale
+  }, [locale])
   useEffect(() => {
     if (window.location.pathname === '/admin/crawling') {
       window.history.replaceState(null, '', '/admin')

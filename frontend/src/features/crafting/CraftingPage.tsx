@@ -1259,7 +1259,10 @@ export function CraftingPage() {
       }
     }
   }
-  const [editError, setEditError] = useState('')
+  const [editError, setEditError] = useState<{
+    kind: 'stale' | 'blocked'
+    issues?: string[]
+  } | null>(null)
   const [editContext, setEditContext] = useState<string | null>(null)
   const composing = useRef(false)
   useEffect(() => () => editRequest.current?.abort(), [])
@@ -1280,13 +1283,13 @@ export function CraftingPage() {
       initial.data.rulesetIdentity,
     ])
     if (editContext !== context) {
-      setEditError(textEditMessages[locale].stale)
+      setEditError({ kind: 'stale' })
       return
     }
     const request = new AbortController()
     editRequest.current = request
     setEditPending(true)
-    setEditError('')
+    setEditError(null)
     const text = draft.text
     const generation = inputRequestGeneration.current
     const requestLocale = getLocale()
@@ -1321,11 +1324,10 @@ export function CraftingPage() {
         !result.state ||
         !verifiedHistoryState(result.state, initialData)
       ) {
-        setEditError(
-          textEditMessages[locale].blocked +
-            ' ' +
-            result.issues.map((i) => i.message).join(' '),
-        )
+        setEditError({
+          kind: 'blocked',
+          issues: result.issues.map((i) => i.message),
+        })
         return
       }
       if (
@@ -1349,8 +1351,7 @@ export function CraftingPage() {
       setInputOpen(false)
       ;(inputOpener.current ?? inputToggle.current)?.focus()
     } catch {
-      if (!request.signal.aborted)
-        setEditError(textEditMessages[locale].blocked)
+      if (!request.signal.aborted) setEditError({ kind: 'blocked' })
     } finally {
       if (editRequest.current === request) {
         editRequest.current = null
@@ -1427,9 +1428,7 @@ export function CraftingPage() {
           !result.state ||
           !verifiedHistoryState(result.state, initial.data))
       )
-        throw new Error(
-          'The item uses another catalog snapshot or base. Please reload the catalog.',
-        )
+        throw new Error(t('error.catalog_mismatch'))
       client.setQueryData(mappingKey, result)
       if (result.mapped && result.state)
         saveFilms(
@@ -1450,12 +1449,14 @@ export function CraftingPage() {
                 ? 'notice.resolve_augments'
                 : 'notice.import_ready',
             )
-          : 'Crafting mapping is blocked. The original text and unresolved lines are preserved.',
+          : t('notice.mapping_blocked'),
       )
     } catch (error) {
       if (!controller.signal.aborted)
         setAnnouncement(
-          error instanceof Error ? error.message : 'Could not map this item.',
+          error instanceof Error
+            ? serviceText(error.message)
+            : t('error.mapping'),
         )
     } finally {
       if (applyingRequest.current === controller) {
@@ -2120,7 +2121,7 @@ export function CraftingPage() {
                         if (mutationLocked()) return
                         inputOpener.current = event.currentTarget
                         if (!draft.textDirty) setEditContext(textContext)
-                        setEditError('')
+                        setEditError(null)
                         setInputOpen((open) => !open)
                       }}
                     >
@@ -2363,8 +2364,10 @@ export function CraftingPage() {
                 {mapping.data?.issues.map((issue, index) => (
                   <p key={index}>
                     {' '}
-                    {t('ui.line')} {issue.lineNumber || 'item'}:{' '}
-                    <ServiceMessage text={issue.message} />
+                    {issue.lineNumber
+                      ? `${t('ui.line')} ${issue.lineNumber}`
+                      : t('ui.item')}
+                    : <ServiceMessage text={issue.message} />
                   </p>
                 ))}
                 {initial.isError && (
@@ -2675,9 +2678,7 @@ export function CraftingPage() {
                       invalidateInput()
                       draft.setText(event.target.value)
                     }}
-                    placeholder={
-                      'Hover over an item and press Ctrl+C\nPaste the copied text here.'
-                    }
+                    placeholder={t('input.placeholder')}
                     aria-invalid={Boolean(imported.error)}
                     aria-describedby={
                       imported.error ? 'import-error' : undefined
@@ -2690,7 +2691,14 @@ export function CraftingPage() {
                     {draft.textDirty && editContext !== textContext && (
                       <p role="alert">{textEditMessages[locale].stale}</p>
                     )}
-                    {editError && <p role="alert">{editError}</p>}
+                    {editError && (
+                      <p role="alert">
+                        {textEditMessages[locale][editError.kind]}{' '}
+                        {editError.issues
+                          ?.map((message) => serviceText(message))
+                          .join(' ')}
+                      </p>
+                    )}
                     <button
                       type="button"
                       disabled={workbenchBusy || editPending}
@@ -2705,7 +2713,7 @@ export function CraftingPage() {
                         invalidateInput()
                         draft.resetText(generatedText)
                         setEditContext(textContext)
-                        setEditError('')
+                        setEditError(null)
                       }}
                     >
                       {textEditMessages[locale].reload}
@@ -2812,7 +2820,7 @@ export function CraftingPage() {
         <CraftSupport active={view === 'support'} />
       </div>
       <span className="sr-only" role="status">
-        {imported.pending ? 'Analyzing item…' : announcement}
+        {imported.pending ? t('ui.analyzing_item') : announcement}
       </span>
       <footer className="craft-footer">
         <span>

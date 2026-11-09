@@ -271,7 +271,7 @@ describe('production goal connection', () => {
     const mock = mockFetch()
     setup(null)
     expect(
-      await screen.findByText(/Actual rolls are unavailable/),
+      await screen.findByText('Select a starting item to evaluate its values.'),
     ).toBeInTheDocument()
     expect(
       screen.queryByRole('button', { name: 'Evaluate current item' }),

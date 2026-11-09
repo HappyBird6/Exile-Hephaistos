@@ -37,10 +37,10 @@ export function SessionLibrary({
   const { locale, t } = useI18n()
   const text = sessionLibraryMessages[locale]
   const transfer = historyMessages[locale]
-  const [error, setError] = useState('')
+  const [error, setError] = useState(false)
   return (
     <div className="wb-session-library">
-      {error && <p role="alert">{error}</p>}
+      {error && <p role="alert">{transfer.error}</p>}
       {!history.films.some((film) => !favoritesOnly || film.favorite) && (
         <p>{favoritesOnly ? text.emptyFavorites : text.empty}</p>
       )}
@@ -114,7 +114,7 @@ export function SessionLibrary({
                   type="button"
                   aria-label={`${transfer.export}: ${title}`}
                   onClick={() => {
-                    setError('')
+                    setError(false)
                     try {
                       const raw = JSON.stringify(documentFor(film), null, 2)
                       decodeDocument(raw)
@@ -123,7 +123,7 @@ export function SessionLibrary({
                         'session.json',
                       )
                     } catch {
-                      setError(transfer.error)
+                      setError(true)
                     }
                   }}
                 >

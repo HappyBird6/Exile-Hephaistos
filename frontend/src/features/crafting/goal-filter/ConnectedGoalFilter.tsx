@@ -21,7 +21,7 @@ import { GoalFilterPanel } from './GoalFilterPanel'
 import type { GoalFilterLanguage } from './i18n'
 import type { Catalog, Context, GoalFilter } from './types'
 import { startBases } from './startItem'
-import { useI18n } from '../../../shared/i18n/i18n'
+import { useI18n, translate } from '../../../shared/i18n/i18n'
 import { goalFilterMessages } from './i18n'
 
 const numericInputMessages = {
@@ -134,7 +134,9 @@ export function ConnectedGoalFilter({
           ? goalFilterMessages[language].error
           : goalFilterMessages[language].loading}{' '}
         {catalog.isError && (
-          <button onClick={() => void catalog.refetch()}>Retry</button>
+          <button onClick={() => void catalog.refetch()}>
+            {translate('ui.retry', {}, language)}
+          </button>
         )}
       </p>
     )
@@ -163,7 +165,9 @@ export function ConnectedGoalFilter({
           {inventory.isError && (
             <p role="alert">
               {'Base inventory unavailable.'}{' '}
-              <button onClick={() => void inventory.refetch()}>Retry</button>
+              <button onClick={() => void inventory.refetch()}>
+                {translate('ui.retry', {}, language)}
+              </button>
             </p>
           )}
           {baseKey !== 'support' && (
@@ -178,7 +182,9 @@ export function ConnectedGoalFilter({
       {compact && inventory.isError && (
         <p role="alert">
           Base inventory unavailable.{' '}
-          <button onClick={() => void inventory.refetch()}>Retry</button>
+          <button onClick={() => void inventory.refetch()}>
+            {translate('ui.retry', {}, language)}
+          </button>
         </p>
       )}
       <ConnectedEditor

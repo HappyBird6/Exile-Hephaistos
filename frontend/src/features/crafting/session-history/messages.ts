@@ -41,7 +41,7 @@ export const historyMessages: Record<Locale, Copy> = {
     initial: '최초 상태',
     ready: '저장했습니다',
     count: '개 상태',
-    rules: 'Ruleset',
+    rules: '규칙 버전',
     download: 'PNG 다운로드',
   },
   'zh-CN': {

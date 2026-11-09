@@ -29,7 +29,7 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     repeatUses: (count) => `${count} ${count === '1' ? 'use' : 'uses'}`,
   },
   ko: {
-    title: 'History',
+    title: '제작 기록',
     empty: '이 시점에 기록된 화폐 적용이 없습니다.',
     step: '단계',
     omitted:
@@ -43,7 +43,7 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     repeatUses: (count) => `${count}회`,
   },
   'zh-CN': {
-    title: 'History',
+    title: '制作记录',
     empty: '此时没有已记录的通货使用。',
     step: '步骤',
     omitted: '部分已保存步骤缺少使用凭据或通货识别信息，已省略。',
@@ -55,7 +55,7 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     repeatUses: (count) => `${count}次`,
   },
   'zh-TW': {
-    title: 'History',
+    title: '製作紀錄',
     empty: '此時沒有已記錄的通貨使用。',
     step: '步驟',
     omitted: '部分已儲存步驟缺少使用憑據或通貨識別資訊，已省略。',
@@ -67,7 +67,7 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     repeatUses: (count) => `${count}次`,
   },
   ja: {
-    title: 'History',
+    title: '製作履歴',
     empty: 'この時点で記録された通貨の適用はありません。',
     step: 'ステップ',
     omitted: '適用の証拠または通貨の識別情報がない保存ステップを省略しました。',
@@ -80,7 +80,7 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     repeatUses: (count) => `${count}回`,
   },
   es: {
-    title: 'History',
+    title: 'Historial',
     empty:
       'No hay aplicaciones de objetos monetarios registradas en este punto.',
     step: 'Paso',

@@ -93,9 +93,9 @@ beforeEach(() => {
   client = new QueryClient({ defaultOptions: { mutations: { retry: false } } })
   fetchMock = vi.fn<typeof fetch>().mockResolvedValue(json(result()))
   vi.stubGlobal('fetch', (input: RequestInfo | URL, init?: RequestInit) =>
-    String(input).includes('/api/v1/crafting/')
-      ? fixtureFetch(input, init)
-      : fetchMock(input, init),
+    String(input).endsWith('/api/v1/items/parse')
+      ? fetchMock(input, init)
+      : fixtureFetch(input, init),
   )
   localStorage.clear()
 })

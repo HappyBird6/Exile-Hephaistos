@@ -6,6 +6,8 @@ import {
   useQueryClient,
 } from '@tanstack/react-query'
 import type { Item } from './itemModels'
+import { useI18n } from '../../shared/i18n/i18n'
+import type { MessageKey } from '../../shared/i18n/i18n'
 import { useItemDraft } from './draft'
 import {
   ItemTextApiError,
@@ -13,20 +15,18 @@ import {
   parseItemText,
 } from './itemTextApi'
 
-function errorMessage(error: Error): string {
+function errorKey(error: Error): MessageKey {
   if (error instanceof ItemTextApiError) {
-    if (error.code === 'INVALID_ITEM_TEXT')
-      return 'Enter English game text containing rarity and an item name.'
-    if (error.code === 'ITEM_TEXT_TOO_LARGE')
-      return 'Item text must be at most 16 KiB in UTF-8.'
-    if (error.code === 'MALFORMED_REQUEST')
-      return 'The request format could not be read. Please try again.'
+    if (error.code === 'INVALID_ITEM_TEXT') return 'input.invalid'
+    if (error.code === 'ITEM_TEXT_TOO_LARGE') return 'input.too_large'
+    if (error.code === 'MALFORMED_REQUEST') return 'input.malformed'
   }
-  return 'Could not connect to the server or verify its response. Please try again shortly.'
+  return 'input.connection'
 }
 
 // Server results stay in TanStack Query; only input lives in the draft store.
 export function useItemTextImport() {
+  const { t } = useI18n()
   const client = useQueryClient()
   const currentKey = ['workbench', 'current-item'] as const
   const current = useQuery<Item>({
@@ -37,7 +37,7 @@ export function useItemTextImport() {
   const [revision, setRevision] = useState(0)
   const currentRevision = useRef(0)
   const controller = useRef<AbortController | null>(null)
-  const [validation, setValidation] = useState<string | null>(null)
+  const [validation, setValidation] = useState<MessageKey | null>(null)
   const mutation = useMutation({
     gcTime: 0,
     retry: false,
@@ -69,11 +69,11 @@ export function useItemTextImport() {
     const original = useItemDraft.getState()
     const nextRevision = invalidate()
     if (!text.trim()) {
-      setValidation('Enter item text copied from the game.')
+      setValidation('input.empty')
       return false
     }
     if (new TextEncoder().encode(text).length > maxItemTextBytes) {
-      setValidation('Item text must be at most 16 KiB in UTF-8.')
+      setValidation('input.too_large')
       return false
     }
     const request = new AbortController()
@@ -106,8 +106,10 @@ export function useItemTextImport() {
     invalidate,
     data: current.data,
     pending: isCurrent && mutation.isPending,
-    error:
-      validation ??
-      (isCurrent && mutation.error ? errorMessage(mutation.error) : null),
+    error: validation
+      ? t(validation)
+      : isCurrent && mutation.error
+        ? t(errorKey(mutation.error))
+        : null,
   }
 }

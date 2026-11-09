@@ -4,6 +4,7 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { App } from './App'
 import { useItemDraft } from '../features/crafting/draft'
+import { locales, setLocale } from '../shared/i18n/i18n'
 
 const client = new QueryClient({
   defaultOptions: { mutations: { retry: false } },
@@ -188,3 +189,20 @@ describe('Crafting workbench', () => {
     )
   })
 })
+
+it.each(locales)(
+  'sets the document language on a direct overview load in %s',
+  (locale) => {
+    const previous = location.pathname + location.search
+    setLocale(locale)
+    document.documentElement.lang = 'ko'
+    window.history.replaceState({}, '', '/history/missing?from=simulation')
+    const view = show()
+    expect(document.documentElement.lang).toBe(locale)
+    expect(
+      screen.queryByRole('button', { name: /English|한국어|Español/ }),
+    ).toBeNull()
+    view.unmount()
+    window.history.replaceState({}, '', previous)
+  },
+)

@@ -23,7 +23,7 @@ export function SessionImport({
   const input = useRef<HTMLInputElement>(null)
   const [preview, setPreview] = useState<SessionDocument | null>(null)
   const [reading, setReading] = useState(false)
-  const [error, setError] = useState('')
+  const [error, setError] = useState(false)
 
   function cancel() {
     setPreview(null)
@@ -32,13 +32,13 @@ export function SessionImport({
 
   async function read(file: File) {
     setReading(true)
-    setError('')
+    setError(false)
     setPreview(null)
     try {
       if (file.size > transferLimit) throw Error('size')
       setPreview(decodeDocument(await file.text()))
     } catch {
-      setError(text.error)
+      setError(true)
     } finally {
       setReading(false)
     }
@@ -65,12 +65,12 @@ export function SessionImport({
           type="button"
           disabled={disabled || reading}
           onClick={() => {
-            setError('')
+            setError(false)
             try {
               if (!onImport(preview)) throw Error('save')
               setPreview(null)
             } catch {
-              setError(text.error)
+              setError(true)
             }
           }}
         >
@@ -110,7 +110,7 @@ export function SessionImport({
           }}
         />
       </label>
-      {error && <p role="alert">{error}</p>}
+      {error && <p role="alert">{text.error}</p>}
       {content && previewTarget?.current
         ? createPortal(content, previewTarget.current)
         : content}
