@@ -280,3 +280,54 @@
 .modifier-pool__table th:nth-child(-n + 2) {
   white-space: nowrap;
 }
+.modifier-pool__mode {
+  display: inline-flex;
+  gap: 3px;
+  padding: 3px;
+  border: 1px solid #514934;
+  border-radius: 5px;
+  flex: none;
+}
+.modifier-pool__mode button {
+  min-height: 36px;
+  padding: 5px 12px;
+  color: #bcb6a8;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.modifier-pool__mode button[aria-pressed='true'] {
+  background: #393324;
+  color: #efd7a3;
+  border-color: #7a6843;
+}
+.modifier-pool__tools {
+  width: 660px;
+  flex-wrap: wrap;
+}
+.modifier-pool__category {
+  grid-column: 1 / -1;
+  border-top: 1px solid #494737;
+  padding-top: 18px;
+}
+.modifier-pool__category h3 {
+  margin: 0;
+  color: #d8bd89;
+  font-size: 20px;
+}
+.modifier-pool__category p {
+  margin: 8px 0 0;
+  color: #a8a596;
+  font-size: 14px;
+}
+@media (max-width: 600px) {
+  .modifier-pool__mode {
+    width: 100%;
+  }
+  .modifier-pool__mode button {
+    flex: 1;
+  }
+}

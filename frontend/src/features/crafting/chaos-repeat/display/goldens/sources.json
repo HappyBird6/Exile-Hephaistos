@@ -9,10 +9,10 @@
   },
   "files": {
     "backend/src/main/resources/catalog/abyssal-cuirass/catalog.json": "7c8d94be8e2d3d58642739d3ebed53d7af0f6f802a64ae170deef118f872e897",
-    "backend/src/main/resources/catalog/adherent-cuffs/catalog.json": "34aea0e8c097e1d2acd2f68131478249fe66364c45f9884059ebf7f32c036168",
+    "backend/src/main/resources/catalog/adherent-cuffs/catalog.json": "e53cbcc865a9f0498c3383ecca3b3476599713bb75807e12dafc3299db652bfc",
     "backend/src/main/resources/catalog/solar-amulet/catalog.json": "5562c61495b012e67566417aaa60e0e2cb569ca28515a74e970ca0fd9a16dfe8",
     "frontend/package-lock.json": "113c8fd64f9b834e57cfdf84830c652df0166d3c2b69e3b6a7654eaa8042a8e8",
-    "frontend/src/features/crafting/CraftingPage.tsx": "1cbdb0fadec425848cf671e8974a817828778a9425babe8f43b4dd5c3fe82287",
+    "frontend/src/features/crafting/CraftingPage.tsx": "fe13479775b87c73024b1d953e4cc27adcd9e458c0bf0ced016618a5123b96d5",
     "frontend/src/features/crafting/ItemCard.tsx": "8561efc45204eb9f669bcfaada304c6bce67be54245585164a2ad27add2aa7e4",
     "frontend/src/features/crafting/basicJewel.ts": "de00f2b81af5ddaa15d99faf38ffbabc3fdd4aea96e02fedc5e8130ddd939c29",
     "frontend/src/features/crafting/catalystQuality.ts": "5bd676392b939bb00a9d8d630a5edacf225fb4e50cc10a951a46121f10a0f221",

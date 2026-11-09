@@ -44,7 +44,7 @@ class ReviewedGlovesWorkbenchTest {
   @ParameterizedTest
   @ValueSource(
       strings = {"massive", "sirenscale", "adherent", "polished", "blacksteel-gloves", "war-wraps"})
-  void fullPoolUniformCraftingAndLegacyIsolation(String key) {
+  void fullPoolPublishedWeightCraftingAndLegacyIsolation(String key) {
     var c = ItemCatalogLoader.loadTopBase(key);
     var service = service();
     var initial = service.initial(key, 82);
@@ -59,24 +59,33 @@ class ReviewedGlovesWorkbenchTest {
           default -> throw new IllegalArgumentException(key);
         };
     assertThat(c.modifiers()).hasSize(ordinary + 4);
-    assertThat(c.modifiers().values().stream().filter(d -> d.weight() > 0))
-        .hasSize(ordinary)
-        .allSatisfy(d -> assertThat(d.weight()).isEqualTo(1));
+    assertThat(c.modifiers().values().stream().filter(d -> d.weight() > 0)).hasSize(ordinary);
+    assertThat(
+            c.modifiers().values().stream()
+                .filter(d -> d.weight() > 0)
+                .map(d -> d.weight())
+                .distinct()
+                .count())
+        .isGreaterThan(1);
     assertThat(initial.qualityLimit().maximumQuality()).isEqualTo(20);
     assertThat(initial.state().implicits()).isEmpty();
     assertThat(initial.augmentSockets()).isZero();
     assertThat(c.compatibleSnapshotIds()).isEmpty();
     var state = normal(c, 82);
     var first = service.apply(state, WorkbenchCurrency.TRANSMUTATION, Set.of(), new Random(77));
-    long eligible =
+    long totalEligibleWeight =
         c.modifiers().values().stream()
             .filter(d -> d.weight() > 0 && d.requiredItemLevel() <= 82)
-            .count();
+            .mapToLong(d -> d.weight())
+            .sum();
     assertThat(first.applied()).isTrue();
     assertThat(first.assumptions())
-        .anySatisfy(a -> assertThat(a.id()).isEqualTo("gloves-uniform-candidates-v1"));
+        .anySatisfy(a -> assertThat(a.id()).isEqualTo("poe2db-published-candidates-v1"));
     assertThat(first.events().getFirst().selectionProbability())
-        .isCloseTo(1.0 / eligible, within(1e-12));
+        .isCloseTo(
+            (double) c.find(first.events().getFirst().modifierId()).orElseThrow().weight()
+                / totalEligibleWeight,
+            within(1e-12));
     state = first.state();
     for (var action :
         List.of(

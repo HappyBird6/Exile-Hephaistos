@@ -1,3 +1,4 @@
+import { revealAction } from '../abyss-workbench/revealAction'
 import { augments } from '../socketAugments'
 import { isBone } from '../desecrationCurrency'
 import { workbenchCurrencyActions, workbenchOmens } from '../workbenchApi'
@@ -5,6 +6,8 @@ import type { Film, Frame } from '../workbenchHistory'
 import { validChaosRepeatFrame } from '../chaos-repeat/chaosRepeatReceipt'
 
 export type NotationStep = {
+  kind?: 'reveal'
+
   number: number
   frameIndex: number
   currencyId: string
@@ -48,6 +51,35 @@ function receipt(frame: Frame) {
   return record?.action === frame.action ? record : undefined
 }
 
+/** Only a successful, receipted transition from a hidden slot to a known modifier is a reveal. */
+function completedReveal(frame: Frame, before: Frame | undefined): boolean {
+  if (
+    !before ||
+    ![revealAction, 'ABYSS_SELECT', 'ABYSS_CHOOSE'].includes(
+      frame.action ?? '',
+    ) ||
+    !receipt(frame)
+  )
+    return false
+  if (
+    !Array.isArray(frame.state.desecrated) ||
+    !Array.isArray(before.state.desecrated) ||
+    !Array.isArray(frame.state.explicits)
+  )
+    return false
+  return !!frame.state.desecrated.some(
+    (slot) =>
+      !!slot &&
+      typeof slot.modifierId === 'string' &&
+      before.state.desecrated?.some(
+        (previous) => previous.id === slot.id && previous.modifierId === null,
+      ) &&
+      frame.state.explicits.some(
+        (modifier) => modifier.modifierId === slot.modifierId,
+      ),
+  )
+}
+
 /**
  * Read-only projection of the complete active Film. Writers record only completed
  * applications; observations carry no inferred currency or omen consumption.
@@ -76,7 +108,9 @@ export function extractSessionNotation(
       result.omittedFrames++
       continue
     }
-    if (frame.action === null || isObservation(frame.action)) continue
+    const reveal = completedReveal(frame, film.frames[frameIndex - 1])
+    if (frame.action === null || (!reveal && isObservation(frame.action)))
+      continue
     const previous = film.frames[frameIndex - 1]?.state.installedAugments ?? []
     const changed = (frame.state.installedAugments ?? []).filter(
       (a) =>
@@ -84,11 +118,12 @@ export function extractSessionNotation(
           (p) => p.slotIndex === a.slotIndex && p.augmentId === a.augmentId,
         ),
     )
-    const id =
-      frame.action === 'INSTALL_AUGMENT' &&
-      frame.evidence?.ruleVersion === 'socket-augments-v1' &&
-      changed.length === 1 &&
-      augments.some((a) => a.id === changed[0]!.augmentId)
+    const id = reveal
+      ? revealAction
+      : frame.action === 'INSTALL_AUGMENT' &&
+          frame.evidence?.ruleVersion === 'socket-augments-v1' &&
+          changed.length === 1 &&
+          augments.some((a) => a.id === changed[0]!.augmentId)
         ? changed[0]!.augmentId
         : currencyId(frame.action)
     const recorded = receipt(frame)
@@ -107,6 +142,7 @@ export function extractSessionNotation(
       validArray && consumedOmenIds.every((id) => omenIds.has(id))
     result.incompleteOmens ||= !omensKnown
     result.steps.push({
+      ...(reveal ? { kind: 'reveal' as const } : {}),
       number: result.steps.length + 1,
       frameIndex,
       currencyId: id,

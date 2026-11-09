@@ -33,9 +33,14 @@ class ReviewedBodyHelmetBundleTest {
           default -> throw new IllegalArgumentException(key);
         };
     assertThat(c.modifiers()).hasSize(ordinary + (body ? 5 : 3));
-    assertThat(c.modifiers().values().stream().filter(d -> d.weight() > 0))
-        .hasSize(ordinary)
-        .allSatisfy(d -> assertThat(d.weight()).isEqualTo(1));
+    assertThat(c.modifiers().values().stream().filter(d -> d.weight() > 0)).hasSize(ordinary);
+    assertThat(
+            c.modifiers().values().stream()
+                .filter(d -> d.weight() > 0)
+                .map(d -> d.weight())
+                .distinct()
+                .count())
+        .isGreaterThan(1);
     var solar = ItemCatalogLoader.loadDefault();
     var service =
         new CatalogConfiguration()
@@ -72,15 +77,17 @@ class ReviewedBodyHelmetBundleTest {
               result.assumptions().stream()
                   .filter(
                       a ->
-                          a.id()
-                                  .equals(
-                                      body
-                                          ? "body-uniform-candidates-v1"
-                                          : "helmets-uniform-candidates-v1")
+                          a.id().equals("poe2db-published-candidates-v1")
                               && a.candidates().contains(event.modifierId()))
                   .findFirst()
                   .orElseThrow();
-          assertThat(event.selectionProbability()).isCloseTo(1.0 / assumption.n(), within(1e-12));
+          assertThat(event.selectionProbability())
+              .isCloseTo(
+                  (double) c.find(event.modifierId()).orElseThrow().weight()
+                      / assumption.candidates().stream()
+                          .mapToLong(id -> c.find(id).orElseThrow().weight())
+                          .sum(),
+                  within(1e-12));
         }
       state = result.state();
     }

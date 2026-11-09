@@ -19,6 +19,8 @@ import { rulesetHeaders, verifyRulesetResponse } from './rulesetIdentity'
 import type { ConcreteItem, WorkbenchAction } from './workbenchApi'
 import type { Definition, Initial } from './craftingApi'
 import { UnrevealedRune } from './abyss-workbench/UnrevealedRune'
+import { RevealIcon } from './abyss-workbench/RevealIcon'
+import { RevealPopover } from './abyss-workbench/RevealPopover'
 import { abyssWorkbenchMessages } from './abyss-workbench/messages'
 
 type Modifier = ConcreteItem['explicits'][number]
@@ -196,6 +198,7 @@ export function AbyssPanel({
   observationOnly = false,
   localScenario = true,
   directSelection = false,
+  compact = false,
   restoredState,
   onTransition,
   onContinue,
@@ -214,6 +217,7 @@ export function AbyssPanel({
   localScenario?: boolean
   allowAdd?: boolean
   directSelection?: boolean
+  compact?: boolean
   onTransition?: (state: AbyssState, transition: FlowTransition) => void
   onContinue?: (state: AbyssState, item: Item) => void
   externalBusy?: boolean
@@ -232,6 +236,7 @@ export function AbyssPanel({
   const [revealingSlotId, setRevealingSlotId] = useState<string | null>(null)
   const [saveError, setSaveError] = useState(false)
   const focus = useRef<HTMLSelectElement>(null)
+  const revealTrigger = useRef<HTMLButtonElement>(null)
   const client = useQueryClient()
   const [useDraft] = useState(() =>
     create<{
@@ -403,6 +408,14 @@ export function AbyssPanel({
         setSaveError(true)
       }
       focus.current?.focus()
+      if (compact)
+        requestAnimationFrame(() => {
+          const target =
+            document.querySelector<HTMLButtonElement>(
+              '.abyss-reveal-bar > button:not(:disabled)',
+            ) ?? document.querySelector<HTMLButtonElement>('.item-slot')
+          target?.focus()
+        })
     },
     onSettled: () => {
       mutationPending.current = false
@@ -454,9 +467,13 @@ export function AbyssPanel({
       d.affixType !== 'NONE' &&
       (d.requiredItemLevel ?? 1) <= source.itemLevel,
   )
-  const selected = state?.slots.find((s) => s.id === draft.slotId)
+  const hiddenSlots =
+    state?.slots.filter((s) => s.desecrated && s.modifier === null) ?? []
+  const selected = compact
+    ? (hiddenSlots.find((s) => s.id === draft.slotId) ?? hiddenSlots[0])
+    : state?.slots.find((s) => s.id === draft.slotId)
   const eligible = useQuery({
-    queryKey: [...key, 'eligible', state, draft.slotId],
+    queryKey: [...key, 'eligible', state, selected?.id],
     enabled:
       open &&
       directSelection &&
@@ -466,7 +483,7 @@ export function AbyssPanel({
       selected.modifier === null,
     retry: false,
     queryFn: ({ signal }) =>
-      request<string[]>('eligible', { state, slotId: draft.slotId }, signal),
+      request<string[]>('eligible', { state, slotId: selected?.id }, signal),
   })
   const directCopy = {
     en: [
@@ -517,6 +534,175 @@ export function AbyssPanel({
     mutation.mutate({ operation, payload })
   }
   if (!open) return null
+  if (compact && directSelection) {
+    if (state && !hiddenSlots.length) return null
+    const copy = abyssWorkbenchMessages[locale]
+    const candidate = draft.candidates[0]
+    const choose = (id: string) => {
+      const d = initial.modifiers[id]
+      draft.edit({
+        candidates: [
+          d
+            ? {
+                modifierId: d.id,
+                values: Object.fromEntries(
+                  (d.stats ?? []).map((stat) => [stat.id, stat.min]),
+                ),
+                fractured: false,
+              }
+            : null,
+          null,
+          null,
+        ],
+      })
+    }
+    return (
+      <div
+        className="abyss-reveal-bar"
+        aria-label={`${copy.desecration} ${copy.reveal}`}
+        aria-busy={busy}
+      >
+        <span>{copy.desecration}</span>
+        {hiddenSlots.length > 1 && (
+          <select
+            aria-label={t[5]}
+            value={selected?.id ?? ''}
+            disabled={busy}
+            onChange={(event) => {
+              draft.edit({
+                slotId: event.target.value,
+                candidates: [null, null, null],
+              })
+              setRevealingSlotId(null)
+            }}
+          >
+            {hiddenSlots.map((slot, index) => (
+              <option key={slot.id} value={slot.id}>
+                {slot.side === 'PREFIX' ? 'P' : 'S'}
+                {index + 1}
+              </option>
+            ))}
+          </select>
+        )}
+        {(query.isError || mutation.isError || saveError) && (
+          <span role="alert" aria-label={t[14]}>
+            !
+          </span>
+        )}
+        <button
+          type="button"
+          ref={revealTrigger}
+          disabled={busy || !selected}
+          aria-label={`${copy.desecration} ${copy.reveal}`}
+          aria-expanded={!!selected && revealingSlotId === selected.id}
+          onClick={() => {
+            if (
+              !busy &&
+              !mutationPending.current &&
+              canMutate?.() !== false &&
+              selected
+            )
+              setRevealingSlotId(selected.id)
+          }}
+        >
+          <RevealIcon />
+          {copy.reveal}
+        </button>
+        {selected && revealingSlotId === selected.id && (
+          <RevealPopover
+            anchor={revealTrigger}
+            label={`${copy.desecration} ${copy.reveal}`}
+            closeLabel={copy.close}
+            onClose={() => setRevealingSlotId(null)}
+          >
+            <fieldset disabled={busy} className="abyss-reveal-picker__controls">
+              {eligible.isFetching && (
+                <span role="status" aria-label={copy.reveal}>
+                  ◌
+                </span>
+              )}
+              {eligible.isError && (
+                <span role="alert" aria-label={t[14]}>
+                  !
+                </span>
+              )}
+              <select
+                aria-label={directCopy[1]}
+                value={candidate?.modifierId ?? ''}
+                disabled={busy || eligible.isFetching}
+                onChange={(event) => choose(event.target.value)}
+              >
+                <option value="">—</option>
+                {candidateDefinitions.map((d) => (
+                  <option key={d.id} value={d.id}>
+                    {label(d)}
+                  </option>
+                ))}
+              </select>
+              <div className="abyss-reveal-picker__rolls">
+                {candidate &&
+                  initial.modifiers[candidate.modifierId]?.stats?.map(
+                    (stat) => {
+                      const divisor = modifierRollDivisor(
+                        initial.modifiers[candidate.modifierId]!,
+                        stat.id,
+                      )
+                      return (
+                        <input
+                          key={stat.id}
+                          type="number"
+                          aria-label={label(
+                            initial.modifiers[candidate.modifierId]!,
+                          )}
+                          title={`${stat.min / divisor}–${stat.max / divisor}`}
+                          min={stat.min / divisor}
+                          max={stat.max / divisor}
+                          step={1 / divisor}
+                          value={(candidate.values[stat.id] ?? 0) / divisor}
+                          onChange={(event) =>
+                            draft.edit({
+                              candidates: [
+                                {
+                                  ...candidate,
+                                  values: {
+                                    ...candidate.values,
+                                    [stat.id]: storedModifierRoll(
+                                      event.target.valueAsNumber,
+                                      divisor,
+                                    ),
+                                  },
+                                },
+                                null,
+                                null,
+                              ],
+                            })
+                          }
+                        />
+                      )
+                    },
+                  )}
+                <button
+                  type="button"
+                  aria-label={copy.reveal}
+                  disabled={
+                    busy ||
+                    !candidate ||
+                    !eligible.data?.includes(candidate.modifierId) ||
+                    eligible.isFetching
+                  }
+                  onClick={() =>
+                    submit('select', { slotId: selected.id, candidate })
+                  }
+                >
+                  ✓
+                </button>
+              </div>
+            </fieldset>
+          </RevealPopover>
+        )}
+      </div>
+    )
+  }
   return (
     <section
       className="abyss-panel"

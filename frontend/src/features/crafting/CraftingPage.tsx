@@ -1,3 +1,4 @@
+import { revealAction } from './abyss-workbench/revealAction'
 import { currentItemText } from './currentItemText'
 import { textEditMessages } from './textEditMessages'
 import { appendDocument } from './session-history/transfer'
@@ -2182,6 +2183,54 @@ export function CraftingPage() {
                         )
                       }}
                     />
+                    {concrete?.rarity === 'RARE' &&
+                      concrete.desecrated?.some(
+                        (slot) => slot.modifierId === null,
+                      ) &&
+                      initial.data &&
+                      restoredValid && (
+                        <AbyssPanel
+                          key={JSON.stringify([concrete, storedFrame?.abyss])}
+                          source={concrete}
+                          localScenario={false}
+                          allowAdd={false}
+                          directSelection
+                          compact
+                          embedded={!!concrete.desecrated?.length}
+                          initial={initial.data}
+                          {...(storedFrame?.abyss
+                            ? { restoredState: storedFrame.abyss }
+                            : {})}
+                          externalBusy={applying !== null || imported.pending}
+                          canMutate={canMutateAbyss}
+                          onBusyChange={handleAbyssBusy}
+                          onTransition={(next, transition) => {
+                            if (transition.operation === 'restore') return
+                            if (
+                              useItemDraft.getState().baseRevision !==
+                                draft.baseRevision ||
+                              applyingRequest.current
+                            )
+                              return
+                            saveFilms(
+                              recordAbyss(
+                                filmState.history,
+                                concrete,
+                                next,
+                                transition.operation === 'apply'
+                                  ? (transition.action ?? 'ABYSS_APPLY')
+                                  : transition.operation === 'select' ||
+                                      transition.operation === 'choose'
+                                    ? revealAction
+                                    : `ABYSS_${transition.operation.toUpperCase()}`,
+                                filmId(),
+                                initial.data!.rulesetIdentity,
+                              ),
+                              draft.baseRevision,
+                            )
+                          }}
+                        />
+                      )}
                     <div className="workbench-feedback-region wb-scrollbar">
                       {(applicationFailure || repeatSuccess) && (
                         <div
@@ -2380,47 +2429,6 @@ export function CraftingPage() {
                     <pre>{JSON.stringify(storedFrame, null, 2)}</pre>
                   </details>
                 )}
-                {concrete?.rarity === 'RARE' &&
-                  initial.data &&
-                  restoredValid && (
-                    <AbyssPanel
-                      key={JSON.stringify([concrete, storedFrame?.abyss])}
-                      source={concrete}
-                      localScenario={false}
-                      allowAdd={false}
-                      directSelection
-                      embedded={!!concrete.desecrated?.length}
-                      initial={initial.data}
-                      {...(storedFrame?.abyss
-                        ? { restoredState: storedFrame.abyss }
-                        : {})}
-                      externalBusy={applying !== null || imported.pending}
-                      canMutate={canMutateAbyss}
-                      onBusyChange={handleAbyssBusy}
-                      onTransition={(next, transition) => {
-                        if (transition.operation === 'restore') return
-                        if (
-                          useItemDraft.getState().baseRevision !==
-                            draft.baseRevision ||
-                          applyingRequest.current
-                        )
-                          return
-                        saveFilms(
-                          recordAbyss(
-                            filmState.history,
-                            concrete,
-                            next,
-                            transition.operation === 'apply'
-                              ? (transition.action ?? 'ABYSS_APPLY')
-                              : `ABYSS_${transition.operation.toUpperCase()}`,
-                            filmId(),
-                            initial.data!.rulesetIdentity,
-                          ),
-                          draft.baseRevision,
-                        )
-                      }}
-                    />
-                  )}
                 {storedFrame && !restoredValid ? null : card ? (
                   <ItemCard
                     item={{
@@ -2660,6 +2668,12 @@ export function CraftingPage() {
               : displayedName
           }
           itemLevel={catalogLevel}
+          item={
+            concrete ??
+            (!storedFrame && initial.data
+              ? concreteInitial(initial.data)
+              : undefined)
+          }
           loading={initial.isPending || imported.pending}
         />
       </div>

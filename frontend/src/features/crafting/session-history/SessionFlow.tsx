@@ -1,3 +1,4 @@
+import { abyssWorkbenchMessages } from '../abyss-workbench/messages'
 import { Fragment, useLayoutEffect, useRef, useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
 import type { Film } from '../workbenchHistory'
@@ -66,13 +67,16 @@ export function SessionFlow({
         const down = previous.row !== position.row
         const reverse = position.column < previous.column
         const step = steps.find((s) => s.frameIndex === index)
-        const currency = step
-          ? name(
-              step.currencyId,
-              resources.find((r) => r.id === step.currencyId)?.name ??
-                step.currencyId,
-            )
-          : text.observation
+        const currency =
+          step?.kind === 'reveal'
+            ? `${abyssWorkbenchMessages[locale].desecration} ${abyssWorkbenchMessages[locale].reveal}`
+            : step
+              ? name(
+                  step.currencyId,
+                  resources.find((r) => r.id === step.currencyId)?.name ??
+                    step.currencyId,
+                )
+              : text.observation
         const label = step
           ? `${currency}${step.repeated ? ` × ${step.uses}` : ''}`
           : text.observation

@@ -471,3 +471,90 @@ it('direct selection lists eligible options, sends one chosen modifier and hides
   expect(screen.queryByLabelText('Candidate 1')).not.toBeInTheDocument()
   client.clear()
 })
+
+it('uses a compact reveal row, commits only on success and closes the picker without mutation on Escape', async () => {
+  const hidden: AbyssState = {
+    ...empty,
+    slots: [{ id: 'hidden', side: 'PREFIX', modifier: null, desecrated: true }],
+  }
+  const onTransition = vi.fn()
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(async (url: string, options: RequestInit) => {
+      const body = JSON.parse(options.body as string)
+      const value = url.endsWith('/eligible')
+        ? ['life']
+        : url.endsWith('/select')
+          ? {
+              ...hidden,
+              slots: [{ ...hidden.slots[0], modifier: body.candidate }],
+            }
+          : hidden
+      return new Response(JSON.stringify(value), {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Crafting-Ruleset': 'rules',
+        },
+      })
+    }),
+  )
+  const client = new QueryClient({
+    defaultOptions: { queries: { retry: false } },
+  })
+  const mounted = render(
+    <QueryClientProvider client={client}>
+      <AbyssPanel
+        source={source}
+        initial={initial}
+        restoredState={hidden}
+        directSelection
+        compact
+        localScenario={false}
+        onTransition={onTransition}
+      />
+    </QueryClientProvider>,
+  )
+  const trigger = await screen.findByRole('button', {
+    name: 'Desecrated Reveal',
+  })
+  await waitFor(() => expect(trigger).toBeEnabled())
+  expect(trigger.closest('.abyss-reveal-bar')).toHaveTextContent(
+    /^DesecratedReveal$/,
+  )
+  fireEvent.click(trigger)
+  expect(
+    await screen.findByRole('dialog', { name: 'Desecrated Reveal' }),
+  ).toBeVisible()
+  fireEvent.keyDown(document, { key: 'Escape' })
+  expect(screen.queryByRole('dialog')).toBeNull()
+  expect(trigger).toHaveFocus()
+  expect(
+    onTransition.mock.calls.filter(
+      ([, event]) => event.operation !== 'restore',
+    ),
+  ).toHaveLength(0)
+  fireEvent.click(trigger)
+  await screen.findByRole('option', { name: /maximum Life/ })
+  fireEvent.change(screen.getByRole('combobox', { name: 'Choose modifier' }), {
+    target: { value: 'life' },
+  })
+  fireEvent.click(screen.getByRole('button', { name: 'Reveal' }))
+  await waitFor(() =>
+    expect(onTransition).toHaveBeenCalledWith(
+      expect.objectContaining({
+        slots: [
+          expect.objectContaining({
+            modifier: expect.objectContaining({ modifierId: 'life' }),
+          }),
+        ],
+      }),
+      { operation: 'select' },
+    ),
+  )
+  expect(
+    onTransition.mock.calls.filter(([, event]) => event.operation === 'select'),
+  ).toHaveLength(1)
+  expect(screen.queryByRole('dialog')).toBeNull()
+  mounted.unmount()
+  client.clear()
+})

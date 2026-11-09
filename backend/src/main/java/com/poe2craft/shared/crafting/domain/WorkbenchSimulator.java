@@ -177,6 +177,12 @@ public final class WorkbenchSimulator {
   }
 
   public String ledgerVersion() {
+    if (catalog.metadata().weightPolicy().equals("POE2DB_AS_PUBLISHED")
+        && (ReviewedBoots.supports(catalog.base().id())
+            || ReviewedBodies.supports(catalog.base().id())
+            || ReviewedHelmets.supports(catalog.base().id())
+            || ReviewedGloves.supports(catalog.base().id())))
+      return "poe2db-published-armour-assumptions-v1";
     if (BaseRegistry.supports(catalog.base().id()))
       return BaseRegistry.policy(catalog.base().id()).ledgerVersion();
     if (BasicJewel.supportedCrafting(catalog.base().id()))
@@ -922,7 +928,7 @@ public final class WorkbenchSimulator {
 
   List<Assumption> basicSelectionAssumptions(List<ModifierDefinition> candidates) {
     var assumptions = new ArrayList<Assumption>();
-    recordSapphireSelection(candidates, assumptions);
+    recordSelectionAssumptions(candidates, assumptions);
     return List.copyOf(assumptions);
   }
 
@@ -1199,7 +1205,7 @@ public final class WorkbenchSimulator {
             pool(intermediate, action, omen == null ? null : alchemySide(intermediate, omen));
         if (candidates.isEmpty())
           throw new IllegalArgumentException("Alchemy needs a complete four-modifier pool");
-        recordSapphireSelection(candidates, assumptions);
+        recordSelectionAssumptions(candidates, assumptions);
         long total = candidates.stream().mapToLong(ModifierDefinition::weight).sum();
         long draw = random.nextLong(total);
         var chosen = candidates.getLast();
@@ -1286,7 +1292,7 @@ public final class WorkbenchSimulator {
                           intermediate,
                           action,
                           action.baseAction() == CraftingAction.CHAOS ? null : omen);
-          recordSapphireSelection(candidates, assumptions);
+          recordSelectionAssumptions(candidates, assumptions);
           long total = candidates.stream().mapToLong(ModifierDefinition::weight).sum();
           long draw = random.nextLong(total);
           var chosen = candidates.getLast();
@@ -1364,8 +1370,25 @@ public final class WorkbenchSimulator {
         QualityLimitRules.describe(result, catalog));
   }
 
-  private void recordSapphireSelection(
+  private void recordSelectionAssumptions(
       List<ModifierDefinition> candidates, List<Assumption> assumptions) {
+    if (catalog.metadata().weightPolicy().equals("POE2DB_AS_PUBLISHED")) {
+      if (ReviewedBoots.supports(catalog.base().id())
+          || ReviewedBodies.supports(catalog.base().id())
+          || ReviewedHelmets.supports(catalog.base().id())
+          || ReviewedGloves.supports(catalog.base().id()))
+        assumptions.add(
+            new Assumption(
+                "poe2db-published-candidates-v1",
+                "eligible ordinary modifier",
+                candidates.size(),
+                candidates.stream().map(ModifierDefinition::id).sorted().toList(),
+                null,
+                null,
+                catalog.metadata().sourceUrl(),
+                "Selection uses PoE2DB published weights after family, side and level restrictions."));
+      return;
+    }
     if (ReviewedBoots.supports(catalog.base().id()))
       assumptions.add(
           new Assumption(

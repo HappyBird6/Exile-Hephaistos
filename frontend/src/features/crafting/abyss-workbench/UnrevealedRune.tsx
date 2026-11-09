@@ -10,6 +10,12 @@ export function UnrevealedRune({ className = '' }: { className?: string }) {
       role="img"
       aria-label={abyssWorkbenchMessages[locale].hidden}
       className={`abyss-unrevealed-rune ${className}`.trim()}
-    />
+    >
+      <img
+        src="/assets/abyss-runes/user-reference-20261102.png"
+        alt=""
+        draggable={false}
+      />
+    </span>
   )
 }

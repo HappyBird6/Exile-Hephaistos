@@ -421,3 +421,57 @@ describe('session notation from persisted successful applications', () => {
     ).toEqual(['Omen_of_Whittling'])
   })
 })
+
+it.each(['DESECRATION_REVEAL', 'ABYSS_SELECT', 'ABYSS_CHOOSE'])(
+  'projects a completed %s as its own action with no extra currency consumption',
+  (action) => {
+    const hidden: AbyssState = {
+      item: root,
+      slots: [
+        { id: 'hidden', side: 'PREFIX', modifier: null, desecrated: true },
+      ],
+      offer: null,
+    }
+    const bone = recordAbyss(
+      start(),
+      root,
+      hidden,
+      'Preserved_Cranium',
+      'unused',
+      identity,
+    )
+    const next: AbyssState = {
+      ...hidden,
+      slots: [
+        {
+          ...hidden.slots[0]!,
+          modifier: { modifierId: 'p', values: { life: 10 } },
+        },
+      ],
+    }
+    const revealed = recordAbyss(
+      bone,
+      currentFrame(bone)!.state,
+      next,
+      action,
+      'unused',
+      identity,
+    )
+    const original = JSON.stringify(revealed)
+    const notation = extractSessionNotation(
+      currentFilm(revealed),
+      revealed.cursor,
+    )
+    expect(notation.steps).toHaveLength(2)
+    expect(notation.steps[1]).toMatchObject({
+      kind: 'reveal',
+      currencyId: 'DESECRATION_REVEAL',
+      frameIndex: 2,
+      consumedOmenIds: [],
+      uses: 1,
+    })
+    expect(notation.omittedFrames).toBe(0)
+    expect(JSON.stringify(revealed)).toBe(original)
+    expect(currentFilm(revealed)!.frames).toHaveLength(3)
+  },
+)

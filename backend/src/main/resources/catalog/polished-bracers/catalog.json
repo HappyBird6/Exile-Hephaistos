@@ -1,15 +1,15 @@
 {
   "metadata": {
-    "snapshotId": "poe2db-polished-bracers-uniform-20261004-eb7ef2c610fe28e1",
+    "snapshotId": "poe2db-polished-bracers-published-20261109-59cedb5d0223f7e9",
     "retrievedAt": "2026-10-04T17:05:39.824Z",
     "sourceUrl": "https://poe2db.tw/us/Gloves_dex",
-    "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "5d0d65ffffe4b503bedea6837da9fcd7d5e288ca0dcfd5dd9358c4e874f34dba",
     "detailsSha256": "e59e634258870f572f2eee6fb2d87d04b14251d00deca3b4ae1b30ddec29e4af",
     "prefixCount": 84,
     "suffixCount": 94,
-    "prefixWeight": 83,
-    "suffixWeight": 91
+    "prefixWeight": 63700,
+    "suffixWeight": 76500
   },
   "base": {
     "id": "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame",
@@ -31,7 +31,7 @@
         "Dexterity"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 9,
       "text": "+(5—8) to Dexterity",
       "stats": [
@@ -55,7 +55,7 @@
         "Dexterity"
       ],
       "requiredItemLevel": 11,
-      "weight": 1,
+      "weight": 1000,
       "tier": 8,
       "text": "+(9—12) to Dexterity",
       "stats": [
@@ -79,7 +79,7 @@
         "Dexterity"
       ],
       "requiredItemLevel": 22,
-      "weight": 1,
+      "weight": 1000,
       "tier": 7,
       "text": "+(13—16) to Dexterity",
       "stats": [
@@ -103,7 +103,7 @@
         "Dexterity"
       ],
       "requiredItemLevel": 33,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "+(17—20) to Dexterity",
       "stats": [
@@ -127,7 +127,7 @@
         "Dexterity"
       ],
       "requiredItemLevel": 44,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "+(21—24) to Dexterity",
       "stats": [
@@ -151,7 +151,7 @@
         "Dexterity"
       ],
       "requiredItemLevel": 55,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "+(25—27) to Dexterity",
       "stats": [
@@ -175,7 +175,7 @@
         "Dexterity"
       ],
       "requiredItemLevel": 66,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "+(28—30) to Dexterity",
       "stats": [
@@ -199,7 +199,7 @@
         "Dexterity"
       ],
       "requiredItemLevel": 74,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "+(31—33) to Dexterity",
       "stats": [
@@ -223,7 +223,7 @@
         "Dexterity"
       ],
       "requiredItemLevel": 81,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "+(34—36) to Dexterity",
       "stats": [
@@ -247,7 +247,7 @@
         "FireResistance"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 8,
       "text": "+(6—10)% to Fire Resistance",
       "stats": [
@@ -275,7 +275,7 @@
         "FireResistance"
       ],
       "requiredItemLevel": 12,
-      "weight": 1,
+      "weight": 1000,
       "tier": 7,
       "text": "+(11—15)% to Fire Resistance",
       "stats": [
@@ -303,7 +303,7 @@
         "FireResistance"
       ],
       "requiredItemLevel": 24,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "+(16—20)% to Fire Resistance",
       "stats": [
@@ -331,7 +331,7 @@
         "FireResistance"
       ],
       "requiredItemLevel": 36,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "+(21—25)% to Fire Resistance",
       "stats": [
@@ -359,7 +359,7 @@
         "FireResistance"
       ],
       "requiredItemLevel": 48,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "+(26—30)% to Fire Resistance",
       "stats": [
@@ -387,7 +387,7 @@
         "FireResistance"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "+(31—35)% to Fire Resistance",
       "stats": [
@@ -415,7 +415,7 @@
         "FireResistance"
       ],
       "requiredItemLevel": 71,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "+(36—40)% to Fire Resistance",
       "stats": [
@@ -443,7 +443,7 @@
         "FireResistance"
       ],
       "requiredItemLevel": 82,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "+(41—45)% to Fire Resistance",
       "stats": [
@@ -471,7 +471,7 @@
         "ColdResistance"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 8,
       "text": "+(6—10)% to Cold Resistance",
       "stats": [
@@ -499,7 +499,7 @@
         "ColdResistance"
       ],
       "requiredItemLevel": 14,
-      "weight": 1,
+      "weight": 1000,
       "tier": 7,
       "text": "+(11—15)% to Cold Resistance",
       "stats": [
@@ -527,7 +527,7 @@
         "ColdResistance"
       ],
       "requiredItemLevel": 26,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "+(16—20)% to Cold Resistance",
       "stats": [
@@ -555,7 +555,7 @@
         "ColdResistance"
       ],
       "requiredItemLevel": 38,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "+(21—25)% to Cold Resistance",
       "stats": [
@@ -583,7 +583,7 @@
         "ColdResistance"
       ],
       "requiredItemLevel": 50,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "+(26—30)% to Cold Resistance",
       "stats": [
@@ -611,7 +611,7 @@
         "ColdResistance"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "+(31—35)% to Cold Resistance",
       "stats": [
@@ -639,7 +639,7 @@
         "ColdResistance"
       ],
       "requiredItemLevel": 71,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "+(36—40)% to Cold Resistance",
       "stats": [
@@ -667,7 +667,7 @@
         "ColdResistance"
       ],
       "requiredItemLevel": 82,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "+(41—45)% to Cold Resistance",
       "stats": [
@@ -695,7 +695,7 @@
         "LightningResistance"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 8,
       "text": "+(6—10)% to Lightning Resistance",
       "stats": [
@@ -723,7 +723,7 @@
         "LightningResistance"
       ],
       "requiredItemLevel": 13,
-      "weight": 1,
+      "weight": 1000,
       "tier": 7,
       "text": "+(11—15)% to Lightning Resistance",
       "stats": [
@@ -751,7 +751,7 @@
         "LightningResistance"
       ],
       "requiredItemLevel": 25,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "+(16—20)% to Lightning Resistance",
       "stats": [
@@ -779,7 +779,7 @@
         "LightningResistance"
       ],
       "requiredItemLevel": 37,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "+(21—25)% to Lightning Resistance",
       "stats": [
@@ -807,7 +807,7 @@
         "LightningResistance"
       ],
       "requiredItemLevel": 49,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "+(26—30)% to Lightning Resistance",
       "stats": [
@@ -835,7 +835,7 @@
         "LightningResistance"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "+(31—35)% to Lightning Resistance",
       "stats": [
@@ -863,7 +863,7 @@
         "LightningResistance"
       ],
       "requiredItemLevel": 71,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "+(36—40)% to Lightning Resistance",
       "stats": [
@@ -891,7 +891,7 @@
         "LightningResistance"
       ],
       "requiredItemLevel": 82,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "+(41—45)% to Lightning Resistance",
       "stats": [
@@ -919,7 +919,7 @@
         "ChaosResistance"
       ],
       "requiredItemLevel": 16,
-      "weight": 1,
+      "weight": 250,
       "tier": 6,
       "text": "+(4—7)% to Chaos Resistance",
       "stats": [
@@ -945,7 +945,7 @@
         "ChaosResistance"
       ],
       "requiredItemLevel": 30,
-      "weight": 1,
+      "weight": 250,
       "tier": 5,
       "text": "+(8—11)% to Chaos Resistance",
       "stats": [
@@ -971,7 +971,7 @@
         "ChaosResistance"
       ],
       "requiredItemLevel": 44,
-      "weight": 1,
+      "weight": 250,
       "tier": 4,
       "text": "+(12—15)% to Chaos Resistance",
       "stats": [
@@ -997,7 +997,7 @@
         "ChaosResistance"
       ],
       "requiredItemLevel": 56,
-      "weight": 1,
+      "weight": 250,
       "tier": 3,
       "text": "+(16—19)% to Chaos Resistance",
       "stats": [
@@ -1023,7 +1023,7 @@
         "ChaosResistance"
       ],
       "requiredItemLevel": 68,
-      "weight": 1,
+      "weight": 250,
       "tier": 2,
       "text": "+(20—23)% to Chaos Resistance",
       "stats": [
@@ -1049,7 +1049,7 @@
         "ChaosResistance"
       ],
       "requiredItemLevel": 81,
-      "weight": 1,
+      "weight": 250,
       "tier": 1,
       "text": "+(24—27)% to Chaos Resistance",
       "stats": [
@@ -1075,7 +1075,7 @@
         "IncreasedLife"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 9,
       "text": "+(10—19) to maximum Life",
       "stats": [
@@ -1100,7 +1100,7 @@
         "IncreasedLife"
       ],
       "requiredItemLevel": 6,
-      "weight": 1,
+      "weight": 1000,
       "tier": 8,
       "text": "+(20—29) to maximum Life",
       "stats": [
@@ -1125,7 +1125,7 @@
         "IncreasedLife"
       ],
       "requiredItemLevel": 16,
-      "weight": 1,
+      "weight": 1000,
       "tier": 7,
       "text": "+(30—39) to maximum Life",
       "stats": [
@@ -1150,7 +1150,7 @@
         "IncreasedLife"
       ],
       "requiredItemLevel": 24,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "+(40—59) to maximum Life",
       "stats": [
@@ -1175,7 +1175,7 @@
         "IncreasedLife"
       ],
       "requiredItemLevel": 33,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "+(60—69) to maximum Life",
       "stats": [
@@ -1200,7 +1200,7 @@
         "IncreasedLife"
       ],
       "requiredItemLevel": 38,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "+(70—84) to maximum Life",
       "stats": [
@@ -1225,7 +1225,7 @@
         "IncreasedLife"
       ],
       "requiredItemLevel": 46,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "+(85—99) to maximum Life",
       "stats": [
@@ -1250,7 +1250,7 @@
         "IncreasedLife"
       ],
       "requiredItemLevel": 54,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "+(100—119) to maximum Life",
       "stats": [
@@ -1275,7 +1275,7 @@
         "IncreasedLife"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "+(120—149) to maximum Life",
       "stats": [
@@ -1300,7 +1300,7 @@
         "IncreasedMana"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 9,
       "text": "+(10—14) to maximum Mana",
       "stats": [
@@ -1325,7 +1325,7 @@
         "IncreasedMana"
       ],
       "requiredItemLevel": 6,
-      "weight": 1,
+      "weight": 1000,
       "tier": 8,
       "text": "+(15—24) to maximum Mana",
       "stats": [
@@ -1350,7 +1350,7 @@
         "IncreasedMana"
       ],
       "requiredItemLevel": 16,
-      "weight": 1,
+      "weight": 1000,
       "tier": 7,
       "text": "+(25—34) to maximum Mana",
       "stats": [
@@ -1375,7 +1375,7 @@
         "IncreasedMana"
       ],
       "requiredItemLevel": 25,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "+(35—54) to maximum Mana",
       "stats": [
@@ -1400,7 +1400,7 @@
         "IncreasedMana"
       ],
       "requiredItemLevel": 33,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "+(55—64) to maximum Mana",
       "stats": [
@@ -1425,7 +1425,7 @@
         "IncreasedMana"
       ],
       "requiredItemLevel": 38,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "+(65—79) to maximum Mana",
       "stats": [
@@ -1450,7 +1450,7 @@
         "IncreasedMana"
       ],
       "requiredItemLevel": 46,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "+(80—89) to maximum Mana",
       "stats": [
@@ -1475,7 +1475,7 @@
         "IncreasedMana"
       ],
       "requiredItemLevel": 54,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "+(90—104) to maximum Mana",
       "stats": [
@@ -1500,7 +1500,7 @@
         "IncreasedMana"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "+(105—124) to maximum Mana",
       "stats": [
@@ -1525,7 +1525,7 @@
         "BaseLocalDefences"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 7,
       "text": "+(11—18) to Evasion Rating",
       "stats": [
@@ -1550,7 +1550,7 @@
         "BaseLocalDefences"
       ],
       "requiredItemLevel": 8,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "+(19—46) to Evasion Rating",
       "stats": [
@@ -1575,7 +1575,7 @@
         "BaseLocalDefences"
       ],
       "requiredItemLevel": 16,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "+(47—66) to Evasion Rating",
       "stats": [
@@ -1600,7 +1600,7 @@
         "BaseLocalDefences"
       ],
       "requiredItemLevel": 25,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "+(67—87) to Evasion Rating",
       "stats": [
@@ -1625,7 +1625,7 @@
         "BaseLocalDefences"
       ],
       "requiredItemLevel": 33,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "+(88—116) to Evasion Rating",
       "stats": [
@@ -1650,7 +1650,7 @@
         "BaseLocalDefences"
       ],
       "requiredItemLevel": 46,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "+(117—146) to Evasion Rating",
       "stats": [
@@ -1675,7 +1675,7 @@
         "BaseLocalDefences"
       ],
       "requiredItemLevel": 54,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "+(147—176) to Evasion Rating",
       "stats": [
@@ -1700,7 +1700,7 @@
         "DefencesPercent"
       ],
       "requiredItemLevel": 2,
-      "weight": 1,
+      "weight": 1000,
       "tier": 7,
       "text": "(15—26)% increased Evasion Rating",
       "stats": [
@@ -1725,7 +1725,7 @@
         "DefencesPercent"
       ],
       "requiredItemLevel": 16,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "(27—42)% increased Evasion Rating",
       "stats": [
@@ -1750,7 +1750,7 @@
         "DefencesPercent"
       ],
       "requiredItemLevel": 33,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "(43—55)% increased Evasion Rating",
       "stats": [
@@ -1775,7 +1775,7 @@
         "DefencesPercent"
       ],
       "requiredItemLevel": 46,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "(56—67)% increased Evasion Rating",
       "stats": [
@@ -1800,7 +1800,7 @@
         "DefencesPercent"
       ],
       "requiredItemLevel": 54,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "(68—79)% increased Evasion Rating",
       "stats": [
@@ -1825,7 +1825,7 @@
         "DefencesPercent"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "(80—91)% increased Evasion Rating",
       "stats": [
@@ -1850,7 +1850,7 @@
         "DefencesPercent"
       ],
       "requiredItemLevel": 65,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "(92—100)% increased Evasion Rating",
       "stats": [
@@ -1875,7 +1875,7 @@
         "BaseLocalDefencesAndLife"
       ],
       "requiredItemLevel": 8,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "(6—13)% increased Evasion Rating\n+(7—10) to maximum Life",
       "stats": [
@@ -1907,7 +1907,7 @@
         "BaseLocalDefencesAndLife"
       ],
       "requiredItemLevel": 16,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "(14—20)% increased Evasion Rating\n+(11—19) to maximum Life",
       "stats": [
@@ -1939,7 +1939,7 @@
         "BaseLocalDefencesAndLife"
       ],
       "requiredItemLevel": 33,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "(21—26)% increased Evasion Rating\n+(20—25) to maximum Life",
       "stats": [
@@ -1971,7 +1971,7 @@
         "BaseLocalDefencesAndLife"
       ],
       "requiredItemLevel": 46,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "(27—32)% increased Evasion Rating\n+(26—32) to maximum Life",
       "stats": [
@@ -2003,7 +2003,7 @@
         "BaseLocalDefencesAndLife"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "(33—38)% increased Evasion Rating\n+(33—41) to maximum Life",
       "stats": [
@@ -2035,7 +2035,7 @@
         "BaseLocalDefencesAndLife"
       ],
       "requiredItemLevel": 78,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "(39—42)% increased Evasion Rating\n+(42—49) to maximum Life",
       "stats": [
@@ -2067,7 +2067,7 @@
         "LocalAttributeRequirements"
       ],
       "requiredItemLevel": 24,
-      "weight": 1,
+      "weight": 700,
       "tier": 5,
       "text": "15% reduced Attribute Requirements",
       "stats": [
@@ -2089,7 +2089,7 @@
         "LocalAttributeRequirements"
       ],
       "requiredItemLevel": 32,
-      "weight": 1,
+      "weight": 700,
       "tier": 4,
       "text": "20% reduced Attribute Requirements",
       "stats": [
@@ -2111,7 +2111,7 @@
         "LocalAttributeRequirements"
       ],
       "requiredItemLevel": 40,
-      "weight": 1,
+      "weight": 700,
       "tier": 3,
       "text": "25% reduced Attribute Requirements",
       "stats": [
@@ -2133,7 +2133,7 @@
         "LocalAttributeRequirements"
       ],
       "requiredItemLevel": 52,
-      "weight": 1,
+      "weight": 700,
       "tier": 2,
       "text": "30% reduced Attribute Requirements",
       "stats": [
@@ -2155,7 +2155,7 @@
         "LocalAttributeRequirements"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 700,
       "tier": 1,
       "text": "35% reduced Attribute Requirements",
       "stats": [
@@ -2177,7 +2177,7 @@
         "PhysicalDamage"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 9,
       "text": "Adds (1—2) to 3 Physical Damage to Attacks",
       "stats": [
@@ -2209,7 +2209,7 @@
         "PhysicalDamage"
       ],
       "requiredItemLevel": 8,
-      "weight": 1,
+      "weight": 1000,
       "tier": 8,
       "text": "Adds (2—3) to (4—6) Physical Damage to Attacks",
       "stats": [
@@ -2241,7 +2241,7 @@
         "PhysicalDamage"
       ],
       "requiredItemLevel": 16,
-      "weight": 1,
+      "weight": 1000,
       "tier": 7,
       "text": "Adds (2—4) to (5—8) Physical Damage to Attacks",
       "stats": [
@@ -2273,7 +2273,7 @@
         "PhysicalDamage"
       ],
       "requiredItemLevel": 33,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "Adds (4—6) to (8—11) Physical Damage to Attacks",
       "stats": [
@@ -2305,7 +2305,7 @@
         "PhysicalDamage"
       ],
       "requiredItemLevel": 46,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "Adds (5—7) to (9—13) Physical Damage to Attacks",
       "stats": [
@@ -2337,7 +2337,7 @@
         "PhysicalDamage"
       ],
       "requiredItemLevel": 54,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "Adds (6—10) to (12—17) Physical Damage to Attacks",
       "stats": [
@@ -2369,7 +2369,7 @@
         "PhysicalDamage"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 800,
       "tier": 3,
       "text": "Adds (7—11) to (14—20) Physical Damage to Attacks",
       "stats": [
@@ -2401,7 +2401,7 @@
         "PhysicalDamage"
       ],
       "requiredItemLevel": 65,
-      "weight": 1,
+      "weight": 600,
       "tier": 2,
       "text": "Adds (10—15) to (18—26) Physical Damage to Attacks",
       "stats": [
@@ -2433,7 +2433,7 @@
         "PhysicalDamage"
       ],
       "requiredItemLevel": 75,
-      "weight": 1,
+      "weight": 400,
       "tier": 1,
       "text": "Adds (12—19) to (22—32) Physical Damage to Attacks",
       "stats": [
@@ -2465,7 +2465,7 @@
         "FireDamage"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 500,
       "tier": 9,
       "text": "Adds (1—2) to 3 Fire damage to Attacks",
       "stats": [
@@ -2498,7 +2498,7 @@
         "FireDamage"
       ],
       "requiredItemLevel": 8,
-      "weight": 1,
+      "weight": 500,
       "tier": 8,
       "text": "Adds (3—5) to (6—9) Fire damage to Attacks",
       "stats": [
@@ -2531,7 +2531,7 @@
         "FireDamage"
       ],
       "requiredItemLevel": 16,
-      "weight": 1,
+      "weight": 500,
       "tier": 7,
       "text": "Adds (6—8) to (10—13) Fire damage to Attacks",
       "stats": [
@@ -2564,7 +2564,7 @@
         "FireDamage"
       ],
       "requiredItemLevel": 33,
-      "weight": 1,
+      "weight": 500,
       "tier": 6,
       "text": "Adds (9—11) to (14—17) Fire damage to Attacks",
       "stats": [
@@ -2597,7 +2597,7 @@
         "FireDamage"
       ],
       "requiredItemLevel": 46,
-      "weight": 1,
+      "weight": 500,
       "tier": 5,
       "text": "Adds (12—13) to (18—20) Fire damage to Attacks",
       "stats": [
@@ -2630,7 +2630,7 @@
         "FireDamage"
       ],
       "requiredItemLevel": 54,
-      "weight": 1,
+      "weight": 500,
       "tier": 4,
       "text": "Adds (11—16) to (21—26) Fire damage to Attacks",
       "stats": [
@@ -2663,7 +2663,7 @@
         "FireDamage"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 400,
       "tier": 3,
       "text": "Adds (13—19) to (27—32) Fire damage to Attacks",
       "stats": [
@@ -2696,7 +2696,7 @@
         "FireDamage"
       ],
       "requiredItemLevel": 65,
-      "weight": 1,
+      "weight": 300,
       "tier": 2,
       "text": "Adds (20—24) to (33—36) Fire damage to Attacks",
       "stats": [
@@ -2729,7 +2729,7 @@
         "FireDamage"
       ],
       "requiredItemLevel": 75,
-      "weight": 1,
+      "weight": 200,
       "tier": 1,
       "text": "Adds (25—29) to (37—45) Fire damage to Attacks",
       "stats": [
@@ -2762,7 +2762,7 @@
         "ColdDamage"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 500,
       "tier": 9,
       "text": "Adds 1 to (2—3) Cold damage to Attacks",
       "stats": [
@@ -2795,7 +2795,7 @@
         "ColdDamage"
       ],
       "requiredItemLevel": 8,
-      "weight": 1,
+      "weight": 500,
       "tier": 8,
       "text": "Adds (3—4) to (5—8) Cold damage to Attacks",
       "stats": [
@@ -2828,7 +2828,7 @@
         "ColdDamage"
       ],
       "requiredItemLevel": 16,
-      "weight": 1,
+      "weight": 500,
       "tier": 7,
       "text": "Adds (5—6) to (9—11) Cold damage to Attacks",
       "stats": [
@@ -2861,7 +2861,7 @@
         "ColdDamage"
       ],
       "requiredItemLevel": 33,
-      "weight": 1,
+      "weight": 500,
       "tier": 6,
       "text": "Adds (7—8) to (12—14) Cold damage to Attacks",
       "stats": [
@@ -2894,7 +2894,7 @@
         "ColdDamage"
       ],
       "requiredItemLevel": 46,
-      "weight": 1,
+      "weight": 500,
       "tier": 5,
       "text": "Adds (9—10) to (15—17) Cold damage to Attacks",
       "stats": [
@@ -2927,7 +2927,7 @@
         "ColdDamage"
       ],
       "requiredItemLevel": 54,
-      "weight": 1,
+      "weight": 500,
       "tier": 4,
       "text": "Adds (11—13) to (18—21) Cold damage to Attacks",
       "stats": [
@@ -2960,7 +2960,7 @@
         "ColdDamage"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 400,
       "tier": 3,
       "text": "Adds (14—15) to (22—24) Cold damage to Attacks",
       "stats": [
@@ -2993,7 +2993,7 @@
         "ColdDamage"
       ],
       "requiredItemLevel": 65,
-      "weight": 1,
+      "weight": 300,
       "tier": 2,
       "text": "Adds (16—20) to (25—31) Cold damage to Attacks",
       "stats": [
@@ -3026,7 +3026,7 @@
         "ColdDamage"
       ],
       "requiredItemLevel": 75,
-      "weight": 1,
+      "weight": 200,
       "tier": 1,
       "text": "Adds (21—24) to (32—37) Cold damage to Attacks",
       "stats": [
@@ -3059,7 +3059,7 @@
         "LightningDamage"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 500,
       "tier": 9,
       "text": "Adds 1 to (4—6) Lightning damage to Attacks",
       "stats": [
@@ -3092,7 +3092,7 @@
         "LightningDamage"
       ],
       "requiredItemLevel": 8,
-      "weight": 1,
+      "weight": 500,
       "tier": 8,
       "text": "Adds 1 to (10—15) Lightning damage to Attacks",
       "stats": [
@@ -3125,7 +3125,7 @@
         "LightningDamage"
       ],
       "requiredItemLevel": 16,
-      "weight": 1,
+      "weight": 500,
       "tier": 7,
       "text": "Adds 1 to (16—22) Lightning damage to Attacks",
       "stats": [
@@ -3158,7 +3158,7 @@
         "LightningDamage"
       ],
       "requiredItemLevel": 33,
-      "weight": 1,
+      "weight": 500,
       "tier": 6,
       "text": "Adds 1 to (23—27) Lightning damage to Attacks",
       "stats": [
@@ -3191,7 +3191,7 @@
         "LightningDamage"
       ],
       "requiredItemLevel": 46,
-      "weight": 1,
+      "weight": 500,
       "tier": 5,
       "text": "Adds 1 to (28—32) Lightning damage to Attacks",
       "stats": [
@@ -3224,7 +3224,7 @@
         "LightningDamage"
       ],
       "requiredItemLevel": 54,
-      "weight": 1,
+      "weight": 500,
       "tier": 4,
       "text": "Adds (1—2) to (33—40) Lightning damage to Attacks",
       "stats": [
@@ -3257,7 +3257,7 @@
         "LightningDamage"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 400,
       "tier": 3,
       "text": "Adds (1—2) to (41—47) Lightning damage to Attacks",
       "stats": [
@@ -3290,7 +3290,7 @@
         "LightningDamage"
       ],
       "requiredItemLevel": 65,
-      "weight": 1,
+      "weight": 300,
       "tier": 2,
       "text": "Adds (1—3) to (48—59) Lightning damage to Attacks",
       "stats": [
@@ -3323,7 +3323,7 @@
         "LightningDamage"
       ],
       "requiredItemLevel": 75,
-      "weight": 1,
+      "weight": 200,
       "tier": 1,
       "text": "Adds (1—4) to (60—71) Lightning damage to Attacks",
       "stats": [
@@ -3356,7 +3356,7 @@
         "IncreaseSocketedGemLevel"
       ],
       "requiredItemLevel": 5,
-      "weight": 1,
+      "weight": 500,
       "tier": 2,
       "text": "+1 to Level of all Melee Skills",
       "stats": [
@@ -3380,7 +3380,7 @@
         "IncreaseSocketedGemLevel"
       ],
       "requiredItemLevel": 41,
-      "weight": 1,
+      "weight": 250,
       "tier": 1,
       "text": "+2 to Level of all Melee Skills",
       "stats": [
@@ -3404,7 +3404,7 @@
         "LifeLeech"
       ],
       "requiredItemLevel": 21,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "Leech (6—6.9)% of Physical Attack Damage as Life",
       "stats": [
@@ -3431,7 +3431,7 @@
         "LifeLeech"
       ],
       "requiredItemLevel": 38,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "Leech (7—7.9)% of Physical Attack Damage as Life",
       "stats": [
@@ -3458,7 +3458,7 @@
         "LifeLeech"
       ],
       "requiredItemLevel": 54,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "Leech (8—8.9)% of Physical Attack Damage as Life",
       "stats": [
@@ -3485,7 +3485,7 @@
         "LifeLeech"
       ],
       "requiredItemLevel": 65,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "Leech (9—9.9)% of Physical Attack Damage as Life",
       "stats": [
@@ -3512,7 +3512,7 @@
         "ManaLeech"
       ],
       "requiredItemLevel": 21,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "Leech (5—5.9)% of Physical Attack Damage as Mana",
       "stats": [
@@ -3539,7 +3539,7 @@
         "ManaLeech"
       ],
       "requiredItemLevel": 38,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "Leech (6—6.9)% of Physical Attack Damage as Mana",
       "stats": [
@@ -3566,7 +3566,7 @@
         "ManaLeech"
       ],
       "requiredItemLevel": 54,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "Leech (7—7.9)% of Physical Attack Damage as Mana",
       "stats": [
@@ -3593,7 +3593,7 @@
         "ManaLeech"
       ],
       "requiredItemLevel": 65,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "Leech (8—8.9)% of Physical Attack Damage as Mana",
       "stats": [
@@ -3620,7 +3620,7 @@
         "LifeGainedFromEnemyDeath"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 750,
       "tier": 8,
       "text": "Gain (4—6) Life per enemy killed",
       "stats": [
@@ -3645,7 +3645,7 @@
         "LifeGainedFromEnemyDeath"
       ],
       "requiredItemLevel": 11,
-      "weight": 1,
+      "weight": 750,
       "tier": 7,
       "text": "Gain (7—9) Life per enemy killed",
       "stats": [
@@ -3670,7 +3670,7 @@
         "LifeGainedFromEnemyDeath"
       ],
       "requiredItemLevel": 22,
-      "weight": 1,
+      "weight": 750,
       "tier": 6,
       "text": "Gain (10—18) Life per enemy killed",
       "stats": [
@@ -3695,7 +3695,7 @@
         "LifeGainedFromEnemyDeath"
       ],
       "requiredItemLevel": 33,
-      "weight": 1,
+      "weight": 750,
       "tier": 5,
       "text": "Gain (19—28) Life per enemy killed",
       "stats": [
@@ -3720,7 +3720,7 @@
         "LifeGainedFromEnemyDeath"
       ],
       "requiredItemLevel": 44,
-      "weight": 1,
+      "weight": 750,
       "tier": 4,
       "text": "Gain (29—40) Life per enemy killed",
       "stats": [
@@ -3745,7 +3745,7 @@
         "LifeGainedFromEnemyDeath"
       ],
       "requiredItemLevel": 55,
-      "weight": 1,
+      "weight": 750,
       "tier": 3,
       "text": "Gain (41—53) Life per enemy killed",
       "stats": [
@@ -3770,7 +3770,7 @@
         "LifeGainedFromEnemyDeath"
       ],
       "requiredItemLevel": 66,
-      "weight": 1,
+      "weight": 750,
       "tier": 2,
       "text": "Gain (54—68) Life per enemy killed",
       "stats": [
@@ -3795,7 +3795,7 @@
         "LifeGainedFromEnemyDeath"
       ],
       "requiredItemLevel": 77,
-      "weight": 1,
+      "weight": 750,
       "tier": 1,
       "text": "Gain (69—84) Life per enemy killed",
       "stats": [
@@ -3820,7 +3820,7 @@
         "ManaGainedFromEnemyDeath"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 750,
       "tier": 8,
       "text": "Gain (2—3) Mana per enemy killed",
       "stats": [
@@ -3845,7 +3845,7 @@
         "ManaGainedFromEnemyDeath"
       ],
       "requiredItemLevel": 12,
-      "weight": 1,
+      "weight": 750,
       "tier": 7,
       "text": "Gain (4—5) Mana per enemy killed",
       "stats": [
@@ -3870,7 +3870,7 @@
         "ManaGainedFromEnemyDeath"
       ],
       "requiredItemLevel": 23,
-      "weight": 1,
+      "weight": 750,
       "tier": 6,
       "text": "Gain (6—9) Mana per enemy killed",
       "stats": [
@@ -3895,7 +3895,7 @@
         "ManaGainedFromEnemyDeath"
       ],
       "requiredItemLevel": 34,
-      "weight": 1,
+      "weight": 750,
       "tier": 5,
       "text": "Gain (10—14) Mana per enemy killed",
       "stats": [
@@ -3920,7 +3920,7 @@
         "ManaGainedFromEnemyDeath"
       ],
       "requiredItemLevel": 45,
-      "weight": 1,
+      "weight": 750,
       "tier": 4,
       "text": "Gain (15—20) Mana per enemy killed",
       "stats": [
@@ -3945,7 +3945,7 @@
         "ManaGainedFromEnemyDeath"
       ],
       "requiredItemLevel": 56,
-      "weight": 1,
+      "weight": 750,
       "tier": 3,
       "text": "Gain (21—27) Mana per enemy killed",
       "stats": [
@@ -3970,7 +3970,7 @@
         "ManaGainedFromEnemyDeath"
       ],
       "requiredItemLevel": 67,
-      "weight": 1,
+      "weight": 750,
       "tier": 2,
       "text": "Gain (28—35) Mana per enemy killed",
       "stats": [
@@ -3995,7 +3995,7 @@
         "ManaGainedFromEnemyDeath"
       ],
       "requiredItemLevel": 78,
-      "weight": 1,
+      "weight": 750,
       "tier": 1,
       "text": "Gain (36—45) Mana per enemy killed",
       "stats": [
@@ -4020,7 +4020,7 @@
         "LifeGainPerTarget"
       ],
       "requiredItemLevel": 8,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "Gain 2 Life per Enemy Hit with Attacks",
       "stats": [
@@ -4046,7 +4046,7 @@
         "LifeGainPerTarget"
       ],
       "requiredItemLevel": 20,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "Gain 3 Life per Enemy Hit with Attacks",
       "stats": [
@@ -4072,7 +4072,7 @@
         "LifeGainPerTarget"
       ],
       "requiredItemLevel": 30,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "Gain 4 Life per Enemy Hit with Attacks",
       "stats": [
@@ -4098,7 +4098,7 @@
         "LifeGainPerTarget"
       ],
       "requiredItemLevel": 40,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "Gain 5 Life per Enemy Hit with Attacks",
       "stats": [
@@ -4124,7 +4124,7 @@
         "IncreasedAttackSpeed"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 500,
       "tier": 4,
       "text": "(5—7)% increased Attack Speed",
       "stats": [
@@ -4149,7 +4149,7 @@
         "IncreasedAttackSpeed"
       ],
       "requiredItemLevel": 22,
-      "weight": 1,
+      "weight": 500,
       "tier": 3,
       "text": "(8—10)% increased Attack Speed",
       "stats": [
@@ -4174,7 +4174,7 @@
         "IncreasedAttackSpeed"
       ],
       "requiredItemLevel": 37,
-      "weight": 1,
+      "weight": 500,
       "tier": 2,
       "text": "(11—13)% increased Attack Speed",
       "stats": [
@@ -4199,7 +4199,7 @@
         "IncreasedAttackSpeed"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 500,
       "tier": 1,
       "text": "(14—16)% increased Attack Speed",
       "stats": [
@@ -4224,7 +4224,7 @@
         "IncreasedAccuracy"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 800,
       "tier": 9,
       "text": "+(11—32) to Accuracy Rating",
       "stats": [
@@ -4248,7 +4248,7 @@
         "IncreasedAccuracy"
       ],
       "requiredItemLevel": 11,
-      "weight": 1,
+      "weight": 800,
       "tier": 8,
       "text": "+(33—60) to Accuracy Rating",
       "stats": [
@@ -4272,7 +4272,7 @@
         "IncreasedAccuracy"
       ],
       "requiredItemLevel": 18,
-      "weight": 1,
+      "weight": 800,
       "tier": 7,
       "text": "+(61—84) to Accuracy Rating",
       "stats": [
@@ -4296,7 +4296,7 @@
         "IncreasedAccuracy"
       ],
       "requiredItemLevel": 26,
-      "weight": 1,
+      "weight": 800,
       "tier": 6,
       "text": "+(85—123) to Accuracy Rating",
       "stats": [
@@ -4320,7 +4320,7 @@
         "IncreasedAccuracy"
       ],
       "requiredItemLevel": 36,
-      "weight": 1,
+      "weight": 800,
       "tier": 5,
       "text": "+(124—167) to Accuracy Rating",
       "stats": [
@@ -4344,7 +4344,7 @@
         "IncreasedAccuracy"
       ],
       "requiredItemLevel": 48,
-      "weight": 1,
+      "weight": 800,
       "tier": 4,
       "text": "+(168—236) to Accuracy Rating",
       "stats": [
@@ -4368,7 +4368,7 @@
         "IncreasedAccuracy"
       ],
       "requiredItemLevel": 58,
-      "weight": 1,
+      "weight": 800,
       "tier": 3,
       "text": "+(237—346) to Accuracy Rating",
       "stats": [
@@ -4392,7 +4392,7 @@
         "IncreasedAccuracy"
       ],
       "requiredItemLevel": 67,
-      "weight": 1,
+      "weight": 400,
       "tier": 2,
       "text": "+(347—450) to Accuracy Rating",
       "stats": [
@@ -4416,7 +4416,7 @@
         "IncreasedAccuracy"
       ],
       "requiredItemLevel": 76,
-      "weight": 1,
+      "weight": 200,
       "tier": 1,
       "text": "+(451—550) to Accuracy Rating",
       "stats": [
@@ -4440,7 +4440,7 @@
         "CriticalStrikeMultiplier"
       ],
       "requiredItemLevel": 8,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "(10—14)% increased Critical Damage Bonus",
       "stats": [
@@ -4465,7 +4465,7 @@
         "CriticalStrikeMultiplier"
       ],
       "requiredItemLevel": 21,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "(15—19)% increased Critical Damage Bonus",
       "stats": [
@@ -4490,7 +4490,7 @@
         "CriticalStrikeMultiplier"
       ],
       "requiredItemLevel": 31,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "(20—24)% increased Critical Damage Bonus",
       "stats": [
@@ -4515,7 +4515,7 @@
         "CriticalStrikeMultiplier"
       ],
       "requiredItemLevel": 45,
-      "weight": 1,
+      "weight": 500,
       "tier": 2,
       "text": "(25—29)% increased Critical Damage Bonus",
       "stats": [
@@ -4540,7 +4540,7 @@
         "CriticalStrikeMultiplier"
       ],
       "requiredItemLevel": 59,
-      "weight": 1,
+      "weight": 250,
       "tier": 1,
       "text": "(30—34)% increased Critical Damage Bonus",
       "stats": [
@@ -4565,7 +4565,7 @@
         "ItemFoundRarityIncrease"
       ],
       "requiredItemLevel": 3,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "(6—10)% increased Rarity of Items found",
       "stats": [
@@ -4589,7 +4589,7 @@
         "ItemFoundRarityIncrease"
       ],
       "requiredItemLevel": 24,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "(11—14)% increased Rarity of Items found",
       "stats": [
@@ -4613,7 +4613,7 @@
         "ItemFoundRarityIncrease"
       ],
       "requiredItemLevel": 40,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "(15—18)% increased Rarity of Items found",
       "stats": [
@@ -4637,7 +4637,7 @@
         "EvasionAppliesToDeflection"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "Gain Deflection Rating equal to (8—11)% of Evasion Rating",
       "stats": [
@@ -4662,7 +4662,7 @@
         "EvasionAppliesToDeflection"
       ],
       "requiredItemLevel": 16,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "Gain Deflection Rating equal to (12—14)% of Evasion Rating",
       "stats": [
@@ -4687,7 +4687,7 @@
         "EvasionAppliesToDeflection"
       ],
       "requiredItemLevel": 36,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "Gain Deflection Rating equal to (15—17)% of Evasion Rating",
       "stats": [
@@ -4712,7 +4712,7 @@
         "EvasionAppliesToDeflection"
       ],
       "requiredItemLevel": 48,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "Gain Deflection Rating equal to (18—20)% of Evasion Rating",
       "stats": [
@@ -4737,7 +4737,7 @@
         "EvasionAppliesToDeflection"
       ],
       "requiredItemLevel": 66,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "Gain Deflection Rating equal to (21—23)% of Evasion Rating",
       "stats": [

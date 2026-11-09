@@ -162,7 +162,9 @@ it.each([
     show()
     if (kind === 'ABYSS')
       await waitFor(() =>
-        expect(screen.getByRole('button', { name: 'Reveal' })).toBeEnabled(),
+        expect(
+          screen.getByRole('button', { name: 'Desecrated Reveal' }),
+        ).toBeEnabled(),
       )
     configure(id)
     fireEvent.click(slot())
@@ -238,7 +240,9 @@ it.each([
         : batchResponse({ code: 'INVALID_CHAOS_REPEAT_REQUEST' }, 422)
     show()
     await waitFor(() =>
-      expect(screen.getByRole('button', { name: 'Reveal' })).toBeEnabled(),
+      expect(
+        screen.getByRole('button', { name: 'Desecrated Reveal' }),
+      ).toBeEnabled(),
     )
     configure(id)
     fireEvent.click(slot())
@@ -293,7 +297,9 @@ it.each(['LIMIT', 'INAPPLICABLE', 'ERROR'] as const)(
     }
     show()
     await waitFor(() =>
-      expect(screen.getByRole('button', { name: 'Reveal' })).toBeEnabled(),
+      expect(
+        screen.getByRole('button', { name: 'Desecrated Reveal' }),
+      ).toBeEnabled(),
     )
     configure('Perfect_Chaos_Orb')
     fireEvent.click(slot())
@@ -352,7 +358,9 @@ it.each([
     const before = localStorage.getItem(historyStorageKey)
     show()
     await waitFor(() =>
-      expect(screen.getByRole('button', { name: 'Reveal' })).toBeEnabled(),
+      expect(
+        screen.getByRole('button', { name: 'Desecrated Reveal' }),
+      ).toBeEnabled(),
     )
     configure('Greater_Chaos_Orb')
     fireEvent.click(slot())
@@ -388,7 +396,9 @@ it('rejects a late Abyss result when only the dormant part of the captured omen 
   const before = localStorage.getItem(historyStorageKey)
   show()
   await waitFor(() =>
-    expect(screen.getByRole('button', { name: 'Reveal' })).toBeEnabled(),
+    expect(
+      screen.getByRole('button', { name: 'Desecrated Reveal' }),
+    ).toBeEnabled(),
   )
   configure()
   fireEvent.click(slot())
@@ -416,7 +426,9 @@ it('retains unknown omen IDs for rejection instead of silently filtering them wi
   const before = localStorage.getItem(historyStorageKey)
   show()
   await waitFor(() =>
-    expect(screen.getByRole('button', { name: 'Reveal' })).toBeEnabled(),
+    expect(
+      screen.getByRole('button', { name: 'Desecrated Reveal' }),
+    ).toBeEnabled(),
   )
   configure()
   fireEvent.click(slot())
@@ -710,10 +722,12 @@ it('blocks Abyss manual selection during a batch while retaining the complete be
     })
   }
   show()
-  const reveal = await screen.findByRole('button', { name: 'Reveal' })
+  const reveal = await screen.findByRole('button', {
+    name: 'Desecrated Reveal',
+  })
   await waitFor(() => expect(reveal).toBeEnabled())
   fireEvent.click(reveal)
-  const candidate = screen.getByRole('combobox', { name: 'Candidate 1' })
+  const candidate = screen.getByRole('combobox', { name: 'Choose modifier' })
   await within(candidate).findByRole('option', { name: /Strength/ })
   fireEvent.change(candidate, { target: { value: 's' } })
   configure()
@@ -722,7 +736,7 @@ it('blocks Abyss manual selection during a batch while retaining the complete be
   await waitFor(() => expect(requests).toHaveLength(1))
   expect(reveal).toBeDisabled()
   expect(candidate).toBeDisabled()
-  const apply = screen.getByRole('button', { name: 'Apply chosen modifier' })
+  const apply = screen.getByRole('button', { name: 'Reveal' })
   expect(apply).toBeDisabled()
   fireEvent.click(apply)
   expect(paths.some((path) => path.endsWith('/abyss/select'))).toBe(false)
@@ -776,15 +790,17 @@ it('blocks a same-event Chaos request while Abyss selection owns the mutation, t
     })
   }
   show()
-  const reveal = await screen.findByRole('button', { name: 'Reveal' })
+  const reveal = await screen.findByRole('button', {
+    name: 'Desecrated Reveal',
+  })
   await waitFor(() => expect(reveal).toBeEnabled())
   fireEvent.click(reveal)
-  const candidate = screen.getByRole('combobox', { name: 'Candidate 1' })
+  const candidate = screen.getByRole('combobox', { name: 'Choose modifier' })
   await within(candidate).findByRole('option', { name: /Strength/ })
   fireEvent.change(candidate, { target: { value: 's' } })
   configure()
   const manualButton = screen.getByRole('button', {
-    name: 'Apply chosen modifier',
+    name: 'Reveal',
   })
   const target = slot()
   act(() => {
@@ -810,7 +826,7 @@ it('blocks a same-event Chaos request while Abyss selection owns the mutation, t
     }),
   )
   await waitFor(() =>
-    expect(currentFrame(stored())!.action).toBe('ABYSS_SELECT'),
+    expect(currentFrame(stored())!.action).toBe('DESECRATION_REVEAL'),
   )
   await waitFor(() => expect(slot()).toBeEnabled())
   fireEvent.click(slot())

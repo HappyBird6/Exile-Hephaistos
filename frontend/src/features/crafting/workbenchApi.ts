@@ -331,6 +331,25 @@ const replacementEssenceModifiers: Partial<
     'amulet:suffix:essence-percent-intelligence',
   ],
 }
+const stockyReplacementTargets: Partial<
+  Record<WorkbenchAction, readonly string[]>
+> = {
+  ESSENCE_HYSTERIA: ['stocky-mitts:suffix:of-fury'],
+  ESSENCE_HORROR: ['stocky-mitts:suffix:essence-socketed-augment-effect'],
+  EXPANSIVE_ALLOY: ['stocky-mitts:suffix:alloy-remnant-pickup-range'],
+  CYCLONIC_ALLOY: ['stocky-mitts:suffix:alloy-damaging-ailment-duration'],
+  MYSTIC_ALLOY: ['stocky-mitts:suffix:alloy-attack-area-of-effect'],
+  ADAPTIVE_ALLOY: ['stocky-mitts:suffix:alloy-attack-speed-missing-ward'],
+  SWIFT_ALLOY: ['stocky-mitts:suffix:alloy-cast-speed'],
+  SOVEREIGN_ALLOY: ['stocky-mitts:prefix:alloy-local-runic-ward'],
+  PRISMATIC_ALLOY: ['stocky-mitts:prefix:alloy-elemental-penetration'],
+  PERFECT_ESSENCE_GROUNDING: ['stocky-mitts:suffix:essence-lightning-recoup'],
+  PERFECT_ESSENCE_OPULENCE: ['stocky-mitts:suffix:essence-gold-quantity'],
+  ESSENCE_ABYSS: [
+    'stocky-mitts:prefix:essence-abyssal-mark',
+    'stocky-mitts:suffix:essence-abyssal-mark',
+  ],
+}
 export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Armourers_Scrap: 'ARMOURERS_SCRAP',
   Blacksmiths_Whetstone: 'BLACKSMITHS_WHETSTONE',
@@ -1069,25 +1088,6 @@ export async function applyCurrency(
     : fixedTarget
       ? [fixedTarget]
       : (choiceEssenceModifiers[action] ?? [])
-  const stockyReplacementTargets: Partial<
-    Record<WorkbenchAction, readonly string[]>
-  > = {
-    ESSENCE_HYSTERIA: ['stocky-mitts:suffix:of-fury'],
-    ESSENCE_HORROR: ['stocky-mitts:suffix:essence-socketed-augment-effect'],
-    EXPANSIVE_ALLOY: ['stocky-mitts:suffix:alloy-remnant-pickup-range'],
-    CYCLONIC_ALLOY: ['stocky-mitts:suffix:alloy-damaging-ailment-duration'],
-    MYSTIC_ALLOY: ['stocky-mitts:suffix:alloy-attack-area-of-effect'],
-    ADAPTIVE_ALLOY: ['stocky-mitts:suffix:alloy-attack-speed-missing-ward'],
-    SWIFT_ALLOY: ['stocky-mitts:suffix:alloy-cast-speed'],
-    SOVEREIGN_ALLOY: ['stocky-mitts:prefix:alloy-local-runic-ward'],
-    PRISMATIC_ALLOY: ['stocky-mitts:prefix:alloy-elemental-penetration'],
-    PERFECT_ESSENCE_GROUNDING: ['stocky-mitts:suffix:essence-lightning-recoup'],
-    PERFECT_ESSENCE_OPULENCE: ['stocky-mitts:suffix:essence-gold-quantity'],
-    ESSENCE_ABYSS: [
-      'stocky-mitts:prefix:essence-abyssal-mark',
-      'stocky-mitts:suffix:essence-abyssal-mark',
-    ],
-  }
   const baseName = Object.keys(workbenchJewelBases).find(
     (b) =>
       (workbenchJewelBases as Record<string, string>)[b] === state.baseItemId,
@@ -2141,4 +2141,75 @@ export function rolledText(
       ([id, value]) => `${id.replaceAll('_', ' ')} = ${value} (source units)`,
     )
     .join(', ')}`
+}
+
+/** Reviewed essence outcomes only; these are not normal spawn weights. */
+export function workbenchEssenceTargets(
+  initial: Initial,
+): Record<string, string[]> {
+  const id = initial.state.baseItemId
+  const key = topBaseKey(id)
+  const reviewed = key
+    ? (
+        reviewedEssenceTargets as Record<
+          string,
+          {
+            fixed: Record<string, string[]>
+            replacements: Record<string, string[]>
+          }
+        >
+      )[key]
+    : undefined
+  const fixed = id.includes('/Sceptres/')
+    ? sceptreFixedEssenceModifiers
+    : id.includes('/Wands/')
+      ? wandFixedEssenceModifiers
+      : id.includes('/Bows/')
+        ? bowFixedEssenceModifiers
+        : id === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+          ? { ...fixedEssenceModifiers, ...stockyFixedEssenceModifiers }
+          : fixedEssenceModifiers
+  const entries: [string, readonly string[]][] = reviewed
+    ? [
+        ...Object.entries(reviewed.fixed),
+        ...Object.entries(reviewed.replacements),
+        ...[
+          'PERFECT_ESSENCE_GROUNDING',
+          'PERFECT_ESSENCE_OPULENCE',
+          'ESSENCE_ABYSS',
+        ].map(
+          (action) =>
+            [
+              action,
+              stockyReplacementTargets[action as WorkbenchAction] ?? [],
+            ] as [string, readonly string[]],
+        ),
+      ]
+    : [
+        ...Object.entries(fixed).map(
+          ([action, id]) => [action, [id!]] as [string, string[]],
+        ),
+        ...Object.entries(choiceEssenceModifiers),
+        ...Object.entries(
+          id === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+            ? { ...replacementEssenceModifiers, ...stockyReplacementTargets }
+            : replacementEssenceModifiers,
+        ),
+      ]
+  const result: Record<string, string[]> = {}
+  for (const [action, ids] of entries) {
+    if (
+      !action.includes('ESSENCE') ||
+      (initial.baseMaterialActions &&
+        !initial.baseMaterialActions.includes(action))
+    )
+      continue
+    for (const modifierId of ids ?? [])
+      if (initial.modifiers[modifierId]) {
+        const actions = result[modifierId] ?? []
+        if (!actions.includes(action)) actions.push(action)
+        result[modifierId] = actions
+      }
+  }
+  return result
 }

@@ -1,6 +1,15 @@
 import type { Locale } from '../../../shared/i18n/i18n'
 
 type Messages = {
+  dynamicEmpty: string
+  dynamic: string
+  static: string
+  mode: string
+  dynamicBasis: string
+  desecrated: string
+  essence: string
+  essenceNote: string
+
   title: string
   itemLevel: string
   search: string
@@ -27,9 +36,20 @@ type Messages = {
 
 export const modifierPoolMessages: Record<Locale, Messages> = {
   en: {
+    dynamicEmpty: 'No modifiers can be added in the current state.',
+    dynamic: 'Dynamic',
+    static: 'All modifiers',
+    mode: 'Modifier view',
+    dynamicBasis:
+      'Current item level, occupied families and remaining prefix/suffix slots. Each affix side totals 100%; currency and omen effects are excluded.',
+    desecrated: 'Desecrated',
+    essence: 'Essence',
+    essenceNote:
+      'Essence outcomes are specified by each currency; they do not use ordinary spawn weights.',
+
     effect: 'Modifier',
     basis:
-      'Published weights at this item level, with prefixes and suffixes each totaling 100%. Existing modifiers and currency effects are not included. Expand a group to see individual tiers.',
+      'Published weights for all modifier tiers, with prefixes and suffixes each totaling 100%. Existing modifiers and currency effects are not included. Expand a group to see individual tiers.',
     unpublishedNote:
       'Weights and probabilities for this item are not published. Browse its modifiers and required levels below.',
 
@@ -54,9 +74,20 @@ export const modifierPoolMessages: Record<Locale, Messages> = {
     unpublished: 'Not published',
   },
   ko: {
+    dynamicEmpty: '현재 상태에서 추가할 수 있는 옵션이 없습니다.',
+    dynamic: '동적 보기',
+    static: '전체 옵션',
+    mode: '옵션 보기',
+    dynamicBasis:
+      '현재 아이템의 레벨·중복 계열·남은 접두/접미 슬롯을 반영합니다. 접두어·접미어별 비중이며 화폐·징조 효과는 반영하지 않습니다.',
+    desecrated: '훼손',
+    essence: '에센스',
+    essenceNote:
+      '에센스 옵션은 화폐별 지정 결과이며 일반 옵션의 가중치 추첨을 적용하지 않습니다.',
+
     effect: '옵션',
     basis:
-      '이 아이템 레벨의 공개 가중치 기준으로 접두어·접미어를 각각 100%로 계산합니다. 현재 옵션과 화폐 효과는 반영하지 않습니다. 계열을 펼치면 티어별 수치를 볼 수 있습니다.',
+      '전체 티어의 공개 가중치 기준으로 접두어·접미어를 각각 100%로 계산합니다. 현재 옵션과 화폐 효과는 반영하지 않습니다. 계열을 펼치면 티어별 수치를 볼 수 있습니다.',
     unpublishedNote:
       '이 장비의 가중치와 확률은 미공개입니다. 아래에서 옵션과 요구 레벨을 확인할 수 있습니다.',
 
@@ -81,9 +112,19 @@ export const modifierPoolMessages: Record<Locale, Messages> = {
     unpublished: '미공개',
   },
   'zh-CN': {
+    dynamicEmpty: '当前状态没有可添加的词缀。',
+    dynamic: '动态',
+    static: '全部词缀',
+    mode: '词缀视图',
+    dynamicBasis:
+      '根据当前物品等级、已有词缀类别和剩余前后缀槽位计算。前后缀分别归一化，不含通货及预兆效果。',
+    desecrated: '亵渎',
+    essence: '精华',
+    essenceNote: '精华词缀由各通货指定，不使用普通词缀生成权重。',
+
     effect: '词缀',
     basis:
-      '根据此物品等级的公开权重，前缀和后缀分别合计为100%。不考虑已有词缀及通货效果。展开类别可查看各阶级。',
+      '根据所有阶级的公开权重，前缀和后缀分别合计为100%。不考虑已有词缀及通货效果。展开类别可查看各阶级。',
     unpublishedNote:
       '此物品的权重和概率未公开。您可以在下方查看词缀及所需等级。',
 
@@ -108,9 +149,19 @@ export const modifierPoolMessages: Record<Locale, Messages> = {
     unpublished: '未公开',
   },
   'zh-TW': {
+    dynamicEmpty: '目前狀態沒有可新增的詞綴。',
+    dynamic: '動態',
+    static: '全部詞綴',
+    mode: '詞綴檢視',
+    dynamicBasis:
+      '依據目前物品等級、現有詞綴類別與剩餘前後綴欄位計算。前後綴分別正規化，不含通貨與預兆效果。',
+    desecrated: '褻瀆',
+    essence: '精髓',
+    essenceNote: '精髓詞綴由各通貨指定，不使用普通詞綴生成權重。',
+
     effect: '詞綴',
     basis:
-      '依據此物品等級的公開權重，前綴和後綴分別合計為100%。不考慮現有詞綴及通貨效果。展開類別可查看各階級。',
+      '依據所有階級的公開權重，前綴和後綴分別合計為100%。不考慮現有詞綴及通貨效果。展開類別可查看各階級。',
     unpublishedNote:
       '此物品的權重和機率未公開。您可以在下方查看詞綴及所需等級。',
 
@@ -135,9 +186,20 @@ export const modifierPoolMessages: Record<Locale, Messages> = {
     unpublished: '未公開',
   },
   ja: {
+    dynamicEmpty: '現在の状態で追加できるモッドはありません。',
+    dynamic: '動的表示',
+    static: '全モッド',
+    mode: 'モッド表示',
+    dynamicBasis:
+      '現在のアイテムレベル、既存モッドの種類、残りの枠を反映します。接頭と接尾は個別に正規化し、通貨・オーメンの効果は含みません。',
+    desecrated: '冒涜',
+    essence: 'エッセンス',
+    essenceNote:
+      'エッセンスの結果は通貨ごとに指定され、通常の出現ウェイトは使用しません。',
+
     effect: 'モッド',
     basis:
-      'このアイテムレベルの公開された重みに基づき、プレフィックスとサフィックスをそれぞれ100%として計算します。既存のモッドと通貨効果は含みません。グループを展開すると各ティアを確認できます。',
+      '全ティアの公開された重みに基づき、プレフィックスとサフィックスをそれぞれ100%として計算します。既存のモッドと通貨効果は含みません。グループを展開すると各ティアを確認できます。',
     unpublishedNote:
       'この装備の重みと確率は非公開です。モッドと必要レベルは下記で確認できます。',
 
@@ -162,9 +224,20 @@ export const modifierPoolMessages: Record<Locale, Messages> = {
     unpublished: '非公開',
   },
   es: {
+    dynamicEmpty: 'No se pueden añadir modificadores en el estado actual.',
+    dynamic: 'Dinámico',
+    static: 'Todos los mods',
+    mode: 'Vista de modificadores',
+    dynamicBasis:
+      'Según el nivel, familias ocupadas y espacios de prefijos/sufijos disponibles. Cada tipo suma un 100%; no incluye efectos de monedas ni presagios.',
+    desecrated: 'Profanado',
+    essence: 'Esencia',
+    essenceNote:
+      'Las esencias especifican resultados por moneda; no usan los pesos de aparición normales.',
+
     effect: 'Modificador',
     basis:
-      'Pesos publicados para este nivel de objeto; prefijos y sufijos suman un 100% por separado. No se incluyen modificadores existentes ni efectos de monedas. Despliega un grupo para ver sus grados.',
+      'Pesos publicados de todos los grados; prefijos y sufijos suman un 100% por separado. No se incluyen modificadores existentes ni efectos de monedas. Despliega un grupo para ver sus grados.',
     unpublishedNote:
       'Los pesos y las probabilidades de este objeto no están publicados. Puedes consultar sus modificadores y niveles requeridos a continuación.',
 

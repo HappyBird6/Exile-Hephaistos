@@ -108,7 +108,9 @@ it.each([
     if (policy) metadata.weightPolicy = policy
     const { container } = show({ ...catalog, metadata })
     expect(
-      screen.getByText(modifierPoolMessages.en.unpublishedNote),
+      screen.getByText(modifierPoolMessages.en.unpublishedNote, {
+        exact: false,
+      }),
     ).toBeVisible()
     expect(container.querySelectorAll('details')).toHaveLength(3)
     expect(container.querySelector('.modifier-pool__bar')).toBeNull()
@@ -174,7 +176,7 @@ it('clears prior option data on loading/error and keeps unavailable and empty po
       loading={false}
     />,
   )
-  expect(screen.getAllByRole('status')).toHaveLength(2)
+  expect(screen.getAllByRole('status')).toHaveLength(6)
   expect(screen.getAllByRole('status')[0]).toHaveTextContent(
     'No modifiers at this item level.',
   )

@@ -1,15 +1,15 @@
 {
   "metadata": {
-    "snapshotId": "poe2db-drakeskin-boots-uniform-20261004-995d6134f972ea65",
+    "snapshotId": "poe2db-drakeskin-boots-published-20261109-ceacf8e69612d205",
     "retrievedAt": "2026-10-04T18:57:49.389Z",
     "sourceUrl": "https://poe2db.tw/us/Boots_dex",
-    "weightPolicy": "UNVERIFIED_GAME_WEIGHTS_EXPLICIT_UNIFORM_ELIGIBLE_CANDIDATES",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "088ad193d6ff5b181c3c6dad2f2b73bb3ccc582c5cbadd5382d73e936f90d569",
     "detailsSha256": "3ff21d557f0daaeba3f0196595930a528c32e7834446e32ea471c53abbde7f65",
     "prefixCount": 45,
     "suffixCount": 86,
-    "prefixWeight": 44,
-    "suffixWeight": 85
+    "prefixWeight": 44000,
+    "suffixWeight": 69550
   },
   "base": {
     "id": "Metadata/Items/Armours/Boots/FourBootsDex6Endgame",
@@ -31,7 +31,7 @@
         "Dexterity"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 9,
       "text": "+(5—8) to Dexterity",
       "stats": [
@@ -55,7 +55,7 @@
         "Dexterity"
       ],
       "requiredItemLevel": 11,
-      "weight": 1,
+      "weight": 1000,
       "tier": 8,
       "text": "+(9—12) to Dexterity",
       "stats": [
@@ -79,7 +79,7 @@
         "Dexterity"
       ],
       "requiredItemLevel": 22,
-      "weight": 1,
+      "weight": 1000,
       "tier": 7,
       "text": "+(13—16) to Dexterity",
       "stats": [
@@ -103,7 +103,7 @@
         "Dexterity"
       ],
       "requiredItemLevel": 33,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "+(17—20) to Dexterity",
       "stats": [
@@ -127,7 +127,7 @@
         "Dexterity"
       ],
       "requiredItemLevel": 44,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "+(21—24) to Dexterity",
       "stats": [
@@ -151,7 +151,7 @@
         "Dexterity"
       ],
       "requiredItemLevel": 55,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "+(25—27) to Dexterity",
       "stats": [
@@ -175,7 +175,7 @@
         "Dexterity"
       ],
       "requiredItemLevel": 66,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "+(28—30) to Dexterity",
       "stats": [
@@ -199,7 +199,7 @@
         "Dexterity"
       ],
       "requiredItemLevel": 74,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "+(31—33) to Dexterity",
       "stats": [
@@ -223,7 +223,7 @@
         "FireResistance"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 8,
       "text": "+(6—10)% to Fire Resistance",
       "stats": [
@@ -251,7 +251,7 @@
         "FireResistance"
       ],
       "requiredItemLevel": 12,
-      "weight": 1,
+      "weight": 1000,
       "tier": 7,
       "text": "+(11—15)% to Fire Resistance",
       "stats": [
@@ -279,7 +279,7 @@
         "FireResistance"
       ],
       "requiredItemLevel": 24,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "+(16—20)% to Fire Resistance",
       "stats": [
@@ -307,7 +307,7 @@
         "FireResistance"
       ],
       "requiredItemLevel": 36,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "+(21—25)% to Fire Resistance",
       "stats": [
@@ -335,7 +335,7 @@
         "FireResistance"
       ],
       "requiredItemLevel": 48,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "+(26—30)% to Fire Resistance",
       "stats": [
@@ -363,7 +363,7 @@
         "FireResistance"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "+(31—35)% to Fire Resistance",
       "stats": [
@@ -391,7 +391,7 @@
         "FireResistance"
       ],
       "requiredItemLevel": 71,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "+(36—40)% to Fire Resistance",
       "stats": [
@@ -419,7 +419,7 @@
         "FireResistance"
       ],
       "requiredItemLevel": 82,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "+(41—45)% to Fire Resistance",
       "stats": [
@@ -447,7 +447,7 @@
         "ColdResistance"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 8,
       "text": "+(6—10)% to Cold Resistance",
       "stats": [
@@ -475,7 +475,7 @@
         "ColdResistance"
       ],
       "requiredItemLevel": 14,
-      "weight": 1,
+      "weight": 1000,
       "tier": 7,
       "text": "+(11—15)% to Cold Resistance",
       "stats": [
@@ -503,7 +503,7 @@
         "ColdResistance"
       ],
       "requiredItemLevel": 26,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "+(16—20)% to Cold Resistance",
       "stats": [
@@ -531,7 +531,7 @@
         "ColdResistance"
       ],
       "requiredItemLevel": 38,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "+(21—25)% to Cold Resistance",
       "stats": [
@@ -559,7 +559,7 @@
         "ColdResistance"
       ],
       "requiredItemLevel": 50,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "+(26—30)% to Cold Resistance",
       "stats": [
@@ -587,7 +587,7 @@
         "ColdResistance"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "+(31—35)% to Cold Resistance",
       "stats": [
@@ -615,7 +615,7 @@
         "ColdResistance"
       ],
       "requiredItemLevel": 71,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "+(36—40)% to Cold Resistance",
       "stats": [
@@ -643,7 +643,7 @@
         "ColdResistance"
       ],
       "requiredItemLevel": 82,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "+(41—45)% to Cold Resistance",
       "stats": [
@@ -671,7 +671,7 @@
         "LightningResistance"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 8,
       "text": "+(6—10)% to Lightning Resistance",
       "stats": [
@@ -699,7 +699,7 @@
         "LightningResistance"
       ],
       "requiredItemLevel": 13,
-      "weight": 1,
+      "weight": 1000,
       "tier": 7,
       "text": "+(11—15)% to Lightning Resistance",
       "stats": [
@@ -727,7 +727,7 @@
         "LightningResistance"
       ],
       "requiredItemLevel": 25,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "+(16—20)% to Lightning Resistance",
       "stats": [
@@ -755,7 +755,7 @@
         "LightningResistance"
       ],
       "requiredItemLevel": 37,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "+(21—25)% to Lightning Resistance",
       "stats": [
@@ -783,7 +783,7 @@
         "LightningResistance"
       ],
       "requiredItemLevel": 49,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "+(26—30)% to Lightning Resistance",
       "stats": [
@@ -811,7 +811,7 @@
         "LightningResistance"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "+(31—35)% to Lightning Resistance",
       "stats": [
@@ -839,7 +839,7 @@
         "LightningResistance"
       ],
       "requiredItemLevel": 71,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "+(36—40)% to Lightning Resistance",
       "stats": [
@@ -867,7 +867,7 @@
         "LightningResistance"
       ],
       "requiredItemLevel": 82,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "+(41—45)% to Lightning Resistance",
       "stats": [
@@ -895,7 +895,7 @@
         "ChaosResistance"
       ],
       "requiredItemLevel": 16,
-      "weight": 1,
+      "weight": 250,
       "tier": 6,
       "text": "+(4—7)% to Chaos Resistance",
       "stats": [
@@ -921,7 +921,7 @@
         "ChaosResistance"
       ],
       "requiredItemLevel": 30,
-      "weight": 1,
+      "weight": 250,
       "tier": 5,
       "text": "+(8—11)% to Chaos Resistance",
       "stats": [
@@ -947,7 +947,7 @@
         "ChaosResistance"
       ],
       "requiredItemLevel": 44,
-      "weight": 1,
+      "weight": 250,
       "tier": 4,
       "text": "+(12—15)% to Chaos Resistance",
       "stats": [
@@ -973,7 +973,7 @@
         "ChaosResistance"
       ],
       "requiredItemLevel": 56,
-      "weight": 1,
+      "weight": 250,
       "tier": 3,
       "text": "+(16—19)% to Chaos Resistance",
       "stats": [
@@ -999,7 +999,7 @@
         "ChaosResistance"
       ],
       "requiredItemLevel": 68,
-      "weight": 1,
+      "weight": 250,
       "tier": 2,
       "text": "+(20—23)% to Chaos Resistance",
       "stats": [
@@ -1025,7 +1025,7 @@
         "ChaosResistance"
       ],
       "requiredItemLevel": 81,
-      "weight": 1,
+      "weight": 250,
       "tier": 1,
       "text": "+(24—27)% to Chaos Resistance",
       "stats": [
@@ -1051,7 +1051,7 @@
         "IncreasedLife"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 9,
       "text": "+(10—19) to maximum Life",
       "stats": [
@@ -1076,7 +1076,7 @@
         "IncreasedLife"
       ],
       "requiredItemLevel": 6,
-      "weight": 1,
+      "weight": 1000,
       "tier": 8,
       "text": "+(20—29) to maximum Life",
       "stats": [
@@ -1101,7 +1101,7 @@
         "IncreasedLife"
       ],
       "requiredItemLevel": 16,
-      "weight": 1,
+      "weight": 1000,
       "tier": 7,
       "text": "+(30—39) to maximum Life",
       "stats": [
@@ -1126,7 +1126,7 @@
         "IncreasedLife"
       ],
       "requiredItemLevel": 24,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "+(40—59) to maximum Life",
       "stats": [
@@ -1151,7 +1151,7 @@
         "IncreasedLife"
       ],
       "requiredItemLevel": 33,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "+(60—69) to maximum Life",
       "stats": [
@@ -1176,7 +1176,7 @@
         "IncreasedLife"
       ],
       "requiredItemLevel": 38,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "+(70—84) to maximum Life",
       "stats": [
@@ -1201,7 +1201,7 @@
         "IncreasedLife"
       ],
       "requiredItemLevel": 46,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "+(85—99) to maximum Life",
       "stats": [
@@ -1226,7 +1226,7 @@
         "IncreasedLife"
       ],
       "requiredItemLevel": 54,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "+(100—119) to maximum Life",
       "stats": [
@@ -1251,7 +1251,7 @@
         "IncreasedLife"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "+(120—149) to maximum Life",
       "stats": [
@@ -1276,7 +1276,7 @@
         "IncreasedMana"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 9,
       "text": "+(10—14) to maximum Mana",
       "stats": [
@@ -1301,7 +1301,7 @@
         "IncreasedMana"
       ],
       "requiredItemLevel": 6,
-      "weight": 1,
+      "weight": 1000,
       "tier": 8,
       "text": "+(15—24) to maximum Mana",
       "stats": [
@@ -1326,7 +1326,7 @@
         "IncreasedMana"
       ],
       "requiredItemLevel": 16,
-      "weight": 1,
+      "weight": 1000,
       "tier": 7,
       "text": "+(25—34) to maximum Mana",
       "stats": [
@@ -1351,7 +1351,7 @@
         "IncreasedMana"
       ],
       "requiredItemLevel": 25,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "+(35—54) to maximum Mana",
       "stats": [
@@ -1376,7 +1376,7 @@
         "IncreasedMana"
       ],
       "requiredItemLevel": 33,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "+(55—64) to maximum Mana",
       "stats": [
@@ -1401,7 +1401,7 @@
         "IncreasedMana"
       ],
       "requiredItemLevel": 38,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "+(65—79) to maximum Mana",
       "stats": [
@@ -1426,7 +1426,7 @@
         "IncreasedMana"
       ],
       "requiredItemLevel": 46,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "+(80—89) to maximum Mana",
       "stats": [
@@ -1451,7 +1451,7 @@
         "IncreasedMana"
       ],
       "requiredItemLevel": 54,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "+(90—104) to maximum Mana",
       "stats": [
@@ -1476,7 +1476,7 @@
         "IncreasedMana"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "+(105—124) to maximum Mana",
       "stats": [
@@ -1501,7 +1501,7 @@
         "BaseLocalDefences"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 7,
       "text": "+(11—18) to Evasion Rating",
       "stats": [
@@ -1526,7 +1526,7 @@
         "BaseLocalDefences"
       ],
       "requiredItemLevel": 8,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "+(19—46) to Evasion Rating",
       "stats": [
@@ -1551,7 +1551,7 @@
         "BaseLocalDefences"
       ],
       "requiredItemLevel": 16,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "+(47—66) to Evasion Rating",
       "stats": [
@@ -1576,7 +1576,7 @@
         "BaseLocalDefences"
       ],
       "requiredItemLevel": 25,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "+(67—87) to Evasion Rating",
       "stats": [
@@ -1601,7 +1601,7 @@
         "BaseLocalDefences"
       ],
       "requiredItemLevel": 33,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "+(88—116) to Evasion Rating",
       "stats": [
@@ -1626,7 +1626,7 @@
         "BaseLocalDefences"
       ],
       "requiredItemLevel": 46,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "+(117—146) to Evasion Rating",
       "stats": [
@@ -1651,7 +1651,7 @@
         "BaseLocalDefences"
       ],
       "requiredItemLevel": 54,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "+(147—176) to Evasion Rating",
       "stats": [
@@ -1676,7 +1676,7 @@
         "DefencesPercent"
       ],
       "requiredItemLevel": 2,
-      "weight": 1,
+      "weight": 1000,
       "tier": 7,
       "text": "(15—26)% increased Evasion Rating",
       "stats": [
@@ -1701,7 +1701,7 @@
         "DefencesPercent"
       ],
       "requiredItemLevel": 16,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "(27—42)% increased Evasion Rating",
       "stats": [
@@ -1726,7 +1726,7 @@
         "DefencesPercent"
       ],
       "requiredItemLevel": 33,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "(43—55)% increased Evasion Rating",
       "stats": [
@@ -1751,7 +1751,7 @@
         "DefencesPercent"
       ],
       "requiredItemLevel": 46,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "(56—67)% increased Evasion Rating",
       "stats": [
@@ -1776,7 +1776,7 @@
         "DefencesPercent"
       ],
       "requiredItemLevel": 54,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "(68—79)% increased Evasion Rating",
       "stats": [
@@ -1801,7 +1801,7 @@
         "DefencesPercent"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "(80—91)% increased Evasion Rating",
       "stats": [
@@ -1826,7 +1826,7 @@
         "DefencesPercent"
       ],
       "requiredItemLevel": 65,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "(92—100)% increased Evasion Rating",
       "stats": [
@@ -1851,7 +1851,7 @@
         "DefencesPercentAndStunThreshold"
       ],
       "requiredItemLevel": 10,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "(6—13)% increased Evasion Rating\n+(8—13) to Stun Threshold",
       "stats": [
@@ -1878,7 +1878,7 @@
         "DefencesPercentAndStunThreshold"
       ],
       "requiredItemLevel": 19,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "(14—20)% increased Evasion Rating\n+(14—24) to Stun Threshold",
       "stats": [
@@ -1905,7 +1905,7 @@
         "DefencesPercentAndStunThreshold"
       ],
       "requiredItemLevel": 38,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "(21—26)% increased Evasion Rating\n+(25—40) to Stun Threshold",
       "stats": [
@@ -1932,7 +1932,7 @@
         "DefencesPercentAndStunThreshold"
       ],
       "requiredItemLevel": 48,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "(27—32)% increased Evasion Rating\n+(41—63) to Stun Threshold",
       "stats": [
@@ -1959,7 +1959,7 @@
         "DefencesPercentAndStunThreshold"
       ],
       "requiredItemLevel": 63,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "(33—38)% increased Evasion Rating\n+(64—94) to Stun Threshold",
       "stats": [
@@ -1986,7 +1986,7 @@
         "DefencesPercentAndStunThreshold"
       ],
       "requiredItemLevel": 74,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "(39—42)% increased Evasion Rating\n+(95—136) to Stun Threshold",
       "stats": [
@@ -2013,7 +2013,7 @@
         "LocalAttributeRequirements"
       ],
       "requiredItemLevel": 24,
-      "weight": 1,
+      "weight": 750,
       "tier": 5,
       "text": "15% reduced Attribute Requirements",
       "stats": [
@@ -2035,7 +2035,7 @@
         "LocalAttributeRequirements"
       ],
       "requiredItemLevel": 32,
-      "weight": 1,
+      "weight": 750,
       "tier": 4,
       "text": "20% reduced Attribute Requirements",
       "stats": [
@@ -2057,7 +2057,7 @@
         "LocalAttributeRequirements"
       ],
       "requiredItemLevel": 40,
-      "weight": 1,
+      "weight": 750,
       "tier": 3,
       "text": "25% reduced Attribute Requirements",
       "stats": [
@@ -2079,7 +2079,7 @@
         "LocalAttributeRequirements"
       ],
       "requiredItemLevel": 52,
-      "weight": 1,
+      "weight": 750,
       "tier": 2,
       "text": "30% reduced Attribute Requirements",
       "stats": [
@@ -2101,7 +2101,7 @@
         "LocalAttributeRequirements"
       ],
       "requiredItemLevel": 60,
-      "weight": 1,
+      "weight": 750,
       "tier": 1,
       "text": "35% reduced Attribute Requirements",
       "stats": [
@@ -2123,7 +2123,7 @@
         "StunThreshold"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 800,
       "tier": 10,
       "text": "+(6—11) to Stun Threshold",
       "stats": [
@@ -2145,7 +2145,7 @@
         "StunThreshold"
       ],
       "requiredItemLevel": 8,
-      "weight": 1,
+      "weight": 800,
       "tier": 9,
       "text": "+(12—29) to Stun Threshold",
       "stats": [
@@ -2167,7 +2167,7 @@
         "StunThreshold"
       ],
       "requiredItemLevel": 15,
-      "weight": 1,
+      "weight": 800,
       "tier": 8,
       "text": "+(30—49) to Stun Threshold",
       "stats": [
@@ -2189,7 +2189,7 @@
         "StunThreshold"
       ],
       "requiredItemLevel": 22,
-      "weight": 1,
+      "weight": 800,
       "tier": 7,
       "text": "+(50—72) to Stun Threshold",
       "stats": [
@@ -2211,7 +2211,7 @@
         "StunThreshold"
       ],
       "requiredItemLevel": 29,
-      "weight": 1,
+      "weight": 800,
       "tier": 6,
       "text": "+(73—97) to Stun Threshold",
       "stats": [
@@ -2233,7 +2233,7 @@
         "StunThreshold"
       ],
       "requiredItemLevel": 36,
-      "weight": 1,
+      "weight": 800,
       "tier": 5,
       "text": "+(98—124) to Stun Threshold",
       "stats": [
@@ -2255,7 +2255,7 @@
         "StunThreshold"
       ],
       "requiredItemLevel": 45,
-      "weight": 1,
+      "weight": 800,
       "tier": 4,
       "text": "+(125—163) to Stun Threshold",
       "stats": [
@@ -2277,7 +2277,7 @@
         "StunThreshold"
       ],
       "requiredItemLevel": 54,
-      "weight": 1,
+      "weight": 800,
       "tier": 3,
       "text": "+(164—206) to Stun Threshold",
       "stats": [
@@ -2299,7 +2299,7 @@
         "StunThreshold"
       ],
       "requiredItemLevel": 63,
-      "weight": 1,
+      "weight": 800,
       "tier": 2,
       "text": "+(207—253) to Stun Threshold",
       "stats": [
@@ -2321,7 +2321,7 @@
         "StunThreshold"
       ],
       "requiredItemLevel": 72,
-      "weight": 1,
+      "weight": 800,
       "tier": 1,
       "text": "+(254—304) to Stun Threshold",
       "stats": [
@@ -2343,7 +2343,7 @@
         "StunThreshold"
       ],
       "requiredItemLevel": 80,
-      "weight": 1,
+      "weight": 800,
       "tier": 1,
       "text": "+(305—352) to Stun Threshold",
       "stats": [
@@ -2365,7 +2365,7 @@
         "MovementVelocity"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "10% increased Movement Speed",
       "stats": [
@@ -2389,7 +2389,7 @@
         "MovementVelocity"
       ],
       "requiredItemLevel": 16,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "15% increased Movement Speed",
       "stats": [
@@ -2413,7 +2413,7 @@
         "MovementVelocity"
       ],
       "requiredItemLevel": 33,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "20% increased Movement Speed",
       "stats": [
@@ -2437,7 +2437,7 @@
         "MovementVelocity"
       ],
       "requiredItemLevel": 46,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "25% increased Movement Speed",
       "stats": [
@@ -2461,7 +2461,7 @@
         "MovementVelocity"
       ],
       "requiredItemLevel": 65,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "30% increased Movement Speed",
       "stats": [
@@ -2485,7 +2485,7 @@
         "MovementVelocity"
       ],
       "requiredItemLevel": 82,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "35% increased Movement Speed",
       "stats": [
@@ -2509,7 +2509,7 @@
         "LifeRegeneration"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 10,
       "text": "(1—2) Life Regeneration per second",
       "stats": [
@@ -2535,7 +2535,7 @@
         "LifeRegeneration"
       ],
       "requiredItemLevel": 5,
-      "weight": 1,
+      "weight": 1000,
       "tier": 9,
       "text": "(2.1—3) Life Regeneration per second",
       "stats": [
@@ -2561,7 +2561,7 @@
         "LifeRegeneration"
       ],
       "requiredItemLevel": 11,
-      "weight": 1,
+      "weight": 1000,
       "tier": 8,
       "text": "(3.1—4) Life Regeneration per second",
       "stats": [
@@ -2587,7 +2587,7 @@
         "LifeRegeneration"
       ],
       "requiredItemLevel": 17,
-      "weight": 1,
+      "weight": 1000,
       "tier": 7,
       "text": "(4.1—6) Life Regeneration per second",
       "stats": [
@@ -2613,7 +2613,7 @@
         "LifeRegeneration"
       ],
       "requiredItemLevel": 26,
-      "weight": 1,
+      "weight": 1000,
       "tier": 6,
       "text": "(6.1—9) Life Regeneration per second",
       "stats": [
@@ -2639,7 +2639,7 @@
         "LifeRegeneration"
       ],
       "requiredItemLevel": 35,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "(9.1—13) Life Regeneration per second",
       "stats": [
@@ -2665,7 +2665,7 @@
         "LifeRegeneration"
       ],
       "requiredItemLevel": 47,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "(13.1—18) Life Regeneration per second",
       "stats": [
@@ -2691,7 +2691,7 @@
         "LifeRegeneration"
       ],
       "requiredItemLevel": 58,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "(18.1—23) Life Regeneration per second",
       "stats": [
@@ -2717,7 +2717,7 @@
         "ItemFoundRarityIncrease"
       ],
       "requiredItemLevel": 3,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "(6—10)% increased Rarity of Items found",
       "stats": [
@@ -2741,7 +2741,7 @@
         "ItemFoundRarityIncrease"
       ],
       "requiredItemLevel": 24,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "(11—14)% increased Rarity of Items found",
       "stats": [
@@ -2765,7 +2765,7 @@
         "ItemFoundRarityIncrease"
       ],
       "requiredItemLevel": 40,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "(15—18)% increased Rarity of Items found",
       "stats": [
@@ -2789,7 +2789,7 @@
         "ReducedAilmentDuration"
       ],
       "requiredItemLevel": 20,
-      "weight": 1,
+      "weight": 500,
       "tier": 5,
       "text": "(36—40)% reduced Shock duration on you",
       "stats": [
@@ -2815,7 +2815,7 @@
         "ReducedAilmentDuration"
       ],
       "requiredItemLevel": 36,
-      "weight": 1,
+      "weight": 500,
       "tier": 4,
       "text": "(41—45)% reduced Shock duration on you",
       "stats": [
@@ -2841,7 +2841,7 @@
         "ReducedAilmentDuration"
       ],
       "requiredItemLevel": 49,
-      "weight": 1,
+      "weight": 500,
       "tier": 3,
       "text": "(46—50)% reduced Shock duration on you",
       "stats": [
@@ -2867,7 +2867,7 @@
         "ReducedAilmentDuration"
       ],
       "requiredItemLevel": 63,
-      "weight": 1,
+      "weight": 500,
       "tier": 2,
       "text": "(51—55)% reduced Shock duration on you",
       "stats": [
@@ -2893,7 +2893,7 @@
         "ReducedAilmentDuration"
       ],
       "requiredItemLevel": 75,
-      "weight": 1,
+      "weight": 500,
       "tier": 1,
       "text": "(56—60)% reduced Shock duration on you",
       "stats": [
@@ -2919,7 +2919,7 @@
         "ReducedAilmentDuration"
       ],
       "requiredItemLevel": 20,
-      "weight": 1,
+      "weight": 500,
       "tier": 5,
       "text": "(36—40)% reduced Chill Duration on you",
       "stats": [
@@ -2945,7 +2945,7 @@
         "ReducedAilmentDuration"
       ],
       "requiredItemLevel": 36,
-      "weight": 1,
+      "weight": 500,
       "tier": 4,
       "text": "(41—45)% reduced Chill Duration on you",
       "stats": [
@@ -2971,7 +2971,7 @@
         "ReducedAilmentDuration"
       ],
       "requiredItemLevel": 49,
-      "weight": 1,
+      "weight": 500,
       "tier": 3,
       "text": "(46—50)% reduced Chill Duration on you",
       "stats": [
@@ -2997,7 +2997,7 @@
         "ReducedAilmentDuration"
       ],
       "requiredItemLevel": 63,
-      "weight": 1,
+      "weight": 500,
       "tier": 2,
       "text": "(51—55)% reduced Chill Duration on you",
       "stats": [
@@ -3023,7 +3023,7 @@
         "ReducedAilmentDuration"
       ],
       "requiredItemLevel": 75,
-      "weight": 1,
+      "weight": 500,
       "tier": 1,
       "text": "(56—60)% reduced Chill Duration on you",
       "stats": [
@@ -3049,7 +3049,7 @@
         "ReducedAilmentDuration"
       ],
       "requiredItemLevel": 20,
-      "weight": 1,
+      "weight": 500,
       "tier": 5,
       "text": "(36—40)% reduced Freeze Duration on you",
       "stats": [
@@ -3075,7 +3075,7 @@
         "ReducedAilmentDuration"
       ],
       "requiredItemLevel": 36,
-      "weight": 1,
+      "weight": 500,
       "tier": 4,
       "text": "(41—45)% reduced Freeze Duration on you",
       "stats": [
@@ -3101,7 +3101,7 @@
         "ReducedAilmentDuration"
       ],
       "requiredItemLevel": 49,
-      "weight": 1,
+      "weight": 500,
       "tier": 3,
       "text": "(46—50)% reduced Freeze Duration on you",
       "stats": [
@@ -3127,7 +3127,7 @@
         "ReducedAilmentDuration"
       ],
       "requiredItemLevel": 63,
-      "weight": 1,
+      "weight": 500,
       "tier": 2,
       "text": "(51—55)% reduced Freeze Duration on you",
       "stats": [
@@ -3153,7 +3153,7 @@
         "ReducedAilmentDuration"
       ],
       "requiredItemLevel": 75,
-      "weight": 1,
+      "weight": 500,
       "tier": 1,
       "text": "(56—60)% reduced Freeze Duration on you",
       "stats": [
@@ -3179,7 +3179,7 @@
         "EvasionAppliesToDeflection"
       ],
       "requiredItemLevel": 1,
-      "weight": 1,
+      "weight": 1000,
       "tier": 5,
       "text": "Gain Deflection Rating equal to (8—11)% of Evasion Rating",
       "stats": [
@@ -3204,7 +3204,7 @@
         "EvasionAppliesToDeflection"
       ],
       "requiredItemLevel": 16,
-      "weight": 1,
+      "weight": 1000,
       "tier": 4,
       "text": "Gain Deflection Rating equal to (12—14)% of Evasion Rating",
       "stats": [
@@ -3229,7 +3229,7 @@
         "EvasionAppliesToDeflection"
       ],
       "requiredItemLevel": 36,
-      "weight": 1,
+      "weight": 1000,
       "tier": 3,
       "text": "Gain Deflection Rating equal to (15—17)% of Evasion Rating",
       "stats": [
@@ -3254,7 +3254,7 @@
         "EvasionAppliesToDeflection"
       ],
       "requiredItemLevel": 48,
-      "weight": 1,
+      "weight": 1000,
       "tier": 2,
       "text": "Gain Deflection Rating equal to (18—20)% of Evasion Rating",
       "stats": [
@@ -3279,7 +3279,7 @@
         "EvasionAppliesToDeflection"
       ],
       "requiredItemLevel": 66,
-      "weight": 1,
+      "weight": 1000,
       "tier": 1,
       "text": "Gain Deflection Rating equal to (21—23)% of Evasion Rating",
       "stats": [

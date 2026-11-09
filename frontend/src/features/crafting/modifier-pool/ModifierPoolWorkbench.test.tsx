@@ -88,6 +88,7 @@ it('places the reference panel after the whole work area, follows base/level and
   expect(
     within(panel).getByText(
       'Weights and probabilities for this item are not published. Browse its modifiers and required levels below.',
+      { exact: false },
     ),
   ).toBeVisible()
   expect(panel.querySelector('.modifier-pool__bar')).toBeNull()

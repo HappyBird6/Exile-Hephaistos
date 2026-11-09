@@ -1,12 +1,143 @@
 .abyss-unrevealed-rune {
   display: inline-block;
+  position: relative;
+  overflow: hidden;
   width: 94px;
   height: 15px;
   flex: 0 0 94px;
   vertical-align: middle;
-  /* Clip the supplied screenshot in CSS; no invented font or reconstructed glyphs. */
-  background-image: url('/assets/abyss-runes/user-reference-20261102.png');
-  background-repeat: no-repeat;
-  background-position: -81px -106px;
-  background-size: 255px 178px;
+}
+/* Keep the exact supplied pixels and crop; an img also survives PNG capture. */
+.abyss-unrevealed-rune > img {
+  position: absolute;
+  left: -81px;
+  top: -106px;
+  width: 255px;
+  height: 178px;
+  max-width: none;
+}
+.abyss-reveal-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 4px 7px;
+  border: 1px solid #5e543d;
+  background: #1e241b;
+  color: #d9c394;
+  font-size: 14px;
+  flex: none;
+}
+.abyss-reveal-bar > button {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid #706040;
+  background: #332e22;
+  color: inherit;
+  padding: 4px 7px;
+  font: inherit;
+  cursor: pointer;
+}
+.abyss-reveal-bar > select {
+  min-width: 0;
+  max-width: 72px;
+  background: #151a15;
+  color: inherit;
+  border: 1px solid #665b40;
+}
+.abyss-reveal-bar button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.abyss-reveal-picker {
+  z-index: 1300;
+  overflow: auto;
+  padding: 12px;
+  border: 1px solid #8b7145;
+  border-radius: 5px;
+  background: #161b18;
+  color: #ddcfb1;
+  box-shadow: 0 8px 28px #000c;
+  font-size: 14px;
+}
+.abyss-reveal-picker header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.abyss-reveal-picker button,
+.abyss-reveal-picker input,
+.abyss-reveal-picker select {
+  min-width: 0;
+  min-height: 32px;
+  padding: 5px 7px;
+  border: 1px solid #6d6045;
+  border-radius: 3px;
+  color: inherit;
+  background: #24291f;
+  font: inherit;
+}
+.abyss-reveal-picker__controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.abyss-reveal-picker__controls > select {
+  width: 100%;
+}
+.abyss-reveal-picker__rolls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.abyss-reveal-picker__rolls input {
+  width: 90px;
+}
+.abyss-reveal-picker__rolls button {
+  margin-left: auto;
+  min-width: 38px;
+  color: #e0c080;
+  cursor: pointer;
+}
+.abyss-reveal-bar {
+  min-width: 0;
+}
+.abyss-reveal-bar > span:first-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.abyss-reveal-bar > button {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .abyss-reveal-bar {
+    gap: 4px;
+    min-height: 30px;
+    padding: 3px;
+    font-size: 11px;
+  }
+  .abyss-reveal-bar > button {
+    gap: 3px;
+    padding: 3px;
+  }
+  .abyss-reveal-bar > button svg {
+    width: 14px;
+    height: 14px;
+  }
+  .abyss-reveal-bar > select {
+    max-width: 38px;
+    font-size: 10px;
+  }
 }

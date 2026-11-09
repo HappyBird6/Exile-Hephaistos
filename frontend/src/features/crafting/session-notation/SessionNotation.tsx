@@ -1,3 +1,6 @@
+import { RevealIcon } from '../abyss-workbench/RevealIcon'
+import { revealAction } from '../abyss-workbench/revealAction'
+import { abyssWorkbenchMessages } from '../abyss-workbench/messages'
 import { useId, useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
 import type { WorkbenchResource } from '../stash/stashTypes'
@@ -33,6 +36,17 @@ function ResourceIcon({
   const { locale, name } = useI18n()
   const text = sessionNotationMessages[locale]
   const [failedImage, setFailedImage] = useState<string | null>(null)
+  if (id === revealAction)
+    return (
+      <span
+        className="wb-session-notation__icon"
+        role="img"
+        tabIndex={focusable ? 0 : undefined}
+        aria-label={`${abyssWorkbenchMessages[locale].desecration} ${abyssWorkbenchMessages[locale].reveal}`}
+      >
+        <RevealIcon />
+      </span>
+    )
   const image = resource?.image
   const missing = !image || failedImage === image
   const label = resource
@@ -102,9 +116,11 @@ export function SessionNotation({
               new Intl.NumberFormat(locale).format(step.uses),
             )
             const label = `${text.step} ${step.number}${
-              step.repeated
-                ? ` · ${name(step.currencyId, registry.get(step.currencyId)?.name ?? text.unknownCurrency)} · ${uses}`
-                : ''
+              step.kind === 'reveal'
+                ? ` · ${abyssWorkbenchMessages[locale].desecration} ${abyssWorkbenchMessages[locale].reveal}`
+                : step.repeated
+                  ? ` · ${name(step.currencyId, registry.get(step.currencyId)?.name ?? text.unknownCurrency)} · ${uses}`
+                  : ''
             }`
             const content = (
               <NotationResources
