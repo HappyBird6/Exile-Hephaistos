@@ -1,3 +1,9 @@
+import { CurrencyPriceContext } from './currency-prices/context'
+import { useCurrencyPrices } from './currency-prices/useCurrencyPrices'
+import {
+  CurrencyTicker,
+  CraftingCostLine,
+} from './currency-prices/CurrencyPrices'
 import { SessionContinuation } from './session-library/SessionContinuation'
 import { revealAction } from './abyss-workbench/revealAction'
 import { currentItemText } from './currentItemText'
@@ -164,13 +170,14 @@ const workspacePanels = {
 type Selection = { id: string; name: string; image: string }
 
 function filmId() {
-  return `${Date.now()}-${Math.random().toString(36).slice(2)}`
+  return crypto.randomUUID()
 }
 
 export function CraftingPage() {
   const { t, name, locale } = useI18n()
   const [boneCounts, setBoneCounts] = useState([0, 0])
   const client = useQueryClient()
+  const market = useCurrencyPrices()
   const draft = useItemDraft()
   const imported = useItemTextImport()
   const importedBase = imported.data
@@ -1904,9 +1911,7 @@ export function CraftingPage() {
               </button>
             ))}
           </div>
-          <a className="workspace-admin" href="/admin">
-            {t('ui.admin')}
-          </a>
+          <CurrencyTicker />
         </nav>
         <fieldset
           className="chaos-repeat-language-lock"
@@ -2552,6 +2557,7 @@ export function CraftingPage() {
                   />
                 )}
               </div>
+              <CraftingCostLine film={film} cursor={filmState.history.cursor} />
               <SessionNotation
                 film={film}
                 cursor={filmState.history.cursor}
@@ -2833,16 +2839,18 @@ export function CraftingPage() {
     </main>
   )
   return (
-    <FeedbackTooltipProvider
-      enabled={view === 'workbench'}
-      priorityMaterialId={cursor?.id ?? null}
-      priorityAnchor={feedbackAnchor}
-      contextKey={feedbackContextKey}
-      priorityMaterialHint={repeatHint}
-      interactionLocked={workbenchBusy}
-      isInteractionLocked={mutationLocked}
-    >
-      {page}
-    </FeedbackTooltipProvider>
+    <CurrencyPriceContext.Provider value={market}>
+      <FeedbackTooltipProvider
+        enabled={view === 'workbench'}
+        priorityMaterialId={cursor?.id ?? null}
+        priorityAnchor={feedbackAnchor}
+        contextKey={feedbackContextKey}
+        priorityMaterialHint={repeatHint}
+        interactionLocked={workbenchBusy}
+        isInteractionLocked={mutationLocked}
+      >
+        {page}
+      </FeedbackTooltipProvider>
+    </CurrencyPriceContext.Provider>
   )
 }

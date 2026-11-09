@@ -23,7 +23,8 @@ public record BackendSettings(
     @Valid @NotNull AutomaticSearch automaticSearch,
     @Valid @NotNull Cache cache,
     @Valid @NotNull Storage storage,
-    @Valid @NotNull Workbench workbench) {
+    @Valid @NotNull Workbench workbench,
+    @Valid @NotNull Prices prices) {
 
   public record PathSearch(
       @Min(1) int maxJobs,
@@ -73,6 +74,33 @@ public record BackendSettings(
   public record Storage(@NotBlank String methodJobDirectory) {}
 
   public record Workbench(@Min(1) int repeatConcurrency) {}
+
+  public record Prices(
+      @NotBlank String sourceUrl,
+      @NotNull String proxyUrl,
+      @NotBlank String userAgent,
+      @NotBlank String cacheKey,
+      @NotNull Duration refreshInterval,
+      @NotNull Duration checkInterval,
+      @NotNull Duration minimumRefreshInterval,
+      @NotNull Duration refreshLease,
+      @NotNull Duration connectTimeout,
+      @NotNull Duration requestTimeout,
+      @NotNull Duration initialDelay,
+      @NotEmpty java.util.List<@NotBlank String> categories) {
+    public Prices {
+      positive(refreshInterval, "prices.refresh-interval");
+      positive(checkInterval, "prices.check-interval");
+      positive(minimumRefreshInterval, "prices.minimum-refresh-interval");
+      positive(refreshLease, "prices.refresh-lease");
+      positive(connectTimeout, "prices.connect-timeout");
+      positive(requestTimeout, "prices.request-timeout");
+      positive(initialDelay, "prices.initial-delay");
+      categories = java.util.List.copyOf(categories);
+      if (!categories.contains("Currency") || minimumRefreshInterval.compareTo(refreshInterval) > 0)
+        throw new IllegalArgumentException("Invalid currency price schedule");
+    }
+  }
 
   private static void positive(Duration value, String name) {
     if (value == null || value.isNegative() || value.isZero()) {

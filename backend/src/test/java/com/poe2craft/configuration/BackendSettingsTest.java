@@ -14,6 +14,7 @@ class BackendSettingsTest {
   private final ApplicationContextRunner runner =
       new ApplicationContextRunner()
           .withUserConfiguration(BackendConfiguration.class)
+          .withPropertyValues("backend.prices.proxy-url=")
           .withInitializer(
               context -> {
                 try {

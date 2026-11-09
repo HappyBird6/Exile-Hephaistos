@@ -373,7 +373,7 @@ describe('session notation from persisted successful applications', () => {
     }
   })
 
-  it('keeps branch numbering local and restores the complete Film from saved history', async () => {
+  it('retains the selected prefix and numbers the new branch after its inherited history', async () => {
     const { history, second } = await twoSteps()
     const browsed = viewFrame(history, 1)
     const branched = recordCraft(
@@ -386,7 +386,8 @@ describe('session notation from persisted successful applications', () => {
     expect(
       extractSessionNotation(currentFilm(branched), branched.cursor).steps,
     ).toMatchObject([
-      { number: 1, currencyId: 'Orb_of_Augmentation', frameIndex: 1 },
+      { number: 1, currencyId: 'Orb_of_Transmutation', frameIndex: 1 },
+      { number: 2, currencyId: 'Orb_of_Augmentation', frameIndex: 2 },
     ])
     expect(
       extractSessionNotation(currentFilm(history), history.cursor).steps,

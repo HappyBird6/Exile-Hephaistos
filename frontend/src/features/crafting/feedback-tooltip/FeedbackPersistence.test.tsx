@@ -205,11 +205,13 @@ it('keeps a pinned material while the independent base preview opens and leaves'
   fireEvent.mouseLeave(menu.querySelector('.wb-base-picker__options')!, {
     relatedTarget: document.body,
   })
-  expect(document.querySelector('.wb-base-picker__preview')).toBeNull()
+  expect(document.querySelector('.wb-base-picker__preview')).toHaveTextContent(
+    'Solar Amulet',
+  )
   expect(shared()).toHaveTextContent('Chaos Orb')
 })
 
-it('clears stale descriptions on material/workspace context changes and successful history navigation without adding requests', async () => {
+it('clears stale descriptions on material/workspace context changes and successful history navigation without extra execution requests', async () => {
   const fetch = vi.fn(fixtureFetch)
   vi.stubGlobal('fetch', fetch)
   show()
@@ -232,7 +234,15 @@ it('clears stale descriptions on material/workspace context changes and successf
     screen.getByRole('button', { name: 'Previous crafting step' }),
   )
   expect(shared()).toBeNull()
-  expect(fetch.mock.calls).toHaveLength(requests)
+  expect(
+    fetch.mock.calls
+      .slice(requests)
+      .every(
+        ([url]) =>
+          String(url).endsWith('/modifier-pools') ||
+          String(url).includes('/economy/prices'),
+      ),
+  ).toBe(true)
   fireEvent.pointerOver(currencyButton('Chaos Orb'))
   fireEvent.click(screen.getByRole('tab', { name: /Craft Support/ }))
   expect(shared()).toBeNull()

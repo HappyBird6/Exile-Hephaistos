@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+import { CurrencyPriceFooter } from './currency-prices/CurrencyPrices'
 import { useI18n, gameTerm } from '../../shared/i18n/i18n'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
@@ -125,7 +127,13 @@ function FloatingMaterialTooltip({ onlyWithin }: { onlyWithin?: string } = {}) {
   )
 }
 
-export function MaterialDescription({ materialId }: { materialId: string }) {
+export function MaterialDescription({
+  materialId,
+  children,
+}: {
+  materialId: string
+  children?: ReactNode
+}) {
   const { t, locale, name } = useI18n()
   const data = catalog[materialId]
   if (!data) return null
@@ -185,6 +193,8 @@ export function MaterialDescription({ materialId }: { materialId: string }) {
           {t('ui.official_legacy_availability')}
         </a>
       )}
+      {children}
+      <CurrencyPriceFooter materialId={materialId} />
     </div>
   )
 }

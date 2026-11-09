@@ -322,6 +322,8 @@ export class LocalFilmRepository implements FilmRepository {
     return value
   }
   save(films: Films) {
+    if (new Set(films.films.map((film) => film.id)).size !== films.films.length)
+      throw new Error('Duplicate session IDs. Existing storage is preserved.')
     if (
       !films.films.every((film) =>
         film.frames.every(
@@ -354,6 +356,10 @@ export function startFilm(
 ): Films {
   if (!isRulesetIdentity(rulesetIdentity))
     throw new Error('Ruleset identity is required.')
+  if (films.films.some((film) => film.id === id))
+    throw new Error(
+      'Session ID already exists. Original sessions are preserved.',
+    )
   return {
     ...films,
     nextSessionNumber: nextFilmNumber(films) + 1,
@@ -374,6 +380,36 @@ export function startFilm(
     active: id,
     cursor: 0,
   }
+}
+/** Fork the selected path, retaining all earlier receipts without changing its source film. */
+function forkFilm(
+  films: Films,
+  before: ConcreteItem,
+  id: string,
+  rulesetIdentity: string,
+  compatibilityId?: string,
+): Films {
+  const source = currentFilm(films)
+  const matches = equivalent(currentFrame(films)?.state, before)
+  const next = startFilm(
+    films,
+    before,
+    id,
+    rulesetIdentity,
+    matches ? source?.sourceDocument : undefined,
+    compatibilityId ?? source?.compatibilityId,
+  )
+  if (source && matches) {
+    const created = currentFilm(next)!
+    created.frames = structuredClone(source.frames.slice(0, films.cursor + 1))
+    created.continuationOf = {
+      sessionId: source.id,
+      frameIndex: films.cursor,
+      rulesetIdentity,
+    }
+    next.cursor = created.frames.length - 1
+  }
+  return next
 }
 /** Starts a current-rules checkpoint without altering the original film or its provenance. */
 export function continueFilm(
@@ -425,18 +461,9 @@ export function recordCraft(
   if (
     !film ||
     next.cursor !== film.frames.length - 1 ||
-    JSON.stringify(currentFrame(next)?.state) !== JSON.stringify(before)
+    !equivalent(currentFrame(next)?.state, before)
   )
-    next = startFilm(
-      next,
-      before,
-      id,
-      result.rulesetIdentity,
-      JSON.stringify(currentFrame(next)?.state) === JSON.stringify(before)
-        ? film?.sourceDocument
-        : undefined,
-      compatibilityId ?? film?.compatibilityId,
-    )
+    next = forkFilm(next, before, id, result.rulesetIdentity, compatibilityId)
   const active = currentFilm(next)!
   const frames = [
     ...active.frames,
@@ -514,7 +541,9 @@ export function recordChaosRepeat(
             chaosRepeat: { version: 1, action, uses },
             chaosRepeatWitness: finalWitness,
           }
-        : index === 0 && active.id !== films.active
+        : index === next.cursor - 1 &&
+            active.id !== films.active &&
+            !frame.abyss
           ? { ...frame, abyss: structuredClone(before) }
           : frame,
     )
@@ -590,19 +619,11 @@ export function recordAbyss(
   const film = currentFilm(films)
   if (film && filmRulesetStatus(film, rulesetIdentity) !== 'current')
     throw new Error('Saved ruleset is unverified')
-  const matches =
-    JSON.stringify(currentFrame(films)?.state) === JSON.stringify(before)
+  const matches = equivalent(currentFrame(films)?.state, before)
   const next =
     film && films.cursor === film.frames.length - 1 && matches
       ? films
-      : startFilm(
-          films,
-          before,
-          id,
-          rulesetIdentity,
-          matches ? film?.sourceDocument : undefined,
-          compatibilityId ?? film?.compatibilityId,
-        )
+      : forkFilm(films, before, id, rulesetIdentity, compatibilityId)
   const active = currentFilm(next)!
   const frame: Frame = {
     state: structuredClone(storedAbyssItem(abyss)),
@@ -615,13 +636,7 @@ export function recordAbyss(
       consumedOmens: [...consumedOmens],
     },
   }
-  let previousFrames = active.frames
-  const inherited = currentFrame(films)?.abyss
-  if (next !== films && matches && inherited)
-    previousFrames = [
-      { ...active.frames[0]!, abyss: structuredClone(inherited) },
-    ]
-  const frames = [...previousFrames, frame]
+  const frames = [...active.frames, frame]
   return {
     ...next,
     films: next.films.map((f) => (f.id === active.id ? { ...f, frames } : f)),

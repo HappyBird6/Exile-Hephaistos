@@ -733,3 +733,21 @@ it('restores unrevealed slots without counting them as missing modifiers', () =>
     ),
   ).toBe(false)
 })
+
+it('refuses duplicate session IDs before they can replace an original or reach browser storage', () => {
+  const history = startFilm(emptyFilms(), root, 'original', 'fixture-ruleset')
+  const repo = new LocalFilmRepository(localStorage)
+  repo.save(history)
+  const before = localStorage.getItem(historyStorageKey)
+  expect(() => startFilm(history, root, 'original', 'fixture-ruleset')).toThrow(
+    'Session ID already exists',
+  )
+  expect(() =>
+    repo.save({
+      ...history,
+      films: [...history.films, structuredClone(history.films[0]!)],
+    }),
+  ).toThrow('Duplicate session IDs')
+  expect(localStorage.getItem(historyStorageKey)).toBe(before)
+  expect(repo.load()).toEqual(history)
+})

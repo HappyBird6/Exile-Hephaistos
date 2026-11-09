@@ -555,6 +555,35 @@ it('uses a compact reveal row, commits only on success and closes the picker wit
     onTransition.mock.calls.filter(([, event]) => event.operation === 'select'),
   ).toHaveLength(1)
   expect(screen.queryByRole('dialog')).toBeNull()
+  expect(
+    client.getQueryData([
+      'abyss-v1',
+      initial.rulesetIdentity,
+      JSON.stringify(hidden),
+      false,
+    ]),
+  ).toEqual(hidden)
   mounted.unmount()
+  const rewound = render(
+    <QueryClientProvider client={client}>
+      <AbyssPanel
+        source={source}
+        initial={initial}
+        restoredState={hidden}
+        directSelection
+        compact
+        localScenario={false}
+      />
+    </QueryClientProvider>,
+  )
+  const restoredTrigger = await screen.findByRole('button', {
+    name: 'Desecrated Reveal',
+  })
+  await waitFor(() => expect(restoredTrigger).toBeEnabled())
+  fireEvent.click(restoredTrigger)
+  expect(
+    await screen.findByRole('dialog', { name: 'Desecrated Reveal' }),
+  ).toBeVisible()
+  rewound.unmount()
   client.clear()
 })

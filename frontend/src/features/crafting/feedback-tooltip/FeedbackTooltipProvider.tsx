@@ -93,8 +93,9 @@ export function FeedbackTooltipProvider({
         id: 'material-description',
         content: (
           <>
-            <MaterialDescription materialId={materialId} />
-            {hint && <p className="chaos-repeat-priority-hint">{hint}</p>}
+            <MaterialDescription materialId={materialId}>
+              {hint && <p className="chaos-repeat-priority-hint">{hint}</p>}
+            </MaterialDescription>
           </>
         ),
       })

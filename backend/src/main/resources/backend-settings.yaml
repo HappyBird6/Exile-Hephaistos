@@ -88,3 +88,41 @@ backend:
     # 동시에 실행할 카오스 반복 요청 수. 단일 제작 API와 별도 제한이다.
     # 사용: workbench/repeat/ChaosRepeatService.java, workbench/api/ChaosRepeatController.java
     repeat-concurrency: 1
+
+  prices:
+    # 시세 제공 서버의 주소. PoE2의 현재 일반 거래 리그를 이 서버의 목록에서 선택한다.
+    # 사용: bootstrap/CurrencyPriceConfiguration.java → shared/economy/infrastructure/NinjaCurrencyPriceSource.java
+    source-url: https://poe.ninja
+    # 외부 연결에 필요한 HTTP 프록시. HTTPS_PROXY가 없으면 직접 연결한다. 인증 정보는 설정 파일에 적지 않는다.
+    # 사용: bootstrap/CurrencyPriceConfiguration.java
+    proxy-url: ${HTTPS_PROXY:}
+    # 외부 시세 요청에 포함할 서비스 식별 정보.
+    # 사용: shared/economy/infrastructure/NinjaCurrencyPriceSource.java
+    user-agent: Exile-Hephaistos/0.5.5 (+https://github.com/HappyBird6/Exile-Hephaistos)
+    # Redis 시세 스냅샷·갱신 잠금·공용 재요청 제한의 키 접두어. 중괄호는 같은 Redis Cluster 슬롯을 지정한다.
+    # 사용: shared/economy/infrastructure/RedisCurrencyPriceCache.java
+    cache-key: 'hephaistos:{currency-prices}:v1'
+    # 자동 수집 간격 및 시세가 오래되었다고 판단하는 시간.
+    # 사용: bootstrap/CurrencyPriceConfiguration.java, shared/economy/application/CurrencyPriceService.java
+    refresh-interval: 30m
+    # 수집 만료 여부 확인 간격. 확인 자체는 외부 요청을 발생시키지 않는다.
+    # 사용: bootstrap/CurrencyPriceConfiguration.java
+    check-interval: 1m
+    # 모든 사용자가 공유하는 외부 재요청 최소 간격. 실패한 요청에도 적용한다.
+    # 사용: shared/economy/application/CurrencyPriceService.java → shared/economy/infrastructure/RedisCurrencyPriceCache.java
+    minimum-refresh-interval: 5m
+    # 한 수집 작업의 Redis 잠금 유효 시간. 만료된 수집기는 새 스냅샷을 덮어쓸 수 없다.
+    # 사용: shared/economy/infrastructure/RedisCurrencyPriceCache.java
+    refresh-lease: 60s
+    # 외부 서버 연결 대기 제한.
+    # 사용: bootstrap/CurrencyPriceConfiguration.java
+    connect-timeout: 3s
+    # 외부 요청 하나의 처리 시간 제한.
+    # 사용: shared/economy/infrastructure/NinjaCurrencyPriceSource.java
+    request-timeout: 8s
+    # 서버 시작 후 첫 자동 수집까지의 대기 시간.
+    # 사용: bootstrap/CurrencyPriceConfiguration.java
+    initial-delay: 5s
+    # 작업대 제작 재료와 장착 재료의 시세 분류. Currency는 기준 환율 계산에 필수다.
+    # 사용: shared/economy/infrastructure/NinjaCurrencyPriceSource.java
+    categories: [Currency, Essences, Ritual, Breach, Delirium, Abyss, Runes, SoulCores, Idols]

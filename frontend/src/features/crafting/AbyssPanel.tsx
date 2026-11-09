@@ -323,7 +323,11 @@ export function AbyssPanel({
           : request<AbyssState>('import', { state: source }, signal)
     },
   })
-  const state = query.data
+  const [transitioned, setTransitioned] = useState<{
+    seed: string
+    value: AbyssState
+  } | null>(null)
+  const state = transitioned?.seed === seed ? transitioned.value : query.data
   const transitionCallback = useRef(onTransition)
   useEffect(() => {
     transitionCallback.current = onTransition
@@ -399,7 +403,10 @@ export function AbyssPanel({
             }
           : {}),
       })
-      client.setQueryData(key, next)
+      // Historical query results are immutable checkpoints. Updating this key would
+      // make rewinding to the same hidden slot return its later revealed state.
+      if (localScenario) client.setQueryData(key, next)
+      else setTransitioned({ seed, value: next })
       try {
         if (localScenario)
           window.localStorage.setItem(storageKey, JSON.stringify(next))

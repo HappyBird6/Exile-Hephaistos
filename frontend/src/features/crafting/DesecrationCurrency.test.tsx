@@ -97,7 +97,10 @@ it('persists unknown slots, ancient limits and observed offers without charging 
   expect(fork.films).toHaveLength(2)
   expect(fork.films[0]).toEqual(next.films[0])
   expect(currentFilm(fork)?.sourceDocument).toBe('original clipboard')
-  expect(currentFilm(fork)?.frames[0]?.abyss).toEqual(state)
+  expect(currentFilm(fork)?.frames.slice(0, 2)).toEqual(
+    currentFilm(next)?.frames.slice(0, 2),
+  )
+  expect(currentFilm(fork)?.frames[1]?.abyss).toEqual(state)
   const fourth = recordAbyss(
     next,
     storedAbyssItem(observed),
@@ -114,7 +117,7 @@ it('persists unknown slots, ancient limits and observed offers without charging 
     'offer-branch',
     initialFixture.rulesetIdentity,
   )
-  expect(currentFilm(offerBranch)?.frames[0]?.abyss?.offer).toEqual(
+  expect(currentFilm(offerBranch)?.frames[2]?.abyss?.offer).toEqual(
     observed.offer,
   )
   state.slots[0]!.side = 'SUFFIX'
@@ -424,4 +427,60 @@ it('rejects a forged Lich pool paired with an ordinary saved modifier', () => {
     ),
   ).toBe(true)
   expect(verifiedHistoryState(state, initialFixture)).toBe(false)
+})
+
+it('forks once from a hidden step, retains its complete prefix and preserves the revealed source session', () => {
+  const base = startFilm(
+    emptyFilms(),
+    root,
+    'original',
+    initialFixture.rulesetIdentity,
+    'original clipboard',
+  )
+  const hidden = recordAbyss(
+    base,
+    root,
+    abyss,
+    'Preserved_Collarbone',
+    'unused',
+    initialFixture.rulesetIdentity,
+  )
+  const revealed: AbyssState = {
+    ...abyss,
+    slots: [
+      {
+        ...abyss.slots[0]!,
+        modifier: { modifierId: 'p', values: { life: 10 } },
+      },
+    ],
+  }
+  const complete = recordAbyss(
+    hidden,
+    storedAbyssItem(abyss),
+    revealed,
+    'DESECRATION_REVEAL',
+    'unused',
+    initialFixture.rulesetIdentity,
+  )
+  const original = structuredClone(complete.films[0])
+  const fork = recordAbyss(
+    viewFrame(complete, 1),
+    storedAbyssItem(abyss),
+    abyss,
+    'EXALTED',
+    'fork',
+    initialFixture.rulesetIdentity,
+  )
+  expect(fork.films).toHaveLength(2)
+  expect(fork.films[0]).toEqual(original)
+  expect(currentFilm(fork)?.frames).toHaveLength(3)
+  expect(currentFilm(fork)?.frames.slice(0, 2)).toEqual(
+    original?.frames.slice(0, 2),
+  )
+  expect(currentFilm(fork)?.frames[1]).not.toBe(original?.frames[1])
+  expect(currentFrame(fork)?.state.desecrated?.[0]?.modifierId).toBeNull()
+  const repo = new LocalFilmRepository(localStorage)
+  repo.save(fork)
+  expect(repo.load()).toEqual(fork)
+  expect(repo.load().films[0]).toEqual(original)
 })

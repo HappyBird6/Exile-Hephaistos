@@ -83,7 +83,7 @@ function completedReveal(frame: Frame, before: Frame | undefined): boolean {
 /**
  * Read-only projection of the complete active Film. Writers record only completed
  * applications; observations carry no inferred currency or omen consumption.
- * A branch is a separate Film and deliberately starts its own numbering.
+ * A branch is a separate Film and retains the selected prefix before adding new steps.
  */
 export function extractSessionNotation(
   film: Film | null | undefined,
