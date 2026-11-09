@@ -1,3 +1,4 @@
+import { CraftingCostLine } from '../currency-prices/CurrencyPrices'
 import { useEffect, useRef, useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { HistoryCard } from '../session-history/HistoryCard'
@@ -142,6 +143,10 @@ export function SessionHistoryWorkspace({
                   <div className="wb-history-preview__item">
                     <HistoryCard film={selected} frame={finalFrame} />
                   </div>
+                  <CraftingCostLine
+                    film={selected}
+                    cursor={selected.frames.length - 1}
+                  />
                   <div className="wb-history-preview__actions">
                     <button
                       type="button"

@@ -1,3 +1,4 @@
+import { CurrencyPriceContext } from '../currency-prices/context'
 import { fireEvent, render, screen, within } from '@testing-library/react'
 import { useState } from 'react'
 import { expect, it, vi } from 'vitest'
@@ -190,3 +191,58 @@ it.each(Object.entries(sessionLibraryMessages))(
     expect(screen.getAllByRole('article')).toHaveLength(1)
   },
 )
+
+it('previews the selected session total independently from the active simulation cursor', () => {
+  const history = fixtureHistory()
+  history.active = 'one'
+  history.cursor = 0
+  const selected = history.films.find((film) => film.id === 'two')!
+  selected.frames = [
+    selected.frames[0]!,
+    ...['EXALTED', 'EXALTED'].map((action) => ({
+      state: selected.frames[0]!.state,
+      action,
+      manual: { rulesetIdentity: 'fixture', action, consumedOmens: [] },
+    })),
+  ]
+  const market = {
+    data: {
+      snapshot: {
+        league: 'Current League',
+        updatedAt: '2026-11-09T06:00:00Z',
+        exaltedPerDivine: 500,
+        prices: {
+          'Exalted Orb': { name: 'Exalted Orb', divine: 0.002, exalted: 1 },
+        },
+      },
+      nextRefreshAllowedAt: '2026-11-09T06:05:00Z',
+      unavailable: false,
+      stale: false,
+    },
+    pending: false,
+    refreshing: false,
+    error: false,
+    refresh: () => {},
+  }
+  render(
+    <CurrencyPriceContext.Provider value={market}>
+      <SessionHistoryWorkspace
+        history={history}
+        onContinue={vi.fn()}
+        onImport={vi.fn()}
+        onRename={vi.fn()}
+        onFavoriteChange={vi.fn()}
+        onDelete={vi.fn()}
+      />
+    </CurrencyPriceContext.Provider>,
+  )
+  fireEvent.click(screen.getByRole('button', { name: 'Select session: Loved' }))
+  const cost = document.querySelector(
+    '.wb-history-preview .crafting-cost-line',
+  )!
+  expect(
+    within(cost as HTMLElement).getByLabelText('2 Exalted Orb'),
+  ).toBeVisible()
+  expect(history.active).toBe('one')
+  expect(history.cursor).toBe(0)
+})

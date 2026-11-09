@@ -1,3 +1,4 @@
+import { LeagueMark } from './currency-prices/LeagueMark'
 import { CurrencyPriceContext } from './currency-prices/context'
 import { useCurrencyPrices } from './currency-prices/useCurrencyPrices'
 import {
@@ -1844,19 +1845,22 @@ export function CraftingPage() {
       onPointerLeave={() => setPointer(null)}
     >
       <header className="craft-header">
-        <a
-          className="craft-brand"
-          href="/"
-          aria-label={t('ui.exile_hephaistos_home')}
-        >
-          <span className="brand-mark" aria-hidden="true">
-            H
-          </span>
-          <span>
-            EXILE <b>HEPHAISTOS</b>
-            <small>{t('ui.path_of_exile_2_crafting_workbench')}</small>
-          </span>
-        </a>
+        <div className="craft-header__identity">
+          <a
+            className="craft-brand"
+            href="/"
+            aria-label={t('ui.exile_hephaistos_home')}
+          >
+            <span className="brand-mark" aria-hidden="true">
+              H
+            </span>
+            <span>
+              EXILE <b>HEPHAISTOS</b>
+              <small>{t('ui.path_of_exile_2_crafting_workbench')}</small>
+            </span>
+          </a>
+          <LeagueMark />
+        </div>
         <nav className="workspace-nav" aria-label={t('ui.main_navigation')}>
           <div role="tablist" aria-label={t('ui.crafting_workspace')}>
             {workspaceTabs.map((tab, index) => (

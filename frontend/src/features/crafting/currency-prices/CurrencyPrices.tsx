@@ -63,6 +63,9 @@ export function CurrencyTicker() {
     snapshot = view?.snapshot
   const time = (value: string) =>
     new Intl.DateTimeFormat(locale, {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
       hour: '2-digit',
       minute: '2-digit',
       hourCycle: 'h23',
@@ -92,10 +95,12 @@ export function CurrencyTicker() {
           href="https://poe.ninja/poe2/economy"
           target="_blank"
           rel="noreferrer"
-          aria-label={`1 ${name('Divine_Orb', 'Divine Orb')} = ${snapshot ? new Intl.NumberFormat(locale, { maximumFractionDigits: 2 }).format(snapshot.exaltedPerDivine) : '—'} ${name('Exalted_Orb', 'Exalted Orb')} · ${snapshot?.league ?? ''} · ${text.source}`}
+          aria-label={`1 ${name('Divine_Orb', 'Divine Orb')} ~ ${snapshot ? new Intl.NumberFormat(locale, { maximumFractionDigits: 2 }).format(snapshot.exaltedPerDivine) : '—'} ${name('Exalted_Orb', 'Exalted Orb')} · ${snapshot?.league ?? ''} · ${text.source}`}
         >
           <CoinAmount kind="Divine_Orb" value={1} iconOnly />
-          <span aria-hidden="true">=</span>
+          <span className="currency-ticker__separator" aria-hidden="true">
+            ~
+          </span>
           <CoinAmount
             kind="Exalted_Orb"
             value={snapshot?.exaltedPerDivine ?? null}
@@ -179,7 +184,6 @@ export function CraftingCostLine({
       aria-label={text.spent}
       title={details}
     >
-      <span aria-hidden="true">Σ</span>
       <CoinAmount
         kind="Exalted_Orb"
         value={priced ? cost.exalted : null}
