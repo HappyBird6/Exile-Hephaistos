@@ -19,6 +19,9 @@ public final class ItemTextService {
       Pattern.compile("^\\{ (.*(?:Modifier|Enhancement).*?) }$");
   private static final Pattern AFFIX_NAME = Pattern.compile("Modifier \\\"([^\\\"]*)\\\"");
   private static final Pattern TIER = Pattern.compile("\\(Tier: ([0-9]+)\\)");
+  private static final Pattern DESECRATED_SLOT =
+      Pattern.compile(
+          "^Desecrated (?:Prefix|Suffix)(?: \\(Minimum Modifier Level: 40\\))?(?: \\(Reveal Pool: (?:ALTERED|AMANAMU|KURGAL|ULAMAN)\\))?$");
   private static final Set<String> FLAGS =
       Set.of(
           "Corrupted",
@@ -162,7 +165,7 @@ public final class ItemTextService {
         requirements.add(new RawField(key, fieldValue, line));
       } else if (PROPERTY_KEYS.contains(key) || key.matches("Quality \\([A-Za-z ]+ Modifiers\\)")) {
         properties.add(new RawField(key, fieldValue, line));
-      } else if (FLAGS.contains(value)) {
+      } else if (FLAGS.contains(value) || DESECRATED_SLOT.matcher(value).matches()) {
         flags.add(line);
         metadata = null;
       } else if (ADVANCED.matcher(value).matches()) {

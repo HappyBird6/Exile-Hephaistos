@@ -148,3 +148,15 @@
   align-content: start;
   grid-auto-rows: max-content;
 }
+
+@media (max-width: 600px) {
+  .workbench-stash-column {
+    /* Let the shared grid reserve room for both the catalog and readable feedback. */
+    contain: layout;
+  }
+  .workbench-feedback-region {
+    flex: 0 0 320px;
+    min-height: 320px;
+    max-height: 320px;
+  }
+}

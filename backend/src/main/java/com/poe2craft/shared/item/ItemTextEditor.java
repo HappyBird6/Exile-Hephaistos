@@ -8,14 +8,15 @@ public final class ItemTextEditor {
 
   public static SolarTextMapper.Result merge(
       ItemState before, SolarTextMapper.Result mapped, ItemCatalog catalog) {
-    var originalIssues = new ItemStateValidator(catalog).validate(before);
+    catalog = ManualRevealCatalog.enrich(catalog);
+    var originalIssues = ItemTextStateValidation.validate(before, catalog);
     if (!originalIssues.isEmpty()) return blocked("The original item state is invalid.");
     if (!mapped.mapped()) return mapped;
     var next = mapped.state();
     if (!before.baseItemId().equals(next.baseItemId())
         || !before.snapshotId().equals(next.snapshotId()))
       return blocked("Changing the base requires importing a new item.");
-    // Slot identity, reveal pools and scaling factors have no clipboard representation.
+    // Editing must retain original slot identity, reveal constraints and scaling factors.
     if ((!before.desecrated().isEmpty() || before.sanctification() != null)
         && (!before.implicits().equals(next.implicits())
             || !before.explicits().equals(next.explicits())
@@ -43,7 +44,8 @@ public final class ItemTextEditor {
                 || !observed.grantedSkills().isEmpty())))
       return blocked(
           "Socket and Rune lines are protected; use the socket controls to change installed augments.");
-    if (next.catalystQuality() != null || !next.conditions().isEmpty())
+    if (next.catalystQuality() != null
+        || (!next.conditions().isEmpty() && !next.conditions().equals(before.conditions())))
       return blocked(
           "Edit raw rolls only; catalyst quality and special conditions are retained separately.");
     var merged =
@@ -63,8 +65,9 @@ public final class ItemTextEditor {
             before.sanctification(),
             before.installedAugments());
     var issues =
-        new ItemStateValidator(catalog)
-            .validate(merged).stream().map(v -> new SolarTextMapper.Issue(0, v.message())).toList();
+        ItemTextStateValidation.validate(merged, catalog).stream()
+            .map(message -> new SolarTextMapper.Issue(0, message))
+            .toList();
     return new SolarTextMapper.Result(issues.isEmpty(), issues.isEmpty() ? merged : null, issues);
   }
 

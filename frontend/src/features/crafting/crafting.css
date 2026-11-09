@@ -992,7 +992,9 @@ dialog.item-input-panel::backdrop {
   z-index: 40;
   width: min(420px, calc(100vw - 16px));
   max-height: calc(100vh - 16px);
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   padding: 14px;
   background: #100f0ff5;
   border: 1px solid #b49b68;
@@ -1260,6 +1262,11 @@ dialog.item-input-panel::backdrop {
   line-height: 1.5;
   color: #b9beb1;
 }
+.workbench-feedback-tooltip--material {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
 .workbench-feedback-tooltip p {
   margin: 8px 0;
 }
@@ -1277,8 +1284,18 @@ dialog.item-input-panel::backdrop {
 
 /* Requested material-only palette: ItemCard and failure alerts keep their colors. */
 .material-description {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
   color: #9999ff;
   white-space: pre-line;
+}
+.material-description__scroll {
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
 }
 .material-description__header {
   display: flex;

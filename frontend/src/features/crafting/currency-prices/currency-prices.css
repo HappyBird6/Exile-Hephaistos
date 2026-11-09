@@ -136,19 +136,18 @@
   justify-content: flex-end;
   align-items: center;
   gap: 9px;
+  flex: 0 0 auto;
   margin-top: auto;
-  padding-top: 14px;
-  color: #d4c599;
-  font-size: 13px;
+  padding: 10px 4px 2px;
+  border-top: 1px solid #77634266;
+  background: #171613;
+  color: #e4d3a5;
+  font-size: 21px;
+  font-variant-numeric: tabular-nums;
 }
 .currency-price-footer .coin-amount img {
-  width: 22px;
-  height: 22px;
-}
-.material-description {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
+  width: 40px;
+  height: 40px;
 }
 .crafting-cost-line {
   display: flex;
@@ -202,4 +201,20 @@
 /* Existing narrow-screen navigation hides decorative spans; currency values remain visible. */
 .craft-header .workspace-nav .currency-ticker span {
   display: inline-flex;
+}
+
+@media (max-width: 600px) {
+  .workbench-feedback-tooltip .currency-price-footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 6px;
+  }
+  .workbench-feedback-tooltip .currency-price-footer .coin-amount {
+    flex-direction: column;
+    gap: 0;
+  }
+  .workbench-feedback-tooltip .currency-price-footer > [aria-hidden] {
+    display: none;
+  }
 }

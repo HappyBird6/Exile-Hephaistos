@@ -62,7 +62,6 @@
   color: #baab85;
   font-size: 14px;
 }
-.modifier-pool__note,
 .modifier-pool__status {
   margin: 0;
   padding: 16px 24px;
@@ -260,7 +259,6 @@
   .modifier-pool__columns {
     padding: 4px 12px 14px;
   }
-  .modifier-pool__note,
   .modifier-pool__status {
     padding: 14px;
   }

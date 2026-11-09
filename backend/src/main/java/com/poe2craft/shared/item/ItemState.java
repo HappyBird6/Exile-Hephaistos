@@ -163,6 +163,25 @@ public record ItemState(
         null);
   }
 
+  /** Immutable flag projection; every roll, slot and observation remains intact. */
+  public ItemState withConditions(Set<Condition> flags) {
+    return new ItemState(
+        snapshotId,
+        baseItemId,
+        itemLevel,
+        rarity,
+        implicits,
+        explicits,
+        flags,
+        augmentSockets,
+        catalystQuality,
+        desecrated,
+        equipmentQuality,
+        observations,
+        sanctification,
+        installedAugments);
+  }
+
   public ItemState withObservations(ItemObservations value) {
     return new ItemState(
         snapshotId,

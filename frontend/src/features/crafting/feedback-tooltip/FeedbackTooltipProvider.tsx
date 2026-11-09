@@ -130,14 +130,14 @@ export function FeedbackTooltipProvider({
           anchor: materialAnchor ?? textAnchor,
           materialId,
           id: materialAnchor ? 'material-description' : 'workbench-description',
-          content: (
-            <>
+          content:
+            materialId && Object.hasOwn(descriptions, materialId) ? (
+              <MaterialDescription materialId={materialId}>
+                <p>{textAnchor.dataset.feedbackTooltip}</p>
+              </MaterialDescription>
+            ) : (
               <p>{textAnchor.dataset.feedbackTooltip}</p>
-              {materialId && Object.hasOwn(descriptions, materialId) && (
-                <MaterialDescription materialId={materialId} />
-              )}
-            </>
-          ),
+            ),
         })
       } else if (
         materialAnchor &&
@@ -230,7 +230,7 @@ export function FeedbackTooltipOutlet() {
   return description ? (
     <aside
       id={description.id}
-      className="workbench-feedback-tooltip wb-scrollbar"
+      className={`workbench-feedback-tooltip wb-scrollbar${description.materialId && Object.hasOwn(descriptions, description.materialId) ? ' workbench-feedback-tooltip--material' : ''}`}
       role="tooltip"
       tabIndex={0}
     >

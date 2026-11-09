@@ -8,7 +8,7 @@ import {
   initialFixture,
   jsonResponse,
 } from '../../shared/test/craftingFixtures'
-import { concreteInitial } from './workbenchApi'
+import { concreteInitial, mapSolarText } from './workbenchApi'
 import { currentItemText } from './currentItemText'
 import { startFilm, emptyFilms, historyStorageKey } from './workbenchHistory'
 let client: QueryClient
@@ -156,4 +156,85 @@ it('updates socket and installed Rune text from state without altering its ident
   expect(text).toContain('Sockets: S S')
   expect(text).toContain('Rune: Slot 2: Perfect Desert Rune')
   expect(state.installedAugments[0]!.augmentId).toBe('Perfect_Desert_Rune')
+})
+
+it('exports revealed markers and hidden slot constraints without changing the item', () => {
+  const state = {
+    ...root,
+    rarity: 'RARE' as const,
+    conditions: ['CORRUPTED'] as ['CORRUPTED'],
+    explicits: [
+      { modifierId: 'p', values: { life: 17 } },
+      { modifierId: 's', values: { strength: 6 } },
+    ],
+    desecrated: [
+      {
+        id: 'revealed',
+        side: 'PREFIX' as const,
+        modifierId: 'p',
+        minimumModifierLevel: 40 as const,
+        revealPool: 'ALTERED',
+      },
+      {
+        id: 'hidden',
+        side: 'SUFFIX' as const,
+        modifierId: null,
+        minimumModifierLevel: 40 as const,
+        revealPool: 'ULAMAN',
+      },
+    ],
+  }
+  const before = JSON.stringify(state)
+  const text = currentItemText(
+    state,
+    initialFixture.modifiers,
+    'Solar Amulet',
+    'Amulets',
+  )
+  expect(text).toContain(
+    '{ Desecrated Prefix Modifier "Healthy" (Tier: 1) (Minimum Modifier Level: 40) (Reveal Pool: ALTERED) }',
+  )
+  expect(text).toContain('+17 to maximum Life (desecrated)')
+  expect(text).toContain('+6 to Strength')
+  expect(text).not.toContain('+6 to Strength (desecrated)')
+  expect(text).toContain(
+    'Desecrated Suffix (Minimum Modifier Level: 40) (Reveal Pool: ULAMAN)',
+  )
+  expect(text).toMatch(/Corrupted$/)
+  expect(JSON.stringify(state)).toBe(before)
+})
+
+it('accepts supported corrupted desecration imports while blocking unrelated special conditions', async () => {
+  const state = {
+    ...root,
+    rarity: 'RARE' as const,
+    conditions: ['CORRUPTED'],
+    desecrated: [{ id: 'hidden', side: 'PREFIX' as const, modifierId: null }],
+  }
+  vi.stubGlobal('fetch', async () =>
+    jsonResponse({ mapped: true, state, issues: [] }),
+  )
+  const mapped = await mapSolarText(
+    'source',
+    new AbortController().signal,
+    initialFixture.modifiers,
+    initialFixture.rulesetIdentity,
+  )
+  expect(mapped.state?.desecrated).toEqual(state.desecrated)
+  for (const invalid of [
+    { ...state, desecrated: [] },
+    { ...state, conditions: ['MIRRORED'] },
+  ]) {
+    vi.stubGlobal('fetch', async () =>
+      jsonResponse({ mapped: true, state: invalid, issues: [] }),
+    )
+    await expect(
+      mapSolarText(
+        'source',
+        new AbortController().signal,
+        initialFixture.modifiers,
+        initialFixture.rulesetIdentity,
+      ),
+    ).rejects.toThrow()
+  }
 })

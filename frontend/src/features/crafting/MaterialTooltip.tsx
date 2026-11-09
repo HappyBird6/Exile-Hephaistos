@@ -144,56 +144,63 @@ export function MaterialDescription({
     (hasDescription ? translated.data!.lines : data.lines)
   return (
     <div className="material-description">
-      <div className="material-description__header">
-        <strong className="material-description__name">
-          {name(materialId, data.name)}
-        </strong>
-        <a
-          className="material-description__source"
-          href={translated.data?.sourceUrl ?? data.sourceUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          PoE2DB
-        </a>
-      </div>
-      {legacyFiveIds.includes(materialId) && <p>{t('notice.legacy_five')}</p>}
-      {legacyFiveIds.includes(materialId) && (
-        <a
-          href="https://www.pathofexile.com/forum/view-thread/3826682"
-          target="_blank"
-          rel="noreferrer"
-        >
-          {t('ui.official_legacy_availability')}
-        </a>
-      )}
-      {legacyHomogenisingIds.includes(materialId) && (
-        <p>{t('notice.legacy_homogenising')}</p>
-      )}
-      {lines
-        .filter((line) => !line.startsWith('Stack Size:'))
-        .map((line, i) => (
-          <p
-            key={i}
-            lang={
-              hasDescription
-                ? (translated.data?.linesLanguage ?? translated.language)
-                : 'en'
-            }
+      <div
+        className="material-description__scroll wb-scrollbar"
+        tabIndex={0}
+        role="region"
+        aria-label={name(materialId, data.name)}
+      >
+        <div className="material-description__header">
+          <strong className="material-description__name">
+            {name(materialId, data.name)}
+          </strong>
+          <a
+            className="material-description__source"
+            href={translated.data?.sourceUrl ?? data.sourceUrl}
+            target="_blank"
+            rel="noreferrer"
           >
-            {line}
-          </p>
-        ))}
-      {legacyHomogenisingIds.includes(materialId) && (
-        <a
-          href="https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff"
-          target="_blank"
-          rel="noreferrer"
-        >
-          {t('ui.official_legacy_availability')}
-        </a>
-      )}
-      {children}
+            PoE2DB
+          </a>
+        </div>
+        {legacyFiveIds.includes(materialId) && <p>{t('notice.legacy_five')}</p>}
+        {legacyFiveIds.includes(materialId) && (
+          <a
+            href="https://www.pathofexile.com/forum/view-thread/3826682"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t('ui.official_legacy_availability')}
+          </a>
+        )}
+        {legacyHomogenisingIds.includes(materialId) && (
+          <p>{t('notice.legacy_homogenising')}</p>
+        )}
+        {lines
+          .filter((line) => !line.startsWith('Stack Size:'))
+          .map((line, i) => (
+            <p
+              key={i}
+              lang={
+                hasDescription
+                  ? (translated.data?.linesLanguage ?? translated.language)
+                  : 'en'
+              }
+            >
+              {line}
+            </p>
+          ))}
+        {legacyHomogenisingIds.includes(materialId) && (
+          <a
+            href="https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t('ui.official_legacy_availability')}
+          </a>
+        )}
+        {children}
+      </div>
       <CurrencyPriceFooter materialId={materialId} />
     </div>
   )

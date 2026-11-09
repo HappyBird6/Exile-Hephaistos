@@ -48,7 +48,6 @@ export function ModifierPoolPanel({
     staleTime: 60_000,
   })
   const pending = loading || (!!catalog && reference.isPending)
-  const published = catalog?.metadata.weightPolicy === 'POE2DB_AS_PUBLISHED'
   const sides = useMemo(
     () =>
       catalog && reference.data
@@ -166,13 +165,6 @@ export function ModifierPoolPanel({
         </p>
       ) : (
         <>
-          <p className="modifier-pool__note">
-            {published
-              ? mode === 'dynamic'
-                ? text.dynamicBasis
-                : text.basis
-              : text.unpublishedNote}
-          </p>
           <div className="modifier-pool__columns">
             {sides.map((side) => {
               const published =

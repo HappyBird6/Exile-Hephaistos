@@ -145,11 +145,7 @@ it.each([
     delete metadata.weightPolicy
     if (policy) metadata.weightPolicy = policy
     const { container } = show({ ...catalog, metadata })
-    expect(
-      screen.getByText(modifierPoolMessages.en.unpublishedNote, {
-        exact: false,
-      }),
-    ).toBeVisible()
+    expect(container.querySelector('.modifier-pool__note')).toBeNull()
     expect(container.querySelectorAll('details')).toHaveLength(3)
     expect(container.querySelector('.modifier-pool__bar')).toBeNull()
     expect(container.textContent).not.toContain('%')

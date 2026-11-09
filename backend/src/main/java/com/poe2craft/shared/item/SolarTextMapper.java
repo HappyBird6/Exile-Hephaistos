@@ -15,6 +15,9 @@ import java.util.regex.Pattern;
 public final class SolarTextMapper {
   private static final Pattern RANGE =
       Pattern.compile("\\((-?\\d+(?:\\.\\d+)?)\\s*[\u2014\u2013-]\\s*(-?\\d+(?:\\.\\d+)?)\\)");
+  private static final Pattern DESECRATION_MINIMUM =
+      Pattern.compile("\\(Minimum Modifier Level: ([^)]*)\\)");
+  private static final Pattern DESECRATION_POOL = Pattern.compile("\\(Reveal Pool: ([^)]*)\\)");
   private final List<ItemCatalog> catalogs;
 
   public SolarTextMapper(ItemCatalog catalog) {
@@ -22,7 +25,7 @@ public final class SolarTextMapper {
   }
 
   public SolarTextMapper(List<ItemCatalog> catalogs) {
-    this.catalogs = List.copyOf(catalogs);
+    this.catalogs = catalogs.stream().map(ManualRevealCatalog::enrich).toList();
   }
 
   public Result map(ItemModels.Item item) {
@@ -92,15 +95,21 @@ public final class SolarTextMapper {
         issues.add(
             new Issue(line.number(), "Unparsed line retained; crafting mapping is blocked."));
     var desecrated = new ArrayList<ItemState.DesecratedSlot>();
+    var conditions = new HashSet<ItemState.Condition>();
     for (var line : item.flags()) {
-      if (line.raw().equals("Desecrated Prefix") || line.raw().equals("Desecrated Suffix"))
+      if (line.raw().startsWith("Desecrated Prefix")
+          || line.raw().startsWith("Desecrated Suffix")) {
+        var details = desecrationDetails(line.raw(), line.number(), issues);
         desecrated.add(
             new ItemState.DesecratedSlot(
                 "clipboard-" + line.number(),
-                line.raw().endsWith("Prefix")
+                line.raw().startsWith("Desecrated Prefix")
                     ? ModifierDefinition.AffixType.PREFIX
                     : ModifierDefinition.AffixType.SUFFIX,
-                null));
+                null,
+                details.minimumLevel(),
+                details.pool()));
+      } else if (line.raw().equals("Corrupted")) conditions.add(ItemState.Condition.CORRUPTED);
       else issues.add(new Issue(line.number(), "Special item conditions are not supported."));
     }
     Integer equipmentQuality = null;
@@ -215,7 +224,9 @@ public final class SolarTextMapper {
               : ModifierDefinition.Layer.EXPLICIT;
       var matches = new ArrayList<ModifierInstance>();
       for (var definition : catalog.modifiers().values()) {
-        if (definition.layer() != layer
+        if ((definition.tags().contains("reveal_only")
+                && modifier.type() != ItemModels.ModifierType.DESECRATED)
+            || definition.layer() != layer
             || (modifier.affixName() != null && !modifier.affixName().equals(definition.name()))
             || (modifier.tier() != null && modifier.tier() != definition.tier())
             || (modifier.affix() != null
@@ -252,14 +263,24 @@ public final class SolarTextMapper {
           continue;
         }
         (layer == ModifierDefinition.Layer.IMPLICIT ? implicits : explicits).add(matched);
-        if (modifier.type() == ItemModels.ModifierType.DESECRATED)
+        if (modifier.type() == ItemModels.ModifierType.DESECRATED) {
+          var details =
+              desecrationDetails(
+                  modifier.metadata() == null ? "" : modifier.metadata().raw(),
+                  modifier.source().number(),
+                  issues);
           desecrated.add(
               new ItemState.DesecratedSlot(
                   "clipboard-" + modifier.source().number(),
-                  catalog.find(matched.modifierId()).orElseThrow().affixType(),
-                  matched.modifierId()));
+                  definition.affixType(),
+                  matched.modifierId(),
+                  details.minimumLevel(),
+                  details.pool()));
+        }
       }
     }
+    if (!conditions.isEmpty() && desecrated.isEmpty())
+      issues.add(new Issue(0, "Special item conditions are not supported."));
     if (!issues.isEmpty()) return new Result(false, null, issues);
     var observations =
         observedSockets == null && augmentEffects.isEmpty() && skills.isEmpty()
@@ -273,15 +294,38 @@ public final class SolarTextMapper {
                 ItemState.Rarity.valueOf(item.rarity().name()),
                 implicits,
                 explicits,
-                Set.of(),
+                conditions,
                 sockets,
                 catalystQuality)
             .withDesecrated(desecrated)
             .withEquipmentQuality(equipmentQuality)
             .withObservations(observations);
-    for (var violation : new ItemStateValidator(catalog).validate(state))
-      issues.add(new Issue(0, violation.message()));
+    for (var message : ItemTextStateValidation.validate(state, catalog))
+      issues.add(new Issue(0, message));
     return new Result(issues.isEmpty(), issues.isEmpty() ? state : null, issues);
+  }
+
+  private record DesecrationDetails(Integer minimumLevel, String pool) {}
+
+  private static DesecrationDetails desecrationDetails(String text, int line, List<Issue> issues) {
+    Integer minimum = null;
+    String pool = null;
+    var levelMatch = DESECRATION_MINIMUM.matcher(text);
+    if (levelMatch.find()) {
+      if (!levelMatch.group(1).equals("40") || levelMatch.find())
+        issues.add(new Issue(line, "Unsupported or duplicate desecration level constraint."));
+      else minimum = 40;
+    } else if (text.contains("Minimum Modifier Level:"))
+      issues.add(new Issue(line, "Invalid desecration level constraint."));
+    var poolMatch = DESECRATION_POOL.matcher(text);
+    if (poolMatch.find()) {
+      var value = poolMatch.group(1);
+      if (!Set.of("ALTERED", "AMANAMU", "KURGAL", "ULAMAN").contains(value) || poolMatch.find())
+        issues.add(new Issue(line, "Unsupported or duplicate desecration reveal pool."));
+      else pool = value;
+    } else if (text.contains("Reveal Pool:"))
+      issues.add(new Issue(line, "Invalid desecration reveal pool."));
+    return new DesecrationDetails(minimum, pool);
   }
 
   private static CatalystQuality.Type catalystType(String label) {

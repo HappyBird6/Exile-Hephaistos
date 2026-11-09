@@ -99,6 +99,11 @@ it('keeps the price at the bottom after description and priority hints', () => {
   )
   const description = page.container.querySelector('.material-description')!
   expect(description.lastElementChild).toHaveClass('currency-price-footer')
+  const scroll = description.querySelector('.material-description__scroll')!
+  expect(scroll).toHaveAttribute('tabindex', '0')
+  expect(scroll).not.toContainElement(
+    description.lastElementChild as HTMLElement,
+  )
   expect(
     description.lastElementChild?.previousElementSibling,
   ).toHaveTextContent('Priority hint')

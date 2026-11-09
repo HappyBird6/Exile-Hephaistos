@@ -882,7 +882,13 @@ export async function mapSolarText(
       !Array.isArray(v.state.implicits) ||
       v.state.implicits.length > 1 ||
       !Array.isArray(v.state.conditions) ||
-      (!before && v.state.conditions.length !== 0) ||
+      (!before &&
+        v.state.conditions.length !== 0 &&
+        !(
+          v.state.conditions.length === 1 &&
+          v.state.conditions[0] === 'CORRUPTED' &&
+          v.state.desecrated?.length
+        )) ||
       v.state.explicits.length > 6 ||
       ![...v.state.implicits, ...v.state.explicits].every(
         (m) =>

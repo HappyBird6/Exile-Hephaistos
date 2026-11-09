@@ -10,6 +10,9 @@ export function currentItemText(
   base: string,
   itemClass: string,
 ): string {
+  const desecrated = state.desecrated ?? []
+  const attributes = (slot: NonNullable<ConcreteItem['desecrated']>[number]) =>
+    `${slot.minimumModifierLevel != null ? ` (Minimum Modifier Level: ${slot.minimumModifierLevel})` : ''}${slot.revealPool ? ` (Reveal Pool: ${slot.revealPool})` : ''}`
   const lines = [
     `Item Class: ${itemClass}`,
     `Rarity: ${state.rarity[0]}${state.rarity.slice(1).toLowerCase()}`,
@@ -50,9 +53,12 @@ export function currentItemText(
       )
       if (d.stats?.some((s) => s.min !== s.max && !used.has(s.id)))
         text = rolledText(d, mod.values)
+      const slot = !implicit
+        ? desecrated.find((slot) => slot.modifierId === mod.modifierId)
+        : undefined
       if (!implicit)
         lines.push(
-          `{ ${mod.fractured ? 'Fractured ' : ''}${d.affixType === 'PREFIX' ? 'Prefix' : 'Suffix'} Modifier "${d.name}" (Tier: ${d.tier}) }`,
+          `{ ${slot ? 'Desecrated ' : mod.fractured ? 'Fractured ' : ''}${d.affixType === 'PREFIX' ? 'Prefix' : 'Suffix'} Modifier "${d.name}" (Tier: ${d.tier})${slot ? attributes(slot) : ''} }`,
         )
       lines.push(
         ...text
@@ -60,10 +66,25 @@ export function currentItemText(
           .map(
             (line) =>
               line +
-              (implicit ? ' (implicit)' : mod.fractured ? ' (fractured)' : ''),
+              (implicit
+                ? ' (implicit)'
+                : slot
+                  ? ' (desecrated)'
+                  : mod.fractured
+                    ? ' (fractured)'
+                    : ''),
           ),
       )
     }
+  }
+  const hidden = desecrated.filter((slot) => slot.modifierId === null)
+  if (hidden.length) lines.push('--------')
+  for (const slot of hidden)
+    lines.push(
+      `Desecrated ${slot.side === 'PREFIX' ? 'Prefix' : 'Suffix'}${attributes(slot)}`,
+    )
+  if (desecrated.length && state.conditions.includes('CORRUPTED')) {
+    lines.push('--------', 'Corrupted')
   }
   return lines.join('\n')
 }
