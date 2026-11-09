@@ -1,3 +1,6 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { concreteInitial } from '../workbenchApi'
+import type { PoolReference } from '../workbenchReferenceApi'
 import { fireEvent, render, screen, within } from '@testing-library/react'
 import { expect, it } from 'vitest'
 import { setLocale, locales } from '../../../shared/i18n/i18n'
@@ -59,6 +62,32 @@ function show(
   loading = false,
   level = 82,
 ) {
+  const client = new QueryClient({
+    defaultOptions: { queries: { retry: false } },
+  })
+  if (data) {
+    const reference: PoolReference = {
+      entries: Object.values(data.modifiers)
+        .filter((d) => d.affixType !== 'NONE')
+        .map((d) => ({
+          modifierId: d.id,
+          kind: 'ordinary',
+          eligible: d.id !== 'locked',
+          reasons: d.id === 'locked' ? ['ITEM_LEVEL'] : [],
+          actions: [],
+        })),
+    }
+    client.setQueryData(
+      [
+        'crafting',
+        'modifier-pools',
+        data.rulesetIdentity,
+        concreteInitial(data),
+        'dynamic',
+      ],
+      reference,
+    )
+  }
   return render(
     <ModifierPoolPanel
       catalog={data}
@@ -66,6 +95,11 @@ function show(
       itemLevel={level}
       loading={loading}
     />,
+    {
+      wrapper: ({ children }) => (
+        <QueryClientProvider client={client}>{children}</QueryClientProvider>
+      ),
+    },
   )
 }
 it('keeps each affix denominator intact during search and shows tier probabilities against that same pool', () => {
@@ -82,7 +116,11 @@ it('keeps each affix denominator intact during search and shows tier probabiliti
   expect(within(life).getByRole('table')).toBeVisible()
   expect(within(life).getByText('10.00%')).toBeVisible()
   expect(within(life).getByText('50.00%')).toBeVisible()
-  expect(within(life).queryByText('locked')).toBeNull()
+  expect(within(life).getByText('locked')).toBeVisible()
+  expect(
+    within(life).getByLabelText('Unavailable: Item level is too low'),
+  ).toBeVisible()
+  expect(within(life).getByText('0.00%')).toBeVisible()
   expect(
     within(suffix).getByText('100.00%', { selector: '.modifier-pool__chance' }),
   ).toBeVisible()
@@ -146,7 +184,7 @@ it.each(locales)(
   },
 )
 it('clears prior option data on loading/error and keeps unavailable and empty pools distinct', () => {
-  const { rerender } = show()
+  const { rerender, unmount } = show()
   rerender(
     <ModifierPoolPanel
       catalog={undefined}
@@ -168,14 +206,8 @@ it('clears prior option data on loading/error and keeps unavailable and empty po
   expect(screen.getByRole('status')).toHaveTextContent(
     'Modifier data is unavailable',
   )
-  rerender(
-    <ModifierPoolPanel
-      catalog={{ ...catalog, modifiers: {} }}
-      baseName="New base"
-      itemLevel={1}
-      loading={false}
-    />,
-  )
+  unmount()
+  show({ ...catalog, modifiers: {} })
   expect(screen.getAllByRole('status')).toHaveLength(6)
   expect(screen.getAllByRole('status')[0]).toHaveTextContent(
     'No modifiers at this item level.',

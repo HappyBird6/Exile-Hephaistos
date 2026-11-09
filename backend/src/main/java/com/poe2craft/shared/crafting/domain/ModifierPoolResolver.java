@@ -54,6 +54,56 @@ public final class ModifierPoolResolver {
         if (blocked != null) candidates.andNot(blocked);
       }
     }
+    var limits = limits(state);
+    int p = limits[0], s = limits[1];
+    if (prefixCount >= p) candidates.andNot(prefixes);
+    if (suffixCount >= s) candidates.andNot(suffixes);
+    if (BasicJewel.supportedCrafting(state.baseItemId())) {
+      int totalCapacity =
+          state.rarity() == ItemState.Rarity.RARE
+              ? BasicJewel.insertionCapacity(prefixCount, suffixCount, p, s)
+              : p + s;
+      if (prefixCount + suffixCount >= totalCapacity) candidates.clear();
+    }
+    var result = candidates.stream().mapToObj(definitions::get).toList();
+    return new Pool(result, result.stream().mapToLong(ModifierDefinition::weight).sum());
+  }
+
+  /** Common level/family/capacity diagnostics, also used for fixed reference outcomes. */
+  public List<String> exclusions(
+      StateBucket state,
+      ModifierDefinition definition,
+      int reservedPrefixes,
+      int reservedSuffixes,
+      boolean replacingReserved) {
+    var reasons = new java.util.ArrayList<String>();
+    if (definition.requiredItemLevel() > state.itemLevel()) reasons.add("ITEM_LEVEL");
+    var existing = state.modifierIds().stream().map(id -> catalog.find(id).orElseThrow()).toList();
+    if (existing.stream()
+        .anyMatch(d -> !java.util.Collections.disjoint(d.familyIds(), definition.familyIds())))
+      reasons.add("FAMILY_OCCUPIED");
+    int prefixes =
+        reservedPrefixes
+            + (int)
+                existing.stream()
+                    .filter(d -> d.affixType() == ModifierDefinition.AffixType.PREFIX)
+                    .count();
+    int suffixes = reservedSuffixes + existing.size() - (prefixes - reservedPrefixes);
+    var limits = limits(state);
+    int p = limits[0], s = limits[1];
+    if (!replacingReserved
+        && ((definition.affixType() == ModifierDefinition.AffixType.PREFIX
+                ? prefixes >= p
+                : suffixes >= s)
+            || (BasicJewel.supportedCrafting(state.baseItemId())
+                && prefixes + suffixes
+                    >= (state.rarity() == ItemState.Rarity.RARE
+                        ? BasicJewel.insertionCapacity(prefixes, suffixes, p, s)
+                        : p + s)))) reasons.add("AFFIX_FULL");
+    return List.copyOf(reasons);
+  }
+
+  private int[] limits(StateBucket state) {
     int p =
         state.rarity() == ItemState.Rarity.MAGIC
             ? catalog.base().magicPrefixes()
@@ -67,17 +117,7 @@ public final class ModifierPoolResolver {
       p += BasicJewel.extra(state.modifierIds(), ModifierDefinition.AffixType.PREFIX);
       s += BasicJewel.extra(state.modifierIds(), ModifierDefinition.AffixType.SUFFIX);
     }
-    if (prefixCount >= p) candidates.andNot(prefixes);
-    if (suffixCount >= s) candidates.andNot(suffixes);
-    if (BasicJewel.supportedCrafting(state.baseItemId())) {
-      int totalCapacity =
-          state.rarity() == ItemState.Rarity.RARE
-              ? BasicJewel.insertionCapacity(prefixCount, suffixCount, p, s)
-              : p + s;
-      if (prefixCount + suffixCount >= totalCapacity) candidates.clear();
-    }
-    var result = candidates.stream().mapToObj(definitions::get).toList();
-    return new Pool(result, result.stream().mapToLong(ModifierDefinition::weight).sum());
+    return new int[] {p, s};
   }
 
   public record Pool(List<ModifierDefinition> candidates, long totalWeight) {}

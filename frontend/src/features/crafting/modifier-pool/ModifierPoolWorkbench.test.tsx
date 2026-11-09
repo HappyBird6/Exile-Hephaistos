@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { act, fireEvent, render, screen, within } from '@testing-library/react'
 import { expect, it } from 'vitest'
+import { concreteInitial } from '../workbenchApi'
 import { CraftingPage } from '../CraftingPage'
 import { useItemDraft } from '../draft'
 import type { Initial } from '../craftingApi'
@@ -53,6 +54,29 @@ it('places the reference panel after the whole work area, follows base/level and
     ['crafting', 'initial', 'sapphire', 82, 'manual'],
     catalog(82, true),
   )
+  for (const data of [catalog(82), catalog(1), catalog(82, true)]) {
+    client.setQueryData(
+      [
+        'crafting',
+        'modifier-pools',
+        data.rulesetIdentity,
+        concreteInitial(data),
+        'dynamic',
+      ],
+      {
+        entries: ['p', 's'].map((modifierId) => ({
+          modifierId,
+          kind: 'ordinary',
+          eligible: modifierId !== 'p' || data.state.itemLevel === 82,
+          reasons:
+            modifierId === 'p' && data.state.itemLevel === 1
+              ? ['ITEM_LEVEL']
+              : [],
+          actions: [],
+        })),
+      },
+    )
+  }
   const mounted = render(
     <QueryClientProvider client={client}>
       <CraftingPage />
@@ -80,7 +104,10 @@ it('places the reference panel after the whole work area, follows base/level and
     within(panel)
       .getByRole('region', { name: 'Prefixes' })
       .querySelectorAll('details'),
-  ).toHaveLength(0)
+  ).toHaveLength(1)
+  expect(
+    panel.querySelector('.modifier-pool__group--excluded summary'),
+  ).toBeVisible()
   act(() => useItemDraft.getState().setBase(82, 'sapphire'))
   panel = screen.getByRole('region', {
     name: 'Modifier weights & probabilities',

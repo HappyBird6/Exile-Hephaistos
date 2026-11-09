@@ -1,3 +1,4 @@
+import { SessionContinuation } from './session-library/SessionContinuation'
 import { revealAction } from './abyss-workbench/revealAction'
 import { currentItemText } from './currentItemText'
 import { textEditMessages } from './textEditMessages'
@@ -128,6 +129,7 @@ import {
   currentFilm,
   currentFrame,
   startFilm,
+  continueFilm,
   recordCraft,
   recordChaosRepeat,
   recordAbyss,
@@ -579,7 +581,14 @@ export function CraftingPage() {
         throw new Error('Unsupported starting quality')
       draft.setBase(level, base)
       saveFilms(
-        startFilm(filmState.history, root, filmId(), data.rulesetIdentity),
+        startFilm(
+          filmState.history,
+          root,
+          filmId(),
+          data.rulesetIdentity,
+          undefined,
+          data.compatibilityId,
+        ),
         useItemDraft.getState().baseRevision,
       )
       setSelected(null)
@@ -1042,6 +1051,7 @@ export function CraftingPage() {
             filmId(),
             initial.data.rulesetIdentity,
             boneConsumedOmens(draft.activeOmens),
+            initial.data.compatibilityId,
           ),
           revision,
         )
@@ -1090,7 +1100,16 @@ export function CraftingPage() {
           filmState.revision === revision
             ? filmState.history
             : { ...filmState.history, active: null, cursor: 0 }
-        saveFilms(recordCraft(history, state, result, filmId()), revision)
+        saveFilms(
+          recordCraft(
+            history,
+            state,
+            result,
+            filmId(),
+            initial.data.compatibilityId,
+          ),
+          revision,
+        )
         setAnnouncement(augmentName(selection.id))
         setSelected(null)
         setHeld(null)
@@ -1133,6 +1152,7 @@ export function CraftingPage() {
             filmId(),
             initial.data.rulesetIdentity,
             result.consumedOmens,
+            initial.data.compatibilityId,
           ),
           revision,
         )
@@ -1178,7 +1198,16 @@ export function CraftingPage() {
           filmState.revision === revision
             ? filmState.history
             : { ...filmState.history, active: null, cursor: 0 }
-        saveFilms(recordCraft(history, state, result, filmId()), revision)
+        saveFilms(
+          recordCraft(
+            history,
+            state,
+            result,
+            filmId(),
+            initial.data.compatibilityId,
+          ),
+          revision,
+        )
         draft.setActiveOmens(result.remainingOmens)
         setAnnouncement(
           [
@@ -1299,6 +1328,7 @@ export function CraftingPage() {
             filmId(),
             initialData.rulesetIdentity,
             text,
+            initialData.compatibilityId,
           ),
           revision,
           true,
@@ -1401,6 +1431,7 @@ export function CraftingPage() {
             filmId(),
             initial.data.rulesetIdentity,
             imported.data.text.originalText,
+            initial.data.compatibilityId,
           ),
           revision,
         )
@@ -2225,6 +2256,8 @@ export function CraftingPage() {
                                     : `ABYSS_${transition.operation.toUpperCase()}`,
                                 filmId(),
                                 initial.data!.rulesetIdentity,
+                                [],
+                                initial.data!.compatibilityId,
                               ),
                               draft.baseRevision,
                             )
@@ -2415,6 +2448,41 @@ export function CraftingPage() {
                   rulesetStatus !== 'current' && (
                     <section aria-label={t('ruleset.saved_record')}>
                       <p role="alert">{t(`ruleset.${rulesetStatus}`)}</p>
+                      {initial.data &&
+                        activeFilm &&
+                        rulesetStatus !== 'inconsistent' && (
+                          <SessionContinuation
+                            initial={initial.data}
+                            film={activeFilm}
+                            frame={storedFrame}
+                            disabled={workbenchBusy || filmState.blockedSaving}
+                            onContinue={(result) => {
+                              if (
+                                mutationLocked() ||
+                                !result.compatible ||
+                                !result.state ||
+                                !result.compatibilityId
+                              )
+                                return
+                              const next = continueFilm(
+                                filmState.history,
+                                activeFilm,
+                                filmState.history.cursor,
+                                result.state,
+                                result.abyss,
+                                filmId(),
+                                initial.data!.rulesetIdentity,
+                                result.compatibilityId,
+                              )
+                              if (commitLibraryHistory(next)) {
+                                setAnnouncement('')
+                                document
+                                  .getElementById('workspace-workbench')
+                                  ?.focus()
+                              }
+                            }}
+                          />
+                        )}
                     </section>
                   )}
                 {storedFrame &&
@@ -2658,6 +2726,7 @@ export function CraftingPage() {
           key={`${catalogBase}:${catalogLevel}:${initial.data?.rulesetIdentity ?? ''}`}
           catalog={
             !imported.pending &&
+            (!storedFrame || restoredValid) &&
             slotBaseItemId === initial.data?.state.baseItemId
               ? initial.data
               : undefined
@@ -2669,7 +2738,7 @@ export function CraftingPage() {
           }
           itemLevel={catalogLevel}
           item={
-            concrete ??
+            (restoredValid || !storedFrame ? concrete : undefined) ??
             (!storedFrame && initial.data
               ? concreteInitial(initial.data)
               : undefined)

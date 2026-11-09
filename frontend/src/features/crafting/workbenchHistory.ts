@@ -47,6 +47,13 @@ export type Frame = {
   chaosRepeatWitness?: ChaosRepeatWitness
 }
 export type Film = {
+  compatibilityId?: string
+  continuationOf?: {
+    sessionId: string
+    frameIndex: number
+    rulesetIdentity?: string
+  }
+
   id: string
   createdAt: string
   /** Library metadata is optional so original v1 records remain untouched. */
@@ -235,6 +242,14 @@ function validStoredFilm(film: Film): boolean {
     typeof film.createdAt === 'string' &&
     (film.sourceDocument === undefined ||
       typeof film.sourceDocument === 'string') &&
+    (film.compatibilityId === undefined ||
+      typeof film.compatibilityId === 'string') &&
+    (film.continuationOf === undefined ||
+      (typeof film.continuationOf.sessionId === 'string' &&
+        Number.isSafeInteger(film.continuationOf.frameIndex) &&
+        film.continuationOf.frameIndex >= 0 &&
+        (film.continuationOf.rulesetIdentity === undefined ||
+          isRulesetIdentity(film.continuationOf.rulesetIdentity)))) &&
     Array.isArray(film.frames) &&
     film.frames.length > 0 &&
     film.frames.every(
@@ -335,6 +350,7 @@ export function startFilm(
   id: string,
   rulesetIdentity: string,
   sourceDocument?: string,
+  compatibilityId?: string,
 ): Films {
   if (!isRulesetIdentity(rulesetIdentity))
     throw new Error('Ruleset identity is required.')
@@ -347,6 +363,7 @@ export function startFilm(
         id,
         sessionNumber: nextFilmNumber(films),
         rulesetIdentity,
+        ...(compatibilityId ? { compatibilityId } : {}),
         createdAt: new Date().toISOString(),
         ...(sourceDocument !== undefined ? { sourceDocument } : {}),
         frames: [
@@ -358,11 +375,42 @@ export function startFilm(
     cursor: 0,
   }
 }
+/** Starts a current-rules checkpoint without altering the original film or its provenance. */
+export function continueFilm(
+  films: Films,
+  source: Film,
+  frameIndex: number,
+  state: ConcreteItem,
+  abyss: AbyssState | null,
+  id: string,
+  rulesetIdentity: string,
+  compatibilityId: string,
+): Films {
+  const next = startFilm(
+    films,
+    state,
+    id,
+    rulesetIdentity,
+    undefined,
+    compatibilityId,
+  )
+  const created = next.films[next.films.length - 1]!
+  created.continuationOf = {
+    sessionId: source.id,
+    frameIndex,
+    ...(source.rulesetIdentity
+      ? { rulesetIdentity: source.rulesetIdentity }
+      : {}),
+  }
+  if (abyss) created.frames[0]!.abyss = structuredClone(abyss)
+  return next
+}
 export function recordCraft(
   films: Films,
   before: ConcreteItem,
   result: AppliedItem,
   id: string,
+  compatibilityId?: string,
 ): Films {
   if (!result.applied) return films
   let next = films
@@ -387,6 +435,7 @@ export function recordCraft(
       JSON.stringify(currentFrame(next)?.state) === JSON.stringify(before)
         ? film?.sourceDocument
         : undefined,
+      compatibilityId ?? film?.compatibilityId,
     )
   const active = currentFilm(next)!
   const frames = [
@@ -455,6 +504,7 @@ export function recordChaosRepeat(
       id,
       rulesetIdentity,
       consumedOmens,
+      initial.compatibilityId,
     )
     const active = currentFilm(next)!
     const frames = active.frames.map((frame, index): Frame =>
@@ -500,7 +550,7 @@ export function recordChaosRepeat(
       'Could not verify repeat history. The original is preserved.',
     )
   // recordCraft only appends evidence; it does not run the one-application API validator.
-  const next = recordCraft(films, before, result, id)
+  const next = recordCraft(films, before, result, id, initial.compatibilityId)
   const active = currentFilm(next)!
   return {
     ...next,
@@ -533,6 +583,7 @@ export function recordAbyss(
   id: string,
   rulesetIdentity: string,
   consumedOmens: string[] = [],
+  compatibilityId?: string,
 ): Films {
   if (!isRulesetIdentity(rulesetIdentity))
     throw new Error('Ruleset identity required')
@@ -550,6 +601,7 @@ export function recordAbyss(
           id,
           rulesetIdentity,
           matches ? film?.sourceDocument : undefined,
+          compatibilityId ?? film?.compatibilityId,
         )
   const active = currentFilm(next)!
   const frame: Frame = {

@@ -429,7 +429,8 @@ public final class CatalogCraftingService implements CraftingOperations {
         BaseRegistry.socketExecutionMaximum(catalog.base().id()) != null ? 0 : null,
         catalog.base(),
         QualityCurrencyRules.equipment(state.baseItemId()) ? 0 : null,
-        simulator(state).baseMaterialActions());
+        simulator(state).baseMaterialActions(),
+        simulator(state).compatibilityId());
   }
 
   public ItemCatalog abyssCatalog(ItemState state) {

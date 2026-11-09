@@ -63,6 +63,7 @@ export interface Availability {
   reason: string
 }
 export interface Initial {
+  compatibilityId?: string
   /** Base/catalog support only, independent of the current item state. */
   baseMaterialActions?: string[]
   equipmentQuality?: number | null
@@ -227,6 +228,8 @@ export async function loadInitial(
   )
   if (
     !object(v) ||
+    (v.compatibilityId !== undefined &&
+      (typeof v.compatibilityId !== 'string' || !v.compatibilityId)) ||
     (v.baseMaterialActions !== undefined &&
       (!Array.isArray(v.baseMaterialActions) ||
         !v.baseMaterialActions.every(

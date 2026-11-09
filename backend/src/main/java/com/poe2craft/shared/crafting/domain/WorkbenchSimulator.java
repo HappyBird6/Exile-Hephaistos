@@ -142,6 +142,29 @@ public final class WorkbenchSimulator {
     return replacementTargetOverrides.getOrDefault(action, action.replacementModifiers());
   }
 
+  /** The same resolved targets used by manual execution, limited to this catalog. */
+  public Map<String, List<String>> referenceEssenceTargets() {
+    var result = new TreeMap<String, List<String>>();
+    var supported = Set.copyOf(baseMaterialActions());
+    for (var action : WorkbenchCurrency.values()) {
+      if (!supported.contains(action) || !action.name().contains("ESSENCE")) continue;
+      var targets =
+          java.util.stream.Stream.concat(
+                  essenceTargets(action).stream(), replacementTargets(action).stream())
+              .filter(id -> catalog.find(id).isPresent())
+              .distinct()
+              .sorted()
+              .toList();
+      if (!targets.isEmpty()) result.put(action.name(), targets);
+    }
+    return Collections.unmodifiableMap(result);
+  }
+
+  /** Per-base mechanics identity; cosmetics and other catalogs never participate. */
+  public String compatibilityId() {
+    return ItemRulesetIdentity.of(catalog, this, coupledModifierIds);
+  }
+
   public String ruleVersion() {
     return baseRuleVersion()
         + "-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1"

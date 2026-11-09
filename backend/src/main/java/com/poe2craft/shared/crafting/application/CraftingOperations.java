@@ -56,5 +56,35 @@ public interface CraftingOperations extends CraftingCatalogs {
       Integer augmentSockets,
       ItemCatalog.BaseItem baseRules,
       Integer equipmentQuality,
-      List<WorkbenchCurrency> baseMaterialActions) {}
+      List<WorkbenchCurrency> baseMaterialActions,
+      String compatibilityId) {
+    public Initial(
+        String ruleVersion,
+        ItemCatalog.Metadata metadata,
+        String id,
+        StateBucket state,
+        Map<String, ModifierDefinition> modifiers,
+        List<CraftingEngine.Availability> actions,
+        List<String> compatibleSnapshotIds,
+        QualityLimitRules.Limit qualityLimit,
+        Integer augmentSockets,
+        ItemCatalog.BaseItem baseRules,
+        Integer equipmentQuality,
+        List<WorkbenchCurrency> baseMaterialActions) {
+      this(
+          ruleVersion,
+          metadata,
+          id,
+          state,
+          modifiers,
+          actions,
+          compatibleSnapshotIds,
+          qualityLimit,
+          augmentSockets,
+          baseRules,
+          equipmentQuality,
+          baseMaterialActions,
+          null);
+    }
+  }
 }

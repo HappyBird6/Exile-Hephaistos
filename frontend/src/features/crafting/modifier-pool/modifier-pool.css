@@ -331,3 +331,35 @@
     flex: 1;
   }
 }
+
+.modifier-pool__group--excluded .modifier-pool__effect,
+.modifier-pool__tier--excluded td {
+  color: var(--text-muted, #9a9690);
+}
+.modifier-pool__group--excluded {
+  background: #ffffff02;
+}
+.modifier-pool__exclusion {
+  display: inline-flex;
+  gap: 0.35rem;
+  margin-left: 0.5rem;
+  color: #b6a28b;
+  cursor: help;
+}
+.modifier-pool__reason {
+  font-size: 0.72rem;
+}
+.modifier-pool__reason-summary {
+  color: #b6a28b;
+}
+.wb-session-continuation {
+  padding: 0.8rem;
+  margin-block: 0.75rem;
+  border: 1px solid #87734c70;
+  border-radius: 0.4rem;
+  background: #a38a5310;
+}
+.wb-session-continuation p {
+  margin: 0 0 0.7rem;
+  line-height: 1.5;
+}

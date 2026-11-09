@@ -1,3 +1,7 @@
+import { useQuery } from '@tanstack/react-query'
+import { loadModifierPools } from '../workbenchReferenceApi'
+import { referenceMessages } from '../referenceMessages'
+import { concreteInitial } from '../workbenchApi'
 import { Fragment, useId, useMemo, useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
 import type { Initial } from '../craftingApi'
@@ -25,13 +29,30 @@ export function ModifierPoolPanel({
   const { locale } = useI18n()
   const text = modifierPoolMessages[locale]
   const titleId = useId()
+  const reasonsText = referenceMessages[locale]
   const [query, setQuery] = useState('')
   const [mode, setMode] = useState<ModifierPoolMode>('dynamic')
+  const state = item ?? (catalog ? concreteInitial(catalog) : undefined)
+  const reference = useQuery({
+    queryKey: [
+      'crafting',
+      'modifier-pools',
+      catalog?.rulesetIdentity,
+      state,
+      mode,
+    ],
+    queryFn: ({ signal }) =>
+      loadModifierPools(catalog!, state!, mode === 'dynamic', signal),
+    enabled: !!catalog && !!state && !loading,
+    retry: false,
+    staleTime: 60_000,
+  })
+  const pending = loading || (!!catalog && reference.isPending)
   const published = catalog?.metadata.weightPolicy === 'POE2DB_AS_PUBLISHED'
   const sides = useMemo(
     () =>
-      catalog
-        ? modifierPoolSections(catalog, itemLevel, mode, item).map((side) => ({
+      catalog && reference.data
+        ? modifierPoolSections(catalog, reference.data).map((side) => ({
             ...side,
             groups: side.groups
               .map((group) => {
@@ -40,7 +61,15 @@ export function ModifierPoolPanel({
                 )
                 return {
                   ...group,
-                  label: tierTexts[0]!,
+                  label:
+                    tierTexts[
+                      Math.max(
+                        0,
+                        group.tiers.findIndex(
+                          (tier) => group.eligibility[tier.id]!.eligible,
+                        ),
+                      )
+                    ]!,
                   tierTexts,
                   search: [
                     ...tierTexts,
@@ -54,7 +83,7 @@ export function ModifierPoolPanel({
               .sort((a, b) => a.label.localeCompare(b.label, locale)),
           }))
         : [],
-    [catalog, itemLevel, locale, mode, item],
+    [catalog, locale, reference.data],
   )
   const number = useMemo(() => new Intl.NumberFormat(locale), [locale])
   const percent = useMemo(
@@ -111,7 +140,7 @@ export function ModifierPoolPanel({
             aria-label={text.search}
             placeholder={text.search}
             value={query}
-            disabled={!catalog || loading}
+            disabled={!catalog || pending || reference.isError}
             onChange={(event) => setQuery(event.target.value)}
           />
           {sourceUrl && (
@@ -126,9 +155,14 @@ export function ModifierPoolPanel({
           )}
         </div>
       </header>
-      {loading || !catalog ? (
+      {pending || !catalog || reference.isError ? (
         <p className="modifier-pool__status" role="status">
-          {loading ? text.loading : text.unavailable}
+          {pending ? text.loading : text.unavailable}
+          {reference.isError && catalog && (
+            <button type="button" onClick={() => void reference.refetch()}>
+              {reasonsText.retry}
+            </button>
+          )}
         </p>
       ) : (
         <>
@@ -200,12 +234,28 @@ export function ModifierPoolPanel({
                       const label = group.label
                       return (
                         <details
-                          className="modifier-pool__group"
+                          className={`modifier-pool__group${group.tiers.every((t) => !group.eligibility[t.id]!.eligible) ? ' modifier-pool__group--excluded' : ''}`}
                           key={group.id}
                         >
                           <summary>
                             <span className="modifier-pool__effect">
                               {label}
+                              {group.tiers.every(
+                                (t) => !group.eligibility[t.id]!.eligible,
+                              ) && (
+                                <small className="modifier-pool__reason-summary">
+                                  ⊘{' '}
+                                  {[
+                                    ...new Set(
+                                      group.tiers.flatMap(
+                                        (t) => group.eligibility[t.id]!.reasons,
+                                      ),
+                                    ),
+                                  ]
+                                    .map((r) => reasonsText.reasons[r])
+                                    .join(' · ')}
+                                </small>
+                              )}
                               <small>
                                 {number.format(group.tiers.length)} {text.tiers}
                               </small>
@@ -273,7 +323,14 @@ export function ModifierPoolPanel({
                               </thead>
                               <tbody>
                                 {group.tiers.map((tier, index) => (
-                                  <tr key={tier.id}>
+                                  <tr
+                                    key={tier.id}
+                                    className={
+                                      group.eligibility[tier.id]!.eligible
+                                        ? ''
+                                        : 'modifier-pool__tier--excluded'
+                                    }
+                                  >
                                     <td>
                                       {tier.tier > 0
                                         ? `T${number.format(tier.tier)}`
@@ -284,6 +341,28 @@ export function ModifierPoolPanel({
                                     </td>
                                     <td>
                                       {group.tierTexts[index]}
+                                      {!group.eligibility[tier.id]!
+                                        .eligible && (
+                                        <span
+                                          className="modifier-pool__exclusion"
+                                          tabIndex={0}
+                                          title={group.eligibility[
+                                            tier.id
+                                          ]!.reasons.map(
+                                            (r) => reasonsText.reasons[r],
+                                          ).join(' · ')}
+                                          aria-label={`${reasonsText.excluded}: ${group.eligibility[tier.id]!.reasons.map((r) => reasonsText.reasons[r]).join(' · ')}`}
+                                        >
+                                          <span aria-hidden="true">⊘</span>
+                                          <span className="modifier-pool__reason">
+                                            {group.eligibility[
+                                              tier.id
+                                            ]!.reasons.map(
+                                              (r) => reasonsText.reasons[r],
+                                            ).join(' · ')}
+                                          </span>
+                                        </span>
+                                      )}
                                       <small>{tier.name}</small>
                                     </td>
                                     <td>
@@ -294,7 +373,9 @@ export function ModifierPoolPanel({
                                     <td>
                                       {published
                                         ? probability(
-                                            tier.weight!,
+                                            group.eligibility[tier.id]!.eligible
+                                              ? tier.weight!
+                                              : 0,
                                             side.totalWeight,
                                           )
                                         : unavailable}
