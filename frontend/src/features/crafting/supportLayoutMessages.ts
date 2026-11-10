@@ -62,4 +62,23 @@ export const supportLayoutMessages: Record<
     qualityHelp:
       'Usar Esencia de la Brecha para superar el límite de calidad (solo joyería).',
   },
+
+  ru: {
+    start: 'Исходный предмет',
+    reset: 'Сброс',
+    reload: 'Обновить каталог',
+    validate: 'Подтвердить',
+    quality: 'Качество ↑',
+    qualityHelp:
+      'Используйте Essence of the Breach, чтобы работать выше верхнего предела качества (только ювелирные изделия).',
+  },
+  th: {
+    start: 'ไอเทมเริ่มต้น',
+    reset: 'เริ่มใหม่',
+    reload: 'รีเฟรชแคตตาล็อก',
+    validate: 'ตรวจสอบ',
+    quality: 'คุณภาพ↑',
+    qualityHelp:
+      'ใช้ Essence of the Breach เพื่อทำงานเหนือระดับคุณภาพ (เฉพาะอัญมณีเท่านั้น)',
+  },
 }

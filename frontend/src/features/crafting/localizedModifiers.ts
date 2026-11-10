@@ -35,11 +35,7 @@ function verifiedTemplate(definition: Definition, locale: Locale) {
     })
   )
     return undefined
-  const translation =
-    templates[locale][binding.template] ??
-    (definition.id.startsWith('reveal:')
-      ? templates.en[binding.template]
-      : undefined)
+  const translation = templates[locale][binding.template]
   return translation ? { binding, translation } : undefined
 }
 

@@ -26,4 +26,13 @@ export const fractureMessages: Record<Locale, { label: string; help: string }> =
       label: 'Fracturado',
       help: 'Solo se permite un modificador explícito fracturado en equipo raro. Desactívalo antes de cambiar la rareza.',
     },
+
+    ru: {
+      label: 'Сломанный',
+      help: 'Только один явный модификатор редкого снаряжения может быть сломан. Выключите его, прежде чем менять редкость.',
+    },
+    th: {
+      label: 'แตกหัก',
+      help: 'ม็อดที่ชัดเจนสำหรับอุปกรณ์ระดับแรร์เพียงตัวเดียวเท่านั้นที่สามารถแตกร้าวได้ ปิดก่อนที่จะเปลี่ยนความหายาก',
+    },
   }

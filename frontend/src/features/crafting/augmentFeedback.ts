@@ -23,6 +23,9 @@ const labels: Record<Locale, readonly string[]> = {
   'zh-TW': ['武術武器', '法杖或長杖', '護甲'],
   ja: ['武器', 'ワンドまたはスタッフ', '防具'],
   es: ['Armas marciales', 'Varita o báculo', 'Armadura'],
+
+  ru: ['Боевое оружие', 'Жезл или посох', 'Доспехи'],
+  th: ['อาวุธต่อสู้', 'ไม้กายสิทธิ์หรือไม้พลอง', 'เกราะ'],
 }
 
 export function augmentFeedbackLines(

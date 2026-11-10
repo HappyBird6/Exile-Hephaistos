@@ -22,24 +22,23 @@ public final class DisplayNumbers {
     String[] parts = plain.split("\\.", -1);
     return (value.signum() < 0 ? "-" : "")
         + integer(parts[0], locale)
-        + (parts.length > 1 ? (locale == DisplayLocale.ES ? "," : ".") + parts[1] : "");
+        + (parts.length > 1 ? decimalSeparator(locale) + parts[1] : "");
   }
 
   static String integer(String digits, DisplayLocale locale) {
-    // Intl es uses minimumGroupingDigits=2: 1234, but 12.345. Other site locales use 1,234.
+    // Intl es groups from five digits; ru uses a non-breaking space from four digits.
     if (digits.length() < (locale == DisplayLocale.ES ? 5 : 4)) return digits;
     StringBuilder result = new StringBuilder();
     for (int i = 0; i < digits.length(); i++) {
-      if (i > 0 && (digits.length() - i) % 3 == 0)
-        result.append(locale == DisplayLocale.ES ? '.' : ',');
+      if (i > 0 && (digits.length() - i) % 3 == 0) result.append(groupSeparator(locale));
       result.append(digits.charAt(i));
     }
     return result.toString();
   }
 
   public static String text(String text, DisplayLocale source, DisplayLocale output) {
-    String decimal = source == DisplayLocale.ES ? "," : ".";
-    String group = source == DisplayLocale.ES ? "." : ",";
+    String decimal = decimalSeparator(source);
+    String group = groupSeparator(source);
     Pattern pattern =
         Pattern.compile(
             "(?<![\\p{L}\\p{N}_])([+-]?)([0-9]+(?:"
@@ -62,10 +61,22 @@ public final class DisplayNumbers {
       String replacement =
           sign
               + integer(parts[0].toString(), output)
-              + (parts[1].signum() == 0 ? "" : (output == DisplayLocale.ES ? "," : ".") + parts[1]);
+              + (parts[1].signum() == 0 ? "" : decimalSeparator(output) + parts[1]);
       matcher.appendReplacement(result, Matcher.quoteReplacement(replacement));
     }
     return matcher.appendTail(result).toString();
+  }
+
+  private static String decimalSeparator(DisplayLocale locale) {
+    return locale == DisplayLocale.ES || locale == DisplayLocale.RU ? "," : ".";
+  }
+
+  private static String groupSeparator(DisplayLocale locale) {
+    return switch (locale) {
+      case ES -> ".";
+      case RU -> "\u00a0";
+      default -> ",";
+    };
   }
 
   static String sourceNumber(double value) {

@@ -206,7 +206,7 @@ it('exposes diagnostics without treating an affix name or source units as an opt
   expect(hidden.issues.map((issue) => issue.code)).toContain(
     'UNREVEALED_DESECRATED_SLOT',
   )
-  expect(hidden.issues.map((issue) => issue.code)).toContain(
+  expect(hidden.issues.map((issue) => issue.code)).not.toContain(
     'ENGLISH_REVEAL_TEMPLATE_FALLBACK',
   )
   const numeric = structuredClone(

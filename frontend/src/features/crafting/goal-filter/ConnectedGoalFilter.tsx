@@ -31,6 +31,9 @@ const numericInputMessages = {
   'zh-TW': '請選擇起始物品以判定其數值。',
   ja: '数値を評価する開始アイテムを選択してください。',
   es: 'Selecciona un objeto inicial para evaluar sus valores.',
+
+  ru: 'Выберите начальный предмет, чтобы оценить его значения.',
+  th: 'เลือกไอเทมเริ่มต้นเพื่อประเมินค่า',
 }
 const adapter = httpGoalFilterAdapter
 export type SearchGoalSnapshot = {

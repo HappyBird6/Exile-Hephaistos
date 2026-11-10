@@ -24,4 +24,7 @@ export const orHelp: Record<GoalFilterLanguage, string> = {
   'zh-TW': '至少一個啟用的條件必須符合。',
   ja: '有効な条件のうち少なくとも1つが一致する必要があります。',
   es: 'Debe cumplirse al menos una condición activa.',
+
+  ru: 'Должно совпадать хотя бы одно включенное условие.',
+  th: 'ต้องตรงกับเงื่อนไขที่เปิดใช้อย่างน้อย 1 รายการ',
 }

@@ -29,7 +29,7 @@ class DisplayNumbersParityTest {
   }
 
   @TestFactory
-  List<DynamicTest> matchesActualFrontendIntlNumbersAndDecimalTextAcrossSixLocales()
+  List<DynamicTest> matchesActualFrontendIntlNumbersAndDecimalTextAcrossSupportedLocales()
       throws Exception {
     List<DynamicTest> tests = new ArrayList<>();
     for (var row : golden().path("numberCases")) {

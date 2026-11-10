@@ -9,6 +9,9 @@ const dateLocales: Record<Locale, string> = {
   'zh-TW': 'zh-TW',
   ja: 'ja-JP',
   es: 'es-ES',
+
+  ru: 'ru-RU',
+  th: 'th-TH',
 }
 
 /** Defaults stay derived so changing language never overwrites the saved record. */

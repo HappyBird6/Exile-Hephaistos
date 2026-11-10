@@ -26,6 +26,15 @@ const messages: Record<Locale, [string, string]> = {
     'Probabilidad del modelo: la correlación entre tiradas numéricas no está verificada en el juego.',
     'El modelo supuesto existente comparte un único punto de proporción equiprobable (0–10000, 10001 puntos) entre todos los valores, con redondeo HALF_UP. Las combinaciones redondeadas tienen pesos distintos; los valores no se sortean de forma independiente.',
   ],
+
+  ru: [
+    'Вероятность модели: корреляции между числовыми бросками в игре не проверяются.',
+    'Существующая предполагаемая модель разделяет один из 10 001 равновзвешенного деления отношения (0–10 000) для всех чисел с округлением HALF_UP. Округленные кортежи имеют неравный вес; числа не выкатываются независимо.',
+  ],
+  th: [
+    'ความน่าจะเป็นของโมเดล: ความสัมพันธ์ระหว่างการทอยตัวเลขไม่ได้รับการยืนยันในเกม',
+    'โมเดลสมมติที่มีอยู่ใช้เครื่องหมายอัตราส่วนถ่วงน้ำหนักเท่ากันหนึ่งใน 10,001 ตัว (0–10,000) ร่วมกับตัวเลขทั้งหมด โดยมีการปัดเศษ HALF_UP สิ่งอันดับโค้งมนมีน้ำหนักไม่เท่ากัน ตัวเลขจะไม่หมุนอย่างอิสระ',
+  ],
 }
 
 const titles: Record<Locale, string> = {
@@ -35,6 +44,9 @@ const titles: Record<Locale, string> = {
   'zh-TW': '計算假設',
   ja: '計算の仮定',
   es: 'Supuestos del cálculo',
+
+  ru: 'Допущения расчета',
+  th: 'สมมติฐานในการคำนวณ',
 }
 
 export function NumericRollNotice({

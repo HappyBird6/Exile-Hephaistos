@@ -35,4 +35,17 @@ export const abyssWorkbenchMessages = {
     reveal: 'Revelar',
     hidden: 'Modificador profanado sin revelar',
   },
+
+  ru: {
+    desecration: 'Очернение',
+    close: 'Закрыть',
+    reveal: 'Раскрыть',
+    hidden: 'Нераскрытый очернённый модификатор',
+  },
+  th: {
+    desecration: 'สามานย์',
+    close: 'ปิด',
+    reveal: 'เปิดเผย',
+    hidden: 'ม็อดสามานย์ที่ยังไม่เปิดเผย',
+  },
 } as const

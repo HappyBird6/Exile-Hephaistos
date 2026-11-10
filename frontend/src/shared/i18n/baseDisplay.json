@@ -1,0 +1,2282 @@
+{
+  "soldier": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 65, 121 Сила",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 65, 121 Str",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "imperial": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 115 Сила",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 115 Str",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "massive": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 101 Сила",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 101 Str",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "sirenscale": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 101 Инт.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 101 Int",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "adherent": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 55 Сила, 55 Инт.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 55 Str, 55 Int",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "polished": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 101 Ловк.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 101 Dex",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "blacksteel-gloves": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 55 Сила, 55 Ловк.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 55 Str, 55 Dex",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "war-wraps": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 65, 44 Ловк., 44 Инт.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 65, 44 Dex, 44 Int",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "freebooter": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 115 Ловк.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 115 Dex",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "gladiatorial": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 63 Сила, 63 Ловк.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 63 Str, 63 Dex",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "grinning": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 63 Ловк., 63 Инт.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 63 Dex, 63 Int",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "slipstrike": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 70, 121 Ловк.",
+      "sourceProperties": ["Базовая скорость передвижения: -0.03"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 70, 121 Dex",
+      "sourceProperties": ["ความเร็วเคลื่อนที่พื้นฐาน: -0.03"],
+      "skillLines": []
+    }
+  },
+  "death-mail": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 75, 67 Сила, 67 Ловк.",
+      "sourceProperties": ["Базовая скорость передвижения: -0.04"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 75, 67 Str, 67 Dex",
+      "sourceProperties": ["ความเร็วเคลื่อนที่พื้นฐาน: -0.04"],
+      "skillLines": []
+    }
+  },
+  "sleek": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 65, 67 Ловк., 67 Инт.",
+      "sourceProperties": ["Базовая скорость передвижения: -0.03"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 65, 67 Dex, 67 Int",
+      "sourceProperties": ["ความเร็วเคลื่อนที่พื้นฐาน: -0.03"],
+      "skillLines": []
+    }
+  },
+  "vile": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 65, 121 Инт.",
+      "sourceProperties": ["Базовая скорость передвижения: -0.03"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 65, 121 Int",
+      "sourceProperties": ["ความเร็วเคลื่อนที่พื้นฐาน: -0.03"],
+      "skillLines": []
+    }
+  },
+  "wolfskin": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 65, 67 Сила, 67 Инт.",
+      "sourceProperties": ["Базовая скорость передвижения: -0.04"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 65, 67 Str, 67 Int",
+      "sourceProperties": ["ความเร็วเคลื่อนที่พื้นฐาน: -0.04"],
+      "skillLines": []
+    }
+  },
+  "ancestral": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 115 Инт.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 115 Int",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "cryptic": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 63 Сила, 63 Инт.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 63 Str, 63 Int",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "tasalian": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 108 Сила",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 108 Str",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "drakeskin": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 108 Ловк.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 108 Dex",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "sekhema": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 108 Инт.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 108 Int",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "blacksteel-boots": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 59 Сила, 59 Ловк.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 59 Str, 59 Dex",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "faithful": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 65, 47 Сила, 47 Инт.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 65, 47 Str, 47 Int",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "daggerfoot": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 59 Ловк., 59 Инт.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 59 Dex, 59 Int",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "warmonger": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 77, 163 Ловк.",
+      "sourceProperties": [
+        "Физический урон: 56-84",
+        "Шанс крит. попадания: 5%",
+        "Атак в секунду: 1.2"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 77, 163 Dex",
+      "sourceProperties": [
+        "ความเสียหายกายภาพ: 56-84",
+        "โอกาสปะทะคริติคอล: 5%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.2"
+      ],
+      "skillLines": []
+    }
+  },
+  "guardian": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 77, 163 Ловк.",
+      "sourceProperties": [
+        "Физический урон: 53-88",
+        "Шанс крит. попадания: 5%",
+        "Атак в секунду: 1.15"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 77, 163 Dex",
+      "sourceProperties": [
+        "ความเสียหายกายภาพ: 53-88",
+        "โอกาสปะทะคริติคอล: 5%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.15"
+      ],
+      "skillLines": []
+    }
+  },
+  "gemini": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 78, 163 Ловк.",
+      "sourceProperties": [
+        "Физический урон: 39-72",
+        "Шанс крит. попадания: 5%",
+        "Атак в секунду: 1.15"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 78, 163 Dex",
+      "sourceProperties": [
+        "ความเสียหายกายภาพ: 39-72",
+        "โอกาสปะทะคริติคอล: 5%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.15"
+      ],
+      "skillLines": []
+    }
+  },
+  "fanatic": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 79, 163 Ловк.",
+      "sourceProperties": [
+        "Физический урон: 47-79",
+        "Шанс крит. попадания: 5%",
+        "Атак в секунду: 1.2"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 79, 163 Dex",
+      "sourceProperties": [
+        "ความเสียหายกายภาพ: 47-79",
+        "โอกาสปะทะคริติคอล: 5%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.2"
+      ],
+      "skillLines": []
+    }
+  },
+  "obliterator": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 78, 163 Ловк.",
+      "sourceProperties": [
+        "Физический урон: 62-115",
+        "Шанс крит. попадания: 5%",
+        "Атак в секунду: 1.1"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 78, 163 Dex",
+      "sourceProperties": [
+        "ความเสียหายกายภาพ: 62-115",
+        "โอกาสปะทะคริติคอล: 5%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.1"
+      ],
+      "skillLines": []
+    }
+  },
+  "kinetic": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 40",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 40",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "vitalic": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 40",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 40",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "mnemonic": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 40",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 40",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "pearl": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 32",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 32",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "amethyst": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 20",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 20",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "prismatic": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 35",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 35",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "ruby-ring": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 8",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 8",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "two-stone-fire-cold": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 35",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 35",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "stellar": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 25",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 25",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "amber": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 8",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 8",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "bloodstone": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 18",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 18",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "lunar": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 14",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 14",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "azure": {
+    "ru": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "crimson": {
+    "ru": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "pearlescent": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 8",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 8",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "hallowed": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 65, 114 Инт.",
+      "sourceProperties": ["Дух: 100", "Дарует умение: Приспешник скелет-воин"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 65, 114 Int",
+      "sourceProperties": ["พลังวิญญาณ: 100", "ให้สกิล: {นักรบโครงกระดูก}"],
+      "skillLines": []
+    }
+  },
+  "bone": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 2",
+      "sourceProperties": ["Дарует умение: Костяной взрыв"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 2",
+      "sourceProperties": ["ให้สกิล: {ระเบิดกระดูก}"],
+      "skillLines": []
+    }
+  },
+  "siphoning": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 11, 23 Инт.",
+      "sourceProperties": ["Дарует умение: Перелив энергии"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 11, 23 Int",
+      "sourceProperties": ["ให้สกิล: {ดูดพลัง}"],
+      "skillLines": []
+    }
+  },
+  "volatile": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 16, 31 Инт.",
+      "sourceProperties": ["Дарует умение: Нестабильный труп"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 16, 31 Int",
+      "sourceProperties": ["ให้สกิล: {ศพไล่ระเบิด}"],
+      "skillLines": []
+    }
+  },
+  "galvanic": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 25, 46 Инт.",
+      "sourceProperties": ["Дарует умение: Электризующее поле"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 25, 46 Int",
+      "sourceProperties": ["ให้สกิล: {สนามกระแสไฟ}"],
+      "skillLines": []
+    }
+  },
+  "acrid": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 33, 60 Инт.",
+      "sourceProperties": ["Дарует умение: Разложение"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 33, 60 Int",
+      "sourceProperties": ["ให้สกิล: {เน่าเปื่อย}"],
+      "skillLines": []
+    }
+  },
+  "offering": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 38, 68 Инт.",
+      "sourceProperties": ["Дарует умение: Обескровливание"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 38, 68 Int",
+      "sourceProperties": ["ให้สกิล: {โลหิตชอนไช}"],
+      "skillLines": []
+    }
+  },
+  "critical": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 52, 92 Инт.",
+      "sourceProperties": ["Дарует умение: Снаряд хаоса"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 52, 92 Int",
+      "sourceProperties": ["ให้สกิล: {ลูกพลังเคออส}"],
+      "skillLines": []
+    }
+  },
+  "primordial": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 56, 99 Инт.",
+      "sourceProperties": ["Дарует умение: Увядание"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 56, 99 Int",
+      "sourceProperties": ["ให้สกิล: {เหี่ยวเฉา}"],
+      "skillLines": []
+    }
+  },
+  "dueling": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 65, 114 Инт.",
+      "sourceProperties": ["Дарует умение: Чароплёт"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 65, 114 Int",
+      "sourceProperties": ["ให้สกิล: {มือเวทจอมขมัง}"],
+      "skillLines": []
+    }
+  },
+  "stoic": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 6, 12 Инт.",
+      "sourceProperties": ["Дух: 100", "Дарует умение: Дисциплина"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 6, 12 Int",
+      "sourceProperties": ["พลังวิญญาณ: 100", "ให้สกิล: {วินัย}"],
+      "skillLines": []
+    }
+  },
+  "omen": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 16, 12 Сила, 25 Инт.",
+      "sourceProperties": ["Дух: 100", "Дарует умение: Злость"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 16, 12 Str, 25 Int",
+      "sourceProperties": ["พลังวิญญาณ: 100", "ให้สกิล: {พยาบาท}"],
+      "skillLines": []
+    }
+  },
+  "shrine-fire": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 26, 17 Сила, 38 Инт.",
+      "sourceProperties": ["Дух: 100", "Дарует умение: Спасение от огня"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 26, 17 Str, 38 Int",
+      "sourceProperties": ["พลังวิญญาณ: 100", "ให้สกิล: {ไฟพิสุทธิ์}"],
+      "skillLines": []
+    }
+  },
+  "shrine-ice": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 26, 17 Сила, 38 Инт.",
+      "sourceProperties": ["Дух: 100", "Дарует умение: Спасение от холода"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 26, 17 Str, 38 Int",
+      "sourceProperties": ["พลังวิญญาณ: 100", "ให้สกิล: {น้ำแข็งพิสุทธิ์}"],
+      "skillLines": []
+    }
+  },
+  "shrine-lightning": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 26, 17 Сила, 38 Инт.",
+      "sourceProperties": ["Дух: 100", "Дарует умение: Спасение от молний"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 26, 17 Str, 38 Int",
+      "sourceProperties": ["พลังวิญญาณ: 100", "ให้สกิล: {สายฟ้าพิสุทธิ์}"],
+      "skillLines": []
+    }
+  },
+  "clasped": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 36, 65 Инт.",
+      "sourceProperties": ["Дух: 100", "Дарует умение: Ледяное сердце"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 36, 65 Int",
+      "sourceProperties": ["พลังวิญญาณ: 100", "ให้สกิล: {จิตเยือกเย็น}"],
+      "skillLines": []
+    }
+  },
+  "wrath": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 49, 87 Инт.",
+      "sourceProperties": ["Дух: 100", "Дарует умение: Громы и молнии"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 49, 87 Int",
+      "sourceProperties": ["พลังวิญญาณ: 100", "ให้สกิล: {ฟ้าลั่น}"],
+      "skillLines": []
+    }
+  },
+  "linen-belt": {
+    "ru": {
+      "requirements": "",
+      "sourceProperties": ["Имеет (1—3) ячейки для оберегов"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "",
+      "sourceProperties": ["มีช่องของขลัง (1—3) ช่อง"],
+      "skillLines": []
+    }
+  },
+  "wide-belt": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 14",
+      "sourceProperties": ["Имеет (1—3) ячейки для оберегов"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 14",
+      "sourceProperties": ["มีช่องของขลัง (1—3) ช่อง"],
+      "skillLines": []
+    }
+  },
+  "long-belt": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 20",
+      "sourceProperties": ["Имеет (1—3) ячейки для оберегов"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 20",
+      "sourceProperties": ["มีช่องของขลัง (1—3) ช่อง"],
+      "skillLines": []
+    }
+  },
+  "plate-belt": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 25",
+      "sourceProperties": ["Имеет (1—3) ячейки для оберегов"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 25",
+      "sourceProperties": ["มีช่องของขลัง (1—3) ช่อง"],
+      "skillLines": []
+    }
+  },
+  "ornate-belt": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 31",
+      "sourceProperties": ["Имеет (1—3) ячейки для оберегов"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 31",
+      "sourceProperties": ["มีช่องของขลัง (1—3) ช่อง"],
+      "skillLines": []
+    }
+  },
+  "mail-belt": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 40",
+      "sourceProperties": ["Имеет (1—3) ячейки для оберегов"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 40",
+      "sourceProperties": ["มีช่องของขลัง (1—3) ช่อง"],
+      "skillLines": []
+    }
+  },
+  "double-belt": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 44",
+      "sourceProperties": ["Имеет (1—3) ячейки для оберегов"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 44",
+      "sourceProperties": ["มีช่องของขลัง (1—3) ช่อง"],
+      "skillLines": []
+    }
+  },
+  "heavy-belt": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 50",
+      "sourceProperties": ["Имеет (1—3) ячейки для оберегов"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 50",
+      "sourceProperties": ["มีช่องของขลัง (1—3) ช่อง"],
+      "skillLines": []
+    }
+  },
+  "utility-belt": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 55",
+      "sourceProperties": ["Имеет (1—3) ячейки для оберегов"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 55",
+      "sourceProperties": ["มีช่องของขลัง (1—3) ช่อง"],
+      "skillLines": []
+    }
+  },
+  "fine-belt": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 62",
+      "sourceProperties": ["Имеет (1—3) ячейки для оберегов"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 62",
+      "sourceProperties": ["มีช่องของขลัง (1—3) ช่อง"],
+      "skillLines": []
+    }
+  },
+  "invoking-belt": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 32",
+      "sourceProperties": ["Имеет (1—3) ячейки для оберегов"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 32",
+      "sourceProperties": ["มีช่องของขลัง (1—3) ช่อง"],
+      "skillLines": []
+    }
+  },
+  "sinew-belt": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 32",
+      "sourceProperties": ["Имеет (1—3) ячейки для оберегов"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 32",
+      "sourceProperties": ["มีช่องของขลัง (1—3) ช่อง"],
+      "skillLines": []
+    }
+  },
+  "forking-belt": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 32",
+      "sourceProperties": ["Имеет (1—3) ячейки для оберегов"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 32",
+      "sourceProperties": ["มีช่องของขลัง (1—3) ช่อง"],
+      "skillLines": []
+    }
+  },
+  "siege-crossbow": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 79, 89 Сила, 89 Ловк.",
+      "sourceProperties": [
+        "Самострелы",
+        "Физический урон: 29-115",
+        "Шанс крит. попадания: 5%",
+        "Атак в секунду: 1.65",
+        "Время перезарядки: 0.75"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 79, 89 Str, 89 Dex",
+      "sourceProperties": [
+        "หน้าไม้",
+        "ความเสียหายกายภาพ: 29-115",
+        "โอกาสปะทะคริติคอล: 5%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.65",
+        "เวลารีโหลด: 0.75"
+      ],
+      "skillLines": []
+    }
+  },
+  "gemini-crossbow": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 78, 89 Сила, 89 Ловк.",
+      "sourceProperties": [
+        "Самострелы",
+        "Физический урон: 28-112",
+        "Шанс крит. попадания: 5%",
+        "Атак в секунду: 1.6",
+        "Время перезарядки: 1.1"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 78, 89 Str, 89 Dex",
+      "sourceProperties": [
+        "หน้าไม้",
+        "ความเสียหายกายภาพ: 28-112",
+        "โอกาสปะทะคริติคอล: 5%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.6",
+        "เวลารีโหลด: 1.1"
+      ],
+      "skillLines": []
+    }
+  },
+  "elegant-crossbow": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 78, 89 Сила, 89 Ловк.",
+      "sourceProperties": [
+        "Самострелы",
+        "Физический урон: 31-123",
+        "Шанс крит. попадания: 5%",
+        "Атак в секунду: 1.65",
+        "Время перезарядки: 0.85"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 78, 89 Str, 89 Dex",
+      "sourceProperties": [
+        "หน้าไม้",
+        "ความเสียหายกายภาพ: 31-123",
+        "โอกาสปะทะคริติคอล: 5%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.65",
+        "เวลารีโหลด: 0.85"
+      ],
+      "skillLines": []
+    }
+  },
+  "flexed-crossbow": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 77, 89 Сила, 89 Ловк.",
+      "sourceProperties": [
+        "Самострелы",
+        "Физический урон: 32-127",
+        "Шанс крит. попадания: 5%",
+        "Атак в секунду: 1.6",
+        "Время перезарядки: 0.85"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 77, 89 Str, 89 Dex",
+      "sourceProperties": [
+        "หน้าไม้",
+        "ความเสียหายกายภาพ: 32-127",
+        "โอกาสปะทะคริติคอล: 5%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.6",
+        "เวลารีโหลด: 0.85"
+      ],
+      "skillLines": []
+    }
+  },
+  "desolate-crossbow": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 77, 89 Сила, 89 Ловк.",
+      "sourceProperties": [
+        "Самострелы",
+        "Физический урон: 33-132",
+        "Шанс крит. попадания: 5%",
+        "Атак в секунду: 1.6",
+        "Время перезарядки: 0.8"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 77, 89 Str, 89 Dex",
+      "sourceProperties": [
+        "หน้าไม้",
+        "ความเสียหายกายภาพ: 33-132",
+        "โอกาสปะทะคริติคอล: 5%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.6",
+        "เวลารีโหลด: 0.8"
+      ],
+      "skillLines": []
+    }
+  },
+  "engraved-crossbow": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 72, 82 Сила, 82 Ловк.",
+      "sourceProperties": [
+        "Самострелы",
+        "Физический урон: 31-124",
+        "Шанс крит. попадания: 5%",
+        "Атак в секунду: 1.6",
+        "Время перезарядки: 0.8"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 72, 82 Str, 82 Dex",
+      "sourceProperties": [
+        "หน้าไม้",
+        "ความเสียหายกายภาพ: 31-124",
+        "โอกาสปะทะคริติคอล: 5%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.6",
+        "เวลารีโหลด: 0.8"
+      ],
+      "skillLines": []
+    }
+  },
+  "tawhoan-tower-shield": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 115 Сила",
+      "sourceProperties": [
+        "Шанс блока: 26%",
+        "Броня: 264",
+        "Базовая скорость передвижения: -0.03",
+        "Дарует умение: Поднять щит"
+      ],
+      "skillLines": ["Дарует умение: Поднять щит"]
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 115 Str",
+      "sourceProperties": [
+        "โอกาสบล็อค: 26%",
+        "ค่าเกราะ: 264",
+        "ความเร็วเคลื่อนที่พื้นฐาน: -0.03",
+        "ให้สกิล: {ยกโล่}"
+      ],
+      "skillLines": ["ให้สกิล: {ยกโล่}"]
+    }
+  },
+  "golden-targe": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 63 Сила, 63 Ловк.",
+      "sourceProperties": [
+        "Шанс блока: 25%",
+        "Броня: 145",
+        "Уклонение: 132",
+        "Базовая скорость передвижения: -0.015",
+        "Дарует умение: Поднять щит"
+      ],
+      "skillLines": ["Дарует умение: Поднять щит"]
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 63 Str, 63 Dex",
+      "sourceProperties": [
+        "โอกาสบล็อค: 25%",
+        "ค่าเกราะ: 145",
+        "อัตราการหลบหลีก: 132",
+        "ความเร็วเคลื่อนที่พื้นฐาน: -0.015",
+        "ให้สกิล: {ยกโล่}"
+      ],
+      "skillLines": ["ให้สกิล: {ยกโล่}"]
+    }
+  },
+  "blacksteel-crest-shield": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 63 Сила, 63 Инт.",
+      "sourceProperties": [
+        "Шанс блока: 25%",
+        "Броня: 145",
+        "Энергетический щит: 40",
+        "Базовая скорость передвижения: -0.015",
+        "Дарует умение: Поднять щит"
+      ],
+      "skillLines": ["Дарует умение: Поднять щит"]
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 63 Str, 63 Int",
+      "sourceProperties": [
+        "โอกาสบล็อค: 25%",
+        "ค่าเกราะ: 145",
+        "โล่พลังงาน: 40",
+        "ความเร็วเคลื่อนที่พื้นฐาน: -0.015",
+        "ให้สกิล: {ยกโล่}"
+      ],
+      "skillLines": ["ให้สกิล: {ยกโล่}"]
+    }
+  },
+  "desert-buckler": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 115 Ловк.",
+      "sourceProperties": [
+        "Шанс блока: 20%",
+        "Уклонение: 192",
+        "Дарует умение: Парирование"
+      ],
+      "skillLines": ["Дарует умение: Парирование"]
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 115 Dex",
+      "sourceProperties": [
+        "โอกาสบล็อค: 20%",
+        "อัตราการหลบหลีก: 192",
+        "ให้สกิล: {แพรี่}"
+      ],
+      "skillLines": ["ให้สกิล: {แพรี่}"]
+    }
+  },
+  "tasalian-focus": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 115 Инт.",
+      "sourceProperties": ["Энергетический щит: 91"],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 115 Int",
+      "sourceProperties": ["โล่พลังงาน: 91"],
+      "skillLines": []
+    }
+  },
+  "visceral-quiver": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 65",
+      "sourceProperties": ["Можно использовать только вместе с луком."],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 65",
+      "sourceProperties": ["สวมใส่ได้เฉพาะเมื่อถือธนูเท่านั้น"],
+      "skillLines": []
+    }
+  },
+  "volant-quiver": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 61",
+      "sourceProperties": ["Можно использовать только вместе с луком."],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 61",
+      "sourceProperties": ["สวมใส่ได้เฉพาะเมื่อถือธนูเท่านั้น"],
+      "skillLines": []
+    }
+  },
+  "penetrating-quiver": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 55",
+      "sourceProperties": ["Можно использовать только вместе с луком."],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 55",
+      "sourceProperties": ["สวมใส่ได้เฉพาะเมื่อถือธนูเท่านั้น"],
+      "skillLines": []
+    }
+  },
+  "primed-quiver": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 51",
+      "sourceProperties": ["Можно использовать только вместе с луком."],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 51",
+      "sourceProperties": ["สวมใส่ได้เฉพาะเมื่อถือธนูเท่านั้น"],
+      "skillLines": []
+    }
+  },
+  "serrated-quiver": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 44",
+      "sourceProperties": ["Можно использовать только вместе с луком."],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 44",
+      "sourceProperties": ["สวมใส่ได้เฉพาะเมื่อถือธนูเท่านั้น"],
+      "skillLines": []
+    }
+  },
+  "toxic-quiver": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 39",
+      "sourceProperties": ["Можно использовать только вместе с луком."],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 39",
+      "sourceProperties": ["สวมใส่ได้เฉพาะเมื่อถือธนูเท่านั้น"],
+      "skillLines": []
+    }
+  },
+  "blunt-quiver": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 33",
+      "sourceProperties": ["Можно использовать только вместе с луком."],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 33",
+      "sourceProperties": ["สวมใส่ได้เฉพาะเมื่อถือธนูเท่านั้น"],
+      "skillLines": []
+    }
+  },
+  "two-point-quiver": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 24",
+      "sourceProperties": ["Можно использовать только вместе с луком."],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 24",
+      "sourceProperties": ["สวมใส่ได้เฉพาะเมื่อถือธนูเท่านั้น"],
+      "skillLines": []
+    }
+  },
+  "sacral-quiver": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 16",
+      "sourceProperties": ["Можно использовать только вместе с луком."],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 16",
+      "sourceProperties": ["สวมใส่ได้เฉพาะเมื่อถือธนูเท่านั้น"],
+      "skillLines": []
+    }
+  },
+  "fire-quiver": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 8",
+      "sourceProperties": ["Можно использовать только вместе с луком."],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 8",
+      "sourceProperties": ["สวมใส่ได้เฉพาะเมื่อถือธนูเท่านั้น"],
+      "skillLines": []
+    }
+  },
+  "broadhead-quiver": {
+    "ru": {
+      "requirements": "",
+      "sourceProperties": ["Можно использовать только вместе с луком."],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "",
+      "sourceProperties": ["สวมใส่ได้เฉพาะเมื่อถือธนูเท่านั้น"],
+      "skillLines": []
+    }
+  },
+  "fortified-hammer": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 79, 163 Сила",
+      "sourceProperties": [
+        "Одноручные булавы",
+        "Физический урон: 60-73",
+        "Шанс крит. попадания: 5%",
+        "Атак в секунду: 1.4",
+        "Дальность оружия: 1.3"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 79, 163 Str",
+      "sourceProperties": [
+        "กระบองมือเดียว",
+        "ความเสียหายกายภาพ: 60-73",
+        "โอกาสปะทะคริติคอล: 5%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.4",
+        "ระยะของอาวุธ: 1.3"
+      ],
+      "skillLines": []
+    }
+  },
+  "strife-pick": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 78, 163 Сила",
+      "sourceProperties": [
+        "Одноручные булавы",
+        "Физический урон: 49-66",
+        "Шанс крит. попадания: 7%",
+        "Атак в секунду: 1.45",
+        "Дальность оружия: 1.3"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 78, 163 Str",
+      "sourceProperties": [
+        "กระบองมือเดียว",
+        "ความเสียหายกายภาพ: 49-66",
+        "โอกาสปะทะคริติคอล: 7%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.45",
+        "ระยะของอาวุธ: 1.3"
+      ],
+      "skillLines": []
+    }
+  },
+  "akoyan-club": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 78, 163 Сила",
+      "sourceProperties": [
+        "Одноручные булавы",
+        "Физический урон: 46-76",
+        "Шанс крит. попадания: 5%",
+        "Атак в секунду: 1.45",
+        "Дальность оружия: 1.3"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 78, 163 Str",
+      "sourceProperties": [
+        "กระบองมือเดียว",
+        "ความเสียหายกายภาพ: 46-76",
+        "โอกาสปะทะคริติคอล: 5%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.45",
+        "ระยะของอาวุธ: 1.3"
+      ],
+      "skillLines": []
+    }
+  },
+  "ruination-maul": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 79, 163 Сила",
+      "sourceProperties": [
+        "Двуручные булавы",
+        "Физический урон: 104-127",
+        "Шанс крит. попадания: 8%",
+        "Атак в секунду: 1.1",
+        "Дальность оружия: 1.5"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 79, 163 Str",
+      "sourceProperties": [
+        "กระบองสองมือ",
+        "ความเสียหายกายภาพ: 104-127",
+        "โอกาสปะทะคริติคอล: 8%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.1",
+        "ระยะของอาวุธ: 1.5"
+      ],
+      "skillLines": []
+    }
+  },
+  "fanatic-greathammer": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 78, 163 Сила",
+      "sourceProperties": [
+        "Двуручные булавы",
+        "Физический урон: 101-137",
+        "Шанс крит. попадания: 5%",
+        "Атак в секунду: 1.05",
+        "Дальность оружия: 1.5"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 78, 163 Str",
+      "sourceProperties": [
+        "กระบองสองมือ",
+        "ความเสียหายกายภาพ: 101-137",
+        "โอกาสปะทะคริติคอล: 5%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.05",
+        "ระยะของอาวุธ: 1.5"
+      ],
+      "skillLines": []
+    }
+  },
+  "tawhoan-greatclub": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 78, 163 Сила",
+      "sourceProperties": [
+        "Двуручные булавы",
+        "Физический урон: 113-153",
+        "Шанс крит. попадания: 5%",
+        "Атак в секунду: 1.1",
+        "Дальность оружия: 1.5"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 78, 163 Str",
+      "sourceProperties": [
+        "กระบองสองมือ",
+        "ความเสียหายกายภาพ: 113-153",
+        "โอกาสปะทะคริติคอล: 5%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.1",
+        "ระยะของอาวุธ: 1.5"
+      ],
+      "skillLines": []
+    }
+  },
+  "aegis-quarterstaff": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 79, 127 Ловк., 50 Инт.",
+      "sourceProperties": [
+        "Боевые посохи",
+        "Физический урон: 58-97",
+        "Шанс крит. попадания: 10%",
+        "Атак в секунду: 1.4",
+        "Дальность оружия: 1.4"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 79, 127 Dex, 50 Int",
+      "sourceProperties": [
+        "ไม้พลองวรยุทธ์",
+        "ความเสียหายกายภาพ: 58-97",
+        "โอกาสปะทะคริติคอล: 10%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.4",
+        "ระยะของอาวุธ: 1.4"
+      ],
+      "skillLines": []
+    }
+  },
+  "bolting-quarterstaff": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 78, 127 Ловк., 50 Инт.",
+      "sourceProperties": [
+        "Боевые посохи",
+        "Физический урон: 24-97",
+        "Шанс крит. попадания: 10%",
+        "Атак в секунду: 1.4",
+        "Дальность оружия: 1.4"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 78, 127 Dex, 50 Int",
+      "sourceProperties": [
+        "ไม้พลองวรยุทธ์",
+        "ความเสียหายกายภาพ: 24-97",
+        "โอกาสปะทะคริติคอล: 10%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.4",
+        "ระยะของอาวุธ: 1.4"
+      ],
+      "skillLines": []
+    }
+  },
+  "dreaming-quarterstaff": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 78, 127 Ловк., 50 Инт.",
+      "sourceProperties": [
+        "Боевые посохи",
+        "Физический урон: 99-133",
+        "Шанс крит. попадания: 0%",
+        "Атак в секунду: 1.5",
+        "Дальность оружия: 1.4"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 78, 127 Dex, 50 Int",
+      "sourceProperties": [
+        "ไม้พลองวรยุทธ์",
+        "ความเสียหายกายภาพ: 99-133",
+        "โอกาสปะทะคริติคอล: 0%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.5",
+        "ระยะของอาวุธ: 1.4"
+      ],
+      "skillLines": []
+    }
+  },
+  "grand-spear": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 79, 68 Сила, 109 Ловк.",
+      "sourceProperties": [
+        "Копья",
+        "Физический урон: 56-84",
+        "Шанс крит. попадания: 5%",
+        "Атак в секунду: 1.4",
+        "Дальность оружия: 1.5"
+      ],
+      "skillLines": ["Дарует умение: Бросок копья"]
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 79, 68 Str, 109 Dex",
+      "sourceProperties": [
+        "หอก",
+        "ความเสียหายกายภาพ: 56-84",
+        "โอกาสปะทะคริติคอล: 5%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.4",
+        "ระยะของอาวุธ: 1.5"
+      ],
+      "skillLines": ["ให้สกิล: {ขว้างหอก}"]
+    }
+  },
+  "flying-spear": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 78, 50 Сила, 127 Ловк.",
+      "sourceProperties": [
+        "Копья",
+        "Физический урон: 46-77",
+        "Шанс крит. попадания: 5%",
+        "Атак в секунду: 1.6",
+        "Дальность оружия: 1.5"
+      ],
+      "skillLines": ["Дарует умение: Бросок копья"]
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 78, 50 Str, 127 Dex",
+      "sourceProperties": [
+        "หอก",
+        "ความเสียหายกายภาพ: 46-77",
+        "โอกาสปะทะคริติคอล: 5%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.6",
+        "ระยะของอาวุธ: 1.5"
+      ],
+      "skillLines": ["ให้สกิล: {ขว้างหอก}"]
+    }
+  },
+  "akoyan-spear": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 78, 50 Сила, 127 Ловк., 90 Инт.",
+      "sourceProperties": [
+        "Копья",
+        "Физический урон: 39-72",
+        "Шанс крит. попадания: 7%",
+        "Атак в секунду: 1.6",
+        "Дальность оружия: 1.5"
+      ],
+      "skillLines": ["Дарует умение: Бросок копья"]
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 78, 50 Str, 127 Dex, 90 Int",
+      "sourceProperties": [
+        "หอก",
+        "ความเสียหายกายภาพ: 39-72",
+        "โอกาสปะทะคริติคอล: 7%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.6",
+        "ระยะของอาวุธ: 1.5"
+      ],
+      "skillLines": ["ให้สกิล: {ขว้างหอก}"]
+    }
+  },
+  "permafrost-staff": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 75, 114 Инт.",
+      "sourceProperties": ["Посохи", "Дарует умение: Ледяное сердце"],
+      "skillLines": ["Дарует умение: Ледяное сердце"]
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 75, 114 Int",
+      "sourceProperties": ["ไม้พลอง", "ให้สกิล: {จิตเยือกเย็น}"],
+      "skillLines": ["ให้สกิล: {จิตเยือกเย็น}"]
+    }
+  },
+  "reflecting-staff": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 70, 114 Инт.",
+      "sourceProperties": ["Посохи", "Дарует умение: Преломляющее зеркало"],
+      "skillLines": ["Дарует умение: Преломляющее зеркало"]
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 70, 114 Int",
+      "sourceProperties": ["ไม้พลอง", "ให้สกิล: {กระจกหักเหแสง}"],
+      "skillLines": ["ให้สกิล: {กระจกหักเหแสง}"]
+    }
+  },
+  "dark-staff": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 65, 114 Инт.",
+      "sourceProperties": ["Посохи", "Дарует умение: Тёмный договор"],
+      "skillLines": ["Дарует умение: Тёмный договор"]
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 65, 114 Int",
+      "sourceProperties": ["ไม้พลอง", "ให้สกิล: {สัญญามืด}"],
+      "skillLines": ["ให้สกิล: {สัญญามืด}"]
+    }
+  },
+  "ravenous-staff": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 65, 114 Инт.",
+      "sourceProperties": ["Посохи", "Дарует умение: Пир плоти"],
+      "skillLines": ["Дарует умение: Пир плоти"]
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 65, 114 Int",
+      "sourceProperties": ["ไม้พลอง", "ให้สกิล: {สวาปามเลือดเนื้อ}"],
+      "skillLines": ["ให้สกิล: {สวาปามเลือดเนื้อ}"]
+    }
+  },
+  "perching-staff": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 65, 114 Инт.",
+      "sourceProperties": ["Посохи", "Дарует умение: Вьющийся заговор"],
+      "skillLines": ["Дарует умение: Вьющийся заговор"]
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 65, 114 Int",
+      "sourceProperties": ["ไม้พลอง", "ให้สกิล: {ฝูงบินโฉบเฉี่ยว}"],
+      "skillLines": ["ให้สกิล: {ฝูงบินโฉบเฉี่ยว}"]
+    }
+  },
+  "sanctified-staff": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 56, 99 Инт.",
+      "sourceProperties": ["Посохи", "Дарует умение: Освящение"],
+      "skillLines": ["Дарует умение: Освящение"]
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 56, 99 Int",
+      "sourceProperties": ["ไม้พลอง", "ให้สกิล: {สร้างพื้นที่ศักดิ์สิทธิ์}"],
+      "skillLines": ["ให้สกิล: {สร้างพื้นที่ศักดิ์สิทธิ์}"]
+    }
+  },
+  "maji-talisman": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 79, 100 Сила, 67 Инт.",
+      "sourceProperties": [
+        "Талисманы",
+        "Физический урон: 61-114",
+        "Шанс крит. попадания: 8%",
+        "Атак в секунду: 1.25",
+        "Дальность оружия: 1.2"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 79, 100 Str, 67 Int",
+      "sourceProperties": [
+        "เครื่องราง",
+        "ความเสียหายกายภาพ: 61-114",
+        "โอกาสปะทะคริติคอล: 8%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.25",
+        "ระยะของอาวุธ: 1.2"
+      ],
+      "skillLines": []
+    }
+  },
+  "fungal-talisman": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 78, 96 Сила, 70 Инт.",
+      "sourceProperties": [
+        "Талисманы",
+        "Физический урон: 59-98",
+        "Шанс крит. попадания: 8%",
+        "Атак в секунду: 1.4",
+        "Дальность оружия: 1.2"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 78, 96 Str, 70 Int",
+      "sourceProperties": [
+        "เครื่องราง",
+        "ความเสียหายกายภาพ: 59-98",
+        "โอกาสปะทะคริติคอล: 8%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.4",
+        "ระยะของอาวุธ: 1.2"
+      ],
+      "skillLines": []
+    }
+  },
+  "jade-talisman": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 78, 109 Сила, 65 Инт.",
+      "sourceProperties": [
+        "Талисманы",
+        "Физический урон: 101-151",
+        "Шанс крит. попадания: 5%",
+        "Атак в секунду: 1.1",
+        "Дальность оружия: 1.2"
+      ],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 78, 109 Str, 65 Int",
+      "sourceProperties": [
+        "เครื่องราง",
+        "ความเสียหายกายภาพ: 101-151",
+        "โอกาสปะทะคริติคอล: 5%",
+        "จำนวนครั้งการโจมตีต่อวินาที: 1.1",
+        "ระยะของอาวุธ: 1.2"
+      ],
+      "skillLines": []
+    }
+  },
+  "jade-amulet": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 8",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 8",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "lapis-amulet": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 8",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 8",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "gold-amulet": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 35",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 35",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "twisted-amulet": {
+    "ru": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "distorted-amulet": {
+    "ru": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "absent-amulet": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 50",
+      "sourceProperties": [],
+      "skillLines": [
+        "Дарует умение: Уровень 12 Сотворение чар при стихийном состоянии"
+      ]
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 50",
+      "sourceProperties": [],
+      "skillLines": ["ให้สกิล: เลเวล 12 {ร่ายเมื่อเจ็บป่วยธาตุ}"]
+    }
+  },
+  "portent-amulet": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 42",
+      "sourceProperties": [],
+      "skillLines": ["Дарует умение: Уровень 11 Волчья стая"]
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 42",
+      "sourceProperties": [],
+      "skillLines": ["ให้สกิล: เลเวล 11 {ฝูงหมาป่า}"]
+    }
+  },
+  "lament-amulet": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 42",
+      "sourceProperties": [],
+      "skillLines": ["Дарует умение: Уровень 11 Северная броня"]
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 42",
+      "sourceProperties": [],
+      "skillLines": ["ให้สกิล: เลเวล 11 {เกราะน้ำแข็ง}"]
+    }
+  },
+  "dusk-amulet": {
+    "ru": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "penumbra-amulet": {
+    "ru": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "gloam-amulet": {
+    "ru": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "corona-amulet": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 40",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 40",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "tenebrous-amulet": {
+    "ru": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "lazuli-ring": {
+    "ru": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "sapphire-ring": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 12",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 12",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "topaz-ring": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 16",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 16",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "emerald-ring": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 26",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 26",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "gold-ring": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 40",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 40",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "unset-ring": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 44",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 44",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "utzaal-cuirass": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 75, 121 Сила",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 75, 121 Str",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "abyssal-cuirass": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 73, 121 Сила",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 73, 121 Str",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "warlord-cuirass": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 121 Сила",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 121 Str",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "mail-coat": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 68, 121 Ловк.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 68, 121 Dex",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "wyrmscale-coat": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 75, 121 Ловк.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 75, 121 Dex",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "corsair-coat": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 121 Ловк.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 121 Dex",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "flowing-raiment": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 70, 121 Инт.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 70, 121 Int",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "sacramental-robe": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 75, 121 Инт.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 75, 121 Int",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "feathered-raiment": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 121 Инт.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 121 Int",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "dastard-armour": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 65, 67 Сила, 67 Ловк.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 65, 67 Str, 67 Dex",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "shrouded-mail-fire": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 70, 67 Сила, 67 Ловк.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 70, 67 Str, 67 Dex",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "shrouded-mail-cold": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 70, 67 Сила, 67 Ловк.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 70, 67 Str, 67 Dex",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "shrouded-mail-lightning": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 70, 67 Сила, 67 Ловк.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 70, 67 Str, 67 Dex",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "thane-mail": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 67 Сила, 67 Ловк.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 67 Str, 67 Dex",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "death-mantle": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 75, 67 Сила, 67 Инт.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 75, 67 Str, 67 Int",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "conjurer-mantle": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 70, 67 Сила, 67 Инт.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 70, 67 Str, 67 Int",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "seastorm-mantle": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 67 Сила, 67 Инт.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 67 Str, 67 Int",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "rambler-jacket": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 70, 67 Ловк., 67 Инт.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 70, 67 Dex, 67 Int",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "falconers-jacket": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 75, 67 Ловк., 67 Инт.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 75, 67 Dex, 67 Int",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "austere-garb": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 80, 67 Ловк., 67 Инт.",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 80, 67 Dex, 67 Int",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "biostatic-ring": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 52",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 52",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "oneiric-ring": {
+    "ru": {
+      "requirements": "Требуется:  Уровень 47",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "ต้องการ:  เลเวล 47",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "dusk-ring": {
+    "ru": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "gloam-ring": {
+    "ru": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "penumbra-ring": {
+    "ru": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  },
+  "tenebrous-ring": {
+    "ru": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    },
+    "th": {
+      "requirements": "",
+      "sourceProperties": [],
+      "skillLines": []
+    }
+  }
+}

@@ -6,4 +6,7 @@ export const retryMessages: Record<Locale, string> = {
   'zh-TW': 'N次內未達到目標',
   ja: 'N回以内に目標未達成',
   es: 'Objetivo no alcanzado en N intentos',
+
+  ru: 'Цель не достигнута за N попыток',
+  th: 'ไม่บรรลุเป้าหมายภายใน N ครั้ง',
 }

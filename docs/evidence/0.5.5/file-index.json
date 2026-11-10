@@ -2140,6 +2140,7 @@
     "hallowed-source/Sceptres.sp.json": "i18n/sources/es/hallowed-sceptres.es.json",
     "hallowed-source/Sceptres.tw.json": "i18n/sources/zh-tw/hallowed-sceptres.zh-tw.json",
     "hallowed-source/Sceptres.us.json": "i18n/sources/en/hallowed-sceptres.en.json",
+    "i18n/additional-locales.json": "i18n/sources/additional-locales.json",
     "maces-source/Akoyan_Club.cn.html": "i18n/sources/zh-cn/maces-akoyan-club.zh-cn.html",
     "maces-source/Akoyan_Club.cn.json": "i18n/sources/zh-cn/maces-akoyan-club.zh-cn.json",
     "maces-source/Akoyan_Club.jp.html": "i18n/sources/ja/maces-akoyan-club.ja.html",

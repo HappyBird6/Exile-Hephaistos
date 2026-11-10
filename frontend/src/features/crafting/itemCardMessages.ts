@@ -28,4 +28,13 @@ export const itemCardMessages: Record<
     sanctified: 'Santificado',
     lastCurrencyAffected: 'Modificador afectado por el último uso de moneda',
   },
+
+  ru: {
+    sanctified: 'Освященный',
+    lastCurrencyAffected: 'Изменено последним применением валюты',
+  },
+  th: {
+    sanctified: 'ศักดิ์สิทธิ์',
+    lastCurrencyAffected: 'เปลี่ยนแปลงจากเคอร์เรนซีที่ใช้ล่าสุด',
+  },
 }

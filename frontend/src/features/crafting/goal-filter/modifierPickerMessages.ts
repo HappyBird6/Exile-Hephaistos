@@ -71,4 +71,25 @@ export const modifierPickerMessages: Record<Locale, Messages> = {
     prefix: 'Prefijo',
     suffix: 'Sufijo',
   },
+
+  ru: {
+    group: 'Группа модификаторов',
+    search: 'Модификаторы поиска…',
+    tier: 'Начальный уровень модификатора',
+    chooseTier: 'Выберите уровень…',
+    empty: 'Больше модификаторов добавить нельзя.',
+    noMatch: 'Нет соответствующих модификаторов.',
+    prefix: 'Префикс',
+    suffix: 'Суффикс',
+  },
+  th: {
+    group: 'กลุ่มม็อด',
+    search: 'ม็อดการค้นหา...',
+    tier: 'เริ่มต้นระดับม็อด',
+    chooseTier: 'เลือกระดับ...',
+    empty: 'ไม่สามารถเพิ่มม็อดเพิ่มเติมได้',
+    noMatch: 'ไม่มีม็อดที่ตรงกัน',
+    prefix: 'พรีฟิกซ์',
+    suffix: 'ซัฟฟิกซ์',
+  },
 }

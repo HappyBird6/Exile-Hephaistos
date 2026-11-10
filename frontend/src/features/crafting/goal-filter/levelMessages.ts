@@ -42,4 +42,17 @@ export const levelMessages: Record<
       'El tier seleccionado requiere un nivel mayor. Cambia el tier o restaura el nivel.',
     invalid: 'Revisa los modificadores y la rareza seleccionados.',
   },
+
+  ru: {
+    label: 'Уровень предмета',
+    conflict:
+      'Для выбранного уровня требуется более высокий уровень предмета. Измените его уровень или восстановите уровень.',
+    invalid: 'Проверьте выбранные модификаторы и редкость.',
+  },
+  th: {
+    label: 'เลเวลไอเทม',
+    conflict:
+      'ระดับที่เลือกต้องมีระดับไอเท็มที่สูงกว่า เปลี่ยนระดับหรือเรียกคืนระดับ',
+    invalid: 'ตรวจสอบม็อดและความหายากที่เลือก',
+  },
 }

@@ -16,6 +16,15 @@ const card = (modifiers: ItemCardData['modifiers']): ItemCardData => ({
   flags: [],
   modifiers,
 })
+it('keeps Russian grouped values together in tier ranges', () => {
+  const line = compactAttribute(
+    { id: 'armour', text: '+1\u00a0250 к броне' },
+    [{ label: 'T1', low: '+1\u00a0250 к броне', high: '+2\u00a0500 к броне' }],
+    'ru',
+  )
+  expect(line.text).toBe('к броне')
+  expect(line.tierRows?.[0]?.value).toBe('+1\u00a0250–2\u00a0500')
+})
 it.each([
   [
     'en',

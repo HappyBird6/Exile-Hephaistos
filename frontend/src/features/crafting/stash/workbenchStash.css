@@ -214,3 +214,6 @@
   font-size: 12px;
   overflow-wrap: anywhere;
 }
+html[lang='ru'] .workbench-stash__tabs .material-tabs {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}

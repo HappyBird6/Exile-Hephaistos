@@ -139,4 +139,47 @@ export const setupMessages: Record<GoalFilterLanguage, Copy> = {
       WEIGHTED_V2: 'WEIGHTED_V2',
     },
   },
+
+  ru: {
+    rarity: 'Стартовая редкость',
+    normal: 'Нормальный',
+    magic: 'Магический',
+    rare: 'Редкий',
+    blocked:
+      'Недоступно с текущими модификаторами или специальными свойствами. Сначала удалите конфликтующие модификаторы.',
+    limits: 'Ограничения на префиксы/суффиксы',
+    advanced: 'Расширенные условия',
+    explicit: 'Явный модификатор',
+    implicit: 'Неявный модификатор',
+    pseudo: 'Общий итог',
+    groups: {
+      AND: 'AND',
+      COUNT: 'COUNT',
+      NOT: 'NOT',
+      IF: 'IF',
+      WEIGHTED_V1: 'WEIGHTED_V1',
+      WEIGHTED_V2: 'WEIGHTED_V2',
+    },
+  },
+  th: {
+    rarity: 'เริ่มหายาก.',
+    normal: 'ปกติ',
+    magic: 'เมจิก',
+    rare: 'แรร์',
+    blocked:
+      'ไม่สามารถใช้งานได้กับม็อดปัจจุบันหรือคุณสมบัติพิเศษ ลบม็อดที่ขัดแย้งกันออกก่อน',
+    limits: 'พรีฟิกซ์ / ซัฟฟิกซ์จำกัด',
+    advanced: 'เงื่อนไขขั้นสูง',
+    explicit: 'ม็อดที่ชัดเจน',
+    implicit: 'ม็อดโดยนัย',
+    pseudo: 'รวมกันทั้งสิ้น',
+    groups: {
+      AND: 'AND',
+      COUNT: 'COUNT',
+      NOT: 'NOT',
+      IF: 'IF',
+      WEIGHTED_V1: 'WEIGHTED_V1',
+      WEIGHTED_V2: 'WEIGHTED_V2',
+    },
+  },
 }

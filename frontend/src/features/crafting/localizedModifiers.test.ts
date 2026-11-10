@@ -31,6 +31,31 @@ function definition(id: keyof typeof catalog.definitions): Definition {
 }
 
 describe('verified modifier display templates', () => {
+  it.each(locales)(
+    'covers every manual reveal without an English fallback in %s',
+    (locale) => {
+      const ids = Object.keys(catalog.definitions).filter((id) =>
+        id.startsWith('reveal:'),
+      )
+      expect(ids).toHaveLength(277)
+      for (const id of ids) {
+        const d = definition(id as keyof typeof catalog.definitions)
+        const before = JSON.stringify(d)
+        expect(modifierTranslationStatus(d, locale), id).toBe('VERIFIED')
+        const text = localizedModifierText(d, undefined, locale)
+        expect(text, id).not.toMatch(/\{v\d+\}/)
+        if (locale !== 'en') expect(text, id).not.toBe(d.text)
+        expect(JSON.stringify(d)).toBe(before)
+      }
+      const warcry = definition(
+        'reveal:AbyssModTalismanKurgalPrefixWarcriesEmpowerXAdditionalAttacks',
+      )
+      expect(localizedModifierText(warcry, undefined, locale)).not.toMatch(
+        /\(1[—–-]2\)/,
+      )
+    },
+  )
+
   it('keeps canonical text exports precise while rounding their display projection', () => {
     const d: Definition = {
       id: 'synthetic:decimal',

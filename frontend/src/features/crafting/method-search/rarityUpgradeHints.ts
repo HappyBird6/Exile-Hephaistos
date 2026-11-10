@@ -7,4 +7,7 @@ export const rarityUpgradeHints: Record<Locale, string> = {
   'zh-TW': '僅用於將普通項鍊升級為魔法品質。',
   ja: '通常のアミュレットをマジックに昇格させる用途のみ許可します。',
   es: 'Solo para mejorar un amuleto normal a mágico.',
+
+  ru: 'Только за улучшение обычного амулета до магической редкости.',
+  th: 'สำหรับการอัพเกรดเครื่องรางธรรมดาให้เป็นระดับหายากเวทย์มนตร์เท่านั้น',
 }

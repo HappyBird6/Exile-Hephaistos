@@ -28,7 +28,7 @@ describe('locale infrastructure', () => {
     expect(resolveLocale('untrusted')).toBe('ko')
     for (const locale of locales) expect(resolveLocale(locale)).toBe(locale)
   })
-  it('has matching keys and interpolation placeholders in all six UI dictionaries', () => {
+  it('has matching keys and interpolation placeholders in all supported UI dictionaries', () => {
     const keys = Object.keys(messages.en).sort()
     for (const locale of locales) {
       expect(Object.keys(messages[locale]).sort()).toEqual(keys)
@@ -42,6 +42,11 @@ describe('locale infrastructure', () => {
     }
   })
   it('interpolates and pluralizes service text', () => {
+    expect(translate('crafts', { count: 1 }, 'ru')).toBe('1 создание')
+    expect(translate('crafts', { count: 2 }, 'ru')).toBe('2 создания')
+    expect(translate('crafts', { count: 5 }, 'ru')).toBe('5 созданий')
+    expect(translate('crafts', { count: 21 }, 'ru')).toBe('21 создание')
+    expect(translate('crafts', { count: 2 }, 'th')).toBe('คราฟต์ 2 ครั้ง')
     expect(translate('crafts', { count: 1 }, 'en')).toBe('1 craft')
     expect(translate('crafts', { count: 2 }, 'en')).toBe('2 crafts')
     expect(translate('crafts', { count: 1 }, 'ko')).toBe('제작 1회')

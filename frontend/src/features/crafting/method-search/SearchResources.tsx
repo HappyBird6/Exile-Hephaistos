@@ -43,6 +43,21 @@ const labels = {
     'Estados de resultados',
     'Límite alcanzado',
   ],
+
+  ru: [
+    'Состояния расчета',
+    'Метод расчетов',
+    'Сохраненные записи',
+    'Состояния результатов предмета',
+    'Достигнут лимит',
+  ],
+  th: [
+    'สถานะการคำนวณ',
+    'การคำนวณวิธีการ',
+    'บันทึกที่เก็บไว้',
+    'สถานะผลลัพธ์ของรายการ',
+    'ถึงขีดจำกัดแล้ว',
+  ],
 } as const
 const detailLabels = {
   en: ['Calculation details', 'Primitive outcomes'],
@@ -51,6 +66,9 @@ const detailLabels = {
   'zh-TW': ['計算詳情', '單次通貨轉換結果'],
   ja: ['計算の詳細', '単一通貨の遷移結果'],
   es: ['Detalles del cálculo', 'Resultados de una transición'],
+
+  ru: ['Детали расчета', 'Примитивные результаты'],
+  th: ['รายละเอียดการคำนวณ', 'ผลลัพธ์เบื้องต้น'],
 } as const
 export function SearchResources({ view }: { view: AutomaticView }) {
   const { locale } = useI18n()

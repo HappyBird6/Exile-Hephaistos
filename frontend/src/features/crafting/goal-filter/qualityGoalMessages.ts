@@ -37,4 +37,17 @@ export const qualityGoalMessages: Record<
       'Más de 20: aumenta el máximo con Esencia de la Brecha y completa la calidad antes de eliminar su modificador.',
     work20: 'Trabajo hasta calidad 20',
   },
+
+  ru: {
+    label: 'Минимальное качество',
+    above20:
+      'Выше 20: поднимите предел с помощью Essence of the Breach, затем завершите качественную работу, прежде чем снимать ее модификатор.',
+    work20: 'Работаем на 20 качество',
+  },
+  th: {
+    label: 'คุณภาพขั้นต่ำ',
+    above20:
+      'สูงกว่า 20: ยกหมวกขึ้นด้วย Essence of the Breach จากนั้นทำงานที่มีคุณภาพให้เสร็จสิ้นก่อนที่จะถอดม็อดออก',
+    work20: 'ทำงานถึง 20 คุณภาพ',
+  },
 }

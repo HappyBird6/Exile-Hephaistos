@@ -94,4 +94,33 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     imageUnavailable: 'Imagen no disponible',
     repeatUses: (count) => `${count} ${count === '1' ? 'uso' : 'usos'}`,
   },
+
+  ru: {
+    title: 'История',
+    empty: 'На этом этапе валюта ещё не использовалась.',
+    step: 'Шаг',
+    omitted:
+      'В некоторых сохраненных шагах отсутствуют доказательства применения или идентифицируемая валюта, и они опускаются.',
+    omensMissing:
+      'На некоторых сохраненных шагах использование Omen неполное. Недостающие детали не учитываются.',
+    incomplete: 'Неполная запись',
+    unknownCurrency: 'Неизвестная валюта',
+    unknownOmen: 'Неизвестное знамение',
+    imageUnavailable: 'Изображение недоступно',
+    repeatUses: (count) => `${count} прим.`,
+  },
+  th: {
+    title: 'ประวัติ',
+    empty: 'ไม่มีการนำไปใช้ใช้สกุลเงินที่บันทึกไว้ ณ จุดนี้',
+    step: 'ขั้นตอน',
+    omitted:
+      'ขั้นตอนที่บันทึกไว้บางขั้นตอนขาดหลักฐานการนำไปใช้หรือสกุลเงินที่ระบุได้ และถูกละเว้น',
+    omensMissing:
+      'การใช้ Omen ไม่สมบูรณ์ในบางขั้นตอนที่บันทึกไว้ รายละเอียดที่ขาดหายไปจะไม่ถูกสรุป',
+    incomplete: 'บันทึกที่ไม่สมบูรณ์',
+    unknownCurrency: 'สกุลเงินที่ไม่ปรากฏชื่อ',
+    unknownOmen: 'ลางที่ไม่ปรากฏชื่อ',
+    imageUnavailable: 'รูปภาพไม่พร้อมใช้งาน',
+    repeatUses: (count) => `${count} ครั้ง`,
+  },
 }

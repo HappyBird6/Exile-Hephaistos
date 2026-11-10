@@ -182,7 +182,7 @@ class FrontendOptionGoldenTest {
                 }
               }));
     }
-    assertThat(tests).hasSize(114);
+    assertThat(tests).hasSize(19 * DisplayLocale.values().length);
     return tests;
   }
 }

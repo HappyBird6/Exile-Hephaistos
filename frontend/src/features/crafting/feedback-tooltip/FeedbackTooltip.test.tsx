@@ -261,6 +261,8 @@ it.each(locales)(
       'zh-TW': 'tw',
       ja: 'jp',
       es: 'sp',
+      ru: 'ru',
+      th: 'th',
     }
     setLocale(locale)
     try {

@@ -58,4 +58,21 @@ export const chaosRepeatControlMessages: Record<Locale, Messages> = {
     hint: 'Usa caos hasta que el patrón aparezca en los modificadores.',
     running: 'Aplicando caos…',
   },
+
+  ru: {
+    use: 'Применить',
+    patternPlaceholder: 'Введите шаблон регулярного выражения',
+    mode: 'Повторение Сфер хаоса',
+    pattern: 'Шаблон',
+    hint: 'Применять Сферы хаоса до совпадения модификаторов с шаблоном.',
+    running: 'Применение Сфер хаоса…',
+  },
+  th: {
+    use: 'ใช้',
+    patternPlaceholder: 'ป้อนรูปแบบนิพจน์ทั่วไป',
+    mode: 'โหมดใช้ Chaos Orb ซ้ำ',
+    pattern: 'รูปแบบ',
+    hint: 'ใช้ Chaos Orb จนกว่าม็อดจะตรงกับรูปแบบที่กำหนด',
+    running: 'กำลังใช้ Chaos Orb…',
+  },
 }

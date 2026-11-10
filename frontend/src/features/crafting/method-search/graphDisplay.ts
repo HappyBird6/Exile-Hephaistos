@@ -63,6 +63,9 @@ const labels: Record<Locale, string> = {
   'zh-TW': '非目標詞綴（雜項）',
   ja: '非目標モッド（不要）',
   es: 'Modificador no objetivo (relleno)',
+
+  ru: 'Нецелевой модификатор (мусор)',
+  th: 'ม็อดที่ไม่ใช่เป้าหมาย (ขยะ)',
 }
 export function junkCard(
   node: AutomaticNode,

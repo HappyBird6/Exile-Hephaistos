@@ -224,6 +224,80 @@
       }
     },
     {
+      "inputId": "protected-order-divisor",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": true,
+            "text": "Регенерация 13,2 здоровья в секунду",
+            "lines": ["Регенерация 13,2 здоровья в секунду"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": true,
+            "text": "+121 к максимуму здоровья",
+            "lines": ["+121 к максимуму здоровья"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "10% увеличение урона от чар",
+            "lines": ["10% увеличение урона от чар"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "protected-order-divisor",
+      "locale": "th",
+      "result": {
+        "locale": "th",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": true,
+            "text": "ฟื้นฟูพลังชีวิต 13.2 ต่อวินาที",
+            "lines": ["ฟื้นฟูพลังชีวิต 13.2 ต่อวินาที"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": true,
+            "text": "พลังชีวิตสูงสุด +121",
+            "lines": ["พลังชีวิตสูงสุด +121"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "เพิ่มความเสียหาย เวท 10%",
+            "lines": ["เพิ่มความเสียหาย เวท 10%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
       "inputId": "compound-newline",
       "locale": "en",
       "result": {
@@ -331,6 +405,44 @@
             "fractured": false,
             "text": "+12 a la armadura\n+7 al escudo de energía máximo",
             "lines": ["+12 a la armadura", "+7 al escudo de energía máximo"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "compound-newline",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "adherent-cuffs:prefix:blessed",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "+12 к броне\n+7 к максимуму энергетического щита",
+            "lines": ["+12 к броне", "+7 к максимуму энергетического щита"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "compound-newline",
+      "locale": "th",
+      "result": {
+        "locale": "th",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "adherent-cuffs:prefix:blessed",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "ค่าเกราะ +12\nโล่พลังงานสูงสุด +7",
+            "lines": ["ค่าเกราะ +12", "โล่พลังงานสูงสุด +7"],
             "textKind": "option-sentence"
           }
         ],
@@ -452,6 +564,44 @@
       }
     },
     {
+      "inputId": "compound-template-newline",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "rusted-cuirass:prefix:oyster-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "11% повышение брони\n+9 к максимуму здоровья",
+            "lines": ["11% повышение брони", "+9 к максимуму здоровья"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "compound-template-newline",
+      "locale": "th",
+      "result": {
+        "locale": "th",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "rusted-cuirass:prefix:oyster-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "เพิ่มค่าเกราะ 11%\nพลังชีวิตสูงสุด +9",
+            "lines": ["เพิ่มค่าเกราะ 11%", "พลังชีวิตสูงสุด +9"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
       "inputId": "revealed-and-hidden",
       "locale": "en",
       "result": {
@@ -486,17 +636,12 @@
             "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
             "affixType": "PREFIX",
             "fractured": false,
-            "text": "6% increased Spell Damage\n8% increased Armour",
-            "lines": ["6% increased Spell Damage", "8% increased Armour"],
+            "text": "주문 피해 6% 증가\n방어도 8% 증가",
+            "lines": ["주문 피해 6% 증가", "방어도 8% 증가"],
             "textKind": "option-sentence"
           }
         ],
         "issues": [
-          {
-            "code": "ENGLISH_REVEAL_TEMPLATE_FALLBACK",
-            "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
-            "explicitIndex": 0
-          },
           {
             "code": "UNREVEALED_DESECRATED_SLOT",
             "slotId": "hidden-slot"
@@ -515,17 +660,12 @@
             "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
             "affixType": "PREFIX",
             "fractured": false,
-            "text": "6% increased Spell Damage\n8% increased Armour",
-            "lines": ["6% increased Spell Damage", "8% increased Armour"],
+            "text": "法术伤害提高 6%\n护甲提高 8%",
+            "lines": ["法术伤害提高 6%", "护甲提高 8%"],
             "textKind": "option-sentence"
           }
         ],
         "issues": [
-          {
-            "code": "ENGLISH_REVEAL_TEMPLATE_FALLBACK",
-            "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
-            "explicitIndex": 0
-          },
           {
             "code": "UNREVEALED_DESECRATED_SLOT",
             "slotId": "hidden-slot"
@@ -544,17 +684,12 @@
             "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
             "affixType": "PREFIX",
             "fractured": false,
-            "text": "6% increased Spell Damage\n8% increased Armour",
-            "lines": ["6% increased Spell Damage", "8% increased Armour"],
+            "text": "增加6%法術傷害\n增加8%護甲值",
+            "lines": ["增加6%法術傷害", "增加8%護甲值"],
             "textKind": "option-sentence"
           }
         ],
         "issues": [
-          {
-            "code": "ENGLISH_REVEAL_TEMPLATE_FALLBACK",
-            "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
-            "explicitIndex": 0
-          },
           {
             "code": "UNREVEALED_DESECRATED_SLOT",
             "slotId": "hidden-slot"
@@ -573,17 +708,12 @@
             "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
             "affixType": "PREFIX",
             "fractured": false,
-            "text": "6% increased Spell Damage\n8% increased Armour",
-            "lines": ["6% increased Spell Damage", "8% increased Armour"],
+            "text": "スペルダメージが6%増加する\nアーマーが8%増加する",
+            "lines": ["スペルダメージが6%増加する", "アーマーが8%増加する"],
             "textKind": "option-sentence"
           }
         ],
         "issues": [
-          {
-            "code": "ENGLISH_REVEAL_TEMPLATE_FALLBACK",
-            "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
-            "explicitIndex": 0
-          },
           {
             "code": "UNREVEALED_DESECRATED_SLOT",
             "slotId": "hidden-slot"
@@ -602,17 +732,63 @@
             "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
             "affixType": "PREFIX",
             "fractured": false,
-            "text": "6% increased Spell Damage\n8% increased Armour",
-            "lines": ["6% increased Spell Damage", "8% increased Armour"],
+            "text": "Daño de hechizos aumentado un 6%\nArmadura aumentada un 8%",
+            "lines": [
+              "Daño de hechizos aumentado un 6%",
+              "Armadura aumentada un 8%"
+            ],
             "textKind": "option-sentence"
           }
         ],
         "issues": [
           {
-            "code": "ENGLISH_REVEAL_TEMPLATE_FALLBACK",
+            "code": "UNREVEALED_DESECRATED_SLOT",
+            "slotId": "hidden-slot"
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "revealed-and-hidden",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [
+          {
+            "explicitIndex": 0,
             "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
-            "explicitIndex": 0
-          },
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "6% увеличение урона от чар\n8% повышение брони",
+            "lines": ["6% увеличение урона от чар", "8% повышение брони"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "UNREVEALED_DESECRATED_SLOT",
+            "slotId": "hidden-slot"
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "revealed-and-hidden",
+      "locale": "th",
+      "result": {
+        "locale": "th",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "reveal:AbyssModJewelPrefixSpellDamageArmour",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "เพิ่มความเสียหาย เวท 6%\nเพิ่มค่าเกราะ 8%",
+            "lines": ["เพิ่มความเสียหาย เวท 6%", "เพิ่มค่าเกราะ 8%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
           {
             "code": "UNREVEALED_DESECRATED_SLOT",
             "slotId": "hidden-slot"
@@ -825,6 +1001,74 @@
       }
     },
     {
+      "inputId": "catalyst-known-and-unreviewed",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "+145 к максимуму здоровья",
+            "lines": ["+145 к максимуму здоровья"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "Регенерация 13,2 здоровья в секунду",
+            "lines": ["Регенерация 13,2 здоровья в секунду"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "UNREVIEWED_NUMERIC_SEMANTICS",
+            "modifierId": "amulet:suffix:of-convalescence",
+            "explicitIndex": 1
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "catalyst-known-and-unreviewed",
+      "locale": "th",
+      "result": {
+        "locale": "th",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "พลังชีวิตสูงสุด +145",
+            "lines": ["พลังชีวิตสูงสุด +145"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "ฟื้นฟูพลังชีวิต 13.2 ต่อวินาที",
+            "lines": ["ฟื้นฟูพลังชีวิต 13.2 ต่อวินาที"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "UNREVIEWED_NUMERIC_SEMANTICS",
+            "modifierId": "amulet:suffix:of-convalescence",
+            "explicitIndex": 1
+          }
+        ]
+      }
+    },
+    {
       "inputId": "sanctified-catalyst",
       "locale": "en",
       "result": {
@@ -932,6 +1176,44 @@
             "fractured": false,
             "text": "+114,7 a la vida máxima",
             "lines": ["+114,7 a la vida máxima"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "sanctified-catalyst",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "+114,7 к максимуму здоровья",
+            "lines": ["+114,7 к максимуму здоровья"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "sanctified-catalyst",
+      "locale": "th",
+      "result": {
+        "locale": "th",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:athlete-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "พลังชีวิตสูงสุด +114.7",
+            "lines": ["พลังชีวิตสูงสุด +114.7"],
             "textKind": "option-sentence"
           }
         ],
@@ -1184,6 +1466,92 @@
             "fractured": false,
             "text": "40% de aumento del efecto de los prefijos",
             "lines": ["40% de aumento del efecto de los prefijos"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "JEWEL_EFFECT_AND_QUALITY_PROVISIONAL",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "jewel-effect-quality",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "18% увеличение урона от чар",
+            "lines": ["18% увеличение урона от чар"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "4% повышение скорости сотворения чар",
+            "lines": ["4% повышение скорости сотворения чар"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "sapphire:crafted:CraftedJewelPrefixEffect",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "40% усиление эффекта свойств-префиксов",
+            "lines": ["40% усиление эффекта свойств-префиксов"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "JEWEL_EFFECT_AND_QUALITY_PROVISIONAL",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "jewel-effect-quality",
+      "locale": "th",
+      "result": {
+        "locale": "th",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "เพิ่มความเสียหาย เวท 18%",
+            "lines": ["เพิ่มความเสียหาย เวท 18%"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "เพิ่มความเร็วในการร่าย 4%",
+            "lines": ["เพิ่มความเร็วในการร่าย 4%"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "sapphire:crafted:CraftedJewelPrefixEffect",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "เพิ่มผลของ ม็อดพรีฟิกซ์ 40%",
+            "lines": ["เพิ่มผลของ ม็อดพรีฟิกซ์ 40%"],
             "textKind": "option-sentence"
           }
         ],
@@ -1517,6 +1885,112 @@
       }
     },
     {
+      "inputId": "jewel-sanctified-fraction",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "(5—15)% увеличение урона от чар",
+            "lines": ["(5—15)% увеличение урона от чар"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "(2—4)% повышение скорости сотворения чар",
+            "lines": ["(2—4)% повышение скорости сотворения чар"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "sapphire:crafted:CraftedJewelPrefixEffect",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "40% усиление эффекта свойств-префиксов",
+            "lines": ["40% усиление эффекта свойств-префиксов"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "JEWEL_EFFECT_AND_QUALITY_PROVISIONAL",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNRESOLVED_ROLL_TEXT",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNRESOLVED_ROLL_TEXT",
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "explicitIndex": 1
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "jewel-sanctified-fraction",
+      "locale": "th",
+      "result": {
+        "locale": "th",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "เพิ่มความเสียหาย เวท (5—15)%",
+            "lines": ["เพิ่มความเสียหาย เวท (5—15)%"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 1,
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "เพิ่มความเร็วในการร่าย (2—4)%",
+            "lines": ["เพิ่มความเร็วในการร่าย (2—4)%"],
+            "textKind": "option-sentence"
+          },
+          {
+            "explicitIndex": 2,
+            "modifierId": "sapphire:crafted:CraftedJewelPrefixEffect",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "เพิ่มผลของ ม็อดพรีฟิกซ์ 40%",
+            "lines": ["เพิ่มผลของ ม็อดพรีฟิกซ์ 40%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "JEWEL_EFFECT_AND_QUALITY_PROVISIONAL",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNRESOLVED_ROLL_TEXT",
+            "modifierId": "sapphire:crafted:JewelSpellDamage",
+            "explicitIndex": 0
+          },
+          {
+            "code": "UNRESOLVED_ROLL_TEXT",
+            "modifierId": "sapphire:suffix:of-enchanting",
+            "explicitIndex": 1
+          }
+        ]
+      }
+    },
+    {
       "inputId": "unbound-source-units",
       "locale": "en",
       "result": {
@@ -1706,6 +2180,80 @@
       "locale": "es",
       "result": {
         "locale": "es",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "Blessed: local base physical damage reduction rating = 12 (source units), local energy shield = 7 (source units)",
+            "lines": [
+              "Blessed: local base physical damage reduction rating = 12 (source units), local energy shield = 7 (source units)"
+            ],
+            "textKind": "source-units"
+          }
+        ],
+        "issues": [
+          {
+            "code": "UNVERIFIED_TEMPLATE_BINDING",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          },
+          {
+            "code": "ENGLISH_TEXT_FALLBACK",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          },
+          {
+            "code": "SOURCE_UNIT_FALLBACK",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "unbound-source-units",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "Blessed: local base physical damage reduction rating = 12 (source units), local energy shield = 7 (source units)",
+            "lines": [
+              "Blessed: local base physical damage reduction rating = 12 (source units), local energy shield = 7 (source units)"
+            ],
+            "textKind": "source-units"
+          }
+        ],
+        "issues": [
+          {
+            "code": "UNVERIFIED_TEMPLATE_BINDING",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          },
+          {
+            "code": "ENGLISH_TEXT_FALLBACK",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          },
+          {
+            "code": "SOURCE_UNIT_FALLBACK",
+            "modifierId": "synthetic-unbound:adherent-cuffs-blessed",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "unbound-source-units",
+      "locale": "th",
+      "result": {
+        "locale": "th",
         "groups": [
           {
             "explicitIndex": 0,
@@ -1889,6 +2437,56 @@
       }
     },
     {
+      "inputId": "synthetic-negative-tie",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "-1,3% увеличение урона от чар",
+            "lines": ["-1,3% увеличение урона от чар"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-negative-tie",
+      "locale": "th",
+      "result": {
+        "locale": "th",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "เพิ่มความเสียหาย เวท -1.3%",
+            "lines": ["เพิ่มความเสียหาย เวท -1.3%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
       "inputId": "synthetic-negative-near-zero",
       "locale": "en",
       "result": {
@@ -2039,6 +2637,56 @@
       }
     },
     {
+      "inputId": "synthetic-negative-near-zero",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "0% увеличение урона от чар",
+            "lines": ["0% увеличение урона от чар"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-negative-near-zero",
+      "locale": "th",
+      "result": {
+        "locale": "th",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "เพิ่มความเสียหาย เวท 0%",
+            "lines": ["เพิ่มความเสียหาย เวท 0%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
       "inputId": "synthetic-negative-zero",
       "locale": "en",
       "result": {
@@ -2153,6 +2801,44 @@
       }
     },
     {
+      "inputId": "synthetic-negative-zero",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "0% увеличение урона от чар",
+            "lines": ["0% увеличение урона от чар"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-negative-zero",
+      "locale": "th",
+      "result": {
+        "locale": "th",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "เพิ่มความเสียหาย เวท 0%",
+            "lines": ["เพิ่มความเสียหาย เวท 0%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
       "inputId": "synthetic-positive-near-zero",
       "locale": "en",
       "result": {
@@ -2290,6 +2976,56 @@
             "fractured": false,
             "text": "Daño de hechizos aumentado un 0%",
             "lines": ["Daño de hechizos aumentado un 0%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-positive-near-zero",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "0% увеличение урона от чар",
+            "lines": ["0% увеличение урона от чар"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-positive-near-zero",
+      "locale": "th",
+      "result": {
+        "locale": "th",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "เพิ่มความเสียหาย เวท 0%",
+            "lines": ["เพิ่มความเสียหาย เวท 0%"],
             "textKind": "option-sentence"
           }
         ],
@@ -2453,6 +3189,56 @@
       }
     },
     {
+      "inputId": "synthetic-positive-tie",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "1,3% увеличение урона от чар",
+            "lines": ["1,3% увеличение урона от чар"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "synthetic-positive-tie",
+      "locale": "th",
+      "result": {
+        "locale": "th",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:prefix:adept-s",
+            "affixType": "PREFIX",
+            "fractured": false,
+            "text": "เพิ่มความเสียหาย เวท 1.3%",
+            "lines": ["เพิ่มความเสียหาย เวท 1.3%"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": [
+          {
+            "code": "NONINTEGER_SOURCE_ROLL",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
       "inputId": "synthetic-es-grouping-four-digit",
       "locale": "en",
       "result": {
@@ -2560,6 +3346,44 @@
             "fractured": false,
             "text": "Regeneras 1234,6 de vida por segundo",
             "lines": ["Regeneras 1234,6 de vida por segundo"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-es-grouping-four-digit",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "Регенерация 1 234,6 здоровья в секунду",
+            "lines": ["Регенерация 1 234,6 здоровья в секунду"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-es-grouping-four-digit",
+      "locale": "th",
+      "result": {
+        "locale": "th",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "ฟื้นฟูพลังชีวิต 1,234.6 ต่อวินาที",
+            "lines": ["ฟื้นฟูพลังชีวิต 1,234.6 ต่อวินาที"],
             "textKind": "option-sentence"
           }
         ],
@@ -2681,6 +3505,44 @@
       }
     },
     {
+      "inputId": "synthetic-es-grouping-five-digit",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "Регенерация 12 345,7 здоровья в секунду",
+            "lines": ["Регенерация 12 345,7 здоровья в секунду"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "inputId": "synthetic-es-grouping-five-digit",
+      "locale": "th",
+      "result": {
+        "locale": "th",
+        "groups": [
+          {
+            "explicitIndex": 0,
+            "modifierId": "amulet:suffix:of-convalescence",
+            "affixType": "SUFFIX",
+            "fractured": false,
+            "text": "ฟื้นฟูพลังชีวิต 12,345.7 ต่อวินาที",
+            "lines": ["ฟื้นฟูพลังชีวิต 12,345.7 ต่อวินาที"],
+            "textKind": "option-sentence"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
       "inputId": "missing-definition",
       "locale": "en",
       "result": {
@@ -2771,6 +3633,36 @@
       }
     },
     {
+      "inputId": "missing-definition",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [],
+        "issues": [
+          {
+            "code": "MISSING_DEFINITION",
+            "modifierId": "missing:definition",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "missing-definition",
+      "locale": "th",
+      "result": {
+        "locale": "th",
+        "groups": [],
+        "issues": [
+          {
+            "code": "MISSING_DEFINITION",
+            "modifierId": "missing:definition",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
       "inputId": "missing-stat-value",
       "locale": "en",
       "result": {
@@ -2861,6 +3753,36 @@
       }
     },
     {
+      "inputId": "missing-stat-value",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [],
+        "issues": [
+          {
+            "code": "MISSING_OR_NONFINITE_STAT_VALUE",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "missing-stat-value",
+      "locale": "th",
+      "result": {
+        "locale": "th",
+        "groups": [],
+        "issues": [
+          {
+            "code": "MISSING_OR_NONFINITE_STAT_VALUE",
+            "modifierId": "amulet:prefix:adept-s",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
       "inputId": "non-affix-explicit",
       "locale": "en",
       "result": {
@@ -2940,6 +3862,36 @@
       "locale": "es",
       "result": {
         "locale": "es",
+        "groups": [],
+        "issues": [
+          {
+            "code": "EXPLICIT_WITHOUT_AFFIX",
+            "modifierId": "solar-amulet:implicit:spirit",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "non-affix-explicit",
+      "locale": "ru",
+      "result": {
+        "locale": "ru",
+        "groups": [],
+        "issues": [
+          {
+            "code": "EXPLICIT_WITHOUT_AFFIX",
+            "modifierId": "solar-amulet:implicit:spirit",
+            "explicitIndex": 0
+          }
+        ]
+      }
+    },
+    {
+      "inputId": "non-affix-explicit",
+      "locale": "th",
+      "result": {
+        "locale": "th",
         "groups": [],
         "issues": [
           {

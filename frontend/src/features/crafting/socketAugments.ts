@@ -1,4 +1,5 @@
 import data from './augments.json'
+import display from '../../shared/i18n/augmentDisplay.json'
 import { basePolicy } from './baseRegistry'
 import { getLocale } from '../../shared/i18n/i18n'
 import { rulesetHeaders, verifyRulesetResponse } from './rulesetIdentity'
@@ -15,7 +16,28 @@ type Entry = {
   limit?: { count: number; group: string }
   legacyLimitExempt?: boolean
 }
-export const augments: readonly Entry[] = data
+export const augments: readonly Entry[] = data.map((entry) => {
+  const local = display[entry.id as keyof typeof display]
+  return {
+    ...entry,
+    names: { ...entry.names, ru: local.ru.name, th: local.th.name },
+    properties: {
+      ...entry.properties,
+      ru: local.ru.properties,
+      th: local.th.properties,
+    },
+    effects: Object.fromEntries(
+      Object.entries(entry.effects).map(([itemClass, effects]) => [
+        itemClass,
+        {
+          ...effects,
+          ru: (local.ru.effects as Record<string, string>)[itemClass]!,
+          th: (local.th.effects as Record<string, string>)[itemClass]!,
+        },
+      ]),
+    ),
+  }
+})
 export const selectableAugments = augments.filter((a) => a.selectionEnabled)
 export const isSelectableAugment = (id: string) =>
   selectableAugments.some((a) => a.id === id)
@@ -190,6 +212,19 @@ const messages = {
     'Engarce',
     'Vacío',
     'Aumento o estado de objeto no compatible.',
+  ],
+
+  ru: [
+    'Дополнения',
+    'Розетка',
+    'Пустой',
+    'Неподдерживаемое улучшение или состояние предмета.',
+  ],
+  th: [
+    'ไอเทมเสริม',
+    'ช่องใส่',
+    'ว่างเปล่า',
+    'Augment หรือสถานะรายการไม่รองรับ',
   ],
 } as const
 export function socketText() {

@@ -25,6 +25,8 @@ it.each<[Locale, string]>([
   ['zh-TW', '2026/11/06'],
   ['ja', '2026/11/06'],
   ['es', '06/11/2026'],
+  ['ru', '06.11.2026'],
+  ['th', '06/11/2569'],
 ])(
   'formats a derived item/date title for %s without writing metadata',
   (locale, date) => {

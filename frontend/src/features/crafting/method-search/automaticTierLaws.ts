@@ -100,6 +100,9 @@ export function presentAutomaticItem(
       'zh-TW': '未揭示的褻瀆詞綴',
       ja: '未公開の冒涜モッド',
       es: 'Modificador profanado sin revelar',
+
+      ru: 'Нераскрытый модификатор осквернения',
+      th: 'ม็อดที่เสื่อมทรามที่ยังไม่เปิดเผย',
     }
     return {
       ...card,
@@ -220,4 +223,7 @@ export const distributionEditMessages = {
   'zh-TW': '此狀態包含多個可能階級。請在工作台選擇具體物品後編輯。',
   ja: 'この状態は複数のティアの分布です。編集するには作業台で具体的なアイテムを選んでください。',
   es: 'Este estado representa varios niveles posibles. Elige un objeto concreto en el taller para editarlo.',
+
+  ru: 'Это состояние представляет несколько возможных уровней. Выберите конкретный предмет в Workbench для редактирования.',
+  th: 'สถานะนี้แสดงถึงระดับที่เป็นไปได้หลายระดับ เลือกรายการที่เป็นรูปธรรมใน Workbench ที่จะแก้ไข',
 } as const

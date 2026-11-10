@@ -53,7 +53,7 @@ it('shows amulet previews without internal policy notes or temporary skill examp
       ) {
         expect(card.properties.map((line) => line.text)).toEqual([])
         const view = render(<ItemCard item={card} />)
-        for (const skill of base.skillLines![locale])
+        for (const skill of base.skillLines?.[locale] ?? [])
           expect(screen.getByRole('article')).not.toHaveTextContent(skill)
         expect(screen.getByRole('article')).not.toHaveTextContent(
           /user policy|사용자 정책|ユーザー方針|用户策略|使用者方針|política del usuario/i,
@@ -134,7 +134,7 @@ it.each(
     expect(article).not.toHaveTextContent('임시')
     expect(article).not.toHaveTextContent('사용자 정책')
     expect(article).not.toHaveTextContent('Heavy Ammunition')
-    for (const skill of base.skillLines![locale])
+    for (const skill of base.skillLines?.[locale] ?? [])
       expect(article).not.toHaveTextContent(skill)
     expect(JSON.stringify(state)).toBe(original)
     expect(localStorage.getItem(historyStorageKey)).toBe(stored)

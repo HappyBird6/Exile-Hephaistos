@@ -7,6 +7,9 @@ export function attemptLabel(locale: Locale, attempts: number) {
     'zh-TW': attempts === 1 ? '' : attempts + '次嘗試以內',
     ja: attempts === 1 ? '' : attempts + '回以内の試行',
     es: attempts === 1 ? '' : 'Dentro de ' + attempts + ' intentos',
+
+    ru: attempts === 1 ? '' : 'Внутри ' + attempts + ' попытки',
+    th: attempts === 1 ? '' : 'ภายใน ' + attempts + ' ความพยายาม',
   }
   return labels[locale]
 }

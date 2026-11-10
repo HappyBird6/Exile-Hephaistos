@@ -1499,7 +1499,7 @@ export function CraftingPage() {
                 .filter(
                   (text, index) =>
                     !defences.replacedSourceIndexes.has(index) &&
-                    !topBase(catalogBase)?.skillLines?.[locale].includes(text),
+                    !topBase(catalogBase)?.skillLines?.[locale]?.includes(text),
                 )
                 .map((text, i) => ({
                   id: 'source-property-' + i,

@@ -28,4 +28,13 @@ export const qualityWorkMessages: Record<
     completed:
       'Trabajo de calidad 40 completado; tipo de catalizador sin especificar.',
   },
+
+  ru: {
+    work: 'Работаем до 40 качества',
+    completed: '40 качественно выполненных работ; Тип катализатора не указан.',
+  },
+  th: {
+    work: 'ทำงานถึง 40 คุณภาพ',
+    completed: 'จบงานคุณภาพ 40 งาน; ไม่ระบุประเภทตัวเร่งปฏิกิริยา',
+  },
 }

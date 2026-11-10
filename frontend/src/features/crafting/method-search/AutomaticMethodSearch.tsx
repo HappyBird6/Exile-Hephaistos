@@ -456,6 +456,9 @@ function Run({
           'zh-TW': '褻瀆',
           ja: '冒涜',
           es: 'Profanar',
+
+          ru: 'Осквернить',
+          th: 'ดูหมิ่นศาสนา',
         }[locale] + (a.side === 'PREFIX' ? ' · P' : ' · S')
       : a.purpose === 'QUALITY_BASE_CHECKPOINT'
         ? qualityGoalMessages[locale].work20
@@ -772,6 +775,9 @@ function Run({
                             'p%(~N%)：下一條屬性的基準機率 / 選擇最高權重非目標阻擋屬性後的機率。不是揭示抽取機率或完整目標成功率。',
                           ja: 'p%(~N%)：次の特性選択の基準確率 / 最大重みの非目標ブロッカー選択後の確率。公開候補の抽選確率や目標全体の成功率ではありません。',
                           es: 'p%(~N%): probabilidad base del siguiente modificador / tras elegir el bloqueador no objetivo de mayor peso. No es la probabilidad de revelado ni del objetivo completo.',
+
+                          ru: 'p%(~N%): следующий выбор модификатора до/после выбора нецелевого блокирующего с наибольшим весом. Это не вероятность раскрытия или полная вероятность гола.',
+                          th: 'p%(~N%): การเลือกม็อดถัดไปก่อน/หลังการเลือกตัวบล็อกที่ไม่ใช่เป้าหมายที่มีน้ำหนักสูงสุด นี่ไม่ใช่การเปิดเผยความน่าจะเป็นหรือโอกาสทำประตูทั้งหมด',
                         }[locale]
                       }
                     </p>

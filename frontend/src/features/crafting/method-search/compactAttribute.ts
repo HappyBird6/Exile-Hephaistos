@@ -8,7 +8,7 @@ export type AttributeRendering = {
   chance?: string
   chanceKey?: string
 }
-const number = /[+-]?\d[\d,.]*/g
+const number = /[+-]?\d(?:[\d,.\u00a0\u202f]*\d)?/g
 const numbers = (text: string) =>
   [...text.matchAll(number)].map((m) => ({ value: m[0], offset: m.index! }))
 

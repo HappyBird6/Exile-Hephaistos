@@ -6,6 +6,9 @@ const labels: Record<Locale, string> = {
   'zh-TW': '已聖化',
   ja: '聖別化',
   es: 'Santificado',
+
+  ru: 'Освященный',
+  th: 'ศักดิ์สิทธิ์',
 }
 export function sanctifiedLabel(locale: Locale): string {
   return labels[locale]

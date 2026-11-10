@@ -9,6 +9,9 @@ export const preparationConditions: Record<Locale, string> = {
     '先準備更高詞綴等級以保護現有目標。未滿足移除優先級時，在使用後續通貨前停止；恢復與重啟成本另計。',
   ja: '高い修飾子レベルを先に準備して既存目標を保護します。除去の前提を満たさない場合は次の通貨を使わず終了します。復旧と再開始費用は別です。',
   es: 'Prepara un nivel de afijo mas alto para proteger los objetivos existentes. Si falla la prioridad de eliminacion, se detiene antes de la siguiente moneda; recuperar o reiniciar cuesta aparte.',
+
+  ru: 'Подготовьте более высокий уровень модификатора, чтобы Уиттлинг мог защитить существующие цели. Если это предварительное условие удаления не выполнено, остановитесь перед использованием ведомого устройства; затраты на восстановление и перезапуск оплачиваются отдельно.',
+  th: 'เตรียมระดับม็อดที่สูงขึ้นเพื่อให้ Whittling สามารถปกป้องเป้าหมายที่มีอยู่ได้ หากข้อกำหนดเบื้องต้นในการลบนี้ล้มเหลว ให้หยุดก่อนที่จะใช้ผู้ติดตาม ค่าใช้จ่ายในการกู้คืนและการรีสตาร์ทจะแยกกัน',
 }
 
 export const acquisitionHints: Record<Locale, string> = {
@@ -18,6 +21,9 @@ export const acquisitionHints: Record<Locale, string> = {
   'zh-TW': '僅用於計畫中的目標詞綴取得或後續移除所需的暫時詞綴。',
   ja: '目標修飾子の獲得、または後で除去する仮の修飾子の準備にのみ使用します。',
   es: 'Solo para obtener un afijo objetivo o preparar un afijo temporal para eliminarlo.',
+
+  ru: 'Запланированное достижение цели или временный модификатор, необходимый только для последующего удаления.',
+  th: 'การได้มาซึ่งเป้าหมายตามแผนหรือม็อดชั่วคราวที่จำเป็นสำหรับการลบออกในภายหลังเท่านั้น',
 }
 
 export const acquisitionLabels: Record<Locale, string> = {
@@ -27,4 +33,7 @@ export const acquisitionLabels: Record<Locale, string> = {
   'zh-TW': '目標詞綴取得嘗試',
   ja: '目標修飾子の獲得試行',
   es: 'intento de obtener el objetivo',
+
+  ru: 'попытка достижения цели',
+  th: 'ความพยายามในการได้มาซึ่งเป้าหมาย',
 }

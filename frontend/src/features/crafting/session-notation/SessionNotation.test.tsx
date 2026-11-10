@@ -506,6 +506,8 @@ it.each(locales)('localizes the crafting record heading in %s', (locale) => {
     'zh-TW': '製作紀錄',
     ja: '製作履歴',
     es: 'Historial',
+    ru: 'История',
+    th: 'ประวัติ',
   }
   setLocale(locale)
   render(<SessionNotation film={undefined} cursor={0} resources={resources} />)

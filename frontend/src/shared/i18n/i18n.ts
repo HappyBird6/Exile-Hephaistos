@@ -2,7 +2,16 @@ import { useSyncExternalStore } from 'react'
 import messages from './messages.json'
 import terms from './gameTerms.json'
 
-export const locales = ['en', 'ko', 'zh-CN', 'zh-TW', 'ja', 'es'] as const
+export const locales = [
+  'en',
+  'ko',
+  'zh-CN',
+  'zh-TW',
+  'ja',
+  'es',
+  'ru',
+  'th',
+] as const
 export type Locale = (typeof locales)[number]
 export const defaultLocale: Locale = 'ko'
 export const localeNames: Record<Locale, string> = {
@@ -12,6 +21,9 @@ export const localeNames: Record<Locale, string> = {
   'zh-TW': '繁體中文 (TW)',
   ja: '日本語',
   es: 'Español',
+
+  ru: 'Русский',
+  th: 'ไทย',
 }
 export const poe2dbPaths: Record<Locale, string> = {
   en: 'us',
@@ -20,6 +32,9 @@ export const poe2dbPaths: Record<Locale, string> = {
   'zh-TW': 'tw',
   ja: 'jp',
   es: 'sp',
+
+  ru: 'ru',
+  th: 'th',
 }
 export const localeStorageKey = 'hephaistos.locale.v1'
 export function resolveLocale(value: string | null | undefined): Locale {
@@ -158,7 +173,7 @@ export function formatDate(
 }
 export function localizedSource(url: string, locale = getLocale()) {
   return url.replace(
-    /^https:\/\/poe2db\.tw\/(?:us|kr|cn|tw|jp|sp)\//,
+    /^https:\/\/poe2db\.tw\/(?:us|kr|cn|tw|jp|sp|ru|th)\//,
     `https://poe2db.tw/${poe2dbPaths[locale]}/`,
   )
 }

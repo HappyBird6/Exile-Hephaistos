@@ -58,4 +58,21 @@ export const graphStateMessages: Record<
     candidates: 'Resultados posibles, no un único objeto',
     step: 'Acción de fabricación',
   },
+
+  ru: {
+    select: 'Выберите это состояние предмета',
+    added: 'Добавлено',
+    changed: 'Изменено',
+    removed: 'Удален',
+    candidates: 'Возможные результаты — ни одного пункта',
+    step: 'Создание экшена',
+  },
+  th: {
+    select: 'เลือกสถานะรายการนี้',
+    added: 'เพิ่มแล้ว',
+    changed: 'มีการเปลี่ยนแปลง',
+    removed: 'นำออกแล้ว',
+    candidates: 'ผลลัพธ์ที่เป็นไปได้ — ไม่ใช่รายการเดียว',
+    step: 'แอ็คชั่นการคราฟต์',
+  },
 }

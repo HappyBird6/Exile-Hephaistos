@@ -1,13 +1,15 @@
 package com.poe2craft.workbench.display;
 
-/** The six existing site locales; never silently substitute a locale. */
+/** Supported site locales; never silently substitute a locale. */
 public enum DisplayLocale {
   EN("en"),
   KO("ko"),
   ZH_CN("zh-CN"),
   ZH_TW("zh-TW"),
   JA("ja"),
-  ES("es");
+  ES("es"),
+  RU("ru"),
+  TH("th");
 
   private final String code;
 
