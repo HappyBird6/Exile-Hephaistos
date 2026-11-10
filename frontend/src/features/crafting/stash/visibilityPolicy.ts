@@ -9,6 +9,9 @@ export const legacyStashOmenIds: readonly string[] = [
   'Omen_of_Corruption',
 ]
 export const excludedStashOmenIds: readonly string[] = [
+  'Omen_of_the_Sovereign',
+  'Omen_of_the_Liege',
+  'Omen_of_the_Blackblooded',
   'Omen_of_Answered_Prayers',
   'Omen_of_the_Hunt',
   'Omen_of_Secret_Compartments',

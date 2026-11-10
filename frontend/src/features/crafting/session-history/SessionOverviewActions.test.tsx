@@ -36,6 +36,28 @@ async function example() {
   const client = new QueryClient({
     defaultOptions: { queries: { retry: false, staleTime: Infinity } },
   })
+  client.setQueryData(['economy', 'prices'], {
+    snapshot: {
+      league: 'Test',
+      updatedAt: '2026-11-10T00:00:00Z',
+      exaltedPerDivine: 500,
+      prices: {
+        'Orb of Transmutation': {
+          name: 'Orb of Transmutation',
+          exalted: 1,
+          divine: 0.002,
+        },
+        'Orb of Augmentation': {
+          name: 'Orb of Augmentation',
+          exalted: 2,
+          divine: 0.004,
+        },
+      },
+    },
+    unavailable: false,
+    stale: false,
+    nextRefreshAllowedAt: '2026-11-10T00:05:00Z',
+  })
   client.setQueryData(['session-overview', film.id], film)
   client.setQueryData(['history-catalog', 'solar', 82], initialFixture)
   const view = render(
@@ -91,7 +113,10 @@ it('does not request server snapshots for a missing local session', async () => 
   expect(
     screen.getByRole('button', { name: 'Save PNG snapshots' }),
   ).toBeDisabled()
-  expect(request).not.toHaveBeenCalled()
+  expect(
+    request.mock.calls.every(([url]) => url === '/api/v1/economy/prices'),
+  ).toBe(true)
+  expect(snapshotPages).not.toHaveBeenCalled()
 })
 
 it('updates an existing snapshot error when the language changes', async () => {

@@ -89,11 +89,7 @@ export function WorkbenchStash({
         draggable={!disabled}
         onClick={(event) => {
           const position = event.detail === 0 ? undefined : pointer(event)
-          if (
-            resource.category === 'Currency' ||
-            resource.category === 'Augments'
-          )
-            onSelect(resource, position)
+          if (resource.category === 'Augments') onSelect(resource, position)
           else onPickUp(resource, position)
         }}
         onContextMenu={(event) => {
@@ -123,7 +119,7 @@ export function WorkbenchStash({
   }
   return (
     <section className="workbench-stash" aria-label={t('ui.currency_stash')}>
-      {tabs && <div className="workbench-stash__tabs">{tabs}</div>}
+      {tabs}
       <div
         className="workbench-stash__panel"
         id="material-list"

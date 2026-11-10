@@ -76,8 +76,11 @@ public final class WorkbenchController {
         || !request.slotIndex().isIntegralNumber()
         || !request.slotIndex().canConvertToInt())
       throw new IllegalArgumentException("Integral socket index required");
-    var state = concreteState(request.state());
-    simulator.actions(state, Set.of());
+    var state = concreteState(request.state(), true);
+    var catalog = simulator.abyssCatalog(state);
+    if (!new ItemStateValidator(catalog).validate(state).isEmpty())
+      throw new IllegalArgumentException("Validated equipment required");
+    if (!state.desecrated().isEmpty()) AbyssCraftingState.from(state, catalog).validate(catalog);
     var next = SocketAugments.install(state, request.slotIndex().intValue(), request.augmentId());
     return new AugmentResult(
         "socket-augments-v1",

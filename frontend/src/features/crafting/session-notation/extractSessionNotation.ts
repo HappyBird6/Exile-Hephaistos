@@ -6,6 +6,7 @@ import type { Film, Frame } from '../workbenchHistory'
 import { validChaosRepeatFrame } from '../chaos-repeat/chaosRepeatReceipt'
 
 export type NotationStep = {
+  customExalt?: { modifierId: string; probability: number }
   kind?: 'reveal'
 
   number: number
@@ -143,6 +144,21 @@ export function extractSessionNotation(
     result.incompleteOmens ||= !omensKnown
     result.steps.push({
       ...(reveal ? { kind: 'reveal' as const } : {}),
+      ...(frame.customExalt &&
+      ['EXALTED', 'GREATER_EXALTED', 'PERFECT_EXALTED'].includes(
+        frame.action ?? '',
+      ) &&
+      Number.isFinite(frame.customExalt.probability) &&
+      frame.customExalt.probability > 0 &&
+      frame.customExalt.probability <= 1 &&
+      frame.state.explicits.some(
+        (m) => m.modifierId === frame.customExalt!.modifierId,
+      ) &&
+      !film.frames[frameIndex - 1]!.state.explicits.some(
+        (m) => m.modifierId === frame.customExalt!.modifierId,
+      )
+        ? { customExalt: frame.customExalt }
+        : {}),
       number: result.steps.length + 1,
       frameIndex,
       currencyId: id,

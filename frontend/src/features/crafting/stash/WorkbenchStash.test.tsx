@@ -242,7 +242,7 @@ describe('right-hand controlled workbench stash', () => {
     expect(
       screen.getByRole('button', { name: 'Essence of Hysteria' }),
     ).toBeVisible()
-    expect(materials).toHaveLength(457)
+    expect(materials).toEqual(expect.arrayContaining([lower, base]))
     expect(isSelectableMaterial(lower)).toBe(false)
     expect(isSelectableMaterial(base)).toBe(false)
     expect(essenceRows('')).toHaveLength(19)
@@ -274,7 +274,7 @@ describe('right-hand controlled workbench stash', () => {
     expect(screen.getByText('No materials found')).toBeVisible()
   })
 
-  it('preserves currency click selection and material pickup versus right-click selection', () => {
+  it('picks up currencies and materials for favorites while right-click keeps use selection', () => {
     const callbacks = props()
     const view = render(<StashSurface {...callbacks} />)
     const chaos = screen.getByRole('button', { name: 'Chaos Orb' })
@@ -282,11 +282,11 @@ describe('right-hand controlled workbench stash', () => {
     act(() => chaos.focus())
     expect(chaos).toHaveFocus()
     fireEvent.click(chaos, { detail: 0 })
-    expect(callbacks.onSelect).toHaveBeenCalledWith(
+    expect(callbacks.onPickUp).toHaveBeenCalledWith(
       resource('Chaos_Orb'),
       undefined,
     )
-    expect(callbacks.onPickUp).not.toHaveBeenCalled()
+    expect(callbacks.onSelect).not.toHaveBeenCalled()
     view.rerender(<StashSurface {...callbacks} activeTab="Alloy" />)
     const alloy = screen.getByRole('button', { name: 'Runic Alloy' })
     fireEvent.click(alloy)

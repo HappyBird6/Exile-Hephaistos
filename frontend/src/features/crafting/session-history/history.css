@@ -271,3 +271,108 @@
   font-size: 12px;
   white-space: nowrap;
 }
+
+.history-session-summary {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  min-width: 0;
+}
+.history-session-summary .crafting-cost-line {
+  margin: 0;
+  padding: 0;
+  min-height: 0;
+  flex: none;
+}
+.session-flow-summary {
+  position: relative;
+  height: 0;
+  min-height: 0;
+  align-self: stretch;
+  visibility: hidden;
+  pointer-events: none;
+}
+.is-snapshot .session-flow-summary {
+  visibility: visible;
+}
+.session-flow-summary__content {
+  position: absolute;
+  top: 42px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  overflow: hidden;
+}
+.session-flow-summary__content > strong {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #dfc891;
+  font-size: 18px;
+}
+.session-flow-summary__content .crafting-cost-line {
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  min-height: 0;
+}
+.session-flow-summary--one-column .session-flow-summary__content {
+  right: calc(50% + 20px);
+  left: 4px;
+}
+.session-flow-summary--one-column .session-flow-summary__content > strong {
+  font-size: 12px;
+}
+.session-flow-summary--one-column .crafting-cost-line {
+  gap: 3px;
+  font-size: 12px;
+}
+.session-flow-summary--single-row {
+  display: none;
+}
+.is-snapshot .session-flow-summary--single-row {
+  display: block;
+  height: 80px;
+}
+.session-flow-summary--single-row .session-flow-summary__content {
+  top: 16px;
+  left: 12px;
+  right: 12px;
+}
+@media (max-width: 600px) {
+  .history-session-summary {
+    gap: 10px;
+  }
+  .history-session-summary .crafting-cost-line {
+    gap: 4px;
+  }
+}
+
+.session-flow {
+  position: relative;
+  isolation: isolate;
+}
+.session-flow-background {
+  display: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
+}
+.is-snapshot .session-flow-background {
+  display: block;
+}
+.session-flow-grid {
+  position: relative;
+  z-index: 1;
+}

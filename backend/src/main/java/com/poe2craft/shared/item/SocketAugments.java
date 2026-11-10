@@ -91,9 +91,7 @@ public final class SocketAugments {
     }
     if (!selectable)
       throw new IllegalArgumentException("Augment is unavailable for new installation");
-    if (!state.conditions().isEmpty()
-        || state.observations() != null
-        || !state.desecrated().isEmpty())
+    if (!state.conditions().isEmpty() || state.observations() != null)
       throw new IllegalArgumentException(
           "Augment installation requires verified ordinary equipment");
     var previous =

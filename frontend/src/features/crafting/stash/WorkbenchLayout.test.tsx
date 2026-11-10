@@ -1,5 +1,19 @@
+import { freshCraftMessages } from '../session-library/freshCraftMessages'
+import {
+  fixtureFetch,
+  initialFixture,
+  jsonResponse,
+} from '../../../shared/test/craftingFixtures'
+import sapphireCatalog from '../../../shared/test/sapphire-catalog.json'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { act, fireEvent, render, screen, within } from '@testing-library/react'
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  within,
+  waitFor,
+} from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { CraftingPage } from '../CraftingPage'
 import { useItemDraft } from '../draft'
@@ -191,7 +205,32 @@ describe('single canvas category selector and favorites inside the coordinate pl
     expect(screen.queryByRole('dialog')).toBeNull()
   })
 
-  it('keeps manual jewel rarity and all validation in the scrollable left column', () => {
+  it('keeps manual jewel rarity and all validation in the scrollable left column', async () => {
+    vi.stubGlobal('fetch', (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = new URL(String(input), 'http://localhost')
+      return url.searchParams.get('base') === 'sapphire'
+        ? Promise.resolve(
+            jsonResponse({
+              ...initialFixture,
+              metadata: sapphireCatalog.metadata,
+              baseRules: sapphireCatalog.base,
+              modifiers: Object.fromEntries(
+                sapphireCatalog.modifiers.map((d) => [d.id, d]),
+              ),
+              state: {
+                ...initialFixture.state,
+                snapshotId: sapphireCatalog.metadata.snapshotId,
+                baseItemId: sapphireCatalog.base.id,
+                itemLevel: Number(url.searchParams.get('itemLevel')),
+                rarity: 'NORMAL',
+                implicits: [],
+                modifierIds: [],
+                conditions: [],
+              },
+            }),
+          )
+        : fixtureFetch(input, init)
+    })
     show()
     fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
     const picker = screen.getByRole('dialog')
@@ -222,7 +261,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
       screen.queryByLabelText(translate('ui.sapphire_cast_speed')),
     ).toBeNull()
     const place = within(picker).getByRole('button', { name: 'Select base' })
-    expect(place).toBeEnabled()
+    await waitFor(() => expect(place).toBeEnabled())
     const level = screen.getByRole('spinbutton', { name: 'Item level' })
     for (const value of ['', '0', '1.5', '101']) {
       fireEvent.change(level, { target: { value } })
@@ -232,7 +271,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
     }
     for (const value of ['1', '100']) {
       fireEvent.change(level, { target: { value } })
-      expect(place).toBeEnabled()
+      await waitFor(() => expect(place).toBeEnabled())
       expect(within(picker).queryByRole('alert')).not.toBeInTheDocument()
     }
     expect(
@@ -245,6 +284,22 @@ describe('single canvas category selector and favorites inside the coordinate pl
       name: 'Material stash tabs',
     })
     expect(within(selector).getAllByRole('tab')).toHaveLength(7)
+    expect(selector).toHaveAttribute('aria-orientation', 'vertical')
+    expect(document.querySelector('.workbench-stash__tabs')).toBeNull()
+    for (const button of within(selector).getAllByRole('tab')) {
+      expect(button).toHaveTextContent('')
+      expect(button.querySelector('img')).toHaveAttribute('alt', '')
+      expect(button).not.toHaveAttribute('data-material-tooltip')
+      expect(button).not.toHaveAttribute('title')
+    }
+    fireEvent.keyDown(within(selector).getAllByRole('tab')[0]!, {
+      key: 'ArrowDown',
+    })
+    expect(within(selector).getAllByRole('tab')[1]).toHaveAttribute(
+      'aria-selected',
+      'true',
+    )
+    fireEvent.keyDown(within(selector).getAllByRole('tab')[1]!, { key: 'Home' })
     expect(document.querySelector('.stash-canvas')).toContainElement(selector)
     const right = document.querySelector<HTMLElement>('.workbench-stash')!
     expect(right).toContainElement(selector)
@@ -372,7 +427,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
   })
 
   it.each(locales)(
-    'shares the edit style across three ordered %s controls without reserving the former row',
+    'shares the edit style across four ordered %s controls without reserving the former row',
     (locale) => {
       setLocale(locale)
       show()
@@ -395,6 +450,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
         translate('ui.select_base', {}, locale),
         translate('ui.edit_item', {}, locale),
         translate('ui.new_craft', {}, locale),
+        freshCraftMessages[locale].reset,
       ])
       const edit = screen.getByRole('button', {
         name: translate('ui.edit_item', {}, locale),

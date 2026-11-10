@@ -5,6 +5,7 @@ import com.poe2craft.craftingsupport.path.api.LegacyGraphController;
 import com.poe2craft.craftingsupport.recommendation.api.SupportAssessmentController;
 import com.poe2craft.craftingsupport.recommendation.api.SupportRecommendationController;
 import com.poe2craft.shared.crafting.api.CraftingCatalogController;
+import com.poe2craft.workbench.api.CustomExaltController;
 import com.poe2craft.workbench.api.WorkbenchController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
@@ -19,6 +20,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
       CraftingCatalogController.class,
       BasicPathController.class,
       WorkbenchController.class,
+      CustomExaltController.class,
       SupportAssessmentController.class,
       SupportRecommendationController.class
     })

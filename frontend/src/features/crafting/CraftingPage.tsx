@@ -1,3 +1,8 @@
+import { categoryImageIds } from './stash/categoryImages'
+import { CustomExaltDialog } from './custom-exalt/CustomExaltDialog'
+import { applyCustomExalt } from './custom-exalt/api'
+import type { CustomExaltContext } from './custom-exalt/api'
+import { customExaltMessages, isExaltedAction } from './custom-exalt/messages'
 import { freshCraftMessages } from './session-library/freshCraftMessages'
 import { resetCurrentFilm } from './workbenchHistory'
 import { checkSessionCompatibility } from './workbenchReferenceApi'
@@ -351,6 +356,13 @@ export function CraftingPage() {
   ]
   const [selected, setSelected] = useState<Selection | null>(null)
   const [held, setHeld] = useState<WorkbenchResource | null>(null)
+  const [customExaltEnabled, setCustomExaltEnabled] = useState(false)
+  const [customExaltRequest, setCustomExaltRequest] = useState<{
+    context: CustomExaltContext
+    key: string
+    revision: number
+  } | null>(null)
+  const [customExaltError, setCustomExaltError] = useState('')
   const [repeatEnabled, setRepeatEnabled] = useState(false)
   const [repeatPattern, setRepeatPattern] = useState('')
   const [repeatErrors, setRepeatErrors] = useState<ChaosRepeatControlErrors>({})
@@ -969,6 +981,92 @@ export function CraftingPage() {
       }),
     )
   }
+  function openCustomExalt(resource: Selection) {
+    const action = workbenchCurrencyActions[resource.id]
+    if (
+      !customExaltEnabled ||
+      !isExaltedAction(action) ||
+      !initial.data ||
+      !canCraft ||
+      mutationLocked()
+    )
+      return false
+    const state =
+      restoredState ??
+      workbench.data?.state ??
+      mapping.data?.state ??
+      concreteInitial(initial.data)
+    setCustomExaltError('')
+    setPointer(null)
+    setCustomExaltRequest({
+      context: {
+        state: structuredClone(state),
+        abyss: storedFrame?.abyss
+          ? structuredClone(storedFrame.abyss)
+          : undefined,
+        action,
+        activeOmens: [...draft.activeOmens],
+      },
+      key: repeatContext,
+      revision: draft.baseRevision,
+    })
+    return true
+  }
+  async function confirmCustomExalt(modifierId: string) {
+    const request = customExaltRequest
+    if (
+      !request ||
+      !initial.data ||
+      mutationLocked() ||
+      request.key !== latestRepeatContext.current
+    )
+      return
+    const controller = new AbortController()
+    applyingRequest.current = controller
+    setApplying({ controller, revision: request.revision, repeat: false })
+    try {
+      const applied = await applyCustomExalt(
+        request.context,
+        initial.data,
+        controller.signal,
+        modifierId,
+      )
+      if (
+        controller.signal.aborted ||
+        applyingRequest.current !== controller ||
+        request.key !== latestRepeatContext.current ||
+        request.revision !== useItemDraft.getState().baseRevision
+      )
+        return
+      const next = recordCraft(
+        filmState.history,
+        request.context.state,
+        applied.result,
+        filmId(),
+        initial.data.compatibilityId,
+      )
+      const frame = currentFrame(next)!
+      frame.customExalt = structuredClone(applied.choice)
+      if (applied.abyss) frame.abyss = structuredClone(applied.abyss)
+      if (!saveFilms(next, request.revision, true)) throw Error('Save failed')
+      client.setQueryData(workbenchKey, applied.result)
+      draft.setActiveOmens(applied.result.remainingOmens)
+      setSelected(null)
+      setHeld(null)
+      setCustomExaltRequest(null)
+      setAnnouncement(
+        t('craft.applied', { name: customExaltMessages[locale].title }),
+      )
+    } catch {
+      if (!controller.signal.aborted)
+        setCustomExaltError(customExaltMessages[locale].error)
+    } finally {
+      if (applyingRequest.current === controller) applyingRequest.current = null
+      setApplying((current) =>
+        current?.controller === controller ? null : current,
+      )
+    }
+  }
   async function apply(
     repeat = false,
     socketSlot?: number,
@@ -988,6 +1086,7 @@ export function CraftingPage() {
       failApply(t('notice.select_currency'))
       return
     }
+    if (openCustomExalt(selection)) return
     if (!canCraft) {
       if (rulesetStatus && rulesetStatus !== 'current') {
         failApply(t(`ruleset.${rulesetStatus}`))
@@ -2004,18 +2103,20 @@ export function CraftingPage() {
                                 x: event.clientX,
                                 y: event.clientY,
                               })
-                              choose({
+                              const resource = {
                                 ...currency,
                                 name: currencyNames[currency.id],
-                              })
+                              }
+                              if (!openCustomExalt(resource)) choose(resource)
                             }}
                             onClick={(event) => {
                               if (mutationLocked()) return
                               if (event.detail === 0) setPointer(null)
-                              choose({
+                              const resource = {
                                 ...currency,
                                 name: currencyNames[currency.id],
-                              })
+                              }
+                              if (!openCustomExalt(resource)) choose(resource)
                             }}
                           >
                             <CurrencyImage {...currency} name={currencyName} />
@@ -2039,6 +2140,23 @@ export function CraftingPage() {
                         )
                       })}
                     </div>
+                    <button
+                      type="button"
+                      className={`currency-slot custom-exalt-toggle ${customExaltEnabled ? 'is-selected' : ''}`}
+                      aria-label={customExaltMessages[locale].title}
+                      aria-pressed={customExaltEnabled}
+                      disabled={workbenchBusy}
+                      onClick={() => {
+                        if (!mutationLocked())
+                          setCustomExaltEnabled((value) => !value)
+                      }}
+                    >
+                      <CurrencyImage
+                        image="/assets/currency/CurrencyAddModToRare.webp"
+                        name={customExaltMessages[locale].title}
+                      />
+                      <b aria-hidden="true">C</b>
+                    </button>
                     <div className="item-placement">
                       <button
                         className={`item-slot ${selected ? 'is-ready' : ''} ${augmentReady ? 'is-augment-ready' : ''}`}
@@ -2215,7 +2333,8 @@ export function CraftingPage() {
                           <div
                             role="tablist"
                             aria-label={t('ui.material_stash_tabs')}
-                            className="material-tabs"
+                            className="workbench-stash__nav"
+                            aria-orientation="vertical"
                           >
                             {materialTabs.map((tab, index) => (
                               <button
@@ -2223,6 +2342,11 @@ export function CraftingPage() {
                                 type="button"
                                 role="tab"
                                 id={`tab-${tab.id}`}
+                                aria-label={
+                                  tab.id === 'Augments'
+                                    ? socketText().tab
+                                    : t(`stash.${tab.id}`)
+                                }
                                 aria-selected={activeTab === tab.id}
                                 aria-controls="material-list"
                                 tabIndex={activeTab === tab.id ? 0 : -1}
@@ -2233,9 +2357,11 @@ export function CraftingPage() {
                                 onKeyDown={(event) => {
                                   if (mutationLocked()) return
                                   const next =
+                                    event.key === 'ArrowDown' ||
                                     event.key === 'ArrowRight'
                                       ? (index + 1) % materialTabs.length
-                                      : event.key === 'ArrowLeft'
+                                      : event.key === 'ArrowUp' ||
+                                          event.key === 'ArrowLeft'
                                         ? (index + materialTabs.length - 1) %
                                           materialTabs.length
                                         : event.key === 'Home'
@@ -2252,9 +2378,17 @@ export function CraftingPage() {
                                     ?.focus()
                                 }}
                               >
-                                {tab.id === 'Augments'
-                                  ? socketText().tab
-                                  : t(`stash.${tab.id}`)}
+                                <img
+                                  src={
+                                    stashResources.find(
+                                      (resource) =>
+                                        resource.id ===
+                                        categoryImageIds[tab.id],
+                                    )!.image
+                                  }
+                                  alt=""
+                                  draggable={false}
+                                />
                               </button>
                             ))}
                           </div>
@@ -2856,6 +2990,18 @@ export function CraftingPage() {
           {t('ui.currency_images_poe2db')}
         </a>
       </footer>
+      {customExaltRequest && initial.data && (
+        <CustomExaltDialog
+          context={customExaltRequest.context}
+          initial={initial.data}
+          busy={workbenchBusy}
+          error={customExaltError}
+          onApply={(id) => void confirmCustomExalt(id)}
+          onClose={() => {
+            if (!mutationLocked()) setCustomExaltRequest(null)
+          }}
+        />
+      )}
       <MaterialTooltip />
       {cursor &&
         pointer &&

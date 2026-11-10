@@ -216,7 +216,7 @@ describe('icon-based session notation', () => {
         icon.getAttribute('data-material-tooltip'),
       ),
     ).toEqual([...consumed, 'Exalted_Orb'])
-    expect(row.textContent).toBe('1.+')
+    expect(row.textContent).toBe('1.+I')
     expect(
       container.querySelector('[data-material-tooltip="Omen_of_Whittling"]'),
     ).toBeNull()

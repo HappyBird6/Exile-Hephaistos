@@ -46,6 +46,7 @@ export type Frame = {
   evidence?: CraftEvidence
   abyss?: AbyssState
   manual?: { rulesetIdentity: string; action: string; consumedOmens?: string[] }
+  customExalt?: { modifierId: string; probability: number }
   chaosRepeat?: ChaosRepeatMetadata
   chaosRepeatWitness?: ChaosRepeatWitness
 }
@@ -484,6 +485,18 @@ export function recordCraft(
     ...active.frames,
     {
       state: structuredClone(result.state),
+      ...(result.action === 'INSTALL_AUGMENT' && currentFrame(next)?.abyss
+        ? {
+            abyss: {
+              ...structuredClone(currentFrame(next)!.abyss!),
+              item: {
+                ...structuredClone(result.state),
+                explicits: [],
+                desecrated: [],
+              },
+            },
+          }
+        : {}),
       rulesetIdentity: result.rulesetIdentity,
       action: result.action,
       evidence: structuredClone({

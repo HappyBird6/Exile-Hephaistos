@@ -95,7 +95,6 @@ export function canInstallAugment(
     !socketIsBound(state, slot) &&
     !state.conditions.length &&
     !state.observations &&
-    !state.desecrated?.length &&
     withinAugmentLimit(
       [
         ...(state.installedAugments ?? []).filter((a) => a.slotIndex !== slot),

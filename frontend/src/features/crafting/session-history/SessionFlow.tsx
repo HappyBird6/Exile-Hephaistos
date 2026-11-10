@@ -1,3 +1,5 @@
+import { CraftingCostLine } from '../currency-prices/CurrencyPrices'
+import { sessionTitle } from '../session-library/sessionTitle'
 import { abyssWorkbenchMessages } from '../abyss-workbench/messages'
 import { Fragment, useLayoutEffect, useRef, useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
@@ -61,6 +63,22 @@ export function SessionFlow({
         ).join(' '),
       }}
     >
+      <li
+        className={`session-flow-summary${columns === 1 ? ' session-flow-summary--one-column' : ''}${film.frames.length <= columns ? ' session-flow-summary--single-row' : ''}`}
+        aria-hidden="true"
+        style={{
+          gridRow: 2,
+          gridColumn:
+            columns > 1 && film.frames.length > columns
+              ? `1 / ${columns * 2 - 1}`
+              : '1 / -1',
+        }}
+      >
+        <div className="session-flow-summary__content">
+          <strong>{sessionTitle(film, locale)}</strong>
+          <CraftingCostLine film={film} cursor={film.frames.length - 1} />
+        </div>
+      </li>
       {film.frames.map((frame, index) => {
         const position = flowPosition(index, columns)
         const previous = index ? flowPosition(index - 1, columns) : position

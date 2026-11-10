@@ -1,5 +1,14 @@
 /** Capture the rendered flow with its exact styles, images and wrapping. */
 export async function snapshotPages(root: HTMLElement): Promise<Blob[]> {
+  const wasSnapshot = root.classList.contains('is-snapshot')
+  root.classList.add('is-snapshot')
+  try {
+    return await capturePages(root)
+  } finally {
+    if (!wasSnapshot) root.classList.remove('is-snapshot')
+  }
+}
+async function capturePages(root: HTMLElement): Promise<Blob[]> {
   await document.fonts.ready
   for (const image of root.querySelectorAll('img')) image.loading = 'eager'
   await Promise.all(
@@ -32,6 +41,16 @@ export async function snapshotPages(root: HTMLElement): Promise<Blob[]> {
       )
         continue
       target.style.setProperty(property, computed.getPropertyValue(property))
+    }
+    if (source.matches('.crafting-cost-line, .coin-amount')) {
+      // Freeze the measured currency row: SVG foreignObject may otherwise wrap its final coin.
+      target.style.setProperty('flex-wrap', 'nowrap', 'important')
+      target.style.setProperty('flex-shrink', '0', 'important')
+      target.style.setProperty(
+        'min-width',
+        `${source.getBoundingClientRect().width / zoom}px`,
+        'important',
+      )
     }
     if (source.matches('.wb-session-notation__resources')) {
       const rows = Array.from(source.children).map(

@@ -1,3 +1,10 @@
+import {
+  currencyRank,
+  chanceText,
+  customExaltMessages,
+} from '../custom-exalt/messages'
+import { workbenchCurrencyActions } from '../workbenchApi'
+import '../custom-exalt/custom-exalt.css'
 import { freshCraftMessages } from '../session-library/freshCraftMessages'
 import { RevealIcon } from '../abyss-workbench/RevealIcon'
 import { revealAction } from '../abyss-workbench/revealAction'
@@ -29,7 +36,9 @@ function ResourceIcon({
   resource,
   omen = false,
   focusable = true,
+  custom = false,
 }: {
+  custom?: boolean
   id: string
   resource: WorkbenchResource | undefined
   omen?: boolean
@@ -58,12 +67,13 @@ function ResourceIcon({
       : text.unknownCurrency
   return (
     <span
-      className="wb-session-notation__icon"
+      className={`wb-session-notation__icon ${custom ? 'custom-currency-art' : ''}`}
       role="img"
       tabIndex={focusable ? 0 : undefined}
-      aria-label={`${label}${missing ? ` · ${text.imageUnavailable}` : ''}`}
+      aria-label={`${custom ? customExaltMessages[locale].title + ' · ' : ''}${label}${missing ? ` · ${text.imageUnavailable}` : ''}`}
       {...(resource ? { 'data-material-tooltip': id } : {})}
     >
+      {custom && <b aria-hidden="true">C</b>}
       {missing ? (
         <span aria-hidden="true">◇</span>
       ) : (
@@ -213,11 +223,25 @@ export function NotationResources({
           />
         ))}
         {step.consumedOmenIds.length > 0 && <span aria-hidden="true">+</span>}
+        {currencyRank(workbenchCurrencyActions[step.currencyId]) && (
+          <span className="wb-session-notation__rank" aria-hidden="true">
+            {currencyRank(workbenchCurrencyActions[step.currencyId])}
+          </span>
+        )}
         <ResourceIcon
+          custom={!!step.customExalt}
           id={step.currencyId}
           resource={registry.get(step.currencyId)}
           focusable={focusable}
         />
+        {step.customExalt && (
+          <span
+            className="wb-session-notation__chance"
+            aria-label={customExaltMessages[locale].chance}
+          >
+            {chanceText(step.customExalt.probability, locale)}
+          </span>
+        )}
         {step.repeated && (
           <span className="wb-session-notation__uses">{uses}</span>
         )}

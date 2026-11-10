@@ -801,3 +801,63 @@ it('resets only the active session to its exact initial item while preserving ot
   expect(reset.cursor).toBe(0)
   expect(JSON.stringify(history)).toBe(raw)
 })
+
+it('preserves the hidden slot constraints and offer through augment installation history', () => {
+  const root = {
+    ...concreteInitial(initialFixture),
+    rarity: 'RARE' as const,
+    augmentSockets: 2,
+    desecrated: [
+      {
+        id: 'hidden',
+        side: 'PREFIX' as const,
+        modifierId: null,
+        minimumModifierLevel: 40 as const,
+        revealPool: 'ALTERED' as const,
+      },
+    ],
+  }
+  const history = startFilm(emptyFilms(), root, 'socket', 'fixture-ruleset')
+  const abyss = {
+    item: { ...root, explicits: [], desecrated: [] },
+    slots: [
+      {
+        id: 'hidden',
+        side: 'PREFIX' as const,
+        modifier: null,
+        desecrated: true,
+        minimumModifierLevel: 40 as const,
+        revealPool: 'ALTERED' as const,
+      },
+    ],
+    offer: null,
+  }
+  currentFrame(history)!.abyss = abyss
+  const next = recordCraft(
+    history,
+    root,
+    {
+      state: {
+        ...root,
+        installedAugments: [{ slotIndex: 0, augmentId: 'Perfect_Iron_Rune' }],
+      },
+      action: 'INSTALL_AUGMENT',
+      reason: '',
+      applied: true,
+      ruleVersion: 'socket-augments-v1',
+      ledgerVersion: 'ordinary-socket-effects-v1',
+      snapshotId: root.snapshotId,
+      events: [],
+      assumptions: [],
+      consumedOmens: [],
+      remainingOmens: [],
+      rulesetIdentity: 'fixture-ruleset',
+    } as import('./workbenchApi').AppliedItem,
+    'new',
+  )
+  expect(currentFrame(next)!.abyss?.slots).toEqual(abyss.slots)
+  expect(currentFrame(next)!.abyss?.item.installedAugments).toEqual([
+    { slotIndex: 0, augmentId: 'Perfect_Iron_Rune' },
+  ])
+  expect(currentFrame(history)!.abyss?.item.installedAugments).toBeUndefined()
+})

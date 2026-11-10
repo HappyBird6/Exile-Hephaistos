@@ -84,3 +84,56 @@ it.each(['simulation', 'history'] as const)(
     window.history.replaceState({}, '', '/')
   },
 )
+
+it('places the full-session spending to the left of the state count and keeps snapshot metadata within the flow', async () => {
+  setLocale('en')
+  const { history } = await twoSteps(),
+    film = history.films[0]!
+  film.title = 'A saved craft'
+  const client = new QueryClient({
+    defaultOptions: { queries: { retry: false, staleTime: Infinity } },
+  })
+  client.setQueryData(['session-overview', film.id], film)
+  client.setQueryData(['history-catalog', 'solar', 82], initialFixture)
+  client.setQueryData(['economy', 'prices'], {
+    snapshot: {
+      league: 'Test',
+      updatedAt: '2026-11-10T00:00:00Z',
+      exaltedPerDivine: 500,
+      prices: {
+        'Orb of Transmutation': {
+          name: 'Orb of Transmutation',
+          exalted: 1,
+          divine: 0.002,
+        },
+        'Orb of Augmentation': {
+          name: 'Orb of Augmentation',
+          exalted: 2,
+          divine: 0.004,
+        },
+      },
+    },
+    unavailable: false,
+    stale: false,
+    nextRefreshAllowedAt: '2026-11-10T00:05:00Z',
+  })
+  const view = render(
+    <QueryClientProvider client={client}>
+      <SessionOverviewPage id={film.id} />
+    </QueryClientProvider>,
+  )
+  const summary = view.container.querySelector('.history-session-summary')!
+  expect(summary.firstElementChild).toHaveClass('crafting-cost-line')
+  expect(summary.lastElementChild).toHaveClass('history-state-count')
+  expect(summary.querySelectorAll('img')).toHaveLength(2)
+  expect(
+    summary.querySelector('[aria-label="3 Exalted Orb"]'),
+  ).toBeInTheDocument()
+  const captured = view.container.querySelector('.session-flow-summary')!
+  expect(captured).toHaveTextContent('A saved craft')
+  expect(
+    captured.querySelector('[aria-label="3 Exalted Orb"]'),
+  ).toBeInTheDocument()
+  view.unmount()
+  client.clear()
+})

@@ -836,6 +836,26 @@ public final class WorkbenchSimulator {
       WorkbenchCurrency action,
       Set<String> omens,
       RandomGenerator random) {
+    return applyAbyss(state, action, omens, random, null);
+  }
+
+  public AbyssCraftingState applyCustomExalt(
+      AbyssCraftingState state,
+      WorkbenchCurrency action,
+      Set<String> omens,
+      RandomGenerator random,
+      String modifierId) {
+    if (action == null || action.baseAction() != CraftingAction.EXALTED || modifierId == null)
+      throw new IllegalArgumentException("Custom Exalted modifier required");
+    return applyAbyss(state, action, omens, random, modifierId);
+  }
+
+  private AbyssCraftingState applyAbyss(
+      AbyssCraftingState state,
+      WorkbenchCurrency action,
+      Set<String> omens,
+      RandomGenerator random,
+      String forcedModifierId) {
     var plan = abyssPlan(state, action, omens);
     if (!plan.available()) throw new IllegalArgumentException("Abyss currency unavailable");
     var branch = plan.branches().get(random.nextInt(plan.branches().size()));
@@ -855,6 +875,12 @@ public final class WorkbenchSimulator {
         }
       }
     }
+    if (forcedModifierId != null)
+      chosen =
+          branch.candidates().stream()
+              .filter(d -> d.id().equals(forcedModifierId))
+              .findFirst()
+              .orElseThrow(() -> new IllegalArgumentException("Ineligible custom modifier"));
     var instance = roll(chosen, random, new ArrayList<>());
     if (!replacementTargets(action).isEmpty()) instance = instance.asCrafted();
     String id = branch.removedSlotId();
@@ -1039,6 +1065,85 @@ public final class WorkbenchSimulator {
 
   public Result apply(
       ItemState state, WorkbenchCurrency action, Set<String> activeOmens, RandomGenerator random) {
+    return apply(state, action, activeOmens, random, null);
+  }
+
+  /** A user-selected modifier uses ordinary roll rules; this is explicitly a custom operation. */
+  public Result applyCustomExalt(
+      ItemState state,
+      WorkbenchCurrency action,
+      Set<String> activeOmens,
+      RandomGenerator random,
+      String modifierId) {
+    if (modifierId == null
+        || exaltChoices(state, action, activeOmens).stream()
+            .noneMatch(c -> c.modifierId().equals(modifierId)))
+      throw new IllegalArgumentException("Choose an eligible Exalted modifier");
+    return apply(state, action, activeOmens, random, modifierId);
+  }
+
+  public record ExaltChoice(String modifierId, double probability) {}
+
+  /** Natural chance to see the selected tier in the operation, including a verified second draw. */
+  public List<ExaltChoice> exaltChoices(
+      ItemState state, WorkbenchCurrency action, Set<String> ids) {
+    validate(state);
+    if (action == null || action.baseAction() != CraftingAction.EXALTED)
+      throw new IllegalArgumentException("Exalted currency required");
+    var omens = parseOmens(ids);
+    if (!availability(state, action, omens).available()) return List.of();
+    var matched = matching(action, omens);
+    var first = exaltPool(state, state, action, omens, matched);
+    double total = first.stream().mapToLong(ModifierDefinition::weight).sum();
+    var chances = new LinkedHashMap<String, Double>();
+    for (var d : first) chances.put(d.id(), d.weight() / total);
+    if (WorkbenchOmen.verifiedDoubleAddition(matched))
+      for (var d : first) {
+        var values = new LinkedHashMap<String, Long>();
+        d.stats().forEach(r -> values.put(r.id(), r.min()));
+        var mods = new ArrayList<>(state.explicits());
+        mods.add(new ModifierInstance(d.id(), values));
+        var second =
+            exaltPool(
+                state,
+                copy(state, state.rarity(), state.implicits(), mods),
+                action,
+                omens,
+                matched);
+        double secondTotal = second.stream().mapToLong(ModifierDefinition::weight).sum();
+        for (var target : second)
+          if (chances.containsKey(target.id()))
+            chances.merge(
+                target.id(), d.weight() / total * target.weight() / secondTotal, Double::sum);
+      }
+    return chances.entrySet().stream()
+        .map(e -> new ExaltChoice(e.getKey(), Math.min(1, e.getValue())))
+        .toList();
+  }
+
+  private List<ModifierDefinition> exaltPool(
+      ItemState original,
+      ItemState state,
+      WorkbenchCurrency action,
+      List<WorkbenchOmen> omens,
+      List<WorkbenchOmen> matched) {
+    if (omens.isEmpty()) return basicCurrencyPlan(original, action).candidatesFor(state);
+    if (WorkbenchOmen.verifiedDoubleAddition(matched)) {
+      var tags =
+          matched.stream().anyMatch(WorkbenchOmen::homogenising)
+              ? additionRules.existingTags(affixBucket(original))
+              : Set.<String>of();
+      return additionRules.poolWithTags(affixBucket(state), action, tags);
+    }
+    return pool(state, action, matched.isEmpty() ? null : matched.getFirst());
+  }
+
+  private Result apply(
+      ItemState state,
+      WorkbenchCurrency action,
+      Set<String> activeOmens,
+      RandomGenerator random,
+      String forcedModifierId) {
     validate(state);
     if (action == null || random == null)
       throw new IllegalArgumentException("Action and random required");
@@ -1378,14 +1483,17 @@ public final class WorkbenchSimulator {
         for (int i = 0; i < additions; i++) {
           var intermediate = copy(state, rarity, implicits, explicits);
           var candidates =
-              basicPlan != null
-                  ? basicPlan.candidatesFor(intermediate)
-                  : WorkbenchOmen.verifiedDoubleAddition(matched)
-                      ? additionRules.poolWithTags(affixBucket(intermediate), action, originalTags)
-                      : pool(
-                          intermediate,
-                          action,
-                          action.baseAction() == CraftingAction.CHAOS ? null : omen);
+              action.baseAction() == CraftingAction.EXALTED
+                  ? exaltPool(state, intermediate, action, omens, matched)
+                  : basicPlan != null
+                      ? basicPlan.candidatesFor(intermediate)
+                      : WorkbenchOmen.verifiedDoubleAddition(matched)
+                          ? additionRules.poolWithTags(
+                              affixBucket(intermediate), action, originalTags)
+                          : pool(
+                              intermediate,
+                              action,
+                              action.baseAction() == CraftingAction.CHAOS ? null : omen);
           recordSelectionAssumptions(candidates, assumptions);
           long total = candidates.stream().mapToLong(ModifierDefinition::weight).sum();
           long draw = random.nextLong(total);
@@ -1397,6 +1505,12 @@ public final class WorkbenchSimulator {
               break;
             }
           }
+          if (forcedModifierId != null && i == 0)
+            chosen =
+                candidates.stream()
+                    .filter(d -> d.id().equals(forcedModifierId))
+                    .findFirst()
+                    .orElseThrow(() -> new IllegalArgumentException("Ineligible custom modifier"));
           var rolled = roll(chosen, random, assumptions);
           explicits.add(rolled);
           events.add(

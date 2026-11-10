@@ -1,3 +1,6 @@
+import { CraftingCostLine } from '../currency-prices/CurrencyPrices'
+import { CurrencyPriceContext } from '../currency-prices/context'
+import { useCurrencyPrices } from '../currency-prices/useCurrencyPrices'
 import { useRef, useState } from 'react'
 import { useIsFetching, useQuery } from '@tanstack/react-query'
 import { useI18n } from '../../../shared/i18n/i18n'
@@ -12,6 +15,7 @@ import './history.css'
 
 export function SessionOverviewPage({ id }: { id: string }) {
   const { locale, t } = useI18n()
+  const market = useCurrencyPrices()
   const text = historyMessages[locale]
   const catalogsLoading = useIsFetching({ queryKey: ['history-catalog'] })
   const [error, setError] = useState(false)
@@ -49,65 +53,84 @@ export function SessionOverviewPage({ id }: { id: string }) {
     }
   }
   return (
-    <main className="craft-page craft-page--framed history-page">
-      <header className="craft-header">
-        <a
-          className="craft-brand"
-          href="/"
-          aria-label={t('ui.exile_hephaistos_home')}
-        >
-          <span className="brand-mark" aria-hidden="true">
-            H
-          </span>
-          <span>
-            EXILE <b>HEPHAISTOS</b>
-            <small>{t('ui.path_of_exile_2_crafting_workbench')}</small>
-          </span>
-        </a>
-        <div className="history-title-group">
-          <span className="history-page-label">{text.title}</span>
-          <h1 className="history-title" title={title}>
-            {title}
-          </h1>
-        </div>
-        <div className="history-actions">
-          <button
-            disabled={busy || !film || data.isFetching || catalogsLoading > 0}
-            onClick={() =>
-              void action(async () => {
-                if (!root.current) return
-                const blobs = await snapshotPages(root.current)
-                blobs.forEach((blob, i) =>
-                  saveBlob(
-                    blob,
-                    blobs.length === 1 ? 'session.png' : `session-${i + 1}.png`,
-                  ),
-                )
-              })
-            }
+    <CurrencyPriceContext.Provider value={market}>
+      <main className="craft-page craft-page--framed history-page">
+        <header className="craft-header">
+          <a
+            className="craft-brand"
+            href="/"
+            aria-label={t('ui.exile_hephaistos_home')}
           >
-            {text.snapshot}
-          </button>
+            <span className="brand-mark" aria-hidden="true">
+              H
+            </span>
+            <span>
+              EXILE <b>HEPHAISTOS</b>
+              <small>{t('ui.path_of_exile_2_crafting_workbench')}</small>
+            </span>
+          </a>
+          <div className="history-title-group">
+            <span className="history-page-label">{text.title}</span>
+            <h1 className="history-title" title={title}>
+              {title}
+            </h1>
+          </div>
+          <div className="history-actions">
+            <button
+              disabled={
+                busy ||
+                !film ||
+                data.isFetching ||
+                catalogsLoading > 0 ||
+                market.pending
+              }
+              onClick={() =>
+                void action(async () => {
+                  if (!root.current) return
+                  const blobs = await snapshotPages(root.current)
+                  blobs.forEach((blob, i) =>
+                    saveBlob(
+                      blob,
+                      blobs.length === 1
+                        ? 'session.png'
+                        : `session-${i + 1}.png`,
+                    ),
+                  )
+                })
+              }
+            >
+              {text.snapshot}
+            </button>
+          </div>
+        </header>
+        <div className="history-toolbar">
+          <a className="history-back" href={`/?${returnQuery}`}>
+            <span aria-hidden="true">←</span> {text.home}
+          </a>
+          {film && (
+            <div className="history-session-summary">
+              <CraftingCostLine film={film} cursor={film.frames.length - 1} />
+              <span className="history-state-count">
+                {film.frames.length} {text.count}
+              </span>
+            </div>
+          )}
         </div>
-      </header>
-      <div className="history-toolbar">
-        <a className="history-back" href={`/?${returnQuery}`}>
-          <span aria-hidden="true">←</span> {text.home}
-        </a>
+        {error && <p role="alert">{text.error}</p>}
+        {data.isError && <p role="alert">{text.error}</p>}
+        {!film && !data.isFetching && <p>{text.missing}</p>}
         {film && (
-          <span className="history-state-count">
-            {film.frames.length} {text.count}
-          </span>
+          <div className="session-flow" ref={root}>
+            <img
+              className="session-flow-background"
+              src="/assets/currency/stash-background.webp"
+              alt=""
+              aria-hidden="true"
+            />
+            <SessionFlow film={film} resources={historyResources} />
+          </div>
         )}
-      </div>
-      {error && <p role="alert">{text.error}</p>}
-      {data.isError && <p role="alert">{text.error}</p>}
-      {!film && !data.isFetching && <p>{text.missing}</p>}
-      {film && (
-        <div className="session-flow" ref={root}>
-          <SessionFlow film={film} resources={historyResources} />
-        </div>
-      )}
-    </main>
+      </main>
+    </CurrencyPriceContext.Provider>
   )
 }
