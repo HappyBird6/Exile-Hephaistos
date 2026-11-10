@@ -811,6 +811,8 @@
 }
 .workbench-film-controls button {
   padding: 6px 14px;
+  background-color: #050505;
+  border: 1px solid #e7d477;
 }
 .workbench-film-select {
   display: grid;

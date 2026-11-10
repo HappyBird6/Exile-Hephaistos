@@ -376,3 +376,16 @@
   position: relative;
   z-index: 1;
 }
+
+/* Render PNGs at a fixed four-column width without changing the visible overview. */
+.history-snapshot-stage {
+  position: fixed;
+  left: -100000px;
+  top: 0;
+  pointer-events: none;
+}
+.history-snapshot-stage > .session-flow {
+  box-sizing: border-box;
+  width: 1600px;
+  max-width: none;
+}

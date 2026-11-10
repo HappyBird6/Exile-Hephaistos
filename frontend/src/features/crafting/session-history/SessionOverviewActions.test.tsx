@@ -73,12 +73,21 @@ it('immediately downloads every PNG with no download list or history mutation', 
     new Blob(['first'], { type: 'image/png' }),
     new Blob(['second'], { type: 'image/png' }),
   ]
-  vi.mocked(snapshotPages).mockResolvedValue(pages)
+  vi.mocked(snapshotPages).mockImplementation(async (root) => {
+    expect(root.closest('.history-snapshot-stage')).not.toBeNull()
+    const third = root.querySelector<HTMLElement>(
+      '[data-flow-state][data-index="2"]',
+    )!
+    expect(third.style.gridRow).toBe('1')
+    expect(third.style.gridColumn).toBe('5')
+    return pages
+  })
   fireEvent.click(screen.getByRole('button', { name: 'Save PNG snapshots' }))
   await waitFor(() => expect(saveBlob).toHaveBeenCalledTimes(2))
   expect(saveBlob).toHaveBeenNthCalledWith(1, pages[0], 'session-1.png')
   expect(saveBlob).toHaveBeenNthCalledWith(2, pages[1], 'session-2.png')
   expect(view.container.querySelector('.history-pngs')).toBeNull()
+  expect(view.container.querySelector('.history-snapshot-stage')).toBeNull()
   expect(localStorage.getItem(historyStorageKey)).toBe(saved)
 })
 it('keeps the single-page filename and restores the button when capture fails', async () => {

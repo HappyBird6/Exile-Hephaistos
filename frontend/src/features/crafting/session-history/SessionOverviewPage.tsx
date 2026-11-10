@@ -2,6 +2,7 @@ import { CraftingCostLine } from '../currency-prices/CurrencyPrices'
 import { CurrencyPriceContext } from '../currency-prices/context'
 import { useCurrencyPrices } from '../currency-prices/useCurrencyPrices'
 import { useRef, useState } from 'react'
+import { flushSync } from 'react-dom'
 import { useIsFetching, useQuery } from '@tanstack/react-query'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { LocalFilmRepository } from '../workbenchHistory'
@@ -20,7 +21,8 @@ export function SessionOverviewPage({ id }: { id: string }) {
   const catalogsLoading = useIsFetching({ queryKey: ['history-catalog'] })
   const [error, setError] = useState(false)
   const [busy, setBusy] = useState(false)
-  const root = useRef<HTMLDivElement>(null)
+  const [snapshotOpen, setSnapshotOpen] = useState(false)
+  const snapshotRoot = useRef<HTMLDivElement>(null)
   const data = useQuery({
     queryKey: ['session-overview', id],
     retry: false,
@@ -86,16 +88,21 @@ export function SessionOverviewPage({ id }: { id: string }) {
               }
               onClick={() =>
                 void action(async () => {
-                  if (!root.current) return
-                  const blobs = await snapshotPages(root.current)
-                  blobs.forEach((blob, i) =>
-                    saveBlob(
-                      blob,
-                      blobs.length === 1
-                        ? 'session.png'
-                        : `session-${i + 1}.png`,
-                    ),
-                  )
+                  flushSync(() => setSnapshotOpen(true))
+                  try {
+                    if (!snapshotRoot.current) throw Error('snapshot-root')
+                    const blobs = await snapshotPages(snapshotRoot.current)
+                    blobs.forEach((blob, i) =>
+                      saveBlob(
+                        blob,
+                        blobs.length === 1
+                          ? 'session.png'
+                          : `session-${i + 1}.png`,
+                      ),
+                    )
+                  } finally {
+                    setSnapshotOpen(false)
+                  }
                 })
               }
             >
@@ -120,7 +127,7 @@ export function SessionOverviewPage({ id }: { id: string }) {
         {data.isError && <p role="alert">{text.error}</p>}
         {!film && !data.isFetching && <p>{text.missing}</p>}
         {film && (
-          <div className="session-flow" ref={root}>
+          <div className="session-flow">
             <img
               className="session-flow-background"
               src="/assets/currency/stash-background.webp"
@@ -128,6 +135,22 @@ export function SessionOverviewPage({ id }: { id: string }) {
               aria-hidden="true"
             />
             <SessionFlow film={film} resources={historyResources} />
+          </div>
+        )}
+        {film && snapshotOpen && (
+          <div className="history-snapshot-stage" aria-hidden="true">
+            <div className="session-flow" ref={snapshotRoot}>
+              <img
+                className="session-flow-background"
+                src="/assets/currency/stash-background.webp"
+                alt=""
+              />
+              <SessionFlow
+                film={film}
+                resources={historyResources}
+                columnCount={4}
+              />
+            </div>
           </div>
         )}
       </main>
