@@ -54,7 +54,13 @@ class ChaosRepeatDisplayIntegrationTest {
     assertThat(result.termination()).isEqualTo("MATCH");
     assertThat(result.finalState().displayItem()).isEqualTo(next);
     String numeric = DisplayNumbers.number(12345.25, locale);
-    assertThat(numeric).isEqualTo(locale == DisplayLocale.ES ? "12.345,3" : "12,345.3");
+    assertThat(numeric)
+        .isEqualTo(
+            switch (locale) {
+              case ES -> "12.345,3";
+              case RU -> "12\u00a0345,3";
+              default -> "12,345.3";
+            });
     assertThat(ChaosRepeatPattern.compile(literal(numeric)).find(numeric)).isTrue();
   }
 
@@ -78,7 +84,7 @@ class ChaosRepeatDisplayIntegrationTest {
   }
 
   @Test
-  void realCompoundModifierRemainsOneMultilineGroupForAllSixLocales() {
+  void realCompoundModifierRemainsOneMultilineGroupForAllSupportedLocales() {
     ItemCatalog catalog =
         WORKBENCH.reviewedCatalogs().stream()
             .filter(

@@ -14,7 +14,7 @@ import org.springframework.core.io.ClassPathResource;
 /** Exact build-time frontend input, pinned independently of the immutable game ruleset manifest. */
 public final class ChaosDisplayResources {
   public static final String TEMPLATE_SHA256 =
-      "a36cc5aaea06170a685ca2d8a322affb82e65a8c880732e7a9b63fd55ce09665";
+      "f3a708659cbc5df501a8be9c30591846464ffe132a8759af9a2984f7db8bc772";
   private final JsonNode bindings;
   private final ChaosOptionDisplay display;
 

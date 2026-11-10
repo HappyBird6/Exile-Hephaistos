@@ -1,10 +1,25 @@
 // Completeness is based on active catalog identities, not matching UI key counts.
 import fs from "./evidence-files.cjs";
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 process.chdir(
   process.env.HEPHAISTOS_TRANSLATION_ROOT ??
     fileURLToPath(new URL("..", import.meta.url)),
+);
+const templateBytes = fs.readFileSync(
+  "frontend/src/shared/i18n/modifierTemplates.json",
+);
+const runtimeSource = fs.readFileSync(
+  "backend/src/main/java/com/poe2craft/workbench/repeat/ChaosDisplayResources.java",
+  "utf8",
+);
+const runtimeHash = runtimeSource.match(/TEMPLATE_SHA256\s*=\s*"([a-f0-9]{64})"/);
+assert(runtimeHash, "Backend runtime display template SHA-256 pin is missing");
+assert.equal(
+  createHash("sha256").update(templateBytes).digest("hex"),
+  runtimeHash[1],
+  "Display templates changed without updating the backend startup SHA-256 pin",
 );
 const locales = ["en", "ko", "zh-CN", "zh-TW", "ja", "es", "ru", "th"];
 const addedLocales = ["ru", "th"];
